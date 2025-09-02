@@ -83,6 +83,53 @@ This setting allows you to set a limit on the amount of caching the extension do
 
 If you do not want to use the IntelliSense caching feature (such as to work around a bug that may only occur when the cache is enabled), you can disable the feature by setting the **IntelliSense Cache Size** setting to 0 (or `"C_Cpp.intelliSenseCacheSize": 0"` in the JSON settings editor). Disabling the cache may also be beneficial if you're seeing excessive disk writing, particularly when editing headers.
 
+## Can I put the IntelliSense cache (ipch) on a RAM disk?
+
+Yes. The C/C++ extension lets you relocate and limit the IntelliSense cache:
+
+- **`C_Cpp.intelliSenseCachePath`** — where the `ipch` cache is stored
+- **`C_Cpp.intelliSenseCacheSize`** — maximum cache size in MB (set to `0` to disable)
+
+By default, the cache lives under your user cache directory (Windows: `%LocalAppData%/Microsoft/vscode-cpptools`, Linux: `$XDG_CACHE_HOME/vscode-cpptools/` or `~/.cache/vscode-cpptools/`, macOS: `~/Library/Caches/vscode-cpptools/`). If you want to minimize SSD writes, you can mount a RAM-backed filesystem and point the cache there.
+However, using a RAM disk does not generally improve IntelliSense performance and may increase memory usage, since the cache files are already memory-mapped by the IntelliSense processes.
+
+> **Notes**
+> - A RAM disk is volatile. The cache will be cleared on reboot/unmount (the cache will rebuild automatically).
+> - Set `C_Cpp.intelliSenseCacheSize` ≤ your RAM disk size.
+> - This is a per-user setting and works across all workspaces.
+> - If your main concern is reducing disk writes (e.g., SSD wear), you can also set `"C_Cpp.intelliSenseCacheSize": 0` to completely disable the cache instead of relocating it.
+
+> **Related:** The tag parser “browse” database path can be customized with
+> `"C_Cpp.default.browse.databaseFilename"`. Moving it to a RAM disk is generally not recommended for performance, but the path can be changed if needed.
+
+
+
+**macOS (APFS RAM disk, ~4 GB):**
+```bash
+diskutil erasevolume APFS "vsc-ipch" $(hdiutil attach -nomount ram://8388608)
+# Then set: "C_Cpp.intelliSenseCachePath": "/Volumes/vsc-ipch/cpptools-ipch"
+# Optionally: "C_Cpp.intelliSenseCacheSize": 2048
+```
+
+**Linux (tmpfs, ~4 GB):**
+```bash
+sudo mkdir -p /mnt/vsc-ipch
+sudo mount -t tmpfs -o size=4G,mode=1777 tmpfs /mnt/vsc-ipch
+# Then set: "C_Cpp.intelliSenseCachePath": "/mnt/vsc-ipch/cpptools-ipch"
+```
+
+
+**Windows:**
+Windows doesn’t include a built-in RAM disk. If allowed, create one (for example with ImDisk) and set:
+```json
+"C_Cpp.intelliSenseCachePath": "R:\\vscode-cpptools\\ipch",
+"C_Cpp.intelliSenseCacheSize": 2048
+
+```
+
+
+
+
 ## How do I set up debugging?
 
 The debugger needs to be configured to know which executable and debugger to use:
