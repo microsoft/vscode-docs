@@ -95,11 +95,11 @@ Follow these steps to get started:
     > [!TIP]
     > You can also directly reference a tool in your prompt by typing `#` followed by the tool name. You can do this in all chat modes (ask, edit, and agent mode).
 
-1. Confirm tool invocations and terminal commands.
+1. Approve tool invocations and terminal commands.
 
-    Before running a terminal command or non-builtin tool, Copilot requests confirmation to continue. This is because tools might run locally on your machine and perform actions that modify files or data.
+    Before running a terminal command, the `fetch` tool, or non-builtin tools, VS Code requests confirmation to continue. This is because tools might run locally on your machine and perform actions that modify files or data.
 
-    Use the **Continue** button dropdown options to automatically confirm the specific tool for the current session, workspace, or all future invocations. Learn how to [manage tool approvals and approve all tool invocations](#manage-tool-approvals).
+    Use the **Allow** button dropdown options to automatically allow the specific tool for the current session, workspace, or all future invocations. Learn how to [manage tool approvals and approve all tool invocations](#manage-tool-approvals).
 
     ![MCP Tool Confirmation](../images/mcp-servers/mcp-tool-confirmation.png)
 
@@ -188,7 +188,7 @@ The following code snippet shows an example of a tool sets file that defines a t
 
 Before agent mode runs a tool or terminal command, it requests confirmation to run it. This is because they might perform actions that modify files or data or perform destructive actions.
 
-In the Chat view, when a tool or terminal command invocation occurs, use the **Continue** button dropdown options to automatically confirm the specific tool for the current session, workspace, or all future invocations.
+In the Chat view, when a tool or terminal command invocation occurs, use the **Allow** button dropdown options to automatically confirm the specific tool for the current session, workspace, or all future invocations.
 
 ![MCP Tool Confirmation](../images/mcp-servers/mcp-tool-confirmation.png)
 
