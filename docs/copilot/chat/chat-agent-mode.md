@@ -136,7 +136,7 @@ Agent mode uses tools to accomplish specialized tasks while processing a user re
 
 Agent mode can use the following tools:
 
-* Built-in tools
+* [Built-in tools](/docs/copilot/reference/copilot-vscode-features.md#chat-tools)
 * [MCP tools](/docs/copilot/customization/mcp-servers.md)
 * [Tools contributed by extensions](/api/extension-guides/ai/tools.md)
 
