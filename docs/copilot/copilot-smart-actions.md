@@ -60,7 +60,7 @@ Get help with explaining a block of code in the editor.
 
 1. Open your application code file.
 1. Select the code you want to fix.
-1. Right-click and select **Generate Code** > **Explain**.
+1. Right-click and select **Explain**.
 
     VS Code provides an explanation of the selected block of code.
 
@@ -111,7 +111,7 @@ To review a code block in the editor:
 
 1. Open your application code file.
 1. Select the code you want to fix.
-1. Right-click and select **Generate Code** > **Review and Comment**.
+1. Right-click and select **Generate Code** > **Review**.
 
     VS Code creates review comments in the **Comments** panel and also shows them inline in the editor.
 
