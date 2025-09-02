@@ -71,8 +71,8 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 | `setting(chat.mcp.enabled)`<br/>Enable Model Context Protocol (MCP) support in VS Code. This enables adding tools from MCP servers in agent mode. | `true` |
 | `setting(chat.mcp.discovery.enabled)`<br/>Configure automatic discovery of MCP server configuration from other applications. | `false` |
 | `setting(chat.tools.terminal.autoApprove)` <br/>Control which terminal commands are [auto-approved in agent mode](/docs/copilot/chat/chat-agent-mode.md#auto-approve-terminal-commands). Commands can be set to `true` (auto-approve) or `false` (require approval). Regular expressions can be used by wrapping patterns in `/` characters. | `{ "rm": false, "rmdir": false, "del": false, "kill": false, "curl": false, "wget": false, "eval": false, "chmod": false, "chown": false, "/^Remove-Item\\b/i": false }` |
+| `setting(chat.tools.global.autoApprove)`<br/>Automatically approve all tools - this setting [disables critical security protections](/docs/copilot/security.md). | `false` |
 | `setting(chat.mcp.autoStart)` _(Experimental)_<br/>Automatically start MCP servers when MCP configuration changes are detected. | `never` |
-| `setting(chat.tools.autoApprove)` _(Experimental)_<br/>Automatically approve all tools. | `false` |
 | `setting(chat.todoListTool.enabled)` _(Experimental)_<br/>Enable the todo list tool in chat. | `false` |
 | `setting(github.copilot.chat.newWorkspaceCreation.enabled)` _(Experimental)_<br/>Enable the agent mode tool for scaffolding a new workspace in chat. | `true` |
 | `setting(github.copilot.chat.agent.thinkingTool:true)` _(Experimental)_<br/>Enable the thinking tool in agent mode. | `false` |
