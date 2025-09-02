@@ -105,7 +105,7 @@ To write tests with Copilot in VS Code, you can use either of these methods:
 Copilot will generate test cases code for your application code. If you already have a tests file, Copilot will add the tests there, or create a new file, if needed. You can further customize the generated tests by providing more prompts to Copilot. For example, you can ask Copilot to use another testing framework.
 
 > [!TIP]
-> You can give Copilot your own [special instructions for generating code](/docs/copilot/copilot-customization.md). For example, you can tell Copilot to use a certain testing framework, naming convention, or code structure.
+> You can give Copilot your own [special instructions for generating code](/docs/copilot/customization/overview.md). For example, you can tell Copilot to use a certain testing framework, naming convention, or code structure.
 
 Learn more about [using Copilot in VS Code](/docs/copilot/overview.md).
 

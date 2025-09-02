@@ -22,19 +22,15 @@ There are different ways to get access to GitHub Copilot:
 
 ## Set up Copilot in VS Code
 
-To use Copilot in VS Code, you need access to a GitHub Copilot subscription.
-
-To set up Copilot in VS Code:
+To use Copilot in VS Code, you need access to a GitHub Copilot subscription. You can set up Copilot directly from within VS Code.
 
 1. Hover over the Copilot icon in the Status Bar and select **Set up Copilot**.
 
     ![Hover over the Copilot icon in the Status Bar and select Set up Copilot.](images/setup/setup-copilot-status-bar.png)
 
-1. Select **Sign in** to sign in to your GitHub account or **Use Copilot** if you're already signed in.
+1. Choose a sign-in method and follow the prompts. If you don't have a Copilot subscription yet, you'll be signed up for the [Copilot Free plan](https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-free/about-github-copilot-free).
 
     ![Sign in to your GitHub account or use Copilot if you're already signed in.](images/setup/setup-copilot-sign-in.png)
-
-    If you don't have a Copilot subscription yet, you'll be signed up for the [Copilot Free plan](https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-free/about-github-copilot-free).
 
     > [!IMPORTANT]
     > Telemetry in your free version of GitHub Copilot is currently enabled. By default, code suggestions that match public code, including code references in the VS Code and <github.com> experience, are allowed. You can opt out of telemetry data collection by disabling telemetry in VS Code by setting `setting(telemetry.telemetryLevel)` to `off`, or you can adjust both telemetry and code suggestion settings in [Copilot Settings](https://github.com/settings/copilot).
@@ -43,15 +39,15 @@ To set up Copilot in VS Code:
 
 ## Use a different GitHub account with Copilot
 
-If your Copilot subscription is associated with another GitHub account, sign out of your GitHub account in VS Code, and sign in with another account.
+If your Copilot subscription is associated with another GitHub account, follow these steps to sign out of your GitHub account in VS Code, and sign in with another account.
 
-1. Select the **Accounts** menu in the Activity Bar, and then select **Sign out** for the account you're currently signed in with for Copilot.
+1. Select the **Accounts** menu in the Activity Bar, and then select **Sign out** for the account you're currently signed in with.
 
     ![Accounts menu in VS Code, showing the option to sign out of the current GitHub account.](images/setup/vscode-accounts-menu-signout.png)
 
 1. Sign in to your GitHub account using any of the following methods:
 
-    - Select **Sign in to use Copilot** from the Copilot status menu.
+    - Select **Sign in to use Copilot** from the Copilot menu in the Status Bar.
 
         ![Sign in to use Copilot from the Copilot status menu.](images/setup/copilot-signedout-sign-in.png)
 
@@ -63,15 +59,16 @@ If your Copilot subscription is associated with another GitHub account, sign out
 
 ## Remove AI features from VS Code
 
-To completely hide AI features in VS Code, run the **Chat: Hide AI Features** command from the Command Palette (`kb(workbench.action.showCommands)`) or select **Hide AI Features** from the Copilot menu in the VS Code title bar.
+To remove the built-in AI features from VS Code, run the **Chat: Hide AI Features** command from the Command Palette (`kb(workbench.action.showCommands)`) or select the **Hide AI Features** option from the Copilot menu in the VS Code title bar.
 
-![Screenshot that shows the Copilot menu in the VS Code title bar, with the option to hide AI features.](images/setup/hide-copilot.png)
+> [!NOTE]
+> If you have already installed the Copilot extensions, you need to first uninstall the Copilot and Copilot Chat extensions before you can remove the AI features.
 
-To reenable Copilot, run the **Chat: Use AI Features with Copilot for Free** command in the Command Palette (`kb(workbench.action.showCommands)`).
+To restore the built-in AI features in VS Code, run the **Chat: Use AI Features with Copilot for free** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
-## Disable Copilot for a workspace
+## Disable AI features for a workspace
 
-To disable Copilot for a specific workspace:
+To disable AI features for a specific workspace:
 
 1. Open the Extensions view in VS Code (`kb(workbench.view.extensions)`).
 1. Search for the **GitHub Copilot** extension.

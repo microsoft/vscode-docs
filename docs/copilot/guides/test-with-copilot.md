@@ -84,7 +84,7 @@ If your organization has specific testing requirements, you can customize how Co
 * Set code structure preferences
 * Request specific test patterns or methodologies
 
-Get more information about [personalizing Copilot for generating tests](/docs/copilot/copilot-customization.md).
+Get more information about [personalizing Copilot for generating tests](/docs/copilot/customization/overview.md).
 
 ## Tips for better test generation
 

@@ -44,7 +44,7 @@ To switch between chat modes, open the Chat view (`kb(workbench.action.chat.open
 
 ![Screenshot showing the Chat view, highlighting the chat mode dropdown list.](images/chat-modes/chat-mode-dropdown.png)
 
-Learn more about [chat modes in VS Code](/docs/copilot/chat/chat-modes.md).
+Learn more about [chat modes in VS Code](/docs/copilot/customization/custom-chat-modes.md).
 
 ## Change the language model
 
@@ -52,7 +52,7 @@ VS Code offers different built-in language models to choose from. Some models ar
 
 ![Screenshot of the chat model picker in the Chat view, showing a dropdown list of available models.](images/copilot-chat/chat-model-picker.png)
 
-You can also add models from other model providers (preview) and use them in chat. Get more details about how to [use models from other providers](/docs/copilot/language-models.md#bring-your-own-language-model-key).
+You can also add models from other model providers (preview) and use them in chat. Get more details about how to [use models from other providers](/docs/copilot/customization/language-models.md#bring-your-own-language-model-key).
 
 > [!NOTE]
 > The list of available models might vary based on your Copilot subscription and might change over time. See the GitHub Copilot documentation for more information about the [available language models](https://docs.github.com/en/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat?tool=vscode).
@@ -146,8 +146,7 @@ Chat supports vision capabilities, which means you can attach an image as contex
 
 ## Chat history
 
-As you iterate and send multiple chat prompts in a chat session, VS Code uses the history of chat prompts and responses as context for your current chat prompt. This means that you can ask follow-up questions or clarify your previous question without having to repeat the context. For example, you can ask "How does *this*
-differ from ...", "Now add a test case", "explain in more detail", and more.
+As you iterate and send multiple chat prompts in a chat session, VS Code uses the history of chat prompts and responses as context for your current chat prompt. This means that you can ask follow-up questions or clarify your previous question without having to repeat the context. For example, you can ask "How does *this* differ from ...", "Now add a test case", "explain in more detail", and more.
 
 At any time, you can create a new chat session by using the **New Chat** (`+`) button (`kb(workbench.action.chat.newChat)`) in the Chat view. This can be useful if you want to move to a different topic and avoid the previous context and history.
 
@@ -155,7 +154,7 @@ To view the history of chat sessions, select the **Show Chats...** button in the
 
 ![Screenshot of the Chat view with the Show Chats... button highlighted](images/copilot-chat/copilot-chat-view-show-chats.png)
 
-You can export all prompts and responses for a chat session in a JSON file with the **Chat: Export Chat...** command in the Command Palette.
+You can export all prompts and responses for a chat session in a JSON file with the **Chat: Export Chat...** command in the Command Palette. To copy a specific chat prompt or response to the clipboard in Markdown format, right-click the message and select **Copy**. To copy the entire chat session, right-click the Chat view and select **Copy All**.
 
 ## Edit a previous chat request (Experimental)
 
@@ -309,3 +308,4 @@ Or check out the [VS Code Copilot Series](https://www.youtube.com/playlist?list=
 * [Use ask mode to ask questions about your code](/docs/copilot/chat/chat-ask-mode.md)
 * [Use agent mode to start an autonomous coding session](/docs/copilot/chat/chat-agent-mode.md)
 * [Use edit mode to make code edits across multiple files](/docs/copilot/chat/copilot-edits.md)
+* [Learn about security considerations of using AI in VS Code](/docs/copilot/security.md)

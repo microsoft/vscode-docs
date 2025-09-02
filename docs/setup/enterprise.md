@@ -134,8 +134,8 @@ VS Code currently provides policies to control the following admin-controlled fe
 | `EnableFeedback`             | Controls feedback mechanisms, such as the issue reporter and surveys. | `telemetry.feedback.enabled` | 1.99            |
 | `ChatAgentMode`              | Controls if [agent mode](/docs/copilot/chat/copilot-chat.md#chat-mode) is enabled in chat.           | `chat.agent.enabled`             | 1.99            |
 | `ChatAgentExtensionTools`    | Enable using tools contributed by third-party extensions.        | `chat.extensionTools.enabled` | 1.99        |
-| `ChatPromptFiles`            | Enable [reusable prompt and instruction files](/docs/copilot/copilot-customization.md) in chat.      | `chat.promptFiles`               | 1.99            |
-| `ChatMCP`                    | Enable integration with [Model Context Protocol (MCP) servers](/docs/copilot/chat/mcp-servers.md).   | `chat.mcp.enabled`               | 1.99            |
+| `ChatPromptFiles`            | Enable [reusable prompt and instruction files](/docs/copilot/customization/overview.md) in chat.      | `chat.promptFiles`               | 1.99            |
+| `ChatMCP`                    | Enable integration with [Model Context Protocol (MCP) servers](/docs/copilot/customization/mcp-servers.md).   | `chat.mcp.enabled`               | 1.99            |
 | `ChatToolsAutoApprove`       | Enable auto-approval for agent mode tools.                       | `chat.tools.autoApprove`         | 1.99            |
 
 ### Group Policy on Windows
@@ -227,3 +227,7 @@ Users can still uninstall extensions that were preinstalled. Restarting VS Code 
 ### Does VS Code support configuration profiles on Linux?
 
 Support for Linux is not on the roadmap. If you're interested in configuration profiles on Linux, open an issue in the VS Code [GitHub repository](https://github.com/microsoft/vscode/issues) and share details about your scenario.
+
+## Related resources
+
+- [Learn about security considerations of using AI in VS Code](/docs/copilot/security.md)

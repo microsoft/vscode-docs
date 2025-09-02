@@ -41,7 +41,7 @@ Install Model Context Protocol (MCP) servers or tools from Marketplace extension
 - Debug failing tests and apply fixes
 - Optimize performance across the application
 
-Learn more about [autonomous coding with agent mode](/docs/copilot/chat/chat-agent-mode.md) and [configuring MCP servers in VS Code](/docs/copilot/chat/mcp-servers.md).
+Learn more about [autonomous coding with agent mode](/docs/copilot/chat/chat-agent-mode.md) and [configuring MCP servers in VS Code](/docs/copilot/customization/mcp-servers.md).
 
 ### Natural language chat
 
@@ -173,7 +173,7 @@ applyTo: "**"
 - Follow the Repository pattern for data access
 ```
 
-Learn more about [using custom instructions](/docs/copilot/copilot-customization.md) to tailor the AI to your coding style.
+Learn more about [using custom instructions](/docs/copilot/customization/overview.md) to tailor the AI to your coding style.
 
 ### Language models
 
@@ -181,7 +181,7 @@ Quickly switch between different AI models to optimize for speed, reasoning, or 
 
 ![Screenshot that shows the model picker in the Chat view.](images/language-models/model-dropdown-change-model.png)
 
-Learn more about using [language models in VS Code](/docs/copilot/language-models.md).
+Learn more about using [language models in VS Code](/docs/copilot/customization/language-models.md).
 
 ### Custom chat modes
 
@@ -189,15 +189,15 @@ The chat experience in VS Code can operate in different modes to switch between 
 
 ![Screenshot showing the Chat view, highlighting the chat mode dropdown list.](images/overview/chat-mode-dropdown.png)
 
-Learn more about [creating your own chat modes](/docs/copilot/chat/chat-modes.md).
+Learn more about [creating your own chat modes](/docs/copilot/customization/custom-chat-modes.md).
 
 ### Extend chat with tools
 
 Extend the capabilities of the chat experience with specialized tools from MCP servers or Marketplace extensions. For example, add tools for querying databases, connecting to external APIs, or performing specialized tasks.
 
-![MCP tools list](chat/images/mcp-servers/agent-mode-select-tools.png)
+![MCP tools list](images/mcp-servers/agent-mode-select-tools.png)
 
-Learn more about [using MCP servers and tools](/docs/copilot/chat/mcp-servers.md).
+Learn more about [using MCP servers and tools](/docs/copilot/customization/mcp-servers.md).
 
 ## Best Practices
 
@@ -223,4 +223,5 @@ You can start using GitHub Copilot for free with monthly limits on completions a
 
 - [Set up Copilot in VS Code](/docs/copilot/setup.md)
 - [Get started with hands-on examples](/docs/copilot/getting-started.md)
-- [Customize the AI for your workflow](/docs/copilot/copilot-customization.md)
+- [Customize the AI for your workflow](/docs/copilot/customization/overview.md)
+- [Learn about security considerations of using AI in VS Code](/docs/copilot/security.md)

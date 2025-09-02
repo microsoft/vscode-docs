@@ -137,7 +137,7 @@ You can reference content from the web in your chat prompts, for example to get 
 
 ## Reference tools
 
-Chat in VS Code has several [built-in tools](/docs/copilot/chat/chat-agent-mode.md#agent-mode-tools) and you can further extend it with tools from [MCP servers](/docs/copilot/chat/mcp-servers.md) or extensions. For example, the `#fetch` tool is a built-in tool that allows you to fetch content from a web page. You can also group tools into [tool sets](/docs/copilot/chat/chat-agent-mode.md#define-tool-sets), which you can then reference in your chat prompts.
+Chat in VS Code has several [built-in tools](/docs/copilot/chat/chat-agent-mode.md#agent-mode-tools) and you can further extend it with tools from [MCP servers](/docs/copilot/customization/mcp-servers.md) or extensions. For example, the `#fetch` tool is a built-in tool that allows you to fetch content from a web page. You can also group tools into [tool sets](/docs/copilot/chat/chat-agent-mode.md#define-tool-sets), which you can then reference in your chat prompts.
 
 To reference a tool or tool set directly in your chat prompt, type `#` followed by the tool (set) name and optional tool parameters. The following prompt examples show how to use tools:
 
@@ -207,7 +207,7 @@ With instruction files, you can provide the AI with common guidelines and rules 
 
 By using instruction files, you can avoid having to repeatedly add common instructions in your chat prompts, and instead have the AI automatically apply these instructions to your chat interactions.
 
-Learn more about [using instruction files](/docs/copilot/copilot-customization.md).
+Learn more about [using instruction files](/docs/copilot/customization/overview.md).
 
 ## Workspace indexing
 
@@ -224,6 +224,6 @@ Learn more about [workspace indexing](/docs/copilot/reference/workspace-context.
 ## Related resources
 
 * Learn about [tools in agent mode](/docs/copilot/chat/chat-agent-mode.md#agent-mode-tools).
-* Customize AI with [instruction files](/docs/copilot/copilot-customization.md).
+* Customize AI with [instruction files](/docs/copilot/customization/overview.md).
 * Learn about [workspace indexing](/docs/copilot/reference/workspace-context.md#managing-the-workspace-index).
 * Get started with [chat in VS Code](/docs/copilot/chat/copilot-chat.md).

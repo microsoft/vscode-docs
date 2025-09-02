@@ -49,10 +49,10 @@ Start a natural language chat conversation to get help with coding tasks. For ex
 | `kb(inlinechat.start)` | Start [inline chat](/docs/copilot/chat/inline-chat.md) to open chat in the editor or terminal. |
 | `kb(workbench.action.quickchat.toggle)` | Open [Quick Chat](/docs/copilot/chat/copilot-chat.md) without interrupting your workflow. |
 | `kb(workbench.action.chat.newChat)` | Start a new chat session in the Chat view. |
-| `kb(workbench.action.chat.toggleAgentMode)` | Toggle between different [chat modes](/docs/copilot/chat/chat-modes.md) in the Chat view. |
-| `kb(workbench.action.chat.openModelPicker)` | Show the model picker to [select a different AI model](/docs/copilot/language-models.md) for chat. |
+| `kb(workbench.action.chat.toggleAgentMode)` | Toggle between different [chat modes](/docs/copilot/customization/custom-chat-modes.md) in the Chat view. |
+| `kb(workbench.action.chat.openModelPicker)` | Show the model picker to [select a different AI model](/docs/copilot/customization/language-models.md) for chat. |
 | `Add Context...` | Attach different types of [context to your chat prompt](/docs/copilot/chat/copilot-chat-context.md). |
-| `/`-command | Use [slash commands](#slash-commands) for common tasks or invoke a [reusable chat prompt](/docs/copilot/copilot-customization.md). |
+| `/`-command | Use [slash commands](#slash-commands) for common tasks or invoke a [reusable chat prompt](/docs/copilot/customization/overview.md). |
 | `#`-mention | Reference common tools or chat variables to [provide context](/docs/copilot/chat/copilot-chat-context.md) within in your prompt. |
 | `@`-mention | Reference [chat participants](#chat-participants) to handle domain-specific requests. |
 | Edit (<i class="codicon codicon-pencil"></i>) | [Edit a previous chat prompt](/docs/copilot/chat/copilot-chat.md#edit-chat-requests-experimental) and revert changes. |
@@ -129,7 +129,7 @@ Slash commands are shortcuts to specific functionality within the chat. You can 
 | `/newNotebook` | Scaffold a new Jupyter notebook based on your requirements. Use natural language to describe what the notebook should contain. |
 | `/search` | Generate a search query for the Search view. Use natural language to describe what you want to search for. |
 | `/startDebugging` | Generate a `launch.json` debug configuration file and start a debugging session from the Chat view. |
-| `/<prompt file name>` | Run a [reusable prompt file](/docs/copilot/copilot-customization.md#prompt-files-experimental) in chat. |
+| `/<prompt file name>` | Run a [reusable prompt file](/docs/copilot/customization/prompt-files.md) in chat. |
 
 ## Chat participants
 
@@ -152,7 +152,7 @@ With chat [agent mode](/docs/copilot/chat/chat-agent-mode.md), you can use natur
 | Tools (<i class="codicon codicon-tools"></i>) | Configure which tools are available in agent mode. Select from built-in tools, MCP servers, and extension-provided tools. |
 | Auto-approve tools _(Experimental)_ | Enable [auto-approval of all tools](/docs/copilot/chat/chat-agent-mode.md#auto-approve-all-tools-and-commands-experimental) in agent mode (`setting(chat.tools.autoApprove)`). |
 | Auto-approve terminal commands _(Experimental)_ | Enable [auto-approval of terminal commands](/docs/copilot/chat/chat-agent-mode.md#autoapprove-terminal-commands-experimental) in agent mode (`setting(chat.tools.terminal.autoApprove)`). |
-| MCP | Configure [MCP servers](/docs/copilot/chat/mcp-servers.md) to extend agent mode with extra capabilities and tools. |
+| MCP | Configure [MCP servers](/docs/copilot/customization/mcp-servers.md) to extend agent mode with extra capabilities and tools. |
 
 > **Tips**
 >
@@ -164,11 +164,11 @@ With chat [agent mode](/docs/copilot/chat/chat-agent-mode.md), you can use natur
 
 Customize your chat experience to generate responses that match your coding style, tools, and developer workflow. There are several ways to customize your chat experience in VS Code:
 
-* [Custom instructions](/docs/copilot/copilot-customization.md#custom-instructions): Define common guidelines or rules for tasks like generating code, performing code reviews, or generating commit messages. Custom instructions describe the conditions in which the AI should perform operate (_how_ a task should be done).
+* [Custom instructions](/docs/copilot/customization/custom-instructions.md): Define common guidelines or rules for tasks like generating code, performing code reviews, or generating commit messages. Custom instructions describe the conditions in which the AI should operate (_how_ a task should be done).
 
-* [Reusable prompt files](/docs/copilot/copilot-customization.md#prompt-files-experimental): Define reusable prompts for common tasks like generating code or performing a code review. Prompt files are standalone prompts that you can run directly in chat. They describe the task to be performed (_what_ should be done).
+* [Reusable prompt files](/docs/copilot/customization/prompt-files.md): Define reusable prompts for common tasks like generating code or performing a code review. Prompt files are standalone prompts that you can run directly in chat. They describe the task to be performed (_what_ should be done).
 
-* [Chat modes](/docs/copilot/chat/chat-modes.md): Define how chat operates, which tools it can use, and how it interacts with the codebase. Each chat prompt is run within the boundaries of the chat mode, without having to configure tools and instructions for every request.
+* [Chat modes](/docs/copilot/customization/custom-chat-modes.md): Define how chat operates, which tools it can use, and how it interacts with the codebase. Each chat prompt is run within the boundaries of the chat mode, without having to configure tools and instructions for every request.
 
 > **Tips**
 >
