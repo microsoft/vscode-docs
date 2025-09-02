@@ -80,7 +80,7 @@ Get more relevant responses by providing [context to your chat prompt](/docs/cop
 | `#<file\|folder\|symbol>` | Type `#`, followed by a file, folder, or symbol name, to add it as chat context. |
 | `#-mention | Type `#`, followed by a [chat tool](#chat-tools) to add a specific context type or tool. |
 
-### Chat tools
+## Chat tools
 
 Use [tools](/docs/copilot/chat/chat-agent-mode.md#agent-mode-tools) in chat to accomplish specialized tasks while processing a user request. Examples of such tasks are listing the files in a directory, editing a file in your workspace, running a terminal command, getting the output from the terminal, and more. Choose built-in tools or tools from MCP servers and extensions.
 
@@ -90,27 +90,48 @@ The following table lists the VS Code built-in tools:
 |--------|-------------|
 | `#changes` | List of source control changes. |
 | `#codebase` | Perform a code search in the current workspace to automatically find relevant context for the chat prompt. |
-| `#editFiles` | Tool set to enable creating and editing files in the workspace. |
-| `#extensions` | Tool to find and ask questions about VS Code extensions. For example, "how to get started with Python #extensions?" |
-| `#fetch` | Fetch the content from a web page - provide the URL. |
-| `#findTestFiles` | Tool for finding test files in the current workspace. |
-| `#githubRepo` | Tool to perform a code search in a GitHub repo. For example, "what is a global snippet #githubRepo microsoft/vscode." |
-| `#new` | Tool to scaffold a new VS Code workspace. |
-| `#openSimpleBrowser` | Tool to open the built-in Simple Browser and preview a locally-deployed web app. |
+| `#createAndRunTask` | Create and run a new [task](/docs/debugtest/tasks.md) in the workspace. |
+| `#createDirectory` | Create a new directory in the workspace. |
+| `#createFile` | Create a new file in the workspace. |
+| `#edit` (tool set) | Enable modifications in the workspace. |
+| `#editFiles` | Apply edits to files in the workspace. |
+| `#editNotebook` | Make edits to a notebook. |
+| `#extensions` | Search for and ask about VS Code extensions. For example, "how to get started with Python #extensions?" |
+| `#fetch` | Fetch the content from a given web page. For example, "Summarize #fetch code.visualstudio.com/updates." |
+| `#fileSearch` | Search for files in the workspace by using glob patterns and returns their path. |
+| `#findTestFiles` | Locates test files in the workspace. |
+| `#getNotebookSummary` | Get the list of notebook cells and their details. |
+| `#getProjectSetupInfo` | Provide instructions and configuration for scaffolding different types of projects. |
+| `#getTaskOutput` | Get the output from running a [task](/docs/debugtest/tasks.md) in the workspace. |
+| `#getTerminalOutput` | Get the output from running a terminal command in the workspace. |
+| `#githubRepo` | Perform a code search in a GitHub repo. For example, "what is a global snippet #githubRepo microsoft/vscode." |
+| `#installExtension` | Install a VS Code extension. |
+| `#listDirectory` | List files in a directory in the workspace. |
+| `#new` | Scaffold a new VS Code workspace, preconfigured with debug and run configurations. |
+| `#newJupyterNotebook` | Scaffold a new Jupyter notebook given a description. |
+| `#newWorkspace` | Create a new workspace. |
+| `#notebooks` (tool set) | Enable working with notebooks (scaffolding, editing, and running cells). |
+| `#openSimpleBrowser` | Open the built-in Simple Browser and preview a locally-deployed web app. |
 | `#problems` | Add workspace issues and problems from the **Problems** panel as context. Useful while fixing code or debugging. |
-| `#readCellOutput` | Tool for reading the output from a notebook cell. |
-| `#runCommands` | Tool for running commands in the terminal and reading the output. |
-| `#runNotebooks` | Tool for running cells in a notebook and reading the output. |
-| `#runTasks` | Tool for running tasks in the workspace and reading the output. |
-| `#runTests` | Tool for running tests in the workspace and reading the output. |
-| `#search` | Tool set for searching for files in the current workspace. |
-| `#searchResults` | Add the results from the Search view as context to your prompt. |
-| `#selection` | Add the current editor selection as context to your prompt. |
-| `#terminalSelection` | Add the current terminal selection as context to your chat prompt. |
-| `#terminalLastCommand` | Add the last run terminal command as context to your chat prompt. |
-| `#testFailure` | Add test failure information as context. Useful when running and diagnosing [tests](/docs/debugtest/testing.md). |
+| `#readFile` | Read the content of a file in the workspace. |
+| `#readNotebookCellOutput` | Read the output from a notebook cell execution. |
+| `#runCell` | Run a notebook cell. |
+| `#runCommands` (tool set) | Enable running commands in the terminal and reading the output. |
+| `#runInTerminal` | Run a shell command in the integrated terminal. |
+| `#runTask` | Run an existing [task](/docs/debugtest/tasks.md) in the workspace. |
+| `#runTasks` (tool set) | Enable running [tasks](/docs/debugtest/tasks.md) in the workspace and reading the output. |
+| `#runTests` | Run [unit tests](/docs/debugtest/testing.md) in the workspace. |
+| `#runVscodeCommand` | Run a VS Code command. For example, "Enable zen mode #runVscodeCommand." |
+| `#search` (tool set) | Enable searching for files in the current workspace. |
+| `#searchResults` | Get the search results from the Search view. |
+| `#selection` | Get the current editor selection (only available when text is selected). |
+| `#terminalLastCommand` | Get the last run terminal command and its output. |
+| `#terminalSelection` | Get the current terminal selection. |
+| `#testFailure` | Get unit test failure information. Useful when running and diagnosing [tests](/docs/debugtest/testing.md). |
+| `#textSearch` | Find text in files. |
+| `#todos` | Manage and track todo items when processing a chat request (requires `setting(chat.todoListTool.enabled)`). |
 | `#usages` | Combination of "Find All References", "Find Implementation", and "Go to Definition". |
-| `#VSCodeAPI` | Tool to reference the VS Code extension APIs and ask questions related to VS Code extension development. |
+| `#VSCodeAPI` | Ask about VS Code functionality and extension development. |
 
 ## Slash commands
 
