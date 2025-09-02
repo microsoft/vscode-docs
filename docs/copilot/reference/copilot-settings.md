@@ -18,10 +18,10 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 | Setting and Description | Default |
 |------------------------|---------------|
 | `setting(chat.commandCenter.enabled)`<br/>Controls whether to show the Copilot menu in the VS Code title bar. | `true` |
+| `setting(workbench.settings.showAISearchToggle)`<br/>Enable searching settings with AI in the Settings editor. | `true` |
 | `setting(workbench.commandPalette.experimental.askChatLocation)` _(Experimental)_<br/>Controls where the Command Palette should ask chat questions. | `"chatView"` |
 | `setting(search.searchView.semanticSearchBehavior)` _(Preview)_<br/>Configure when to run semantic search in the Search view: manually (default), when no text search results are found, or always. | `"manual"` |
 | `setting(search.searchView.keywordSuggestions)` _(Preview)_<br/>Controls whether to show keyword suggestions in the Search view. | `false` |
-| `setting(workbench.settings.showAISearchToggle)` _(Experimental)_<br/>Enable searching settings with AI in the Settings editor. | `true` |
 
 ## Code editing settings
 

@@ -243,8 +243,8 @@ Get semantically relevant search results in the Search view or help with searchi
 
 | Action | Description |
 |--------|-------------|
+| Settings search | Include semantic search results in the Settings editor (`setting(workbench.settings.showAISearchToggle)`). |
 | Semantic search _(Preview)_ | Include semantic search results in the Search view (`setting(search.searchView.semanticSearchBehavior)`). |
-| Settings search _(Preview)_ | Include semantic search results in the Settings editor (`setting(workbench.settings.showAISearchToggle)`). |
 
 ## Generate tests
 
