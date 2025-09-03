@@ -133,8 +133,7 @@ async prepareLanguageModelChatInformation(
         capabilities: {
             imageInput: model.supportsImages,
             toolCalling: model.supportsTools
-        },
-        requiresAuthorization: true
+        }
     }));
 }
 ```
