@@ -80,4 +80,4 @@ To disable AI features for a specific workspace:
 
 ## Next steps
 
-- Continue with the [Copilot Quickstart](/docs/copilot/getting-started.md) to discover the key features of Copilot in VS Code.
+- Continue with the [Quickstart for using AI](/docs/copilot/getting-started.md) to discover the key features for AI-powered development in VS Code.
