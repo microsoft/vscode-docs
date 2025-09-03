@@ -349,7 +349,10 @@ Consider the following criteria to choose between edit mode and agent mode:
 
 ### When should I use Copilot coding agent instead of agent mode?
 
-Use [Copilot coding agent](/docs/copilot/copilot-coding-agent.md) for well-defined tasks that can work independently in the background. Use agent mode when you want to stay involved in the development process and iterate quickly on changes.
+Use [Copilot coding agent](/docs/copilot/copilot-coding-agent.md) for well-defined tasks that can be handled independently in the background without immediate user interaction. Use agent mode when you want to stay involved in the development process and iterate quickly on changes.
+
+> [!TIP]
+> Use both experiences together by starting with agent mode to analyze the feature and determine the implementation approach, and then hand off the well-defined task to the Copilot coding agent to work on it in the background.
 
 ### I'm getting an error that says "Cannot have more than 128 tools per request."
 
@@ -361,3 +364,4 @@ A chat request can have a maximum of 128 tools enabled at a time. If you have mo
 
 * [Configure MCP servers to add tools to agent mode](/docs/copilot/customization/mcp-servers.md)
 * [Customize AI with instructions and prompts](/docs/copilot/customization/overview.md)
+* [Implement tasks in the background with Copilot coding agent](/docs/copilot/copilot-coding-agent.md)
