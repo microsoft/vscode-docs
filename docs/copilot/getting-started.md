@@ -105,7 +105,7 @@ Agent mode excels at understanding high-level requirements and translating them 
 
 ## Step 3: Make precise adjustments with inline chat
 
-While agent mode handles large features, inline chat is perfect for targeted improvements to specific code sections within a file. Let's use it to enhance your task manager.
+While agent mode handles large features, editor inline chat is perfect for targeted improvements to specific code sections within a file. Let's use it to enhance the task manager app.
 
 1. Open your JavaScript file and locate the code that adds new tasks.
 
@@ -128,12 +128,7 @@ While agent mode handles large features, inline chat is perfect for targeted imp
 
 1. Review the changes and select **Accept** to apply them.
 
-Inline chat is ideal for:
-
-* Making small, focused improvements to existing code
-* Adding error handling or validation
-* Refactoring specific functions or code blocks
-* Fixing bugs in particular sections
+Editor inline chat is ideal for making small, focused changes without affecting the broader codebase, like adding error handling, refactoring individual functions, or fixing bugs.
 
 ## Step 4: Personalize your AI experience
 
@@ -180,7 +175,7 @@ Custom instructions tell the AI about your coding preferences and standards. The
 
 ### Create a custom chat mode for code reviews
 
-Custom chat modes create specialized AI personas for specific tasks. Let's create a "Code Reviewer" mode that focuses on analysis and feedback rather than making changes.
+Custom chat modes create specialized AI personas for specific tasks. Let's create a "Code Reviewer" mode that focuses on analysis and providing feedback on code. In a chat mode, you can define the AI's role, guidelines, and which tools it can use.
 
 1. Open the Command Palette and run the **Chat: New Mode File** command.
 
@@ -190,7 +185,7 @@ Custom chat modes create specialized AI personas for specific tasks. Let's creat
 
 1. Name the chat mode "Code Reviewer". This creates a new file called `Code Reviewer.md` in the `.github/chatmodes` folder.
 
-1. Replace the file contents with the following:
+1. Replace the file contents with the following content. Note that this chat mode doesn't allow code changes.
 
     ```markdown
     ---
@@ -228,22 +223,19 @@ Custom chat modes create specialized AI personas for specific tasks. Let's creat
 
 1. Test your custom reviewer mode:
 
-   * Open the Chat view and select **Code Reviewer** from the mode dropdown
+   * Select **Code Reviewer** from the mode dropdown
    * Enter the following prompt: "Review my full project"
 
    Notice how the AI now behaves as a code reviewer, providing analysis and suggestions without writing code directly.
 
     ![Screenshot showing custom reviewer mode analyzing code.](./images/getting-started/custom-reviewer-mode.png)
 
-    > [!TIP]
-    > Provide more context in your prompts for better or different responses. You can type `#` to reference specific files or predefined context variables like `#codebase`.
-
 Your personalized AI setup now includes:
 
 * **Custom instructions** that ensure consistent code quality
 * **Specialized chat modes** for different types of work
 
-## Step 5: Use smart actions for integrated workflows
+## Step 5: Use smart actions for pre-built AI assistance
 
 Smart actions provide AI functionality directly integrated within VS Code's interface, seamlessly plugging into your development workflow. Unlike chat interactions, smart actions appear contextually where you need them most. Let's explore commit message generation as an example.
 
@@ -267,15 +259,9 @@ Smart actions provide AI functionality directly integrated within VS Code's inte
 
 Smart actions like commit message generation demonstrate how AI integrates naturally into your existing workflow without requiring you to context-switch to chat interfaces. VS Code has many other smart actions to help you with debugging, testing, and more.
 
-## What you've accomplished
+## Next steps
 
-Congratulations! You've built a complete task management application and learned how to work effectively with AI across VS Code's core capabilities:
-
-* **Code completions** for faster coding with intelligent suggestions
-* **Agent mode** for autonomous feature development
-* **Inline chat** for precise code improvements
-* **Smart actions** for integrated workflow assistance
-* **Customization** through instructions and specialized chat modes
+Congratulations! You've built a complete task management application and learned how to work effectively with AI across VS Code's core capabilities.
 
 You can further enhance your AI's capabilities by exploring other customization options:
 
