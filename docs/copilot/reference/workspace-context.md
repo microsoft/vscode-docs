@@ -77,7 +77,7 @@ You can view the type of index and its status in the Copilot status dashboard in
 
 ### Remote index
 
-Copilot can use remote code search indexes to enable AI to search your codebase quickly, even for large codebases. Remote code search is currently available for workspaces that use GitHub or Azure Dev Ops repositories.
+Copilot can use remote code search indexes to enable AI to search your codebase quickly, even for large codebases. Remote code search is currently available for workspaces that use GitHub or Azure DevOps repositories.
 
 #### GitHub Remote indexing
 
@@ -89,9 +89,9 @@ The index only needs to be built once per repository. After that, the index is a
 
 Currently remote indexing works for repositories hosted on GitHub.com or on GitHub Enterprise Cloud. It is not supported for repositories that use GitHub Enterprise Server. The remote index works also best if GitHub has a relatively up-to-date version of your code, so make sure to push your code to GitHub regularly.
 
-#### Azure Dev Ops Remote indexing
+#### Azure DevOps Remote indexing
 
-Copilot also can use remote indexes for Azure Dev Ops repositories. These indexes are automatically built and maintained. All you need to do is sign in with your Microsoft account. Check the Copilot Status Bar item for the current index status or a sign in link if your  account doesn't have the right permissions to access the Azure Dev Ops repository.
+Copilot also can use remote indexes for Azure DevOps repositories. These indexes are automatically built and maintained. All you need to do is sign in with your Microsoft account. Check the Copilot Status Bar item for the current index status or a sign in link if your  account doesn't have the right permissions to access the Azure DevOps repository.
 
 ### Local index
 
