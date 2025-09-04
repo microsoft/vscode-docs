@@ -59,12 +59,12 @@ If your Copilot subscription is associated with another GitHub account, follow t
 
 ## Remove AI features from VS Code
 
-You can disable the built-in AI features in VS Code like chat or next edit suggestions with the `setting(chat.disableAIFeatures)` user setting, similar to how you configure other features in VS Code. This globally disables and hides features like chat or inline suggestions in VS Code.
+You can disable the built-in AI features in VS Code with the `setting(chat.disableAIFeatures)` user setting, similar to how you configure other features in VS Code. This globally disables and hides features like chat or inline suggestions in VS Code and disables the Copilot extensions.
+
+Alternatively, use the **Learn How to Hide AI Features** action from the Chat menu in the title bar to access the setting.
 
 > [!NOTE]
-> If you have previously installed the Copilot extensions, they will be disabled as part of this process.
-
-To restore the built-in AI features in VS Code, run the **Chat: Use AI Features with Copilot for free** command from the Command Palette (`kb(workbench.action.showCommands)`).
+> If you have previously disabled the built-in AI features, your choice is respected upon updating to a new version of VS Code.
 
 ## Disable AI features for a workspace
 
