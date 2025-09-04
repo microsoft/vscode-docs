@@ -110,7 +110,6 @@ The following table lists the VS Code built-in tools:
 | `#new` | Scaffold a new VS Code workspace, preconfigured with debug and run configurations. |
 | `#newJupyterNotebook` | Scaffold a new Jupyter notebook given a description. |
 | `#newWorkspace` | Create a new workspace. |
-| `#notebooks` (tool set) | Enable working with notebooks (scaffolding, editing, and running cells). |
 | `#openSimpleBrowser` | Open the built-in Simple Browser and preview a locally-deployed web app. |
 | `#problems` | Add workspace issues and problems from the **Problems** panel as context. Useful while fixing code or debugging. |
 | `#readFile` | Read the content of a file in the workspace. |
@@ -118,6 +117,7 @@ The following table lists the VS Code built-in tools:
 | `#runCell` | Run a notebook cell. |
 | `#runCommands` (tool set) | Enable running commands in the terminal and reading the output. |
 | `#runInTerminal` | Run a shell command in the integrated terminal. |
+| `#runNotebooks` (tool set) | Enable running notebook cells. |
 | `#runTask` | Run an existing [task](/docs/debugtest/tasks.md) in the workspace. |
 | `#runTasks` (tool set) | Enable running [tasks](/docs/debugtest/tasks.md) in the workspace and reading the output. |
 | `#runTests` | Run [unit tests](/docs/debugtest/testing.md) in the workspace. |
