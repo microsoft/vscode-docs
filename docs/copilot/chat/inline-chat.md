@@ -21,7 +21,7 @@ To use editor inline chat:
 
 1. Open a file in the editor.
 
-1. Open editor inline chat by using the `kb(inlinechat.start)` keyboard shortcut or selecting **Editor Inline Chat** from the Copilot menu in the title bar.
+1. Open editor inline chat by using the `kb(inlinechat.start)` keyboard shortcut or selecting **Open Inline Chat** from the Chat menu in the title bar.
 
     Notice how Copilot shows a chat input field at your cursor position in the editor.
 

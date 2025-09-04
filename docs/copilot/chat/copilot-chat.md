@@ -38,7 +38,7 @@ You can use natural language chat in different ways in VS Code, each optimized f
 | **Inline chat**<br/>`kb(inlineChat.start)` | Start a chat conversation directly from the editor (_editor inline chat_) or integrated terminal (_terminal inline chat_) to get suggestions in-place. | ![Screenshot of the Inline chat](images/copilot-chat/inline-chat.png) |
 | **Quick Chat**<br/>`kb(workbench.action.quickchat.toggle)` | Ask a quick question and get back into what you were doing. | ![Screenshot of the Quick Chat](images/copilot-chat/quick-chat.png) |
 
-Access each chat experience by using the corresponding keyboard shortcuts or via the chat menu in the VS Code title bar.
+Access each chat experience by using the corresponding keyboard shortcuts or via the Chat menu in the VS Code title bar.
 
 ![Screenshot of the Copilot Chat menu in the VS Code Command Center](images/copilot-chat/copilot-chat-menu-command-center.png)
 
@@ -65,7 +65,7 @@ You can also add models from other model providers and use them in chat. Get mor
 
 ## Submit a chat prompt
 
-Type a natural language prompt in the chat input field to make chat requests in VS Code. Depending on the chat mode you selected, your prompt will be handled accordingly. For example, in ask mode, the response 
+Type a natural language prompt in the chat input field to make chat requests in VS Code. Depending on the chat mode you selected, your prompt will be handled accordingly. For example, in ask mode, the response
 
 A chat response might contain a combination of rich content such as Markdown text, code blocks, buttons, file trees, and more.
 

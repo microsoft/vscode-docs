@@ -66,7 +66,7 @@ You can customize which models you want to show in the model picker:
 
 To change the language model that is used for generating code completions in the editor:
 
-1. Select **Configure Code Completions...** from the Copilot menu in the VS Code title bar.
+1. Select **Configure Code Completions...** from the Chat menu in the VS Code title bar.
 
 1. Select **Change Completions Model...**, and then select one of the models from the list.
 

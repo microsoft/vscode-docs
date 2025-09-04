@@ -30,7 +30,7 @@ In this tutorial, you'll be creating a simple Node.js web application.
 
 1. Open a new VS Code window. You'll be creating a new workspace in a follow-up step.
 
-1. Select **Open Chat** from the Copilot menu in the title bar or use the `kb(workbench.action.chat.open)` keyboard shortcut.
+1. Select **Open Chat** from the Chat menu in the title bar or use the `kb(workbench.action.chat.open)` keyboard shortcut.
 
     ![Screenshot of VS Code editor, showing the Copilot Chat view, highlighting the chat menu in the Command Center.](./images/getting-started-chat/copilot-chat-menu-command-center.png)
 
@@ -65,7 +65,7 @@ While the Chat view is great for keeping a conversation going, _editor inline ch
 
 Let's look at how to use editor inline chat for code refactoring.
 
-1. Open the `app.ts` file and use the `kb(inlinechat.start)` keyboard shortcut to bring up editor inline chat. Alternatively, select **Editor Inline Chat** from the Copilot menu in the title bar.
+1. Open the `app.ts` file and use the `kb(inlinechat.start)` keyboard shortcut to bring up editor inline chat. Alternatively, select **Open Inline Chat** from the Chat menu in the title bar.
 
     A chat input field appears inline in the editor, where you can enter your chat prompt and ask Copilot about the code in the editor.
 

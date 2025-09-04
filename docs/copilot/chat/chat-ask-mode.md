@@ -80,7 +80,7 @@ If a code block contains a shell command, you can run it directly in the integra
 
 Use Quick Chat to ask a quick question without starting a full chat session on the side. Quick Chat is a lightweight chat experience that lets you open a Quick Pick to ask a question.
 
-To open Quick Chat, select **Quick Chat** from the Copilot menu in the title bar, or use the `kb(workbench.action.quickchat.toggle)` keyboard shortcut.
+To open Quick Chat, select **Open Quick Chat** from the Chat menu in the title bar, or use the `kb(workbench.action.quickchat.toggle)` keyboard shortcut.
 
 <video src="images/ask-mode/quick-chat-recursion.mp4" title="Open Quick Chat to ask about recursion, and then open the response in the Chat view." autoplay loop controls muted></video>
 
