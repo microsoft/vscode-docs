@@ -126,41 +126,23 @@ The Custom OpenAI provider enables you use any OpenAI-compatible API endpoint an
 
 To configure a custom OpenAI endpoint and model:
 
-1. Open the Settings editor (`kb(workbench.action.openSettings)`) and search for `setting(github.copilot.chat.customOAIModels)`.
+1. Run the **Chat: Manage Language Models** command from the Command Palette.
 
-1. Add your custom model configuration details.
+1. Select the gear icon next to the **OpenAI Compatible** provider.
 
-    - `name`: Display name for the model in the picker
-    - `url`: Full API endpoint URL (will automatically append /v1/chat/completions if not present)
-    - `toolCalling`: Whether the model supports function calling
-    - `vision`: Whether the model supports image inputs
-    - `maxInputTokens`: Maximum input token limit
-    - `maxOutputTokens`: Maximum output token limit
-    - `requiresAPIKey`: Set to false if the endpoint doesn't require authentication
-    - `thinking`: Whether the model supports reasoning/thinking capabilities
+    ![Screenshot that shows the model provider Quick Pick, with a gear icon next to the OpenAI Compatible provider name.](../images/language-models/manage-openai-compatible.png)
 
-    Example configuration:
+1. Select **Manage API Key** to set the API key for your custom endpoint, if required.
 
-    ```json
-    {
-        "github.copilot.chat.customOAIModels": {
-        "my-custom-model": {
-            "name": "My Custom Model",
-            "url": "https://your-endpoint.com/v1/chat/completions",
-            "toolCalling": true,
-            "vision": false,
-            "maxInputTokens": 4096,
-            "maxOutputTokens": 2048,
-            "requiresAPIKey": true,
-            "thinking": false
-        }
-        }
-    }
-    ```
+1. Select **Configure Models** > **Add New Model** and follow the prompts to add the details for your model:
 
-1. Select **Manage Models** from the model picker, and then select **OpenAI Compatible** to configure the API key for your custom endpoint.
+    * Unique identifier for the model
+    * Display name for the model in the language model picker
+    * Full API endpoint URL
+    * Select the model capabilities, such as tool calling, vision, thinking, and whether the endpoint requires an API key.
+    * Maximum input and output token limits.
 
-    Your custom model should now appear in the model picker in chat.
+Alternatively, you can manually add your custom model configuration in the `setting(github.copilot.chat.customOAIModels)` setting.
 
 ## Considerations
 
