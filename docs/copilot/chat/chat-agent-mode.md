@@ -296,6 +296,14 @@ To enable checkpoints, configure the `setting(chat.checkpoints.enabled)` setting
 
 Learn more about working with [checkpoints in chat](/docs/copilot/chat/copilot-chat.md#revert-chat-requests-with-checkpoints).
 
+## Track progress with todo lists (Experimental)
+
+To have a better overview of the individual tasks that the agent is working on, you can enable the experimental todo list feature in agent mode. This feature helps you track the progress of the tasks being completed by the agent. This also help the agent to stay focused on the overall goal. As the agent completes tasks, it updates the todo list to reflect the current state of the work.
+
+<video src="images/agent-mode/chat-todo-list.mp4" title="Video that shows the todo list in chat." autoplay loop controls muted></video>
+
+Enable the todo list functionality with the `setting(chat.todoListTool.enabled)` setting.
+
 ## Use instructions to get AI edits that follow your coding style
 
 To get AI-generated code edits that follow your coding style, preferred frameworks, and other preferences, you can use instruction files. Instruction files enable you to describe your coding style and preferences in Markdown files, which the AI uses to generate code edits that match your requirements.
