@@ -27,15 +27,15 @@ Code completions provide AI suggestions as you type, helping you write code fast
 
 1. Create a new file called `index.html`.
 
-1. Start typing the following:
+1. Start typing the following and, as you type, VS Code provides inline suggestions (_ghost text_):
 
     ```html
     <!DOCTYPE html>
     ```
 
-    Notice that as you type, VS Code suggests the complete HTML structure in gray dimmed text. This is called "ghost text."
-
     ![Screenshot showing Copilot suggesting HTML structure completion.](./images/getting-started/html-completion.png)
+
+    You might see different suggestions because large language models are nondeterministic.
 
 1. Press `kbstyle(Tab)` to accept the suggestion.
 
@@ -61,30 +61,24 @@ Code completions work automatically as you type, learning from your patterns and
 
 Agent mode is VS Code's most powerful AI capability. Given a natural language prompt, it autonomously plans and implements complex features across multiple files. Let's use it to create the core functionality of your task manager.
 
-1. Open the Chat view by pressing `kb(workbench.action.chat.open)` or selecting the Copilot icon in the Activity Bar.
+1. Open the Chat view by pressing `kb(workbench.action.chat.open)` or selecting the chat icon in the VS Code title bar.
 
     The Chat view enables you to have an ongoing conversation with the AI, making it easier to refine your requests and get better results.
 
-1. In the chat mode dropdown at the top of the Chat view, select **Agent**.
+1. In the chat mode dropdown at the top of the Chat view, select **Agent** to switch to an agentic, autonomous coding mode.
 
     ![Screenshot showing the agent mode selection in Chat view.](./images/getting-started/agent-mode-selection.png)
 
-1. Enter the following prompt and press `kbstyle(Enter)`:
+1. Enter the following prompt and press `kbstyle(Enter)`. Agent mode will analyze your request and begin implementing the solution:
 
     ```text
     Create a complete task manager web application with the ability to add, delete, and mark tasks as completed. Include modern CSS styling and make it responsive. Use semantic HTML and ensure it's accessible. Separate markup, styles, and scripts into their own files.
     ```
 
-    Watch as agent mode analyzes your natural language request and begins implementing the solution. You'll see it:
-
-    * Update your existing `index.html` with a complete task manager interface
-    * Create a CSS file with modern, responsive styling
-    * Generate a JavaScript file with all the interactive functionality
-
-    <video src="images/getting-started/agent-mode-task-manager.mp4" title="Video showing agent mode creating a task manager web application." autoplay loop controls muted></video>
+    Watch as agent mode generates the necessary files and code to implement your request. You should see it update the `index.html` file, create a `styles.css` file for styling, and a `script.js` file for functionality.
 
     > [!TIP]
-    > Different models might have different strengths. Use the model dropdown in the Chat view to switch between language models.
+    > Different language models might have different strengths. Use the model dropdown in the Chat view to switch between language models.
 
 1. Review the generated files and select **Keep** to accept all the changes.
 
