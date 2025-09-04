@@ -146,7 +146,7 @@ You can also get AI-generated keyword suggestions in the Search view to provide 
 
 You can reference search results in your chat prompt by selecting **Get results from the search view** from the **Add Context** Quick Pick. Alternatively, type `#searchResults` in the chat prompt.
 
-## Search settings with AI (Experimental)
+## Search settings with AI
 
 If you don't know the exact name of a setting you want to change, you can use AI to help find the relevant settings based on your search query. For example, you can search for "increase text size" to find the setting that controls the editor font size.
 
