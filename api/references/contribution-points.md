@@ -53,7 +53,7 @@ Contributes an authentication provider. This will set up an activation event for
   "contributes": {
     "authentication": [
       {
-        "label": "Azure Dev Ops",
+        "label": "Azure DevOps",
         "id": "azuredevops"
       }
     ]
