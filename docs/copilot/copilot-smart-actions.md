@@ -20,7 +20,7 @@ If you have the [GitHub Pull Requests](https://marketplace.visualstudio.com/item
 
 1. Make sure you have the [GitHub Pull Requests](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension installed.
 1. Add a `TODO` comment in your code. A code action (lightbulb) appears next to the comment.
-1. Select the code action and select **Start Coding Agent Session**.
+1. Select the code action and select **Delegate to coding agent**.
 
     ![Screenshot that shows a Code Action menu with Start Coding Agent option for a TODO comment.](images/copilot-smart-actions/start-coding-agent-todo.png)
 
