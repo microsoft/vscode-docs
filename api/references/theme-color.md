@@ -939,6 +939,7 @@ The banner appears below the title bar and spans the entire width of the workben
 - `extensionIcon.preReleaseForeground`: The icon color for pre-release extension.
 - `extensionIcon.sponsorForeground`: The icon color for extension sponsor.
 - `extensionIcon.privateForeground`: The icon color for private extensions.
+- `mcpIcon.starForeground`: The icon color for mcp starred.
 
 ## Quick picker colors
 
@@ -1022,6 +1023,8 @@ The following customizations are available:
 - `terminalCommandGuide.foreground`: The foreground color of the terminal command guide that appears to the left of a command and its output on hover.
 
 - `terminalSymbolIcon.aliasForeground`: The foreground color for an alias icon. These icons will appear in the terminal suggest widget
+- `terminalSymbolIcon.branchForeground`: The foreground color for a branch icon. These icons will appear in the terminal suggest widget.
+- `terminalSymbolIcon.commitForeground`: The foreground color for a commit icon. These icons will appear in the terminal suggest widget.
 - `terminalSymbolIcon.flagForeground`: The foreground color for an flag icon. These icons will appear in the terminal suggest widget
 - `terminalSymbolIcon.optionForeground`: The foreground color for an option icon. These icons will appear in the terminal suggest widget.
 - `terminalSymbolIcon.optionValueForeground`: The foreground color for an enum member icon. These icons will appear in the terminal suggest widget.
@@ -1030,8 +1033,13 @@ The following customizations are available:
 - `terminalSymbolIcon.inlineSuggestionForeground`: The foreground color for an inline suggestion icon. These icons will appear in the terminal suggest widget.
 - `terminalSymbolIcon.fileForeground`: The foreground color for a file icon. These icons will appear in the terminal suggest widget.
 - `terminalSymbolIcon.folderForeground`: The foreground color for a folder icon. These icons will appear in the terminal suggest widget.
+- `terminalSymbolIcon.pullRequestDoneForeground`: The foreground color for a completed pull request icon. These icons will appear in the terminal suggest widget.
+- `terminalSymbolIcon.pullRequestForeground`: The foreground color for a pull request icon. These icons will appear in the terminal suggest widget.
+- `terminalSymbolIcon.remoteForeground`: The foreground color for a remote icon. These icons will appear in the terminal suggest widget.
+- `terminalSymbolIcon.stashForeground`: The foreground color for a stash icon. These icons will appear in the terminal suggest widget.
 - `terminalSymbolIcon.symbolicLinkFileForeground`: The foreground color for a symbolic link file icon. These icons will appear in the terminal suggest widget.
 - `terminalSymbolIcon.symbolicLinkFolderForeground`: The foreground color for a symbolic link folder icon. These icons will appear in the terminal suggest widget.
+- `terminalSymbolIcon.tagForeground`: The foreground color for a tag icon. These icons will appear in the terminal suggest widget.
 
 ## Debug colors
 
