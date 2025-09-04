@@ -47,6 +47,8 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 | `setting(chat.checkpoints.enabled)` <br/>Enable or disable [checkpoints](/docs/copilot/chat/copilot-chat.md#revert-chat-requests-with-checkpoints) in the chat. | `true` |
 | `setting(chat.checkpoints.showFileChanges)` <br/>Show a summary of file changes at the end of each chat request. | `false` |
 | `setting(chat.editRequests)`<br/>Enable or disable [editing previous chat requests](/docs/copilot/chat/copilot-chat.md#edit-a-previous-chat-request). | `"inline"` |
+| `setting(chat.fontFamily)`<br/>Font family for Markdown content in chat. | `"default"` |
+| `setting(chat.fontSize)`<br/>Font size in pixels for Markdown content in chat. | `13` |
 | `setting(chat.editor.fontFamily)`<br/>Font family in chat codeblocks. | `"default"` |
 | `setting(chat.editor.fontSize)`<br/>Font size in pixels in chat codeblocks. | `14` |
 | `setting(chat.editor.fontWeight)`<br/>Font weight in chat codeblocks. | `"default"` |
