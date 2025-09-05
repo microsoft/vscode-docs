@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= title %></title>
+		<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+	<header>
+	<h1><%= header %></h1>
+		<nav>
+		<% navigation.forEach(function(item) { %>
+			<a href="<%= item.url %>"><%= item.name %></a>
+		<% }); %>
+		</nav>
+	</header>
+	<main>
+		<%- body %>
+	</main>
+	<footer>
+		<p>&copy; 2024 VS Code Server</p>
+	</footer>
+</body>
+</html>
