@@ -11,6 +11,9 @@ MetaDescription: Learn how to implement a LanguageModelChatProvider to contribut
 
 The Language Model Chat Provider API enables you to contribute your own language models to chat in Visual Studio Code.
 
+> [!IMPORTANT]
+> Models provided through this API are currently only available to users on [individual GitHub Copilot plans](https://docs.github.com/en/copilot/concepts/billing/individual-plans).
+
 ## Overview
 
 The `LanguageModelChatProvider` interface follows a one-provider-to-many-models relationship, enabling providers to offer multiple models. Each provider is responsible for:
