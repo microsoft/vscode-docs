@@ -219,14 +219,24 @@ This setting lets you specify both allowed and denied commands in a single confi
 
 For example:
 
-```json
+```jsonc
 {
+  // Allow the `mkdir` command, regardless of arguments
   "mkdir": true,
-  "echo": true,
-  "/^git (status|show)\\b/": true,
-  "rm": false,
+  // Allow `test/scripts.sh`, since this contains a `/` it will also allow `\`
+  // and an optional `./` or `.\` prefix
+  "test/scripts.sh": true,
+  // Allow `git status` and all commands starting with `git show`
+  "/^git (status|show\\b.*)$/": true,
+
+  // Block the `del` command, regardless of arguments
   "del": false,
-  "/dangerous/": false
+  // Block any command containing the text "dangerous"
+  "/dangerous/": false,
+
+  // Unset the default `rm` rule to allow other rules to auto approve `rm`
+  // commands
+  "rm": null,
 }
 ```
 
@@ -236,7 +246,7 @@ For advanced scenarios, you can use object syntax to control whether patterns ma
 
 ```jsonc
 {
-  // Broad rule to block any command line that contains ".ps1"
+  // Broad rule to block any _command line_ that contains the text ".ps1"
   "/\\.ps1\\b/i": { "approve": false, "matchCommandLine": true }
 }
 ```
