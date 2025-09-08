@@ -114,6 +114,22 @@ Comments starting with `TODO` in your code now show a Code Action to quickly ini
 
 ## Track agent progress
 
+### Understanding the coding agent workflow
+
+When you assign work to Copilot coding agent, it follows a specific workflow that may differ from your expectations:
+
+1. **Initial pull request creation**: The agent immediately creates a pull request with an initial empty commit. This establishes the workspace and branch where all changes will be made.
+
+2. **Background processing**: The coding agent works in GitHub's cloud infrastructure (GitHub Actions environment), not on your local machine. This means:
+   * All development happens remotely on GitHub's servers
+   * The agent has access to the full repository context
+   * Work continues even when you close VS Code
+
+3. **Incremental updates**: After the initial commit, the agent will push additional commits with the actual code changes as it develops the solution.
+
+> [!NOTE]
+> If you see an initial commit with no changes, this is expected behavior. The agent will continue to push actual code changes in subsequent commits as it works on your task.
+
 ### Monitor work in VS Code
 
 The GitHub Pull Requests extension provides a dedicated **Copilot on My Behalf** section that shows:
@@ -242,6 +258,12 @@ Learn more about agent mode in its [documentation](/docs/copilot/chat/chat-agent
 * Verify Copilot access on your GitHub account
 * Ensure you have write permissions to the repository
 * Check that Copilot coding agent is enabled for your organization
+
+### Why does the initial commit appear empty?
+
+When Copilot coding agent starts working, it creates an initial empty commit to establish the pull request and working branch. This is expected behavior - the agent will push subsequent commits with actual code changes as it works in GitHub's cloud environment.
+
+You can monitor progress through the session logs accessible from the pull request, the GitHub Pull Request extension's **Copilot on My Behalf** section, or the Chat Sessions view.
 
 ### Why are implementations incomplete?
 
