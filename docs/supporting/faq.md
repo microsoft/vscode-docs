@@ -66,7 +66,7 @@ Performance is our core priority and we are committed to maintaining the perform
 
 ### Can I disable AI functionality in VS Code?
 
-You can disable the built-in AI features in VS Code with the `setting(chat.disableAIFeatures)` user setting, similar to how you configure other features in VS Code. This globally disables and hides features like chat or inline suggestions in VS Code and disables the Copilot extensions.
+You can disable the built-in AI features in VS Code with the `setting(chat.disableAIFeatures)` setting, similar to how you configure other features in VS Code. This disables and hides features like chat or inline suggestions in VS Code and disables the Copilot extensions. You can configure the setting at the workspace or user level.
 
 Alternatively, use the **Learn How to Hide AI Features** action from the Chat menu in the title bar to access the setting.
 
