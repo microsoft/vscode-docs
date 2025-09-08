@@ -154,6 +154,6 @@ Enable this functionality with the `setting(workbench.settings.showAISearchToggl
 
 ![Screenshot that shows the Settings editor showing AI-generated suggestions for settings.](images/copilot-smart-actions/settings-suggestions.png)
 
-## Related content
+## Related resources
 
 * [Get started with the Copilot Quickstart](/docs/copilot/getting-started.md).

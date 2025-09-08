@@ -258,7 +258,7 @@ To sync your user instructions files, enable Settings Sync for prompt and instru
 
 * Reuse and reference instructions files in your [prompt files](/docs/copilot/customization/prompt-files.md) and [chat modes](/docs/copilot/customization/custom-chat-modes.md) to keep them clean and focused, and to avoid duplicating instructions.
 
-## Related content
+## Related resources
 
 * [Customize AI responses overview](/docs/copilot/customization/overview.md)
 * [Create reusable prompt files](/docs/copilot/customization/prompt-files.md)

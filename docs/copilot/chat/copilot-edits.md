@@ -160,7 +160,7 @@ Consider the following criteria to choose between edit mode and agent mode:
 * **Non-deterministic**: agent mode evaluates the outcome of the generated edits and might iterate multiple times. As a result, agent mode can be more non-deterministic than edit mode.
 * **Request quota**: in agent mode, depending on the complexity of the task, one prompt might result in many requests to the backend.
 
-## Related content
+## Related resources
 
 * [Learn more about using chat in VS Code](/docs/copilot/chat/copilot-chat.md)
 * [Add context to your chat prompt](/docs/copilot/chat/copilot-chat-context.md)
