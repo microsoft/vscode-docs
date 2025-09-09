@@ -240,7 +240,7 @@ For example:
 }
 ```
 
-By default, commands and regular expressions are evaluated for every subcommand within the full command line, so `foo && bar` needs both `foo` and `bar` to match a `true` entry and must not match a `false` entry in order to auto-approve. This also applies to inline commands (for example, `echo $(rm file)`).
+By default, commands and regular expressions are evaluated for every subcommand within the full command line, so `foo && bar` needs both `foo` and `bar` to match a `true` entry and must not match a `false` entry in order to auto-approve.
 
 For advanced scenarios, you can use object syntax to control whether patterns match against individual subcommands or the full command line:
 
