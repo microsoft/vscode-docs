@@ -102,6 +102,9 @@ You can also hand off work to Copilot coding agent directly from your chat conve
 
 Comments starting with `TODO` in your code now show a Code Action to quickly initiate a coding agent session. This provides a convenient way to delegate specific tasks directly from your code.
 
+> [!TIP]
+> The `TODO` keyword is configurable via the `setting(githubIssues.createIssueTriggers)` setting. You can customize which comment keywords trigger the coding agent code action.
+
 1. Navigate to a `TODO` comment in your code
 
 1. Look for the light bulb icon or use `kb(editor.action.quickFix)` to open the Quick Fix menu
