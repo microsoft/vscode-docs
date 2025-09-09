@@ -78,7 +78,7 @@ Opening a terminal in a new window is possible in a few different ways:
 
 1. Use `kb(workbench.action.terminal.newInNewWindow)`
 2. Right-click the terminal tab if you have multiple terminals, or left-click the tab if you only have a single terminal opened. Then select **Move Terminal to New Window**
-3. Select the New Terminal Window entry that's available in several different menus
+3. Select the **New Terminal Window** entry that's available in several different menus
 
 ![Screenshot showing a terminal in its own separate window](images/basics/terminal-new-window.png)
 
