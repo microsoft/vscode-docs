@@ -62,6 +62,7 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 | `setting(github.copilot.chat.codesearch.enabled)` _(Preview)_<br/>When using `#codebase` in the prompt, Copilot automatically discovers relevant files to be edited. | `false` |
 | `setting(github.copilot.chat.edits.suggestRelatedFilesFromGitHistory)` _(Experimental)_<br/>Suggest related files from git history in chat context. | `true` |
 | `setting(chat.sendElementsToChat.enabled)` _(Experimental)_<br/>Enable sending elements from the Simple Browser to the chat view as context. | `true` |
+| `setting(chat.useAgentsMdFile)` _(Experimental)_<br/>Enable or disable using `AGENTS.md` files in the root of your workspace as context for chat requests. | `true` |
 
 ## Agent mode settings
 
