@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: aa6d312f-cbac-4633-8579-64d3cb4d17be
-DateApproved: 08/07/2025
+DateApproved: 09/11/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to creating a language model tool and how to implement tool calling in a chat extension

@@ -1,6 +1,6 @@
 ---
 ContentId: 3a33f35b-cded-4f7f-8674-6f2ba5fca023
-DateApproved: 08/07/2025
+DateApproved: 09/11/2025
 MetaDescription: A quick overview of the Visual Studio Code user interface. Learn about the editor, window management, and special UI to handle source control, extension management, full text search and more.
 ---
 # User interface

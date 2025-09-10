@@ -1,6 +1,6 @@
 ---
 ContentId: 8b4f3c21-4e02-4a89-9f15-7a8d6b5c2e91
-DateApproved: 08/07/2025
+DateApproved: 09/11/2025
 MetaDescription: Learn how to create custom instructions for GitHub Copilot Chat in VS Code to ensure AI responses match your coding practices, project requirements, and development standards.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---

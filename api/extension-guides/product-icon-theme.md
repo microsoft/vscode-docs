@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: f470466d-89b0-4115-ab7a-2448023b0a6d
-DateApproved: 08/07/2025
+DateApproved: 09/11/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to creating Product Icon Theme in Visual Studio Code

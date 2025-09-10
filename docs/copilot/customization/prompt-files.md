@@ -1,6 +1,6 @@
 ---
 ContentId: 5c8e7d42-9b1a-4f85-a3e2-6d5b8a9c1e43
-DateApproved: 08/07/2025
+DateApproved: 09/11/2025
 MetaDescription: Learn how to create reusable prompt files for GitHub Copilot Chat in VS Code to standardize common development tasks and improve your coding workflow efficiency.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---

@@ -1,6 +1,6 @@
 ---
 ContentId: 0aefcb70-7884-487f-953e-46c3e07f7cbe
-DateApproved: 08/07/2025
+DateApproved: 09/11/2025
 MetaDescription: Copilot is your AI pair programmer tool in Visual Studio Code. Get code suggestions as you type in the editor, or use natural language chat to ask about your code or start an editing session for implementing new feature and fixing bugs.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
