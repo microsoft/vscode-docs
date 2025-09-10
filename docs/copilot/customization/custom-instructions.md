@@ -15,7 +15,7 @@ You can configure custom instructions to apply automatically to all chat request
 
 ## Type of instructions files
 
-VS Code supports two types of Markdown-based instructions files:
+VS Code supports multiple types of Markdown-based instructions files:
 
 * A single [`.github/copilot-instructions.md`](#use-a-githubcopilotinstructionsmd-file) file
     * Automatically applies to all chat requests in the workspace
@@ -25,6 +25,11 @@ VS Code supports two types of Markdown-based instructions files:
     * Created for specific tasks or files
     * Use `applyTo` frontmatter to define what files the instructions should be applied to
     * Stored in the workspace or user profile
+
+* `AGENTS.md` file (experimental) (`setting(chat.useAgentsMdFile)`)
+    * Useful if you work with multiple AI agents in your workspace
+    * Automatically applies to all chat requests in the workspace
+    * Stored in the root of the workspace
 
 Whitespace between instructions is ignored, so the instructions can be written as a single paragraph, each on a new line, or separated by blank lines for legibility.
 
