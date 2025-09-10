@@ -174,6 +174,8 @@ To give you relevant inline suggestions, Copilot looks at the current and open f
 
 * `setting(github.copilot.nextEditSuggestions.fixes)` - enable next edit suggestions based on diagnostics (squiggles). For example, missing imports.
 
+* `setting(editor.inlineSuggest.minShowDelay)` - Time in milliseconds to wait before showing inline suggestions. Default is `0`.
+
 ## Next steps
 
 * Discover the key features in the [Quickstart](/docs/copilot/getting-started.md).
