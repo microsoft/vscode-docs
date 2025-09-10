@@ -35,7 +35,7 @@ Use prompt files to:
 
 ### Chat modes
 
-[Chat modes](/docs/copilot/customization/custom-chat-modes.md) let you define the boundaries in which chat operates: which tools it can use, the suggested language model, and how it interacts with the codebase.
+[Chat modes](/docs/copilot/customization/custom-chat-modes.md) are a way to create a specialist assistant for specific roles or tasks, like a database administrator, front-end development, or planning. Within a chat mode Markdown file, you describe its scope and capabilities, which tools it can access, and a preferred language model.
 
 Use chat modes to:
 

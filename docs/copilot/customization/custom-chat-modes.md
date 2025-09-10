@@ -6,7 +6,7 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Use chat modes in VS Code
 
-Chat modes are predefined configurations that enable you to tailor the chat behavior in Visual Studio Code for specific workflows or have chat assume a specific persona. VS Code comes with three built-in chat modes: **Ask**, **Edit**, and **Agent**. You can create custom chat modes for specialized workflows like planning features, conducting code reviews, or researching implementation options.
+Chat modes are a way to create specialist AI agents that enable you to tailor the chat behavior in Visual Studio Code for specific tasks or roles. VS Code comes with three built-in chat modes: **Ask**, **Edit**, and **Agent**. You can create custom chat modes for specialized workflows like planning features, conducting code reviews, or researching implementation options.
 
 ## Switch between chat modes
 
@@ -49,7 +49,7 @@ Chat mode files are Markdown files and use the `.chatmode.md` extension and have
 
 * **Body**: Chat mode details and instructions in Markdown format
 
-    This is where you provide specific prompts, guidelines, or any other relevant information that you want the AI to follow when in this chat mode. 
+    This is where you provide specific prompts, guidelines, or any other relevant information that you want the AI to follow when in this chat mode.
 
     Reference instructions files by using Markdown links. The chat mode instructions will complement whatever is specified in the chat prompt.
 
