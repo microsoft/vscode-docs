@@ -1,6 +1,6 @@
 ---
 ContentId: f0f31de2-a344-4ee6-8d5b-d3ac4e11e149
-DateApproved: 08/07/2025
+DateApproved: 09/11/2025
 MetaDescription: Use smart actions in VS Code to get help from AI for common development tasks, such as generating commit messages, renaming symbols, or fixing coding errors.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -13,6 +13,16 @@ For several common scenarios, you can use _smart actions_ to get help from AI wi
 Get help generating commit messages and pull request (PR) titles and descriptions based on your code changes. Use the _sparkle_ icon in the Source Control view or GitHub PR extension to generate a title and description that summarizes your changes.
 
 ![Hover over Source Control input box sparkle buttons shows Generate Commit Message](images/copilot-smart-actions/generate-commit-message.png)
+
+## Implement todo comments
+
+If you have the [GitHub Pull Requests](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension installed, you can use AI to implement `TODO` comments in your code with [Copilot coding agent](/docs/copilot/copilot-coding-agent.md).
+
+1. Make sure you have the [GitHub Pull Requests](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension installed.
+1. Add a `TODO` comment in your code. A code action (lightbulb) appears next to the comment.
+1. Select the code action and select **Delegate to coding agent**.
+
+    ![Screenshot that shows a Code Action menu with Start Coding Agent option for a TODO comment.](images/copilot-smart-actions/start-coding-agent-todo.png)
 
 ## Rename symbols
 
@@ -60,7 +70,7 @@ Get help with explaining a block of code in the editor.
 
 1. Open your application code file.
 1. Select the code you want to fix.
-1. Right-click and select **Generate Code** > **Explain**.
+1. Right-click and select **Explain**.
 
     VS Code provides an explanation of the selected block of code.
 
@@ -111,7 +121,7 @@ To review a code block in the editor:
 
 1. Open your application code file.
 1. Select the code you want to fix.
-1. Right-click and select **Generate Code** > **Review and Comment**.
+1. Right-click and select **Generate Code** > **Review**.
 
     VS Code creates review comments in the **Comments** panel and also shows them inline in the editor.
 
@@ -136,7 +146,7 @@ You can also get AI-generated keyword suggestions in the Search view to provide 
 
 You can reference search results in your chat prompt by selecting **Get results from the search view** from the **Add Context** Quick Pick. Alternatively, type `#searchResults` in the chat prompt.
 
-## Search settings with AI (Experimental)
+## Search settings with AI
 
 If you don't know the exact name of a setting you want to change, you can use AI to help find the relevant settings based on your search query. For example, you can search for "increase text size" to find the setting that controls the editor font size.
 
@@ -144,6 +154,6 @@ Enable this functionality with the `setting(workbench.settings.showAISearchToggl
 
 ![Screenshot that shows the Settings editor showing AI-generated suggestions for settings.](images/copilot-smart-actions/settings-suggestions.png)
 
-## Related content
+## Related resources
 
 * [Get started with the Copilot Quickstart](/docs/copilot/getting-started.md).

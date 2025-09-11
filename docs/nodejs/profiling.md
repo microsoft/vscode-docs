@@ -1,6 +1,6 @@
 ---
 ContentId: 3DAE803B-D479-4143-976F-B69F00A73891
-DateApproved: 08/07/2025
+DateApproved: 09/11/2025
 MetaDescription: Learn more about profiling your JavaScript performance in the Visual Studio Code editor.
 ---
 # Performance Profiling JavaScript

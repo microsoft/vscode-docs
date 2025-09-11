@@ -7,7 +7,6 @@ import * as vscode from 'vscode';
 import { BasePromptElementProps, PromptElement, renderElementJSON } from '@vscode/prompt-tsx';
 import { createLanguageModelToolResult } from './utils';
 import { getReleaseFeatures, ReleaseFeature } from './queries';
-import path from 'path';
 
 interface GetReleaseFeaturesResultSuccessProps extends BasePromptElementProps {
 	readonly result: {

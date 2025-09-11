@@ -1,6 +1,6 @@
 ---
 ContentId: 3a33f35b-cded-4f7f-8674-6f2ba5fca023
-DateApproved: 08/07/2025
+DateApproved: 09/11/2025
 MetaDescription: A quick overview of the Visual Studio Code user interface. Learn about the editor, window management, and special UI to handle source control, extension management, full text search and more.
 ---
 # User interface
@@ -332,7 +332,7 @@ You can drag and drop tabs to reorder them. To perform an action on multiple tab
 
 When you have more open items than can fit in the title area, you can use the **Open Editors** section in the Explorer view (available through the `...` button) to display a dropdown list of tabbed items.
 
-There is also a scroll bar between the tab and editor regions to drag editors into view. You can increase the height of the scroll bar to make it easier to drag by setting **Workbench > Editor: Title Scrollbar Sizing** (`setting(workbench.editor.titleScrollbarSizing)`) to `large`.
+There is also a scroll bar between the tab and editor regions to drag editors into view. You can increase the height of the scroll bar to make it easier to drag by setting **Workbench > Editor: Title Scrollbar Sizing** (`setting(workbench.editor.titleScrollbarSizing)`) to `large`. Use the `setting(workbench.editor.titleScrollbarVisibility)` setting to control the visibility of the scrollbar.
 
 If you don't want to use tabs, you can disable the feature by setting the `setting(workbench.editor.showTabs)` setting to `single`:
 
@@ -358,6 +358,8 @@ For example, you might like new tabbed items to appear on the left:
 You can reorder tabs by dragging and dropping them.
 
 If you'd like an editor tab to always be visible, you can pin it to the editor tab bar. Learn more about pinning tabs in the [Custom Layout](/docs/configure/custom-layout.md#pinned-tabs) article.
+
+The `setting(workbench.editor.showTabIndex)` setting enables you to show the index of each tab in the tab header. This makes it easy to see which number to use with the `kbstyle(Ctrl)` (`kbstyle(Cmd)` on macOS) + number keyboard shortcut to quickly switch to a specific tab.
 
 ### Preview mode
 

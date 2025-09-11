@@ -1,6 +1,6 @@
 ---
 ContentId: FDA6D86C-FF24-49BC-A1EB-E3BA43130FA0
-DateApproved: 08/07/2025
+DateApproved: 09/11/2025
 MetaDescription: How to modify Visual Studio Code User and Workspace Settings.
 ---
 # User and workspace settings

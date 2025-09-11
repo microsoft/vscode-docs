@@ -1,6 +1,6 @@
 ---
 ContentId: C26E4F82-C6CD-4C52-818F-31A95F58207E
-DateApproved: 08/07/2025
+DateApproved: 09/11/2025
 MetaDescription: Working with Jupyter code cells in the Python Interactive window
 MetaSocialImage: images/tutorial/python-social.png
 ---

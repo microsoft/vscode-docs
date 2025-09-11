@@ -180,3 +180,26 @@ async function gql(): Promise<GraphqlClient> {
 		},
 	});;
 }
+
+export async function getCurrentMilestoneName(): Promise<string | undefined> {
+	const session = await vscode.authentication.getSession('microsoft', ['api://3834c68c-adcc-4ad8-818a-8fca4cc260be/.default'], {
+		createIfNone: true
+	});
+
+	const response = await fetch('https://tools.code.visualstudio.com/api/milestones/current', {
+		headers: {
+			'Authorization': `Bearer ${session.accessToken}`,
+			'Content-Type': 'application/json'
+		}
+	});
+
+	if (!response.ok) {
+		if (response.status === 404) {
+			return undefined;
+		}
+		throw new Error(`Failed to fetch team members: ${response.status} ${response.statusText}`);
+	}
+
+	const currentMilestone = await response.json() as { title: string };
+	return currentMilestone.title;
+}
