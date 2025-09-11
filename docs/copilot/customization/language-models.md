@@ -32,7 +32,7 @@ If you have a paid Copilot plan, the model picker shows the premium request mult
 ## Auto model selection (Preview)
 
 > [!NOTE]
-> Auto model selection is available as of VS Code release 1.104 and is currently in preview. We are rolling out Auto to all GitHub Copilot SKUs in the following weeks, starting with the [individual GitHub Copilot plans](https://docs.github.com/en/copilot/concepts/billing/individual-plans).
+> Auto model selection is available as of VS Code release 1.104 and is currently in preview. We are rolling out Auto to all GitHub Copilot users in VS Code in the following weeks, starting with the [individual GitHub Copilot plans](https://docs.github.com/en/copilot/concepts/billing/individual-plans).
 
 With auto model selection, VS Code automatically selects the best model for your task based on available capacity. It detects degraded model performance and uses the best model at that point in time. This ensures that you get the best performance and helps avoid rate limiting due to excessive usage of particular language models. We continue to improve this feature to pick the most suitable model for your needs.
 
