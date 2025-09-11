@@ -1,6 +1,6 @@
 ---
 ContentId: 7E22CCC0-2AB8-4729-A4C9-BE2B16853820
-DateApproved: 08/07/2025
+DateApproved: 09/11/2025
 MetaDescription: Visual Studio Code source control management with integrated Git support.
 ---
 # Using Git source control in VS Code
@@ -169,6 +169,59 @@ The **Git: Create Branch** command lets you quickly create a new branch. Just pr
 
 > [!TIP]
 > VS Code can automatically save and restore open editors when you switch to another branch. Use the `setting(scm.workingSets.enabled)` setting to enable this feature. To control the open editors when switching to a branch for the first time, you can use the `setting(scm.workingSets.default)` setting.
+
+## Worktrees
+
+VS Code has built-in support for [Git worktrees](https://git-scm.com/docs/git-worktree), making it easy to manage and work with multiple branches at the same time.
+
+> [!NOTE]
+> You can disable automatic worktree detection by toggling the `setting(git.detectWorktrees)` setting.
+
+### Create a worktree
+
+You can create a new worktree directly from the **Source Control Repositories** view or by using the **Git: Create Worktree** command in the Command Palette (`kb(workbench.action.showCommands)`).
+
+1. In the Source Control view, select **...** > **Repositories** to open the Source Control Repositories view.
+
+    ![Screenshot that shows the Repositories option in the Source Control view.](images/overview/source-control-view-repositories.png)
+
+1. Right-click on a repository, and select **Worktrees** > **Create Worktree...**
+
+    ![Screenshot that shows the Create Worktree option in the context menu of a repository in the Source Control Repositories view.](images/overview/worktree-create.png)
+
+1. Follow the prompts to choose a branch and location for the new worktree.
+
+    VS Code creates a new folder for the worktree at the specified location and checks out the selected branch into that folder.
+
+    The Source Control Repositories view shows the newly created worktree under its parent repository. VS Code distinguishes between repositories, submodules, and worktrees, showing their relationships for better clarity.
+
+### Open a worktree
+
+There are multiple ways to open a worktree:
+
+* Directly open the folder associated with the worktree in VS Code. VS Code automatically detects that it's a worktree of an existing repository.
+
+* Right-click the worktree in the Source Control Repositories view and select **Open Worktree in New Window** or **Open Worktree in Current Window**.
+
+* Run the **Git: Open Worktree in Current Window** or **Git: Open Worktree in New Window** command in the Command Palette and select the desired worktree.
+
+### Manage worktrees
+
+All detected worktrees are shown in the Source Control Repositories view, grouped under their parent repository.
+
+When you select a worktree in the list, the Changes view shows the pending changes for that worktree.
+
+To delete a worktree, right-click it in the list and select **Delete Worktree**. Alternatively, run the **Git: Delete Worktree** command in the Command Palette.
+
+### Compare and migrate changes from a worktree
+
+When you make changes in a worktree, you can compare those changes with your main workspace and bring worktree changes back into your main repository.
+
+1. In the **Source Control** view, right-click a changed file in the worktree and select **Compare with Workspace** to see the differences side-by-side.
+
+    ![Screenshot that shows the Compare with Workspace option in the context menu of a changed file in a worktree.](images/overview/worktree-compare-changes.png)
+
+1. After reviewing, use the **Migrate Worktree Changes...** command from the Command Palette to merge all changes from a worktree into your current workspace.
 
 ## Remotes
 

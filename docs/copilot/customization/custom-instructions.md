@@ -1,6 +1,6 @@
 ---
 ContentId: 8b4f3c21-4e02-4a89-9f15-7a8d6b5c2e91
-DateApproved: 08/07/2025
+DateApproved: 09/11/2025
 MetaDescription: Learn how to create custom instructions for GitHub Copilot Chat in VS Code to ensure AI responses match your coding practices, project requirements, and development standards.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -15,7 +15,7 @@ You can configure custom instructions to apply automatically to all chat request
 
 ## Type of instructions files
 
-VS Code supports two types of Markdown-based instructions files:
+VS Code supports multiple types of Markdown-based instructions files:
 
 * A single [`.github/copilot-instructions.md`](#use-a-githubcopilotinstructionsmd-file) file
     * Automatically applies to all chat requests in the workspace
@@ -25,6 +25,11 @@ VS Code supports two types of Markdown-based instructions files:
     * Created for specific tasks or files
     * Use `applyTo` frontmatter to define what files the instructions should be applied to
     * Stored in the workspace or user profile
+
+* `AGENTS.md` file (experimental) (`setting(chat.useAgentsMdFile)`)
+    * Useful if you work with multiple AI agents in your workspace
+    * Automatically applies to all chat requests in the workspace
+    * Stored in the root of the workspace
 
 Whitespace between instructions is ignored, so the instructions can be written as a single paragraph, each on a new line, or separated by blank lines for legibility.
 
@@ -258,7 +263,7 @@ To sync your user instructions files, enable Settings Sync for prompt and instru
 
 * Reuse and reference instructions files in your [prompt files](/docs/copilot/customization/prompt-files.md) and [chat modes](/docs/copilot/customization/custom-chat-modes.md) to keep them clean and focused, and to avoid duplicating instructions.
 
-## Related content
+## Related resources
 
 * [Customize AI responses overview](/docs/copilot/customization/overview.md)
 * [Create reusable prompt files](/docs/copilot/customization/prompt-files.md)

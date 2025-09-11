@@ -1,6 +1,6 @@
 ---
 ContentId: 16c73175-a606-4aab-8ae5-a507
-dateApproved: 08/07/2025
+DateApproved: 09/11/2025
 MetaDescription: Learn how to customize GitHub Copilot Chat with custom instructions, reusable prompt files, and custom chat modes to align AI responses with your coding practices and project requirements.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -35,7 +35,7 @@ Use prompt files to:
 
 ### Chat modes
 
-[Chat modes](/docs/copilot/customization/custom-chat-modes.md) let you define the boundaries in which chat operates: which tools it can use, the suggested language model, and how it interacts with the codebase.
+[Chat modes](/docs/copilot/customization/custom-chat-modes.md) are a way to create a specialist assistant for specific roles or tasks, like a database administrator, front-end development, or planning. Within a chat mode Markdown file, you describe its scope and capabilities, which tools it can access, and a preferred language model.
 
 Use chat modes to:
 

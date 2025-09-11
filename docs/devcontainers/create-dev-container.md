@@ -1,7 +1,7 @@
 ---
 ContentId: bae55561-1032-40d4-b6a6-47054da96098
 MetaDescription: Create a development container using Visual Studio Code Remote Development
-DateApproved: 08/07/2025
+DateApproved: 09/11/2025
 ---
 # Create a Dev Container
 

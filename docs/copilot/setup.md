@@ -1,6 +1,6 @@
 ---
 ContentId: 37fd3bd2-4209-49f6-bec5-c544d6b1b289
-DateApproved: 08/07/2025
+DateApproved: 09/11/2025
 MetaDescription: Access your GitHub Copilot subscription and set up GitHub Copilot in Visual Studio.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -59,25 +59,17 @@ If your Copilot subscription is associated with another GitHub account, follow t
 
 ## Remove AI features from VS Code
 
-To remove the built-in AI features from VS Code, run the **Chat: Hide AI Features** command from the Command Palette (`kb(workbench.action.showCommands)`) or select the **Hide AI Features** option from the Copilot menu in the VS Code title bar.
+You can disable the built-in AI features in VS Code with the `setting(chat.disableAIFeatures)` setting, similar to how you configure other features in VS Code. This disables and hides features like chat or inline suggestions in VS Code and disables the Copilot extensions. You can configure the setting at the workspace or user level.
+
+Alternatively, use the **Learn How to Hide AI Features** action from the Chat menu in the title bar to access the setting.
 
 > [!NOTE]
-> If you have already installed the Copilot extensions, you need to first uninstall the Copilot and Copilot Chat extensions before you can remove the AI features.
-
-To restore the built-in AI features in VS Code, run the **Chat: Use AI Features with Copilot for free** command from the Command Palette (`kb(workbench.action.showCommands)`).
+> If you have previously disabled the built-in AI features, your choice is respected upon updating to a new version of VS Code.
 
 ## Disable AI features for a workspace
 
-To disable AI features for a specific workspace:
-
-1. Open the Extensions view in VS Code (`kb(workbench.view.extensions)`).
-1. Search for the **GitHub Copilot** extension.
-1. Select the gear icon and then select **Disable (Workspace)**.
-1. Select **Restart extensions**.
-1. You can re-enable it later by selecting the **Enable (Workspace)** button that appears after restarting extensions.
-
-![Screenshot that shows the GitHub Copilot extension in the Extensions view, with the option to disable it for the workspace.](images/setup/copilot-disable-workspace.png)
+To disable AI features for a specific workspace, configure the `setting(chat.disableAIFeatures)` setting in workspace settings. This setting is available in the Settings editor (`kb(workbench.action.openSettings)`), or you can edit the `settings.json` file in the workspace.
 
 ## Next steps
 
-- Continue with the [Copilot Quickstart](/docs/copilot/getting-started.md) to discover the key features of Copilot in VS Code.
+- Continue with the [Quickstart for using AI](/docs/copilot/getting-started.md) to discover the key features for AI-powered development in VS Code.
