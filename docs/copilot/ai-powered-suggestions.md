@@ -1,6 +1,6 @@
 ---
 ContentId: 7ab2cd6c-45fd-4278-a6e8-1c9e060593ea
-DateApproved: 08/07/2025
+DateApproved: 09/11/2025
 MetaDescription: Enhance your coding with AI-powered code completions from GitHub Copilot in Visual Studio Code.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -59,13 +59,13 @@ The following example shows how to instruct Copilot to create a class in TypeScr
 
 ![Use code comments to let Copilot generate a Student class in TypeScript with properties and methods.](images/inline-suggestions/ts-suggest-code-comment.png)
 
-## Next Edit Suggestions
+## Next edit suggestions
 
-Inline suggestions are great at autocompleting a section of code. But since most coding activity is editing existing code, it's a natural evolution of Copilot code completions to also help with edits, both at the cursor and further away. Edits are often not made in isolation - there's a logical flow of what edits need to be made in different scenarios. Copilot next edit suggestions (Copilot NES) is this evolution.
+Inline suggestions are great at autocompleting a section of code. But since most coding activity is editing existing code, it's a natural evolution of Copilot code completions to also help with edits, both at the cursor and further away. Edits are often not made in isolation - there's a logical flow of what edits need to be made in different scenarios. Next edit suggestions (Copilot NES) is this evolution.
 
-<video src="./images/inline-suggestions/nes-video.mp4" title="Copilot NES video" controls poster="./images/inline-suggestions/point3d.png"></video>
+<video src="./images/inline-suggestions/nes-video.mp4" title="Video showing next edit suggestions in action on a Point typescript class." autoplay loop controls muted poster="./images/inline-suggestions/point3d.png"></video>
 
-Based on the edits you're making, Copilot NES both predicts the location of the next edit you'll want to make and what that edit should be. Copilot NES helps you stay in the flow, suggesting future changes relevant to your current work, and you can simply `kbstyle(Tab)` to quickly navigate and accept Copilot's suggestions. Suggestions may span a single symbol, an entire line, or multiple lines, depending on the scope of the potential change.
+Based on the edits you're making, next edit suggestions both predicts the location of the next edit you'll want to make and what that edit should be. Copilot NES helps you stay in the flow, suggesting future changes relevant to your current work, and you can simply `kbstyle(Tab)` to quickly navigate and accept Copilot's suggestions. Suggestions may span a single symbol, an entire line, or multiple lines, depending on the scope of the potential change.
 
 To get started with Copilot NES, enable the VS Code setting `setting(github.copilot.nextEditSuggestions.enabled)`.
 
@@ -73,22 +73,18 @@ To get started with Copilot NES, enable the VS Code setting `setting(github.copi
 
 You can quickly navigate to suggested code changes with the `kbstyle(Tab)` key, saving you time to find the next relevant edit (no manual searching through files or references required). You can then accept a suggestion with the `kbstyle(Tab)` key again.
 
-An arrow in the gutter indicates if there is an edit suggestion available. You can hover over the arrow to explore the edit suggestion menu, which includes keyboard shortcuts and settings configuration:
+An arrow in the gutter indicates if there is an edit suggestion available. The arrow indicates where the next edit suggestion is located, relative to your current cursor position.
+
+You can hover over the arrow to explore the edit suggestion menu, which includes keyboard shortcuts and settings configuration:
 
 ![Copilot NES gutter menu expanded](./images/inline-suggestions/gutter-menu-highlighted-updated.png)
-
-If an edit suggestion is below the current editor view, the arrow will point down instead of right:
-
-![Copilot NES with arrow directions changing](./images/inline-suggestions/nes-arrow-directions.gif)
 
 > [!IMPORTANT]
 > If you are a [VS Code vim extension](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim) user, please use the latest version of the extension to avoid any conflicts in keybindings with NES.
 
 ### Reduce distractions by edit suggestions
 
-By default, edit suggestions are indicated by the gutter arrow and the code changes are shown in the editor. If you prefer to reduce distractions, you can disable showing the code changes in the editor until you press the `kbstyle(Tab)` key to navigate to the suggestion or until you hover over the gutter arrow.
-
-To disable showing the code changes in the editor, enable the `setting(editor.inlineSuggest.edits.showCollapsed)` setting in the Settings editor. Alternatively, hover over the gutter arrow and select the **Show Collapsed** option from the menu. To re-enable showing the code changes, disable the setting or select **Show Expanded** from the gutter arrow menu.
+By default, edit suggestions are indicated by the gutter arrow and the code changes are shown in the editor. Enable the `setting(editor.inlineSuggest.edits.showCollapsed)` setting to show the code changes in the editor only until you press the `kbstyle(Tab)` key to navigate to the suggestion or until you hover over the gutter arrow. Alternatively, hover over the gutter arrow and select the **Show Collapsed** option from the menu.
 
 ### Use cases for next edit suggestions
 
@@ -96,61 +92,39 @@ To disable showing the code changes in the editor, enable the `setting(editor.in
 
 * **Copilot helps with simple mistakes like typos.** It'll suggest fixes where letters are missing or swapped, like `cont x = 5` or `conts x = 5`, which should've been `const x = 5`.
 
-    ![Copilot NES fixing a typo from "conts" to "const"](./images/inline-suggestions/nes-typo.gif)
+    ![NES fixing a typo from "conts" to "const"](./images/inline-suggestions/nes-typo.png)
 
 * **Copilot can also help with more challenging mistakes in logic**, like an inverted ternary expression:
 
-    ![Copilot NES fixing a fibonacci logic mistake](./images/inline-suggestions/nes-fib-logic.gif)
+    ![NES fixing a ternary logic mistake](./images/inline-suggestions/nes-ternary-logic.png)
 
     Or a comparison that should've used `&&` instead of `||`:
 
-    ![Copilot NES fixing an if statement mistake](./images/inline-suggestions/nes-de-morgan.gif)
+    ![NES fixing an if statement mistake](./images/inline-suggestions/nes-de-morgan.png)
 
 **Changing intent**
 
 * **Copilot suggests changes to the rest of your code that match a new change in intent.** For example, when changing a class from `Point` to `Point3D`, Copilot will suggest to add a `z` variable to the class definition. After accepting the change, Copilot NES next recommends adding `z` to the distance calculation:
 
-    ![Copilot NES gif for updating Point to Point3D](./images/inline-suggestions/nes-point.gif)
-    <!-- ![Copilot NES for updating Point to Point3D](./images/inline-suggestions/point3d.png)
-
-    ![Copilot NES for adding z to distance calculation of Point3D](./images/inline-suggestions/point3d-distance.png) -->
-
-**Adding new variables or logic**
-
-* **Using newly added arguments, variables, or functions**. Copilot helps you use new code you just added. This may be a small change, like calling a new method parameter in the actual method.
-
-    It could also be more complex: if you added a new command to your VS Code extension's `extension.ts`, Copilot will first suggest to clean up the command in `extension.ts`. Then when you open `package.json`, Copilot suggests registering that command as well:
-
-    ![Updating extension.ts and package.json with a new command](./images/inline-suggestions/nes-extension-and-package.gif)
-
-    <!-- ![Add command in package.json](./images/inline-suggestions/add-disposable.png)
-    ![Add command in package.json](./images/inline-suggestions/call-disposable-full.png) -->
+    ![NES gif for updating Point to Point3D](./images/inline-suggestions/nes-point.png)
 
 **Refactoring**
 
 * **Rename a variable once in a file, and Copilot will suggest to update it everywhere else.** If you use a new name or naming pattern, Copilot suggests to update subsequent code similarly.
 
-    ![Copilot NES suggesting change after updating function name](./images/inline-suggestions/nes-gutter.gif)
+    ![Copilot NES suggesting change after updating function name](./images/inline-suggestions/nes-rename.png)
 
 * **Matching code style**. After copy-pasting some code, Copilot will suggest how to adjust it to match the current code where the paste happened.
 
 ## Enable or disable code completions
 
-You can enable or disable code completions either for all languages or for specific languages only.
-
-* To enable or disable code completions, select the Copilot menu in the Status Bar, and then check or uncheck the options to enable or disable code completions.
-
-    The option to disable code completions for a specific language is dependent on the language of the active editor.
-
-    ![Screenshot of the Copilot menu in the Status Bar with checkboxes to enabled or disable code completions and NES.](images/inline-suggestions/copilot-menu-status-bar.png)
-
-* Alternatively, modify the `setting(github.copilot.enable)` setting in the Settings editor.
-
-    Add an entry for each language you want to enable or disable code completions for. To enable or disable code completions for all languages, set the value for `*` to `true` or `false`.
-
-With the snooze functionality, you can temporarily disable all code completions in the editor. To snooze code completions, select the Copilot menu in the Status Bar, and then select the **Snooze** button to increment the snooze time by five minutes. To resume code completions, select the **Cancel Snooze** button in the Copilot menu.
+You can enable or disable code completions either for all languages or for specific languages only. To enable or disable code completions, select the Copilot menu in the Status Bar, and then check or uncheck the options to enable or disable code completions. The option to disable code completions for a specific language is dependent on the language of the active editor.
 
 ![Screenshot of the Copilot menu in the Status Bar with Snooze and Cancel Snooze buttons.](images/inline-suggestions/snooze-code-completions.png)
+
+Alternatively, modify the `setting(github.copilot.enable)` setting in the Settings editor. Add an entry for each language you want to enable or disable code completions for. To enable or disable code completions for all languages, set the value for `*` to `true` or `false`.
+
+To temporarily disable all code completions in the editor, select the Copilot menu in the Status Bar, and then select the **Snooze** button to increment the snooze time by five minutes. To resume code completions, select the **Cancel Snooze** button in the Copilot menu.
 
 Alternatively, use the **Snooze Inline Suggestions** and **Cancel Snooze Inline Suggestions** commands in the Command Palette.
 
@@ -165,8 +139,6 @@ To change the language model that is used for generating code completions in the
 1. Type **change completions model** and select the **GitHub Copilot: Change Completions Model** command.
 
 1. In the dropdown menu, select the model you want to use.
-
-Alternatively, if Command Center is enabled, you can click the Copilot menu in the VS Code title bar, then click **Configure Code Completions** in the dropdown menu. Then choose **Change Completions Model...** in the dropdown menu and select the model you want to use.
 
 > [!NOTE]
 > The list of available models might vary and change over time. The model picker may not always show more than one model, and preview models and additional code completion models will become available there if/when we release them. If you are a Copilot Business or Enterprise user, your Administrator needs to enable certain models for your organization by opting in to `Editor Preview Features` in the [Copilot policy settings](https://docs.github.com/en/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) on GitHub.com.
@@ -199,6 +171,10 @@ To give you relevant inline suggestions, Copilot looks at the current and open f
 
      * **auto (default)**: show larger edit suggestions side-by-side if there is enough space in the viewport, otherwise the suggestions are shown below the relevant code.
      * **never**: never show suggestions side-by-side, always show suggestions below the relevant code.
+
+* `setting(github.copilot.nextEditSuggestions.fixes)` - enable next edit suggestions based on diagnostics (squiggles). For example, missing imports.
+
+* `setting(editor.inlineSuggest.minShowDelay)` - Time in milliseconds to wait before showing inline suggestions. Default is `0`.
 
 ## Next steps
 

@@ -9,17 +9,6 @@
   },
   "main": "./dist/extension.js",
   "contributes": {
-    "configuration": {
-      "title": "VS Code Doc Assistant",
-      "properties": {
-        "doc-assistant.milestone": {
-          "type": "string",
-          "default": "",
-          "description": "The milestone to use when generating release notes (e.g., 'v1.95').",
-          "scope": "resource"
-        }
-      }
-    },
     "languageModelTools": [
       {
         "name": "getCurrentMilestone",
