@@ -12,13 +12,15 @@ Author: Isidor Nikolic
 
 September 15th, 2025 by [Isidor Nikolic](https://github.com/isidorn), [@isidorn]( https://x.com/isidorn)
 
-Faster responses, a lower chance of rate limiting, and 10% off premium requests for paid users - auto picks the best available model for each request based on current capacity and performance. With auto you can’t choose a specific model; auto manages that for you. Auto model selection in Chat is being rolled out in preview to all GitHub Copilot users, starting with the individual plans.
+Faster responses, a lower chance of rate limiting, and 10% off premium requests for paid users - auto picks the best available model for each request based on current capacity and performance. With auto you can’t choose a specific model, auto handles that for you. Auto model selection in Chat is being rolled out in preview to all GitHub Copilot users in VS Code, starting with the individual plans.
 
 <video src="auto-model-selection.mp4" title="Video demonstrating auto model selection in VS Code." autoplay muted controls></video>
 
 ## How auto model selection works
 
-Auto selects the best model to ensure that you get the optimal performance and reduce the likelihood of rate limits. Auto will choose between Claude Sonnet 4, GPT-5, GPT-5 mini and other models, unless your organization has [disabled access to these models](https://docs.github.com/en/copilot/how-tos/use-ai-models/configure-access-to-ai-models). Once auto picks a model, it uses that same model for the entire chat session. As we introduce picking models based on task complexity, this behavior will change over the next iterations. For paid users, we currently plan to primarily rely on Claude Sonnet 4 as the model powering auto.
+Auto selects the best model to ensure that you get the optimal performance and reduce the likelihood of rate limits. Auto will choose between Claude Sonnet 4, GPT-5, GPT-5 mini and other models, unless your organization has [disabled access to these models](https://docs.github.com/en/copilot/how-tos/use-ai-models/configure-access-to-ai-models). Once auto picks a model, it uses that same model for the entire chat session. As we introduce picking models based on task complexity, this behavior will change over the next iterations.
+
+For paid users, we currently plan to primarily rely on Claude Sonnet 4 as the model powering auto.
 
 ![Screenshot that shows the model picker in the Chat view, showing the auto option.](autoDropdown.png)
 
