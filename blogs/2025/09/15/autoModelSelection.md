@@ -22,7 +22,7 @@ Auto selects the best model to ensure that you get the optimal performance and r
 
 ![Screenshot that shows the model picker in the Chat view, showing the auto option.](autoDropdown.png)
 
-When using auto model selection, VS Code uses a variable [model multiplier](https://docs.github.com/en/copilot/concepts/billing/copilot-requests#model-multipliers), based on the automatically selected model. If you are a paid user, auto will apply a 10% request discount. For example, if auto selects Sonnet 4 it will be counted as 0.9x of a premium request, and if auto selects GPT-5-mini it will be counted as 0x (since it is included for paid users). You can see which model and model multiplier are used by hovering over the chat response.
+When using auto model selection, VS Code uses a variable [model multiplier](https://docs.github.com/en/copilot/concepts/billing/copilot-requests#model-multipliers) based on the automatically selected model. If you are a paid user, auto applies a 10% request discount. For example, if auto selects Sonnet 4, it will be counted as 0.9x of a premium request; if auto selects GPT-5-mini, this counts as 0x because the model is included for paid users. You can see which model and model multiplier are used by hovering over the chat response.
 
 If you are a paid user and run out of premium requests, auto will always choose a 0x model (e.g. GPT-5-mini) so you can continue using auto.
 
