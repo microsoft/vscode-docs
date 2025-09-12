@@ -2,7 +2,7 @@
 Order: 106
 TOCTitle: "Introducing auto model selection (preview)"
 PageTitle: "Introducing auto model selection (preview)"
-MetaDescription: Faster responses, a lower chance of rate limiting, and 10% off premium requests for paid users - auto picks the best available model for each request based on current capacity and performance. With auto you can’t choose a specific model; auto manages that for you.
+MetaDescription: Use auto model selection in VS Code to get faster responses, reduced rate limiting, and a 10% discount on premium requests for paid users.
 MetaSocialImage: autoDropdown.png
 Date: 2025-09-15
 Author: Isidor Nikolic
