@@ -14,7 +14,7 @@ September 15th, 2025 by [Isidor Nikolic](https://github.com/isidorn), [@isidorn]
 
 Faster responses, a lower chance of rate limiting, and 10% off premium requests for paid users - auto picks the best available model for each request based on current capacity and performance. With auto you can’t choose a specific model; auto manages that for you. Auto model selection in Chat is being rolled out in preview to all GitHub Copilot users, starting with the individual plans.
 
-<video src="auto-model-selection.mp4" title="Auto model selection" autoplay muted controls></video>
+<video src="auto-model-selection.mp4" title="Video demonstrating auto model selection in VS Code." autoplay muted controls></video>
 
 ## How auto model selection works
 
