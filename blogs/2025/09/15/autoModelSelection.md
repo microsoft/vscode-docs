@@ -30,7 +30,7 @@ If you are a paid user and run out of premium requests, auto will always choose 
 
 With VS Code’s sharp usage growth, auto helps us manage capacity so we can handle the millions of agentic requests coming in each day. That’s our immediate goal - but it’s not the long-term vision for auto. We aim to make auto the best model selection for most users. To make that a reality, we plan to:
 
-* Allow auto to dynamically switch between small and large models based on the task - this flexibility ensures that you get the right balance of performance and efficiency while saving on requests
+* Dynamically switch between small and large models based on the task - this flexibility ensures that you get the right balance of performance and efficiency, while saving on requests
 * Add more language models to auto
 * Let users on a free plan take advantage of the latest models through auto
 * Improve the model dropdown to make it more obvious which model and discount are used
