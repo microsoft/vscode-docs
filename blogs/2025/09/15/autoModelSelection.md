@@ -33,7 +33,7 @@ With VS Code’s sharp usage growth, auto helps us manage capacity so we can han
 * Allow auto to dynamically switch between small and large models based on the task - this flexibility ensures that you get the right balance of performance and efficiency while saving on requests
 * Add more language models to auto
 * Allow free users to get the latest models through auto
-* Improve visual affordance of auto in the model dropdown to make the discount and models used more transparent
+* Improve the model dropdown to make it more obvious which model and discount are used
 
 Using [VS Code Insiders](https://code.visualstudio.com/insiders/) and providing feedback in [our open source repository](https://github.com/microsoft/vscode/issues) is the best way to help us improve auto. For the latest information, check out the [auto model selection documentation](https://code.visualstudio.com/docs/copilot/customization/language-models#_auto-model-selection).
 
