@@ -18,7 +18,7 @@ Faster responses, a lower chance of rate limiting, and 10% off premium requests 
 
 ## How auto model selection works
 
-Auto selects the best model to ensure that you get the optimal performance and reduce the likelihood of rate limits. Auto will choose between Claude Sonnet 4, GPT-5, GPT-5 mini and other models, unless your organization has [disabled access to these models](https://docs.github.com/en/copilot/how-tos/use-ai-models/configure-access-to-ai-models). Once auto picks a model, it will not change it until the end of the chat session. Though this will change in the following iterations as we introduce picking models based on task complexity. For paid users, we currently plan to primarily rely on Claude Sonnet 4 as the model powering auto.
+Auto selects the best model to ensure that you get the optimal performance and reduce the likelihood of rate limits. Auto will choose between Claude Sonnet 4, GPT-5, GPT-5 mini and other models, unless your organization has [disabled access to these models](https://docs.github.com/en/copilot/how-tos/use-ai-models/configure-access-to-ai-models). Once auto picks a model, it uses that same model for the entire chat session. As we introduce picking models based on task complexity, this behavior will change over the next iterations. For paid users, we currently plan to primarily rely on Claude Sonnet 4 as the model powering auto.
 
 ![Screenshot that shows the model picker in the Chat view, showing the auto option.](autoDropdown.png)
 
