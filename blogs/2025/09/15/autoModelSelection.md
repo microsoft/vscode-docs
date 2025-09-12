@@ -28,14 +28,14 @@ When using auto model selection, VS Code uses a variable [model multiplier](http
 
 If you are a paid user and run out of premium requests, auto will always choose a 0x model (for example, GPT-5 mini), so you can continue using auto without interruption.
 
-## What’s next?
+## What’s next
 
 With VS Code's rapid usage growth, auto helps us manage capacity, so we can handle the millions of agentic requests coming in each day. That's our immediate goal, however this is not our long-term vision for auto. We aim to make auto the best model selection for most users and to achieve this, here's what we plan next:
 
 * Dynamically switch between small and large models based on the task - this flexibility ensures that you get the right balance of performance and efficiency, while saving on requests
 * Add more language models to auto
 * Let users on a free plan take advantage of the latest models through auto
-* Improve the model dropdown to make it more obvious which model and discount are used
+* Improve the model dropdown to make it more obvious which models and discounts are used
 
 Using [VS Code Insiders](https://code.visualstudio.com/insiders/) and providing feedback in [our open source repository](https://github.com/microsoft/vscode/issues) is the best way to help us improve auto. For the latest information, check out the [auto model selection documentation](https://code.visualstudio.com/docs/copilot/customization/language-models#_auto-model-selection).
 
