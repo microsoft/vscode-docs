@@ -1,5 +1,5 @@
 ---
-Order: 22
+Order:
 TOCTitle: Customize VS Code Extension Roundup
 PageTitle: Customize Visual Studio Code Extension Roundup
 MetaDescription: Extensions to customize Visual Studio Code.

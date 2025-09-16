@@ -1,5 +1,5 @@
 ---
-Order: 41
+Order:
 TOCTitle: New home for Debug Adapter Protocol
 PageTitle: A new home for the Debug Adapter Protocol
 MetaDescription: A new home for the Debug Adapter Protocol

@@ -1,12 +1,8 @@
 ---
-Order: 3
-Area: nodejs
-TOCTitle: Node.js Debugging
 ContentId: 3AC4DBB5-1469-47FD-9CC2-6C94684D4A9D
-PageTitle: Debug Node.js Apps using Visual Studio Code
-DateApproved: 5/3/2023
+DateApproved: 09/11/2025
 MetaDescription: The Visual Studio Code editor includes Node.js debugging support. Set breakpoints, step-in, inspect variables and more.
-MetaSocialImage: /assets/docs/editor/debugging/Debugging.png
+MetaSocialImage: ../editor/images/debugging/debugging-social.png
 ---
 # Node.js debugging in VS Code
 
@@ -50,7 +46,7 @@ You can apply [other properties normally found in launch.json](#launch-configura
 
 **Auto Attach Smart Patterns**
 
-In `smart` Auto Attach mode, VS Code will try to attach to your code, and not attach to build tools you aren't interested in debugging. It does this by matching the main script against a list of [glob patterns](/docs/editor/codebasics.md#advanced-search-options). The glob patterns are configurable in the **debug.javascript.autoAttachSmartPattern** setting, which defaults to:
+In `smart` Auto Attach mode, VS Code will try to attach to your code, and not attach to build tools you aren't interested in debugging. It does this by matching the main script against a list of [glob patterns](/docs/editor/glob-patterns.md). The glob patterns are configurable in the **debug.javascript.autoAttachSmartPattern** setting, which defaults to:
 
 ```js
 [
@@ -96,26 +92,26 @@ Launch configs are the traditional way to set up debugging in VS Code, and provi
 
 In this section we'll go into more detail about configurations and features for more advanced debugging scenarios. You'll find instruction for debugging with [source maps](/docs/nodejs/nodejs-debugging.md#source-maps), [stepping over external code](/docs/nodejs/nodejs-debugging.md#skipping-uninteresting-code), doing [remote debugging](/docs/nodejs/nodejs-debugging.md#remote-debugging), and much more.
 
-If you'd like to watch an introductory video, see [Getting started with Node.js debugging](https://www.youtube.com/watch?v=2oFKNL7vYV8).
+If you'd like to watch an introductory video, see [Getting started with debugging in VS Code](https://www.youtube.com/watch?v=3HiLLByBWkg).
 
->**Note**: If you are just getting started with VS Code, you can learn about general debugging features and creating `launch.json` configuration files in the [Debugging](/docs/editor/debugging.md) topic.
+>**Note**: If you are just getting started with VS Code, you can learn about general debugging features and creating `launch.json` configuration files in the [Debugging](/docs/debugtest/debugging.md) topic.
 
 ## Launch configuration attributes
 
-Debugging configurations are stored in a `launch.json` file located in your workspace's `.vscode` folder. An introduction into the creation and use of debugging configuration files is in the general [Debugging](/docs/editor/debugging.md#launch-configurations) article.
+Debugging configurations are stored in a `launch.json` file located in your workspace's `.vscode` folder. An introduction into the creation and use of debugging configuration files is in the general [Debugging](/docs/debugtest/debugging-configuration.md#launch-configurations) article.
 
 Below is a reference of common `launch.json` attributes specific to the Node.js debugger. You can view the complete set of options in the [vscode-js-debug options](https://github.com/microsoft/vscode-js-debug/blob/main/OPTIONS.md) documentation.
 
 The following attributes are supported in launch configurations of type `launch` and `attach`:
 
-* `outFiles` - array of glob patterns for locating generated JavaScript files. See section [Source maps](/docs/nodejs/nodejs-debugging.md#source-maps).
-* `resolveSourceMapLocations` - an array of glob patterns for locations where source maps should be parsed. See section [Source maps](/docs/nodejs/nodejs-debugging.md#source-maps).
+* `outFiles` - array of [glob patterns](/docs/editor/glob-patterns.md) for locating generated JavaScript files. See section [Source maps](/docs/nodejs/nodejs-debugging.md#source-maps).
+* `resolveSourceMapLocations` - an array of [glob patterns](/docs/editor/glob-patterns.md) for locations where source maps should be parsed. See section [Source maps](/docs/nodejs/nodejs-debugging.md#source-maps).
 * `timeout` - when restarting a session, give up after this number of milliseconds. See section [Attaching to Node.js](/docs/nodejs/nodejs-debugging.md#attaching-to-nodejs).
 * `stopOnEntry` - break immediately when the program launches.
 * `localRoot` - VS Code's root directory. See section [Remote debugging](/docs/nodejs/nodejs-debugging.md#remote-debugging) below.
 * `remoteRoot` - Node's root directory. See section [Remote debugging](/docs/nodejs/nodejs-debugging.md#remote-debugging) below.
 * `smartStep`- try to automatically step over code that doesn't map to source files. See section [Smart stepping](/docs/nodejs/nodejs-debugging.md#smart-stepping).
-* `skipFiles` - automatically skip files covered by these glob patterns. See section [Skipping uninteresting code](/docs/nodejs/nodejs-debugging.md#skipping-uninteresting-code).
+* `skipFiles` - automatically skip files covered by these [glob patterns](/docs/editor/glob-patterns.md). See section [Skipping uninteresting code](/docs/nodejs/nodejs-debugging.md#skipping-uninteresting-code).
 * `trace` - enable diagnostic output.
 
 These attributes are only available for launch configurations of request type `launch`:
@@ -437,6 +433,23 @@ Here are some things to try when your breakpoints turn gray:
 * Try searching for help with your particular setup on Stack Overflow or by filing an issue on GitHub.
 * Try adding a `debugger` statement. If it breaks into the `.ts` file there, but breakpoints at that spot don't bind, that is useful information to include with a GitHub issue.
 
+### Overriding source map paths
+
+The debugger uses `sourceMapPathOverrides` to implement custom sourcemap-to-disk path mapping. Good defaults are in place for most tools, but in advanced cases you may need to customize it. The default paths overrides is an object map that looks like this:
+
+```js
+{
+  'webpack:///./~/*': "${workspaceFolder}/node_modules/*",
+  'webpack:////*': '/*',
+  'webpack://@?:*/?:*/*': "${workspaceFolder}/*",
+  // and some more patterns...
+}
+```
+
+This maps paths or URLs in the source map from the left to the right. The pattern `?:*` is a non-greedy, non-capturing match, and `*` is a greedy capturing match. The debugger then replaces the corresponding `*` in the right-hand pattern with the fragment captured from the source map path. For example, the last pattern in the above example would map `webpack://@my/package/foo/bar` to `${workspaceFolder}/foo/bar`.
+
+Note that for browser debugging, the `webRoot` is used in place of the `workspaceFolder` in the default `sourceMapPathOverrides`.
+
 ## Remote debugging
 
 > **Note:** VS Code now has universal [remote development capabilities](/docs/remote/remote-overview.md). Using the [Remote Development](https://aka.ms/vscode-remote/download/extension) extensions, Node.js development in remote scenarios and containers is no different than Node.js development in a local setup. **This is the recommended way to remote debug Node.js programs**. Check out the [Getting started](/docs/remote/remote-overview.md#getting-started) section and [Remote tutorials](/docs/remote/remote-overview.md#remote-tutorials) to learn more.
@@ -558,6 +571,14 @@ Some examples:
 * `10` same as `>=10`
 * `%2` break on every other hit
 
+### Triggered breakpoints
+
+A triggered breakpoint is a breakpoint that is automatically enabled once another breakpoint is hit. They can be very useful when diagnosing failure cases in code that happen only after a certain precondition.
+
+Triggered breakpoints can be set by right-clicking on the glyph margin, selecting **Add Triggered Breakpoint**, and then choosing which other breakpoint enables the breakpoint.
+
+<video src="../editor/images/debugging/debug-triggered-breakpoint.mp4" autoplay loop controls muted></video>
+
 ### Breakpoint validation
 
 For performance reasons, Node.js parses the functions inside JavaScript files lazily on first access. As a consequence, breakpoints don't work in source code areas that haven't been seen (parsed) by Node.js.
@@ -576,7 +597,7 @@ This breakpoint validation occurs when a session starts and the breakpoints are 
 
 ## Skipping uninteresting code
 
-VS Code Node.js debugging has a feature to avoid source code that you don't want to step through (also known as 'Just My Code'). This feature can be enabled with the `skipFiles` attribute in your launch configuration. `skipFiles` is an array of glob patterns for script paths to skip.
+VS Code Node.js debugging has a feature to avoid source code that you don't want to step through (also known as 'Just My Code'). This feature can be enabled with the `skipFiles` attribute in your launch configuration. `skipFiles` is an array of [glob patterns](/docs/editor/glob-patterns.md) for script paths to skip.
 
 For example, using:
 
@@ -589,7 +610,7 @@ For example, using:
 
 all code in the `node_modules` and `lib` folders in your project will be skipped. The `skipFiles` also apply to the location shown when calling `console.log` and similar methods: the first non-skipped location in the stack will be shown beside the output in the Debug Console.
 
-Built-in **core modules** of Node.js can be referred to by the 'magic name' `<node_internals>` in a glob pattern. The following example skips all internal modules:
+Built-in **core modules** of Node.js can be referred to by the 'magic name' `<node_internals>` in a [glob patterns](/docs/editor/glob-patterns.md). The following example skips all internal modules:
 
 ```json
   "skipFiles": [
@@ -612,7 +633,7 @@ Hovering over the dimmed entries explains why the stack frame is dimmed.
 
 A context menu item on the call stack, **Toggle skipping this file** enables you to easily skip a file at runtime without adding it to your launch config. This option only persists for the current debugging session. You can also use it to stop skipping a file that is skipped by the `skipFiles` option in your launch config.
 
->**Note:** The `legacy` protocol debugger supports negative glob patterns, but they must **follow** a positive pattern: positive patterns add to the set of skipped files, while negative patterns subtract from that set.
+>**Note:** The `legacy` protocol debugger supports negative [glob patterns](/docs/editor/glob-patterns.md), but they must **follow** a positive pattern: positive patterns add to the set of skipped files, while negative patterns subtract from that set.
 
 In the following (`legacy` protocol-only) example all but a 'math' module is skipped:
 
@@ -625,6 +646,31 @@ In the following (`legacy` protocol-only) example all but a 'math' module is ski
 
 >**Note:** The `legacy` protocol debugger has to emulate the `skipFiles` feature because the **V8 Debugger Protocol** does not support it natively. This might result in slow stepping performance.
 
+## Debugging WebAssembly
+
+The JavaScript debugger can debug code compiled into WebAssembly if it includes [DWARF](https://dwarfstd.org) debug information. Many toolchains support emitting this information:
+
+* [C/C++ with Emscripten](https://emscripten.org/): Compile with the `-g` flag to emit debug information.
+* [Zig](https://ziglang.org/): DWARF information is automatically emittted in the "Debug" build mode.
+* [Rust](https://www.rust-lang.org/): Rust emits DWARF debug information. However, wasm-pack [does not yet](https://github.com/rustwasm/wasm-pack/issues/1351) retain it during the build. So, instead of running `wasm-pack build`, users of the common wasm-bindgen/wasm-pack libraries should build manually build using two commands:
+  1. `cargo install wasm-bindgen-cli` once to install the necessary command-line tool.
+  1. `cargo build --target wasm32-unknown-unknown` to build your library.
+  1. `wasm-bindgen --keep-debug --out-dir pkg ./target/wasm32-unknown-unknown/debug/<library-name>.wasm <extra-arguments>` to generate the WebAssembly bindings, replacing `<library-name>` with the name from your Cargo.toml and configuring `<extra-arguments>` as necessary.
+
+After you have your code built, you'll want to install the [WebAssembly DWARF Debugging](https://marketplace.visualstudio.com/items?itemName=ms-vscode.wasm-dwarf-debugging) extension. This is shipped as a separate extension in order to keep the VS Code core 'streamlined.' Once installed, restart any active debugging sessions, and native code should then be mapped in the debugger! You should see your source code appear in the **Loaded Sources** view, and breakpoints should work.
+
+In the image below, the debugger is stopped on a breakpoint in C++ source code that creates a Mandelbrot fractal. The call stack is visible, with frames from the JavaScript code, to WebAssembly, to the mapped C++ code. You can also see the variables in the C++ code, and an edit to the memory associated with the int32 `height` variable.
+
+![Debugger stopped on a breakpoint in C++ source code](images/nodejs-debugging/wasm-dwarf.png)
+
+While close to parity, debugging WebAssembly is a little different than ordinary JavaScript:
+
+* Variables in the **Variables** view cannot be edited directly. However, you can select the **View Binary Data** action beside the variable to edit their associated memory.
+* Basic expression evaluation in the **Debug Console** and **Watch** views is provided by [lldb-eval](https://github.com/google/lldb-eval). This is different than ordinary JavaScript expressions.
+* Locations not mapped to source code will be shown in disassembled WebAssembly Text Format. For WebAssembly, the command **Disable Source Map Stepping** will cause the debugger to step only in disassembled code.
+
+VS Code's WebAssembly debugging is built upon the [C/C++ Debugging Extension](https://github.com/ChromeDevTools/devtools-frontend/tree/main/extensions/cxx_debugging) from the Chromium authors.
+
 ## Supported Node-like runtimes
 
 The current VS Code JavaScript debugger supports Node version at or above 8.x, recent Chrome versions, and recent Edge versions (via the `msedge` launch type).
@@ -635,14 +681,13 @@ In case you didn't already read the Node.js section, take a look at:
 
 * [Node.js](/docs/nodejs/nodejs-tutorial.md) - End to end Node scenario with a sample application
 
-To see tutorials on the basics of Node.js debugging, check out these videos:
+To see a tutorial on the basics of debugging in VS Code, check out this video:
 
-* [Intro Video - Debugging](/docs/introvideos/debugging.md) - Introductory video showcasing the basics of debugging.
-* [Getting started with Node.js debugging](https://www.youtube.com/watch?v=2oFKNL7vYV8) - Learn how to attach to a running Node.js process.
+* [Getting started with debugging in VS Code](https://www.youtube.com/watch?v=3HiLLByBWkg).
 
 To learn about VS Code's task running support, go to:
 
-* [Tasks](/docs/editor/tasks.md) - Running tasks with Gulp, Grunt, and Jake.  Showing Errors and Warnings
+* [Tasks](/docs/debugtest/tasks.md) - Running tasks with Gulp, Grunt, and Jake.  Showing Errors and Warnings
 
 To write your own debugger extension, visit:
 
@@ -670,3 +715,11 @@ If you use esm or pass `--experimental-modules` to Node.js in order to use ECMAS
 
 * `"runtimeArgs": ["--experimental-modules"]` - Use the [experimental ECMAScript modules support](https://nodejs.org/api/esm.html) in Node v8.5.0+
 * `"runtimeArgs": ["-r", "esm"]` - Use the [esm ES module loader](https://github.com/standard-things/esm) (`["-r esm"]` without a comma won't work)
+
+### How can I set NODE_OPTIONS?
+
+The debugger uses the special `NODE_OPTIONS` environment variable to set up debugging with your application, and overwriting it will prevent debugging from working correctly. Instead of overwriting it, you should append to it instead. For example, a `.bashrc` file might have something like this:
+
+```bash
+export NODE_OPTIONS="$NODE_OPTIONS --some-other-option=here"
+```

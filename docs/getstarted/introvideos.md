@@ -1,16 +1,14 @@
 ---
-Order: 2
-Area: getstarted
-TOCTitle: Intro Videos
 ContentId: f29747b9-0f4f-4f62-b0a7-037ffc49d972
-PageTitle: Visual Studio Code Introductory Videos
-DateApproved: 5/3/2023
+DateApproved: 09/11/2025
 MetaDescription: Overview of Visual Studio Code's introductory videos.
-MetaSocialImage: images/introvideos/opengraph_introvideos.png
+MetaSocialImage: ../introvideos/images/opengraph/introvideos-social.png
 ---
 # Introductory Videos
 
 Start your journey using Visual Studio Code with this set of introductory videos! These videos are designed to give you an overview of VS Code's various features and quickly get you familiar with them.
+
+If you prefer going through a step-by-step guide to discover the key features, check out the [VS Code tutorial](/docs/getstarted/getting-started.md).
 
 >**Linux users**: Make sure you have the correct multimedia codecs installed for your Linux distribution. For example, on Ubuntu, you may need to install `ubuntu-restricted-extras` to get the necessary codecs to play the videos.
 
@@ -21,7 +19,7 @@ Start your journey using Visual Studio Code with this set of introductory videos
 			<div class="info">
                 <h2 class="title faux-h3">Getting Started</h2>
 				<p class="description">Set up and learn the basics of Visual Studio Code.</p>
-				<span class="duration"><span class="sr-only">Duration </span>5<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
+				<span class="duration"><span class="sr-only">Duration </span>7<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
 			</div>
 		</a>
 	</li>
@@ -85,16 +83,6 @@ Start your journey using Visual Studio Code with this set of introductory videos
 			</div>
 		</a>
 	</li>
-	<li class="video">
-		<a href="/docs/introvideos/customize">
-			<img src="/assets/docs/getstarted/introvideos/customize-settings.png" alt aria-hidden="true" class="thumb"/>
-			<div class="info">
-				<h2 class="title faux-h3">Customize</h2>
-				<p class="description">Learn how to customize your settings and keyboard shortcuts in VS Code.</p>
-				<span class="duration"><span class="sr-only">Duration </span>6<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
-			</div>
-		</a>
-    </li>
 </ul>
 
 ## Troubleshooting

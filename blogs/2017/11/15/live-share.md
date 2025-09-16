@@ -1,5 +1,5 @@
 ---
-Order: 34
+Order:
 TOCTitle: Introducing Live Share
 PageTitle: Introducing Visual Studio Live Share
 MetaDescription: Real-time collaborative development

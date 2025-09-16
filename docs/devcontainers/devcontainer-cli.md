@@ -1,11 +1,7 @@
 ---
-Order: 14
-Area: devcontainers
-TOCTitle: Dev Container CLI
-PageTitle: Installing and working with the devcontainer CLI
 ContentId: 8946213d-716e-41ca-955f-944a41c70353
 MetaDescription: Documentation on using the development container (dev container) command-line interface
-DateApproved: 5/3/2023
+DateApproved: 09/11/2025
 ---
 # Dev Container CLI
 
@@ -21,7 +17,7 @@ Containers (for example [Docker](https://www.docker.com) containers) have histor
 
 Development containers are supported in Visual Studio Code via the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension and in [GitHub Codespaces](https://docs.github.com/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers). This support is backed by [devcontainer.json](https://containers.dev/implementors/json_reference), a structured JSON with Comments (jsonc) metadata format to configure a containerized environment.
 
-As containerizing production workloads becomes commonplace, dev containers have become broadly useful for scenarios beyond VS Code. To promote dev containers in any environment, work has started on the [Development Containers Specification](https://github.com/devcontainers/spec), which empowers anyone in any tool to configure a consistent dev environment. The open-source **dev container CLI** serves as the reference implementation of the specification.
+As containerizing production workloads becomes commonplace, dev containers have become broadly useful for scenarios beyond VS Code. To promote dev containers in any environment, work has started on the [Development Containers Specification](https://containers.dev/), which empowers anyone in any tool to configure a consistent dev environment. The open-source **dev container CLI** serves as the reference implementation of the specification.
 
 ## The dev container CLI
 
@@ -177,7 +173,7 @@ The dev container CLI and specification are under active development and we welc
 
 ## Next steps
 
-* [Dev container specification repository](https://github.com/devcontainers/spec) - Read and contribute to the open specification.
+* [Dev container specification repository](https://containers.dev/) - Read and contribute to the open specification.
 * [devcontainer.json reference](https://containers.dev/implementors/json_reference) - Review the `devcontainer.json` schema.
 * [Create a Development Container](/docs/devcontainers/create-dev-container.md) - Create a custom container for your work environment.
 * [Advanced Containers](/remote/advancedcontainers/overview.md) - Find solutions to advanced container scenarios.

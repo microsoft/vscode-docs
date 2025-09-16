@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: f470466d-89b0-4115-ab7a-2448023b0a6d
-DateApproved: 5/3/2023
+DateApproved: 09/11/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to creating a File Icon Theme in Visual Studio Code
@@ -108,6 +108,8 @@ Each file association points to an icon definition.
 - `folderNamesExpanded` associates folder names to icons for expanded folder. The key of the set is the folder name, optionally prefixed by a single parent path segment (*). Patterns or wildcards are not supported. Folder name matching is case insensitive.
 - `rootFolder` is the folder icon for collapsed workspace root folders , and if `rootFolderExpanded` is not set, also for expanded workspace root folders. If not set, the icon defined for `folder` will be shown for workspace root folders.
 - `rootFolderExpanded` is the folder icon for expanded workspace root folders. If not set, the icon defined for `rootFolder` will be shown for expanded workspace root folders.
+- `rootFolderNames` associates root folder names to icons. The key of the set is the folder name. Patterns or wildcards are not supported. Root folder name matching is case insensitive.
+- `rootFolderNamesExpanded` associates root folder names to icons for expanded folder. The key of the set is the folder name. Patterns or wildcards are not supported. Root folder name matching is case insensitive.
 - `languageIds` associates languages to icons. The key in the set is the language ID as defined in the [language contribution point](/api/references/contribution-points#contributes.languages). The language of a file is evaluated based on the file extensions and file names as defined in the language contribution. Note that the 'first line match' of the language contribution is not considered.
 - `fileExtensions` associates file extensions to icons. The key in the set is the file extension name. The extension name is a file name segment after a dot (not including the dot). File names with multiple dots such as `lib.d.ts` can match multiple extensions; 'd.ts' and 'ts'. Optionally, the file extension name can be prefixed by a single parent path segment (*). Extensions are compared case insensitive.
 - `fileNames` associates file names to icons. The key in the set is the full file name, not including any path segments. Optionally, the file extension name can be prefixed by a single parent path segment (*). Patterns or wildcards are not supported. File name matching is case insensitive. A 'fileName' match is the strongest match, and the icon associated to the file name will be preferred over an icon of a matching fileExtension and also of a matching language ID.
@@ -195,7 +197,9 @@ Language contributors can define an icon for the language.
           "dark": "./icons/latex-dark.png"
         }
       }
-  ]
+    ]
+  }
+}
 ```
 
 The icon is used if a file icon theme only has a generic file icon for the language.

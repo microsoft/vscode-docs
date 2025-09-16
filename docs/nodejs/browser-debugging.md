@@ -1,12 +1,8 @@
 ---
-Order: 5
-Area: nodejs
-TOCTitle: Browser Debugging
 ContentId: d0e271da-0372-4ab9-a2ab-b7add855bd5a
-PageTitle: Debug Browser Apps using Visual Studio Code
-DateApproved: 5/3/2023
+DateApproved: 09/11/2025
 MetaDescription: The Visual Studio Code editor includes browser debugging support. Set breakpoints, step-in, inspect variables and more.
-MetaSocialImage: /assets/docs/editor/debugging/Debugging.png
+MetaSocialImage: ../editor/images/debugging/debugging-social.png
 ---
 # Browser debugging in VS Code
 
@@ -16,7 +12,7 @@ Visual Studio Code includes a built-in debugger for Edge and Chrome. There are a
 * Clicking a link in the [JavaScript debug terminal](/docs/nodejs/nodejs-debugging.md#javascript-debug-terminal).
 * Use a [launch config](#launch-configuration) to launch a browser with your app.
 
-We also have more detailed walkthroughs to get started with [React](/docs/nodejs/reactjs-tutorial), [Angular](/docs/nodejs/angular-tutorial), [Vue](/docs/nodejs/vuejs-tutorial), and [Ember](/docs/nodejs/emberjs-tutorial), as well as other debugging [recipes](/docs/nodejs/debugging-recipes).
+We also have more detailed walkthroughs to get started with [React](/docs/nodejs/reactjs-tutorial), [Angular](/docs/nodejs/angular-tutorial), and [Vue](/docs/nodejs/vuejs-tutorial), as well as other debugging [recipes](/docs/nodejs/debugging-recipes).
 
 ## Open Link command
 
@@ -30,11 +26,11 @@ If your default browser is Edge, VS Code will use it to open the page. Otherwise
 
 Launch configs are the traditional way to set up debugging in VS Code, and provide you the most flexibility for running complex applications.
 
-In this section, we'll go into more detail about configurations and features for more advanced debugging scenarios. Instructions for Node.js debugging with [source maps](/docs/nodejs/nodejs-debugging.md#source-maps) and [stepping over external code](/docs/nodejs/nodejs-debugging.md#skipping-uninteresting-code) also apply to browser-based debugging.
+In this section, we'll go into more detail about configurations and features for more advanced debugging scenarios. Instructions for Node.js [stepping over external code](/docs/nodejs/nodejs-debugging.md#skipping-uninteresting-code) also apply to browser-based debugging.
 
->**Note**: If you are just getting started with VS Code, you can learn about general debugging features and creating `launch.json` configuration files in the [Debugging](/docs/editor/debugging.md) topic.
+>**Note**: If you are just getting started with VS Code, you can learn about general debugging features and creating `launch.json` configuration files in the [Debugging](/docs/debugtest/debugging.md) topic.
 
-## Launching browsers
+### Launching browsers
 
 In most cases, you'll want to start a new instance of the browser to debug your webpage or file. To do this, you can create a file named `.vscode/launch.json` that looks like this:
 
@@ -70,7 +66,7 @@ You can also debug a single file without running a server, for example:
 }
 ```
 
-## Attaching to browsers
+### Attaching to browsers
 
 To attach to a running browser, it needs to be launched in a special debug mode. You can do this using the following command, replacing `edge.exe` with the path to your Edge or Chrome binary:
 
@@ -96,18 +92,18 @@ Next, add a new section to the `vscode/launch.json` file as below:
 }
 ```
 
-Now, you can press `kb(workbench.action.debug.start)` or the **Start** button in the **Run and Debug** view to attach to the running browser. You can even add a `host` property to debug a browser running on a different machine.
+Now, you can press `kb(workbench.action.debug.start)` or the **Start** button in the **Run and Debug** view to attach to the running browser. You can even add an `address` property to debug a browser running on a different machine.
 
-## Launch configuration attributes
+### Launch configuration attributes
 
-Debugging configurations are stored in a `launch.json` file located in your workspace's `.vscode` folder. An introduction into the creation and use of debugging configuration files is in the general [Debugging](/docs/editor/debugging.md#launch-configurations) article. You can either "launch" a browser with your application, or "attach" to an existing browser that you [started in debug mode](#attaching-to-browsers).
+Debugging configurations are stored in a `launch.json` file located in your workspace's `.vscode` folder. An introduction into the creation and use of debugging configuration files is in the general [Debugging](/docs/debugtest/debugging-configuration.md#launch-configurations) article. You can either "launch" a browser with your application, or "attach" to an existing browser that you [started in debug mode](#attaching-to-browsers).
 
 Below is a reference of common `launch.json` attributes specific to browser debugging. You can view the complete set of options in the [vscode-js-debug options](https://github.com/microsoft/vscode-js-debug/blob/main/OPTIONS.md) documentation.
 
 * `webRoot` - The root directory for your source code. Most often, and by default, the `webRoot` is your workspace folder. This option is used for sourcemap resolution.
-* `outFiles` - An array of glob patterns for locating generated JavaScript files. See the section on [Source maps](/docs/nodejs/nodejs-debugging.md#source-maps).
+* `outFiles` - An array of [glob patterns](/docs/editor/glob-patterns.md) for locating generated JavaScript files. See the section on [Source maps](#source-maps).
 * `smartStep`- Try to automatically step over source code that doesn't map to source files. See the section on [Smart stepping](/docs/nodejs/nodejs-debugging.md#smart-stepping).
-* `skipFiles` - Automatically skip files covered by these glob patterns. See the section on [Skipping uninteresting code](/docs/nodejs/nodejs-debugging.md#skipping-uninteresting-code).
+* `skipFiles` - Automatically skip files covered by these [glob patterns](/docs/editor/glob-patterns.md). See the section on [Skipping uninteresting code](/docs/nodejs/nodejs-debugging.md#skipping-uninteresting-code).
 * `trace` - Enable diagnostic output.
 
 These attributes are only available for launch configurations of request type `launch`:
@@ -119,10 +115,26 @@ These attributes are only available for launch configurations of request type `l
 These attributes are only available for launch configurations of request type `attach`:
 
 * `url` - If given, VS Code will attach to a tab with this URL. If not provided, it will attach to all browser tabs.
-* `port` - Debug port to use. See the section on [Attaching to Node.js](/docs/nodejs/nodejs-debugging.md#attaching-to-nodejs).
-* `address` - TCP/IP address of the debug port. See the section on [Attaching to Browsers](#attaching-to-browsers).
+* `port` - Port to use for remote debugging the browser, matching the `--remote-debugging-port` used when starting the browser. See the section on [Attaching to Browsers](#attaching-to-browsers).
+* `address` - IP address or hostname the debugged browser is listening on. See the section on [Attaching to Browsers](#attaching-to-browsers).
+
+## WebAssembly Debugging
+
+WebAssembly debugging in browsers is identical to Node.js, [read more about WebAssembly Debugging here](/docs/nodejs/nodejs-debugging.md#debugging-webassembly).
+
+## Source Maps
+
+The JavaScript debugger in VS Code supports source maps that allow debugging transformed code. For example, TypeScript code is compiled to JavaScript, and many web applications bundle all their JavaScript files together. The source map helps the debugger figure out how to map between your original code, and the code running in the browser.
+
+Most modern tools used for building web applications will work out of the box. If not, our section on [sourcemaps in Node.js](/docs/nodejs/nodejs-debugging.md#source-maps) contains guidance that applies to browser debugging as well.
+
+### Loading Source Maps
+
+Each JavaScript file may reference a source map, by a URL or relative path. When dealing with web applications, you'll want to make sure that the URL is something the debugger running in VS Code can access. If it can't, you'll see errors in the **Debug Console** explaining which source maps failed to load, and why.
+
+If it can't access it directly, VS Code will try to use the browser's network stack to request the source map. This provides an opportunity for any authentication state or network settings in the browser to be applied to the request. For example, if your source maps are in a location guarded by cookie authentication, VS Code can load them if and only if the browser session has the necessary cookies.
 
 ## Next steps
 
-* [Debugging](/docs/editor/debugging.md) - Read about general VS Code debugging features.
+* [Debugging](/docs/debugtest/debugging.md) - Read about general VS Code debugging features.
 * [Debugging Recipes](/docs/nodejs/debugging-recipes.md) - Set up debugging for your favorite platform.

@@ -1,10 +1,6 @@
 ---
-Order: 20
-Area: languages
-TOCTitle: .NET
 ContentId: AFFD7BDB-925E-4D02-828D-4E14360C70DA
-PageTitle: .NET and Visual Studio Code
-DateApproved: 8/30/2022
+DateApproved: 09/11/2025
 MetaDescription: Get started writing and debugging .NET apps with Visual Studio Code.
 ---
 # Using .NET in Visual Studio Code
@@ -13,26 +9,20 @@ MetaDescription: Get started writing and debugging .NET apps with Visual Studio 
 
 ## Setting up VS Code for .NET development
 
-### .NET Coding Pack
+If you are an existing VS Code user, you can add .NET support by installing the [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) extension. C# Dev Kit brings a productive and reliable C# experience into VS Code, facilitating C# or multi-language development in VS Code. This extension pack consists of a set of VS Code extensions that work together to provide a rich C# editing experience, AI-powered development, solution management, and integrated testing experiences. As shown in the graphic below, C# Dev Kit consists of:
 
-To help you set up quickly, you can install the **.NET Coding Pack**, which includes VS Code, the .NET Software Development Kit, and essential .NET extensions. The Coding Pack can be used as a clean installation, or to update or repair an existing development environment.
+* The [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp), which provides the base language services support and continues to be worked on and maintained independent of this effort.
+* [C# Dev Kit extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit), which builds on the same base foundation as Visual Studio and provides solution management, templates, test discovery/debugging.
+* The IntelliCode for C# Dev Kit extension(optional), which provides the AI-powered development experience to the editor.
 
-<a class="install-extension-btn" onclick="pushCodingPackEvent('dotnet', 'win')" href="https://aka.ms/dotnet-coding-pack-win">Install the .NET Coding Pack - Windows</a>
+![C# Dev Kit extension](images/csharp/csharp-devkit.png)
 
-<a class="install-extension-btn" onclick="pushCodingPackEvent('dotnet', 'mac')" href="https://aka.ms/dotnet-coding-pack-mac">Install the .NET Coding Pack - macOS</a><br>
+If your projects require F# support, you can also download the [.NET Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.vscode-dotnet-pack), which includes these extensions:
 
-> **Note**: The .NET Coding Pack is only available for Windows and macOS. For other operating systems, you will need to manually install the .NET SDK, VS Code, and .NET extensions.
-
-### Installing extensions
-
-If you are an existing VS Code user, you can also add .NET support by installing the [.NET Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.vscode-dotnet-pack), which includes these extensions:
-
-* [C# for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
+* [C# Dev Kit for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit)
 * [Ionide for F#](https://marketplace.visualstudio.com/items?itemName=Ionide.Ionide-fsharp)
 * [Jupyter Notebooks](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter)
 * [Polyglot Notebooks](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-interactive-vscode)
-
-<a class="install-extension-btn" href="vscode:extension/ms-dotnettools.vscode-dotnet-pack">Install the .NET Extension Pack</a>
 
 You can also install extensions separately.
 
@@ -89,11 +79,12 @@ If you download the extensions separately, ensure that you also have the .NET SD
 
 ## Next steps
 
+* [C# Dev Kit documentation](/docs/csharp/get-started.md)
 * Continue exploring C# development: [Debug with VS Code and .NET](https://learn.microsoft.com/dotnet/core/tutorials/debugging-with-visual-studio-code)
-* [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
-* [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
+* [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful VS Code editor.
+* [Code Navigation](/docs/editing/editingevolved.md) - Move quickly through your source code.
 * [Working with C#](/docs/languages/csharp.md) - Learn about the great C# support you'll have when working on your .NET application.
-* [Tasks](/docs/editor/tasks.md) - Running tasks with Gulp, Grunt, and Jake.  Showing Errors and Warnings
+* [Tasks](/docs/debugtest/tasks.md) - Running tasks with Gulp, Grunt, and Jake.  Showing Errors and Warnings
 * [.NET Docs](https://learn.microsoft.com/dotnet) - Visit the .NET docs for more information on this powerful cross-platform development solution.
 * [Deploying Applications to Azure](/docs/azure/deployment.md) - Deploy your app to [Azure](https://azure.microsoft.com).
 * [Get Started with F# in Visual Studio Code](https://learn.microsoft.com/dotnet/fsharp/get-started/get-started-vscode)

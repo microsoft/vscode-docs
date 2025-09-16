@@ -5,7 +5,7 @@ TOCTitle: Add local file mount
 PageTitle: Add local file mount to a container
 ContentId: 1a14ff36-13ea-40ec-acc9-16bd0d6725f6
 MetaDescription: Add local file mount to a container
-DateApproved: 5/3/2023
+DateApproved: 09/11/2025
 ---
 # Add another local file mount
 
@@ -32,7 +32,7 @@ You can add a volume bound to any local folder by using the following appropriat
 
 ### Video: Add additional folders from your local machine to a dev container
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/L1-dx-ZD0Ao" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/L1-dx-ZD0Ao" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <br><br>
 

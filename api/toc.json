@@ -23,6 +23,21 @@
     "area": "extension-guides",
     "topics": [
       ["Overview", "/api/extension-guides/overview"],
+      ["", "", {
+        "name": "AI",
+        "area": "extension-guides/ai",
+        "topics": [
+          ["AI Extensibility", "/api/extension-guides/ai/ai-extensibility-overview"],
+          ["Language Model Tool", "/api/extension-guides/ai/tools"],
+          ["MCP Dev Guide", "/api/extension-guides/ai/mcp"],
+          ["Chat Participant", "/api/extension-guides/ai/chat"],
+          ["Chat Tutorial", "/api/extension-guides/ai/chat-tutorial"],
+          ["Language Model", "/api/extension-guides/ai/language-model"],
+          ["Language Model Tutorial", "/api/extension-guides/ai/language-model-tutorial"],
+          ["Language Model Chat Provider", "/api/extension-guides/ai/language-model-chat-provider"],
+          ["Prompt TSX", "/api/extension-guides/ai/prompt-tsx"]
+        ]
+      }],
       ["Command", "/api/extension-guides/command"],
       ["Color Theme", "/api/extension-guides/color-theme"],
       ["File Icon Theme", "/api/extension-guides/file-icon-theme"],

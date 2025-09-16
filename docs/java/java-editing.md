@@ -1,15 +1,11 @@
 ---
-Order: 2
-Area: java
-TOCTitle: Navigate and Edit
 ContentId: 843e139a-9e3c-4b4f-95d1-32a9a7480e8e
-PageTitle: Navigate and edit Java Source Code in Visual Studio Code
 DateApproved: 12/9/2021
 MetaDescription: Navigate and edit Java Source Code in Visual Studio Code
 ---
 # Navigate and edit Java source code
 
-Visual Studio Code is a source code editor first and foremost with rich editing [features](/docs/editor/codebasics.md). In this document, we will go through a few Java-specific features, which are helpful when working with Java.
+Visual Studio Code is a source code editor first and foremost with rich editing [features](/docs/editing/codebasics.md). In this document, we will go through a few Java-specific features, which are helpful when working with Java.
 
 If you run into any issues when using the features below, you can contact us by entering an [issue](https://github.com/microsoft/vscode-java-pack/issues).
 
@@ -25,16 +21,14 @@ You can search for symbols in the current file or workspace to navigate your cod
 
 To search for a symbol in the current workspace, start by pressing `kb(workbench.action.showAllSymbols)`, then enter the name of the symbol. A list of potential matches will appear as before. If you choose a match that was found in a file that's not already open, the file will be opened before navigating to the match's location. Alternatively, you can also use  **Quick Open** (`kb(workbench.action.quickOpen)`) then enter the '#' command to search the current workspace. `kb(workbench.action.showAllSymbols)` is just the shortcut for the '#' commands, so everything works the same.
 
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-editing/search-in-workspace.mp4" type="video/mp4">
+<video src="images/java-editing/search-in-workspace.mp4" autoplay loop muted playsinline controls title="Search for symbols in the workspace">
 </video>
 
 ### Search for symbols in current file
 
 To search for a symbol in the current file, use **Quick Open** (`kb(workbench.action.quickOpen)`) then enter the '@' command, then enter the name of the symbol you're looking for. A list of potential matches will appear and be filtered as you type. Choose from the list of matches to navigate to its location.
 
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-editing/search-in-file.mp4" type="video/mp4">
+<video src="images/java-editing/search-in-file.mp4" autoplay loop muted playsinline controls title="Search for symbols in current file">
 </video>
 
 ## Peek Definition
@@ -55,8 +49,7 @@ You can keep track of class implementations and overriding methods by clicking t
 
 ![Spring Navigation](images/java-editing/goto-super.png)
 
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-editing/goto-super-implementation.mp4" type="video/mp4">
+<video src="images/java-editing/goto-super-implementation.mp4" autoplay loop muted playsinline controls title="Go to super implementation">
 </video>
 
 ## Call Hierarchy
@@ -73,16 +66,14 @@ You can also right-click in a function body and pick **Show Call Hierarchy**.
 
 A Type Hierarchy view shows the inheritance relationships between Java Objects. You can right-click on a type and pick **Show Type Hierarchy**.
 
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-editing/type-hierarchy.mp4" type="video/mp4">
+<video src="images/java-editing/type-hierarchy.mp4" autoplay loop muted playsinline controls title="Type hierarchy">
 </video>
 
 ## Folding regions
 
 Folding regions allows you to fold or unfold code snippet to better view the source code.
 
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-editing/folding-range.mp4" type="video/mp4">
+<video src="images/java-editing/folding-range.mp4" autoplay loop muted playsinline controls title="Folding regions">
 </video>
 
 ## Smart Selection
@@ -92,8 +83,7 @@ With [Smart Selection](https://code.visualstudio.com/updates/v1_33#_smart-select
 * To expand the selection, use `kb(editor.action.smartSelect.expand)`.
 * To shrink the selection, use `kb(editor.action.smartSelect.shrink)`.
 
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-editing/smart-selection.mp4" type="video/mp4">
+<video src="images/java-editing/smart-selection.mp4" autoplay loop muted playsinline controls title="Smart selections">
 </video>
 
 ## Semantic Highlighting
@@ -123,14 +113,12 @@ To learn more about Spring Boot support with Visual Studio Code, read [Spring Bo
 
 Editing code is also easy with IntelliSense for smart code completions and signature details. You can use code snippets as well as various code actions such as generating Getters/Setters and organizing imports to further boost your productivity.
 
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-editing/code-editing.mp4" type="video/mp4">
+<video src="images/java-editing/code-editing.mp4" autoplay loop muted playsinline controls title="Code editing">
 </video>
 
 Java support in Visual Studio Code detects issues within your code automatically, and provides you with Quick Fix suggestions.
 
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-editing/quick-fix.mp4" type="video/mp4">
+<video src="images/java-editing/quick-fix.mp4" autoplay loop muted playsinline controls title="Quick fix suggestions">
 </video>
 
 For more details about refactoring and code actions, see [Refactoring and Source Actions](/docs/java/java-refactoring.md).
@@ -141,8 +129,7 @@ Code completion in Visual Studio Code for Java is provided by [Language Support 
 
 In addition, there's also AI-assisted IntelliSense called [IntelliCode](https://visualstudio.microsoft.com/services/intellicode/). It saves you time by putting what you're most likely to use at the top of your completion list. IntelliCode recommendations are based on thousands of open-source projects on GitHub each with over 100 stars, so it's trained on the most common usages from high-quality projects. When combined with the context of your code, the completion list is tailored to promote those practices. Here's IntelliCode for Java in action.
 
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-editing/intellicode.mp4" type="video/mp4">
+<video src="images/java-editing/intellicode.mp4" autoplay loop muted playsinline controls title="IntelliSense code completion suggestions">
 </video>
 
 IntelliCode works well with popular Java libraries and frameworks like Java SE and Spring. It will help you whether you are doing monolithic web apps or modern microservices.
@@ -151,8 +138,7 @@ IntelliCode works well with popular Java libraries and frameworks like Java SE a
 
 VS Code supports applying templates when you create a Java source file. When you create a `.java` file in the File Explorer, the language server will automatically generate the class body, and fill the package info for you:
 
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-editing/create-new-file.mp4" type="video/mp4">
+<video src="images/java-editing/create-new-file.mp4" autoplay loop muted playsinline controls title="Create new file">
 </video>
 
 ## Code snippets
@@ -164,7 +150,7 @@ Similarly, typing "**main**" or "**psvm**" will generate a code snippet for `pub
 
 ![Code Snippet](images/java-editing/code-snippet.png)
 
-The complete list of shortcuts are listed below:
+The complete list of shortcuts is listed below:
 
 ### Code snippet shortcuts
 

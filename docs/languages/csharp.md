@@ -1,61 +1,61 @@
 ---
-Order: 19
-Area: languages
-TOCTitle: C#
 ContentId: 40C8AAC1-C00D-4E91-8877-737A598346B6
-PageTitle: C# programming with Visual Studio Code
-DateApproved: 7/16/2018
+DateApproved: 09/11/2025
 MetaDescription: Find out how to get the best out of Visual Studio Code and C#.
-MetaSocialImage: images/csharp/languages_csharp.png
+MetaSocialImage: images/csharp/languages-csharp-social.png
 ---
 # Working with C&#35;
 
-The C# support in Visual Studio Code is optimized for cross-platform .NET development (see [working with .NET and VS Code](/docs/languages/dotnet.md) for another relevant article). Our focus with VS Code is to be a great editor for cross-platform C# development.
+The C# support in Visual Studio Code is optimized for cross-platform .NET development (see [working with .NET and VS Code](/docs/languages/dotnet.md) for another relevant article). Our focus with VS Code is to be a great editor for cross-platform C# development by providing a rich C# editing experience, AI-powered development, solution management, and integrated testing experiences
 
-![C# language within VS Code](images/csharp/c_sharp_hero.png)
+![C# language within VS Code](images/csharp/csharp-hero.png)
 
 VS Code supports debugging of C# applications running on either .NET or Mono.
 
 For detailed instructions on:
 
-* .NET debugging - see the [Microsoft C# extension's GitHub page](https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger.md).
+* .NET debugging - see the [C# Dev Kit debugging documentation](/docs/csharp/debugging.md).
 * Mono debugging - see the [Mono Debug extension's README](https://marketplace.visualstudio.com/items?itemName=ms-vscode.mono-debug).
-
->**Note:** [VS Code has limited support for debugging applications running on the Desktop .NET Framework.](https://github.com/OmniSharp/omnisharp-vscode/wiki/Desktop-.NET-Framework)
-
-Due to this focus, many standard C# project types are not recognized by VS Code. An example of a non-supported project type is an ASP.NET MVC Application (though [ASP.NET Core](https://asp.net) is supported). In these cases, if you want to have a lightweight tool to edit a file - VS Code has you covered. If you want the best possible experience for those projects and development on Windows in general, we recommend you use [Visual Studio Community](https://visualstudio.microsoft.com/vs/community).
 
 ## Installing C&#35; support
 
-C# language support is an optional [install from the Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp). You can install it from within VS Code by searching for 'C#' in the **Extensions** view (`kb(workbench.view.extensions)`) or if you already have a project with C# files, VS Code will prompt you to install the extension as soon as you open a C# file.
+C# language support is provided with the [C# Dev Kit extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit). You can install it from within VS Code by searching for 'C# Dev Kit' in the **Extensions** view (`kb(workbench.view.extensions)`) or if you already have a project with C# files, VS Code will prompt you to install the extension as soon as you open a C# file.
 
-## Roslyn and OmniSharp
+For more information about the C# Dev Kit extension, see the [C# documentation](/docs/csharp/get-started.md).
 
-Visual Studio Code uses the power of [Roslyn](https://github.com/dotnet/roslyn) and [OmniSharp](https://www.omnisharp.net) to offer an enhanced C# experience. We offer support for:
+## C&#35; Dev Kit
+
+Visual Studio Code uses the power of [Roslyn](https://github.com/dotnet/roslyn) and [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) to offer an enhanced C# experience. We offer support for:
 
 * .NET projects
 * MSBuild projects
 * C# scripts (CSX)
 
-On startup the best matching projects are loaded automatically but you can also choose your projects manually. The status bar will show what projects have been loaded and also allows you to select a different set of projects. To do so, click on the status bar projects item and select **Change projects…**. In the image below a single project has been picked up:
+Supported .NET project types include:
 
-![Select Project](images/csharp/selectproject.png)
+* ASP.NET Core App
+* ASP.NET Core Web API
+* ASP.NET Core MVC Web App
+* Blazor Web App
+* Blazor Server App
+* Blazor WebAssembly App
+* Console App
 
-The available options include:
+And more.
 
-* Selecting a `project.json` file will open a .NET project and VS Code will load that project plus the referenced projects.
-* Selecting a `*.sln` file opens a MSBuild-project. It will load the referenced `*.csproj` projects and sibling or descendant `project.json` files but no other project files that are referenced from the solution file.
-* Selecting a `folder` will make VS Code scan for `*.sln`, `project.json` and `*.csx` files (C# scripts) and VS Code will attempt to load them all.
+To find a full list of supported project types within VS Code, open the **Command Palette** and search for **.NET: New Project..**. This will display a full list of supported project types.
 
-Once the project is loaded the enhanced experiences light up...
+![Supported Projects](images/csharp/newproject.png)
+
+When you open a Workspace that contains .NET solution files or project files, the Solution Explorer will automatically appear. If you have a single solution file (.sln file) in the workspace, the Solution Explorer will detect that file and automatically load it after the workspace is loaded. For more information on managing your C# projects in VS Code, look at the documentation on [Project Management](/docs/csharp/project-management.md).
 
 ## Editing Evolved
 
 There is a lot to discover with C# and the editor, such as format on type, IntelliSense, the rename-refactoring, etc.
 
-![Right Click Menu](images/csharp/editingevolved.png)
+![Right-click Menu](images/csharp/editingevolved.png)
 
-For a full description of our editing features, go to the [Basic Editing](/docs/editor/codebasics.md) and [Code Navigation](/docs/editor/editingevolved.md) documentation.
+For more information on the C# Dev Kit editing features, go to the [Navigate and Edit documentation](/docs/csharp/navigate-edit.md). For a full description of VS Code editing features, go to the [Basic Editing](/docs/editing/codebasics.md) and [Code Navigation](/docs/editing/editingevolved.md) documentation.
 
 Here are a few highlights...
 
@@ -69,19 +69,19 @@ IntelliSense just works: hit `kb(editor.action.triggerSuggest)` at any time to g
 
 [GitHub Copilot](https://copilot.github.com/) is an AI-powered code completion tool that helps you write code faster and smarter. You can use the [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) in VS Code to generate code, or to learn from the code it generates.
 
-![Copilot extension in the VS Code Marketplace](images/csharp/copilot-extension.png)
+[![GitHub Copilot extension in the VS Code Marketplace](images/csharp/copilot-extension.png)](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
 
 GitHub Copilot provides suggestions for numerous languages and a wide variety of frameworks, and it works especially well for Python, JavaScript, TypeScript, Ruby, Go, C# and C++.
 
-You can learn more about how to get started with Copilot in the [Copilot documentation](/docs/editor/artificial-intelligence.md).
+You can learn more about how to get started with Copilot in the [Copilot documentation](/docs/editor/github-copilot.md).
 
 ## Snippets for C&#35;
 
-We have several built-in snippets included in VS Code that will come up as you type or you can press `kb(editor.action.triggerSuggest)` (Trigger Suggest) and we will give you a context specific list of suggestions.
+For information on snippets in C# Dev Kit, go to the [Navigate and Edit documentation](/docs/csharp/navigate-edit.md). There are also several built-in snippets included in VS Code that will come up as you type or you can press `kb(editor.action.triggerSuggest)` (Trigger Suggest) and we will give you a context specific list of suggestions.
 
 ![Snippets](images/csharp/snippet.png)
 
->**Tip:** You can add in your own User Defined Snippets for C#. Take a look at [User Defined Snippets](/docs/editor/userdefinedsnippets.md) to find out how.
+>**Tip:** You can add in your own User Defined Snippets for C#. Take a look at [User Defined Snippets](/docs/editing/userdefinedsnippets.md) to find out how.
 
 ## Search for Symbols
 
@@ -97,11 +97,11 @@ Another cool feature is the ability to see the number of references to a method 
 
 ![CodeLens](images/csharp/codelens.png)
 
->**Tip:** You can turn off references information displayed in CodeLens with the `editor.codeLens` [setting](/docs/getstarted/settings.md).
+>**Tip:** You can turn off references information displayed in CodeLens with the `setting(editor.codeLens)` [setting](/docs/configure/settings.md).
 
 ## Find References/Peek Definition
 
-You can click on the references of an object to find the locations of its use in place without losing context. This same experience works in reverse where you can Peek the definition of an object and see it inline without leaving your location.
+You can click on the references of an object to find the locations of its use in place without losing context. This same experience works in reverse where you can Peek the definition of an object and see it inline without leaving your location. For information on Peek Definition in C# Dev Kit, go to the [Navigate and Edit documentation](/docs/csharp/navigate-edit.md).
 
 ![Peek](images/csharp/peek.png)
 
@@ -111,30 +111,29 @@ There are some basic quick fixes supported in VS Code. You will see a lightbulb 
 
 ![Quick fix](images/csharp/lightbulb.png)
 
+## Testing
+
+The extension supports the following test frameworks:
+
+* [XUnit](https://learn.microsoft.com/dotnet/core/testing/unit-testing-with-dotnet-test)
+* [NUnit](https://learn.microsoft.com/dotnet/core/testing/unit-testing-with-nunit)
+* [MSTest](https://learn.microsoft.com/dotnet/core/testing/unit-testing-with-mstest)
+
+The C# Dev Kit extension provides the following features:
+
+* Run/Debug tests cases
+* View test report
+* View tests in Testing Explorer
+
+For more information, go to our [Testing documentation for C# Dev Kit](/docs/csharp/testing.md).
+
 ## Next steps
 
 Read on to find out about:
 
+* [C# Dev Kit documentation](/docs/csharp/get-started.md)
 * [.NET Development](/docs/languages/dotnet.md) - get up and running with cross-platform .NET
-* [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
-* [Tasks](/docs/editor/tasks.md) - Use tasks to build your project and more.
-* [Debugging](/docs/editor/debugging.md) - Find out how to use the debugger with your project.
+* [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful VS Code editor.
+* [Tasks](/docs/debugtest/tasks.md) - Use tasks to build your project and more.
+* [Debugging](/docs/debugtest/debugging.md) - Find out how to use the debugger with your project.
 * [Unity development](/docs/other/unity.md) - Learn about using VS Code with your Unity projects.
-
-## Common questions
-
-### My Project won't load
-
-VS Code only supports a limited set of project types. For full .NET project support, we suggest you use [Visual Studio Community](https://visualstudio.microsoft.com/vs/community).
-
-### IntelliSense is not working
-
-This is typically as a result of the current project type not being supported. You can see an indication in the OmniSharp flame in the bottom left hand side of the status bar.
-
-### How do I build/run my project?
-
-VS Code supports tasks for build and natively understand the output of MSBuild, CSC, XBuild. Find out more in the [Tasks](/docs/editor/tasks.md) documentation.
-
-### I'm missing required assets to build and debug C# in VS Code. My debugger says "No Configuration"
-
-The Visual Studio Code C# extension can generate the assets you need to build and debug. If you missed the prompt when you first opened a new C# project, you can still perform this operation through the Command Palette (**View > Command Palette** `kb(workbench.action.showCommands)`) by typing '.NET', and running **.NET: Generate Assets for Build and Debug**. This command will generate the necessary `launch.json` and `tasks.json` configuration files (under the `.vscode` folder).

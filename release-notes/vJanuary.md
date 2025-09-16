@@ -229,7 +229,7 @@ Whenever the editor contents is not loaded from the file system but comes from t
 
 ### Remote Debugging
 
-The followings improvements enable VS Code to support remote debugging, includes debugging into a Docker container:
+The following improvements enable VS Code to support remote debugging, includes debugging into a Docker container:
 
 * The `attach` launch configuration now supports an `address` attribute where a remote host can be specified. Please note that remote debugging is only supported on recent versions of Node.js (>= 4.x).
 * The `attach` launch configuration now supports a `localRoot` and a `remoteRoot` attribute that can be used to map paths between a local VS Code project and a (remote) Node.js folder. This works even locally on the same system or across different operating systems. Whenever a code path needs to be converted from the remote Node.js to a local VS Code path, the `remoteRoot` path is stripped off the path and replaced by `localRoot`. For the reverse conversion, the `localRoot` path is replaced by the `remoteRoot`.

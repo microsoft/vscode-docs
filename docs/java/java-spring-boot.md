@@ -1,13 +1,8 @@
 ---
-Order: 9
-Area: java
-TOCTitle: Spring Boot
 ContentId: d37118cf-1b5b-4aee-9727-52fcfcac16bd
-PageTitle: Spring Boot support in Visual Studio Code
 DateApproved: 12/22/2021
 MetaDescription: Spring Boot extensions for Java developer using Visual Studio Code editor.
 ---
-
 # Spring Boot in Visual Studio Code
 
 Visual Studio Code is an ideal lightweight development environment for Spring Boot application developers and there are several useful VS Code extensions including:
@@ -34,7 +29,7 @@ To develop a Spring Boot application in Visual Studio Code, you need to install 
 
 >**Note**: More information about how to get started can be found at [Getting Started with Java](/docs/java/java-tutorial.md) tutorial.
 
-To help get you started with Java Spring Boot development, you can use the [Java Spring profile template](/docs/editor/profiles.md#java-spring-profile-template) that includes useful extensions, settings, and Java Spring Boot code snippets.
+To help get you started with Java Spring Boot development, you can use the [Java Spring profile template](/docs/configure/profiles.md#java-spring-profile-template) that includes useful extensions, settings, and Java Spring Boot code snippets.
 
 ## Create the project
 
@@ -44,8 +39,7 @@ To install, launch VS Code and from the Extensions view (`kb(workbench.view.exte
 
 Once you have the extension installed, open the **Command Palette** (`kb(workbench.action.showCommands)`) and type `Spring Initializr` to start generating a Maven or Gradle project and then follow the wizard.
 
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-spring-boot/spring-initializr.mp4" type="video/mp4">
+<video src="images/java-spring-boot/spring-initializr.mp4" autoplay loop muted playsinline controls video="Create the project">
 </video>
 
 ## Edit the project
@@ -54,8 +48,7 @@ The [Spring Initializr](https://marketplace.visualstudio.com/items?itemName=vscj
 
 Navigate to your `pom.xml` file and right-click to select **Add starters...**. A dropdown will show the dependencies you already have beginning with a `√` . You can search for other dependencies you want to add to your project. Or you can click on the existing dependencies to remove them.
 
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-spring-boot/spring-initializr-add-starters.mp4" type="video/mp4">
+<video src="images/java-spring-boot/spring-initializr-add-starters.mp4" autoplay loop muted playsinline controls title="Edit the project">
 </video>
 
 ## Develop the application
@@ -76,21 +69,19 @@ To learn how to use these features, you can visit this [detailed usage guide](ht
 
 Below is an example showing live application information.
 
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-spring-boot/spring-live-info.mp4" type="video/mp4">
+<video src="images/java-spring-boot/spring-live-info.mp4" autoplay loop muted playsinline controls title="Live application information and metrics">
 </video>
 
 ## Run the application
 
 In addition to using `kb(workbench.action.debug.start)` to run your application, there's the [Spring Boot Dashboard](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-boot-dashboard) extension, which lets you view and manage all available Spring Boot projects in your workspace as well as quickly start, stop, or debug your project.
 
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-spring-boot/spring-dashboard.mp4" type="video/mp4">
+<video src="images/java-spring-boot/spring-dashboard.mp4" autoplay loop muted playsinline controls title="Run the Spring Boot application from Spring Boot dashboard">
 </video>
 
 ## Next steps
 
-* [Java Spring profile template](/docs/editor/profiles.md#java-spring-profile-template) - Create a new [profile](/docs/editor/profiles) with a curated set of extensions, settings, and snippets.
+* [Java Spring profile template](/docs/configure/profiles.md#java-spring-profile-template) - Create a new [profile](/docs/configure/profiles) with a curated set of extensions, settings, and snippets.
 * To deploy your web app, see [Java Web Apps with VS Code](/docs/java/java-webapp.md).
 * To containerize a web app and deploy as a Docker container, check out [Docker in VS Code](/docs/containers/overview.md).
 * To learn more about Java debugging features, see [Running and debugging Java](/docs/java/java-debugging.md).

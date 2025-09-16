@@ -1,9 +1,5 @@
 ---
-Order: 2
-Area: cpp
-TOCTitle: GCC on Linux
 ContentId: 8ba2e5c6-cb57-4513-bc02-c8b73e6956ad
-PageTitle: Get Started with C++ on Linux in Visual Studio Code
 DateApproved: 5/13/2022
 MetaDescription: Configure the C++ extension in Visual Studio Code to target g++ and GDB on Linux
 ---
@@ -88,6 +84,8 @@ int main()
         cout << word << " ";
     }
     cout << endl;
+
+    return 0;
 }
 ```
 
@@ -95,7 +93,7 @@ Now press `kb(workbench.action.files.save)` to save the file. Notice that your f
 
 ![File Explorer](images/msvc/file-explorer.png)
 
-You can also enable [Auto Save](/docs/editor/codebasics.md#save-auto-save) to automatically save your file changes, by checking **Auto Save** in the main **File** menu.
+You can also enable [Auto Save](/docs/editing/codebasics.md#save-auto-save) to automatically save your file changes, by checking **Auto Save** in the main **File** menu.
 
 The Activity Bar on the edge of Visual Studio Code lets you open different views such as **Search**, **Source Control**, and **Run**. You'll look at the **Run** view later in this tutorial. You can find out more about the other views in the VS Code [User Interface documentation](/docs/getstarted/userinterface.md).
 
@@ -162,7 +160,7 @@ Your new `tasks.json` file should look similar to the JSON below:
 }
 ```
 
->**Note**: You can learn more about `tasks.json` variables in the [variables reference](/docs/editor/variables-reference.md).
+>**Note**: You can learn more about `tasks.json` variables in the [variables reference](/docs/reference/variables-reference.md).
 
 The `command` setting specifies the program to run; in this case that is g++.
 The `args` array specifies the command-line arguments that will be passed to g++. These arguments must be specified in the order expected by the compiler.
@@ -171,7 +169,7 @@ This task tells g++ to take the active file (`${file}`), compile it, and create 
 
 The `label` value is what you will see in the tasks list; you can name this whatever you like.
 
-The `detail` value is what you will as the description of the task in the tasks list. It's highly recommended to rename this value to differentiate it from similar tasks.
+The `detail` value is what you will see as the description of the task in the tasks list. It's highly recommended to rename this value to differentiate it from similar tasks.
 
 From now on, the play button will read from `tasks.json` to figure out how to build and run your program. You can define multiple build tasks in `tasks.json`, and whichever task is marked as the default will be used by the play button. In case you need to change the default compiler, you can run **Tasks: Configure default build task**. Alternatively you can modify the `tasks.json` file and remove the default by replacing this segment:
 
@@ -190,21 +188,21 @@ with this:
 
 ### Modifying tasks.json
 
-You can modify your `tasks.json` to build multiple C++ files by using an argument like `"${workspaceFolder}/*.cpp"` instead of `${file}`.This will build all `.cpp` files in your current folder. You can also modify the output filename by replacing `"${fileDirname}/${fileBasenameNoExtension}"` with a hard-coded filename (for example 'helloworld.out').
+You can modify your `tasks.json` to build multiple C++ files by using an argument like `"${workspaceFolder}/*.cpp"` instead of `"${file}"`.This will build all `.cpp` files in your current folder. You can also modify the output filename by replacing `"${fileDirname}/${fileBasenameNoExtension}"` with a hard-coded filename (for example 'helloworld.out').
 
 ## Debug helloworld.cpp
+
+To debug your code,
 
 1. Go back to `helloworld.cpp` so that it is the active file.
 1. Set a breakpoint by clicking on the editor margin or using F9 on the current line.
    ![screenshot of breakpoint in helloworld.cpp](images/playbutton/cpp-breakpoint.png)
 1. From the drop-down next to the play button, select **Debug C/C++ File**.
-   ![Screenshot of play button drop-down](images/playbutton/run-debug-arrow.png)
    ![Screenshot of play button drop-down](images/playbutton/debug-cpp-file-play-button.png)
-1. Choose **C/C++: g++ build and debug active file** from the list of detected compilers on your system (you'll only be asked to choose a compiler the first time you run/debug `helloworld.cpp`).
+1. Choose **C/C++: g++ build and debug active file** from the list of detected compilers on your system (you'll only be asked to choose a compiler the first time you run or debug `helloworld.cpp`).
    ![C++ debug configuration dropdown](images/wsl/build-and-debug-active-file.png)
 
-The play button has two modes: **Run C/C++ File** and **Debug C/C++ File**. It will default to the last-used mode. If you see the debug icon in the play button, you can just click the play button to debug, instead of selecting the drop-down menu item.
-   ![screenshot of play button in debug mode](images/playbutton/debug-button.png)
+The play button has two modes: **Run C/C++ File** and **Debug C/C++ File**. It will default to the last-used mode. If you see the debug icon in the play button, you can just select the play button to debug, instead of selecting the drop-down menu item.
 
 ## Explore the debugger
 
@@ -236,7 +234,7 @@ Now you're ready to start stepping through the code.
    ![Debugging windows](images/wsl/debug-view-variables.png)
 
 1. Press **Step over** again to advance to the next statement in this program (skipping over all the internal code that is executed to initialize the loop). Now, the **Variables** window shows information about the loop variables.
-1. Press **Step over** again to execute the `cout` statement. (Note that as of the March 2019 release, the C++ extension does not print any output to the **Debug Console** until the last cout executes.)
+1. Press **Step over** again to execute the `cout` statement. (Note that the C++ extension does not print any output to the **Debug Console** until the last cout executes.)
 1. If you like, you can keep pressing **Step over** until all the words in the vector have been printed to the console. But if you are curious, try pressing the **Step Into** button to step through source code in the C++ standard library!
 
    ![Breakpoint in gcc standard library header](images/cpp/gcc-system-header-stepping.png)
@@ -367,6 +365,6 @@ The most common cause of errors (such as `undefined _main`, or `attempting to li
 
 ## Next steps
 
-- Explore the [VS Code User Guide](/docs/editor/codebasics.md).
+- Explore the [VS Code User Guide](/docs/editing/codebasics.md).
 - Review the [Overview of the C++ extension](/docs/languages/cpp.md).
 - Create a new workspace, copy your .json files to it, adjust the necessary settings for the new workspace path, program name, and so on, and start coding!

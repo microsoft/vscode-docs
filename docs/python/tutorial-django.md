@@ -1,10 +1,6 @@
 ---
-Order: 9
-Area: python
-TOCTitle: Django Tutorial
 ContentId: 3c0948f9-85a5-4dd4-a461-59788dbfce4c
-PageTitle: Python and Django tutorial in Visual Studio Code
-DateApproved: 10/27/2021
+DateApproved: 09/11/2025
 MetaDescription: Python Django tutorial demonstrating IntelliSense, code navigation, and debugging for both code and templates in Visual Studio Code, the best Python IDE.
 ---
 # Django Tutorial in Visual Studio Code
@@ -124,12 +120,12 @@ To create a minimal Django app, then, it's necessary to first create the Django 
 1. To verify the Django project, make sure your virtual environment is activated, then start Django's development server using the command `python manage.py runserver`. The server runs on the default port 8000, and you see output like the following output in the terminal window:
 
     ```bash
+    Watching for file changes with StatReloader
     Performing system checks...
 
     System check identified no issues (0 silenced).
-
-    January 15, 2021 - 14:33:31
-    Django version 3.1.5, using settings 'web_project.settings'
+    June 13, 2023 - 18:38:07
+    Django version 4.2.2, using settings 'web_project.settings'
     Starting development server at http://127.0.0.1:8000/
     Quit the server with CTRL-BREAK.
     ```
@@ -206,15 +202,24 @@ You're probably already wondering if there's an easier way to run the server and
 
     ```json
     {
-        "name": "Python: Django",
-        "type": "python",
-        "request": "launch",
-        "program": "${workspaceFolder}/manage.py",
-        "args": [
-            "runserver",
-        ],
-        "django": true
-    },
+        // Use IntelliSense to learn about possible attributes.
+        // Hover to view descriptions of existing attributes.
+        // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+        "version": "0.2.0",
+        "configurations": [
+            {
+                "name": "Python Debugger: Django",
+                "type": "debugpy",
+                "request": "launch",
+                "program": "${workspaceFolder}\\manage.py",
+                "args": [
+                    "runserver"
+                ],
+                "django": true,
+                "justMyCode": true
+            }
+        ]
+    }
     ```
 
     This configuration tells VS Code to run `"${workspaceFolder}/manage.py"` using the selected Python interpreter and the arguments in the `args` list. Launching the VS Code debugger with this configuration, then, is the same as running `python manage.py runserver` in the VS Code Terminal with your activated virtual environment. (You can add a port number like `"5000"` to `args` if desired.) The `"django": true` entry also tells VS Code to enable debugging of Django page templates, which you see later in this tutorial.
@@ -291,7 +296,7 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
     ![Django tutorial: appearance of the debugging status bar](images/django-tutorial/debug-status-bar.png)
 
-    A debugging toolbar (shown below) also appears in VS Code containing commands in the following order: Pause (or Continue, `kb(workbench.action.debug.continue)`), Step Over (`kb(workbench.action.debug.stepOver)`), Step Into (`kb(workbench.action.debug.stepInto)`), Step Out (`kb(workbench.action.debug.stepOut)`), Restart (`kb(workbench.action.debug.restart)`), and Stop (`kb(workbench.action.debug.stop)`). See [VS Code debugging](/docs/editor/debugging.md) for a description of each command.
+    A debugging toolbar (shown below) also appears in VS Code containing commands in the following order: Pause (or Continue, `kb(workbench.action.debug.continue)`), Step Over (`kb(workbench.action.debug.stepOver)`), Step Into (`kb(workbench.action.debug.stepInto)`), Step Out (`kb(workbench.action.debug.stepOut)`), Restart (`kb(workbench.action.debug.restart)`), and Stop (`kb(workbench.action.debug.stop)`). See [VS Code debugging](/docs/debugtest/debugging.md) for a description of each command.
 
     ![Django tutorial: the VS Code debug toolbar](images/shared/debug-toolbar.png)
 
@@ -301,7 +306,7 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
 1. Use Step Over to run the `now = datetime.now()` statement.
 
-1. On the left side of the VS Code window, you see a **Variables** pane that shows local variables, such as `now`, as well as arguments, such as `name`. Below that are panes for **Watch**, **Call Stack**, and **Breakpoints** (see [VS Code debugging](/docs/editor/debugging.md) for details). In the **Locals** section, try expanding different values. You can also double-click values (or use `kb(debug.setVariable)`) to modify them. Changing variables such as `now`, however, can break the program. Developers typically make changes only to correct values when the code didn't produce the right value to begin with.
+1. On the left side of the VS Code window, you see a **Variables** pane that shows local variables, such as `now`, as well as arguments, such as `name`. Below that are panes for **Watch**, **Call Stack**, and **Breakpoints** (see [VS Code debugging](/docs/debugtest/debugging.md) for details). In the **Locals** section, try expanding different values. You can also double-click values (or use `kb(debug.setVariable)`) to modify them. Changing variables such as `now`, however, can break the program. Developers typically make changes only to correct values when the code didn't produce the right value to begin with.
 
     ![Django tutorial: local variables and arguments in VS Code during debugging](images/django-tutorial/debug-local-variables.png)
 
@@ -317,12 +322,12 @@ Debugging gives you the opportunity to pause a running program on a particular l
 1. Copy that line into the > prompt at the bottom of the debug console, and try changing the formatting:
 
     ```bash
-    now.strftime("%a, %d %B, %Y at %X")
-    'Fri, 07 September, 2018 at 07:46:32'
+    now.strftime("%A, %d %B, %Y at %X")
+    'Tuesday, 13 June, 2023 at 18:03:19'
     now.strftime("%a, %d %b, %Y at %X")
-    'Fri, 07 Sep, 2018 at 07:46:32'
+    'Tue, 13 Jun, 2023 at 18:03:19'
     now.strftime("%a, %d %b, %y at %X")
-    'Fri, 07 Sep, 18 at 07:46:32'
+    'Tue, 13 Jun, 23 at 18:03:19'
     ```
 
 1. Step through a few more lines of code, if you'd like, then select Continue (`kb(workbench.action.debug.continue)`) to let the program run. The browser window shows the result:
@@ -384,10 +389,11 @@ In this section, you start by creating a single page using a template. In subseq
     from django.shortcuts import render
     ```
 
-1. Also in `views.py`, modify the `hello_there` function to use `django.shortcuts.render` method to load a template and to provide the *template context*. The context is the set of variables for use within the template. The `render` function takes the request object, followed by the path to to the template *relative to the `templates` folder*, then the context object. (Developers typically name the templates the same as the functions that use them, but matching names are not required because you always refer to the exact filename in your code.)
+1. Also in `views.py`, modify the `hello_there` function to use `django.shortcuts.render` method to load a template and to provide the *template context*. The context is the set of variables for use within the template. The `render` function takes the request object, followed by the path to the template *relative to the `templates` folder*, then the context object. (Developers typically name the templates the same as the functions that use them, but matching names are not required because you always refer to the exact filename in your code.)
 
     ```python
     def hello_there(request, name):
+        print(request.build_absolute_uri()) #optional
         return render(
             request,
             'hello/hello_there.html',
@@ -581,7 +587,7 @@ Because the three pages you create in the next section extend `layout.html`, it 
 
 1. Now, whenever you start typing the snippet's prefix, such as `djext`, VS Code provides the snippet as an autocomplete option, as shown in the next section. You can also use the **Insert Snippet** command to choose a snippet from a menu.
 
-For more information on code snippets in general, refer to [Creating snippets](/docs/editor/userdefinedsnippets.md).
+For more information on code snippets in general, refer to [Creating snippets](/docs/editing/userdefinedsnippets.md).
 
 ### Use the code snippet to add pages
 
@@ -936,9 +942,9 @@ Perform the following steps to enable the administrative interface:
 
 You can customize the administrative interface as much as you like. For example, you could provide capabilities to edit and remove entries in the database. For more information on making customizations, refer to the [Django admin site documentation](https://docs.djangoproject.com/en/3.1/ref/contrib/admin/).
 
-### Create a container for a Django app using the Docker extension
+### Create a container for a Django app using the Container Tools extension
 
-The [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) makes it easy to build, manage, and deploy containerized applications from Visual Studio Code. If you're interested in learning how to create a Python container for the Django app developed in this tutorial, check out the [Python in a container](/docs/containers/quickstart-python.md) tutorial, which will walk you through how to:
+The [Container Tools extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers) makes it easy to build, manage, and deploy containerized applications from Visual Studio Code. If you're interested in learning how to create a Python container for the Django app developed in this tutorial, check out the [Python in a container](/docs/containers/quickstart-python.md) tutorial, which will walk you through how to:
 
 - Create a `Dockerfile` file describing a simple Python container.
 - Build, run, and verify the functionality of a [Django](https://www.djangoproject.com/) app.

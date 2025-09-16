@@ -1,13 +1,8 @@
 ---
-Order: 2
-Area: languages
-TOCTitle: JavaScript
 ContentId: F54BB3D4-76FB-4547-A9D0-F725CEBB905C
-PageTitle: JavaScript Programming with Visual Studio Code
-DateApproved: 5/3/2023
+DateApproved: 09/11/2025
 MetaDescription: Get the best out of Visual Studio Code for JavaScript development
 ---
-
 # JavaScript in Visual Studio Code
 
 Visual Studio Code includes built-in JavaScript IntelliSense, debugging, formatting, code navigation, refactorings, and many other advanced language features.
@@ -42,8 +37,8 @@ To define a basic JavaScript project, add a `jsconfig.json` at the root of your 
 ```json
 {
     "compilerOptions": {
-        "module": "commonjs",
-        "target": "es6"
+        "module": "CommonJS",
+        "target": "ES6"
     },
     "exclude": [
         "node_modules"
@@ -53,19 +48,21 @@ To define a basic JavaScript project, add a `jsconfig.json` at the root of your 
 
 See [Working with JavaScript](/docs/nodejs/working-with-javascript.md) for more advanced `jsconfig.json` configuration.
 
-> **Tip:** To check if a JavaScript file is part of JavaScript project, just open the file in VS Code  and run the **JavaScript: Go to Project Configuration** command. This command opens the `jsconfig.json` that references the JavaScript file. A notification is shown if the file is not part of any `jsconfig.json` project.
+> [!TIP]
+> To check if a JavaScript file is part of JavaScript project, just open the file in VS Code  and run the **JavaScript: Go to Project Configuration** command. This command opens the `jsconfig.json` that references the JavaScript file. A notification is shown if the file is not part of any `jsconfig.json` project.
 
 ## Snippets
 
-VS Code includes basic JavaScript [snippets](/docs/editor/userdefinedsnippets.md) that are suggested as you type;
+VS Code includes basic JavaScript [snippets](/docs/editing/userdefinedsnippets.md) that are suggested as you type;
 
 <video src="images/javascript/snippets.mp4" placeholder="images/javascript/snippets-placeholder.png" autoplay loop controls muted>
     Sorry, your browser doesn't support HTML 5 video.
 </video>
 
-There are many extensions that provide additional snippets, including snippets for popular frameworks such as Redux or Angular. You can even [define your own snippets](/docs/editor/userdefinedsnippets.md).
+There are many extensions that provide additional snippets, including snippets for popular frameworks such as Redux or Angular. You can even [define your own snippets](/docs/editing/userdefinedsnippets.md).
 
-> **Tip**: To disable snippets suggestions, set `editor.snippetSuggestions` to `"none"` in your [settings](/docs/getstarted/settings.md) file. The `editor.snippetSuggestions` setting also lets you change where snippets appear in the suggestions: at the top (`"top"`), at the bottom (`"bottom"`), or inlined ordered alphabetically (`"inline"`). The default is `"inline"`.
+> [!TIP]
+> To disable snippets suggestions, set `setting(editor.snippetSuggestions)` to `"none"` in your [settings](/docs/configure/settings.md) file. The `setting(editor.snippetSuggestions)` setting also lets you change where snippets appear in the suggestions: at the top (`"top"`), at the bottom (`"bottom"`), or inlined ordered alphabetically (`"inline"`). The default is `"inline"`.
 
 ## JSDoc support
 
@@ -115,13 +112,57 @@ In this example, VS Code adds an import for `Button` from [material-ui](https://
 
 To disable auto imports, set `"javascript.suggest.autoImports"` to `false`.
 
-> **Tip:** VS Code tries to infer the best import style to use. You can explicitly configure the preferred quote style and path style for imports added to your code with the `javascript.preferences.quoteStyle` and `javascript.preferences.importModuleSpecifier` settings.
+> [!TIP]
+> VS Code tries to infer the best import style to use. You can explicitly configure the preferred quote style and path style for imports added to your code with the `setting(javascript.preferences.quoteStyle)` and `setting(javascript.preferences.importModuleSpecifier)` settings.
+
+### Add imports on paste
+
+When you copy and paste code between editors, VS Code can automatically add imports when the code is pasted. When you paste code that contains an undefined symbol, a paste control is shown that lets you choose between pasting as plain text or to add imports.
+
+<video src="images/javascript/jsts-update-imports-paste.mp4" title="Copy code from one editor to another shows the paste widget and results in adding imports when pasting. " autoplay loop controls muted></video>
+
+This feature is enabled by default, but you can disable it by toggling the `setting(javascript.updateImportsOnPaste.enabled)` setting.
+
+You can make paste with imports the default behavior, without showing the paste control, by configuring the `setting(editor.pasteAs.preferences)` setting. Include `text.updateImports.jsts` or `text.updateImports` to always add imports when pasting.
+
+## Organize Imports
+
+The **Organize Imports** Source Action sorts the imports in a JavaScript file and removes any unused imports:
+
+<!-- TODO: replace with js specific example -->
+<video src="images/javascript/organize-imports.mp4" placeholder="images/javascript/organize-imports-placeholder.png" autoplay loop controls muted>
+    Sorry, your browser doesn't support HTML 5 video.
+</video>
+
+You can run **Organize Imports** from the **Source Action** context menu or with the `kb(editor.action.organizeImports)` keyboard shortcut.
+
+Organize imports can also be done automatically when you save a JavaScript file by setting:
+
+```json
+"editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit"
+}
+```
+
+## Update imports on file move
+
+When you move or rename a file that is imported by other files in your JavaScript project, VS Code can automatically update all import paths that reference the moved file:
+
+<video src="images/javascript/update-imports.mp4" placeholder="images/javascript/update-imports-placeholder.png" autoplay loop controls muted>
+    Sorry, your browser doesn't support HTML 5 video.
+</video>
+
+The `setting(javascript.updateImportsOnFileMove.enabled)` setting controls this behavior. Valid settings values are:
+
+* `"prompt"` - The default. Asks if paths should be updated for each file move.
+* `"always"` - Always automatically update paths.
+* `"never"` - Do not update paths automatically and do not prompt.
 
 ## Formatting
 
 VS Code's built-in JavaScript formatter provides basic code formatting with reasonable defaults.
 
-The `javascript.format.*` [settings](/docs/getstarted/settings.md) configure the built-in formatter. Or, if the built-in formatter is getting in the way, set `"javascript.format.enable"` to `false` to disable it.
+The `javascript.format.*` [settings](/docs/configure/settings.md) configure the built-in formatter. Or, if the built-in formatter is getting in the way, set `"javascript.format.enable"` to `false` to disable it.
 
 For more specialized code formatting styles, try installing one of the JavaScript formatting extensions from the [Marketplace](https://marketplace.visualstudio.com/vscode).
 
@@ -174,11 +215,15 @@ Available refactorings include:
 * Convert between named imports and namespace imports.
 * Move to new file.
 
-See [Refactorings](/docs/editor/refactoring.md) for more information about refactorings and how you can configure keyboard shortcuts for individual refactorings.
+See [Refactorings](/docs/editing/refactoring.md) for more information about refactorings and how you can configure keyboard shortcuts for individual refactorings.
+
+Additionally, **Code Action Widget: Include Nearby Quick Fixes** (`setting(editor.codeActionWidget.includeNearbyQuickFixes)`) is a setting that is enabled on default, which will activate the nearest Quick Fix in a line from `kb(editor.action.quickFix)` (command ID `editor.action.quickFix`), no matter where your cursor is in that line.
+
+The command highlights the source code that will be refactored or fixed with Quick Fixes. Normal Code Actions and non-fix refactorings can still be activated at the cursor location.
 
 ## Unused variables and unreachable code
 
-Unused JavaScript code, such the else block of an `if` statement that is always true or an unreferenced import, is faded out in the editor:
+Unused JavaScript code, such as the else block of an `if` statement that is always true or an unreferenced import, is faded out in the editor:
 
 ![Unreachable source code faded out](images/javascript/unreachable.png)
 
@@ -195,38 +240,24 @@ To disable fading out of unused code, set `"editor.showUnused"` to `false`. You 
 },
 ```
 
-## Organize Imports
-
-The **Organize Imports** Source Action sorts the imports in a JavaScript file and removes any unused imports:
-
-<!-- TODO: replace with js specific example -->
-<video src="images/javascript/organize-imports.mp4" placeholder="images/javascript/organize-imports-placeholder.png" autoplay loop controls muted>
-    Sorry, your browser doesn't support HTML 5 video.
-</video>
-
-You can run **Organize Imports** from the **Source Action** context menu or with the `kb(editor.action.organizeImports)` keyboard shortcut.
-
-Organize imports can also be done automatically when you save a JavaScript file by setting:
-
-```json
-"editor.codeActionsOnSave": {
-    "source.organizeImports": true
-}
-```
-
 ## Code Actions on Save
 
-The `editor.codeActionsOnSave` setting lets you configure a set of Code Actions that are run when a file is saved. For example, you can enable organize imports on save by setting:
+The `setting(editor.codeActionsOnSave)` setting lets you configure a set of Code Actions that are run when a file is saved. For example, you can enable organize imports on save by setting:
 
 ```json
-// On save, run both fixAll and organizeImports source actions
+// On explicit save, run fixAll source action. On auto save (window or focus change), run organizeImports source action.
 "editor.codeActionsOnSave": {
-    "source.fixAll": true,
-    "source.organizeImports": true,
+    "source.fixAll": "explicit",
+    "source.organizeImports": "always",
 }
 ```
 
-You can also set `editor.codeActionsOnSave` to an array of Code Actions to execute in order.
+As of today, the following enums are supported:
+* `explicit` (default): Triggers Code Actions when explicitly saved. Same as `true`.
+* `always`: Triggers Code Actions when explicitly saved and on Auto Saves from window or focus changes.
+* `never`: Never triggers Code Actions on save. Same as `false`.
+
+You can also set `setting(editor.codeActionsOnSave)` to an array of Code Actions to execute in order.
 
 Here are some source actions:
 
@@ -251,13 +282,13 @@ Set `"javascript.suggestionActions.enabled"` to `false` to disable suggestions.
 
 [GitHub Copilot](https://copilot.github.com/) is an AI-powered code completion tool that helps you write code faster and smarter. You can use the [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) in VS Code to generate code, or to learn from the code it generates.
 
-![Copilot extension in the VS Code Marketplace](images/javascript/copilot-extension.png)
+[![GitHub Copilot extension in the VS Code Marketplace](images/javascript/copilot-extension.png)](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
 
 GitHub Copilot provides suggestions for numerous languages and a wide variety of frameworks, and it works especially well for Python, JavaScript, TypeScript, Ruby, Go, C# and C++.
 
-You can learn more about how to get started with Copilot in the [Copilot documentation](/docs/editor/artificial-intelligence.md).
+You can learn more about how to get started with Copilot in the [Copilot documentation](/docs/editor/github-copilot.md).
 
-Once you have the Copilot extension installed and enabled, you can test it our for your JavaScript projects.
+Once you have the Copilot extension installed and enabled, you can test it out for your JavaScript projects.
 
 Create a new file - you can use the **File: New File** command in the Command Palette (`kbstyle(F1)`).
 
@@ -289,25 +320,25 @@ To enable parameter name hints, set `javascript.inlayHints.parameterNames`. Ther
 
 **Variable type inlay hints** show the types of variables that don't have explicit type annotations.
 
-Setting: `javascript.inlayHints.variableTypes.enabled`
+Setting: `setting(javascript.inlayHints.variableTypes.enabled)`
 
 ![Variable type inlay hints](images/javascript/inlay-var-types.png)
 
 **Property type inlay hints** show the type of class properties that don't have an explicit type annotation.
 
-Setting: `javascript.inlayHints.propertyDeclarationTypes.enabled`
+Setting: `setting(javascript.inlayHints.propertyDeclarationTypes.enabled)`
 
 ![Property type inlay hints](images/javascript/inlay-property-types.png)
 
 **Parameter type hints**  show the types of implicitly typed parameters.
 
-Setting: `javascript.inlayHints.parameterTypes.enabled`
+Setting: `setting(javascript.inlayHints.parameterTypes.enabled)`
 
 ![Parameter type inlay hints](images/javascript/inlay-parameter-types.png)
 
 **Return type inlay hints** show the return types of functions that don't have an explicit type annotation.
 
-Setting: `javascript.inlayHints.functionLikeReturnTypes.enabled`
+Setting: `setting(javascript.inlayHints.functionLikeReturnTypes.enabled)`
 
 ![Return type inlay hints](images/javascript/inlay-return-type.png)
 
@@ -323,27 +354,14 @@ Click on the reference count to quickly browse a list of references:
 
 ![JavaScript references CodeLens peek](images/javascript/references-codelens-peek.png)
 
-## Update imports on file move
-
-When you move or rename a file that is imported by other files in your JavaScript project, VS Code can automatically update all import paths that reference the moved file:
-
-<video src="images/javascript/update-imports.mp4" placeholder="images/javascript/update-imports-placeholder.png" autoplay loop controls muted>
-    Sorry, your browser doesn't support HTML 5 video.
-</video>
-
-The `javascript.updateImportsOnFileMove.enabled` setting controls this behavior. Valid settings values are:
-
-* `"prompt"` - The default. Asks if paths should be updated for each file move.
-* `"always"` - Always automatically update paths.
-* `"never"` - Do not update paths automatically and do not prompt.
-
 ## Linters
 
-[Linters](https://en.wikipedia.org/wiki/Lint_%28software%29) provides warnings for suspicious looking code. While VS Code does not include a built-in JavaScript linter, many JavaScript linter [extensions](/docs/editor/extension-marketplace.md) available in the marketplace.
+[Linters](https://en.wikipedia.org/wiki/Lint_%28software%29) provides warnings for suspicious looking code. While VS Code does not include a built-in JavaScript linter, many JavaScript linter [extensions](/docs/configure/extensions/extension-marketplace.md) are available in the marketplace.
 
 <div class="marketplace-extensions-javascript-linters-curated"></div>
 
-> **Tip:** This list is dynamically queried from the [VS Code Marketplace](https://marketplace.visualstudio.com). Read the description and reviews to decide if the extension is right for you.
+> [!TIP]
+> This list is dynamically queried from the [VS Code Marketplace](https://marketplace.visualstudio.com). Read the description and reviews to decide if the extension is right for you.
 
 ## Type checking
 
@@ -357,7 +375,7 @@ Type checking of JavaScript is optional and opt-in. Existing JavaScript validati
 
 ## Debugging
 
-VS Code comes with great debugging support for JavaScript. Set breakpoints, inspect objects, navigate the call stack, and execute code in the Debug Console. See the [Debugging topic](/docs/editor/debugging.md) to learn more.
+VS Code comes with great debugging support for JavaScript. Set breakpoints, inspect objects, navigate the call stack, and execute code in the Debug Console. See the [Debugging topic](/docs/debugtest/debugging.md) to learn more.
 
 ### Debug client side
 
@@ -371,11 +389,12 @@ Debug Node.js in VS Code using the built-in debugger. Setup is easy and there is
 
 ## Popular extensions
 
-VS Code ships with excellent support for JavaScript but you can additionally install debuggers, snippets, linters, and other JavaScript tools through [extensions](/docs/editor/extension-marketplace.md).
+VS Code ships with excellent support for JavaScript but you can additionally install debuggers, snippets, linters, and other JavaScript tools through [extensions](/docs/configure/extensions/extension-marketplace.md).
 
 <div class="marketplace-extensions-javascript-curated"></div>
 
-> **Tip:** The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
+> [!TIP]
+> The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
 
 ## Next steps
 
@@ -383,8 +402,8 @@ Read on to find out about:
 
 * [Working with JavaScript](/docs/nodejs/working-with-javascript.md) - More detailed information about VS Code's JavaScript support and how to troubleshoot common issues.
 * [jsconfig.json](/docs/languages/jsconfig.md) - Detailed description of the `jsconfig.json` project file.
-* [IntelliSense](/docs/editor/intellisense.md) - Learn more about IntelliSense and how to use it effectively for your language.
-* [Debugging](/docs/editor/debugging.md) - Learn how to set up debugging for your application.
+* [IntelliSense](/docs/editing/intellisense.md) - Learn more about IntelliSense and how to use it effectively for your language.
+* [Debugging](/docs/debugtest/debugging.md) - Learn how to set up debugging for your application.
 * [Node.js](/docs/nodejs/nodejs-tutorial.md) - A walkthrough to create an Express Node.js application.
 * [TypeScript](/docs/languages/typescript.md) - VS Code has great support for TypeScript, which brings structure and strong typing to your JavaScript code.
 
@@ -411,8 +430,8 @@ When you want to use ES6 style imports but some type declaration (typings) files
 ```json
 {
     "compilerOptions": {
-        "module": "commonjs",
-        "target": "es6",
+        "module": "CommonJS",
+        "target": "ES6",
         // This is the line you want to add
         "allowSyntheticDefaultImports": true
     },
@@ -429,7 +448,7 @@ Yes, you can. You can see this working using JavaScript source maps in the [Node
 
 ### How do I disable Syntax Validation when using non-ES6 constructs?
 
-Some users want to use syntax constructs like the proposed pipeline (`|>`) operator. However, these are currently not supported by VS Code's JavaScript language service and are flagged as errors. For users who still want to use these future features, we provide the `javascript.validate.enable` [setting](/docs/getstarted/settings.md).
+Some users want to use syntax constructs like the proposed pipeline (`|>`) operator. However, these are currently not supported by VS Code's JavaScript language service and are flagged as errors. For users who still want to use these future features, we provide the `setting(javascript.validate.enable)` [setting](/docs/configure/settings.md).
 
 With `javascript.validate.enable: false`, you disable all built-in syntax checking. If you do this, we recommend that you use a linter like [ESLint](https://eslint.org) to validate your source code.
 

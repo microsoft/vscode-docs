@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 79996489-8D16-4C0A-8BE8-FF4B1E9C223A
-DateApproved: 5/3/2023
+DateApproved: 09/11/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide illustrating how to use Source Control API.
@@ -109,9 +109,9 @@ The `scm/title` menu is located to the right of the SCM view title. The menu ite
 
 These three are similar:
 
-- `scm/resourceGroup/context` adds commands to [`SourceControlResourceGroup`](/api/references/contribution-points#SourceControlResourceGroup) items.
-- `scm/resourceState/context` adds commands to [`SourceControlResourceState`](/api/references/contribution-points#SourceControlResourceState) items.
-- `scm/resourceFolder/context` add commands to the intermediate folders that appear when a [`SourceControlResourceState`](/api/references/contribution-points#SourceControlResourceState)'s resourceUri path includes folders and the user has opted for tree-view rather than list-view mode.
+- `scm/resourceGroup/context` adds commands to [`SourceControlResourceGroup`](/api/references/contribution-points#contributes.menus) items.
+- `scm/resourceState/context` adds commands to [`SourceControlResourceState`](/api/references/contribution-points#contributes.menus) items.
+- `scm/resourceFolder/context` add commands to the intermediate folders that appear when a [`SourceControlResourceState`](/api/references/contribution-points#contributes.menus)'s resourceUri path includes folders and the user has opted for tree-view rather than list-view mode.
 
 Place menu items in the `inline` group to have them inline. All other menu item groups will be represented in a context menu usually accessible using the mouse right-click.
 
@@ -133,11 +133,11 @@ When creating them, `SourceControl` and `SourceControlResourceGroup` instances r
 }
 ```
 
-The `scm/sourceControl` menu is located contextually near SourceControl instances:
+The `scm/sourceControl` menu is the context menu on each `SourceControl` instance in the **Source Control Repositories** view:
 
 ![source control menu](images/scm-provider/sourcecontrol-menu.png)
 
-The `scm/change/title` allows you to contribute commands to the title bar of the [Quick Diff](/api/references/contribution-points#QuickDiffProvider) inline diff editor, described [further ahead](#quick-diff). The command will be passed as arguments the URI of the document, the array of changes within it, and the index of the change which the inline change diff editor is currently focused on. For example, here's the declaration of the `stageChange` Git command which is contributed to this menu with a `when` clause testing that the `originalResourceScheme` [context key](/api/references/when-clause-contexts) equals `git`:
+The `scm/change/title` allows you to contribute commands to the title bar of the [Quick Diff](/api/references/vscode-api#QuickDiffProvider) inline diff editor, described [further ahead](#quick-diff). The command will be passed as arguments the URI of the document, the array of changes within it, and the index of the change which the inline change diff editor is currently focused on. For example, here's the declaration of the `stageChange` Git command which is contributed to this menu with a `when` clause testing that the `originalResourceScheme` [context key](/api/references/when-clause-contexts) equals `git`:
 
 ```ts
 async stageChange(uri: Uri, changes: LineChange[], index: number): Promise<void>;

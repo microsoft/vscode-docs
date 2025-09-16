@@ -35,13 +35,13 @@ The extensions he likes to have installed:
 * [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) - His favorite! Auto-formatting keeps students focused on program logic and linting helps them quickly find, understand, and fix errors in their JavaScript code.
 * [TabNine](https://marketplace.visualstudio.com/items?itemName=TabNine.tabnine-vscode) - Longer AI-driven code-snippets helps non-native English speakers avoid code-breaking typos and reduces the impact of slow typing.
 * [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) - Share API designs as `.http` files and simplify manual API testing within VS Code.
-* [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) - Vue.js framework support for syntax highlighting, code completion, and more! This helps students focus on their Vue.js code rather than getting stuck solving syntactical errors.
+* [Volar](https://marketplace.visualstudio.com/items?itemName=vue.volar) - Vue.js framework support for syntax highlighting, code completion, and more! This helps students focus on their Vue.js code rather than getting stuck solving syntactical errors.
 
 These extensions are also part of the Node.js and JavaScript Education Extension Pack below!
 
 ## Classroom settings
 
-And here are his recommended settings, which help his students have consistent formatting of their code to make his life reviewing and grading their work that much easier. You can use his settings by editing the [settings file](/docs/getstarted/settings.md) and pasting these in:
+And here are his recommended settings, which help his students have consistent formatting of their code to make his life reviewing and grading their work that much easier. You can use his settings by editing the [settings file](/docs/configure/settings.md) and pasting these in:
 
 ```json
 {
@@ -87,15 +87,7 @@ And here are his recommended settings, which help his students have consistent f
     },
     "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[vue]": {
-    "editor.defaultFormatter": "octref.vetur"
-    },
-    "vetur.format.options.tabSize": 2,
-    "vetur.format.options.useTabs": false,
-    "vetur.format.defaultFormatter.html": "prettier",
-    "vetur.format.defaultFormatter.js": "vscode-typescript", // for consistency with TS option
-    "vetur.format.defaultFormatter.ts": "vscode-typescript"
+    }
 }
 ```
 

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
-DateApproved: 5/3/2023
+DateApproved: 09/11/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various Contribution Points it is using in its package.json Extension Manifest file.
@@ -11,6 +11,7 @@ MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares
 
 **Contribution Points** are a set of JSON declarations that you make in the `contributes` field of the `package.json` [Extension Manifest](/api/references/extension-manifest). Your extension registers **Contribution Points** to extend various functionalities within Visual Studio Code. Here is a list of all available **Contribution Points**:
 
+- [`authentication`](/api/references/contribution-points#contributes.authentication)
 - [`breakpoints`](/api/references/contribution-points#contributes.breakpoints)
 - [`colors`](/api/references/contribution-points#contributes.colors)
 - [`commands`](/api/references/contribution-points#contributes.commands)
@@ -42,6 +43,23 @@ MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares
 - [`viewsContainers`](/api/references/contribution-points#contributes.viewsContainers)
 - [`viewsWelcome`](/api/references/contribution-points#contributes.viewsWelcome)
 - [`walkthroughs`](/api/references/contribution-points#contributes.walkthroughs)
+
+## contributes.authentication
+
+Contributes an authentication provider. This will set up an activation event for your provider and display it in your extension's features.
+
+```json
+{
+  "contributes": {
+    "authentication": [
+      {
+        "label": "Azure DevOps",
+        "id": "azuredevops"
+      }
+    ]
+  }
+}
+```
 
 ## contributes.breakpoints
 
@@ -141,7 +159,7 @@ See the [Commands Extension Guide](https://code.visualstudio.com/api/extension-g
 
 ## contributes.configuration
 
-Contribute configuration keys that will be exposed to the user. The user will be able to set these configuration options as User Settings or as Workspace Settings, either by using the Settings editor or by editing the JSON settings file directly.
+Contribute settings that will be exposed to the user. The user will be able to set these configuration options in the Settings editor or by editing a settings.json file directly.
 
 This section can either be a single object, representing a single category of settings, or an array of objects, representing multiple categories of settings. If there are multiple categories of settings, the Settings editor will show a submenu in the table of contents for that extension, and the title keys will be used for the submenu entry names.
 
@@ -151,17 +169,18 @@ This section can either be a single object, representing a single category of se
 {
   "contributes": {
     "configuration": {
-      "title": "TypeScript",
+      "title": "Settings Editor Test Extension",
+      "type": "object",
       "properties": {
-        "typescript.useCodeSnippetsOnMethodSuggest": {
+        "settingsEditorTestExtension.booleanExample": {
           "type": "boolean",
-          "default": false,
-          "description": "Complete functions with their parameter signature."
+          "default": true,
+          "description": "Boolean Example"
         },
-        "typescript.tsdk": {
-          "type": ["string", "null"],
-          "default": null,
-          "description": "Specifies the folder path containing the tsserver and lib*.d.ts files to use."
+        "settingsEditorTestExtension.stringExample": {
+          "type": "string",
+          "default": "Hello World",
+          "description": "String Example"
         }
       }
     }
@@ -169,7 +188,7 @@ This section can either be a single object, representing a single category of se
 }
 ```
 
-![configuration extension point example](images/contribution-points/configuration.png)
+![configuration extension point example](images/contribution-points/configuration-2.png)
 
 You can read these values from your extension using `vscode.workspace.getConfiguration('myExtension')`.
 
@@ -179,7 +198,7 @@ Your configuration entry is used both to provide intellisense when editing your 
 
 ![settings UI screenshot with numbers](images/contribution-points/settings-ui.png)
 
-**title**
+#### title
 
 The `title` 1️⃣️ of a category is the heading used for that category.
 
@@ -191,7 +210,7 @@ The `title` 1️⃣️ of a category is the heading used for that category.
 }
 ```
 
-Note that if the extension has multiple categories of extensions, and the title of one of the categories is the same as the extension display name, then the settings for that category will be placed directly below the main extension heading, no matter what the `order` field is set to.
+For an extension with multiple categories of settings, if the title of one of the categories is the same as the extension's display name, then the settings UI will treat that category as a "default category", ignoring the `order` field for that category and placing its settings below the main extension heading.
 
 For both the `title` and `displayName` fields, words like "Extension", "Configuration", and "Settings" are redundant.
 
@@ -200,41 +219,34 @@ For both the `title` and `displayName` fields, words like "Extension", "Configur
 - ❌ `"title": "GitMagic Configuration"`
 - ❌ `"title": "GitMagic Extension Configuration Settings"`
 
-**properties**
+#### properties
 
-The `properties` 2️⃣ in your configuration will be a dictionary of configuration properties.
+The `properties` 2️⃣ in your `configuration` object will form a dictionary where the keys are setting IDs and the values give more information on the setting. Though an extension can contain multiple categories of settings, each setting of the extension must still have its own unique ID. A setting ID cannot be a complete prefix of another setting ID.
 
-In the settings UI, your configuration key will be used to namespace and construct a title. Though an extension can contain multiple categories of settings, each setting of the extension must still have its own unique key. Capital letters in your key are used to indicate word breaks. For example, if your key is `gitMagic.blame.dateFormat`, the generated title for the setting will look like this:
+Properties without an explicit `order` field will appear in lexicographical order in the settings UI (**not** the order in which they're listed in the manifest).
 
-> Blame: **Date Format**
+### Setting titles
 
-Entries will be grouped according to the hierarchy established in your keys. So for example, these entries
+In the settings UI, multiple fields will be used to construct a display title for each setting. Capital letters in your key are used to indicate word breaks.
 
-```
-gitMagic.blame.dateFormat
-gitMagic.blame.format
-gitMagic.blame.heatMap.enabled
-gitMagic.blame.heatMap.location
-```
+#### Display titles for single-category and default category configurations
 
-will appear in a single group like this:
+If the configuration has a single category of settings, or if the category has the same title as the extension's display name, then for settings within that category, the settings UI will use the settings ID and the extension `name` field to determine the display title.
 
-> Blame: **Date Format**
->
-> Blame: **Format**
->
-> Blame › Heat Map: **Enabled**
->
-> Blame › Heat Map: **Location**
+As an example, for settings ID `gitMagic.blame.dateFormat` and extension name `authorName.gitMagic`, because the prefix of the settings ID matches with the suffix of the extension name, the `gitMagic` part of the settings ID will be removed in the display title: "Blame: **Date Format**".
 
-Otherwise, properties without an explicit order field appear in alphabetical order (**not** the order in which they're listed in the manifest).
+#### Display titles for multi-category configurations
+
+If the configuration has multiple categories of settings, and the category does not have the same title as the extension's display name, then for settings within that category, the settings UI will use the settings ID and the category `id` field to determine the display title.
+
+As an example, for settings ID `css.completion.completePropertyWithSemicolon` and category ID `css`, because the prefix of the settings ID matches with the suffix of the category ID, the `css` part of the settings ID will be removed in the settings UI, and the generated title for the setting will be "Completion: **Complete Property With Semicolon**".
 
 ### Configuration property schema
 
 Configuration keys are defined using a superset of [JSON
-Schema](https://json-schema.org/understanding-json-schema/reference/index.html).
+Schema](https://json-schema.org/overview/what-is-jsonschema).
 
-**description** / **markdownDescription**
+#### description / markdownDescription
 
 Your `description` 3️⃣ appears after the title and before the input field, except for booleans, where the description is used as the label for the checkbox. 6️⃣
 
@@ -246,7 +258,7 @@ Your `description` 3️⃣ appears after the title and before the input field, e
 }
 ```
 
-If you use `markdownDescription` instead of `description`, your setting description will be rendered as Markdown in the settings UI.
+If you use `markdownDescription` instead of `description`, your setting description will be parsed as Markdown in the settings UI.
 
 ```json
 {
@@ -258,7 +270,7 @@ If you use `markdownDescription` instead of `description`, your setting descript
 
 For `markdownDescription`, in order to add newlines or multiple paragraphs, use the string `\n\n` to separate the paragraphs instead of just `\n`.
 
-**type**
+#### type
 
 Entries of type `number` 4️⃣ , `string` 5️⃣ , `boolean` 6️⃣ can be edited directly in the settings UI.
 
@@ -274,7 +286,7 @@ Entries of type `number` 4️⃣ , `string` 5️⃣ , `boolean` 6️⃣ can be e
 
 A string setting can be rendered with a multiline text input if it sets `"editPresentation": "multilineText"` on the configuration entry.
 
-For `boolean` entries, the `description` (or `markdownDescription`) will be used as the label for the checkbox.
+For `boolean` entries, the `markdownDescription` (or `description` if `markdownDescription` is not specified) will be used as the label next to the checkbox.
 
 ```json
 {
@@ -289,7 +301,7 @@ Some `object` and `array` type settings will be rendered in the settings UI. Sim
 
 If an `object` or `array` type setting can also contain other types like nested objects, arrays, or null, then the value won't be rendered in the settings UI and can only be modified by editing the JSON directly. Users will see a link to **Edit in settings.json** as shown in the screenshot above. 8️⃣
 
-**order**
+#### order
 
 Both categories and the settings within those categories can take an integer `order` type property, which gives a reference to how they should be sorted relative to other categories and/or settings.
 
@@ -297,38 +309,36 @@ If two categories have `order` properties, the category with the lower order num
 
 If two settings within the same category have `order` properties, the setting with the lower order number comes first. If another setting within that same category is not given an `order` property, it will appear after settings in that category that were given that property.
 
-If two categories have the same `order` property value, or if two settings within the same category have the same `order` property value, then they will be sorted in increasing alphabetical order within the settings UI.
+If two categories have the same `order` property value, or if two settings within the same category have the same `order` property value, then they will be sorted in increasing lexicographical order within the settings UI.
 
-**enum** / **enumDescriptions** / **enumItemLabels**
+#### enum / enumDescriptions / markdownEnumDescriptions / enumItemLabels
 
-If you provide an array of items under the `enum` 7️⃣ property, the settings UI will render a dropdown menu.
+If you provide an array of items under the `enum` 7️⃣ property, the settings UI will render a dropdown menu of those items.
 
-![settings UI screenshot of dropdown](images/contribution-points/settings-ui-enum.png)
+You can also provide an `enumDescriptions` property, an array of strings of the same length as the `enum` property. The `enumDescriptions` property provides a description in the settings UI at the bottom of the dropdown menu corresponding to each `enum` item. \
+You can also use `markdownEnumDescriptions` instead of `enumDescriptions`, and your descriptions will be parsed as Markdown. `markdownEnumDescriptions` takes precedence over `enumDescriptions`. \
+To customize the dropdown option names in the settings UI, you can use `enumItemLabels`.
 
-You can also provide an `enumDescriptions` property, which provides descriptive text rendered at the bottom of the dropdown:
+Example:
 
 ```json
 {
-  "gitMagic.blame.heatMap.location": {
+  "settingsEditorTestExtension.enumSetting": {
     "type": "string",
-    "default": "right",
-    "enum": ["left", "right"],
-    "enumDescriptions": [
-      "Adds a heatmap indicator on the left edge of the gutter blame annotations",
-      "Adds a heatmap indicator on the right edge of the gutter blame annotations"
-    ]
+    "enum": ["first", "second", "third"],
+    "markdownEnumDescriptions": ["The *first* enum", "The *second* enum", "The *third* enum"],
+    "enumItemLabels": ["1st", "2nd", "3rd"],
+    "default": "first",
+    "description": "Example setting with an enum"
   }
 }
 ```
 
-You can also use `markdownEnumDescriptions`, and your descriptions will be rendered as Markdown.
+![settings UI screenshot of example enum setting above](images/contribution-points/settings-ui-enum-example.png)
 
-To customize the dropdown options, you can use `enumItemLabels`. The `workbench.iconTheme` setting uses both `enumDescriptions` and `enumItemLabels`. In the screenshot below, the hovered option has the item label "None", with enum description "No file icons" and enum value `null`.
-![The workbench.iconTheme setting in the Settings UI with the dropdown expanded showing the enum item labels and one enum description](images/contribution-points/settings-ui-icon-theme.png)
+#### deprecationMessage / markdownDeprecationMessage
 
-**deprecationMessage** / **markdownDeprecationMessage**
-
-If you set `deprecationMessage`, or `markdownDeprecationMessage`, the setting will get a warning underline with your specified message. It won't show up in the settings UI unless it is configured by the user. If you set `markdownDeprecationMessage`, the markdown will not be rendered in the setting hover or the problems view. If you set both properties, `deprecationMessage` will be shown in the hover and the problems view, and `markdownDeprecationMessage` will be rendered as Markdown in the settings UI.
+If you set `deprecationMessage`, or `markdownDeprecationMessage`, the setting will get a warning underline with your specified message. Also, the setting will be hidden from the settings UI unless it is configured by the user. If you set `markdownDeprecationMessage`, the markdown will not be rendered in the setting hover or the problems view. If you set both properties, `deprecationMessage` will be shown in the hover and the problems view, and `markdownDeprecationMessage` will be rendered as Markdown in the settings UI.
 
 Example:
 
@@ -343,7 +353,7 @@ Example:
 }
 ```
 
-**Other JSON Schema properties**
+#### Other JSON Schema properties
 
 You can use any of the validation JSON Schema properties to describe other constraints on configuration values:
 
@@ -357,21 +367,21 @@ You can use any of the validation JSON Schema properties to describe other const
 - `maxItems`, `minItems` for restricting array length
 - `editPresentation` for controlling whether a single-line inputbox or multi-line textarea is rendered for the string setting in the Settings editor
 
-**Unsupported JSON Schema properties**
+#### Unsupported JSON Schema properties
 
 Not supported in the configuration section are:
 
 - `$ref` and `definition`: The configuration schemas needs to be self-contained and cannot make assumptions how the aggregated settings JSON schema document looks like.
 
-For more details on these and other features, see the [JSON Schema Reference](https://json-schema.org/understanding-json-schema/reference/index.html).
+For more details on these and other features, see the [JSON Schema Reference](https://json-schema.org/overview/what-is-jsonschema).
 
-**scope**
+#### scope
 
 A configuration setting can have one of the following possible scopes:
 
 - `application` - Settings that apply to all instances of VS Code and can only be configured in user settings.
-- `machine` - Machine specific settings that can be set only in user settings or only in remote settings. For example, an installation path which shouldn't be shared across machines.
-- `machine-overridable` - Machine specific settings that can be overridden by workspace or folder settings.
+- `machine` - Machine specific settings that can be set only in user settings or only in remote settings. For example, an installation path which shouldn't be shared across machines. The value of these settings will not be synchronized.
+- `machine-overridable` - Machine specific settings that can be overridden by workspace or folder settings. The value of these settings will not be synchronized.
 - `window` - Windows (instance) specific settings which can be configured in user, workspace, or remote settings.
 - `resource` - Resource settings, which apply to files and folders, and can be configured in all settings levels, even folder settings.
 - `language-overridable` - Resource settings that can be overridable at a language level.
@@ -423,7 +433,36 @@ Below are example configuration scopes from the built-in Git extension:
 
 You can see that `git.alwaysSignOff` has `resource` scope and can be set per user, workspace, or folder, while the ignored repositories list with `window` scope applies more globally for the VS Code window or workspace (which might be multi-root).
 
-**Linking to settings**
+#### ignoreSync
+
+You can set `ignoreSync` to `true` to prevent the setting from being synchronized with the user's settings. This is useful for settings that are not user-specific. For example, the `remoteTunnelAccess.machineName` setting is not user-specific and should not be synchronized. Please note that if you have set the `scope` to `machine` or `machine-overridable`, the setting will not be synchronized regardless of the value of `ignoreSync`.
+
+```json
+{
+  "contributes": {
+    "configuration": {
+      "properties": {
+        "remoteTunnelAccess.machineName": {
+          "type": "string",
+          "default": "",
+          "ignoreSync": true
+        }
+      }
+    }
+  }
+}
+
+```json
+{
+  "remoteTunnelAccess.machineName": {
+    "type": "string",
+    "default": '',
+    "ignoreSync": true
+  }
+}
+```
+
+#### Linking to settings
 
 You can insert a link to another setting, which will be rendered as a clickable link in the settings UI, by using this special syntax in the markdown-type properties: ``` `#target.setting.id#` ```. This will work in `markdownDescription`, `markdownEnumDescriptions`, and `markdownDeprecationMessage`. Example:
 
@@ -458,7 +497,11 @@ You can also contribute default editor configurations for the provided language.
     "configurationDefaults": {
       "[markdown]": {
         "editor.wordWrap": "on",
-        "editor.quickSuggestions": false
+        "editor.quickSuggestions": {
+                "comments": "off",
+                "strings": "off",
+                "other": "off"
+        }
       }
     }
   }
@@ -500,7 +543,7 @@ Here's a basic `customEditor` contribution for the [custom editor extension samp
 
 - `selector` - Specifies which files a custom editor is active for.
 
-    The `selector` is an array of one or more glob patterns. These glob patterns are matched against file names to determine if the custom editor can be used for them. A `filenamePattern` such as `*.png` will enable the custom editor for all PNG files.
+    The `selector` is an array of one or more [glob patterns](/docs/editor/glob-patterns). These glob patterns are matched against file names to determine if the custom editor can be used for them. A `filenamePattern` such as `*.png` will enable the custom editor for all PNG files.
 
     You can also create more specific patterns that match on file or directory names, for example `**/translations/*.json`.
 
@@ -723,9 +766,9 @@ Contribute definition of a programming language. This will introduce a new langu
 
 The main effects of `contributes.languages` are:
 
-- Define a `languageId` that can be reused in other parts of VS Code API, such as `vscode.TextDocument.getLanguageId()` and the `onLanguage` Activation Events.
+- Define a `languageId` that can be reused in other parts of VS Code API, such as `vscode.TextDocument.languageId` and the `onLanguage` Activation Events.
   - You can contribute a human-readable using the `aliases` field. The first item in the list will be used as the human-readable label.
-- Associate file name extensions (`extensions`), file names (`filenames`), file name glob patterns (`filenamePatterns`), files that begin with a specific line (such as hashbang) (`firstLine`), and `mimetypes` to that `languageId`.
+- Associate file name extensions (`extensions`), file names (`filenames`), file name [glob patterns](/docs/editor/glob-patterns) (`filenamePatterns`), files that begin with a specific line (such as hashbang) (`firstLine`), and `mimetypes` to that `languageId`.
 - Contribute a set of [Declarative Language Features](/api/language-extensions/overview#declarative-language-features) for the contributed language. Learn more about the configurable editing features in the [Language Configuration Guide](/api/language-extensions/language-configuration-guide).
 - Contribute an icon which can be used as in file icon themes if theme does not contain an icon for the language
 
@@ -766,45 +809,51 @@ Last, a `group` property defines sorting and grouping of menu items. The `naviga
 
 Currently extension writers can contribute to:
 
-- The global Command Palette - `commandPalette`
-- The New File item in the File menu and Get Started page - `file/newFile`
-- The Explorer context menu - `explorer/context`
-- The editor context menu - `editor/context`
-- The editor title menu bar - `editor/title`
-- The editor title context menu - `editor/title/context`
-- The debug callstack view context menu - `debug/callstack/context`
-- The debug callstack view inline actions - `debug/callstack/context` group `inline`
-- The debug variables view context menu - `debug/variables/context`
-- The debug toolbar - `debug/toolBar`
-- The [SCM title menu](/api/extension-guides/scm-provider#menus) - `scm/title`
-- [SCM resource groups](/api/extension-guides/scm-provider#menus) menus - `scm/resourceGroup/context`
-- [SCM resource folders](/api/extension-guides/scm-provider#menus) menus - `scm/resourceFolder/context`
-- [SCM resources](/api/extension-guides/scm-provider#menus) menus - `scm/resourceState/context`
-- [SCM change title](/api/extension-guides/scm-provider#menus) menus - `scm/change/title`
-- The [SCM source control menu](/api/extension-guides/scm-provider#menus) - `scm/sourceControl`
-- The [View title menu](/api/references/contribution-points#contributes.views) - `view/title`
-- The [View item menu](/api/references/contribution-points#contributes.views) - `view/item/context`
-- The macOS Touch Bar - `touchBar`
-- The comment thread title menu bar - `comments/commentThread/title`
-- The comment thread context menu - `comments/commentThread/context`
-- The comment title menu bar - `comments/comment/title`
-- The comment context menu - `comments/comment/context`
-- The Timeline view title menu bar - `timeline/title`
-- The Timeline view item context menu - `timeline/item/context`
-- The Extensions view context menu - `extension/context`
-- The Test Explorer item context menu - `testing/item/context`
-- The menu for a gutter decoration for a test item - `testing/item/gutter`
-- The notebook toolbar - `notebook/toolbar`
-- The notebook cell title menu bar - `notebook/cell/title`
-- The notebook cell execution menu - `notebook/cell/execute`
-- The interactive toolbar - `interactive/toolbar`
-- The interactive cell title menu bar - `interactive/cell/title`
-- Any [webview](/api/extension-guides/webview) context menu - `webview/context`
+- `commandPalette` - global Command Palette
+- `comments/comment/title` - Comments title menu bar
+- `comments/comment/context` - Comments context menu
+- `comments/commentThread/title` - Comments thread title menu bar
+- `comments/commentThread/context`- Comments thread context menu
+- `debug/callstack/context` - Debug Call Stack view context menu
+- `debug/callstack/context` group `inline` - Debug Call Stack view inline actions
+- `debug/toolBar` - Debug view toolbar
+- `debug/variables/context` - Debug Variables view context menu
+- `editor/context` - editor context menu
+- `editor/lineNumber/context` - editor line number context menu
+- `editor/title` - editor title menu bar
+- `editor/title/context` - editor title context menu
+- `editor/title/run` - Run submenu on the editor title menu bar
+- `explorer/context` - Explorer view context menu
+- `extension/context` - Extensions view context menu
+- `file/newFile`  - New File item in the File menu and Welcome page
+- `interactive/toolbar` - Interactive Window toolbar
+- `interactive/cell/title` - Interactive Window cell title menu bar
+- `notebook/toolbar` - notebook toolbar
+- `notebook/cell/title` - notebook cell title menu bar
+- `notebook/cell/execute` - notebook cell execution menu
+- `scm/title` - [SCM title menu](/api/extension-guides/scm-provider#menus)
+- `scm/resourceGroup/context` - [SCM resource groups](/api/extension-guides/scm-provider#menus) menus
+- `scm/resourceFolder/context` - [SCM resource folders](/api/extension-guides/scm-provider#menus) menus
+- `scm/resourceState/context` - [SCM resources](/api/extension-guides/scm-provider#menus) menus
+- `scm/change/title` - [SCM change title](/api/extension-guides/scm-provider#menus) menus
+- `scm/sourceControl`- [SCM source control menu](/api/extension-guides/scm-provider#menus)
+- `terminal/context` - terminal context menu
+- `terminal/title/context` - terminal title context menu
+- `testing/item/context` - Test Explorer item context menu
+- `testing/item/gutter` - menu for a gutter decoration for a test item
+- `timeline/title` - Timeline view title menu bar
+- `timeline/item/context` - Timeline view item context menu
+- `touchBar` - macOS Touch Bar
+- `view/title` - [View title menu](/api/references/contribution-points#contributes.views)
+- `view/item/context` - [View item context menu](/api/references/contribution-points#contributes.views)
+- `webview/context` - any [webview](/api/extension-guides/webview) context menu
 - Any [contributed submenu](/api/references/contribution-points#contributes.submenus)
 
-> **Note:** When a command is invoked from a (context) menu, VS Code tries to infer the currently selected resource and passes that as a parameter when invoking the command. For instance, a menu item inside the Explorer is passed the URI of the selected resource and a menu item inside an editor is passed the URI of the document.
+> **Note 1:** When a command is invoked from a (context) menu, VS Code tries to infer the currently selected resource and passes that as a parameter when invoking the command. For instance, a menu item inside the Explorer is passed the URI of the selected resource and a menu item inside an editor is passed the URI of the document.
 
-In addition to a title, commands can also define icons which VS Code will show in the editor title menu bar.
+> **Note 2:** Commands of menu items contributed to `editor/lineNumber/context` are also passed the line number. Additionally these items can reference the `editorLineNumber` context key in their `when` clauses, for example by using the `in` or `not in` operators to test it against an array-valued context key managed by the extension.
+
+In addition to a title, a contributed command can specify the icon which VS Code will show when the invoking menu item is represented as a button, for example on a title menu bar.
 
 ### menu example
 
@@ -828,6 +877,26 @@ Here's a command menu item:
 ```
 
 ![menus extension point example](images/contribution-points/menus.png)
+
+Similarly, here's a command menu item added to a particular view. The example below contributes to an arbitrary view like the terminal:
+
+```json
+{
+  "contributes": {
+    "menus": {
+      "view/title": [
+        {
+          "command": "terminalApi.sendText",
+          "when": "view == terminal",
+          "group": "navigation"
+        }
+      ]
+    }
+  }
+}
+```
+
+![Adding a menu entry to view/title with view == terminal will result in an action in the panel when the terminal is open](images/contribution-points/menu_view_title.png)
 
 Here's a submenu menu item:
 
@@ -913,6 +982,21 @@ The **editor title menu** has these default groups:
 
 `navigation` and `1_run` are shown in the primary editor title area. The other groups are shown in the secondary area - under the `...` menu.
 
+The **terminal tab context menu** has these default groups:
+
+- `1_create` - Commands related to creating terminals.
+- `3_run` - Commands related to running/executing something in the terminal.
+- `5_manage` - Commands related to managing a terminal.
+- `7_configure` - Commands related to terminal configuration.
+
+The **terminal context menu** has these default groups:
+
+- `1_create` - Commands related to creating terminals.
+- `3_edit` - Commands related to manipulating text, the selection or the clipboard.
+- `5_clear` - Commands related to clearing the terminal.
+- `7_kill` - Commands related to closing/killing the terminal.
+- `9_config` - Commands related to terminal configuration.
+
 The **Timeline view item context menu** has these default groups:
 
 - `inline` - Important or frequently used timeline item commands. Rendered as a toolbar.
@@ -982,7 +1066,7 @@ This problem matcher can now be used in a `tasks.json` file via a name reference
 }
 ```
 
-Also see: [Defining a Problem Matcher](/docs/editor/tasks#_defining-a-problem-matcher)
+Also see: [Defining a Problem Matcher](/docs/debugtest/tasks#_defining-a-problem-matcher)
 
 ## contributes.problemPatterns
 
@@ -1099,7 +1183,7 @@ See the [Semantic Highlighting Guide](/api/language-extensions/semantic-highligh
 
 ## contributes.snippets
 
-Contribute snippets for a specific language. The `language` attribute is the [language identifier](/docs/languages/identifiers) and the `path` is the relative path to the snippet file, which defines snippets in the [VS Code snippet format](/docs/editor/userdefinedsnippets#_snippet-syntax).
+Contribute snippets for a specific language. The `language` attribute is the [language identifier](/docs/languages/identifiers) and the `path` is the relative path to the snippet file, which defines snippets in the [VS Code snippet format](/docs/editing/userdefinedsnippets#_snippet-syntax).
 
 The example below shows adding snippets for the Go language.
 
@@ -1202,9 +1286,9 @@ When defined, the profile will show up in the terminal profile selector. When ac
 
 ```ts
 vscode.window.registerTerminalProfileProvider('my-ext.terminal-profile', {
-	provideProfileOptions(token: vscode.CancellationToken): vscode.ProviderResult<vscode.TerminalOptions | vscode.ExtensionTerminalOptions> {
-		return { name: 'Profile from extension', shellPath: 'bash' };
-	}
+  provideTerminalProfile(token: vscode.CancellationToken): vscode.ProviderResult<vscode.TerminalOptions | vscode.ExtensionTerminalOptions> {
+    return { name: 'Profile from extension', shellPath: 'bash' };
+  }
 });
 ```
 
@@ -1444,6 +1528,8 @@ Contribute walkthroughs to appear on the Getting Started page. Walkthroughs are 
 Walkthroughs consist of a title, description, id, and a series of steps. Additionally, a `when` condition can be set to hide or show the walkthrough based on context keys. For example, a walkthrough to explain setup on a Linux platform could be given `when: "isLinux"` to only appear on Linux machines.
 
 Each step in a walkthrough has a title, description, id, and media element (either an image or Markdown content), along with an optional set of events that will cause the step to be checked (shown in the example below). Step descriptions are Markdown content, and support `**bold**`, `__underlined__`, and ``` ``code`` ``` rendering, as well as links. Similar to walkthroughs, steps can be given when conditions to hide or show them based on context keys.
+
+SVGs are recommended for images given their ability to scale and their support for VS Code's theme colors. Use the [Visual Studio Code Color Mapper](https://www.figma.com/community/plugin/1218260433851630449) Figma plugin to easily reference theme colors in the SVGs.
 
 ```json
 {

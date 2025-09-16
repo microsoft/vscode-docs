@@ -1,12 +1,8 @@
 ---
-Order: 1
-Area: typescript
-TOCTitle: Tutorial
 ContentId: cb4f3742-733c-49d8-96db-d4bf8403bf64
-PageTitle: TypeScript tutorial with Visual Studio Code
-DateApproved: 5/3/2023
+DateApproved: 09/11/2025
 MetaDescription: TypeScript tutorial with Visual Studio Code.
-MetaSocialImage: images/typescript-tutorial/Languages_typescript.png
+MetaSocialImage: ../languages/images/typescript/typescript-social.png
 ---
 # TypeScript tutorial in Visual Studio Code
 
@@ -80,13 +76,13 @@ So far in this tutorial, you have been relying on the TypeScript compiler's defa
 
 **Important**: To use `tsconfig.json` for the rest of this tutorial, invoke `tsc` without input files. The TypeScript compiler knows to look at your `tsconfig.json` for project settings and compiler options.
 
-Add a simple `tsconfig.json` that set the options to compile to ES5 and use **CommonJS** [modules](http://www.commonjs.org/specs/modules/1.0).
+Add a simple `tsconfig.json` that set the options to compile to ES5 and use **CommonJS** [modules](https://wiki.commonjs.org/wiki/Modules/1.0).
 
 ```json
 {
     "compilerOptions": {
-        "target": "es5",
-        "module": "commonjs"
+        "target": "ES5",
+        "module": "CommonJS"
     }
 }
 ```
@@ -104,8 +100,8 @@ Having the generated JavaScript file in the same folder as the TypeScript source
 ```json
 {
     "compilerOptions": {
-        "target": "es5",
-        "module": "commonjs",
+        "target": "ES5",
+        "module": "CommonJS",
         "outDir": "out"
     }
 }
@@ -129,15 +125,19 @@ The TypeScript language service has a powerful set of diagnostics to find common
 
 Clicking on the light bulb or pressing `kb(editor.action.quickFix)` brings up the Quick Fix menu where you can select the **Remove unreachable code** fix.
 
+Additionally, **Code Action Widget: Include Nearby Quick Fixes** (`editor.codeActionWidget.includeNearbyQuickFixes`) is a setting that is enabled on default, which will activate the nearest Quick Fix in a line from `kb(editor.action.quickFix)` (command ID `editor.action.quickFix`), no matter where your cursor is in that line.
+
+The command highlights the source code that will be refactored or fixed with Quick Fixes. Normal Code Actions and non-fix refactorings can still be activated at the cursor location.
+
 ## Debugging
 
-VS Code has built-in support for TypeScript debugging. To support debugging TypeScript in combination with the executing JavaScript code, VS Code relies on [source maps](https://developer.mozilla.org/docs/Tools/Debugger/How_to/Use_a_source_map) for the debugger to map between the original TypeScript source code and the running JavaScript. You can create source maps during the build by setting `"sourceMap": true` in your `tsconfig.json`.
+VS Code has built-in support for TypeScript debugging. To support debugging TypeScript in combination with the executing JavaScript code, VS Code relies on [source maps](https://firefox-source-docs.mozilla.org/devtools-user/debugger/how_to/use_a_source_map/index.html) for the debugger to map between the original TypeScript source code and the running JavaScript. You can create source maps during the build by setting `"sourceMap": true` in your `tsconfig.json`.
 
 ```json
 {
     "compilerOptions": {
-        "target": "es5",
-        "module": "commonjs",
+        "target": "ES5",
+        "module": "CommonJS",
         "outDir": "out",
         "sourceMap": true
     }

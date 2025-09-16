@@ -13,12 +13,20 @@
     "markdown.validate.enabled": true,
     "markdown.validate.ignoredLinks": [
         "/Download",
-        "/insiders"
+        "/insiders",
+        "/download"
     ],
     "markdown.copyFiles.destination": {
-        "/release-notes/**/*": "/release-notes/images/${documentBaseName}/"
+        // /release-notes/v123.md -> /release-notes/images/123/img.png
+        "/release-notes/**/*": "/release-notes/images/${documentBaseName/v(.*)/$1/}/",
+
+        // Put into 'images' directory next to file
+        "/api/**/*": "images/${documentBaseName}/"
     },
     "editor.codeActionsOnSave": {
-        "source.organizeLinkDefinitions": true
-    }
+        "source.organizeLinkDefinitions": "explicit"
+    },
+    "markdown.editor.filePaste.videoSnippet": "<video src=\"${src}\" title=\"${title}\" autoplay loop controls muted></video>",
+
+    "github.copilot.chat.codeGeneration.useInstructionFiles": false,
 }

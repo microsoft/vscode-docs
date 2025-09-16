@@ -1,5 +1,5 @@
 ---
-Order: 37
+Order:
 TOCTitle: Text Buffer Reimplementation
 PageTitle: Text Buffer Reimplementation, a Visual Studio Code Story
 MetaDescription: Text Buffer Reimplementation in the Visual Studio Code/Monaco editor

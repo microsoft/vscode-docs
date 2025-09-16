@@ -1,10 +1,6 @@
 ---
-Order: 4
-Area: typescript
-TOCTitle: Refactoring
 ContentId: ff7a9f28-26b2-4ac6-8c16-1a16182bb6ca
-PageTitle: TypeScript refactoring with Visual Studio Code
-DateApproved: 5/3/2023
+DateApproved: 09/11/2025
 MetaDescription: Learn about TypeScript refactorings supported by Visual Studio Code.
 ---
 # Refactoring TypeScript
@@ -25,7 +21,7 @@ To see the available TypeScript refactorings, put your cursor on a region of you
 
 ![TypeScript refactoring](images/refactoring/refactorings.png)
 
-See [Refactorings](/docs/editor/refactoring.md) for more information about refactorings and how you can configure keyboard shortcuts for individual refactorings.
+See [Refactorings](/docs/editing/refactoring.md) for more information about refactorings and how you can configure keyboard shortcuts for individual refactorings.
 
 Available TypeScript refactorings include:
 
@@ -76,6 +72,10 @@ Quick Fixes are suggested edits that address simple coding errors. Example Quick
 
 When you move your cursor on to a TypeScript error, VS Code shows a light bulb that indicates that Quick Fixes are available. Click the light bulb or press `kb(editor.action.quickFix)` to show a list of available Quick Fixes and [refactorings](#refactoring).
 
+Additionally, **Code Action Widget: Include Nearby Quick Fixes** (`editor.codeActionWidget.includeNearbyQuickFixes`) is a setting that is enabled on default, which will activate the nearest Quick Fix in a line from `kb(editor.action.quickFix)` (command ID `editor.action.quickFix`), no matter where your cursor is in that line.
+
+The command highlights the source code that will be refactored or fixed with Quick Fixes. Normal Code Actions and non-fix refactorings can still be activated at the cursor location.
+
 ## Unused variables and unreachable code
 
 Unused TypeScript code, such as the `else` block of an `if` statement that is always true or an unreferenced import, is faded out in the editor:
@@ -109,7 +109,7 @@ Organize imports can also be done automatically when you save a TypeScript file 
 
 ```json
 "editor.codeActionsOnSave": {
-    "source.organizeImports": true
+    "source.organizeImports": "explicit"
 }
 ```
 
@@ -128,12 +128,17 @@ The `typescript.updateImportsOnFileMove.enabled` setting controls this behavior.
 The `editor.codeActionsOnSave` setting lets you configure a set of Code Actions that are run when a file is saved. For example, you can enable Organize Imports on save by setting:
 
 ```json
-// On save, run both fixAll and organizeImports source actions
+// On explicit save, run fixAll source action. On auto save (window or focus change), run organizeImports source action.
 "editor.codeActionsOnSave": {
-    "source.fixAll": true,
-    "source.organizeImports": true,
+    "source.fixAll": "explicit",
+    "source.organizeImports": "always",
 }
 ```
+
+As of today, the following enums are supported:
+* `explicit` (default): Triggers Code Actions when explicitly saved. Same as `true`.
+* `always`: Triggers Code Actions when explicitly saved and on Auto Saves from window or focus changes.
+* `never`: Never triggers Code Actions on save. Same as `false`.
 
 You can also set `editor.codeActionsOnSave` to an array of Code Actions to execute in order.
 

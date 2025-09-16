@@ -1,5 +1,5 @@
 ---
-Order: 24
+Order:
 TOCTitle: Optimizations in Syntax Highlighting
 PageTitle: Optimizations in Syntax Highlighting, a Visual Studio Code Story
 MetaDescription: Optimizations in tokenization and syntax highlighting in the Visual Studio Code/Monaco editor

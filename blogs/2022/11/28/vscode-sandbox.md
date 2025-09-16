@@ -53,7 +53,7 @@ For the most part, the order of topics follows the actual timeline. To keep each
 
 ### Standing on the shoulder of giants
 
-When we started to consider sandboxing in early 2020, we had already shipped a version of VS Code that was able to run in web browsers. You can run [vscode.dev](https://vscode.dev) in your browser and see [Visual Studio Code for the Web](https://code.visualstudio.com/docs/editor/vscode-web) in action. While creating a web version of VS Code, we had learned how to remove Node.js dependencies from the workbench – the main VS Code user interface window.
+When we started to consider sandboxing in early 2020, we had already shipped a version of VS Code that was able to run in web browsers. You can run [vscode.dev](https://vscode.dev) in your browser and see [Visual Studio Code for the Web](https://code.visualstudio.com/docs/setup/vscode-web) in action. While creating a web version of VS Code, we had learned how to remove Node.js dependencies from the workbench – the main VS Code user interface window.
 
 ![VS Code for Web running in the browser](vscode-web.png)
 
@@ -185,7 +185,7 @@ Sandboxed renderer processes are kept alive, even when navigating URLs. Opening 
 
 ## Putting it all together
 
-The last step was to enable sandbox mode conditionally via a user [setting](https://code.visualstudio.com/docs/getstarted/settings). We did not want to enable sandbox mode for all our users but rather give it some time to be validated in our [Insiders](https://code.visualstudio.com/insiders) edition. With the [window.experimental.useSandbox](https://code.visualstudio.com/updates/v1_70#_progress-for-electron-sandbox-support) setting, sandbox is enabled by default in Insiders and can be enabled in Stable.
+The last step was to enable sandbox mode conditionally via a user [setting](https://code.visualstudio.com/docs/configure/settings). We did not want to enable sandbox mode for all our users but rather give it some time to be validated in our [Insiders](https://code.visualstudio.com/insiders) edition. With the [window.experimental.useSandbox](https://code.visualstudio.com/updates/v1_70#_progress-for-electron-sandbox-support) setting, sandbox is enabled by default in Insiders and can be enabled in Stable.
 
 We plan to use our experimentation infrastructure to incrementally roll out the sandbox enablement to our Stable edition in early 2023. This will allow us to test and validate sandbox mode on an increasing set of users as we check for issues.
 

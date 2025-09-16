@@ -1,11 +1,7 @@
 ---
-Order: 3
-Area: devcontainers
-TOCTitle: Overview
-PageTitle: Developing inside a Container using Visual Studio Code Remote Development
 ContentId: 7ec8a02b-2eb7-45c1-bb16-ddeaac694ff6
 MetaDescription: Developing inside a Container using Visual Studio Code Remote Development
-DateApproved: 5/3/2023
+DateApproved: 09/11/2025
 ---
 # Developing inside a Container
 
@@ -22,9 +18,11 @@ The Dev Containers extension supports two primary operating models:
 * You can use a container as your full-time development environment
 * You can [attach to a running container](/docs/devcontainers/attach-container.md) to inspect it.
 
+> **Note**: The Dev Containers extension supports the open Dev Containers Specification, which empowers anyone in any tool to configure a consistent dev environment. You can learn more in our [dev container FAQ](/docs/devcontainers/faq.md#can-i-use-dev-containers-outside-of-vs-code) and on the specification's site [containers.dev](https://containers.dev/).
+
 ## Getting started
 
-**Note**: You can learn how to get up-and-running quickly with dev containers in the introductory [Dev Containers tutorial](/docs/devcontainers/tutorial.md).
+> **Note**: You can learn how to get up-and-running quickly with dev containers in the introductory [Dev Containers tutorial](/docs/devcontainers/tutorial.md).
 
 ### System requirements
 
@@ -165,6 +163,19 @@ To do so:
 
 The rest of the Dev Containers quick start applies as-is. You can learn more about the [Remote - SSH extension in its documentation](/docs/remote/ssh.md). You can also see the [Develop on a remote Docker host](/remote/advancedcontainers/develop-remote-host.md) article for other options if this model does not meet your needs.
 
+### Open a folder on a remote Tunnel host in a container
+
+You can use the [Remote - Tunnels](/docs/remote/tunnels.md) and Dev Containers extensions together to open a folder on your remote host inside of a container. You do not even need to have a Docker client installed locally. This is similar to the SSH host scenario above, but uses Remote - Tunnels instead.
+
+To do so:
+
+1. Follow the [Getting Started](/docs/remote/tunnels.md#getting-started) instructions for the Remote - Tunnels extension.
+1. [Install Docker](#installation) on your tunnel host. You do not need to install Docker locally.
+1. Follow the [steps](/docs/remote/tunnels.md#remote-tunnels-extension) for the Remote - Tunnels extension to connect to a tunnel host and open a folder there.
+1. Use the **Dev Containers: Reopen in Container** command from the Command Palette (`kbstyle(F1)`, `kb(workbench.action.showCommands)`).
+
+The rest of the Dev Containers quick start applies as-is. You can learn more about the [Remote - Tunnels extension in its documentation](/docs/remote/tunnels.md). You can also see the [Develop on a remote Docker host](/remote/advancedcontainers/develop-remote-host.md) article for other options if this model does not meet your needs.
+
 ### Open an existing workspace in a container
 
 You can also follow a similar process to open a [VS Code multi-root workspace](/docs/editor/multi-root-workspaces) in a **single container** if the workspace only **references relative paths to sub-folders of the folder the `.code-workspace` file is in (or the folder itself).**
@@ -218,7 +229,7 @@ Note that if the container fails to come up due to something like a Docker build
 
 ## Trusting your Workspace
 
-Visual Studio Code takes security seriously and wants to help you safely browse and edit code no matter the source or original authors. The [Workspace Trust feature](/docs/editor/workspace-trust.md) lets you decide whether your project folders should allow or restrict automatic code execution.
+Visual Studio Code takes security seriously and wants to help you safely browse and edit code no matter the source or original authors. The [Workspace Trust feature](/docs/editing/workspaces/workspace-trust.md) lets you decide whether your project folders should allow or restrict automatic code execution.
 
 The Dev Containers extension has adopted Workspace Trust. Depending on how you open and interact with your source code, you'll be prompted to decide if you trust the code you're editing or executing at different points.
 
@@ -245,7 +256,7 @@ When [cloning a repository in a container volume](#quick-start-open-a-git-reposi
 
 ### Inspect volume
 
-[Inspecting a volume](#inspecting-volumes) starts in [Restricted Mode](/docs/editor/workspace-trust.md#restricted-mode), and you can trust the folder inside the container.
+[Inspecting a volume](#inspecting-volumes) starts in [Restricted Mode](/docs/editing/workspaces/workspace-trust.md#restricted-mode), and you can trust the folder inside the container.
 
 ### Docker daemon running remotely
 
@@ -307,6 +318,16 @@ The **Dev Containers: Configure Container Features** command allows you to updat
 
 The Features sourced in VS Code UI now come from a central index, which you can also contribute to. See the [Dev Containers specification site](https://containers.dev/features) for the current list, and to [learn how to publish and distribute Features](https://containers.dev/implementors/features-distribution/).
 
+### "Always installed" Features
+
+Similar to how you can [set extensions to always be installed](#always-installed-extensions) in your dev container, you can use the `setting(dev.containers.defaultFeatures)` User [setting](/docs/configure/settings.md) to set Features you'd always like installed:
+
+```json
+"dev.containers.defaultFeatures": {
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+},
+```
+
 ### Creating your own Feature
 
 It's also easy to create and publish your own Dev Container Features. Published Features can be stored and shared as [OCI Artifacts](https://github.com/opencontainers/artifacts) from any supporting public or private container registry. You can see the list of current published Features on [containers.dev](https://containers.dev/features).
@@ -354,7 +375,7 @@ This allows you to have a separate **more complex** `devcontainer.json` you use 
 
 Note that you can also opt to manually add metadata to an image label instead. These properties will be picked up even if you didn't use the Dev Container CLI to build (and can be updated by the CLI even if you do). For example, consider this Dockerfile snippet:
 
-```Dockerfile
+```docker
 LABEL devcontainer.metadata='[{ \
   "capAdd": [ "SYS_PTRACE" ], \
   "remoteUser": "devcontainer", \
@@ -370,9 +391,9 @@ You can also inspect your volumes in the Remote Explorer. Make sure you have Con
 
 ![Right-click dev volumes in Remote Explorer](images/containers/dev-volumes.png)
 
-If you have the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) installed, you can right-click on a volume in the **Volumes** section of the **Docker Explorer** and select **Explore in a Development Container**.
+If you have the [Container Tools extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers) installed, you can right-click on a volume in the **Volumes** section of the **Container Explorer** and select **Explore in a Development Container**.
 
-![Explore in dev container in Docker context menu](images/containers/docker-explore-dev-container.png)
+![Explore in dev container in Container Tools context menu](images/containers/docker-explore-dev-container.png)
 
 ## Managing extensions
 
@@ -402,9 +423,26 @@ While you can edit your [devcontainer.json](/docs/devcontainers/create-dev-conta
 
 ![Add to devcontainer.json menu](images/containers/containers-addto-devcontainer.png)
 
+### Opt out of extensions
+
+If a base image or Feature configures an extension that you do not want installed in your dev container, you can opt out by listing the extension with a minus sign. For example:
+
+```json
+{
+    "image": "mcr.microsoft.com/devcontainers/typescript-node:1-20-bookworm",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "-dbaeumer.vscode-eslint"
+            ]
+        }
+    }
+}
+```
+
 ### "Always installed" extensions
 
-If there are extensions that you would like always installed in any container, you can update the `dev.containers.defaultExtensions` User [setting](/docs/getstarted/settings.md). For example, if you wanted to install the [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) and [Resource Monitor](https://marketplace.visualstudio.com/items?itemName=mutantdino.resourcemonitor) extensions, you would specify their extension IDs as follows:
+If there are extensions that you would like always installed in any container, you can update the `setting(dev.containers.defaultExtensions)` User [setting](/docs/configure/settings.md). For example, if you wanted to install the [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) and [Resource Monitor](https://marketplace.visualstudio.com/items?itemName=mutantdino.resourcemonitor) extensions, you would specify their extension IDs as follows:
 
 ```json
 "dev.containers.defaultExtensions": [
@@ -417,11 +455,11 @@ If there are extensions that you would like always installed in any container, y
 
 Extensions are typically designed and tested to either run locally or remotely, not both. However, if an extension supports it, you can force it to run in a particular location in your `settings.json` file.
 
-For example, the setting below will force the [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension to run locally and [Remote - SSH: Editing Configuration Files](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh-edit) extension to run remotely instead of their defaults:
+For example, the setting below will force the [Container Tools](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers) extension to run locally and [Remote - SSH: Editing Configuration Files](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh-edit) extension to run remotely instead of their defaults:
 
 ```json
 "remote.extensionKind": {
-    "ms-azuretools.vscode-docker": [ "ui" ],
+    "ms-azuretools.vscode-containers": [ "ui" ],
     "ms-vscode-remote.remote-ssh-edit": [ "workspace" ]
 }
 ```
@@ -490,7 +528,7 @@ You can also use the `code` command line from this same terminal window to perfo
 
 Once you've opened a folder in a container, you can use VS Code's debugger in the same way you would when running the application locally. For example, if you select a launch configuration in `launch.json` and start debugging (`kb(workbench.action.debug.start)`), the application will start on the remote host and attach the debugger to it.
 
-See the [debugging](/docs/editor/debugging.md) documentation for details on configuring VS Code's debugging features in `.vscode/launch.json`.
+See the [debugging](/docs/debugtest/debugging.md) documentation for details on configuring VS Code's debugging features in `.vscode/launch.json`.
 
 ## Container specific settings
 
@@ -544,7 +582,7 @@ Or in `settings.json`:
 {
     "dotfiles.repository": "your-github-id/your-dotfiles-repo",
     "dotfiles.targetPath": "~/dotfiles",
-    "dotfiles.installCommand": "~/dotfiles/install.sh"
+    "dotfiles.installCommand": "install.sh"
 }
 ```
 
@@ -560,7 +598,7 @@ From this point forward, the dotfiles repository will be used whenever a contain
 * Docker Toolbox on Windows is not supported.
 * If you clone a Git repository using SSH and your SSH key has a passphrase, VS Code's pull and sync features may hang when running remotely. Either use an SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.
 * Local proxy settings are not reused inside the container, which can prevent extensions from working unless the appropriate proxy information is configured (for example global `HTTP_PROXY` or `HTTPS_PROXY` environment variables with the appropriate proxy information).
-* You cannot use Dev Containers from a Remote - SSH connection to a Windows machine.
+* There is an incompatibility between OpenSSH versions on Windows when the ssh-agent runs with version <= 8.8 and the SSH client (on any platform) runs version >= 8.9. The workaround is to upgrade OpenSSH on Windows to 8.9 or later, either using winget or an installer from [Win32-OpenSSH/releases](https://github.com/PowerShell/Win32-OpenSSH/releases). (Note that `ssh-add -l` will work correctly, but `ssh <ssh-server>` will fail with `<ssh-server>: Permission denied (publickey)`. This also affects Git when using SSH to connect to the repository.)
 
 See [here for a list of active issues](https://aka.ms/vscode-remote/containers/issues) related to Containers.
 
@@ -568,9 +606,9 @@ See [here for a list of active issues](https://aka.ms/vscode-remote/containers/i
 
 See the Docker troubleshooting guide for [Windows](https://docs.docker.com/docker-for-windows/troubleshoot) or [Mac](https://docs.docker.com/docker-for-mac/troubleshoot), consult [Docker Support Resources](https://success.docker.com/article/best-support-resources) for more information.
 
-### Docker Extension limitations
+### Container Tools Extension limitations
 
-If you are using the Docker or Kubernetes extension from a WSL or Remote - SSH window, you will not be able to use the right-click **Attach to Container** option. This will only work if you are using it from your local machine.
+If you are using the Container Tools or Kubernetes extension from a WSL, Remote - Tunnels or Remote - SSH window, using the **Attach Visual Studio Code** context menu action in the Container Explorer or Kubernetes view will ask to pick from the available containers a second time.
 
 ### Extension limitations
 
@@ -604,9 +642,20 @@ There is a full [devcontainer.json reference](https://containers.dev/implementor
 * Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode-remote).
 * Add a [feature request](https://aka.ms/vscode-remote/feature-requests) or [report a problem](https://aka.ms/vscode-remote/issues/new).
 * Create a [Dev Container Template](https://containers.dev/templates) or [Feature](https://containers.dev/features) for others to use.
-* Review and provide feedback on the [Development Containers Specification](https://github.com/devcontainers/spec).
+* Review and provide feedback on the [Development Containers Specification](https://containers.dev/).
 * Contribute to [our documentation](https://github.com/microsoft/vscode-docs) or [VS Code itself](https://github.com/microsoft/vscode).
 * See our [CONTRIBUTING](https://aka.ms/vscode-remote/contributing) guide for details.
+
+## Troubleshooting
+
+### Unable to write file (NoPermissions (FileSystemError))
+
+You might encounter this issue when you run dev containers in the following configuration:
+
+* Docker Desktop running with Windows Subsystem for Linux (WSL) backend
+* [Enhanced Container Isolation](https://docs.docker.com/security/for-admins/hardened-desktop/enhanced-container-isolation/) (ECI) enabled
+
+Check [issue #8278](https://github.com/microsoft/vscode-docs/issues/8278) for a potential workaround.
 
 ## Next steps
 

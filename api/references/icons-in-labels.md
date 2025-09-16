@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 109a10fc-2d64-44b6-98ce-b8375d245776
-DateApproved: 5/3/2023
+DateApproved: 09/11/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Reference of all product icons by id
@@ -96,6 +96,7 @@ The ID of the icon identifies the location where the icon is used. The default c
 |<i class="codicon codicon-call-outgoing"></i>|callhierarchy-outgoing|call-outgoing|Icon for outgoing calls in the call hierarchy view.|
 |<i class="codicon codicon-debug-alt"></i>|callstack-view-icon|debug-alt|View icon of the call stack view.|
 |<i class="codicon codicon-bug"></i>|callstack-view-session|bug|Icon for the session icon in the call stack view.|
+|<i class="codicon codicon-comment-discussion"></i>|chat-editor-label-icon|comment-discussion|Icon of the chat editor label.|
 |<i class="codicon codicon-comment-discussion"></i>|comments-view-icon|comment-discussion|View icon of the comments view.|
 |<i class="codicon codicon-debug-breakpoint"></i>|debug-breakpoint|debug-breakpoint|Icon for breakpoints.|
 |<i class="codicon codicon-debug-breakpoint-conditional"></i>|debug-breakpoint-conditional|debug-breakpoint-conditional|Icon for conditional breakpoints.|
@@ -145,9 +146,11 @@ The ID of the icon identifies the location where the icon is used. The default c
 |<i class="codicon codicon-close"></i>|diff-review-close|close|Icon for 'Close' in diff review.|
 |<i class="codicon codicon-add"></i>|diff-review-insert|add|Icon for 'Insert' in diff review.|
 |<i class="codicon codicon-remove"></i>|diff-review-remove|remove|Icon for 'Remove' in diff review.|
+|<i class="codicon codicon-debug"></i>|disassembly-editor-label-icon|debug|Icon of the disassembly editor label.|
 |<i class="codicon codicon-files"></i>|explorer-view-icon|files|View icon of the explorer view.|
 |<i class="codicon codicon-clear-all"></i>|extensions-clear-search-results|clear-all|Icon for the 'Clear Search Result' action in the extensions view.|
 |<i class="codicon codicon-pencil"></i>|extensions-configure-recommended|pencil|Icon for the 'Configure Recommended Extensions' action in the extensions view.|
+|<i class="codicon codicon-extensions"></i>|extensions-editor-label-icon|extensions|Icon of the extension editor label.|
 |<i class="codicon codicon-filter"></i>|extensions-filter|filter|Icon for the 'Filter' action in the extensions view.|
 |<i class="codicon codicon-info"></i>|extensions-info-message|info|Icon shown with an info message in the extensions editor.|
 |<i class="codicon codicon-cloud-download"></i>|extensions-install-count|cloud-download|Icon shown along with the install count in the extensions view and editor.|
@@ -182,6 +185,7 @@ The ID of the icon identifies the location where the icon is used. The default c
 |<i class="codicon codicon-arrow-up"></i>|goto-previous-location|arrow-up|Icon for goto previous editor location.|
 |<i class="codicon codicon-add"></i>|keybindings-add|add|Icon for the add action in the keybinding UI.|
 |<i class="codicon codicon-edit"></i>|keybindings-edit|edit|Icon for the edit action in the keybinding UI.|
+|<i class="codicon codicon-keyboard"></i>|keybindings-editor-label-icon|keyboard|Icon of the keybindings editor label.|
 |<i class="codicon codicon-record-keys"></i>|keybindings-record-keys|record-keys|Icon for the 'record keys' action in the keybinding UI.|
 |<i class="codicon codicon-sort-precedence"></i>|keybindings-sort|sort-precedence|Icon for the 'sort by precedence' toggle in the keybinding UI.|
 |<i class="codicon codicon-debug-alt"></i>|loaded-scripts-view-icon|debug-alt|View icon of the loaded scripts view.|
@@ -191,6 +195,7 @@ The ID of the icon identifies the location where the icon is used. The default c
 |<i class="codicon codicon-warning"></i>|markers-view-icon|warning|View icon of the markers view.|
 |<i class="codicon codicon-chevron-down"></i>|markers-view-multi-line-collapsed|chevron-down|Icon indicating that multiple lines are collapsed in the markers view.|
 |<i class="codicon codicon-chevron-up"></i>|markers-view-multi-line-expanded|chevron-up|Icon indicating that multiple lines are shown in the markers view.|
+|<i class="codicon codicon-diff-multiple"></i>|multi-diff-editor-label-icon|diff-multiple|Icon of the multi diff editor label.|
 |<i class="codicon codicon-clear-all"></i>|notebook-clear|clear-all|Icon to clear cell outputs in notebook editors.|
 |<i class="codicon codicon-chevron-right"></i>|notebook-collapsed|chevron-right|Icon to annotate a collapsed section in notebook editors.|
 |<i class="codicon codicon-trash"></i>|notebook-delete-cell|trash|Icon to delete a cell in notebook editors.|
@@ -243,9 +248,11 @@ The ID of the icon identifies the location where the icon is used. The default c
 |<i class="codicon codicon-remote-explorer"></i>|remote-explorer-view-icon|remote-explorer|View icon of the remote explorer view.|
 |<i class="codicon codicon-chevron-up"></i>|review-comment-collapse|chevron-up|Icon to collapse a review comment.|
 |<i class="codicon codicon-debug-alt"></i>|run-view-icon|debug-alt|View icon of the Run and Debug view.|
+|<i class="codicon codicon-extensions"></i>|runtime-extensions-editor-label-icon|extensions|Icon of the runtime extensions editor label.|
 |<i class="codicon codicon-clear-all"></i>|search-clear-results|clear-all|Icon for clear results in the search view.|
 |<i class="codicon codicon-collapse-all"></i>|search-collapse-results|collapse-all|Icon for collapse results in the search view.|
 |<i class="codicon codicon-ellipsis"></i>|search-details|ellipsis|Icon to make search details visible.|
+|<i class="codicon codicon-search"></i>|search-editor-label-icon|search|Icon of the search editor label.|
 |<i class="codicon codicon-expand-all"></i>|search-expand-results|expand-all|Icon for expand results in the search view.|
 |<i class="codicon codicon-chevron-right"></i>|search-hide-replace|chevron-right|Icon to collapse the replace section in the search view.|
 |<i class="codicon codicon-new-file"></i>|search-new-editor|new-file|Icon for the action to open a new search editor.|
@@ -260,6 +267,7 @@ The ID of the icon identifies the location where the icon is used. The default c
 |<i class="codicon codicon-add"></i>|settings-add|add|Icon for the add action in the Settings UI.|
 |<i class="codicon codicon-discard"></i>|settings-discard|discard|Icon for the discard action in the Settings UI.|
 |<i class="codicon codicon-edit"></i>|settings-edit|edit|Icon for the edit action in the Settings UI.|
+|<i class="codicon codicon-settings"></i>|settings-editor-label-icon|settings|Icon of the settings editor label.|
 |<i class="codicon codicon-triangle-down"></i>|settings-folder-dropdown|triangle-down|Icon for the folder dropdown button in the split JSON Settings editor.|
 |<i class="codicon codicon-chevron-right"></i>|settings-group-collapsed|chevron-right|Icon for a collapsed section in the split JSON Settings editor.|
 |<i class="codicon codicon-chevron-down"></i>|settings-group-expanded|chevron-down|Icon for an expanded section in the split JSON Settings editor.|
@@ -300,6 +308,7 @@ The ID of the icon identifies the location where the icon is used. The default c
 |<i class="codicon codicon-close-all"></i>|watch-expressions-remove-all|close-all|Icon for the Remove All action in the watch view.|
 |<i class="codicon codicon-debug-alt"></i>|watch-view-icon|debug-alt|View icon of the watch view.|
 |<i class="codicon codicon-close"></i>|widget-close|close|Icon for the close action in widgets.|
+|<i class="codicon codicon-shield"></i>|workspace-trust-editor-label-icon|shield|Icon of the workspace trust editor label.|
 
 The Codicon library contains all the icons used in VS Code views, as well as a set of useful icons.
 
@@ -333,6 +342,8 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-beaker"></i>|beaker|
 |<i class="codicon codicon-bell"></i>|bell|
 |<i class="codicon codicon-bell-dot"></i>|bell-dot|
+|<i class="codicon codicon-bell-slash"></i>|bell-slash|
+|<i class="codicon codicon-bell-slash-dot"></i>|bell-slash-dot|
 |<i class="codicon codicon-bold"></i>|bold|
 |<i class="codicon codicon-book"></i>|book|
 |<i class="codicon codicon-bookmark"></i>|bookmark|
@@ -354,6 +365,7 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-chevron-left"></i>|chevron-left|
 |<i class="codicon codicon-chevron-right"></i>|chevron-right|
 |<i class="codicon codicon-chevron-up"></i>|chevron-up|
+|<i class="codicon codicon-chip"></i>|chip|
 |<i class="codicon codicon-chrome-close"></i>|chrome-close|
 |<i class="codicon codicon-chrome-maximize"></i>|chrome-maximize|
 |<i class="codicon codicon-chrome-minimize"></i>|chrome-minimize|
@@ -375,17 +387,22 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-cloud-download"></i>|cloud-download|
 |<i class="codicon codicon-cloud-upload"></i>|cloud-upload|
 |<i class="codicon codicon-code"></i>|code|
+|<i class="codicon codicon-coffee"></i>|coffee|
 |<i class="codicon codicon-collapse-all"></i>|collapse-all|
 |<i class="codicon codicon-color-mode"></i>|color-mode|
 |<i class="codicon codicon-combine"></i>|combine|
 |<i class="codicon codicon-comment"></i>|comment|
 |<i class="codicon codicon-comment-add"></i>|comment-add|
 |<i class="codicon codicon-comment-discussion"></i>|comment-discussion|
+|<i class="codicon codicon-comment-draft"></i>|comment-draft|
+|<i class="codicon codicon-comment-unresolved"></i>|comment-unresolved|
 |<i class="codicon codicon-compare-changes"></i>|compare-changes|
 |<i class="codicon codicon-compass-active"></i>|compass-active|
 |<i class="codicon codicon-compass-dot"></i>|compass-dot|
 |<i class="codicon codicon-compass"></i>|compass|
 |<i class="codicon codicon-console"></i>|console|
+|<i class="codicon codicon-copilot"></i>|copilot|
+|<i class="codicon codicon-copy"></i>|copy|
 |<i class="codicon codicon-credit-card"></i>|credit-card|
 |<i class="codicon codicon-dash"></i>|dash|
 |<i class="codicon codicon-dashboard"></i>|dashboard|
@@ -483,6 +500,7 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-folder-active"></i>|folder-active|
 |<i class="codicon codicon-folder-library"></i>|folder-library|
 |<i class="codicon codicon-folder-opened"></i>|folder-opened|
+|<i class="codicon codicon-game"></i>|game|
 |<i class="codicon codicon-gather"></i>|gather|
 |<i class="codicon codicon-gear"></i>|gear|
 |<i class="codicon codicon-gift"></i>|gift|
@@ -496,6 +514,7 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-git-branch-delete"></i>|git-branch-delete|
 |<i class="codicon codicon-git-commit"></i>|git-commit|
 |<i class="codicon codicon-git-compare"></i>|git-compare|
+|<i class="codicon codicon-git-fetch"></i>|git-fetch|
 |<i class="codicon codicon-git-fork-private"></i>|git-fork-private|
 |<i class="codicon codicon-git-merge"></i>|git-merge|
 |<i class="codicon codicon-git-pull-request"></i>|git-pull-request|
@@ -503,6 +522,8 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-git-pull-request-closed"></i>|git-pull-request-closed|
 |<i class="codicon codicon-git-pull-request-create"></i>|git-pull-request-create|
 |<i class="codicon codicon-git-pull-request-draft"></i>|git-pull-request-draft|
+|<i class="codicon codicon-git-pull-request-new-changes"></i>|git-pull-request-new-changes|
+|<i class="codicon codicon-git-pull-request-go-to-changes"></i>|git-pull-request-go-to-changes|
 |<i class="codicon codicon-github"></i>|github|
 |<i class="codicon codicon-github-action"></i>|github-action|
 |<i class="codicon codicon-github-alt"></i>|github-alt|
@@ -524,6 +545,7 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-inbox"></i>|inbox|
 |<i class="codicon codicon-indent"></i>|indent|
 |<i class="codicon codicon-info"></i>|info|
+|<i class="codicon codicon-insert"></i>|insert|
 |<i class="codicon codicon-inspect"></i>|inspect|
 |<i class="codicon codicon-issue-closed"></i>|issue-closed|
 |<i class="codicon codicon-issue-draft"></i>|issue-draft|
@@ -584,6 +606,8 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-mention"></i>|mention|
 |<i class="codicon codicon-menu"></i>|menu|
 |<i class="codicon codicon-merge"></i>|merge|
+|<i class="codicon codicon-mic"></i>|mic|
+|<i class="codicon codicon-mic-filled"></i>|mic-filled|
 |<i class="codicon codicon-microscope"></i>|microscope|
 |<i class="codicon codicon-milestone"></i>|milestone|
 |<i class="codicon codicon-mirror"></i>|mirror|
@@ -593,6 +617,7 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-mortar-board"></i>|mortar-board|
 |<i class="codicon codicon-move"></i>|move|
 |<i class="codicon codicon-multiple-windows"></i>|multiple-windows|
+|<i class="codicon codicon-music"></i>|music|
 |<i class="codicon codicon-mute"></i>|mute|
 |<i class="codicon codicon-new-file"></i>|new-file|
 |<i class="codicon codicon-new-folder"></i>|new-folder|
@@ -618,6 +643,7 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-person-follow"></i>|person-follow|
 |<i class="codicon codicon-person-outline"></i>|person-outline|
 |<i class="codicon codicon-pie-chart"></i>|pie-chart|
+|<i class="codicon codicon-piano"></i>|piano|
 |<i class="codicon codicon-pin"></i>|pin|
 |<i class="codicon codicon-pinned"></i>|pinned|
 |<i class="codicon codicon-pinned-dirty"></i>|pinned-dirty|
@@ -679,7 +705,9 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-search"></i>|search|
 |<i class="codicon codicon-search-save"></i>|search-save|
 |<i class="codicon codicon-search-stop"></i>|search-stop|
+|<i class="codicon codicon-search-fuzzy"></i>|search-fuzzy|
 |<i class="codicon codicon-selection"></i>|selection|
+|<i class="codicon codicon-send"></i>|send|
 |<i class="codicon codicon-server"></i>|server|
 |<i class="codicon codicon-server-environment"></i>|server-environment|
 |<i class="codicon codicon-server-process"></i>|server-process|
@@ -689,6 +717,8 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-sign-in"></i>|sign-in|
 |<i class="codicon codicon-sign-out"></i>|sign-out|
 |<i class="codicon codicon-smiley"></i>|smiley|
+|<i class="codicon codicon-snake"></i>|snake|
+|<i class="codicon codicon-sparkle"></i>|sparkle|
 |<i class="codicon codicon-sort-precedence"></i>|sort-precedence|
 |<i class="codicon codicon-source-control"></i>|source-control|
 |<i class="codicon codicon-split-horizontal"></i>|split-horizontal|
@@ -760,7 +790,9 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-text-size"></i>|text-size|
 |<i class="codicon codicon-three-bars"></i>|three-bars|
 |<i class="codicon codicon-thumbsdown"></i>|thumbsdown|
+|<i class="codicon codicon-thumbsdown-filled"></i>|thumbsdown-filled|
 |<i class="codicon codicon-thumbsup"></i>|thumbsup|
+|<i class="codicon codicon-thumbsup-filled"></i>|thumbsup-filled|
 |<i class="codicon codicon-tools"></i>|tools|
 |<i class="codicon codicon-trash"></i>|trash|
 |<i class="codicon codicon-trashcan"></i>|trashcan|
@@ -786,6 +818,7 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-vm-connect"></i>|vm-connect|
 |<i class="codicon codicon-vm-outline"></i>|vm-outline|
 |<i class="codicon codicon-vm-running"></i>|vm-running|
+|<i class="codicon codicon-vr"></i>|vr|
 |<i class="codicon codicon-warning"></i>|warning|
 |<i class="codicon codicon-watch"></i>|watch|
 |<i class="codicon codicon-whitespace"></i>|whitespace|

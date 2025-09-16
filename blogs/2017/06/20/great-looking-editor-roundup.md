@@ -1,5 +1,5 @@
 ---
-Order: 29
+Order:
 TOCTitle: Fresh Paint
 PageTitle: Fresh Paint - Give Visual Studio Code a New Look
 MetaDescription: Give VS Code a new look with these popular extensions, color themes, file icon themes and more.
@@ -13,7 +13,7 @@ June 20, 2017 Wade Anderson, [@waderyan_](https://twitter.com/waderyan_)
 
 Having a great looking editor is a necessity for any full-time developer. We spend a lot of time in our editor and we like to keep things fresh and interesting!
 
-Visual Studio Code supports a lot of customizations, in particular the look of your environment. In this blog, we're going to look at [Color Themes](/docs/getstarted/themes.md), [File Icon Themes](/docs/getstarted/themes.md#file-icon-themes), and other [settings](/docs/getstarted/settings.md) to change the look and feel of the code editor.
+Visual Studio Code supports a lot of customizations, in particular the look of your environment. In this blog, we're going to look at [Color Themes](/docs/getstarted/themes.md), [File Icon Themes](/docs/getstarted/themes.md#file-icon-themes), and other [settings](/docs/configure/settings.md) to change the look and feel of the code editor.
 
 ## Color Themes
 

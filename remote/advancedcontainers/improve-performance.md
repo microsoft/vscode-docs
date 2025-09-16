@@ -5,7 +5,7 @@ TOCTitle: Improve performance
 PageTitle: Improve container performance
 ContentId: 0956602e-d7a7-4071-8345-86075fd81374
 MetaDescription: Improve container performance
-DateApproved: 5/3/2023
+DateApproved: 09/11/2025
 ---
 # Improve disk performance
 
@@ -19,7 +19,7 @@ See [Open a WSL 2 folder in a container on Windows](/docs/devcontainers/containe
 
 ### Video: Speed up Dev Containers on Windows
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/MUsROtVmPJM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/MUsROtVmPJM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Use Clone Repository in Container Volume
 
@@ -107,7 +107,7 @@ If you've already built the container and connected to it, run **Dev Containers:
 
 ### Video: Speed up npm install in a dev container
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/iDdJWIPRUx4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/iDdJWIPRUx4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Use a named volume for your entire source tree
 

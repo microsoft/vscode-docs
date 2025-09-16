@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: C83BB647-A37E-45CE-BA4C-837B397C2ABE
-DateApproved: 5/3/2023
+DateApproved: 09/11/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: To support lazy activation of Visual Studio Code extensions (plug-ins), your extension controls when it should be loaded through a set of Activation Events.
@@ -11,19 +11,34 @@ MetaDescription: To support lazy activation of Visual Studio Code extensions (pl
 
 **Activation Events** is a set of JSON declarations that you make in the `activationEvents` field of `package.json` [Extension Manifest](/api/references/extension-manifest). Your extension becomes activated when the **Activation Event** happens. Here is a list of all available **Activation Events**:
 
-- [`onLanguage`](/api/references/activation-events#onLanguage)
+- [`onAuthenticationRequest`](/api/references/activation-events#onAuthenticationRequest)
+- [`onChatParticipant`](/api/references/activation-events#onChatParticipant)
 - [`onCommand`](/api/references/activation-events#onCommand)
+- [`onCustomEditor`](/api/references/activation-events#onCustomEditor)
 - [`onDebug`](/api/references/activation-events#onDebug)
+  - [`onDebugAdapterProtocolTracker`](/api/references/activation-events#onDebugAdapterProtocolTracker)
+  - [`onDebugDynamicConfigurations`](/api/references/activation-events#onDebugDynamicConfigurations)
   - [`onDebugInitialConfigurations`](/api/references/activation-events#onDebugInitialConfigurations)
   - [`onDebugResolve`](/api/references/activation-events#onDebugResolve)
-- [`workspaceContains`](/api/references/activation-events#workspaceContains)
+- [`onEditSession`](/api/references/activation-events#onEditSession)
 - [`onFileSystem`](/api/references/activation-events#onFileSystem)
-- [`onView`](/api/references/activation-events#onView)
-- [`onUri`](/api/references/activation-events#onUri)
-- [`onWebviewPanel`](/api/references/activation-events#onWebviewPanel)
-- [`onCustomEditor`](/api/references/activation-events#onCustomEditor)
-- [`onAuthenticationRequest`](/api/references/activation-events#onAuthenticationRequest)
+- [`onIssueReporterOpened`](/api/references/activation-events#onIssueReporterOpened)
+- [`onLanguage`](/api/references/activation-events#onLanguage)
+- [`onLanguageModelTool`](/api/references/activation-events#onLanguageModelTool)
+- [`onNotebook`](/api/references/activation-events#onNotebook)
+- [`onOpenExternalUri`](/api/references/activation-events#onOpenExternalUri)
+- [`onRenderer`](/api/references/activation-events#onRenderer)
+- [`onSearch`](/api/references/activation-events#onSearch)
 - [`onStartupFinished`](/api/references/activation-events#onStartupFinished)
+- [`onTaskType`](/api/references/activation-events#onTaskType)
+- [`onTerminal`](/api/references/activation-events.md#onTerminal)
+    - [`onTerminalProfile`](/api/references/activation-events#onTerminalProfile)
+    - [`onTerminalShellIntegration`](/api/references/activation-events.md#onTerminalShellIntegration)
+- [`onUri`](/api/references/activation-events#onUri)
+- [`onView`](/api/references/activation-events#onView)
+- [`onWalkthrough`](/api/references/activation-events#onWalkthrough)
+- [`onWebviewPanel`](/api/references/activation-events#onWebviewPanel)
+- [`workspaceContains`](/api/references/activation-events#workspaceContains)
 - [`*`](/api/references/activation-events#Start-up)
 
 We also provide a reference of all fields in the [`package.json` extension manifest](/api/references/extension-manifest).
@@ -33,11 +48,9 @@ We also provide a reference of all fields in the [`package.json` extension manif
 This activation event is emitted and interested extensions will be activated whenever a file that resolves to a certain language gets opened.
 
 ```json
-...
 "activationEvents": [
     "onLanguage:python"
 ]
-...
 ```
 
 The `onLanguage` event takes a [language identifier](/docs/languages/identifiers) value.
@@ -50,7 +63,6 @@ Multiple languages can be declared with separate `onLanguage` entries in the `ac
     "onLanguage:markdown",
     "onLanguage:typescript"
 ]
-...
 ```
 
 > **Note**: Beginning with VS Code 1.74.0, languages contributed by your extension do not require a corresponding `onLanguage` activation event declaration for your extension to be activated.
@@ -70,11 +82,9 @@ Additionally, if your extension needs to be activated before any language is use
 This activation event is emitted and interested extensions will be activated whenever a command is being invoked:
 
 ```json
-...
 "activationEvents": [
     "onCommand:extension.sayHello"
 ]
-...
 ```
 
 > **Note**: Beginning with VS Code 1.74.0, commands contributed by your extension do not require a corresponding `onCommand` activation event declaration for your extension to be activated.
@@ -84,18 +94,26 @@ This activation event is emitted and interested extensions will be activated whe
 This activation event is emitted and interested extensions will be activated before a debug session is started:
 
 ```json
-...
 "activationEvents": [
     "onDebug"
 ]
-...
 ```
 
-These are two more fine-grained `onDebug` activation events:
+These are four more fine-grained `onDebug` activation events:
+
+### onDebugAdapterProtocolTracker
+
+`onDebugAdapterProtocolTracker` is emitted whenever a debug session with the specific type is about to be launched and a debug protocol tracker might be needed.
+
+### onDebugDynamicConfigurations
+
+This activation event is emitted just before the `provideDebugConfigurations` method of the `DebugConfigurationProvider` is called to provide dynamic debug configurations when the user asks for them, such as through the UI via the "Select and Start Debugging" command.
+
+The presence of this activation event is used as a signal that the extension contributes dynamic debug configurations.
 
 ### onDebugInitialConfigurations
 
-`onDebugInitialConfigurations` is fired just before the `provideDebugConfigurations` method of the `DebugConfigurationProvider` is called.
+This activation event is emitted just before the `provideDebugConfigurations` method of the `DebugConfigurationProvider` is called to provide initial debug configurations, such as whenever a `launch.json` needs to be created.
 
 ### onDebugResolve
 
@@ -105,55 +123,46 @@ These are two more fine-grained `onDebug` activation events:
 
 ## workspaceContains
 
-This activation event is emitted and interested extensions will be activated whenever a folder is opened and the folder contains at least one file that matches a glob pattern.
+`workspaceContains:path` is emitted and interested extensions will be activated whenever a folder is opened and the folder contains at least one file that matches a [glob pattern](/docs/editor/glob-patterns).
 
 ```json
-...
 "activationEvents": [
     "workspaceContains:**/.editorconfig"
 ]
-...
 ```
 
 ## onFileSystem
 
-This activation event is emitted and interested extensions will be activated whenever a file or folder from a specific _scheme_ is read. This is usually the `file`-scheme, but with custom file system providers more schemes come into place, e.g `ftp` or `ssh`.
+`onFileSystem:scheme` is emitted and interested extensions will be activated whenever a file or folder from a specific _scheme_ is read. This is usually the `file`-scheme, but with custom file system providers more schemes come into place, e.g `ftp` or `ssh`.
 
 ```json
-...
 "activationEvents": [
     "onFileSystem:sftp"
 ]
-...
 ```
 
 ## onView
 
-This activation event is emitted and interested extensions will be activated whenever a view of the specified id is expanded in the VS Code sidebar (Extensions or Source Control are examples of built-in views).
+This activation event is emitted and interested extensions will be activated whenever a view of the specified id is expanded in the VS Code sidebar. Built-in views do not emit an activation event.
 
 The activation event below will fire whenever a view with the `nodeDependencies` id is visible:
 
 ```json
-...
 "activationEvents": [
     "onView:nodeDependencies"
 ]
-...
 ```
 
 > **Note**: Beginning with VS Code 1.74.0, views contributed by your extension do not require a corresponding `onView` activation event declaration for your extension to be activated.
-
 
 ## onUri
 
 This activation event is emitted and interested extensions will be activated whenever a system-wide Uri for that extension is opened. The Uri scheme is fixed to either `vscode` or `vscode-insiders`. The Uri authority must be the extension's identifier. The rest of the Uri is arbitrary.
 
 ```json
-...
 "activationEvents": [
     "onUri"
 ]
-...
 ```
 
 If the `vscode.git` extension defines `onUri` as an activation event, it will be activated in any of the following Uris are open:
@@ -213,11 +222,142 @@ will cause the extension to be activated when VS Code needs retrieve an `Authent
 This activation event is emitted and interested extensions will be activated **some time after** VS Code starts up. This is similar to the `*` activation event, but it will not slow down VS Code startup. Currently, this event is emitted after all the `*` activated extensions have finished activating.
 
 ```json
-...
 "activationEvents": [
     "onStartupFinished"
 ]
-...
+```
+
+## onTaskType
+
+`onTaskType:type` is emitted emitted whenever tasks of a certain type need to be listed or resolved.
+
+```json
+"activationEvents": [
+    "onTaskType:npm"
+]
+```
+
+> **Note**: Beginning with VS Code 1.76.0, tasks contributed by your extension do not require a corresponding `onTaskType` activation event declaration for your extension to be activated.
+
+## onEditSession
+
+`onEditSession:scheme` is emitted when an edit session is accessed with the given scheme.
+
+```json
+"activationEvents": [
+    "onEditSession:file"
+]
+```
+
+## onSearch
+
+`onSearch:scheme` is emitted when a search is started in the folder with the given scheme.
+
+```json
+"activationEvents": [
+    "onSearch:file"
+]
+```
+
+## onOpenExternalUri
+
+An activation event emitted whenever an external URI, such as an http or https link, is being opened.
+
+```json
+"activationEvents": [
+    "onOpenExternalUri"
+]
+```
+
+## onNotebook
+
+`onNotebook:type` is emitted when the specified notebook document type is opened.
+
+```json
+"activationEvents": [
+    "onNotebook:jupyter-notebook",
+    "onNotebook:interactive"
+]
+```
+
+## onRenderer
+
+`onRenderer:id` is emitted when a notebook output renderer is used.
+
+```json
+"activationEvents": [
+    "onRenderer:ms-toolsai.jupyter-renderers"
+]
+```
+
+## onTerminal
+
+`onTerminal:shellType` is emitted when a specific terminal with the given shell type is opened.
+
+```json
+"activationEvents": [
+  "onTerminal:bash"
+]
+```
+
+## onTerminalProfile
+
+`onTerminalProfile:id` is emitted when a specific terminal profile is launched.
+
+```json
+"activationEvents": [
+    "onTerminalProfile:terminalTest.terminal-profile"
+]
+```
+
+## onTerminalShellIntegration
+
+`onTerminalShellIntegration:shellType` is emitted when a terminal with the given shell type has shell integration activated.
+
+```json
+"activationEvents": [
+    "onTerminalShellIntegration:bash"
+]
+```
+
+## onWalkthrough
+
+`onWalkthrough:id` is emitted when a specified walkthrough is opened.
+
+```json
+"activationEvents": [
+    "onWalkthrough:nodejsWelcome"
+]
+```
+
+## onIssueReporterOpened
+
+This activation event is emitted when the issue reporter is opened (for example, by using **Help: Report Issue**).
+
+```json
+"activationEvents": [
+    "onIssueReporterOpened"
+]
+```
+
+## onChatParticipant
+
+An activation event emitted when the specified chat participant is invoked.
+
+```json
+"activationEvents": [
+    "onChatParticipant:my-chat-participant"
+]
+```
+
+## onLanguageModelTool
+
+An activation event emitted when the specified language model tool is invoked.
+
+```json
+"activationEvents": [
+    "onLanguageModelTool:my-language-model-tool"
+]
 ```
 
 ## Start up
@@ -227,11 +367,9 @@ The `*` activation event is emitted and interested extensions will be activated 
 > **Note:** To ensure a great user experience, please use this activation event in your extension only when no other activation events combination works in your use-case.
 
 ```json
-...
 "activationEvents": [
     "*"
 ]
-...
 ```
 
 > **Note:** An extension can listen to multiple activation events, and that is preferable to listening to `"*"`.

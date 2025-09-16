@@ -1,5 +1,5 @@
 ---
-Order: 21
+Order:
 TOCTitle: Hot Exit Comes to Insiders
 PageTitle: Hot Exit Comes to Insiders
 MetaDescription: Unsaved changes are now remembered between Visual Studio Code sessions.

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 38af73fd-ca95-48e3-9965-81f4cfe29996
-DateApproved: 5/3/2023
+DateApproved: 09/11/2025
 
 MetaDescription: Visual Studio Code when clause context reference.
 ---
@@ -101,7 +101,7 @@ Operator | Symbol | Example
 In | `in` | `"resourceFilename in supportedFolders"`
 Not in | `not in` | `"resourceFilename not in supportedFolders"`
 
-First, determine which folders should support the command, and the folder name to an array. Then, use the [`setContext` command](#add-a-custom-when-clause-context) to turn the array into a context key:
+First, determine which folders should support the command, and add the folder names to an array. Then, use the [`setContext` command](#add-a-custom-when-clause-context) to turn the array into a context key:
 
 ```ts
 vscode.commands.executeCommand('setContext', 'ext.supportedFolders', [ 'test', 'foo', 'bar' ]);
@@ -191,7 +191,7 @@ Context name | True when
 `referenceSearchVisible` | Peek References peek window is open.
 `inReferenceSearchEditor` | The Peek References peek window editor has focus.
 `config.editor.stablePeek` | Keep peek editors open (controlled by `editor.stablePeek` setting).
-`quickFixWidgetVisible` | Quick Fix widget is visible.
+`codeActionMenuVisible` | Code Action menu is visible.
 `parameterHintsVisible` | Parameter hints are visible (controlled by `editor.parameterHints.enabled` setting).
 `parameterHintsMultipleSignatures` | Multiple parameter hints are displayed.
 **Debugger contexts** |
@@ -246,6 +246,8 @@ Context name | True when
 `activeEditorIsNotPreview` | True when the active editor in a group is not in preview mode.
 `activeEditorIsPinned` | True when the active editor in a group is pinned.
 `inSearchEditor` | True when focus is inside a search editor.
+`activeWebviewPanelId` | The id of the currently active [webview panel](/api/extension-guides/webview).
+`activeCustomEditorId` | The id of the currently active [custom editor](/api/extension-guides/custom-editors).
 **Configuration settings contexts** |
 `config.editor.minimap.enabled` | True when the setting `editor.minimap.enabled` is `true`.
 
@@ -255,10 +257,10 @@ Context name | True when
 
 You can have a when clause that checks if a specific [View](/api/ux-guidelines/views) is visible or focused.
 
-Context name | True when
------------- | ------------
+Context name  | True when
+------------- | ----------
 `view.${viewId}.visible` | True when specific view is visible.<br>Example: `"view.workbench.explorer.fileView.visible"`
-focusedView | True when specific view is focused.<br>Example: `"focusedView == 'workbench.explorer.fileView'"`
+`focusedView` | True when specific view is focused.<br>Example: `"focusedView == 'workbench.explorer.fileView'"`
 
 View identifiers:
 
@@ -286,11 +288,11 @@ View identifiers:
 
 You can have a when clause that checks if a specific [View Container](/api/ux-guidelines/views#view-containers) is visible
 
-Context key     | True when
---------------- | ------------
-activeViewlet   | True when view container is visible in the sidebar.<br>Example: `"activeViewlet == 'workbench.view.explorer'"`
-activePanel     | True when view container is visible in the panel.<br>Example: `"activePanel == 'workbench.panel.output'"`
-activeAuxiliary | True when view container is visible in the secondary sidebar.<br>Example: `"activeAuxiliary == 'workbench.view.debug'"`
+Context name      | True when
+----------------- | ----------
+`activeViewlet`   | True when view container is visible in the sidebar.<br>Example: `"activeViewlet == 'workbench.view.explorer'"`
+`activePanel`     | True when view container is visible in the panel.<br>Example: `"activePanel == 'workbench.panel.output'"`
+`activeAuxiliary` | True when view container is visible in the secondary sidebar.<br>Example: `"activeAuxiliary == 'workbench.view.debug'"`
 
 View container identifiers:
 

@@ -10,21 +10,19 @@
   },
   "scripts": {
     "check-lfs": "node ./build/check-lfs.js",
+    "lint": "eslint **/*.js",
     "prepare": "husky install"
   },
   "devDependencies": {
-    "gulp": "^4.0.2",
+    "eslint-plugin-security": "^1.7.1",
+    "gulp": "~5.0.0",
     "husky": "^7.0.0",
     "lint-staged": "^12.3.3",
     "shelljs": "^0.8.5"
   },
   "lint-staged": {
     "*.{gif,mp4,jpg,png,GIF,MP4,JPG,PNG}": [
-      "yarn check-lfs"
+      "npm run check-lfs"
     ]
-  },
-  "resolutions": {
-    "glob-parent": ">=5.1.2",
-    "hosted-git-info": "^3.0.8"
   }
 }

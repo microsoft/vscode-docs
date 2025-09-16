@@ -1,5 +1,5 @@
 ---
-Order: 36
+Order:
 TOCTitle: What's New for Chrome Debugging
 PageTitle: What's New for Chrome debugging in VS Code
 MetaDescription: What's New for Chrome debugging in Visual Studio Code

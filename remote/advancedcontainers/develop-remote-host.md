@@ -5,13 +5,13 @@ TOCTitle: Develop on a remote Docker host
 PageTitle: Develop a container on a remote Docker host
 ContentId: 661004c9-d96c-4898-8b33-91eefb893466
 MetaDescription: Develop a container on a remote Docker host
-DateApproved: 5/3/2023
+DateApproved: 09/11/2025
 ---
 # Develop on a remote Docker host
 
 Sometimes you may want to use the Dev Containers extension to develop inside a container that sits on a remote server. Docker does **not** support mounting (binding) your local filesystem into a remote dev container, so Visual Studio Code's default `devcontainer.json` behavior to use your local source code will not work. While this is the default behavior, in this section we will cover connecting to a remote host so that you can either [use the Remote - SSH extension](/docs/remote/ssh.md) to open a folder on a remote host in a container, [attach to any running container](/docs/devcontainers/attach-container.md), or use a **local** `devcontainer.json` file as a way to configure, create, and connect to a remote dev container using a socket.
 
-## Connect using the Remote - SSH extension (recommended)
+## Connect using the Remote - SSH extension
 
 If you are using a Linux or macOS SSH host, you can use the [Remote - SSH](/docs/remote/ssh.md) and Dev Containers extensions together. You do not even need to have a Docker client installed locally. To do so:
 
@@ -23,18 +23,29 @@ If you are using a Linux or macOS SSH host, you can use the [Remote - SSH](/docs
 
 The rest of the Dev Containers quick start applies as-is. You can learn more about the [Remote - SSH extension in its documentation](/docs/remote/ssh.md).
 
+## Connect using the Remote - Tunnels extension
+
+You can use the [Remote - Tunnels](/docs/remote/tunnels.md) and Dev Containers extensions together to open a folder on your remote host inside of a container. You do not even need to have a Docker client installed locally. This is similar to the SSH host scenario above, but uses Remote - Tunnels instead. To do so:
+
+1. Follow the [Getting Started](/docs/remote/tunnels.md#getting-started) instructions for the Remote - Tunnels extension.
+1. [Install Docker](/docs/devcontainers/containers#installation) on your tunnel host. You do not need to install Docker locally.
+1. Follow the [steps](/docs/remote/tunnels.md#remote-tunnels-extension) for the Remote - Tunnels extension to connect to a tunnel host and open a folder there.
+1. Use the **Dev Containers: Reopen in Container** command from the Command Palette (`kbstyle(F1)`, `kb(workbench.action.showCommands)`).
+
+The rest of the Dev Containers quick start applies as-is. You can learn more about the [Remote - Tunnels extension in its documentation](/docs/remote/tunnels.md).
+
 ## Connect using the Docker CLI
 
-This model only requires that a Docker Engine be running on a remote host that your local Docker CLI can connect to. While using the Remote - SSH extension is easier and doesn't require the Docker CLI to even be installed locally, this model can be useful for situations where you already have a host you are connecting to from the command line. This approach is also useful if you are looking to attach to already running containers on this remote server.
+This model only requires that a Docker Engine be running on a remote host that your local Docker CLI can connect to. While using the Remote - SSH and Remote - Tunnels extensions is easier and doesn't require the Docker CLI to even be installed locally, this model can be useful for situations where you already have a host you are connecting to from the command line. This approach is also useful if you are looking to attach to already running containers on this remote server.
 
 ### A basic remote example
 
-Setting up VS Code to attach to a container on a remote Docker host can be as easy as setting the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) `docker.environment` property in `settings.json` and restarting VS Code (or reloading the window).
+Setting up VS Code to attach to a container on a remote Docker host can be as easy as setting the [Container Tools extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers) `containers.environment` property in `settings.json` and restarting VS Code (or reloading the window).
 
 For example:
 
 ```json
-"docker.environment": {
+"containers.environment": {
     "DOCKER_HOST": "ssh://your-remote-user@your-remote-machine-fqdn-or-ip-here"
 }
 ```
@@ -81,10 +92,10 @@ Recent versions of Docker (18.06+) have added support for the SSH protocol to co
 
 First, install a [supported SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client), configure [key based authentication](/docs/remote/troubleshooting.md#configuring-key-based-authentication)), and then **import your key into your local SSH agent** (which often is not running by default on Windows and Linux). See the article on [using SSH Keys with Git](/docs/devcontainers/containers.md#using-ssh-keys) for details on configuring the agent and adding the key.
 
-Then, add the following [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) `docker.environment` property to `settings.json` (replacing values as appropriate):
+Then, add the following [Container Tools extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers) `containers.environment` property to `settings.json` (replacing values as appropriate):
 
 ```json
-"docker.environment": {
+"containers.environment": {
     "DOCKER_HOST": "ssh://your-remote-user@your-remote-machine-fqdn-or-ip-here"
 }
 ```
@@ -95,10 +106,10 @@ After restarting VS Code (or reloading the window), you will now be able to [att
 
 ### Using the TCP protocol
 
-While the SSH protocol has its own built-in authorization mechanism, using the TCP protocol often requires setting other [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) properties in your `settings.json`. These are:
+While the SSH protocol has its own built-in authorization mechanism, using the TCP protocol often requires setting other [Container Tools extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers) properties in your `settings.json`. These are:
 
 ```json
-"docker.environment": {
+"containers.environment": {
     "DOCKER_HOST": "tcp://your-remote-machine-fqdn-or-ip-here:port",
     "DOCKER_CERT_PATH": "/optional/path/to/folder/with/certificate/files",
     "DOCKER_TLS_VERIFY": "1" // or "0"
@@ -122,9 +133,9 @@ If you'd prefer not to use `settings.json`, you can set **environment variables*
 
 You create new contexts with `docker context create`. The current context can be changed using `docker context use <context>`.
 
-The [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) comes with the `docker.environment` setting where environment variables like `DOCKER_HOST` or `DOCKER_CONTEXT` can be set that are also honored by the Dev Containers extension.
+The [Container Tools extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers) comes with the `containers.environment` setting where environment variables like `DOCKER_HOST` or `DOCKER_CONTEXT` can be set that are also honored by the Dev Containers extension.
 
-> **Note:** The above settings are only visible when the Docker extension is installed. Without the Docker extension, Dev Containers will use the current context.
+> **Note:** The above settings are only visible when the Container Tools extension is installed. Without the Container Tools extension, Dev Containers will use the current context.
 
 ## Converting an existing or pre-defined devcontainer.json
 

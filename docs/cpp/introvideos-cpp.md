@@ -1,16 +1,17 @@
 ---
-Order: 1
-Area: cpp
-TOCTitle: Intro Videos
 ContentId: a7a9837e-f515-4644-8dae-b5d44715e63f
-PageTitle: Introductory Videos for C++ in Visual Studio Code
 DateApproved: 4/13/2021
 MetaDescription: Get started with C++ in Visual Studio Code by watching these introductory videos
 ---
-
 # Introductory Videos for C++
 
 Get started with C++ in Visual Studio Code by watching these introductory videos! These videos are designed to help you set up C++ IntelliSense and build and debug C++ projects in VS Code. After watching these quick tutorials, you'll be able to enjoy VS Code's rich C++ feature set.
+
+## Getting started with C++ in 5 minutes
+
+This video shows you how to install the C/C++ extension and a C++ compiler. You then learn how to run and debug your code by using the run or debug play button.
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/qeEcV6u1kV4" title="Getting Started with C++ in 5 minutes" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Configure C++ IntelliSense
 
@@ -29,6 +30,12 @@ Learn how to build C++ projects in VS Code by customizing your C++ build tasks.
 This video shows you how to customize debug configurations for your C++ project and start a C++ debugging session in VS Code.
 
 <iframe src="https://channel9.msdn.com/Shows/Docs-Dev-Tools/Debug-a-C-project-in-VS-Code/player" width="960" height="540" allowFullScreen frameBorder="0" title="Debug a C++ project in VS Code - Microsoft Channel 9 Video"></iframe>
+
+## Getting started using Copilot Chat for C++ in VS Code
+
+This video covers some use cases for using Copilot Chat in VS Code with C++ Code.
+
+<iframe src="https://www.youtube-nocookie.com/embed/ZfT2CXY5-Dc?si=0F2qRniRhN-sg3cR" width="960" height="540" allowFullScreen frameBorder="0" title="Getting Started using Copilot Chat for C++ in VS Code"></iframe>
 
 ## Next steps
 

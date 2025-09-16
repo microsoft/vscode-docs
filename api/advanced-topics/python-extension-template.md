@@ -3,13 +3,17 @@ ContentId: dd7207b0-cf8b-4ed6-8c75-941834179dca
 DateApproved: 9/28/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
-MetaDescription: Using the Python extension template to integrate linters, formatters, and language features into Visual Studio Code
+MetaDescription: Using the Python extension template and API to integrate linters, formatters, and language features into Visual Studio Code
 ---
-# Python Extension Template
-
-The [Python extension template](https://github.com/microsoft/vscode-python-tools-extension-template) helps get you started building a Visual Studio Code extension for your favorite Python tool. It could be a linter, formatter, or code analysis, or all of those together. The template will give you the basic building blocks you need to build an extension that integrates your tool into VS Code.
+# Authoring Python Extensions
 
 >**Note**: If you are new to VS Code extension authoring, you may want to read the [Your First Extension](/api/get-started/your-first-extension) tutorial first and try creating a simple Hello World extension.
+
+The [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) extension provides APIs for other extensions to work with Python environments available on the user's machine. Check out [@vscode/python-extension](https://www.npmjs.com/package/@vscode/python-extension) npm module that includes types and helper utilities to access these APIs from your extension.
+
+## Python extension template
+
+The [Python extension template](https://github.com/microsoft/vscode-python-tools-extension-template) helps get you started building a Visual Studio Code extension for your favorite Python tool. It could be a linter, formatter, or code analysis, or all of those together. The template will give you the basic building blocks you need to build an extension that integrates your tool into VS Code, and it already has access to the Python APIs mentioned above.
 
 ## Programming languages and frameworks
 

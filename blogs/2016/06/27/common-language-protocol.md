@@ -1,5 +1,5 @@
 ---
-Order: 11
+Order:
 TOCTitle: The Language Server Protocol
 PageTitle: Common Language Server Protocol
 MetaDescription: A Common Language Server Protocol for any tool and any language.

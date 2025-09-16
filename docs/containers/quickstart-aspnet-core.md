@@ -1,9 +1,5 @@
 ---
-Order: 4
-Area: containers
-TOCTitle: ASP.NET Core
 ContentId: 29F731D4-C6FE-4742-A1E7-7288FDB81CB9
-PageTitle: Build and run an ASP.NET Core app in a container
 DateApproved: 12/13/2022
 MetaDescription: Develop, build, and debug an ASP.NET Core app in a Docker container, using Visual Studio Code.
 ---
@@ -17,7 +13,7 @@ In this guide you will learn how to:
 
 ## Prerequisites
 
-- Docker and the VS Code Docker extension must be installed as described on the [overview](/docs/containers/overview.md#installation).
+- Docker and the VS Code Container Tools extension must be installed as described on the [overview](/docs/containers/overview.md#installation).
 - For .NET development, install [.NET SDK](https://dotnet.microsoft.com/download).
 - Microsoft [C# for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) extension.
 
@@ -34,7 +30,7 @@ In this guide you will learn how to:
 
 1. Open the project folder in VS Code.
 1. Wait for the C# extension to prompt you to add required assets for build and debug, and choose **Yes**. You can also open the Command Palette (`kb(workbench.action.showCommands)`) and use the **.NET: Generate Assets for Build and Debug** command.
-1. Open Command Palette (`kb(workbench.action.showCommands)`) and use **Docker: Add Docker Files to Workspace...** command:
+1. Open Command Palette (`kb(workbench.action.showCommands)`) and use **Containers: Add Docker Files to Workspace...** command:
 
    ![Add Dockerfile to a .NET project](images/quickstarts/aspnetcore-add-dotnet.png)
 
@@ -68,28 +64,28 @@ In this guide you will learn how to:
 
 ## Add an environment variable to the image
 
-You can use the Docker extension to author Docker files. The extension provides completions and contextual help. To see these capabilities add an environment variable to your service image by following these steps:
+You can use the Container Tools extension to author Docker files. The extension provides completions and contextual help. To see these capabilities add an environment variable to your service image by following these steps:
 
 1. Open the `Dockerfile` file.
 1. Use `ENV` instruction to add an environment variable to the service container image. The instruction should be placed in the `base` stage of the `Dockerfile` (the first stage in the file). Set the `ASPNETCORE_URLS` variable to `http://*:5000`:
 
    ![Add an environment variable to Docker image](images/quickstarts/aspnetcore-intellisense-env.png)
 
-   Note how the Docker extension lists all available Dockerfile instructions and describes the syntax.
+   Note how the Container Tools extension lists all available Dockerfile instructions and describes the syntax.
 
-   > The Docker extension uses the `base` stage of the `Dockerfile` to create a debug version of the container image for your service. Put the `ASPNETCORE_URLS` environment variable definition in the `base` stage to have this variable available in both debug and release versions of the container image.
+   > The Container Tools extension uses the `base` stage of the `Dockerfile` to create a debug version of the container image for your service. Put the `ASPNETCORE_URLS` environment variable definition in the `base` stage to have this variable available in both debug and release versions of the container image.
 1. Save the `Dockerfile` file.
 
 ## Build the image
 
-1. Open Command Palette (`kb(workbench.action.showCommands)`) and issue **Docker Images: Build Image...** command.
-1. Open Docker Explorer and verify that the new image is visible in the Images tree:
+1. Open the Command Palette (`kb(workbench.action.showCommands)`) and issue **Container Images: Build Image...** command.
+1. Open the Container Explorer and verify that the new image is visible in the Images tree:
 
    ![Verify Docker image exists](images/quickstarts/aspnetcore-verify-image.png)
 
 ## Test the service container
 
-1. Right-click on the image built in previous step and choose **Run** or **Run Interactive**. The container should start and you should be able to see it in the "Containers" pane of the Docker Explorer:
+1. Right-click on the image built in previous step and choose **Run** or **Run Interactive**. The container should start and you should be able to see it in the "Containers" view of the Container Explorer:
 
    ![Running service container](images/quickstarts/aspnetcore-running-container.png)
 
@@ -107,7 +103,7 @@ You can use the Docker extension to author Docker files. The extension provides 
 
    > By default Docker will assign a randomly chosen **host port** to a port exposed by a container (the **container port**). In our application the exposed (container) port is 5000. When you issue **Run** command for an image, VS Code will try to use the same port number for the host port and container port. This makes it easy to remember which port to use to communicate with the container, but it won't work if the host port is already in use.
    >
-   > If you cannot see the data from the container in your browser, make sure there are no errors reported by the `docker run` command (look at the command output in the terminal window). You can also verify which host port is using by the container by right-clicking the container in the Docker Explorer and choosing **Inspect**. This will open a JSON document that describes the container in detail. Search for `PortBindings` element, for example:
+   > If you cannot see the data from the container in your browser, make sure there are no errors reported by the `docker run` command (look at the command output in the terminal window). You can also verify which host port is using by the container by right-clicking the container in the Container Explorer and choosing **Inspect**. This will open a JSON document that describes the container in detail. Search for `PortBindings` element, for example:
    >
    > ```jsonc
    > "PortBindings": {
@@ -120,15 +116,15 @@ You can use the Docker extension to author Docker files. The extension provides 
    > },
    > ```
 
-1. When done testing, right-click the container in the Docker Explorer and choose **Stop**.
+1. When done testing, right-click the container in the Container Explorer and choose **Stop**.
 
 ## Debug in container
 
-When Docker files were added to the application, the Docker extension also added a **VS Code debugger configuration** for debugging the service when it is running inside a container. The extension will automatically detect the protocol and port that the service is using and point the browser to the service, but we need to tell it what URL path to use.
+When Docker files were added to the application, the Container Tools extension also added a **VS Code debugger configuration** for debugging the service when it is running inside a container. The extension will automatically detect the protocol and port that the service is using and point the browser to the service, but we need to tell it what URL path to use.
 
 1. Set a breakpoint at the beginning of the code for the `Get()` method of the `Controllers/WeatherForecastController.cs` file.
-1. Open `.vscode/launch.json` file and find `Docker .NET Core Launch` debug configuration.
-1. Add `dockerServerReadyAction` to `Docker .NET Core Launch` configuration:
+1. Open `.vscode/launch.json` file and find `Containers: .NET Core Launch` debug configuration.
+1. Add `dockerServerReadyAction` to `Containers: .NET Core Launch` configuration:
 
     ```json
     "dockerServerReadyAction": {

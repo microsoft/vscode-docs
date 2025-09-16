@@ -1,5 +1,5 @@
 ---
-Order: 38
+Order:
 TOCTitle: Settings Search
 PageTitle: Bing-powered settings search in VS Code
 MetaDescription: Improving settings search in VS Code with Bing

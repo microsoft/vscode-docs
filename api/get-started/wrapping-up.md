@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: a15875fa-19b5-4c11-8903-864af133ce57
-DateApproved: 5/3/2023
+DateApproved: 09/11/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Next steps to take after studying the Getting Started section
@@ -21,7 +21,36 @@ We have a great collection of sample extensions that you can adapt from, and som
 
 ## UX Guidelines
 
-To help make your extension fit seemlessly into the VS Code user interface, refer to the [UX Guidelines](/api/ux-guidelines/overview), where you'll learn the best practices for creating extension UI and conventions for following the preferred VS Code workflows.
+To help make your extension fit seamlessly into the VS Code user interface, refer to the [UX Guidelines](/api/ux-guidelines/overview), where you'll learn the best practices for creating extension UI and conventions for following the preferred VS Code workflows.
+
+## Issue Reporting
+
+VS Code users can report issues by using the **Help: Report Issue...** command (`workbench.action.openIssueReporter`), or by typing `issue  ` in Quick Open (`workbench.action.quickOpen`) and then selecting an installed extension. This provides a consistent experience for users to report issues for the core product or installed extensions.
+
+As an extension author, you can integrate your extension in the **Help: Report Issue...** issue reporter flow, instead of contributing a separate issue reporter command. This integration also enables you to attach any additional information when users report an issue.
+
+To integrate in the issue reporter flow, you need to contribute a custom command and a `issue/reporter` menu contribution point. This custom command will invoke `openIssueReporter`.
+
+An example of a contributed command and menu for `contributes` in `package.json` (See [Contribution Points](/api/references/contribution-points) for adding a menu contribution and command):
+
+``` json
+"commands": [
+    {
+        "command": "extension.myCommand",
+        "title": "Report Issue"
+    }
+],
+    "menus": {
+        "issue/reporter": [
+            {
+                "command": "extension.myCommand"
+            }
+        ]
+    }
+
+```
+
+We ask extensions that previously contributed a `workbench.action.openIssueReporter` command in the command palette to start using this new issue reporting flow.
 
 ## Testing and Publishing
 

@@ -5,7 +5,7 @@ TOCTitle: Over the Moon Lessons
 ContentId: 59288bcc-97b7-411e-86da-c022a00e25ec
 PageTitle: Get Started Tutorial for Over the Moon project in Visual Studio Code
 DateApproved: 10/22/2020
-MetaDescription: A Over the Moon project tutorial using the Python extension in Visual Studio Code.
+MetaDescription: An Over the Moon project tutorial using the Python extension in Visual Studio Code.
 ---
 
 # Learn Python with Over The Moon

@@ -1,15 +1,11 @@
 ---
-Order: 3
-Area: typescript
-TOCTitle: Editing
 ContentId: db5139eb-9623-4d0b-8180-8b495e2b8b06
-PageTitle: TypeScript editing with Visual Studio Code
-DateApproved: 5/3/2023
+DateApproved: 09/11/2025
 MetaDescription: Learn about TypeScript editing with Visual Studio Code.
 ---
 # Editing TypeScript
 
-Visual Studio Code has great editing support for [TypeScript](https://www.typescriptlang.org). This article goes into depth on the editing and programming language features that come built-in to VS Code. If you'd like to know more about general editing features in VS Code, such as keyboard shortcuts, multi-cursors, search, and find and replace, you can read [Basic Editing](/docs/editor/codebasics.md).
+Visual Studio Code has great editing support for [TypeScript](https://www.typescriptlang.org). This article goes into depth on the editing and programming language features that come built-in to VS Code. If you'd like to know more about general editing features in VS Code, such as keyboard shortcuts, multi-cursors, search, and find and replace, you can read [Basic Editing](/docs/editing/codebasics.md).
 
 ## IntelliSense
 
@@ -37,13 +33,14 @@ Signature help is shown automatically when you type a `(` or `,` within a functi
 
 ## Snippets
 
-VS Code includes basic TypeScript [snippets](/docs/editor/userdefinedsnippets.md) that are suggested as you type;
+VS Code includes basic TypeScript [snippets](/docs/editing/userdefinedsnippets.md) that are suggested as you type;
 
 ![Typescript snippets](images/editing/ts-snippets.png)
 
-You can install extensions to get additional snippets or define your own snippets for TypeScript. See [User Defined Snippets](/docs/editor/userdefinedsnippets.md) for more information.
+You can install extensions to get additional snippets or define your own snippets for TypeScript. See [User Defined Snippets](/docs/editing/userdefinedsnippets.md) for more information.
 
-> **Tip**: You can disable snippets by setting `editor.snippetSuggestions` to `"none"` in your [settings](/docs/getstarted/settings.md) file. If you'd like to see snippets, you can specify the order relative to suggestions; at the top (`"top"`), at the bottom (`"bottom"`), or inlined ordered alphabetically (`"inline"`). The default is `"inline"`.
+> [!TIP]
+> You can disable snippets by setting `editor.snippetSuggestions` to `"none"` in your [settings](/docs/configure/settings.md) file. If you'd like to see snippets, you can specify the order relative to suggestions; at the top (`"top"`), at the bottom (`"bottom"`), or inlined ordered alphabetically (`"inline"`). The default is `"inline"`.
 
 ## Inlay hints
 
@@ -121,6 +118,16 @@ If you choose one of the suggestions from another file or module, VS Code will a
 
 You can disable auto imports by setting `"typescript.suggest.autoImports": false`.
 
+### Add imports on paste
+
+When you copy and paste code between editors, VS Code can automatically add imports when the code is pasted. When you paste code that contains an undefined symbol, a paste control is shown that lets you choose between pasting as plain text or to add imports.
+
+<video src="images/editing/jsts-update-imports-paste.mp4" title="Copy code from one editor to another shows the paste widget and results in adding imports when pasting. " autoplay loop controls muted></video>
+
+This feature is enabled by default, but you can disable it by toggling the `setting(typescript.updateImportsOnPaste.enabled)` setting.
+
+You can make paste with imports the default behavior, without showing the paste control, by configuring the `setting(editor.pasteAs.preferences)` setting. Include `text.updateImports.jsts` or `text.updateImports` to always add imports when pasting.
+
 ## JSX and auto closing tags
 
 VS Code's TypeScript features also work with [JSX](https://reactjs.org/docs/introducing-jsx.html). To use JSX in your TypeScript, use the `*.tsx` file extension instead of the normal `*.ts`:
@@ -168,7 +175,7 @@ You can navigate via symbol search using the **Go to Symbol** commands from the 
 
 VS Code includes a TypeScript formatter that provides basic code formatting with reasonable defaults.
 
-Use the `typescript.format.*` [settings](/docs/getstarted/settings.md) to configure the built-in formatter, such as making braces appear on their own line. Or, if the built-in formatter is getting in the way, set `"typescript.format.enable"` to `false` to disable it.
+Use the `typescript.format.*` [settings](/docs/configure/settings.md) to configure the built-in formatter, such as making braces appear on their own line. Or, if the built-in formatter is getting in the way, set `"typescript.format.enable"` to `false` to disable it.
 
 For more specialized code formatting styles, try installing one of the formatting extensions from the VS Code marketplace.
 
@@ -178,7 +185,7 @@ In addition to syntax highlighting, TypeScript and JavaScript also provide seman
 
 Syntax highlighting colors the text based on lexical rules. Semantic highlighting enriches the syntax coloring based on resolved symbol information from the language service.
 
-Whether semantic highlighting is visible depends on the current color theme. Each theme can [configure](/docs/getstarted/themes.md#editor-semantic-highlighting) whether to display semantic highlighting and how it styles the semantic tokens.
+Whether semantic highlighting is visible depends on the current color theme. Each theme can [configure](/docs/configure/themes.md#editor-semantic-highlighting) whether to display semantic highlighting and how it styles the semantic tokens.
 
 If semantic highlighting is enabled and the color theme has a corresponding styling rule defined, different colors and styles can be seen.
 

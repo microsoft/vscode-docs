@@ -8,15 +8,19 @@ jobs:
 - job:
   displayName: ${{ parameters.jobDisplayName }}
   pool:
-    type: windows
-
-  variables:
-    ob_outputDirectory: $(Build.ArtifactStagingDirectory)/out
-    ob_artifactSuffix: ${{ parameters.jobDisplayName }}
-    ob_git_path: vscode-website/vscode-docs
-    ob_sdl_codeSignValidation_excludes: -|**\*.js;-|**\*.ps1
+    name: 1es-windows-2022-x64
+    os: Windows
+  templateContext:
+    outputs:
+      - output: pipelineArtifact
+        targetPath: $(Build.ArtifactStagingDirectory)/out
+        artifactName: drop_Build_${{ parameters.jobDisplayName }}
 
   steps:
+  - checkout: self
+    lfs: true
+    path: vscode-docs
+
   - download: ${{ parameters.artifactName }}
     artifact: drop_Build_Linux
     displayName: Download ${{ parameters.artifactName }}
@@ -26,11 +30,14 @@ jobs:
       contents: '**'
       sourceFolder: $(Pipeline.Workspace)/${{ parameters.artifactName }}/drop_Build_Linux
       targetFolder: $(Pipeline.Workspace)/vscode-website
-    displayName: Copy ${{ parameters.artifactName }}
+    displayName: Copy ${{ parameters.artifactName }} to vscode-website
 
-  - task: CodeQL3000Init@0
-    displayName: CodeQL Initialize
-    condition: eq(variables['Codeql.enabled'], 'True')
+  - task: CopyFiles@2
+    inputs:
+      contents: '**'
+      sourceFolder: $(Pipeline.Workspace)/vscode-docs
+      targetFolder: $(Pipeline.Workspace)/vscode-website/vscode-docs
+    displayName: Copy vscode-docs into vscode-website
 
   - task: NodeTool@0
     displayName: Install Node via .nvmrc
@@ -38,6 +45,20 @@ jobs:
       versionSource: 'fromFile'
       versionFilePath: $(Pipeline.Workspace)/vscode-website/.nvmrc
       checkLatest: true
+
+  - script: npm config list
+    displayName: List npm properties
+
+  - powershell: |
+      if (Test-Path "$(Pipeline.Workspace)/vscode-website/server/.npmrc.optional") {
+        mv "$(Pipeline.Workspace)/vscode-website/server/.npmrc.optional" "$(Pipeline.Workspace)/vscode-website/server/.npmrc"
+      }
+    displayName: Enforce .npmrc
+
+  - task: npmAuthenticate@0
+    displayName: Setup NPM Authentication
+    inputs:
+      workingFile: $(Pipeline.Workspace)/vscode-website/server/.npmrc
 
   - task: npmAuthenticate@0
     displayName: Setup NPM Authentication
@@ -49,6 +70,13 @@ jobs:
     displayName: Install dependencies
     workingDirectory: $(Pipeline.Workspace)/vscode-website
 
+  - script: |
+      npm run lint-build
+      npm run lint-client
+      npm run lint-server
+    displayName: Lint
+    workingDirectory: $(Pipeline.Workspace)/vscode-website
+
   - powershell: $(Pipeline.Workspace)/vscode-website/scripts/ci-build-dist-setup.ps1
     displayName: Build Dist Setup
     workingDirectory: $(Pipeline.Workspace)/vscode-website
@@ -57,17 +85,10 @@ jobs:
     displayName: Rebuild Dist From Website
     workingDirectory: $(Pipeline.Workspace)/vscode-website
 
-  - script: npm install
-    displayName: Install Dist dependencies
-    workingDirectory: $(Pipeline.Workspace)/vscode-website/dist
-
-  - task: CodeQL3000Finalize@0
-    displayName: CodeQL Finalize
-    condition: eq(variables['Codeql.enabled'], 'True')
-
   - task: ArchiveFiles@2
     inputs:
       rootFolderOrFile: $(Pipeline.Workspace)/vscode-website/dist
       archiveType: 'zip'
       includeRootFolder: false
       archiveFile: $(Build.ArtifactStagingDirectory)/out/website.zip
+    displayName: Archive complete website

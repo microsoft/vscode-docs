@@ -1,9 +1,5 @@
 ---
-Order:
-Area: cpp
-TOCTitle: Setup Help for LLDB-MI
 ContentId: 1e84d196-397f-4dbb-9746-06f15766d83e
-PageTitle: How to set up debugging on macOS with LLDB-MI
 DateApproved: 2/12/2020
 MetaDescription: How to set up debugging on macOS with LLDB-MI
 ---

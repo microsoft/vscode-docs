@@ -1,11 +1,7 @@
 ---
-Order: 1
-Area: remote
-TOCTitle: Overview
-PageTitle: Visual Studio Code Remote Development
 ContentId: eceea3f0-feee-47c2-8b65-1f1b0825355b
 MetaDescription: Visual Studio Code Remote Development
-DateApproved: 5/3/2023
+DateApproved: 09/11/2025
 ---
 # VS Code Remote Development
 
@@ -19,7 +15,7 @@ DateApproved: 5/3/2023
 - Access an **existing** development environment from **multiple machines or locations**.
 - Debug an **application running somewhere else** such as a customer site or in the cloud.
 
-**No source code** needs to be on your local machine to get these benefits. Each extension in the [Remote Development extension pack](https://aka.ms/vscode-remote/download/extension) can run commands and other extensions directly inside a container, in WSL, or on a remote machine so that everything feels like it does when you run locally.
+**No source code** needs to be on your local machine to get these benefits. Each extension in the [Remote Development extension pack](https://aka.ms/vscode-remote/download/extension) can run commands and other extensions directly inside a container, in WSL, or on a remote machine so that everything feels as it does when you run locally. The extensions install VS Code Server on the remote OS; the server is independent of any existing VS Code installation on the remote OS.
 
 ![Architecture](images/remote-overview/architecture.png)
 
@@ -27,11 +23,12 @@ DateApproved: 5/3/2023
 
 ### Remote Development extension pack
 
-The [Remote Development extension pack](https://aka.ms/vscode-remote/download/extension) includes three extensions. See the following articles to get started with each of them:
+The [Remote Development extension pack](https://aka.ms/vscode-remote/download/extension) includes four extensions. See the following articles to get started with each of them:
 
 - [Remote - SSH](/docs/remote/ssh.md) - Connect to any location by opening folders on a remote machine/VM using SSH.
 - [Dev Containers](/docs/devcontainers/containers.md) - Work with a separate toolchain or container-based application inside (or mounted into) a container.
 - [WSL](/docs/remote/wsl.md) - Get a Linux-powered development experience in the Windows Subsystem for Linux.
+- [Remote - Tunnels](/docs/remote/tunnels.md) - Connect to a remote machine via a secure tunnel, without configuring SSH.
 
 While most VS Code extensions should work unmodified in a remote environment, extension authors can learn more at [Supporting Remote Development](/api/advanced-topics/remote-extensions.md).
 
@@ -49,10 +46,6 @@ Tutorial | Description
 ## GitHub Codespaces
 
 [GitHub Codespaces](/docs/remote/codespaces.md) provides remote development environments that are managed for you. You can configure and create a development environment hosted in the cloud, which is spun up and available when you need it.
-
-## The VS Code Server (private preview)
-
-[The VS Code Server](https://aka.ms/vscode-server-doc) is a private preview service you can run on a remote development machine, like your desktop PC or a virtual machine (VM). It allows you to securely connect to that remote machine from anywhere through a vscode.dev URL, without the requirement of SSH.
 
 ## Questions or feedback
 

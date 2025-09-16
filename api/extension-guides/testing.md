@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 4ced0b2a-3f5a-44e6-a8b0-66b9012af8c0
-DateApproved: 5/3/2023
+DateApproved: 09/11/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Testing APIs in VS Code allow users to discover and run unit tests in their workspace
@@ -244,6 +244,79 @@ In addition to the `runHandler`, you can set a `configureHandler` on the `TestRu
 In addition to the messages passed to `TestRun.failed` or `TestRun.errored`, you can append generic output using `run.appendOutput(str)`. This output can be displayed in a terminal using the **Test: Show Output** and through various buttons in the UI, such as the terminal icon in the Test Explorer view.
 
 Because the string is rendered in a terminal, you can use the full set of [ANSI codes](https://en.wikipedia.org/wiki/ANSI_escape_code), including the styles available in the [ansi-styles](https://www.npmjs.com/package/ansi-styles) npm package. Bear in mind that, because it is in a terminal, lines must be wrapped using CRLF (`\r\n`), not just LF (`\n`), which may be the default output from some tools.
+
+### Test Coverage
+
+Test coverage is associated with a `TestRun` via the `run.addCoverage()` method. Canonically this should be done by `runHandler`s of profiles of the `TestRunProfileKind.Coverage`, but it is possible to call it during any test run. The `addCoverage` method takes a `FileCoverage` object, which is a summary of the coverage data in that file:
+
+```ts
+async function runHandler(shouldDebug: boolean, request: vscode.TestRunRequest, token: vscode.CancellationToken) {
+  // ...
+
+  for await (const file of readCoverageOutput()) {
+    run.addCoverage(new vscode.FileCoverage(file.uri, file.statementCoverage))
+  }
+}
+```
+
+The `FileCoverage` contains the overall covered and uncovered count of statements, branches, and declarations in each file. Depending on your runtime and coverage format, you might see statement coverage referred to as line coverage, or declaration coverage referred to as function or method coverage. You can add file coverage for a single URI multiple times, in which case the new information will replace the old.
+
+Once a user opens a file with coverage or expands a file in the **Test Coverage** view, VS Code requests more information for that file. It does so by calling an extension-defined `loadDetailedCoverage` method on the `TestRunProfile` with the `TestRun`, `FileCoverage`, and a `CancellationToken`. Note that the test run and file coverage instances are the same as the ones used in `run.addCoverage`, which is useful for associating data. For example, you can create a map of `FileCoverage` objects to your own data:
+
+```ts
+const coverageData = new WeakMap<vscode.FileCoverage, MyCoverageDetails>();
+
+profile.loadDetailedCoverage = (testRun, fileCoverage, token) => {
+  return coverageData.get(fileCoverage).load(token);
+}
+
+async function runHandler(shouldDebug: boolean, request: vscode.TestRunRequest, token: vscode.CancellationToken) {
+  // ...
+
+  for await (const file of readCoverageOutput()) {
+    const coverage = new vscode.FileCoverage(file.uri, file.statementCoverage);
+    coverageData.set(coverage, file)
+    run.addCoverage(coverage);
+  }
+}
+```
+
+Alternatively you might subclass `FileCoverage` with an implementation that includes that data:
+
+```ts
+class MyFileCoverage extends vscode.FileCoverage {
+  // ...
+}
+
+profile.loadDetailedCoverage = async (testRun, fileCoverage, token) => {
+  return fileCoverage instanceof MyFileCoverage ? await fileCoverage.load() : [];
+}
+
+async function runHandler(shouldDebug: boolean, request: vscode.TestRunRequest, token: vscode.CancellationToken) {
+  // ...
+
+  for await (const file of readCoverageOutput()) {
+    // 'file' is MyFileCoverage:
+    run.addCoverage(file);
+  }
+}
+```
+
+`loadDetailedCoverage` is expected to return a promise to an array of `DeclarationCoverage` and/or `StatementCoverage` objects. Both objects include a `Position` or `Range` at which they can be found in the source file. `DeclarationCoverage` objects contain a name of the thing being declared (such as a function or method name) and the number of times that declaration was entered or invoked. Statements include the number of times they were executed, as well as zero or more associated branches. Refer to the type definitions in `vscode.d.ts` for more information.
+
+In many cases you might have persistent files lying around from your test run. It's best practice to put such coverage output in the system's temporary directory (which you can retrieve via `require('os').tmpdir()`), but you can also clean them up eagerly by listening to VS Code's cue that it no longer needs to retain the test run:
+
+```ts
+import { promises as fs } from 'fs';
+
+async function runHandler(shouldDebug: boolean, request: vscode.TestRunRequest, token: vscode.CancellationToken) {
+  // ...
+
+  run.onDidDispose(async () => {
+    await fs.rm(coverageOutputDirectory, { recursive: true, force: true });
+  });
+}
+```
 
 ### Test Tags
 

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: DC915D6C-13D4-4022-9101-57C4A4118B07
-DateApproved: 5/3/2023
+DateApproved: 09/11/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Create your first Visual Studio Code extension (plug-in) with a simple Hello World example.
@@ -9,40 +9,52 @@ MetaDescription: Create your first Visual Studio Code extension (plug-in) with a
 
 # Your First Extension
 
-In this topic, we'll teach you the fundamental concepts for building extensions. Make sure you have [Node.js](https://nodejs.org) and [Git](https://git-scm.com/) installed, then install [Yeoman](https://yeoman.io/) and [VS Code Extension Generator](https://www.npmjs.com/package/generator-code) with:
+In this topic, we'll teach you the fundamental concepts for building extensions. Make sure you have [Node.js](https://nodejs.org) and [Git](https://git-scm.com/) installed.
+
+First, use [Yeoman](https://yeoman.io/) and [VS Code Extension Generator](https://www.npmjs.com/package/generator-code) to scaffold a TypeScript or JavaScript project ready for development.
+
+- If you do not want to install Yeoman for later use, run the following command:
+
+  ```bash
+  npx --package yo --package generator-code -- yo code
+  ```
+
+- If you instead want to install Yeoman globally to ease running it repeatedly, run the following command:
+
+  ```bash
+  npm install --global yo generator-code
+
+  yo code
+  ```
+
+For a TypeScript project, fill out the following fields:
 
 ```bash
-npm install -g yo generator-code
-```
-
-The generator scaffolds a TypeScript or JavaScript project ready for development. Run the generator and fill out a few fields for a TypeScript project:
-
-```bash
-yo code
-
 # ? What type of extension do you want to create? New Extension (TypeScript)
 # ? What's the name of your extension? HelloWorld
 ### Press <Enter> to choose default for all options below ###
 
 # ? What's the identifier of your extension? helloworld
 # ? What's the description of your extension? LEAVE BLANK
-# ? Initialize a git repository? Yes
-# ? Bundle the source code with webpack? No
+# ? Initialize a git repository? Y
+# ? Which bundler to use? unbundled
 # ? Which package manager to use? npm
 
 # ? Do you want to open the new folder with Visual Studio Code? Open with `code`
 
 ```
 
-Then, inside the editor, press `kb(workbench.action.debug.start)`. This will compile and run the extension in a new **Extension Development Host** window.
+Inside the editor, open `src/extension.ts` and press `kb(workbench.action.debug.start)` or run the command **Debug: Start Debugging** from the Command Palette (`kb(workbench.action.showCommands)`). This will compile and run the extension in a new **Extension Development Host** window.
 
 Run the **Hello World** command from the Command Palette (`kb(workbench.action.showCommands)`) in the new window:
 
 <video loop muted playsinline controls title="Launch your first VS Code extension video">
-  <source src="/api/get-started/your-first-extension/launch.mp4" type="video/mp4">
+  <source src="/assets/api/get-started/your-first-extension/launch.mp4" type="video/mp4">
 </video>
 
 You should see the `Hello World from HelloWorld!` notification showing up. Success!
+
+If you aren't able to see the **Hello World** command in the debug window, check the `package.json` file and make sure that `engines.vscode` version is compatible with the installed version of VS Code.
 
 ## Developing the extension
 
@@ -55,7 +67,7 @@ Let's make a change to the message:
 You should see the updated message showing up.
 
 <video loop muted playsinline controls title="Reload VS Code extension video">
-  <source src="/api/get-started/your-first-extension/reload.mp4" type="video/mp4">
+  <source src="/assets/api/get-started/your-first-extension/reload.mp4" type="video/mp4">
 </video>
 
 Here are some ideas for things for you to try:
@@ -69,7 +81,7 @@ Here are some ideas for things for you to try:
 VS Code's built-in debugging functionality makes it easy to debug extensions. Set a breakpoint by clicking the gutter next to a line, and VS Code will hit the breakpoint. You can hover over variables in the editor or use the **Run and Debug** view in the left to check a variable's value. The Debug Console allows you to evaluate expressions.
 
 <video loop muted playsinline controls title="Debug VS Code extension video">
-  <source src="/api/get-started/your-first-extension/debug.mp4" type="video/mp4">
+  <source src="/assets/api/get-started/your-first-extension/debug.mp4" type="video/mp4">
 </video>
 
 You can learn more about debugging Node.js apps in VS Code in the [Node.js Debugging Topic](/docs/nodejs/nodejs-debugging).

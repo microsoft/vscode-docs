@@ -1,11 +1,7 @@
 ---
-Order: 11
-Area: devcontainers
-TOCTitle: Create a Dev Container
-PageTitle: Create a development container using Visual Studio Code Remote Development
 ContentId: bae55561-1032-40d4-b6a6-47054da96098
 MetaDescription: Create a development container using Visual Studio Code Remote Development
-DateApproved: 5/3/2023
+DateApproved: 09/11/2025
 ---
 # Create a Dev Container
 
@@ -135,18 +131,20 @@ See the [Dev Container Features specification](https://containers.dev/implemento
 
 When editing the contents of the `.devcontainer` folder, you'll need to rebuild for changes to take effect. Use the **Dev Containers: Rebuild Container** command for your container to update.
 
-However, if you **rebuild** the container, you will have to **reinstall** anything you've installed manually. To avoid this problem, you can use the `postCreateCommand` property in `devcontainer.json`.
+However, if you **rebuild** the container, you will have to **reinstall** anything you've installed manually. To avoid this problem, you can use the `postCreateCommand` property in `devcontainer.json` or a custom `Dockerfile`.
+
+A custom `Dockerfile` will benefit from Docker's build cache and result in faster rebuilds than `postCreateCommand`. However, the `Dockerfile` runs before the dev container is created and the workspace folder is mounted and therefore does not have access to the files in the workspace folder. A `Dockerfile` is most suitable for installing packages and tools independent of your workspace files.
 
 The `postCreateCommand` actions are run once the container is created, so you can also use the property to run commands like `npm install` or to execute a shell script in your source tree (if you have mounted it).
 
 ```json
-"postCreateCommand": "bash scripts/install-dev-tools.sh"
+"postCreateCommand": "bash scripts/install-dependencies.sh"
 ```
 
 You can also use an interactive bash shell so that your `.bashrc` is picked up, automatically customizing your shell for your environment:
 
 ```json
-"postCreateCommand": "bash -i scripts/install-dev-tools.sh"
+"postCreateCommand": "bash -i scripts/install-dependencies.sh"
 ```
 
 Tools like NVM won't work without using `-i` to put the shell in interactive mode:
@@ -261,7 +259,7 @@ You'll be prompted to pick a pre-defined container configuration from our [first
 * [Existing Docker Compose](https://github.com/devcontainers/templates/tree/main/src/docker-existing-docker-compose) - Includes a set of files that you can drop into an existing project that will reuse a `docker-compose.yml` file in the root of your project.
 * [Node.js & MongoDB](https://github.com/devcontainers/templates/tree/main/src/javascript-node-mongo) -  A Node.js container that connects to a MongoDB database in a different container.
 * [Python & PostgreSQL](https://github.com/devcontainers/templates/tree/main/src/postgres) -  A Python container that connects to PostgreSQL in a different container.
-* [Docker-from-Docker Compose](https://github.com/devcontainers/templates/tree/main/src/docker-from-docker-compose) - Includes the Docker CLI and illustrates how you can use it to access your local Docker install from inside a dev container by volume mounting the Docker Unix socket.
+* [Docker-Outside-of-Docker Compose](https://github.com/devcontainers/templates/tree/main/src/docker-outside-of-docker-compose) - Includes the Docker CLI and illustrates how you can use it to access your local Docker install from inside a dev container by volume mounting the Docker Unix socket.
 
 After you make your selection, VS Code will add the appropriate `.devcontainer/devcontainer.json` (or `.devcontainer.json`) file to the folder.
 
@@ -410,7 +408,7 @@ VS Code will then **automatically use both files** when starting up any containe
 docker-compose -f docker-compose.yml -f .devcontainer/docker-compose.extend.yml up
 ```
 
-While the `postCreateCommand` property allows you to install additional tools inside your container, in some cases you may want to have a specific Dockerfile for development. You can also use this same approach to reference a custom `Dockerfile` specifically for development without modifying your existing Docker Compose file.  For example, you can update `.devcontainer/devcontainer.extend.yml` as follows:
+While the `postCreateCommand` property allows you to install additional tools inside your container, in some cases you may want to have a specific Dockerfile for development. You can also use this same approach to reference a custom `Dockerfile` specifically for development without modifying your existing Docker Compose file.  For example, you can update `.devcontainer/docker-compose.extend.yml` as follows:
 
 ```yaml
 version: '3'
@@ -444,7 +442,7 @@ You may also add a badge or link in your repository so that users can easily ope
 As an example, a badge to open [https://github.com/microsoft/vscode-remote-try-java](https://github.com/microsoft/vscode-remote-try-java) would look like:
 
 ```markdown
-[![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/microsoft/vscode-remote-try-java)
+[![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/microsoft/vscode-remote-try-java)
 ```
 
 You can also include an `open in dev container` link directly:
@@ -457,7 +455,7 @@ If you already have VS Code and Docker installed, you can click the badge above 
 
 In some cases, you may want to create a configuration for a repository that you do not control or that you would prefer didn't have a configuration included in the repository itself. To handle this situation, you can configure a location on your local filesystem to store configuration files that will be picked up automatically based on the repository.
 
-First, update the **Dev > Containers: Repository Configuration Paths** [User setting](/docs/getstarted/settings.md) with the local folder you want to use to store your repository container configuration files.
+First, update the **Dev > Containers: Repository Configuration Paths** [User setting](/docs/configure/settings.md) with the local folder you want to use to store your repository container configuration files.
 
 In the Settings editor, you can search for 'dev containers repo' to find the setting:
 

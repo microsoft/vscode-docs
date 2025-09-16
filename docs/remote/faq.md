@@ -1,11 +1,7 @@
 ---
-Order: 17
-Area: remote
-TOCTitle: FAQ
-PageTitle: Visual Studio Code Remote Development Frequently Asked Questions
 ContentId: 66bc3337-5fe1-4dac-bde1-a9302ff4c0cb
 MetaDescription: Visual Studio Code Remote Development Frequently Asked Questions (FAQ) for SSH, Containers, and WSL
-DateApproved: 5/3/2023
+DateApproved: 09/11/2025
 ---
 # Remote Development FAQ
 
@@ -59,19 +55,17 @@ No. The VS Code Server is a component of the Remote Development extensions and i
 
 Installation of VS Code Server requires that your local machine have outbound HTTPS (port 443) connectivity to:
 
-* `update.code.visualstudio.com`
-* `*.vo.msecnd.net` (Azure CDN)
+- `update.code.visualstudio.com`
+- `vscode.download.prss.microsoft.com`
 
-By default, the Remote - SSH will attempt to download on the remote host, but if you enable `remote.SSH.allowLocalServerDownload`, the extension will fall back to downloading VS Code Server locally and transferring it remotely once a connection is established.
+By default, the Remote - SSH will attempt to download on the remote host, and fail back to downloading VS Code Server locally and transferring it remotely once a connection is established. You can change this behavior with the `setting(remote.SSH.localServerDownload)` setting to always download locally and then transfer it, or to never download locally.
 
 The Dev Containers extension always downloads locally and transfers into the container.
 
 You can install extensions manually without an internet connection using the **Extensions: Install from VSIX...** command, but if you use the extension panel or `devcontainer.json` to install extensions, your local machine and VS Code Server will need outbound HTTPS (port 443) access to:
 
-* `marketplace.visualstudio.com`
-* `vscode.blob.core.windows.net`
-* `*.vo.msecnd.net` (Azure CDN)
-* `*.gallerycdn.vsassets.io` (Azure CDN)
+- `marketplace.visualstudio.com`
+- `*.gallerycdn.vsassets.io` (Azure CDN)
 
 Finally, some extensions (like C#) download secondary dependencies from `download.microsoft.com` or `download.visualstudio.microsoft.com`. Others (like [Visual Studio Live Share](https://learn.microsoft.com/visualstudio/liveshare/reference/connectivity#requirements-for-connection-modes)) may have additional connectivity requirements. Consult the extension's documentation for details if you run into trouble.
 
@@ -83,9 +77,9 @@ All other communication between the server and the VS Code client is accomplishe
 
 You can find a list of locations VS Code itself needs access to in the [network connections article](/docs/setup/network.md#common-hostnames).
 
-### Why can't I see my local containers in the Docker extension when using the Remote - extensions?
+### Why can't I see my local containers in the Container Tools extension when using the Remote - extensions?
 
-By default, the Docker extension will run remotely. While this is a sensible default in some cases, it means the extension may not show local containers when VS Code is connected to a remote SSH host, container, or WSL.
+By default, the Container Tools extension will run remotely. While this is a sensible default in some cases, it means the extension may not show local containers when VS Code is connected to a remote SSH host, container, or WSL.
 
 You can use one of the following solutions to resolve this problem:
 
@@ -95,17 +89,81 @@ You can use one of the following solutions to resolve this problem:
 
 * **WSL only**:  Use the [Docker Technical Preview for WSL 2](https://docs.docker.com/docker-for-windows/wsl-tech-preview/) or [configure Docker Desktop for use in WSL 1](https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly).
 
-* **Dev Containers only**: Forward the [Docker socket and install the Docker CLI](https://aka.ms/vscode-remote/samples/docker-from-docker) (only) in the container.
+* **Dev Containers only**: Forward the [Docker socket and install the Docker CLI](https://github.com/devcontainers/templates/tree/main/src/docker-outside-of-docker) (only) in the container.
 
 * Use the [extensionKind property](/docs/devcontainers/containers.md#advanced-forcing-an-extension-to-run-locally-or-remotely) to force the extension to be `ui`. However, this will prevent some commands from working.
 
 ### What Linux packages or libraries need to be installed on a host to use Remote Development?
 
-Remote Development requires kernel >= 3.10, glibc >=2.17, and libstdc++ >= 3.4.18. Recent x86_64 glibc-based distributions have the best support, but exact requirements can vary by distribution.
+Remote Development requires kernel >= 4.18, glibc >=2.28, and libstdc++ >= 3.4.25. Recent x86_64 glibc-based distributions have the best support, but exact requirements can vary by distribution.
 
 Support for musl-based [Alpine Linux](https://alpinelinux.org) is available for the Dev Containers and WSL extensions and ARMv7l (AArch32) / ARMv8l (AArch64) is available in Remote - SSH. However, native dependencies in certain extensions may cause them not to function on non-x86_64 glibc distributions. Note that experimental ARMv8l (AArch64) is available in [VS Code Insiders](https://code.visualstudio.com/insiders/) only.
 
 See [Remote Development with Linux](/docs/remote/linux.md) for additional details.
+
+### Can I run VS Code Server on older Linux distributions?
+
+Starting with VS Code release 1.99 (March 2025), the prebuilt servers distributed by VS Code are only compatible with Linux distributions that are based on glibc 2.28 or later. These include for example, Debian 10, RHEL 8, or Ubuntu 20.04.
+
+VS Code will still allow users to connect to an OS that is not supported by VS Code (OSes that don't have glibc >= 2.28 and libstdc++ >= 3.4.25) via the [Remote - SSH](https://aka.ms/vscode-remote/download/ssh) extension, if a sysroot with these required library versions is provided. This approach gives you and your organization more time to migrate to newer Linux distributions.
+
+| VS Code version | Base Requirements | Notes |
+|--------------|-------------------|-------|
+| >= 1.99.x |  kernel >= 4.18, glibc >=2.28, libstdc++ >= 3.4.25, binutils >= 2.29 | &lt;none&gt; |
+
+> [!IMPORTANT]
+> This approach is a technical workaround and is not an officially supported usage scenario.
+
+Follow these steps to configure your environment for this workaround:
+
+1. Build the sysroot
+
+    We recommend using [Crosstool-ng](https://crosstool-ng.github.io/docs/) to build the sysroot. Here are some example configs that you can start with:
+
+    * [x86_64-gcc-8.5.0-glibc-2.28](https://github.com/microsoft/vscode-linux-build-agent/blob/main/x86_64-gcc-8.5.0-glibc-2.28.config)
+    * [aarch64-gcc-8.5.0-glibc-2.28](https://github.com/microsoft/vscode-linux-build-agent/blob/main/aarch64-gcc-8.5.0-glibc-2.28.config)
+    * [armhf-gcc-8.5.0-glibc-2.28](https://github.com/microsoft/vscode-linux-build-agent/blob/main/armhf-gcc-8.5.0-glibc-2.28.config)
+
+    The following example container can also be used to have an environment with [Crosstool-ng](https://crosstool-ng.github.io/docs/) installed:
+
+    ```docker
+    FROM ubuntu:latest
+
+    RUN apt-get update
+    RUN apt-get install -y gcc g++ gperf bison flex texinfo help2man make libncurses5-dev \
+    python3-dev autoconf automake libtool libtool-bin gawk wget bzip2 xz-utils unzip \
+    patch rsync meson ninja-build
+
+    # Install crosstool-ng
+    RUN wget http://crosstool-ng.org/download/crosstool-ng/crosstool-ng-1.26.0.tar.bz2
+    RUN tar -xjf crosstool-ng-1.26.0.tar.bz2
+    RUN cd crosstool-ng-1.26.0 && ./configure --prefix=/crosstool-ng-1.26.0/out && make && make install
+    ENV PATH=$PATH:/crosstool-ng-1.26.0/out/bin
+    ```
+
+    Once you have an environment with [Crosstool-ng](https://crosstool-ng.github.io/docs/) and the relevant configs prepared, run the following commands to generate the sysroot
+
+    ```sh
+    mkdir toolchain-dir
+    cd toolchain-dir
+    cp <path-to-config-file> .config
+    ct-ng build
+    ```
+
+2. VS Code server uses [patchelf](https://github.com/NixOS/patchelf) during the installation process to consume the required libraries from the sysroot.
+
+> [!IMPORTANT]
+> patchelf `v0.17.x` is known to cause segfaults with the remote server, we recommend using patchelf `>=v0.18.x`
+
+3. Install the patchelf binary and the sysroot on the remote host
+
+4. Create the following 3 environment variables:
+
+    * **VSCODE_SERVER_CUSTOM_GLIBC_LINKER** path to the dynamic linker in the sysroot (used for `--set-interpreter` option with [patchelf](https://github.com/NixOS/patchelf))
+    * **VSCODE_SERVER_CUSTOM_GLIBC_PATH** path to the library locations in the sysroot (used as `--set-rpath` option with [patchelf](https://github.com/NixOS/patchelf))
+    * **VSCODE_SERVER_PATCHELF_PATH** path to the [patchelf](https://github.com/NixOS/patchelf) binary on the remote host
+
+You can now connect to the remote by using the [Remote - SSH](https://aka.ms/vscode-remote/download/ssh) extension. On successful connection, VS Code will show a dialog and banner message about the connection not being supported.
 
 ### Can I install individual extensions instead of the extension pack?
 
@@ -117,7 +175,7 @@ Yes. The [Remote Development extension pack](https://aka.ms/vscode-remote/downlo
 
 ## How can I review and configure extension settings?
 
-As with [other parts of Visual Studio Code](/docs/getstarted/settings.md), you can customize each of the Remote Development extensions through their settings. Using Dev Containers as an example, you may review a list of all Dev Containers settings by opening the extension in the Extensions view (`kb(workbench.view.extensions)`), and navigating to **Feature Contributions**:
+As with [other parts of Visual Studio Code](/docs/configure/settings.md), you can customize each of the Remote Development extensions through their settings. Using Dev Containers as an example, you may review a list of all Dev Containers settings by opening the extension in the Extensions view (`kb(workbench.view.extensions)`), and navigating to **Feature Contributions**:
 
 ![List of settings in Feature Contributions](images/faq/feature-contributions.png)
 
@@ -161,13 +219,9 @@ You can find the licenses for the VS Code Remote Development extensions here:
 
 ### Why aren't the Remote Development extensions or their components open source?
 
-The Visual Studio Code Remote Development extensions and their related components use an [open planning, issue, and feature request process](https://aka.ms/vscode-remote/feedback), but are not currently open source. The extensions share source code which is also used in fully managed remote development services like [GitHub Codespaces](https://github.com/features/codespaces) and their related extensions. Given that these services also will support other proprietary products (for example Visual Studio IDE), the extensions are available under a Microsoft pre-release license like other service-based, cross-product extensions such as [Visual Studio IntelliCode](https://marketplace.visualstudio.com/items/VisualStudioExptTeam.vscodeintellicode/license) and [Visual Studio Live Share](https://marketplace.visualstudio.com/items/MS-vsliveshare.vsliveshare/license) were during their preview periods.
+The Visual Studio Code Remote Development extensions and their related components use an [open planning, issue, and feature request process](https://aka.ms/vscode-remote/feedback), but are not currently open source. The extensions share source code which is also used in fully managed remote development services like [GitHub Codespaces](https://github.com/features/codespaces) and their related extensions.
 
 See the [Visual Studio Code and 'Code - OSS' Differences](https://github.com/microsoft/vscode/wiki/Differences-between-the-repository-and-Visual-Studio-Code) and [Microsoft Extension Licenses](/docs/supporting/oss-extensions.md) articles for more information.
-
-### Will you charge for the Remote Development extensions once they exit "Preview"?
-
-No, they will remain free of charge. In the future, we may provide additional "premium" developer services like [GitHub Codespaces](https://github.com/features/codespaces), which provide additional functionality, but the extensions will be free.
 
 ### Are there any restrictions on where the Remote Development extensions can connect?
 

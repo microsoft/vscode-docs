@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: b76a223a-a210-4bdb-b537-36c1ea6814ae
-DateApproved: 5/3/2023
+DateApproved: 09/11/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to create Language Servers to provide rich language features for embedded programming languages in Visual Studio Code.
@@ -267,7 +267,7 @@ Request forwarding:
 
 - \+ Avoid issues embedding language services not written in the language server's language (for example, embedding C# compiler in a Razor language server to support C#).
 - \+ No maintenance needed to get new features upstream from other language services.
-- \- Does not yet work with diagnostics errors. The VS Code API currently does not support diagnostic providers that can 'pull' (request) diagnosics. ([Issue](https://github.com/microsoft/vscode/issues/159911)).
+- \- Does not work with diagnostics errors. The VS Code API does not support diagnostic providers that can 'pull' (request) diagnostics.
 - \- Hard to share state to other language servers because of lack of control.
 - \- Cross-language features might be hard to implement (for example, providing CSS completion for `.foo` when `<div class="foo">` is present).
 

@@ -1,13 +1,9 @@
 ---
-Order:
-Area: editor
-TOCTitle: Portable Mode
 ContentId: A5C839C4-67E9-449C-94B8-4B310FCAAB1B
-PageTitle: Portable Mode in Visual Studio Code
-DateApproved: 5/3/2023
-MetaDescription: Visual Studio Code supports a Portable Mode.
+DateApproved: 09/11/2025
+MetaDescription: Visual Studio Code supports a Portable mode that enables moving your installation and related data to a different location.
 ---
-# Portable Mode
+# Portable mode
 
 Visual Studio Code supports [Portable mode](https://en.wikipedia.org/wiki/Portable_application). This mode enables all data created and maintained by VS Code to live near itself, so it can be moved around across environments.
 
@@ -15,7 +11,8 @@ This mode also provides a way to set the installation folder location for VS Cod
 
 Portable mode is supported on the ZIP download for Windows, and the TAR.GZ download for Linux, as well as the regular Application download for macOS. See the [Download page](/download) to find the correct `.zip / .tar.gz` file for your platform.
 
-> **Note:** Do not attempt to configure portable mode on an installation from the **Windows User or System installers**. Portable mode is only supported on the Windows ZIP (`.zip`) archive. Note as well that the Windows ZIP archive does not support auto update.
+> [!IMPORTANT]
+> Do not attempt to configure portable mode on an installation from the **Windows User or System installers**. Portable mode is only supported on the Windows ZIP (`.zip`) archive. Note also that the Windows ZIP archive does not support auto update.
 
 ## Enable Portable mode
 
@@ -24,15 +21,34 @@ Portable mode is supported on the ZIP download for Windows, and the TAR.GZ downl
 After unzipping the VS Code download, create a `data` folder within VS Code's folder:
 
 ```
-|- VSCode-win32-x64-1.25.0-insider
+|- VSCode-win32-x64-1.84.2
 |   |- Code.exe (or code executable)
 |   |- data
+|   |- bin
+|   |  |- code
+|   |  |- ...
 |   |- ...
 ```
 
-From then on, that folder will be used to contain all VS Code data, including session state, preferences, extensions, etc.
+From then on, the `data` folder will be used to contain all VS Code data, including session state, preferences, extensions, etc.
+
+> [!NOTE]
+> The `data` folder will override the `--user-data-dir` and `--extensions-dir` [command line](/docs/configure/command-line.md#advanced-cli-options) options.
 
 The `data` folder can be moved to other VS Code installations. This is useful for updating your portable VS Code version, in which case you can move the `data` folder to a newer extracted version of VS Code.
+
+### Linux
+
+On **Linux**, in addition to creating the `data` folder, you also need to set the correct [Electron sandbox](https://www.electronjs.org/docs/tutorial/sandbox) permissions.
+
+Chromium has a [multi-layer sandboxing model on Linux](https://chromium.googlesource.com/chromium/src/+/0e94f26e8/docs/linux_sandboxing.md). If Chromium cannot use the namespace sandbox for layer-1, it will try to use the [`setuid` sandbox](https://chromium.googlesource.com/chromium/src/+/0e94f26e8/docs/linux_suid_sandbox.md) via the helper binary `chrome-sandbox` that is shipped alongside the application binary.
+
+Run the following commands to set the correct permissions of the `setuid` helper:
+
+```bash
+sudo chown root <path-to-vscode>/chrome-sandbox
+sudo chmod 4755 <path-to-vscode>/chrome-sandbox
+```
 
 ### macOS
 
@@ -49,7 +65,8 @@ Portable Mode won't work if your application is in [quarantine](https://apple.st
 xattr -dr com.apple.quarantine Visual\ Studio\ Code.app
 ```
 
-**Note:** On Insiders, the folder should be named `code-insiders-portable-data`.
+> [!NOTE]
+> On Insiders, the folder should be named `code-insiders-portable-data`.
 
 ## Update Portable VS Code
 
@@ -75,7 +92,7 @@ You can also migrate an existing installation to Portable mode.
 As an example, here's the desired outcome on **Windows**:
 
 ```
-|- VSCode-win32-x64-1.25.0-insider
+|- VSCode-win32-x64-1.84.2
 |   |- Code.exe (or code executable)
 |   |- data
 |   |   |- user-data
@@ -84,6 +101,7 @@ As an example, here's the desired outcome on **Windows**:
 |   |   |   |- ...
 |   |- ...
 ```
+
 ### macOS
 
 1. Download [VS Code](/download) (or [VS Code Insiders](/insiders)) for macOS.

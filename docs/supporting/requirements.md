@@ -3,7 +3,7 @@ Order:
 TOCTitle: Requirements
 ContentId: 1D4850EE-85E2-4152-81BE-FECAE62EA99E
 PageTitle: Requirements for Visual Studio Code
-DateApproved: 5/3/2023
+DateApproved: 09/11/2025
 MetaDescription: Visual Studio Code hardware and platform (operating system) requirements.
 ---
 # Requirements for Visual Studio Code
@@ -21,10 +21,10 @@ We recommend:
 
 VS Code is supported on the following platforms:
 
-* Windows 10 and 11 (32-bit and 64-bit)
-* OS X High Sierra (10.13+)
-* Linux (Debian): Ubuntu Desktop 16.04, Debian 9
-* Linux (Red Hat): Red Hat Enterprise Linux 7, CentOS 7, Fedora 34
+* Windows 10 and 11 (64-bit)
+* macOS versions with Apple security update support. This is typically the latest release and the two previous versions.
+* Linux (Debian): Ubuntu Desktop 20.04, Debian 10
+* Linux (Red Hat): Red Hat Enterprise Linux 8, Fedora 36
 
 ## Not supported
 
@@ -32,10 +32,11 @@ VS Code is supported on the following platforms:
 * Running VS Code in a virtual machine environment requires a full operating system.
 * VS Code does not support multiple simultaneous users using the software on the same machine, including shared virtual desktop infrastructure machines or a pooled Windows/Linux Virtual Desktop host pool.
 * Running the full VS Code in Windows/Linux containers is not supported but running with the [Dev Containers](/docs/devcontainers/containers.md) extension is supported. When using the Dev Containers extension, the VS Code server is running in the container while the VS Code client is on the desktop.
+* Windows Server
 
 ### Additional Linux requirements
 
-* GLIBCXX version 3.4.21 or later
-* GLIBC version 2.17 or later
+* GLIBCXX version 3.4.25 or later
+* GLIBC version 2.28 or later
 
 For a list of currently known issues, see our [FAQ](faq).

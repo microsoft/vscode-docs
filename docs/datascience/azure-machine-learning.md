@@ -1,14 +1,9 @@
 ---
-Order: 6
-Area: datascience
-TOCTitle: Azure Machine Learning
 ContentId: 47979929-10b2-4e4d-acf3-00b32893ad1b
-PageTitle: Azure Machine Learning in Visual Studio Code
 DateApproved: 1/9/2023
 MetaDescription: Learn how to build machine learning applications in Azure Machine Learning using the Visual Studio Code extension
-MetaSocialImage: images/tutorial/social.png
+MetaSocialImage: images/tutorial/python-social.png
 ---
-
 # Azure Machine Learning in VS Code
 
 Azure Machine Learning is a cloud-based environment you can use to train, deploy, automate, manage, and track machine learning models. For more information on Azure Machine Learning, see [What is Azure Machine Learning?](https://learn.microsoft.com/azure/machine-learning/overview-what-is-azure-machine-learning)
@@ -16,6 +11,10 @@ Azure Machine Learning is a cloud-based environment you can use to train, deploy
 The [Azure Machine Learning](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) VS Code extension lets you use the features you're used to in Visual Studio Code for developing your machine learning applications.
 
 ![Azure Machine Learning Visual Studio Code extension view](images/azure-machine-learning/azure-machine-learning-vscode-extension.png)
+
+## Desktop or web
+
+You can use Azure Machine Learning in VS Code Desktop or [VS Code for the Web](/docs/setup/vscode-web.md). VS Code for the Web provides a free, zero-install VS Code experience running entirely in your browser at [https://vscode.dev](https://vscode.dev). Check out the [guide on launching Azure Machine Learning](https://learn.microsoft.com/azure/machine-learning/how-to-launch-vs-code-remote?view=azureml-api-2&tabs=vscode-web) to learn more.
 
 ## Connect to remote compute instances
 
@@ -74,3 +73,4 @@ By using the Azure Machine Learning VS Code extension to connect to a remote com
 ## Next steps
 
 - [Set up the Azure Machine Learning extension](https://learn.microsoft.com/azure/machine-learning/how-to-setup-vs-code)
+- [Interact with Azure Machine Learning (in the desktop or web)](https://learn.microsoft.com/azure/machine-learning/how-to-launch-vs-code-remote?view=azureml-api-2&tabs=vscode-web)

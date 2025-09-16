@@ -1,14 +1,9 @@
 ---
-Order: 5
-Area: java
-TOCTitle: Project Management
 ContentId: 251cba68-c77f-4ac6-a5de-1fab8dcca867
-PageTitle: Java project management in Visual Studio Code
 DateApproved: 4/25/2022
 MetaDescription: Lightweight Mode, Maven Support, Java Package and Dependency Management in Visual Studio Code
 MetaSocialImage:
 ---
-
 # Managing Java Projects in VS Code
 
 The [Project Manager for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency) extension helps you to manage your Java projects and their dependencies. It also helps you to create new Java projects, packages, and classes. To get the complete Java language support in Visual Studio Code, you can install the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), which includes the Project Manager for Java extension.
@@ -126,7 +121,7 @@ For Maven project, you can add a dependency by clicking the **+** icon next to *
 If your project is an unmanaged folder without any build tools. You can manage the dependencies by clicking the **+** icon or the **-** icon on the **Referenced Libraries**
 node or the items under it, or you can just directly drag your jar libraries to the node `Referenced Libraries`
 
-![manage referenced librares](images/java-project/manage-referenced-libraries.png)
+![manage referenced libraries](images/java-project/manage-referenced-libraries.png)
 
 > You can also manage the dependencies in the classpath configuration page. See: [Configure classpath for unmanaged folder](#configure-classpath-for-unmanaged-folders)
 
@@ -222,8 +217,7 @@ Clicking the language status item switches to standard mode.
 
 When you edit Java source code in Visual Studio Code, the Java language server is building your workspace to provide you with the necessary language features. You can see the detailed build task status and watch what is happening behind the scene by clicking the language status item in the Status bar. You can also select the **check details** link when a notification shows the language server is opening Java projects to see the build task status.
 
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-project/java.build.status.mp4" type="video/mp4">
+<video src="images/java-project/java.build.status.mp4" autoplay loop muted playsinline controls title="Build status for the Java project">
 </video>
 
 ### Additional resources
@@ -232,7 +226,7 @@ There are several Visual Studio Code extensions to support different build syste
 
 - [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven)
 - [Gradle for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle)
-- [Bazel](https://marketplace.visualstudio.com/items?itemName=BazelBuild.vscode-bazel)
+- [Bazel for Java](https://marketplace.visualstudio.com/items?itemName=sfdc.bazel-vscode-java) ([Bazel](https://marketplace.visualstudio.com/items?itemName=BazelBuild.vscode-bazel) is for `BUILD` files, without Java integration))
 
 If you run into any problems when using the features above, you can contact us by filing an [issue](https://github.com/microsoft/vscode-java-pack/issues).
 

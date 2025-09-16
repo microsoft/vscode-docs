@@ -1,7 +1,7 @@
 ---
 ContentId: f71d4b81-8361-48ee-82c0-48f69ec0d72e
 PageTitle: Get Started with Visual Studio Code
-DateApproved: 5/3/2023
+DateApproved: 12/11/2024
 MetaDescription: Get Started with Visual Studio Code
 ---
 # Learn to code with Visual Studio Code
@@ -15,15 +15,15 @@ Use it to code in any programming language, without switching editors. Visual St
 
 ### Collaborate and code remotely
 
-Work together remotely with your teachers or classmates using the free [Live Share extension](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare). Edit and debug your code in real-time, and use the chat and call features to ask questions or discuss ideas together. Whether you're working on a group assignment or teaching a lesson, you can invite multiple people to join your  session and code together. Check out this [tutorial on how start using Live Share](/learn/collaboration/live-share.md).
+Work together remotely with your teachers or classmates using the free [Live Share extension](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare). Edit and debug your code in real-time, and use the chat and call features to ask questions or discuss ideas together. Whether you're working on a group assignment or teaching a lesson, you can invite multiple people to join your session and code together. Check out this [tutorial on how to start using Live Share](/learn/collaboration/live-share.md).
 
 ### Code to learn
 
-New to coding? Visual Studio Code highlights keywords in your code in different colors to help you easily identify coding patterns and learn faster. You can also take advantage of features like [IntelliSense](/docs/editor/intellisense.md#intellisense-features) and [Peek Definition](/docs/editor/editingevolved.md#peek), which help you understand how functions can be used, and how they relate to one another.
+New to coding? Visual Studio Code highlights keywords in your code in different colors to help you easily identify coding patterns and learn faster. You can also take advantage of features like [IntelliSense](/docs/editing/intellisense.md#intellisense-features) and [Peek Definition](/docs/editing/editingevolved.md#peek), which help you understand how functions can be used, and how they relate to one another.
 
 ### Fix errors as you code
 
-As you code, Visual Studio Code gives you suggestions to complete lines of code and quick fixes for common mistakes. You can also use the debugger in VS Code to step through each line of code and understand what is happening. Check out guides on how to use the debugger if you're coding in [Python](/docs/python/debugging.md), [Java](/docs/java/java-debugging.md#configure), and [JavaScript/TypeScript/Node.js](/docs/editor/debugging.md#start-debugging).
+As you code, Visual Studio Code gives you suggestions to complete lines of code and quick fixes for common mistakes. You can also use the debugger in VS Code to step through each line of code and understand what is happening. Check out guides on how to use the debugger if you're coding in [Python](/docs/python/debugging.md), [Java](/docs/java/java-debugging.md#configure), and [JavaScript/TypeScript/Node.js](/docs/debugtest/debugging.md#start-debugging).
 
 ### Make it yours with custom themes and colors
 

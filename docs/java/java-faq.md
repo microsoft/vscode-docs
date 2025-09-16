@@ -1,9 +1,5 @@
 ---
-Order: 14
-Area: java
-TOCTitle: FAQ
 ContentId: 2ad03b46-0779-4c9a-897e-6e6b628f598a
-PageTitle: Java on Visual Studio Code FAQ and Wiki
 DateApproved: 8/31/2021
 MetaDescription: Java on Visual Studio Code Frequent Asked Questions and Troubleshooting Guide
 ---
@@ -25,7 +21,7 @@ We do have limited capacity within the team and we'd really like to encourage mo
 
 ## Can I use keyboard shortcuts from other IDE?
 
-Sure. [Keymap extensions](/docs/getstarted/keybindings.md#keymap-extensions) in VS Code modify the VS Code shortcuts to match those of other editors. You can find [IntelliJ IDEA Keybindings](https://marketplace.visualstudio.com/items?itemName=k--kato.intellij-idea-keybindings), [Eclipse Keymap](https://marketplace.visualstudio.com/items?itemName=alphabotsec.vscode-eclipse-keybindings) as well as keymaps for other popular editors in [Keymaps category](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Installs) of extensions in the Marketplace.
+Sure. [Keymap extensions](/docs/configure/keybindings.md#keymap-extensions) in VS Code modify the VS Code shortcuts to match those of other editors. You can find [IntelliJ IDEA keyboard shortcuts](https://marketplace.visualstudio.com/items?itemName=k--kato.intellij-idea-keybindings), [Eclipse Keymap](https://marketplace.visualstudio.com/items?itemName=alphabotsec.vscode-eclipse-keybindings) as well as keymaps for other popular editors in [Keymaps category](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Installs) of extensions in the Marketplace.
 
 ## Where can I find the latest progress of Java support on Visual Studio Code?
 
@@ -35,7 +31,7 @@ While you're using Java within VS Code, you may also see a **Release Notes** sec
 
 ## How can I use Visual Studio Code with new Java versions?
 
-Thanks to the upstream update from JDT, you can now build your project up to Java 14 with VS Code as well. To use the experimental/preview language features, you need to modify your project settings.
+Thanks to the upstream update from JDT, you can now build your project up to Java 22 with VS Code as well. To use the experimental/preview language features, you need to modify your project settings.
 
 Maven - modify `pom.xml`:
 
@@ -46,7 +42,7 @@ Maven - modify `pom.xml`:
         <plugin>
           <artifactId>maven-compiler-plugin</artifactId>
           <configuration>
-            <release>14</release>
+            <release>22</release>
             <compilerArgs>--enable-preview</compilerArgs>
           </configuration>
         </plugin>
@@ -58,7 +54,7 @@ Maven - modify `pom.xml`:
 Gradle:
 
 ```groovy
-sourceCompatibility = 14
+sourceCompatibility = 22
 tasks.withType(JavaCompile) {
     options.compilerArgs += '--enable-preview'
 }
@@ -87,7 +83,7 @@ Currently we don't plan to extend the Java support to Visual Studio. There are a
 
 ## Does VS Code Java support other display languages?
 
-Currently we support Chinese in addition to English for a few extensions including [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug), [Test Runner for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test), [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven), [Project Manager for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency). To learn how to switch the VS Code display language, see [Display Languages](/docs/getstarted/locales.md).
+Currently we support Chinese in addition to English for a few extensions including [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug), [Test Runner for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test), [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven), [Project Manager for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency). To learn how to switch the VS Code display language, see [Display Languages](/docs/configure/locales.md).
 
 You can contribute to the extension repositories if you're interested in additional display language support.
 

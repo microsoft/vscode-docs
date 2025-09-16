@@ -1,5 +1,5 @@
 ---
-Order: 25
+Order:
 TOCTitle: Extensions using CodeLens
 PageTitle: Visual Studio Code Extensions using CodeLens
 MetaDescription: Visual Studio Code Extensions using CodeLens

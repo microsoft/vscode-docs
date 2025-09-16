@@ -1,6 +1,6 @@
 ---
 ContentId: 5c708951-e566-42db-9d97-e9715d95cdd1
-DateApproved: 5/3/2023
+DateApproved: 09/11/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to adding Visual Studio Code Remote Development and GitHub Codespaces support to extensions
@@ -143,7 +143,7 @@ If your extension is not functioning as expected, it may be running in the wrong
 
 If the **Developer: Show Running Extensions** command shows that a UI extension is incorrectly being treated as a workspace extension or vice versa, try setting the `extensionKind` property in your extension's [package.json](/api/get-started/extension-anatomy#extension-manifest) as described in the [Extension Kinds section](/api/advanced-topics/extension-host#preferred-extension-location).
 
-You can quickly **test** the effect of changing an extension's kind with the `remote.extensionKind` [setting](/docs/getstarted/settings). This setting is a map of extension IDs to extension kinds. For example, if you want to force the [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) extension to be a UI extension (instead of its Workspace default) and the [Remote - SSH: Editing Configuration Files](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh-edit) extension to be a workspace extension (instead of its UI default), you would set:
+You can quickly **test** the effect of changing an extension's kind with the `remote.extensionKind` [setting](/docs/configure/settings). This setting is a map of extension IDs to extension kinds. For example, if you want to force the [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) extension to be a UI extension (instead of its Workspace default) and the [Remote - SSH: Editing Configuration Files](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh-edit) extension to be a workspace extension (instead of its UI default), you would set:
 
 ```json
 {
@@ -215,43 +215,29 @@ export function activate(context: vscode.ExtensionContext) {
 
 ### Sync user global state between machines
 
-If your extension needs to preserve some user state across different machines then provide the state to [Settings Sync](/docs/editor/settings-sync) using `vscode.ExtensionContext.globalState.setKeysForSync`. This can help prevent displaying the same welcome or updates page to users on multiple machines.
+If your extension needs to preserve some user state across different machines then provide the state to [Settings Sync](/docs/configure/settings-sync) using `vscode.ExtensionContext.globalState.setKeysForSync`. This can help prevent displaying the same welcome or updates page to users on multiple machines.
 
 There is an example of using `setKeysforSync` in the [Extension Capabilities](/api/extension-capabilities/common-capabilities#data-storage) topic.
 
 ### Persisting secrets
 
-If your extension needs to persist passwords or other secrets, you may want to use your local operating system's secret store (Windows Cert Store, the macOS KeyChain, a `libsecret`-based keyring on Linux, or a browser-based equivalent) rather than the one on the remote machine environment. Further, on Linux you may be relying on `libsecret` and by extension `gnome-keyring` to store your secrets, and this does not typically work well on server distros or in a container.
+If your extension needs to persist passwords or other secrets, you may want to use Visual Studio Code's [SecretStorage API](https://code.visualstudio.com/api/references/vscode-api#SecretStorage) which provides a way to securely store text on the filesystem backed by encryption. For example, on desktop, we use Electron's [safeStorage API](https://www.electronjs.org/docs/latest/api/safe-storage) to encrypt secrets before storing them on the filesystem. The API will always store the secrets on the client side but you can use this API regardless of where your extension is running and retrieve the same secret values.
 
-Visual Studio Code does not provide a secret persistence mechanism itself, but many extension authors have opted to use the [keytar node module](https://www.npmjs.com/package/keytar) for this purpose. For this reason, VS Code includes `keytar` and will **automatically and transparently** run it locally if referenced in a Workspace Extension. That way you can always take advantage of the local OS keychain / keyring / cert store and avoid the problems mentioned above.
+>**Note**: This API is the recommended way to persist passwords & secrets. You should **not** store your secrets using `vscode.ExtensionContext.workspaceState` or `vscode.ExtensionContext.globalState` because these APIs store data in plaintext.
 
-For example:
+Here's an example:
 
 ```typescript
-import { env } from 'vscode';
-import * as keytarType from 'keytar';
+import * as vscode from 'vscode';
 
-declare const __webpack_require__: typeof require;
-declare const __non_webpack_require__: typeof require;
-function getNodeModule<T>(moduleName: string): T | undefined {
-    const r = typeof __webpack_require__ === "function" ? __non_webpack_require__ : require;
-    try {
-        return r(`${env.appRoot}/node_modules.asar/${moduleName}`);
-    } catch (err) {
-        // Not in ASAR.
-    }
-    try {
-        return r(`${env.appRoot}/node_modules/${moduleName}`);
-    } catch (err) {
-        // Not available.
-    }
-    return undefined;
+export function activate(context: vscode.ExtensionContext) {
+    // ...
+    const myApiKey = context.secrets.get('apiKey');
+    // ...
+    context.secrets.delete('apiKey');
+    // ...
+    context.secrets.store('apiKey', myApiKey);
 }
-
-// Use it
-const keytar = getNodeModule<typeof keytarType>('keytar');
-await keytar.setPassword('my-service-name','my-account','iamal337d00d');
-const password = await keytar.getPassword('my-service-name','my-account');
 ```
 
 ### Using the clipboard
@@ -589,7 +575,7 @@ It is important to note that some third-party npm modules include native code th
 
 ## Avoid using Electron modules
 
-While it can be convenient to rely on built-in Electron or VS Code modules not exposed by the extension API, it's important to note that VS Code Server runs a standard (non-Electron) version of Node.js. These modules will be missing when running remotely. There are a few exceptions, [like `keytar`](#persisting-secrets), where there is specific code in place to make them work.
+While it can be convenient to rely on built-in Electron or VS Code modules not exposed by the extension API, it's important to note that VS Code Server runs a standard (non-Electron) version of Node.js. These modules will be missing when running remotely. There are a few exceptions, where there is specific code in place to make them work.
 
 Use base Node.js modules or modules in your extension VSIX to avoid these problems. If you absolutely have to use an Electron module, be sure to have a fallback if the module is missing.
 

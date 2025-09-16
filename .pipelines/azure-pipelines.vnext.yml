@@ -1,0 +1,43 @@
+trigger:
+  batch: true
+  branches:
+    include:
+      - vnext
+  paths:
+    exclude:
+    - .config
+    - .devcontainer
+    - .pipelines
+    - .vscode
+pr: none
+
+resources:
+  repositories:
+    - repository: 1esPipelines
+      type: git
+      name: 1ESPipelineTemplates/1ESPipelineTemplates
+      ref: refs/tags/release
+
+  pipelines:
+    - pipeline: vscode-website-main
+      source: vscode-website (buddy)
+      branch: main
+      trigger: true
+
+extends:
+  template: v1/1ES.Official.PipelineTemplate.yml@1esPipelines
+  parameters:
+    sdl:
+      credscan:
+        suppressionsFile: $(Build.SourcesDirectory)/.config/CredScanSuppressions.json
+      git:
+        fetchDepth: 1
+        retryCount: 3
+      policheck:
+        break: true
+      sourceAnalysisPool: 1es-windows-2022-x64
+      tsa:
+        enabled: true
+
+    stages:
+    - template: templates/stages/build-vnext.yml@self

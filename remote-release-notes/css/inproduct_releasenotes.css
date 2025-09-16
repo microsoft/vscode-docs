@@ -4,33 +4,8 @@ html {
 }
 body {
     padding-bottom: 100px;
-}
-
-h1,h2,h3 {
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-}
-
-h1 {
-    font-size: 4rem;
-    margin-bottom:1.5rem;
-}
-
-h2 {
-    font-size: 3rem;
-    margin-top: 3rem;
-}
-
-
-h3 {
-    font-size: 2.2rem;
-}
-
-h4 {
-    font-size: 1.5rem;
-	font-weight: 600;
-    margin-top: 3rem;
-    margin-bottom: 1rem;
+    margin: 0 auto;
+    max-width: 980px;
 }
 
 #scroll-to-top {

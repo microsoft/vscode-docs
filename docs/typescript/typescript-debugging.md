@@ -1,12 +1,8 @@
 ---
-Order: 5
-Area: typescript
-TOCTitle: Debugging
 ContentId: 19c60eb6-662b-444a-92f6-009642cc1e5b
-PageTitle: TypeScript debugging with Visual Studio Code
-DateApproved: 5/3/2023
+DateApproved: 09/11/2025
 MetaDescription: TypeScript debugging with Visual Studio Code.
-MetaSocialImage: images/typescript-tutorial/Languages_typescript.png
+MetaSocialImage: ../languages/images/typescript/typescript-social.png
 ---
 # Debugging TypeScript
 
@@ -23,8 +19,8 @@ For a simple example of source maps in action, see the [TypeScript tutorial](/do
 ```json
 {
     "compilerOptions": {
-        "target": "es5",
-        "module": "commonjs",
+        "target": "ES5",
+        "module": "CommonJS",
         "outDir": "out",
         "sourceMap": true
     }
@@ -74,7 +70,7 @@ TypeScript is great for writing client-side code as well as Node.js applications
 
 We'll create a tiny web application to show client-side debugging in action.
 
-Create a new folder `HelloWeb` and add three files: `helloweb.ts`, `helloweb.html`, and `tsconfig.json` with the following content"
+Create a new folder `HelloWeb` and add three files: `helloweb.ts`, `helloweb.html`, and `tsconfig.json` with the following content:
 
 helloweb.ts
 
@@ -100,8 +96,8 @@ tsconfig.json
 ```json
 {
     "compilerOptions": {
-        "target": "es5",
-        "module": "commonjs",
+        "target": "ES5",
+        "module": "CommonJS",
         "outDir": "out",
         "sourceMap": true
     }

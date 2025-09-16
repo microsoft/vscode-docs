@@ -1,10 +1,6 @@
 ---
-Order: 3
-Area: sourcecontrol
-TOCTitle: Collaborate on GitHub
 ContentId: bd1be8cf-b745-4737-be48-db381ec3acc6
-PageTitle: Collaborate on GitHub
-DateApproved: 5/3/2023
+DateApproved: 09/11/2025
 MetaDescription: Working with GitHub Pull Requests and Issues in Visual Studio Code
 ---
 # Working with GitHub in VS Code
@@ -45,7 +41,7 @@ When you do something that requires GitHub authentication, you'll see a prompt t
 
 ![Authentication Prompt](images/github/auth-prompt.png)
 
-Follow the steps to sign into GitHub and return to VS Code. If authenticating with an existing repository doesn't work automatically, you may need to manually provide a personal access token. See [Personal Access Token authentication](https://github.com/microsoft/vscode-pull-request-github/wiki#personal-access-token-authentication) for more information.
+Follow the steps to sign into GitHub and return to VS Code. Signing in with a personal access token (PAT) is only supported with GitHub Enterprise Server. If you're using GitHub Enterprise Server and want to use a PAT, then you can hit "cancel" on the sign in prompts until you are prompted for a PAT.
 
 Note that there are several ways to authenticate to GitHub, including using your username and password with two-factor authentication (2FA), a personal access token, or an SSH key. See [About authentication to GitHub](https://docs.github.com/github/authenticating-to-github/about-authentication-to-github) for more information and details about each option.
 
@@ -69,9 +65,9 @@ User suggestions are triggered by the "@" character and issue suggestions are tr
 
 ![User and Issue suggestions](images/github/user-issue-suggest.gif)
 
-The issues that appear in the suggestion can be configured with the **GitHub Issues: Queries** (`githubIssues.queries`) [setting](/docs/getstarted/settings.md). The queries use the [GitHub search syntax](https://docs.github.com/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax).
+The issues that appear in the suggestion can be configured with the **GitHub Issues: Queries** (`setting(githubIssues.queries)`) [setting](/docs/configure/settings.md). The queries use the [GitHub search syntax](https://docs.github.com/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax).
 
-You can also configure which files show these suggestions using the settings **GitHub Issues: Ignore Completion Trigger** (`githubIssues.ignoreCompletionTrigger`) and **GitHub Issues: Ignore User Completion Trigger** (`githubIssues.ignoreUserCompletionTrigger`). These settings take an array of [language identifiers](/docs/languages/identifiers.md) to specify the file types.
+You can also configure which files show these suggestions using the settings **GitHub Issues: Ignore Completion Trigger** (`setting(githubIssues.ignoreCompletionTrigger)`) and **GitHub Issues: Ignore User Completion Trigger** (`setting(githubIssues.ignoreUserCompletionTrigger)`). These settings take an array of [language identifiers](/docs/languages/identifiers.md) to specify the file types.
 
 ```jsonc
 // Languages that the '#' character should not be used to trigger issue completion suggestions.
@@ -86,7 +82,7 @@ From the **Pull Requests** view you can view, manage, and create pull requests.
 
 ![Pull Request View](images/github/pull-request-view.png)
 
-The queries used to display pull requests can be configured with the **GitHub Pull Requests: Queries** (`githubPullRequests.queries`) setting and use the [GitHub search syntax](https://docs.github.com/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax).
+The queries used to display pull requests can be configured with the **GitHub Pull Requests: Queries** (`setting(githubPullRequests.queries)`) setting and use the [GitHub search syntax](https://docs.github.com/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax).
 
 ```json
 "githubPullRequests.queries": [
@@ -96,21 +92,28 @@ The queries used to display pull requests can be configured with the **GitHub Pu
     },
 ```
 
-### Creating Pull Requests
+### Creating pull requests
 
 Once you have committed changes to your fork or branch, you can use the **GitHub Pull Requests: Create Pull Request** command or the **Create Pull Request** button in the **Pull Requests** view to create a pull request.
 
 ![Create Pull Request button in the Pull Request view](images/github/create-pull-request-button.png)
 
-A new **Create Pull Request** view will be displayed where you can select the repository and branch you'd like your pull request to target as well as fill in details such as the title, description, and whether it is a draft PR. If your repository has a pull request template, this will automatically be used for the description.
+A new **Create** view will be displayed where you can select the base repository and base branch you'd like your pull request to target as well as fill in the title and description. If your repository has a pull request template, this will automatically be used for the description.
+
+Use the buttons in the action bar at the top to add **Assignees**, **Reviewers**, **Labels** and a **Milestone**.
 
 ![Create Pull Request view](images/github/create-pull-request-view.png)
 
+The **Create** button menu allows you to select alternative create options, such as **Create Draft** or enable an **Auto-Merge** method.
+
 Once you select **Create**, if you have not already pushed your branch to a GitHub remote, the extension will ask if you'd like to publish the branch and provides a dropdown to select the specific remote.
 
-The **Create Pull Request** view now enters **Review Mode**, where you can review the details of the PR, add comments, reviewers, and labels, and merge the PR once it's ready.
+The **Create Pull Request** view now enters **Review Mode**, where you can review the details of the PR, add comments, and merge the PR once it's ready. After the PR is merged, you'll have the option to delete both the remote and local branch.
 
-After the PR is merged, you'll have the option to delete both the remote and local branch.
+> [!TIP]
+> Use GitHub Copilot to generate a PR title and description, based on the commits that are included in the PR. Select the _sparkle_ icon next to the PR title field to generate a PR title and description.
+
+![Screenshot that shows the Generate Commit Message with Copilot button in the commit message input box.](images/overview/copilot-generate-commit-message.png)
 
 ### Reviewing
 
@@ -118,13 +121,16 @@ Pull requests can be reviewed from the **Pull Requests** view. You can assign re
 
 ![Pull Request Description editor](images/github/pull-request-description-editor.png)
 
-From the **Description** page, you can also easily checkout the pull request locally using the **Checkout** button. This will switch VS Code to open the fork and branch of the pull request (visible in the Status bar) in **Review Mode** and add a new **Changes in Pull Request** view from which you can view diffs of the current changes as well as all commits and the changes within these commits. Files that have been commented on are decorated with a diamond icon. To view the file on disk, you can use the **Open File** inline action.
+From the **Description** page, you can also easily checkout the pull request locally using the **Checkout** button. This will switch VS Code to open the fork and branch of the pull request (visible in the Status bar) in Review Mode and add a new **Changes in Pull Request** view from which you can view diffs of the current changes as well as all commits and the changes within these commits. Files that have been commented on are decorated with a diamond icon. To view the file on disk, you can use the **Open File** inline action.
 
 ![Changes in Pull Request view](images/github/changes-view.png)
 
 The diff editors from this view use the local file, so file navigation, IntelliSense, and editing work as normal. You can add comments within the editor on these diffs. Both adding single comments and creating a whole review is supported.
 
 When you are done reviewing the pull request changes you can merge the PR or select **Exit Review Mode** to go back to the previous branch you were working on.
+
+> [!TIP]
+> You can also [let Copilot perform a code review of the PR](https://docs.github.com/en/copilot/using-github-copilot/code-review/using-copilot-code-review?tool=vscode) before you create it. Select the **Code Review** button in the GitHub Pull Request view.
 
 ## Issues
 
@@ -134,7 +140,7 @@ Issues can be created from the **+** button in the **Issues** view and by using 
 
 ![Create Issue from TODO](images/github/issue-from-todo.gif)
 
-You can configure the trigger for the Code Action using the **GitHub Issues: Create Issue Triggers** (`githubIssues.createIssueTriggers`) setting.
+You can configure the trigger for the Code Action using the **GitHub Issues: Create Issue Triggers** (`setting(githubIssues.createIssueTriggers)`) setting.
 
 The default issue triggers are:
 
@@ -163,9 +169,9 @@ The Status bar also shows the active issue and if you select that item, a list o
 
 ![Issue Status bar actions](images/github/issue-status-bar-actions.png)
 
-You can configure the name of the branch using the **GitHub Issues: Issue Branch Title** (`githubIssues.issueBranchTitle`) setting. If your workflow doesn't involve creating a branch, or if you want to be prompted to enter a branch name every time, you can skip that step by turning off the **GitHub Issues: Use Branch For Issues** (`githubIssues.useBranchForIssues`) setting.
+You can configure the name of the branch using the **GitHub Issues: Issue Branch Title** (`setting(githubIssues.issueBranchTitle)`) setting. If your workflow doesn't involve creating a branch, or if you want to be prompted to enter a branch name every time, you can skip that step by turning off the **GitHub Issues: Use Branch For Issues** (`setting(githubIssues.useBranchForIssues)`) setting.
 
-Once you are done working on the issue and want to commit a change, the commit message input box in the **Source Control** view will be populated with a message, which can be configured with **GitHub Issues: Working Issue Format SCM** (`githubIssues.workingIssueFormatScm`).
+Once you are done working on the issue and want to commit a change, the commit message input box in the **Source Control** view will be populated with a message, which can be configured with **GitHub Issues: Working Issue Format SCM** (`setting(githubIssues.workingIssueFormatScm)`).
 
 ## GitHub Repositories extension
 
@@ -229,7 +235,7 @@ Sometimes you'll want to switch to working on a repository in a development envi
 
 * Create a GitHub codespace (if you have the [GitHub Codespaces extension](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces)).
 * Clone the repository locally.
-* Clone the repository into a Docker container (if you have [Docker](https://docker.com/) and the Microsoft [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) installed).
+* Clone the repository into a Docker container (if you have [Docker](https://docker.com/) and the Microsoft [Container Tools extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers) installed).
 
 To switch development environments, use the **Continue Working On...** command, available from the Command Palette (`kb(workbench.action.showCommands)`) or by clicking on the Remote indicator in the Status bar.
 
@@ -239,16 +245,12 @@ If you are using the [browser-based editor](/docs/remote/codespaces.md#browserba
 
 ![Continue Working On from web-based editor](images/github/codespaces-continue.png)
 
-The first time that you use **Continue Working On** with uncommitted changes, you will have the option to bring your edits to your selected development environment using **Cloud Changes**, which uses a VS Code service to store your pending changes.
+The first time that you use **Continue Working On** with uncommitted changes, you will have the option to bring your edits to your selected development environment using **Cloud Changes**, which stores your pending changes on the same VS Code service used for Settings Sync.
 
 These changes are deleted from our service once they are applied to your target development environment. If you choose to continue without your uncommitted changes, you can always change this preference later by configuring the setting `"workbench.cloudChanges.continueOn": "prompt"`.
 
-## GitHub Copilot
+In the event that your pending changes are not automatically applied to your target development environment, you can view, manage, and delete your stored changes using the **Cloud Changes: Show Cloud Changes** command.
 
-In VS Code, you can enhance your coding with artificial intelligence (AI), such as suggestions for lines of code or entire functions, fast documentation creation, and help creating code-related artifacts like tests.
+## Next steps
 
-[GitHub Copilot](https://copilot.github.com/) is an AI-powered code completion tool that helps you write code faster and smarter. You can use the [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) in VS Code to generate code, or to learn from the code it generates.
-
-![Copilot extension in the VS Code Marketplace](images/github/copilot-extension.png)
-
-You can learn more about how to get started with Copilot in the [Copilot documentation](/docs/editor/artificial-intelligence.md).
+* Learn more about [Copilot VS Code](/docs/copilot/overview.md) - Learn about Copilot in VS Code.

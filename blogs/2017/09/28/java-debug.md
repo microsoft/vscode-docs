@@ -1,5 +1,5 @@
 ---
-Order: 31
+Order:
 TOCTitle: Java Debugging
 PageTitle: Using Visual Studio Code to Debug Java Applications
 MetaDescription: Java Development with VS Code

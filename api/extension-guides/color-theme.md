@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 113b458a-3692-4ccf-a181-048bd572a120
-DateApproved: 5/3/2023
+DateApproved: 09/11/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to creating Color Theme in Visual Studio Code
@@ -18,9 +18,9 @@ This guide will cover the different ways in which you can create themes.
 
 ## Workbench colors
 
-The easiest way to create a new workbench color theme is to start with an existing color theme and customize it. First switch to the color theme that you want to modify, then open your [settings](/docs/getstarted/settings) and make changes to the `workbench.colorCustomizations` setting. Changes are applied live to your VS Code instance.
+The easiest way to create a new workbench color theme is to start with an existing color theme and customize it. First switch to the color theme that you want to modify, then open your [settings](/docs/configure/settings) and make changes to the `workbench.colorCustomizations` setting. Changes are applied live to your VS Code instance.
 
-The following, for example, would change the color of the title bar:
+The following, for example, would change the background color of the title bar:
 
 ```json
 {
@@ -36,7 +36,7 @@ A complete list of all themable colors can be found in the [color reference](/ap
 
 For syntax highlighting colors, there are two approaches. You can reference an existing TextMate theme (`.tmTheme` file) from the community, or you can create your own theming rules. The easiest way is to start with an existing theme and customize it, much like in the workbench colors section above.
 
-First switch to the color theme to customize and use the `editor.tokenColorCustomizations` [settings](/docs/getstarted/settings). Changes are applied live to your VS Code instance and no refreshing or reloading is necessary.
+First switch to the color theme to customize and use the `editor.tokenColorCustomizations` [settings](/docs/configure/settings). Changes are applied live to your VS Code instance and no refreshing or reloading is necessary.
 
 For example, the following would change the color of comments within the editor:
 
@@ -123,7 +123,7 @@ Changes to the theme file are applied live in the `Extension Development Host` w
 
 ## Publishing a Theme to the Extension Marketplace
 
-If you'd like to share your new theme with the community, you can publish it to the [Extension Marketplace](/docs/editor/extension-marketplace). Use the [vsce publishing tool](/api/working-with-extensions/publishing-extension) to package your theme and publish it to the VS Code Marketplace.
+If you'd like to share your new theme with the community, you can publish it to the [Extension Marketplace](/docs/configure/extensions/extension-marketplace). Use the [vsce publishing tool](/api/working-with-extensions/publishing-extension) to package your theme and publish it to the VS Code Marketplace.
 
 > **Tip:** To make it easy for users to find your theme, include the word "theme" in the extension description and set the `Category` to `Themes` in your `package.json`.
 
@@ -131,7 +131,7 @@ We also have recommendations on how to make your extension look great on the VS 
 
 ## Adding a new Color ID
 
-Color IDs can also be contributed by extensions through the [color contribution point](/api/references/contribution-points#contributes.colors). These colors also appear when using code complete in the `workbench.colorCustomizations` settings and the color theme definition file. Users can see what colors an extension defines in the [extension contributions](/docs/editor/extension-marketplace#_extension-details) tab.
+Color IDs can also be contributed by extensions through the [color contribution point](/api/references/contribution-points#contributes.colors). These colors also appear when using code complete in the `workbench.colorCustomizations` settings and the color theme definition file. Users can see what colors an extension defines in the [extension contributions](/docs/configure/extensions/extension-marketplace#_extension-details) tab.
 
 ## Further reading
 

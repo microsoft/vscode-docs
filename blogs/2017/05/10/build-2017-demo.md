@@ -1,5 +1,5 @@
 ---
-Order: 28
+Order:
 TOCTitle: Build 2017 Demo
 PageTitle: Build 2017 Demo
 MetaDescription: Build 2017 Demo Visual Studio Code - Conquering the Cloud with an editor and a CLI

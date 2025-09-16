@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8027f6fb-6c9e-4106-8ef1-f9b0ba1b7085
-DateApproved: 5/3/2023
+DateApproved: 09/11/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Explain the structure of a Visual Studio Code extension (plug-in)
@@ -14,6 +14,7 @@ In the last topic, you were able to get a basic extension running. How does it w
 The `Hello World` extension does 3 things:
 
 - Registers the [`onCommand`](/api/references/activation-events#onCommand) [**Activation Event**](/api/references/activation-events): `onCommand:helloworld.helloWorld`, so the extension becomes activated when user runs the `Hello World` command.
+  > **Note:** Starting with [VS Code 1.74.0](https://code.visualstudio.com/updates/v1_74#_implicit-activation-events-for-declared-extension-contributions), commands declared in the `commands` section of `package.json` automatically activate the extension when invoked, without requiring an explicit `onCommand` entry in `activationEvents`.
 - Uses the [`contributes.commands`](/api/references/contribution-points#contributes.commands) [**Contribution Point**](/api/references/contribution-points) to make the command `Hello World` available in the Command Palette, and bind it to a command ID `helloworld.helloWorld`.
 - Uses the [`commands.registerCommand`](/api/references/vscode-api#commands.registerCommand) [**VS Code API**](/api/references/vscode-api) to bind a function to the registered command ID `helloworld.helloWorld`.
 
@@ -44,15 +45,15 @@ Let's take a closer look at `Hello World` sample's source code and see how these
 
 You can read more about the configuration files:
 
-- `launch.json` used to configure VS Code [Debugging](/docs/editor/debugging)
-- `tasks.json` for defining VS Code [Tasks](/docs/editor/tasks)
+- `launch.json` used to configure VS Code [Debugging](/docs/debugtest/debugging)
+- `tasks.json` for defining VS Code [Tasks](/docs/debugtest/tasks)
 - `tsconfig.json` consult the TypeScript [Handbook](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)
 
 However, let's focus on `package.json` and `extension.ts`, which are essential to understanding the `Hello World` extension.
 
 ### Extension Manifest
 
-Each VS Code extension must have a `package.json` as its [Extension Manifest](/api/references/extension-manifest). The `package.json` contains a mix of Node.js fields such as `scripts` and `devDependencies` and VS Code specific fields such as `publisher`, `activationEvents` and `contributes`. You can find description of all VS Code specific fields in [Extension Manifest Reference](/api/references/extension-manifest). Here are some most important fields:
+Each VS Code extension must have a `package.json` as its [Extension Manifest](/api/references/extension-manifest). The `package.json` contains a mix of Node.js fields such as `scripts` and `devDependencies` and VS Code specific fields such as `publisher`, `activationEvents` and `contributes`. You can find descriptions of all VS Code specific fields in [Extension Manifest Reference](/api/references/extension-manifest). Here are some most important fields:
 
 - `name` and `publisher`: VS Code uses `<publisher>.<name>` as a unique ID for the extension. For example, the Hello World sample has the ID `vscode-samples.helloworld-sample`. VS Code uses the ID to uniquely identify your extension.
 - `main`: The extension entry point.

@@ -1,9 +1,5 @@
 ---
-Order:
-Area: introvideos
-TOCTitle: Code Editing
 ContentId: 826efeef-6803-49bd-a500-06c6c42cda19
-PageTitle: Edit and run code in Visual Studio Code
 DateApproved: 11/16/2021
 MetaDescription: Learn the basics of editing and running code in VS Code.
 MetaSocialImage:
@@ -12,9 +8,7 @@ MetaSocialImage:
 
 In this Visual Studio Code tutorial, we cover how to edit and run a small piece of code, including the features outlined below. After viewing this overview, read on in the [Related Resources](/docs/introvideos/codeediting.md#related-resources) section to see more features.
 
->**Linux users**: Make sure you have the correct multimedia codecs installed for your Linux distribution. For example, on Ubuntu, you may need to install `ubuntu-restricted-extras` to get the necessary codecs to play the videos.
-
-<iframe src="https://www.microsoft.com/videoplayer/embed/RE4M6Vx" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Code editing in Visual Studio Code"></iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/MNBwGGwvvKE" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Code editing in Visual Studio Code"></iframe>
 
 Here's the next video we recommend: [Productivity Tips](/docs/introvideos/productivity.md)
 
@@ -54,10 +48,10 @@ Pick another video from the list: [Introductory Videos](/docs/getstarted/introvi
 
 ## Related resources
 
-* [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
-* [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
+* [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful VS Code editor.
+* [Code Navigation](/docs/editing/editingevolved.md) - Move quickly through your source code.
 * [Emmet Snippets](/docs/languages/html.md#emmet-snippets) - Use Emmet Snippets.
-* [Tasks](/docs/editor/tasks.md) - Create tasks to use external tools inside VS Code.
+* [Tasks](/docs/debugtest/tasks.md) - Create tasks to use external tools inside VS Code.
 * [JavaScript Linters](/docs/languages/javascript.md#linters) - Install linters for JavaScript.
-* [Code Folding](/docs/editor/codebasics.md#folding) - See the details of source code folding.
+* [Code Folding](/docs/editing/codebasics.md#folding) - See the details of source code folding.
 * [Tips and Tricks](/docs/getstarted/tips-and-tricks.md) - Helpful tips and tricks for VS Code.

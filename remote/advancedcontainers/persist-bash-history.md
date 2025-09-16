@@ -5,7 +5,7 @@ TOCTitle: Persist bash history
 PageTitle: Persist bash history in containers
 ContentId: 68111a8d-530c-4909-916d-3e68758e5e33
 MetaDescription: Persist bash history in containers
-DateApproved: 5/3/2023
+DateApproved: 09/11/2025
 ---
 # Persist bash history
 
@@ -57,6 +57,14 @@ Next, add a local volume to store the command history. This step varies dependin
 
 Finally, if you've already built the container and connected to it, run **Dev Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Dev Containers: Open Folder in Container...** to connect to the container.
 
+> **Note:** If your host machine is running Linux (including WSL on Windows) and its user's UID and GID do not match those of the user in the dev container, the dev container user's UID and GID will be updated to those of the host user and you need to apply the same update to the volume by adding the following to the devcontainer.json.
+
+    ```json
+      "postCreateCommand": {
+        "Fix Volume Permissions": "sudo chown -R $(whoami): /commandhistory"
+      }
+    ```
+
 ### Video: How to make your bash history persist in a dev container
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/12nZz-TjoZg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/12nZz-TjoZg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

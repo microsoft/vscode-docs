@@ -1,5 +1,5 @@
 ---
-Order: 43
+Order:
 TOCTitle: Using Azure Pipelines
 PageTitle: Visual Studio Code using Azure Pipelines
 MetaDescription: Visual Studio Code using Azure Pipelines

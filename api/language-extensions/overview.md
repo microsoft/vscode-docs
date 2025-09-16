@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8b70dba5-f71d-46dd-8da1-f5d44b9a6a96
-DateApproved: 5/3/2023
+DateApproved: 09/11/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to write a Language Extension (plug-in) to add support for a programming language in Visual Studio Code.
@@ -9,7 +9,11 @@ MetaDescription: Learn how to write a Language Extension (plug-in) to add suppor
 
 # Language Extensions Overview
 
-Visual Studio Code provides smart editing features for different programming languages through Language Extensions. VS Code doesn't provide built-in language support but offers a set of APIs that enable rich language features. For example, it has a bundled [HTML](https://github.com/microsoft/vscode/tree/main/extensions/html) extension that allows VS Code to show syntax highlighting for HTML files. Similarly, when you type `console.` and `log` shows up in IntelliSense, it is the [Typescript Language Features](https://github.com/microsoft/vscode/tree/main/extensions/typescript-language-features) extension at work.
+Visual Studio Code provides smart editing features for different programming languages through Language Extensions. VS Code doesn't provide built-in language support in the core editor but offers a set of APIs that enable rich language features.
+
+For example, the [HTML](https://github.com/microsoft/vscode/tree/main/extensions/html) extension uses these APIs to show syntax highlighting for HTML files. Similarly, when you type `console.` and `log` shows up in IntelliSense, it is the [Typescript Language Features](https://github.com/microsoft/vscode/tree/main/extensions/typescript-language-features) extension at work.
+
+VS Code bundles some of these extensions with the editor to provide you with rich language support from the start.
 
 Language features can be roughly put into two categories:
 

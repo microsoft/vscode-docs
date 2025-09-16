@@ -15,7 +15,9 @@ MetaDescription: Use Microsoft Live Share to collaborate with Visual Studio Code
 
 When it comes to Live Share, seeing is believing. Check out this video to see Live Share in action:
 
-<iframe src="https://youtube.com/embed/A2ceblXTBBc?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen title="Collaborate with Live Share"></iframe>
+[Collaborate with Live Share](https://www.youtube-nocookie.com/embed/A2ceblXTBBc?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0)
+
+>**Note**: The video above mentions the deprecated Live Share Extension Pack and Live Share Audio extension. To follow along with the video, you only need to install the [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) extension.
 
 When you share a collaborative session, the person you're working with sees the context of the workspace in their editor. This means your classmate can read the code you shared without having to clone a repo or install any dependencies your code relies on. They can help you with your code in the Visual Studio Code environment that's familiar to them.
 

@@ -1,5 +1,5 @@
 ---
-Order: 42
+Order:
 TOCTitle: GitHub Pull Requests
 PageTitle: Introducing GitHub Pull Requests for Visual Studio Code
 MetaDescription: Introducing GitHub Pull Requests for Visual Studio Code

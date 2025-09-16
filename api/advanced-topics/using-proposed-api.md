@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: f4d4e9e0-8901-405c-aaf5-faa16c32588b
-DateApproved: 5/3/2023
+DateApproved: 09/11/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Use Visual Studio Code's Proposed API
@@ -21,10 +21,10 @@ These are the steps for testing a proposed API in local extension development:
 - To your `package.json`, add `"enabledApiProposals": ["<proposalName>"]`.
 - Copy the corresponding [vscode.proposed.\<proposalName\>.d.ts](https://github.com/microsoft/vscode/blob/main/src/vscode-dts) files into your project's source location.
 
-The [vscode-dts](https://github.com/microsoft/vscode-dts) CLI utility allows you to quickly download the latest `vscode.proposed.<proposalName>.d.ts` for extension development. It downloads definition files by the proposals listed in your `package.json` file.
+The [@vscode/dts](https://github.com/microsoft/vscode-dts) CLI utility allows you to quickly download the latest `vscode.proposed.<proposalName>.d.ts` for extension development. It downloads definition files by the proposals listed in your `package.json` file.
 
 ```bash
-> npx vscode-dts dev
+> npx @vscode/dts dev
 Downloading vscode.proposed.languageStatus.d.ts
 To:   /Users/Me/Code/MyExtension/vscode.proposed.languageStatus.d.ts
 From: https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.languageStatus.d.ts
@@ -39,8 +39,8 @@ On the main branch, the `vscode.proposed.<proposalName>.d.ts` is always compatib
 
 You can solve this issue by either:
 
-- Remove dependency on `@types/vscode` and use `npx vscode-dts main` to download `vscode.d.ts` from `microsoft/vscode` main branch.
-- Use `@types/vscode@<version>` and also use `npx vscode-dts dev <version>` to download the `vscode.proposed.<proposal>.d.ts` from an old branch of `microsoft/vscode`. However, be careful as the API might have changed in the latest version of VS Code Insiders.
+- Remove dependency on `@types/vscode` and use `npx @vscode/dts main` to download `vscode.d.ts` from `microsoft/vscode` main branch.
+- Use `@types/vscode@<version>` and also use `npx @vscode/dts dev <version>` to download the `vscode.proposed.<proposal>.d.ts` from an old branch of `microsoft/vscode`. However, be careful as the API might have changed in the latest version of VS Code Insiders.
 
 ## Sharing extensions using the proposed API
 

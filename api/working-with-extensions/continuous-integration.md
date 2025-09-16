@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 891072bb-c46d-4392-800a-84d747072ce3
-DateApproved: 5/3/2023
+DateApproved: 09/11/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Use Continuous Integration for testing Visual Studio Code extensions (plug-ins).
@@ -143,11 +143,11 @@ jobs:
     runs-on: $\{{ matrix.os }}
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - name: Install Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
-        node-version: 16.x
+        node-version: 18.x
     - run: npm install
     - run: xvfb-run -a npm test
       if: runner.os == 'Linux'
@@ -236,64 +236,6 @@ deploy:
   script:
     - npm run deploy
 ```
-
-## Travis CI
-
-[`@vscode/test-electron`](https://github.com/microsoft/vscode-test) also includes a [Travis CI build definition](https://github.com/microsoft/vscode-test/blob/main/.travis.yml). The way to define environment variables in Travis CI is different from other CI frameworks, so the `xvfb` script is also different:
-
-```yaml
-language: node_js
-os:
-- osx
-- linux
-node_js: 10
-
-install:
-- |
-  if [ $TRAVIS_OS_NAME == "linux" ]; then
-    export DISPLAY=':99.0'
-    /usr/bin/Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
-  fi
-script:
-- |
-  echo ">>> Compile vscode-test"
-  yarn && yarn compile
-  echo ">>> Compiled vscode-test"
-  cd sample
-  echo ">>> Run sample integration test"
-  yarn && yarn compile && yarn test
-cache: yarn
-```
-
-### Travis CI automated publishing
-
-1. Set up `VSCE_PAT` as an encrypted secret using the [Travis CI encryption key usage instructions](https://docs.travis-ci.com/user/encryption-keys/#usage).
-2. Install `vsce` as a `devDependencies` (`npm install @vscode/vsce --save-dev` or `yarn add @vscode/vsce --dev`).
-3. Declare a `deploy` script in `package.json` without the PAT.
-
-```json
-"scripts": {
-  "deploy": "vsce publish --yarn"
-}
-```
-
-4. Add `deploy` stage that calls `npm run deploy` with the secret variable.
-
-```yaml
-deploy:
-  provider: script
-  script: "npm run deploy"
-  skip_cleanup: true
-  on:
-    tags: true
-```
-
-The [deploy](https://docs.travis-ci.com/user/deployment) property tells the CI to deploy artifacts to a given provider if a set of conditions are met. The deploy stage does not get triggered on pull requests
-
-In our example, the condition that is checked:
-
-- `tags: true` - Publish only if the build is triggered from a git tag (releast)
-- `skip_cleanup: true` - Prevents travis from removing any files created during the build that may be needed for deployment.
 
 ## Common questions
 

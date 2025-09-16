@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 85918f63-ff5d-4ab8-8a18-26ad00618eff
-DateApproved: 5/3/2023
+DateApproved: 09/11/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: UX guidelines for quick picks used in a Visual Studio Code extension.
@@ -16,6 +16,7 @@ MetaDescription: UX guidelines for quick picks used in a Visual Studio Code exte
 **✔️ Do**
 
 * Use icons for clear metaphors
+* Use thoughtful icons that add clarity and help differentiate items
 * Use the description for displaying the current items (if applicable)
 * Use the detail for providing (brief) additional context
 * Use the multi-step pattern for a series of basic inputs
@@ -28,20 +29,18 @@ MetaDescription: UX guidelines for quick picks used in a Visual Studio Code exte
 ❌ Don't
 
 * Repeat existing functionality
-* Use the same icon for multiple items
-* Use more than six icons in a list
 * Use a title when the placeholder can describe the purpose on its own
 * Use inputs without a placeholder
 
-## Multiple Steps
+## Multiple steps
 
 Quick Picks can be configured to feature multiple steps. Use these when you need to capture related-but-separate selections in a single flow. Avoid using quick picks for long flows with many steps—they aren't well suited to function as a wizard or similarly complex experience.
 
 ![Multi-step Quick Pick example](images/examples/quick-pick-multi-step.png)
 
-*Notes the "1/3" text in the Quick Pick title that indicates the current and total number of steps in the flow.*
+*Note the "1/3" text in the Quick Pick title that indicates the current and total number of steps in the flow.*
 
-## Multiple Selections
+## Multiple selections
 
 Use a multi-select quick pick for closely-related selections that need to be selected in one step.
 
@@ -49,13 +48,13 @@ Use a multi-select quick pick for closely-related selections that need to be sel
 
 ## Title
 
-Quick Picks can be also be configured to show a title bar above the main input and selection UI. Use a title when the user needs more context for the selection being made. Avoid using a title that uses a label already used in the Quick Pick's input placeholder.
+Quick Picks can also be configured to show a title bar above the main input and selection UI. Use a title when the user needs more context for the selection being made. Avoid using a title that uses a label already used in the Quick Pick's input placeholder.
 
 ![Multi-step Quick Pick example](images/examples/quick-pick-title.png)
 
-## Using Separators
+## Using separators
 
-Quick Pick Items can be grouped into clear sections using Quick Pick Separators. These feature a divider and label to clearly show the section. Use separators if the extension features a quick pick containing multiple obvious groups of selections.
+Quick Pick items can be grouped into clear sections using Quick Pick separators. These feature a divider and label to clearly show the section. Use separators if the extension features a quick pick containing multiple obvious groups of selections.
 
 ![Quick Pick with separators](images/examples/quick-pick-separators.png)
 

@@ -1,5 +1,5 @@
 ---
-Order: 39
+Order:
 TOCTitle: Live Share Preview
 PageTitle: Announcing the Visual Studio Live Share Public Preview
 MetaDescription: Real-time collaborative development

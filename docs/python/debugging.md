@@ -1,20 +1,26 @@
 ---
-Order: 4
-Area: python
-TOCTitle: Debugging
 ContentId: 3d9e6bcf-eae8-4c94-b857-89225b5c4ab5
-PageTitle: Debugging configurations for Python apps in Visual Studio Code
-DateApproved: 1/19/2023
+DateApproved: 09/11/2025
 MetaDescription: Details on configuring the Visual Studio Code debugger for different Python applications.
-MetaSocialImage: images/tutorial/social.png
+MetaSocialImage: images/tutorial/python-social.png
 ---
 # Python debugging in VS Code
 
-The Python extension supports debugging of several types of Python applications. For a short walkthrough of basic debugging, see [Tutorial - Configure and run the debugger](/docs/python/python-tutorial.md#configure-and-run-the-debugger). Also see the [Flask tutorial](/docs/python/tutorial-flask.md). Both tutorials demonstrate core skills like setting breakpoints and stepping through code.
+The Python extension supports debugging through the [Python Debugger extension](https://marketplace.visualstudio.com/items?itemName=ms-python.debugpy) for several types of Python applications. For a short walkthrough of basic debugging, see [Tutorial - Configure and run the debugger](/docs/python/python-tutorial.md#configure-and-run-the-debugger). Also see the [Flask tutorial](/docs/python/tutorial-flask.md). Both tutorials demonstrate core skills like setting breakpoints and stepping through code.
 
-For general debugging features such as inspecting variables, setting breakpoints, and other activities that aren't language-dependent, review [VS Code debugging](/docs/editor/debugging.md).
+For general debugging features such as inspecting variables, setting breakpoints, and other activities that aren't language-dependent, review [VS Code debugging](/docs/debugtest/debugging.md).
 
 This article mainly addresses Python-specific debugging *configurations*, including the necessary steps for specific app types and remote debugging.
+
+## Python Debugger Extension
+
+The [Python Debugger extension](https://marketplace.visualstudio.com/items?itemName=ms-python.debugpy) is automatically installed along with the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for VS Code. It offers debugging features with [debugpy](https://pypi.org/project/debugpy/) for several types of Python applications, including scripts, web apps, remote processes and more.
+
+To verify it's installed, open the **Extensions** view (`kb(workbench.view.extensions)`) and search for `@installed python debugger`. You should see the Python Debugger extension listed in the results.
+
+![Python Debugger extension shown in installed extensions view in VS Code.](images/shared/python-debugger-extension.png)
+
+You can refer to the extension's [README](https://github.com/microsoft/vscode-python-debugger/blob/main/README.md) page for information on supported Python versions.
 
 ## Initialize configurations
 
@@ -34,12 +40,15 @@ To generate a `launch.json` file with Python configurations, do the following st
 
 1. Select the **create a launch.json file** link (outlined in the image above) or use the **Run** > **Open configurations** menu command.
 
-1. A configuration menu will open from the Command Palette allowing you to choose the type of debug configuration you want for the opened file. For now, in the **Select a debug configuration** menu that appears, select **Python File**.
-![Debug configurations menu](images/debugging/debug-configurations.png)
+1. Select **Python Debugger** from the debugger options list.
 
-   > **Note**: Starting a debugging session through the Debug Panel, `kbstyle(F5)` or  **Run > Start Debugging** when no configuration exists will also bring up the debug configuration menu, but will not create a launch.json file.
+1. A configuration menu will open from the Command Palette allowing you to choose the type of debug configuration you want to use for our Python project file. If you want to debug a single Python script, select **Python File** in the **Select a debug configuration** menu that appears.
 
-1. The Python extension then creates and opens a `launch.json` file that contains a pre-defined configuration based on what you previously selected, in this case, **Python File**. You can modify configurations (to add arguments, for example), and also add custom configurations.
+    ![List of Python debugger configuration options](images/shared/debug-configurations.png)
+
+    > **Note**: Starting a debugging session through the Debug Panel, `kbstyle(F5)`, or  **Run > Start Debugging** when no configuration exists will also bring up the debug configuration menu, but will not create a `launch.json` file.
+
+1. The Python Debugger extension then creates and opens a `launch.json` file that contains a pre-defined configuration based on what you previously selected, in this case, **Python File**. You can modify configurations (to add arguments, for example), and also add custom configurations.
 
    ![Configuration json](images/debugging/configuration-json.png)
 
@@ -47,7 +56,7 @@ The details of configuration properties are covered later in this article under 
 
 ## Additional configurations
 
-By default, VS Code shows only the most common configurations provided by the Python extension. You can select other configurations to include in `launch.json` by using the **Add Configuration** command shown in the list and the `launch.json` editor. When you use the command, VS Code prompts you with a list of all available configurations (be sure to select the **Python** option):
+By default, VS Code shows only the most common configurations provided by the Python Debugger extension. You can select other configurations to include in `launch.json` by using the **Add Configuration** command shown in the list and the `launch.json` editor. When you use the command, VS Code prompts you with a list of all available configurations (be sure to select the **Python** option):
 
 ![Adding a new Python debugging configuration](images/debugging/add-configuration.png)
 
@@ -60,15 +69,15 @@ During debugging, the Status Bar shows the current configuration and the current
 
 ![Debugging Status Bar](images/debugging/debug-status-bar.png)
 
-By default, the debugger uses the same interpreter selected for your workspace, just like other features of Python extension for VS Code. To use a different interpreter for debugging specifically, set the value for `python` in `launch.json` for the applicable debugger configuration. Alternately, select the named interpreter on the Status Bar to select a different one.
+By default, the debugger uses the same interpreter selected for your workspace, just like other features of Python extension for VS Code. To use a different interpreter for debugging specifically, set the value for `python` in `launch.json` for the applicable debugger configuration. Alternately, use the Python interpreter indicator on the Status Bar to select a different one.
 
 ## Basic debugging
 
-If you're only interested in debugging a Python script, the simplest way is to select the down-arrow next to the run button on the editor and select **Debug Python File in Terminal**.
+If you're only interested in debugging a Python script, the simplest way is to select the down-arrow next to the run button on the editor and select **Python Debugger: Debug Python File**.
 
 ![Debug button on the top-right of the editor](images/debugging/debug-button-editor.png)
 
-If you're looking to debug a web application using Flask, Django or FastAPI, the Python extension provides dynamically created debug configurations based on your project structure under the **Show all automatic debug configurations** option, through the **Run and Debug** view.
+If you're looking to debug a web application using Flask, Django or FastAPI, the Python Debugger extension provides dynamically created debug configurations based on your project structure under the **Show all automatic debug configurations** option, through the **Run and Debug** view.
 
 ![Show all automatic debug configurations option on the run view](images/debugging/debug-auto-config.png)
 
@@ -80,13 +89,21 @@ When no configuration has been set, you'll be given a list of debugging options.
 
 Two common options are to use the **Python File** configuration to run the currently open Python file or to use the **Attach using Process ID** configuration to attach the debugger to a process that is already running.
 
-For information about creating and using debugging configurations, see the [Initialize configurations](#initialize-configurations) and [Additional configurations](#additional-configurations) sections. Once a configuration is added, it can be selected from the dropdown list and started using the **Start Debugging** button.
+For information about creating and using debugging configurations, see the [Initialize configurations](#initialize-configurations) and [Additional configurations](#additional-configurations) sections. Once a configuration is added, it can be selected from the dropdown list and started using the **Start Debugging** button (`kbstyle(F5)`).
 
-![Start debugging](images/debugging/debug-start-button.png)
+![Start debugging button in the Run and Debug view](images/debugging/debug-start-button.png)
 
 ## Command line debugging
 
-The debugger can also be run from the command line. The debugger command line syntax is as follows:
+The debugger can also be run from the command line, if `debugpy` is installed in your Python environment.
+
+### Install debugpy
+You can install [debugpy](https://pypi.org/project/debugpy/) using `python -m pip install --upgrade debugpy` into your Python environment.
+
+> **Tip**: While using a virtual environment is not required, it is a recommended best practice. You can create a virtual environment in VS Code by opening the Command Palette (`kb(workbench.action.showCommands)`) and running the **Python: Create Virtual Environment** command (`kb(workbench.action.terminal.newWithProfilePython)`).
+
+### Command line syntax
+The debugger command line syntax is as follows:
 
 ```bash
 python -m debugpy
@@ -99,18 +116,19 @@ python -m debugpy
     [<arg>]...
 ```
 
-As an example, from the command line, you could start the debugger using a specified port (5678) and script using the following syntax. This example assumes the script is long-running and omits the `--wait-for-client` flag, meaning that the script will not wait for the client to attach.
+### Example
+From the command line, you could start the debugger using a specified port (5678) and script using the following syntax. This example assumes the script is long-running and omits the `--wait-for-client` flag, meaning that the script will not wait for the client to attach.
 
 ```bash
 python -m debugpy --listen 5678 ./myscript.py
 ```
 
-You would then use the following configuration to attach from the VS Code Python extension.
+You would then use the following configuration to attach from the VS Code Python Debugger extension.
 
 ```json
 {
-    "name": "Python: Attach",
-    "type": "python",
+    "name": "Python Debugger: Attach",
+    "type": "debugpy",
     "request": "attach",
     "connect": {
         "host": "localhost",
@@ -132,7 +150,7 @@ The associated configuration file would then look as follows.
 ```json
 {
     "name": "Attach",
-    "type": "python",
+    "type": "debugpy",
     "request": "attach",
     "connect": {
        "host": "remote-machine-name", // replace this with remote machine name
@@ -142,6 +160,8 @@ The associated configuration file would then look as follows.
 ```
 
 > **Note**: Be aware that when you specify a host value other than `127.0.0.1` or `localhost` you are opening a port to allow access from any machine, which carries security risks. You should make sure that you're taking appropriate security precautions, such as using SSH tunnels, when doing remote debugging.
+
+### Command line options
 
 |Flag  |Options  |Description  |
 |---------|---------|---------|
@@ -177,7 +197,7 @@ There may be instances where you need to debug a Python script that's invoked lo
 
 1. Open a terminal using **Terminal: Create New Terminal**, which activates the script's selected environment.
 
-1. In the terminal, install the debugpy package with `python -m pip install --upgrade debugpy`.
+1. In the terminal, [install the debugpy package](#install-debugpy).
 
 1. In the terminal, start Python with the script, for example, `python3 myscript.py`. You should see the "Waiting for debugger attach" message that's included in the code, and the script halts at the `debugpy.wait_for_client()` call.
 
@@ -215,8 +235,8 @@ The following steps outline the general process to set up an SSH tunnel. An SSH 
 
     ```json
     {
-        "name": "Python: Attach",
-        "type": "python",
+        "name": "Python Debugger: Attach",
+        "type": "debugpy",
         "request": "attach",
         "port": 5678,
         "host": "localhost",
@@ -235,7 +255,7 @@ Now that an SSH tunnel has been set up to the remote computer, you can begin you
 
 1. Both computers: make sure that identical source code is available.
 
-1. Both computers: install [debugpy](https://pypi.org/project/debugpy/) using `python -m pip install --upgrade debugpy` into your environment (while using a form of virtual environment is not required, it is a recommended best practice).
+1. Both computers: [install debugpy](#install-debugpy).
 
 1. Remote computer: there are two ways to specify how to attach to the remote process.
 
@@ -273,11 +293,11 @@ Now that an SSH tunnel has been set up to the remote computer, you can begin you
     #debugpy.wait_for_client()
     ```
 
-1. Local computer: switch to the **Run and Debug** view (`kb(workbench.view.debug)`) in VS Code, select the **Python: Attach** configuration
+1. Local computer: switch to the **Run and Debug** view (`kb(workbench.view.debug)`) in VS Code, select the **Python Debugger: Attach** configuration
 
 1. Local computer: set a breakpoint in the code where you want to start debugging.
 
-1. Local computer: start the VS Code debugger using the modified **Python: Attach** configuration and the Start Debugging button. VS Code should stop on your locally set breakpoints, allowing you to step through the code, examine variables, and perform all other debugging actions. Expressions that you enter in the **Debug Console** are run on the remote computer as well.
+1. Local computer: start the VS Code debugger using the modified **Python Debugger: Attach** configuration and the Start Debugging button. VS Code should stop on your locally set breakpoints, allowing you to step through the code, examine variables, and perform all other debugging actions. Expressions that you enter in the **Debug Console** are run on the remote computer as well.
 
     Text output to stdout, as from `print` statements, appears on both computers. Other outputs, such as graphical plots from a package like matplotlib, however, appear only on the remote computer.
 
@@ -295,15 +315,15 @@ When you first create `launch.json`, there are two standard configurations that 
 {
     "configurations": [
         {
-            "name": "Python: Current File (Integrated Terminal)",
-            "type": "python",
+            "name": "Python Debugger: Current File (Integrated Terminal)",
+            "type": "debugpy",
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal"
         },
         {
-            "name": "Python: Current File (External Terminal)",
-            "type": "python",
+            "name": "Python Debugger: Current File (External Terminal)",
+            "type": "debugpy",
             "request": "launch",
             "program": "${file}",
             "console": "externalTerminal"
@@ -318,8 +338,8 @@ The specific settings are described in the following sections. You can also add 
 
 ```json
  {
-     "name": "Python: startup.py",
-     "type": "python",
+     "name": "Python Debugger: startup.py",
+     "type": "debugpy",
      "request": "launch",
      "program": "${workspaceFolder}/startup.py",
      "args" : ["--port", "1593"]
@@ -332,7 +352,7 @@ Provides the name for the debug configuration that appears in the VS Code dropdo
 
 ### `type`
 
-Identifies the type of debugger to use; leave this set to `python` for Python code.
+Identifies the type of debugger to use; leave this set to `debugpy` for debugging Python code.
 
 ### `request`
 
@@ -346,13 +366,13 @@ Specifies the mode in which to start debugging:
 Provides the fully qualified path to the python program's entry module (startup file). The value `${file}`, often used in default configurations, uses the currently active file in the editor. By specifying a specific startup file, you can always be sure of launching your program with the same entry point regardless of which files are open. For example:
 
 ```json
-"program": "/Users/Me/Projects/PokemonGo-Bot/pokemongo_bot/event_handlers/__init__.py",
+"program": "/Users/Me/Projects/MyProject/src/event_handlers/__init__.py",
 ```
 
-You can also rely on a relative path from the workspace root. For example, if the root is `/Users/Me/Projects/PokemonGo-Bot` then you can use the following example:
+You can also rely on a relative path from the workspace root. For example, if the root is `/Users/Me/Projects/MyProject` then you can use the following example:
 
 ```json
-"program": "${workspaceFolder}/pokemongo_bot/event_handlers/__init__.py",
+"program": "${workspaceFolder}/src/event_handlers/__init__.py",
 ```
 
 ### `module`
@@ -381,6 +401,10 @@ Specifies arguments to pass to the Python program. Each element of the argument 
 "args": ["--quiet", "--norepeat", "--port", "1593"],
 ```
 
+If you want to provide different arguments per debug run, you can set `args` to `"${command:pickArgs}"`. This will prompt you to enter arguments each time you start a debug session.
+
+> **Note**: There is a difference in how `"${command:pickArgs}"` and `["${command:pickArgs}"]` are parsed, with specific notice to the usage of `[]`. As an array, all arguments are passed as a single string, without brackets each argument is passed as its own string.
+
 ### `stopOnEntry`
 
 When set to `true`, breaks the debugger at the first line of the program being debugged. If omitted (the default) or set to `false`, the debugger runs the program to the first breakpoint.
@@ -407,8 +431,8 @@ Allows for the automatic reload of the debugger when changes are made to code af
 
 ```json
 {
-   "name": "Python: Current File",
-   "type": "python",
+   "name": "Python Debugger: Current File",
+   "type": "debugpy",
    "request": "launch",
    "program": "${file}",
    "console": "integratedTerminal",
@@ -418,11 +442,11 @@ Allows for the automatic reload of the debugger when changes are made to code af
 }
 ```
 
-> ***Note**: When the debugger performs a reload, code that runs on import might be executed again. To avoid this situation, try to only use imports, constants, and definitions in your module, placing all code into functions. Alternatively, you can also use `if __name__=="__main__"` checks.
+> **Note**: When the debugger performs a reload, code that runs on import might be executed again. To avoid this situation, try to only use imports, constants, and definitions in your module, placing all code into functions. Alternatively, you can also use `if __name__=="__main__"` checks.
 
 ### `subProcess`
 
-Specifies whether to enable subprocess debugging. Defaults to `false`, set to `true` to enable. For more information, see [multi-target debugging](/docs/editor/debugging.md#multitarget-debugging).
+Specifies whether to enable subprocess debugging. Defaults to `false`, set to `true` to enable. For more information, see [multi-target debugging](/docs/debugtest/debugging.md#multi-target-debugging).
 
 ### `cwd`
 
@@ -476,11 +500,11 @@ When set to `true`, activates debugging features specific to the [Jinja](https:/
 
 ## Breakpoints and logpoints
 
-The Python extension supports [breakpoints](/docs/editor/debugging.md#breakpoints) and [logpoints](/docs/editor/debugging.md#logpoints) for debugging code. For a short walkthrough of basic debugging and using breakpoints, see [Tutorial - Configure and run the debugger](/docs/python/python-tutorial.md#configure-and-run-the-debugger).
+The Python Debugger extension supports [breakpoints](/docs/debugtest/debugging.md#breakpoints) and [logpoints](/docs/debugtest/debugging.md#logpoints) for debugging code. For a short walkthrough of basic debugging and using breakpoints, see [Tutorial - Configure and run the debugger](/docs/python/python-tutorial.md#configure-and-run-the-debugger).
 
 ### Conditional breakpoints
 
-Breakpoints can also be set to trigger based on expressions, hit counts, or a combination of both. The Python extension supports hit counts that are integers, in addition to integers preceded by the ==, >, >=, <, <=, and % operators. For example, you could set a breakpoint to trigger after five occurrences by setting a hit count of `>5`  For more information, see [conditional breakpoints](/docs/editor/debugging.md#conditional-breakpoints) in the main VS Code debugging article.
+Breakpoints can also be set to trigger based on expressions, hit counts, or a combination of both. The Python Debugger extension supports hit counts that are integers, in addition to integers preceded by the ==, >, >=, <, <=, and % operators. For example, you could set a breakpoint to trigger after five occurrences by setting a hit count of `>5`  For more information, see [conditional breakpoints](/docs/debugtest/debugging.md#conditional-breakpoints) in the main VS Code debugging article.
 
 ### Invoking a breakpoint in code
 
@@ -488,7 +512,7 @@ In your Python code, you can call `debugpy.breakpoint()` at any point where you 
 
 ### Breakpoint validation
 
-The Python extension automatically detects breakpoints that are set on non-executable lines, such as `pass` statements or the middle of a multiline statement. In such cases, running the debugger moves the breakpoint to the nearest valid line to ensure that code execution stops at that point.
+The Python Debugger extension automatically detects breakpoints that are set on non-executable lines, such as `pass` statements or the middle of a multiline statement. In such cases, running the debugger moves the breakpoint to the nearest valid line to ensure that code execution stops at that point.
 
 ## Debugging specific app types
 
@@ -510,8 +534,8 @@ To debug an app that requires administrator privileges, use `"console": "externa
 
 ```json
 {
-    "name": "Python: Flask",
-    "type": "python",
+    "name": "Python Debugger: Flask",
+    "type": "debugpy",
     "request": "launch",
     "module": "flask",
     "env": {
@@ -533,8 +557,8 @@ If you want to run Flask's development server in development mode, use the follo
 
 ```json
 {
-    "name": "Python: Flask (development mode)",
-    "type": "python",
+    "name": "Python Debugger: Flask (development mode)",
+    "type": "debugpy",
     "request": "launch",
     "module": "flask",
     "env": {
@@ -549,14 +573,16 @@ If you want to run Flask's development server in development mode, use the follo
 ```
 
 <a name="debugger-not-working"></a>
-
 ## Troubleshooting
 
 There are many reasons why the debugger may not work. Sometimes the debug console reveals specific causes, but the main reasons are as follows:
+- Make sure the [Python Debugger extension](https://marketplace.visualstudio.com/items?itemName=ms-python.debugpy) is installed and enabled in VS Code by opening the **Extensions** view (`kb(workbench.view.extensions)`) and searching for `@installed python debugger`.
 
 - The path to the python executable is incorrect: check the path of your selected interpreter by running the **Python: Select Interpreter** command and looking at the current value:
 
   ![Troubleshooting wrong Python interpreter when debugging](images/debugging/debug-troubleshooting-wrong-path.png)
+
+- You have `"type"` set to the deprecated value `"python"` in your `launch.json` file: replace `"python"` with `"debugpy"` instead to work with the Python Debugger extension.
 
 - There are invalid expressions in the watch window: clear all expressions from the Watch window and restart the debugger.
 - If you're working with a multi-threaded app that uses native thread APIs (such as the Win32 `CreateThread` function rather than the Python threading APIs), it's presently necessary to include the following source code at the top of whichever file you want to debug:
@@ -577,4 +603,4 @@ There are many reasons why the debugger may not work. Sometimes the debug consol
 - [Python environments](/docs/python/environments.md) - Control which Python interpreter is used for editing and debugging.
 - [Testing](/docs/python/testing.md) - Configure test environments and discover, run, and debug tests.
 - [Settings reference](/docs/python/settings-reference.md) - Explore the full range of Python-related settings in VS Code.
-- [General debugging](/docs/editor/debugging.md) - Learn about the debugging features of VS Code.
+- [General debugging](/docs/debugtest/debugging.md) - Learn about the debugging features of VS Code.

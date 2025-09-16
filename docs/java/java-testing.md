@@ -1,14 +1,9 @@
 ---
-Order: 8
-Area: java
-TOCTitle: Testing
 ContentId: 82be3b78-2c09-4571-abec-69f95f111e0f
-PageTitle: Java Testing in Visual Studio Code
 DateApproved: 2/11/2022
 MetaDescription: See how you can test your Java code in Visual Studio Code.
 MetaSocialImage:
 ---
-
 # Testing Java with Visual Studio Code
 
 Testing Java in Visual Studio Code is enabled by the [Test Runner for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test) extension. It's a lightweight extension to run and debug Java test cases.
@@ -44,8 +39,7 @@ The [Test Runner for Java](https://marketplace.visualstudio.com/items?itemName=v
 
 Starting with Test Runner for Java version 0.34.0, you can enable a test framework for your unmanaged folder project (a project without any build tools) with just a few steps in the **Testing** Explorer:
 
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-testing/enable-tests.mp4" type="video/mp4">
+<video src="images/java-testing/enable-tests.mp4" autoplay loop muted playsinline controls title="Enable testing and adding test framework JARs to your project">
 </video>
 
 > **Note**: Currently this feature only supports unmanaged folders that do not contain any testing dependencies.
@@ -139,21 +133,19 @@ If your project does not use any build tools, you can enable TestNG via the [Tes
 
 The Test Runner for Java extension will generate shortcuts (the green play button) on the left side of the class and method definition. To run the target test cases, select the green play button. You can also right-click on it to see more options.
 
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-testing/gutter-icon.mp4" type="video/mp4">
+<video src="images/java-testing/gutter-icon.mp4" autoplay loop muted playsinline controls title="Run/debug test cases">
 </video>
 
 ### Testing Explorer
 
 The Testing Explorer is a tree view to show all the test cases in your workspace. You can select the beaker button on the left-side Activity bar of Visual Studio Code to open it. You can also run/debug your test cases and view their test results from there.
 
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-testing/test-explorer.mp4" type="video/mp4">
+<video src="images/java-testing/test-explorer.mp4" autoplay loop muted playsinline controls title="Testing Explorer">
 </video>
 
 ### Customize test configurations
 
-Sometimes you may want to customize the configuration to run your test cases. To achieve this, you can add the configuration into your workspace [settings](/docs/getstarted/settings.md) under the section: `java.test.config`.
+Sometimes you may want to customize the configuration to run your test cases. To achieve this, you can add the configuration into your workspace [settings](/docs/configure/settings.md) under the section: `java.test.config`.
 
 ![Customize test configurations](images/java-testing/configuration.png)
 
@@ -179,8 +171,7 @@ More details can be found on the [vscode-java-test Wiki](https://github.com/Micr
 
 After running/debugging the test cases, the state of the related test items will be updated in both editor decorations and the Testing Explorer.
 
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-testing/test-result.mp4" type="video/mp4">
+<video src="images/java-testing/test-result.mp4" autoplay loop muted playsinline controls title="View test results">
 </video>
 
 You can trigger the command **Test: Peek Output** to peek the results view. You can select the links in the stack trace to navigate to the source location.
@@ -191,22 +182,19 @@ The extension provides features to help you scaffold test cases. You can find th
 
 If you trigger this source action from your main source code (test subject), you will be asked the test class's fully qualified name and the methods you want to test. The extension will then generate the test code for you:
 
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-testing/generate-tests-from-main.mp4" type="video/mp4">
+<video src="images/java-testing/generate-tests-from-main.mp4" autoplay loop muted playsinline controls title="Generate tests">
 </video>
 
 If you trigger the source action from your test source code, you will be asked which kinds of test methods you want to add. Including the lifecycle methods and the test method:
 
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-testing/generate-tests-from-test.mp4" type="video/mp4">
+<video src="images/java-testing/generate-tests-from-test.mp4" autoplay loop muted playsinline controls title="Generate tests from test">
 </video>
 
 ### Test navigation
 
 The extension provides features to help you navigate between your tests and test subjects. If your source code is contained in `src/main/java` or `src/test/java`, you can find the entry named **Go to Test** or **Go to Test Subject** in the editor context menu:
 
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-testing/test-navigation.mp4" type="video/mp4">
+<video src="images/java-testing/test-navigation.mp4" autoplay loop muted playsinline controls title="Test navigation">
 </video>
 
 You can also find the command in the Command Palette (`kb(workbench.action.showCommands)`) by searching for **Java: Go to Test**.

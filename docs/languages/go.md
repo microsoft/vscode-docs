@@ -1,15 +1,11 @@
 ---
-Order: 17
-Area: languages
-TOCTitle: Go
 ContentId: 6f06908a-6694-4fad-ac1e-fc6d9c5747ca
-PageTitle: Go with Visual Studio Code
-DateApproved: 6/21/2022
+DateApproved: 09/11/2025
 MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Go.
 ---
 # Go in Visual Studio Code
 
-Using the Go extension for Visual Studio Code, you get features like IntelliSense, code navigation, symbol search, testing, debugging, and many more that will help you in [Go](https://golang.org/) development.
+Using the Go extension for Visual Studio Code, you get features like IntelliSense, code navigation, symbol search, testing, debugging, and many more that will help you in [Go](https://go.dev/) development.
 
 ![Go extension banner](images/go/go-extension.png)
 
@@ -23,7 +19,7 @@ This article describes only a subset of the features the Go extension provides. 
 
 ![IntelliSense](images/go/completion-signature-help.gif)
 
-IntelliSense features are provided by the Go language server, [gopls](https://golang.org/s/gopls), maintained by the Go team. You can configure the behavior of `gopls` using the [`gopls` settings](https://github.com/golang/vscode-go/wiki/settings#settings-for-gopls).
+IntelliSense features are provided by the Go language server, [gopls](https://go.dev/s/gopls), maintained by the Go team. You can configure the behavior of `gopls` using the [`gopls` settings](https://github.com/golang/vscode-go/wiki/settings#settings-for-gopls).
 
 ### Semantic syntax highlighting
 
@@ -78,7 +74,7 @@ You can add additional lint checks using the `go.lintOnSave` setting and configu
 
 You can format your Go file using `kb(editor.action.formatDocument)` or by running the **Format Document** command from the Command Palette or the context menu in the editor.
 
-By default, formatting is run when you save your Go file. You can disable this behavior by setting `editor.formatOnSave` to `false` for the `[go]` language identifier. You can change this using your JSON setting files.
+By default, formatting is run when you save your Go file. You can disable this behavior by setting `setting(editor.formatOnSave)` to `false` for the `[go]` language identifier. You can change this using your JSON setting files.
 
 ```json
 "[go]": {
@@ -139,7 +135,7 @@ Select the area for refactoring (for example variable, function body, etc.). Cli
 
 The Go extension lets you debug Go code by utilizing the [Delve](https://github.com/go-delve/delve) debugger.
 
-Read [Debug Go programs in VS Code](https://github.com/golang/vscode-go/wiki/debugging) for setup steps, supported features, configurations, information on remote debugging and a troubleshooting guide. For general debugging features such as inspecting variables, setting breakpoints, and other activities that aren't language-dependent, review [VS Code debugging](/docs/editor/debugging.md).
+Read [Debug Go programs in VS Code](https://github.com/golang/vscode-go/wiki/debugging) for setup steps, supported features, configurations, information on remote debugging and a troubleshooting guide. For general debugging features such as inspecting variables, setting breakpoints, and other activities that aren't language-dependent, review [VS Code debugging](/docs/debugtest/debugging.md).
 
 Some features unique to Go are:
 
@@ -160,6 +156,6 @@ If you have any issues or feature requests, feel free to log them in the Go exte
 
 If you'd like to learn more about VS Code, try these topics:
 
-* [Basic Editing](/docs/editor/codebasics.md) - A quick introduction to the basics of the VS Code editor.
-* [Install an Extension](/docs/editor/extension-marketplace.md) - Learn about other extensions are available in the [Marketplace](https://marketplace.visualstudio.com/vscode).
-* [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
+* [Basic Editing](/docs/editing/codebasics.md) - A quick introduction to the basics of the VS Code editor.
+* [Install an Extension](/docs/configure/extensions/extension-marketplace.md) - Learn about other extensions are available in the [Marketplace](https://marketplace.visualstudio.com/vscode).
+* [Code Navigation](/docs/editing/editingevolved.md) - Move quickly through your source code.

@@ -1,14 +1,9 @@
 ---
-Order: 3
-Area: datascience
-TOCTitle: Data Science Tutorial
 ContentId: 3c7ae641-e45c-4892-9d8c-7f22bdc549dd
-PageTitle: Python and Data Science Tutorial in Visual Studio Code
 DateApproved: 1/9/2023
 MetaDescription: Python data science tutorial demonstrating the use of common data science and machine learning libraries with Visual Studio code Jupyter Notebook support.
-MetaSocialImage: images/tutorial/social.png
+MetaSocialImage: images/tutorial/python-social.png
 ---
-
 # Data Science in VS Code tutorial
 
 This tutorial demonstrates using Visual Studio Code and the Microsoft Python extension with common data science libraries to explore a basic data science scenario. Specifically, using passenger data from the Titanic, you will learn how to set up a data science environment, import and clean data, create a machine learning model for predicting survival on the Titanic, and evaluate the accuracy of the generated model.
@@ -18,9 +13,9 @@ This tutorial demonstrates using Visual Studio Code and the Microsoft Python ext
 The following installations are required for the completion of this tutorial. Make sure to install them if you haven't already.
 
 - [Visual Studio Code](https://code.visualstudio.com/)
-- The [Python extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) and [Jupyter extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) from the Visual Studio Marketplace. For more details on installing extensions, see [Extension Marketplace](/docs/editor/extension-marketplace.md). Both extensions are published by Microsoft.
+- The [Python extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) and [Jupyter extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) from the Visual Studio Marketplace. For more details on installing extensions, see [Extension Marketplace](/docs/configure/extensions/extension-marketplace.md). Both extensions are published by Microsoft.
 
-- [Miniconda with latest Python](https://docs.conda.io/en/latest/miniconda.html)
+- [Miniconda with latest Python](https://docs.anaconda.com/miniconda/)
 
    > **Note**: If you already have the full Anaconda distribution installed, you don't need to install Miniconda. Alternatively, if you'd prefer not to use Anaconda or Miniconda, you can create a Python virtual environment and install the packages needed for the tutorial using pip. If you go this route, you will need to install the following packages: pandas, jupyter, seaborn, scikit-learn, keras, and tensorflow.
 
@@ -90,6 +85,8 @@ This tutorial uses the [Titanic dataset](https://hbiostat.org/data/repo/titanic.
 
    ![Data viewer and variable explorer](images/data-science-tutorial/dataviewer.png)
 
+   Alternatively, you can use the data viewing experience offered by other extensions like [Data Wrangler](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.datawrangler). The Data Wrangler extension offers a rich user interface to show insights about your data and helps you perform data profiling, quality checks, transformations, and more. Learn more about the [Data Wrangler extension in our docs](/docs/datascience/data-wrangler.md).
+
 1. Before the data can be graphed, you need to make sure that there aren't any issues with it. If you look at the Titanic csv file, one thing you'll notice is that a question mark ("?") was used to identify cells where data wasn't available.
 
    While Pandas can read this value into a DataFrame, the result for a column like **age** is that its data type will be set to **object** instead of a numeric data type, which is problematic for graphing.
@@ -134,7 +131,7 @@ This tutorial uses the [Titanic dataset](https://hbiostat.org/data/repo/titanic.
 1. Now, you can analyze the correlation between all the input variables to identify the features that would be the best inputs to a machine learning model. The closer a value is to 1, the higher the correlation between the value and the result. Use the following code to correlate the relationship between all variables and survival.
 
    ```python
-   data.corr().abs()[["survived"]]
+   data.corr(numeric_only=True).abs()[["survived"]]
    ```
 
    ![Determining the correlation between input variables and survival](images/data-science-tutorial/jupyter-cell-03.png)
@@ -147,7 +144,7 @@ This tutorial uses the [Titanic dataset](https://hbiostat.org/data/repo/titanic.
 
    ```python
    data['relatives'] = data.apply (lambda row: int((row['sibsp'] + row['parch']) > 0), axis=1)
-   data.corr().abs()[["survived"]]
+   data.corr(numeric_only=True).abs()[["survived"]]
    ```
 
       ![Determining the correlation between having relatives and survival](images/data-science-tutorial/jupyter-cell-04.png)
@@ -263,7 +260,7 @@ A neural network is a model that uses weights and activation functions, modeling
 
 Now that you're familiar with the basics of performing machine learning within Visual Studio Code, here are some other Microsoft resources and tutorials to check out.
 
-- [Data Science profile template](/docs/editor/profiles.md#data-science-profile-template) - Create a new [profile](/docs/editor/profiles) with a curated set of extensions, settings, and snippets.
+- [Data Science profile template](/docs/configure/profiles.md#data-science-profile-template) - Create a new [profile](/docs/configure/profiles) with a curated set of extensions, settings, and snippets.
 - Learn more about working with [Jupyter Notebooks in Visual Studio Code](https://youtu.be/FSdIoJdSnig) (video).
 - [Get started with Azure Machine Learning for VS Code](https://learn.microsoft.com/azure/machine-learning/how-to-setup-vs-code) to deploy and optimize your model using the power of Azure.
 - Find more data to explore on [Azure Open Data Sets](https://azure.microsoft.com/services/open-datasets/).
