@@ -37,6 +37,6 @@ With VS Code's rapid usage growth, auto helps us manage capacity, so we can hand
 * Let users on a free plan take advantage of the latest models through auto
 * Improve the model dropdown to make it more obvious which models and discounts are used
 
-Using [VS Code Insiders](https://code.visualstudio.com/insiders/) and providing feedback in [our open source repository](https://github.com/microsoft/vscode/issues) is the best way to help us improve auto. For the latest information, check out the [auto model selection documentation](https://code.visualstudio.com/docs/copilot/customization/language-models#_auto-model-selection).
+Using [VS Code Insiders](https://code.visualstudio.com/insiders/) and providing feedback in [our open source repository](https://github.com/microsoft/vscode/issues) is the best way to help us improve auto. For the latest information, check out the [auto model selection documentation](https://code.visualstudio.com/docs/copilot/customization/language-models#_auto-model-selection-preview).
 
 Happy coding!
