@@ -1,7 +1,7 @@
 # Modernizing your legacy Java Apps
 
 The [GitHub Copilot App Modernization extension](https://marketplace.visualstudio.com/items?itemName=vscjava.migrate-java-to-azure) (part of the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)) provides powerful capabilities to help developers modernize legacy Java applications with greater speed, accuracy, and efficiency.
-Whether upgrading frameworks, addressing outdated dependencies, or preparing for cloud migration, GitHub Copilot leverages intelligent automation and deep integration with Microsoft Azure to accelerate modernization—from months down to days
+Whether upgrading frameworks, addressing outdated dependencies, or preparing for cloud migration, GitHub Copilot uses intelligent automation and deep integration with Microsoft Azure to accelerate modernization, from months down to days.
 
 ![GitHub Copilot App Modernization](images/java-app-mod/appmodlogo.png)
 
