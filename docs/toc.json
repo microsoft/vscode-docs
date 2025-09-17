@@ -276,6 +276,7 @@
       ["Run and Debug", "/docs/java/java-debugging"],
       ["Testing", "/docs/java/java-testing"],
       ["Spring Boot", "/docs/java/java-spring-boot"],
+      ["Modernizing Java Apps", "/docs/java/java-app-mod"],
       ["Application Servers", "/docs/java/java-tomcat-jetty"],
       ["Deploy Java Apps", "/docs/java/java-on-azure"],
       ["GUI Applications", "/docs/java/java-gui"],
