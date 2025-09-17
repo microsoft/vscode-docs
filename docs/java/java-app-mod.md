@@ -25,7 +25,7 @@ Automatically detect and patch known vulnerabilities post-upgrade. Copilot appli
 * Seamless Azure integration
 Deploy upgraded apps to Azure with minimal effort. Modernized apps can immediately tap into Azure AI Foundry to unlock 11,000+ models, built-in observability, safety tools, and agent services.
 
-## How to use
+## Get started
 
 The following tutorials below walk you through the details. You can also check [here](https://learn.microsoft.com/en-us/azure/developer/github-copilot-app-modernization/overview) for general app modernization documentation.
 - [Upgrade a Java project](https://learn.microsoft.com/java/upgrade/quickstart-upgrade)
