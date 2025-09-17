@@ -8,7 +8,7 @@ Whether upgrading frameworks, addressing outdated dependencies, or preparing for
 The extension offer the following the key capabilities:
 
 * Intelligent assessments and upgrade planning
-Copilot scans your codebase, analyzes dependencies and frameworks, and builds actionable plans to guide your modernization journey.
+    Copilot scans your codebase, analyzes dependencies and frameworks, and builds actionable plans to guide your modernization journey.
 
 * AI-powered code transformation
     From Java 8 to the latest LTS version, Copilot automates upgrades with structured, context-aware edits,  cutting out repetitive work and reducing upgrade risk.
