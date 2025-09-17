@@ -10,7 +10,8 @@
 		"streetsidesoftware.code-spell-checker",
 		"DavidAnson.vscode-markdownlint",
 		"bierner.github-markdown-preview",
-		"github.vscode-pull-request-github"
+		"github.vscode-pull-request-github",
+		"ms-vscode.vscode-doc-assistant"
 	],
 	"remoteUser": "vscode"
 }
