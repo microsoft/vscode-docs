@@ -11,9 +11,17 @@
   "scripts": {
     "check-lfs": "node ./build/check-lfs.js",
     "lint": "eslint **/*.js",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "merge": "git merge",
+    "merge-check": "node ./build/merge-helper.js check",
+    "merge-conflict": "git status --porcelain | grep '^UU' || echo 'No merge conflicts found'",
+    "merge-status": "node ./build/merge-helper.js status",
+    "merge-abort": "git merge --abort",
+    "merge-continue": "git merge --continue",
+    "merge-scripts": "node ./build/merge-helper.js merge-scripts"
   },
   "devDependencies": {
+    "eslint": "^8.0.0",
     "eslint-plugin-security": "^1.7.1",
     "gulp": "~5.0.0",
     "husky": "^7.0.0",
