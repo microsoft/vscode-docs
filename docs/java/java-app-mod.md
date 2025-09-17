@@ -30,4 +30,4 @@ Deploy upgraded apps to Azure with minimal effort. Modernized apps can immediate
 The following tutorials below walk you through the details. You can also check [here](https://learn.microsoft.com/en-us/azure/developer/github-copilot-app-modernization/overview) for general app modernization documentation.
 - [Upgrade a Java project](https://learn.microsoft.com/java/upgrade/quickstart-upgrade)
 - [Assess and migrate a Java project](https://learn.microsoft.com/azure/developer/java/migration)
-- [Detecting and fixing security issues in your Java project](https://learn.microsoft.com/java/upgrade/tools)
+- [Detect and fix security issues in your Java project](https://learn.microsoft.com/java/upgrade/tools)
