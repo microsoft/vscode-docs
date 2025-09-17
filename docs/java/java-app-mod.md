@@ -23,7 +23,7 @@ Copilot fixes build errors, runs unit tests, and ensures your application is sta
 Automatically detect and patch known vulnerabilities post-upgrade. Copilot applies secure fixes while keeping developers in full control of the changes.
 
 * Seamless Azure integration
-Deploy upgraded apps to Azure with minimal effort. Modernized apps can immediately tap into Azure AI Foundry to unlock 11,000+ models, built-in observability, safety tools, and agent services.
+    Deploy upgraded apps to Azure with minimal effort. Modernized apps can immediately use Azure AI Foundry to unlock over 11,000 models, built-in observability, safety tools, and agent services.
 
 ## Get started
 
