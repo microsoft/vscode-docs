@@ -7,7 +7,7 @@ Whether upgrading frameworks, addressing outdated dependencies, or preparing for
 
 The extension offer the following the key capabilities:
 
-🧠 Intelligent assessments and upgrade planning
+* Intelligent assessments and upgrade planning
 Copilot scans your codebase, analyzes dependencies and frameworks, and builds actionable plans to guide your modernization journey.
 
 🛠️ AI-powered code transformation
