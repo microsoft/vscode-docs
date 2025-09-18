@@ -42,28 +42,7 @@ Creating a project in model conversion is the first step toward converting, opti
 
 ### Supported models
 
-Model Conversion currently supports a growing list of models, including top Hugging Face models in PyTorch format.
-
-#### LLM models
-
-| Model Name                             | Hugging Face Path                               |
-|----------------------------------------|-------------------------------------------------|
-| Qwen2.5 1.5B Instruct                  | `Qwen/Qwen2.5-1.5B-Instruct`                    |
-| DeepSeek R1 Distill Qwen 1.5B          | `deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B`     |
-| Meta LLaMA 3.2 1B Instruct             | `meta-llama/Llama-3.2-1B-Instruct`              |
-| Phi-3.5 Mini Instruct                  | `Phi-3.5-mini-instruct`                         |
-
-#### Non-LLM models
-
-| Model Name                             | Hugging Face Path                               |
-|----------------------------------------|-------------------------------------------------|
-| Intel BERT Base Uncased (MRPC)         | `Intel/bert-base-uncased-mrpc`                  |
-| BERT Multilingual Cased                | `google-bert/bert-base-multilingual-cased`      |
-| ViT Base Patch16-224                   | `google/vit-base-patch16-224`                   |
-| ResNet-50                              | `resnet-50`                                     |
-| CLIP ViT-B-32 (LAION)                  | `laion/CLIP-ViT-B-32-laion2B-s34B-b79K`         |
-| CLIP ViT Base Patch16                  | `clip-vit-base-patch16`                         |
-| CLIP ViT Base Patch32                  | `clip-vit-base-patch32`                         |
+Model Conversion currently supports a growing list of models, including top Hugging Face models in PyTorch format. For detailed model list, please refer: [Model List](https://github.com/microsoft/olive-recipes/blob/main/.aitk/docs/guide/ModelList.md)
 
 ### (Optional) Add model into existing project
 
@@ -230,16 +209,20 @@ The History Board in **Conversion** is your central dashboard for tracking, revi
 - Select the **logs** under Status indicator to view logs and detailed execution results
 - Once the model converted successfully, you can view the evaluation results under Metrics. Metrics such as accuracy, latency and throughput are displayed alongside each run
 
-![Screenshot that shows history, including name, time, parameters and so on.](./images/modelconversion/history.png)
+  ![Screenshot that shows history, including name, time, parameters and so on.](./images/modelconversion/history.png)
+
+- You can select the three-dot menu under **Action**, to interact with converted model.
+
+  ![Screenshot that shows actions, including inference, copy model path and re-evaluate.](./images/modelconversion/historyaction.png)
+
+
+## Copy converted model path
+
+- Select **Copy model path** from the dropdown. The output converted model path like `c:/{workspace}/{model_project}/history/{workflow}/model/model.onnx` will be copied to your clipboard for your reference. For LLM models, the output folder will be copied instead.
 
 ## Use sample notebook for model inference
 
-- Go to the History board. Select the three-dot menu under **Action**.
-
-    Select **Inference in Samples** from the dropdown.
-
-    ![Screenshot that shows actions, including inference, copy model path and re-evaluate.](./images/modelconversion/historyaction.png)
-
+- Select **Inference in Samples** from the dropdown.
 - Choose the Python environment
   - You'll be prompted to select a Python virtual environment.
 The default runtime is: `C:\Users\{user_name}\.aitk\bin\model_lab_runtime\Python-WCR-win32-x64-3.12.9`.
