@@ -91,7 +91,7 @@ Model Conversion currently supports a growing list of models, including top Hugg
 
 1. Open the model project and select **Models** > **Conversion**.
 
-1. Select **Models** > **Conversion**, and then select three-dot button on the top right panel. You can delete current selected model project.
+1. On the top-right view, select the ellipsis (**...**) and then **Delete** to delete the currently selected model project.
 
     ![Screenshot that shows how to delete a model project. It contains a button to open mean and detele a model project.](./images/modelconversion/delete-project.png)
 
