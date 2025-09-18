@@ -1,20 +1,21 @@
 {
-  "name": "vscode-docs",
+  "name": "lifeos",
   "version": "0.10.3",
-  "author": {
-    "name": "Microsoft Corporation"
-  },
+  "author": "Microsoft Corporation",
   "repository": {
     "type": "git",
-    "url": "https://github.com/microsoft/vscode-docs.git"
+    "url": "git+https://github.com/microsoft/vscode-docs.git"
   },
   "scripts": {
-    "build": "gulp build-dist",
+    "build": "npm -ws run build",
     "check-lfs": "node ./build/check-lfs.js",
     "lint": "eslint **/*.js",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "dev": "concurrently -n api,web -c green,cyan \"npm --workspace @lifeos/api run dev\" \"npm --workspace @lifeos/web run dev\"",
+    "start": "npm --workspace @lifeos/api start"
   },
   "devDependencies": {
+    "concurrently": "^9.2.1",
     "eslint": "^8.57.0",
     "eslint-plugin-security": "^1.7.1",
     "gulp": "~5.0.0",
@@ -26,5 +27,20 @@
     "*.{gif,mp4,jpg,png,GIF,MP4,JPG,PNG}": [
       "npm run check-lfs"
     ]
-  }
+  },
+  "description": "<p align=\"center\">   <img alt=\"vscode logo\" src=\"images/logo-stable.png\" width=\"100px\" />   <h1 align=\"center\">Visual Studio Code Documentation</h1> </p>",
+  "main": "gulpfile.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/microsoft/vscode-docs/issues"
+  },
+  "homepage": "https://github.com/microsoft/vscode-docs#readme",
+  "private": "true",
+  "workspaces": [
+    "apps/*"
+  ]
 }

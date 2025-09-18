@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Performance optimization
+Sitemap: /sitemap.xml
