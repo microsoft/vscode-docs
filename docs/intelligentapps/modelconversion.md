@@ -68,9 +68,9 @@ Model Conversion currently supports a growing list of models, including top Hugg
 
 ### (Optional) Delete a model project
 
-1. Open the model project
+1. Open the model project and select **Models** > **Conversion**.
 
-1. Select **Models** > **Conversion**, and then select three-dot button on the top right panel. You can delete current selected model project.
+1. On the top-right view, select the ellipsis (**...**) and then **Delete** to delete the currently selected model project.
 
     ![Screenshot that shows how to delete a model project. It contains a button to open mean and detele a model project.](./images/modelconversion/delete-project.png)
 
@@ -167,19 +167,18 @@ Running a workflow in model conversion is the core step that transform the pre-b
     4. An Azure Container App (ACA) job is triggered to run Cloud Conversion. For a running job, you can:
         - Select the status link to navigate to the Azure ACA Job Execution History page.
         - Select **logs** to navigate to Azure Log Analytics.
-        - Select refresh button to fetch the current job status.
+        - Select the refresh button to fetch the current job status.
 
         ![Screenshot that shows prompt for provisionning.](./images/modelconversion/cloud-conversion-history.png)
 
 > [!TIP]
 > If you don’t have a GPU available for LLM model conversion, you can use **Run with Cloud**.
+> The Run with Cloud option only supports model conversion and quantization. You need to download the converted model to your local machine for evaluation.
 >
-> Keep in mind that **Run with Cloud** only supports model conversion and quantization. You need to download the converted model to your local machine for evaluation.
->
-> **Run with Cloud** does not support model conversion using DirectML or NVIDIA TRT for RTX workflows.
+> Run with Cloud does not support model conversion using DirectML or NVIDIA TRT for RTX workflows.
 
 > [!NOTE]
-> **Recommended workflow**: the **Recommended** column will point out the workflow based on whether your device is ready to run the converted model. But it's OK to run any workflow as you need.
+> The **Recommended** column will show the recommended workflow based on whether your device is ready to run the converted model or not. You can still choose the workflow that you prefer.
 > **Model conversion and quantization**: you can run workflow on any device expect for LLM models. The **Quantization** configuration is optimized for NPU only. It's recommended to uncheck this step if the target system is not NPU.
 >
 > **LLM model quantization**: If you want to quantize the [LLM models](#llm-models), a Nvidia GPU is required.
