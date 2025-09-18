@@ -200,7 +200,7 @@ Running a workflow in model conversion is the core step that transform the pre-b
 > **Run with Cloud** does not support model conversion using DirectML or NVIDIA TRT for RTX workflows.
 
 > [!NOTE]
-> **Recommended workflow**: the **Recommended** column will point out the workflow based on whether your device is ready to run the converted model. But it's OK to run any workflow as you need.
+> The **Recommended** column will show the recommended workflow based on whether your device is ready to run the converted model or not. You can still choose the workflow that you prefer.
 > **Model conversion and quantization**: you can run workflow on any device expect for LLM models. The **Quantization** configuration is optimized for NPU only. It's recommended to uncheck this step if the target system is not NPU.
 >
 > **LLM model quantization**: If you want to quantize the [LLM models](#llm-models), a Nvidia GPU is required.
