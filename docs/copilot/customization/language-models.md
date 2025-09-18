@@ -1,12 +1,12 @@
 ---
 ContentId: 33e63aa1-1d8f-4d23-9733-1475f8c9f502
-DateApproved: 08/07/2025
+DateApproved: 09/11/2025
 MetaDescription: Learn how to choose between different AI language models and how to use your own language model API key in Visual Studio Code.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
 # AI language models in VS Code
 
-Visual Studio Code offers different language models that are optimized for different tasks via GitHub Copilot. You can also bring your own language model API key to use models from other providers. This article describes how to change the language model for chat or code completions, and how to use your own API key.
+Visual Studio Code offers different built-in language models that are optimized for different tasks. You can also bring your own language model API key to use models from other providers. This article describes how to change the language model for chat or code completions, and how to use your own API key.
 
 ## Choose the right model for your task
 
@@ -29,6 +29,25 @@ You can further extend the list of available models by [using your own language 
 
 If you have a paid Copilot plan, the model picker shows the premium request multiplier for premium models. Learn more about [premium requests](https://docs.github.com/en/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests#premium-requests) in the GitHub Copilot documentation.
 
+## Auto model selection (Preview)
+
+> [!NOTE]
+> Auto model selection is available as of VS Code release 1.104 and is currently in preview. We are rolling out auto to all GitHub Copilot users in VS Code in the following weeks, starting with the [individual GitHub Copilot plans](https://docs.github.com/en/copilot/concepts/billing/individual-plans).
+
+With auto model selection, VS Code automatically selects a model to ensure that you get the optimal performance and reduce rate limits due to excessive usage of particular language models. It detects degraded model performance and uses the best model at that point in time. We continue to improve this feature to pick the most suitable model for your needs.
+
+To use auto model selection, select **Auto** from the model picker in chat.
+
+![Screenshot that shows the model picker in the Chat view, showing the Auto option.](../images/language-models/model-dropdown-auto.png)
+
+Currently, auto chooses between Claude Sonnet 4, GPT-5, GPT-5 mini and other models. If your organization has [opted out of certain models](https://docs.github.com/en/copilot/how-tos/use-ai-models/configure-access-to-ai-models), auto will not select those models. If none of these models are available or you run out of premium requests, auto will fall back to a model at 0x multiplier.
+
+When using auto model selection, VS Code uses a variable [model multiplier](https://docs.github.com/en/copilot/concepts/billing/copilot-requests#model-multipliers), based on the selected model. If you are a paid user, auto will apply a request discount.
+
+At any time, you can see which model and model multiplier are used by hovering over the chat response.
+
+![Screenshot of a chat response, showing the selected model on hover.](../images/language-models/chat-response-selected-model.png)
+
 ## Customize the model picker
 
 You can customize which models you want to show in the model picker:
@@ -47,14 +66,14 @@ You can customize which models you want to show in the model picker:
 
 To change the language model that is used for generating code completions in the editor:
 
-1. Select **Configure Code Completions...** from the Copilot menu in the VS Code title bar.
+1. Select **Configure Code Completions...** from the Chat menu in the VS Code title bar.
 
 1. Select **Change Completions Model...**, and then select one of the models from the list.
 
 ## Bring your own language model key
 
 > [!IMPORTANT]
-> This feature is in preview and is not currently available to Copilot Business or Copilot Enterprise users.
+> This feature is not currently available to Copilot Business or Copilot Enterprise users.
 
 If you already have an API key for a language model provider, you can use their models in chat in VS Code, in addition to the built-in models that Copilot provides. You can use models from the following providers: Anthropic, Azure, Google Gemini, Groq, Ollama, OpenAI, OpenRouter, and xAI.
 
@@ -100,6 +119,33 @@ To update the provider details, such as the API key or endpoint URL:
    ![Screenshot that shows the model provider Quick Pick, with a gear icon next to the provider name.](../images/language-models/reconfigure-model-provider.png)
 
 1. Update the provider details, such as the API key or endpoint URL.
+
+## Use an OpenAI-compatible model
+
+> [!NOTE]
+> Configuring a custom OpenAI-compatible model is currently only available in [VS Code Insiders](https://code.visualstudio.com/insiders/) as of release 1.104.
+
+The custom OpenAI provider enables you use any OpenAI-compatible API endpoint and configure the models for use in chat.
+
+To configure a custom OpenAI endpoint and model:
+
+1. Run the **Chat: Manage Language Models** command from the Command Palette.
+
+1. Select the gear icon next to the **OpenAI Compatible** provider.
+
+    ![Screenshot that shows the model provider Quick Pick, with a gear icon next to the OpenAI Compatible provider name.](../images/language-models/manage-openai-compatible.png)
+
+1. Select **Manage API Key** to set the API key for your custom endpoint, if required.
+
+1. Select **Configure Models** > **Add New Model** and follow the prompts to add the details for your model:
+
+    * Unique identifier for the model
+    * Display name for the model in the language model picker
+    * Full API endpoint URL
+    * Select the model capabilities, such as tool calling, vision, thinking, and whether the endpoint requires an API key.
+    * Maximum input and output token limits.
+
+Alternatively, you can manually add your custom model configuration in the `setting(github.copilot.chat.customOAIModels)` setting.
 
 ## Considerations
 

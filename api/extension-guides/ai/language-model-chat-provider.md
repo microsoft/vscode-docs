@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 7f90ee4f-cac1-4b99-aee6-c99e088789d0
-DateApproved: 08/07/2025
+DateApproved: 09/11/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to implement a LanguageModelChatProvider to contribute custom language models to VS Code's chat experience for extensions.
@@ -10,6 +10,9 @@ MetaDescription: Learn how to implement a LanguageModelChatProvider to contribut
 # Language Model Chat Provider API
 
 The Language Model Chat Provider API enables you to contribute your own language models to chat in Visual Studio Code.
+
+> [!IMPORTANT]
+> Models provided through this API are currently only available to users on [individual GitHub Copilot plans](https://docs.github.com/en/copilot/concepts/billing/individual-plans).
 
 ## Overview
 
@@ -21,7 +24,7 @@ The `LanguageModelChatProvider` interface follows a one-provider-to-many-models 
 
 ## Language model information
 
-Each language model must provide metadata through the `LanguageModelChatInformation` interface. The `prepareLanguageModelChatInformation` method returns an array of these objects to inform VS Code about the available models.
+Each language model must provide metadata through the `LanguageModelChatInformation` interface. The `provideLanguageModelChatInformation` method returns an array of these objects to inform VS Code about the available models.
 
 ```typescript
 interface LanguageModelChatInformation {
@@ -98,18 +101,18 @@ interface LanguageModelChatInformation {
 
 A language provider must implement the `LanguageModelChatProvider` interface, which has three main methods:
 
-- `prepareLanguageModelChatInformation`: returns the list of available models
+- `provideLanguageModelChatInformation`: returns the list of available models
 - `provideLanguageModelChatResponse`: handles chat requests and streams responses
 - `provideTokenCount`: implements token counting functionality
 
 ### Prepare language model information
 
-The `prepareLanguageModelChatInformation` method is called by VS Code to discover the available models and returns a list of `LanguageModelChatInformation` objects.
+The `provideLanguageModelChatInformation` method is called by VS Code to discover the available models and returns a list of `LanguageModelChatInformation` objects.
 
 Use the `options.silent` parameter to control whether to prompt the user for credentials or extra configuration:
 
 ```typescript
-async prepareLanguageModelChatInformation(
+async provideLanguageModelChatInformation(
     options: { silent: boolean },
     token: CancellationToken
 ): Promise<LanguageModelChatInformation[]> {
@@ -133,8 +136,7 @@ async prepareLanguageModelChatInformation(
         capabilities: {
             imageInput: model.supportsImages,
             toolCalling: model.supportsTools
-        },
-        requiresAuthorization: true
+        }
     }));
 }
 ```
@@ -149,7 +151,7 @@ Use the `progress` parameter to stream response chunks. The response can include
 async provideLanguageModelChatResponse(
     model: LanguageModelChatInformation,
     messages: readonly LanguageModelChatRequestMessage[],
-    options: LanguageModelChatRequestHandleOptions,
+    options: ProvideLanguageModelChatResponseOptions,
     progress: Progress<LanguageModelResponsePart>,
     token: CancellationToken
 ): Promise<void> {

@@ -1,6 +1,6 @@
 ---
 ContentId: 05C114DF-4FDC-4C65-8954-58F5F293FAFD
-DateApproved: 08/07/2025
+DateApproved: 09/11/2025
 MetaDescription: Get the best out of editing TypeScript with Visual Studio Code.
 MetaSocialImage: images/typescript/typescript-social.png
 ---

@@ -1,6 +1,6 @@
 ---
 ContentId: 130ecf6c-6f06-4ddd-8b1d-f85f023af77b
-DateApproved: 08/07/2025
+DateApproved: 09/11/2025
 MetaDescription: Interact with GitHub Copilot through AI-powered chat conversations in VS Code to generate code, increase your code understanding, and even configure your editor.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -8,19 +8,25 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 
 Use chat in Visual Studio Code to ask about your codebase or make edits across your project by using natural language. Chat can operate in different modes, optimized for your use case, from asking questions to making multi-file edits or starting an autonomous coding workflow.
 
-You might want to use chat in VS Code when you need to:
+## Why use chat in VS Code?
 
-* Understand code - "Explain how this authentication middleware works"
+Chat enables you to have an ongoing chat conversation with the AI. You can ask follow-up questions and iterate on your requests. Some examples of what you can do with chat in VS Code:
+
+* Scaffold a new app - "Create a new React app with TypeScript and Tailwind CSS"
+* Add features - "Add a login page and style it based on #styles.css"
+* Understand your code - "Explain how this authentication middleware works"
 * Debug issues - "Why am I getting a null reference in this loop?"
-* Get code suggestions - "Show me how to implement a binary search tree in Python"
 * Optimize performance - "Help me improve the efficiency of this database query"
-* Learn best practices - "What's the recommended way to handle errors in async functions?"
-* Get VS Code tips - "How do I customize keyboard shortcuts?"
+* Generate tests - "Create unit tests for the `calculateTotal` function"
 
 ## Prerequisites
 
-* Install the latest version of [Visual Studio Code](/download)
-* Access to [Copilot](/docs/copilot/setup.md). [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
+* VS Code installed on your machine. Download it from the [Visual Studio Code website](https://code.visualstudio.com/).
+
+* Access to GitHub Copilot. Follow these steps to [Set up GitHub Copilot in VS Code](/docs/copilot/setup.md).
+
+    > [!TIP]
+    > If you don't have a Copilot subscription, you can sign up to use Copilot for free directly from within VS Code and get a monthly limit of completions and chat interactions.
 
 ## Access chat in VS Code
 
@@ -32,19 +38,19 @@ You can use natural language chat in different ways in VS Code, each optimized f
 | **Inline chat**<br/>`kb(inlineChat.start)` | Start a chat conversation directly from the editor (_editor inline chat_) or integrated terminal (_terminal inline chat_) to get suggestions in-place. | ![Screenshot of the Inline chat](images/copilot-chat/inline-chat.png) |
 | **Quick Chat**<br/>`kb(workbench.action.quickchat.toggle)` | Ask a quick question and get back into what you were doing. | ![Screenshot of the Quick Chat](images/copilot-chat/quick-chat.png) |
 
-Access each chat experience by using the corresponding keyboard shortcuts or via the Copilot menu in the VS Code title bar.
+Access each chat experience by using the corresponding keyboard shortcuts or via the Chat menu in the VS Code title bar.
 
 ![Screenshot of the Copilot Chat menu in the VS Code Command Center](images/copilot-chat/copilot-chat-menu-command-center.png)
 
 ## Choose a chat mode
 
-Chat modes are predefined configurations to customize chat in VS Code for specific tasks, such as asking questions, making code edits, or performing autonomous coding tasks. VS Code comes with three built-in chat modes: **Ask**, **Edit**, and **Agent**. You can also define your own chat modes for specific scenarios, such as planning a new feature, or researching implementation options.
+Chat modes are predefined configurations or personas to customize chat in VS Code for specific tasks, such as planning, asking questions, or performing autonomous coding tasks.
 
 To switch between chat modes, open the Chat view (`kb(workbench.action.chat.open)`), and then select the desired mode from the chat mode dropdown list.
 
 ![Screenshot showing the Chat view, highlighting the chat mode dropdown list.](images/chat-modes/chat-mode-dropdown.png)
 
-Learn more about [chat modes in VS Code](/docs/copilot/customization/custom-chat-modes.md).
+VS Code comes with three built-in chat modes: **Ask**, **Edit**, and **Agent**. You can define your own chat modes for specific scenarios, such as planning a new feature, or researching implementation options. Learn more about [chat modes in VS Code](/docs/copilot/customization/custom-chat-modes.md).
 
 ## Change the language model
 
@@ -52,14 +58,14 @@ VS Code offers different built-in language models to choose from. Some models ar
 
 ![Screenshot of the chat model picker in the Chat view, showing a dropdown list of available models.](images/copilot-chat/chat-model-picker.png)
 
-You can also add models from other model providers (preview) and use them in chat. Get more details about how to [use models from other providers](/docs/copilot/customization/language-models.md#bring-your-own-language-model-key).
+You can also add models from other model providers and use them in chat. Get more details about how to [use models from other providers](/docs/copilot/customization/language-models.md#bring-your-own-language-model-key).
 
 > [!NOTE]
 > The list of available models might vary based on your Copilot subscription and might change over time. See the GitHub Copilot documentation for more information about the [available language models](https://docs.github.com/en/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat?tool=vscode).
 
 ## Submit a chat prompt
 
-Type a natural language prompt in the chat input box to make chat requests in VS Code. Depending on the chat mode, you can ask questions about your codebase, get code suggestions, or make code edits across multiple files in your project and invoke specialized tools.
+Type a natural language prompt in the chat input field to make chat requests in VS Code. Depending on the chat mode you selected, your prompt will be handled accordingly. For example, in ask mode, the response
 
 A chat response might contain a combination of rich content such as Markdown text, code blocks, buttons, file trees, and more.
 
@@ -156,10 +162,10 @@ To view the history of chat sessions, select the **Show Chats...** button in the
 
 You can export all prompts and responses for a chat session in a JSON file with the **Chat: Export Chat...** command in the Command Palette. To copy a specific chat prompt or response to the clipboard in Markdown format, right-click the message and select **Copy**. To copy the entire chat session, right-click the Chat view and select **Copy All**.
 
-## Edit a previous chat request (Experimental)
+## Edit a previous chat request
 
 > [!NOTE]
-> The ability to edit chat requests is available as of VS Code version 1.102 and is currently an experimental feature.
+> The ability to edit chat requests is available as of VS Code version 1.102.
 
 You can edit a previous chat request in the active chat session. This is useful if you want to refine your prompt or correct a mistake. Editing a chat request is equivalent to reverting the request and then submitting a new request with the edited prompt.
 
@@ -178,10 +184,10 @@ You can configure editing of previous chat request with the `setting(chat.editRe
 * `input`: Hover over a chat request and select the edit icon (pencil) to edit the request in the chat input field.
 * `none`: Disable editing of chat requests in the Chat view.
 
-### Revert chat requests with checkpoints (Preview)
+### Revert chat requests with checkpoints
 
 > [!NOTE]
-> Checkpoints are available as of VS Code release 1.103 and are currently in preview.
+> Checkpoints are available as of VS Code release 1.103.
 
 Chat checkpoints provide a way to restore the state of your workspace to a previous point in time, and are particularly useful when chat interactions resulted in changes across multiple files.
 
@@ -284,6 +290,18 @@ To enable more workspace search features for private repositories, we require ad
 Learn more about security, privacy, and transparency in the [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/).
 
 ## Frequently asked questions
+
+### How do I prevent the Chat view from opening automatically?
+
+By default, the Chat view opens in the Secondary Side Bar. When you close the Chat view for a workspace, VS Code remembers this setting and does not open the Chat view automatically the next time you open that workspace.
+
+You can change the default visibility directly from the Chat view:
+
+1. Open the Chat view (`kb(workbench.action.chat.open)`).
+1. Select the `...` icon in the top-right corner of the Chat view.
+1. Select **Show View by Default** to enable or disable the automatic opening of the Chat view.
+
+You can also control the default visibility of the Secondary Side Bar with the `setting(workbench.secondarySideBar.defaultVisibility)` setting. Set it to `hidden` to prevent the Chat view from opening automatically.
 
 ### How do I choose between the different chat modes?
 

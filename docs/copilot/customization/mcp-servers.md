@@ -1,6 +1,6 @@
 ---
 ContentId: 7c550054-4ade-4665-b368-215798c48673
-DateApproved: 08/07/2025
+DateApproved: 09/11/2025
 MetaDescription: Learn how to configure and use Model Context Protocol (MCP) servers with GitHub Copilot in Visual Studio Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -46,7 +46,7 @@ VS Code supports the following MCP capabilities:
 
 ## Enable MCP support in VS Code
 
-You can enable or disable MCP support in VS Code with the `setting(chat.mcp.enabled)` setting. By default, MCP support is enabled.
+The `setting(chat.mcp.access)` setting controls which MCP servers can be installed and run in VS Code. By default, all MCP servers are allowed. Configure this setting to `none` to disable MCP support.
 
 ### Centrally manage MCP support
 
@@ -161,9 +161,9 @@ When the Dev Container is created, VS Code automatically writes the MCP server c
 <details>
 <summary>Automatically discover MCP servers</summary>
 
-VS Code can automatically detect and reuse MCP servers that you defined in other tools, such as Claude Desktop.
+VS Code can automatically detect and reuse MCP server configurations from other applications, such as Claude Desktop.
 
-Enable autodiscovery with the `setting(chat.mcp.discovery.enabled)` setting.
+Configure autodiscovery with the `setting(chat.mcp.discovery.enabled)` setting. Select one or more tools from which to discover MCP server configuration from those tools.
 
 </details>
 
