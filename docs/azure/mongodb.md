@@ -1,17 +1,17 @@
 ---
 ContentId: d1187f99-354f-4798-9c19-e432e4ae8572
 MetaDescription: Working with MongoDB in Visual Studio Code
-DateApproved: 11/1/2022
+DateApproved: 11/1/2025
 ---
 # Working with MongoDB
 
-Visual Studio Code has great support for working with [MongoDB](https://www.mongodb.com/what-is-mongodb) databases, whether your own instance or in [Azure with MongoDB Atlas](https://www.mongodb.com/cloud/atlas/azure-mongodb?utm_campaign=marketplace&utm_source=&utm_medium=marketplace). With the [MongoDB for VS Code](https://marketplace.visualstudio.com/items?itemName=mongodb.mongodb-vscode) extension, you can create, manage, and query MongoDB databases from within VS Code.
+Visual Studio Code has great support for working with [MongoDB](https://www.mongodb.com/what-is-mongodb) databases, whether your own instance or with [Azure DocumentDB (with MongoDB compatibility)](https://learn.microsoft.com/azure/cosmos-db/mongodb/vcore/introduction). With the [DocumentDB for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-documentdb) extension, you can create, manage, and query MongoDB databases from within VS Code.
 
 ## Install the extension
 
-MongoDB support for VS Code is provided by the [MongoDB for VS Code](https://marketplace.visualstudio.com/items?itemName=mongodb.mongodb-vscode) extension. To install the MongoDB for VS Code extension, open the Extensions view by pressing `kb(workbench.view.extensions)` and search for 'MongoDB' to filter the results. Select the **MongoDB for VS Code** extension.
+MongoDB support for VS Code is provided by the [DocumentDB for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-documentdb) extension. To install the DocumentDB for VS Code extension, open the Extensions view by pressing `kb(workbench.view.extensions)` and search for 'DocumentDB' to filter the results. Select the **DocumentDB for VS Code** extension.
 
-![Select MongoDB for VS Code](images/mongodb/install-cosmosdb-extension.png)
+![Select DocumentDB for VS Code](images/mongodb/install-cosmosdb-extension.png)
 
 ## Connect to MongoDB
 
