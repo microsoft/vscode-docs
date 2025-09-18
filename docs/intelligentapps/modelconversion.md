@@ -221,7 +221,7 @@ The History Board in **Conversion** is your central dashboard for tracking, revi
 
 ## Use sample notebook for model inference
 
-- Select **Inference in Samples** from the dropdown.
+- Select **Inference in Sample** from the dropdown.
 - Choose the Python environment
   - You'll be prompted to select a Python virtual environment.
 The default runtime is: `C:\Users\{user_name}\.aitk\bin\model_lab_runtime\Python-WCR-win32-x64-3.12.9`.
