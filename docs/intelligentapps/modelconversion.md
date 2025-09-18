@@ -196,7 +196,7 @@ Running a workflow in model conversion is the core step that transform the pre-b
 > If you don’t have a GPU available for LLM model conversion, you can use **Run with Cloud**.
 > The Run with Cloud option only supports model conversion and quantization. You need to download the converted model to your local machine for evaluation.
 >
-> **Run with Cloud** does not support model conversion using DirectML or NVIDIA TRT for RTX workflows.
+> Run with Cloud does not support model conversion using DirectML or NVIDIA TRT for RTX workflows.
 
 > [!NOTE]
 > The **Recommended** column will show the recommended workflow based on whether your device is ready to run the converted model or not. You can still choose the workflow that you prefer.
