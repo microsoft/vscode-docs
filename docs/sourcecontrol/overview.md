@@ -22,7 +22,7 @@ With GitHub Copilot in VS Code, you can get suggestions for commit messages, pul
 VS Code recognizes when you open a folder that is a Git repository. The Source Control view enables you to perform most of the Git operations without using the command line.
 
 > [!IMPORTANT]
-> **Make sure that Git is installed on your machine.** VS Code uses your machine's Git installation (at least version `2.0.0`), so you need to [install Git](https://git-scm.com/download) first before you get these features.
+> **Make sure that Git is installed on your machine.** VS Code uses your machine's Git installation (at least version `2.20.0`), so you need to [install Git](https://git-scm.com/download) first before you get these features.
 
 You can access the Source Control view from the by selecting the **Source Control** icon in the Activity Bar or by using the `kb(workbench.view.scm)` keyboard shortcut. If you have changes, the Source Control icon indicates **how many changes** you currently have in your repository.
 
