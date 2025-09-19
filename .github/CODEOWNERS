@@ -1,0 +1,15 @@
+# CODEOWNERS: reviewers automatically requested on PRs that touch these paths.
+# Learn more: https://docs.github.com/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Docs content
+/docs/ @IBERMOLINA
+
+# CI/Automation configs
+/.github/ @IBERMOLINA
+
+# Devcontainer
+/.devcontainer/ @IBERMOLINA
+
+# Root configs
+/.gitattributes @IBERMOLINA
+/.pre-commit-config.yaml @IBERMOLINA
