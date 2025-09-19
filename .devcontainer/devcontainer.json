@@ -2,15 +2,28 @@
 {
 	"name": "VS Code Docs",
 	"dockerFile": "Dockerfile",
-	"settings": {
-		"terminal.integrated.defaultProfile.linux": "zsh"
+	"features": {
+		"ghcr.io/devcontainers/features/node:1": {
+			"version": "18"
+		}
 	},
-	"extensions": [
-		"yzhang.markdown-all-in-one",
-		"streetsidesoftware.code-spell-checker",
-		"DavidAnson.vscode-markdownlint",
-		"bierner.github-markdown-preview",
-		"github.vscode-pull-request-github"
-	],
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"terminal.integrated.defaultProfile.linux": "zsh"
+			},
+			"extensions": [
+				"yzhang.markdown-all-in-one",
+				"streetsidesoftware.code-spell-checker",
+				"DavidAnson.vscode-markdownlint",
+				"bierner.github-markdown-preview",
+				"github.vscode-pull-request-github",
+				"github.vscode-github-actions",
+				"dbaeumer.vscode-eslint",
+				"esbenp.prettier-vscode"
+			]
+		}
+	},
+	"postCreateCommand": "if [ -f package-lock.json ]; then npm ci || true; else npm install || true; fi",
 	"remoteUser": "vscode"
 }

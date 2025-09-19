@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build and checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18.x
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: LFS check (media under Git LFS)
+        run: npm run check-lfs
+
+      - name: Lint (if available)
+        shell: bash
+        run: |
+          if [ -x ./node_modules/.bin/eslint ]; then
+            npm run lint
+          else
+            echo "Skipping lint: eslint not installed"
+          fi
