@@ -1,0 +1,19 @@
+# See https://pre-commit.com for usage and config
+# Install: pip install pre-commit && pre-commit install
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+        args: ["--fix=lf"]
+      - id: check-merge-conflict
+      - id: check-yaml
+      - id: check-json
+        exclude: ^package-lock\.json$
+      - id: check-toml
+      - id: detect-private-key
+      - id: check-added-large-files
+        args: ["--maxkb=10240"]
