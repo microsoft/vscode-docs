@@ -7,5 +7,3 @@
 # Fine-tune GitHub's language detection
 docs/** -linguist-documentation
 *.md linguist-detectable
-/workspaces/vscode-docs/docs/copilot/images/overview/configure-completions.png filter=lfs diff=lfs merge=lfs -text
-/workspaces/vscode-docs/docs/copilot/images/overview/change-completions-model.png filter=lfs diff=lfs merge=lfs -text
