@@ -1,0 +1,20 @@
+name: Docker Smoke Test
+# Trigger touch: 2025-09-21
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ deploy-web-linked ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  hello-world:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Docker version
+        run: docker --version
+      - name: Run hello-world
+        run: docker run --rm hello-world
