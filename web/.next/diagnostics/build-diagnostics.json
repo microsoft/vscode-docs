@@ -1,0 +1,6 @@
+{
+  "buildStage": "compile",
+  "buildOptions": {
+    "useBuildWorker": "true"
+  }
+}
