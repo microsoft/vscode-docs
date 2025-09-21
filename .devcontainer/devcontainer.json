@@ -22,6 +22,11 @@
 			]
 		}
 	},
-	"postCreateCommand": "export NVM_DIR=\"$HOME/.nvm\" && [ -s \"$NVM_DIR/nvm.sh\" ] && \\. \"$NVM_DIR/nvm.sh\" && nvm use 20 && cd web && npm ci",
+	"postCreateCommand": [
+		"export NVM_DIR=\"$HOME/.nvm\"",
+		"[ -s \"$NVM_DIR/nvm.sh\" ] && \\. \"$NVM_DIR/nvm.sh\"",
+		"nvm use 20",
+		"cd web && npm ci"
+	],
 	"remoteUser": "vscode"
 }
