@@ -1,5 +1,4 @@
 name: Docker Smoke Test
-# Trigger touch: 2025-09-21
 
 on:
   workflow_dispatch:
@@ -14,7 +13,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install dependencies
+        run: cd web && npm ci
+      - name: Build app
+        run: cd web && npm run build
       - name: Docker version
         run: docker --version
       - name: Run hello-world
         run: docker run --rm hello-world
+      - name: Build Docker image
+        run: cd web && docker build -t lifemetrics-web:latest .
