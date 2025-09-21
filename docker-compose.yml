@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  # Web app (Next.js)
+  web:
+    build: ./LifeMtrics-buildsetup/apps/web
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - NEXT_TELEMETRY_DISABLED=1
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+volumes:
+  web_data:
+
+networks:
+  default:
+    name: lifemtrics-network
