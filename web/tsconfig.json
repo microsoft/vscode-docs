@@ -25,7 +25,12 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "target": "ES2017",
+    "strict": false,
+    "noEmit": true,
+    "module": "esnext",
+    "moduleResolution": "node"
   },
   "include": [
     "**/*.ts",
