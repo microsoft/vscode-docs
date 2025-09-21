@@ -2,15 +2,25 @@
 {
 	"name": "VS Code Docs",
 	"dockerFile": "Dockerfile",
-	"settings": {
-		"terminal.integrated.defaultProfile.linux": "zsh"
+	"features": {
+		"ghcr.io/devcontainers/features/node:1": {
+			"version": "20"
+		},
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {}
 	},
-	"extensions": [
-		"yzhang.markdown-all-in-one",
-		"streetsidesoftware.code-spell-checker",
-		"DavidAnson.vscode-markdownlint",
-		"bierner.github-markdown-preview",
-		"github.vscode-pull-request-github"
-	],
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"terminal.integrated.defaultProfile.linux": "zsh"
+			},
+			"extensions": [
+				"yzhang.markdown-all-in-one",
+				"streetsidesoftware.code-spell-checker",
+				"DavidAnson.vscode-markdownlint",
+				"bierner.github-markdown-preview",
+				"github.vscode-pull-request-github"
+			]
+		}
+	},
 	"remoteUser": "vscode"
 }
