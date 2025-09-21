@@ -1,11 +1,12 @@
 // For format details, see https://aka.ms/vscode-remote/devcontainer.json
 {
-	"name": "VS Code Docs",
+	"name": "LifeMtrics Development",
 	"dockerFile": "Dockerfile",
 	"features": {
 		"ghcr.io/devcontainers/features/node:1": {
-			"version": "18"
-		}
+			"version": "20"
+		},
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {}
 	},
 	"customizations": {
 		"vscode": {
@@ -20,10 +21,16 @@
 				"github.vscode-pull-request-github",
 				"github.vscode-github-actions",
 				"dbaeumer.vscode-eslint",
-				"esbenp.prettier-vscode"
+				"esbenp.prettier-vscode",
+				"ms-vscode.vscode-typescript-next",
+				"bradlc.vscode-tailwindcss",
+				"ms-vscode.vscode-json"
 			]
 		}
 	},
-	"postCreateCommand": "if [ -f package-lock.json ]; then npm ci || true; else npm install || true; fi",
-	"remoteUser": "vscode"
+	"postCreateCommand": "./scripts/setup.sh",
+	"remoteUser": "vscode",
+	"mounts": [
+		"source=${localWorkspaceFolder}/.git,target=/workspaces/vscode-docs/.git,type=bind,consistency=cached"
+	]
 }
