@@ -1,50 +1,16 @@
-version: '3.8'version: '3.8'
+version: '3.8'
 
-
-
-services:services:
-
-  # Override web for dev mode  # Override web for dev mode
-
-  web:  web:
-
-    build: ./LifeMtrics-buildsetup/apps/web    build: ./web
-
-    ports:    ports:
-
-      - "3000:3000"      - "3000:3000"
-
-    volumes:    volumes:
-
-      - ./LifeMtrics-buildsetup/apps/web:/app      - ./web:/app
-
-      - /app/node_modules      - /app/node_modules
-
-    environment:    environment:
-
-      - NODE_ENV=development      - NODE_ENV=development
-
-      - NEXT_TELEMETRY_DISABLED=1      - NEXT_TELEMETRY_DISABLED=1
-
-    command: npm run dev    command: npm run dev
-
-    restart: unless-stopped    restart: unless-stopped
-
-  # Override lifeos-app for dev mode
-  lifeos-app:
-    build: ./lifeos
+services:
+  # Override web for dev mode
+  web:
+    build: ./LifeMtrics-buildsetup/apps/web
     ports:
-      - "3001:3001"
+      - "3000:3000"
     volumes:
-      - ./lifeos:/app
+      - ./LifeMtrics-buildsetup/apps/web:/app
       - /app/node_modules
     environment:
       - NODE_ENV=development
-      - MONGODB_URI=mongodb://mongo:27017/performance-demo
-      - REDIS_HOST=redis
-      - REDIS_PORT=6379
+      - NEXT_TELEMETRY_DISABLED=1
     command: npm run dev
-    depends_on:
-      - mongo
-      - redis
     restart: unless-stopped
