@@ -1,0 +1,24 @@
+# Dependencies
+node_modules
+
+# Next.js build output
+.next
+.turbo
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Env files
+.env*
+
+# VCS
+.git
+.gitignore
+
+# Editor/OS
+.DS_Store
+.vscode
+*.swp
