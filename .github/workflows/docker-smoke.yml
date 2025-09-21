@@ -30,4 +30,6 @@ jobs:
       - name: Run hello-world
         run: docker run --rm hello-world
       - name: Build Docker image
-        run: cd web && docker build -t lifemetrics-web:latest .
+        run: |
+          cd web
+          docker build -t lifemetrics-web:latest .
