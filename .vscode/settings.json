@@ -1,10 +1,10 @@
 // Place your settings in this file to overwrite default and user settings.
 {
-  "git.branchProtection": [
-    "main"
-  ],
-  "git.branchProtectionPrompt": "alwaysCommitToNewBranch",
-  "editor.wordWrap": "on",
+    "git.branchProtection": [
+        "main"
+    ],
+    "git.branchProtectionPrompt": "alwaysCommitToNewBranch",
+    "editor.wordWrap": "on",
     "files.eol": "\n",
     "files.trimTrailingWhitespace": true,
     "files.associations": {
@@ -19,7 +19,6 @@
     "markdown.copyFiles.destination": {
         // /release-notes/v123.md -> /release-notes/images/123/img.png
         "/release-notes/**/*": "/release-notes/images/${documentBaseName/v(.*)/$1/}/",
-
         // Put into 'images' directory next to file
         "/api/**/*": "images/${documentBaseName}/"
     },
@@ -27,6 +26,10 @@
         "source.organizeLinkDefinitions": "explicit"
     },
     "markdown.editor.filePaste.videoSnippet": "<video src=\"${src}\" title=\"${title}\" autoplay loop controls muted></video>",
-
     "github.copilot.chat.codeGeneration.useInstructionFiles": false,
+    "python.testing.pytestArgs": [
+        "."
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
 }
