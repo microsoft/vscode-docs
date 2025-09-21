@@ -22,6 +22,7 @@ If you are looking for the VS Code product GitHub repository, you can find it [h
   - [Cloning](#cloning)
     - [Cloning without binary files](#cloning-without-binary-files)
 - [Publishing](#publishing)
+- [Running the Apps](#running-the-apps)
 
 ## Visual Studio Code
 
@@ -83,3 +84,48 @@ The history of this repo before we adopted LFS can be found at [microsoft/vscode
 ## Publishing
 
 Publishing merged pull requests is not automatic and is initiated manually after changes have been reviewed on an internal staging server. There is no specific time guarantee for when PR updates will be available on https://code.visualstudio.com but the intent is that they will usually be live within 24 hours.
+
+## Running the Apps
+
+This repository contains multiple applications in a monorepo setup within the `LifeMtrics-buildsetup/` submodule.
+
+### One Command Startup
+
+To start all services (web app, databases) in development mode:
+
+```bash
+npm run dev
+```
+
+To start in production mode:
+
+```bash
+npm run start
+```
+
+This uses Docker Compose to orchestrate all services.
+
+### Individual Apps
+
+- **Web App** (Next.js): Runs on http://localhost:3000
+- **LifeOS App** (React + Node.js): Runs on http://localhost:3001 (when available)
+- **MongoDB**: Port 27017 (when available)
+- **Redis**: Port 6379 (when available)
+
+### Building
+
+To build all Docker images:
+
+```bash
+npm run build
+```
+
+### Development
+
+For local development of the LifeMtrics apps, navigate to the submodule:
+
+```bash
+cd LifeMtrics-buildsetup
+pnpm install
+pnpm dev
+```
