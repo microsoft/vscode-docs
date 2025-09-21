@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc -p tsconfig.json",
-    "test": "jest",
+    "test": "jest"
   },
   "dependencies": {
     "@clerk/nextjs": "^6.9.3",
@@ -22,10 +22,10 @@
   "devDependencies": {
     "@rrweb/types": "2.0.0-alpha.17",
     "@testing-library/jest-dom": "^6.1.5",
-    "@testing-library/react": "^14.1.2",
+    "@testing-library/react": "^16.0.0",
     "@types/node": "^20.16.11",
     "@types/react": "^19.0.1",
-    "@types/react-dom": "^19.0.1",
+    "@types/jest": "^29.5.8",
     "autoprefixer": "^10.4.20",
     "eslint": "^9.36.0",
     "eslint-plugin-security": "^3.0.1",
