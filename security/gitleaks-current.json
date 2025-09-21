@@ -1,0 +1,42 @@
+[
+ {
+  "Description": "Detected a Generic API Key, potentially exposing access to various services and sensitive operations.",
+  "StartLine": 28,
+  "EndLine": 28,
+  "StartColumn": 8,
+  "EndColumn": 54,
+  "Match": "API_KEY=AIzaSyAfPx54xX4pjQAqCANbilGpr-zldWjQF8k",
+  "Secret": "AIzaSyAfPx54xX4pjQAqCANbilGpr-zldWjQF8k",
+  "File": "lifeos/.env",
+  "SymlinkFile": "",
+  "Commit": "a8190b79f35dce6f3aef379e2d28d07985fb2e03",
+  "Entropy": 4.7212996,
+  "Author": "Cursor Agent",
+  "Email": "cursoragent@cursor.com",
+  "Date": "2025-09-18T15:33:53Z",
+  "Message": "feat: Add Gemini AI integration and endpoints\n\nCo-authored-by: ibermolina \u003cibermolina@gmail.com\u003e",
+  "Tags": [],
+  "RuleID": "generic-api-key",
+  "Fingerprint": "a8190b79f35dce6f3aef379e2d28d07985fb2e03:lifeos/.env:generic-api-key:28"
+ },
+ {
+  "Description": "Detected a Generic API Key, potentially exposing access to various services and sensitive operations.",
+  "StartLine": 11,
+  "EndLine": 12,
+  "StartColumn": 9,
+  "EndColumn": 1,
+  "Match": "API_KEY=AIzaSyAfPx54xX4pjQAqCANbilGpr-zldWjQF8k",
+  "Secret": "AIzaSyAfPx54xX4pjQAqCANbilGpr-zldWjQF8k",
+  "File": "lifeos/GEMINI_INTEGRATION.md",
+  "SymlinkFile": "",
+  "Commit": "a8190b79f35dce6f3aef379e2d28d07985fb2e03",
+  "Entropy": 4.7212996,
+  "Author": "Cursor Agent",
+  "Email": "cursoragent@cursor.com",
+  "Date": "2025-09-18T15:33:53Z",
+  "Message": "feat: Add Gemini AI integration and endpoints\n\nCo-authored-by: ibermolina \u003cibermolina@gmail.com\u003e",
+  "Tags": [],
+  "RuleID": "generic-api-key",
+  "Fingerprint": "a8190b79f35dce6f3aef379e2d28d07985fb2e03:lifeos/GEMINI_INTEGRATION.md:generic-api-key:11"
+ }
+]
