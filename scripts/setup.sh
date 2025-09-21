@@ -12,11 +12,28 @@ if [ ! -d "LifeMtrics-buildsetup" ]; then
     exit 1
 fi
 
+# Check for required tools
+echo "🔍 Checking for required tools..."
+
+if ! command -v node &> /dev/null; then
+    echo "❌ Node.js is not installed. Please install Node.js 20+"
+    exit 1
+fi
+
+if ! command -v npm &> /dev/null; then
+    echo "❌ npm is not installed. Please install npm"
+    exit 1
+fi
+
+echo "✅ Node.js $(node --version) and npm $(npm --version) found"
+
 # Check if pnpm is installed
 if ! command -v pnpm &> /dev/null; then
     echo "📦 Installing pnpm..."
     npm install -g pnpm
 fi
+
+echo "✅ pnpm $(pnpm --version) ready"
 
 # Enable corepack for Node version management
 echo "🔧 Enabling corepack..."
@@ -25,6 +42,14 @@ corepack enable
 # Navigate to the monorepo
 echo "📂 Setting up LifeMtrics monorepo..."
 cd LifeMtrics-buildsetup
+
+# Check if .env.local exists, copy from example if not
+if [ ! -f ".env.local" ] && [ -f ".env.example" ]; then
+    echo "📋 Setting up environment variables..."
+    cp .env.example .env.local
+    echo "✅ Created .env.local from .env.example"
+    echo "   Please edit .env.local with your API keys"
+fi
 
 # Install dependencies
 echo "📦 Installing dependencies..."

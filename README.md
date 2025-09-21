@@ -91,26 +91,53 @@ This repository contains multiple applications in a monorepo setup within the `L
 
 ### One Command Startup
 
-To start all services (web app, databases) in development mode:
+**First time setup (installs all dependencies automatically):**
 
 ```bash
-npm run dev
+npm run setup
+# or
+make setup
 ```
 
-To start in production mode:
+**Start development (auto-setup if needed):**
 
 ```bash
 npm run start
+# or
+make start
 ```
 
-This uses Docker Compose to orchestrate all services.
+This automatically detects your environment and uses the appropriate development setup (Docker containers or local development).
+
+### Manual Setup (if needed)
+
+If you prefer manual control:
+
+```bash
+# Install dependencies
+cd LifeMtrics-buildsetup
+pnpm install
+
+# Start development
+pnpm dev
+```
 
 ### Individual Apps
 
-- **Web App** (Next.js): Runs on http://localhost:3000
-- **LifeOS App** (React + Node.js): Runs on http://localhost:3001 (when available)
+- **Web App** (Next.js): Runs on `http://localhost:3000`
+- **LifeOS App** (React + Node.js): Runs on `http://localhost:3001` (when available)
 - **MongoDB**: Port 27017 (when available)
 - **Redis**: Port 6379 (when available)
+
+### Environment Setup
+
+1. Copy the environment template:
+
+   ```bash
+   cp LifeMtrics-buildsetup/.env.example LifeMtrics-buildsetup/.env.local
+   ```
+
+2. Fill in your API keys for optional services (Clerk, PostHog, Stripe)
 
 ### Building
 
@@ -118,14 +145,4 @@ To build all Docker images:
 
 ```bash
 npm run build
-```
-
-### Development
-
-For local development of the LifeMtrics apps, navigate to the submodule:
-
-```bash
-cd LifeMtrics-buildsetup
-pnpm install
-pnpm dev
 ```

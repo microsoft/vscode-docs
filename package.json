@@ -9,12 +9,13 @@
     "url": "https://github.com/microsoft/vscode-docs.git"
   },
   "scripts": {
+    "setup": "./scripts/setup.sh",
+    "start": "./scripts/start.sh",
+    "dev": "docker-compose -f docker-compose.yml -f docker-compose.dev.yml up",
     "build": "docker-compose build",
     "check-lfs": "node ./build/check-lfs.js",
     "lint": "eslint **/*.js",
-    "prepare": "husky install",
-    "dev": "docker-compose -f docker-compose.yml -f docker-compose.dev.yml up",
-    "start": "docker-compose up"
+    "prepare": "husky install"
   },
   "devDependencies": {
     "eslint-plugin-security": "^1.7.1",
