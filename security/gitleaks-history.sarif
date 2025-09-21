@@ -1,0 +1,1298 @@
+{
+ "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+ "version": "2.1.0",
+ "runs": [
+  {
+   "tool": {
+    "driver": {
+     "name": "gitleaks",
+     "semanticVersion": "v8.0.0",
+     "informationUri": "https://github.com/gitleaks/gitleaks",
+     "rules": [
+      {
+       "id": "adafruit-api-key",
+       "name": "Identified a potential Adafruit API Key, which could lead to unauthorized access to Adafruit services and sensitive data exposure.",
+       "shortDescription": {
+        "text": "(?i)(?:adafruit)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9_-]{32})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "adobe-client-id",
+       "name": "Detected a pattern that resembles an Adobe OAuth Web Client ID, posing a risk of compromised Adobe integrations and data breaches.",
+       "shortDescription": {
+        "text": "(?i)(?:adobe)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-f0-9]{32})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "adobe-client-secret",
+       "name": "Discovered a potential Adobe Client Secret, which, if exposed, could allow unauthorized Adobe service access and data manipulation.",
+       "shortDescription": {
+        "text": "(?i)\\b((p8e-)(?i)[a-z0-9]{32})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "age-secret-key",
+       "name": "Discovered a potential Age encryption tool secret key, risking data decryption and unauthorized access to sensitive information.",
+       "shortDescription": {
+        "text": "AGE-SECRET-KEY-1[QPZRY9X8GF2TVDW0S3JN54KHCE6MUA7L]{58}"
+       }
+      },
+      {
+       "id": "airtable-api-key",
+       "name": "Uncovered a possible Airtable API Key, potentially compromising database access and leading to data leakage or alteration.",
+       "shortDescription": {
+        "text": "(?i)(?:airtable)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9]{17})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "algolia-api-key",
+       "name": "Identified an Algolia API Key, which could result in unauthorized search operations and data exposure on Algolia-managed platforms.",
+       "shortDescription": {
+        "text": "(?i)(?:algolia)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9]{32})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "alibaba-access-key-id",
+       "name": "Detected an Alibaba Cloud AccessKey ID, posing a risk of unauthorized cloud resource access and potential data compromise.",
+       "shortDescription": {
+        "text": "(?i)\\b((LTAI)(?i)[a-z0-9]{20})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "alibaba-secret-key",
+       "name": "Discovered a potential Alibaba Cloud Secret Key, potentially allowing unauthorized operations and data access within Alibaba Cloud.",
+       "shortDescription": {
+        "text": "(?i)(?:alibaba)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9]{30})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "asana-client-id",
+       "name": "Discovered a potential Asana Client ID, risking unauthorized access to Asana projects and sensitive task information.",
+       "shortDescription": {
+        "text": "(?i)(?:asana)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([0-9]{16})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "asana-client-secret",
+       "name": "Identified an Asana Client Secret, which could lead to compromised project management integrity and unauthorized access.",
+       "shortDescription": {
+        "text": "(?i)(?:asana)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9]{32})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "atlassian-api-token",
+       "name": "Detected an Atlassian API token, posing a threat to project management and collaboration tool security and data confidentiality.",
+       "shortDescription": {
+        "text": "(?i)(?:atlassian|confluence|jira)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9]{24})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "authress-service-client-access-key",
+       "name": "Uncovered a possible Authress Service Client Access Key, which may compromise access control services and sensitive data.",
+       "shortDescription": {
+        "text": "(?i)\\b((?:sc|ext|scauth|authress)_[a-z0-9]{5,30}\\.[a-z0-9]{4,6}\\.acc[_-][a-z0-9-]{10,32}\\.[a-z0-9+/_=-]{30,120})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "aws-access-token",
+       "name": "Identified a pattern that may indicate AWS credentials, risking unauthorized cloud resource access and data breaches on AWS platforms.",
+       "shortDescription": {
+        "text": "(?:A3T[A-Z0-9]|AKIA|ASIA|ABIA|ACCA)[A-Z0-9]{16}"
+       }
+      },
+      {
+       "id": "beamer-api-token",
+       "name": "Detected a Beamer API token, potentially compromising content management and exposing sensitive notifications and updates.",
+       "shortDescription": {
+        "text": "(?i)(?:beamer)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}(b_[a-z0-9=_\\-]{44})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "bitbucket-client-id",
+       "name": "Discovered a potential Bitbucket Client ID, risking unauthorized repository access and potential codebase exposure.",
+       "shortDescription": {
+        "text": "(?i)(?:bitbucket)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9]{32})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "bitbucket-client-secret",
+       "name": "Discovered a potential Bitbucket Client Secret, posing a risk of compromised code repositories and unauthorized access.",
+       "shortDescription": {
+        "text": "(?i)(?:bitbucket)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9=_\\-]{64})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "bittrex-access-key",
+       "name": "Identified a Bittrex Access Key, which could lead to unauthorized access to cryptocurrency trading accounts and financial loss.",
+       "shortDescription": {
+        "text": "(?i)(?:bittrex)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9]{32})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "bittrex-secret-key",
+       "name": "Detected a Bittrex Secret Key, potentially compromising cryptocurrency transactions and financial security.",
+       "shortDescription": {
+        "text": "(?i)(?:bittrex)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9]{32})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "clojars-api-token",
+       "name": "Uncovered a possible Clojars API token, risking unauthorized access to Clojure libraries and potential code manipulation.",
+       "shortDescription": {
+        "text": "(?i)(CLOJARS_)[a-z0-9]{60}"
+       }
+      },
+      {
+       "id": "cloudflare-api-key",
+       "name": "Detected a Cloudflare API Key, potentially compromising cloud application deployments and operational security.",
+       "shortDescription": {
+        "text": "(?i)(?:cloudflare)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9_-]{40})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "cloudflare-global-api-key",
+       "name": "Detected a Cloudflare Global API Key, potentially compromising cloud application deployments and operational security.",
+       "shortDescription": {
+        "text": "(?i)(?:cloudflare)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-f0-9]{37})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "cloudflare-origin-ca-key",
+       "name": "Detected a Cloudflare Origin CA Key, potentially compromising cloud application deployments and operational security.",
+       "shortDescription": {
+        "text": "\\b(v1\\.0-[a-f0-9]{24}-[a-f0-9]{146})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "codecov-access-token",
+       "name": "Found a pattern resembling a Codecov Access Token, posing a risk of unauthorized access to code coverage reports and sensitive data.",
+       "shortDescription": {
+        "text": "(?i)(?:codecov)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9]{32})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "coinbase-access-token",
+       "name": "Detected a Coinbase Access Token, posing a risk of unauthorized access to cryptocurrency accounts and financial transactions.",
+       "shortDescription": {
+        "text": "(?i)(?:coinbase)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9_-]{64})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "confluent-access-token",
+       "name": "Identified a Confluent Access Token, which could compromise access to streaming data platforms and sensitive data flow.",
+       "shortDescription": {
+        "text": "(?i)(?:confluent)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9]{16})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "confluent-secret-key",
+       "name": "Found a Confluent Secret Key, potentially risking unauthorized operations and data access within Confluent services.",
+       "shortDescription": {
+        "text": "(?i)(?:confluent)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9]{64})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "contentful-delivery-api-token",
+       "name": "Discovered a Contentful delivery API token, posing a risk to content management systems and data integrity.",
+       "shortDescription": {
+        "text": "(?i)(?:contentful)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9=_\\-]{43})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "databricks-api-token",
+       "name": "Uncovered a Databricks API token, which may compromise big data analytics platforms and sensitive data processing.",
+       "shortDescription": {
+        "text": "(?i)\\b(dapi[a-h0-9]{32})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "datadog-access-token",
+       "name": "Detected a Datadog Access Token, potentially risking monitoring and analytics data exposure and manipulation.",
+       "shortDescription": {
+        "text": "(?i)(?:datadog)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9]{40})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "defined-networking-api-token",
+       "name": "Identified a Defined Networking API token, which could lead to unauthorized network operations and data breaches.",
+       "shortDescription": {
+        "text": "(?i)(?:dnkey)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}(dnkey-[a-z0-9=_\\-]{26}-[a-z0-9=_\\-]{52})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "digitalocean-access-token",
+       "name": "Found a DigitalOcean OAuth Access Token, risking unauthorized cloud resource access and data compromise.",
+       "shortDescription": {
+        "text": "(?i)\\b(doo_v1_[a-f0-9]{64})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "digitalocean-pat",
+       "name": "Discovered a DigitalOcean Personal Access Token, posing a threat to cloud infrastructure security and data privacy.",
+       "shortDescription": {
+        "text": "(?i)\\b(dop_v1_[a-f0-9]{64})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "digitalocean-refresh-token",
+       "name": "Uncovered a DigitalOcean OAuth Refresh Token, which could allow prolonged unauthorized access and resource manipulation.",
+       "shortDescription": {
+        "text": "(?i)\\b(dor_v1_[a-f0-9]{64})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "discord-api-token",
+       "name": "Detected a Discord API key, potentially compromising communication channels and user data privacy on Discord.",
+       "shortDescription": {
+        "text": "(?i)(?:discord)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-f0-9]{64})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "discord-client-id",
+       "name": "Identified a Discord client ID, which may lead to unauthorized integrations and data exposure in Discord applications.",
+       "shortDescription": {
+        "text": "(?i)(?:discord)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([0-9]{18})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "discord-client-secret",
+       "name": "Discovered a potential Discord client secret, risking compromised Discord bot integrations and data leaks.",
+       "shortDescription": {
+        "text": "(?i)(?:discord)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9=_\\-]{32})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "doppler-api-token",
+       "name": "Discovered a Doppler API token, posing a risk to environment and secrets management security.",
+       "shortDescription": {
+        "text": "(dp\\.pt\\.)(?i)[a-z0-9]{43}"
+       }
+      },
+      {
+       "id": "droneci-access-token",
+       "name": "Detected a Droneci Access Token, potentially compromising continuous integration and deployment workflows.",
+       "shortDescription": {
+        "text": "(?i)(?:droneci)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9]{32})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "dropbox-api-token",
+       "name": "Identified a Dropbox API secret, which could lead to unauthorized file access and data breaches in Dropbox storage.",
+       "shortDescription": {
+        "text": "(?i)(?:dropbox)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9]{15})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "dropbox-long-lived-api-token",
+       "name": "Found a Dropbox long-lived API token, risking prolonged unauthorized access to cloud storage and sensitive data.",
+       "shortDescription": {
+        "text": "(?i)(?:dropbox)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9]{11}(AAAAAAAAAA)[a-z0-9\\-_=]{43})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "dropbox-short-lived-api-token",
+       "name": "Discovered a Dropbox short-lived API token, posing a risk of temporary but potentially harmful data access and manipulation.",
+       "shortDescription": {
+        "text": "(?i)(?:dropbox)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}(sl\\.[a-z0-9\\-=_]{135})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "duffel-api-token",
+       "name": "Uncovered a Duffel API token, which may compromise travel platform integrations and sensitive customer data.",
+       "shortDescription": {
+        "text": "duffel_(test|live)_(?i)[a-z0-9_\\-=]{43}"
+       }
+      },
+      {
+       "id": "dynatrace-api-token",
+       "name": "Detected a Dynatrace API token, potentially risking application performance monitoring and data exposure.",
+       "shortDescription": {
+        "text": "dt0c01\\.(?i)[a-z0-9]{24}\\.[a-z0-9]{64}"
+       }
+      },
+      {
+       "id": "easypost-api-token",
+       "name": "Identified an EasyPost API token, which could lead to unauthorized postal and shipment service access and data exposure.",
+       "shortDescription": {
+        "text": "\\bEZAK(?i)[a-z0-9]{54}"
+       }
+      },
+      {
+       "id": "easypost-test-api-token",
+       "name": "Detected an EasyPost test API token, risking exposure of test environments and potentially sensitive shipment data.",
+       "shortDescription": {
+        "text": "\\bEZTK(?i)[a-z0-9]{54}"
+       }
+      },
+      {
+       "id": "etsy-access-token",
+       "name": "Found an Etsy Access Token, potentially compromising Etsy shop management and customer data.",
+       "shortDescription": {
+        "text": "(?i)(?:etsy)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9]{24})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "facebook-access-token",
+       "name": "Discovered a Facebook Access Token, posing a risk of unauthorized access to Facebook accounts and personal data exposure.",
+       "shortDescription": {
+        "text": "(?i)\\b(\\d{15,16}(\\||%)[0-9a-z\\-_]{27,40})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "facebook-page-access-token",
+       "name": "Discovered a Facebook Page Access Token, posing a risk of unauthorized access to Facebook accounts and personal data exposure.",
+       "shortDescription": {
+        "text": "(?i)\\b(EAA[MC][a-z0-9]{20,})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "facebook-secret",
+       "name": "Discovered a Facebook Application secret, posing a risk of unauthorized access to Facebook accounts and personal data exposure.",
+       "shortDescription": {
+        "text": "(?i)(?:facebook)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-f0-9]{32})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "fastly-api-token",
+       "name": "Uncovered a Fastly API key, which may compromise CDN and edge cloud services, leading to content delivery and security issues.",
+       "shortDescription": {
+        "text": "(?i)(?:fastly)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9=_\\-]{32})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "finicity-api-token",
+       "name": "Detected a Finicity API token, potentially risking financial data access and unauthorized financial operations.",
+       "shortDescription": {
+        "text": "(?i)(?:finicity)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-f0-9]{32})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "finicity-client-secret",
+       "name": "Identified a Finicity Client Secret, which could lead to compromised financial service integrations and data breaches.",
+       "shortDescription": {
+        "text": "(?i)(?:finicity)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9]{20})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "finnhub-access-token",
+       "name": "Found a Finnhub Access Token, risking unauthorized access to financial market data and analytics.",
+       "shortDescription": {
+        "text": "(?i)(?:finnhub)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9]{20})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "flickr-access-token",
+       "name": "Discovered a Flickr Access Token, posing a risk of unauthorized photo management and potential data leakage.",
+       "shortDescription": {
+        "text": "(?i)(?:flickr)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9]{32})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "flutterwave-encryption-key",
+       "name": "Uncovered a Flutterwave Encryption Key, which may compromise payment processing and sensitive financial information.",
+       "shortDescription": {
+        "text": "FLWSECK_TEST-(?i)[a-h0-9]{12}"
+       }
+      },
+      {
+       "id": "flutterwave-public-key",
+       "name": "Detected a Finicity Public Key, potentially exposing public cryptographic operations and integrations.",
+       "shortDescription": {
+        "text": "FLWPUBK_TEST-(?i)[a-h0-9]{32}-X"
+       }
+      },
+      {
+       "id": "flutterwave-secret-key",
+       "name": "Identified a Flutterwave Secret Key, risking unauthorized financial transactions and data breaches.",
+       "shortDescription": {
+        "text": "FLWSECK_TEST-(?i)[a-h0-9]{32}-X"
+       }
+      },
+      {
+       "id": "frameio-api-token",
+       "name": "Found a Frame.io API token, potentially compromising video collaboration and project management.",
+       "shortDescription": {
+        "text": "fio-u-(?i)[a-z0-9\\-_=]{64}"
+       }
+      },
+      {
+       "id": "freshbooks-access-token",
+       "name": "Discovered a Freshbooks Access Token, posing a risk to accounting software access and sensitive financial data exposure.",
+       "shortDescription": {
+        "text": "(?i)(?:freshbooks)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9]{64})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "gcp-api-key",
+       "name": "Uncovered a GCP API key, which could lead to unauthorized access to Google Cloud services and data breaches.",
+       "shortDescription": {
+        "text": "(?i)\\b(AIza[0-9A-Za-z\\\\-_]{35})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "generic-api-key",
+       "name": "Detected a Generic API Key, potentially exposing access to various services and sensitive operations.",
+       "shortDescription": {
+        "text": "(?i)(?:key|api|token|secret|client|passwd|password|auth|access)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([0-9a-z\\-_.=]{10,150})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "github-app-token",
+       "name": "Identified a GitHub App Token, which may compromise GitHub application integrations and source code security.",
+       "shortDescription": {
+        "text": "(ghu|ghs)_[0-9a-zA-Z]{36}"
+       }
+      },
+      {
+       "id": "github-fine-grained-pat",
+       "name": "Found a GitHub Fine-Grained Personal Access Token, risking unauthorized repository access and code manipulation.",
+       "shortDescription": {
+        "text": "github_pat_[0-9a-zA-Z_]{82}"
+       }
+      },
+      {
+       "id": "github-oauth",
+       "name": "Discovered a GitHub OAuth Access Token, posing a risk of compromised GitHub account integrations and data leaks.",
+       "shortDescription": {
+        "text": "gho_[0-9a-zA-Z]{36}"
+       }
+      },
+      {
+       "id": "github-pat",
+       "name": "Uncovered a GitHub Personal Access Token, potentially leading to unauthorized repository access and sensitive content exposure.",
+       "shortDescription": {
+        "text": "ghp_[0-9a-zA-Z]{36}"
+       }
+      },
+      {
+       "id": "github-refresh-token",
+       "name": "Detected a GitHub Refresh Token, which could allow prolonged unauthorized access to GitHub services.",
+       "shortDescription": {
+        "text": "ghr_[0-9a-zA-Z]{36}"
+       }
+      },
+      {
+       "id": "gitlab-pat",
+       "name": "Identified a GitLab Personal Access Token, risking unauthorized access to GitLab repositories and codebase exposure.",
+       "shortDescription": {
+        "text": "glpat-[0-9a-zA-Z\\-\\_]{20}"
+       }
+      },
+      {
+       "id": "gitlab-ptt",
+       "name": "Found a GitLab Pipeline Trigger Token, potentially compromising continuous integration workflows and project security.",
+       "shortDescription": {
+        "text": "glptt-[0-9a-f]{40}"
+       }
+      },
+      {
+       "id": "gitlab-rrt",
+       "name": "Discovered a GitLab Runner Registration Token, posing a risk to CI/CD pipeline integrity and unauthorized access.",
+       "shortDescription": {
+        "text": "GR1348941[0-9a-zA-Z\\-\\_]{20}"
+       }
+      },
+      {
+       "id": "gitter-access-token",
+       "name": "Uncovered a Gitter Access Token, which may lead to unauthorized access to chat and communication services.",
+       "shortDescription": {
+        "text": "(?i)(?:gitter)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9_-]{40})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "gocardless-api-token",
+       "name": "Detected a GoCardless API token, potentially risking unauthorized direct debit payment operations and financial data exposure.",
+       "shortDescription": {
+        "text": "(?i)(?:gocardless)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}(live_(?i)[a-z0-9\\-_=]{40})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "grafana-api-key",
+       "name": "Identified a Grafana API key, which could compromise monitoring dashboards and sensitive data analytics.",
+       "shortDescription": {
+        "text": "(?i)\\b(eyJrIjoi[A-Za-z0-9]{70,400}={0,2})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "grafana-cloud-api-token",
+       "name": "Found a Grafana cloud API token, risking unauthorized access to cloud-based monitoring services and data exposure.",
+       "shortDescription": {
+        "text": "(?i)\\b(glc_[A-Za-z0-9+/]{32,400}={0,2})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "grafana-service-account-token",
+       "name": "Discovered a Grafana service account token, posing a risk of compromised monitoring services and data integrity.",
+       "shortDescription": {
+        "text": "(?i)\\b(glsa_[A-Za-z0-9]{32}_[A-Fa-f0-9]{8})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "hashicorp-tf-api-token",
+       "name": "Uncovered a HashiCorp Terraform user/org API token, which may lead to unauthorized infrastructure management and security breaches.",
+       "shortDescription": {
+        "text": "(?i)[a-z0-9]{14}\\.atlasv1\\.[a-z0-9\\-_=]{60,70}"
+       }
+      },
+      {
+       "id": "hashicorp-tf-password",
+       "name": "Identified a HashiCorp Terraform password field, risking unauthorized infrastructure configuration and security breaches.",
+       "shortDescription": {
+        "text": "(?i)(?:administrator_login_password|password)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}(\"[a-z0-9=_\\-]{8,20}\")(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "heroku-api-key",
+       "name": "Detected a Heroku API Key, potentially compromising cloud application deployments and operational security.",
+       "shortDescription": {
+        "text": "(?i)(?:heroku)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "hubspot-api-key",
+       "name": "Found a HubSpot API Token, posing a risk to CRM data integrity and unauthorized marketing operations.",
+       "shortDescription": {
+        "text": "(?i)(?:hubspot)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "huggingface-access-token",
+       "name": "Discovered a Hugging Face Access token, which could lead to unauthorized access to AI models and sensitive data.",
+       "shortDescription": {
+        "text": "(?:^|[\\\\'\"` \u003e=:])(hf_[a-zA-Z]{34})(?:$|[\\\\'\"` \u003c])"
+       }
+      },
+      {
+       "id": "huggingface-organization-api-token",
+       "name": "Uncovered a Hugging Face Organization API token, potentially compromising AI organization accounts and associated data.",
+       "shortDescription": {
+        "text": "(?:^|[\\\\'\"` \u003e=:\\(,)])(api_org_[a-zA-Z]{34})(?:$|[\\\\'\"` \u003c\\),])"
+       }
+      },
+      {
+       "id": "infracost-api-token",
+       "name": "Detected an Infracost API Token, risking unauthorized access to cloud cost estimation tools and financial data.",
+       "shortDescription": {
+        "text": "(?i)\\b(ico-[a-zA-Z0-9]{32})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "intercom-api-key",
+       "name": "Identified an Intercom API Token, which could compromise customer communication channels and data privacy.",
+       "shortDescription": {
+        "text": "(?i)(?:intercom)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9=_\\-]{60})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "intra42-client-secret",
+       "name": "Found a Intra42 client secret, which could lead to unauthorized access to the 42School API and sensitive data.",
+       "shortDescription": {
+        "text": "(?i)\\b(s-s4t2(?:ud|af)-[abcdef0123456789]{64})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "jfrog-api-key",
+       "name": "Found a JFrog API Key, posing a risk of unauthorized access to software artifact repositories and build pipelines.",
+       "shortDescription": {
+        "text": "(?i)(?:jfrog|artifactory|bintray|xray)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9]{73})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "jfrog-identity-token",
+       "name": "Discovered a JFrog Identity Token, potentially compromising access to JFrog services and sensitive software artifacts.",
+       "shortDescription": {
+        "text": "(?i)(?:jfrog|artifactory|bintray|xray)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9]{64})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "jwt",
+       "name": "Uncovered a JSON Web Token, which may lead to unauthorized access to web applications and sensitive user data.",
+       "shortDescription": {
+        "text": "\\b(ey[a-zA-Z0-9]{17,}\\.ey[a-zA-Z0-9\\/\\\\_-]{17,}\\.(?:[a-zA-Z0-9\\/\\\\_-]{10,}={0,2})?)(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "jwt-base64",
+       "name": "Detected a Base64-encoded JSON Web Token, posing a risk of exposing encoded authentication and data exchange information.",
+       "shortDescription": {
+        "text": "\\bZXlK(?:(?P\u003calg\u003eaGJHY2lPaU)|(?P\u003capu\u003eaGNIVWlPaU)|(?P\u003capv\u003eaGNIWWlPaU)|(?P\u003caud\u003eaGRXUWlPaU)|(?P\u003cb64\u003eaU5qUWlP)|(?P\u003ccrit\u003eamNtbDBJanBi)|(?P\u003ccty\u003eamRIa2lPaU)|(?P\u003cepk\u003ebGNHc2lPbn)|(?P\u003cenc\u003ebGJtTWlPaU)|(?P\u003cjku\u003ecWEzVWlPaU)|(?P\u003cjwk\u003ecWQyc2lPb)|(?P\u003ciss\u003ecGMzTWlPaU)|(?P\u003civ\u003ecGRpSTZJ)|(?P\u003ckid\u003ecmFXUWlP)|(?P\u003ckey_ops\u003eclpYbGZiM0J6SWpwY)|(?P\u003ckty\u003ecmRIa2lPaUp)|(?P\u003cnonce\u003edWIyNWpaU0k2)|(?P\u003cp2c\u003ed01tTWlP)|(?P\u003cp2s\u003ed01uTWlPaU)|(?P\u003cppt\u003ed2NIUWlPaU)|(?P\u003csub\u003eemRXSWlPaU)|(?P\u003csvt\u003eemRuUWlP)|(?P\u003ctag\u003eMFlXY2lPaU)|(?P\u003ctyp\u003eMGVYQWlPaUp)|(?P\u003curl\u003eMWNtd2l)|(?P\u003cuse\u003eMWMyVWlPaUp)|(?P\u003cver\u003eMlpYSWlPaU)|(?P\u003cversion\u003eMlpYSnphVzl1SWpv)|(?P\u003cx\u003eNElqb2)|(?P\u003cx5c\u003eNE5XTWlP)|(?P\u003cx5t\u003eNE5YUWlPaU)|(?P\u003cx5ts256\u003eNE5YUWpVekkxTmlJNkl)|(?P\u003cx5u\u003eNE5YVWlPaU)|(?P\u003czip\u003eNmFYQWlPaU))[a-zA-Z0-9\\/\\\\_+\\-\\r\\n]{40,}={0,2}"
+       }
+      },
+      {
+       "id": "kraken-access-token",
+       "name": "Identified a Kraken Access Token, potentially compromising cryptocurrency trading accounts and financial security.",
+       "shortDescription": {
+        "text": "(?i)(?:kraken)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9\\/=_\\+\\-]{80,90})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "kucoin-access-token",
+       "name": "Found a Kucoin Access Token, risking unauthorized access to cryptocurrency exchange services and transactions.",
+       "shortDescription": {
+        "text": "(?i)(?:kucoin)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-f0-9]{24})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "kucoin-secret-key",
+       "name": "Discovered a Kucoin Secret Key, which could lead to compromised cryptocurrency operations and financial data breaches.",
+       "shortDescription": {
+        "text": "(?i)(?:kucoin)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "launchdarkly-access-token",
+       "name": "Uncovered a Launchdarkly Access Token, potentially compromising feature flag management and application functionality.",
+       "shortDescription": {
+        "text": "(?i)(?:launchdarkly)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9=_\\-]{40})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "linear-api-key",
+       "name": "Detected a Linear API Token, posing a risk to project management tools and sensitive task data.",
+       "shortDescription": {
+        "text": "lin_api_(?i)[a-z0-9]{40}"
+       }
+      },
+      {
+       "id": "linear-client-secret",
+       "name": "Identified a Linear Client Secret, which may compromise secure integrations and sensitive project management data.",
+       "shortDescription": {
+        "text": "(?i)(?:linear)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-f0-9]{32})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "linkedin-client-id",
+       "name": "Found a LinkedIn Client ID, risking unauthorized access to LinkedIn integrations and professional data exposure.",
+       "shortDescription": {
+        "text": "(?i)(?:linkedin|linked-in)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9]{14})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "linkedin-client-secret",
+       "name": "Discovered a LinkedIn Client secret, potentially compromising LinkedIn application integrations and user data.",
+       "shortDescription": {
+        "text": "(?i)(?:linkedin|linked-in)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9]{16})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "lob-api-key",
+       "name": "Uncovered a Lob API Key, which could lead to unauthorized access to mailing and address verification services.",
+       "shortDescription": {
+        "text": "(?i)(?:lob)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}((live|test)_[a-f0-9]{35})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "lob-pub-api-key",
+       "name": "Detected a Lob Publishable API Key, posing a risk of exposing mail and print service integrations.",
+       "shortDescription": {
+        "text": "(?i)(?:lob)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}((test|live)_pub_[a-f0-9]{31})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "mailchimp-api-key",
+       "name": "Identified a Mailchimp API key, potentially compromising email marketing campaigns and subscriber data.",
+       "shortDescription": {
+        "text": "(?i)(?:MailchimpSDK.initialize|mailchimp)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-f0-9]{32}-us\\d\\d)(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "mailgun-private-api-token",
+       "name": "Found a Mailgun private API token, risking unauthorized email service operations and data breaches.",
+       "shortDescription": {
+        "text": "(?i)(?:mailgun)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}(key-[a-f0-9]{32})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "mailgun-pub-key",
+       "name": "Discovered a Mailgun public validation key, which could expose email verification processes and associated data.",
+       "shortDescription": {
+        "text": "(?i)(?:mailgun)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}(pubkey-[a-f0-9]{32})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "mailgun-signing-key",
+       "name": "Uncovered a Mailgun webhook signing key, potentially compromising email automation and data integrity.",
+       "shortDescription": {
+        "text": "(?i)(?:mailgun)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-h0-9]{32}-[a-h0-9]{8}-[a-h0-9]{8})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "mapbox-api-token",
+       "name": "Detected a MapBox API token, posing a risk to geospatial services and sensitive location data exposure.",
+       "shortDescription": {
+        "text": "(?i)(?:mapbox)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}(pk\\.[a-z0-9]{60}\\.[a-z0-9]{22})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "mattermost-access-token",
+       "name": "Identified a Mattermost Access Token, which may compromise team communication channels and data privacy.",
+       "shortDescription": {
+        "text": "(?i)(?:mattermost)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9]{26})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "messagebird-api-token",
+       "name": "Found a MessageBird API token, risking unauthorized access to communication platforms and message data.",
+       "shortDescription": {
+        "text": "(?i)(?:messagebird|message-bird|message_bird)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9]{25})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "messagebird-client-id",
+       "name": "Discovered a MessageBird client ID, potentially compromising API integrations and sensitive communication data.",
+       "shortDescription": {
+        "text": "(?i)(?:messagebird|message-bird|message_bird)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "microsoft-teams-webhook",
+       "name": "Uncovered a Microsoft Teams Webhook, which could lead to unauthorized access to team collaboration tools and data leaks.",
+       "shortDescription": {
+        "text": "https:\\/\\/[a-z0-9]+\\.webhook\\.office\\.com\\/webhookb2\\/[a-z0-9]{8}-([a-z0-9]{4}-){3}[a-z0-9]{12}@[a-z0-9]{8}-([a-z0-9]{4}-){3}[a-z0-9]{12}\\/IncomingWebhook\\/[a-z0-9]{32}\\/[a-z0-9]{8}-([a-z0-9]{4}-){3}[a-z0-9]{12}"
+       }
+      },
+      {
+       "id": "netlify-access-token",
+       "name": "Detected a Netlify Access Token, potentially compromising web hosting services and site management.",
+       "shortDescription": {
+        "text": "(?i)(?:netlify)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9=_\\-]{40,46})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "new-relic-browser-api-token",
+       "name": "Identified a New Relic ingest browser API token, risking unauthorized access to application performance data and analytics.",
+       "shortDescription": {
+        "text": "(?i)(?:new-relic|newrelic|new_relic)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}(NRJS-[a-f0-9]{19})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "new-relic-insert-key",
+       "name": "Discovered a New Relic insight insert key, compromising data injection into the platform.",
+       "shortDescription": {
+        "text": "(?i)(?:new-relic|newrelic|new_relic)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}(NRII-[a-z0-9-]{32})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "new-relic-user-api-id",
+       "name": "Found a New Relic user API ID, posing a risk to application monitoring services and data integrity.",
+       "shortDescription": {
+        "text": "(?i)(?:new-relic|newrelic|new_relic)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9]{64})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "new-relic-user-api-key",
+       "name": "Discovered a New Relic user API Key, which could lead to compromised application insights and performance monitoring.",
+       "shortDescription": {
+        "text": "(?i)(?:new-relic|newrelic|new_relic)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}(NRAK-[a-z0-9]{27})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "npm-access-token",
+       "name": "Uncovered an npm access token, potentially compromising package management and code repository access.",
+       "shortDescription": {
+        "text": "(?i)\\b(npm_[a-z0-9]{36})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "nytimes-access-token",
+       "name": "Detected a Nytimes Access Token, risking unauthorized access to New York Times APIs and content services.",
+       "shortDescription": {
+        "text": "(?i)(?:nytimes|new-york-times,|newyorktimes)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9=_\\-]{32})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "okta-access-token",
+       "name": "Identified an Okta Access Token, which may compromise identity management services and user authentication data.",
+       "shortDescription": {
+        "text": "(?i)(?:okta)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9=_\\-]{42})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "openai-api-key",
+       "name": "Found an OpenAI API Key, posing a risk of unauthorized access to AI services and data manipulation.",
+       "shortDescription": {
+        "text": "(?i)\\b(sk-[a-zA-Z0-9]{20}T3BlbkFJ[a-zA-Z0-9]{20})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "plaid-api-token",
+       "name": "Discovered a Plaid API Token, potentially compromising financial data aggregation and banking services.",
+       "shortDescription": {
+        "text": "(?i)(?:plaid)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}(access-(?:sandbox|development|production)-[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "plaid-client-id",
+       "name": "Uncovered a Plaid Client ID, which could lead to unauthorized financial service integrations and data breaches.",
+       "shortDescription": {
+        "text": "(?i)(?:plaid)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9]{24})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "plaid-secret-key",
+       "name": "Detected a Plaid Secret key, risking unauthorized access to financial accounts and sensitive transaction data.",
+       "shortDescription": {
+        "text": "(?i)(?:plaid)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9]{30})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "planetscale-api-token",
+       "name": "Identified a PlanetScale API token, potentially compromising database management and operations.",
+       "shortDescription": {
+        "text": "(?i)\\b(pscale_tkn_(?i)[a-z0-9=\\-_\\.]{32,64})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "planetscale-oauth-token",
+       "name": "Found a PlanetScale OAuth token, posing a risk to database access control and sensitive data integrity.",
+       "shortDescription": {
+        "text": "(?i)\\b(pscale_oauth_(?i)[a-z0-9=\\-_\\.]{32,64})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "planetscale-password",
+       "name": "Discovered a PlanetScale password, which could lead to unauthorized database operations and data breaches.",
+       "shortDescription": {
+        "text": "(?i)\\b(pscale_pw_(?i)[a-z0-9=\\-_\\.]{32,64})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "postman-api-token",
+       "name": "Uncovered a Postman API token, potentially compromising API testing and development workflows.",
+       "shortDescription": {
+        "text": "(?i)\\b(PMAK-(?i)[a-f0-9]{24}\\-[a-f0-9]{34})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "prefect-api-token",
+       "name": "Detected a Prefect API token, risking unauthorized access to workflow management and automation services.",
+       "shortDescription": {
+        "text": "(?i)\\b(pnu_[a-z0-9]{36})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "private-key",
+       "name": "Identified a Private Key, which may compromise cryptographic security and sensitive data encryption.",
+       "shortDescription": {
+        "text": "(?i)-----BEGIN[ A-Z0-9_-]{0,100}PRIVATE KEY( BLOCK)?-----[\\s\\S-]*KEY( BLOCK)?----"
+       }
+      },
+      {
+       "id": "pulumi-api-token",
+       "name": "Found a Pulumi API token, posing a risk to infrastructure as code services and cloud resource management.",
+       "shortDescription": {
+        "text": "(?i)\\b(pul-[a-f0-9]{40})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "pypi-upload-token",
+       "name": "Discovered a PyPI upload token, potentially compromising Python package distribution and repository integrity.",
+       "shortDescription": {
+        "text": "pypi-AgEIcHlwaS5vcmc[A-Za-z0-9\\-_]{50,1000}"
+       }
+      },
+      {
+       "id": "rapidapi-access-token",
+       "name": "Uncovered a RapidAPI Access Token, which could lead to unauthorized access to various APIs and data services.",
+       "shortDescription": {
+        "text": "(?i)(?:rapidapi)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9_-]{50})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "readme-api-token",
+       "name": "Detected a Readme API token, risking unauthorized documentation management and content exposure.",
+       "shortDescription": {
+        "text": "(?i)\\b(rdme_[a-z0-9]{70})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "rubygems-api-token",
+       "name": "Identified a Rubygem API token, potentially compromising Ruby library distribution and package management.",
+       "shortDescription": {
+        "text": "(?i)\\b(rubygems_[a-f0-9]{48})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "scalingo-api-token",
+       "name": "Found a Scalingo API token, posing a risk to cloud platform services and application deployment security.",
+       "shortDescription": {
+        "text": "\\b(tk-us-[a-zA-Z0-9-_]{48})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "sendbird-access-id",
+       "name": "Discovered a Sendbird Access ID, which could compromise chat and messaging platform integrations.",
+       "shortDescription": {
+        "text": "(?i)(?:sendbird)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "sendbird-access-token",
+       "name": "Uncovered a Sendbird Access Token, potentially risking unauthorized access to communication services and user data.",
+       "shortDescription": {
+        "text": "(?i)(?:sendbird)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-f0-9]{40})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "sendgrid-api-token",
+       "name": "Detected a SendGrid API token, posing a risk of unauthorized email service operations and data exposure.",
+       "shortDescription": {
+        "text": "(?i)\\b(SG\\.(?i)[a-z0-9=_\\-\\.]{66})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "sendinblue-api-token",
+       "name": "Identified a Sendinblue API token, which may compromise email marketing services and subscriber data privacy.",
+       "shortDescription": {
+        "text": "(?i)\\b(xkeysib-[a-f0-9]{64}\\-(?i)[a-z0-9]{16})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "sentry-access-token",
+       "name": "Found a Sentry Access Token, risking unauthorized access to error tracking services and sensitive application data.",
+       "shortDescription": {
+        "text": "(?i)(?:sentry)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-f0-9]{64})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "shippo-api-token",
+       "name": "Discovered a Shippo API token, potentially compromising shipping services and customer order data.",
+       "shortDescription": {
+        "text": "(?i)\\b(shippo_(live|test)_[a-f0-9]{40})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "shopify-access-token",
+       "name": "Uncovered a Shopify access token, which could lead to unauthorized e-commerce platform access and data breaches.",
+       "shortDescription": {
+        "text": "shpat_[a-fA-F0-9]{32}"
+       }
+      },
+      {
+       "id": "shopify-custom-access-token",
+       "name": "Detected a Shopify custom access token, potentially compromising custom app integrations and e-commerce data security.",
+       "shortDescription": {
+        "text": "shpca_[a-fA-F0-9]{32}"
+       }
+      },
+      {
+       "id": "shopify-private-app-access-token",
+       "name": "Identified a Shopify private app access token, risking unauthorized access to private app data and store operations.",
+       "shortDescription": {
+        "text": "shppa_[a-fA-F0-9]{32}"
+       }
+      },
+      {
+       "id": "shopify-shared-secret",
+       "name": "Found a Shopify shared secret, posing a risk to application authentication and e-commerce platform security.",
+       "shortDescription": {
+        "text": "shpss_[a-fA-F0-9]{32}"
+       }
+      },
+      {
+       "id": "sidekiq-secret",
+       "name": "Discovered a Sidekiq Secret, which could lead to compromised background job processing and application data breaches.",
+       "shortDescription": {
+        "text": "(?i)(?:BUNDLE_ENTERPRISE__CONTRIBSYS__COM|BUNDLE_GEMS__CONTRIBSYS__COM)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-f0-9]{8}:[a-f0-9]{8})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "sidekiq-sensitive-url",
+       "name": "Uncovered a Sidekiq Sensitive URL, potentially exposing internal job queues and sensitive operation details.",
+       "shortDescription": {
+        "text": "(?i)\\b(http(?:s??):\\/\\/)([a-f0-9]{8}:[a-f0-9]{8})@(?:gems.contribsys.com|enterprise.contribsys.com)(?:[\\/|\\#|\\?|:]|$)"
+       }
+      },
+      {
+       "id": "slack-app-token",
+       "name": "Detected a Slack App-level token, risking unauthorized access to Slack applications and workspace data.",
+       "shortDescription": {
+        "text": "(?i)(xapp-\\d-[A-Z0-9]+-\\d+-[a-z0-9]+)"
+       }
+      },
+      {
+       "id": "slack-bot-token",
+       "name": "Identified a Slack Bot token, which may compromise bot integrations and communication channel security.",
+       "shortDescription": {
+        "text": "(xoxb-[0-9]{10,13}\\-[0-9]{10,13}[a-zA-Z0-9-]*)"
+       }
+      },
+      {
+       "id": "slack-config-access-token",
+       "name": "Found a Slack Configuration access token, posing a risk to workspace configuration and sensitive data access.",
+       "shortDescription": {
+        "text": "(?i)(xoxe.xox[bp]-\\d-[A-Z0-9]{163,166})"
+       }
+      },
+      {
+       "id": "slack-config-refresh-token",
+       "name": "Discovered a Slack Configuration refresh token, potentially allowing prolonged unauthorized access to configuration settings.",
+       "shortDescription": {
+        "text": "(?i)(xoxe-\\d-[A-Z0-9]{146})"
+       }
+      },
+      {
+       "id": "slack-legacy-bot-token",
+       "name": "Uncovered a Slack Legacy bot token, which could lead to compromised legacy bot operations and data exposure.",
+       "shortDescription": {
+        "text": "(xoxb-[0-9]{8,14}\\-[a-zA-Z0-9]{18,26})"
+       }
+      },
+      {
+       "id": "slack-legacy-token",
+       "name": "Detected a Slack Legacy token, risking unauthorized access to older Slack integrations and user data.",
+       "shortDescription": {
+        "text": "(xox[os]-\\d+-\\d+-\\d+-[a-fA-F\\d]+)"
+       }
+      },
+      {
+       "id": "slack-legacy-workspace-token",
+       "name": "Identified a Slack Legacy Workspace token, potentially compromising access to workspace data and legacy features.",
+       "shortDescription": {
+        "text": "(xox[ar]-(?:\\d-)?[0-9a-zA-Z]{8,48})"
+       }
+      },
+      {
+       "id": "slack-user-token",
+       "name": "Found a Slack User token, posing a risk of unauthorized user impersonation and data access within Slack workspaces.",
+       "shortDescription": {
+        "text": "(xox[pe](?:-[0-9]{10,13}){3}-[a-zA-Z0-9-]{28,34})"
+       }
+      },
+      {
+       "id": "slack-webhook-url",
+       "name": "Discovered a Slack Webhook, which could lead to unauthorized message posting and data leakage in Slack channels.",
+       "shortDescription": {
+        "text": "(https?:\\/\\/)?hooks.slack.com\\/(services|workflows)\\/[A-Za-z0-9+\\/]{43,46}"
+       }
+      },
+      {
+       "id": "snyk-api-token",
+       "name": "Uncovered a Snyk API token, potentially compromising software vulnerability scanning and code security.",
+       "shortDescription": {
+        "text": "(?i)(?:snyk_token|snyk_key|snyk_api_token|snyk_api_key|snyk_oauth_token)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "square-access-token",
+       "name": "Detected a Square Access Token, risking unauthorized payment processing and financial transaction exposure.",
+       "shortDescription": {
+        "text": "(?i)\\b((EAAA|sq0atp-)[0-9A-Za-z\\-_]{22,60})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "squarespace-access-token",
+       "name": "Identified a Squarespace Access Token, which may compromise website management and content control on Squarespace.",
+       "shortDescription": {
+        "text": "(?i)(?:squarespace)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "stripe-access-token",
+       "name": "Found a Stripe Access Token, posing a risk to payment processing services and sensitive financial data.",
+       "shortDescription": {
+        "text": "(?i)\\b((sk|rk)_(test|live|prod)_[0-9a-z]{10,99})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "sumologic-access-id",
+       "name": "Discovered a SumoLogic Access ID, potentially compromising log management services and data analytics integrity.",
+       "shortDescription": {
+        "text": "(?i:(?:sumo)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3})(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}(su[a-zA-Z0-9]{12})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "sumologic-access-token",
+       "name": "Uncovered a SumoLogic Access Token, which could lead to unauthorized access to log data and analytics insights.",
+       "shortDescription": {
+        "text": "(?i)(?:sumo)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9]{64})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "telegram-bot-api-token",
+       "name": "Detected a Telegram Bot API Token, risking unauthorized bot operations and message interception on Telegram.",
+       "shortDescription": {
+        "text": "(?i:(?:telegr)(?:[0-9a-z\\(-_\\t .\\\\]{0,40})(?:[\\s|']|[\\s|\"]){0,3})(?:=|\\|\\|:|\u003c=|=\u003e|:|\\?=|\\()(?:'|\\\"|\\s|=|\\x60){0,5}([0-9]{5,16}:A[a-z0-9_\\-]{34})(?:['|\\\"|\\n|\\r|\\s|\\x60|;|\\\\]|$)"
+       }
+      },
+      {
+       "id": "travisci-access-token",
+       "name": "Identified a Travis CI Access Token, potentially compromising continuous integration services and codebase security.",
+       "shortDescription": {
+        "text": "(?i)(?:travis)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9]{22})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "twilio-api-key",
+       "name": "Found a Twilio API Key, posing a risk to communication services and sensitive customer interaction data.",
+       "shortDescription": {
+        "text": "SK[0-9a-fA-F]{32}"
+       }
+      },
+      {
+       "id": "twitch-api-token",
+       "name": "Discovered a Twitch API token, which could compromise streaming services and account integrations.",
+       "shortDescription": {
+        "text": "(?i)(?:twitch)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9]{30})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "twitter-access-secret",
+       "name": "Uncovered a Twitter Access Secret, potentially risking unauthorized Twitter integrations and data breaches.",
+       "shortDescription": {
+        "text": "(?i)(?:twitter)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9]{45})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "twitter-access-token",
+       "name": "Detected a Twitter Access Token, posing a risk of unauthorized account operations and social media data exposure.",
+       "shortDescription": {
+        "text": "(?i)(?:twitter)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([0-9]{15,25}-[a-zA-Z0-9]{20,40})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "twitter-api-key",
+       "name": "Identified a Twitter API Key, which may compromise Twitter application integrations and user data security.",
+       "shortDescription": {
+        "text": "(?i)(?:twitter)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9]{25})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "twitter-api-secret",
+       "name": "Found a Twitter API Secret, risking the security of Twitter app integrations and sensitive data access.",
+       "shortDescription": {
+        "text": "(?i)(?:twitter)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9]{50})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "twitter-bearer-token",
+       "name": "Discovered a Twitter Bearer Token, potentially compromising API access and data retrieval from Twitter.",
+       "shortDescription": {
+        "text": "(?i)(?:twitter)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}(A{22}[a-zA-Z0-9%]{80,100})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "typeform-api-token",
+       "name": "Uncovered a Typeform API token, which could lead to unauthorized survey management and data collection.",
+       "shortDescription": {
+        "text": "(?i)(?:typeform)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}(tfp_[a-z0-9\\-_\\.=]{59})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "vault-batch-token",
+       "name": "Detected a Vault Batch Token, risking unauthorized access to secret management services and sensitive data.",
+       "shortDescription": {
+        "text": "(?i)\\b(hvb\\.[a-z0-9_-]{138,212})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "vault-service-token",
+       "name": "Identified a Vault Service Token, potentially compromising infrastructure security and access to sensitive credentials.",
+       "shortDescription": {
+        "text": "(?i)\\b(hvs\\.[a-z0-9_-]{90,100})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "yandex-access-token",
+       "name": "Found a Yandex Access Token, posing a risk to Yandex service integrations and user data privacy.",
+       "shortDescription": {
+        "text": "(?i)(?:yandex)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}(t1\\.[A-Z0-9a-z_-]+[=]{0,2}\\.[A-Z0-9a-z_-]{86}[=]{0,2})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "yandex-api-key",
+       "name": "Discovered a Yandex API Key, which could lead to unauthorized access to Yandex services and data manipulation.",
+       "shortDescription": {
+        "text": "(?i)(?:yandex)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}(AQVN[A-Za-z0-9_\\-]{35,38})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "yandex-aws-access-token",
+       "name": "Uncovered a Yandex AWS Access Token, potentially compromising cloud resource access and data security on Yandex Cloud.",
+       "shortDescription": {
+        "text": "(?i)(?:yandex)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}(YC[a-zA-Z0-9_\\-]{38})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      },
+      {
+       "id": "zendesk-secret-key",
+       "name": "Detected a Zendesk Secret Key, risking unauthorized access to customer support services and sensitive ticketing data.",
+       "shortDescription": {
+        "text": "(?i)(?:zendesk)(?:[0-9a-z\\-_\\t .]{0,20})(?:[\\s|']|[\\s|\"]){0,3}(?:=|\u003e|:{1,3}=|\\|\\|:|\u003c=|=\u003e|:|\\?=)(?:'|\\\"|\\s|=|\\x60){0,5}([a-z0-9]{40})(?:['|\\\"|\\n|\\r|\\s|\\x60|;]|$)"
+       }
+      }
+     ]
+    }
+   },
+   "results": [
+    {
+     "message": {
+      "text": "generic-api-key has detected secret for file lifeos/.env at commit a8190b79f35dce6f3aef379e2d28d07985fb2e03."
+     },
+     "ruleId": "generic-api-key",
+     "locations": [
+      {
+       "physicalLocation": {
+        "artifactLocation": {
+         "uri": "lifeos/.env"
+        },
+        "region": {
+         "startLine": 28,
+         "startColumn": 8,
+         "endLine": 28,
+         "endColumn": 54,
+         "snippet": {
+          "text": "AIzaSyAfPx54xX4pjQAqCANbilGpr-zldWjQF8k"
+         }
+        }
+       }
+      }
+     ],
+     "partialFingerprints": {
+      "commitSha": "a8190b79f35dce6f3aef379e2d28d07985fb2e03",
+      "email": "cursoragent@cursor.com",
+      "author": "Cursor Agent",
+      "date": "2025-09-18T15:33:53Z",
+      "commitMessage": "feat: Add Gemini AI integration and endpoints\n\nCo-authored-by: ibermolina \u003cibermolina@gmail.com\u003e"
+     },
+     "properties": {
+      "tags": []
+     }
+    },
+    {
+     "message": {
+      "text": "generic-api-key has detected secret for file lifeos/GEMINI_INTEGRATION.md at commit a8190b79f35dce6f3aef379e2d28d07985fb2e03."
+     },
+     "ruleId": "generic-api-key",
+     "locations": [
+      {
+       "physicalLocation": {
+        "artifactLocation": {
+         "uri": "lifeos/GEMINI_INTEGRATION.md"
+        },
+        "region": {
+         "startLine": 11,
+         "startColumn": 9,
+         "endLine": 12,
+         "endColumn": 1,
+         "snippet": {
+          "text": "AIzaSyAfPx54xX4pjQAqCANbilGpr-zldWjQF8k"
+         }
+        }
+       }
+      }
+     ],
+     "partialFingerprints": {
+      "commitSha": "a8190b79f35dce6f3aef379e2d28d07985fb2e03",
+      "email": "cursoragent@cursor.com",
+      "author": "Cursor Agent",
+      "date": "2025-09-18T15:33:53Z",
+      "commitMessage": "feat: Add Gemini AI integration and endpoints\n\nCo-authored-by: ibermolina \u003cibermolina@gmail.com\u003e"
+     },
+     "properties": {
+      "tags": []
+     }
+    }
+   ]
+  }
+ ]
+}

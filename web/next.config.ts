@@ -1,6 +1,6 @@
-import type { NextConfig } from "next";
-const nextConfig: NextConfig = {
+const nextConfig = {
 	reactStrictMode: true,
-	outputFileTracingRoot: process.cwd(),
+	// Produce a standalone server for slimmer Docker images
+	output: "standalone",
 };
 export default nextConfig;
