@@ -130,7 +130,7 @@ Running a workflow in model conversion is the core step that transform the pre-b
     - **Evaluate on**: the target device that you want to evaluate the model. Possible values are:
       - **Qualcomm NPU**: to use this, you need a compatible Qualcomm device.
       - **AMD NPU**: to use this, you need a device with a supported AMD NPU.
-      - **Intel NPU**: to use this, you need a device with a supported Intel NPU.
+      - **Intel CPU/GPU/NPU**: to use this, you need a device with a supported Intel CPU/GPU/NPU.
       - **NVIDIA TRT for RTX**: to use this, you need a device with a Nvidia GPU that supports TensorRT for RTX.
       - **DirectML**: to use this, you need a device with a GPU that supports DirectML.
       - **CPU**: any CPU could work.
