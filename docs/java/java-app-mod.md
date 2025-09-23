@@ -14,7 +14,7 @@ The extension offer the following the key capabilities:
     From Java 8 to the latest LTS version, Copilot automates upgrades with structured, context-aware edits,  cutting out repetitive work and reducing upgrade risk.
 
 * Reusable migration patterns
-Capture your team’s refactoring logic into custom formulas, then reapply them across apps for consistent, scalable modernization.
+    Capture your team’s refactoring logic into custom formulas, then reapply them across apps for consistent, scalable modernization.
 
 ✅ Build and test validation
 Copilot fixes build errors, runs unit tests, and ensures your application is stable after changes—helping maintain clean CI/CD pipelines.
