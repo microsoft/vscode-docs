@@ -19,7 +19,7 @@ The extension offer the following the key capabilities:
 ✅ Build and test validation
 Copilot fixes build errors, runs unit tests, and ensures your application is stable after changes—helping maintain clean CI/CD pipelines.
 
-🛡️ CVE detection and remediation
+* CVE detection and remediation
 Automatically detect and patch known vulnerabilities post-upgrade. Copilot applies secure fixes while keeping developers in full control of the changes.
 
 * Seamless Azure integration
