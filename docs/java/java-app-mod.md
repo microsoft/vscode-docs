@@ -16,7 +16,7 @@ The extension offer the following the key capabilities:
 * Reusable migration patterns
     Capture your team’s refactoring logic into custom formulas, then reapply them across apps for consistent, scalable modernization.
 
-✅ Build and test validation
+* Build and test validation
 Copilot fixes build errors, runs unit tests, and ensures your application is stable after changes—helping maintain clean CI/CD pipelines.
 
 * CVE detection and remediation
