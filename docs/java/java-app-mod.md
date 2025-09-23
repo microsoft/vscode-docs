@@ -20,7 +20,7 @@ The extension offer the following the key capabilities:
 Copilot fixes build errors, runs unit tests, and ensures your application is stable after changes—helping maintain clean CI/CD pipelines.
 
 * CVE detection and remediation
-Automatically detect and patch known vulnerabilities post-upgrade. Copilot applies secure fixes while keeping developers in full control of the changes.
+    Automatically detect and patch known vulnerabilities post-upgrade. Copilot applies secure fixes while keeping you in full control of the changes.
 
 * Seamless Azure integration
     Deploy upgraded apps to Azure with minimal effort. Modernized apps can immediately use Azure AI Foundry to unlock over 11,000 models, built-in observability, safety tools, and agent services.
