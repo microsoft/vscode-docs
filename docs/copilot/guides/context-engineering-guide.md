@@ -6,7 +6,9 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Set up a context engineering flow in VS Code
 
-Intro
+This guide shows you how to set up a context engineering workflow in VS Code using custom instructions, chat modes, and prompt files.
+
+Context engineering is a systematic approach to providing AI agents with targeted project information to improve the quality and accuracy of generated code. By curating essential project context through custom instructions, implementation plans, and coding guidelines, you enable AI to make better decisions, improve accuracy, and maintain persistent knowledge across interactions.
 
 ## Context engineering workflow
 
@@ -41,10 +43,6 @@ flowchart TD
     class curate,plan,implement process;
     class P,code output;
 ```
-
-## Key technical components
-
-TODO
 
 ## Step 1: Curate project-wide context
 
