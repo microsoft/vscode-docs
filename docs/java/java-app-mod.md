@@ -1,11 +1,12 @@
 # Modernizing your legacy Java Apps
 
-The [GitHub Copilot App Modernization extension](https://marketplace.visualstudio.com/items?itemName=vscjava.migrate-java-to-azure) (part of the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)) provides powerful capabilities to help developers modernize legacy Java applications with greater speed, accuracy, and efficiency.
+The [GitHub Copilot App Modernization extension](https://marketplace.visualstudio.com/items?itemName=vscjava.migrate-java-to-azure), part of the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), provides powerful capabilities to help developers modernize legacy Java applications with greater speed, accuracy, and efficiency.
+
 Whether upgrading frameworks, addressing outdated dependencies, or preparing for cloud migration, GitHub Copilot uses intelligent automation and deep integration with Microsoft Azure to accelerate modernization, from months down to days.
 
 ![GitHub Copilot App Modernization](images/java-app-mod/appmodlogo.png)
 
-The extension offer the following the key capabilities:
+The extension offers the following the key capabilities:
 
 * Intelligent assessments and upgrade planning
     Copilot scans your codebase, analyzes dependencies and frameworks, and builds actionable plans to guide your modernization journey.
@@ -27,7 +28,8 @@ The extension offer the following the key capabilities:
 
 ## Get started
 
-Get started with one of the following tutorials or learn more about [general app modernization](https://learn.microsoft.com/en-us/azure/developer/github-copilot-app-modernization/overview).
-- [Upgrade a Java project](https://learn.microsoft.com/java/upgrade/quickstart-upgrade)
-- [Assess and migrate a Java project](https://learn.microsoft.com/azure/developer/java/migration)
-- [Detect and fix security issues in your Java project](https://learn.microsoft.com/java/upgrade/tools)
+Get started with one of the following tutorials or learn more about [general app modernization](https://learn.microsoft.com/en-us/azure/developer/github-copilot-app-modernization/overview):
+
+* [Upgrade a Java project](https://learn.microsoft.com/java/upgrade/quickstart-upgrade)
+* [Assess and migrate a Java project](https://learn.microsoft.com/azure/developer/java/migration)
+* [Detect and fix security issues in your Java project](https://learn.microsoft.com/java/upgrade/tools)
