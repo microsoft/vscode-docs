@@ -1,6 +1,6 @@
 ---
 ContentId: 47A8BA5A-A103-4B61-B5FB-185C15E54C52
-DateApproved: 08/07/2025
+DateApproved: 09/11/2025
 MetaDescription: Get the best out of Visual Studio Code for Markdown
 ---
 # Markdown and Visual Studio Code

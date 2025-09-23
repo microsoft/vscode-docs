@@ -7,6 +7,7 @@ import * as vscode from 'vscode';
 import { BasePromptElementProps, PromptElement, renderElementJSON } from '@vscode/prompt-tsx';
 import { createLanguageModelToolResult } from './utils';
 import path from 'path';
+import { getCurrentMilestoneName } from './queries';
 
 interface GetCurrentMilestoneNameResultSuccessProps extends BasePromptElementProps {
 	readonly result: {
@@ -45,8 +46,7 @@ export class GetCurrentMilestoneName implements vscode.LanguageModelTool<void> {
 	}
 
 	async invoke(options: vscode.LanguageModelToolInvocationOptions<void>, token: vscode.CancellationToken) {
-		const wsFolder = vscode.workspace.workspaceFolders?.find(wsf => path.basename(wsf.uri.fsPath).toLowerCase() === 'vscode-docs');
-		const milestoneName = vscode.workspace.getConfiguration(undefined, wsFolder?.uri).get<string>('doc-assistant.milestone');
+		const milestoneName = await getCurrentMilestoneName();
 		if (!milestoneName) {
 			return createLanguageModelToolResult(
 				await renderElementJSON(GetCurrentMilestoneNameResult, { error: 'No milestone specified' }, options.tokenizationOptions, token),

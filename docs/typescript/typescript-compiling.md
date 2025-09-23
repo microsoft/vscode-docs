@@ -1,6 +1,6 @@
 ---
 ContentId: 59543856-da91-4a0d-9a98-9d5f2bf70c71
-DateApproved: 08/07/2025
+DateApproved: 09/11/2025
 MetaDescription: Learn about TypeScript compiling with Visual Studio Code.
 ---
 # Compiling TypeScript

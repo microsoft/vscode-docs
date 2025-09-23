@@ -1,6 +1,6 @@
 ---
 ContentId: 3f773ade-7e71-4fb9-9bb9-d9e0b20fa799
-DateApproved: 08/07/2025
+DateApproved: 09/11/2025
 MetaDescription: Visual Studio Code language mode identifiers
 ---
 # Language Identifiers

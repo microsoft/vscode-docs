@@ -1,6 +1,6 @@
 ---
 ContentId: A5C839C4-67E9-449C-94B8-4B310FCAAB1B
-DateApproved: 08/07/2025
+DateApproved: 09/11/2025
 MetaDescription: Visual Studio Code supports a Portable mode that enables moving your installation and related data to a different location.
 ---
 # Portable mode
