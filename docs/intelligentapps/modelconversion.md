@@ -200,7 +200,7 @@ You can choose the different EPs or datasets for re-evaluation
 If your job is canceled or failed, you can select job name to adjust the workflow and run job again. To avoid accidental overwrites, each execution creates a new history folder with its own configuration and results.
 
 > [!NOTE]
-> Some workflows may require login huggingface first. If your job is failed with output like `huggingface_hub.errors.LocalTokenNotFoundError: Token is required ('token=True'), but no token found. You need to provide a token or be logged in to Hugging Face with 'hf auth login' or 'huggingface_hub.login'. See https://huggingface.co/settings/tokens.`, please follow the instruction to complete the login and try again.
+> Some workflows may require that you log in to Hugging Face first. If your job has failed with output like `huggingface_hub.errors.LocalTokenNotFoundError: Token is required ('token=True'), but no token found. You need to provide a token or be logged in to Hugging Face with 'hf auth login' or 'huggingface_hub.login'`, please navigate to <https://huggingface.co/settings/tokens> and follow the instructions to complete the log in process and then try again.
 
 ## View results
 
