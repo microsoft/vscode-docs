@@ -6,30 +6,30 @@ Whether upgrading frameworks, addressing outdated dependencies, or preparing for
 
 ![GitHub Copilot App Modernization](images/java-app-mod/appmodlogo.png)
 
-The extension offers the following the key capabilities:
+## Extension capabilities
 
-* Intelligent assessments and upgrade planning
-    Copilot scans your codebase, analyzes dependencies and frameworks, and builds actionable plans to guide your modernization journey.
+The [GitHub Copilot App Modernization](https://marketplace.visualstudio.com/items?itemName=vscjava.migrate-java-to-azure) extension offers the following the key capabilities:
 
-* AI-powered code transformation
-    From Java 8 to the latest LTS version, Copilot automates upgrades with structured, context-aware edits,  cutting out repetitive work and reducing upgrade risk.
+* **Intelligent assessments and upgrade planning**: Copilot scans your codebase, analyzes dependencies and frameworks, and builds actionable plans to guide your modernization journey.
 
-* Reusable migration patterns
-    Capture your team’s refactoring logic into custom formulas, then reapply them across apps for consistent, scalable modernization.
+* **AI-powered code transformation**: From Java 8 to the latest LTS version, Copilot automates upgrades with structured, context-aware edits,  cutting out repetitive work and reducing upgrade risk.
 
-* Build and test validation
-    Copilot fixes build errors, runs unit tests, and ensures your application is stable after changes, helping maintain clean CI/CD pipelines.
+* **Reusable migration patterns**: Capture your team’s refactoring logic into custom formulas, then reapply them across apps for consistent, scalable modernization.
 
-* CVE detection and remediation
-    Automatically detect and patch known vulnerabilities post-upgrade. Copilot applies secure fixes while keeping you in full control of the changes.
+* **Build and test validation**: Copilot fixes build errors, runs unit tests, and ensures your application is stable after changes, helping maintain clean CI/CD pipelines.
 
-* Seamless Azure integration
-    Deploy upgraded apps to Azure with minimal effort. Modernized apps can immediately use Azure AI Foundry to unlock over 11,000 models, built-in observability, safety tools, and agent services.
+* **CVE detection and remediation**: Automatically detect and patch known vulnerabilities post-upgrade. Copilot applies secure fixes while keeping you in full control of the changes.
+
+* **Seamless Azure integration**: Deploy upgraded apps to Azure with minimal effort. Modernized apps can immediately use Azure AI Foundry to unlock over 11,000 models, built-in observability, safety tools, and agent services.
 
 ## Get started
 
-Get started with one of the following tutorials or learn more about [general app modernization](https://learn.microsoft.com/en-us/azure/developer/github-copilot-app-modernization/overview):
+Get started with one of the following tutorials:
 
 * [Upgrade a Java project](https://learn.microsoft.com/java/upgrade/quickstart-upgrade)
 * [Assess and migrate a Java project](https://learn.microsoft.com/azure/developer/java/migration)
 * [Detect and fix security issues in your Java project](https://learn.microsoft.com/java/upgrade/tools)
+
+## Related resources
+
+* Learn more about [general concepts of app modernization](https://learn.microsoft.com/en-us/azure/developer/github-copilot-app-modernization/overview)
