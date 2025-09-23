@@ -17,7 +17,7 @@ The extension offer the following the key capabilities:
     Capture your team’s refactoring logic into custom formulas, then reapply them across apps for consistent, scalable modernization.
 
 * Build and test validation
-Copilot fixes build errors, runs unit tests, and ensures your application is stable after changes—helping maintain clean CI/CD pipelines.
+    Copilot fixes build errors, runs unit tests, and ensures your application is stable after changes, helping maintain clean CI/CD pipelines.
 
 * CVE detection and remediation
     Automatically detect and patch known vulnerabilities post-upgrade. Copilot applies secure fixes while keeping you in full control of the changes.
