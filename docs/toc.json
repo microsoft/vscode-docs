@@ -136,6 +136,7 @@
         "area": "copilot/guides",
         "noCollapse": true,
         "topics": [
+          ["Context Engineering", "/docs/copilot/guides/context-engineering-guide"],
           ["Edit Notebooks with AI", "/docs/copilot/guides/notebooks-with-ai"],
           ["Test with AI", "/docs/copilot/guides/test-with-copilot"],
           ["Debug with AI", "/docs/copilot/guides/debug-with-copilot"],
