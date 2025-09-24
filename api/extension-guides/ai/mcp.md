@@ -322,31 +322,61 @@ export function activate(context: vscode.ExtensionContext) {
 
 ### MCP development mode in VS Code
 
-When developing MCP servers, you can enable MCP development mode in VS Code. To enable development mode, add the `dev` property to your MCP server configuration and specify the following properties:
+When developing MCP servers, you can enable _development mode_ for MCP servers by adding a `dev` key to the MCP server configuration. This is an object with two properties:
 
-- `watch`: A glob pattern to watch for file changes to files and automatically restart the server
-- `debug`: Debugger to attach to your MCP server process when starting it (currently only supported for servers launched with `node` or `python`)
+* `watch`: A file glob pattern to watch for files change that will restart the MCP server.
+* `debug`: Enables you to set up a debugger with the MCP server. Currently, VS Code supports debugging Node.js and Python MCP servers.
 
-The following example shows how to configure a Node.js MCP server that watches for changes to TypeScript files in the `src` directory and uses the Node.js debugger:
+    <details>
+    <summary>Node.js MCP server</summary>
 
-```json
-{
-    "servers": {
-        "my-mcp-server": {
-            "type": "stdio",
-            "command": "node",
-            "cwd": "${workspaceFolder}",
-            "args": [
-                "./build/index.js"
-            ],
-            "dev": {
-                "watch": "src/**/*.ts",
-                "debug": { "type": "node" }
+    To debug a Node.js MCP server, set the `debug.type` property to `node`.
+
+    ```json
+    {
+        "servers": {
+            "my-mcp-server": {
+                "type": "stdio",
+                "command": "node",
+                "cwd": "${workspaceFolder}",
+                "args": [ "./build/index.js" ],
+                "dev": {
+                    "watch": "src/**/*.ts",
+                    "debug": { "type": "node" }
+                }
             }
         }
     }
-}
-```
+    ```
+
+    </details>
+
+    <details>
+    <summary>Python MCP server</summary>
+
+    To debug a Python MCP server, set the `debug.type` property to `debugpy`, and optionally set the `debug.debugpyPath` property to the path of the `debugpy` module if it is not installed in the default Python environment.
+
+    ```json
+    {
+        "servers": {
+            "my-python-mcp-server": {
+                "type": "stdio",
+                "command": "python",
+                "cwd": "${workspaceFolder}",
+                "args": [ "./server.py" ],
+                "dev": {
+                    "watch": "**/*.py",
+                    "debug": {
+                        "type": "debugpy",
+                        "debugpyPath": "/path/to/debugpy"
+                    }
+                }
+            }
+        }
+    }
+    ```
+
+    </details>
 
 ### MCP output log
 
