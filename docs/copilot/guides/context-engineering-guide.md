@@ -14,25 +14,30 @@ Context engineering is a systematic approach to providing AI agents with targete
 
 The high-level workflow for context engineering in VS Code consists of the following steps:
 
-1. Curate project-wide context in custom instructions
-1. Generate an implementation plan for the feature using a planning chat mode and prompt
-1. Generate the implementation code from the implementation plan
+1. Curate project-wide context: use custom instructions to include relevant documentation (for example, architecture, design, contributor guidelines) as context to all chat interactions.
+1. Generate implementation plan: create a planning persona by using a custom chat mode and a prompt to generate a detailed feature implementation plan.
+1. Generate implementation code: use custom instructions to generate code based on the implementation plan that adheres to your coding guidelines.
 
-Workflow overview:
+As you work through the steps, you can iterate and refine the output with follow-up prompts in the chat.
 
+The following diagram illustrates a context engineering workflow in VS Code:
+
+![Diagram that shows the context engineering workflow in VS Code consisting of three main steps.](../images/context-engineering-guide/context-engineering-workflow.png)
+
+<!--
 ```mermaid
 flowchart TD
     %% Nodes
-    C1(["Project description"]) --> curate[Curate project context]
-    C2(["Architecture"]) --> curate
-    C3(["Other"]) --> curate
-    task(["Task context"]) --> plan["Generate plan"]
-    curate --> plan
-    plan --> P(["&lt;feature&gt;-plan.md"])
-    T([Plan template]) --> P(["&lt;feature&gt;-plan.md"])
-    P --> implement["Generate code"]
-    implement --> code(["&lt;code&gt;"])
-    C4([Coding guidelines]) --> code
+    C1(["Project description"]) --&gt; curate[Curate project context]
+    C2(["Architecture"]) --&gt; curate
+    C3(["Other"]) --&gt; curate
+    task(["Task context"]) --&gt; plan["Generate plan"]
+    curate --&gt; plan
+    plan --&gt; P(["&lt;feature&gt;-plan.md"])
+    T([Plan template]) --&gt; P(["&lt;feature&gt;-plan.md"])
+    P --&gt; implement["Generate code"]
+    implement --&gt; code(["&lt;code&gt;"])
+    C4([Coding guidelines]) --&gt; code
 
     %% Styles
     classDef input fill:#f5f5f5,stroke:#616161,stroke-width:2px;
@@ -43,6 +48,7 @@ flowchart TD
     class curate,plan,implement process;
     class P,code output;
 ```
+-->
 
 ## Step 1: Curate project-wide context
 
@@ -56,7 +62,7 @@ To ground the AI agent in the specifics of the project, collect key project info
     > * `Generate a PRODUCT.md file that describes the product functionality of the project.`
     > * `Generate a CONTRIBUTING.md file that describes how to contribute to the project.`
 
-1. Create a `.github/copilot-instructions.md` file at the root of your repository.
+1. Create a `.github/copilot-instructions.md` [instructions file](/docs/copilot/customization/custom-instructions.md#use-a-githubcopilot-instructionsmd-file) at the root of your repository.
 
     The instructions in this file are automatically included in all chat interactions as context for the AI agent.
 
@@ -78,7 +84,7 @@ To ground the AI agent in the specifics of the project, collect key project info
 
 Once you have the project-specific context in place, you can use AI to prompt the creation of an implementation plan for a new feature or bug fix. Generating an implementation plan is an iterative process that might require multiple rounds of refinement to ensure its complete and accurate.
 
-With a custom chat mode for planning, you can create a dedicated persona with planning-specific guidelines and tools (for example, read-only access to the codebase).
+With a [custom chat mode](/docs/copilot/customization/custom-chat-modes.md) for planning, you can create a dedicated persona with planning-specific guidelines and tools (for example, read-only access to the codebase).
 
 1. Create a planning document template `plan-template.md` that defines the structure and sections of the implementation plan document.
 
@@ -115,7 +121,7 @@ With a custom chat mode for planning, you can create a dedicated persona with pl
     Outline how the feature will be tested and validated.
     ```
 
-1. Create a planning chat mode `.github/chatmodes/plan.chatmode.md` that defines the planning persona. In planning mode, the agent operates is instructed not to perform implementation tasks, but to focus on creating the implementation plan.
+1. Create a planning [chat mode](/docs/copilot/customization/custom-chat-modes.md) `.github/chatmodes/plan.chatmode.md` that defines the planning persona. In planning mode, the agent operates is instructed not to perform implementation tasks, but to focus on creating the implementation plan.
 
     To create a chat mode, run the **Chat: Configure Chat Modes** > **Create New custom chat mode file** command in the Command Palette.
 
@@ -180,7 +186,7 @@ With a custom chat mode for planning, you can create a dedicated persona with pl
 
     You can also reference a GitHub issue to provide specific context: `Implement the feature described in issue #43`. Make sure to
 
-1. Optionally, create a prompt file `.github/prompts/plan.prompt.md` that invokes plan mode and instructs the agent to create an implementation plan from a provided feature request.
+1. Optionally, create a [prompt file](/docs/copilot/customization/prompt-files.md) `.github/prompts/plan.prompt.md` that invokes plan mode and instructs the agent to create an implementation plan from a provided feature request.
 
     By using a prompt file, you can easily instruct the agent to create an implementation plan by using a slash command, such as `/plan`.
 
@@ -204,7 +210,7 @@ With a custom chat mode for planning, you can create a dedicated persona with pl
 
 After you have generated and refined the implementation plan, you can now use AI to implement the feature by generating code from the implementation plan.
 
-If you have specific coding guidelines and practices for your project, you can create custom instructions that are applied automatically in all chat interactions.
+If you have specific coding guidelines and practices for your project, you can create [custom instructions](/docs/copilot/customization/custom-instructions.md) that are applied automatically in all chat interactions.
 
 1. Create a `.github/instructions/coding-guidelines.instructions.md` Markdown file that describes the coding standards and guidelines for your project.
 
@@ -253,7 +259,7 @@ If you have specific coding guidelines and practices for your project, you can c
 
     For example, enter a chat prompt like `implement it based on #<my-plan>.md`, which references the implementation plan file.
 
-1. Optionally, create a custom chat mode `.github/chatmodes/implement.chatmode.md` specialized in implementing code based on a plan.
+1. Optionally, create a [custom chat mode](/docs/copilot/customization/custom-chat-modes.md) `.github/chatmodes/implement.chatmode.md` specialized in implementing code based on a plan.
 
     You might want to configure the `model` metadata property to use a language model that is optimized for code generation.
 
