@@ -1,10 +1,6 @@
 ---
-Order: 7
-Area: python
-TOCTitle: Debugging
 ContentId: 3d9e6bcf-eae8-4c94-b857-89225b5c4ab5
-PageTitle: Debugging configurations for Python apps in Visual Studio Code
-DateApproved: 03/05/2025
+DateApproved: 09/11/2025
 MetaDescription: Details on configuring the Visual Studio Code debugger for different Python applications.
 MetaSocialImage: images/tutorial/python-social.png
 ---

@@ -1,10 +1,6 @@
 ---
-Order:
-Area: editor
-TOCTitle: Glob Patterns Reference
 ContentId: c2d81f09-3c24-4659-8aa0-9ca24ef4950d
-PageTitle: Visual Studio Code glob patterns reference
-DateApproved: 03/05/2025
+DateApproved: 09/11/2025
 MetaDescription: Visual Studio Code glob patterns reference
 ---
 # Glob Patterns Reference
@@ -38,3 +34,5 @@ We implemented our own [glob matching library](https://github.com/microsoft/vsco
 ### Why does my glob pattern not work?
 
 Make sure that on Windows you are using `/` to separate paths and not `\`. Glob patterns in VS Code require `/` for separating paths but they will both match on `/` and `\` in paths.
+
+If you're trying to literally match a special character like `[` or `]`, escape it by placing the special character inside square brackets (single-character range) to avoid it being interpreted in pattern matching. Backslashes do not escape them. For example, to match files under `src/routes/post/[id]/`, you would use the pattern `src/routes/post/[[]id[]]/**`.

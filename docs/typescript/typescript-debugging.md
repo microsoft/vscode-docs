@@ -1,10 +1,6 @@
 ---
-Order: 5
-Area: typescript
-TOCTitle: Debugging
 ContentId: 19c60eb6-662b-444a-92f6-009642cc1e5b
-PageTitle: TypeScript debugging with Visual Studio Code
-DateApproved: 03/05/2025
+DateApproved: 09/11/2025
 MetaDescription: TypeScript debugging with Visual Studio Code.
 MetaSocialImage: ../languages/images/typescript/typescript-social.png
 ---
@@ -74,7 +70,7 @@ TypeScript is great for writing client-side code as well as Node.js applications
 
 We'll create a tiny web application to show client-side debugging in action.
 
-Create a new folder `HelloWeb` and add three files: `helloweb.ts`, `helloweb.html`, and `tsconfig.json` with the following content"
+Create a new folder `HelloWeb` and add three files: `helloweb.ts`, `helloweb.html`, and `tsconfig.json` with the following content:
 
 helloweb.ts
 

@@ -1,14 +1,9 @@
 ---
-Order: 3
-Area: python
-TOCTitle: Run Python Code
 ContentId:
-PageTitle: Running Python Code in Visual Studio Code
-DateApproved: 03/05/2025
+DateApproved: 09/11/2025
 MetaDescription: Running Python Code in Visual Studio Code
 MetaSocialImage: images/tutorial/python-social.png
 ---
-
 # Running Python code in Visual Studio Code
 
 Whether you are experimenting with smaller lines of Python code in the REPL or ready to run a Python script, the Python extension offers multiple ways to run your code.

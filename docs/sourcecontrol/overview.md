@@ -1,10 +1,6 @@
 ---
-Order: 1
-Area: sourcecontrol
-TOCTitle: Overview
 ContentId: 7E22CCC0-2AB8-4729-A4C9-BE2B16853820
-PageTitle: Source Control with Git in Visual Studio Code
-DateApproved: 03/05/2025
+DateApproved: 09/11/2025
 MetaDescription: Visual Studio Code source control management with integrated Git support.
 ---
 # Using Git source control in VS Code
@@ -104,7 +100,7 @@ GitHub Copilot in VS Code can generate a commit message for you, based on the co
 
 ![Screenshot that shows the Generate Commit Message with Copilot button in the commit message input box.](images/overview/copilot-generate-commit-message.png)
 
-If you have specific requirements for your commit message for your organization or project, you can use Copilot custom instructions for generating commit messages. For example, _commit messages have a maximum length of 60 chars and should start with a verb in the present tense_. Get more details about [Copilot custom instructions for generating commit messages](/docs/copilot/copilot-customization.md).
+If you have specific requirements for your commit message for your organization or project, you can use Copilot custom instructions for generating commit messages. For example, _commit messages have a maximum length of 60 chars and should start with a verb in the present tense_. Get more details about [Copilot custom instructions for generating commit messages](/docs/copilot/customization/overview.md).
 
 ### Author commit messages using an editor
 
@@ -145,9 +141,9 @@ To adjust the color of the editor decoration, use the `git.blame.editorDecoratio
 
 GitHub Copilot in VS Code can help you review your uncommitted code changes.
 
-1. In the Source Control view, select the **Copilot Code Review** button to start a code review of the uncommitted changes
+1. In the Source Control view, select the **Code Review** button to start a code review of the uncommitted changes
 
-    ![Screenshot that shows the Copilot Code Review button in the Source Control view.](images/overview/copilot-code-review.png)
+    ![Screenshot that shows the Code Review button in the Source Control view.](images/overview/copilot-code-review.png)
 
 1. Copilot generates code review comments and suggestions as overlays in the editor
 
@@ -174,6 +170,59 @@ The **Git: Create Branch** command lets you quickly create a new branch. Just pr
 > [!TIP]
 > VS Code can automatically save and restore open editors when you switch to another branch. Use the `setting(scm.workingSets.enabled)` setting to enable this feature. To control the open editors when switching to a branch for the first time, you can use the `setting(scm.workingSets.default)` setting.
 
+## Worktrees
+
+VS Code has built-in support for [Git worktrees](https://git-scm.com/docs/git-worktree), making it easy to manage and work with multiple branches at the same time.
+
+> [!NOTE]
+> You can disable automatic worktree detection by toggling the `setting(git.detectWorktrees)` setting.
+
+### Create a worktree
+
+You can create a new worktree directly from the **Source Control Repositories** view or by using the **Git: Create Worktree** command in the Command Palette (`kb(workbench.action.showCommands)`).
+
+1. In the Source Control view, select **...** > **Repositories** to open the Source Control Repositories view.
+
+    ![Screenshot that shows the Repositories option in the Source Control view.](images/overview/source-control-view-repositories.png)
+
+1. Right-click on a repository, and select **Worktrees** > **Create Worktree...**
+
+    ![Screenshot that shows the Create Worktree option in the context menu of a repository in the Source Control Repositories view.](images/overview/worktree-create.png)
+
+1. Follow the prompts to choose a branch and location for the new worktree.
+
+    VS Code creates a new folder for the worktree at the specified location and checks out the selected branch into that folder.
+
+    The Source Control Repositories view shows the newly created worktree under its parent repository. VS Code distinguishes between repositories, submodules, and worktrees, showing their relationships for better clarity.
+
+### Open a worktree
+
+There are multiple ways to open a worktree:
+
+* Directly open the folder associated with the worktree in VS Code. VS Code automatically detects that it's a worktree of an existing repository.
+
+* Right-click the worktree in the Source Control Repositories view and select **Open Worktree in New Window** or **Open Worktree in Current Window**.
+
+* Run the **Git: Open Worktree in Current Window** or **Git: Open Worktree in New Window** command in the Command Palette and select the desired worktree.
+
+### Manage worktrees
+
+All detected worktrees are shown in the Source Control Repositories view, grouped under their parent repository.
+
+When you select a worktree in the list, the Changes view shows the pending changes for that worktree.
+
+To delete a worktree, right-click it in the list and select **Delete Worktree**. Alternatively, run the **Git: Delete Worktree** command in the Command Palette.
+
+### Compare and migrate changes from a worktree
+
+When you make changes in a worktree, you can compare those changes with your main workspace and bring worktree changes back into your main repository.
+
+1. In the **Source Control** view, right-click a changed file in the worktree and select **Compare with Workspace** to see the differences side-by-side.
+
+    ![Screenshot that shows the Compare with Workspace option in the context menu of a changed file in a worktree.](images/overview/worktree-compare-changes.png)
+
+1. After reviewing, use the **Migrate Worktree Changes...** command from the Command Palette to merge all changes from a worktree into your current workspace.
+
 ## Remotes
 
 Given that your repository is connected to some remote and that your checked out branch has an [upstream link](https://git-scm.com/book/ch3-5.html) to a branch in that remote, VS Code offers you useful actions to **push**, **pull**, and **sync** that branch (the latter will run a **pull** command followed by a **push** command). You can find these actions in the **Views and More Actions** `...` menu, along with the option to **add or remove a remote**.
@@ -185,7 +234,7 @@ VS Code is able to periodically fetch changes from your remotes. This enables VS
 
 ## Source control graph
 
-When you have a remote repository configured, you can see how many commits you are ahead or behind the remote. The **Graph** section of the Source Control view shows a graphical representation of the commits that are incoming and outgoing.
+When you have a remote repository configured, you can see how many commits you are ahead or behind the remote. The **Graph** view in the Source Control view shows a graphical representation of the commits that are incoming and outgoing.
 
 The graph contains the current branch, the current branch's upstream branch, and an optional base branch. The root of the graph is the common ancestor of these branches.
 
@@ -193,8 +242,11 @@ The graph contains the current branch, the current branch's upstream branch, and
 
 The graph provides the following functionality:
 
-* Select an entry to see the corresponding changes in the commit.
-* Perform Fetch, Pull, and Push actions by hovering over the **Incoming/Outgoing** heading.
+- Select an entry to see the files that are changed in that commit. Select the **Open Changes** action to see the diff of the commit in the editor.
+- Right-click on a commit to perform actions such as checkout, cherry-pick, adding it as context to chat, and more.
+- Select a file to see the diff of that file in the editor.
+
+Use the actions in the Graph view tool bar to select the branch, fetch, pull, push, and sync changes.
 
 ## Git Status Bar actions
 
@@ -205,6 +257,10 @@ There is a **Synchronize Changes** action in the Status Bar, next to the branch 
 If there is no upstream branch configured and the Git repository has remotes set up, the **Publish** action is enabled. This will let you publish the current branch to a remote.
 
 ![git status bar publish](images/overview/git-status-bar-publish.png)
+
+If your workspace contains multiple Git repositories, the Status Bar will show the current repository. When you select the Status Bar item, you can choose the behavior of which repository should be active.
+
+![git status bar repo name](images/overview/git-status-bar-repository.png)
 
 ## Gutter indicators
 
@@ -265,7 +321,7 @@ The Diff editor has a separate gutter in the middle, which enables you to **Stag
 ![Screenshot of the Diff editor, showing the Stage and Revert controls in the gutter](images/overview/diffEditor-stage-revert-demo.gif)
 
 > [!TIP]
-> You can diff any two files by first right-clicking on a file in the Explorer view and selecting **Select for Compare** and then right-click on the second file to compare with and select **Compare with Selected**. Alternatively, open the Command Palette (`kb(workbench.action.showCommands)`), and select ay of the **File: Compare** commands. Learn more about the different options to [compare files in VS Code](/docs/editing/codebasics.md#compare-files).
+> You can diff any two files by first right-clicking on a file in the Explorer view and selecting **Select for Compare** and then right-click on the second file to compare with and select **Compare with Selected**. Alternatively, open the Command Palette (`kb(workbench.action.showCommands)`), and select any of the **File: Compare** commands. Learn more about the different options to [compare files in VS Code](/docs/editing/codebasics.md#compare-files).
 
 ### Accessible Diff Viewer
 

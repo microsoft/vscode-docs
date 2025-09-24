@@ -1,10 +1,6 @@
 ---
-Order: 6
-Area: terminal
-TOCTitle: Advanced
 ContentId: D458AFDC-C001-43FD-A4BB-9474767B2C04
-PageTitle: Advanced Terminal Usage in Visual Studio Code
-DateApproved: 03/05/2025
+DateApproved: 09/11/2025
 MetaDescription: Visual Studio Code's integrated terminal has several advanced features.
 ---
 # Terminal Advanced
@@ -86,7 +82,7 @@ Using mnemonics to access VS Code's menu (for example, `kbstyle(Alt+F)` for File
 
 ### Custom sequence keyboard shortcuts
 
-The `workbench.action.terminal.sendSequence` command can be used to send a specific sequence of text to the terminal, including escape sequences that are interpreted specially by the shell. The command enables you to send Arrow keys, `kbstyle(Enter)`, cursor moves, etc.
+The `workbench.action.terminal.sendSequence` command can be used to send a specific sequence of text to the terminal, including escape sequences that are interpreted specially by the shell. The command enables you to send Arrow keys, `kbstyle(Enter)`, cursor moves, and more. Run this command via the Command Palette, which allows for manual input, but it's most useful when you assign a custom keyboard shortcut with arguments.
 
 For example, the sequence below jumps over the word to the left of the cursor (`kbstyle(Ctrl+Left)`) and then presses `kbstyle(Backspace)`:
 
@@ -106,6 +102,22 @@ The `sendSequence` command only works with the `\u0000` format for using charact
 
 * [XTerm Control Sequences](https://invisible-island.net/xterm/ctlseqs/ctlseqs.html)
 * [List of C0 and C1 control codes](https://github.com/xtermjs/xterm.js/blob/0e45909c7e79c83452493d2cd46d99c0a0bb585f/src/common/data/EscapeSequences.ts)
+
+## Send a custom signal
+
+The `workbench.action.terminal.sendSignal` command can be used to send an arbitrary signal to the foreground process in the active terminal.
+
+For example, the below keybinding will send `SIGTERM`, causing it to terminate gracefully.
+
+```jsonc
+{
+  "key": "ctrl+shift+/",
+  "command": "workbench.action.terminal.sendSignal",
+  "args": {
+    "signal": "SIGTERM"
+  }
+}
+```
 
 ## Confirmation dialogs
 

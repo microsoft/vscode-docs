@@ -1,13 +1,8 @@
 ---
-Order: 12
-Area: csharp
-TOCTitle: FAQ
 ContentId: edd2c270-152c-419d-b5d9-06f2f95979cd
-PageTitle: C# Dev Kit extension FAQ
 DateApproved: 5/3/2024
 MetaDescription: C# Dev Kit extension Frequently Asked Questions (FAQ)
 ---
-
 # C# Dev Kit FAQ
 
 Use this FAQ (Frequently Asked Questions) topic to learn more about the C# Dev Kit extension and troubleshoot issues you may be experiencing.
@@ -198,6 +193,19 @@ Make sure that your tests are targeting NET Core. C# Dev Kit does not support .N
 C# Dev Kit requires that it has built your project successfully before tests will appear in the Test Explorer panel.
 
 Build your solution by right-clicking on the solution in the Solution Explorer and select **Build** or `kb(workbench.action.tasks.build)`. Once the build has been completed, your tests will appear in the Test Explorer panel.
+
+### Why are my tests not being discovered or run in the Test Explorer?
+
+If your test project is using the Microsoft Testing Platform (MTP), either via MSTest, NUnit, xUnit v3, or the TUnit test framework, your tests might not be discovered or run in the Test Explorer because MTP differs from the traditional VSTest platform. To resolve this, you need to enable the "Use Testing Platform Protocol" setting in Visual Studio Code to allow the C# Dev Kit to communicate with MTP test projects.
+
+Follow these steps to enable the setting:
+1. Open Settings in VS Code: Go to **File** > **Preferences** > **Settings** (or press `kb(workbench.action.openSettings)`).
+2. In the Settings search bar, type "Test Window" to filter results.
+3. Find the setting Dotnet > Test Window: Use Testing Platform Protocol under the C# Dev Kit extension settings.
+4. Check the box to enable it (or toggle it to "On").
+5. Reload VS Code by running the **Reload Window** command in the Command Palette (`kb(workbench.action.showCommands)`).
+
+After enabling this setting, your tests should be discovered and run properly in the Test Explorer.
 
 ### How do I collect logs for troubleshooting issues with Test Explorer?
 

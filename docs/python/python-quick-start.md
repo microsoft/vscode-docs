@@ -1,14 +1,9 @@
 ---
-Order: 1
-Area: python
-TOCTitle: Quick Start
 ContentId: c7134463-4fdd-4674-8685-77c94472902c
-PageTitle: Quick Start Guide for Python in VS Code
-DateApproved: 03/05/2025
+DateApproved: 09/11/2025
 MetaDescription: A quick start guide to get you up and coding with the Python extension in Visual Studio Code.
 MetaSocialImage: images/tutorial/python-social.png
 ---
-
 # Quick Start Guide for Python in VS Code
 
 The Python extension makes Visual Studio Code an excellent Python editor, works on any operating system, and is usable with a variety of Python interpreters.

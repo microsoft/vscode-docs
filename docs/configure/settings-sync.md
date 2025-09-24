@@ -1,10 +1,6 @@
 ---
-Order: 16
-Area: editor
-TOCTitle: Settings Sync
 ContentId: 6cb84e60-6d90-4137-83f6-bdab3438b8f5
-PageTitle: Settings Sync in Visual Studio Code
-DateApproved: 03/05/2025
+DateApproved: 09/11/2025
 MetaDescription: Synchronize your user settings across all your Visual Studio Code instances.
 ---
 # Settings Sync
@@ -84,7 +80,7 @@ When synchronizing settings between multiple machines, there may occasionally be
 
 ## Switching Accounts
 
-If at any time you want to sync your data to a different account, you can turn off and turn on Settings Sync again with different account.
+If at any time you want to sync your data to a different account, you can turn off and turn on Settings Sync again with different account. The command to turn off sync is **Settings Sync: Turn off**.
 
 ## Syncing Stable versus Insiders
 

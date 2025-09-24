@@ -1,9 +1,5 @@
 ---
-Order: 2
-Area: cpp
-TOCTitle: GCC on Linux
 ContentId: 8ba2e5c6-cb57-4513-bc02-c8b73e6956ad
-PageTitle: Get Started with C++ on Linux in Visual Studio Code
 DateApproved: 5/13/2022
 MetaDescription: Configure the C++ extension in Visual Studio Code to target g++ and GDB on Linux
 ---

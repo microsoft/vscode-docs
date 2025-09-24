@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: b31344d9-a1d9-4f87-82df-9c7151ef99e3
-DateApproved: 03/05/2025
+DateApproved: 09/11/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how Visual Studio Code extensions can enable telemetry and respect user telemetry choices.
@@ -13,7 +13,7 @@ Visual Studio Code collects usage data and sends it to Microsoft to help improve
 
 This topic has guidelines for extension authors so that their extensions can conform to VS Code telemetry requirements and best practices.
 
->**Note**: If you don't want to send usage data to Microsoft, you can set the `telemetry.telemetryLevel` user [setting](/docs/getstarted/settings) to `off`.
+>**Note**: If you don't want to send usage data to Microsoft, you can set the `telemetry.telemetryLevel` user [setting](/docs/configure/settings) to `off`.
 
 ## Telemetry module
 

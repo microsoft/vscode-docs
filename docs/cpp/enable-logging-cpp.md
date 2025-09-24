@@ -1,9 +1,5 @@
 ---
-Order:
-Area: cpp
-TOCTitle: Logging
 ContentId: EC8DC085-A0E4-4401-B41F-6497EDD49352
-PageTitle: How to enable logging in the Visual Studio Code C/C++ extension
 DateApproved: 7/25/2019
 MetaDescription: How to enable logging in the Visual Studio Code C/C++ extension
 ---

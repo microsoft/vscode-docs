@@ -1,9 +1,5 @@
 ---
-Order: 15
-Area: cpp
-TOCTitle: Configure IntelliSense
 ContentId: bf494c65-12b4-4506-ab6c-1fad76d7ccf1
-PageTitle: Configure C/C++ IntelliSense
 DateApproved: 11/6/2023
 MetaDescription: Configure Visual Studio Code IntelliSense in the C/C++ extension
 ---

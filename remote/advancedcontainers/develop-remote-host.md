@@ -5,7 +5,7 @@ TOCTitle: Develop on a remote Docker host
 PageTitle: Develop a container on a remote Docker host
 ContentId: 661004c9-d96c-4898-8b33-91eefb893466
 MetaDescription: Develop a container on a remote Docker host
-DateApproved: 03/05/2025
+DateApproved: 09/11/2025
 ---
 # Develop on a remote Docker host
 
@@ -40,12 +40,12 @@ This model only requires that a Docker Engine be running on a remote host that y
 
 ### A basic remote example
 
-Setting up VS Code to attach to a container on a remote Docker host can be as easy as setting the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) `docker.environment` property in `settings.json` and restarting VS Code (or reloading the window).
+Setting up VS Code to attach to a container on a remote Docker host can be as easy as setting the [Container Tools extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers) `containers.environment` property in `settings.json` and restarting VS Code (or reloading the window).
 
 For example:
 
 ```json
-"docker.environment": {
+"containers.environment": {
     "DOCKER_HOST": "ssh://your-remote-user@your-remote-machine-fqdn-or-ip-here"
 }
 ```
@@ -92,10 +92,10 @@ Recent versions of Docker (18.06+) have added support for the SSH protocol to co
 
 First, install a [supported SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client), configure [key based authentication](/docs/remote/troubleshooting.md#configuring-key-based-authentication)), and then **import your key into your local SSH agent** (which often is not running by default on Windows and Linux). See the article on [using SSH Keys with Git](/docs/devcontainers/containers.md#using-ssh-keys) for details on configuring the agent and adding the key.
 
-Then, add the following [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) `docker.environment` property to `settings.json` (replacing values as appropriate):
+Then, add the following [Container Tools extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers) `containers.environment` property to `settings.json` (replacing values as appropriate):
 
 ```json
-"docker.environment": {
+"containers.environment": {
     "DOCKER_HOST": "ssh://your-remote-user@your-remote-machine-fqdn-or-ip-here"
 }
 ```
@@ -106,10 +106,10 @@ After restarting VS Code (or reloading the window), you will now be able to [att
 
 ### Using the TCP protocol
 
-While the SSH protocol has its own built-in authorization mechanism, using the TCP protocol often requires setting other [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) properties in your `settings.json`. These are:
+While the SSH protocol has its own built-in authorization mechanism, using the TCP protocol often requires setting other [Container Tools extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers) properties in your `settings.json`. These are:
 
 ```json
-"docker.environment": {
+"containers.environment": {
     "DOCKER_HOST": "tcp://your-remote-machine-fqdn-or-ip-here:port",
     "DOCKER_CERT_PATH": "/optional/path/to/folder/with/certificate/files",
     "DOCKER_TLS_VERIFY": "1" // or "0"
@@ -133,9 +133,9 @@ If you'd prefer not to use `settings.json`, you can set **environment variables*
 
 You create new contexts with `docker context create`. The current context can be changed using `docker context use <context>`.
 
-The [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) comes with the `docker.environment` setting where environment variables like `DOCKER_HOST` or `DOCKER_CONTEXT` can be set that are also honored by the Dev Containers extension.
+The [Container Tools extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers) comes with the `containers.environment` setting where environment variables like `DOCKER_HOST` or `DOCKER_CONTEXT` can be set that are also honored by the Dev Containers extension.
 
-> **Note:** The above settings are only visible when the Docker extension is installed. Without the Docker extension, Dev Containers will use the current context.
+> **Note:** The above settings are only visible when the Container Tools extension is installed. Without the Container Tools extension, Dev Containers will use the current context.
 
 ## Converting an existing or pre-defined devcontainer.json
 

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: C4F184A5-A804-4B0B-9EBA-AFE83B88EE49
-DateApproved: 03/05/2025
+DateApproved: 09/11/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: At the core of Visual Studio Code's extensibility model is an extension (plug-in) manifest file where your extension declares its extension type(s), activation rules, and runtime resources.
@@ -23,7 +23,7 @@ Every Visual Studio Code extension needs a manifest file `package.json` at the r
 | `displayName`                                           |          | `string`                                   | The display name for the extension used in the Marketplace.<br>The display name must be unique to the Marketplace.                                                                                                                                                                                                                                                            |
 | `description`                                           |          | `string`                                   | A short description of what your extension is and does.                                                                                                                                                                                                                                                                |
 | `categories`                                            |          | `string[]`                                 | The categories you want to use for the extensions. Allowed values: `[Programming Languages, Snippets, Linters, Themes, Debuggers, Formatters, Keymaps, SCM Providers, Other, Extension Packs, Language Packs, Data Science, Machine Learning, Visualization, Notebooks, Education, Testing]`                                                                                                          |
-| `keywords`                                              |          | `array`                                    | An array of **keywords** to make it easier to find the extension. These are included with other extension **Tags** on the Marketplace. This list is currently limited to 5 keywords.                                                                                                                                   |
+| `keywords`                                              |          | `array`                                    | An array of **keywords** to make it easier to find the extension. These are included with other extension **Tags** on the Marketplace. This list is currently limited to 30 keywords.                                                                                                                                   |
 | `galleryBanner`                                         |          | `object`                                   | Helps format the Marketplace header to match your icon. See details below.                                                                                                                                                                                                                                             |
 | `preview`                                               |          | `boolean`                                  | Sets the extension to be flagged as a Preview in the Marketplace.                                                                                                                                                                                                                                                      |
 | `main`                                                  |          | `string`                                   | The entry point to your extension.                                                                                                                                                                                                                                                                                     |
@@ -165,19 +165,14 @@ Due to security concerns, we only allow badges from trusted services.
 
 We allow badges from the following URL prefixes:
 
-- api.bintray.com
 - api.travis-ci.com
-- api.travis-ci.org
 - app.fossa.io
 - badge.buildkite.com
 - badge.fury.io
-- badge.waffle.io
 - badgen.net
 - badges.frapsoft.com
 - badges.gitter.im
-- badges.greenkeeper.io
 - cdn.travis-ci.com
-- cdn.travis-ci.org
 - ci.appveyor.com
 - circleci.com
 - cla.opensource.microsoft.com
@@ -190,7 +185,6 @@ We allow badges from the following URL prefixes:
 - dev.azure.com
 - docs.rs
 - flat.badgen.net
-- gemnasium.com
 - github.com (from Workflows only)
 - gitlab.com
 - godoc.org
@@ -202,10 +196,8 @@ We allow badges from the following URL prefixes:
 - opencollective.com
 - snyk.io
 - travis-ci.com
-- travis-ci.org
 - visualstudio.com
 - vsmarketplacebadges.dev
-- www.versioneye.com
 
 Note : Replace vsmarketplacebadge.apphb.com badge with vsmarketplacebadges.dev badge.
 

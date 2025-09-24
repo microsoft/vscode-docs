@@ -1,10 +1,6 @@
 ---
-Order: 2
-Area: sourcecontrol
-TOCTitle: Introduction to Git
 ContentId: b3e4717d-81e2-4bfa-a022-c37aab950bce
-PageTitle: Introduction to Git in Visual Studio Code
-DateApproved: 03/05/2025
+DateApproved: 09/11/2025
 MetaDescription: Get started with Git in Visual Studio Code and take control of your code! Our beginner's guide covers everything you need to know, from setting up a repository to committing changes and collaborating with others. Learn Git today and streamline your development workflow.
 ---
 # Introduction to Git in VS Code
@@ -178,7 +174,7 @@ To create a PR, make sure you are on a separate branch from the main branch, and
 ![Source Control view, highlighting the 'Create pull request' button](images/intro/scm-create-pull-request.png)
 
 > [!TIP]
-> Use GitHub Copilot to generate a PR title and description, based on the commits that are included in the PR. Select the _sparkle_ icon next to the PR title field to generate a PR title and description. You can also [let Copilot perform a code review of the PR]() before you create it. Select the **Copilot Code Review** button in the GitHub Pull Request view.
+> Use GitHub Copilot to generate a PR title and description, based on the commits that are included in the PR. Select the _sparkle_ icon next to the PR title field to generate a PR title and description. You can also [let Copilot perform a code review of the PR]() before you create it. Select the **Code Review** button in the GitHub Pull Request view.
 
 Learn more about pull requests in [VS Code's GitHub documentation](/docs/sourcecontrol/github.md).
 

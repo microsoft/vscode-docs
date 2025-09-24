@@ -1,13 +1,8 @@
 ---
-Order: 8
-Area: csharp
-TOCTitle: Build Tools
 ContentId: 1d35afc9-2439-48bf-84e5-547446d89239
-PageTitle: C# Build Tools for Visual Studio Code
 DateApproved: 6/6/2023
 MetaDescription: C# Build Tools for Visual Studio
 ---
-
 # Build Tools
 
 This document is an overview of how to build your C# projects and solutions in the C# tools for Visual Studio Code. It covers the features provided by the [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) extension.

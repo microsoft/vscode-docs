@@ -41,6 +41,7 @@
       ["", "", {
         "name": "Extensions",
         "area": "configure/extensions",
+        "noCollapse": true,
         "topics": [
           ["Extension Marketplace", "/docs/configure/extensions/extension-marketplace"],
           ["Extension Runtime Security", "/docs/configure/extensions/extension-runtime-security"]
@@ -88,7 +89,74 @@
       ["Debugging", "/docs/debugtest/debugging"],
       ["Debug Configuration", "/docs/debugtest/debugging-configuration"],
       ["Testing", "/docs/debugtest/testing"],
-      ["Port Forwarding", "/docs/debugtest/port-forwarding"],
+      ["Port Forwarding", "/docs/debugtest/port-forwarding"]
+    ]
+  },
+
+  {
+    "name": "GitHub Copilot",
+    "area": "copilot",
+    "topics": [
+      ["Overview", "/docs/copilot/overview"],
+      ["Setup", "/docs/copilot/setup"],
+      ["Quickstart", "/docs/copilot/getting-started"],
+      ["", "", {
+        "name": "Chat",
+        "area": "copilot/chat",
+        "noCollapse": true,
+        "topics": [
+          ["Chat Overview", "/docs/copilot/chat/copilot-chat"],
+          ["Manage Context", "/docs/copilot/chat/copilot-chat-context"],
+          ["Ask Mode", "/docs/copilot/chat/chat-ask-mode"],
+          ["Edit Mode", "/docs/copilot/chat/copilot-edits"],
+          ["Agent Mode", "/docs/copilot/chat/chat-agent-mode"],
+          ["Inline Chat", "/docs/copilot/chat/inline-chat"],
+          ["Prompt Engineering", "/docs/copilot/chat/prompt-crafting"]
+        ]
+      }
+      ],
+      ["Code Completions", "/docs/copilot/ai-powered-suggestions"],
+      ["Copilot Coding Agent", "/docs/copilot/copilot-coding-agent"],
+      ["", "", {
+        "name": "Customize Copilot",
+        "area": "copilot/customization",
+        "noCollapse": true,
+        "topics": [
+          ["Overview", "/docs/copilot/customization/overview"],
+          ["Custom Instructions", "/docs/copilot/customization/custom-instructions"],
+          ["Prompt Files", "/docs/copilot/customization/prompt-files"],
+          ["Chat Modes", "/docs/copilot/customization/custom-chat-modes"],
+          ["Language Models", "/docs/copilot/customization/language-models"],
+          ["MCP", "/docs/copilot/customization/mcp-servers"]
+        ]
+      }
+      ],
+      ["", "", {
+        "name": "Guides",
+        "area": "copilot/guides",
+        "noCollapse": true,
+        "topics": [
+          ["Edit Notebooks with AI", "/docs/copilot/guides/notebooks-with-ai"],
+          ["Test with AI", "/docs/copilot/guides/test-with-copilot"],
+          ["Debug with AI", "/docs/copilot/guides/debug-with-copilot"],
+          ["MCP Dev Guide", "/docs/copilot/guides/mcp-developer-guide"]
+        ]
+      }
+      ],
+      ["Smart Actions", "/docs/copilot/copilot-smart-actions"],
+      ["Tips and Tricks", "/docs/copilot/copilot-tips-and-tricks"],
+      ["Security", "/docs/copilot/security"],
+      ["FAQ", "/docs/copilot/faq"],
+      ["", "", {
+        "name": "Reference",
+        "area": "copilot/reference",
+        "topics": [
+          ["Cheat Sheet", "/docs/copilot/reference/copilot-vscode-features"],
+          ["Settings Reference", "/docs/copilot/reference/copilot-settings"],
+          ["Workspace Context", "/docs/copilot/reference/workspace-context"]
+        ]
+      }
+      ]
     ]
   },
 
@@ -114,37 +182,7 @@
       ["Advanced", "/docs/terminal/advanced"]
     ]
   },
-  {
-    "name": "GitHub Copilot",
-    "area": "copilot",
-    "topics": [
-      ["Overview", "/docs/copilot/overview"],
-      ["Setup", "/docs/copilot/setup"],
-      ["Copilot Quickstart", "/docs/copilot/getting-started"],
-      ["Tips and Tricks", "/docs/copilot/copilot-tips-and-tricks"],
-      ["Code Completions", "/docs/copilot/ai-powered-suggestions"],
-      ["Copilot Chat", "/docs/copilot/copilot-chat"],
-      ["Copilot Chat Tutorial", "/docs/copilot/getting-started-chat"],
-      ["Copilot Edits", "/docs/copilot/copilot-edits"],
-      ["Adding Chat Context", "/docs/copilot/copilot-chat-context"],
-      ["Personalize Copilot", "/docs/copilot/copilot-customization"],
-      ["Prompt Engineering", "/docs/copilot/prompt-crafting"],
-      ["Workspace Context", "/docs/copilot/workspace-context"],
-      ["", "", {
-        "name": "Guides",
-        "area": "copilot/guides",
-        "topics": [
-          ["Test with Copilot", "/docs/copilot/guides/test-with-copilot"],
-          ["Debug with Copilot", "/docs/copilot/guides/debug-with-copilot"]
-        ]
-      }
-      ],
-      ["Copilot Cheat Sheet", "/docs/copilot/copilot-vscode-features"],
-      ["Settings Reference", "/docs/copilot/copilot-settings"],
-      ["Copilot Extensibility", "/docs/copilot/copilot-extensibility-overview"],
-      ["FAQ", "/docs/copilot/faq"]
-    ]
-  },
+
   {
     "name": "Languages",
     "area": "languages",
@@ -170,7 +208,8 @@
       ["T-SQL", "/docs/languages/tsql"],
       ["C#", "/docs/languages/csharp"],
       [".NET", "/docs/languages/dotnet"],
-      ["Polyglot", "/docs/languages/polyglot"]
+      ["Polyglot", "/docs/languages/polyglot"],
+      ["Swift", "/docs/languages/swift"]
     ]
   },
   {
@@ -237,6 +276,7 @@
       ["Run and Debug", "/docs/java/java-debugging"],
       ["Testing", "/docs/java/java-testing"],
       ["Spring Boot", "/docs/java/java-spring-boot"],
+      ["Modernizing Java Apps", "/docs/java/java-app-mod"],
       ["Application Servers", "/docs/java/java-tomcat-jetty"],
       ["Deploy Java Apps", "/docs/java/java-on-azure"],
       ["GUI Applications", "/docs/java/java-gui"],
@@ -261,7 +301,7 @@
       ["Debugging", "/docs/cpp/cpp-debug"],
       ["Configure Debugging", "/docs/cpp/launch-json-reference"],
       ["Refactoring", "/docs/cpp/cpp-refactoring"],
-      ["Settings", "/docs/cpp/customize-default-settings-cpp"],
+      ["Settings Reference", "/docs/cpp/customize-cpp-settings"],
       ["Configure IntelliSense", "/docs/cpp/configure-intellisense"],
       ["Configure IntelliSense for Cross-Compiling", "/docs/cpp/configure-intellisense-crosscompilation"],
       ["FAQ", "/docs/cpp/faq-cpp"]
@@ -286,7 +326,7 @@
     ]
   },
   {
-    "name": "Docker",
+    "name": "Container Tools",
     "area": "containers",
     "topics": [
       ["Overview", "/docs/containers/overview"],
@@ -326,12 +366,25 @@
       ["AI Toolkit Overview", "/docs/intelligentapps/overview"],
       ["Models", "/docs/intelligentapps/models"],
       ["Playground", "/docs/intelligentapps/playground"],
-      ["Prompt Builder", "/docs/intelligentapps/promptbuilder"],
+      ["Agent Builder", "/docs/intelligentapps/agentbuilder"],
       ["Bulk Run", "/docs/intelligentapps/bulkrun"],
       ["Evaluation", "/docs/intelligentapps/evaluation"],
       ["Fine-tune", "/docs/intelligentapps/finetune"],
-      ["Model Conversion", "/docs/intelligentapps/modelconversion"]
-      ["FAQ", "/docs/intelligentapps/faq"]
+      ["Model Conversion", "/docs/intelligentapps/modelconversion"],
+      ["Tracing", "/docs/intelligentapps/tracing"],
+      ["FAQ", "/docs/intelligentapps/faq"],
+      ["", "", {
+        "name": "Reference",
+        "area": "intelligentapps/reference",
+        "topics": [
+          ["File Structure", "/docs/intelligentapps/reference/FileStructure"],
+          ["Manual Model Conversion", "/docs/intelligentapps/reference/ManualModelConversion"],
+          ["Manual Model Conversion On GPU", "/docs/intelligentapps/reference/ManualConversionOnGPU"],
+          ["Setup Environment Without AI Toolkit", "/docs/intelligentapps/reference/SetupWithoutAITK"],
+          ["Template Project", "/docs/intelligentapps/reference/TemplateProject"]
+        ]
+      }
+      ]
     ]
   },
   {
@@ -340,8 +393,10 @@
     "topics": [
       ["Overview", "/docs/azure/overview"],
       ["Getting Started", "/docs/azure/gettingstarted"],
+      ["Resources View", "/docs/azure/resourcesextension"],
       ["Deployment", "/docs/azure/deployment"],
-      ["Docker", "/docs/azure/docker"],
+      ["VS Code for the Web - Azure","/docs/azure/vscodeforweb"],
+      ["Containers", "/docs/azure/containers"],
       ["Azure Kubernetes Service", "/docs/azure/aksextensions"],
       ["Kubernetes", "/docs/azure/kubernetes"],
       ["MongoDB", "/docs/azure/mongodb"],

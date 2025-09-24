@@ -1,10 +1,6 @@
 ---
-Order: 16
-Area: languages
-TOCTitle: Rust
 ContentId: 643d022e-9370-4ca5-bccd-c3a583c5df75
-PageTitle: Rust with Visual Studio Code
-DateApproved: 03/05/2025
+DateApproved: 09/11/2025
 MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Rust.
 ---
 # Rust in Visual Studio Code
@@ -13,7 +9,8 @@ MetaDescription: Learn about Visual Studio Code editor features (code completion
 
 ![Rust extension banner](images/rust/rust-analyzer-extension.png)
 
->**Note**: There is also another popular Rust extension in the VS Code Marketplace (extension ID: rust-lang.rust) but this extension is deprecated and rust-analyzer is the recommended VS Code Rust extension by rust-lang.org.
+> [!NOTE]
+> There is also another popular Rust extension in the VS Code Marketplace (extension ID: rust-lang.rust) but this extension is deprecated and rust-analyzer is the recommended VS Code Rust extension by rust-lang.org.
 
 ## Installation
 
@@ -21,7 +18,8 @@ MetaDescription: Learn about Visual Studio Code editor features (code completion
 
 First you will need to have the Rust toolset installed on your machine. Rust is installed via the [rustup](https://rustup.rs) installer, which supports installation on Windows, macOS, and Linux. Follow the rustup installation guidance for your platform, taking care to install any extra tools required to build and run Rust programs.
 
->**Note**: As with installing any new toolset on your machine, you'll want to make sure to restart your terminal/Command Prompt and VS Code instances to use the updated toolset location in your platform's PATH variable.
+> [!NOTE]
+> As with installing any new toolset on your machine, you'll want to make sure to restart your terminal/Command Prompt and VS Code instances to use the updated toolset location in your platform's PATH variable.
 
 ### 2. Install the rust-analyzer extension
 
@@ -76,7 +74,8 @@ cd hello_world
 code .
 ```
 
->**Note**: Enable [Workspace Trust](/docs/editing/workspaces/workspace-trust.md) for the new folder as you are the author. You can enable Workspace Trust for your entire project folder parent to avoid being prompted when you create new projects by checking the option to **Trust the authors of all the files in parent folder 'my_projects`**.
+> [!NOTE]
+> Enable [Workspace Trust](/docs/editing/workspaces/workspace-trust.md) for the new folder as you are the author. You can enable Workspace Trust for your entire project folder parent to avoid being prompted when you create new projects by checking the option to **Trust the authors of all the files in parent folder 'my_projects`**.
 
 `cargo new` creates a simple Hello World project with a `main.rs` source code file and `Cargo.toml` [Cargo manifest](https://doc.rust-lang.org/cargo/reference/manifest.html) file.
 
@@ -149,7 +148,8 @@ As you type in a Rust file, IntelliSense provides you with suggested completions
 
 ![Smart completion for Rust String member](images/rust/code-completions.png)
 
->**Tip**: Use `kb(editor.action.triggerSuggest)` to trigger the suggestions manually.
+> [!TIP]
+> Use `kb(editor.action.triggerSuggest)` to trigger the suggestions manually.
 
 ## Semantic syntax highlighting
 
@@ -298,7 +298,8 @@ If you see linker errors such as **"error: linker `link.exe` not found"** when y
 
 On Windows, you will need to also install [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/) in order to get the C/C++ linker `link.exe`. Be sure to select the **Desktop Development with C++** when running the Visual Studio installer.
 
->**Note**: You can use the C++ toolset from Visual Studio Build Tools along with Visual Studio Code to compile, build, and verify any codebase as long as you also have a valid Visual Studio license (either Community, Pro, or Enterprise).
+> [!NOTE]
+> You can use the C++ toolset from Visual Studio Build Tools along with Visual Studio Code to compile, build, and verify any codebase as long as you also have a valid Visual Studio license (either Community, Pro, or Enterprise).
 
 **macOS**
 

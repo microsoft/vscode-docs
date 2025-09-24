@@ -1,11 +1,7 @@
 ---
-Order: 16
-Area: remote
-TOCTitle: Tips and Tricks
-PageTitle: Visual Studio Code Remote Development Troubleshooting Tips and Tricks
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Visual Studio Code Remote Development troubleshooting tips and tricks for SSH, Containers, and the Windows Subsystem for Linux (WSL)
-DateApproved: 03/05/2025
+DateApproved: 09/11/2025
 ---
 # Remote Development Tips and Tricks
 
@@ -17,6 +13,12 @@ For tips and questions about [GitHub Codespaces](https://github.com/features/cod
 
 SSH is powerful and flexible, but this also adds some setup complexity. This section includes some tips and tricks for getting the Remote - SSH extension up and running in different environments.
 
+## Customize AI Chat Responses
+
+[Custom instructions](/docs/copilot/customization/overview.md) enable you to describe common guidelines or rules to get responses that match your specific coding practices and tech stack.
+
+You can use custom instructions to give Copilot more information about the type of remote environment you're connected to (like what kind of languages or toolchains are installed). You can use a `copilot-instructions.md` file just as you would locally. There are [additional instruction configuration steps](/docs/devcontainers/tips-and-tricks.md#customize-ai-chat-responses) you can take when using a dev container too.
+
 ### Configuring the $EDITOR variable
 
 For macOS / linux remote hosts, add this snippet to your shell configuration file (like `.bashrc` or `.zshrc`)
@@ -27,9 +29,9 @@ if [ "$VSCODE_INJECTION" = "1" ]; then
 fi
 ```
 
-For Windows hosts, here is the equivalent Powershell:
+For Windows hosts, here is the equivalent PowerShell:
 
-```pwsh
+```powershell
 if ($env:VSCODE_INJECTION -eq "1") {
     $env:EDITOR = "code --wait"  # or 'code-insiders' for VS Code Insiders
 }

@@ -1,10 +1,6 @@
 ---
-Order: 9
-Area: languages
-TOCTitle: C++
 ContentId: D06C8C5C-2D3A-4B2E-B31F-12F1907E6402
-PageTitle: C++ programming with Visual Studio Code
-DateApproved: 03/05/2025
+DateApproved: 09/11/2025
 MetaDescription: Find out how to get the best out of Visual Studio Code and C++.
 MetaSocialImage: images/cpp/languages-cpp-social.png
 ---
@@ -17,7 +13,7 @@ C/C++ support for Visual Studio Code is provided by a [Microsoft C/C++ extension
 ## Install the extension
 
 1. Open VS Code.
-1. Select the Extensions view icon on the Activity bar or use the keyboard shortcut (`kb(workbench.view.extensions)`).
+1. Select the Extensions view icon on the Activity Bar or use the keyboard shortcut (`kb(workbench.view.extensions)`).
 1. Search for `'C++'`.
 1. Select **Install**.
 
@@ -95,21 +91,21 @@ To understand the process, let's install Mingw-w64 via [MSYS2](https://www.msys2
 1. Enter `Y` when prompted whether to proceed with the installation.
 
 1. Add the path of your MinGW-w64 `bin` folder to the Windows `PATH` environment variable by using the following steps:
-   1. In the Windows search bar, type **Settings** to open your Windows Settings.
-   1. Search for **Edit environment variables for your account**.
-   1. In your **User variables**, select the `Path` variable and then select **Edit**.
-   1. Select **New** and add the MinGW-w64 destination folder you recorded during the installation process to the list. If you selected the default installation steps, the path is: `C:\msys64\ucrt64\bin`.
-   1. Select **OK**, and then select **OK** again in the **Environment Variables** window to update the `PATH` environment variable.
-      You have to reopen any console windows for the updated `PATH` environment variable to be available.
+    1. In the Windows search bar, type **Settings** to open your Windows Settings.
+    1. Search for **Edit environment variables for your account**.
+    1. In your **User variables**, select the `Path` variable and then select **Edit**.
+    1. Select **New** and add the MinGW-w64 destination folder you recorded during the installation process to the list. If you selected the default installation steps, the path is: `C:\msys64\ucrt64\bin`.
+    1. Select **OK**, and then select **OK** again in the **Environment Variables** window to update the `PATH` environment variable.
+        You have to reopen any console windows for the updated `PATH` environment variable to be available.
 1. Check that your MinGW-w64 tools are correctly installed and available, open a **new** Command Prompt and type:
 
-```bash
-gcc --version
-g++ --version
-gdb --version
-```
+    ```bash
+    gcc --version
+    g++ --version
+    gdb --version
+    ```
 
-You should see output that states which versions of GCC, g++ and GDB you have installed. If this is not the case, make sure your PATH entry matches the Mingw-w64 binary location where the compiler tools are located or reference the [troubleshooting section](/docs/cpp/config-mingw.md#_check-your-mingw-installation).
+    You should see output that states which versions of GCC, g++ and GDB you have installed. If this is not the case, make sure your PATH entry matches the Mingw-w64 binary location where the compiler tools are located or reference the [troubleshooting section](/docs/cpp/config-mingw.md#_check-your-mingw-installation).
 
 ## Create a Hello World App
 
@@ -120,19 +116,19 @@ To make sure the compiler is installed and configured correctly, lets create a H
 1. On Windows, launch a Windows command prompt (Enter **Windows command prompt** in the Windows search bar). On macOS and Linux, you can enter these commands in the terminal.
 1. Run the following commands. They are creating an empty folder called `projects` where you can place all your VS Code projects. The next commands create and navigate you to a subfolder called `helloworld`. From there, you are opening `helloworld` directly in VS Code using the `code` command.
 
-```bat
-mkdir projects
-cd projects
-mkdir helloworld
-cd helloworld
-code .
-```
+    ```bat
+    mkdir projects
+    cd projects
+    mkdir helloworld
+    cd helloworld
+    code .
+    ```
 
-The "code ." command opens VS Code in the current working folder, which becomes your "workspace". Accept the [Workspace Trust](/docs/editing/workspaces/workspace-trust.md) dialog by selecting **Yes, I trust the authors** since this is a folder you created.
+    The "code ." command opens VS Code in the current working folder, which becomes your "workspace". Accept the [Workspace Trust](/docs/editing/workspaces/workspace-trust.md) dialog by selecting **Yes, I trust the authors** since this is a folder you created.
 
-Now create a new file called `helloworld.cpp` with the **New File** button in the File Explorer or **File** > **New File** command.
+1. Now, create a new file called `helloworld.cpp` with the **New File** button in the File Explorer or **File** > **New File** command.
 
-![File Explorer New File button](images/cpp/new-file.png)
+    ![File Explorer New File button](images/cpp/new-file.png)
 
 ### Add Hello World source code
 
@@ -147,7 +143,7 @@ int main()
 }
 ```
 
-Now press `kb(workbench.action.files.save)` to save the file. You can also enable [AutoSave](/docs/editing/codebasics.md#save-auto-save) to automatically save your file changes, by checking **Auto Save** in the main **File** menu.
+Now press `kb(workbench.action.files.save)` to save the file. You can also enable [AutoSave](/docs/editing/codebasics.md#save--auto-save) to automatically save your file changes, by checking **Auto Save** in the main **File** menu.
 
 ## Run helloworld.cpp
 
@@ -160,7 +156,7 @@ Now press `kb(workbench.action.files.save)` to save the file. You can also enabl
 
    ![C++ debug configuration dropdown](images/cpp/select-gcc-compiler.png)
 
-You are only prompted to choose a compiler the first time you run `helloworld.cpp`. This compiler becomes "default" compiler set in your `tasks.json` file.
+    You are only prompted to choose a compiler the first time you run `helloworld.cpp`. This compiler becomes "default" compiler set in your `tasks.json` file.
 
 4. After the build succeeds, you should see "Hello World" appear in the integrated **Terminal**.
 

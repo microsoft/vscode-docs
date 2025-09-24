@@ -3,7 +3,7 @@ Order:
 TOCTitle: Microsoft Extension Licenses
 ContentId: 661ad650-7bed-41f6-a62b-9eb1407010ab
 PageTitle: Microsoft Extension Licenses
-DateApproved: 03/05/2025
+DateApproved: 09/11/2025
 MetaDescription: List of Microsoft Extension Licenses
 ---
 # Microsoft Extension Licenses
@@ -45,9 +45,9 @@ As more and more teams in Microsoft contribute extensions, we realize that it ca
 | [Blockchain Development Kit for Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain) | ✔ | [MIT](https://marketplace.visualstudio.com/items/AzBlockchain.azure-blockchain/license) |
 | [C/C++](https://marketplace.visualstudio.com/items/ms-vscode.cpptools)  | | [Microsoft](https://marketplace.visualstudio.com/items/ms-vscode.cpptools/license) |
 | [C#](https://marketplace.visualstudio.com/items/ms-dotnettools.csharp) | ✔ ([Repo](https://github.com/OmniSharp/omnisharp-vscode))  | [Microsoft](https://marketplace.visualstudio.com/items/ms-dotnettools.csharp/license) |
+| [Container Tools](https://marketplace.visualstudio.com/items/ms-azuretools.vscode-containers) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-azuretools.vscode-containers/license) |
 | [Cordova Tools](https://marketplace.visualstudio.com/items/msjsdiag.cordova-tools) | ✔ ([Repo](https://github.com/microsoft/vscode-cordova)) | [Microsoft](https://marketplace.visualstudio.com/items/msjsdiag.cordova-tools/license) |
 | [Debugger for Java](https://marketplace.visualstudio.com/items/vscjava.vscode-java-debug) | ✔ | [MIT](https://marketplace.visualstudio.com/items/vscjava.vscode-java-debug/license) |
-| [Docker](https://marketplace.visualstudio.com/items/ms-azuretools.vscode-docker) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-azuretools.vscode-docker/license) |
 | [docs-article-templates](https://marketplace.visualstudio.com/items?itemName=docsmsft.docs-article-templates) | ✔ | [MIT](https://docsmsft.gallerycdn.vsassets.io/extensions/docsmsft/docs-markdown/0.2.2/1547755350969/Microsoft.VisualStudio.Services.Content.License) |
 | [docs-markdown](https://marketplace.visualstudio.com/items/docsmsft.docs-markdown) | ✔ | [MIT](https://marketplace.visualstudio.com/items/docsmsft.docs-markdown/license) |
 | [docs-preview](https://marketplace.visualstudio.com/items/docsmsft.docs-preview) | ✔ | [MIT](https://marketplace.visualstudio.com/items/docsmsft.docs-preview/license) |

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 05bd995d-946e-4046-8816-c6d50dccb1b4
-DateApproved: 03/05/2025
+DateApproved: 09/11/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: UX guidelines for the Side Bar in a Visual Studio Code extension.

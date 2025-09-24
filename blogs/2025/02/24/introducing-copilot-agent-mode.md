@@ -3,6 +3,7 @@ Order: 93
 TOCTitle: Copilot Agent Mode (preview)
 PageTitle: Copilot Agent Mode (preview)
 MetaDescription: Announcing the GitHub Copilot agent mode in Visual Studio Code.
+MetaSocialImage: agent-mode.png
 Date: 2025-02-24
 Author: Isidor Nikolic
 ---
@@ -11,7 +12,10 @@ Author: Isidor Nikolic
 
 February 24, 2025 by [Isidor Nikolic](https://github.com/isidorn)
 
-Copilot agent mode is the next evolution in AI-assisted coding. Acting as an autonomous peer programmer, it performs multi-step coding tasks at your command — analyzing your codebase, reading relevant files, proposing file edits, and running terminal commands and tests. It responds to compile and lint errors, monitors terminal and test output, and auto-corrects in a loop until the task is completed. Available to all [VS Code Insiders](https://code.visualstudio.com/insiders/) users today, and soon in VS Code Stable.
+> [!TIP]
+> Agent mode is now available in VS Code Stable and has support for MCP servers. Read more about the [updates to agent mode in our blog post](/blogs/2025/04/07/agentMode.md).
+
+Copilot [agent mode](/docs/copilot/chat/chat-agent-mode.md) is the next evolution in AI-assisted coding. Acting as an autonomous peer programmer, it performs multi-step coding tasks at your command — analyzing your codebase, reading relevant files, proposing file edits, and running terminal commands and tests. It responds to compile and lint errors, monitors terminal and test output, and auto-corrects in a loop until the task is completed. Available to all [VS Code Insiders](https://code.visualstudio.com/insiders/) users today, and soon in VS Code Stable.
 
 <video src="copilot-agent-mode.mp4" title="Copilot Edits video" autoplay muted controls></video>
 
@@ -32,7 +36,7 @@ Copilot agent mode uses a set of tools to accomplish these tasks.
 
 In an ideal world, you would just care about the final output of Copilot agent mode, but it can sometimes make mistakes and go off track. To easily intervene and undo in those situations, every tool invocation is transparently displayed in the UI, terminal tool requires approval, and we support rich undo capabilities - you can use the **Undo Last Edit** control in the view title bar to revert to the state before the last edit was applied. Instead of relying on one long, detailed prompt to yield a perfect solution, you should iterate with Copilot – the UI is built for iterations, giving you full control over the process ensuring the final result is better.
 
-Copilot agent mode automatically finds the precise context and sets the working set of files by calling the right workspace tools. To more precisely guide Copilot, you can always explicitly reference context with `#file`, using drag and drop or by clicking on the **Add Files** button. For example, you can create a `specifications.md` file and add it as context to better control Copilot, or you can set [custom instructions](/docs/copilot/copilot-customization.md) - so Copilot respects your coding guidelines or other preferences.
+Copilot agent mode automatically finds the precise context and sets the working set of files by calling the right workspace tools. To more precisely guide Copilot, you can always explicitly reference context with `#file`, using drag and drop or by clicking on the **Add Files** button. For example, you can create a `specifications.md` file and add it as context to better control Copilot, or you can set [custom instructions](/docs/copilot/customization/overview.md) - so Copilot respects your coding guidelines or other preferences.
 
 Keep in mind that because Copilot agent mode may send multiple requests per prompt, it won’t be as fast as regular edits mode and can quickly use up your free Copilot quota. For tasks that are well-defined and scoped, stick to edits mode. When you need multiple edits or more open-ended tasks, switch to agent mode.
 
@@ -97,7 +101,7 @@ Today, the VS Code team prefers Claude Sonnet over GPT-4o for our Copilot agent 
 
 ## Available today
 
-Copilot agent mode is in preview and available today to all [VS Code Insiders](https://code.visualstudio.com/insiders/) users. We literally push code every day to improve Copilot, so the experience in VS Code Insiders is getting better every day (e.g. today we pushed the ability to edit the proposed terminal command). We look forward to getting your feedback in [our repo](http://github.com/microsoft/vscode-copilot-release/issues/). Let us know how you want to use Copilot agent mode, so we can make sure the features we are delivering will be impactful to you.
+Copilot agent mode is in preview and available today to all [VS Code Insiders](https://code.visualstudio.com/insiders/) users. We literally push code every day to improve Copilot, so the experience in VS Code Insiders is getting better every day (e.g. today we pushed the ability to edit the proposed terminal command). We look forward to getting your feedback in [our repo](http://github.com/microsoft/vscode/issues/). Let us know how you want to use Copilot agent mode, so we can make sure the features we are delivering will be impactful to you.
 
 Next, we plan to work on:
 * Fine-grained undo capability
@@ -109,7 +113,7 @@ Next, we plan to work on:
 * Unifying the chat and edits experience
 * In parallel, we are improving the quality and performance with the goal of shipping Copilot agent mode to all VS Code Stable users.
 
-For a detailed overview of Copilot agent mode please read the [official docs](/docs/copilot/copilot-edits.md#use-agent-mode-preview).
+For a detailed overview of Copilot agent mode please read the [official docs](/docs/copilot/chat/chat-agent-mode.md).
 
 We’re thrilled about Copilot agent mode — try it today and let us know what you think.
 

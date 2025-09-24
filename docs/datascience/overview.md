@@ -1,13 +1,8 @@
 ---
-Order: 1
-Area: datascience
-TOCTitle: Overview
 ContentId: 23ce059e-95ec-4eaa-975c-d4cf76159516
-PageTitle: Doing Data Science in Visual Studio Code
 DateApproved: 1/9/2023
 MetaDescription: Doing Data Science in Visual Studio Code.
 ---
-
 # Data Science in Visual Studio Code
 
 You can do all of your data science work within VS Code. Use Jupyter Notebooks and the [Interactive Window](/docs/python/jupyter-support-py.md) to start analyzing and visualizing your data in minutes! Power your Python coding experience with IntelliSense support and build, train, and deploy machine learning models to the cloud or the edge with Azure Machine Learning service.

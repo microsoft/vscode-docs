@@ -1,10 +1,6 @@
 ---
-Order: 10
-Area: getstarted
-TOCTitle: Telemetry
-PageTitle: Visual Studio Code Telemetry
 ContentId: 47a2e3b1-24f2-42e6-a6e6-272c2a0f3218
-DateApproved: 03/05/2025
+DateApproved: 09/11/2025
 MetaDescription: Learn about Visual Studio Code collected telemetry and how to opt out.
 ---
 # Telemetry
@@ -32,16 +28,14 @@ With the `setting(telemetry.telemetryLevel)` user [setting](/docs/configure/sett
 | crash |            ✓          |        -        |        -       |
 | off   |            -          |        -        |        -       |
 
-For example, if you don't want to send any telemetry data to Microsoft, you can set the `setting(telemetry.telemetryLevel)` user [setting](/docs/configure/settings.md) to `off`.
-
-From **File** > **Preferences** > **Settings**, search for `telemetry`, and set the **Telemetry: Telemetry Level** setting to `off`. This will silence all telemetry events from VS Code going forward. Telemetry information may have been collected and sent up until the point when you disable the setting.
+For example, if you don't want to send any telemetry data to Microsoft, you can set the `setting(telemetry.telemetryLevel)` user [setting](/docs/configure/settings.md) to `off`. This will silence all telemetry events from VS Code going forward. Note that telemetry information may have been collected and sent up until the point when you disable the setting.
 
 ![disable telemetry](images/telemetry/disable-telemetry.png)
 
 If you use the JSON editor for your settings, add the following line:
 
 ```json
-    "telemetry.telemetryLevel": "off"
+"telemetry.telemetryLevel": "off"
 ```
 
 ## Extensions and telemetry
@@ -52,13 +46,15 @@ Extension authors may refer to the ["For Extension Authors"](#for-extension-auth
 
 ## Output channel for telemetry events
 
-If you'd like to review the telemetry events in VS Code as they are sent, you can enable tracing and it will record telemetry events. Using the **Developer: Set Log Level...** command and select log level **Trace**.  To view the logging output, go to the Output panel (`kb(workbench.action.output.toggleOutput)`) and pick **Telemetry** from the dropdown.
+To review the telemetry events in VS Code as they are sent, run the **Developer: Show Telemetry** command from the Command Palette (`kb(workbench.action.showTelemetry)`). This command enables tracing for telemetry events and opens the **Telemetry** output channel in the Output panel (`kb(workbench.action.output.toggleOutput)`). As telemetry events are sent, the output channel shows the event details.
 
 ![output panel log telemetry](images/telemetry/output-log-telemetry.png)
 
-When tracing telemetry events, the events are also logged to a local file `telemetry.log`, which you can view using the **Developer: Open Log File...** command and choosing **Telemetry** from the dropdown.
+When tracing telemetry events, the events are also logged to a local file `telemetry.log`, which you can view using the **Developer: Open Log...** command and choosing **Telemetry** from the dropdown.
 
 ![open telemetry log file](images/telemetry/open-telemetry-log.png)
+
+To disable tracing telemetry events, reload the VS Code window (**Developer: Reload Window** command).
 
 ## Viewing all telemetry events
 
@@ -157,6 +153,7 @@ Please read the [extension guides telemetry document](/api/extension-guides/tele
 
 ## Next steps
 
+* [Centrally manage telemetry log level](/docs/setup/enterprise.md#configure-telemetry-level) - Learn how to set the telemetry log level for your organization.
 * [Visual Studio Code FAQ](/docs/supporting/faq.md) - Consult the Frequently Asked Questions to learn more.
 * [User and Workspace Settings](/docs/configure/settings.md) - Read about available options to customize VS Code.
 * [Key Bindings](/docs/configure/keybindings.md) - You can easily modify commonly used keyboard shortcuts.

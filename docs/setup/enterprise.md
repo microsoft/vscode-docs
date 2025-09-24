@@ -1,10 +1,6 @@
 ---
-Order: 8
-Area: setup
-TOCTitle: Enterprise
 ContentId: 936ab8e0-3bbe-4842-bb17-ea314665c20a
-PageTitle: Visual Studio Code enterprise support
-DateApproved: 03/05/2025
+DateApproved: 09/11/2025
 MetaDescription: Learn about Visual Studio Code's enterprise support features, such as group policies or restricting allowed extensions.
 
 ---
@@ -20,12 +16,28 @@ Refer to the [network common hostnames list](/docs/setup/network.md#common-hostn
 
 ## Configure allowed extensions
 
-Configure the `extensions.allowed` application-wide setting in VS Code to control which extensions can be installed. If the setting is not configured, all extensions are allowed. If the setting is configured, all extensions not listed are blocked from installing. If you block an extension or version that is already installed, the extension is disabled.
-
-To centrally manage allowed extensions for your organization, use [device management](#centrally-manage-allowed-extensions) like Windows group policies, to create a policy that overrides the VS Code setting on individual devices.
-
 > [!NOTE]
 > Support for allowed extensions is available starting from VS Code version 1.96.
+
+The `extensions.allowed` application-wide setting in VS Code enables you to control which extensions can be installed on the user's machine. If the setting is not configured, all extensions are allowed. If the setting is configured, all extensions not listed are blocked from installing. If you block an extension or version that is already installed, the extension is disabled.
+
+To [centrally manage](#centrally-manage-vs-code-settings) allowed extensions for your organization, configure the `AllowedExtensions` policy using your device management solution. This policy overrides the `extensions.allowed` setting on users' devices. The value of this policy is a JSON string that contains the allowed extensions:
+
+```json
+{
+    "github": true,
+    "microsoft": true
+}
+```
+
+This is how an administrator may locally configure the `AllowedExtensions` policy using the [Local Group Policy Editor](https://learn.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn265982(v=ws.11)):
+
+![Configuring AllowedExtensions from the Local Group Policy Editor](images/enterprise/allowed-extensions-local-gp-editor.png)
+
+> [!IMPORTANT]
+> If there's a syntax error in the policy value, the `extensions.allowed` setting is not applied. You can check the Window log in VS Code for errors (press `kb(workbench.action.showCommands)` and enter **Show Window Log**).
+
+### Allowed extensions setting values
 
 The `extensions.allowed` setting contains a list of extension selectors that determine which extensions are allowed or blocked. You can specify the following types of extension selectors:
 
@@ -49,8 +61,8 @@ The following JSON snippet shows examples of the different `extensions.allowed` 
     // Allow prettier extension
     "esbenp.prettier-vscode": true,
 
-    // Do not allow docker extension
-    "ms-azuretools.vscode-docker": false,
+    // Do not allow container tools extension
+    "ms-azuretools.vscode-containers": false,
 
     // Allow only version 3.0.0 of the eslint extension
     "dbaeumer.vscode-eslint": ["3.0.0"],
@@ -82,15 +94,6 @@ Duplicate key values are not supported. For example, including both `"microsoft"
 
 If you want to learn more about extensions in VS Code, refer to the [extensions documentation](/docs/configure/extensions/extension-marketplace.md).
 
-### Centrally manage allowed extensions
-
-Use [device management](#device-management) to centrally control which extensions are allowed to be installed in your organization. Configure the `AllowedExtensions` VS Code policy to override the corresponding `extensions.allowed` VS Code setting on users' devices. The value of this policy is a JSON string that contains the allowed extensions.
-
-![Settings editor showing that the 'Extensions: Allowed' setting is managed by the organization.](images/enterprise/allowed-extensions-managed-by-organization.png)
-
-> [!IMPORTANT]
-> If there's a syntax error in the policy value, the `extensions.allowed` setting is not applied. You can check the Window log in VS Code for errors (press `kb(workbench.action.showCommands)` and enter **Show Window Log**).
-
 ## Configure automatic updates
 
 The `update.mode` VS Code setting controls whether VS Code automatically updates when a new version is released. The updates are fetched from a Microsoft online service.
@@ -102,33 +105,104 @@ The setting has the following options:
 * `start` - only check for updates when VS Code starts, automatic checking for updates is disabled
 * `default` - automatic checking for updates is enabled and runs in the background periodically
 
-### Centrally manage automatic updates
+To [centrally manage](#centrally-manage-vs-code-settings) automatic updates for your organization, configure the `UpdateMode` policy using your device management solution. This policy overrides the `update.mode` setting on users' devices. The value of this policy is a string that contains the update mode.
 
-Use [device management](#device-management) to centrally control how VS Code manages updates across devices in your organization. Configure the `UpdateMode` VS Code policy, which overrides the corresponding `update.mode` VS Code setting on users's devices. The value of this policy is a string that contains the update mode.
+## Configure telemetry level
 
-## Device management
+The `setting(telemetry.telemetryLevel)` VS Code setting controls VS Code telemetry, first-party extension telemetry, and participating third-party extension telemetry. Some third party extensions might not respect this setting. Read more about the [data we collect](https://aka.ms/vscode-telemetry).
 
-You can control specific features of VS Code through device management solutions to ensure it meets the needs of your organization.
+* `all` - sends usage data, errors, and crash reports
+* `error` - sends general error telemetry and crash reports
+* `crash` - sends OS level crash reports
+* `off` - disables all product telemetry
 
-VS Code currently supports the following admin-controlled features:
+To [centrally manage](#centrally-manage-vs-code-settings) telemetry for your organization, configure the `TelemetryLevel` policy using your device management solution. This policy overrides the `telemetry.telemetryLevel` setting on users' devices. The value of this policy is a string that contains the telemetry level.
 
-| Policy | Description | VS Code setting |
-| ------ | ----------- | --------------- |
-| `AllowedExtensions` | Controls which extensions can be installed. | `extensions.allowed` |
-| `UpdateMode` | Controls whether VS Code automatically updates when a new version is released. | `update.mode` |
+## Centrally manage VS Code settings
 
-> [!NOTE]
-> Currently, VS Code only supports Windows group policies. Support for configuration profiles on macOS is coming soon ([tracking issue](https://github.com/microsoft/vscode/issues/148942)).
+You can centrally manage specific features of VS Code through device management solutions to ensure it meets the needs of your organization. When you specify a VS Code policy, its value overrides the corresponding VS Code setting on users' devices.
+
+![Settings editor showing that the 'Extensions: Allowed' setting is managed by the organization.](images/enterprise/allowed-extensions-managed-by-organization.png)
+
+VS Code currently provides policies to control the following admin-controlled features:
+
+| Policy                               | Description                                                                                        | VS Code setting                               | Available since |
+|--------------------------------------|----------------------------------------------------------------------------------------------------|-----------------------------------------------|-----------------|
+| `AllowedExtensions`                  | Specify which extensions can be installed.                                                         | `extensions.allowed`                          | 1.96            |
+| `UpdateMode`                         | Enable automatic installation of VS Code updates.                                                  | `update.mode`                                 | 1.67            |
+| `TelemetryLevel`                     | Specify telemetry data level.                                                                      | `telemetry.telemetryLevel`                    | 1.99            |
+| `EnableFeedback`                     | Configure feedback mechanisms (issue reporter and surveys).                                        | `telemetry.feedback.enabled`                  | 1.99            |
+| `ChatAgentMode`                      | Enable [agent mode](/docs/copilot/chat/copilot-chat.md#chat-mode).                                 | `chat.agent.enabled`                          | 1.99            |
+| `ChatAgentExtensionTools`            | Enable using tools contributed by third-party extensions.                                          | `chat.extensionTools.enabled`                 | 1.99            |
+| `ChatPromptFiles`                    | Enable [prompt and instruction files](/docs/copilot/customization/overview.md) in chat.            | `chat.promptFiles`                            | 1.99            |
+| `ChatMCP`                            | Enable [Model Context Protocol (MCP) servers](/docs/copilot/customization/mcp-servers.md) support. | `chat.mcp.access`                             | 1.99            |
+| `ChatToolsAutoApprove`               | Enable global auto-approval for agent mode tools.                                                  | `chat.tools.global.autoApprove`               | 1.99            |
+| `CopilotReviewSelection`             | Enable code review for editor selection.                                                           | `github.copilot.chat.reviewSelection.enabled` | 1.104           |
+| `CopilotReviewAgent`                 | Enable Copilot Code Review for pull requests and changed files.                                    | `github.copilot.chat.reviewAgent.enabled`     | 1.104           |
+| `ChatToolsTerminalEnableAutoApprove` | Enable the rule-based auto-approval for the terminal tool.                                         | `chat.tools.terminal.autoApprove`             | 1.104           |
 
 ### Group Policy on Windows
-
-System administrators need a way to control default software settings across all client machines in their organization. Group Policy is a client solution that gives administrators flexibility to implement the behavior for each of the available policies and settings.
 
 VS Code has support for [Windows Registry-based Group Policy](https://learn.microsoft.com/previous-versions/windows/desktop/policy/implementing-registry-based-policy). Starting from VS Code version 1.69, each release ships with a `policies` directory containing ADMX template files that can be added to the following path: `C:\Windows\PolicyDefinitions`. Make sure to also copy the corresponding `adml` file to the `C:\Windows\PolicyDefinitions\<your-locale>` directory.
 
 Once the policy definitions are installed, admins can use the [Local Group Policy Editor](https://learn.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn265982(v=ws.11)) to manage the policy values.
 
+Products such as [Microsoft Intune](https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/what-is-intune) may be used to centrally manage device policy at scale.
+
 Policies can be set both at the Computer level and the User level. If both are set, Computer level will take precedence. When a policy value is set, the value overrides the VS Code [setting](/docs/configure/settings.md) value configured at any level (default, user, workspace, etc.).
+
+### Configuration profiles on macOS
+
+Configuration profiles manage settings on macOS devices. A profile is an XML file with key/value pairs that correspond to available policy. These profiles can be deployed using Mobile Device Management (MDM) solutions, or installed manually.
+
+Starting from VS Code version 1.99, each release ships with a sample `.mobileconfig` file. This file is located within the `.app` bundle under `Contents/Resources/app/policies`. Use a text editor to manually edit or remove policy to match your organization's requirements.
+
+> [!TIP]
+> To view the contents of the `.app` bundle, right-click on the application (for example, `/Applications/Visual Studio Code.app`) in Finder and select **Show Package Contents**.
+
+#### String policies
+
+The example below demonstrates configuration of the `AllowedExtensions` policy. The policy value starts empty in the sample file (no extensions are allowed).
+
+```xml
+<key>AllowedExtensions</key>
+<string></string>
+```
+
+Add the [appropriate JSON string](#configure-allowed-extensions) defining your policy between the `<string>` tags.
+
+```xml
+<key>AllowedExtensions</key>
+<string>{"microsoft": true, "github": true}</string>
+```
+
+Other policies, like `UpdateMode`, accept a string from a set of [predefined values](#configure-automatic-updates).
+
+```xml
+<key>UpdateMode</key>
+<string>start</string>
+```
+
+#### Boolean policies
+
+Boolean policy values are represented with `<true/>` or `<false/>`.
+
+```xml
+<key>EnableFeedback</key>
+<true/>
+```
+
+To omit a given policy, remove its key/value pair from the `.mobileconfig` file. For example, to not enforce an update mode policy, remove the `UpdateMode` key and the `<string></string>` tags that follow it.
+
+> [!IMPORTANT]
+> The provided `.mobileconfig` file initializes **all** policies available in that version of VS Code. Delete any policies that are not needed.
+>
+> If you do not edit or remove a policy from the sample `.mobileconfig`, that policy will be enforced with its default (restrictive) policy value.
+
+Manually install a configuration profile by double-clicking on the `.mobileconfig` profile in Finder and then enabling it in System Preferences under **General** > **Device Management**.  Removing the profile from System Preferences will remove the policies from VS Code.
+
+For more information on configuration profiles, refer to [Apple's documentation](https://support.apple.com/guide/mac-help/configuration-profiles-standardize-settings-mh35561/mac).
+
 
 ### Additional policies
 
@@ -153,8 +227,10 @@ Users can still uninstall extensions that were preinstalled. Restarting VS Code 
 
 ## Frequently asked questions
 
-### Does VS Code support configuration profiles on macOS or Linux?
-
-Currently, VS Code only supports Windows group policies. Support for configuration profiles on macOS is coming soon ([tracking issue](https://github.com/microsoft/vscode/issues/148942)).
+### Does VS Code support configuration profiles on Linux?
 
 Support for Linux is not on the roadmap. If you're interested in configuration profiles on Linux, open an issue in the VS Code [GitHub repository](https://github.com/microsoft/vscode/issues) and share details about your scenario.
+
+## Related resources
+
+- [Learn about security considerations of using AI in VS Code](/docs/copilot/security.md)

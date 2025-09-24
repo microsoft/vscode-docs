@@ -1,10 +1,6 @@
 ---
-Order: 15
-Area: editor
-TOCTitle: Profiles
 ContentId: a65efc48-5a2d-4c7d-bd23-03f0393b53f6
-PageTitle: Profiles in Visual Studio Code
-DateApproved: 03/05/2025
+DateApproved: 09/11/2025
 MetaDescription: Expand your development workflow with task integration in Visual Studio Code.
 ---
 # Profiles in Visual Studio Code
@@ -19,11 +15,11 @@ The **Profiles editor** enables you to create and manage your profiles in VS Cod
 
 You can access the Profiles editor in either of the following ways:
 
-- From the **File** > **Preferences** > **Profiles** menu item
+* From the **File** > **Preferences** > **Profiles** menu item
 
     ![Profiles editor Menu Item](images/profiles/profiles-editor-menu-item.png)
 
-- From the **Manage** gear button in the bottom of the Activity Bar.
+* From the **Manage** gear button in the bottom of the Activity Bar.
 
     ![Profiles editor via the Manage button in the Activity bar](images/profiles/profiles-editor-via-manage.png)
 
@@ -39,7 +35,7 @@ You can choose to either create a new profile by copying the contents from a Pro
 
 ![Copy from options](images/profiles/copy-from.png)
 
-You can limit the new profile to only include a subset of configurations (settings, keyboard shortcuts, snippets, tasks and extensions) and use the rest of the configurations from the Default Profile. For example, you can create a profile with all configurations, except for keyboard shortcuts, and VS Code will apply the keyboard shortcuts from the Default Profile when this profile is active.
+You can limit the new profile to only include a subset of configurations (settings, keyboard shortcuts, MCP servers, snippets, tasks and extensions) and use the rest of the configurations from the Default Profile. For example, you can create a profile with all configurations, except for keyboard shortcuts, and VS Code will apply the keyboard shortcuts from the Default Profile when this profile is active.
 
 You can browse the contents of the template or profile you are copying from in the **Contents** section. There is an **Open** button next to each section that you can select to see its contents.
 
@@ -194,7 +190,7 @@ VS Code comes with a predefined set of profile templates that you can use to cus
 The Python profile is a good starting point for Python development. It comes with Python specific snippets and has the following extensions:
 
 * [autoDocstring](https://marketplace.visualstudio.com/items?itemName=njpwerner.autodocstring) - Generate Python docstrings automatically.
-* [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) - Create, manage, and debug containerized applications.
+* [Container Tools](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers) - Create, manage, and debug containerized applications.
 * [Even Better TOML](https://marketplace.visualstudio.com/items?itemName=tamasfe.even-better-toml) - Fully-featured TOML support for e.g. `pyproject.toml` files.
 * [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) - IntelliSense, environment management, debugging, refactoring.
 * [Python Environments](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-python-envs) - Manage Python environments and packages using your preferred environment manager.
@@ -285,11 +281,11 @@ This profile also sets the following settings:
 
 The Node.js profile is a good starting point for all Node.js work. It comes with the following extensions:
 
-* [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) - Integrates ESLint JavaScript into VS Code.
+* [Container Tools](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers) - Create, manage, and debug containerized applications.
 * [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) - Create custom development environments inside a Docker container.
-* [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) - Create, manage, and debug containerized applications.
 * [DotENV](https://marketplace.visualstudio.com/items?itemName=mikestead.dotenv) - Support for dotenv file syntax.
 * [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig) - EditorConfig Support for Visual Studio Code.
+* [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) - Integrates ESLint JavaScript into VS Code.
 * [JavaScript (ES6) code snippets](https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets) - Code snippets for JavaScript in ES6 syntax.
 * [Jest](https://marketplace.visualstudio.com/items?itemName=Orta.vscode-jest) -  Use Facebook's [jest](https://jestjs.io) testing framework.
 * [Microsoft Edge Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-edgedevtools.vscode-edge-devtools) - Use the Microsoft Edge Tools from within VS Code.

@@ -1,11 +1,7 @@
 ---
-Order: 3
-Area: containers
-TOCTitle: Python
 ContentId: 3a9bc520-95e2-416e-a0ac-5be02a38c4c3
-PageTitle: Build and run a Python app in a container
 DateApproved: 12/1/2023
-MetaDescription: Develop, build, and debug a Python app in a Docker container, using Visual Studio Code.
+MetaDescription: Develop, build, and debug a Python app in a container, using Visual Studio Code.
 ---
 # Python in a container
 
@@ -19,9 +15,9 @@ In this tutorial, you will learn how to:
 
 - [Install Docker](https://docs.docker.com/install/) on your machine and add it to the system path.
 - On Linux, you should also [enable Docker CLI for the non-root user account](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user) that will be used to run VS Code.
-- The Docker extension. To install the extension, open the Extensions view (`kb(workbench.view.extensions)`), search for `docker` to filter results and select Docker extension authored by Microsoft.
+- The Container Tools extension. To install the extension, open the Extensions view (`kb(workbench.view.extensions)`), search for `container tools` to filter results and select the Container Tools extension authored by Microsoft.
 
-  ![Select Docker extension](images/overview/installation-extension-search.png)
+  ![Select Container Tools extension](images/overview/installation-extension-search.png) <!-- TODO: image needs updating -->
 
 ### Create a Python project
 
@@ -40,7 +36,7 @@ After verifying your app runs properly, you can now containerize your applicatio
 ## Add Docker files to the project
 
 1. Open the project folder in VS Code.
-1. Open the **Command Palette** (`kb(workbench.action.showCommands)`) and choose **Docker: Add Docker Files to Workspace...**:
+1. Open the **Command Palette** (`kb(workbench.action.showCommands)`) and choose **Containers: Add Docker Files to Workspace...**:
 
     ![Add Dockerfile to a Python project](images/quickstarts/python-add-python.png)
 
@@ -48,7 +44,7 @@ After verifying your app runs properly, you can now containerize your applicatio
 
 1. Enter the relative path to the app's entry point. This excludes the workspace folder you start from. If you created a python app with `hello.py` according to the [Getting Started with Python](/docs/python/python-tutorial) tutorial, choose that.
 
-   **Django**: Choose `manage.py` (root folder) or `subfolder_name/manage.py`. See the [official Django documentation](https://docs.djangoproject.com/en/3.0/intro/tutorial01/#creating-a-project).
+   **Django**: Choose `manage.py` (root folder) or `subfolder_name/manage.py`. See the [official Django documentation](https://docs.djangoproject.com/en/stable/intro/tutorial01/#creating-a-project).
 
    **Flask**: Choose the path to where you create your Flask instance. See the [official Flask documentation](https://flask.palletsprojects.com/en/1.1.x/api/).
 
@@ -62,7 +58,7 @@ After verifying your app runs properly, you can now containerize your applicatio
 
 1. When prompted to include Docker Compose, select **No** if you do not want a Docker Compose file. If you select **Yes**, you will need to verify the path to your `wsgi.py` file in the `Dockerfile` to run the **Compose Up** command successfully. Compose is typically used when running multiple containers at once.
 
-1. With all this information, the Docker extension creates the following files:
+1. With all this information, the Container Tools extension creates the following files:
 
     - A `Dockerfile`. To learn more about IntelliSense in this file, refer to the [overview](/docs/containers/overview.md).
 
@@ -77,7 +73,7 @@ After verifying your app runs properly, you can now containerize your applicatio
 
 This step is not required, but it is included to help you understand how to add environment variables that need to be set in the container's environment.
 
-The Docker Extension helps you author Dockerfiles by using [IntelliSense](/docs/editing/intellisense.md) to provide auto-completions and contextual help. To see this feature in action:
+The Container Tools extension helps you author Dockerfiles by using [IntelliSense](/docs/editing/intellisense.md) to provide auto-completions and contextual help. To see this feature in action:
 
 1. Open the `Dockerfile`.
 2. Underneath the `EXPOSE` statement, type `kb(editor.action.triggerSuggest)` to trigger IntelliSense and scroll to `ENV`.
@@ -115,39 +111,39 @@ To give Python web developers a great starting point, we chose to use [Gunicorn]
    CMD ["gunicorn", "--bind", "0.0.0.0:5000", "{subfolder}.{module_file}:app"]
    ```
 
-   During the **Docker: Add Docker Files to Workspace...** command, you configure the path to the Flask instance, however, the Docker extension assumes your Flask instance variable is named `app`. If this is not the case, you must change the variable name in the Dockerfile.
+   During the **Containers: Add Docker Files to Workspace...** command, you configure the path to the Flask instance, however, the Container Tools extension assumes your Flask instance variable is named `app`. If this is not the case, you must change the variable name in the Dockerfile.
 
    If your main module was in the root folder as a file named `main.py` and had a Flask instance variable was named `myapp`, the final argument in the command above will be `"main:myapp"`. Within subfolders, the argument would be `"subfolder1_name.subfolder2_name.main:myapp"`.
 
 ## Build, run, and debug the container
 
-The **Docker: Add Docker Files to Workspace...** command automatically creates a Docker launch configuration to build and run your container in debug mode. To debug your Python app container:
+The **Containers: Add Docker Files to Workspace...** command automatically creates a Docker launch configuration to build and run your container in debug mode. To debug your Python app container:
 
 1. Navigate to the file that contains your app's startup code, and set a breakpoint.
 
-1. Navigate to **Run and Debug** and select **Docker: Python - General**, **Docker: Python - Django**, or **Docker: Python - Flask**, as appropriate.
+1. Navigate to **Run and Debug** and select **Containers: Python - General**, **Containers: Python - Django**, or **Containers: Python - Flask**, as appropriate.
 
-    ![Selected Docker debug configuration](images/quickstarts/python-debug-configuration.png)
+    ![Selected container debug configuration](images/quickstarts/python-debug-configuration.png)
 
 1. Start debugging using the `kb(workbench.action.debug.start)` key.
-    - The Docker image builds.
-    - The Docker container runs.
+    - The container image builds.
+    - The container runs.
     - The python debugger stops at the breakpoint.
 
 1. Step over this line once.
 1. When ready, press continue.
 
-The Docker extension will launch your browser to a randomly mapped port:
+The Container Tools extension will launch your browser to a randomly mapped port:
 
   ![Django website launches](images/quickstarts/python-web-launch.png)
 
 >**Tip**: To modify your Docker build settings, such as changing the image tag, navigate to `.vscode -> tasks.json` under the `dockerBuild` attribute in the `docker-build` task. Use IntelliSense within the file (`kb(editor.action.triggerSuggest)`) to display all other valid directives.
 
-## Use the Docker Explorer
+## Use the Container Explorer
 
-The Docker Explorer provides an interactive experience to examine and manage Docker assets such as containers, images, and so on. To see an example:
+The Container Explorer provides an interactive experience to examine and manage container assets such as containers, images, and so on. To see an example:
 
-1. Navigate to the Docker Explorer.
+1. Navigate to the Container Explorer.
 1. In the **Containers** tab, right-click on your container and choose **View Logs**.
 
     ![Viewing the logs of a container](images/quickstarts/python-view-logs.png)

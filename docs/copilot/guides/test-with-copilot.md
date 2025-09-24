@@ -1,9 +1,9 @@
 ---
 ContentId: 9f84b21e-5b76-4c3a-a5dd-2021ab343f1f
-DateApproved: 03/05/2025
+DateApproved: 09/11/2025
 MetaDescription: Learn how to use GitHub Copilot in Visual Studio Code to write, debug, and fix tests.
+MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
-
 # Test with GitHub Copilot
 
 Writing and maintaining tests is a crucial but often time-consuming part of software development. GitHub Copilot streamlines this process by helping you write, debug, and fix tests more efficiently in Visual Studio Code. This article shows you how to leverage Copilot's testing capabilities to improve your testing workflow and increase test coverage in your projects.
@@ -36,7 +36,6 @@ Copilot can help you write tests for your application code by generating test co
 1. Open your application code file.
 
 1. Open one of these views:
-    * Copilot Edits (`kb(workbench.action.chat.openEditSession)`)
     * Chat view (`kb(workbench.action.chat.open)`)
     * Inline Chat (`kb(inlineChat.start)`)
 
@@ -53,7 +52,7 @@ To generate tests for your application code without writing a prompt, you can us
 
 1. Open your application code file.
 1. Optionally, select the code you want to test.
-1. Right-click and select **Copilot** > **Generate Tests**.
+1. Right-click and select **Generate Code** > **Generate Tests**.
 
     Copilot generates test code in an existing test file, or creates a new test file if one doesn't exist.
 
@@ -74,7 +73,7 @@ Alternatively, you can:
 1. Follow Copilot's suggestions to fix the test
 
 > [!TIP]
-> [Copilot Edits agent mode (preview)](/docs/copilot/copilot-edits.md#use-agent-mode-preview) monitors the test output when running tests, and automatically attempts to fix and rerun failing tests.
+> [Agent mode](/docs/copilot/chat/chat-agent-mode.md) monitors the test output when running tests, and automatically attempts to fix and rerun failing tests.
 
 ## Personalize test generation
 
@@ -85,7 +84,7 @@ If your organization has specific testing requirements, you can customize how Co
 * Set code structure preferences
 * Request specific test patterns or methodologies
 
-Get more information about [personalizing Copilot for generating tests](/docs/copilot/copilot-customization.md).
+Get more information about [personalizing Copilot for generating tests](/docs/copilot/customization/overview.md).
 
 ## Tips for better test generation
 

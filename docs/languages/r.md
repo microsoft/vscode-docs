@@ -1,13 +1,8 @@
 ---
-Order: 14
-Area: languages
-TOCTitle: R
 ContentId: 1eb31e23-be14-4613-be84-621a51cb59d7
-PageTitle: R in Visual Studio Code
-DateApproved: 03/05/2025
+DateApproved: 09/11/2025
 MetaDescription: Learn about working with the R programming language in Visual Studio Code.
 ---
-
 # R in Visual Studio Code
 
 The [R programming language](https://www.r-project.org/) is a dynamic language built for statistical computing and graphics. R is commonly used in statistical analysis, scientific computing, machine learning, and data visualization.

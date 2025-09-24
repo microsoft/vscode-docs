@@ -1,10 +1,6 @@
 ---
-Order: 4
-Area: setup
-TOCTitle: Windows
 ContentId: 4670C281-5761-46E6-8C46-10D523946FFB
-PageTitle: Running Visual Studio Code on Windows
-DateApproved: 03/05/2025
+DateApproved: 09/11/2025
 MetaDescription: Get Visual Studio Code up and running on Windows
 ---
 # Visual Studio Code on Windows
@@ -24,7 +20,7 @@ MetaDescription: Get Visual Studio Code up and running on Windows
 
     Customize VS Code with themes, formatters, language extensions and debuggers for your favorite languages, and more.
 
-1. [Set up AI-assisted coding with GitHub Copilot](/docs/copilot/setup-simplified.md)
+1. [Enable AI features](/docs/copilot/setup-simplified.md)
 
     > [!TIP]
     > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.

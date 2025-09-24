@@ -1,10 +1,6 @@
 ---
-Order: 4
-Area: typescript
-TOCTitle: Refactoring
 ContentId: ff7a9f28-26b2-4ac6-8c16-1a16182bb6ca
-PageTitle: TypeScript refactoring with Visual Studio Code
-DateApproved: 03/05/2025
+DateApproved: 09/11/2025
 MetaDescription: Learn about TypeScript refactorings supported by Visual Studio Code.
 ---
 # Refactoring TypeScript

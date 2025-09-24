@@ -3,6 +3,7 @@ Order: 92
 TOCTitle: Copilot Next Edit Suggestions (preview)
 PageTitle: Copilot Next Edit Suggestions (preview)
 MetaDescription: Announcing the Next Edit Suggestions and Agent Mode for GitHub Copilot in Visual Studio Code.
+MetaSocialImage: nes-gutter-cover.png
 Date: 2025-02-12
 Author: Brigit Murtaugh, Burke Holland
 ---
@@ -88,7 +89,7 @@ Read our [full NES docs](https://aka.ms/gh-copilot-nes-docs) for more informatio
 
 ### Share your feedback
 
-Copilot NES is rapidly evolving, and we can't wait to get your feedback via issues in [our repo](https://github.com/microsoft/vscode-copilot-release) – this will be instrumental to improving the experience.
+Copilot NES is rapidly evolving, and we can't wait to get your feedback via issues in [our repo](https://github.com/microsoft/vscode/issues) – this will be instrumental to improving the experience.
 
 Please be sure to use [VS Code Insiders](https://code.visualstudio.com/insiders/) and the pre-release version of the [GitHub Copilot Chat extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) to get all of the latest features and fixes. Get more details on how to [install an extension pre-release version](/docs/configure/extensions/extension-marketplace.md#install-a-pre-release-extension-version).
 
@@ -104,9 +105,9 @@ Agent mode in Copilot Edits is capable of iterating on its own code - recognizin
 
 <video src="agent-mode-blog-video.mp4" title="Copilot agent mode video" controls poster="Agent-Sunrise-1.webp"></video>
 
-We see tremendous power in agent mode for GitHub Copilot. It's getting better every day, but we wanted to get it into your hands as quickly as we could. Watch this space for major changes and improvements over the next few weeks as we refine the experience, and [share your feedback](https://github.com/microsoft/vscode-copilot-release) as you try it out (today in VS Code Insiders, and soon in VS Code Stable).
+We see tremendous power in agent mode for GitHub Copilot. It's getting better every day, but we wanted to get it into your hands as quickly as we could. Watch this space for major changes and improvements over the next few weeks as we refine the experience, and [share your feedback](https://github.com/microsoft/vscode/issues) as you try it out (today in VS Code Insiders, and soon in VS Code Stable).
 
-You can read more about agent mode in [our docs](https://code.visualstudio.com/docs/copilot/copilot-edits#_use-agent-mode-preview).
+You can read more about agent mode in [our docs](https://code.visualstudio.com/docs/copilot/chat/copilot-edits#_use-agent-mode-preview).
 
 ## Vision
 

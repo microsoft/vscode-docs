@@ -1,10 +1,6 @@
 ---
-Order: 3
-Area: editor
-TOCTitle: Extension Marketplace
 ContentId: 319916C4-93F2-471F-B448-FD416736C40C
-PageTitle: Managing Extensions in Visual Studio Code
-DateApproved: 03/05/2025
+DateApproved: 09/11/2025
 MetaDescription: Discover, add, update, disable and uninstall Visual Studio Code extensions (plug-ins) through the Extension Marketplace.
 ---
 # Extension Marketplace
@@ -339,6 +335,8 @@ Extensions are installed in a per user extensions folder. Depending on your plat
 
 You can change the location by launching VS Code with the `--extensions-dir <dir>` command-line [option](/docs/configure/command-line.md).
 
+Alternatively, you can set the `VSCODE_EXTENSIONS` environment variable to a location where you want to install extensions. This is useful in an enterprise environment where you want to centrally manage where extensions are installed on user machines.
+
 ### Whenever I try to install any extension, I get a connect ETIMEDOUT error
 
 You may see this error if your machine is going through a proxy server to access the Internet.  See the [Proxy server support](/docs/setup/network.md#proxy-server-support) section in the setup topic for details.
@@ -347,10 +345,7 @@ You may see this error if your machine is going through a proxy server to access
 
 Some users prefer to download an extension once from the Marketplace and then install it to multiple VS Code instances from a local share. This is useful when there are connectivity concerns or if your development team wants to use a fixed set of extensions.
 
-To download an extension, search for it in the Extensions view, right-click on an extension from the results, and select **Download VSIX**.
-
-> [!NOTE]
-> The download option is available as of VS Code release 1.96, and is only available for extensions that are not installed yet.
+To download an extension, search for it in the Extensions view, right-click on an extension from the results, and select **Download VSIX** or **Download Specific Version VSIX**.
 
 ### Can I stop VS Code from providing extension recommendations?
 
@@ -373,11 +368,28 @@ Get more information about [extension runtime security](/docs/configure/extensio
 
 The Visual Studio Marketplace signs all extensions when they are published. VS Code verifies this signature when you install an extension to check the integrity and the source of the extension package.
 
-When you install an extension, you might see the following error message: `Cannot install extension because Visual Studio Code cannot verify the extension signature`.
+> [!IMPORTANT]
+> When you install an extension, you might see the following error message: `Cannot install extension because Visual Studio Code cannot verify the extension signature`. This error can be caused by a variety of reasons and should you encounter this error, exercise caution before deciding to install anyway. Disable extension signature verification with the `setting(extensions.verifySignature)` setting.
 
-This error can be caused by a variety of reasons, such as an unsupported environment or even (unlikely) package integrity issues. Should you encounter this error, exercise caution before deciding to install anyway.
+#### Package integrity issues
+For package integrity issues, it's recommended that you contact the [Visual Studio Marketplace team](mailto:vsmarketplace@microsoft.com?subject=Extension%20Signature%20Verification%20Issue) to report the issue. Make sure to include the extension ID. The following list provides error codes related to package integrity issues:
 
-It's recommended that you contact the [Visual Studio Marketplace team](mailto:vsmarketplace@microsoft.com?subject=Extension%20Signature%20Verification%20Issue) to report the issue. Make sure to include the extension ID. If you want to disable extension signature verification, you can use the `setting(extensions.verifySignature)` setting.
+```
+PackageIntegrityCheckFailed
+SignatureIsInvalid
+SignatureManifestIsInvalid
+SignatureIntegrityCheckFailed
+EntryIsMissing
+EntryIsTampered
+Untrusted
+CertificateRevoked
+SignatureIsNotValid
+SignatureArchiveHasTooManyEntries
+NotSigned
+```
+
+#### Other issues
+For other issues like an unsupported environment or unknown reasons, it's recommended that you [report an issue](https://github.com/microsoft/vscode/issues/new) with VS Code by providing all necessary information and including the shared log: `kb(workbench.action.showCommands)` > **Open View...** > **Shared**.
 
 ### My extensions don't synchronize when connected to a remote window
 

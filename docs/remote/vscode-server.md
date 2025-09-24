@@ -1,11 +1,7 @@
 ---
-Order: 6
-Area: remote
-TOCTitle: VS Code Server
-PageTitle: Visual Studio Code Server
 ContentId: d750ab6d-82c2-4e64-8fbb-7888e1374381
 MetaDescription: Using Visual Studio Code Server
-DateApproved: 03/05/2025
+DateApproved: 09/11/2025
 ---
 # Visual Studio Code Server
 
