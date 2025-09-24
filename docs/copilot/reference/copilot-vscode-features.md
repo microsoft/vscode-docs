@@ -1,6 +1,6 @@
 ---
 ContentId: de6f9f68-7dd5-4de3-a210-3db57882384b
-DateApproved: 08/07/2025
+DateApproved: 09/11/2025
 MetaDescription: Get a quick overview of the AI features in Visual Studio Code. GitHub Copilot provides AI-powered features to help you write code faster and with less effort.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -49,10 +49,10 @@ Start a natural language chat conversation to get help with coding tasks. For ex
 | `kb(inlinechat.start)` | Start [inline chat](/docs/copilot/chat/inline-chat.md) to open chat in the editor or terminal. |
 | `kb(workbench.action.quickchat.toggle)` | Open [Quick Chat](/docs/copilot/chat/copilot-chat.md) without interrupting your workflow. |
 | `kb(workbench.action.chat.newChat)` | Start a new chat session in the Chat view. |
-| `kb(workbench.action.chat.toggleAgentMode)` | Toggle between different [chat modes](/docs/copilot/chat/chat-modes.md) in the Chat view. |
-| `kb(workbench.action.chat.openModelPicker)` | Show the model picker to [select a different AI model](/docs/copilot/language-models.md) for chat. |
+| `kb(workbench.action.chat.toggleAgentMode)` | Toggle between different [chat modes](/docs/copilot/customization/custom-chat-modes.md) in the Chat view. |
+| `kb(workbench.action.chat.openModelPicker)` | Show the model picker to [select a different AI model](/docs/copilot/customization/language-models.md) for chat. |
 | `Add Context...` | Attach different types of [context to your chat prompt](/docs/copilot/chat/copilot-chat-context.md). |
-| `/`-command | Use [slash commands](#slash-commands) for common tasks or invoke a [reusable chat prompt](/docs/copilot/copilot-customization.md). |
+| `/`-command | Use [slash commands](#slash-commands) for common tasks or invoke a [reusable chat prompt](/docs/copilot/customization/overview.md). |
 | `#`-mention | Reference common tools or chat variables to [provide context](/docs/copilot/chat/copilot-chat-context.md) within in your prompt. |
 | `@`-mention | Reference [chat participants](#chat-participants) to handle domain-specific requests. |
 | Edit (<i class="codicon codicon-pencil"></i>) | [Edit a previous chat prompt](/docs/copilot/chat/copilot-chat.md#edit-chat-requests-experimental) and revert changes. |
@@ -80,7 +80,7 @@ Get more relevant responses by providing [context to your chat prompt](/docs/cop
 | `#<file\|folder\|symbol>` | Type `#`, followed by a file, folder, or symbol name, to add it as chat context. |
 | `#-mention | Type `#`, followed by a [chat tool](#chat-tools) to add a specific context type or tool. |
 
-### Chat tools
+## Chat tools
 
 Use [tools](/docs/copilot/chat/chat-agent-mode.md#agent-mode-tools) in chat to accomplish specialized tasks while processing a user request. Examples of such tasks are listing the files in a directory, editing a file in your workspace, running a terminal command, getting the output from the terminal, and more. Choose built-in tools or tools from MCP servers and extensions.
 
@@ -90,27 +90,48 @@ The following table lists the VS Code built-in tools:
 |--------|-------------|
 | `#changes` | List of source control changes. |
 | `#codebase` | Perform a code search in the current workspace to automatically find relevant context for the chat prompt. |
-| `#editFiles` | Tool set to enable creating and editing files in the workspace. |
-| `#extensions` | Tool to find and ask questions about VS Code extensions. For example, "how to get started with Python #extensions?" |
-| `#fetch` | Fetch the content from a web page - provide the URL. |
-| `#findTestFiles` | Tool for finding test files in the current workspace. |
-| `#githubRepo` | Tool to perform a code search in a GitHub repo. For example, "what is a global snippet #githubRepo microsoft/vscode." |
-| `#new` | Tool to scaffold a new VS Code workspace. |
-| `#openSimpleBrowser` | Tool to open the built-in Simple Browser and preview a locally-deployed web app. |
+| `#createAndRunTask` | Create and run a new [task](/docs/debugtest/tasks.md) in the workspace. |
+| `#createDirectory` | Create a new directory in the workspace. |
+| `#createFile` | Create a new file in the workspace. |
+| `#edit` (tool set) | Enable modifications in the workspace. |
+| `#editFiles` | Apply edits to files in the workspace. |
+| `#editNotebook` | Make edits to a notebook. |
+| `#extensions` | Search for and ask about VS Code extensions. For example, "how to get started with Python #extensions?" |
+| `#fetch` | Fetch the content from a given web page. For example, "Summarize #fetch code.visualstudio.com/updates." |
+| `#fileSearch` | Search for files in the workspace by using glob patterns and returns their path. |
+| `#findTestFiles` | Locates test files in the workspace. |
+| `#getNotebookSummary` | Get the list of notebook cells and their details. |
+| `#getProjectSetupInfo` | Provide instructions and configuration for scaffolding different types of projects. |
+| `#getTaskOutput` | Get the output from running a [task](/docs/debugtest/tasks.md) in the workspace. |
+| `#getTerminalOutput` | Get the output from running a terminal command in the workspace. |
+| `#githubRepo` | Perform a code search in a GitHub repo. For example, "what is a global snippet #githubRepo microsoft/vscode." |
+| `#installExtension` | Install a VS Code extension. |
+| `#listDirectory` | List files in a directory in the workspace. |
+| `#new` | Scaffold a new VS Code workspace, preconfigured with debug and run configurations. |
+| `#newJupyterNotebook` | Scaffold a new Jupyter notebook given a description. |
+| `#newWorkspace` | Create a new workspace. |
+| `#openSimpleBrowser` | Open the built-in Simple Browser and preview a locally-deployed web app. |
 | `#problems` | Add workspace issues and problems from the **Problems** panel as context. Useful while fixing code or debugging. |
-| `#readCellOutput` | Tool for reading the output from a notebook cell. |
-| `#runCommands` | Tool for running commands in the terminal and reading the output. |
-| `#runNotebooks` | Tool for running cells in a notebook and reading the output. |
-| `#runTasks` | Tool for running tasks in the workspace and reading the output. |
-| `#runTests` | Tool for running tests in the workspace and reading the output. |
-| `#search` | Tool set for searching for files in the current workspace. |
-| `#searchResults` | Add the results from the Search view as context to your prompt. |
-| `#selection` | Add the current editor selection as context to your prompt. |
-| `#terminalSelection` | Add the current terminal selection as context to your chat prompt. |
-| `#terminalLastCommand` | Add the last run terminal command as context to your chat prompt. |
-| `#testFailure` | Add test failure information as context. Useful when running and diagnosing [tests](/docs/debugtest/testing.md). |
+| `#readFile` | Read the content of a file in the workspace. |
+| `#readNotebookCellOutput` | Read the output from a notebook cell execution. |
+| `#runCell` | Run a notebook cell. |
+| `#runCommands` (tool set) | Enable running commands in the terminal and reading the output. |
+| `#runInTerminal` | Run a shell command in the integrated terminal. |
+| `#runNotebooks` (tool set) | Enable running notebook cells. |
+| `#runTask` | Run an existing [task](/docs/debugtest/tasks.md) in the workspace. |
+| `#runTasks` (tool set) | Enable running [tasks](/docs/debugtest/tasks.md) in the workspace and reading the output. |
+| `#runTests` | Run [unit tests](/docs/debugtest/testing.md) in the workspace. |
+| `#runVscodeCommand` | Run a VS Code command. For example, "Enable zen mode #runVscodeCommand." |
+| `#search` (tool set) | Enable searching for files in the current workspace. |
+| `#searchResults` | Get the search results from the Search view. |
+| `#selection` | Get the current editor selection (only available when text is selected). |
+| `#terminalLastCommand` | Get the last run terminal command and its output. |
+| `#terminalSelection` | Get the current terminal selection. |
+| `#testFailure` | Get unit test failure information. Useful when running and diagnosing [tests](/docs/debugtest/testing.md). |
+| `#textSearch` | Find text in files. |
+| `#todos` | Manage and track todo items when processing a chat request (requires `setting(chat.todoListTool.enabled)`). |
 | `#usages` | Combination of "Find All References", "Find Implementation", and "Go to Definition". |
-| `#VSCodeAPI` | Tool to reference the VS Code extension APIs and ask questions related to VS Code extension development. |
+| `#VSCodeAPI` | Ask about VS Code functionality and extension development. |
 
 ## Slash commands
 
@@ -129,7 +150,7 @@ Slash commands are shortcuts to specific functionality within the chat. You can 
 | `/newNotebook` | Scaffold a new Jupyter notebook based on your requirements. Use natural language to describe what the notebook should contain. |
 | `/search` | Generate a search query for the Search view. Use natural language to describe what you want to search for. |
 | `/startDebugging` | Generate a `launch.json` debug configuration file and start a debugging session from the Chat view. |
-| `/<prompt file name>` | Run a [reusable prompt file](/docs/copilot/copilot-customization.md#prompt-files-experimental) in chat. |
+| `/<prompt file name>` | Run a [reusable prompt file](/docs/copilot/customization/prompt-files.md) in chat. |
 
 ## Chat participants
 
@@ -152,7 +173,7 @@ With chat [agent mode](/docs/copilot/chat/chat-agent-mode.md), you can use natur
 | Tools (<i class="codicon codicon-tools"></i>) | Configure which tools are available in agent mode. Select from built-in tools, MCP servers, and extension-provided tools. |
 | Auto-approve tools _(Experimental)_ | Enable [auto-approval of all tools](/docs/copilot/chat/chat-agent-mode.md#auto-approve-all-tools-and-commands-experimental) in agent mode (`setting(chat.tools.autoApprove)`). |
 | Auto-approve terminal commands _(Experimental)_ | Enable [auto-approval of terminal commands](/docs/copilot/chat/chat-agent-mode.md#autoapprove-terminal-commands-experimental) in agent mode (`setting(chat.tools.terminal.autoApprove)`). |
-| MCP | Configure [MCP servers](/docs/copilot/chat/mcp-servers.md) to extend agent mode with extra capabilities and tools. |
+| MCP | Configure [MCP servers](/docs/copilot/customization/mcp-servers.md) to extend agent mode with extra capabilities and tools. |
 
 > **Tips**
 >
@@ -164,11 +185,11 @@ With chat [agent mode](/docs/copilot/chat/chat-agent-mode.md), you can use natur
 
 Customize your chat experience to generate responses that match your coding style, tools, and developer workflow. There are several ways to customize your chat experience in VS Code:
 
-* [Custom instructions](/docs/copilot/copilot-customization.md#custom-instructions): Define common guidelines or rules for tasks like generating code, performing code reviews, or generating commit messages. Custom instructions describe the conditions in which the AI should perform operate (_how_ a task should be done).
+* [Custom instructions](/docs/copilot/customization/custom-instructions.md): Define common guidelines or rules for tasks like generating code, performing code reviews, or generating commit messages. Custom instructions describe the conditions in which the AI should operate (_how_ a task should be done).
 
-* [Reusable prompt files](/docs/copilot/copilot-customization.md#prompt-files-experimental): Define reusable prompts for common tasks like generating code or performing a code review. Prompt files are standalone prompts that you can run directly in chat. They describe the task to be performed (_what_ should be done).
+* [Reusable prompt files](/docs/copilot/customization/prompt-files.md): Define reusable prompts for common tasks like generating code or performing a code review. Prompt files are standalone prompts that you can run directly in chat. They describe the task to be performed (_what_ should be done).
 
-* [Chat modes](/docs/copilot/chat/chat-modes.md): Define how chat operates, which tools it can use, and how it interacts with the codebase. Each chat prompt is run within the boundaries of the chat mode, without having to configure tools and instructions for every request.
+* [Chat modes](/docs/copilot/customization/custom-chat-modes.md): Define how chat operates, which tools it can use, and how it interacts with the codebase. Each chat prompt is run within the boundaries of the chat mode, without having to configure tools and instructions for every request.
 
 > **Tips**
 >
@@ -213,7 +234,7 @@ Use AI to do a quick review pass of a code block or perform a review of uncommit
 
 | Action | Description |
 |--------|-------------|
-| **Review and Comment** _(Preview)_ | Select a block of code, and select **Generate Code** > **Review and Comment** from the editor context menu for quick review pass.  |
+| **Review Selection** _(Preview)_ | Select a block of code, and select **Generate Code** > **Review** from the editor context menu for a quick review pass. |
 | **Code Review** | Select the **Code Review** button in the Source Control view for a deeper review of all uncommitted changes. |
 
 ## Search and settings
@@ -222,8 +243,8 @@ Get semantically relevant search results in the Search view or help with searchi
 
 | Action | Description |
 |--------|-------------|
+| Settings search | Include semantic search results in the Settings editor (`setting(workbench.settings.showAISearchToggle)`). |
 | Semantic search _(Preview)_ | Include semantic search results in the Search view (`setting(search.searchView.semanticSearchBehavior)`). |
-| Settings search _(Preview)_ | Include semantic search results in the Settings editor (`setting(workbench.settings.showAISearchToggle)`). |
 
 ## Generate tests
 

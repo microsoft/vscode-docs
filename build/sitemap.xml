@@ -166,7 +166,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/getstarted/settings</loc>
+        <loc>https://code.visualstudio.com/docs/configure/settings</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -341,11 +341,6 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/copilot/chat/chat-modes</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
         <loc>https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -381,11 +376,6 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/copilot/chat/mcp-servers</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
         <loc>https://code.visualstudio.com/docs/copilot/chat/prompt-crafting</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -401,7 +391,32 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/copilot/language-models</loc>
+        <loc>https://code.visualstudio.com/docs/copilot/customization/overview</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/customization/custom-chat-modes</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/customization/mcp-servers</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/customization/language-models</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/customization/custom-instructions</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/customization/prompt-files</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -412,11 +427,6 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/copilot/copilot-smart-actions</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/docs/copilot/copilot-customization</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -1495,7 +1505,17 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/api/extension-guides/ai/language-model-chat-provider</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+        <url>
         <loc>https://code.visualstudio.com/api/extension-guides/ai/mcp</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/api/extension-guides/ai/language-model-chat-provider</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

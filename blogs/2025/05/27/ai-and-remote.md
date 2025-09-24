@@ -55,7 +55,7 @@ Here's an example instruction our team found helpful:
 This is a dev container that includes `python3` and `pip3` pre-installed and available on the `PATH`, along with the Python language extensions for Python development.
 ```
 
-To get started with custom instructions in a remote environment, you can use the same [instruction files](/docs/copilot/copilot-customization.md) remotely that you were already using locally.
+To get started with custom instructions in a remote environment, you can use the same [instruction files](/docs/copilot/customization/overview.md) remotely that you were already using locally.
 
 ## Configure AI for your dev container
 

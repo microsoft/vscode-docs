@@ -1,6 +1,6 @@
 ---
 ContentId: 0aefcb70-7884-487f-953e-46c3e07f7cbe
-DateApproved: 08/07/2025
+DateApproved: 09/11/2025
 MetaDescription: Copilot is your AI pair programmer tool in Visual Studio Code. Get code suggestions as you type in the editor, or use natural language chat to ask about your code or start an editing session for implementing new feature and fixing bugs.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -41,7 +41,7 @@ Install Model Context Protocol (MCP) servers or tools from Marketplace extension
 - Debug failing tests and apply fixes
 - Optimize performance across the application
 
-Learn more about [autonomous coding with agent mode](/docs/copilot/chat/chat-agent-mode.md) and [configuring MCP servers in VS Code](/docs/copilot/chat/mcp-servers.md).
+Learn more about [autonomous coding with agent mode](/docs/copilot/chat/chat-agent-mode.md) and [configuring MCP servers in VS Code](/docs/copilot/customization/mcp-servers.md).
 
 ### Natural language chat
 
@@ -56,7 +56,7 @@ Apply changes across multiple files in your project using single prompts. Copilo
 - "Add error handling to the payment processing service"
 - "Add a login form and backend API"
 
-![Screenshot of the Chat view asking how to add a page to a web app](images/overview/copilot-chat-view-add-page.png)
+![Screenshot of the Chat view, showing the response to asking how to add a login page to a web app.](images/overview/copilot-chat-view-add-page.png)
 
 Learn more about [using chat in VS Code](/docs/copilot/chat/copilot-chat.md).
 
@@ -74,35 +74,38 @@ Learn more about the [smart actions in VS Code](/docs/copilot/copilot-smart-acti
 
 ### Step 1: Set up Copilot
 
-1. **Set up Copilot** from the Copilot dashboard in the Status Bar
-2. **Sign in** with your GitHub account
+1. Hover over the Copilot icon in the Status Bar and select **Set up Copilot**.
 
-![Hover over the Copilot icon in the Status Bar and select Set up Copilot.](images/setup/setup-copilot-status-bar.png)
+    ![Hover over the Copilot icon in the Status Bar and select Set up Copilot.](images/setup/setup-copilot-status-bar.png)
+
+1. Choose a sign-in method and follow the prompts. If you don't have a Copilot subscription yet, you'll be signed up for the [Copilot Free plan](https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-free/about-github-copilot-free).
 
 ### Step 2: Basic code completion
 
-Create a new file and start typing. Copilot displays suggestions in _ghost text_.
+1. Create a new file and start typing. VS Code shows inline suggestions in _ghost text_ in the editor.
 
-```javascript
-// Try typing this in a new .js file:
-function factorial(
-```
+    For example, create a new JavaScript file and start typing a function definition:
 
-Accept suggestions with `kbstyle(Tab)`.
+    ```javascript
+    // Try typing this in a new .js file:
+    function factorial(
+    ```
+
+1. Accept the inline suggestions with the `kbstyle(Tab)` key.
 
 ### Step 3: Autonomous coding
 
-Let Copilot handle complex tasks by using the chat interface and agent mode. The AI will iterate on the code until the task is complete.
+To perform more complex tasks in an autonomous manner, use _agent mode_ in the chat interface. The AI will iterate on the code until the task is complete.
 
 1. Open the Chat view (`kb(workbench.action.chat.open)`)
 1. Select **Agent** from the chat mode dropdown list
-1. Ask to generate a basic web app like: "Create a basic node.js web app to share cycling tips. Make it look modern and responsive."
+1. Ask to generate a basic web app like: "Create a basic node.js web app for sharing recipes. Make it look modern and responsive."
 
-Notice how the code is generated step-by-step, and dependencies are installed automatically.
+Notice how the agent independently generates code across multiple files and installs dependencies as needed for the task.
 
-### Step 4: Inline Chat
+### Step 4: Inline chat
 
-Use inline chat to ask questions about your code while you're in the flow of writing code.
+To get help with generating, refactoring, or explaining code directly in the editor, you can use editor inline chat. Enter a prompt and the AI will suggest code changes in the current file, keeping you in the flow of coding.
 
 1. Select some code in your editor
 1. Press `kb(inlinechat.start)` to open editor inline chat
@@ -173,7 +176,7 @@ applyTo: "**"
 - Follow the Repository pattern for data access
 ```
 
-Learn more about [using custom instructions](/docs/copilot/copilot-customization.md) to tailor the AI to your coding style.
+Learn more about [using custom instructions](/docs/copilot/customization/custom-instructions.md) to tailor the AI to your coding style.
 
 ### Language models
 
@@ -181,7 +184,7 @@ Quickly switch between different AI models to optimize for speed, reasoning, or 
 
 ![Screenshot that shows the model picker in the Chat view.](images/language-models/model-dropdown-change-model.png)
 
-Learn more about using [language models in VS Code](/docs/copilot/language-models.md).
+Learn more about using [language models in VS Code](/docs/copilot/customization/language-models.md).
 
 ### Custom chat modes
 
@@ -189,15 +192,15 @@ The chat experience in VS Code can operate in different modes to switch between 
 
 ![Screenshot showing the Chat view, highlighting the chat mode dropdown list.](images/overview/chat-mode-dropdown.png)
 
-Learn more about [creating your own chat modes](/docs/copilot/chat/chat-modes.md).
+Learn more about [creating your own chat modes](/docs/copilot/customization/custom-chat-modes.md).
 
 ### Extend chat with tools
 
 Extend the capabilities of the chat experience with specialized tools from MCP servers or Marketplace extensions. For example, add tools for querying databases, connecting to external APIs, or performing specialized tasks.
 
-![MCP tools list](chat/images/mcp-servers/agent-mode-select-tools.png)
+![MCP tools list](images/mcp-servers/agent-mode-select-tools.png)
 
-Learn more about [using MCP servers and tools](/docs/copilot/chat/mcp-servers.md).
+Learn more about [using MCP servers and tools](/docs/copilot/customization/mcp-servers.md).
 
 ## Best Practices
 
@@ -223,4 +226,5 @@ You can start using GitHub Copilot for free with monthly limits on completions a
 
 - [Set up Copilot in VS Code](/docs/copilot/setup.md)
 - [Get started with hands-on examples](/docs/copilot/getting-started.md)
-- [Customize the AI for your workflow](/docs/copilot/copilot-customization.md)
+- [Customize the AI for your workflow](/docs/copilot/customization/overview.md)
+- [Learn about security considerations of using AI in VS Code](/docs/copilot/security.md)

@@ -1,6 +1,6 @@
 ---
 ContentId: 593d2dd6-20f0-4ad3-8ecd-067cc47ee217
-DateApproved: 08/07/2025
+DateApproved: 09/11/2025
 MetaDescription: Python Flask tutorial showing IntelliSense, debugging, and code navigation support in Visual Studio Code, the best Python IDE.
 MetaSocialImage: images/tutorial/python-social.png
 ---

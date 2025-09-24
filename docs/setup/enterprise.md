@@ -1,6 +1,6 @@
 ---
 ContentId: 936ab8e0-3bbe-4842-bb17-ea314665c20a
-DateApproved: 08/07/2025
+DateApproved: 09/11/2025
 MetaDescription: Learn about Visual Studio Code's enterprise support features, such as group policies or restricting allowed extensions.
 
 ---
@@ -126,17 +126,20 @@ You can centrally manage specific features of VS Code through device management 
 
 VS Code currently provides policies to control the following admin-controlled features:
 
-| Policy                       | Description                                                      | VS Code setting                  | Available since |
-|------------------------------|------------------------------------------------------------------|----------------------------------|-----------------|
-| `AllowedExtensions`          | Controls which extensions can be installed.                      | `extensions.allowed`             | 1.96            |
-| `UpdateMode`                 | Controls whether VS Code automatically updates when a new version is released. | `update.mode`      | 1.67            |
-| `TelemetryLevel`             | Controls the level of telemetry data.                             | `telemetry.telemetryLevel`       | 1.99            |
-| `EnableFeedback`             | Controls feedback mechanisms, such as the issue reporter and surveys. | `telemetry.feedback.enabled` | 1.99            |
-| `ChatAgentMode`              | Controls if [agent mode](/docs/copilot/chat/copilot-chat.md#chat-mode) is enabled in chat.           | `chat.agent.enabled`             | 1.99            |
-| `ChatAgentExtensionTools`    | Enable using tools contributed by third-party extensions.        | `chat.extensionTools.enabled` | 1.99        |
-| `ChatPromptFiles`            | Enable [reusable prompt and instruction files](/docs/copilot/copilot-customization.md) in chat.      | `chat.promptFiles`               | 1.99            |
-| `ChatMCP`                    | Enable integration with [Model Context Protocol (MCP) servers](/docs/copilot/chat/mcp-servers.md).   | `chat.mcp.enabled`               | 1.99            |
-| `ChatToolsAutoApprove`       | Enable auto-approval for agent mode tools.                       | `chat.tools.autoApprove`         | 1.99            |
+| Policy                               | Description                                                                                        | VS Code setting                               | Available since |
+|--------------------------------------|----------------------------------------------------------------------------------------------------|-----------------------------------------------|-----------------|
+| `AllowedExtensions`                  | Specify which extensions can be installed.                                                         | `extensions.allowed`                          | 1.96            |
+| `UpdateMode`                         | Enable automatic installation of VS Code updates.                                                  | `update.mode`                                 | 1.67            |
+| `TelemetryLevel`                     | Specify telemetry data level.                                                                      | `telemetry.telemetryLevel`                    | 1.99            |
+| `EnableFeedback`                     | Configure feedback mechanisms (issue reporter and surveys).                                        | `telemetry.feedback.enabled`                  | 1.99            |
+| `ChatAgentMode`                      | Enable [agent mode](/docs/copilot/chat/copilot-chat.md#chat-mode).                                 | `chat.agent.enabled`                          | 1.99            |
+| `ChatAgentExtensionTools`            | Enable using tools contributed by third-party extensions.                                          | `chat.extensionTools.enabled`                 | 1.99            |
+| `ChatPromptFiles`                    | Enable [prompt and instruction files](/docs/copilot/customization/overview.md) in chat.            | `chat.promptFiles`                            | 1.99            |
+| `ChatMCP`                            | Enable [Model Context Protocol (MCP) servers](/docs/copilot/customization/mcp-servers.md) support. | `chat.mcp.access`                             | 1.99            |
+| `ChatToolsAutoApprove`               | Enable global auto-approval for agent mode tools.                                                  | `chat.tools.global.autoApprove`               | 1.99            |
+| `CopilotReviewSelection`             | Enable code review for editor selection.                                                           | `github.copilot.chat.reviewSelection.enabled` | 1.104           |
+| `CopilotReviewAgent`                 | Enable Copilot Code Review for pull requests and changed files.                                    | `github.copilot.chat.reviewAgent.enabled`     | 1.104           |
+| `ChatToolsTerminalEnableAutoApprove` | Enable the rule-based auto-approval for the terminal tool.                                         | `chat.tools.terminal.autoApprove`             | 1.104           |
 
 ### Group Policy on Windows
 
@@ -227,3 +230,7 @@ Users can still uninstall extensions that were preinstalled. Restarting VS Code 
 ### Does VS Code support configuration profiles on Linux?
 
 Support for Linux is not on the roadmap. If you're interested in configuration profiles on Linux, open an issue in the VS Code [GitHub repository](https://github.com/microsoft/vscode/issues) and share details about your scenario.
+
+## Related resources
+
+- [Learn about security considerations of using AI in VS Code](/docs/copilot/security.md)

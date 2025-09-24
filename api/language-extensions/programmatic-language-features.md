@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: A9D40038-7837-4320-8C2D-E0CA5769AA69
-DateApproved: 08/07/2025
+DateApproved: 09/11/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Visual Studio Code language extensions contribute programming language features. These guidelines present the language features available in Visual Studio Code and explain the API.
@@ -796,7 +796,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 Provide the user with support for formatting text as they type.
 
-**Note**: The user [setting](/docs/getstarted/settings) `editor.formatOnType` controls whether source code gets formatted or not as the user types.
+**Note**: The user [setting](/docs/configure/settings) `editor.formatOnType` controls whether source code gets formatted or not as the user types.
 
 ![Visual indicators for formatting as code is typed](images/language-support/format-on-type.gif)
 

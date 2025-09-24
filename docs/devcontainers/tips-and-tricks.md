@@ -1,7 +1,7 @@
 ---
 ContentId: c4784db6-ab00-4ac7-bca8-88edb638c593
 MetaDescription: Visual Studio Code Remote Development troubleshooting tips and tricks for Dev Containers
-DateApproved: 08/07/2025
+DateApproved: 09/11/2025
 ---
 # Dev Containers Tips and Tricks
 
@@ -20,7 +20,7 @@ You can learn more in the [alternative Docker options doc](/remote/advancedconta
 
 ## Customize AI Chat Responses
 
-[Custom instructions](/docs/copilot/copilot-customization.md) enable you to describe common guidelines or rules to get responses that match your specific coding practices and tech stack.
+[Custom instructions](/docs/copilot/customization/overview.md) enable you to describe common guidelines or rules to get responses that match your specific coding practices and tech stack.
 
 You can use custom instructions with dev containers to give Copilot more information about the type of dev container you're connected to (like what kind of languages or toolchains are installed). You can achieve this in a few ways:
 * Add `"github.copilot.chat.codeGeneration.instructions"` directly in your `devcontainer.json`

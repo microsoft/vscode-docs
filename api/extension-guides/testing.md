@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 4ced0b2a-3f5a-44e6-a8b0-66b9012af8c0
-DateApproved: 08/07/2025
+DateApproved: 09/11/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Testing APIs in VS Code allow users to discover and run unit tests in their workspace

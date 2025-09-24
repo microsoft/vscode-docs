@@ -1,6 +1,6 @@
 ---
 ContentId: c99a8442-e202-4427-b7c3-695469a00f92
-DateApproved: 08/07/2025
+DateApproved: 09/11/2025
 MetaDescription: Understand security considerations, built-in protections, and best practices when using AI-powered development features like agents and MCP servers in VS Code.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -80,7 +80,7 @@ Trust boundaries limit critical operations unless trust is explicitly granted by
 
 * **Extension Publisher Trust**: prevents [installation of extensions](/docs/configure/extensions/extension-runtime-security.md) unless their publisher is trusted by the user.
 
-* **MCP Server Trust**: prevents [MCP servers from starting](/docs/copilot/chat/mcp-servers.md#mcp-server-trust) after installation or configuration updates unless they are trusted by the user.
+* **MCP Server Trust**: prevents [MCP servers from starting](/docs/copilot/customization/mcp-servers.md#mcp-server-trust) after installation or configuration updates unless they are trusted by the user.
 
 ### Controlled scope
 
@@ -146,7 +146,7 @@ While VS Code includes many security protections, users should remain proactive 
 ## Related resources
 
 * [Workspace Trust](/docs/editing/workspaces/workspace-trust.md)
-* [MCP server trust](/docs/copilot/chat/mcp-servers.md#mcp-server-trust)
+* [MCP server trust](/docs/copilot/customization/mcp-servers.md#mcp-server-trust)
 * [Manage tool auto approvals](/docs/copilot/chat/chat-agent-mode.md#manage-tool-approvals)
 * [Extension runtime security](/docs/configure/extensions/extension-runtime-security.md)
 * [VS Code enterprise support](/docs/setup/enterprise.md)

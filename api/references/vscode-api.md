@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8CEBCDF8-4F0A-4C81-A904-3DEA43480EA6
-DateApproved: 08/07/2025
+DateApproved: 09/11/2025
 
 VSCodeCommitHash: 96d03d1ecc393a047d549dc8bd13c74dc174f20a
 VSCodeVersion: 1.51.0
@@ -20837,7 +20837,7 @@ const config = workspace.getConfiguration(&#39;launch&#39;, vscode.workspace.wor
 // retrieve values
 const values = config.get(&#39;configurations&#39;);
 </code></pre>
-<p>Refer to <a href="https://code.visualstudio.com/docs/getstarted/settings">Settings</a> for more information.</p>
+<p>Refer to <a href="https://code.visualstudio.com/docs/configure/settings">Settings</a> for more information.</p>
 </div>
 
 #### Methods
