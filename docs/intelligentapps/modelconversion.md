@@ -201,6 +201,10 @@ If your job is canceled or failed, you can select job name to adjust the workflo
 
 > [!NOTE]
 > Some workflows may require that you log in to Hugging Face first. If your job has failed with output like `huggingface_hub.errors.LocalTokenNotFoundError: Token is required ('token=True'), but no token found. You need to provide a token or be logged in to Hugging Face with 'hf auth login' or 'huggingface_hub.login'`, please navigate to <https://huggingface.co/settings/tokens> and follow the instructions to complete the log in process and then try again.
+>
+> If your re-evaluation has failed with output warning like `Microsoft Visual C++ Redistributable is not installed`, please manually install the following packages:
+> 1. [Microsoft Visual C++ Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170#latest-microsoft-visual-c-redistributable-version)
+> 2. (Optional for ARM64) Download from [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/). Please also check `Desktop development with C++` workload during installation.
 
 ## View results
 
