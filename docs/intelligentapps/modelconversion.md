@@ -42,7 +42,7 @@ Creating a project in model conversion is the first step toward converting, opti
 
 ### Supported models
 
-Model Conversion currently supports a growing list of models, including top Hugging Face models in PyTorch format. For detailed model list, please refer: [Model List](https://github.com/microsoft/olive-recipes/blob/main/.aitk/docs/guide/ModelList.md)
+Model Conversion currently supports a growing list of models, including top Hugging Face models in PyTorch format. For detailed model list, refer: [Model List](https://github.com/microsoft/olive-recipes/blob/main/.aitk/docs/guide/ModelList.md)
 
 ### (Optional) Add model into existing project
 
@@ -97,7 +97,7 @@ Running a workflow in model conversion is the core step that transform the pre-b
     This section enables you to configure the parameters for quantization.
 
     > [!Important]
-    > **Hugging Face compliance alerts**: During the quantization, we need the calibration datasets. You may be prompted to accept license terms before proceeding. If you missed the notification, the running process will be paused, waiting for your input. Please make sure notifications are **enabled** and that you accept the required licenses.
+    > **Hugging Face compliance alerts**: During the quantization, we need the calibration datasets. You may be prompted to accept license terms before proceeding. If you missed the notification, the running process will be paused, waiting for your input. Make sure notifications are **enabled** and that you accept the required licenses.
     > ![Screenshot that shows disclaimer.](./images/modelconversion/run-disclaimer.png)
 
     - **Activation Type**: this is the data type used to represent the intermediate outputs (activations) of each layer in the neural network.
@@ -120,7 +120,7 @@ Running a workflow in model conversion is the core step that transform the pre-b
     - **Quantization Dataset Split**: dataset could have different splits like validation, train and test.
     - **Quantization Dataset Size**: the number of data used to quantize the model.
 
-    For more information about activation and weight type, please see [Data type selection](https://onnxruntime.ai/docs/performance/model-optimizations/quantization.html#data-type-selection).
+    For more information about activation and weight type, see [Data type selection](https://onnxruntime.ai/docs/performance/model-optimizations/quantization.html#data-type-selection).
 
     You could also disable this section. In this case, the workflow will only convert the model to ONNX format but do not quantize the model.
 
@@ -146,7 +146,7 @@ Running a workflow in model conversion is the core step that transform the pre-b
 
     During the job running, you can **Cancel** the job by selecting the status indicator or the three-dot menu under **Action** in History board and select **Stop Running**.
 
-    **Hugging Face compliance alerts**: During the quantization, we need the calibration datasets. You may be prompted to accept license terms before proceeding. If you missed the notification, the running process will be paused, waiting for your input. Please make sure notifications are enabled and that you accept the required licenses.
+    **Hugging Face compliance alerts**: During the quantization, we need the calibration datasets. You may be prompted to accept license terms before proceeding. If you missed the notification, the running process will be paused, waiting for your input. Make sure notifications are enabled and that you accept the required licenses.
 
 4. (Optional) Run model conversion in the cloud
 
@@ -183,7 +183,7 @@ Running a workflow in model conversion is the core step that transform the pre-b
 >
 > **LLM model quantization**: If you want to quantize the [LLM models](#llm-models), a Nvidia GPU is required.
 >
-> If you want to quantize the model on another device with GPU, you can setup environment by yourselves, please refer [ManualConversionOnGPU](/docs/intelligentapps/reference/ManualConversionOnGPU.md). Please note that only "Quantization" step need the GPU. After quantization, you can evaluate the model on NPU or CPU.
+> If you want to quantize the model on another device with GPU, you can setup environment by yourselves, refer [ManualConversionOnGPU](/docs/intelligentapps/reference/ManualConversionOnGPU.md). Note that only "Quantization" step need the GPU. After quantization, you can evaluate the model on NPU or CPU.
 
 ### Tips for re-evaluation
 
@@ -200,11 +200,11 @@ You can choose the different EPs or datasets for re-evaluation
 If your job is canceled or failed, you can select job name to adjust the workflow and run job again. To avoid accidental overwrites, each execution creates a new history folder with its own configuration and results.
 
 > [!NOTE]
-> Some workflows may require that you log in to Hugging Face first. If your job has failed with output like `huggingface_hub.errors.LocalTokenNotFoundError: Token is required ('token=True'), but no token found. You need to provide a token or be logged in to Hugging Face with 'hf auth login' or 'huggingface_hub.login'`, please navigate to <https://huggingface.co/settings/tokens> and follow the instructions to complete the log in process and then try again.
+> Some workflows may require that you log in to Hugging Face first. If your job has failed with output like `huggingface_hub.errors.LocalTokenNotFoundError: Token is required ('token=True'), but no token found. You need to provide a token or be logged in to Hugging Face with 'hf auth login' or 'huggingface_hub.login'`, navigate to <https://huggingface.co/settings/tokens> and follow the instructions to complete the log in process and then try again.
 >
-> If your re-evaluation has failed with output warning like `Microsoft Visual C++ Redistributable is not installed`, please manually install the following packages:
+> If your re-evaluation has failed with output warning like `Microsoft Visual C++ Redistributable is not installed`, you need to manually install the following packages:
 > 1. [Microsoft Visual C++ Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170#latest-microsoft-visual-c-redistributable-version)
-> 2. (Optional for ARM64) Download from [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/). Please also check `Desktop development with C++` workload during installation.
+> 2. (Optional for ARM64) Download from [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/). Also check `Desktop development with C++` workload during installation.
 
 ## View results
 
