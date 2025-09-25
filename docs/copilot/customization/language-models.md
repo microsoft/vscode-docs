@@ -78,8 +78,6 @@ To change the language model that is used for generating code completions in the
 
 GitHub Copilot in VS Code comes with a variety of built-in language models that are optimized for different tasks. If you want to use a model that is not available as a built-in model, you can bring your own language model API key (BYOK) to use models from other providers.
 
-VS Code has built-in support for the following model providers: Anthropic, Azure, Google, Groq, Ollama, OpenAI, OpenRouter, and xAI. If you have a model that is compatible with the OpenAI API, you can also [configure a custom OpenAI-compatible model](#use-an-openai-compatible-model).
-
 Using your own language model API key in VS Code has several benefits:
 
 * **Model choice**: access hundreds of models from different providers, beyond the built-in models.
@@ -87,7 +85,9 @@ Using your own language model API key in VS Code has several benefits:
 * **Local compute**: use your own compute for one of the models already supported in GitHub Copilot or to run models not yet available.
 * **Greater control**: by using your own key, you can bypass the standard rate limits and restrictions imposed on the built-in models.
 
-You can add more model providers by installing extensions from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode), such as [AI Toolkit for VS Code](https://aka.ms/AIToolkit), [Cerebras Inference](https://aka.ms/vscode/cerebras), [Hugging Face](https://aka.ms/vscode/huggingface), and others.
+VS Code has built-in support for several model providers and if you have a model that is compatible with the OpenAI API, you can also [configure a custom OpenAI-compatible model](#use-an-openai-compatible-model).
+
+You can add more model providers via VS Code extensions, such as [AI Toolkit for VS Code](https://aka.ms/AIToolkit), [Cerebras Inference](https://aka.ms/vscode/cerebras), [Hugging Face](https://aka.ms/vscode/huggingface), and others. You can find more of these extensions in the [Visual Studio Marketplace](https://marketplace.visualstudio.com/search?term=tag%3Alanguage-models&target=VSCode&category=All%20categories&sortBy=Relevance).
 
 ### Configure models using your API key
 
@@ -171,14 +171,22 @@ Bringing your own model key will come to Copilot Business and Enterprise plans l
 
 You can use locally hosted models in chat by using [bring your own model key](#bring-your-own-language-model-key) (BYOK) and using a model provider that supports connecting to a local model. You have different options to connect to a local model:
 
-* Use a built-in model provider (for example, Ollama)
-* Install an extension from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode) (for example, [AI Toolkit for VS Code with Foundry Local](https://aka.ms/AIToolkit))
-* If your model provider is compatible with OpenAI, you can also [configure a custom OpenAI-compatible model](#use-an-openai-compatible-model).
+* Use a built-in model provider that supports local models
+* Install an extension from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/search?term=tag%3Alanguage-models&target=VSCode&category=All%20categories&sortBy=Relevance), for example, [AI Toolkit for VS Code with Foundry Local](https://aka.ms/AIToolkit)
+* Configure a [custom OpenAI-compatible model](#use-an-openai-compatible-model)
 
 Currently, you cannot connect to a local model for code completions. VS Code provides an extension API [`InlineCompletionItemProvider`](/api/references/vscode-api.md#InlineCompletionItemProvider) that enables extensions to contribute a custom completion provider. You can get started with our [Inline Completions sample](https://github.com/microsoft/vscode-extension-samples/blob/main/inline-completions).
 
 > [!NOTE]
-> Currently, using locally hosted models still uses the Copilot service for some tasks, and requires that your GitHub account has access to a Copilot plan. This functionality is also supported for users on Copilot Free.
+> Currently, using a locally hosted models still requires the Copilot service for some tasks. Therefore, your GitHub account needs to have access to a Copilot plan (for example, Copilot Free) and you need to be online. This requirement might change in a future release.
+
+### Can I use a local model without an internet connection?
+
+Currently, using a local model requires access to the Copilot service and therefore requires you to be online. This requirement might change in a future release.
+
+### Can I use a local model without a Copilot plan?
+
+No, currently you need to have access to a Copilot plan (for example, Copilot Free) to use a local model. This requirement might change in a future release.
 
 ## Related resources
 
