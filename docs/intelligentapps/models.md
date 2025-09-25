@@ -17,6 +17,9 @@ Within the model catalog, you can explore and utilize models from multiple hosti
 
 Deploy models directly to Azure AI Foundry from within the model catalog, streamlining your workflow.
 
+> [!NOTE]
+> Use Azure AI Foundry, Foundry Local, and GitHub models added to AI Toolkit with GitHub Copilot. For more information, check out [Changing the model for chat conversations](https://docs.github.com/en/copilot/customization/language-models#_change-the-model-for-chat-conversations).
+
 ![AI Toolkit model catalog displaying various generative AI models](./images/models/models.png)
 
 ## Find a model

@@ -23,6 +23,12 @@ To test a model in the playground, follow these steps:
 3. Optionally, configure the model parameters available for the selected model.
 4. Enter a chat prompt in the chat input box
 
+### Local model execution in the Playground
+
+AI Toolkit supports running local models in the playground. You can select a local model from the model dropdown list in the **Model Preferences** panel.
+
+    ![Screenshot of local model support](./images/playground/local-model-support.png)
+
 ## GitHub Pay-as-you-go Model Support
 
 AI Toolkit now supports GitHub pay-as-you-go models, so you can keep working after passing free tier limits.
