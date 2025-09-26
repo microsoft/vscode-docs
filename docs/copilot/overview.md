@@ -12,7 +12,7 @@ GitHub Copilot is an AI-powered coding assistant integrated into Visual Studio C
 
 ## Core capabilities
 
-### Code completions
+### Inline suggestions
 
 Copilot provides inline code suggestions as you type, ranging from single line completions to entire function implementations. With next edit suggestions, it predicts the next logical code change based on your current context.
 
@@ -24,7 +24,7 @@ Copilot provides inline code suggestions as you type, ranging from single line c
 - Write `// Create a REST API endpoint for user authentication` to generate Express.js route code
 - Begin a React component with `const UserProfile = ({` to receive a complete functional component with TypeScript types
 
-Learn more about [code completions in VS Code](/docs/copilot/ai-powered-suggestions.md).
+Learn more about [inline suggestions in VS Code](/docs/copilot/ai-powered-suggestions.md).
 
 ### Autonomous coding
 
@@ -80,7 +80,7 @@ Learn more about the [smart actions in VS Code](/docs/copilot/copilot-smart-acti
 
 1. Choose a sign-in method and follow the prompts. If you don't have a Copilot subscription yet, you'll be signed up for the [Copilot Free plan](https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-free/about-github-copilot-free).
 
-### Step 2: Basic code completion
+### Step 2: Basic inline suggestions
 
 1. Create a new file and start typing. VS Code shows inline suggestions in _ghost text_ in the editor.
 
@@ -204,7 +204,7 @@ Learn more about [using MCP servers and tools](/docs/copilot/customization/mcp-s
 
 ## Best Practices
 
-- Choose the right tool for the task. Get code completions while you're coding, use chat for natural language queries, and pick the chat mode that fits your workflow.
+- Choose the right tool for the task. Get inline suggestions while you're coding, use chat for natural language queries, and pick the chat mode that fits your workflow.
 
 - Write effective prompts to get the best results. Be specific, provide the right context, and iterate often.
 
@@ -218,7 +218,7 @@ Get more [tips and tricks for using AI in VS Code](/docs/copilot/copilot-tips-an
 
 ## Pricing
 
-You can start using GitHub Copilot for free with monthly limits on completions and chat interactions. For more extensive usage, you can choose from various paid plans.
+You can start using GitHub Copilot for free with monthly limits on inline suggestions and chat interactions. For more extensive usage, you can choose from various paid plans.
 
 [View detailed pricing →](https://docs.github.com/en/copilot/about-github-copilot/plans-for-github-copilot)
 
