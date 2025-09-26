@@ -1,6 +1,6 @@
 ---
 ContentId: f8820661-7772-47e6-b63e-ac59f6752d9c
-DateApproved: 08/07/2025
+DateApproved: 09/11/2025
 MetaDescription: Learn how to implement context engineering using VS Code's built-in AI features.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -59,17 +59,16 @@ To ground the AI agent in the specifics of the project, collect key project info
 1. Describe relevant project documentation in Markdown files in the repository, for example create `PRODUCT.md`, `ARCHITECTURE.md`, and `CONTRIBUTING.md` files.
 
     > [!TIP]
-    > If you have an existing codebase, you can use AI to generate these project documentation files:
+    > If you have an existing codebase, you can use AI to generate these project documentation files. Make sure to review and refine the generated documentation files to ensure accuracy and completeness.
     > * `Generate an ARCHITECTURE.md (max 2 page) file that describes the overall architecture of the project.`
     > * `Generate a PRODUCT.md (max 2 page) file that describes the product functionality of the project.`
     > * `Generate a CONTRIBUTING.md (max 1 page) file that describes developer guidelines and best practices for contributing to the project.`
-    > Make sure to review and refine the generated documentation files to ensure accuracy and completeness.
 
-2. Create a `.github/copilot-instructions.md` [instructions file](/docs/copilot/customization/custom-instructions.md#use-a-githubcopilot-instructionsmd-file) at the root of your repository.
+1. Create a `.github/copilot-instructions.md` [instructions file](/docs/copilot/customization/custom-instructions.md#use-a-githubcopilot-instructionsmd-file) at the root of your repository.
 
     The instructions in this file are automatically included in all chat interactions as context for the AI agent.
 
-3. Provide a high-level overview for the agent with the project context and guidelines. Reference relevant supporting documentation files by using Markdown links.
+1. Provide a high-level overview for the agent with the project context and guidelines. Reference relevant supporting documentation files by using Markdown links.
 
     The following example `.github/copilot-instructions.md` file provides a starting point:
 
@@ -84,13 +83,13 @@ To ground the AI agent in the specifics of the project, collect key project info
     ```
 
 > [!TIP]
-> Start small, keeping the initial project-wide context concise and focused on the most critical information. If uncertain, focus on high-level architecture and only add new rules to address errors or incorrect behavior the agent makes repeatedly (using the wrong shell command, ignoring certain files, etc.).
+> Start small, keeping the initial project-wide context concise and focused on the most critical information. If uncertain, focus on high-level architecture and only add new rules to address errors or incorrect behavior the agent makes repeatedly (for example, using the wrong shell command, ignoring certain files).
 
 ## Step 2: Create implementation plan
 
 Once you have the project-specific context in place, you can use AI to prompt the creation of an implementation plan for a new feature or bug fix. Generating an implementation plan is an iterative process that might require multiple rounds of refinement to ensure its complete and accurate.
 
-With a [custom chat mode](/docs/copilot/customization/custom-chat-modes.md) for planning, you can create a dedicated persona with planning-specific guidelines and tools (for example, read-only access to the codebase). They can also capture specific workflows for brainstorming, researching and collaborating for your project and team.
+With a [custom chat mode](/docs/copilot/customization/custom-chat-modes.md) for planning, you can create a dedicated persona with planning-specific guidelines and tools (for example, read-only access to the codebase). They can also capture specific workflows for brainstorming, researching, and collaborating for your project and team.
 
 > [!TIP]
 > Once you create chat modes, treat them as living documents. Refine and improve them over time based on any mistakes or shortcomings you observe in the agent's behavior.
@@ -115,13 +114,13 @@ With a [custom chat mode](/docs/copilot/customization/custom-chat-modes.md) for 
     Describe the high-level architecture and design considerations.
 
     ## Tasks
-    Break down the implementation into smaller, manageable tasks using a markdown checklist format.
+    Break down the implementation into smaller, manageable tasks using a Markdown checklist format.
 
     ## Open questions
     Outline 1-3 open questions or uncertainties that need to be clarified.
     ```
 
-2. Create a planning [chat mode](/docs/copilot/customization/custom-chat-modes.md) `.github/chatmodes/plan.chatmode.md` that defines the planning persona. In planning mode, the agent operates is instructed not to perform implementation tasks, but to focus on creating the implementation plan.
+1. Create a planning [chat mode](/docs/copilot/customization/custom-chat-modes.md) `.github/chatmodes/plan.chatmode.md` that defines the planning persona. In planning mode, the agent is instructed not to perform implementation tasks, but to focus on creating the implementation plan.
 
     To create a chat mode, run the **Chat: Configure Chat Modes** > **Create New custom chat mode file** command in the Command Palette.
 
@@ -147,29 +146,27 @@ With a [custom chat mode](/docs/copilot/customization/custom-chat-modes.md) for 
     3. Pause for review: Based on user feedback or questions, iterate and refine the plan as needed.
     ```
 
-3. You can now select the **plan** chat mode in the Chat view, and enter a task for implementing a new feature. It will generate a response that contains the implementation plan based on the provided template.
+1. You can now select the **plan** chat mode in the Chat view, and enter a task for implementing a new feature. It will generate a response that contains the implementation plan based on the provided template.
 
     For example, enter the following prompt to create an implementation plan for a new feature: `Add user authentication with email and password, including registration, login, logout, and password reset functionality`.
 
     You can also reference a GitHub issue to provide specific context: `Implement the feature from issue #43`, in which case the agent will fetch the issue description and comments to come up with requirements.
 
-4. Optionally, create a [prompt file](/docs/copilot/customization/prompt-files.md) `.github/prompts/plan.prompt.md` that invokes plan mode and instructs the agent to create an implementation plan from a provided feature request.
-
-    By using a prompt file, you can easily instruct the agent to create an implementation plan by using a slash command, such as `/plan`.
+1. Optionally, create a [prompt file](/docs/copilot/customization/prompt-files.md) `.github/prompts/plan.prompt.md` that invokes plan mode and instructs the agent to create an implementation plan from a provided feature request.
 
     The following `plan-qna.prompt.md` file provides a varied starting point for the planning prompt, using the same workflow but adding a clarification step.
 
     ```markdown
     ---
-    mode: plan-qna
+    mode: plan
     description: Create a detailed implementation plan.
     ---
     Briefly analyze my feature request, then ask me 3 questions to clarify the requirements. Only then start the planning workflow.
     ```
 
-5. In the Chat view, enter the `/plan-qna` slash command to invoke the clarifying planning prompt and provide details about the feature you want to implement in your prompt.
+1. In the Chat view, enter the `/plan-qna` slash command to invoke the clarifying planning prompt and provide details about the feature you want to implement in your prompt.
 
-    For example, enter the following prompt: `/plan add a customer details page for displaying and editing customer information`
+    For example, enter the following prompt: `/plan-qna add a customer details page for displaying and editing customer information`
 
     The agent will ask clarifying questions to better understand the requirements before creating the implementation plan, reducing any misunderstandings.
 
@@ -184,14 +181,14 @@ After you have generated and refined the implementation plan, you can now use AI
 
     For larger or complex features, you can switch to **Agent** mode and prompt it to save the implementation plan to a file (for example, `<my-feature>-plan.md`) or add it as comment to the mentioned GitHub issue. You can then open a new chat and reference the implementation plan file in your prompt to reset the chat context.
 
-2. You can now instruct the agent to implement the feature based on the implementation plan you created in the previous step.
+1. You can now instruct the agent to implement the feature based on the implementation plan you created in the previous step.
 
     For example, enter a chat prompt like `implement #<my-plan>.md`, which references the implementation plan file.
 
     > [!TIP]
-    > Agent mode is optimized for executing multi-step tasks and figuring out how to best accomplish a goal based on the plan and your project context. You only need to
+    > Agent mode is optimized for executing multi-step tasks and figuring out how to best accomplish a goal based on the plan and your project context. You only need to provide the plan file or reference it in your prompt.
 
-3. For a more customized workflow, create a [custom chat mode](/docs/copilot/customization/custom-chat-modes.md) `.github/chatmodes/implement.chatmode.md` specialized in implementing code based on a plan.
+1. For a more customized workflow, create a [custom chat mode](/docs/copilot/customization/custom-chat-modes.md) `.github/chatmodes/implement.chatmode.md` specialized in implementing code based on a plan.
 
     The following `tdd.chatmode.md` file provides a starting point for an test-driven implementation chat mode.
 
@@ -224,11 +221,11 @@ After you have generated and refined the implementation plan, you can now use AI
     > As smaller language models are great at following explicit instructions to generate code, an `implement` chat mode benefits from setting the `model` property to a language model.
 
 > [!TIP]
-> Get a fresh pair of agent eyes: Create a new chat and ask the agent to review the code changes against the implementation plan. It can help identify any missed requirements or inconsistencies.
+> Get a fresh pair of agent eyes: create a new chat (`kb(workbench.action.chat.newChat)`) and ask the agent to review the code changes against the implementation plan. It can help identify any missed requirements or inconsistencies.
 
 ## Best practices and common patterns
 
-Following these best practices will help you establish a sustainable and effective context engineering workflow.
+Following these best practices helps you establish a sustainable and effective context engineering workflow.
 
 ### Context management principles
 
@@ -256,7 +253,7 @@ Following these best practices will help you establish a sustainable and effecti
 
 **Use incremental complexity**: Build features incrementally, validating each step before adding complexity. This prevents compounding errors and maintains working code.
 
-**Separate concerns**: Use different chat modes for different activities (planning vs. implementation vs. review) to maintain focused, relevant context.
+**Separate concerns**: Use different chat modes for different activities (planning versus implementation versus review) to maintain focused, relevant context.
 
 **Version your context**: Use git to track changes to your context engineering setup, allowing you to revert problematic changes and understand what works best.
 
@@ -266,7 +263,7 @@ Following these best practices will help you establish a sustainable and effecti
 
 **Inconsistent guidance**: Ensure all documentation aligns with your chosen architectural patterns and coding standards.
 
-**Neglecting validation**: Don't assume AI correctly understands your context - always test understanding before proceeding with complex implementations.
+**Neglecting validation**: Don't assume AI correctly understands your context. Always test understanding before proceeding with complex implementations.
 
 **One-size-fits-all**: Different team members or project phases may need different context configurations. Be flexible in your approach.
 
@@ -274,20 +271,20 @@ Following these best practices will help you establish a sustainable and effecti
 
 A successful context engineering setup should result in:
 
-- **Reduced back-and-forth**: Less need to correct or redirect AI responses
-- **Consistent code quality**: Generated code follows established patterns and conventions
-- **Faster implementation**: Less time spent explaining context and requirements
-- **Better architectural decisions**: AI suggests solutions that align with project goals and constraints
+* **Reduced back-and-forth**: Less need to correct or redirect AI responses
+* **Consistent code quality**: Generated code follows established patterns and conventions
+* **Faster implementation**: Less time spent explaining context and requirements
+* **Better architectural decisions**: AI suggests solutions that align with project goals and constraints
 
 ### Scaling context engineering
 
 **For teams**: Share context engineering setups through version control and establish team conventions for maintaining shared context.
 
-**For large projects**: Consider creating context hierarchies with project-wide, module-specific, and feature-specific context layers using [instruction files](/docs/copilot/customization/custom-instructions.md).
+**For large projects**: Consider creating context hierarchies with project-wide, module-specific, and feature-specific context layers using [instructions files](/docs/copilot/customization/custom-instructions.md).
 
 **For long-term projects**: Establish regular context review cycles to keep documentation current and remove outdated information.
 
-**For multiple projects**: Create reusable templates and patterns that can be adapted across different codebases and domains.
+**For multiple projects**: Create reusable templates and patterns that can be adopted across different codebases and domains.
 
 By following these practices and continuously refining your approach, you'll develop a context engineering workflow that enhances AI-assisted development while maintaining code quality and project consistency.
 
@@ -295,6 +292,6 @@ By following these practices and continuously refining your approach, you'll dev
 
 Learn more about customizing AI in VS Code:
 
-* [Custom instructions](/docs/copilot/customization/custom-instructions.md)
-* [Custom chat modes](/docs/copilot/customization/custom-chat-modes.md)
+* [Instructions files](/docs/copilot/customization/custom-instructions.md)
+* [Chat modes](/docs/copilot/customization/custom-chat-modes.md)
 * [Prompt files](/docs/copilot/customization/prompt-files.md)
