@@ -6,7 +6,7 @@ MetaSocialImage: images/keybinding/customization-keybindings-social.png
 ---
 # Keyboard shortcuts for Visual Studio Code
 
-Visual Studio Code lets you perform most tasks directly from the keyboard. This article explains how you can modify the default keyboard shorts that come with VS Code.
+Visual Studio Code lets you perform most tasks directly from the keyboard. This article explains how you can modify the default keyboard shortcuts that come with VS Code.
 
 > [!NOTE]
 > If you visit this page on a Mac, you will see the keyboard shortcuts for the Mac. If you visit using Windows or Linux, you will see the keys for that platform. If you need the keyboard shortcuts for another platform, hover your mouse over the key you are interested in.
