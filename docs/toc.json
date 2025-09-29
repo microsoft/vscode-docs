@@ -115,7 +115,7 @@
         ]
       }
       ],
-      ["Code Completions", "/docs/copilot/ai-powered-suggestions"],
+      ["Inline Suggestions", "/docs/copilot/ai-powered-suggestions"],
       ["Copilot Coding Agent", "/docs/copilot/copilot-coding-agent"],
       ["", "", {
         "name": "Customize Copilot",
