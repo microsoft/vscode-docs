@@ -30,7 +30,7 @@ GitHub Copilot in Visual Studio Code provides AI-powered features to help you wr
     * Quick Chat (`kb(workbench.action.quickchat.toggle)`): ask quick questions without leaving your current task
 
 * AI in the [editor](/docs/copilot/ai-powered-suggestions.md)
-    * Code completions: get suggestions as you type, press `kb(editor.action.inlineSuggest.commit)` to accept a suggestion
+    * Inline suggestions: get suggestions as you type, press `kb(editor.action.inlineSuggest.commit)` to accept a suggestion
     * Edit context menu actions: access common AI actions like explaining or fixing code, generating tests, or reviewing a text selection
     * Code actions: get editor code actions (lightbulb) to fix linting and compiler errors
 
@@ -199,11 +199,11 @@ Customize your chat experience to generate responses that match your coding styl
 
 ## Editor AI features
 
-As you're coding in the editor, you can use Copilot to generate code completions as you're typing. Invoke Inline Chat to ask questions and get help from Copilot, while staying in the flow of coding. For example, ask Copilot to generate unit tests for a function or method. Get more information about [code completions](/docs/copilot/ai-powered-suggestions.md) and [Inline Chat](/docs/copilot/chat/inline-chat.md).
+As you're coding in the editor, you can use Copilot to generate inline suggestions as you're typing. Invoke Inline Chat to ask questions and get help from Copilot, while staying in the flow of coding. For example, ask Copilot to generate unit tests for a function or method. Get more information about [inline suggestions](/docs/copilot/ai-powered-suggestions.md) and [Inline Chat](/docs/copilot/chat/inline-chat.md).
 
 | Action | Description |
 |--------|-------------|
-| Code completions | Start typing in the editor and get [code suggestions](/docs/copilot/ai-powered-suggestions.md) that match your coding style and take your existing code into account. |
+| Inline suggestions | Start typing in the editor and get [inline suggestions](/docs/copilot/ai-powered-suggestions.md) that match your coding style and take your existing code into account. |
 | Code comments | Provide a code completion prompt by writing instructions in a code comment.<br/>Example: `# write a calculator class with methods for add, subtract, and multiply. Use static methods.` |
 | `kb(inlinechat.start)` | Start editor inline chat to send a chat request directly from the editor. Use natural language and reference chat variables and slash commands to provide context. |
 | `kb(editor.action.rename)` | Get AI-powered suggestions when renaming symbols in your code. |
@@ -212,7 +212,7 @@ As you're coding in the editor, you can use Copilot to generate code completions
 
 > **Tips**
 >
-> * Use meaningful method or function names to get better code completions quicker.
+> * Use meaningful method or function names to get better inline suggestions quicker.
 > * Select a code block to scope your Inline Chat prompt or attach relevant context by attaching files or symbols.
 > * Use the editor context menu options to access common AI-powered actions directly from the editor.
 
