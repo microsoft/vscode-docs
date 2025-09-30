@@ -402,7 +402,7 @@ Use this configuration for servers that communicate over HTTP. VS Code first tri
 | `url` | Yes | URL of the server | `"http://localhost:3000"`, `"https://api.example.com/mcp"` |
 | `headers` | No | HTTP headers for authentication or configuration | `{"Authorization": "Bearer ${input:api-token}"}` |
 
-In addition to servers available over the network, VS Code can connect to MCP servers listening for HTTP traffic on Unix sockets or Windows named pipes by specifying the socket or pipe path in the form `unix:///path/to/server.sock` or `pipe:///pipe/named-pipe` on Windows. Subpaths can be specified by using a URL fragment, such as `unix:///tmp/server.sock#/mcp/subpath`.
+In addition to servers available over the network, VS Code can connect to MCP servers listening for HTTP traffic on Unix sockets or Windows named pipes by specifying the socket or pipe path in the form `unix:///path/to/server.sock` or `pipe:///pipe/named-pipe` on Windows. You can specify subpaths by using a URL fragment, such as `unix:///tmp/server.sock#/mcp/subpath`.
 
 <details>
 <summary>Example remote server configuration</summary>
