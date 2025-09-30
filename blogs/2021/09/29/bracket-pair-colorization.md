@@ -1,5 +1,5 @@
 ---
-Order: 67
+Order: 
 TOCTitle: Bracket Pair Colorization
 PageTitle: How We Made Bracket Pair Colorization 10,000x Faster In Visual Studio Code
 MetaDescription: How we made bracket pair colorization in Visual Studio Code up to 10,000 times faster.
