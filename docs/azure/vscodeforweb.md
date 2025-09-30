@@ -67,7 +67,7 @@ To get started:
 
 The following are commonly used scenarios for the `\azure` environment.
 
-* [Using Azure AI Foundry to create a model deployment and open your code in VS Code]((https://ai.azure.com))
+* [Using Azure AI Foundry to create a model deployment and open your code in VS Code](https://ai.azure.com)
 
     1. From the Azure AI Foundry portal, select the best model for your use case, including o3, o4-mini or MAI-DS-R1 from Foundry Models. In this case, we’ll use gpt-4o-mini as an example model for an agent workflow.
 

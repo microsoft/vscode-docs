@@ -30,9 +30,20 @@ By standardizing this interaction, MCP eliminates the need for custom integratio
 
 VS Code supports the following MCP capabilities:
 
-* MCP Server transport: local standard input/output (`stdio`), HTTP Stream (`http`), and server-sent events (`sse`, legacy support).
-* [MCP features](https://modelcontextprotocol.io/specification/2025-03-26#features): tools, prompts, resources, elicitation, sampling, and authentication.
-* VS Code provides servers with the current workspace folders using `roots` ([spec](https://modelcontextprotocol.io/docs/concepts/roots)).
+* [Transports](https://modelcontextprotocol.io/specification/2025-06-18/basic/transports):
+    * Local standard input/output (`stdio`)
+    * Streamable HTTP (`http`)
+    * Server-sent events (`sse`) - legacy support.
+
+* [Features](https://modelcontextprotocol.io/specification/2025-06-18#features):
+    * Tools
+    * Prompts
+    * Resources
+    * Elicitation
+    * Sampling
+    * Authentication
+    * Server instructions
+    * [Roots](https://modelcontextprotocol.io/docs/concepts/roots)
 
 </details>
 
@@ -167,6 +178,19 @@ Configure autodiscovery with the `setting(chat.mcp.discovery.enabled)` setting. 
 
 </details>
 
+<details>
+<summary>Install an MCP server from the command line</summary>
+
+You can also use the VS Code command-line interface to add an MCP server to your user profile or to a workspace.
+
+To add an MCP server to your user profile, use the `--add-mcp` VS Code command line option, and provide the JSON server configuration in the form `{\"name\":\"server-name\",\"command\":...}`.
+
+```bash
+code --add-mcp "{\"name\":\"my-server\",\"command\": \"uvx\",\"args\": [\"mcp-server-fetch\"]}"
+```
+
+</details>
+
 When VS Code starts the MCP server for the first time, it discovers the server's capabilities and tools. You can then [use these tools in agent mode](#use-mcp-tools-in-agent-mode). VS Code caches the list of tools for an MCP server. To clear the cached tools, use the **MCP: Reset Cached Tools** command in the Command Palette.
 
 ## View installed MCP servers
@@ -285,27 +309,6 @@ You can configure VS Code to automatically restart the MCP server when configura
 Alternatively, manually restart the MCP server from the Chat view, or by selecting the restart action from the [MCP server list](#manage-mcp-servers).
 
 ![Screenshot showing the Refresh button in the Chat view.](../images/mcp-servers/chat-view-mcp-refresh.png)
-
-### Command-line configuration
-
-You can also use the VS Code command-line interface to add an MCP server to your user profile or to a workspace.
-
-To add an MCP server to your user profile, use the `--add-mcp` command line option, and provide the JSON server configuration in the form `{\"name\":\"server-name\",\"command\":...}`.
-
-```bash
-code --add-mcp "{\"name\":\"my-server\",\"command\": \"uvx\",\"args\": [\"mcp-server-fetch\"]}"
-```
-
-### URL handler
-
-VS Code also includes a URL handler that you can use to install an MCP server. To form the URL, construct an `obj` object in the same format as you would provide to `--add-mcp`, and then create the link by using the following logic:
-
-```typescript
-// For Insiders, use `vscode-insiders` instead of `code`
-const link = `vscode:mcp/install?${encodeURIComponent(JSON.stringify(obj))}`;
-```
-
-This link can be used in a browser, or opened on the command line, for example via `xdg-open $LINK` on Linux.
 
 ## Find MCP servers
 
@@ -493,22 +496,9 @@ Select the error notification in the Chat view, and then select the **Show Outpu
 You can enable _development mode_ for MCP servers by adding a `dev` key to the MCP server configuration. This is an object with two properties:
 
 * `watch`: A file glob pattern to watch for files change that will restart the MCP server.
-* `debug`: Enables you to set up a debugger with the MCP server.
+* `debug`: Enables you to set up a debugger with the MCP server. Currently, VS Code supports debugging Node.js and Python MCP servers.
 
-```json
-{
-  "servers": {
-    "gistpad": {
-      "command": "node",
-      "args": ["build/index.js"],
-     "dev": {
-       "watch": "build/**/*.js",
-       "debug": { "type": "node" }
-     },
-```
-
-> [!NOTE]
-> We currently only support debugging Node.js and Python servers launched with `node` and `python` respectively.
+Learn more about [MCP development mode](/api/extension-guides/ai/mcp.md#mcp-development-mode-in-vs-code) in the MCP Dev Guide.
 
 ## Frequently asked questions
 
