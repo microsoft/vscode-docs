@@ -1,6 +1,6 @@
 ---
 ContentId: 101027aa-e73c-4d1b-a93f-b8ce10e1f946
-DateApproved: 08/07/2025
+DateApproved: 09/11/2025
 MetaDescription: Learn how to use GitHub Copilot in Visual Studio Code to edit Jupyter notebooks with AI.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -40,7 +40,7 @@ You can now further edit the notebook manually, or use AI to make inline edits o
 
 If you already have a notebook and want to make some inline changes in a cell, you can use inline chat, like you would in a code file.
 
-To make inline edits in a cell, press `kb(notebook.cell.chat.start)` or right-click in the cell and select **Generate Code** > **Editor Inline Chat**. This opens the inline chat view, where you can enter your prompt.
+To make inline edits in a cell, press `kb(notebook.cell.chat.start)`. This opens the inline chat view, where you can enter your prompt.
 
 > [!TIP]
 > You can reference kernel variables in your chat prompt. Type `#` followed by the variable name to reference it. For example, if you have a variable named `df`, you can type `#df` in your chat prompt to reference it.

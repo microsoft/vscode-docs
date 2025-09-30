@@ -1,6 +1,6 @@
 ---
 ContentId: 5dfd207f-fcee-42c3-b7fe-622b42b3397c
-DateApproved: 08/07/2025
+DateApproved: 09/11/2025
 MetaDescription: Optimize your development experience with GitHub Copilot in VS Code with best practices for crafting chat prompts and providing context.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -67,35 +67,13 @@ One trick to get Copilot on the right page, is to copy and paste sample code tha
 
 Copilot is going to latch on to your code to generate suggestions that follow the existing pattern, so the adage "garbage in, garbage out" applies.
 
-Always keeping a high quality bar can take discipline. Especially when you're coding fast and loose to get something working, you might want to disable Copilot completions while in "hacking" mode. You can temporarily disable completions from the Copilot status menu. Bring up the Copilot status menu dropdown by selecting the Copilot Status bar item.
+Always keeping a high quality bar can take discipline. Especially when you're coding fast and loose to get something working, you might want to disable completions while in "hacking" mode. To snooze code completions temporarily, select the Copilot menu in the Status Bar, and then select the **Snooze** button to increment the snooze time by five minutes. To resume code completions, select the **Cancel Snooze** button in the Copilot menu.
 
-![Hover over the Copilot Status bar item displays "Show Copilot status menu"](images/prompt-crafting/show-copilot-status-menu.png)
+![Screenshot of the Copilot menu in the Status Bar with Snooze and Cancel Snooze buttons.](../images/inline-suggestions/snooze-code-completions.png)
 
-From the dropdown, you can disable completions entirely, or disable just for the active file type, for example Markdown files.
+## Getting the most out of chat
 
-![Copilot Status menu dropdown with Disable Completions selected](images/prompt-crafting/disable-completions.png)
-
-<!-- ### Be specific
-
-break things down into separate specific tasks
-
-Be specific about inputs, outputs, ranges, APIs, frameworks.
-
-### Verify suggestions
-
-Copilot is not a compiler or language service
-
-Tools, which you may already be using, can help.
-
-#### Language Service warnings
-
-#### Linters -->
-
-## Getting the most out of Copilot Chat
-
-You can also get assistance from Copilot via a [chat interface](/docs/copilot/overview.md#Answer-coding-questions) by installing the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension.
-
-When you're using chat to interact with GitHub Copilot, there are several things you can do to optimize your experience.
+When you're using chat, there are several things you can do to optimize your experience.
 
 ### Use chat participants and slash commands
 
