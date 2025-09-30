@@ -1,6 +1,6 @@
 ---
 ContentId: e919aee8-fd2e-401b-9d83-0ff6f98b23ba
-DateApproved: 07/14/2025
+DateApproved: 09/23/2025
 MetaDescription: Chat with selected generative AI model in playground. Change system prompt and parameters. Add attachment for Multi-Modal models. Keep chat history.
 ---
 # Model playground in AI Toolkit

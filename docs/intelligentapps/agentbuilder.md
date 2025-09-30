@@ -1,6 +1,6 @@
 ---
 ContentId: bd3d7555-3d84-4500-ae95-6dcd39641af0
-DateApproved: 07/14/2025
+DateApproved: 09/30/2025
 MetaDescription: Get Started with creating, iterating and optimizing your agents in AI Toolkit.
 ---
 # Build agents and prompts in AI Toolkit
