@@ -57,7 +57,11 @@ VS Code supports the following MCP capabilities:
 
 ## Enable MCP support in VS Code
 
-The `setting(chat.mcp.access)` setting controls which MCP servers can be installed and run in VS Code. By default, all MCP servers are allowed. Configure this setting to `none` to disable MCP support.
+The `setting(chat.mcp.access)` setting controls which MCP servers can be installed and run in VS Code:
+
+* `all` (default): All MCP servers are allowed
+* `registry`: Only MCP servers from the registry are allowed
+* `none`: No MCP servers are allowed
 
 ### Centrally manage MCP support
 
