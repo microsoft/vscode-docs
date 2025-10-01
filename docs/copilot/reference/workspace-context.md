@@ -95,9 +95,11 @@ The basic index should work just fine for many types of chat prompts. However, i
 
 ### What content is included in the workspace index
 
-Copilot indexes relevant text files that are part of your current project. This is not limited to specific file types or programming languages, however Copilot automatically skips over some common file types that are typically not relevant to `@workspace` questions, such as `.tmp` or `.out` files. Copilot also excludes any files that are excluded from VS Code using the `setting(files.exclude)` setting or that are part of the `.gitignore` file.
+VS Code indexes relevant text files that are part of your current project. This is not limited to specific file types or programming languages, however VS Code automatically skips over some common file types that are typically not relevant to workspace questions, such as `.tmp` or `.out` files.
 
-Copilot also currently does not index binary files, such as images or PDFs.
+The workspace index also excludes any files that are excluded from VS Code using the `setting(files.exclude)` setting or that are part of the `.gitignore` file.
+
+VS Code also currently does not index binary files, such as images or PDFs.
 
 ## Use workspace context in chat
 
