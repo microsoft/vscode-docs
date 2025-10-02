@@ -1,4 +1,5 @@
 ---
+description: Ask questions about VS Code
 mode: agent
 model: Claude Sonnet 4
 tools: ['codebase', 'usages', 'vscodeAPI', 'githubRepo', 'search']
