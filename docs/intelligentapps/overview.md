@@ -1,6 +1,6 @@
 ---
 ContentId: 164299e8-d27d-40b9-8b8d-a6e05df8ac69
-DateApproved: 09/23/2025
+DateApproved: 10/03/2025
 MetaDescription: Build, test, and deploy AI applications with AI Toolkit for Visual Studio Code. Features model playground, prompt engineering, batch evaluation, fine-tuning, and multi-modal support for LLMs and SLMs.
 ---
 # AI Toolkit for Visual Studio Code
@@ -70,7 +70,6 @@ You can also install the AI Toolkit extension manually from the Visual Studio Co
 > [!TIP]
 > Check the **What's New** page after installation to see detailed features for each version.
 * After successful installation, the AI Toolkit icon appears in the Activity Bar.
-
 
 
 ## Explore Azure AI Toolkit
