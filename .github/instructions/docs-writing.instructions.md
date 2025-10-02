@@ -1,5 +1,5 @@
 ---
-applyTo: '**/*.md'
+applyTo: 'docs/**/*.md, api/**/*.md, remote/**/*.md'
 ---
 # Documentation Writing Instructions
 
