@@ -129,7 +129,7 @@ The following table lists the VS Code built-in tools:
 | `#terminalSelection` | Get the current terminal selection. |
 | `#testFailure` | Get unit test failure information. Useful when running and diagnosing [tests](/docs/debugtest/testing.md). |
 | `#textSearch` | Find text in files. |
-| `#todos` | Manage and track todo items when processing a chat request (requires `setting(chat.todoListTool.enabled)`). |
+| `#todos` | Track implementation and progress of a chat request with a [todo list](/docs/copilot/chat/chat-agent-mode.md#track-progress-with-todo-lists-experimental). |
 | `#usages` | Combination of "Find All References", "Find Implementation", and "Go to Definition". |
 | `#VSCodeAPI` | Ask about VS Code functionality and extension development. |
 
