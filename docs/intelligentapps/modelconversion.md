@@ -3,7 +3,7 @@ ContentId: 2452fb1c-7636-44d3-a52d-00923844d384
 DateApproved: 07/14/2025
 MetaDescription: Model Conversion Quickstart in AI Toolkit.
 ---
-# Convert a model with AI Toolkit for VS Code (Preview)
+# Convert a model with AI Toolkit for VS Code
 
 Model conversion is an integrated development environment designed to help developers and AI engineers to convert, quantize, optimize and evaluate the pre-built machine learning models on your local Windows platform. It offers a streamlined, end-to-end experience for models converted from sources like Hugging Face, optimizing them and enabling inference on local devices powered by NPUs, GPUs, and CPUs.
 
@@ -34,34 +34,15 @@ Creating a project in model conversion is the first step toward converting, opti
 
 > [!NOTE]
 > The first time you create a model project, it might take a while to set up the environment.
+> It's OK that you don't complete the setup. You can choose to re-setup the environment when you are ready.
+> ![Screenshot that shows re-setup.](./images/modelconversion/re-init.png)
 >
 > A `README.md` file is included in each project. If you close it, you can reopen it via the workspace.
 > ![Screenshot that shows model readme.](./images/modelconversion/create-project-readme.png)
 
 ### Supported models
 
-Model Conversion currently supports a growing list of models, including top Hugging Face models in PyTorch format.
-
-#### LLM models
-
-| Model Name                             | Hugging Face Path                               |
-|----------------------------------------|-------------------------------------------------|
-| Qwen2.5 1.5B Instruct                  | `Qwen/Qwen2.5-1.5B-Instruct`                    |
-| DeepSeek R1 Distill Qwen 1.5B          | `deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B`     |
-| Meta LLaMA 3.2 1B Instruct             | `meta-llama/Llama-3.2-1B-Instruct`              |
-| Phi-3.5 Mini Instruct                  | `Phi-3.5-mini-instruct`                         |
-
-#### Non-LLM models
-
-| Model Name                             | Hugging Face Path                               |
-|----------------------------------------|-------------------------------------------------|
-| Intel BERT Base Uncased (MRPC)         | `Intel/bert-base-uncased-mrpc`                  |
-| BERT Multilingual Cased                | `google-bert/bert-base-multilingual-cased`      |
-| ViT Base Patch16-224                   | `google/vit-base-patch16-224`                   |
-| ResNet-50                              | `resnet-50`                                     |
-| CLIP ViT-B-32 (LAION)                  | `laion/CLIP-ViT-B-32-laion2B-s34B-b79K`         |
-| CLIP ViT Base Patch16                  | `clip-vit-base-patch16`                         |
-| CLIP ViT Base Patch32                  | `clip-vit-base-patch32`                         |
+Model Conversion currently supports a growing list of models, including top Hugging Face models in PyTorch format. For detailed model list, refer: [Model List](https://github.com/microsoft/olive-recipes/blob/main/.aitk/docs/guide/ModelList.md)
 
 ### (Optional) Add model into existing project
 
@@ -85,6 +66,15 @@ Model Conversion currently supports a growing list of models, including top Hugg
 
 1. Alternatively, close the current model project and [create a new project](#create-project) from the start.
 
+### (Optional) Delete a model project
+
+1. Open the model project and select **Models** > **Conversion**.
+
+1. On the top-right view, select the ellipsis (**...**) and then **Delete** to delete the currently selected model project.
+
+    ![Screenshot that shows how to delete a model project. It contains a button to open mean and detele a model project.](./images/modelconversion/delete-project.png)
+
+
 ## Run workflow
 
 Running a workflow in model conversion is the core step that transform the pre-built ML model into an optimized and quantized ONNX model.
@@ -107,7 +97,7 @@ Running a workflow in model conversion is the core step that transform the pre-b
     This section enables you to configure the parameters for quantization.
 
     > [!Important]
-    > **Hugging Face compliance alerts**: During the quantization, we need the calibration datasets. You may be prompted to accept license terms before proceeding. If you missed the notification, the running process will be paused, waiting for your input. Please make sure notifications are **enabled** and that you accept the required licenses.
+    > **Hugging Face compliance alerts**: During the quantization, we need the calibration datasets. You may be prompted to accept license terms before proceeding. If you missed the notification, the running process will be paused, waiting for your input. Make sure notifications are **enabled** and that you accept the required licenses.
     > ![Screenshot that shows disclaimer.](./images/modelconversion/run-disclaimer.png)
 
     - **Activation Type**: this is the data type used to represent the intermediate outputs (activations) of each layer in the neural network.
@@ -130,7 +120,7 @@ Running a workflow in model conversion is the core step that transform the pre-b
     - **Quantization Dataset Split**: dataset could have different splits like validation, train and test.
     - **Quantization Dataset Size**: the number of data used to quantize the model.
 
-    For more information about activation and weight type, please see [Data type selection](https://onnxruntime.ai/docs/performance/model-optimizations/quantization.html#data-type-selection).
+    For more information about activation and weight type, see [Data type selection](https://onnxruntime.ai/docs/performance/model-optimizations/quantization.html#data-type-selection).
 
     You could also disable this section. In this case, the workflow will only convert the model to ONNX format but do not quantize the model.
 
@@ -140,7 +130,9 @@ Running a workflow in model conversion is the core step that transform the pre-b
     - **Evaluate on**: the target device that you want to evaluate the model. Possible values are:
       - **Qualcomm NPU**: to use this, you need a compatible Qualcomm device.
       - **AMD NPU**: to use this, you need a device with a supported AMD NPU.
-      - **Intel NPU**: to use this, you need a device with a supported Intel NPU.
+      - **Intel CPU/GPU/NPU**: to use this, you need a device with a supported Intel CPU/GPU/NPU.
+      - **NVIDIA TRT for RTX**: to use this, you need a device with a Nvidia GPU that supports TensorRT for RTX.
+      - **DirectML**: to use this, you need a device with a GPU that supports DirectML.
       - **CPU**: any CPU could work.
     - **Evaluation Dataset**: dataset used for evaluation.
     - **Evaluation Dataset Split**: dataset could have different splits like validation, train and test.
@@ -154,7 +146,7 @@ Running a workflow in model conversion is the core step that transform the pre-b
 
     During the job running, you can **Cancel** the job by selecting the status indicator or the three-dot menu under **Action** in History board and select **Stop Running**.
 
-    **Hugging Face compliance alerts**: During the quantization, we need the calibration datasets. You may be prompted to accept license terms before proceeding. If you missed the notification, the running process will be paused, waiting for your input. Please make sure notifications are enabled and that you accept the required licenses.
+    **Hugging Face compliance alerts**: During the quantization, we need the calibration datasets. You may be prompted to accept license terms before proceeding. If you missed the notification, the running process will be paused, waiting for your input. Make sure notifications are enabled and that you accept the required licenses.
 
 4. (Optional) Run model conversion in the cloud
 
@@ -163,7 +155,7 @@ Running a workflow in model conversion is the core step that transform the pre-b
     1. Select **Run with Cloud** from the dropdown in the top right.
         Note that the **Evalution** section is disabled because the cloud environment doesn't have target processors for inference.
 
-        ![Screenshot that shows Run with Cloud button.](./images/modelconversion/cloud_conversion_run.png)
+        ![Screenshot that shows Run with Cloud button.](./images/modelconversion/cloud-conversion-run.png)
 
     2. AI Toolkit first checks if Azure resources for Cloud Conversion are prepared. If needed, you are prompted for your Azure subscription and resource group for provisioning Azure resources.
 
@@ -175,16 +167,23 @@ Running a workflow in model conversion is the core step that transform the pre-b
     4. An Azure Container App (ACA) job is triggered to run Cloud Conversion. For a running job, you can:
         - Select the status link to navigate to the Azure ACA Job Execution History page.
         - Select **logs** to navigate to Azure Log Analytics.
-        - Select **Refresh** to fetch the current job status.
+        - Select the refresh button to fetch the current job status.
 
-        ![Screenshot that shows prompt for provisionning.](./images/modelconversion/cloud_conversion_history.png)
+        ![Screenshot that shows prompt for provisionning.](./images/modelconversion/cloud-conversion-history.png)
+
+> [!TIP]
+> If you don’t have a GPU available for LLM model conversion, you can use **Run with Cloud**.
+> The Run with Cloud option only supports model conversion and quantization. You need to download the converted model to your local machine for evaluation.
+>
+> Run with Cloud does not support model conversion using DirectML or NVIDIA TRT for RTX workflows.
 
 > [!NOTE]
+> The **Recommended** column will show the recommended workflow based on whether your device is ready to run the converted model or not. You can still choose the workflow that you prefer.
 > **Model conversion and quantization**: you can run workflow on any device expect for LLM models. The **Quantization** configuration is optimized for NPU only. It's recommended to uncheck this step if the target system is not NPU.
 >
 > **LLM model quantization**: If you want to quantize the [LLM models](#llm-models), a Nvidia GPU is required.
 >
-> If you want to quantize the model on another device with GPU, you can setup environment by yourselves, please refer [ManualConversionOnGPU](/docs/intelligentapps/reference/ManualConversionOnGPU.md). Please note that only "Quantization" step need the GPU. After quantization, you can evaluate the model on NPU or CPU.
+> If you want to quantize the model on another device with GPU, you can setup environment by yourselves, refer [ManualConversionOnGPU](/docs/intelligentapps/reference/ManualConversionOnGPU.md). Note that only "Quantization" step need the GPU. After quantization, you can evaluate the model on NPU or CPU.
 
 ### Tips for re-evaluation
 
@@ -200,6 +199,13 @@ You can choose the different EPs or datasets for re-evaluation
 
 If your job is canceled or failed, you can select job name to adjust the workflow and run job again. To avoid accidental overwrites, each execution creates a new history folder with its own configuration and results.
 
+> [!NOTE]
+> Some workflows may require that you log in to Hugging Face first. If your job has failed with output like `huggingface_hub.errors.LocalTokenNotFoundError: Token is required ('token=True'), but no token found. You need to provide a token or be logged in to Hugging Face with 'hf auth login' or 'huggingface_hub.login'`, navigate to <https://huggingface.co/settings/tokens> and follow the instructions to complete the log in process and then try again.
+>
+> If your re-evaluation has failed with output warning like `Microsoft Visual C++ Redistributable is not installed`, you need to manually install the following packages:
+> 1. [Microsoft Visual C++ Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170#latest-microsoft-visual-c-redistributable-version)
+> 2. (Optional for ARM64) Download from [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/). Also check `Desktop development with C++` workload during installation.
+
 ## View results
 
 The History Board in **Conversion** is your central dashboard for tracking, reviewing, and managing all workflow runs. Each time you run a model conversion and evaluation, a new entry is created in the History Board—ensuring full traceability and reproducibility.
@@ -209,16 +215,20 @@ The History Board in **Conversion** is your central dashboard for tracking, revi
 - Select the **logs** under Status indicator to view logs and detailed execution results
 - Once the model converted successfully, you can view the evaluation results under Metrics. Metrics such as accuracy, latency and throughput are displayed alongside each run
 
-![Screenshot that shows history, including name, time, parameters and so on.](./images/modelconversion/history.png)
+  ![Screenshot that shows history, including name, time, parameters and so on.](./images/modelconversion/history.png)
+
+- You can select the three-dot menu under **Action**, to interact with converted model.
+
+  ![Screenshot that shows actions, including inference, copy model path and re-evaluate.](./images/modelconversion/historyaction.png)
+
+
+## Copy converted model path
+
+- Select **Copy model path** from the dropdown. The output converted model path like `c:/{workspace}/{model_project}/history/{workflow}/model/model.onnx` will be copied to your clipboard for your reference. For LLM models, the output folder will be copied instead.
 
 ## Use sample notebook for model inference
 
-- Go to the History board. Select the three-dot menu under **Action**.
-
-    Select **Inference in Samples** from the dropdown.
-
-    ![Screenshot that shows actions, including inference, copy model path and re-evaluate.](./images/modelconversion/historyaction.png)
-
+- Select **Inference in Sample** from the dropdown.
 - Choose the Python environment
   - You'll be prompted to select a Python virtual environment.
 The default runtime is: `C:\Users\{user_name}\.aitk\bin\model_lab_runtime\Python-WCR-win32-x64-3.12.9`.
@@ -227,7 +237,7 @@ The default runtime is: `C:\Users\{user_name}\.aitk\bin\model_lab_runtime\Python
 
 > [!NOTE]
 > For models that use Cloud Conversion, after the status turns **Succeeded**, select the cloud download icon to download the output model to your local machine.
-> ![Screenshot that shows action, including icon for downloading model from cloud.](./images/modelconversion/cloud_download.png)
+> ![Screenshot that shows action, including icon for downloading model from cloud.](./images/modelconversion/cloud-download.png)
 >
 > To avoid overwriting any existing local files, such as config or history related files, only missing files are downloaded. If you want to download a clean copy, delete the local folder first, and then download again.
 

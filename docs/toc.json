@@ -136,6 +136,7 @@
         "area": "copilot/guides",
         "noCollapse": true,
         "topics": [
+          ["Context Engineering", "/docs/copilot/guides/context-engineering-guide"],
           ["Edit Notebooks with AI", "/docs/copilot/guides/notebooks-with-ai"],
           ["Test with AI", "/docs/copilot/guides/test-with-copilot"],
           ["Debug with AI", "/docs/copilot/guides/debug-with-copilot"],
@@ -276,6 +277,7 @@
       ["Run and Debug", "/docs/java/java-debugging"],
       ["Testing", "/docs/java/java-testing"],
       ["Spring Boot", "/docs/java/java-spring-boot"],
+      ["Modernizing Java Apps", "/docs/java/java-app-mod"],
       ["Application Servers", "/docs/java/java-tomcat-jetty"],
       ["Deploy Java Apps", "/docs/java/java-on-azure"],
       ["GUI Applications", "/docs/java/java-gui"],
