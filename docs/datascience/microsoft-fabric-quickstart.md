@@ -20,9 +20,9 @@ MetaSocialImage: images/datascience/fabric-social.png
 
 Before you get started with Microsoft Fabric extensions for VS Code, you need:
 
-* **Visual Studio Code**: Install [VS Code](https://code.visualstudio.com/) version 1.74.0 or later.
+* **Visual Studio Code**: Install latest [VS Code](https://code.visualstudio.com/) version.
 * **Microsoft Fabric account**: You need access to a Microsoft Fabric workspace. You can [sign up for a free trial](https://app.fabric.microsoft.com/?pbi_source=learn-vscodedocs-microsoft-fabric-quickstart) to get started.
-* **Python**: For data engineering and notebook development, install [Python 3.8 or later](https://python.org/downloads/).
+* **Python**: Install [Python 3.8 or later](https://python.org/downloads/) to work with [Notebooks](https://learn.microsoft.com/fabric/data-engineering/author-notebook-with-vs-code), [User data functions](https://learn.microsoft.com/fabric/data-engineering/user-data-functions/create-user-data-functions-vs-code) in VS Code.
 
 ## Installation and setup
 
@@ -33,8 +33,8 @@ You can find and install the extensions in VS Code. Select the **Extensions** an
 | Extension                  | Best For | Key Features | Recommended for you if… |Documentation|
 |-----------------------------|-----------------------------|-----------------------------|--------------------------| --------------------------|
 | **Microsoft Fabric extension**   | General workspace management, item management and working with item definitions | - Manage Fabric items (Lakehouses, Notebooks, Pipelines)<br>- Microsoft account sign-in & tenant switching<br>- Unified or grouped item views<br>- Edit Fabric notebooks with IntelliSense<br>- Command Palette integration (`Fabric:` commands) | You want a single extension to manage workspaces, notebooks, and items in Fabric directly from VS Code. | [What is Fabric VS code extension](https://learn.microsoft.com/fabric/data-engineering/set-up-fabric-vs-code-extension)|
-| **Fabric User data functions** | Developers building custom transformations & workflows | - Author serverless functions in Fabric<br>- Local debugging with breakpoints<br>- Manage data source connections<br>- Install/manage Python libraries<br>- Deploy functions directly to Fabric workspace | You build automation or data transformation logic and need debugging + deployment from VS Code. | [Developer User data function in VS code](https://learn.microsoft.com/fabric/data-engineering/user-data-functions/create-user-data-functions-vs-code)|
-| **Fabric Data Engineering** | Data engineers working with large-scale data & Spark | - Explore Lakehouses (tables, raw files)<br>- Develop/debug Spark notebooks<br>- Build/test Spark job definitions<br>- Sync notebooks between local VS Code & Fabric<br>- Preview schemas & sample data | You work with Spark, Lakehouses, or large-scale data pipelines and want to explore, develop, and debug locally. | [Develop notebooks in VS Code](https://learn.microsoft.com/fabric/data-engineering/setup-vs-code-extension)
+| **Fabric User data functions** | Developers building custom transformations & workflows | - Author serverless functions in Fabric<br>- Local debugging with breakpoints<br>- Manage data source connections<br>- Install/manage Python libraries<br>- Deploy functions directly to Fabric workspace | You build automation or data transformation logic and need debugging + deployment from VS Code. | [Develop User data function in VS code](https://learn.microsoft.com/fabric/data-engineering/user-data-functions/create-user-data-functions-vs-code)|
+| **Fabric Data Engineering** | Data engineers working with large-scale data & Spark | - Explore Lakehouses (tables, raw files)<br>- Develop/debug Spark notebooks<br>- Build/test Spark job definitions<br>- Sync notebooks between local VS Code & Fabric<br>- Preview schemas & sample data | You work with Spark, Lakehouses, or large-scale data pipelines and want to explore, develop, and debug locally. | [Develop Fabric notebooks in VS Code](https://learn.microsoft.com/fabric/data-engineering/setup-vs-code-extension)
 |
 
 ## Getting started
@@ -47,150 +47,170 @@ The Fabric extensions provide a seamless way to work with both remote and local 
 - In the Fabric extension, you'll see a **Fabric Workspaces** section that displays all items from your remote workspace, organized by type (Lakehouses, Notebooks, Pipelines, etc.).
 - In the Fabric extension, you'll see a **Local folder** section that displays a Fbric item(s) folder opened in VS Code. It reflects the structure of your fabric item definition for each type that is opened in VS Code. This allows you develop locally and publish your changes to current or new workspace.
 
- [Add image remote and local view]
+![View your workspaces and items?](images/microsoft-fabric/view-workspaces-and-items.png)
 
 ## Use user data functions for data science
 
 1. In the Command Palette `(Ctrl+Shift+P)`, type **Fabric: Create Item**.
 2. Select your workspace and select **User data function**. Provide a name and select **Python** language.
 3. You will be notificed to setup the Python virtual environment and continue to set this up locally.
+4. Install the libraries using `pip install` or select the user data function item in Fabric extension to add libraries. Update the `requirements.txt` file to specify the dependencies:
+
+    ```txt
+    fabric-user-data-functions ~= 1.0
+    pandas == 2.3.1
+    numpy == 2.3.2
+    requests == 2.32.5
+    scikit-learn=1.2.0
+    joblib=1.2.0
+    ```
+
 4. Open `functions_app.py` and
 Here's an example of developing a User Data Function for data science using scikit-learn:
 
 ```python
-import pandas as pd
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.preprocessing import StandardScaler
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score, classification_report
-import joblib
-import numpy as np
 import datetime
 import fabric.functions as fn
 import logging
 
-udf = fn.UserDataFunctions()
+# Import additional libraries
+import pandas as pd
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+import joblib
 
+udf = fn.UserDataFunctions()
 @udf.function()
-def train_customer_churn_model(datapath: str, targetcolumn: str):
-    """
-    Train a Random Forest model to predict customer churn.
+def train_churn_model(data: list, targetColumn: str) -> dict:
+    '''
+    Description: Train a Random Forest model to predict customer churn using pandas and scikit-learn.
 
     Args:
-        data_path (str): Path to the training dataset
-        target_column (str): Name of the target column
+    - data (list): List of dictionaries containing customer features and churn target
+      Example: [{"Age": 25, "Income": 50000, "Churn": 0}, {"Age": 45, "Income": 75000, "Churn": 1}]
+    - targetColumn (str): Name of the target column for churn prediction
+      Example: "Churn"
 
-    Returns:
-        dict: Model performance metrics and model path
-    """
-    # Load and prepare data
-    df = pd.read_csv(data_path)
+    Returns: dict: Model training results including accuracy and feature information
+    '''
+    # Convert data to DataFrame
+    df = pd.DataFrame(data)
 
-    # Feature engineering
-    numeric_features = df.select_dtypes(include=[np.number]).columns.tolist()
-    numeric_features.remove(target_column)
+    # Prepare features and target
+    numeric_features = df.select_dtypes(include=['number']).columns.tolist()
+    numeric_features.remove(targetColumn)
 
     X = df[numeric_features]
-    y = df[target_column]
+    y = df[targetColumn]
 
-    # Split the data
-    X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=0.2, random_state=42, stratify=y
-    )
-
-    # Scale features
+    # Split and scale data
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
     scaler = StandardScaler()
     X_train_scaled = scaler.fit_transform(X_train)
     X_test_scaled = scaler.transform(X_test)
 
-    # Train Random Forest model
-    rf_model = RandomForestClassifier(
-        n_estimators=100,
-        max_depth=10,
-        random_state=42,
-        class_weight='balanced'
-    )
+    # Train model
+    model = RandomForestClassifier(n_estimators=100, random_state=42)
+    model.fit(X_train_scaled, y_train)
 
-    rf_model.fit(X_train_scaled, y_train)
-
-    # Make predictions and evaluate
-    y_pred = rf_model.predict(X_test_scaled)
-    accuracy = accuracy_score(y_test, y_pred)
-
-    # Save model and scaler
-    joblib.dump(rf_model, 'churn_model.pkl')
-    joblib.dump(scaler, 'feature_scaler.pkl')
+    # Evaluate and save
+    accuracy = accuracy_score(y_test, model.predict(X_test_scaled))
+    joblib.dump(model, 'churn_model.pkl')
+    joblib.dump(scaler, 'scaler.pkl')
 
     return {
-        'accuracy': accuracy,
-        'classification_report': classification_report(y_test, y_pred),
-        'feature_importance': dict(zip(numeric_features, rf_model.feature_importances_)),
-        'model_path': 'churn_model.pkl',
-        'scaler_path': 'feature_scaler.pkl'
+        'accuracy': float(accuracy),
+        'features': numeric_features,
+        'message': f'Model trained with {len(X_train)} samples and {accuracy:.2%} accuracy'
     }
 
 @udf.function()
-def predict_churn(customerdata: pd.DataFrame) -> pd.DataFrame:
-    """
-    Predict customer churn using the trained model.
+def predict_churn(customer_data: list) -> list:
+    '''
+    Description: Predict customer churn using trained Random Forest model.
 
     Args:
-        customer_data (pd.DataFrame): Customer features for prediction
+    - customer_data (list): List of dictionaries containing customer features for prediction
+      Example: [{"Age": 30, "Income": 60000}, {"Age": 55, "Income": 80000}]
 
-    Returns:
-        pd.DataFrame: Predictions with probability scores
-    """
+    Returns: list: Customer data with churn predictions and probability scores
+    '''
     # Load saved model and scaler
     model = joblib.load('churn_model.pkl')
-    scaler = joblib.load('feature_scaler.pkl')
+    scaler = joblib.load('scaler.pkl')
 
-    # Scale features
-    features_scaled = scaler.transform(customer_data)
+    # Convert to DataFrame and scale features
+    df = pd.DataFrame(customer_data)
+    X_scaled = scaler.transform(df)
 
     # Make predictions
-    predictions = model.predict(features_scaled)
-    probabilities = model.predict_proba(features_scaled)
+    predictions = model.predict(X_scaled)
+    probabilities = model.predict_proba(X_scaled)[:, 1]
 
-    # Return results
+    # Add predictions to original data
     results = customer_data.copy()
-    results['churn_prediction'] = predictions
-    results['churn_probability'] = probabilities[:, 1]  # Probability of churn
+    for i, (pred, prob) in enumerate(zip(predictions, probabilities)):
+        results[i]['churn_prediction'] = int(pred)
+        results[i]['churn_probability'] = float(prob)
 
     return results
 ```
 
-5. Update the `requirements.txt` file to specify the dependencies:
-
-    ```txt
-    scikit-learn=1.2.0
-    joblib=1.2.0
-    fabric-user-data-functions == 1.0.0
-    pandas == 2.3.1
-    numpy == 2.3.2
-    requests == 2.32.5
-    ```
-
 6. Test your functions locally, by pressing `F5`.
 7. In Fabric extension,in **Local folder** , select the function and publish to your the workspace.
-   [ADD image]
 
+Learn more about invoking the function from:
+1. [Fabric Data pipelines](https://learn.microsoft.com/fabric/data-engineering/user-data-functions/create-functions-activity-data-pipelines)
+2. [Fabric Notebooks](https://learn.microsoft.com/fabric/data-engineering/notebook-utilities#user-data-function-udf-utilities)
+3. [An external application](https://learn.microsoft.com/fabric/data-engineering/user-data-functions/tutorial-invoke-from-python-app)
+
+## Use Fabric notebooks for data science
+A Fabric notebook is an interactive workbook in Microsoft Fabric for writing and running code, visualizations, and markdown side-by-side. Notebooks support multiple languages (Python, Spark, SQL, Scala and more) and are ideal for data exploration, transformation, and model development in Fabric working with your existing data in OneLake.
+
+### Example
+
+The cell below reads a CSV with Spark, converts it to pandas, and trains a logistic regression model with scikit-learn. Replace column names and path with your dataset values.
+
+```python
+def train_logistic_from_spark(spark, csv_path):
+    # Read CSV with Spark, convert to pandas
+    sdf = spark.read.option("header", "true").option("inferSchema", "true").csv(csv_path)
+    df = sdf.toPandas().dropna()
+
+    # Adjust these to match your dataset
+    X = df[['feature1', 'feature2']]
+    y = df['label']
+
+    from sklearn.model_selection import train_test_split
+    from sklearn.linear_model import LogisticRegression
+    from sklearn.metrics import accuracy_score
+
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    model = LogisticRegression(max_iter=200)
+    model.fit(X_train, y_train)
+
+    preds = model.predict(X_test)
+    return {'accuracy': float(accuracy_score(y_test, preds))}
+
+# Example usage in a Fabric notebook cell
+# train_logistic_from_spark(spark, '/path/to/data.csv')
+```
+
+Refer to [Microsoft Fabric Notebooks](https://learn.microsoft.com/fabric/data-engineering/how-to-use-notebook) documentation to learn more.
 
 ## Git integration
 Microsoft Fabric supports Git integration that enables seamless version control and collaboration across data and analytics projects. You can connect a Fabric workspace to Git repositories—primarily Azure DevOps or GitHub and only supported items are synced. The integration supports CI/CD workflows, allowing teams to manage releases efficiently and maintain high-quality analytics environments.
 
- [Add image for GIT with source control]
-
-## Fabric MCP server
-The Fabric local MCP that packages the full OpenAPI specifications for Fabric’s public APIs, JSON schemas for every item type (Lakehouses, pipelines, semantic models, notebooks, Real‑Time analytics workloads and more) and built‑in guidance on pagination, error handling and other best practices.
-
-[Add getting started content]
+![Git integration demo for User data functions](./images/microsoft-fabric/fabric-git-integration.gif)
 
 ## Next steps
 
 Now that you have Microsoft Fabric extensions set up in VS Code, explore these resources to deepen your knowledge:
 
 ### Learn more about Microsoft Fabric
-
+* [Learn about Microsoft Fabric for Data Science](https://learn.microsoft.com/en-us/fabric/data-science/tutorial-data-science-introduction).
 * [Set up your Fabric trial capacity](https://learn.microsoft.com/fabric/fundamentals/fabric-trial)
 * [Microsoft Fabric fundamentals](https://learn.microsoft.com/fabric/fundamentals/fabric-overview)
 
