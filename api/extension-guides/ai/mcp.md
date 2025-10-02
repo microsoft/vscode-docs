@@ -166,6 +166,14 @@ Users can view the sampling requests made by an MCP server with the **MCP: List 
 
 VS Code provides the MCP server with the user's workspace root folder information.
 
+### Icons
+
+VS Code supports `icons` provided on MCP servers, resources, and tools. MCP Icons have a `src` property which is a URI to the image:
+
+- MCP servers using the HTTP or SSE transports may serve images from the same authority the MCP server is hosted on. For example, a server configured at `https://example.com/mcp` can serve images from `example.com`.
+- MCP servers using the stdio transport may serve images from the file system using `file:///` URIs.
+- Any MCP server can embed images as data URIs beginning with `data:`.
+
 ## Add MCP servers to VS Code
 
 Users can add MCP servers within VS Code in several ways:
