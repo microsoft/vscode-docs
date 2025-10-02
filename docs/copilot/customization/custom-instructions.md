@@ -201,20 +201,22 @@ To create an instructions file:
 
 To modify an existing instructions file, in the Chat view, select **Configure Chat** > **Instructions**, and then select an instructions file from the list. Alternatively, use the **Chat: Configure Instructions** command from the Command Palette (`kb(workbench.action.showCommands)`) and select the instructions file from the Quick Pick.
 
-## Use an `AGENTS.md` file (Experimental)
+## Use an `AGENTS.md` file
 
-If you work with multiple AI agents in your workspace, you can define custom instructions for all agents in a single `AGENTS.md` Markdown file at the root(s) of workspace. VS Code applies the instructions in this file automatically to all chat requests within this workspace.
+If you work with multiple AI agents in your workspace, you can define custom instructions for all agents in an `AGENTS.md` Markdown file at the root(s) of the workspace. VS Code applies the instructions in this file automatically to all chat requests within this workspace.
 
-To use an `AGENTS.md` file:
+To enable or disable support for `AGENTS.md` files, configure the `setting(chat.useAgentsMdFile)` setting.
 
-1. Enable the `setting(chat.useAgentsMdFile)` setting.
+### Use multiple `AGENTS.md` files (experimental)
 
-1. Create an `AGENTS.md` file at the root of your workspace.
+Using multiple `AGENTS.md` files in subfolders is useful if you want to apply different instructions to different parts of your project. For example, you can have one `AGENTS.md` file for the frontend code and another for the backend code.
 
-1. Describe your instructions by using natural language and in Markdown format.
+Use the experimental `setting(chat.useNestedAgentsMdFiles)` setting to enable or disable support for nested `AGENTS.md` files in your workspace.
 
-> [!NOTE]
-> VS Code currently only supports `AGENTS.md` files at the root(s) of your workspace and not nested in subfolders. For folder-specific instructions, you can use multiple [`.instructions.md`](#use-instructionsmd-files) files with different `applyTo` patterns.
+When enabled, VS Code searches recursively in all subfolders of your workspace for `AGENTS.md` files and adds their relative path to the chat context. The agent can then decide which instructions to use based on the files being edited.
+
+> [!TIP]
+> For folder-specific instructions, you can also use multiple [`.instructions.md`](#use-instructionsmd-files) files with different `applyTo` patterns that match the folder structure.
 
 ## Specify custom instructions in settings
 
