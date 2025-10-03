@@ -27,7 +27,7 @@ To test a model in the playground, follow these steps:
 
 AI Toolkit supports running local models in the playground. You can select a local model from the model dropdown list in the **Model Preferences** panel.
 
-    ![Screenshot of local model support](./images/playground/local-model-support.png)
+![Screenshot of local model support](./images/playground/local-model-support.png)
 
 ## GitHub Pay-as-you-go Model Support
 

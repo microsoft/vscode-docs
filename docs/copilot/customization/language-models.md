@@ -1,6 +1,6 @@
 ---
 ContentId: 33e63aa1-1d8f-4d23-9733-1475f8c9f502
-DateApproved: 09/11/2025
+DateApproved: 10/03/2025
 MetaDescription: Learn how to choose between different AI language models and how to use your own language model API key in Visual Studio Code.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -34,7 +34,7 @@ Use the language model picker in the chat input field to change the model that i
 >
 > ![Screenshot that shows the model picker with a selected model via AI Toolkit.](../images/language-models/model-picker-aitk.png)
 >
-> For more information, see [AI Toolkit models in GitHub Copilot](https://docs.github.com/en/copilot/using-github-copilot/ai-models/ai-toolkit-models-in-github-copilot).
+> For more information, see [Change the chat model](https://docs.github.com/en/copilot/how-tos/use-ai-models/change-the-chat-model#adding-more-models).
 
 You can further extend the list of available models by [using your own language model API key](#bring-your-own-language-model-key).
 
