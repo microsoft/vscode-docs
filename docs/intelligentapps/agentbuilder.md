@@ -34,7 +34,7 @@ To test a prompt in Agent Builder, follow these steps:
 
    ![Screenshot showing the model selection dropdown in Agent Builder.](./images/promptbuilder/select-models.png)
 
-1. Enter the agent **Instructions**.
+1. Enter the agent instructions.
 
    Use the **Instructions** field to tell your agent exactly what to do and how to do it. List the specific tasks, put them in order, and add any special instructions like tone or how to engage.
 
@@ -46,7 +46,7 @@ To test a prompt in Agent Builder, follow these steps:
 
 ## Use MCP servers
 
-MCP server is a tool that allows you to connect to external APIs and services, enabling your agent to perform actions beyond just generating text. For example, you can use an MCP server to access databases, call web services, or interact with other applications.
+An MCP server is a tool that allows you to connect to external APIs and services, enabling your agent to perform actions beyond just generating text. For example, you can use an MCP server to access databases, call web services, or interact with other applications.
 
 Use the agent builder to discover and configure featured MCP servers, connect to existing MCP servers, or build a new MCP server from scaffold.
 
