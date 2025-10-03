@@ -12,9 +12,6 @@ This is different from [agent mode](/docs/copilot/chat/chat-agent-mode.md) in VS
 
 ![GIF showing how to assign an issue to Copilot coding agent from within VS Code.](images/copilot-coding-agent/assign-to-copilot-gif.gif)
 
-> [!NOTE]
-> Copilot coding agent is in preview and subject to change. During the preview, use of the feature is subject to [GitHub Pre-release License Terms](https://docs.github.com/en/site-policy/github-terms/github-pre-release-license-terms).
-
 ## How it works
 
 The Copilot coding agent workflow:
