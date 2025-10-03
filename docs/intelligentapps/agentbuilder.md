@@ -85,7 +85,7 @@ To use an existing MCP server, follow these steps:
 1. In the **MCP Workflow** section, select **+ Add MCP Server**.
 
 1. Or in Agent Builder, in the **Tool** section, Select the `+` icon to add a tool for your agent., and then select **+ Add server** in the quick pick.
-1. Select **MCP server** in the quick pick.
+1. Select **MCP server** in the Quick Pick.
 1. Select **Connect to an Existing MCP Server**
 1. Scroll down to the bottom of the dropdown list for the options to connect to the MCP server:
    - **Command (stdio)**: Run a local command that implements the MCP protocol
