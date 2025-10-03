@@ -26,13 +26,7 @@ Use the language model picker in the chat input field to change the model that i
 ![Screenshot that shows the model picker in the Chat view.](../images/language-models/model-dropdown-change-model.png)
 
 > [!TIP]
-> AI Toolkit can expose language models to enhance GitHub Copilot capabilities. To select an AI Toolkit model for GitHub Copilot, open the model picker and select **Manage Models**. Choose a model from the list of models under one of the following categories:
->
-> - **Azure AI Foundry via AI Toolkit**
-> - **Foundry Local via AI Toolkit**
-> - **GitHub Models via AI Toolkit**
->
-> ![Screenshot that shows the model picker with a selected model via AI Toolkit.](../images/language-models/model-picker-aitk.png)
+> AI Toolkit can expose language models to enhance GitHub Copilot capabilities.
 >
 > For more information, see [Change the chat model](https://docs.github.com/en/copilot/how-tos/use-ai-models/change-the-chat-model#adding-more-models).
 
