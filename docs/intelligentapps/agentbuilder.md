@@ -38,7 +38,7 @@ To test a prompt in Agent Builder, follow these steps:
 
    Use the **Instructions** field to tell your agent exactly what to do and how to do it. List the specific tasks, put them in order, and add any special instructions like tone or how to engage.
 
-1. Iterate over your Instructions by observing the model response and making changes to the Instructions.
+1. Iterate over your instructions by observing the model response and making changes to the instructions.
 1. Use the `{{your_variable}}` syntax to add a dynamic value in instructions.  For example, add a variable called `user_name` and use it in your instructions like this: `Greet the user by their name: {{user_name}}`.
 1. Provide a value for the variable in the **Variables** section.
 1. Enter a prompt in the text box and select the send icon to test your agent.
