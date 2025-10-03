@@ -1,6 +1,6 @@
 ---
 ContentId: 52ad40fe-f352-4e16-a075-7a9606c5df3b
-DateApproved: 07/14/2025
+DateApproved: 10/03/2025
 MetaDescription: Find a popular generative AI model by publisher and source. Bring your own model that is hosted with a URL, or select an Ollama model.
 ---
 # Explore models in AI Toolkit
@@ -16,6 +16,9 @@ Within the model catalog, you can explore and utilize models from multiple hosti
 - Custom self-hosted or externally deployed models accessible via Bring-Your-Own-Model (BYOM) integration.
 
 Deploy models directly to Azure AI Foundry from within the model catalog, streamlining your workflow.
+
+> [!NOTE]
+> Use Azure AI Foundry, Foundry Local, and GitHub models added to AI Toolkit with GitHub Copilot. For more information, check out [Changing the model for chat conversations](/docs/copilot/customization/language-models#change-the-model-for-chat-conversations.md).
 
 ![AI Toolkit model catalog displaying various generative AI models](./images/models/models.png)
 

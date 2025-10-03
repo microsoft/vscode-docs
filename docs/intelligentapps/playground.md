@@ -1,6 +1,6 @@
 ---
 ContentId: e919aee8-fd2e-401b-9d83-0ff6f98b23ba
-DateApproved: 07/14/2025
+DateApproved: 10/03/2025
 MetaDescription: Chat with selected generative AI model in playground. Change system prompt and parameters. Add attachment for Multi-Modal models. Keep chat history.
 ---
 # Model playground in AI Toolkit
@@ -22,6 +22,12 @@ To test a model in the playground, follow these steps:
 2. Optionally, add a **System Prompt** to guide the model response.
 3. Optionally, configure the model parameters available for the selected model.
 4. Enter a chat prompt in the chat input box
+
+### Local model execution in the Playground
+
+AI Toolkit supports running local models in the playground. You can select a local model from the model dropdown list in the **Model Preferences** panel.
+
+![Screenshot of local model support](./images/playground/local-model-support.png)
 
 ## GitHub Pay-as-you-go Model Support
 
