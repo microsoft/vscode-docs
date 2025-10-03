@@ -22,7 +22,7 @@ AI Toolkit offers seamless integration with popular AI models from providers lik
 | [Model Conversion](/docs/intelligentapps/modelconversion) | Convert, quantize, and optimize machine learning models for local deployment. Transform models from Hugging Face and other sources to run efficiently on Windows with CPU, GPU, or NPU acceleration. | ![Screenshot showing the Model Conversion interface with tools for optimizing and transforming AI models](./images/overview/conversion.png) |
 | [Tracing](/docs/intelligentapps/tracing) | Monitor and analyze the performance of your AI applications. Collect and visualize trace data to gain insights into model behavior and performance. | ![Screenshot showing the Tracing interface with tools for monitoring AI applications](./images/overview/tracing.png) |
 
-## Who is the AI Toolkit for?
+## Who is AI Toolkit for?
 
 AI Toolkit is designed for anyone working with generative AI, from beginners to experts:
 
