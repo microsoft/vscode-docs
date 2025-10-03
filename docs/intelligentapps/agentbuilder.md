@@ -135,7 +135,7 @@ Follow these steps to test the MCP server:
 
 1. Open VS Code Debug panel. Select `Debug in Agent Builder` or press `F5` to start debugging the MCP server.
 1. The server is automatically connected to Agent Builder.
-1. Use AI Toolkit Agent Builder enable the agent with the following Instructions:
+1. Use AI Toolkit Agent Builder to enable the agent with the following instructions:
    - "You are a weather forecast professional that can tell weather information based on given location.".
 
 1. Enter the prompt "What is the weather in Seattle?" in the prompt box and select the send icon to test the server with the prompt.
