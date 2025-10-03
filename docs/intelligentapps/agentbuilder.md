@@ -102,7 +102,7 @@ Here's an example of configuring the [Filesystem](https://github.com/modelcontex
    > Some servers use the Python runtime and the `uvx` command. The process is the same as using the `npx` command.
 1. Navigate to the [Server instructions](https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem#npx) and locate the `npx` section.
 1. Copy the `command` and `args` into the input box in AI Toolkit. For the Filesystem server example, it's `npx -y @modelcontextprotocol/server-filesystem /Users/<username>/.aitk/examples`
-1. Input a ID for the server.
+1. Input an ID for the server.
 1. Optionally, enter extra environment variables.
    Some servers might require extra environment variables such as API keys. In this case, AI Toolkit fails at the stage of adding tools and a file `mcp.json` opens, where you can enter the required server details following the instructions provided by each server.
    ![Screenshot showing an example of a missing arg exception](./images/promptbuilder/modify-args.png)
