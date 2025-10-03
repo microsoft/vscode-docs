@@ -95,7 +95,7 @@ To use an existing MCP server, follow these steps:
 
 Here's an example of configuring the [Filesystem](https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem) server in AI Toolkit:
 
-1. In the **Tool** section, select **+ MCP Server** in the quick pick.
+1. In the **Tool** section, select **+ MCP Server** in the Quick Pick.
 1. Select **Could not find one? Browse more MCP servers** from the dropdown list.
 1. Scroll down to the bottom of the dropdown list and select **Command (stdio)**
    > [!NOTE]
