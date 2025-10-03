@@ -34,7 +34,7 @@ To test a prompt in Agent Builder, follow these steps:
 
    ![Screenshot showing the model selection dropdown in Agent Builder.](./images/promptbuilder/select-models.png)
 
-1. Enter the agent **Instructions**.
+1. Enter the agent instructions.
 
    Use the **Instructions** field to tell your agent exactly what to do and how to do it. List the specific tasks, put them in order, and add any special instructions like tone or how to engage.
 
