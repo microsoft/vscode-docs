@@ -99,7 +99,6 @@ The following table lists the VS Code built-in tools:
 | `#extensions` | Search for and ask about VS Code extensions. For example, "how to get started with Python #extensions?" |
 | `#fetch` | Fetch the content from a given web page. For example, "Summarize #fetch code.visualstudio.com/updates." |
 | `#fileSearch` | Search for files in the workspace by using glob patterns and returns their path. |
-| `#findTestFiles` | Locates test files in the workspace. |
 | `#getNotebookSummary` | Get the list of notebook cells and their details. |
 | `#getProjectSetupInfo` | Provide instructions and configuration for scaffolding different types of projects. |
 | `#getTaskOutput` | Get the output from running a [task](/docs/debugtest/tasks.md) in the workspace. |
