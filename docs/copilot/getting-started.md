@@ -184,7 +184,7 @@ Custom chat modes create specialized AI personas for specific tasks. Let's creat
     ```markdown
     ---
     description: 'Review code for quality and adherence to best practices.'
-    tools: ['codebase', 'usages', 'vscodeAPI', 'problems', 'fetch', 'githubRepo', 'search']
+    tools: ['usages', 'vscodeAPI', 'problems', 'fetch', 'githubRepo', 'search']
     ---
     # Code Reviewer Mode
 

@@ -29,7 +29,7 @@ The following examples demonstrate how to use prompt files. For more community-c
 ---
 mode: 'agent'
 model: GPT-4o
-tools: ['githubRepo', 'codebase']
+tools: ['githubRepo', 'search/codebase']
 description: 'Generate a new React form component'
 ---
 Your goal is to generate a new React form component based on the templates in #githubRepo contoso/react-templates.

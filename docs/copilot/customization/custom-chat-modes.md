@@ -60,7 +60,7 @@ The following code snippet shows an example of a "Plan" chat mode file that gene
 ```markdown
 ---
 description: Generate an implementation plan for new features or refactoring existing code.
-tools: ['codebase', 'fetch', 'findTestFiles', 'githubRepo', 'search', 'usages']
+tools: ['fetch', 'githubRepo', 'search', 'usages']
 model: Claude Sonnet 4
 ---
 # Planning mode instructions

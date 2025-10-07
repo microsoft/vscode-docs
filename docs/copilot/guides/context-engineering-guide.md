@@ -133,7 +133,7 @@ With a [custom chat mode](/docs/copilot/customization/custom-chat-modes.md) for 
     ```markdown
     ---
     description: 'Architect and planner to create detailed implementation plans.'
-    tools: ['fetch', 'githubRepo', 'problems', 'usages', 'search', 'todos', 'get_issue', 'get_issue_comments', 'list_issues']
+    tools: ['fetch', 'githubRepo', 'problems', 'usages', 'search', 'todos', 'github/github-mcp-server/get_issue', 'github/github-mcp-server/get_issue_comments', 'github/github-mcp-server/list_issues']
     ---
     # Planning Mode
 
