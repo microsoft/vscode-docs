@@ -278,6 +278,14 @@ If you open a folder that is a Git repository and begin making changes, VS Code 
 
 Merge conflicts are recognized by VS Code. Differences are highlighted and there are inline actions to accept either one or both changes. Once the conflicts are resolved, stage the conflicting file so you can commit those changes.
 
+## Resolve merge conflicts with AI (Experimental)
+
+If you have [AI features enabled in VS Code](/docs/copilot/setup.md), you can use AI to help you resolve Git merge conflicts. Select the **Resolve Merge Conflict with AI** button in the editor to open the Chat view and start an agentic flow to help you resolve the merge conflict. The merge base and changes from each branch are provided as context for the AI.
+
+![Screenshot of the proposed merge conflict resolution in the editor.](images/overview/ai-merge-conflict-resolution.png)
+
+You can review the proposed merge conflict resolution in the editor and follow up with additional context if needed. You can customize the merge conflict resolution by using an `AGENTS.md` file.
+
 ## 3-way merge editor
 
 To help you resolve merge conflicts, VS Code provides a 3-way merge editor where you can interactively accept incoming and current changes and view and edit the resulting merged file. The 3-way merge editor is opened by selecting the **Resolve in Merge Editor** button in the bottom right corner of a file with Git merge conflicts.

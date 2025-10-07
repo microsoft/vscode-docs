@@ -224,6 +224,7 @@ Use AI to analyze the changes in your commits and pull requests and provide sugg
 | `#changes` | Add the current source control changes as context in your chat prompt. |
 | Commit as context | Add a commit from the source control history as context in your chat prompt. |
 | Commit message | Generate a commit message for the current changes in a source control commit. |
+| Merge conflicts (Experimental) | Get help [resolving Git merge conflicts with AI](/docs/sourcecontrol/overview#resolve-merge-conflicts-with-ai-experimental). |
 | Pull request description | Generate a pull request title and description that correspond with the changes in your pull request. |
 | `@github` | Use the `@github` participant in chat to ask about issues, pull requests, and more across your repositories. Get more information about the [available GitHub skills](https://docs.github.com/en/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide#currently-available-skills).<br/>Example: `@github What are all of the open PRs assigned to me?`, `@github Show me the recent merged pr's from @dancing-mona`  |
 

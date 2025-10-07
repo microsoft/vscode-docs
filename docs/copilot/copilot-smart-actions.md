@@ -14,6 +14,12 @@ Get help generating commit messages and pull request (PR) titles and description
 
 ![Hover over Source Control input box sparkle buttons shows Generate Commit Message](images/copilot-smart-actions/generate-commit-message.png)
 
+## Resolve merge conflicts with AI (Experimental)
+
+Use AI to help you resolve Git merge conflicts. Select the **Resolve Merge Conflict with AI** button in the editor to open the Chat view and start an agentic flow to help you resolve the merge conflict. The merge base and changes from each branch are provided as context for the AI.
+
+![Screenshot of the proposed merge conflict resolution in the editor.](images/copilot-smart-actions/ai-merge-conflict-resolution.png)
+
 ## Implement todo comments
 
 If you have the [GitHub Pull Requests](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension installed, you can use AI to implement `TODO` comments in your code with [Copilot coding agent](/docs/copilot/copilot-coding-agent.md).
