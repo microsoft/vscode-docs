@@ -59,6 +59,7 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 | `setting(chat.fontFamily)`<br/>Font family for Markdown content in chat. | `"default"` |
 | `setting(chat.fontSize)`<br/>Font size in pixels for Markdown content in chat. | `13` |
 | `setting(chat.notifyWindowOnConfirmation)`<br/>Enable or disable showing a OS notification window when user input is needed. | `true` |
+| `setting(chat.tools.terminal.terminalProfile.<platform>)`<br/>Configure which terminal profile to use for agent mode terminal commands on each platform. | `""` |
 | `setting(chat.useAgentsMdFile)` <br/>Enable or disable using `AGENTS.md` files as context for chat requests. | `true` |
 | `setting(chat.math.enabled)` _(Preview)_<br/>Enable or disable math rendering with [KaTeX](https://katex.org) in chat. | `false` |
 | `setting(github.copilot.chat.codesearch.enabled)` _(Preview)_<br/>When using `#codebase` in the prompt, Copilot automatically discovers relevant files to be edited. | `false` |
@@ -78,6 +79,7 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 | `setting(chat.mcp.discovery.enabled)`<br/>Configure automatic discovery of MCP server configuration from other applications. | `false` |
 | `setting(chat.tools.terminal.autoApprove)` <br/>Control which terminal commands are [auto-approved in agent mode](/docs/copilot/chat/chat-agent-mode.md#auto-approve-terminal-commands). Commands can be set to `true` (auto-approve) or `false` (require approval). Regular expressions can be used by wrapping patterns in `/` characters. | `{ "rm": false, "rmdir": false, "del": false, "kill": false, "curl": false, "wget": false, "eval": false, "chmod": false, "chown": false, "/^Remove-Item\\b/i": false }` |
 | `setting(chat.tools.global.autoApprove)`<br/>Automatically approve all tools - this setting [disables critical security protections](/docs/copilot/security.md). | `false` |
+| `setting(chat.agent.thinkingStyle)` _(Experimental)_<br/>Configure how thinking tokens are presented in chat. | `fixedScrolling` |
 | `setting(chat.mcp.autoStart)` _(Experimental)_<br/>Automatically start MCP servers when MCP configuration changes are detected. | `newAndOutdated` |
 | `setting(chat.todoListWidget.position)` _(Experimental)_<br/>Configure the visibility and position of the todo list control in chat. | `false` |
 | `setting(github.copilot.chat.newWorkspaceCreation.enabled)` _(Experimental)_<br/>Enable the agent mode tool for scaffolding a new workspace in chat. | `true` |
