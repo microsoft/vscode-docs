@@ -36,7 +36,7 @@
         <priority>0.70</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/supporting/FAQ</loc>
+        <loc>https://code.visualstudio.com/docs/supporting/faq</loc>
         <changefreq>weekly</changefreq>
         <priority>0.70</priority>
     </url>
@@ -147,6 +147,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/getstarted/getting-started</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/getstarted/extensions</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -306,6 +311,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/terminal/getting-started</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/terminal/profiles</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -332,6 +342,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/copilot/setup</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/copilot-coding-agent</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -496,22 +511,27 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/languages/cpp</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/languages/emmet</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/workspaces</loc>
+        <loc>https://code.visualstudio.com/docs/editing/workspaces/workspaces</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/workspace-trust</loc>
+        <loc>https://code.visualstudio.com/docs/editing/workspaces/workspace-trust</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/multi-root-workspaces</loc>
+        <loc>https://code.visualstudio.com/docs/editing/workspaces/multi-root-workspaces</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -522,6 +542,16 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/azure/overview</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/azure/vscodeforweb</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/azure/resourcesextension</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -881,6 +911,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/java/java-app-mod</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/java/java-tutorial</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -962,6 +997,16 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/cpp/introvideos-cpp</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/cpp/cpp-refactoring</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/cpp/customize-cpp-settings</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -1465,6 +1510,11 @@
         <priority>0.9</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/api/extension-guides/custom-data-extension</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/api/extension-guides/command</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -1476,6 +1526,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/api/extension-guides/file-icon-theme</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/api/extension-guides/product-icon-theme</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -1710,6 +1765,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/api/advanced-topics/tslint-eslint-migration</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/api/advanced-topics/extension-host</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -1810,7 +1870,12 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/intelligentapps/promptbuilder</loc>
+        <loc>https://code.visualstudio.com/docs/intelligentapps/modelconversion</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/intelligentapps/agentbuilder</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -1831,6 +1896,36 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/intelligentapps/faq</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/intelligentapps/tracing</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/intelligentapps/reference/FileStructure</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/intelligentapps/reference/ManualConversionOnGPU</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/intelligentapps/reference/ManualModelConversion</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/intelligentapps/reference/SetupWithoutAITK</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/intelligentapps/reference/TemplateProject</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
