@@ -92,6 +92,16 @@ Prompt files are Markdown files and use the `.prompt.md` extension and have this
     * File context variables - `${file}`, `${fileBasename}`, `${fileDirname}`, `${fileBasenameNoExtension}`
     * Input variables - `${input:variableName}`, `${input:variableName:placeholder}` (pass values to the prompt from the chat input field)
 
+### Tool list priority
+
+You can specify the list of available tools for both a chat mode and prompt file by using the `tools` metadata field. Prompt files can also reference a chat mode by using the `mode` metadata field.
+
+The list available tools in chat is determined by the following priority order:
+
+1. Tools specified in the prompt file (if any)
+2. Tools from the referenced chat mode in the prompt file (if any)
+3. Default tools for the selected chat mode
+
 ## Create a prompt file
 
 When you create a prompt file, choose whether to store it in your workspace or user profile. Workspace prompt files apply only to that workspace, while user prompt files are available across multiple workspaces.

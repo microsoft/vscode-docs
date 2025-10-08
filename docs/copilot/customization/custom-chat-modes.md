@@ -53,6 +53,16 @@ Chat mode files are Markdown files and use the `.chatmode.md` extension and have
 
     Reference instructions files by using Markdown links. The chat mode instructions will complement whatever is specified in the chat prompt.
 
+#### Tool list priority
+
+You can specify the list of available tools for both a chat mode and prompt file by using the `tools` metadata field. Prompt files can also reference a chat mode by using the `mode` metadata field.
+
+The list available tools in chat is determined by the following priority order:
+
+1. Tools specified in the prompt file (if any)
+2. Tools from the referenced chat mode in the prompt file (if any)
+3. Default tools for the selected chat mode
+
 ### Chat mode file example
 
 The following code snippet shows an example of a "Plan" chat mode file that generates an implementation plan and doesn't make any code edits. For more community-contributed examples, see the [Awesome Copilot repository](https://github.com/github/awesome-copilot/tree/main).
