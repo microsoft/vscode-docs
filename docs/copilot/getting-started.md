@@ -1,6 +1,6 @@
 ---
 ContentId: 37fd3bd2-4209-49f6-bec5-c544d6b1b289
-DateApproved: 09/11/2025
+DateApproved: 10/09/2025
 MetaDescription: Build your first web application with GitHub Copilot in VS Code. Learn code completions, agent mode, inline chat, smart actions, and how to personalize your AI coding experience.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---

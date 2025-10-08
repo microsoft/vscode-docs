@@ -1,6 +1,6 @@
 ---
 ContentId: e02ded07-6e5a-4f94-b618-434a2c3e8f09
-DateApproved: 09/11/2025
+DateApproved: 10/09/2025
 MetaDescription: Frequently asked questions for using GitHub Copilot in Visual Studio Code.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---

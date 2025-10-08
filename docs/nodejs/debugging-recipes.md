@@ -1,6 +1,6 @@
 ---
 ContentId: 215832f9-d5bd-4cea-8cea-bfc4dc7ff7d1
-DateApproved: 09/11/2025
+DateApproved: 10/09/2025
 MetaDescription:  Learn more about how to setup debugging in Visual Studio Code with debugging recipes
 MetaSocialImage: ../editor/images/debugging/debugging-social.png
 ---

@@ -1,6 +1,6 @@
 ---
 ContentId: c77dcce9-4ba9-40ac-8ae5-2df855088090
-DateApproved: 09/11/2025
+DateApproved: 10/09/2025
 MetaDescription: Learn how workspace context gives chat a deep understanding of your entire codebase to provide accurate, contextual answers.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---

@@ -1,6 +1,6 @@
 ---
 ContentId: f8820661-7772-47e6-b63e-ac59f6752d9c
-DateApproved: 09/11/2025
+DateApproved: 10/09/2025
 MetaDescription: Learn how to implement context engineering using VS Code's built-in AI features.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---

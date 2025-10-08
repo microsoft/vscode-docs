@@ -1,6 +1,6 @@
 ---
 ContentId: 7E22CCC0-2AB8-4729-A4C9-BE2B16853820
-DateApproved: 09/11/2025
+DateApproved: 10/09/2025
 MetaDescription: Visual Studio Code source control management with integrated Git support.
 ---
 # Using Git source control in VS Code
