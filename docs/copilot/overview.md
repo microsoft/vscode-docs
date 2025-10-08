@@ -216,11 +216,17 @@ Learn more about [using MCP servers and tools](/docs/copilot/customization/mcp-s
 
 Get more [tips and tricks for using AI in VS Code](/docs/copilot/copilot-tips-and-tricks.md).
 
+## Support
+
+Support for GitHub Copilot Chat is provided by GitHub and can be reached at <https://support.github.com>.
+
+To learn more about Copilot's security, privacy, compliance, and transparency, see the [GitHub Copilot Trust Center FAQ](https://copilot.github.trust.page/faq).
+
 ## Pricing
 
 You can start using GitHub Copilot for free with monthly limits on completions and chat interactions. For more extensive usage, you can choose from various paid plans.
 
-[View detailed pricing →](https://docs.github.com/en/copilot/about-github-copilot/plans-for-github-copilot)
+[View detailed GitHub Copilot pricing](https://docs.github.com/en/copilot/get-started/plans)
 
 ## Next steps
 
