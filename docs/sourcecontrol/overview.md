@@ -280,7 +280,7 @@ Merge conflicts are recognized by VS Code. Differences are highlighted and there
 
 ## Resolve merge conflicts with AI (Experimental)
 
-If you have [AI features enabled in VS Code](/docs/copilot/setup.md), you can use AI to help you resolve Git merge conflicts. Select the **Resolve Merge Conflict with AI** button in the editor to open the Chat view and start an agentic flow to help you resolve the merge conflict. The merge base and changes from each branch are provided as context for the AI.
+If you have [AI features enabled in VS Code](/docs/copilot/setup.md), you can use AI to help you resolve Git merge conflicts. Select the **Resolve Conflicts with AI** button in the editor to open the Chat view and start an agentic flow to help you resolve the merge conflict. The merge base and changes from each branch are provided as context for the AI.
 
 ![Screenshot of the proposed merge conflict resolution in the editor.](images/overview/ai-merge-conflict-resolution.png)
 
