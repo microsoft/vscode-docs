@@ -157,7 +157,7 @@ def predict_churn(customer_data: list) -> list:
 ```
 
 6. Test your functions locally, by pressing `F5`.
-7. In Fabric extension,in **Local folder** , select the function and publish to your the workspace.
+7. In the Fabric extension, in **Local folder** , select the function and publish to your workspace.
 ![Screenshot that shows how to publish your user data funtions item](./images/microsoft-fabric/publish-user-data-function.png)
 
 Learn more about invoking the function from:
