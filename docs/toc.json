@@ -357,7 +357,8 @@
       ["PyTorch Support", "/docs/datascience/pytorch-support"],
       ["Azure Machine Learning", "/docs/datascience/azure-machine-learning"],
       ["Manage Jupyter Kernels", "/docs/datascience/jupyter-kernel-management"],
-      ["Jupyter Notebooks on the Web", "/docs/datascience/notebooks-web"]
+      ["Jupyter Notebooks on the Web", "/docs/datascience/notebooks-web"],
+      ["Data science in Microsoft Fabric", "/docs/datascience/microsoft-fabric-quickstart"]     
     ]
   },
   {
