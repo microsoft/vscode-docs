@@ -200,7 +200,7 @@ def train_logistic_from_spark(spark, csv_path):
 Refer to [Microsoft Fabric Notebooks](https://learn.microsoft.com/fabric/data-engineering/how-to-use-notebook) documentation to learn more.
 
 ## Git integration
-Microsoft Fabric supports Git integration that enables seamless version control and collaboration across data and analytics projects. You can connect a Fabric workspace to Git repositories—primarily Azure DevOps or GitHub and only supported items are synced. The integration supports CI/CD workflows, allowing teams to manage releases efficiently and maintain high-quality analytics environments.
+Microsoft Fabric supports Git integration that enables version control and collaboration across data and analytics projects. You can connect a Fabric workspace to Git repositories, primarily Azure DevOps or GitHub, and only supported items are synced. This integration also supports CI/CD workflow to enable teams to manage releases efficiently and maintain high-quality analytics environments.
 
 ![GIF that shows how to use Git integration with User data functions](./images/microsoft-fabric/fabric-git-integration.gif)
 
