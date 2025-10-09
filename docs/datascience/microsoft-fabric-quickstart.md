@@ -1,20 +1,19 @@
 ---
 ContentId: 99a5d36e-ce14-4040-b1cf-7345b7fa2c7d
-DateApproved: 9/21/2025
+DateApproved: 10/9/2025
 MetaDescription: Get started with Microsoft Fabric extensions for Visual Studio Code to develop data engineering and analytics solutions
 MetaSocialImage: images/datascience/fabric-social.png
 ---
 
 # Microsoft Fabric extensions for Visual Studio Code
 
-## Overview
-[Microsoft Fabric](https://learn.microsoft.com/fabric/) extensions for VS Code provide a powerful, integrated development experience for data engineers and developers working with Fabric artifacts, lakehouses, notebooks, and user data functions. These extensions streamline workflows by enabling local development, debugging, and workspace management directly within VS Code.
+You can build and develop data science and data engineering solutions for [Microsoft Fabric](https://learn.microsoft.com/fabric/) within VS Code. [Microsoft Fabric](https://marketplace.visualstudio.com/items?itemName=fabric.vscode-fabric) extensions for VS Code provide an integrated development experience for working with Fabric artifacts, lakehouses, notebooks, and user data functions. 
 
 ## What is Microsoft Fabric?
 
 [Microsoft Fabric](http://app.fabric.microsoft.com/) is an enterprise-ready, end-to-end analytics platform. It unifies data movement, data processing, ingestion, transformation, real-time event routing, and report building. It supports these capabilities with integrated services like Data Engineering, Data Factory, Data Science, Real-Time Intelligence, Data Warehouse, and Databases. [Sign up for free](https://app.fabric.microsoft.com/?pbi_source=learn-vscodedocs-microsoft-fabric-quickstart) and explore Microsoft Fabric for 60 days — no credit card required.
 
-![What is Microsoft Fabric?](images/microsoft-fabric/microsoft-fabric.png)
+![Screenshot that shows what is Microsoft Fabric?](images/microsoft-fabric/microsoft-fabric.png)
 
 ## Prerequisites
 
@@ -26,7 +25,7 @@ Before you get started with Microsoft Fabric extensions for VS Code, you need:
 
 ## Installation and setup
 
-You can find and install the extensions in VS Code. Select the **Extensions** and search for **Microsoft Fabric** in the Extensions marketplace.
+You can find and install the extensions from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/VSCode) or directly in VS Code. Select the **Extensions** view (`kb(workbench.view.extensions)`) and search for **Microsoft Fabric**.
 
 ### Which extensions to use
 
@@ -39,7 +38,7 @@ You can find and install the extensions in VS Code. Select the **Extensions** an
 
 ## Getting started
 Once you have the extensions installed and signed in, you can start working with Fabric workspaces and items. In the Command Palette `(Ctrl+Shift+P)`, type **Fabric** to list the commands that are specific to Microsoft Fabric.
-![Microsoft Fabric commands](images/microsoft-fabric/fabric-command-palette.png)
+![Diagram that shows all microsoft Fabric commands](images/microsoft-fabric/fabric-command-palette.png)
 
 ## Fabric Workspace and items explorer
 
@@ -47,7 +46,7 @@ The Fabric extensions provide a seamless way to work with both remote and local 
 - In the Fabric extension, you'll see a **Fabric Workspaces** section that displays all items from your remote workspace, organized by type (Lakehouses, Notebooks, Pipelines, etc.).
 - In the Fabric extension, you'll see a **Local folder** section that displays a Fbric item(s) folder opened in VS Code. It reflects the structure of your fabric item definition for each type that is opened in VS Code. This allows you develop locally and publish your changes to current or new workspace.
 
-![View your workspaces and items?](images/microsoft-fabric/view-workspaces-and-items.png)
+![Screenshot that shows how to view your workspaces and items?](images/microsoft-fabric/view-workspaces-and-items.png)
 
 ## Use user data functions for data science
 
@@ -160,7 +159,7 @@ def predict_churn(customer_data: list) -> list:
 
 6. Test your functions locally, by pressing `F5`.
 7. In Fabric extension,in **Local folder** , select the function and publish to your the workspace.
-![Publish your user data funtions item](./images/microsoft-fabric/publish-user-data-function.png)
+![Screenshot that shows how to publish your user data funtions item](./images/microsoft-fabric/publish-user-data-function.png)
 
 Learn more about invoking the function from:
 1. [Fabric Data pipelines](https://learn.microsoft.com/fabric/data-engineering/user-data-functions/create-functions-activity-data-pipelines)
@@ -204,7 +203,7 @@ Refer to [Microsoft Fabric Notebooks](https://learn.microsoft.com/fabric/data-en
 ## Git integration
 Microsoft Fabric supports Git integration that enables seamless version control and collaboration across data and analytics projects. You can connect a Fabric workspace to Git repositories—primarily Azure DevOps or GitHub and only supported items are synced. The integration supports CI/CD workflows, allowing teams to manage releases efficiently and maintain high-quality analytics environments.
 
-![Git integration demo for User data functions](./images/microsoft-fabric/fabric-git-integration.gif)
+![GIF that shows how to use Git integration with User data functions](./images/microsoft-fabric/fabric-git-integration.gif)
 
 ## Next steps
 
