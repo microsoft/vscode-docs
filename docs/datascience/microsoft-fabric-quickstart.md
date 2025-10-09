@@ -43,7 +43,7 @@ Once you have the extensions installed and signed in, you can start working with
 
 The Fabric extensions provide a seamless way to work with both remote and local Fabric items.
 - In the Fabric extension, the **Fabric Workspaces** section lists all items from your remote workspace, organized by type (Lakehouses, Notebooks, Pipelines, and more).
-- In the Fabric extension, you'll see a **Local folder** section that displays a Fbric item(s) folder opened in VS Code. It reflects the structure of your fabric item definition for each type that is opened in VS Code. This allows you develop locally and publish your changes to current or new workspace.
+- In the Fabric extension, the **Local folder** section shows a Fabric item(s) folder opened in VS Code. It reflects the structure of your fabric item definition for each type that is opened in VS Code. This enables you to develop locally and publish your changes to current or new workspace.
 
 ![Screenshot that shows how to view your workspaces and items?](images/microsoft-fabric/view-workspaces-and-items.png)
 
