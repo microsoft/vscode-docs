@@ -1,6 +1,6 @@
 ---
 ContentId: de6f9f68-7dd5-4de3-a210-3db57882384b
-DateApproved: 09/11/2025
+DateApproved: 10/09/2025
 MetaDescription: Get a quick overview of the AI features in Visual Studio Code. GitHub Copilot provides AI-powered features to help you write code faster and with less effort.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -99,7 +99,6 @@ The following table lists the VS Code built-in tools:
 | `#extensions` | Search for and ask about VS Code extensions. For example, "how to get started with Python #extensions?" |
 | `#fetch` | Fetch the content from a given web page. For example, "Summarize #fetch code.visualstudio.com/updates." |
 | `#fileSearch` | Search for files in the workspace by using glob patterns and returns their path. |
-| `#findTestFiles` | Locates test files in the workspace. |
 | `#getNotebookSummary` | Get the list of notebook cells and their details. |
 | `#getProjectSetupInfo` | Provide instructions and configuration for scaffolding different types of projects. |
 | `#getTaskOutput` | Get the output from running a [task](/docs/debugtest/tasks.md) in the workspace. |
@@ -129,7 +128,7 @@ The following table lists the VS Code built-in tools:
 | `#terminalSelection` | Get the current terminal selection. |
 | `#testFailure` | Get unit test failure information. Useful when running and diagnosing [tests](/docs/debugtest/testing.md). |
 | `#textSearch` | Find text in files. |
-| `#todos` | Manage and track todo items when processing a chat request (requires `setting(chat.todoListTool.enabled)`). |
+| `#todos` | Track implementation and progress of a chat request with a [todo list](/docs/copilot/chat/chat-agent-mode.md#track-progress-with-todo-lists-experimental). |
 | `#usages` | Combination of "Find All References", "Find Implementation", and "Go to Definition". |
 | `#VSCodeAPI` | Ask about VS Code functionality and extension development. |
 
@@ -225,6 +224,7 @@ Use AI to analyze the changes in your commits and pull requests and provide sugg
 | `#changes` | Add the current source control changes as context in your chat prompt. |
 | Commit as context | Add a commit from the source control history as context in your chat prompt. |
 | Commit message | Generate a commit message for the current changes in a source control commit. |
+| Merge conflicts (Experimental) | Get help [resolving Git merge conflicts with AI](/docs/sourcecontrol/overview#resolve-merge-conflicts-with-ai-experimental). |
 | Pull request description | Generate a pull request title and description that correspond with the changes in your pull request. |
 | `@github` | Use the `@github` participant in chat to ask about issues, pull requests, and more across your repositories. Get more information about the [available GitHub skills](https://docs.github.com/en/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide#currently-available-skills).<br/>Example: `@github What are all of the open PRs assigned to me?`, `@github Show me the recent merged pr's from @dancing-mona`  |
 

@@ -1,6 +1,6 @@
 ---
 ContentId: 0aefcb70-7884-487f-953e-46c3e07f7cbe
-DateApproved: 09/11/2025
+DateApproved: 10/09/2025
 MetaDescription: Copilot is your AI pair programmer tool in Visual Studio Code. Get code suggestions as you type in the editor, or use natural language chat to ask about your code or start an editing session for implementing new feature and fixing bugs.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -216,11 +216,17 @@ Learn more about [using MCP servers and tools](/docs/copilot/customization/mcp-s
 
 Get more [tips and tricks for using AI in VS Code](/docs/copilot/copilot-tips-and-tricks.md).
 
+## Support
+
+Support for GitHub Copilot Chat is provided by GitHub and can be reached at <https://support.github.com>.
+
+To learn more about Copilot's security, privacy, compliance, and transparency, see the [GitHub Copilot Trust Center FAQ](https://copilot.github.trust.page/faq).
+
 ## Pricing
 
 You can start using GitHub Copilot for free with monthly limits on completions and chat interactions. For more extensive usage, you can choose from various paid plans.
 
-[View detailed pricing →](https://docs.github.com/en/copilot/about-github-copilot/plans-for-github-copilot)
+[View detailed GitHub Copilot pricing](https://docs.github.com/en/copilot/get-started/plans)
 
 ## Next steps
 
