@@ -1,6 +1,6 @@
 ---
 ContentId: f8820661-7772-47e6-b63e-ac59f6752d9c
-DateApproved: 09/11/2025
+DateApproved: 10/09/2025
 MetaDescription: Learn how to implement context engineering using VS Code's built-in AI features.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -133,7 +133,7 @@ With a [custom chat mode](/docs/copilot/customization/custom-chat-modes.md) for 
     ```markdown
     ---
     description: 'Architect and planner to create detailed implementation plans.'
-    tools: ['fetch', 'githubRepo', 'problems', 'usages', 'search', 'todos', 'get_issue', 'get_issue_comments', 'list_issues']
+    tools: ['fetch', 'githubRepo', 'problems', 'usages', 'search', 'todos', 'github/github-mcp-server/get_issue', 'github/github-mcp-server/get_issue_comments', 'github/github-mcp-server/list_issues']
     ---
     # Planning Mode
 

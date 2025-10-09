@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 535b4d05-c2c8-424a-b075-2cd91566b8da
-DateApproved: 09/11/2025
+DateApproved: 10/09/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Use the Notebook API to create rich Notebook experiences within Visual Studio Code.

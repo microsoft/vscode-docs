@@ -1,6 +1,6 @@
 ---
 ContentId: 319916C4-93F2-471F-B448-FD416736C40C
-DateApproved: 09/11/2025
+DateApproved: 10/09/2025
 MetaDescription: Discover, add, update, disable and uninstall Visual Studio Code extensions (plug-ins) through the Extension Marketplace.
 ---
 # Extension Marketplace
