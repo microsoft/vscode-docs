@@ -217,4 +217,4 @@ Now that you have Microsoft Fabric extensions set up in VS Code, explore these r
 
 * [Microsoft Fabric community forums](https://community.fabric.microsoft.com/)
 * [Fabric samples and templates](https://github.com/microsoft/fabric-samples)
-* [VS Code marketplace reviews and feedback](https://marketplace.visualstudio.com/items?itemName=ms-fabric.vscode-fabric)
+* [Visual Studio Marketplace reviews and feedback](https://marketplace.visualstudio.com/items?itemName=ms-fabric.vscode-fabric)
