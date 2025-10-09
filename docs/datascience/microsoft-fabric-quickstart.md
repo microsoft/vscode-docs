@@ -36,7 +36,7 @@ You can find and install the extensions from the [Visual Studio Marketplace](htt
 | **Fabric Data Engineering** | Data engineers working with large-scale data & Spark | - Explore Lakehouses (tables, raw files)<br>- Develop/debug Spark notebooks<br>- Build/test Spark job definitions<br>- Sync notebooks between local VS Code & Fabric<br>- Preview schemas & sample data | You work with Spark, Lakehouses, or large-scale data pipelines and want to explore, develop, and debug locally. | [Develop Fabric notebooks in VS Code](https://learn.microsoft.com/fabric/data-engineering/setup-vs-code-extension) |
 
 ## Getting started
-Once you have the extensions installed and signed in, you can start working with Fabric workspaces and items. In the Command Palette `(Ctrl+Shift+P)`, type **Fabric** to list the commands that are specific to Microsoft Fabric.
+Once you have the extensions installed and signed in, you can start working with Fabric workspaces and items. In the Command Palette (`kb(workbench.action.showCommands)`), type **Fabric** to list the commands that are specific to Microsoft Fabric.
 ![Diagram that shows all microsoft Fabric commands](images/microsoft-fabric/fabric-command-palette.png)
 
 ## Fabric Workspace and items explorer
