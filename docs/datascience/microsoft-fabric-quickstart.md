@@ -63,8 +63,7 @@ The Fabric extensions provide a seamless way to work with both remote and local 
     joblib=1.2.0
     ```
 
-4. Open `functions_app.py` and
-Here's an example of developing a User Data Function for data science using scikit-learn:
+4. Open `functions_app.py`. Here's an example of developing a User Data Function for data science using scikit-learn:
 
 ```python
 import datetime
