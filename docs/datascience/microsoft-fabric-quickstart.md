@@ -161,9 +161,9 @@ def predict_churn(customer_data: list) -> list:
 ![Screenshot that shows how to publish your user data funtions item](./images/microsoft-fabric/publish-user-data-function.png)
 
 Learn more about invoking the function from:
-1. [Fabric Data pipelines](https://learn.microsoft.com/fabric/data-engineering/user-data-functions/create-functions-activity-data-pipelines)
-2. [Fabric Notebooks](https://learn.microsoft.com/fabric/data-engineering/notebook-utilities#user-data-function-udf-utilities)
-3. [An external application](https://learn.microsoft.com/fabric/data-engineering/user-data-functions/tutorial-invoke-from-python-app)
+- [Fabric Data pipelines](https://learn.microsoft.com/fabric/data-engineering/user-data-functions/create-functions-activity-data-pipelines)
+- [Fabric Notebooks](https://learn.microsoft.com/fabric/data-engineering/notebook-utilities#user-data-function-udf-utilities)
+-  [An external application](https://learn.microsoft.com/fabric/data-engineering/user-data-functions/tutorial-invoke-from-python-app)
 
 ## Use Fabric notebooks for data science
 A Fabric notebook is an interactive workbook in Microsoft Fabric for writing and running code, visualizations, and markdown side-by-side. Notebooks support multiple languages (Python, Spark, SQL, Scala, and more) and are ideal for data exploration, transformation, and model development in Fabric working with your existing data in OneLake.
