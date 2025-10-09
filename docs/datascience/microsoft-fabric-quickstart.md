@@ -166,7 +166,7 @@ Learn more about invoking the function from:
 3. [An external application](https://learn.microsoft.com/fabric/data-engineering/user-data-functions/tutorial-invoke-from-python-app)
 
 ## Use Fabric notebooks for data science
-A Fabric notebook is an interactive workbook in Microsoft Fabric for writing and running code, visualizations, and markdown side-by-side. Notebooks support multiple languages (Python, Spark, SQL, Scala and more) and are ideal for data exploration, transformation, and model development in Fabric working with your existing data in OneLake.
+A Fabric notebook is an interactive workbook in Microsoft Fabric for writing and running code, visualizations, and markdown side-by-side. Notebooks support multiple languages (Python, Spark, SQL, Scala, and more) and are ideal for data exploration, transformation, and model development in Fabric working with your existing data in OneLake.
 
 ### Example
 
