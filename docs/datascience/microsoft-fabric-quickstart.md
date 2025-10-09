@@ -5,7 +5,7 @@ MetaDescription: Get started with Microsoft Fabric extensions for Visual Studio 
 MetaSocialImage: images/datascience/fabric-social.png
 ---
 
-# Microsoft Fabric extensions for Visual Studio Code
+# Data science in Microsoft Fabric using Visual Studio Code
 
 You can build and develop data science and data engineering solutions for [Microsoft Fabric](https://learn.microsoft.com/fabric/) within VS Code. [Microsoft Fabric](https://marketplace.visualstudio.com/items?itemName=fabric.vscode-fabric) extensions for VS Code provide an integrated development experience for working with Fabric artifacts, lakehouses, notebooks, and user data functions. 
 
