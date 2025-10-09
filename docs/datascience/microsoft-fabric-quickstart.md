@@ -51,7 +51,7 @@ The Fabric extensions provide a seamless way to work with both remote and local 
 
 1. In the Command Palette `(Ctrl+Shift+P)`, type **Fabric: Create Item**.
 2. Select your workspace and select **User data function**. Provide a name and select **Python** language.
-3. You will be notificed to setup the Python virtual environment and continue to set this up locally.
+3. You are notified to set up the Python virtual environment and continue to set this up locally.
 4. Install the libraries using `pip install` or select the user data function item in Fabric extension to add libraries. Update the `requirements.txt` file to specify the dependencies:
 
     ```txt
