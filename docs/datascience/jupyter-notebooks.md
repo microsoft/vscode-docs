@@ -316,7 +316,7 @@ To connect to a remote Jupyter server:
 
    ![Prompt to supply a Jupyter server URI](images/jupyter/enter-server-url.png)
 
-> **Note:** For added security, Microsoft recommends configuring your Jupyter server with security precautions such as SSL and token support. This helps ensure that requests sent to the Jupyter server are authenticated and connections to the remote server are encrypted. For guidance about securing a notebook server, refer to the [Jupyter documentation](https://jupyter-notebook.readthedocs.io/en/stable/public_server.html#securing-a-notebook-server).
+> **Note:** For added security, Microsoft recommends configuring your Jupyter server with security precautions such as SSL and token support. This helps ensure that requests sent to the Jupyter server are authenticated and connections to the remote server are encrypted. For guidance about securing a notebook server, refer to the [Jupyter documentation](https://jupyter-server.readthedocs.io/en/latest/operators/public-server.html).
 
 ## Data Science profile template
 

@@ -95,5 +95,4 @@ Read on to learn more about
 - [Build and run a Node.js app in a container](/docs/containers/quickstart-node.md)
 - [Build and run a .NET app in a container](/docs/containers/quickstart-aspnet-core.md)
 - [Debug apps within Docker containers](/docs/containers/debug-common.md)
-- [Docker application development](https://docs.docker.com/develop)
 - [Troubleshooting](/docs/containers/troubleshooting.md)

@@ -144,7 +144,7 @@ To connect to a remote Jupyter server:
 
     ![The Python Interactive window showing that code is running on a remote Jupyter server](images/jupyter/jupyter-running-remotely.png)
 
-> **Note:** For added security, Microsoft recommends configuring your Jupyter server with security precautions such as SSL and token support. This helps ensure that requests sent to the Jupyter server are authenticated and connections to the remote server are encrypted. For guidance about securing a notebook server, see the [Jupyter docs](https://jupyter-notebook.readthedocs.io/en/stable/public_server.html#securing-a-notebook-server).
+> **Note:** For added security, Microsoft recommends configuring your Jupyter server with security precautions such as SSL and token support. This helps ensure that requests sent to the Jupyter server are authenticated and connections to the remote server are encrypted. For guidance about securing a notebook server, see the [Jupyter docs](https://jupyter-server.readthedocs.io/en/latest/operators/public-server.html).
 
 ## Convert Jupyter notebooks to Python code file
 

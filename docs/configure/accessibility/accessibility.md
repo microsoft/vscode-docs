@@ -148,7 +148,7 @@ VS Code supports screen readers in the editor using a strategy based on text pag
 
 * Windows: [NVDA](https://www.nvaccess.org) and [JAWS](https://www.freedomscientific.com/products/software/jaws)
 * macOS: [VoiceOver](https://support.apple.com/guide/voiceover/welcome/mac)
-* Linux: [Orca](https://help.gnome.org/users/orca/stable/introduction.html)
+* Linux: [Orca](https://help.gnome.org/users/orca/stable/)
 
 > For NVDA, we recommend that you stay in focus mode and use the hotkeys to navigate, instead of using browse mode.
 
