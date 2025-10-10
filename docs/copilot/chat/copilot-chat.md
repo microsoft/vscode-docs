@@ -48,7 +48,7 @@ Chat modes are predefined configurations or personas to customize chat in VS Cod
 
 To switch between chat modes, open the Chat view (`kb(workbench.action.chat.open)`), and then select the desired mode from the chat mode dropdown list.
 
-![Screenshot showing the Chat view, highlighting the chat mode dropdown list.](images/chat-modes/chat-mode-dropdown.png)
+![Screenshot showing the Chat view, highlighting the chat mode dropdown list.](../images/customization/chat-mode-dropdown.png)
 
 VS Code comes with three built-in chat modes: **Ask**, **Edit**, and **Agent**. You can define your own chat modes for specific scenarios, such as planning a new feature, or researching implementation options. Learn more about [chat modes in VS Code](/docs/copilot/customization/custom-chat-modes.md).
 

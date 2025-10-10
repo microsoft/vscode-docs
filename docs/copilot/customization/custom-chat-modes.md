@@ -12,7 +12,7 @@ Chat modes are a way to create specialist AI agents that enable you to tailor th
 
 To switch between chat modes, open the Chat view (`kb(workbench.action.chat.open)`), and then select the desired mode from the chat mode dropdown list.
 
-![Screenshot showing the Chat view, highlighting the chat mode dropdown list.](../chat/images/chat-modes/chat-mode-dropdown.png)
+![Screenshot showing the Chat view, highlighting the chat mode dropdown list.](../images/customization/chat-mode-dropdown.png)
 
 ## Built-in chat modes
 
