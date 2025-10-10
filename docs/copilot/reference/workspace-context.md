@@ -53,7 +53,7 @@ Chat in VS Code uses an index to quickly and accurately search your codebase for
 
 You can view the type of index that is being used and its indexing status in the Copilot status dashboard in the VS Code Status Bar.
 
-![Screenshot showing the workspace index status in the Copilot status menu.](images/workspace-context/workspace-index-status.png)
+![Screenshot showing the workspace index status in the Copilot status menu.](../images/workspace-context/workspace-index-status.png)
 
 ### Remote index
 
