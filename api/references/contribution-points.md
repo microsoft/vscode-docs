@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
-DateApproved: 07/09/2025
+DateApproved: 10/09/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various Contribution Points it is using in its package.json Extension Manifest file.
@@ -53,7 +53,7 @@ Contributes an authentication provider. This will set up an activation event for
   "contributes": {
     "authentication": [
       {
-        "label": "Azure Dev Ops",
+        "label": "Azure DevOps",
         "id": "azuredevops"
       }
     ]
@@ -714,7 +714,7 @@ See the [File Icon Theme Guide](/api/extension-guides/file-icon-theme) on how to
 
 ## contributes.jsonValidation
 
-Contribute a validation schema for a specific type of `json` file. The `url` value can be either a local path to a schema file included in the extension or a remote server URL such as a [json schema store](https://www.schemastore.org/json).
+Contribute a validation schema for a specific type of `json` file. The `url` value can be either a local path to a schema file included in the extension or a remote server URL such as a [json schema store](https://www.schemastore.org/).
 
 ```json
 {

@@ -11,7 +11,7 @@ The [Azure Tools extension pack](https://marketplace.visualstudio.com/items?item
 
 ## Get started
 
-**Install the Azure Tools extension pack.** Open VS Code, navigate to the Extensions view, and search for “Azure Tools.” Install the [Azure Tools extension pack](overview.md) from Microsoft.
+**Install the Azure Tools extension pack.** Open VS Code, navigate to the Extensions view, and search for “Azure Tools.” Install the [Azure Tools extension pack](/docs/azure/overview.md) from Microsoft.
 
 **Navigate to the Azure Resources view.** Select the Azure icon in the Activity Bar (sidebar) to open the **Azure Resources** view. Once you're signed in to your Azure account, the Azure Resources view displays all your existing resources. You can create and manage these services right from VS Code.
 

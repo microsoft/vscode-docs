@@ -1,6 +1,6 @@
 ---
 ContentId: 080fd21f-92b7-4491-9ab2-6eb9a3bb0793
-DateApproved: 07/09/2025
+DateApproved: 10/09/2025
 MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Java.
 ---
 # Java in Visual Studio Code

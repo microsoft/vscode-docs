@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: B32601A8-27ED-4D97-BA83-F1C8C945C635
-DateApproved: 07/09/2025
+DateApproved: 10/09/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn from Visual Studio Code extension guides and code samples
@@ -64,7 +64,7 @@ Here is a list of additional samples from the [VS Code Extensions samples repo](
 | [Commenting API Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/comment-sample) |  |
 | [Document Editing Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/document-editing-sample) | [commands](https://code.visualstudio.com/api/references/vscode-api#commands)<br>[contributes.commands](https://code.visualstudio.com/api/references/contribution-points#contributes.commands) |
 | [Getting Started Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/getting-started-sample) | [contributes.walkthroughs](https://code.visualstudio.com/api/references/contribution-points#contributes.walkthroughs) |
-| [Test extension](https://github.com/microsoft/vscode-extension-samples/tree/main/test-provider-sample) | [TestController](https://code.visualstudio.com/api/references/vscode-api#TestController)<br>[TestItem](https://code.visualstudio.com.azurewebsites.net/api/references/vscode-api#TestItem) |
+| [Test extension](https://github.com/microsoft/vscode-extension-samples/tree/main/test-provider-sample) | [TestController](https://code.visualstudio.com/api/references/vscode-api#TestController)<br>[TestItem](https://code.visualstudio.com/api/references/vscode-api#TestItem) |
 
 ## Language Extension Samples
 

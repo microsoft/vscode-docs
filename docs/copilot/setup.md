@@ -1,6 +1,6 @@
 ---
 ContentId: 37fd3bd2-4209-49f6-bec5-c544d6b1b289
-DateApproved: 07/09/2025
+DateApproved: 10/09/2025
 MetaDescription: Access your GitHub Copilot subscription and set up GitHub Copilot in Visual Studio.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -22,36 +22,32 @@ There are different ways to get access to GitHub Copilot:
 
 ## Set up Copilot in VS Code
 
-To use Copilot in VS Code, you need access to a GitHub Copilot subscription.
-
-To set up Copilot in VS Code:
+To use Copilot in VS Code, you need access to a GitHub Copilot subscription. You can set up Copilot directly from within VS Code.
 
 1. Hover over the Copilot icon in the Status Bar and select **Set up Copilot**.
 
     ![Hover over the Copilot icon in the Status Bar and select Set up Copilot.](images/setup/setup-copilot-status-bar.png)
 
-1. Select **Sign in** to sign in to your GitHub account or **Use Copilot** if you're already signed in.
+1. Choose a sign-in method and follow the prompts. If you don't have a Copilot subscription yet, you'll be signed up for the [Copilot Free plan](https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-free/about-github-copilot-free).
 
     ![Sign in to your GitHub account or use Copilot if you're already signed in.](images/setup/setup-copilot-sign-in.png)
 
-    If you don't have a Copilot subscription yet, you'll be signed up for the [Copilot Free plan](https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-free/about-github-copilot-free).
-
     > [!IMPORTANT]
-    > Telemetry in your free version of GitHub Copilot is currently enabled. By default, code suggestions that match public code, including code references in the VS Code and <github.com> experience, are allowed. You can opt out of telemetry data collection by disabling telemetry in VS Code by setting `setting(telemetry.telemetryLevel)` to `off`, or you can adjust both telemetry and code suggestion settings in [Copilot Settings](https://github.com/settings/copilot).
+    > Telemetry in your free version of GitHub Copilot is currently enabled. By default, code suggestions that match public code, including code references in the VS Code and [github.com](http://github.com/copilot) experience, are allowed. You can opt out of telemetry data collection by disabling telemetry in VS Code by setting `setting(telemetry.telemetryLevel)` to `off`, or you can adjust both telemetry and code suggestion settings in [Copilot Settings](https://github.com/settings/copilot).
 
 1. You can now start using Copilot in VS Code. Learn the basics with the [Copilot Quickstart](/docs/copilot/getting-started.md).
 
 ## Use a different GitHub account with Copilot
 
-If your Copilot subscription is associated with another GitHub account, sign out of your GitHub account in VS Code, and sign in with another account.
+If your Copilot subscription is associated with another GitHub account, follow these steps to sign out of your GitHub account in VS Code, and sign in with another account.
 
-1. Select the **Accounts** menu in the Activity Bar, and then select **Sign out** for the account you're currently signed in with for Copilot.
+1. Select the **Accounts** menu in the Activity Bar, and then select **Sign out** for the account you're currently signed in with.
 
     ![Accounts menu in VS Code, showing the option to sign out of the current GitHub account.](images/setup/vscode-accounts-menu-signout.png)
 
 1. Sign in to your GitHub account using any of the following methods:
 
-    - Select **Sign in to use Copilot** from the Copilot status menu.
+    - Select **Sign in to use Copilot** from the Copilot menu in the Status Bar.
 
         ![Sign in to use Copilot from the Copilot status menu.](images/setup/copilot-signedout-sign-in.png)
 
@@ -61,24 +57,19 @@ If your Copilot subscription is associated with another GitHub account, sign out
 
     - Run the **GitHub Copilot: Sign in** command in the Command Palette (`kb(workbench.action.showCommands)`).
 
-## Hide Copilot in VS Code
+## Remove AI features from VS Code
 
-To completely hide Copilot in VS Code, select **Hide Copilot** from the Copilot menu in the VS Code title bar.
+You can disable the built-in AI features in VS Code with the `setting(chat.disableAIFeatures)` setting, similar to how you configure other features in VS Code. This disables and hides features like chat or inline suggestions in VS Code and disables the Copilot extensions. You can configure the setting at the workspace or user level.
 
-![Screenshot that shows the Copilot menu in the VS Code title bar, with the option to hide Copilot.](images/setup/hide-copilot.png)
+Alternatively, use the **Learn How to Hide AI Features** action from the Chat menu in the title bar to access the setting.
 
-To reenable Copilot, run the **Chat: Use AI Features with Copilot for Free** command in the Command Palette (`kb(workbench.action.showCommands)`).
+> [!NOTE]
+> If you have previously disabled the built-in AI features, your choice is respected upon updating to a new version of VS Code.
 
-## Disable Copilot for a workspace
+## Disable AI features for a workspace
 
-To disable Copilot for a specific workspace:
-
-1. Open the Extensions view in VS Code (`kb(workbench.view.extensions)`).
-1. Search for the **GitHub Copilot** extension.
-1. Select the gear icon and then select **Disable (Workspace)**
-
-![Screenshot that shows the GitHub Copilot extension in the Extensions view, with the option to disable it for the workspace.](images/setup/copilot-disable-workspace.png)
+To disable AI features for a specific workspace, configure the `setting(chat.disableAIFeatures)` setting in workspace settings. This setting is available in the Settings editor (`kb(workbench.action.openSettings)`), or you can edit the `settings.json` file in the workspace.
 
 ## Next steps
 
-- Continue with the [Copilot Quickstart](/docs/copilot/getting-started.md) to discover the key features of Copilot in VS Code.
+- Continue with the [Quickstart for using AI](/docs/copilot/getting-started.md) to discover the key features for AI-powered development in VS Code.

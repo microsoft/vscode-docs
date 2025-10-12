@@ -75,7 +75,7 @@ To enable instructions files for your workspace:
     ...
     ```
 
-Get more details about [using instructions files in VS Code](/docs/copilot/copilot-customization.md#instruction-files).
+Get more details about [using instructions files in VS Code](/docs/copilot/customization/custom-instructions.md).
 
 ## Prompt engineering
 
@@ -105,7 +105,7 @@ You can enhance the quality of Copilot's responses by using effective prompts. A
     * Generate a function that takes a list of recipes and returns a shopping list.
     * Generate a function that takes a list of recipes and returns a meal plan for the week.
 
-* Provide the [right context](#provide-the-right-context), such as code selections, files, terminal output, and more.
+* Provide the [right context](#provide-the-right-context-and-tools), such as code selections, files, terminal output, and more.
 
     Example, use the `#codebase` variable to refer to the entire codebase:
 
@@ -182,7 +182,7 @@ To create a reusable prompt:
     ```markdown
     ---
     mode: 'agent'
-    tools: ['githubRepo', 'codebase']
+    tools: ['githubRepo', 'search/codebase']
     description: 'Generate a new React form component'
     ---
     Your goal is to generate a new React form component based on the templates in #githubRepo contoso/react-templates.
@@ -197,7 +197,7 @@ To create a reusable prompt:
 
     For example, type `/new-react-form` to run the prompt file named `new-react-form.prompt.md`.
 
-Get started with [prompt files](/docs/copilot/copilot-customization.md#prompt-files-experimental).
+Get started with [prompt files](/docs/copilot/customization/prompt-files.md).
 
 ## Choose your AI model
 
@@ -224,4 +224,4 @@ Get more details about [workspace indexing](/docs/copilot/reference/workspace-co
 
 * [Prompt engineering for Copilot Chat](/docs/copilot/chat/prompt-crafting.md)
 * [Best Practices for using GitHub Copilot](https://docs.github.com/en/copilot/using-github-copilot/best-practices-for-using-github-copilot) in the GitHub Copilot documentation
-* [Personalize Copilot in VS Code](/docs/copilot/copilot-customization.md)
+* [Personalize Copilot in VS Code](/docs/copilot/customization/overview.md)

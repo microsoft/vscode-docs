@@ -60,7 +60,7 @@ There were two issues with using the `kbstyle(Tab)` key as a keyboard shortcut f
 
 With Emmet abbreviations now easily accessible via suggestion list, we were able to remove the default association of `kbstyle(Tab)` key with the **Emmet: ExpandAbbreviation** command. The `kbstyle(Tab)` key is now free to do what it was meant to do: indent.
 
-If you have the `editor.quickSuggestions` [setting](/docs/getstarted/settings.md) turned off, you will have to press `kb(editor.action.triggerSuggest)` to trigger the suggestion/auto-completion list manually.
+If you have the `editor.quickSuggestions` [setting](/docs/configure/settings.md) turned off, you will have to press `kb(editor.action.triggerSuggest)` to trigger the suggestion/auto-completion list manually.
 
 If you don't want Emmet showing up in the suggestion/auto-completion list, set `emmet.showExpandedAbbreviation` to `never`.
 

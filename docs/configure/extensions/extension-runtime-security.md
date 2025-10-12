@@ -1,6 +1,6 @@
 ---
 ContentId: b921a11a-ed69-4716-bc93-589ba8e01e22
-DateApproved: 07/09/2025
+DateApproved: 10/09/2025
 MetaDescription: Learn about the security measures in place for Visual Studio Code extensions, including permissions, user reliability checks, and Marketplace protections.
 ---
 # Extension runtime security
@@ -62,6 +62,8 @@ The Visual Studio Marketplace employs several mechanisms to protect you from mal
 * **Block List**: If a malicious extension is reported and verified, or a vulnerability is found in an extension dependency, the extension is removed from the Marketplace and added to a *block list*. If the extension has been installed, it's automatically uninstalled by VS Code.
 
 * **Extension Signature Verification**: The Visual Studio Marketplace signs all extensions when they're published. VS Code checks this signature when you install an extension to verify the integrity and the source of the extension package.
+
+* **Secret Scanning**: The Marketplace automatically scans every newly published extension for secrets such as API keys or credentials (for example, Azure DevOps PAT tokens). If any secrets are detected, publishing is blocked to prevent potential security risks. The VSCE tool scans `.env` files during packaging and blocks publishing if secrets are found.
 
 Learn about these measures in the [Security and Trust in Visual Studio Marketplace blog post](https://devblogs.microsoft.com/blog/security-and-trust-in-visual-studio-marketplace).
 

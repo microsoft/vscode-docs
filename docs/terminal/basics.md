@@ -1,6 +1,6 @@
 ---
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
-DateApproved: 07/09/2025
+DateApproved: 10/09/2025
 MetaDescription: Visual Studio Code has an integrated terminal to enable working in your shell of choice without leaving the editor.
 ---
 # Terminal Basics
@@ -71,6 +71,16 @@ You can have terminal editors on either side or arranged in multiple dimensions 
 ![Terminal editors are can be laid out using the editor group layout system, for example 2 terminals could sit to the right of a text editor](images/basics/terminal-editor-grid.png)
 
 The `setting(terminal.integrated.defaultLocation)` setting can change the default `view` or `editor` area terminal location.
+
+## Terminals in new windows
+
+Opening a terminal in a new window is possible in a few different ways:
+
+1. Use `kb(workbench.action.terminal.newInNewWindow)`
+2. Right-click the terminal tab if you have multiple terminals, or left-click the tab if you only have a single terminal opened. Then select **Move Terminal to New Window**
+3. Select the **New Terminal Window** entry that's available in several different menus
+
+![Screenshot showing a terminal in its own separate window](images/basics/terminal-new-window.png)
 
 ## Navigating the buffer
 

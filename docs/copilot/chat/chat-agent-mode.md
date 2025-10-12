@@ -1,6 +1,6 @@
 ---
 ContentId: 57754e12-a134-41cc-9693-fb187729c49f
-DateApproved: 07/09/2025
+DateApproved: 10/09/2025
 MetaDescription: Use chat agent mode in VS Code to start an agentic code editing session to autonomously make edits and invoke tools. Use built-in tools, MCP tools, or tools from extensions.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -15,7 +15,15 @@ With chat _agent mode_ in Visual Studio Code, you can use natural language to sp
 
 ## Why use agent mode?
 
-Agent mode is optimized for making autonomous edits across multiple files in your project. It is particularly useful for complex tasks that require not only code edits but also the invocation of tools and terminal commands. You can use agent mode to:
+Agent mode is optimized for the following scenarios:
+
+* Coding tasks based on high-level requirements or less well-defined implementation details
+* Making autonomous edits across multiple files in your project
+* Handling complex tasks that require not only code edits but also the invocation of tools and terminal commands
+
+Agent mode autonomously determines the relevant context and tasks to accomplish a given request. It can also iterate multiple times to resolve intermediate issues, such as syntax errors or test failures.
+
+Some examples of tasks you can use agent mode for:
 
 * Refactor parts of your codebase, such as "refactor the app to use a Redis cache".
 * Plan and implement new features, such as "add a login form to the app using OAuth for authentication".
@@ -23,7 +31,21 @@ Agent mode is optimized for making autonomous edits across multiple files in you
 * Generate an implementation plan for a complex task, such as "create a meal-planning web app using a Swift front-end and a Node.js back-end".
 * Define a high-level requirement, such as "add social media sharing functionality".
 
-Agent mode is particularly useful for coding tasks when you have a less well-defined task that might also require running terminal commands and tools. Agent mode autonomously determines the relevant context and tasks to accomplish the request. It can also iterate multiple times to resolve intermediate issues, such as syntax errors or test failures.
+> [!IMPORTANT]
+> It's important to be aware of the security considerations of using AI-powered development. Review the [Security documentation](/docs/copilot/security.md) for using AI in VS Code.
+
+## Agent mode vs Copilot coding agent
+
+VS Code offers two autonomous coding experiences. While agent mode provides interactive development directly within the editor, the [Copilot coding agent](/docs/copilot/copilot-coding-agent.md) works independently on GitHub to implement features in the background.
+
+| Feature | Agent mode | Copilot coding agent |
+|---------|------------------|---------------------|
+| **Where it runs** | Your VS Code editor | GitHub cloud |
+| **Independence** | Involves user interaction and iteration | Fully autonomous |
+| **Output** | Edits files directly | Creates pull requests |
+| **Best for** | Interactive development, immediate feedback | Well-defined tasks, background work |
+
+This document describes agent mode. You can learn more about the Copilot coding agent in its [documentation](/docs/copilot/copilot-coding-agent.md).
 
 ## Enable agent mode in VS Code
 
@@ -38,11 +60,11 @@ To centrally enable or disable agent mode within your organization with device m
 
 You can centrally manage the following settings related to agent mode:
 
-* Enable or disable agent mode: `setting(chat.agent.enabled)`
+* `setting(chat.agent.enabled)`: enable or disable agent mode
 
-* Enable or disable using tools contributed by third-party extensions: `setting(chat.extensionTools.enabled)`
+* `setting(chat.extensionTools.enabled)`: enable or disable using tools contributed by third-party extensions
 
-* Enable or disable auto-approval for agent mode tools: `setting(chat.tools.autoApprove)`
+* `setting(chat.tools.autoApprove)`: enable or disable auto-approval for agent mode tools
 
 ## Use agent mode
 
@@ -68,18 +90,18 @@ Follow these steps to get started:
 
 1. Agent mode might invoke multiple [tools](#agent-mode-tools) to accomplish different tasks. Optionally, select the **Tools** icon to configure which tools can be used for responding to your request.
 
-    ![Screenshot showing the Copilot Edits view, highlighting the Tools icon in the chat input.](images/copilot-edits/agent-mode-select-tools.png)
+    ![Screenshot showing the Chat view in agent mode, highlighting the Tools icon, and showing the tools Quick Pick control.](images/copilot-edits/agent-mode-select-tools.png)
 
     > [!TIP]
     > You can also directly reference a tool in your prompt by typing `#` followed by the tool name. You can do this in all chat modes (ask, edit, and agent mode).
 
-1. Confirm tool invocations and terminal commands.
+1. Approve tool invocations and terminal commands.
 
-    Before running a terminal command or non-builtin tool, Copilot requests confirmation to continue. This is because tools might run locally on your machine and perform actions that modify files or data.
+    Before running a terminal command, the `fetch` tool, or non-builtin tools, VS Code requests confirmation to continue. This is because tools might run locally on your machine and perform actions that modify files or data.
 
-    Use the **Continue** button dropdown options to automatically confirm the specific tool for the current session, workspace, or all future invocations. Learn how to [manage tool approvals and approve all tool invocations](#manage-tool-approvals).
+    Use the **Allow** button dropdown options to automatically allow the specific tool for the current session, workspace, or all future invocations. Learn how to [manage tool approvals and approve all tool invocations](#manage-tool-approvals).
 
-    ![MCP Tool Confirmation](images/mcp-servers/mcp-tool-confirmation.png)
+    ![MCP Tool Confirmation](../images/mcp-servers/mcp-tool-confirmation.png)
 
     If your project has configured [tasks](/docs/debugtest/tasks.md) in `tasks.json`, agent mode tries to run the appropriate tasks. For example, if you've defined a build task, agent mode will run the build task before running the application. Enable or disable running workspace tasks with the `setting(github.copilot.chat.agent.runTasks)` setting.
 
@@ -87,19 +109,22 @@ Follow these steps to get started:
 
     Select the chevron next to the tool name to view its details and input parameters. You can edit the input parameters before running the tool.
 
-    ![MCP Tool Input Parameters](images/mcp-servers/mcp-tool-edit-parameters.png)
+    ![MCP Tool Input Parameters](../images/mcp-servers/mcp-tool-edit-parameters.png)
 
-1. Copilot detects issues and problems in code edits and terminal commands and will iterate and perform additional actions to resolve them.
+1. VS Code detects issues and problems in code edits and terminal commands and will iterate to resolve them.
 
     Enable the `setting(github.copilot.chat.agent.autoFix)` setting to automatically diagnose and fix issues in the generated code changes. This setting is enabled by default.
 
     For example, agent mode might run unit tests as a result of a code edit. If the tests fail, it uses the test outcome to resolve the issue.
 
-    Copilot Edits agent mode iterates multiple times to resolve issues and problems. The `setting(chat.agent.maxRequests)` setting controls the maximum number of requests that Copilot Edits can make in agent mode.
+    Agent mode iterates multiple times to resolve issues and problems. The `setting(chat.agent.maxRequests)` setting controls the maximum number of requests that agent mode can make before asking you if it can continue.
 
-1. As Copilot processes your request, notice that Copilot streams the suggested code edits directly in the editor.
+1. As your chat request is processed, notice that suggested code edits appear directly in the editor.
 
-    The Chat view shows the list of files that were edited in bold text. The editor overlay controls enable you to navigate between the suggested edits.
+    You can view the list of changed files in the Chat view. The editor overlay controls enable you to navigate between the suggested edits.
+
+    > [!NOTE]
+    > AI-generated code edits are restricted to the files in your current workspace.
 
 1. Review the suggested edits and [accept or discard the suggested edits](#accept-or-discard-edits).
 
@@ -111,9 +136,11 @@ Agent mode uses tools to accomplish specialized tasks while processing a user re
 
 Agent mode can use the following tools:
 
-* Built-in tools
-* [MCP tools](/docs/copilot/chat/mcp-servers.md)
+* [Built-in tools](/docs/copilot/reference/copilot-vscode-features.md#chat-tools)
+* [MCP tools](/docs/copilot/customization/mcp-servers.md)
 * [Tools contributed by extensions](/api/extension-guides/ai/tools.md)
+
+The built-in tools can only read and edit files in your current workspace.
 
 You can view and manage the tools that can be used for responding to a request. Select the **Tools** icon in the Chat view to view and select the tools that are available in agent mode.
 
@@ -122,15 +149,101 @@ You can view and manage the tools that can be used for responding to a request. 
 Based on the outcome of a tool, the agent might invoke other tools to accomplish the overall request. For example, if a code edit results in syntax errors in the file, the agent might explore another approach and suggest different code changes.
 
 > [!IMPORTANT]
-> A chat request can have a maximum of 128 tools enabled at a time. If you have more than 128 tools selected, reduce the number of tools by deselecting some tools in the tools picker.
+> A chat request can have a maximum of 128 tools enabled at a time. If you have more than 128 tools selected, reduce the number of tools by deselecting some tools in the tools picker, or ensure that virtual tools are enabled (`setting(github.copilot.chat.virtualTools.threshold)`).
 
-### Define tool sets
+### Terminal commands
+
+#### Configure terminal profile for chat
+
+Agent mode can run terminal commands as part of processing your request. For example, it might run build or test commands to verify the outcome of code edits.
+
+You can configure which [terminal profile](/docs/terminal/profiles.md) is used for running terminal commands with the following settings:
+
+* Windows: `setting(chat.tools.terminal.terminalProfile.windows)`
+* Linux: `setting(chat.tools.terminal.terminalProfile.linux)`
+* macOS: `setting(chat.tools.terminal.terminalProfile.macos)`
+
+## Manage tool approvals
+
+Before agent mode runs a tool or terminal command, it requests confirmation to run it. This is because they might perform actions that modify files or data or perform destructive actions.
+
+In the Chat view, when a tool or terminal command invocation occurs, use the **Allow** button dropdown options to automatically confirm the specific tool for the current session, workspace, or all future invocations.
+
+![MCP Tool Confirmation](../images/mcp-servers/mcp-tool-confirmation.png)
+
+You can reset the tool confirmations by using the **Chat: Reset Tool Confirmations** command in the Command Palette.
+
+> [!IMPORTANT]
+> It's important to be aware of the security considerations of using AI-powered development. Review the [Security documentation](/docs/copilot/security.md) for using AI in VS Code.
+
+### Auto-approve all tools and commands
+
+When you enable the `chat.tools.global.autoApprove` setting, you can disable all manual approvals for tools and terminal commands in _all workspaces_.
+
+As an enhanced boundary, you might choose to set `chat.tools.global.autoApprove` only when connected to a [remote environment](/docs/remote/remote-overview.md). You'll want to set this as a remote, rather than user-level, setting. Note that remote environments that are part of your local machine (like dev containers) or that have access to your credentials will still pose different levels of risk.
+
+> [!CAUTION]
+> This setting disables critical security protections and makes it much easier for an attacker to compromise the machine. Read the [Security documentation](/docs/copilot/security.md) for using AI in VS Code to understand the implications of this setting.
+
+### Auto-approve terminal commands
+
+Before agent mode runs a terminal command, it requests confirmation to run it. If you want more fine-grained control over which terminal commands are auto-approved, use the `setting(chat.tools.terminal.autoApprove)` setting.
+
+This setting lets you specify both allowed and denied commands in a single configuration:
+
+* Set commands to `true` to automatically approve them without confirmation
+* Set commands to `false` to always require explicit approval
+* Set commands to `null` to unset the default behavior for that command
+* Use regular expressions by wrapping patterns in `/` characters
+
+For example:
+
+```jsonc
+{
+  // Allow the `mkdir` command, regardless of arguments
+  "mkdir": true,
+  // Allow `test/scripts.sh`, since this contains a `/` it will also allow `\`
+  // and an optional `./` or `.\` prefix
+  "test/scripts.sh": true,
+  // Allow `git status` and all commands starting with `git show`
+  "/^git (status|show\\b.*)$/": true,
+
+  // Block the `del` command, regardless of arguments
+  "del": false,
+  // Block any command containing the text "dangerous"
+  "/dangerous/": false,
+
+  // Unset the default `rm` rule to allow other rules to auto approve `rm`
+  // commands
+  "rm": null,
+}
+```
+
+By default, commands and regular expressions are evaluated for every subcommand within the full command line, so `foo && bar` needs both `foo` and `bar` to match a `true` entry and must not match a `false` entry in order to auto-approve.
+
+For advanced scenarios, you can use object syntax to control whether patterns match against individual subcommands or the full command line:
+
+```jsonc
+{
+  // Broad rule to block any _command line_ that contains the text ".ps1"
+  "/\\.ps1\\b/i": { "approve": false, "matchCommandLine": true }
+}
+```
+
+The `matchCommandLine` property determines the matching behavior:
+
+* `false` (default): Matches against subcommands and inline commands. For example, for `foo && bar`, both `foo` and `bar` must match.
+* `true`: Matches against the full command line. For example, `foo && bar` is treated as a single string.
+
+For a terminal command to be auto approved, both the subcommand and command line must not be explicitly denied, and either all subcommands or the full command line needs to be approved.
+
+## Define tool sets
 
 A tool set is a collection of tools that you can use in chat. You can use tool sets in the same way as you would use individual tools. For example, select a tool set with the tools picker in agent mode or reference the tool set directly in your prompt by typing `#` followed by the tool set name.
 
 ![Screenshot showing the tools picker, highlighting user-defined tool sets.](images/agent-mode/tools-picker-tool-sets.png)
 
-Tool sets enable you to group related tools together, making it easier to use them in your chat prompts, [prompt files](/docs/copilot/copilot-customization.md), or [custom chat modes](/docs/copilot/chat/chat-modes.md). This can be particularly useful when you have many installed tools from MCP servers or extensions.
+Tool sets enable you to group related tools together, making it easier to use them in your chat prompts, [prompt files](/docs/copilot/customization/overview.md), or [custom chat modes](/docs/copilot/customization/custom-chat-modes.md). This can be particularly useful when you have many installed tools from MCP servers or extensions.
 
 To create a tool set, select the **Configure Chat** button in the Chat view, select **Tool Sets**, and then select **New tool sets file**. Alternatively, you can use the **Chat: Configure Tool Sets** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
@@ -157,94 +270,61 @@ The following code snippet shows an example of a tool sets file that defines a t
 }
 ```
 
-## Manage tool approvals
-
-Before agent mode runs a tool or terminal command, it requests confirmation to run it. This is because they might perform actions that modify files or data or perform destructive actions.
-
-In the Chat view, when a tool or terminal command invocation occurs, use the **Continue** button dropdown options to automatically confirm the specific tool for the current session, workspace, or all future invocations.
-
-![MCP Tool Confirmation](images/mcp-servers/mcp-tool-confirmation.png)
-
-You can reset the tool confirmations by using the **Chat: Reset Tool Confirmations** command in the Command Palette.
-
-### Auto-approve all tools and commands (Experimental)
-
-In case you want to auto-approve _all_ tools and terminal commands, you can now use the experimental `setting(chat.tools.autoApprove)` setting. This will automatically approve all tool and command invocations, and VS Code will not ask for confirmation when a language model wishes to run tools.
-
-> [!CAUTION]
-> With this setting enabled, you don't have the opportunity to cancel potentially destructive actions a model wants to take.
-
-As an enhanced boundary, you might choose to set `setting(chat.tools.autoApprove)` only when connected to a [remote environment](/docs/remote/remote-overview.md). You'll want to set this as a remote, rather than user-level, setting. Note that remote environments that are part of your local machine (like dev containers) or that have access to your credentials will still pose different levels of risk.
-
-### Auto-approve terminal commands (Experimental)
-
-Before agent mode runs a terminal command, it requests confirmation to run it. With auto-approval enabled, all terminal commands are automatically approved.
-
-If you want more fine-grained control over which terminal commands are auto-approved, use the following settings:
-
-* `setting(github.copilot.chat.agent.terminal.allowList)`: A list of commands or regular expressions that allow the run in terminal tool commands to run without explicit approval. These are matched against the start of a command. A regular expression can be provided by wrapping the string in `/` characters. For example, to allow all commands, use `/.*/`.
-
-* `setting(github.copilot.chat.agent.terminal.denyList)`: A list of commands or regular expressions that override matches in the allow list and force a command line to require explicit approval. These are matched against the start of a command. A regular expression can be provided by wrapping the string in `/` characters.
-
 ## Accept or discard edits
 
-Copilot lists the files that were edited in the list of the changed files in the Chat view. Files with pending edits also have an indicator in the Explorer view and editor tabs.
+VS Code lists the files that were edited in the list of the changed files in the Chat view. Files with pending edits also have a visual indicator (dot within a square) in the Explorer view and editor tabs.
 
-![Screenshot that shows the Copilot Edits view, highlighting the changed files list and the indicator in the Explorer view and editor tabs.](images/copilot-edits/copilot-edits-changed-files-full.png)
+![Screenshot that shows the Chat view, highlighting the changed files list and the indicator in the Explorer view and editor tabs.](images/copilot-edits/copilot-edits-changed-files-full.png)
 
-With the editor overlay controls, you can navigate between the suggested edits by using the `kbstyle(Up)` (<i class="codicon codicon-arrow-up"></i>) and `kbstyle(Down)` (<i class="codicon codicon-arrow-down"></i>) controls. Use the **Keep** or **Undo** button to accept or reject the edits for a given file.
+With the editor overlay controls, you can navigate between the suggested edits by using the `kbstyle(Up)` and `kbstyle(Down)` controls. Use the **Keep** or **Undo** button to accept or reject the edits for a given file.
 
 ![Screenshot showing the Editor with proposed changes, highlighting the review controls in the editor overlay controls.](images/copilot-edits/copilot-edits-file-review-controls.png)
 
-Use the **Keep** or **Undo** controls in the editor or Chat view to accept or reject individual or all suggested edits.
+If you stage your changes in the Source Control view, any pending edits are automatically accepted. On the other hand, if you discard your changes, any pending edits are also discarded.
 
-![Screenshot showing the Copilot Edits view, highlighting the Accept All and Discard All buttons.](images/copilot-edits/copilot-edits-accept-discard.png)
+When you close VS Code, the status of the pending edits is remembered and restored when you reopen VS Code.
 
-With the `setting(chat.editing.autoAcceptDelay)` setting, you can configure a delay after which the suggested edits are automatically accepted. Hover over the editor overlay controls to cancel the auto-accept countdown.
+To automatically accept all the suggested edits after a specific delay, configure the `setting(chat.editing.autoAccept)` setting. By hovering over the editor overlay controls, you can cancel the auto-accept countdown. If you automatically accept all edits, it's recommended to still review the changes before committing them in source control.
 
-When you close VS Code, the status of the pending edits is remembered. When you reopen VS Code, the pending edits are restored, and you can still accept or discard the edits.
+## Manage file edit approvals
 
-## Edit chat requests (Experimental)
+You can manage which files the AI is allowed to edit without asking for explicit user approval with the `setting(chat.tools.edits.autoApprove)` setting. This setting can help inadvertent edits to files that contain sensitive information like workspace configuration settings or environment settings.
 
-> [!NOTE]
-> The ability to edit chat requests is available as of VS Code version 1.102 and is currently an experimental feature.
+The `setting(chat.tools.edits.autoApprove)` setting accepts glob pattern-boolean pairs that indicate which files are automatically approved for edits. For example:
 
-You can edit a previous chat request in the active chat session. This is useful if you want to refine your prompt or correct a mistake. When you edit a previous chat request, the following steps are performed:
+```json
+"chat.tools.edits.autoApprove": {
+  "**/*": true,
+  "**/.vscode/*.json": false,
+  "**/.env": false
+}
+```
 
-1. The edited request and all subsequent requests and responses are removed from the conversation history.
-1. Any edits that were made by these requests are reverted to their state before the request was made.
-1. The edited request is added to the conversation history and submitted to the language model for a new response.
+## Edit a previous chat request
 
-Editing a chat request is equivalent to reverting the request and then submitting a new request with the edited prompt.
+You can edit a previous chat request in the active chat session. This is useful if you want to refine your prompt or correct a mistake. Editing a chat request is equivalent to reverting the request and then submitting a new request with the edited prompt. Learn more about [editing a previous chat request](/docs/copilot/chat/copilot-chat.md#edit-a-previous-chat-request).
 
-![Screenshot of the Chat view with a chat request being edited in-place.](images/copilot-chat/chat-edit-request.png)
+<video src="images/copilot-chat/chat-edit-request.mp4" title="Video showing the editing of a previous chat request in the Chat view." autoplay loop controls muted></video>
 
-There are different ways to edit a chat request, configured by the `setting(chat.editRequests)` setting:
+## Revert edits with checkpoints
 
-* `inline`: Select the request in the Chat view to make it editable in-place. Use `kbstyle(Escape)` to exit the edit mode.
-* `hover`: Hover over a chat request and select the edit icon (pencil) to make it editable in-place. Use `kbstyle(Escape)` to exit the edit mode.
-* `input`: Hover over a chat request and select the edit icon (pencil) to edit the request in the chat input field.
-* `none`: Disable editing of chat requests in the Chat view.
+Chat checkpoints provide a way to restore the state of your workspace to a previous point in time, and are particularly useful when chat interactions resulted in changes across multiple files.
 
-## Revert edits
+When checkpoints are enabled, VS Code automatically creates snapshots of your files at key points during chat interactions, allowing you to return to a known good state if the changes made by chat requests are not what you expected or if you want to try a different approach.
 
-As you're sending requests to make edits to your code, you might want to roll back some of these changes, for example, because you want to use another implementation strategy or because Copilot starts walking down the wrong path when generating edits.
+To enable checkpoints, configure the `setting(chat.checkpoints.enabled)` setting.
 
-You can use the **Undo Last Edit** control in the Chat view title bar to revert the last edits and return to the state before sending the last request. After you perform an undo of the last edit, you can redo those edits again by using the **Redo Last Edit** control in the Chat view title bar.
+![Screenshot of the Chat view, showing the Restore Checkpoint action in the Chat view.](images/copilot-chat/chat-restore-checkpoint.png)
 
-![Screenshot showing the Copilot Edits view, highlighting the Undo and Redo actions in the view title bar.](images/copilot-edits/copilot-edits-undo-redo.png)
+Learn more about working with [checkpoints in chat](/docs/copilot/chat/copilot-chat.md#revert-chat-requests-with-checkpoints).
 
-You can also use the **Undo Edits (Delete)** control (`kbstyle(x)` icon) when hovering over a request in the Copilot Edits view to revert all edits that were made from that request onwards.
+## Track progress with todo lists (Experimental)
 
-![Screenshot showing the Copilot Edits view, highlighting the Undo Edits control for a specific request.](images/copilot-edits/copilot-edits-undo-request.png)
+To have a better overview of the individual tasks that the agent is working on, you can enable the experimental todo list feature in agent mode. This feature helps you track the progress of the tasks being completed by the agent. This also help the agent to stay focused on the overall goal. As the agent completes tasks, it updates the todo list to reflect the current state of the work.
 
-## Interrupt an agent mode request
+<video src="images/agent-mode/chat-todo-list.mp4" title="Video that shows the todo list in chat." autoplay loop controls muted></video>
 
-To interrupt an ongoing request, you can either **Pause** it or **Cancel** it. When you pause a request, Copilot stops processing the request and waits for your input.
-
-When you pause a request, you can either choose to enter a new prompt, which cancels the current request, or you can choose to resume the current request.
-
-When you cancel a request, Copilot interrupts and ends the active request. You can still [review and accept or reject](#accept-or-discard-edits) the changes that were made up to that point.
+You can configure the visibility and position of the todo list control with the `setting(chat.todoListWidget.position)` setting.
 
 ## Use instructions to get AI edits that follow your coding style
 
@@ -272,15 +352,15 @@ applyTo: "**"
 - Always log errors with contextual information
 ```
 
-Learn more about [using instruction files](/docs/copilot/copilot-customization.md).
+Learn more about [using instruction files](/docs/copilot/customization/overview.md).
 
 ## Settings
 
 The following list contains the settings related to agent mode. You can configure settings through the Settings editor (`kb(workbench.action.openSettings)`).
 
 * `setting(chat.agent.enabled:true)`: enable or disable agent mode (default: `false`, requires VS Code 1.99 or later)
-* `setting(chat.agent.maxRequests)`: maximum number of requests that Copilot Edits can make in agent mode (default: 5 for Copilot Free users, 15 for other users)
-* `setting(github.copilot.chat.agent.runTasks)`: run workspace tasks when using agent mode in Copilot Edits (default: `true`)
+* `setting(chat.agent.maxRequests)`: maximum number of requests that chat can make in agent mode (default: 5 for Copilot Free users, 15 for other users)
+* `setting(github.copilot.chat.agent.runTasks)`: run workspace tasks when using agent mode (default: `true`)
 * `setting(chat.mcp.discovery.enabled)`: enable or disable discovery of MCP servers configured in other tools (default: `true`)
 * `setting(github.copilot.chat.agent.autoFix)`: automatically diagnose and fix issues in the generated code changes (default: `true`)
 * `setting(chat.tools.autoApprove)` _(Experimental)_: automatically approve all tools (default: `false`)
@@ -297,13 +377,21 @@ Consider the following criteria to choose between edit mode and agent mode:
 * **Self-healing**: agent mode evaluates the outcome of the generated edits and might iterate multiple times to resolve intermediate issues.
 * **Request quota**: in agent mode, depending on the complexity of the task, one prompt might result in many requests to the backend.
 
+### When should I use Copilot coding agent instead of agent mode?
+
+Use [Copilot coding agent](/docs/copilot/copilot-coding-agent.md) for well-defined tasks that can be handled independently in the background without immediate user interaction. Use agent mode when you want to stay involved in the development process and iterate quickly on changes.
+
+> [!TIP]
+> Use both experiences together by starting with agent mode to analyze the feature and determine the implementation approach, and then hand off the well-defined task to the Copilot coding agent to work on it in the background.
+
 ### I'm getting an error that says "Cannot have more than 128 tools per request."
 
-A chat request can have a maximum of 128 tools enabled at a time. If you have more than 128 tools selected, reduce the number of tools by deselecting some tools in the tools picker in the Chat view.
+A chat request can have a maximum of 128 tools enabled at a time. If you have more than 128 tools selected, reduce the number of tools by deselecting some tools in the tools picker in the Chat view, or ensure that virtual tools are enabled (`setting(github.copilot.chat.virtualTools.threshold)`).
 
 ![Screenshot showing the Chat view, highlighting the Tools icon in the chat input and showing the tools Quick Pick where you can select which tools are active.](images/copilot-edits/agent-mode-select-tools.png)
 
 ## Related resources
 
-* [Configure MCP servers to add tools to agent mode](/docs/copilot/chat/mcp-servers.md)
-* [Customize AI with instructions and prompts](/docs/copilot/copilot-customization.md)
+* [Configure MCP servers to add tools to agent mode](/docs/copilot/customization/mcp-servers.md)
+* [Customize AI with instructions and prompts](/docs/copilot/customization/overview.md)
+* [Implement tasks in the background with Copilot coding agent](/docs/copilot/copilot-coding-agent.md)

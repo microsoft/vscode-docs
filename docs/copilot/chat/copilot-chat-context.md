@@ -1,6 +1,6 @@
 ---
 ContentId: 5d8a707d-a239-4cc7-92ee-ccc763e8eb9c
-DateApproved: 07/09/2025
+DateApproved: 10/09/2025
 MetaDescription: "Learn how to manage context when using AI in VS Code, including workspace indexing, #-mentions for files and symbols, web content references, and custom instructions."
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -14,10 +14,11 @@ VS Code automatically provides context to the chat prompt based on your current 
 
 * The currently selected text in the active editor.
 * The file name or notebook name of the active editor.
-
-VS Code automatically adds the active file as a context item in the chat input box (indicated by _Current file_). Select the context item to exclude it from the chat context.
+* If you're using [ask mode](/docs/copilot/chat/chat-ask-mode.md) or [edit mode](/docs/copilot/chat/copilot-edits.md), the active file is automatically included as context.
 
 ![Screenshot of the Chat view, showing the active file as a suggested context item in the chat input box.](./images/copilot-chat/chat-context-current-file.png)
+
+If you're using [agent mode](/docs/copilot/chat/chat-agent-mode.md), the agent tools automatically determine if the active file needs to be added to the chat context.
 
 ## #-mentions
 
@@ -33,7 +34,7 @@ Alternatively, choose from the list of available predefined context items like `
 
 Make sure to enable the `setting(github.copilot.chat.codesearch.enabled)` _(preview)_ setting to get the best results.
 
-View the full list of supported context items in the [Chat Variables section](/docs/copilot/reference/copilot-vscode-features.md#chat-variables) of the cheat sheet.
+View the full list of supported context items in the [Chat Variables section](/docs/copilot/reference/copilot-vscode-features.md#chat-tools) of the cheat sheet.
 
 ### Prompt examples
 
@@ -136,7 +137,7 @@ You can reference content from the web in your chat prompts, for example to get 
 
 ## Reference tools
 
-Chat in VS Code has several [built-in tools](/docs/copilot/chat/chat-agent-mode.md#agent-mode-tools) and you can further extend it with tools from [MCP servers](/docs/copilot/chat/mcp-servers.md) or extensions. For example, the `#fetch` tool is a built-in tool that allows you to fetch content from a web page. You can also group tools into [tool sets](/docs/copilot/chat/chat-agent-mode.md#define-tool-sets), which you can then reference in your chat prompts.
+Chat in VS Code has several [built-in tools](/docs/copilot/chat/chat-agent-mode.md#agent-mode-tools) and you can further extend it with tools from [MCP servers](/docs/copilot/customization/mcp-servers.md) or extensions. For example, the `#fetch` tool is a built-in tool that allows you to fetch content from a web page. You can also group tools into [tool sets](/docs/copilot/chat/chat-agent-mode.md#define-tool-sets), which you can then reference in your chat prompts.
 
 To reference a tool or tool set directly in your chat prompt, type `#` followed by the tool (set) name and optional tool parameters. The following prompt examples show how to use tools:
 
@@ -153,7 +154,11 @@ To reference a tool or tool set directly in your chat prompt, type `#` followed 
 
 ## @-mentions
 
-Chat participants are specialized assistants that enable you to ask domain-specific questions in chat. You can invoke a chat participant by @-mentioning it: type `@` followed by the participant name. VS Code has several built-in chat participants like `@vscode`, `@terminal`, or `@workspace`. They are optimized to answer questions about their respective domains.
+Chat participants are specialized assistants that enable you to ask domain-specific questions in chat. Imagine a chat participant as a domain expert to whom you hand off your chat request and it takes care of the rest.
+
+Chat participants are different from [tools](#reference-tools) that are invoked as part of an agent flow to contribute and perform specific tasks.
+
+You can invoke a chat participant by @-mentioning it: type `@` followed by the participant name. VS Code has several built-in chat participants like `@vscode`, `@terminal`, or `@workspace`. They are optimized to answer questions about their respective domains.
 
 The following examples show how to use @-mentions in your chat prompts:
 
@@ -163,8 +168,6 @@ The following examples show how to use @-mentions in your chat prompts:
 Type `@` in the chat input field to see a list of available chat participants.
 
 Extensions can also contribute their own [chat participants](/api/extension-guides/ai/chat.md).
-
-Chat participants are different from [tools](#reference-tools) that are invoked as part of an autonomous coding flow in agent mode. Chat participants are responsible to handle your prompt entirely themselves.
 
 ## Add elements from the VS Code simple browser (Experimental)
 
@@ -204,7 +207,7 @@ With instruction files, you can provide the AI with common guidelines and rules 
 
 By using instruction files, you can avoid having to repeatedly add common instructions in your chat prompts, and instead have the AI automatically apply these instructions to your chat interactions.
 
-Learn more about [using instruction files](/docs/copilot/copilot-customization.md).
+Learn more about [using instruction files](/docs/copilot/customization/overview.md).
 
 ## Workspace indexing
 
@@ -221,6 +224,6 @@ Learn more about [workspace indexing](/docs/copilot/reference/workspace-context.
 ## Related resources
 
 * Learn about [tools in agent mode](/docs/copilot/chat/chat-agent-mode.md#agent-mode-tools).
-* Customize AI with [instruction files](/docs/copilot/copilot-customization.md).
+* Customize AI with [instruction files](/docs/copilot/customization/overview.md).
 * Learn about [workspace indexing](/docs/copilot/reference/workspace-context.md#managing-the-workspace-index).
 * Get started with [chat in VS Code](/docs/copilot/chat/copilot-chat.md).

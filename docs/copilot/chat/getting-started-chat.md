@@ -1,12 +1,12 @@
 ---
 ContentId: ae1f36a9-7597-425f-97fc-49bd51c153a3
-DateApproved: 07/09/2025
+DateApproved: 10/09/2025
 MetaDescription: Get started with AI-powered chat conversations with GitHub Copilot in Visual Studio Code, inline while you're coding, or in a separate Chat view.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
-# Getting started with Copilot Chat in VS Code
+# Getting started with chat in VS Code
 
-This tutorial walks you through using Copilot Chat in Visual Studio Code. You use AI-powered chat conversations to help with refactoring code, improving your code understanding, and finding your way around configuring VS Code.
+This tutorial walks you through using chat in Visual Studio Code. You use AI-powered chat conversations to help with refactoring code, improving your code understanding, and finding your way around configuring VS Code.
 
 If you're new to using Copilot in VS Code, see the [Copilot Overview](/docs/copilot/overview.md) or get set up and discover the key capabilities in the [Copilot Quickstart](/docs/copilot/getting-started.md).
 
@@ -24,13 +24,13 @@ Follow the steps in the [GitHub Copilot set up guide](/docs/copilot/setup.md) to
 
 ## Get your first chat conversation
 
-Copilot Chat lets you interact with GitHub Copilot by using natural language, to ask and receive answers to coding-related questions.
+Chat lets you interact with GitHub Copilot by using natural language, to ask and receive answers to coding-related questions.
 
 In this tutorial, you'll be creating a simple Node.js web application.
 
 1. Open a new VS Code window. You'll be creating a new workspace in a follow-up step.
 
-1. Select **Open Chat** from the Copilot menu in the title bar or use the `kb(workbench.action.chat.open)` keyboard shortcut.
+1. Select **Open Chat** from the Chat menu in the title bar or use the `kb(workbench.action.chat.open)` keyboard shortcut.
 
     ![Screenshot of VS Code editor, showing the Copilot Chat view, highlighting the chat menu in the Command Center.](./images/getting-started-chat/copilot-chat-menu-command-center.png)
 
@@ -38,19 +38,19 @@ In this tutorial, you'll be creating a simple Node.js web application.
 
 1. In the Chat view, select **Ask** from the chat mode dropdown.
 
-    Use _ask mode_ to ask Copilot questions about coding and technology topics, explain code, or brainstorm ideas.
+    Use _ask mode_ to ask questions about coding and technology topics, explain code, or brainstorm ideas.
 
-    ![Screenshot of VS Code Copilot Chat view, showing the Ask mode dropdown.](./images/getting-started-chat/chat-mode-dropdown-ask.png)
+    ![Screenshot of VS Code Chat view, showing the Ask mode dropdown.](./images/getting-started-chat/copilot-chat-ask-mode.png)
 
-1. Let's ask Copilot about popular web frameworks. Enter "what are the most popular web frameworks?" in the chat input field.
+1. Let's ask about popular web frameworks. Enter "what are the most popular web frameworks?" in the chat input field.
 
-    Copilot returns a list of popular web frameworks. Experiment with asking follow-up questions to get more information about a specific framework, or to compare frameworks. For example, you can ask "what are the differences between Express and Fastify?" or "how to do server-side rendering?".
+    VS Code returns a list of popular web frameworks. Experiment with asking follow-up questions to get more information about a specific framework, or to compare frameworks. For example, you can ask "what are the differences between Express and Fastify?" or "how to do server-side rendering?".
 
 1. To scaffold a new web app, enter "new express app with typescript and pug" in the chat input field.
 
-    Notice how Copilot returns a file tree that represents the new workspace files. Select any file in the file tree to preview its content.
+    Notice how VS Code returns a file tree that represents the new workspace files. Select any file in the file tree to preview its content.
 
-    ![Screenshot of VS Code Copilot Chat view, showing a file tree for a new workspace and a 'Create Workspace' button.](./images/getting-started-chat/copilot-chat-view-workspace-file-tree.png)
+    ![Screenshot of Chat view, showing a file tree for a new workspace and a 'Create Workspace' button.](./images/getting-started-chat/copilot-chat-view-workspace-file-tree.png)
 
 1. Select **Create Workspace** to create the app, and select a folder on disk where the workspace should be created.
 
@@ -65,7 +65,7 @@ While the Chat view is great for keeping a conversation going, _editor inline ch
 
 Let's look at how to use editor inline chat for code refactoring.
 
-1. Open the `app.ts` file and use the `kb(inlinechat.start)` keyboard shortcut to bring up editor inline chat. Alternatively, select **Editor Inline Chat** from the Copilot menu in the title bar.
+1. Open the `app.ts` file and use the `kb(inlinechat.start)` keyboard shortcut to bring up editor inline chat. Alternatively, select **Open Inline Chat** from the Chat menu in the title bar.
 
     A chat input field appears inline in the editor, where you can enter your chat prompt and ask Copilot about the code in the editor.
 
@@ -82,7 +82,7 @@ Let's look at how to use editor inline chat for code refactoring.
     If you're not happy with the suggested code changes, you can select the **Rerun Request** control or ask a follow-up question to get another suggestion.
 
 > [!TIP]
-> Right-click in the editor and select the **Copilot** context menu to access commonly used Copilot commands, such as fixing or explaining code or generating tests.
+> Right-click in the editor to access commonly used AI commands, such as fixing or explaining code or generating tests.
 
 ## Make edits across multiple files
 

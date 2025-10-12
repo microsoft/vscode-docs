@@ -90,11 +90,14 @@ export async function getReleaseFeatures(milestoneName: string): Promise<Release
 
 		for (const edge of result.search.edges) {
 			const issue = toIssue(edge);
+			if (!issue) {
+				continue;
+			}
 			if (issue.labels.includes('*duplicate')) {
-				continue
+				continue;
 			}
 			if (issue.labels.includes('*out-of-scope')) {
-				continue
+				continue;
 			}
 			if (issue.labels.includes('on-testplan')) {
 				onTestPlan.push(issue);
@@ -123,8 +126,12 @@ async function getReleaseFeaturesWithTestPlanItems(milestoneName: string, onTest
 	});
 
 	for (const edge of result.search.edges) {
+		const issue = toIssue(edge);
+		if (!issue) {
+			continue;
+		}
 		const releaseFeature: ReleaseFeature = {
-			...toIssue(edge),
+			...issue,
 			related: []
 		};
 		releaseFeature.related.push(...await getIssuesFiledAgainst(edge.node.number, gqlClient));
@@ -146,7 +153,15 @@ async function getIssuesFiledAgainst(testPlanItem: string, gqlClient: GraphqlCli
 			after: null
 		});
 
-		return result.search.edges.map(edge => toIssue(edge));
+		const issues: Issue[] = [];
+		for (const edge of result.search.edges) {
+			const issue = toIssue(edge);
+			if (!issue) {
+				continue;
+			}
+			issues.push(issue);
+		}
+		return issues;
 
 	} catch (error) {
 		console.error('Error fetching issues:', error);
@@ -154,7 +169,13 @@ async function getIssuesFiledAgainst(testPlanItem: string, gqlClient: GraphqlCli
 	}
 }
 
-function toIssue(edge: any): Issue {
+function toIssue(edge: any): Issue | undefined {
+	if (!edge.node) {
+		return undefined;
+	}
+	if (!edge.node.number) {
+		return undefined;
+	}
 	return {
 		number: edge.node.number,
 		summary: edge.node.title,
@@ -179,4 +200,27 @@ async function gql(): Promise<GraphqlClient> {
 			authorization: `Bearer ${session.accessToken}`,
 		},
 	});;
+}
+
+export async function getCurrentMilestoneName(): Promise<string | undefined> {
+	const session = await vscode.authentication.getSession('microsoft', ['api://3834c68c-adcc-4ad8-818a-8fca4cc260be/.default'], {
+		createIfNone: true
+	});
+
+	const response = await fetch('https://tools.code.visualstudio.com/api/milestones/current', {
+		headers: {
+			'Authorization': `Bearer ${session.accessToken}`,
+			'Content-Type': 'application/json'
+		}
+	});
+
+	if (!response.ok) {
+		if (response.status === 404) {
+			return undefined;
+		}
+		throw new Error(`Failed to fetch team members: ${response.status} ${response.statusText}`);
+	}
+
+	const currentMilestone = await response.json() as { title: string };
+	return currentMilestone.title;
 }

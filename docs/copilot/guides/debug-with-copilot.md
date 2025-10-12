@@ -1,6 +1,6 @@
 ---
 ContentId: 2f21c45a-8931-4da2-a921-af23a3b92949
-DateApproved: 07/09/2025
+DateApproved: 10/09/2025
 MetaDescription: Learn how to use GitHub Copilot in Visual Studio Code to set up debugging configurations and fix issues during debugging.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -62,7 +62,6 @@ You can use Copilot Chat to help you fix coding issues or improve your code.
 1. Open your application code file.
 
 1. Open one of these views:
-    * Copilot Edits (`kb(workbench.action.chat.openEditSession)`)
     * Chat view (`kb(workbench.action.chat.open)`)
     * Inline Chat (`kb(inlineChat.start)`)
 
@@ -73,7 +72,7 @@ You can use Copilot Chat to help you fix coding issues or improve your code.
     * "Refactor this code"
     * "Improve the performance of this code"
 
-Learn more about using [Copilot Chat](/docs/copilot/chat/copilot-chat.md) and [Copilot Edits](/docs/copilot/chat/copilot-edits.md) in VS Code.
+Learn more about using [Copilot Chat](/docs/copilot/chat/copilot-chat.md) in VS Code.
 
 ### Use editor smart actions
 
@@ -81,9 +80,9 @@ To fix coding issues for your application code without writing a prompt, you can
 
 1. Open your application code file.
 1. Select the code you want to fix.
-1. Right-click and select **Copilot** > **Fix**.
+1. Right-click and select **Generate Code** > **Fix**.
 
-    Copilot provides a code suggestion to fix the code.
+    VS Code provides a code suggestion to fix the code.
 
 1. Optionally, refine the generated code by providing additional context in the chat prompt.
 

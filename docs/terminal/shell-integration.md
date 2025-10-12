@@ -1,6 +1,6 @@
 ---
 ContentId: a6a1652b-c0d8-4054-a2da-feb915eef2cc
-DateApproved: 07/09/2025
+DateApproved: 10/09/2025
 MetaDescription: Visual Studio Code's embedded terminal can integrate with some shells to enhance the capabilities of the terminal.
 ---
 # Terminal Shell Integration
@@ -226,6 +226,10 @@ When the shell provides an inline completion, VS Code surfaces this as the first
 The `setting(terminal.integrated.suggest.showStatusBar)` setting controls if a status bar shows up at the bottom of the list. This status bar provides actions like **Learn More** (`kb(workbench.action.terminal.suggestLearnMore)`), **Insert** (`kb(workbench.action.terminal.acceptSelectedSuggestion)`), and **Configure** (`kb(workbench.action.terminal.configureSuggestSettings)`). When you use the IntelliSense feature for the first several times, the **Learn More** action is highlighted for extra discoverability.
 
 The suggest control can show extra details about the suggestion. You can toggle the visibility of these details with `kb(workbench.action.terminal.suggestToggleDetails)`. Screen reader users can focus the details control with `kb(workbench.action.terminal.suggestToggleDetailsFocus)` to hear them read out.
+
+### Global completion caching
+
+To improve performance, VS Code aggressively caches globals for a particular shell. When you make changes to shell startup logic that adds commands, manually refresh the cache with the **Terminal: Clear Suggest Cached Globals** command (`terminal.integrated.suggest.clearCachedGlobals`) if they weren't picked up automatically.
 
 ## Supported escape sequences
 

@@ -8,7 +8,7 @@ MetaDescription: Develop, build, and debug a Python app in a container, using Vi
 In this tutorial, you will learn how to:
 
 - Create a `Dockerfile` file describing a simple Python container.
-- Build, run, and verify the functionality of a [Django](https://www.djangoproject.com/), [Flask](https://flask.palletsprojects.com/en/1.1.x), or General Python app.
+- Build, run, and verify the functionality of a [Django](https://www.djangoproject.com/), [Flask](https://flask.palletsprojects.com/en/stable/), or General Python app.
 - Debug the app running in a container.
 
 ## Prerequisites

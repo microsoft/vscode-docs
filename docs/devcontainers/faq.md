@@ -1,7 +1,7 @@
 ---
 ContentId: c4784db6-ab00-4ac7-bca8-88edb638c593
 MetaDescription: Visual Studio Code troubleshooting tips and tricks for Dev Containers
-DateApproved: 07/09/2025
+DateApproved: 10/09/2025
 ---
 # Dev Containers FAQ
 
@@ -70,7 +70,6 @@ The following articles may help answer your question:
 * [Docker Compose file reference](https://docs.docker.com/compose/compose-file/)
 * [Docker Desktop for Windows troubleshooting guide](https://docs.docker.com/docker-for-windows/troubleshoot) and [FAQ](https://docs.docker.com/docker-for-windows/faqs/)
 * [Docker Desktop for Mac troubleshooting guide](https://docs.docker.com/docker-for-mac/troubleshoot) and [FAQ](https://docs.docker.com/docker-for-mac/faqs/)
-* [Docker Support Resources](https://success.docker.com/article/best-support-resources)
 
 ## Can I use dev containers outside of VS Code?
 

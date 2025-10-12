@@ -1,5 +1,5 @@
 ---
-applyTo: '**/*.md'
+applyTo: 'docs/**/*.md, api/**/*.md, remote/**/*.md'
 ---
 # Documentation Writing Instructions
 
@@ -47,6 +47,8 @@ These are our documentation writing style guidelines.
 * Avoid semicolons - use separate sentences instead.
 * Use question marks sparingly.
 * Don't use slashes (/) - use "or" instead.
+* Prefer single over double quotes, avoiding typographic quotes.
+* Only use apostrophe (U+0027) and quotes (U+0022), not left or right single or double quotation marks.
 
 ## Text formatting
 
@@ -85,13 +87,19 @@ These are our documentation writing style guidelines.
 * Images have a descriptive and meaningful alt text that starts with "Screenshot showing" and ends with ".".
 * Videos have a descriptive and meaningful alt text or title that starts with "Video showing" and ends with ".".
 
+## Lists
+
+* Use asterisks (*) for lists of items.
+* Use numbered lists for steps in a procedure.
+* Keep list items parallel in structure.
+
 ## Numbered steps
 
 * Write complete sentences with capitalization and periods
 * Use imperative verbs
 * Clearly indicate where actions take place (UI location)
 * For single steps, use a bullet instead of a number
-* When allowed, use angle brackets for menu sequences (File > Open)
+* Use angle brackets for menu sequences (File > Open)
 
 ## Terminology
 
@@ -100,3 +108,4 @@ These are our documentation writing style guidelines.
 * Avoid latin abbreviations like "e.g.". Use "for example" instead.
 * Use the verb "to enable" instead "to allow" unless you're referring to permissions.
 * Follow the terms and capitalization guidelines in #fetch [VS Code docs wiki](https://github.com/microsoft/vscode-docs/wiki/VS-Code-glossary)
+* Don't use the following terms: "simply", "just", "easy", "obviously", "of course", "etc.", "delve", "crucial", "utilize", "leverage", "prior to", "in order to", "harness".

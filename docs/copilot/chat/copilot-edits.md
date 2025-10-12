@@ -1,6 +1,6 @@
 ---
 ContentId: 393f3945-0821-42ca-bdd7-fb82affacb6a
-DateApproved: 07/09/2025
+DateApproved: 10/09/2025
 MetaDescription: Get started with chat edit mode in VS Code to start an AI-powered code editing session across multiple files in your project.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -57,6 +57,9 @@ In edit mode, you select which files to edit and provide the relevant context an
 
     ![Screenshot that shows the Chat view, highlighting the changed files list and the indicator in the Explorer view and editor tabs.](images/copilot-edits/copilot-edits-changed-files.png)
 
+    > [!NOTE]
+    > AI-generated code edits are restricted to the files in your current workspace.
+
 1. Review the suggested edits and [accept or discard the suggested edits](#accept-or-discard-edits).
 
 1. Continue to iterate on the code changes to refine the edits or to implement additional features.
@@ -67,29 +70,47 @@ VS Code lists the files that were edited in the changed files list in the Chat v
 
 ![Screenshot that shows the Chat view, highlighting the changed files list and the indicator in the Explorer view and editor tabs.](images/copilot-edits/copilot-edits-changed-files-full.png)
 
-With the editor overlay controls, you can navigate between the suggested edits by using the `kbstyle(Up)` (<i class="codicon codicon-arrow-up"></i>) and `kbstyle(Down)` (<i class="codicon codicon-arrow-down"></i>) controls. Use the **Keep** or **Undo** button to accept or reject the edits for a given file.
+With the editor overlay controls, you can navigate between the suggested edits by using the `kbstyle(Up)` and `kbstyle(Down)` controls. Use the **Keep** or **Undo** button to accept or reject the edits for a given file.
 
 ![Screenshot showing the Editor with proposed changes, highlighting the review controls in the editor overlay controls.](images/copilot-edits/copilot-edits-file-review-controls.png)
 
-Use the **Keep** or **Undo** controls in the editor or Chat view to accept or reject individual or all suggested edits.
+If you stage your changes in the Source Control view, any pending edits are automatically accepted. On the other hand, if you discard your changes, any pending edits are also discarded.
 
-![Screenshot showing the Chat view, highlighting the Accept All and Discard All buttons.](images/copilot-edits/copilot-edits-accept-discard.png)
+When you close VS Code, the status of the pending edits is remembered and restored when you reopen VS Code.
 
-With the `setting(chat.editing.autoAcceptDelay)` setting, you can configure a delay after which the suggested edits are automatically accepted. Hover over the editor overlay controls to cancel the auto-accept countdown.
+To automatically accept all the suggested edits after a specific delay, configure the `setting(chat.editing.autoAccept)` setting. By hovering over the editor overlay controls, you can cancel the auto-accept countdown. If you automatically accept all edits, it's recommended to still review the changes before committing them in source control.
 
-When you close VS Code, the status of the pending edits is remembered. When you reopen VS Code, the pending edits are restored and you can still accept or discard the edits.
+## Manage file edit approvals
 
-## Revert edits
+You can manage which files the AI is allowed to edit without asking for explicit user approval with the `setting(chat.tools.edits.autoApprove)` setting. This setting can help inadvertent edits to files that contain sensitive information like workspace configuration settings or environment settings.
 
-As you're sending requests to make edits to your code, you might want to roll back some of these changes, for example because you want to use another implementation strategy or because the AI starts walking down the wrong path when generating edits.
+The `setting(chat.tools.edits.autoApprove)` setting accepts glob pattern-boolean pairs that indicate which files are automatically approved for edits. For example:
 
-You can use the **Undo Last Edit** control in the Chat view title bar to revert the last edits and return to the state before sending the last request. After you perform an undo of the last edit, you can redo those edits again by using the **Redo Last Edit** control in the Chat view title bar.
+```json
+"chat.tools.edits.autoApprove": {
+  "**/*": true,
+  "**/.vscode/*.json": false,
+  "**/.env": false
+}
+```
 
-![Screenshot showing the Chat view, highlighting the Undo and Redo actions in the view title bar.](images/copilot-edits/copilot-edits-undo-redo.png)
+## Edit a previous chat request
 
-You can also use the **Undo Edits (Delete)** control (`kbstyle(x)` icon) when hovering over a request in the Chat view to revert all edits that were made from that request onwards.
+You can edit a previous chat request in the active chat session. This is useful if you want to refine your prompt or correct a mistake. Editing a chat request is equivalent to reverting the request and then submitting a new request with the edited prompt. Learn more about [editing a previous chat request](/docs/copilot/chat/copilot-chat.md#edit-a-previous-chat-request).
 
-![Screenshot showing the Chat view, highlighting the Undo Edits control for a specific request.](images/copilot-edits/copilot-edits-undo-request.png)
+<video src="images/copilot-chat/chat-edit-request.mp4" title="Video showing the editing of a previous chat request in the Chat view." autoplay loop controls muted></video>
+
+## Revert chat requests with checkpoints
+
+Chat checkpoints provide a way to restore the state of your workspace to a previous point in time, and are particularly useful when chat interactions resulted in changes across multiple files.
+
+When checkpoints are enabled, VS Code automatically creates snapshots of your files at key points during chat interactions, allowing you to return to a known good state if the changes made by chat requests are not what you expected or if you want to try a different approach.
+
+To enable checkpoints, configure the `setting(chat.checkpoints.enabled)` setting.
+
+![Screenshot of the Chat view, showing the Restore Checkpoint action in the Chat view.](images/copilot-chat/chat-restore-checkpoint.png)
+
+Learn more about working with [checkpoints in chat](/docs/copilot/chat/copilot-chat.md#revert-chat-requests-with-checkpoints).
 
 ## Use instructions to get AI edits that follow your coding style
 
@@ -117,7 +138,7 @@ applyTo: "**"
 - Always log errors with contextual information
 ```
 
-Learn more about [using instruction files](/docs/copilot/copilot-customization.md).
+Learn more about [using instruction files](/docs/copilot/customization/overview.md).
 
 ## Settings
 
@@ -139,7 +160,7 @@ Consider the following criteria to choose between edit mode and agent mode:
 * **Non-deterministic**: agent mode evaluates the outcome of the generated edits and might iterate multiple times. As a result, agent mode can be more non-deterministic than edit mode.
 * **Request quota**: in agent mode, depending on the complexity of the task, one prompt might result in many requests to the backend.
 
-## Related content
+## Related resources
 
 * [Learn more about using chat in VS Code](/docs/copilot/chat/copilot-chat.md)
 * [Add context to your chat prompt](/docs/copilot/chat/copilot-chat-context.md)

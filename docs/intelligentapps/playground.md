@@ -1,6 +1,6 @@
 ---
 ContentId: e919aee8-fd2e-401b-9d83-0ff6f98b23ba
-DateApproved: 14/06/2025
+DateApproved: 07/14/2025
 MetaDescription: Chat with selected generative AI model in playground. Change system prompt and parameters. Add attachment for Multi-Modal models. Keep chat history.
 ---
 # Model playground in AI Toolkit
@@ -23,7 +23,20 @@ To test a model in the playground, follow these steps:
 3. Optionally, configure the model parameters available for the selected model.
 4. Enter a chat prompt in the chat input box
 
+## GitHub Pay-as-you-go Model Support
+
+AI Toolkit now supports GitHub pay-as-you-go models, so you can keep working after passing free tier limits.
+
+- When you reach GitHub’s model usage limit, AI Toolkit shows a warning with a link to GitHub’s paid usage documentation.
+
+    ![Screenshot of the GitHub Pay-as-you-go Model support](./images/playground/github-pay-as-you-go.png)
+
+- Turn on billing for models in your [GitHub settings](https://github.com/settings/billing) (requires signing in to your GitHub account).
+
+- After enabling billing, keep using the model in Playground or Agent Builder without changing your workflow.
+
 ## Model preferences
+
 ![Model Preferences panel displaying adjustable parameters for generative AI models](./images/playground/parameters.png)
 
 The **Model Preferences** panel allows you to select a model for playground interaction, set system prompts to guide the model's behavior and configure the model parameters for the selected model.
@@ -44,7 +57,7 @@ The available parameters depend on the model type and publisher. Common paramete
 
 ## Chat prompt
 
-![Chat prompt input box in AI Toolkit playground showing an attachment icon for adding files.](./images/playground/chat_prompt.png)
+![Chat prompt input box in AI Toolkit playground showing an attachment icon for adding files.](./images/playground/chat-prompt.png)
 
 The chat prompt is the input text you provide to the model. You can enter a question, statement, or any text that you want the model to respond to. The model generates a response based on the provided prompt and the configured system prompts and parameters.
 
@@ -63,10 +76,10 @@ You can switch between different modes in the chat prompt input box:
 
 If a capability is not supported by the selected model or by AI Toolkit, a warning appears above the chat prompt input box. The warning recommends that you switch to a different model that supports the feature.
 
-![Screenshot showing warning message displayed above the chat prompt input box stating Capability not supported.](./images/playground/capability_warning.png)
+![Screenshot showing warning message displayed above the chat prompt input box stating Capability not supported.](./images/playground/capability-warning.png)
 
 ## Model responses
-![AI Toolkit playground response area showing a generated Python code snippet for encoding text in base64, with options to copy or regenerate the response.](./images/playground/response_area.png)
+![AI Toolkit playground response area showing a generated Python code snippet for encoding text in base64, with options to copy or regenerate the response.](./images/playground/response-area.png)
 
 Model responses are displayed above the chat prompt input box. Before you enter a chat prompt, the playground shows a welcome screen with three starter prompts for you to get started with the playground.
 
@@ -80,7 +93,7 @@ Available features in the model response area:
 ## Tool bar
 
 The tool bar in the playground provides quick access to various actions and features:
-![Tool bar in AI Toolkit playground showing buttons for clearing chat history, saving chat, and switching modes.](./images/playground/tool_bar.png)
+![Tool bar in AI Toolkit playground showing buttons for clearing chat history, saving chat, and switching modes.](./images/playground/tool-bar.png)
 
 - **New Playground**: Create a new playground session.
 - **History**: View, rename, delete, and switch to a chat history.
@@ -104,3 +117,17 @@ For each model you are comparing, you can:
 - Copy the response text to the clipboard.
 - Configure the model parameters for the selected model.
 - Continue the chat with the selected model.
+
+## What you learned
+
+In this article, you learned how to:
+
+- Use the AI Toolkit playground to interact with generative AI models.
+- Test models in the playground, configure system prompts and parameters, and explore multi-modal capabilities by attaching files.
+- Use the Compare feature to evaluate the performance of different models on the same prompt and view responses side by side.
+- Use the chat prompt input box to send prompts, attach files or images, perform web searches, and switch between modes for AI features.
+- View model responses, copy or regenerate responses, and render code snippets, images, markdown, and LaTeX.
+- Track token count in model responses to understand cost and performance.
+- Use the Model Preferences panel to select models, set system prompts, and adjust inference parameters.
+- Use the tool bar to create new playground sessions, view and manage chat history, automatically name sessions, compare models, and view generated code.
+- Manage chat history, including viewing, renaming, deleting, and switching between sessions.

@@ -1,7 +1,7 @@
 ---
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Visual Studio Code Remote Development troubleshooting tips and tricks for SSH, Containers, and the Windows Subsystem for Linux (WSL)
-DateApproved: 07/09/2025
+DateApproved: 10/09/2025
 ---
 # Remote Development Tips and Tricks
 
@@ -15,7 +15,7 @@ SSH is powerful and flexible, but this also adds some setup complexity. This sec
 
 ## Customize AI Chat Responses
 
-[Custom instructions](/docs/copilot/copilot-customization.md) enable you to describe common guidelines or rules to get responses that match your specific coding practices and tech stack.
+[Custom instructions](/docs/copilot/customization/overview.md) enable you to describe common guidelines or rules to get responses that match your specific coding practices and tech stack.
 
 You can use custom instructions to give Copilot more information about the type of remote environment you're connected to (like what kind of languages or toolchains are installed). You can use a `copilot-instructions.md` file just as you would locally. There are [additional instruction configuration steps](/docs/devcontainers/tips-and-tricks.md#customize-ai-chat-responses) you can take when using a dev container too.
 

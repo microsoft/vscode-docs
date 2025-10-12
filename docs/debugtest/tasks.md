@@ -1,6 +1,6 @@
 ---
 ContentId: F5EA1A52-1EF2-4127-ABA6-6CEF5447C608
-DateApproved: 07/09/2025
+DateApproved: 10/09/2025
 MetaDescription: Expand your development workflow with task integration in Visual Studio Code.
 ---
 # Integrate with External Tools via Tasks

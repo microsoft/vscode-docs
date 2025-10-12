@@ -1,6 +1,6 @@
 ---
 ContentId: d7ec8e7c-de5e-42b3-86df-a48660f1f6e1
-DateApproved: 07/09/2025
+DateApproved: 10/09/2025
 MetaDescription: Learn about working with the Julia programming language in Visual Studio Code.
 ---
 # Julia in Visual Studio Code
@@ -15,7 +15,7 @@ Most of these features work out of the box, while some may require basic configu
 
 ## Getting started
 
-1. Install Julia for your platform: [https://julialang.org/downloads](https://julialang.org/downloads).
+1. Install Julia for your platform: [https://julialang.org/install](https://julialang.org/install).
 2. Install VS Code for your platform: [https://code.visualstudio.com/download](https://code.visualstudio.com/download).
 3. Open the Julia extension on the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=julialang.language-julia) and press **Install**; or manually install by doing the following steps:
     1. Start VS Code.

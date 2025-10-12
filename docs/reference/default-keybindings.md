@@ -1,21 +1,19 @@
 ---
 ContentId: 5822cc5a-0744-4cf0-9498-05767a0fc2d4
-DateApproved: 07/09/2025
+DateApproved: 10/09/2025
 MetaDescription: Reference of default keyboard shortcuts in Visual Studio Code.
 ---
 # Default keyboard shortcuts reference
 
-VS Code comes with a set of default keyboard shortcuts. This article lists the default keyboard shortcuts in VS Code.
+VS Code comes with a set of default keyboard shortcuts. This article lists common default keyboard shortcuts in VS Code.
 
-You can also view the default shortcuts in the product:
+For a full list of keyboard shortcuts, use either of these options within VS Code:
 
-* Open the Keyboard Shortcuts editor, and then select **Show System Keybindings** in the **More Actions** (**...**) menu.
 * Select **Preferences: Open Default Keyboard Shortcuts (JSON)** in the Command Palette.
+* Open the Keyboard Shortcuts editor, and then select **Show System Keybindings** in the **More Actions** (**...**) menu.
 
 > [!NOTE]
 > The following keys are rendered assuming a standard US keyboard layout. Get more information about using a different [keyboard layout](/docs/configure/keybindings.md#keyboard-layouts).
-
-Some commands included below do not have default keyboard shortcuts and so are displayed as `kbstyle(unassigned)` but you can assign your own keyboard shortcuts.
 
 ## Basic Editing
 
@@ -73,7 +71,6 @@ Toggle Find Case Sensitive|`kb(toggleFindCaseSensitive)`|`toggleFindCaseSensitiv
 Toggle Find Regex|`kb(toggleFindRegex)`|`toggleFindRegex`
 Toggle Find Whole Word|`kb(toggleFindWholeWord)`|`toggleFindWholeWord`
 Toggle Use of Tab Key for Setting Focus|`kb(editor.action.toggleTabFocusMode)`|`editor.action.toggleTabFocusMode`
-Toggle Render Whitespace|`kb(toggleRenderWhitespace)`|`toggleRenderWhitespace`
 Toggle Word Wrap|`kb(editor.action.toggleWordWrap)`|`editor.action.toggleWordWrap`
 
 ## Rich Languages Editing
@@ -125,15 +122,14 @@ New Window|`kb(workbench.action.newWindow)`|`workbench.action.newWindow`
 Close Window|`kb(workbench.action.closeWindow)`|`workbench.action.closeWindow`
 Close Editor|`kb(workbench.action.closeActiveEditor)`|`workbench.action.closeActiveEditor`
 Close Folder|`kb(workbench.action.closeFolder)`|`workbench.action.closeFolder`
-Cycle Between Editor Groups|`kb(workbench.action.navigateEditorGroups)`|`workbench.action.navigateEditorGroups`
 Split Editor|`kb(workbench.action.splitEditor)`|`workbench.action.splitEditor`
 Focus into First Editor Group|`kb(workbench.action.focusFirstEditorGroup)`|`workbench.action.focusFirstEditorGroup`
 Focus into Second Editor Group|`kb(workbench.action.focusSecondEditorGroup)`|`workbench.action.focusSecondEditorGroup`
 Focus into Third Editor Group|`kb(workbench.action.focusThirdEditorGroup)`|`workbench.action.focusThirdEditorGroup`
-Focus into Editor Group on the Left|`kb(workbench.action.focusPreviousGroup)`|`workbench.action.focusPreviousGroup`
-Focus into Editor Group on the Right|`kb(workbench.action.focusNextGroup)`|`workbench.action.focusNextGroup`
- Move Editor Left |`kb(workbench.action.moveEditorLeftInGroup)`|`workbench.action.moveEditorLeftInGroup`
- Move Editor Right |`kb(workbench.action.moveEditorRightInGroup)`|`workbench.action.moveEditorRightInGroup`
+Focus into Editor Group on the Left|`kb(workbench.action.focusLeftGroup)`|`workbench.action.focusLeftGroup`
+Focus into Editor Group on the Right|`kb(workbench.action.focusRightGroup)`|`workbench.action.focusRightGroup`
+Move Editor Left |`kb(workbench.action.moveEditorLeftInGroup)`|`workbench.action.moveEditorLeftInGroup`
+Move Editor Right |`kb(workbench.action.moveEditorRightInGroup)`|`workbench.action.moveEditorRightInGroup`
 Move Active Editor Group Left|`kb(workbench.action.moveActiveEditorGroupLeft)`|`workbench.action.moveActiveEditorGroupLeft`
 Move Active Editor Group Right|`kb(workbench.action.moveActiveEditorGroupRight)`|`workbench.action.moveActiveEditorGroupRight`
 Move Editor into Next Group|`kb(workbench.action.moveEditorToNextGroup)`|`workbench.action.moveEditorToNextGroup`
@@ -149,18 +145,12 @@ Save|`kb(workbench.action.files.save)`|`workbench.action.files.save`
 Save All|`kb(saveAll)`|`saveAll`
 Save As...|`kb(workbench.action.files.saveAs)`|`workbench.action.files.saveAs`
 Close|`kb(workbench.action.closeActiveEditor)`|`workbench.action.closeActiveEditor`
-Close Others|`kb(workbench.action.closeOtherEditors)`|`workbench.action.closeOtherEditors`
 Close Group|`kb(workbench.action.closeEditorsInGroup)`|`workbench.action.closeEditorsInGroup`
-Close Other Groups|`kb(workbench.action.closeEditorsInOtherGroups)`|`workbench.action.closeEditorsInOtherGroups`
-Close Group to Left|`kb(workbench.action.closeEditorsToTheLeft)`|`workbench.action.closeEditorsToTheLeft`
-Close Group to Right|`kb(workbench.action.closeEditorsToTheRight)`|`workbench.action.closeEditorsToTheRight`
 Close All|`kb(workbench.action.closeAllEditors)`|`workbench.action.closeAllEditors`
 Reopen Closed Editor|`kb(workbench.action.reopenClosedEditor)`|`workbench.action.reopenClosedEditor`
 Keep Open|`kb(workbench.action.keepEditor)`|`workbench.action.keepEditor`
 Copy Path of Active File|`kb(workbench.action.files.copyPathOfActiveFile)`|`workbench.action.files.copyPathOfActiveFile`
 Reveal Active File in Windows|`kb(workbench.action.files.revealActiveFileInWindows)`|`workbench.action.files.revealActiveFileInWindows`
-Show Opened File in New Window|`kb(workbench.action.files.showOpenedFileInNewWindow)`|`workbench.action.files.showOpenedFileInNewWindow`
-Compare Opened File With|`kb(workbench.files.action.compareFileWith)`|`workbench.files.action.compareFileWith`
 
 ## Display
 
@@ -214,11 +204,22 @@ Delete File Results|`kb(search.searchEditor.action.deleteFileResults)`|`search.s
 Command|Key|Command id
 -------|---|----------
 Open Settings|`kb(workbench.action.openSettings)`|`workbench.action.openSettings`
-Open Workspace Settings|`kb(workbench.action.openWorkspaceSettings)`|`workbench.action.openWorkspaceSettings`
 Open Keyboard Shortcuts|`kb(workbench.action.openGlobalKeybindings)`|`workbench.action.openGlobalKeybindings`
-Open User Snippets|`kb(workbench.action.openSnippets)`|`workbench.action.openSnippets`
 Select Color Theme|`kb(workbench.action.selectTheme)`|`workbench.action.selectTheme`
-Configure Display Language|`kb(workbench.action.configureLocale)`|`workbench.action.configureLocale`
+
+## Chat
+
+Command|Key|Command id
+-------|---|----------
+Open Chat view|`kb(workbench.action.chat.open)`|`workbench.action.chat.open`
+Open chat in agent mode|`kb(workbench.action.chat.openagent)`|`workbench.action.chat.openagent`
+Open editor inline chat|`kb(inlineChat.start)`|`inlineChat.start`
+Open terminal inline chat|`kb(workbench.action.terminal.chat.start)`|`workbench.action.terminal.chat.start`
+Open quick chat|`kb(workbench.action.quickchat.toggle)`|`workbench.action.quickchat.toggle`
+Open chat mode picker|`kb(workbench.action.chat.openModePicker)`|`workbench.action.chat.openModePicker`
+Open language model picker|`kb(workbench.action.chat.openModelPicker)`|`workbench.action.chat.openModelPicker`
+New chat session|`kb(workbench.action.chat.newChat)`|`workbench.action.chat.newChat`
+Accept inline suggestion|`kb(editor.action.inlineSuggest.commit)`|`editor.action.inlineSuggest.commit`
 
 ## Debug
 
@@ -236,20 +237,7 @@ Step Into|`kb(workbench.action.debug.stepInto)`|`workbench.action.debug.stepInto
 Command|Key|Command id
 -------|---|----------
 Run Build Task|`kb(workbench.action.tasks.build)`|`workbench.action.tasks.build`
-Run Test Task|`kb(workbench.action.tasks.test)`|`workbench.action.tasks.test`
-
-## Extensions
-
-Command|Key|Command id
--------|---|----------
-Install Extension|`kb(workbench.extensions.action.installExtension)`|`workbench.extensions.action.installExtension`
-Show Installed Extensions|`kb(workbench.extensions.action.showInstalledExtensions)`|`workbench.extensions.action.showInstalledExtensions`
-Show Outdated Extensions|`kb(workbench.extensions.action.listOutdatedExtensions)`|`workbench.extensions.action.listOutdatedExtensions`
-Show Recommended Extensions|`kb(workbench.extensions.action.showRecommendedExtensions)`|`workbench.extensions.action.showRecommendedExtensions`
-Show Popular Extensions|`kb(workbench.extensions.action.showPopularExtensions)`|`workbench.extensions.action.showPopularExtensions`
-Update All Extensions|`kb(workbench.extensions.action.updateAllExtensions)`|`workbench.extensions.action.updateAllExtensions`
 
 ## Related resources
 
 * [Customize keyboard shortcuts](/docs/configure/keybindings.md)
-* [Personalize VS Code](/docs/getstarted/personalize-vscode.md)

@@ -1,6 +1,6 @@
 ---
 ContentId: 96b20723-ca52-4c3a-8632-6dae669ac7e0
-DateApproved: 07/09/2025
+DateApproved: 10/09/2025
 MetaDescription: Default settings in Visual Studio Code.
 ---
 # Default settings reference

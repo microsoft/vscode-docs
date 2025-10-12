@@ -1,5 +1,5 @@
 ---
-Order: 71
+Order: 
 TOCTitle: The problem with tutorials
 PageTitle: The problem with tutorials
 MetaDescription: How Laravel uses containerized dev environments to make a better tutorial

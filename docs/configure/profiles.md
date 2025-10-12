@@ -1,6 +1,6 @@
 ---
 ContentId: a65efc48-5a2d-4c7d-bd23-03f0393b53f6
-DateApproved: 07/09/2025
+DateApproved: 10/09/2025
 MetaDescription: Expand your development workflow with task integration in Visual Studio Code.
 ---
 # Profiles in Visual Studio Code

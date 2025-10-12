@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 7EA90618-43A3-4873-A9B5-61CC131CE4EE
-DateApproved: 07/09/2025
+DateApproved: 10/09/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to publish Visual Studio Code extensions to the public Marketplace and share them with other developers.
@@ -175,7 +175,7 @@ Once unpublished, the extension's Availability status is changed to **Unpublishe
 ![Unpublished extension](images/publishing-extension/unpublished-extension.png)
 
 > [!NOTE]
-> When you unpublish an extension, the Marketplace preserves the extension statistics.
+> When you unpublish an extension, the Marketplace preserves the extension statistics. The extension remains publicly discoverable and available via an existing API.
 
 ## Removing extensions
 

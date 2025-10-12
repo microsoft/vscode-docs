@@ -106,27 +106,37 @@
         "noCollapse": true,
         "topics": [
           ["Chat Overview", "/docs/copilot/chat/copilot-chat"],
-          ["Chat Tutorial", "/docs/copilot/chat/getting-started-chat"],
-          ["Manage Context", "/docs/copilot/chat/copilot-chat-context"],
-          ["Chat Modes", "/docs/copilot/chat/chat-modes"],
+          ["Chat Context", "/docs/copilot/chat/copilot-chat-context"],
           ["Ask Mode", "/docs/copilot/chat/chat-ask-mode"],
           ["Edit Mode", "/docs/copilot/chat/copilot-edits"],
           ["Agent Mode", "/docs/copilot/chat/chat-agent-mode"],
-          ["MCP Servers", "/docs/copilot/chat/mcp-servers"],
           ["Inline Chat", "/docs/copilot/chat/inline-chat"],
           ["Prompt Engineering", "/docs/copilot/chat/prompt-crafting"]
         ]
       }
       ],
       ["Code Completions", "/docs/copilot/ai-powered-suggestions"],
-      ["Smart Actions", "/docs/copilot/copilot-smart-actions"],
-      ["Customize Copilot", "/docs/copilot/copilot-customization"],
-      ["Language Models", "/docs/copilot/language-models"],
+      ["Copilot Coding Agent", "/docs/copilot/copilot-coding-agent"],
+      ["", "", {
+        "name": "Customize Copilot",
+        "area": "copilot/customization",
+        "noCollapse": true,
+        "topics": [
+          ["Overview", "/docs/copilot/customization/overview"],
+          ["Instructions", "/docs/copilot/customization/custom-instructions"],
+          ["Prompt Files", "/docs/copilot/customization/prompt-files"],
+          ["Chat Modes", "/docs/copilot/customization/custom-chat-modes"],
+          ["Language Models", "/docs/copilot/customization/language-models"],
+          ["MCP", "/docs/copilot/customization/mcp-servers"]
+        ]
+      }
+      ],
       ["", "", {
         "name": "Guides",
         "area": "copilot/guides",
         "noCollapse": true,
         "topics": [
+          ["Context Engineering", "/docs/copilot/guides/context-engineering-guide"],
           ["Edit Notebooks with AI", "/docs/copilot/guides/notebooks-with-ai"],
           ["Test with AI", "/docs/copilot/guides/test-with-copilot"],
           ["Debug with AI", "/docs/copilot/guides/debug-with-copilot"],
@@ -134,7 +144,9 @@
         ]
       }
       ],
+      ["Smart Actions", "/docs/copilot/copilot-smart-actions"],
       ["Tips and Tricks", "/docs/copilot/copilot-tips-and-tricks"],
+      ["Security", "/docs/copilot/security"],
       ["FAQ", "/docs/copilot/faq"],
       ["", "", {
         "name": "Reference",
@@ -265,6 +277,7 @@
       ["Run and Debug", "/docs/java/java-debugging"],
       ["Testing", "/docs/java/java-testing"],
       ["Spring Boot", "/docs/java/java-spring-boot"],
+      ["Modernizing Java Apps", "/docs/java/java-app-mod"],
       ["Application Servers", "/docs/java/java-tomcat-jetty"],
       ["Deploy Java Apps", "/docs/java/java-on-azure"],
       ["GUI Applications", "/docs/java/java-gui"],
@@ -359,6 +372,7 @@
       ["Evaluation", "/docs/intelligentapps/evaluation"],
       ["Fine-tune", "/docs/intelligentapps/finetune"],
       ["Model Conversion", "/docs/intelligentapps/modelconversion"],
+      ["Tracing", "/docs/intelligentapps/tracing"],
       ["FAQ", "/docs/intelligentapps/faq"],
       ["", "", {
         "name": "Reference",

@@ -1,5 +1,5 @@
 ---
-Order: 78
+Order: 
 TOCTitle: VS Code Sandboxing
 PageTitle: VS Code Sandboxing
 MetaDescription: Migrating Visual Studio Code to Electron process sandboxing
@@ -185,7 +185,7 @@ Sandboxed renderer processes are kept alive, even when navigating URLs. Opening 
 
 ## Putting it all together
 
-The last step was to enable sandbox mode conditionally via a user [setting](https://code.visualstudio.com/docs/getstarted/settings). We did not want to enable sandbox mode for all our users but rather give it some time to be validated in our [Insiders](https://code.visualstudio.com/insiders) edition. With the [window.experimental.useSandbox](https://code.visualstudio.com/updates/v1_70#_progress-for-electron-sandbox-support) setting, sandbox is enabled by default in Insiders and can be enabled in Stable.
+The last step was to enable sandbox mode conditionally via a user [setting](https://code.visualstudio.com/docs/configure/settings). We did not want to enable sandbox mode for all our users but rather give it some time to be validated in our [Insiders](https://code.visualstudio.com/insiders) edition. With the [window.experimental.useSandbox](https://code.visualstudio.com/updates/v1_70#_progress-for-electron-sandbox-support) setting, sandbox is enabled by default in Insiders and can be enabled in Stable.
 
 We plan to use our experimentation infrastructure to incrementally roll out the sandbox enablement to our Stable edition in early 2023. This will allow us to test and validate sandbox mode on an increasing set of users as we check for issues.
 

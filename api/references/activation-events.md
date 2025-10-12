@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: C83BB647-A37E-45CE-BA4C-837B397C2ABE
-DateApproved: 07/09/2025
+DateApproved: 10/09/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: To support lazy activation of Visual Studio Code extensions (plug-ins), your extension controls when it should be loaded through a set of Activation Events.
@@ -31,7 +31,9 @@ MetaDescription: To support lazy activation of Visual Studio Code extensions (pl
 - [`onSearch`](/api/references/activation-events#onSearch)
 - [`onStartupFinished`](/api/references/activation-events#onStartupFinished)
 - [`onTaskType`](/api/references/activation-events#onTaskType)
-- [`onTerminalProfile`](/api/references/activation-events#onTerminalProfile)
+- [`onTerminal`](/api/references/activation-events.md#onTerminal)
+    - [`onTerminalProfile`](/api/references/activation-events#onTerminalProfile)
+    - [`onTerminalShellIntegration`](/api/references/activation-events.md#onTerminalShellIntegration)
 - [`onUri`](/api/references/activation-events#onUri)
 - [`onView`](/api/references/activation-events#onView)
 - [`onWalkthrough`](/api/references/activation-events#onWalkthrough)
@@ -231,7 +233,7 @@ This activation event is emitted and interested extensions will be activated **s
 
 ```json
 "activationEvents": [
-    "onTaskType":"npm"
+    "onTaskType:npm"
 ]
 ```
 
@@ -288,6 +290,16 @@ An activation event emitted whenever an external URI, such as an http or https l
 ]
 ```
 
+## onTerminal
+
+`onTerminal:shellType` is emitted when a specific terminal with the given shell type is opened.
+
+```json
+"activationEvents": [
+  "onTerminal:bash"
+]
+```
+
 ## onTerminalProfile
 
 `onTerminalProfile:id` is emitted when a specific terminal profile is launched.
@@ -295,6 +307,16 @@ An activation event emitted whenever an external URI, such as an http or https l
 ```json
 "activationEvents": [
     "onTerminalProfile:terminalTest.terminal-profile"
+]
+```
+
+## onTerminalShellIntegration
+
+`onTerminalShellIntegration:shellType` is emitted when a terminal with the given shell type has shell integration activated.
+
+```json
+"activationEvents": [
+    "onTerminalShellIntegration:bash"
 ]
 ```
 
@@ -334,7 +356,7 @@ An activation event emitted when the specified language model tool is invoked.
 
 ```json
 "activationEvents": [
-    "onChatParticipant:my-language-model-tool"
+    "onLanguageModelTool:my-language-model-tool"
 ]
 ```
 

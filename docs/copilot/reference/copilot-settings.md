@@ -1,6 +1,6 @@
 ---
 ContentId: 7b232695-cbbe-4f3f-a625-abc7a5e6496c
-DateApproved: 07/09/2025
+DateApproved: 10/09/2025
 MetaDescription: Overview of the configuration settings for GitHub Copilot in Visual Studio Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -17,11 +17,11 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(chat.commandCenter.enabled)`<br/>Controls whether to show the Copilot menu in the VS Code title bar. | `true` |
+| `setting(chat.commandCenter.enabled)`<br/>Controls whether to show the Chat menu in the VS Code title bar. | `true` |
+| `setting(workbench.settings.showAISearchToggle)`<br/>Enable searching settings with AI in the Settings editor. | `true` |
 | `setting(workbench.commandPalette.experimental.askChatLocation)` _(Experimental)_<br/>Controls where the Command Palette should ask chat questions. | `"chatView"` |
 | `setting(search.searchView.semanticSearchBehavior)` _(Preview)_<br/>Configure when to run semantic search in the Search view: manually (default), when no text search results are found, or always. | `"manual"` |
 | `setting(search.searchView.keywordSuggestions)` _(Preview)_<br/>Controls whether to show keyword suggestions in the Search view. | `false` |
-| `setting(workbench.settings.showAISearchToggle)` _(Experimental)_<br/>Enable searching settings with AI in the Settings editor. | `true` |
 
 ## Code editing settings
 
@@ -33,6 +33,8 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 | `setting(github.copilot.nextEditSuggestions.enabled)`<br/>Enables [next edit suggestions](/docs/copilot/ai-powered-suggestions.md#next-edit-suggestions) (NES). | `true` |
 | `setting(editor.inlineSuggest.edits.allowCodeShifting)`<br/>Configure if NES is able to shift your code to show a suggestion. | `"always"` |
 | `setting(editor.inlineSuggest.edits.renderSideBySide)`<br/>Configure if NES can show larger suggestions side-by-side if possible, or if Copilot NES should always show larger suggestions below the relevant code. | `"auto"` |
+| `setting(github.copilot.nextEditSuggestions.fixes)`<br/>Enable next edit suggestions based on diagnostics (squiggles). For example, missing imports. | `true` |
+| `setting(editor.inlineSuggest.minShowDelay)`<br/>Time in milliseconds to wait before showing inline suggestions. | `0` |
 
 ## Chat settings
 
@@ -43,6 +45,9 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 | `setting(github.copilot.chat.scopeSelection)`<br/>Whether to prompt for a specific symbol scope if you use `/explain` and the active editor has no selection. | `false` |
 | `setting(github.copilot.chat.terminalChatLocation)`<br/>Controls where chat queries from the terminal should be opened. | `"chatView"` |
 | `setting(chat.detectParticipant.enabled)`<br/>Enable chat participant detection in the Chat view. | `true` |
+| `setting(chat.checkpoints.enabled)` <br/>Enable or disable [checkpoints](/docs/copilot/chat/copilot-chat.md#revert-chat-requests-with-checkpoints) in the chat. | `true` |
+| `setting(chat.checkpoints.showFileChanges)` <br/>Show a summary of file changes at the end of each chat request. | `false` |
+| `setting(chat.editRequests)`<br/>Enable or disable [editing previous chat requests](/docs/copilot/chat/copilot-chat.md#edit-a-previous-chat-request). | `"inline"` |
 | `setting(chat.editor.fontFamily)`<br/>Font family in chat codeblocks. | `"default"` |
 | `setting(chat.editor.fontSize)`<br/>Font size in pixels in chat codeblocks. | `14` |
 | `setting(chat.editor.fontWeight)`<br/>Font weight in chat codeblocks. | `"default"` |
@@ -51,10 +56,20 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 | `setting(chat.editing.confirmEditRequestRemoval)`<br/>Ask for confirmation before undoing an edit. | `true` |
 | `setting(chat.editing.confirmEditRequestRetry)`<br/>Ask for confirmation before performing a redo of the last edit. | `true` |
 | `setting(chat.editing.autoAcceptDelay)`<br/>Configure a delay after which suggested edits are automatically accepted, use zero to disable auto-accept. | `0` |
+| `setting(chat.fontFamily)`<br/>Font family for Markdown content in chat. | `"default"` |
+| `setting(chat.fontSize)`<br/>Font size in pixels for Markdown content in chat. | `13` |
+| `setting(chat.notifyWindowOnConfirmation)`<br/>Enable or disable showing a OS notification window when user input is needed. | `true` |
+| `setting(chat.notifyWindowOnResponseReceived)`<br/>Enable or disable showing a OS notification window when a chat response is received. | `true` |
+| `setting(chat.tools.terminal.autoReplyToPrompts)` <br/>Automatically reply to terminal prompts with a default answer. | `false` |
+| `setting(chat.tools.terminal.terminalProfile.<platform>)`<br/>Configure which terminal profile to use for agent mode terminal commands on each platform. | `""` |
+| `setting(chat.useAgentsMdFile)` <br/>Enable or disable using `AGENTS.md` files as context for chat requests. | `true` |
+| `setting(chat.math.enabled)` _(Preview)_<br/>Enable or disable math rendering with [KaTeX](https://katex.org) in chat. | `false` |
 | `setting(github.copilot.chat.codesearch.enabled)` _(Preview)_<br/>When using `#codebase` in the prompt, Copilot automatically discovers relevant files to be edited. | `false` |
-| `setting(chat.editRequests)` _(Experimental)_<br/>Enable or disable [editing previous chat requests](/docs/copilot/chat/copilot-chat.md#edit-chat-requests-experimental). | `"inline"` |
-| `setting(github.copilot.chat.edits.suggestRelatedFilesFromGitHistory)` _(Experimental)_<br/>Suggest related files from git history in Copilot Edits. | `true` |
+| `setting(chat.emptyState.history.enabled)` _(Experimental)_<br/>Show recent chat history in the empty state of the Chat view. | `false` |
 | `setting(chat.sendElementsToChat.enabled)` _(Experimental)_<br/>Enable sending elements from the Simple Browser to the chat view as context. | `true` |
+| `setting(chat.useNestedAgentsMdFiles)` _(Experimental)_<br/>Enable or disable using `AGENTS.md` files in subfolders of your workspace as context for chat requests. | `false` |
+| `setting(github.copilot.chat.customOAIModels)` _(Experimental)_<br/>Configure custom OpenAI-compatible models for chat. | `[]` |
+| `setting(github.copilot.chat.edits.suggestRelatedFilesFromGitHistory)` _(Experimental)_<br/>Suggest related files from git history in chat context. | `true` |
 
 ## Agent mode settings
 
@@ -64,12 +79,25 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 | `setting(chat.agent.maxRequests)`<br/>Maximum number of requests that Copilot can make in agent mode. | `25` |
 | `setting(github.copilot.chat.agent.autoFix)`<br/>Automatically diagnose and fix issues in the generated code changes. | `true` |
 | `setting(github.copilot.chat.agent.runTasks)`<br/>Run workspace tasks when using agent mode. | `true` |
-| `setting(chat.mcp.enabled)`<br/>Enable Model Context Protocol (MCP) support in VS Code. This enables adding tools from MCP servers in agent mode. | `true` |
-| `setting(chat.tools.autoApprove)` _(Experimental)_<br/>Automatically approve all tools. | `false` |
+| `setting(chat.mcp.access)`<br/>Manage which Model Context Protocol (MCP) servers can be used in VS Code. | `true` |
+| `setting(chat.mcp.discovery.enabled)`<br/>Configure automatic discovery of MCP server configuration from other applications. | `false` |
+| `setting(chat.mcp.gallery.enabled)`<br/>Enable browsing and installing MCP servers via the Extensions view in VS Code. | `false` |
+| `setting(chat.tools.terminal.autoApprove)` <br/>Control which terminal commands are [auto-approved in agent mode](/docs/copilot/chat/chat-agent-mode.md#auto-approve-terminal-commands). Commands can be set to `true` (auto-approve) or `false` (require approval). Regular expressions can be used by wrapping patterns in `/` characters. | `{ "rm": false, "rmdir": false, "del": false, "kill": false, "curl": false, "wget": false, "eval": false, "chmod": false, "chown": false, "/^Remove-Item\\b/i": false }` |
+| `setting(chat.tools.global.autoApprove)`<br/>Automatically approve all tools - this setting [disables critical security protections](/docs/copilot/security.md). | `false` |
+| `setting(chat.agent.thinkingStyle)` _(Experimental)_<br/>Configure how thinking tokens are presented in chat. | `fixedScrolling` |
+| `setting(chat.mcp.autoStart)` _(Experimental)_<br/>Automatically start MCP servers when MCP configuration changes are detected. | `newAndOutdated` |
+| `setting(chat.todoListWidget.position)` _(Experimental)_<br/>Configure the visibility and position of the todo list control in chat. | `false` |
 | `setting(github.copilot.chat.newWorkspaceCreation.enabled)` _(Experimental)_<br/>Enable the agent mode tool for scaffolding a new workspace in chat. | `true` |
 | `setting(github.copilot.chat.agent.thinkingTool:true)` _(Experimental)_<br/>Enable the thinking tool in agent mode. | `false` |
-| `setting(github.copilot.chat.agent.terminal.allowList)` _(Experimental)_<br/>A list of terminal commands that are allowed to be [run in agent mode without confirmation](/docs/copilot/chat/chat-agent-mode.md#auto-approve-terminal-commands-experimental). | `{ "echo": true, "cd": true, "ls": true, "cat": true, "pwd": true, "Write-Host": true, "Set-Location": true, "Get-ChildItem": true, "Get-Content": true, "Get-Location": true }` |
-| `setting(github.copilot.chat.agent.terminal.denyList)` _(Experimental)_<br/>A list of terminal commands that are not allowed to be [run in agent mode without confirmation](/docs/copilot/chat/chat-agent-mode.md#auto-approve-terminal-commands-experimental). | `{ "rm": true, "rmdir": true, "del": true, "kill": true, "curl": true, "wget": true, "eval": true, "chmod": true, "chown": true, "Remove-Item": true }` |
+| `setting(github.copilot.chat.virtualTools.threshold)` _(Experimental)_<br/>Tool count over which virtual tools should be used. Virtual tools group similar sets of tools together and enable the model to activate them on-demand. Enables you to go beyond the limit of 128 tools for a chat request. | `128` |
+
+## Agent sessions
+
+The [Chat Sessions view](/docs/copilot/copilot-coding-agent.md) provides a centralized location for managing both local chat conversations and remote coding agent sessions. This view enables you to work with multiple AI sessions simultaneously, track their progress, and manage long-running tasks efficiently.
+
+| Setting and Description | Default |
+|------------------------|---------------|
+| `setting(chat.agentSessionsViewLocation)` _(Experimental)_<br/>Enable or disable the Chat Sessions view. | `disabled` |
 
 ## Inline chat settings
 
@@ -144,6 +172,7 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 | `setting(accessibility.signals.chatUserActionRequired)`<br/>Plays a sound / audio cue when the user needs to take an action in chat. | `{ "sound": "auto", "announcement": "auto" }` |
 | `setting(accessibility.signals.lineHasInlineSuggestion)`<br/>Plays a sound / audio cue when the cursor is on a line that has an inline suggestion. | `{ "sound": "auto" }` |
 | `setting(accessibility.signals.nextEditSuggestion)`<br/>Plays a sound / audio cue when a next edit suggestion is available. | `{ "sound": "auto", "announcement": "auto" }` |
+| `setting(accessibility.verboseChatProgressUpdates)`<br/>Provide verbose updates about chat activity. | `true` |
 | `setting(accessibility.verbosity.inlineChat)`<br/>Provide information about how to access the inline editor chat accessibility help menu and alert with hints that describe how to use the feature when the input is focused. | `true` |
 | `setting(accessibility.verbosity.inlineCompletions)`<br/>Provide information about how to access the inline completions hover and Accessible View. | `true` |
 | `setting(accessibility.verbosity.panelChat)`<br/>Provide information about how to access the chat help menu when the chat input is focused. | `true` |

@@ -2,7 +2,7 @@
 TOCTitle: FAQ
 ContentId: E02F97FD-842B-4D27-B461-37DD18B2582E
 PageTitle: Visual Studio Code Frequently Asked Questions
-DateApproved: 07/09/2025
+DateApproved: 10/09/2025
 MetaDescription: Visual Studio Code Frequently Asked Questions
 ---
 # Visual Studio Code FAQ
@@ -66,7 +66,12 @@ Performance is our core priority and we are committed to maintaining the perform
 
 ### Can I disable AI functionality in VS Code?
 
-You can disable the built-in AI functionality in VS Code by selecting **Hide Copilot** in the Command Palette or selecting **Hide Copilot** from the Copilot menu in the VS Code title bar.
+You can disable the built-in AI features in VS Code with the `setting(chat.disableAIFeatures)` setting, similar to how you configure other features in VS Code. This disables and hides features like chat or inline suggestions in VS Code and disables the Copilot extensions. You can configure the setting at the workspace or user level.
+
+Alternatively, use the **Learn How to Hide AI Features** action from the Chat menu in the title bar to access the setting.
+
+> [!NOTE]
+> If you have previously disabled the built-in AI features, your choice is respected upon updating to a new version of VS Code.
 
 ### If I disable AI functionality in VS Code, is my data still sent to Microsoft?
 
@@ -110,7 +115,7 @@ VS Code will no longer provide product updates or security fixes on macOS Catali
 
 Starting with VS Code release 1.86.1 (January 2024), VS Code desktop is only compatible with Linux distributions based on glibc 2.28 or later, for example, Debian 10, RHEL 8, or Ubuntu 20.04.
 
-If you are unable to upgrade your Linux distribution, the recommended alternative is to use our [web client](/docs/editor/vscode-web.md). If you would like to use the desktop version, then you can download the VS Code release 1.85 from [here](https://code.visualstudio.com/updates/v1_85). Depending on your platform, make sure to disable updates to stay on that version. A good recommendation is to set up the installation with [Portable Mode](/docs/editor/portable.md).
+If you are unable to upgrade your Linux distribution, the recommended alternative is to use our [web client](/docs/setup/vscode-web.md). If you would like to use the desktop version, then you can download the VS Code release 1.85 from [here](https://code.visualstudio.com/updates/v1_85). Depending on your platform, make sure to disable updates to stay on that version. A good recommendation is to set up the installation with [Portable Mode](/docs/editor/portable.md).
 
 ### Can I run a portable version of VS Code?
 
@@ -123,7 +128,7 @@ Yes, VS Code has a [Portable Mode](/docs/editor/portable.md) that lets you keep 
 
 VS Code collects usage data and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) and [telemetry documentation](/docs/getstarted/telemetry.md) to learn more.
 
-If you don't want to send usage data to Microsoft, you can set the `telemetry.telemetryLevel` user [setting](/docs/getstarted/settings.md) to `off`.
+If you don't want to send usage data to Microsoft, you can set the `telemetry.telemetryLevel` user [setting](/docs/configure/settings.md) to `off`.
 
 From **File** > **Preferences** > **Settings**, search for `telemetry`, and set the **Telemetry: Telemetry Level** setting to `off`. This will silence all telemetry events from VS Code going forward.
 
@@ -131,7 +136,7 @@ From **File** > **Preferences** > **Settings**, search for `telemetry`, and set 
 
 #### How to disable experiments
 
-VS Code uses experiments to try out new features or progressively roll them out. Our experimentation framework calls out to a Microsoft-owned service and is therefore disabled when telemetry is disabled. However, if you want to disable experiments regardless of your telemetry preferences, you may set the `workbench.enableExperiments` user [setting](/docs/getstarted/settings.md) to `false`.
+VS Code uses experiments to try out new features or progressively roll them out. Our experimentation framework calls out to a Microsoft-owned service and is therefore disabled when telemetry is disabled. However, if you want to disable experiments regardless of your telemetry preferences, you may set the `workbench.enableExperiments` user [setting](/docs/configure/settings.md) to `false`.
 
 From **File** > **Preferences** > **Settings**, search for `experiments`, and uncheck the **Workbench: Enable Experiments** setting. This will prevent VS Code from calling out to the service and opt out of any ongoing experiments.
 
@@ -139,7 +144,7 @@ From **File** > **Preferences** > **Settings**, search for `experiments`, and un
 
 VS Code collects data about any crashes that occur and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) and [telemetry documentation](/docs/getstarted/telemetry.md) to learn more.
 
-If you don't want to send crash data to Microsoft, you can change the `telemetry.telemetryLevel` user [setting](/docs/getstarted/settings.md) to `off`.
+If you don't want to send crash data to Microsoft, you can change the `telemetry.telemetryLevel` user [setting](/docs/configure/settings.md) to `off`.
 
 From **File** > **Preferences** > **Settings**, search for `telemetry`, and set the **Telemetry: Telemetry Level** setting to `off`. This will silence all telemetry events including crash reporting from VS Code. You will need to restart VS Code for the setting change to take effect.
 
@@ -338,9 +343,9 @@ You can download the official Visual Studio Code icons and read the usage guidel
 
 ## What is a VS Code "workspace"?
 
-A VS Code "workspace" is usually just your project root folder. VS Code uses the "workspace" concept in order to scope project configurations such as project-specific [settings](/docs/getstarted/settings.md) as well as config files for [debugging](/docs/editor/debugging.md) and [tasks](/docs/editor/tasks.md). Workspace files are stored at the project root in a `.vscode` folder. You can also have more than one root folder in a VS Code workspace through a feature called [Multi-root workspaces](/docs/editor/workspaces/multi-root-workspaces.md).
+A VS Code "workspace" is usually just your project root folder. VS Code uses the "workspace" concept in order to scope project configurations such as project-specific [settings](/docs/configure/settings.md) as well as config files for [debugging](/docs/debugtest/debugging.md) and [tasks](/docs/debugtest/tasks.md). Workspace files are stored at the project root in a `.vscode` folder. You can also have more than one root folder in a VS Code workspace through a feature called [Multi-root workspaces](/docs/editing/workspaces/multi-root-workspaces.md).
 
-You can learn more in the [What is a VS Code "workspace"?](/docs/editor/workspaces/workspaces.md) article.
+You can learn more in the [What is a VS Code "workspace"?](/docs/editing/workspaces/workspaces.md) article.
 
 ## Problems and issues
 

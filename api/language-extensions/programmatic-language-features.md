@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: A9D40038-7837-4320-8C2D-E0CA5769AA69
-DateApproved: 07/09/2025
+DateApproved: 10/09/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Visual Studio Code language extensions contribute programming language features. These guidelines present the language features available in Visual Studio Code and explain the API.
@@ -53,6 +53,7 @@ This listing includes the following items for each language feature:
 | --------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [`createDiagnosticCollection`](/api/references/vscode-api#languages.createDiagnosticCollection)                                   | [PublishDiagnostics](https://microsoft.github.io/language-server-protocol/specification#textDocument_publishDiagnostics)                                                                                                                 |
 | [`registerCompletionItemProvider`](/api/references/vscode-api#languages.registerCompletionItemProvider)                           | [Completion](https://microsoft.github.io/language-server-protocol/specification#textDocument_completion) & [Completion Resolve](https://microsoft.github.io/language-server-protocol/specification#completionItem_resolve)               |
+[`registerInlineCompletionItemProvider`](/api/references/vscode-api#languages.registerInlineCompletionItemProvider)               |  |
 | [`registerHoverProvider`](/api/references/vscode-api#languages.registerHoverProvider)                                             | [Hover](https://microsoft.github.io/language-server-protocol/specification#textDocument_hover)                                                                                                                                           |
 | [`registerSignatureHelpProvider`](/api/references/vscode-api#languages.registerSignatureHelpProvider)                             | [SignatureHelp](https://microsoft.github.io/language-server-protocol/specification#textDocument_signatureHelp)                                                                                                                           |
 | [`registerDefinitionProvider`](/api/references/vscode-api#languages.registerDefinitionProvider)                                   | [Definition](https://microsoft.github.io/language-server-protocol/specification#textDocument_definition)                                                                                                                                 |
@@ -175,6 +176,39 @@ export function activate(ctx: vscode.ExtensionContext): void {
 > **Advanced**
 >
 > You support resolve providers that compute additional information for completion proposal the user selects. This information is displayed along-side the selected item.
+
+## Show Inline Completions
+
+Inline completions present multi-token suggestions directly in the editor (_ghost text_).
+
+![Inline Completions suggesting code as ghost text while writing code](images/language-support/inline-completions.gif)
+
+#### Direct Implementation
+
+```ts
+vscode.languages.registerInlineCompletionItemProvider({ language: 'javascript' }, {
+    provideInlineCompletionItems(document, position, context, token) {
+        const result: vscode.InlineCompletionList = {
+            items: [],
+            commands: [],
+        };
+
+        ...
+
+        return result;
+    }
+});
+```
+
+You can explore a complete example in the [inline completions sample extension](https://github.com/microsoft/vscode-extension-samples/blob/main/inline-completions).
+
+> **Basic**
+>
+> Return inline completions only for a well-known list of patterns based on the current line content, for specific languages.
+
+> **Advanced**
+>
+> Return inline completions based on content in the whole document or workspace and more complex patterns.
 
 ## Show Hovers
 
@@ -796,7 +830,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 Provide the user with support for formatting text as they type.
 
-**Note**: The user [setting](/docs/getstarted/settings) `editor.formatOnType` controls whether source code gets formatted or not as the user types.
+**Note**: The user [setting](/docs/configure/settings) `editor.formatOnType` controls whether source code gets formatted or not as the user types.
 
 ![Visual indicators for formatting as code is typed](images/language-support/format-on-type.gif)
 

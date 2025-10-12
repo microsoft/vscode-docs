@@ -5020,6 +5020,7 @@ var __importStar = (this && this.__importStar) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getReleaseFeatures = getReleaseFeatures;
+exports.getCurrentMilestoneName = getCurrentMilestoneName;
 const vscode = __importStar(__webpack_require__(1));
 const graphql_1 = __webpack_require__(27);
 const ISSUE_FIELDS = `
@@ -5066,6 +5067,9 @@ async function getReleaseFeatures(milestoneName) {
         });
         for (const edge of result.search.edges) {
             const issue = toIssue(edge);
+            if (!issue) {
+                continue;
+            }
             if (issue.labels.includes('*duplicate')) {
                 continue;
             }
@@ -5094,8 +5098,12 @@ async function getReleaseFeaturesWithTestPlanItems(milestoneName, onTestPlan, gq
         after: null
     });
     for (const edge of result.search.edges) {
+        const issue = toIssue(edge);
+        if (!issue) {
+            continue;
+        }
         const releaseFeature = {
-            ...toIssue(edge),
+            ...issue,
             related: []
         };
         releaseFeature.related.push(...await getIssuesFiledAgainst(edge.node.number, gqlClient));
@@ -5114,7 +5122,15 @@ async function getIssuesFiledAgainst(testPlanItem, gqlClient) {
             repositoryQuery: `repo:microsoft/vscode is:closed Testing ${testPlanItem}`,
             after: null
         });
-        return result.search.edges.map(edge => toIssue(edge));
+        const issues = [];
+        for (const edge of result.search.edges) {
+            const issue = toIssue(edge);
+            if (!issue) {
+                continue;
+            }
+            issues.push(issue);
+        }
+        return issues;
     }
     catch (error) {
         console.error('Error fetching issues:', error);
@@ -5122,6 +5138,12 @@ async function getIssuesFiledAgainst(testPlanItem, gqlClient) {
     }
 }
 function toIssue(edge) {
+    if (!edge.node) {
+        return undefined;
+    }
+    if (!edge.node.number) {
+        return undefined;
+    }
     return {
         number: edge.node.number,
         summary: edge.node.title,
@@ -5144,6 +5166,25 @@ async function gql() {
         },
     });
     ;
+}
+async function getCurrentMilestoneName() {
+    const session = await vscode.authentication.getSession('microsoft', ['api://3834c68c-adcc-4ad8-818a-8fca4cc260be/.default'], {
+        createIfNone: true
+    });
+    const response = await fetch('https://tools.code.visualstudio.com/api/milestones/current', {
+        headers: {
+            'Authorization': `Bearer ${session.accessToken}`,
+            'Content-Type': 'application/json'
+        }
+    });
+    if (!response.ok) {
+        if (response.status === 404) {
+            return undefined;
+        }
+        throw new Error(`Failed to fetch team members: ${response.status} ${response.statusText}`);
+    }
+    const currentMilestone = await response.json();
+    return currentMilestone.title;
 }
 
 
@@ -10132,7 +10173,7 @@ function wrappy (fn, cb) {
 
 /***/ }),
 /* 51 */
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
@@ -10140,48 +10181,11 @@ function wrappy (fn, cb) {
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || (function () {
-    var ownKeys = function(o) {
-        ownKeys = Object.getOwnPropertyNames || function (o) {
-            var ar = [];
-            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
-            return ar;
-        };
-        return ownKeys(o);
-    };
-    return function (mod) {
-        if (mod && mod.__esModule) return mod;
-        var result = {};
-        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
-        __setModuleDefault(result, mod);
-        return result;
-    };
-})();
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.GetCurrentMilestoneName = void 0;
-const vscode = __importStar(__webpack_require__(1));
 const prompt_tsx_1 = __webpack_require__(3);
 const utils_1 = __webpack_require__(25);
-const path_1 = __importDefault(__webpack_require__(52));
+const queries_1 = __webpack_require__(26);
 function isSuccess(props) {
     return !!props.result;
 }
@@ -10202,8 +10206,7 @@ class GetCurrentMilestoneName {
         this.logger = logger;
     }
     async invoke(options, token) {
-        const wsFolder = vscode.workspace.workspaceFolders?.find(wsf => path_1.default.basename(wsf.uri.fsPath).toLowerCase() === 'vscode-docs');
-        const milestoneName = vscode.workspace.getConfiguration(undefined, wsFolder?.uri).get('doc-assistant.milestone');
+        const milestoneName = await (0, queries_1.getCurrentMilestoneName)();
         if (!milestoneName) {
             return (0, utils_1.createLanguageModelToolResult)(await (0, prompt_tsx_1.renderElementJSON)(GetCurrentMilestoneNameResult, { error: 'No milestone specified' }, options.tokenizationOptions, token));
         }
@@ -10213,13 +10216,6 @@ class GetCurrentMilestoneName {
 }
 exports.GetCurrentMilestoneName = GetCurrentMilestoneName;
 
-
-/***/ }),
-/* 52 */
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("path");
 
 /***/ })
 /******/ 	]);
