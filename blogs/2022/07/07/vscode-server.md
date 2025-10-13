@@ -1,5 +1,5 @@
 ---
-Order: 74
+Order: 
 TOCTitle: The VS Code Server
 PageTitle: The VS Code Server
 MetaDescription: Securely connect to and develop on any remote machine with the VS Code Server private preview.

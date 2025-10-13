@@ -1,6 +1,6 @@
 ---
 ContentId: b921a11a-ed69-4716-bc93-589ba8e01e22
-DateApproved: 09/11/2025
+DateApproved: 10/09/2025
 MetaDescription: Learn about the security measures in place for Visual Studio Code extensions, including permissions, user reliability checks, and Marketplace protections.
 ---
 # Extension runtime security

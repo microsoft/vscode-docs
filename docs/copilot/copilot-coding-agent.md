@@ -1,6 +1,6 @@
 ---
 ContentId: f8b9e2a4-7c1d-4f5e-9a8b-3d2e1f0c6789
-DateApproved: 09/11/2025
+DateApproved: 10/09/2025
 MetaDescription: Learn how to interact with the GitHub Copilot coding agent in VS Code to autonomously implement features and fix bugs in the background.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -11,9 +11,6 @@ MetaSocialImage: images/shared/github-copilot-social.png
 This is different from [agent mode](/docs/copilot/chat/chat-agent-mode.md) in VS Code, which provides interactive development within the editor and requires your active participation during the coding session.
 
 ![GIF showing how to assign an issue to Copilot coding agent from within VS Code.](images/copilot-coding-agent/assign-to-copilot-gif.gif)
-
-> [!NOTE]
-> Copilot coding agent is in preview and subject to change. During the preview, use of the feature is subject to [GitHub Pre-release License Terms](https://docs.github.com/en/site-policy/github-terms/github-pre-release-license-terms).
 
 ## How it works
 

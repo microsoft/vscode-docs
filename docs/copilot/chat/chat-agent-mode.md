@@ -1,6 +1,6 @@
 ---
 ContentId: 57754e12-a134-41cc-9693-fb187729c49f
-DateApproved: 09/11/2025
+DateApproved: 10/09/2025
 MetaDescription: Use chat agent mode in VS Code to start an agentic code editing session to autonomously make edits and invoke tools. Use built-in tools, MCP tools, or tools from extensions.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -151,38 +151,17 @@ Based on the outcome of a tool, the agent might invoke other tools to accomplish
 > [!IMPORTANT]
 > A chat request can have a maximum of 128 tools enabled at a time. If you have more than 128 tools selected, reduce the number of tools by deselecting some tools in the tools picker, or ensure that virtual tools are enabled (`setting(github.copilot.chat.virtualTools.threshold)`).
 
-### Define tool sets
+### Terminal commands
 
-A tool set is a collection of tools that you can use in chat. You can use tool sets in the same way as you would use individual tools. For example, select a tool set with the tools picker in agent mode or reference the tool set directly in your prompt by typing `#` followed by the tool set name.
+#### Configure terminal profile for chat
 
-![Screenshot showing the tools picker, highlighting user-defined tool sets.](images/agent-mode/tools-picker-tool-sets.png)
+Agent mode can run terminal commands as part of processing your request. For example, it might run build or test commands to verify the outcome of code edits.
 
-Tool sets enable you to group related tools together, making it easier to use them in your chat prompts, [prompt files](/docs/copilot/customization/overview.md), or [custom chat modes](/docs/copilot/customization/custom-chat-modes.md). This can be particularly useful when you have many installed tools from MCP servers or extensions.
+You can configure which [terminal profile](/docs/terminal/profiles.md) is used for running terminal commands with the following settings:
 
-To create a tool set, select the **Configure Chat** button in the Chat view, select **Tool Sets**, and then select **New tool sets file**. Alternatively, you can use the **Chat: Configure Tool Sets** command from the Command Palette (`kb(workbench.action.showCommands)`).
-
-![Screenshot showing the Chat view, and Configure Chat menu, highlighting the Configure Chat button.](../images/customization/configure-chat-instructions.png)
-
-A tool sets file is a `.jsonc` file that is stored in your user profile and that contains a list of agent mode tools. A tool set has the following structure:
-
-* `<tool set name>`: name of the tool set, which is displayed in the tools picker and when referencing the tool set in your prompt.
-* `tools`: list of tool names that are included in the tool set. The tools can be built-in tools, MCP tools, or tools contributed by extensions.
-* `description`: brief description of the tool set. This description is displayed alongside the tool set name in the tools picker.
-* `icon`: icon for the tool set, values can be found in the [Product Icon Reference](/api/references/icons-in-labels.md).
-
-The following code snippet shows an example of a tool sets file that defines a tool set named `reader`:
-
-```json
-{
-    "reader": {
-        "tools": [
-            "changes", "codebase", "fetch", "findTestFiles", "githubRepo", "problems", "usages"
-        ],
-        "description": "description",
-        "icon": "tag"
-    }
-}
-```
+* Windows: `setting(chat.tools.terminal.terminalProfile.windows)`
+* Linux: `setting(chat.tools.terminal.terminalProfile.linux)`
+* macOS: `setting(chat.tools.terminal.terminalProfile.macos)`
 
 ## Manage tool approvals
 
@@ -258,6 +237,39 @@ The `matchCommandLine` property determines the matching behavior:
 
 For a terminal command to be auto approved, both the subcommand and command line must not be explicitly denied, and either all subcommands or the full command line needs to be approved.
 
+## Define tool sets
+
+A tool set is a collection of tools that you can use in chat. You can use tool sets in the same way as you would use individual tools. For example, select a tool set with the tools picker in agent mode or reference the tool set directly in your prompt by typing `#` followed by the tool set name.
+
+![Screenshot showing the tools picker, highlighting user-defined tool sets.](images/agent-mode/tools-picker-tool-sets.png)
+
+Tool sets enable you to group related tools together, making it easier to use them in your chat prompts, [prompt files](/docs/copilot/customization/overview.md), or [custom chat modes](/docs/copilot/customization/custom-chat-modes.md). This can be particularly useful when you have many installed tools from MCP servers or extensions.
+
+To create a tool set, select the **Configure Chat** button in the Chat view, select **Tool Sets**, and then select **New tool sets file**. Alternatively, you can use the **Chat: Configure Tool Sets** command from the Command Palette (`kb(workbench.action.showCommands)`).
+
+![Screenshot showing the Chat view, and Configure Chat menu, highlighting the Configure Chat button.](../images/customization/configure-chat-instructions.png)
+
+A tool sets file is a `.jsonc` file that is stored in your user profile and that contains a list of agent mode tools. A tool set has the following structure:
+
+* `<tool set name>`: name of the tool set, which is displayed in the tools picker and when referencing the tool set in your prompt.
+* `tools`: list of tool names that are included in the tool set. The tools can be built-in tools, MCP tools, or tools contributed by extensions.
+* `description`: brief description of the tool set. This description is displayed alongside the tool set name in the tools picker.
+* `icon`: icon for the tool set, values can be found in the [Product Icon Reference](/api/references/icons-in-labels.md).
+
+The following code snippet shows an example of a tool sets file that defines a tool set named `reader`:
+
+```json
+{
+    "reader": {
+        "tools": [
+            "changes", "codebase", "fetch", "findTestFiles", "githubRepo", "problems", "usages"
+        ],
+        "description": "description",
+        "icon": "tag"
+    }
+}
+```
+
 ## Accept or discard edits
 
 VS Code lists the files that were edited in the list of the changed files in the Chat view. Files with pending edits also have a visual indicator (dot within a square) in the Explorer view and editor tabs.
@@ -312,7 +324,7 @@ To have a better overview of the individual tasks that the agent is working on, 
 
 <video src="images/agent-mode/chat-todo-list.mp4" title="Video that shows the todo list in chat." autoplay loop controls muted></video>
 
-Enable the todo list functionality with the `setting(chat.todoListTool.enabled)` setting.
+You can configure the visibility and position of the todo list control with the `setting(chat.todoListWidget.position)` setting.
 
 ## Use instructions to get AI edits that follow your coding style
 

@@ -5067,6 +5067,9 @@ async function getReleaseFeatures(milestoneName) {
         });
         for (const edge of result.search.edges) {
             const issue = toIssue(edge);
+            if (!issue) {
+                continue;
+            }
             if (issue.labels.includes('*duplicate')) {
                 continue;
             }
@@ -5095,8 +5098,12 @@ async function getReleaseFeaturesWithTestPlanItems(milestoneName, onTestPlan, gq
         after: null
     });
     for (const edge of result.search.edges) {
+        const issue = toIssue(edge);
+        if (!issue) {
+            continue;
+        }
         const releaseFeature = {
-            ...toIssue(edge),
+            ...issue,
             related: []
         };
         releaseFeature.related.push(...await getIssuesFiledAgainst(edge.node.number, gqlClient));
@@ -5115,7 +5122,15 @@ async function getIssuesFiledAgainst(testPlanItem, gqlClient) {
             repositoryQuery: `repo:microsoft/vscode is:closed Testing ${testPlanItem}`,
             after: null
         });
-        return result.search.edges.map(edge => toIssue(edge));
+        const issues = [];
+        for (const edge of result.search.edges) {
+            const issue = toIssue(edge);
+            if (!issue) {
+                continue;
+            }
+            issues.push(issue);
+        }
+        return issues;
     }
     catch (error) {
         console.error('Error fetching issues:', error);
@@ -5123,6 +5138,12 @@ async function getIssuesFiledAgainst(testPlanItem, gqlClient) {
     }
 }
 function toIssue(edge) {
+    if (!edge.node) {
+        return undefined;
+    }
+    if (!edge.node.number) {
+        return undefined;
+    }
     return {
         number: edge.node.number,
         summary: edge.node.title,

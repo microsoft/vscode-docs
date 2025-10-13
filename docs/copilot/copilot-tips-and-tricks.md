@@ -182,7 +182,7 @@ To create a reusable prompt:
     ```markdown
     ---
     mode: 'agent'
-    tools: ['githubRepo', 'codebase']
+    tools: ['githubRepo', 'search/codebase']
     description: 'Generate a new React form component'
     ---
     Your goal is to generate a new React form component based on the templates in #githubRepo contoso/react-templates.

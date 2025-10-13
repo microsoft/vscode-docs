@@ -1,7 +1,7 @@
 ---
 ContentId: 52eaec33-21c6-410c-8e10-1ee3658a854f
 MetaDescription: devcontainer.json reference
-DateApproved: 09/11/2025
+DateApproved: 10/09/2025
 ---
 # devcontainer.json reference
 
