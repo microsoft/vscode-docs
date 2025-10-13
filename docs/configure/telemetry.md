@@ -1,7 +1,7 @@
 ---
 ContentId: 47a2e3b1-24f2-42e6-a6e6-272c2a0f3218
 DateApproved: 10/09/2025
-MetaDescription: Learn about Visual Studio Code collected telemetry and how to opt out.
+MetaDescription: Learn about telemetry collection in Visual Studio Code and how to opt out.
 ---
 # Telemetry
 
@@ -32,13 +32,16 @@ With the `setting(telemetry.telemetryLevel)` user setting, you can control the d
 
 For example, if you don't want to send any telemetry data to Microsoft, you can set the `setting(telemetry.telemetryLevel)` user setting to `off`. This will silence all telemetry events from VS Code going forward. Note that telemetry information may have been collected and sent up until the point when you disable the setting.
 
-![disable telemetry](images/telemetry/disable-telemetry.png)
+![Screenshot showing the Settings editor with telemetry disabled.](images/telemetry/disable-telemetry.png)
 
 If you use the JSON editor for your settings, add the following line:
 
 ```json
 "telemetry.telemetryLevel": "off"
 ```
+
+> [!IMPORTANT]
+> To participate in the A/B experimentation to get early access to new features, you must have usage data enabled by setting `setting(telemetry.telemetryLevel)` to `all`.
 
 ## Feature availability and telemetry
 
@@ -159,7 +162,7 @@ When you open a file type for which VS Code does not have any precomputed recomm
 
 Please read the [extension guides telemetry document](/api/extension-guides/telemetry.md).
 
-## Next steps
+## Related resources
 
 * [Centrally manage telemetry log level](/docs/setup/enterprise.md#configure-telemetry-level) - Learn how to set the telemetry log level for your organization.
 * [Visual Studio Code FAQ](/docs/supporting/faq.md) - Consult the Frequently Asked Questions to learn more.
