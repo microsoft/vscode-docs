@@ -25,6 +25,11 @@ Use the language model picker in the chat input field to change the model that i
 
 ![Screenshot that shows the model picker in the Chat view.](../images/language-models/model-dropdown-change-model.png)
 
+> [!TIP]
+> AI Toolkit can expose language models to enhance GitHub Copilot capabilities.
+>
+> For more information, see [Change the chat model](https://docs.github.com/en/copilot/how-tos/use-ai-models/change-the-chat-model#adding-more-models).
+
 You can further extend the list of available models by [using your own language model API key](#bring-your-own-language-model-key).
 
 If you have a paid Copilot plan, the model picker shows the premium request multiplier for premium models. Learn more about [premium requests](https://docs.github.com/en/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests#premium-requests) in the GitHub Copilot documentation.
