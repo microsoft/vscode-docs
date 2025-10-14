@@ -13,9 +13,6 @@ Model Context Protocol (MCP) is an open standard that enables AI models to inter
 
 This guide covers everything you need to know to build MCP servers that work seamlessly with VS Code and other MCP clients.
 
-> [!IMPORTANT]
-> MCP support in VS Code is currently in preview.
-
 ## Why use MCP servers?
 
 Implementing an MCP server to extend chat in VS Code with language model tools has the following benefits:
