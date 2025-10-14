@@ -82,7 +82,9 @@ Get more relevant responses by providing [context to your chat prompt](/docs/cop
 
 ## Chat tools
 
-Use [tools](/docs/copilot/chat/chat-agent-mode.md#agent-mode-tools) in chat to accomplish specialized tasks while processing a user request. Examples of such tasks are listing the files in a directory, editing a file in your workspace, running a terminal command, getting the output from the terminal, and more. Choose built-in tools or tools from MCP servers and extensions.
+Use [tools](/docs/copilot/chat/chat-tools.md) in chat to accomplish specialized tasks while processing a user request. Examples of such tasks are listing the files in a directory, editing a file in your workspace, running a terminal command, getting the output from the terminal, and more.
+
+VS Code provides built-in tools, and you can extend chat with tools from [MCP servers](/docs/copilot/customization/mcp-servers.md) and [extensions](/api/extension-guides/ai/tools.md). Learn more about [types of tools](/docs/copilot/chat/chat-tools.md#types-of-tools).
 
 The following table lists the VS Code built-in tools:
 

@@ -137,20 +137,17 @@ You can reference content from the web in your chat prompts, for example to get 
 
 ## Reference tools
 
-Chat in VS Code has several [built-in tools](/docs/copilot/chat/chat-agent-mode.md#agent-mode-tools) and you can further extend it with tools from [MCP servers](/docs/copilot/customization/mcp-servers.md) or extensions. For example, the `#fetch` tool is a built-in tool that allows you to fetch content from a web page. You can also group tools into [tool sets](/docs/copilot/chat/chat-agent-mode.md#define-tool-sets), which you can then reference in your chat prompts.
+Chat in VS Code includes built-in tools and can be extended with tools from [MCP servers](/docs/copilot/customization/mcp-servers.md) or extensions. Tools provide specialized functionality like fetching web content, searching code, or running commands.
 
-To reference a tool or tool set directly in your chat prompt, type `#` followed by the tool (set) name and optional tool parameters. The following prompt examples show how to use tools:
+To reference a tool directly in your chat prompt, type `#` followed by the tool name and optional parameters:
 
-* Use the [GitHub MCP server](https://github.com/github/github-mcp-server) tool (configured as `github-mcp` in your `mcp.json`):
+* `"Summarize #fetch https://code.visualstudio.com/updates"`
+* `"How does routing work? #githubRepo vercel/next.js"`
+* `"what are my open issues #github-mcp"` (using a tool from the GitHub MCP server)
 
-    * `"what are my open issues #github-mcp"`
-    * `"Implement a fix for issue #123 in contoso/tailwindtraders #github-mcp"`
-    * `"What is PR 8407 in microsoft/vscode-docs about? #github-mcp"`
+You can also reference [tool sets](/docs/copilot/chat/chat-tools.md#tool-sets), which are collections of related tools grouped together for easier management.
 
-* Use the `#postgres` MCP server to query a PostgreSQL database:
-
-    * `"Generate an API endpoint and data access layer for getting weather data from #postgres"`
-    * `"What is the max length of the company name from #postgres"`
+Learn more about [using tools in chat](/docs/copilot/chat/chat-tools.md).
 
 ## @-mentions
 

@@ -106,7 +106,8 @@
         "noCollapse": true,
         "topics": [
           ["Chat Overview", "/docs/copilot/chat/copilot-chat"],
-          ["Chat Context", "/docs/copilot/chat/copilot-chat-context"],
+          ["Add Context", "/docs/copilot/chat/copilot-chat-context"],
+          ["Tools", "/docs/copilot/chat/chat-tools"],
           ["Ask Mode", "/docs/copilot/chat/chat-ask-mode"],
           ["Edit Mode", "/docs/copilot/chat/copilot-edits"],
           ["Agent Mode", "/docs/copilot/chat/chat-agent-mode"],

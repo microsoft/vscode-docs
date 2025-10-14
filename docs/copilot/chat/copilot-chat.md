@@ -84,14 +84,12 @@ Use the **Add Context** button in the Chat view or type #-mentions to add contex
 
 ![Screenshot of the Chat view with the context menu open.](images/copilot-chat/chat-add-context.png)
 
-If you have installed MCP servers or extensions that provide tools, you can also directly reference these tools by #-mentioning them in your chat prompt. For example:
+You can also directly reference tools in your prompt by typing `#` followed by the tool name. Tools extend chat with specialized functionality like fetching web content, searching GitHub repositories, or running commands. For example:
 
-* `summarize #fetch code.visualstudio.com/updates`: retrieve the contents of a web page using the `fetch` built-in tool
-* `what is terminal suggest #githubRepo microsoft/code`: perform a code search in a GitHub repository using the `githubRepo` built-in tool.
+* `summarize #fetch code.visualstudio.com/updates`: retrieve the contents of a web page
+* `what is terminal suggest #githubRepo microsoft/code`: perform a code search in a GitHub repository
 
-You can also directly reference an agent mode tool in your prompt by typing `#` followed by the tool name. You can do this in all chat modes (ask, edit, and agent mode). For example, use the `#fetch` tool to add the content of a web page as context to your chat prompt, or use `#githubRepo` to perform a code search in a GitHub repository.
-
-Get more details about [adding context to your chat prompt](/docs/copilot/chat/copilot-chat-context.md).
+Learn more about [using tools in chat](/docs/copilot/chat/chat-tools.md) and [adding context to your chat prompt](/docs/copilot/chat/copilot-chat-context.md).
 
 ## Prompt examples
 
@@ -313,7 +311,7 @@ The different chat modes are optimized for different use cases:
 
 * Use _edit mode_ to directly apply edits across multiple files in your codebase based on your chat prompt. You provide the relevant context and files for your prompt.
 
-* Use _agent mode_ to start an autonomous coding workflow, whereby the AI autonomously determines the relevant context and files, determines which tasks need to be performed to complete the request. It then iterates independently to achieve the desired outcome, fixing issues as they come up. Agent mode can invoke [tools](/docs/copilot/chat/chat-agent-mode.md#agent-mode-tools) from extensions or MCP servers to perform specialized tasks, such as running terminal commands, validating test cases, or accessing APIs.
+* Use _agent mode_ to start an autonomous coding workflow, whereby the AI autonomously determines the relevant context and files, determines which tasks need to be performed to complete the request. It then iterates independently to achieve the desired outcome, fixing issues as they come up. Agent mode can automatically invoke [tools](/docs/copilot/chat/chat-tools.md) to perform specialized tasks, such as running terminal commands, validating test cases, or accessing APIs.
 
 ## Additional resources
 

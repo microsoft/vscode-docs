@@ -44,7 +44,7 @@ Chat mode files are Markdown files and use the `.chatmode.md` extension and have
 * **Header** (optional): YAML frontmatter
 
     * `description`: A brief description of the chat mode. This description is displayed as placeholder text in the chat input field and when you hover the mode in the chat mode dropdown list.
-    * `tools`: A list of tool or tool set names that are available for this chat mode. This can include built-in tools, tool sets, MCP tools, or tools contributed by extensions. Use the **Configure Tools** action to select the tools from the list of available tools in your workspace.
+    * `tools`: A list of tool or tool set names that are available for this chat mode. This can include built-in tools, tool sets, MCP tools, or tools contributed by extensions. Use the **Configure Tools** action to select the tools from the list of available tools in your workspace. Learn more about [tools in chat](/docs/copilot/chat/chat-tools.md).
     * `model`: The AI model to use when running the prompt. If not specified, the currently selected model in model picker is used.
 
 * **Body**: Chat mode details and instructions in Markdown format
