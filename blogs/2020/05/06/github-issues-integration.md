@@ -1,5 +1,5 @@
 ---
-Order: 56
+Order: 
 TOCTitle: GitHub Issues Integration
 PageTitle: Working with GitHub Issues in Visual Studio Code
 MetaDescription: Working with GitHub Issues in Visual Studio Code

@@ -106,7 +106,7 @@
         "noCollapse": true,
         "topics": [
           ["Chat Overview", "/docs/copilot/chat/copilot-chat"],
-          ["Manage Context", "/docs/copilot/chat/copilot-chat-context"],
+          ["Chat Context", "/docs/copilot/chat/copilot-chat-context"],
           ["Ask Mode", "/docs/copilot/chat/chat-ask-mode"],
           ["Edit Mode", "/docs/copilot/chat/copilot-edits"],
           ["Agent Mode", "/docs/copilot/chat/chat-agent-mode"],
@@ -123,7 +123,7 @@
         "noCollapse": true,
         "topics": [
           ["Overview", "/docs/copilot/customization/overview"],
-          ["Custom Instructions", "/docs/copilot/customization/custom-instructions"],
+          ["Instructions", "/docs/copilot/customization/custom-instructions"],
           ["Prompt Files", "/docs/copilot/customization/prompt-files"],
           ["Chat Modes", "/docs/copilot/customization/custom-chat-modes"],
           ["Language Models", "/docs/copilot/customization/language-models"],
@@ -136,6 +136,7 @@
         "area": "copilot/guides",
         "noCollapse": true,
         "topics": [
+          ["Context Engineering", "/docs/copilot/guides/context-engineering-guide"],
           ["Edit Notebooks with AI", "/docs/copilot/guides/notebooks-with-ai"],
           ["Test with AI", "/docs/copilot/guides/test-with-copilot"],
           ["Debug with AI", "/docs/copilot/guides/debug-with-copilot"],

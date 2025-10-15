@@ -1,6 +1,6 @@
 ---
 ContentId: 276ecd8f-2a76-467e-bf82-846d49c13ab5
-DateApproved: 09/11/2025
+DateApproved: 10/09/2025
 MetaDescription: Learn how to use chat modes in VS Code for different tasks, and create custom chat modes to tailor AI chat behavior for your specific workflows and development scenarios.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -12,7 +12,7 @@ Chat modes are a way to create specialist AI agents that enable you to tailor th
 
 To switch between chat modes, open the Chat view (`kb(workbench.action.chat.open)`), and then select the desired mode from the chat mode dropdown list.
 
-![Screenshot showing the Chat view, highlighting the chat mode dropdown list.](../chat/images/chat-modes/chat-mode-dropdown.png)
+![Screenshot showing the Chat view, highlighting the chat mode dropdown list.](../images/customization/chat-mode-dropdown.png)
 
 ## Built-in chat modes
 
@@ -53,6 +53,16 @@ Chat mode files are Markdown files and use the `.chatmode.md` extension and have
 
     Reference instructions files by using Markdown links. The chat mode instructions will complement whatever is specified in the chat prompt.
 
+#### Tool list priority
+
+You can specify the list of available tools for both a chat mode and prompt file by using the `tools` metadata field. Prompt files can also reference a chat mode by using the `mode` metadata field.
+
+The list available tools in chat is determined by the following priority order:
+
+1. Tools specified in the prompt file (if any)
+2. Tools from the referenced chat mode in the prompt file (if any)
+3. Default tools for the selected chat mode
+
 ### Chat mode file example
 
 The following code snippet shows an example of a "Plan" chat mode file that generates an implementation plan and doesn't make any code edits. For more community-contributed examples, see the [Awesome Copilot repository](https://github.com/github/awesome-copilot/tree/main).
@@ -60,7 +70,7 @@ The following code snippet shows an example of a "Plan" chat mode file that gene
 ```markdown
 ---
 description: Generate an implementation plan for new features or refactoring existing code.
-tools: ['codebase', 'fetch', 'findTestFiles', 'githubRepo', 'search', 'usages']
+tools: ['fetch', 'githubRepo', 'search', 'usages']
 model: Claude Sonnet 4
 ---
 # Planning mode instructions

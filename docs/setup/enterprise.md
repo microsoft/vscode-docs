@@ -1,6 +1,6 @@
 ---
 ContentId: 936ab8e0-3bbe-4842-bb17-ea314665c20a
-DateApproved: 09/11/2025
+DateApproved: 10/09/2025
 MetaDescription: Learn about Visual Studio Code's enterprise support features, such as group policies or restricting allowed extensions.
 
 ---
@@ -135,7 +135,7 @@ VS Code currently provides policies to control the following admin-controlled fe
 | `ChatAgentMode`                      | Enable [agent mode](/docs/copilot/chat/copilot-chat.md#chat-mode).                                 | `chat.agent.enabled`                          | 1.99            |
 | `ChatAgentExtensionTools`            | Enable using tools contributed by third-party extensions.                                          | `chat.extensionTools.enabled`                 | 1.99            |
 | `ChatPromptFiles`                    | Enable [prompt and instruction files](/docs/copilot/customization/overview.md) in chat.            | `chat.promptFiles`                            | 1.99            |
-| `ChatMCP`                            | Enable [Model Context Protocol (MCP) servers](/docs/copilot/customization/mcp-servers.md) support. | `chat.mcp.access`                             | 1.99            |
+| `ChatMCP`                            | Enable [Model Context Protocol (MCP) servers](/docs/copilot/customization/mcp-servers.md) support and which sources are allowed. | `chat.mcp.access`                             | 1.99            |
 | `ChatToolsAutoApprove`               | Enable global auto-approval for agent mode tools.                                                  | `chat.tools.global.autoApprove`               | 1.99            |
 | `CopilotReviewSelection`             | Enable code review for editor selection.                                                           | `github.copilot.chat.reviewSelection.enabled` | 1.104           |
 | `CopilotReviewAgent`                 | Enable Copilot Code Review for pull requests and changed files.                                    | `github.copilot.chat.reviewAgent.enabled`     | 1.104           |

@@ -1,13 +1,13 @@
 ---
 ContentId: 164299e8-d27d-40b9-8b8d-a6e05df8ac69
-DateApproved: 07/22/2025
+DateApproved: 10/03/2025
 MetaDescription: Build, test, and deploy AI applications with AI Toolkit for Visual Studio Code. Features model playground, prompt engineering, batch evaluation, fine-tuning, and multi-modal support for LLMs and SLMs.
 ---
 # AI Toolkit for Visual Studio Code
 
 AI Toolkit for Visual Studio Code is a comprehensive extension that empowers developers and AI engineers to build, test, and deploy intelligent applications using generative AI models. Whether you're working locally or in the cloud, AI Toolkit provides an integrated development environment for the complete AI application lifecycle.
 
-The AI Toolkit offers seamless integration with popular AI models from providers like OpenAI, Anthropic, Google, and GitHub, while also supporting local models through ONNX and Ollama. From model discovery and experimentation to prompt engineering and deployment, AI Toolkit streamlines your AI development workflow within VS Code.
+AI Toolkit offers seamless integration with popular AI models from providers like OpenAI, Anthropic, Google, and GitHub, while also supporting local models through ONNX and Ollama. From model discovery and experimentation to prompt engineering and deployment, AI Toolkit streamlines your AI development workflow within VS Code.
 
 ## Key features
 
@@ -56,10 +56,9 @@ The fastest way to get started is by installing the extension through the Visual
 
 After successful installation, the AI Toolkit icon appears in the Activity Bar.
 
-
 ### Manual installation
 
-You can also install the AI Toolkit extension manually from the Visual Studio Code Marketplace. Follow the steps detailed in [Install an extension](/docs/configure/extensions/extension-marketplace#_install-an-extension).
+You can also install AI Toolkit extension manually from the Visual Studio Code Marketplace. Follow the steps detailed in [Install an extension](/docs/configure/extensions/extension-marketplace#_install-an-extension).
 
 > [!TIP]
    Alternatively, select the Extensions icon in the Activity Bar.
@@ -72,7 +71,40 @@ You can also install the AI Toolkit extension manually from the Visual Studio Co
 > Check the **What's New** page after installation to see detailed features for each version.
 * After successful installation, the AI Toolkit icon appears in the Activity Bar.
 
-   ![Screenshot showing the AI Toolkit icon in the VS Code Activity Bar after installation](./images/overview/install-4.png)
+
+## Explore AI Toolkit
+
+AI Toolkit opens in its own view, with the AI Toolkit icon now displayed on the VS Code Activity Bar. The extension has several main sections: My Resources, Model Tools, Agent and Workflow Tools, MCP Workflow, and Help and Feedback.
+
+![Screenshot showing the AI Toolkit Extension with highlighted sections."](./images/overview/initial-view.png)
+
+- **My Resources**: This section contains the resources you have access to in AI Toolkit. The **My Resources** section is the main view for interacting with your Azure AI resources. It contains the following subsections:
+  - **Models**: This section contains the models you can use to build and deploy for your AI applications. The **Models** view is where you can find your deployed models in AI Toolkit.
+  - **Agents**: This section contains your AI Toolkit deployed agents.
+  - **MCP Servers**: This section contains the MCP Servers you're working with in AI Toolkit.
+
+- **Model Tools**: This section contains the model tools you can use to build and deploy your AI applications. The **Model Tools** view is where you can find the tools available to deploy and then work with your deployed models. It contains the following subsections:
+    - **Model Catalog**: The model catalog lets you discover and access AI models from multiple sources including GitHub, ONNX, Ollama, OpenAI, Anthropic, and Google. Compare models side-by-side and find the right model for your use case.
+    - **Model Playground**: The model playground provides an interactive environment to experiment with generative AI models. Test various prompts, adjust model parameters, compare responses from different models and explore multi-modal capabilities by attaching different types of input files.
+    - **Conversion**: The model conversion tool helps you convert, quantize, optimize, and evaluate the pre-built machine learning models on your local Windows platform.
+   - **Fine-tuning**: This tool allows you to use your custom dataset to run fine-tuning jobs on a pre-trained model in a local computing environment with GPU or in the cloud (Azure Container Apps) with GPU.
+
+- **Agent and Workflow Tools**: This section is where you can find the tools available to deploy and then work with your deployed agents in AI Toolkit. It contains the following subsections:
+    - **Agent Builder**:  Create and deploy agents easily.
+    - **Bulk Run**: Test agents and prompts against multiple test cases in batch mode.
+    - **Evaluation**: Evaluate models, prompts, and agents by comparing their outputs to ground truth data and computing evaluation metrics.
+    - **Tracing**: Trace capabilities to help you monitor and analyze the performance of your AI applications.
+
+- **MCP Workflow**: This section contains tools you use to add an existing MCP server or to create a new one. It contains the following subsections:
+    - **Add MCP Server**: The link for adding and working with an existing MCP server.
+    - **Create new MCP Server**: The link for creating and deploying new MCP servers in AI Toolkit.
+
+- **Help and Feedback**: This section contains links to the Azure AI Foundry documentation, feedback, support, and the Microsoft Privacy Statement. It contains the following subsections:
+    - **Documentation**: The link to the Azure AI Foundry Extension documentation.
+    - **Resources**: The link to the AI Toolkit Tutorials Gallery, a collection of tutorials to help you get started with AI Toolkit.
+    - **Get Started**: The link to the getting started walkthrough to help you learn the basics of AI Toolkit.
+    - **What's New**: The link to the AI Toolkit release notes.
+    - **Report Issues on GitHub**: The link to the Azure AI Foundry extension GitHub repository issues page.
 
 ## Get started with AI Toolkit
 
