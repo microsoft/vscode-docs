@@ -1,16 +1,16 @@
 ---
 ContentId: 8f2c4a1d-9e3b-4c5f-a7d8-6b9c2e4f1a3d
 DateApproved: 10/09/2025
-MetaDescription: Learn about the different types of tools available in GitHub Copilot chat in VS Code, including built-in tools, MCP tools, and extension tools.
+MetaDescription: Learn how to use built-in tools, MCP tools, and extension tools to extend chat in VS Code with specialized functionality.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Use tools in chat
 
-Tools extend the capabilities of chat in Visual Studio Code with specialized functionality to accomplish specific tasks. When you use chat, tools can be automatically invoked by agent mode or explicitly referenced in your prompts to perform actions like searching code, running commands, fetching web content, invoking APIs, and more.
+Tools extend chat in Visual Studio Code with specialized functionality for accomplishing specific tasks like searching code, running commands, fetching web content, or invoking APIs. VS Code supports three types of tools: built-in tools, Model Context Protocol (MCP) tools, and extension tools.
 
 This article describes the different types of tools available in VS Code, how to use them in your chat prompts, and how to manage tool invocations and approvals.
 
-<video src="../images/chat-tools/chat-tools-picker.mp4" title="Video showing the chat tools picker in action" autoplay loop controls muted poster="../images/chat-tools/chat-tools-picker.png"></video>
+<video src="../images/chat-tools/chat-tools-picker.mp4" title="Video showing how to select and configure tools in the chat tools picker." autoplay loop controls muted poster="../images/chat-tools/chat-tools-picker.png"></video>
 
 ## Types of tools
 
@@ -25,20 +25,12 @@ Built-in tools don't require any installation or configuration and are available
 
 For a complete list of built-in tools and their descriptions, see the [Chat tools reference](/docs/copilot/reference/copilot-vscode-features.md#chat-tools).
 
-VS Code includes several predefined [tool sets](#group-tools-with-tool-sets) that group related built-in tools, such as:
-
-* `#edit`: Tools for modifying files in the workspace
-* `#runCommands`: Tools for running terminal commands and reading output
-* `#search`: Tools for searching files in the workspace
-
-Tool sets make it easier to work with multiple related tools at once. You can reference a tool set in your prompts just like individual tools.
-
 </details>
 
 <details>
 <summary>MCP tools</summary>
 
-Model Context Protocol (MCP) is an open standard that enables AI models to use external tools and services through a unified interface. MCP servers provide tools that you can add to VS Code to extend chat with additional capabilities.
+Model Context Protocol (MCP) is an open standard that enables AI models to use external tools and services through a unified interface. MCP servers provide tools that you can add to VS Code to extend chat with extra capabilities.
 
 You need to install and configure MCP servers before you can use their tools in chat. MCP servers can run locally on your machine or be hosted remotely.
 
@@ -70,11 +62,11 @@ To access the tools picker:
 
 1. Select the **Configure Tools** button in the chat input field.
 
-    ![Screenshot showing the Chat view, highlighting the Configure Tools button in the chat input.](images/copilot-edits/agent-mode-select-tools.png)
+    ![Screenshot showing the Chat view, highlighting the Configure Tools button in the chat input.](../images/chat-tools/agent-mode-select-tools.png)
 
 1. Select or deselect tools to control which ones are available for the current request.
 
-    You can search for specific tools by typing in the search box.
+    Use the search box to filter the list of tools.
 
 When you customize chat with [prompt files](/docs/copilot/customization/prompt-files.md) or [custom chat modes](/docs/copilot/customization/custom-chat-modes.md), you can specify which tools are available for a given prompt or mode. Learn more about the [tool list priority order](/docs/copilot/customization/custom-chat-modes.md#tool-list-priority).
 
@@ -91,7 +83,7 @@ You can also explicitly reference tools in your prompts in any chat mode by typi
 * `"Fix the issues in #problems"`
 * `"Explain the authentication flow #codebase"`
 
-Some tools accept parameters directly in the prompt. For example, `#fetch` requires a URL, and `#githubRepo` requires a repository name.
+Some tools accept parameters directly in the prompt. For example, `#fetch` requires a URL and `#githubRepo` requires a repository name.
 
 ## Review and approve tool invocations
 
@@ -110,11 +102,11 @@ You can:
 
 ### Reset tool confirmations
 
-To clear all saved tool approvals and start fresh, use the **Chat: Reset Tool Confirmations** command in the Command Palette (`kb(workbench.action.showCommands)`).
+To clear all saved tool approvals, use the **Chat: Reset Tool Confirmations** command in the Command Palette (`kb(workbench.action.showCommands)`).
 
 ### Automatically approve terminal commands
 
-You can configure which terminal commands are automatically approved by using the `setting(chat.tools.terminal.autoApprove)` setting. This setting lets you specify both allowed and denied commands:
+You can configure which terminal commands are automatically approved by using the `setting(chat.tools.terminal.autoApprove)` setting. You can specify both allowed and denied commands:
 
 * Set commands to `true` to automatically approve them
 * Set commands to `false` to always require approval
@@ -153,9 +145,7 @@ You can review and edit the input parameters before a tool runs:
 
 1. When the tool confirmation dialog appears, select the chevron next to the tool name to expand its details.
 
-1. Expand and review the input parameters.
-
-1. Edit any input parameters as needed.
+1. Edit any tool input parameters as needed.
 
 1. Select **Allow** to run the tool with the modified parameters.
 
@@ -183,8 +173,6 @@ To create a tool set:
             "tools": [
                 "changes",
                 "codebase",
-                "fetch",
-                "githubRepo",
                 "problems",
                 "usages"
             ],
@@ -227,7 +215,7 @@ A chat request can have a maximum of 128 tools enabled at a time. If you see an 
 
 Chat participants are specialized assistants that enable you to ask domain-specific questions in chat. Imagine a chat participant as a domain expert to whom you hand off your chat request and it takes care of the rest.
 
-Chat participants are different from tools that are invoked as part of an agent flow to contribute and perform specific tasks.
+Tools are invoked as part of an agent flow to contribute and perform specific tasks. You can include multiple tools in a single chat request, but only one chat participant can be active at a time.
 
 ### Can I create my own tools?
 
