@@ -279,7 +279,7 @@ The current limit can be viewed by running:
 cat /proc/sys/fs/inotify/max_user_watches
 ```
 
-The limit can be increased to its maximum by editing `/etc/sysctl.conf` (except on Arch Linux, read below) and adding this line to the end of the file:
+The limit can be increased to its maximum by editing `/etc/sysctl.conf` (except on Arch Linux and Ubutun 24.10 and later, read below) and adding this line to the end of the file:
 
 ```bash
 fs.inotify.max_user_watches=524288
@@ -289,7 +289,7 @@ The new value can then be loaded in by running `sudo sysctl -p`.
 
 While 524,288 is the maximum number of files that can be watched, if you're in an environment that is particularly memory-constrained, you might want to lower the number. Each file watch [takes up 1,080 bytes](https://stackoverflow.com/a/7091897/1156119), so assuming that all 524,288 watches are consumed, that results in an upper bound of around 540 MiB.
 
-[Arch](https://www.archlinux.org/)-based distros (including Manjaro) require you to change a different file; follow [these steps](https://gist.github.com/tbjgolden/c53ca37f3bc2fab8c930183310918c8c) instead.
+[Arch](https://www.archlinux.org/)-based distros (including Manjaro) and Ubuntu-based distros starting with 24.10 require you to change a different file; follow [these steps](https://gist.github.com/tbjgolden/c53ca37f3bc2fab8c930183310918c8c) instead.
 
 Another option is to exclude specific workspace directories from the VS Code file watcher with the `setting(files.watcherExclude)` [setting](/docs/configure/settings.md). The default for `setting(files.watcherExclude)` excludes `node_modules` and some folders under `.git`, but you can add other directories that you don't want VS Code to track.
 
