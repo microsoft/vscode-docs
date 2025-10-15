@@ -108,6 +108,7 @@
           ["Chat Overview", "/docs/copilot/chat/copilot-chat"],
           ["Add Context", "/docs/copilot/chat/copilot-chat-context"],
           ["Tools", "/docs/copilot/chat/chat-tools"],
+          ["Chat Modes", "/docs/copilot/chat/chat-modes"],
           ["Ask Mode", "/docs/copilot/chat/chat-ask-mode"],
           ["Edit Mode", "/docs/copilot/chat/copilot-edits"],
           ["Agent Mode", "/docs/copilot/chat/chat-agent-mode"],
@@ -126,7 +127,7 @@
           ["Overview", "/docs/copilot/customization/overview"],
           ["Instructions", "/docs/copilot/customization/custom-instructions"],
           ["Prompt Files", "/docs/copilot/customization/prompt-files"],
-          ["Chat Modes", "/docs/copilot/customization/custom-chat-modes"],
+          ["Custom Modes", "/docs/copilot/customization/custom-chat-modes"],
           ["Language Models", "/docs/copilot/customization/language-models"],
           ["MCP", "/docs/copilot/customization/mcp-servers"]
         ]
