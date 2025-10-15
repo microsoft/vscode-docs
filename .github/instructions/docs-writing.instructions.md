@@ -1,5 +1,5 @@
 ---
-applyTo: '**/*.md'
+applyTo: 'docs/**/*.md, api/**/*.md, remote/**/*.md'
 ---
 # Documentation Writing Instructions
 
@@ -108,3 +108,4 @@ These are our documentation writing style guidelines.
 * Avoid latin abbreviations like "e.g.". Use "for example" instead.
 * Use the verb "to enable" instead "to allow" unless you're referring to permissions.
 * Follow the terms and capitalization guidelines in #fetch [VS Code docs wiki](https://github.com/microsoft/vscode-docs/wiki/VS-Code-glossary)
+* Don't use the following terms: "simply", "just", "easy", "obviously", "of course", "etc.", "delve", "crucial", "utilize", "leverage", "prior to", "in order to", "harness".

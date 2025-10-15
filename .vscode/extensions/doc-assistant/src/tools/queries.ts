@@ -90,11 +90,14 @@ export async function getReleaseFeatures(milestoneName: string): Promise<Release
 
 		for (const edge of result.search.edges) {
 			const issue = toIssue(edge);
+			if (!issue) {
+				continue;
+			}
 			if (issue.labels.includes('*duplicate')) {
-				continue
+				continue;
 			}
 			if (issue.labels.includes('*out-of-scope')) {
-				continue
+				continue;
 			}
 			if (issue.labels.includes('on-testplan')) {
 				onTestPlan.push(issue);
@@ -123,8 +126,12 @@ async function getReleaseFeaturesWithTestPlanItems(milestoneName: string, onTest
 	});
 
 	for (const edge of result.search.edges) {
+		const issue = toIssue(edge);
+		if (!issue) {
+			continue;
+		}
 		const releaseFeature: ReleaseFeature = {
-			...toIssue(edge),
+			...issue,
 			related: []
 		};
 		releaseFeature.related.push(...await getIssuesFiledAgainst(edge.node.number, gqlClient));
@@ -146,7 +153,15 @@ async function getIssuesFiledAgainst(testPlanItem: string, gqlClient: GraphqlCli
 			after: null
 		});
 
-		return result.search.edges.map(edge => toIssue(edge));
+		const issues: Issue[] = [];
+		for (const edge of result.search.edges) {
+			const issue = toIssue(edge);
+			if (!issue) {
+				continue;
+			}
+			issues.push(issue);
+		}
+		return issues;
 
 	} catch (error) {
 		console.error('Error fetching issues:', error);
@@ -154,7 +169,13 @@ async function getIssuesFiledAgainst(testPlanItem: string, gqlClient: GraphqlCli
 	}
 }
 
-function toIssue(edge: any): Issue {
+function toIssue(edge: any): Issue | undefined {
+	if (!edge.node) {
+		return undefined;
+	}
+	if (!edge.node.number) {
+		return undefined;
+	}
 	return {
 		number: edge.node.number,
 		summary: edge.node.title,

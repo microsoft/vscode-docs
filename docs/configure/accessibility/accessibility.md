@@ -1,6 +1,6 @@
 ---
 ContentId: 62894B41-CC33-400A-8A56-8C761C77B4C7
-DateApproved: 09/11/2025
+DateApproved: 10/09/2025
 MetaDescription: Visual Studio Code user accessibility features.  Learn here about the various ways VS Code aids user accessibility.
 ---
 # Accessibility
@@ -148,7 +148,7 @@ VS Code supports screen readers in the editor using a strategy based on text pag
 
 * Windows: [NVDA](https://www.nvaccess.org) and [JAWS](https://www.freedomscientific.com/products/software/jaws)
 * macOS: [VoiceOver](https://support.apple.com/guide/voiceover/welcome/mac)
-* Linux: [Orca](https://help.gnome.org/users/orca/stable/introduction.html)
+* Linux: [Orca](https://help.gnome.org/users/orca/stable/)
 
 > For NVDA, we recommend that you stay in focus mode and use the hotkeys to navigate, instead of using browse mode.
 

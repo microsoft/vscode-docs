@@ -21,7 +21,7 @@ If you don't have IntelliSense configured, the C/C++ extension shows a yellow in
 
 To configure, select the status bar indicator, which brings up the [configuration Quick Pick](#option-1-select-a-configuration-option-through-the-configuration-quick-pick). The Quick Pick can help you select or install a C/C++ compiler.
 
-If you do not see a status bar indicator, you can also check your project's `c_cpp_properties.json` file. This file stores all of your IntelliSense configuration settings. Navigate to this file by selecting **C/C++: Edit Configurations (UI)** from the Command Palette (`kb(workbench.action.showCommands)`). Check the `IntelliSense mode` to find your configuration. To learn more about the `c_cpp_properties.json` file, you can review the [schema reference](/docs/cpp/c-cpp-properties-schema-reference.md).
+If you do not see a status bar indicator, you can also check your project's `c_cpp_properties.json` file. This file stores all of your IntelliSense configuration settings. Navigate to this file by selecting **C/C++: Edit Configurations (UI)** from the Command Palette (`kb(workbench.action.showCommands)`). Check the `IntelliSense mode` to find your configuration.
 
 ![Command Palette filtered on C/C++ Edit Configurations command](images/intellisense/edit-configurations-ui.png)
 

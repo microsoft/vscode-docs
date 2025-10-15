@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: ac3f00c8-78a8-408c-8af6-3e997a482972
-DateApproved: 09/11/2025
+DateApproved: 10/09/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to creating an AI extension in Visual Studio Code
@@ -226,7 +226,7 @@ Get more info about the [naming conventions for slash commands](#slash-command-n
 
 ### 4. Register follow-up requests
 
-After each chat request, VS Code invokes follow-up providers to get suggested follow-up questions to show to the user. The user can then select the follow-up question, and immediately send it to the chat extension. Follow-up questions can provide inspiration to the user to take the conversation further, or to discover more capabilities of the chat extension.
+After each chat request, VS Code invokes follow-up providers to get suggested follow-up questions to show to the user. The user can then select the follow-up question, and immediately send it to the chat extension. Use the [`ChatFollowupProvider`](/api/references/vscode-api#ChatFollowupProvider) API to register follow-up prompts of type [`ChatFollowup`](/api/references/vscode-api#ChatFollowup).
 
 The following code snippet shows how to register follow-up requests in a chat extension:
 
@@ -236,7 +236,7 @@ cat.followupProvider = {
         if (result.metadata.command === 'teach') {
             return [{
                 prompt: 'let us play',
-                title: vscode.l10n.t('Play with the cat')
+                label: vscode.l10n.t('Play with the cat')
             } satisfies vscode.ChatFollowup];
         }
     }
