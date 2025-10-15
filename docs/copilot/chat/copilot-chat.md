@@ -150,7 +150,7 @@ Chat supports vision capabilities, which means you can attach an image as contex
 
 ## Chat history
 
-As you iterate and send multiple chat prompts in a chat session, VS Code uses the history of chat prompts and responses as context for your current chat prompt. This means that you can ask follow-up questions or clarify your previous question without having to repeat the context. For example, you can ask "How does *this* differ from ...", "Now add a test case", "explain in more detail", and more.
+As you iterate and send multiple chat prompts in a chat session, VS Code uses the history of chat prompts and responses as context for your current chat prompt. This means that you can ask follow-up questions or clarify your previous question without having to repeat the context. For example, you can ask "How does _this_ differ from ...", "Now add a test case", "explain in more detail", and more.
 
 At any time, you can create a new chat session by using the **New Chat** (`+`) button (`kb(workbench.action.chat.newChat)`) in the Chat view. This can be useful if you want to move to a different topic and avoid the previous context and history.
 

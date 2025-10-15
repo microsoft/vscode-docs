@@ -101,7 +101,7 @@ Follow these steps to get started:
 
     ![MCP Tool Confirmation](../images/mcp-servers/mcp-tool-confirmation.png)
 
-    You can approve tools for the current session, workspace, or all future invocations. Learn more about [managing tool approvals](/docs/copilot/chat/chat-tools.md#manage-tool-approvals).
+    You can approve tools for the current session, workspace, or all future invocations. Learn more about [managing tool approvals](/docs/copilot/chat/chat-tools.md#review-and-approve-tool-invocations).
 
     If your project has configured [tasks](/docs/debugtest/tasks.md) in `tasks.json`, agent mode tries to run the appropriate tasks. For example, if you've defined a build task, agent mode will run the build task before running the application. Enable or disable running workspace tasks with the `setting(github.copilot.chat.agent.runTasks)` setting.
 
@@ -146,8 +146,6 @@ You can configure which [terminal profile](/docs/terminal/profiles.md) is used f
 * Windows: `setting(chat.tools.terminal.terminalProfile.windows)`
 * Linux: `setting(chat.tools.terminal.terminalProfile.linux)`
 * macOS: `setting(chat.tools.terminal.terminalProfile.macos)`
-
-
 
 ## Accept or discard edits
 

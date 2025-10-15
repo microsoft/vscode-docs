@@ -119,7 +119,7 @@
       ["Code Completions", "/docs/copilot/ai-powered-suggestions"],
       ["Copilot Coding Agent", "/docs/copilot/copilot-coding-agent"],
       ["", "", {
-        "name": "Customize Copilot",
+        "name": "Customization",
         "area": "copilot/customization",
         "noCollapse": true,
         "topics": [
