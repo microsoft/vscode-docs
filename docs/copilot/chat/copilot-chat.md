@@ -50,7 +50,7 @@ To switch between chat modes, open the Chat view (`kb(workbench.action.chat.open
 
 ![Screenshot showing the Chat view, highlighting the chat mode dropdown list.](../images/customization/chat-mode-dropdown.png)
 
-VS Code comes with three built-in chat modes: **Ask**, **Edit**, and **Agent**. You can define your own chat modes for specific scenarios, such as planning a new feature, or researching implementation options. Learn more about [chat modes in VS Code](/docs/copilot/chat/chat-modes.md).
+VS Code comes with three built-in chat modes: **Ask**, **Edit**, and **Agent**. You can define your own chat modes for specific scenarios, such as planning a new feature, or researching implementation options. Learn more about [chat modes in VS Code](/docs/copilot/chat/chat-builtin-modes.md).
 
 ## Change the language model
 

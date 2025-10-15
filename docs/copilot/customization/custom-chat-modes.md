@@ -8,7 +8,7 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 
 You can create custom chat modes to tailor the chat behavior in Visual Studio Code for specific tasks or roles. While VS Code comes with three built-in chat modes, you can create your own custom chat modes for specialized workflows like planning features, conducting code reviews, or researching implementation options.
 
-Learn more about the [built-in chat modes](/docs/copilot/chat/chat-modes.md) and when to use them.
+Learn more about the [built-in chat modes](/docs/copilot/chat/chat-builtin-modes.md) and when to use them.
 
 ## Why use custom chat modes
 
@@ -106,7 +106,7 @@ To edit and manage existing chat modes, in the Chat view, select **Configure Cha
 
 ## Related resources
 
-* [Learn about chat modes in VS Code](/docs/copilot/chat/chat-modes.md)
+* [Learn about chat modes in VS Code](/docs/copilot/chat/chat-builtin-modes.md)
 * [Get an overview of chat in VS Code](/docs/copilot/chat/copilot-chat.md)
 * [Customize AI with custom instructions](/docs/copilot/customization/custom-instructions.md)
 * [Create reusable prompt files](/docs/copilot/customization/prompt-files.md)

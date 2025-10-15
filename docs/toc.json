@@ -108,7 +108,7 @@
           ["Chat Overview", "/docs/copilot/chat/copilot-chat"],
           ["Add Context", "/docs/copilot/chat/copilot-chat-context"],
           ["Tools", "/docs/copilot/chat/chat-tools"],
-          ["Chat Modes", "/docs/copilot/chat/chat-modes"],
+          ["Chat Modes", "/docs/copilot/chat/chat-builtin-modes"],
           ["Ask Mode", "/docs/copilot/chat/chat-ask-mode"],
           ["Edit Mode", "/docs/copilot/chat/copilot-edits"],
           ["Agent Mode", "/docs/copilot/chat/chat-agent-mode"],
