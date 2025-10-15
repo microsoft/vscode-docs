@@ -85,7 +85,7 @@ You can also explicitly reference tools in your prompts in any chat mode by typi
 
 Some tools accept parameters directly in the prompt. For example, `#fetch` requires a URL and `#githubRepo` requires a repository name.
 
-## Review and approve tool invocations
+## Tool approval
 
 Before chat runs certain tools, it requests confirmation to continue. This is a security measure because tools can perform actions that modify files, run commands, or access external services.
 
