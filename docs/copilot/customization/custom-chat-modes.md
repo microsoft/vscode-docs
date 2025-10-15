@@ -4,7 +4,7 @@ DateApproved: 10/15/2025
 MetaDescription: Learn how to create custom chat modes to tailor AI chat behavior in VS Code for your specific workflows and development scenarios.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
-# Create custom chat modes in VS Code
+# Custom chat modes in VS Code
 
 You can create custom chat modes to tailor the chat behavior in Visual Studio Code for specific tasks or roles. While VS Code comes with three built-in chat modes, you can create your own custom chat modes for specialized workflows like planning features, conducting code reviews, or researching implementation options.
 
