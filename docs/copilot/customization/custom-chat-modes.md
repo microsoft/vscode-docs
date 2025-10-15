@@ -6,15 +6,17 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Create custom chat modes in VS Code
 
-You can create custom chat modes to tailor the chat behavior in Visual Studio Code for specific tasks or roles. While VS Code comes with three built-in chat modes (**Ask**, **Edit**, and **Agent**), you can create your own custom chat modes for specialized workflows like planning features, conducting code reviews, or researching implementation options.
+You can create custom chat modes to tailor the chat behavior in Visual Studio Code for specific tasks or roles. While VS Code comes with three built-in chat modes, you can create your own custom chat modes for specialized workflows like planning features, conducting code reviews, or researching implementation options.
 
 Learn more about the [built-in chat modes](/docs/copilot/chat/chat-modes.md) and when to use them.
 
-## Switch between chat modes
+## Why use custom chat modes
 
-To switch between chat modes, open the Chat view (`kb(workbench.action.chat.open)`), and then select the desired mode from the chat mode dropdown list.
+Custom chat modes enable you to configure the AI to adopt different personas tailored to specific development roles and tasks. For example, you might create modes for a security reviewer, planner, solution architect, or other specialized roles. Each persona can have its own behavior, available tools, and instructions.
 
-![Screenshot showing the Chat view, highlighting the chat mode dropdown list.](../images/customization/chat-mode-dropdown.png)
+Different tasks require different capabilities. A planning mode might only need read-only tools for research and analysis to prevent accidental code changes, while an implementation mode would need full editing capabilities. Custom chat modes let you specify exactly which tools are available for each task, ensuring the AI has the right capabilities for the job.
+
+Custom chat modes also let you provide specialized instructions that define how the AI should operate. For instance, a planning mode could instruct the AI to collect project context and generate a detailed implementation plan, while a code review mode might focus on identifying security vulnerabilities and suggesting improvements. These specialized instructions ensure consistent, task-appropriate responses every time you switch to that mode.
 
 ## Custom chat modes
 
