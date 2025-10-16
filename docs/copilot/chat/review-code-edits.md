@@ -14,7 +14,7 @@ Once the AI has made changes to your files, they are directly applied and saved 
 
 The Chat view shows the list of files that were edited and are pending your review. Files with pending edits also have an indicator in the Explorer view and editor tabs with a squared-dot icon.
 
-![Screenshot that shows the Chat view, highlighting the changed files list and the indicator in the Explorer view and editor tabs.](images/copilot-edits/copilot-edits-changed-files-full.png)
+![Screenshot that shows the Chat view, highlighting the changed files list and the indicator in the Explorer view and editor tabs.](../images/review-code-edits/copilot-edits-changed-files-full.png)
 
 When you open a file that was changed, the editor shows an inline diff of the applied changes.
 
@@ -24,7 +24,7 @@ When you close VS Code, the status of the pending edits is remembered and restor
 
 With the editor overlay controls, you can navigate between the suggested edits by using the `kbstyle(Up)` and `kbstyle(Down)` controls. Use the **Keep** or **Undo** button to accept or reject the edits for a given file.
 
-![Screenshot showing the Editor with proposed changes, highlighting the review controls in the editor overlay controls.](images/copilot-edits/copilot-edits-file-review-controls.png)
+![Screenshot showing the Editor with proposed changes, highlighting the review controls in the editor overlay controls.](../images/review-code-edits/copilot-edits-file-review-controls.png)
 
 When you hover over an inline change, the overlay controls let you accept or reject individual changes. In the Chat view, you can accept or reject all changes across all files at once.
 

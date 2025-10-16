@@ -19,7 +19,7 @@ Each chat request in your conversation history is editable. When you edit a prev
 
 To edit a previous chat request, select the request in the Chat view to modify and then resend it. You can configure or disable the editing experience with the `setting(chat.editRequests)` setting.
 
-<video src="images/copilot-chat/chat-edit-request.mp4" title="Video showing the editing of a previous chat request in the Chat view." autoplay loop controls muted></video>
+<video src="../images/chat-checkpoints/chat-edit-request.mp4" title="Video showing the editing of a previous chat request in the Chat view." autoplay loop controls muted></video>
 
 ## Use checkpoints to revert file changes
 
@@ -42,7 +42,7 @@ To restore your workspace to a previous checkpoint:
 
 1. Hover over the chat request and select **Restore Checkpoint**.
 
-    ![Screenshot of the Chat view, showing the Restore Checkpoint action in the Chat view.](images/copilot-chat/chat-restore-checkpoint.png)
+    ![Screenshot of the Chat view, showing the Restore Checkpoint action in the Chat view.](../images/chat-checkpoints/chat-restore-checkpoint.png)
 
 1. Confirm that you want to restore the checkpoint and undo any file changes made after that point.
 
@@ -54,13 +54,13 @@ After restoring to a previous checkpoint, you can redo the changes that were und
 
 To redo changes after restoring a checkpoint, select **Redo** in the Chat view.
 
-![Screenshot of the Chat view, showing the Redo button to redo the changes after restoring a checkpoint to a previous state.](images/copilot-chat/chat-redo-checkpoint.png)
+![Screenshot of the Chat view, showing the Redo button to redo the changes after restoring a checkpoint to a previous state.](../images/chat-checkpoints/chat-redo-checkpoint.png)
 
 ### View file changes in checkpoints
 
 To help you understand the effect of each chat request and make it easier to decide which checkpoint to restore to, enable the `setting(chat.checkpoints.showFileChanges)` setting. This shows the list of files that were modified at the end of each chat request, along with the number of lines added and removed in each file.
 
-![Screenshot of the Chat view, showing the file changes at the end of a chat request.](images/copilot-chat/chat-checkpoint-changed-files.png)
+![Screenshot of the Chat view, showing the file changes at the end of a chat request.](../images/chat-checkpoints/chat-checkpoint-changed-files.png)
 
 ## Tips for managing chat requests
 
