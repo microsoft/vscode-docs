@@ -194,11 +194,9 @@ Learn more about how to [use voice interactions in VS Code](/docs/configure/acce
 
 ## Chat Debug view
 
-The Chat Debug view is a dedicated view where you can see the details of AI requests and responses. For each chat request, you can see the system prompt, user prompt, and details about the context that is sent to the language model. You can view the detailed response from the language model, and responses from tools that are invoked as part of the chat request.
+The [Chat Debug view](/docs/copilot/chat/chat-debug-view.md) is a dedicated view where you can inspect the details of AI requests and responses, including system prompts, user prompts, context, and tool invocations. This is useful for understanding how chat processes your requests and for debugging unexpected behavior.
 
-To open the Chat Debug view, run the **Developer: Show Chat Debug View** command from the Command Palette (`kb(workbench.action.showCommands)`).
-
-![Screenshot of the Chat Debug view, showing the details of a chat request and response.](images/copilot-chat/chat-debug-view.png)
+Learn more about [using the Chat Debug view](/docs/copilot/chat/chat-debug-view.md).
 
 ## Start chat from the command line
 

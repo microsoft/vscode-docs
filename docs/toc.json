@@ -113,7 +113,8 @@
           ["Checkpoints", "/docs/copilot/chat/chat-checkpoints"],
           ["Chat Sessions", "/docs/copilot/chat/chat-sessions"],
           ["Inline Chat", "/docs/copilot/chat/inline-chat"],
-          ["Prompt Engineering", "/docs/copilot/chat/prompt-crafting"]
+          ["Prompt Engineering", "/docs/copilot/chat/prompt-crafting"],
+          ["Chat Debug View", "/docs/copilot/chat/chat-debug-view"]
         ]
       }
       ],
