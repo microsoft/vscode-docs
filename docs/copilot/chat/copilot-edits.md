@@ -60,39 +60,9 @@ In edit mode, you select which files to edit and provide the relevant context an
     > [!NOTE]
     > AI-generated code edits are restricted to the files in your current workspace.
 
-1. Review the suggested edits and [accept or discard the suggested edits](#accept-or-discard-edits).
+1. Review the suggested edits and [accept or discard the suggested edits](/docs/copilot/chat/review-code-edits.md).
 
 1. Continue to iterate on the code changes to refine the edits or to implement additional features.
-
-## Accept or discard edits
-
-VS Code lists the files that were edited in the changed files list in the Chat view. Files with pending edits also have an indicator in the Explorer view and editor tabs.
-
-![Screenshot that shows the Chat view, highlighting the changed files list and the indicator in the Explorer view and editor tabs.](images/copilot-edits/copilot-edits-changed-files-full.png)
-
-With the editor overlay controls, you can navigate between the suggested edits by using the `kbstyle(Up)` and `kbstyle(Down)` controls. Use the **Keep** or **Undo** button to accept or reject the edits for a given file.
-
-![Screenshot showing the Editor with proposed changes, highlighting the review controls in the editor overlay controls.](images/copilot-edits/copilot-edits-file-review-controls.png)
-
-If you stage your changes in the Source Control view, any pending edits are automatically accepted. On the other hand, if you discard your changes, any pending edits are also discarded.
-
-When you close VS Code, the status of the pending edits is remembered and restored when you reopen VS Code.
-
-To automatically accept all the suggested edits after a specific delay, configure the `setting(chat.editing.autoAccept)` setting. By hovering over the editor overlay controls, you can cancel the auto-accept countdown. If you automatically accept all edits, it's recommended to still review the changes before committing them in source control.
-
-## Manage file edit approvals
-
-You can manage which files the AI is allowed to edit without asking for explicit user approval with the `setting(chat.tools.edits.autoApprove)` setting. This setting can help inadvertent edits to files that contain sensitive information like workspace configuration settings or environment settings.
-
-The `setting(chat.tools.edits.autoApprove)` setting accepts glob pattern-boolean pairs that indicate which files are automatically approved for edits. For example:
-
-```json
-"chat.tools.edits.autoApprove": {
-  "**/*": true,
-  "**/.vscode/*.json": false,
-  "**/.env": false
-}
-```
 
 ## Edit a previous chat request
 

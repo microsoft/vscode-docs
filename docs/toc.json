@@ -109,6 +109,7 @@
           ["Add Context", "/docs/copilot/chat/copilot-chat-context"],
           ["Tools", "/docs/copilot/chat/chat-tools"],
           ["Chat Modes", "/docs/copilot/chat/chat-builtin-modes"],
+          ["Review Edits", "/docs/copilot/chat/review-code-edits"],
           ["Checkpoints", "/docs/copilot/chat/chat-checkpoints"],
           ["Inline Chat", "/docs/copilot/chat/inline-chat"],
           ["Prompt Engineering", "/docs/copilot/chat/prompt-crafting"]
