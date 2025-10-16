@@ -279,7 +279,7 @@ The current limit can be viewed by running:
 cat /proc/sys/fs/inotify/max_user_watches
 ```
 
-The limit can be increased to its maximum by editing `/etc/sysctl.conf` (except on Arch Linux and Ubutun 24.10 and later, read below) and adding this line to the end of the file:
+The limit can be increased to its maximum by editing `/etc/sysctl.conf` (except on Arch Linux and Ubuntu 24.10 and later, read below) and adding this line to the end of the file:
 
 ```bash
 fs.inotify.max_user_watches=524288
