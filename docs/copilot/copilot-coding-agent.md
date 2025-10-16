@@ -304,3 +304,4 @@ For detailed information about limitations, compatibility, and usage costs, see 
 
 * [GitHub Copilot coding agent documentation](https://docs.github.com/en/copilot/using-github-copilot/coding-agent)
 * [GitHub Pull Requests extension](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github)
+* [Manage chat sessions](/docs/copilot/chat/chat-sessions.md)

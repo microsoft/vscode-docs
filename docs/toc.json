@@ -111,6 +111,7 @@
           ["Chat Modes", "/docs/copilot/chat/chat-builtin-modes"],
           ["Review Edits", "/docs/copilot/chat/review-code-edits"],
           ["Checkpoints", "/docs/copilot/chat/chat-checkpoints"],
+          ["Chat Sessions", "/docs/copilot/chat/chat-sessions"],
           ["Inline Chat", "/docs/copilot/chat/inline-chat"],
           ["Prompt Engineering", "/docs/copilot/chat/prompt-crafting"]
         ]

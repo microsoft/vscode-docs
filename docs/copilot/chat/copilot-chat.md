@@ -160,6 +160,8 @@ To view the history of chat sessions, select the **Show Chats...** button in the
 
 You can export all prompts and responses for a chat session in a JSON file with the **Chat: Export Chat...** command in the Command Palette. To copy a specific chat prompt or response to the clipboard in Markdown format, right-click the message and select **Copy**. To copy the entire chat session, right-click the Chat view and select **Copy All**.
 
+Learn more about [managing chat sessions](/docs/copilot/chat/chat-sessions.md).
+
 ## Edit and revert chat requests
 
 You can edit previous chat requests to refine your prompts and use checkpoints to restore your workspace to earlier states. This is particularly useful when iterating on requests or when you need to undo changes made by chat interactions.
@@ -178,7 +180,7 @@ By default, the chat session opens in compact mode, which hides the title bar an
 
 Optionally, enable the **Always on Top** mode to always keep the Chat view on top of other windows.
 
-Learn more about [floating windows](/docs/configure/custom-layout.md#floating-windows) in VS Code.
+Learn more about [managing chat sessions](/docs/copilot/chat/chat-sessions.md) and [floating windows](/docs/configure/custom-layout.md#floating-windows) in VS Code.
 
 ## Use voice interactions
 
