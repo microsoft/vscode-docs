@@ -41,13 +41,13 @@ If you use the JSON editor for your settings, add the following line:
 ```
 
 > [!IMPORTANT]
-> To participate in the A/B experimentation to get early access to new features, you must have usage data enabled by setting `setting(telemetry.telemetryLevel)` to `all`.
+> To participate in the A/B experimentation and get early access to new features, you must have usage data enabled by setting `setting(telemetry.telemetryLevel)` to `all`.
 
 ## Feature availability and telemetry
 
 VS Code uses an A/B experimentation system to roll out new features to a subset of users before making them generally available. This helps us validate that a new feature is working as expected across a diverse set of users before rolling it out to everyone. By participating in experimentation, you help us improve the quality of VS Code and can help shape the future of the product through early feedback.
 
-To enable this experimentation system, VS Code uses the usage telemetry data to determine which users should receive the new feature and to validate how the feature is used. If you disable usage data telemetry by setting `setting(telemetry.telemetryLevel)` to `error`, `crash`, or `off`, we can't evaluate the feature's usage and therefore experimentation is disabled for you. As a result, the roll out of new features to you might be delayed until the feature is generally available.
+To enable this experimentation system, VS Code uses the usage telemetry data to determine which users should receive the new feature and to validate how the feature is used. If you disable usage data telemetry by setting `setting(telemetry.telemetryLevel)` to `error`, `crash`, or `off`, we can't evaluate the feature's usage and therefore experimentation is disabled for you. As a result, the rollout of new features to you might be delayed until the feature is generally available.
 
 ## Extensions and telemetry
 
