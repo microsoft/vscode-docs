@@ -324,7 +324,7 @@ To have a better overview of the individual tasks that the agent is working on, 
 
 <video src="images/agent-mode/chat-todo-list.mp4" title="Video that shows the todo list in chat." autoplay loop controls muted></video>
 
-You can configure the visibility and position of the todo list control with the `setting(chat.todoListWidget.position)` setting.
+You can configure the visibility and position of the todo list control with the `setting(chat.agent.todoList.position)` setting.
 
 ## Use instructions to get AI edits that follow your coding style
 
