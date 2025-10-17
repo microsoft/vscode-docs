@@ -166,6 +166,13 @@ Type `@` in the chat input field to see a list of available chat participants.
 
 Extensions can also contribute their own [chat participants](/api/extension-guides/ai/chat.md).
 
+## Vision
+
+Chat supports vision capabilities, which means you can attach an image as context to your chat prompt and ask questions about it. For example, attach a screenshot of a block of code and ask to explain it, or attach a sketch of a UI and ask agent mode to implement it.
+
+> [!TIP]
+> You can drag and drop an image from a web browser onto the Chat view to add it as context.
+
 ## Add elements from the VS Code simple browser (Experimental)
 
 VS Code has a built-in simple browser that you can use to view and interact with a locally-hosted web application, for example to do quick testing and debugging of your web application.
