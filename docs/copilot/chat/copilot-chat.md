@@ -80,11 +80,14 @@ Let's start by creating a basic calculator app to see how chat works in VS Code:
 
 1. Type the following prompt in the chat input field and press `kb(workbench.action.chat.submit)` to submit it: `"Create a basic calculator app with HTML, CSS, and JavaScript"`.
 
-    As the agent works on your request, it applies changes directly to your workspace and provides updates in the chat response. It might also run terminal commands, for example, to install dependencies or run build scripts.
+    The agent applies changes directly to your workspace and might also run terminal commands, for example, to install dependencies or run build scripts.
 
 1. In the editor, [review the suggested changes](/docs/copilot/chat/review-code-edits.md) and choose to keep or discard them.
 
 As you continue the conversation, VS Code uses the history of chat prompts and responses as context. You can ask follow-up questions like "Add a dark mode toggle", "Now add keyboard support", or "Style it with a modern design" without repeating yourself.
+
+> [!TIP]
+> Use voice input to interact with chat in VS Code. Learn more about [using voice input with chat](/docs/configure/accessibility/voice.md).
 
 ## Write effective prompts
 
