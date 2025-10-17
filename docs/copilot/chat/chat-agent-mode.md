@@ -82,11 +82,7 @@ Follow these steps to get started:
 
     You can specify a high-level requirement, and you don't have to specify which files to work on. In agent mode, the AI determines the relevant context and files to edit autonomously.
 
-    Experiment with some of these example prompts to get started:
-
-    * `Create a meal-planning web app using React and Node.js`
-    * `Add social media sharing functionality`
-    * `Replace current auth with OAuth`
+    See the [Prompt examples](/docs/copilot/chat/prompt-examples.md#agent-mode-prompts) article for effective agent mode prompts.
 
 1. Agent mode might invoke multiple [tools](#tools-in-agent-mode) to accomplish different tasks. Optionally, select the **Tools** icon to configure which tools can be used for responding to your request.
 
@@ -101,7 +97,7 @@ Follow these steps to get started:
 
     ![MCP Tool Confirmation](../images/mcp-servers/mcp-tool-confirmation.png)
 
-    You can approve tools for the current session, workspace, or all future invocations. Learn more about [managing tool approvals](/docs/copilot/chat/chat-tools.md#review-and-approve-tool-invocations).
+    You can approve tools for the current session, workspace, or all future invocations. Learn more about [managing tool approvals](/docs/copilot/chat/chat-tools.md#tool-approval).
 
     If your project has configured [tasks](/docs/debugtest/tasks.md) in `tasks.json`, agent mode tries to run the appropriate tasks. For example, if you've defined a build task, agent mode will run the build task before running the application. Enable or disable running workspace tasks with the `setting(github.copilot.chat.agent.runTasks)` setting.
 
@@ -149,7 +145,7 @@ You can configure which [terminal profile](/docs/terminal/profiles.md) is used f
 
 ## Edit a previous chat request
 
-You can edit a previous chat request in the active chat session. This is useful if you want to refine your prompt or correct a mistake. Editing a chat request is equivalent to reverting the request and then submitting a new request with the edited prompt. Learn more about [editing a previous chat request](/docs/copilot/chat/copilot-chat.md#edit-a-previous-chat-request).
+You can edit a previous chat request in the active chat session. This is useful if you want to refine your prompt or correct a mistake. Editing a chat request is equivalent to reverting the request and then submitting a new request with the edited prompt. Learn more about [editing a previous chat request](/docs/copilot/chat/chat-checkpoints.md#edit-a-previous-chat-request).
 
 <video src="images/copilot-chat/chat-edit-request.mp4" title="Video showing the editing of a previous chat request in the Chat view." autoplay loop controls muted></video>
 
@@ -163,7 +159,7 @@ To enable checkpoints, configure the `setting(chat.checkpoints.enabled)` setting
 
 ![Screenshot of the Chat view, showing the Restore Checkpoint action in the Chat view.](images/copilot-chat/chat-restore-checkpoint.png)
 
-Learn more about working with [checkpoints in chat](/docs/copilot/chat/copilot-chat.md#revert-chat-requests-with-checkpoints).
+Learn more about working with [checkpoints in chat](/docs/copilot/chat/chat-checkpoints.md).
 
 ## Track progress with todo lists (Experimental)
 

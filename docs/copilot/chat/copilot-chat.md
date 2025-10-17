@@ -120,53 +120,6 @@ You can tailor chat to fit your specific needs and workflow:
 
 Learn more about [customizing chat in VS Code](/docs/copilot/customization/overview.md).
 
-## Prompt examples
-
-<details>
-<summary>Ask about general technology topics</summary>
-
-* `"What is a linked list?"`
-* `"top 10 popular web frameworks"`
-
-</details>
-
-<details>
-<summary>Understand the codebase</summary>
-
-* `"Explain how authentication works in #codebase"`
-* `"Where is the database connecting string configured? #codebase"`
-* `"How do I build this #codebase?"`
-* `"Where is #getUser used?"`
-
-</details>
-
-<details>
-<summary>Add new features to your app</summary>
-
-* `"Create an about page and include it in the nav bar #codebase"`
-* `"Add a new API route for updating the address info #codebase"`
-* `"Add a login button and style it based on #styles.css"`
-
-</details>
-
-<details>
-<summary>Fix issues in the workspace</summary>
-
-* `"Fix the issues in #problems"`
-* `"Fix the failing tests #testFailure"`
-
-</details>
-
-<details>
-<summary>Reference content from the web</summary>
-
-* `"How do I use the 'useState' hook in react 18? #fetch https://18.react.dev/reference/react/useState#usage"`
-* `"Build an API endpoint to fetch address info, use the template from #githubRepo contoso/api-templates"`
-
-</details>
-
-For more prompt examples, see the [Copilot Chat Cookbook](https://docs.github.com/en/copilot/example-prompts-for-github-copilot-chat) in the GitHub documentation.
-
 ## Frequently asked questions
 
 ### How do I prevent the Chat view from opening automatically?
@@ -192,6 +145,8 @@ Now that you know the basics, explore more chat capabilities:
 
 ## Additional resources
 
-You can read more about [GitHub Copilot](https://github.com/features/copilot) and how to use it in VS Code in the [GitHub Copilot documentation](https://docs.github.com/copilot/getting-started-with-github-copilot?tool=vscode).
+* Get inspired by the [chat prompt examples](/docs/copilot/chat/prompt-examples.md) that cover common tasks like understanding your codebase, generating code, debugging, working with notebooks, and more.
 
-Or check out the [VS Code Copilot Series](https://www.youtube.com/playlist?list=PLj6YeMhvp2S5_hvBl2SE-7YCHYlLQ0bPt) on YouTube, where you can find more introductory content and programming-specific videos for using Copilot with [Python](https://www.youtube.com/watch?v=DSHfHT5qnGc), [C#](https://www.youtube.com/watch?v=VsUQlSyQn1E), [Java](https://www.youtube.com/watch?v=zhCB95cE0HY), [PowerShell](https://www.youtube.com/watch?v=EwtRzAFiXEM), [C++](https://www.youtube.com/watch?v=ZfT2CXY5-Dc), and more.
+* Read more about [GitHub Copilot](https://github.com/features/copilot) and how to use it in VS Code in the [GitHub Copilot documentation](https://docs.github.com/copilot/getting-started-with-github-copilot?tool=vscode).
+
+* Check out the [VS Code Copilot Series](https://www.youtube.com/playlist?list=PLj6YeMhvp2S5_hvBl2SE-7YCHYlLQ0bPt) on YouTube, where you can find more introductory content and programming-specific videos for using Copilot with [Python](https://www.youtube.com/watch?v=DSHfHT5qnGc), [C#](https://www.youtube.com/watch?v=VsUQlSyQn1E), [Java](https://www.youtube.com/watch?v=zhCB95cE0HY), [PowerShell](https://www.youtube.com/watch?v=EwtRzAFiXEM), [C++](https://www.youtube.com/watch?v=ZfT2CXY5-Dc), and more.

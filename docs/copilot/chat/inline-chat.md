@@ -29,11 +29,7 @@ To use editor inline chat:
 
     Select a block of code in the editor to scope the prompt to that code.
 
-    Experiment with some of these example prompts to get started:
-
-    * `Refactor this code to use async/await`
-    * `Explain this code`
-    * `Add error handling`
+    See the [Prompt examples](/docs/copilot/chat/prompt-examples.md#inline-chat-prompts) article for effective inline chat prompts.
 
 1. Notice that Copilot shows code suggestions inline in the editor. Accept or reject the changes.
 
@@ -58,11 +54,7 @@ To use terminal inline chat:
 
 1. Enter your prompt in the chat input field.
 
-    Experiment with some of these example prompts to get started:
-
-    * `How do I install npm packages?`
-    * `List the top 5 largest files in the src directory`
-    * `undo the last git commit`
+    See the [Prompt examples](/docs/copilot/chat/prompt-examples.md#terminal-and-command-line-tasks) article for effective terminal inline chat prompts.
 
     ![Screenshot showing that you can ask complex questions like "list the top 5 largest files in the src dir"](images/copilot-chat/terminal-chat-2.png)
 

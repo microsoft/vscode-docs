@@ -114,6 +114,7 @@
           ["Chat Modes", "/docs/copilot/chat/chat-builtin-modes"],
           ["Inline Chat", "/docs/copilot/chat/inline-chat"],
           ["Prompt Engineering", "/docs/copilot/chat/prompt-crafting"],
+          ["Prompt Examples", "/docs/copilot/chat/prompt-examples"],
           ["Chat Debug View", "/docs/copilot/chat/chat-debug-view"]
         ]
       }

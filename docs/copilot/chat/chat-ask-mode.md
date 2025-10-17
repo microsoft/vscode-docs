@@ -45,13 +45,7 @@ Follow these steps to get started with ask mode in VS Code:
 
     By adding context, you can get more relevant responses. For example, to ask questions that are specific to your current project, you can use the `#codebase` context item. Type `#` in the chat input field to view the list of available context items.
 
-    Here are some example prompts that use context:
-
-    * `"Where is the db connecting string defined in #codebase?"`
-    * `"Which testing framework is used for #calculator.test.js?"`
-    * `"Summarize the changes in #changes"`
-
-    Learn more about [adding context to your chat prompt](/docs/copilot/chat/copilot-chat-context.md).
+    See the [Prompt examples](/docs/copilot/chat/prompt-examples.md) article for effective examples. Learn more about [adding context to your chat prompt](/docs/copilot/chat/copilot-chat-context.md).
 
 1. Notice that, based on your question, the response might include different types of rich content, such as code blocks, terminal commands, links, and references to symbols in your code.
 
