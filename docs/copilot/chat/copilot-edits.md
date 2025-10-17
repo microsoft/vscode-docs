@@ -78,7 +78,7 @@ If you stage your changes in the Source Control view, any pending edits are auto
 
 When you close VS Code, the status of the pending edits is remembered and restored when you reopen VS Code.
 
-To automatically accept all the suggested edits after a specific delay, configure the `setting(chat.editing.autoAccept)` setting. By hovering over the editor overlay controls, you can cancel the auto-accept countdown. If you automatically accept all edits, it's recommended to still review the changes before committing them in source control.
+To automatically accept all the suggested edits after a specific delay, configure the `setting(chat.editing.autoAcceptDelay)` setting. By hovering over the editor overlay controls, you can cancel the auto-accept countdown. If you automatically accept all edits, it's recommended to still review the changes before committing them in source control.
 
 ## Manage file edit approvals
 
