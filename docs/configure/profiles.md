@@ -413,6 +413,14 @@ Profiles are stored under your User configurations similar to your user settings
 
 If you are using the [Insiders](/insiders) version, the intermediate folder name is `Code - Insiders`.
 
+The Default Profile is stored directly in the User folder, not in the `profiles` subfolder:
+
+* **Windows** `%APPDATA%\Code\User`
+* **macOS** `$HOME/Library/Application\ Support/Code/User`
+* **Linux** `$HOME/.config/Code/User`
+
+Within each profile folder, user-level customization files for GitHub Copilot (such as `.instructions.md`, `.prompt.md`, and `.chatmode.md` files) are stored in a `prompts` subdirectory.
+
 ### What is a Temporary Profile?
 
 A Temporary Profile is a profile that is not saved across VS Code sessions. You create a Temporary Profile via the **Profiles: Create a Temporary Profile** command in the Command Palette. The Temporary Profile starts as an Empty Profile and has an automatically generated name (such as **Temp 1**). You can modify the profile settings and extensions, use the profile for the lifetime of your VS Code session, but it will be deleted once you close VS Code.

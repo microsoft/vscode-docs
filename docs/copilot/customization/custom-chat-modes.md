@@ -99,7 +99,7 @@ You can create a chat mode file in your workspace or user profile.
 
     * **Workspace**: By default, workspace chat mode files are stored in the `.github/chatmodes` folder of your workspace. Add more prompt folders for your workspace with the `setting(chat.modeFilesLocations)` setting.
 
-    * **User profile**: User chat mode files are stored in the `prompts` directory within the [current profile folder](/docs/configure/profiles.md). You can sync your user chat mode files across multiple devices by using [Settings Sync](/docs/configure/settings-sync.md).
+    * **User profile**: User chat mode files are stored in the `prompts` directory within the [current profile folder](/docs/configure/profiles.md#where-are-profiles-kept). You can sync your user chat mode files across multiple devices by using [Settings Sync](/docs/configure/settings-sync.md).
 
 1. Enter a name for the chat mode. This name is used in the chat mode dropdown list in the Chat view.
 

@@ -16,7 +16,7 @@ They can include task-specific guidelines or reference custom instructions to en
 VS Code supports two types of scopes for prompt files:
 
 * **Workspace prompt files**: Are only available within the workspace and are stored in the `.github/prompts` folder of the workspace.
-* **User prompt files**: Are available across multiple workspaces and are stored in the `prompts` directory within the current [VS Code profile](/docs/configure/profiles.md).
+* **User prompt files**: Are available across multiple workspaces and are stored in the `prompts` directory within the current [VS Code profile](/docs/configure/profiles.md#where-are-profiles-kept).
 
 ## Prompt file examples
 
@@ -120,7 +120,7 @@ To create a prompt file:
 
     * **Workspace**: By default, workspace prompt files are stored in the `.github/prompts` folder of your workspace. Add more prompt folders for your workspace with the `setting(chat.promptFilesLocations)` setting.
 
-    * **User profile**: User prompt files are stored in the `prompts` directory within the [current profile folder](/docs/configure/profiles.md). You can sync your user prompt files across multiple devices by using [Settings Sync](/docs/configure/settings-sync.md).
+    * **User profile**: User prompt files are stored in the `prompts` directory within the [current profile folder](/docs/configure/profiles.md#where-are-profiles-kept). You can sync your user prompt files across multiple devices by using [Settings Sync](/docs/configure/settings-sync.md).
 
 1. Enter a name for your prompt file.
 
