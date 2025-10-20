@@ -405,13 +405,13 @@ If the profile specified does not exist, a new empty profile with the given name
 
 ### Where are profiles kept?
 
-The Default Profile is stored in the root User configuration folder similar to your user settings and keyboard shortcuts.
+Files associated with the Default Profile are stored in the User configuration folder.
 
 * **Windows** `%APPDATA%\Code\User`
 * **macOS** `$HOME/Library/Application\ Support/Code/User`
 * **Linux** `$HOME/.config/Code/User`
 
-Additional profiles are stored under the `profiles` sub-directory.
+Additional profiles are stored in the `profiles` subdirectory within your User configuration folder:
 
 * **Windows** `%APPDATA%\Code\User\profiles`
 * **macOS** `$HOME/Library/Application\ Support/Code/User/profiles`
