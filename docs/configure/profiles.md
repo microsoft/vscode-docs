@@ -405,19 +405,19 @@ If the profile specified does not exist, a new empty profile with the given name
 
 ### Where are profiles kept?
 
-Profiles are stored under your User configurations similar to your user settings and keyboard shortcuts.
+The Default Profile is stored in the root User configuration folder similar to your user settings and keyboard shortcuts.
+
+* **Windows** `%APPDATA%\Code\User`
+* **macOS** `$HOME/Library/Application\ Support/Code/User`
+* **Linux** `$HOME/.config/Code/User`
+
+Additional profiles are stored under the `profiles` sub-directory.
 
 * **Windows** `%APPDATA%\Code\User\profiles`
 * **macOS** `$HOME/Library/Application\ Support/Code/User/profiles`
 * **Linux** `$HOME/.config/Code/User/profiles`
 
 If you are using the [Insiders](/insiders) version, the intermediate folder name is `Code - Insiders`.
-
-The Default Profile is stored in the User folder:
-
-* **Windows** `%APPDATA%\Code\User`
-* **macOS** `$HOME/Library/Application\ Support/Code/User`
-* **Linux** `$HOME/.config/Code/User`
 
 ### What is a Temporary Profile?
 
