@@ -33,7 +33,7 @@ The built-in chat modes provide general-purpose configurations for chat in VS Co
 
 Custom chat modes consist of a set of instructions and tools that are applied when you switch to that mode. For example, a "Plan" chat mode could include instructions for generating an implementation plan and only use read-only tools. By creating a custom chat mode, you can quickly switch to that specific configuration without having to manually select relevant tools and instructions each time.
 
-Custom chat modes are defined in a `.chatmode.md` Markdown file, and can be stored in your workspace for others to use, or in the `prompts` directory within your user profile, where you can reuse them across different workspaces.
+Custom chat modes are defined in a `.chatmode.md` Markdown file, and can be stored in your workspace for others to use, or in the `prompts` directory within the [current profile folder](/docs/configure/profiles.md#where-are-profiles-kept), where you can reuse them across different workspaces.
 
 You can reference instructions files and tools (sets) in your custom chat mode file.
 
