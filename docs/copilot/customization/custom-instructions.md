@@ -147,7 +147,7 @@ By using the `applyTo` frontmatter property in the instructions file header, you
 Alternatively, you can manually attach an instructions file to a specific chat prompt by using the **Add Context** > **Instructions** option in the Chat view.
 
 * **Workspace instructions files**: are only available within the workspace and are stored in the `.github/instructions` folder of the workspace.
-* **User instructions files**: are available across multiple workspaces and are stored in the current [VS Code profile](/docs/configure/profiles.md).
+* **User instructions files**: are available across multiple workspaces and are stored in the `prompts` directory within the current [VS Code profile](/docs/configure/profiles.md).
 
 ### Instructions file format
 
@@ -189,7 +189,7 @@ To create an instructions file:
 
     * **Workspace**: By default, workspace instructions files are stored in the `.github/instructions` folder of your workspace. Add more instruction folders for your workspace with the `setting(chat.instructionsFilesLocations)` setting.
 
-    * **User profile**: User instructions files are stored in the [current profile folder](/docs/configure/profiles.md). You can sync your user instructions files across multiple devices by using [Settings Sync](/docs/configure/settings-sync.md).
+    * **User profile**: User instructions files are stored in the `prompts` directory within the [current profile folder](/docs/configure/profiles.md). You can sync your user instructions files across multiple devices by using [Settings Sync](/docs/configure/settings-sync.md).
 
 1. Enter a name for your instructions file.
 

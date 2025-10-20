@@ -203,7 +203,7 @@ Learn more about [chat history and context management](/docs/copilot/chat/copilo
 
 ## Custom instructions
 
-With instruction files, you can provide the AI with common guidelines and rules for generating responses that match your coding style and preferences. Instruction files are Markdown files that you can create in your workspace or in your current profile.
+With instruction files, you can provide the AI with common guidelines and rules for generating responses that match your coding style and preferences. Instruction files are Markdown files that you can create in your workspace or in the `prompts` directory within your current profile.
 
 By using instruction files, you can avoid having to repeatedly add common instructions in your chat prompts, and instead have the AI automatically apply these instructions to your chat interactions.
 
