@@ -64,7 +64,4 @@ To use terminal inline chat:
 
 ## Related resources
 
-* [Get a quick overview of the Copilot features in VS Code](/docs/copilot/reference/copilot-vscode-features.md)
 * [Add context to your chat prompt](/docs/copilot/chat/copilot-chat-context.md)
-* [Start a multi-file coding session](/docs/copilot/chat/copilot-edits.md)
-* [Start an agentic coding workflow](/docs/copilot/chat/chat-agent-mode.md)

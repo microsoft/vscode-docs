@@ -26,11 +26,10 @@ VS Code automatically provides context to the chat prompt based on your current 
 
 * The currently selected text in the active editor.
 * The file name or notebook name of the active editor.
-* If you're using [ask mode](/docs/copilot/chat/chat-ask-mode.md) or [edit mode](/docs/copilot/chat/copilot-edits.md), the active file is automatically included as context.
+* If you're using ask mode or edit mode, the active file is automatically included as context.
+* In agent mode, the agent decides autonomously if the active file needs to be added to the chat context based on your prompt.
 
 ![Screenshot of the Chat view, showing the active file as a suggested context item in the chat input box.](./images/copilot-chat/chat-context-current-file.png)
-
-If you're using [agent mode](/docs/copilot/chat/chat-agent-mode.md), the agent tools automatically determine if the active file needs to be added to the chat context.
 
 ## #-mentions
 

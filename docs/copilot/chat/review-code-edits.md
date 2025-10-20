@@ -56,6 +56,4 @@ The following example configuration automatically allows edits to all files exce
 
 ## Related resources
 
-* [Use edit mode in VS Code](/docs/copilot/chat/copilot-edits.md)
-* [Use agent mode in VS Code](/docs/copilot/chat/chat-agent-mode.md)
 * [Learn more about using chat in VS Code](/docs/copilot/chat/copilot-chat.md)

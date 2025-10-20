@@ -32,8 +32,7 @@ Depending on your task, you can choose between different Copilot tools.
 |------|----------|
 | [Code completions](/docs/copilot/ai-powered-suggestions.md) | Streamline coding while staying in the flow.<br/>Receive inline suggestions for code snippets, variable names, and functions as you write them in the editor. |
 | [Chat](/docs/copilot/chat/copilot-chat.md) | Have an ongoing chat conversation for brainstorming design ideas or getting code suggestions, optionally calling on domain-specific chat participants.<br/>Choose to apply specific code suggestions to your codebase. |
-| [Edits](/docs/copilot/chat/copilot-edits.md) | Use natural language to start a coding editing session.<br/>Automatically apply large code changes across multiple files in your workspace. |
-| [Agent mode](/docs/copilot/chat/chat-agent-mode.md) | Implement high-level requirements by starting an agentic coding flow.<br/>Copilot autonomously invokes multiple tools to plan and implement the code changes and tasks that are needed. |
+| [Agent mode](/docs/copilot/chat/copilot-chat.md#built-in-chat-modes) | Implement high-level requirements by starting an agentic coding flow.<br/>Copilot autonomously invokes multiple tools to plan and implement the code changes and tasks that are needed. |
 
 ## Personalize Copilot with instructions files
 
@@ -142,7 +141,7 @@ Enrich your prompts with relevant context to get more accurate and relevant resp
 * Add images or screenshots to your prompt to let Copilot analyze the image.
 * In agent mode, prompt to preview your app to directly open it with the built-in simple browser.
 
-When you use [agent mode](/docs/copilot/chat/chat-agent-mode.md), Copilot autonomously finds the relevant files and context for you.
+When you use [agent mode](/docs/copilot/chat/copilot-chat.md#built-in-chat-modes), the agent autonomously finds the relevant files and context for you.
 
 Get more details about [adding context to chat prompts](/docs/copilot/chat/copilot-chat-context.md).
 

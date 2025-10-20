@@ -497,4 +497,4 @@ A chat request can have a maximum of 128 tools enabled at a time due to model co
 
 * [Model Context Protocol Documentation](https://modelcontextprotocol.io/)
 * [Model Context Protocol Server repository](https://github.com/modelcontextprotocol/servers)
-* [Use agent mode in Visual Studio Code](/docs/copilot/chat/chat-agent-mode.md)
+* [Use agent mode in Visual Studio Code](/docs/copilot/chat/copilot-chat.md#built-in-chat-modes)
