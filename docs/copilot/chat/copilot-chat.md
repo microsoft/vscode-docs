@@ -39,10 +39,9 @@ Press `kb(inlineChat.start)` to start a chat conversation directly in your edito
 
 **Use inline chat for:**
 
-* Getting suggestions right where you're working
-* Making edits without switching views
+* Getting suggestions inline, right where you're working
 * Understanding code in your current context
-* Working with both editor and terminal inline chat
+* Getting help with terminal commands and output
 
 ![Screenshot of Inline chat](images/copilot-chat/inline-chat.png)
 
@@ -63,7 +62,6 @@ Press `kb(workbench.action.quickchat.toggle)` to open a lightweight chat overlay
 
 </details>
 
-
 > [!TIP]
 > You can start chat directly from the command line by using the `code chat` command. For more information, see the [VS Code Command Line documentation](/docs/configure/command-line.md#start-chat-from-the-command-line).
 
@@ -83,20 +81,12 @@ Let's start by creating a basic calculator app to see how chat works in VS Code:
 
 1. In the editor, [review the suggested changes](/docs/copilot/chat/review-code-edits.md) and choose to keep or discard them.
 
-As you continue the conversation, VS Code uses the history of chat prompts and responses as context. You can ask follow-up questions like "Add a dark mode toggle", "Now add keyboard support", or "Style it with a modern design" without repeating yourself.
+1. Ask follow-up questions to enhance the app. For example, you might ask "Add a dark mode toggle" or "style it with a modern design".
+
+    As you continue the conversation, VS Code uses the history of chat prompts and responses as context. This context enables you to have multi-turn conversations with chat to refine and improve the results.
 
 > [!TIP]
 > Use voice input to interact with chat in VS Code. Learn more about [using voice input with chat](/docs/configure/accessibility/voice.md).
-
-## Write effective prompts
-
-To get the best results from chat, keep these tips in mind when writing prompts:
-
-* **Add context with `#`-mentions**: reference specific files (`#file`), your codebase (`#codebase`), or terminal output (`#terminalSelection`). Type `#` in the chat input field to view all available context items. Learn more about [adding context to your prompts](/docs/copilot/chat/copilot-chat-context.md).
-
-* **Use `/` commands**: type `/` to access common commands like `/new`, or `/explain`, or create your own [custom prompts](/docs/copilot/customization/prompt-files.md).
-
-* **Reference tools**: type `#` followed by a tool name to extend chat capabilities. For example, `#fetch` retrieves web content, and `#githubRepo` searches GitHub repositories. Learn more about [adding and using tools in chat](/docs/copilot/chat/chat-tools.md).
 
 ## Explore different language models
 
@@ -113,7 +103,17 @@ You can also add models from other model providers and use them in chat. Get mor
 
 ## Switch between chat modes
 
-With chat modes, you can let chat assume a different role or persona optimized for specific tasks. VS Code provides three built-in chat modes: ask mode, edit mode, and agent mode. For more specialized workflows, you can also create your own [custom chat modes](/docs/copilot/customization/custom-chat-modes.md).
+Chat modes let chat assume a different role or persona optimized for specific tasks. VS Code provides three built-in chat modes: ask mode, edit mode, and agent mode. For more specialized workflows, you can also create your own [custom chat modes](/docs/copilot/customization/custom-chat-modes.md).
+
+You can switch between chat modes at any time during a chat session.
+
+1. Open the Chat view (`kb(workbench.action.chat.open)`).
+
+1. Select the desired mode from the chat mode dropdown list.
+
+    ![Screenshot showing the Chat view with the chat mode dropdown expanded, displaying different chat mode options.](../images/customization/chat-mode-dropdown.png)
+
+### Built-in chat modes
 
 <details>
 <summary>Ask mode</summary>
@@ -194,13 +194,15 @@ Open agent mode: [Stable](vscode://GitHub.Copilot-Chat/chat?mode=agent) | [Insid
 
 </details>
 
-You can switch between chat modes at any time during a chat session.
+## Write effective prompts
 
-1. Open the Chat view (`kb(workbench.action.chat.open)`).
+To get the best results from chat, keep these tips in mind when writing prompts:
 
-1. Select the desired mode from the chat mode dropdown list.
+* **Add context with `#`-mentions**: reference specific files (`#file`), your codebase (`#codebase`), or terminal output (`#terminalSelection`). Type `#` in the chat input field to view all available context items. Learn more about [adding context to your prompts](/docs/copilot/chat/copilot-chat-context.md).
 
-    ![Screenshot showing the Chat view with the chat mode dropdown expanded, displaying different chat mode options.](../images/customization/chat-mode-dropdown.png)
+* **Use `/` commands**: type `/` to access common commands like `/new`, or `/explain`, or create your own [custom prompts](/docs/copilot/customization/prompt-files.md).
+
+* **Reference tools**: type `#` followed by a tool name to extend chat capabilities. For example, `#fetch` retrieves web content, and `#githubRepo` searches GitHub repositories. Learn more about [adding and using tools in chat](/docs/copilot/chat/chat-tools.md).
 
 ## Customize chat for your workflow
 
@@ -210,20 +212,6 @@ By adding context you can get more relevant responses from chat. To further tail
 * [**Prompt files**](/docs/copilot/customization/prompt-files.md): define reusable prompt templates that you can invoke with `/` commands to standardize common workflows across your team.
 * [**Custom chat modes**](/docs/copilot/customization/custom-chat-modes.md): create specialized chat modes for different personas tailored to specific development roles and tasks like code reviews, planning, or documentation.
 * [**MCP servers**](/docs/copilot/customization/mcp-servers.md): extend chat with custom capabilities by integrating external tools and services through the Model Context Protocol.
-
-## Frequently asked questions
-
-### How do I prevent the Chat view from opening automatically?
-
-By default, the Chat view opens in the Secondary Side Bar. When you close the Chat view for a workspace, VS Code remembers this setting and does not open the Chat view automatically the next time you open that workspace.
-
-You can change the default visibility directly from the Chat view:
-
-1. Open the Chat view (`kb(workbench.action.chat.open)`).
-1. Select the `...` icon in the top-right corner of the Chat view.
-1. Select **Show View by Default** to enable or disable the automatic opening of the Chat view.
-
-You can also control the default visibility of the Secondary Side Bar with the `setting(workbench.secondarySideBar.defaultVisibility)` setting. Set it to `hidden` to prevent the Chat view from opening automatically.
 
 ## Next steps
 
