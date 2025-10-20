@@ -413,13 +413,11 @@ Profiles are stored under your User configurations similar to your user settings
 
 If you are using the [Insiders](/insiders) version, the intermediate folder name is `Code - Insiders`.
 
-The Default Profile is stored directly in the User folder, not in the `profiles` subfolder:
+The Default Profile is stored in the User folder:
 
 * **Windows** `%APPDATA%\Code\User`
 * **macOS** `$HOME/Library/Application\ Support/Code/User`
 * **Linux** `$HOME/.config/Code/User`
-
-Within each profile folder, user-level customization files for GitHub Copilot (such as `.instructions.md`, `.prompt.md`, and `.chatmode.md` files) are stored in a `prompts` subdirectory.
 
 ### What is a Temporary Profile?
 
