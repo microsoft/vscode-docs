@@ -8,7 +8,7 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 
 This article provides example prompts for chat in Visual Studio Code across different scenarios and chat modes. Use these examples as inspiration to craft effective prompts for your own development tasks.
 
-If you are new to using chat in VS Code, learn more about [getting started with chat](/docs/copilot/chat/copilot-chat.md) or review [best practices for prompt crafting](/docs/copilot/chat/prompt-crafting.md).
+If you are new to using chat in VS Code, learn more about [getting started with chat](/docs/copilot/chat/copilot-chat.md) or review [best practices for prompt crafting](/docs/copilot/guides/prompt-engineering-guide.md).
 
 ## General coding and technology questions
 
@@ -82,12 +82,10 @@ If you are new to using chat in VS Code, learn more about [getting started with 
 * **Use the right mode**: Choose ask mode for questions, edit mode for targeted edits, or agent mode for complex multi-step tasks.
 * **Break down complex tasks**: Instead of asking for everything at once, break large tasks into smaller, manageable steps.
 
-Learn more about [best practices for crafting prompts](/docs/copilot/chat/prompt-crafting.md) and [adding context to your prompts](/docs/copilot/chat/copilot-chat-context.md).
+Learn more about [best practices for crafting prompts](/docs/copilot/guides/prompt-engineering-guide.md) and [adding context to your prompts](/docs/copilot/chat/copilot-chat-context.md).
 
 ## Related resources
 
 * [Copilot Chat Cookbook](https://docs.github.com/en/copilot/example-prompts-for-github-copilot-chat) in the GitHub documentation
 
 * [Add context to your chat prompt](/docs/copilot/chat/copilot-chat-context.md)
-
-* [Prompt engineering best practices](/docs/copilot/chat/prompt-crafting.md)

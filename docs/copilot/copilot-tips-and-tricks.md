@@ -125,13 +125,13 @@ You can enhance the quality of Copilot's responses by using effective prompts. A
 
     Copilot uses history of the conversation to provide context. Remove past questions and responses from the history if they're not relevant. Or, start a new session if you want to change the context.
 
-Get more details about [prompt engineering](/docs/copilot/chat/prompt-crafting.md).
+Get more details about [prompt engineering](/docs/copilot/guides/prompt-engineering-guide.md).
 
-Find practical [examples of prompts to use with Copilot](https://docs.github.com/en/copilot/copilot-chat-cookbook) in the GitHub Copilot documentation.
+Find practical [examples of prompts to use with chat](https://docs.github.com/en/copilot/copilot-chat-cookbook) in the GitHub Copilot documentation.
 
 ## Provide the right context and tools
 
-Enrich your prompts with relevant context to get more accurate and relevant responses in chat. Withe the right tools, you can boost your developer productivity.
+Enrich your prompts with relevant context to get more accurate and relevant responses in chat. With the right tools, you can boost your developer productivity.
 
 * In [agent mode](/docs/copilot/chat/chat-agent-mode.md#agent-mode-tools), select the tools button to configure the tools you want to use or explicitly add then to your prompt.
 * Use `#codebase` to let Copilot find the right files automatically by performing a code search.
@@ -222,6 +222,6 @@ Get more details about [workspace indexing](/docs/copilot/reference/workspace-co
 
 ## Related resources
 
-* [Prompt engineering for Copilot Chat](/docs/copilot/chat/prompt-crafting.md)
+* [Prompt engineering guide](/docs/copilot/guides/prompt-engineering-guide.md)
 * [Best Practices for using GitHub Copilot](https://docs.github.com/en/copilot/using-github-copilot/best-practices-for-using-github-copilot) in the GitHub Copilot documentation
-* [Personalize Copilot in VS Code](/docs/copilot/customization/overview.md)
+* [Customize chat in VS Code](/docs/copilot/customization/overview.md)
