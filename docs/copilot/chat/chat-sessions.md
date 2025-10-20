@@ -75,7 +75,7 @@ To open an existing chat session in a separate window:
 
 </details>
 
-## Use chat session history
+## Chat session history
 
 When you create a new chat session, the previous conversation history is cleared. However, all your chat sessions are saved in the chat session history, allowing you to return to previous conversations and continue where you left off. This is useful when you want to review past interactions, reference previous responses, or resume a conversation from an earlier session.
 
@@ -85,9 +85,12 @@ To view your chat session history:
 
 1. Open the Chat view and select **Show Chats...** in the Chat view title bar.
 
-    ![Screenshot of the Chat view with the Show Chats button highlighted.](images/copilot-chat/chat-show-chats-button.png)
+    ![Screenshot of the Chat view with the Show Chats button highlighted.](../images/chat-sessions/copilot-chat-view-show-chats.png)
 
 1. Select a history entry from the list to open that chat session in the Chat view.
+
+> [!TIP]
+> Enable the `setting(chat.emptyState.history.enabled)` experimental setting to show your recent chat sessions when starting a new chat session. This enables you to quickly switch to a recent session without navigating to the chat session history.
 
 ### Export chat sessions
 

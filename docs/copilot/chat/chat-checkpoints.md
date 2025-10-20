@@ -83,4 +83,3 @@ No. Checkpoints are designed for quick iteration within a chat session and are t
 ## Related resources
 
 * [Get started with chat in VS Code](/docs/copilot/chat/copilot-chat.md)
-* [Use chat modes](/docs/copilot/chat/chat-builtin-modes.md)

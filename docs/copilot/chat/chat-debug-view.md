@@ -42,7 +42,7 @@ The Chat Debug view displays information in a tree structure for each AI request
 * **Language model response**: The raw response from the AI model
 * **Tool invocations**: Details about any tools that were called, including their parameters and results
 
-You can expand each section to see the full details. This is particularly useful when using [agent mode](/docs/copilot/chat/chat-builtin-modes.md) where multiple tools might be invoked as part of a single request.
+You can expand each section to see the full details. This is particularly useful when using [agent mode](/docs/copilot/chat/copilot-chat.md#switch-between-chat-modes) where multiple tools might be invoked as part of a single request.
 
 ## Related resources
 

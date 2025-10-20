@@ -15,7 +15,7 @@ This article describes how to create and manage custom chat modes in VS Code.
 
 ## What are custom chat modes?
 
-The [built-in chat modes](/docs/copilot/chat/chat-builtin-modes.md) provide general-purpose configurations for chat in VS Code. For a more tailored chat experience, you can create your own chat modes.
+The [built-in chat modes](/docs/copilot/chat/copilot-chat.md#switch-between-chat-modes) provide general-purpose configurations for chat in VS Code. For a more tailored chat experience, you can create your own chat modes.
 
 Custom chat modes consist of a set of instructions and tools that are applied when you switch to that mode. For example, a "Plan" chat mode could include instructions for generating an implementation plan and only use read-only tools. By creating a custom chat mode, you can quickly switch to that specific configuration without having to manually select relevant tools and instructions each time.
 
