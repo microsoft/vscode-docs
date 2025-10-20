@@ -38,7 +38,7 @@ You can configure VS Code to automatically accept AI-generated code edits after 
 
 If you automatically accept all edits, it's strongly recommended to still review the changes before committing them in source control. Learn more about the [security considerations of using AI in VS Code](/docs/copilot/security.md).
 
-## Editing sensitive files
+## Edit sensitive files
 
 To prevent inadvertent edits to sensitive files, such as workspace configuration settings or environment settings, VS Code prompts you to approve edits before they are applied.
 
