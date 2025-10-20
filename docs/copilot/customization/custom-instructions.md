@@ -155,7 +155,7 @@ Instructions files use the `.instructions.md` extension and have this structure:
 
 * **Header** (optional): YAML frontmatter
     * `description`: Description shown on hover in Chat view
-    * `applyTo`: Glob pattern for automatic application (use `**` for all files)
+    * `applyTo`: Glob pattern for automatic application (use `**` for all files), relative to the workspace root
 
 * **Body**: Instructions in Markdown format
 
