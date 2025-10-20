@@ -1,0 +1,11 @@
+[package]
+name = "search"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+fst = "0.4"
+regex-automata = { version = "0.1.9", features = ["transducer"] }
+rake = "0.3"
+markdown = "1.0.0"
+regex = "1.12.2"
