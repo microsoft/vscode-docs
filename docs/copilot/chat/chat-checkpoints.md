@@ -62,18 +62,6 @@ To help you understand the effect of each chat request and make it easier to dec
 
 ![Screenshot of the Chat view, showing the file changes at the end of a chat request.](../images/chat-checkpoints/chat-checkpoint-changed-files.png)
 
-## Tips for managing chat requests
-
-Consider the following best practices when managing and reverting chat requests:
-
-* **Edit vs. new session**: Edit a previous request when you want to refine your prompt while keeping the conversation context. Start a new chat session when you want to explore a different approach or topic.
-
-* **Checkpoints and source control**: Checkpoints complement your Git workflow but don't replace it. Use checkpoints for quick iteration during a chat session, and use Git for more permanent version control of your codebase.
-
-* **Iterative development**: Use checkpoints to experiment with different approaches. You can try one solution, restore to a checkpoint, and then try another approach without manually undoing changes.
-
-* **Multi-file changes**: Checkpoints are especially valuable for chat requests that result in changes across multiple files, as they provide a simple way to revert all related changes for that request at once.
-
 ## Frequently asked questions
 
 ### Do checkpoints replace Git version control?
