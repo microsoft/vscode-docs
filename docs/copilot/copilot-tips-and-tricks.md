@@ -133,7 +133,7 @@ Find practical [examples of prompts to use with chat](https://docs.github.com/en
 
 Enrich your prompts with relevant context to get more accurate and relevant responses in chat. With the right tools, you can boost your developer productivity.
 
-* In [agent mode](/docs/copilot/chat/chat-agent-mode.md#agent-mode-tools), select the tools button to configure the tools you want to use or explicitly add then to your prompt.
+* In [chat](/docs/copilot/chat/chat-tools.md), select the tools button to configure the tools you want to use or explicitly add then to your prompt.
 * Use `#codebase` to let Copilot find the right files automatically by performing a code search.
 * Use the `#fetch` tool to fetch content from a web page or use `#githubRepo` to perform a code search on a GitHub repository.
 * Reference files, folders, or symbols in your prompt by using `#<file name>`, `#<folder name>`, or `#<symbol>`.
@@ -218,7 +218,7 @@ Copilot uses an index to quickly and accurately search your codebase for relevan
 
 For GitHub repositories, you can use a remote index of your workspace, based on [GitHub code search](https://docs.github.com/en/enterprise-cloud@latest/copilot/using-github-copilot/asking-github-copilot-questions-in-github#asking-exploratory-questions-about-a-repository). This allows Copilot to search your entire codebase very quickly, even if the codebase is very large.
 
-Get more details about [workspace indexing](/docs/copilot/reference/workspace-context.md#managing-the-workspace-index).
+Get more details about [workspace indexing](/docs/copilot/reference/workspace-context.md).
 
 ## Related resources
 

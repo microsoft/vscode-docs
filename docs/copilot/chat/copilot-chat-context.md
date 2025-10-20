@@ -18,7 +18,7 @@ The following workspace indexing options are available:
 * **Local index**: use an advanced semantic index that is stored on your local machine to provide fast and accurate search results for your codebase.
 * **Basic index**: if local indexing is not available, you can use simpler algorithms that are optimized to work locally for larger codebases.
 
-Learn more about [workspace indexing](/docs/copilot/reference/workspace-context.md#managing-the-workspace-index).
+Learn more about [workspace indexing](/docs/copilot/reference/workspace-context.md).
 
 ## Implicit context
 
