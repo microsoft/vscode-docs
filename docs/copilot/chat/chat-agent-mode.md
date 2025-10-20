@@ -82,8 +82,6 @@ Follow these steps to get started:
 
     You can specify a high-level requirement, and you don't have to specify which files to work on. In agent mode, the AI determines the relevant context and files to edit autonomously.
 
-    See the [Prompt examples](/docs/copilot/chat/prompt-examples.md#agent-mode-prompts) article for effective agent mode prompts.
-
 1. Agent mode might invoke multiple [tools](#tools-in-agent-mode) to accomplish different tasks. Optionally, select the **Tools** icon to configure which tools can be used for responding to your request.
 
     ![Screenshot showing the Chat view in agent mode, highlighting the Tools icon, and showing the tools Quick Pick control.](images/copilot-edits/agent-mode-select-tools.png)

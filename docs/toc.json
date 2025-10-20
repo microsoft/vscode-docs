@@ -112,7 +112,6 @@
           ["Checkpoints", "/docs/copilot/chat/chat-checkpoints"],
           ["Tools", "/docs/copilot/chat/chat-tools"],
           ["Inline Chat", "/docs/copilot/chat/inline-chat"],
-          ["Prompt Engineering", "/docs/copilot/chat/prompt-crafting"],
           ["Prompt Examples", "/docs/copilot/chat/prompt-examples"],
           ["Chat Debug View", "/docs/copilot/chat/chat-debug-view"]
         ]
@@ -139,6 +138,7 @@
         "area": "copilot/guides",
         "noCollapse": true,
         "topics": [
+          ["Prompt Engineering", "/docs/copilot/guides/prompt-engineering-guide"],
           ["Context Engineering", "/docs/copilot/guides/context-engineering-guide"],
           ["Edit Notebooks with AI", "/docs/copilot/guides/notebooks-with-ai"],
           ["Test with AI", "/docs/copilot/guides/test-with-copilot"],

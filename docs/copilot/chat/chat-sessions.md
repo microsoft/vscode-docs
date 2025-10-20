@@ -18,7 +18,7 @@ Choose to create a new chat session in the Chat view, in an editor tab, or in a 
 
 When you create a new chat session, the conversation history and context are cleared. Start a new chat session when you want to change topics or avoid carrying over context from previous requests. For example, start a new session when switching from debugging a specific issue to asking general questions about a technology concept.
 
-You can return to a previous chat session at any time by using the [chat session history](#use-chat-session-history).
+You can return to a previous chat session at any time by using the [chat session history](#chat-session-history).
 
 <details>
 <summary>Open a chat session in the Chat view</summary>

@@ -396,7 +396,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/copilot/chat/prompt-crafting</loc>
+        <loc>https://code.visualstudio.com/docs/copilot/guides/prompt-engineering-guide</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
