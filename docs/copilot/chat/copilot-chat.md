@@ -128,18 +128,18 @@ Open agent mode: [Stable](vscode://GitHub.Copilot-Chat/chat?mode=agent) | [Insid
 
 ### Get started with agent mode
 
-1. Select the **Agent** mode from the chat mode dropdown list in the Chat view.
+1. Select **Agent** from the chat mode dropdown in the Chat view.
 
-1. Type your high-level request in the chat input field. For example, you might ask:
+1. Type a high-level prompt in the chat input field. For example, you might ask:
 
     * "Implement a user authentication system with OAuth2 and JWT."
     * "Set up a CI/CD pipeline for this project."
 
-1. Give agent mode more capabilities by [enabling tools](/docs/copilot/chat/chat-tools.md). Select **Configure Tools** and select from the list of built-in tools, MCP tools, or extension-contributed tools.
+1. Use the tools picker to [enable tools](/docs/copilot/chat/chat-tools.md) and give the agent more capabilities.
 
-1. Select the **Send** button or press `kb(workbench.action.chat.submit)` to submit your prompt.
+1. Select **Send** or press `kb(workbench.action.chat.submit)` to submit your prompt.
 
-1. As the AI works through your request, it might make code changes, invoke tools, or run terminal commands. Review and confirm these actions, or ask follow-up questions to refine the results.
+1. Review and confirm code changes and tool invocations as the agent works through your request.
 
 </details>
 
@@ -154,17 +154,16 @@ Open ask mode: [Stable](vscode://GitHub.Copilot-Chat/chat?mode=ask) | [Insiders]
 
 ### Get started with ask mode
 
-1. Select the **Ask** mode from the chat mode dropdown list in the Chat view.
+1. Select **Ask** from the chat mode dropdown in the Chat view.
 
-1. Type your question in the chat input field. For example, you might ask:
+1. Type your prompt in the chat input field. For example, you might ask:
 
-    * "How do I optimize this function for performance?"
     * "Provide 3 ways to implement a search feature in React."
     * "Where is the db connection configured in this project? #codebase"
 
 1. Optionally, [add context to your prompt](/docs/copilot/chat/copilot-chat-context.md) to get more accurate responses.
 
-1. Select the **Send** button or press `kb(workbench.action.chat.submit)` to submit your prompt.
+1. Select **Send** or press `kb(workbench.action.chat.submit)` to submit your prompt.
 
 </details>
 
@@ -179,7 +178,7 @@ Open edit mode: [Stable](vscode://GitHub.Copilot-Chat/chat?mode=edit) | [Insider
 
 ### Get started with edit mode
 
-1. Select the **Edit** mode from the chat mode dropdown list in the Chat view.
+1. Select **Edit** from the chat mode dropdown in the Chat view.
 
 1. Type your request in the chat input field. For example, you might ask:
 
@@ -188,9 +187,9 @@ Open edit mode: [Stable](vscode://GitHub.Copilot-Chat/chat?mode=edit) | [Insider
 
 1. [Add context to your prompt](/docs/copilot/chat/copilot-chat-context.md) to guide the AI to make edits in the right files.
 
-1. Select the **Send** button or press `kb(workbench.action.chat.submit)` to submit your prompt.
+1. Select **Send** or press `kb(workbench.action.chat.submit)` to submit your prompt.
 
-1. As the AI makes edits to your files, review and either keep or undo each change using the editor overlay controls.
+1. Review the code changes in the editor by using the overlay controls.
 
 </details>
 

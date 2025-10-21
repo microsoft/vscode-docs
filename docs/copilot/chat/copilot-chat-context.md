@@ -45,8 +45,6 @@ View the full list of [supported context items](/docs/copilot/reference/copilot-
 
 To provide specific files, folders, or symbols as context, add them to the chat using the following methods:
 
-![Screenshot of the Chat view, showing a prompt that references a file from the workspace.](./images/copilot-chat/chat-reference-file.png)
-
 * #-mention the file, folder, or symbol in your chat message by typing `#` followed by the name of the file, folder, or symbol.
     To reference a symbol, make sure to open the file containing the symbol in the editor first.
 
@@ -69,33 +67,37 @@ The following prompt examples show how to use codebase search:
 * `"Where is the database connecting string configured? #codebase"`
 * `"Add a new API route for updating the address #codebase"`
 
-### Reference web content
+If you use [agent mode](/docs/copilot/chat/copilot-chat.md#built-in-chat-modes), the agent will automatically use codebase search when it determines that additional context is needed to answer your question. You can still add `#codebase` if your question might be interpreted in different ways and you want to make sure the agent uses codebase search.
+
+### Reference content from the web
 
 You can reference content from the web in your chat prompts, for example to get the latest API reference or code examples.
 
-* `#fetch`: use this tool to retrieve content from a specific web page, such as a version-specific documentation page of a framework. To use this tool, type `#fetch` followed by the URL of the page you want to reference.
+* `#fetch <URL>`
+
+    Use the `fetch` tool to retrieve content from a specific web page. To use this tool, type `#fetch` followed by the URL of the page you want to reference.
 
     * `"What are the highlights of VS Code 1.100 #fetch https://code.visualstudio.com/updates/v1_100"`
     * `"Update the asp.net app to .net 9 #fetch https://learn.microsoft.com/en-us/aspnet/core/migration/80-90"`
 
-* `#githubRepo`: use this tool to perform a code search within a GitHub repository, for example to reference code patterns or examples from another project. Type `#githubRepo` followed by the repository name (for example, `microsoft/vscode-docs`).
+* `#githubRepo <repo name>`
+
+    Use the `githubRepo` tool to perform a code search within a GitHub repository. Type `#githubRepo` followed by the repository name.
 
     * `"How does routing work in next.js #githubRepo vercel/next.js"`
     * `"Perform a code review to validate it's consistent with #githubRepo microsoft/typescript"`
 
 ### Reference tools
 
-Chat uses tools as part of an agent flow to perform specific tasks. You can [add more tools](/docs/copilot/chat/chat-tools.md) to extend chat's capabilities by configuring MCP servers or installing extensions that contribute tools.
-
-You can reference a tool directly in your chat prompt by typing `#` followed by the tool name and optional parameters:
+In agent mode, the agent autonomously decides to use tools for performing specific tasks. If you want to explicitly reference a tool in your chat prompt, you can use #-mentions. Type `#` followed by the tool name and optional parameters:
 
 * `"Summarize #fetch https://code.visualstudio.com/updates"`
 * `"How does routing work? #githubRepo vercel/next.js"`
-* `"what are my open issues #github-mcp"` (using a tool from the GitHub MCP server)
+* `"what are my open issues #github-mcp"` (use tools from the GitHub MCP server)
 
-You can also reference [tool sets](/docs/copilot/chat/chat-tools.md#group-tools-with-tool-sets), which are collections of related tools grouped together for easier management.
+If you reference a tool set or MCP server by its name, all tools from that set or server are made available to the agent for the current prompt.
 
-Learn more about [using tools in chat](/docs/copilot/chat/chat-tools.md).
+Learn more about [adding and using tools in chat](/docs/copilot/chat/chat-tools.md).
 
 ## @-mentions
 
@@ -121,14 +123,16 @@ Chat supports vision capabilities, which means you can attach an image as contex
 > [!TIP]
 > You can drag and drop an image from a web browser onto the Chat view to add it as context.
 
-## Add elements from the VS Code simple browser (Experimental)
+## Add browser elements (Experimental)
 
-VS Code has a built-in simple browser that you can use to view and interact with a locally-hosted web application, for example to do quick testing and debugging of your web application.
+VS Code has a built-in browser that you can use to preview and interact with web pages inside VS Code, for example to do quick testing and debugging of your web application.
 
-You can add elements from the Simple Browser window as context to your chat prompt. To do this:
+You can add elements from the Simple Browser window as context to your chat prompt. This is useful when you want to get help with specific parts of a web page, such as HTML elements, CSS styles, or JavaScript code.
 
-1. Make sure to enable selecting elements from the Simple Browser with the `setting(chat.sendElementsToChat.enabled)` setting.
-1. Run your web application locally.
+To add elements from the Simple Browser to your chat prompt:
+
+1. Enable selection from the Simple Browser with the `setting(chat.sendElementsToChat.enabled)` setting.
+1. Start your web application.
 1. Open the Simple Browser view by running the **Simple Browser: Show** command from the Command Palette.
 1. Select the **Start** button to start selecting elements from the current page.
 1. Hover over the elements of the web page and click to add them to the chat prompt.

@@ -27,9 +27,9 @@ By default, the Chat view is located in the Secondary Side Bar in VS Code. This 
 
 To start a new chat session and clear the conversation history:
 
-1. Open the Chat view by using the `kb(workbench.action.chat.open)` keyboard shortcut or selecting **Open Chat** from the Chat menu in the VS Code title bar.
+* Open the Chat view and select **New Chat** (`+`) or press `kb(workbench.action.chat.newChat)`
 
-1. Select the **New Chat** (`+`) button in the Chat view title bar or use the `kb(workbench.action.chat.newChat)` keyboard shortcut.
+* Use the **Chat: New Chat** command from the Command Palette
 
 </details>
 
@@ -38,19 +38,17 @@ To start a new chat session and clear the conversation history:
 
 You can open a chat session as an editor tab to have the chat experience alongside your code files. This is useful when you want to have multiple chat sessions open at the same time, or when you want to arrange chat sessions side-by-side with code files.
 
-You can open an existing chat session from the Chat view as an editor tab, or you can create a new chat session directly in an editor tab.
-
 To open a new chat session directly in an editor tab:
 
-* Open the Chat view and select the **New Chat Editor** option in the **New Chat** dropdown menu
+<!-- * Open the Chat view and select **New Chat** (`+`) > **New Chat Editor** -->
 
-* Alternatively, use the **Chat: New Chat Editor** command from the Command Palette
+* Use the **Chat: New Chat Editor** command from the Command Palette
 
 To open an existing chat session in an editor tab:
 
-* Select the `...` icon in the top-right corner of the Chat view, and then select **Open Chat in Editor**.
+* Select the `...` icon in the top-right corner of the Chat view, and then select **Open Chat in Editor**
 
-* Alternatively, use the **Chat: Open Chat in Editor** command from the Command Palette
+* Use the **Chat: Open Chat in Editor** command from the Command Palette
 
 </details>
 
@@ -63,15 +61,15 @@ You can open an existing chat session from the Chat view in a separate window, o
 
 To open a new chat session directly in a new window:
 
-* Open the Chat view and select the **New Chat Window** option in the **New Chat** dropdown menu
+<!-- * Open the Chat view and select **New Chat** (`+`) > **New Chat** -->
 
-* Alternatively, use the **Chat: New Chat Window** command from the Command Palette
+* Use the **Chat: New Chat Window** command from the Command Palette
 
 To open an existing chat session in a separate window:
 
-* Select the `...` icon in the top-right corner of the Chat view, and then select **Open Chat in New Window**.
+* Select the `...` icon in the top-right corner of the Chat view, and then select **Open Chat in New Window**
 
-* Alternatively, use the **Chat: Open Chat in New Window** command from the Command Palette
+* Use the **Chat: Open Chat in New Window** command from the Command Palette
 
 </details>
 
@@ -119,11 +117,11 @@ Learn more about [Copilot Coding Agent](/docs/copilot/copilot-coding-agent.md).
 
 Consider the following tips to help you work effectively with chat sessions:
 
-* **Start a new session for different topics**: When you switch to a new topic or task, start a new chat session to avoid carrying over context from unrelated conversations. This helps you get more relevant responses.
+* **Start a new session for different topics**: start a new chat session to avoid carrying over context from unrelated conversations. This helps you get more relevant responses.
 
-* **Use editor tabs for side-by-side comparisons**: Open multiple chat sessions as editor tabs to compare different approaches or solutions side-by-side.
+* **Use editor tabs for side-by-side comparisons**: open multiple chat sessions as editor tabs to compare different approaches or solutions side-by-side.
 
-* **Use separate windows for multi-monitor setups**: If you have multiple monitors, open chat in a separate window on a secondary monitor to keep it visible while you work on code in the main window.
+* **Use separate windows for multi-monitor setups**: open chat in a separate window on a secondary monitor to keep it visible while you work on code in the main window.
 
 ## Related resources
 
