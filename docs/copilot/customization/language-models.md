@@ -114,7 +114,7 @@ To configure a language model from a model provider using your own API key:
 
 1. You can now select the model from the model picker in the Chat view and use it for chat conversations.
 
-    For a model to be available in [agent mode](/docs/copilot/chat/chat-agent-mode.md), it must support tool calling. If the model doesn't support tool calling, it won't be shown in the model picker when you are using agent chat mode.
+    For a model to be available in [agent mode](/docs/copilot/chat/copilot-chat.md#built-in-chat-modes), it must support tool calling. If the model doesn't support tool calling, it won't be shown in the model picker when you are using agent chat mode.
 
 ### Update the provider details
 

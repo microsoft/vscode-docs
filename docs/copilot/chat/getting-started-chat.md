@@ -143,6 +143,3 @@ Congratulations, you successfully used Copilot Chat in VS Code to ask questions 
 ## Additional resources
 
 * [Get an overview of Copilot Chat in VS Code](/docs/copilot/chat/copilot-chat.md)
-* [Use chat for asking questions about your code](/docs/copilot/chat/chat-ask-mode.md)
-* [Start a multi-file coding session](/docs/copilot/chat/copilot-edits.md)
-* [Start an agentic coding workflow](/docs/copilot/chat/chat-agent-mode.md)

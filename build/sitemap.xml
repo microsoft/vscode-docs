@@ -356,12 +356,27 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode</loc>
+        <loc>https://code.visualstudio.com/docs/copilot/chat/chat-checkpoints</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/copilot/chat/chat-ask-mode</loc>
+        <loc>https://code.visualstudio.com/docs/copilot/chat/chat-sessions</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/chat/chat-debug-view</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/chat/chat-tools</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/chat/review-code-edits</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -376,22 +391,17 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/copilot/chat/copilot-edits</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/docs/copilot/chat/getting-started-chat</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
         <loc>https://code.visualstudio.com/docs/copilot/chat/inline-chat</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/copilot/chat/prompt-crafting</loc>
+        <loc>https://code.visualstudio.com/docs/copilot/guides/prompt-engineering-guide</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/chat/prompt-examples</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

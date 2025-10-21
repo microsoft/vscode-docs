@@ -265,6 +265,6 @@ You can further enhance your AI's capabilities by exploring other customization 
 
 ## Related resources
 
-* [Agent mode documentation](/docs/copilot/chat/chat-agent-mode.md) - Deep dive into autonomous coding in VS Code
+* [Chat documentation](/docs/copilot/chat/copilot-chat.md) - Deep dive into autonomous coding in VS Code
 * [Customization guide](/docs/copilot/customization/overview.md) - Advanced personalization techniques
 * [MCP tools](/docs/copilot/customization/mcp-servers.md) - Extend agent mode with external APIs and services

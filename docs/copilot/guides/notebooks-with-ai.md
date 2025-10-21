@@ -16,17 +16,9 @@ To create a new notebook with AI, choose either of these options:
 
 * Type the `/newNotebook` slash command in the chat input box, followed by the details of the notebook to create.
 
-    Example prompts:
-
-    * `/newNotebook use pandas and seaborn to read and visualize the titanic dataset. Show key information from the dataset.`
-    * `/newNotebook /newNotebook analyze the data in the housing.csv file`
-
 * Switch to [agent mode](vscode://GitHub.Copilot-Chat/chat?mode=agent), and type a natural language prompt asking to create a new notebook.
 
-    Example prompts:
-
-    * `Create a notebook to read data from #housing.csv and plot the distribution of prices`
-    * `Create a Jupyter notebook to read data from #housing.csv. Run all cells.`
+See the [Prompt examples](/docs/copilot/chat/prompt-examples.md#working-with-jupyter-notebooks) article for effective notebook prompts.
 
 The following screenshot shows how the output from agent mode to the prompt *Create a Jupyter notebook to read data from #housing.csv* (you can get this dataset from [Kaggle](https://www.kaggle.com/search?q=housing+dataset+in%3Adatasets)):
 
@@ -55,13 +47,7 @@ To generate a new cell with AI, select the **Generate** button in the notebook v
 
 To make larger edits, across multiple cells, you can switch to [agent mode](vscode://GitHub.Copilot-Chat/chat?mode=agent) in the Chat view. Provide a prompt to request changes to the notebook and agent mode will iterate through the tasks to implement the changes.
 
-Example prompts:
-
-* *Plot a graph of the price distribution*
-* *Make sure the data is cleaned before visualizing and processing it*
-* *Show the correlation between different features in the dataset*
-* *Use matplotlib instead of seaborn to plot the data*
-* *Remove the display of dataset information*
+See the [Prompt examples](/docs/copilot/chat/prompt-examples.md#working-with-jupyter-notebooks) article for effective prompts for editing notebook cells.
 
 ![Screenshot that shows the response from agent mode to the prompt 'Plot a graph of the price distribution'.](../images/notebooks-with-ai/notebook-agent-mode-plot-prices.png)
 
