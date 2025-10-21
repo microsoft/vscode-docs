@@ -120,7 +120,9 @@ With a [custom chat mode](/docs/copilot/customization/custom-chat-modes.md) for 
     Outline 1-3 open questions or uncertainties that need to be clarified.
     ```
 
-1. Create a planning [chat mode](/docs/copilot/customization/custom-chat-modes.md) `.github/chatmodes/plan.chatmode.md` that defines the planning persona. In planning mode, the agent is instructed not to perform implementation tasks, but to focus on creating the implementation plan.
+1. Create a planning [chat mode](/docs/copilot/customization/custom-chat-modes.md) `.github/chatmodes/plan.chatmode.md`
+
+    The planning chat mode defines a planning persona and instructs the agent not to perform implementation tasks, but to focus on creating the implementation plan. You can specify [handoffs](/docs/copilot/customization/custom-chat-modes.md#handoffs) to transition to an implementation chat mode after the plan is complete.
 
     To create a chat mode, run the **Chat: Configure Chat Modes** > **Create New custom chat mode file** command in the Command Palette.
 
@@ -128,12 +130,17 @@ With a [custom chat mode](/docs/copilot/customization/custom-chat-modes.md) for 
 
     You might want to configure the `model` metadata property to use a language model that is optimized for reasoning and deep understanding.
 
-    The following `plan.chatmode.md` file provides a starting point for a planning chat mode.
+    The following `plan.chatmode.md` file provides a starting point for a planning chat mode and handoff to a TDD implementation mode:
 
     ```markdown
     ---
     description: 'Architect and planner to create detailed implementation plans.'
     tools: ['fetch', 'githubRepo', 'problems', 'usages', 'search', 'todos', 'github/github-mcp-server/get_issue', 'github/github-mcp-server/get_issue_comments', 'github/github-mcp-server/list_issues']
+    handoffs:
+    - label: Start Implementation
+        agent: tdd
+        prompt: Now implement the plan outlined above using TDD principles.
+        send: true
     ---
     # Planning Mode
 
@@ -248,6 +255,8 @@ Following these best practices helps you establish a sustainable and effective c
 **Reference external knowledge**: Link to relevant external documentation, APIs, or standards that the AI should consider when generating code.
 
 ### Workflow optimization
+
+**Handoffs between modes**: Use [handoffs](/docs/copilot/customization/custom-chat-modes.md#handoffs) to create guided transitions and implement end-to-end development workflows between planning, implementation, and review modes.
 
 **Implement feedback loops**: Continuously validate that AI understands your context correctly. Ask clarifying questions and course-correct early when misunderstandings occur.
 
