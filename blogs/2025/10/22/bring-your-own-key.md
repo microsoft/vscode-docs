@@ -41,7 +41,7 @@ Here are some of our favorite extensions you can install right now to get access
 
 * [The AI Toolkit for Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-windows-ai-studio.windows-ai-studio&ssr=false#overview) gives you access to its provided models directly in VS Code, whether it's a custom model you've tuned in Azure AI Foundry, a local model via Foundry Local, or any of the models in GitHub Models.
 
-* [Cerebras Inference](https://marketplace.visualstudio.com/items?itemName=cerebras.cerebras-chat) powers the world's top coding models, making code generation pretty much instant—great for rapid iteration. It runs Qwen3 Coder at 2,000 tokens/s—that’s 20x faster than most inference APIs.
+* [Cerebras Inference](https://marketplace.visualstudio.com/items?itemName=cerebras.cerebras-chat) powers the world's top coding models, making code generation pretty much instant, great for rapid iteration. It runs Qwen3 Coder at 2,000 tokens/s which is 20x faster than most inference APIs.
 
 * [The Hugging Face Provider for GitHub Copilot Chat extension](https://marketplace.visualstudio.com/items?itemName=HuggingFace.huggingface-vscode-chat) enables you to use frontier open LLMs like Kimi K2, DeepSeek V3.1, GLM 4.5 directly in VS Code. Hugging Face’s Inference Providers give developers access to hundreds of LLMs, powered by world-class inference providers built for high availability and low latency.
 
