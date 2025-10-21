@@ -12,7 +12,7 @@ Author: Olivia Guzzardo McVicker, Pierce Boggan
 
 October 22, 2025 by [Olivia Guzzardo McVicker](https://github.com/olguzzar), [Pierce Boggan](https://github.com/pierceboggan)
 
-We know that model choice is important to you. Our team has been hard at work making the latest models like [Claude Haiku 4.5](https://github.blog/changelog/2025-10-15-anthropics-claude-haiku-4-5-is-in-public-preview-for-github-copilot/) and [GPT 5 available](https://github.blog/changelog/2025-08-07-openai-gpt-5-is-now-in-public-preview-for-github-copilot/) to you on the same day they were announced. But we've also heard your feedback that you want support for even more models—be it locally or in the cloud—in VS Code.
+We know that model choice is important to you. Our team has been hard at work making the latest models like [Claude Haiku 4.5](https://github.blog/changelog/2025-10-15-anthropics-claude-haiku-4-5-is-in-public-preview-for-github-copilot/) and [GPT 5 available](https://github.blog/changelog/2025-08-07-openai-gpt-5-is-now-in-public-preview-for-github-copilot/) to you on the same day they were announced. But we've also heard your feedback that you want support for even more models in VS Code, be it locally or in the cloud.
 
 In March, we introduced the [bring your own key (BYOK)](https://code.visualstudio.com/docs/copilot/customization/language-models#_bring-your-own-language-model-key) functionality to let you pick from hundreds of models from supported providers like OpenRouter, Ollama, Google, OpenAI, and more to power chat experiences in VS Code.
 
