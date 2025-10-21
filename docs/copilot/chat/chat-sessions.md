@@ -104,6 +104,33 @@ To export a chat session:
 
 Alternatively, you can copy individual prompts or responses to the clipboard by right-clicking the message and selecting **Copy**. To copy the entire chat session in Markdown format, right-click the Chat view and select **Copy All**.
 
+## Subagents
+
+A subagent is an autonomous AI assistant that the agent can delegate complex, multi-step tasks to within your chat session. A subagent:
+
+* Operates independently from the main chat session
+* Returns results to the main chat session when complete
+* Uses its own context window separate from the main chat session
+* Has access to most tools available to the main chat session
+* Operates autonomously without pausing for user feedback
+
+Subagents are useful for:
+
+* **Research and context gathering**: Collect information from multiple files or sources without manual intervention
+* **Complex analysis**: Perform multi-step investigations that would require many sequential tool calls
+* **Context management**: Isolate tasks that require significant context to avoid overwhelming the main chat session
+
+You can invoke a subagent using the `#runSubagent` tool in your chat prompts. You can also use subagents in custom chat modes or prompt files to keep multi-step workflows organized.
+
+The following example illustrates how to invoke a subagent for performing research.
+
+```text
+Perform research about viable authentication mechanisms for this app #runSubagent. Then summarize the findings and recommend the best option.
+```
+
+> [!NOTE]
+> Subagents have access to most tools but cannot invoke other subagents.
+
 ## Chat Sessions view
 
 > [!NOTE]

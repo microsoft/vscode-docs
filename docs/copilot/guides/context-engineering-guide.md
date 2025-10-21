@@ -133,7 +133,7 @@ With a [custom chat mode](/docs/copilot/customization/custom-chat-modes.md) for 
     ```markdown
     ---
     description: 'Architect and planner to create detailed implementation plans.'
-    tools: ['fetch', 'githubRepo', 'problems', 'usages', 'search', 'todos', 'github/github-mcp-server/get_issue', 'github/github-mcp-server/get_issue_comments', 'github/github-mcp-server/list_issues']
+    tools: ['fetch', 'githubRepo', 'problems', 'usages', 'search', 'todos', 'runSubagent', 'github/github-mcp-server/get_issue', 'github/github-mcp-server/get_issue_comments', 'github/github-mcp-server/list_issues']
     ---
     # Planning Mode
 
@@ -141,7 +141,7 @@ With a [custom chat mode](/docs/copilot/customization/custom-chat-modes.md) for 
 
     ## Workflow
 
-    1. Analyze and understand: Gather context from the codebase and any provided documentation to fully understand the requirements and constraints.
+    1. Analyze and understand: Gather context from the codebase and any provided documentation to fully understand the requirements and constraints. Run #runSubagent tool, instructing the agent to work autonomously without pausing for user feedback.
     2. Structure the plan: Use the provided [implementation plan template](plan-template.md) to structure the plan.
     3. Pause for review: Based on user feedback or questions, iterate and refine the plan as needed.
     ```
