@@ -35,7 +35,8 @@ The [Language Model Chat Provider API](https://code.visualstudio.com/api/extensi
 
 The API follows a one-provider-to-many-models relationship, where each extension can offer multiple language models. Providers are responsible for discovering available models, handling chat requests, and providing token counting functionality. This architecture ensures that model providers have full control over the user experience while maintaining consistency within VS Code's chat interface.
 
-> **Note**: Models provided through the Language Model Chat Provider API are currently available to users on individual GitHub Copilot plans (Free, Pro, and Pro+).
+> [!NOTE]
+> Models provided through the Language Model Chat Provider API are currently available to users on individual GitHub Copilot plans (Free, Pro, and Pro+).
 
 Here are some of our favorite extensions you can install right now to get access to more models in VS Code:
 
