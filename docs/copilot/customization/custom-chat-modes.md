@@ -1,50 +1,42 @@
 ---
 ContentId: 276ecd8f-2a76-467e-bf82-846d49c13ab5
-DateApproved: 10/09/2025
-MetaDescription: Learn how to use chat modes in VS Code for different tasks, and create custom chat modes to tailor AI chat behavior for your specific workflows and development scenarios.
+DateApproved: 10/15/2025
+MetaDescription: Learn how to create custom chat modes to tailor AI chat behavior in VS Code for your specific workflows and development scenarios.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
-# Use chat modes in VS Code
+# Custom chat modes in VS Code
 
-Chat modes are a way to create specialist AI agents that enable you to tailor the chat behavior in Visual Studio Code for specific tasks or roles. VS Code comes with three built-in chat modes: **Ask**, **Edit**, and **Agent**. You can create custom chat modes for specialized workflows like planning features, conducting code reviews, or researching implementation options.
+Custom chat modes enable you to configure the AI to adopt different personas tailored to specific development roles and tasks. For example, you might create modes for a security reviewer, planner, solution architect, or other specialized roles. Each persona can have its own behavior, available tools, and instructions.
 
-## Switch between chat modes
-
-To switch between chat modes, open the Chat view (`kb(workbench.action.chat.open)`), and then select the desired mode from the chat mode dropdown list.
-
-![Screenshot showing the Chat view, highlighting the chat mode dropdown list.](../images/customization/chat-mode-dropdown.png)
-
-## Built-in chat modes
-
-Chat in VS Code can operate in different modes, each optimized for a specific use case. You can change between the different chat modes at any time in the Chat view.
-
-| Chat mode | Description |
-|-----------|-------------|
-| [Ask mode](/docs/copilot/chat/chat-ask-mode.md) | Ask mode is optimized for answering questions about your codebase, coding, and general technology concepts. Use ask mode to understand how a piece of code works, brainstorm software design ideas, or explore new technologies. Open ask mode in [Stable](vscode://GitHub.Copilot-Chat/chat?mode=ask) \| [Insiders](vscode-insiders://GitHub.Copilot-Chat/chat?mode=ask). |
-| [Edit mode](/docs/copilot/chat/copilot-edits.md) | Edit mode is optimized for making code edits across multiple files in your project. VS Code directly applies the code changes in the editor, where you can review them in-place. Use edit mode for coding tasks when you have a good understanding of the changes that you want to make, and which files you want to edit. Open edit mode in [Stable](vscode://GitHub.Copilot-Chat/chat?mode=edit) \| [Insiders](vscode-insiders://GitHub.Copilot-Chat/chat?mode=edit). |
-| [Agent mode](/docs/copilot/chat/chat-agent-mode.md) | Agent mode is optimized for making autonomous edits across multiple files in your project. Use agent mode for coding tasks when you have a less well-defined task that might also require running terminal commands and tools. Open agent mode in [Stable](vscode://GitHub.Copilot-Chat/chat?mode=agent) \| [Insiders](vscode-insiders://GitHub.Copilot-Chat/chat?mode=agent). |
-
-## Custom chat modes
+This article describes how to create and manage custom chat modes in VS Code.
 
 > [!NOTE]
 > Custom chat modes are available as of VS Code release 1.101 and are currently in preview.
 
-The built-in chat modes provide general-purpose configurations for chat in VS Code. For a more tailored chat experience, you can create your own chat modes.
+## What are custom chat modes?
+
+The [built-in chat modes](/docs/copilot/chat/copilot-chat.md#switch-between-chat-modes) provide general-purpose configurations for chat in VS Code. For a more tailored chat experience, you can create your own chat modes.
 
 Custom chat modes consist of a set of instructions and tools that are applied when you switch to that mode. For example, a "Plan" chat mode could include instructions for generating an implementation plan and only use read-only tools. By creating a custom chat mode, you can quickly switch to that specific configuration without having to manually select relevant tools and instructions each time.
 
 Custom chat modes are defined in a `.chatmode.md` Markdown file, and can be stored in your workspace for others to use, or in your user profile, where you can reuse them across different workspaces.
 
-You can reference instructions files and tools (sets) in your custom chat mode file.
+You can reference instructions files and tools (sets) in your custom chat mode file to reuse existing configurations.
 
-### Chat mode file structure
+## Why use custom chat modes
+
+Different tasks require different capabilities. A planning mode might only need read-only tools for research and analysis to prevent accidental code changes, while an implementation mode would need full editing capabilities. Custom chat modes let you specify exactly which tools are available for each task, ensuring the AI has the right capabilities for the job.
+
+Custom chat modes also let you provide specialized instructions that define how the AI should operate. For instance, a planning mode could instruct the AI to collect project context and generate a detailed implementation plan, while a code review mode might focus on identifying security vulnerabilities and suggesting improvements. These specialized instructions ensure consistent, task-appropriate responses every time you switch to that mode.
+
+## Chat mode file structure
 
 Chat mode files are Markdown files and use the `.chatmode.md` extension and have this structure:
 
 * **Header** (optional): YAML frontmatter
 
     * `description`: A brief description of the chat mode. This description is displayed as placeholder text in the chat input field and when you hover the mode in the chat mode dropdown list.
-    * `tools`: A list of tool or tool set names that are available for this chat mode. This can include built-in tools, tool sets, MCP tools, or tools contributed by extensions. Use the **Configure Tools** action to select the tools from the list of available tools in your workspace.
+    * `tools`: A list of tool or tool set names that are available for this chat mode. This can include built-in tools, tool sets, MCP tools, or tools contributed by extensions. Use the **Configure Tools** action to select the tools from the list of available tools in your workspace. Learn more about [tools in chat](/docs/copilot/chat/chat-tools.md).
     * `model`: The AI model to use when running the prompt. If not specified, the currently selected model in model picker is used.
 
 * **Body**: Chat mode details and instructions in Markdown format
@@ -53,17 +45,7 @@ Chat mode files are Markdown files and use the `.chatmode.md` extension and have
 
     Reference instructions files by using Markdown links. The chat mode instructions will complement whatever is specified in the chat prompt.
 
-#### Tool list priority
-
-You can specify the list of available tools for both a chat mode and prompt file by using the `tools` metadata field. Prompt files can also reference a chat mode by using the `mode` metadata field.
-
-The list available tools in chat is determined by the following priority order:
-
-1. Tools specified in the prompt file (if any)
-2. Tools from the referenced chat mode in the prompt file (if any)
-3. Default tools for the selected chat mode
-
-### Chat mode file example
+## Chat mode file example
 
 The following code snippet shows an example of a "Plan" chat mode file that generates an implementation plan and doesn't make any code edits. For more community-contributed examples, see the [Awesome Copilot repository](https://github.com/github/awesome-copilot/tree/main).
 
@@ -85,7 +67,7 @@ The plan consists of a Markdown document that describes the implementation plan,
 * Testing: A list of tests that need to be implemented to verify the feature or refactoring task.
 ```
 
-### Create a chat mode
+## Create a chat mode
 
 You can create a chat mode file in your workspace or user profile.
 
@@ -110,9 +92,18 @@ You can create a chat mode file in your workspace or user profile.
 
 To edit and manage existing chat modes, in the Chat view, select **Configure Chat** > **Modes**, and then select select an existing chat mode from the list to modify it. Alternatively, you can use the **Chat: Configure Chat Modes** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
+## Tool list priority
+
+You can specify the list of available tools for both a chat mode and prompt file by using the `tools` metadata field. Prompt files can also reference a chat mode by using the `mode` metadata field.
+
+The list available tools in chat is determined by the following priority order:
+
+1. Tools specified in the prompt file (if any)
+2. Tools from the referenced chat mode in the prompt file (if any)
+3. Default tools for the selected chat mode
+
 ## Related resources
 
-* [Get an overview of chat in VS Code](/docs/copilot/chat/copilot-chat.md)
 * [Customize AI with custom instructions](/docs/copilot/customization/custom-instructions.md)
 * [Create reusable prompt files](/docs/copilot/customization/prompt-files.md)
-* [Configure tools in chat](/docs/copilot/chat/chat-agent-mode.md#agent-mode-tools)
+* [Use tools in chat](/docs/copilot/chat/chat-tools.md)
