@@ -78,7 +78,6 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 | `setting(chat.agent.enabled:true)`<br/>Enable or disable agent mode (requires VS Code 1.99 or later). | `true` |
 | `setting(chat.agent.maxRequests)`<br/>Maximum number of requests that Copilot can make in agent mode. | `25` |
 | `setting(github.copilot.chat.agent.autoFix)`<br/>Automatically diagnose and fix issues in the generated code changes. | `true` |
-| `setting(github.copilot.chat.agent.runTasks)`<br/>Run workspace tasks when using agent mode. | `true` |
 | `setting(chat.mcp.access)`<br/>Manage which Model Context Protocol (MCP) servers can be used in VS Code. | `true` |
 | `setting(chat.mcp.discovery.enabled)`<br/>Configure automatic discovery of MCP server configuration from other applications. | `false` |
 | `setting(chat.mcp.gallery.enabled)`<br/>Enable browsing and installing MCP servers via the Extensions view in VS Code. | `false` |

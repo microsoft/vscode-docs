@@ -103,7 +103,7 @@ Follow these steps to get started:
 
     ![MCP Tool Confirmation](../images/mcp-servers/mcp-tool-confirmation.png)
 
-    If your project has configured [tasks](/docs/debugtest/tasks.md) in `tasks.json`, agent mode tries to run the appropriate tasks. For example, if you've defined a build task, agent mode will run the build task before running the application. Enable or disable running workspace tasks with the `setting(github.copilot.chat.agent.runTasks)` setting.
+    If your project has configured [tasks](/docs/debugtest/tasks.md) in `tasks.json`, agent mode tries to run the appropriate tasks. For example, if you've defined a build task, agent mode will run the build task before running the application.
 
 1. Optionally, verify and edit the tool input parameters before running the tool.
 
@@ -360,7 +360,6 @@ The following list contains the settings related to agent mode. You can configur
 
 * `setting(chat.agent.enabled:true)`: enable or disable agent mode (default: `false`, requires VS Code 1.99 or later)
 * `setting(chat.agent.maxRequests)`: maximum number of requests that chat can make in agent mode (default: 5 for Copilot Free users, 15 for other users)
-* `setting(github.copilot.chat.agent.runTasks)`: run workspace tasks when using agent mode (default: `true`)
 * `setting(chat.mcp.discovery.enabled)`: enable or disable discovery of MCP servers configured in other tools (default: `true`)
 * `setting(github.copilot.chat.agent.autoFix)`: automatically diagnose and fix issues in the generated code changes (default: `true`)
 * `setting(chat.tools.autoApprove)` _(Experimental)_: automatically approve all tools (default: `false`)
