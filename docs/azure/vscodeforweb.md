@@ -128,7 +128,7 @@ The following are commonly used scenarios for the `\azure` environment.
     - You need to install these yourself:
     - Azure Functions extension
 
-* [Building and testing an AI agent using the Azure AI Toolkit](https://code.visualstudio.com/docs/intelligentapps/overview)
+* [Building and testing an AI agent using the AI Toolkit](https://code.visualstudio.com/docs/intelligentapps/overview)
 
     Key features:
 

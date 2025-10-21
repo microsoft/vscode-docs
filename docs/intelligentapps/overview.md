@@ -72,9 +72,9 @@ You can also install AI Toolkit extension manually from the Visual Studio Code M
 * After successful installation, the AI Toolkit icon appears in the Activity Bar.
 
 
-## Explore Azure AI Toolkit
+## Explore AI Toolkit
 
-Azure AI Toolkit opens in its own view, with the Azure AI Toolkit icon now displayed on the VS Code Activity Bar. The extension has several main sections: My Resources, Model Tools, Agent and Workflow Tools, MCP Workflow, and Help and Feedback.
+AI Toolkit opens in its own view, with the AI Toolkit icon now displayed on the VS Code Activity Bar. The extension has several main sections: My Resources, Model Tools, Agent and Workflow Tools, MCP Workflow, and Help and Feedback.
 
 ![Screenshot showing the AI Toolkit Extension with highlighted sections."](./images/overview/initial-view.png)
 

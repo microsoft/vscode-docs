@@ -63,7 +63,7 @@ VS Code can use remote code search indexes to enable AI to search your codebase 
 
 VS Code automatically builds and uses remote code search indexes for any GitHub-backed repositories in your workspace. Sign in with your GitHub account in VS Code and chat will automatically start using any available remote code search indexes.
 
-Repositories are automatically indexed the first time `@workspace` or `#codebase` is used in chat.  You can also force indexing by running the **Build Remote Workspace Index** command in the Command Palette (`kb(workbench.action.showCommands))`.
+Repositories are automatically indexed the first time `@workspace` or `#codebase` is used in chat.  You can also force indexing by running the **Build Remote Workspace Index** command in the Command Palette (`kb(workbench.action.showCommands)`).
 
 The index only needs to be built once per repository. After that, the index is automatically kept up to date. Building the index is fast for small and medium sized projects, but may take a little time if your repository contains hundreds of thousands of files. The remote index works also best if GitHub has a relatively up-to-date version of your code, so make sure to push your code to GitHub regularly.
 
@@ -81,7 +81,7 @@ To build a local index:
 
 * The project has less than 750 indexable files: VS Code automatically builds an advanced local index.
 
-* The project has between 750 and 2500 indexable files: run the **Build local workspace index** command in the Command Palette (`kb(workbench.action.showCommands))` - this should only be run once.
+* The project has between 750 and 2500 indexable files: run the **Build local workspace index** command in the Command Palette (`kb(workbench.action.showCommands)`) - this should only be run once.
 
 * The project has more than 2500 indexable files: use a [basic index](#basic-index).
 
