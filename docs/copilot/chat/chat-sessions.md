@@ -139,6 +139,10 @@ Consider the following tips to help you work effectively with chat sessions:
 
 * **Use separate windows for multi-monitor setups**: open chat in a separate window on a secondary monitor to keep it visible while you work on code in the main window.
 
+* **Background tasks with remote agents**: use remote coding agents to perform AI tasks in the background while you continue working in VS Code.
+
+* **Interactive agent sessions**: use local agent sessions for interactive tasks that require real-time input and feedback.
+
 ## Related resources
 
 * [Get started with chat in VS Code](/docs/copilot/chat/copilot-chat.md)
