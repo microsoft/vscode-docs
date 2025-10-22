@@ -10,6 +10,9 @@ This guide shows you how to set up a context engineering workflow in VS Code usi
 
 Context engineering is a systematic approach to providing AI agents with targeted project information to improve the quality and accuracy of generated code. By curating essential project context through custom instructions, implementation plans, and coding guidelines, you enable AI to make better decisions, improve accuracy, and maintain persistent knowledge across interactions.
 
+> [!TIP]
+> VS Code chat provides a [built-in plan agent](/docs/copilot/chat/chat-planning.md) to help you create detailed implementation plans before starting complex coding tasks. If you don't want to create a custom planning workflow, you can use the plan agent to generate implementation plans quickly.
+
 ## Context engineering workflow
 
 The high-level workflow for context engineering in VS Code consists of the following steps:
