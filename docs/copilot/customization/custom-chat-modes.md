@@ -33,6 +33,9 @@ Custom chat modes also let you provide specialized instructions that define how 
 
 ## Handoffs
 
+> [!NOTE]
+> Handoffs are currently in preview.
+
 Handoffs enable you to create guided workflows that transition between chat modes with suggested next steps. After a chat response completes, handoff buttons appear that let users move to the next mode with relevant context and a pre-filled prompt.
 
 Handoffs are useful for orchestrating multi-step development workflows. For example:
