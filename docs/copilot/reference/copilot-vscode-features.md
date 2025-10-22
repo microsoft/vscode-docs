@@ -121,6 +121,7 @@ The following table lists the VS Code built-in tools:
 | `#runNotebooks` (tool set) | Enable running notebook cells. |
 | `#runTask` | Run an existing [task](/docs/debugtest/tasks.md) in the workspace. |
 | `#runTasks` (tool set) | Enable running [tasks](/docs/debugtest/tasks.md) in the workspace and reading the output. |
+| `#runSubagent` | Run a task in an isolated subagent context. Helps to improve the context management of the main agent thread. |
 | `#runTests` | Run [unit tests](/docs/debugtest/testing.md) in the workspace. |
 | `#runVscodeCommand` | Run a VS Code command. For example, "Enable zen mode #runVscodeCommand." |
 | `#search` (tool set) | Enable searching for files in the current workspace. |
