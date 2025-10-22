@@ -104,12 +104,28 @@ To export a chat session:
 
 Alternatively, you can copy individual prompts or responses to the clipboard by right-clicking the message and selecting **Copy**. To copy the entire chat session in Markdown format, right-click the Chat view and select **Copy All**.
 
-## Chat Sessions view
+## Agent Sessions view
 
 > [!NOTE]
-> The Chat Sessions view is an experimental feature that is part of the integration with the Copilot Coding Agent.
+> The Agent Sessions view is currently in preview.
 
-The Chat Sessions view provides a dedicated space to manage all your active and recent chat sessions. It shows interactive sessions created in VS Code chat and background sessions created with a coding agent in other environments, such as Copilot coding agent.
+The Agent Sessions view provides a centralized location for managing your active chat sessions, both local in VS Code and sessions created by remote agents in other environments.
+
+![Screenshot of the Agent Sessions view in the Primary Side Bar, showing a view for local chat sessions and Copilot coding agent sessions.](../images/chat-sessions/agent-sessions-view.png)
+
+You can enable the Agent Sessions view by configuring the `setting(chat.agentSessionsViewLocation)` setting.
+
+Select a chat session to open it as a chat editor tab. Right-click a session for options to open it in a new window or in the Chat view. You can view the full history of a chat session by opening it in the Chat view.
+
+To create a new chat session, use the `+` control in the view title bar. This creates either a new local chat session or a new remote agent session, depending on which section of the view you are in.
+
+### Remote agent sessions
+
+The Agent Sessions view also displays chat sessions created by remote agents, such as the [Copilot Coding Agent](/docs/copilot/copilot-coding-agent.md). Remote agents enable you to perform AI coding tasks in the background while working in VS Code.
+
+Remote coding agents might provide additional functionality beyond standard chat sessions, such as canceling ongoing tasks, checking out or closing the associated pull request, or applying its file changes directly to your workspace.
+
+![Screenshot of a Copilot coding agent session in an editor tab, showing the option to apply the file changes to the workspace.](../images/chat-sessions/copilot-coding-agent-apply.png)
 
 Learn more about [Copilot Coding Agent](/docs/copilot/copilot-coding-agent.md).
 
