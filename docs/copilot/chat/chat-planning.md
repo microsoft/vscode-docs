@@ -15,18 +15,13 @@ This article explains how to use planning features in VS Code chat, including th
 
 ## Plan agent for autonomous planning
 
-The built-in plan agent helps you create detailed implementation plans before executing complex coding tasks. This ensures that all requirements are considered and addressed before any code changes are made.
+The built-in plan agent helps you create detailed implementation plans before executing complex coding tasks. This ensures that all requirements are considered and addressed before any code changes are made. The plan agent does not make any code changes until the plan is reviewed and approved by you. Once approved, you can hand off the plan to an implementation agent or save the plan for later use.
 
 The plan agent is designed to:
 
-* Research the task comprehensively using read-only tools and codebase analysis
-* Analyze your high-level prompt to identify requirements and constraints
-* Break down the task into manageable, actionable steps
-* Present a concise plan draft for user review and iteration
-* Use a standardized, structured plan format with file links and symbol references
-* Include open questions to clarify ambiguous requirements
-* Hand off to implementation agents once the plan is approved
-* Not make any code changes until the plan is reviewed and approved
+* Research the task comprehensively using read-only tools and codebase analysis to identify requirements and constraints
+* Break down the task into manageable, actionable steps and include open questions to ambiguous requirements
+* Present a concise plan draft, based on a standardized plan format, for user review and iteration
 
 ### Use the plan agent
 
