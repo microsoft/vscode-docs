@@ -109,27 +109,21 @@ Alternatively, you can copy individual prompts or responses to the clipboard by 
 > [!NOTE]
 > Subagents are currently in preview.
 
-A subagent is an autonomous AI assistant that the agent can delegate complex, multi-step tasks to within your chat session. A subagent:
+A subagent is an autonomous AI assistant that the agent can delegate complex, multi-step tasks to within your chat session. Subagents can be useful for research and context gathering, complex analysis, and to optimize context management in your chat sessions.
 
-* Operates independently from the main chat session
-* Returns results to the main chat session when complete
+A subagent has the following characteristics:
+
+* Operates independently from the main chat session and returns results when complete
 * Uses its own context window separate from the main chat session
-* Has access to most tools available to the main chat session
 * Operates autonomously without pausing for user feedback
+* Has access to most tools available to the main chat session
 
-Subagents are useful for:
+To invoke a subagent, use the `#runSubagent` tool in your chat prompts or ask to use a subagent with natural language. Subagents are very useful in custom chat modes or prompt files to keep multi-step workflows organized and keep context usage efficient.
 
-* **Research and context gathering**: Collect information from multiple files or sources without manual intervention
-* **Complex analysis**: Perform multi-step investigations that would require many sequential tool calls
-* **Context management**: Isolate tasks that require significant context to avoid overwhelming the main chat session
+The following examples illustrate how to invoke a subagent:
 
-You can invoke a subagent using the `#runSubagent` tool in your chat prompts. You can also use subagents in custom chat modes or prompt files to keep multi-step workflows organized.
-
-The following example illustrates how to invoke a subagent for performing research.
-
-```text
-Perform research about viable authentication mechanisms for this app #runSubagent. Then summarize the findings and recommend the best option.
-```
+* `"Perform research about viable authentication mechanisms for this app #runSubagent. Then summarize the findings and recommend the best option."`
+* `"Analyze how to add OAuth authentication - use a subagent. Ask clarifying questions. Then implement this plan."`
 
 > [!NOTE]
 > Subagents have access to most tools but cannot invoke other subagents.
