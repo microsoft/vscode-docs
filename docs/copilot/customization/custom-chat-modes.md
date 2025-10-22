@@ -8,6 +8,8 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 
 Custom chat modes enable you to configure the AI to adopt different personas tailored to specific development roles and tasks. For example, you might create modes for a security reviewer, planner, solution architect, or other specialized roles. Each persona can have its own behavior, available tools, and instructions.
 
+You can also use handoffs to create guided workflows between chat modes, allowing you to transition seamlessly from one specialized mode to another with a single click. For example, you could move from planning mode directly into implementation mode, or hand off to a code reviewer with the relevant context.
+
 This article describes how to create and manage custom chat modes in VS Code.
 
 > [!NOTE]
@@ -29,23 +31,63 @@ Different tasks require different capabilities. A planning mode might only need 
 
 Custom chat modes also let you provide specialized instructions that define how the AI should operate. For instance, a planning mode could instruct the AI to collect project context and generate a detailed implementation plan, while a code review mode might focus on identifying security vulnerabilities and suggesting improvements. These specialized instructions ensure consistent, task-appropriate responses every time you switch to that mode.
 
+## Handoffs
+
+> [!NOTE]
+> Handoffs are currently in preview.
+
+Handoffs enable you to create guided workflows that transition between chat modes with suggested next steps. After a chat response completes, handoff buttons appear that let users move to the next mode with relevant context and a pre-filled prompt.
+
+Handoffs are useful for orchestrating multi-step development workflows. For example:
+
+* **Planning → Implementation**: Generate a plan in planning mode, then hand off to implementation mode to start coding.
+* **Implementation → Review**: Complete implementation, then switch to a code review mode to check for quality and security issues.
+* **Research → Development**: Gather requirements and context, then hand off to a developer mode with the collected information.
+
+To define handoffs in your chat mode file, add them to the file header. Each handoff specifies the target mode, the button label, and an optional prompt to send:
+
+```markdown
+---
+description: Generate an implementation plan
+tools: ['search', 'fetch']
+handoffs:
+  - label: Start Implementation
+    agent: implementation
+    prompt: Now implement the plan outlined above.
+    send: false
+---
+```
+
+When users see the handoff button and select it, they switch to the target mode with the prompt pre-filled. If `send: true`, the prompt automatically submits to start the next workflow step.
+
 ## Chat mode file structure
 
 Chat mode files are Markdown files and use the `.chatmode.md` extension and have this structure:
 
-* **Header** (optional): YAML frontmatter
+### Header (optional)
 
-    * `description`: A brief description of the chat mode. This description is displayed as placeholder text in the chat input field and when you hover the mode in the chat mode dropdown list.
-    * `tools`: A list of tool or tool set names that are available for this chat mode. This can include built-in tools, tool sets, MCP tools, or tools contributed by extensions. Use the **Configure Tools** action to select the tools from the list of available tools in your workspace. Learn more about [tools in chat](/docs/copilot/chat/chat-tools.md).
-    * `model`: The AI model to use when running the prompt. If not specified, the currently selected model in model picker is used.
+The headers is formatted as YAML frontmatter with the following fields:
 
-* **Body**: Chat mode details and instructions in Markdown format
+| Field | Description |
+| --- | --- |
+| `description` | A brief description of the chat mode, shown as placeholder text in the chat input field. |
+| `tools`       | A list of tool or tool set names that are available for this chat mode. Can include built-in tools, tool sets, MCP tools, or tools contributed by extensions. Learn more about [tools in chat](/docs/copilot/chat/chat-tools.md). |
+| `model`       | The AI model to use when running the prompt. If not specified, the currently selected model in model picker is used. |
+| `handoffs`    | An optional list of suggested next actions or prompts to transition between chat modes or agents. Handoff buttons appear as interactive suggestions after a chat response completes. |
+| `handoffs.label` | The display text shown on the handoff button. |
+| `handoffs.agent` | The target chat mode or agent identifier to switch to. |
+| `handoffs.prompt` | The prompt text to send to the target agent or mode. |
+| `handoffs.send` | Optional boolean flag to auto-submit the prompt (default is `false`) |
 
-    This is where you provide specific prompts, guidelines, or any other relevant information that you want the AI to follow when in this chat mode.
+### Body
 
-    Reference instructions files by using Markdown links. The chat mode instructions will complement whatever is specified in the chat prompt.
+The chat mode file body contains the chat mode implementation, formatted as Markdown. This is where you provide specific prompts, guidelines, or any other relevant information that you want the AI to follow when in this chat mode.
 
-## Chat mode file example
+You can reference other files by using Markdown links, for example to reuse instructions files.
+
+When you select the chat mode in the Chat view, the guidelines in the chat mode file body are prepended to the user chat prompt.
+
+### Chat mode example
 
 The following code snippet shows an example of a "Plan" chat mode file that generates an implementation plan and doesn't make any code edits. For more community-contributed examples, see the [Awesome Copilot repository](https://github.com/github/awesome-copilot/tree/main).
 
@@ -54,6 +96,11 @@ The following code snippet shows an example of a "Plan" chat mode file that gene
 description: Generate an implementation plan for new features or refactoring existing code.
 tools: ['fetch', 'githubRepo', 'search', 'usages']
 model: Claude Sonnet 4
+handoffs:
+  - label: Implement Plan
+    agent: agent
+    prompt: Implement the plan outlined above.
+    send: false
 ---
 # Planning mode instructions
 You are in planning mode. Your task is to generate an implementation plan for a new feature or for refactoring existing code.
