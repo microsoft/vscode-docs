@@ -140,10 +140,9 @@ Slash commands are shortcuts to specific functionality within the chat. You can 
 
 | Slash command | Description |
 |---------------|-------------|
-| `/docs` | Generate code documentation comments from editor inline chat. |
+| `/doc` | Generate code documentation comments from editor inline chat. |
 | `/explain` | Explain a code block, file, or programming concept. |
-| `/fix` | Ask Copilot to fix a code block or resolve compiler or linting errors. |
-| `/help` | Get help about using chat in VS Code. |
+| `/fix` | Ask to fix a code block or resolve compiler or linting errors. |
 | `/tests` | Generate tests for all or only the selected methods and functions in the editor. |
 | `/setupTests` | Get help setting up a testing framework for your code. Get recommendation for a relevant testing framework, steps to set up and configure it, and suggestions for VS Code testing extensions. |
 | `/clear` | Start a new chat session in the Chat view. |
@@ -151,7 +150,7 @@ Slash commands are shortcuts to specific functionality within the chat. You can 
 | `/newNotebook` | Scaffold a new Jupyter notebook based on your requirements. Use natural language to describe what the notebook should contain. |
 | `/search` | Generate a search query for the Search view. Use natural language to describe what you want to search for. |
 | `/startDebugging` | Generate a `launch.json` debug configuration file and start a debugging session from the Chat view. |
-| `/<prompt file name>` | Run a [reusable prompt file](/docs/copilot/customization/prompt-files.md) in chat. |
+| `/<prompt name>` | Run a [reusable prompt](/docs/copilot/customization/prompt-files.md) in chat. |
 
 ## Chat participants
 
@@ -181,6 +180,15 @@ With chat [agent mode](/docs/copilot/chat/copilot-chat.md#built-in-chat-modes), 
 > * Add extra tools to agent mode to extend its capabilities.
 > * Configure custom chat modes to define how agent mode operates, for example to implement a read-only planning mode.
 > * Define custom instructions to guide agent mode on how to generate and structure code.
+
+## Planning
+
+Use the [plan agent](/docs/copilot/chat/chat-planning.md) in VS Code chat to create detailed implementation plans before starting complex coding tasks. Hand off the approved plan to an implementation agent to start coding.
+
+| Action | Description |
+|--------|-------------|
+| Plan agent | Select the **Plan** agent from the agents dropdown in the Chat view to create a detailed implementation plan for complex coding tasks. |
+| Todo list (Experimental) | Enable the `todos` tool in the tools picker to track progress on complex tasks with a todo list. |
 
 ## Customize your chat experience
 
