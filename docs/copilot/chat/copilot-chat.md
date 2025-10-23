@@ -113,7 +113,7 @@ Chat modes let chat assume a different role or persona optimized for specific ta
 
 ### Built-in chat modes
 
-VS Code provides three built-in chat modes: ask mode, edit mode, and agent mode. For more specialized workflows, you can also create your own [custom chat modes](/docs/copilot/customization/custom-chat-modes.md).
+VS Code provides four built-in chat modes: **Agent**, **Plan**, **Ask**, and **Edit**. For more specialized workflows, you can also create your own [custom chat modes](/docs/copilot/customization/custom-chat-modes.md).
 
 <details>
 <summary>Agent mode</summary>
@@ -140,6 +140,32 @@ Open agent mode: [Stable](vscode://GitHub.Copilot-Chat/chat?mode=agent) | [Insid
 1. Select **Send** or press `kb(workbench.action.chat.submit)` to submit your prompt.
 
 1. Review and confirm code changes and tool invocations as the agent works through your request.
+
+</details>
+
+<details>
+<summary>Plan</summary>
+
+The plan agent is optimized for creating a structured implementation plan for a coding task. Use the plan agent when you want to break down a complex feature or change into smaller, manageable steps before implementation.
+
+The plan agent generates a detailed plan outlining the steps needed and ask clarifying questions to ensure a comprehensive understanding of the task. You can then handoff the plan to an implementation agent or use it as a guide.
+
+Open chat with Plan: [Stable](vscode://GitHub.Copilot-Chat/chat?mode=plan) | [Insiders](vscode-insiders://GitHub.Copilot-Chat/chat?mode=plan)
+
+### Get started with the plan agent
+
+1. Select **Plan** from the agent picker in the Chat view.
+
+1. Type a high-level prompt in the chat input field. For example, you might ask:
+
+    * "Update the application to support multi-language localization."
+    * "Add a search feature to the application."
+
+1. Select **Send** or press `kb(workbench.action.chat.submit)` to submit your prompt.
+
+1. Answer any clarifying questions or refine the plan as needed.
+
+1. Select **Start Implementation** to hand off the plan to an implementation agent.
 
 </details>
 
