@@ -10,6 +10,9 @@ This guide shows you how to set up a context engineering workflow in VS Code usi
 
 Context engineering is a systematic approach to providing AI agents with targeted project information to improve the quality and accuracy of generated code. By curating essential project context through custom instructions, implementation plans, and coding guidelines, you enable AI to make better decisions, improve accuracy, and maintain persistent knowledge across interactions.
 
+> [!TIP]
+> VS Code chat provides a [built-in plan agent](/docs/copilot/chat/chat-planning.md) to help you create detailed implementation plans before starting complex coding tasks. If you don't want to create a custom planning workflow, you can use the plan agent to generate implementation plans quickly.
+
 ## Context engineering workflow
 
 The high-level workflow for context engineering in VS Code consists of the following steps:
@@ -120,7 +123,9 @@ With a [custom chat mode](/docs/copilot/customization/custom-chat-modes.md) for 
     Outline 1-3 open questions or uncertainties that need to be clarified.
     ```
 
-1. Create a planning [chat mode](/docs/copilot/customization/custom-chat-modes.md) `.github/chatmodes/plan.chatmode.md` that defines the planning persona. In planning mode, the agent is instructed not to perform implementation tasks, but to focus on creating the implementation plan.
+1. Create a planning [chat mode](/docs/copilot/customization/custom-chat-modes.md) `.github/chatmodes/plan.chatmode.md`
+
+    The planning chat mode defines a planning persona and instructs the agent not to perform implementation tasks, but to focus on creating the implementation plan. You can specify [handoffs](/docs/copilot/customization/custom-chat-modes.md#handoffs) to transition to an implementation chat mode after the plan is complete.
 
     To create a chat mode, run the **Chat: Configure Chat Modes** > **Create New custom chat mode file** command in the Command Palette.
 
@@ -128,12 +133,17 @@ With a [custom chat mode](/docs/copilot/customization/custom-chat-modes.md) for 
 
     You might want to configure the `model` metadata property to use a language model that is optimized for reasoning and deep understanding.
 
-    The following `plan.chatmode.md` file provides a starting point for a planning chat mode.
+    The following `plan.chatmode.md` file provides a starting point for a planning chat mode and handoff to a TDD implementation mode:
 
     ```markdown
     ---
     description: 'Architect and planner to create detailed implementation plans.'
-    tools: ['fetch', 'githubRepo', 'problems', 'usages', 'search', 'todos', 'github/github-mcp-server/get_issue', 'github/github-mcp-server/get_issue_comments', 'github/github-mcp-server/list_issues']
+    tools: ['fetch', 'githubRepo', 'problems', 'usages', 'search', 'todos', 'runSubagent', 'github/github-mcp-server/get_issue', 'github/github-mcp-server/get_issue_comments', 'github/github-mcp-server/list_issues']
+    handoffs:
+    - label: Start Implementation
+        agent: tdd
+        prompt: Now implement the plan outlined above using TDD principles.
+        send: true
     ---
     # Planning Mode
 
@@ -141,7 +151,7 @@ With a [custom chat mode](/docs/copilot/customization/custom-chat-modes.md) for 
 
     ## Workflow
 
-    1. Analyze and understand: Gather context from the codebase and any provided documentation to fully understand the requirements and constraints.
+    1. Analyze and understand: Gather context from the codebase and any provided documentation to fully understand the requirements and constraints. Run #runSubagent tool, instructing the agent to work autonomously without pausing for user feedback.
     2. Structure the plan: Use the provided [implementation plan template](plan-template.md) to structure the plan.
     3. Pause for review: Based on user feedback or questions, iterate and refine the plan as needed.
     ```
@@ -248,6 +258,8 @@ Following these best practices helps you establish a sustainable and effective c
 **Reference external knowledge**: Link to relevant external documentation, APIs, or standards that the AI should consider when generating code.
 
 ### Workflow optimization
+
+**Handoffs between modes**: Use [handoffs](/docs/copilot/customization/custom-chat-modes.md#handoffs) to create guided transitions and implement end-to-end development workflows between planning, implementation, and review modes.
 
 **Implement feedback loops**: Continuously validate that AI understands your context correctly. Ask clarifying questions and course-correct early when misunderstandings occur.
 

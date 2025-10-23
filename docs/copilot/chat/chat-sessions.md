@@ -104,12 +104,52 @@ To export a chat session:
 
 Alternatively, you can copy individual prompts or responses to the clipboard by right-clicking the message and selecting **Copy**. To copy the entire chat session in Markdown format, right-click the Chat view and select **Copy All**.
 
-## Chat Sessions view
+## Subagents
 
 > [!NOTE]
-> The Chat Sessions view is an experimental feature that is part of the integration with the Copilot Coding Agent.
+> Subagents are currently in preview.
 
-The Chat Sessions view provides a dedicated space to manage all your active and recent chat sessions. It shows interactive sessions created in VS Code chat and background sessions created with a coding agent in other environments, such as Copilot coding agent.
+A subagent is an autonomous AI assistant that the agent can delegate complex, multi-step tasks to within your chat session. Subagents can be useful for research and context gathering, complex analysis, and to optimize context management in your chat sessions.
+
+A subagent has the following characteristics:
+
+* Operates independently from the main chat session and returns results when complete
+* Uses its own context window separate from the main chat session
+* Operates autonomously without pausing for user feedback
+* Has access to most tools available to the main chat session
+
+To invoke a subagent, use the `#runSubagent` tool in your chat prompts or ask to use a subagent with natural language. Subagents are very useful in custom chat modes or prompt files to keep multi-step workflows organized and keep context usage efficient.
+
+The following examples illustrate how to invoke a subagent:
+
+* `"Perform research about viable authentication mechanisms for this app #runSubagent. Then summarize the findings and recommend the best option."`
+* `"Analyze how to add OAuth authentication - use a subagent. Ask clarifying questions. Then implement this plan."`
+
+> [!NOTE]
+> Subagents have access to most tools but cannot invoke other subagents.
+
+## Agent Sessions view
+
+> [!NOTE]
+> The Agent Sessions view is currently in preview.
+
+The Agent Sessions view provides a centralized location for managing your active chat sessions, both local in VS Code and sessions created by remote agents in other environments.
+
+![Screenshot of the Agent Sessions view in the Primary Side Bar, showing a view for local chat sessions and Copilot coding agent sessions.](../images/chat-sessions/agent-sessions-view.png)
+
+You can enable the Agent Sessions view by configuring the `setting(chat.agentSessionsViewLocation)` setting.
+
+Select a chat session to open it as a chat editor tab. Right-click a session for options to open it in a new window or in the Chat view. You can view the full history of a chat session by opening it in the Chat view.
+
+To create a new chat session, use the `+` control in the view title bar. This creates either a new local chat session or a new remote agent session, depending on which section of the view you are in.
+
+### Remote agent sessions
+
+The Agent Sessions view also displays chat sessions created by remote agents, such as the [Copilot Coding Agent](/docs/copilot/copilot-coding-agent.md). Remote agents enable you to perform AI coding tasks in the background while working in VS Code.
+
+Remote coding agents might provide additional functionality beyond standard chat sessions, such as canceling ongoing tasks, checking out or closing the associated pull request, or applying its file changes directly to your workspace.
+
+![Screenshot of a Copilot coding agent session in an editor tab, showing the option to apply the file changes to the workspace.](../images/chat-sessions/copilot-coding-agent-apply.png)
 
 Learn more about [Copilot Coding Agent](/docs/copilot/copilot-coding-agent.md).
 
@@ -122,6 +162,10 @@ Consider the following tips to help you work effectively with chat sessions:
 * **Use editor tabs for side-by-side comparisons**: open multiple chat sessions as editor tabs to compare different approaches or solutions side-by-side.
 
 * **Use separate windows for multi-monitor setups**: open chat in a separate window on a secondary monitor to keep it visible while you work on code in the main window.
+
+* **Background tasks with remote agents**: use remote coding agents to perform AI tasks in the background while you continue working in VS Code.
+
+* **Interactive agent sessions**: use local agent sessions for interactive tasks that require real-time input and feedback.
 
 ## Related resources
 
