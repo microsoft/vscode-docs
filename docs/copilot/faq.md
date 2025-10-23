@@ -142,6 +142,18 @@ You can choose which models are available in the language model picker. Learn ho
 
 Organizations can restrict access to certain models. If you believe a model should be available, contact your organization administrator.
 
+### How do I prevent the Chat view from opening automatically?
+
+By default, the Chat view opens in the Secondary Side Bar. When you close the Chat view for a workspace, VS Code remembers this setting and does not open the Chat view automatically the next time you open that workspace.
+
+You can change the default visibility directly from the Chat view:
+
+1. Open the Chat view (`kb(workbench.action.chat.open)`).
+1. Select the `...` icon in the top-right corner of the Chat view.
+1. Select **Show View by Default** to enable or disable the automatic opening of the Chat view.
+
+You can also control the default visibility of the Secondary Side Bar with the `setting(workbench.secondarySideBar.defaultVisibility)` setting. Set it to `hidden` to prevent the Chat view from opening automatically.
+
 ## Troubleshooting and feedback
 
 ### How can I provide feedback on Copilot?

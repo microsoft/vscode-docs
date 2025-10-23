@@ -6,9 +6,11 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Use MCP servers in VS Code
 
-Model Context Protocol (MCP) is an open standard that lets AI models use external tools and services through a unified interface. In VS Code, MCP servers add tools for tasks like file operations, databases, or interacting with external APIs.
+Model Context Protocol (MCP) is an open standard that lets AI models use external tools and services through a unified interface. In VS Code, MCP servers provide [tools](/docs/copilot/chat/chat-tools.md) for tasks like file operations, databases, or interacting with external APIs.
 
-This article guides you through setting up MCP servers and using tools with agent mode in Visual Studio Code.
+MCP servers are one of three ways to extend chat with tools in VS Code, alongside built-in tools and extension-contributed tools. Learn more about [types of tools](/docs/copilot/chat/chat-tools.md#types-of-tools).
+
+This article guides you through setting up MCP servers and using their capabilities in Visual Studio Code.
 
 <details>
 <summary>How does MCP work?</summary>
@@ -199,48 +201,29 @@ code --add-mcp "{\"name\":\"my-server\",\"command\": \"uvx\",\"args\": [\"mcp-se
 
 </details>
 
-## Use MCP tools in agent mode
+## Use MCP tools in chat
 
-Once you have added an MCP server, you can use the tools it provides in agent mode.
+Once you have added an MCP server, you can use the tools it provides in chat. MCP tools work like other tools in VS Code—they can be automatically invoked in agent mode or explicitly referenced in your prompts.
 
-To use MCP tools in agent mode:
+To use MCP tools:
 
-1. Open the **Chat** view (`kb(workbench.action.chat.open)`), and select **Agent** mode from the dropdown.
+1. Open the **Chat** view (`kb(workbench.action.chat.open)`).
 
-    ![Agent mode dropdown option](../images/mcp-servers/chat-mode-agent.png)
-
-1. Select the **Tools** button to view the list of available tools.
-
-    Optionally, select or deselect the tools you want to use. You can search tools by typing in the search box.
-
-    ![MCP tools list](../images/mcp-servers/agent-mode-select-tools.png)
-
-    > [!IMPORTANT]
-    > A chat request can have a maximum of 128 tools enabled at a time. If you have more than 128 tools selected, reduce the number of tools by deselecting some tools in the tools picker, or ensure that virtual tools are enabled (`setting(github.copilot.chat.virtualTools.threshold)`).
-
-1. Enter a prompt in the chat input box and notice how tools are automatically invoked as needed. For example, install the [GitHub MCP server](https://github.com/github/github-mcp-server) and ask "List my GitHub issues".
+1. In agent mode, tools are automatically invoked as needed. For example, install the [GitHub MCP server](https://github.com/github/github-mcp-server) and ask "List my GitHub issues".
 
     ![Screenshot of the Chat view, showing an MCP tool invocation in agent mode.](../images/mcp-servers/chat-agent-mode-tool-invocation.png)
 
-    > [!TIP]
-    > You can also directly reference a tool in your prompt by typing `#` followed by the tool name. You can do this in all chat modes (ask, edit, and agent mode).
+1. You can also explicitly reference MCP tools in any chat mode by typing `#` followed by the tool name.
 
-1. When prompted, carefully review the tool invocation details before confirming.
-
-    > [!CAUTION]
-    > MCP tools might run locally on your machine and could perform actions that modify files or data. Always ensure you understand the implications of the tool's actions.
-
-    Use the **Continue** button dropdown options to automatically confirm the specific tool for the current session, workspace, or all future invocations.
+1. Review and approve tool invocations when prompted.
 
     ![MCP Tool Confirmation](../images/mcp-servers/mcp-tool-confirmation.png)
 
-1. Optionally, verify and edit the tool input parameters before running the tool.
-
-    ![MCP Tool Input Parameters](../images/mcp-servers/mcp-tool-edit-parameters.png)
+Learn more about [using tools in chat](/docs/copilot/chat/chat-tools.md), including how to manage tool approvals, use the tool picker, and create tool sets.
 
 ### Clear cached MCP tools
 
-When VS Code starts the MCP server for the first time, it discovers the server's capabilities and tools. You can then [use these tools in agent mode](#use-mcp-tools-in-agent-mode). VS Code caches the list of tools for an MCP server. To clear the cached tools, use the **MCP: Reset Cached Tools** command in the Command Palette.
+When VS Code starts the MCP server for the first time, it discovers the server's capabilities and tools. You can then [use these tools in chat](#use-mcp-tools-in-chat). VS Code caches the list of tools for an MCP server. To clear the cached tools, use the **MCP: Reset Cached Tools** command in the Command Palette.
 
 ## Use MCP resources
 
@@ -268,11 +251,9 @@ Optionally, the MCP prompt might ask you for extra input parameters.
 
 ## Group related tools in a tool set
 
-As you add more MCP servers, the list of tools can become long. This can make it tedious to manage individual tools, for example when you want to define a [reusable prompt file](/docs/copilot/customization/prompt-files.md) or a [custom chat mode](/docs/copilot/customization/custom-chat-modes.md).
+As you add more MCP servers, the list of tools can become long. You can group related tools into a tool set to make them easier to manage and reference.
 
-To help you manage tools, you can group related tools into a tool set. A tool set is a collection of individual tools that you can refer to as a single entity. A tool set can contain built-in tools, MCP tools, or tools provided by extensions.
-
-Learn more about how to [create and use tool sets in VS Code](/docs/copilot/chat/chat-agent-mode.md#define-tool-sets).
+Learn more about how to [create and use tool sets](/docs/copilot/chat/chat-tools.md#tool-sets).
 
 ## Manage installed MCP servers
 
@@ -510,10 +491,10 @@ Verify that the command arguments are correct and that the container is not runn
 
 A chat request can have a maximum of 128 tools enabled at a time due to model constraints. If you have more than 128 tools selected, reduce the number of tools by deselecting some tools or whole servers in the tools picker in the Chat view, or ensure that virtual tools are enabled (`setting(github.copilot.chat.virtualTools.threshold)`).
 
-![Screenshot showing the Chat view, highlighting the Tools icon in the chat input and showing the tools Quick Pick where you can select which tools are active.](../chat/images/copilot-edits/agent-mode-select-tools.png)
+![Screenshot showing the Chat view, highlighting the Tools icon in the chat input and showing the tools Quick Pick where you can select which tools are active.](../images/mcp-servers/agent-mode-select-tools.png)
 
 ## Related resources
 
 * [Model Context Protocol Documentation](https://modelcontextprotocol.io/)
 * [Model Context Protocol Server repository](https://github.com/modelcontextprotocol/servers)
-* [Use agent mode in Visual Studio Code](/docs/copilot/chat/chat-agent-mode.md)
+* [Use agent mode in Visual Studio Code](/docs/copilot/chat/copilot-chat.md#built-in-chat-modes)
