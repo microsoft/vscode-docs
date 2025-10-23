@@ -1,12 +1,12 @@
 ---
 ContentId: 37fd3bd2-4209-49f6-bec5-c544d6b1b289
 DateApproved: 10/09/2025
-MetaDescription: Build your first web application with GitHub Copilot in VS Code. Learn code completions, agent mode, inline chat, smart actions, and how to personalize your AI coding experience.
+MetaDescription: Build your first web application with GitHub Copilot in VS Code. Learn code completions, agents, inline chat, smart actions, and how to personalize your AI coding experience.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
 # Get started with GitHub Copilot in VS Code
 
-GitHub Copilot transforms how you write code in Visual Studio Code. In this hands-on tutorial, you build a complete task management web application while discovering Copilot's core capabilities: intelligent code completions, autonomous feature development with agent mode, precise editing with inline chat, integrated smart actions, and powerful customization options.
+GitHub Copilot transforms how you write code in Visual Studio Code. In this hands-on tutorial, you build a complete task management web application while discovering VS Code's AI capabilities: intelligent code completions, autonomous feature development with agents, precise editing with inline chat, integrated smart actions, and powerful customization options.
 
 By the end of this tutorial, you'll have both a working web application and a personalized AI coding setup that adapts to your development style.
 
@@ -57,25 +57,25 @@ Code completions provide AI suggestions as you type, helping you write code fast
 
 Code completions work automatically as you type, learning from your patterns and the context of your project. They're particularly helpful for writing boilerplate code, HTML structures, and repetitive patterns.
 
-## Step 2: Build complete features with agent mode
+## Step 2: Build complete features with agents
 
-Agent mode is VS Code's most powerful AI capability. Given a natural language prompt, it autonomously plans and implements complex features across multiple files. Let's use it to create the core functionality of your task manager.
+Agents are VS Code's most powerful AI capability. Given a natural language prompt, they autonomously plan and implement complex features across multiple files. Let's use them to create the core functionality of your task manager.
 
-1. Open the Chat view by pressing `kb(workbench.action.chat.open)` or selecting the chat icon in the VS Code title bar.
+1. Open the Chat view by pressing `kb(workbench.action.chat.open)` or by selecting the chat icon in the VS Code title bar.
 
     The Chat view enables you to have an ongoing conversation with the AI, making it easier to refine your requests and get better results.
 
-1. In the chat mode dropdown at the top of the Chat view, select **Agent** to switch to an agentic, autonomous coding mode.
+1. In the agent picker at the top of the Chat view, select **Agent** to switch to an autonomous coding mode.
 
-    ![Screenshot showing the agent mode selection in Chat view.](./images/getting-started/agent-mode-selection.png)
+    ![Screenshot showing the agent picker in the Chat view.](./images/getting-started/agent-mode-selection.png)
 
-1. Enter the following prompt and press `kbstyle(Enter)`. Agent mode will analyze your request and begin implementing the solution:
+1. Enter the following prompt and press `kbstyle(Enter)`. The agent will analyze your request and begin implementing the solution:
 
     ```text
     Create a complete task manager web application with the ability to add, delete, and mark tasks as completed. Include modern CSS styling and make it responsive. Use semantic HTML and ensure it's accessible. Separate markup, styles, and scripts into their own files.
     ```
 
-    Watch as agent mode generates the necessary files and code to implement your request. You should see it update the `index.html` file, create a `styles.css` file for styling, and a `script.js` file for functionality.
+    Watch as the agent generates the necessary files and code to implement your request. You should see it update the `index.html` file, create a `styles.css` file for styling, and a `script.js` file for functionality.
 
     > [!TIP]
     > Different language models might have different strengths. Use the model dropdown in the Chat view to switch between language models.
@@ -87,19 +87,19 @@ Agent mode is VS Code's most powerful AI capability. Given a natural language pr
     > [!TIP]
     > Use the [Live Preview extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server) to see your changes in VS Code, in real-time as you develop.
 
-1. Let's add an extra feature. In the Chat view, enter the following prompt:
+1. Let's add an extra feature. Enter the following prompt in the chat input box:
 
     ```text
     Add a filter system with buttons to show all tasks, only completed tasks, or only pending tasks. Update the styling to match the existing design.
     ```
 
-    Notice how agent mode coordinates changes across multiple files to implement this feature completely.
+    Notice how the agent coordinates changes across multiple files to implement this feature completely.
 
-Agent mode excels at understanding high-level requirements and translating them into working code. It's perfect for implementing new features, refactoring large sections of code, or building entire applications from scratch.
+Agents excel at understanding high-level requirements and translating them into working code. They're perfect for implementing new features, refactoring large sections of code, or building entire applications from scratch.
 
 ## Step 3: Make precise adjustments with inline chat
 
-While agent mode handles large features, editor inline chat is perfect for targeted improvements to specific code sections within a file. Let's use it to enhance the task manager app.
+While agents handle large features, editor inline chat is perfect for targeted improvements to specific code sections within a file. Let's use it to enhance the task manager app.
 
 1. Open your JavaScript file and locate the code that adds new tasks.
 
@@ -126,7 +126,7 @@ Editor inline chat is ideal for making small, focused changes without affecting 
 
 ## Step 4: Personalize your AI experience
 
-Customizing chat makes it work better for your specific needs and coding style. You can set up custom instructions and build specialized chat modes. Let's create a complete personalization setup for your project.
+Customizing chat makes it work better for your specific needs and coding style. You can set up custom instructions and build specialized custom agents. Let's create a complete personalization setup for your project.
 
 ### Create custom instructions
 
@@ -159,7 +159,7 @@ Custom instructions tell the AI about your coding preferences and standards. The
 
 1. Save the file. These instructions now apply to all your chat interactions in this project.
 
-1. Test the custom instructions by asking agent mode to add a new feature:
+1. Test the custom instructions by asking the agent to add a new feature:
 
     ```text
     Add a dark mode toggle button to the task manager.
@@ -167,67 +167,54 @@ Custom instructions tell the AI about your coding preferences and standards. The
 
     Notice how the generated code follows the guidelines you specified. VS Code supports more advanced custom instructions like applying instructions for specific file types.
 
-### Create a custom chat mode for code reviews
+### Create a custom agent for code reviews
 
-Custom chat modes create specialized AI personas for specific tasks. Let's create a "Code Reviewer" mode that focuses on analysis and providing feedback on code. In a chat mode, you can define the AI's role, guidelines, and which tools it can use.
+Custom agents create specialized AI personas for specific tasks. Let's create a "Code Reviewer" agent that focuses on analysis and providing feedback on code. In the custom agent definition, you can define the AI's role, specific guidelines, and which tools it can use.
 
-1. Open the Command Palette and run the **Chat: New Mode File** command.
+1. Open the Command Palette and run the **Chat: New Custom Agent** command.
 
-1. Select `.github/chatmodes` as the location for the new mode file.
+1. Select `.github/agents` as the location.
 
-    This option adds the chat mode to your workspace, enabling other team members to use it as well.
+    This option adds the custom agent to your workspace, enabling other team members to use it when they open the project.
 
-1. Name the chat mode "Code Reviewer". This creates a new file called `Code Reviewer.md` in the `.github/chatmodes` folder.
+1. Name the custom agent "Code Reviewer". This creates a new file called `Code Reviewer.md` in the `.github/agents` folder.
 
-1. Replace the file contents with the following content. Note that this chat mode doesn't allow code changes.
+1. Replace the file contents with the following content. Note that this custom agent doesn't allow code changes.
 
     ```markdown
     ---
     description: 'Review code for quality and adherence to best practices.'
     tools: ['usages', 'vscodeAPI', 'problems', 'fetch', 'githubRepo', 'search']
     ---
-    # Code Reviewer Mode
+    # Code Reviewer agent
 
     You are an experienced senior developer conducting a thorough code review. Your role is to review the code for quality, best practices, and adherence to [project standards](../copilot-instructions.md) without making direct code changes.
+
+    When reviewing code, structure your feedback with clear headings and specific examples from the code being reviewed.
 
     ## Analysis Focus
     - Analyze code quality, structure, and best practices
     - Identify potential bugs, security issues, or performance problems
     - Evaluate accessibility and user experience considerations
-    - Assess maintainability and readability
-
-    ## Communication Style
-    - Provide constructive, specific feedback with clear explanations
-    - Highlight both strengths and areas for improvement
-    - Ask clarifying questions about design decisions when appropriate
-    - Suggest alternative approaches when relevant
 
     ## Important Guidelines
-    - DO NOT write or suggest specific code changes directly
+    - Ask clarifying questions about design decisions when appropriate
     - Focus on explaining what should be changed and why
-    - Provide reasoning behind your recommendations
-    - Be encouraging while maintaining high standards
-
-    When reviewing code, structure your feedback with clear headings and specific examples from the code being reviewed.
+    - DO NOT write or suggest specific code changes directly
     ```
 
-1. Save the file. In the Chat view, you can now select this custom mode from the chat mode dropdown.
+1. Save the file. In the Chat view, you can now select this custom agent from the agent picker.
 
-    ![Screenshot showing the Code Reviewer custom mode in the chat mode dropdown.](./images/getting-started/custom-mode-dropdown.png)
+    ![Screenshot showing the Code Reviewer custom agent in the agent picker.](./images/getting-started/custom-mode-dropdown.png)
 
-1. Test your custom reviewer mode:
+1. Test your custom agent:
 
-   * Select **Code Reviewer** from the mode dropdown
+   * Select **Code Reviewer** from the agent picker
    * Enter the following prompt: "Review my full project"
 
    Notice how the AI now behaves as a code reviewer, providing analysis and suggestions without writing code directly.
 
-    ![Screenshot showing custom reviewer mode analyzing code.](./images/getting-started/custom-reviewer-mode.png)
-
-Your personalized AI setup now includes:
-
-* **Custom instructions** that ensure consistent code quality
-* **Specialized chat modes** for different types of work
+    ![Screenshot showing custom reviewer agent analyzing code.](./images/getting-started/custom-reviewer-mode.png)
 
 ## Step 5: Use smart actions for pre-built AI assistance
 
@@ -259,7 +246,7 @@ Congratulations! You've built a complete task management application and learned
 
 You can further enhance your AI's capabilities by exploring other customization options:
 
-* Add more specialized chat modes for different tasks like planning, debugging, or documentation.
+* Add more specialized agents for different tasks like planning, debugging, or documentation.
 * Create custom instructions for specific programming languages or frameworks.
 * Extend the AI's capabilities with extra tools from MCP (Model Context Protocol) servers or VS Code extensions.
 
@@ -267,4 +254,4 @@ You can further enhance your AI's capabilities by exploring other customization 
 
 * [Chat documentation](/docs/copilot/chat/copilot-chat.md) - Deep dive into autonomous coding in VS Code
 * [Customization guide](/docs/copilot/customization/overview.md) - Advanced personalization techniques
-* [MCP tools](/docs/copilot/customization/mcp-servers.md) - Extend agent mode with external APIs and services
+* [MCP tools](/docs/copilot/customization/mcp-servers.md) - Extend agents with external APIs and services

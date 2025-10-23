@@ -28,7 +28,7 @@ Learn more about [code completions in VS Code](/docs/copilot/ai-powered-suggesti
 
 ### Autonomous coding
 
-VS Code and agent mode can autonomously plan and execute complex development tasks, coordinating multi-step workflows that involve running terminal commands or invoking specialized tools. It can transform high-level requirements into working code.
+Agents can autonomously plan and execute complex development tasks, coordinating multi-step workflows that involve running terminal commands or invoking specialized tools. It can transform high-level requirements into working code.
 
 Install Model Context Protocol (MCP) servers or tools from Marketplace extensions to further enhance the capabilities of the autonomous coding experience. For example, pull information from a database or connect to external APIs.
 
@@ -41,7 +41,7 @@ Install Model Context Protocol (MCP) servers or tools from Marketplace extension
 - Debug failing tests and apply fixes
 - Optimize performance across the application
 
-Learn more about [autonomous coding with agent mode](/docs/copilot/chat/copilot-chat.md) and [configuring MCP servers in VS Code](/docs/copilot/customization/mcp-servers.md).
+Learn more about [autonomous coding with agents](/docs/copilot/chat/copilot-chat.md) and [configuring MCP servers in VS Code](/docs/copilot/customization/mcp-servers.md).
 
 ### Natural language chat
 
@@ -95,10 +95,10 @@ Learn more about the [smart actions in VS Code](/docs/copilot/copilot-smart-acti
 
 ### Step 3: Autonomous coding
 
-To perform more complex tasks in an autonomous manner, use _agent mode_ in the chat interface. The AI will iterate on the code until the task is complete.
+To perform more complex tasks in an autonomous manner, use agents in the chat interface. The AI will iterate on the code until the task is complete.
 
 1. Open the Chat view (`kb(workbench.action.chat.open)`)
-1. Select **Agent** from the chat mode dropdown list
+1. Select **Agent** from the agent picker
 1. Ask to generate a basic web app like: "Create a basic node.js web app for sharing recipes. Make it look modern and responsive."
 
 Notice how the agent independently generates code across multiple files and installs dependencies as needed for the task.
@@ -186,13 +186,13 @@ Quickly switch between different AI models to optimize for speed, reasoning, or 
 
 Learn more about using [language models in VS Code](/docs/copilot/customization/language-models.md).
 
-### Custom chat modes
+### Custom agents
 
-The chat experience in VS Code can operate in different modes to switch between asking questions, making edits, or running autonomous coding sessions. You can also create custom chat modes that fit your workflow. For example, create a chat mode that focuses on planning and architecture discussions. Specify which tools chat is allowed to use, and provide custom instructions to provide the right context in which it should operate.
+The chat experience in VS Code can use different agents to switch between asking questions, making edits, or running autonomous coding sessions. You can also create custom agents that fit your workflow. For example, create a custom agent that focuses on planning and architecture discussions. Specify which tools chat is allowed to use, and provide custom instructions to provide the right context in which it should operate.
 
-![Screenshot showing the Chat view, highlighting the chat mode dropdown list.](images/overview/chat-mode-dropdown.png)
+![Screenshot showing the Chat view, highlighting the agent picker.](images/overview/chat-mode-dropdown.png)
 
-Learn more about [creating your own chat modes](/docs/copilot/customization/custom-chat-modes.md).
+Learn more about [creating your own custom agents](/docs/copilot/customization/custom-agents.md).
 
 ### Extend chat with tools
 
@@ -204,12 +204,11 @@ Learn more about [using MCP servers and tools](/docs/copilot/customization/mcp-s
 
 ## Best Practices
 
-- Choose the right tool for the task. Get code completions while you're coding, use chat for natural language queries, and pick the chat mode that fits your workflow.
+- Choose the right tool for the task. Get code completions while you're coding, use chat for natural language queries, and pick the agent that fits your workflow.
 
 - Write effective prompts to get the best results. Be specific, provide the right context, and iterate often.
 
-- Customize the AI to your coding style and project conventions by using custom instructions, prompt files, or chat modes.
-
+- Customize the AI to your coding style and project conventions by using custom instructions, prompt files, or custom agents.
 - Extend the AI's capabilities with tools from MCP servers or Marketplace extensions.
 
 - Choose a language model that is optimized for your task. Use fast models for quick code suggestions, reasoning models for more complex requests.

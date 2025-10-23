@@ -58,7 +58,7 @@ Before you can use tools in chat, you need to enable them in the Chat view. You 
 
 To access the tools picker:
 
-1. Open the Chat view in **agent** mode.
+1. Open the Chat view and select **Agent** from the agent picker.
 
 1. Select the **Configure Tools** button in the chat input field.
 
@@ -68,13 +68,13 @@ To access the tools picker:
 
     Use the search box to filter the list of tools.
 
-When you customize chat with [prompt files](/docs/copilot/customization/prompt-files.md) or [custom chat modes](/docs/copilot/customization/custom-chat-modes.md), you can specify which tools are available for a given prompt or mode. Learn more about the [tool list priority order](/docs/copilot/customization/custom-chat-modes.md#tool-list-priority).
+When you customize chat with [prompt files](/docs/copilot/customization/prompt-files.md) or [custom agents](/docs/copilot/customization/custom-agents.md), you can specify which tools are available for a given prompt or mode. Learn more about the [tool list priority order](/docs/copilot/customization/custom-agents.md#tool-list-priority).
 
 ## Use tools in your prompts
 
-In [agent mode](/docs/copilot/chat/copilot-chat.md#built-in-chat-modes), the agent automatically determines which tools to use from the enabled tools based on your prompt and the context of your request. The agent autonomously chooses and invokes relevant tools as needed to accomplish the task.
+When using [agents](/docs/copilot/chat/copilot-chat.md#built-in-agents), the agent automatically determines which tools to use from the enabled tools based on your prompt and the context of your request. The agent autonomously chooses and invokes relevant tools as needed to accomplish the task.
 
-You can also explicitly reference tools in your prompts in any chat mode by typing `#` followed by the tool name. This is useful when you want to ensure a specific tool is used. Type `#` in the chat input field to see a list of available tools, including built-in tools, MCP tools from installed servers, extension tools, and tool sets.
+You can also explicitly reference tools in your prompts by typing `#` followed by the tool name. This is useful when you want to ensure a specific tool is used. Type `#` in the chat input field to see a list of available tools, including built-in tools, MCP tools from installed servers, extension tools, and tool sets.
 
 **Examples of explicit tool references:**
 
@@ -151,15 +151,15 @@ You can review and edit the input parameters before a tool runs:
 
 ## Group tools with tool sets
 
-A tool set is a collection of tools that you can reference as a single entity in your prompts. Tool sets help you organize related tools and make them easier to use in a chat prompt, [prompt files](/docs/copilot/customization/prompt-files.md), and [custom chat modes](/docs/copilot/customization/custom-chat-modes.md). Some of the built-in tools are part of predefined tool sets, such as `#edit` and `#search`.
+A tool set is a collection of tools that you can reference as a single entity in your prompts. Tool sets help you organize related tools and make them easier to use in a chat prompt, [prompt files](/docs/copilot/customization/prompt-files.md), and [custom chat agents](/docs/copilot/customization/custom-agents.md). Some of the built-in tools are part of predefined tool sets, such as `#edit` and `#search`.
 
 ### Create a tool set
 
 To create a tool set:
 
-1. Select the **Configure Chat** button in the Chat view, select **Tool Sets**, and then select **Create new tool sets file**.
+1. Run the **Chat: Configure Tool Sets** command from the Command Palette and select **Create new tool sets file**.
 
-    Alternatively, use the **Chat: Configure Tool Sets** command from the Command Palette.
+    Alternatively, select **Configure Chat** in the Chat view > **Tool Sets** > **Create new tool sets file**.
 
     ![Screenshot showing the Chat view and Configure Chat menu, highlighting the Configure Chat button.](../images/customization/configure-chat-instructions.png)
 
@@ -201,7 +201,7 @@ In the tools picker, tool sets are available as collapsible groups of related to
 
 ### How do I know which tools are available?
 
-Type `#` in the chat input field to see a list of all available tools. You can also access the tools picker in agent mode to view and manage tools.
+Type `#` in the chat input field to see a list of all available tools. You can also use the tools picker in chat to view and manage the list of active tools.
 
 ### I'm getting an error that says "Cannot have more than 128 tools per request."
 

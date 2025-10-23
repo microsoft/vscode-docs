@@ -26,7 +26,7 @@ VS Code supports multiple types of Markdown-based instructions files. If you hav
     * Use `applyTo` frontmatter to define what files the instructions should be applied to
     * Stored in the workspace or user profile
 
-* A single [`AGENTS.md`](#use-an-agentsmd-file-experimental) file (experimental)
+* A single [`AGENTS.md`](#use-an-agentsmd-file) file (experimental)
     * Useful if you work with multiple AI agents in your workspace
     * Automatically applies to all chat requests in the workspace
     * Stored in the root of the workspace
@@ -278,13 +278,13 @@ To sync your user instructions files, enable Settings Sync for prompt and instru
 
 * Store project-specific instructions in your workspace to share them with other team members and include them in your version control.
 
-* Reuse and reference instructions files in your [prompt files](/docs/copilot/customization/prompt-files.md) and [chat modes](/docs/copilot/customization/custom-chat-modes.md) to keep them clean and focused, and to avoid duplicating instructions.
+* Reuse and reference instructions files in your [prompt files](/docs/copilot/customization/prompt-files.md) and [custom agents](/docs/copilot/customization/custom-agents.md) to keep them clean and focused, and to avoid duplicating instructions.
 
 ## Related resources
 
 * [Customize AI responses overview](/docs/copilot/customization/overview.md)
 * [Create reusable prompt files](/docs/copilot/customization/prompt-files.md)
-* [Create custom chat modes](/docs/copilot/customization/custom-chat-modes.md)
+* [Create custom agents](/docs/copilot/customization/custom-agents.md)
 * [Get started with chat in VS Code](/docs/copilot/chat/copilot-chat.md)
 * [Configure tools in chat](/docs/copilot/chat/chat-tools.md)
-* [Community contributed instructions, prompts, and chat modes](https://github.com/github/awesome-copilot)
+* [Community contributed instructions, prompts, and custom agents](https://github.com/github/awesome-copilot)

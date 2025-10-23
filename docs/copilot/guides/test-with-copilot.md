@@ -73,7 +73,7 @@ Alternatively, you can:
 1. Follow Copilot's suggestions to fix the test
 
 > [!TIP]
-> [Agent mode](/docs/copilot/chat/copilot-chat.md#built-in-chat-modes) monitors the test output when running tests, and automatically attempts to fix and rerun failing tests.
+> When using [agents](/docs/copilot/chat/copilot-chat.md#built-in-agents), the agent monitors the test output when running tests, and automatically attempts to fix and rerun failing tests.
 
 ## Personalize test generation
 
