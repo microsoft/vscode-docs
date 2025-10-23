@@ -11,7 +11,12 @@ MetaDescription: A comprehensive guide for developers building MCP servers that 
 
 Model Context Protocol (MCP) is an open standard that enables AI models to interact with external tools and services through a unified interface. Visual Studio Code implements the full MCP specification, enabling you to create MCP servers that provide tools, prompts, and resources for extending the capabilities of AI agents in VS Code.
 
+MCP servers provide one of three types of tools available in VS Code, alongside built-in tools and extension-contributed tools. Learn more about [tool types](/docs/copilot/chat/chat-tools.md#types-of-tools).
+
 This guide covers everything you need to know to build MCP servers that work seamlessly with VS Code and other MCP clients.
+
+> [!TIP]
+> For information about using MCP servers as an end user, see [Use MCP servers in VS Code](/docs/copilot/customization/mcp-servers.md).
 
 ## Why use MCP servers?
 

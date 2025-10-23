@@ -451,15 +451,6 @@ You can set `ignoreSync` to `true` to prevent the setting from being synchronize
     }
   }
 }
-
-```json
-{
-  "remoteTunnelAccess.machineName": {
-    "type": "string",
-    "default": '',
-    "ignoreSync": true
-  }
-}
 ```
 
 #### Linking to settings
