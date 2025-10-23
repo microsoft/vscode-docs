@@ -15,9 +15,6 @@ MCP servers provide one of three types of tools available in VS Code, alongside 
 
 This guide covers everything you need to know to build MCP servers that work seamlessly with VS Code and other MCP clients.
 
-> [!IMPORTANT]
-> MCP support in VS Code is currently in preview.
-
 > [!TIP]
 > For information about using MCP servers as an end user, see [Use MCP servers in VS Code](/docs/copilot/customization/mcp-servers.md).
 
