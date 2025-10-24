@@ -155,6 +155,9 @@ The following screenshot shows a Copilot coding agent session, which enables you
 
 ![Screenshot of a Copilot coding agent session in an editor tab, showing the option to apply the file changes to the workspace.](../images/chat-sessions/copilot-coding-agent-apply.png)
 
+> [!TIP]
+> The OpenAI Codex agent enables you to use your GitHub Copilot subscription to authenticate and power the Codex extension without additional setup.
+
 ### Delegate tasks to background agents
 
 As you're working on your code in VS Code, you can delegate tasks to a background agent from a local chat session or directly from the editor. This allows you to offload complex or time-consuming tasks to the agent while you continue working.
