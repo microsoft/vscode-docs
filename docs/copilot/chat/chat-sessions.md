@@ -107,7 +107,7 @@ Alternatively, you can copy individual prompts or responses to the clipboard by 
 ## Subagents
 
 > [!NOTE]
-> Subagents are currently in preview.
+> Subagents are currently in preview and only available in [VS Code Insiders](https://code.visualstudio.com/insiders/).
 
 A subagent is an autonomous AI assistant that the agent can delegate complex, multi-step tasks to within your chat session. Subagents can be useful for research and context gathering, complex analysis, and to optimize context management in your chat sessions.
 
