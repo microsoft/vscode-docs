@@ -133,7 +133,7 @@ The following examples illustrate how to invoke a subagent:
 > [!NOTE]
 > The Agent Sessions view is currently in preview. The integration with OpenAI Codex is available in [VS Code Insiders](https://code.visualstudio.com/insiders/).
 
-Agents enable you to perform AI coding tasks asynchronously in the background. This allows you to continue working in VS Code while the agent processes your requests. These agents are different from chat sessions in VS Code, since agents work in the background, while chat sessions which are interactive and require your real-time input. Agents can also run in different environments, such as locally on your machine or remotely in the cloud.
+Agents enable you to perform AI coding tasks asynchronously in the background. This allows you to continue working in VS Code while the agent processes your requests. These agents are different from chat sessions in VS Code, since agents work in the background, while chat sessions are interactive and require your real-time input. Agents can also run in different environments, such as locally on your machine or remotely in the cloud.
 
 The following screenshot shows a Copilot coding agent session, which enables you to apply the code changes suggested by the agent directly to your workspace:
 
