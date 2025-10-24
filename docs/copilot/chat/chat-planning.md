@@ -10,6 +10,9 @@ Agents in Visual Studio Code chat help you execute complex coding tasks autonomo
 
 This article explains how to use planning features in VS Code chat, including the plan agent and todo lists.
 
+> [!NOTE]
+> The plan agent is currently in preview and only available in [VS Code Insiders](https://code.visualstudio.com/insiders/).
+
 ## Plan agent for autonomous planning
 
 The built-in plan agent helps you create detailed implementation plans before executing complex coding tasks. This ensures that all requirements are considered and addressed before any code changes are made. The plan agent does not make any code changes until the plan is reviewed and approved by you. Once approved, you can hand off the plan to an implementation agent or save the plan for later use.

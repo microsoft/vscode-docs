@@ -113,6 +113,9 @@ Chat modes let chat assume a different role or persona optimized for specific ta
 
 ### Built-in chat modes
 
+> [!NOTE]
+> Plan mode is currently in preview and only available in [VS Code Insiders](https://code.visualstudio.com/insiders/).
+
 VS Code provides four built-in chat modes: **Agent**, **Plan**, **Ask**, and **Edit**. For more specialized workflows, you can also create your own [custom chat modes](/docs/copilot/customization/custom-chat-modes.md).
 
 <details>
