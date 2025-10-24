@@ -34,7 +34,7 @@ Custom chat modes also let you provide specialized instructions that define how 
 ## Handoffs
 
 > [!NOTE]
-> Handoffs are currently in preview.
+> Handoffs are currently in preview and only available in [VS Code Insiders](https://code.visualstudio.com/insiders/).
 
 Handoffs enable you to create guided workflows that transition between chat modes with suggested next steps. After a chat response completes, handoff buttons appear that let users move to the next mode with relevant context and a pre-filled prompt.
 
