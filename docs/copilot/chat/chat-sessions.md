@@ -104,21 +104,21 @@ To export a chat session:
 
 Alternatively, you can copy individual prompts or responses to the clipboard by right-clicking the message and selecting **Copy**. To copy the entire chat session in Markdown format, right-click the Chat view and select **Copy All**.
 
-## Subagents
+## Context-isolated Subagents
 
 > [!NOTE]
-> Subagents are currently in preview and only available in [VS Code Insiders](https://code.visualstudio.com/insiders/).
+> Subagents are currently only available in [VS Code Insiders](https://code.visualstudio.com/insiders/).
 
-A subagent is an autonomous AI assistant that the agent can delegate complex, multi-step tasks to within your chat session. Subagents can be useful for research and context gathering, complex analysis, and to optimize context management in your chat sessions.
+A subagent is an isolated autonomous agent that can be used to delegate complex, multi-step tasks to within your chat session. Subagents can be useful for research and context gathering, complex analysis, and to optimize context management in your chat sessions.
 
 A subagent has the following characteristics:
 
-* Operates independently from the main chat session and returns results when complete
+* Operates independently from the main chat session and returns only the final result when complete
 * Uses its own context window separate from the main chat session
 * Operates autonomously without pausing for user feedback
-* Has access to most tools available to the main chat session
+* Has access to most tools available to the main chat session and the same model
 
-To invoke a subagent, use the `#runSubagent` tool in your chat prompts or ask to use a subagent with natural language. Subagents are very useful in custom chat modes or prompt files to keep multi-step workflows organized and keep context usage efficient.
+To invoke a subagent, you can explicitly add the `#runSubagent` tool in your chat prompts or ask to use a subagent with natural language. Subagents are especially useful in custom agents or prompt files to isolate research-heavy workflows.
 
 The following examples illustrate how to invoke a subagent:
 
@@ -126,7 +126,7 @@ The following examples illustrate how to invoke a subagent:
 * `"Analyze how to add OAuth authentication - use a subagent. Ask clarifying questions. Then implement this plan."`
 
 > [!NOTE]
-> Subagents have access to most tools but cannot invoke other subagents.
+> Subagents have access to most tools, including editing and MCP tools, but cannot invoke other subagents.
 
 ## Agent Sessions view
 
