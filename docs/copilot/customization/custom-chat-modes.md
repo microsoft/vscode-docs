@@ -34,17 +34,17 @@ Custom chat modes also let you provide specialized instructions that define how 
 ## Handoffs
 
 > [!NOTE]
-> Handoffs are currently in preview and only available in [VS Code Insiders](https://code.visualstudio.com/insiders/).
+> Handoffs are currently only available in [VS Code Insiders](https://code.visualstudio.com/insiders/).
 
-Handoffs enable you to create guided workflows that transition between chat modes with suggested next steps. After a chat response completes, handoff buttons appear that let users move to the next mode with relevant context and a pre-filled prompt.
+Handoffs enable you to create guided sequential workflows that transition between chat modes with suggested next steps. After a chat response completes, handoff buttons appear that let users move to the next mode with relevant context and a pre-filled prompt.
 
-Handoffs are useful for orchestrating multi-step development workflows. For example:
+Handoffs are useful for orchestrating multi-step workflows, that give developer's control for reviewing and approving each step before moving to the next one. For example:
 
 * **Planning → Implementation**: Generate a plan in planning mode, then hand off to implementation mode to start coding.
 * **Implementation → Review**: Complete implementation, then switch to a code review mode to check for quality and security issues.
-* **Research → Development**: Gather requirements and context, then hand off to a developer mode with the collected information.
+* **Write Failing Tests → Write Passing Tests**: Generate failing tests that are easier to review than big implementations, then hand off to make those tests pass by implementing the required code changes.
 
-To define handoffs in your chat mode file, add them to the file header. Each handoff specifies the target mode, the button label, and an optional prompt to send:
+To define handoffs in your chat mode file, add them to the frontmatter. Each handoff specifies the target mode, the button label, and an optional prompt to send:
 
 ```markdown
 ---
