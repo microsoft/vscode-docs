@@ -133,25 +133,49 @@ The following examples illustrate how to invoke a subagent:
 > [!NOTE]
 > The Agent Sessions view is currently in preview.
 
-The Agent Sessions view provides a centralized location for managing your active chat sessions, both local in VS Code and sessions created by remote agents in other environments.
+The Agent Sessions view provides a centralized location for managing your active chat sessions, both local in VS Code and sessions created by background agents in other environments, such as Copilot coding agent, GitHub Copilot CLI, or OpenAI Codex. Enable the Agent Sessions view with the `setting(chat.agentSessionsViewLocation)` setting.
 
-![Screenshot of the Agent Sessions view in the Primary Side Bar, showing a view for local chat sessions and Copilot coding agent sessions.](../images/chat-sessions/agent-sessions-view.png)
+The Agent Sessions view lists all your active chat sessions organized by their source. The view is divided into sections for local chat sessions in VS Code and for background agent sessions.
 
-You can enable the Agent Sessions view by configuring the `setting(chat.agentSessionsViewLocation)` setting.
+![Screenshot of the Agent Sessions view in the Primary Side Bar, showing a view for local chat sessions, and background agents like Copilot coding agent, Copilot CLI and Codex.](../images/chat-sessions/agent-sessions-view.png)
 
-Select a chat session to open it as a chat editor tab. Right-click a session for options to open it in a new window or in the Chat view. You can view the full history of a chat session by opening it in the Chat view.
+You can start a new chat session for a specific agent directly from the Agent Sessions view by selecting the `+` control in the corresponding section.
 
-To create a new chat session, use the `+` control in the view title bar. This creates either a new local chat session or a new remote agent session, depending on which section of the view you are in.
+Select a chat session to open it as a chat editor tab and monitor its progress. Right-click a session for options to open it in a new window or in the Chat view.
 
-### Remote agent sessions
+## Background agent sessions
 
-The Agent Sessions view also displays chat sessions created by remote agents, such as the [Copilot Coding Agent](/docs/copilot/copilot-coding-agent.md). Remote agents enable you to perform AI coding tasks in the background while working in VS Code.
+Background agents enable you to perform AI coding tasks asynchronously in the background. This allows you to continue working in VS Code while the agent processes your requests. Background agents are different from chat sessions in VS Code, which are interactive and require your real-time input.
 
-Remote coding agents might provide additional functionality beyond standard chat sessions, such as canceling ongoing tasks, checking out or closing the associated pull request, or applying its file changes directly to your workspace.
+Background agents can run in different environments, such as locally on your machine or remotely in the cloud. The Agent Sessions view currently supports the following background agents: [GitHub Copilot coding agent](/docs/copilot/copilot-coding-agent.md), GitHub Copilot CLI, and OpenAI Codex. We're working to further expand support for more background agents in the future.
+
+Background coding agents might provide additional functionality beyond standard chat sessions, such as canceling ongoing tasks, checking out or closing the associated pull request, or applying their file changes directly to your workspace. Right-click a background agent session in the Agent Sessions view to see the available options.
+
+The following screenshot shows a Copilot coding agent session, which enables you to apply the code changes suggested by the agent directly to your workspace:
 
 ![Screenshot of a Copilot coding agent session in an editor tab, showing the option to apply the file changes to the workspace.](../images/chat-sessions/copilot-coding-agent-apply.png)
 
-Learn more about [Copilot Coding Agent](/docs/copilot/copilot-coding-agent.md).
+### Delegate tasks to background agents
+
+As you're working on your code in VS Code, you can delegate tasks to a background agent from a local chat session or directly from the editor. This allows you to offload complex or time-consuming tasks to the agent while you continue working.
+
+To delegate a task to a background agent from a local chat session:
+
+1. Open the Chat view or a chat editor tab.
+
+1. Type a prompt in the chat input box or open an existing chat session.
+
+1. Select **Delegate to Agent** to send the prompt to a background agent. If you have multiple agents enabled, choose the agent from the list.
+
+    ![Screenshot of the Chat view with the Delegate to Agent button highlighted.](../images/chat-sessions/delegate-to-agent.png)
+
+    The background agent session is created and provided with the context from your local chat session.
+
+1. Monitor the background agent session's progress in the Agent Sessions view.
+
+In the editor, you can also delegate tasks by selecting the **Delegate to agent** code lense above a TODO comment. You can then track the progress of the delegated task in the Agent Sessions view.
+
+![Screenshot of a code editor with a Delegate to Agent code lense above a TODO comment.](../images/chat-sessions/delegate-to-agent-code-lens.png)
 
 ## Tips for managing chat sessions
 
