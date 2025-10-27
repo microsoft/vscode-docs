@@ -8,7 +8,7 @@ MetaSocialImage: images/shared/github-copilot-social.png
 
 [GitHub Copilot coding agent](https://docs.github.com/en/copilot/concepts/about-copilot-coding-agent) is a GitHub-hosted, autonomous AI developer that works independently in the background to complete development tasks. To invoke the coding agent, assign a GitHub issue to Copilot or delegate a task from chat, and the agent will work autonomously to implement features, fix bugs, and make changes across your repository using its own isolated development environment.
 
-This is different from [agent mode](/docs/copilot/chat/chat-agent-mode.md) in VS Code, which provides interactive development within the editor and requires your active participation during the coding session.
+This is different from [agent mode](/docs/copilot/chat/copilot-chat.md#built-in-chat-modes) in VS Code, which provides interactive development within the editor and requires your active participation during the coding session.
 
 ![GIF showing how to assign an issue to Copilot coding agent from within VS Code.](images/copilot-coding-agent/assign-to-copilot-gif.gif)
 
@@ -251,7 +251,7 @@ VS Code offers two autonomous coding experiences. While agent mode provides inte
 | **Output** | Creates pull requests | Edits files directly |
 | **Best for** | Well-defined tasks, background work | Interactive development, immediate feedback |
 
-Learn more about agent mode in its [documentation](/docs/copilot/chat/chat-agent-mode.md).
+Learn more about agent mode in its [documentation](/docs/copilot/chat/copilot-chat.md#built-in-chat-modes).
 
 ### Why isn't the agent starting?
 
@@ -297,10 +297,11 @@ For detailed information about limitations, compatibility, and usage costs, see 
 ## Next steps
 
 * Enable Copilot coding agent by following the [GitHub setup guide](https://docs.github.com/en/copilot/using-github-copilot/coding-agent/enabling-copilot-coding-agent)
-* Try [agent mode in VS Code](/docs/copilot/chat/chat-agent-mode.md) for immediate, interactive coding assistance
+* Try [agent mode in VS Code](/docs/copilot/chat/copilot-chat.md#built-in-chat-modes) for immediate, interactive coding assistance
 * Learn about [using chat in VS Code](/docs/copilot/chat/copilot-chat.md) for conversational AI help
 
 ## Related resources
 
 * [GitHub Copilot coding agent documentation](https://docs.github.com/en/copilot/using-github-copilot/coding-agent)
 * [GitHub Pull Requests extension](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github)
+* [Manage chat sessions](/docs/copilot/chat/chat-sessions.md)

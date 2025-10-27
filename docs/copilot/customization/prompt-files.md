@@ -176,5 +176,5 @@ To sync your user prompt files, enable Settings Sync for prompt and instruction 
 * [Create custom instructions](/docs/copilot/customization/custom-instructions.md)
 * [Create custom chat modes](/docs/copilot/customization/custom-chat-modes.md)
 * [Get started with chat in VS Code](/docs/copilot/chat/copilot-chat.md)
-* [Configure tools in chat](/docs/copilot/chat/chat-agent-mode.md#agent-mode-tools)
+* [Configure tools in chat](/docs/copilot/chat/chat-tools.md)
 * [Community contributed instructions, prompts, and chat modes](https://github.com/github/awesome-copilot)
