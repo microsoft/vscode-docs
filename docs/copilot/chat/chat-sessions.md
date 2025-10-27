@@ -135,10 +135,6 @@ The following examples illustrate how to invoke a subagent:
 
 Agents enable you to perform AI coding tasks asynchronously in the background. This allows you to continue working in VS Code while the agent processes your requests. These agents are different from chat sessions in VS Code, since agents work in the background, while chat sessions are interactive and require your real-time input. Agents can also run in different environments, such as locally on your machine or remotely in the cloud.
 
-The following screenshot shows a Copilot coding agent session, which enables you to apply the code changes suggested by the agent directly to your workspace:
-
-![Screenshot of a Copilot coding agent session in an editor tab, showing the option to apply the file changes to the workspace.](../images/chat-sessions/copilot-coding-agent-apply.png)
-
 > [!TIP]
 > The OpenAI Codex agent enables you to use your Copilot Pro+ subscription to authenticate and access Codex without additional setup.
 
@@ -160,7 +156,7 @@ Agents might provide additional functionality beyond standard chat sessions, suc
 
 ### Delegate tasks to agents
 
-As you're working on your code in VS Code, you can delegate tasks to a Copilot coding agent from a local chat session or directly from the editor. This allows you to offload complex or time-consuming tasks to the agent while you continue working.
+To delegate a task to an agent, you can start a session directly from the Agent Sessions view. If you have already started a local chat session, you can also delegate tasks to a Copilot coding agent from that session. Delegating to an agent allows you to offload complex or time-consuming tasks to the agent while you continue working.
 
 To delegate a task to a Copilot coding agent from a local chat session:
 
@@ -169,13 +165,14 @@ To delegate a task to a Copilot coding agent from a local chat session:
 1. Type a prompt in the chat input box or open an existing chat session.
 
 1. Select **Delegate to Agent** to send the prompt to a coding agent. If you have multiple agents enabled, choose the agent from the list.
+
     ![Screenshot of the Chat view with the Delegate to Agent button highlighted.](../images/chat-sessions/delegate-to-agent.png)
 
     The coding agent session is created and provided with the context from your local chat session.
 
 1. Monitor the coding agent session's progress in the Agent Sessions view.
 
-In the editor, you can also delegate tasks by selecting the **Delegate to agent** code lense above a TODO comment. You can then track the progress of the delegated task in the Agent Sessions view.
+In the editor, you can also delegate tasks by selecting the relevant code lense above a TODO comment. You can then track the progress of the delegated task in the Agent Sessions view.
 
 ![Screenshot of a code editor with a Delegate to Agent code lense above a TODO comment.](../images/chat-sessions/delegate-to-agent-code-lens.png)
 
