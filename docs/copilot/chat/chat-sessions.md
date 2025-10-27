@@ -154,6 +154,9 @@ Select a chat session to open it as a chat editor tab and monitor its progress. 
 
 Agents might provide additional functionality beyond standard chat sessions, such as canceling ongoing tasks, checking out or closing the associated pull request, or applying their file changes directly to your workspace. Right-click an agent session in the Agent Sessions view to see the available options.
 
+> [!NOTE]
+> Extension developers can learn how to integrate with the Agent Sessions view with the proposed API [`chatSessionsProvider`](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.chatSessionsProvider.d.ts). The API is currently in a proposed state and subject to change.
+
 ### Delegate tasks to agents
 
 To delegate a task to an agent, you can start a session directly from the Agent Sessions view. If you have already started a local chat session, you can also delegate tasks to a Copilot coding agent from that session. Delegating to an agent allows you to offload complex or time-consuming tasks to the agent while you continue working.
