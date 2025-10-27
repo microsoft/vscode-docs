@@ -136,7 +136,7 @@ The following examples illustrate how to invoke a subagent:
 Agents enable you to perform AI coding tasks asynchronously in the background. This allows you to continue working in VS Code while the agent processes your requests. These agents are different from chat sessions in VS Code, since agents work in the background, while chat sessions are interactive and require your real-time input. Agents can also run in different environments, such as locally on your machine or remotely in the cloud.
 
 > [!TIP]
-> The OpenAI Codex agent enables you to use your Copilot Pro+ subscription to authenticate and access Codex without additional setup.
+> The OpenAI Codex agent enables you to use your Copilot Pro+ subscription to authenticate and access Codex without additional setup. Get more information about [GitHub Copilot billing and premium requests](https://docs.github.com/en/copilot/concepts/billing/copilot-requests) in the GitHub documentation.
 
 ### Agent Sessions view
 
