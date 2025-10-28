@@ -1,6 +1,6 @@
 ---
 ContentId: 7E22CCC0-2AB8-4729-A4C9-BE2B16853820
-DateApproved: 09/11/2025
+DateApproved: 10/09/2025
 MetaDescription: Visual Studio Code source control management with integrated Git support.
 ---
 # Using Git source control in VS Code
@@ -225,7 +225,7 @@ When you make changes in a worktree, you can compare those changes with your mai
 
 ## Remotes
 
-Given that your repository is connected to some remote and that your checked out branch has an [upstream link](https://git-scm.com/book/ch3-5.html) to a branch in that remote, VS Code offers you useful actions to **push**, **pull**, and **sync** that branch (the latter will run a **pull** command followed by a **push** command). You can find these actions in the **Views and More Actions** `...` menu, along with the option to **add or remove a remote**.
+Given that your repository is connected to some remote and that your checked out branch has an [upstream link](https://git-scm.com/book/en/v2/Git-Branching-Remote-Branches) to a branch in that remote, VS Code offers you useful actions to **push**, **pull**, and **sync** that branch (the latter will run a **pull** command followed by a **push** command). You can find these actions in the **Views and More Actions** `...` menu, along with the option to **add or remove a remote**.
 
 VS Code is able to periodically fetch changes from your remotes. This enables VS Code to show how many changes your local repository is ahead or behind the remote. This feature is disabled by default and you can use the `setting(git.autofetch)` [setting](/docs/configure/settings.md) to enable it.
 
@@ -277,6 +277,14 @@ If you open a folder that is a Git repository and begin making changes, VS Code 
 ![Git merge](images/overview/merge-conflict.png)
 
 Merge conflicts are recognized by VS Code. Differences are highlighted and there are inline actions to accept either one or both changes. Once the conflicts are resolved, stage the conflicting file so you can commit those changes.
+
+## Resolve merge conflicts with AI (Experimental)
+
+If you have [AI features enabled in VS Code](/docs/copilot/setup.md), you can use AI to help you resolve Git merge conflicts. Select the **Resolve Conflicts with AI** button in the editor to open the Chat view and start an agentic flow to help you resolve the merge conflict. The merge base and changes from each branch are provided as context for the AI.
+
+![Screenshot of the proposed merge conflict resolution in the editor.](images/overview/ai-merge-conflict-resolution.png)
+
+You can review the proposed merge conflict resolution in the editor and follow up with additional context if needed. You can customize the merge conflict resolution by using an `AGENTS.md` file.
 
 ## 3-way merge editor
 

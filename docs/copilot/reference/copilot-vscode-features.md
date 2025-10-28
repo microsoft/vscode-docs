@@ -1,6 +1,6 @@
 ---
 ContentId: de6f9f68-7dd5-4de3-a210-3db57882384b
-DateApproved: 09/11/2025
+DateApproved: 10/09/2025
 MetaDescription: Get a quick overview of the AI features in Visual Studio Code. GitHub Copilot provides AI-powered features to help you write code faster and with less effort.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -82,7 +82,9 @@ Get more relevant responses by providing [context to your chat prompt](/docs/cop
 
 ## Chat tools
 
-Use [tools](/docs/copilot/chat/chat-agent-mode.md#agent-mode-tools) in chat to accomplish specialized tasks while processing a user request. Examples of such tasks are listing the files in a directory, editing a file in your workspace, running a terminal command, getting the output from the terminal, and more. Choose built-in tools or tools from MCP servers and extensions.
+Use [tools](/docs/copilot/chat/chat-tools.md) in chat to accomplish specialized tasks while processing a user request. Examples of such tasks are listing the files in a directory, editing a file in your workspace, running a terminal command, getting the output from the terminal, and more.
+
+VS Code provides built-in tools, and you can extend chat with tools from [MCP servers](/docs/copilot/customization/mcp-servers.md) and [extensions](/api/extension-guides/ai/tools.md). Learn more about [types of tools](/docs/copilot/chat/chat-tools.md#types-of-tools).
 
 The following table lists the VS Code built-in tools:
 
@@ -99,7 +101,6 @@ The following table lists the VS Code built-in tools:
 | `#extensions` | Search for and ask about VS Code extensions. For example, "how to get started with Python #extensions?" |
 | `#fetch` | Fetch the content from a given web page. For example, "Summarize #fetch code.visualstudio.com/updates." |
 | `#fileSearch` | Search for files in the workspace by using glob patterns and returns their path. |
-| `#findTestFiles` | Locates test files in the workspace. |
 | `#getNotebookSummary` | Get the list of notebook cells and their details. |
 | `#getProjectSetupInfo` | Provide instructions and configuration for scaffolding different types of projects. |
 | `#getTaskOutput` | Get the output from running a [task](/docs/debugtest/tasks.md) in the workspace. |
@@ -129,7 +130,7 @@ The following table lists the VS Code built-in tools:
 | `#terminalSelection` | Get the current terminal selection. |
 | `#testFailure` | Get unit test failure information. Useful when running and diagnosing [tests](/docs/debugtest/testing.md). |
 | `#textSearch` | Find text in files. |
-| `#todos` | Manage and track todo items when processing a chat request (requires `setting(chat.todoListTool.enabled)`). |
+| `#todos` | Track implementation and progress of a chat request with a todo list. |
 | `#usages` | Combination of "Find All References", "Find Implementation", and "Go to Definition". |
 | `#VSCodeAPI` | Ask about VS Code functionality and extension development. |
 
@@ -165,14 +166,14 @@ Use chat participants to handle domain-specific requests in chat. Chat participa
 
 ## Agent mode
 
-With chat [agent mode](/docs/copilot/chat/chat-agent-mode.md), you can use natural language to specify a high-level task, and let AI autonomously reason about the request, plan the work needed, and apply the changes to your codebase. Agent mode uses a combination of code editing and tool invocation to accomplish the task you specified. As it processes your request, it monitors the outcome of edits and tools, and iterates to resolve any issues that arise.
+With chat [agent mode](/docs/copilot/chat/copilot-chat.md#built-in-chat-modes), you can use natural language to specify a high-level task, and let AI autonomously reason about the request, plan the work needed, and apply the changes to your codebase. Agent mode uses a combination of code editing and tool invocation to accomplish the task you specified. As it processes your request, it monitors the outcome of edits and tools, and iterates to resolve any issues that arise.
 
 | Action | Description |
 |--------|-------------|
 | `kb(workbench.action.chat.openAgent)` | Switch to agent mode in the Chat view |
 | Tools (<i class="codicon codicon-tools"></i>) | Configure which tools are available in agent mode. Select from built-in tools, MCP servers, and extension-provided tools. |
-| Auto-approve tools _(Experimental)_ | Enable [auto-approval of all tools](/docs/copilot/chat/chat-agent-mode.md#auto-approve-all-tools-and-commands-experimental) in agent mode (`setting(chat.tools.autoApprove)`). |
-| Auto-approve terminal commands _(Experimental)_ | Enable [auto-approval of terminal commands](/docs/copilot/chat/chat-agent-mode.md#autoapprove-terminal-commands-experimental) in agent mode (`setting(chat.tools.terminal.autoApprove)`). |
+| Auto-approve tools _(Experimental)_ | Enable [auto-approval of all tools](/docs/copilot/chat/chat-tools.md#auto-approve-all-tools) in agent mode (`setting(chat.tools.autoApprove)`). |
+| Auto-approve terminal commands _(Experimental)_ | Enable [auto-approval of terminal commands](/docs/copilot/chat/chat-tools.md#automatically-approve-terminal-commands) in agent mode (`setting(chat.tools.terminal.autoApprove)`). |
 | MCP | Configure [MCP servers](/docs/copilot/customization/mcp-servers.md) to extend agent mode with extra capabilities and tools. |
 
 > **Tips**
@@ -225,6 +226,7 @@ Use AI to analyze the changes in your commits and pull requests and provide sugg
 | `#changes` | Add the current source control changes as context in your chat prompt. |
 | Commit as context | Add a commit from the source control history as context in your chat prompt. |
 | Commit message | Generate a commit message for the current changes in a source control commit. |
+| Merge conflicts (Experimental) | Get help [resolving Git merge conflicts with AI](/docs/sourcecontrol/overview#resolve-merge-conflicts-with-ai-experimental). |
 | Pull request description | Generate a pull request title and description that correspond with the changes in your pull request. |
 | `@github` | Use the `@github` participant in chat to ask about issues, pull requests, and more across your repositories. Get more information about the [available GitHub skills](https://docs.github.com/en/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide#currently-available-skills).<br/>Example: `@github What are all of the open PRs assigned to me?`, `@github Show me the recent merged pr's from @dancing-mona`  |
 
@@ -248,7 +250,7 @@ Get semantically relevant search results in the Search view or help with searchi
 
 ## Generate tests
 
-Copilot can generate tests for functions and methods in your codebase. Get more information about [slash commands in Chat](/docs/copilot/chat/chat-ask-mode.md#special-keywords).
+VS Code can generate tests for functions and methods in your codebase by using slash commands in chat. Slash commands are a shorthand notation for common tasks that you can use in chat prompts. Type `/` followed by the command name to use a slash command.
 
 | Action | Description |
 |--------|-------------|
@@ -283,7 +285,7 @@ Copilot can help you create a new project by generating a scaffold of the projec
 
 | Action | Description |
 |--------|-------------|
-| Agent mode | Use [agent mode](/docs/copilot/chat/chat-agent-mode.md) and use a natural language prompt to create a new project or file. For example, `Create a svelte web application to track my tasks`. |
+| Agent mode | Use [agent mode](/docs/copilot/chat/copilot-chat.md#built-in-chat-modes) and use a natural language prompt to create a new project or file. For example, `Create a svelte web application to track my tasks`. |
 | `/new` | Use the `/new` command in the Chat view to scaffold a new project or a new file. Use natural language to describe the type of project/file you need, and preview the scaffolded content before creating it.<br/>Example: `/new Express app using typescript and svelte` |
 | `/newNotebook` | Use the `/newNotebook` command in the Chat view to generate a new Jupyter notebook based on your requirements. Use natural language to describe what the notebook should contain.<br/>Example: `/newNotebook get census data and preview key insights with Seaborn`. |
 

@@ -1,6 +1,6 @@
 ---
 ContentId: 9f84b21e-5b76-4c3a-a5dd-2021ab343f1f
-DateApproved: 09/11/2025
+DateApproved: 10/09/2025
 MetaDescription: Learn how to use GitHub Copilot in Visual Studio Code to write, debug, and fix tests.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -73,7 +73,7 @@ Alternatively, you can:
 1. Follow Copilot's suggestions to fix the test
 
 > [!TIP]
-> [Agent mode](/docs/copilot/chat/chat-agent-mode.md) monitors the test output when running tests, and automatically attempts to fix and rerun failing tests.
+> [Agent mode](/docs/copilot/chat/copilot-chat.md#built-in-chat-modes) monitors the test output when running tests, and automatically attempts to fix and rerun failing tests.
 
 ## Personalize test generation
 

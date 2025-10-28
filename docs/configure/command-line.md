@@ -1,6 +1,6 @@
 ---
 ContentId: 8faef870-7a5f-4070-ad17-8ba791006912
-DateApproved: 09/11/2025
+DateApproved: 10/09/2025
 MetaDescription: Visual Studio Code command-line interface (switches).
 ---
 # Command Line Interface (CLI)
@@ -92,6 +92,30 @@ Argument|Description
 `--update-extensions` | Update installed extensions and exit.
 
 ![install extension](images/command-line/install-extension.png)
+
+## Start chat from the command line
+
+You can start a chat session directly from the command line by using the `chat` subcommand in the VS Code CLI. This enables you to open a chat session in your current working directory with a prompt you provide.
+
+For example, the following command opens chat for the current directory and asks "Find and fix all untyped variables":
+
+```bash
+code chat Find and fix all untyped variables
+```
+
+The `chat` subcommand has the following command-line options:
+
+* `-m`, `--mode <mode>`: The chat mode to use for the chat session. Available options: `ask`, `edit`, `agent`, or the identifier of a custom mode. Defaults to `agent`.
+* `-a`, `--add-file <path>`: Add files as context to the chat session.
+* `--maximize`: Maximize the chat session view.
+* `-r`, `--reuse-window`: Use the last active window for the chat session.
+* `-n`, `--new-window`: Open an empty window for the chat session.
+
+The `chat` subcommand also supports piping input from `stdin` by passing `-` at the end of the command. For example:
+
+```bash
+python app.py | code chat why does it fail -
+```
 
 ## Advanced CLI options
 

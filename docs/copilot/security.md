@@ -1,6 +1,6 @@
 ---
 ContentId: c99a8442-e202-4427-b7c3-695469a00f92
-DateApproved: 09/11/2025
+DateApproved: 10/09/2025
 MetaDescription: Understand security considerations, built-in protections, and best practices when using AI-powered development features like agents and MCP servers in VS Code.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -47,7 +47,7 @@ Auto-approval features are designed to streamline AI-assisted development by red
 * **Terminal auto-approval**: Potentially destructive or malicious commands are run without the user's control.
 * **Overall tool auto-approval**: Bypasses all user approvals, potentially leading to destructive actions, updating sensitive workspace files, or executing arbitrary code.
 
-Learn more about [managing auto approvals](/docs/copilot/chat/chat-agent-mode.md#manage-tool-approvals).
+Learn more about [managing auto approvals](/docs/copilot/chat/chat-tools.md#tool-approval).
 
 ### Information exposure
 
@@ -88,7 +88,7 @@ VS Code limits the potential impact of sensitive actions by controlling their sc
 
 * **Workspace-limited file access**: Built-in agent tools can only read and write files within the current workspace folder. This prevents the AI agent from accessing or modifying files outside your project directory, such as system files or other projects on your machine.
 
-* **Tools picker**: You can selectively [enable or disable specific tools](/docs/copilot/chat/chat-agent-mode.md#agent-mode-tools) using the tools picker, giving you precise control over what capabilities are available to the AI agent. For example, you might restrict the agent to read-only operations during code review or planning.
+* **Tools picker**: You can selectively [enable or disable specific tools](/docs/copilot/chat/chat-tools.md) using the tools picker, giving you precise control over what capabilities are available to the AI agent. For example, you might restrict the agent to read-only operations during code review or planning.
 
 * **Session isolation**: You can grant permissions that are temporary and don't persist beyond the current session. This enables you to experiment with AI capabilities while maintaining long-term security boundaries.
 
@@ -102,15 +102,15 @@ VS Code uses a permission-based security model where you maintain control over p
 
 * **Tool approval**: MCP tool invocations require explicit user approval, which you can grant at different scopes: session-level for temporary access, workspace-level for project-specific trust, or user-level for broader permissions.
 
-Learn more about [tool and command approval](/docs/copilot/chat/chat-agent-mode.md#manage-tool-approvals).
+Learn more about [tool and command approval](/docs/copilot/chat/chat-tools.md#tool-approval).
 
 ### Transparency
 
 VS Code provides clear visibility into AI operations, ensuring you can review and understand what changes are being made to your environment.
 
-* **Review flow for file changes**: While the AI agent can propose file modifications, you can [review all suggested changes](/docs/copilot/chat/chat-agent-mode.md#accept-or-discard-edits) in a diff editor before they are applied. You can keep or undo individual changes, giving you granular control over what modifications are made to your codebase.
+* **Review flow for file changes**: While the AI agent can propose file modifications, you can [review all suggested changes](/docs/copilot/chat/review-code-edits.md) in a diff editor before they are applied. You can keep or undo individual changes, giving you granular control over what modifications are made to your codebase.
 
-* **Auto-approval notification**: When a [tool or terminal command is automatically approved](/docs/copilot/chat/chat-agent-mode.md#manage-tool-approvals) within a chat conversation, VS Code provides an information message and link to the specific configuration setting that enabled this.
+* **Auto-approval notification**: When a [tool or terminal command is automatically approved](/docs/copilot/chat/chat-tools.md#tool-approval) within a chat conversation, VS Code provides an information message and link to the specific configuration setting that enabled this.
 
 * **Warning banner and explicit consent**: When using advanced modes that bypass normal safety checks, VS Code displays clear warning banners and requires explicit consent, ensuring you understand the security implications of your choices.
 
@@ -147,6 +147,6 @@ While VS Code includes many security protections, users should remain proactive 
 
 * [Workspace Trust](/docs/editing/workspaces/workspace-trust.md)
 * [MCP server trust](/docs/copilot/customization/mcp-servers.md#mcp-server-trust)
-* [Manage tool auto approvals](/docs/copilot/chat/chat-agent-mode.md#manage-tool-approvals)
+* [Manage tool auto approvals](/docs/copilot/chat/chat-tools.md#tool-approval)
 * [Extension runtime security](/docs/configure/extensions/extension-runtime-security.md)
 * [VS Code enterprise support](/docs/setup/enterprise.md)

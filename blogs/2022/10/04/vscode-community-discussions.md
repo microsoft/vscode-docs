@@ -1,5 +1,5 @@
 ---
-Order: 77
+Order: 
 TOCTitle: VS Code Community Discussions
 PageTitle: VS Code Community Discussions for Extension Authors
 MetaDescription: Announcing the official launch of VS Code Community Discussions, a place for extension authors to connect.
