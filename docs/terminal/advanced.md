@@ -183,8 +183,6 @@ When launching multiple VS Code instances, environment variables are shared betw
 * The first VS Code instance inherits environment variables from the parent process (for example, the shell or application that launched VS Code).
 * Subsequent VS Code instances inherit environment variables from the first running VS Code instance, not from the parent process.
 
-This behavior can cause unexpected issues when working on multiple projects that require different environment configurations.
-
 To isolate environment variables between VS Code instances, use the [`--user-data-dir` command-line option](/docs/configure/command-line.md#isolating-vs-code-instances) to run each instance with a separate user data directory. This ensures that each instance maintains its own environment, settings, and extensions.
 
 ### Interaction with `$LANG`
