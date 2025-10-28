@@ -135,7 +135,7 @@ Argument|Description
 `--add <dir>` | Add folder(s) to the last active window for a multi-root workspace.
 `--remove <dir>` | Remove folder(s) from the last active window for a multi-root workspace.
 
-### Isolating VS Code instances
+## Isolating VS Code instances
 
 By default, VS Code instances share environment variables in the following way:
 
@@ -161,15 +161,8 @@ Each instance with a different `--user-data-dir` will maintain its own:
 * Installed extensions
 * UI state and layout
 
-> **Note**: When using `--user-data-dir`, you'll need to reinstall extensions for each user data directory, as extensions are stored separately.
-
-If you frequently need to work with isolated instances, consider creating shell aliases or scripts:
-
-```bash
-# Example bash alias
-alias code-project1='code --user-data-dir ~/.vscode-project1'
-alias code-project2='code --user-data-dir ~/.vscode-project2'
-```
+> [!NOTE]
+> When using `--user-data-dir`, you'll need to reinstall extensions for each user data directory, as extensions are stored separately.
 
 ### Create remote tunnel
 
