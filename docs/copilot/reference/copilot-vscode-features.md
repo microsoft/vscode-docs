@@ -205,7 +205,7 @@ As you're coding in the editor, you can use Copilot to generate inline suggestio
 | Action | Description |
 |--------|-------------|
 | Inline suggestions | Start typing in the editor and get [inline suggestions](/docs/copilot/ai-powered-suggestions.md) that match your coding style and take your existing code into account. |
-| Code comments | Provide a code completion prompt by writing instructions in a code comment.<br/>Example: `# write a calculator class with methods for add, subtract, and multiply. Use static methods.` |
+| Code comments | Provide an inline suggestions prompt by writing instructions in a code comment.<br/>Example: `# write a calculator class with methods for add, subtract, and multiply. Use static methods.` |
 | `kb(inlinechat.start)` | Start editor inline chat to send a chat request directly from the editor. Use natural language and reference chat variables and slash commands to provide context. |
 | `kb(editor.action.rename)` | Get AI-powered suggestions when renaming symbols in your code. |
 | Context menu actions | Use the editor context menu to access common AI actions, such as explaining code, generating tests, reviewing code, and more. Right-click in the editor to open the context menu and select **Generate Code**. |

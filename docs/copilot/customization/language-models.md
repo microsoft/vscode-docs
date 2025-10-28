@@ -69,7 +69,7 @@ If you want to reduce the number of built-in models that are shown in the model 
 
 To change the language model that is used for generating inline suggestions in the editor:
 
-1. Select **Configure Code Completions...** from the Chat menu in the VS Code title bar.
+1. Select **Configure Inline Suggestions...** from the Chat menu in the VS Code title bar.
 
 1. Select **Change Completions Model...**, and then select one of the models from the list.
 
