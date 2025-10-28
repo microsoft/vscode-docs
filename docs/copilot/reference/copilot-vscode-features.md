@@ -78,7 +78,7 @@ Get more relevant responses by providing [context to your chat prompt](/docs/cop
 | Drag & drop folders | Drag & drop a folder onto the Chat view to attach the files within it. |
 | Drag & drop problem | Drag & drop an item from the Problems panel. |
 | `#<file\|folder\|symbol>` | Type `#`, followed by a file, folder, or symbol name, to add it as chat context. |
-| `#-mention | Type `#`, followed by a [chat tool](#chat-tools) to add a specific context type or tool. |
+| `#`-mention | Type `#`, followed by a [chat tool](#chat-tools) to add a specific context type or tool. |
 
 ## Chat tools
 
