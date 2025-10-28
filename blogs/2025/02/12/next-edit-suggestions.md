@@ -6,6 +6,7 @@ MetaDescription: Announcing the Next Edit Suggestions and Agent Mode for GitHub 
 MetaSocialImage: nes-gutter-cover.png
 Date: 2025-02-12
 Author: Brigit Murtaugh, Burke Holland
+Keywords: [nes]
 ---
 
 # Copilot Next Edit Suggestions (preview)
