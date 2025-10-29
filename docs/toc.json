@@ -368,8 +368,7 @@
     "area": "intelligentapps",
     "topics": [
       ["AI Toolkit Overview", "/docs/intelligentapps/overview"],
-      ["AI Toolkit Copilot tools", "/docs/intelligentapps/copilot-tools"],
-      ["Getting Started", "/docs/intelligentapps/gettingstarted"],
+      ["Getting Started", "/docs/intelligentapps/gettingstarted"],      ["AI Toolkit Copilot tools", "/docs/intelligentapps/copilot-tools"],
       ["Models", "/docs/intelligentapps/models"],
       ["Playground", "/docs/intelligentapps/playground"],
       ["Agent Builder", "/docs/intelligentapps/agentbuilder"],
