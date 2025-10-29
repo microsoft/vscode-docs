@@ -132,7 +132,7 @@ Find practical [examples of prompts to use with chat](https://docs.github.com/en
 
 Enrich your prompts with relevant context to get more accurate and relevant responses in chat. With the right tools, you can boost your developer productivity.
 
-* In [chat](/docs/copilot/chat/chat-tools.md), select the tools button to configure the tools you want to use or explicitly add then to your prompt.
+* In [chat](/docs/copilot/chat/chat-tools.md), select the tools button to configure the tools you want to use or explicitly add them to your prompt.
 * Use `#codebase` to let Copilot find the right files automatically by performing a code search.
 * Use the `#fetch` tool to fetch content from a web page or use `#githubRepo` to perform a code search on a GitHub repository.
 * Reference files, folders, or symbols in your prompt by using `#<file name>`, `#<folder name>`, or `#<symbol>`.
