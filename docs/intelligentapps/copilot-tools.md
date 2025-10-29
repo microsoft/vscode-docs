@@ -5,7 +5,10 @@ MetaDescription: Get Started using the AI Toolkit Copilot tools to streamline an
 ---
 # Use AI Toolkit Copilot tools for AI agent development
 
-The AI Toolkit Copilot tools help you build AI Agent Applications faster. These tools give you ready-made features, templates, and best practices. You can create smart applications that use AI more quickly.
+The AI Toolkit Copilot tools help you build AI Agent applications faster. These tools give you ready-made features, templates, and best practices. You can create smart applications that use AI more quickly.
+
+> [!NOTE]
+> The AI Toolkit Copilot tools use the VS Code [Language Model Tool API](https://code.visualstudio.com/api/extension-guides/ai/tools). These tools extend a large language model (LLM) with domain-specific features in chat. In agent mode, VS Code can automatically use these tools to handle user prompts and perform tasks.
 
 The AI Toolkit Copilot tools include four main tools:
 
@@ -158,5 +161,3 @@ In this article, you learned how to:
 - Add tracing to monitor and debug your AI apps.
 - Pick the best AI models for your tasks.
 - Include evaluation and testing in your AI workflow.
-
-# Next steps
