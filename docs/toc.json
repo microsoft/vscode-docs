@@ -109,6 +109,7 @@
           ["Chat Sessions", "/docs/copilot/chat/chat-sessions"],
           ["Add Context", "/docs/copilot/chat/copilot-chat-context"],
           ["Review Edits", "/docs/copilot/chat/review-code-edits"],
+          ["Planning", "/docs/copilot/chat/chat-planning"],
           ["Checkpoints", "/docs/copilot/chat/chat-checkpoints"],
           ["Tools", "/docs/copilot/chat/chat-tools"],
           ["Inline Chat", "/docs/copilot/chat/inline-chat"],

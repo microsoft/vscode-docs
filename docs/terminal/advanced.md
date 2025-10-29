@@ -176,6 +176,15 @@ When VS Code is opened, it launches a login shell environment in order to source
 
 This environment inheritance can be disabled on macOS and Linux via the `setting(terminal.integrated.inheritEnv)` setting.
 
+### Environment variables between VS Code instances
+
+When launching multiple VS Code instances, environment variables are shared between them:
+
+* The first VS Code instance inherits environment variables from the parent process (for example, the shell or application that launched VS Code).
+* Subsequent VS Code instances inherit environment variables from the first running VS Code instance, not from the parent process.
+
+To isolate environment variables between VS Code instances, use the [`--user-data-dir` command-line option](/docs/configure/command-line.md#isolating-vs-code-instances) to run each instance with a separate user data directory. This ensures that each instance maintains its own environment, settings, and extensions.
+
 ### Interaction with `$LANG`
 
 There is some special interaction with the `$LANG` environment variable, which determines how characters are presented in the terminal. This feature is configured with the `setting(terminal.integrated.detectLocale)` setting:
