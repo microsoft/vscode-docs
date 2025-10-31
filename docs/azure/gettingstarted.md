@@ -1,56 +1,137 @@
 ---
-ContentId:
-MetaDescription: Azure Tools for Visual Studio Code Getting Started guide for developers
-DateApproved: 08/21/2024
+title: Getting Started with Azure Tools for Visual Studio Code
+description: Learn to install, configure, and use Azure Tools for Visual Studio Code to manage cloud resources and deploy applications.
+lastUpdated: 2024-10-31
 ---
+
 # Getting Started with Azure Tools for Visual Studio Code
 
-The [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) enables developers to access Azure's cloud services within their current environment, simplifying the process of building web applications, managing backend services, deploying APIs, and handling large datasets. This guide is specifically designed for Azure Tools within VS Code. It provides essential tips for getting started, writing code, deploying applications, troubleshooting with logs, utilizing Azure resources, and effectively navigating your code within VS Code.
+This guide walks you through setting up Azure Tools for VS Code so you can manage cloud resources, deploy web apps, and debug directly from your editor. The [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) enables developers to access Azure's cloud services within Visual Studio Code.
 
-![Explorer view](images/extensions/explorer.png)
+![Azure Tools Explorer View](./images/extensions/explorer.png)
 
-## Get started
+## 🚀 Quick Start
 
-**Install the Azure Tools extension pack.** Open VS Code, navigate to the Extensions view, and search for “Azure Tools.” Install the [Azure Tools extension pack](/docs/azure/overview.md) from Microsoft.
+### Prerequisites
+- [Visual Studio Code](https://code.visualstudio.com/) installed
+- An active [Azure account](https://azure.microsoft.com/free/)
+- Basic familiarity with VS Code interface
 
-**Navigate to the Azure Resources view.** Select the Azure icon in the Activity Bar (sidebar) to open the **Azure Resources** view. Once you're signed in to your Azure account, the Azure Resources view displays all your existing resources. You can create and manage these services right from VS Code.
+### Step 1: Install Azure Tools
+1. Open VS Code
+2. Go to Extensions view (`Ctrl+Shift+X`)
+3. Search for "Azure Tools"
+4. Install the **Azure Tools extension pack** from Microsoft
 
-![Azure icon](images/extensions/azure-icon.png)
+### Step 2: Sign in to Azure
+1. Click the Azure icon in the Activity Bar (sidebar)
+2. Click "Sign in to Azure..."
+3. Follow the authentication process in your browser
+4. Return to VS Code - you should see your Azure resources
 
-**Search Azure commands with the Command Palette.** An important key combination to know is (`kb(workbench.action.showCommands)`), which brings up the Command Palette. It is your starting point for access to all functionality within VS Code including commands, keyboard shortcuts, and opening files.
+### Step 3: Explore Azure Resources
+- View all your Azure resources in the Azure Resources panel
+- Create new resources using the `+` button
+- Manage existing resources with right-click context menus
 
-In the Command Palette, type `Azure` to list the commands that are specific to Azure. For example, to open the Cloud Shell.
+## 🔧 Core Features
 
-![Command palette](images/extensions/command-palette.png)
+### Azure Resources View
+Select the Azure icon in the Activity Bar to access:
+- **Subscriptions**: Manage your Azure subscriptions
+- **Resource Groups**: Organize related resources
+- **Services**: Access Azure services like App Service, Storage, Databases
 
-**Open folders.** A Visual Studio Code *workspace* is the collection of one or more folders that are opened in a VS Code window (instance). In most cases, you will have a single folder opened as the workspace. You can open a workspace by using the **File > Open Folder...** menu, and then selecting a folder. However, depending on your development workflow, you can include more than one folder, using an advanced configuration called Multi-root workspace.
+![Azure Icon](./images/extensions/azure-icon.png)
 
-**Review settings.** To edit or review your current settings in VS Code, use (`kb(workbench.action.openSettings)`), to open the Settings editor. It is helpful to review settings that any of the extensions may contribute.
+### Command Palette Integration
+Press `Ctrl+Shift+P` and type "Azure" to access all Azure commands:
+- `Azure: Open Cloud Shell`
+- `Azure: Create Resource`
+- `Azure: Sign In`
+- `Azure: Sign Out`
 
-**Identify and customize keyboard shortcuts.** You can use the Keyboard Shortcuts editor (`kb(workbench.action.openGlobalKeybindings)`) to find and configure keyboard shortcuts in VS Code. Get more info about [Keyboard Shortcuts editor](/docs/configure/keybindings.md#keyboard-shortcuts-editor).
+![Command Palette](./images/extensions/command-palette.png)
 
-**Redisplay notifications.** You can right-click the bell icon in the bottom right of the Status Bar in VS Code to see missed notifications.
+## 💻 Development Workflow
 
-## Write Code
+### Open Your Project
+1. Use **File > Open Folder** to open your project
+2. Ensure your code is in a proper workspace structure
+3. The Azure Tools will automatically detect supported project types
 
-Save time with these features: efficiently create and manage Azure resources, organize files and deploy easier, customize to align with your workflow, and seamlessly create Azure resources from installed extensions directly within VS Code.
+### Create Azure Resources
+1. Right-click in the Azure Resources view
+2. Select "Create Resource"
+3. Choose from available Azure services
+4. Follow the guided creation process
 
-**Resource and Workspace views** Use the Resources explorer to create and manage Azure resources. Use the Workspace explorer to create files and deploy.
+### Deploy Applications
+1. Right-click your application folder
+2. Select "Deploy to Web App"
+3. Choose target Azure Web App
+4. Monitor deployment progress in Output panel
 
-**Grouping** Change the way resources are grouped to fit your workflow.
+## 🐛 Troubleshooting
 
-**Create Resources** Create an Azure resource from your installed extensions directly in VS Code.
+### Common Issues & Solutions
 
-## Troubleshooting Azure apps/resources
+**"Can't sign in to Azure"**
+- Check internet connection
+- Verify Azure account is active
+- Try signing out and back in
+- Clear browser cache for authentication
 
-Quickly locate and review detailed log information, access your recent activities, and easily manage the resources you've recently created.
+**"Azure resources not loading"**
+- Check subscription status in Azure portal
+- Verify proper permissions
+- Reload VS Code window (`Ctrl+Shift+P` > "Developer: Reload Window")
 
-**Find logs.** The Output Channel displays textual information such as logs, messages, and other information. Use **Ctrl+Shift+U** to show Output.
+**"Extensions not working"**
+- Check all Azure extensions are enabled
+- View extension status in Extensions panel
+- Check Output panel for error messages
 
-**Tip:** More verbose log info is found in the Output Channel.
+### Accessing Logs
+- **Output Panel**: `Ctrl+Shift+U` to view extension logs
+- **Activity Log**: View recent operations and their status
+- **Developer Tools**: `Help > Toggle Developer Tools` for detailed debugging
 
-**Access resources.** View all of your recent activities and quickly access resources you've recently created in the **Activity Log**.
+## 🛠️ Advanced Configuration
 
-## Next steps
+### Keyboard Shortcuts
+Customize your workflow with these shortcuts:
+- `Ctrl+Shift+P`: Open Command Palette
+- `Ctrl+Shift+U`: Show Output panel
+- `Ctrl+Shift+Y`: Open Azure Cloud Shell
 
-* [Deployment](/docs/azure/deployment.md) - Learn how to deploy your apps to the cloud using Azure.
+### Settings Customization
+Access Settings (`Ctrl+,`) and search "azure" to configure:
+- Default subscription
+- Resource grouping preferences
+- Deployment settings
+
+## 📚 Next Steps
+
+- [**Deployment Guide**](./deployment.md) - Learn to deploy apps to Azure
+- [**Containers**](./containers.md) - Work with Azure Container Instances
+- [**Kubernetes**](./kubernetes.md) - Manage AKS clusters
+- [**Debugging**](./remote-debugging.md) - Remote debug Azure applications
+
+## 💡 Pro Tips
+
+- Use **Multi-root workspaces** for complex projects with multiple services
+- **Pin frequently used resources** for quick access
+- **Use Cloud Shell** for quick Azure CLI operations
+- **Monitor deployment logs** in real-time during publishing
+
+## 🤝 Contributing
+
+Contributions to improve this guide are welcome!  
+Please open a pull request or issue in the [vscode-docs repository](https://github.com/microsoft/vscode-docs).
+
+---
+
+**Happy coding with Azure Tools!** 🎉
+
+*© 2024 Microsoft Corporation. All rights reserved.*
