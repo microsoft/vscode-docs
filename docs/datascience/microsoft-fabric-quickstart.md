@@ -13,7 +13,7 @@ You can build and develop data science and data engineering solutions for [Micro
 
 [Microsoft Fabric](http://app.fabric.microsoft.com/) is an enterprise-ready, end-to-end analytics platform. It unifies data movement, data processing, ingestion, transformation, real-time event routing, and report building. It supports these capabilities with integrated services like Data Engineering, Data Factory, Data Science, Real-Time Intelligence, Data Warehouse, and Databases. [Sign up for free](https://app.fabric.microsoft.com/?pbi_source=learn-vscodedocs-microsoft-fabric-quickstart) and explore Microsoft Fabric for 60 days — no credit card required.
 
-![Screenshot that shows what is Microsoft Fabric?](images/microsoft-fabric/microsoft-fabric.png)
+![Diagram that shows what is Microsoft Fabric?](images/microsoft-fabric/microsoft-fabric.png)
 
 ## Prerequisites
 
@@ -157,7 +157,7 @@ def predict_churn(customer_data: list) -> list:
 
 6. Test your functions locally, by pressing `kbstyle(F5)`.
 7. In the Fabric extension, in **Local folder** , select the function and publish to your workspace.
-![Screenshot that shows how to publish your user data funtions item](./images/microsoft-fabric/publish-user-data-function.png)
+    ![Screenshot that shows how to publish your user data funtions item](./images/microsoft-fabric/publish-user-data-function.png)
 
 Learn more about invoking the function from:
 - [Fabric Data pipelines](https://learn.microsoft.com/fabric/data-engineering/user-data-functions/create-functions-activity-data-pipelines)
