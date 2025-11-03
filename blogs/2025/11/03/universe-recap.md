@@ -1,16 +1,18 @@
 # A unified experience for all coding agents
 
-Agents took over VS Code in 2025. We released the [GitHub Copilot agent](https://code.visualstudio.com/updates/v1_105#_vs-code-at-github-universe), integration for the [Copilot Coding Agent (cloud)](https://code.visualstudio.com/docs/copilot/copilot-coding-agent), and the new [GitHub Copilot CLI](https://github.com/features/copilot/cli/). But Copilot is just the start - there are now more coding agents than ever, and most don't even have "Copilot" in the name.
+If we had to pick one word to describe the past year, it would probably be "Agent".
 
-With all these choices, things got better - and a little more fragmented. Subscription hopping, tool juggling, and FOMO became the norm. This year at GitHub Universe, we set out to fix that with a unified agent experience in VS Code. Now you can switch between agents - local or cloud - and manage them all from one place.
+Agents took over VS Code in 2025. We released the [Agent Mode](https://code.visualstudio.com/blogs/2025/02/24/introducing-copilot-agent-mode) for VS Code, integration for the [Copilot Coding Agent (cloud)](https://code.visualstudio.com/docs/copilot/copilot-coding-agent), and the new [GitHub Copilot CLI](https://github.com/features/copilot/cli/). But Copilot is not the only agent game in town. There are now more coding agents than ever - including options from OpenAI and Anthropic.
+
+With all these choices, things got better for developers. But the agent ecosystem got a little more fragmented. Subscription hopping, tool juggling, and the constant FOMO on the latest agent trend is now the norm. This year at GitHub Universe, we set out to fix that with a unified agent experience in VS Code. The first big step towards making that a reality was offering more agents in your Copilot subscription. And not just those with "Copilot" in their name.
 
 ### OpenAI Codex Integration
 
-[OpenAI Codex](https://openai.com/codex/) was a hit with developers in 2025. Riding the wave of GPT-5 and Codex, OpenAI delivered a top-tier agent experience with the Codex CLI and a solid VS Code extension that brings Codex right into the editor.
+OpenAI had a big year: they shipped the GPT-5 and GPT-5 Codex models, which were available in VS Code on day one through the standard model picker. But they also launched Codex - OpenAI's coding agent - available as both A CLI tool and a [VS Code extension](https://marketplace.visualstudio.com/items?itemName=openai.chatgpt). And it was a huge hit with developers.
 
-This year at GitHub Universe, we announced you can use OpenAI Codex with your GitHub Copilot Pro+ login.
+This year at GitHub Universe, we announced you can now use OpenAI Codex with your GitHub Copilot Pro+ subscription. No additional subscription required.
 
-To use this integration, install the OpenAI Codex extension and sign in with your Copilot Pro+ account.
+To use this integration, install the [OpenAI Codex extension](https://marketplace.visualstudio.com/items?itemName=openai.chatgpt) and sign in with GitHub Copilot.
 
 ![OpenAI Codex sign-in panel in VS Code](codex-signin.gif)
 
@@ -19,7 +21,7 @@ When you use Codex with Copilot Pro+, Copilot handles all model calls and standa
 With Codex, you now have four powerful coding agents in VS Code:
 
 1. GitHub Copilot
-2. GitHub Copilot Coding Agent (Cloud)
+2. GitHub Copilot Cloud Agent
 3. GitHub Copilot CLI
 4. OpenAI Codex
 
@@ -35,23 +37,21 @@ There's a new view in the VS Code sidebar called "[Agent Sessions](https://code.
 
 With Agent Sessions, you see all agent sessions for your project. You can check which agents are running, their status, and jump between sessions with a click.
 
-Cloud Agent sessions now have a tabbed experience that lets you course-correct the agent mid-run. It's common to send a prompt and realize you forgot something important. Before, you had to wait or cancel. Now, just open the tab, add an update, and watch the agent adjust its plan.
+Cloud agent sessions now have a tabbed experience that lets you course-correct the agent mid-run. It's common to send a prompt and realize you forgot something important. Before, you had to wait or cancel. Now, just open the tab, add an update, and watch the agent adjust its plan.
 
 You can also delegate any task to any agent right from the chat.
 
 ![VS Code showing the "Delegate" button from the chat, when clicked opens a menu of agents to delegate to](why-settle.gif)
 
-This unified Agent Sessions view makes VS Code a "mission control" for orchestrating all your agents, while keeping you in the editor where you do your best work.
+This unified Agent Sessions view makes VS Code a "mission control" for orchestrating all your agents, while keeping you in the editor where you do your best work. We're excited to welcome OpenAI Codex today, and we're working to bring more agents to your Copilot+ subscription in the future.
 
 ### Planning Agent
 
-When you use a Chat Mode to alter the agent behaviour in VS Code, what you're _really_ doing is creating your own custom agent. So we've renamed Custom Modes to just "Agents" to better reflect what they actually are.
+A few months ago we introduced the concept of Chat Modes in VS Code. These are custom modes that let you augment or alter the behaviour of the built-in agent prompt. When you use a Chat Mode to alter the agent behaviour in VS Code, what you're _really_ doing is creating your own custom agent. So we've renamed "Chat Modes" to just "Agents" to better reflect what they actually are.
 
-To get you started with Custom Agents, we've added a new Agent called "[Plan](https://code.visualstudio.com/updates/v1_105#_plan-agent)". You'll find it in the Agent dropdown below "Agent".
+To get you started building custom Agents, we've added a new Agent called "[Plan](https://code.visualstudio.com/updates/v1_105#_plan-agent)".
 
 ![Copilot chat in VS Code with Plan agent dropdown highlighted, planning guidance beside dark theme editor, label reads Plan for a focused tone.](planning-agent.png)
-
-When working on medium to large tasks, having a detailed plan beats an open-ended prompt every time. The less info the model has, the more it guesses. The more it guesses, the more mistakes it makes. Prompt Engineering is the fine art of giving the model the answer that you want.
 
 The new Plan agent helps create a detailed plan from lazy prompts like "add drag and drop". That's an actual prompt I sent yesterday. No mention of what to add it to, what page, or whether to use a library. I do this a lot, and I bet I'm not alone.
 
@@ -77,17 +77,17 @@ Try different models to see which you like best for planning. We've found the [C
 
 If you're like me, you'll want to know how the Plan agent works so you can up your prompt engineering game. You can read the Plan prompt by choosing "Configure Agents" from the Command Palette and selecting Plan. It's a great baseline for creating your own [custom agents](https://code.visualstudio.com/updates/v1_105#_support-for-nested-agentsmd-files-experimental). I used it to create one called ["Research"](https://gist.github.com/burkeholland/919d655ae4df5c809b549632c3afb144) that recursively does internet research and writes up its findings.
 
-> Pro tip: You can find hundreds of custom instructions, prompt files and agents over on the [awesome-copilot](https://github.com/github/awesome-copilot) repo. If you haven't checked that out yet, you're missing out. It's a treasure trove of inspiration and ready-made prompts.
+These custom agents are also available when you delete to other agents such as the CLI and the Cloud. Your custom agents work everywhere that you need them to.
 
-And If you read the Plan prompt, you'll see it make a tool call to something called "[runSubagent](https://code.visualstudio.com/updates/v1_105#_isolated-subagents)".
+> Pro tip: You can find hundreds of custom instructions, prompt files and agents over on the [awesome-copilot](https://github.com/github/awesome-copilot) repo. If you haven't checked that out yet, you're missing out. It's a treasure trove of inspiration and ready-made prompts.
 
 ### Subagents
 
 [Context Confusion](https://www.dbreunig.com/2025/06/26/how-to-fix-your-context.html) is a real problem with agents. The more you interact, the more context they track - and the more likely they are to get confused. There's a whole new discipline for managing context called "Context Engineering".
 
-With the latest VS Code release, we've added a tool called "[runSubagent](https://code.visualstudio.com/updates/v1_105#_isolated-subagents)" to help you manage context.
+With the latest VS Code release, we've added a tool called "[runSubagent](https://code.visualstudio.com/docs/copilot/chat/chat-sessions#_contextisolated-subagents)" to help you manage context.
 
-[Subagents](https://code.visualstudio.com/updates/v1_105#_isolated-subagents) run independently from the main chat and have their own context. You can call one by adding the `#runSubagent` tool to your prompt. The LLM creates a prompt, hands it off to a subagent, and that agent only gets the context you send. It knows nothing about the rest of your chat, and your chat knows nothing about the subagent's context. Subagents don't pause for feedback and have access to most of the same tools as the main chat.
+[Subagents](https://code.visualstudio.com/docs/copilot/chat/chat-sessions#_contextisolated-subagents) run independently from the main chat and have their own context. You can call one by adding the `#runSubagent` tool to your prompt. The LLM creates a prompt, hands it off to a subagent, and that agent only gets the context you send. It knows nothing about the rest of your chat, and your chat knows nothing about the subagent's context. Subagents don't pause for feedback and have access to most of the same tools as the main chat.
 
 When a subagent finishes, it returns the final result to the main chat - and only that result joins the main context. Subagents keep your main chat lean while letting you go on sidebars and deep dives. For example, if you're building an API and need to research authentication, spin up a subagent to do that.
 
@@ -103,7 +103,7 @@ We're still exploring ways to help you manage context with agents, and subagents
 
 ## Looking Ahead
 
-Agents are changing how we write code and how we work. You shouldn't have to pick just one. You should be able to move between agents, keep fine-grained control over your context, and create your own Agents to extend our system prompts.
+Agents are changing how we write code and how we work. You shouldn't have to pick just one. You should be able to move between agents, keep fine-grained control over your context, and create your own custom Agents to extend the various built-in agent prompts. With the unified agent experience in VS Code, you can now do all of that.
 
 These are just a few highlights from this year's [GitHub Universe](https://github.com/events/universe). Check out [GitHub's blog](https://github.blog/) for all the updates as we work on a unified workflow for a multi-agent experience everywhere you need it.
 
