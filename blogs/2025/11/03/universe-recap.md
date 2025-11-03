@@ -1,6 +1,6 @@
-#
+# A unified experience for all coding agents
 
-Agents took over VS Code in 2025. We releasee the [GitHub Copilot agent](https://code.visualstudio.com/updates/v1_105#_vs-code-at-github-universe), integration for the [Copilot Coding Agent (cloud)](https://code.visualstudio.com/docs/copilot/copilot-coding-agent), and the new [GitHub Copilot CLI](https://github.com/features/copilot/cli/). But Copilot is just the start - there are now more coding agents than ever, and most don't even have "Copilot" in the name.
+Agents took over VS Code in 2025. We released the [GitHub Copilot agent](https://code.visualstudio.com/updates/v1_105#_vs-code-at-github-universe), integration for the [Copilot Coding Agent (cloud)](https://code.visualstudio.com/docs/copilot/copilot-coding-agent), and the new [GitHub Copilot CLI](https://github.com/features/copilot/cli/). But Copilot is just the start - there are now more coding agents than ever, and most don't even have "Copilot" in the name.
 
 With all these choices, things got better - and a little more fragmented. Subscription hopping, tool juggling, and FOMO became the norm. This year at GitHub Universe, we set out to fix that with a unified agent experience in VS Code. Now you can switch between agents - local or cloud - and manage them all from one place.
 
