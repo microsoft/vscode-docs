@@ -332,7 +332,7 @@ Disables additional security in the preview window. This allows script execution
 
 You select a profile template through the **Profiles** > **Create Profile...** dropdown:
 
-![Create Profile dropdown with profile templates](images/markdown/profile-template-dropdown.png)
+![Create Profile dropdown with profile templates](images/Markdown/profile-template-dropdown.png)
 
 Once you select a profile template, you can review the settings and extensions, and remove individual items if you don't want to include them in your new Profile. After creating the new profile based on a template, changes made to settings, extensions, or UI are persisted in your profile.
 

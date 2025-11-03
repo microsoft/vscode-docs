@@ -451,15 +451,6 @@ You can set `ignoreSync` to `true` to prevent the setting from being synchronize
     }
   }
 }
-
-```json
-{
-  "remoteTunnelAccess.machineName": {
-    "type": "string",
-    "default": '',
-    "ignoreSync": true
-  }
-}
 ```
 
 #### Linking to settings
@@ -714,7 +705,7 @@ See the [File Icon Theme Guide](/api/extension-guides/file-icon-theme) on how to
 
 ## contributes.jsonValidation
 
-Contribute a validation schema for a specific type of `json` file. The `url` value can be either a local path to a schema file included in the extension or a remote server URL such as a [json schema store](https://www.schemastore.org/json).
+Contribute a validation schema for a specific type of `json` file. The `url` value can be either a local path to a schema file included in the extension or a remote server URL such as a [json schema store](https://www.schemastore.org/).
 
 ```json
 {

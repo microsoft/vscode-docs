@@ -78,11 +78,13 @@ Get more relevant responses by providing [context to your chat prompt](/docs/cop
 | Drag & drop folders | Drag & drop a folder onto the Chat view to attach the files within it. |
 | Drag & drop problem | Drag & drop an item from the Problems panel. |
 | `#<file\|folder\|symbol>` | Type `#`, followed by a file, folder, or symbol name, to add it as chat context. |
-| `#-mention | Type `#`, followed by a [chat tool](#chat-tools) to add a specific context type or tool. |
+| `#`-mention | Type `#`, followed by a [chat tool](#chat-tools) to add a specific context type or tool. |
 
 ## Chat tools
 
-Use [tools](/docs/copilot/chat/chat-agent-mode.md#agent-mode-tools) in chat to accomplish specialized tasks while processing a user request. Examples of such tasks are listing the files in a directory, editing a file in your workspace, running a terminal command, getting the output from the terminal, and more. Choose built-in tools or tools from MCP servers and extensions.
+Use [tools](/docs/copilot/chat/chat-tools.md) in chat to accomplish specialized tasks while processing a user request. Examples of such tasks are listing the files in a directory, editing a file in your workspace, running a terminal command, getting the output from the terminal, and more.
+
+VS Code provides built-in tools, and you can extend chat with tools from [MCP servers](/docs/copilot/customization/mcp-servers.md) and [extensions](/api/extension-guides/ai/tools.md). Learn more about [types of tools](/docs/copilot/chat/chat-tools.md#types-of-tools).
 
 The following table lists the VS Code built-in tools:
 
@@ -119,6 +121,7 @@ The following table lists the VS Code built-in tools:
 | `#runNotebooks` (tool set) | Enable running notebook cells. |
 | `#runTask` | Run an existing [task](/docs/debugtest/tasks.md) in the workspace. |
 | `#runTasks` (tool set) | Enable running [tasks](/docs/debugtest/tasks.md) in the workspace and reading the output. |
+| `#runSubagent` _(Insiders)_ | Run a task in an isolated [subagent context](/docs/copilot/chat/chat-sessions.md#subagents). Helps to improve the context management of the main agent thread. |
 | `#runTests` | Run [unit tests](/docs/debugtest/testing.md) in the workspace. |
 | `#runVscodeCommand` | Run a VS Code command. For example, "Enable zen mode #runVscodeCommand." |
 | `#search` (tool set) | Enable searching for files in the current workspace. |
@@ -128,7 +131,7 @@ The following table lists the VS Code built-in tools:
 | `#terminalSelection` | Get the current terminal selection. |
 | `#testFailure` | Get unit test failure information. Useful when running and diagnosing [tests](/docs/debugtest/testing.md). |
 | `#textSearch` | Find text in files. |
-| `#todos` | Track implementation and progress of a chat request with a [todo list](/docs/copilot/chat/chat-agent-mode.md#track-progress-with-todo-lists-experimental). |
+| `#todos` | Track implementation and progress of a chat request with a todo list. |
 | `#usages` | Combination of "Find All References", "Find Implementation", and "Go to Definition". |
 | `#VSCodeAPI` | Ask about VS Code functionality and extension development. |
 
@@ -138,10 +141,9 @@ Slash commands are shortcuts to specific functionality within the chat. You can 
 
 | Slash command | Description |
 |---------------|-------------|
-| `/docs` | Generate code documentation comments from editor inline chat. |
+| `/doc` | Generate code documentation comments from editor inline chat. |
 | `/explain` | Explain a code block, file, or programming concept. |
-| `/fix` | Ask Copilot to fix a code block or resolve compiler or linting errors. |
-| `/help` | Get help about using chat in VS Code. |
+| `/fix` | Ask to fix a code block or resolve compiler or linting errors. |
 | `/tests` | Generate tests for all or only the selected methods and functions in the editor. |
 | `/setupTests` | Get help setting up a testing framework for your code. Get recommendation for a relevant testing framework, steps to set up and configure it, and suggestions for VS Code testing extensions. |
 | `/clear` | Start a new chat session in the Chat view. |
@@ -149,7 +151,7 @@ Slash commands are shortcuts to specific functionality within the chat. You can 
 | `/newNotebook` | Scaffold a new Jupyter notebook based on your requirements. Use natural language to describe what the notebook should contain. |
 | `/search` | Generate a search query for the Search view. Use natural language to describe what you want to search for. |
 | `/startDebugging` | Generate a `launch.json` debug configuration file and start a debugging session from the Chat view. |
-| `/<prompt file name>` | Run a [reusable prompt file](/docs/copilot/customization/prompt-files.md) in chat. |
+| `/<prompt name>` | Run a [reusable prompt](/docs/copilot/customization/prompt-files.md) in chat. |
 
 ## Chat participants
 
@@ -164,14 +166,14 @@ Use chat participants to handle domain-specific requests in chat. Chat participa
 
 ## Agent mode
 
-With chat [agent mode](/docs/copilot/chat/chat-agent-mode.md), you can use natural language to specify a high-level task, and let AI autonomously reason about the request, plan the work needed, and apply the changes to your codebase. Agent mode uses a combination of code editing and tool invocation to accomplish the task you specified. As it processes your request, it monitors the outcome of edits and tools, and iterates to resolve any issues that arise.
+With chat [agent mode](/docs/copilot/chat/copilot-chat.md#built-in-chat-modes), you can use natural language to specify a high-level task, and let AI autonomously reason about the request, plan the work needed, and apply the changes to your codebase. Agent mode uses a combination of code editing and tool invocation to accomplish the task you specified. As it processes your request, it monitors the outcome of edits and tools, and iterates to resolve any issues that arise.
 
 | Action | Description |
 |--------|-------------|
 | `kb(workbench.action.chat.openAgent)` | Switch to agent mode in the Chat view |
 | Tools (<i class="codicon codicon-tools"></i>) | Configure which tools are available in agent mode. Select from built-in tools, MCP servers, and extension-provided tools. |
-| Auto-approve tools _(Experimental)_ | Enable [auto-approval of all tools](/docs/copilot/chat/chat-agent-mode.md#auto-approve-all-tools-and-commands-experimental) in agent mode (`setting(chat.tools.autoApprove)`). |
-| Auto-approve terminal commands _(Experimental)_ | Enable [auto-approval of terminal commands](/docs/copilot/chat/chat-agent-mode.md#autoapprove-terminal-commands-experimental) in agent mode (`setting(chat.tools.terminal.autoApprove)`). |
+| Auto-approve tools _(Experimental)_ | Enable [auto-approval of all tools](/docs/copilot/chat/chat-tools.md#auto-approve-all-tools) in agent mode (`setting(chat.tools.autoApprove)`). |
+| Auto-approve terminal commands _(Experimental)_ | Enable [auto-approval of terminal commands](/docs/copilot/chat/chat-tools.md#automatically-approve-terminal-commands) in agent mode (`setting(chat.tools.terminal.autoApprove)`). |
 | MCP | Configure [MCP servers](/docs/copilot/customization/mcp-servers.md) to extend agent mode with extra capabilities and tools. |
 
 > **Tips**
@@ -179,6 +181,15 @@ With chat [agent mode](/docs/copilot/chat/chat-agent-mode.md), you can use natur
 > * Add extra tools to agent mode to extend its capabilities.
 > * Configure custom chat modes to define how agent mode operates, for example to implement a read-only planning mode.
 > * Define custom instructions to guide agent mode on how to generate and structure code.
+
+## Planning
+
+Use the [plan agent](/docs/copilot/chat/chat-planning.md) in VS Code chat to create detailed implementation plans before starting complex coding tasks. Hand off the approved plan to an implementation agent to start coding.
+
+| Action | Description |
+|--------|-------------|
+| Plan agent | Select the **Plan** agent from the agents dropdown in the Chat view to create a detailed implementation plan for complex coding tasks. |
+| Todo list (Experimental) | Enable the `todos` tool in the tools picker to track progress on complex tasks with a todo list. |
 
 ## Customize your chat experience
 
@@ -248,7 +259,7 @@ Get semantically relevant search results in the Search view or help with searchi
 
 ## Generate tests
 
-Copilot can generate tests for functions and methods in your codebase. Get more information about [slash commands in Chat](/docs/copilot/chat/chat-ask-mode.md#special-keywords).
+VS Code can generate tests for functions and methods in your codebase by using slash commands in chat. Slash commands are a shorthand notation for common tasks that you can use in chat prompts. Type `/` followed by the command name to use a slash command.
 
 | Action | Description |
 |--------|-------------|
@@ -283,7 +294,7 @@ Copilot can help you create a new project by generating a scaffold of the projec
 
 | Action | Description |
 |--------|-------------|
-| Agent mode | Use [agent mode](/docs/copilot/chat/chat-agent-mode.md) and use a natural language prompt to create a new project or file. For example, `Create a svelte web application to track my tasks`. |
+| Agent mode | Use [agent mode](/docs/copilot/chat/copilot-chat.md#built-in-chat-modes) and use a natural language prompt to create a new project or file. For example, `Create a svelte web application to track my tasks`. |
 | `/new` | Use the `/new` command in the Chat view to scaffold a new project or a new file. Use natural language to describe the type of project/file you need, and preview the scaffolded content before creating it.<br/>Example: `/new Express app using typescript and svelte` |
 | `/newNotebook` | Use the `/newNotebook` command in the Chat view to generate a new Jupyter notebook based on your requirements. Use natural language to describe what the notebook should contain.<br/>Example: `/newNotebook get census data and preview key insights with Seaborn`. |
 

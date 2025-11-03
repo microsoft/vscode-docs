@@ -64,7 +64,7 @@ Here is a list of additional samples from the [VS Code Extensions samples repo](
 | [Commenting API Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/comment-sample) |  |
 | [Document Editing Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/document-editing-sample) | [commands](https://code.visualstudio.com/api/references/vscode-api#commands)<br>[contributes.commands](https://code.visualstudio.com/api/references/contribution-points#contributes.commands) |
 | [Getting Started Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/getting-started-sample) | [contributes.walkthroughs](https://code.visualstudio.com/api/references/contribution-points#contributes.walkthroughs) |
-| [Test extension](https://github.com/microsoft/vscode-extension-samples/tree/main/test-provider-sample) | [TestController](https://code.visualstudio.com/api/references/vscode-api#TestController)<br>[TestItem](https://code.visualstudio.com.azurewebsites.net/api/references/vscode-api#TestItem) |
+| [Test extension](https://github.com/microsoft/vscode-extension-samples/tree/main/test-provider-sample) | [TestController](https://code.visualstudio.com/api/references/vscode-api#TestController)<br>[TestItem](https://code.visualstudio.com/api/references/vscode-api#TestItem) |
 
 ## Language Extension Samples
 

@@ -14,7 +14,7 @@ The extension supports the following test frameworks:
 
 - [JUnit 4](https://junit.org/junit4/) (v4.8.0+)
 - [JUnit 5](https://junit.org/junit5/) (v5.1.0+)
-- [TestNG](https://testng.org/doc/) (v6.9.13.3+)
+- [TestNG](https://testng.org/) (v6.9.13.3+)
 
 The [Test Runner for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test) works with the [Language Support for Java™ by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) and [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) extensions to provide the following features:
 

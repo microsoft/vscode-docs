@@ -93,6 +93,30 @@ Argument|Description
 
 ![install extension](images/command-line/install-extension.png)
 
+## Start chat from the command line
+
+You can start a chat session directly from the command line by using the `chat` subcommand in the VS Code CLI. This enables you to open a chat session in your current working directory with a prompt you provide.
+
+For example, the following command opens chat for the current directory and asks "Find and fix all untyped variables":
+
+```bash
+code chat Find and fix all untyped variables
+```
+
+The `chat` subcommand has the following command-line options:
+
+* `-m`, `--mode <mode>`: The chat mode to use for the chat session. Available options: `ask`, `edit`, `agent`, or the identifier of a custom mode. Defaults to `agent`.
+* `-a`, `--add-file <path>`: Add files as context to the chat session.
+* `--maximize`: Maximize the chat session view.
+* `-r`, `--reuse-window`: Use the last active window for the chat session.
+* `-n`, `--new-window`: Open an empty window for the chat session.
+
+The `chat` subcommand also supports piping input from `stdin` by passing `-` at the end of the command. For example:
+
+```bash
+python app.py | code chat why does it fail -
+```
+
 ## Advanced CLI options
 
 There are several CLI options that help with reproducing errors and advanced setup.
@@ -100,7 +124,7 @@ There are several CLI options that help with reproducing errors and advanced set
 Argument|Description
 ------------------|-----------
 `--extensions-dir <dir>` | Set the root path for extensions.<br>Overridden in [Portable Mode](/docs/editor/portable.md) by the `data` folder.
-`--user-data-dir <dir>` | Specifies the directory that user data is kept in, useful when running as root.<br>Overridden in [Portable Mode](/docs/editor/portable.md) by the `data` folder.
+`--user-data-dir <dir>` | Specifies the directory that user data is kept in. Can be used to run multiple isolated instances of VS Code with separate environments, settings, and extensions. Also useful when running as root.<br>Overridden in [Portable Mode](/docs/editor/portable.md) by the `data` folder.
 `-s, --status` | Print process usage and diagnostics information.
 `-p, --performance` | Start with the **Developer: Startup Performance** command enabled.
 `--disable-gpu` | Disable GPU hardware acceleration.
@@ -110,6 +134,35 @@ Argument|Description
 **Multi-root**|
 `--add <dir>` | Add folder(s) to the last active window for a multi-root workspace.
 `--remove <dir>` | Remove folder(s) from the last active window for a multi-root workspace.
+
+## Isolating VS Code instances
+
+By default, VS Code instances share environment variables in the following way:
+
+* If this is the first VS Code instance, environment variables are inherited from the parent process.
+* If this is not the first VS Code instance, environment variables are inherited from the already running VS Code instance.
+
+This behavior can cause issues when you need different environment variables for different projects or build configurations. For example, if you're working on two projects that require different versions of Node.js or different `PATH` settings.
+
+To run VS Code instances with separate environment variables, use the `--user-data-dir` option to specify a unique user data directory for each instance:
+
+```bash
+# First instance with its own environment
+code ~/project1 --user-data-dir ~/vscode-data-project1
+
+# Second instance with different environment
+code ~/project2 --user-data-dir ~/vscode-data-project2
+```
+
+Each instance with a different `--user-data-dir` will maintain its own:
+
+* Environment variables
+* Settings and preferences
+* Installed extensions
+* UI state and layout
+
+> [!NOTE]
+> When using `--user-data-dir`, you'll need to reinstall extensions for each user data directory, as extensions are stored separately.
 
 ### Create remote tunnel
 

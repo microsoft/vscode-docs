@@ -70,7 +70,6 @@ The following articles may help answer your question:
 * [Docker Compose file reference](https://docs.docker.com/compose/compose-file/)
 * [Docker Desktop for Windows troubleshooting guide](https://docs.docker.com/docker-for-windows/troubleshoot) and [FAQ](https://docs.docker.com/docker-for-windows/faqs/)
 * [Docker Desktop for Mac troubleshooting guide](https://docs.docker.com/docker-for-mac/troubleshoot) and [FAQ](https://docs.docker.com/docker-for-mac/faqs/)
-* [Docker Support Resources](https://success.docker.com/article/best-support-resources)
 
 ## Can I use dev containers outside of VS Code?
 

@@ -1,6 +1,6 @@
 ---
 ContentId: e1e49b32-272f-4aef-a73b-56920112057d
-DateApproved: 07/29/2025
+DateApproved: 10/03/2025
 MetaDescription: AI Toolkit hosts a local  server to collect trace data. The collector server is OLTP-compatible and most language model SDKs either directly support OTLP or have third-party instrumentation libraries to support it.
 ---
 
@@ -388,7 +388,7 @@ resource = Resource(attributes={
     "service.name": "opentelemetry-instrumentation-openai"
 })
 
-# Set up tracer provider
+# Create tracer provider
 trace.set_tracer_provider(TracerProvider(resource=resource))
 
 # Configure OTLP exporter

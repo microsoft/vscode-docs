@@ -53,7 +53,7 @@ Chat in VS Code uses an index to quickly and accurately search your codebase for
 
 You can view the type of index that is being used and its indexing status in the Copilot status dashboard in the VS Code Status Bar.
 
-![Screenshot showing the workspace index status in the Copilot status menu.](images/workspace-context/workspace-index-status.png)
+![Screenshot showing the workspace index status in the Copilot status menu.](../images/workspace-context/workspace-index-status.png)
 
 ### Remote index
 
@@ -63,7 +63,7 @@ VS Code can use remote code search indexes to enable AI to search your codebase 
 
 VS Code automatically builds and uses remote code search indexes for any GitHub-backed repositories in your workspace. Sign in with your GitHub account in VS Code and chat will automatically start using any available remote code search indexes.
 
-Repositories are automatically indexed the first time `@workspace` or `#codebase` is used in chat.  You can also force indexing by running the **Build Remote Workspace Index** command in the Command Palette (`kb(workbench.action.showCommands))`.
+Repositories are automatically indexed the first time `@workspace` or `#codebase` is used in chat.  You can also force indexing by running the **Build Remote Workspace Index** command in the Command Palette (`kb(workbench.action.showCommands)`).
 
 The index only needs to be built once per repository. After that, the index is automatically kept up to date. Building the index is fast for small and medium sized projects, but may take a little time if your repository contains hundreds of thousands of files. The remote index works also best if GitHub has a relatively up-to-date version of your code, so make sure to push your code to GitHub regularly.
 
@@ -81,7 +81,7 @@ To build a local index:
 
 * The project has less than 750 indexable files: VS Code automatically builds an advanced local index.
 
-* The project has between 750 and 2500 indexable files: run the **Build local workspace index** command in the Command Palette (`kb(workbench.action.showCommands))` - this should only be run once.
+* The project has between 750 and 2500 indexable files: run the **Build local workspace index** command in the Command Palette (`kb(workbench.action.showCommands)`) - this should only be run once.
 
 * The project has more than 2500 indexable files: use a [basic index](#basic-index).
 
@@ -125,7 +125,15 @@ The way you phrase your question can significantly influence the quality of the 
 * Incorporate terms and concepts in your prompt that are likely to appear in your code or its documentation.
 * Explicitly include relevant context by selecting code, referencing files, or [#-mentioning context items](/docs/copilot/chat/copilot-chat-context.md) such as debug context, terminal output, and more.
 * Responses can draw from multiple references, such as "find exceptions without a catch block" or "provide examples of how handleError is called". However, don't anticipate a comprehensive code analysis across your codebase, such as "how many times is this function invoked?" or "rectify all bugs in this project".
-* When asking about information beyond the code, such as "who contributed to this file?" or "summarize review comments for this folder", make sure to configure the relevant [tools or MCP servers](/docs/copilot/chat/chat-agent-mode.md#agent-mode-tools) in agent mode.
+* When asking about information beyond the code, such as "who contributed to this file?" or "summarize review comments for this folder", make sure to configure the relevant [tools or MCP servers](/docs/copilot/chat/chat-tools.md) in agent mode.
+
+## Private repositories
+
+To enable more workspace search features for private repositories, we require additional permissions. If we detect that we don't have these permissions already, we will ask for them at startup. Once granted, we'll securely store the session for the future.
+
+![Modal window asking for additional authentication for a private repository.](../images/workspace-context/authentication.png)
+
+Learn more about security, privacy, and transparency in the [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/).
 
 ## Frequently asked questions
 
@@ -137,7 +145,7 @@ Conceptually, both `@workspace` and `#codebase` enable you to ask questions abou
 
     The `@workspace` participant is subject matter expert that is specialized to answering questions about your codebase. The language model hands off the entire chat prompt to the participant, which uses its knowledge of the codebase to provide an answer. The language model can't perform any additional processing or invoke other tools when using a chat participant. A chat prompt can only contain a single chat participant.
 
-* `#codebase` is a [chat tool](/docs/copilot/chat/chat-agent-mode.md#agent-mode-tools)
+* `#codebase` is a [chat tool](/docs/copilot/chat/chat-tools)
 
     The `#codebase` tool is specialized in searching your codebase for relevant information. It is one of many tools that the language model can choose to invoke when answering your chat prompt. The language model can decide to invoke the `#codebase` tool multiple times, interleaved with other tools, to gather the information it needs to answer your question. A chat prompt can contain multiple tools.
 
