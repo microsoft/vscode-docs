@@ -29,7 +29,7 @@ In addition, you can use the Problems panel (`kb(workbench.actions.view.problems
 
 ## Copilot tools for containers
 
-Container Tools includes agent mode tools for managing containers and images in chat.
+Container Tools includes agent tools for managing containers and images in chat.
 
 * **Ask about your containers and images**: "Show me my running containers", "List my Docker images"
 * **Get details about specific containers or images**: "What's going on with my nginx container?"
