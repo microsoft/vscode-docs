@@ -1,7 +1,7 @@
 ---
 ContentId: 276ecd8f-2a76-467e-bf82-846d49c13ab5
 DateApproved: 10/15/2025
-MetaDescription: Learn how to create custom agents to tailor AI chat behavior in VS Code for your specific workflows and development scenarios.
+MetaDescription: Learn how to create custom agents (formerly custom chat modes) to tailor AI chat behavior in VS Code for your specific workflows and development scenarios.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Custom agents in VS Code
@@ -13,7 +13,7 @@ You can also use handoffs to create guided workflows between agents, allowing yo
 This article describes how to create and manage custom agents in VS Code.
 
 > [!NOTE]
-> Custom agents are available as of VS Code release 1.101 and are currently in preview.
+> Custom agents, formerly known as custom chat modes, are available as of VS Code release 1.101 and are currently in preview.
 
 ## What are custom agents?
 
