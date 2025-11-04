@@ -14,7 +14,7 @@ By default, chat uses a base model to provide fast, capable responses for a wide
 
 However, you are not limited to using only this model. You can choose from a [selection of language models](https://docs.github.com/en/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat#ai-models-for-copilot-chat-1), each with its own particular strengths. For a detailed comparison of AI models, see [Choosing the right AI model for your task](https://docs.github.com/en/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task) in the GitHub Copilot documentation.
 
-Depending on the [chat mode](/docs/copilot/customization/custom-agents.md) you are using, the list of available models might be different. For example, in agent mode, the list of models is limited to those that have good support for tool calling.
+Depending on the [agent](/docs/copilot/customization/custom-agents.md) you are using, the list of available models might be different. For example, in agent mode, the list of models is limited to those that have good support for tool calling.
 
 > [!NOTE]
 > If you are a Copilot Business or Enterprise user, your administrator needs to enable certain models for your organization by opting in to `Editor Preview Features` in the [Copilot policy settings](https://docs.github.com/en/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) on GitHub.com.
@@ -114,7 +114,7 @@ To configure a language model from a model provider using your own API key:
 
 1. You can now select the model from the model picker in the Chat view and use it for chat conversations.
 
-    For a model to be available in [agent mode](/docs/copilot/chat/copilot-chat.md#built-in-chat-modes), it must support tool calling. If the model doesn't support tool calling, it won't be shown in the model picker when you are using agent chat mode.
+    For a model to be available when using [agents](/docs/copilot/chat/copilot-chat.md#built-in-agents), it must support tool calling. If the model doesn't support tool calling, it won't be shown in the model picker.
 
 ### Update the provider details
 
