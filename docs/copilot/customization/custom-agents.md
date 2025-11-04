@@ -34,17 +34,17 @@ Custom agents also let you provide specialized instructions that define how the 
 ## Handoffs
 
 > [!NOTE]
-> Handoffs are currently in preview.
+> Handoffs are currently only available in [VS Code Insiders](https://code.visualstudio.com/insiders/).
 
-Handoffs enable you to create guided workflows that transition between agents with suggested next steps. After a chat response completes, handoff buttons appear that let users move to the next agent with relevant context and a pre-filled prompt.
+Handoffs enable you to create guided sequential workflows that transition between agents with suggested next steps. After a chat response completes, handoff buttons appear that let users move to the next agent with relevant context and a pre-filled prompt.
 
-Handoffs are useful for orchestrating multi-step development workflows. For example:
+Handoffs are useful for orchestrating multi-step workflows, that give developer's control for reviewing and approving each step before moving to the next one. For example:
 
 * **Planning → Implementation**: Generate a plan in planning agent, then hand off to implementation agent to start coding.
 * **Implementation → Review**: Complete implementation, then switch to a code review agent to check for quality and security issues.
-* **Research → Development**: Gather requirements and context, then hand off to a developer agent with the collected information.
+* **Write Failing Tests → Write Passing Tests**: Generate failing tests that are easier to review than big implementations, then hand off to make those tests pass by implementing the required code changes.
 
-To define handoffs in your agent file, add them to the file header. Each handoff specifies the target agent, the button label, and an optional prompt to send:
+To define handoffs in your agent file, add them to the frontmatter. Each handoff specifies the target agent, the button label, and an optional prompt to send:
 
 ```markdown
 ---
