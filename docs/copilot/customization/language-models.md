@@ -37,15 +37,15 @@ If you have a paid Copilot plan, the model picker shows the premium request mult
 ## Auto model selection (Preview)
 
 > [!NOTE]
-> Auto model selection is available as of VS Code release 1.104 and is currently in preview. We are rolling out auto to all GitHub Copilot users in VS Code in the following weeks, starting with the [individual GitHub Copilot plans](https://docs.github.com/en/copilot/concepts/billing/individual-plans).
+> Auto model selection is available as of VS Code release 1.104 and is currently in preview.
 
 With auto model selection, VS Code automatically selects a model to ensure that you get the optimal performance and reduce rate limits due to excessive usage of particular language models. It detects degraded model performance and uses the best model at that point in time. We continue to improve this feature to pick the most suitable model for your needs.
 
 To use auto model selection, select **Auto** from the model picker in chat.
 
-![Screenshot that shows the model picker in the Chat view, showing the Auto option.](../images/language-models/model-dropdown-auto.png)
-
 Currently, auto chooses between Claude Sonnet 4, GPT-5, GPT-5 mini and other models. If your organization has [opted out of certain models](https://docs.github.com/en/copilot/how-tos/use-ai-models/configure-access-to-ai-models), auto will not select those models. If none of these models are available or you run out of premium requests, auto will fall back to a model at 0x multiplier.
+
+### Multiplier discounts
 
 When using auto model selection, VS Code uses a variable [model multiplier](https://docs.github.com/en/copilot/concepts/billing/copilot-requests#model-multipliers), based on the selected model. If you are a paid user, auto will apply a request discount.
 
