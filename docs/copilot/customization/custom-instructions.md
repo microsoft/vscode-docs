@@ -179,7 +179,7 @@ When you create an instructions file, choose whether to store it in your workspa
 
 To create an instructions file:
 
-1. In the Chat view, select **Configure Chat** > **Instructions**, and then select **New instruction file**.
+1. In the Chat view, select **Configure Chat** (gear icon) > **Chat Instructions**, and then select **New instruction file**.
 
     ![Screenshot showing the Chat view, and Configure Chat menu, highlighting the Configure Chat button.](../images/customization/configure-chat-instructions.png)
 
@@ -199,7 +199,7 @@ To create an instructions file:
 
     To reference additional workspace files, use Markdown links (`[index](../index.ts)`).
 
-To modify an existing instructions file, in the Chat view, select **Configure Chat** > **Instructions**, and then select an instructions file from the list. Alternatively, use the **Chat: Configure Instructions** command from the Command Palette (`kb(workbench.action.showCommands)`) and select the instructions file from the Quick Pick.
+To modify an existing instructions file, in the Chat view, select **Configure Chat** (gear icon) > **Chat Instructions**, and then select an instructions file from the list. Alternatively, use the **Chat: Configure Instructions** command from the Command Palette (`kb(workbench.action.showCommands)`) and select the instructions file from the Quick Pick.
 
 ## Use an `AGENTS.md` file
 
@@ -254,7 +254,7 @@ VS Code can analyze your workspace and generate a matching `.github/copilot-inst
 
 To generate an instructions file for your workspace:
 
-1. In the Chat view, select **Configure Chat** > **Generate Instructions**.
+1. In the Chat view, select **Configure Chat** (gear icon) > **Generate Chat Instructions**.
 
 1. Review the generated instructions file and make any necessary edits.
 

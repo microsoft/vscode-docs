@@ -120,7 +120,7 @@ You can create a custom agent file in your workspace or user profile.
 
 1. Run the **Chat: New Custom Agent** command in the Command Palette (`kb(workbench.action.showCommands)`) and select **Create new custom agent**.
 
-    Alternatively, select **Configure Chat** in the Chat view > **Agents**, and then select **Create new custom agent**.
+    Alternatively, select **Configure Chat** (gear icon) in the Chat view > **Custom Agents**, and then select **Create new custom agent**.
 
     ![Screenshot showing the Chat view, and Configure Chat menu, highlighting the Configure Chat button.](../images/customization/configure-chat-instructions.png)
 
@@ -137,7 +137,7 @@ You can create a custom agent file in your workspace or user profile.
     * Provide the description and configure the list of available tools or tool sets in the Front Matter metadata.
     * Add instructions for the custom agent in the body of the file.
 
-To edit and manage existing custom agents, in the Chat view, select **Configure Chat** > **Agents**, and then select an existing custom agent from the list to modify it. Alternatively, you can use the **Chat: Configure Agents** command from the Command Palette (`kb(workbench.action.showCommands)`).
+To edit and manage existing custom agents, in the Chat view, select **Configure Chat** (gear icon) > **Custom Agents**, and then select an existing custom agent from the list to modify it. Alternatively, you can use the **Chat: Configure Agents** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
 ## Tool list priority
 

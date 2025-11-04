@@ -110,7 +110,7 @@ To create a prompt file:
 
 1. Enable the `setting(chat.promptFiles)` setting.
 
-1. In the Chat view, select **Configure Chat** > **Prompt Files**, and then select **New prompt file**.
+1. In the Chat view, select **Configure Chat** (gear icon) > **Prompt Files**, and then select **New prompt file**.
 
     ![Screenshot showing the Chat view, and Configure Chat menu, highlighting the Configure Chat button.](../images/customization/configure-chat-instructions.png)
 
