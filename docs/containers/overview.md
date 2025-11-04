@@ -32,7 +32,7 @@ In addition, you can use the Problems panel (`kb(workbench.actions.view.problems
 Container Tools includes agent mode tools for managing containers and images in chat.
 
 * **Ask about your containers and images**: "Show me my running containers", "List my Docker images"
-* **Get detail about specific containers or images**: "What's going on with my nginx container?"
+* **Get details about specific containers or images**: "What's going on with my nginx container?"
 
 ![Container Tools Copilot](images/overview/chat.png)
 
