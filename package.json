@@ -11,7 +11,8 @@
   "scripts": {
     "check-lfs": "node ./build/check-lfs.js",
     "lint": "eslint **/*.js",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "tsa:validate": "node scripts/tsa-validate.js"
   },
   "devDependencies": {
     "eslint-plugin-security": "^1.7.1",
