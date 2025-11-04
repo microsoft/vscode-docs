@@ -5,7 +5,7 @@ MetaDescription: Tools for developing and debugging with containers, using Visua
 ---
 # Containers in Visual Studio Code
 
-The [Container Tools](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers) extension makes it easy to build, manage, and deploy containerized applications in Visual Studio Code and includes agent mode tools.
+The [Container Tools](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers) extension makes it easy to build, manage, and deploy containerized applications in Visual Studio Code and includes agent tools.
 
 This page provides an overview of the Container Tools extension capabilities; use the side menu to learn more about topics of interest. If you are just getting started with container development, try the [Docker tutorial](https://learn.microsoft.com/visualstudio/docker/tutorials/docker-tutorial) first to understand key Docker concepts.
 
