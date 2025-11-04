@@ -8,7 +8,7 @@ MetaSocialImage: images/shared/github-copilot-social.png
 
 [GitHub Copilot coding agent](https://docs.github.com/en/copilot/concepts/about-copilot-coding-agent) is a GitHub-hosted, autonomous AI developer that works independently in the background to complete development tasks. To invoke the coding agent, assign a GitHub issue to Copilot or delegate a task from chat, and the agent will work autonomously to implement features, fix bugs, and make changes across your repository using its own isolated development environment.
 
-This is different from [agent mode](/docs/copilot/chat/copilot-chat.md#built-in-chat-modes) in VS Code, which provides interactive development within the editor and requires your active participation during the coding session.
+This is different from [using agents](/docs/copilot/chat/copilot-chat.md#built-in-agents) in VS Code, which provide interactive development within the editor and requires your active participation during the coding session.
 
 ![GIF showing how to assign an issue to Copilot coding agent from within VS Code.](images/copilot-coding-agent/assign-to-copilot-gif.gif)
 
@@ -69,7 +69,7 @@ You can trigger Copilot coding agent by assigning a GitHub issue to Copilot, sim
 
 ### Method 2: Delegate from chat
 
-You can also hand off work to Copilot coding agent directly from your chat conversation. Instead of having agent mode implement changes immediately in your editor, you can delegate the task to the coding agent to work on it autonomously in the background.
+You can also hand off work to Copilot coding agent directly from your chat conversation. Instead of having the agent implement changes immediately in your editor, you can delegate the task to the coding agent to work on it autonomously in the background.
 
 1. Open the Chat view in VS Code (`kb(workbench.action.chat.open)`)
 
@@ -180,7 +180,7 @@ Enable the experimental setting `setting(chat.agentSessionsViewLocation)` to try
 
 Pull requests created by the coding agent are also rendered as cards in the Chat view when you start a session, providing better visual integration.
 
-<video src="images/copilot-coding-agent/chat-sessions-view.mp4" title="Video showing Chat Sessions view and integration with GitHub coding agents." autoplay loop controls muted></video>
+<!-- <video src="images/copilot-coding-agent/chat-sessions-view.mp4" title="Video showing Chat Sessions view and integration with GitHub coding agents." autoplay loop controls muted></video> -->
 
 ### Improved delegation experience
 
@@ -193,12 +193,12 @@ The delegation experience from VS Code to GitHub coding agent has been significa
 
 These improvements make it easier to precisely plan out tasks for the coding agent and monitor their progress without leaving VS Code.
 
-
 ### Cancel a running session
 
 If you need to stop the agent, you can stay in VS Code and use the **Cancel coding agent** button on the PR overview page.
 
 You can also cancel a session from GitHub.com:
+
 1. Go to your GitHub repository on GitHub.com
 1. Navigate to the **Actions** tab
 1. Find the running Copilot Coding Agent workflow
@@ -207,6 +207,7 @@ You can also cancel a session from GitHub.com:
 ## Review and iterate
 
 ### Work completion
+
 After the Copilot coding agent has analyzed your code and determined the changes that are needed to accomplish the task, it performs the following steps:
 
 * Create a pull request with all changes
@@ -223,13 +224,13 @@ You can guide the agent's work through pull request comments. Make sure to tag `
 
 1. **Request changes**: Leave specific feedback about what needs to be modified
 
-   ```
+   ```text
    @copilot Please update the login form to include password strength validation
    ```
 
 1. **Request improvements**: Ask for additional features or refinements
 
-   ```
+   ```text
    @copilot Can you add error handling for network timeouts?
    ```
 
@@ -240,18 +241,18 @@ The agent will respond to your feedback, make the requested changes, and update 
 
 ## Frequently asked questions
 
-### What's the difference between Copilot coding agent and agent mode?
+### What's the difference between Copilot coding agent and using agents?
 
-VS Code offers two autonomous coding experiences. While agent mode provides interactive development directly within the editor, the Copilot coding agent works independently on GitHub to implement features in the background.
+VS Code offers two autonomous coding experiences. While using agents in VS Code provides interactive development directly within the editor, the Copilot coding agent works independently on GitHub to implement features in the background.
 
-| Feature | Copilot coding agent | Agent mode |
+| Feature | Copilot coding agent | Using agents |
 |---------|---------------------|------------------|
 | **Where it runs** | GitHub cloud | Your VS Code editor |
 | **Independence** | Fully autonomous | Involves user interaction and iteration |
 | **Output** | Creates pull requests | Edits files directly |
 | **Best for** | Well-defined tasks, background work | Interactive development, immediate feedback |
 
-Learn more about agent mode in its [documentation](/docs/copilot/chat/copilot-chat.md#built-in-chat-modes).
+Learn more about [using agents in VS Code](/docs/copilot/chat/copilot-chat.md#built-in-agents).
 
 ### Why isn't the agent starting?
 
@@ -297,8 +298,7 @@ For detailed information about limitations, compatibility, and usage costs, see 
 ## Next steps
 
 * Enable Copilot coding agent by following the [GitHub setup guide](https://docs.github.com/en/copilot/using-github-copilot/coding-agent/enabling-copilot-coding-agent)
-* Try [agent mode in VS Code](/docs/copilot/chat/copilot-chat.md#built-in-chat-modes) for immediate, interactive coding assistance
-* Learn about [using chat in VS Code](/docs/copilot/chat/copilot-chat.md) for conversational AI help
+* Try [agents in VS Code chat](/docs/copilot/chat/copilot-chat.md) for immediate, interactive coding assistance
 
 ## Related resources
 

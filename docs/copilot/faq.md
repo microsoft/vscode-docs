@@ -132,9 +132,9 @@ Verify the following requirements to ensure Chat features work in Visual Studio 
 - Your GitHub account that is signed into VS Code must have an active Copilot subscription. Check your [Copilot subscription](https://github.com/settings/copilot).
 - Verify that you have not reached your limit of chat interactions for the month with the [Copilot Free plan](https://docs.github.com/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/about-github-copilot-free).
 
-### Agent mode is not available in chat
+### Agents are not available in chat
 
-Verify that agent mode is enabled in your VS Code settings: `setting(chat.agent.enabled)`. It's possible that your organization has disabled this feature, verify with your administrator to have agent mode enabled.
+Verify that agents are enabled in your VS Code settings: `setting(chat.agent.enabled)`. It's possible that your organization has disabled this feature, verify with your administrator to have agents enabled.
 
 ### Not all models are available in the language model picker
 
@@ -203,7 +203,7 @@ If you encounter problems connecting to GitHub Copilot, you can view network con
 
 You can use the Chat Debug view to see the details of AI requests and responses, including the prompt being used and the context that is sent to the language model. This view can help you understand how the AI is interpreting your requests and what context it is using to generate responses.
 
-Learn more about the [Chat Debug view](/docs/copilot/chat/copilot-chat.md#chat-debug-view).
+Learn more about the [Chat Debug view](/docs/copilot/chat/chat-debug-view.md).
 
 ## Additional resources
 

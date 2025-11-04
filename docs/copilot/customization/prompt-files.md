@@ -27,7 +27,7 @@ The following examples demonstrate how to use prompt files. For more community-c
 
 ```markdown
 ---
-mode: 'agent'
+agent: 'agent'
 model: GPT-4o
 tools: ['githubRepo', 'search/codebase']
 description: 'Generate a new React form component'
@@ -55,7 +55,7 @@ Requirements for the form:
 
 ```markdown
 ---
-mode: 'ask'
+agent: 'ask'
 model: Claude Sonnet 4
 description: 'Perform a REST API security review'
 ---
@@ -77,7 +77,7 @@ Prompt files are Markdown files and use the `.prompt.md` extension and have this
 
 * **Header** (optional): YAML frontmatter
     * `description`: Short description of the prompt
-    * `mode`: Chat mode used for running the prompt: `ask`, `edit`, or `agent` (default).
+    * `agent`: Agent used for running the prompt: `ask`, `edit`, `agent` (default), or the name of a [custom agent](/docs/copilot/customization/custom-agents.md)
     * `model`: Language model used when running the prompt. If not specified, the currently selected model in model picker is used.
     * `tools`: Array of tool (set) names that can be used. Select **Configure Tools** to select the tools from the list of available tools in your workspace. If a given tool (set) is not available when running the prompt, it is ignored.
 
@@ -94,13 +94,13 @@ Prompt files are Markdown files and use the `.prompt.md` extension and have this
 
 ### Tool list priority
 
-You can specify the list of available tools for both a chat mode and prompt file by using the `tools` metadata field. Prompt files can also reference a chat mode by using the `mode` metadata field.
+You can specify the list of available tools for both a custom agent and prompt file by using the `tools` metadata field. Prompt files can also reference a custom agent by using the `agent` metadata field.
 
 The list available tools in chat is determined by the following priority order:
 
 1. Tools specified in the prompt file (if any)
-2. Tools from the referenced chat mode in the prompt file (if any)
-3. Default tools for the selected chat mode
+2. Tools from the referenced custom agent in the prompt file (if any)
+3. Default tools for the selected agent (if any)
 
 ## Create a prompt file
 
@@ -174,7 +174,7 @@ To sync your user prompt files, enable Settings Sync for prompt and instruction 
 
 * [Customize AI responses overview](/docs/copilot/customization/overview.md)
 * [Create custom instructions](/docs/copilot/customization/custom-instructions.md)
-* [Create custom chat modes](/docs/copilot/customization/custom-chat-modes.md)
+* [Create custom agents](/docs/copilot/customization/custom-agents.md)
 * [Get started with chat in VS Code](/docs/copilot/chat/copilot-chat.md)
 * [Configure tools in chat](/docs/copilot/chat/chat-tools.md)
-* [Community contributed instructions, prompts, and chat modes](https://github.com/github/awesome-copilot)
+* [Community contributed instructions, prompts, and custom agents](https://github.com/github/awesome-copilot)

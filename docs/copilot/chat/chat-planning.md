@@ -1,7 +1,7 @@
 ---
 ContentId: 8f9a3e5c-2b4d-4a7f-9c8e-1d6f3a2b5c4e
 DateApproved: 10/09/2025
-MetaDescription: Learn how to use agent mode for autonomous planning and task management with the todo list in VS Code chat.
+MetaDescription: Learn how to use the plan agent for autonomous planning and task management with the todo list in VS Code chat.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Planning in VS Code chat

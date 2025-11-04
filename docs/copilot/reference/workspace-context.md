@@ -103,17 +103,17 @@ VS Code also currently does not index binary files, such as images or PDFs.
 
 ## Use workspace context in chat
 
-When you ask a workspace-related question in chat, the behavior for determining the workspace context depends on which chat mode you're using:
+When you ask a workspace-related question in chat, the behavior for determining the workspace context depends on which agent you're using:
 
-* **Agent mode**
+* **Agent/Plan**
 
-    In agent mode, the agent automatically performs an _agentic_ codebase search based on your prompt. This means that after performing an initial search to determine the workspace context, depending on the results, the agent might decide to perform additional, more targeted searches to gather the information it needs to answer your question.
+    When using agents, the agent automatically performs an _agentic_ codebase search based on your prompt. This means that after performing an initial search to determine the workspace context, depending on the results, the agent might decide to perform additional, more targeted searches to gather the information it needs to answer your question.
 
     You don't need to explicitly reference the `#codebase` tool in your prompt, but you can do so if you want to ensure that workspace context is used for your question. This is useful if your prompt is ambiguous and might be interpreted as not requiring workspace context.
 
-* **Ask/edit mode**
+* **Ask/Edit**
 
-    In ask and edit mode, VS Code performs intent detection on your prompt to determine if it requires workspace context. If requires workspace context, VS Code performs a codebase search and adds the relevant code snippets to the chat context. As opposed to agent mode, no follow-up searches are performed.
+    In Ask or Edit, VS Code performs intent detection on your prompt to determine if it requires workspace context. If requires workspace context, VS Code performs a codebase search and adds the relevant code snippets to the chat context. As opposed to using agents, no follow-up searches are performed.
 
     You don't need to explicitly reference the `#codebase` tool in your prompt, but you can do so if you want to ensure that workspace context is used for your question. This is useful if your prompt is ambiguous and might be interpreted as not requiring workspace context.
 
@@ -125,7 +125,7 @@ The way you phrase your question can significantly influence the quality of the 
 * Incorporate terms and concepts in your prompt that are likely to appear in your code or its documentation.
 * Explicitly include relevant context by selecting code, referencing files, or [#-mentioning context items](/docs/copilot/chat/copilot-chat-context.md) such as debug context, terminal output, and more.
 * Responses can draw from multiple references, such as "find exceptions without a catch block" or "provide examples of how handleError is called". However, don't anticipate a comprehensive code analysis across your codebase, such as "how many times is this function invoked?" or "rectify all bugs in this project".
-* When asking about information beyond the code, such as "who contributed to this file?" or "summarize review comments for this folder", make sure to configure the relevant [tools or MCP servers](/docs/copilot/chat/chat-tools.md) in agent mode.
+* When asking about information beyond the code, such as "who contributed to this file?" or "summarize review comments for this folder", make sure to configure the relevant [tools or MCP servers](/docs/copilot/chat/chat-tools.md) when using agents.
 
 ## Private repositories
 

@@ -118,7 +118,7 @@ A subagent has the following characteristics:
 * Operates autonomously without pausing for user feedback
 * Has access to most tools available to the main chat session and the same model
 
-To invoke a subagent, you can explicitly add the `#runSubagent` tool in your chat prompts or ask to use a subagent with natural language. Subagents are especially useful in custom agents or prompt files to isolate research-heavy workflows.
+To invoke a subagent, use the `#runSubagent` tool in your chat prompts or ask to use a subagent with natural language. Subagents are especially useful in custom agents or prompt files to isolate research-heavy workflows.
 
 The following examples illustrate how to invoke a subagent:
 
