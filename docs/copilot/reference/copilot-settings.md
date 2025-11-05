@@ -120,8 +120,8 @@ The [Chat Sessions view](/docs/copilot/copilot-coding-agent.md) provides a centr
 
 | Setting and Description | Default |
 |------------------------|---------------|
+| `setting(chat.instructionsFilesLocations)` <br/>Locations to search for custom instructions files. Relative paths are resolved from the root folder(s) of your workspace. Supports glob patterns for file paths. | `{ ".github/instructions": true }` |
 | `setting(github.copilot.chat.codeGeneration.useInstructionFiles)`<br/>Automatically add custom instructions from `.github/copilot-instructions.md` to chat requests. | `true` |
-| `setting(chat.instructionsFilesLocations)` _(Experimental)_<br/>Locations to search for custom instructions files. Relative paths are resolved from the root folder(s) of your workspace. Supports glob patterns for file paths. | `{ ".github/instructions": true }` |
 | `setting(github.copilot.chat.commitMessageGeneration.instructions)` _(Experimental)_<br/>Custom instructions for generating commit messages with AI. | `[]` |
 | `setting(github.copilot.chat.pullRequestDescriptionGeneration.instructions)` _(Experimental)_<br/>Custom instructions for generating pull request titles and descriptions with AI. | `[]` |
 
