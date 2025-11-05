@@ -22,14 +22,13 @@ VS Code supports multiple types of Markdown-based instructions files. If you hav
     * Stored within the workspace
 
 * One or more [`.instructions.md`](#use-instructionsmd-files) files
-    * Created for specific tasks or files
-    * Use `applyTo` frontmatter to define what files the instructions should be applied to
+    * Conditionally apply instructions based on file type or location by using glob patterns
     * Stored in the workspace or user profile
 
-* A single [`AGENTS.md`](#use-an-agentsmd-file) file (experimental)
+* One or more [`AGENTS.md`](#use-an-agentsmd-file) files
     * Useful if you work with multiple AI agents in your workspace
-    * Automatically applies to all chat requests in the workspace
-    * Stored in the root of the workspace
+    * Automatically applies to all chat requests in the workspace or to specific subfolders (experimental)
+    * Stored in the root of the workspace or in subfolders (experimental)
 
 Whitespace between instructions is ignored, so the instructions can be written as a single paragraph, each on a new line, or separated by blank lines for legibility.
 
@@ -151,13 +150,21 @@ Alternatively, you can manually attach an instructions file to a specific chat p
 
 ### Instructions file format
 
-Instructions files use the `.instructions.md` extension and have this structure:
+Instructions files are Markdown files and use the `.instructions.md` extension and have this structure:
 
-* **Header** (optional): YAML frontmatter
-    * `description`: Description shown on hover in Chat view
-    * `applyTo`: Glob pattern for automatic application (use `**` for all files), relative to the workspace root
+#### Header (optional)
 
-* **Body**: Instructions in Markdown format
+The header is formatted as YAML frontmatter with the following fields:
+
+| Field     | Description                                                                                   |
+| --------- | ------------------------------------------------- |
+| `description` | A short description of the instructions file. |
+| `name`        | The name of the instructions file, used in the UI. If not specified, the file name is used. |
+| `applyTo`     | Optional glob pattern that defines which files the instructions should be applied to automatically, relative to the workspace root. Use `**` to apply to all files. If no value is specified, the instructions are not applied automatically - you can still add them manually to a chat request. |
+
+#### Body
+
+The instructions file body contains the custom instructions that are sent to the LLM when the instructions are applied. Provide specific guidelines, rules, or any other relevant information that you want the AI to follow.
 
 Example:
 
@@ -187,17 +194,16 @@ To create an instructions file:
 
 1. Choose the location where to create the instructions file.
 
-    * **Workspace**: By default, workspace instructions files are stored in the `.github/instructions` folder of your workspace. Add more instruction folders for your workspace with the `setting(chat.instructionsFilesLocations)` setting.
+    * **Workspace**: create the instructions file in the `.github/instructions` folder of your workspace to only use it within that workspace. Add more instruction folders for your workspace with the `setting(chat.instructionsFilesLocations)` setting.
 
-    * **User profile**: User instructions files are stored in the [current profile folder](/docs/configure/profiles.md). You can sync your user instructions files across multiple devices by using [Settings Sync](/docs/configure/settings-sync.md).
+    * **User profile**: create the instructions files in the [current profile folder](/docs/configure/profiles.md) to use it across all your workspaces.
 
-1. Enter a name for your instructions file.
+1. Enter a file name for your instructions file. This is the default name that is used in the UI.
 
 1. Author the custom instructions by using Markdown formatting.
 
-    Specify the `applyTo` metadata property in the header to configure when the instructions should be applied automatically. For example, you can specify `applyTo: "**/*.ts,**/*.tsx"` to apply the instructions only to TypeScript files.
-
-    To reference additional workspace files, use Markdown links (`[index](../index.ts)`).
+    * Fill in the YAML frontmatter at the top of the file to configure the instructions' description, name, and when they apply.
+    * Add instructions in the body of the file.
 
 To modify an existing instructions file, in the Chat view, select **Configure Chat** (gear icon) > **Chat Instructions**, and then select an instructions file from the list. Alternatively, use the **Chat: Configure Instructions** command from the Command Palette (`kb(workbench.action.showCommands)`) and select the instructions file from the Quick Pick.
 
