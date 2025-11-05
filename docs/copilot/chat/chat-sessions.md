@@ -104,10 +104,7 @@ To export a chat session:
 
 Alternatively, you can copy individual prompts or responses to the clipboard by right-clicking the message and selecting **Copy**. To copy the entire chat session in Markdown format, right-click the Chat view and select **Copy All**.
 
-## Context-isolated Subagents
-
-> [!NOTE]
-> Subagents are currently only available in [VS Code Insiders](https://code.visualstudio.com/insiders/).
+## Context-isolated subagents
 
 A subagent is an isolated autonomous agent that can be used to delegate complex, multi-step tasks to within your chat session. Subagents can be useful for research and context gathering, complex analysis, and to optimize context management in your chat sessions.
 
@@ -131,7 +128,7 @@ The following examples illustrate how to invoke a subagent:
 ## Agent Sessions
 
 > [!NOTE]
-> The Agent Sessions view is currently in preview. The integration with OpenAI Codex is available in [VS Code Insiders](https://code.visualstudio.com/insiders/).
+> The Agent Sessions view is currently in preview.
 
 Agents enable you to perform AI coding tasks asynchronously in the background. This allows you to continue working in VS Code while the agent processes your requests. These agents are different from chat sessions in VS Code, since agents work in the background, while chat sessions are interactive and require your real-time input. Agents can also run in different environments, such as locally on your machine or remotely in the cloud.
 

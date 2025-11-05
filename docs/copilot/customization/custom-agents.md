@@ -33,9 +33,6 @@ Custom agents also let you provide specialized instructions that define how the 
 
 ## Handoffs
 
-> [!NOTE]
-> Handoffs are currently only available in [VS Code Insiders](https://code.visualstudio.com/insiders/).
-
 Handoffs enable you to create guided sequential workflows that transition between agents with suggested next steps. After a chat response completes, handoff buttons appear that let users move to the next agent with relevant context and a pre-filled prompt.
 
 Handoffs are useful for orchestrating multi-step workflows, that give developer's control for reviewing and approving each step before moving to the next one. For example:

@@ -12,9 +12,6 @@ Using plans and todos let you structure and review details of the implementation
 
 This article explains how to research and plan development tasks in VS Code chat, including the plan agent and todo lists.
 
-> [!NOTE]
-> The plan agent is currently only available in [VS Code Insiders](https://code.visualstudio.com/insiders/).
-
 ## Plan agent for detailed task research
 
 The built-in plan agent collaborates with you to create detailed implementation plans before executing them. This ensures that all requirements are considered and addressed before any code changes are made. The plan agent does not make any code changes until the plan is reviewed and approved by you. Once approved, you can hand off the plan to the default agent or save the plan for further refinement, review, or team discussions.
