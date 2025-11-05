@@ -7,6 +7,9 @@ MetaSocialImage: unified-agent-experience.png
 Date: 2025-11-04
 Author: Burke Holland
 ---
+# A Unified Experience for all Coding Agents
+
+November 4, 2025 by Burke Holland, [@burkeholland](https://twitter.com/burkeholland)
 
 OpenAI had a big year: they shipped the GPT-5 and GPT-5 Codex models, which were available in VS Code on day one through the standard model picker. But they also launched Codex, their coding agent, available as both a CLI tool and a [VS Code extension](https://marketplace.visualstudio.com/items?itemName=openai.chatgpt). And it was a huge hit with developers.
 
