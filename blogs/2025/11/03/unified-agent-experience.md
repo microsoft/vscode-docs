@@ -11,9 +11,6 @@ Author: Burke Holland
 
 November 5, 2025 by Burke Holland, [@burkeholland](https://twitter.com/burkeholland)
 
-OpenAI had a big year: they shipped the GPT-5 and GPT-5 Codex models, which were available in VS Code on day one through the standard model picker. But they also launched Codex, their coding agent, available as both a CLI tool and a [VS Code extension](https://marketplace.visualstudio.com/items?itemName=openai.chatgpt). And it was a huge hit with developers.
-
-
 If we had to pick one word to describe the past year, it would probably be "Agent".
 
 Agents took over VS Code in 2025. We released [agent mode](https://code.visualstudio.com/blogs/2025/02/24/introducing-copilot-agent-mode) for VS Code, integration for the [Copilot coding agent (cloud)](https://code.visualstudio.com/docs/copilot/copilot-coding-agent), and the new [GitHub Copilot CLI](https://github.com/features/copilot/cli/). But Copilot is not the only agent game in town. There are now more coding agents than ever - including options from OpenAI and Anthropic.
