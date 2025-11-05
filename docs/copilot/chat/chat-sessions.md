@@ -40,7 +40,7 @@ You can open a chat session as an editor tab to have the chat experience alongsi
 
 To open a new chat session directly in an editor tab:
 
-<!-- * Open the Chat view and select **New Chat** (`+`) > **New Chat Editor** -->
+* Open the Chat view and select **New Chat** (`+`) > **New Chat Editor**
 
 * Use the **Chat: New Chat Editor** command from the Command Palette
 
@@ -61,7 +61,7 @@ You can open an existing chat session from the Chat view in a separate window, o
 
 To open a new chat session directly in a new window:
 
-<!-- * Open the Chat view and select **New Chat** (`+`) > **New Chat** -->
+* Open the Chat view and select **New Chat** (`+`) > **New Chat Window**
 
 * Use the **Chat: New Chat Window** command from the Command Palette
 
