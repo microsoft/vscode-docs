@@ -129,8 +129,7 @@ The [Chat Sessions view](/docs/copilot/copilot-coding-agent.md) provides a centr
 
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(chat.promptFiles)` _(Experimental)_<br/>Enable or disable reusable prompt files. | `true` |
-| `setting(chat.promptFilesLocations)` _(Experimental)_<br/>Locations to search for prompt files. Relative paths are resolved from the root folder(s) of your workspace. Supports glob patterns for file paths. | `{ ".github/prompts": true }` |
+| `setting(chat.promptFilesLocations)` <br/>Locations to search for prompt files. Relative paths are resolved from the root folder(s) of your workspace. Supports glob patterns for file paths. | `{ ".github/prompts": true }` |
 
 ## Debugging settings
 

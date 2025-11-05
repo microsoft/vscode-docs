@@ -10,9 +10,6 @@ Prompt files are Markdown files that define reusable prompts for common developm
 
 They can include task-specific guidelines or reference custom instructions to ensure consistent execution. Unlike custom instructions that apply to all requests, prompt files are triggered on-demand for specific tasks.
 
-> [!NOTE]
-> Prompt files are currently experimental and may change in future releases.
-
 VS Code supports two types of scopes for prompt files:
 
 * **Workspace prompt files**: Are only available within the workspace and are stored in the `.github/prompts` folder of the workspace.
