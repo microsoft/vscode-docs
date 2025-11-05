@@ -70,14 +70,18 @@ The headers is formatted as YAML frontmatter with the following fields:
 
 | Field | Description |
 | --- | --- |
-| `description` | A brief description of the custom agent, shown as placeholder text in the chat input field. |
-| `tools`       | A list of tool or tool set names that are available for this custom agent. Can include built-in tools, tool sets, MCP tools, or tools contributed by extensions. Learn more about [tools in chat](/docs/copilot/chat/chat-tools.md). |
-| `model`       | The AI model to use when running the prompt. If not specified, the currently selected model in model picker is used. |
-| `handoffs`    | An optional list of suggested next actions or prompts to transition between custom agents. Handoff buttons appear as interactive suggestions after a chat response completes. |
-| `handoffs.label` | The display text shown on the handoff button. |
-| `handoffs.agent` | The target agent identifier to switch to. |
+| `description`     | A brief description of the custom agent, shown as placeholder text in the chat input field. |
+| `name`            | The name of the custom agent. If not specified, the file name is used. |
+| `argument-hint`   | Optional hint text shown in the chat input field to guide users on how to interact with the custom agent. |
+| `tools`           | A list of tool or tool set names that are available for this custom agent. Can include built-in tools, tool sets, MCP tools, or tools contributed by extensions. Learn more about [tools in chat](/docs/copilot/chat/chat-tools.md). |
+| `model`           | The AI model to use when running the prompt. If not specified, the currently selected model in model picker is used. |
+| `target`          | The target environment or context for the custom agent (`vscode` or `github-copilot`). |
+| `mcp-servers`     | Optional list of Model Context Protocol (MCP) server config json to use with [custom agents in GitHub Copilot](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents) (target: `github-copilot`). |
+| `handoffs`        | Optional list of suggested next actions or prompts to transition between custom agents. Handoff buttons appear as interactive suggestions after a chat response completes. |
+| `handoffs.label`  | The display text shown on the handoff button. |
+| `handoffs.agent`  | The target agent identifier to switch to. |
 | `handoffs.prompt` | The prompt text to send to the target agent. |
-| `handoffs.send` | Optional boolean flag to auto-submit the prompt (default is `false`) |
+| `handoffs.send`   | Optional boolean flag to auto-submit the prompt (default is `false`) |
 
 ### Body
 
@@ -94,6 +98,7 @@ The following code snippet shows an example of a "Plan" custom agent file that g
 ```markdown
 ---
 description: Generate an implementation plan for new features or refactoring existing code.
+name: Planner
 tools: ['fetch', 'githubRepo', 'search', 'usages']
 model: Claude Sonnet 4
 handoffs:
@@ -118,26 +123,22 @@ The plan consists of a Markdown document that describes the implementation plan,
 
 You can create a custom agent file in your workspace or user profile.
 
-1. Run the **Chat: New Custom Agent** command in the Command Palette (`kb(workbench.action.showCommands)`) and select **Create new custom agent**.
-
-    Alternatively, select **Configure Chat** (gear icon) in the Chat view > **Custom Agents**, and then select **Create new custom agent**.
-
-    ![Screenshot showing the Chat view, and Configure Chat menu, highlighting the Configure Chat button.](../images/customization/configure-chat-instructions.png)
+1. Select **Configure Custom Agents** from the agents dropdown and then select **Create new custom agent** or run the **Chat: New Custom Agent** command in the Command Palette (`kb(workbench.action.showCommands)`).
 
 1. Choose the location where the custom agent file should be created.
 
-    * **Workspace**: Workspace custom agent files are stored in the `.github/agents` folder of your workspace.
+    * **Workspace**: create the custom agent definition file in the `.github/agents` folder of your workspace to only use it within that workspace
 
-    * **User profile**: User custom agent files are stored in the [current profile folder](/docs/configure/profiles.md). You can sync your user custom agent files across multiple devices by using [Settings Sync](/docs/configure/settings-sync.md).
+    * **User profile**: create the custom agent definition file in the [current profile folder](/docs/configure/profiles.md) to use it across all your workspaces
 
-1. Enter a name for the custom agent. This name is used in the agent picker in the Chat view.
+1. Enter a file name for the custom agent. This is the default name that appears in the agents dropdown.
 
 1. Provide the details for the custom agent in the newly created `.agent.md` file.
 
-    * Provide the description and configure the list of available tools or tool sets in the Front Matter metadata.
+    * Fill in the YAML frontmatter at the top of the file to configure the custom agent's name, description, tools, and other settings.
     * Add instructions for the custom agent in the body of the file.
 
-To edit and manage existing custom agents, in the Chat view, select **Configure Chat** (gear icon) > **Custom Agents**, and then select an existing custom agent from the list to modify it. Alternatively, you can use the **Chat: Configure Agents** command from the Command Palette (`kb(workbench.action.showCommands)`).
+To update a custom agent definition file, select **Configure Custom Agents** from the agents dropdown, and then select a custom agent from the list to modify it.
 
 ## Tool list priority
 
