@@ -15,7 +15,37 @@ VS Code supports two types of scopes for prompt files:
 * **Workspace prompt files**: Are only available within the workspace and are stored in the `.github/prompts` folder of the workspace.
 * **User prompt files**: Are available across multiple workspaces and are stored in the current [VS Code profile](/docs/configure/profiles.md).
 
-## Prompt file examples
+## Prompt file structure
+
+Prompt files are Markdown files and use the `.prompt.md` extension and have this structure:
+
+### Header (optional)
+
+The header is formatted as YAML frontmatter with the following fields:
+
+| Field | Description |
+| --- | --- |
+| `description`     | A short description of the prompt. |
+| `name`            | The name of the prompt, used after typing `/` in chat. If not specified, the file name is used. |
+| `argument-hint`   | Optional hint text shown in the chat input field to guide users on how to interact with the prompt. |
+| `agent`           | The agent used for running the prompt: `ask`, `edit`, `agent` (default), or the name of a [custom agent](/docs/copilot/customization/custom-agents.md). |
+| `model`           | The language model used when running the prompt. If not specified, the currently selected model in model picker is used. |
+| `tools`           | An array of tool (set) names that can be used. Select **Configure Tools** to select the tools from the list of available tools in your workspace. If a given tool (set) is not available when running the prompt, it is ignored. |
+
+### Body
+
+The prompt file body contains the prompt text that is sent to the LLM when running the prompt in chat. Provide specific instructions, guidelines, or any other relevant information that you want the AI to follow.
+
+You can reference other workspace files by using Markdown links. Use relative paths to reference these files, and ensure that the paths are correct based on the location of the prompt file.
+
+Within a prompt file, you can reference variables by using the `${variableName}` syntax. You can reference the following variables:
+
+* Workspace variables - `${workspaceFolder}`, `${workspaceFolderBasename}`
+* Selection variables - `${selection}`, `${selectedText}`
+* File context variables - `${file}`, `${fileBasename}`, `${fileDirname}`, `${fileBasenameNoExtension}`
+* Input variables - `${input:variableName}`, `${input:variableName:placeholder}` (pass values to the prompt from the chat input field)
+
+### Prompt file examples
 
 The following examples demonstrate how to use prompt files. For more community-contributed examples, see the [Awesome Copilot repository](https://github.com/github/awesome-copilot/tree/main).
 
@@ -68,37 +98,6 @@ Return the TODO list in a Markdown format, grouped by priority and issue type.
 
 </details>
 
-## Prompt file format
-
-Prompt files are Markdown files and use the `.prompt.md` extension and have this structure:
-
-* **Header** (optional): YAML frontmatter
-    * `description`: Short description of the prompt
-    * `agent`: Agent used for running the prompt: `ask`, `edit`, `agent` (default), or the name of a [custom agent](/docs/copilot/customization/custom-agents.md)
-    * `model`: Language model used when running the prompt. If not specified, the currently selected model in model picker is used.
-    * `tools`: Array of tool (set) names that can be used. Select **Configure Tools** to select the tools from the list of available tools in your workspace. If a given tool (set) is not available when running the prompt, it is ignored.
-
-* **Body**: Prompt instructions in Markdown format
-
-    Reference other workspace files, prompt files, or instruction files by using Markdown links. Use relative paths to reference these files, and ensure that the paths are correct based on the location of the prompt file.
-
-    Within a prompt file, you can reference variables by using the `${variableName}` syntax. You can reference the following variables:
-
-    * Workspace variables - `${workspaceFolder}`, `${workspaceFolderBasename}`
-    * Selection variables - `${selection}`, `${selectedText}`
-    * File context variables - `${file}`, `${fileBasename}`, `${fileDirname}`, `${fileBasenameNoExtension}`
-    * Input variables - `${input:variableName}`, `${input:variableName:placeholder}` (pass values to the prompt from the chat input field)
-
-### Tool list priority
-
-You can specify the list of available tools for both a custom agent and prompt file by using the `tools` metadata field. Prompt files can also reference a custom agent by using the `agent` metadata field.
-
-The list available tools in chat is determined by the following priority order:
-
-1. Tools specified in the prompt file (if any)
-2. Tools from the referenced custom agent in the prompt file (if any)
-3. Default tools for the selected agent (if any)
-
 ## Create a prompt file
 
 When you create a prompt file, choose whether to store it in your workspace or user profile. Workspace prompt files apply only to that workspace, while user prompt files are available across multiple workspaces.
@@ -115,17 +114,16 @@ To create a prompt file:
 
 1. Choose the location where the prompt file should be created.
 
-    * **Workspace**: By default, workspace prompt files are stored in the `.github/prompts` folder of your workspace. Add more prompt folders for your workspace with the `setting(chat.promptFilesLocations)` setting.
+    * **Workspace**: create the prompt file in the `.github/prompts` folder of your workspace to only use it within that workspace. Add more prompt folders for your workspace with the `setting(chat.promptFilesLocations)` setting.
 
-    * **User profile**: User prompt files are stored in the [current profile folder](/docs/configure/profiles.md). You can sync your user prompt files across multiple devices by using [Settings Sync](/docs/configure/settings-sync.md).
+    * **User profile**: create the prompt file in the [current profile folder](/docs/configure/profiles.md) to use it across all your workspaces.
 
-1. Enter a name for your prompt file.
+1. Enter a file name for your prompt file. This is the default name that appears when you type `/` in chat.
 
 1. Author the chat prompt by using Markdown formatting.
 
-    Within a prompt file, reference additional workspace files as Markdown links (`[index](../index.ts)`).
-
-    You can also reference other `.prompt.md` files to create a hierarchy of prompts. You can also reference [instructions files](/docs/copilot/customization/custom-instructions.md) in the same way.
+    * Fill in the YAML frontmatter at the top of the file to configure the prompt's description, agent, tools, and other settings.
+    * Add instructions for the prompt in the body of the file.
 
 To modify an existing prompt file, in the Chat view, select **Configure Chat** > **Prompt Files**, and then select a prompt file from the list. Alternatively, use the **Chat: Configure Prompt Files** command from the Command Palette (`kb(workbench.action.showCommands)`) and select the prompt file from the Quick Pick.
 
@@ -133,7 +131,7 @@ To modify an existing prompt file, in the Chat view, select **Configure Chat** >
 
 You have multiple options to run a prompt file:
 
-* In the Chat view, type `/` followed by the prompt file name in the chat input field.
+* In the Chat view, type `/` followed by the prompt name in the chat input field.
 
     You can add extra information in the chat input field. For example, `/create-react-form formName=MyForm` or `/create-api for listing customers`.
 
@@ -147,6 +145,16 @@ You have multiple options to run a prompt file:
 > Use the `setting(chat.promptFilesRecommendations)` setting to show prompts as recommended actions when starting a new chat session.
 >
 > ![Screenshot showing an "explain" prompt file recommendation in the Chat view.](../images/customization/prompt-file-recommendations.png)
+
+## Tool list priority
+
+You can specify the list of available tools for both a custom agent and prompt file by using the `tools` metadata field. Prompt files can also reference a custom agent by using the `agent` metadata field.
+
+The list available tools in chat is determined by the following priority order:
+
+1. Tools specified in the prompt file (if any)
+2. Tools from the referenced custom agent in the prompt file (if any)
+3. Default tools for the selected agent (if any)
 
 ## Sync user prompt files across devices
 
