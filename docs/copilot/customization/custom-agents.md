@@ -66,7 +66,7 @@ Custom agent files are Markdown files and use the `.agent.md` extension and have
 
 ### Header (optional)
 
-The headers is formatted as YAML frontmatter with the following fields:
+The header is formatted as YAML frontmatter with the following fields:
 
 | Field | Description |
 | --- | --- |
