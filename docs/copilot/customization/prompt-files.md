@@ -135,13 +135,18 @@ You have multiple options to run a prompt file:
 
 * In the Chat view, type `/` followed by the prompt file name in the chat input field.
 
-    This option enables you to pass additional information in the chat input field. For example, `/create-react-form` or `/create-react-form: formName=MyForm`.
+    You can add extra information in the chat input field. For example, `/create-react-form formName=MyForm` or `/create-api for listing customers`.
 
 * Run the **Chat: Run Prompt** command from the Command Palette (`kb(workbench.action.showCommands)`) and select a prompt file from the Quick Pick.
 
 * Open the prompt file in the editor, and press the play button in the editor title area. You can choose to run the prompt in the current chat session or open a new chat session.
 
     This option is useful for quickly testing and iterating on your prompt files.
+
+> [!TIP]
+> Use the `setting(chat.promptFilesRecommendations)` setting to show prompts as recommended actions when starting a new chat session.
+>
+> ![Screenshot showing an "explain" prompt file recommendation in the Chat view.](../images/customization/prompt-file-recommendations.png)
 
 ## Sync user prompt files across devices
 
