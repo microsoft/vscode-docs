@@ -140,6 +140,14 @@ You can create a custom agent file in your workspace or user profile.
 
 To update a custom agent definition file, select **Configure Custom Agents** from the agents dropdown, and then select a custom agent from the list to modify it.
 
+## Customize the agents dropdown list
+
+If you have multiple custom agents, you can customize which ones appear in the agents dropdown. To show or hide specific custom agents:
+
+1. Select **Configure Custom Agents** from the agents dropdown.
+
+1. Hover over a custom agent in the list, and then select the eye icon to show or hide it from the agents dropdown.
+
 ## Tool list priority
 
 You can specify the list of available tools for both a custom agent and prompt file by using the `tools` metadata field. Prompt files can also reference a custom agent by using the `agent` metadata field.
