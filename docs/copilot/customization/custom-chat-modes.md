@@ -89,7 +89,7 @@ When you select the chat mode in the Chat view, the guidelines in the chat mode 
 
 ### Chat mode example
 
-The following code snippet shows an example of a "Plan" chat mode file that generates an implementation plan and doesn't make any code edits. For more community-contributed examples, see the [Awesome Copilot repository](https://github.com/github/awesome-copilot/tree/main).
+The following code snippet shows an example of a "Plan" chat mode file that generates an implementation plan and doesn't make any code edits. For more community-contributed examples, see the [Awesome Copilot repository](https://github.com/github/awesome-copilot/tree/main) and [prpm.dev](https://prpm.dev/search?format=copilot).
 
 ```markdown
 ---
