@@ -106,24 +106,26 @@ Alternatively, you can copy individual prompts or responses to the clipboard by 
 
 ## Context-isolated subagents
 
-A subagent is an isolated autonomous agent that can be used to delegate complex, multi-step tasks to within your chat session. Subagents can be useful for research and context gathering, complex analysis, and to optimize context management in your chat sessions.
+A subagent enables you to delegate tasks to an isolated, autonomous agent within your chat session. Subagents operate independently from the main chat session and have their own context window. This is useful to optimize  context management for complex multi-step tasks like research or analysis.
 
-A subagent has the following characteristics:
+Subagents don't run asynchronously or in the background, however, they operate autonomously without pausing for user feedback. When a subagent completes its task, it returns only the final result to the main chat session, keeping the main context window focused on the primary conversation.
 
-* Operates independently from the main chat session and returns only the final result when complete
-* Uses its own context window separate from the main chat session
-* Operates autonomously without pausing for user feedback
-* Has access to most tools available to the main chat session and the same model
+Subagents have access to the tools available to the main chat session, except for creating other subagents. They use the same AI model as the main chat session.
 
-To invoke a subagent, use the `#runSubagent` tool in your chat prompts or ask to use a subagent with natural language. Subagents are especially useful in custom agents or prompt files to isolate research-heavy workflows.
+### Invoke a subagent
 
-The following examples illustrate how to invoke a subagent:
+To invoke a subagent in a prompt:
 
-* `"Perform research about viable authentication mechanisms for this app #runSubagent. Then summarize the findings and recommend the best option."`
-* `"Analyze how to add OAuth authentication - use a subagent. Ask clarifying questions. Then implement this plan."`
+1. Enable the `runSubagent` tool in the tool picker
 
-> [!NOTE]
-> Subagents have access to most tools, including editing and MCP tools, but cannot invoke other subagents.
+    If you use a [custom prompt file](/docs/copilot/customization/prompt-files.md) or [custom agent](/docs/copilot/customization/custom-agents.md), ensure you specify `runSubagent` in the `tools` frontmatter property.
+
+1. In the chat prompt, ask to use a subagent to perform a task.
+
+    The following examples illustrate how to invoke a subagent:
+
+    * `Use a subagent to research the best authentication methods for web applications. Summarize the findings.`
+    * `Run #runSubagent to research the user's task comprehensively using read-only tools. Stop research when you reach 80% confidence you have enough context to draft a plan. Return this context.`
 
 ## Agent Sessions
 
