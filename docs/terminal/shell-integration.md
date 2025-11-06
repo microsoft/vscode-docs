@@ -93,25 +93,27 @@ To view the shell integration quality, hover the terminal tab. Optionally, selec
 
 ## IntelliSense
 
-IntelliSense in the terminal enables you to receive suggestions for files, folders, commands, command arguments and options. This feature can be enabled/disabled with `setting(terminal.integrated.suggest.enabled)`.
+IntelliSense in the terminal enables you to receive suggestions for files, folders, commands, command arguments and options. This feature can be enabled or disabled with the `setting(terminal.integrated.suggest.enabled)` setting.
 
-![A user has typed git checkout in a terminal and requests completions. The completion list shows branch names like main and merogge/terminal-section](images/shell-integration/terminal-suggest.png)
+![Screenshot of the terminal showing a user has typed git checkout and receives suggestions for the branch name.](images/shell-integration/terminal-suggest.png)
 
-By default, `kbstyle(Tab)` inserts the suggestion. Once navigation of the list has occurred, `kbstyle(Enter)` will similarly insert the suggestion. You can configure this behavior with the `setting(terminal.integrated.suggest.selectionMode)` setting. IntelliSense can be triggered manually `kb(workbench.action.terminal.requestCompletions)` and should show automatically while typing using the default settings.
+As you type, a list of suggestions will appear. To manually trigger the suggestions, use the `kb(workbench.action.terminal.requestCompletions)` keyboard shortcut.
+
+By default, `kbstyle(Tab)` inserts the suggestion. Once you navigate the list, `kbstyle(Enter)` inserts the suggestion. You can configure this behavior with the `setting(terminal.integrated.suggest.selectionMode)` setting.
 
 There are various settings to configure how terminal IntelliSense behaves:
 
-- `setting(terminal.integrated.suggest.quickSuggestions)` - Show automatically depending on the content of the command line, as opposed to manually via `kbstyle(Ctrl+Space)`.
-- `setting(terminal.integrated.suggest.suggestOnTriggerCharacters)` - Show automatically after a "trigger character" such as `-` or `/`.
-- `setting(terminal.integrated.suggest.runOnEnter)` - Optionally run the command when `kbstyle(Enter)` is used (not `kbstyle(Tab)`).
-- `setting(terminal.integrated.suggest.windowsExecutableExtensions)` - The list of extensions that are treated as executables on Windows.
-- `setting(terminal.integrated.suggest.providers)` - Provides the ability to disable specific providers, for example extensions may contribute completions you don't want.
-- `setting(terminal.integrated.suggest.showStatusBar)` - Whether to show the status bar at the bottom of the IntelliSense popup.
-- `setting(terminal.integrated.suggest.cdPath)` - Whether to enable `$CDPATH` integration.
-- `setting(terminal.integrated.suggest.inlineSuggestion)` - Whether to integrate with shell "ghost text" and how to present it.
-- `setting(terminal.integrated.suggest.upArrowNavigatesHistory)` - Whether up arrow is sent to the shell instead of browsing completions, this is particularly useful on zsh where you can filter and then press up to do a history search with that prefix.
-- `setting(terminal.integrated.suggest.selectionMode)` - How the Intellisense popup is focused which determines what `kbstyle(Enter)` and `kbstyle(Tab)` do.
-- `setting(terminal.integrated.suggest.insertTrailingSpace)` - Insert a trailing space and re-trigger completions after accepting.
+- `setting(terminal.integrated.suggest.quickSuggestions)`: show automatically depending on the content of the command line, as opposed to manually via `kbstyle(Ctrl+Space)`.
+- `setting(terminal.integrated.suggest.suggestOnTriggerCharacters)`: show automatically after a "trigger character" such as `-` or `/`.
+- `setting(terminal.integrated.suggest.runOnEnter)`: optionally run the command when `kbstyle(Enter)` is used (not `kbstyle(Tab)`).
+- `setting(terminal.integrated.suggest.windowsExecutableExtensions)`: the list of extensions that are treated as executables on Windows.
+- `setting(terminal.integrated.suggest.providers)`: provides the ability to disable specific providers, for example extensions may contribute completions you don't want.
+- `setting(terminal.integrated.suggest.showStatusBar)`: show the status bar at the bottom of the IntelliSense popup.
+- `setting(terminal.integrated.suggest.cdPath)`: enable `$CDPATH` integration.
+- `setting(terminal.integrated.suggest.inlineSuggestion)`: integrate with shell "ghost text" and how to present it.
+- `setting(terminal.integrated.suggest.upArrowNavigatesHistory)`: send up arrow to the shell instead of browsing completions, this is particularly useful on zsh where you can filter and then press up to do a history search with that prefix.
+- `setting(terminal.integrated.suggest.selectionMode)`: how the Intellisense popup is focused which determines what `kbstyle(Enter)` and `kbstyle(Tab)` do.
+- `setting(terminal.integrated.suggest.insertTrailingSpace)`: insert a trailing space and re-trigger completions after accepting.
 
 ### Global completion caching
 
