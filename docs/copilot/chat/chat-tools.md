@@ -132,6 +132,19 @@ By default, patterns match against individual subcommands. For a command to be a
 
 For advanced scenarios, use object syntax with the `matchCommandLine` property to match against the full command line instead of individual subcommands.
 
+Related settings:
+
+- `setting(chat.tools.terminal.enableAutoApprove)` - Can be used to permanently disable the feature
+- `setting(chat.tools.terminal.blockDetectedFileWrites)` - Experimental detection of file writes
+- `setting(chat.tools.terminal.ignoreDefaultAutoApproveRules)` - Disable all default rules (both allow and block), giving full control over all rules.
+
+> [!CAUTION]
+> This feature provides _best effort_ protections and assumes the agent is not acting maliciously. It's important to protect yourself from prompt injection when you enable terminal auto approve as it may always be possible for some commands to slip through. Here are some examples where the detection can fall over:
+>
+> - PowerShell and bash tree sitter grammars are used to extract sub-commands, so if the grammars don't detect the pattern then we won't.
+> - Since there is no zsh or fish grammar, we use the bash grammar. This means some sub-commands will not be detected.
+> - Detection of file writes is currently minimal, so it may be possible to write to files with the terminal that is not possible using the standard file editing tools.
+
 ### Auto-approve all tools
 
 To disable all manual approvals for tools and terminal commands in all workspaces, enable the `setting(chat.tools.global.autoApprove)` setting.
