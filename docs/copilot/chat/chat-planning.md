@@ -44,9 +44,9 @@ The plan agent is designed to:
 
 4. Once finalized, choose to save the plan or hand off to an implementation agent to start coding by using the corresponding controls.
 
-    When starting to implement the plan, you can still provide instructions, like "Start with the UI", or "only step 1 and 2". Similar for saving the plan, you can provide instructions like "Add a section for manual testing steps".
+    When starting to implement the plan, you can still provide instructions, like "Start with the UI", or "only step 1 and 2".
 
-
+    When you save the plan, a `*.prompt.md` [prompt file](/docs/copilot/customization/prompt-files.md) is generated, which you can further edit. Once ready, you can start the implementation by invoking the prompt.
 
 ## Track progress with the todo list
 
