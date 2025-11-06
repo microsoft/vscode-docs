@@ -87,7 +87,6 @@ The Extensions view has a dedicated section for MCP servers. VS Code retrieves t
 
 To install an MCP server from the Extensions view:
 
-1. Enable the `setting(chat.mcp.gallery.enabled)` setting to show the MCP servers in the Extensions view.
 1. Open the Extensions view (`kb(workbench.view.extensions)`) and enter `@mcp` in the search field to show the list of MCP servers.
 
     Alternatively, run the **MCP: Browse Servers** command from the Command Palette.
