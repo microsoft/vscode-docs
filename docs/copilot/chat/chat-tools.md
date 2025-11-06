@@ -132,6 +132,19 @@ By default, patterns match against individual subcommands. For a command to be a
 
 For advanced scenarios, use object syntax with the `matchCommandLine` property to match against the full command line instead of individual subcommands.
 
+Related settings:
+
+* `setting(chat.tools.terminal.enableAutoApprove)`: permanently disable auto-approve functionality
+* `setting(chat.tools.terminal.blockDetectedFileWrites)`: detection of file writes (experimental)
+* `setting(chat.tools.terminal.ignoreDefaultAutoApproveRules)`: disable all default rules (both allow and block), giving full control over all rules.
+
+> [!CAUTION]
+> Automatically approving terminal commands provides _best effort_ protections and assumes the agent is not acting maliciously. It's important to protect yourself from prompt injection when you enable terminal auto approve, as it might be possible for some commands to slip through. Here are some examples where the detection can fall over:
+>
+> * VS Code uses PowerShell and bash tree sitter grammars to extract sub-commands, so patterns are not detected if these grammars don't detect them.
+> * VS Code uses bash grammar because there is no zsh or fish grammar, so some sub-commands are not detected.
+> * Detection of file writes is currently minimal, so it might be possible to write to files with the terminal that would not be possible by using the file editing agent tools.
+
 ### Auto-approve all tools
 
 To disable all manual approvals for tools and terminal commands in all workspaces, enable the `setting(chat.tools.global.autoApprove)` setting.
