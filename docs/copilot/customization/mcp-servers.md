@@ -57,22 +57,6 @@ VS Code supports the following MCP capabilities:
 * Install the latest version of [Visual Studio Code](/download)
 * Access to [Copilot](/docs/copilot/setup.md)
 
-## Enable MCP support in VS Code
-
-The `setting(chat.mcp.access)` setting controls which MCP servers can be installed and run in VS Code:
-
-* `all` (default): All MCP servers are allowed
-* `registry`: Only MCP servers from the registry are allowed
-* `none`: No MCP servers are allowed
-
-### Centrally manage MCP support
-
-You have two options to centrally manage MCP support in your organization:
-
-* **Device management**: Centrally enable or disable MCP support in your organization via group policies or configuration profiles. Learn more about [managing VS Code settings with device management](/docs/setup/enterprise.md#centrally-manage-vs-code-settings).
-
-* **GitHub Copilot policy**: Control the availability of MCP servers in your organization with a GitHub Copilot policy. Learn more about [Managing policies and features for Copilot in your enterprise](https://docs.github.com/en/enterprise-cloud@latest/copilot/how-tos/administer/enterprises/managing-policies-and-features-for-copilot-in-your-enterprise) in the GitHub Copilot documentation.
-
 ## Add an MCP server
 
 > [!CAUTION]
@@ -481,6 +465,10 @@ You can enable _development mode_ for MCP servers by adding a `dev` key to the M
 * `debug`: Enables you to set up a debugger with the MCP server. Currently, VS Code supports debugging Node.js and Python MCP servers.
 
 Learn more about [MCP development mode](/api/extension-guides/ai/mcp.md#mcp-development-mode-in-vs-code) in the MCP Dev Guide.
+
+## Centrally control MCP access
+
+Organizations can centrally manage access to MCP servers via GitHub policies. Learn more about [enterprise management of MCP servers](/docs/setup/enterprise.md#configure-mcp-server-access).
 
 ## Frequently asked questions
 
