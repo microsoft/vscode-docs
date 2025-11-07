@@ -140,6 +140,8 @@ VS Code currently provides policies to control the following admin-controlled fe
 | `CopilotReviewSelection`             | Enable code review for editor selection.                                                           | `github.copilot.chat.reviewSelection.enabled` | 1.104           |
 | `CopilotReviewAgent`                 | Enable Copilot Code Review for pull requests and changed files.                                    | `github.copilot.chat.reviewAgent.enabled`     | 1.104           |
 | `ChatToolsTerminalEnableAutoApprove` | Enable the rule-based auto-approval for the terminal tool.                                         | `chat.tools.terminal.autoApprove`             | 1.104           |
+| `McpGalleryServiceUrl`               | Configure the MCP Gallery service URL to connect to                                                                              | `chat.mcp.gallery.serviceUrl`                 | 1.101           |
+| `ExtensionGalleryServiceUrl`         | Configure the Marketplace service URL to connect to                                                                              | `extensions.gallery.serviceUrl`               | 1.99            |
 
 ### Group Policy on Windows
 
@@ -159,14 +161,6 @@ Starting from VS Code version 1.99, each release ships with a sample `.mobilecon
 
 > [!TIP]
 > To view the contents of the `.app` bundle, right-click on the application (for example, `/Applications/Visual Studio Code.app`) in Finder and select **Show Package Contents**.
-
-### JSON policies on Linux
-
-Starting from VS Code version 1.106, you can also configure VS Code setting policies on Linux devices by placing a JSON policy file at `/etc/vscode/policy.json`.
-
-Each release includes a sample `policy.json` file under `resources/app/policies` which includes the available policies. You can find this file by either extracting the Linux packages using the appropriate tool or by downloading and extracting the `tar.gz` file from the Downloads page.
-
-Use a text editor to manually edit or remove policy to match your organization's requirements.
 
 #### String policies
 
@@ -211,6 +205,18 @@ Manually install a configuration profile by double-clicking on the `.mobileconfi
 
 For more information on configuration profiles, refer to [Apple's documentation](https://support.apple.com/guide/mac-help/configuration-profiles-standardize-settings-mh35561/mac).
 
+### JSON policies on Linux
+
+Starting from VS Code version 1.106, you can also configure VS Code setting policies on Linux devices by placing a JSON policy file at `/etc/vscode/policy.json`.
+
+Each release includes a sample `policy.json` file under `resources/app/policies` which includes the available policies. You can find this file by either extracting it from the downloaded package or by selecting and extracting the `tar.gz` file from the Downloads page.
+
+Use a text editor to manually edit or remove policy to match your organization's requirements.
+
+> [!IMPORTANT]
+> The provided `policy.json` file initializes **all** policies available in that version of VS Code. Delete any policies that are not needed.
+>
+> If you do not edit or remove a policy from the sample `policy.json`, that policy will be enforced with its default (restrictive) policy value.
 
 ### Additional policies
 
