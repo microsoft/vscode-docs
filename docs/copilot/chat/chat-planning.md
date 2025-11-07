@@ -29,7 +29,7 @@ The plan agent is designed to:
 
 1. Open the Chat view by pressing `kb(workbench.action.chat.open)` and select **Plan** from the agents dropdown.
 
-2. Enter a high-level task (feature, refacoring, bug, etc.) and submit it.
+2. Enter a high-level task (feature, refactoring, bug, etc.) and submit it.
 
     For example:
     * "Implement a user authentication system with OAuth2 and JWT"
