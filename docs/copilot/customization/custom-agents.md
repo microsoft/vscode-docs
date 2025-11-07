@@ -59,10 +59,7 @@ When users see the handoff button and select it, they switch to the target agent
 
 ## Custom agent file structure
 
-Custom agent files are Markdown files and use the `.agent.md` extension and have the following structure.
-
-> [!NOTE]
-> VS Code detects any `.md` files in the `.github/agents` folder of your workspace as custom agents.
+Custom agent files are Markdown files and use the `.agent.md` extension and have this structure:
 
 ### Header (optional)
 
