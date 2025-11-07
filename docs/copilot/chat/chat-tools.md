@@ -104,6 +104,37 @@ You can:
 
 To clear all saved tool approvals, use the **Chat: Reset Tool Confirmations** command in the Command Palette (`kb(workbench.action.showCommands)`).
 
+### Auto-approve all tools
+
+To disable all manual approvals for tools and terminal commands in all workspaces, enable the `setting(chat.tools.global.autoApprove)` setting.
+
+> [!CAUTION]
+> This setting disables critical security protections and makes it easier for an attacker to compromise the machine. Only enable this setting if you understand the security implications. See the [Security documentation](/docs/copilot/security.md) for more details.
+
+## Edit tool parameters
+
+You can review and edit the input parameters before a tool runs:
+
+1. When the tool confirmation dialog appears, select the chevron next to the tool name to expand its details.
+
+1. Edit any tool input parameters as needed.
+
+1. Select **Allow** to run the tool with the modified parameters.
+
+## Terminal commands
+
+The agent might use terminal commands as part of its workflow to accomplish tasks. When the agent decides to run terminal commands, it uses the built-in terminal tool to execute them in an integrated terminal within VS Code.
+
+In the chat conversation, the agent displays the commands it ran. You can view the output of the command inline in chat by selecting **Show Output** (`>`) next to the command. You can also view the full output in the integrated terminal by selecting **Show Terminal**.
+
+![Screenshot showing terminal command output in chat.](../images/chat-tools/terminal-command-output.png)
+
+Use the experimental `setting(chat.tools.terminal.outputLocation)` setting to configure where terminal command output appears.
+
+In the terminal pane, you can see the list of terminals that the agent has used for a chat session. You can also distinguish agent terminals by the chat icon in the terminals list.
+
+![Screenshot showing the integrated terminal with multiple agent terminals.](../images/chat-tools/agent-terminals-in-terminal-pane.png)
+
 ### Automatically approve terminal commands
 
 You can configure which terminal commands are automatically approved by using the `setting(chat.tools.terminal.autoApprove)` setting. You can specify both allowed and denied commands:
@@ -144,23 +175,6 @@ Related settings:
 > * VS Code uses PowerShell and bash tree sitter grammars to extract sub-commands, so patterns are not detected if these grammars don't detect them.
 > * VS Code uses bash grammar because there is no zsh or fish grammar, so some sub-commands are not detected.
 > * Detection of file writes is currently minimal, so it might be possible to write to files with the terminal that would not be possible by using the file editing agent tools.
-
-### Auto-approve all tools
-
-To disable all manual approvals for tools and terminal commands in all workspaces, enable the `setting(chat.tools.global.autoApprove)` setting.
-
-> [!CAUTION]
-> This setting disables critical security protections and makes it easier for an attacker to compromise the machine. Only enable this setting if you understand the security implications. See the [Security documentation](/docs/copilot/security.md) for more details.
-
-## Edit tool parameters
-
-You can review and edit the input parameters before a tool runs:
-
-1. When the tool confirmation dialog appears, select the chevron next to the tool name to expand its details.
-
-1. Edit any tool input parameters as needed.
-
-1. Select **Allow** to run the tool with the modified parameters.
 
 ## Group tools with tool sets
 
