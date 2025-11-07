@@ -90,7 +90,11 @@ To view your chat session history:
 > [!TIP]
 > Enable the `setting(chat.emptyState.history.enabled)` experimental setting to show your recent chat sessions when starting a new chat session. This enables you to quickly switch to a recent session without navigating to the chat session history.
 
-### Export chat sessions
+## Save and export chat sessions
+
+You can save chat sessions to preserve important conversations or reuse them later for similar tasks.
+
+### Export a chat session as a JSON file
 
 You can export a chat session to save it for later reference or share it with others. Exporting a chat session creates a JSON file that contains all prompts and responses from the session.
 
@@ -103,6 +107,20 @@ To export a chat session:
 1. Choose a location to save the JSON file.
 
 Alternatively, you can copy individual prompts or responses to the clipboard by right-clicking the message and selecting **Copy**. To copy the entire chat session in Markdown format, right-click the Chat view and select **Copy All**.
+
+### Save a chat session as a reusable prompt
+
+You can save a chat session as a [reusable prompt](/docs/copilot/customization/prompt-files.md) to reuse for similar tasks.
+
+To save a chat session as a reusable prompt:
+
+1. Open the chat session you want to save in the Chat view.
+
+1. Type `/savePrompt` in the chat input box and press `Enter`.
+
+    The command creates a `.prompt.md` file that generalizes your current chat conversation into a reusable prompt. The prompt file has placeholders where appropriate.
+
+1. Review and edit the generated prompt file as needed, then save it to your workspace.
 
 ## Context-isolated subagents
 
