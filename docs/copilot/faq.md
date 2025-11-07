@@ -23,7 +23,6 @@ There are different ways to get access to GitHub Copilot:
 
 Signing in with a GitHub account that has access to GitHub Copilot has the following benefits:
 
-* [Code completions and next edit suggestions in the editor](/docs/copilot/ai-powered-suggestions.md)
 * [Increased monthly limit of chat interactions](https://docs.github.com/en/copilot/get-started/plans#comparing-copilot-plans)
 * [Access to premium language models in chat](https://docs.github.com/en/copilot/reference/ai-models/supported-models#supported-ai-models-per-copilot-plan) beyond auto model selection
 * [Bring your own model keys](/docs/copilot/customization/language-models.md#bring-your-own-language-model-key) (BYOK) to access more models
