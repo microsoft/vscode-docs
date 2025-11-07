@@ -140,8 +140,8 @@ VS Code currently provides policies to control the following admin-controlled fe
 | `CopilotReviewSelection`             | Enable code review for editor selection.                                                           | `github.copilot.chat.reviewSelection.enabled` | 1.104           |
 | `CopilotReviewAgent`                 | Enable Copilot Code Review for pull requests and changed files.                                    | `github.copilot.chat.reviewAgent.enabled`     | 1.104           |
 | `ChatToolsTerminalEnableAutoApprove` | Enable the rule-based auto-approval for the terminal tool.                                         | `chat.tools.terminal.autoApprove`             | 1.104           |
-| `McpGalleryServiceUrl`               | Configure the MCP Gallery service URL to connect to                                                                              | `chat.mcp.gallery.serviceUrl`                 | 1.101           |
-| `ExtensionGalleryServiceUrl`         | Configure the Marketplace service URL to connect to                                                                              | `extensions.gallery.serviceUrl`               | 1.99            |
+| `McpGalleryServiceUrl`               | Configure the MCP Gallery service URL to connect to.                                                                             | `chat.mcp.gallery.serviceUrl`                 | 1.101           |
+| `ExtensionGalleryServiceUrl`         | Configure the Marketplace service URL to connect to.                                                                             | `extensions.gallery.serviceUrl`               | 1.99            |
 
 ### Group Policy on Windows
 
