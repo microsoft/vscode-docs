@@ -70,7 +70,7 @@ The header is formatted as YAML frontmatter with the following fields:
 | `description`     | A brief description of the custom agent, shown as placeholder text in the chat input field. |
 | `name`            | The name of the custom agent. If not specified, the file name is used. |
 | `argument-hint`   | Optional hint text shown in the chat input field to guide users on how to interact with the custom agent. |
-| `tools`           | A list of tool or tool set names that are available for this custom agent. Can include built-in tools, tool sets, MCP tools, or tools contributed by extensions. Learn more about [tools in chat](/docs/copilot/chat/chat-tools.md). |
+| `tools`           | A list of tool or tool set names that are available for this custom agent. Can include built-in tools, tool sets, MCP tools, or tools contributed by extensions. To include all tools of an MCP server, use the `<server name>/*` format.<br/>Learn more about [tools in chat](/docs/copilot/chat/chat-tools.md). |
 | `model`           | The AI model to use when running the prompt. If not specified, the currently selected model in model picker is used. |
 | `target`          | The target environment or context for the custom agent (`vscode` or `github-copilot`). |
 | `mcp-servers`     | Optional list of Model Context Protocol (MCP) server config json to use with [custom agents in GitHub Copilot](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents) (target: `github-copilot`). |
@@ -79,6 +79,9 @@ The header is formatted as YAML frontmatter with the following fields:
 | `handoffs.agent`  | The target agent identifier to switch to. |
 | `handoffs.prompt` | The prompt text to send to the target agent. |
 | `handoffs.send`   | Optional boolean flag to auto-submit the prompt (default is `false`) |
+
+> [!NOTE]
+> If a given tool is not available when using the custom agent, it is ignored.
 
 ### Body
 

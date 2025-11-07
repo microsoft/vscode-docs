@@ -30,7 +30,10 @@ The header is formatted as YAML frontmatter with the following fields:
 | `argument-hint`   | Optional hint text shown in the chat input field to guide users on how to interact with the prompt. |
 | `agent`           | The agent used for running the prompt: `ask`, `edit`, `agent` (default), or the name of a [custom agent](/docs/copilot/customization/custom-agents.md). |
 | `model`           | The language model used when running the prompt. If not specified, the currently selected model in model picker is used. |
-| `tools`           | An array of tool (set) names that can be used. Select **Configure Tools** to select the tools from the list of available tools in your workspace. If a given tool (set) is not available when running the prompt, it is ignored. |
+| `tools`           | A list of tool or tool set names that are available for this prompt. Can include built-in tools, tool sets, MCP tools, or tools contributed by extensions. To include all tools of an MCP server, use the `<server name>/*` format.<br/>Learn more about [tools in chat](/docs/copilot/chat/chat-tools.md). |
+
+> [!NOTE]
+> If a given tool is not available when running the prompt, it is ignored.
 
 ### Body
 
