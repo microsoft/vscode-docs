@@ -211,8 +211,6 @@ Starting from VS Code version 1.106, you can also configure VS Code setting poli
 
 Each release includes a sample `policy.json` file under `resources/app/policies` which includes the available policies. You can find this file by either extracting it from the downloaded package or by selecting and extracting the `tar.gz` file from the Downloads page.
 
-Use a text editor to manually edit or remove policy to match your organization's requirements.
-
 > [!IMPORTANT]
 > The provided `policy.json` file initializes **all** policies available in that version of VS Code. Delete any policies that are not needed.
 >
