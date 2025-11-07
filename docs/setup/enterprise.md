@@ -160,6 +160,14 @@ Starting from VS Code version 1.99, each release ships with a sample `.mobilecon
 > [!TIP]
 > To view the contents of the `.app` bundle, right-click on the application (for example, `/Applications/Visual Studio Code.app`) in Finder and select **Show Package Contents**.
 
+### JSON policies on Linux
+
+Starting from VS Code version 1.106, you can also configure VS Code setting policies on Linux devices by placing a JSON policy file at `/etc/vscode/policy.json`.
+
+Each release includes a sample `policy.json` file under `resources/app/policies` which includes the available policies. You can find this file by either extracting the Linux packages using the appropriate tool or by downloading and extracting the `tar.gz` file from the Downloads page.
+
+Use a text editor to manually edit or remove policy to match your organization's requirements.
+
 #### String policies
 
 The example below demonstrates configuration of the `AllowedExtensions` policy. The policy value starts empty in the sample file (no extensions are allowed).
@@ -224,12 +232,6 @@ Follow these steps to bootstrap extensions:
 1. When a user launches VS Code for the first time, all extensions in the `bootstrap\extensions` folder are installed silently in the background.
 
 Users can still uninstall extensions that were preinstalled. Restarting VS Code after uninstalling an extension will not reinstall the extension.
-
-## Frequently asked questions
-
-### Does VS Code support configuration profiles on Linux?
-
-Support for Linux is not on the roadmap. If you're interested in configuration profiles on Linux, open an issue in the VS Code [GitHub repository](https://github.com/microsoft/vscode/issues) and share details about your scenario.
 
 ## Related resources
 
