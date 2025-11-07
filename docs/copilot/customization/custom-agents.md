@@ -13,7 +13,7 @@ You can also use handoffs to create guided workflows between agents, allowing yo
 This article describes how to create and manage custom agents in VS Code.
 
 > [!NOTE]
-> Custom agents, formerly known as custom chat modes, are available as of VS Code release 1.101 and are currently in preview.
+> Custom agents are available as of VS Code release 1.106 and in preview. Custom agents were previously known as custom chat modes.
 
 ## What are custom agents?
 
@@ -22,8 +22,6 @@ The [built-in agents](/docs/copilot/chat/copilot-chat.md#switch-between-agents) 
 Custom agents consist of a set of instructions and tools that are applied when you switch to that agent. For example, a "Plan" agent could include instructions for generating an implementation plan and only use read-only tools. By creating a custom agent, you can quickly switch to that specific configuration without having to manually select relevant tools and instructions each time.
 
 Custom agents are defined in a `.agent.md` Markdown file, and can be stored in your workspace for others to use, or in your user profile, where you can reuse them across different workspaces.
-
-You can reference instructions files and tools (sets) in your custom agent file to reuse existing configurations.
 
 ## Why use custom agents?
 
@@ -145,6 +143,9 @@ You can create a custom agent file in your workspace or user profile.
 
 To update a custom agent definition file, select **Configure Custom Agents** from the agents dropdown, and then select a custom agent from the list to modify it.
 
+> [!NOTE]
+> If you've previously created custom chat modes with a `.chatmode.md` extension in the `.github/chatmodes` folder of your workspace, VS Code still recognizes those files as custom agents. You can use a Quick Fix action to rename and move them to the new `.github/agents` folder with a `.agent.md` extension.
+
 ## Customize the agents dropdown list
 
 If you have multiple custom agents, you can customize which ones appear in the agents dropdown. To show or hide specific custom agents:
@@ -162,6 +163,14 @@ The list available tools in chat is determined by the following priority order:
 1. Tools specified in the prompt file (if any)
 2. Tools from the referenced custom agent in the prompt file (if any)
 3. Default tools for the selected agent (if any)
+
+## Frequently asked questions
+
+### Are custom agents different from chat modes?
+
+Custom agents were previously known as custom chat modes. The functionality remains the same, but the terminology has been updated to better reflect their purpose in customizing AI behavior for specific tasks.
+
+VS Code still recognizes any existing `.chatmode.md` files as custom agents. You can use a Quick Fix action to rename and move them to the new `.github/agents` folder with a `.agent.md` extension.
 
 ## Related resources
 
