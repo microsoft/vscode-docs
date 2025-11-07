@@ -166,6 +166,8 @@ The header is formatted as YAML frontmatter with the following fields:
 
 The instructions file body contains the custom instructions that are sent to the LLM when the instructions are applied. Provide specific guidelines, rules, or any other relevant information that you want the AI to follow.
 
+To reference agent tools in the body text, use the `#tool:<tool-name>` syntax. For example, to reference the `githubRepo` tool, use `#tool:githubRepo`.
+
 Example:
 
 ```markdown

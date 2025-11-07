@@ -89,6 +89,8 @@ The custom agent file body contains the custom agent implementation, formatted a
 
 You can reference other files by using Markdown links, for example to reuse instructions files.
 
+To reference agent tools in the body text, use the `#tool:<tool-name>` syntax. For example, to reference the `githubRepo` tool, use `#tool:githubRepo`.
+
 When you select the custom agent in the Chat view, the guidelines in the custom agent file body are prepended to the user chat prompt.
 
 ### Custom agent example

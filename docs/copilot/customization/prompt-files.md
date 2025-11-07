@@ -41,6 +41,8 @@ The prompt file body contains the prompt text that is sent to the LLM when runni
 
 You can reference other workspace files by using Markdown links. Use relative paths to reference these files, and ensure that the paths are correct based on the location of the prompt file.
 
+To reference agent tools in the body text, use the `#tool:<tool-name>` syntax. For example, to reference the `githubRepo` tool, use `#tool:githubRepo`.
+
 Within a prompt file, you can reference variables by using the `${variableName}` syntax. You can reference the following variables:
 
 * Workspace variables - `${workspaceFolder}`, `${workspaceFolderBasename}`
@@ -62,7 +64,7 @@ model: GPT-4o
 tools: ['githubRepo', 'search/codebase']
 description: 'Generate a new React form component'
 ---
-Your goal is to generate a new React form component based on the templates in #githubRepo contoso/react-templates.
+Your goal is to generate a new React form component based on the templates in #tool:githubRepo contoso/react-templates.
 
 Ask for the form name and fields if not provided.
 
