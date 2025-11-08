@@ -133,7 +133,7 @@ To add an MCP server to your workspace:
 
 </details>
 
-<details id="#_add-an-mcp-server-to-your-user-settings">
+<details id="_add-an-mcp-server-to-your-user-settings">
 <summary>Add an MCP server to your user configuration</summary>
 
 To configure an MCP server for all your workspaces, you can add the server configuration to your user [profile](/docs/configure/profiles.md). This enables you to reuse the same server configuration across multiple projects.
