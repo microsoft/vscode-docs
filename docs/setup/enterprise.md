@@ -94,6 +94,22 @@ Duplicate key values are not supported. For example, including both `"microsoft"
 
 If you want to learn more about extensions in VS Code, refer to the [extensions documentation](/docs/configure/extensions/extension-marketplace.md).
 
+## Configure MCP server access
+
+By default, VS Code allows developers to [add any MCP server](/docs/copilot/customization/mcp-servers.md) to their environment. Organizations can restrict which MCP servers are allowed to be used by developers in VS Code. The following configuration options are available in their [GitHub Copilot settings](https://docs.github.com/en/copilot/how-tos/administer-copilot/configure-mcp-server-access):
+
+* Configure from which source MCP servers are enabled to run (controls the `setting(chat.mcp.access)` VS Code setting)
+
+    * **All**: developers can run MCP servers from any source
+    * **Registry**: developers can only run MCP servers from the MCP registry, other MCP servers are blocked from running
+    * **None**: MCP server support is disabled
+
+* Configure a custom MCP registry URL
+
+    When the `setting(chat.mcp.gallery.enabled)` VS Code setting is enabled, developers can view the list of MCP servers in the Extensions view. By default, VS Code fetches the list of MCP servers from the [GitHub MCP registry](https://github.com/mcp). Organizations can configure a custom MCP registry URL to fetch the list of MCP servers from a different source.
+
+Learn how to [configure MCP server access](https://docs.github.com/en/copilot/how-tos/administer-copilot/configure-mcp-server-access) in the GitHub Copilot documentation.
+
 ## Configure automatic updates
 
 The `update.mode` VS Code setting controls whether VS Code automatically updates when a new version is released. The updates are fetched from a Microsoft online service.
