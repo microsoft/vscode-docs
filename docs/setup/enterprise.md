@@ -100,10 +100,10 @@ By default, VS Code allows developers to [add any MCP server](/docs/copilot/cust
 
 Organizations can restrict which MCP servers are allowed to be used by developers in VS Code. The following configuration options are available:
 
-* Configure from which source MCP servers can be added (controls the `setting(chat.mcp.access)` VS Code setting)
+* Configure from which source MCP servers are enabled to run (controls the `setting(chat.mcp.access)` VS Code setting)
 
-    * **All**: developers can add MCP servers from any source
-    * **Registry**: developers can only add and run MCP servers from the MCP registry, other MCP servers are blocked from running
+    * **All**: developers can run MCP servers from any source
+    * **Registry**: developers can only run MCP servers from the MCP registry, other MCP servers are blocked from running
     * **None**: MCP server support is disabled
 
 * Configure a custom MCP registry URL instead of the default GitHub MCP registry
