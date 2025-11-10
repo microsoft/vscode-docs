@@ -68,6 +68,8 @@ You can install an MCP server directly from the [GitHub MCP server registry](htt
 
 To install an MCP server from the Extensions view:
 
+1. Enable the MCP server gallery with the `setting(chat.mcp.gallery.enabled)` setting.
+
 1. Open the Extensions view (`kb(workbench.view.extensions)`)
 
 1. Enter `@mcp` in the search field to show the list of MCP servers or run the **MCP: Browse Servers** command from the Command Palette.
