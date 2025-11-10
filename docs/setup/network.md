@@ -29,7 +29,7 @@ If you are behind a firewall that needs to allow specific domains used by VS Cod
 * `download.visualstudio.microsoft.com` - Visual Studio download server, provides dependencies for some VS Code extensions (C++, C#)
 * `vscode-sync.trafficmanager.net` - Visual Studio Code Settings Sync service
 * `vscode-sync-insiders.trafficmanager.net` - Visual Studio Code Settings Sync service (Insiders)
-* `vscode.dev/redirect` - Used as a fallback when logging in with GitHub or Microsoft for an extension or Settings Sync
+* `vscode.dev` - Used as a fallback when logging in with GitHub or Microsoft for an extension or Settings Sync (just `vscode.dev/redirect`)
 * `*.vscode-unpkg.net` - Used when loading web extensions
 * `default.exp-tas.com` - Visual Studio Code Experiment Service, used to provide experimental user experiences
 
