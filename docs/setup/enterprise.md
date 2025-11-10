@@ -140,6 +140,8 @@ VS Code currently provides policies to control the following admin-controlled fe
 | `CopilotReviewSelection`             | Enable code review for editor selection.                                                           | `github.copilot.chat.reviewSelection.enabled` | 1.104           |
 | `CopilotReviewAgent`                 | Enable Copilot Code Review for pull requests and changed files.                                    | `github.copilot.chat.reviewAgent.enabled`     | 1.104           |
 | `ChatToolsTerminalEnableAutoApprove` | Enable the rule-based auto-approval for the terminal tool.                                         | `chat.tools.terminal.autoApprove`             | 1.104           |
+| `McpGalleryServiceUrl`               | Configure the MCP Gallery service URL to connect to.                                                                             | `chat.mcp.gallery.serviceUrl`                 | 1.101           |
+| `ExtensionGalleryServiceUrl`         | Configure the Marketplace service URL to connect to.                                                                             | `extensions.gallery.serviceUrl`               | 1.99            |
 
 ### Group Policy on Windows
 
@@ -203,6 +205,16 @@ Manually install a configuration profile by double-clicking on the `.mobileconfi
 
 For more information on configuration profiles, refer to [Apple's documentation](https://support.apple.com/guide/mac-help/configuration-profiles-standardize-settings-mh35561/mac).
 
+### JSON policies on Linux
+
+Starting from VS Code version 1.106, you can also configure VS Code setting policies on Linux devices by placing a JSON policy file at `/etc/vscode/policy.json`.
+
+Each release includes a sample `policy.json` file under `resources/app/policies` which includes the available policies. You can find this file by either extracting it from the downloaded package or by selecting and extracting the `tar.gz` file from the Downloads page.
+
+> [!IMPORTANT]
+> The provided `policy.json` file initializes **all** policies available in that version of VS Code. Delete any policies that are not needed.
+>
+> If you do not edit or remove a policy from the sample `policy.json`, that policy will be enforced with its default (restrictive) policy value.
 
 ### Additional policies
 
@@ -224,12 +236,6 @@ Follow these steps to bootstrap extensions:
 1. When a user launches VS Code for the first time, all extensions in the `bootstrap\extensions` folder are installed silently in the background.
 
 Users can still uninstall extensions that were preinstalled. Restarting VS Code after uninstalling an extension will not reinstall the extension.
-
-## Frequently asked questions
-
-### Does VS Code support configuration profiles on Linux?
-
-Support for Linux is not on the roadmap. If you're interested in configuration profiles on Linux, open an issue in the VS Code [GitHub repository](https://github.com/microsoft/vscode/issues) and share details about your scenario.
 
 ## Related resources
 
