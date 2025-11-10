@@ -5,11 +5,11 @@ PageTitle: A Unified Experience for all Coding Agents
 MetaDescription: "Agents took over VS Code in 2025. We released agent mode for VS Code, integration for the Copilot coding agent, and the new GitHub Copilot CLI. But Copilot is not the only agent game in town. There are now more coding agents than ever, including options from OpenAI and Anthropic."
 MetaSocialImage: unified-agent-experience.png
 Date: 2025-11-05
-Author: Burke Holland
+Author: VS Code Team
 ---
 # A Unified Experience for all Coding Agents
 
-November 5, 2025 by Burke Holland, [@burkeholland](https://twitter.com/burkeholland)
+November 5, 2025 by VS Code Team, [@code](https://twitter.com/code)
 
 If we had to pick one word to describe the past year, it would probably be "Agent".
 
@@ -17,7 +17,7 @@ Agents took over VS Code in 2025. We released [agent mode](https://code.visualst
 
 With all these choices, things got better for developers but the agent ecosystem got a little more fragmented. Subscription hopping, tool juggling, and the constant FOMO on the latest agent trend is now the norm. This year at GitHub Universe, we set out to fix that with a unified agent experience in VS Code. The first big step towards making that a reality was offering more agents in your Copilot subscription. And not just those with "Copilot" in their name.
 
-### OpenAI Codex Integration
+## OpenAI Codex Integration
 
 OpenAI had a big year: they shipped the GPT-5 and GPT-5 Codex models, which were available in VS Code on day one through the standard model picker. But they also launched Codex - their  coding agent, available as both a CLI tool and a [VS Code extension](https://marketplace.visualstudio.com/items?itemName=openai.chatgpt). And it was a huge hit with developers.
 
@@ -40,7 +40,7 @@ But with all these agents, it's easy to get overwhelmed. What agents are running
 
 That's why we've introduced a new feature in VS Code for orchestrating all your agents - local or remote. We call it, "Agent Sessions".
 
-### Agent Sessions
+## Agent Sessions
 
 There's a new view in the VS Code side bar called "[Agent Sessions](https://code.visualstudio.com/docs/copilot/chat/chat-sessions#_agent-sessions)". It gives you one place to manage all your agents, whether they're running locally or in the cloud.
 
@@ -92,7 +92,7 @@ These custom agents are also available when you delegate to other agents such as
 
 > Pro tip: You can find hundreds of custom instructions, prompt files and agents over on the [awesome-copilot](https://github.com/github/awesome-copilot) repo. If you haven't checked that out yet, you're missing out. It's a treasure trove of inspiration and ready-made prompts.
 
-### Subagents
+## Subagents
 
 [Context Confusion](https://www.dbreunig.com/2025/06/26/how-to-fix-your-context.html) is a real problem with agents. The more you interact, the more context they track - and the more likely they are to get confused. There's a whole new discipline for managing context called "Context Engineering".
 
