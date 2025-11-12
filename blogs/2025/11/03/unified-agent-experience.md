@@ -11,6 +11,8 @@ Author: VS Code Team
 
 November 5, 2025 by VS Code Team, [@code](https://twitter.com/code)
 
+_Special thanks to Rob Lourens, Bhavya U, Matt Bierner, Peng Lyu, Osvaldo Ortega, Josh Spicer, Brigit Murtaugh, Martin Aeschlimann, Alex Britez and Harald Kirschner for their work on these features._
+
 If we had to pick one word to describe the past year, it would probably be "Agent".
 
 Agents took over VS Code in 2025. We released [agent mode](https://code.visualstudio.com/blogs/2025/02/24/introducing-copilot-agent-mode) for VS Code, integration for the [Copilot coding agent (cloud)](https://code.visualstudio.com/docs/copilot/copilot-coding-agent), and the new [GitHub Copilot CLI](https://github.com/features/copilot/cli/). But Copilot is not the only agent game in town. There are now more coding agents than ever - including options from OpenAI and Anthropic.

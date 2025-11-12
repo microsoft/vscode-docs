@@ -45,7 +45,7 @@ MetaDescription: Get Visual Studio Code up and running on Mac (macOS).
 
 ## Launch VS Code from the command line
 
-To run VS Code from the terminal by typing `code`, add it the `$PATH` environment variable:
+To run VS Code from the terminal by typing `code`, add it to the `$PATH` environment variable using one of the following methods:
 
 ### Configure the path with VS Code
 

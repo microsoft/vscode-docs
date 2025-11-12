@@ -16,7 +16,7 @@ There are different ways to get access to GitHub Copilot:
 
 | Type of User                   | Description |
 |--------------------------------|-------------|
-| Individual                     | <ul><li>Set up GitHub Copilot Free to explore basic functionality at no cost with a monthly limit of completions and chat interactions.</li><li>Sign up for a paid GitHub Copilot plan for more flexibility and access to premium features.</li><li>See [Setting up GitHub Copilot for yourself](https://docs.github.com/en/copilot/setting-up-github-copilot/setting-up-github-copilot-for-yourself) for all options. </li></ul> |
+| Individual                     | <ul><li>Set up GitHub Copilot Free to explore basic functionality at no cost with a monthly limit of inline suggestions and chat interactions.</li><li>Sign up for a paid GitHub Copilot plan for more flexibility and access to premium features.</li><li>See [Setting up GitHub Copilot for yourself](https://docs.github.com/en/copilot/setting-up-github-copilot/setting-up-github-copilot-for-yourself) for all options. </li></ul> |
 | Organization/Enterprise member | <ul><li>If you are a member of an organization or enterprise that has a subscription to GitHub Copilot, you can request access to Copilot by going to <https://github.com/settings/copilot> and requesting access under "Get Copilot from an organization."</li><li>See [Setting up GitHub Copilot for your organization](https://docs.github.com/en/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-organization) to enable Copilot for your organization.</li></ul> |
 
 ### What's the advantage of signing in with a GitHub account?
@@ -37,18 +37,18 @@ Depending on your Copilot plan, you might have different levels of access and li
 
 You can view the current Copilot usage in the Copilot status dashboard, available through the VS Code Status Bar. The dashboard shows the following information:
 
-- **Completions**: The percentage of code completions quota you have used in the current month.
+- **Inline suggestions**: The percentage of inline suggestions quota you have used in the current month.
 - **Chat messages**: The percentage of chat requests quota you have used in the current month.
 - **Premium requests**: The percentage of premium requests quota you have used in the current month.
 - **Premium requests overage**: The number of overage premium requests you have used in the current month.
 
 Visit the GitHub Copilot documentation for more information about [monitoring usage and entitlements](https://docs.github.com/en/copilot/managing-copilot/monitoring-usage-and-entitlements/monitoring-your-copilot-usage-and-entitlements).
 
-### I reached my completions or chat interactions limit
+### I reached my inline suggestions or chat interactions limit
 
-Your limit of code completions and chat interactions is reset every month. If only you've only reached the chat interactions limit, you can still use code completions. Inversely, if you've reached the limit for code completions, you can still use chat.
+Your limit of inline suggestions and chat interactions is reset every month. If only you've only reached the chat interactions limit, you can still use inline suggestions. Inversely, if you've reached the limit for inline suggestions, you can still use chat.
 
-For users on Copilot Free, to access more completions and chat interactions, you can sign up for a [paid plan](https://docs.github.com/en/copilot/concepts/billing/individual-plans) directly from VS Code. Alternatively, you can wait until the next month to continue using Copilot for free.
+For users on Copilot Free, to access more inline suggestions and chat interactions, you can sign up for a [paid plan](https://docs.github.com/en/copilot/concepts/billing/individual-plans) directly from VS Code. Alternatively, you can wait until the next month to continue using Copilot for free.
 
 ![Visual indicators in Chat view, Status Bar, and title bar that you reached a limit for Copilot chat messages.](images/faq/copilot-chat-limit-reached.png)
 
@@ -103,22 +103,22 @@ You can tell if you're running a pre-release version by the "Pre-release" badge 
 
 ![Pre-release version of the GitHub Copilot extension](images/faq/copilot-ext-pre-release.png)
 
-## Code completions
+## Inline suggestions
 
-### How do I enable or disable code completions?
+### How do I enable or disable inline suggestions?
 
-To enable or disable code completions in VS Code, use the checkboxes in the Copilot status dashboard from the VS Code Status Bar. You can enable or disable code completions globally or for the file type of the active editor.
+You can enable or disable inline suggestions in VS Code by using the checkboxes in the Copilot status dashboard from the VS Code Status Bar. You can enable or disable inline suggestions globally or for the file type of the active editor.
 
 ![Screenshot showing the VS Code status bar, highlighting the Copilot icon that indicates Copilot is active.](./images/faq/copilot-disable-completions.png)
 
-Alternatively, use the `setting(github.copilot.enable)` and `setting(github.copilot.nextEditSuggestions.enabled)` settings to enable or disable code completions and next edit suggestions, respectively. You can configure these settings at the workspace or user level.
+Alternatively, use the `setting(github.copilot.enable)` and `setting(github.copilot.nextEditSuggestions.enabled)` settings to enable or disable inline suggestions and next edit suggestions, respectively. You can configure these settings at the workspace or user level.
 
-### Inline completions are not working in the editor
+### Inline suggestions are not working in the editor
 
-- Verify that [GitHub Copilot is not disabled](#how-do-i-enable-or-disable-code-completions) globally or for this language
+- Verify that [GitHub Copilot is not disabled](#how-do-i-enable-or-disable-inline-suggestions) globally or for this language
 - Verify that your [GitHub Copilot subscription is active and detected](#my-copilot-subscription-is-not-detected-in-vs-code)
 - Verify that your [network settings](#network-and-firewall-configuration-for-copilot) are configured to allow connectivity to GitHub Copilot.
-- Verify that you have not reached the limit of completions for the month with the [Copilot Free plan](https://docs.github.com/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/about-github-copilot-free).
+- Verify that you have not reached the limit of inline suggestions for the month with the [Copilot Free plan](https://docs.github.com/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/about-github-copilot-free).
 
 ## Chat
 
@@ -159,11 +159,11 @@ You can also control the default visibility of the Secondary Side Bar with the `
 
 We track issues and feature requests for GitHub Copilot in VS Code in the [microsoft/vscode](https://github.com/microsoft/vscode) GitHub repository. You can create issues in this repository or use the following feedback mechanisms in VS Code:
 
-- **Code completions**
+- **Ghost text suggestions**
 
-    Use the **Send Copilot Completion Feedback** action when hovering over a code completion in the editor. In the Issue Reporter, provide a clear and detailed description of the issue, including steps to reproduce it.
+    Use the **Send Copilot Completion Feedback** action when hovering over a ghost text suggestion in the editor. In the Issue Reporter, provide a clear and detailed description of the issue, including steps to reproduce it.
 
-    ![Screenshot that shows sending Copilot Completion Feedback action in the editor.](images/faq/code-completions-feedback.png)
+    ![Screenshot that shows sending Copilot Ghost Text Feedback action in the editor.](images/faq/code-completions-feedback.png)
 
 - **Next edit suggestions**
 
