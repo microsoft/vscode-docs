@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: d22675fc-6609-43f2-a66b-8f2a52597195
-DateApproved: 09/11/2025
+DateApproved: 11/12/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn the details of what's possible with Visual Studio Code's rich extension (plug-in) API.

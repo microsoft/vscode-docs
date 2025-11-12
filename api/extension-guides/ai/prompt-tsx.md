@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 05d1e8f8-9bc0-45a4-a8c5-348005fd7ca8
-DateApproved: 09/11/2025
+DateApproved: 11/12/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide for how to build language model prompts using the prompt-tsx library

@@ -1,6 +1,6 @@
 ---
 ContentId: e02ded07-6e5a-4f94-b618-434a2c3e8f09
-DateApproved: 09/11/2025
+DateApproved: 11/12/2025
 MetaDescription: Frequently asked questions for using GitHub Copilot in Visual Studio Code.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -16,33 +16,47 @@ There are different ways to get access to GitHub Copilot:
 
 | Type of User                   | Description |
 |--------------------------------|-------------|
-| Individual                     | <ul><li>Set up GitHub Copilot Free to explore basic functionality at no cost with a monthly limit of completions and chat interactions.</li><li>Sign up for a paid GitHub Copilot plan for more flexibility and access to premium features.</li><li>See [Setting up GitHub Copilot for yourself](https://docs.github.com/en/copilot/setting-up-github-copilot/setting-up-github-copilot-for-yourself) for all options. </li></ul> |
+| Individual                     | <ul><li>Set up GitHub Copilot Free to explore basic functionality at no cost with a monthly limit of inline suggestions and chat interactions.</li><li>Sign up for a paid GitHub Copilot plan for more flexibility and access to premium features.</li><li>See [Setting up GitHub Copilot for yourself](https://docs.github.com/en/copilot/setting-up-github-copilot/setting-up-github-copilot-for-yourself) for all options. </li></ul> |
 | Organization/Enterprise member | <ul><li>If you are a member of an organization or enterprise that has a subscription to GitHub Copilot, you can request access to Copilot by going to <https://github.com/settings/copilot> and requesting access under "Get Copilot from an organization."</li><li>See [Setting up GitHub Copilot for your organization](https://docs.github.com/en/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-organization) to enable Copilot for your organization.</li></ul> |
+
+### What's the advantage of signing in with a GitHub account?
+
+Signing in with a GitHub account that has access to GitHub Copilot has the following benefits:
+
+* [Increased monthly limit of chat interactions](https://docs.github.com/en/copilot/get-started/plans#comparing-copilot-plans)
+* [Access to premium language models in chat](https://docs.github.com/en/copilot/reference/ai-models/supported-models#supported-ai-models-per-copilot-plan) beyond auto model selection
+* [Bring your own model keys](/docs/copilot/customization/language-models.md#bring-your-own-language-model-key) (BYOK) to access more models
+* [Remote repository indexing and semantic code search](/docs/copilot/reference/workspace-context.md#remote-index)
+* [Copilot code review](https://docs.github.com/en/copilot/concepts/agents/code-review)
+* [Copilot content exclusions](https://docs.github.com/en/copilot/how-tos/configure-content-exclusion/exclude-content-from-copilot)
+* [Delegate tasks to Copilot coding agent](/docs/copilot/copilot-coding-agent.md) for background execution
+
+Depending on your Copilot plan, you might have different levels of access and limits. See [GitHub Copilot plans](https://docs.github.com/en/copilot/get-started/plans) for more information.
 
 ### How can I monitor my Copilot usage?
 
 You can view the current Copilot usage in the Copilot status dashboard, available through the VS Code Status Bar. The dashboard shows the following information:
 
-- **Completions**: The percentage of code completions quota you have used in the current month.
+- **Inline suggestions**: The percentage of inline suggestions quota you have used in the current month.
 - **Chat messages**: The percentage of chat requests quota you have used in the current month.
 - **Premium requests**: The percentage of premium requests quota you have used in the current month.
 - **Premium requests overage**: The number of overage premium requests you have used in the current month.
 
 Visit the GitHub Copilot documentation for more information about [monitoring usage and entitlements](https://docs.github.com/en/copilot/managing-copilot/monitoring-usage-and-entitlements/monitoring-your-copilot-usage-and-entitlements).
 
-### I reached my completions or chat interactions limit
+### I reached my inline suggestions or chat interactions limit
 
-Your limit of code completions and chat interactions is reset every month, starting from the day you first signed up for the Copilot Free plan. If you reach your limit, you can opt to sign up for a [paid subscription](#how-can-i-get-a-copilot-subscription), and get an unlimited number of completions and chat messages. Alternatively, you can wait until the next month to continue using Copilot for free.
+Your limit of inline suggestions and chat interactions is reset every month. If only you've only reached the chat interactions limit, you can still use inline suggestions. Inversely, if you've reached the limit for inline suggestions, you can still use chat.
+
+For users on Copilot Free, to access more inline suggestions and chat interactions, you can sign up for a [paid plan](https://docs.github.com/en/copilot/concepts/billing/individual-plans) directly from VS Code. Alternatively, you can wait until the next month to continue using Copilot for free.
 
 ![Visual indicators in Chat view, Status Bar, and title bar that you reached a limit for Copilot chat messages.](images/faq/copilot-chat-limit-reached.png)
 
-If only the chat interactions are reaching the limit, you can still use Copilot for code completions.
-
-If only the code completions are reaching the limit, you can still use Copilot for chat interactions.
+If you're on a paid plan and use all of your premium requests, you can still use Copilot with one of the included models for the rest of the month. You can also request additional premium requests beyond your plan's limit. Learn more about [getting additional premium requests](https://docs.github.com/en/copilot/concepts/billing/copilot-requests#what-if-i-run-out-of-premium-requests) in the GitHub Copilot documentation.
 
 ### My Copilot subscription is not detected in VS Code
 
-To use chat in Visual Studio Code, you must be signed into Visual Studio Code with a GitHub ID that has access to GitHub Copilot.
+To use chat in Visual Studio Code, you must be signed into Visual Studio Code with a GitHub account that has access to GitHub Copilot.
 
 - If your Copilot subscription is associated with another GitHub account, sign out of your GitHub account and sign in with another account. Use the **Accounts** menu in the Activity Bar for signing out of your current GitHub account. See [Use a different GitHub account with Copilot](/docs/copilot/setup.md#use-a-different-github-account-with-copilot) for more information.
 
@@ -56,7 +70,7 @@ If your Copilot subscription is associated with another GitHub account, sign out
 
 See [Use a different GitHub account with Copilot](/docs/copilot/setup.md#use-a-different-github-account-with-copilot) for more information.
 
-## General
+## General Copilot questions
 
 ### How can I remove Copilot from VS Code?
 
@@ -89,20 +103,22 @@ You can tell if you're running a pre-release version by the "Pre-release" badge 
 
 ![Pre-release version of the GitHub Copilot extension](images/faq/copilot-ext-pre-release.png)
 
-## Code completions
+## Inline suggestions
 
-### How do I enable or disable code completions?
+### How do I enable or disable inline suggestions?
 
-You can enable or disable code completions in VS Code by using the checkboxes in the Copilot status dashboard from the VS Code Status Bar. You can enable or disable code completions globally or for the file type of the active editor.
+You can enable or disable inline suggestions in VS Code by using the checkboxes in the Copilot status dashboard from the VS Code Status Bar. You can enable or disable inline suggestions globally or for the file type of the active editor.
 
 ![Screenshot showing the VS Code status bar, highlighting the Copilot icon that indicates Copilot is active.](./images/faq/copilot-disable-completions.png)
 
-### Inline completions are not working in the editor
+Alternatively, use the `setting(github.copilot.enable)` and `setting(github.copilot.nextEditSuggestions.enabled)` settings to enable or disable inline suggestions and next edit suggestions, respectively. You can configure these settings at the workspace or user level.
 
-- Verify that [GitHub Copilot is not disabled](#how-do-i-enable-or-disable-code-completions) globally or for this language
+### Inline suggestions are not working in the editor
+
+- Verify that [GitHub Copilot is not disabled](#how-do-i-enable-or-disable-inline-suggestions) globally or for this language
 - Verify that your [GitHub Copilot subscription is active and detected](#my-copilot-subscription-is-not-detected-in-vs-code)
 - Verify that your [network settings](#network-and-firewall-configuration-for-copilot) are configured to allow connectivity to GitHub Copilot.
-- Verify that you have not reached the limit of completions for the month with the [Copilot Free plan](https://docs.github.com/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/about-github-copilot-free).
+- Verify that you have not reached the limit of inline suggestions for the month with the [Copilot Free plan](https://docs.github.com/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/about-github-copilot-free).
 
 ## Chat
 
@@ -115,17 +131,39 @@ Verify the following requirements to ensure Chat features work in Visual Studio 
 - Your GitHub account that is signed into VS Code must have an active Copilot subscription. Check your [Copilot subscription](https://github.com/settings/copilot).
 - Verify that you have not reached your limit of chat interactions for the month with the [Copilot Free plan](https://docs.github.com/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/about-github-copilot-free).
 
+### Agents are not available in chat
+
+Verify that agents are enabled in your VS Code settings: `setting(chat.agent.enabled)`. It's possible that your organization has disabled this feature, verify with your administrator to have agents enabled.
+
+### Not all models are available in the language model picker
+
+You can choose which models are available in the language model picker. Learn how to [customize the language model picker](/docs/copilot/customization/language-models.md#customize-the-model-picker).
+
+Organizations can restrict access to certain models. If you believe a model should be available, contact your organization administrator.
+
+### How do I prevent the Chat view from opening automatically?
+
+By default, the Chat view opens in the Secondary Side Bar. When you close the Chat view for a workspace, VS Code remembers this setting and does not open the Chat view automatically the next time you open that workspace.
+
+You can change the default visibility directly from the Chat view:
+
+1. Open the Chat view (`kb(workbench.action.chat.open)`).
+1. Select the `...` icon in the top-right corner of the Chat view.
+1. Select **Show View by Default** to enable or disable the automatic opening of the Chat view.
+
+You can also control the default visibility of the Secondary Side Bar with the `setting(workbench.secondarySideBar.defaultVisibility)` setting. Set it to `hidden` to prevent the Chat view from opening automatically.
+
 ## Troubleshooting and feedback
 
 ### How can I provide feedback on Copilot?
 
 We track issues and feature requests for GitHub Copilot in VS Code in the [microsoft/vscode](https://github.com/microsoft/vscode) GitHub repository. You can create issues in this repository or use the following feedback mechanisms in VS Code:
 
-- **Code completions**
+- **Ghost text suggestions**
 
-    Use the **Send Copilot Completion Feedback** action when hovering over a code completion in the editor. In the Issue Reporter, provide a clear and detailed description of the issue, including steps to reproduce it.
+    Use the **Send Copilot Completion Feedback** action when hovering over a ghost text suggestion in the editor. In the Issue Reporter, provide a clear and detailed description of the issue, including steps to reproduce it.
 
-    ![Screenshot that shows sending Copilot Completion Feedback action in the editor.](images/faq/code-completions-feedback.png)
+    ![Screenshot that shows sending Copilot Ghost Text Feedback action in the editor.](images/faq/code-completions-feedback.png)
 
 - **Next edit suggestions**
 
@@ -164,7 +202,7 @@ If you encounter problems connecting to GitHub Copilot, you can view network con
 
 You can use the Chat Debug view to see the details of AI requests and responses, including the prompt being used and the context that is sent to the language model. This view can help you understand how the AI is interpreting your requests and what context it is using to generate responses.
 
-Learn more about the [Chat Debug view](/docs/copilot/chat/copilot-chat.md#chat-debug-view).
+Learn more about the [Chat Debug view](/docs/copilot/chat/chat-debug-view.md).
 
 ## Additional resources
 

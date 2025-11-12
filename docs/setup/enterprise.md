@@ -1,6 +1,6 @@
 ---
 ContentId: 936ab8e0-3bbe-4842-bb17-ea314665c20a
-DateApproved: 09/11/2025
+DateApproved: 11/12/2025
 MetaDescription: Learn about Visual Studio Code's enterprise support features, such as group policies or restricting allowed extensions.
 
 ---
@@ -94,6 +94,22 @@ Duplicate key values are not supported. For example, including both `"microsoft"
 
 If you want to learn more about extensions in VS Code, refer to the [extensions documentation](/docs/configure/extensions/extension-marketplace.md).
 
+## Configure MCP server access
+
+By default, VS Code allows developers to [add any MCP server](/docs/copilot/customization/mcp-servers.md) to their environment. Organizations can restrict which MCP servers are allowed to be used by developers in VS Code. The following configuration options are available in their [GitHub Copilot settings](https://docs.github.com/en/copilot/how-tos/administer-copilot/configure-mcp-server-access):
+
+* Configure from which source MCP servers are enabled to run (controls the `setting(chat.mcp.access)` VS Code setting)
+
+    * **All**: developers can run MCP servers from any source
+    * **Registry**: developers can only run MCP servers from the MCP registry, other MCP servers are blocked from running
+    * **None**: MCP server support is disabled
+
+* Configure a custom MCP registry URL
+
+    When the `setting(chat.mcp.gallery.enabled)` VS Code setting is enabled, developers can view the list of MCP servers in the Extensions view. By default, VS Code fetches the list of MCP servers from the [GitHub MCP registry](https://github.com/mcp). Organizations can configure a custom MCP registry URL to fetch the list of MCP servers from a different source.
+
+Learn how to [configure MCP server access](https://docs.github.com/en/copilot/how-tos/administer-copilot/configure-mcp-server-access) in the GitHub Copilot documentation.
+
 ## Configure automatic updates
 
 The `update.mode` VS Code setting controls whether VS Code automatically updates when a new version is released. The updates are fetched from a Microsoft online service.
@@ -132,14 +148,16 @@ VS Code currently provides policies to control the following admin-controlled fe
 | `UpdateMode`                         | Enable automatic installation of VS Code updates.                                                  | `update.mode`                                 | 1.67            |
 | `TelemetryLevel`                     | Specify telemetry data level.                                                                      | `telemetry.telemetryLevel`                    | 1.99            |
 | `EnableFeedback`                     | Configure feedback mechanisms (issue reporter and surveys).                                        | `telemetry.feedback.enabled`                  | 1.99            |
-| `ChatAgentMode`                      | Enable [agent mode](/docs/copilot/chat/copilot-chat.md#chat-mode).                                 | `chat.agent.enabled`                          | 1.99            |
+| `ChatAgentMode`                      | Enable [agent mode](/docs/copilot/chat/copilot-chat.md#built-in-agents).                                 | `chat.agent.enabled`                          | 1.99            |
 | `ChatAgentExtensionTools`            | Enable using tools contributed by third-party extensions.                                          | `chat.extensionTools.enabled`                 | 1.99            |
-| `ChatPromptFiles`                    | Enable [prompt and instruction files](/docs/copilot/customization/overview.md) in chat.            | `chat.promptFiles`                            | 1.99            |
-| `ChatMCP`                            | Enable [Model Context Protocol (MCP) servers](/docs/copilot/customization/mcp-servers.md) support. | `chat.mcp.access`                             | 1.99            |
+| `ChatPromptFiles`                    | Enable [prompt and instruction files](/docs/copilot/customization/overview.md) in chat.            | `chat.promptFiles`                            | 1.99 - 1.105      |
+| `ChatMCP`                            | Enable [Model Context Protocol (MCP) servers](/docs/copilot/customization/mcp-servers.md) support and which sources are allowed. | `chat.mcp.access`                             | 1.99            |
 | `ChatToolsAutoApprove`               | Enable global auto-approval for agent mode tools.                                                  | `chat.tools.global.autoApprove`               | 1.99            |
 | `CopilotReviewSelection`             | Enable code review for editor selection.                                                           | `github.copilot.chat.reviewSelection.enabled` | 1.104           |
 | `CopilotReviewAgent`                 | Enable Copilot Code Review for pull requests and changed files.                                    | `github.copilot.chat.reviewAgent.enabled`     | 1.104           |
 | `ChatToolsTerminalEnableAutoApprove` | Enable the rule-based auto-approval for the terminal tool.                                         | `chat.tools.terminal.autoApprove`             | 1.104           |
+| `McpGalleryServiceUrl`               | Configure the MCP Gallery service URL to connect to.                                                                             | `chat.mcp.gallery.serviceUrl`                 | 1.101           |
+| `ExtensionGalleryServiceUrl`         | Configure the Marketplace service URL to connect to.                                                                             | `extensions.gallery.serviceUrl`               | 1.99            |
 
 ### Group Policy on Windows
 
@@ -203,6 +221,16 @@ Manually install a configuration profile by double-clicking on the `.mobileconfi
 
 For more information on configuration profiles, refer to [Apple's documentation](https://support.apple.com/guide/mac-help/configuration-profiles-standardize-settings-mh35561/mac).
 
+### JSON policies on Linux
+
+Starting from VS Code version 1.106, you can also configure VS Code setting policies on Linux devices by placing a JSON policy file at `/etc/vscode/policy.json`.
+
+Each release includes a sample `policy.json` file under `resources/app/policies` which includes the available policies. You can find this file by either extracting it from the downloaded package or by selecting and extracting the `tar.gz` file from the Downloads page.
+
+> [!IMPORTANT]
+> The provided `policy.json` file initializes **all** policies available in that version of VS Code. Delete any policies that are not needed.
+>
+> If you do not edit or remove a policy from the sample `policy.json`, that policy will be enforced with its default (restrictive) policy value.
 
 ### Additional policies
 
@@ -224,12 +252,6 @@ Follow these steps to bootstrap extensions:
 1. When a user launches VS Code for the first time, all extensions in the `bootstrap\extensions` folder are installed silently in the background.
 
 Users can still uninstall extensions that were preinstalled. Restarting VS Code after uninstalling an extension will not reinstall the extension.
-
-## Frequently asked questions
-
-### Does VS Code support configuration profiles on Linux?
-
-Support for Linux is not on the roadmap. If you're interested in configuration profiles on Linux, open an issue in the VS Code [GitHub repository](https://github.com/microsoft/vscode/issues) and share details about your scenario.
 
 ## Related resources
 

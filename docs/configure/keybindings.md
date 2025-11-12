@@ -1,12 +1,12 @@
 ---
 ContentId: 045980C1-62C7-4E8E-8CE4-BAD722FFE31E
-DateApproved: 09/11/2025
+DateApproved: 11/12/2025
 MetaDescription: Here you will find the complete list of keyboard shortcuts for Visual Studio Code and how to change them.
 MetaSocialImage: images/keybinding/customization-keybindings-social.png
 ---
 # Keyboard shortcuts for Visual Studio Code
 
-Visual Studio Code lets you perform most tasks directly from the keyboard. This article explains how you can modify the default keyboard shorts that come with VS Code.
+Visual Studio Code lets you perform most tasks directly from the keyboard. This article explains how you can modify the default keyboard shortcuts that come with VS Code.
 
 > [!NOTE]
 > If you visit this page on a Mac, you will see the keyboard shortcuts for the Mac. If you visit using Windows or Linux, you will see the keys for that platform. If you need the keyboard shortcuts for another platform, hover your mouse over the key you are interested in.
@@ -281,7 +281,7 @@ To override a specific keyboard shortcut rule with an empty action, you can spec
 
 Keys are string representations for virtual keys and do not necessarily relate to the produced character when they are pressed. More precisely:
 
-* Reference: [Virtual-Key Codes (Windows)](https://msdn.microsoft.com/library/windows/desktop/dd375731)
+* Reference: [Virtual-Key Codes (Windows)](https://learn.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes)
 * `kbstyle(tab)` for `VK_TAB` (`0x09`)
 * `kbstyle(;)` for `VK_OEM_1` (`0xBA`)
 * `kbstyle(=)` for `VK_OEM_PLUS` (`0xBB`)

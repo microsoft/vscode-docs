@@ -1,6 +1,6 @@
 ---
 ContentId: 9480bef3-4dfc-4671-a454-b9252567bc60
-DateApproved: 09/11/2025
+DateApproved: 11/12/2025
 MetaDescription: Testing Python in Visual Studio Code including the Test Explorer
 MetaSocialImage: images/tutorial/python-social.png
 ---

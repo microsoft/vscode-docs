@@ -1,7 +1,7 @@
 ---
 ContentId: 7ec8a02b-2eb7-45c1-bb16-ddeaac694ff6
 MetaDescription: Developing inside a Container using Visual Studio Code Remote Development
-DateApproved: 09/11/2025
+DateApproved: 11/12/2025
 ---
 # Developing inside a Container
 
@@ -353,7 +353,7 @@ We recommend pre-building images with the tools you need rather than creating an
 
 Even better - pre-built images can contain Dev Container metadata so when you reference an image, settings will be pulled across automatically.
 
-We recommend using the [Dev Container CLI](/docs/devcontainers/devcontainer-cli.md) (or other [specification](https://containers.dev) supporting utilities like the [GitHub Action](https://github.com/marketplace/actions/devcontainers-ci)) to pre-build your images since it is kept in sync with the Dev Containers extension's latest capabilities - including [dev container Features](#dev-container-features). Once you've built your image, you can push it to a container registry (like the [Azure Container Registry](https://learn.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli), [GitHub Container Registry](https://docs.github.com/packages/working-with-a-github-packages-registry/working-with-the-container-registry#pushing-container-images), or [Docker Hub](https://docs.docker.com/engine/reference/commandline/push)) and reference it directly.
+We recommend using the [Dev Container CLI](/docs/devcontainers/devcontainer-cli.md) (or other [specification](https://containers.dev) supporting utilities like the [GitHub Action](https://github.com/marketplace/actions/dev-container-build-and-run-action)) to pre-build your images since it is kept in sync with the Dev Containers extension's latest capabilities - including [dev container Features](#dev-container-features). Once you've built your image, you can push it to a container registry (like the [Azure Container Registry](https://learn.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli), [GitHub Container Registry](https://docs.github.com/packages/working-with-a-github-packages-registry/working-with-the-container-registry#pushing-container-images), or [Docker Hub](https://docs.docker.com/engine/reference/commandline/push)) and reference it directly.
 
 You can use the GitHub Action in the [devcontainers/ci](https://github.com/devcontainers/ci) repository to help you reuse dev containers in your workflows.
 
@@ -604,7 +604,7 @@ See [here for a list of active issues](https://aka.ms/vscode-remote/containers/i
 
 ### Docker limitations
 
-See the Docker troubleshooting guide for [Windows](https://docs.docker.com/docker-for-windows/troubleshoot) or [Mac](https://docs.docker.com/docker-for-mac/troubleshoot), consult [Docker Support Resources](https://success.docker.com/article/best-support-resources) for more information.
+See the Docker troubleshooting guide for [Windows](https://docs.docker.com/docker-for-windows/troubleshoot) or [Mac](https://docs.docker.com/docker-for-mac/troubleshoot) for more information.
 
 ### Container Tools Extension limitations
 

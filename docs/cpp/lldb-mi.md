@@ -87,5 +87,4 @@ If you built your own `lldb-mi`, you can use it by setting `miDebuggerPath` to t
 
 ## References
 
-* [LLDB-MI Build](https://dev.azure.com/ms/vscode-cpptools/_build?definitionId=313)
 * [LLDB-MI Repository](https://github.com/lldb-tools/lldb-mi)

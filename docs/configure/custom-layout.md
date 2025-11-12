@@ -1,6 +1,6 @@
 ---
 ContentId: 71e2c9c1-fb19-469a-9620-877d4b08fb0d
-DateApproved: 09/11/2025
+DateApproved: 11/12/2025
 MetaDescription: Visual Studio Code custom user interface layout.
 ---
 # Custom Layout

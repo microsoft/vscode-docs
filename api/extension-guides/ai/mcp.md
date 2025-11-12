@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: e655f324-ed0b-452d-aff3-52cdca3978a5
-DateApproved: 09/11/2025
+DateApproved: 11/12/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A comprehensive guide for developers building MCP servers that work with Visual Studio Code.
@@ -11,10 +11,12 @@ MetaDescription: A comprehensive guide for developers building MCP servers that 
 
 Model Context Protocol (MCP) is an open standard that enables AI models to interact with external tools and services through a unified interface. Visual Studio Code implements the full MCP specification, enabling you to create MCP servers that provide tools, prompts, and resources for extending the capabilities of AI agents in VS Code.
 
+MCP servers provide one of three types of tools available in VS Code, alongside built-in tools and extension-contributed tools. Learn more about [tool types](/docs/copilot/chat/chat-tools.md#types-of-tools).
+
 This guide covers everything you need to know to build MCP servers that work seamlessly with VS Code and other MCP clients.
 
-> [!IMPORTANT]
-> MCP support in VS Code is currently in preview.
+> [!TIP]
+> For information about using MCP servers as an end user, see [Use MCP servers in VS Code](/docs/copilot/customization/mcp-servers.md).
 
 ## Why use MCP servers?
 
@@ -29,73 +31,24 @@ You might consider implementing a language model tool with the [Language Model A
 - You want to deeply integrate with VS Code by using extension APIs.
 - You want to distribute your tool and updates by using the Visual Studio Marketplace.
 
-## Add MCP servers to VS Code
-
-Users can add MCP servers within VS Code in several ways:
-
-- Workspace configuration: Specify the server configuration in a `.vscode/mcp.json` file in the workspace.
-- Global configuration: Define servers globally in the user [profile](https://code.visualstudio.com/docs/configure/profiles).
-- Autodiscovery: VS Code can discover servers from other tools like Claude Desktop.
-- Extension: VS Code extensions can register MCP servers programmatically.
-
-In addition, users can trigger MCP installation by opening a [special URL](#mcp-url-handler) (`vscode:mcp/install`), which is used in the [MCP gallery on the VS Code website](https://code.visualstudio.com/mcp). Users can access the gallery directly from the MCP view in the Extensions view.
-
-Finally, install MCP servers from the [command line](/docs/copilot/chat/mcp-servers#_command-line-configuration) with the `--add-mcp` command-line option.
-
-## Manage MCP servers
-
-You can manage the list of installed MCP servers from the Extension view (`kb(workbench.view.extensions)`) in VS Code.
-
-![Screenshot showing the MCP servers in the Extensions view.](../images/ai/mcp/extensions-view-mcp-servers.png)
-
-Right-click on an MCP server or select the gear icon to perform the following actions:
-
-- **Start/Stop/Restart**: Start, stop, or restart the MCP server.
-- **Disconnect Account**: Disconnect the account for authentication with the MCP server.
-- **Show Output**: View the server logs to diagnose issues.
-- **Show Configuration**: View the MCP server configuration.
-- **Configure Model Access**: Configure which models the MCP server can access (sampling).
-- **Show Sampling Requests**: View the sampling requests made by the MCP server.
-- **Browse Resources**: View the resources provided by the MCP server.
-- **Uninstall**: Uninstall the MCP server from your environment.
-
-Alternatively, run the **MCP: List Servers** command from the Command Palette to view the list of configured MCP servers. You can then select a server and perform actions on it.
-
-> [!TIP]
-> When you open the `.vscode/mcp.json` file, VS Code shows commands to start, stop, or restart a server directly from the editor.
-
-![MCP server configuration with lenses to manage server.](../images/ai/mcp/mcp-server-config-lenses.png)
-
-### MCP URL handler
-
-VS Code provides a URL handler for installing an MCP server from a link. To form the URL, construct an `obj` object in the same format as you would provide to `--add-mcp`, and then create the link by using the following logic:
-
-```typescript
-// For Insiders, use `vscode-insiders` instead of `code`
-const link = `vscode:mcp/install?${encodeURIComponent(JSON.stringify(obj))}`;
-```
-
-This link can be used in a browser, or opened on the command line, for example via `xdg-open $LINK` on Linux.
-
 ## MCP features supported by VS Code
 
-VS Code supports the following transport methods for MCP servers:
+VS Code supports the following MCP capabilities:
 
-- Standard input/output (`stdio`): Run a server as a local process that communicates over standard input and output
-- Streamable HTTP (`http`): Communicate with a (remote) server using HTTP POST and GET
-- Server-sent events (`sse`, legacy): Supported with a (remote) server over HTTP using server-sent events
+* [Transports](https://modelcontextprotocol.io/specification/2025-06-18/basic/transports):
+    * Local standard input/output (`stdio`)
+    * Streamable HTTP (`http`)
+    * Server-sent events (`sse`) - legacy support.
 
-The following MCP features are supported in VS Code:
-
-- Tools: Executable actions that can be used in [agent mode](/docs/copilot/chat/chat-agent-mode)
-- Prompts: Reusable chat prompt templates, optionally with parameters, which users can invoke through slash commands(`/mcp.servername.promptname`) in chat
-- Resources: Data and content which users can add as chat context or interact with directly in VS Code
-- Authorization: Authorize access to an MCP server using OAuth
-- Sampling _(Preview)_: Make language model requests using the user's configured models and subscription
-- Elicitation: Request input from the user
-- Workspace roots: Information about the user's workspace structure
-
-For complete specification details, see the [Model Context Protocol documentation](https://modelcontextprotocol.io/).
+* [Features](https://modelcontextprotocol.io/specification/2025-06-18#features):
+    * Tools: extend [agent mode](/docs/copilot/chat/chat-agent-mode) with extra tools
+    * Prompts: add reusable prompts as slash commands in chat
+    * Resources: provide data and content that users can add as chat context or interact with directly in VS Code
+    * Elicitation: request input from the user
+    * Sampling: make language model requests using the user's configured models and subscription
+    * Authentication: authorize access to an MCP server using OAuth
+    * Server instructions
+    * Roots: provide information about the user's workspace root folder(s)
 
 ### Tools
 
@@ -197,15 +150,15 @@ When DCR is not supported by the MCP server, users will go through the fallback 
 > [!NOTE]
 > VS Code still supports MCP servers that behave as an authorization server, but it is recommended to use the latest specification for new servers.
 
-### Sampling (Preview)
+### Sampling
 
-VS Code provides access to [sampling](https://modelcontextprotocol.io/docs/concepts/sampling) for MCP servers. This allows your MCP server to make language model requests using the user's configured models and subscriptions. Sampling can be used to summarize large data or extract information before sending it to the client, or to implement smarter agentic decision in tool logic.
+VS Code provides access to [sampling](https://modelcontextprotocol.io/docs/concepts/sampling) for MCP servers. This allows your MCP server to make language model requests using the user's configured models and subscriptions. For example, use sampling to summarize large data sets, to extract information before sending it to the client, or to implement agentic decision logic in a tool.
 
 The first time an MCP server performs a sampling request, the user is prompted to authorize the server to access their models.
 
 ![Screenshot that shows the authorization prompt for an MCP server to access models.](../images/ai/mcp/mcp-allow-sampling.png)
 
-Users can specify which models they allow the MCP server to use for sampling by using the **MCP: List Servers** > **Configure Model Access** command in the Command Palette. You can specify `modelPreferences` in your MCP server to provide hints about which models to use for sampling, and VS Code will pick from the allowed models when evaluating the server's preferences
+When making sampling requests with specific models, consider that users can restrict which models an MCP server can use with the **MCP: List Servers** > **Configure Model Access** command in the Command Palette. When you specify `modelPreferences` in your MCP server to provide hints about which models to use for sampling, VS Code will pick from the allowed models.
 
 ![Screenshot that shows the Configure Model Access dialog for an MCP server.](../images/ai/mcp/mcp-configure-model-access.png)
 
@@ -214,6 +167,53 @@ Users can view the sampling requests made by an MCP server with the **MCP: List 
 ### Workspace roots
 
 VS Code provides the MCP server with the user's workspace root folder information.
+
+### Icons
+
+VS Code supports `icons` provided on MCP servers, resources, and tools. MCP Icons have a `src` property which is a URI to the image:
+
+- MCP servers using the HTTP or SSE transports may serve images from the same authority the MCP server is hosted on. For example, a server configured at `https://example.com/mcp` can serve images from `example.com`.
+- MCP servers using the stdio transport may serve images from the file system using `file:///` URIs.
+- Any MCP server can embed images as data URIs beginning with `data:`.
+
+## Add MCP servers to VS Code
+
+Users can add MCP servers within VS Code in several ways:
+
+- Install directly from the web: use a special MCP installation URL (`vscode:mcp/install`) on your website.
+- Workspace configuration: Specify the server configuration in a `.vscode/mcp.json` file in the workspace.
+- Global configuration: Define servers globally in the user [profile](/docs/configure/profiles).
+- Autodiscovery: VS Code can discover servers from other tools like Claude Desktop.
+- Extension: VS Code extensions can register MCP servers programmatically.
+- Command line: Install MCP servers from the command line with the `--add-mcp` VS Code command-line option.
+
+Learn more about the different ways to [add MCP servers to VS Code](/docs/copilot/customization/mcp-servers#add-an-mcp-server).
+
+## Manage MCP servers
+
+You can manage the list of installed MCP servers from the Extension view (`kb(workbench.view.extensions)`) in VS Code.
+
+![Screenshot showing the MCP servers in the Extensions view.](../images/ai/mcp/extensions-view-mcp-servers.png)
+
+Right-click on an MCP server or select the gear icon to perform different management actions on the server. Alternatively, run the **MCP: List Servers** command from the Command Palette to view the list of configured MCP servers. You can then select a server and perform actions on it.
+
+> [!TIP]
+> When you open the `.vscode/mcp.json` file, VS Code shows commands in the editor to start, stop, or restart a server directly from the editor.
+>
+> ![MCP server configuration with lenses to manage server.](../images/ai/mcp/mcp-server-config-lenses.png)
+
+## Create an MCP installation URL
+
+VS Code provides a URL handler for installing an MCP server from a link: `vscode:mcp/install?{json-configuration}` (Insiders: `vscode-insiders:mcp/install?{json-configuration}`).
+
+Provide the JSON server configuration in the form `{\"name\":\"server-name\",\"command\":...}` and then perform a JSON-stringify and URL encode on it. For example, use the following logic to create the installation URL:
+
+```typescript
+// For Insiders, use `vscode-insiders` instead of `code`
+const link = `vscode:mcp/install?${encodeURIComponent(JSON.stringify(obj))}`;
+```
+
+This link can be used in a browser, or opened on the command line, for example via `xdg-open $LINK` on Linux.
 
 ## Register an MCP server in your extension
 
@@ -322,31 +322,61 @@ export function activate(context: vscode.ExtensionContext) {
 
 ### MCP development mode in VS Code
 
-When developing MCP servers, you can enable MCP development mode in VS Code. To enable development mode, add the `dev` property to your MCP server configuration and specify the following properties:
+When developing MCP servers, you can enable _development mode_ for MCP servers by adding a `dev` key to the MCP server configuration. This is an object with two properties:
 
-- `watch`: A glob pattern to watch for file changes to files and automatically restart the server
-- `debug`: Debugger to attach to your MCP server process when starting it (currently only supported for servers launched with `node` or `python`)
+* `watch`: A file glob pattern to watch for files change that will restart the MCP server.
+* `debug`: Enables you to set up a debugger with the MCP server. Currently, VS Code supports debugging Node.js and Python MCP servers.
 
-The following example shows how to configure a Node.js MCP server that watches for changes to TypeScript files in the `src` directory and uses the Node.js debugger:
+    <details>
+    <summary>Node.js MCP server</summary>
 
-```json
-{
-    "servers": {
-        "my-mcp-server": {
-            "type": "stdio",
-            "command": "node",
-            "cwd": "${workspaceFolder}",
-            "args": [
-                "./build/index.js"
-            ],
-            "dev": {
-                "watch": "src/**/*.ts",
-                "debug": { "type": "node" }
+    To debug a Node.js MCP server, set the `debug.type` property to `node`.
+
+    ```json
+    {
+        "servers": {
+            "my-mcp-server": {
+                "type": "stdio",
+                "command": "node",
+                "cwd": "${workspaceFolder}",
+                "args": [ "./build/index.js" ],
+                "dev": {
+                    "watch": "src/**/*.ts",
+                    "debug": { "type": "node" }
+                }
             }
         }
     }
-}
-```
+    ```
+
+    </details>
+
+    <details>
+    <summary>Python MCP server</summary>
+
+    To debug a Python MCP server, set the `debug.type` property to `debugpy`, and optionally set the `debug.debugpyPath` property to the path of the `debugpy` module if it is not installed in the default Python environment.
+
+    ```json
+    {
+        "servers": {
+            "my-python-mcp-server": {
+                "type": "stdio",
+                "command": "python",
+                "cwd": "${workspaceFolder}",
+                "args": [ "./server.py" ],
+                "dev": {
+                    "watch": "**/*.py",
+                    "debug": {
+                        "type": "debugpy",
+                        "debugpyPath": "/path/to/debugpy"
+                    }
+                }
+            }
+        }
+    }
+    ```
+
+    </details>
 
 ### MCP output log
 

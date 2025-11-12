@@ -5,7 +5,7 @@ MetaDescription: Tools for developing and debugging with containers, using Visua
 ---
 # Containers in Visual Studio Code
 
-The [Container Tools](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers) extension makes it easy to build, manage, and deploy containerized applications in Visual Studio Code.
+The [Container Tools](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers) extension makes it easy to build, manage, and deploy containerized applications in Visual Studio Code and includes agent tools.
 
 This page provides an overview of the Container Tools extension capabilities; use the side menu to learn more about topics of interest. If you are just getting started with container development, try the [Docker tutorial](https://learn.microsoft.com/visualstudio/docker/tutorials/docker-tutorial) first to understand key Docker concepts.
 
@@ -26,6 +26,16 @@ You can get [IntelliSense](/docs/editing/intellisense.md) by clicking `kb(editor
 ![IntelliSense for Dockerfiles](images/overview/dockerfile-intellisense.png)
 
 In addition, you can use the Problems panel (`kb(workbench.actions.view.problems)`) to view common errors for `Dockerfile` and `docker-compose.yml` files.
+
+## Copilot tools for containers
+
+Container Tools includes agent tools for managing containers and images in chat.
+
+* **Ask about your containers and images**: "Show me my running containers", "List my Docker images"
+* **Get details about specific containers or images**: "What's going on with my nginx container?"
+
+![Container Tools Copilot](images/overview/chat.png)
+
 
 ## Generating Docker files
 
@@ -95,5 +105,4 @@ Read on to learn more about
 - [Build and run a Node.js app in a container](/docs/containers/quickstart-node.md)
 - [Build and run a .NET app in a container](/docs/containers/quickstart-aspnet-core.md)
 - [Debug apps within Docker containers](/docs/containers/debug-common.md)
-- [Docker application development](https://docs.docker.com/develop)
 - [Troubleshooting](/docs/containers/troubleshooting.md)

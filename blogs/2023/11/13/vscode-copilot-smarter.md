@@ -1,5 +1,5 @@
 ---
-Order: 84
+Order: 
 TOCTitle: Pursuit of wicked smartness in VS Code
 PageTitle: Pursuit of wicked smartness in VS Code
 MetaDescription: Smart artificial intelligence features in Visual Studio Code with GitHub Copilot

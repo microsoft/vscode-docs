@@ -1,6 +1,6 @@
 ---
 ContentId: 039882CB-B5C4-46BD-A8D5-DB24A5E82706
-DateApproved: 09/11/2025
+DateApproved: 11/12/2025
 MetaDescription: Find out how Visual Studio Code can support your CSS, SCSS and Less development.
 ---
 # CSS, SCSS and Less

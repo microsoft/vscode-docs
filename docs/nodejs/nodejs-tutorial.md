@@ -1,6 +1,6 @@
 ---
 ContentId: ED394CD2-D09E-4E3A-96AD-6D3D8337BA9D
-DateApproved: 09/11/2025
+DateApproved: 11/12/2025
 MetaDescription: The Visual Studio Code editor has great support for writing and debugging Node.js applications. This tutorial takes you from Hello World to a full Express web application.
 MetaSocialImage: images/nodejs/runtimes-node-social.png
 ---

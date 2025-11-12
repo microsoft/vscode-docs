@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 7f90ee4f-cac1-4b99-aee6-c99e088789d0
-DateApproved: 09/11/2025
+DateApproved: 11/12/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to implement a LanguageModelChatProvider to contribute custom language models to VS Code's chat experience for extensions.

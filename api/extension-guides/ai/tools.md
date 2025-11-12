@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: aa6d312f-cbac-4633-8579-64d3cb4d17be
-DateApproved: 09/11/2025
+DateApproved: 11/12/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to creating a language model tool and how to implement tool calling in a chat extension
@@ -10,11 +10,15 @@ MetaDescription: A guide to creating a language model tool and how to implement 
 # Language Model Tool API
 
 Language model tools enable you to extend the functionality of a large language model (LLM) in chat with domain-specific capabilities. To process a user's chat prompt, [agent mode](/docs/copilot/chat/chat-agent-mode) in VS Code can automatically invoke these tools to perform specialized tasks as part of the conversation.
-By contributing a language model tool in your VS Code extension, you can extend the agentic coding workflow while also providing deep integration with the editor.
+
+By contributing a language model tool in your VS Code extension, you can extend the agentic coding workflow while also providing deep integration with the editor. Extension tools are one of three types of tools available in VS Code, alongside [built-in tools and MCP tools](/docs/copilot/chat/chat-tools.md#types-of-tools).
 
 In this extension guide, you learn how to create a language model tool by using the Language Model Tools API and how to implement tool calling in a chat extension.
 
 You can also extend the chat experience with specialized tools by contributing an [MCP server](/api/extension-guides/ai/mcp). See the [AI Extensibility Overview](/api/extension-guides/ai/ai-extensibility-overview) for details on the different options and how to decide which approach to use.
+
+> [!TIP]
+> For information about using tools as an end user, see [Use tools in chat](/docs/copilot/chat/chat-tools.md).
 
 ## What is tool calling in an LLM?
 
@@ -32,7 +36,7 @@ Read more about [function calling](https://platform.openai.com/docs/guides/funct
 
 Implementing a language model tool in your extension has several benefits:
 
-- **Extend agent mode** with specialized, domain-specific, tools that are automatically invoked as part of responding to a user prompt. For example, enable database scaffolding and querying to dynamically provide the LLM with relevant context.
+- **Extend agent mode** with specialized, domain-specific tools that are automatically invoked as part of responding to a user prompt. For example, enable database scaffolding and querying to dynamically provide the LLM with relevant context.
 - **Deeply integrate with VS Code** by using the broad set of extension APIs. For example, use the [debug APIs](/api/extension-guides/debugger-extension) to get the current debugging context and use it as part of the tool's functionality.
 - **Distribute and deploy** tools via the Visual Studio Marketplace, providing a reliable and seamless experience for users. Users don't need a separate installation and update process for your tool.
 
@@ -42,6 +46,8 @@ You might consider implementing a language model tool with an [MCP server](/api/
 - You want to reuse the same tool across different development environments and platforms.
 - Your tool is hosted remotely as a service.
 - You don't need access to VS Code APIs.
+
+Learn more about the [differences between tool types](/docs/copilot/chat/chat-tools.md#types-of-tools).
 
 ## Create a language model tool
 
@@ -67,7 +73,7 @@ The first step to define a language model tool in your extension is to define it
 
 1. If the tool can be used in [agent mode](/docs/copilot/chat/chat-agent-mode) or referenced in a chat prompt with `#`, add the following properties:
 
-    Users can enable or disable the tool in the Chat view, similar to how this is done for [Model Context Protocol (MCP) tools](/docs/copilot/chat/mcp-servers).
+    Users can enable or disable the tool in the Chat view, similar to how this is done for [Model Context Protocol (MCP) tools](/docs/copilot/chat/chat-tools.md#mcp-tools).
 
     | Property | Description |
     | -------- | ----------- |

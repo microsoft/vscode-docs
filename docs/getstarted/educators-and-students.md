@@ -1,6 +1,6 @@
 ---
 ContentId: 33b73b13-3d85-49d9-95b2-92b75137818c
-DateApproved: 09/11/2025
+DateApproved: 11/12/2025
 MetaDescription: Resources for educators and students to get started with Visual Studio Code.
 ---
 # VS Code for Educators and Students

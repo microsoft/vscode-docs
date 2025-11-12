@@ -1,7 +1,7 @@
 ---
 ContentId: 79bcdbf9-d6a5-4e04-bbee-e7bb71f09f0a
 MetaDescription: Using Visual Studio Code Remote Development with the Windows Subsystem for Linux (WSL)
-DateApproved: 09/11/2025
+DateApproved: 11/12/2025
 ---
 # Developing in WSL
 

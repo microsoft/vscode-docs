@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 1c1f6d51-5914-44fa-ae10-0360be0ae2a3
-DateApproved: 09/11/2025
+DateApproved: 11/12/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: UX guidelines for webviews in a Visual Studio Code extension.

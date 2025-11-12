@@ -1,6 +1,6 @@
 ---
 ContentId: 8b4f3c21-4e02-4a89-9f15-7a8d6b5c2e91
-DateApproved: 09/11/2025
+DateApproved: 11/12/2025
 MetaDescription: Learn how to create custom instructions for GitHub Copilot Chat in VS Code to ensure AI responses match your coding practices, project requirements, and development standards.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -11,7 +11,7 @@ Custom instructions enable you to define common guidelines and rules that automa
 You can configure custom instructions to apply automatically to all chat requests or to specific files only. Alternatively, you can manually attach custom instructions to a specific chat prompt.
 
 > [!NOTE]
-> Custom instructions are not taken into account for [code completions](/docs/copilot/ai-powered-suggestions.md) as you type in the editor.
+> Custom instructions are not taken into account for [inline suggestions](/docs/copilot/ai-powered-suggestions.md) as you type in the editor.
 
 ## Type of instructions files
 
@@ -22,14 +22,13 @@ VS Code supports multiple types of Markdown-based instructions files. If you hav
     * Stored within the workspace
 
 * One or more [`.instructions.md`](#use-instructionsmd-files) files
-    * Created for specific tasks or files
-    * Use `applyTo` frontmatter to define what files the instructions should be applied to
+    * Conditionally apply instructions based on file type or location by using glob patterns
     * Stored in the workspace or user profile
 
-* A single [`AGENTS.md`](#use-an-agentsmd-file-experimental) file (experimental)
+* One or more [`AGENTS.md`](#use-an-agentsmd-file) files
     * Useful if you work with multiple AI agents in your workspace
-    * Automatically applies to all chat requests in the workspace
-    * Stored in the root of the workspace
+    * Automatically applies to all chat requests in the workspace or to specific subfolders (experimental)
+    * Stored in the root of the workspace or in subfolders (experimental)
 
 Whitespace between instructions is ignored, so the instructions can be written as a single paragraph, each on a new line, or separated by blank lines for legibility.
 
@@ -151,13 +150,23 @@ Alternatively, you can manually attach an instructions file to a specific chat p
 
 ### Instructions file format
 
-Instructions files use the `.instructions.md` extension and have this structure:
+Instructions files are Markdown files and use the `.instructions.md` extension and have this structure:
 
-* **Header** (optional): YAML frontmatter
-    * `description`: Description shown on hover in Chat view
-    * `applyTo`: Glob pattern for automatic application (use `**` for all files)
+#### Header (optional)
 
-* **Body**: Instructions in Markdown format
+The header is formatted as YAML frontmatter with the following fields:
+
+| Field     | Description                                                                                   |
+| --------- | ------------------------------------------------- |
+| `description` | A short description of the instructions file. |
+| `name`        | The name of the instructions file, used in the UI. If not specified, the file name is used. |
+| `applyTo`     | Optional glob pattern that defines which files the instructions should be applied to automatically, relative to the workspace root. Use `**` to apply to all files. If no value is specified, the instructions are not applied automatically - you can still add them manually to a chat request. |
+
+#### Body
+
+The instructions file body contains the custom instructions that are sent to the LLM when the instructions are applied. Provide specific guidelines, rules, or any other relevant information that you want the AI to follow.
+
+To reference agent tools in the body text, use the `#tool:<tool-name>` syntax. For example, to reference the `githubRepo` tool, use `#tool:githubRepo`.
 
 Example:
 
@@ -179,7 +188,7 @@ When you create an instructions file, choose whether to store it in your workspa
 
 To create an instructions file:
 
-1. In the Chat view, select **Configure Chat** > **Instructions**, and then select **New instruction file**.
+1. In the Chat view, select **Configure Chat** (gear icon) > **Chat Instructions**, and then select **New instruction file**.
 
     ![Screenshot showing the Chat view, and Configure Chat menu, highlighting the Configure Chat button.](../images/customization/configure-chat-instructions.png)
 
@@ -187,34 +196,35 @@ To create an instructions file:
 
 1. Choose the location where to create the instructions file.
 
-    * **Workspace**: By default, workspace instructions files are stored in the `.github/instructions` folder of your workspace. Add more instruction folders for your workspace with the `setting(chat.instructionsFilesLocations)` setting.
+    * **Workspace**: create the instructions file in the `.github/instructions` folder of your workspace to only use it within that workspace. Add more instruction folders for your workspace with the `setting(chat.instructionsFilesLocations)` setting.
 
-    * **User profile**: User instructions files are stored in the [current profile folder](/docs/configure/profiles.md). You can sync your user instructions files across multiple devices by using [Settings Sync](/docs/configure/settings-sync.md).
+    * **User profile**: create the instructions files in the [current profile folder](/docs/configure/profiles.md) to use it across all your workspaces.
 
-1. Enter a name for your instructions file.
+1. Enter a file name for your instructions file. This is the default name that is used in the UI.
 
 1. Author the custom instructions by using Markdown formatting.
 
-    Specify the `applyTo` metadata property in the header to configure when the instructions should be applied automatically. For example, you can specify `applyTo: "**/*.ts,**/*.tsx"` to apply the instructions only to TypeScript files.
+    * Fill in the YAML frontmatter at the top of the file to configure the instructions' description, name, and when they apply.
+    * Add instructions in the body of the file.
 
-    To reference additional workspace files, use Markdown links (`[index](../index.ts)`).
+To modify an existing instructions file, in the Chat view, select **Configure Chat** (gear icon) > **Chat Instructions**, and then select an instructions file from the list. Alternatively, use the **Chat: Configure Instructions** command from the Command Palette (`kb(workbench.action.showCommands)`) and select the instructions file from the Quick Pick.
 
-To modify an existing instructions file, in the Chat view, select **Configure Chat** > **Instructions**, and then select an instructions file from the list. Alternatively, use the **Chat: Configure Instructions** command from the Command Palette (`kb(workbench.action.showCommands)`) and select the instructions file from the Quick Pick.
+## Use an `AGENTS.md` file
 
-## Use an `AGENTS.md` file (Experimental)
+If you work with multiple AI agents in your workspace, you can define custom instructions for all agents in an `AGENTS.md` Markdown file at the root(s) of the workspace. VS Code applies the instructions in this file automatically to all chat requests within this workspace.
 
-If you work with multiple AI agents in your workspace, you can define custom instructions for all agents in a single `AGENTS.md` Markdown file at the root(s) of workspace. VS Code applies the instructions in this file automatically to all chat requests within this workspace.
+To enable or disable support for `AGENTS.md` files, configure the `setting(chat.useAgentsMdFile)` setting.
 
-To use an `AGENTS.md` file:
+### Use multiple `AGENTS.md` files (experimental)
 
-1. Enable the `setting(chat.useAgentsMdFile)` setting.
+Using multiple `AGENTS.md` files in subfolders is useful if you want to apply different instructions to different parts of your project. For example, you can have one `AGENTS.md` file for the frontend code and another for the backend code.
 
-1. Create an `AGENTS.md` file at the root of your workspace.
+Use the experimental `setting(chat.useNestedAgentsMdFiles)` setting to enable or disable support for nested `AGENTS.md` files in your workspace.
 
-1. Describe your instructions by using natural language and in Markdown format.
+When enabled, VS Code searches recursively in all subfolders of your workspace for `AGENTS.md` files and adds their relative path to the chat context. The agent can then decide which instructions to use based on the files being edited.
 
-> [!NOTE]
-> VS Code currently only supports `AGENTS.md` files at the root(s) of your workspace and not nested in subfolders. For folder-specific instructions, you can use multiple [`.instructions.md`](#use-instructionsmd-files) files with different `applyTo` patterns.
+> [!TIP]
+> For folder-specific instructions, you can also use multiple [`.instructions.md`](#use-instructionsmd-files) files with different `applyTo` patterns that match the folder structure.
 
 ## Specify custom instructions in settings
 
@@ -252,7 +262,7 @@ VS Code can analyze your workspace and generate a matching `.github/copilot-inst
 
 To generate an instructions file for your workspace:
 
-1. In the Chat view, select **Configure Chat** > **Generate Instructions**.
+1. In the Chat view, select **Configure Chat** (gear icon) > **Generate Chat Instructions**.
 
 1. Review the generated instructions file and make any necessary edits.
 
@@ -276,13 +286,13 @@ To sync your user instructions files, enable Settings Sync for prompt and instru
 
 * Store project-specific instructions in your workspace to share them with other team members and include them in your version control.
 
-* Reuse and reference instructions files in your [prompt files](/docs/copilot/customization/prompt-files.md) and [chat modes](/docs/copilot/customization/custom-chat-modes.md) to keep them clean and focused, and to avoid duplicating instructions.
+* Reuse and reference instructions files in your [prompt files](/docs/copilot/customization/prompt-files.md) and [custom agents](/docs/copilot/customization/custom-agents.md) to keep them clean and focused, and to avoid duplicating instructions.
 
 ## Related resources
 
 * [Customize AI responses overview](/docs/copilot/customization/overview.md)
 * [Create reusable prompt files](/docs/copilot/customization/prompt-files.md)
-* [Create custom chat modes](/docs/copilot/customization/custom-chat-modes.md)
+* [Create custom agents](/docs/copilot/customization/custom-agents.md)
 * [Get started with chat in VS Code](/docs/copilot/chat/copilot-chat.md)
-* [Configure tools in chat](/docs/copilot/chat/chat-agent-mode.md#agent-mode-tools)
-* [Community contributed instructions, prompts, and chat modes](https://github.com/github/awesome-copilot)
+* [Configure tools in chat](/docs/copilot/chat/chat-tools.md)
+* [Community contributed instructions, prompts, and custom agents](https://github.com/github/awesome-copilot)

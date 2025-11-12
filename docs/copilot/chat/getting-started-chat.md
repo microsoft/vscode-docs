@@ -1,6 +1,6 @@
 ---
 ContentId: ae1f36a9-7597-425f-97fc-49bd51c153a3
-DateApproved: 09/11/2025
+DateApproved: 11/12/2025
 MetaDescription: Get started with AI-powered chat conversations with GitHub Copilot in Visual Studio Code, inline while you're coding, or in a separate Chat view.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -143,6 +143,3 @@ Congratulations, you successfully used Copilot Chat in VS Code to ask questions 
 ## Additional resources
 
 * [Get an overview of Copilot Chat in VS Code](/docs/copilot/chat/copilot-chat.md)
-* [Use chat for asking questions about your code](/docs/copilot/chat/chat-ask-mode.md)
-* [Start a multi-file coding session](/docs/copilot/chat/copilot-edits.md)
-* [Start an agentic coding workflow](/docs/copilot/chat/chat-agent-mode.md)

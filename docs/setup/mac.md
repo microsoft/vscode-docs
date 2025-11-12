@@ -1,6 +1,6 @@
 ---
 ContentId: EEADB50A-F5E3-41E9-89DA-35F165196691
-DateApproved: 09/11/2025
+DateApproved: 11/12/2025
 MetaDescription: Get Visual Studio Code up and running on Mac (macOS).
 ---
 # Visual Studio Code on macOS
@@ -45,7 +45,7 @@ MetaDescription: Get Visual Studio Code up and running on Mac (macOS).
 
 ## Launch VS Code from the command line
 
-To run VS Code from the terminal by typing `code`, add it the `$PATH` environment variable:
+To run VS Code from the terminal by typing `code`, add it to the `$PATH` environment variable using one of the following methods:
 
 ### Configure the path with VS Code
 

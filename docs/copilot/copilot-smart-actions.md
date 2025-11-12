@@ -1,6 +1,6 @@
 ---
 ContentId: f0f31de2-a344-4ee6-8d5b-d3ac4e11e149
-DateApproved: 09/11/2025
+DateApproved: 11/12/2025
 MetaDescription: Use smart actions in VS Code to get help from AI for common development tasks, such as generating commit messages, renaming symbols, or fixing coding errors.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -13,6 +13,12 @@ For several common scenarios, you can use _smart actions_ to get help from AI wi
 Get help generating commit messages and pull request (PR) titles and descriptions based on your code changes. Use the _sparkle_ icon in the Source Control view or GitHub PR extension to generate a title and description that summarizes your changes.
 
 ![Hover over Source Control input box sparkle buttons shows Generate Commit Message](images/copilot-smart-actions/generate-commit-message.png)
+
+## Resolve merge conflicts with AI (Experimental)
+
+Use AI to help you resolve Git merge conflicts. Select the **Resolve Merge Conflict with AI** button in the editor to open the Chat view and start an agentic flow to help you resolve the merge conflict. The merge base and changes from each branch are provided as context for the AI.
+
+![Screenshot of the proposed merge conflict resolution in the editor.](images/copilot-smart-actions/ai-merge-conflict-resolution.png)
 
 ## Implement todo comments
 
@@ -105,7 +111,7 @@ Alternatively, you can:
 1. Follow Copilot's suggestions to fix the test
 
 > [!TIP]
-> [Agent mode](/docs/copilot/chat/chat-agent-mode.md) monitors the test output when running tests, and automatically attempts to fix and rerun failing tests.
+> When using [agents](/docs/copilot/chat/copilot-chat.md#built-in-agents), the agent monitors the test output when running tests, and automatically attempts to fix and rerun failing tests.
 
 ## Fix terminal errors
 

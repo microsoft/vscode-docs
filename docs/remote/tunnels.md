@@ -1,7 +1,7 @@
 ---
 ContentId: 5d33c1af-b4e6-4894-aae1-acf95ee3ffa8
 MetaDescription: Using the Visual Studio Code Remote Tunnels extension
-DateApproved: 09/11/2025
+DateApproved: 11/12/2025
 ---
 # Developing with Remote Tunnels
 

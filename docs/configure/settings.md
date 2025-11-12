@@ -1,6 +1,6 @@
 ---
 ContentId: FDA6D86C-FF24-49BC-A1EB-E3BA43130FA0
-DateApproved: 09/11/2025
+DateApproved: 11/12/2025
 MetaDescription: How to modify Visual Studio Code User and Workspace Settings.
 ---
 # User and workspace settings
@@ -97,13 +97,14 @@ There are several other handy filters to help with searching through settings. T
 
 Here are some of the filters available:
 
-* `@ext` - Settings specific to an extension. You provide the extension ID such as `@ext:ms-python.python`.
-* `@feature` - Settings specific to a **Features** subgroup. For example, `@feature:explorer` shows settings of the File Explorer.
-* `@id` - Find a setting based on the setting ID. For example, `@id:workbench.activityBar.visible`.
-* `@lang` - Apply a language filter based on a language ID. For example, `@lang:typescript`. See [Language-specific editor settings](#language-specific-editor-settings) for more details.
-* `@tag` - Settings specific to a system of VS Code. For example, `@tag:workspaceTrust` for settings related to [Workspace Trust](/docs/editing/workspaces/workspace-trust.md), or `@tag:accessibility` for settings related to accessibility.
+* `@ext`: settings specific to an extension. You provide the extension ID such as `@ext:ms-python.python`.
+* `@feature`: settings specific to a **Features** subgroup. For example, `@feature:explorer` shows settings of the File Explorer.
+* `@haspolicy`: settings that are controlled by your [organization](/docs/setup/enterprise.md).
+* `@id`: find a setting based on the setting ID. For example, `@id:workbench.activityBar.visible`.
+* `@lang`: apply a language filter based on a language ID. For example, `@lang:typescript`. See [Language-specific editor settings](#language-specific-editor-settings) for more details.
+* `@tag`: settings specific to a system of VS Code. For example, `@tag:workspaceTrust` for settings related to [Workspace Trust](/docs/editing/workspaces/workspace-trust.md), `@tag:accessibility` for settings related to accessibility, or `@tag:advanced` for advanced VS Code settings.
 
-The search bar remembers your settings search queries and supports Undo/Redo (`kb(undo)`/`kb(redo)`). You can quickly clear a search term or filter with the **Clear Settings Search Input** button at the right of the search bar.
+The search bar remembers your settings search queries and supports undo or redo (`kb(undo)`/`kb(redo)`). You can quickly clear a search term or filter with the **Clear Settings Search Input** button at the right of the search bar.
 
 ![Clear Settings Search Input button in the right of the Settings editor](images/settings/clear-search-input-button.png)
 
