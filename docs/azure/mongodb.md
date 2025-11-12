@@ -11,7 +11,7 @@ Visual Studio Code has great support for working with [MongoDB](https://www.mong
 
 MongoDB support for VS Code is provided by the [DocumentDB for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-documentdb) extension. To install the DocumentDB for VS Code extension, open the Extensions view by pressing `kb(workbench.view.extensions)` and search for 'DocumentDB' to filter the results. Select the **DocumentDB for VS Code** extension.
 
-![TODO Select DocumentDB for VS Code](images/documentdb/install-documentdb-extension.png)
+![Select DocumentDB for VS Code](images/documentdb/install-documentdb-extension.png)
 
 ## Connect to MongoDB
 
