@@ -105,7 +105,7 @@ code chat Find and fix all untyped variables
 
 The `chat` subcommand has the following command-line options:
 
-* `-m`, `--mode <mode>`: The chat mode to use for the chat session. Available options: `ask`, `edit`, `agent`, or the identifier of a custom mode. Defaults to `agent`.
+* `-m`, `--mode <mode>`: The custom agent to use for the chat session. Available options: `ask`, `edit`, `agent`, or the identifier of a custom agent. Defaults to `agent`.
 * `-a`, `--add-file <path>`: Add files as context to the chat session.
 * `--maximize`: Maximize the chat session view.
 * `-r`, `--reuse-window`: Use the last active window for the chat session.

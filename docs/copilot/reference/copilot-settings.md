@@ -45,9 +45,9 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 | `setting(github.copilot.chat.scopeSelection)`<br/>Whether to prompt for a specific symbol scope if you use `/explain` and the active editor has no selection. | `false` |
 | `setting(github.copilot.chat.terminalChatLocation)`<br/>Controls where chat queries from the terminal should be opened. | `"chatView"` |
 | `setting(chat.detectParticipant.enabled)`<br/>Enable chat participant detection in the Chat view. | `true` |
-| `setting(chat.checkpoints.enabled)` <br/>Enable or disable [checkpoints](/docs/copilot/chat/copilot-chat.md#revert-chat-requests-with-checkpoints) in the chat. | `true` |
+| `setting(chat.checkpoints.enabled)` <br/>Enable or disable [checkpoints](/docs/copilot/chat/chat-checkpoints.md) in the chat. | `true` |
 | `setting(chat.checkpoints.showFileChanges)` <br/>Show a summary of file changes at the end of each chat request. | `false` |
-| `setting(chat.editRequests)`<br/>Enable or disable [editing previous chat requests](/docs/copilot/chat/copilot-chat.md#edit-a-previous-chat-request). | `"inline"` |
+| `setting(chat.editRequests)`<br/>Enable or disable [editing previous chat requests](/docs/copilot/chat/chat-checkpoints.md#edit-a-previous-chat-request). | `"inline"` |
 | `setting(chat.editor.fontFamily)`<br/>Font family in chat codeblocks. | `"default"` |
 | `setting(chat.editor.fontSize)`<br/>Font size in pixels in chat codeblocks. | `14` |
 | `setting(chat.editor.fontWeight)`<br/>Font weight in chat codeblocks. | `"default"` |
@@ -61,7 +61,7 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 | `setting(chat.notifyWindowOnConfirmation)`<br/>Enable or disable showing a OS notification window when user input is needed. | `true` |
 | `setting(chat.notifyWindowOnResponseReceived)`<br/>Enable or disable showing a OS notification window when a chat response is received. | `true` |
 | `setting(chat.tools.terminal.autoReplyToPrompts)` <br/>Automatically reply to terminal prompts with a default answer. | `false` |
-| `setting(chat.tools.terminal.terminalProfile.<platform>)`<br/>Configure which terminal profile to use for agent mode terminal commands on each platform. | `""` |
+| `setting(chat.tools.terminal.terminalProfile.<platform>)`<br/>Configure which terminal profile to use for chat terminal commands on each platform. | `""` |
 | `setting(chat.useAgentsMdFile)` <br/>Enable or disable using `AGENTS.md` files as context for chat requests. | `true` |
 | `setting(chat.math.enabled)` _(Preview)_<br/>Enable or disable math rendering with [KaTeX](https://katex.org) in chat. | `false` |
 | `setting(github.copilot.chat.codesearch.enabled)` _(Preview)_<br/>When using `#codebase` in the prompt, Copilot automatically discovers relevant files to be edited. | `false` |
@@ -71,23 +71,22 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 | `setting(github.copilot.chat.customOAIModels)` _(Experimental)_<br/>Configure custom OpenAI-compatible models for chat. | `[]` |
 | `setting(github.copilot.chat.edits.suggestRelatedFilesFromGitHistory)` _(Experimental)_<br/>Suggest related files from git history in chat context. | `true` |
 
-## Agent mode settings
+## Agent settings
 
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(chat.agent.enabled:true)`<br/>Enable or disable agent mode (requires VS Code 1.99 or later). | `true` |
-| `setting(chat.agent.maxRequests)`<br/>Maximum number of requests that Copilot can make in agent mode. | `25` |
+| `setting(chat.agent.enabled:true)`<br/>Enable or disable using agents (requires VS Code 1.99 or later). | `true` |
+| `setting(chat.agent.maxRequests)`<br/>Maximum number of requests that Copilot can make using agents. | `25` |
 | `setting(github.copilot.chat.agent.autoFix)`<br/>Automatically diagnose and fix issues in the generated code changes. | `true` |
 | `setting(chat.mcp.access)`<br/>Manage which Model Context Protocol (MCP) servers can be used in VS Code. | `true` |
 | `setting(chat.mcp.discovery.enabled)`<br/>Configure automatic discovery of MCP server configuration from other applications. | `false` |
-| `setting(chat.mcp.gallery.enabled)`<br/>Enable browsing and installing MCP servers via the Extensions view in VS Code. | `false` |
-| `setting(chat.tools.terminal.autoApprove)` <br/>Control which terminal commands are [auto-approved in agent mode](/docs/copilot/chat/chat-tools.md#automatically-approve-terminal-commands). Commands can be set to `true` (auto-approve) or `false` (require approval). Regular expressions can be used by wrapping patterns in `/` characters. | `{ "rm": false, "rmdir": false, "del": false, "kill": false, "curl": false, "wget": false, "eval": false, "chmod": false, "chown": false, "/^Remove-Item\\b/i": false }` |
+| `setting(chat.tools.terminal.autoApprove)` <br/>Control which terminal commands are [auto-approved when using agents](/docs/copilot/chat/chat-tools.md#automatically-approve-terminal-commands). Commands can be set to `true` (auto-approve) or `false` (require approval). Regular expressions can be used by wrapping patterns in `/` characters. | `{ "rm": false, "rmdir": false, "del": false, "kill": false, "curl": false, "wget": false, "eval": false, "chmod": false, "chown": false, "/^Remove-Item\\b/i": false }` |
 | `setting(chat.tools.global.autoApprove)`<br/>Automatically approve all tools - this setting [disables critical security protections](/docs/copilot/security.md). | `false` |
 | `setting(chat.agent.thinkingStyle)` _(Experimental)_<br/>Configure how thinking tokens are presented in chat. | `fixedScrolling` |
 | `setting(chat.mcp.autoStart)` _(Experimental)_<br/>Automatically start MCP servers when MCP configuration changes are detected. | `newAndOutdated` |
 | `setting(chat.agent.todoList.position)` _(Experimental)_<br/>Configure the visibility and position of the todo list control in chat. | `"default"` |
-| `setting(github.copilot.chat.newWorkspaceCreation.enabled)` _(Experimental)_<br/>Enable the agent mode tool for scaffolding a new workspace in chat. | `true` |
-| `setting(github.copilot.chat.agent.thinkingTool:true)` _(Experimental)_<br/>Enable the thinking tool in agent mode. | `false` |
+| `setting(github.copilot.chat.newWorkspaceCreation.enabled)` _(Experimental)_<br/>Enable the tool for scaffolding a new workspace in chat. | `true` |
+| `setting(github.copilot.chat.agent.thinkingTool:true)` _(Experimental)_<br/>Enable the thinking tool when using agents. | `false` |
 | `setting(github.copilot.chat.virtualTools.threshold)` _(Experimental)_<br/>Tool count over which virtual tools should be used. Virtual tools group similar sets of tools together and enable the model to activate them on-demand. Enables you to go beyond the limit of 128 tools for a chat request. | `128` |
 
 ## Agent sessions
@@ -120,8 +119,8 @@ The [Chat Sessions view](/docs/copilot/copilot-coding-agent.md) provides a centr
 
 | Setting and Description | Default |
 |------------------------|---------------|
+| `setting(chat.instructionsFilesLocations)` <br/>Locations to search for custom instructions files. Relative paths are resolved from the root folder(s) of your workspace. Supports glob patterns for file paths. | `{ ".github/instructions": true }` |
 | `setting(github.copilot.chat.codeGeneration.useInstructionFiles)`<br/>Automatically add custom instructions from `.github/copilot-instructions.md` to chat requests. | `true` |
-| `setting(chat.instructionsFilesLocations)` _(Experimental)_<br/>Locations to search for custom instructions files. Relative paths are resolved from the root folder(s) of your workspace. Supports glob patterns for file paths. | `{ ".github/instructions": true }` |
 | `setting(github.copilot.chat.commitMessageGeneration.instructions)` _(Experimental)_<br/>Custom instructions for generating commit messages with AI. | `[]` |
 | `setting(github.copilot.chat.pullRequestDescriptionGeneration.instructions)` _(Experimental)_<br/>Custom instructions for generating pull request titles and descriptions with AI. | `[]` |
 
@@ -129,14 +128,8 @@ The [Chat Sessions view](/docs/copilot/copilot-coding-agent.md) provides a centr
 
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(chat.promptFiles)` _(Experimental)_<br/>Enable or disable reusable prompt files. | `true` |
-| `setting(chat.promptFilesLocations)` _(Experimental)_<br/>Locations to search for prompt files. Relative paths are resolved from the root folder(s) of your workspace. Supports glob patterns for file paths. | `{ ".github/prompts": true }` |
-
-## Chat mode settings
-
-| Setting and Description | Default |
-|------------------------|---------------|
-| `setting(chat.modeFilesLocations)` _(Experimental)_<br/>Locations to search for chat mode files. Relative paths are resolved from the root folder(s) of your workspace. Supports glob patterns for file paths. | `{ ".github/chatmodes": true }` |
+| `setting(chat.promptFilesLocations)` <br/>Locations to search for prompt files. Relative paths are resolved from the root folder(s) of your workspace. Supports glob patterns for file paths. | `{ ".github/prompts": true }` |
+| `setting(chat.promptFilesRecommendations)` <br/>Enable or disable prompt file recommendations when opening a new chat session. List of key-value pairs of prompt file name and boolean or when clause. | `[]` |
 
 ## Debugging settings
 

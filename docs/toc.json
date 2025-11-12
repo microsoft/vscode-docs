@@ -105,7 +105,7 @@
         "area": "copilot/chat",
         "noCollapse": true,
         "topics": [
-          ["Chat Overview", "/docs/copilot/chat/copilot-chat"],
+          ["Overview", "/docs/copilot/chat/copilot-chat"],
           ["Chat Sessions", "/docs/copilot/chat/chat-sessions"],
           ["Add Context", "/docs/copilot/chat/copilot-chat-context"],
           ["Review Edits", "/docs/copilot/chat/review-code-edits"],
@@ -128,7 +128,7 @@
           ["Overview", "/docs/copilot/customization/overview"],
           ["Instructions", "/docs/copilot/customization/custom-instructions"],
           ["Prompt Files", "/docs/copilot/customization/prompt-files"],
-          ["Custom Modes", "/docs/copilot/customization/custom-chat-modes"],
+          ["Custom Agents", "/docs/copilot/customization/custom-agents"],
           ["Language Models", "/docs/copilot/customization/language-models"],
           ["MCP", "/docs/copilot/customization/mcp-servers"]
         ]

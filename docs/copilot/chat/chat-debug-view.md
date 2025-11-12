@@ -30,7 +30,7 @@ The Chat Debug view opens and shows details for each chat request you make.
 
 ![Screenshot of the Chat Debug view, showing the details of a chat request and response.](../images/chat-debug-view/chat-debug-view.png)
 
-You can expand each section to see the full details. This is particularly useful when using [agent mode](/docs/copilot/chat/copilot-chat.md#switch-between-chat-modes) where multiple tools might be invoked as part of a single request.
+You can expand each section to see the full details. This is particularly useful when [using agents](/docs/copilot/chat/copilot-chat.md#switch-between-agents) where multiple tools might be invoked as part of a single request.
 
 ## Related resources
 

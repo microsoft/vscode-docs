@@ -91,6 +91,34 @@ When using shell integration, it has a "quality" associated with it that declare
 
 To view the shell integration quality, hover the terminal tab. Optionally, select **Show Details** on the hover to view more detailed information.
 
+## IntelliSense
+
+IntelliSense in the terminal enables you to receive suggestions for files, folders, commands, command arguments and options. This feature can be enabled or disabled with the `setting(terminal.integrated.suggest.enabled)` setting.
+
+![Screenshot of the terminal showing a user has typed git checkout and receives suggestions for the branch name.](images/shell-integration/terminal-suggest.png)
+
+As you type, a list of suggestions will appear. To manually trigger the suggestions, use the `kb(workbench.action.terminal.requestCompletions)` keyboard shortcut.
+
+By default, `kbstyle(Tab)` inserts the suggestion. Once you navigate the list, `kbstyle(Enter)` inserts the suggestion. You can configure this behavior with the `setting(terminal.integrated.suggest.selectionMode)` setting.
+
+There are various settings to configure how terminal IntelliSense behaves:
+
+- `setting(terminal.integrated.suggest.quickSuggestions)`: show automatically depending on the content of the command line, as opposed to manually via `kbstyle(Ctrl+Space)`.
+- `setting(terminal.integrated.suggest.suggestOnTriggerCharacters)`: show automatically after a "trigger character" such as `-` or `/`.
+- `setting(terminal.integrated.suggest.runOnEnter)`: optionally run the command when `kbstyle(Enter)` is used (not `kbstyle(Tab)`).
+- `setting(terminal.integrated.suggest.windowsExecutableExtensions)`: the list of extensions that are treated as executables on Windows.
+- `setting(terminal.integrated.suggest.providers)`: provides the ability to disable specific providers, for example extensions may contribute completions you don't want.
+- `setting(terminal.integrated.suggest.showStatusBar)`: show the status bar at the bottom of the IntelliSense popup.
+- `setting(terminal.integrated.suggest.cdPath)`: enable `$CDPATH` integration.
+- `setting(terminal.integrated.suggest.inlineSuggestion)`: integrate with shell "ghost text" and how to present it.
+- `setting(terminal.integrated.suggest.upArrowNavigatesHistory)`: send up arrow to the shell instead of browsing completions, this is particularly useful on zsh where you can filter and then press up to do a history search with that prefix.
+- `setting(terminal.integrated.suggest.selectionMode)`: how the Intellisense popup is focused which determines what `kbstyle(Enter)` and `kbstyle(Tab)` do.
+- `setting(terminal.integrated.suggest.insertTrailingSpace)`: insert a trailing space and re-trigger completions after accepting.
+
+### Global completion caching
+
+To improve performance, VS Code aggressively caches globals for a particular shell. When you make changes to shell startup logic that adds commands, manually refresh the cache with the **Terminal: Clear Suggest Cached Globals** command (`terminal.integrated.suggest.clearCachedGlobals`) if they weren't picked up automatically.
+
 ## Command decorations and the overview ruler
 
 One of the things that shell integration enables is the ability to get the exit codes of the commands run within the terminal. Using this information, decorations are added to the left of the line to indicate whether the command succeeded or failed. These decorations also show up in the relatively new overview ruler in the scroll bar, just like in the editor.
@@ -204,32 +232,6 @@ The information that shell integration provides to VS Code is used to improve [a
 - Navigation through detected commands in the accessible buffer (`kb(workbench.action.terminal.focusAccessibleBuffer)`)
 - An [audio cue](/docs/configure/accessibility/accessibility.md#accessibility-signals) plays when a command fails.
 - Underlying text box synchronizing such that using the arrow and backspace keys behave more correctly.
-
-## IntelliSense (Preview)
-
-IntelliSense in the terminal enables you to receive suggestions for files, folders, commands, command arguments and options. This feature is powered by shell integration `setting(terminal.integrated.shellIntegration.enable)` and can be enabled with `setting(terminal.integrated.suggest.enabled)`.
-
-![A user has typed git checkout in a terminal and requests completions. The completion list shows branch names like main and merogge/terminal-section](images/shell-integration/terminal-suggest.png)
-
-VS Code sources commands from [Fig specs](https://github.com/withfig) and validates per-shell built-in functions (for `pwsh`, `bash`, `zsh`, and `fish`) against the `$PATH` to ensure they exist. On Windows, you can configure the particular set of executables with the `setting(terminal.integrated.suggest.windowsExecutableExtensions)` setting.
-
-### Keyboard navigation
-
-By default, `kbstyle(Tab)` inserts the suggestion. Once navigation of the list has occurred, `kbstyle(Enter)` will similarly insert the suggestion. You can configure this behavior with the `setting(terminal.integrated.suggest.selectionMode)` setting.
-
-To both insert and run the completion in the terminal on acceptance, configure `setting(terminal.integrated.suggest.runOnEnter)`.
-
-IntelliSense can be triggered manually `kb(workbench.action.terminal.requestCompletions)` or by typing, which can be disabled with `setting(terminal.integrated.suggest.quickSuggestions)`. Intellisense can also be triggered when certain characters are typed, such as `/`, which can be configured with `terminal.integrated.suggest.suggestOnTriggerCharacters`.
-
-When the shell provides an inline completion, VS Code surfaces this as the first completion item in the list. You can further configure this behavior with the `setting(terminal.integrated.suggest.inlineSuggestion)` setting.
-
-The `setting(terminal.integrated.suggest.showStatusBar)` setting controls if a status bar shows up at the bottom of the list. This status bar provides actions like **Learn More** (`kb(workbench.action.terminal.suggestLearnMore)`), **Insert** (`kb(workbench.action.terminal.acceptSelectedSuggestion)`), and **Configure** (`kb(workbench.action.terminal.configureSuggestSettings)`). When you use the IntelliSense feature for the first several times, the **Learn More** action is highlighted for extra discoverability.
-
-The suggest control can show extra details about the suggestion. You can toggle the visibility of these details with `kb(workbench.action.terminal.suggestToggleDetails)`. Screen reader users can focus the details control with `kb(workbench.action.terminal.suggestToggleDetailsFocus)` to hear them read out.
-
-### Global completion caching
-
-To improve performance, VS Code aggressively caches globals for a particular shell. When you make changes to shell startup logic that adds commands, manually refresh the cache with the **Terminal: Clear Suggest Cached Globals** command (`terminal.integrated.suggest.clearCachedGlobals`) if they weren't picked up automatically.
 
 ## Supported escape sequences
 

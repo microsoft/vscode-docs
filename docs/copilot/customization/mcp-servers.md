@@ -57,50 +57,36 @@ VS Code supports the following MCP capabilities:
 * Install the latest version of [Visual Studio Code](/download)
 * Access to [Copilot](/docs/copilot/setup.md)
 
-## Enable MCP support in VS Code
-
-The `setting(chat.mcp.access)` setting controls which MCP servers can be installed and run in VS Code:
-
-* `all` (default): All MCP servers are allowed
-* `registry`: Only MCP servers from the registry are allowed
-* `none`: No MCP servers are allowed
-
-### Centrally manage MCP support
-
-You have two options to centrally manage MCP support in your organization:
-
-* **Device management**: Centrally enable or disable MCP support in your organization via group policies or configuration profiles. Learn more about [managing VS Code settings with device management](/docs/setup/enterprise.md#centrally-manage-vs-code-settings).
-
-* **GitHub Copilot policy**: Control the availability of MCP servers in your organization with a GitHub Copilot policy. Learn more about [Managing policies and features for Copilot in your enterprise](https://docs.github.com/en/enterprise-cloud@latest/copilot/how-tos/administer/enterprises/managing-policies-and-features-for-copilot-in-your-enterprise) in the GitHub Copilot documentation.
-
 ## Add an MCP server
 
 > [!CAUTION]
 > MCP servers can run arbitrary code on your machine. Only add servers from trusted sources, and review the publisher and server configuration before starting it. VS Code prompts you to confirm that you [trust the MCP server](#mcp-server-trust) when you start an MCP server for the first time. Read the [Security documentation](/docs/copilot/security.md) for using AI in VS Code to understand the implications.
 
-You have multiple options to add an MCP server in VS Code:
+### Add an MCP server from the GitHub MCP server registry
 
-<details>
-<summary>Install an MCP server from the Extensions view</summary>
-
-The Extensions view has a dedicated section for MCP servers. VS Code retrieves the list of MCP servers from the [GitHub MCP server registry](https://github.com/mcp).
+You can install an MCP server directly from the [GitHub MCP server registry](https://github.com/mcp) via the Extensions view in VS Code. You can choose to install the MCP server either in your [user profile](/docs/configure/profiles.md) or in the current workspace.
 
 To install an MCP server from the Extensions view:
 
-1. Enable the `setting(chat.mcp.gallery.enabled)` setting to show the MCP servers in the Extensions view.
-1. Open the Extensions view (`kb(workbench.view.extensions)`) and enter `@mcp` in the search field to show the list of MCP servers.
+1. Enable the MCP server gallery with the `setting(chat.mcp.gallery.enabled)` setting.
 
-    Alternatively, run the **MCP: Browse Servers** command from the Command Palette.
+1. Open the Extensions view (`kb(workbench.view.extensions)`)
+
+1. Enter `@mcp` in the search field to show the list of MCP servers or run the **MCP: Browse Servers** command from the Command Palette.
 
     VS Code retrieves the list of MCP servers from the [GitHub MCP server registry](https://github.com/mcp).
 
-1. Optionally, select an MCP server from the list to view its details.
+1. To install an MCP server:
 
-1. Select **Install** to add the MCP server.
+    * In your user profile: select **Install**
 
-    The MCP server is installed in your user [profile](/docs/configure/profiles.md) and can be used in any workspace for that profile.
+    * In your workspace: right-click the MCP server and select **Install in Workspace**
 
-</details>
+1. To view the MCP server details, select the MCP server in the list.
+
+### Other options to add an MCP server
+
+You have several other options to add an MCP server in VS Code:
 
 <details>
 <summary>Add an MCP server to a workspace `mcp.json` file</summary>
@@ -203,21 +189,28 @@ code --add-mcp "{\"name\":\"my-server\",\"command\": \"uvx\",\"args\": [\"mcp-se
 
 ## Use MCP tools in chat
 
-Once you have added an MCP server, you can use the tools it provides in chat. MCP tools work like other tools in VS Code—they can be automatically invoked in agent mode or explicitly referenced in your prompts.
+Once you have added an MCP server, you can use the tools it provides in chat. MCP tools work like other tools in VS Code: they can be automatically invoked when using agents or explicitly referenced in your prompts.
 
-To use MCP tools:
+To use MCP tools in chat:
 
 1. Open the **Chat** view (`kb(workbench.action.chat.open)`).
 
-1. In agent mode, tools are automatically invoked as needed. For example, install the [GitHub MCP server](https://github.com/github/github-mcp-server) and ask "List my GitHub issues".
+1. Open the tool picker to select which tools the agent is allowed to use. MCP tools are grouped per MCP server.
 
-    ![Screenshot of the Chat view, showing an MCP tool invocation in agent mode.](../images/mcp-servers/chat-agent-mode-tool-invocation.png)
+    > [!TIP]
+    > When you create [custom prompts](/docs/copilot/customization/prompt-files.md) or [custom agents](/docs/copilot/customization/custom-agents.md), you can also specify which MCP tools can be used.
 
-1. You can also explicitly reference MCP tools in any chat mode by typing `#` followed by the tool name.
+1. When using agents, tools are automatically invoked as needed based on your prompt.
+
+    For example, install the GitHub MCP server and then ask "List my GitHub issues".
+
+    ![Screenshot of the Chat view, showing an MCP tool invocation when using agents.](../images/mcp-servers/chat-agent-mode-tool-invocation.png)
+
+1. You can also explicitly reference MCP tools by typing `#` followed by the tool name.
 
 1. Review and approve tool invocations when prompted.
 
-    ![MCP Tool Confirmation](../images/mcp-servers/mcp-tool-confirmation.png)
+    ![Screenshot of the MCP tool confirmation dialog in chat.](../images/mcp-servers/mcp-tool-confirmation.png)
 
 Learn more about [using tools in chat](/docs/copilot/chat/chat-tools.md), including how to manage tool approvals, use the tool picker, and create tool sets.
 
@@ -253,7 +246,7 @@ Optionally, the MCP prompt might ask you for extra input parameters.
 
 As you add more MCP servers, the list of tools can become long. You can group related tools into a tool set to make them easier to manage and reference.
 
-Learn more about how to [create and use tool sets](/docs/copilot/chat/chat-tools.md#tool-sets).
+Learn more about how to [create and use tool sets](/docs/copilot/chat/chat-tools.md#group-tools-with-tool-sets).
 
 ## Manage installed MCP servers
 
@@ -475,11 +468,15 @@ You can enable _development mode_ for MCP servers by adding a `dev` key to the M
 
 Learn more about [MCP development mode](/api/extension-guides/ai/mcp.md#mcp-development-mode-in-vs-code) in the MCP Dev Guide.
 
+## Centrally control MCP access
+
+Organizations can centrally manage access to MCP servers via GitHub policies. Learn more about [enterprise management of MCP servers](/docs/setup/enterprise.md#configure-mcp-server-access).
+
 ## Frequently asked questions
 
 ### Can I control which MCP tools are used?
 
-* Select the **Tools** button in the Chat view when in agent mode, and toggle specific tools on/off as needed.
+* Select the **Tools** button in the Chat view when using agents, and toggle specific tools on/off as needed.
 * Add specific tools to your prompt by using the **Add Context** button or by typing `#`.
 * For more advanced control, you can use `.github/copilot-instructions.md` to fine-tune tool usage.
 
@@ -497,4 +494,4 @@ A chat request can have a maximum of 128 tools enabled at a time due to model co
 
 * [Model Context Protocol Documentation](https://modelcontextprotocol.io/)
 * [Model Context Protocol Server repository](https://github.com/modelcontextprotocol/servers)
-* [Use agent mode in Visual Studio Code](/docs/copilot/chat/copilot-chat.md#built-in-chat-modes)
+* [Use agents in VS Code chat](/docs/copilot/chat/copilot-chat.md#built-in-agents)

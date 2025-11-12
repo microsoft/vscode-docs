@@ -1,7 +1,7 @@
 ---
 ContentId: 8f9a3e5c-2b4d-4a7f-9c8e-1d6f3a2b5c4e
 DateApproved: 10/09/2025
-MetaDescription: Learn how to use agent mode for autonomous planning and task management with the todo list in VS Code chat.
+MetaDescription: Learn how to use the plan agent for autonomous planning and task management with the todo list in VS Code chat.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Planning in VS Code chat
@@ -11,9 +11,6 @@ Agents in Visual Studio Code chat help you execute complex coding tasks autonomo
 Using plans and todos let you structure and review details of the implementation with the agent before coding starts, improving the quality and reliability of the generated code. The plan and todos also provide better guidance to the agent to work through more complex and longer tasks in a systematic way.
 
 This article explains how to research and plan development tasks in VS Code chat, including the plan agent and todo lists.
-
-> [!NOTE]
-> The plan agent is currently only available in [VS Code Insiders](https://code.visualstudio.com/insiders/).
 
 ## Plan agent for detailed task research
 
@@ -47,9 +44,9 @@ The plan agent is designed to:
 
 4. Once finalized, choose to save the plan or hand off to an implementation agent to start coding by using the corresponding controls.
 
-    When starting to implement the plan, you can still provide instructions, like "Start with the UI", or "only step 1 and 2". Similar for saving the plan, you can provide instructions like "Add a section for manual testing steps".
+    When starting to implement the plan, you can still provide instructions, like "Start with the UI", or "only step 1 and 2".
 
-
+    When you save the plan, a `*.prompt.md` [prompt file](/docs/copilot/customization/prompt-files.md) is generated, which you can further edit. Once ready, you can start the implementation by invoking the prompt.
 
 ## Track progress with the todo list
 
