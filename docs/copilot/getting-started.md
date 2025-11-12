@@ -1,12 +1,12 @@
 ---
 ContentId: 37fd3bd2-4209-49f6-bec5-c544d6b1b289
 DateApproved: 10/09/2025
-MetaDescription: Build your first web application with GitHub Copilot in VS Code. Learn code completions, agent mode, inline chat, smart actions, and how to personalize your AI coding experience.
+MetaDescription: Build your first web application with GitHub Copilot in VS Code. Learn inline suggestions, agent mode, inline chat, smart actions, and how to personalize your AI coding experience.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
 # Get started with GitHub Copilot in VS Code
 
-GitHub Copilot transforms how you write code in Visual Studio Code. In this hands-on tutorial, you build a complete task management web application while discovering Copilot's core capabilities: intelligent code completions, autonomous feature development with agent mode, precise editing with inline chat, integrated smart actions, and powerful customization options.
+GitHub Copilot transforms how you write code in Visual Studio Code. In this hands-on tutorial, you build a complete task management web application while discovering Copilot's core capabilities: intelligent inline suggestions, autonomous feature development with agent mode, precise editing with inline chat, integrated smart actions, and powerful customization options.
 
 By the end of this tutorial, you'll have both a working web application and a personalized AI coding setup that adapts to your development style.
 
@@ -17,11 +17,11 @@ By the end of this tutorial, you'll have both a working web application and a pe
 * Access to GitHub Copilot. Follow these steps to [Set up GitHub Copilot in VS Code](/docs/copilot/setup.md).
 
     > [!TIP]
-    > If you don't have a Copilot subscription, you can sign up to use Copilot for free directly from within VS Code and get a monthly limit of completions and chat interactions.
+    > If you don't have a Copilot subscription, you can sign up to use Copilot for free directly from within VS Code and get a monthly limit of inline suggestions and chat interactions.
 
-## Step 1: Experience code completions
+## Step 1: Experience inline suggestions
 
-Code completions provide AI suggestions as you type, helping you write code faster and with fewer errors. Let's start building the foundation of your task manager.
+AI-powered inline suggestions appear as you type, helping you write code faster and with fewer errors. Let's start building the foundation of your task manager.
 
 1. Create a new folder for your project and open it in VS Code.
 
@@ -33,13 +33,13 @@ Code completions provide AI suggestions as you type, helping you write code fast
     <!DOCTYPE html>
     ```
 
-    ![Screenshot showing Copilot suggesting HTML structure completion.](./images/getting-started/html-completion.png)
+    ![Screenshot showing Copilot suggesting HTML structure inline suggestion.](./images/getting-started/html-completion.png)
 
     You might see different suggestions because large language models are nondeterministic.
 
 1. Press `kbstyle(Tab)` to accept the suggestion.
 
-    Congratulations! You've just accepted your first AI-powered code completion.
+    Congratulations! You've just accepted your first AI-powered inline suggestion.
 
 1. Continue building your HTML structure. Inside the `<body>` tag, start typing:
 
@@ -55,7 +55,7 @@ Code completions provide AI suggestions as you type, helping you write code fast
 
     ![Screenshot showing inline suggestion navigation controls.](./images/getting-started/inline-suggestion-navigation.png)
 
-Code completions work automatically as you type, learning from your patterns and the context of your project. They're particularly helpful for writing boilerplate code, HTML structures, and repetitive patterns.
+Inline suggestions work automatically as you type, learning from your patterns and the context of your project. They're particularly helpful for writing boilerplate code, HTML structures, and repetitive patterns.
 
 ## Step 2: Build complete features with agent mode
 
