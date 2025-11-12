@@ -6,7 +6,7 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # AI language models in VS Code
 
-Visual Studio Code offers different built-in language models that are optimized for different tasks. You can also bring your own language model API key to use models from other providers. This article describes how to change the language model for chat or code completions, and how to use your own API key.
+Visual Studio Code offers different built-in language models that are optimized for different tasks. You can also bring your own language model API key to use models from other providers. This article describes how to change the language model for chat or inline suggestions, and how to use your own API key.
 
 ## Choose the right model for your task
 
@@ -171,22 +171,22 @@ To update the provider details, such as the API key or endpoint URL:
 1. Update the provider details, such as the API key or endpoint URL.
 -->
 
-## Change the model for code completions
+## Change the model for inline suggestions
 
-To change the language model that is used for generating code completions in the editor:
+To change the language model that is used for generating inline suggestions in the editor:
 
-1. Select **Configure Code Completions...** from the Chat menu in the VS Code title bar.
+1. Select **Configure Inline Suggestions...** from the Chat menu in the VS Code title bar.
 
 1. Select **Change Completions Model...**, and then select one of the models from the list.
 
 > [!NOTE]
-> The models that are available for code completions might evolve over time as we add support for more models.
+> The models that are available for inline suggestions might evolve over time as we add support for more models.
 
 ## Considerations
 
 There are a number of considerations when using your own language model API key in VS Code:
 
-* Bringing your own model only applies to the chat experience and doesn't impact code completions or other AI-powered features in VS Code, such as commit-message generation.
+* Bringing your own model only applies to the chat experience and doesn't impact inline suggestions or other AI-powered features in VS Code, such as commit-message generation.
 * The capabilities of each model might differ from the built-in models and could affect the chat experience. For example, some models might not support vision or tool calling.
 * The Copilot API is still used for some tasks, such as sending embeddings, repository indexing, query refinement, intent detection, and side queries.
 * When using your own model, there is no guarantee that responsible AI filtering is applied to the model's output.
@@ -207,7 +207,7 @@ You can use locally hosted models in chat by using [bring your own model key](#b
 * Install an extension from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/search?term=tag%3Alanguage-models&target=VSCode&category=All%20categories&sortBy=Relevance), for example, [AI Toolkit for VS Code with Foundry Local](https://aka.ms/AIToolkit)
 * Configure a [custom OpenAI-compatible model](#use-an-openai-compatible-model)
 
-Currently, you cannot connect to a local model for code completions. VS Code provides an extension API [`InlineCompletionItemProvider`](/api/references/vscode-api.md#InlineCompletionItemProvider) that enables extensions to contribute a custom completion provider. You can get started with our [Inline Completions sample](https://github.com/microsoft/vscode-extension-samples/blob/main/inline-completions).
+Currently, you cannot connect to a local model for inline suggestions. VS Code provides an extension API [`InlineCompletionItemProvider`](/api/references/vscode-api.md#InlineCompletionItemProvider) that enables extensions to contribute a custom completion provider. You can get started with our [Inline Completions sample](https://github.com/microsoft/vscode-extension-samples/blob/main/inline-completions).
 
 > [!NOTE]
 > Currently, using a locally hosted models still requires the Copilot service for some tasks. Therefore, your GitHub account needs to have access to a Copilot plan (for example, Copilot Free) and you need to be online. This requirement might change in a future release.

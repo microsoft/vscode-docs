@@ -30,7 +30,7 @@ Depending on your task, you can choose between different Copilot tools.
 
 | Tool | Use case |
 |------|----------|
-| [Code completions](/docs/copilot/ai-powered-suggestions.md) | Streamline coding while staying in the flow.<br/>Receive inline suggestions for code snippets, variable names, and functions as you write them in the editor. |
+| [Inline suggestions](/docs/copilot/ai-powered-suggestions.md) | Streamline coding while staying in the flow.<br/>Receive inline suggestions for code snippets, variable names, and functions as you write them in the editor. |
 | [Chat](/docs/copilot/chat/copilot-chat.md) | Have an ongoing chat conversation for brainstorming design ideas or getting code suggestions, optionally calling on domain-specific chat participants.<br/>Choose to apply specific code suggestions to your codebase. |
 | [Use agents](/docs/copilot/chat/copilot-chat.md#built-in-agents) | Implement high-level requirements by starting an agentic coding flow.<br/>The agent autonomously invokes multiple tools to plan and implement the code changes and tasks that are needed. |
 
