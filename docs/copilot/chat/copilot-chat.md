@@ -1,6 +1,6 @@
 ---
 ContentId: 557a7e74-f77e-488d-90ea-fd2cfecfffda
-DateApproved: 10/09/2025
+DateApproved: 11/12/2025
 MetaDescription: Get started with GitHub Copilot chat in VS Code. Learn how to access chat and start using natural language to code, understand your codebase, and solve problems.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---

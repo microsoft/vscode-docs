@@ -1,6 +1,6 @@
 ---
 ContentId: DE4EAE2F-4542-4363-BB74-BE47D64141E6
-DateApproved: 10/09/2025
+DateApproved: 11/12/2025
 MetaDescription: Learn about the basic editing features of Visual Studio Code. Search, multiple selection, code formatting.
 MetaSocialImage: images/codebasics/code-basics-social.png
 ---

@@ -1,6 +1,6 @@
 ---
 ContentId: 1a9d76e8-9c8c-446e-974e-d71570e7d62a
-DateApproved: 10/09/2025
+DateApproved: 11/12/2025
 MetaDescription: Visual Studio Code's integrated terminal allows configuring various profiles to make launching various shells easier.
 ---
 # Terminal Profiles
