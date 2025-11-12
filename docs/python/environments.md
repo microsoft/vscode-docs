@@ -1,6 +1,6 @@
 ---
 ContentId: 8fe4ca8b-fc70-4216-86c7-2c11b6c14cc6
-DateApproved: 10/09/2025
+DateApproved: 11/12/2025
 MetaDescription: Configuring Python Environments in Visual Studio Code
 MetaSocialImage: images/tutorial/python-social.png
 ---

@@ -1,6 +1,6 @@
 ---
 ContentId: 47a2e3b1-24f2-42e6-a6e6-272c2a0f3218
-DateApproved: 10/09/2025
+DateApproved: 11/12/2025
 MetaDescription: Learn about telemetry collection in Visual Studio Code and how to opt out.
 ---
 # Telemetry

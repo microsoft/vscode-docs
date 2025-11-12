@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 31f461b7-c216-414a-b701-78c205fde8a8
-DateApproved: 10/09/2025
+DateApproved: 11/12/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide for updating Visual Studio Code extensions to support Workspace Trust

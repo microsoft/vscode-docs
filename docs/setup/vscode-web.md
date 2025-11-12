@@ -1,6 +1,6 @@
 ---
 ContentId: d665a790-1da1-4f45-bc0f-c09822528e55
-DateApproved: 10/09/2025
+DateApproved: 11/12/2025
 MetaDescription: Visual Studio Code for the Web and the vscode.dev URL
 ---
 # Visual Studio Code for the Web

@@ -1,7 +1,7 @@
 ---
 ContentId: c4784db6-ab00-4ac7-bca8-88edb638c593
 MetaDescription: Visual Studio Code troubleshooting tips and tricks for Dev Containers
-DateApproved: 10/09/2025
+DateApproved: 11/12/2025
 ---
 # Dev Containers FAQ
 

@@ -1,6 +1,6 @@
 ---
 ContentId: 8966BBFD-C66D-4283-9DCA-8CAC0179886E
-DateApproved: 10/09/2025
+DateApproved: 11/12/2025
 MetaDescription: Visual Studio Code is a first class editor - but it's also so much more with features such as IntelliSense and smart code navigation.
 ---
 # Code Navigation

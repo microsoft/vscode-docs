@@ -1,6 +1,6 @@
 ---
 ContentId: ee9b8bb7-0e8a-478d-842b-f9691f25e820
-DateApproved: 10/09/2025
+DateApproved: 11/12/2025
 MetaDescription: Learn how to personalize VS Code to your likings with themes, icons, keyboard shortcuts, display language, and settings.
 ---
 # Personalize VS Code

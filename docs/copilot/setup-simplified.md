@@ -1,6 +1,6 @@
 ---
 ContentId: a18e245e-af72-4d0f-b322-fa1030af5284
-DateApproved: 10/09/2025
+DateApproved: 11/12/2025
 MetaDescription: Set up Copilot in VS Code
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
