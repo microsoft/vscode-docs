@@ -1,6 +1,6 @@
 ---
 ContentId: 84F36EDE-4D66-4A2E-B4D1-F020C73EB2AD
-DateApproved: 10/09/2025
+DateApproved: 11/12/2025
 MetaDescription: Setup VS Code's Network Connection.
 ---
 # Network Connections in Visual Studio Code
@@ -92,6 +92,11 @@ Often HTTPS proxies rewrite SSL certificates of the incoming requests. Chromium 
 * Since Chromium uses the OS's certificate trust infrastructure, the preferred option is to add your proxy's certificate to your OS's trust chain. See the [Chromium Root Certificate Policy](https://www.chromium.org/Home/chromium-security/root-ca-policy) documentation to learn more.
 * If your proxy runs in `localhost`, you can always try the [--allow-insecure-localhost](https://peter.sh/experiments/chromium-command-line-switches/#allow-insecure-localhost) command-line flag.
 * If all else fails, you can tell VS Code to ignore all certificate errors using the [--ignore-certificate-errors](https://peter.sh/experiments/chromium-command-line-switches/#ignore-certificate-errors) command-line flag. **Warning:** This is **dangerous** and **not recommended**, since it opens the door to security issues.
+
+> **Note for Linux users**: To add your proxy's certificate on Linux, you need to add it to the system trust store and the NSS trust store. The exact steps vary by distribution:
+> - For Ubuntu/Debian: Copy the certificate to `/usr/local/share/ca-certificates/` and run `sudo update-ca-certificates`
+> - For RHEL/CentOS/Fedora: Use `sudo trust anchor --store <certificate-file>` or place in `/etc/pki/ca-trust/source/anchors/` and run `sudo update-ca-trust`
+> - Additionally, use `certutil -A -n "ProxyCA" -t "CT,," -i <certificate-file> -d sql:$HOME/.pki/nssdb` to add it to the NSS trust store.
 
 ## Legacy proxy server support
 

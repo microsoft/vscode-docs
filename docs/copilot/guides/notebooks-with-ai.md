@@ -1,6 +1,6 @@
 ---
 ContentId: 101027aa-e73c-4d1b-a93f-b8ce10e1f946
-DateApproved: 10/09/2025
+DateApproved: 11/12/2025
 MetaDescription: Learn how to use GitHub Copilot in Visual Studio Code to edit Jupyter notebooks with AI.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -16,13 +16,13 @@ To create a new notebook with AI, choose either of these options:
 
 * Type the `/newNotebook` slash command in the chat input box, followed by the details of the notebook to create.
 
-* Switch to [agent mode](vscode://GitHub.Copilot-Chat/chat?mode=agent), and type a natural language prompt asking to create a new notebook.
+* Choose [Agent](vscode://GitHub.Copilot-Chat/chat?mode=agent) and type a natural language prompt asking to create a new notebook.
 
 See the [Prompt examples](/docs/copilot/chat/prompt-examples.md#working-with-jupyter-notebooks) article for effective notebook prompts.
 
-The following screenshot shows how the output from agent mode to the prompt *Create a Jupyter notebook to read data from #housing.csv* (you can get this dataset from [Kaggle](https://www.kaggle.com/search?q=housing+dataset+in%3Adatasets)):
+The following screenshot shows how the output from the agent to the prompt *Create a Jupyter notebook to read data from #housing.csv* (you can get this dataset from [Kaggle](https://www.kaggle.com/search?q=housing+dataset+in%3Adatasets)):
 
-![Screenshot that shows a new notebook created by agent mode that reads the 'housing.csv' file in the workspace.](../images/notebooks-with-ai/agent-mode-create-new-notebook.png)
+![Screenshot that shows a new notebook created by the agent that reads the 'housing.csv' file in the workspace.](../images/notebooks-with-ai/agent-mode-create-new-notebook.png)
 
 Notice that a new `.ipynb` file is created, which contains Markdown and code cells for reading the CSV file and displaying the first few rows of the data.
 
@@ -45,11 +45,9 @@ To generate a new cell with AI, select the **Generate** button in the notebook v
 
 ## Make edits across multiple cells
 
-To make larger edits, across multiple cells, you can switch to [agent mode](vscode://GitHub.Copilot-Chat/chat?mode=agent) in the Chat view. Provide a prompt to request changes to the notebook and agent mode will iterate through the tasks to implement the changes.
+To make larger edits, across multiple cells, you can switch to use [agents](vscode://GitHub.Copilot-Chat/chat?mode=agent) in the Chat view. Provide a prompt to request changes to the notebook and the agent will iterate through the tasks to implement the changes.
 
-See the [Prompt examples](/docs/copilot/chat/prompt-examples.md#working-with-jupyter-notebooks) article for effective prompts for editing notebook cells.
-
-![Screenshot that shows the response from agent mode to the prompt 'Plot a graph of the price distribution'.](../images/notebooks-with-ai/notebook-agent-mode-plot-prices.png)
+![Screenshot that shows the response from chat to the prompt 'Plot a graph of the price distribution'.](../images/notebooks-with-ai/notebook-agent-mode-plot-prices.png)
 
 Notice that you can use the overlay controls to navigate between the different edit suggestions, and to keep or undo the changes.
 
@@ -71,19 +69,18 @@ The following example shows how to ask questions about a visualization in a note
 
 ## Perform data analysis and visualization
 
-You can do a full data analysis and visualization notebook of a dataset by using agent mode in chat. Agent mode analyzes the dataset, and then scaffolds a new notebook, implements the code for performing the data analysis, and runs the cells to process and visualize the data. As needed, agent mode invokes relevant tools and terminal commands to complete its tasks.
+You can do a full data analysis and visualization notebook of a dataset by using agents in chat. The agent analyzes the dataset, and then scaffolds a new notebook, implements the code for performing the data analysis, and runs the cells to process and visualize the data. As needed, the agent invokes relevant tools and terminal commands to complete its tasks.
 
 For example, to perform a data analysis of the housing dataset:
 
-1. Open [agent mode](vscode://GitHub.Copilot-Chat/chat?mode=agent) in chat.
+1. Select [Agent](vscode://GitHub.Copilot-Chat/chat?mode=agent) from the agent picker in the Chat view.
 
 1. Enter the following prompt in the chat input field: *Perform data analysis of the data in #housing.csv*.
 
-    Notice that agent mode iterates through the different tasks. When needed, approve the tool and command invocations.
-
+    Notice that the agent iterates through the different tasks. When needed, approve the tool and command invocations.
 1. The result is a new notebook with a complete data analysis of the dataset, including data cleaning, data visualization, and statistical analysis.
 
-    ![Screenshot that shows the response from agent mode to the prompt 'Perform data analysis of the data in housing.csv'.](../images/notebooks-with-ai/notebook-agent-mode-data-analysis.png)
+    ![Screenshot that shows the response from chat to the prompt 'Perform data analysis of the data in housing.csv'.](../images/notebooks-with-ai/notebook-agent-mode-data-analysis.png)
 
 You can now further edit the notebook manually, or use AI to make inline edits or send follow-up chat requests to modify the notebook.
 

@@ -1,6 +1,6 @@
 ---
 ContentId: 8f4d3e2a-9b7c-4e1d-a6f5-3c2b1d8e9f0a
-DateApproved: 10/09/2025
+DateApproved: 11/12/2025
 MetaDescription: Learn how to edit previous chat requests, restore your workspace to earlier states using checkpoints, and undo changes made by chat in Visual Studio Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---

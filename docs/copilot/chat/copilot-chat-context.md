@@ -1,6 +1,6 @@
 ---
 ContentId: 5d8a707d-a239-4cc7-92ee-ccc763e8eb9c
-DateApproved: 10/09/2025
+DateApproved: 11/12/2025
 MetaDescription: "Learn how to manage context when using AI in VS Code, including workspace indexing, #-mentions for files and symbols, web content references, and custom instructions."
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -26,8 +26,8 @@ VS Code automatically provides context to the chat prompt based on your current 
 
 * The currently selected text in the active editor.
 * The file name or notebook name of the active editor.
-* If you're using ask mode or edit mode, the active file is automatically included as context.
-* In agent mode, the agent decides autonomously if the active file needs to be added to the chat context based on your prompt.
+* If you're using Ask or Edit, the active file is automatically included as context.
+* When using agents, the agent decides autonomously if the active file needs to be added to the chat context based on your prompt.
 
 ![Screenshot of the Chat view, showing the active file as a suggested context item in the chat input box.](./images/copilot-chat/chat-context-current-file.png)
 
@@ -67,7 +67,7 @@ The following prompt examples show how to use codebase search:
 * `"Where is the database connecting string configured? #codebase"`
 * `"Add a new API route for updating the address #codebase"`
 
-If you use [agent mode](/docs/copilot/chat/copilot-chat.md#built-in-chat-modes), the agent will automatically use codebase search when it determines that additional context is needed to answer your question. You can still add `#codebase` if your question might be interpreted in different ways and you want to make sure the agent uses codebase search.
+If you use [agents](/docs/copilot/chat/copilot-chat.md#built-in-agents), the agent will automatically use codebase search when it determines that additional context is needed to answer your question. You can still add `#codebase` if your question might be interpreted in different ways and you want to make sure the agent uses codebase search.
 
 ### Reference content from the web
 
@@ -89,7 +89,7 @@ You can reference content from the web in your chat prompts, for example to get 
 
 ### Reference tools
 
-In agent mode, the agent autonomously decides to use tools for performing specific tasks. If you want to explicitly reference a tool in your chat prompt, you can use #-mentions. Type `#` followed by the tool name and optional parameters:
+When using agents, the agent autonomously decides to use tools for performing specific tasks. If you want to explicitly reference a tool in your chat prompt, you can use #-mentions. Type `#` followed by the tool name and optional parameters:
 
 * `"Summarize #fetch https://code.visualstudio.com/updates"`
 * `"How does routing work? #githubRepo vercel/next.js"`
@@ -118,7 +118,7 @@ Extensions can also contribute their own [chat participants](/api/extension-guid
 
 ## Vision
 
-Chat supports vision capabilities, which means you can attach an image as context to your chat prompt and ask questions about it. For example, attach a screenshot of a block of code and ask to explain it, or attach a sketch of a UI and ask agent mode to implement it.
+Chat supports vision capabilities, which means you can attach an image as context to your chat prompt and ask questions about it. For example, attach a screenshot of a block of code and ask to explain it, or attach a sketch of a UI and ask the agent to implement it.
 
 > [!TIP]
 > You can drag and drop an image from a web browser onto the Chat view to add it as context.

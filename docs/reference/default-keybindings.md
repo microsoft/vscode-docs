@@ -1,6 +1,6 @@
 ---
 ContentId: 5822cc5a-0744-4cf0-9498-05767a0fc2d4
-DateApproved: 10/09/2025
+DateApproved: 11/12/2025
 MetaDescription: Reference of default keyboard shortcuts in Visual Studio Code.
 ---
 # Default keyboard shortcuts reference
@@ -216,7 +216,7 @@ Open chat in agent mode|`kb(workbench.action.chat.openagent)`|`workbench.action.
 Open editor inline chat|`kb(inlineChat.start)`|`inlineChat.start`
 Open terminal inline chat|`kb(workbench.action.terminal.chat.start)`|`workbench.action.terminal.chat.start`
 Open quick chat|`kb(workbench.action.quickchat.toggle)`|`workbench.action.quickchat.toggle`
-Open chat mode picker|`kb(workbench.action.chat.openModePicker)`|`workbench.action.chat.openModePicker`
+Open agent picker|`kb(workbench.action.chat.openModePicker)`|`workbench.action.chat.openModePicker`
 Open language model picker|`kb(workbench.action.chat.openModelPicker)`|`workbench.action.chat.openModelPicker`
 New chat session|`kb(workbench.action.chat.newChat)`|`workbench.action.chat.newChat`
 Accept inline suggestion|`kb(editor.action.inlineSuggest.commit)`|`editor.action.inlineSuggest.commit`

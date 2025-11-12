@@ -1,6 +1,6 @@
 ---
 ContentId: c5039182-eee4-47ff-a2a8-dc28f4bc2cbc
-DateApproved: 10/09/2025
+DateApproved: 11/12/2025
 MetaDescription: Formatting Python in Visual Studio Code
 MetaSocialImage: images/tutorial/python-social.png
 ---

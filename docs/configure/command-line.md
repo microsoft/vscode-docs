@@ -1,6 +1,6 @@
 ---
 ContentId: 8faef870-7a5f-4070-ad17-8ba791006912
-DateApproved: 10/09/2025
+DateApproved: 11/12/2025
 MetaDescription: Visual Studio Code command-line interface (switches).
 ---
 # Command Line Interface (CLI)
@@ -105,7 +105,7 @@ code chat Find and fix all untyped variables
 
 The `chat` subcommand has the following command-line options:
 
-* `-m`, `--mode <mode>`: The chat mode to use for the chat session. Available options: `ask`, `edit`, `agent`, or the identifier of a custom mode. Defaults to `agent`.
+* `-m`, `--mode <mode>`: The custom agent to use for the chat session. Available options: `ask`, `edit`, `agent`, or the identifier of a custom agent. Defaults to `agent`.
 * `-a`, `--add-file <path>`: Add files as context to the chat session.
 * `--maximize`: Maximize the chat session view.
 * `-r`, `--reuse-window`: Use the last active window for the chat session.

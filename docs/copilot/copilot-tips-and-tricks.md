@@ -32,7 +32,7 @@ Depending on your task, you can choose between different Copilot tools.
 |------|----------|
 | [Inline suggestions](/docs/copilot/ai-powered-suggestions.md) | Streamline coding while staying in the flow.<br/>Receive inline suggestions for code snippets, variable names, and functions as you write them in the editor. |
 | [Chat](/docs/copilot/chat/copilot-chat.md) | Have an ongoing chat conversation for brainstorming design ideas or getting code suggestions, optionally calling on domain-specific chat participants.<br/>Choose to apply specific code suggestions to your codebase. |
-| [Agent mode](/docs/copilot/chat/copilot-chat.md#built-in-chat-modes) | Implement high-level requirements by starting an agentic coding flow.<br/>Copilot autonomously invokes multiple tools to plan and implement the code changes and tasks that are needed. |
+| [Use agents](/docs/copilot/chat/copilot-chat.md#built-in-agents) | Implement high-level requirements by starting an agentic coding flow.<br/>The agent autonomously invokes multiple tools to plan and implement the code changes and tasks that are needed. |
 
 ## Personalize Copilot with instructions files
 
@@ -139,9 +139,9 @@ Enrich your prompts with relevant context to get more accurate and relevant resp
 * Drag and drop files, folders, or editor tabs onto the chat prompt.
 * Add problems, test failures, or terminal output to your chat prompt for scenario-specific context.
 * Add images or screenshots to your prompt to let Copilot analyze the image.
-* In agent mode, prompt to preview your app to directly open it with the built-in simple browser.
+* When using agents, prompt to preview your app to directly open it with the built-in simple browser.
 
-When you use [agent mode](/docs/copilot/chat/copilot-chat.md#built-in-chat-modes), the agent autonomously finds the relevant files and context for you.
+When you use [agents](/docs/copilot/chat/copilot-chat.md#built-in-agents), the agent autonomously finds the relevant files and context for you.
 
 Get more details about [adding context to chat prompts](/docs/copilot/chat/copilot-chat-context.md).
 
@@ -176,11 +176,11 @@ To create a reusable prompt:
     * Customize UX-friendly validation rules
     ```
 
-1. Optionally, add metadata about how to run the prompt in chat. Use the `mode` field to specify the chat mode, and the `tools` field to specify which agent mode tools to use.
+1. Optionally, add metadata about how to run the prompt in chat. Use the `agent` field to specify the agent, and the `tools` field to specify which agent mode tools to use.
 
     ```markdown
     ---
-    mode: 'agent'
+    agent: 'agent'
     tools: ['githubRepo', 'search/codebase']
     description: 'Generate a new React form component'
     ---
