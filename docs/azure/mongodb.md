@@ -66,7 +66,6 @@ In a scrapbook, you can reference MongoDB entities and commands and you get rich
 
 You can easily create a managed MongoDB cluster on Azure for **Free** with [Azure DocumentDB](https://aka.ms/documentdb).
 
-
 ## Next steps
 
 * [Azure Extensions](/docs/azure/extensions.md) - The Visual Studio Marketplace has hundreds of VS Code extensions for Azure and the cloud.
