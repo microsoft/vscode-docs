@@ -15,7 +15,7 @@ MongoDB support for VS Code is provided by the [DocumentDB for VS Code](https://
 
 ## Connect to MongoDB
 
-Once you've installed the DocumentDB for VS Code extension, you'll notice there is a new **DocumentDB** Activity Bar view. Select the DocumentDB view and you'll see the Explorer.
+Once you've installed the DocumentDB for VS Code extension, you'll notice there is a new **DocumentDB** logo in the Activity Bar view. Select the DocumentDB logo and you'll see the Explorer.
 
 ![DocumentDB explorer](images/documentdb/documentdb-explorer.png)
 
@@ -41,11 +41,11 @@ You can expand databases to view their collections in JSON/ Table/ Tree view wit
 
 ![manage mongodb database](images/documentdb/manage-database.png)
 
-You can also attach a MongoDB shell to the active connection, simply by right-clicking on the connection itself.
+You can also attach a MongoDB shell to the active connection, simply by right-clicking on the connection itself and selecting **Launch Shell**.
 
 ![MongoDB Connection](images/documentdb/launch-shell.jpeg)
 
->**Note**: Make sure the MongoDB shell (`mongo` or `mongosh`) [is installed](https://docs.mongodb.com/mongodb-shell/install#mdb-shell-install) and is on your path. In the extension's settings, you can choose which shell you are using.
+>**Note**: Make sure the MongoDB shell (`mongo` or `mongosh`) is [installed](https://docs.mongodb.com/mongodb-shell/install#mdb-shell-install) and is on your path. In the extension's settings, you can choose which shell you are using.
 
 ## Using Scrapbook
 
@@ -68,6 +68,7 @@ You can easily create a managed MongoDB cluster on Azure for **Free** with [Azur
 
 ## Next steps
 
+* [Index Advisor](https://learn.microsoft.com/azure/documentdb/index-advisor) - Learn how to optimize your MongoDB performance with Index Advisor.
 * [Azure Extensions](/docs/azure/extensions.md) - The Visual Studio Marketplace has hundreds of VS Code extensions for Azure and the cloud.
 * [Deploying to Azure](/docs/azure/deployment.md) - Learn step-by-step how to deploy your application to Azure.
 * [Working with Docker](/docs/azure/docker.md) - Put your application in a Docker container for easy reuse and deployment.
