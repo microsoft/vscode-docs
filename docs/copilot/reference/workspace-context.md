@@ -36,7 +36,7 @@ For small projects, the entire workspace can be included directly in the chat co
 
 The following steps outline how VS Code constructs the workspace context:
 
-1. Determine which information from the workspace is needed to answer your question, also including the conversation history, workspace structure, and currently editor selection.
+1. Determine which information from the workspace is needed to answer your question, also including the conversation history, workspace structure, and current editor selection.
 
 1. Collect relevant code snippets from the [workspace index](#workspace-index) by using various approaches:
 
@@ -50,6 +50,10 @@ The following steps outline how VS Code constructs the workspace context:
 ## Workspace index
 
 Chat in VS Code uses an index to quickly and accurately search your codebase for relevant code snippets. This index can either be maintained by GitHub or stored locally on your machine.
+
+The remote index is built from the committed state of your repository on GitHub or Azure DevOps. This means that any uncommitted changes in your local workspace are not included in the remote index.
+
+When you have local uncommitted changes, VS Code uses a hybrid approach combining the remote index with local file tracking. VS Code detects which files have been modified since the indexed commit and also reads the current file content from the editor for real-time content.
 
 You can view the type of index that is being used and its indexing status in the Copilot status dashboard in the VS Code Status Bar.
 
