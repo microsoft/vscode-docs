@@ -23,11 +23,13 @@ You can launch VS Code from the command line to quickly open a file, folder, or 
 
 ![launch VS Code](images/command-line/launch-vscode.png)
 
-**Note:** Users on macOS must first run a command (**Shell Command: Install 'code' command in PATH**) to add VS Code executable to the `PATH` environment variable. Read the [macOS setup guide](/docs/setup/mac.md) for help.
+> [!NOTE]
+> Users on macOS must first run a command (**Shell Command: Install 'code' command in PATH**) to add VS Code executable to the `PATH` environment variable. Read the [macOS setup guide](/docs/setup/mac.md) for help.
 
 Windows and Linux installations should add the VS Code binaries location to your system path. If this isn't the case, you can manually add the location to the `Path` environment variable (`$PATH` on Linux). For example, on Windows, the default VS Code binaries location is `AppData\Local\Programs\Microsoft VS Code\bin`. To review platform-specific setup instructions, see [Setup](/docs/setup/setup-overview.md).
 
-> **Insiders:** If you are using the VS Code [Insiders](/insiders) preview, you launch your Insiders build with `code-insiders`.
+> [!NOTE]
+> If you are using the VS Code [Insiders](/insiders) preview, you launch your Insiders build with `code-insiders`.
 
 ## Core CLI options
 
@@ -39,6 +41,7 @@ Argument|Description
 `-v` or `--version` | Print VS Code version (for example, 1.22.2), GitHub commit ID, and architecture (for example, x64).
 `-n` or `--new-window`| Opens a new session of VS Code instead of restoring the previous session (default).
 `-r` or `--reuse-window` | Forces opening a file or folder in the last active window.
+`-` | Read from stdin and open it in VS Code (for example, 'echo Hello World | code.exe -')
 `-g` or `--goto` | When used with *file:line{:character}*, opens a file at a specific line and optional character position. This argument is provided since some operating systems permit `:` in a file name.
 `-d` or `--diff <file1> <file2>` | Open a file difference editor. Requires two file paths as arguments.
 `-m` or `--merge  <path1> <path2> <base> <result>` | Perform a three-way merge by providing paths for two modified versions of a file, the common origin of both modified versions, and the output file to save merge results.
@@ -66,6 +69,7 @@ Argument|Description
 `file` | Name of a file to open. If the file doesn't exist, it will be created and marked as edited. You can specify multiple files by separating each file name with a space.
 `file:line[:character]` | Used with the `-g` argument. Name of a file to open at the specified line and optional character position.
 `folder` | Name of a folder to open. You can specify multiple folders and a new [Multi-root Workspace](/docs/editing/workspaces/multi-root-workspaces.md) is created.
+`--skip-add-to-recently-opened` | Prevent the opened files and folders from being added to the recently opened list.
 
 ![go to line and column](images/command-line/goto-line-column.png)
 
@@ -164,7 +168,7 @@ Each instance with a different `--user-data-dir` will maintain its own:
 > [!NOTE]
 > When using `--user-data-dir`, you'll need to reinstall extensions for each user data directory, as extensions are stored separately.
 
-### Create remote tunnel
+## Create remote tunnel
 
 VS Code integrates with other [remote environments](/docs/remote/remote-overview.md) to become even more powerful and flexible. Our goal is to provide a cohesive experience that allows you to manage both local and remote machines from one, unified CLI.
 
@@ -226,7 +230,8 @@ You can use the URL in applications such as browsers or file explorers that can 
 
 ![vscode url in Windows Explorer](images/command-line/vscode-url.png)
 
-> **Note**: If you are using VS Code [Insiders](/insiders) builds, the URL prefix is `vscode-insiders://`.
+> [!NOTE]
+> If you are using VS Code [Insiders](/insiders) builds, the URL prefix is `vscode-insiders://`.
 
 ## Next steps
 
