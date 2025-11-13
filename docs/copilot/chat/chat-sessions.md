@@ -128,7 +128,7 @@ A subagent enables you to delegate tasks to an isolated, autonomous agent within
 
 Subagents don't run asynchronously or in the background, however, they operate autonomously without pausing for user feedback. When a subagent completes its task, it returns only the final result to the main chat session, keeping the main context window focused on the primary conversation.
 
-Subagents have access to the tools available to the main chat session, except for creating other subagents. They use the same AI model as the main chat session.
+Subagents use the same agent and have access to the same tools available to the main chat session, except for creating other subagents. They also use the same AI model as the main chat session.
 
 ### Invoke a subagent
 
@@ -144,6 +144,21 @@ To invoke a subagent in a prompt:
 
     * `Use a subagent to research the best authentication methods for web applications. Summarize the findings.`
     * `Run #runSubagent to research the user's task comprehensively using read-only tools. Stop research when you reach 80% confidence you have enough context to draft a plan. Return this context.`
+
+#### Use a custom agent with subagents (Experimental)
+
+By default, a subagent inherits the agent from the main chat session. If you invoke a subagent from a custom agent, that subagent also runs with that agent.
+
+With the experimental `setting(chat.customAgentInSubagent.enabled)` setting, subagents can run with a different (custom) agent.
+
+To run a subagent with a specific agent:
+
+1. Enable the `setting(chat.customAgentInSubagent.enabled)` setting
+
+1. Prompt the AI to use a custom or built-in agent for the subagent. For example:
+
+    * `Run the research agent as a subagent to research the best auth methods for this project.`
+    * `Use the plan agent in a subagent to create an implementation plan for myfeature. Then save the plan in plans/myfeature.plan.md`
 
 ## Agent Sessions
 
