@@ -5,11 +5,11 @@ DateApproved: 05/12/2025
 ---
 # VS Code for the Web - Azure
 
-VS Code for the Web is a zero-install and browser-based version of Visual Studio Code. The `/azure` (for short) environment, accessible via <https://insiders.vscode.dev/azure>, is a dedicated space for Azure development, allowing you to run, debug, and deploy applications to Azure in seconds.
+VS Code for the Web is a zero-install and browser-based version of Visual Studio Code. The `/azure` (for short) environment, accessible via <https://vscode.dev/azure>, is a dedicated space for Azure development, allowing you to run, debug, and deploy applications to Azure in seconds.
 
 Powered by [Azure Cloud Shell](https://learn.microsoft.com/en-us/azure/cloud-shell/overview), this environment offers up to **4 hours of compute time**, eliminating the need to manually configure dev environments or install dependencies. `/azure` comes preloaded with the latest libraries, extensions, and tools to get you coding instantly.
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/qmJigVn8gcg?si=1NTRy3uSohVrqY1e" title="Announcing VS Code for the Web" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+![VS Code for the Web Azure](./images/vscodeforweb/azurescreenshot.png)
 
 ## Getting started
 
@@ -24,11 +24,11 @@ The `/azure` environment includes everything you need to start developing and de
 All major runtimes are pre-installed:
 
 * Python - 3.12.9
-* Java - openjdk 17.0.14 2025-01-21 LTS
-    * OpenJDK Runtime Environment Microsoft-10800290 (build 17.0.14+7-LTS)
-    * OpenJDK 64-Bit Server VM Microsoft-10800290 (build 17.0.14+7-LTS, mixed mode, sharing)
+* Java - openjdk 17.0.16 2025-07-15 LTS
+    * OpenJDK Runtime Environment Microsoft-11926113 (build 17.0.16+8-LTS)
+    * OpenJDK 64-Bit Server VM Microsoft-11926113 (build 17.0.16+8-LTS, mixed mode, sharing)
 * Node.js - v20.14.0
-* C# - 9.0.0
+* C# - 9.0.304
 
 ### GitHub repositories
 
@@ -45,7 +45,7 @@ Within this experience, you have two options for local continuation:
 
 ## Azure entry points
 
-The `/azure` experience integrates with Azure AI Foundry to bring code closer to developers. Buttons like **Open in VS Code for the Web** are available directly within environments like the **Chat Playground** and **Agent Playground**. See more in the sample use cases or scenarios section.
+The `/azure` experience integrates with Microsoft Foundry to bring code closer to developers. Buttons like **Open in VS Code for the Web** are available directly within environments like the **Chat Playground** and **Agent Playground** and the **Home Page**. See more in the sample use cases or scenarios section.
 
 To get started:
 
@@ -53,6 +53,12 @@ To get started:
 2. Build and test your agent.
 3. Select **View Code**, and then select your programming language and SDK.
 4. Launch directly into VS Code using the **Open in VS Code** button for the Web with **one click**.
+
+Alternatively, you can create an agent from Microsoft Foundry Home Page (more details below):
+
+1. Visit the Homepage for Microsoft Foundry (https://ai.azure.com)
+2. View the suggested code snippet generated on the home page
+3. Click **Open in VS Code** to one-click create an agent based on the code generated
 
 Additionally, developers can get started with templates using the AI App Gallery(https://aka.ms/aiapps) and select **Open in VS Code** to launch their template in one operation to the `/azure` environment.
 
@@ -63,19 +69,35 @@ To get started:
 3. Select **Open in VS Code** from the dropdown menu
 4. Launch directly into VS Code and use GitHub Copilot to answer any questions you might have.
 
+We also have integrations with the Azure Portal. Developers can now access an "Open in VS Code" button from Azure Copilot when they generate code.
+
+To get started:
+
+1. Navigate to portal.azure.com and sign in
+2. Navigate to Azure Copilot and start developing a scenario you'd like to build
+3. Once Copilot has generated code, click on the code file generated and **Open in VS Code**
+4. Launch directly in VS Code and use GitHub Copilot to answer any further questions.
+
 ## Sample use cases or scenarios
 
 The following are commonly used scenarios for the `\azure` environment.
 
-* [Using Azure AI Foundry to create a model deployment and open your code in VS Code](https://ai.azure.com)
+* [Using Microsoft Foundry to create an agent](https://ai.azure.com)
 
-    1. From the Azure AI Foundry portal, select the best model for your use case, including o3, o4-mini or MAI-DS-R1 from Foundry Models. In this case, we’ll use gpt-4o-mini as an example model for an agent workflow.
+    1. Access the Microsoft Foundry NextGen portal and select **Open in VS Code** next to the code generated for your agent
+    2. Let the VS Code for the Web - Azure environment initialize and setup your environment
+    3. Read the README file and follow the steps to run the **create_and_run_agent.py** file
+    4. Your agent will be created and has run successfully! Continue using the Foundry Extension (pre-installed) to fine-tune   your agent or follow the steps below to create an application with your agent
 
-        ![Screenshot that shows Azure AI Foundry Portal](images/vscodeforweb/first.png)
+* [Using Microsoft Foundry to create a model deployment and open your code in VS Code](https://ai.azure.com)
+
+    1. From the Microsoft Foundry portal, select the best model for your use case, including o3, o4-mini or MAI-DS-R1 from Foundry Models. In this case, we’ll use gpt-4o-mini as an example model for an agent workflow.
+
+        ![Screenshot that shows Microsoft Foundry Portal](images/vscodeforweb/first.png)
 
     2. Provision the model endpoint from the gpt-4o-mini model card.
 
-        ![Screenshot that shows Azure AI Foundry Portal Model](images/vscodeforweb/second.png)
+        ![Screenshot that shows Microsoft Foundry Portal Model](images/vscodeforweb/second.png)
 
     3. Arrive in the agents playground, alter generation controls like max responses and past messages. Add knowledge, tools, and actions.
 
@@ -141,6 +163,8 @@ The following are commonly used scenarios for the `\azure` environment.
 
 * [Rapid prototyping with VS Code extensions and Python](https://code.visualstudio.com/docs/python/python-quick-start)
 
+* [Create, Edit, and Deploy an Agents with Azure Copilot](https://review.learn.microsoft.com/en-us/azure/copilot/deployment-agent?branch=release-ignite-azure-copilot)
+
 ## Limitations
 
 Although VS Code for the Web is almost at parity with VS Code on the desktop, there are some limitations to the development environment:
@@ -155,13 +179,13 @@ If you encounter any issues with VS Code for the Web – Azure, please log an is
 
 ### Account type prompt issue
 
-If you see a prompt asking "What type of account did you use to start this tunnel?" then it's likely that you're on vscode.dev/azure and not insiders.vscode.dev/azure. Currently this product is only available on Insiders. To fix this, navigate to <https://insiders.vscode.dev/azure>.
+If you see a prompt asking "What type of account did you use to start this tunnel?" then it's likely that you're on vscode.dev/azure and not vscode.dev/azure. To fix this, navigate to <https://vscode.dev/azure>.
 
 ![Screenshot that shows Account Type](images/vscodeforweb/tbs1.png)
 
 ### Connection issue
 
-If you're unable to connect to <https://insiders.vscode.dev/azure>, you can usually fix it by resetting your Azure Cloud Shell. This can be done from the Azure Portal.
+If you're unable to connect to <https://vscode.dev/azure>, you can usually fix it by resetting your Azure Cloud Shell. This can be done from the Azure Portal.
 
 Open Cloud Shell in the Azure Portal using the button in the top right corner.
 
