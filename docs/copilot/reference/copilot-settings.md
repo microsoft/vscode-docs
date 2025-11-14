@@ -179,7 +179,7 @@ The [Chat Sessions view](/docs/copilot/copilot-coding-agent.md) provides a centr
 
 Copilot will use whatever shell you have configured as the default for the terminal unless it's cmd specifically. The reason for this is because [shell integration](https://code.visualstudio.com/docs/terminal/shell-integration) cannot be supported with Command Prompt which means Copilot has very limited visibility into what's going on inside the terminal. Instead of getting direct signals for when commands are being run or have finished running, Copilot needs to rely on timeouts and watching for the terminal to idle to continue. This leads to a slow and flaky experience.
 
-Note that it's still possible to configure command prompt if you really want it to be used by using the `setting(chat.tools.terminal.terminalProfile.windows)` setting, just keep in mind you will get an inferior experience compared to PowerShell:
+It's still possible to configure Command Prompt to be used with the `setting(chat.tools.terminal.terminalProfile.windows)` setting, however keep in mind that you will get an inferior experience compared to using PowerShell.
 
 ```json
 "chat.tools.terminal.terminalProfile.windows": {
