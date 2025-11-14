@@ -122,7 +122,7 @@ The learning rate, learning rate scheduler and number of warmup steps all intera
 
 The weight decay and LoRA dropout parameters are there to help control overfitting. If you see that your adapter is not generalizing well from your training set to your evaluation set, try increasing the values of these parameters.
 
-The adam_ parameters affect how the Adam optimizer behaves during the training steps. For more information on that optimizer see, for example, the Pytorch documentation.
+The `adam_ parameters` affect how the Adam optimizer behaves during the training steps. For more information on that optimizer see, for example, the PyTorch documentation.
 
 Many of the other parameters exposed are analogous to their equivalently named counterparts in the PEFT library. For more information on those, see the transformers documentation.
 
