@@ -3,7 +3,7 @@ ContentId: 3d9f2c6b-2f5e-4f9d-9b3a-7e6a1c4d8b21
 DateApproved:
 MetaDescription: Learn how to fine-tune the Phi Silica model in Azure using a custom dataset, download the resulting LoRA adapter, and perform inference with the adapter.
 ---
-# LoRA Fine-Tuning for Phi Silica
+# LoRA fine-tuning for Phi Silica
 
 Low Rank Adaptation (LoRA) can be utilized to fine-tune the [Phi Silica model](https://learn.microsoft.com/en-us/windows/ai/apis/phi-silica) to enhance its performance for your specific use-case. By using LoRA to optimize Phi Silica, Microsoft Windows local language model, you can achieve more accurate results. This process involves training a LoRA adapter and then applying it during inference to improve the model's accuracy.
 
