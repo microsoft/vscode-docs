@@ -45,7 +45,7 @@ Within this experience, you have two options for local continuation:
 
 ## Azure entry points
 
-The `/azure` experience integrates with Microsoft Foundry to bring code closer to developers. Buttons like **Open in VS Code for the Web** are available directly within environments like the **Chat Playground** and **Agent Playground** and the **Home Page**. See more in the sample use cases or scenarios section.
+The `/azure` experience integrates with Microsoft Foundry to bring code closer to developers. Buttons like **Open in VS Code for the Web** are available directly within environments like the **Chat Playground** and **Agent Playground** and the **Microsoft Foundry home page**. See more in the sample use cases or scenarios section.
 
 To get started:
 
