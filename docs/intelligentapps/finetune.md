@@ -394,7 +394,7 @@ The list of all parameters that can be finetuned is appended here. If a paramete
 
 ## Modify the Azure subscription and resource group
 
-If you want to modify the Azure subscription and Resource group previously set, you can update or remove them in the `<your_project_path>/model_lab.workspace.provision.config` file.
+If you want to modify the Azure subscription and resource group that were previously set, you can update or remove them in the `<your_project_path>/model_lab.workspace.provision.config` file.
 
 ## How to inference Phi Silica with adatper
 
