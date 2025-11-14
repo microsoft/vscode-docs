@@ -25,7 +25,7 @@ To train a LoRA adapter for fine-tuning the Phi Silica model with Windows 11, yo
 To generate a dataset, you need to split the data into two files:
 
 - `train.json`: used for training the adapter.
-- `test.json` – Used for evaluating the adapter's performance during and after training.
+- `test.json`: used for evaluating the adapter's performance during and after training.
 
 Both files must use the JSON format, where each line is a separate JSON object representing a single sample. Each sample should contain a list of messages exchanged between a user and an assistant.
 
