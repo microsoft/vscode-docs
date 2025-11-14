@@ -50,8 +50,7 @@ Training tips:
 - There is no comma needed at the end of each sample line.
 - Include as many high-quality and diverse examples as possible. For best results, collect at least a few thousand training samples in your `train.json` file.
 - The `test.json` file can be smaller, but should cover the types of interactions you expect your model to handle.
-
-Create `train.json` and `test.json` files with one JSON object per line, each containing a brief back-and-forth conversation between a user and an assistant. The quality and quantity of your data will greatly affect the effectiveness of your LoRA adapter.
+- Create `train.json` and `test.json` files with one JSON object per line, each containing a brief back-and-forth conversation between a user and an assistant. The quality and quantity of your data will greatly affect the effectiveness of your LoRA adapter.
 
 ### Training a LoRA adapter
 
@@ -72,17 +71,14 @@ After the prerequisites, follow these steps to create workspace and start a fine
 4. Select "Next".
 
 5. A dialog box will appear asking you to select a Project Folder and enter a Project Name - a new VS Code windows will open.
-
 ![Screenshot of creating fine-tuning project in AITK.](./images/finetune/create-finetuning-project.png)
 
 6. Select "LoRA" from the Method list.
-
 ![Screenshot of selecting LoRA method.](./images/finetune/select-finetuning-method-lora.png)
 
 7. Under **Data > Training Dataset name** and **Test Dataset name**, select your `train.json` and `test.json` files.
 
 8. Select "Run with Cloud".
-
 ![Screenshot of filling fine-tuning job parameters.](./images/finetune/fill-finetuning-job-parameters.png)
 
 9. A dialog box will appear asking you to select the Microsoft account with which to access your Azure subscription.
@@ -92,7 +88,6 @@ After the prerequisites, follow these steps to create workspace and start a fine
 11. You will now see that your fine-tuning job has successfully started, along with a Job Status. Use the Refresh button to manually update status. It typically takes an average of 45 - 60 minutes for a fine-tuning job to complete.
 
 12. Once the job has completed, you will have the option to download the newly trained LoRA adapter by selecting the "Download" button and selecting "Show Metrics" to check the fine-tuning metrics.
-
 ![Screenshot of downloading adapter and showing metrics](./images/finetune/download-adapter-and-show-metrics.png)
 
 ## LoRA finetuining advice
@@ -397,7 +392,7 @@ The list of all parameters that can be finetuned is appended here. If a paramete
 
 If you want to modify the Azure subscription and Resource group previously set, you can update or remove them in the `<your_project_path>/model_lab.workspace.provision.config` file.
 
-## How to inference Phi Silica with adatper
+## Inference with the Phi Silica LoRA adapter
 
 > [!IMPORTANT]
 > The Phi Silica APIs are part of a Limited Access Feature (see [LimitedAccessFeatures class](/uwp/api/windows.applicationmodel.limitedaccessfeatures)). For more information or to request an unlock token, please use the [LAF Access Token Request Form](https://go.microsoft.com/fwlink/?linkid=2271232&c1cid=04x409).
