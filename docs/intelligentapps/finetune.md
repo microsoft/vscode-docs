@@ -22,7 +22,7 @@ To train a LoRA adapter for fine-tuning the Phi Silica model with Windows 11, yo
 
 ### Generate a dataset for use with a LoRA adapter
 
-To generate a dataset, you will need to split data into two files:
+To generate a dataset, you need to split the data into two files:
 
 - `train.json` – Used for training the adapter.
 - `test.json` – Used for evaluating the adapter's performance during and after training.
