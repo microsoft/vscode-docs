@@ -84,7 +84,7 @@ Follow these steps to create a workspace and start a fine-tuning job:
 
 ![Screenshot of filling fine-tuning job parameters.](./images/finetune/fill-finetuning-job-parameters.png)
 
-9. A dialog box will appear asking you to select the Microsoft account with which to access your Azure subscription.
+9. In the dialog, select the Microsoft account with which to access your Azure subscription.
 
 10. Once your account is selected, you will need to select a Resource Group from the subscription dropdown menu.
 
