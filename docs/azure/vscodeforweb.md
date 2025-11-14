@@ -85,7 +85,7 @@ The following are commonly used scenarios for the `\azure` environment.
 * [Using Microsoft Foundry to create an agent](https://ai.azure.com)
 
     1. Access the Microsoft Foundry NextGen portal and select **Open in VS Code** next to the code generated for your agent
-    2. Let the VS Code for the Web - Azure environment initialize and setup your environment
+    2. Let the VS Code for the Web - Azure environment initialize and set up your environment
     3. Read the README file and follow the steps to run the **create_and_run_agent.py** file
     4. Your agent will be created and has run successfully! Continue using the Foundry Extension (pre-installed) to fine-tune   your agent or follow the steps below to create an application with your agent
 
