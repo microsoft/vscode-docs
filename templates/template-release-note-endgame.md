@@ -48,6 +48,7 @@ Welcome to the <Month> <Year> release of Visual Studio Code. There are many upda
   <nav id="toc-nav">
     <div>In this update</div>
     <ul>
+      <li><a href="#agents">Agents</a></li>
       <li><a href="#chat">Chat</a></li>
       <li><a href="#mcp">MCP</a></li>
       <li><a href="#accessibility">Accessibility</a></li>
@@ -58,6 +59,7 @@ Welcome to the <Month> <Year> release of Visual Studio Code. There are many upda
       <li><a href="#debugging">Debugging</a></li>
       <li><a href="#tasks">Tasks</a></li>
       <li><a href="#terminal">Terminal</a></li>
+      <li><a href="#authentication">Authentication</a></li>
       <li><a href="#languages">Languages</a></li>
       <li><a href="#remote-development">Remote Development</a></li>
       <li><a href="#contributions-to-extensions">Contributions to extensions</a></li>
@@ -70,6 +72,9 @@ Welcome to the <Month> <Year> release of Visual Studio Code. There are many upda
   </nav>
   <div class="notes-main">
 Navigation End -->
+
+## Agents
+
 
 ## Chat
 
@@ -99,6 +104,9 @@ Navigation End -->
 
 
 ## Terminal
+
+
+## Authentication
 
 
 ## Languages
