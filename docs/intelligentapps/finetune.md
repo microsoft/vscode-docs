@@ -132,7 +132,7 @@ The data hyperparameters `train_nsamples` and `test_nsamples` control how many s
 
 The `train_batch_size` and `test_batch_size` parameters control how many samples should be used in each batch for training and testing, respectively. You can normally use more batches for testing than training, because running a test example takes less GPU memory than a training example.
 
-The train_seqlen and test_seqlen parameters control how long the train and test sequences can be. Generally, the longer the better until you hit GPU memory limits. The defaults should give a good balance.
+The `train_seqlen` and `test_seqlen` parameters control how long the train and test sequences can be. Generally, the longer the better until you hit GPU memory limits. The defaults should give a good balance.
 
 ### Choosing a system prompt
 
