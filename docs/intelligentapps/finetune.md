@@ -60,7 +60,7 @@ To train a LoRA adapter, you need the following required prerequisites:
     - We recommend using A100 GPUs or better to efficiently run a fine-tuning job.
     - [Check that you have available quota in the Azure Portal](https://portal.azure.com/). If you'd like help finding your quota, see [View Quotas](https://learn.microsoft.com/en-us/azure/quotas/view-quotas#view-quota-details).
 
-After the prerequisites, follow these steps to create workspace and start a fine-tuning job:
+Follow these steps to create a workspace and start a fine-tuning job:
 
 1. Navigate to **Model Tools > Fine-tuning**.
 
