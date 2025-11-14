@@ -98,7 +98,7 @@ Follow these steps to create a workspace and start a fine-tuning job:
 
 ### Hyperparameter selection
 
-The default hyperparameters set up for LoRA finetuning should give a reasonable baseline finetune to compare against. We have done our best to find defaults which work well for most usecases and datasets.
+The default hyperparameters set up for LoRA fine-tuning should give a reasonable baseline finetune to compare against. We have done our best to find defaults which work well for most use cases and datasets.
 
 However, we have left in the flexibility for you to sweep over parameters if you so wish.
 
