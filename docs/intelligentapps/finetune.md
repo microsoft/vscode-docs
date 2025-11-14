@@ -142,7 +142,7 @@ The more different your desired output is from the base model, the more a system
 
 For example, if you are training for only a slight style change in the base model, such as using simplified language to appeal to younger readers, you might not need a system prompt at all.
 
-However, if your desired output has more structure then you will want to use the system prompt to get the model part of the way there. So, if you need a json table with particular keys, the first sentence of your system prompt could describe what a model response should look like if it was responding in plain language. The second sentence could then specify more what the json table format should look like. Using the first sentence in training and then both sentences in inference could provide you with the results that you want.
+However, if your desired output has more structure then you will want to use the system prompt to get the model part of the way there. So, if you need a JSON table with particular keys, the first sentence of your system prompt could describe what a model response should look like if it was responding in plain language. The second sentence could then specify more what the JSON table format should look like. Using the first sentence in training and then both sentences in inference could provide you with the results that you want.
 
 ### Parameters
 
