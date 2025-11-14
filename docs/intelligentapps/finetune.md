@@ -136,7 +136,7 @@ The `train_seqlen` and `test_seqlen` parameters control how long the train and t
 
 ### Choosing a system prompt
 
-The strategy we have found works well when choosing a system prompt to train with is to keep it fairly simple (1 or 2 sentences) while still encouraging the model to produce output in the format that you want. We have also found that using a slightly different system prompt for training and inference can improve results.
+The strategy we have found that works well when choosing a system prompt to train with, is to keep it fairly simple (1 or 2 sentences) while still encouraging the model to produce output in the format that you want. We have also found that using a slightly different system prompt for training and inference can improve results.
 
 The more different your desired output is from the base model, the more a system prompt can help you.
 
