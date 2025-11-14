@@ -238,6 +238,18 @@ A chat request can have a maximum of 128 tools enabled at a time. If you see an 
 
 * Alternatively, enable virtual tools with the `setting(github.copilot.chat.virtualTools.threshold)` setting to automatically manage large tool sets.
 
+### Why isn't the agent using Command Prompt as the terminal shell?
+
+The agent uses the shell you have configured as the default for the terminal, except when it's cmd. This is because [shell integration](https://code.visualstudio.com/docs/terminal/shell-integration) is not supported with Command Prompt, which means the agent has very limited visibility into what's going on inside the terminal. Instead of getting direct signals for when commands are being run or have finished running, the agent needs to rely on timeouts and watching for the terminal to idle to continue. This leads to a slow and flaky experience.
+
+You can still configure the agent to use Command Prompt with the `setting(chat.tools.terminal.terminalProfile.windows)` setting, however this will result in an inferior experience compared to using PowerShell.
+
+```json
+"chat.tools.terminal.terminalProfile.windows": {
+  "path": "C:\\WINDOWS\\System32\\cmd.exe"
+}
+```
+
 ### What's the difference between tools and chat participants?
 
 Chat participants are specialized assistants that enable you to ask domain-specific questions in chat. Imagine a chat participant as a domain expert to whom you hand off your chat request and it takes care of the rest.
