@@ -88,7 +88,7 @@ Follow these steps to create a workspace and start a fine-tuning job:
 
 10. Once your account is selected, select a Resource Group from the subscription dropdown menu.
 
-11. You will now see that your fine-tuning job has successfully started, along with a Job Status. Use the Refresh button to manually update status. It typically takes an average of 45 - 60 minutes for a fine-tuning job to complete.
+11. Notice that your fine-tuning job successfully starts and shows a job status. Use the **Refresh** button to manually update the status. It typically takes an average of 45 - 60 minutes for a fine-tuning job to complete.
 
 12. Once the job has completed, you will have the option to download the newly trained LoRA adapter by selecting the "Download" button and selecting "Show Metrics" to check the fine-tuning metrics.
 
