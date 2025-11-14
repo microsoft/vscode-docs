@@ -54,7 +54,7 @@ To get started:
 3. Select **View Code**, and then select your programming language and SDK.
 4. Launch directly into VS Code using the **Open in VS Code** button for the Web with **one click**.
 
-Alternatively, you can create an agent from Microsoft Foundry Home Page (more details below):
+Alternatively, you can create an agent from the Microsoft Foundry home page:
 
 1. Visit the Homepage for Microsoft Foundry (https://ai.azure.com)
 2. View the suggested code snippet generated on the home page
