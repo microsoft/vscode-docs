@@ -169,9 +169,12 @@ Azure Container App Secrets provide a secure way to store and manage sensitive d
 
     ![Add secret](./images/finetune/command-add-secret.png)
 
-1. Input Secret Name and Value: You'll be prompted to input the name and value of the secret.
+1. Provide a secret name and value
+
     ![Input secret name](./images/finetune/input-secret-name.png)
+
     ![Input secret](./images/finetune/input-secret.png)
+
     For example, if you're using private HuggingFace dataset or models that need Hugging Face access control, set your HuggingFace token as an environment variable [`HF_TOKEN`](https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables#hftoken) to avoid the need for manual login on the Hugging Face Hub.
 
 After you've set up the secret, you can now use it in your Azure Container App. The secret will be set in the environment variables of your container app.
@@ -188,7 +191,7 @@ You can find configuration parameters in `./infra/provision/finetuning.parameter
 | `maximumInstanceCount` | This parameter sets the maximum capacity of GPU instances. |
 | `timeout` | This sets the timeout for the Azure Container Appfine-tuning job in seconds. The default value is 10800, which equals to 3 hours. If the Azure Container Appjob reaches this timeout, the fine-tuning process halts. However, checkpoints are saved by default, allowing the fine-tuning process to resume from the last checkpoint instead of starting over if it is run again. |
 | `location` | This is the location where Azure resources are provisioned. The default value is the same as the chosen resource group's location. |
-| `storageAccountName`, `fileShareName` `acaEnvironmentName`, `acaEnvironmentStorageName`, `acaJobName`,  `acaLogAnalyticsName` | These parameters are used to name the Azure resources for provision. You can input a new, unused resource name to create your own custom-named resources, or you can input the name of an already existing Azure resource if you'd prefer to use that. For details, refer to the section [Using existing Azure Resources](#using-existing-azure-resources). |
+| `storageAccountName`, `fileShareName` `acaEnvironmentName`, `acaEnvironmentStorageName`, `acaJobName`,  `acaLogAnalyticsName` | These parameters are used to name the Azure resources for provision. You can input a new, unused resource name to create your own custom-named resources, or you can input the name of an already existing Azure resource if you'd prefer to use that. |
 
 ### Using existing Azure resources
 
@@ -256,9 +259,9 @@ You can find configuration parameters in `./infra/provision/inference.parameters
 | `defaultCommands` | This is the commands to initiate a web API. |
 | `maximumInstanceCount` | This parameter sets the maximum capacity of GPU instances. |
 | `location` | This is the location where Azure resources are provisioned. The default value is the same as the chosen resource group's location. |
-| `storageAccountName`, `fileShareName` `acaEnvironmentName`, `acaEnvironmentStorageName`, `acaAppName`,  `acaLogAnalyticsName` | These parameters are used to name the Azure resources for provision. By default, they will be same to the fine-tuning resource name. You can input a new, unused resource name to create your own custom-named resources, or you can input the name of an already existing Azure resource if you'd prefer to use that. For details, refer to the section [Using existing Azure Resources](#using-existing-azure-resources). |
+| `storageAccountName`, `fileShareName` `acaEnvironmentName`, `acaEnvironmentStorageName`, `acaAppName`,  `acaLogAnalyticsName` | These parameters are used to name the Azure resources for provision. By default, they will be same to the fine-tuning resource name. You can input a new, unused resource name to create your own custom-named resources, or you can input the name of an already existing Azure resource if you'd prefer to use that. |
 
-### Using Existing Azure resources
+### Using existing Azure resources
 
 By default, the inference provision use the same Azure Container App Environment, Storage Account, Azure File Share, and Azure Log Analytics that were used for fine-tuning. A separate Azure Container App is created solely for the inference API.
 
