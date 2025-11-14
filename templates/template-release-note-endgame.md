@@ -15,25 +15,17 @@ _Release date: <release Month day, year>_
 
 ---
 
-Welcome to the <Month> <Year> release of Visual Studio Code. There are many updates in this version that we hope you'll like, some of the key highlights include:
+Welcome to the <Month> <Year> release of Visual Studio Code.
 
-<table class="highlights-table">
-  <tr>
-    <th>Topic area 1</th>
-    <th>Topic area 2</th>
-    <th>Topic area 3</th>
-  </tr>
-  <tr>
-    <td>Highlight 1a <a href="#"><br>Show more</a></td>
-    <td>Highlight 2a <a href="#"><br>Show more</a></td>
-    <td>Highlight 3a <a href="#"><br>Show more</a></td>
-  </tr>
-  <tr>
-    <td>Highlight 1b <a href="#"><br>Show more</a></td>
-    <td>Highlight 2b <a href="#"><br>Show more</a></td>
-    <td>Highlight 3b <a href="#"><br>Show more</a></td>
-  </tr>
-</table>
+![Placeholder for release image](images/1_<release number>/release-highlights.png)
+
+This release brings significant updates across these key areas:
+
+* Area of improvement 1
+* Area of improvement 2
+* Area of improvement 3
+
+Happy Coding!
 
 <br>
 
