@@ -86,7 +86,7 @@ Follow these steps to create a workspace and start a fine-tuning job:
 
 9. In the dialog, select the Microsoft account with which to access your Azure subscription.
 
-10. Once your account is selected, you will need to select a Resource Group from the subscription dropdown menu.
+10. Once your account is selected, select a Resource Group from the subscription dropdown menu.
 
 11. You will now see that your fine-tuning job has successfully started, along with a Job Status. Use the Refresh button to manually update status. It typically takes an average of 45 - 60 minutes for a fine-tuning job to complete.
 
