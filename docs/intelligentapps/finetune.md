@@ -94,7 +94,7 @@ Follow these steps to create a workspace and start a fine-tuning job:
 
 ![Screenshot of downloading adapter and showing metrics](./images/finetune/download-adapter-and-show-metrics.png)
 
-## LoRA finetuining advice
+## LoRA fine-tuning recommendations
 
 ### Hyperparameter selection
 
