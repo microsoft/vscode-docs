@@ -54,7 +54,7 @@ Create `train.json` and `test.json` files with one JSON object per line, each co
 
 ### Training a LoRA adapter
 
-To train a LoRA adapter, you will first need the follow required prerequisites:
+To train a LoRA adapter, you need the following required prerequisites:
 
 - [Azure subscription](https://azure.microsoft.com/) with available quota in [Azure Container Apps](https://learn.microsoft.com/en-us/azure/container-apps/overview).
     - We recommend using A100 GPUs or better to efficiently run a fine-tuning job.
