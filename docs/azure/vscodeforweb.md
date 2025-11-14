@@ -75,7 +75,7 @@ To get started:
 
 1. Open the [Azure portal](portal.azure.com) and sign in with your Azure account
 2. Navigate to Azure Copilot and start developing a scenario you'd like to build
-3. Once Copilot has generated code, click on the code file generated and **Open in VS Code**
+3. Once Copilot has generated code, select the generated code file and select **Open in VS Code**
 4. Launch directly in VS Code and use GitHub Copilot to answer any further questions.
 
 ## Sample use cases or scenarios
