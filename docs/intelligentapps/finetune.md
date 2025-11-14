@@ -120,7 +120,7 @@ We also search over the learning rate scheduler, choosing one of `linear_with_wa
 
 The learning rate, learning rate scheduler and number of warmup steps all interact with each other. Keeping two fixed and varying the third will give you better insights into how they change the output of training on your dataset.
 
-The weight decay and LoRA dropout parameters are there to help to control overfitting. If you see that your adapter is not generalising well from your training set to your evaluation set, try increasing the values of these parameters.
+The weight decay and LoRA dropout parameters are there to help control overfitting. If you see that your adapter is not generalizing well from your training set to your evaluation set, try increasing the values of these parameters.
 
 The adam_ parameters affect how the Adam optimizer behaves during the training steps. For more information on that optimizer see, for example, the Pytorch documentation.
 
