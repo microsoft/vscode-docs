@@ -3,12 +3,11 @@ ContentId: 3d9f2c6b-2f5e-4f9d-9b3a-7e6a1c4d8b21
 DateApproved:
 MetaDescription: Learn how to fine-tune the Phi Silica model in Azure using a custom dataset, download the resulting LoRA adapter, and perform inference with the adapter.
 ---
-# LoRA Fine-Tuning for Phi Silica
+# LoRA fine-tuning for Phi Silica
 
-Low Rank Adaptation (LoRA) can be utilized to fine-tune the [Phi Silica model](https://learn.microsoft.com/en-us/windows/ai/apis/phi-silica) to enhance its performance for your specific use-case. By using LoRA to optimize Phi Silica, Microsoft Windows local language model, you can achieve more accurate results. This process involves training a LoRA adapter and then applying it during inference to improve the model's accuracy.
+You can use Low Rank Adaptation (LoRA) to fine-tune the [Phi Silica model](https://learn.microsoft.com/en-us/windows/ai/apis/phi-silica) to enhance its performance for your specific use case. By using LoRA to optimize Phi Silica, Microsoft Windows local language model, you can achieve more accurate results. This process involves training a LoRA adapter and then applying it during inference to improve the model's accuracy.
 
 > [!NOTE]
->
 > Phi Silica features are not available in China.
 
 ## Prerequisites
@@ -23,10 +22,10 @@ To train a LoRA adapter for fine-tuning the Phi Silica model with Windows 11, yo
 
 ### Generate a dataset for use with a LoRA adapter
 
-To generate a dataset, you will need to split data into two files:
+To generate a dataset, you need to split the data into two files:
 
-- `train.json` – Used for training the adapter.
-- `test.json` – Used for evaluating the adapter's performance during and after training.
+- `train.json`: used for training the adapter.
+- `test.json`: used for evaluating the adapter's performance during and after training.
 
 Both files must use the JSON format, where each line is a separate JSON object representing a single sample. Each sample should contain a list of messages exchanged between a user and an assistant.
 
@@ -54,13 +53,13 @@ Training tips:
 
 ### Training a LoRA adapter
 
-To train a LoRA adapter, you will first need the follow required prerequisites:
+To train a LoRA adapter, you need the following required prerequisites:
 
 - [Azure subscription](https://azure.microsoft.com/) with available quota in [Azure Container Apps](https://learn.microsoft.com/en-us/azure/container-apps/overview).
     - We recommend using A100 GPUs or better to efficiently run a fine-tuning job.
     - [Check that you have available quota in the Azure Portal](https://portal.azure.com/). If you'd like help finding your quota, see [View Quotas](https://learn.microsoft.com/en-us/azure/quotas/view-quotas#view-quota-details).
 
-After the prerequisites, follow these steps to create workspace and start a fine-tuning job:
+Follow these steps to create a workspace and start a fine-tuning job:
 
 1. Navigate to **Model Tools > Fine-tuning**.
 
@@ -70,7 +69,7 @@ After the prerequisites, follow these steps to create workspace and start a fine
 
 4. Select "Next".
 
-5. A dialog box will appear asking you to select a Project Folder and enter a Project Name - a new VS Code windows will open.
+5. In the dialog, select a Project Folder and enter a Project Name. A new VS Code window will open for the project.
 ![Screenshot of creating fine-tuning project in AITK.](./images/finetune/create-finetuning-project.png)
 
 6. Select "LoRA" from the Method list.
@@ -81,20 +80,20 @@ After the prerequisites, follow these steps to create workspace and start a fine
 8. Select "Run with Cloud".
 ![Screenshot of filling fine-tuning job parameters.](./images/finetune/fill-finetuning-job-parameters.png)
 
-9. A dialog box will appear asking you to select the Microsoft account with which to access your Azure subscription.
+9. In the dialog, select the Microsoft account with which to access your Azure subscription.
 
-10. Once your account is selected, you will need to select a Resource Group from the subscription dropdown menu.
+10. Once your account is selected, select a Resource Group from the subscription dropdown menu.
 
-11. You will now see that your fine-tuning job has successfully started, along with a Job Status. Use the Refresh button to manually update status. It typically takes an average of 45 - 60 minutes for a fine-tuning job to complete.
+11. Notice that your fine-tuning job successfully starts and shows a job status. Use the **Refresh** button to manually update the status. It typically takes an average of 45 - 60 minutes for a fine-tuning job to complete.
 
-12. Once the job has completed, you will have the option to download the newly trained LoRA adapter by selecting the "Download" button and selecting "Show Metrics" to check the fine-tuning metrics.
+12. Once the job has completed, you have the option to download the newly trained LoRA adapter by selecting  **Download** and selecting **Show Metrics** to check the fine-tuning metrics.
 ![Screenshot of downloading adapter and showing metrics](./images/finetune/download-adapter-and-show-metrics.png)
 
-## LoRA finetuining advice
+## LoRA fine-tuning recommendations
 
 ### Hyperparameter selection
 
-The default hyperparameters set up for LoRA finetuning should give a reasonable baseline finetune to compare against. We have done our best to find defaults which work well for most usecases and datasets.
+The default hyperparameters set up for LoRA fine-tuning should give a reasonable baseline finetune to compare against. We have done our best to find defaults which work well for most use cases and datasets.
 
 However, we have left in the flexibility for you to sweep over parameters if you so wish.
 
@@ -112,33 +111,33 @@ Our standard parameter search space would be:
 | num_warmup_steps | 0   | 10000  | Uniform       |
 | lora_dropout   | 0     | 0.5    | Uniform       |
 
-We also search over the learning rate scheduler, choosing one of linear_with_warmup or cosine_with_warmup. (If the num_warmup_steps parameter is set to 0, then you can equivalently use the linear or cosine options.)
+We also search over the learning rate scheduler, choosing one of `linear_with_warmup` or `cosine_with_warmup`. If the `num_warmup_steps` parameter is set to `0`, then you can equivalently use the linear or cosine options.
 
 The learning rate, learning rate scheduler and number of warmup steps all interact with each other. Keeping two fixed and varying the third will give you better insights into how they change the output of training on your dataset.
 
-The weight decay and LoRA dropout parameters are there to help to control overfitting. If you see that your adapter is not generalising well from your training set to your evaluation set, try increasing the values of these parameters.
+The weight decay and LoRA dropout parameters are there to help control overfitting. If you see that your adapter is not generalizing well from your training set to your evaluation set, try increasing the values of these parameters.
 
-The adam_ parameters affect how the Adam optimizer behaves during the training steps. For more information on that optimizer see, for example, the Pytorch documentation.
+The `adam_ parameters` affect how the Adam optimizer behaves during the training steps. For more information on that optimizer see, for example, the PyTorch documentation.
 
 Many of the other parameters exposed are analogous to their equivalently named counterparts in the PEFT library. For more information on those, see the transformers documentation.
 
 ### Data hyperparameters
 
-The data hyperparameters train_nsamples and test_nsamples control how many samples to take for training and testing respectively. Using more samples from your training set is normally a good idea. Using more test samples will give you test metrics that are less noisy, but each evaluation run will take longer.
+The data hyperparameters `train_nsamples` and `test_nsamples` control how many samples to take for training and testing respectively. Using more samples from your training set is normally a good idea. Using more test samples gives you test metrics that are less noisy, but each evaluation run will take longer.
 
-The train_batch_size and test_batch_size parameters control how many samples should be used in each batch for training and testing, respectively. You can normally use more batches for testing than training, because running a test example takes less GPU memory than a training example.
+The `train_batch_size` and `test_batch_size` parameters control how many samples should be used in each batch for training and testing, respectively. You can normally use more batches for testing than training, because running a test example takes less GPU memory than a training example.
 
-The train_seqlen and test_seqlen parameters control how long the train and test sequences can be. Generally, the longer the better until you hit GPU memory limits. The defaults should give a good balance.
+The `train_seqlen` and `test_seqlen` parameters control how long the train and test sequences can be. Generally, the longer the better until you hit GPU memory limits. The defaults should give a good balance.
 
 ### Choosing a system prompt
 
-The strategy we have found works well when choosing a system prompt to train with is to keep it fairly simple (1 or 2 sentences) while still encouraging the model to produce output in the format that you want. We have also found that using a slightly different system prompt for training and inference can improve results.
+The strategy we have found that works well when choosing a system prompt to train with, is to keep it fairly simple (1 or 2 sentences) while still encouraging the model to produce output in the format that you want. We have also found that using a slightly different system prompt for training and inference can improve results.
 
 The more different your desired output is from the base model, the more a system prompt can help you.
 
 For example, if you are training for only a slight style change in the base model, such as using simplified language to appeal to younger readers, you might not need a system prompt at all.
 
-However, if your desired output has more structure then you will want to use the system prompt to get the model part of the way there. So, if you need a json table with particular keys, the first sentence of your system prompt could describe what a model response should look like if it was responding in plain language. The second sentence could then specify more what the json table format should look like. Using the first sentence in training and then both sentences in inference could provide you with the results that you want.
+However, if your desired output has more structure then you will want to use the system prompt to get the model part of the way there. So, if you need a JSON table with particular keys, the first sentence of your system prompt could describe what a model response should look like if it was responding in plain language. The second sentence could then specify more what the JSON table format should look like. Using the first sentence in training and then both sentences in inference could provide you with the results that you want.
 
 ### Parameters
 
@@ -388,9 +387,9 @@ The list of all parameters that can be finetuned is appended here. If a paramete
 ```
 
 
-## How to modify filled Azure subscription and Resource group
+## Modify the Azure subscription and resource group
 
-If you want to modify the Azure subscription and Resource group previously set, you can update or remove them in the `<your_project_path>/model_lab.workspace.provision.config` file.
+If you want to modify the Azure subscription and resource group that were previously set, you can update or remove them in the `<your_project_path>/model_lab.workspace.provision.config` file.
 
 ## Inference with the Phi Silica LoRA adapter
 
