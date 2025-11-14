@@ -116,7 +116,7 @@ Our standard parameter search space would be:
 | num_warmup_steps | 0   | 10000  | Uniform       |
 | lora_dropout   | 0     | 0.5    | Uniform       |
 
-We also search over the learning rate scheduler, choosing one of linear_with_warmup or cosine_with_warmup. (If the num_warmup_steps parameter is set to 0, then you can equivalently use the linear or cosine options.)
+We also search over the learning rate scheduler, choosing one of `linear_with_warmup` or `cosine_with_warmup`. If the `num_warmup_steps` parameter is set to `0`, then you can equivalently use the linear or cosine options.
 
 The learning rate, learning rate scheduler and number of warmup steps all interact with each other. Keeping two fixed and varying the third will give you better insights into how they change the output of training on your dataset.
 
