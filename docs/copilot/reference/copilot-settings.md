@@ -173,20 +173,6 @@ The [Chat Sessions view](/docs/copilot/copilot-coding-agent.md) provides a centr
 | `setting(accessibility.voice.autoSynthesize)`<br/>Controls whether a textual response should automatically be read out aloud when speech was used as input. | `"off"` |
 | `setting(accessibility.voice.speechTimeout)`<br/>The duration in milliseconds that voice speech recognition remains active after you stop speaking. | `1200` |
 
-## Frequently asked questions
-
-### Why isn't Copilot using Command Prompt as the terminal shell?
-
-The agent uses the shell you have configured as the default for the terminal, except when it's cmd. This is because [shell integration](https://code.visualstudio.com/docs/terminal/shell-integration) is not supported with Command Prompt, which means the agent has very limited visibility into what's going on inside the terminal. Instead of getting direct signals for when commands are being run or have finished running, the agent needs to rely on timeouts and watching for the terminal to idle to continue. This leads to a slow and flaky experience.
-
-It's still possible to configure Command Prompt to be used with the `setting(chat.tools.terminal.terminalProfile.windows)` setting, however keep in mind that you will get an inferior experience compared to using PowerShell.
-
-```json
-"chat.tools.terminal.terminalProfile.windows": {
-  "path": "C:\\WINDOWS\\System32\\cmd.exe"
-}
-```
-
 ## Related resources
 
 * [Get a quick overview of the Copilot features in VS Code](/docs/copilot/reference/copilot-vscode-features.md)
