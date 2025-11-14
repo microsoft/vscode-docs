@@ -69,7 +69,7 @@ To get started:
 3. Select **Open in VS Code** from the dropdown menu
 4. Launch directly into VS Code and use GitHub Copilot to answer any questions you might have.
 
-We also have integrations with the Azure Portal. Developers can now access an "Open in VS Code" button from Azure Copilot when they generate code.
+We also have integrations with the Azure portal. Developers can now access an "Open in VS Code" button from Azure Copilot when they generate code.
 
 To get started:
 
