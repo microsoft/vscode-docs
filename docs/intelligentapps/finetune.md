@@ -1,6 +1,6 @@
 ---
 ContentId: 3d9f2c6b-2f5e-4f9d-9b3a-7e6a1c4d8b21
-DateApproved:
+DateApproved: 11/14/2025
 MetaDescription: Learn how to fine-tune the Phi Silica model in Azure using a custom dataset, download the resulting LoRA adapter, and perform inference with the adapter.
 ---
 # LoRA fine-tuning for Phi Silica
@@ -61,33 +61,35 @@ To train a LoRA adapter, you need the following required prerequisites:
 
 Follow these steps to create a workspace and start a fine-tuning job:
 
-1. Navigate to **Model Tools > Fine-tuning**.
+1. Navigate to **Model Tools > Fine-tuning** and select **New Project**.
 
-2. Select "New Project".
+1. Select "microsoft/phi-silica" from the Model Catalog and select **Next**.
 
-3. Select "microsoft/phi-silica" from the Model Catalog.
+1. In the dialog, select a Project Folder and enter a Project Name. A new VS Code window will open for the project.
 
-4. Select "Next".
+    ![Screenshot of creating fine-tuning project in AITK.](./images/finetune/create-finetuning-project.png)
 
-5. In the dialog, select a Project Folder and enter a Project Name. A new VS Code window will open for the project.
-![Screenshot of creating fine-tuning project in AITK.](./images/finetune/create-finetuning-project.png)
+1. Select "LoRA" from the Method list.
 
-6. Select "LoRA" from the Method list.
-![Screenshot of selecting LoRA method.](./images/finetune/select-finetuning-method-lora.png)
+    ![Screenshot of selecting LoRA method.](./images/finetune/select-finetuning-method-lora.png)
 
-7. Under **Data > Training Dataset name** and **Test Dataset name**, select your `train.json` and `test.json` files.
+1. Under **Data > Training Dataset name** and **Test Dataset name**, select your `train.json` and `test.json` files.
 
-8. Select "Run with Cloud".
-![Screenshot of filling fine-tuning job parameters.](./images/finetune/fill-finetuning-job-parameters.png)
+1. Select **Run with Cloud**.
 
-9. In the dialog, select the Microsoft account with which to access your Azure subscription.
+    ![Screenshot of filling fine-tuning job parameters.](./images/finetune/fill-finetuning-job-parameters.png)
 
-10. Once your account is selected, select a Resource Group from the subscription dropdown menu.
+1. In the dialog, select the Microsoft account with which to access your Azure subscription.
 
-11. Notice that your fine-tuning job successfully starts and shows a job status. Use the **Refresh** button to manually update the status. It typically takes an average of 45 - 60 minutes for a fine-tuning job to complete.
+1. Once your account is selected, select a resource group from the subscription dropdown menu.
 
-12. Once the job has completed, you have the option to download the newly trained LoRA adapter by selecting  **Download** and selecting **Show Metrics** to check the fine-tuning metrics.
-![Screenshot of downloading adapter and showing metrics](./images/finetune/download-adapter-and-show-metrics.png)
+1. Notice that your fine-tuning job successfully starts and shows a job status.
+
+    Use the **Refresh** button to manually update the status. It typically takes an average of 45 - 60 minutes for a fine-tuning job to complete.
+
+1. Once the job has completed, you have the option to download the newly trained LoRA adapter by selecting  **Download** and selecting **Show Metrics** to check the fine-tuning metrics.
+
+    ![Screenshot of downloading adapter and showing metrics](./images/finetune/download-adapter-and-show-metrics.png)
 
 ## LoRA fine-tuning recommendations
 
