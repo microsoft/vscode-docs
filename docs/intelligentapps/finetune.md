@@ -128,7 +128,7 @@ Many of the other parameters exposed are analogous to their equivalently named c
 
 ### Data hyperparameters
 
-The data hyperparameters train_nsamples and test_nsamples control how many samples to take for training and testing respectively. Using more samples from your training set is normally a good idea. Using more test samples will give you test metrics that are less noisy, but each evaluation run will take longer.
+The data hyperparameters `train_nsamples` and `test_nsamples` control how many samples to take for training and testing respectively. Using more samples from your training set is normally a good idea. Using more test samples gives you test metrics that are less noisy, but each evaluation run will take longer.
 
 The train_batch_size and test_batch_size parameters control how many samples should be used in each batch for training and testing, respectively. You can normally use more batches for testing than training, because running a test example takes less GPU memory than a training example.
 
