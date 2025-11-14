@@ -5,7 +5,7 @@ MetaDescription: Learn how to fine-tune the Phi Silica model in Azure using a cu
 ---
 # LoRA fine-tuning for Phi Silica
 
-Low Rank Adaptation (LoRA) can be utilized to fine-tune the [Phi Silica model](https://learn.microsoft.com/en-us/windows/ai/apis/phi-silica) to enhance its performance for your specific use-case. By using LoRA to optimize Phi Silica, Microsoft Windows local language model, you can achieve more accurate results. This process involves training a LoRA adapter and then applying it during inference to improve the model's accuracy.
+You can use Low Rank Adaptation (LoRA) to fine-tune the [Phi Silica model](https://learn.microsoft.com/en-us/windows/ai/apis/phi-silica) to enhance its performance for your specific use case. By using LoRA to optimize Phi Silica, Microsoft Windows local language model, you can achieve more accurate results. This process involves training a LoRA adapter and then applying it during inference to improve the model's accuracy.
 
 > [!NOTE]
 >
