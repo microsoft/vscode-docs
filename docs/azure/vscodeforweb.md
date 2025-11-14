@@ -177,11 +177,6 @@ Although VS Code for the Web is almost at parity with VS Code on the desktop, th
 
 If you encounter any issues with VS Code for the Web – Azure, please log an issue in our [GitHub repository](https://github.com/microsoft/vscode-dev-azure)
 
-### Account type prompt issue
-
-If you see a prompt asking "What type of account did you use to start this tunnel?" then it's likely that you're on vscode.dev/azure and not vscode.dev/azure. To fix this, navigate to <https://vscode.dev/azure>.
-
-![Screenshot that shows Account Type](images/vscodeforweb/tbs1.png)
 
 ### Connection issue
 
