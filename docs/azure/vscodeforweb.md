@@ -58,7 +58,7 @@ Alternatively, you can create an agent from the Microsoft Foundry home page:
 
 1. Open the Microsoft Foundry home page (<https://ai.azure.com>)
 2. View the suggested code snippet generated on the home page
-3. Click **Open in VS Code** to one-click create an agent based on the code generated
+3. Select **Open in VS Code** for a one-click experience to create an agent based on the generated code
 
 Additionally, developers can get started with templates using the AI App Gallery(https://aka.ms/aiapps) and select **Open in VS Code** to launch their template in one operation to the `/azure` environment.
 
