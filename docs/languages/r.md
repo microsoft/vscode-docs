@@ -1,6 +1,6 @@
 ---
 ContentId: 1eb31e23-be14-4613-be84-621a51cb59d7
-DateApproved: 10/09/2025
+DateApproved: 11/12/2025
 MetaDescription: Learn about working with the R programming language in Visual Studio Code.
 ---
 # R in Visual Studio Code

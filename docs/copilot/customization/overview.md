@@ -1,8 +1,8 @@
 ---
 ContentId: 16c73175-a606-4aab-8ae5-a507
-DateApproved: 10/09/2025
-MetaDescription: Learn how to customize GitHub Copilot Chat with custom instructions, reusable prompt files, and custom chat modes to align AI responses with your coding practices and project requirements.
-MetaSocialImage: images/shared/github-copilot-social.png
+DateApproved: 11/12/2025
+MetaDescription: Learn how to customize chat in VS Code with custom instructions, reusable prompt files, and custom agents to align AI responses with your coding practices and project requirements.
+MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Customize chat to your workflow
 
@@ -33,15 +33,15 @@ Use prompt files to:
 - Create step-by-step guides for complex processes or project-specific patterns
 - Define prompts for generating implementation plans, architectural designs, or migration strategies
 
-### Chat modes
+### Custom agents
 
-[Chat modes](/docs/copilot/customization/custom-chat-modes.md) are a way to create a specialist assistant for specific roles or tasks, like a database administrator, front-end development, or planning. Within a chat mode Markdown file, you describe its scope and capabilities, which tools it can access, and a preferred language model.
+[Custom agents](/docs/copilot/customization/custom-agents.md) are a way to create a specialist assistant for specific roles or tasks, like a database administrator, front-end development, or planning. Within a custom agent Markdown file, you describe its scope and capabilities, which tools it can access, and a preferred language model.
 
-Use chat modes to:
+Use custom agents to:
 
-- Create a chat mode for planning, where the AI has read-only access to the codebase and can only generate implementation plans
-- Define a research chat mode, where the AI can reach out to external resources to explore new technologies or gather information
-- Create a front-end developer chat mode, where the AI can only generate and modify code related to front-end development
+- Create a custom agent for planning, where the AI has read-only access to the codebase and can only generate implementation plans
+- Define a research custom agent, where the AI can reach out to external resources to explore new technologies or gather information
+- Create a front-end developer custom agent, where the AI can only generate and modify code related to front-end development
 
 ### Language models
 
@@ -71,8 +71,8 @@ Different customization methods work best for different scenarios. The following
 | Project-wide coding standards | [Custom instructions](/docs/copilot/customization/custom-instructions.md) |
 | Language or framework-specific rules | [Custom instructions with glob patterns](/docs/copilot/customization/custom-instructions.md#instructions-file-format) |
 | Reusable development tasks | [Prompt files](/docs/copilot/customization/prompt-files.md) |
-| Use chat in plan or research mode | [Custom chat modes](/docs/copilot/customization/custom-chat-modes.md) |
-| Define specialized workflows | [Custom chat modes](/docs/copilot/customization/custom-chat-modes.md) |
+| Use chat for planning or research | [Custom agents](/docs/copilot/customization/custom-agents.md) |
+| Define specialized workflows | [Custom agents](/docs/copilot/customization/custom-agents.md) |
 | Complex reasoning and analysis | [Language models](/docs/copilot/customization/language-models.md) |
 | Bring your own model | [Language models](/docs/copilot/customization/language-models.md) |
 | Integrate external services | [MCP and tools](/docs/copilot/customization/mcp-servers.md) |
@@ -99,12 +99,12 @@ When you need to connect external services or perform specialized operations, ad
 
 ### 5. Create specialized workflows
 
-For advanced usage, build **custom chat modes** that combine specific tools, instructions, and context for particular roles or project phases.
+For advanced usage, build **custom agents** that combine specific tools, instructions, and context for particular roles or project phases.
 
 ## Related resources
 
 - [Create custom instructions](/docs/copilot/customization/custom-instructions.md)
 - [Create reusable prompt files](/docs/copilot/customization/prompt-files.md)
-- [Create custom chat modes](/docs/copilot/customization/custom-chat-modes.md)
+- [Create custom agents](/docs/copilot/customization/custom-agents.md)
 - [Choose language models](/docs/copilot/customization/language-models.md)
 - [Use MCP servers and tools](/docs/copilot/customization/mcp-servers.md)

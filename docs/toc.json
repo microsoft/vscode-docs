@@ -105,7 +105,7 @@
         "area": "copilot/chat",
         "noCollapse": true,
         "topics": [
-          ["Chat Overview", "/docs/copilot/chat/copilot-chat"],
+          ["Overview", "/docs/copilot/chat/copilot-chat"],
           ["Chat Sessions", "/docs/copilot/chat/chat-sessions"],
           ["Add Context", "/docs/copilot/chat/copilot-chat-context"],
           ["Review Edits", "/docs/copilot/chat/review-code-edits"],
@@ -118,7 +118,7 @@
         ]
       }
       ],
-      ["Code Completions", "/docs/copilot/ai-powered-suggestions"],
+      ["Inline Suggestions", "/docs/copilot/ai-powered-suggestions"],
       ["Copilot Coding Agent", "/docs/copilot/copilot-coding-agent"],
       ["", "", {
         "name": "Customization",
@@ -128,7 +128,7 @@
           ["Overview", "/docs/copilot/customization/overview"],
           ["Instructions", "/docs/copilot/customization/custom-instructions"],
           ["Prompt Files", "/docs/copilot/customization/prompt-files"],
-          ["Custom Modes", "/docs/copilot/customization/custom-chat-modes"],
+          ["Custom Agents", "/docs/copilot/customization/custom-agents"],
           ["Language Models", "/docs/copilot/customization/language-models"],
           ["MCP", "/docs/copilot/customization/mcp-servers"]
         ]
@@ -369,12 +369,14 @@
     "area": "intelligentapps",
     "topics": [
       ["AI Toolkit Overview", "/docs/intelligentapps/overview"],
+      ["AI Toolkit Copilot tools", "/docs/intelligentapps/copilot-tools"],
       ["Models", "/docs/intelligentapps/models"],
       ["Playground", "/docs/intelligentapps/playground"],
       ["Agent Builder", "/docs/intelligentapps/agentbuilder"],
       ["Bulk Run", "/docs/intelligentapps/bulkrun"],
       ["Evaluation", "/docs/intelligentapps/evaluation"],
-      ["Fine-tune", "/docs/intelligentapps/finetune"],
+      ["Fine-tuning (Automated Setup)", "/docs/intelligentapps/finetune"],
+      ["Fine-tuning (Project Template)", "/docs/intelligentapps/finetune-legacy"],
       ["Model Conversion", "/docs/intelligentapps/modelconversion"],
       ["Tracing", "/docs/intelligentapps/tracing"],
       ["FAQ", "/docs/intelligentapps/faq"],

@@ -426,7 +426,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/copilot/customization/custom-chat-modes</loc>
+        <loc>https://code.visualstudio.com/docs/copilot/customization/custom-agents</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -1865,6 +1865,16 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/intelligentapps/gettingstarted</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/intelligentapps/copilot-tools</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/intelligentapps/models</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -1896,6 +1906,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/intelligentapps/finetune</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/intelligentapps/finetune-legacy</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

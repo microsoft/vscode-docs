@@ -1,11 +1,13 @@
 ---
 ContentId: 47a2e3b1-24f2-42e6-a6e6-272c2a0f3218
-DateApproved: 10/09/2025
-MetaDescription: Learn about Visual Studio Code collected telemetry and how to opt out.
+DateApproved: 11/12/2025
+MetaDescription: Learn about telemetry collection in Visual Studio Code and how to opt out.
 ---
 # Telemetry
 
-Visual Studio Code collects telemetry data, which is used to help understand how to improve the product. For example, this usage data helps to debug issues, such as slow start-up times, and to prioritize new features.  While we appreciate the insights this data provides, we also know that not everyone wants to send usage data and you can disable telemetry as described in [disable telemetry reporting](#disable-telemetry-reporting). You can also read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) to learn more.
+Visual Studio Code collects telemetry data, which is used to help understand how to improve the product. For example, this usage data helps to debug issues, such as slow start-up times, and to prioritize new features. We also use this data to [roll out new features](#feature-availability-and-telemetry) to a subset of users before making them generally available.
+
+While we appreciate the insights this data provides, we also know that not everyone wants to send usage data and you can disable telemetry as described in [disable telemetry reporting](#disable-telemetry-reporting). You can also read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) to learn more.
 
 ## Types of telemetry data
 
@@ -19,7 +21,7 @@ VS Code and this page refer to three different types of data with respect to tel
 
 ## Disable telemetry reporting
 
-With the `setting(telemetry.telemetryLevel)` user [setting](/docs/configure/settings.md), you can control the different types of telemetry we send with a single setting. Here is a table of the different types of data sent with each value of `setting(telemetry.telemetryLevel)`:
+With the `setting(telemetry.telemetryLevel)` user setting, you can control the different types of telemetry we send with a single setting. Here is a table of the different types of data sent with each value of `setting(telemetry.telemetryLevel)`:
 
 |       | Crash Reports         | Error Telemetry | Usage Data     |
 |:------|:---------------------:|:---------------:|:--------------:|
@@ -28,15 +30,24 @@ With the `setting(telemetry.telemetryLevel)` user [setting](/docs/configure/sett
 | crash |            ✓          |        -        |        -       |
 | off   |            -          |        -        |        -       |
 
-For example, if you don't want to send any telemetry data to Microsoft, you can set the `setting(telemetry.telemetryLevel)` user [setting](/docs/configure/settings.md) to `off`. This will silence all telemetry events from VS Code going forward. Note that telemetry information may have been collected and sent up until the point when you disable the setting.
+For example, if you don't want to send any telemetry data to Microsoft, you can set the `setting(telemetry.telemetryLevel)` user setting to `off`. This will silence all telemetry events from VS Code going forward. Note that telemetry information may have been collected and sent up until the point when you disable the setting.
 
-![disable telemetry](images/telemetry/disable-telemetry.png)
+![Screenshot showing the Settings editor with telemetry disabled.](images/telemetry/disable-telemetry.png)
 
 If you use the JSON editor for your settings, add the following line:
 
 ```json
 "telemetry.telemetryLevel": "off"
 ```
+
+> [!IMPORTANT]
+> To participate in the A/B experimentation and get early access to new features, you must have usage data enabled by setting `setting(telemetry.telemetryLevel)` to `all`.
+
+## Feature availability and telemetry
+
+VS Code uses an A/B experimentation system to roll out new features to a subset of users before making them generally available. This helps us validate that a new feature is working as expected across a diverse set of users before rolling it out to everyone. By participating in experimentation, you help us improve the quality of VS Code and can help shape the future of the product through early feedback.
+
+To enable this experimentation system, VS Code uses the usage telemetry data to determine which users should receive the new feature and to validate how the feature is used. If you disable usage data telemetry by setting `setting(telemetry.telemetryLevel)` to `error`, `crash`, or `off`, we can't evaluate the feature's usage and therefore experimentation is disabled for you. As a result, the rollout of new features to you might be delayed until the feature is generally available.
 
 ## Extensions and telemetry
 
@@ -151,9 +162,8 @@ When you open a file type for which VS Code does not have any precomputed recomm
 
 Please read the [extension guides telemetry document](/api/extension-guides/telemetry.md).
 
-## Next steps
+## Related resources
 
 * [Centrally manage telemetry log level](/docs/setup/enterprise.md#configure-telemetry-level) - Learn how to set the telemetry log level for your organization.
 * [Visual Studio Code FAQ](/docs/supporting/faq.md) - Consult the Frequently Asked Questions to learn more.
 * [User and Workspace Settings](/docs/configure/settings.md) - Read about available options to customize VS Code.
-* [Key Bindings](/docs/configure/keybindings.md) - You can easily modify commonly used keyboard shortcuts.

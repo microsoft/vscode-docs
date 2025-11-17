@@ -1,317 +1,404 @@
 ---
-ContentId: 5b6626b8-98a9-497e-bbc6-e2274885be56
-DateApproved: 12/11/2024
-MetaDescription: Use custom dataset to fine-tune a generative AI model in the Azure cloud or locally with GPUs. Deploy the fine-tuned model to the Azure cloud or download incremental files from fine-tuned model.
+ContentId: 3d9f2c6b-2f5e-4f9d-9b3a-7e6a1c4d8b21
+DateApproved: 11/14/2025
+MetaDescription: Learn how to fine-tune the Phi Silica model in Azure using a custom dataset, download the resulting LoRA adapter, and perform inference with the adapter.
 ---
-# Fine-tune models
+# LoRA fine-tuning for Phi Silica
 
-Fine-tune AI model is a common practice that allows you to use your custom dataset to run **fine-tune** jobs on a pre-trained model in a computing environment with GPUs. AI Toolkit currently supports fine-tuning SLMs on local machine with GPU or in the cloud (Azure Container App) with GPU.
-
-A fine-tuned model can be downloaded to local and do inference test with GPUs, or be quantized to run locally on CPUs. Fine-tuned model can also be deployed to a cloud environment as remote model.
-
-## Fine-tune AI models on Azure with AI Toolkit for VS Code (Preview)
-
-AI Toolkit for VS Code now supports provisioning an Azure Container App to run model fine-tuning and host an inference endpoint in the cloud.
-
-### Set up your cloud environment
-
-1. To run the model fine-tuning and inference in your remote Azure Container Apps Environment, make sure your subscription has enough GPU capacity. Submit a [support ticket](https://azure.microsoft.com/support/create-ticket/) to request the required capacity for your application. [Get More Info about GPU capacity](https://learn.microsoft.com/en-us/azure/container-apps/workload-profiles-overview)
-
-1. Make sure you have a [HuggingFace account](https://huggingface.co/) and [generate an access token](https://huggingface.co/docs/hub/security-tokens) if you are using private dataset on HuggingFace or your base model needs access control.
-
-1. Accept the LICENSE on HuggingFace if you are fine-tuning Mistral or Llama.
-
-1. Enable Remote Fine-tuning and Inference feature flag in the AI Toolkit for VS Code
-    1. Open the VS Code Settings by selecting *File -> Preferences -> Settings*.
-    1. Navigate to *Extensions* and select *AI Toolkit*.
-    1. Select the *"Enable to run fine-tuning and inference on Azure Container Apps"* option.
-
-      ![AI Toolkit Settings](./images/finetune/settings.png)
-
-    1. Reload VS Code for the changes to take effect.
-
-### Scaffold a fine-tune project
-
-1. Run the `AI Toolkit: Focus on Tools View` in the Command Palette (`kb(workbench.action.showCommands)`)
-1. Navigate to `Fine-tuning` to access the model catalog. Select a model for the fine-tuning. Assign a name to your project and select its location on your machine. Then, hit the *"Configure Project"* button.
-    ![Panel: Select Model](./images/finetune/panel-select-model.png)
-1. Project Configuration
-    1. Avoid enabling the *"Fine-tune locally"* option.
-    1. The Olive configuration settings will appear with pre-set default values. Please adjust and fill in these configurations as needed.
-    1. Move on to *Generate Project*. This stage leverages WSL and involves setting up a new Conda environment, preparing for future updates that include Dev Containers.
-      ![Panel: Configure the Model](./images/finetune/panel-config-model.png)
-    1. Select *"Relaunch Window In Workspace"* to open your fine-tune project.
-      ![Panel: Generate Project](./images/finetune/panel-generate-project.png)
+You can use Low Rank Adaptation (LoRA) to fine-tune the [Phi Silica model](https://learn.microsoft.com/en-us/windows/ai/apis/phi-silica) to enhance its performance for your specific use case. By using LoRA to optimize Phi Silica, Microsoft Windows local language model, you can achieve more accurate results. This process involves training a LoRA adapter and then applying it during inference to improve the model's accuracy.
 
 > [!NOTE]
-> The project currently works either locally or remotely within the AI Toolkit for VS Code. If you choose *"Fine-tune locally"* during project creation, it will run exclusively in WSL without cloud resources. Otherwise, the project will be restricted to run in the remote Azure Container App environment.
+> Phi Silica features are not available in China.
 
-### Provision Azure Resources
+## Prerequisites
 
-To get started, you need to provision the Azure Resource for remote fine-tuning. From command palette find and execute `AI Toolkit: Provision Azure Container Apps job for fine-tuning`. During this process, you will be prompted to select your Azure Subscription and resource group.
+- You have identified a use case for enhancing the response of Phi Silica.
+- You have chosen an evaluation criteria to decide what a 'good response' is.
+- You have tried the Phi Silica APIs and they do not meet your evaluation criteria.
 
-![Provision Fine-Tuning](./images/finetune/command-provision-finetune.png)
+## Train your adapter
 
-Monitor the progress of the provision through the link displayed in the output channel.
-![Provision Progress](./images/finetune/log-finetining-progress.png)
+To train a LoRA adapter for fine-tuning the Phi Silica model with Windows 11, you must first generate a dataset that the training process will use.
 
-### Run fine-tuning
+### Generate a dataset for use with a LoRA adapter
 
-To start the remote fine-tuning job, run the `AI Toolkit: Run fine-tuning` command in the Command Palette.
+To generate a dataset, you need to split the data into two files:
 
-![Run Fine-tuning](./images/finetune/command-run-finetuning.png)
+- `train.json`: used for training the adapter.
+- `test.json`: used for evaluating the adapter's performance during and after training.
 
-The extension then performs the following operations:
+Both files must use the JSON format, where each line is a separate JSON object representing a single sample. Each sample should contain a list of messages exchanged between a user and an assistant.
 
-1. Synchronize your workspace with Azure Files.
+Every message object requires two fields:
 
-1. Trigger the Azure Container Appjob using the commands specified in `./infra/fintuning.config.json`.
+- `content`: the text of the message.
+- `role`: either `"user"` or `"assistant"`, indicating the sender.
 
-QLoRA will be used for fine-tuning, and the finetune process will create LoRA adapters for the model to use during inference.
-
-The results of the fine-tuning will be stored in the Azure Files.
-To explore the output files in the Azure File share, you can navigate to the Azure portal using the link provided in the output panel. Alternatively, you can directly access the Azure portal and locate the storage account named `STORAGE_ACCOUNT_NAME` as defined in `./infra/fintuning.config.json` and the file share named `FILE_SHARE_NAME` as defined in `./infra/fintuning.config.json`.
-
-![file-share](./images/finetune/log-finetuning-files.png)
-
-### View logs
-
-Once the fine-tuning job has been started, you can access the system and console logs by visiting the [Azure portal](https://portal.azure.com).
-
-Alternatively, you can view the console logs directly in the VSCode Output panel.
-
-![log-button](./images/finetune/notification-finetune.png)
-
-> [!NOTE]
-> The job might take a few minutes to initiate. If there is already a running job, the current one may be queued to start later.
-
-#### View and query logs on Azure
-
-After the fine-tuning job is triggered, you can view logs on Azure by selecting the "*Open Logs in Azure Portal*" button from the VSCode notification.
-
-Or, if you've already opened the Azure Portal, find job history from the "*Execution history*" panel to the Azure Container Apps job.
-
-![Job Execution History](./images/finetune/finetune-job-history.png)
-
-There are two types of logs, "*Console*" and "*System*".
-
-- Console logs are messages from your app, including `stderr` and `stdout` messages. This is what you have already seen in the streaming logs section.
-- System logs are messages from the Azure Container Apps service, including the status of service-level events.
-
-To view and query your logs, select the "*Console*" button and navigate to the Log Analytics page where you can view all logs and write your queries.
-
-![Job Log Analytics](./images/finetune/finetune-job-log-query.png)
-
-> For more information about Azure Container Apps Logs, see [Application Logging in Azure Container Apps](https://learn.microsoft.com/azure/container-apps/logging).
-
-#### View streaming logs in VSCode
-
-After initiating the fine-tuning job, you can also view logs on Azure by selecting the "*Show Streaming Logs in VS Code*" button in the VSCode notification.
-
-Or you can run the command `AI Toolkit: Show the running fine-tuning job streaming logs` in the Command Palette.
-
-![Streaming Log Command](./images/finetune/command-show-streaming-log.png)
-
-The streaming log of the running fine-tuning job will be displayed in the Output panel.
-
-![Streaming Log Output](./images/finetune/log-finetuning-res.png)
-
-> [!NOTE]
-> The job might be queued due to insufficient resources. If the log is not displayed, wait for a while and then execute the command to re-connect to the streaming log.
-> The streaming log may timeout and disconnect. However, it can be reconnected by execute the command again.
-
-## Inferencing with the fine-tuned model
-
-After the adapters are trained in the remote environment, use a simple Gradio application to interact with the model.
-
-![Fine-tune complete](./images/finetune/log-finetuning-res.png)
-
-### Provision Azure resources
-
-Similar to the fine-tuning process, you need to set up the Azure Resources for remote inference by executing the `AI Toolkit: Provision Azure Container Apps for inference` from the command palette. During this setup, you will be asked to select your Azure Subscription and resource group.
-
-![Provision Inference Resource](./images/finetune/command-provision-inference.png)
-
-By default, the subscription and the resource group for inference should match those used for fine-tuning. The inference will use the same Azure Container App Environment and access the model and model adapter stored in Azure Files, which were generated during the fine-tuning step.
-
-### Deployment for inference
-
-If you wish to revise the inference code or reload the inference model, please execute the `AI Toolkit: Deploy for inference` command. This will synchronize your latest code with ACA and restart the replica.
-
-![Deploy for inference](./images/finetune/command-deploy.png)
-
-After the successful completion of the deployment, the model is now ready for evaluation using this endpoint.
-You can access the inference API by selecting the "*Go to Inference Endpoint*" button displayed in the VSCode notification. Alternatively, the web API endpoint can be found under `ACA_APP_ENDPOINT` in `./infra/inference.config.json` and in the Output panel.
-
-![App Endpoint](./images/finetune/notification-deploy.png)
-
-> [!NOTE]
-> The inference endpoint may require a few minutes to become fully operational.
-
-## Advanced usage
-
-### Fine-tune project components
-
-| Folder | Contents |
-| ------ |--------- |
-| `infra` | Contains all necessary configurations for remote operations. |
-| `infra/provision/finetuning.parameters.json` | Holds parameters for the bicep templates, used for provisioning Azure resources for fine-tuning. |
-| `infra/provision/finetuning.bicep` | Contains templates for provisioning Azure resources for fine-tuning. |
-| `infra/finetuning.config.json` |The configuration file, generated by the `AI Toolkit: Provision Azure Container Apps job for fine-tuning` command. It is used as input for other remote command palettes. |
-
-### Configuring secrets for fine-tuning in Azure Container Apps
-
-Azure Container App Secrets provide a secure way to store and manage sensitive data within Azure Container Apps, like HuggingFace tokens and Weights & Biases API keys. Using AI toolkit's command palette, you can input the secrets into the provisioned Azure container app job(as stored in `./finetuning.config.json`). These secrets are then set as **environment variables** in all containers.
-
-#### Steps
-
-1. In the Command Palette, type and select `AI Toolkit: Add Azure Container Apps Job secret for fine-tuning`
-
-    ![Add secret](./images/finetune/command-add-secret.png)
-
-1. Input Secret Name and Value: You'll be prompted to input the name and value of the secret.
-    ![Input secret name](./images/finetune/input-secret-name.png)
-    ![Input secret](./images/finetune/input-secret.png)
-    For example, if you're using private HuggingFace dataset or models that need Hugging Face access control, set your HuggingFace token as an environment variable [`HF_TOKEN`](https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables#hftoken) to avoid the need for manual login on the Hugging Face Hub.
-
-After you've set up the secret, you can now use it in your Azure Container App. The secret will be set in the environment variables of your container app.
-
-### Configuring Azure resource provision for fine-tune
-
-This guide will help you configure the `AI Toolkit: Provision Azure Container Apps job for fine-tuning` command.
-
-You can find configuration parameters in `./infra/provision/finetuning.parameters.json` file. Here are the details:
-
-| Parameter | Description |
-| --------- |------------ |
-| `defaultCommands` | This is the default command to start a fine-tuning job. It can be overwritten in `./infra/finetuning.config.json`. |
-| `maximumInstanceCount` | This parameter sets the maximum capacity of GPU instances. |
-| `timeout` | This sets the timeout for the Azure Container Appfine-tuning job in seconds. The default value is 10800, which equals to 3 hours. If the Azure Container Appjob reaches this timeout, the fine-tuning process halts. However, checkpoints are saved by default, allowing the fine-tuning process to resume from the last checkpoint instead of starting over if it is run again. |
-| `location` | This is the location where Azure resources are provisioned. The default value is the same as the chosen resource group's location. |
-| `storageAccountName`, `fileShareName` `acaEnvironmentName`, `acaEnvironmentStorageName`, `acaJobName`,  `acaLogAnalyticsName` | These parameters are used to name the Azure resources for provision. You can input a new, unused resource name to create your own custom-named resources, or you can input the name of an already existing Azure resource if you'd prefer to use that. For details, refer to the section [Using existing Azure Resources](#using-existing-azure-resources). |
-
-### Using existing Azure resources
-
-If you have existing Azure resources that need to be configured for fine-tuning, you can specify their names in the `./infra/provision/finetuning.parameters.json` file and then run the `AI Toolkit: Provision Azure Container Apps job for fine-tuning` from the command palette. This will update the resources you've specified and create any that are missing.
-
-For example, if you have an existing Azure container environment, your `./infra/finetuning.parameters.json` should look like this:
+See the following examples:
 
 ```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-      ...
-      "acaEnvironmentName": {
-        "value": "<your-aca-env-name>"
+{"messages": [{"content": "Hello, how do I reset my password?", "role": "user"}, {"content": "To reset your password, go to the settings page and click 'Reset Password'.", "role": "assistant"}]}
+
+{"messages": [{"content": "Can you help me find nearby restaurants?", "role": "user"}, {"content": "Sure! Here are some restaurants near your location: ...", "role": "assistant"}]}
+
+{"messages": [{"content": "What is the weather like today?", "role": "user"}, {"content": "Today's forecast is sunny with a high of 25°C.", "role": "assistant"}]}
+```
+
+Training tips:
+
+- There is no comma needed at the end of each sample line.
+- Include as many high-quality and diverse examples as possible. For best results, collect at least a few thousand training samples in your `train.json` file.
+- The `test.json` file can be smaller, but should cover the types of interactions you expect your model to handle.
+- Create `train.json` and `test.json` files with one JSON object per line, each containing a brief back-and-forth conversation between a user and an assistant. The quality and quantity of your data will greatly affect the effectiveness of your LoRA adapter.
+
+### Training a LoRA adapter
+
+To train a LoRA adapter, you need the following required prerequisites:
+
+- [Azure subscription](https://azure.microsoft.com/) with available quota in [Azure Container Apps](https://learn.microsoft.com/en-us/azure/container-apps/overview).
+    - We recommend using A100 GPUs or better to efficiently run a fine-tuning job.
+    - [Check that you have available quota in the Azure Portal](https://portal.azure.com/). If you'd like help finding your quota, see [View Quotas](https://learn.microsoft.com/en-us/azure/quotas/view-quotas#view-quota-details).
+
+Follow these steps to create a workspace and start a fine-tuning job:
+
+1. Navigate to **Model Tools > Fine-tuning** and select **New Project**.
+
+1. Select "microsoft/phi-silica" from the Model Catalog and select **Next**.
+
+1. In the dialog, select a Project Folder and enter a Project Name. A new VS Code window will open for the project.
+
+    ![Screenshot of creating fine-tuning project in AITK.](./images/finetune/create-finetuning-project.png)
+
+1. Select "LoRA" from the Method list.
+
+    ![Screenshot of selecting LoRA method.](./images/finetune/select-finetuning-method-lora.png)
+
+1. Under **Data > Training Dataset name** and **Test Dataset name**, select your `train.json` and `test.json` files.
+
+1. Select **Run with Cloud**.
+
+    ![Screenshot of filling fine-tuning job parameters.](./images/finetune/fill-finetuning-job-parameters.png)
+
+1. In the dialog, select the Microsoft account with which to access your Azure subscription.
+
+1. Once your account is selected, select a resource group from the subscription dropdown menu.
+
+1. Notice that your fine-tuning job successfully starts and shows a job status.
+
+    Use the **Refresh** button to manually update the status. It typically takes an average of 45 - 60 minutes for a fine-tuning job to complete.
+
+1. Once the job has completed, you have the option to download the newly trained LoRA adapter by selecting  **Download** and selecting **Show Metrics** to check the fine-tuning metrics.
+
+    ![Screenshot of downloading adapter and showing metrics](./images/finetune/download-adapter-and-show-metrics.png)
+
+## LoRA fine-tuning recommendations
+
+### Hyperparameter selection
+
+The default hyperparameters set up for LoRA fine-tuning should give a reasonable baseline finetune to compare against. We have done our best to find defaults which work well for most use cases and datasets.
+
+However, we have left in the flexibility for you to sweep over parameters if you so wish.
+
+### Training hyperparameters
+
+Our standard parameter search space would be:
+
+| Parameter name | Min   | Max    | Distribution  |
+| -------------- | ----- | ------ | ------------- |
+| learning_rate  | 1e-4  | 1e-2   | Log-uniform   |
+| weight_decay   | 1e-5  | 1e-1   | Log-uniform   |
+| adam_beta1     | 0.9   | 0.99   | Uniform       |
+| adam_beta2     | 0.9   | 0.999  | Uniform       |
+| adam_epsilon   | 1e-9  | 1e-6   | Log-uniform   |
+| num_warmup_steps | 0   | 10000  | Uniform       |
+| lora_dropout   | 0     | 0.5    | Uniform       |
+
+We also search over the learning rate scheduler, choosing one of `linear_with_warmup` or `cosine_with_warmup`. If the `num_warmup_steps` parameter is set to `0`, then you can equivalently use the linear or cosine options.
+
+The learning rate, learning rate scheduler and number of warmup steps all interact with each other. Keeping two fixed and varying the third will give you better insights into how they change the output of training on your dataset.
+
+The weight decay and LoRA dropout parameters are there to help control overfitting. If you see that your adapter is not generalizing well from your training set to your evaluation set, try increasing the values of these parameters.
+
+The `adam_ parameters` affect how the Adam optimizer behaves during the training steps. For more information on that optimizer see, for example, the PyTorch documentation.
+
+Many of the other parameters exposed are analogous to their equivalently named counterparts in the PEFT library. For more information on those, see the transformers documentation.
+
+### Data hyperparameters
+
+The data hyperparameters `train_nsamples` and `test_nsamples` control how many samples to take for training and testing respectively. Using more samples from your training set is normally a good idea. Using more test samples gives you test metrics that are less noisy, but each evaluation run will take longer.
+
+The `train_batch_size` and `test_batch_size` parameters control how many samples should be used in each batch for training and testing, respectively. You can normally use more batches for testing than training, because running a test example takes less GPU memory than a training example.
+
+The `train_seqlen` and `test_seqlen` parameters control how long the train and test sequences can be. Generally, the longer the better until you hit GPU memory limits. The defaults should give a good balance.
+
+### Choosing a system prompt
+
+The strategy we have found that works well when choosing a system prompt to train with, is to keep it fairly simple (1 or 2 sentences) while still encouraging the model to produce output in the format that you want. We have also found that using a slightly different system prompt for training and inference can improve results.
+
+The more different your desired output is from the base model, the more a system prompt can help you.
+
+For example, if you are training for only a slight style change in the base model, such as using simplified language to appeal to younger readers, you might not need a system prompt at all.
+
+However, if your desired output has more structure then you will want to use the system prompt to get the model part of the way there. So, if you need a JSON table with particular keys, the first sentence of your system prompt could describe what a model response should look like if it was responding in plain language. The second sentence could then specify more what the JSON table format should look like. Using the first sentence in training and then both sentences in inference could provide you with the results that you want.
+
+### Parameters
+
+The list of all parameters that can be finetuned is appended here. If a parameter does not appear in the workflow page UI, add it manually to `<your_project_path>/<model_name>/lora/lora.yaml`.
+
+```json
+[
+
+################## Basic config settings ##################
+  {
+    "groupId": "data",
+    "fields": [
+      {
+        "name": "system_prompt",
+        "type": "Optional",
+        "defaultValue": null,
+        "info": "Optional system prompt. If specified, the system prompt given here will be prepended to each example in the dataset as the system prompt when training the LoRA adapter. When running inference the same (or a very similar) system prompt should be used. Note: if a system prompt is specified in the training data, giving a system prompt here will overwrite the system prompt in the dataset.",
+        "label": "System prompt"
       },
-      "acaEnvironmentStorageName": {
-        "value": null
+      {
+        "name": "varied_seqlen",
+        "type": "bool",
+        "defaultValue": false,
+        "info": "Varied sequence lengths in the calibration data. If False (default), training examples will be concatenated together until they are finetune_[train/test]_seqlen tokens long. This makes memory usage more consistent and predictable. If True, each individual example will be truncated to finetune_[train/test]_seqlen tokens. This can sometimes give better training performance, but also gives unpredictable memory usage. It can cause `out of memory` errors mid training, if there are long training examples in your dataset.",
+        "label": "Allow varied sequence length in data"
       },
-      ...
-    }
+      {
+        "name": "finetune_dataset",
+        "type": "str",
+        "defaultValue": "wikitext2",
+        "info": "Dataset to finetune on.",
+        "label": "Dataset name or path"
+      },
+      {
+        "name": "finetune_train_nsamples",
+        "type": "int",
+        "defaultValue": 4096,
+        "info": "Number of samples to load from the train set for finetuning.",
+        "label": "Number of finetuning samples"
+      },
+      {
+        "name": "finetune_test_nsamples",
+        "type": "int",
+        "defaultValue": 128,
+        "info": "Number of samples to load from the test set for finetuning.",
+        "label": "Number of test samples"
+      },
+      {
+        "name": "finetune_train_batch_size",
+        "type": "int",
+        "defaultValue": 4,
+        "info": "Batch size for finetuning training.",
+        "label": "Training batch size"
+      },
+      {
+        "name": "finetune_test_batch_size",
+        "type": "int",
+        "defaultValue": 8,
+        "info": "Batch size for finetuning testing.",
+        "label": "Test batch size"
+      },
+      {
+        "name": "finetune_train_seqlen",
+        "type": "int",
+        "defaultValue": 2048,
+        "info": "Maximum sequence length for finetuning training. Longer sequences will be truncated.",
+        "label": "Max training sequence length"
+      },
+      {
+        "name": "finetune_test_seqlen",
+        "type": "int",
+        "defaultValue": 2048,
+        "info": "Maximum sequence length for finetuning testing. Longer sequences will be truncated.",
+        "label": "Max test sequence length"
+      }
+    ]
+  },
+  {
+    "groupId": "finetuning",
+    "fields": [
+      {
+        "name": "early_stopping_patience",
+        "type": "int",
+        "defaultValue": 5,
+        "info": "Number of evaluations with no improvement after which training will be stopped.",
+        "label": "Early stopping patience"
+      },
+      {
+        "name": "epochs",
+        "type": "float",
+        "defaultValue": 1,
+        "info": "Number of total epochs to run.",
+        "label": "Epochs"
+      },
+      {
+        "name": "eval_steps",
+        "type": "int",
+        "defaultValue": 64,
+        "info": "Number of training steps to perform before each evaluation.",
+        "label": "Steps between evaluations"
+      },
+      {
+        "name": "save_steps",
+        "type": "int",
+        "defaultValue": 64,
+        "info": "Number of steps after which to save model checkpoint. This _must_ be a multiple of the number of steps between evaluations.",
+        "label": "Steps between checkpoints"
+      },
+      {
+        "name": "learning_rate",
+        "type": "float",
+        "defaultValue": 0.0002,
+        "info": "Learning rate for training.",
+        "label": "Learning rate"
+      },
+      {
+        "name": "lr_scheduler_type",
+        "type": "str",
+        "defaultValue": "linear",
+        "info": "Type of learning rate scheduler.",
+        "label": "Learning rate scheduler",
+        "optionValues": [
+          "linear",
+          "linear_with_warmup",
+          "cosine",
+          "cosine_with_warmup"
+        ]
+      },
+      {
+        "name": "num_warmup_steps",
+        "type": "int",
+        "defaultValue": 400,
+        "info": "Number of warmup steps for learning rate scheduler. Only relevant for a _with_warmup scheduler.",
+        "label": "Scheduler warmup steps (if supported)"
+      }
+    ]
   }
-```
 
-### Manual provisioning
 
-If you prefer to manually set up the Azure resources, you can use the provided bicep files in the `./infra/provision` folders. If you've already set up and configured all the Azure resources without using the AI Toolkit command palette, you can simply enter the resource names in the `finetune.config.json` file.
 
-For example:
+################## Advanced config settings ##################
 
-```json
-{
-  "SUBSCRIPTION_ID": "<your-subscription-id>",
-  "RESOURCE_GROUP_NAME": "<your-resource-group-name>",
-  "STORAGE_ACCOUNT_NAME": "<your-storage-account-name>",
-  "FILE_SHARE_NAME": "<your-file-share-name>",
-  "ACA_JOB_NAME": "<your-aca-job-name>",
-  "COMMANDS": [
-    "cd /mount",
-    "pip install huggingface-hub==0.22.2",
-    "huggingface-cli download <your-model-name> --local-dir ./model-cache/<your-model-name> --local-dir-use-symlinks False",
-    "pip install -r ./setup/requirements.txt",
-    "python3 ./finetuning/invoke_olive.py && find models/ -print | grep adapter/adapter"
-  ]
-}
-```
 
-### Inference components included in the template
 
-| Folder | Contents |
-| ------ |--------- |
-| `infra` | Contains all necessary configurations for remote operations. |
-| `infra/provision/inference.parameters.json` | Holds parameters for the bicep templates, used for provisioning Azure resources for inference. |
-| `infra/provision/inference.bicep` | Contains templates for provisioning Azure resources for inference. |
-| `infra/inference.config.json` |The configuration file, generated by the `AI Toolkit: Provision Azure Container Apps for inference` command. It is used as input for other remote command palettes. |
-
-### Configuring Azure resource provisioning
-
-This guide will help you configure the `AI Toolkit: Provision Azure Container Apps for inference` command.
-
-You can find configuration parameters in `./infra/provision/inference.parameters.json` file. Here are the details:
-
-| Parameter | Description |
-| --------- |------------ |
-| `defaultCommands` | This is the commands to initiate a web API. |
-| `maximumInstanceCount` | This parameter sets the maximum capacity of GPU instances. |
-| `location` | This is the location where Azure resources are provisioned. The default value is the same as the chosen resource group's location. |
-| `storageAccountName`, `fileShareName` `acaEnvironmentName`, `acaEnvironmentStorageName`, `acaAppName`,  `acaLogAnalyticsName` | These parameters are used to name the Azure resources for provision. By default, they will be same to the fine-tuning resource name. You can input a new, unused resource name to create your own custom-named resources, or you can input the name of an already existing Azure resource if you'd prefer to use that. For details, refer to the section [Using existing Azure Resources](#using-existing-azure-resources). |
-
-### Using Existing Azure resources
-
-By default, the inference provision use the same Azure Container App Environment, Storage Account, Azure File Share, and Azure Log Analytics that were used for fine-tuning. A separate Azure Container App is created solely for the inference API.
-
-If you have customized the Azure resources during the fine-tuning step or want to use your own existing Azure resources for inference, specify their names in the `./infra/inference.parameters.json` file. Then, run the `AI Toolkit: Provision Azure Container Apps for inference` command from the command palette. This updates any specified resources and creates any that are missing.
-
-For example, if you have an existing Azure container environment, your `./infra/finetuning.parameters.json` should look like this:
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-      ...
-      "acaEnvironmentName": {
-        "value": "<your-aca-env-name>"
+  {
+    "groupId": "advanced",
+    "fields": [
+      {
+        "name": "seed",
+        "type": "int",
+        "defaultValue": 42,
+        "info": "Seed for sampling the data.",
+        "label": "Random seed"
       },
-      "acaEnvironmentStorageName": {
-        "value": null
+      {
+        "name": "evaluation_strategy",
+        "type": "str",
+        "defaultValue": "steps",
+        "info": "Evaluation strategy to use.",
+        "label": "Evaluation strategy",
+        "optionValues": [
+          "steps",
+          "epoch",
+          "no"
+        ]
       },
-      ...
-    }
+      {
+        "name": "lora_dropout",
+        "type": "float",
+        "defaultValue": 0.1,
+        "info": "Dropout rate for LoRA.",
+        "label": "LoRA dropout"
+      },
+      {
+        "name": "adam_beta1",
+        "type": "float",
+        "defaultValue": 0.9,
+        "info": "Beta1 hyperparameter for Adam optimizer.",
+        "label": "Adam beta 1"
+      },
+      {
+        "name": "adam_beta2",
+        "type": "float",
+        "defaultValue": 0.95,
+        "info": "Beta2 hyperparameter for Adam optimizer.",
+        "label": "Adam beta 2"
+      },
+      {
+        "name": "adam_epsilon",
+        "type": "float",
+        "defaultValue": 1e-08,
+        "info": "Epsilon hyperparameter for Adam optimizer.",
+        "label": "Adam epsilon"
+      },
+      {
+        "name": "num_training_steps",
+        "type": "Optional",
+        "defaultValue": null,
+        "info": "The number of training steps there will be. If not set (recommended), this will be calculated internally.",
+        "label": "Number of training steps"
+      },
+      {
+        "name": "gradient_accumulation_steps",
+        "type": "int",
+        "defaultValue": 1,
+        "info": "Number of updates steps to accumulate before performing a backward/update pass.",
+        "label": "gradient accumulation steps"
+      },
+      {
+        "name": "eval_accumulation_steps",
+        "type": "Optional",
+        "defaultValue": null,
+        "info": "Number of predictions steps to accumulate before moving the tensors to the CPU.",
+        "label": "eval accumulation steps"
+      },
+      {
+        "name": "eval_delay",
+        "type": "Optional",
+        "defaultValue": 0,
+        "info": "Number of epochs or steps to wait for before the first evaluation can be performed, depending on the eval_strategy.",
+        "label": "eval delay"
+      },
+      {
+        "name": "weight_decay",
+        "type": "float",
+        "defaultValue": 0.0,
+        "info": "Weight decay for AdamW if we apply some.",
+        "label": "weight decay"
+      },
+      {
+        "name": "max_grad_norm",
+        "type": "float",
+        "defaultValue": 1.0,
+        "info": "Max gradient norm.",
+        "label": "max grad norm"
+      },
+      {
+        "name": "gradient_checkpointing",
+        "type": "bool",
+        "defaultValue": false,
+        "info": "If True, use gradient checkpointing to save memory at the expense of slower backward pass.",
+        "label": "gradient checkpointing"
+      }
+    ]
   }
+]
 ```
 
-### Manual provisioning
 
-If you prefer to manually configure the Azure resources, you can use the provided bicep files in the `./infra/provision` folders. If you have already set up and configured all the Azure resources without using the AI Toolkit command palette, you can simply enter the resource names in the `inference.config.json` file.
+## Modify the Azure subscription and resource group
 
-For example:
+If you want to modify the Azure subscription and resource group that were previously set, you can update or remove them in the `<your_project_path>/model_lab.workspace.provision.config` file.
 
-```json
-{
-  "SUBSCRIPTION_ID": "<your-subscription-id>",
-  "RESOURCE_GROUP_NAME": "<your-resource-group-name>",
-  "STORAGE_ACCOUNT_NAME": "<your-storage-account-name>",
-  "FILE_SHARE_NAME": "<your-file-share-name>",
-  "ACA_APP_NAME": "<your-aca-name>",
-  "ACA_APP_ENDPOINT": "<your-aca-endpoint>"
-}
-```
+## Inference with the Phi Silica LoRA adapter
 
-## What you learned
+> [!IMPORTANT]
+> The Phi Silica APIs are part of a Limited Access Feature (see [LimitedAccessFeatures class](/uwp/api/windows.applicationmodel.limitedaccessfeatures)). For more information or to request an unlock token, please use the [LAF Access Token Request Form](https://go.microsoft.com/fwlink/?linkid=2271232&c1cid=04x409).
 
-In this article, you learned how to:
+> [!NOTE]
+> Inference with the Phi Silica LoRA adapter is currently supported only on Copilot+ PCs with ARM processors.
 
-- Set up the AI Toolkit for VS Code to support fine-tuning and inference in Azure Container Apps.
-- Create a fine-tuning project in AI Toolkit for VS Code.
-- Configure the fine-tuning workflow, including dataset selection and training parameters.
-- Run the fine-tuning workflow to adapt a pre-trained model to your specific dataset.
-- View the results of the fine-tuning process, including metrics and logs.
-- Use the sample notebook for model inference and testing.
-- Export and share the fine-tuning project with others.
-- Re-evaluate a model using different datasets or training parameters.
-- Handle failed jobs and adjust configurations for re-runs.
-- Understand the supported models and their requirements for fine-tuning.
-- Use the AI Toolkit for VS Code to manage fine-tuning projects, including provisioning Azure resources, running fine-tuning jobs, and deploying models for inference.
+Use Windows AI APIs to inference: [Phi Silica with LoRA adapter](https://github.com/MicrosoftDocs/windows-ai-docs/blob/docs/docs/apis/phi-silica-lora.md#c)

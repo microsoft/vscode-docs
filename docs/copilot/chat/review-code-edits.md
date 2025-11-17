@@ -1,6 +1,6 @@
 ---
 ContentId: 8d3f4a2e-9b1c-4f5e-a8d7-2c4b6e9f1a3d
-DateApproved: 10/09/2025
+DateApproved: 11/12/2025
 MetaDescription: Learn how to review and manage AI-generated code edits in Visual Studio Code chat.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---

@@ -1,6 +1,6 @@
 ---
 ContentId: c99a8442-e202-4427-b7c3-695469a00f92
-DateApproved: 10/09/2025
+DateApproved: 11/12/2025
 MetaDescription: Understand security considerations, built-in protections, and best practices when using AI-powered development features like agents and MCP servers in VS Code.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -92,7 +92,7 @@ VS Code limits the potential impact of sensitive actions by controlling their sc
 
 * **Session isolation**: You can grant permissions that are temporary and don't persist beyond the current session. This enables you to experiment with AI capabilities while maintaining long-term security boundaries.
 
-* **Request limits**: The system includes built-in safeguards to [prevent runaway operations](/docs/copilot/reference/copilot-settings.md#agent-mode-settings) that could consume excessive resources or perform unintended bulk actions on your codebase.
+* **Request limits**: The system includes built-in safeguards to [prevent runaway operations](/docs/copilot/reference/copilot-settings.md#agent-settings) that could consume excessive resources or perform unintended bulk actions on your codebase.
 
 ### Permission management
 
@@ -136,9 +136,9 @@ While VS Code includes many security protections, users should remain proactive 
 
 * **Review MCP servers**: Verify that MCP servers come from a trustworthy source and review their configuration before starting them. Enable only MCP servers when you need their functionality.
 
-* **Open new codebases in restricted mode**: Until you've reviewed a project for malicious code like watch tasks or scripts, rely on the Workspace Trust boundary and open it in restricted mode. Opening a workspace in restricted mode also disables agent mode in that workspace.
+* **Open new codebases in restricted mode**: Until you've reviewed a project for malicious code like watch tasks or scripts, rely on the Workspace Trust boundary and open it in restricted mode. Opening a workspace in restricted mode also disables agents in that workspace.
 
-* **Consider using dev containers or VMs for isolation**: For enhanced security, run agent mode operations in isolated environments like [dev containers](https://code.visualstudio.com/docs/devcontainers/containers), GitHub Codespaces, or virtual machines to limit potential impact.
+* **Consider using dev containers or VMs for isolation**: For enhanced security, run prompt with agents in isolated environments like [dev containers](https://code.visualstudio.com/docs/devcontainers/containers), GitHub Codespaces, or virtual machines to limit potential impact.
 
     > [!CAUTION]
     > Although dev containers, codespaces, and VMs provide a level of isolation from the host system, they should not be considered a hard security boundary. Also, these environments may still contain sensitive information like API keys or user tokens that could be compromised.

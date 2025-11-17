@@ -1,6 +1,6 @@
 ---
 ContentId: 2f21c45a-8931-4da2-a921-af23a3b92949
-DateApproved: 10/09/2025
+DateApproved: 11/12/2025
 MetaDescription: Learn how to use GitHub Copilot in Visual Studio Code to set up debugging configurations and fix issues during debugging.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---

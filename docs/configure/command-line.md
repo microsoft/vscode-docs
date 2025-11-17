@@ -1,6 +1,6 @@
 ---
 ContentId: 8faef870-7a5f-4070-ad17-8ba791006912
-DateApproved: 10/09/2025
+DateApproved: 11/12/2025
 MetaDescription: Visual Studio Code command-line interface (switches).
 ---
 # Command Line Interface (CLI)
@@ -23,11 +23,13 @@ You can launch VS Code from the command line to quickly open a file, folder, or 
 
 ![launch VS Code](images/command-line/launch-vscode.png)
 
-**Note:** Users on macOS must first run a command (**Shell Command: Install 'code' command in PATH**) to add VS Code executable to the `PATH` environment variable. Read the [macOS setup guide](/docs/setup/mac.md) for help.
+> [!NOTE]
+> Users on macOS must first run a command (**Shell Command: Install 'code' command in PATH**) to add VS Code executable to the `PATH` environment variable. Read the [macOS setup guide](/docs/setup/mac.md) for help.
 
 Windows and Linux installations should add the VS Code binaries location to your system path. If this isn't the case, you can manually add the location to the `Path` environment variable (`$PATH` on Linux). For example, on Windows, the default VS Code binaries location is `AppData\Local\Programs\Microsoft VS Code\bin`. To review platform-specific setup instructions, see [Setup](/docs/setup/setup-overview.md).
 
-> **Insiders:** If you are using the VS Code [Insiders](/insiders) preview, you launch your Insiders build with `code-insiders`.
+> [!NOTE]
+> If you are using the VS Code [Insiders](/insiders) preview, you launch your Insiders build with `code-insiders`.
 
 ## Core CLI options
 
@@ -39,6 +41,7 @@ Argument|Description
 `-v` or `--version` | Print VS Code version (for example, 1.22.2), GitHub commit ID, and architecture (for example, x64).
 `-n` or `--new-window`| Opens a new session of VS Code instead of restoring the previous session (default).
 `-r` or `--reuse-window` | Forces opening a file or folder in the last active window.
+`-` | Read from stdin and open it in VS Code (for example, 'echo Hello World | code.exe -')
 `-g` or `--goto` | When used with *file:line{:character}*, opens a file at a specific line and optional character position. This argument is provided since some operating systems permit `:` in a file name.
 `-d` or `--diff <file1> <file2>` | Open a file difference editor. Requires two file paths as arguments.
 `-m` or `--merge  <path1> <path2> <base> <result>` | Perform a three-way merge by providing paths for two modified versions of a file, the common origin of both modified versions, and the output file to save merge results.
@@ -66,6 +69,7 @@ Argument|Description
 `file` | Name of a file to open. If the file doesn't exist, it will be created and marked as edited. You can specify multiple files by separating each file name with a space.
 `file:line[:character]` | Used with the `-g` argument. Name of a file to open at the specified line and optional character position.
 `folder` | Name of a folder to open. You can specify multiple folders and a new [Multi-root Workspace](/docs/editing/workspaces/multi-root-workspaces.md) is created.
+`--skip-add-to-recently-opened` | Prevent the opened files and folders from being added to the recently opened list.
 
 ![go to line and column](images/command-line/goto-line-column.png)
 
@@ -105,7 +109,7 @@ code chat Find and fix all untyped variables
 
 The `chat` subcommand has the following command-line options:
 
-* `-m`, `--mode <mode>`: The chat mode to use for the chat session. Available options: `ask`, `edit`, `agent`, or the identifier of a custom mode. Defaults to `agent`.
+* `-m`, `--mode <mode>`: The custom agent to use for the chat session. Available options: `ask`, `edit`, `agent`, or the identifier of a custom agent. Defaults to `agent`.
 * `-a`, `--add-file <path>`: Add files as context to the chat session.
 * `--maximize`: Maximize the chat session view.
 * `-r`, `--reuse-window`: Use the last active window for the chat session.
@@ -124,7 +128,7 @@ There are several CLI options that help with reproducing errors and advanced set
 Argument|Description
 ------------------|-----------
 `--extensions-dir <dir>` | Set the root path for extensions.<br>Overridden in [Portable Mode](/docs/editor/portable.md) by the `data` folder.
-`--user-data-dir <dir>` | Specifies the directory that user data is kept in, useful when running as root.<br>Overridden in [Portable Mode](/docs/editor/portable.md) by the `data` folder.
+`--user-data-dir <dir>` | Specifies the directory that user data is kept in. Can be used to run multiple isolated instances of VS Code with separate environments, settings, and extensions. Also useful when running as root.<br>Overridden in [Portable Mode](/docs/editor/portable.md) by the `data` folder.
 `-s, --status` | Print process usage and diagnostics information.
 `-p, --performance` | Start with the **Developer: Startup Performance** command enabled.
 `--disable-gpu` | Disable GPU hardware acceleration.
@@ -135,7 +139,36 @@ Argument|Description
 `--add <dir>` | Add folder(s) to the last active window for a multi-root workspace.
 `--remove <dir>` | Remove folder(s) from the last active window for a multi-root workspace.
 
-### Create remote tunnel
+## Isolating VS Code instances
+
+By default, VS Code instances share environment variables in the following way:
+
+* If this is the first VS Code instance, environment variables are inherited from the parent process.
+* If this is not the first VS Code instance, environment variables are inherited from the already running VS Code instance.
+
+This behavior can cause issues when you need different environment variables for different projects or build configurations. For example, if you're working on two projects that require different versions of Node.js or different `PATH` settings.
+
+To run VS Code instances with separate environment variables, use the `--user-data-dir` option to specify a unique user data directory for each instance:
+
+```bash
+# First instance with its own environment
+code ~/project1 --user-data-dir ~/vscode-data-project1
+
+# Second instance with different environment
+code ~/project2 --user-data-dir ~/vscode-data-project2
+```
+
+Each instance with a different `--user-data-dir` will maintain its own:
+
+* Environment variables
+* Settings and preferences
+* Installed extensions
+* UI state and layout
+
+> [!NOTE]
+> When using `--user-data-dir`, you'll need to reinstall extensions for each user data directory, as extensions are stored separately.
+
+## Create remote tunnel
 
 VS Code integrates with other [remote environments](/docs/remote/remote-overview.md) to become even more powerful and flexible. Our goal is to provide a cohesive experience that allows you to manage both local and remote machines from one, unified CLI.
 
@@ -197,7 +230,8 @@ You can use the URL in applications such as browsers or file explorers that can 
 
 ![vscode url in Windows Explorer](images/command-line/vscode-url.png)
 
-> **Note**: If you are using VS Code [Insiders](/insiders) builds, the URL prefix is `vscode-insiders://`.
+> [!NOTE]
+> If you are using VS Code [Insiders](/insiders) builds, the URL prefix is `vscode-insiders://`.
 
 ## Next steps
 

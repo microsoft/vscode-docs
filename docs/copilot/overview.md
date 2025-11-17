@@ -1,6 +1,6 @@
 ---
 ContentId: 0aefcb70-7884-487f-953e-46c3e07f7cbe
-DateApproved: 10/09/2025
+DateApproved: 11/12/2025
 MetaDescription: Copilot is your AI pair programmer tool in Visual Studio Code. Get code suggestions as you type in the editor, or use natural language chat to ask about your code or start an editing session for implementing new feature and fixing bugs.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -12,7 +12,7 @@ GitHub Copilot is an AI-powered coding assistant integrated into Visual Studio C
 
 ## Core capabilities
 
-### Code completions
+### Inline suggestions
 
 Copilot provides inline code suggestions as you type, ranging from single line completions to entire function implementations. With next edit suggestions, it predicts the next logical code change based on your current context.
 
@@ -24,11 +24,11 @@ Copilot provides inline code suggestions as you type, ranging from single line c
 - Write `// Create a REST API endpoint for user authentication` to generate Express.js route code
 - Begin a React component with `const UserProfile = ({` to receive a complete functional component with TypeScript types
 
-Learn more about [code completions in VS Code](/docs/copilot/ai-powered-suggestions.md).
+Learn more about [inline suggestions in VS Code](/docs/copilot/ai-powered-suggestions.md).
 
 ### Autonomous coding
 
-VS Code and agent mode can autonomously plan and execute complex development tasks, coordinating multi-step workflows that involve running terminal commands or invoking specialized tools. It can transform high-level requirements into working code.
+Agents can autonomously plan and execute complex development tasks, coordinating multi-step workflows that involve running terminal commands or invoking specialized tools. It can transform high-level requirements into working code.
 
 Install Model Context Protocol (MCP) servers or tools from Marketplace extensions to further enhance the capabilities of the autonomous coding experience. For example, pull information from a database or connect to external APIs.
 
@@ -41,7 +41,7 @@ Install Model Context Protocol (MCP) servers or tools from Marketplace extension
 - Debug failing tests and apply fixes
 - Optimize performance across the application
 
-Learn more about [autonomous coding with agent mode](/docs/copilot/chat/copilot-chat.md) and [configuring MCP servers in VS Code](/docs/copilot/customization/mcp-servers.md).
+Learn more about [autonomous coding with agents](/docs/copilot/chat/copilot-chat.md) and [configuring MCP servers in VS Code](/docs/copilot/customization/mcp-servers.md).
 
 ### Natural language chat
 
@@ -80,7 +80,7 @@ Learn more about the [smart actions in VS Code](/docs/copilot/copilot-smart-acti
 
 1. Choose a sign-in method and follow the prompts. If you don't have a Copilot subscription yet, you'll be signed up for the [Copilot Free plan](https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-free/about-github-copilot-free).
 
-### Step 2: Basic code completion
+### Step 2: Basic inline suggestions
 
 1. Create a new file and start typing. VS Code shows inline suggestions in _ghost text_ in the editor.
 
@@ -95,10 +95,10 @@ Learn more about the [smart actions in VS Code](/docs/copilot/copilot-smart-acti
 
 ### Step 3: Autonomous coding
 
-To perform more complex tasks in an autonomous manner, use _agent mode_ in the chat interface. The AI will iterate on the code until the task is complete.
+To perform more complex tasks in an autonomous manner, use agents in the chat interface. The AI will iterate on the code until the task is complete.
 
 1. Open the Chat view (`kb(workbench.action.chat.open)`)
-1. Select **Agent** from the chat mode dropdown list
+1. Select **Agent** from the agent picker
 1. Ask to generate a basic web app like: "Create a basic node.js web app for sharing recipes. Make it look modern and responsive."
 
 Notice how the agent independently generates code across multiple files and installs dependencies as needed for the task.
@@ -186,13 +186,13 @@ Quickly switch between different AI models to optimize for speed, reasoning, or 
 
 Learn more about using [language models in VS Code](/docs/copilot/customization/language-models.md).
 
-### Custom chat modes
+### Custom agents
 
-The chat experience in VS Code can operate in different modes to switch between asking questions, making edits, or running autonomous coding sessions. You can also create custom chat modes that fit your workflow. For example, create a chat mode that focuses on planning and architecture discussions. Specify which tools chat is allowed to use, and provide custom instructions to provide the right context in which it should operate.
+The chat experience in VS Code can use different agents to switch between asking questions, making edits, or running autonomous coding sessions. You can also create custom agents that fit your workflow. For example, create a custom agent that focuses on planning and architecture discussions. Specify which tools chat is allowed to use, and provide custom instructions to provide the right context in which it should operate.
 
-![Screenshot showing the Chat view, highlighting the chat mode dropdown list.](images/overview/chat-mode-dropdown.png)
+![Screenshot showing the Chat view, highlighting the agent picker.](images/overview/chat-mode-dropdown.png)
 
-Learn more about [creating your own chat modes](/docs/copilot/customization/custom-chat-modes.md).
+Learn more about [creating your own custom agents](/docs/copilot/customization/custom-agents.md).
 
 ### Extend chat with tools
 
@@ -204,12 +204,11 @@ Learn more about [using MCP servers and tools](/docs/copilot/customization/mcp-s
 
 ## Best Practices
 
-- Choose the right tool for the task. Get code completions while you're coding, use chat for natural language queries, and pick the chat mode that fits your workflow.
+- Choose the right tool for the task. Get inline suggestions while you're coding, use chat for natural language queries, and pick the agent that fits your workflow.
 
 - Write effective prompts to get the best results. Be specific, provide the right context, and iterate often.
 
-- Customize the AI to your coding style and project conventions by using custom instructions, prompt files, or chat modes.
-
+- Customize the AI to your coding style and project conventions by using custom instructions, prompt files, or custom agents.
 - Extend the AI's capabilities with tools from MCP servers or Marketplace extensions.
 
 - Choose a language model that is optimized for your task. Use fast models for quick code suggestions, reasoning models for more complex requests.
@@ -224,7 +223,7 @@ To learn more about Copilot's security, privacy, compliance, and transparency, s
 
 ## Pricing
 
-You can start using GitHub Copilot for free with monthly limits on completions and chat interactions. For more extensive usage, you can choose from various paid plans.
+You can start using GitHub Copilot for free with monthly limits on inline suggestions and chat interactions. For more extensive usage, you can choose from various paid plans.
 
 [View detailed GitHub Copilot pricing](https://docs.github.com/en/copilot/get-started/plans)
 

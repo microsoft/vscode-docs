@@ -2,7 +2,7 @@
 TOCTitle: FAQ
 ContentId: E02F97FD-842B-4D27-B461-37DD18B2582E
 PageTitle: Visual Studio Code Frequently Asked Questions
-DateApproved: 10/09/2025
+DateApproved: 11/12/2025
 MetaDescription: Visual Studio Code Frequently Asked Questions
 ---
 # Visual Studio Code FAQ
@@ -107,9 +107,9 @@ Additionally, 32-bit OEM support has been dropped with Windows 10, version 2004.
 
 ### Can I run VS Code on old macOS versions?
 
-VS Code desktop version starting with 1.96 (November 2024) is deprecating support for macOS Catalina (version 10.15 and older). Starting with VS Code 1.98 (February 2025), we will stop updating VS Code on macOS Catalina (version 10.15 and older). You will need to upgrade to a newer macOS version to use later versions of VS Code.
+VS Code desktop version starting with 1.105 (September 2025) is deprecating support for macOS Big Sur (version 11.0 and older). Starting with VS Code 1.107 (November 2025), we will stop updating VS Code on macOS Big Sur (version 11.0 and older). You will need to upgrade to a newer macOS version to use later versions of VS Code.
 
-VS Code will no longer provide product updates or security fixes on macOS Catalina (versions 10.15 and older) and VS Code version 1.97 will be the last available release for macOS Catalina (10.15 and older). You can learn more about upgrading your macOS version at [support.apple.com](https://support.apple.com/en-us/HT201260).
+VS Code will no longer provide product updates or security fixes on macOS Big Sur (versions 11.0 and older) and VS Code version 1.106 will be the last available release for macOS Big Sur (11.0 and older). You can learn more about upgrading your macOS version at [support.apple.com](https://support.apple.com/en-us/HT201260).
 
 ### Can I run VS Code on older Linux distributions?
 

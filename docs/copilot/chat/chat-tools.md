@@ -1,6 +1,6 @@
 ---
 ContentId: 8f2c4a1d-9e3b-4c5f-a7d8-6b9c2e4f1a3d
-DateApproved: 10/09/2025
+DateApproved: 11/12/2025
 MetaDescription: Learn how to use built-in tools, MCP tools, and extension tools to extend chat in VS Code with specialized functionality.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -58,7 +58,7 @@ Before you can use tools in chat, you need to enable them in the Chat view. You 
 
 To access the tools picker:
 
-1. Open the Chat view in **agent** mode.
+1. Open the Chat view and select **Agent** from the agent picker.
 
 1. Select the **Configure Tools** button in the chat input field.
 
@@ -68,13 +68,13 @@ To access the tools picker:
 
     Use the search box to filter the list of tools.
 
-When you customize chat with [prompt files](/docs/copilot/customization/prompt-files.md) or [custom chat modes](/docs/copilot/customization/custom-chat-modes.md), you can specify which tools are available for a given prompt or mode. Learn more about the [tool list priority order](/docs/copilot/customization/custom-chat-modes.md#tool-list-priority).
+When you customize chat with [prompt files](/docs/copilot/customization/prompt-files.md) or [custom agents](/docs/copilot/customization/custom-agents.md), you can specify which tools are available for a given prompt or mode. Learn more about the [tool list priority order](/docs/copilot/customization/custom-agents.md#tool-list-priority).
 
 ## Use tools in your prompts
 
-In [agent mode](/docs/copilot/chat/copilot-chat.md#built-in-chat-modes), the agent automatically determines which tools to use from the enabled tools based on your prompt and the context of your request. The agent autonomously chooses and invokes relevant tools as needed to accomplish the task.
+When using [agents](/docs/copilot/chat/copilot-chat.md#built-in-agents), the agent automatically determines which tools to use from the enabled tools based on your prompt and the context of your request. The agent autonomously chooses and invokes relevant tools as needed to accomplish the task.
 
-You can also explicitly reference tools in your prompts in any chat mode by typing `#` followed by the tool name. This is useful when you want to ensure a specific tool is used. Type `#` in the chat input field to see a list of available tools, including built-in tools, MCP tools from installed servers, extension tools, and tool sets.
+You can also explicitly reference tools in your prompts by typing `#` followed by the tool name. This is useful when you want to ensure a specific tool is used. Type `#` in the chat input field to see a list of available tools, including built-in tools, MCP tools from installed servers, extension tools, and tool sets.
 
 **Examples of explicit tool references:**
 
@@ -104,6 +104,37 @@ You can:
 
 To clear all saved tool approvals, use the **Chat: Reset Tool Confirmations** command in the Command Palette (`kb(workbench.action.showCommands)`).
 
+### Auto-approve all tools
+
+To disable all manual approvals for tools and terminal commands in all workspaces, enable the `setting(chat.tools.global.autoApprove)` setting.
+
+> [!CAUTION]
+> This setting disables critical security protections and makes it easier for an attacker to compromise the machine. Only enable this setting if you understand the security implications. See the [Security documentation](/docs/copilot/security.md) for more details.
+
+## Edit tool parameters
+
+You can review and edit the input parameters before a tool runs:
+
+1. When the tool confirmation dialog appears, select the chevron next to the tool name to expand its details.
+
+1. Edit any tool input parameters as needed.
+
+1. Select **Allow** to run the tool with the modified parameters.
+
+## Terminal commands
+
+The agent might use terminal commands as part of its workflow to accomplish tasks. When the agent decides to run terminal commands, it uses the built-in terminal tool to execute them in an integrated terminal within VS Code.
+
+In the chat conversation, the agent displays the commands it ran. You can view the output of the command inline in chat by selecting **Show Output** (`>`) next to the command. You can also view the full output in the integrated terminal by selecting **Show Terminal**.
+
+![Screenshot showing terminal command output in chat.](../images/chat-tools/terminal-command-output.png)
+
+Use the experimental `setting(chat.tools.terminal.outputLocation)` setting to configure where terminal command output appears.
+
+In the terminal pane, you can see the list of terminals that the agent has used for a chat session. You can also distinguish agent terminals by the chat icon in the terminals list.
+
+![Screenshot showing the integrated terminal with multiple agent terminals.](../images/chat-tools/agent-terminals-in-terminal-pane.png)
+
 ### Automatically approve terminal commands
 
 You can configure which terminal commands are automatically approved by using the `setting(chat.tools.terminal.autoApprove)` setting. You can specify both allowed and denied commands:
@@ -132,34 +163,30 @@ By default, patterns match against individual subcommands. For a command to be a
 
 For advanced scenarios, use object syntax with the `matchCommandLine` property to match against the full command line instead of individual subcommands.
 
-### Auto-approve all tools
+Related settings:
 
-To disable all manual approvals for tools and terminal commands in all workspaces, enable the `setting(chat.tools.global.autoApprove)` setting.
+* `setting(chat.tools.terminal.enableAutoApprove)`: permanently disable auto-approve functionality
+* `setting(chat.tools.terminal.blockDetectedFileWrites)`: detection of file writes (experimental)
+* `setting(chat.tools.terminal.ignoreDefaultAutoApproveRules)`: disable all default rules (both allow and block), giving full control over all rules.
 
 > [!CAUTION]
-> This setting disables critical security protections and makes it easier for an attacker to compromise the machine. Only enable this setting if you understand the security implications. See the [Security documentation](/docs/copilot/security.md) for more details.
-
-## Edit tool parameters
-
-You can review and edit the input parameters before a tool runs:
-
-1. When the tool confirmation dialog appears, select the chevron next to the tool name to expand its details.
-
-1. Edit any tool input parameters as needed.
-
-1. Select **Allow** to run the tool with the modified parameters.
+> Automatically approving terminal commands provides _best effort_ protections and assumes the agent is not acting maliciously. It's important to protect yourself from prompt injection when you enable terminal auto approve, as it might be possible for some commands to slip through. Here are some examples where the detection can fall over:
+>
+> * VS Code uses PowerShell and bash tree sitter grammars to extract sub-commands, so patterns are not detected if these grammars don't detect them.
+> * VS Code uses bash grammar because there is no zsh or fish grammar, so some sub-commands are not detected.
+> * Detection of file writes is currently minimal, so it might be possible to write to files with the terminal that would not be possible by using the file editing agent tools.
 
 ## Group tools with tool sets
 
-A tool set is a collection of tools that you can reference as a single entity in your prompts. Tool sets help you organize related tools and make them easier to use in a chat prompt, [prompt files](/docs/copilot/customization/prompt-files.md), and [custom chat modes](/docs/copilot/customization/custom-chat-modes.md). Some of the built-in tools are part of predefined tool sets, such as `#edit` and `#search`.
+A tool set is a collection of tools that you can reference as a single entity in your prompts. Tool sets help you organize related tools and make them easier to use in a chat prompt, [prompt files](/docs/copilot/customization/prompt-files.md), and [custom chat agents](/docs/copilot/customization/custom-agents.md). Some of the built-in tools are part of predefined tool sets, such as `#edit` and `#search`.
 
 ### Create a tool set
 
 To create a tool set:
 
-1. Select the **Configure Chat** button in the Chat view, select **Tool Sets**, and then select **Create new tool sets file**.
+1. Run the **Chat: Configure Tool Sets** command from the Command Palette and select **Create new tool sets file**.
 
-    Alternatively, use the **Chat: Configure Tool Sets** command from the Command Palette.
+    Alternatively, select **Configure Chat** in the Chat view > **Tool Sets** > **Create new tool sets file**.
 
     ![Screenshot showing the Chat view and Configure Chat menu, highlighting the Configure Chat button.](../images/customization/configure-chat-instructions.png)
 
@@ -201,7 +228,7 @@ In the tools picker, tool sets are available as collapsible groups of related to
 
 ### How do I know which tools are available?
 
-Type `#` in the chat input field to see a list of all available tools. You can also access the tools picker in agent mode to view and manage tools.
+Type `#` in the chat input field to see a list of all available tools. You can also use the tools picker in chat to view and manage the list of active tools.
 
 ### I'm getting an error that says "Cannot have more than 128 tools per request."
 
@@ -210,6 +237,18 @@ A chat request can have a maximum of 128 tools enabled at a time. If you see an 
 * Open the tools picker in the Chat view and deselect some tools or entire MCP servers to reduce the count.
 
 * Alternatively, enable virtual tools with the `setting(github.copilot.chat.virtualTools.threshold)` setting to automatically manage large tool sets.
+
+### Why isn't the agent using Command Prompt as the terminal shell?
+
+The agent uses the shell you have configured as the default for the terminal, except when it's cmd. This is because [shell integration](https://code.visualstudio.com/docs/terminal/shell-integration) is not supported with Command Prompt, which means the agent has very limited visibility into what's going on inside the terminal. Instead of getting direct signals for when commands are being run or have finished running, the agent needs to rely on timeouts and watching for the terminal to idle to continue. This leads to a slow and flaky experience.
+
+You can still configure the agent to use Command Prompt with the `setting(chat.tools.terminal.terminalProfile.windows)` setting, however this will result in an inferior experience compared to using PowerShell.
+
+```json
+"chat.tools.terminal.terminalProfile.windows": {
+  "path": "C:\\WINDOWS\\System32\\cmd.exe"
+}
+```
 
 ### What's the difference between tools and chat participants?
 
