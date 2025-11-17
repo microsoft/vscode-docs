@@ -194,7 +194,7 @@ The chat experience in VS Code can use different agents to switch between asking
 
 Learn more about [creating your own custom agents](/docs/copilot/customization/custom-agents.md).
 
-### Extend the chat with tools
+### Extend chat with tools
 
 Extend the capabilities of the chat experience with specialized tools from MCP servers or Marketplace extensions. For example, add tools for querying databases, connecting to external APIs, or performing specialized tasks.
 
