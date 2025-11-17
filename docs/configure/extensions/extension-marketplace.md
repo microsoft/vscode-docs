@@ -364,6 +364,10 @@ As of VS Code release 1.97, when you first install an extension from a third-par
 
 Get more information about [extension runtime security](/docs/configure/extensions/extension-runtime-security.md).
 
+### Can I host extensions internally for my organization?
+
+Yes, see the [Private Marketplace for Extensions](https://code.visualstudio.com/docs/setup/enterprise#_private-marketplace-for-extensions).
+
 ### The extension signature cannot be verified by VS Code
 
 The Visual Studio Marketplace signs all extensions when they are published. VS Code verifies this signature when you install an extension to check the integrity and the source of the extension package.
