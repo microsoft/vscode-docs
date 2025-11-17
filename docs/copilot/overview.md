@@ -188,13 +188,13 @@ Learn more about using [language models in VS Code](/docs/copilot/customization/
 
 ### Custom agents
 
-The chat experience in VS Code can use different agents to switch between asking questions, making edits, or running autonomous coding sessions. You can also create custom agents that fit your workflow. For example, create a custom agent that focuses on planning and architecture discussions. Specify which tools chat is allowed to use, and provide custom instructions to provide the right context in which it should operate.
+The chat experience in VS Code can use different agents to switch between asking questions, making edits, or running autonomous coding sessions. You can also create custom agents that fit your workflow. For example, create a custom agent that focuses on planning and architecture discussions. Specify which tools the agent is allowed to use, and provide custom instructions to provide the right context in which it should operate.
 
 ![Screenshot showing the Chat view, highlighting the agent picker.](images/overview/chat-mode-dropdown.png)
 
 Learn more about [creating your own custom agents](/docs/copilot/customization/custom-agents.md).
 
-### Extend chat with tools
+### Extend the chat with tools
 
 Extend the capabilities of the chat experience with specialized tools from MCP servers or Marketplace extensions. For example, add tools for querying databases, connecting to external APIs, or performing specialized tasks.
 
