@@ -24,7 +24,7 @@ There are different ways to get access to GitHub Copilot:
 
 To use Copilot in VS Code, you need access to a GitHub Copilot subscription. You can set up Copilot directly from within VS Code.
 
-1. Hover over the Copilot icon in the Status Bar and select **Set up Copilot**.
+1. Hover over the Copilot icon in the Status Bar and select **Use AI Features**.
 
     ![Hover over the Copilot icon in the Status Bar and select Set up Copilot.](images/setup/setup-copilot-status-bar.png)
 
@@ -36,6 +36,16 @@ To use Copilot in VS Code, you need access to a GitHub Copilot subscription. You
     > Telemetry in your free version of GitHub Copilot is currently enabled. By default, code suggestions that match public code, including code references in the VS Code and [github.com](http://github.com/copilot) experience, are allowed. You can opt out of telemetry data collection by disabling telemetry in VS Code by setting `setting(telemetry.telemetryLevel)` to `off`, or you can adjust both telemetry and code suggestion settings in [Copilot Settings](https://github.com/settings/copilot).
 
 1. You can now start using Copilot in VS Code. Learn the basics with the [Copilot Quickstart](/docs/copilot/getting-started.md).
+
+## Use Copilot with a GHE account
+
+If your Copilot subscription is associated with a GitHub Enterprise (GHE) account, you can sign in to Copilot in VS Code with your GHE credentials.
+
+1. If you haven't already, hover over the Copilot icon in the Status Bar and select **Use AI Features**.
+
+1. In the sign in dialog, choose **Continue with GHE.com** and provide your GHE instance URL and credentials.
+
+If you need to switch between a GitHub.com account and a GHE account, see [Use a different GitHub account per workspace or profile](#use-a-different-github-account-per-workspace-or-profile) for instructions.
 
 ## Use a different GitHub account with Copilot
 
@@ -71,7 +81,11 @@ Follow these steps to configure which GitHub account to use for Copilot. This co
 
 * For GHE.com accounts:
 
+    > [!TIP]
+    > If you only want to use a GHE account for Copilot, follow the steps in [Use Copilot with a GHE account](#use-copilot-with-a-ghe-account) to sign in with your GHE account.
+
     1. Run **Preferences: Open User Settings (JSON)** or **Preferences: Open Workspace Settings (JSON)** from the Command Palette (`kb(workbench.action.showCommands)`)
+
     1. Add the following setting to specify GitHub Enterprise as the authentication provider for Copilot:
 
         ```json
@@ -80,7 +94,7 @@ Follow these steps to configure which GitHub account to use for Copilot. This co
         }
         ```
 
-    1. In the Accounts menu in the Activity Bar, select **Manage Extension Account Preferences**
+    1. Re-sign in to your GitHub Enterprise account if you're not already signed in
     1. Select **GitHub Copilot Chat** from the list of extensions
     1. Choose the GitHub Enterprise account you want to use for Copilot in the current workspace and profile
 
