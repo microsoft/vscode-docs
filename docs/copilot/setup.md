@@ -47,15 +47,42 @@ If your Copilot subscription is associated with another GitHub account, follow t
 
 1. Sign in to your GitHub account using any of the following methods:
 
-    - Select **Sign in to use Copilot** from the Copilot menu in the Status Bar.
+    * Select **Sign in to use Copilot** from the Copilot menu in the Status Bar.
 
         ![Sign in to use Copilot from the Copilot status menu.](images/setup/copilot-signedout-sign-in.png)
 
-    - Select the **Accounts** menu in the Activity Bar, and then select **Sign in with GitHub to use GitHub Copilot**.
+    * Select the **Accounts** menu in the Activity Bar, and then select **Sign in with GitHub to use GitHub Copilot**.
 
         ![Accounts menu in VS Code, showing the option to sign in with GitHub to use GitHub Copilot.](images/setup/vscode-accounts-menu.png)
 
-    - Run the **GitHub Copilot: Sign in** command in the Command Palette (`kb(workbench.action.showCommands)`).
+    * Run the **GitHub Copilot: Sign in** command in the Command Palette (`kb(workbench.action.showCommands)`).
+
+## Use a different GitHub account per workspace or profile
+
+You can use different GitHub accounts for Copilot per VS Code workspace or profile. This is useful if you use Copilot with different accounts for work and personal projects, or if you want to use different accounts for different extensions that use GitHub authentication.
+
+Follow these steps to configure which GitHub account to use for Copilot. This configuration is saved per workspace and per profile.
+
+* For GitHub.com accounts:
+
+    1. In the Accounts menu in the Activity Bar, select **Manage Extension Account Preferences**
+    1. Select **GitHub Copilot Chat** from the list of extensions
+    1. Choose the GitHub account you want to use for Copilot in the current workspace and profile
+
+* For GHE.com accounts:
+
+    1. Run **Preferences: Open User Settings (JSON)** or **Preferences: Open Workspace Settings (JSON)** from the Command Palette (`kb(workbench.action.showCommands)`)
+    1. Add the following setting to specify GitHub Enterprise as the authentication provider for Copilot:
+
+        ```json
+        "github.copilot.advanced": {
+            "authProvider": "github-enterprise"
+        }
+        ```
+
+    1. In the Accounts menu in the Activity Bar, select **Manage Extension Account Preferences**
+    1. Select **GitHub Copilot Chat** from the list of extensions
+    1. Choose the GitHub Enterprise account you want to use for Copilot in the current workspace and profile
 
 ## Remove AI features from VS Code
 
