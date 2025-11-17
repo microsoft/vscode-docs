@@ -95,8 +95,6 @@ Follow these steps to configure which GitHub account to use for Copilot. This co
         ```
 
     1. Re-sign in to your GitHub Enterprise account if you're not already signed in
-    1. Select **GitHub Copilot Chat** from the list of extensions
-    1. Choose the GitHub Enterprise account you want to use for Copilot in the current workspace and profile
 
 ## Remove AI features from VS Code
 
