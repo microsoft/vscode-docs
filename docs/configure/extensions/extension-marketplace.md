@@ -376,9 +376,10 @@ The Visual Studio Marketplace signs all extensions when they are published. VS C
 > When you install an extension, you might see the following error message: `Cannot install extension because Visual Studio Code cannot verify the extension signature`. This error can be caused by a variety of reasons and should you encounter this error, exercise caution before deciding to install anyway. Disable extension signature verification with the `setting(extensions.verifySignature)` setting.
 
 #### Package integrity issues
+
 For package integrity issues, it's recommended that you contact the [Visual Studio Marketplace team](mailto:vsmarketplace@microsoft.com?subject=Extension%20Signature%20Verification%20Issue) to report the issue. Make sure to include the extension ID. The following list provides error codes related to package integrity issues:
 
-```
+```text
 PackageIntegrityCheckFailed
 SignatureIsInvalid
 SignatureManifestIsInvalid
@@ -393,6 +394,7 @@ NotSigned
 ```
 
 #### Other issues
+
 For other issues like an unsupported environment or unknown reasons, it's recommended that you [report an issue](https://github.com/microsoft/vscode/issues/new) with VS Code by providing all necessary information and including the shared log: `kb(workbench.action.showCommands)` > **Open View...** > **Shared**.
 
 ### My extensions don't synchronize when connected to a remote window
