@@ -17,12 +17,14 @@ Developers shouldn't have to juggle manual installs, worry about unverified exte
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/nQLdmy50cb0?si=URhzNdCQ4a4zOSBx" title="Video showing the VS Code private marketplace." frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## With the Private Marketplace, you can:
+
 - Curate exactly which extensions appear for your organization, whether they're internal tools or trusted public plugins.
 - Lock down sensitive IP by privately hosting your own extensions—no more sharing proprietary code outside your firewall.
 - Easily rehost vetted public extensions after your own checks, so your teams can use familiar tools in secure or air-gapped environments.
 - Roll out everything centrally—new users get a consistent, up-to-date catalog from day one.
 
 ## Same great VS Code experience
+
 Fully integrated into the VS Code experience, your developers will find, install, and update extensions as easily as ever—without leaving the safety of your managed ecosystem. No more ticket-based installs, zip file confusion, or security compromises.
 
 ![VS Code Private Marketplace](./vscpmga.png)
@@ -38,4 +40,6 @@ Ready to streamline, secure, and scale your extension management? Start with our
 
 💬 Need help? Contact [private marketplace support](https://aka.ms/vspm/support).
 
-### 🎯 Start today and empower your teams with a secure, streamlined extension experience! Happy coding!
+### 🎯 Start today and empower your teams with a secure, streamlined extension experience!
+
+Happy coding!
