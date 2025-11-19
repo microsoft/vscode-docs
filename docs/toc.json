@@ -170,6 +170,7 @@
     "area": "sourcecontrol",
     "topics": [
       ["Overview", "/docs/sourcecontrol/overview"],
+      ["Quickstart", "/docs/sourcecontrol/quickstart"],
       ["Introduction to Git", "/docs/sourcecontrol/intro-to-git"],
       ["Collaborate on GitHub", "/docs/sourcecontrol/github"],
       ["FAQ", "/docs/sourcecontrol/faq"]
@@ -362,7 +363,7 @@
       ["Azure Machine Learning", "/docs/datascience/azure-machine-learning"],
       ["Manage Jupyter Kernels", "/docs/datascience/jupyter-kernel-management"],
       ["Jupyter Notebooks on the Web", "/docs/datascience/notebooks-web"],
-      ["Data science in Microsoft Fabric", "/docs/datascience/microsoft-fabric-quickstart"]     
+      ["Data science in Microsoft Fabric", "/docs/datascience/microsoft-fabric-quickstart"]
     ]
   },
   {

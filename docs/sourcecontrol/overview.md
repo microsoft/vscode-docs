@@ -143,6 +143,10 @@ Browse available SCM provider extensions in the Extensions view (`kb(workbench.v
 
 ## Next steps
 
+* [Source Control Quickstart](/docs/sourcecontrol/quickstart.md) - Quickly get started with Git source control in VS Code
+
 * [Intro Video - Git Version Control](/docs/introvideos/versioncontrol.md) - An introductory video providing an overview of VS Code Git support
-* [Working with GitHub](/docs/sourcecontrol/github.md) - Learn how to work with pull requests and issues in VS Code
+
+* [Working with GitHub](/docs/sourcecontrol/github.md) - Learn how to work with pull requests and issues in
+VS Code
 * [Copilot in VS Code](/docs/copilot/overview.md) - Discover more AI-powered features beyond Git workflows
