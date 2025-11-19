@@ -11,13 +11,13 @@ The integrated source control interface provides access to Git functionality thr
 
 Changes you make in the VS Code interface are synced with your command-line Git operations, so you can use both the UI and terminal as needed. The source control interface works alongside the command line rather than replacing it.
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/i_23KUAEtUM" title="Using Git with Visual Studio Code (Official Beginner Tutorial)" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/i_23KUAEtUM" title="Video showing how to use Git with Visual Studio Code." frameborder="0" allowfullscreen></iframe>
 
 ## Prerequisites
 
 To use Git features in VS Code, you need:
 
-* VS Code uses your machine's Git installation. [Install Git version 2.0.0.0 or later](https://git-scm.com/download) on your machine.
+* VS Code uses your machine's Git installation. [Install Git version 2.0.0 or later](https://git-scm.com/download) on your machine.
 
 * When you commit changes, Git uses your configured username and email. You can set these values with:
 
