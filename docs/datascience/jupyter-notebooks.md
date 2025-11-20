@@ -6,7 +6,7 @@ MetaSocialImage: images/tutorial/python-social.png
 ---
 # Jupyter Notebooks in VS Code
 
-[Jupyter](https://jupyter-notebook.readthedocs.io/en/latest/) (formerly IPython Notebook) is an open-source project that lets you easily combine Markdown text and executable Python source code on one canvas called a **notebook**. Visual Studio Code supports working with Jupyter Notebooks natively, and through [Python code files](/docs/python/jupyter-support-py.md). This topic covers the native support available for Jupyter Notebooks and demonstrates how to:
+[Jupyter](https://jupyter-notebook.readthedocs.io/en/latest/) (formerly IPython Notebook) is an open-source project that lets you easily combine Markdown text and executable Python source code on one canvas called a **notebook**. Visual Studio Code supports working with Jupyter Notebooks natively (through the [Jupyter extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter)), and through [Python code files](/docs/python/jupyter-support-py.md). This topic covers the native support available for Jupyter Notebooks and demonstrates how to:
 
 - Create, open, and save Jupyter Notebooks
 - Work with Jupyter code cells

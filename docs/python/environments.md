@@ -10,6 +10,8 @@ An "environment" in Python is the context in which a Python program runs that co
 
 > **Note**: If you'd like to become more familiar with the Python programming language, review [More Python resources](#more-python-resources).
 
+Support is provided through the [Python Environments extension](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-python-envs).
+
 ## Types of Python environments
 
 ### Global environments
