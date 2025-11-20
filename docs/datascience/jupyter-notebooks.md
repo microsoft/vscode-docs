@@ -22,6 +22,10 @@ To work with Python in Jupyter Notebooks, you must activate an Anaconda environm
 
 Once the appropriate environment is activated, you can create and open a Jupyter Notebook, connect to a remote Jupyter server for running code cells, and export a Jupyter Notebook as a Python file.
 
+### Environment variables
+
+Environment variables are loaded from a `.env` file. See [that section of the Python environments documentation](/docs/python/environments#environment-variable-definitions-file).
+
 ## Workspace Trust
 
 When getting started with Jupyter Notebooks, you'll want to make sure that you are working in a trusted workspace. Harmful code can be embedded in notebooks and the [Workspace Trust](/docs/editing/workspaces/workspace-trust.md) feature allows you to indicate which folders and their contents should allow or restrict automatic code execution.
