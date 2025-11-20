@@ -220,7 +220,7 @@ An environment variable definitions file is a text file containing key-value pai
 
 > **Note**: Environment variable definitions files are not necessarily cross-platform. For instance, while Unix uses `:` as a path separator in environment variables, Windows uses `;`. There is no normalization of such operating system differences, and so you need to make sure any environment definitions file use values that are compatible with your operating system.
 
-By default, the Python extension looks for and loads a file named `.env` in the current workspace folder, then applies those definitions. The file is identified by the default entry `"python.envFile": "${workspaceFolder}/.env"` in your user settings (see [General Python settings](/docs/python/settings-reference.md#general-python-settings)). You can change the `python.envFile` setting at any time to use a different definitions file.
+If you have `"python.terminal.useEnvFile": true` in your `settings.json`, the Python extension will looks for and loads a file named `.env` in the current workspace folder, then apply those definitions. The file is identified by the default entry `"python.envFile": "${workspaceFolder}/.env"` in your user settings (see [General Python settings](/docs/python/settings-reference.md#general-python-settings)). You can change the `python.envFile` setting at any time to use a different definitions file.
 
 >**Note**: Environment variable definitions files are not used in all situations where environment variables are available for use. Unless Visual Studio Code documentation states otherwise, these only affect certain scenarios as per their definition. For example, the extension doesn't use environment variable definitions files when resolving setting values.
 
