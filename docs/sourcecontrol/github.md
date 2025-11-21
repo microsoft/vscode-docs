@@ -33,6 +33,8 @@ From the GitHub repository dropdown you can filter and pick the repository you w
 
 ![GitHub repository dropdown filtered on microsoft/vscode](images/github/github-repo-dropdown.png)
 
+Learn more about [cloning repositories and working with remotes](/docs/sourcecontrol/repos-remotes.md#clone-repositories).
+
 ### Authenticating with an existing repository
 
 Enabling authentication through GitHub happens when you run any Git action in VS Code that requires GitHub authentication, such as pushing to a repository that you're a member of or cloning a private repository. You don't need to have any special extensions installed for authentication; it is built into VS Code so that you can efficiently manage your repository.

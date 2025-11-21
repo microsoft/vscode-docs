@@ -172,7 +172,8 @@
       ["Overview", "/docs/sourcecontrol/overview"],
       ["Quickstart", "/docs/sourcecontrol/quickstart"],
       ["Introduction to Git", "/docs/sourcecontrol/intro-to-git"],
-      ["Staging and Committing", "/docs/sourcecontrol/staging-commits"],
+      ["Staging & Committing", "/docs/sourcecontrol/staging-commits"],
+      ["Repositories & Remotes", "/docs/sourcecontrol/repos-remotes"],
       ["Collaborate on GitHub", "/docs/sourcecontrol/github"],
       ["FAQ", "/docs/sourcecontrol/faq"]
     ]

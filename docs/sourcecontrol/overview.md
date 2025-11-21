@@ -42,6 +42,8 @@ VS Code automatically detects when you open a folder that's a Git repository and
 > [!TIP]
 > You can publish a local repository directly to GitHub with the **Publish to GitHub** command, which creates a new repository and pushes your commits in one step.
 
+Learn more about [cloning and publishing repositories](/docs/sourcecontrol/repos-remotes.md#clone-repositories).
+
 ## Source control interface
 
 VS Code provides Git functionality through several key interface elements. This UI integration enables you to perform Git operations without knowing terminal commands:
@@ -89,6 +91,8 @@ Learn more about [staging changes and writing commits](/docs/sourcecontrol/stagi
 When your branch is connected to a remote branch, VS Code shows sync status in the Status Bar and shows incoming and outgoing commits in the Source Control view. You can quickly sync or perform individual fetch, pull, and push operations.
 
 ![Screenshot of the Source Control view showing the sync button indicating outgoing and incoming changes.](images/overview/incoming-outgoing-changes.png)
+
+Learn more about [working with repositories and remotes](/docs/sourcecontrol/repos-remotes.md).
 
 ### Resolve merge conflicts
 
@@ -151,6 +155,6 @@ Browse available SCM provider extensions in the Extensions view (`kb(workbench.v
 
 * [Intro Video - Git Version Control](/docs/introvideos/versioncontrol.md) - An introductory video providing an overview of VS Code Git support
 
-* [Working with GitHub](/docs/sourcecontrol/github.md) - Learn how to work with pull requests and issues in
-VS Code
+* [Repositories and Remotes](/docs/sourcecontrol/repos-remotes.md) - Learn about cloning, publishing, and syncing with remote repositories
+* [Working with GitHub](/docs/sourcecontrol/github.md) - Learn how to work with pull requests and issues in VS Code
 * [Copilot in VS Code](/docs/copilot/overview.md) - Discover more AI-powered features beyond Git workflows

@@ -145,5 +145,6 @@ If your repository is connected to a remote server (for example, GitHub or Azure
 
 Now that you know the basics, explore more features:
 
+* [Repositories and Remotes](/docs/sourcecontrol/repos-remotes.md) - Learn about cloning, publishing, and syncing with remote repositories.
 * [Working with GitHub](/docs/sourcecontrol/github.md) - Learn about Pull Requests and Issues.
 * [Source Control Overview](/docs/sourcecontrol/overview.md) - Full reference for source control features.
