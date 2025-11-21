@@ -66,7 +66,7 @@ Let's make a simple code change and use the Source Control view and diff editor 
 
 1. Open the Source Control view (`kb(workbench.view.scm)`).
 
-    Notice that the changed file(s) are listed under **Changes** with a "U" (untracked) or "M" (modified) icon next to them. The source control icon in the Activity Bar also shows a badge with the number of changed files.
+    Notice that the changed file(s) are listed under **Changes** with a "U" (untracked) or "M" (modified) icon next to them. The source control icon in the Activity Bar also shows a badge with the number of affected files.
 
     ![Screenshot of the Source Control view showing a modified and new file under Changes.](images/quickstart/git-modified-files.png)
 

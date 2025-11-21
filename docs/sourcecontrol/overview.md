@@ -82,6 +82,8 @@ Type your commit message in the input box or select the sparkle icon (<i class="
 
 ![Screenshot of generating a commit message with Copilot.](images/overview/copilot-generate-commit-message.png)
 
+Learn more about [staging changes and writing commits](/docs/sourcecontrol/staging-commits.md).
+
 ### Sync with remotes
 
 When your branch is connected to a remote branch, VS Code shows sync status in the Status Bar and shows incoming and outgoing commits in the Source Control view. You can quickly sync or perform individual fetch, pull, and push operations.
@@ -122,7 +124,9 @@ The Timeline view in the Explorer view shows the commit history for a specific f
 
 ![Screenshot of the timeline view showing file commit history.](images/overview/timeline-view.png)
 
-## Working with GitHub
+Learn more about [using the Timeline view and reviewing changes](/docs/sourcecontrol/staging-commits.md#timeline-view-for-file-history).
+
+## Working with GitHub pull requests and issues
 
 VS Code integrates with GitHub to provide pull request and issue management directly in your editor. Install the [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension to:
 
