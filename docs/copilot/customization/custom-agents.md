@@ -29,6 +29,9 @@ Different tasks require different capabilities. A planning agent might only need
 
 Custom agents also let you provide specialized instructions that define how the AI should operate. For instance, a planning agent could instruct the AI to collect project context and generate a detailed implementation plan, while a code review agent might focus on identifying security vulnerabilities and suggesting improvements. These specialized instructions ensure consistent, task-appropriate responses every time you switch to that agent.
 
+> [!NOTE]
+> Subagents can run with a custom agent. Learn more about running [subagents with custom agents](/docs/copilot/chat/chat-sessions.md#use-a-custom-agent-with-subagents-experimental) (experimental).
+
 ## Handoffs
 
 Handoffs enable you to create guided sequential workflows that transition between agents with suggested next steps. After a chat response completes, handoff buttons appear that let users move to the next agent with relevant context and a pre-filled prompt.
