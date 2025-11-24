@@ -321,6 +321,12 @@ Along with manually invoking code formatting, you can also trigger formatting ba
 > [!NOTE]
 > Not all formatters support format on paste as to do so they must support formatting a selection or range of text.
 
+> [!TIP]
+> If formatting does not occur when pasting, it may be because the current language
+> formatter does not support range formatting. Try switching to another formatter
+> or check the extension's documentation to confirm whether `editor.formatOnPaste`
+> is supported.
+
 In addition to the default formatters, you can find extensions on the Marketplace to support other languages or formatting tools. There is a `Formatters` category so you can easily search and find [formatting extensions](https://marketplace.visualstudio.com/search?target=VSCode&category=Formatters&sortBy=Installs). In the **Extensions** view search box, type 'formatters' or 'category:formatters' to see a filtered list of extensions within VS Code.
 
 ## Folding
