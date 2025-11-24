@@ -296,12 +296,12 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/sourcecontrol/intro-to-git</loc>
+        <loc>https://code.visualstudio.com/docs/sourcecontrol/staging-commits</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/sourcecontrol/staging-commits</loc>
+        <loc>https://code.visualstudio.com/docs/sourcecontrol/branches-worktrees</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

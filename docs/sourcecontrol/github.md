@@ -173,6 +173,9 @@ The Status bar also shows the active issue and if you select that item, a list o
 
 You can configure the name of the branch using the **GitHub Issues: Issue Branch Title** (`setting(githubIssues.issueBranchTitle)`) setting. If your workflow doesn't involve creating a branch, or if you want to be prompted to enter a branch name every time, you can skip that step by turning off the **GitHub Issues: Use Branch For Issues** (`setting(githubIssues.useBranchForIssues)`) setting.
 
+> [!TIP]
+> Learn more about [working with branches](/docs/sourcecontrol/branches-worktrees.md) to understand branch management, switching between branches, and organizing your development work.
+
 Once you are done working on the issue and want to commit a change, the commit message input box in the **Source Control** view will be populated with a message, which can be configured with **GitHub Issues: Working Issue Format SCM** (`setting(githubIssues.workingIssueFormatScm)`).
 
 ## GitHub Repositories extension

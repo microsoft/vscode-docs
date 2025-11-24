@@ -234,7 +234,8 @@ Learn more about the [Timeline view](/docs/getstarted/userinterface.md#timeline-
 
 ## Next steps
 
+* [Branches and Worktrees](/docs/sourcecontrol/branches-worktrees.md) - Learn about branch management, Git worktrees, and stash operations
 * [Repositories and Remotes](/docs/sourcecontrol/repos-remotes.md) - Learn about cloning, publishing, and syncing with remote repositories
-* [Source Control Overview](/docs/sourcecontrol/overview.md) - Explore other Git features like branching and merging
+* [Merge Conflicts](/docs/sourcecontrol/merge-conflicts.md) - Handle conflicts when merging branches
 * [Working with GitHub](/docs/sourcecontrol/github.md) - Learn how to work with pull requests and issues
 * [Copilot in VS Code](/docs/copilot/overview.md) - Discover more AI-powered development features

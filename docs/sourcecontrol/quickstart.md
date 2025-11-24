@@ -1,6 +1,6 @@
 ---
 ContentId: 5f83254d-2817-4398-9321-456789abcdef
-DateApproved: 11/19/2025
+DateApproved: 11/12/2025
 MetaDescription: Quickly get started with Git source control in Visual Studio Code. Initialize a repository, stage changes, and commit code in minutes.
 ---
 # Quickstart: use source control in VS Code
@@ -145,6 +145,7 @@ If your repository is connected to a remote server (for example, GitHub or Azure
 
 Now that you know the basics, explore more features:
 
+* [Branches and Worktrees](/docs/sourcecontrol/branches-worktrees.md) - Learn about branch management and parallel development.
 * [Repositories and Remotes](/docs/sourcecontrol/repos-remotes.md) - Learn about cloning, publishing, and syncing with remote repositories.
 * [Resolve Merge Conflicts](/docs/sourcecontrol/merge-conflicts.md) - Learn how to handle conflicts when merging branches.
 * [Working with GitHub](/docs/sourcecontrol/github.md) - Learn about Pull Requests and Issues.

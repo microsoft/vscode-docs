@@ -1,6 +1,6 @@
 ---
 ContentId: 8f4e9d2a-3b5c-4e7a-9f1d-2c8a5b6e3d9f
-DateApproved: 11/24/2025
+DateApproved: 11/12/2025
 MetaDescription: Learn how to resolve Git merge conflicts in VS Code using inline editor actions, the 3-way merge editor, and AI-assisted resolution.
 ---
 # Resolve merge conflicts in VS Code
@@ -18,6 +18,9 @@ A merge conflict happens when Git encounters competing changes that it cannot au
 * Two branches add different content at the same location
 
 When you attempt to merge, rebase, pull, or cherry-pick commits that contain conflicting changes, Git pauses the operation and marks the conflicts for you to resolve manually.
+
+> [!TIP]
+> Learn more about [creating and managing branches](/docs/sourcecontrol/branches-worktrees.md) to organize your development work and minimize merge conflicts.
 
 ## Recognize conflicts in VS Code
 
@@ -160,6 +163,7 @@ git config --global mergetool.vscode.cmd 'code --wait $MERGED'
 
 ## Next steps
 
+* [Branches and Worktrees](/docs/sourcecontrol/branches-worktrees.md) - Learn about branch management and strategies to minimize conflicts
 * [Staging and Committing](/docs/sourcecontrol/staging-commits.md) - Learn about staging changes and creating commits
 * [Repositories and Remotes](/docs/sourcecontrol/repos-remotes.md) - Learn about working with remote repositories
 * [Source Control Overview](/docs/sourcecontrol/overview.md) - Explore other Git features in VS Code

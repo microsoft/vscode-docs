@@ -232,7 +232,7 @@ Credential helpers securely store your authentication credentials so you don't h
 
 ## Next steps
 
-* [Source Control Overview](/docs/sourcecontrol/overview.md) - Learn about other Git features in VS Code
+* [Branches and Worktrees](/docs/sourcecontrol/branches-worktrees.md) - Learn about branch management and parallel development
 * [Staging and Committing](/docs/sourcecontrol/staging-commits.md) - Master the commit workflow
+* [Merge Conflicts](/docs/sourcecontrol/merge-conflicts.md) - Handle conflicts when merging branches
 * [Working with GitHub](/docs/sourcecontrol/github.md) - Learn about pull requests and GitHub integration
-* [Introduction to Git](/docs/sourcecontrol/intro-to-git.md) - Understand Git concepts and terminology

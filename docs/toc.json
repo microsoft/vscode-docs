@@ -171,8 +171,8 @@
     "topics": [
       ["Overview", "/docs/sourcecontrol/overview"],
       ["Quickstart", "/docs/sourcecontrol/quickstart"],
-      ["Introduction to Git", "/docs/sourcecontrol/intro-to-git"],
       ["Staging & Committing", "/docs/sourcecontrol/staging-commits"],
+      ["Branches & Worktrees", "/docs/sourcecontrol/branches-worktrees"],
       ["Repositories & Remotes", "/docs/sourcecontrol/repos-remotes"],
       ["Merge Conflicts", "/docs/sourcecontrol/merge-conflicts"],
       ["Collaborate on GitHub", "/docs/sourcecontrol/github"],

@@ -120,6 +120,8 @@ To work with multiple branches simultaneously, you can use Git worktrees to crea
 
 Temporarily save uncommitted changes when you need to switch contexts quickly by using a Git stash: save, view, apply, or pop your stashed changes directly from the Source Control view.
 
+Learn more about [working with branches and worktrees](/docs/sourcecontrol/branches-worktrees.md).
+
 ### View commit history
 
 It can be helpful to review the commit history to understand how your code has changed over time.
@@ -157,6 +159,7 @@ Browse available SCM provider extensions in the Extensions view (`kb(workbench.v
 
 * [Intro Video - Git Version Control](/docs/introvideos/versioncontrol.md) - An introductory video providing an overview of VS Code Git support
 
+* [Branches and Worktrees](/docs/sourcecontrol/branches-worktrees.md) - Learn about branch management, Git worktrees, and stash operations
 * [Repositories and Remotes](/docs/sourcecontrol/repos-remotes.md) - Learn about cloning, publishing, and syncing with remote repositories
 * [Working with GitHub](/docs/sourcecontrol/github.md) - Learn how to work with pull requests and issues in VS Code
 * [Copilot in VS Code](/docs/copilot/overview.md) - Discover more AI-powered features beyond Git workflows
