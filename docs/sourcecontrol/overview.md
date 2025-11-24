@@ -106,6 +106,8 @@ When you encounter merge conflicts, VS Code highlights the conflicting files in 
 
 Once resolved, you can stage the files and commit the merge.
 
+Learn more about [resolving merge conflicts](/docs/sourcecontrol/merge-conflicts.md).
+
 ### Work with branches, worktrees, and stashes
 
 VS Code supports multiple workflows for managing parallel development work. You can easily switch between branches within a single workspace.

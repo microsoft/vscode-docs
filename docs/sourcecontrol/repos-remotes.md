@@ -128,7 +128,7 @@ Pulling downloads commits from the remote repository and merges them into your l
 
 1. VS Code downloads and merges the remote commits
 
-If there are conflicts between your local changes and the remote commits, VS Code helps you resolve them through the [merge conflict resolution tools](/docs/sourcecontrol/overview.md#resolve-merge-conflicts).
+If there are conflicts between your local changes and the remote commits, VS Code helps you resolve them through the [merge conflict resolution tools](/docs/sourcecontrol/merge-conflicts.md).
 
 ### Pull with rebase
 
