@@ -1,7 +1,9 @@
 ---
 ContentId: c8b779d6-79e2-49d6-acfc-430d7ac3a299
 DateApproved: 3/7/2023
-MetaDescription: Configure the C++ extension in Visual Studio Code to target Microsoft C++ on Windows.
+MetaDescription: Configure the C++ extension in Visual Studio Code to target Microsoft C++ on Windows
+Keywords:
+- C++
 ---
 # Configure VS Code for Microsoft C++
 

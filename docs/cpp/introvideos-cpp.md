@@ -2,6 +2,8 @@
 ContentId: a7a9837e-f515-4644-8dae-b5d44715e63f
 DateApproved: 4/13/2021
 MetaDescription: Get started with C++ in Visual Studio Code by watching these introductory videos
+Keywords:
+- C++
 ---
 # Introductory Videos for C++
 

@@ -2,6 +2,8 @@
 ContentId: 61D63E54-67E2-4743-B5CB-C6E7F582982A
 DateApproved: 1/16/2024
 MetaDescription: How to edit and navigate C++ source files in Visual Studio Code.
+Keywords:
+- C++
 ---
 # Editing and Navigating C++ Code
 

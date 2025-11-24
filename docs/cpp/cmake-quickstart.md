@@ -2,6 +2,8 @@
 ContentId: 55b5d15c-a020-4808-941f-e0255751a5f7
 DateApproved: 5/29/2024
 MetaDescription: Create a Hello World project by using the CMake Quick Start in the CMake Tools Visual Studio Code extension
+Keywords:
+- C++
 ---
 # Create a CMake hello world project with CMake Quick Start
 
