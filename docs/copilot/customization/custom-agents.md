@@ -13,7 +13,7 @@ You can also use handoffs to create guided workflows between agents, allowing yo
 This article describes how to create and manage custom agents in VS Code.
 
 > [!NOTE]
-> Custom agents are available as of VS Code release 1.106 and in preview. Custom agents were previously known as custom chat modes.
+> Custom agents are available as of VS Code release 1.106. Custom agents were previously known as custom chat modes.
 
 ## What are custom agents?
 
