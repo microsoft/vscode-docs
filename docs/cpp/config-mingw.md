@@ -2,6 +2,8 @@
 ContentId: 7efec972-6556-4526-8aa8-c73b3319d612
 DateApproved: 12/14/2023
 MetaDescription: Configuring the C++ extension in Visual Studio Code to target g++ and gdb on a MinGW-w64 installation
+Keywords:
+- C++
 ---
 # Using GCC with MinGW
 
