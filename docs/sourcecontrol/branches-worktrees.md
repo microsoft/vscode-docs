@@ -2,6 +2,11 @@
 ContentId: a9b2c3d4-e5f6-7890-ab12-cd3456789012
 DateApproved: 11/12/2025
 MetaDescription: Learn how to work with Git branches and worktrees in VS Code. Create, switch between, and manage multiple branches, use Git worktrees for parallel development, and manage stashes for temporary changes.
+Keywords:
+- source control
+- scm
+- version control
+- git
 ---
 # Git Branches and Worktrees in VS Code
 

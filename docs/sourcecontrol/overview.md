@@ -2,6 +2,11 @@
 ContentId: 7E22CCC0-2AB8-4729-A4C9-BE2B16853820
 DateApproved: 11/12/2025
 MetaDescription: Learn how to use VS Code's integrated Git source control features like staging, committing, branching, merge conflict resolution, and GitHub integration.
+Keywords:
+- source control
+- scm
+- version control
+- git
 ---
 # Source Control in VS Code
 
