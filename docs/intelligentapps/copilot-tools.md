@@ -58,7 +58,7 @@ The Agent Code Gen tool has several important features:
     Example requirement:
 
     ```text
-    Create an AI app to manage travel queries, use Azure AI Foundry models.
+    Create an AI app to manage travel queries, use Microsoft Foundry models.
     ```
 
 - **Various agent framework functionality support:** The tool supports many features like function calling, MCP, and streaming responses.
@@ -82,7 +82,7 @@ The Agent Code Gen tool has several important features:
 
 ## AI Model Guide tool
 
-The AI Model Guide tool helps developers pick the best AI models for their apps. It recommends Azure AI Foundry and GitHub models, including the latest and most popular ones. The tool provides details like input types, context length, cost, and metrics (quality, speed, safety). It also explains how to connect to models, such as GitHub endpoints and tokens.
+The AI Model Guide tool helps developers pick the best AI models for their apps. It recommends Microsoft Foundry and GitHub models, including the latest and most popular ones. The tool provides details like input types, context length, cost, and metrics (quality, speed, safety). It also explains how to connect to models, such as GitHub endpoints and tokens.
 
 This tool supports:
 
@@ -114,7 +114,7 @@ This tool supports:
     Create an AI app to manage travel queries using a cheap and fast azure model.
     ```
 
-    For this example, Copilot selects a model like Azure AI Foundry GPT-4.1-mini model.
+    For this example, Copilot selects a model like MicrosoftFoundry GPT-4.1-mini model.
 
 ## Evaluation Code Gen tool
 

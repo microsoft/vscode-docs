@@ -225,11 +225,16 @@ Note the subheading title is lowercase and subheading title words are separated 
 
 Images are important to bring the product to life and clarify the written content.
 
-For images you're adding to the repo, store them in the `images` subfolder of the TOC section, for example: `editor\images\debugging`.
+* Store images for an article in the `docs/<section>/images/<article name>` subfolder. For example: `docs/sourcecontrol/images/overview`.
 
-When you link to an image, the path and filename are case-sensitive. The convention is for image filenames to be all lowercase and use dashes `-` for separators.
+* Image filenames should use all lowercase and use dashes (`-`) as word separator. For example: `![Debug Breakpoints](images/debugging/breakpoints-view.png)`
 
->For example: `![Debug Breakpoints](images/debugging/breakpoints-view.png)`
+* Link to an image using relative path names, the path and filename are case-sensitive.
+
+* Images are cached on the server for indeterminate time, so don't update images in-place. Create a new file and add a version indicator (yyyymmddseq) to the image filename. 
+
+> [!IMPORTANT]
+> Make sure you have Git LFS enabled on your machine!
 
 ### Key bindings
 
