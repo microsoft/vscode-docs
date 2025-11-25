@@ -21,11 +21,6 @@ Below are the most popular language extensions in the [Visual Studio Marketplace
 
 VS Code IntelliSense features are powered by a language service. A language service provides intelligent code completions based on language semantics and an analysis of your source code. If a language service knows possible completions, the IntelliSense suggestions will pop up as you type. If you continue typing characters, the list of members (variables, methods, and more) is filtered to only include members containing your typed characters. Pressing `kbstyle(Tab)` or `kbstyle(Enter)` will insert the selected member.
 
-> [!TIP]
-> IntelliSense does not appear inside comments or regular string literals in most
-> languages. If suggestions are missing while typing in these areas, this is expected
-> unless the language extension provides special support.
-
 You can trigger IntelliSense in any editor window by typing `kb(editor.action.triggerSuggest)` or by typing a trigger character (such as the dot character (`kbstyle(.)`) in JavaScript).
 
 <video src="images/intellisense/intellisense_packagejson.mp4" title="Video that shows IntelliSense triggered with 'Ctrl+Space' in a 'package.json' file." autoplay loop controls muted></video>
