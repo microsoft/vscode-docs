@@ -197,8 +197,8 @@ If you find IntelliSense has stopped working, the language service may not be ru
 > [!NOTE]
 > In very large workspaces, IntelliSense features may be partially disabled for
 > performance reasons. If this happens, try excluding large folders (such as
-> `node_modules` or build output directories) using the `files.exclude` or
-> `search.exclude` settings.
+> `node_modules` or build output directories) using the `setting(files.exclude)` or
+> `setting(search.exclude)` settings.
 
 > [!TIP]
 > For configuring and troubleshooting JavaScript IntelliSense, see the [JavaScript documentation](/docs/languages/javascript.md#intellisense).
