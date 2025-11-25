@@ -67,9 +67,7 @@ VS Code provides Git functionality through several key interface elements. This 
 
 * **Additional UI elements**: in-context Git information like editor gutter indicators or Git blame annotations
 
-    ![Screenshot of editor gutter indicators showing line changes and a hover showing Git blame information.](images/overview/gutter.png)
-
-If you prefer using the command line, you can still run Git commands in the integrated terminal (`kb(terminal.toggleTerminal)`). Changes made via the terminal are reflected in the VS Code source control interface.
+    ![Screenshot of editor gutter indicators showing line changes and a hover showing Git blame information.](images/overview/git-blame-status-bar.png)
 
 ## Common workflows
 
@@ -109,21 +107,19 @@ When you encounter merge conflicts, VS Code highlights the conflicting files in 
 
 ![Screenshot of the 3-way merge editor.](images/overview/merge-editor-overview.png)
 
-Once resolved, you can stage the files and commit the merge.
-
 Learn more about [resolving merge conflicts](/docs/sourcecontrol/merge-conflicts.md).
 
 ### Work with branches, worktrees, and stashes
 
-VS Code supports multiple workflows for managing parallel development work. You can easily switch between branches within a single workspace.
+VS Code supports multiple workflows for managing parallel development work.
 
-![Screenshot of the branch Quick Pick showing options to switch to a branch or create a new branch.](images/overview/gitbranches.png)
+* Quickly switch between **branches** within a single workspace to work on different features or fixes.
 
-To work with multiple branches simultaneously, you can use Git worktrees to create separate working directories for different branches.
+    ![Screenshot of the branch Quick Pick showing options to switch to a branch or create a new branch.](images/overview/gitbranches.png)
 
-![Screenshot of the worktrees submenu in the Source Control Repositories view.](images/overview/worktree-create.png)
+* Use Git **worktrees** to create separate working directories for different branches to work with multiple branches simultaneously.
 
-Temporarily save uncommitted changes when you need to switch contexts quickly by using a Git stash: save, view, apply, or pop your stashed changes directly from the Source Control view.
+* Use Git **stashes** to temporarily save uncommitted changes when you need to switch contexts quickly.
 
 Learn more about [working with branches and worktrees](/docs/sourcecontrol/branches-worktrees.md).
 
@@ -131,13 +127,15 @@ Learn more about [working with branches and worktrees](/docs/sourcecontrol/branc
 
 It can be helpful to review the commit history to understand how your code has changed over time.
 
-The Source Control Graph provides a visual representation of your branch structure and commit history, highlighting incoming and outgoing commits.
+* The **Source Control Graph** provides a visual representation of your branch structure and commit history, highlighting incoming and outgoing commits.
 
-The Timeline view in the Explorer view shows the commit history for a specific file, allowing you to see how it has evolved. You can filter the timeline to show only Git commits or to also include local file changes.
+    ![Screenshot of the Source Control Graph showing commit history and branch structure.](images/overview/source-control-graph.png)
 
-![Screenshot of the timeline view showing file commit history.](images/overview/timeline-view.png)
+* The **Timeline view** in the Explorer view shows the commit history for a specific file, allowing you to see how it has evolved. You can filter the timeline to show only Git commits or to also include local file changes.
 
-Learn more about [using the Timeline view and reviewing changes](/docs/sourcecontrol/staging-commits.md#timeline-view-for-file-history).
+    ![Screenshot of the timeline view showing file commit history.](images/overview/timeline-view.png)
+
+Learn more about [using the Graph and Timeline view and reviewing changes](/docs/sourcecontrol/staging-commits.md#timeline-view-for-file-history).
 
 ## Working with GitHub pull requests and issues
 
