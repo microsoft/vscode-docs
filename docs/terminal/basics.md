@@ -19,7 +19,8 @@ VS Code's terminal has additional functionality called shell integration that tr
 
 ![The integrated terminal can run commands such as mkdir and git just like a standalone terminal. VS Code's terminal has additional functionality called shell integration that tracks where commands are run with decorations on the left of a command and in the scrollbar.](images/basics/integrated-terminal.png)
 
-> **Note:** If you prefer to work outside VS Code, open an external terminal with the `kb(workbench.action.terminal.openNativeConsole)` keyboard shortcut
+> [!NOTE]
+> If you prefer to work outside VS Code, open an external terminal with the `kb(workbench.action.terminal.openNativeConsole)` keyboard shortcut
 
 ## Terminal shells
 
@@ -52,7 +53,8 @@ Place multiple terminals side-by-side and create a group by splitting a terminal
 * `kbstyle(Alt)` and click on a tab, the **+** button, or the single tab on the terminal panel.
 * Trigger the `kb(workbench.action.terminal.split)` command.
 
-> **Tip:** The working directory for the new terminal depends on the `setting(terminal.integrated.splitCwd)` [setting](/docs/configure/settings.md).
+> [!TIP]
+> The working directory for the new terminal depends on the `setting(terminal.integrated.splitCwd)` [setting](/docs/configure/settings.md).
 
 Navigate between terminals in a group by focusing the previous pane, `kb(workbench.action.terminal.focusPreviousPane)`, or the next pane, `kb(workbench.action.terminal.focusNextPane)`.
 
@@ -74,13 +76,11 @@ The `setting(terminal.integrated.defaultLocation)` setting can change the defaul
 
 ## Terminals in new windows
 
-Opening a terminal in a new window is possible in a few different ways:
+Opening a terminal in a new VS Code window is possible in a few different ways:
 
-1. Use `kb(workbench.action.terminal.newInNewWindow)`
-2. Right-click the terminal tab if you have multiple terminals, or left-click the tab if you only have a single terminal opened. Then select **Move Terminal to New Window**
-3. Select the **New Terminal Window** entry that's available in several different menus
-
-![Screenshot showing a terminal in its own separate window](images/basics/terminal-new-window.png)
+* Use `kb(workbench.action.terminal.newInNewWindow)`
+* Right-click the terminal tab if you have multiple terminals, or left-click the tab if you only have a single terminal opened. Then select **Move Terminal to New Window**
+* Select the **New Terminal Window** entry that's available in several different menus
 
 ## Navigating the buffer
 
@@ -128,7 +128,8 @@ The **Open Detected Link** command (`kb(workbench.action.terminal.openDetectedLi
 
 ![Open Detected Link opens a quick pick with all links in the viewport, split into categories](images/basics/link-open-detected.png)
 
-> **Tip:** If link verification causes performance issues, like in high latency remote environments, disable it via the `setting(terminal.integrated.enableFileLinks)` [setting](/docs/configure/settings.md).
+> [!TIP]
+> If link verification causes performance issues, like in high latency remote environments, disable it via the `setting(terminal.integrated.enableFileLinks)` [setting](/docs/configure/settings.md).
 
 ### Extensions handling links
 
@@ -192,13 +193,15 @@ The integrated terminal has find functionality that can be triggered with `kb(wo
 
 ![Find in the terminal will highlight all text matching the query](images/basics/terminal-find.png)
 
-> **Tip:** `kbstyle(Ctrl+F)` can be sent to the shell by removing the `workbench.action.terminal.focusFind` command from [commands to skip shell](/docs/terminal/advanced.md#keyboard-shortcuts-and-the-shell).
+> [!TIP]
+> `kbstyle(Ctrl+F)` can be sent to the shell by removing the `workbench.action.terminal.focusFind` command from [commands to skip shell](/docs/terminal/advanced.md#keyboard-shortcuts-and-the-shell).
 
 ## Run selected text
 
 To use the `runSelectedText` command, select text in an editor and run the command **Terminal: Run Selected Text in Active Terminal** via the **Command Palette** (`kb(workbench.action.showCommands)`), the terminal will attempt to run the selected text. If no text is selected in the active editor, the entire line that the cursor is on will run in the terminal.
 
->**Tip:** Also run the active file using the command `workbench.action.terminal.runActiveFile`.
+> [!TIP]
+> Also run the active file using the command `workbench.action.terminal.runActiveFile`.
 
 ## Maximizing the terminal
 
@@ -352,6 +355,7 @@ Use the dedicated `@terminal` chat participant in ask mode in the Chat view:
 3. Ask about terminal commands, shell scripting, or explaining terminal output
 
 Examples:
+
 * `@terminal list the 5 largest files in this workspace`
 * `@terminal /explain top shell command`
 * `@terminal how to grep for patterns recursively`
@@ -474,7 +478,7 @@ See the [GPU acceleration](/docs/terminal/appearance.md#gpu-acceleration) sectio
 
 This normally means that the program/shell running inside the terminal requested to turn on "bracketed paste mode" but something doesn't support it properly. To work around this, you could run `printf "\e[?2004l"` to disable it for that session or add the following to your `~/.inputrc` file:
 
-```
+```bash
 set enable-bracketed-paste off
 ```
 
