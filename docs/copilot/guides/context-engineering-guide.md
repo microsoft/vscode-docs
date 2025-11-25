@@ -90,7 +90,7 @@ To ground the AI agent in the specifics of the project, collect key project info
 
 ## Step 2: Create implementation plan
 
-Once you have the project-specific context in place, you can use AI to prompt the creation of an implementation plan for a new feature or bug fix. Generating an implementation plan is an iterative process that might require multiple rounds of refinement to ensure its complete and accurate.
+Once you have the project-specific context in place, you can use AI to prompt the creation of an implementation plan for a new feature or bug fix. Generating an implementation plan is an iterative process that might require multiple rounds of refinement to ensure it's complete and accurate.
 
 With a [custom agent](/docs/copilot/customization/custom-agents.md) for planning, you can create a dedicated persona with planning-specific guidelines and tools (for example, read-only access to the codebase). They can also capture specific workflows for brainstorming, researching, and collaborating for your project and team.
 
@@ -198,9 +198,9 @@ After you have generated and refined the implementation plan, you can now use AI
     > [!TIP]
     > Agent is optimized for executing multi-step tasks and figuring out how to best accomplish a goal based on the plan and your project context. You only need to provide the plan file or reference it in your prompt.
 
-1. For a more customized workflow, create a [custom agents](/docs/copilot/customization/custom-agents.md) `.github/agents/implement.agent.md` specialized in implementing code based on a plan.
+1. For a more customized workflow, create a [custom agent](/docs/copilot/customization/custom-agents.md) `.github/agents/implement.agent.md` specialized in implementing code based on a plan.
 
-    The following `tdd.agent.md` file provides a starting point for an test-driven implementation custom agent.
+    The following `tdd.agent.md` file provides a starting point for a test-driven implementation custom agent.
 
     ```markdown
     ---
