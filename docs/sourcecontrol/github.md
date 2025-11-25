@@ -21,7 +21,7 @@ In this topic, we'll demonstrate how you can use some of your favorite parts of 
 
 To get started with GitHub in VS Code, you need:
 
-* VS Code uses your machine's Git installation. [Install Git version 2.0.0 or later](https://git-scm.com/download) on your machine.
+* Git is installed on your computer. [Install Git version 2.0.0 or later](https://git-scm.com/download) on your machine.
 
 * A [GitHub account](https://docs.github.com/get-started/signing-up-for-github/signing-up-for-a-new-github-account).
 
@@ -36,11 +36,20 @@ To get started with GitHub in VS Code, you need:
 
 ## Getting started with GitHub Pull Requests and Issues
 
-Once you've installed the [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension, you'll need to sign in. Follow the prompts to authenticate with GitHub in the browser and return to VS Code.
+Once you've installed the [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension, you'll need to sign in.
 
-![Extension Sign In](images/github/extension-signin.png)
+1. Select the GitHub icon in the Activity Bar
+1. Select **Sign In** and follow the prompts to authenticate with GitHub in the browser
 
-If you are not redirected to VS Code, you can add your authorization token manually. In the browser window, you will receive your authorization token. Copy the token, and switch back to VS Code. Select **Signing in to github.com...** in the Status Bar, paste the token, and press `kbstyle(Enter)`.
+    ![Screenshot of the GitHub view, showing the sign in button.](images/github/extension-signin.png)
+
+1. You should be redirected back to VS Code
+
+If you are not redirected to VS Code, you can add your authorization token manually:
+
+1. In the browser window, copy your authorization token
+1. In VS Code, select **Signing in to github.com...** in the Status Bar
+1. Paste the token and press `kbstyle(Enter)` to complete the sign-in process
 
 ## Setting up a repository
 
@@ -48,11 +57,9 @@ If you are not redirected to VS Code, you can add your authorization token manua
 
 You can search for and clone a repository from GitHub using the **Git: Clone** command in the Command Palette (`kb(workbench.action.showCommands)`) or by using the **Clone Repository** button in the Source Control view (available when you have no folder open).
 
-![Clone Repository button in the Source Control view](images/github/git-clone-button.png)
-
 From the GitHub repository dropdown you can filter and pick the repository you want to clone locally.
 
-![GitHub repository dropdown filtered on microsoft/vscode](images/github/github-repo-dropdown.png)
+![Screenshot showing the GitHub repository Quick Pick filtered on microsoft/vscode.](images/github/github-repo-dropdown.png)
 
 Learn more about [cloning repositories and working with remotes](/docs/sourcecontrol/repos-remotes.md#clone-repositories).
 
@@ -60,37 +67,38 @@ Learn more about [cloning repositories and working with remotes](/docs/sourcecon
 
 Enabling authentication through GitHub happens when you run any Git action in VS Code that requires GitHub authentication, such as pushing to a repository that you're a member of or cloning a private repository. You don't need to have any special extensions installed for authentication; it is built into VS Code so that you can efficiently manage your repository.
 
-When you do something that requires GitHub authentication, you'll see a prompt to sign in:
+When you perform an action that requires GitHub authentication, VS Code prompts you to sign in. Follow the steps to sign into GitHub and return to VS Code.
 
-![Authentication Prompt](images/github/auth-prompt.png)
+![Screenshot showing the GitHub authentication dialog.](images/github/auth-prompt.png)
 
-Follow the steps to sign into GitHub and return to VS Code. Signing in with a personal access token (PAT) is only supported with GitHub Enterprise Server. If you're using GitHub Enterprise Server and want to use a PAT, then you can hit "cancel" on the sign in prompts until you are prompted for a PAT.
+Signing in with a personal access token (PAT) is only supported with GitHub Enterprise Server. If you're using GitHub Enterprise Server and want to use a PAT, you can select **Cancel** on the sign in prompts until you are prompted for a PAT.
 
 Note that there are several ways to authenticate to GitHub, including using your username and password with two-factor authentication (2FA), a personal access token, or an SSH key. See [About authentication to GitHub](https://docs.github.com/github/authenticating-to-github/about-authentication-to-github) for more information and details about each option.
 
->**Note**: If you'd like to work on a repository without cloning the contents to your local machine, you can install the [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=github.remotehub) extension to browse and edit directly on GitHub. You can learn more below in the [GitHub Repositories extension](/docs/sourcecontrol/github.md#github-repositories-extension) section.
+> [!NOTE]
+> If you'd like to work on a repository without cloning the contents to your local machine, you can install the [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=github.remotehub) extension to browse and edit directly on GitHub. Learn more about the [GitHub Repositories extension](/docs/sourcecontrol/github.md#github-repositories-extension).
 
 ## Editor integration
 
 ### Hovers
 
-When you have a repository open and a user is @-mentioned, you can hover over that username and see a GitHub-style hover.
+When you have a repository open and a user is @-mentioned (for example, in a code comment), you can hover over that username and see a GitHub-style hover with the user's details.
 
-![User Hover](images/github/user-hover.png)
+![Screenshot showing a user hover for a @-mentioned user in a code comment.](images/github/user-hover.png)
 
 There is a similar hover for #-mentioned issue numbers, full GitHub issue URLs, and repository specified issues.
 
-![Issue Hover](images/github/issue-hover.png)
+![Screenshot showing a hover for a #-mentioned issue number in a code comment.](images/github/issue-hover.png)
 
 ### Suggestions
 
-User suggestions are triggered by the "@" character and issue suggestions are triggered by the "#" character. Suggestions are available in the editor and in the **Source Control** view's input box.
+User suggestions are triggered by typing the "@" character and issue suggestions are triggered by typing the "#" character. Suggestions are available in the editor and in the Source Control commit message input box.
 
-![User and Issue suggestions](images/github/user-issue-suggest.gif)
+![GIF showing User and Issue suggestions in the editor.](images/github/user-issue-suggest.gif)
 
-The issues that appear in the suggestion can be configured with the **GitHub Issues: Queries** (`setting(githubIssues.queries)`) [setting](/docs/configure/settings.md). The queries use the [GitHub search syntax](https://docs.github.com/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax).
+The issues that appear in the suggestion can be configured with the **GitHub Issues: Queries** (`setting(githubIssues.queries)`) setting. The queries use the [GitHub search syntax](https://docs.github.com/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax).
 
-You can also configure which files show these suggestions using the settings **GitHub Issues: Ignore Completion Trigger** (`setting(githubIssues.ignoreCompletionTrigger)`) and **GitHub Issues: Ignore User Completion Trigger** (`setting(githubIssues.ignoreUserCompletionTrigger)`). These settings take an array of [language identifiers](/docs/languages/identifiers.md) to specify the file types.
+You can also configure which file types show these suggestions by using the settings **GitHub Issues: Ignore Completion Trigger** (`setting(githubIssues.ignoreCompletionTrigger)`) and **GitHub Issues: Ignore User Completion Trigger** (`setting(githubIssues.ignoreUserCompletionTrigger)`). These settings take an array of [language identifiers](/docs/languages/identifiers.md) to specify the file types.
 
 ```jsonc
 // Languages that the '#' character should not be used to trigger issue completion suggestions.
@@ -103,7 +111,7 @@ You can also configure which files show these suggestions using the settings **G
 
 From the **Pull Requests** view you can view, manage, and create pull requests.
 
-![Pull Request View](images/github/pull-request-view.png)
+![Screenshot showing the Pull Request view.](images/github/pull-request-view.png)
 
 The queries used to display pull requests can be configured with the **GitHub Pull Requests: Queries** (`setting(githubPullRequests.queries)`) setting and use the [GitHub search syntax](https://docs.github.com/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax).
 
@@ -119,13 +127,13 @@ The queries used to display pull requests can be configured with the **GitHub Pu
 
 Once you have committed changes to your fork or branch, you can use the **GitHub Pull Requests: Create Pull Request** command or the **Create Pull Request** button in the **Pull Requests** view to create a pull request.
 
-![Create Pull Request button in the Pull Request view](images/github/create-pull-request-button.png)
+![Screenshot showing the Create Pull Request button in the Pull Request view.](images/github/create-pull-request-button.png)
 
 A new **Create** view will be displayed where you can select the base repository and base branch you'd like your pull request to target as well as fill in the title and description. If your repository has a pull request template, this will automatically be used for the description.
 
 Use the buttons in the action bar at the top to add **Assignees**, **Reviewers**, **Labels** and a **Milestone**.
 
-![Create Pull Request view](images/github/create-pull-request-view.png)
+![Screenshot showing the Create Pull Request view.](images/github/create-pull-request-view.png)
 
 The **Create** button menu allows you to select alternative create options, such as **Create Draft** or enable an **Auto-Merge** method.
 
