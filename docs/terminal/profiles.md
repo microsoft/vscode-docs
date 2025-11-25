@@ -65,7 +65,8 @@ Other arguments supported in profiles include:
 * `icon`: An icon ID to use for the profile.
 * `color`: A theme color ID to style the icon.
 
->**Tip:** Path, args, and env all support [resolving variables](https://code.visualstudio.com/docs/reference/variables-reference)
+> [!TIP]
+> Path, args, and env all support [resolving variables](https://code.visualstudio.com/docs/reference/variables-reference)
 
 The **default profile** can be defined manually with the `terminal.integrated.defaultProfile.*` settings. This should be set to the name of an existing profile:
 
@@ -81,7 +82,8 @@ The **default profile** can be defined manually with the `terminal.integrated.de
 }
 ```
 
->**Tip:** The integrated terminal shell is running with the permissions of VS Code. If you need to run a shell command with elevated (administrator) or different permissions, use platform utilities such as `runas.exe` within a terminal.
+> [!TIP]
+> The integrated terminal shell is running with the permissions of VS Code. If you need to run a shell command with elevated (administrator) or different permissions, use platform utilities such as `runas.exe` within a terminal.
 
 ## Removing built-in profiles
 
