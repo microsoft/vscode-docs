@@ -225,11 +225,17 @@ Learn more about [viewing commit history with the Source Control Graph](/docs/so
 
 The Repositories view enables you to manage multiple Git repositories in a single workspace. This is useful when working with projects that span multiple repositories.
 
+![Screenshot of the Repositories view in VS Code showing multiple Git repositories.](images/repos-remotes/multiple-repositories.png)
+
 To show the Repositories view, run the **Source Control: Focus on Repositories View** command from the Command Palette (`kb(workbench.action.showCommands)`). Configure the `setting(scm.alwaysShowRepositories)` setting to always show the Repositories view in the Source Control view.
+
+For each repository, you can see the active branch, sync status, and access actions like fetch, pull, push, and more.
 
 VS Code automatically detects Git repositories when you open folders that contain them. If you open a folder with multiple repositories (like a monorepo), all repositories appear in the Repositories view.
 
 You can configure whether you want to have multiple repositories active in the Source Control view or a single repository at a time by changing the `setting(scm.repositories.selectionMode)` setting.
+
+When operating in multi-repo mode, the Source Control view shows changes across all repositories. In single-repo mode, the view only shows changes for the selected repository in the Repositories view.
 
 ## Credential helpers
 
