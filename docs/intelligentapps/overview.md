@@ -99,12 +99,12 @@ AI Toolkit opens in its own view, with the AI Toolkit icon now displayed on the 
     - **Add MCP Server**: The link for adding and working with an existing MCP server.
     - **Create new MCP Server**: The link for creating and deploying new MCP servers in AI Toolkit.
 
-- **Help and Feedback**: This section contains links to the Azure AI Foundry documentation, feedback, support, and the Microsoft Privacy Statement. It contains the following subsections:
-    - **Documentation**: The link to the Azure AI Foundry Extension documentation.
+- **Help and Feedback**: This section contains links to the Microsoft Foundry documentation, feedback, support, and the Microsoft Privacy Statement. It contains the following subsections:
+    - **Documentation**: The link to the Microsoft Foundry Extension documentation.
     - **Resources**: The link to the AI Toolkit Tutorials Gallery, a collection of tutorials to help you get started with AI Toolkit.
     - **Get Started**: The link to the getting started walkthrough to help you learn the basics of AI Toolkit.
     - **What's New**: The link to the AI Toolkit release notes.
-    - **Report Issues on GitHub**: The link to the Azure AI Foundry extension GitHub repository issues page.
+    - **Report Issues on GitHub**: The link to the Microsoft Foundry extension GitHub repository issues page.
 
 ## Get started with AI Toolkit
 

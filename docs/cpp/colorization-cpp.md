@@ -2,6 +2,9 @@
 ContentId: 2C406EA6-87DC-4A2D-AEC2-90BAA491697C
 DateApproved: 2/23/2023
 MetaDescription: How to customize semantic colorization of C++ code in Visual Studio Code.
+Keywords:
+- C++
+- Bunny
 ---
 # Enhanced colorization
 

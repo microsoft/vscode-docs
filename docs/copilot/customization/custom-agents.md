@@ -13,7 +13,7 @@ You can also use handoffs to create guided workflows between agents, allowing yo
 This article describes how to create and manage custom agents in VS Code.
 
 > [!NOTE]
-> Custom agents are available as of VS Code release 1.106 and in preview. Custom agents were previously known as custom chat modes.
+> Custom agents are available as of VS Code release 1.106. Custom agents were previously known as custom chat modes.
 
 ## What are custom agents?
 
@@ -28,6 +28,9 @@ Custom agents are defined in a `.agent.md` Markdown file, and can be stored in y
 Different tasks require different capabilities. A planning agent might only need read-only tools for research and analysis to prevent accidental code changes, while an implementation agent would need full editing capabilities. Custom agents let you specify exactly which tools are available for each task, ensuring the AI has the right capabilities for the job.
 
 Custom agents also let you provide specialized instructions that define how the AI should operate. For instance, a planning agent could instruct the AI to collect project context and generate a detailed implementation plan, while a code review agent might focus on identifying security vulnerabilities and suggesting improvements. These specialized instructions ensure consistent, task-appropriate responses every time you switch to that agent.
+
+> [!NOTE]
+> Subagents can run with a custom agent. Learn more about running [subagents with custom agents](/docs/copilot/chat/chat-sessions.md#use-a-custom-agent-with-subagents-experimental) (experimental).
 
 ## Handoffs
 
@@ -158,7 +161,7 @@ If you have multiple custom agents, you can customize which ones appear in the a
 
 You can specify the list of available tools for both a custom agent and prompt file by using the `tools` metadata field. Prompt files can also reference a custom agent by using the `agent` metadata field.
 
-The list available tools in chat is determined by the following priority order:
+The list of available tools in chat is determined by the following priority order:
 
 1. Tools specified in the prompt file (if any)
 2. Tools from the referenced custom agent in the prompt file (if any)

@@ -14,7 +14,7 @@ VS Code uses an index to quickly and accurately search your codebase for relevan
 
 The following workspace indexing options are available:
 
-* **Remote index**: if your code is hosted in a GitHub repository, you can build a remote index search your codebase quickly, even for large codebases.
+* **Remote index**: if your code is hosted in a GitHub repository, you can build a remote index to search your codebase quickly, even for large codebases.
 * **Local index**: use an advanced semantic index that is stored on your local machine to provide fast and accurate search results for your codebase.
 * **Basic index**: if local indexing is not available, you can use simpler algorithms that are optimized to work locally for larger codebases.
 

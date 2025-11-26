@@ -87,7 +87,7 @@ For textual similarity:
 - **GLEU**: Google-BLEU variant for sentence-level assessment; measures overlaps in n-grams between response and ground truth.
 - **METEOR**: Metric for Evaluation of Translation with Explicit Ordering; measures overlaps in n-grams between response and ground truth.
 
-The evaluators in AI Toolkit are based on the Azure Evaluation SDK. To learn more about observability for generative AI models, see the [Azure AI Foundry documentation](https://learn.microsoft.com/azure/ai-foundry/concepts/observability?tabs=warning).
+The evaluators in AI Toolkit are based on the Azure Evaluation SDK. To learn more about observability for generative AI models, see the [Microsoft Foundry documentation](https://learn.microsoft.com/azure/ai-foundry/concepts/observability?tabs=warning).
 
 ## Start a standalone evaluation job
 

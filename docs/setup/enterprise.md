@@ -8,6 +8,36 @@ MetaDescription: Learn about Visual Studio Code's enterprise support features, s
 
 Visual Studio Code can be used as a development tool for enterprise teams of all sizes. As an IT admin, you can configure VS Code to achieve consistency and compatibility across your organization.
 
+## Private marketplace for extensions
+
+The private marketplace enables enterprises to self-host and distribute extensions within their organization to meet organizational security and compliance requirements. The private marketplace integrates seamlessly with the VS Code extensions experience, giving users easy discovery and automatic updates of private extensions. Common use cases include:
+
+* Hosting internal extensions privately to protect intellectual property.
+* Providing developers with access to selected or all extensions from the [Visual Studio Marketplace](https://marketplace.visualstudio.com), even in environments with restricted internet connectivity.
+* Downloading and rehosting extensions from external sources to apply enterprise-specific verification and security standards. See how [Microsoft protects your software supply chain](https://aka.ms/vsmsecurityblog).
+
+### Key features
+
+* **Self-hosting**: Host internal and downloaded extensions on your own infrastructure, such as Azure or Kubernetes.
+* **Simple deployment**: Deploy the private marketplace as a stateless Docker container, no external database required.
+* **Flexible storage**: Publish and manage extensions using any file system or Azure Artifacts.
+* **Upstreaming**: Choose to automatically include public extensions from the Visual Studio Marketplace. Allow or deny select extensions by setting up an [allow list](#configure-allowed-extensions).
+* **Rehosting**: Choose to download and host public extensions for enhanced security and support for environments without public internet connectivity (air-gapped).
+* **Centralized rollout**: Deploy the private marketplace to your team using group policy on Windows and macOS.
+* **Integrated installation and updates**: Search for and install extensions directly from VS Code, with automatic updates for new versions in the private marketplace.
+* **Cross-platform support**: Compatible with VS Code desktop on Windows, macOS, and Linux.
+
+> [!NOTE]
+> Connecting from VS Code Server or VS Code for the Web is not supported.
+
+### Availability
+
+Private marketplace is currently available to GitHub Enterprise customers. VS Code users must sign in with a GitHub Enterprise or Copilot Enterprise/Business account to access the private marketplace.
+
+### Getting started
+
+Refer to the **[deployment and feature guide](https://aka.ms/private-marketplace/readme)** for deployment instructions, scripts, and development environment configuration. If you have questions or need assistance, contact [private marketplace support](https://aka.ms/vspm/support).
+
 ## Network: Common hostnames
 
 A handful of features within VS Code require network communication to work, such as the auto-update mechanism, querying and installing extensions, and telemetry. For these features to work properly in a proxy environment, you must have the product correctly configured.
@@ -255,4 +285,4 @@ Users can still uninstall extensions that were preinstalled. Restarting VS Code 
 
 ## Related resources
 
-- [Learn about security considerations of using AI in VS Code](/docs/copilot/security.md)
+* [Learn about security considerations of using AI in VS Code](/docs/copilot/security.md)

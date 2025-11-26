@@ -2,6 +2,8 @@
 ContentId: dc79a06a-6665-478c-9298-a1fc9cf8010d
 DateApproved: 5/13/2022
 MetaDescription: Configuring the C++ extension in Visual Studio Code to target g++ and GDB on WSL installation with Ubuntu
+Keywords:
+- C++
 ---
 # Using C++ and WSL in VS Code
 

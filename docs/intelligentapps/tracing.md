@@ -12,7 +12,7 @@ AI Toolkit hosts a local HTTP and gRPC server to collect trace data. The collect
 
 All frameworks or SDKs that support OTLP and follow [semantic conventions for generative AI systems](https://opentelemetry.io/docs/specs/semconv/gen-ai/) are supported. The following table contains common AI SDKs tested for compatibility.
 
-| | Azure AI Inference | Azure AI Foundry Agents Service | Anthropic | Gemini | LangChain | OpenAI SDK <sub>3</sub> | OpenAI Agents SDK |
+| | Azure AI Inference | Foundry Agent Service | Anthropic | Gemini | LangChain | OpenAI SDK <sub>3</sub> | OpenAI Agents SDK |
 |---|---|---|---|---|---|---|---|
 | **Python** | ✅ | ✅ | ✅ ([traceloop](https://github.com/traceloop/openllmetry))<sub>1,2</sub> | ✅  | ✅ ([LangSmith](https://github.com/langchain-ai/langsmith-sdk))<sub>1,2</sub> | ✅ ([opentelemetry-python-contrib](https://github.com/open-telemetry/opentelemetry-python-contrib))<sub>1</sub> | ✅ ([Logfire](https://github.com/pydantic/logfire))<sub>1,2</sub>  |
 | **TS/JS** | ✅ | ✅ | ✅ ([traceloop](https://github.com/traceloop/openllmetry))<sub>1,2</sub>| ❌ |✅ ([traceloop](https://github.com/traceloop/openllmetry))<sub>1,2</sub> |✅ ([traceloop](https://github.com/traceloop/openllmetry))<sub>1,2</sub>|❌|
@@ -132,7 +132,7 @@ registerInstrumentations({
 </details>
 
 <details>
-<summary>Azure AI Foundry Agent Service - Python</summary>
+<summary>Foundry Agent Service - Python</summary>
 
 **Installation:**
 ```bash
@@ -178,7 +178,7 @@ AIAgentsInstrumentor().instrument(True)
 </details>
 
 <details>
-<summary>Azure AI Foundry Agent Service - TypeScript/JavaScript</summary>
+<summary>Foundry Agent Service - TypeScript/JavaScript</summary>
 
 **Installation:**
 ```bash
