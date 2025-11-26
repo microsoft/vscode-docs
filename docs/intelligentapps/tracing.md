@@ -14,7 +14,7 @@ All frameworks or SDKs that support OTLP and follow [semantic conventions for ge
 
 | | Azure AI Inference | Foundry Agent Service | Anthropic | Gemini | LangChain | OpenAI SDK <sub>3</sub> | OpenAI Agents SDK |
 |---|---|---|---|---|---|---|---|
-| **Python** | ✅ | ✅ | ✅ ([traceloop](https://github.com/traceloop/openllmetry))<sub>1,2</sub> | ✅  | ✅ ([LangSmith](https://github.com/langchain-ai/langsmith-sdk))<sub>1,2</sub> | ✅ ([opentelemetry-python-contrib](https://github.com/open-telemetry/opentelemetry-python-contrib))<sub>1</sub> | ✅ ([Logfire](https://github.com/pydantic/logfire))<sub>1,2</sub>  |
+| **Python** | ✅ ([monocle](https://github.com/monocle2ai/monocle)) | ✅ | ✅ ([traceloop](https://github.com/traceloop/openllmetry), [monocle](https://github.com/monocle2ai/monocle))<sub>1,2</sub> | ✅ ([monocle](https://github.com/monocle2ai/monocle)) | ✅ ([LangSmith](https://github.com/langchain-ai/langsmith-sdk), [monocle](https://github.com/monocle2ai/monocle))<sub>1,2</sub> | ✅ ([opentelemetry-python-contrib](https://github.com/open-telemetry/opentelemetry-python-contrib), [monocle](https://github.com/monocle2ai/monocle))<sub>1</sub> | ✅ ([Logfire](https://github.com/pydantic/logfire), [monocle](https://github.com/monocle2ai/monocle))<sub>1,2</sub>  |
 | **TS/JS** | ✅ | ✅ | ✅ ([traceloop](https://github.com/traceloop/openllmetry))<sub>1,2</sub>| ❌ |✅ ([traceloop](https://github.com/traceloop/openllmetry))<sub>1,2</sub> |✅ ([traceloop](https://github.com/traceloop/openllmetry))<sub>1,2</sub>|❌|
 
 > 1. The SDKs in brackets are non-Microsoft tools that add OTLP support because the official SDKs do not support OTLP.
@@ -47,6 +47,8 @@ The process is similar for all SDKs:
 
 <details>
 <summary>Azure AI Inference SDK - Python</summary>
+
+### OpenTelemetry
 
 **Installation:**
 ```bash
@@ -88,6 +90,32 @@ _events.set_event_logger_provider(EventLoggerProvider(logger_provider))
 
 from azure.ai.inference.tracing import AIInferenceInstrumentor
 AIInferenceInstrumentor().instrument(True)
+```
+
+### Monocle
+
+**Installation:**
+```bash
+pip install opentelemetry-sdk opentelemetry-exporter-otlp-proto-http monocle_apptrace
+```
+
+**Setup:**
+```python
+from opentelemetry.sdk.trace.export import BatchSpanProcessor
+from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
+
+# Import monocle_apptrace
+from monocle_apptrace import setup_monocle_telemetry
+
+# Setup Monocle telemetry with OTLP span exporter for traces
+setup_monocle_telemetry(
+    workflow_name="opentelemetry-instrumentation-azure-ai-inference",
+    span_processors=[
+        BatchSpanProcessor(
+            OTLPSpanExporter(endpoint="http://localhost:4318/v1/traces")
+        )
+    ]
+)
 ```
 </details>
 
@@ -221,6 +249,8 @@ registerInstrumentations({
 <details>
 <summary>Anthropic - Python</summary>
 
+### OpenTelemetry
+
 **Installation:**
 ```bash
 pip install opentelemetry-sdk opentelemetry-exporter-otlp-proto-http opentelemetry-instrumentation-anthropic
@@ -258,6 +288,32 @@ _events.set_event_logger_provider(EventLoggerProvider(logger_provider))
 from opentelemetry.instrumentation.anthropic import AnthropicInstrumentor
 AnthropicInstrumentor().instrument()
 ```
+
+### Monocle
+
+**Installation:**
+```bash
+pip install opentelemetry-sdk opentelemetry-exporter-otlp-proto-http monocle_apptrace
+```
+
+**Setup:**
+```python
+from opentelemetry.sdk.trace.export import BatchSpanProcessor
+from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
+
+# Import monocle_apptrace
+from monocle_apptrace import setup_monocle_telemetry
+
+# Setup Monocle telemetry with OTLP span exporter for traces
+setup_monocle_telemetry(
+    workflow_name="opentelemetry-instrumentation-anthropic",
+    span_processors=[
+        BatchSpanProcessor(
+            OTLPSpanExporter(endpoint="http://localhost:4318/v1/traces")
+        )
+    ]
+)
+```
 </details>
 
 <details>
@@ -283,6 +339,8 @@ initialize({
 
 <details>
 <summary>Google Gemini - Python</summary>
+
+### OpenTelemetry
 
 **Installation:**
 ```bash
@@ -321,10 +379,38 @@ _events.set_event_logger_provider(EventLoggerProvider(logger_provider))
 from opentelemetry.instrumentation.google_genai import GoogleGenAiSdkInstrumentor
 GoogleGenAiSdkInstrumentor().instrument(enable_content_recording=True)
 ```
+
+### Monocle
+
+**Installation:**
+```bash
+pip install opentelemetry-sdk opentelemetry-exporter-otlp-proto-http monocle_apptrace
+```
+
+**Setup:**
+```python
+from opentelemetry.sdk.trace.export import BatchSpanProcessor
+from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
+
+# Import monocle_apptrace
+from monocle_apptrace import setup_monocle_telemetry
+
+# Setup Monocle telemetry with OTLP span exporter for traces
+setup_monocle_telemetry(
+    workflow_name="opentelemetry-instrumentation-google-genai",
+    span_processors=[
+        BatchSpanProcessor(
+            OTLPSpanExporter(endpoint="http://localhost:4318/v1/traces")
+        )
+    ]
+)
+```
 </details>
 
 <details>
 <summary>LangChain - Python</summary>
+
+### LangSmith
 
 **Installation:**
 ```bash
@@ -337,6 +423,32 @@ import os
 os.environ["LANGSMITH_OTEL_ENABLED"] = "true"
 os.environ["LANGSMITH_TRACING"] = "true"
 os.environ["OTEL_EXPORTER_OTLP_ENDPOINT"] = "http://localhost:4318"
+```
+
+### Monocle
+
+**Installation:**
+```bash
+pip install opentelemetry-sdk opentelemetry-exporter-otlp-proto-http monocle_apptrace
+```
+
+**Setup:**
+```python
+from opentelemetry.sdk.trace.export import BatchSpanProcessor
+from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
+
+# Import monocle_apptrace
+from monocle_apptrace import setup_monocle_telemetry
+
+# Setup Monocle telemetry with OTLP span exporter for traces
+setup_monocle_telemetry(
+    workflow_name="opentelemetry-instrumentation-langchain",
+    span_processors=[
+        BatchSpanProcessor(
+            OTLPSpanExporter(endpoint="http://localhost:4318/v1/traces")
+        )
+    ]
+)
 ```
 </details>
 
@@ -361,6 +473,8 @@ initialize({
 
 <details>
 <summary>OpenAI - Python</summary>
+
+### OpenTelemetry
 
 **Installation:**
 ```bash
@@ -411,6 +525,32 @@ _events.set_event_logger_provider(EventLoggerProvider(logger_provider))
 # Enable OpenAI instrumentation
 OpenAIInstrumentor().instrument()
 ```
+
+### Monocle
+
+**Installation:**
+```bash
+pip install opentelemetry-sdk opentelemetry-exporter-otlp-proto-http monocle_apptrace
+```
+
+**Setup:**
+```python
+from opentelemetry.sdk.trace.export import BatchSpanProcessor
+from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
+
+# Import monocle_apptrace
+from monocle_apptrace import setup_monocle_telemetry
+
+# Setup Monocle telemetry with OTLP span exporter for traces
+setup_monocle_telemetry(
+    workflow_name="opentelemetry-instrumentation-openai",
+    span_processors=[
+        BatchSpanProcessor(
+            OTLPSpanExporter(endpoint="http://localhost:4318/v1/traces")
+        )
+    ]
+)
+```
 </details>
 
 <details>
@@ -435,6 +575,8 @@ initialize({
 <details>
 <summary>OpenAI Agents SDK - Python</summary>
 
+### Logfire
+
 **Installation:**
 ```bash
 pip install logfire
@@ -453,9 +595,35 @@ logfire.configure(
 )
 logfire.instrument_openai_agents()
 ```
+
+### Monocle
+
+**Installation:**
+```bash
+pip install opentelemetry-sdk opentelemetry-exporter-otlp-proto-http monocle_apptrace
+```
+
+**Setup:**
+```python
+from opentelemetry.sdk.trace.export import BatchSpanProcessor
+from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
+
+# Import monocle_apptrace
+from monocle_apptrace import setup_monocle_telemetry
+
+# Setup Monocle telemetry with OTLP span exporter for traces
+setup_monocle_telemetry(
+    workflow_name="opentelemetry-instrumentation-openai-agents",
+    span_processors=[
+        BatchSpanProcessor(
+            OTLPSpanExporter(endpoint="http://localhost:4318/v1/traces")
+        )
+    ]
+)
+```
 </details>
 
-## Example: set up tracing with the Azure AI Inference SDK
+## Example 1: set up tracing with the Azure AI Inference SDK using Opentelemetry
 
 The following end-to-end example uses the Azure AI Inference SDK in Python and shows how to set up the tracing provider and instrumentation.
 
@@ -629,6 +797,375 @@ Use the following instructions to deploy a preconfigured development environment
     Select the **Metadata** tab to view the raw metadata.
 
     ![Screenshot showing the Trace Details view in the Tracing webview.](./images/tracing/trace_details.png)
+
+## Example 2: set up tracing with the Azure AI Inference SDK using Monocle
+
+The following end-to-end example uses the Azure AI Inference SDK in Python with Monocle and shows how to set up the tracing provider and instrumentation.
+
+### Prerequisites
+
+To run this example, you need the following prerequisites:
+
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [AI Toolkit extension](https://marketplace.visualstudio.com/items?itemName=ms-ai-toolkit.vscode-ai-toolkit)
+- [Azure AI Inference SDK](https://pypi.org/project/azure-ai-inference/)
+- [Monocle](https://github.com/monocle2ai/monocle)
+- [Python latest version](https://www.python.org/downloads)
+- Azure OpenAI endpoint and API key
+
+### Set up your development environment
+
+Use the following instructions to deploy a preconfigured development environment containing all required dependencies to run this example.
+
+1. Create environment variables
+
+    Create a `.env` file in your project directory with the following variables:
+
+    ```
+    AZURE_OPENAI_ENDPOINT=
+    AZURE_OPENAI_API_KEY=
+    AZURE_OPENAI_API_DEPLOYMENT=gpt-4o-2024-08-06
+    AZURE_OPENAI_API_VERSION=2025-02-01-preview
+    ```
+
+    Replace the values with your actual Azure OpenAI credentials.
+
+1. Install Python packages
+
+    Create a `requirements.txt` file with the following content:
+
+    ```
+    opentelemetry-sdk
+    opentelemetry-exporter-otlp-proto-http
+    monocle_apptrace
+    azure-ai-inference[opentelemetry]
+    python-dotenv
+    ```
+
+    Install the packages using:
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+1. Set up tracing
+
+    1. Create a new local directory on your computer for the project.
+
+        ```shell
+        mkdir my-monocle-tracing-app
+        ```
+
+    1. Navigate to the directory you created.
+
+        ```shell
+        cd my-monocle-tracing-app
+        ```
+
+    1. Open Visual Studio Code in that directory:
+
+        ```shell
+        code .
+        ```
+
+1. Create the Python file
+
+    1. In the `my-monocle-tracing-app` directory, create a Python file named `main.py`.
+
+        You'll add the code to set up tracing with Monocle and interact with the Azure AI Inference SDK.
+
+    1. Add the following code to `main.py` and save the file:
+
+        ```python
+        import os
+        from dotenv import load_dotenv
+
+        # Load environment variables from .env file
+        load_dotenv()
+
+        ### Set up for OpenTelemetry tracing ###
+        os.environ["AZURE_TRACING_GEN_AI_CONTENT_RECORDING_ENABLED"] = "true"
+        os.environ["AZURE_SDK_TRACING_IMPLEMENTATION"] = "opentelemetry"
+
+        from opentelemetry.sdk.trace.export import BatchSpanProcessor
+        from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
+
+        # Import monocle_apptrace
+        from monocle_apptrace import setup_monocle_telemetry
+
+        azure_openai_endpoint = os.environ["AZURE_OPENAI_ENDPOINT"]
+        azure_openai_api_key = os.environ["AZURE_OPENAI_API_KEY"]
+        azure_openai_api_deployment = os.environ["AZURE_OPENAI_API_DEPLOYMENT"]
+        azure_openai_api_version = os.environ["AZURE_OPENAI_API_VERSION"]
+        endpoint = f"{azure_openai_endpoint}/openai/deployments/{azure_openai_api_deployment}"
+
+        # Setup Monocle telemetry with OTLP span exporter for traces
+        setup_monocle_telemetry(
+            workflow_name="opentelemetry-instrumentation-azure-ai-inference",
+            span_processors=[
+                BatchSpanProcessor(
+                    OTLPSpanExporter(endpoint="http://localhost:4318/v1/traces")
+                )
+            ]
+        )
+
+        from azure.ai.inference import ChatCompletionsClient
+        from azure.ai.inference.models import UserMessage
+        from azure.ai.inference.models import TextContentItem
+        from azure.core.credentials import AzureKeyCredential
+
+        client = ChatCompletionsClient(
+            endpoint = endpoint,
+            credential = AzureKeyCredential(azure_openai_api_key),
+            api_version = azure_openai_api_version,
+        )
+
+        response = client.complete(
+            messages = [
+                UserMessage(content = [
+                    TextContentItem(text = "hello from Monocle!"),
+                ]),
+            ],
+            model = azure_openai_api_deployment,
+            tools = [],
+            response_format = "text",
+            temperature = 1,
+            top_p = 1,
+        )
+
+        print(response.choices[0].message.content)
+        ```
+
+1. Run the code
+
+    1. Open a new terminal in Visual Studio Code.
+
+    1. In the terminal, run the code using the command `python main.py`.
+
+1. Check the trace data in AI Toolkit
+
+    After you run the code and refresh the tracing webview, there's a new trace in the list.
+
+    Select the trace to open the trace details webview.
+
+    ![Screenshot showing selecting a trace from the Trace List in the Tracing webview.](./images/tracing/trace_list_azure_monocle.png)
+
+    Check the complete execution flow of your app in the left span tree view.
+
+    Select a span in the right span details view to see generative AI messages in the **Input + Output** tab.
+
+    Select the **Metadata** tab to view the raw metadata.
+
+    ![Screenshot showing the Trace Details view in the Tracing webview.](./images/tracing/trace_details_azure_monocle.png)
+
+## Example 3: set up tracing with the OpenAI Agents SDK using Monocle
+
+The following end-to-end example uses the OpenAI Agents SDK in Python with Monocle and shows how to set up tracing for a multi-agent travel booking system.
+
+### Prerequisites
+
+To run this example, you need the following prerequisites:
+
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [AI Toolkit extension](https://marketplace.visualstudio.com/items?itemName=ms-ai-toolkit.vscode-ai-toolkit)
+- [OpenAI Agents SDK](https://github.com/openai/agents)
+- [Monocle](https://github.com/monocle2ai/monocle)
+- [Python latest version](https://www.python.org/downloads)
+- OpenAI API key
+
+### Set up your development environment
+
+Use the following instructions to deploy a preconfigured development environment containing all required dependencies to run this example.
+
+1. Create environment variable
+
+    Create an environment variable for your OpenAI API key using one of the following code snippets. Replace `<your-openai-api-key>` with your actual OpenAI API key.
+
+    bash:
+
+    ```bash
+    export OPENAI_API_KEY="<your-openai-api-key>"
+    ```
+
+    powershell:
+
+    ```powershell
+    $Env:OPENAI_API_KEY="<your-openai-api-key>"
+    ```
+
+    Windows command prompt:
+
+    ```cmd
+    set OPENAI_API_KEY=<your-openai-api-key>
+    ```
+
+    Alternatively, create a `.env` file in your project directory:
+
+    ```
+    OPENAI_API_KEY=<your-openai-api-key>
+    ```
+
+1. Install Python packages
+
+    Create a `requirements.txt` file with the following content:
+
+    ```
+    opentelemetry-sdk
+    opentelemetry-exporter-otlp-proto-http
+    monocle_apptrace
+    openai-agents
+    python-dotenv
+    ```
+
+    Install the packages using:
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+1. Set up tracing
+
+    1. Create a new local directory on your computer for the project.
+
+        ```shell
+        mkdir my-agents-tracing-app
+        ```
+
+    1. Navigate to the directory you created.
+
+        ```shell
+        cd my-agents-tracing-app
+        ```
+
+    1. Open Visual Studio Code in that directory:
+
+        ```shell
+        code .
+        ```
+
+1. Create the Python file
+
+    1. In the `my-agents-tracing-app` directory, create a Python file named `main.py`.
+
+        You'll add the code to set up tracing with Monocle and interact with the OpenAI Agents SDK.
+
+    1. Add the following code to `main.py` and save the file:
+
+        ```python
+        import os
+
+        from dotenv import load_dotenv
+
+        # Load environment variables from .env file
+        load_dotenv()
+
+        from opentelemetry.sdk.trace.export import BatchSpanProcessor
+        from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
+
+        # Import monocle_apptrace
+        from monocle_apptrace import setup_monocle_telemetry
+
+        # Setup Monocle telemetry with OTLP span exporter for traces
+        setup_monocle_telemetry(
+            workflow_name="opentelemetry-instrumentation-openai-agents",
+            span_processors=[
+                BatchSpanProcessor(
+                    OTLPSpanExporter(endpoint="http://localhost:4318/v1/traces")
+                )
+            ]
+        )
+
+        from agents import Agent, Runner, function_tool
+
+        # Define tool functions
+        @function_tool
+        def book_flight(from_airport: str, to_airport: str) -> str:
+            """Book a flight between airports."""
+            return f"Successfully booked a flight from {from_airport} to {to_airport} for 100 USD."
+
+        @function_tool
+        def book_hotel(hotel_name: str, city: str) -> str:
+            """Book a hotel reservation."""
+            return f"Successfully booked a stay at {hotel_name} in {city} for 50 USD."
+
+        @function_tool
+        def get_weather(city: str) -> str:
+            """Get weather information for a city."""
+            return f"The weather in {city} is sunny and 75°F."
+
+        # Create specialized agents
+        flight_agent = Agent(
+            name="Flight Agent",
+            instructions="You are a flight booking specialist. Use the book_flight tool to book flights.",
+            tools=[book_flight],
+        )
+
+        hotel_agent = Agent(
+            name="Hotel Agent",
+            instructions="You are a hotel booking specialist. Use the book_hotel tool to book hotels.",
+            tools=[book_hotel],
+        )
+
+        weather_agent = Agent(
+            name="Weather Agent",
+            instructions="You are a weather information specialist. Use the get_weather tool to provide weather information.",
+            tools=[get_weather],
+        )
+
+        # Create a coordinator agent with tools
+        coordinator = Agent(
+            name="Travel Coordinator",
+            instructions="You are a travel coordinator. Delegate flight bookings to the Flight Agent, hotel bookings to the Hotel Agent, and weather queries to the Weather Agent.",
+            tools=[
+                flight_agent.as_tool(
+                    tool_name="flight_expert",
+                    tool_description="Handles flight booking questions and requests.",
+                ),
+                hotel_agent.as_tool(
+                    tool_name="hotel_expert",
+                    tool_description="Handles hotel booking questions and requests.",
+                ),
+                weather_agent.as_tool(
+                    tool_name="weather_expert",
+                    tool_description="Handles weather information questions and requests.",
+                ),
+            ],
+        )
+
+        # Run the multi-agent workflow
+        if __name__ == "__main__":
+            import asyncio
+
+            result = asyncio.run(
+                Runner.run(
+                    coordinator,
+                    "Book me a flight today from SEA to SFO, then book the best hotel there and tell me the weather.",
+                )
+            )
+            print(result.final_output)
+        ```
+
+1. Run the code
+
+    1. Open a new terminal in Visual Studio Code.
+
+    1. In the terminal, run the code using the command `python main.py`.
+
+1. Check the trace data in AI Toolkit
+
+    After you run the code and refresh the tracing webview, there's a new trace in the list.
+
+    Select the trace to open the trace details webview.
+
+    ![Screenshot showing selecting a trace from the Trace List in the Tracing webview.](./images/tracing/trace_list_openai_agents_monocle.png)
+
+    Check the complete execution flow of your app in the left span tree view, including agent invocations, tool calls, and agent delegations.
+
+    Select a span in the right span details view to see generative AI messages in the **Input + Output** tab.
+
+    Select the **Metadata** tab to view the raw metadata.
+
+    ![Screenshot showing the Trace Details view in the Tracing webview.](./images/tracing/trace_details_openai_agents_monocle.png)
 
 ## What you learned
 
