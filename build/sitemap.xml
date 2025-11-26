@@ -466,6 +466,21 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/copilot/agents/overview</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/agents/background-agents</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/agents/cloud-agents</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/copilot/guides/context-engineering-guide</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -1906,6 +1921,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/intelligentapps/finetune</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/intelligentapps/finetune-legacy</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

@@ -2,6 +2,8 @@
 ContentId: 86543311-5452-4b1f-a44c-03cc3df04c3f
 DateApproved: 6/11/2020
 MetaDescription: Get started with the CMake Tools Visual Studio Code extension on Linux
+Keywords:
+- C++
 ---
 # Get started with CMake Tools on Linux
 

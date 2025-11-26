@@ -103,7 +103,7 @@
       ["", "", {
         "name": "Chat",
         "area": "copilot/chat",
-        "noCollapse": true,
+        "noCollapse": false,
         "topics": [
           ["Overview", "/docs/copilot/chat/copilot-chat"],
           ["Chat Sessions", "/docs/copilot/chat/chat-sessions"],
@@ -121,9 +121,20 @@
       ["Inline Suggestions", "/docs/copilot/ai-powered-suggestions"],
       ["Copilot Coding Agent", "/docs/copilot/copilot-coding-agent"],
       ["", "", {
+        "name": "Agents",
+        "area": "copilot/agents",
+        "noCollapse": true,
+        "topics": [
+          ["Overview", "/docs/copilot/agents/overview"],
+          ["Cloud Agents", "/docs/copilot/agents/cloud-agents"],
+          ["Background Agents", "/docs/copilot/agents/background-agents"]
+        ]
+      }
+      ],
+      ["", "", {
         "name": "Customization",
         "area": "copilot/customization",
-        "noCollapse": true,
+        "noCollapse": false,
         "topics": [
           ["Overview", "/docs/copilot/customization/overview"],
           ["Instructions", "/docs/copilot/customization/custom-instructions"],
@@ -137,7 +148,7 @@
       ["", "", {
         "name": "Guides",
         "area": "copilot/guides",
-        "noCollapse": true,
+        "noCollapse": false,
         "topics": [
           ["Prompt Engineering", "/docs/copilot/guides/prompt-engineering-guide"],
           ["Context Engineering", "/docs/copilot/guides/context-engineering-guide"],
@@ -361,7 +372,8 @@
       ["PyTorch Support", "/docs/datascience/pytorch-support"],
       ["Azure Machine Learning", "/docs/datascience/azure-machine-learning"],
       ["Manage Jupyter Kernels", "/docs/datascience/jupyter-kernel-management"],
-      ["Jupyter Notebooks on the Web", "/docs/datascience/notebooks-web"]
+      ["Jupyter Notebooks on the Web", "/docs/datascience/notebooks-web"],
+      ["Data science in Microsoft Fabric", "/docs/datascience/microsoft-fabric-quickstart"]
     ]
   },
   {
@@ -375,7 +387,8 @@
       ["Agent Builder", "/docs/intelligentapps/agentbuilder"],
       ["Bulk Run", "/docs/intelligentapps/bulkrun"],
       ["Evaluation", "/docs/intelligentapps/evaluation"],
-      ["Fine-tune", "/docs/intelligentapps/finetune"],
+      ["Fine-tuning (Automated Setup)", "/docs/intelligentapps/finetune"],
+      ["Fine-tuning (Project Template)", "/docs/intelligentapps/finetune-legacy"],
       ["Model Conversion", "/docs/intelligentapps/modelconversion"],
       ["Tracing", "/docs/intelligentapps/tracing"],
       ["FAQ", "/docs/intelligentapps/faq"],

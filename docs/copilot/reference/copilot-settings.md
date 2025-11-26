@@ -58,8 +58,8 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 | `setting(chat.editing.autoAcceptDelay)`<br/>Configure a delay after which suggested edits are automatically accepted, use zero to disable auto-accept. | `0` |
 | `setting(chat.fontFamily)`<br/>Font family for Markdown content in chat. | `"default"` |
 | `setting(chat.fontSize)`<br/>Font size in pixels for Markdown content in chat. | `13` |
-| `setting(chat.notifyWindowOnConfirmation)`<br/>Enable or disable showing a OS notification window when user input is needed. | `true` |
-| `setting(chat.notifyWindowOnResponseReceived)`<br/>Enable or disable showing a OS notification window when a chat response is received. | `true` |
+| `setting(chat.notifyWindowOnConfirmation)`<br/>Enable or disable showing an OS notification window when user input is needed. | `true` |
+| `setting(chat.notifyWindowOnResponseReceived)`<br/>Enable or disable showing an OS notification window when a chat response is received. | `true` |
 | `setting(chat.tools.terminal.autoReplyToPrompts)` <br/>Automatically reply to terminal prompts with a default answer. | `false` |
 | `setting(chat.tools.terminal.terminalProfile.<platform>)`<br/>Configure which terminal profile to use for chat terminal commands on each platform. | `""` |
 | `setting(chat.useAgentsMdFile)` <br/>Enable or disable using `AGENTS.md` files as context for chat requests. | `true` |
@@ -83,10 +83,12 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 | `setting(chat.tools.terminal.autoApprove)` <br/>Control which terminal commands are [auto-approved when using agents](/docs/copilot/chat/chat-tools.md#automatically-approve-terminal-commands). Commands can be set to `true` (auto-approve) or `false` (require approval). Regular expressions can be used by wrapping patterns in `/` characters. | `{ "rm": false, "rmdir": false, "del": false, "kill": false, "curl": false, "wget": false, "eval": false, "chmod": false, "chown": false, "/^Remove-Item\\b/i": false }` |
 | `setting(chat.tools.global.autoApprove)`<br/>Automatically approve all tools - this setting [disables critical security protections](/docs/copilot/security.md). | `false` |
 | `setting(chat.agent.thinkingStyle)` _(Experimental)_<br/>Configure how thinking tokens are presented in chat. | `fixedScrolling` |
+| `setting(chat.customAgentInSubagent.enabled)` _(Experimental)_<br/>Enable using a custom agent with [subagents](/docs/copilot/chat/chat-sessions.md#context-isolated-subagents). | `false` |
 | `setting(chat.mcp.autoStart)` _(Experimental)_<br/>Automatically start MCP servers when MCP configuration changes are detected. | `newAndOutdated` |
 | `setting(chat.agent.todoList.position)` _(Experimental)_<br/>Configure the visibility and position of the todo list control in chat. | `"default"` |
 | `setting(github.copilot.chat.newWorkspaceCreation.enabled)` _(Experimental)_<br/>Enable the tool for scaffolding a new workspace in chat. | `true` |
 | `setting(github.copilot.chat.agent.thinkingTool:true)` _(Experimental)_<br/>Enable the thinking tool when using agents. | `false` |
+| `setting(github.copilot.chat.summarizeAgentConversationHistory.enabled)` _(Experimental)_<br/>Automatically summarize the agent conversation history when the context window is full. | `true` |
 | `setting(github.copilot.chat.virtualTools.threshold)` _(Experimental)_<br/>Tool count over which virtual tools should be used. Virtual tools group similar sets of tools together and enable the model to activate them on-demand. Enables you to go beyond the limit of 128 tools for a chat request. | `128` |
 
 ## Agent sessions

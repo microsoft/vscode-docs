@@ -131,7 +131,7 @@ To configure a language model from a built-in provider:
 > [!NOTE]
 > Configuring a custom OpenAI-compatible model is currently only available in [VS Code Insiders](https://code.visualstudio.com/insiders/) as of release 1.104.
 
-The custom OpenAI provider enables you use any OpenAI-compatible API endpoint and configure the models for use in chat.
+The custom OpenAI provider enables you to use any OpenAI-compatible API endpoint and configure the models for use in chat.
 
 To configure a custom OpenAI endpoint and model:
 

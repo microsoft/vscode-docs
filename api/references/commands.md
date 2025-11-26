@@ -305,13 +305,6 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 * _value_ - The context key value
 * _(returns)_ - no result
 
-`vscode.executeMappedEditsProvider` - Execute Mapped Edits Provider
-
-* _uri_ - Uri of a text document
-* _string_array_ - Array of string,
-* _MappedEditsContext_ - Mapped Edits Context
-* _(returns)_ - A promise that resolves to a workspace edit or null
-
 `cursorMove` - Move cursor to a logical position in the view
 
 * _Cursor move argument object_ - Property-value pairs that can be passed through this argument:

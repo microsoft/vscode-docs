@@ -86,7 +86,7 @@ To learn more about floating windows, read the section in the [Custom Layout](/d
 
 A Minimap (code outline) gives you a high-level overview of your source code, which is useful for quick navigation and code understanding. A file's minimap is shown on the right side of the editor. You can select or drag the shaded area to quickly jump to different sections in your file.
 
-If you have [folding markers](/docs/editing/codebasics.md#folding) in the editor, such as `//#region` or `MARK:` comments, then the minimap shows the folding marker names.
+If you have [folding markers](/docs/editing/codebasics.md#folding) in the editor, such as `//#region` comments, then the minimap shows the folding marker names. Folding markers are language-specific, so check which markers apply to your language.
 
 ![minimap](images/userinterface/minimap.png)
 

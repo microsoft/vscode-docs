@@ -46,7 +46,7 @@ Visit the GitHub Copilot documentation for more information about [monitoring us
 
 ### I reached my inline suggestions or chat interactions limit
 
-Your limit of inline suggestions and chat interactions is reset every month. If only you've only reached the chat interactions limit, you can still use inline suggestions. Inversely, if you've reached the limit for inline suggestions, you can still use chat.
+Your limit of inline suggestions and chat interactions is reset every month. If you've only reached the chat interactions limit, you can still use inline suggestions. Similarly, if you've reached the limit for inline suggestions, you can still use chat.
 
 For users on Copilot Free, to access more inline suggestions and chat interactions, you can sign up for a [paid plan](https://docs.github.com/en/copilot/concepts/billing/individual-plans) directly from VS Code. Alternatively, you can wait until the next month to continue using Copilot for free.
 

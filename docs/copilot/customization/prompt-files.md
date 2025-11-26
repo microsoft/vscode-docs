@@ -28,7 +28,7 @@ The header is formatted as YAML frontmatter with the following fields:
 | `description`     | A short description of the prompt. |
 | `name`            | The name of the prompt, used after typing `/` in chat. If not specified, the file name is used. |
 | `argument-hint`   | Optional hint text shown in the chat input field to guide users on how to interact with the prompt. |
-| `agent`           | The agent used for running the prompt: `ask`, `edit`, `agent` (default), or the name of a [custom agent](/docs/copilot/customization/custom-agents.md). |
+| `agent`           | The agent used for running the prompt: `ask`, `edit`, `agent`, or the name of a [custom agent](/docs/copilot/customization/custom-agents.md). By default, the current agent is used. If tools are specified and the current agent is `ask` or `edit`, the default agent is `agent`. |
 | `model`           | The language model used when running the prompt. If not specified, the currently selected model in model picker is used. |
 | `tools`           | A list of tool or tool set names that are available for this prompt. Can include built-in tools, tool sets, MCP tools, or tools contributed by extensions. To include all tools of an MCP server, use the `<server name>/*` format.<br/>Learn more about [tools in chat](/docs/copilot/chat/chat-tools.md). |
 
@@ -155,7 +155,7 @@ You have multiple options to run a prompt file:
 
 You can specify the list of available tools for both a custom agent and prompt file by using the `tools` metadata field. Prompt files can also reference a custom agent by using the `agent` metadata field.
 
-The list available tools in chat is determined by the following priority order:
+The list of available tools in chat is determined by the following priority order:
 
 1. Tools specified in the prompt file (if any)
 2. Tools from the referenced custom agent in the prompt file (if any)
