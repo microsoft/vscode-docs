@@ -827,6 +827,7 @@ Currently extension writers can contribute to:
 - `scm/resourceFolder/context` - [SCM resource folders](/api/extension-guides/scm-provider#menus) menus
 - `scm/resourceState/context` - [SCM resources](/api/extension-guides/scm-provider#menus) menus
 - `scm/change/title` - [SCM change title](/api/extension-guides/scm-provider#menus) menus
+- `scm/repository` - [SCM repository menu](/api/extension-guides/scm-provider#menus)
 - `scm/sourceControl`- [SCM source control menu](/api/extension-guides/scm-provider#menus)
 - `terminal/context` - terminal context menu
 - `terminal/title/context` - terminal title context menu
