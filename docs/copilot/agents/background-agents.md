@@ -94,11 +94,15 @@ To continue a local agent session in a background agent session:
 
 1. Interact with a local agent until you're ready to pass the task to a background agent
 
-1. To continue in a background agent, you have two options:
+1. To continue in a background agent, you have the following options:
 
     * Select **Continue in Chat** and then select **Background**
 
         ![Screenshot showing the "Continue in Chat" button in VS Code chat interface.](./images/background-agents/continue-in-chat-background.png)
+
+    * If you're using the [Plan agent](/docs/copilot/chat/chat-planning.md), select the **Start Implementation** dropdown and the select **Continue in Background** to run the implementation in a background agent session
+
+        ![Screenshot showing the "Start Implementation" button in VS Code chat interface.](./images/background-agents/plan-agent-start-implementation-background.png)
 
     * Type `@cli /delegate` in the chat input and send the message
 
