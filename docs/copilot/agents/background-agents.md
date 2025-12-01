@@ -21,28 +21,23 @@ The Agents view in VS Code provides visibility into all your background agent se
 
 To assign a task to a background agent, you can create a new background session directly from the Agent Sessions view, use the agent's dedicated CLI, or continue a local chat conversation from VS Code as a background agent session.
 
-
-
-
-## Copilot CLI
+### Copilot CLI
 
 The **Copilot CLI** is the primary background agent in VS Code, providing a command-line interface for autonomous coding tasks.
 
-### Key features
+To get started, make sure to install and set up Copilot CLI:
 
-* **Terminal-based interface**: Native command-line interaction for advanced users
-* **Autonomous task execution**: Independent operation on complex, multi-step workflows
-* **Worktree integration**: Isolated development environments using Git worktrees
-* **Batch operations**: Process multiple files or repositories efficiently
+```bash
+npm install -g @github/copilot
+```
 
-### Installation and setup
+Learn more about [Copilot CLI](https://docs.github.com/en/copilot/concepts/agents/about-copilot-cli) in the GitHub documentation.
 
-Copilot CLI integrates directly with VS Code's terminal:
+### OpenAI Codex
 
-1. Copilot CLI installs automatically with the GitHub Copilot extension.
-1. Access the CLI through VS Code's integrated terminal.
-1. Authentication uses your existing GitHub Copilot credentials.
-1. Configuration inherits VS Code settings and workspace configuration.
+The **OpenAI Codex** background agent uses OpenAI's Codex to perform coding tasks autonomously. To use the OpenAI Codex agent, make sure to install the [OpenAI Codex](https://marketplace.visualstudio.com/items?itemName=openai.chatgpt) extension from the Visual Studio Marketplace.
+
+OpenAI Codex in VS Code enables you to use your Copilot Pro+ subscription to authenticate and access Codex without additional setup. Get more information about [GitHub Copilot billing and premium requests](https://docs.github.com/en/copilot/concepts/billing/copilot-requests) in the GitHub documentation.
 
 ## Start a background agent session
 
