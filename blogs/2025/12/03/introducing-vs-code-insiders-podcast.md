@@ -3,8 +3,8 @@ Order: 121
 TOCTitle: "Introducing the VS Code Insiders Podcast"
 PageTitle: "Introducing the VS Code Insiders Podcast"
 MetaDescription: The VS Code Insiders Podcast is your insider's guide to the features, decisions, and people shaping the future of Visual Studio Code.
-MetaSocialImage: 
-Date: 2025-12-02
+MetaSocialImage:
+Date: 2025-12-03
 Author: James Montemagno and Pierce Boggan
 ---
 
