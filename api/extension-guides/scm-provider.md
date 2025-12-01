@@ -133,6 +133,8 @@ When creating them, `SourceControl` and `SourceControlResourceGroup` instances r
 }
 ```
 
+The `scm/repository` menu is the menu on each `SourceControl` instance in the **Source Control Repositories** view. Place menu items in the `inline` group to have them appear inline. All other menu item groups will be shown in the `...` menu. The `inline` group is rendered given the available space and menu items that do not fit are automatically moved into the `...` menu.
+
 The `scm/sourceControl` menu is the context menu on each `SourceControl` instance in the **Source Control Repositories** view:
 
 ![source control menu](images/scm-provider/sourcecontrol-menu.png)
