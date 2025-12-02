@@ -196,20 +196,27 @@ When you delegate a session, VS Code creates a new agent session of the selected
 
 ## Open session details
 
-Click on an agent session in the Agents view to open a chat editor that displays the full conversation history, file changes, and status updates.
+Select an agent session in the Agents view to open a chat editor that displays the full conversation history, file changes, and status updates.
 
-You can interact with the agent directly in this chat editor, providing additional instructions or feedback as needed.
+![Screenshot of an agent session details view in VS Code.](./images/overview/agent-session-details.png)
+
+You can continue iterating with the agent via the chat interface in the session details view. For example, you can ask the agent to make further modifications, explain changes, run tests, and more.
 
 ## Review file changes
 
-Click the **File Changes** tab in the session details to see a summary of all modifications made by the agent.
+When an agent makes code modifications, you can review the changes directly from within the session details view. The view shows the list of changed files, along with diff statistics.
 
-Apply changes to our local workspace
+![Screenshot of the file changes diff editor in an agent session.](./images/overview/agent-file-changes.png)
 
-Background agents running in worktree, compare changes and migrate to main workspace / open worktree in new window
+Select a changed file to view a diff editor that highlights the specific lines added, removed, or modified by the agent.
 
-Check out PRs created by cloud agents -> session details view or via GH PR and Issues view
-    Copilot on My Behalf query
+You can perform the following actions in the agent session details view:
+
+* **Open Changes**: view a multi-file diff editor with all changes made during the session
+
+* **Apply Changes**: apply all modifications made by the agent to your local workspace
+
+* **Checkout Changes**: create a new branch with the agent's changes and switch to that branch
 
 ## Related resources
 
