@@ -176,6 +176,7 @@
       ["Repositories & Remotes", "/docs/sourcecontrol/repos-remotes"],
       ["Merge Conflicts", "/docs/sourcecontrol/merge-conflicts"],
       ["Collaborate on GitHub", "/docs/sourcecontrol/github"],
+      ["Troubleshooting", "/docs/sourcecontrol/troubleshooting"],
       ["FAQ", "/docs/sourcecontrol/faq"]
     ]
   },

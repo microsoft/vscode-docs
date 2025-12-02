@@ -165,4 +165,5 @@ Browse available SCM provider extensions in the Extensions view (`kb(workbench.v
 * [Branches and Worktrees](/docs/sourcecontrol/branches-worktrees.md) - Learn about branch management, Git worktrees, and stash operations
 * [Repositories and Remotes](/docs/sourcecontrol/repos-remotes.md) - Learn about cloning, publishing, and syncing with remote repositories
 * [Working with GitHub](/docs/sourcecontrol/github.md) - Learn how to work with pull requests and issues in VS Code
+* [Troubleshooting](/docs/sourcecontrol/troubleshooting.md) - Diagnose and resolve Git issues with output logs and trace logging
 * [Copilot in VS Code](/docs/copilot/overview.md) - Discover more AI-powered features beyond Git workflows

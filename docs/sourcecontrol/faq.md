@@ -91,3 +91,7 @@ Yes, though VS Code works most easily with SSH keys without a passphrase. If you
 ### Is GitHub Enterprise supported?
 
 VS Code has official support for authentication with GitHub Enterprise Servers. Open a local checkout of a GHES repository and you will be prompted to sign in with your GitHub Enterprise Server account.
+
+## Troubleshooting
+
+For help diagnosing and resolving Git issues, see the [Troubleshooting](/docs/sourcecontrol/troubleshooting.md) guide. The guide covers using Git output logs and enabling trace logging for detailed diagnostic information.
