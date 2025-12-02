@@ -74,13 +74,15 @@ quadrantChart
 
 **Best for**: Interactive conversations, immediate assistance, and real-time collaboration
 
-Local agents run directly within chat in VS Code and provide immediate, interactive assistance.
+Local agents run directly within chat in VS Code and provide immediate, interactive assistance. You can create [custom agents](/docs/copilot/customization/custom-agents.md) to customize the behavior and capabilities of local agents to suit your workflow.
 
 **Key characteristics**:
 
 * Immediate response and interaction
 * Full access to your workspace context
 * Integrated with VS Code's editing experience
+
+Learn more about [using chat in VS Code](/docs/copilot/chat/copilot-chat.md).
 
 ### Background agents
 
@@ -220,7 +222,7 @@ You can perform the following actions in the agent session details view:
 
 ## Related resources
 
-* [Cloud agents](/docs/copilot/agents/cloud-agents.md): Learn about GitHub Copilot Coding Agent and remote execution
+* [Local agents](/docs/copilot/chat/copilot-chat.md): Master local agent sessions and chat features
 * [Background agents](/docs/copilot/agents/background-agents.md): Explore CLI-based agents and autonomous workflows
+* [Cloud agents](/docs/copilot/agents/cloud-agents.md): Learn about GitHub Copilot Coding Agent and remote execution
 * [Custom agents](/docs/copilot/customization/custom-agents.md): Create your own AI agents and extensions
-* [Chat in VS Code](/docs/copilot/chat/copilot-chat.md): Master local chat and inline editing capabilities
