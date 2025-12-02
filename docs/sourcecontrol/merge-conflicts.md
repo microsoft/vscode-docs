@@ -166,6 +166,13 @@ git config --global merge.tool vscode
 git config --global mergetool.vscode.cmd 'code --wait $MERGED'
 ```
 
+To use VS Code as your default diff tool for Git, run:
+
+```bash
+git config --global diff.tool vscode
+git config --global difftool.vscode.cmd 'code --wait --diff $LOCAL $REMOTE'
+```
+
 ## Next steps
 
 * [Branches and Worktrees](/docs/sourcecontrol/branches-worktrees.md) - Learn about branch management and strategies to minimize conflicts
