@@ -1,6 +1,6 @@
 ---
 ContentId: 8a7c3f4e-5b2d-4c9a-8e1f-6d3a2b1c0e9f
-MetaDescription: Troubleshoot Git and source control issues in Visual Studio Code
+MetaDescription: Diagnose Git issues using output logs, trace logging, and diagnostic tools in Visual Studio Code
 DateApproved: 12/2/2025
 Keywords:
 - source control
@@ -11,7 +11,7 @@ Keywords:
 ---
 # Troubleshooting source control
 
-This article helps you troubleshoot issues with Git and source control in Visual Studio Code. When Git operations aren't working as expected, diagnostic information can help you understand and resolve the problem.
+This article helps you diagnose and resolve Git issues in Visual Studio Code using output logs and trace logging. Use these diagnostic tools when Git operations fail or behave unexpectedly.
 
 ## Git Output window
 
