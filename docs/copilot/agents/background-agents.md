@@ -108,11 +108,38 @@ To continue a local agent session in a background agent session:
 
 The background agent session starts automatically, carrying over the full chat history and context. You can monitor the background agent's progress in the Agents view.
 
-## Create an isolated background agent session
+## Use custom agents with background agents (Experimental)
+
+[Custom agents](/docs/copilot/customization/custom-agents.md) let you define custom personas for agents in VS Code. For example, you might create a custom agent for performing code reviews. Custom agents can define specific instructions, behaviors, and which tools to use.
+
+When you create a background agent session, you can select a custom agent to handle the task. The background agent operates according to the custom agent's defined behavior and has access to the tools specified by the custom agent.
+
+To enable custom agents with background agents:
+
+1. Enable custom agents for background agents with the `setting(github.copilot.chat.cli.customAgents.enabled)` setting
+
+1. Create a custom agent in your workspace with the **Chat: New Custom Agent** command from the Command Palette (`kb(workbench.action.showCommands)`)
+
+    Learn more about [creating a custom agent](/docs/copilot/customization/custom-agents.md#create-a-custom-agent) in VS Code.
+
+1. Create a new background agent session
+
+1. Select the custom agent from the Agents dropdown
+
+    ![Screenshot showing custom agent selection in VS Code chat interface.](./images/background-agents/custom-agent-selection.png)
+
+1. Enter a prompt and notice that the custom agent is used to handle the task
+
+> [!NOTE]
+> Background agents currently only support the `name`, `description`, and `tools` custom agent properties.
+
+## Create an isolated background agent session (Experimental)
 
 To isolate background agent changes from your main workspace, you can create a background agent session that uses a Git worktree. When you create a worktree, VS Code creates a separate directory for the session as a sibling to main project folder. The background agent operates in this isolated worktree, preventing conflicts with your active work.
 
 To create a Copilot CLI background agent session with a worktree:
+
+1. Enable isolated background agents with the `setting(github.copilot.chat.cli.isolation.enabled)` setting
 
 1. Create a new Copilot CLI background agent session in VS Code.
 
@@ -137,7 +164,7 @@ To create a Copilot CLI background agent session with a worktree:
     > [!TIP]
     > Before merging the changes, you can directly apply them from the worktree to your main branch by using the **Apply Changes** button in the chat editor.
 
-<!-- TODO: Add link to learn more about worktree support in VS Code source control -->
+Learn more about [using Git worktrees in VS Code source control](/docs/sourcecontrol/branches-worktrees.md).
 
 ## View background agent session details
 
