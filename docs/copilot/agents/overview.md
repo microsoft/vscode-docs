@@ -165,18 +165,32 @@ To unarchive a session:
 
 ## Create a new agent session
 
-TODO
+You can create a new, empty agent session from the Agents view. To create a new agent session:
+
+1. Open the Agents view
+
+1. Select **New Session** to create a new local agent session in VS Code
+
+1. Select the **New Session** dropdown and then select which type of agent session to create
+
+Alternatively, use the following commands from the Command Palette (`kb(workbench.action.showCommands)`):
+
+* **Chat: New Chat Editor/Window**: create a new local agent session in VS Code
+* **Chat: New Background Agent**: create a new background agent session using Copilot CLI
+* **Chat: New Cloud Agent**: create a new cloud agent session using GitHub
+* **Chat: New OpenAI Codex**: create a new third-party Codex agent session
 
 ## Continue a local session in another agent type
 
-Delegation allows you to transfer tasks between different agent types while preserving context and conversation history.
+Delegation allows you to transfer tasks between different agent types while preserving context and conversation history. This can be useful to leverage the strengths of different agents for various parts of a coding task.
 
-TODO: add examples and why this is useful
+For example, you might start with a local agent to brainstorm and plan a feature, then continue the session with a cloud agent to implement the feature in a pull request.
 
-* **Local → Background**: For complex, time-consuming tasks that don't require immediate interaction
-* **Local → Cloud**: For large-scale changes requiring remote infrastructure and PR integration
+You can delegate a local agent session from chat in VS Code by using the **Continue In** button in the chat input box, or use the `@cli`, `@cloud`, or `@codex` commands to pass a task to another agent type.
 
-TODO: how to continue (use Continue action in Chat view, planning agent, "/delegate", "assign coding agent" from GH MCP server, "#copilotCodingAgent" tool,  )
+In a background agent session, you can delegate to a cloud agent by using the `/delegate` command in the chat input box.
+
+When you delegate a session, VS Code creates a new agent session of the selected type, carrying over the full conversation history and context. You can then continue interacting with the new agent to complete the task.
 
 ## Open session details
 
