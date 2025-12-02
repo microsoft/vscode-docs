@@ -3,16 +3,16 @@ Order: 121
 TOCTitle: "Introducing the VS Code Insiders Podcast"
 PageTitle: "Introducing the VS Code Insiders Podcast"
 MetaDescription: The VS Code Insiders Podcast is your insider's guide to the features, decisions, and people shaping the future of Visual Studio Code.
-MetaSocialImage:
+MetaSocialImage: vscode-podcast.jpg
 Date: 2025-12-03
-Author: James Montemagno and Pierce Boggan
+Author: VS Code Team
 ---
 
 # Introducing the VS Code Insiders Podcast
 
-December 1, 2025 by [James Montemagno](https://www.vscodepodcast.com/hosts/james-montemagno) and [Pierce Boggan](https://www.vscodepodcast.com/hosts/pierce-boggan).
+December 1, 2025 by VS Code Team, [@code](https://twitter.com/code).
 
-![VS Code Podcast Hero Banner - A modern podcast studio with VS Code logo, microphones, and code flowing in the background](#)
+![VS Code Podcast Hero Banner - A modern podcast studio with VS Code logo, microphones, and code flowing in the background](vscode-podcast.jpg)
 
 Ever wonder what goes on behind the scenes at the world's most popular code editor? The **VS Code Insiders Podcast** is here to pull back the curtain and give you an insider's look at the features, decisions, and people shaping the future of Visual Studio Code.
 
@@ -21,8 +21,6 @@ Ever wonder what goes on behind the scenes at the world's most popular code edit
 Hosted by [James Montemagno](https://www.vscodepodcast.com/hosts/james-montemagno) and [Pierce Boggan](https://www.vscodepodcast.com/hosts/pierce-boggan), this official podcast from the Visual Studio Code team goes beyond the release notes. Each episode features conversations with the developers, product managers, and community contributors who are actively building VS Code's next generation of features.
 
 From deep dives into experimental tooling and new extensions to candid discussions about where coding is headed with AI, this podcast is your backstage pass to the evolution of modern development. Whether you're a seasoned developer, a curious tinkerer, or just obsessed with clean commits and clever workflows, there's something here for you.
-
-![Podcast discussion visualization - Two hosts having an engaging conversation with code snippets and VS Code interface elements flowing between them](#)
 
 ## Recent Episode Highlights
 
@@ -111,8 +109,6 @@ Ready to stay in the loop? Subscribe to the VS Code Insiders Podcast on your fav
 - 📡 [RSS Feed](https://www.vscodepodcast.com/rss)
 
 Visit the official website at [vscodepodcast.com](https://www.vscodepodcast.com) to browse all episodes, learn more about the hosts, and stay up to date with the latest in VS Code.
-
-![VS Code Podcast footer - Modern minimalist design with VS Code logo and podcast wave visualization](https://placeholder-for-footer-image.png)
 
 ---
 
