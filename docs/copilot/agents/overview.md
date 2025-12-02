@@ -116,7 +116,7 @@ Third party agents are background agents developed by external providers (for ex
 
 ## Agents view
 
-The **Agents view** provides a centralized interface for tracking and managing your active agent sessions, both local in VS Code and in other environments, such as Copilot coding agent, GitHub Copilot CLI, or OpenAI Codex. Enable the Agent Sessions view with the `setting(chat.agentSessionsViewLocation)` setting.
+The **Agents view** provides a centralized interface for tracking and managing your agent sessions, both local in VS Code and in other environments, such as Copilot coding agent, GitHub Copilot CLI, or OpenAI Codex. Enable the Agent Sessions view with the `setting(chat.agentSessionsViewLocation)` setting.
 
 ![Screenshot of the Agents view in VS Code showing multiple agent sessions.](./images/overview/agents-view.png)
 
@@ -133,6 +133,35 @@ For each session, the Agents view displays the following information:
 * **Status**: run state of the session
 * **Timing**: start time of the session
 * **File change statistics**: files modified and lines added/removed
+
+### Filter agent sessions
+
+By default, the Agents view shows all sessions, except archived sessions. Use the **Filter Agent Sessions** dropdown to filter sessions by:
+
+* Type: Local, Background, Cloud, or Codex
+* Status: Completed, In Progress, Failed, or Archived
+
+![Screenshot of the Agents view filter dropdown.](./images/overview/agents-view-filter.png)
+
+Select **Reset** to reset the filters to the default value.
+
+### Archive agent sessions
+
+To keep the Agents view organized, you can archive completed or inactive sessions. Archived sessions are hidden from the default view but can be accessed by applying the **Archived** filter.
+
+To archive a session:
+
+1. Hover over the session in the Agents view
+
+1. Select the **Archive** button for the session
+
+To unarchive a session:
+
+1. Apply the **Archived** filter in the Agents view
+
+1. Hover over the archived session
+
+1. Select the **Unarchive** button for the session
 
 ## Create a new agent session
 
