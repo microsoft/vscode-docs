@@ -11,6 +11,9 @@ Visual Studio Code supports multiple types of AI-powered agents that can assist 
 
 This article provides an overview of the various agent types, how to create and manage agent sessions, delegate tasks between agents, and track their progress.
 
+> [!NOTE]
+> The Agents view is currently in preview.
+
 ## What are agents?
 
 Agents are more than simple inline suggestions or single-purpose tools. While basic AI features might suggest the next line of code or answer a quick question, agents are designed to understand your development context and autonomously take coordinated action across your codebase and development environment.
@@ -135,6 +138,9 @@ For each session, the Agents view displays the following information:
 * **Status**: run state of the session
 * **Timing**: start time of the session
 * **File change statistics**: files modified and lines added/removed
+
+> [!NOTE]
+> Extension developers can learn how to integrate with the Agent Sessions view with the proposed API [`chatSessionsProvider`](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.chatSessionsProvider.d.ts). The API is currently in a proposed state and subject to change.
 
 ### Filter agent sessions
 
