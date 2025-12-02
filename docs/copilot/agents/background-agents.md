@@ -61,9 +61,9 @@ You can create a new Copilot CLI background agent session in VS Code in several 
 
 * From the [Chat view](/docs/copilot/chat/copilot-chat.md):
 
-    1. Open the Chat view (`kb(workbench.action.chat.open)`)
+    * Open the Chat view (`kb(workbench.action.chat.open)`) and type `@cli <task description>` in the chat input and send the message
 
-    1. Type `@cli <task description>` in the chat input and send the message
+    * Open the Chat view (`kb(workbench.action.chat.open)`), enter your prompt, then select **Continue In** > **Background Agent**
 
 * Run the **Chat: New Background Agent** command from the Command Palette (`kb(workbench.action.showCommands)`)
 
@@ -96,7 +96,7 @@ To continue a local agent session in a background agent session:
 
 1. To continue in a background agent, you have the following options:
 
-    * Select **Continue in Chat** and then select **Background**
+    * Select **Continue Chat In** and then select **Background**
 
         ![Screenshot showing the "Continue in Chat" button in VS Code chat interface.](./images/background-agents/continue-in-chat-background.png)
 
