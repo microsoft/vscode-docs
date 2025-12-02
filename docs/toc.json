@@ -170,8 +170,13 @@
     "area": "sourcecontrol",
     "topics": [
       ["Overview", "/docs/sourcecontrol/overview"],
-      ["Introduction to Git", "/docs/sourcecontrol/intro-to-git"],
+      ["Quickstart", "/docs/sourcecontrol/quickstart"],
+      ["Staging & Committing", "/docs/sourcecontrol/staging-commits"],
+      ["Branches & Worktrees", "/docs/sourcecontrol/branches-worktrees"],
+      ["Repositories & Remotes", "/docs/sourcecontrol/repos-remotes"],
+      ["Merge Conflicts", "/docs/sourcecontrol/merge-conflicts"],
       ["Collaborate on GitHub", "/docs/sourcecontrol/github"],
+      ["Troubleshooting", "/docs/sourcecontrol/troubleshooting"],
       ["FAQ", "/docs/sourcecontrol/faq"]
     ]
   },
@@ -362,7 +367,7 @@
       ["Azure Machine Learning", "/docs/datascience/azure-machine-learning"],
       ["Manage Jupyter Kernels", "/docs/datascience/jupyter-kernel-management"],
       ["Jupyter Notebooks on the Web", "/docs/datascience/notebooks-web"],
-      ["Data science in Microsoft Fabric", "/docs/datascience/microsoft-fabric-quickstart"]     
+      ["Data science in Microsoft Fabric", "/docs/datascience/microsoft-fabric-quickstart"]
     ]
   },
   {

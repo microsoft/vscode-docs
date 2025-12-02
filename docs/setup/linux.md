@@ -59,9 +59,9 @@ MetaDescription: Get Visual Studio Code up and running on Linux.
     1. Run the following script to install the signing key:
 
         ```bash
-        sudo apt-get install wget gpg
-        wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-        sudo install -D -o root -g root -m 644 microsoft.gpg /usr/share/keyrings/microsoft.gpg
+        sudo apt-get install wget gpg &&
+        wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg &&
+        sudo install -D -o root -g root -m 644 microsoft.gpg /usr/share/keyrings/microsoft.gpg &&
         rm -f microsoft.gpg
         ```
 
@@ -79,8 +79,8 @@ MetaDescription: Get Visual Studio Code up and running on Linux.
     1. Lastly, update the package cache and install the package:
 
         ```bash
-        sudo apt install apt-transport-https
-        sudo apt update
+        sudo apt install apt-transport-https &&
+        sudo apt update &&
         sudo apt install code # or code-insiders
         ```
 
@@ -94,21 +94,21 @@ We currently ship the stable 64-bit VS Code for RHEL, Fedora, or CentOS based di
 1. Install the key and yum repository by running the following script:
 
     ```bash
-    sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+    sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc &&
     echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo > /dev/null
     ```
 
 1. Then update the package cache and install the package using `dnf` (Fedora 22 and above):
 
     ```bash
-    dnf check-update
+    dnf check-update &&
     sudo dnf install code # or code-insiders
     ```
 
     Or on older versions using `yum`:
 
     ```bash
-    yum check-update
+    yum check-update &&
     sudo yum install code # or code-insiders
     ```
 
@@ -141,8 +141,8 @@ The yum repository [mentioned previously](#rhel-fedora-and-centos-based-distribu
 1. Install the  key and yum repository by running the following script:
 
     ```bash
-    sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
-    echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" |sudo tee /etc/zypp/repos.d/vscode.repo > /dev/null
+    sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc &&
+    echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/zypp/repos.d/vscode.repo > /dev/null
     ```
 
 1. Then update the package cache and install the package using:
