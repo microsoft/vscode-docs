@@ -188,6 +188,8 @@ For example, you might start with a local agent to brainstorm and plan a feature
 
 You can delegate a local agent session from chat in VS Code by using the **Continue In** button in the chat input box, or use the `@cli`, `@cloud`, or `@codex` commands to pass a task to another agent type.
 
+![Screenshot of the chat input box showing the Continue In button.](./images/overview/delegate-local-session.png)
+
 In a background agent session, you can delegate to a cloud agent by using the `/delegate` command in the chat input box.
 
 When you delegate a session, VS Code creates a new agent session of the selected type, carrying over the full conversation history and context. You can then continue interacting with the new agent to complete the task.
