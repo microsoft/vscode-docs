@@ -193,6 +193,9 @@ VS Code currently provides policies to control the following admin-controlled fe
 
 VS Code has support for [Windows Registry-based Group Policy](https://learn.microsoft.com/previous-versions/windows/desktop/policy/implementing-registry-based-policy). Starting from VS Code version 1.69, each release ships with a `policies` directory containing ADMX template files that can be added to the following path: `C:\Windows\PolicyDefinitions`. Make sure to also copy the corresponding `adml` file to the `C:\Windows\PolicyDefinitions\<your-locale>` directory.
 
+> [!TIP]
+> The ADMX/ADML files can be found by downloading the appropriate [VS Code zip archive](https://code.visualstudio.com/docs/?dv=winzip).
+
 Once the policy definitions are installed, admins can use the [Local Group Policy Editor](https://learn.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn265982(v=ws.11)) to manage the policy values.
 
 Products such as [Microsoft Intune](https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/what-is-intune) may be used to centrally manage device policy at scale.
