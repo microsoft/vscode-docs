@@ -3,7 +3,7 @@ Order: 121
 TOCTitle: "Introducing the VS Code Insiders Podcast"
 PageTitle: "Introducing the VS Code Insiders Podcast"
 MetaDescription: The VS Code Insiders Podcast is your insider's guide to the features, decisions, and people shaping the future of Visual Studio Code.
-MetaSocialImage: vscode-podcast.jpg
+MetaSocialImage: hero-vscode-podcast.jpg
 Date: 2025-12-03
 Author: VS Code Team
 ---
@@ -12,7 +12,7 @@ Author: VS Code Team
 
 December 1, 2025 by James Montemagno, [@code](https://x.com/jamesmontemagno).
 
-![VS Code Podcast Hero Banner - A modern podcast studio with VS Code logo, microphones, and code flowing in the background](vscode-podcast.jpg)
+![VS Code Podcast Hero Banner - A modern podcast studio with VS Code logo, microphones, and code flowing in the background](hero-vscode-podcast.jpg)
 
 Ever wonder what goes on behind the scenes at the world's most popular code editor? The **[VS Code Insiders Podcast](https://www.vscodepodcast.com)** is here to pull back the curtain and give you an insider's look at the features, decisions, and people shaping the future of Visual Studio Code.
 
@@ -35,11 +35,11 @@ Here are a few recent episodes that showcase some of the exciting topics covered
 
 ## Subscribe today!
 
-Visit the **[VS Code Insiders Podcast home page](https://www.vscodepodcast.com)** to browse past episodes and subscribe on your favorite podcast app today! 
+Visit the **[VS Code Insiders Podcast home page](https://www.vscodepodcast.com)** to browse past episodes and subscribe on your favorite podcast app today!
 
 Download and install **[VS Code Insiders](https://code.visualstudio.com/insiders)** to try the newest features as soon as they ship.
 
 Stay up to date with the latest changes in the **[continuously updating Insiders release notes](https://code.visualstudio.com/updates)**.
 
 Happy coding.
- 
+
