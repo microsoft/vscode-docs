@@ -10,7 +10,7 @@ Author: James Montemagno
 
 # Introducing the VS Code Insiders Podcast
 
-December 1, 2025 by James Montemagno, [@code](https://x.com/jamesmontemagno).
+December 1, 2025 by James Montemagno, [@jamesmontemagno](https://x.com/jamesmontemagno).
 
 ![VS Code Podcast Hero Banner - A modern podcast studio with VS Code logo, microphones, and code flowing in the background](hero-vscode-podcast.jpg)
 
