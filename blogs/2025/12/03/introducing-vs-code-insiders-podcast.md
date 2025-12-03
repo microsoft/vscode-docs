@@ -5,7 +5,7 @@ PageTitle: "Introducing the VS Code Insiders Podcast"
 MetaDescription: The VS Code Insiders Podcast is your insider's guide to the features, decisions, and people shaping the future of Visual Studio Code.
 MetaSocialImage: hero-vscode-podcast.jpg
 Date: 2025-12-03
-Author: VS Code Team
+Author: James Montemagno
 ---
 
 # Introducing the VS Code Insiders Podcast
