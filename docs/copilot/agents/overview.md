@@ -20,16 +20,15 @@ Agents are more than simple inline suggestions or single-purpose tools. While ba
 
 In VS Code, agents are AI-powered assistants that can perform coding tasks with varying levels of autonomy. Some respond to a simple prompt and make targeted edits, while others can plan multi-step changes, run terminal commands, and orchestrate tools to achieve complex objectives.
 
-These autonomous agents can:
+These autonomous agents have the following capabilities:
 
-* Understand complex context across your codebase
-* Break down high-level requirements into concrete coding tasks
-* Execute tasks independently, such as making code edits, running tests, or terminal commands
-* Invoke external tools and services to gather information or perform tasks
-* Read signals from your environment, like stack traces, linting errors, or debug state
-* React to feedback from your environment or tools and self-correct when encountering errors, such as test failures, merge conflicts, debug context, or terminal output
-
-Agents can run in different environments, such as locally in VS Code or in the background on your machine, or they can run remotely in the cloud.
+* **Codebase understanding**: Analyze your codebase and curate relevant context for the task
+* **Developer context**: Get context from your development environment, like stack traces, linting errors, or debug state
+* **Task decomposition**: Break down high-level requirements into concrete coding tasks
+* **Autonomous execution**: Execute tasks independently, such as making code edits, running tests, or terminal commands
+* **Tool integration**: Invoke external tools and services to gather information or perform tasks
+* **Self-correction**: Respond to feedback from tools and self-correct when encountering errors, such as test failures, merge conflicts, debug context, or terminal output
+* **Multi-environment**: Run in different environments, such as locally in VS Code, in the background on your machine, or remotely in the cloud
 
 ## Types of agents
 
@@ -43,33 +42,33 @@ VS Code supports four main categories of agents, each designed for different use
 config:
     quadrantChart:
         pointTextPadding: 10
-        pointRadius: 3
-        quadrantTextTopPadding: 15
+        pointRadius: 0
+        quadrantTextTopPadding: 10
+        pointLabelFontSize: 12
+        chartWidth: 500
+        chartHeight: 500
     themeVariables:
-        quadrant1Fill: "#1a3a5c"
-        quadrant2Fill: "#2d5a87"
-        quadrant3Fill: "#4a90c2"
-        quadrant4Fill: "#7eb8e2"
-        quadrant1TextFill: "#ffffff"
-        quadrant2TextFill: "#ffffff"
-        quadrant3TextFill: "#ffffff"
-        quadrant4TextFill: "#1a3a5c"
-        quadrantPointFill: "#ffffff"
-        quadrantPointTextFill: "#ffffff"
+        quadrant1TextFill: '#4f4e4eff'
+        quadrant2TextFill: '#4f4e4eff'
+        quadrant3TextFill: '#4f4e4eff'
+        quadrant4TextFill: '#4f4e4eff'
+        quadrantPointTextFill: '#4f4e4eff'
 ---
 quadrantChart
-    title Agent types by environment and interaction
+    title Agent Types
     x-axis Local --&gt; Remote
-    y-axis Interactive --&gt; Background
+    y-axis Interactive --&gt; Non-Interactive
     quadrant-1 Cloud Agent
     quadrant-2 Background Agent
     quadrant-3 Local Agent
-    quadrant-4 "-"
+    quadrant-4 "Remote Development"
     VS Code built-in agents: [0.30, 0.30]
     VS Code custom agents: [0.20, 0.20]
     Copilot CLI: [0.30, 0.80]
     "Third-party (OpenAI Codex)": [0.20, 0.70]
     Copilot coding agent: [0.75, 0.75]
+    GitHub Codespaces: [0.70, 0.20]
+    VS Code Dev Containers: [0.80, 0.30]
 ```
 -->
 
@@ -98,20 +97,24 @@ Background agents are CLI-based (for example, Copilot CLI) and operate independe
 * Work autonomously in the background
 * Isolated execution environments with Git worktrees
 * Can handle long-running, complex tasks
-* Can't directly get signals from VS Code
+* Can't directly access VS Code built-in tools, for example, to get linting errors or debug state
+
+Learn more about [using background agents in VS Code](/docs/copilot/agents/background-agents.md).
 
 ### Cloud agents
 
 **Best for**: Tasks that run autonomously without user interaction and require integration with GitHub workflows
 
-Cloud agents use remote infrastructure for complex coding tasks, integrating directly with GitHub repositories and pull requests to manage changes and collaboration.
+Cloud agents use remote infrastructure for complex coding tasks and scalable, isolated execution. They can integrate with GitHub repositories and pull requests to manage changes and collaboration (Copilot coding agent).
 
 **Key characteristics**:
 
-* Remote execution on GitHub infrastructure
-* Isolated environments via branches and pull requests
+* Run on remote infrastructure, allowing for scalable execution of large tasks
+* Isolated environments via branches and pull requests, protecting against unintended changes to your local environment
 * Integration with GitHub pull requests and issues
 * Designed for team collaboration
+
+Learn more about [using cloud agents in VS Code](/docs/copilot/agents/cloud-agents.md).
 
 ### Third party agents
 
@@ -121,9 +124,11 @@ Third party agents are background agents developed by external providers (for ex
 
 ## Agents view
 
-The **Agents view** provides a centralized interface for tracking and managing your agent sessions, both local in VS Code and in other environments, such as Copilot coding agent, GitHub Copilot CLI, or OpenAI Codex. Enable the Agent Sessions view with the `setting(chat.agentSessionsViewLocation)` setting.
+The **Agents view** provides a centralized interface for tracking and managing your agent sessions, both local in VS Code and in other environments, such as Copilot coding agent, GitHub Copilot CLI, or OpenAI Codex.
 
 ![Screenshot of the Agents view in VS Code showing multiple agent sessions.](./images/overview/agents-view.png)
+
+To open the **Agents** view, run the **Agents: Focus on Agents View** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
 You can open the Agents view in a separate view in the Primary Side Bar, or alongside the Chat view in the Secondary Side Bar. Configure the location via the `setting(chat.agentSessionsViewLocation)` setting:
 
@@ -140,7 +145,7 @@ For each session, the Agents view displays the following information:
 * **File change statistics**: files modified and lines added/removed
 
 > [!NOTE]
-> Extension developers can learn how to integrate with the Agent Sessions view with the proposed API [`chatSessionsProvider`](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.chatSessionsProvider.d.ts). The API is currently in a proposed state and subject to change.
+> Extension developers can learn how to integrate with the Agents view with the proposed API [`chatSessionsProvider`](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.chatSessionsProvider.d.ts). The API is currently in a proposed state and subject to change.
 
 ### Filter agent sessions
 

@@ -1,25 +1,25 @@
 ---
 ContentId: 8d5c9f2a-1e4b-7c9f-3a8e-2b7d4f1c6e0a
 DateApproved: 11/26/2025
-MetaDescription: Learn how to use GitHub Copilot Cloud Agents for large-scale coding tasks, pull request integration, and collaborative development workflows in VS Code.
+MetaDescription: Use cloud agents and GitHub Copilot coding agent in VS Code to autonomously handle complex, large-scale coding tasks with automatic pull request generation and team collaboration workflows.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
 
 # Cloud agents in Visual Studio Code
 
-Cloud agents in Visual Studio Code are GitHub-hosted AI assistants that handle complex, large-scale coding tasks using GitHub's remote infrastructure. Unlike local agents that operate within VS Code's chat interface, cloud agents run on GitHub's servers with seamless integration into collaborative workflows.
+Cloud agents in Visual Studio Code are remote-hosted AI assistants that handle complex, large-scale coding tasks. Unlike local agents that operate within VS Code's chat interface, cloud agents run on remote servers with seamless integration into collaborative workflows. Copilot coding agent is the primary cloud agent available in VS Code.
 
 This article covers the key features of cloud agents, and how to start and manage cloud agent sessions for complex coding tasks.
 
 ## What are cloud agents?
 
-Cloud agents are autonomous AI assistants that run on GitHub's infrastructure rather than locally on your machine. When you delegate a task to a cloud agent, it operates independently while maintaining full integration with your GitHub repositories, pull requests, and team workflows.
+Cloud agents are autonomous AI assistants that run on remote infrastructure rather than locally on your machine. When you delegate a task to a cloud agent, it operates independently while maintaining full integration with your GitHub repositories, pull requests, and team workflows.
 
 Cloud agents excel at multi-file operations and repository-wide changes. The cloud agent uses branching and pull requests to manage changes, allowing for team review and collaboration.
 
 The Agents view in VS Code provides visibility into all your cloud agent sessions. You can view the list of sessions, their status, and detailed progress information. You can also provide follow-up instructions or review generated pull requests directly from the view.
 
-To assign a task to a cloud agent, you can create a new cloud session directly from the Agent Sessions view, or continue a local or background agent session from your local machine to a cloud agent for autonomous execution.
+To assign a task to a cloud agent, you can create a new cloud session directly from the Agents view, or continue a local or background agent session from your local machine to a cloud agent for autonomous execution.
 
 ### GitHub Copilot coding agent
 

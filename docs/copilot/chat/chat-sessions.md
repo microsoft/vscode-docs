@@ -75,20 +75,26 @@ To open an existing chat session in a separate window:
 
 ## Chat session history
 
-When you create a new chat session, the previous conversation history is cleared. However, all your chat sessions are saved in the chat session history, allowing you to return to previous conversations and continue where you left off. This is useful when you want to review past interactions, reference previous responses, or resume a conversation from an earlier session.
+> [!NOTE]
+> The Agents view is currently in preview.
+
+When you create a new chat session, the previous conversation history is cleared. However, all your chat sessions are saved in the session history, allowing you to return to previous conversations and continue where you left off. This is useful when you want to review past interactions, reference previous responses, or resume a conversation from an earlier session.
 
 When you switch to a previous chat session, all prompts, responses, and context from that session are restored in the Chat view.
 
-To view your chat session history:
+The **Agents** view provides a centralized interface for tracking and managing your agent sessions, both local in VS Code and in other environments, such as Copilot coding agent, GitHub Copilot CLI, or OpenAI Codex. Learn more about the [Agents view and managing agent sessions](/docs/copilot/agents/overview.md).
 
-1. Open the Chat view and select **Show Chats...** in the Chat view title bar.
+![Screenshot of the Agents view in VS Code showing multiple agent sessions.](../agents/images/overview/agents-view.png)
+
+To open the **Agents** view, run the **Agents: Focus on Agents View** command from the Command Palette (`kb(workbench.action.showCommands)`).
+
+Alternatively, you can access your local chat session history directly from the Chat view:
+
+1. Open the Chat view and select **Show Chats...** in the Chat view title bar or run the **Chat: Show Chats** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
     ![Screenshot of the Chat view with the Show Chats button highlighted.](../images/chat-sessions/copilot-chat-view-show-chats.png)
 
 1. Select a history entry from the list to open that chat session in the Chat view.
-
-> [!TIP]
-> Enable the `setting(chat.emptyState.history.enabled)` experimental setting to show your recent chat sessions when starting a new chat session. This enables you to quickly switch to a recent session without navigating to the chat session history.
 
 ## Save and export chat sessions
 

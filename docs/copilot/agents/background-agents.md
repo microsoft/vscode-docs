@@ -19,7 +19,7 @@ Background agents run independently in the background and can apply changes to y
 
 The Agents view in VS Code provides visibility into all your background agent sessions. You can view the list of sessions, their status, and detailed progress information. You can also provide follow-up instructions or cancel sessions directly from the view.
 
-To assign a task to a background agent, you can create a new background session directly from the Agent Sessions view, use the agent's dedicated CLI, or continue a local chat conversation from VS Code as a background agent session.
+To assign a task to a background agent, you can create a new background session directly from the Agents view, use the agent's dedicated CLI, or continue a local chat conversation from VS Code as a background agent session.
 
 ### Copilot CLI
 
@@ -135,7 +135,7 @@ To enable custom agents with background agents:
 
 ## Create an isolated background agent session (Experimental)
 
-To isolate background agent changes from your main workspace, you can create a background agent session that uses a Git worktree. When you create a worktree, VS Code creates a separate directory for the session as a sibling to main project folder. The background agent operates in this isolated worktree, preventing conflicts with your active work.
+To isolate background agent changes from your main workspace, you can create a background agent session that uses a [Git worktree](/docs/sourcecontrol/branches-worktrees.md#understanding-worktrees). When you create a worktree, VS Code creates a separate folder for the session. The background agent operates in this isolated folder, to prevent conflicts with your active work.
 
 To create a Copilot CLI background agent session with a worktree:
 
@@ -143,9 +143,9 @@ To create a Copilot CLI background agent session with a worktree:
 
 1. Create a new Copilot CLI background agent session in VS Code.
 
-1. In the chat editor, select **Isolated** for the run mode.
+1. In the chat editor, select **Worktree** for the isolation mode.
 
-    ![Screenshot showing the "Isolated" run mode option in VS Code chat interface.](./images/background-agents/isolated-run-mode.png)
+    ![Screenshot showing the "Worktree" isolation mode option in VS Code chat interface.](./images/background-agents/isolated-run-mode.png)
 
     To run a background agent on the current workspace without isolation, select **Workspace**.
 

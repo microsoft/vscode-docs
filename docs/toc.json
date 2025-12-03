@@ -121,7 +121,7 @@
       ["", "", {
         "name": "Agents",
         "area": "copilot/agents",
-        "noCollapse": true,
+        "noCollapse": false,
         "topics": [
           ["Overview", "/docs/copilot/agents/overview"],
           ["Cloud Agents", "/docs/copilot/agents/cloud-agents"],
