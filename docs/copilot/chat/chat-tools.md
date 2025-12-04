@@ -98,7 +98,7 @@ Tools and agent actions might result in file modifications. Learn how you can pr
 > [!IMPORTANT]
 > Always review tool parameters carefully before approving, especially for tools that modify files, run commands, or access external services. See the [Security considerations](/docs/copilot/security.md) for using AI in VS Code.
 
-### Enable or disable tool auto approval
+### Enable or disable tool auto approval (Experimental)
 
 By default, you can choose to automatically approve any tool. To prevent accidental approvals, you can disable automatic approvals for specific tools with the `setting(chat.tools.eligibleForAutoApproval)` setting. Set the value to `false` to always require manual approval for that tool.
 
@@ -189,8 +189,8 @@ For advanced scenarios, use object syntax with the `matchCommandLine` property t
 Related settings:
 
 * `setting(chat.tools.terminal.enableAutoApprove)`: permanently disable auto-approve functionality
-* `setting(chat.tools.terminal.blockDetectedFileWrites)`: detection of file writes (experimental)
-* `setting(chat.tools.terminal.ignoreDefaultAutoApproveRules)`: disable all default rules (both allow and block), giving full control over all rules.
+* `setting(chat.tools.terminal.blockDetectedFileWrites)` (experimental): detection of file writes (experimental)
+* `setting(chat.tools.terminal.ignoreDefaultAutoApproveRules)` (experimental): disable all default rules (both allow and block), giving full control over all rules.
 
 > [!CAUTION]
 > Automatically approving terminal commands provides _best effort_ protections and assumes the agent is not acting maliciously. It's important to protect yourself from prompt injection when you enable terminal auto approve, as it might be possible for some commands to slip through. Here are some examples where the detection can fall over:
