@@ -85,6 +85,9 @@ You can also explicitly reference tools in your prompts by typing `#` followed b
 
 Some tools accept parameters directly in the prompt. For example, `#fetch` requires a URL and `#githubRepo` requires a repository name.
 
+> [!TIP]
+> By default, tool call details are collapsed in the chat conversation. You can uncollapse them by selecting the tool summary line in chat, or change the default behavior with the `setting(chat.agent.thinking.collapsedTools)` setting (experimental).
+
 ## Tool approval
 
 Some tools require your approval before they can run. This is a security measure because tools can perform actions that modify files, your environment, or attempt prompt injection attacks through malicious tool output.
@@ -152,7 +155,7 @@ In the chat conversation, the agent displays the commands it ran. You can view t
 
 ![Screenshot showing terminal command output in chat.](../images/chat-tools/terminal-command-output.png)
 
-Use the experimental `setting(chat.tools.terminal.outputLocation)` setting to configure where terminal command output appears.
+Use the experimental `setting(chat.tools.terminal.outputLocation)` setting to configure where terminal command output appears: inline in chat, in the integrated terminal.
 
 In the terminal pane, you can see the list of terminals that the agent has used for a chat session. You can also distinguish agent terminals by the chat icon in the terminals list.
 
