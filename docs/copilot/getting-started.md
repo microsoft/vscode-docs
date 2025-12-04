@@ -120,7 +120,7 @@ While agents handle large features, editor inline chat is perfect for targeted i
 
     ![Screenshot showing inline chat adding validation to selected function.](./images/getting-started/inline-chat-validation.png)
 
-1. Review the changes and select **Accept** to apply them.
+1. Review the changes and select **Keep** to apply them.
 
 Editor inline chat is ideal for making small, focused changes without affecting the broader codebase, like adding error handling, refactoring individual functions, or fixing bugs.
 
