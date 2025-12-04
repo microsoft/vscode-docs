@@ -79,6 +79,8 @@ You can reference content from the web in your chat prompts, for example to get 
 
     The `fetch` tool caches the content of the web page for a limited time to improve performance. If the content of the page changes, you can force a refresh by restarting VS Code. If the page cannot be reached, the cache will expire after a short time (approximately five minutes).
 
+    VS Code prompts for confirmation before accessing external URLs to protect your privacy and security. Learn more about [configuring URL auto-approval](/docs/copilot/chat/chat-tools.md#url-approval).
+
     Example prompts using the `fetch` tool:
 
     * `"What are the highlights of VS Code 1.100 #fetch https://code.visualstudio.com/updates/v1_100"`
