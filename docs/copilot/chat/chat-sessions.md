@@ -87,6 +87,8 @@ To view your chat session history:
 
 1. Select a history entry from the list to open that chat session in the Chat view.
 
+When you close an active chat session, it remains active and continues to process any ongoing tasks. You can switch back to that session at any time by selecting it from the chat session history. You can have multiple active chat sessions running simultaneously.
+
 > [!TIP]
 > Enable the `setting(chat.emptyState.history.enabled)` experimental setting to show your recent chat sessions when starting a new chat session. This enables you to quickly switch to a recent session without navigating to the chat session history.
 
