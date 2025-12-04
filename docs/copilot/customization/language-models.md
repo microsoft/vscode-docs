@@ -97,6 +97,13 @@ VS Code provides different options to add more models:
 
 * Install a [language model provider extension](https://marketplace.visualstudio.com/search?term=tag%3Alanguage-models&target=VSCode&category=All%20categories&sortBy=Relevance) from the Visual Studio Marketplace, for example, [AI Toolkit for VS Code with Foundry Local](https://aka.ms/AIToolkit)
 
+### Considerations when using bring your own model key
+
+* Only applies to the chat experience and doesn't affect inline suggestions or other AI-powered features in VS Code.
+* Capabilities are model-dependent and might differ from the built-in models, for example, support for tool calling, vision, or thinking.
+* The Copilot service API is still used for some tasks, such as sending embeddings, repository indexing, query refinement, intent detection, and side queries.
+* There is no guarantee that responsible AI filtering is applied to the model's output when using BYOK.
+
 ### Add a model from a built in provider
 
 VS Code supports several built-in model providers that you can use to add more models to the model picker in chat.
@@ -181,15 +188,6 @@ To change the language model that is used for generating inline suggestions in t
 
 > [!NOTE]
 > The models that are available for inline suggestions might evolve over time as we add support for more models.
-
-## Considerations
-
-There are a number of considerations when using your own language model API key in VS Code:
-
-* Bringing your own model only applies to the chat experience and doesn't impact inline suggestions or other AI-powered features in VS Code, such as commit-message generation.
-* The capabilities of each model might differ from the built-in models and could affect the chat experience. For example, some models might not support vision or tool calling.
-* The Copilot API is still used for some tasks, such as sending embeddings, repository indexing, query refinement, intent detection, and side queries.
-* When using your own model, there is no guarantee that responsible AI filtering is applied to the model's output.
 
 ## Frequently asked questions
 
