@@ -81,11 +81,15 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 | `setting(chat.mcp.access)`<br/>Manage which Model Context Protocol (MCP) servers can be used in VS Code. | `true` |
 | `setting(chat.mcp.discovery.enabled)`<br/>Configure automatic discovery of MCP server configuration from other applications. | `false` |
 | `setting(chat.tools.terminal.autoApprove)` <br/>Control which terminal commands are [auto-approved when using agents](/docs/copilot/chat/chat-tools.md#automatically-approve-terminal-commands). Commands can be set to `true` (auto-approve) or `false` (require approval). Regular expressions can be used by wrapping patterns in `/` characters. | `{ "rm": false, "rmdir": false, "del": false, "kill": false, "curl": false, "wget": false, "eval": false, "chmod": false, "chown": false, "/^Remove-Item\\b/i": false }` |
+| `setting(chat.tools.terminal.enableAutoApprove)` <br/>Enable or disable automatic approval of terminal commands. | `true` |
+| `setting(chat.tools.terminal.ignoreDefaultAutoApproveRules)` <br/>Ignore the default auto-approve rules for terminal commands. | `false` |
 | `setting(chat.tools.global.autoApprove)`<br/>Automatically approve all tools - this setting [disables critical security protections](/docs/copilot/security.md). | `false` |
+| `setting(chat.tools.urls.autoApprove)` <br/>Control which [URL requests and responses are auto-approved](/docs/copilot/chat/chat-tools.md#url-approval). | `[]` |
 | `setting(chat.agent.thinkingStyle)` _(Experimental)_<br/>Configure how thinking tokens are presented in chat. | `fixedScrolling` |
 | `setting(chat.customAgentInSubagent.enabled)` _(Experimental)_<br/>Enable using a custom agent with [subagents](/docs/copilot/chat/chat-sessions.md#context-isolated-subagents). | `false` |
 | `setting(chat.mcp.autoStart)` _(Experimental)_<br/>Automatically start MCP servers when MCP configuration changes are detected. | `newAndOutdated` |
-| `setting(chat.agent.todoList.position)` _(Experimental)_<br/>Configure the visibility and position of the todo list control in chat. | `"default"` |
+| `setting(chat.tools.eligibleForAutoApproval)` _(Experimental)_<br/>Configure which tools require manual approval before they can be used by agents. | `[]` |
+| `setting(chat.tools.terminal.blockDetectedFileWrites)` _(Experimental)_<br/>Require user approval for terminal commands that perform file writes. | `outsideWorkspace` |
 | `setting(github.copilot.chat.newWorkspaceCreation.enabled)` _(Experimental)_<br/>Enable the tool for scaffolding a new workspace in chat. | `true` |
 | `setting(github.copilot.chat.agent.thinkingTool:true)` _(Experimental)_<br/>Enable the thinking tool when using agents. | `false` |
 | `setting(github.copilot.chat.summarizeAgentConversationHistory.enabled)` _(Experimental)_<br/>Automatically summarize the agent conversation history when the context window is full. | `true` |

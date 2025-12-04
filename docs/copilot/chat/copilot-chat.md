@@ -141,6 +141,9 @@ Open chat with Agent: [Stable](vscode://GitHub.Copilot-Chat/chat?mode=agent) | [
 
 1. Review and confirm code changes and tool invocations as the agent works through your request.
 
+    > [!TIP]
+    > VS Code helps you protect against inadvertent edits to sensitive files, such as workspace configuration settings or environment settings. Learn more about [editing sensitive files](/docs/copilot/chat/review-code-edits.md#edit-sensitive-files).
+
 </details>
 
 <details>
