@@ -423,11 +423,8 @@ The current line is typically shown as either background highlight or a border (
 ![Line Highlight](images/theme-color/line.png)
 
 - `editor.lineHighlightBackground`: Background color for the highlight of line at the cursor position.
+- `editor.inactiveLineHighlightBackground`: Background color for the highlight of line at the cursor position when the editor is not focused.
 - `editor.lineHighlightBorder`: Background color for the border around the line at the cursor position.
-
-The color for the editor watermark
-
-- `editorWatermark.foreground`: Foreground color for the labels in the editor watermark.
 
 The color for unicode highlights
 
@@ -559,6 +556,7 @@ This ruler is located beneath the scroll bar on the right edge of the editor and
 - `editorOverviewRuler.bracketMatchForeground`: Overview ruler marker color for matching brackets.
 - `editorOverviewRuler.inlineChatInserted`: Overview ruler marker color for inline chat inserted content.
 - `editorOverviewRuler.inlineChatRemoved`: Overview ruler marker color for inline chat removed content.
+- `editorOverviewRuler.commentDraftForeground`: Editor overview ruler decoration color for comment threads with draft comments. This color should be opaque.
 
 Errors and warnings:
 
@@ -597,6 +595,7 @@ The gutter contains the glyph margins and the line numbers:
 - `editorGutter.foldingControlForeground`: Color of the folding control in the editor gutter.
 - `editorGutter.itemGlyphForeground`: Editor gutter decoration color for gutter item glyphs.
 - `editorGutter.itemBackground`: Editor gutter decoration color for gutter item background. This color should be opaque.
+- `editorGutter.commentDraftGlyphForeground`: Editor gutter decoration color for commenting glyphs for comment threads with draft comments.
 
 The editor comments widget can be seen when reviewing pull requests:
 
