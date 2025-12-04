@@ -221,7 +221,7 @@ Customize the Source Control Graph with these settings:
 
 Learn more about [viewing commit history with the Source Control Graph](/docs/sourcecontrol/staging-commits.md#graph-view-for-commit-history).
 
-## Working with multiple repositories
+## Working with repositories
 
 The Repositories view enables you to manage multiple Git repositories in a single workspace. This is useful when working with projects that span multiple repositories.
 
