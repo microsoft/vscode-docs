@@ -532,3 +532,14 @@ For example, to make the indent guides bright blue, add the following to your `s
 Yes, you can show or hide the Open Editors section by using the Views menu in the Explorer and toggling the **Open Editors** menu item.
 
 ![Explorer menu to enable or disable views in the Explorer](images/userinterface/explorer-menu.png)
+
+## Naming guidance for AI-related UI elements
+
+### When naming UI elements related to AI functionality (such as buttons, panels, or menus), follow these guidelines:
+
+* Use clear, descriptive names that indicate the AI feature (e.g., **AI Assistant**, **Generate with Copilot**, **AI Chat Panel**).
+* Keep names concise and avoid abbreviations unless they are widely recognized.
+* Ensure naming consistency with other AI features in Visual Studio Code.
+* Consider accessibility: names should be intuitive for screen readers and assistive technologies.
+
+These guidelines help maintain clarity and consistency for users interacting with AI-driven features in VS Code.
