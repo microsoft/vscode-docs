@@ -147,13 +147,13 @@ To invoke a subagent in a prompt:
 
 #### Use a custom agent with subagents (Experimental)
 
-By default, a subagent inherits the agent from the main chat session. If you invoke a subagent from a custom agent, that subagent also runs with that agent.
-
-With the experimental `setting(chat.customAgentInSubagent.enabled)` setting, subagents can run with a different (custom) agent.
+By default, a subagent inherits the agent from the main chat session. You can configure a subagent to use a different built-in or custom agent. For example, if you want to run a research task as part of a development task, you can start the research task in a subagent that uses a research agent.
 
 To run a subagent with a specific agent:
 
-1. Enable the `setting(chat.customAgentInSubagent.enabled)` setting
+1. Enable support for custom agents in subagents with the `setting(chat.customAgentInSubagent.enabled)` setting
+
+1. Make sure the custom agent doesn't have its `infer` property set to `false`, as this prevents the agent from being used in subagents.
 
 1. Prompt the AI to use a custom or built-in agent for the subagent. For example:
 
