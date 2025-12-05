@@ -1,6 +1,6 @@
 ---
 ContentId: 164299e8-d27d-40b9-8b8d-a6e05df8ac69
-DateApproved: 10/03/2025
+DateApproved: 12/05/2025
 MetaDescription: Build, test, and deploy AI applications with AI Toolkit for Visual Studio Code. Features model playground, prompt engineering, batch evaluation, fine-tuning, and multi-modal support for LLMs and SLMs.
 ---
 # AI Toolkit for Visual Studio Code
@@ -13,7 +13,7 @@ AI Toolkit offers seamless integration with popular AI models from providers lik
 
 | Feature | Description | Screenshot |
 |---------|-------------|------------|
-| [Model Catalog](/docs/intelligentapps/models.md) | Discover and access AI models from multiple sources including GitHub, ONNX, Ollama, OpenAI, Anthropic, and Google. Compare models side-by-side and find the perfect fit for your use case. | ![Screenshot showing the AI Toolkit Model Catalog interface with various AI model options](./images/overview/catalog.png) |
+| [Model Catalog](/docs/intelligentapps/models.md) | Discover and access AI models from multiple sources including Microsoft Foundry, Foundry Local, GitHub, ONNX, Ollama, OpenAI, Anthropic, and Google. Compare models side-by-side and find the perfect fit for your use case. | ![Screenshot showing the AI Toolkit Model Catalog interface with various AI model options](./images/overview/catalog.png) |
 | [Playground](/docs/intelligentapps/playground.md) | Interactive chat environment for real-time model testing. Experiment with different prompts, parameters, and multi-modal inputs including images and attachments. | ![Screenshot showing the AI Toolkit Playground interface with chat messaging and model parameter controls](./images/overview/playground.png) |
 | [Agent Builder](/docs/intelligentapps/agentbuilder) | Streamlined prompt engineering and agent development workflow. Create sophisticated prompts, integrate MCP tools, and generate production-ready code with structured outputs. | ![Screenshot showing the Agent Builder interface for creating and managing AI agents](./images/overview/agent-builder.png) |
 | [Bulk Run](/docs/intelligentapps/bulkrun) | Execute batch prompt testing across multiple models simultaneously. Ideal for comparing model performance and testing at scale with various input scenarios. | ![Screenshot showing the Bulk Run interface for batch testing prompts across multiple AI models](./images/overview/bulk-run.png) |
@@ -94,6 +94,11 @@ AI Toolkit opens in its own view, with the AI Toolkit icon now displayed on the 
     - **Bulk Run**: Test agents and prompts against multiple test cases in batch mode.
     - **Evaluation**: Evaluate models, prompts, and agents by comparing their outputs to ground truth data and computing evaluation metrics.
     - **Tracing**: Trace capabilities to help you monitor and analyze the performance of your AI applications.
+
+- **Build Agent with GitHub Copilot**: This section enables you to use GitHub Copilot to help you build AI agents faster with AI Toolkit. It contains the following subsections:
+    - **Create Agent**: Opens the Chat pane and creates a prompt to build an AI agent with a Console application using GitHub Copilot.
+    - **Enable Tracing**: Opens the Chat pane and creates a prompt to add tracing to the current workspace using GitHub Copilot.
+    - **Add Evaluation Framework**: Opens the Chat pane and creates a prompt to add the evaluation framework to the current workspace using GitHub Copilot.
 
 - **MCP Workflow**: This section contains tools you use to add an existing MCP server or to create a new one. It contains the following subsections:
     - **Add MCP Server**: The link for adding and working with an existing MCP server.
