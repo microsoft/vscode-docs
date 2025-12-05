@@ -34,7 +34,7 @@ These autonomous agents have the following capabilities:
 
 VS Code supports four main categories of agents, each designed for different use cases and levels of interaction:
 
-![Diagram showing agent types by environment and interaction.](./images/overview/agent-types-diagram.png)
+![Diagram showing agent types by environment and interaction.](../images/agents-overview/agent-types-diagram.png)
 
 <!--
 ```mermaid
@@ -126,7 +126,7 @@ Third party agents are background agents developed by external providers (for ex
 
 The **Agents view** provides a centralized interface for tracking and managing your agent sessions, both local in VS Code and in other environments, such as Copilot coding agent, GitHub Copilot CLI, or OpenAI Codex.
 
-![Screenshot of the Agents view in VS Code showing multiple agent sessions.](./images/overview/agents-view.png)
+![Screenshot of the Agents view in VS Code showing multiple agent sessions.](../images/agents-overview/agents-view.png)
 
 To open the **Agents** view, run the **Agents: Focus on Agents View** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
@@ -154,7 +154,7 @@ By default, the Agents view shows all sessions, except archived sessions. Use th
 * Type: Local, Background, Cloud, or Codex
 * Status: Completed, In Progress, Failed, or Archived
 
-![Screenshot of the Agents view filter dropdown.](./images/overview/agents-view-filter.png)
+![Screenshot of the Agents view filter dropdown.](../images/agents-overview/agents-view-filter.png)
 
 Select **Reset** to reset the filters to the default value.
 
@@ -201,7 +201,7 @@ For example, you might start with a local agent to brainstorm and plan a feature
 
 You can delegate a local agent session from chat in VS Code by using the **Continue In** button in the chat input box, or use the `@cli`, `@cloud`, or `@codex` commands to pass a task to another agent type.
 
-![Screenshot of the chat input box showing the Continue In button.](./images/overview/delegate-local-session.png)
+![Screenshot of the chat input box showing the Continue In button.](../images/agents-overview/delegate-local-session.png)
 
 In a background agent session, you can delegate to a cloud agent by using the `/delegate` command in the chat input box.
 
@@ -211,7 +211,7 @@ When you delegate a session, VS Code creates a new agent session of the selected
 
 Select an agent session in the Agents view to open a chat editor that displays the full conversation history, file changes, and status updates.
 
-![Screenshot of an agent session details view in VS Code.](./images/overview/agent-session-details.png)
+![Screenshot of an agent session details view in VS Code.](../images/agents-overview/agent-session-details.png)
 
 You can continue iterating with the agent via the chat interface in the session details view. For example, you can ask the agent to make further modifications, explain changes, run tests, and more.
 
@@ -219,7 +219,7 @@ You can continue iterating with the agent via the chat interface in the session 
 
 When an agent makes code modifications, you can review the changes directly from within the session details view. The view shows the list of changed files, along with diff statistics.
 
-![Screenshot of the file changes diff editor in an agent session.](./images/overview/agent-file-changes.png)
+![Screenshot of the file changes diff editor in an agent session.](../images/agents-overview/agent-file-changes.png)
 
 Select a changed file to view a diff editor that highlights the specific lines added, removed, or modified by the agent.
 

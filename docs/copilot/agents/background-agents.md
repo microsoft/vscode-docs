@@ -98,11 +98,11 @@ To continue a local agent session in a background agent session:
 
     * Select **Continue Chat In** and then select **Background**
 
-        ![Screenshot showing the "Continue in Chat" button in VS Code chat interface.](./images/background-agents/continue-in-chat-background.png)
+        ![Screenshot showing the "Continue in Chat" button in VS Code chat interface.](../images/background-agents/continue-in-chat-background.png)
 
     * If you're using the [Plan agent](/docs/copilot/chat/chat-planning.md), select the **Start Implementation** dropdown and the select **Continue in Background** to run the implementation in a background agent session
 
-        ![Screenshot showing the "Start Implementation" button in VS Code chat interface.](./images/background-agents/plan-agent-start-implementation-background.png)
+        ![Screenshot showing the "Start Implementation" button in VS Code chat interface.](../images/background-agents/plan-agent-start-implementation-background.png)
 
     * Type `@cli /delegate` in the chat input and send the message
 
@@ -126,7 +126,7 @@ To enable custom agents with background agents:
 
 1. Select the custom agent from the Agents dropdown
 
-    ![Screenshot showing custom agent selection in VS Code chat interface.](./images/background-agents/custom-agent-selection.png)
+    ![Screenshot showing custom agent selection in VS Code chat interface.](../images/background-agents/custom-agent-selection.png)
 
 1. Enter a prompt and notice that the custom agent is used to handle the task
 
@@ -145,7 +145,7 @@ To create a Copilot CLI background agent session with a worktree:
 
 1. In the chat editor, select **Worktree** for the isolation mode.
 
-    ![Screenshot showing the "Worktree" isolation mode option in VS Code chat interface.](./images/background-agents/isolated-run-mode.png)
+    ![Screenshot showing the "Worktree" isolation mode option in VS Code chat interface.](../images/background-agents/isolated-run-mode.png)
 
     To run a background agent on the current workspace without isolation, select **Workspace**.
 
@@ -153,7 +153,7 @@ To create a Copilot CLI background agent session with a worktree:
 
 1. In Source Control view, in the **Repositories** view, you can view the Git worktree
 
-    ![Screenshot showing Git worktree in VS Code Source Control view.](./images/background-agents/git-worktree-source-control.png)
+    ![Screenshot showing Git worktree in VS Code Source Control view.](../images/background-agents/git-worktree-source-control.png)
 
     The Agents view also shows the worktree path for the background agent session.
 
@@ -170,13 +170,13 @@ Learn more about [using Git worktrees in VS Code source control](/docs/sourcecon
 
 To view the conversation history of a background agent session, select the session in the Agents view. The chat editor opens, displaying the full conversation history and any code changes made by the agent. To open the agent session in a new VS Code window, right-click the session and select **Open in New Window**.
 
-![Screenshot showing background agent session details in VS Code chat editor.](./images/background-agents/background-agent-session-details.png)
+![Screenshot showing background agent session details in VS Code chat editor.](../images/background-agents/background-agent-session-details.png)
 
 In the chat editor, you can provide additional instructions to the background agent or review the changes it made.
 
 If you prefer to view the Copilot CLI session instead of the chat conversation in VS Code, right-click the session in the Agents view and select **Resume Agent Session in Terminal**. You can interact with the Copilot CLI directly in VS Code.
 
-![Screenshot showing the Copilot CLI session inside VS Code.](./images/background-agents/copilot-cli-in-terminal.png)
+![Screenshot showing the Copilot CLI session inside VS Code.](../images/background-agents/copilot-cli-in-terminal.png)
 
 ## Next steps
 

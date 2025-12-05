@@ -79,7 +79,7 @@ To continue a local agent session in a cloud agent session:
 
     * If you're using the [Plan agent](/docs/copilot/chat/chat-planning.md), select the **Start Implementation** dropdown and the select **Continue in Cloud** to run the implementation in a cloud agent session
 
-        ![Screenshot showing the "Start Implementation" button in VS Code chat interface.](./images/background-agents/plan-agent-start-implementation-background.png)
+        ![Screenshot showing the "Start Implementation" button in VS Code chat interface.](../images/background-agents/plan-agent-start-implementation-background.png)
 
 The cloud agent session starts automatically, carrying over the full chat history and context. You can monitor the cloud agent's progress in the Agents view.
 
@@ -95,7 +95,7 @@ In the chat editor, you can provide additional instructions to the cloud agent o
 
 When you have installed the GitHub Pull Requests extension, you can view the pull requests created by Copilot coding agent from the Pull Requests view, under the category **Copilot On My Behalf**.
 
-![Screenshot of the Pull Requests view in VS Code showing pull requests created by Copilot coding agent.](./images/cloud-agents/copilot-on-my-behalf-pull-requests.png)
+![Screenshot of the Pull Requests view in VS Code showing pull requests created by Copilot coding agent.](../images/cloud-agents/copilot-on-my-behalf-pull-requests.png)
 
 ## Related resources
 
