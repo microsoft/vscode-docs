@@ -23,6 +23,8 @@ Custom agents consist of a set of instructions and tools that are applied when y
 
 Custom agents are defined in a `.agent.md` Markdown file, and can be stored in your workspace for others to use, or in your user profile, where you can reuse them across different workspaces.
 
+You can reuse your custom agents in background and cloud [agent sessions](/docs/copilot/agents/overview.md), enabling you to run autonomous tasks with the same specialized configurations.
+
 ## Why use custom agents?
 
 Different tasks require different capabilities. A planning agent might only need read-only tools for research and analysis to prevent accidental code changes, while an implementation agent would need full editing capabilities. Custom agents let you specify exactly which tools are available for each task, ensuring the AI has the right capabilities for the job.

@@ -183,7 +183,7 @@ To archive a session:
 
 To unarchive a session:
 
-1. Apply the **Archived** filter in the Agents view
+1. Apply the **Archived** filter in the Agents view to show archived sessions
 
 1. Hover over the archived session
 
@@ -201,10 +201,10 @@ You can create a new, empty agent session from the Agents view. To create a new 
 
 Alternatively, use the following commands from the Command Palette (`kb(workbench.action.showCommands)`):
 
-* **Chat: New Chat Editor/Window**: create a new local agent session in VS Code
-* **Chat: New Background Agent**: create a new background agent session using Copilot CLI
-* **Chat: New Cloud Agent**: create a new cloud agent session using GitHub
-* **Chat: New OpenAI Codex**: create a new third-party Codex agent session
+* **Chat: New Chat Editor/Window**: start a new local agent session in a chat editor
+* **Chat: New Background Agent**: start a new background agent session using Copilot CLI in a chat editor
+* **Chat: New Cloud Agent**: start a new cloud agent session using GitHub in a chat editor
+* **Codex: New Codex Agent**: start a new OpenAI Codex agent session in a chat editor
 
 ## Continue a local session in another agent type
 
