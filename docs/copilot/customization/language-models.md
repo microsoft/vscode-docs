@@ -57,23 +57,13 @@ At any time, you can see which model and model multiplier are used by hovering o
 
 You can customize which models are shown in the model picker in the Chat view by using the language model editor. You can show or hide both built-in models and models that you have added using [bring your own language model key](#bring-your-own-language-model-key).
 
-1. Open the model picker and select **Manage Models** or run the **Chat: Manage Language Models** command from the Command Palette.
+1. Open the model picker in the Chat view and select **Manage Models** or run the **Chat: Manage Language Models** command from the Command Palette.
 
-1. In the provider list, select **Copilot**.
-
-1. Select the models you want to show in the model picker.
-
-    After updating the selection, the model picker only shows the models that you have selected.
-
-<!--
-1. Open the model picker and select **Manage Models** or run the **Chat: Manage Language Models** command from the Command Palette.
-
-    In the language model editor, you can see the list and details of available models from the model providers that you have configured.
+    The language model editor lists all models from the model providers that you have configured. The models are grouped by provider, and show model details such as the model name, context window size, capabilities, and billing information.
 
 1. Hover over a model in the list and select the eye icon to show or hide the model in the model picker.
 
     ![Screenshot that shows the lanugage model editor with the eye icon to show or hide models in the model picker.](../images/language-models/language-models-hide.png)
--->
 
 ## Bring your own language model key
 
@@ -112,14 +102,9 @@ To configure a language model from a built-in provider:
 
 1. Select **Manage Models** from the language model picker in the Chat view or run the **Chat: Manage Language Models** command from the Command Palette.
 
-1. Hover over a model provider in the list, and select the gear icon to configure the provider details.
-
-<!--
 1. Select **Add Models**, and then select a model provider from the list.
 
     ![Screenshot that shows the model provider Quick Pick.](../images/language-models/model-provider-quick-pick.png)
-
--->
 
 1. Enter the provider-specific details, such as the API key or endpoint URL.
 
@@ -166,9 +151,6 @@ To update the provider details, such as the API key or endpoint URL:
 
 1. Hover over a model provider in the list, and select the gear icon to edit the provider details.
 
-1. Update the provider details, such as the API key or endpoint URL.
-
-<!--
 1. Select **Manage Models** from the language model picker in the Chat view or run the **Chat: Manage Language Models** command from the Command Palette.
 
 1. Select the gear icon for the model provider you want to update.
@@ -176,7 +158,6 @@ To update the provider details, such as the API key or endpoint URL:
    ![Screenshot that shows the model provider Quick Pick, with a gear icon next to the provider name.](../images/language-models/reconfigure-model-provider.png)
 
 1. Update the provider details, such as the API key or endpoint URL.
--->
 
 ## Change the model for inline suggestions
 
