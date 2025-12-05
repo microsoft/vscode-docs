@@ -64,6 +64,7 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 | `setting(chat.tools.terminal.terminalProfile.<platform>)`<br/>Configure which terminal profile to use for chat terminal commands on each platform. | `""` |
 | `setting(chat.useAgentsMdFile)` <br/>Enable or disable using `AGENTS.md` files as context for chat requests. | `true` |
 | `setting(chat.math.enabled)` _(Preview)_<br/>Enable or disable math rendering with [KaTeX](https://katex.org) in chat. | `false` |
+| `setting(chat.viewTitle.enabled)` _(Preview)_<br/>Show the title of the current chat session in the chat header. | `true` |
 | `setting(github.copilot.chat.codesearch.enabled)` _(Preview)_<br/>When using `#codebase` in the prompt, Copilot automatically discovers relevant files to be edited. | `false` |
 | `setting(chat.emptyState.history.enabled)` _(Experimental)_<br/>Show recent chat history in the empty state of the Chat view. | `false` |
 | `setting(chat.sendElementsToChat.enabled)` _(Experimental)_<br/>Enable sending elements from the Simple Browser to the chat view as context. | `true` |
