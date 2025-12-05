@@ -172,7 +172,7 @@ Enable the experimental setting `setting(chat.agentSessionsViewLocation)` to try
 
 * When set to `view`, you'll see a **Chat Sessions** view in the VS Code Side Bar for managing local and coding agent sessions. The view now includes rich descriptions with detailed context to help you quickly find relevant information.
 
-   ![Screenshot showing the Coding Agent Sessions view.](images/copilot-coding-agent/coding-agent-sessions-view.png)
+   ![Screenshot showing the Coding Agents view.](images/copilot-coding-agent/coding-agent-sessions-view.png)
 
 * When set to `showChatsMenu`, coding agent sessions appear alongside local chat history
 

@@ -42,11 +42,11 @@ The plan agent is designed to:
     > [!TIP]
     > Stay in plan mode to refine your plan before implementation. You can iterate multiple times to clarify requirements, adjust scope, or address open questions. This ensures a solid foundation before any code changes are made.
 
-4. Once finalized, choose to save the plan or hand off to an implementation agent to start coding by using the corresponding controls.
+4. Once finalized, use the buttons to start implementation of the plan or to open the plan in the editor for further review.
 
-    When starting to implement the plan, you can still provide instructions, like "Start with the UI", or "only step 1 and 2".
+    You can choose to implement the plan in the same chat session, or start a background or cloud [agent session](/docs/copilot/agents/overview.md) to work on the implementation autonomously in the background.
 
-    When you save the plan, a `*.prompt.md` [prompt file](/docs/copilot/customization/prompt-files.md) is generated, which you can further edit. Once ready, you can start the implementation by invoking the prompt.
+    When starting to implement the plan, you can still provide clarifying instructions, like "Start with the UI", or "only step 1 and 2".
 
 ## Track progress with the todo list
 

@@ -93,11 +93,11 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 
 ## Agent sessions
 
-The [Chat Sessions view](/docs/copilot/copilot-coding-agent.md) provides a centralized location for managing both local chat conversations and remote coding agent sessions. This view enables you to work with multiple AI sessions simultaneously, track their progress, and manage long-running tasks efficiently.
+The [Agents view](/docs/copilot/agents/overview.md) provides a centralized location for managing both local chat conversations and remote coding agent sessions. This view enables you to work with multiple AI sessions simultaneously, track their progress, and manage long-running tasks efficiently.
 
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(chat.agentSessionsViewLocation)` _(Experimental)_<br/>Enable or disable the Chat Sessions view. | `disabled` |
+| `setting(chat.agentSessionsViewLocation)` _(Experimental)_<br/>Enable or disable the Agents view. | `disabled` |
 
 ## Inline chat settings
 
