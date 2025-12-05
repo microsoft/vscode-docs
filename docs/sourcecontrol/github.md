@@ -2,24 +2,54 @@
 ContentId: bd1be8cf-b745-4737-be48-db381ec3acc6
 DateApproved: 11/12/2025
 MetaDescription: Working with GitHub Pull Requests and Issues in Visual Studio Code
+Keywords:
+- source control
+- scm
+- version control
+- git
 ---
 # Working with GitHub in VS Code
 
 [GitHub](https://github.com) is a cloud-based service for storing and sharing source code. Using GitHub with Visual Studio Code lets you share your source code and collaborate with others right within your editor. There are many ways to interact with GitHub, for example, via their website at [https://github.com](https://github.com) or the [Git](https://git-scm.com) command-line interface (CLI), but in VS Code, the rich GitHub integration is provided by the [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension.
 
-<a class="install-extension-btn" href="vscode:extension/GitHub.vscode-pull-request-github">Install the GitHub Pull Requests and Issues extension</a>
+In this topic, we'll demonstrate how you can use some of your favorite parts of GitHub without leaving VS Code.
 
-To get started with the GitHub in VS Code, you'll need to install [Git](https://git-scm.com/download), [create a GitHub account](https://docs.github.com/get-started/signing-up-for-github/signing-up-for-a-new-github-account) and install the [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension. In this topic, we'll demonstrate how you can use some of your favorite parts of GitHub without leaving VS Code.
+> [!TIP]
+> If you're new to source control or want to learn more about VS Code's basic Git support, you can start with the [Source Control](/docs/sourcecontrol/overview.md) topic.
 
-If you're new to source control or want to learn more about VS Code's basic Git support, you can start with the [Source Control](/docs/sourcecontrol/overview.md) topic.
+## Prerequisites
+
+To get started with GitHub in VS Code, you need:
+
+* Git is installed on your computer. [Install Git version 2.0.0 or later](https://git-scm.com/download) on your machine.
+
+* A [GitHub account](https://docs.github.com/get-started/signing-up-for-github/signing-up-for-a-new-github-account).
+
+* The [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension installed in VS Code.
+
+* When you commit changes, Git uses your configured username and email. You can set these values with:
+
+    ```bash
+    git config --global user.name "Your Name"
+    git config --global user.email "your.email@example.com"
+    ```
 
 ## Getting started with GitHub Pull Requests and Issues
 
-Once you've installed the [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension, you'll need to sign in. Follow the prompts to authenticate with GitHub in the browser and return to VS Code.
+Once you've installed the [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension, you'll need to sign in.
 
-![Extension Sign In](images/github/extension-signin.png)
+1. Select the GitHub icon in the Activity Bar
+1. Select **Sign In** and follow the prompts to authenticate with GitHub in the browser
 
-If you are not redirected to VS Code, you can add your authorization token manually. In the browser window, you will receive your authorization token. Copy the token, and switch back to VS Code. Select **Signing in to github.com...** in the Status bar, paste the token, and hit `kbstyle(Enter)`.
+    ![Screenshot of the GitHub view, showing the sign in button.](images/github/extension-signin.png)
+
+1. You should be redirected back to VS Code
+
+If you are not redirected to VS Code, you can add your authorization token manually:
+
+1. In the browser window, copy your authorization token
+1. In VS Code, select **Signing in to github.com...** in the Status Bar
+1. Paste the token and press `kbstyle(Enter)` to complete the sign-in process
 
 ## Setting up a repository
 
@@ -27,47 +57,48 @@ If you are not redirected to VS Code, you can add your authorization token manua
 
 You can search for and clone a repository from GitHub using the **Git: Clone** command in the Command Palette (`kb(workbench.action.showCommands)`) or by using the **Clone Repository** button in the Source Control view (available when you have no folder open).
 
-![Clone Repository button in the Source Control view](images/github/git-clone-button.png)
-
 From the GitHub repository dropdown you can filter and pick the repository you want to clone locally.
 
-![GitHub repository dropdown filtered on microsoft/vscode](images/github/github-repo-dropdown.png)
+![Screenshot showing the GitHub repository Quick Pick filtered on microsoft/vscode.](images/github/github-repo-dropdown.png)
+
+Learn more about [cloning repositories and working with remotes](/docs/sourcecontrol/repos-remotes.md#clone-repositories).
 
 ### Authenticating with an existing repository
 
 Enabling authentication through GitHub happens when you run any Git action in VS Code that requires GitHub authentication, such as pushing to a repository that you're a member of or cloning a private repository. You don't need to have any special extensions installed for authentication; it is built into VS Code so that you can efficiently manage your repository.
 
-When you do something that requires GitHub authentication, you'll see a prompt to sign in:
+When you perform an action that requires GitHub authentication, VS Code prompts you to sign in. Follow the steps to sign into GitHub and return to VS Code.
 
-![Authentication Prompt](images/github/auth-prompt.png)
+![Screenshot showing the GitHub authentication dialog.](images/github/auth-prompt.png)
 
-Follow the steps to sign into GitHub and return to VS Code. Signing in with a personal access token (PAT) is only supported with GitHub Enterprise Server. If you're using GitHub Enterprise Server and want to use a PAT, then you can hit "cancel" on the sign in prompts until you are prompted for a PAT.
+Signing in with a personal access token (PAT) is only supported with GitHub Enterprise Server. If you're using GitHub Enterprise Server and want to use a PAT, you can select **Cancel** on the sign in prompts until you are prompted for a PAT.
 
 Note that there are several ways to authenticate to GitHub, including using your username and password with two-factor authentication (2FA), a personal access token, or an SSH key. See [About authentication to GitHub](https://docs.github.com/github/authenticating-to-github/about-authentication-to-github) for more information and details about each option.
 
->**Note**: If you'd like to work on a repository without cloning the contents to your local machine, you can install the [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=github.remotehub) extension to browse and edit directly on GitHub. You can learn more below in the [GitHub Repositories extension](/docs/sourcecontrol/github.md#github-repositories-extension) section.
+> [!NOTE]
+> If you'd like to work on a repository without cloning the contents to your local machine, you can install the [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=github.remotehub) extension to browse and edit directly on GitHub. Learn more about the [GitHub Repositories extension](/docs/sourcecontrol/github.md#github-repositories-extension).
 
 ## Editor integration
 
 ### Hovers
 
-When you have a repository open and a user is @-mentioned, you can hover over that username and see a GitHub-style hover.
+When you have a repository open and a user is @-mentioned (for example, in a code comment), you can hover over that username and see a GitHub-style hover with the user's details.
 
-![User Hover](images/github/user-hover.png)
+![Screenshot showing a user hover for a @-mentioned user in a code comment.](images/github/user-hover.png)
 
 There is a similar hover for #-mentioned issue numbers, full GitHub issue URLs, and repository specified issues.
 
-![Issue Hover](images/github/issue-hover.png)
+![Screenshot showing a hover for a #-mentioned issue number in a code comment.](images/github/issue-hover.png)
 
 ### Suggestions
 
-User suggestions are triggered by the "@" character and issue suggestions are triggered by the "#" character. Suggestions are available in the editor and in the **Source Control** view's input box.
+User suggestions are triggered by typing the "@" character and issue suggestions are triggered by typing the "#" character. Suggestions are available in the editor and in the Source Control commit message input box.
 
-![User and Issue suggestions](images/github/user-issue-suggest.gif)
+![GIF showing User and Issue suggestions in the editor.](images/github/user-issue-suggest.gif)
 
-The issues that appear in the suggestion can be configured with the **GitHub Issues: Queries** (`setting(githubIssues.queries)`) [setting](/docs/configure/settings.md). The queries use the [GitHub search syntax](https://docs.github.com/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax).
+The issues that appear in the suggestion can be configured with the **GitHub Issues: Queries** (`setting(githubIssues.queries)`) setting. The queries use the [GitHub search syntax](https://docs.github.com/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax).
 
-You can also configure which files show these suggestions using the settings **GitHub Issues: Ignore Completion Trigger** (`setting(githubIssues.ignoreCompletionTrigger)`) and **GitHub Issues: Ignore User Completion Trigger** (`setting(githubIssues.ignoreUserCompletionTrigger)`). These settings take an array of [language identifiers](/docs/languages/identifiers.md) to specify the file types.
+You can also configure which file types show these suggestions by using the settings **GitHub Issues: Ignore Completion Trigger** (`setting(githubIssues.ignoreCompletionTrigger)`) and **GitHub Issues: Ignore User Completion Trigger** (`setting(githubIssues.ignoreUserCompletionTrigger)`). These settings take an array of [language identifiers](/docs/languages/identifiers.md) to specify the file types.
 
 ```jsonc
 // Languages that the '#' character should not be used to trigger issue completion suggestions.
@@ -80,7 +111,7 @@ You can also configure which files show these suggestions using the settings **G
 
 From the **Pull Requests** view you can view, manage, and create pull requests.
 
-![Pull Request View](images/github/pull-request-view.png)
+![Screenshot showing the Pull Request view.](images/github/pull-request-view.png)
 
 The queries used to display pull requests can be configured with the **GitHub Pull Requests: Queries** (`setting(githubPullRequests.queries)`) setting and use the [GitHub search syntax](https://docs.github.com/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax).
 
@@ -96,13 +127,13 @@ The queries used to display pull requests can be configured with the **GitHub Pu
 
 Once you have committed changes to your fork or branch, you can use the **GitHub Pull Requests: Create Pull Request** command or the **Create Pull Request** button in the **Pull Requests** view to create a pull request.
 
-![Create Pull Request button in the Pull Request view](images/github/create-pull-request-button.png)
+![Screenshot showing the Create Pull Request button in the Pull Request view.](images/github/create-pull-request-button.png)
 
 A new **Create** view will be displayed where you can select the base repository and base branch you'd like your pull request to target as well as fill in the title and description. If your repository has a pull request template, this will automatically be used for the description.
 
 Use the buttons in the action bar at the top to add **Assignees**, **Reviewers**, **Labels** and a **Milestone**.
 
-![Create Pull Request view](images/github/create-pull-request-view.png)
+![Screenshot showing the Create Pull Request view.](images/github/create-pull-request-view.png)
 
 The **Create** button menu allows you to select alternative create options, such as **Create Draft** or enable an **Auto-Merge** method.
 
@@ -111,9 +142,9 @@ Once you select **Create**, if you have not already pushed your branch to a GitH
 The **Create Pull Request** view now enters **Review Mode**, where you can review the details of the PR, add comments, and merge the PR once it's ready. After the PR is merged, you'll have the option to delete both the remote and local branch.
 
 > [!TIP]
-> Use GitHub Copilot to generate a PR title and description, based on the commits that are included in the PR. Select the _sparkle_ icon next to the PR title field to generate a PR title and description.
+> Use AI to generate a PR title and description, based on the commits that are included in the PR. Select the _sparkle_ icon next to the PR title field to generate a PR title and description.
 
-![Screenshot that shows the Generate Commit Message with Copilot button in the commit message input box.](images/overview/copilot-generate-commit-message.png)
+![Screenshot that shows the Generate Commit Message in the commit message input box.](images/overview/copilot-generate-commit-message.png)
 
 ### Reviewing
 
@@ -121,7 +152,7 @@ Pull requests can be reviewed from the **Pull Requests** view. You can assign re
 
 ![Pull Request Description editor](images/github/pull-request-description-editor.png)
 
-From the **Description** page, you can also easily checkout the pull request locally using the **Checkout** button. This will switch VS Code to open the fork and branch of the pull request (visible in the Status bar) in Review Mode and add a new **Changes in Pull Request** view from which you can view diffs of the current changes as well as all commits and the changes within these commits. Files that have been commented on are decorated with a diamond icon. To view the file on disk, you can use the **Open File** inline action.
+From the **Description** page, you can also easily checkout the pull request locally using the **Checkout** button. This will switch VS Code to open the fork and branch of the pull request (visible in the Status Bar) in Review Mode and add a new **Changes in Pull Request** view from which you can view diffs of the current changes as well as all commits and the changes within these commits. Files that have been commented on are decorated with a diamond icon. To view the file on disk, you can use the **Open File** inline action.
 
 ![Changes in Pull Request view](images/github/changes-view.png)
 
@@ -130,7 +161,7 @@ The diff editors from this view use the local file, so file navigation, IntelliS
 When you are done reviewing the pull request changes you can merge the PR or select **Exit Review Mode** to go back to the previous branch you were working on.
 
 > [!TIP]
-> You can also [let Copilot perform a code review of the PR](https://docs.github.com/en/copilot/using-github-copilot/code-review/using-copilot-code-review?tool=vscode) before you create it. Select the **Code Review** button in the GitHub Pull Request view.
+> You can also [use AI to perform a code review of the PR](https://docs.github.com/en/copilot/using-github-copilot/code-review/using-copilot-code-review?tool=vscode) before you create it. Select the **Code Review** button in the GitHub Pull Request view.
 
 ## Issues
 
@@ -161,15 +192,18 @@ From the **Issues** view, you can see your issues and work on them.
 
 ![Issue view with hover](images/github/issues-view.png)
 
-By default, when you start working on an issue (**Start Working on Issue** context menu item), a branch will be created for you, as shown in the Status bar in the image below.
+By default, when you start working on an issue (**Start Working on Issue** context menu item), a branch will be created for you, as shown in the Status Bar in the image below.
 
 ![Work on Issue](images/github/working-on-issue.png)
 
-The Status bar also shows the active issue and if you select that item, a list of issue actions are available such as opening the issue on the GitHub website or creating a pull request.
+The Status Bar also shows the active issue and if you select that item, a list of issue actions are available such as opening the issue on the GitHub website or creating a pull request.
 
-![Issue Status bar actions](images/github/issue-status-bar-actions.png)
+![Issue Status Bar actions](images/github/issue-status-bar-actions.png)
 
 You can configure the name of the branch using the **GitHub Issues: Issue Branch Title** (`setting(githubIssues.issueBranchTitle)`) setting. If your workflow doesn't involve creating a branch, or if you want to be prompted to enter a branch name every time, you can skip that step by turning off the **GitHub Issues: Use Branch For Issues** (`setting(githubIssues.useBranchForIssues)`) setting.
+
+> [!TIP]
+> Learn more about [working with branches](/docs/sourcecontrol/branches-worktrees.md) to understand branch management, switching between branches, and organizing your development work.
 
 Once you are done working on the issue and want to commit a change, the commit message input box in the **Source Control** view will be populated with a message, which can be configured with **GitHub Issues: Working Issue Format SCM** (`setting(githubIssues.workingIssueFormatScm)`).
 
@@ -181,9 +215,9 @@ The [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=gi
 
 ### Opening a repository
 
-Once you have installed the GitHub Repositories extension, you can open a repository with the **GitHub Repositories: Open Repository...** command from the Command Palette (`kb(workbench.action.showCommands)`) or by clicking the Remote indicator in the lower left of the Status bar.
+Once you have installed the GitHub Repositories extension, you can open a repository with the **GitHub Repositories: Open Repository...** command from the Command Palette (`kb(workbench.action.showCommands)`) or by clicking the Remote indicator in the lower left of the Status Bar.
 
-![Remote indicator in the Status bar](images/github/remote-indicator.png)
+![Remote indicator in the Status Bar](images/github/remote-indicator.png)
 
 When you run the **Open Repository** command, you then choose whether to open a repository from GitHub, open a Pull Request from GitHub, or reopen a repository that you had previously connected to.
 
@@ -203,9 +237,9 @@ The GitHub Repositories extension supports viewing and even committing LFS-track
 
 ### Switching branches
 
-You can easily switch between branches by clicking on the branch indicator in the Status bar. One great feature of the GitHub Repositories extension is that you can switch branches without needing to stash uncommitted changes. The extension remembers your changes and reapplies them when you switch branches.
+You can easily switch between branches by clicking on the branch indicator in the Status Bar. One great feature of the GitHub Repositories extension is that you can switch branches without needing to stash uncommitted changes. The extension remembers your changes and reapplies them when you switch branches.
 
-![Branch indicator on the Status bar](images/github/branch-indicator-status-bar.png)
+![Branch indicator on the Status Bar](images/github/branch-indicator-status-bar.png)
 
 ### Remote Explorer
 
@@ -213,7 +247,7 @@ You can quickly reopen remote repositories with the Remote Explorer available on
 
 ![Remote Explorer view](images/github/github-remote-explorer.png)
 
-### Create Pull Requests
+### Create pull requests
 
 If your workflow uses Pull Requests, rather than direct commits to a repository, you can create a new PR from the Source Control view. You'll be prompted to provide a title and create a new branch.
 
@@ -229,7 +263,7 @@ Without a repository's files on your local machine, the GitHub Repositories exte
 
 Extension authors can learn more about running in a virtual file system and workspace in the [Virtual Workspaces extension author's guide](https://github.com/microsoft/vscode/wiki/Virtual-Workspaces).
 
-### Continue Working On...
+### Continue working on
 
 Sometimes you'll want to switch to working on a repository in a development environment with support for a local file system and full language and development tooling. The GitHub Repositories extension makes it easy for you to:
 
@@ -237,11 +271,11 @@ Sometimes you'll want to switch to working on a repository in a development envi
 * Clone the repository locally.
 * Clone the repository into a Docker container (if you have [Docker](https://docker.com/) and the Microsoft [Container Tools extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers) installed).
 
-To switch development environments, use the **Continue Working On...** command, available from the Command Palette (`kb(workbench.action.showCommands)`) or by clicking on the Remote indicator in the Status bar.
+To switch development environments, use the **Continue Working On** command, available from the Command Palette (`kb(workbench.action.showCommands)`) or by clicking on the Remote indicator in the Status Bar.
 
 ![Continue Working On command in Remote dropdown](images/github/continue-working.png)
 
-If you are using the [browser-based editor](/docs/remote/codespaces.md#browserbased-editor), the **"Continue Working On..."** command has the options to open the repository locally or within a cloud-hosted environment in [GitHub Codespaces](https://github.com/features/codespaces).
+If you are using the [browser-based editor](/docs/remote/codespaces.md#browserbased-editor), the **"Continue Working On"** command has the options to open the repository locally or within a cloud-hosted environment in [GitHub Codespaces](https://github.com/features/codespaces).
 
 ![Continue Working On from web-based editor](images/github/codespaces-continue.png)
 
@@ -253,4 +287,4 @@ In the event that your pending changes are not automatically applied to your tar
 
 ## Next steps
 
-* Learn more about [Copilot VS Code](/docs/copilot/overview.md) - Learn about Copilot in VS Code.
+* Learn more about [AI in VS Code](/docs/copilot/overview.md) - Learn about AI features in VS Code.
