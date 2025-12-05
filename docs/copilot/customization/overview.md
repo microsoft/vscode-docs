@@ -62,6 +62,14 @@ Use MCP and tools to:
 - Connect database tools to query and analyze data without leaving your development environment
 - Integrate with external APIs to fetch real-time information or perform actions
 
+### Claude skills (Experimental)
+
+If you have defined [Claude skills](https://code.claude.com/docs/en/skills) in your project or user profile, you can reuse them to customize your chat interactions in VS Code. The language model can load these skills on demand when the `read` tool is enabled.
+
+Configure the experimental `setting(chat.useClaudeSkills)` setting to enable support for Claude skills in VS Code.
+
+VS automatically detects `SKILL.md` files in the home folder at `~/.claude/skills/skill-name/SKILL.md` or in a workspace folder at `.claude/skills/skill-name/SKILL.md`.
+
 ## Usage scenarios
 
 Different customization methods work best for different scenarios. The following table lists common use cases and the recommended approach:
