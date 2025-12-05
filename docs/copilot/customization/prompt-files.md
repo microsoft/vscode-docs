@@ -109,13 +109,11 @@ When you create a prompt file, choose whether to store it in your workspace or u
 
 To create a prompt file:
 
-1. Enable the `setting(chat.promptFiles)` setting.
-
 1. In the Chat view, select **Configure Chat** (gear icon) > **Prompt Files**, and then select **New prompt file**.
 
     ![Screenshot showing the Chat view, and Configure Chat menu, highlighting the Configure Chat button.](../images/customization/configure-chat-instructions.png)
 
-    Alternatively, use the **Chat: New Prompt File** command from the Command Palette (`kb(workbench.action.showCommands)`).
+    Alternatively, use the **Chat: New Prompt File** or **Chat: New Untitled Prompt File** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
 1. Choose the location where the prompt file should be created.
 
