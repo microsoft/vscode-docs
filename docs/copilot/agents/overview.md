@@ -80,9 +80,11 @@ Local agents run directly within chat in VS Code and provide immediate, interact
 
 **Key characteristics**:
 
-* Immediate response and interaction
-* Full access to your workspace context
-* Integrated with VS Code's editing experience
+* Runs within VS Code on your local machine
+* Operate and modify files directly in your current workspace
+* Full access to your workspace, files, and context
+* Can access all agent tools configured in VS Code, such as built-in tools, MCP tools, and extension-provided tools
+* Can use all models available to you in VS Code, including BYOK models and models from other providers
 
 Learn more about [using chat in VS Code](/docs/copilot/chat/copilot-chat.md).
 
@@ -94,10 +96,11 @@ Background agents are CLI-based (for example, Copilot CLI) and operate independe
 
 **Key characteristics**:
 
-* Work autonomously in the background
-* Isolated execution environments with Git worktrees
-* Can handle long-running, complex tasks
-* Can't directly access VS Code built-in tools, for example, to get linting errors or debug state
+* Runs non-interactively and autonomously in the background on your local machine
+* Use isolated environment with Git worktrees to prevent interference with main workspace
+* Can't directly access VS Code built-in tools and run-time context, unless added explicitly, for example, failed tests or text selections
+* Don't have access to MCP servers
+* Limited to models available via the CLI tool
 
 Learn more about [using background agents in VS Code](/docs/copilot/agents/background-agents.md).
 
@@ -109,10 +112,12 @@ Cloud agents use remote infrastructure for complex coding tasks and scalable, is
 
 **Key characteristics**:
 
-* Run on remote infrastructure, allowing for scalable execution of large tasks
-* Isolated environments via branches and pull requests, protecting against unintended changes to your local environment
-* Integration with GitHub pull requests and issues
-* Designed for team collaboration
+* Runs on remote infrastructure, allowing for scalable execution of large tasks
+* Use isolated environment via branches and pull requests to prevent interference with main workspace
+* Designed for team collaboration via GitHub pull requests and issues
+* Don't have access to VS Code built-in tools and run-time context
+* MCP servers access configured in the remote environment
+* Model access limited to those available in the cloud agent service
 
 Learn more about [using cloud agents in VS Code](/docs/copilot/agents/cloud-agents.md).
 
@@ -121,6 +126,14 @@ Learn more about [using cloud agents in VS Code](/docs/copilot/agents/cloud-agen
 **Best for**: When you already use third party AI agents and want to integrate them into your VS Code workflow
 
 Third party agents are background agents developed by external providers (for example, OpenAI Codex) that are integrated into the VS Code agent experience via the Agents view.
+
+**Key characteristics**:
+
+* Installed via extensions from the Visual Studio Marketplace
+* Runs non-interactively and autonomously in the background on your local machine
+* Can't access VS Code built-in tools and run-time context
+* MCP servers access depending on the provider
+* Model access depending on the provider
 
 ## Agents view
 
