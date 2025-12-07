@@ -71,7 +71,7 @@ Agents are VS Code's most powerful AI capability. Given a natural language promp
 
 1. Enter the following prompt and press `kbstyle(Enter)`. The agent will analyze your request and begin implementing the solution:
 
-    ```text
+    ```prompt
     Create a complete task manager web application with the ability to add, delete, and mark tasks as completed. Include modern CSS styling and make it responsive. Use semantic HTML and ensure it's accessible. Separate markup, styles, and scripts into their own files.
     ```
 
@@ -89,7 +89,7 @@ Agents are VS Code's most powerful AI capability. Given a natural language promp
 
 1. Let's add an extra feature. Enter the following prompt in the chat input box:
 
-    ```text
+    ```prompt
     Add a filter system with buttons to show all tasks, only completed tasks, or only pending tasks. Update the styling to match the existing design.
     ```
 
@@ -161,7 +161,7 @@ Custom instructions tell the AI about your coding preferences and standards. The
 
 1. Test the custom instructions by asking the agent to add a new feature:
 
-    ```text
+    ```prompt
     Add a dark mode toggle button to the task manager.
     ```
 
@@ -207,12 +207,13 @@ Custom agents create specialized AI personas for specific tasks. Let's create a 
 
     ![Screenshot showing the Code Reviewer custom agent in the agent picker.](./images/getting-started/custom-mode-dropdown.png)
 
-1. Test your custom agent:
+1. Test your custom agent by selecting **Code Reviewer** from the agent picker and entering the following prompt:
 
-   * Select **Code Reviewer** from the agent picker
-   * Enter the following prompt: "Review my full project"
+    ```prompt
+    Review my full project
+    ```
 
-   Notice how the AI now behaves as a code reviewer, providing analysis and suggestions without writing code directly.
+   Notice how the AI now behaves as a code reviewer, providing analysis and suggestions for improvements.
 
     ![Screenshot showing custom reviewer agent analyzing code.](./images/getting-started/custom-reviewer-mode.png)
 

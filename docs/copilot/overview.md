@@ -99,7 +99,11 @@ To perform more complex tasks in an autonomous manner, use agents in the chat in
 
 1. Open the Chat view (`kb(workbench.action.chat.open)`)
 1. Select **Agent** from the agent picker
-1. Ask to generate a basic web app like: "Create a basic node.js web app for sharing recipes. Make it look modern and responsive."
+1. Ask to generate a basic web app, for example:
+
+    ```prompt
+    Create a basic node.js web app for sharing recipes. Make it look modern and responsive.
+    ```
 
 Notice how the agent independently generates code across multiple files and installs dependencies as needed for the task.
 

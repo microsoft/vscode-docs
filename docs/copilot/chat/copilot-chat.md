@@ -75,13 +75,27 @@ Let's start by creating a basic calculator app to see how chat works in VS Code:
 
     When using an agent, chat autonomously determines what needs to be done and makes the necessary changes to your workspace.
 
-1. Type the following prompt in the chat input field and press `kb(workbench.action.chat.submit)` to submit it: `"Create a basic calculator app with HTML, CSS, and JavaScript"`.
+1. Type the following prompt in the chat input field and press `kb(workbench.action.chat.submit)` to submit it:
+
+    ```prompt
+    Create a basic calculator app with HTML, CSS, and JavaScript
+    ```
 
     The agent applies changes directly to your workspace and might also run terminal commands, for example, to install dependencies or run build scripts.
 
 1. In the editor, [review the suggested changes](/docs/copilot/chat/review-code-edits.md) and choose to keep or discard them.
 
-1. Ask follow-up questions to enhance the app. For example, you might ask "Add a dark mode toggle" or "style it with a modern design".
+1. Ask follow-up questions to enhance the app. For example, you might ask:
+
+    ```prompt
+    Add a dark mode toggle
+    ```
+
+    or
+
+    ```prompt
+    Style it with a modern design
+    ```
 
     As you continue the conversation, VS Code uses the history of chat prompts and responses as context. This context enables you to have multi-turn conversations with chat to refine and improve the results.
 
@@ -132,8 +146,15 @@ Open chat with Agent: [Stable](vscode://GitHub.Copilot-Chat/chat?mode=agent) | [
 
 1. Type a high-level prompt in the chat input field. For example, you might ask:
 
-    * "Implement a user authentication system with OAuth2 and JWT."
-    * "Set up a CI/CD pipeline for this project."
+    ```prompt
+    Implement a user authentication system with OAuth2 and JWT.
+    ```
+
+    or
+
+    ```prompt
+    Set up a CI/CD pipeline for this project.
+    ```
 
 1. Use the tools picker to [enable tools](/docs/copilot/chat/chat-tools.md) and give the agent more capabilities.
 
@@ -157,12 +178,19 @@ Open chat with Plan: [Stable](vscode://GitHub.Copilot-Chat/chat?mode=plan) | [In
 
 ### Get started with the plan agent
 
-1. Select **Plan** from the agent picker in the Chat view.
-
 1. Type a high-level prompt in the chat input field. For example, you might ask:
 
-    * "Update the application to support multi-language localization."
-    * "Add a search feature to the application."
+    ```prompt
+    Update the application to support multi-language localization.
+    ```
+
+    or
+
+    ```prompt
+    Add a search feature to the application.
+    ```
+
+1. Select **Plan** from the agent picker in the Chat view.
 
 1. Select **Send** or press `kb(workbench.action.chat.submit)` to submit your prompt.
 
@@ -183,12 +211,19 @@ Open chat with Ask: [Stable](vscode://GitHub.Copilot-Chat/chat?mode=ask) | [Insi
 
 ### Get started with Ask
 
-1. Select **Ask** from the agent picker in the Chat view.
-
 1. Type your prompt in the chat input field. For example, you might ask:
 
-    * "Provide 3 ways to implement a search feature in React."
-    * "Where is the db connection configured in this project? #codebase"
+    ```prompt
+    Provide 3 ways to implement a search feature in React.
+    ```
+
+    or
+
+    ```prompt
+    Where is the db connection configured in this project? #codebase
+    ```
+
+1. Select **Ask** from the agent picker in the Chat view.
 
 1. Optionally, [add context to your prompt](/docs/copilot/chat/copilot-chat-context.md) to get more accurate responses.
 
@@ -207,12 +242,19 @@ Open chat with Edit: [Stable](vscode://GitHub.Copilot-Chat/chat?mode=edit) | [In
 
 ### Get started with Edit
 
-1. Select **Edit** from the agent picker in the Chat view.
-
 1. Type your request in the chat input field. For example, you might ask:
 
-    * "Refactor the authentication logic to use OAuth2."
-    * "Add unit tests for the user service."
+    ```prompt
+    Refactor the authentication logic to use OAuth2.
+    ```
+
+    or
+
+    ```prompt
+    Add unit tests for the user service.
+    ```
+
+1. Select **Edit** from the agent picker in the Chat view.
 
 1. [Add context to your prompt](/docs/copilot/chat/copilot-chat-context.md) to guide the AI to make edits in the right files.
 
