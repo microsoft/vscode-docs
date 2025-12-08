@@ -53,17 +53,30 @@ At any time, you can see which model and model multiplier are used by hovering o
 
 ![Screenshot of a chat response, showing the selected model on hover.](../images/language-models/chat-response-selected-model.png)
 
-## Customize the model picker
+## Manage language models
 
-You can customize which models are shown in the model picker in the Chat view by using the language model editor. You can show or hide both built-in models and models that you have added using [bring your own language model key](#bring-your-own-language-model-key).
+You can use the language models editor to view all avalable models, choose which models are shown in the model picker, and add more models by adding from built-in providers or from extension-provided model providers.
 
-1. Open the model picker in the Chat view and select **Manage Models** or run the **Chat: Manage Language Models** command from the Command Palette.
+To open the Language Models editor, open the model picker in the Chat view and select **Manage Models** or run the **Chat: Manage Language Models** command from the Command Palette.
 
-    The language model editor lists all models from the model providers that you have configured. The models are grouped by provider, and show model details such as the model name, context window size, capabilities, and billing information.
+TOOD: add screenshot
 
-1. Hover over a model in the list and select the eye icon to show or hide the model in the model picker.
+The editor lists all models available to you, showing key information such as the model capabilities, context size, billing details, and visibility status. By default, models are grouped by provider, but you can also group them by visibility.
 
-    ![Screenshot that shows the lanugage model editor with the eye icon to show or hide models in the model picker.](../images/language-models/language-models-hide.png)
+You can search and filter models by using the following options:
+
+* Text search with the search box
+* Provider: `@provider:"OpenAI"`
+* Capability: `@capability:tools`, `@capability:vision`, `@capability:agent`
+* Visibility: `@visible:true/false`
+
+### Customize the model picker
+
+You can customize which models are shown in the model picker by changing the visibility status of models in the Language Models editor. You can show or hide models from any provider.
+
+Hover over a model in the list and select the eye icon to show or hide the model in the model picker.
+
+![Screenshot that shows the Language Models editor with the eye icon to show or hide models in the model picker.](../images/language-models/language-models-hide.png)
 
 ## Bring your own language model key
 
@@ -83,8 +96,6 @@ VS Code provides different options to add more models:
 
 * Use one of the [built-in model providers](#add-a-model-from-a-built-in-provider)
 
-* Configure a [custom OpenAI-compatible model](#add-an-openai-compatible-model)
-
 * Install a [language model provider extension](https://marketplace.visualstudio.com/search?term=tag%3Alanguage-models&target=VSCode&category=All%20categories&sortBy=Relevance) from the Visual Studio Marketplace, for example, [AI Toolkit for VS Code with Foundry Local](https://aka.ms/AIToolkit)
 
 ### Considerations when using bring your own model key
@@ -102,7 +113,7 @@ To configure a language model from a built-in provider:
 
 1. Select **Manage Models** from the language model picker in the Chat view or run the **Chat: Manage Language Models** command from the Command Palette.
 
-1. Select **Add Models**, and then select a model provider from the list.
+1. In the Language Models editor, select **Add Models**, and then select a model provider from the list.
 
     ![Screenshot that shows the model provider Quick Pick.](../images/language-models/model-provider-quick-pick.png)
 
@@ -118,42 +129,16 @@ To configure a language model from a built-in provider:
 
     For a model to be available when using [agents](/docs/copilot/chat/copilot-chat.md#built-in-agents), it must support tool calling. If the model doesn't support tool calling, it won't be shown in the model picker.
 
-### Add an OpenAI-compatible model
-
 > [!NOTE]
-> Configuring a custom OpenAI-compatible model is currently only available in [VS Code Insiders](https://code.visualstudio.com/insiders/) as of release 1.104.
-
-The custom OpenAI provider enables you to use any OpenAI-compatible API endpoint and configure the models for use in chat.
-
-To configure a custom OpenAI endpoint and model:
-
-1. Select **Manage Models** from the language model picker in the Chat view or run the **Chat: Manage Language Models** command from the Command Palette.
-
-1. Select **Add Models**, and then select **OpenAI Compatible** from the list.
-
-1. Follow the prompts to add the details for your model:
-
-    * Unique identifier for the model
-    * Display name for the model in the language model picker
-    * Full API endpoint URL
-    * Select the model capabilities, such as tool calling, vision, thinking, and whether the endpoint requires an API key.
-    * Maximum input and output token limits.
-
-Alternatively, you can manually add your custom model configuration in the `setting(github.copilot.chat.customOAIModels)` setting.
+> Configuring a custom OpenAI-compatible model is currently only available in [VS Code Insiders](https://code.visualstudio.com/insiders/) as of release 1.104. You can also manually add your OpenAI-compatible model configuration in the `setting(github.copilot.chat.customOAIModels)` setting.
 
 ## Update model provider details
 
 To update the details of a model provider you have configured previously:
 
-To update the provider details, such as the API key or endpoint URL:
-
 1. Select **Manage Models** from the language model picker in the Chat view or run the **Chat: Manage Language Models** command from the Command Palette.
 
-1. Hover over a model provider in the list, and select the gear icon to edit the provider details.
-
-1. Select **Manage Models** from the language model picker in the Chat view or run the **Chat: Manage Language Models** command from the Command Palette.
-
-1. Select the gear icon for the model provider you want to update.
+1. In the Language Models editor, select the gear icon for the model provider you want to update.
 
    ![Screenshot that shows the model provider Quick Pick, with a gear icon next to the provider name.](../images/language-models/reconfigure-model-provider.png)
 
