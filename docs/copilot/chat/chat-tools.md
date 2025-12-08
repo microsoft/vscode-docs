@@ -109,15 +109,31 @@ Organizations can also use device management policies to enforce manual approval
 
 ### URL approval
 
-When a tool attempts to access a URL, such as with the `fetch` tool, you might be prompted to approve the URL access. After the tool retrieves the content, you are also prompted to approve the response content before it is used by the agent.
+When a tool attempts to access a URL, such as with the `fetch` tool, a two-step approval process is used to protect you from malicious or unexpected content. VS Code shows a confirmation dialog with the URL details for your review in the Chat view.
 
-VS Code shows a dialog with the URL details for your review. You can approve or skip the tool request. By default, you need to also approve the response content after it is fetched. You can choose to skip the response approval if you trust the source with **Allow and Skip Reviewing Result**.
+* **Pre-approval: approving the request to the URL**
 
-![Screenshot of a URL approval dialog showing URL details and approval options.](../images/chat-tools/chat-approve-url.png)
+    This step ensures that you trust the domain being contacted and can prevent sensitive data to be sent to untrusted sites.
 
-For URLs or domains you trust, you can configure automatic approvals to skip the confirmation dialogs. Select any of the **Allow requests to** options in the URL approval dialog to add them to your auto-approve list.
+    ![Screenshot of a URL approval dialog showing URL details and approval options.](../images/chat-tools/chat-approve-url.png)
 
-The `setting(chat.tools.urls.autoApprove)` setting is used to store your auto-approve URL patterns. The setting value is either a boolean to enable or disable auto-approvals for both requests and responses, or an object with `approveRequest` and `approveResponse` properties for granular control.
+    You have options for one-time approval or for automatically approving future requests to the specific URL or domain. Selecting auto-approval does not influence the need for reviewing the results. When you select **Allow requests to**, you can choose to configure both pre and post approvals for the URL or domain.
+
+    > [!NOTE]
+    > The pre-approval respects the ["Trusted Domains" feature](/docs/editing/editingevolved.md#_outgoing-link-protection). If a domain is listed there, you are automatically approved to make requests to that domain and defer the response reviewing step.
+
+* **Post-approval: approving the response content fetched from the URL**
+
+    This step ensures that you review the fetched content before it is added to the chat or passed to other tools, preventing potential prompt injection attacks.
+
+    For example, you might approve a request to fetch content from a well-known site, like GitHub.com. But because the content, such as issue description or comments, is user-generated, it could contain harmful content that might manipulate the model's behavior.
+
+    You have options for one-time approval or for automatically approving future responses from the specific URL or domain.
+
+    > [!IMPORTANT]
+    > The post-approval step is not linked to the "Trusted Domains" feature and always requires your review. This is a security measure to prevent issues with untrusted content on a domain that you would otherwise trust.
+
+The `setting(chat.tools.urls.autoApprove)` setting is used to store your auto-approve URL patterns. The setting value is either a boolean to enable or disable auto-approvals for both requests and responses, or an object with `approveRequest` and `approveResponse` properties for granular control. You can use exact URLs, glob patterns, or wildcards.
 
 URL auto-approval examples:
 
