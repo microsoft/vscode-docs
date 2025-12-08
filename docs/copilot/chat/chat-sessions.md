@@ -157,10 +157,19 @@ To run a subagent with a specific agent:
 
 1. Make sure the custom agent doesn't have its `infer` property set to `false`, as this prevents the agent from being used in subagents.
 
+1. Prompt the AI about which agents are available for use as subagents. Your custom agent should be listed.
+
+    ```prompt
+    Which subagents can you use?
+    ```
+
 1. Prompt the AI to use a custom or built-in agent for the subagent. For example:
 
     * `Run the research agent as a subagent to research the best auth methods for this project.`
     * `Use the plan agent in a subagent to create an implementation plan for myfeature. Then save the plan in plans/myfeature.plan.md`
+
+> [!NOTE]
+> To prevent a custom agent from being used as a subagent, set the metadata property `infer` to `false` in the `*.agent.md` file.
 
 ## Agent Sessions
 

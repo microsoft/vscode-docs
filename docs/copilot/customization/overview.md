@@ -70,6 +70,9 @@ Configure the experimental `setting(chat.useClaudeSkills)` setting to enable sup
 
 VS automatically detects `SKILL.md` files in the home folder at `~/.claude/skills/skill-name/SKILL.md` or in a workspace folder at `.claude/skills/skill-name/SKILL.md`.
 
+> [!NOTE]
+> The `allowed-tools` attribute is currently not supported in VS Code.
+
 ## Usage scenarios
 
 Different customization methods work best for different scenarios. The following table lists common use cases and the recommended approach:
