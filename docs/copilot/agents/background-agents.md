@@ -168,7 +168,7 @@ To enable custom agents with background agents:
 1. Create a custom agent in your workspace with the **Chat: New Custom Agent** command from the Command Palette (`kb(workbench.action.showCommands)`)
 
     > [!NOTE]
-    > Currently, only custom agents defined in the workspace are available for background agent sessions. Only the `name`, `description`, and `tools` custom agent properties are supported. Learn more about [creating a custom agent](/docs/copilot/customization/custom-agents.md#create-a-custom-agent).
+    > Currently, only custom agents defined in the workspace are available for background agent sessions. Learn more about [creating a custom agent](/docs/copilot/customization/custom-agents.md#create-a-custom-agent).
 
 1. Create a new background agent session and select the custom agent from the Agents dropdown
 
