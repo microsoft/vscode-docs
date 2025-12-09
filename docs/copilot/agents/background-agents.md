@@ -98,7 +98,7 @@ To create a new OpenAI Codex background agent session from the Chat view:
 
 A new Codex background agent session opens where you can provide additional task details and track the progress of the Codex session.
 
-### Hand off a local agent session to a background agent
+### Hand off an agent session to a background agent
 
 For complex tasks, it can be helpful to first interact with a local agent in VS Code chat to clarify requirements, then hand off the task to a background agent for autonomous execution. When you hand off a local agent conversation to a background agent session, the full conversation history and context is passed to the background agent.
 
@@ -110,7 +110,7 @@ To continue a local agent session in a background agent session:
 
 1. To hand off to a background agent, you have the following options:
 
-    * Select **Continue In** and then select **Background Agent**
+    * Select **Continue In** and then select **Background**
 
         ![Screenshot showing the "Continue in Chat" button in VS Code chat interface.](../images/background-agents/continue-in-chat-background.png)
 
