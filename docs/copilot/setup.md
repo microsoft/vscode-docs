@@ -8,26 +8,19 @@ MetaSocialImage: images/shared/github-copilot-social.png
 
 This guide walks you through setting up GitHub Copilot in Visual Studio Code. To use Copilot in VS Code, you need to have access to GitHub Copilot with your GitHub account.
 
-> [!TIP]
-> If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of inline suggestions and chat interactions.
+<video src="./images/setup/vscode-copilot-setup.mp4" poster="./images/setup/setup-copilot-sign-in.png" title="Setting up GitHub Copilot in Visual Studio Code" autoplay loop controls muted></video>
 
-## Set up Copilot in VS Code
-
-To use Copilot in VS Code, you need access to a GitHub Copilot subscription. Follow these steps to set up Copilot directly from within VS Code. Learn more about [GitHub Copilot plans](https://docs.github.com/en/copilot/get-started/plans) in the GitHub Copilot documentation.
+Follow these steps to get started with Copilot in VS Code:
 
 1. Hover over the Copilot icon in the Status Bar and select **Use AI Features**.
 
-    ![Hover over the Copilot icon in the Status Bar and select Set up Copilot.](images/setup/setup-copilot-status-bar.png)
-
 1. Choose a sign-in method and follow the prompts.
 
-    * If you don't have a Copilot subscription yet, you'll be signed up for the [Copilot Free plan](https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-free/about-github-copilot-free).
+    * If you already have a Copilot subscription for your account, VS Code will use that subscription.
 
-    * If you already have a Copilot subscription, VS Code will use that subscription.
+    * If you don't have a Copilot subscription yet, you'll be signed up for the [Copilot Free plan](https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-free/about-github-copilot-free) and get a monthly limit of inline suggestions and chat interactions. Learn more about the different [GitHub Copilot plans](https://docs.github.com/en/copilot/get-started/plans).
 
-    ![Sign in to your GitHub account or use Copilot if you're already signed in.](images/setup/setup-copilot-sign-in.png)
-
-1. You can now start using Copilot in VS Code.
+1. Start using Copilot in VS Code!
 
     Learn the basics with the [Copilot Quickstart](/docs/copilot/getting-started.md).
 
