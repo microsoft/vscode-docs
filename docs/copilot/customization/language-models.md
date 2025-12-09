@@ -169,7 +169,7 @@ You can use locally hosted models in chat by using [bring your own model key](#b
 
 * Use a built-in model provider that supports local models
 * Install an extension from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/search?term=tag%3Alanguage-models&target=VSCode&category=All%20categories&sortBy=Relevance), for example, [AI Toolkit for VS Code with Foundry Local](https://aka.ms/AIToolkit)
-* Configure a [custom OpenAI-compatible model](#use-an-openai-compatible-model)
+* Configure a [custom OpenAI-compatible model](#_add-an-openaicompatible-model)
 
 Currently, you cannot connect to a local model for inline suggestions. VS Code provides an extension API [`InlineCompletionItemProvider`](/api/references/vscode-api.md#InlineCompletionItemProvider) that enables extensions to contribute a custom completion provider. You can get started with our [Inline Completions sample](https://github.com/microsoft/vscode-extension-samples/blob/main/inline-completions).
 

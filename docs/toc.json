@@ -103,7 +103,7 @@
       ["", "", {
         "name": "Chat",
         "area": "copilot/chat",
-        "noCollapse": true,
+        "noCollapse": false,
         "topics": [
           ["Overview", "/docs/copilot/chat/copilot-chat"],
           ["Chat Sessions", "/docs/copilot/chat/chat-sessions"],
@@ -118,12 +118,22 @@
         ]
       }
       ],
+      ["", "", {
+        "name": "Agents",
+        "area": "copilot/agents",
+        "noCollapse": false,
+        "topics": [
+          ["Overview", "/docs/copilot/agents/overview"],
+          ["Cloud Agents", "/docs/copilot/agents/cloud-agents"],
+          ["Background Agents", "/docs/copilot/agents/background-agents"]
+        ]
+      }
+      ],
       ["Inline Suggestions", "/docs/copilot/ai-powered-suggestions"],
-      ["Copilot Coding Agent", "/docs/copilot/copilot-coding-agent"],
       ["", "", {
         "name": "Customization",
         "area": "copilot/customization",
-        "noCollapse": true,
+        "noCollapse": false,
         "topics": [
           ["Overview", "/docs/copilot/customization/overview"],
           ["Instructions", "/docs/copilot/customization/custom-instructions"],
@@ -137,7 +147,7 @@
       ["", "", {
         "name": "Guides",
         "area": "copilot/guides",
-        "noCollapse": true,
+        "noCollapse": false,
         "topics": [
           ["Prompt Engineering", "/docs/copilot/guides/prompt-engineering-guide"],
           ["Context Engineering", "/docs/copilot/guides/context-engineering-guide"],

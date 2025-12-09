@@ -95,16 +95,18 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 | `setting(chat.useClaudeSkills)` _(Experimental)_<br/>Enable support for Claude skills in VS Code. | `false` |
 | `setting(github.copilot.chat.newWorkspaceCreation.enabled)` _(Experimental)_<br/>Enable the tool for scaffolding a new workspace in chat. | `true` |
 | `setting(github.copilot.chat.agent.thinkingTool:true)` _(Experimental)_<br/>Enable the thinking tool when using agents. | `false` |
+| `setting(github.copilot.chat.cli.customAgents.enabled)` _(Experimental)_<br/>Enable using custom agents from GitHub background agent sessions. | `false` |
 | `setting(github.copilot.chat.summarizeAgentConversationHistory.enabled)` _(Experimental)_<br/>Automatically summarize the agent conversation history when the context window is full. | `true` |
 | `setting(github.copilot.chat.virtualTools.threshold)` _(Experimental)_<br/>Tool count over which virtual tools should be used. Virtual tools group similar sets of tools together and enable the model to activate them on-demand. Enables you to go beyond the limit of 128 tools for a chat request. | `128` |
 
 ## Agent sessions
 
-The [Chat Sessions view](/docs/copilot/copilot-coding-agent.md) provides a centralized location for managing both local chat conversations and remote coding agent sessions. This view enables you to work with multiple AI sessions simultaneously, track their progress, and manage long-running tasks efficiently.
+The [Agents view](/docs/copilot/agents/overview.md) provides a centralized location for managing both local chat conversations and remote coding agent sessions. This view enables you to work with multiple AI sessions simultaneously, track their progress, and manage long-running tasks efficiently.
 
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(chat.agentSessionsViewLocation)` _(Experimental)_<br/>Enable or disable the Chat Sessions view. | `disabled` |
+| `setting(chat.viewSessions.orientation)` <br/>Configure how the agent sessions list is shown in the Chat view. | `auto` |
+| `setting(chat.agentSessionsViewLocation)` _(Preview)_<br/>Enable or disable the dedicated Agents view. | `disabled` |
 
 ## Inline chat settings
 
