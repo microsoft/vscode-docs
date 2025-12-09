@@ -13,9 +13,6 @@ This article provides an overview of the various agent types, how to create and 
 
 ![Screenshot of an agent session in VS Code showing code changes and chat interaction.](../images/agents-overview/chat-sessions-view.png)
 
-> [!NOTE]
-> The Agents view is currently in preview.
-
 ## What are agents?
 
 <!--
@@ -154,9 +151,6 @@ Third party agents are background agents developed by other providers, such as O
 **Best for**: When you already use third party AI agents and want to integrate them into your VS Code workflow
 
 ## Manage agent sessions
-
-> [!NOTE]
-> The unified Chat view with agent session management is currently in preview.
 
 The Chat view in VS Code provides a unified interface for managing your agent sessions, regardless of where they run. You can see the list of all your agent sessions, their status, and key details like file changes, and their type (local, background, cloud, or Codex). The status indicators help you quickly identify active, completed, failed sessions, or sessions that require your input.
 
