@@ -1,8 +1,8 @@
 ---
 ContentId: 8d5c9f2a-1e4b-7c9f-3a8e-2b7d4f1c6e0a
-DateApproved: 11/26/2025
+DateApproved: 11/12/2025
 MetaDescription: Use cloud agents and GitHub Copilot coding agent in VS Code to autonomously handle complex, large-scale coding tasks with automatic pull request generation and team collaboration workflows.
-MetaSocialImage: images/shared/github-copilot-social.png
+MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 
 # Cloud agents in Visual Studio Code

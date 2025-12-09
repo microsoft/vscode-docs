@@ -1,29 +1,33 @@
 ---
 ContentId: 9f1a2b3c-4e5f-6d7c-8a9b-1c2d3e4f5a6b
-DateApproved: 11/26/2025
+DateApproved: 11/12/2025
 MetaDescription: Learn how to use background agents like Copilot CLI for autonomous coding tasks, terminal integration, and isolated development workflows in VS Code.
-MetaSocialImage: images/shared/github-copilot-social.png
+MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 
 # Background agents in Visual Studio Code
 
-Background agents in Visual Studio Code are CLI-based and operate independently on complex tasks while you continue other work in the editor. They are ideal for time-intensive operations that don't require constant interaction or for experimental feature development. Background agents can use Git worktrees to isolate their changes from your main workspace and prevent conflicts.
+Background agents in Visual Studio Code are CLI-based agents, such as Copilot CLI, that run in the background on your local machine. They operate autonomously while you continue other work in the editor. Background agents can use Git worktrees to work isolated from your main workspace and prevent conflicts with your active work.
 
 This article covers the key features of background agents, and how to start and manage background sessions from Copilot CLI or OpenAI Codex.
 
+![Screenshot of background agent session as a chat editor in VS Code.](../images/background-agents/background-agent-session.png)
+
 ## What are background agents?
 
-Background agents are autonomous AI assistants that run in the terminal, unlike local agents that operate within VS Code's chat interface. When you close VS Code, background agents continue working on your tasks in the background.
+Unlike local agents that operate in and have aware of VS Code's editor context, background agents run independently via command-line interfaces (CLIs) on your local machine. You can view and manage all your background agent sessions from the unified Chat view in VS Code. This view also lets you create new background agent sessions directly from VS Code or hand off local agent conversations to background agents.
 
-Background agents run independently in the background and can apply changes to your codebase, which could conflict with your active work. To prevent this, background agents can use [Git worktrees](/docs/sourcecontrol/branches-worktrees.md) to create isolated development environments.
+Because background agents run in the background without user interaction, they are well-suited for tasks that have a well-defined scope and all necessary context. Examples include implementing a feature from a plan, creating multiple variants of a proof of concept, or implementing clearly defined fixes or features.
 
-The [Agents view](/docs/copilot/agents/overview.md#agents-view) in VS Code provides visibility into all your background agent sessions. You can view the list of sessions, their status, and detailed progress information. You can also provide follow-up instructions or cancel sessions directly from the view.
+Background agents run independently in the background and can apply changes to your codebase. To prevent interference with your active work in the editor, background agents can use Git worktrees to run in an [isolated environment](#create-an-isolated-background-agent-session-experimental) where they can make changes without affecting your main workspace. When you start a background agent session with worktree isolation, VS Code automatically creates a separate folder for that session. You can choose to run a background agent in your main workspace, however this might lead to conflicts.
 
-To assign a task to a background agent, you can create a new background session directly from the Agents view, use the agent's dedicated CLI, or continue a local chat conversation from VS Code as a background agent session.
+Because background agents run via CLI, they can't directly access VS Code built-in tools and run-time context (like failed tests or text selections). They also don't have access to MCP servers or extension-provided tools. They are limited to the models available via the CLI tool.
+
+To assign a task to a background agent, you can create a new background session directly from the Chat view, use the agent's dedicated CLI, or hand off a local chat conversation from VS Code as a background agent session.
 
 ### Copilot CLI
 
-The **Copilot CLI** is the primary background agent in VS Code, providing a command-line interface for autonomous coding tasks.
+The **Copilot CLI** is the primary background agent in VS Code. You can use the Copilot CLI directly from the terminal or start and manage sessions from with VS Code.
 
 To get started, make sure to install and set up Copilot CLI:
 
@@ -39,64 +43,74 @@ The **OpenAI Codex** background agent uses OpenAI's Codex to perform coding task
 
 OpenAI Codex in VS Code enables you to use your Copilot Pro+ subscription to authenticate and access Codex without additional setup. Get more information about [GitHub Copilot billing and premium requests](https://docs.github.com/en/copilot/concepts/billing/copilot-requests) in the GitHub documentation.
 
+## View and manage background agent sessions
+
+You can view and manage all your background agent sessions from the Chat view in VS Code. Filter the session list to show only background agent sessions by selecting the **Background Agents** from the filter options.
+
+![Screenshot of background agent filter in VS Code Chat view.](../images/background-agents/background-agent-filter.png)
+
+Select a background agent session from the list to open the session details in the Chat view. If you prefer to view the session in an editor tab (chat editor), right-click the session and select **Open as Editor**.
+
+If you prefer to view a background session in the terminal instead of the chat conversation in VS Code, right-click the session in the Chat view and select **Resume Agent Session in Terminal**. You can interact with the Copilot CLI directly in VS Code.
+
+![Screenshot showing the Copilot CLI session inside VS Code.](../images/background-agents/copilot-cli-in-terminal.png)
+
 ## Start a background agent session
 
-Depending on your workflow, you can start background agent sessions in several ways. You can create a new session and provide the task details directly by using the CLI, or start a new session from the [Agents view](/docs/copilot/agents/overview.md) in VS Code.
+Depending on your workflow, you can start background agent sessions in several ways. You can create a new session and provide the task details directly by using the CLI, or start a new session from the [Chat view](/docs/copilot/agents/overview.md#manage-agent-sessions) in VS Code.
 
-Another approach - especially for complex tasks - is to first interact with a local agent in chat in VS Code, and once the scope and details are clear, continue the task in a background agent session. For example, you might use the [Plan agent](/docs/copilot/chat/chat-planning.md) to outline a multi-step feature implementation, then delegate the actual coding to a background agent.
+Another approach - especially for complex tasks - is to first interact with a local agent in chat in VS Code, and once the scope and details are clear, hand off the task to a background agent session. For example, you might use the [Plan agent](/docs/copilot/chat/chat-planning.md) to outline a multi-step feature implementation, then delegate the actual coding to a background agent.
 
 ### Create a Copilot CLI background agent session
 
 You can create a new Copilot CLI background agent session in VS Code in several ways:
 
-* From the [Agents view](/docs/copilot/agents/overview.md):
+* From the Chat view:
 
     1. Open the Chat view (`kb(workbench.action.chat.open)`)
 
-    1. Select the **Agents** tab to switch to the Agents view
+    1. Select the **New Chat** dropdown > **New Background Agent**
 
-        In the Agents view, you can see all active agent sessions, including local chat agents, background agents, and cloud agents.
+* While you're in a local chat session:
 
-    1. Select the **New Session** dropdown > **New Background Session**
+    * Type `@cli <task description>` in the chat input and send the message
 
-* From the [Chat view](/docs/copilot/chat/copilot-chat.md):
-
-    * Open the Chat view (`kb(workbench.action.chat.open)`) and type `@cli <task description>` in the chat input and send the message
-
-    * Open the Chat view (`kb(workbench.action.chat.open)`), enter your prompt, then select **Continue In** > **Background Agent**
+    * Enter a prompt and then select **Continue In** > **Background Agent**
 
 * Run the **Chat: New Background Agent** command from the Command Palette (`kb(workbench.action.showCommands)`)
 
-A chat editor opens where you can provide the task details and start the background session with Copilot CLI.
+A new background agent session opens where you can provide additional task details and track the progress of the Copilot CLI session.
 
 > [!TIP]
-> When you use the GitHub Copilot CLI in the terminal to start a session, the Agents view in VS Code automatically detects and displays this background session. You can further interact with this background session from within VS Code.
+> When you use the GitHub Copilot CLI in the terminal to start a session, the Chat view in VS Code automatically detects and displays this background session. You can further interact with this background session from within VS Code.
 
 ### Create an OpenAI Codex background agent session
 
-To create a new OpenAI Codex background agent session from the [Agents view](/docs/copilot/agents/overview.md):
+To create a new OpenAI Codex background agent session from the Chat view:
 
-1. Open the Chat view (`kb(workbench.action.chat.open)`)
+* From the Chat view:
 
-1. Select the **Agents** tab to switch to the Agents view
+    1. Open the Chat view (`kb(workbench.action.chat.open)`)
 
-1. Select the **New Session** dropdown > **New Codex Agent**
+    1. Select the **New Chat** dropdown > **New Codex Agent**
 
-    A chat editor opens where you can provide the task details and start the background session with Codex.
+* Run the **Codex: New Codex Agent** command from the Command Palette (`kb(workbench.action.showCommands)`)
 
-### Continue a local agent session with a background agent
+A new Codex background agent session opens where you can provide additional task details and track the progress of the Codex session.
 
-For complex tasks, it can be helpful to first interact with a local agent in VS Code chat to clarify requirements, then hand off the task to a background agent for autonomous execution. When you continue a local agent conversation as a background session, the entire chat context is passed to the background agent.
+### Hand off a local agent session to a background agent
+
+For complex tasks, it can be helpful to first interact with a local agent in VS Code chat to clarify requirements, then hand off the task to a background agent for autonomous execution. When you hand off a local agent conversation to a background agent session, the full conversation history and context is passed to the background agent.
 
 To continue a local agent session in a background agent session:
 
 1. Open the Chat view (`kb(workbench.action.chat.open)`)
 
-1. Interact with a local agent until you're ready to pass the task to a background agent
+1. Interact with a local agent until you're ready to hand off the task to a background agent
 
-1. To continue in a background agent, you have the following options:
+1. To hand off to a background agent, you have the following options:
 
-    * Select **Continue Chat In** and then select **Background**
+    * Select **Continue In** and then select **Background Agent**
 
         ![Screenshot showing the "Continue in Chat" button in VS Code chat interface.](../images/background-agents/continue-in-chat-background.png)
 
@@ -104,30 +118,9 @@ To continue a local agent session in a background agent session:
 
         ![Screenshot showing the "Start Implementation" button in VS Code chat interface.](../images/background-agents/plan-agent-start-implementation-background.png)
 
-    * Type `@cli /delegate` in the chat input and send the message
+    * Type `@cli` in the chat input to hand off the task to a background agent
 
-The background agent session starts automatically, carrying over the full chat history and context. You can monitor the background agent's progress in the Agents view.
-
-## Use custom agents with background agents (Experimental)
-
-[Custom agents](/docs/copilot/customization/custom-agents.md) let you define custom personas for agents in VS Code. For example, you might create a custom agent for performing code reviews. Custom agents can define specific instructions, behaviors, and which tools to use.
-
-When you create a background agent session, you can select a custom agent to handle the task. The background agent operates according to the custom agent's defined behavior and has access to the tools specified by the custom agent.
-
-To enable custom agents with background agents:
-
-1. Enable custom agents for background agents with the `setting(github.copilot.chat.cli.customAgents.enabled)` setting
-
-1. Create a custom agent in your workspace with the **Chat: New Custom Agent** command from the Command Palette (`kb(workbench.action.showCommands)`)
-
-    > [!NOTE]
-    > Currently, only custom agents defined in the workspace are available for background agent sessions. Only the `name`, `description`, and `tools` custom agent properties are supported. Learn more about [creating a custom agent](/docs/copilot/customization/custom-agents.md#create-a-custom-agent).
-
-1. Create a new background agent session and select the custom agent from the Agents dropdown
-
-    ![Screenshot showing custom agent selection in VS Code chat interface.](../images/background-agents/custom-agent-selection.png)
-
-1. Enter a prompt and notice that the custom agent is used to handle the task
+The background agent session starts automatically, carrying over the full conversation history and context. You can monitor the background agent's progress in the Chat view.
 
 ## Create an isolated background agent session (Experimental)
 
@@ -162,28 +155,30 @@ To use Git worktrees in a background agent session:
 
 Learn more about [using Git worktrees in VS Code source control](/docs/sourcecontrol/branches-worktrees.md).
 
-## View background agent session details
+## Use custom agents with background agents (Experimental)
 
-To view the conversation history of a background agent session, select the session in the Agents view. The chat editor opens, displaying the full conversation history and any code changes made by the agent. To open the agent session in a new VS Code window, right-click the session and select **Open in New Window**.
+[Custom agents](/docs/copilot/customization/custom-agents.md) let you define custom personas and roles for agents in VS Code. For example, you might create a custom agent for performing code reviews. Custom agents can define specific instructions and behaviors.
 
-![Screenshot showing background agent session details in VS Code chat editor.](../images/background-agents/background-agent-session-details.png)
+When you create a background agent session, you can select a custom agent to handle the task. The background agent operates according to the custom agent's defined behavior.
 
-In the chat editor, you can provide additional instructions to the background agent or review the changes it made.
+To enable custom agents with background agents:
 
-If you prefer to view the Copilot CLI session instead of the chat conversation in VS Code, right-click the session in the Agents view and select **Resume Agent Session in Terminal**. You can interact with the Copilot CLI directly in VS Code.
+1. Enable custom agents for background agents with the `setting(github.copilot.chat.cli.customAgents.enabled)` setting
 
-![Screenshot showing the Copilot CLI session inside VS Code.](../images/background-agents/copilot-cli-in-terminal.png)
+1. Create a custom agent in your workspace with the **Chat: New Custom Agent** command from the Command Palette (`kb(workbench.action.showCommands)`)
 
-## Next steps
+    > [!NOTE]
+    > Currently, only custom agents defined in the workspace are available for background agent sessions. Only the `name`, `description`, and `tools` custom agent properties are supported. Learn more about [creating a custom agent](/docs/copilot/customization/custom-agents.md#create-a-custom-agent).
 
-* [Cloud agents](/docs/copilot/agents/cloud-agents.md): Learn about cloud agents for tasks requiring GitHub integration
-* [Agents overview](/docs/copilot/agents/overview.md): Understand different agent types and delegation
-* [Terminal basics](/docs/terminal/basics.md): Master VS Code terminal features
-* [Source control](/docs/sourcecontrol/overview.md): Advanced Git workflows with agents
+1. Create a new background agent session and select the custom agent from the Agents dropdown
+
+    ![Screenshot showing custom agent selection in VS Code chat interface.](../images/background-agents/custom-agent-selection.png)
+
+1. Enter a prompt and notice that the custom agent is used to handle the task
 
 ## Related resources
 
+* [Agents overview](/docs/copilot/agents/overview.md): Understand different agent types and how to hand off tasks between agents
+* [Cloud agents](/docs/copilot/agents/cloud-agents.md): Learn about cloud agents for tasks requiring GitHub integration
+* [Custom agents](/docs/copilot/customization/custom-agents.md): Create custom agent roles and personas
 * [GitHub Copilot CLI documentation](https://cli.github.com/manual/gh_copilot)
-* [VS Code Terminal](/docs/terminal/basics.md)
-* [Git Worktrees](https://git-scm.com/docs/git-worktree)
-* [Workspace Configuration](/docs/configure/settings.md)
