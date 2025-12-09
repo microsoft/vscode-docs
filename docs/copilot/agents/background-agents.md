@@ -29,7 +29,7 @@ To assign a task to a background agent, you can create a new background session 
 
 The **Copilot CLI** is the primary background agent in VS Code. You can use the Copilot CLI directly from the terminal or start and manage sessions from with VS Code.
 
-To get started, make sure to install and set up Copilot CLI:
+To get started, make sure to install and set up Copilot CLI. VS Code should handle this for you, but you can also choose to manually install the CLI via the following command:
 
 ```bash
 npm install -g @github/copilot
