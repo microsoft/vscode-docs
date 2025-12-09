@@ -213,7 +213,7 @@ Here are all the possible values of `password-store` if you would like to try us
 * _(not recommended)_ `kwallet`: For use with older versions of `kwallet`.
 * _(not recommended)_ `basic`: See the [section below on basic text](#not-recommended-configure-basic-text-encryption) for more details.
 
-Don't hesitate to [open an issue on VS Code](https://github.com/microsoft/vscode/issues/new/choose) with the verbose logs if you run into any issues.
+> If your password store was not detected automatically, see if your setup is mentioned in issue [#187338](https://github.com/microsoft/vscode/issues/187338). If not, feel free to include your setup there or [open an issue on VS Code](https://github.com/microsoft/vscode/issues/new/choose) with the verbose logs if you think your issue is not related to automatic password store detection.
 
 #### (not recommended) Configure basic text encryption
 
