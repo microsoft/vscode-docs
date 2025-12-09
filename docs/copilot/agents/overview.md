@@ -164,9 +164,9 @@ The Chat view operates in two modes:
 
     When you select a session from the list, the Chat view switches to that session. A link enables you to return to the previous view.
 
-* **Expanded**
+* **Side-by-side**
 
-    In expanded view, the Chat view shows the full list of agent sessions directly side-by-side with the Chat view. Use the search and filter options to find specific sessions. To switch between compact and expanded mode, use the toggle control in the top-right corner of the Chat view.
+    In side-by-side view, the Chat view shows the full list of agent sessions directly side-by-side with the Chat view. Use the search and filter options to find specific sessions. To switch between compact and side-by-side mode, use the toggle control in the top-right corner of the Chat view.
 
     ![Screenshot of the Chat view in expanded mode showing full agent session history.](../images/agents-overview/chat-view-expanded.png)
 
@@ -176,6 +176,10 @@ The Chat view operates in two modes:
     > Make the Chat view wider to automatically switch to expanded mode.
 
 Right-click a session in the list to see additional actions, such as different options to open the session details, archive the session, or agent-type specific actions like checking out a pull request (for cloud agent sessions).
+
+To hide the session list from the Chat view, right-click in an empty chat and unselect **Show Sessions**.
+
+If you prefer the dedicated Agents view (preview), set the `setting(chat.agentSessionsViewLocation)` setting to `view` or `single-view`.
 
 > [!NOTE]
 > Extension developers can learn how to integrate with the Agents view with the proposed API [`chatSessionsProvider`](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.chatSessionsProvider.d.ts). The API is currently in a proposed state and subject to change.
