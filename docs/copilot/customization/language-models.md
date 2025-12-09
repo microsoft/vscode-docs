@@ -59,7 +59,7 @@ You can use the language models editor to view all avalable models, choose which
 
 To open the Language Models editor, open the model picker in the Chat view and select **Manage Models** or run the **Chat: Manage Language Models** command from the Command Palette.
 
-TOOD: add screenshot
+![Screenshot that shows the Language Models editor.](../images/language-models/language-models-editor.png)
 
 The editor lists all models available to you, showing key information such as the model capabilities, context size, billing details, and visibility status. By default, models are grouped by provider, but you can also group them by visibility.
 
