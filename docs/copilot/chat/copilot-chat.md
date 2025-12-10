@@ -19,7 +19,7 @@ VS Code provides three ways to start an AI chat conversation, each optimized for
 <details>
 <summary>Chat view</summary>
 
-Press `kb(workbench.action.chat.open)` to open the Chat view in a dedicated side panel.
+Press `kb(workbench.action.chat.open)` to open the Chat view in a dedicated side panel. If you prefer a larger workspace for chat, you can open it as an editor tab by selecting **New Chat Editor** from the chat menu or as a separate window by selecting **New Chat Window**.
 
 **Use the Chat view for:**
 
