@@ -248,7 +248,7 @@ To install the required packages in your virtual environment, enter the followin
    python3 -m pip install numpy
 
    # Windows (may require elevation)
-   py -m pip install numpy
+   python -m pip install numpy
 
    # Linux (Debian)
    apt-get install python3-tk
