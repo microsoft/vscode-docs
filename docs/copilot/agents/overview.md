@@ -106,7 +106,7 @@ Learn more about [using background agents in VS Code](/docs/copilot/agents/backg
 
 Cloud agents run on remote infrastructure to perform AI-powered coding tasks. Cloud agents like Copilot coding agent integrate with GitHub repositories and pull requests to enable team collaboration and code reviews. Cloud agents operate isolated from your local workspace via branches and pull requests to prevent interference. Cloud agents can't access VS Code built-in tools and run-time context, but can access MCP servers configured in the remote environment. You can reuse your workspace [custom agents](/docs/copilot/customization/custom-agents.md) to have the cloud agent assume a specific role or persona for a task.
 
-**Best for**: Tasks that run autonomously without user interaction and require integration with GitHub workflows
+**Best for**:
 
 * Non-interactive tasks that have a well-defined scope and have all necessary context, such as implementing a plan
 * Tasks that require collaboration with other team members
