@@ -170,6 +170,16 @@ The list of available tools in chat is determined by the following priority orde
 2. Tools from the referenced custom agent in the prompt file (if any)
 3. Default tools for the selected agent (if any)
 
+## Share custom agents across teams (Experimental)
+
+To share custom agents across your team, you can create a workspace-level custom agent (`.github/agents` folder). If you want to share custom agents across multiple workspaces within your organization, you can define them at the GitHub organization level.
+
+VS Code automatically detects custom agents defined at the organization level to which your account has access. These agents appear in the Agents dropdown in chat alongside the built-in agents, and your personal and workspace custom agents.
+
+To enable discovery of organization-level custom agents, set `setting(github.copilot.chat.customAgents.showOrganizationAndEnterpriseAgents)` to `true`.
+
+Learn how you can [create custom agents for your organization](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents) in the GitHub documentation.
+
 ## Frequently asked questions
 
 ### Are custom agents different from chat modes?
