@@ -15,11 +15,6 @@ This article provides an overview of the various agent types, how to create and 
 
 ## What are agents?
 
-<!--
-TODO: make it clearer that agents can work autonomously, do more than make code changes, can use tools to perform various tasks like calling APIs, or pulling in data.
-TODO: maybe add a diagram to show an agent flow?
--->
-
 Agents handle complete coding tasks end-to-end, saving you time by doing more than just suggesting code or answering questions. They understand your project, make changes across multiple files, run commands, and adapt based on the results they get.
 
 For example, imagine you have a failing test. Instead of just suggesting a fix, an agent can read the error message, identify the root cause across multiple files, update the relevant code, run the tests again to verify the fix works, and even commit the changes.
@@ -28,9 +23,33 @@ Give an agent a high-level task, and they break it down into steps, execute thos
 
 In VS Code, agents can run in different environments to match your workflow: locally in VS Code for interactive tasks, in the background on your machine for autonomous work, or remotely in the cloud for team collaboration. They perform coding tasks, run terminal commands, and use tools together to achieve your objectives. Some agents respond to your prompts in real-time to help you plan features or make targeted edits, while others work independently to implement multi-step changes.
 
-<!--
-TODO: explain how agents differ from custom agents, subagents
- -->
+<details>
+<summary>How are agents different from custom agents?</summary>
+
+Custom agents enable you to let an agent assume a specific role or persona for a task, such as a code reviewer, tester, or security expert. A custom agent is a configuration that defines how an agent should behave, what tools it can use, and which model it should use.
+
+For example, a "Code Reviewer" custom agent might be configured to focus on identifying potential bugs and suggesting improvements based on team coding standards and industry best practices. The custom agent would only have read-only access to the codebase and would use specific repositories or documentation as context for its reviews. The outcome of the custom agent would be a detailed code review report based off a template.
+
+You can reuse custom agents across different agent types (local, background, cloud) to have them assume the same role or persona in different environments.
+
+Custom agents also allow you to specify hand offs in your custom agent definition to implement structured workflows that let the user perform follow-up actions with another agent. For example, the "Code Reviewer" custom agent could be configured to hand off to the built-in agent and ask it to implement the suggested changes.
+
+Learn more about [creating custom agents](/docs/copilot/customization/custom-agents.md).
+
+</details>
+
+<details>
+<summary>How are agents different from subagents?</summary>
+
+Subagents enable agents to break down complex tasks and perform them in isolated contexts. A subagent is an autonomous agent that is started as part of an agent session but operates independently and has its own context window. Subagents are useful to optimize context management for complex multi-step tasks like research or analysis. An agent can create multiple subagents to handle different parts of single user request.
+
+For example, if you ask an agent to research a topic and summarize the findings, it can create a subagent to handle the research part. The subagent gathers information, processes it, and returns only the final summary to the main agent, keeping the main context focused on the primary conversation.
+
+Similar to agents themselves, subagents can also take advantage of custom agents to assume specific roles or personas for their tasks. If a subagent needs to be perform research, you can have it use a "Researcher" custom agent that is optimized for gathering, analyzing, and summarizing information.
+
+Subagents are currently only supported in local agent sessions in VS Code.
+
+</details>
 
 ## Types of agents
 
@@ -38,7 +57,7 @@ VS Code supports four main categories of agents, each designed for different use
 
 ![Diagram showing agent types by environment and interaction.](../images/agents-overview/agent-types-diagram.png)
 
-<!-- Diagram source: agent-types.excalidraw -->
+<!-- Diagram source: agent-types.excalidraw (credits: AnnaS) -->
 
 ### Local agents
 
