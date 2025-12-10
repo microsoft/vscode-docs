@@ -1,6 +1,6 @@
 ---
 ContentId: 16c73175-a606-4aab-8ae5-a507
-DateApproved: 11/12/2025
+DateApproved: 12/10/2025
 MetaDescription: Learn how to customize chat in VS Code with custom instructions, reusable prompt files, and custom agents to align AI responses with your coding practices and project requirements.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -61,6 +61,17 @@ Use MCP and tools to:
 
 - Connect database tools to query and analyze data without leaving your development environment
 - Integrate with external APIs to fetch real-time information or perform actions
+
+### Claude skills (Experimental)
+
+If you have defined [Claude skills](https://code.claude.com/docs/en/skills) in your project or user profile, you can reuse them to customize your chat interactions in VS Code. The language model can load these skills on demand when the `read` tool is enabled.
+
+Configure the experimental `setting(chat.useClaudeSkills)` setting to enable support for Claude skills in VS Code.
+
+VS automatically detects `SKILL.md` files in the home folder at `~/.claude/skills/skill-name/SKILL.md` or in a workspace folder at `.claude/skills/skill-name/SKILL.md`.
+
+> [!NOTE]
+> The `allowed-tools` attribute is currently not supported in VS Code.
 
 ## Usage scenarios
 

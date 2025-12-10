@@ -1,6 +1,6 @@
 ---
 ContentId: 0aefcb70-7884-487f-953e-46c3e07f7cbe
-DateApproved: 11/12/2025
+DateApproved: 12/10/2025
 MetaDescription: Copilot is your AI pair programmer tool in Visual Studio Code. Get code suggestions as you type in the editor, or use natural language chat to ask about your code or start an editing session for implementing new feature and fixing bugs.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -99,7 +99,11 @@ To perform more complex tasks in an autonomous manner, use agents in the chat in
 
 1. Open the Chat view (`kb(workbench.action.chat.open)`)
 1. Select **Agent** from the agent picker
-1. Ask to generate a basic web app like: "Create a basic node.js web app for sharing recipes. Make it look modern and responsive."
+1. Ask to generate a basic web app, for example:
+
+    ```prompt
+    Create a basic node.js web app for sharing recipes. Make it look modern and responsive.
+    ```
 
 Notice how the agent independently generates code across multiple files and installs dependencies as needed for the task.
 

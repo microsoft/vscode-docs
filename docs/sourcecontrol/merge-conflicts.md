@@ -1,6 +1,6 @@
 ---
 ContentId: 8f4e9d2a-3b5c-4e7a-9f1d-2c8a5b6e3d9f
-DateApproved: 11/12/2025
+DateApproved: 12/10/2025
 MetaDescription: Learn how to resolve Git merge conflicts in VS Code using inline editor actions, the 3-way merge editor, and AI-assisted resolution.
 Keywords:
 - source control
