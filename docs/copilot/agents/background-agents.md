@@ -1,6 +1,6 @@
 ---
 ContentId: 9f1a2b3c-4e5f-6d7c-8a9b-1c2d3e4f5a6b
-DateApproved: 11/12/2025
+DateApproved: 12/10/2025
 MetaDescription: Learn how to use background agents like Copilot CLI for autonomous coding tasks, terminal integration, and isolated development workflows in VS Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
