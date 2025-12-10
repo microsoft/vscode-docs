@@ -44,41 +44,7 @@ VS Code supports four main categories of agents, each designed for different use
 
 ![Diagram showing agent types by environment and interaction.](../images/agents-overview/agent-types-diagram.png)
 
-<!--
-```mermaid
----
-config:
-    quadrantChart:
-        pointTextPadding: 10
-        pointRadius: 0
-        quadrantTextTopPadding: 10
-        pointLabelFontSize: 12
-        chartWidth: 500
-        chartHeight: 500
-    themeVariables:
-        quadrant1TextFill: '#4f4e4eff'
-        quadrant2TextFill: '#4f4e4eff'
-        quadrant3TextFill: '#4f4e4eff'
-        quadrant4TextFill: '#4f4e4eff'
-        quadrantPointTextFill: '#4f4e4eff'
----
-quadrantChart
-    title Agent Types
-    x-axis Local --&gt; Remote
-    y-axis Interactive --&gt; Non-Interactive
-    quadrant-1 Cloud Agent
-    quadrant-2 Background Agent
-    quadrant-3 Local Agent
-    quadrant-4 "Remote Development"
-    VS Code built-in agents: [0.30, 0.30]
-    VS Code custom agents: [0.20, 0.20]
-    Copilot CLI: [0.30, 0.80]
-    "Third-party (OpenAI Codex)": [0.20, 0.70]
-    Copilot coding agent: [0.75, 0.75]
-    GitHub Codespaces: [0.70, 0.20]
-    VS Code Dev Containers: [0.80, 0.30]
-```
--->
+<!-- Diagram source: agent-types.excalidraw -->
 
 ### Local agents
 
