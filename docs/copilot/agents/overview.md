@@ -173,7 +173,7 @@ The Chat view operates in two modes:
     When you select a session from the list, the Chat view shows the details of that session, while the session list remains visible.
 
     > [!TIP]
-    > Make the Chat view wider to automatically switch to side-by-side mode. You change this behavior with the `setting(chat.viewSessions.orientation)` setting.
+    > Make the Chat view wider to automatically switch to side-by-side mode. Right-click on the sessions list and select **Sessions Orientation** to change the default behavior (`setting(chat.viewSessions.orientation)`).
 
 Right-click a session in the list to see additional actions, such as different options to open the session details, archive the session, or agent-type specific actions like checking out a pull request (for cloud agent sessions).
 

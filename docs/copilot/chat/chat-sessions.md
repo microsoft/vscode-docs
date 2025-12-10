@@ -77,7 +77,10 @@ To open an existing chat session in a separate window:
 
 When you create a new chat session, the previous conversation history is cleared. However, all your chat sessions are saved in the session history, allowing you to return to previous conversations and continue where you left off. This is useful when you want to review past interactions, reference previous responses, or resume a conversation from an earlier session.
 
-By default, when you start a new chat session, the Chat view shows your most recent sessions and you can select **Show All Sessions** to view the full history. These sessions can be local, background, or cloud sessions. You can expand the width of the Chat view to view the session list side-by-side.
+By default, when you start a new chat session, the Chat view shows your most recent sessions, whether they run locally, in the background, or in the cloud. Select **Show All Sessions** to view the full history of sessions, allowing you to search and filter the list.
+
+> [!TIP]
+> Make the Chat view wider to automatically switch to side-by-side mode or use the toggle button in the top-right corner of the Chat view.
 
 ![Screenshot of an agent session in VS Code showing code changes and chat interaction.](../images/agents-overview/chat-sessions-view.png)
 
