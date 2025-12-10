@@ -20,19 +20,13 @@ TODO: make it clearer that agents can work autonomously, do more than make code 
 TODO: maybe add a diagram to show an agent flow?
 -->
 
-Agents are more than simple inline suggestions or single-purpose tools. While basic AI features might suggest the next line of code or answer a quick question, agents are designed to understand your development context and autonomously take coordinated action across your codebase and development environment.
+Agents handle complete coding tasks end-to-end, saving you time by doing more than just suggesting code or answering questions. They understand your project, make changes across multiple files, run commands, and adapt based on the results they get.
 
-In VS Code, agents are AI-powered assistants that can perform coding tasks with varying levels of autonomy. Some respond to a simple prompt and make targeted edits, while others can plan multi-step changes, run terminal commands, and orchestrate tools to achieve more complex objectives.
+For example, imagine you have a failing test. Instead of just suggesting a fix, an agent can read the error message, identify the root cause across multiple files, update the relevant code, run the tests again to verify the fix works, and even commit the changes.
 
-These autonomous agents have the following capabilities:
+Give an agent a high-level task, and they break it down into steps, execute those steps using various tools, and self-correct when they hit errors or failed tests.
 
-* **Codebase understanding**: Analyze your codebase and curate relevant context for the task
-* **Developer context**: Get context from your development environment, like stack traces, linting errors, or debug state
-* **Task decomposition**: Break down high-level requirements into concrete coding tasks
-* **Autonomous execution**: Execute tasks independently, such as making code edits, running tests, or terminal commands
-* **Tool integration**: Invoke external tools and services to gather information or perform tasks
-* **Self-correction**: Respond to feedback from tools and self-correct when encountering errors, such as test failures, merge conflicts, debug context, or terminal output
-* **Multi-environment**: Run in different environments, such as locally in VS Code, in the background on your machine, or remotely in the cloud
+In VS Code, agents can run in different environments to match your workflow: locally in VS Code for interactive tasks, in the background on your machine for autonomous work, or remotely in the cloud for team collaboration. They perform coding tasks, run terminal commands, and use tools together to achieve your objectives. Some agents respond to your prompts in real-time to help you plan features or make targeted edits, while others work independently to implement multi-step changes.
 
 <!--
 TODO: explain how agents differ from custom agents, subagents
