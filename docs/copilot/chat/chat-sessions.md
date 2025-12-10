@@ -77,7 +77,7 @@ To open an existing chat session in a separate window:
 
 When you create a new chat session, the previous conversation history is cleared. However, all your chat sessions are saved in the session history, allowing you to return to previous conversations and continue where you left off. This is useful when you want to review past interactions, reference previous responses, or resume a conversation from an earlier session.
 
-By default, when you start a new chat session, the Chat view shows your most recent sessions, whether they run locally, in the background, or in the cloud. Select **Show All Sessions** to view the full history of sessions, allowing you to search and filter the list.
+By default, when you start a new chat session, the Chat view shows your most recent sessions, whether they run locally, in the background, or in the cloud. Select **Show All Sessions** to view the full history of sessions, allowing you to search and filter the list. The list is scoped to your current workspace. If you don't have a workspace open, the list shows all sessions across your workspaces.
 
 > [!TIP]
 > Make the Chat view wider to automatically switch to side-by-side mode or use the toggle button in the top-right corner of the Chat view.

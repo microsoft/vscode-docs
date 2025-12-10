@@ -154,6 +154,8 @@ Third party agents are background agents developed by other providers, such as O
 
 The Chat view in VS Code provides a unified interface for managing your agent sessions, regardless of where they run. You can see the list of all your agent sessions, their status, and key details like file changes, and their type (local, background, cloud, or Codex). The status indicators help you quickly identify active, completed, failed sessions, or sessions that require your input.
 
+The list of sessions is scoped to your workspace. If you don't have a workspace open, the list shows all sessions across your workspaces.
+
 The Chat view operates in two modes:
 
 * **Compact**:
