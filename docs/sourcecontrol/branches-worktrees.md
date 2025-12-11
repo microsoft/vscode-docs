@@ -121,7 +121,7 @@ To create a new worktree in VS Code:
 
     ![Screenshot showing the Source Control Repositories view with multiple repositories listed.](images/branches-worktrees/source-control-view-repositories.png)
 
-1. Right-click on your repository and select **Worktree** > **Create Worktree**.
+1. Click on your repository and open the **More Actions (...)** menu. Choose **Worktrees** > **Create Worktree**.
 
     ![Screenshot showing the worktree context menu in the Source Control Repositories view.](images/branches-worktrees/worktree-create.png)
 
