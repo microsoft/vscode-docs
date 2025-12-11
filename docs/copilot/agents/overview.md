@@ -55,7 +55,7 @@ Subagents are currently only supported in local agent sessions in VS Code.
 
 VS Code supports four main categories of agents, each designed for different use cases and levels of interaction:
 
-![Diagram showing agent types by environment and interaction.](../images/agents-overview/agent-types-diagram.png)
+![Diagram showing agent types by environment and interaction.](../images/agents-overview/agent-types-diagram-v2.png)
 
 <!-- Diagram source: agent-types.excalidraw (credits: AnnaS) -->
 
