@@ -39,17 +39,17 @@ In this mode, the profiling tool will profile an ONNX model file for the duratio
 
 This option is ideal for profiling an ONNX model on different EPs.
 
-![Screenshot that shows how to start by model file]()
+![Screenshot that shows how to start by model file](./images/profiling/by-model-file.png)
 
 After profiling, a report folder will be created with logs and data.
 
-![Screenshot that show the report data]()
+![Screenshot that show the report data](./images/profiling/by-model-file-result.png)
 
 ## Resource Usages View
 
 In the main window, the plot on the top will show usage of CPU, GPU, NPU and Memory. The usage will be updated once per second and kept for 10 minutes. You could use the tools on the top right to navigate the timeline by zoom in, zoom out and pan.
 
-![Screnshot that shows the resrouce usages view](./images/profiling/by-model-file.png)
+![Screnshot that shows the resrouce usages view](./images/profiling/resource-usage-view.png)
 
 > [!NOTE]
 > This features use Performance Counters. To achieve higher accuracy, you could try [Windows Performance Recorder](https://learn.microsoft.com/en-us/windows-hardware/test/wpt/windows-performance-recorder).
@@ -60,7 +60,7 @@ In the main window, the plot on the bottom will show Windows ML events. Its time
 
 > [!Important]
 > To receive Windows ML events, the tool needs to be run in admin mode. If VS Code is not started in admin mode, a notification will show up and guide you to restart VS Code. You need to close all other VS Code instances to make the restart in admin mode work.
-> ![Secreenshot that show a notification to restart VS Code in admin mode]()
+> ![Secreenshot that show a notification to restart VS Code in admin mode](./images/profiling/events-view-admin.png)
 
 Currently we will show events of the following types:
 
