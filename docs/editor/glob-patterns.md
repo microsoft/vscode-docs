@@ -1,6 +1,6 @@
 ---
 ContentId: c2d81f09-3c24-4659-8aa0-9ca24ef4950d
-DateApproved: 11/12/2025
+DateApproved: 12/10/2025
 MetaDescription: Visual Studio Code glob patterns reference
 ---
 # Glob Patterns Reference

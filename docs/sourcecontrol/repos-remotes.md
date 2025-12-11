@@ -1,6 +1,6 @@
 ---
 ContentId: 8f34d9b6-3185-426a-b6d9-7e5ac7138a31
-DateApproved: 11/12/2025
+DateApproved: 12/10/2025
 MetaDescription: Master working with Git repositories and remotes in VS Code. Learn about cloning, publishing, push/pull/sync operations, upstream tracking, auto-fetch, and managing multiple repositories.
 Keywords:
 - source control
@@ -221,9 +221,9 @@ Customize the Source Control Graph with these settings:
 
 Learn more about [viewing commit history with the Source Control Graph](/docs/sourcecontrol/staging-commits.md#graph-view-for-commit-history).
 
-## Working with multiple repositories
+## Working with repositories
 
-The Repositories view enables you to manage multiple Git repositories in a single workspace. This is useful when working with projects that span multiple repositories.
+The Repositories view enables you to manage multiple Git repositories in a single workspace. This is useful when working with projects that span multiple repositories. The Repositories view also shows [Git worktrees](/docs/sourcecontrol/branches-worktrees.md) associated with your repositories.
 
 ![Screenshot of the Repositories view in VS Code showing multiple Git repositories.](images/repos-remotes/multiple-repositories.png)
 
@@ -233,9 +233,9 @@ For each repository, you can see the active branch, sync status, and access acti
 
 VS Code automatically detects Git repositories when you open folders that contain them. If you open a folder with multiple repositories (like a monorepo), all repositories appear in the Repositories view.
 
-You can configure whether you want to have multiple repositories active in the Source Control view or a single repository at a time by changing the `setting(scm.repositories.selectionMode)` setting.
+### Repository selection modes
 
-When operating in multi-repo mode, the Source Control view shows changes across all repositories. In single-repo mode, the view only shows changes for the selected repository in the Repositories view.
+If you prefer to focus on a single repository or worktree at a time, you can switch to single repository mode. In that mode, you only see the changes and graph for the selected repository. When operating in multi-repo mode, the Source Control view shows changes across all repositories. Use the `setting(scm.repositories.selectionMode)` setting to switch between multi-repo and single-repo modes.
 
 ## Credential helpers
 

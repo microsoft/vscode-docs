@@ -1,6 +1,6 @@
 ---
 ContentId: 7a2e5f8d-4c9b-41e6-b3a8-9d7f2e4c1b8a
-DateApproved: 11/12/2025
+DateApproved: 12/10/2025
 MetaDescription: Learn how to create and manage chat sessions in Visual Studio Code, including opening chat in editor tabs, separate windows, and using chat session history.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -75,20 +75,18 @@ To open an existing chat session in a separate window:
 
 ## Chat session history
 
-When you create a new chat session, the previous conversation history is cleared. However, all your chat sessions are saved in the chat session history, allowing you to return to previous conversations and continue where you left off. This is useful when you want to review past interactions, reference previous responses, or resume a conversation from an earlier session.
+When you create a new chat session, the previous conversation history is cleared. However, all your chat sessions are saved in the session history, allowing you to return to previous conversations and continue where you left off. This is useful when you want to review past interactions, reference previous responses, or resume a conversation from an earlier session.
 
-When you switch to a previous chat session, all prompts, responses, and context from that session are restored in the Chat view.
-
-To view your chat session history:
-
-1. Open the Chat view and select **Show Chats...** in the Chat view title bar.
-
-    ![Screenshot of the Chat view with the Show Chats button highlighted.](../images/chat-sessions/copilot-chat-view-show-chats.png)
-
-1. Select a history entry from the list to open that chat session in the Chat view.
+By default, when you start a new chat session, the Chat view shows your most recent sessions, whether they run locally, in the background, or in the cloud. Select **Show All Sessions** to view the full history of sessions, allowing you to search and filter the list. The list is scoped to your current workspace. If you don't have a workspace open, the list shows all sessions across your workspaces.
 
 > [!TIP]
-> Enable the `setting(chat.emptyState.history.enabled)` experimental setting to show your recent chat sessions when starting a new chat session. This enables you to quickly switch to a recent session without navigating to the chat session history.
+> Make the Chat view wider to automatically switch to side-by-side mode or use the toggle button in the top-right corner of the Chat view.
+
+![Screenshot of an agent session in VS Code showing code changes and chat interaction.](../images/agents-overview/chat-sessions-view.png)
+
+When you select a session from the list to open a previous chat session, all prompts, responses, and context from that session are restored in the Chat view.
+
+Learn more about agents and [viewing and managing agent sessions](/docs/copilot/agents/overview.md).
 
 ## Save and export chat sessions
 
@@ -147,18 +145,27 @@ To invoke a subagent in a prompt:
 
 #### Use a custom agent with subagents (Experimental)
 
-By default, a subagent inherits the agent from the main chat session. If you invoke a subagent from a custom agent, that subagent also runs with that agent.
-
-With the experimental `setting(chat.customAgentInSubagent.enabled)` setting, subagents can run with a different (custom) agent.
+By default, a subagent inherits the agent from the main chat session. You can configure a subagent to use a different built-in or custom agent. For example, if you want to run a research task as part of a development task, you can start the research task in a subagent that uses a research agent.
 
 To run a subagent with a specific agent:
 
-1. Enable the `setting(chat.customAgentInSubagent.enabled)` setting
+1. Enable support for custom agents in subagents with the `setting(chat.customAgentInSubagent.enabled)` setting
+
+1. Make sure the custom agent doesn't have its `infer` property set to `false`, as this prevents the agent from being used in subagents.
+
+1. Prompt the AI about which agents are available for use as subagents. Your custom agent should be listed.
+
+    ```prompt
+    Which subagents can you use?
+    ```
 
 1. Prompt the AI to use a custom or built-in agent for the subagent. For example:
 
     * `Run the research agent as a subagent to research the best auth methods for this project.`
     * `Use the plan agent in a subagent to create an implementation plan for myfeature. Then save the plan in plans/myfeature.plan.md`
+
+> [!NOTE]
+> To prevent a custom agent from being used as a subagent, set the metadata property `infer` to `false` in the `*.agent.md` file.
 
 ## Agent Sessions
 

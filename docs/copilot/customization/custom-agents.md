@@ -1,6 +1,6 @@
 ---
 ContentId: 276ecd8f-2a76-467e-bf82-846d49c13ab5
-DateApproved: 11/12/2025
+DateApproved: 12/10/2025
 MetaDescription: Learn how to create custom agents (formerly custom chat modes) to tailor AI chat behavior in VS Code for your specific workflows and development scenarios.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -22,6 +22,8 @@ The [built-in agents](/docs/copilot/chat/copilot-chat.md#switch-between-agents) 
 Custom agents consist of a set of instructions and tools that are applied when you switch to that agent. For example, a "Plan" agent could include instructions for generating an implementation plan and only use read-only tools. By creating a custom agent, you can quickly switch to that specific configuration without having to manually select relevant tools and instructions each time.
 
 Custom agents are defined in a `.agent.md` Markdown file, and can be stored in your workspace for others to use, or in your user profile, where you can reuse them across different workspaces.
+
+You can reuse your custom agents in [background agents](/docs/copilot/agents/background-agents.md) and [cloud agents](/docs/copilot/agents/cloud-agents.md), enabling you to run autonomous tasks with the same specialized configurations.
 
 ## Why use custom agents?
 
@@ -76,6 +78,7 @@ The header is formatted as YAML frontmatter with the following fields:
 | `argument-hint`   | Optional hint text shown in the chat input field to guide users on how to interact with the custom agent. |
 | `tools`           | A list of tool or tool set names that are available for this custom agent. Can include built-in tools, tool sets, MCP tools, or tools contributed by extensions. To include all tools of an MCP server, use the `<server name>/*` format.<br/>Learn more about [tools in chat](/docs/copilot/chat/chat-tools.md). |
 | `model`           | The AI model to use when running the prompt. If not specified, the currently selected model in model picker is used. |
+| `infer`           | Optional boolean flag to enable use of the custom agent as a [subagent](/docs/copilot/chat/chat-sessions.md#context-isolated-subagents) (default is `true`). |
 | `target`          | The target environment or context for the custom agent (`vscode` or `github-copilot`). |
 | `mcp-servers`     | Optional list of Model Context Protocol (MCP) server config json to use with [custom agents in GitHub Copilot](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents) (target: `github-copilot`). |
 | `handoffs`        | Optional list of suggested next actions or prompts to transition between custom agents. Handoff buttons appear as interactive suggestions after a chat response completes. |
@@ -166,6 +169,16 @@ The list of available tools in chat is determined by the following priority orde
 1. Tools specified in the prompt file (if any)
 2. Tools from the referenced custom agent in the prompt file (if any)
 3. Default tools for the selected agent (if any)
+
+## Share custom agents across teams (Experimental)
+
+To share custom agents across your team, you can create a workspace-level custom agent (`.github/agents` folder). If you want to share custom agents across multiple workspaces within your organization, you can define them at the GitHub organization level.
+
+VS Code automatically detects custom agents defined at the organization level to which your account has access. These agents appear in the Agents dropdown in chat alongside the built-in agents, and your personal and workspace custom agents.
+
+To enable discovery of organization-level custom agents, set `setting(github.copilot.chat.customAgents.showOrganizationAndEnterpriseAgents)` to `true`.
+
+Learn how you can [create custom agents for your organization](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents) in the GitHub documentation.
 
 ## Frequently asked questions
 

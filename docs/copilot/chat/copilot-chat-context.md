@@ -1,6 +1,6 @@
 ---
 ContentId: 5d8a707d-a239-4cc7-92ee-ccc763e8eb9c
-DateApproved: 11/12/2025
+DateApproved: 12/10/2025
 MetaDescription: "Learn how to manage context when using AI in VS Code, including workspace indexing, #-mentions for files and symbols, web content references, and custom instructions."
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -77,12 +77,20 @@ You can reference content from the web in your chat prompts, for example to get 
 
     Use the `fetch` tool to retrieve content from a specific web page. To use this tool, type `#fetch` followed by the URL of the page you want to reference.
 
+    The `fetch` tool caches the content of the web page for a limited time to improve performance. If the content of the page changes, you can force a refresh by restarting VS Code. If the page cannot be reached, the cache will expire after a short time (approximately five minutes).
+
+    VS Code prompts for confirmation before accessing external URLs to protect your privacy and security. Learn more about [configuring URL auto-approval](/docs/copilot/chat/chat-tools.md#url-approval).
+
+    Example prompts using the `fetch` tool:
+
     * `"What are the highlights of VS Code 1.100 #fetch https://code.visualstudio.com/updates/v1_100"`
     * `"Update the asp.net app to .net 9 #fetch https://learn.microsoft.com/en-us/aspnet/core/migration/80-90"`
 
 * `#githubRepo <repo name>`
 
     Use the `githubRepo` tool to perform a code search within a GitHub repository. Type `#githubRepo` followed by the repository name.
+
+    Example prompts using the `githubRepo` tool:
 
     * `"How does routing work in next.js #githubRepo vercel/next.js"`
     * `"Perform a code review to validate it's consistent with #githubRepo microsoft/typescript"`

@@ -3,7 +3,7 @@ Order:
 TOCTitle: <Month> <Year>
 PageTitle: Visual Studio Code <Month> <Year>
 MetaDescription: Learn what is new in the Visual Studio Code <Month> <Year> Release (1.<release number>).
-MetaSocialImage: 1_<release number>/release-highlights.png
+MetaSocialImage: 1_<release number>/release-highlights.webp
 Date: <YYYY-MM-DD>
 DownloadVersion: 1.<release number>.0
 ---
@@ -132,6 +132,8 @@ You can learn more about these features in the [Remote Development release notes
 
 ## Thank you
 
+
+---
 
 We really appreciate people trying our new features as soon as they are ready, so check back here often and learn what's new.
 
