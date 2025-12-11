@@ -150,6 +150,15 @@ To use Git worktrees in a background agent session:
 
 1. After the background agent completes the task, you can review and merge the changes from the worktree back into your main workspace.
 
+    At the bottom of the background session output, there's a summary of the files changed from this background agent session, followed by all outstanding changes from this worktree (which could have come from the background agent, or your own edits to the worktree).
+
+    ![Screenshot showing the ability to keep worktree changes](../images/background-agents/filechanges.png)
+
+    You can choose to:
+    * Explore the file changes, by clicking on individual file names or using the `View All Edits` diff button
+    * Use the `Keep` button to keep the pending changes from the agentic session, or `Undo` to remove them
+    * Use the `Apply` button to apply all changes that were kept on the worktree to your local repository
+
     > [!TIP]
     > Before merging the changes, you can directly apply them from the worktree to your main branch by using the **Apply Changes** button in the chat editor.
 
