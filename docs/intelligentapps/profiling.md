@@ -62,7 +62,7 @@ In the main window, the plot on the bottom will show Windows ML events. Its time
 > To receive Windows ML events, the tool needs to be run in admin mode. If VS Code is not started in admin mode, a notification will show up and guide you to restart VS Code. You need to close all other VS Code instances to make the restart in admin mode work.
 > ![Secreenshot that show a notification to restart VS Code in admin mode](./images/profiling/events-view-admin.png)
 
-Currently we will show events of the following types:
+Currently, we only show events of the following types:
 
 - Ensure ExecutionProvider Ready: when Windows ML is preparing the EP
 - Session Creation: when the session is created
