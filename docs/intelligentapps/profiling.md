@@ -29,7 +29,7 @@ In this mode, the profiling tool starts profiling an already running app. You ca
 - Process name: usually the name of app without `.exe`. The first match will be profiled.
 - Process path: like `c:\Users\xxx\Inference.Service.Agent.exe`. The first match will be profiled.
 
-This option is ideal for profiling an already running app.
+This option is ideal for profiling an ap that is already running and you're unable to restart it for profiling purposes.
 
 ![Screenshot that shows how to start by process id or name](./images/profiling/by-process-id-or-name.png)
 
