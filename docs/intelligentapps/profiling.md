@@ -10,7 +10,7 @@ Profiling is a tool designed to help developers and AI engineers to diagnose the
 ## Start with "The next session"
 
 In this mode, the profiling tool profiles the next app that is started and that is sending out Windows ML events.
-This option is ideal for testing a run-once app. In this case, you could start profiling and run the app and the resource usages will be shown up.
+This option is ideal for testing a run-once app. In this case, you start profiling, then run the app, and the resource usages will begin showing up.
 
 ![Screenshot that shows how to start by the next session](./images/profiling/the-next-session.png)
 
