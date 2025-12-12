@@ -68,7 +68,7 @@ Currently, we only show events of the following types:
 - Session Creation: when the session is created
 - Inference: when the model inferences on the session
 
-![Screnshot that shows the Windows ML events view](./images/profiling/events-view.png)
+![Screenshot that shows the Windows ML events view](./images/profiling/events-view.png)
 
 ## What you learned
 
