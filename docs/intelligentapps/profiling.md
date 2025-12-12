@@ -4,7 +4,7 @@ Profiling is a tool designed to help developers and AI engineers to diagnose the
 
 ## Prerequisites
 
-- VS Code must be installed. Follow these steps to [set up VS Code](https://code.visualstudio.com/docs/setup/setup-overview).
+- Install the latest version of [Visual Studio Code](/download).
 - AI Toolkit extension must be installed. For more information, see [install AI Toolkit](/docs/intelligentapps/overview.md#install-and-setup).
 
 ## Start with "The next session"
