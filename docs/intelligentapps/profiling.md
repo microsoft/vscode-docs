@@ -75,7 +75,7 @@ Currently, we only show events of the following types:
 In this article, you learned how to:
 
 - Start profiling in different ways
-- Inspect the Resource Usages View
+- Inspect the Resource Usages view
 - Inspect the Windows ML Events View
 
 ## See also
