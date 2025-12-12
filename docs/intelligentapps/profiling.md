@@ -76,7 +76,7 @@ In this article, you learned how to:
 
 - Start profiling in different ways
 - Inspect the Resource Usages view
-- Inspect the Windows ML Events View
+- Inspect the Windows ML Events view
 
 ## See also
 
