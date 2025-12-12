@@ -62,7 +62,8 @@ The available parameters depend on the model type and publisher. Common paramete
 - Presence Penalty: Encourages the model to introduce new topics or concepts in the response. Higher values promote diversity in the generated text.
 
 ### Show resource usage
-For local model, there will an additional option 'Show resource usage'. When it is enabled, resource usage will be shown with each response.
+
+For local models, there's an additional option **Show resource usage**. When enabled, resource usage is shown with each response.
 
 ![Screenshot showing 'Show resource usage' in Model Preferences panel](./images/playground/parameters-show-resource-usage.png)
 
