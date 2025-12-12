@@ -7,60 +7,60 @@ Profiling is a tool designed to help developers and AI engineers to diagnose the
 - Install the latest version of [Visual Studio Code](/download).
 - Install the AI Toolkit VS Code extension. For more information, see [install AI Toolkit](/docs/intelligentapps/overview.md#install-and-setup).
 
-## Start with "The next session"
+## Profile on app startup
 
 In this mode, the profiling tool profiles the next app that is started and that is sending out Windows ML events.
 This option is ideal for testing a run-once app. In this case, you start profiling, then run the app, and the resource usages will begin showing up.
 
 ![Screenshot that shows how to start by the next session](./images/profiling/the-next-session.png)
 
+The tool starts profiling a newly started app. This means that for profiling a Python notebook, if the kernel is already running, you need to restart the kernel to begin profiling for it. Just starting a new notebook does not automatically start profiling.
 > [!IMPORTANT]
 > To receive Windows ML events, the tool needs to be run in admin mode. If VS Code is not started in admin mode, a notification shows up and guides you to restart VS Code. You need to close all other VS Code instances to make the restart in admin mode work.
-> ![Secreenshot that show a notification to restart VS Code in admin mode](./images/profiling/the-next-session-admin.png)
+>
+> ![Screenshot that shows a notification to restart VS Code in admin mode](./images/profiling/the-next-session-admin.png)
 
-> [!NOTE]
-> It will profile the next newly start app. For example for python notebook, if the kernel is already running, you need to click restart kernel to make it restart. If not, running new ipynb will not be captured.
 
 ## Profile a running app
 
-In this mode, the profiling tool will profile the process that matches one of the following:
+In this mode, the profiling tool starts profiling an already running app. You can select a process based on these criteria:
 
-- Process Id: like 12345
-- Process Name: usually name of app without `.exe`. The first match will be profiled
-- Process Path: like `c:\Users\xxx\Inference.Service.Agent.exe`. The first match will be profiled
+- Process ID: like 12345
+- Process name: usually the name of app without `.exe`. The first match will be profiled.
+- Process path: like `c:\Users\xxx\Inference.Service.Agent.exe`. The first match will be profiled.
 
 This option is ideal for profiling an already running app.
 
 ![Screenshot that shows how to start by process id or name](./images/profiling/by-process-id-or-name.png)
 
-## Start with "By Model File"
+## Profile an ONNX model
 
-In this mode, the profiling tool will profile an ONNX model file for the duration on target Execution Provider and you could see the resources it used during running.
+In this mode, the profiling tool starts profiling an ONNX model file on a target execution provider (EP) for a given duration. You can see the resource usage while it's running.
 
 This option is ideal for profiling an ONNX model on different EPs.
 
 ![Screenshot that shows how to start by model file](./images/profiling/by-model-file.png)
 
-After profiling, a report folder will be created with logs and data.
+After profiling, a report folder is created with logs and data.
 
 ![Screenshot that show the report data](./images/profiling/by-model-file-result.png)
 
-## Resource Usages View
+## Resource Usages view
 
-In the main window, the plot on the top will show usage of CPU, GPU, NPU and Memory. The usage will be updated once per second and kept for 10 minutes. You could use the tools on the top right to navigate the timeline by zoom in, zoom out and pan.
+In the main window, the plot on the top shows usage of CPU, GPU, NPU, and memory. The usage is updated every second, and kept for 10 minutes. You can use the tools on the top right to navigate the timeline by zooming in, zooming out, and panning.
 
-![Screnshot that shows the resrouce usages view](./images/profiling/resource-usage-view.png)
+![Screenshot that shows the resource usages view](./images/profiling/resource-usage-view.png)
 
 > [!NOTE]
-> This features use Performance Counters. To achieve higher accuracy, you could try [Windows Performance Recorder](https://learn.microsoft.com/en-us/windows-hardware/test/wpt/windows-performance-recorder).
+> This feature uses performance counters. To achieve higher accuracy, you could also try [Windows Performance Recorder](https://learn.microsoft.com/en-us/windows-hardware/test/wpt/windows-performance-recorder).
 
-## Windows ML Events View
+## Windows ML Events view
 
-In the main window, the plot on the bottom will show Windows ML events. Its timeline is synced with the resource usages view, so you could easily know how resource is used during certain events.
+In the main window, the plot on the bottom shows Windows ML events. Its timeline is synced with the Resource Usages view, so you can easily determine how resources are used when certain events occur.
 
 > [!Important]
-> To receive Windows ML events, the tool needs to be run in admin mode. If VS Code is not started in admin mode, a notification will show up and guide you to restart VS Code. You need to close all other VS Code instances to make the restart in admin mode work.
-> ![Secreenshot that show a notification to restart VS Code in admin mode](./images/profiling/events-view-admin.png)
+> To receive Windows ML events, the tool needs to be run in admin mode. If VS Code is not started in admin mode, a notification shows up and guides you to restart VS Code. You need to close all other VS Code instances to make the restart in admin mode work.
+> ![Screenshot that shows a notification to restart VS Code in admin mode](./images/profiling/events-view-admin.png)
 
 Currently, we only show events of the following types:
 
