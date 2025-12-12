@@ -1,6 +1,13 @@
+---
+ContentId: 8105f83b-8291-467e-abac-2344b4f368cd
+DateApproved: 12/14/2025
+MetaDescription: Profiling Quickstart in AI Toolkit.
+---
 # Profiling an app using Windows Machine Learning
 
 Profiling is a tool designed to help developers and AI engineers to diagnose the CPU, GPU, NPU resource usages of processes, ONNX model on different execution providers, and Windows ML events.
+
+In this article, you could learn how to start profiling and how to inspect the resource usages view and the events view.
 
 ## Prerequisites
 
@@ -15,9 +22,9 @@ This option is ideal for testing a run-once app. In this case, you start profili
 ![Screenshot that shows how to start by the next session](./images/profiling/the-next-session.png)
 
 The tool starts profiling a newly started app. This means that for profiling a Python notebook, if the kernel is already running, you need to restart the kernel to begin profiling for it. Just starting a new notebook does not automatically start profiling.
+
 > [!IMPORTANT]
 > To receive Windows ML events, the tool needs to be run in admin mode. If VS Code is not started in admin mode, a notification shows up and guides you to restart VS Code. You need to close all other VS Code instances to make the restart in admin mode work.
->
 > ![Screenshot that shows a notification to restart VS Code in admin mode](./images/profiling/the-next-session-admin.png)
 
 
@@ -29,7 +36,7 @@ In this mode, the profiling tool starts profiling an already running app. You ca
 - Process name: usually the name of app without `.exe`. The first match will be profiled.
 - Process path: like `c:\Users\xxx\Inference.Service.Agent.exe`. The first match will be profiled.
 
-This option is ideal for profiling an ap that is already running and you're unable to restart it for profiling purposes.
+This option is ideal for profiling an app that is already running and you're unable to restart it for profiling purposes.
 
 ![Screenshot that shows how to start by process id or name](./images/profiling/by-process-id-or-name.png)
 
