@@ -21,7 +21,7 @@ This option is ideal for testing a run-once app. In this case, you start profili
 > [!NOTE]
 > It will profile the next newly start app. For example for python notebook, if the kernel is already running, you need to click restart kernel to make it restart. If not, running new ipynb will not be captured.
 
-## Start with "By Process ID or Name"
+## Profile a running app
 
 In this mode, the profiling tool will profile the process that matches one of the following:
 
