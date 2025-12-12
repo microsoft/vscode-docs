@@ -14,7 +14,7 @@ This option is ideal for testing a run-once app. In this case, you start profili
 
 ![Screenshot that shows how to start by the next session](./images/profiling/the-next-session.png)
 
-> [!Important]
+> [!IMPORTANT]
 > To receive Windows ML events, the tool needs to be run in admin mode. If VS Code is not started in admin mode, a notification will show up and guide you to restart VS Code. You need to close all other VS Code instances to make the restart in admin mode work.
 > ![Secreenshot that show a notification to restart VS Code in admin mode](./images/profiling/the-next-session-admin.png)
 
