@@ -1,4 +1,4 @@
-# Profiling App using Windows Machine Learning
+# Profiling an app using Windows Machine Learning
 
 Profiling is a tool designed to help developers and AI engineers to diagnose the CPU, GPU, NPU resource usages of process, ONNX model on different Execution Provider and Windows ML events.
 
