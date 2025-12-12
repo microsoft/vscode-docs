@@ -66,7 +66,7 @@ Currently, we only show events of the following types:
 
 - Ensure ExecutionProvider Ready: when Windows ML is preparing the EP
 - Session Creation: when the session is created
-- Inference: when the model is inferences on the session
+- Inference: when the model inferences on the session
 
 ![Screnshot that shows the Windows ML events view](./images/profiling/events-view.png)
 
