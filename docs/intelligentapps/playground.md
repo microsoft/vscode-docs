@@ -104,7 +104,8 @@ Available features in the model response area:
 - **Token Count**: Displays the number of tokens used in the model's response. This helps you understand the cost and performance of the model.
 
 ### Resource usage
-When 'Show resource usage' is enabled for local model, a summary of usage will be shown with each response. You could also switch to the [Profiling](/docs/intelligentapps/profiling) by clicking 'Usage details'.
+
+When **Show resource usage** is enabled for a local model, a summary of usage is shown with each response. You could also switch to the [Profiling](/docs/intelligentapps/profiling) details by selecting **Usage details**.
 
 ![Screenshot showing resource usage for one response](./images/playground/response-resource-usage.png)
 
