@@ -9,8 +9,8 @@ Model conversion is an integrated development environment designed to help devel
 
 ## Prerequisites
 
-- VS Code must be installed. Follow these steps to [set up VS Code](https://code.visualstudio.com/docs/setup/setup-overview).
-- AI Toolkit extension must be installed. For more information, see [install AI Toolkit](/docs/intelligentapps/overview.md#install-and-setup).
+- Install the latest version of [Visual Studio Code](/download).
+- Install the AI Toolkit VS Code extension. For more information, see [install AI Toolkit](/docs/intelligentapps/overview.md#install-and-setup).
 
 ## Create project
 

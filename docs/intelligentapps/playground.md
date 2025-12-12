@@ -61,6 +61,13 @@ The available parameters depend on the model type and publisher. Common paramete
 - Frequency Penalty: Reduces the likelihood of the model repeating the same tokens in the response. Higher values discourage repetition.
 - Presence Penalty: Encourages the model to introduce new topics or concepts in the response. Higher values promote diversity in the generated text.
 
+### Show resource usage
+
+For local models, there's an additional option **Show resource usage**. When enabled, resource usage is shown with each response.
+
+![Screenshot showing 'Show resource usage' in Model Preferences panel](./images/playground/parameters-show-resource-usage.png)
+
+
 ## Chat prompt
 
 ![Chat prompt input box in AI Toolkit playground showing an attachment icon for adding files.](./images/playground/chat-prompt.png)
@@ -95,6 +102,12 @@ Available features in the model response area:
 - **Copy Code**: Copy the generated code in the response to the clipboard or insert it into a new file.
 - **Rendering**: Playground supports rendering of code snippets, images, markdown, LaTex and other content in the model's response.
 - **Token Count**: Displays the number of tokens used in the model's response. This helps you understand the cost and performance of the model.
+
+### Resource usage
+
+When **Show resource usage** is enabled for a local model, a summary of usage is shown with each response. You could also switch to the [Profiling](/docs/intelligentapps/profiling) details by selecting **Usage details**.
+
+![Screenshot showing resource usage for one response](./images/playground/response-resource-usage.png)
 
 ## Tool bar
 
