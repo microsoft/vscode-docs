@@ -18,7 +18,7 @@ Keywords:
 This tutorial walks you through using different types of agents in Visual Studio Code. You build a todo app from scratch, add a theme toggle, and redesign the layout by delegating work across local, plan, background, and cloud agents.
 
 > [!TIP]
-> If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
+> If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of inline suggestions and chat interactions.
 
 ## Prerequisites
 
@@ -30,7 +30,7 @@ To complete this tutorial, you need:
 
 ## Step 1: Use a local agent to scaffold an app
 
-In this step, you'll use a local agent to create the initial todo app structure. Local agents are perfect for interactive tasks where you want immediate feedback and results, such as scaffolding a new project or planning a new feature.
+In this step, you'll use a local agent to create the initial todo app structure. Local agents are ideal for interactive tasks where you want immediate feedback and results, such as scaffolding a new project or iterating on a new feature.
 
 1. Create a new project folder and open it in VS Code.
 
@@ -110,7 +110,7 @@ In this step, you'll use a cloud agent (Copilot coding agent) to redesign the ap
 1. You can track the cloud agent in the **Sessions** view in the Chat view, where you can see all ongoing agent sessions and their status.
 
     > [!TIP]
-    > If you have the GitHub Pull Requests extension installed, you can also track the pull request progress in the **GitHub Pull Requests** view in the GitHub view.
+    > If you have the GitHub Pull Requests extension installed, you can also track the pull request progress in the **Copilot on my Behalf** view in the GitHub Pull Requests view.
 
 1. Once completed, the cloud agent assigns the pull request to you for review.
 
