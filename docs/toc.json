@@ -149,6 +149,7 @@
         "area": "copilot/guides",
         "noCollapse": false,
         "topics": [
+          ["Agents Tutorial", "/docs/copilot/guides/agents-tutorial"],
           ["Prompt Engineering", "/docs/copilot/guides/prompt-engineering-guide"],
           ["Context Engineering", "/docs/copilot/guides/context-engineering-guide"],
           ["Edit Notebooks with AI", "/docs/copilot/guides/notebooks-with-ai"],
