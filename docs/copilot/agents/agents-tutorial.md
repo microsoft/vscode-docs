@@ -36,13 +36,15 @@ In this step, you'll use a local agent to create the initial todo app structure.
 
 1. Open the Chat view (`kb(workbench.action.chat.open)`) and select **Agent** from the Agents dropdown.
 
-    Optionally, choose another language model if you have a preference.
+    Optionally, choose a specific language model if you have a preference.
 
 1. Enter the following prompt in the chat input field to scaffold the todo app and select **Send**.
 
     ```prompt
     Create a simple todo app with HTML, CSS, and JavaScript. Include an input field to add todos, a list to display them, and a delete button for each item.
     ```
+
+    <video src="../images/agents-tutorial/local-agent-todo-app-scaffold.mp4" alt="Video showing a local agent scaffolding a todo app in VS Code." muted autoplay loop></video>
 
 1. Review as the agent generates the different files for the app. Use **Keep** or **Undo** to accept or reject changes as needed.
 
