@@ -65,9 +65,13 @@ Visual Studio Code uses [Azure DevOps](https://azure.microsoft.com/services/devo
 
 ### Get a Personal Access Token
 
-First off, follow the documentation to [create your own organization](https://learn.microsoft.com/azure/devops/organizations/accounts/create-organization) in Azure DevOps. In the following examples, the organization's name is `vscode`, you should use your new organization name as appropriate. Note that the organization's name doesn't necessarily have to be same as your publisher name.
+You can create a Personal Access Token via the Azure DevOps portal. To create a Personal Access Token:
 
-1. From your organization's home page (for example: `https://dev.azure.com/vscode`), open the User settings dropdown menu next to your profile image and select **Personal access tokens**:
+1. If you don't have an Azure DevOps organization yet, follow the steps in the [Create an organization](https://learn.microsoft.com/azure/devops/organizations/accounts/create-organization) article.
+
+1. Go to the [Azure DevOps portal](https://go.microsoft.com/fwlink/?LinkId=307137), and select your organization.
+
+1. Open the User settings dropdown menu next to your profile image and select **Personal access tokens**:
 
     ![Personal settings menu](images/publishing-extension/menu-pat.png)
 
