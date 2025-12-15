@@ -210,6 +210,12 @@ Debian-based distributions allow setting a default **editor** by using the [Debi
 sudo update-alternatives --set editor /usr/bin/code
 ```
 
+If you've installed VS Code with the Snap package, use this command instead:
+
+```bash
+sudo update-alternatives --set editor /snap/bin/code
+```
+
 If VS Code doesn't show up as an alternative to the default `editor`, you need to register it:
 
 ```bash
