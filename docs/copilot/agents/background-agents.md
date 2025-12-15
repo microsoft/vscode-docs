@@ -152,7 +152,7 @@ To use Git worktrees in a background agent session:
 
     At the bottom of the background session output, there's a summary of the files changed from this background agent session, followed by all outstanding changes from this worktree (which could have come from the background agent, or your own edits to the worktree).
 
-    ![Screenshot showing the ability to keep worktree changes](../images/background-agents/filechanges.png)
+    ![Screenshot showing the ability to keep worktree changes.](../images/background-agents/filechanges.png)
 
     You can choose to:
     * Explore the file changes, by clicking on individual file names or using the `View All Edits` diff button
