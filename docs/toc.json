@@ -395,6 +395,7 @@
       ["Fine-tuning (Project Template)", "/docs/intelligentapps/finetune-legacy"],
       ["Model Conversion", "/docs/intelligentapps/modelconversion"],
       ["Tracing", "/docs/intelligentapps/tracing"],
+      ["Profiling", "/docs/intelligentapps/profiling"],
       ["FAQ", "/docs/intelligentapps/faq"],
       ["", "", {
         "name": "Reference",
