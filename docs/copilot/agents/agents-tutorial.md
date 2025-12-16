@@ -32,7 +32,15 @@ To complete this tutorial, you need:
 
 In this step, you use a local agent to create the initial todo app structure. Local agents are ideal for interactive tasks where you want immediate feedback and results, such as scaffolding a new project or iterating on a new feature.
 
-1. Create a new project folder and open it in VS Code.
+1. Create a new project folder and ensure it's under Git version control.
+
+    ```bash
+    mkdir todo-app
+    cd todo-app
+    git init
+    ```
+
+1. Open the project folder in VS Code.
 
 1. Open the Chat view (`kb(workbench.action.chat.open)`) and select **Agent** from the Agents dropdown.
 
@@ -68,15 +76,7 @@ You now have a working todo app that you can extend with additional features. By
 
 In this step, you use the plan agent to create an implementation plan for a theme toggle and then hand off the implementation to a background agent. Background agents are ideal for delegating tasks that don't require immediate interaction. They use Git worktrees to isolate file changes from your main workspace and prevent conflicts.
 
-1. First, ensure your project is under Git version control. Select **Initialize Repository** from the Source Control view and commit your current changes to have a clean state.
-
-    Alternatively, run the following commands in the terminal:
-
-    ```bash
-    git init
-    git add .
-    git commit -m "Initial commit - scaffold todo app"
-    ```
+1. First, commit your current changes in the Source Control view to have a clean state.
 
 1. Run the **Developer: Reload Window** command from the Command Palette (`kb(workbench.action.showCommands)`) to ensure all extensions are properly loaded.
 
