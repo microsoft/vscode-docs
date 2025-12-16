@@ -52,14 +52,14 @@ In this step, you'll use a local agent to create the initial todo app structure.
 
 1. Open the generated HTML file and select **Show Preview** to preview and interact with the app directly in VS Code.
 
-    TODO: add video of this step: show preview, interact with app, make changes in chat, see live update, add element to chat
+    <video src="../images/agents-tutorial/local-agent-todo-app-live-preview.mp4" alt="Video showing a local agent enhancing a todo app in VS Code with live preview." muted autoplay loop></video>
 
 1. Send additional prompts to enhance the app further. Notice that the preview updates live as you make changes.
 
     For example, you can ask:
 
     ```prompt
-    Add a feature to mark todos as completed with a strikethrough effect.
+    Mark todos as completed with a strikethrough effect.
     ```
 
 You now have a working todo app that you can extend with additional features. By using a local agent, you can interactively generate and refine your code in real-time.
