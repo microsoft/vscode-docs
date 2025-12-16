@@ -3,6 +3,13 @@ ContentId: 7c4b8b5e-2d3f-4e8a-9b2c-1a5d6f8e9c0b
 DateApproved: 12/10/2025
 MetaDescription: Learn about different types of AI agents in VS Code, including local chat, background agents, and cloud agents for coding tasks.
 MetaSocialImage: ../images/shared/github-copilot-social.png
+Keywords:
+- ai
+- agents
+- background agent
+- cloud agent
+- copilot coding agent
+- copilot cli
 ---
 
 # Using agents in Visual Studio Code

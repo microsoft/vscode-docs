@@ -78,8 +78,6 @@ In this step, you use the plan agent to create an implementation plan for a them
 
 1. First, commit your current changes in the Source Control view to have a clean state.
 
-1. Run the **Developer: Reload Window** command from the Command Palette (`kb(workbench.action.showCommands)`) to ensure all extensions are properly loaded.
-
 1. In the Chat view, select **New Chat (+)** > **New Chat** to start a new local agent session. Notice that your previous chat session is preserved in the sessions list.
 
 1. Select **Plan** from the Agents dropdown to switch to the plan agent and enter the following prompt:
