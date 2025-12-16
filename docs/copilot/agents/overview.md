@@ -249,7 +249,12 @@ Depending on the agent type, you have additional options to apply the changes ma
 
 ## Related resources
 
+* [Agents tutorial](/docs/copilot/agents/agents-tutorial.md): Hands-on tutorial for working with different agent types
+
 * [Local agents](/docs/copilot/chat/copilot-chat.md): Master local agent sessions and chat features
+
 * [Background agents](/docs/copilot/agents/background-agents.md): Explore CLI-based agents and autonomous workflows
+
 * [Cloud agents](/docs/copilot/agents/cloud-agents.md): Learn about GitHub Copilot Coding Agent and remote execution
+
 * [Custom agents](/docs/copilot/customization/custom-agents.md): Create your own AI agents and extensions

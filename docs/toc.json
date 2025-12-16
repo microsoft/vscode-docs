@@ -124,6 +124,7 @@
         "noCollapse": false,
         "topics": [
           ["Overview", "/docs/copilot/agents/overview"],
+          ["Agents Tutorial", "/docs/copilot/agents/agents-tutorial"],
           ["Background Agents", "/docs/copilot/agents/background-agents"],
           ["Cloud Agents", "/docs/copilot/agents/cloud-agents"]
         ]

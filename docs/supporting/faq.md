@@ -89,7 +89,7 @@ Visual Studio Code is a streamlined code editor with support for development ope
 
 Yes, VS Code is free for private or commercial use. See the [product license](https://code.visualstudio.com/license) for details.
 
-If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
+If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of inline suggestions and chat interactions.
 
 ## Platform support
 
