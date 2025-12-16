@@ -119,11 +119,13 @@ In this step, you'll use a cloud agent (Copilot coding agent) to redesign the ap
 
 1. In the Chat view, select **New Chat (+)** > **New Cloud Agent** and enter the following prompt:
 
-    ```prompt
+    ```text
     Redesign the todo app layout to improve user experience. Update colors, spacing, typography, and add animations to give it a modern look.
     ```
 
 1. The cloud agent starts a new session to work on your request. It creates a branch and pull request in your GitHub repository.
+
+    <video src="../images/agents-tutorial/cloud-agent-redesign-todo-app.mp4" alt="Video showing a cloud agent redesigning a todo app in VS Code." muted autoplay loop></video>
 
 1. You can track the cloud agent in the **Sessions** view in the Chat view, where you can see all ongoing agent sessions and their status.
 
@@ -132,9 +134,13 @@ In this step, you'll use a cloud agent (Copilot coding agent) to redesign the ap
 
 1. Once completed, the cloud agent assigns the pull request to you for review.
 
+    ![Screenshot showing the cloud agent session details, with the file change details.](../images/agents-tutorial/cloud-agent-pull-request.png)
+
 1. Right-click the cloud agent session in the **Sessions** view to view additional options, such as checking out the pull request locally or viewing it in GitHub.
 
-1. You can now use the standard GitHub code review workflow with your team to review, comment, and merge the pull request.
+    <video src="../images/agents-tutorial/cloud-agent-checkout-pr.mp4" alt="Video showing checking out a pull request created by a cloud agent in VS Code." muted autoplay loop></video>
+
+1. You can use the standard GitHub code review workflow with your team to review, comment, and merge the pull request.
 
 You've successfully used a cloud agent to collaborate on a feature using GitHub. Cloud agents enable you to leverage remote resources and collaborate seamlessly through GitHub.
 
@@ -144,4 +150,3 @@ You've successfully used different types of agents to build, enhance, and redesi
 
 * Learn about [agent types and when to use them](/docs/copilot/agents/overview.md)
 * Explore [creating custom agents](/docs/copilot/customization/custom-agents.md)
-* Read about [prompt engineering for better results](/docs/copilot/guides/prompt-engineering-guide.md)
