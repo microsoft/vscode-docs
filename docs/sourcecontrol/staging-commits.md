@@ -112,6 +112,28 @@ If you want to write commit messages with multiple paragraphs, you can use a ful
 > [!TIP]
 > To cycle through your previous commit messages, press `kb(history.showPrevious)` and `kb(history.showNext)` while focused in the commit message input box.
 
+### Use the editor for commit messages
+
+Instead of using the commit message input box, you can write commit messages in a full editor tab. This is useful for longer messages or when you want more space to compose your message.
+
+1. In the Source Control view, select **Commit** without entering a message in the commit input box. This opens a new editor tab named `COMMIT_EDITMSG`.
+
+    ![Screenshot of the COMMIT_EDITMSG editor for writing commit messages.](images/staging-commits/commit-editmsg.png)
+
+1. Write your commit message in the editor. You can use multiple paragraphs and format your message as needed.
+
+1. To accept the commit message and complete the commit operation, either close the editor tab or select **Commit** in the editor.
+
+    ![Screenshot showing the commit message written in the COMMIT_EDITMSG editor, highlighting the Commit button.](images/staging-commits/commit-editmsg-done.png)
+
+1. To cancel the commit operation, you can either clear the contents of the text editor and close the editor tab, or select **Cancel (`X`)** in the editor.
+
+    ![Screenshot showing the commit message written in the COMMIT_EDITMSG editor, highlighting the Cancel button.](images/staging-commits/commit-editmsg-cancel.png)
+
+To disable using the editor for commit messages and revert to the quick input control, disable the `setting(git.useEditorAsCommitInput)` setting (restart VS Code for the change to take effect).
+
+To use the same flow for `git commit` commands executed in the integrated terminal, enable the `setting(git.terminalGitEditor)` setting (restart your terminal for the change to take effect).
+
 ### Commit changes
 
 Select the **Commit** button in the Source Control view to commit the changes in the **Staged Changes** section. Any unstaged changes remain in the **Changes** section for future commits.
