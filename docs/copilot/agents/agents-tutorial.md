@@ -68,28 +68,44 @@ You now have a working todo app that you can extend with additional features. By
 
 In this step, you'll use the plan agent to design a theme toggle and then hand off the implementation to a background agent. Background agents are ideal for delegating tasks that don't require immediate interaction. They use Git worktrees to isolate file changes from your main workspace and prevent conflicts.
 
-1. In the Chat view, type the following prompt in the chat input field:
+1. First, ensure your project is under Git version control. Select **Initialize Repository** from the Source Control view and commit your current changes to have a clean state.
 
-    ```prompt
+    Alternatively, run the following commands in the terminal:
+
+    ```bash
+    git init
+    git add .
+    git commit -m "Initial commit - scaffold todo app"
+    ```
+
+1. In the Chat view, select **New Chat (+)** > **New Chat** to start a new local agent session. Notice that your previous chat session is preserved in the sessions list.
+
+1. Select **Plan** from the Agents dropdown to switch to the plan agent and enter the following prompt:
+
+    ```text
     Create a plan to add a dark/light theme toggle to the app. The toggle should switch between themes and persist the user's preference.
     ```
 
-1. Select **Plan** from the Agents dropdown and send the prompt. The plan agent breaks down the work needed and creates an implementation plan for the feature.
-
-1. Optionally, provide follow-up prompts to refine the plan.
+1. Review the proposed implementation plan and make any adjustments as needed.
 
 1. When you're ready, select **Start Implementation** > **Continue in Background** to hand off the plan to a background agent.
 
-1. The background agent creates a Git worktree and starts implementing the changes autonomously. You can track the background agent in the **Sessions** view in the Chat view, where you can see all ongoing agent sessions and their status.
+    ![Screenshot showing the Start Implementation button in the Chat view.](../images/agents-tutorial/start-implementation-button.png)
+
+1. The background agent creates a Git worktree where it starts implementing the feature. You can track the background agent in the **Sessions** view. Select the session to see details about its progress.
+
+    <video src="../images/agents-tutorial/background-agent-theme-switcher.mp4" alt="Video showing a background agent implementing a theme switcher feature in VS Code." muted autoplay loop></video>
 
     > [!TIP]
     > While the background agent works, you can continue editing your main workspace without conflicts.
 
-1. Review the changes by the background agent from the chat conversation. Alternatively, right-click the worktree in the **Repositories** view in the Source Control view and open it in a new window to test and review the changes before applying them.
+1. Once the background agent finishes, review the changes from the session details. Alternatively, switch to the Source Control view to see the changes in the Git worktree.
 
-1. Select **Apply** to apply the changes into your main workspace.
+1. When you're happy with the changes, in the Chat view, select **Keep** and then select **Apply** to apply the changes into your main workspace.
 
-You've successfully used a background agent to perform a task autonomously in the background. You can starts multiple background agents for different tasks without interrupting your main workflow.
+    ![Screenshot showing the HTML preview of the app, which now has a theme switcher button.](../images/agents-tutorial/todo-app-theme-switcher.png)
+
+You've successfully used a background agent to perform a task autonomously in the background. You can start multiple background agents for different tasks without interrupting your main workflow.
 
 ## Step 3: Use a cloud agent to collaborate on a feature
 
