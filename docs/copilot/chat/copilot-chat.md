@@ -142,6 +142,11 @@ Open chat with Agent: [Stable](vscode://GitHub.Copilot-Chat/chat?mode=agent) | [
 
 ### Get started with agents
 
+> [!TIP]
+> For a hands-on tutorial that demonstrates working with different agent types including background and cloud agents, see the [agents tutorial](/docs/copilot/agents/agents-tutorial.md).
+
+To start a local agent session:
+
 1. Select **Agent** from the agent picker in the Chat view.
 
 1. Type a high-level prompt in the chat input field. For example, you might ask:
