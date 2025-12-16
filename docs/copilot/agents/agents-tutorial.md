@@ -30,7 +30,7 @@ To complete this tutorial, you need:
 
 ## Step 1: Use a local agent to scaffold an app
 
-In this step, you'll use a local agent to create the initial todo app structure. Local agents are ideal for interactive tasks where you want immediate feedback and results, such as scaffolding a new project or iterating on a new feature.
+In this step, you use a local agent to create the initial todo app structure. Local agents are ideal for interactive tasks where you want immediate feedback and results, such as scaffolding a new project or iterating on a new feature.
 
 1. Create a new project folder and open it in VS Code.
 
@@ -66,7 +66,7 @@ You now have a working todo app that you can extend with additional features. By
 
 ## Step 2: Use a background agent to implement a feature plan
 
-In this step, you'll use the plan agent to design a theme toggle and then hand off the implementation to a background agent. Background agents are ideal for delegating tasks that don't require immediate interaction. They use Git worktrees to isolate file changes from your main workspace and prevent conflicts.
+In this step, you use the plan agent to create an implementation plan for a theme toggle and then hand off the implementation to a background agent. Background agents are ideal for delegating tasks that don't require immediate interaction. They use Git worktrees to isolate file changes from your main workspace and prevent conflicts.
 
 1. First, ensure your project is under Git version control. Select **Initialize Repository** from the Source Control view and commit your current changes to have a clean state.
 
@@ -109,7 +109,7 @@ You've successfully used a background agent to perform a task autonomously in th
 
 ## Step 3: Use a cloud agent to collaborate on a feature
 
-In this step, you'll use a cloud agent (Copilot coding agent) to redesign the app layout and use pull requests and collaboration features in GitHub. Copilot coding agent runs on remote infrastructure and are ideal for tasks that don't require immediate feedback, don't need to run locally, or involve collaboration through GitHub.
+In this step, you use a cloud agent (Copilot coding agent) to redesign the app layout and use pull requests and collaboration features in GitHub. Copilot coding agent runs on remote infrastructure and are ideal for tasks that don't require immediate feedback, don't need to run locally, or involve collaboration through GitHub.
 
 1. First, publish the project to a GitHub repository and add it as a remote to use Copilot coding agent on your project.
 
@@ -142,7 +142,7 @@ In this step, you'll use a cloud agent (Copilot coding agent) to redesign the ap
 
 1. You can use the standard GitHub code review workflow with your team to review, comment, and merge the pull request.
 
-You've successfully used a cloud agent to collaborate on a feature using GitHub. Cloud agents enable you to leverage remote resources and collaborate seamlessly through GitHub.
+You've successfully used a cloud agent to collaborate on a feature using GitHub. Cloud agents enable you to use remote resources and collaborate seamlessly through GitHub.
 
 ## Next steps
 
