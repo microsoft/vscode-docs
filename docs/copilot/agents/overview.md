@@ -142,7 +142,7 @@ The Chat view in VS Code provides a unified interface for managing your agent se
 
 The list of sessions is scoped to your workspace. If you don't have a workspace open, the list shows all sessions across your workspaces.
 
-The Chat view operates in two modes:
+The Chat view operates in two modes: compact and side-by-side. You can manually switch between compact and side-by-side mode with the toggle control in the top-right corner of the Chat view.
 
 * **Compact**:
 
@@ -154,14 +154,14 @@ The Chat view operates in two modes:
 
 * **Side-by-side**
 
-    In side-by-side view, the Chat view shows the full list of agent sessions directly side-by-side with the Chat view. Use the search and filter options to find specific sessions. To switch between compact and side-by-side mode, use the toggle control in the top-right corner of the Chat view.
+    In side-by-side view, the Chat view shows the full list of agent sessions directly side-by-side with the Chat view. Use the search and filter options to find specific sessions.
 
     ![Screenshot of the Chat view in expanded mode showing full agent session history.](../images/agents-overview/chat-view-expanded.png)
 
     When you select a session from the list, the Chat view shows the details of that session, while the session list remains visible.
 
     > [!TIP]
-    > Make the Chat view wider to automatically switch to side-by-side mode. Right-click on the sessions list and select **Sessions Orientation** to change the default behavior (`setting(chat.viewSessions.orientation)`).
+    > Make the Chat view wider to automatically switch to side-by-side mode. Right-click on the sessions list and select **Sessions Orientation** to change the default behavior (`setting(chat.viewSessions.orientation)`) or use the toggle button.
 
 Right-click a session in the list to see additional actions, such as different options to open the session details, archive the session, or agent-type specific actions like checking out a pull request (for cloud agent sessions).
 
