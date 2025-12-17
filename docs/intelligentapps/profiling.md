@@ -42,15 +42,19 @@ This option is ideal for profiling an app that is already running and you're una
 
 ## Profile an ONNX model
 
-In this mode, the profiling tool starts profiling an ONNX model file on a target execution provider (EP) for a given duration. You can see the resource usage while it's running.
+In this mode, the profiling tool starts profiling an ONNX model file on a target execution provider (EP) or device policy for a given duration. You can see the resource usage while it's running.
 
-This option is ideal for profiling an ONNX model on different EPs.
+This option is ideal for profiling an ONNX model on different EPs or device policies.
 
 ![Screenshot that shows how to start by model file](./images/profiling/by-model-file.png)
 
-After profiling, a report folder is created with logs and data.
+After profiling, a notification will show up to guide you to open the report or save the report.
 
-![Screenshot that show the report data](./images/profiling/by-model-file-result.png)
+![Screenshot that shows the succeeded notification](./images/profiling/by-model-file-succeeded.png)
+
+The report contains detailed stats and results.
+
+![Screenshot that shows the report data](./images/profiling/by-model-file-result.png)
 
 ## Resource Usages view
 
