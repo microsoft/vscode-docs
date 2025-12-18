@@ -24,7 +24,7 @@ Use custom instructions to:
 
 ### Agent Skills (Preview)
 
-[Agent Skills](/docs/copilot/customization/agent-skills.md) enable you to teach Copilot specialized capabilities through folders containing instructions, scripts, and resources. Currently available in [VS Code Insiders](https://code.visualstudio.com/insiders/) only. Agent Skills is an [open standard](https://agentskills.io) that works across multiple AI agents, including VS Code, GitHub Copilot CLI, and GitHub Copilot coding agent, making skills portable across different AI tools. Unlike custom instructions that primarily define coding guidelines, skills focus on specialized workflows and capabilities.
+[Agent Skills](/docs/copilot/customization/agent-skills.md) enable you to teach Copilot specialized capabilities through folders containing instructions, scripts, and resources. This feature is currently available in [VS Code Insiders](https://code.visualstudio.com/insiders/) only. Agent Skills is an [open standard](https://agentskills.io) that works across multiple AI agents, including VS Code, GitHub Copilot CLI, and GitHub Copilot coding agent. This makes skills portable across different AI tools. Unlike custom instructions that primarily define coding guidelines, skills focus on specialized workflows and capabilities.
 
 Use Agent Skills to:
 
@@ -72,8 +72,6 @@ Use MCP and tools to:
 
 - Connect database tools to query and analyze data without leaving your development environment
 - Integrate with external APIs to fetch real-time information or perform actions
-
-
 
 ## Usage scenarios
 

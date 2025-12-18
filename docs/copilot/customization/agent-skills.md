@@ -48,7 +48,7 @@ Use custom instructions when you want to:
 
 Skills are stored in directories with a `SKILL.md` file that defines the skill's behavior. VS Code supports skills in two locations:
 
-* `.github/skills/` - The new standard location recommended for all new skills
+* `.github/skills/` - The shared location recommended for all new skills used by Copilot
 * `.claude/skills/` - Legacy location, also supported for backward compatibility
 
 To create a skill:
@@ -63,7 +63,6 @@ To create a skill:
     ---
     name: skill-name
     description: Description of what the skill does and when to use it
-    license: MIT (optional)
     ---
 
     # Skill Instructions
@@ -208,7 +207,7 @@ This architecture means skills are automatically activated based on your promptâ
 
 ## Use shared skills
 
-You can use skills created by others to enhance Copilot's capabilities. The [anthropics/skills repository](https://github.com/anthropics/skills) on GitHub contains a collection of community-contributed skills.
+You can use skills created by others to enhance Copilot's capabilities. The [github/awesome-copilot](https://github.com/github/awesome-copilot) repository contains a growing community collection of skills, custom agents, instructions, and prompts. The [anthropics/skills](https://github.com/anthropics/skills) repository contains additional reference skills.
 
 To use a shared skill:
 
@@ -230,9 +229,6 @@ Agent Skills is an open standard that enables portability across different AI ag
 
 Learn more about the Agent Skills standard at [agentskills.io](https://agentskills.io).
 
-> [!NOTE]
-> Agent Skills is an open standard. Learn more at [agentskills.io](https://agentskills.io).
-
 ## Related resources
 
 * [Customize AI responses overview](/docs/copilot/customization/overview.md)
@@ -240,4 +236,4 @@ Learn more about the Agent Skills standard at [agentskills.io](https://agentskil
 * [Create reusable prompt files](/docs/copilot/customization/prompt-files.md)
 * [Create custom agents](/docs/copilot/customization/custom-agents.md)
 * [Agent Skills specification](https://agentskills.io)
-* [Community skills repository](https://github.com/anthropics/skills)
+* [Reference skills repository](https://github.com/anthropics/skills)
