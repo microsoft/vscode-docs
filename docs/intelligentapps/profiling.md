@@ -48,11 +48,11 @@ This option is ideal for profiling an ONNX model on different EPs or device poli
 
 ![Screenshot that shows how to start by model file](./images/profiling/by-model-file.png)
 
-After profiling, a notification will show up to guide you to open the report or save the report.
+After profiling, a notification shows up to guide you to open or save the report.
 
 ![Screenshot that shows the succeeded notification](./images/profiling/by-model-file-succeeded.png)
 
-The report contains detailed stats and results.
+The report contains detailed profiling statistics and results for the ONNX model.
 
 ![Screenshot that shows the report data](./images/profiling/by-model-file-result.png)
 
