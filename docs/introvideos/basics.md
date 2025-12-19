@@ -20,7 +20,7 @@ Explore more in the [VS Code Tutorial](/docs/getstarted/getting-started.md) and 
   * From [https://code.visualstudio.com/download](https://code.visualstudio.com/download)
 * Open a folder
   * **File** > **Open Folder** (`kb(workbench.action.files.openFolder)`)
-* Open Chat
+* Open the Chat view
   * **View** > **Chat** (`kb(workbench.action.chat.open)`)
 * File Explorer
   * **View** > **Explorer** (`kb(workbench.view.explorer)`)
