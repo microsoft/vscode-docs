@@ -10,7 +10,7 @@ You can customize chat in Visual Studio Code to match your coding practices and 
 
 ## Customization options
 
-There are five main ways to customize chat in Visual Studio Code. These options work independently or you can combine them for more comprehensive customization.
+There are six main ways to customize chat in Visual Studio Code. These options work independently or you can combine them for more comprehensive customization.
 
 ### Custom instructions
 
@@ -21,6 +21,17 @@ Use custom instructions to:
 - Specify coding practices, preferred technologies, or project requirements, so generated code follows your standards
 - Provide guidelines about how a commit message or pull request title and description should be structured
 - Set rules for code reviews, such as checking for security vulnerabilities, performance issues, or adherence to coding standards
+
+### Agent Skills (Preview)
+
+[Agent Skills](/docs/copilot/customization/agent-skills.md) enable you to teach Copilot specialized capabilities through folders containing instructions, scripts, and resources. This feature is currently available in [VS Code Insiders](https://code.visualstudio.com/insiders/) only. Agent Skills is an [open standard](https://agentskills.io) that works across multiple AI agents, including VS Code, GitHub Copilot CLI, and GitHub Copilot coding agent. This makes skills portable across different AI tools. Unlike custom instructions that primarily define coding guidelines, skills focus on specialized workflows and capabilities.
+
+Use Agent Skills to:
+
+- Create reusable capabilities that work across different GitHub Copilot tools
+- Define specialized workflows for testing, debugging, or deployment processes
+- Share capabilities with the AI community using the open standard
+- Include scripts, examples, and other resources alongside instructions
 
 ### Prompt files
 
@@ -62,17 +73,6 @@ Use MCP and tools to:
 - Connect database tools to query and analyze data without leaving your development environment
 - Integrate with external APIs to fetch real-time information or perform actions
 
-### Claude skills (Experimental)
-
-If you have defined [Claude skills](https://code.claude.com/docs/en/skills) in your project or user profile, you can reuse them to customize your chat interactions in VS Code. The language model can load these skills on demand when the `read` tool is enabled.
-
-Configure the experimental `setting(chat.useClaudeSkills)` setting to enable support for Claude skills in VS Code.
-
-VS automatically detects `SKILL.md` files in the home folder at `~/.claude/skills/skill-name/SKILL.md` or in a workspace folder at `.claude/skills/skill-name/SKILL.md`.
-
-> [!NOTE]
-> The `allowed-tools` attribute is currently not supported in VS Code.
-
 ## Usage scenarios
 
 Different customization methods work best for different scenarios. The following table lists common use cases and the recommended approach:
@@ -81,6 +81,7 @@ Different customization methods work best for different scenarios. The following
 |----------|----------|
 | Project-wide coding standards | [Custom instructions](/docs/copilot/customization/custom-instructions.md) |
 | Language or framework-specific rules | [Custom instructions with glob patterns](/docs/copilot/customization/custom-instructions.md#instructions-file-format) |
+| Specialized capabilities that work across tools | [Agent Skills](/docs/copilot/customization/agent-skills.md) |
 | Reusable development tasks | [Prompt files](/docs/copilot/customization/prompt-files.md) |
 | Use chat for planning or research | [Custom agents](/docs/copilot/customization/custom-agents.md) |
 | Define specialized workflows | [Custom agents](/docs/copilot/customization/custom-agents.md) |
@@ -115,6 +116,7 @@ For advanced usage, build **custom agents** that combine specific tools, instruc
 ## Related resources
 
 - [Create custom instructions](/docs/copilot/customization/custom-instructions.md)
+- [Use Agent Skills](/docs/copilot/customization/agent-skills.md)
 - [Create reusable prompt files](/docs/copilot/customization/prompt-files.md)
 - [Create custom agents](/docs/copilot/customization/custom-agents.md)
 - [Choose language models](/docs/copilot/customization/language-models.md)
