@@ -8,7 +8,7 @@ MetaSocialImage: images/opengraph/introvideos-social.png
 
 In this tutorial, we walk you through using Visual Studio Code powered with AI features.
 
-<iframe src="https://www.youtube.com/embed/5NxGqnTazR8?si=UaGTeedyAF_qv8tZ?autoplay=true" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Getting Started with Visual Studio Code"></iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/5NxGqnTazR8?si=SPrLQ_RuxoXBFffA?autoplay=true" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Getting Started with Visual Studio Code"></iframe>
 
 Here's the next video we recommend: [Code Editing in Visual Studio Code](/docs/introvideos/codeediting.md)
 
