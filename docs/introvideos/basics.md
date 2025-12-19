@@ -14,7 +14,7 @@ Here's the next video we recommend: [Code Editing in Visual Studio Code](/docs/i
 
 Explore more in the [VS Code Tutorial](/docs/getstarted/getting-started.md) and [GitHub Copilot's Quickstart](/docs/getstarted/copilot-quickstart.md).
 
-## Helpful Shortcuts
+## Helpful shortcuts
 
 * Download and install VS Code.
   * From [https://code.visualstudio.com/download](https://code.visualstudio.com/download)
