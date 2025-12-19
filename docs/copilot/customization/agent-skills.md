@@ -109,7 +109,7 @@ The following examples demonstrate different types of skills you can create.
 <details>
 <summary>Example: Web application testing skill</summary>
 
-```markdown
+````markdown
 ---
 name: webapp-testing
 description: Guide for testing web applications using Playwright. Use this when asked to create or run browser-based tests.
@@ -152,14 +152,14 @@ npx playwright test --debug
 - Keep tests independent and atomic
 - Use Page Object Model for complex pages
 - Take screenshots on failure
-```
+````
 
 </details>
 
 <details>
 <summary>Example: GitHub Actions debugging skill</summary>
 
-```markdown
+````markdown
 ---
 name: github-actions-debugging
 description: Guide for debugging failing GitHub Actions workflows. Use this when asked to debug failing GitHub Actions workflows.
@@ -183,7 +183,7 @@ This skill helps you debug failing GitHub Actions workflows in pull requests.
 - **Version mismatches**: Verify action versions and dependencies are compatible
 - **Permission issues**: Ensure the workflow has the necessary permissions
 - **Timeout issues**: Consider splitting long-running jobs or increasing timeout values
-```
+````
 
 </details>
 
