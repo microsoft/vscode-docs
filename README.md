@@ -3,7 +3,7 @@
   <h1 align="center">Visual Studio Code Documentation</h1>
 </p>
 
-You've found the Visual Studio Code documentation GitHub repository, which contains the content for the [Visual Studio Code documentation](https://code.visualstudio.com/docs).
+You've found the Visual Studio Code documentation GitHub repository, which contains the conitent for the [Visual Studio Code documentation](https://code.visualstudio.com/docs).
 
 Topics submitted here will be published to the [Visual Studio Code](https://code.visualstudio.com) portal.
 

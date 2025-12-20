@@ -8,7 +8,7 @@ Thank you for your interest in VS Code documentation!
 
 * [Contributing](#contributing)
 * [Documentation intent](#documentation-intent)
-* [Repository organization](#repository-organization)
+* [Repository organization](#repositor I y-organization)
 * [Branches](#branches)
 * [Authoring Tools](#authoring-tools)
 * [How to use Markdown to format your topic](#how-to-use-markdown-to-format-your-topic)
@@ -231,7 +231,7 @@ Images are important to bring the product to life and clarify the written conten
 
 * Link to an image using relative path names, the path and filename are case-sensitive.
 
-* Images are cached on the server for indeterminate time, so don't update images in-place. Create a new file and add a version indicator (yyyymmddseq) to the image filename. 
+* Images are cached on the server for indeterminate time, so don't update images in-place. Create a new file and add a version indicator (yyyymmddseq) to the image filename.
 
 > [!IMPORTANT]
 > Make sure you have Git LFS enabled on your machine!
