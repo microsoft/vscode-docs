@@ -64,7 +64,7 @@ This leads to the following values for each of the variables:
 > [!TIP]
 > Use IntelliSense inside string values for `tasks.json` and `launch.json` to get a full list of predefined variables.
 
-## Platform and Workspace Considerations
+## Platform and workspace considerations
 
 ### Platform-specific behavior
 
@@ -73,15 +73,7 @@ Some predefined variables may resolve differently depending on the operating sys
 - On **Windows**, file paths use backslashes (`\`). When composing paths in JSON files such as `tasks.json` or `launch.json`, ensure backslashes are properly escaped (for example: `"${workspaceFolder}\\subdir"`).
 - On **macOS** and **Linux**, file paths use forward slashes (`/`).
 
-Using `${pathSeparator}` or `${/}` can help make configurations portable across platforms.
-
-### Workspace context
-
-- Variables such as `${workspaceFolder}` and `${workspaceFolderBasename}` resolve to the first root folder of the workspace.
-- If no folder or workspace is opened (for example, when editing a single file), some workspace-related variables may be **undefined**.
-- In multi-root workspaces, variables are resolved relative to the workspace folder that contains the currently active file.
-
-Understanding these behaviors helps avoid configuration issues when sharing tasks or debug configurations across different environments.
+It's recommended to use `${pathSeparator}` or `${/}` to make configurations portable across platforms.
 
 
 ### Variables scoped per workspace folder
