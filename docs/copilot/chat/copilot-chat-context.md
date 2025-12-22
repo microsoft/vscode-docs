@@ -124,7 +124,7 @@ Type `@` in the chat input field to see a list of available chat participants.
 
 Extensions can also contribute their own [chat participants](/api/extension-guides/ai/chat.md).
 
-## Vision
+## Vision (Preview)
 
 Chat supports vision capabilities, which means you can attach an image as context to your chat prompt and ask questions about it. For example, attach a screenshot of a block of code and ask to explain it, or attach a sketch of a UI and ask the agent to implement it.
 
