@@ -916,6 +916,12 @@ Extensions that access locally attached devices will be unable to connect to the
 
 **Resolution:** None currently. We are investigating the best approach to solve this problem.
 
+### Extensions fail to connect to the internet when installed remotely
+
+Local proxy settings are reused on the remote host by default, which can prevent extensions from working.
+
+**Resolution:** Ensure that the remote host has connectivity to the internet and is configured with the appropriate proxy information (for example global `HTTP_PROXY` or `HTTPS_PROXY` environment variables with the appropriate proxy information). Disable **Http: Use Local Proxy Configuration** in your VS Code [settings](/docs/configure/settings.md).
+
 ## Questions and feedback
 
 ### Reporting issues
