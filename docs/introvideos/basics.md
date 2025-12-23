@@ -6,20 +6,22 @@ MetaSocialImage: images/opengraph/introvideos-social.png
 ---
 # Getting started with Visual Studio Code
 
-In this tutorial, we walk you through setting up Visual Studio Code and give an overview of the basic features.
+In this tutorial, we walk you through using Visual Studio Code powered with AI features.
 
-<iframe src="https://www.youtube-nocookie.com/embed/B-s71n0dHUk?autoplay=true" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Getting Started with Visual Studio Code"></iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/5NxGqnTazR8?si=SPrLQ_RuxoXBFffA?autoplay=true" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Getting Started with Visual Studio Code"></iframe>
 
 Here's the next video we recommend: [Code Editing in Visual Studio Code](/docs/introvideos/codeediting.md)
 
-Pick another video from the list: [Introductory Videos](/docs/getstarted/introvideos.md)
+Explore more in the [VS Code Tutorial](/docs/getstarted/getting-started.md) and [GitHub Copilot's Quickstart](/docs/getstarted/copilot-quickstart.md).
 
-## Video outline
+## Helpful shortcuts
 
 * Download and install VS Code.
   * From [https://code.visualstudio.com/download](https://code.visualstudio.com/download)
 * Open a folder
   * **File** > **Open Folder** (`kb(workbench.action.files.openFolder)`)
+* Open the Chat view
+  * **View** > **Chat** (`kb(workbench.action.chat.open)`)
 * File Explorer
   * **View** > **Explorer** (`kb(workbench.view.explorer)`)
 * Search view
