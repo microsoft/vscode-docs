@@ -11,7 +11,7 @@ Custom instructions enable you to define common guidelines and rules that automa
 You can configure custom instructions to apply automatically to all chat requests or to specific files only. Alternatively, you can manually attach custom instructions to a specific chat prompt.
 
 > [!NOTE]
-> Custom instructions are not taken into account for [inline suggestions](/docs/copilot/ai-powered-suggestions.md) as you type in the editor, and not for [inline chat](/docs/copilot/chat/inline-chat.md).
+> Custom instructions are not taken into account for [inline suggestions](/docs/copilot/ai-powered-suggestions.md) as you type in the editor or for [inline chat](/docs/copilot/chat/inline-chat.md).
 
 ## Type of instructions files
 
