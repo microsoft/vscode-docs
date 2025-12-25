@@ -1,6 +1,6 @@
 ---
 ContentId: 52ad40fe-f352-4e16-a075-7a9606c5df3b
-DateApproved: 10/03/2025
+DateApproved: 12/05/2025
 MetaDescription: Find a popular generative AI model by publisher and source. Bring your own model that is hosted with a URL, or select an Ollama model.
 ---
 # Explore models in AI Toolkit
@@ -12,7 +12,7 @@ Within the model catalog, you can explore and utilize models from multiple hosti
 - Models hosted on GitHub, such as Llama3, Phi-3, and Mistral, including pay-as-you-go options.
 - Models provided directly by publishers, including OpenAI's ChatGPT, Anthropic's Claude, and Google's Gemini.
 - Models hosted on Microsoft Foundry.
-- Models downloaded locally from repositories like Ollama and ONNX.
+- Models downloaded locally from repositories like Foundry Local, Ollama and ONNX.
 - Custom self-hosted or externally deployed models accessible via Bring-Your-Own-Model (BYOM) integration.
 
 Deploy models directly to Foundry from within the model catalog, streamlining your workflow.
@@ -30,7 +30,7 @@ To find a model in the model catalog:
 1. Select **MODELS** > **Catalog** to open the model catalog
 1. Use the filters to reduce the list of available models
 
-    - **Hosted by**: AI Toolkit supports GitHub, ONNX, OpenAI, Anthropic, Google as model hosting sources.
+    - **Hosted by**: AI Toolkit supports Microsoft Foundry, Foundry Local, GitHub, ONNX, OpenAI, Ollama, Anthropic, Google, NVIDIA NIM, and Windows AI API as model hosting sources.
     - **Publisher**: The publisher for AI models, such as Microsoft, Meta, Google, OpenAI, Anthropic, Mistral AI, and more.
     - **Feature**: Supported features of the model, such as `Text Attachment`, `Image Attachment`, `Web Search`, `Structured Outputs`, and more.
     - **Model type**: Filter models that can run remotely or locally on CPU, GPU, or NPU. This filter depends on the local availability.
@@ -48,6 +48,7 @@ To add a model from the model catalog:
 1. Select the **Add** on the model card
 1. The flow for adding models will be slightly different based on the providers:
 
+    - **Foundry Local**: Foundry Local downloads and runs the model, which may take a few minutes depending on your internet speed. The model is available on a localhost page and added to AI Toolkit. Learn more in [What is Foundry Local?](https://learn.microsoft.com/azure/ai-foundry/foundry-local/what-is-foundry-local?view=foundry-classic&preserve-view=true).
     - **GitHub**: AI Toolkit asks for your GitHub credentials to access the model repository. Once authenticated, the model is added directly into AI Toolkit.
         > [!NOTE]
         > AI Toolkit now [supports GitHub pay-as-you-go models](/docs/intelligentapps/playground.md#_github-payasyougo-model-support), so you can keep working after passing free tier limits.
@@ -70,7 +71,7 @@ You can also add your own models that are hosted externally or run locally. Ther
 - Add custom ONNX models, such as those from Hugging Face, using AI Toolkit's [model conversion tool](/docs/intelligentapps/modelconversion.md).
 
 There are several entrypoints to add models to AI Toolkit:
-- From **MY MODELS** in the tree view, hover over it and select the `+` icon.
+- From **MY RESOURCES** section in the tree view, hover over **Models** and select the `+` icon.
     ![Screenshot of the AI Toolkit interface showing the Model Catalog toolbar with the + Add model button highlighted, indicating where users can click to add a new custom model.](./images/models/custom-1.png)
 
 - From the **Model Catalog**, select the **+ Add model** button from the tool bar.
@@ -176,13 +177,13 @@ Some models require a publisher or hosting-service license and account to sign-i
 In this article, you learned how to:
 
 - Explore and manage generative AI models in AI Toolkit.
-- Find models from various sources, including GitHub, ONNX, OpenAI, Anthropic, Google, Ollama, and custom endpoints.
+- Find models from various sources, including Microsoft Foundry, Foundry Local, GitHub, ONNX, OpenAI, Anthropic, Google, Ollama, and custom endpoints.
 - Add models to your toolkit and deploy them to Microsoft Foundry.
 - Add custom models, including Ollama and OpenAI compatible models, and test them in the playground or agent builder.
 - Use the model catalog to view available models and select the best fit for your AI application needs.
 - Use filters and search to find models quickly.
 - Browse models by category, such as Popular, GitHub, ONNX, and Ollama.
 - Convert and add custom ONNX models using the model conversion tool.
-- Manage models in MY MODELS, including editing, deleting, refreshing, and viewing details.
+- Manage models in MY RESOURCES/Models, including editing, deleting, refreshing, and viewing details.
 - Start and stop the ONNX server and copy endpoints for local models.
 - Handle license and sign-in requirements for some models before testing them.
