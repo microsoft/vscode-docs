@@ -201,7 +201,7 @@ The ID of the icon identifies the location where the icon is used. The default c
 |<i class="codicon codicon-trash"></i>|notebook-delete-cell|trash|Icon to delete a cell in notebook editors.|
 |<i class="codicon codicon-pencil"></i>|notebook-edit|pencil|Icon to edit a cell in notebook editors.|
 |<i class="codicon codicon-play"></i>|notebook-execute|play|Icon to execute in notebook editors.|
-|<i class="codicon codicon-run-all"></i>|notebook-execute-all|run-all|Icon to execute all cells in notebook editors.|
+|<i class="codicon codicon-testing-run-all"></i>|notebook-execute-all|run-all|Icon to execute all cells in notebook editors.|
 |<i class="codicon codicon-chevron-down"></i>|notebook-expanded|chevron-down|Icon to annotate an expanded section in notebook editors.|
 |<i class="codicon codicon-settings-gear"></i>|notebook-kernel-configure|settings-gear|Configure icon in kernel configuration widget in notebook editors.|
 |<i class="codicon codicon-server-environment"></i>|notebook-kernel-select|server-environment|Configure icon to select a kernel in notebook editors.|
@@ -238,7 +238,7 @@ The ID of the icon identifies the location where the icon is used. The default c
 |<i class="codicon codicon-clear-all"></i>|preferences-clear-input|clear-all|Icon for clear input in the settings and keybinding UI.|
 |<i class="codicon codicon-go-to-file"></i>|preferences-open-settings|go-to-file|Icon for open settings commands.|
 |<i class="codicon codicon-lock"></i>|private-ports-view-icon|lock|Icon representing a private remote port.|
-|<i class="codicon codicon-eye"></i>|public-ports-view-icon|eye|Icon representing a public remote port.|
+|<i class="codicon codicon-testing-watch"></i>|public-ports-view-icon|eye|Icon representing a public remote port.|
 |<i class="codicon codicon-lightbulb"></i>|refactor-preview-view-icon|lightbulb|View icon of the refactor preview view.|
 |<i class="codicon codicon-book"></i>|remote-explorer-documentation|book|Documentation icon in the remote explorer view.|
 |<i class="codicon codicon-twitter"></i>|remote-explorer-feedback|twitter|Feedback icon in the remote explorer view.|
@@ -285,13 +285,13 @@ The ID of the icon identifies the location where the icon is used. The default c
 |<i class="codicon codicon-terminal"></i>|terminal-view-icon|terminal|View icon of the terminal view.|
 |<i class="codicon codicon-beaker"></i>|test-view-icon|beaker|View icon of the test view.|
 |<i class="codicon codicon-close"></i>|testing-cancel-icon|close|Icon to cancel ongoing test runs.|
-|<i class="codicon codicon-debug-alt"></i>|testing-debug-icon|debug-alt|Icon of the "debug test" action.|
+|<i class="codicon codicon-testing-debug"></i>|testing-debug-icon|debug-alt|Icon of the "debug test" action.|
 |<i class="codicon codicon-warning"></i>|testing-error-icon|warning|Icon shown for tests that have an error.|
 |<i class="codicon codicon-close"></i>|testing-failed-icon|close|Icon shown for tests that failed.|
 |<i class="codicon codicon-pass"></i>|testing-passed-icon|pass|Icon shown for tests that passed.|
 |<i class="codicon codicon-watch"></i>|testing-queued-icon|watch|Icon shown for tests that are queued.|
-|<i class="codicon codicon-run-all"></i>|testing-run-all-icon|run-all|Icon of the "run all tests" action.|
-|<i class="codicon codicon-run"></i>|testing-run-icon|run|Icon of the "run test" action.|
+|<i class="codicon codicon-testing-run-all"></i>|testing-run-all-icon|run-all|Icon of the "run all tests" action.|
+|<i class="codicon codicon-testing-run"></i>|testing-run-icon|run|Icon of the "run test" action.|
 |<i class="codicon codicon-list-tree"></i>|testing-show-as-list-icon|list-tree|Icon shown when the test explorer is disabled as a tree.|
 |<i class="codicon codicon-debug-step-over"></i>|testing-skipped-icon|debug-step-over|Icon shown for tests that are skipped.|
 |<i class="codicon codicon-circle-outline"></i>|testing-unset-icon|circle-outline|Icon shown for tests that are in an unset state.|
@@ -642,7 +642,7 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-person-filled"></i>|person-filled|
 |<i class="codicon codicon-person-follow"></i>|person-follow|
 |<i class="codicon codicon-person-outline"></i>|person-outline|
-|<i class="codicon codicon-pie-chart"></i>|pie-chart|
+|<i class="codicon codicon-testing-coverage"></i>|pie-chart|
 |<i class="codicon codicon-piano"></i>|piano|
 |<i class="codicon codicon-pin"></i>|pin|
 |<i class="codicon codicon-pinned"></i>|pinned|
@@ -654,7 +654,7 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-preserve-case"></i>|preserve-case|
 |<i class="codicon codicon-preview"></i>|preview|
 |<i class="codicon codicon-primitive-dot"></i>|primitive-dot|
-|<i class="codicon codicon-primitive-square"></i>|primitive-square|
+|<i class="codicon codicon-testing-cancel"></i>|primitive-square|
 |<i class="codicon codicon-project"></i>|project|
 |<i class="codicon codicon-pulse"></i>|pulse|
 |<i class="codicon codicon-question"></i>|question|
