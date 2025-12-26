@@ -121,6 +121,31 @@ You can also use the `code` command line from this same terminal window to perfo
 
 ![Using the code CLI](images/wsl/code-command-in-terminal.png)
 
+### Using WSL over an existing SSH connection
+
+Starting with VS Code 1.89, it is possible to connect to a WSL distribution over an existing SSH connection.
+
+This workflow is useful when you are already connected to a remote machine using **Remote - SSH** and want to work inside a WSL environment hosted on that machine.
+
+#### Prerequisites
+
+- VS Code 1.89 or later
+- Remote - SSH extension
+- WSL installed and configured on the remote machine
+
+#### Connect to WSL over SSH
+
+1. Connect to the remote machine using **Remote - SSH**.
+2. Open the Command Palette (`kbstyle(F1)`) and run:
+
+   **Remote-WSL: Connect to WSL using SSH**
+
+3. Select the target WSL distribution.
+
+VS Code will open a new window connected to the selected WSL environment over the existing SSH session.
+
+This setup combines **Remote - SSH** and **Remote - WSL**, enabling a seamless development experience with Linux tooling inside WSL while working on a remote host.
+
 ## Debugging in WSL
 
 Once you've opened a folder in WSL, you can use VS Code's debugger in the same way you would when running the application locally. For example, if you select a launch configuration in `launch.json` and start debugging (`kb(workbench.action.debug.start)`), the application will start on remote host and attach the debugger to it.
