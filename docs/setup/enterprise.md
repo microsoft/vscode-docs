@@ -124,6 +124,35 @@ Duplicate key values are not supported. For example, including both `"microsoft"
 
 If you want to learn more about extensions in VS Code, refer to the [extensions documentation](/docs/configure/extensions/extension-marketplace.md).
 
+### Group Policy and Registry configuration
+
+In managed environments (GPO, Intune, or custom provisioning scripts), extension allowlists and denylists can be configured directly via the Windows registry.
+
+The policy values expect a JSON object serialized as a string, where each key is an extension identifier and the value is a boolean indicating whether the extension is allowed.
+
+#### Registry (reg.exe)
+
+```bat
+reg add "HKLM\SOFTWARE\Policies\Microsoft\VSCode" ^
+  /v AllowedExtensions ^
+  /t REG_SZ ^
+  /d "{\"ms-vscode.powershell\":true,\"ms-python.python\":true}"
+```
+reg add "HKLM\SOFTWARE\Policies\Microsoft\VSCode" ^
+  /v BlockedExtensions ^
+  /t REG_SZ ^
+  /d "{\"some.publisher\":true}"
+
+New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft" -Name "VSCode" -Force
+
+Set-ItemProperty `
+  -Path "HKLM:\SOFTWARE\Policies\Microsoft\VSCode" `
+  -Name "AllowedExtensions" `
+  -Type String `
+  -Value '{"ms-vscode.powershell":true,"ms-python.python":true}'
+
+Note: When deploying these policies via Microsoft Intune, the JSON value must be provided as a string. This aligns with current Intune limitations around importing complex GPO structures.
+
 ## Configure MCP server access
 
 By default, VS Code allows developers to [add any MCP server](/docs/copilot/customization/mcp-servers.md) to their environment. Organizations can restrict which MCP servers are allowed to be used by developers in VS Code. The following configuration options are available in their [GitHub Copilot settings](https://docs.github.com/en/copilot/how-tos/administer-copilot/configure-mcp-server-access):
