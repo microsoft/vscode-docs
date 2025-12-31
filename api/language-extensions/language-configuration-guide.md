@@ -69,11 +69,16 @@ VS Code offers two commands for comment toggling. **Toggle Line Comment** and **
 ```json
 {
   "comments": {
-    "lineComment": "//",
+    "lineComment": {
+      "comment": "//"
+    },
     "blockComment": ["/*", "*/"]
   }
 }
 ```
+
+lineComment can also be specified as a string for simple cases.
+The object form allows additional options such as noIndent.
 
 ## Brackets definition
 
