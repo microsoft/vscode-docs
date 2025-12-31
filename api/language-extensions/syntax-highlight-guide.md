@@ -52,6 +52,35 @@ Scopes nest so that each token is also associated with a list of parent scopes. 
 
 Parent scope information is also used for theming. When a theme targets a scope, all tokens with that parent scope will be colorized unless the theme also provides a more specific colorization for their individual scopes.
 
+### Excluding scopes from bracket matching (`unbalancedBracketScopes`)
+
+In some languages, certain tokens should **not** participate in bracket matching, even though they may visually resemble brackets.
+
+A common example are escape sequences such as `\(` or `\)` in shell-like or pattern-based languages. While these characters look like brackets, they are not meant to open or close a syntactic scope. If they are treated as regular brackets, the editor may show confusing or incorrect bracket matching behavior.
+
+To handle these cases, TextMate grammars can define an `unbalancedBracketScopes` property. This allows you to explicitly mark scopes that should be ignored by the editor’s bracket matching logic.
+
+#### Why this exists
+
+The bracket matching feature operates at the editor level, independently from the semantic meaning of a token. Without additional hints, the editor cannot always distinguish between a structural bracket and a character that merely looks like one.
+
+`unbalancedBracketScopes` exists to bridge this gap and prevent false-positive matches in grammars that include escape sequences, patterns, or other non-structural uses of bracket characters.
+
+#### Example
+
+In the following example, tokens with the scope `meta.scope.case-pattern.shell` are excluded from bracket matching:
+
+```json
+{
+  "unbalancedBracketScopes": [
+    "meta.scope.case-pattern.shell"
+  ]
+}
+```
+With this configuration, brackets that appear inside the specified scope will no longer interfere with the editor’s bracket matching behavior.
+
+Note: This option was introduced to address real-world grammar edge cases and may not be necessary for simpler languages. It is most useful in grammars where syntactic tokens and textual patterns overlap.
+
 ### Contributing a basic grammar
 
 VS Code supports json TextMate grammars. These are contributed through the `grammars` [contribution point](/api/references/contribution-points).
