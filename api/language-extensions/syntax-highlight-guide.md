@@ -52,6 +52,23 @@ Scopes nest so that each token is also associated with a list of parent scopes. 
 
 Parent scope information is also used for theming. When a theme targets a scope, all tokens with that parent scope will be colorized unless the theme also provides a more specific colorization for their individual scopes.
 
+### Configure bracket matching scopes
+
+Some languages include tokens that should not participate in bracket matching, even though they visually resemble brackets.
+
+There are two properties for configuring bracket matching behavior:
+
+- `balancedBracketScopes`: defines which scopes participate in bracket matching. By default, all scopes are included.
+- `unbalancedBracketScopes`: defines scopes that should be excluded from bracket matching.
+
+```json
+{
+  "unbalancedBracketScopes": [
+    "meta.scope.case-pattern.shell"
+  ]
+}
+```
+
 ### Contributing a basic grammar
 
 VS Code supports json TextMate grammars. These are contributed through the `grammars` [contribution point](/api/references/contribution-points).
