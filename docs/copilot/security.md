@@ -136,7 +136,7 @@ While VS Code includes many security protections, users should remain proactive 
 
 * **Review MCP servers**: Verify that MCP servers come from a trustworthy source and review their configuration before starting them. Enable only MCP servers when you need their functionality.
 
-* **Open untrusted or external codebases in restricted mode**: Until you've reviewed a project for malicious code, rely on the Workspace Trust boundary and open it in restricted mode. Any file could be pulled into the context by using agents and could theoretically result in a prompt injection attack. Opening a workspace in restricted mode disables agents in that workspace.
+* **Open untrusted or external codebases in restricted mode**: Until you've reviewed a project for malicious content, rely on the Workspace Trust boundary and open it in restricted mode. Any file could be pulled into the context by using agents and could theoretically result in a prompt injection attack. Opening a workspace in restricted mode disables agents in that workspace.
 
 * **Consider using dev containers or VMs for isolation**: For enhanced security, run prompt with agents in isolated environments like [dev containers](https://code.visualstudio.com/docs/devcontainers/containers), GitHub Codespaces, or virtual machines to limit potential impact.
 

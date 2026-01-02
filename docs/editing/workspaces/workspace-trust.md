@@ -41,7 +41,7 @@ To see the full list of features disabled in Restricted Mode, you can open the W
 
 When you use AI-powered development features like agents in VS Code, these agents perform actions on your behalf, including making changes to your codebase, running terminal commands, or invoking web requests. Any file could be pulled into the context by using agents and could theoretically result in a prompt injection attack.
 
-Until you've reviewed a project for malicious code, rely on the Workspace Trust boundary and open it in restricted mode. Opening a workspace in restricted mode disables agents in that workspace.
+Until you've reviewed a project for malicious content, rely on the Workspace Trust boundary and open it in restricted mode. Opening a workspace in restricted mode disables agents in that workspace.
 
 Learn more about [AI security considerations](/docs/copilot/security.md) when using AI-powered development features in VS Code.
 
