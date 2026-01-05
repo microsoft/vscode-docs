@@ -3,6 +3,11 @@ ContentId: 9f1a2b3c-4e5f-6d7c-8a9b-1c2d3e4f5a6b
 DateApproved: 12/10/2025
 MetaDescription: Learn how to use background agents like Copilot CLI for autonomous coding tasks, terminal integration, and isolated development workflows in VS Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
+Keywords:
+- ai
+- agents
+- background agent
+- copilot cli
 ---
 
 # Background agents in Visual Studio Code
@@ -158,7 +163,7 @@ To use Git worktrees in a background agent session:
     * Explore the file changes, by clicking on individual file names or using the `View All Edits` diff button
     * Use the `Keep` button to keep the pending changes from the agentic session, or `Undo` to remove them
     * Use the `Apply` button to apply all changes that were kept on the worktree to your local repository
-      
+
 Learn more about [using Git worktrees in VS Code source control](/docs/sourcecontrol/branches-worktrees.md).
 
 ## Use custom agents with background agents (Experimental)

@@ -161,7 +161,7 @@ The Fabric extensions provide a seamless way to work with both remote and local 
 1. Test your functions locally, by pressing `kbstyle(F5)`.
 1. In the Fabric extension, in **Local folder** , select the function and publish to your workspace.
 
-    ![Screenshot that shows how to publish your user data funtions item](./images/microsoft-fabric/publish-user-data-function.png)
+    ![Screenshot that shows how to publish your user data functions item](./images/microsoft-fabric/publish-user-data-function.png)
 
 Learn more about invoking the function from:
 

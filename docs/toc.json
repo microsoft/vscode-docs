@@ -124,6 +124,7 @@
         "noCollapse": false,
         "topics": [
           ["Overview", "/docs/copilot/agents/overview"],
+          ["Agents Tutorial", "/docs/copilot/agents/agents-tutorial"],
           ["Background Agents", "/docs/copilot/agents/background-agents"],
           ["Cloud Agents", "/docs/copilot/agents/cloud-agents"]
         ]
@@ -139,6 +140,7 @@
           ["Instructions", "/docs/copilot/customization/custom-instructions"],
           ["Prompt Files", "/docs/copilot/customization/prompt-files"],
           ["Custom Agents", "/docs/copilot/customization/custom-agents"],
+          ["Skills", "/docs/copilot/customization/agent-skills"],
           ["Language Models", "/docs/copilot/customization/language-models"],
           ["MCP", "/docs/copilot/customization/mcp-servers"]
         ]
@@ -395,7 +397,7 @@
       ["Fine-tuning (Project Template)", "/docs/intelligentapps/finetune-legacy"],
       ["Model Conversion", "/docs/intelligentapps/modelconversion"],
       ["Tracing", "/docs/intelligentapps/tracing"],
-      ["Profiling", "/docs/intelligentapps/profiling"],
+      ["Profiling (Windows ML)", "/docs/intelligentapps/profiling"],
       ["FAQ", "/docs/intelligentapps/faq"],
       ["", "", {
         "name": "Reference",

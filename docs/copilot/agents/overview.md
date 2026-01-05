@@ -3,6 +3,13 @@ ContentId: 7c4b8b5e-2d3f-4e8a-9b2c-1a5d6f8e9c0b
 DateApproved: 12/10/2025
 MetaDescription: Learn about different types of AI agents in VS Code, including local chat, background agents, and cloud agents for coding tasks.
 MetaSocialImage: ../images/shared/github-copilot-social.png
+Keywords:
+- ai
+- agents
+- background agent
+- cloud agent
+- copilot coding agent
+- copilot cli
 ---
 
 # Using agents in Visual Studio Code
@@ -135,7 +142,7 @@ The Chat view in VS Code provides a unified interface for managing your agent se
 
 The list of sessions is scoped to your workspace. If you don't have a workspace open, the list shows all sessions across your workspaces.
 
-The Chat view operates in two modes:
+The Chat view operates in two modes: compact and side-by-side. You can manually switch between compact and side-by-side mode with the toggle control in the top-right corner of the Chat view.
 
 * **Compact**:
 
@@ -147,14 +154,14 @@ The Chat view operates in two modes:
 
 * **Side-by-side**
 
-    In side-by-side view, the Chat view shows the full list of agent sessions directly side-by-side with the Chat view. Use the search and filter options to find specific sessions. To switch between compact and side-by-side mode, use the toggle control in the top-right corner of the Chat view.
+    In side-by-side view, the Chat view shows the full list of agent sessions directly side-by-side with the Chat view. Use the search and filter options to find specific sessions.
 
     ![Screenshot of the Chat view in expanded mode showing full agent session history.](../images/agents-overview/chat-view-expanded.png)
 
     When you select a session from the list, the Chat view shows the details of that session, while the session list remains visible.
 
     > [!TIP]
-    > Make the Chat view wider to automatically switch to side-by-side mode. Right-click on the sessions list and select **Sessions Orientation** to change the default behavior (`setting(chat.viewSessions.orientation)`).
+    > Make the Chat view wider to automatically switch to side-by-side mode. Right-click on the sessions list and select **Sessions Orientation** to change the default behavior (`setting(chat.viewSessions.orientation)`) or use the toggle button.
 
 Right-click a session in the list to see additional actions, such as different options to open the session details, archive the session, or agent-type specific actions like checking out a pull request (for cloud agent sessions).
 
@@ -249,7 +256,12 @@ Depending on the agent type, you have additional options to apply the changes ma
 
 ## Related resources
 
+* [Agents tutorial](/docs/copilot/agents/agents-tutorial.md): Hands-on tutorial for working with different agent types
+
 * [Local agents](/docs/copilot/chat/copilot-chat.md): Master local agent sessions and chat features
+
 * [Background agents](/docs/copilot/agents/background-agents.md): Explore CLI-based agents and autonomous workflows
+
 * [Cloud agents](/docs/copilot/agents/cloud-agents.md): Learn about GitHub Copilot Coding Agent and remote execution
+
 * [Custom agents](/docs/copilot/customization/custom-agents.md): Create your own AI agents and extensions

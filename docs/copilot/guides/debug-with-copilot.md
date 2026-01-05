@@ -15,7 +15,7 @@ Copilot can help with the following debugging tasks:
 * **Fix issues**: receive suggestions for fixing issues discovered during debugging.
 
 > [!TIP]
-> If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
+> If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of inline suggestions and chat interactions.
 
 ## Set up debug configuration with Copilot
 

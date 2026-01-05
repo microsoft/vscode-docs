@@ -291,6 +291,7 @@ To sync your user instructions files, enable Settings Sync for prompt and instru
 ## Related resources
 
 * [Customize AI responses overview](/docs/copilot/customization/overview.md)
+* [Use Agent Skills](/docs/copilot/customization/agent-skills.md)
 * [Create reusable prompt files](/docs/copilot/customization/prompt-files.md)
 * [Create custom agents](/docs/copilot/customization/custom-agents.md)
 * [Get started with chat in VS Code](/docs/copilot/chat/copilot-chat.md)
