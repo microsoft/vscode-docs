@@ -288,11 +288,38 @@ To sync your user instructions files, enable Settings Sync for prompt and instru
 
 * Reuse and reference instructions files in your [prompt files](/docs/copilot/customization/prompt-files.md) and [custom agents](/docs/copilot/customization/custom-agents.md) to keep them clean and focused, and to avoid duplicating instructions.
 
+## Frequently asked questions
+
+### Why is my instructions file not being applied?
+
+If your instructions file is not being applied, check the following:
+
+1. Verify that your instructions file is in the correct location:
+
+    * For a `.github/copilot-instructions.md` file, it must be located in the `.github` folder at the root of your workspace and the `setting(github.copilot.chat.codeGeneration.useInstructionFiles)` setting must be enabled.
+
+    * For a `*.instructions.md` file, it must be located in one of the folders specified in the `setting(chat.instructionsFilesLocations)` setting (default folder: `.github/instructions`) or in your user profile.
+
+    * For an `AGENTS.md` file, ensure that the `setting(chat.useAgentsMdFile)` setting is enabled and that the file is located at the root of your workspace, and if `setting(chat.useNestedAgentsMdFiles)` is enabled in a subfolder of your workspace.
+
+    * For a `SKILLS.md` file, ensure that the `setting(chat.useAgentSkills)` setting is enabled and that the skills file is located in either `~/.claude/skills/*/` or in the `.claude/skills/` folder at the root of your workspace.
+
+1. For `*.instructions.md` files, check that the `applyTo` glob pattern matches the file you are working on. If no `applyTo` property is specified, the instructions file is not applied automatically. Verify the `References` section in the chat response to see which instructions files were used for your request.
+
+1. Verify the chat logs to see which instructions files were included in the chat request or were loaded by the agent:
+
+    * [Check language model requests using the Chat Debug view](https://github.com/microsoft/vscode/wiki/Copilot-Issues#language-model-requests-and-responses).
+    * [Debug the `applyTo` matching logic](https://github.com/microsoft/vscode/wiki/Copilot-Issues#custom-instructions-logs).
+
+If your instructions are not included in the chat request, [create an issue in the vscode repo](https://github.com/github/releases/issues) and share the [request log](https://github.com/microsoft/vscode/wiki/Copilot-Issues#language-model-requests-and-responses) and your instruction files so we can reproduce.
+
+If your on-demand instructions were not requested by the LLM, try to refine the instructions. You can also try to nudge the LLM by telling to not to forget to use specific instructions. Older models might have more difficulty in using on-demand instructions and need more guidance.
+
 ## Related resources
 
 * [Customize AI responses overview](/docs/copilot/customization/overview.md)
 * [Use Agent Skills](/docs/copilot/customization/agent-skills.md)
-* [Create reusable prompt files](/docs/copilot/customization/prompt-files.md)
+* [Create reusableprompt files](/docs/copilot/customization/prompt-files.md)
 * [Create custom agents](/docs/copilot/customization/custom-agents.md)
 * [Get started with chat in VS Code](/docs/copilot/chat/copilot-chat.md)
 * [Configure tools in chat](/docs/copilot/chat/chat-tools.md)
