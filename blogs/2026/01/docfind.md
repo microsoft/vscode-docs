@@ -20,7 +20,7 @@ Behind that experience is [docfind](https://github.com/microsoft/docfind), a sea
 
 ## The problem
 
-I'm currently a software engineering manager on the VS Code team, after spending over ten years as a software engineer. These days, I don't get much time to write code, and when I do, it's rarely in unfamiliar territory. But some problems just nag at you until you do something about them.
+I'm currently a Software Engineering Manager on the VS Code team, so these days I don't get much time to write code. When I do, it's rarely in unfamiliar territory. But some problems just nag at you until you do something about them.
 
 For years, our documentation website had a basic search experience: you'd type a query, and it would redirect you to search results powered by a traditional search engine. Functional, but not the experience you'd expect from a product like VS Code. I wanted something better—something that felt as snappy as VS Code's Quick Open (`Ctrl+P`), where results appear instantly as you type.
 
