@@ -50,25 +50,11 @@ With FST for fast keyword lookup, RAKE for keyword extraction, and FSST for stri
 
 ## The solution: A standalone CLI tool
 
-I ended up creating a single CLI tool: docfind. The CLI tool is meant to create an index file out of a collection of documents. That index file is meant to be served to our website customers via regular HTTP and empower the search functionality. Users of the CLI tool shouldn't need any extenal dependencies other than docfind itself, in order to create index files.
+I ended up creating a single CLI tool, docfind, meant to create an index file out of a collection of documents. That index file should then be served to our website customers via regular HTTP and empower the search functionality. Users of the CLI tool shouldn't need any extenal dependencies other than docfind itself, in order to create index files.
 
 Here's an diagram of how docfind transforms a collection of documents (`documents.json`) into the respective index file (`docfind_bg.wasm`):
 
-> TODO: Replace with image instead of mermaid diagram
-
-```mermaid
-flowchart LR
-    A([documents.json]) --> C[Keyword Extraction<br/>RAKE]
-    A --> E[FSST Compression<br/>document strings]
-    C --> D[FST Map<br/>keywords → docs]
-    D --> I([Index])
-    E --> I
-    I --> G([docfind_bg.wasm<br/>docfind.js])
-
-    style A fill:#e1f5ff
-    style G fill:#e1f5ff
-    style I fill:#e1f5ff
-```
+![A diagram showing the flow of data in docfind](docfind.svg)
 
 Docfind first reads a JSON file containing information about your documents (title, category, URL, body text). For each document, it extracts keywords using RAKE, assigns relevance scores, and builds an FST that maps keywords to document indices. All the document strings are compressed using FSST. Both the FST and the compressed strings are then packed into a binary blob, representing the actual index.
 
