@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: A010AEDF-EF37-406E-96F5-E129408FFDE1
-DateApproved: 10/09/2025
+DateApproved: 12/10/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Visual Studio Code built-in commands reference.
@@ -304,13 +304,6 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 * _name_ - The context key name
 * _value_ - The context key value
 * _(returns)_ - no result
-
-`vscode.executeMappedEditsProvider` - Execute Mapped Edits Provider
-
-* _uri_ - Uri of a text document
-* _string_array_ - Array of string,
-* _MappedEditsContext_ - Mapped Edits Context
-* _(returns)_ - A promise that resolves to a workspace edit or null
 
 `cursorMove` - Move cursor to a logical position in the view
 

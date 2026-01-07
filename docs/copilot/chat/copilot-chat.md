@@ -1,6 +1,6 @@
 ---
 ContentId: 557a7e74-f77e-488d-90ea-fd2cfecfffda
-DateApproved: 10/09/2025
+DateApproved: 12/10/2025
 MetaDescription: Get started with GitHub Copilot chat in VS Code. Learn how to access chat and start using natural language to code, understand your codebase, and solve problems.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -19,12 +19,12 @@ VS Code provides three ways to start an AI chat conversation, each optimized for
 <details>
 <summary>Chat view</summary>
 
-Press `kb(workbench.action.chat.open)` to open the Chat view in a dedicated side panel.
+Press `kb(workbench.action.chat.open)` to open the Chat view in a dedicated side panel. If you prefer a larger workspace for chat, you can open it as an editor tab by selecting **New Chat Editor** from the chat menu or as a separate window by selecting **New Chat Window**.
 
 **Use the Chat view for:**
 
 * Ongoing, multi-turn chat conversations
-* Switching between different [chat modes](#switch-between-chat-modes) to ask questions, make code edits across files, or start autonomous coding workflows
+* Switching between different [agents](#switch-between-agents) to ask questions, make code edits across files, or start autonomous coding workflows
 * Working on features that span multiple files
 * Planning and implementing complex changes
 
@@ -71,17 +71,31 @@ Let's start by creating a basic calculator app to see how chat works in VS Code:
 
 1. Open the Chat view by pressing `kb(workbench.action.chat.open)` or selecting **Chat** from the VS Code title bar.
 
-1. Select **Agent** from the chat mode dropdown list.
+1. Select **Agent** from the agent picker.
 
-    In agent mode, chat autonomously determines what needs to be done and makes the necessary changes to your workspace.
+    When using an agent, chat autonomously determines what needs to be done and makes the necessary changes to your workspace.
 
-1. Type the following prompt in the chat input field and press `kb(workbench.action.chat.submit)` to submit it: `"Create a basic calculator app with HTML, CSS, and JavaScript"`.
+1. Type the following prompt in the chat input field and press `kb(workbench.action.chat.submit)` to submit it:
+
+    ```prompt
+    Create a basic calculator app with HTML, CSS, and JavaScript
+    ```
 
     The agent applies changes directly to your workspace and might also run terminal commands, for example, to install dependencies or run build scripts.
 
 1. In the editor, [review the suggested changes](/docs/copilot/chat/review-code-edits.md) and choose to keep or discard them.
 
-1. Ask follow-up questions to enhance the app. For example, you might ask "Add a dark mode toggle" or "style it with a modern design".
+1. Ask follow-up questions to enhance the app. For example, you might ask:
+
+    ```prompt
+    Add a dark mode toggle
+    ```
+
+    or
+
+    ```prompt
+    Style it with a modern design
+    ```
 
     As you continue the conversation, VS Code uses the history of chat prompts and responses as context. This context enables you to have multi-turn conversations with chat to refine and improve the results.
 
@@ -94,55 +108,67 @@ VS Code offers different language models to choose from, each optimized for diff
 
 To change the language model, use the model picker in the chat input field and select the model that best fits your needs.
 
-![Screenshot of the chat model picker in the Chat view, showing a dropdown list of available models.](images/copilot-chat/chat-model-picker.png)
+![Screenshot of the language model picker in the Chat view, showing a dropdown list of available models.](images/copilot-chat/chat-model-picker.png)
 
 You can also add models from other model providers and use them in chat. Get more details about how to [use models from other providers](/docs/copilot/customization/language-models.md).
 
 > [!NOTE]
 > The list of available models might vary based on your Copilot subscription and might change over time. See the GitHub Copilot documentation for more information about the [available language models](https://docs.github.com/en/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat?tool=vscode).
 
-## Switch between chat modes
+## Switch between agents
 
-Chat modes let chat assume a different role or persona optimized for specific tasks. You can switch between chat modes at any time during a chat session.
+Agents let chat assume a different role or persona optimized for specific tasks. You can switch between agents at any time during a chat session.
 
 1. Open the Chat view (`kb(workbench.action.chat.open)`).
 
-1. Select the desired mode from the chat mode dropdown list.
+1. Select the desired agent from the agent picker.
 
-    ![Screenshot showing the Chat view with the chat mode dropdown expanded, displaying different chat mode options.](../images/customization/chat-mode-dropdown.png)
+    ![Screenshot showing the Chat view with the agent picker expanded, displaying different agent options.](../images/customization/chat-mode-dropdown.png)
 
-### Built-in chat modes
+### Built-in agents
 
-> [!NOTE]
-> Plan mode is currently in preview and only available in [VS Code Insiders](https://code.visualstudio.com/insiders/).
-
-VS Code provides four built-in chat modes: **Agent**, **Plan**, **Ask**, and **Edit**. For more specialized workflows, you can also create your own [custom chat modes](/docs/copilot/customization/custom-chat-modes.md).
+VS Code provides four built-in agents: **Agent**, **Plan**, **Ask**, and **Edit**. For more specialized workflows, you can also create your own [custom agents](/docs/copilot/customization/custom-agents.md).
 
 <details>
-<summary>Agent mode</summary>
+<summary>Agent</summary>
 
-Agent mode is optimized for complex coding tasks based on high-level requirements that might require running terminal commands and tools. The AI operates autonomously, determining the relevant context and files to edit, planning the work needed, and iterating to resolve issues as they arise.
+Agent is optimized for complex coding tasks based on high-level requirements that might require running terminal commands and tools. The AI operates autonomously, determining the relevant context and files to edit, planning the work needed, and iterating to resolve issues as they arise.
 
-VS Code directly applies code changes in the editor and the editor overlay controls enable you to navigate between the suggested edits and review them. Agent mode might invoke multiple [tools](/docs/copilot/chat/chat-tools.md) to accomplish different tasks.
+VS Code directly applies code changes in the editor and the editor overlay controls enable you to navigate between the suggested edits and review them. The agent might invoke multiple [tools](/docs/copilot/chat/chat-tools.md) to accomplish different tasks.
 
 You can [customize chat with extra tools](/docs/copilot/chat/chat-tools.md) by adding MCP servers or installing extensions that contribute tools.
 
-Open agent mode: [Stable](vscode://GitHub.Copilot-Chat/chat?mode=agent) | [Insiders](vscode-insiders://GitHub.Copilot-Chat/chat?mode=agent)
+Open chat with Agent: [Stable](vscode://GitHub.Copilot-Chat/chat?mode=agent) | [Insiders](vscode-insiders://GitHub.Copilot-Chat/chat?mode=agent)
 
-### Get started with agent mode
+### Get started with agents
 
-1. Select **Agent** from the chat mode dropdown in the Chat view.
+> [!TIP]
+> For a hands-on tutorial that demonstrates working with different agent types including background and cloud agents, see the [agents tutorial](/docs/copilot/agents/agents-tutorial.md).
+
+To start a local agent session:
+
+1. Select **Agent** from the agent picker in the Chat view.
 
 1. Type a high-level prompt in the chat input field. For example, you might ask:
 
-    * "Implement a user authentication system with OAuth2 and JWT."
-    * "Set up a CI/CD pipeline for this project."
+    ```prompt
+    Implement a user authentication system with OAuth2 and JWT.
+    ```
+
+    or
+
+    ```prompt
+    Set up a CI/CD pipeline for this project.
+    ```
 
 1. Use the tools picker to [enable tools](/docs/copilot/chat/chat-tools.md) and give the agent more capabilities.
 
 1. Select **Send** or press `kb(workbench.action.chat.submit)` to submit your prompt.
 
 1. Review and confirm code changes and tool invocations as the agent works through your request.
+
+    > [!TIP]
+    > VS Code helps you protect against inadvertent edits to sensitive files, such as workspace configuration settings or environment settings. Learn more about [editing sensitive files](/docs/copilot/chat/review-code-edits.md#edit-sensitive-files).
 
 </details>
 
@@ -157,12 +183,19 @@ Open chat with Plan: [Stable](vscode://GitHub.Copilot-Chat/chat?mode=plan) | [In
 
 ### Get started with the plan agent
 
-1. Select **Plan** from the agent picker in the Chat view.
-
 1. Type a high-level prompt in the chat input field. For example, you might ask:
 
-    * "Update the application to support multi-language localization."
-    * "Add a search feature to the application."
+    ```prompt
+    Update the application to support multi-language localization.
+    ```
+
+    or
+
+    ```prompt
+    Add a search feature to the application.
+    ```
+
+1. Select **Plan** from the agent picker in the Chat view.
 
 1. Select **Send** or press `kb(workbench.action.chat.submit)` to submit your prompt.
 
@@ -173,22 +206,29 @@ Open chat with Plan: [Stable](vscode://GitHub.Copilot-Chat/chat?mode=plan) | [In
 </details>
 
 <details>
-<summary>Ask mode</summary>
+<summary>Ask</summary>
 
-Ask mode is optimized for answering questions about your codebase, coding, and general technology concepts. Use ask mode when you want to understand how something works, explore ideas, or get help with coding tasks. For larger changes across multiple files or more complex coding tasks, consider using edit mode or agent mode.
+Ask is optimized for answering questions about your codebase, coding, and general technology concepts. Use Ask when you want to understand how something works, explore ideas, or get help with coding tasks. For larger changes across multiple files or more complex coding tasks, consider using agents.
 
-In ask mode, responses can contain code blocks that you apply individually to your codebase. This works well for smaller edits within a single file. To apply a code block to your codebase, hover over the code block and select the **Apply in Editor** button.
+Responses can contain code blocks that you apply individually to your codebase. This works well for smaller edits within a single file. To apply a code block to your codebase, hover over the code block and select the **Apply in Editor** button.
 
-Open ask mode: [Stable](vscode://GitHub.Copilot-Chat/chat?mode=ask) | [Insiders](vscode-insiders://GitHub.Copilot-Chat/chat?mode=ask)
+Open chat with Ask: [Stable](vscode://GitHub.Copilot-Chat/chat?mode=ask) | [Insiders](vscode-insiders://GitHub.Copilot-Chat/chat?mode=ask)
 
-### Get started with ask mode
-
-1. Select **Ask** from the chat mode dropdown in the Chat view.
+### Get started with Ask
 
 1. Type your prompt in the chat input field. For example, you might ask:
 
-    * "Provide 3 ways to implement a search feature in React."
-    * "Where is the db connection configured in this project? #codebase"
+    ```prompt
+    Provide 3 ways to implement a search feature in React.
+    ```
+
+    or
+
+    ```prompt
+    Where is the db connection configured in this project? #codebase
+    ```
+
+1. Select **Ask** from the agent picker in the Chat view.
 
 1. Optionally, [add context to your prompt](/docs/copilot/chat/copilot-chat-context.md) to get more accurate responses.
 
@@ -197,22 +237,29 @@ Open ask mode: [Stable](vscode://GitHub.Copilot-Chat/chat?mode=ask) | [Insiders]
 </details>
 
 <details>
-<summary>Edit mode</summary>
+<summary>Edit</summary>
 
-Edit mode is optimized for making code edits across multiple files in your project. Edit mode is useful for coding tasks when you have a good understanding of the changes that you want to make and which files you want to edit.
+Edit is optimized for making code edits across multiple files in your project. Edit is useful for coding tasks when you have a good understanding of the changes that you want to make and which files you want to edit.
 
 VS Code directly applies the code changes in the editor, where you can review them. Use the editor overlay controls to navigate between edits with the `kbstyle(Up)` and `kbstyle(Down)` controls and either keep or undo changes.
 
-Open edit mode: [Stable](vscode://GitHub.Copilot-Chat/chat?mode=edit) | [Insiders](vscode-insiders://GitHub.Copilot-Chat/chat?mode=edit)
+Open chat with Edit: [Stable](vscode://GitHub.Copilot-Chat/chat?mode=edit) | [Insiders](vscode-insiders://GitHub.Copilot-Chat/chat?mode=edit)
 
-### Get started with edit mode
-
-1. Select **Edit** from the chat mode dropdown in the Chat view.
+### Get started with Edit
 
 1. Type your request in the chat input field. For example, you might ask:
 
-    * "Refactor the authentication logic to use OAuth2."
-    * "Add unit tests for the user service."
+    ```prompt
+    Refactor the authentication logic to use OAuth2.
+    ```
+
+    or
+
+    ```prompt
+    Add unit tests for the user service.
+    ```
+
+1. Select **Edit** from the agent picker in the Chat view.
 
 1. [Add context to your prompt](/docs/copilot/chat/copilot-chat-context.md) to guide the AI to make edits in the right files.
 
@@ -228,7 +275,7 @@ By adding context you can get more relevant responses from chat. To further tail
 
 * [**Custom instructions**](/docs/copilot/customization/custom-instructions.md): add persistent instructions that guide chat behavior across all conversations, such as coding standards, preferred frameworks, or architectural guidelines.
 * [**Prompt files**](/docs/copilot/customization/prompt-files.md): define reusable prompt templates that you can invoke with `/` commands to standardize common workflows across your team.
-* [**Custom chat modes**](/docs/copilot/customization/custom-chat-modes.md): create specialized chat modes for different personas tailored to specific development roles and tasks like code reviews, planning, or documentation.
+* [**Custom agents**](/docs/copilot/customization/custom-agents.md): create specialized custom agents for different personas tailored to specific development roles and tasks like code reviews, planning, or documentation.
 * [**MCP servers**](/docs/copilot/customization/mcp-servers.md): extend chat with custom capabilities by integrating external tools and services through the Model Context Protocol.
 
 ## Write effective prompts

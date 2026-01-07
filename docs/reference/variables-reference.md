@@ -1,6 +1,6 @@
 ---
 ContentId: ff9cd4ea-e3f0-4170-9451-2f2ea2b909ea
-DateApproved: 10/09/2025
+DateApproved: 12/10/2025
 MetaDescription: Visual Studio Code variable substitution reference
 ---
 # Variables reference
@@ -63,6 +63,18 @@ This leads to the following values for each of the variables:
 
 > [!TIP]
 > Use IntelliSense inside string values for `tasks.json` and `launch.json` to get a full list of predefined variables.
+
+## Platform and workspace considerations
+
+### Platform-specific behavior
+
+Some predefined variables may resolve differently depending on the operating system:
+
+- On **Windows**, file paths use backslashes (`\`). When composing paths in JSON files such as `tasks.json` or `launch.json`, ensure backslashes are properly escaped (for example: `"${workspaceFolder}\\subdir"`).
+- On **macOS** and **Linux**, file paths use forward slashes (`/`).
+
+It's recommended to use `${pathSeparator}` or `${/}` to make configurations portable across platforms.
+
 
 ### Variables scoped per workspace folder
 

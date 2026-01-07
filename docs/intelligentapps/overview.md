@@ -21,6 +21,7 @@ AI Toolkit offers seamless integration with popular AI models from providers lik
 | [Fine-tuning](/docs/intelligentapps/finetune) | Customize and adapt models for specific domains and requirements. Train models locally with GPU support or leverage Azure Container Apps for cloud-based fine-tuning. | ![Screenshot showing the Fine-tuning interface with model adaptation and training controls](./images/overview/fine-tune.png) |
 | [Model Conversion](/docs/intelligentapps/modelconversion) | Convert, quantize, and optimize machine learning models for local deployment. Transform models from Hugging Face and other sources to run efficiently on Windows with CPU, GPU, or NPU acceleration. | ![Screenshot showing the Model Conversion interface with tools for optimizing and transforming AI models](./images/overview/conversion.png) |
 | [Tracing](/docs/intelligentapps/tracing) | Monitor and analyze the performance of your AI applications. Collect and visualize trace data to gain insights into model behavior and performance. | ![Screenshot showing the Tracing interface with tools for monitoring AI applications](./images/overview/tracing.png) |
+| [Profiling (Windows ML)](/docs/intelligentapps/profiling) | Diagnose the CPU, GPU, NPU resource usages of the process, ONNX model on different execution providers, and Windows Machine Learning events. | ![Screenshot showing the Profiling tool](./images/overview/profiling.png) |
 
 ## Who is AI Toolkit for?
 
@@ -99,12 +100,12 @@ AI Toolkit opens in its own view, with the AI Toolkit icon now displayed on the 
     - **Add MCP Server**: The link for adding and working with an existing MCP server.
     - **Create new MCP Server**: The link for creating and deploying new MCP servers in AI Toolkit.
 
-- **Help and Feedback**: This section contains links to the Azure AI Foundry documentation, feedback, support, and the Microsoft Privacy Statement. It contains the following subsections:
-    - **Documentation**: The link to the Azure AI Foundry Extension documentation.
+- **Help and Feedback**: This section contains links to the Microsoft Foundry documentation, feedback, support, and the Microsoft Privacy Statement. It contains the following subsections:
+    - **Documentation**: The link to the Microsoft Foundry Extension documentation.
     - **Resources**: The link to the AI Toolkit Tutorials Gallery, a collection of tutorials to help you get started with AI Toolkit.
     - **Get Started**: The link to the getting started walkthrough to help you learn the basics of AI Toolkit.
     - **What's New**: The link to the AI Toolkit release notes.
-    - **Report Issues on GitHub**: The link to the Azure AI Foundry extension GitHub repository issues page.
+    - **Report Issues on GitHub**: The link to the Microsoft Foundry extension GitHub repository issues page.
 
 ## Get started with AI Toolkit
 

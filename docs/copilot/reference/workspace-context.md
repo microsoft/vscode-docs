@@ -1,6 +1,6 @@
 ---
 ContentId: c77dcce9-4ba9-40ac-8ae5-2df855088090
-DateApproved: 10/09/2025
+DateApproved: 12/10/2025
 MetaDescription: Learn how workspace context gives chat a deep understanding of your entire codebase to provide accurate, contextual answers.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -36,7 +36,7 @@ For small projects, the entire workspace can be included directly in the chat co
 
 The following steps outline how VS Code constructs the workspace context:
 
-1. Determine which information from the workspace is needed to answer your question, also including the conversation history, workspace structure, and currently editor selection.
+1. Determine which information from the workspace is needed to answer your question, also including the conversation history, workspace structure, and current editor selection.
 
 1. Collect relevant code snippets from the [workspace index](#workspace-index) by using various approaches:
 
@@ -50,6 +50,10 @@ The following steps outline how VS Code constructs the workspace context:
 ## Workspace index
 
 Chat in VS Code uses an index to quickly and accurately search your codebase for relevant code snippets. This index can either be maintained by GitHub or stored locally on your machine.
+
+The remote index is built from the committed state of your repository on GitHub or Azure DevOps. This means that any uncommitted changes in your local workspace are not included in the remote index.
+
+When you have local uncommitted changes, VS Code uses a hybrid approach combining the remote index with local file tracking. VS Code detects which files have been modified since the indexed commit and also reads the current file content from the editor for real-time content.
 
 You can view the type of index that is being used and its indexing status in the Copilot status dashboard in the VS Code Status Bar.
 
@@ -103,17 +107,17 @@ VS Code also currently does not index binary files, such as images or PDFs.
 
 ## Use workspace context in chat
 
-When you ask a workspace-related question in chat, the behavior for determining the workspace context depends on which chat mode you're using:
+When you ask a workspace-related question in chat, the behavior for determining the workspace context depends on which agent you're using:
 
-* **Agent mode**
+* **Agent/Plan**
 
-    In agent mode, the agent automatically performs an _agentic_ codebase search based on your prompt. This means that after performing an initial search to determine the workspace context, depending on the results, the agent might decide to perform additional, more targeted searches to gather the information it needs to answer your question.
+    When using agents, the agent automatically performs an _agentic_ codebase search based on your prompt. This means that after performing an initial search to determine the workspace context, depending on the results, the agent might decide to perform additional, more targeted searches to gather the information it needs to answer your question.
 
     You don't need to explicitly reference the `#codebase` tool in your prompt, but you can do so if you want to ensure that workspace context is used for your question. This is useful if your prompt is ambiguous and might be interpreted as not requiring workspace context.
 
-* **Ask/edit mode**
+* **Ask/Edit**
 
-    In ask and edit mode, VS Code performs intent detection on your prompt to determine if it requires workspace context. If requires workspace context, VS Code performs a codebase search and adds the relevant code snippets to the chat context. As opposed to agent mode, no follow-up searches are performed.
+    In Ask or Edit, VS Code performs intent detection on your prompt to determine if it requires workspace context. If requires workspace context, VS Code performs a codebase search and adds the relevant code snippets to the chat context. As opposed to using agents, no follow-up searches are performed.
 
     You don't need to explicitly reference the `#codebase` tool in your prompt, but you can do so if you want to ensure that workspace context is used for your question. This is useful if your prompt is ambiguous and might be interpreted as not requiring workspace context.
 
@@ -125,7 +129,7 @@ The way you phrase your question can significantly influence the quality of the 
 * Incorporate terms and concepts in your prompt that are likely to appear in your code or its documentation.
 * Explicitly include relevant context by selecting code, referencing files, or [#-mentioning context items](/docs/copilot/chat/copilot-chat-context.md) such as debug context, terminal output, and more.
 * Responses can draw from multiple references, such as "find exceptions without a catch block" or "provide examples of how handleError is called". However, don't anticipate a comprehensive code analysis across your codebase, such as "how many times is this function invoked?" or "rectify all bugs in this project".
-* When asking about information beyond the code, such as "who contributed to this file?" or "summarize review comments for this folder", make sure to configure the relevant [tools or MCP servers](/docs/copilot/chat/chat-tools.md) in agent mode.
+* When asking about information beyond the code, such as "who contributed to this file?" or "summarize review comments for this folder", make sure to configure the relevant [tools or MCP servers](/docs/copilot/chat/chat-tools.md) when using agents.
 
 ## Private repositories
 

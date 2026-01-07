@@ -1,7 +1,7 @@
 ---
-mode: agent
-tools: ['codebase', 'vscodeAPI', 'problems', 'fetch', 'search', 'githubRepo']
-description: Review docs article
+description: Review a docs article
+argument-hint: Review a documentation article or section
+tools: ['search', 'vscodeAPI', 'problems', 'fetch', 'githubRepo']
 ---
 
 Review a documentation article by completing these tasks:

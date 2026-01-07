@@ -11,14 +11,14 @@ Within the model catalog, you can explore and utilize models from multiple hosti
 
 - Models hosted on GitHub, such as Llama3, Phi-3, and Mistral, including pay-as-you-go options.
 - Models provided directly by publishers, including OpenAI's ChatGPT, Anthropic's Claude, and Google's Gemini.
-- Models hosted on Azure AI Foundry.
+- Models hosted on Microsoft Foundry.
 - Models downloaded locally from repositories like Ollama and ONNX.
 - Custom self-hosted or externally deployed models accessible via Bring-Your-Own-Model (BYOM) integration.
 
-Deploy models directly to Azure AI Foundry from within the model catalog, streamlining your workflow.
+Deploy models directly to Foundry from within the model catalog, streamlining your workflow.
 
 > [!NOTE]
-> Use Azure AI Foundry, Foundry Local, and GitHub models added to AI Toolkit with GitHub Copilot. For more information, check out [Changing the model for chat conversations](/docs/copilot/customization/language-models#change-the-model-for-chat-conversations.md).
+> Use Microsoft Foundry, Foundry Local, and GitHub models added to AI Toolkit with GitHub Copilot. For more information, check out [Changing the model for chat conversations](/docs/copilot/customization/language-models#change-the-model-for-chat-conversations.md).
 
 ![AI Toolkit model catalog displaying various generative AI models](./images/models/models.png)
 
@@ -125,20 +125,20 @@ To add a self-hosted or locally running Ollama model:
 
 To add a custom ONNX model, first convert it to the AI Toolkit model format using the [model conversion tool](/docs/intelligentapps/modelconversion.md). After conversion, add the model to AI Toolkit.
 
-## Deploy a model to Azure AI Foundry
+## Deploy a model to Microsoft Foundry
 
-You can deploy a model to Azure AI Foundry directly from the AI Toolkit. This allows you to run the model in the cloud and access it via an endpoint.
+You can deploy a model to Microsoft Foundry directly from the AI Toolkit. This allows you to run the model in the cloud and access it via an endpoint.
 
 1. From the model catalog, select the model you want to deploy.
-1. Select **Deploy to Azure AI Foundry**, either from the dropdown menu or directly from the **Deploy to Azure AI Foundry** button, as in the following screenshot:
+1. Select **Deploy to Microsoft Foundry**, either from the dropdown menu or directly from the **Deploy to Microsoft Foundry** button, as in the following screenshot:
 
-    ![Screenshot of the AI Toolkit interface showing the model catalog with a model selected and the Deploy to Azure AI Foundry button highlighted.](./images/models/catalog-deploy-dropdown.png)
+    ![Screenshot of the AI Toolkit interface showing the model catalog with a model selected and the Deploy to Microsoft Foundry button highlighted.](./images/models/catalog-deploy-dropdown.png)
 
 1. In the **model deployment** tab, enter the required information, such as the model name, description, and any additional settings, as in the following screenshot:
 
     ![Screenshot of the AI Toolkit interface showing the model deployment tab with fields for model name, description, and additional settings.](./images/models/deploy-to-azure-dialog.png)
 
-1. Select **Deploy to Azure AI Foundry** to start the deployment process.
+1. Select **Deploy to Microsoft Foundry** to start the deployment process.
 1. A dialog will appear to confirm the deployment. Review the details and select **Deploy** to proceed.
 1. Once the deployment is complete, the model will be available in the **MY MODELS** section of AI Toolkit, and you can use it in the playground or agent builder.
 
@@ -177,7 +177,7 @@ In this article, you learned how to:
 
 - Explore and manage generative AI models in AI Toolkit.
 - Find models from various sources, including GitHub, ONNX, OpenAI, Anthropic, Google, Ollama, and custom endpoints.
-- Add models to your toolkit and deploy them to Azure AI Foundry.
+- Add models to your toolkit and deploy them to Microsoft Foundry.
 - Add custom models, including Ollama and OpenAI compatible models, and test them in the playground or agent builder.
 - Use the model catalog to view available models and select the best fit for your AI application needs.
 - Use filters and search to find models quickly.

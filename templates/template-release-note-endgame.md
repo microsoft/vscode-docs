@@ -3,7 +3,7 @@ Order:
 TOCTitle: <Month> <Year>
 PageTitle: Visual Studio Code <Month> <Year>
 MetaDescription: Learn what is new in the Visual Studio Code <Month> <Year> Release (1.<release number>).
-MetaSocialImage: 1_<release number>/release-highlights.png
+MetaSocialImage: 1_<release number>/release-highlights.webp
 Date: <YYYY-MM-DD>
 DownloadVersion: 1.<release number>.0
 ---
@@ -15,25 +15,17 @@ _Release date: <release Month day, year>_
 
 ---
 
-Welcome to the <Month> <Year> release of Visual Studio Code. There are many updates in this version that we hope you'll like, some of the key highlights include:
+Welcome to the <Month> <Year> release of Visual Studio Code.
 
-<table class="highlights-table">
-  <tr>
-    <th>Topic area 1</th>
-    <th>Topic area 2</th>
-    <th>Topic area 3</th>
-  </tr>
-  <tr>
-    <td>Highlight 1a <a href="#"><br>Show more</a></td>
-    <td>Highlight 2a <a href="#"><br>Show more</a></td>
-    <td>Highlight 3a <a href="#"><br>Show more</a></td>
-  </tr>
-  <tr>
-    <td>Highlight 1b <a href="#"><br>Show more</a></td>
-    <td>Highlight 2b <a href="#"><br>Show more</a></td>
-    <td>Highlight 3b <a href="#"><br>Show more</a></td>
-  </tr>
-</table>
+![Placeholder for release image](images/1_<release number>/release-highlights.png)
+
+This release brings significant updates across these key areas:
+
+* Area of improvement 1
+* Area of improvement 2
+* Area of improvement 3
+
+Happy Coding!
 
 <br>
 
@@ -48,6 +40,7 @@ Welcome to the <Month> <Year> release of Visual Studio Code. There are many upda
   <nav id="toc-nav">
     <div>In this update</div>
     <ul>
+      <li><a href="#agents">Agents</a></li>
       <li><a href="#chat">Chat</a></li>
       <li><a href="#mcp">MCP</a></li>
       <li><a href="#accessibility">Accessibility</a></li>
@@ -58,6 +51,7 @@ Welcome to the <Month> <Year> release of Visual Studio Code. There are many upda
       <li><a href="#debugging">Debugging</a></li>
       <li><a href="#tasks">Tasks</a></li>
       <li><a href="#terminal">Terminal</a></li>
+      <li><a href="#authentication">Authentication</a></li>
       <li><a href="#languages">Languages</a></li>
       <li><a href="#remote-development">Remote Development</a></li>
       <li><a href="#contributions-to-extensions">Contributions to extensions</a></li>
@@ -70,6 +64,9 @@ Welcome to the <Month> <Year> release of Visual Studio Code. There are many upda
   </nav>
   <div class="notes-main">
 Navigation End -->
+
+## Agents
+
 
 ## Chat
 
@@ -99,6 +96,9 @@ Navigation End -->
 
 
 ## Terminal
+
+
+## Authentication
 
 
 ## Languages
@@ -132,6 +132,8 @@ You can learn more about these features in the [Remote Development release notes
 
 ## Thank you
 
+
+---
 
 We really appreciate people trying our new features as soon as they are ready, so check back here often and learn what's new.
 

@@ -1,6 +1,6 @@
 ---
 ContentId: d44f1a5c-5454-4037-92d5-c2bf5d4cffed
-DateApproved: 10/09/2025
+DateApproved: 12/10/2025
 MetaDescription: One of the great things in Visual Studio Code is testing support. Automatically discover tests in your project, run and debug your tests, and get test coverage results.
 ---
 # Testing
@@ -10,7 +10,7 @@ Visual Studio Code provides a rich set of features for testing your code. You ca
 In this article, you'll learn how to start with testing in VS Code, find popular testing extensions, and explore the testing features. You'll also learn how Copilot in VS Code can help you write tests faster and can assist you in fixing failing tests.
 
 > [!TIP]
-> If you don't have a Copilot subscription yet, use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup). You'll get a monthly limit of completions and chat interactions.
+> If you don't have a Copilot subscription yet, use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup). You'll get a monthly limit of inline suggestions and chat interactions.
 
 <!-- ![Testing in Visual Studio Code](images/testing/testing-hero.png) -->
 

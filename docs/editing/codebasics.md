@@ -1,6 +1,6 @@
 ---
 ContentId: DE4EAE2F-4542-4363-BB74-BE47D64141E6
-DateApproved: 10/09/2025
+DateApproved: 12/10/2025
 MetaDescription: Learn about the basic editing features of Visual Studio Code. Search, multiple selection, code formatting.
 MetaSocialImage: images/codebasics/code-basics-social.png
 ---
@@ -18,7 +18,7 @@ Being able to keep your hands on the keyboard when writing code is crucial for h
 
 ## Multiple selections (multi-cursor)
 
-VS Code supports multiple cursors for fast simultaneous edits. You can add secondary cursors (rendered thinner) with `kbstyle(Alt+Click)`. Each cursor operates independently based on the context it sits in. A common way to add more cursors is with `kb(editor.action.insertCursorBelow)` or `kb(editor.action.insertCursorAbove)` that insert cursors below or above.
+VS Code supports multiple cursors for fast, simultaneous edits. You can add secondary cursors (rendered thinner) with `kbstyle(Alt+Click)`. Each cursor operates independently based on the context it sits in. A common way to add more cursors is with `kb(editor.action.insertCursorBelow)` or `kb(editor.action.insertCursorAbove)` that insert cursors below or above.
 
 > [!NOTE]
 > Your graphics card driver (for example NVIDIA) might overwrite these default shortcuts.
@@ -26,6 +26,11 @@ VS Code supports multiple cursors for fast simultaneous edits. You can add secon
 ![Multi-cursor](images/codebasics/multicursor.gif)
 
 `kb(editor.action.addSelectionToNextFindMatch)` selects the word at the cursor, or the next occurrence of the current selection.
+
+>[!TIP]
+> You can skip the next matching occurrence while using multi-cursor find by running
+> `kb(editor.action.moveSelectionToNextFindMatch)`. This helps you avoid adding unwanted
+> selections when editing repeated text.
 
 ![Multi-cursor-next-word](images/codebasics/multicursor-word.gif)
 

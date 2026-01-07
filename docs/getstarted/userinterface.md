@@ -1,6 +1,6 @@
 ---
 ContentId: 3a33f35b-cded-4f7f-8674-6f2ba5fca023
-DateApproved: 10/09/2025
+DateApproved: 12/10/2025
 MetaDescription: A quick overview of the Visual Studio Code user interface. Learn about the editor, window management, and special UI to handle source control, extension management, full text search and more.
 ---
 # User interface
@@ -86,7 +86,7 @@ To learn more about floating windows, read the section in the [Custom Layout](/d
 
 A Minimap (code outline) gives you a high-level overview of your source code, which is useful for quick navigation and code understanding. A file's minimap is shown on the right side of the editor. You can select or drag the shaded area to quickly jump to different sections in your file.
 
-If you have [folding markers](/docs/editing/codebasics.md#folding) in the editor, such as `//#region` or `MARK:` comments, then the minimap shows the folding marker names.
+If you have [folding markers](/docs/editing/codebasics.md#folding) in the editor, such as `//#region` comments, then the minimap shows the folding marker names. Folding markers are language-specific, so check which markers apply to your language.
 
 ![minimap](images/userinterface/minimap.png)
 

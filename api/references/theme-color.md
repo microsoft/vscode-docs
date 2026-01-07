@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 10/09/2025
+DateApproved: 12/10/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -152,6 +152,7 @@ Colors for input controls such as in the Search view or the Find/Replace dialog.
 
 ## Scrollbar control
 
+- `scrollbar.background`: Scrollbar track background color.
 - `scrollbar.shadow`: Scrollbar slider shadow to indicate that the view is scrolled.
 - `scrollbarSlider.activeBackground`: Scrollbar slider background color when clicked on.
 - `scrollbarSlider.background`: Scrollbar slider background color.
@@ -422,11 +423,8 @@ The current line is typically shown as either background highlight or a border (
 ![Line Highlight](images/theme-color/line.png)
 
 - `editor.lineHighlightBackground`: Background color for the highlight of line at the cursor position.
+- `editor.inactiveLineHighlightBackground`: Background color for the highlight of line at the cursor position when the editor is not focused.
 - `editor.lineHighlightBorder`: Background color for the border around the line at the cursor position.
-
-The color for the editor watermark
-
-- `editorWatermark.foreground`: Foreground color for the labels in the editor watermark.
 
 The color for unicode highlights
 
@@ -558,6 +556,7 @@ This ruler is located beneath the scroll bar on the right edge of the editor and
 - `editorOverviewRuler.bracketMatchForeground`: Overview ruler marker color for matching brackets.
 - `editorOverviewRuler.inlineChatInserted`: Overview ruler marker color for inline chat inserted content.
 - `editorOverviewRuler.inlineChatRemoved`: Overview ruler marker color for inline chat removed content.
+- `editorOverviewRuler.commentDraftForeground`: Editor overview ruler decoration color for comment threads with draft comments. This color should be opaque.
 
 Errors and warnings:
 
@@ -596,6 +595,7 @@ The gutter contains the glyph margins and the line numbers:
 - `editorGutter.foldingControlForeground`: Color of the folding control in the editor gutter.
 - `editorGutter.itemGlyphForeground`: Editor gutter decoration color for gutter item glyphs.
 - `editorGutter.itemBackground`: Editor gutter decoration color for gutter item background. This color should be opaque.
+- `editorGutter.commentDraftGlyphForeground`: Editor gutter decoration color for commenting glyphs for comment threads with draft comments.
 
 The editor comments widget can be seen when reviewing pull requests:
 
@@ -669,6 +669,7 @@ For coloring inserted and removed text, use either a background or a border colo
 - `chat.requestBubbleBackground`: Background color of the chat request bubble.
 - `chat.requestBubbleHoverBackground`: Background color of the chat request bubble on hover.
 - `chat.checkpointSeparator`: Chat checkpoint separator color.
+- `chatManagement.sashBorder`: The color of the Chat Management editor splitview sash border.
 
 ## Inline Chat colors
 
@@ -1037,6 +1038,7 @@ The following customizations are available:
 - `terminalSymbolIcon.pullRequestForeground`: The foreground color for a pull request icon. These icons will appear in the terminal suggest widget.
 - `terminalSymbolIcon.remoteForeground`: The foreground color for a remote icon. These icons will appear in the terminal suggest widget.
 - `terminalSymbolIcon.stashForeground`: The foreground color for a stash icon. These icons will appear in the terminal suggest widget.
+- `terminalSymbolIcon.symbolText`: The foreground color for a plaintext suggestion. These icons will appear in the terminal suggest widget.
 - `terminalSymbolIcon.symbolicLinkFileForeground`: The foreground color for a symbolic link file icon. These icons will appear in the terminal suggest widget.
 - `terminalSymbolIcon.symbolicLinkFolderForeground`: The foreground color for a symbolic link folder icon. These icons will appear in the terminal suggest widget.
 - `terminalSymbolIcon.tagForeground`: The foreground color for a tag icon. These icons will appear in the terminal suggest widget.
@@ -1313,6 +1315,14 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `gauge.warningForeground`: Gauge warning foreground color.
 - `gauge.errorBackground`: Gauge error background color.
 - `gauge.errorForeground`: Gauge error foreground color.
+
+## Markdown
+
+- `markdownAlert.note.foreground`: Foreground color for note alerts in markdown.
+- `markdownAlert.tip.foreground`: Foreground color for tip alerts in markdown.
+- `markdownAlert.important.foreground`: Foreground color for important alerts in markdown.
+- `markdownAlert.warning.foreground`: Foreground color for warning alerts in markdown.
+- `markdownAlert.caution.foreground`: Foreground color for caution alerts in markdown.
 
 ## Extension colors
 

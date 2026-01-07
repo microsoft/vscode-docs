@@ -1,30 +1,47 @@
 ---
 Order:
-TOCTitle: <Month> <Year>
-PageTitle: Visual Studio Code <Month> <Year>
+TOCTitle: Insiders
+PageTitle: "Visual Studio Code <Month> <Year> (Insiders)"
 MetaDescription: Learn what is new in the Visual Studio Code <Month> <Year> Release (1.<release number>).
-MetaSocialImage: 1_<release number>/release-highlights.png
+MetaSocialImage: 1_<release number>/release-highlights.webp
 Date: <YYYY-MM-DD>
 DownloadVersion: 1.<release number>.0
 ---
-# <Month> <Year> (version 1.<release number>)
+# <Month> <Year> Insiders (version 1.<release number>)
 
-_Release date: <release Month day, year>_
+![VS Code Insiders banner](images/1_<release number>/vscode-insiders-banner-medium.png)
 
-<!-- DOWNLOAD_LINKS_PLACEHOLDER -->
+_Last updated: <Month day, year>_
+
+These release notes cover the Insiders build of VS Code and continue to evolve as new features are added. To try the latest updates, [download Insiders](https://code.visualstudio.com/insiders).
+To read these release notes online, go to [code.visualstudio.com/updates](https://code.visualstudio.com/updates).
+
+You can still track our progress in the [Commit log](https://github.com/Microsoft/vscode/commits/main) and our list of [Closed issues](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%22<Month>+<Year>%22).
+
+_These release notes were generated using GitHub Copilot and might contain inaccuracies._
+
+Happy Coding!
 
 ---
 
-Welcome to the Insiders build. These are the preliminary notes for the <Month> 1.<release number> release of Visual Studio Code. As we get closer to the release date, you'll find details below about new features and important fixes.
+<!-- TOC
+<div class="toc-nav-layout">
+  <nav id="toc-nav">
+    <div>In this update</div>
+    <ul>
+      <li><a href="#<month>-<day>-<year>"><Month> <day>, <year></a></li>
+    </ul>
+  </nav>
+  <div class="notes-main">
+Navigation End -->
 
-Until the <Month> milestone release notes are available, you can still track our progress:
+## <Month> <day>, <year>
 
-* **[Commit log](https://github.com/Microsoft/vscode/commits/main)** - GitHub commits to the vscode open-source repository.
-* **[Closed issues](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%22<Month>+<Year>%22)** - Resolved bugs and implemented feature requests in the milestone.
+* Feature description with link to issue. _[#issue-number](https://github.com/microsoft/vscode/issues/issue-number)_
+
+---
 
 We really appreciate people trying our new features as soon as they are ready, so check back here often and learn what's new.
-
->If you'd like to read release notes for previous VS Code versions, go to [Updates](https://code.visualstudio.com/updates) on [code.visualstudio.com](https://code.visualstudio.com).
 
 <a id="scroll-to-top" role="button" title="Scroll to top" aria-label="scroll to top" href="#"><span class="icon"></span></a>
 <link rel="stylesheet" type="text/css" href="css/inproduct_releasenotes.css"/>

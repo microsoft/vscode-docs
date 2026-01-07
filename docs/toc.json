@@ -103,9 +103,9 @@
       ["", "", {
         "name": "Chat",
         "area": "copilot/chat",
-        "noCollapse": true,
+        "noCollapse": false,
         "topics": [
-          ["Chat Overview", "/docs/copilot/chat/copilot-chat"],
+          ["Overview", "/docs/copilot/chat/copilot-chat"],
           ["Chat Sessions", "/docs/copilot/chat/chat-sessions"],
           ["Add Context", "/docs/copilot/chat/copilot-chat-context"],
           ["Review Edits", "/docs/copilot/chat/review-code-edits"],
@@ -118,17 +118,29 @@
         ]
       }
       ],
-      ["Code Completions", "/docs/copilot/ai-powered-suggestions"],
-      ["Copilot Coding Agent", "/docs/copilot/copilot-coding-agent"],
+      ["", "", {
+        "name": "Agents",
+        "area": "copilot/agents",
+        "noCollapse": false,
+        "topics": [
+          ["Overview", "/docs/copilot/agents/overview"],
+          ["Agents Tutorial", "/docs/copilot/agents/agents-tutorial"],
+          ["Background Agents", "/docs/copilot/agents/background-agents"],
+          ["Cloud Agents", "/docs/copilot/agents/cloud-agents"]
+        ]
+      }
+      ],
+      ["Inline Suggestions", "/docs/copilot/ai-powered-suggestions"],
       ["", "", {
         "name": "Customization",
         "area": "copilot/customization",
-        "noCollapse": true,
+        "noCollapse": false,
         "topics": [
           ["Overview", "/docs/copilot/customization/overview"],
           ["Instructions", "/docs/copilot/customization/custom-instructions"],
           ["Prompt Files", "/docs/copilot/customization/prompt-files"],
-          ["Custom Modes", "/docs/copilot/customization/custom-chat-modes"],
+          ["Custom Agents", "/docs/copilot/customization/custom-agents"],
+          ["Skills", "/docs/copilot/customization/agent-skills"],
           ["Language Models", "/docs/copilot/customization/language-models"],
           ["MCP", "/docs/copilot/customization/mcp-servers"]
         ]
@@ -137,7 +149,7 @@
       ["", "", {
         "name": "Guides",
         "area": "copilot/guides",
-        "noCollapse": true,
+        "noCollapse": false,
         "topics": [
           ["Prompt Engineering", "/docs/copilot/guides/prompt-engineering-guide"],
           ["Context Engineering", "/docs/copilot/guides/context-engineering-guide"],
@@ -171,8 +183,13 @@
     "area": "sourcecontrol",
     "topics": [
       ["Overview", "/docs/sourcecontrol/overview"],
-      ["Introduction to Git", "/docs/sourcecontrol/intro-to-git"],
+      ["Quickstart", "/docs/sourcecontrol/quickstart"],
+      ["Staging & Committing", "/docs/sourcecontrol/staging-commits"],
+      ["Branches & Worktrees", "/docs/sourcecontrol/branches-worktrees"],
+      ["Repositories & Remotes", "/docs/sourcecontrol/repos-remotes"],
+      ["Merge Conflicts", "/docs/sourcecontrol/merge-conflicts"],
       ["Collaborate on GitHub", "/docs/sourcecontrol/github"],
+      ["Troubleshooting", "/docs/sourcecontrol/troubleshooting"],
       ["FAQ", "/docs/sourcecontrol/faq"]
     ]
   },
@@ -362,7 +379,8 @@
       ["PyTorch Support", "/docs/datascience/pytorch-support"],
       ["Azure Machine Learning", "/docs/datascience/azure-machine-learning"],
       ["Manage Jupyter Kernels", "/docs/datascience/jupyter-kernel-management"],
-      ["Jupyter Notebooks on the Web", "/docs/datascience/notebooks-web"]
+      ["Jupyter Notebooks on the Web", "/docs/datascience/notebooks-web"],
+      ["Data science in Microsoft Fabric", "/docs/datascience/microsoft-fabric-quickstart"]
     ]
   },
   {
@@ -370,16 +388,17 @@
     "area": "intelligentapps",
     "topics": [
       ["AI Toolkit Overview", "/docs/intelligentapps/overview"],
-      ["Getting Started", "/docs/intelligentapps/gettingstarted"],
       ["AI Toolkit Copilot tools", "/docs/intelligentapps/copilot-tools"],
       ["Models", "/docs/intelligentapps/models"],
       ["Playground", "/docs/intelligentapps/playground"],
       ["Agent Builder", "/docs/intelligentapps/agentbuilder"],
       ["Bulk Run", "/docs/intelligentapps/bulkrun"],
       ["Evaluation", "/docs/intelligentapps/evaluation"],
-      ["Fine-tune", "/docs/intelligentapps/finetune"],
+      ["Fine-tuning (Automated Setup)", "/docs/intelligentapps/finetune"],
+      ["Fine-tuning (Project Template)", "/docs/intelligentapps/finetune-legacy"],
       ["Model Conversion", "/docs/intelligentapps/modelconversion"],
       ["Tracing", "/docs/intelligentapps/tracing"],
+      ["Profiling (Windows ML)", "/docs/intelligentapps/profiling"],
       ["FAQ", "/docs/intelligentapps/faq"],
       ["", "", {
         "name": "Reference",

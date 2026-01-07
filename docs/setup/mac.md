@@ -1,6 +1,6 @@
 ---
 ContentId: EEADB50A-F5E3-41E9-89DA-35F165196691
-DateApproved: 10/09/2025
+DateApproved: 12/10/2025
 MetaDescription: Get Visual Studio Code up and running on Mac (macOS).
 ---
 # Visual Studio Code on macOS
@@ -20,10 +20,10 @@ MetaDescription: Get Visual Studio Code up and running on Mac (macOS).
 
     Customize VS Code with themes, formatters, language extensions and debuggers for your favorite languages, and more.
 
-1. [Enable AI features](/docs/copilot/setup-simplified.md)
+1. [Enable AI features](/docs/copilot/setup.md)
 
     > [!TIP]
-    > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
+    > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of inline suggestions and chat interactions.
 
 1. [Get started with the VS Code tutorial](/docs/getstarted/getting-started.md)
 
@@ -45,7 +45,7 @@ MetaDescription: Get Visual Studio Code up and running on Mac (macOS).
 
 ## Launch VS Code from the command line
 
-To run VS Code from the terminal by typing `code`, add it the `$PATH` environment variable:
+To run VS Code from the terminal by typing `code`, add it to the `$PATH` environment variable using one of the following methods:
 
 ### Configure the path with VS Code
 

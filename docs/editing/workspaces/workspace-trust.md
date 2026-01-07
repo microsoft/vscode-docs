@@ -1,6 +1,6 @@
 ---
 ContentId: 51280c26-f78b-4f9c-997f-8350bd6ed07f
-DateApproved: 10/09/2025
+DateApproved: 12/10/2025
 MetaDescription: Visual Studio Code Workspace Trust folder security
 ---
 # Workspace Trust
@@ -17,7 +17,8 @@ It's great that there is so much source code available on public repositories an
 
 Workspace Trust provides an extra layer of security when working with unfamiliar code, by preventing automatic code execution of any code in your workspace if the workspace is open in "Restricted Mode".
 
-> **Note**: The terms "workspace" and "folder" are used widely in the VS Code UI and documentation. You can think of a ["workspace"](/docs/editing/workspaces/workspaces.md) as a folder with extra metadata created and used by VS Code.
+> [!NOTE]
+> The terms "workspace" and "folder" are used widely in the VS Code UI and documentation. You can think of a ["workspace"](/docs/editing/workspaces/workspaces.md) as a folder with extra metadata created and used by VS Code.
 
 ## Restricted Mode
 
@@ -27,13 +28,22 @@ The workbench displays a banner at the top with a link to **Manage** your folder
 
 ![Workspace Trust Restricted Mode banner](images/workspace-trust/restricted-mode-banner.png)
 
-Restricted Mode tries to prevent automatic code execution by disabling or limiting the operation of several VS Code features: tasks, debugging, workspace settings, and extensions.
+Restricted Mode tries to prevent automatic code execution by disabling or limiting the operation of several VS Code features: AI agents, tasks, debugging, workspace settings, and extensions.
 
 To see the full list of features disabled in Restricted Mode, you can open the Workspace Trust editor via the **Manage** link in the banner, or by selecting the Restricted Mode badge in the Status Bar.
 
 ![Workspace Trust editor](images/workspace-trust/workspace-trust-editor.png)
 
-> **Important**: Workspace Trust can't prevent a malicious extension from executing code and ignoring **Restricted Mode**. You should only install and run extensions that come from a well-known publisher that you trust.
+> [!IMPORTANT]
+> Workspace Trust can't prevent a malicious extension from executing code and ignoring **Restricted Mode**. You should only install and run extensions that come from a well-known publisher that you trust.
+
+### AI agents
+
+When you use AI-powered development features like agents in VS Code, these agents perform actions on your behalf, including making changes to your codebase, running terminal commands, or invoking web requests. Any file could be pulled into the context by using agents and could theoretically result in a prompt injection attack.
+
+Until you've reviewed a project for malicious content, rely on the Workspace Trust boundary and open it in restricted mode. Opening a workspace in restricted mode disables agents in that workspace.
+
+Learn more about [AI security considerations](/docs/copilot/security.md) when using AI-powered development features in VS Code.
 
 ### Tasks
 
@@ -93,7 +103,8 @@ If you try to install an extension in Restricted Mode, you are prompted to eithe
 
 ![Workspace Trust install an extension in Restricted Mode dialog](images/workspace-trust/workspace-trust-install-extension.png)
 
-> **Note**: Extension authors can learn how to update their extensions to support Workspace Trust by reading the [Workspace Trust Extension Guide](/api/extension-guides/workspace-trust.md).
+> [!NOTE]
+> Extension authors can learn how to update their extensions to support Workspace Trust by reading the [Workspace Trust Extension Guide](/api/extension-guides/workspace-trust.md).
 
 ## Trusting a workspace
 
@@ -161,7 +172,8 @@ You can also group and set trust on your repositories by grouping them under org
 
 What happens if you want to use Restricted Mode but your favorite extension doesn't support Workspace Trust? This can happen if an extension, while useful and functional, isn't being actively maintained and hasn't declared their Workspace Trust support. To handle this scenario, you can override the extension's trust state with the `setting(extensions.supportUntrustedWorkspaces)` setting.
 
-> **Important**: Be careful with overriding an extension's Workspace Trust support. It's possible that the extension author has a good reason for disabling their extension in Restricted Mode. If in doubt, reach out to the extension author or review recent changelogs to get more context.
+> [!IMPORTANT]
+> Be careful with overriding an extension's Workspace Trust support. It's possible that the extension author has a good reason for disabling their extension in Restricted Mode. If in doubt, reach out to the extension author or review recent changelogs to get more context.
 
 In the Settings editor (`kb(workbench.action.openSettings)`), you can override the Workspace Trust for individual extensions via the **Extensions: Support Untrusted Workspaces** setting (`setting(extensions.supportUntrustedWorkspaces)`).
 

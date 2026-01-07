@@ -2,6 +2,8 @@
 ContentId: 6ef32219-81ad-4d73-84b8-8d4384a45f8a
 DateApproved: 12/14/2023
 MetaDescription: Configure the C++ extension in Visual Studio Code to target Clang/LLVM
+Keywords:
+- C++
 ---
 # Using Clang in Visual Studio Code
 

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 79996489-8D16-4C0A-8BE8-FF4B1E9C223A
-DateApproved: 10/09/2025
+DateApproved: 12/10/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide illustrating how to use Source Control API.
@@ -132,6 +132,8 @@ When creating them, `SourceControl` and `SourceControlResourceGroup` instances r
   "group": "inline"
 }
 ```
+
+The `scm/repository` menu is the menu on each `SourceControl` instance in the **Source Control Repositories** view. Place menu items in the `inline` group to have them appear inline. All other menu item groups will be shown in the `...` menu. The `inline` group is rendered given the available space and menu items that do not fit are automatically moved into the `...` menu.
 
 The `scm/sourceControl` menu is the context menu on each `SourceControl` instance in the **Source Control Repositories** view:
 

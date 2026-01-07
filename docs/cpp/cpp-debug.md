@@ -2,6 +2,8 @@
 ContentId: 9150091A-6F3A-46B9-881B-B8FD788FA705
 DateApproved: 5/21/2020
 MetaDescription: How to debug C++ programs in Visual Studio Code.
+Keywords:
+- C++
 ---
 # Debug C++ in Visual Studio Code
 

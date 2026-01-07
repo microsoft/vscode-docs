@@ -1,19 +1,16 @@
 ---
 ContentId: 8f9a3e5c-2b4d-4a7f-9c8e-1d6f3a2b5c4e
-DateApproved: 10/09/2025
-MetaDescription: Learn how to use agent mode for autonomous planning and task management with the todo list in VS Code chat.
+DateApproved: 12/10/2025
+MetaDescription: Learn how to use the plan agent for autonomous planning and task management with the todo list in VS Code chat.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Planning in VS Code chat
 
 Agents in Visual Studio Code chat help you execute complex coding tasks autonomously. The plan agent enables you to create detailed implementation plans before starting the implementation to ensure all requirements are met. With todo lists, the agent can ensure it stays focused on the overall goals and tracks progress effectively.
 
-Using plans and todos let you structure and review details of the implementation with the agent before coding starts, improving the quality and reliability of the generated code. The plan and todos also provide better guidance to the agent to work through more complex and longer tasks in a systematic way.
+Using plans and todos lets you structure and review details of the implementation with the agent before coding starts, improving the quality and reliability of the generated code. The plan and todos also provide better guidance to the agent to work through more complex and longer tasks in a systematic way.
 
 This article explains how to research and plan development tasks in VS Code chat, including the plan agent and todo lists.
-
-> [!NOTE]
-> The plan agent is currently only available in [VS Code Insiders](https://code.visualstudio.com/insiders/).
 
 ## Plan agent for detailed task research
 
@@ -29,7 +26,7 @@ The plan agent is designed to:
 
 1. Open the Chat view by pressing `kb(workbench.action.chat.open)` and select **Plan** from the agents dropdown.
 
-2. Enter a high-level task (feature, refacoring, bug, etc.) and submit it.
+2. Enter a high-level task (feature, refactoring, bug, etc.) and submit it.
 
     For example:
     * "Implement a user authentication system with OAuth2 and JWT"
@@ -45,11 +42,11 @@ The plan agent is designed to:
     > [!TIP]
     > Stay in plan mode to refine your plan before implementation. You can iterate multiple times to clarify requirements, adjust scope, or address open questions. This ensures a solid foundation before any code changes are made.
 
-4. Once finalized, choose to save the plan or hand off to an implementation agent to start coding by using the corresponding controls.
+4. Once finalized, use the buttons to start implementation of the plan or to open the plan in the editor for further review.
 
-    When starting to implement the plan, you can still provide instructions, like "Start with the UI", or "only step 1 and 2". Similar for saving the plan, you can provide instructions like "Add a section for manual testing steps".
+    You can choose to implement the plan in the same chat session, or start a background or cloud [agent session](/docs/copilot/agents/overview.md) to work on the implementation autonomously in the background.
 
-
+    When starting to implement the plan, you can still provide clarifying instructions, like "Start with the UI", or "only step 1 and 2".
 
 ## Track progress with the todo list
 

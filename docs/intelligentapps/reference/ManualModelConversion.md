@@ -7,13 +7,13 @@ MetaDescription: Model Conversion reference about manual model conversion.
 
 The AI Toolkit supports the [Open Neural Network Exchange](https://onnx.ai) (ONNX) format for running models locally. ONNX is an open standard for representing machine learning models, defining a common set of operators and a file format that enables models to run across various hardware platforms.
 
-To use models from other catalogs, such as Azure AI Foundry or Hugging Face, in the AI Toolkit, you must first convert them to ONNX format.
+To use models from other catalogs, such as Microsoft Foundry or Hugging Face, in the AI Toolkit, you must first convert them to ONNX format.
 
 This tutorial guides you through converting Hugging Face models to ONNX format and loading them into the AI Toolkit.
 
 ## Set up the environment
 
-To convert models from Hugging Face or Azure AI Foundry, you need the [Model Builder](https://onnxruntime.ai/docs/genai/howto/build-model.html) tool.
+To convert models from Hugging Face or Microsoft Foundry, you need the [Model Builder](https://onnxruntime.ai/docs/genai/howto/build-model.html) tool.
 
 Follow these steps to set up your environment:
 
