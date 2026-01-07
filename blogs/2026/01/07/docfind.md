@@ -58,11 +58,14 @@ Here's an diagram of how docfind transforms a collection of documents (`document
 
 Docfind first reads a JSON file containing information about your documents (title, category, URL, body text). For each document, it extracts keywords using RAKE, assigns relevance scores, and builds an FST that maps keywords to document indices. All the document strings are compressed using FSST. Both the FST and the compressed strings are then packed into a binary blob, representing the actual index.
 
+
+![A visual explanation of what is a document, what are keywords and how are they represented in the index](docfind2.svg)
+
 The data structure representing the index is surprisingly simple:
 
 ```rust
 pub struct Index {
-    /// FST mapping keywords to entry indices
+    /// FST mapping keywords to document indices
     fst: Vec<u8>,
 
     /// FSST-compressed document strings (title, category, href, body)
