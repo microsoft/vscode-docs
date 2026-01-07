@@ -41,12 +41,12 @@ The key insight is that FSTs can store sorted string keys in a state machine tha
 
 What if we could use FSTs to index keywords extracted from our documentation? The user types a query, we match it against keywords using the FST, and we get back a list of relevant documents—all in the browser, with no server round-trip.
 
-This led me to two more pieces of the puzzle:
+But how could we get these document keywords? And wouldn't this just create a very large index file, given all the strings would need to be in memory? Could we use compression to create the smallest possible index? This led me to two more pieces of the puzzle:
 
 - **[RAKE](https://docs.rs/rake/latest/rake/)** (Rapid Automatic Keyword Extraction): An algorithm for extracting meaningful keywords and phrases from text. Feed it a document, and it returns keywords ranked by importance.
 - **[FSST](https://docs.rs/fsst-rs/latest/fsst/index.html)** (Fast Static Symbol Table): A compression algorithm optimized for short strings. Since we'd need to store document titles, categories, and snippets in memory, compression would help keep the index small.
 
-With FST for fast keyword lookup, RAKE for keyword extraction, and FSST for string compression, I had the technical foundations. Now I just needed to build it—in Rust, a language I'm not particularly experienced with, during the limited time I could carve out from my day job.
+With FST for fast keyword lookup, RAKE for keyword extraction, and FSST for string compression, I had the technical foundations. Now I just needed to build it — in Rust, a language I'm not particularly experienced with, during the limited time I could carve out from my day job.
 
 ## The solution: A standalone CLI tool
 
