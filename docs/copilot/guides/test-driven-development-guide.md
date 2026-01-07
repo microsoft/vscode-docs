@@ -1,8 +1,18 @@
 ---
 ContentId: a9c5f4d2-8e91-4b3a-9d2c-7f1e3b8a6c4d
 DateApproved: 12/10/2025
-MetaDescription: Learn how to set up a test-driven development (TDD) workflow in VS Code using AI customization features.
+MetaDescription: Learn how to set up a test-driven development (TDD) workflow in VS Code with Copilot and custom agents and instructions.
 MetaSocialImage: ../images/shared/github-copilot-social.png
+Keywords:
+- ai
+- copilot
+- agents
+- instructions
+- customization
+- guide
+- tutorial
+- testing
+- TDD
 ---
 # Set up a test-driven development flow in VS Code
 
@@ -24,16 +34,18 @@ The three phases are:
 
 * **Refactor phase**: Improve the code quality while keeping all tests passing. Clean up duplication, improve naming, and enhance structure.
 
+<!--
 ```mermaid
 graph LR
-    Red[🔴 Red<br/>Write failing test] --> Green[🟢 Green<br/>Make test pass]
-    Green --> Refactor[🔵 Refactor<br/>Improve code]
-    Refactor --> Red
+    Red[🔴 Red<br/>Write failing test] --&gt; Green[🟢 Green<br/>Make test pass]
+    Green --&gt; Refactor[🔵 Refactor<br/>Improve code]
+    Refactor --&gt; Red
 
     style Red fill:#ffcccc
     style Green fill:#ccffcc
     style Refactor fill:#cce5ff
 ```
+-->
 
 ## TDD implementation overview
 
@@ -45,14 +57,12 @@ In addition to custom agents for each phase, you can also set up a _TDD supervis
 
 If you have established test conventions, you can use [custom instructions](/docs/copilot/customization/custom-instructions.md) to set up a testing context that guides the AI in generating tests that align with your project's standards.
 
-TODO: add diagram
+The following diagram shows how custom agents work together to implement the TDD workflow. The TDD Supervisor orchestrates the cycle by invoking each phase agent in sequence, with handoffs enabling transitions between phases.
+
+![Diagram that shows the TDD implementation diagram for VS Code with testing instructions, and custom agents for the supervisor, red, green, refactor, and test runner phases.](../images/test-driven-development-guide/tdd-implementation-diagram.png)
 
 > [!TIP]
 > You can further enhance the TDD workflow by adding a planning phase before starting the cycle. You can use the built-in plan agent or create a custom planning agent that helps clarify requirements and identify edge cases to cover with tests.
-
-<!--
-![Diagram that shows the TDD workflow with custom chat modes in VS Code. The diagram has four main phases: Testing context, Red phase (Write failing test), Green phase (Implement code), and Refactor phase (Improve code). Arrows indicate the flow from one phase to the next, with handoffs between chat modes for each phase.](../images/test-driven-development-guide/tdd-workflow-diagram.png)
- -->
 
 ## Step 1: Set up testing guidelines
 
@@ -141,7 +151,7 @@ To create the `.github/agents/TDD-supervisor.agent.md` supervisor [custom agent]
 
 ## Step 3: Create red phase custom agent
 
-Next, create a "TDD-red" custom agent that focuses on the red phase of TDD. This custom agent is only responsible for writing failing tests based on the provided requirements and should not implement any application code. When completed, this agent hands off to the green phase custom agent.
+Create a "TDD-red" custom agent that focuses on the red phase of TDD. This custom agent is only responsible for writing failing tests based on the provided requirements and should not implement any application code. When completed, this agent hands off to the green phase custom agent.
 
 **Why this helps**: Without a focused mode, the AI might mix implementation suggestions with test creation, and miss the core TDD principle of writing tests first.
 
@@ -163,7 +173,7 @@ To create the `.github/agents/TDD-red.agent.md` red phase [custom agent](/docs/c
     infer: true
     tools: ['read', 'edit', 'search']
     handoffs:
-    - label: TDD Green
+      - label: TDD Green
         agent: TDD Green
         prompt: Implement minimal implementation
     ---
@@ -172,7 +182,7 @@ To create the `.github/agents/TDD-red.agent.md` red phase [custom agent](/docs/c
 
 ## Step 4: Create green phase custom agent
 
-Now, create a "TDD-green" custom agent that focuses on the green phase of TDD. This custom agent is only responsible for writing the minimal implementation code to make the tests pass, without modifying the test code. To run the tests, this agent invokes the "TDD Test Runner" custom agent. When completed, this agent hands off to the refactor phase custom agent.
+Create a "TDD-green" custom agent that focuses on the green phase of TDD. This custom agent is only responsible for writing the minimal implementation code to make the tests pass, without modifying the test code. To run the tests, this agent invokes the "TDD Test Runner" custom agent. When completed, this agent hands off to the refactor phase custom agent.
 
 To create the `.github/agents/TDD-green.agent.md` green phase [custom agent](/docs/copilot/customization/custom-agents.md):
 
@@ -192,7 +202,7 @@ To create the `.github/agents/TDD-green.agent.md` green phase [custom agent](/do
     infer: true
     tools: ['search', 'edit', 'execute/runTests', 'agent']
     handoffs:
-    - label: TDD Refactor
+      - label: TDD Refactor
         agent: TDD Refactor
         prompt: Refactor the implementation
     ---
@@ -229,7 +239,7 @@ To create the `.github/agents/TDD-Test-Runner.agent.md` test runner [custom agen
 
 ## Step 6: Create refactor phase chat mode
 
-Finally, create a "TDD-refactor" custom agent that focuses on the refactor phase of TDD to improve code quality while keeping all tests passing. This agent is responsible for cleaning up code, removing duplication, improving naming, and enhancing structure without changing functionality. To run the tests, this agent invokes the "TDD Test Runner" custom agent.
+Create a "TDD-refactor" custom agent that focuses on the refactor phase of TDD to improve code quality while keeping all tests passing. This agent is responsible for cleaning up code, removing duplication, improving naming, and enhancing structure without changing functionality. To run the tests, this agent invokes the "TDD Test Runner" custom agent.
 
 To create the `.github/agents/TDD-refactor.agent.md` refactor phase [custom chat agent](/docs/copilot/customization/custom-agents.md):
 
@@ -258,7 +268,7 @@ To create the `.github/agents/TDD-refactor.agent.md` refactor phase [custom chat
 
 Now that the TDD custom agents are set up, you can use them to implement features in your project using the TDD workflow.
 
-1. Open the Chat view and select the **TDD Supervisor** agent from the agents dropdown.
+1. Open the Chat view and select the **TDD Supervisor** agent from the agent dropdown menu.
 
 1. Provide a prompt that describes the feature or behavior you want to implement.
 
@@ -268,7 +278,7 @@ Now that the TDD custom agents are set up, you can use them to implement feature
     Implement user registration with email validation and password requirements.
     ```
 
-1. Follow as the TDD supervisor agent orchestrates the workflow through the different phases of the TDD cycle.
+1. Notice that the TDD supervisor agent orchestrates the workflow through the different phases of the TDD cycle.
 
 ## Troubleshooting and best practices
 
