@@ -18,14 +18,14 @@ Key benefits of Agent Skills:
 - **Efficient loading**: Only relevant content loads into context when needed
 
 > [!NOTE]
-> Agent Skills support in VS Code is currently in preview and only available in [VS Code Insiders](https://code.visualstudio.com/insiders/). Enable the `setting(chat.useAgentSkills)` setting to use Agent Skills.
+> Agent Skills support in VS Code is currently in preview and only available in [VS Code Insiders](https://code.visualstudio.com/insiders/). Enable the [`chat.useAgentSkills`](vscode-insiders://settings/chat.useAgentSkills) setting to use Agent Skills.
 
 ## Agent Skills vs custom instructions
 
 While both Agent Skills and custom instructions help customize Copilot's behavior, they serve different purposes:
 
 | Feature | Agent Skills | Custom Instructions |
-|---------|-------------|---------------------|
+| ------- | ------------ | ------------------- |
 | **Purpose** | Teach specialized capabilities and workflows | Define coding standards and guidelines |
 | **Portability** | Works across VS Code, Copilot CLI, and Copilot coding agent | VS Code and GitHub.com only |
 | **Content** | Instructions, scripts, examples, and resources | Instructions only |
