@@ -31,7 +31,7 @@ Together with my colleague [Nick Trogh](https://github.com/nicktrog), we researc
 - **[Lunr.js](https://lunrjs.com/)**: Client-side search in JavaScript, which sounded promising. We tried it with our docs (~3 MB of markdown), but it produced index files around 10 MB. Too large.
 - **[Stork Search](https://stork-search.net/)**: WebAssembly-powered client-side search with a nice demo. But when we tested it, the indexes were still quite large, and the project appeared to be unmaintained.
 
-None of these options hit the sweet spot we were looking for: fast, client-side, compact, and maintenance-free. I started to wonder if we could build something ourselves.
+None of these options hit the sweet spot we were looking for: fast, client-side, compact, and low maintenance. I started to wonder if we could build something ourselves.
 
 ## The inspiration
 
@@ -157,21 +157,21 @@ This was, to put it mildly, not straightforward. Understanding the WASM binary f
 
 ## The breakthrough: Copilot as an enabler
 
-I have to be honest, it's unlikely that I would have finished this project without GitHub Copilot. As a manager who doesn't code daily anymore, tackling a project in Rust—a language known for its steep learning curve—was ambitious. I'm not a Rust expert. I don't have the muscle memory for the borrow checker. And I certainly didn't have deep knowledge of the WebAssembly binary format.
+I have to be honest, it's unlikely that I would have finished this project without [Copilot Agent](https://code.visualstudio.com/docs/copilot/agents/overview). As a manager who doesn't code daily anymore, tackling a project in Rust—a language known for its steep learning curve—was ambitious. I'm not a Rust expert. I don't have the muscle memory for the borrow checker. And I certainly didn't have deep knowledge of the WebAssembly binary format.
 
 Copilot changed the equation entirely.
 
 **Research and exploration.** When I was evaluating FST, RAKE, and FSST, I used Copilot to understand how these libraries worked, ask clarifying questions, and bounce ideas around. It was like having a knowledgeable colleague available at any hour.
 
-**Efficient Rust development.** This was perhaps the biggest win. Copilot's completions and [Next Edit Suggestions](/docs/copilot/ai-powered-suggestions#_next-edit-suggestions) turned me into a productive Rust programmer. I no longer spent mental energy fighting the borrow checker or looking up syntax—Copilot handled the mechanical parts, letting me focus on the logic.
+**Efficient Rust development.** This was perhaps the biggest win. Copilot's [Next Edit Suggestions](/docs/copilot/ai-powered-suggestions#_next-edit-suggestions) turned me into a productive Rust programmer. I no longer spent mental energy fighting the borrow checker or looking up syntax—Copilot handled the mechanical parts, letting me focus on the logic.
 
-**Scaffolding the WASM target.** When I asked Copilot to add a WebAssembly output target to the project, it didn't just add the configuration—it inferred that I wanted a search function exported and scaffolded the entire `lib.rs` with the right `wasm-bindgen` annotations. It even told me which command to run to build it.
+**Scaffolding the WASM target.** When I asked Copilot to add a WebAssembly output target to the project, it didn't just add the configuration — it inferred that I wanted a search function exported and scaffolded the entire `lib.rs` with the right `wasm-bindgen` annotations. It even told me which command to run to build it.
 
-**The [docfind library](https://github.com/microsoft/docfind).** Copilot helped me scaffold the repository for docfind, including creating a working demo page, with performance vanity numbers.
+**The [docfind library](https://github.com/microsoft/docfind).** [Copilot helped me scaffold the repository for docfind](https://github.com/microsoft/docfind/pulls?q=is%3Apr+author%3A%40copilot+is%3Aclosed), including creating a working demo page, with performance vanity numbers.
 
 **Getting past the hard parts.** The WASM binary manipulation was the technical crux of this project. Understanding how to locate globals, patch data segments, and update memory sections required diving into details I'd never encountered before. Copilot helped me understand the WASM binary format, suggested the right `wasmparser` and `wasm-encoder` APIs, and helped debug issues when my patched binaries weren't valid.
 
-I'm confident this project would have taken me considerably longer without Copilot—and that's assuming I wouldn't have given up somewhere along the way. When you're time-constrained and working outside your expertise, having an AI assistant that can fill knowledge gaps and handle boilerplate isn't just convenient—it's the difference between shipping and abandoning.
+I'm confident this project would have taken me considerably longer without Copilot — and that's assuming I wouldn't have given up somewhere along the way. When you're time-constrained and working outside your expertise, I've found that having an AI assistant that can fill knowledge gaps and handle boilerplate isn't just convenient — it's the difference between shipping and abandoning.
 
 ## The results
 
@@ -199,9 +199,9 @@ Or, if you're on Windows:
 irm https://microsoft.github.io/docfind/install.ps1 | iex
 ```
 
-Prepare a [JSON file](https://github.com/microsoft/docfind?tab=readme-ov-file#creating-a-search-index) with your documents, run `docfind documents.json output`, and you'll get a `docfind.js` and `docfind_bg.wasm` ready to use in your site. You need to bring your own client-side UI to show the search results.
+Prepare a [JSON file](https://github.com/microsoft/docfind?tab=readme-ov-file#creating-a-search-index) with your documents, run `docfind documents.json output`, and you'll get a `docfind.js` and `docfind_bg.wasm` ready to use in your site. You need to bring your own client-side UI to show the search results (you can always create one using GitHub Copilot 😉).
 
-Building docfind was a reminder of why I became an engineer in the first place: the joy of solving a real problem with elegant technology. And it was a testament to how AI tools like Copilot are changing what's possible—letting us tackle projects that would have been out of reach given our constraints of time and expertise.
+Building docfind was a reminder of why I became an engineer in the first place: the joy of solving a real problem with elegant technology. And it was a testament to how AI tools like Copilot are changing what's possible—letting us tackle projects that would have been out of reach given our constraints of time and expertise. Finally, a quick shout-out to the [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer) VS Code extension, a must-have if you're working with Rust in VS Code.
 
 If you have questions or feedback, feel free to open an issue on the [docfind repository](https://github.com/microsoft/docfind/issues). We'd love to hear how you're using it.
 
