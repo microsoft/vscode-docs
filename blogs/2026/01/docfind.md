@@ -1,0 +1,204 @@
+---
+Order: 122
+TOCTitle: "Building docfind"
+PageTitle: "Building docfind: Fast Client-Side Search with Rust and WebAssembly"
+MetaDescription: How we built docfind, a high-performance client-side search engine using Rust and WebAssembly, and how GitHub Copilot accelerated development.
+MetaSocialImage: TBD
+Date: 2026-01-07
+Author: João Moreno
+---
+
+# Building docfind: Fast Client-Side Search with Rust and WebAssembly
+
+January 7, 2026 by [João Moreno](https://github.com/joaomoreno)
+
+If you've visited the [VS Code website](https://code.visualstudio.com/) recently, you might have noticed something new: a fast, responsive search experience that feels almost instant.
+
+<video src="docfind.mp4" title="Video showing how to run the Calculator command in VS Code for the Web." autoplay loop controls muted></video>
+
+Behind that experience is [docfind](https://github.com/microsoft/docfind), a search engine we built that runs entirely in your browser using WebAssembly. In this post, I want to share the story of how docfind came to be — a journey that took me from a decade-old blog post about automata theory to patching WebAssembly binaries, all empowered by GitHub Copilot.
+
+## The problem
+
+I'm currently a software engineering manager on the VS Code team, after spending over ten years as a software engineer. These days, I don't get much time to write code, and when I do, it's rarely in unfamiliar territory. But some problems just nag at you until you do something about them.
+
+For years, our documentation website had a basic search experience: you'd type a query, and it would redirect you to search results powered by a traditional search engine. Functional, but not the experience you'd expect from a product like VS Code. I wanted something better—something that felt as snappy as VS Code's Quick Open (`Ctrl+P`), where results appear instantly as you type.
+
+Together with my colleague [Nick Trogh](https://github.com/nicktrog), we researched the alternatives. The landscape looked something like this:
+
+- **[Algolia](https://www.algolia.com/)**: Excellent paid search-as-a-service.
+- **[TypeSense](https://typesense.org/)**: Powerful open-source search, but requires running server-side code — another service to maintain and monitor.
+- **[Lunr.js](https://lunrjs.com/)**: Client-side search in JavaScript, which sounded promising. We tried it with our docs (~3 MB of markdown), but it produced index files around 10 MB. Too large.
+- **[Stork Search](https://stork-search.net/)**: WebAssembly-powered client-side search with a nice demo. But when we tested it, the indexes were still quite large, and the project appeared to be unmaintained.
+
+None of these options hit the sweet spot we were looking for: fast, client-side, compact, and maintenance-free. I started to wonder if we could build something ourselves.
+
+## The inspiration
+
+Thinking about client-side search reminded me of a blog post I'd read years ago. It was written by [Andrew Gallant](https://github.com/BurntSushi) (burntsushi), the creator of ripgrep, and it's titled [Index 1,600,000,000 Keys with Automata and Rust](https://burntsushi.net/transducers/). Published nearly a decade ago, it explains how to use **Finite State Transducers (FSTs)** to index massive amounts of string data in a compact binary format that supports fast lookups—including regex and fuzzy matching.
+
+The key insight is that FSTs can store sorted string keys in a state machine that's both memory-efficient and fast to query. Better yet, Andrew had published a Rust library called [fst](https://docs.rs/fst/latest/fst/) that implements exactly this.
+
+What if we could use FSTs to index keywords extracted from our documentation? The user types a query, we match it against keywords using the FST, and we get back a list of relevant documents—all in the browser, with no server round-trip.
+
+This led me to two more pieces of the puzzle:
+
+- **[RAKE](https://docs.rs/rake/latest/rake/)** (Rapid Automatic Keyword Extraction): An algorithm for extracting meaningful keywords and phrases from text. Feed it a document, and it returns keywords ranked by importance.
+- **[FSST](https://docs.rs/fsst-rs/latest/fsst/index.html)** (Fast Static Symbol Table): A compression algorithm optimized for short strings. Since we'd need to store document titles, categories, and snippets in memory, compression would help keep the index small.
+
+With FST for fast keyword lookup, RAKE for keyword extraction, and FSST for string compression, I had the technical foundations. Now I just needed to build it—in Rust, a language I'm not particularly experienced with, during the limited time I could carve out from my day job.
+
+## The solution
+
+The architecture of docfind is straightforward, broken into three phases:
+
+```mermaid
+flowchart LR
+    A([documents.json]) --> B[docfind]
+    B --> C[Keyword Extraction<br/>RAKE]
+    B --> E[FSST Compression<br/>document strings]
+    C --> D[FST Map<br/>keywords → docs]
+    D --> F[[Index]]
+    E --> F
+    F --> G([docfind_bg.wasm<br/>+ docfind.js])
+
+    style A fill:#e1f5ff
+    style G fill:#e1f5ff
+    style F fill:#ffffcc
+```
+
+**Phase 1: Indexing.** The CLI tool reads a JSON file containing your documents (title, category, URL, body text). For each document, it extracts keywords using RAKE, assigns relevance scores, and builds an FST that maps keywords to document indices. All the document strings are compressed using FSST and packed into a compact binary index.
+
+**Phase 2: Embedding.** Here's where things get interesting. Rather than shipping the index as a separate file that needs to be fetched at runtime, we embed it directly into the WebAssembly binary. The CLI tool patches the compiled WASM file to include the index as a data segment. When the browser loads the WASM module, the index is already in memory—no additional network request required.
+
+**Phase 3: Search.** When the user types a query, the WASM module searches the FST using a Levenshtein automaton (for typo tolerance) and prefix matching. It combines scores from multiple matching keywords, decompresses the relevant document strings on demand, and returns ranked results as JavaScript objects.
+
+The core data structure is surprisingly simple:
+
+```rust
+pub struct Index {
+    /// FST mapping keywords to entry indices
+    fst: Vec<u8>,
+
+    /// FSST-compressed document strings (title, category, href, body)
+    document_strings: FsstStrVec,
+
+    /// For each keyword index, a list of (document_index, score) pairs
+    keyword_to_documents: Vec<Vec<(usize, u8)>>,
+}
+```
+
+The FST stores keywords and maps them to indices into `keyword_to_documents`. Each entry there points to the relevant documents with their relevance scores. Document strings are stored compressed and decompressed only when needed for display.
+
+## The challenge
+
+The trickiest part of this project wasn't the search algorithm or the keyword extraction—it was embedding the index into the WebAssembly binary.
+
+The naive approach would be to use Rust's `include_bytes!` macro to bake the index into the WASM at compile time. But that would mean recompiling the WASM module every time the documentation changes. Instead, I wanted a pre-compiled WASM "template" that the CLI tool could patch with any index.
+
+This meant I needed to:
+
+1. Parse the existing WASM binary to understand its structure
+2. Find the memory section and calculate how much additional space the index needs
+3. Add the index as a new data segment, updating the data count section accordingly
+4. Locate placeholder global variables and patch them with the actual index location
+5. Write out a valid WASM binary
+
+The WASM template declares two placeholder globals with a distinctive marker value:
+
+```rust
+#[unsafe(no_mangle)]
+pub static mut INDEX_BASE: u32 = 0xdead_beef;
+
+#[unsafe(no_mangle)]
+pub static mut INDEX_LEN: u32 = 0xdead_beef;
+```
+
+At runtime, the search function uses these to locate the embedded index and parse it from the raw bytes:
+
+```rust
+static INDEX: OnceLock<Index> = OnceLock::new();
+
+pub fn search(query: &str, max_results: Option<usize>) -> Result<JsValue, JsValue> {
+    let index = INDEX.get_or_init(|| {
+        let raw_index = unsafe {
+            std::slice::from_raw_parts(INDEX_BASE as *const u8, INDEX_LEN as usize)
+        };
+        Index::from_bytes(raw_index).expect("Failed to deserialize index")
+    });
+    // ... perform search
+}
+```
+
+The CLI tool scans the WASM binary's export section to find these globals, reads the global section to get their memory addresses, then patches the data segment that contains those `0xdead_beef` values with the actual index base address and length:
+
+```rust
+// Patch the data if it contains the INDEX_BASE or INDEX_LEN addresses
+if index_base_global_address >= &start && index_base_global_address < &end {
+    data[base_relative_offset..base_relative_offset + 4]
+        .copy_from_slice(&(index_base as i32).to_le_bytes());
+    data[length_relative_offset..length_relative_offset + 4]
+        .copy_from_slice(&(raw_index.len() as i32).to_le_bytes());
+}
+
+// Add index as new data segment
+data_section.active(
+    0,
+    &ConstExpr::i32_const(index_base as i32),
+    raw_index.iter().copied(),
+);
+```
+
+This was, to put it mildly, not straightforward. Understanding the WASM binary format, figuring out how globals are stored and referenced, calculating memory offsets—these are the kinds of problems that can easily derail a side project.
+
+## The breakthrough: Copilot as an enabler
+
+I have to be honest, it's unlikely that I would have finished this project without GitHub Copilot. As a manager who doesn't code daily anymore, tackling a project in Rust—a language known for its steep learning curve—was ambitious. I'm not a Rust expert. I don't have the muscle memory for the borrow checker. And I certainly didn't have deep knowledge of the WebAssembly binary format.
+
+Copilot changed the equation entirely.
+
+**Research and exploration.** When I was evaluating FST, RAKE, and FSST, I used Copilot to understand how these libraries worked, ask clarifying questions, and bounce ideas around. It was like having a knowledgeable colleague available at any hour.
+
+**Efficient Rust development.** This was perhaps the biggest win. Copilot's completions and [Next Edit Suggestions](/docs/copilot/ai-powered-suggestions#_next-edit-suggestions) turned me into a productive Rust programmer. I no longer spent mental energy fighting the borrow checker or looking up syntax—Copilot handled the mechanical parts, letting me focus on the logic.
+
+**Scaffolding the WASM target.** When I asked Copilot to add a WebAssembly output target to the project, it didn't just add the configuration—it inferred that I wanted a search function exported and scaffolded the entire `lib.rs` with the right `wasm-bindgen` annotations. It even told me which command to run to build it.
+
+**The [docfind library](https://github.com/microsoft/docfind).** Copilot helped me scaffold the repository for docfind, including creating a working demo page, with performance vanity numbers.
+
+**Getting past the hard parts.** The WASM binary manipulation was the technical crux of this project. Understanding how to locate globals, patch data segments, and update memory sections required diving into details I'd never encountered before. Copilot helped me understand the WASM binary format, suggested the right `wasmparser` and `wasm-encoder` APIs, and helped debug issues when my patched binaries weren't valid.
+
+I'm confident this project would have taken me considerably longer without Copilot—and that's assuming I wouldn't have given up somewhere along the way. When you're time-constrained and working outside your expertise, having an AI assistant that can fill knowledge gaps and handle boilerplate isn't just convenient—it's the difference between shipping and abandoning.
+
+## The results
+
+Today, docfind powers the search experience on the VS Code documentation website. The numbers speak for themselves—you can see the current performance metrics in the [docfind README](https://github.com/microsoft/docfind#live-demo), which includes an interactive demo searching through 50,000 news articles entirely in your browser.
+
+For the VS Code website (~3 MB of markdown, ~3,700 documents partitioned by heading):
+
+- **Index size**: ~5.9 MB uncompressed, ~2.7 MB with Brotli compression
+- **Search speed**: ~0.4ms per query, on my M2 Macbook Air
+- **Network**: Single WASM file, downloaded only when the user shows intention to search
+
+No servers to maintain. No API keys to manage. No ongoing costs. Just a self-contained WebAssembly module that runs entirely in the browser, created at build time.
+
+## Try it yourself
+
+We've open-sourced docfind, and you can use it for your own static sites today. Installation is straightforward:
+
+```sh
+curl -fsSL https://microsoft.github.io/docfind/install.sh | sh
+```
+
+Or, if you're on Windows:
+
+```psh
+irm https://microsoft.github.io/docfind/install.ps1 | iex
+```
+
+Prepare a [JSON file](https://github.com/microsoft/docfind?tab=readme-ov-file#creating-a-search-index) with your documents, run `docfind documents.json output`, and you'll get a `docfind.js` and `docfind_bg.wasm` ready to use in your site. You need to bring your own client-side UI to show the search results.
+
+Building docfind was a reminder of why I became an engineer in the first place: the joy of solving a real problem with elegant technology. And it was a testament to how AI tools like Copilot are changing what's possible—letting us tackle projects that would have been out of reach given our constraints of time and expertise.
+
+If you have questions or feedback, feel free to open an issue on the [docfind repository](https://github.com/microsoft/docfind/issues). We'd love to hear how you're using it.
+
+Happy coding! 💙
