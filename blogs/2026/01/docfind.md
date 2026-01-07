@@ -16,7 +16,7 @@ If you've visited the [VS Code website](https://code.visualstudio.com/) recently
 
 <video src="docfind.mp4" title="Video showing how to run the Calculator command in VS Code for the Web." autoplay loop controls muted></video>
 
-Behind that experience is [docfind](https://github.com/microsoft/docfind), a search engine we built that runs entirely in your browser using WebAssembly. In this post, I want to share the story of how docfind came to be — a journey that took me from a decade-old blog post about automata theory to patching WebAssembly binaries.
+Behind that experience is [docfind](https://github.com/microsoft/docfind), a search engine we built that runs entirely in your browser using [WebAssembly](https://en.wikipedia.org/wiki/WebAssembly). In this post, I want to share the story of how docfind came to be — a journey that took me from a decade-old blog post about automata theory to patching WebAssembly binaries.
 
 ## The problem
 
@@ -48,32 +48,31 @@ This led me to two more pieces of the puzzle:
 
 With FST for fast keyword lookup, RAKE for keyword extraction, and FSST for string compression, I had the technical foundations. Now I just needed to build it—in Rust, a language I'm not particularly experienced with, during the limited time I could carve out from my day job.
 
-## The solution
+## The solution: A standalone CLI tool
 
-The architecture of docfind is straightforward, broken into three phases:
+I ended up creating a single CLI tool: docfind. The CLI tool is meant to create an index file out of a collection of documents. That index file is meant to be served to our website customers via regular HTTP and empower the search functionality. Users of the CLI tool shouldn't need any extenal dependencies other than docfind itself, in order to create index files.
+
+Here's an diagram of how docfind transforms a collection of documents (`documents.json`) into the respective index file (`docfind_bg.wasm`):
+
+> TODO: Replace with image instead of mermaid diagram
 
 ```mermaid
 flowchart LR
-    A([documents.json]) --> B[docfind]
-    B --> C[Keyword Extraction<br/>RAKE]
-    B --> E[FSST Compression<br/>document strings]
+    A([documents.json]) --> C[Keyword Extraction<br/>RAKE]
+    A --> E[FSST Compression<br/>document strings]
     C --> D[FST Map<br/>keywords → docs]
-    D --> F[[Index]]
-    E --> F
-    F --> G([docfind_bg.wasm<br/>+ docfind.js])
+    D --> I([Index])
+    E --> I
+    I --> G([docfind_bg.wasm<br/>docfind.js])
 
     style A fill:#e1f5ff
     style G fill:#e1f5ff
-    style F fill:#ffffcc
+    style I fill:#e1f5ff
 ```
 
-**Phase 1: Indexing.** The CLI tool reads a JSON file containing your documents (title, category, URL, body text). For each document, it extracts keywords using RAKE, assigns relevance scores, and builds an FST that maps keywords to document indices. All the document strings are compressed using FSST and packed into a compact binary index.
+Docfind first reads a JSON file containing information about your documents (title, category, URL, body text). For each document, it extracts keywords using RAKE, assigns relevance scores, and builds an FST that maps keywords to document indices. All the document strings are compressed using FSST. Both the FST and the compressed strings are then packed into a binary blob, representing the actual index.
 
-**Phase 2: Embedding.** Here's where things get interesting. Rather than shipping the index as a separate file that needs to be fetched at runtime, we embed it directly into the WebAssembly binary. The CLI tool patches the compiled WASM file to include the index as a data segment. When the browser loads the WASM module, the index is already in memory—no additional network request required.
-
-**Phase 3: Search.** When the user types a query, the WASM module searches the FST using a Levenshtein automaton (for typo tolerance) and prefix matching. It combines scores from multiple matching keywords, decompresses the relevant document strings on demand, and returns ranked results as JavaScript objects.
-
-The core data structure is surprisingly simple:
+The data structure representing the index is surprisingly simple:
 
 ```rust
 pub struct Index {
@@ -88,11 +87,16 @@ pub struct Index {
 }
 ```
 
-The FST stores keywords and maps them to indices into `keyword_to_documents`. Each entry there points to the relevant documents with their relevance scores. Document strings are stored compressed and decompressed only when needed for display.
+The index stores keywords and maps them to indices into `keyword_to_documents`. Each entry there points to the relevant documents with their relevance scores. Document strings are stored compressed and decompressed only when needed for display.
 
-## The challenge
+We could dump that index to a binary file, serve it up to our website customers and have some WebAssembly code which would parse it and use the FST library to perform the search operations. But here's where things get interesting. Rather than shipping the index as a separate binary file, docfind embeds it directly into the search library WASM file. Combining the search library with the index allows us to fetch a single HTTP resource whenever the user intends to search on the website. So as a last step, docfind outputs a single WASM file containig the client-side search code as well as the entire index created from the documents.
 
-The trickiest part of this project wasn't the search algorithm or the keyword extraction—it was embedding the index into the WebAssembly binary.
+So what happens client-side? When the user types a query, the WASM module is loaded to memory (containing both the code and the index) to execute that query as a search operation by going through the with FST data structure. We've found useful to use a [Levenshtein automaton](https://en.wikipedia.org/wiki/Levenshtein_automaton) (for typo tolerance) and prefix matching, to get a better experience. Finally, results are produced by combining scores from multiple matching keywords, decompressing the relevant document strings on demand, and returning ranked results as JavaScript objects.
+
+
+## The challenge: Patching the WASM library
+
+The trickiest part of this project wasn't the search algorithm or the keyword extraction — it was embedding the index into the WebAssembly binary.
 
 The naive approach would be to use Rust's `include_bytes!` macro to bake the index into the WASM at compile time. But that would mean recompiling the WASM module every time the documentation changes. Instead, I wanted a pre-compiled WASM "template" that the CLI tool could patch with any index.
 
