@@ -68,7 +68,7 @@ Additionally, the `body` of the example above has three placeholders (listed in 
 
 ### File template snippets
 
-You can add the `isFileTemplate` attribute to your snippet's definition if the snippet is intended to populate or replace a file's contents. File template snippets are displayed in a dropdown when you run the **Snippets: Fill file with Snippet** command in a new or existing file.
+You can add the `isFileTemplate` attribute to your snippet's definition if the snippet is intended to populate or replace a file's contents. File template snippets are displayed in a dropdown when you run the **Snippets: Fill File with Snippet** command in a new or existing file.
 
 ## Snippet scope
 
