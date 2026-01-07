@@ -26,8 +26,8 @@ For years, our documentation website had a basic search experience: you'd type a
 
 Together with my colleague [Nick Trogh](https://github.com/nicktrog), we researched the alternatives. The landscape looked something like this:
 
-- **[Algolia](https://www.algolia.com/)**: Excellent paid search-as-a-service.
-- **[TypeSense](https://typesense.org/)**: Powerful open-source search, but requires running server-side code — another service to maintain and monitor.
+- **[Algolia](https://www.algolia.com/)**: State of the art search-as-a-service. But I wanted a pure client-side solution.
+- **[TypeSense](https://typesense.org/)**: Powerful open-source search, but requires server-side code, just like Algolia. Plus, it'd be another service to maintain and monitor.
 - **[Lunr.js](https://lunrjs.com/)**: Client-side search in JavaScript, which sounded promising. We tried it with our docs (~3 MB of markdown), but it produced index files around 10 MB. Too large.
 - **[Stork Search](https://stork-search.net/)**: WebAssembly-powered client-side search with a nice demo. But when we tested it, the indexes were still quite large, and the project appeared to be unmaintained.
 
