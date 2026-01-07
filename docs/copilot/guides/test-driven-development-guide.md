@@ -1,69 +1,95 @@
 ---
 ContentId: a9c5f4d2-8e91-4b3a-9d2c-7f1e3b8a6c4d
-DateApproved: 11/03/2025
+DateApproved: 12/10/2025
 MetaDescription: Learn how to set up a test-driven development (TDD) workflow in VS Code using AI customization features.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Set up a test-driven development flow in VS Code
 
-Test-driven development (TDD) is a software development approach where you write tests before implementing functionality. This creates a tight feedback loop that improves code quality, catches bugs early, and ensures your code meets requirements. By using AI within the TDD methodology, you enable the AI to generate comprehensive test cases, suggest implementation code that passes those tests, and assist with refactoring.
+Test-driven development (TDD) is a software development approach where you write tests before implementing functionality. This creates a tight feedback loop that improves code quality, catches bugs early, and ensures that the code meets your requirements. Visual Studio Code's AI capabilities can enhance your TDD workflow by guiding you through the different phases of writing tests, implementing code, running tests, and optimizing the code.
 
-This guide shows you how to set up an AI-assisted test-driven development workflow in Visual Studio Code using custom chat modes and handoffs.
+This guide shows you how to set up an AI-assisted test-driven development workflow in VS Code by using custom agents, handoffs, and custom instructions.
 
 ## Test-driven development workflow
 
-Test-driven development follows a three-phase cycle known as [red-green-refactor](https://martinfowler.com/bliki/TestDrivenDevelopment.html). This cycle repeats for each small increment of functionality.
+The core tenet of test-driven development is to write tests before implementation. The tests define the desired outcomes for the functionality you want to build. By writing tests first, you clarify requirements and identify edge cases to ensure that your code behaves as expected.
 
-To implement an AI-assisted TDD workflow in VS Code, create [custom chat modes](/docs/copilot/customization/custom-chat-modes.md) for each phase of the cycle. Each chat mode focuses the AI on the specific goals of that phase:
+TDD follows a three-phase cycle known as [red-green-refactor](https://martinfowler.com/bliki/TestDrivenDevelopment.html) and repeats for each small increment of functionality.
 
-* **Red phase**: Write a failing test for the functionality you want to develop. The test fails because the functionality doesn't exist yet.
-* **Green phase**: Write the minimal code needed to make the test pass. Focus on making it work, not making it perfect.
+The three phases are:
+
+* **Red phase**: Write a failing test for the functionality you want to develop.
+
+* **Green phase**: Write the minimal application code needed to make the test pass. Focus on making it work, not making it perfect.
+
 * **Refactor phase**: Improve the code quality while keeping all tests passing. Clean up duplication, improve naming, and enhance structure.
 
-![Diagram that shows the TDD workflow with custom chat modes in VS Code. The diagram has four main phases: Testing context, Red phase (Write failing test), Green phase (Implement code), and Refactor phase (Improve code). Arrows indicate the flow from one phase to the next, with handoffs between chat modes for each phase.](../images/test-driven-development-guide/tdd-workflow-diagram.png)
+```mermaid
+graph LR
+    Red[🔴 Red<br/>Write failing test] --> Green[🟢 Green<br/>Make test pass]
+    Green --> Refactor[🔵 Refactor<br/>Improve code]
+    Refactor --> Red
 
-Specify [handoffs](/docs/copilot/customization/custom-chat-modes.md#handoffs) between these chat modes to transition from one phase to the next and guide the AI through the TDD cycle.
+    style Red fill:#ffcccc
+    style Green fill:#ccffcc
+    style Refactor fill:#cce5ff
+```
 
-By using [custom instructions](/docs/copilot/customization/custom-instructions.md), you can set up a testing context that defines your project's test conventions such as testing frameworks and test structure. This context helps the AI generate tests that align with your project's standards.
+## TDD implementation overview
 
-Optionally, use the [built-in plan agent](/docs/copilot/chat/chat-planning.md) or a custom planning agent to create an implementation plan for the feature before starting the TDD cycle. This helps clarify requirements and identify edge cases to cover with tests.
+You can implement an AI-assisted TDD workflow in VS Code by using custom agents. Each phase of the TDD process (red, green, refactor) has a specific goal and requires different AI behavior. You create a custom agent for each phase that defines the specific role and guidelines for that phase. In this guide, we create a separate _TDD test runner_ agent to execute tests and report results.
+
+With custom agent handoffs, you can then transition from one phase to the next once the AI completes its task. For example, the custom agent for the red phase presents a hand-off action for the green phase agent after writing the failing test.
+
+In addition to custom agents for each phase, you can also set up a _TDD supervisor_ agent that orchestrates the entire TDD workflow. This agent describes the overall TDD process and invokes each phase in sequence through subagents. The supervisor agent can manage the flow of the TDD cycle, ensuring that each phase is completed before moving to the next.
+
+If you have established test conventions, you can use [custom instructions](/docs/copilot/customization/custom-instructions.md) to set up a testing context that guides the AI in generating tests that align with your project's standards.
+
+TODO: add diagram
+
+> [!TIP]
+> You can further enhance the TDD workflow by adding a planning phase before starting the cycle. You can use the built-in plan agent or create a custom planning agent that helps clarify requirements and identify edge cases to cover with tests.
 
 <!--
-```mermaid
-flowchart LR
-    TC(["Testing context<br/>(Instructions)"]) --&lt; red["Red phase<br/>(chat mode)"]
-    red --&lt; FT([Failing test])
-    FT --&gt; green["Green phase<br/>(chat mode)"]
-    green --&gt; PT([Passing test])
-    PT --&gt; refactor["Refactor phase<br/>(chat mode)"]
-    refactor --&gt; CT([Final code])
-    CT -.Next feature.-> red
+![Diagram that shows the TDD workflow with custom chat modes in VS Code. The diagram has four main phases: Testing context, Red phase (Write failing test), Green phase (Implement code), and Refactor phase (Improve code). Arrows indicate the flow from one phase to the next, with handoffs between chat modes for each phase.](../images/test-driven-development-guide/tdd-workflow-diagram.png)
+ -->
 
-    style red fill:#ffcdd2,stroke:#c62828
-    style green fill:#c8e6c9,stroke:#2e7d32
-    style refactor fill:#ffe0b2,stroke:#ef6c00
-    style TC fill:#f5f5f5,stroke:#616161
-    style FT fill:#ffebee,stroke:#c62828
-    style PT fill:#e8f5e9,stroke:#2e7d32
-    style CT fill:#e3f2fd,stroke:#1565c0
-```
--->
+## Step 1: Set up testing guidelines
 
-## Step 1: Set up testing context
-
-Establish project-wide test conventions and practices that guide AI in generating consistent, high-quality tests. [Custom instructions](/docs/copilot/customization/custom-instructions.md) ensure the AI understands your testing approach and maintains standards across all TDD phases.
+If you have established test conventions and practices, create a custom instructions file (`testing.instructions.md`) to help the AI generate tests that align with your project's standards.
 
 **Why this helps**: Without explicit test conventions, AI might generate tests that don't match your project's style, use inconsistent patterns, or miss important test scenarios.
 
-* Create a `.github/copilot-instructions.md` [instructions file](/docs/copilot/customization/custom-instructions.md#use-a-githubcopilot-instructionsmd-file) at the root of your repository to define your project's testing guidelines.
+To set up testing guidelines:
 
-    The instructions in this file are automatically included in all chat interactions as context for the AI agent.
+1. Run the **Chat: Create Instructions File** command in the Command Palette to create a new instructions file in your workspace.
 
-    Include guidance on test structure, naming conventions, assertion style, test coverage expectations, and any testing frameworks or tools your project uses.
+    * Select `.github/instructions` to create the instructions file in your workspace.
+    * Enter "testing" as the name for the instructions file.
+
+    > [!NOTE]
+    > By using a `*.instructions.md` file instead of the `copilot.instructions.md` file, you can selectively apply these testing guidelines only to test files in your project instead of including them in all AI interactions.
+
+1. Update the instructions `applyTo` metadata to automatically apply them to test files. Also set the `description` metadata to indicate that these instructions provide testing context.
+
+    The following example updates the `applyTo` field to target all files in the `tests/` directory:
+
+    ```markdown
+    ---
+    description: 'Testing guidelines and context for generating tests.'
+    applyTo: tests/**
+    ---
+    ```
+
+1. Add your project's testing guidelines to the body of the instructions file.
 
     The following example provides a starting point for test conventions:
 
     ```markdown
+    ---
+    description: 'Testing guidelines and context for generating tests.'
+    applyTo: tests/**
+    ---
     # [Project Name] Testing Guidelines
 
     ## Test conventions
@@ -79,164 +105,162 @@ Establish project-wide test conventions and practices that guide AI in generatin
     > [!TIP]
     > You can create an optional test structure template that defines sections and patterns for different test types (for example, `test-template.md`). Reference this template in your instructions file so the AI uses it when generating tests.
 
-* Alternatively, create [`.instructions.md` files](/docs/copilot/customization/custom-instructions.md#use-instructionsmd-files) for specific test directories.
+## Step 2: Create supervisor custom agent
 
-    With `.instructions.md` files, you can provide targeted guidance for different types of tests (unit, integration, end-to-end) or specific modules instead of using a single global instructions file.
+Create a "TDD-supervisor" custom agent that orchestrates the entire TDD workflow. This agent describes the overall TDD process and invokes each phase in sequence through subagents.
 
-    For example, create `tests/unit/unit-tests.instructions.md` with unit test-specific guidance:
+To create the `.github/agents/TDD-supervisor.agent.md` supervisor [custom agent](/docs/copilot/customization/custom-agents.md):
+
+1. Run the **Chat: New Custom Agent** command in the Command Palette.
+
+    * Select `.github/agents` to create the custom agent definition in your workspace.
+    * Enter "TDD-supervisor" as the name for the custom agent.
+
+1. Update the custom agent definition to describe the TDD workflow and run each phase through subagents.
+
+    The following `TDD-supervisor.agent.md` file provides a starting point for the supervisor agent.
 
     ```markdown
     ---
-    applyTo: tests/unit/**
+    name: TDD Supervisor
+    description: Orchestrate full TDD cycle from request to implementation
+    tools: ['agent']
     ---
-    Focus on testing individual functions and methods in isolation. Mock all external dependencies.
+
+    Your goal is take high-level user instructions (feature, spec, bug fix) to orchestrate the TDD cycle:
+
+    1. Invoke "TDD Red" agent to write failing tests
+    2. Invoke "TDD Green" agent to write minimal implementation
+    3. Invoke "TDD Test Runner" agent to verify tests pass
+    4. If tests fail, ask user to decide whether to revise or abort
+    5. If tests pass, optionally invoke "TDD Refactor" agent to improve code quality
+    6. Output a summary of changes ready for review/commit
+
+    Use the #tool:agent/runSubagent tool with the exact agent names above.
     ```
 
-## Step 2: Create red phase chat mode
+## Step 3: Create red phase custom agent
 
-The red phase focuses on writing clear, failing tests that define the desired functionality. A dedicated [chat mode](/docs/copilot/customization/custom-chat-modes.md) for this phase describes the AI's role and guidelines for creating these tests. In this mode, the AI should not implement any code, only write the failing test, and then hand off to the green phase.
+Next, create a "TDD-red" custom agent that focuses on the red phase of TDD. This custom agent is only responsible for writing failing tests based on the provided requirements and should not implement any application code. When completed, this agent hands off to the green phase custom agent.
 
 **Why this helps**: Without a focused mode, the AI might mix implementation suggestions with test creation, and miss the core TDD principle of writing tests first.
 
-To create a red phase [chat mode](/docs/copilot/customization/custom-chat-modes.md) `.github/chatmodes/TDD-red.chatmode.md`:
+To create the `.github/agents/TDD-red.agent.md` red phase [custom agent](/docs/copilot/customization/custom-agents.md):
 
-1. Run the **Chat: Configure Chat Modes** > **Create New custom chat mode file** command in the Command Palette.
+1. Run the **Chat: New Custom Agent** command in the Command Palette.
 
-1. Name the file `TDD-red.chatmode.md` and describe the red phase role and guidelines.
+    * Select `.github/agents` to create the custom agent definition in your workspace.
+    * Enter "TDD-red" as the name for the custom agent.
 
-    The following `TDD-red.chatmode.md` file provides a starting point for the red phase.
+1. Update the custom agent definition to describe the guidelines and rules for the red phase, and to specify a handoff to the green phase custom agent.
+
+    The following `TDD-red.agent.md` file provides a starting point for the red phase.
 
     ```markdown
     ---
-    description: 'Write failing tests that define desired behavior (Red phase).'
+    name: TDD Red
+    description: TDD phase for writing FAILING tests
+    infer: true
+    tools: ['read', 'edit', 'search']
     handoffs:
-    - label: Move to green phase
-      agent: TDD-green
-      prompt: Now implement the minimal code to make these tests pass.
-      send: true
+    - label: TDD Green
+        agent: TDD Green
+        prompt: Implement minimal implementation
     ---
-    # Red Phase: Write Failing Tests
-
-    You are a test-first developer focused on writing clear, failing tests that define desired behavior before any implementation exists.
-
-    ## Guidelines
-
-    * Understand the requirement thoroughly before writing tests
-    * Write the simplest test that fails for the right reason
-    * Test one behavior at a time
-    * Follow project test conventions and patterns
-
-    ## Workflow
-
-    1. Clarify the requirement if needed by asking questions
-    2. Identify the simplest test case that captures the core behavior
-    3. Write the test using appropriate assertions
-    4. Verify the test fails because the functionality doesn't exist (not due to syntax errors)
-    5. Explain what the test verifies and why it currently fails
-
-    ## Do not
-
-    * Implement any production code
-    * Write passing tests
+    You are a test-writer: when given a function name, spec, or requirements, output a complete test file (or test function) that asserts the expected behavior, which must fail when run against the current codebase. Use the project’s style/conventions. Do not write implementation, only tests. Output exactly the test code.
     ```
 
-## Step 3: Create green phase chat mode
+## Step 4: Create green phase custom agent
 
-The green phase implements minimal code to pass the tests written in the red phase. A dedicated [chat mode](/docs/copilot/customization/custom-chat-modes.md) for this phase describes the AI's role and guidelines for implementing just enough code to make tests pass. After implementation, the AI hands off to the refactor phase.
+Now, create a "TDD-green" custom agent that focuses on the green phase of TDD. This custom agent is only responsible for writing the minimal implementation code to make the tests pass, without modifying the test code. To run the tests, this agent invokes the "TDD Test Runner" custom agent. When completed, this agent hands off to the refactor phase custom agent.
 
-To create a green phase [chat mode](/docs/copilot/customization/custom-chat-modes.md) `.github/chatmodes/TDD-green.chatmode.md`:
+To create the `.github/agents/TDD-green.agent.md` green phase [custom agent](/docs/copilot/customization/custom-agents.md):
 
-1. Run the **Chat: Configure Chat Modes** > **Create New custom chat mode file** command in the Command Palette.
+1. Run the **Chat: New Custom Agent** command in the Command Palette.
 
-1. Name the file `TDD-green.chatmode.md` and describe the green phase role and guidelines.
+    * Select `.github/agents` to create the custom agent definition in your workspace.
+    * Enter "TDD-green" as the name for the custom agent.
 
-    The following `TDD-green.chatmode.md` file provides a starting point:
+1. Update the custom agent definition to describe the guidelines and rules for the green phase, and to specify a handoff to the test runner custom agent.
+
+    The following `TDD-green.agent.md` file provides a starting point:
 
     ```markdown
     ---
-    description: 'Implement minimal code to make tests pass (Green phase).'
+    name: TDD Green
+    description: TDD phase for writing MINIMAL implementation to pass tests
+    infer: true
+    tools: ['search', 'edit', 'execute/runTests', 'agent']
     handoffs:
-    - label: Refactor Code
-      agent: TDD-refactor
-      prompt: Now refactor this code to improve quality while keeping tests passing.
-      send: false
+    - label: TDD Refactor
+        agent: TDD Refactor
+        prompt: Refactor the implementation
     ---
-    # Green Phase: Make Tests Pass
 
-    You are a pragmatic developer focused on writing the minimal code needed to make failing tests pass.
+    You are a code-implementer. Given a failing test case and context (existing codebase or module), write the minimal code change needed so that the test passes - no extra features. Output a code diff or new file content accordingly. Do not write tests, only implementation.
 
-    ## Guidelines
-
-    * Implement only what's needed to satisfy the current test
-    * Avoid over-engineering or adding features not covered by tests
-    * Keep code simple and direct - optimization comes later
-    * Run the test frequently to verify progress
-
-    ## Workflow
-
-    1. Understand what the test expects
-    2. Write the simplest implementation that makes the test pass
-    3. Run the test to verify it passes
-    4. Run the full test suite to ensure no regressions
-
-    ## Do not
-
-    * Add functionality beyond what tests require
-    * Optimize prematurely
-    * Refactor code (that happens in the next phase)
-    * Skip running tests
+    After implementing changes, invoke "TDD Test Runner" agent using #tool:agent/runSubagent to verify the tests pass.
     ```
 
-## Step 4: Create refactor phase chat mode
+## Step 5: Create test runner custom agent
 
-The refactor phase improves code quality while keeping all tests passing. A dedicated [chat mode](/docs/copilot/customization/custom-chat-modes.md) for this phase describes the AI's role and guidelines for safe refactoring. After refactoring, the AI can either return to the red phase for the next feature or finish if all functionality is complete.
+Create a "TDD Test Runner" custom agent that executes the test suite and reports the results. This agent is invoked by the green phase agent to verify that the implementation code makes the tests pass.
 
-1. Create a refactor phase [chat mode](/docs/copilot/customization/custom-chat-modes.md) `.github/chatmodes/TDD-refactor.chatmode.md`.
+To create the `.github/agents/TDD-Test-Runner.agent.md` test runner [custom agent](/docs/copilot/customization/custom-agents.md):
 
-    The following `TDD-refactor.chatmode.md` file provides a starting point:
+1. Run the **Chat: New Custom Agent** command in the Command Palette.
+
+    * Select `.github/agents` to create the custom agent definition in your workspace.
+    * Enter "TDD-Test-Runner" as the name for the custom agent.
+
+1. Update the custom agent definition to describe the guidelines and rules for running tests.
+
+    The following `TDD-Test-Runner.agent.md` file provides a starting point:
 
     ```markdown
     ---
-    description: 'Improve code quality while keeping all tests passing (Refactor phase).'
+    name: TDD Test Runner
+    description: Run tests and report pass/fail results
+    infer: true
+    tools: ['execute/runTests', 'search']
     ---
-    # Refactor Phase: Improve Code Quality
-
-    You are a quality-focused developer who improves code structure and readability while maintaining all test coverage.
-
-    ## Guidelines
-
-    * Keep all tests passing throughout refactoring
-    * Remove duplication (DRY principle)
-    * Improve naming for clarity
-    * Simplify complex logic
-    * Enhance code structure and organization
-
-    ## Workflow
-
-    1. Identify opportunities for improvement (duplication, unclear naming, complex logic)
-    2. Make small, safe refactoring steps
-    3. Run tests after each change to ensure they still pass
-    4. Continue until code meets quality standards
-
-    ## Do not
-
-    * Change functionality or behavior
-    * Add new features
-    * Skip running tests after changes
-    * Make large refactoring changes in one step
+    You are test-runner. Given the codebase (after changes) and test suite, run via available test harness and output a summary: which tests passed/failed, error messages or tracebacks if failing. Use standard format (e.g. JSON, or markdown table).
     ```
 
-1. After refactoring, run the full test suite to verify all tests still pass.
+## Step 6: Create refactor phase chat mode
 
-## Step 5: Use the TDD workflow
+Finally, create a "TDD-refactor" custom agent that focuses on the refactor phase of TDD to improve code quality while keeping all tests passing. This agent is responsible for cleaning up code, removing duplication, improving naming, and enhancing structure without changing functionality. To run the tests, this agent invokes the "TDD Test Runner" custom agent.
 
-With the custom chat modes and testing context set up, you can now use the AI-assisted TDD workflow in VS Code to implement new features:
+To create the `.github/agents/TDD-refactor.agent.md` refactor phase [custom chat agent](/docs/copilot/customization/custom-agents.md):
 
-1. Open the Chat view and select the **TDD-red** chat mode to start the red phase.
+1. Run the **Chat: New Custom Agent** command in the Command Palette.
+
+    * Select `.github/agents` to create the custom agent definition in your workspace.
+    * Enter "TDD-refactor" as the name for the custom agent.
+
+1. Update the custom agent definition to describe the guidelines and rules for the refactor phase.
+
+    The following `TDD-refactor.agent.md` file provides a starting point:
+
+    ```markdown
+    ---
+    name: TDD Refactor
+    description: Refactor code while maintaining passing tests
+    tools: ['search', 'edit', 'read', 'execute/runTests', 'agent']
+    infer: true
+    ---
+    You are refactor-assistant. Given code that passes all tests, examine it and suggest or apply refactoring to improve readability/structure/DRYness, without changing behavior. Output a code diff (or list of refactoring suggestions), no new functionality, no breaking changes.
+
+    After refactoring, invoke "TDD Test Runner" agent using #tool:agent/runSubagent to ensure all tests still pass and behavior is preserved.
+    ```
+
+## Use the TDD workflow to implement features
+
+Now that the TDD custom agents are set up, you can use them to implement features in your project using the TDD workflow.
+
+1. Open the Chat view and select the **TDD Supervisor** agent from the agents dropdown.
 
 1. Provide a prompt that describes the feature or behavior you want to implement.
-
-    Follow the agent through the red phase to write failing tests. You can continue the conversation until you're satisfied with the tests.
 
     For example:
 
@@ -244,15 +268,7 @@ With the custom chat modes and testing context set up, you can now use the AI-as
     Implement user registration with email validation and password requirements.
     ```
 
-1. When ready, use the handoff to transition to the **TDD-green** chat mode for the green phase.
-
-    Notice that the agent automatically switches to the green phase and starts implementing code to make the tests pass. You can provide additional prompts or clarifications as needed.
-
-1. After the tests pass, use the handoff to transition to the **TDD-refactor** chat mode for the final refactor phase.
-
-    The agent switches to the refactor phase and now focuses on improving code quality while ensuring all tests remain passing.
-
-At any time, you can review the code and tests generated by the AI, run tests manually, and provide feedback or corrections to guide the AI's output. You can manually switch back to previous phases if needed.
+1. Follow as the TDD supervisor agent orchestrates the workflow through the different phases of the TDD cycle.
 
 ## Troubleshooting and best practices
 
@@ -285,6 +301,6 @@ At any time, you can review the code and tests generated by the AI, run tests ma
 Learn more about testing and AI customization in VS Code:
 
 * [Testing with AI](/docs/copilot/guides/test-with-copilot.md)
-* [Custom chat modes](/docs/copilot/customization/custom-chat-modes.md)
+* [Custom agents](/docs/copilot/customization/custom-agents.md)
 * [Custom instructions](/docs/copilot/customization/custom-instructions.md)
 * [Running tests with VS Code](/docs/debugtest/testing.md)
