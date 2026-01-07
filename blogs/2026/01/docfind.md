@@ -16,7 +16,7 @@ If you've visited the [VS Code website](https://code.visualstudio.com/) recently
 
 <video src="docfind.mp4" title="Video showing how to run the Calculator command in VS Code for the Web." autoplay loop controls muted></video>
 
-Behind that experience is [docfind](https://github.com/microsoft/docfind), a search engine we built that runs entirely in your browser using WebAssembly. In this post, I want to share the story of how docfind came to be — a journey that took me from a decade-old blog post about automata theory to patching WebAssembly binaries, all empowered by GitHub Copilot.
+Behind that experience is [docfind](https://github.com/microsoft/docfind), a search engine we built that runs entirely in your browser using WebAssembly. In this post, I want to share the story of how docfind came to be — a journey that took me from a decade-old blog post about automata theory to patching WebAssembly binaries.
 
 ## The problem
 
