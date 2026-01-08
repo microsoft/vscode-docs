@@ -22,7 +22,7 @@ Behind that experience is [docfind](https://github.com/microsoft/docfind), a sea
 
 I'm currently a Software Engineering Manager on the VS Code team, so these days I don't get much time to write code. When I do, it's rarely in unfamiliar territory. But some problems just nag at you until you do something about them.
 
-For years, our documentation website had a basic search experience: you'd type a query, and it would redirect you to search results powered by a traditional search engine. Functional, but not the experience you'd expect from a product like VS Code. I wanted something better, something that felt as snappy as VS Code's Quick Open (`Ctrl+P`), where results appear instantly as you type.
+Until recently, our website still had that basic search experience: you'd type a query, and it would redirect you to search results powered by a traditional search engine. Not quite what developers are used to today. I wanted those searchs results to appear instantly as you type, similar to many other websites out there. It should be something as snappy as VS Code's Quick Open (`Ctrl+P`).
 
 Together with my colleague [Nick Trogh](https://github.com/nicktrog), we researched the alternatives. The landscape looked something like this:
 
@@ -144,11 +144,9 @@ data_section.active(
 
 This was, to put it mildly, not straightforward. Understanding the WASM binary format, figuring out how globals are stored and referenced, calculating memory offsets. These are the kinds of problems that can easily derail a side project.
 
-## The breakthrough: Copilot as an enabler
+## The breakthrough: Solving hard problems with AI
 
-I have to be honest, it's unlikely that I would have finished this project without [Copilot Agent](https://code.visualstudio.com/docs/copilot/agents/overview). As a manager who doesn't code daily anymore, tackling a project in Rust, a language known for its steep learning curve, was ambitious. I'm not a Rust expert. I don't have the muscle memory for the borrow checker. And I certainly didn't have deep knowledge of the WebAssembly binary format.
-
-Copilot changed the equation entirely.
+I have to be honest, it's unlikely that I would have finished this project without [Copilot Agent](https://code.visualstudio.com/docs/copilot/agents/overview). As a manager who doesn't code daily anymore, tackling a project in Rust, a language known for its steep learning curve, was ambitious. I'm not a Rust expert. I don't have the muscle memory for the borrow checker. And I certainly didn't have deep knowledge of the WebAssembly binary format. But I did have a general sense of direction of where I wanted to go with all of this. Copilot helped me fill in the blanks and tackle the hard problems.
 
 **Research and exploration.** When I was evaluating FST, RAKE, and FSST, I used Copilot to understand how these libraries worked, ask clarifying questions, and bounce ideas around. It was like having a knowledgeable colleague available at any hour.
 
