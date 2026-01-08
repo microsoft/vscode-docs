@@ -18,7 +18,7 @@ Key benefits of Agent Skills:
 - **Efficient loading**: Only relevant content loads into context when needed
 
 > [!NOTE]
-> Agent Skills support in VS Code is currently in preview and only available in [VS Code Insiders](https://code.visualstudio.com/insiders/). Enable the [`chat.useAgentSkills`](vscode-insiders://settings/chat.useAgentSkills) setting to use Agent Skills.
+> Agent Skills support in VS Code is currently in preview. Enable the `setting(chat.useAgentSkills)` setting to use Agent Skills.
 
 ## Agent Skills vs custom instructions
 
