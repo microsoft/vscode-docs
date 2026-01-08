@@ -1,7 +1,7 @@
 ---
 ContentId: d750ab6d-82c2-4e64-8fbb-7888e1374381
 MetaDescription: Using Visual Studio Code Server
-DateApproved: 12/10/2025
+DateApproved: 01/08/2026
 ---
 # Visual Studio Code Server
 

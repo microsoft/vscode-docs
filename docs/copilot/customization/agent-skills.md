@@ -1,6 +1,6 @@
 ---
 ContentId: a7d3e5f8-2c4b-4d9a-b8e1-3f6c9a2d7e41
-DateApproved: 12/10/2025
+DateApproved: 01/08/2026
 MetaDescription: Learn how to use Agent Skills in VS Code to teach GitHub Copilot specialized capabilities that work across VS Code, GitHub Copilot CLI, and GitHub Copilot coding agent.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -18,7 +18,7 @@ Key benefits of Agent Skills:
 - **Efficient loading**: Only relevant content loads into context when needed
 
 > [!NOTE]
-> Agent Skills support in VS Code is currently in preview and only available in [VS Code Insiders](https://code.visualstudio.com/insiders/). Enable the [`chat.useAgentSkills`](vscode-insiders://settings/chat.useAgentSkills) setting to use Agent Skills.
+> Agent Skills support in VS Code is currently in preview. Enable the `setting(chat.useAgentSkills)` setting to use Agent Skills.
 
 ## Agent Skills vs custom instructions
 
