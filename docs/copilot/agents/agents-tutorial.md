@@ -82,7 +82,7 @@ In this step, you use the plan agent to create an implementation plan for a them
 
 1. Select **Plan** from the Agents dropdown to switch to the plan agent and enter the following prompt:
 
-    ```text
+    ```prompt-plan
     Create a plan to add a dark/light theme toggle to the app. The toggle should switch between themes and persist the user's preference.
     ```
 
