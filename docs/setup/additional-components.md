@@ -1,6 +1,6 @@
 ---
 ContentId: 243B79C2-819F-4257-B80D-2CD9CCB04C84
-DateApproved: 12/10/2025
+DateApproved: 01/08/2026
 MetaDescription: Setting up additional components to use with Visual Studio Code.
 ---
 # Additional components and tools

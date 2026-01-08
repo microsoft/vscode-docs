@@ -1,6 +1,6 @@
 ---
 ContentId: 8f2c9a1b-3d4e-5f6a-7b8c-9d0e1f2a3b4c
-DateApproved: 12/10/2025
+DateApproved: 01/08/2026
 MetaDescription: Get started with different types of agents in VS Code to run tasks locally, in the background, or in the cloud. Hand off work across agents to use what works best for your workflow.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -82,7 +82,7 @@ In this step, you use the plan agent to create an implementation plan for a them
 
 1. Select **Plan** from the Agents dropdown to switch to the plan agent and enter the following prompt:
 
-    ```text
+    ```prompt-plan
     Create a plan to add a dark/light theme toggle to the app. The toggle should switch between themes and persist the user's preference.
     ```
 
