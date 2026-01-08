@@ -166,7 +166,7 @@ The default `setting(terminal.integrated.gpuAcceleration)` value of `auto` tries
 
 ### Custom glyphs
 
-When [GPU acceleration](#gpu-acceleration) is enabled, custom rendering, rather than the font, improves how some characters display in the terminal. These the following unicode ranges:
+When [GPU acceleration](#gpu-acceleration) is enabled, custom rendering, rather than the font, improves how some characters display in the terminal. The following unicode ranges are supported:
 
 - Box Drawing (`U+2500`-`U+257F`)
 - Block Elements (`U+2580`-`U+259F`)
