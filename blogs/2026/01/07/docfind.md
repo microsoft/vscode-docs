@@ -31,7 +31,7 @@ Together with my colleague [Nick Trogh](https://github.com/nicktrog), we researc
 - **[Lunr.js](https://lunrjs.com/)**: Client-side search in JavaScript, which sounded promising. We tried it with our docs (~3 MB of markdown), but it produced index files around 10 MB. Too large.
 - **[Stork Search](https://stork-search.net/)**: WebAssembly-powered client-side search with a nice demo. But when we tested it, the indexes were still quite large, and the project appeared to be unmaintained.
 
-None of these options hit the sweet spot we were looking for: fast, client-side, compact, and low maintenance. I started to wonder if we could build something ourselves.
+None of these options hit the sweet spot: fast, client-side, compact, and easy to host and operate. I started to wonder if we could build something ourselves.
 
 ## The inspiration
 
