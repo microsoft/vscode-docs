@@ -50,7 +50,9 @@ With FST for fast keyword lookup, RAKE for keyword extraction, and FSST for stri
 
 ## The solution
 
-I ended up creating a single CLI tool, docfind, meant to create an index file out of a collection of documents. That index file should then be served to our website customers via regular HTTP and empower the search functionality. Users of the CLI tool shouldn't need any extenal dependencies other than docfind itself, in order to create index files.
+I ended up creating a single CLI tool, docfind, meant to create an index file from our website documents whenever we build the website itself. Users of this CLI tool shouldn't need any extenal dependencies other than docfind itself in order to create index files. That index file ended up being a single WebAssembly module, easily served to visitors via HTTP. When visitors come to our website, their browser downloads the WebAssembly module in the background and is used to empower the search functionality.
+
+### Building the index
 
 Here's a diagram of how docfind transforms a collection of documents (`documents.json`) into the respective index file (`docfind_bg.wasm`):
 
@@ -78,26 +80,28 @@ pub struct Index {
 
 The index stores keywords and maps them to indices into `keyword_to_documents`. Each entry there points to the relevant documents with their relevance scores. Document strings are stored compressed and decompressed only when needed for display.
 
-We could dump that index to a binary file, serve it up to our website visitors and have some WebAssembly code which would parse it and use the FST library to perform the search operations. But here's where things get interesting. Rather than shipping the index as a separate binary file, docfind embeds it directly into the search library WASM file. Combining the search library with the index allows us to fetch a single HTTP resource whenever the user intends to search on the website. So as a last step, docfind outputs a single WASM file containing the client-side search code as well as the entire index created from the documents.
+Now, we could dump that index data structure to a binary file, serve it up to our website visitors and have some WebAssembly module on the site which would parse it and use the FST library to perform the search operations. But here's where things get interesting. Rather than shipping the index as a separate binary file, docfind embeds it directly into the search library WebAssembly module, allowing visitors to fetch a single HTTP resource whenever they intend to search on the website.
 
-So what happens client-side? When the user types a query, the WASM module is loaded in memory (code and document index) to execute that query as a search operation by going through the FST data structure. We've found it useful to use a [Levenshtein automaton](https://en.wikipedia.org/wiki/Levenshtein_automaton) (for typo tolerance) and prefix matching, to get more relevant matches. Finally, search results are produced by combining scores from multiple matching keywords, decompressing the relevant document strings on demand, and returning ranked results as JavaScript objects.
+### Searching the index
+
+So what happens client-side? When the user types a query, the WebAssembly module is loaded in memory (code and document index) to execute that query as a search operation by going through the FST data structure. We've found it useful to use a [Levenshtein automaton](https://en.wikipedia.org/wiki/Levenshtein_automaton) (for typo tolerance) and prefix matching, to get more relevant matches. Finally, search results are produced by combining scores from multiple matching keywords, decompressing the relevant document strings on demand, and returning ranked results as JavaScript objects.
 
 
 ## The challenge
 
 The trickiest part of this project wasn't the search algorithm or the keyword extraction, it was embedding the index into the WebAssembly binary.
 
-The naive approach would be to use Rust's `include_bytes!` macro to bake the index into the WASM at compile-time. But that would mean recompiling the WASM module every time the documentation changes. Instead, I wanted a pre-compiled WASM "template" that the CLI tool could patch with an updated index.
+The naive approach would be to use Rust's `include_bytes!` macro to bake the index into the WebAssembly module at compile-time. But that would mean recompiling the WebAssembly module every time the documentation changes. Instead, I wanted a pre-compiled WASM "template" that the CLI tool could patch with an updated index.
 
-This meant I needed to:
+This meant I needed to statically create a WebAssembly module template, with an empty index, and embed that in docfind. Then, docfind could:
 
-1. Parse the existing WASM binary to understand its structure
+1. Parse the embedded WebAssembly module to understand its structure
 2. Find the memory section and calculate how much additional space the index needs
 3. Add the index as a new data segment, updating the data count section accordingly
 4. Locate placeholder global variables and patch them with the actual index location
-5. Write out a valid WASM binary
+5. Write out a valid WebAssembly module
 
-The WASM template declares two placeholder globals with a distinctive marker value:
+The WebAssembly module template declares two placeholder globals with a distinctive marker value:
 
 ```rust
 #[unsafe(no_mangle)]
@@ -123,7 +127,7 @@ pub fn search(query: &str, max_results: Option<usize>) -> Result<JsValue, JsValu
 }
 ```
 
-The CLI tool scans the WASM binary's export section to find these globals, reads the global section to get their memory addresses, then patches the data segment that contains those `0xdead_beef` values with the actual index base address and length:
+The CLI tool scans the WASM template's export section to find these globals, reads the global section to get their memory addresses, then patches the data segment that contains those `0xdead_beef` values with the actual index base address and length:
 
 ```rust
 // Patch the data if it contains the INDEX_BASE or INDEX_LEN addresses
@@ -168,7 +172,7 @@ For the VS Code website (~3 MB of markdown, ~3,700 documents partitioned by head
 
 - **Index size**: ~5.9 MB uncompressed, ~2.7 MB with Brotli compression
 - **Search speed**: ~0.4ms per query, on my M2 Macbook Air
-- **Network**: Single WASM file, downloaded only when the user shows intention to search
+- **Network**: Single WebAssembly module, downloaded only when the user shows intention to search
 
 No servers to maintain. No API keys to manage. No ongoing costs. Just a self-contained WebAssembly module that runs entirely in the browser, created at build time.
 
