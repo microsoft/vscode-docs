@@ -16,13 +16,13 @@ If you've visited the [VS Code website](https://code.visualstudio.com/) recently
 
 <video src="docfind.mp4" title="Video showing how to run the Calculator command in VS Code for the Web." autoplay loop controls muted></video>
 
-Behind that experience is [docfind](https://github.com/microsoft/docfind), a search engine we built that runs entirely in your browser using [WebAssembly](https://en.wikipedia.org/wiki/WebAssembly). In this post, I want to share the story of how docfind came to be — a journey that took me from a decade-old blog post about automata theory to patching WebAssembly binaries.
+Behind that experience is [docfind](https://github.com/microsoft/docfind), a search engine we built that runs entirely in your browser using [WebAssembly](https://en.wikipedia.org/wiki/WebAssembly). In this post, I want to share the story of how docfind came to be: a journey that took me from a decade-old blog post about automata theory to patching WebAssembly binaries.
 
 ## The problem
 
 I'm currently a Software Engineering Manager on the VS Code team, so these days I don't get much time to write code. When I do, it's rarely in unfamiliar territory. But some problems just nag at you until you do something about them.
 
-For years, our documentation website had a basic search experience: you'd type a query, and it would redirect you to search results powered by a traditional search engine. Functional, but not the experience you'd expect from a product like VS Code. I wanted something better—something that felt as snappy as VS Code's Quick Open (`Ctrl+P`), where results appear instantly as you type.
+For years, our documentation website had a basic search experience: you'd type a query, and it would redirect you to search results powered by a traditional search engine. Functional, but not the experience you'd expect from a product like VS Code. I wanted something better, something that felt as snappy as VS Code's Quick Open (`Ctrl+P`), where results appear instantly as you type.
 
 Together with my colleague [Nick Trogh](https://github.com/nicktrog), we researched the alternatives. The landscape looked something like this:
 
@@ -35,18 +35,18 @@ None of these options hit the sweet spot we were looking for: fast, client-side,
 
 ## The inspiration
 
-Thinking about client-side search reminded me of a blog post I'd read years ago. It was written by [Andrew Gallant](https://github.com/BurntSushi) (burntsushi), the creator of ripgrep, and it's titled [Index 1,600,000,000 Keys with Automata and Rust](https://burntsushi.net/transducers/). Published nearly a decade ago, it explains how to use **Finite State Transducers (FSTs)** to index massive amounts of string data in a compact binary format that supports fast lookups—including regex and fuzzy matching.
+Thinking about client-side search reminded me of a blog post I'd read years ago. It was written by [Andrew Gallant](https://github.com/BurntSushi) (burntsushi), the creator of ripgrep, and it's titled [Index 1,600,000,000 Keys with Automata and Rust](https://burntsushi.net/transducers/). Published nearly a decade ago, it explains how to use **Finite State Transducers (FSTs)** to index massive amounts of string data in a compact binary format that supports fast lookups, including regex and fuzzy matching.
 
 The key insight is that FSTs can store sorted string keys in a state machine that's both memory-efficient and fast to query. Better yet, Andrew had published a Rust library called [fst](https://docs.rs/fst/latest/fst/) that implements exactly this.
 
-What if we could use FSTs to index keywords extracted from our documentation? The user types a query, we match it against keywords using the FST, and we get back a list of relevant documents—all in the browser, with no server round-trip.
+What if we could use FSTs to index keywords extracted from our documentation? The user types a query, we match it against keywords using the FST, and we get back a list of relevant documents, all in the browser, with no server round-trip.
 
 But how could we get these document keywords? And wouldn't this just create a very large index file, given all the strings would need to be in memory? Could we use compression to create the smallest possible index? This led me to two more pieces of the puzzle:
 
 - **[RAKE](https://docs.rs/rake/latest/rake/)** (Rapid Automatic Keyword Extraction): An algorithm for extracting meaningful keywords and phrases from text. Feed it a document, and it returns keywords ranked by importance.
 - **[FSST](https://docs.rs/fsst-rs/latest/fsst/index.html)** (Fast Static Symbol Table): A compression algorithm optimized for short strings. Since we'd need to store document titles, categories, and snippets in memory, compression would help keep the index small.
 
-With FST for fast keyword lookup, RAKE for keyword extraction, and FSST for string compression, I had the technical foundations. Now I just needed to build it — in Rust, a language I'm not particularly experienced with, during the limited time I could carve out from my day job.
+With FST for fast keyword lookup, RAKE for keyword extraction, and FSST for string compression, I had the technical foundations. Now I just needed to build it in Rust, a language I'm not particularly experienced with, during the limited time I could carve out from my day job.
 
 ## The solution: A standalone CLI tool
 
@@ -85,7 +85,7 @@ So what happens client-side? When the user types a query, the WASM module is loa
 
 ## The challenge: Patching the WASM library
 
-The trickiest part of this project wasn't the search algorithm or the keyword extraction — it was embedding the index into the WebAssembly binary.
+The trickiest part of this project wasn't the search algorithm or the keyword extraction, it was embedding the index into the WebAssembly binary.
 
 The naive approach would be to use Rust's `include_bytes!` macro to bake the index into the WASM at compile time. But that would mean recompiling the WASM module every time the documentation changes. Instead, I wanted a pre-compiled WASM "template" that the CLI tool could patch with any index.
 
@@ -142,29 +142,29 @@ data_section.active(
 );
 ```
 
-This was, to put it mildly, not straightforward. Understanding the WASM binary format, figuring out how globals are stored and referenced, calculating memory offsets—these are the kinds of problems that can easily derail a side project.
+This was, to put it mildly, not straightforward. Understanding the WASM binary format, figuring out how globals are stored and referenced, calculating memory offsets. These are the kinds of problems that can easily derail a side project.
 
 ## The breakthrough: Copilot as an enabler
 
-I have to be honest, it's unlikely that I would have finished this project without [Copilot Agent](https://code.visualstudio.com/docs/copilot/agents/overview). As a manager who doesn't code daily anymore, tackling a project in Rust—a language known for its steep learning curve—was ambitious. I'm not a Rust expert. I don't have the muscle memory for the borrow checker. And I certainly didn't have deep knowledge of the WebAssembly binary format.
+I have to be honest, it's unlikely that I would have finished this project without [Copilot Agent](https://code.visualstudio.com/docs/copilot/agents/overview). As a manager who doesn't code daily anymore, tackling a project in Rust, a language known for its steep learning curve, was ambitious. I'm not a Rust expert. I don't have the muscle memory for the borrow checker. And I certainly didn't have deep knowledge of the WebAssembly binary format.
 
 Copilot changed the equation entirely.
 
 **Research and exploration.** When I was evaluating FST, RAKE, and FSST, I used Copilot to understand how these libraries worked, ask clarifying questions, and bounce ideas around. It was like having a knowledgeable colleague available at any hour.
 
-**Efficient Rust development.** This was perhaps the biggest win. Copilot's [Next Edit Suggestions](/docs/copilot/ai-powered-suggestions#_next-edit-suggestions) turned me into a productive Rust programmer. I no longer spent mental energy fighting the borrow checker or looking up syntax—Copilot handled the mechanical parts, letting me focus on the logic.
+**Efficient Rust development.** This was perhaps the biggest win. Copilot's [Next Edit Suggestions](/docs/copilot/ai-powered-suggestions#_next-edit-suggestions) turned me into a productive Rust programmer. I no longer spent mental energy fighting the borrow checker or looking up syntax. Copilot handled the mechanical parts, letting me focus on the logic.
 
-**Scaffolding the WASM target.** When I asked Copilot to add a WebAssembly output target to the project, it didn't just add the configuration — it inferred that I wanted a search function exported and scaffolded the entire `lib.rs` with the right `wasm-bindgen` annotations. It even told me which command to run to build it.
+**Scaffolding the WASM target.** When I asked Copilot to add a WebAssembly output target to the project, it didn't just add the configuration, it inferred that I wanted a search function exported and scaffolded the entire `lib.rs` with the right `wasm-bindgen` annotations. It even told me which command to run to build it.
 
 **The [docfind library](https://github.com/microsoft/docfind).** [Copilot helped me scaffold the repository for docfind](https://github.com/microsoft/docfind/pulls?q=is%3Apr+author%3A%40copilot+is%3Aclosed), including creating a working demo page, with performance vanity numbers.
 
 **Getting past the hard parts.** The WASM binary manipulation was the technical crux of this project. Understanding how to locate globals, patch data segments, and update memory sections required diving into details I'd never encountered before. Copilot helped me understand the WASM binary format, suggested the right `wasmparser` and `wasm-encoder` APIs, and helped debug issues when my patched binaries weren't valid.
 
-I'm confident this project would have taken me considerably longer without Copilot — and that's assuming I wouldn't have given up somewhere along the way. When you're time-constrained and working outside your expertise, I've found that having an AI assistant that can fill knowledge gaps and handle boilerplate isn't just convenient — it's the difference between shipping and abandoning.
+I'm confident this project would have taken me considerably longer without Copilot, and that's assuming I wouldn't have given up somewhere along the way. When you're time-constrained and working outside your expertise, I've found that having an AI assistant that can fill knowledge gaps and handle boilerplate isn't just convenient, it's the difference between shipping and abandoning.
 
 ## The results
 
-Today, docfind powers the search experience on the VS Code documentation website. The numbers speak for themselves—you can see the current performance metrics in the [docfind README](https://github.com/microsoft/docfind#live-demo), which includes an interactive demo searching through 50,000 news articles entirely in your browser.
+Today, docfind powers the search experience on the VS Code documentation website. You can see the current performance metrics in the [docfind README](https://github.com/microsoft/docfind#live-demo), which includes an [interactive demo](https://microsoft.github.io/docfind) searching through 50,000 news articles entirely in your browser.
 
 For the VS Code website (~3 MB of markdown, ~3,700 documents partitioned by heading):
 
@@ -190,7 +190,7 @@ irm https://microsoft.github.io/docfind/install.ps1 | iex
 
 Prepare a [JSON file](https://github.com/microsoft/docfind?tab=readme-ov-file#creating-a-search-index) with your documents, run `docfind documents.json output`, and you'll get a `docfind.js` and `docfind_bg.wasm` ready to use in your site. You need to bring your own client-side UI to show the search results (you can always create one using GitHub Copilot 😉).
 
-Building docfind was a reminder of why I became an engineer in the first place: the joy of solving a real problem with elegant technology. And it was a testament to how AI tools like Copilot are changing what's possible—letting us tackle projects that would have been out of reach given our constraints of time and expertise. Finally, a quick shout-out to the [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer) VS Code extension, a must-have if you're working with Rust in VS Code.
+Building docfind was a reminder of why I became an engineer in the first place: the joy of solving a real problem with elegant technology. And it was a testament to how AI tools like Copilot are changing what's possible, letting us tackle projects that would have been out of reach given our constraints of time and expertise. Finally, a quick shout-out to the [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer) VS Code extension, a must-have if you're working with Rust in VS Code.
 
 If you have questions or feedback, feel free to open an issue on the [docfind repository](https://github.com/microsoft/docfind/issues). We'd love to hear how you're using it.
 
