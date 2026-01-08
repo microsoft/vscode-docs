@@ -107,7 +107,7 @@ pub static mut INDEX_BASE: u32 = 0xdead_beef;
 pub static mut INDEX_LEN: u32 = 0xdead_beef;
 ```
 
-At runtime, the search function uses these to locate the embedded index and parse it from the raw bytes:
+At run-time, the search function uses these to locate the embedded index and parse it from the raw bytes:
 
 ```rust
 static INDEX: OnceLock<Index> = OnceLock::new();
