@@ -52,7 +52,7 @@ With FST for fast keyword lookup, RAKE for keyword extraction, and FSST for stri
 
 I ended up creating a single CLI tool, docfind, meant to create an index file out of a collection of documents. That index file should then be served to our website customers via regular HTTP and empower the search functionality. Users of the CLI tool shouldn't need any extenal dependencies other than docfind itself, in order to create index files.
 
-Here's an diagram of how docfind transforms a collection of documents (`documents.json`) into the respective index file (`docfind_bg.wasm`):
+Here's a diagram of how docfind transforms a collection of documents (`documents.json`) into the respective index file (`docfind_bg.wasm`):
 
 ![A diagram showing the flow of data in docfind](docfind.svg)
 
