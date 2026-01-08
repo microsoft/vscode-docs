@@ -71,6 +71,7 @@ Colors inside a text document, such as the welcome page.
 - `textLink.foreground`: Foreground color for links in text.
 - `textPreformat.foreground`: Foreground color for preformatted text segments.
 - `textPreformat.background`: Background color for preformatted text segments.
+- `textPreformat.border`: Border color for preformatted text segments.
 - `textSeparator.foreground`: Color for text separators.
 
 ## Action colors
@@ -1323,6 +1324,11 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `markdownAlert.important.foreground`: Foreground color for important alerts in markdown.
 - `markdownAlert.warning.foreground`: Foreground color for warning alerts in markdown.
 - `markdownAlert.caution.foreground`: Foreground color for caution alerts in markdown.
+
+## Agent Session colors
+- `agentSessionReadIndicator.foreground`: Foreground color for the read indicator in an agent session.
+- `agentSessionSelectedBadge.border`: Border color for the badges in selected agent session items.
+- `agentSessionSelectedUnfocusedBadge.border`: Border color for the badges in selected agent session items when the view is unfocused.
 
 ## Extension colors
 
