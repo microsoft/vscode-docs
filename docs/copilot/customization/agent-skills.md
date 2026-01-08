@@ -3,6 +3,14 @@ ContentId: a7d3e5f8-2c4b-4d9a-b8e1-3f6c9a2d7e41
 DateApproved: 01/08/2026
 MetaDescription: Learn how to use Agent Skills in VS Code to teach GitHub Copilot specialized capabilities that work across VS Code, GitHub Copilot CLI, and GitHub Copilot coding agent.
 MetaSocialImage: ../images/shared/github-copilot-social.png
+Keywords:
+- copilot
+- agents
+- skills
+- instructions
+- customization
+- ai
+- claude
 ---
 # Use Agent Skills in VS Code
 
@@ -12,10 +20,10 @@ Unlike [custom instructions](/docs/copilot/customization/custom-instructions.md)
 
 Key benefits of Agent Skills:
 
-- **Specialize Copilot**: Tailor capabilities for domain-specific tasks without repeating context
-- **Reduce repetition**: Create once, use automatically across all conversations
-- **Compose capabilities**: Combine multiple skills to build complex workflows
-- **Efficient loading**: Only relevant content loads into context when needed
+* **Specialize Copilot**: Tailor capabilities for domain-specific tasks without repeating context
+* **Reduce repetition**: Create once, use automatically across all conversations
+* **Compose capabilities**: Combine multiple skills to build complex workflows
+* **Efficient loading**: Only relevant content loads into context when needed
 
 > [!NOTE]
 > Agent Skills support in VS Code is currently in preview. Enable the `setting(chat.useAgentSkills)` setting to use Agent Skills.
@@ -33,23 +41,25 @@ While both Agent Skills and custom instructions help customize Copilot's behavio
 | **Standard** | Open standard ([agentskills.io](https://agentskills.io)) | VS Code-specific |
 
 Use Agent Skills when you want to:
-- Create reusable capabilities that work across different AI tools
-- Include scripts, examples, or other resources alongside instructions
-- Share capabilities with the wider AI community
-- Define specialized workflows like testing, debugging, or deployment processes
+
+* Create reusable capabilities that work across different AI tools
+* Include scripts, examples, or other resources alongside instructions
+* Share capabilities with the wider AI community
+* Define specialized workflows like testing, debugging, or deployment processes
 
 Use custom instructions when you want to:
-- Define project-specific coding standards
-- Set language or framework conventions
-- Specify code review or commit message guidelines
-- Apply rules based on file types using glob patterns
+
+* Define project-specific coding standards
+* Set language or framework conventions
+* Specify code review or commit message guidelines
+* Apply rules based on file types using glob patterns
 
 ## Create a skill
 
-Skills are stored in directories with a `SKILL.md` file that defines the skill's behavior. VS Code supports skills in two locations:
+Skills are stored in directories with a `SKILL.md` file that defines the skill's behavior. VS Code supports two types of skills:
 
-* `.github/skills/` - The shared location recommended for all new skills used by Copilot
-* `.claude/skills/` - Legacy location, also supported for backward compatibility
+* Project skills, stored in your repository: `.github/skills/` (recommended) or `.claude/skills/` (legacy, for backward compatibility)
+* Personal skills, stored in your user profile: `~/.github/skills/` (recommended) or `~/.claude/skills/` (legacy, for backward compatibility)
 
 To create a skill:
 
@@ -73,9 +83,10 @@ To create a skill:
 1. Optionally, add scripts, examples, or other resources to your skill's directory.
 
     For example, a skill for testing web applications might include:
-    - `SKILL.md` - Instructions for running tests
-    - `test-template.js` - A template test file
-    - `examples/` - Example test scenarios
+
+    * `SKILL.md` - Instructions for running tests
+    * `test-template.js` - A template test file
+    * `examples/` - Example test scenarios
 
 ### SKILL.md file format
 
@@ -94,11 +105,11 @@ The header is formatted as YAML frontmatter with the following fields:
 
 The skill body contains the instructions, guidelines, and examples that Copilot should follow when using this skill. Write clear, specific instructions that describe:
 
-- What the skill helps accomplish
-- When to use the skill
-- Step-by-step procedures to follow
-- Examples of the expected input and output
-- References to any included scripts or resources
+* What the skill helps accomplish
+* When to use the skill
+* Step-by-step procedures to follow
+* Examples of the expected input and output
+* References to any included scripts or resources
 
 You can reference files within the skill directory using relative paths. For example, to reference a script in your skill directory, use `[test script](./test-template.js)`.
 
@@ -223,9 +234,9 @@ To use a shared skill:
 
 Agent Skills is an open standard that enables portability across different AI agents. Skills you create in VS Code work with multiple agents, including:
 
-- **GitHub Copilot in VS Code**: Available in chat and agent mode
-- **GitHub Copilot CLI**: Accessible when working in the terminal
-- **GitHub Copilot coding agent**: Used during automated coding tasks
+* **GitHub Copilot in VS Code**: Available in chat and agent mode
+* **GitHub Copilot CLI**: Accessible when working in the terminal
+* **GitHub Copilot coding agent**: Used during automated coding tasks
 
 Learn more about the Agent Skills standard at [agentskills.io](https://agentskills.io).
 
