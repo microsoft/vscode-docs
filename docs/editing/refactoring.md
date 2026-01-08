@@ -1,6 +1,6 @@
 ---
 ContentId: 481dfd3a-d847-4ed3-b37b-7fc8d234a4c2
-DateApproved: 12/10/2025
+DateApproved: 01/08/2026
 MetaDescription: Refactoring source code in Visual Studio Code.
 ---
 # Refactoring
