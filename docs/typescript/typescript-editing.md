@@ -1,6 +1,6 @@
 ---
 ContentId: db5139eb-9623-4d0b-8180-8b495e2b8b06
-DateApproved: 12/10/2025
+DateApproved: 01/08/2026
 MetaDescription: Learn about TypeScript editing with Visual Studio Code.
 ---
 # Editing TypeScript
