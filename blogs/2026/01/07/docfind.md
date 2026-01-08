@@ -87,7 +87,7 @@ So what happens client-side? When the user types a query, the WASM module is loa
 
 The trickiest part of this project wasn't the search algorithm or the keyword extraction, it was embedding the index into the WebAssembly binary.
 
-The naive approach would be to use Rust's `include_bytes!` macro to bake the index into the WASM at compile time. But that would mean recompiling the WASM module every time the documentation changes. Instead, I wanted a pre-compiled WASM "template" that the CLI tool could patch with any index.
+The naive approach would be to use Rust's `include_bytes!` macro to bake the index into the WASM at compile-time. But that would mean recompiling the WASM module every time the documentation changes. Instead, I wanted a pre-compiled WASM "template" that the CLI tool could patch with an updated index.
 
 This meant I needed to:
 
