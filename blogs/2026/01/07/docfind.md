@@ -48,7 +48,7 @@ But how could we get these document keywords? And wouldn't this just create a v
 
 With FST for fast keyword lookup, RAKE for keyword extraction, and FSST for string compression, I had the technical foundations. Now I just needed to build it in Rust, a language I'm not particularly experienced with, during the limited time I could carve out from my day job.
 
-## The solution: A standalone CLI tool
+## The solution
 
 I ended up creating a single CLI tool, docfind, meant to create an index file out of a collection of documents. That index file should then be served to our website customers via regular HTTP and empower the search functionality. Users of the CLI tool shouldn't need any extenal dependencies other than docfind itself, in order to create index files.
 
@@ -83,7 +83,7 @@ We could dump that index to a binary file, serve it up to our website customers 
 So what happens client-side? When the user types a query, the WASM module is loaded to memory (containing both the code and the index) to execute that query as a search operation by going through the with FST data structure. We've found useful to use a [Levenshtein automaton](https://en.wikipedia.org/wiki/Levenshtein_automaton) (for typo tolerance) and prefix matching, to get a better experience. Finally, results are produced by combining scores from multiple matching keywords, decompressing the relevant document strings on demand, and returning ranked results as JavaScript objects.
 
 
-## The challenge: Patching the WASM library
+## The challenge
 
 The trickiest part of this project wasn't the search algorithm or the keyword extraction, it was embedding the index into the WebAssembly binary.
 
@@ -144,7 +144,7 @@ data_section.active(
 
 This was, to put it mildly, not straightforward. Understanding the WASM binary format, figuring out how globals are stored and referenced, calculating memory offsets. These are the kinds of problems that can easily derail a side project.
 
-## The breakthrough: Solving hard problems with AI
+## The breakthrough
 
 I have to be honest, it's unlikely that I would have finished this project without [Copilot Agent](https://code.visualstudio.com/docs/copilot/agents/overview). As a manager who doesn't code daily anymore, tackling a project in Rust, a language known for its steep learning curve, was ambitious. I'm not a Rust expert. I don't have the muscle memory for the borrow checker. And I certainly didn't have deep knowledge of the WebAssembly binary format. But I did have a general sense of direction of where I wanted to go with all of this. Copilot helped me fill in the blanks and tackle the hard problems.
 
