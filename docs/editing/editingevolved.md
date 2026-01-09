@@ -51,6 +51,12 @@ Allowed values are:
 * `name` - alphabetical order
 * `type` - symbol type order
 
+### Breadcrumb path copying
+
+You can copy the full breadcrumb path by right-clicking on the editor tab and selecting **Copy Breadcrumbs Path**. This will copy the full path including file and symbol names to the clipboard.
+
+You can configure the symbol path separator with the `setting(breadcrumbs.symbolPathSeparator)` setting. The default value is `.`.
+
 ### Breadcrumb keyboard navigation
 
 To interact with breadcrumbs, use the **Focus Breadcrumbs** command or press `kb(breadcrumbs.focusAndSelect)`. It will select that last element and open a dropdown that allows you to navigate to a sibling file or symbol. Use the `kb(breadcrumbs.focusPrevious)` and `kb(breadcrumbs.focusNext)` keyboard shortcuts to go to elements before or after the current element. When the dropdown appears, start typing - all matching elements will be highlighted and the best match will be selected for quick navigation.
