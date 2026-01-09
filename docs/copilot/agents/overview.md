@@ -254,7 +254,7 @@ To view your archived sessions, use the filter options in the sessions list and 
 To permanently delete an agent session, right-click the session in the sessions list and select **Delete**. Deleting a session removes it permanently and cannot be undone. For [background agent sessions](/docs/copilot/agents/background-agents.md), deleting the session also removes any associated worktrees created for that session.
 
 > [!IMPORTANT]
-> Deleting a session is irreversible. If you want to hide a session from showing, consider [archiving](#archive-agent-sessions) it instead.
+> Deleting a session is irreversible. If you just want to hide a session, consider [archiving](#archive-agent-sessions) it instead.
 
 ## Related resources
 
