@@ -97,7 +97,10 @@ IntelliSense in the terminal enables you to receive suggestions for files, folde
 
 ![Screenshot of the terminal showing a user has typed git checkout and receives suggestions for the branch name.](images/shell-integration/terminal-suggest.png)
 
-As you type, a list of suggestions will appear. To manually trigger the suggestions, use the `kb(workbench.action.terminal.requestCompletions)` keyboard shortcut.
+As you type, a list of suggestions will appear. To manually trigger the suggestions, use the `kb(workbench.action.terminal.triggerSuggest)` keyboard shortcut.
+
+> [!TIP]
+> `kbstyle(Ctrl+Space)` may be the keybinding to trigger your Input Method Editor (IME) at the OS level, if so you can rebind the `workbench.action.terminal.triggerSuggest` command with a custom [keybinding](https://code.visualstudio.com/docs/configure/keybindings#_keyboard-shortcuts-editor) or change the OS level shortcut.
 
 By default, `kbstyle(Tab)` inserts the suggestion. Once you navigate the list, `kbstyle(Enter)` inserts the suggestion. You can configure this behavior with the `setting(terminal.integrated.suggest.selectionMode)` setting.
 
