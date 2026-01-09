@@ -171,6 +171,12 @@ After you run tests with coverage, you can view the coverage results in differen
 
     If you have a diff editor open, the coverage results are also shown in the diff editor, similar to how they're shown in the editor.
 
+* In the Test Coverage toolbar
+
+	The Test Coverage toolbar in the editor shows the test coverage results, lets you navigate between uncovered code blocks, and toggle inline coverage. Enable the Test Coverage toolbar with the `setting(testing.coverageToolbarEnabled)` setting.
+
+	![Test Coverage toolbar](images/testing/test-coverage-toolbar.png)
+
 ## Task integration
 
 Tasks in VS Code can be configured to run scripts and start processes within VS Code, without having to enter a command line or write new code. In VS Code, you can define a default test task that runs your tests, and optionally create keyboard shortcuts to run the tests.
