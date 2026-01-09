@@ -136,57 +136,37 @@ Third party agents are background agents developed by other providers, such as O
 
 **Best for**: When you already use third party AI agents and want to integrate them into your VS Code workflow
 
-## Manage agent sessions
+## Agent sessions list
 
-The Chat view in VS Code provides a unified interface for managing your agent sessions, regardless of where they run. You can see the list of all your agent sessions, their status, and key details like file changes, and their type (local, background, cloud, or Codex). The status indicators help you quickly identify active, completed, failed sessions, or sessions that require your input.
+The Chat view provides a unified view to manage all your agent sessions, regardless of where they run. By default, it shows your recent sessions, and gives information about their status, type, and file changes. Expand the list to see and filter all your agent sessions.
 
-The list of sessions is scoped to your workspace. If you don't have a workspace open, the list shows all sessions across your workspaces.
+The list of sessions is scoped to your workspace. If you don't have a workspace open, the list shows all sessions across your workspaces. The sessions are grouped by time periods, such as Today, or Last Week.
 
 The Chat view operates in two modes: compact and side-by-side. You can manually switch between compact and side-by-side mode with the toggle control in the top-right corner of the Chat view.
 
 * **Compact**:
 
-    In compact view, when you open a new chat session, you can see your three most recent sessions in a compact list. You can select **Show All Sessions** to open the full history of agent sessions. When viewing all sessions, use the search and filter options to find specific sessions.
+    In compact view, the list of sessions is embedded in the Chat view. When you select a session from the list, the Chat view switches to that session. Use the back button to return to the sessions list.
 
     ![Screenshot of the Chat view in compact mode showing recent agent sessions.](../images/agents-overview/chat-view-compact.png)
 
-    When you select a session from the list, the Chat view switches to that session. A link enables you to return to the previous view.
+    Select **Show More** to expand the list to see all your agent sessions and to access the filtering options.
 
 * **Side-by-side**
 
-    In side-by-side view, the Chat view shows the full list of agent sessions directly side-by-side with the Chat view. Use the search and filter options to find specific sessions.
+    In side-by-side view, the list of sessions is shown side-by-side with the Chat view. Select a session from the list to view its details in the Chat view.
 
     ![Screenshot of the Chat view in expanded mode showing full agent session history.](../images/agents-overview/chat-view-expanded.png)
 
-    When you select a session from the list, the Chat view shows the details of that session, while the session list remains visible.
-
     > [!TIP]
-    > Make the Chat view wider to automatically switch to side-by-side mode. Right-click on the sessions list and select **Sessions Orientation** to change the default behavior (`setting(chat.viewSessions.orientation)`) or use the toggle button.
+    > When you make the Chat view wider, it automatically switches to side-by-side mode. Right-click on the sessions list and select **Sessions Orientation** to change this behavior (`setting(chat.viewSessions.orientation)`). You can also use the toggle button.
 
 Right-click a session in the list to see additional actions, such as different options to open the session details, archive the session, or agent-type specific actions like checking out a pull request (for cloud agent sessions).
 
-To hide the session list from the Chat view, right-click in an empty chat and unselect **Show Sessions**.
-
-If you prefer the dedicated Agents view (preview), set the `setting(chat.agentSessionsViewLocation)` setting to `view` or `single-view`.
+To hide the session list from the Chat view, right-click in an empty chat and unselect **Show Sessions** (`setting(chat.viewSessions.enabled)`).
 
 > [!NOTE]
 > Extension developers can learn how to integrate with the Agents view with the proposed API [`chatSessionsProvider`](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.chatSessionsProvider.d.ts). The API is currently in a proposed state and subject to change.
-
-### Filter agent sessions
-
-When all sessions are shown in the sessions list, you can use search and filtering to find specific agent sessions. By default, all sessions are shown, except for [archived sessions](#archive-agent-sessions). You filter sessions by agent type, status, read state, and archived state.
-
-![Screenshot of the agent sessions view filter dropdown.](../images/agents-overview/agent-sessions-filter.png)
-
-Select **Reset** to reset the filters to the default value.
-
-### Archive agent sessions
-
-To keep the list of sessions organized, you can archive completed or inactive sessions. Archived sessions are hidden by default, but you can still access them by applying the **Archived** filter.
-
-To archive a session, hover over the session in the session list and select **Archive**. After you archive a session, it disappears from the list. Inversely, you can also unarchive a session in the same way.
-
-![Screenshot of archiving an agent session in the sessions view.](../images/agents-overview/agent-sessions-archive.png)
 
 ## Create an agent session
 
@@ -226,13 +206,12 @@ Alternatively, use the following commands from the Command Palette (`kb(workbenc
 
 Each agent type has unique strengths and capabilities. Local agents let you interact with the AI in real-time, whereas background agents are great for handling well-defined tasks autonomously, and Cloud agents are great for team collaboration via pull requests.
 
-VS Code enables you to hand off (or delegate) an existing task from one agent to another agent, depending on the specifics of the task at hand. For example, you start with creating a plan with a local agent, then hand off to a background agent to create different variants as proof of concepts, and finally continue with a cloud agent to implement the final version in a pull request for team review.
+You can hand off (or delegate) an existing task from one agent to another agent. For example, you start with creating a plan with a local agent, then hand off to a background agent to create different variants as proof of concepts, and finally continue with a cloud agent to implement the final version in a pull request for team review.
 
-When you delegate a session, VS Code creates a new agent session of the selected type, carrying over the full conversation history and context. You can then continue interacting with the new agent to complete the task. The original session is archived after handoff.
-
-You can hand off a local agent session from chat in VS Code by using the **Continue In** control, or by typing `@cli`, `@cloud`, or `@codex` in your prompt to pass the task to another agent type.
+To hand off a local agent session use the **Continue In** control in the Chat view, or type `@cli`, or `@cloud` in your prompt to pass the task to another agent type.
 
 ![Screenshot of the chat input box showing the Continue In button.](../images/agents-overview/delegate-local-session.png)
+VS Code creates a new agent session when you hand off, carrying over the full conversation history and context. You can then continue interacting with the new agent to complete the task. The original session is archived after handoff.
 
 In a background agent session, you can delegate to a cloud agent by entering the `/delegate` command in the chat input box. Optionally, you can provide additional instructions to the cloud agent after the `/delegate` command.
 
@@ -253,6 +232,26 @@ The session details view shows the full conversation history with the agent, alo
 ![Screenshot of the file changes diff editor in an agent session.](../images/agents-overview/agent-file-changes.png)
 
 Depending on the agent type, you have additional options to apply the changes made by the agent onto your local workspace, or to check out the branch from the agent session (for cloud agents).
+
+## Rename agent sessions
+
+VS Code automatically names agent sessions based on the initial prompt or task description. However, you can rename an agent session at any time to give it a more meaningful name.
+
+To rename a session, right-click the session in the sessions list and select **Rename**. Enter the new name for the session and press Enter to save it.
+
+## Archive agent sessions
+
+To keep the list of sessions organized, you can archive completed or inactive sessions. Archiving a session does not delete it but moves it out of the active sessions list. At any time, you can unarchive a session to restore it to the active sessions list.
+
+To archive a session, hover over the session in the session list and select **Archive**. After you archive a session, it disappears from the list. Inversely, you can also unarchive a session in the same way.
+
+![Screenshot of archiving an agent session in the sessions view.](../images/agents-overview/agent-sessions-archive.png)
+
+To view your archived sessions, use the filter options in the sessions list and select the **Archived** filter.
+
+## Delete agent sessions
+
+To permanently delete an agent session, right-click the session in the sessions list and select **Delete**. Deleting a session removes it permanently and cannot be undone. For [background agent sessions](/docs/copilot/agents/background-agents.md), deleting the session also removes any associated worktrees created for that session.
 
 ## Related resources
 
