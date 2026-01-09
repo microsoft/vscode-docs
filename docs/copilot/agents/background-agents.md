@@ -62,7 +62,7 @@ If you prefer to view a background session in the terminal instead of the chat c
 
 ## Start a background agent session
 
-Depending on your workflow, you can start background agent sessions in several ways. You can create a new session and provide the task details directly by using the CLI, or start a new session from the [Chat view](/docs/copilot/agents/overview.md#manage-agent-sessions) in VS Code.
+Depending on your workflow, you can start background agent sessions in several ways. You can create a new session and provide the task details directly by using the CLI, or start a new session from the [Chat view](/docs/copilot/agents/overview.md#agent-sessions-list) in VS Code.
 
 Another approach - especially for complex tasks - is to first interact with a local agent in chat in VS Code, and once the scope and details are clear, hand off the task to a background agent session. For example, you might use the [Plan agent](/docs/copilot/chat/chat-planning.md) to outline a multi-step feature implementation, then delegate the actual coding to a background agent.
 
