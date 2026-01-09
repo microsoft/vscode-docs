@@ -29,4 +29,5 @@
     "markdown.editor.filePaste.videoSnippet": "<video src=\"${src}\" title=\"${title}\" autoplay loop controls muted></video>",
 
     "github.copilot.chat.codeGeneration.useInstructionFiles": false,
+    "chat.useAgentSkills": true,
 }
