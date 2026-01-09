@@ -111,6 +111,9 @@ For more control of your breakpoints, use the **Run and Debug** view's **BREAKPO
 
 ![Breakpoints](images/debugging/breakpoints.png)
 
+> [!TIP]
+> If you prefer to see the breakpoints in a tree view, grouped by file, configure the `setting(debug.breakpointsView.presentation)` setting to `tree`.
+
 ### Breakpoint types
 
 #### Conditional breakpoints
