@@ -106,7 +106,7 @@ The [Agents view](/docs/copilot/agents/overview.md) provides a centralized locat
 | Setting and Description | Default |
 |------------------------|---------------|
 | `setting(chat.viewSessions.orientation)` <br/>Configure how the agent sessions list is shown in the Chat view. | `auto` |
-| `setting(chat.agentSessionsViewLocation)` _(Preview)_<br/>Enable or disable the dedicated Agents view. | `disabled` |
+| `setting(chat.viewSessions.enabled)` <br/>Show the agent sessions list in the Chat view. | `true` |
 
 ## Inline chat settings
 
