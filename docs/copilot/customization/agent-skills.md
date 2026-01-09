@@ -59,7 +59,7 @@ Use custom instructions when you want to:
 Skills are stored in directories with a `SKILL.md` file that defines the skill's behavior. VS Code supports two types of skills:
 
 * Project skills, stored in your repository: `.github/skills/` (recommended) or `.claude/skills/` (legacy, for backward compatibility)
-* Personal skills, stored in your user profile: `~/.github/skills/` (recommended) or `~/.claude/skills/` (legacy, for backward compatibility)
+* Personal skills, stored in your user profile: `~/.copilot/skills/` (recommended) or `~/.claude/skills/` (legacy, for backward compatibility)
 
 To create a skill:
 
