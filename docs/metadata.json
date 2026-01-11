@@ -7,6 +7,13 @@
 		"chat.agent.enabled",
 		"chat.extensionTools.enabled",
 		"chat.promptFiles",
-		"chat.mcp.access"
+		"chat.mcp.access",
+		"chat.tools.global.autoApprove",
+		"chat.tools.eligibleForAutoApproval",
+		"github.copilot.chat.reviewSelection.enabled",
+		"github.copilot.chat.reviewAgent.enabled",
+		"chat.tools.terminal.enableAutoApprove",
+		"chat.mcp.gallery.serviceUrl",
+		"extensions.gallery.serviceUrl"
 	]
 }
