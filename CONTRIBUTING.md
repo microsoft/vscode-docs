@@ -171,7 +171,8 @@ For example:
 
 Before moving or renaming content, a redirect should be added in case people have bookmarked the topic. Redirects are added in the private website repo.
 
-It seems to improve CSAT if, when a topic title or intent is changed, the filename is also updated. resulting in a new, more appropriate URL.
+It seems to improve CSAT if, when a topic title or intent is changed, the filename is also updated, resulting in a new, more appropriate URL.
+
 
 For example: `/docs/editor/extension-gallery.md` -> `/docs/configure/extensions/extension-marketplace.md`
 
