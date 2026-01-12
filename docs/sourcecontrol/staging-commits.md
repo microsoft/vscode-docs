@@ -220,7 +220,9 @@ VS Code can show git blame information inline in the editor and in the Status Ba
 To enable or disable git blame information, use the **Git: Toggle Git Blame Editor Decoration** and **Git: Toggle Git Blame Status Bar Item** commands, or configure these settings:
 
 * `setting(git.blame.statusBarItem.enabled)` (enabled by default)
-* `setting(git.blame.editorDecoration.enabled)`
+* `setting(git.blame.editorDecoration.enabled)` (to disable the hover info in the editor, use the `setting(git.blame.editorDecoration.disableHover)` setting)
+
+To ignore whitespace changes when showing git blame information, enable the `setting(git.blame.ignoreWhitespace)` setting.
 
 You can customize the format of the message that is shown in the editor and in the Status Bar with the `setting(git.blame.editorDecoration.template)` and `setting(git.blame.statusBarItem.template)` settings. You can use variables for the most common information.
 
