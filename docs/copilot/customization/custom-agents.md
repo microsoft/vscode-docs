@@ -188,6 +188,24 @@ Custom agents were previously known as custom chat modes. The functionality rema
 
 VS Code still recognizes any existing `.chatmode.md` files as custom agents. You can use a Quick Fix action to rename and move them to the new `.github/agents` folder with a `.agent.md` extension.
 
+### How do I remove a custom agent?
+
+To completely remove a custom agent from VS Code:
+
+* Delete the corresponding `.agent.md` file from your workspace or user profile.
+* Select **Configure Custom Agents** from the agents dropdown, hover over the custom agent in the list, and select the trash icon.
+
+To remove a custom agent that was contributed by an extension, you need to uninstall the extension that provides it. If you don't want to uninstall the extension, you can hide the custom agent from the agents dropdown instead. Follow the steps in [Customize the agents dropdown list](#customize-the-agents-dropdown-list).
+
+### How do I know where a custom agent comes from?
+
+Custom agents can come from different sources: built-in agents, user-defined agents in your profile, workspace-defined agents in your current workspace, organization-defined agents, or extension-contributed agents.
+
+To identify the source of a custom agent:
+
+1. Select **Configure Custom Agents** from the agents dropdown.
+1. Hover over the custom agent in the list. The source location is displayed in a tooltip.
+
 ## Related resources
 
 * [Customize AI with custom instructions](/docs/copilot/customization/custom-instructions.md)
