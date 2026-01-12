@@ -36,6 +36,9 @@ You need to install and configure MCP servers before you can use their tools in 
 
 Learn more about [configuring MCP servers in VS Code](/docs/copilot/customization/mcp-servers.md).
 
+> [!IMPORTANT]
+> Your organization might have disabled the use of MCP servers in VS Code or restricted which MCP servers you can use. Contact your admin for more information.
+
 </details>
 
 <details>

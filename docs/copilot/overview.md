@@ -28,6 +28,9 @@ Learn more about [inline suggestions in VS Code](/docs/copilot/ai-powered-sugges
 
 ### Autonomous coding
 
+> [!IMPORTANT]
+> Your organization might have disabled agents in VS Code. Contact your admin to enable this functionality.
+
 Agents can autonomously plan and execute complex development tasks, coordinating multi-step workflows that involve running terminal commands or invoking specialized tools. It can transform high-level requirements into working code.
 
 Install Model Context Protocol (MCP) servers or tools from Marketplace extensions to further enhance the capabilities of the autonomous coding experience. For example, pull information from a database or connect to external APIs.
