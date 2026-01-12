@@ -5,7 +5,7 @@
 
 You've found the Visual Studio Code documentation GitHub repository, which contains the content for the [Visual Studio Code documentation](https://code.visualstudio.com/docs).
 
-Topics submitted here will be published to the [Visual Studio Code](https://code.visualstudio.com) portal.
+Topics submitted here are published on the [Visual Studio Code](https://code.visualstudio.com) portal.
 
 If you are looking for the VS Code product GitHub repository, you can find it [here](https://github.com/microsoft/vscode).
 
