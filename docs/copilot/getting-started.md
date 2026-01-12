@@ -59,17 +59,20 @@ Inline suggestions work automatically as you type, learning from your patterns a
 
 ## Step 2: Build complete features with agents
 
-Agents are VS Code's most powerful AI capability. Given a natural language prompt, they autonomously plan and implement complex features across multiple files. Let's use them to create the core functionality of your task manager.
+AI Agents are VS Code's most powerful AI capability. Given a natural language prompt, they autonomously plan and implement complex features across multiple files. Let's use them to create the core functionality of your task manager application.
 
 1. Open the Chat view by pressing `kb(workbench.action.chat.open)` or by selecting the chat icon in the VS Code title bar.
 
-    The Chat view enables you to have an ongoing conversation with the AI, making it easier to refine your requests and get better results.
+    The Chat view is where you interact with the AI by using natural language prompts. You can have an ongoing conversation and iteratively refine your requests to get better results.
 
-1. In the agent picker at the top of the Chat view, select **Agent** to switch to an autonomous coding mode.
+1. Select **Agent** in the agent dropdown menu to let the AI independently implement your request end-to-end.
 
     ![Screenshot showing the agent picker in the Chat view.](./images/getting-started/agent-mode-selection.png)
 
-1. Enter the following prompt and press `kbstyle(Enter)`. The agent will analyze your request and begin implementing the solution:
+    > [!IMPORTANT]
+    > If you don't see the agent option, make sure agents are enabled in your VS Code settings (`setting(chat.agent.enabled)`). Your organization might also have disabled agents - contact your admin to enable this functionality.
+
+1. Enter the following prompt and press `kbstyle(Enter)`. The agent analyzes your request and begins implementing the solution.
 
     ```prompt
     Create a complete task manager web application with the ability to add, delete, and mark tasks as completed. Include modern CSS styling and make it responsive. Use semantic HTML and ensure it's accessible. Separate markup, styles, and scripts into their own files.

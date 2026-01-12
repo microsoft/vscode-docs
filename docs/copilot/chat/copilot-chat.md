@@ -75,6 +75,9 @@ Let's start by creating a basic calculator app to see how chat works in VS Code:
 
     When using an agent, chat autonomously determines what needs to be done and makes the necessary changes to your workspace.
 
+    > [!IMPORTANT]
+    > If you don't see the agent option, make sure agents are enabled in your VS Code settings (`setting(chat.agent.enabled)`). Your organization might also have disabled agents - contact your admin to enable this functionality.
+
 1. Type the following prompt in the chat input field and press `kb(workbench.action.chat.submit)` to submit it:
 
     ```prompt
@@ -139,6 +142,9 @@ VS Code directly applies code changes in the editor and the editor overlay contr
 You can [customize chat with extra tools](/docs/copilot/chat/chat-tools.md) by adding MCP servers or installing extensions that contribute tools.
 
 Open chat with Agent: [Stable](vscode://GitHub.Copilot-Chat/chat?mode=agent) | [Insiders](vscode-insiders://GitHub.Copilot-Chat/chat?mode=agent)
+
+> [!IMPORTANT]
+> If you don't see the agent option, make sure agents are enabled in your VS Code settings (`setting(chat.agent.enabled)`). Your organization might also have disabled agents - contact your admin to enable this functionality.
 
 ### Get started with agents
 
