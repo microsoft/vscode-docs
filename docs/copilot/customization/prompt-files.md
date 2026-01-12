@@ -183,6 +183,17 @@ To sync your user prompt files, enable Settings Sync for prompt and instruction 
 
 * Use the editor play button to test your prompts and refine them based on the results.
 
+## Frequently asked questions
+
+### How do I know where a prompt file comes from?
+
+Prompt files can come from different sources: built-in, user-defined in your profile, workspace-defined prompts in your current workspace, or extension-contributed prompts.
+
+To identify the source of a prompt file:
+
+1. Select **Chat: Configure Prompt Files** from the Command Palette (`kb(workbench.action.showCommands)`).
+1. Hover over the prompt file in the list. The source location is displayed in a tooltip.
+
 ## Related resources
 
 * [Customize AI responses overview](/docs/copilot/customization/overview.md)

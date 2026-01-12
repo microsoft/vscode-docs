@@ -315,6 +315,15 @@ If your instructions are not included in the chat request, [create an issue in t
 
 If your on-demand instructions were not requested by the LLM, try to refine the instructions. You can also try to nudge the LLM by telling to not to forget to use specific instructions. Older models might have more difficulty in using on-demand instructions and need more guidance.
 
+### How do I know where a custom instruction file comes from?
+
+Custom instruction files can come from different sources: built-in, user-defined in your profile, workspace-defined instructions in your current workspace, or extension-contributed instructions.
+
+To identify the source of a custom instruction file:
+
+1. Select **Chat: Configure Instructions** from the Command Palette (`kb(workbench.action.showCommands)`).
+1. Hover over the instruction file in the list. The source location is displayed in a tooltip.
+
 ## Related resources
 
 * [Customize AI responses overview](/docs/copilot/customization/overview.md)
