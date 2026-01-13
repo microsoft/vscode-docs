@@ -209,8 +209,8 @@
     "name": "Enterprise",
     "area": "enterprise",
     "topics": [
-      ["Overview", "/docs/enterprise/overview"],
-      ["Policy Settings", "/docs/enterprise/policies"]
+      ["Policy Settings", "/docs/enterprise/policies"],
+      ["Extensions", "/docs/enterprise/extensions"]
     ]
   },
 
