@@ -98,7 +98,7 @@ To save a chat session as a reusable prompt:
 
 1. Review and edit the generated prompt file as needed, then save it to your workspace.
 
-## Context-isolated subagents
+## Context-isolated subagents {#context-isolated-subagents}
 
 A subagent enables you to delegate tasks to an isolated, autonomous agent within your chat session. Subagents operate independently from the main chat session and have their own context window. This is useful to optimize  context management for complex multi-step tasks like research or analysis.
 
