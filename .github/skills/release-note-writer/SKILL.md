@@ -58,7 +58,7 @@ The [1.109 release notes](./examples/v1_109.md) are a concrete example.
 
 1. Run a subagent to fetch all closed GitHub issues in the microsoft/vscode repo for the milestone that have the specified label and closed date as of the latest update date by using the github CLI. Save the JSON in the release note document.
 
-    Use this CLI command: `gh search issues --repo microsoft/vscode --label <label name> --milestone <milestone name> --state closed -L 100`
+    Use this CLI command: `gh search issues --repo microsoft/vscode --label <label name> --milestone <milestone name> --state closed "closed:>=<latest update date>" -L 100`
 
 1. Ignore issues that are marked as duplicate or not planned.
 
