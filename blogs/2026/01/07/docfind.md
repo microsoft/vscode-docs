@@ -3,7 +3,7 @@ Order: 122
 TOCTitle: "Building docfind"
 PageTitle: "Building docfind: Fast Client-Side Search with Rust and WebAssembly"
 MetaDescription: How we built docfind, a high-performance client-side search engine using Rust and WebAssembly, and how GitHub Copilot accelerated development.
-MetaSocialImage: TBD
+MetaSocialImage: docfind-social.png
 Date: 2026-01-07
 Author: João Moreno
 ---
