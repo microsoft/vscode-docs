@@ -209,10 +209,12 @@
     "name": "Enterprise",
     "area": "enterprise",
     "topics": [
+      ["Overview", "/docs/enterprise/overview"],
       ["Enterprise Policies", "/docs/enterprise/policies"],
       ["AI Settings", "/docs/enterprise/ai-settings"],
       ["Extensions", "/docs/enterprise/extensions"],
-      ["Telemetry", "/docs/enterprise/telemetry"]
+      ["Telemetry", "/docs/enterprise/telemetry"],
+      ["Updates", "/docs/enterprise/updates"]
     ]
   },
 

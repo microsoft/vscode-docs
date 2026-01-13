@@ -141,6 +141,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/enterprise/overview</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/enterprise/policies</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -152,6 +157,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/enterprise/telemetry</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/enterprise/updates</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
