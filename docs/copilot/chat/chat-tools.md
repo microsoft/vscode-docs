@@ -105,7 +105,7 @@ Tools and agent actions might result in file modifications. Learn how you can pr
 
 By default, you can choose to automatically approve any tool. To prevent accidental approvals, you can disable automatic approvals for specific tools with the `setting(chat.tools.eligibleForAutoApproval)` setting. Set the value to `false` to always require manual approval for that tool.
 
-Organizations can also use device management policies to enforce manual approvals for specific tools. Learn more in the [Enterprise documentation](/docs/setup/enterprise.md).
+Organizations can also use device management policies to enforce manual approvals for specific tools. Learn more in the [Enterprise documentation](/docs/enterprise/ai-settings.md).
 
 ### URL approval
 

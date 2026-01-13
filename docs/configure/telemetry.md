@@ -164,6 +164,6 @@ Please read the [extension guides telemetry document](/api/extension-guides/tele
 
 ## Related resources
 
-* [Centrally manage telemetry log level](/docs/setup/enterprise.md#configure-telemetry-level) - Learn how to set the telemetry log level for your organization.
+* [Centrally manage telemetry log level](/docs/enterprise/telemetry.md#configure-telemetry-level) - Learn how to set the telemetry log level for your organization.
 * [Visual Studio Code FAQ](/docs/supporting/faq.md) - Consult the Frequently Asked Questions to learn more.
 * [User and Workspace Settings](/docs/configure/settings.md) - Read about available options to customize VS Code.
