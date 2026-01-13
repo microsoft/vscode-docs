@@ -210,6 +210,7 @@
     "area": "enterprise",
     "topics": [
       ["Policy Settings", "/docs/enterprise/policies"],
+      ["AI Settings", "/docs/enterprise/ai-settings"],
       ["Extensions", "/docs/enterprise/extensions"]
     ]
   },
