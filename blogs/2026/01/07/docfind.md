@@ -50,7 +50,7 @@ With FST for fast keyword lookup, RAKE for keyword extraction, and FSST for stri
 
 ## The solution
 
-I ended up creating a single CLI tool, docfind, meant to create an index file from our website documents whenever we build the website itself. Users of this CLI tool shouldn't need any extenal dependencies other than docfind itself in order to create index files. That index file ended up being a single WebAssembly module, easily served to visitors via HTTP. When visitors come to our website, their browser downloads the WebAssembly module in the background and is used to empower the search functionality.
+I ended up creating a single CLI tool, docfind, meant to create an index file from our website documents whenever we build the website itself. Users of this CLI tool shouldn't need any external dependencies other than docfind itself in order to create index files. That index file ended up being a single WebAssembly module, easily served to visitors via HTTP. When visitors come to our website, their browser downloads the WebAssembly module in the background and is used to empower the search functionality.
 
 ### Building the index
 
