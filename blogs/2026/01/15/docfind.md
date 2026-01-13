@@ -4,13 +4,13 @@ TOCTitle: "Building docfind"
 PageTitle: "Building docfind: Fast Client-Side Search with Rust and WebAssembly"
 MetaDescription: How we built docfind, a high-performance client-side search engine using Rust and WebAssembly, and how GitHub Copilot accelerated development.
 MetaSocialImage: docfind-social.png
-Date: 2026-01-07
+Date: 2026-01-15
 Author: João Moreno
 ---
 
 # Building docfind: Fast Client-Side Search with Rust and WebAssembly
 
-January 7, 2026 by [João Moreno](https://github.com/joaomoreno)
+January 15, 2026 by [João Moreno](https://github.com/joaomoreno)
 
 If you've visited the [VS Code website](https://code.visualstudio.com/) recently, you might have noticed something new: a fast, responsive search experience that feels almost instant.
 
@@ -22,7 +22,7 @@ Behind that experience is [docfind](https://github.com/microsoft/docfind), a sea
 
 I'm currently a Software Engineering Manager on the VS Code team, so these days I don't get much time to write code. When I do, it's rarely in unfamiliar territory. But some problems just nag at you until you do something about them.
 
-Until recently, our website still had that basic search experience: you'd type a query, and it would redirect you to search results powered by a traditional search engine. Not quite what developers are used to today. I wanted those searchs results to appear instantly as you type, similar to many other websites out there. It should be something as snappy as VS Code's Quick Open (`Ctrl+P`).
+Until recently, our website still had that basic search experience: you'd type a query, and it would redirect you to search results powered by a traditional search engine. Not quite what developers are used to today. I wanted those search results to appear instantly as you type, similar to many other websites out there. It should be something as snappy as VS Code's Quick Open (`Ctrl+P`).
 
 Together with my colleague [Nick Trogh](https://github.com/nicktrog), we researched the alternatives. The landscape looked something like this:
 
@@ -171,7 +171,7 @@ Today, docfind powers the search experience on the VS Code documentation website
 For the VS Code website (~3 MB of markdown, ~3,700 documents partitioned by heading):
 
 - **Index size**: ~5.9 MB uncompressed, ~2.7 MB with Brotli compression
-- **Search speed**: ~0.4ms per query, on my M2 Macbook Air
+- **Search speed**: ~0.4ms per query, on my M2 MacBook Air
 - **Network**: Single WebAssembly module, downloaded only when the user shows intention to search
 
 No servers to maintain. No API keys to manage. No ongoing costs. Just a self-contained WebAssembly module that runs entirely in the browser, created at build time.
