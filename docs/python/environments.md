@@ -32,7 +32,7 @@ A [**virtual environment**](https://docs.python.org/3/glossary.html#term-virtual
 
 #### Conda environments
 
-A **conda environment** is a Python environment that's managed using the `conda` package manager (see [Getting started with conda](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html)).Choosing between conda and virtual environments depends on your packaging needs, team standards, etc.
+A **conda environment** is a Python environment that's managed using the `conda` package manager (see [Getting started with conda](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html)). Choosing between conda and virtual environments depends on your packaging needs, team standards, etc.
 
 ### Python environment tools
 
