@@ -1,6 +1,6 @@
 ---
 ContentId: 0aefcb70-7884-487f-953e-46c3e07f7cbe
-DateApproved: 11/12/2025
+DateApproved: 01/08/2026
 MetaDescription: Copilot is your AI pair programmer tool in Visual Studio Code. Get code suggestions as you type in the editor, or use natural language chat to ask about your code or start an editing session for implementing new feature and fixing bugs.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -27,6 +27,9 @@ Copilot provides inline code suggestions as you type, ranging from single line c
 Learn more about [inline suggestions in VS Code](/docs/copilot/ai-powered-suggestions.md).
 
 ### Autonomous coding
+
+> [!IMPORTANT]
+> Your organization might have disabled agents in VS Code. Contact your admin to enable this functionality.
 
 Agents can autonomously plan and execute complex development tasks, coordinating multi-step workflows that involve running terminal commands or invoking specialized tools. It can transform high-level requirements into working code.
 
@@ -99,7 +102,11 @@ To perform more complex tasks in an autonomous manner, use agents in the chat in
 
 1. Open the Chat view (`kb(workbench.action.chat.open)`)
 1. Select **Agent** from the agent picker
-1. Ask to generate a basic web app like: "Create a basic node.js web app for sharing recipes. Make it look modern and responsive."
+1. Ask to generate a basic web app, for example:
+
+    ```prompt
+    Create a basic node.js web app for sharing recipes. Make it look modern and responsive.
+    ```
 
 Notice how the agent independently generates code across multiple files and installs dependencies as needed for the task.
 
@@ -233,3 +240,4 @@ You can start using GitHub Copilot for free with monthly limits on inline sugges
 - [Get started with hands-on examples](/docs/copilot/getting-started.md)
 - [Customize the AI for your workflow](/docs/copilot/customization/overview.md)
 - [Learn about security considerations of using AI in VS Code](/docs/copilot/security.md)
+- [Get started with agents](/docs/copilot/agents/agents-tutorial.md)

@@ -1,6 +1,6 @@
 ---
 ContentId: 72ad9b70-5227-4032-81d7-6aec00a1e8f8
-DateApproved: 11/12/2025
+DateApproved: 01/08/2026
 MetaDescription: This tutorial gives you an overview of the key features of Visual Studio Code to help you get started quickly.
 ---
 # Tutorial: Get started with Visual Studio Code
@@ -20,23 +20,15 @@ You can use VS Code to work on individual files to make quick edits, or you can 
 
 Let's start by creating a folder and opening it in VS Code. You'll use this folder throughout the tutorial.
 
-1. Open Visual Studio Code.
+1. Open Visual Studio Code and select **File** > **Open Folder...** from the menu to open a folder.
 
-    When you first open VS Code, you should see the **Welcome** page with different actions to get started.
+1. Select **New Folder** and create a new folder named `vscode101`. Then select **Select Folder** (**Open** on macOS) to open the folder in VS Code.
 
-1. Select **File** > **Open Folder...** from the menu to open a folder.
-
-    ![Screenshot that shows VS Code after opening a folder, highlighting the Explorer view.](images/getting-started/open-folder.png)
-
-1. Select **New Folder**, create a new folder named `vscode101`, and then select **Select Folder** (**Open** on macOS).
-
-    The folder you create is the root of your workspace.
+    VS Code now considers the folder you've opened a workspace.
 
 1. On the Workspace Trust dialog, select **Yes, I trust the authors** to enable all features in the workspace.
 
     ![Screenshot that shows the Workspace Trust dialog.](images/getting-started/workspace-trust.png)
-
-    Because you created the folder on your computer, you can trust the code in the folder.
 
     > [!IMPORTANT]
     > Workspace Trust lets you decide whether code in your project folder can be executed by VS Code. When you download code from the internet, you should first review it to make sure it's safe to run. Get more info about [Workspace Trust](/docs/editing/workspaces/workspace-trust.md).
@@ -44,6 +36,8 @@ Let's start by creating a folder and opening it in VS Code. You'll use this fold
 1. You should now see the **Explorer** view on the left, showing the name of the folder.
 
     You'll use the Explorer view to view and manage the files and folders in your workspace.
+
+    ![Screenshot of VS Code with the Explorer view opened and showing the vscode101 folder.](images/getting-started/vscode-folder-opened.png)
 
 > [!TIP]
 > When you open a folder in VS Code, VS Code can restore the UI state for that folder, such as the open files, the active view, and the layout of the editor. You can also configure settings that only apply to that folder, or define debug configurations. Get more info about [workspaces](/docs/editing/workspaces/workspaces.md).
@@ -91,7 +85,7 @@ Now that you have a folder open in VS Code, let's take a quick tour of the user 
 
 ### Access the terminal from the Panel area
 
-1. VS Code has an integrated terminal. Open it by pressing `kb(workbench.action.terminal.toggleTerminal)`.
+1. VS Code has an integrated terminal. Open it by pressing `kb(workbench.action.terminal.toggleTerminal)`. You can also use the **View** > **Terminal** menu item.
 
     You can choose between different shells, such as PowerShell, Command Prompt, or Bash, depending on your operating system configuration.
 
@@ -113,9 +107,9 @@ Now that you have a folder open in VS Code, let's take a quick tour of the user 
 
 ### Access commands with the Command Palette
 
-1. Open the **Command Palette** by pressing `kb(workbench.action.showCommands)`. You can also use the **View** > **Command Palette...** menu item.
+1. Open the **Command Palette** by pressing `kb(workbench.action.showCommands)`. You can also use the **View** > **Command Palette** menu item.
 
-    Many of the commands in VS Code are available through the Command Palette. When you install extensions, they can also add commands to the Command Palette.
+    Many of the commands in VS Code are available through the Command Palette. When you install extensions, they can add extra commands to the Command Palette.
 
     ![Screenshot that shows the Command Palette.](images/getting-started/command-palette.png)
 
@@ -124,13 +118,15 @@ Now that you have a folder open in VS Code, let's take a quick tour of the user 
 
 1. The Command Palette supports different modes of operation:
 
-    1. After the `>` symbol, start typing to filter the command list. For example, type `move terminal` to find commands to move the terminal to a new window.
+    1. **Command mode (`>`)**: after the `>` symbol, start typing to filter the command list. For example, type `move terminal` to find commands to move the terminal to a new window.
 
         ![Screenshot that shows the Command Palette, listing the entries for moving the terminal.](images/getting-started/command-palette-move-terminal.png)
 
-    1. Remove the `>` character and start typing to search for files in your workspace. You can use the `kb(workbench.action.quickOpen)` keyboard shortcut to open the Command Palette and start searching for files directly.
+    1. **Quick Open mode**: remove the `>` character and start typing to search for files in your workspace. You can use the `kb(workbench.action.quickOpen)` keyboard shortcut to open the Command Palette and start searching for files directly.
 
         ![Screenshot that shows the Quick Open feature in the Command Palette.](images/getting-started/quick-open.png)
+
+    1. **Symbol search mode (`#`)**: replace the `>` character by `#` to search for symbols like variables or functions in your code.
 
 > [!TIP]
 > VS Code uses fuzzy matching to find files or commands. For example, typing `odks` returns the `Open Default Keyboard Shortcuts` command.
@@ -305,10 +301,10 @@ GitHub Copilot is an AI-powered assistant that helps you write code faster, and 
 
 Let's get started by getting code suggestions from Copilot.
 
-1. Make sure you have set up Copilot in VS Code. Follow the steps in our [Copilot Setup](/docs/copilot/setup.md) guide.
+1. Make sure you have set up GitHub Copilot in VS Code. Follow the steps in our [Copilot Setup](/docs/copilot/setup.md) guide.
 
     > [!TIP]
-    > If you don't have a Copilot subscription yet, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
+    > If you don't have a Copilot subscription yet, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of inline suggestions and chat interactions.
 
 1. In the `hello.py` file, place the cursor at the end of the file and type this function header.
 
@@ -316,7 +312,7 @@ Let's get started by getting code suggestions from Copilot.
     def say_day_of_week(date)
     ```
 
-    GitHub Copilot will automatically suggest the rest of the function. Accept the code suggestion by pressing `kbstyle(Tab)`.
+    Copilot will automatically suggest the rest of the function. Accept the code suggestion by pressing `kbstyle(Tab)`.
 
 1. Next, let's invoke our new function.
 
@@ -326,11 +322,11 @@ Let's get started by getting code suggestions from Copilot.
 
     Notice that there's a squiggle on the `date` keyword, indicating that there's an error.
 
-1. Put the cursor, on the `date` keyword, select the _lightbulb_ icon, and then select **Fix with Copilot**.
+1. Put the cursor, on the `date` keyword, select the _lightbulb_ icon, and then select **Fix**.
 
-    ![Screenshot that shows the lightbulb Code Action to fix an error with Copilot.](images/getting-started/code-action-fix-with-copilot.png)
+    ![Screenshot that shows the lightbulb Code Action to fix an error with Copilot.](images/getting-started/code-action-fix.png)
 
-    GitHub Copilot will suggest a fix for the error. Select **Accept** if you're happy with the suggestion.
+    Copilot will suggest a fix for the error. Select **Accept** if you're happy with the suggestion.
 
     > [!TIP]
     > You can also use the `kb(editor.action.quickFix)` keyboard shortcut to manually trigger a quick fix.
@@ -340,6 +336,8 @@ There's a lot more you can do with Copilot in VS Code. Discover more about GitHu
 ## Next steps
 
 Congratulations! You've completed the tutorial and explored some of the key features of Visual Studio Code. Now that you've learned the basics of Visual Studio Code, get more info about how to:
+
+- [Use AI to accelerate your coding](/docs/copilot/getting-started.md)
 
 - [Discover and run unit tests for your code](/docs/debugtest/testing.md)
 

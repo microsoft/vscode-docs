@@ -1,6 +1,6 @@
 ---
 ContentId: 7c550054-4ade-4665-b368-215798c48673
-DateApproved: 11/12/2025
+DateApproved: 01/08/2026
 MetaDescription: Learn how to configure and use Model Context Protocol (MCP) servers with GitHub Copilot in Visual Studio Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -11,6 +11,9 @@ Model Context Protocol (MCP) is an open standard that lets AI models use externa
 MCP servers are one of three ways to extend chat with tools in VS Code, alongside built-in tools and extension-contributed tools. Learn more about [types of tools](/docs/copilot/chat/chat-tools.md#types-of-tools).
 
 This article guides you through setting up MCP servers and using their capabilities in Visual Studio Code.
+
+> [!IMPORTANT]
+> Your organization might have disabled the use of MCP servers in VS Code or restricted which MCP servers you can use. Contact your admin for more information.
 
 <details>
 <summary>How does MCP work?</summary>

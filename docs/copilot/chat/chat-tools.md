@@ -1,6 +1,6 @@
 ---
 ContentId: 8f2c4a1d-9e3b-4c5f-a7d8-6b9c2e4f1a3d
-DateApproved: 11/12/2025
+DateApproved: 01/08/2026
 MetaDescription: Learn how to use built-in tools, MCP tools, and extension tools to extend chat in VS Code with specialized functionality.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -35,6 +35,9 @@ Model Context Protocol (MCP) is an open standard that enables AI models to use e
 You need to install and configure MCP servers before you can use their tools in chat. MCP servers can run locally on your machine or be hosted remotely.
 
 Learn more about [configuring MCP servers in VS Code](/docs/copilot/customization/mcp-servers.md).
+
+> [!IMPORTANT]
+> Your organization might have disabled the use of MCP servers in VS Code or restricted which MCP servers you can use. Contact your admin for more information.
 
 </details>
 
@@ -85,31 +88,73 @@ You can also explicitly reference tools in your prompts by typing `#` followed b
 
 Some tools accept parameters directly in the prompt. For example, `#fetch` requires a URL and `#githubRepo` requires a repository name.
 
+> [!TIP]
+> By default, tool call details are collapsed in the chat conversation. You can uncollapse them by selecting the tool summary line in chat, or change the default behavior with the `setting(chat.agent.thinking.collapsedTools)` setting (experimental).
+
 ## Tool approval
 
-Before chat runs certain tools, it requests confirmation to continue. This is a security measure because tools can perform actions that modify files, run commands, or access external services.
+Some tools require your approval before they can run. This is a security measure because tools can perform actions that modify files, your environment, or attempt prompt injection attacks through malicious tool output.
 
-![Screenshot of a tool confirmation dialog showing tool details and approval options.](../images/mcp-servers/mcp-tool-confirmation.png)
+When a tool requires approval, a confirmation dialog appears showing the tool details. Review the information carefully before approving the tool. You can approve the tool for a single use, for the current session, for the current workspace, or for all future invocations.
 
-You can:
+![Screenshot of a tool confirmation dialog showing tool details and approval options.](../images/chat-tools/chat-approve-tool.png)
 
-* Select **Allow** to run the tool once
-* Use the **Allow** dropdown to approve the tool for the current session, workspace, or all future invocations
-* Select **Skip** to skip the tool invocation
+Tools and agent actions might result in file modifications. Learn how you can prevent accidental [edits to sensitive files](/docs/copilot/chat/review-code-edits.md#edit-sensitive-files) in your workspace.
 
 > [!IMPORTANT]
 > Always review tool parameters carefully before approving, especially for tools that modify files, run commands, or access external services. See the [Security considerations](/docs/copilot/security.md) for using AI in VS Code.
 
+### Enable or disable tool auto approval (Experimental)
+
+By default, you can choose to automatically approve any tool. To prevent accidental approvals, you can disable automatic approvals for specific tools with the `setting(chat.tools.eligibleForAutoApproval)` setting. Set the value to `false` to always require manual approval for that tool.
+
+Organizations can also use device management policies to enforce manual approvals for specific tools. Learn more in the [Enterprise documentation](/docs/setup/enterprise.md).
+
+### URL approval
+
+When a tool attempts to access a URL, such as with the `fetch` tool, a two-step approval process is used to protect you from malicious or unexpected content. VS Code shows a confirmation dialog with the URL details for your review in the Chat view.
+
+* **Pre-approval: approving the request to the URL**
+
+    This step ensures that you trust the domain being contacted and can prevent sensitive data to be sent to untrusted sites.
+
+    ![Screenshot of a URL approval dialog showing URL details and approval options.](../images/chat-tools/chat-approve-url.png)
+
+    You have options for one-time approval or for automatically approving future requests to the specific URL or domain. Selecting auto-approval does not influence the need for reviewing the results. When you select **Allow requests to**, you can choose to configure both pre and post approvals for the URL or domain.
+
+    > [!NOTE]
+    > The pre-approval respects the ["Trusted Domains" feature](/docs/editing/editingevolved.md#_outgoing-link-protection). If a domain is listed there, you are automatically approved to make requests to that domain and defer the response reviewing step.
+
+* **Post-approval: approving the response content fetched from the URL**
+
+    This step ensures that you review the fetched content before it is added to the chat or passed to other tools, preventing potential prompt injection attacks.
+
+    For example, you might approve a request to fetch content from a well-known site, like GitHub.com. But because the content, such as issue description or comments, is user-generated, it could contain harmful content that might manipulate the model's behavior.
+
+    You have options for one-time approval or for automatically approving future responses from the specific URL or domain.
+
+    > [!IMPORTANT]
+    > The post-approval step is not linked to the "Trusted Domains" feature and always requires your review. This is a security measure to prevent issues with untrusted content on a domain that you would otherwise trust.
+
+The `setting(chat.tools.urls.autoApprove)` setting is used to store your auto-approve URL patterns. The setting value is either a boolean to enable or disable auto-approvals for both requests and responses, or an object with `approveRequest` and `approveResponse` properties for granular control. You can use exact URLs, glob patterns, or wildcards.
+
+URL auto-approval examples:
+
+```jsonc
+{
+"chat.tools.urls.autoApprove": {
+    "https://www.example.com": false,
+    "https://*.contoso.com/*": true,
+    "https://example.com/api/*": {
+        "approveRequest": true,
+        "approveResponse": false
+    }
+}
+```
+
 ### Reset tool confirmations
 
 To clear all saved tool approvals, use the **Chat: Reset Tool Confirmations** command in the Command Palette (`kb(workbench.action.showCommands)`).
-
-### Auto-approve all tools
-
-To disable all manual approvals for tools and terminal commands in all workspaces, enable the `setting(chat.tools.global.autoApprove)` setting.
-
-> [!CAUTION]
-> This setting disables critical security protections and makes it easier for an attacker to compromise the machine. Only enable this setting if you understand the security implications. See the [Security documentation](/docs/copilot/security.md) for more details.
 
 ## Edit tool parameters
 
@@ -129,7 +174,7 @@ In the chat conversation, the agent displays the commands it ran. You can view t
 
 ![Screenshot showing terminal command output in chat.](../images/chat-tools/terminal-command-output.png)
 
-Use the experimental `setting(chat.tools.terminal.outputLocation)` setting to configure where terminal command output appears.
+Use the experimental `setting(chat.tools.terminal.outputLocation)` setting to configure where terminal command output appears: inline in chat, in the integrated terminal.
 
 In the terminal pane, you can see the list of terminals that the agent has used for a chat session. You can also distinguish agent terminals by the chat icon in the terminals list.
 
@@ -166,8 +211,8 @@ For advanced scenarios, use object syntax with the `matchCommandLine` property t
 Related settings:
 
 * `setting(chat.tools.terminal.enableAutoApprove)`: permanently disable auto-approve functionality
-* `setting(chat.tools.terminal.blockDetectedFileWrites)`: detection of file writes (experimental)
-* `setting(chat.tools.terminal.ignoreDefaultAutoApproveRules)`: disable all default rules (both allow and block), giving full control over all rules.
+* `setting(chat.tools.terminal.blockDetectedFileWrites)` (experimental): detection of file writes (experimental)
+* `setting(chat.tools.terminal.ignoreDefaultAutoApproveRules)` (experimental): disable all default rules (both allow and block), giving full control over all rules.
 
 > [!CAUTION]
 > Automatically approving terminal commands provides _best effort_ protections and assumes the agent is not acting maliciously. It's important to protect yourself from prompt injection when you enable terminal auto approve, as it might be possible for some commands to slip through. Here are some examples where the detection can fall over:
@@ -249,6 +294,13 @@ You can still configure the agent to use Command Prompt with the `setting(chat.t
   "path": "C:\\WINDOWS\\System32\\cmd.exe"
 }
 ```
+
+### Can I automatically approve all tools and terminal commands?
+
+> [!CAUTION]
+> This setting disables all manual approvals, including potentially destructive actions. It removes critical security protections and makes it easier for an attacker to compromise the machine. Only enable this setting if you understand the implications. See the [Security documentation](/docs/copilot/security.md) for more details.
+>
+> To allow all tools and terminal commands to run without prompting for user confirmation, enable the `chat.tools.global.autoApprove` setting. This setting applies globally across all your workspaces!
 
 ### What's the difference between tools and chat participants?
 

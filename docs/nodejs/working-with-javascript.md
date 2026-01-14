@@ -1,6 +1,6 @@
 ---
 ContentId: 3e5af2a6-7669-4b5d-b19f-78077af14fda
-DateApproved: 11/12/2025
+DateApproved: 01/08/2026
 MetaDescription: Working with JavaScript in Visual Studio Code
 ---
 # Working with JavaScript

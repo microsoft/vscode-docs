@@ -1,6 +1,6 @@
 ---
 ContentId: 62894B41-CC33-400A-8A56-8C761C77B4C7
-DateApproved: 11/12/2025
+DateApproved: 01/08/2026
 MetaDescription: Visual Studio Code user accessibility features.  Learn here about the various ways VS Code aids user accessibility.
 ---
 # Accessibility

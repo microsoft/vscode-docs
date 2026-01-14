@@ -17,6 +17,7 @@ Follow these steps:
 1. Get last update date from existing release notes for the specified release version.
 
 1. Run a subagent to fetch all closed GitHub issues in the microsoft/vscode repo for the milestone that have the specified label and closed date as of the latest update date by using the github CLI. Save the JSON in the release note document.
+    Use this command: `gh search issues --repo microsoft/vscode --label <label name> --milestone <milestone name> --state closed "closed:>=<latest update date>" -L 100 `
 
 1. For each issue in the JSON result, run a subagent to update the release notes and TOC with a concise technically accurate summary of the issue. Get more details from the associated PRs if needed. At the end of the summary, include a link to the GH issue which include the issue number and title (format: #12345: Issue title). Group issues under an H2 section that represents the closed date.
 

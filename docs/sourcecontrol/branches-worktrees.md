@@ -1,6 +1,6 @@
 ---
 ContentId: a9b2c3d4-e5f6-7890-ab12-cd3456789012
-DateApproved: 11/12/2025
+DateApproved: 01/08/2026
 MetaDescription: Learn how to work with Git branches and worktrees in VS Code. Create, switch between, and manage multiple branches, use Git worktrees for parallel development, and manage stashes for temporary changes.
 Keywords:
 - source control
@@ -121,7 +121,7 @@ To create a new worktree in VS Code:
 
     ![Screenshot showing the Source Control Repositories view with multiple repositories listed.](images/branches-worktrees/source-control-view-repositories.png)
 
-1. Right-click on your repository and select **Worktree** > **Create Worktree**.
+1. Select your repository, open the **More Actions (...)** menu, and choose **Worktrees** > **Create Worktree**.
 
     ![Screenshot showing the worktree context menu in the Source Control Repositories view.](images/branches-worktrees/worktree-create.png)
 

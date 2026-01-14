@@ -1,6 +1,6 @@
 ---
 ContentId: 7FDF94DB-3527-4296-BE1C-493495B89408
-DateApproved: 11/12/2025
+DateApproved: 01/08/2026
 MetaDescription: Get Visual Studio Code up and running on Linux.
 ---
 # Visual Studio Code on Linux
@@ -23,7 +23,7 @@ MetaDescription: Get Visual Studio Code up and running on Linux.
 1. [Enable AI features](/docs/copilot/setup.md)
 
     > [!TIP]
-    > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
+    > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of inline suggestions and chat interactions.
 
 1. [Get started with the VS Code tutorial](/docs/getstarted/getting-started.md)
 
@@ -208,6 +208,12 @@ Debian-based distributions allow setting a default **editor** by using the [Debi
 
 ```bash
 sudo update-alternatives --set editor /usr/bin/code
+```
+
+If you've installed VS Code with the Snap package, use this command instead:
+
+```bash
+sudo update-alternatives --set editor /snap/bin/code
 ```
 
 If VS Code doesn't show up as an alternative to the default `editor`, you need to register it:

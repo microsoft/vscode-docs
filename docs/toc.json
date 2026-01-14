@@ -103,7 +103,7 @@
       ["", "", {
         "name": "Chat",
         "area": "copilot/chat",
-        "noCollapse": true,
+        "noCollapse": false,
         "topics": [
           ["Overview", "/docs/copilot/chat/copilot-chat"],
           ["Chat Sessions", "/docs/copilot/chat/chat-sessions"],
@@ -118,17 +118,29 @@
         ]
       }
       ],
+      ["", "", {
+        "name": "Agents",
+        "area": "copilot/agents",
+        "noCollapse": false,
+        "topics": [
+          ["Overview", "/docs/copilot/agents/overview"],
+          ["Agents Tutorial", "/docs/copilot/agents/agents-tutorial"],
+          ["Background Agents", "/docs/copilot/agents/background-agents"],
+          ["Cloud Agents", "/docs/copilot/agents/cloud-agents"]
+        ]
+      }
+      ],
       ["Inline Suggestions", "/docs/copilot/ai-powered-suggestions"],
-      ["Copilot Coding Agent", "/docs/copilot/copilot-coding-agent"],
       ["", "", {
         "name": "Customization",
         "area": "copilot/customization",
-        "noCollapse": true,
+        "noCollapse": false,
         "topics": [
           ["Overview", "/docs/copilot/customization/overview"],
           ["Instructions", "/docs/copilot/customization/custom-instructions"],
           ["Prompt Files", "/docs/copilot/customization/prompt-files"],
           ["Custom Agents", "/docs/copilot/customization/custom-agents"],
+          ["Skills", "/docs/copilot/customization/agent-skills"],
           ["Language Models", "/docs/copilot/customization/language-models"],
           ["MCP", "/docs/copilot/customization/mcp-servers"]
         ]
@@ -137,10 +149,11 @@
       ["", "", {
         "name": "Guides",
         "area": "copilot/guides",
-        "noCollapse": true,
+        "noCollapse": false,
         "topics": [
           ["Prompt Engineering", "/docs/copilot/guides/prompt-engineering-guide"],
           ["Context Engineering", "/docs/copilot/guides/context-engineering-guide"],
+          ["Test-Driven Development", "/docs/copilot/guides/test-driven-development-guide"],
           ["Edit Notebooks with AI", "/docs/copilot/guides/notebooks-with-ai"],
           ["Test with AI", "/docs/copilot/guides/test-with-copilot"],
           ["Debug with AI", "/docs/copilot/guides/debug-with-copilot"],
@@ -385,6 +398,7 @@
       ["Fine-tuning (Project Template)", "/docs/intelligentapps/finetune-legacy"],
       ["Model Conversion", "/docs/intelligentapps/modelconversion"],
       ["Tracing", "/docs/intelligentapps/tracing"],
+      ["Profiling (Windows ML)", "/docs/intelligentapps/profiling"],
       ["FAQ", "/docs/intelligentapps/faq"],
       ["", "", {
         "name": "Reference",
