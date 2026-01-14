@@ -13,7 +13,7 @@ Visual Studio Code extensions enhance productivity but require careful managemen
 > [!NOTE]
 > Support for allowed extensions is available starting from VS Code version 1.96.
 
-VS Code supports controlling which extension can be installed on users' machines through the `setting(extensions.allowed)` application-wide setting. You can selectively allow or block extensions by publisher, specific extension, version, and platform.
+VS Code supports controlling which extension can be installed on users' machines through the `setting(extensions.allowed)` application-wide setting. You can selectively allow extensions by publisher, specific extension, version, and platform.
 
 If the setting is not configured, all extensions are allowed. If the setting is configured, all extensions that are not listed are blocked from installing. If you block an extension or version that is already installed, the extension is disabled.
 
