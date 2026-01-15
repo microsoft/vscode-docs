@@ -248,7 +248,7 @@ To remove policies and revert to default settings:
 
 ## Linux JSON policies
 
-Starting from VS Code version 1.106, you can configure VS Code setting policies on Linux devices by placing a JSON policy file at `/etc/vscode/policy.json`. This approach uses a simple JSON format to define policy values.
+You can configure VS Code setting policies on Linux devices by placing a JSON policy file at `/etc/vscode/policy.json`. This approach uses a simple JSON format to define policy values.
 
 These profiles can be deployed using Mobile Device Management (MDM) solutions or installed manually on individual devices.
 
