@@ -473,7 +473,7 @@ Learn more about [MCP development mode](/api/extension-guides/ai/mcp.md#mcp-deve
 
 ## Centrally control MCP access
 
-Organizations can centrally manage access to MCP servers via GitHub policies. Learn more about [enterprise management of MCP servers](/docs/setup/enterprise.md#configure-mcp-server-access).
+Organizations can centrally manage access to MCP servers via GitHub policies. Learn more about [enterprise management of MCP servers](/docs/enterprise/ai-settings.md#configure-mcp-server-access).
 
 ## Frequently asked questions
 
