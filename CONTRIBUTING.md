@@ -231,7 +231,9 @@ Images are important to bring the product to life and clarify the written conten
 
 * Link to an image using relative path names, the path and filename are case-sensitive.
 
-* Images are cached on the server for indeterminate time, so don't update images in-place. Create a new file and add a version indicator (yyyymmddseq) to the image filename. 
+* Images are cached on the server for indeterminate time, so don't update images in-place. Create a new file and add a version indicator (yyyymmddseq) to the image filename.
+
+For detailed guidance about creating and adding screenshots, see the [Images and Screenshots](https://github.com/microsoft/vscode-docs/wiki/Style-Guide#images-and-screenshots) section in the Style Guide wiki.
 
 > [!IMPORTANT]
 > Make sure you have Git LFS enabled on your machine!
@@ -267,6 +269,30 @@ function fancyAlert(arg) {
   }
 }
 ```
+
+### Prompt Code Blocks
+
+For prompts that should be interactive in the documentation, use the `prompt` code block syntax. This renders an "Open in VS Code" button on the website that launches VS Code chat and inserts the prompt in the chat input box.
+
+There are two types of prompt code blocks:
+
+* **`prompt`** - Opens the prompt with the default "Agent"
+
+  ````markdown
+  ```prompt
+  Create a simple todo app with HTML, CSS, and JavaScript.
+  ```
+  ````
+
+* **`prompt-<custom-agent>`** - Opens the prompt with a specified custom agent
+
+  ````markdown
+  ```prompt-plan
+  Create a plan to add a dark/light theme toggle to the app.
+  ```
+  ````
+
+Use prompt code blocks when you want readers to easily try the prompt in VS Code Chat. The prompt text should be complete and actionable.
 
 ## Gotchas
 
