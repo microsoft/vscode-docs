@@ -40,9 +40,10 @@ If you automatically accept all edits, it's strongly recommended to still review
 
 ## Edit sensitive files
 
-To prevent inadvertent edits to sensitive files, such as workspace configuration settings or environment settings, VS Code prompts you to approve edits before they are applied. In chat, you can see a diff view of the proposed changes and choose to approve or reject them.
+To prevent inadvertent edits to sensitive files, such as workspace configuration settings or environment settings, VS Code prompts you to approve edits before they are finalized.
 
-Use the `setting(chat.tools.edits.autoApprove)` setting to configure which files require approval. The setting uses glob patterns to match file paths in your workspace.
+
+If you wish to see a diff view of proposed changes in chat _before_ the edits are made and choose to approve or reject them from chat first, use the `setting(chat.tools.edits.autoApprove)` setting to configure which files require approval from chat. The setting uses glob patterns to match file paths in your workspace. The default is to _not_ show most diffs in chat first.
 
 The following example configuration automatically allows edits to all files except for JSON files in the `.vscode` folder and files named `.env`, which you are prompted to approve:
 
