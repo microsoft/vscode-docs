@@ -347,7 +347,7 @@ Editor Groups are the containers of editors. There can be many editor groups. A 
 
 ## Editor colors
 
-The most prominent editor colors are the token colors used for syntax highlighting and are based on the language grammar installed. These colors are defined by the Color Theme but can also be customized with the `editor.tokenColorCustomizations` setting. See [Customize a Color Theme](/docs/getstarted/themes#_customize-a-color-theme) for details on updating a Color Theme and the available token types.
+The most prominent editor colors are the token colors used for syntax highlighting and are based on the language grammar installed. These colors are defined by the Color Theme but can also be customized with the `editor.tokenColorCustomizations` setting. See [Customize a Color Theme](/docs/configure/themes#_customize-a-color-theme) for details on updating a Color Theme and the available token types.
 
 All other editor colors are listed here:
 
