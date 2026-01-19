@@ -51,11 +51,11 @@ Learn more about [creating custom agents](/docs/copilot/customization/custom-age
 <details>
 <summary>How are agents different from subagents?</summary>
 
-Subagents enable agents to break down complex tasks and perform them in isolated contexts. A subagent is an autonomous agent that is started as part of an agent session but operates independently and has its own context window. Subagents are useful to optimize context management for complex multi-step tasks like research or analysis. An agent can create multiple subagents to handle different parts of single user request.
+Subagents enable agents to break down complex tasks and perform them in isolated contexts. A subagent is an autonomous agent that is started as part of an agent session but operates independently and has its own context window. Subagents are useful to optimize context management for complex multi-step tasks like research or analysis. An agent can create multiple subagents to handle different parts of a single user request.
 
 For example, if you ask an agent to research a topic and summarize the findings, it can create a subagent to handle the research part. The subagent gathers information, processes it, and returns only the final summary to the main agent, keeping the main context focused on the primary conversation.
 
-Similar to agents themselves, subagents can also take advantage of custom agents to assume specific roles or personas for their tasks. If a subagent needs to be perform research, you can have it use a "Researcher" custom agent that is optimized for gathering, analyzing, and summarizing information.
+Similar to agents themselves, subagents can also take advantage of custom agents to assume specific roles or personas for their tasks. If a subagent needs to perform research, you can have it use a "Researcher" custom agent that is optimized for gathering, analyzing, and summarizing information.
 
 Subagents are currently only supported in local agent sessions in VS Code.
 
