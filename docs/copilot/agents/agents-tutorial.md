@@ -46,6 +46,9 @@ In this step, you use a local agent to create the initial todo app structure. Lo
 
     Optionally, choose a specific language model if you have a preference.
 
+    > [!IMPORTANT]
+    > If you don't see the agent option, make sure agents are enabled in your VS Code settings (`setting(chat.agent.enabled)`). Your organization might also have disabled agents - contact your admin to enable this functionality.
+
 1. Enter the following prompt in the chat input field to scaffold the todo app and select **Send**.
 
     ```prompt

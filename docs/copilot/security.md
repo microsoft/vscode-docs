@@ -124,7 +124,7 @@ VS Code includes robust protections for sensitive information used in AI-assiste
 
 ### Enterprise policies
 
-Organizations can implement [centralized security controls](/docs/setup/enterprise.md#centrally-manage-vs-code-settings) to manage AI-assisted development capabilities across their development teams.
+Organizations can implement [centralized security controls](/docs/enterprise/policies.md) to manage AI-assisted development capabilities across their development teams.
 
 ## User responsibilities and best practices
 
@@ -149,4 +149,4 @@ While VS Code includes many security protections, users should remain proactive 
 * [MCP server trust](/docs/copilot/customization/mcp-servers.md#mcp-server-trust)
 * [Manage tool auto approvals](/docs/copilot/chat/chat-tools.md#tool-approval)
 * [Extension runtime security](/docs/configure/extensions/extension-runtime-security.md)
-* [VS Code enterprise support](/docs/setup/enterprise.md)
+* [VS Code enterprise support](/docs/enterprise/overview.md)

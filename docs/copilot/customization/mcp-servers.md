@@ -12,6 +12,9 @@ MCP servers are one of three ways to extend chat with tools in VS Code, alongsid
 
 This article guides you through setting up MCP servers and using their capabilities in Visual Studio Code.
 
+> [!IMPORTANT]
+> Your organization might have disabled the use of MCP servers in VS Code or restricted which MCP servers you can use. Contact your admin for more information.
+
 <details>
 <summary>How does MCP work?</summary>
 
@@ -470,7 +473,7 @@ Learn more about [MCP development mode](/api/extension-guides/ai/mcp.md#mcp-deve
 
 ## Centrally control MCP access
 
-Organizations can centrally manage access to MCP servers via GitHub policies. Learn more about [enterprise management of MCP servers](/docs/setup/enterprise.md#configure-mcp-server-access).
+Organizations can centrally manage access to MCP servers via GitHub policies. Learn more about [enterprise management of MCP servers](/docs/enterprise/ai-settings.md#configure-mcp-server-access).
 
 ## Frequently asked questions
 

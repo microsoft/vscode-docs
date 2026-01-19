@@ -99,7 +99,7 @@ Here are some of the filters available:
 
 * `@ext`: settings specific to an extension. You provide the extension ID such as `@ext:ms-python.python`.
 * `@feature`: settings specific to a **Features** subgroup. For example, `@feature:explorer` shows settings of the File Explorer.
-* `@haspolicy`: settings that are controlled by your [organization](/docs/setup/enterprise.md).
+* `@haspolicy`: settings that are controlled by your [organization](/docs/enterprise/policies.md).
 * `@id`: find a setting based on the setting ID. For example, `@id:workbench.activityBar.visible`.
 * `@lang`: apply a language filter based on a language ID. For example, `@lang:typescript`. See [Language-specific editor settings](#language-specific-editor-settings) for more details.
 * `@tag`: settings specific to a system of VS Code. For example, `@tag:workspaceTrust` for settings related to [Workspace Trust](/docs/editing/workspaces/workspace-trust.md), `@tag:accessibility` for settings related to accessibility, or `@tag:advanced` for advanced VS Code settings.

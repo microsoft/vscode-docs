@@ -43,7 +43,7 @@ Before you install an extension, you can take various steps to determine if it's
     ![Verified publisher](images/extension-marketplace/bluecheck.png)
 
 > [!TIP]
-> If you want to enforce which extensions are allowed to be used in your organization, check out how to [configure allowed extensions in VS Code](/docs/setup/enterprise.md#configure-allowed-extensions).
+> If you want to enforce which extensions are allowed to be used in your organization, check out how to [configure allowed extensions in VS Code](/docs/enterprise/extensions.md#configure-allowed-extensions).
 
 ## Marketplace protections
 
@@ -83,4 +83,4 @@ To report an extension:
 
 * Use [Workspace Trust](/docs/editing/workspaces/workspace-trust.md) to decide whether code in a project folder can be executed by VS Code and extensions without explicit approval. This adds an extra layer of security when working with unfamiliar code.
 
-* Configure [allowed extensions in VS Code](/docs/setup/enterprise.md#configure-allowed-extensions) to enforce which extensions are allowed to be used in your organization.
+* Configure [allowed extensions in VS Code](/docs/enterprise/extensions.md#configure-allowed-extensions) to enforce which extensions are allowed to be used in your organization.

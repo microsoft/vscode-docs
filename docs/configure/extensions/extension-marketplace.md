@@ -366,7 +366,7 @@ Get more information about [extension runtime security](/docs/configure/extensio
 
 ### Can I host extensions internally for my organization?
 
-Yes, see the [Private Marketplace for Extensions](https://code.visualstudio.com/docs/setup/enterprise#_private-marketplace-for-extensions).
+Yes, see the [Private Marketplace for Extensions](/docs/enterprise/extensions.md#host-a-private-extension-marketplace).
 
 ### The extension signature cannot be verified by VS Code
 
@@ -407,4 +407,4 @@ VS Code does not synchronize your extensions to or from a [remote](/docs/remote/
 
 You can control which extensions can be installed in your organization by configuring the `extensions.allowed` application setting. If the setting is not configured, all extensions are allowed. If the setting is configured, all extensions not listed are blocked from installing.
 
-Get more details about [configuring allowed extensions](/docs/setup/enterprise.md#configure-allowed-extensions).
+Get more details about [configuring allowed extensions](/docs/enterprise/extensions.md#configure-allowed-extensions).

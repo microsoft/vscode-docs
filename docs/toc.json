@@ -11,7 +11,6 @@
       ["Raspberry Pi", "/docs/setup/raspberry-pi"],
       ["Network", "/docs/setup/network"],
       ["Additional Components", "/docs/setup/additional-components"],
-      ["Enterprise", "/docs/setup/enterprise"],
       ["Uninstall", "/docs/setup/uninstall"]
     ]
   },
@@ -153,6 +152,7 @@
         "topics": [
           ["Prompt Engineering", "/docs/copilot/guides/prompt-engineering-guide"],
           ["Context Engineering", "/docs/copilot/guides/context-engineering-guide"],
+          ["Test-Driven Development", "/docs/copilot/guides/test-driven-development-guide"],
           ["Edit Notebooks with AI", "/docs/copilot/guides/notebooks-with-ai"],
           ["Test with AI", "/docs/copilot/guides/test-with-copilot"],
           ["Debug with AI", "/docs/copilot/guides/debug-with-copilot"],
@@ -202,6 +202,19 @@
       ["Shell Integration", "/docs/terminal/shell-integration"],
       ["Appearance", "/docs/terminal/appearance"],
       ["Advanced", "/docs/terminal/advanced"]
+    ]
+  },
+
+  {
+    "name": "Enterprise",
+    "area": "enterprise",
+    "topics": [
+      ["Overview", "/docs/enterprise/overview"],
+      ["Enterprise Policies", "/docs/enterprise/policies"],
+      ["AI Settings", "/docs/enterprise/ai-settings"],
+      ["Extensions", "/docs/enterprise/extensions"],
+      ["Telemetry", "/docs/enterprise/telemetry"],
+      ["Updates", "/docs/enterprise/updates"]
     ]
   },
 
