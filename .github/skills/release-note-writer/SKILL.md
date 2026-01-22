@@ -1,5 +1,5 @@
 ---
-name: vscode-release-notes-writer
+name: release-note-writer
 description: Guidelines for writing and reviewing Insiders and Stable release notes for Visual Studio Code.
 ---
 # Visual Studio Code Release Note Writer Guidelines
