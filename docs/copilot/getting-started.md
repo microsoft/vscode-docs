@@ -11,7 +11,7 @@ GitHub Copilot transforms how you write code in Visual Studio Code. In this hand
 By the end of this tutorial, you'll have both a working web application and a personalized AI coding setup that adapts to your development style.
 
 <div class="docs-action" data-show-in-doc="true" data-show-in-sidebar="true" title="Create the sample app">
-Use chat in VS Code to generate the sample task management web application in one go. Choose your preferred language model and development stack.
+Use chat in VS Code to generate the sample application in one go.
 
 * [Open in VS Code](vscode://GitHub.Copilot-Chat/chat?agent=agent%26prompt=%23newWorkspace%20task%20manager%20web%20application%20with%20the%20ability%20to%20add%2C%20delete%2C%20and%20mark%20tasks%20as%20completed.%20Add%20the%20code%2C%20custom%20instructions%2C%20and%20custom%20agent%20definition%20to%20this%20new%20workspace%20as%20described%20in%20https%3A%2F%2Fcode.visualstudio.com%2Fdocs%2Fcopilot%2Fgetting-started%0AAsk%20the%20user%20which%20tech%20stack%20they%20want%20to%20use.)
 
