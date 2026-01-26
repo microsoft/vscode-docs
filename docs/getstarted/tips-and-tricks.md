@@ -1,6 +1,6 @@
 ---
 ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
-DateApproved: 11/12/2025
+DateApproved: 01/08/2026
 MetaDescription: Visual Studio Code Tips and Tricks for power users.
 ---
 # Visual Studio Code tips and tricks
@@ -650,7 +650,7 @@ The Outline view in the File Explorer (default collapsed at the bottom) shows yo
 
 ![Outline view](images/tips-and-tricks/outline-view.png)
 
-You can sort by symbol name, category, and position in the file and allows quick navigation to symbol locations.
+You can sort by symbol name, category, and position in the file, allowing quick navigation to symbol locations.
 
 ### Navigate to a specific line
 

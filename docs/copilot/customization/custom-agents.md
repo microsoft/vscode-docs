@@ -1,6 +1,6 @@
 ---
 ContentId: 276ecd8f-2a76-467e-bf82-846d49c13ab5
-DateApproved: 11/12/2025
+DateApproved: 01/08/2026
 MetaDescription: Learn how to create custom agents (formerly custom chat modes) to tailor AI chat behavior in VS Code for your specific workflows and development scenarios.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -13,7 +13,7 @@ You can also use handoffs to create guided workflows between agents, allowing yo
 This article describes how to create and manage custom agents in VS Code.
 
 > [!NOTE]
-> Custom agents are available as of VS Code release 1.106 and in preview. Custom agents were previously known as custom chat modes.
+> Custom agents are available as of VS Code release 1.106. Custom agents were previously known as custom chat modes.
 
 ## What are custom agents?
 
@@ -23,11 +23,16 @@ Custom agents consist of a set of instructions and tools that are applied when y
 
 Custom agents are defined in a `.agent.md` Markdown file, and can be stored in your workspace for others to use, or in your user profile, where you can reuse them across different workspaces.
 
+You can reuse your custom agents in [background agents](/docs/copilot/agents/background-agents.md) and [cloud agents](/docs/copilot/agents/cloud-agents.md), enabling you to run autonomous tasks with the same specialized configurations.
+
 ## Why use custom agents?
 
 Different tasks require different capabilities. A planning agent might only need read-only tools for research and analysis to prevent accidental code changes, while an implementation agent would need full editing capabilities. Custom agents let you specify exactly which tools are available for each task, ensuring the AI has the right capabilities for the job.
 
 Custom agents also let you provide specialized instructions that define how the AI should operate. For instance, a planning agent could instruct the AI to collect project context and generate a detailed implementation plan, while a code review agent might focus on identifying security vulnerabilities and suggesting improvements. These specialized instructions ensure consistent, task-appropriate responses every time you switch to that agent.
+
+> [!NOTE]
+> Subagents can run with a custom agent. Learn more about running [subagents with custom agents](/docs/copilot/chat/chat-sessions.md#use-a-custom-agent-with-subagents-experimental) (experimental).
 
 ## Handoffs
 
@@ -73,6 +78,7 @@ The header is formatted as YAML frontmatter with the following fields:
 | `argument-hint`   | Optional hint text shown in the chat input field to guide users on how to interact with the custom agent. |
 | `tools`           | A list of tool or tool set names that are available for this custom agent. Can include built-in tools, tool sets, MCP tools, or tools contributed by extensions. To include all tools of an MCP server, use the `<server name>/*` format.<br/>Learn more about [tools in chat](/docs/copilot/chat/chat-tools.md). |
 | `model`           | The AI model to use when running the prompt. If not specified, the currently selected model in model picker is used. |
+| `infer`           | Optional boolean flag to enable use of the custom agent as a [subagent](/docs/copilot/chat/chat-sessions.md#contextisolated-subagents) (default is `true`). |
 | `target`          | The target environment or context for the custom agent (`vscode` or `github-copilot`). |
 | `mcp-servers`     | Optional list of Model Context Protocol (MCP) server config json to use with [custom agents in GitHub Copilot](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents) (target: `github-copilot`). |
 | `handoffs`        | Optional list of suggested next actions or prompts to transition between custom agents. Handoff buttons appear as interactive suggestions after a chat response completes. |
@@ -158,11 +164,21 @@ If you have multiple custom agents, you can customize which ones appear in the a
 
 You can specify the list of available tools for both a custom agent and prompt file by using the `tools` metadata field. Prompt files can also reference a custom agent by using the `agent` metadata field.
 
-The list available tools in chat is determined by the following priority order:
+The list of available tools in chat is determined by the following priority order:
 
 1. Tools specified in the prompt file (if any)
 2. Tools from the referenced custom agent in the prompt file (if any)
 3. Default tools for the selected agent (if any)
+
+## Share custom agents across teams (Experimental)
+
+To share custom agents across your team, you can create a workspace-level custom agent (`.github/agents` folder). If you want to share custom agents across multiple workspaces within your organization, you can define them at the GitHub organization level.
+
+VS Code automatically detects custom agents defined at the organization level to which your account has access. These agents appear in the Agents dropdown in chat alongside the built-in agents, and your personal and workspace custom agents.
+
+To enable discovery of organization-level custom agents, set `setting(github.copilot.chat.customAgents.showOrganizationAndEnterpriseAgents)` to `true`.
+
+Learn how you can [create custom agents for your organization](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents) in the GitHub documentation.
 
 ## Frequently asked questions
 
@@ -171,6 +187,24 @@ The list available tools in chat is determined by the following priority order:
 Custom agents were previously known as custom chat modes. The functionality remains the same, but the terminology has been updated to better reflect their purpose in customizing AI behavior for specific tasks.
 
 VS Code still recognizes any existing `.chatmode.md` files as custom agents. You can use a Quick Fix action to rename and move them to the new `.github/agents` folder with a `.agent.md` extension.
+
+### How do I remove a custom agent?
+
+To completely remove a custom agent from VS Code:
+
+* Delete the corresponding `.agent.md` file from your workspace or user profile.
+* Select **Configure Custom Agents** from the agents dropdown, hover over the custom agent in the list, and select the trash icon.
+
+To remove a custom agent that was contributed by an extension, you need to uninstall the extension that provides it. If you don't want to uninstall the extension, you can hide the custom agent from the agents dropdown instead. Follow the steps in [Customize the agents dropdown list](#customize-the-agents-dropdown-list).
+
+### How do I know where a custom agent comes from?
+
+Custom agents can come from different sources: built-in agents, user-defined agents in your profile, workspace-defined agents in your current workspace, organization-defined agents, or extension-contributed agents.
+
+To identify the source of a custom agent:
+
+1. Select **Configure Custom Agents** from the agents dropdown.
+1. Hover over the custom agent in the list. The source location is displayed in a tooltip.
 
 ## Related resources
 

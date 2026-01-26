@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
-DateApproved: 11/12/2025
+DateApproved: 01/08/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various Contribution Points it is using in its package.json Extension Manifest file.
@@ -827,6 +827,7 @@ Currently extension writers can contribute to:
 - `scm/resourceFolder/context` - [SCM resource folders](/api/extension-guides/scm-provider#menus) menus
 - `scm/resourceState/context` - [SCM resources](/api/extension-guides/scm-provider#menus) menus
 - `scm/change/title` - [SCM change title](/api/extension-guides/scm-provider#menus) menus
+- `scm/repository` - [SCM repository menu](/api/extension-guides/scm-provider#menus)
 - `scm/sourceControl`- [SCM source control menu](/api/extension-guides/scm-provider#menus)
 - `terminal/context` - terminal context menu
 - `terminal/title/context` - terminal title context menu

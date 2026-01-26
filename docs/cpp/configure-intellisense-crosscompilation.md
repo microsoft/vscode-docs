@@ -2,6 +2,8 @@
 ContentId: 381b7ce1-5766-49b0-ad26-f9eedae70e63
 DateApproved: 1/17/2023
 MetaDescription: Configure Visual Studio Code c_cpp_properties.json to get IntelliSense when you are compiling for a different platform
+Keywords:
+- C++
 ---
 # IntelliSense for cross-compiling
 

@@ -1,6 +1,6 @@
 ---
 ContentId: 77828f36-ae45-4887-b25c-34545edd52d3
-DateApproved: 11/12/2025
+DateApproved: 01/08/2026
 MetaDescription: A Python hello world tutorial using the Python extension in Visual Studio Code
 MetaSocialImage: images/tutorial/python-social.png
 ---
@@ -248,7 +248,7 @@ To install the required packages in your virtual environment, enter the followin
    python3 -m pip install numpy
 
    # Windows (may require elevation)
-   py -m pip install numpy
+   python -m pip install numpy
 
    # Linux (Debian)
    apt-get install python3-tk

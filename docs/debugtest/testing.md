@@ -1,6 +1,6 @@
 ---
 ContentId: d44f1a5c-5454-4037-92d5-c2bf5d4cffed
-DateApproved: 11/12/2025
+DateApproved: 01/08/2026
 MetaDescription: One of the great things in Visual Studio Code is testing support. Automatically discover tests in your project, run and debug your tests, and get test coverage results.
 ---
 # Testing
@@ -10,7 +10,7 @@ Visual Studio Code provides a rich set of features for testing your code. You ca
 In this article, you'll learn how to start with testing in VS Code, find popular testing extensions, and explore the testing features. You'll also learn how Copilot in VS Code can help you write tests faster and can assist you in fixing failing tests.
 
 > [!TIP]
-> If you don't have a Copilot subscription yet, use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup). You'll get a monthly limit of completions and chat interactions.
+> If you don't have a Copilot subscription yet, use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup). You'll get a monthly limit of inline suggestions and chat interactions.
 
 <!-- ![Testing in Visual Studio Code](images/testing/testing-hero.png) -->
 
@@ -170,6 +170,12 @@ After you run tests with coverage, you can view the coverage results in differen
 * In the diff editor
 
     If you have a diff editor open, the coverage results are also shown in the diff editor, similar to how they're shown in the editor.
+
+* In the Test Coverage toolbar
+
+	The Test Coverage toolbar in the editor shows the test coverage results, lets you navigate between uncovered code blocks, and toggle inline coverage. Enable the Test Coverage toolbar with the `setting(testing.coverageToolbarEnabled)` setting.
+
+	![Test Coverage toolbar](images/testing/test-coverage-toolbar.png)
 
 ## Task integration
 

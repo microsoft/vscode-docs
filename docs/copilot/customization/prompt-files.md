@@ -1,6 +1,6 @@
 ---
 ContentId: 5c8e7d42-9b1a-4f85-a3e2-6d5b8a9c1e43
-DateApproved: 11/12/2025
+DateApproved: 01/08/2026
 MetaDescription: Learn how to create reusable prompt files for GitHub Copilot Chat in VS Code to standardize common development tasks and improve your coding workflow efficiency.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -28,7 +28,7 @@ The header is formatted as YAML frontmatter with the following fields:
 | `description`     | A short description of the prompt. |
 | `name`            | The name of the prompt, used after typing `/` in chat. If not specified, the file name is used. |
 | `argument-hint`   | Optional hint text shown in the chat input field to guide users on how to interact with the prompt. |
-| `agent`           | The agent used for running the prompt: `ask`, `edit`, `agent` (default), or the name of a [custom agent](/docs/copilot/customization/custom-agents.md). |
+| `agent`           | The agent used for running the prompt: `ask`, `edit`, `agent`, or the name of a [custom agent](/docs/copilot/customization/custom-agents.md). By default, the current agent is used. If tools are specified and the current agent is `ask` or `edit`, the default agent is `agent`. |
 | `model`           | The language model used when running the prompt. If not specified, the currently selected model in model picker is used. |
 | `tools`           | A list of tool or tool set names that are available for this prompt. Can include built-in tools, tool sets, MCP tools, or tools contributed by extensions. To include all tools of an MCP server, use the `<server name>/*` format.<br/>Learn more about [tools in chat](/docs/copilot/chat/chat-tools.md). |
 
@@ -109,13 +109,11 @@ When you create a prompt file, choose whether to store it in your workspace or u
 
 To create a prompt file:
 
-1. Enable the `setting(chat.promptFiles)` setting.
-
 1. In the Chat view, select **Configure Chat** (gear icon) > **Prompt Files**, and then select **New prompt file**.
 
     ![Screenshot showing the Chat view, and Configure Chat menu, highlighting the Configure Chat button.](../images/customization/configure-chat-instructions.png)
 
-    Alternatively, use the **Chat: New Prompt File** command from the Command Palette (`kb(workbench.action.showCommands)`).
+    Alternatively, use the **Chat: New Prompt File** or **Chat: New Untitled Prompt File** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
 1. Choose the location where the prompt file should be created.
 
@@ -155,7 +153,7 @@ You have multiple options to run a prompt file:
 
 You can specify the list of available tools for both a custom agent and prompt file by using the `tools` metadata field. Prompt files can also reference a custom agent by using the `agent` metadata field.
 
-The list available tools in chat is determined by the following priority order:
+The list of available tools in chat is determined by the following priority order:
 
 1. Tools specified in the prompt file (if any)
 2. Tools from the referenced custom agent in the prompt file (if any)
@@ -184,6 +182,17 @@ To sync your user prompt files, enable Settings Sync for prompt and instruction 
 * Take advantage of built-in variables like `${selection}` and input variables to make prompts more flexible.
 
 * Use the editor play button to test your prompts and refine them based on the results.
+
+## Frequently asked questions
+
+### How do I know where a prompt file comes from?
+
+Prompt files can come from different sources: built-in, user-defined in your profile, workspace-defined prompts in your current workspace, or extension-contributed prompts.
+
+To identify the source of a prompt file:
+
+1. Select **Chat: Configure Prompt Files** from the Command Palette (`kb(workbench.action.showCommands)`).
+1. Hover over the prompt file in the list. The source location is displayed in a tooltip.
 
 ## Related resources
 

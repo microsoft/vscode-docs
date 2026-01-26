@@ -1,6 +1,6 @@
 ---
 ContentId: 7c550054-4ade-4665-b368-215798c48673
-DateApproved: 11/12/2025
+DateApproved: 01/08/2026
 MetaDescription: Learn how to configure and use Model Context Protocol (MCP) servers with GitHub Copilot in Visual Studio Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -11,6 +11,9 @@ Model Context Protocol (MCP) is an open standard that lets AI models use externa
 MCP servers are one of three ways to extend chat with tools in VS Code, alongside built-in tools and extension-contributed tools. Learn more about [types of tools](/docs/copilot/chat/chat-tools.md#types-of-tools).
 
 This article guides you through setting up MCP servers and using their capabilities in Visual Studio Code.
+
+> [!IMPORTANT]
+> Your organization might have disabled the use of MCP servers in VS Code or restricted which MCP servers you can use. Contact your admin for more information.
 
 <details>
 <summary>How does MCP work?</summary>
@@ -60,7 +63,7 @@ VS Code supports the following MCP capabilities:
 ## Add an MCP server
 
 > [!CAUTION]
-> MCP servers can run arbitrary code on your machine. Only add servers from trusted sources, and review the publisher and server configuration before starting it. VS Code prompts you to confirm that you [trust the MCP server](#mcp-server-trust) when you start an MCP server for the first time. Read the [Security documentation](/docs/copilot/security.md) for using AI in VS Code to understand the implications.
+> Local MCP servers can run arbitrary code on your machine. Only add servers from trusted sources, and review the publisher and server configuration before starting it. VS Code prompts you to confirm that you [trust the MCP server](#mcp-server-trust) when you start an MCP server for the first time. Read the [Security documentation](/docs/copilot/security.md) for using AI in VS Code to understand the implications.
 
 ### Add an MCP server from the GitHub MCP server registry
 
@@ -470,7 +473,7 @@ Learn more about [MCP development mode](/api/extension-guides/ai/mcp.md#mcp-deve
 
 ## Centrally control MCP access
 
-Organizations can centrally manage access to MCP servers via GitHub policies. Learn more about [enterprise management of MCP servers](/docs/setup/enterprise.md#configure-mcp-server-access).
+Organizations can centrally manage access to MCP servers via GitHub policies. Learn more about [enterprise management of MCP servers](/docs/enterprise/ai-settings.md#configure-mcp-server-access).
 
 ## Frequently asked questions
 

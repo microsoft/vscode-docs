@@ -2,6 +2,8 @@
 ContentId: 4E34F6AF-BFC6-4BBB-8464-2E50C85AE826
 DateApproved: 4/25/2025
 MetaDescription: How to customize the c_cpp_properties.json file for the C++ extension.
+Keywords:
+- C++
 ---
 # C++ extension settings reference
 

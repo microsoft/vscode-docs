@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 11/12/2025
+DateApproved: 01/08/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -71,6 +71,7 @@ Colors inside a text document, such as the welcome page.
 - `textLink.foreground`: Foreground color for links in text.
 - `textPreformat.foreground`: Foreground color for preformatted text segments.
 - `textPreformat.background`: Background color for preformatted text segments.
+- `textPreformat.border`: Border color for preformatted text segments.
 - `textSeparator.foreground`: Color for text separators.
 
 ## Action colors
@@ -346,7 +347,7 @@ Editor Groups are the containers of editors. There can be many editor groups. A 
 
 ## Editor colors
 
-The most prominent editor colors are the token colors used for syntax highlighting and are based on the language grammar installed. These colors are defined by the Color Theme but can also be customized with the `editor.tokenColorCustomizations` setting. See [Customizing a Color Theme](/docs/getstarted/themes#customizing-a-color-theme) for details on updating a Color Theme and the available token types.
+The most prominent editor colors are the token colors used for syntax highlighting and are based on the language grammar installed. These colors are defined by the Color Theme but can also be customized with the `editor.tokenColorCustomizations` setting. See [Customize a Color Theme](/docs/configure/themes#_customize-a-color-theme) for details on updating a Color Theme and the available token types.
 
 All other editor colors are listed here:
 
@@ -423,11 +424,8 @@ The current line is typically shown as either background highlight or a border (
 ![Line Highlight](images/theme-color/line.png)
 
 - `editor.lineHighlightBackground`: Background color for the highlight of line at the cursor position.
+- `editor.inactiveLineHighlightBackground`: Background color for the highlight of line at the cursor position when the editor is not focused.
 - `editor.lineHighlightBorder`: Background color for the border around the line at the cursor position.
-
-The color for the editor watermark
-
-- `editorWatermark.foreground`: Foreground color for the labels in the editor watermark.
 
 The color for unicode highlights
 
@@ -559,6 +557,7 @@ This ruler is located beneath the scroll bar on the right edge of the editor and
 - `editorOverviewRuler.bracketMatchForeground`: Overview ruler marker color for matching brackets.
 - `editorOverviewRuler.inlineChatInserted`: Overview ruler marker color for inline chat inserted content.
 - `editorOverviewRuler.inlineChatRemoved`: Overview ruler marker color for inline chat removed content.
+- `editorOverviewRuler.commentDraftForeground`: Editor overview ruler decoration color for comment threads with draft comments. This color should be opaque.
 
 Errors and warnings:
 
@@ -597,6 +596,7 @@ The gutter contains the glyph margins and the line numbers:
 - `editorGutter.foldingControlForeground`: Color of the folding control in the editor gutter.
 - `editorGutter.itemGlyphForeground`: Editor gutter decoration color for gutter item glyphs.
 - `editorGutter.itemBackground`: Editor gutter decoration color for gutter item background. This color should be opaque.
+- `editorGutter.commentDraftGlyphForeground`: Editor gutter decoration color for commenting glyphs for comment threads with draft comments.
 
 The editor comments widget can be seen when reviewing pull requests:
 
@@ -1324,6 +1324,11 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `markdownAlert.important.foreground`: Foreground color for important alerts in markdown.
 - `markdownAlert.warning.foreground`: Foreground color for warning alerts in markdown.
 - `markdownAlert.caution.foreground`: Foreground color for caution alerts in markdown.
+
+## Agent Session colors
+- `agentSessionReadIndicator.foreground`: Foreground color for the read indicator in an agent session.
+- `agentSessionSelectedBadge.border`: Border color for the badges in selected agent session items.
+- `agentSessionSelectedUnfocusedBadge.border`: Border color for the badges in selected agent session items when the view is unfocused.
 
 ## Extension colors
 

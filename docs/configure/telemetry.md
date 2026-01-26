@@ -1,6 +1,6 @@
 ---
 ContentId: 47a2e3b1-24f2-42e6-a6e6-272c2a0f3218
-DateApproved: 11/12/2025
+DateApproved: 01/08/2026
 MetaDescription: Learn about telemetry collection in Visual Studio Code and how to opt out.
 ---
 # Telemetry
@@ -164,6 +164,6 @@ Please read the [extension guides telemetry document](/api/extension-guides/tele
 
 ## Related resources
 
-* [Centrally manage telemetry log level](/docs/setup/enterprise.md#configure-telemetry-level) - Learn how to set the telemetry log level for your organization.
+* [Centrally manage telemetry log level](/docs/enterprise/telemetry.md#configure-telemetry-level) - Learn how to set the telemetry log level for your organization.
 * [Visual Studio Code FAQ](/docs/supporting/faq.md) - Consult the Frequently Asked Questions to learn more.
 * [User and Workspace Settings](/docs/configure/settings.md) - Read about available options to customize VS Code.

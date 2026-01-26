@@ -1,6 +1,6 @@
 ---
 ContentId: 8faef870-7a5f-4070-ad17-8ba791006912
-DateApproved: 11/12/2025
+DateApproved: 01/08/2026
 MetaDescription: Visual Studio Code command-line interface (switches).
 ---
 # Command Line Interface (CLI)
@@ -135,6 +135,7 @@ Argument|Description
 `--verbose` | Print verbose output (implies `--wait`).
 `--prof-startup` | Run CPU profiler during startup.
 `--upload-logs` | Uploads logs from current session to a secure endpoint.
+`--remote <authority>` | Connect to a remote development environment. The authority specifies the remote connection for [WSL](/docs/remote/wsl.md#from-the-windows-command-prompt) (`wsl+<distro name> <path in WSL>`) or for [SSH](/docs/remote/troubleshooting.md#connect-to-a-remote-host-from-the-terminal) (`ssh-remote+<remote_server> <path on remote>`).
 **Multi-root**|
 `--add <dir>` | Add folder(s) to the last active window for a multi-root workspace.
 `--remove <dir>` | Remove folder(s) from the last active window for a multi-root workspace.

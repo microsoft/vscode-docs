@@ -1,6 +1,6 @@
 ---
 ContentId: 80f4fa1e-d4c5-42cf-8b12-4b8e88c41c3e
-DateApproved: 11/12/2025
+DateApproved: 01/08/2026
 MetaDescription:  Learn about Visual Studio Code IntelliSense (intelligent code completion).
 ---
 # IntelliSense
@@ -183,11 +183,17 @@ To get started:
 1. Discover the key functionality with our [Copilot quickstart](/docs/copilot/getting-started.md).
 
 > [!TIP]
-> If you don't have a Copilot subscription yet, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
+> If you don't have a Copilot subscription yet, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of inline suggestions and chat interactions.
 
 ## Troubleshooting
 
 If you find IntelliSense has stopped working, the language service may not be running. Try restarting VS Code and this should solve the issue. If you are still missing IntelliSense features after installing a language extension, open an issue in the repository of the language extension.
+
+> [!NOTE]
+> In very large workspaces, IntelliSense features may be partially disabled for
+> performance reasons. If this happens, try excluding large folders (such as
+> `node_modules` or build output directories) using the `setting(files.exclude)` or
+> `setting(search.exclude)` settings.
 
 > [!TIP]
 > For configuring and troubleshooting JavaScript IntelliSense, see the [JavaScript documentation](/docs/languages/javascript.md#intellisense).

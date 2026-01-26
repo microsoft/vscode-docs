@@ -1,6 +1,6 @@
 ---
 ContentId: 8966BBFD-C66D-4283-9DCA-8CAC0179886E
-DateApproved: 11/12/2025
+DateApproved: 01/08/2026
 MetaDescription: Visual Studio Code is a first class editor - but it's also so much more with features such as IntelliSense and smart code navigation.
 ---
 # Code Navigation
@@ -50,6 +50,12 @@ Allowed values are:
 * `position` - position in the file (default)
 * `name` - alphabetical order
 * `type` - symbol type order
+
+### Breadcrumb path copying
+
+You can copy the full breadcrumb path by right-clicking on the editor tab and selecting **Copy Breadcrumbs Path**. This will copy the full path including file and symbol names to the clipboard.
+
+You can configure the symbol path separator with the `setting(breadcrumbs.symbolPathSeparator)` setting. The default value is `.`.
 
 ### Breadcrumb keyboard navigation
 

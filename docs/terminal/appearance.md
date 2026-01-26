@@ -1,6 +1,6 @@
 ---
 ContentId: F1AA7F3E-E078-4C02-B2DE-EC3F5F36F751
-DateApproved: 11/12/2025
+DateApproved: 01/08/2026
 MetaDescription: Visual Studio Code's integrated terminal allows customizing its appearance in various ways.
 ---
 # Terminal Appearance
@@ -166,9 +166,19 @@ The default `setting(terminal.integrated.gpuAcceleration)` value of `auto` tries
 
 ### Custom glyphs
 
-When [GPU acceleration](#gpu-acceleration) is enabled, custom rendering, rather than the font, improves how some characters display in the terminal. These include box drawing characters (`U+2500-U+257F`), block elements (`U+2580-U+259F`) and a subset of Powerline symbols (`U+E0B0-U+E0BF`). This means that the configured font does not need to support these characters as well as having the characters draw pixel perfect and stretch to the size of the entire cell.
+When [GPU acceleration](#gpu-acceleration) is enabled, custom rendering, rather than the font, improves how some characters display in the terminal. The following unicode ranges are supported:
 
-Below are some examples of these characters with custom line height and letter spacing configured. Notice how there are no gaps between cells thanks to the custom glyphs:
+- Box Drawing (`U+2500`-`U+257F`)
+- Block Elements (`U+2580`-`U+259F`)
+- Braille Patterns (`U+2800`-`U+28FF`)
+- Powerline Symbols (`U+E0A0`-`U+E0D4`, Private Use Area)
+- Progress Indicators (`U+EE00`-`U+EE0B`, Private Use Area)
+- Git Branch Symbols (`U+F5D0`-`U+F60D`, Private Use Area)
+- Symbols for Legacy Computing (`U+1FB00`-`U+1FBFF`)
+
+This also means that the configured font does not need to include these characters, as well as having them draw pixel perfect and where appropriate will stretch to the size of the entire cell.
+
+Below are all ~800 supported characters in the above ranges:
 
 ![Box drawing, block characters and some Powerline symbols fill the entire cell in the terminal](images/appearance/custom-glyphs.png)
 

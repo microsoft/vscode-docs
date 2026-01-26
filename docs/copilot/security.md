@@ -1,6 +1,6 @@
 ---
 ContentId: c99a8442-e202-4427-b7c3-695469a00f92
-DateApproved: 11/12/2025
+DateApproved: 01/08/2026
 MetaDescription: Understand security considerations, built-in protections, and best practices when using AI-powered development features like agents and MCP servers in VS Code.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -124,7 +124,7 @@ VS Code includes robust protections for sensitive information used in AI-assiste
 
 ### Enterprise policies
 
-Organizations can implement [centralized security controls](/docs/setup/enterprise.md#centrally-manage-vs-code-settings) to manage AI-assisted development capabilities across their development teams.
+Organizations can implement [centralized security controls](/docs/enterprise/policies.md) to manage AI-assisted development capabilities across their development teams.
 
 ## User responsibilities and best practices
 
@@ -136,7 +136,7 @@ While VS Code includes many security protections, users should remain proactive 
 
 * **Review MCP servers**: Verify that MCP servers come from a trustworthy source and review their configuration before starting them. Enable only MCP servers when you need their functionality.
 
-* **Open new codebases in restricted mode**: Until you've reviewed a project for malicious code like watch tasks or scripts, rely on the Workspace Trust boundary and open it in restricted mode. Opening a workspace in restricted mode also disables agents in that workspace.
+* **Open untrusted or external codebases in restricted mode**: Until you've reviewed a project for malicious content, rely on the Workspace Trust boundary and open it in restricted mode. Any file could be pulled into the context by using agents and could theoretically result in a prompt injection attack. Opening a workspace in restricted mode disables agents in that workspace.
 
 * **Consider using dev containers or VMs for isolation**: For enhanced security, run prompt with agents in isolated environments like [dev containers](https://code.visualstudio.com/docs/devcontainers/containers), GitHub Codespaces, or virtual machines to limit potential impact.
 
@@ -149,4 +149,4 @@ While VS Code includes many security protections, users should remain proactive 
 * [MCP server trust](/docs/copilot/customization/mcp-servers.md#mcp-server-trust)
 * [Manage tool auto approvals](/docs/copilot/chat/chat-tools.md#tool-approval)
 * [Extension runtime security](/docs/configure/extensions/extension-runtime-security.md)
-* [VS Code enterprise support](/docs/setup/enterprise.md)
+* [VS Code enterprise support](/docs/enterprise/overview.md)

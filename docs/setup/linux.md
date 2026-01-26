@@ -1,6 +1,6 @@
 ---
 ContentId: 7FDF94DB-3527-4296-BE1C-493495B89408
-DateApproved: 11/12/2025
+DateApproved: 01/08/2026
 MetaDescription: Get Visual Studio Code up and running on Linux.
 ---
 # Visual Studio Code on Linux
@@ -23,7 +23,7 @@ MetaDescription: Get Visual Studio Code up and running on Linux.
 1. [Enable AI features](/docs/copilot/setup.md)
 
     > [!TIP]
-    > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
+    > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of inline suggestions and chat interactions.
 
 1. [Get started with the VS Code tutorial](/docs/getstarted/getting-started.md)
 
@@ -59,9 +59,9 @@ MetaDescription: Get Visual Studio Code up and running on Linux.
     1. Run the following script to install the signing key:
 
         ```bash
-        sudo apt-get install wget gpg
-        wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-        sudo install -D -o root -g root -m 644 microsoft.gpg /usr/share/keyrings/microsoft.gpg
+        sudo apt-get install wget gpg &&
+        wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg &&
+        sudo install -D -o root -g root -m 644 microsoft.gpg /usr/share/keyrings/microsoft.gpg &&
         rm -f microsoft.gpg
         ```
 
@@ -79,8 +79,8 @@ MetaDescription: Get Visual Studio Code up and running on Linux.
     1. Lastly, update the package cache and install the package:
 
         ```bash
-        sudo apt install apt-transport-https
-        sudo apt update
+        sudo apt install apt-transport-https &&
+        sudo apt update &&
         sudo apt install code # or code-insiders
         ```
 
@@ -94,21 +94,21 @@ We currently ship the stable 64-bit VS Code for RHEL, Fedora, or CentOS based di
 1. Install the key and yum repository by running the following script:
 
     ```bash
-    sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+    sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc &&
     echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo > /dev/null
     ```
 
 1. Then update the package cache and install the package using `dnf` (Fedora 22 and above):
 
     ```bash
-    dnf check-update
+    dnf check-update &&
     sudo dnf install code # or code-insiders
     ```
 
     Or on older versions using `yum`:
 
     ```bash
-    yum check-update
+    yum check-update &&
     sudo yum install code # or code-insiders
     ```
 
@@ -141,8 +141,8 @@ The yum repository [mentioned previously](#rhel-fedora-and-centos-based-distribu
 1. Install the  key and yum repository by running the following script:
 
     ```bash
-    sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
-    echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" |sudo tee /etc/zypp/repos.d/vscode.repo > /dev/null
+    sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc &&
+    echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/zypp/repos.d/vscode.repo > /dev/null
     ```
 
 1. Then update the package cache and install the package using:
@@ -208,6 +208,12 @@ Debian-based distributions allow setting a default **editor** by using the [Debi
 
 ```bash
 sudo update-alternatives --set editor /usr/bin/code
+```
+
+If you've installed VS Code with the Snap package, use this command instead:
+
+```bash
+sudo update-alternatives --set editor /snap/bin/code
 ```
 
 If VS Code doesn't show up as an alternative to the default `editor`, you need to register it:

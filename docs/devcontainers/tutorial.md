@@ -1,7 +1,7 @@
 ---
 ContentId: 8e1fb9e0-1a67-4e0c-a21b-c5ab9a6d979c
 MetaDescription: Get started with development Containers in Visual Studio Code
-DateApproved: 11/12/2025
+DateApproved: 01/08/2026
 ---
 # Dev Containers tutorial
 
