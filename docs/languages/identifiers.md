@@ -58,71 +58,76 @@ The following table lists known language identifiers:
 
 Language | Identifier
 -------- | ----------
-ABAP | `abap`
-Windows Bat | `bat`
+Agent | `chatagent`
+Batch | `bat`
 BibTeX | `bibtex`
-Clojure | `clojure`
-Coffeescript | `coffeescript`
+Binary | `code-text-binary`
 C | `c`
-C++ | `cpp`
 C# | `csharp`
+C++ | `cpp`
+Clojure | `clojure`
+Code Snippets | `snippets`
+CoffeeScript | `coffeescript`
 Compose | `dockercompose`
 CSS | `css`
 CUDA C++ | `cuda-cpp`
-D | `d`
 Dart | `dart`
-Delphi | `pascal`
 Diff | `diff`
-Dockerfile | `dockerfile`
-Erlang | `erlang`
+Docker | `dockerfile`
+Dotenv | `dotenv`
 F# | `fsharp`
-Git | `git-commit` and `git-rebase`
+Git Commit Message | `git-commit`
+Git Rebase Message | `git-rebase`
 Go | `go`
 Groovy | `groovy`
 Handlebars | `handlebars`
-Haml | `haml`
-Haskell	| `haskell`
+HLSL | `hlsl`
 HTML | `html`
+Ignore | `ignore`
 Ini | `ini`
+Instructions | `instructions`
 Java | `java`
 JavaScript | `javascript`
 JavaScript JSX | `javascriptreact`
 JSON | `json`
+JSON Lines | `jsonl`
 JSON with Comments | `jsonc`
 Julia | `julia`
+Julia Markdown | `juliamarkdown`
 LaTeX | `latex`
 Less | `less`
+Log | `log`
 Lua | `lua`
 Makefile | `makefile`
 Markdown | `markdown`
+MS SQL | `sql`
 Objective-C | `objective-c`
 Objective-C++ | `objective-cpp`
-OCaml | `ocaml`
-Pascal | `pascal`
-Perl | `perl` and `perl6`
+Perl | `perl`
 PHP | `php`
 Plain Text | `plaintext`
 PowerShell | `powershell`
-Pug | `jade`, `pug`
+Prompt | `prompt`
+Properties | `properties`
+Pug | `jade`
 Python | `python`
 R | `r`
-Razor (cshtml) | `razor`
+Raku | `raku`
+Razor | `razor`
+reStructuredText | `restructuredtext`
 Ruby | `ruby`
 Rust | `rust`
-SCSS | `scss` (syntax using curly brackets), `sass` (indented syntax)
+SCSS | `scss`
+Search Result | `search-result`
 ShaderLab | `shaderlab`
-Shell Script (Bash) | `shellscript`
-Slim | `slim`
-SQL | `sql`
-Stylus | `stylus`
-Svelte | `svelte`
+Shell Script | `shellscript`
+Skill | `skill`
 Swift | `swift`
+TeX | `tex`
 TypeScript | `typescript`
 TypeScript JSX | `typescriptreact`
-TeX | `tex`
 Visual Basic | `vb`
-Vue | `vue`
-Vue HTML | `vue-html`
+WebAssembly Text Format | `wat`
 XML | `xml`
 XSL | `xsl`
 YAML | `yaml`
