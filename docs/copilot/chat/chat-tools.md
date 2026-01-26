@@ -220,6 +220,9 @@ Related settings:
 > * VS Code uses PowerShell and bash tree sitter grammars to extract sub-commands, so patterns are not detected if these grammars don't detect them.
 > * VS Code uses bash grammar because there is no zsh or fish grammar, so some sub-commands are not detected.
 > * Detection of file writes is currently minimal, so it might be possible to write to files with the terminal that would not be possible by using the file editing agent tools.
+> * Subverting auto approval is possible through various techniques such as quote concatenation. For example `find -exec` is normally blocked, but `find -e"x"ec` is not, despite doing the same thing.
+>
+> If prompt injection is a possibility or you're in a high risk environment, you should look into sandboxing or running VS Code within a container.
 
 ## Group tools with tool sets
 
