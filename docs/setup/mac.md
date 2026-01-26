@@ -33,11 +33,9 @@ MetaDescription: Get Visual Studio Code up and running on Mac (macOS).
 
 1. [Download Visual Studio Code](https://go.microsoft.com/fwlink/?LinkID=534106) for macOS.
 
-1. Open the browser's download list and locate the downloaded app or archive.
+1. Open the downloaded `.dmg` file
 
-1. If archive, extract the archive contents. Use double-click for some browsers or select the 'magnifying glass' icon with Safari.
-
-1. Drag `Visual Studio Code.app` to the **Applications** folder, making it available in the macOS Launchpad.
+1. Drag `Visual Studio Code.app` to the **Applications** folder
 
 1. Open VS Code from the **Applications** folder, by double clicking the icon.
 
