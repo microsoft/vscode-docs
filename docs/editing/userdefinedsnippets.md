@@ -94,6 +94,83 @@ Most user-defined snippets are scoped to a single language, and so are defined i
 
 You can also have a global snippets file (JSON with file suffix `.code-snippets`) scoped to your project. Project-folder snippets are created with the **New Snippets file for '\<folder-name\>'...** option in the **Snippets: Configure Snippets** dropdown menu and are located at the root of the project in a `.vscode` folder. Project snippet files are useful for sharing snippets with all users working in that project. Project-folder snippets are similar to global snippets and can be scoped to specific languages through the `scope` property.
 
+### File pattern scope
+
+You can further control when snippets appear by using the optional `include` and `exclude` properties to specify file patterns. These properties work with both language-specific and global snippet files, and can be combined with the `scope` property for more precise control over snippet suggestions.
+
+* `include` - A glob pattern or array of glob patterns that specifies which files the snippet should appear in.
+* `exclude` - A glob pattern or array of glob patterns that specifies which files the snippet should not appear in.
+
+Pattern matching works as follows:
+
+* **Filename-only patterns** (for example, `*.test.ts`) match based on the filename, regardless of the file's location in your project.
+* **Path-based patterns** (for example, `**/*.test.ts` or `**/dist/**`) match against the full file path.
+* If a file matches both `include` and `exclude` patterns, the `exclude` pattern takes precedence.
+* If neither property is specified, the snippet appears in all applicable files based on the `scope` property.
+
+<details>
+<summary>Examples</summary>
+
+**Example: Test snippets**
+
+This snippet only appears in TypeScript test files:
+
+```json
+{
+  "Test Block": {
+    "prefix": "test",
+    "body": [
+      "test('${1:description}', () => {",
+      "\t${0}",
+      "});"
+    ],
+    "description": "Insert a test block",
+    "scope": "typescript",
+    "include": ["**/*.test.ts", "**/*.spec.ts"]
+  }
+}
+```
+
+**Example: Excluding directories**
+
+This snippet appears in all JavaScript files except those in `dist` or `node_modules` directories:
+
+```json
+{
+  "Console Log": {
+    "prefix": "log",
+    "body": "console.log(${0});",
+    "description": "Insert console.log",
+    "scope": "javascript",
+    "exclude": ["**/dist/**", "**/node_modules/**"]
+  }
+}
+```
+
+**Example: Configuration file snippet**
+
+This snippet only appears in `travis.yml` files, using a filename-only pattern:
+
+```json
+{
+  "Travis CI Node": {
+    "prefix": "travis-node",
+    "body": [
+      "language: node_js",
+      "node_js:",
+      "  - ${1:18}"
+    ],
+    "description": "Travis CI Node.js configuration",
+    "scope": "yaml",
+    "include": ["travis.yml"]
+  }
+}
+```
+
+</details>
+
+Using `include` and `exclude` patterns helps reduce clutter in IntelliSense by showing snippets only where they are relevant.
+
 ## Snippet syntax
 
 The `body` of a snippet can use special constructs to control cursors and the text being inserted. The following are supported features and their syntaxes:
