@@ -35,6 +35,12 @@ To modify a setting in VS Code with the Settings editor:
     > [!TIP]
     > To show the settings you've modified, select the **modified** filter value in the Settings editor search bar.
 
+## Welcome page
+
+By default, VS Code shows a welcome page when you start it. The welcome page provides quick access to common tasks such as opening recent projects, cloning repositories, and installing extensions.
+
+You can customize what VS Code shows when you start it. If you frequently work with agent sessions, set the `setting(workbench.startupEditor)` setting to `agentSessionsWelcomePage` to show a welcome page with recent sessions, embedded chat, and quick actions. Learn more about the [Agent Sessions Welcome Page](/docs/copilot/chat/chat-sessions.md#vs-code-welcome-page).
+
 Get more details about [configuring settings in VS Code](/docs/configure/settings.md), such as configuring language-specific settings or syncing settings across machines.
 
 ## Change default keyboard shortcuts

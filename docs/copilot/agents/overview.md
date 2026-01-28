@@ -194,9 +194,11 @@ You can create a new agent session from the Chat view or by using the correspond
     * **New Chat**: start a new local agent session in the Chat view
     * **New Chat Editor**: start a new local agent session as an editor tab
     * **New Chat Window**: start a new local agent session in a separate VS Code window
-    * **New Background/Cloud/Codex Agent**: start a new background, cloud, or Codex agent session in the Chat view
+    * **New Codex Agent**: start a new Codex agent session in the Chat view
 
 At any time, you can move an agent session from the Chat view to a chat editor or new window via the actions in the overflow menu (...).
+
+You can also start new agent sessions from the [VS Code welcome page](/docs/copilot/chat/chat-sessions.md#vs-code-welcome-page). Change its layout with the `setting(workbench.startupEditor)` setting set to `agentSessionsWelcomePage` to quickly access recent sessions and start new tasks when you open VS Code.
 
 Alternatively, use the following commands from the Command Palette (`kb(workbench.action.showCommands)`):
 

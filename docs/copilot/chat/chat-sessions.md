@@ -66,6 +66,16 @@ Learn more about agents and [viewing and managing agent sessions](/docs/copilot/
 > [!TIP]
 > Make the Chat view wider to automatically switch to side-by-side mode or use the toggle button in the top-right corner of the Chat view.
 
+## VS Code welcome page
+
+The VS Code welcome page can act as your startup experience for working with agent sessions. It provides quick access to your recent agent sessions, an embedded chat widget for starting new tasks, and quick actions for common tasks.
+
+![Screenshot of the VS Code welcome page showing recent agent sessions and embedded chat.](../images/chat-sessions/agent-sessions-welcome-page.png)
+
+To configure the VS Code welcome page as your startup experience, set the `setting(workbench.startupEditor)` setting to `agentSessionsWelcomePage`.
+
+Learn more about [configuring the startup experience](/docs/getstarted/personalize-vscode.md) and [agent sessions settings](/docs/copilot/reference/copilot-settings.md#agent-sessions).
+
 ## Save and export chat sessions
 
 You can save chat sessions to preserve important conversations or reuse them later for similar tasks.
