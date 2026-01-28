@@ -59,10 +59,8 @@ MetaDescription: Get Visual Studio Code up and running on Linux.
     1. Run the following script to install the signing key:
 
         ```bash
-        sudo apt-get install wget gpg &&
-        wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg &&
-        sudo install -D -o root -g root -m 644 microsoft.gpg /usr/share/keyrings/microsoft.gpg &&
-        rm -f microsoft.gpg
+        sudo apt install wget gpg &&
+        wget -qO- https://packages.microsoft.com/keys/microsoft.asc | sudo gpg --dearmor -o /usr/share/keyrings/microsoft.gpg
         ```
 
     1. Create a `/etc/apt/sources.list.d/vscode.sources` file with the following contents to add a reference to the upstream package repository:
@@ -79,7 +77,6 @@ MetaDescription: Get Visual Studio Code up and running on Linux.
     1. Lastly, update the package cache and install the package:
 
         ```bash
-        sudo apt install apt-transport-https &&
         sudo apt update &&
         sudo apt install code # or code-insiders
         ```
