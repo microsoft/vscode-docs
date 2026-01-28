@@ -21,6 +21,23 @@ VS Code supports the following glob syntax:
 
 **Note:** Paths are separated by `/` and not `\` even on Windows. But when applied, glob patterns will match paths with both slash and backslashes.
 
+## Case sensitivity
+
+Glob pattern matching behavior differs based on the platform's file system:
+
+* **Windows and macOS**: Glob patterns are **case-insensitive** by default. For example, the pattern `**/MyFolder/**` will match `myfolder/`, `MyFolder/`, `MYFOLDER/`, and any other case variation.
+* **Linux**: Glob patterns are **case-sensitive**. The pattern `**/MyFolder/**` will only match folders with that exact casing.
+
+This platform-aware behavior applies to all uses of glob patterns in VS Code, including:
+
+* Search view include/exclude patterns
+* `setting(files.exclude)` setting
+* `setting(search.exclude)` setting
+* `.gitignore` file patterns
+* Search Editor patterns
+
+**Remote development:** When working with remote workspaces (such as WSL, SSH, or dev containers), the glob matching behavior follows the **remote** file system's case sensitivity rules, not the local client's operating system.
+
 ## Special cases
 
 Glob patterns in the Search view work differently than in settings such as `setting(files.exclude)` and `setting(search.exclude)`. In the settings, you must use `**/example` to match a folder named `example` in subfolder `folder1/example` in your workspace. In the Search view, the `**` prefix is assumed. The glob patterns in these settings are always evaluated relative to the path of the workspace folder.

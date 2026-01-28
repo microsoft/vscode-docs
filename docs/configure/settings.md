@@ -273,6 +273,9 @@ Setting values can be of various types:
 * Array - `"editor.rulers": []`
 * Object - `"search.exclude": { "**/node_modules": true, "**/bower_components": true }`
 
+> [!NOTE]
+> Settings like `files.exclude` and `search.exclude` use [glob patterns](/docs/editor/glob-patterns.md) that follow your operating system's file system case sensitivity (case-insensitive on Windows/macOS, case-sensitive on Linux).
+
 Values with primitive types and Array types are overridden, meaning a configured value in a scope that takes precedence over another scope is used instead of the value in the other scope. But, values with Object types are merged.
 
 For example, `setting(workbench.colorCustomizations)` takes an Object that specifies a group of UI elements and their desired colors. If your user settings set the editor backgrounds to blue and green:
