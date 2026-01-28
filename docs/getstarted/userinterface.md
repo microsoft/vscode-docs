@@ -138,6 +138,8 @@ You can also navigate to the location of a file or folder in the native operatin
 
 By default, VS Code excludes some folders from showing in the Explorer view, such as `.git`. Use the `setting(files.exclude)` setting to configure rules for hiding files and folders from the Explorer view. Glob patterns in this setting follow your operating system's case sensitivity rules (case-insensitive on Windows/macOS, case-sensitive on Linux). Learn more about [glob patterns](/docs/editor/glob-patterns.md).
 
+You can also hide files and folders that are specified in your `.gitignore` files by enabling the `setting(explorer.excludeGitIgnore)` setting. When enabled, `.gitignore` patterns are applied with case-insensitive matching on Windows and macOS, and case-sensitive matching on Linux. For example, a pattern like `node_modules` in your `.gitignore` will match `node_modules/`, `Node_Modules/`, `NODE_MODULES/`, and other case variations on Windows and macOS, but only exact matches on Linux.
+
 > [!TIP]
 > You can hide derived resources files, like `*.meta` in Unity, or `*.js` in a TypeScript project. For Unity to exclude the `*.cs.meta` files, the pattern to choose would be: `"**/*.cs.meta": true`. For TypeScript, you can exclude generated JavaScript for TypeScript files with: `"**/*.js": {"when": "$(basename).ts"}`.
 

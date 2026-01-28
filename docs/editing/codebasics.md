@@ -212,6 +212,9 @@ Note that glob patterns in the Search view work differently than in settings suc
 
 Also note the **Use Exclude Settings and Ignore Files** toggle button in the **files to exclude** box. The toggle determines whether to exclude files that are ignored by your `.gitignore` files and/or matched by your `setting(files.exclude)` and `setting(search.exclude)` settings.
 
+> [!NOTE]
+> Patterns in `.gitignore` files are matched case-insensitively on Windows and macOS, and case-sensitively on Linux. Learn more about [glob pattern case sensitivity](/docs/editor/glob-patterns.md#case-sensitivity).
+
 > [!TIP]
 > From the Explorer, you can right-click on a folder and select **Find in Folder** to search inside a folder only.
 
