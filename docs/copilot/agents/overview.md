@@ -168,6 +168,25 @@ Right-click a session in the list to see additional actions, such as different o
 
 To hide the session list from the Chat view, right-click in an empty chat and unselect **Show Sessions** (`setting(chat.viewSessions.enabled)`).
 
+### Agent status indicator (Experimental)
+
+The agent status indicator provides quick access to your agent sessions directly from the command center in the title bar. The indicator displays visual badges for unread messages and in-progress sessions, helping you stay informed about your AI agent activity without switching views.
+
+![Screenshot showing the Agent Status Indicator in the command center with unread and in-progress badges.](../images/agents-overview/agent-status-indicator.png)
+
+The indicator shows:
+
+* **Unread sessions badge**: Displays the count of chat sessions with new messages. Select the badge to filter the sessions list to show only unread sessions.
+* **In-progress sessions badge**: Displays the count of sessions with running agents. Select the badge to filter the sessions list to show only in-progress sessions.
+* **Sparkle icon**: Provides quick access to chat and session management options.
+
+You can configure the indicator's behavior with the `setting(chat.agentsControl.clickBehavior)` setting to toggle chat visibility, cycle through chat states (show, maximize, hide), or focus the chat input.
+
+When a filter is active, the sessions list automatically expands to show all matching sessions. Select the badge again to clear the filter and return to the default view.
+
+> [!NOTE]
+> The agent status indicator is an experimental feature. Enable it with `setting(chat.agentsControl.enabled)`. The unread and in-progress indicators require `setting(chat.viewSessions.enabled)` to be enabled.
+
 > [!NOTE]
 > Extension developers can learn how to integrate with the Agents view with the proposed API [`chatSessionsProvider`](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.chatSessionsProvider.d.ts). The API is currently in a proposed state and subject to change.
 
