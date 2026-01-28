@@ -290,7 +290,7 @@ To get the best results from chat, keep these tips in mind when writing prompts:
 
 * **Add context with `#`-mentions**: reference specific files (`#file`), your codebase (`#codebase`), or terminal output (`#terminalSelection`). Type `#` in the chat input field to view all available context items. Learn more about [adding context to your prompts](/docs/copilot/chat/copilot-chat-context.md).
 
-* **Use `/` commands**: type `/` to access common commands like `/new`, or `/explain`, or create your own [custom prompts](/docs/copilot/customization/prompt-files.md).
+* **Use `/` commands**: type `/` to access common commands like `/new`, `/plan`, or `/explain`, or create your own [custom prompts](/docs/copilot/customization/prompt-files.md).
 
 * **Reference tools**: type `#` followed by a tool name to extend chat capabilities. For example, `#fetch` retrieves web content, and `#githubRepo` searches GitHub repositories. Learn more about [adding and using tools in chat](/docs/copilot/chat/chat-tools.md).
 

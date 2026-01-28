@@ -149,6 +149,7 @@ Slash commands are shortcuts to specific functionality within the chat. You can 
 | `/clear` | Start a new chat session in the Chat view. |
 | `/new` | Scaffold a new VS Code workspace or file. Use natural language to describe the type of project/file you need, and preview the scaffolded content before creating it. |
 | `/newNotebook` | Scaffold a new Jupyter notebook based on your requirements. Use natural language to describe what the notebook should contain. |
+| `/plan` | Create a detailed implementation plan for a complex coding task. Research requirements, ask clarifying questions, and generate a structured plan with steps, verification, and decisions. |
 | `/search` | Generate a search query for the Search view. Use natural language to describe what you want to search for. |
 | `/startDebugging` | Generate a `launch.json` debug configuration file and start a debugging session from the Chat view. |
 | `/<prompt name>` | Run a [reusable prompt](/docs/copilot/customization/prompt-files.md) in chat. |
@@ -188,7 +189,7 @@ Use the [plan agent](/docs/copilot/chat/chat-planning.md) in VS Code chat to cre
 
 | Action | Description |
 |--------|-------------|
-| Plan agent | Select the **Plan** agent from the agents dropdown in the Chat view to create a detailed implementation plan for complex coding tasks. |
+| Plan agent | Select the **Plan** agent from the agents dropdown or use the `/plan` slash command to create a detailed implementation plan for complex coding tasks. |
 | Todo list (Experimental) | Enable the `todos` tool in the tools picker to track progress on complex tasks with a todo list. |
 
 ## Customize your chat experience
