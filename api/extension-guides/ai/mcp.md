@@ -49,6 +49,7 @@ VS Code supports the following MCP capabilities:
     * Authentication: authorize access to an MCP server using OAuth
     * Server instructions
     * Roots: provide information about the user's workspace root folder(s)
+    * [MCP Apps](https://modelcontextprotocol.github.io/ext-apps/api/): return interactive UI components from tools
 
 ### Tools
 
@@ -167,6 +168,62 @@ Users can view the sampling requests made by an MCP server with the **MCP: List 
 ### Workspace roots
 
 VS Code provides the MCP server with the user's workspace root folder information.
+
+### MCP Apps
+
+MCP Apps enable tools to return interactive UI components that render inline in chat instead of text-only output. This is useful for scenarios like drag-and-drop list reordering, visualizations, forms, and multi-step workflows.
+
+#### Architecture
+
+MCP Apps use a Tool + UI Resource pattern:
+
+1. Define a tool that returns a `_meta.ui.resourceUri` pointing to a UI resource
+1. Create a UI resource with the `ui://` URI scheme and MIME type `text/html;profile=mcp-app`
+1. The HTML resource runs in a sandboxed iframe and uses the MCP Apps SDK to communicate with VS Code
+
+#### SDK
+
+Use the [`@modelcontextprotocol/ext-apps`](https://github.com/modelcontextprotocol/ext-apps) package to build MCP Apps. The SDK provides:
+
+- **`App` class**: Main interface for communicating with the host
+    - `connect()`: Establish connection with VS Code
+    - `callServerTool(name, args)`: Call tools on the originating MCP server
+    - `sendMessage(content)`: Send a message to the chat input
+    - `updateModelContext(context)`: Provide context for future conversation turns
+    - `openLink(url)`: Request to open a URL in the browser
+    - `sendLog(level, message)`: Send debug logs (not added to conversation)
+
+- **Notification handlers**: Set these to receive events from VS Code
+    - `ontoolinput`: Receive complete tool arguments
+    - `ontoolinputpartial`: Receive streaming partial arguments
+    - `ontoolresult`: Receive tool execution results
+    - `ontoolcancelled`: Handle tool cancellation
+    - `onhostcontextchanged`: Respond to theme or locale changes
+    - `onteardown`: Clean up before unmounting
+
+#### VS Code behavior and limitations
+
+| Feature | VS Code Support |
+| ------- | --------------- |
+| Display modes | `inline` only (not `fullscreen` or `pip`) |
+| Send message | Fills chat input box; does not auto-send |
+| Context updates | Appear as attachments |
+| Clipboard write | Supported |
+| Camera, microphone, geolocation | Not supported |
+
+#### Security
+
+MCP Apps run in sandboxed iframes with Content Security Policy (CSP) enforcement. When defining a UI resource, declare the domains your app needs to access:
+
+- `connectDomains`: Domains for fetch/XHR requests
+- `resourceDomains`: Domains for images, fonts, and other resources
+- `frameDomains`: Domains that can be embedded in iframes
+
+#### Learn more
+
+- [MCP Apps specification](https://modelcontextprotocol.github.io/ext-apps/api/)
+- [MCP Apps SDK and examples](https://github.com/modelcontextprotocol/ext-apps)
+- [MCP Apps announcement blog post](https://code.visualstudio.com/blogs/2026/01/26/mcp-apps-support)
 
 ### Icons
 

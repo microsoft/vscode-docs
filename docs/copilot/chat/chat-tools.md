@@ -3,6 +3,14 @@ ContentId: 8f2c4a1d-9e3b-4c5f-a7d8-6b9c2e4f1a3d
 DateApproved: 01/08/2026
 MetaDescription: Learn how to use built-in tools, MCP tools, and extension tools to extend chat in VS Code with specialized functionality.
 MetaSocialImage: ../images/shared/github-copilot-social.png
+keywords:
+- copilot
+- ai
+- agents
+- chat
+- tools
+- terminal
+- customization
 ---
 # Use tools in chat
 
@@ -32,7 +40,7 @@ For a complete list of built-in tools and their descriptions, see the [Chat tool
 
 Model Context Protocol (MCP) is an open standard that enables AI models to use external tools and services through a unified interface. MCP servers provide tools that you can add to VS Code to extend chat with extra capabilities.
 
-You need to install and configure MCP servers before you can use their tools in chat. MCP servers can run locally on your machine or be hosted remotely.
+You need to install and configure MCP servers before you can use their tools in chat. MCP servers can run locally on your machine or be hosted remotely. MCP tools can also return interactive UI components via [MCP Apps](/docs/copilot/customization/mcp-servers.md#use-mcp-apps).
 
 Learn more about [configuring MCP servers in VS Code](/docs/copilot/customization/mcp-servers.md).
 
