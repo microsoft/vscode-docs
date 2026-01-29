@@ -238,6 +238,10 @@ Terminal sandboxing restricts file system and network access for commands execut
 
 > [!NOTE]
 > Terminal sandboxing is currently supported on macOS and Linux only. On Windows, the sandbox settings have no effect.
+> * System dependencies:
+>   * Linux requires bubblewrap, socat, and ripgrep.
+>   * macOS requires ripgrep.
+
 
 To enable terminal sandboxing, set the `setting(chat.tools.terminal.sandbox.enabled)` setting to `true`.
 
