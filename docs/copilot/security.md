@@ -94,6 +94,8 @@ VS Code limits the potential impact of sensitive actions by controlling their sc
 
 * **Request limits**: The system includes built-in safeguards to [prevent runaway operations](/docs/copilot/reference/copilot-settings.md#agent-settings) that could consume excessive resources or perform unintended bulk actions on your codebase.
 
+* **Terminal sandboxing (Experimental)**: On macOS and Linux, you can enable [terminal sandboxing](/docs/copilot/chat/chat-tools.md#sandbox-terminal-commands-experimental) to restrict file system and network access for commands executed by the agent. Sandboxed commands can only access the working directory and are blocked from network requests by default.
+
 ### Permission management
 
 VS Code uses a permission-based security model where you maintain control over potentially risky operations. By requesting user approval for sensitive actions, users can validate what actions are being taken on their behalf and can make informed decisions about granting permissions.
