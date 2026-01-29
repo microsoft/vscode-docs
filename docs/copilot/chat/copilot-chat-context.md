@@ -133,19 +133,19 @@ Chat supports vision capabilities, which means you can attach an image as contex
 
 ## Add browser elements (Experimental)
 
-VS Code has a built-in browser that you can use to preview and interact with web pages inside VS Code, for example to do quick testing and debugging of your web application.
+VS Code has a built-in [integrated browser](/docs/debugtest/integrated-browser.md) that you can use to preview and interact with web pages inside VS Code, for example to do quick testing and debugging of your web application.
 
-You can add elements from the Simple Browser window as context to your chat prompt. This is useful when you want to get help with specific parts of a web page, such as HTML elements, CSS styles, or JavaScript code.
+You can add elements from the browser window as context to your chat prompt. This is useful when you want to get help with specific parts of a web page, such as HTML elements, CSS styles, or JavaScript code.
 
-To add elements from the Simple Browser to your chat prompt:
+To add elements from the integrated browser to your chat prompt:
 
-1. Enable selection from the Simple Browser with the `setting(chat.sendElementsToChat.enabled)` setting.
+1. Enable selection from the browser with the `setting(chat.sendElementsToChat.enabled)` setting.
 1. Start your web application.
-1. Open the Simple Browser view by running the **Simple Browser: Show** command from the Command Palette.
+1. Open the integrated browser by running the **Browser: Open Integrated Browser** command from the Command Palette.
 1. Select the **Start** button to start selecting elements from the current page.
-1. Hover over the elements of the web page and click to add them to the chat prompt.
+1. Hover over the elements of the web page and select to add them to the chat prompt.
 
-    <video src="images/copilot-chat/simple-browser-select-element.mp4" title="Adding elements from the Simple Browser to the chat prompt" autoplay loop controls muted></video>
+    <video src="images/copilot-chat/simple-browser-select-element.mp4" title="Adding elements from the integrated browser to the chat prompt." autoplay loop controls muted></video>
 
     Notice that the selected element is added as context to the current chat prompt.
 

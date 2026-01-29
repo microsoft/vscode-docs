@@ -112,7 +112,7 @@ The following table lists the VS Code built-in tools:
 | `#new` | Scaffold a new VS Code workspace, preconfigured with debug and run configurations. |
 | `#newJupyterNotebook` | Scaffold a new Jupyter notebook given a description. |
 | `#newWorkspace` | Create a new workspace. |
-| `#openSimpleBrowser` | Open the built-in Simple Browser and preview a locally-deployed web app. |
+| `#openSimpleBrowser` | Open the [integrated browser](/docs/debugtest/integrated-browser.md) and preview a locally-deployed web app. |
 | `#problems` | Add workspace issues and problems from the **Problems** panel as context. Useful while fixing code or debugging. |
 | `#readFile` | Read the content of a file in the workspace. |
 | `#readNotebookCellOutput` | Read the output from a notebook cell execution. |

@@ -67,7 +67,7 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 | `setting(chat.viewTitle.enabled)` _(Preview)_<br/>Show the title of the current chat session in the chat header. | `true` |
 | `setting(github.copilot.chat.codesearch.enabled)` _(Preview)_<br/>When using `#codebase` in the prompt, Copilot automatically discovers relevant files to be edited. | `false` |
 | `setting(chat.emptyState.history.enabled)` _(Experimental)_<br/>Show recent chat history in the empty state of the Chat view. | `false` |
-| `setting(chat.sendElementsToChat.enabled)` _(Experimental)_<br/>Enable sending elements from the Simple Browser to the chat view as context. | `true` |
+| `setting(chat.sendElementsToChat.enabled)` _(Experimental)_<br/>Enable sending elements from the [integrated browser](/docs/debugtest/integrated-browser.md) to the chat view as context. | `true` |
 | `setting(chat.useNestedAgentsMdFiles)` _(Experimental)_<br/>Enable or disable using `AGENTS.md` files in subfolders of your workspace as context for chat requests. | `false` |
 | `setting(github.copilot.chat.customOAIModels)` _(Experimental)_<br/>Configure custom OpenAI-compatible models for chat. | `[]` |
 | `setting(github.copilot.chat.edits.suggestRelatedFilesFromGitHistory)` _(Experimental)_<br/>Suggest related files from git history in chat context. | `true` |

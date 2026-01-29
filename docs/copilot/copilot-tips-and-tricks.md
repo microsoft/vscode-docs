@@ -139,7 +139,7 @@ Enrich your prompts with relevant context to get more accurate and relevant resp
 * Drag and drop files, folders, or editor tabs onto the chat prompt.
 * Add problems, test failures, or terminal output to your chat prompt for scenario-specific context.
 * Add images or screenshots to your prompt to let Copilot analyze the image.
-* When using agents, prompt to preview your app to directly open it with the built-in simple browser.
+* When using agents, prompt to preview your app to directly open it with the [integrated browser](/docs/debugtest/integrated-browser.md).
 
 When you use [agents](/docs/copilot/chat/copilot-chat.md#built-in-agents), the agent autonomously finds the relevant files and context for you.
 
