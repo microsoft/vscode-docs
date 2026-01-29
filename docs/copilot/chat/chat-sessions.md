@@ -25,15 +25,13 @@ If you're using agents, the session can run locally on your machine, in the back
 
 ## Start a new chat session
 
-VS Code supports different types of sessions (local, background, and cloud) and different views (side bar, editor tab, and separate window) for chat sessions. Learn more about [background and cloud agent sessions](/docs/copilot/agents/overview.md).
+VS Code supports different types of sessions (local, background, cloud, and third-party) and different views (side bar, editor tab, and separate window) for chat sessions. Learn more about [using the different agents](/docs/copilot/agents/overview.md).
 
 | | |
 |-|-|
 | Open a local chat session in the side bar.<br/><br/><ul><li>In Chat view, **New Chat (+)** > **New Chat**</li><li>`kb(workbench.action.chat.newChat)`</li><li>**Chat: New Chat** command</li></ul> | ![Screenshot of opening a new chat session in the Chat view in VS Code.](../images/chat-sessions/new-chat-session-chat-view.png) |
 | Open local chat as an editor tab.<br/><br/><ul><li>In Chat view, **New Chat (+)** > **New Chat Editor**</li><li>**Chat: New Chat Editor** command</li></ul>| ![Screenshot of opening a new chat session in an editor tab in VS Code.](../images/chat-sessions/new-chat-session-editor-tab.png) |
 | Open local chat in a separate window.<br/><br/><ul><li>In Chat view, **New Chat (+)** > **New Chat Window**</li><li>`kb(workbench.action.chat.newChat)`</li><li>**Chat: New Chat Window** command</li></ul> | ![Screenshot  of opening a new chat session in a separate window in VS Code.](../images/chat-sessions/new-chat-session-separate-window.png) |
-| Open a background agent session.<br/><br/><ul><li>In Chat view, **New Chat (+)** > **New Background Agent**</li><li>**Chat: New Background Agent** command</li></ul> | ![Screenshot of opening a new background agent session in the Chat view in VS Code.](../images/chat-sessions/new-background-agent-session.png) |
-| Open a cloud agent session.<br/><br/><ul><li>In Chat view, **New Chat (+)** > **New Cloud Agent**</li><li>**Chat: New Cloud Agent** command</li></ul> | ![Screenshot of opening a new cloud agent session in the Chat view in VS Code.](../images/chat-sessions/new-cloud-agent-session.png) |
 
 ### Move a chat session to a different view
 

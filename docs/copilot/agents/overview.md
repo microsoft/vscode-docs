@@ -135,9 +135,25 @@ Learn more about [using cloud agents in VS Code](/docs/copilot/agents/cloud-agen
 
 ### Third party agents
 
-Third party agents are background agents developed by other providers, such as OpenAI Codex, and that are integrated into the VS Code agent experience. You can manage agent sessions from these providers in the same way as local, background, and cloud agents.
+Third-party agents are AI agents developed by external providers that integrate into the VS Code agent experience. Unlike built-in agents, third-party agents use their own SDKs and tools while leveraging your Copilot subscription for authentication.
 
-**Best for**: When you already use third party AI agents and want to integrate them into your VS Code workflow
+The following third-party agents are available in VS Code:
+
+* **Claude Agent**: powered by Anthropic's Claude Agent SDK, with specialized slash commands and memory files, running autonomously on your local machine
+* **OpenAI Codex**: powered by OpenAI's Codex SDK, running non-interactively in the background
+
+You can manage third-party agent sessions from the unified Chat view, just like other agent types.
+
+**Best for**: When you want to leverage capabilities from other AI providers like Anthropic or OpenAI within your VS Code workflow
+
+**Key characteristics**:
+
+* Uses your existing Copilot subscription for authentication
+* Provides provider-specific tools and capabilities
+* Integrates with VS Code's unified session management
+* Session type varies by provider (local or background)
+
+Learn more about [using third-party agents in VS Code](/docs/copilot/agents/third-party-agents.md).
 
 ## Agent sessions list
 
@@ -213,7 +229,10 @@ You can create a new agent session from the Chat view or by using the correspond
     * **New Chat**: start a new local agent session in the Chat view
     * **New Chat Editor**: start a new local agent session as an editor tab
     * **New Chat Window**: start a new local agent session in a separate VS Code window
-    * **New Codex Agent**: start a new Codex agent session in the Chat view
+
+1. Choose the agent type from the dropdown.
+
+    ![Screenshot showing agent type dropdown in new chat session.](../images/agents-overview/agent-type-dropdown.png)
 
 At any time, you can move an agent session from the Chat view to a chat editor or new window via the actions in the overflow menu (...).
 
@@ -224,7 +243,8 @@ Alternatively, use the following commands from the Command Palette (`kb(workbenc
 * **Chat: New Chat Editor/Window**: start a new local agent session in a chat editor
 * **Chat: New Background Agent**: start a new background agent session using Copilot CLI in a chat editor
 * **Chat: New Cloud Agent**: start a new Copilot coding agent session in a chat editor
-* **Codex: New Codex Agent**: start a new OpenAI Codex agent session in a chat editor
+* **Chat: New Claude Agent**: start a new Claude Agent session (Preview)
+* **Codex: New Codex Agent**: start a new OpenAI Codex background agent session in a chat editor
 
 ### Hand off a session to another agent
 
@@ -232,9 +252,8 @@ Each agent type has unique strengths and capabilities. Local agents let you inte
 
 You can hand off (or delegate) an existing task from one agent to another agent. For example, you start with creating a plan with a local agent, then hand off to a background agent to create different variants as proof of concepts, and finally continue with a cloud agent to implement the final version in a pull request for team review.
 
-To hand off a local agent session use the **Continue In** control in the Chat view, or type `@cli`, or `@cloud` in your prompt to pass the task to another agent type.
+To hand off an ongoing local agent session, select a different agent type from the session type dropdown in the chat input box.
 
-![Screenshot of the chat input box showing the Continue In button.](../images/agents-overview/delegate-local-session.png)
 VS Code creates a new agent session when you hand off, carrying over the full conversation history and context. You can then continue interacting with the new agent to complete the task. The original session is archived after handoff.
 
 In a background agent session, you can delegate to a cloud agent by entering the `/delegate` command in the chat input box. Optionally, you can provide additional instructions to the cloud agent after the `/delegate` command.
@@ -289,5 +308,7 @@ To permanently delete an agent session, right-click the session in the sessions 
 * [Background agents](/docs/copilot/agents/background-agents.md): Explore CLI-based agents and autonomous workflows
 
 * [Cloud agents](/docs/copilot/agents/cloud-agents.md): Learn about GitHub Copilot Coding Agent and remote execution
+
+* [Third-party agents](/docs/copilot/agents/third-party-agents.md): Use Claude Agent and OpenAI Codex in VS Code
 
 * [Custom agents](/docs/copilot/customization/custom-agents.md): Create your own AI agents and extensions

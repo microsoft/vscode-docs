@@ -14,9 +14,12 @@ Keywords:
 
 Background agents in Visual Studio Code are CLI-based agents, such as Copilot CLI, that run in the background on your local machine. They operate autonomously while you continue other work in the editor. Background agents can use Git worktrees to work isolated from your main workspace and prevent conflicts with your active work.
 
-This article covers the key features of background agents, and how to start and manage background sessions from Copilot CLI or OpenAI Codex.
+This article covers the key features of background agents, and how to start and manage background sessions from Copilot CLI.
 
 ![Screenshot of background agent session as a chat editor in VS Code.](../images/background-agents/background-agent-session.png)
+
+> [!TIP]
+> Third-party providers like OpenAI Codex also offer background agent capabilities. Learn more about [third-party agents](/docs/copilot/agents/third-party-agents.md).
 
 ## What are background agents?
 
@@ -41,12 +44,6 @@ npm install -g @github/copilot
 ```
 
 Learn more about [Copilot CLI](https://docs.github.com/en/copilot/concepts/agents/about-copilot-cli) in the GitHub documentation.
-
-### OpenAI Codex
-
-The **OpenAI Codex** background agent uses OpenAI's Codex to perform coding tasks autonomously. To use the OpenAI Codex agent, make sure to install the [OpenAI Codex](https://marketplace.visualstudio.com/items?itemName=openai.chatgpt) extension from the Visual Studio Marketplace.
-
-OpenAI Codex in VS Code enables you to use your Copilot Pro+ subscription to authenticate and access Codex without additional setup. Get more information about [GitHub Copilot billing and premium requests](https://docs.github.com/en/copilot/concepts/billing/copilot-requests) in the GitHub documentation.
 
 ## View and manage background agent sessions
 
@@ -88,20 +85,6 @@ A new background agent session opens where you can provide additional task detai
 
 > [!TIP]
 > When you use the GitHub Copilot CLI in the terminal to start a session, the Chat view in VS Code automatically detects and displays this background session. You can further interact with this background session from within VS Code.
-
-### Create an OpenAI Codex background agent session
-
-To create a new OpenAI Codex background agent session from the Chat view:
-
-* From the Chat view:
-
-    1. Open the Chat view (`kb(workbench.action.chat.open)`)
-
-    1. Select the **New Chat** dropdown > **New Codex Agent**
-
-* Run the **Codex: New Codex Agent** command from the Command Palette (`kb(workbench.action.showCommands)`)
-
-A new Codex background agent session opens where you can provide additional task details and track the progress of the Codex session.
 
 ### Hand off an agent session to a background agent
 
@@ -190,6 +173,7 @@ To enable custom agents with background agents:
 ## Related resources
 
 * [Agents overview](/docs/copilot/agents/overview.md): Understand different agent types and how to hand off tasks between agents
+* [Third-party agents](/docs/copilot/agents/third-party-agents.md): Learn about OpenAI Codex and other third-party agent integrations
 * [Cloud agents](/docs/copilot/agents/cloud-agents.md): Learn about cloud agents for tasks requiring GitHub integration
 * [Custom agents](/docs/copilot/customization/custom-agents.md): Create custom agent roles and personas
 * [GitHub Copilot CLI documentation](https://cli.github.com/manual/gh_copilot)

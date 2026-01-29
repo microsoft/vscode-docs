@@ -174,15 +174,18 @@ When using [agents](/docs/copilot/chat/copilot-chat.md#built-in-agents), you can
 |--------|-------------|
 | `kb(workbench.action.chat.openAgent)` | Switch to using agents in the Chat view |
 | Tools (<i class="codicon codicon-tools"></i>) | Configure which tools are available when using agents. Select from built-in tools, MCP servers, and extension-provided tools. |
-| Auto-approve tools _(Experimental)_ | Enable [auto-approval of all tools](/docs/copilot/chat/chat-tools.md#auto-approve-all-tools) when using agents (`setting(chat.tools.autoApprove)`). |
-| Auto-approve terminal commands _(Experimental)_ | Enable [auto-approval of terminal commands](/docs/copilot/chat/chat-tools.md#automatically-approve-terminal-commands) when using agents (`setting(chat.tools.terminal.autoApprove)`). |
+| Auto-approve tools | Enable [auto-approval of all tools](/docs/copilot/chat/chat-tools.md#auto-approve-all-tools) when using agents (`setting(chat.tools.autoApprove)`). |
+| Auto-approve terminal commands | Enable [auto-approval of terminal commands](/docs/copilot/chat/chat-tools.md#automatically-approve-terminal-commands) when using agents (`setting(chat.tools.terminal.autoApprove)`). |
 | MCP | Configure [MCP servers](/docs/copilot/customization/mcp-servers.md) to extend agent capabilities and tools. |
+| [Third-party agents](/docs/copilot/agents/third-party-agents.md) | Use agents from external providers like Claude Agent (Preview) and OpenAI Codex with your Copilot subscription. |
+| Claude Agent _(Preview)_ | Start a Claude Agent session powered by Anthropic's Claude Agent SDK. Use `/agents`, `/hooks`, and `/memory` slash commands for advanced workflows. |
 
 > **Tips**
 >
 > * Add extra tools when using agents to extend its capabilities.
 > * Configure custom agents to define how the agent should operate, for example to implement a read-only planning mode.
 > * Define custom instructions to guide agents on how to generate and structure code.
+> * Try third-party agents like Claude Code or OpenAI Codex for alternative agentic coding experiences.
 
 ## Planning
 
@@ -191,7 +194,7 @@ Use the [plan agent](/docs/copilot/chat/chat-planning.md) in VS Code chat to cre
 | Action | Description |
 |--------|-------------|
 | Plan agent | Select the **Plan** agent from the agents dropdown or use the `/plan` slash command to create a detailed implementation plan for complex coding tasks. |
-| Todo list (Experimental) | Enable the `todos` tool in the tools picker to track progress on complex tasks with a todo list. |
+| Todo list | View a todo list to track progress on complex tasks. Enable this with the `setting(chat.tools.todos.showWidget` setting. |
 
 ## Customize your chat experience
 
