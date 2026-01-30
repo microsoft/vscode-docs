@@ -114,22 +114,25 @@ Learn more about [using background agents in VS Code](/docs/copilot/agents/backg
 
 ### Cloud agents
 
-Cloud agents run on remote infrastructure to perform AI-powered coding tasks. Cloud agents like Copilot coding agent integrate with GitHub repositories and pull requests to enable team collaboration and code reviews. Cloud agents operate isolated from your local workspace via branches and pull requests to prevent interference. Cloud agents can't access VS Code built-in tools and run-time context, but can access MCP servers configured in the remote environment. You can reuse your workspace [custom agents](/docs/copilot/customization/custom-agents.md) to have the cloud agent assume a specific role or persona for a task.
+Cloud agents run on remote infrastructure to perform AI-powered coding tasks. Cloud agents like Copilot coding agent integrate with GitHub repositories and pull requests to enable team collaboration and code reviews. You can also select partner agents like Claude or Codex as alternatives to the default Copilot, and choose which AI model the cloud agent uses.
+
+Cloud agents operate isolated from your local workspace and can't access VS Code built-in tools and run-time context, but can access MCP servers configured in the remote environment. Depending on the cloud agent provider, you can reuse your workspace [custom agents](/docs/copilot/customization/custom-agents.md).
 
 **Best for**:
 
 * Non-interactive tasks that have a well-defined scope and have all necessary context, such as implementing a plan
-* Tasks that require collaboration with other team members
-* Tasks that don't require access to VS Code built-in tools, MCP tools, or run-time context, such as failed tests or text selections
+* Tasks that are not time-sensitive and can run without immediate feedback
+* Tasks that don't require access to VS Code built-in tools, or run-time context, such as failed tests or text selections, unless explicitly added to the prompt
+* Tasks that require collaboration with other team members (Copilot coding agent)
 
 **Key characteristics**:
 
 * Runs non-interactively on remote infrastructure
-* Work isolated from your main workspace via branches and pull requests
+* Work isolated from your main workspace
 * Can support team collaboration via pull requests
 * Don't have access to VS Code built-in tools and run-time context
 * Have access to MCP servers configured in the remote environment
-* Limited to models available in the cloud agent service
+* Supports partner agents
 
 Learn more about [using cloud agents in VS Code](/docs/copilot/agents/cloud-agents.md).
 
@@ -139,8 +142,8 @@ Third-party agents are AI agents developed by external providers that integrate 
 
 The following third-party agents are available in VS Code:
 
-* **Claude Agent**: powered by Anthropic's Claude Agent SDK, with specialized slash commands and memory files, running autonomously on your local machine
-* **OpenAI Codex**: powered by OpenAI's Codex SDK, running non-interactively in the background
+* **Claude Agent**: powered by Anthropic's Claude Agent SDK, with specialized slash commands and memory files - can operate locally or in the cloud
+* **OpenAI Codex**: powered by OpenAI's Codex SDK - can operate locally or in the cloud
 
 You can manage third-party agent sessions from the unified Chat view, just like other agent types.
 
@@ -151,7 +154,6 @@ You can manage third-party agent sessions from the unified Chat view, just like 
 * Uses your existing Copilot subscription for authentication
 * Provides provider-specific tools and capabilities
 * Integrates with VS Code's unified session management
-* Session type varies by provider (local or background)
 
 Learn more about [using third-party agents in VS Code](/docs/copilot/agents/third-party-agents.md).
 

@@ -12,7 +12,7 @@ Keywords:
 
 # Cloud agents in Visual Studio Code
 
-Cloud agents perform AI-powered coding tasks and run on remote infrastructure for scalable, isolated execution. Cloud agents like Copilot coding agent integrate with GitHub repositories and pull requests to enable team collaboration and code reviews. Cloud agents operate isolated from your local workspace via branches and pull requests to prevent interference.
+Cloud agents perform AI-powered coding tasks and run on remote infrastructure for scalable, isolated execution. Cloud agents run autonomously on remote infrastructure. For example, the GitHub Copilot coding agent run on GitHub's infrastructure and integrates with your GitHub repositories for team collaboration.
 
 This article covers the key features of cloud agents, and how to start and manage cloud agent sessions for coding tasks that can range anywhere from simple to complex.
 
@@ -22,15 +22,17 @@ This article covers the key features of cloud agents, and how to start and manag
 
 Unlike local and background agents that run on your local machine, cloud agents like Copilot coding agent run on remote infrastructure. You can view and manage all your cloud agent sessions from the unified Chat view in VS Code. This view also lets you create new cloud agent sessions directly from VS Code or hand off local or background agent conversations to cloud agents.
 
+VS Code supports different cloud agents, such as Copilot coding agent and [third-party agents](/docs/copilot/agents/third-party-agents.md) like Claude and Codex.
+
 Because cloud agents run remotely without user interaction, they are well-suited for tasks that have a well-defined scope and all necessary context. Their integration with pull requests makes them very effective for team collaboration.
 
 Due to their remote execution environment, cloud agents can't directly access VS Code built-in tools and run-time context (like failed tests or text selections). They are limited to the MCP servers and language models that are configured in the cloud agent service.
 
-To assign a task to a cloud agent, you can either create a new cloud session directly from the Chat view or hand off a local and background agent conversation from VS Code to a cloud agent.
+To assign a task to a cloud agent, you can either create a new cloud session directly from the Chat view or hand off a local or background agent conversation from VS Code to a cloud agent.
 
 ### GitHub Copilot coding agent
 
-The **GitHub Copilot coding agent** is the primary cloud agent available in VS Code.
+The **GitHub Copilot coding agent** is the primary cloud agent available in VS Code with your Copilot subscription.
 
 Key capabilities include:
 
@@ -38,6 +40,57 @@ Key capabilities include:
 * Complete feature implementation from high-level requirements
 * Automatic pull request generation with detailed descriptions
 * Code review integration and feedback addressing
+
+### Third-party cloud agents
+
+VS Code supports third-party cloud agents like Claude coding agent and Codex coding agent as options for cloud agent sessions.
+
+Learn more about [third-party agents in VS Code](/docs/copilot/agents/third-party-agents.md).
+
+## Start a cloud agent session
+
+You can start a cloud agent session either directly by sending a chat prompt to a cloud agent or by handing off an ongoing local or background conversation to a cloud agent. Handing off an ongoing conversation is especially useful for complex tasks that require initial clarification or planning before autonomous execution.
+
+If you prefer to work in the browser, you can also start cloud agent sessions directly from GitHub.com using the [GitHub Copilot coding agent](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/manage-agents).
+
+### Create a new cloud agent session
+
+To create a new cloud agent session:
+
+1. In the Chat view, select **New Chat** from the session list dropdown and choose **Cloud** from the session type dropdown
+
+    Alternatively, you can run the **Chat: New Cloud Agent** command from the Command Palette (`kb(workbench.action.showCommands)`).
+
+1. Choose the cloud agent provider from the dropdown and optionally select a custom agent and model.
+
+1. Enter your prompt and let the cloud agent work on the task
+
+   For example, you might enter:
+
+   ```text
+   Refactor the authentication module to improve security and performance. Implement OAuth2 and JWT for token management, and optimize database queries for user sessions.
+   ```
+
+1. The cloud agent starts working on the task remotely. You can monitor the progress of the session in the Chat view and continue to interact with it.
+
+> [!NOTE]
+> If you have assigned an issue or pull request to the Copilot coding agent on GitHub.com, the session automatically appears in the session list in VS Code.
+
+### Hand off an agent session to a cloud agent
+
+For complex tasks, it can be helpful to first interact with a local agent in VS Code chat to clarify requirements, for example with the Plan agent, and then hand off the task to a cloud agent for autonomous execution. When you hand off a local agent conversation to a cloud agent session, the entire chat context is passed to the cloud agent.
+
+To hand off a local agent session to a cloud agent session:
+
+1. Open an ongoing local agent session in the Chat view.
+
+1. Select the session type dropdown, and select **Cloud** to continue the session as a cloud agent.
+
+    If you're using the [Plan agent](/docs/copilot/chat/chat-planning.md), you can select **Continue in Cloud** from the **Start Implementation** dropdown to run the plan implementation in a cloud agent session
+
+1. Alternatively, type `@cloud` in the chat input to hand off the task to a cloud agent
+
+To hand off a background agent session to a cloud agent session, enter `/delegate` in the chat input of the background agent session. This command passes the full chat history and context to a new cloud agent session, which you can then monitor in the Chat view.
 
 ## View and manage cloud agent sessions
 
@@ -48,59 +101,6 @@ You can view and manage all your cloud agent sessions from the Chat view in VS C
 Select a cloud agent session from the list to open the session details in the Chat view. If you prefer to view the session in an editor tab (chat editor), right-click the session and select **Open as Editor**.
 
 ![Screenshot of cloud agent session as a chat editor in VS Code.](../images/cloud-agents/cloud-agent-session.png)
-
-## Start a cloud agent session
-
-Depending on your workflow, you can start cloud agent sessions in several ways. You can create a new session from the Chat view or submit a local chat prompt to a cloud agent.
-
-Another approach - especially for more complex tasks - is to first interact with a local agent in chat in VS Code, and once the scope and details are clear, hand off the task to a cloud agent session. For example, you might use the [Plan agent](/docs/copilot/chat/chat-planning.md) to outline a multi-step feature implementation, then hand off the actual coding to a cloud agent.
-
-If you prefer to work in the browser, you can also start cloud agent sessions directly from GitHub.com using the [GitHub Copilot coding agent](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/manage-agents).
-
-> [!NOTE]
-> You currently can't specify which language model a cloud agent uses.
-
-### Create a cloud agent session from the Chat view
-
-You can create a new cloud agent session in VS Code in several ways:
-
-* From the Chat view:
-
-    1. Open the Chat view (`kb(workbench.action.chat.open)`)
-
-    1. Select the **New Chat** dropdown > **New Cloud Agent**
-
-* While you're in a local chat session:
-
-    * Type `@cloud <task description>` in the chat input and send the message
-
-    * Enter a prompt and then select **Continue In** > **Cloud**
-
-* Run the **Chat: New Cloud Agent** command from the Command Palette (`kb(workbench.action.showCommands)`)
-
-A new cloud agent session opens where you can provide additional task details and track the progress of the cloud agent session.
-
-### Hand off an agent session to a cloud agent
-
-For complex tasks, it can be helpful to first interact with a local agent in VS Code chat to clarify requirements, then hand off the task to a cloud agent for autonomous execution. When you hand off a local agent conversation to a cloud agent session, the entire chat context is passed to the cloud agent.
-
-To hand off a local agent session to a cloud agent session:
-
-1. Open the Chat view (`kb(workbench.action.chat.open)`)
-
-1. Interact with a local agent until you're ready to hand off the task to a cloud agent
-
-1. To hand off to a cloud agent:
-
-    * Select **Continue In** and then select **Cloud**
-
-    * If you're using the [Plan agent](/docs/copilot/chat/chat-planning.md), select the **Start Implementation** dropdown and then select **Continue in Cloud** to run the implementation in a cloud agent session
-
-    * Type `@cloud` in the chat input to hand off the task to a cloud agent
-
-The cloud agent session starts automatically, carrying over the full chat history and context. You can monitor the cloud agent's progress in the Chat view.
-
-To hand off a background agent session to a cloud agent session, enter `/delegate` in the chat input of the background agent session. This command passes the full chat history and context to a new cloud agent session, which you can then monitor in the Chat view.
 
 ## Related resources
 

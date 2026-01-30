@@ -14,12 +14,7 @@ Keywords:
 
 # Third-party agents in Visual Studio Code
 
-Third-party agents in Visual Studio Code are AI agents developed by external providers that integrate into the VS Code agent experience. These agents use your existing Copilot subscription and provide alternative approaches to autonomous coding powered by different AI providers.
-
-VS Code currently supports the following third-party agents:
-
-* **Claude Agent** (Preview)
-* **OpenAI Codex**
+Third-party agents in Visual Studio Code are AI agents developed by external providers that integrate into the VS Code agent experience. These agents use your existing Copilot subscription and provide alternative approaches to autonomous coding powered by different AI providers. VS Code supports third-party agents that can run either locally or in the background, depending on the provider.
 
 You can manage third-party agent sessions from the unified Chat view in VS Code, just like local, background, and cloud agent sessions.
 
@@ -33,11 +28,17 @@ Enable or disable support for Claude agent sessions with the `setting(github.cop
 
 To start a new Claude agent session:
 
-1. Open the Chat view (`kb(workbench.action.chat.open)`)
+1. Open the Chat view (`kb(workbench.action.chat.open)`) and select **New Chat** (`+`).
 
-1. Select **New Chat** and then choose **Claude** from the agents dropdown
+1. Choose between a local or cloud agent session:
 
-    ![Screenshot showing session type dropdown with Claude agent option selected](../images/third-party-agents/claude-agent-new-chat.png)
+    * For a local sessions, select **Claude** from the agents dropdown
+
+        ![Screenshot showing session type dropdown with Claude agent option selected](../images/third-party-agents/claude-agent-new-chat.png)
+
+    * For a cloud session, select **Cloud** from the agents dropdown. Then, select **Claude** from the partner agent picker.
+
+        <!-- TODO: add screenshot of the Claude agent cloud chat -->
 
 1. Enter your prompt and let the agent work on the task
 
@@ -87,11 +88,17 @@ OpenAI Codex in VS Code enables you to use your Copilot Pro+ subscription to aut
 
 To start a new OpenAI Codex agent session:
 
-1. Open the Chat view (`kb(workbench.action.chat.open)`)
+1. Open the Chat view (`kb(workbench.action.chat.open)`) and select **New Chat** (`+`).
 
-1. Select **New Chat** and then choose **Codex** from the agents dropdown
+1. Choose between a local or cloud agent session:
+
+    * For a local sessions, select **Codex** from the agents dropdown
 
     ![Screenshot showing session type dropdown with Codex agent option selected](../images/third-party-agents/codex-agent-new-chat.png)
+
+    * For a cloud session, select **Cloud** from the agents dropdown. Then, select **Codex** from the partner agent picker.
+
+        <!-- TODO: add screenshot of the Codex agent cloud chat -->
 
 1. A chat editor opens for the Codex agent
 
