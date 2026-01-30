@@ -100,14 +100,14 @@ Background agents like Copilot CLI are CLI-based agents that run non-interactive
 
 * Non-interactive tasks that have a well-defined scope and have all necessary context, such as implementing a plan
 * Tasks that don't require collaboration with other team members
-* Tasks that don't require access to VS Code built-in tools, MCP tools, or run-time context, such as failed tests or text selections
+* Tasks that don't require access to VS Code built-in tools or run-time context, such as failed tests or text selections (unless manually added to the prompt)
 
 **Key characteristics**:
 
 * Runs non-interactively and autonomously in the background on your local machine
 * Can work isolated from your main workspace with Git worktrees
 * Can't directly access VS Code built-in tools and run-time context, unless it's added explicitly
-* Don't have access to MCP servers
+* Can access local MCP servers that don't require authentication
 * Limited to models available via the CLI tool
 
 Learn more about [using background agents in VS Code](/docs/copilot/agents/background-agents.md).
@@ -184,6 +184,9 @@ Right-click a session in the list to see additional actions, such as different o
 
 To hide the session list from the Chat view, right-click in an empty chat and unselect **Show Sessions** (`setting(chat.viewSessions.enabled)`).
 
+> [!NOTE]
+> Extension developers can learn how to integrate with the Agents view with the proposed API [`chatSessionsProvider`](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.chatSessionsProvider.d.ts). The API is currently in a proposed state and subject to change.
+
 ### Agent status indicator (Experimental)
 
 The agent status indicator provides quick access to your agent sessions directly from the command center in the title bar. The indicator displays visual badges for unread messages and in-progress sessions, helping you stay informed about your AI agent activity without switching views.
@@ -202,9 +205,6 @@ When a filter is active, the sessions list automatically expands to show all mat
 
 > [!NOTE]
 > The agent status indicator is an experimental feature. Enable it with `setting(chat.agentsControl.enabled)`. The unread and in-progress indicators require `setting(chat.viewSessions.enabled)` to be enabled.
-
-> [!NOTE]
-> Extension developers can learn how to integrate with the Agents view with the proposed API [`chatSessionsProvider`](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.chatSessionsProvider.d.ts). The API is currently in a proposed state and subject to change.
 
 ## Create an agent session
 
