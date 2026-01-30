@@ -142,6 +142,15 @@ Learn more about [using Git worktrees in VS Code source control](/docs/sourcecon
 
 <!-- TODO: delete obsolete screenshot images/background-agents/isolated-run-mode.png (isolation mode picker removed) -->
 
+## Multi-repository workspaces
+
+When your workspace contains multiple Git repositories, VS Code displays a repository picker in the chat input when you start a background agent session. Use this picker to select which repository the worktree should be created in.
+
+After the session starts, the repository picker becomes disabled for that session. The worktree appears under the selected repository in the **Worktrees** node in the Source Control Repositories view.
+
+> [!TIP]
+> To view all repositories in your workspace, enable the `setting(scm.repositories.explorer)` setting and open the Source Control view.
+
 ## Use custom agents with background agents (Experimental)
 
 [Custom agents](/docs/copilot/customization/custom-agents.md) let you define custom personas and roles for agents in VS Code. For example, you might create a custom agent for performing code reviews. Custom agents can define specific instructions and behaviors.
