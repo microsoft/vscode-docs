@@ -14,3 +14,5 @@ Ask clarifying questions if the feature description is ambiguous or lacks detail
 Ensure the documentation changes align with existing doc style guidelines.
 
 Don't update release notes or API docs unless explicitly asked.
+
+When screenshots need to be added or updated, add a TODO comment in the doc for a human to capture and insert the screenshot later.
