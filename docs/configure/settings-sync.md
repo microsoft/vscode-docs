@@ -177,7 +177,7 @@ Towards the top of the logs from the previous command, you will see something to
 [9699:0626/093542.027660:VERBOSE1:key_storage_linux.cc(122)] Selected backend for OSCrypt: GNOME_LIBSECRET
 ```
 
-We rely on Chromium's oscrypt module to discover and store encryption key information in the keyring. Chromium supports [a number of different desktop environments](https://source.chromium.org/chromium/chromium/src/+/main:base/nix/xdg_util.cc;l=146-169). Outlined below are some popular desktop environments and troubleshooting steps that may help if the keyring is misconfigured.
+We rely on Chromium's oscrypt module to discover and store encryption key information in the keyring. Chromium supports [a number of different desktop environments](https://source.chromium.org/chromium/chromium/src/+/main:base/nix/xdg_util.cc;l=196-221;drc=502b6c6b6ba9f62ddc2d8a8b39d024627950edb8;bpv=1;bpt=0). Outlined below are some popular desktop environments and troubleshooting steps that may help if the keyring is misconfigured.
 
 #### GNOME or UNITY (or similar)
 
