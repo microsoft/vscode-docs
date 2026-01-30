@@ -306,6 +306,12 @@ If your instructions file is not being applied, check the following:
 
 1. For `*.instructions.md` files, check that the `applyTo` glob pattern matches the file you are working on. If no `applyTo` property is specified, the instructions file is not applied automatically. Verify the `References` section in the chat response to see which instructions files were used for your request.
 
+1. Check that the relevant settings are enabled:
+
+    * For instructions with an `applyTo` pattern, ensure that `setting(chat.includeApplyingInstructions)` is enabled.
+
+    * For instructions referenced via Markdown links in other instruction files, ensure that `setting(chat.includeReferencedInstructions)` is enabled.
+
 1. Verify the chat logs to see which instructions files were included in the chat request or were loaded by the agent:
 
     * [Check language model requests using the Chat Debug view](https://github.com/microsoft/vscode/wiki/Copilot-Issues#language-model-requests-and-responses).
