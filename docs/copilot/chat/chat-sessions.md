@@ -153,6 +153,27 @@ To run a subagent with a specific agent:
 > [!NOTE]
 > To prevent a custom agent from being used as a subagent, set the metadata property `infer` to `false` in the `*.agent.md` file.
 
+#### Control which subagents are available
+
+By default, all agents with `infer: true` (the default) are available as subagents. To explicitly control which subagents a custom agent can use, add the `agents` property to your agent's frontmatter:
+
+```markdown
+---
+name: Manager
+tools: ['agent']
+agents: ['Edit', 'Search']
+---
+```
+
+The `agents` property accepts:
+
+* A list of agent names (for example, `['Edit', 'Search']`) to allow only specific agents
+* `*` to allow all available agents
+* An empty array `[]` to prevent any subagent use
+
+> [!NOTE]
+> If you specify the `agents` property, ensure the `agent` tool is included in the `tools` property.
+
 ## Navigate between prompts in a chat session
 
 Use the following keyboard shortcuts to navigate between prompts in a chat session:

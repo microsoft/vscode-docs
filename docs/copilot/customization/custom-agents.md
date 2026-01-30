@@ -77,6 +77,7 @@ The header is formatted as YAML frontmatter with the following fields:
 | `name`            | The name of the custom agent. If not specified, the file name is used. |
 | `argument-hint`   | Optional hint text shown in the chat input field to guide users on how to interact with the custom agent. |
 | `tools`           | A list of tool or tool set names that are available for this custom agent. Can include built-in tools, tool sets, MCP tools, or tools contributed by extensions. To include all tools of an MCP server, use the `<server name>/*` format.<br/>Learn more about [tools in chat](/docs/copilot/chat/chat-tools.md). |
+| `agents`          | A list of agent names that are available as subagents in this agent. Use `*` to allow all agents, or an empty array `[]` to prevent any subagent use. If you specify `agents`, ensure the `agent` tool is included in the `tools` property. |
 | `model`           | The AI model to use when running the prompt. If not specified, the currently selected model in model picker is used. |
 | `infer`           | Optional boolean flag to enable use of the custom agent as a [subagent](/docs/copilot/chat/chat-sessions.md#contextisolated-subagents) (default is `true`). |
 | `target`          | The target environment or context for the custom agent (`vscode` or `github-copilot`). |
@@ -100,7 +101,10 @@ To reference agent tools in the body text, use the `#tool:<tool-name>` syntax. F
 
 When you select the custom agent in the Chat view, the guidelines in the custom agent file body are prepended to the user chat prompt.
 
-### Custom agent example
+### Examples
+
+<details>
+<summary>Planning agent example</summary>
 
 The following code snippet shows an example of a "Plan" custom agent file that generates an implementation plan and doesn't make any code edits. For more community-contributed examples, see the [Awesome Copilot repository](https://github.com/github/awesome-copilot/tree/main).
 
@@ -127,6 +131,51 @@ The plan consists of a Markdown document that describes the implementation plan,
 * Implementation Steps: A detailed list of steps to implement the feature or refactoring task.
 * Testing: A list of tests that need to be implemented to verify the feature or refactoring task.
 ```
+
+</details>
+
+<details>
+<summary>Agent orchestration example</summary>
+
+The following example shows a "Feature Builder" agent that coordinates specialized subagents for a research-then-implement workflow. The main agent uses the `agents` property to restrict which agents can be invoked as subagents.
+
+**feature-builder.agent.md** - The coordinating agent:
+
+```markdown
+---
+name: Feature Builder
+description: Build features by researching first, then implementing
+tools: ['agent']
+agents: ['Researcher', 'Implementer']
+---
+You are a feature builder. For each task:
+1. Use the Researcher agent to gather context and find relevant patterns in the codebase
+2. Use the Implementer agent to make the actual code changes based on research findings
+```
+
+**researcher.agent.md** - Read-only research agent:
+
+```markdown
+---
+name: Researcher
+description: Research codebase patterns and gather context
+tools: ['codebase', 'fetch', 'usages']
+---
+Research thoroughly using read-only tools. Return a summary of findings.
+```
+
+**implementer.agent.md** - Code editing agent:
+
+```markdown
+---
+name: Implementer
+description: Implement code changes based on provided context
+tools: ['editFiles', 'terminalLastCommand']
+---
+Implement changes following existing code patterns. Make minimal, focused edits.
+```
+
+</details>
 
 ## Create a custom agent
 
