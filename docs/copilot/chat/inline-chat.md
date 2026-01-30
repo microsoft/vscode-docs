@@ -55,6 +55,17 @@ To use terminal inline chat:
 
     Alternatively, select **Insert** (`kb(workbench.action.terminal.chat.insertCommand)`) to insert the command into the terminal and modify it before running.
 
+## Change the model for inline chat
+
+You can change the language model that is used for editor inline chat. By default, inline chat uses the same model as the Chat view, but you can configure a specific default model for inline chat.
+
+To configure the default model for inline chat, use the `setting(inlineChat.defaultModel)` setting. The setting lists all available models from the model picker.
+
+If you change the model during an inline chat session, the selection persists for the remainder of the session. After you reload VS Code, the model resets to the value specified in the `setting(inlineChat.defaultModel)` setting.
+
+Learn more about [choosing the right model for your task](/docs/copilot/customization/language-models.md#choose-the-right-model-for-your-task).
+
 ## Related resources
 
 * [Add context to your chat prompt](/docs/copilot/chat/copilot-chat-context.md)
+* [AI language models in VS Code](/docs/copilot/customization/language-models.md)

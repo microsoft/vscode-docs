@@ -144,6 +144,14 @@ To update the details of a model provider you have configured previously:
 
 1. Update the provider details, such as the API key or endpoint URL.
 
+## Change the model for inline chat
+
+You can configure a default language model for editor inline chat. This enables you to use a different model for inline chat than for chat conversations.
+
+To configure the default model for inline chat, use the `setting(inlineChat.defaultModel)` setting. The setting lists all available models from the model picker.
+
+If you change the model during an inline chat session, the selection persists for the remainder of the session. After you reload VS Code, the model resets to the value specified in the `setting(inlineChat.defaultModel)` setting.
+
 ## Change the model for inline suggestions
 
 To change the language model that is used for generating inline suggestions in the editor:

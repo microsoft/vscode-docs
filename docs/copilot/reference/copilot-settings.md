@@ -120,6 +120,7 @@ The [Agents view](/docs/copilot/agents/overview.md) provides a centralized locat
 
 | Setting and Description | Default |
 |------------------------|---------------|
+| `setting(inlineChat.defaultModel)`<br/>Configure the default language model for editor inline chat. The model you select persists during the session, but resets to this configured default after VS Code reloads. | N/A |
 | `setting(inlineChat.finishOnType)`<br/>Finish an editor inline chat session when typing outside of changed regions. | `false` |
 | `setting(inlineChat.holdToSpeech)`<br/>Holding the editor inline chat keyboard shortcut (`kb(inlineChat.start)`) automatically enables speech recognition. | `true` |
 | `setting(editor.inlineSuggest.syntaxHighlightingEnabled)`<br/>Show syntax highlighting for inline suggestions. | `true` |
