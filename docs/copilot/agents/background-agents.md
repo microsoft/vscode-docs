@@ -112,42 +112,35 @@ The background agent session starts automatically, carrying over the full conver
 
 ## Create an isolated background agent session (Experimental)
 
-To isolate background agent changes from your main workspace, you can create a background agent session that uses a [Git worktree](/docs/sourcecontrol/branches-worktrees.md#understanding-worktrees). When you create a worktree, VS Code creates a separate folder for the session. The background agent operates in this isolated folder, to prevent conflicts with your active work.
+Background agent sessions automatically use [Git worktrees](/docs/sourcecontrol/branches-worktrees.md#understanding-worktrees) to isolate changes from your main workspace. When you start a background agent session, VS Code creates a separate folder for the session. The background agent operates in this isolated folder, to prevent conflicts with your active work.
 
-To use Git worktrees in a background agent session:
+To start a background agent session with Git worktrees:
 
-1. Start a new Copilot CLI background agent session in VS Code.
-
-1. In the chat input box, select **Worktree** for the isolation mode.
-
-    ![Screenshot showing the "Worktree" isolation mode option in VS Code chat interface.](../images/background-agents/isolated-run-mode.png)
-
-    When you select **Workspace**, the background agent applies changes directly to your main workspace.
+1. In the Chat view, select **New Chat (+)** and then select **Background** from the session type dropdown.
 
 1. Enter a prompt to start the agent session. VS Code automatically creates a new Git worktree.
 
     All changes made by the background agent are applied to the worktree folder, isolating them from your main workspace.
 
-1. In Source Control view, in the **Repositories** view, you can view the Git worktree
+    > [!TIP]
+    > You can open the worktree for a background agent session by right-clicking it in the session list and selecting **Open Worktree in New Window**. You can also view the worktree in the Source Control view repository explorer (`scm.repositories.explorer`).
 
-    ![Screenshot showing Git worktree in VS Code Source Control view.](../images/background-agents/git-worktree-source-control.png)
+    > ![Screenshot showing Git worktree in VS Code Source Control view.](../images/background-agents/git-worktree-source-control-v2.png)
 
-    The Agents view also shows the worktree path for the background agent session.
+1. Monitor the background agent's progress in the Chat view. The agent sessions list displays diff statistics that match the changes in the worktree.
 
-1. Monitor the background agent's progress in the Agents view
+1. After the background agent completes the task, review and apply the changes from the worktree to your main workspace.
 
-1. After the background agent completes the task, you can review and merge the changes from the worktree back into your main workspace.
+    The working set at the bottom of the session shows the files changed during the background agent session.
 
-    At the bottom of the background session output, there's a summary of the files changed from this background agent session, followed by all outstanding changes from this worktree (which could have come from the background agent, or your own edits to the worktree).
+    <!-- TODO: update screenshot to show the new Apply/View Changes UI (Keep/Undo buttons removed) -->
+    ![Screenshot showing the working set with Apply and View Changes actions.](../images/background-agents/filechanges-v2.png)
 
-    ![Screenshot showing the ability to keep worktree changes.](../images/background-agents/filechanges.png)
-
-    You can choose to:
-    * Explore the file changes, by clicking on individual file names or using the `View All Edits` diff button
-    * Use the `Keep` button to keep the pending changes from the agentic session, or `Undo` to remove them
-    * Use the `Apply` button to apply all changes that were kept on the worktree to your local repository
+1. When you apply changes, VS Code handles any conflicts with your working tree or staged files. If conflicts occur, a merge resolution experience helps you resolve them.
 
 Learn more about [using Git worktrees in VS Code source control](/docs/sourcecontrol/branches-worktrees.md).
+
+<!-- TODO: delete obsolete screenshot images/background-agents/isolated-run-mode.png (isolation mode picker removed) -->
 
 ## Use custom agents with background agents (Experimental)
 
