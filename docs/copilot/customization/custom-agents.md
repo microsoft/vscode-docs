@@ -78,7 +78,7 @@ The header is formatted as YAML frontmatter with the following fields:
 | `argument-hint`   | Optional hint text shown in the chat input field to guide users on how to interact with the custom agent. |
 | `tools`           | A list of tool or tool set names that are available for this custom agent. Can include built-in tools, tool sets, MCP tools, or tools contributed by extensions. To include all tools of an MCP server, use the `<server name>/*` format.<br/>Learn more about [tools in chat](/docs/copilot/chat/chat-tools.md). |
 | `agents`          | A list of agent names that are available as subagents in this agent. Use `*` to allow all agents, or an empty array `[]` to prevent any subagent use. If you specify `agents`, ensure the `agent` tool is included in the `tools` property. |
-| `model`           | The AI model to use when running the prompt. If not specified, the currently selected model in model picker is used. |
+| `model`           | The AI model to use when running the prompt. Specify a single model name (string) or a prioritized list of models (array). When you specify an array, the system tries each model in order until an available one is found. If not specified, the currently selected model in model picker is used. |
 | `infer`           | Optional boolean flag to enable use of the custom agent as a [subagent](/docs/copilot/chat/chat-sessions.md#contextisolated-subagents) (default is `true`). |
 | `target`          | The target environment or context for the custom agent (`vscode` or `github-copilot`). |
 | `mcp-servers`     | Optional list of Model Context Protocol (MCP) server config json to use with [custom agents in GitHub Copilot](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents) (target: `github-copilot`). |
@@ -113,7 +113,7 @@ The following code snippet shows an example of a "Plan" custom agent file that g
 description: Generate an implementation plan for new features or refactoring existing code.
 name: Planner
 tools: ['fetch', 'githubRepo', 'search', 'usages']
-model: Claude Sonnet 4
+model: ['Claude Opus 4.5', 'GPT-5.2']  # Tries models in order
 handoffs:
   - label: Implement Plan
     agent: agent
