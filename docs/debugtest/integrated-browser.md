@@ -59,6 +59,21 @@ Learn more about [adding context to chat](/docs/copilot/chat/copilot-chat-contex
 
 The browser automatically denies most permission requests (camera, microphone, geolocation) for security. Notifications, clipboard access, and file selection are allowed.
 
+## Session storage
+
+Control how the integrated browser stores session data such as cookies, logins, localStorage, and cache with the `setting(workbench.browser.dataStorage)` setting.
+
+| Mode | Description |
+|------|-------------|
+| `global` | Data persists and is shared across all browser tabs and workspaces. |
+| `workspace` | Data persists within a workspace but is isolated between workspaces. |
+| `ephemeral` | Data is not shared between tabs or persisted. Similar to incognito mode. |
+
+To clear stored data, select the menu in the browser toolbar and choose **Clear Storage (Global)** or **Clear Storage (Workspace)** depending on your current storage mode. Reload the browser tab after clearing storage to apply the changes.
+
+> [!NOTE]
+> In untrusted workspaces, the browser always uses ephemeral mode regardless of the setting, to protect your data.
+
 ## Use as a default browser
 
 VS Code also has a built-in Simple Browser to preview web pages that has limited functionality compared to the integrated browser. If you want to use the integrated browser instead of the Simple Browser, enable the `setting(simpleBrowser.useIntegratedBrowser)` setting.
