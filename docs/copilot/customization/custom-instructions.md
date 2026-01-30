@@ -30,6 +30,10 @@ VS Code supports multiple types of Markdown-based instructions files. If you hav
     * Automatically applies to all chat requests in the workspace or to specific subfolders (experimental)
     * Stored in the root of the workspace or in subfolders (experimental)
 
+* [Organization-level instructions](#share-custom-instructions-across-teams)
+    * Share instructions across multiple workspaces and repositories within a GitHub organization
+    * Defined at the GitHub organization level
+
 Whitespace between instructions is ignored, so the instructions can be written as a single paragraph, each on a new line, or separated by blank lines for legibility.
 
 To reference specific context in your instructions, such as files or URLs, you can use Markdown links.
@@ -278,6 +282,16 @@ To sync your user instructions files, enable Settings Sync for prompt and instru
 
 1. Select **Prompts and Instructions** from the list of settings to sync.
 
+## Share custom instructions across teams
+
+To share custom instructions across multiple workspaces and repositories within your GitHub organization, you can define them at the GitHub organization level.
+
+VS Code automatically detects custom instructions defined at the organization level to which your account has access. These instructions are shown in the **Chat Instructions** menu alongside your personal and workspace instructions, and are automatically applied to all chat requests.
+
+To enable discovery of organization-level custom instructions, set `setting(github.copilot.chat.organizationInstructions.enabled)` to `true`.
+
+Learn how you can [add custom instructions for your organization](https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-organization-instructions) in the GitHub documentation.
+
 ## Tips for defining custom instructions
 
 * Keep your instructions short and self-contained. Each instruction should be a single, simple statement. If you need to provide multiple pieces of information, use multiple instructions.
@@ -323,7 +337,7 @@ If your on-demand instructions were not requested by the LLM, try to refine the 
 
 ### How do I know where a custom instruction file comes from?
 
-Custom instruction files can come from different sources: built-in, user-defined in your profile, workspace-defined instructions in your current workspace, or extension-contributed instructions.
+Custom instruction files can come from different sources: built-in, user-defined in your profile, workspace-defined instructions in your current workspace, organization-level instructions, or extension-contributed instructions.
 
 To identify the source of a custom instruction file:
 
