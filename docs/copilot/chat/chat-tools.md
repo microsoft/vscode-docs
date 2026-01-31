@@ -244,13 +244,6 @@ Related settings:
 
 Terminal sandboxing restricts file system and network access for commands executed by the agent. When sandboxing is enabled, terminal commands are auto-approved without requiring user confirmation, because they run in a controlled environment.
 
-> [!NOTE]
-> Terminal sandboxing is currently supported on macOS and Linux only. On Windows, the sandbox settings have no effect.
-> * OS dependencies:
->   * Linux requires bubblewrap, socat, and ripgrep.
->   * macOS requires ripgrep.
-
-
 To enable terminal sandboxing, set the `setting(chat.tools.terminal.sandbox.enabled)` setting to `true`.
 
 When sandboxing is enabled:
@@ -258,6 +251,9 @@ When sandboxing is enabled:
 * Commands have read and write access to the current working directory by default
 * Network access is blocked for all domains by default
 * Commands run without the standard confirmation dialog
+
+> [!NOTE]
+> Terminal sandboxing is currently supported on macOS and Linux only. On Windows, the sandbox settings have no effect.
 
 #### Configure file system access
 
