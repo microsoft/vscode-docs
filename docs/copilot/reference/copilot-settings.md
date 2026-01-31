@@ -89,7 +89,7 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 | `setting(chat.tools.urls.autoApprove)` <br/>Control which [URL requests and responses are auto-approved](/docs/copilot/chat/chat-tools.md#url-approval). | `[]` |
 | `setting(chat.agent.thinking.collapsedTools)` _(Experimental)_<br/>Configure whether tool call details are collapsed or expanded by default in the chat conversation. | `always` |
 | `setting(chat.agent.thinkingStyle)` _(Experimental)_<br/>Configure how thinking tokens are presented in chat. | `fixedScrolling` |
-| `setting(chat.customAgentInSubagent.enabled)` _(Experimental)_<br/>Enable using a custom agent with [subagents](/docs/copilot/chat/chat-sessions.md#context-isolated-subagents). | `false` |
+| `setting(chat.customAgentInSubagent.enabled)` _(Experimental)_<br/>Enable using a custom agent with [subagents](/docs/copilot/agents/subagents.md). | `false` |
 | `setting(chat.mcp.autoStart)` _(Experimental)_<br/>Automatically start MCP servers when MCP configuration changes are detected. | `newAndOutdated` |
 | `setting(chat.tools.eligibleForAutoApproval)` _(Experimental)_<br/>Configure which tools require manual approval before they can be used by agents. | `[]` |
 | `setting(chat.tools.terminal.blockDetectedFileWrites)` _(Experimental)_<br/>Require user approval for terminal commands that perform file writes. | `outsideWorkspace` |

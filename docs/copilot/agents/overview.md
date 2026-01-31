@@ -57,7 +57,7 @@ For example, if you ask an agent to research a topic and summarize the findings,
 
 Similar to agents themselves, subagents can also take advantage of custom agents to assume specific roles or personas for their tasks. If a subagent needs to perform research, you can have it use a "Researcher" custom agent that is optimized for gathering, analyzing, and summarizing information.
 
-Subagents are currently only supported in local agent sessions in VS Code.
+Subagents are currently only supported in local agent sessions in VS Code. Learn more about [subagents](/docs/copilot/agents/subagents.md).
 
 </details>
 
@@ -318,6 +318,8 @@ To permanently delete an agent session, right-click the session in the sessions 
 ## Related resources
 
 * [Agents tutorial](/docs/copilot/agents/agents-tutorial.md): Hands-on tutorial for working with different agent types
+
+* [Subagents](/docs/copilot/agents/subagents.md): Delegate tasks to context-isolated subagents
 
 * [Local agents](/docs/copilot/chat/copilot-chat.md): Master local agent sessions and chat features
 
