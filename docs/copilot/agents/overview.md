@@ -69,6 +69,19 @@ VS Code supports four main categories of agents, each designed for different use
 
 <!-- Diagram source: agent-types.excalidraw (credits: AnnaS) -->
 
+### Which agent should I use?
+
+Use the following table to help you decide which agent type best fits your use case:
+
+| Criteria | Local | Background | Cloud |
+|---|---|---|---|
+| **Where it runs** | Your machine | Your machine (CLI) | Remote infrastructure |
+| **Interactive vs unattended** | Interactive | Unattended | Unattended |
+| **Team collaboration** | No | No | Yes (PRs/issues) |
+| **Isolation** | No (direct workspace) | Yes (worktrees) | Yes (remote) |
+| **Time-sensitive** | Immediate | Immediate | Delayed |
+| **Task definition** | Flexible/exploratory | Well-defined | Well-defined |
+
 ### Local agents
 
 Local agents run directly within VS Code on your machine. You engage with local agents interactively via chat to get immediate results to your prompts. Local agents operate on your workspace and have access to the full range of tools and models available in VS Code. You can let the agent assume a specific role or persona for a task, such as a code reviewer, tester, or documentation writer by [creating custom agents](/docs/copilot/customization/custom-agents.md).
@@ -138,22 +151,23 @@ Learn more about [using cloud agents in VS Code](/docs/copilot/agents/cloud-agen
 
 ### Third party agents
 
-Third-party agents are AI agents developed by external providers that integrate into the VS Code agent experience. Unlike built-in agents, third-party agents use their own SDKs and tools while leveraging your Copilot subscription for authentication.
+VS Code also supports coding agents from third-party AI providers. These agents integrate into the VS Code agent experience, allowing you to create and track sessions from the unified Chat view just like other agent types. VS Code provides support for both local and cloud-based third-party agents, depending on the provider capabilities.
+
+You can use your existing Copilot subscription with third-party agents for authentication, but the agents use their own SDKs and tools to perform coding tasks.
 
 The following third-party agents are available in VS Code:
 
 * **Claude Agent**: powered by Anthropic's Claude Agent SDK, with specialized slash commands and memory files - can operate locally or in the cloud
 * **OpenAI Codex**: powered by OpenAI's Codex SDK - can operate locally or in the cloud
 
-You can manage third-party agent sessions from the unified Chat view, just like other agent types.
-
 **Best for**: When you want to leverage capabilities from other AI providers like Anthropic or OpenAI within your VS Code workflow
 
 **Key characteristics**:
 
-* Uses your existing Copilot subscription for authentication
-* Provides provider-specific tools and capabilities
-* Integrates with VS Code's unified session management
+* Use the provider's specific capabilities to perform coding tasks
+* Use your existing Copilot subscription for authentication
+* Can run locally or in the cloud, depending on the provider
+* Can support team collaboration via pull requests (for cloud agents)
 
 Learn more about [using third-party agents in VS Code](/docs/copilot/agents/third-party-agents.md).
 
