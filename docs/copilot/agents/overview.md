@@ -76,7 +76,7 @@ Use the following table to help you decide which agent type best fits your use c
 | Criteria | Local | Background | Cloud |
 |---|---|---|---|
 | **Where it runs** | Your machine | Your machine (CLI) | Remote infrastructure |
-| **Interactive vs unattended** | Interactive | Unattended | Unattended |
+| **Interactive vs unattended** | Interactive | Unattended (async) | Unattended (async) |
 | **Team collaboration** | No | No | Yes (PRs/issues) |
 | **Isolation** | No (direct workspace) | Yes (worktrees) | Yes (remote) |
 | **Time-sensitive** | Immediate | Immediate | Delayed |
