@@ -194,6 +194,9 @@ To identify the source of a prompt file:
 1. Select **Chat: Configure Prompt Files** from the Command Palette (`kb(workbench.action.showCommands)`).
 1. Hover over the prompt file in the list. The source location is displayed in a tooltip.
 
+> [!TIP]
+> Use the chat customization diagnostics view to see all loaded prompt files and any errors. Right-click in the Chat view and select **Diagnostics**. Learn more about [troubleshooting AI in VS Code](/docs/copilot/troubleshooting.md).
+
 ## Related resources
 
 * [Customize AI responses overview](/docs/copilot/customization/overview.md)

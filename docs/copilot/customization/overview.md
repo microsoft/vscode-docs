@@ -125,6 +125,12 @@ For advanced usage, build custom agents that combine specific tools, instruction
 
 Identify reusable capabilities and workflows and package them as Agent Skills, which can be loaded on-demand as needed. This expands agents with extra functionality, while minimizing the impact on context usage.
 
+## Troubleshoot customization issues
+
+If your customization files aren't being applied or are causing unexpected behavior, use the chat customization diagnostics view to identify problems. Right-click in the Chat view and select **Diagnostics** to see all loaded custom agents, prompt files, instruction files, and skills along with any errors.
+
+Learn more about [troubleshooting AI in VS Code](/docs/copilot/troubleshooting.md).
+
 ## Related resources
 
 - [Create custom instructions](/docs/copilot/customization/custom-instructions.md)

@@ -260,6 +260,9 @@ To identify the source of a custom agent:
 1. Select **Configure Custom Agents** from the agents dropdown.
 1. Hover over the custom agent in the list. The source location is displayed in a tooltip.
 
+> [!TIP]
+> Use the chat customization diagnostics view to see all loaded custom agents, prompt files, instruction files, and skills along with any errors. Right-click in the Chat view and select **Diagnostics**. Learn more about [troubleshooting AI in VS Code](/docs/copilot/troubleshooting.md).
+
 ## Related resources
 
 * [Customize AI with custom instructions](/docs/copilot/customization/custom-instructions.md)

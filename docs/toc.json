@@ -166,6 +166,7 @@
       ["Smart Actions", "/docs/copilot/copilot-smart-actions"],
       ["Tips and Tricks", "/docs/copilot/copilot-tips-and-tricks"],
       ["Security", "/docs/copilot/security"],
+      ["Troubleshooting", "/docs/copilot/troubleshooting"],
       ["FAQ", "/docs/copilot/faq"],
       ["", "", {
         "name": "Reference",

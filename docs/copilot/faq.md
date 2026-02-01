@@ -179,30 +179,7 @@ We track issues and feature requests for GitHub Copilot in VS Code in the [micro
 
 When you report an issue, follow the guidelines in our [wiki](https://github.com/microsoft/vscode/wiki/Copilot-Issues) to make sure your issue is actionable.
 
-It can be helpful to include information from the [GitHub Copilot logs](#view-logs-for-github-copilot-in-vs-code) if you're reporting an issue.
-
-### View logs for GitHub Copilot in VS Code
-
-The log files for the GitHub Copilot extension are stored in the standard log location for Visual Studio Code extensions.
-
-To get detailed logs for Copilot in VS Code, follow these steps:
-
-1. In the Command Palette (`kb(workbench.action.showCommands)`), run the **Developer: Set Log Level** command and set the value to **Trace** (you can do this only for the GitHub Copilot and GitHub Copilot Chat extensions).
-1. In the Command Palette (`kb(workbench.action.showCommands)`), run the **Output: Show Output Channels** command and select either GitHub Copilot or GitHub Copilot Chat from the list.
-1. In the Output panel, you can see the logs for the selected extension.
-1. To switch to another output channel, on the right of the Output panel, select **GitHub Copilot** or **GitHub Copilot Chat** from the dropdown menu.
-
-If you encounter problems connecting to GitHub Copilot, you can view network connectivity diagnostics logs:
-
-1. Open the Command Palette (`kb(workbench.action.showCommands)`).
-1. Run the **GitHub Copilot: Collect Diagnostics** command.
-1. An editor tab opens where you can inspect the diagnostics information.
-
-### Use the Chat Debug view
-
-You can use the Chat Debug view to see the details of AI requests and responses, including the prompt being used and the context that is sent to the language model. This view can help you understand how the AI is interpreting your requests and what context it is using to generate responses.
-
-Learn more about the [Chat Debug view](/docs/copilot/chat/chat-debug-view.md).
+It can be helpful to include information from the Copilot logs if you're reporting an issue. Learn how to [view logs and collect diagnostics](/docs/copilot/troubleshooting.md).
 
 ## Additional resources
 

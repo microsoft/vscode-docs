@@ -308,6 +308,9 @@ Learn how you can [add custom instructions for your organization](https://docs.g
 
 If your instructions file is not being applied, check the following:
 
+> [!TIP]
+> Use the chat customization diagnostics view to see all loaded instruction files and any errors. Right-click in the Chat view and select **Diagnostics**. Learn more about [troubleshooting AI in VS Code](/docs/copilot/troubleshooting.md).
+
 1. Verify that your instructions file is in the correct location:
 
     * For a `.github/copilot-instructions.md` file, it must be located in the `.github` folder at the root of your workspace and the `setting(github.copilot.chat.codeGeneration.useInstructionFiles)` setting must be enabled.
