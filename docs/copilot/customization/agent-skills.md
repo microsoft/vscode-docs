@@ -61,6 +61,9 @@ Skills are stored in directories with a `SKILL.md` file that defines the skill's
 * Project skills, stored in your repository: `.github/skills/` (recommended) or `.claude/skills/` (legacy, for backward compatibility)
 * Personal skills, stored in your user profile: `~/.copilot/skills/` (recommended) or `~/.claude/skills/` (legacy, for backward compatibility)
 
+> [!TIP]
+> You can configure additional locations where VS Code searches for skills by using the `setting(chat.agentSkillsLocations)` setting. This is useful for sharing skills across projects or keeping them in a central location.
+
 To create a skill:
 
 1. Create a `.github/skills` directory in your workspace.
