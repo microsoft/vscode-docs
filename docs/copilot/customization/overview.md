@@ -22,7 +22,7 @@ Use custom instructions to:
 - Provide guidelines about how a commit message or pull request title and description should be structured
 - Set rules for code reviews, such as checking for security vulnerabilities, performance issues, or adherence to coding standards
 
-### Agent Skills (Preview)
+### Agent Skills
 
 [Agent Skills](/docs/copilot/customization/agent-skills.md) enable you to teach Copilot specialized capabilities through folders containing instructions, scripts, and resources. This feature is currently available in [VS Code Insiders](https://code.visualstudio.com/insiders/) only. Agent Skills is an [open standard](https://agentskills.io) that works across multiple AI agents, including VS Code, GitHub Copilot CLI, and GitHub Copilot coding agent. This makes skills portable across different AI tools. Unlike custom instructions that primarily define coding guidelines, skills focus on specialized workflows and capabilities.
 

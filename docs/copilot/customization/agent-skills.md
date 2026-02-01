@@ -25,9 +25,6 @@ Key benefits of Agent Skills:
 * **Compose capabilities**: Combine multiple skills to build complex workflows
 * **Efficient loading**: Only relevant content loads into context when needed
 
-> [!NOTE]
-> Agent Skills support in VS Code is currently in preview. Enable the `setting(chat.useAgentSkills)` setting to use Agent Skills.
-
 ## Agent Skills vs custom instructions
 
 While both Agent Skills and custom instructions help customize Copilot's behavior, they serve different purposes:
