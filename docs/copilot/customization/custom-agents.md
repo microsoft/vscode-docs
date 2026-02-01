@@ -55,6 +55,7 @@ handoffs:
     agent: implementation
     prompt: Now implement the plan outlined above.
     send: false
+    model: GPT-5.2 (copilot)
 ---
 ```
 
@@ -87,6 +88,7 @@ The header is formatted as YAML frontmatter with the following fields:
 | `handoffs.agent`  | The target agent identifier to switch to. |
 | `handoffs.prompt` | The prompt text to send to the target agent. |
 | `handoffs.send`   | Optional boolean flag to auto-submit the prompt (default is `false`) |
+| `handoffs.model`  | Optional language model to use when the handoff executes. Use the qualified model name in the format `Model Name (vendor)`, for example `GPT-5 (copilot)` or `Claude Sonnet 4.5 (copilot)`. |
 
 > [!NOTE]
 > If a given tool is not available when using the custom agent, it is ignored.
