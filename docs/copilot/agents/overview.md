@@ -33,6 +33,8 @@ Give an agent a high-level task, and they break it down into steps, execute thos
 
 In VS Code, agents can run in different environments to match your workflow: locally in VS Code for interactive tasks, in the background on your machine for autonomous work, or remotely in the cloud for team collaboration. They perform coding tasks, run terminal commands, and use tools together to achieve your objectives. Some agents respond to your prompts in real-time to help you plan features or make targeted edits, while others work independently to implement multi-step changes.
 
+At any time, you can run multiple agent sessions in parallel, each focused on a different task. When you create a new agent session, the previous session remains active, allowing you to switch between tasks via the [agent sessions list](#agent-sessions-list).
+
 <details>
 <summary>How are agents different from custom agents?</summary>
 
@@ -79,8 +81,7 @@ Use the following table to help you decide which agent type best fits your use c
 | **Interactive vs unattended** | Interactive | Unattended (async) | Unattended (async) |
 | **Team collaboration** | No | No | Yes (PRs/issues) |
 | **Isolation** | No (direct workspace) | Yes (worktrees) | Yes (remote) |
-| **Time-sensitive** | Immediate | Immediate | Delayed |
-| **Task definition** | Flexible/exploratory | Well-defined | Well-defined |
+| **Task type** | Exploratory/ambiguous | Well-defined | Well-defined |
 
 ### Local agents
 
@@ -233,7 +234,7 @@ There are different ways to create a new agent session in VS Code:
 
 ### Create a new agent session
 
-You can create a new agent session from the Chat view or by using the corresponding commands in the Command Palette.
+You can create a new agent session from the Chat view or by using the corresponding commands in the Command Palette. You can create multiple agent sessions in parallel, each focused on a different task. When you create a new agent session, the previous session remains active, allowing you to switch between tasks via the [agent sessions list](#agent-sessions-list).
 
 1. Open the Chat view
 

@@ -27,6 +27,8 @@ If you're using agents, the session can run locally on your machine, in the back
 
 VS Code supports different types of sessions (local, background, cloud, and third-party) and different views (side bar, editor tab, and separate window) for chat sessions. Learn more about [using the different agents](/docs/copilot/agents/overview.md).
 
+At any time, you can run multiple sessions in parallel, each focused on a different task. When you create a new agent session, the previous session remains active, allowing you to switch between tasks via the [agent sessions list](/docs/copilot/agents/overview.md#agent-sessions-list).
+
 | | |
 |-|-|
 | Open a local chat session in the side bar.<br/><br/><ul><li>In Chat view, **New Chat (+)** > **New Chat**</li><li>`kb(workbench.action.chat.newChat)`</li><li>**Chat: New Chat** command</li></ul> | ![Screenshot of opening a new chat session in the Chat view in VS Code.](../images/chat-sessions/new-chat-session-chat-view.png) |
