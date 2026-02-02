@@ -130,7 +130,7 @@ Agents let chat assume a different role or persona optimized for specific tasks.
 
 ### Built-in agents
 
-VS Code provides four built-in agents: **Agent**, **Plan**, **Ask**, and **Edit**. For more specialized workflows, you can also create your own [custom agents](/docs/copilot/customization/custom-agents.md).
+VS Code provides three built-in agents: **Agent**, **Plan**, and **Ask**. For more specialized workflows, you can also create your own [custom agents](/docs/copilot/customization/custom-agents.md).
 
 <details>
 <summary>Agent</summary>
@@ -239,39 +239,6 @@ Open chat with Ask: [Stable](vscode://GitHub.Copilot-Chat/chat?mode=ask) | [Insi
 1. Optionally, [add context to your prompt](/docs/copilot/chat/copilot-chat-context.md) to get more accurate responses.
 
 1. Select **Send** or press `kb(workbench.action.chat.submit)` to submit your prompt.
-
-</details>
-
-<details>
-<summary>Edit</summary>
-
-Edit is optimized for making code edits across multiple files in your project. Edit is useful for coding tasks when you have a good understanding of the changes that you want to make and which files you want to edit.
-
-VS Code directly applies the code changes in the editor, where you can review them. Use the editor overlay controls to navigate between edits with the `kbstyle(Up)` and `kbstyle(Down)` controls and either keep or undo changes.
-
-Open chat with Edit: [Stable](vscode://GitHub.Copilot-Chat/chat?mode=edit) | [Insiders](vscode-insiders://GitHub.Copilot-Chat/chat?mode=edit)
-
-### Get started with Edit
-
-1. Type your request in the chat input field. For example, you might ask:
-
-    ```prompt
-    Refactor the authentication logic to use OAuth2.
-    ```
-
-    or
-
-    ```prompt
-    Add unit tests for the user service.
-    ```
-
-1. Select **Edit** from the agent picker in the Chat view.
-
-1. [Add context to your prompt](/docs/copilot/chat/copilot-chat-context.md) to guide the AI to make edits in the right files.
-
-1. Select **Send** or press `kb(workbench.action.chat.submit)` to submit your prompt.
-
-1. Review the code changes in the editor by using the overlay controls.
 
 </details>
 
