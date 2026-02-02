@@ -65,7 +65,7 @@ Subagents are currently only supported in local agent sessions in VS Code. Learn
 
 VS Code supports four main categories of agents, each designed for different use cases and levels of interaction:
 
-![Diagram showing agent types by environment and interaction.](../images/agents-overview/agent-types-diagram-v2.png)
+![Diagram showing agent types by environment and interaction.](../images/agents-overview/agent-types-diagram-v3.png)
 
 <!-- Diagram source: agent-types.excalidraw (credits: AnnaS) -->
 
@@ -151,11 +151,11 @@ Learn more about [using cloud agents in VS Code](/docs/copilot/agents/cloud-agen
 
 ### Third party agents
 
-VS Code also supports coding agents from third-party AI providers. These agents integrate into the VS Code agent experience, allowing you to create and track sessions from the unified Chat view just like other agent types. VS Code provides support for both local and cloud-based third-party agents, depending on the provider capabilities.
+VS Code also supports agents from third-party AI providers. These agents integrate into the VS Code agent experience and let you use your existing Copilot subscription for authentication.
 
-You can use your existing Copilot subscription with third-party agents for authentication, but the agents use their own SDKs and tools to perform coding tasks.
+Third-party agents enable you to use the unique capabilities of other AI providers, while still benefiting from the unified agent sessions management in VS Code and the rich editor experience for coding, debugging, testing, and more.
 
-The following third-party agents are available in VS Code:
+VS Code provides support for both local and cloud-based third-party agents, depending on the provider capabilities. The following third-party agents are available in VS Code:
 
 * **Claude Agent**: powered by Anthropic's Claude Agent SDK, with specialized slash commands and memory files - can operate locally or in the cloud
 * **OpenAI Codex**: powered by OpenAI's Codex SDK - can operate locally or in the cloud
