@@ -155,10 +155,10 @@ VS Code also supports agents from third-party AI providers. These agents integra
 
 Third-party agents enable you to use the unique capabilities of other AI providers, while still benefiting from the unified agent sessions management in VS Code and the rich editor experience for coding, debugging, testing, and more.
 
-VS Code provides support for both local and cloud-based third-party agents, depending on the provider capabilities. The following third-party agents are available in VS Code:
+The following third-party agents are available in VS Code:
 
-* **Claude Agent**: powered by Anthropic's Claude Agent SDK, with specialized slash commands and memory files - can operate locally or in the cloud
-* **OpenAI Codex**: powered by OpenAI's Codex SDK - can operate locally or in the cloud
+* **Claude Agent**: powered by Anthropic's Claude Agent SDK, with specialized slash commands and memory files
+* **OpenAI Codex**: powered by OpenAI's Codex SDK
 
 **Best for**: When you want to leverage capabilities from other AI providers like Anthropic or OpenAI within your VS Code workflow
 
@@ -167,8 +167,6 @@ VS Code provides support for both local and cloud-based third-party agents, depe
 * Use the provider's specific capabilities to perform coding tasks
 * Use your existing Copilot subscription for authentication
 * Use VS Code for agent session management and rich editor experience
-* Can run locally or in the cloud, depending on the provider
-* Can support team collaboration via pull requests (for cloud agents)
 
 Learn more about [using third-party agents in VS Code](/docs/copilot/agents/third-party-agents.md).
 

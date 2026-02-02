@@ -30,15 +30,9 @@ To start a new Claude agent session:
 
 1. Open the Chat view (`kb(workbench.action.chat.open)`) and select **New Chat** (`+`).
 
-1. Choose between a local or cloud agent session:
+1. Select **Claude** from the agents dropdown
 
-    * For a local sessions, select **Claude** from the agents dropdown
-
-        ![Screenshot showing session type dropdown with Claude agent option selected](../images/third-party-agents/claude-agent-new-chat.png)
-
-    * For a cloud session, select **Cloud** from the agents dropdown. Then, select **Claude** from the partner agent picker.
-
-        <!-- TODO: add screenshot of the Claude agent cloud chat -->
+    ![Screenshot showing session type dropdown with Claude agent option selected](../images/third-party-agents/claude-agent-new-chat.png)
 
 1. Enter your prompt and let the agent work on the task
 
@@ -90,15 +84,9 @@ To start a new OpenAI Codex agent session:
 
 1. Open the Chat view (`kb(workbench.action.chat.open)`) and select **New Chat** (`+`).
 
-1. Choose between a local or cloud agent session:
-
-    * For a local sessions, select **Codex** from the agents dropdown
+1. Select **Codex** from the agents dropdown
 
     ![Screenshot showing session type dropdown with Codex agent option selected](../images/third-party-agents/codex-agent-new-chat.png)
-
-    * For a cloud session, select **Cloud** from the agents dropdown. Then, select **Codex** from the partner agent picker.
-
-        <!-- TODO: add screenshot of the Codex agent cloud chat -->
 
 1. A chat editor opens for the Codex agent
 
