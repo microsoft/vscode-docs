@@ -127,9 +127,28 @@ Then update the docs/ folder with the new documentation.
 
 ## Run a custom agent as a subagent (Experimental)
 
-By default, a subagent inherits the agent from the main chat session and uses the same model and tools. To define spaecific behavior for a subagent, use a [custom agent](/docs/copilot/customization/custom-agents.md).
+By default, a subagent inherits the agent from the main chat session and uses the same model and tools. To define specific behavior for a subagent, use a [custom agent](/docs/copilot/customization/custom-agents.md).
 
-The `infer` frontmatter property in the custom agent definition indicates whether the agent can be used as a subagent. If `infer` is set to `false`, the custom agent cannot be used as a subagent. By default, `infer` is `true`.
+### Control subagent invocation
+
+You can control how a custom agent can be invoked using two frontmatter properties:
+
+* `user-invokable`: controls whether the agent appears in the agents dropdown in chat (default is `true`). Set to `false` to create agents that are only accessible as subagents.
+* `disable-model-invocation`: prevents the agent from being invoked as a subagent by other agents (default is `false`). Set to `true` when agents should only be triggered explicitly by users.
+
+For example, to create an agent that can only be used as a subagent (not visible in the dropdown):
+
+```markdown
+---
+name: internal-helper
+user-invokable: false
+---
+
+This agent can only be invoked as a subagent.
+```
+
+> [!NOTE]
+> The `infer` property is deprecated. Use `user-invokable` and `disable-model-invocation` instead for more granular control.
 
 To run a custom agent as a subagent, prompt the AI to use a custom or built-in agent for the subagent. For example:
 
@@ -138,7 +157,7 @@ To run a custom agent as a subagent, prompt the AI to use a custom or built-in a
 
 ### Restrict which subagents can be used (Experimental)
 
-By default, all agents with `infer: true` are available to a custom agent to be used as subagents. If two or more agents have similar names or descriptions, the AI might select an unintended agent.
+By default, all custom agents that don't have `disable-model-invocation: true` are available to be used as subagents. If two or more agents have similar names or descriptions, the AI might select an unintended agent.
 
 You can restrict which custom agents can be used as subagents by specifying the `agents` property in the main agent's frontmatter, and providing a list of allowed custom agents.
 
