@@ -34,45 +34,19 @@ Depending on your task, you can choose between different Copilot tools.
 | [Chat](/docs/copilot/chat/copilot-chat.md) | Have an ongoing chat conversation for brainstorming design ideas or getting code suggestions, optionally calling on domain-specific chat participants.<br/>Choose to apply specific code suggestions to your codebase. |
 | [Use agents](/docs/copilot/chat/copilot-chat.md#built-in-agents) | Implement high-level requirements by starting an agentic coding flow.<br/>The agent autonomously invokes multiple tools to plan and implement the code changes and tasks that are needed. |
 
-## Personalize Copilot with instructions files
+## Personalize AI with instructions files
 
-When Copilot generates code or answers questions, it tries to match your coding practices and preferences such as which libraries you use or how you name your variables. However, it might not always have enough context to do this effectively. For example, if you work with a specific framework version, you need to provide additional context in your prompts.
+When the AI generates code or answers questions, it tries to match your coding practices and preferences such as which libraries you use or how you name your variables. However, it might not always have enough context to do this effectively. For example, if you work with a specific framework version, you need to provide additional context in your prompts.
 
 To enhance AI responses, you can use _instructions files_ to provide contextual details about your team's coding practices, tools, or project specifics. You can then attach these instructions to your chat prompt, or have them applied automatically.
 
-To enable instructions files for your workspace:
+To prime your workspace with always-on custom instructions based on your current project structure and coding patterns:
 
-1. Run the **Chat: New Instructions File** command from the Command Palette.
+1. Enter the `/init` command in the chat input. This generates a `copilot-instructions.md` or `AGENTS.md` file in the `.github` folder at the root of your workspace.
 
-    This command creates a `.instructions.md` file in `.github/instructions` folder.
+1. Optionally, edit the generated instructions file to add or modify the instructions.
 
-1. Add your instructions in Markdown format to the file. For example:
-
-    ```markdown
-    # Custom instructions for Copilot
-
-    ## Project context
-    This project is a web application built with React and Node.js.
-
-    ## Indentation
-    We use tabs, not spaces.
-
-    ## Coding style
-    Use camelCase for variable names and prefer arrow functions over traditional function expressions.
-
-    ## Testing
-    We use Jest for unit testing and Playwright for end-to-end testing.
-    ```
-
-1. Optionally, add a glob pattern to the `applyTo` metadata field to specify which files the instructions apply to.
-
-    ```markdown
-    ---
-    applyTo: "**/*.ts"
-    ---
-    Coding practices for TypeScript files.
-    ...
-    ```
+1. For task or technology-specific instructions, you can create additional file-based `.instructions.md` instructions files by using the **Chat: New Instructions File** command in the Command Palette.
 
 Get more details about [using instructions files in VS Code](/docs/copilot/customization/custom-instructions.md).
 

@@ -142,6 +142,9 @@ Customizing chat makes it work better for your specific needs and coding style. 
 
 Custom instructions tell the AI about your coding preferences and standards. These apply automatically to all chat interactions.
 
+> [!TIP]
+> Use the `/init` slash command in chat to automatically generate custom instructions based on your project's structure and coding patterns.
+
 1. Create a new folder called `.github` in your project root.
 
 1. Inside the `.github` folder, create a file called `copilot-instructions.md`.

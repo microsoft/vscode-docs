@@ -260,11 +260,25 @@ The following code snippet shows how to define a set of instructions in the `set
 }
 ```
 
-## Generate an instructions file for your workspace
+## Generate custom instructions for your workspace
 
-VS Code can analyze your workspace and generate a matching `.github/copilot-instructions.md` file with custom instructions that match your coding practices and project structure.
+VS Code can analyze your workspace and generate always-on custom instructions that match your coding practices and project structure. These instructions then apply automatically to all chat requests in the workspace.
 
-To generate an instructions file for your workspace:
+When you generate instructions, VS Code performs the following steps:
+
+1. It discovers existing AI conventions in your workspace, such as `copilot-instructions.md` or `AGENTS.md` files.
+1. It analyzes your project structure and coding patterns.
+1. It generates comprehensive workspace instructions tailored to your project.
+
+### Use the `/init` slash command
+
+The quickest way to prime your workspace with custom instructions is to type the `/init` slash command in the chat input box.
+
+The `/init` command is implemented as a contributed [prompt file](/docs/copilot/customization/prompt-files.md), so you can customize its behavior by modifying the underlying prompt.
+
+### Use the Generate Chat Instructions command
+
+Alternatively, you can generate a `.github/copilot-instructions.md` file from the Command Palette:
 
 1. In the Chat view, select **Configure Chat** (gear icon) > **Generate Chat Instructions**.
 
