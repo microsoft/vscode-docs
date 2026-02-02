@@ -237,13 +237,9 @@ You can create a new agent session from the Chat view or by using the correspond
 
 1. Open the Chat view
 
-1. Select the **New Session** dropdown and then select which type of agent session to create
+1. Select the **New Session** dropdown (`+`) and choose where to open the new session:
 
     ![Screenshot of creating a new agent session from the Chat view.](../images/agents-overview/create-new-agent-session.png)
-
-    * **New Chat**: start a new local agent session in the Chat view
-    * **New Chat Editor**: start a new local agent session as an editor tab
-    * **New Chat Window**: start a new local agent session in a separate VS Code window
 
 1. Choose the agent type from the dropdown.
 
