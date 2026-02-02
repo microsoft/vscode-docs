@@ -166,6 +166,7 @@ VS Code provides support for both local and cloud-based third-party agents, depe
 
 * Use the provider's specific capabilities to perform coding tasks
 * Use your existing Copilot subscription for authentication
+* Use VS Code for agent session management and rich editor experience
 * Can run locally or in the cloud, depending on the provider
 * Can support team collaboration via pull requests (for cloud agents)
 
