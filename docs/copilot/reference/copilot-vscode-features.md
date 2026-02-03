@@ -163,6 +163,9 @@ Use chat participants to handle domain-specific requests in chat. Chat participa
 
 | Chat participant | Description |
 |------------------|-------------|
+| `@claude` | Used to delegate a chat session to and interact with the [Claude agent](/docs/copilot/agents/third-party-agents.md). |
+| `@cli` | Used to delegate a chat session to and interact with a [background agent](/docs/copilot/agents/background-agents.md) (Copilot CLI). |
+| `@cloud` | Used to delegate a chat session to and interact with a [cloud agent](/docs/copilot/agents/cloud-agents.md). |
 | `@github` | Use the `@github` participant to ask questions about GitHub repositories, issues, pull requests, and more. Get more information about the [available GitHub skills](https://docs.github.com/en/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide#currently-available-skills).<br/>Example: `@github What are all of the open PRs assigned to me?`, `@github Show me the recent merged PRs from @dancing-mona` |
 | `@terminal` | Use the `@terminal` participant to ask questions about the integrated terminal or shell commands.<br/>Example: `@terminal list the 5 largest files in this workspace` |
 | `@vscode` | Use the `@vscode` participant to ask questions about VS Code features, settings, and the VS Code extension APIs.<br/>Example: `@vscode how to enable  word wrapping?` |
