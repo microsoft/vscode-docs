@@ -147,7 +147,7 @@ You have multiple options to run a prompt file:
 > [!TIP]
 > Use the `setting(chat.promptFilesRecommendations)` setting to show prompts as recommended actions when starting a new chat session.
 >
-> ![Screenshot showing an "explain" prompt file recommendation in the Chat view.](../images/customization/prompt-file-recommendations.png)
+> ![Screenshot showing a "explain" prompt file recommendation in the Chat view.](../images/customization/prompt-file-recommendations.png)
 
 ## Tool list priority
 

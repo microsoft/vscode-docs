@@ -157,13 +157,13 @@ To start a local agent session:
 
 1. Type a high-level prompt in the chat input field. For example, you might ask:
 
-    ```prompt
+    ```prompt-agent
     Implement a user authentication system with OAuth2 and JWT.
     ```
 
     or
 
-    ```prompt
+    ```prompt-agent
     Set up a CI/CD pipeline for this project.
     ```
 
@@ -191,13 +191,13 @@ Open chat with Plan: [Stable](vscode://GitHub.Copilot-Chat/chat?mode=plan) | [In
 
 1. Type a high-level prompt in the chat input field. For example, you might ask:
 
-    ```prompt
+    ```prompt-plan
     Update the application to support multi-language localization.
     ```
 
     or
 
-    ```prompt
+    ```prompt-plan
     Add a search feature to the application.
     ```
 
@@ -224,13 +224,13 @@ Open chat with Ask: [Stable](vscode://GitHub.Copilot-Chat/chat?mode=ask) | [Insi
 
 1. Type your prompt in the chat input field. For example, you might ask:
 
-    ```prompt
+    ```prompt-ask
     Provide 3 ways to implement a search feature in React.
     ```
 
     or
 
-    ```prompt
+    ```prompt-ask
     Where is the db connection configured in this project? #codebase
     ```
 
