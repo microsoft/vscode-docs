@@ -70,15 +70,17 @@ Happy Coding!
   <div class="notes-main">
 Navigation End -->
 
-## Run multiple agents in parallel
-
-Running multiple agent sessions simultaneously is now a first-class experience in VS Code. Whether you're delegating tasks to local agents, background processes, or cloud-based providers, you can monitor everything from one place, switch contexts quickly, and let agents work independently without blocking each other.
+## Upcoming events
 
 ### Agent Sessions Day
 
 (placeholder) Join us for [Agent Sessions Day](https://youtube.com/live/tAezuMSJuFs) on Feb 19th to see these latest updates demoed live! Discover how VS Code has evolved into a unified agent UX, while staying true to its core values of openness, extensibility, and developer choice.
 
 <!-- TODO: add a visual -->
+
+## Run multiple agents in parallel
+
+Running multiple agent sessions simultaneously is now a first-class experience in VS Code. Whether you're delegating tasks to local agents, background processes, or cloud-based providers, you can monitor everything from one place, switch contexts quickly, and let agents work independently without blocking each other.
 
 ### Agent sessions view improvements
 
