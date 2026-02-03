@@ -15,17 +15,16 @@ _Release date: February 4, 2026_
 
 ---
 
-Welcome to the January 2026 release of Visual Studio Code.
-
-![VS Code 1.109 release image.](images/1_109/release-highlights.webp)
-
-In this release, we are further evolving VS Code to make it the home for all multi-agent development.
+Welcome to the January 2026 release of Visual Studio Code. In this release, we are further evolving VS Code to make it the home for all multi-agent development.
 
 * **A unified experience for all your agents** - Delegate multiple tasks to agents running in parallel across different agent providers, whether locally, in the background, or in the cloud. Alternate between an agent orchestrator mindset and performing coding tasks in the editor - all in one place.
 
 * **Extend agents with open standards** - Give your agents new capabilities through [MCP Apps](#support-for-mcp-apps) for interactive visualizations, add [Agent Skills](#agent-skills-are-generally-available) to your project for specialized workflows, and [organization-wide custom instructions](#github-organization-instructions).
 
 * **New tools that change how you work with agents** - A [rich integrated browser](#integrated-browser-preview) for end-to-end validation, [Mermaid diagrams](#mermaid-diagrams-in-chat-responses) provide inline visualizations directly in chat, and a [sandboxed terminal](#sandbox-terminal-commands-experimental) means safer command execution.
+
+
+![VS Code 1.109 release image.](images/1_109/release-highlights.webp)
 
 Happy Coding!
 
