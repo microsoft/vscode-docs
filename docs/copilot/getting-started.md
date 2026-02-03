@@ -13,7 +13,7 @@ By the end of this tutorial, you'll have both a working web application and a pe
 <div class="docs-action" data-show-in-doc="true" data-show-in-sidebar="true" title="Create the sample app">
 Use chat in VS Code to generate the sample application in one go.
 
-* [Open in VS Code](vscode://GitHub.Copilot-Chat/chat?agent=agent%26prompt=%23newWorkspace%20task%20manager%20web%20application%20with%20the%20ability%20to%20add%2C%20delete%2C%20and%20mark%20tasks%20as%20completed.%20Add%20the%20code%2C%20custom%20instructions%2C%20and%20custom%20agent%20definition%20to%20this%20new%20workspace%20as%20described%20in%20https%3A%2F%2Fcode.visualstudio.com%2Fdocs%2Fcopilot%2Fgetting-started%0AAsk%20the%20user%20which%20tech%20stack%20they%20want%20to%20use.)
+* [Open in VS Code](vscode://GitHub.Copilot-Chat/chat?agent=agent%26prompt=%23newWorkspace%20task%20manager%20web%20application%20with%20the%20ability%20to%20add%2C%20delete%2C%20and%20mark%20tasks%20as%20completed.%20Add%20the%20code%2C%20custom%20instructions%2C%20and%20all%20custom%20agent%20definitions%20to%20this%20new%20workspace%20as%20described%20in%20https%3A%2F%2Fcode.visualstudio.com%2Fdocs%2Fcopilot%2Fgetting-started%0AAsk%20the%20user%20which%20tech%20stack%20they%20want%20to%20use.)
 
 </div>
 
@@ -92,12 +92,9 @@ AI Agents are VS Code's most powerful AI capability. Given a natural language pr
 
 1. Review the generated files and select **Keep** to accept all the changes.
 
-1. Open your `index.html` file in a browser to see your task manager in action. You can add tasks, mark them as complete, and delete them.
+1. Open your `index.html` file in the integrated browser VS Code by right-clickign the file and selecting **Show Preview**. You can add tasks, mark them as complete, and delete them.
 
-    > [!TIP]
-    > Use the [Live Preview extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server) to see your changes in VS Code, in real-time as you develop.
-
-1. Let's add an extra feature. Enter the following prompt in the chat input box:
+1. Now, let's add an extra feature. Enter the following prompt in the chat input box:
 
     ```prompt
     Add a filter system with buttons to show all tasks, only completed tasks, or only pending tasks. Update the styling to match the existing design.
@@ -142,9 +139,6 @@ Customizing chat makes it work better for your specific needs and coding style. 
 
 Custom instructions tell the AI about your coding preferences and standards. These apply automatically to all chat interactions.
 
-> [!TIP]
-> Use the `/init` slash command in chat to automatically generate custom instructions based on your project's structure and coding patterns.
-
 1. Create a new folder called `.github` in your project root.
 
 1. Inside the `.github` folder, create a file called `copilot-instructions.md`.
@@ -180,6 +174,9 @@ Custom instructions tell the AI about your coding preferences and standards. The
 
     Notice how the generated code follows the guidelines you specified. VS Code supports more advanced custom instructions like applying instructions for specific file types.
 
+> [!TIP]
+> Use the `/init` slash command in chat to automatically generate custom instructions based on your project's structure and coding patterns. This is useful if you have an existing codebase and want to prepare it for AI assistance.
+
 ### Create a custom agent for code reviews
 
 Custom agents create specialized AI personas for specific tasks. Let's create a "Code Reviewer" agent that focuses on analysis and providing feedback on code. In the custom agent definition, you can define the AI's role, specific guidelines, and which tools it can use.
@@ -190,14 +187,15 @@ Custom agents create specialized AI personas for specific tasks. Let's create a 
 
     This option adds the custom agent to your workspace, enabling other team members to use it when they open the project.
 
-1. Name the custom agent "Code Reviewer". This creates a new file called `Code Reviewer.md` in the `.github/agents` folder.
+1. Name the custom agent "Reviewer". This creates a new file called `Reviewer.agent.md` in the `.github/agents` folder.
 
 1. Replace the file contents with the following content. Note that this custom agent doesn't allow code changes.
 
     ```markdown
     ---
+    name: 'Reviewer'
     description: 'Review code for quality and adherence to best practices.'
-    tools: ['usages', 'vscodeAPI', 'problems', 'fetch', 'githubRepo', 'search']
+    tools: ['vscode/askQuestions', 'vscode/vscodeAPI', 'read', 'agent', 'search', 'web']
     ---
     # Code Reviewer agent
 
@@ -218,11 +216,11 @@ Custom agents create specialized AI personas for specific tasks. Let's create a 
 
 1. Save the file. In the Chat view, you can now select this custom agent from the agent picker.
 
-    ![Screenshot showing the Code Reviewer custom agent in the agent picker.](./images/getting-started/custom-mode-dropdown.png)
+    ![Screenshot showing the Reviewer custom agent in the agent picker.](./images/getting-started/custom-mode-dropdown.png)
 
-1. Test your custom agent by selecting **Code Reviewer** from the agent picker and entering the following prompt:
+1. Test your custom agent by selecting **Reviewer** from the agent picker and entering the following prompt:
 
-    ```prompt
+    ```prompt-Reviewer
     Review my full project
     ```
 
