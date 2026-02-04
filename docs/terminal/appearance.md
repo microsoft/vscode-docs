@@ -1,6 +1,6 @@
 ---
 ContentId: F1AA7F3E-E078-4C02-B2DE-EC3F5F36F751
-DateApproved: 01/08/2026
+DateApproved: 02/04/2026
 MetaDescription: Visual Studio Code's integrated terminal allows customizing its appearance in various ways.
 ---
 # Terminal Appearance
