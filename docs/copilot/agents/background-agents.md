@@ -16,7 +16,7 @@ Background agents in Visual Studio Code are CLI-based agents, such as Copilot CL
 
 This article covers the key features of background agents, and how to start and manage background sessions from Copilot CLI.
 
-![Screenshot of background agent session as a chat editor in VS Code.](../images/background-agents/background-agent-session.png)
+![Screenshot of background agent session as a chat editor in VS Code.](../images/background-agents/background-agent-session-jan.png)
 
 > [!TIP]
 > Third-party providers like OpenAI Codex also offer background agent capabilities. Learn more about [third-party agents](/docs/copilot/agents/third-party-agents.md).
@@ -71,17 +71,19 @@ You can create a new Copilot CLI background agent session in VS Code in several 
 
     1. Open the Chat view (`kb(workbench.action.chat.open)`)
 
-    1. Select the **New Chat** dropdown > **New Background Agent**
+    1. Select the **Delegate Session** dropdown > **Background**
 
 * While you're in a local chat session:
 
     * Type `@cli <task description>` in the chat input and send the message
 
-    * Enter a prompt and then select **Continue In** > **Background Agent**
+    * Enter a prompt, select the **Delegate Session** dropdown > **Background**
 
 * Run the **Chat: New Background Agent** command from the Command Palette (`kb(workbench.action.showCommands)`)
 
 A new background agent session opens where you can provide additional task details and track the progress of the Copilot CLI session.
+
+You can attach images in the chat input to provide visual context for a background session.
 
 > [!TIP]
 > When you use the GitHub Copilot CLI in the terminal to start a session, the Chat view in VS Code automatically detects and displays this background session. You can further interact with this background session from within VS Code.
@@ -98,9 +100,9 @@ To continue a local agent session in a background agent session:
 
 1. To hand off to a background agent, you have the following options:
 
-    * Select **Continue In** and then select **Background**
+    * Open the **Delegate Session** dropdown and then select **Background**
 
-        ![Screenshot showing the "Continue in Chat" button in VS Code chat interface.](../images/background-agents/continue-in-chat-background.png)
+        ![Screenshot showing the "Delegate Sessions" dropdown in VS Code chat interface.](../images/background-agents/continue-in-chat-background-jan.png)
 
     * If you're using the [Plan agent](/docs/copilot/chat/chat-planning.md), select the **Start Implementation** dropdown and the select **Continue in Background** to run the implementation in a background agent session
 
@@ -116,11 +118,13 @@ Background agent sessions automatically use [Git worktrees](/docs/sourcecontrol/
 
 To start a background agent session with Git worktrees:
 
-1. In the Chat view, select **New Chat (+)** and then select **Background** from the session type dropdown.
+1. In the Chat view, select the **Delegate Session** dropdown and then select **Background** from the session type dropdown.
 
 1. Enter a prompt to start the agent session. VS Code automatically creates a new Git worktree.
 
     All changes made by the background agent are applied to the worktree folder, isolating them from your main workspace.
+
+    Background agents commit changes to the worktree at the end of each turn, so the session history stays aligned with the commit history.
 
     > [!TIP]
     > You can open the worktree for a background agent session by right-clicking it in the session list and selecting **Open Worktree in New Window**. You can also view the worktree in the Source Control view repository explorer (`scm.repositories.explorer`).
@@ -131,7 +135,7 @@ To start a background agent session with Git worktrees:
 
 1. After the background agent completes the task, review and apply the changes from the worktree to your main workspace.
 
-    The working set at the bottom of the session shows the files changed during the background agent session.
+    The working set at the bottom of the session shows the files changed during the background agent session and provides **Apply** and **View All Changes** actions.
 
     <!-- TODO: update screenshot to show the new Apply/View Changes UI (Keep/Undo buttons removed) -->
     ![Screenshot showing the working set with Apply and View Changes actions.](../images/background-agents/filechanges-v2.png)

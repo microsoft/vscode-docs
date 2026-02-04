@@ -244,7 +244,7 @@ You can create a new agent session from the Chat view or by using the correspond
 
 1. Choose the agent type from the dropdown.
 
-    ![Screenshot showing agent type dropdown in new chat session.](../images/agents-overview/agent-type-dropdown.png)
+    ![Screenshot showing agent type dropdown in new chat session.](../images/agents-overview/agent-type-dropdown-jan.png)
 
 At any time, you can move an agent session from the Chat view to a chat editor or new window via the actions in the overflow menu (...).
 
