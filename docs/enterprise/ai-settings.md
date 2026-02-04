@@ -1,6 +1,6 @@
 ---
 ContentId: f8a9c3d2-4e7b-5f1a-b6c8-9d0e2f3a7b4c
-DateApproved: 01/08/2026
+DateApproved: 02/04/2026
 MetaDescription: Learn how to centrally manage AI settings in VS Code for enterprise environments, including agent mode, MCP servers, and tool approvals.
 ---
 
@@ -103,6 +103,29 @@ The `CopilotReviewSelection` policy controls whether developers can request code
 
 The `CopilotReviewAgent` policy controls access to the Copilot code review agent for reviewing pull requests and changed files. This configures the `setting(github.copilot.chat.reviewAgent.enabled)` setting in VS Code.
 
+## Configure organization-level AI customizations
+
+GitHub Copilot supports defining custom instructions and custom agents at the GitHub organization level. These customizations are automatically available to all organization members when they work in VS Code on repositories owned by the organization.
+
+### Organization-level custom instructions
+
+Organization administrators can define custom instructions that apply to all repositories in their organization. These instructions ensure consistent AI behavior across teams, such as enforcing coding standards, security guidelines, or documentation requirements.
+
+When developers have `setting(github.copilot.chat.organizationInstructions.enabled)` set to `true`, VS Code automatically detects and applies organization-level instructions to all chat requests. The instructions appear in the **Chat Instructions** menu alongside personal and workspace instructions.
+
+Learn how to [add custom instructions for your organization](https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-organization-instructions) in the GitHub documentation.
+
+### Organization-level custom agents
+
+Organizations can also define custom agents that are shared across all repositories. These agents provide specialized AI personas with specific tools and instructions tailored to your organization's workflows.
+
+When developers have `setting(github.copilot.chat.customAgents.showOrganizationAndEnterpriseAgents)` set to `true`, organization-level agents appear in the Agents dropdown alongside built-in and personal agents.
+
+Learn how to [create custom agents for your organization](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents) in the GitHub documentation.
+
+> [!NOTE]
+> Organization-level customizations are managed through GitHub organization settings, not VS Code enterprise policies. Individual developers control whether to use these customizations through their VS Code settings.
+
 ## Security considerations
 
 AI-powered development features can autonomously perform actions with user-level permissions. Refer to the [security documentation](/docs/copilot/security.md) for a comprehensive overview of AI security considerations and best practices.
@@ -112,4 +135,6 @@ AI-powered development features can autonomously perform actions with user-level
 * [Enterprise policies reference](/docs/enterprise/policies.md) - Complete list of enterprise policies
 * [Use tools in chat](/docs/copilot/chat/chat-tools.md) - Learn how tools work in VS Code chat
 * [MCP servers in VS Code](/docs/copilot/customization/mcp-servers.md) - Configure and use MCP servers
+* [Custom instructions](/docs/copilot/customization/custom-instructions.md) - Define custom instructions for AI responses
+* [Custom agents](/docs/copilot/customization/custom-agents.md) - Create custom AI personas and workflows
 * [AI security considerations](/docs/copilot/security.md) - Security best practices for AI features

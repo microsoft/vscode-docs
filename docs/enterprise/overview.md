@@ -1,6 +1,6 @@
 ---
 ContentId: a1b2c3d4-5e6f-7a8b-9c0d-1e2f3a4b5c6d
-DateApproved: 01/08/2026
+DateApproved: 02/04/2026
 MetaDescription: Learn how to configure and manage Visual Studio Code in enterprise environments, including policies, extensions, AI settings, and network configuration.
 ---
 

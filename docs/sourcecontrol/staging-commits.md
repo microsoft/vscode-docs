@@ -1,6 +1,6 @@
 ---
 ContentId: 344271ac-56df-4cea-b0a9-2c135f7f3dec
-DateApproved: 01/08/2026
+DateApproved: 02/04/2026
 MetaDescription: Master Git staging and commits in VS Code with granular file control, AI-powered commit messages, visual diff reviews, and comprehensive change tracking tools.
 Keywords:
 - source control

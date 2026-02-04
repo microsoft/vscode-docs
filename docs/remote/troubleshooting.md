@@ -1,7 +1,7 @@
 ---
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Visual Studio Code Remote Development troubleshooting tips and tricks for SSH, Containers, and the Windows Subsystem for Linux (WSL)
-DateApproved: 01/08/2026
+DateApproved: 02/04/2026
 ---
 # Remote Development Tips and Tricks
 

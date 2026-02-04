@@ -1,6 +1,6 @@
 ---
 ContentId: 7a2e5f8d-4c9b-41e6-b3a8-9d7f2e4c1b8a
-DateApproved: 01/08/2026
+DateApproved: 02/04/2026
 MetaDescription: Learn how to create and manage chat sessions in Visual Studio Code, including opening chat in editor tabs, separate windows, and using chat session history.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -12,7 +12,7 @@ Use chat in Visual Studio Code to have conversation-based AI interactions. A cha
 
 A chat session is the history of your interactions with the AI within a single conversation and includes all prompts, responses, and context used during that conversation. Each chat session maintains its own history, allowing you to ask follow-up questions or refine your requests based on previous interactions.
 
-As you interact with the AI, the chat session accumulates context from your prompts and responses (context window). When you create a new chat session, the previous conversation history is cleared, and a fresh context window is established for the new session.
+As you interact with the AI, the chat session accumulates context from your prompts and responses (context window). When you create a new chat session, the previous conversation history is cleared, and a fresh context window is established for the new session. You can [monitor context window usage](/docs/copilot/chat/copilot-chat-context.md#monitor-context-window-usage) with the context control in the chat input box.
 
 Use checkpoints to roll back to a previous state within a chat session or edit a previous prompt to modify the course of the conversation. Learn more about [checkpoints and editing chat requests](/docs/copilot/chat/chat-checkpoints.md).
 
@@ -25,15 +25,15 @@ If you're using agents, the session can run locally on your machine, in the back
 
 ## Start a new chat session
 
-VS Code supports different types of sessions (local, background, and cloud) and different views (side bar, editor tab, and separate window) for chat sessions. Learn more about [background and cloud agent sessions](/docs/copilot/agents/overview.md).
+VS Code supports different types of sessions (local, background, cloud, and third-party) and different views (side bar, editor tab, and separate window) for chat sessions. Learn more about [using the different agents](/docs/copilot/agents/overview.md).
+
+At any time, you can run multiple sessions in parallel, each focused on a different task. When you create a new agent session, the previous session remains active, allowing you to switch between tasks via the [agent sessions list](/docs/copilot/agents/overview.md#agent-sessions-list).
 
 | | |
 |-|-|
 | Open a local chat session in the side bar.<br/><br/><ul><li>In Chat view, **New Chat (+)** > **New Chat**</li><li>`kb(workbench.action.chat.newChat)`</li><li>**Chat: New Chat** command</li></ul> | ![Screenshot of opening a new chat session in the Chat view in VS Code.](../images/chat-sessions/new-chat-session-chat-view.png) |
 | Open local chat as an editor tab.<br/><br/><ul><li>In Chat view, **New Chat (+)** > **New Chat Editor**</li><li>**Chat: New Chat Editor** command</li></ul>| ![Screenshot of opening a new chat session in an editor tab in VS Code.](../images/chat-sessions/new-chat-session-editor-tab.png) |
 | Open local chat in a separate window.<br/><br/><ul><li>In Chat view, **New Chat (+)** > **New Chat Window**</li><li>`kb(workbench.action.chat.newChat)`</li><li>**Chat: New Chat Window** command</li></ul> | ![Screenshot  of opening a new chat session in a separate window in VS Code.](../images/chat-sessions/new-chat-session-separate-window.png) |
-| Open a background agent session.<br/><br/><ul><li>In Chat view, **New Chat (+)** > **New Background Agent**</li><li>**Chat: New Background Agent** command</li></ul> | ![Screenshot of opening a new background agent session in the Chat view in VS Code.](../images/chat-sessions/new-background-agent-session.png) |
-| Open a cloud agent session.<br/><br/><ul><li>In Chat view, **New Chat (+)** > **New Cloud Agent**</li><li>**Chat: New Cloud Agent** command</li></ul> | ![Screenshot of opening a new cloud agent session in the Chat view in VS Code.](../images/chat-sessions/new-cloud-agent-session.png) |
 
 ### Move a chat session to a different view
 
@@ -66,6 +66,16 @@ Learn more about agents and [viewing and managing agent sessions](/docs/copilot/
 > [!TIP]
 > Make the Chat view wider to automatically switch to side-by-side mode or use the toggle button in the top-right corner of the Chat view.
 
+## VS Code welcome page
+
+The VS Code welcome page can act as your startup experience for working with agent sessions. It provides quick access to your recent agent sessions, an embedded chat widget for starting new tasks, and quick actions for common tasks.
+
+![Screenshot of the VS Code welcome page showing recent agent sessions and embedded chat.](../images/chat-sessions/agent-sessions-welcome-page.png)
+
+To configure the VS Code welcome page as your startup experience, set the `setting(workbench.startupEditor)` setting to `agentSessionsWelcomePage`.
+
+Learn more about [configuring the startup experience](/docs/getstarted/personalize-vscode.md) and [agent sessions settings](/docs/copilot/reference/copilot-settings.md#agent-sessions).
+
 ## Save and export chat sessions
 
 You can save chat sessions to preserve important conversations or reuse them later for similar tasks.
@@ -97,53 +107,6 @@ To save a chat session as a reusable prompt:
     The command creates a `.prompt.md` file that generalizes your current chat conversation into a reusable prompt. The prompt file has placeholders where appropriate.
 
 1. Review and edit the generated prompt file as needed, then save it to your workspace.
-
-## Context-isolated subagents
-
-A subagent enables you to delegate tasks to an isolated, autonomous agent within your chat session. Subagents operate independently from the main chat session and have their own context window. This is useful to optimize  context management for complex multi-step tasks like research or analysis.
-
-Subagents don't run asynchronously or in the background, however, they operate autonomously without pausing for user feedback. When a subagent completes its task, it returns only the final result to the main chat session, keeping the main context window focused on the primary conversation.
-
-Subagents use the same agent and have access to the same tools available to the main chat session, except for creating other subagents. They also use the same AI model as the main chat session.
-
-### Invoke a subagent
-
-To invoke a subagent in a prompt:
-
-1. Enable the `runSubagent` tool in the tool picker
-
-    If you use a [custom prompt file](/docs/copilot/customization/prompt-files.md) or [custom agent](/docs/copilot/customization/custom-agents.md), ensure you specify `runSubagent` in the `tools` frontmatter property.
-
-1. In the chat prompt, ask to use a subagent to perform a task.
-
-    The following examples illustrate how to invoke a subagent:
-
-    * `Use a subagent to research the best authentication methods for web applications. Summarize the findings.`
-    * `Run #runSubagent to research the user's task comprehensively using read-only tools. Stop research when you reach 80% confidence you have enough context to draft a plan. Return this context.`
-
-#### Use a custom agent with subagents (Experimental)
-
-By default, a subagent inherits the agent from the main chat session. You can configure a subagent to use a different built-in or custom agent. For example, if you want to run a research task as part of a development task, you can start the research task in a subagent that uses a research agent.
-
-To run a subagent with a specific agent:
-
-1. Enable support for custom agents in subagents with the `setting(chat.customAgentInSubagent.enabled)` setting
-
-1. Make sure the custom agent doesn't have its `infer` property set to `false`, as this prevents the agent from being used in subagents.
-
-1. Prompt the AI about which agents are available for use as subagents. Your custom agent should be listed.
-
-    ```prompt
-    Which subagents can you use?
-    ```
-
-1. Prompt the AI to use a custom or built-in agent for the subagent. For example:
-
-    * `Run the research agent as a subagent to research the best auth methods for this project.`
-    * `Use the plan agent in a subagent to create an implementation plan for myfeature. Then save the plan in plans/myfeature.plan.md`
-
-> [!NOTE]
-> To prevent a custom agent from being used as a subagent, set the metadata property `infer` to `false` in the `*.agent.md` file.
 
 ## Navigate between prompts in a chat session
 

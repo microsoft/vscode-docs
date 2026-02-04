@@ -1,6 +1,6 @@
 ---
 ContentId: 85ce0bcc-d2b8-4b7c-b744-5eddce9a8d00
-DateApproved: 01/08/2026
+DateApproved: 02/04/2026
 MetaDescription: Vue JavaScript tutorial showing IntelliSense, debugging, and code navigation support in the Visual Studio Code editor.
 ---
 # Using Vue in Visual Studio Code

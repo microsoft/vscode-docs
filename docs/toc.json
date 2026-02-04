@@ -88,7 +88,8 @@
       ["Debugging", "/docs/debugtest/debugging"],
       ["Debug Configuration", "/docs/debugtest/debugging-configuration"],
       ["Testing", "/docs/debugtest/testing"],
-      ["Port Forwarding", "/docs/debugtest/port-forwarding"]
+      ["Port Forwarding", "/docs/debugtest/port-forwarding"],
+      ["Integrated Browser", "/docs/debugtest/integrated-browser"]
     ]
   },
 
@@ -124,8 +125,10 @@
         "topics": [
           ["Overview", "/docs/copilot/agents/overview"],
           ["Agents Tutorial", "/docs/copilot/agents/agents-tutorial"],
+          ["Subagents", "/docs/copilot/agents/subagents"],
           ["Background Agents", "/docs/copilot/agents/background-agents"],
-          ["Cloud Agents", "/docs/copilot/agents/cloud-agents"]
+          ["Cloud Agents", "/docs/copilot/agents/cloud-agents"],
+          ["Third-Party Agents", "/docs/copilot/agents/third-party-agents"]
         ]
       }
       ],
@@ -163,6 +166,7 @@
       ["Smart Actions", "/docs/copilot/copilot-smart-actions"],
       ["Tips and Tricks", "/docs/copilot/copilot-tips-and-tricks"],
       ["Security", "/docs/copilot/security"],
+      ["Troubleshooting", "/docs/copilot/troubleshooting"],
       ["FAQ", "/docs/copilot/faq"],
       ["", "", {
         "name": "Reference",

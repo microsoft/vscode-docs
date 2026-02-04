@@ -34,5 +34,5 @@ You can expand each section to see the full details. This is particularly useful
 
 ## Related resources
 
-* [Troubleshoot AI in VS Code](/docs/copilot/faq.md#troubleshooting-and-feedback)
+* [Troubleshoot AI in VS Code](/docs/copilot/troubleshooting.md)
 * [Security considerations for using AI in VS Code](/docs/copilot/security.md)

@@ -1,6 +1,6 @@
 ---
 ContentId: e6b33fcb-8240-49dd-b6ca-5412d6fa669a
-DateApproved: 01/08/2026
+DateApproved: 02/04/2026
 MetaDescription: Use Inline Chat in Visual Studio Code to make edits directly in the editor or get command suggestions in the terminal.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -37,6 +37,21 @@ To use editor inline chat:
 > [!TIP]
 > Attach context to your inline chat prompt to include relevant files, code symbols, or other context. Learn more about [adding context to your chat prompt](/docs/copilot/chat/copilot-chat-context.md).
 
+## Show a visual hint on text selection (Experimental)
+
+When you select text in the editor, VS Code can display a visual hint to help you start inline chat for the selected code. Use the `setting(inlineChat.affordance)` setting to control how this hint appears:
+
+* `off`: no hint is shown when you select text
+* `gutter`: the hint appears in the line number area next to your selection
+* `editor`: the hint appears at the cursor position within your selection, integrated with the lightbulb for code actions
+
+![Screenshot showing the inline chat hint in the gutter when text is selected in the editor.](images/copilot-chat/inline-chat-hint-gutter.png)
+
+The hint displays an inline chat input box and actions for adding the selection to chat, explaining the code, and starting a code review of the selection.
+
+> [!NOTE]
+> This feature is experimental and works with the `setting(inlineChat.renderMode)` setting set to `hover`.
+
 ## Use terminal inline chat
 
 You can bring up terminal inline chat in the [integrated terminal](/docs/terminal/basics.md) to get help with shell commands or ask terminal-related questions.
@@ -55,6 +70,17 @@ To use terminal inline chat:
 
     Alternatively, select **Insert** (`kb(workbench.action.terminal.chat.insertCommand)`) to insert the command into the terminal and modify it before running.
 
+## Change the model for inline chat
+
+You can change the language model that is used for editor inline chat. By default, inline chat uses the same model as the Chat view, but you can configure a specific default model for inline chat.
+
+To configure the default model for inline chat, use the `setting(inlineChat.defaultModel)` setting. The setting lists all available models from the model picker.
+
+If you change the model during an inline chat session, the selection persists for the remainder of the session. After you reload VS Code, the model resets to the value specified in the `setting(inlineChat.defaultModel)` setting.
+
+Learn more about [choosing the right model for your task](/docs/copilot/customization/language-models.md#choose-the-right-model-for-your-task).
+
 ## Related resources
 
 * [Add context to your chat prompt](/docs/copilot/chat/copilot-chat-context.md)
+* [AI language models in VS Code](/docs/copilot/customization/language-models.md)

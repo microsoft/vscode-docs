@@ -1,8 +1,16 @@
 ---
 ContentId: 8f2c4a1d-9e3b-4c5f-a7d8-6b9c2e4f1a3d
-DateApproved: 01/08/2026
+DateApproved: 02/04/2026
 MetaDescription: Learn how to use built-in tools, MCP tools, and extension tools to extend chat in VS Code with specialized functionality.
 MetaSocialImage: ../images/shared/github-copilot-social.png
+keywords:
+- copilot
+- ai
+- agents
+- chat
+- tools
+- terminal
+- customization
 ---
 # Use tools in chat
 
@@ -32,7 +40,7 @@ For a complete list of built-in tools and their descriptions, see the [Chat tool
 
 Model Context Protocol (MCP) is an open standard that enables AI models to use external tools and services through a unified interface. MCP servers provide tools that you can add to VS Code to extend chat with extra capabilities.
 
-You need to install and configure MCP servers before you can use their tools in chat. MCP servers can run locally on your machine or be hosted remotely.
+You need to install and configure MCP servers before you can use their tools in chat. MCP servers can run locally on your machine or be hosted remotely. MCP tools can also return interactive UI components via [MCP Apps](/docs/copilot/customization/mcp-servers.md#use-mcp-apps).
 
 Learn more about [configuring MCP servers in VS Code](/docs/copilot/customization/mcp-servers.md).
 
@@ -180,6 +188,14 @@ In the terminal pane, you can see the list of terminals that the agent has used 
 
 ![Screenshot showing the integrated terminal with multiple agent terminals.](../images/chat-tools/agent-terminals-in-terminal-pane.png)
 
+### Continue terminal commands in background
+
+When the agent runs a long-running terminal command, such as starting a development server or running a build in watch mode, you can push the command to the background. This allows the agent to continue with other tasks without waiting for the command to finish.
+
+While a command is running, a **Continue in Background** button appears next to the terminal command in the chat conversation. Select this button to move the command to the background. The command continues running, and the agent can check its output later or use the terminal for other tasks.
+
+The agent can also specify a timeout when running terminal commands. When the timeout is reached, the agent stops waiting for the command and returns the output collected so far. Use the `setting(chat.tools.terminal.enforceTimeoutFromModel)` setting to control whether to enforce the timeout value that the agent specifies.
+
 ### Automatically approve terminal commands
 
 You can configure which terminal commands are automatically approved by using the `setting(chat.tools.terminal.autoApprove)` setting. You can specify both allowed and denied commands:
@@ -222,7 +238,56 @@ Related settings:
 > * Detection of file writes is currently minimal, so it might be possible to write to files with the terminal that would not be possible by using the file editing agent tools.
 > * Subverting auto approval is possible through various techniques such as quote concatenation. For example `find -exec` is normally blocked, but `find -e"x"ec` is not, despite doing the same thing.
 >
-> If prompt injection is a possibility or you're in a high risk environment, you should look into sandboxing or running VS Code within a container.
+> If prompt injection is a possibility or you're in a high-risk environment, consider [enabling terminal sandboxing](#sandbox-terminal-commands-experimental) or running VS Code within a container.
+
+### Sandbox terminal commands (Experimental)
+
+Terminal sandboxing restricts file system and network access for commands executed by the agent. When sandboxing is enabled, terminal commands are auto-approved without requiring user confirmation, because they run in a controlled environment.
+
+To enable terminal sandboxing, set the `setting(chat.tools.terminal.sandbox.enabled)` setting to `true`.
+
+When sandboxing is enabled:
+
+* Commands have read and write access to the current working directory by default
+* Network access is blocked for all domains by default
+* Commands run without the standard confirmation dialog
+
+> [!NOTE]
+> Terminal sandboxing is currently supported on macOS and Linux only. On Windows, the sandbox settings have no effect.
+
+#### Configure file system access
+
+Use the `setting(chat.tools.terminal.sandbox.linuxFileSystem)` or `setting(chat.tools.terminal.sandbox.macFileSystem)` setting to control file system access:
+
+```jsonc
+{
+  "chat.tools.terminal.sandbox.macFileSystem": {
+    // Allow writes to the working directory
+    "allowWrite": ["."],
+    // Block writes to specific subdirectories
+    "denyWrite": ["./secrets/"],
+    // Block reads from specific paths
+    "denyRead": ["/etc/passwd"]
+  }
+}
+```
+
+The `denyWrite` and `denyRead` rules take precedence over `allowWrite` rules.
+
+#### Configure network access
+
+Use the `setting(chat.tools.terminal.sandbox.network)` setting to allow specific domains:
+
+```jsonc
+{
+  "chat.tools.terminal.sandbox.network": {
+    // Allow network access to specific domains
+    "allowedDomains": ["api.github.com", "*.npmjs.org"]
+  }
+}
+```
+
+By default, network access is blocked for all domains when sandboxing is enabled.
 
 ## Group tools with tool sets
 

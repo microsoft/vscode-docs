@@ -1,8 +1,18 @@
 ---
 ContentId: 7c550054-4ade-4665-b368-215798c48673
-DateApproved: 01/08/2026
+DateApproved: 02/04/2026
 MetaDescription: Learn how to configure and use Model Context Protocol (MCP) servers with GitHub Copilot in Visual Studio Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
+keywords:
+- mcp
+- model context protocol
+- tools
+- copilot
+- ai
+- agents
+- chat
+- customization
+- api
 ---
 # Use MCP servers in VS Code
 
@@ -49,6 +59,7 @@ VS Code supports the following MCP capabilities:
     * Authentication
     * Server instructions
     * [Roots](https://modelcontextprotocol.io/docs/concepts/roots)
+    * [MCP Apps](https://modelcontextprotocol.github.io/ext-apps/api/)
 
 </details>
 
@@ -244,6 +255,12 @@ MCP servers can provide preconfigured prompts for common tasks that you can invo
 Optionally, the MCP prompt might ask you for extra input parameters.
 
 ![Screenshot of the Chat view, showing an MCP prompt invocation and a dialog asking for additional input parameters.](../images/mcp-servers/mcp-prompt-invocation.png)
+
+## Use MCP Apps
+
+MCP Apps enable MCP tools to return interactive UI components that render directly in chat. Instead of text-only responses, tools can display drag-and-drop lists, visualizations, forms, and other interactive elements. When an MCP server supports apps, the UI appears inline in the chat conversation so you can interact with it to complete tasks more efficiently.
+
+Learn more about [MCP Apps support in VS Code](https://code.visualstudio.com/blogs/2026/01/26/mcp-apps-support) in our blog post.
 
 ## Group related tools in a tool set
 

@@ -1,6 +1,6 @@
 ---
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
-DateApproved: 01/08/2026
+DateApproved: 02/04/2026
 MetaDescription: Visual Studio Code has an integrated terminal to enable working in your shell of choice without leaving the editor.
 ---
 # Terminal Basics

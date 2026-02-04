@@ -1,6 +1,6 @@
 ---
 ContentId: 33e63aa1-1d8f-4d23-9733-1475f8c9f502
-DateApproved: 01/08/2026
+DateApproved: 02/04/2026
 MetaDescription: Learn how to choose between different AI language models and how to use your own language model API key in Visual Studio Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -143,6 +143,14 @@ To update the details of a model provider you have configured previously:
    ![Screenshot that shows the model provider Quick Pick, with a gear icon next to the provider name.](../images/language-models/reconfigure-model-provider.png)
 
 1. Update the provider details, such as the API key or endpoint URL.
+
+## Change the model for inline chat
+
+You can configure a default language model for editor inline chat. This enables you to use a different model for inline chat than for chat conversations.
+
+To configure the default model for inline chat, use the `setting(inlineChat.defaultModel)` setting. The setting lists all available models from the model picker.
+
+If you change the model during an inline chat session, the selection persists for the remainder of the session. After you reload VS Code, the model resets to the value specified in the `setting(inlineChat.defaultModel)` setting.
 
 ## Change the model for inline suggestions
 

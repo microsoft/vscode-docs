@@ -1,6 +1,6 @@
 ---
 ContentId: a7d3e5f8-2c4b-4d9a-b8e1-3f6c9a2d7e41
-DateApproved: 01/08/2026
+DateApproved: 02/04/2026
 MetaDescription: Learn how to use Agent Skills in VS Code to teach GitHub Copilot specialized capabilities that work across VS Code, GitHub Copilot CLI, and GitHub Copilot coding agent.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -24,9 +24,6 @@ Key benefits of Agent Skills:
 * **Reduce repetition**: Create once, use automatically across all conversations
 * **Compose capabilities**: Combine multiple skills to build complex workflows
 * **Efficient loading**: Only relevant content loads into context when needed
-
-> [!NOTE]
-> Agent Skills support in VS Code is currently in preview. Enable the `setting(chat.useAgentSkills)` setting to use Agent Skills.
 
 ## Agent Skills vs custom instructions
 
@@ -60,6 +57,9 @@ Skills are stored in directories with a `SKILL.md` file that defines the skill's
 
 * Project skills, stored in your repository: `.github/skills/` (recommended) or `.claude/skills/` (legacy, for backward compatibility)
 * Personal skills, stored in your user profile: `~/.copilot/skills/` (recommended) or `~/.claude/skills/` (legacy, for backward compatibility)
+
+> [!TIP]
+> You can configure additional locations where VS Code searches for skills by using the `setting(chat.agentSkillsLocations)` setting. This is useful for sharing skills across projects or keeping them in a central location.
 
 To create a skill:
 

@@ -1,6 +1,6 @@
 ---
 ContentId: 8b4f3c21-4e02-4a89-9f15-7a8d6b5c2e91
-DateApproved: 01/08/2026
+DateApproved: 02/04/2026
 MetaDescription: Learn how to create custom instructions for GitHub Copilot Chat in VS Code to ensure AI responses match your coding practices, project requirements, and development standards.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -29,6 +29,10 @@ VS Code supports multiple types of Markdown-based instructions files. If you hav
     * Useful if you work with multiple AI agents in your workspace
     * Automatically applies to all chat requests in the workspace or to specific subfolders (experimental)
     * Stored in the root of the workspace or in subfolders (experimental)
+
+* [Organization-level instructions](#share-custom-instructions-across-teams)
+    * Share instructions across multiple workspaces and repositories within a GitHub organization
+    * Defined at the GitHub organization level
 
 Whitespace between instructions is ignored, so the instructions can be written as a single paragraph, each on a new line, or separated by blank lines for legibility.
 
@@ -256,11 +260,25 @@ The following code snippet shows how to define a set of instructions in the `set
 }
 ```
 
-## Generate an instructions file for your workspace
+## Generate custom instructions for your workspace
 
-VS Code can analyze your workspace and generate a matching `.github/copilot-instructions.md` file with custom instructions that match your coding practices and project structure.
+VS Code can analyze your workspace and generate always-on custom instructions that match your coding practices and project structure. These instructions then apply automatically to all chat requests in the workspace.
 
-To generate an instructions file for your workspace:
+When you generate instructions, VS Code performs the following steps:
+
+1. It discovers existing AI conventions in your workspace, such as `copilot-instructions.md` or `AGENTS.md` files.
+1. It analyzes your project structure and coding patterns.
+1. It generates comprehensive workspace instructions tailored to your project.
+
+### Use the `/init` slash command
+
+The quickest way to prime your workspace with custom instructions is to type the `/init` slash command in the chat input box.
+
+The `/init` command is implemented as a contributed [prompt file](/docs/copilot/customization/prompt-files.md), so you can customize its behavior by modifying the underlying prompt.
+
+### Use the Generate Chat Instructions command
+
+Alternatively, you can generate a `.github/copilot-instructions.md` file from the Command Palette:
 
 1. In the Chat view, select **Configure Chat** (gear icon) > **Generate Chat Instructions**.
 
@@ -278,6 +296,16 @@ To sync your user instructions files, enable Settings Sync for prompt and instru
 
 1. Select **Prompts and Instructions** from the list of settings to sync.
 
+## Share custom instructions across teams
+
+To share custom instructions across multiple workspaces and repositories within your GitHub organization, you can define them at the GitHub organization level.
+
+VS Code automatically detects custom instructions defined at the organization level to which your account has access. These instructions are shown in the **Chat Instructions** menu alongside your personal and workspace instructions, and are automatically applied to all chat requests.
+
+To enable discovery of organization-level custom instructions, set `setting(github.copilot.chat.organizationInstructions.enabled)` to `true`.
+
+Learn how you can [add custom instructions for your organization](https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-organization-instructions) in the GitHub documentation.
+
 ## Tips for defining custom instructions
 
 * Keep your instructions short and self-contained. Each instruction should be a single, simple statement. If you need to provide multiple pieces of information, use multiple instructions.
@@ -294,6 +322,9 @@ To sync your user instructions files, enable Settings Sync for prompt and instru
 
 If your instructions file is not being applied, check the following:
 
+> [!TIP]
+> Use the chat customization diagnostics view to see all loaded instruction files and any errors. Right-click in the Chat view and select **Diagnostics**. Learn more about [troubleshooting AI in VS Code](/docs/copilot/troubleshooting.md).
+
 1. Verify that your instructions file is in the correct location:
 
     * For a `.github/copilot-instructions.md` file, it must be located in the `.github` folder at the root of your workspace and the `setting(github.copilot.chat.codeGeneration.useInstructionFiles)` setting must be enabled.
@@ -306,6 +337,12 @@ If your instructions file is not being applied, check the following:
 
 1. For `*.instructions.md` files, check that the `applyTo` glob pattern matches the file you are working on. If no `applyTo` property is specified, the instructions file is not applied automatically. Verify the `References` section in the chat response to see which instructions files were used for your request.
 
+1. Check that the relevant settings are enabled:
+
+    * For instructions with an `applyTo` pattern, ensure that `setting(chat.includeApplyingInstructions)` is enabled.
+
+    * For instructions referenced via Markdown links in other instruction files, ensure that `setting(chat.includeReferencedInstructions)` is enabled.
+
 1. Verify the chat logs to see which instructions files were included in the chat request or were loaded by the agent:
 
     * [Check language model requests using the Chat Debug view](https://github.com/microsoft/vscode/wiki/Copilot-Issues#language-model-requests-and-responses).
@@ -317,7 +354,7 @@ If your on-demand instructions were not requested by the LLM, try to refine the 
 
 ### How do I know where a custom instruction file comes from?
 
-Custom instruction files can come from different sources: built-in, user-defined in your profile, workspace-defined instructions in your current workspace, or extension-contributed instructions.
+Custom instruction files can come from different sources: built-in, user-defined in your profile, workspace-defined instructions in your current workspace, organization-level instructions, or extension-contributed instructions.
 
 To identify the source of a custom instruction file:
 

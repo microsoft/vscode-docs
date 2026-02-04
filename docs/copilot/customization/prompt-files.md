@@ -1,6 +1,6 @@
 ---
 ContentId: 5c8e7d42-9b1a-4f85-a3e2-6d5b8a9c1e43
-DateApproved: 01/08/2026
+DateApproved: 02/04/2026
 MetaDescription: Learn how to create reusable prompt files for GitHub Copilot Chat in VS Code to standardize common development tasks and improve your coding workflow efficiency.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -147,7 +147,7 @@ You have multiple options to run a prompt file:
 > [!TIP]
 > Use the `setting(chat.promptFilesRecommendations)` setting to show prompts as recommended actions when starting a new chat session.
 >
-> ![Screenshot showing an "explain" prompt file recommendation in the Chat view.](../images/customization/prompt-file-recommendations.png)
+> ![Screenshot showing a "explain" prompt file recommendation in the Chat view.](../images/customization/prompt-file-recommendations.png)
 
 ## Tool list priority
 
@@ -193,6 +193,9 @@ To identify the source of a prompt file:
 
 1. Select **Chat: Configure Prompt Files** from the Command Palette (`kb(workbench.action.showCommands)`).
 1. Hover over the prompt file in the list. The source location is displayed in a tooltip.
+
+> [!TIP]
+> Use the chat customization diagnostics view to see all loaded prompt files and any errors. Right-click in the Chat view and select **Diagnostics**. Learn more about [troubleshooting AI in VS Code](/docs/copilot/troubleshooting.md).
 
 ## Related resources
 

@@ -1,6 +1,6 @@
 ---
 ContentId: c99a8442-e202-4427-b7c3-695469a00f92
-DateApproved: 01/08/2026
+DateApproved: 02/04/2026
 MetaDescription: Understand security considerations, built-in protections, and best practices when using AI-powered development features like agents and MCP servers in VS Code.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -93,6 +93,8 @@ VS Code limits the potential impact of sensitive actions by controlling their sc
 * **Session isolation**: You can grant permissions that are temporary and don't persist beyond the current session. This enables you to experiment with AI capabilities while maintaining long-term security boundaries.
 
 * **Request limits**: The system includes built-in safeguards to [prevent runaway operations](/docs/copilot/reference/copilot-settings.md#agent-settings) that could consume excessive resources or perform unintended bulk actions on your codebase.
+
+* **Terminal sandboxing (Experimental)**: On macOS and Linux, you can enable [terminal sandboxing](/docs/copilot/chat/chat-tools.md#sandbox-terminal-commands-experimental) to restrict file system and network access for commands executed by the agent. Sandboxed commands can only access the working directory and are blocked from network requests by default.
 
 ### Permission management
 

@@ -1,6 +1,6 @@
 ---
 ContentId: FDA6D86C-FF24-49BC-A1EB-E3BA43130FA0
-DateApproved: 01/08/2026
+DateApproved: 02/04/2026
 MetaDescription: How to modify Visual Studio Code User and Workspace Settings.
 ---
 # User and workspace settings
@@ -272,6 +272,9 @@ Setting values can be of various types:
 * Number - `"files.autoSaveDelay": 1000`
 * Array - `"editor.rulers": []`
 * Object - `"search.exclude": { "**/node_modules": true, "**/bower_components": true }`
+
+> [!NOTE]
+> Settings like `files.exclude` and `search.exclude` use [glob patterns](/docs/editor/glob-patterns.md) that follow your operating system's file system case sensitivity (case-insensitive on Windows/macOS, case-sensitive on Linux). Similarly, `.gitignore` file patterns (used with the `setting(explorer.excludeGitIgnore)` setting) also follow platform-specific case sensitivity rules.
 
 Values with primitive types and Array types are overridden, meaning a configured value in a scope that takes precedence over another scope is used instead of the value in the other scope. But, values with Object types are merged.
 

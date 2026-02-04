@@ -1,6 +1,6 @@
 ---
 ContentId: AFFD7BDB-925E-4D02-828D-4E14360C70DA
-DateApproved: 01/08/2026
+DateApproved: 02/04/2026
 MetaDescription: Get started writing and debugging .NET apps with Visual Studio Code.
 ---
 # Using .NET in Visual Studio Code

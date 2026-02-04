@@ -1,6 +1,6 @@
 ---
 ContentId: 5f83254d-2817-4398-9321-456789abcdef
-DateApproved: 01/08/2026
+DateApproved: 02/04/2026
 MetaDescription: Quickly get started with Git source control in Visual Studio Code. Initialize a repository, stage changes, and commit code in minutes.
 Keywords:
 - source control
