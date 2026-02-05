@@ -66,7 +66,7 @@ The beauty of this unified approach is that all these agents show up in the same
 
 Here's the problem subagents solve: the more you interact with an agent, the more context it accumulates. Eventually, it gets confused. This is sometimes called "context confusion" and it's a real productivity killer. You end up starting fresh chats just to get a clean slate.
 
-Subagents fix this by running in their own isolated context window. You can spin one up to do research, explore a solution, or analyze code—and only the result comes back to your main session. All the intermediate exploration stays contained.
+Subagents fix this by running in their own isolated context window. You can spin one up to do research, explore a solution, or analyze code. And only the final result is passed on to your main session, all the intermediate exploration stays contained.
 
 What's new this release: VS Code can now run multiple subagents in parallel. Need to research authentication patterns, analyze your existing code structure, AND review documentation? Fire off three subagents at once instead of doing it sequentially, saving you time (and premium requests).
 
