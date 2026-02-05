@@ -8,7 +8,7 @@ MetaSocialImage: images/opengraph/introvideos-social.png
 
 In this tutorial, we walk you through using Visual Studio Code powered with AI features.
 
-<iframe src="https://www.youtube-nocookie.com/embed/5NxGqnTazR8?si=SPrLQ_RuxoXBFffA?autoplay=true" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Getting Started with Visual Studio Code"></iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/f8_uF_IDV50?si=bvyV2AjBWNVK97nE" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Getting Started with Visual Studio Code"></iframe>
 
 Here's the next video we recommend: [Code Editing in Visual Studio Code](/docs/introvideos/codeediting.md)
 
@@ -50,14 +50,9 @@ Explore more in the [VS Code Tutorial](/docs/getstarted/getting-started.md) and 
   * **File** > **Auto Save**
 * Run
   * **Run** > **Start Debugging** (`kb(workbench.action.debug.start)`)
-* Programming language extensions
-  * [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) - IntelliSense, linting, debugging, code formatting, refactoring, and more.
-  * [Live Preview](https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server) - Hosts a local server to preview your webpages.
 * Zoom
   * Zoom out (`kb(workbench.action.zoomOut)`)
   * Zoom in (`kb(workbench.action.zoomIn)`)
-* Customize your editor with color themes.
-  * **File** > **Preferences** > **Theme** > **Color Theme** (`kb(workbench.action.selectTheme)`)
 
 ## Next video
 
