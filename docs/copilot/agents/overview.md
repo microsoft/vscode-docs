@@ -152,22 +152,22 @@ Learn more about [using cloud agents in VS Code](/docs/copilot/agents/cloud-agen
 
 ### Third party agents
 
-VS Code also supports agents from third-party AI providers. These agents integrate into the VS Code agent experience and let you use your existing Copilot subscription for authentication.
+VS Code supports agents from third-party AI providers, like Anthropic and OpenAI. Third-party agents enable you to use the unique capabilities of other AI providers, while still benefiting from the unified agent sessions management in VS Code and the rich editor experience for coding, debugging, testing, and more. In addition, you can use these providers with your existing GitHub Copilot subscription.
 
-Third-party agents enable you to use the unique capabilities of other AI providers, while still benefiting from the unified agent sessions management in VS Code and the rich editor experience for coding, debugging, testing, and more.
+Depending on the provider, third-party agents can run either locally in VS Code or in the cloud, powered by GitHub. The following third-party agents are currently available in VS Code:
 
-The following third-party agents are available in VS Code:
+* **Claude Agent** (Preview): powered by Anthropic's Claude Agent SDK, with specialized slash commands and memory files - can operate locally or in the cloud
+* **OpenAI Codex**: powered by OpenAI's Codex SDK - can operate locally or in the cloud (Preview)
 
-* **Claude Agent**: powered by Anthropic's Claude Agent SDK, with specialized slash commands and memory files
-* **OpenAI Codex**: powered by OpenAI's Codex SDK
-
-**Best for**: When you want to leverage capabilities from other AI providers like Anthropic or OpenAI within your VS Code workflow
+**Best for**: When you want to use the specific capabilities of third-party AI providers with your Copilot subscription, and use VS Code for agent session management
 
 **Key characteristics**:
 
 * Use the provider's specific capabilities to perform coding tasks
 * Use your existing Copilot subscription for authentication
 * Use VS Code for agent session management and rich editor experience
+* Can run locally or in the cloud, depending on the provider
+* Can support team collaboration via pull requests (for cloud agents)
 
 Learn more about [using third-party agents in VS Code](/docs/copilot/agents/third-party-agents.md).
 
