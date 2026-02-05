@@ -7,15 +7,62 @@ Apply the following guidelines when authoring blog posts on the VS Code website.
 
 ## Metadata
 
-A blog post must have the following metadata fields, formatted with frontmatter.
+A blog post must have the following metadata fields, formatted with YAML frontmatter.
 
-* Order: sequence number (higher number is more recent)
-* TOCTitle: blog post title used in table of contents - try to keep it shorter than 30 characters
-* PageTitle: blog post title used in the browser tab
-* MetaDescription: short description of the blog post, used for SEO purposes - keep it shorter than 160 chars
-* MetaSocialImage: file name of the image used for sharing on social channels - relative path
-* Date: publication date, formatted as YYYY-MM-DD
-* Author: full name of the author(s)
+### YAML frontmatter schema
+
+```yaml
+---
+Order: <number>              # Required. Sequence number; higher = more recent. Must be unique.
+TOCTitle: <string>           # Required. Title for the table of contents. Keep under 30 chars.
+PageTitle: <string>          # Required. Title shown in the browser tab.
+MetaDescription: <string>    # Required. SEO description. Keep under 160 chars.
+MetaSocialImage: <filename>  # Required. Image filename for social sharing (relative path).
+Date: <YYYY-MM-DD>           # Required. Publication date in ISO format.
+Author: <string>             # Required. Full name(s) of author(s). Separate multiple with comma.
+Keywords: [<string>, ...]    # Optional. Array of keywords for SEO/search purposes.
+---
+```
+
+### Field descriptions
+
+| Field | Required | Description |
+|-------|----------|-------------|
+| `Order` | Yes | Sequence number used for sorting (higher numbers appear first). Increment from the most recent blog post. Must be unique across all posts. |
+| `TOCTitle` | Yes | Blog post title used in the sidebar table of contents. Keep it shorter than 30 characters for display. |
+| `PageTitle` | Yes | Full blog post title displayed in the browser tab. Can include quotes if needed. |
+| `MetaDescription` | Yes | Short description for SEO and social previews. Keep under 160 characters. |
+| `MetaSocialImage` | Yes | Filename of the hero/social image, stored in the same folder as the post. Use relative path (e.g., `hero-image.png`). |
+| `Date` | Yes | Publication date in `YYYY-MM-DD` format (e.g., `2025-06-30`). |
+| `Author` | Yes | Author's full name. For multiple authors, separate with comma (e.g., `Jane Doe, John Smith`). |
+| `Keywords` | No | Array of keywords for search optimization (e.g., `[copilot, ai, productivity]`). |
+
+### Example frontmatter
+
+```yaml
+---
+Order: 125
+TOCTitle: MCP Apps Support
+PageTitle: "Giving Agents a Visual Voice: MCP Apps Support in VS Code"
+MetaDescription: VS Code now supports MCP Apps, enabling AI agents to display interactive UIs for richer developer workflows.
+MetaSocialImage: mcp-apps-hero.png
+Date: 2026-01-26
+Author: Harald Kirschner, Connor Peet
+---
+```
+
+```yaml
+---
+Order: 92
+TOCTitle: Copilot Next Edit Suggestions (preview)
+PageTitle: Copilot Next Edit Suggestions (preview)
+MetaDescription: Announcing the Next Edit Suggestions and Agent Mode for GitHub Copilot in Visual Studio Code.
+MetaSocialImage: nes-gutter-cover.png
+Date: 2025-02-12
+Author: Brigit Murtaugh, Burke Holland
+Keywords: [nes]
+---
+```
 
 ## Folder structure
 
