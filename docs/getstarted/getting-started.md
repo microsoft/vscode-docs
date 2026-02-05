@@ -8,7 +8,7 @@ MetaDescription: This tutorial gives you an overview of the key features of Visu
 In this tutorial, you learn about the key features of Visual Studio Code to help you get started with coding quickly. You learn about the different components of the user interface and how to customize it to your liking. You then write some code and use the built-in code editing features, such as IntelliSense and Code Actions, and you learn about running and debugging your code. By installing a language extension, you add support for a different programming language.
 
 > [!TIP]
-> If you prefer to follow along with a video, you can watch the [Getting Started video](https://www.youtube.com/watch?v=B-s71n0dHUk), which covers the same steps as this tutorial.
+> If you prefer a video to learn about Visual Studio Code, you can watch the [Getting Started video](https://www.youtube.com/watch?v=f8_uF_IDV50) on our YouTube channel.
 
 ## Prerequisites
 
