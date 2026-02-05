@@ -14,7 +14,7 @@ February 5, 2026 by VS Code Team, [@code](https://x.com/code)
 
 Agents are everywhere. We've been working to make VS Code the home for multi-agent development. One place to run your agents, manage your sessions, and pick the right tool for each task, without switching editors or juggling subscriptions.
 
-With the [1.109 release](https://aka.ms/VSCode/109), we're taking the biggest step forward since we laid out that vision at GitHub Universe last year. You can now run Claude and Codex agents directly alongside GitHub Copilot—as local agents when you need fast, interactive help, or delegate async to the cloud agents for longer running tasks. We've also made updates to the Agent Sessions view, your single place to manage your agents.
+With the [January 2026 release (1.109)](https://aka.ms/VSCode/109), we're taking the biggest step forward since we laid out that vision at GitHub Universe last year. You can now run Claude and Codex agents directly alongside GitHub Copilot. Start them as local agents when you need fast, interactive help, or delegate async to a cloud agent for longer-running tasks. We've also made updates to the Agent Sessions view, your single place to manage your agents.
 
 ## Agent Sessions
 
