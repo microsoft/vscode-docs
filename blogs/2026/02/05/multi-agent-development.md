@@ -82,7 +82,7 @@ That's where open standards come in.
 
 [MCP Apps](https://code.visualstudio.com/blogs/2026/01/26/mcp-apps-support) landed last week. This is the first official MCP extension, and it lets tool calls return interactive UI components that render directly in chat: dashboards, forms, visualizations, multi-step workflows. This creates opportunities for a richer and more effective human-agent collaboration. VS Code is the first major AI code editor with full MCP Apps support, and we're so excited to see what the community builds.
 
-<video src="mcp-apps-wide-demo.mp4" title="Video demonstrating parallel subagents in VS Code." autoplay muted controls></video>
+<video src="mcp-apps-wide-demo.mp4" title="Video demonstrating MCP Apps in VS Code." autoplay muted controls></video>
 
 We've also made [Agent Skills](https://code.visualstudio.com/docs/copilot/customization/agent-skills), Anthropic's open standard for extending AI agents, generally available. Skills are specialized capabilities that help agents produce high-quality outputs—they provide tested instructions for domains like testing strategies, API design, or performance optimization. Extension authors can now even package and distribute skills with their extensions using the `chatSkills` contribution point. This means the ecosystem can share specialized AI capabilities the same way it shares code snippets and themes.
 
