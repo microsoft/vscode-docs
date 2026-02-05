@@ -58,19 +58,21 @@ GitHub also [just announced Claude and Codex agent support](https://github.blog/
 
 The beauty of this unified approach is that all these agents show up in the same Agent Sessions view. You can delegate tasks between them, compare their outputs, and pick the right tool for each job.
 
-## Parallel subagents
+## Orchestrate with subagents
 
-[Subagents](https://code.visualstudio.com/docs/copilot/agents/subagents) are context-isolated agents that run tasks independently from your main agent session.
+Running multiple agents is one thing. Getting them to work together is another.
 
-Here's the problem subagents solve: the more you interact with an agent, the more context it accumulates. Eventually, it gets confused. This is sometimes called "context confusion" and it's a real productivity killer. You end up starting fresh chats just to get a clean slate.
+Let's say you're adding a new feature and your agent needs to research authentication patterns, check how similar features are structured in your codebase, AND scan the relevant docs. Doing this sequentially eats up time and premium requests. Doing it in one context bloats your session.
 
-Subagents fix this by running in their own isolated context window. You can spin one up to do research, explore a solution, or analyze code. And only the final result is passed on to your main session, all the intermediate exploration stays contained.
+[Subagents](https://code.visualstudio.com/docs/copilot/agents/subagents) solve this. They're context-isolated agents that run independently from your main session—your main agent delegates work and only the final result flows back. The intermediate exploration stays contained, keeping your primary context clean.
 
-What's new this release: VS Code can now run multiple subagents in parallel. Need to research authentication patterns, analyze your existing code structure, AND review documentation? Fire off three subagents at once instead of doing it sequentially, saving you time (and premium requests).
+What's new this release: VS Code can now run multiple subagents in parallel. Fire off multiple tasks at once, get results faster, and save premium requests in the process.
+
+We've also added better visibility into what subagents are doing. You can see which tasks are running, which agent is being used, and expand any subagent to see the full prompt and result.
 
 <video src="subagents-clip.mp4" title="Video demonstrating parallel subagents in VS Code." autoplay muted controls></video>
 
-We've also added better visibility into what subagents are doing. You can see which tasks are running, which agent is being used, and expand any subagent to see the full prompt and result.
+Combine this with [custom agents](https://code.visualstudio.com/docs/copilot/customization/custom-agents) to give each subagent specialized behavior: a research agent with read-only access and web search tools, an implementation agent with full editing capabilities, a security agent focused on vulnerability scanning. Define the tools, instructions, and model for each. Use [handoffs](https://code.visualstudio.com/docs/copilot/customization/custom-agents#_handoffs) to create workflows that transition from plan to implement to review—all orchestrated from your main session.
 
 ## Building on open standards
 
