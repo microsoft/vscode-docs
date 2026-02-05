@@ -52,7 +52,7 @@ GitHub also [just announced Claude and Codex agent support](https://github.blog/
 ![Screenshot of the Partner Agents picker in VS Code, showing options for Claude and Codex.](cloud-agents.png)
 
 > [!NOTE]
-> Enable or disable support for Claude agent sessions with the `github.copilot.chat.claudeAgent.enabled` setting.
+> Enable or disable support for Claude agent sessions with the `setting(github.copilot.chat.claudeAgent.enabled)` setting.
 >
 > Prerequisites for the Codex local agent: a Copilot Pro+ subscription and the [OpenAI Codex extension](https://marketplace.visualstudio.com/items?itemName=openai.chatgpt).
 
