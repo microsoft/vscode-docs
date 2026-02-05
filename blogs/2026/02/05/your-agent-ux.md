@@ -94,4 +94,4 @@ A year ago, we were just introducing agent mode. Now you've got Copilot, Claude,
 
 Want to see these features demoed live? Join us for [Agent Sessions Day](https://youtube.com/live/tAezuMSJuFs) on February 19th!
 
-As always, Happy Coding!
+As always, Happy coding!
