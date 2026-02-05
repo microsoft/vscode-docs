@@ -64,6 +64,10 @@ These are our documentation writing style guidelines.
 * For code placeholders, if you want users to replace part of an input string with their own values, use angle brackets (less than < and greater than > characters) on that placeholder text.
 * Don't apply an inline style like italic, bold, or inline code style to headings.
 
+## Prompt code blocks
+
+* Use code blocks with `prompt` as the language for AI prompts that use agent mode, optionally followed by "- <custom agent name>" to use a specific custom agent. For example, use `prompt-plan` to indicate that the prompt is intended for a custom agent named "plan".
+
 ## Alerts
 
 * Alerts are a Markdown extension to create block quotes that render with colors and icons that indicate the significance of the content. The following alert types are supported:
@@ -85,7 +89,12 @@ These are our documentation writing style guidelines.
 
 * Use images only when they add value.
 * Images have a descriptive and meaningful alt text that starts with "Screenshot showing" and ends with ".".
-* Videos have a descriptive and meaningful alt text or title that starts with "Video showing" and ends with ".".
+
+## Videos
+
+* Use videos only when they add value.
+* Videos have a descriptive and meaningful title that starts with "Video showing" or "Video of" and ends with ".".
+* For embedded videos, you MUST use `youtube-nocookie.com` instead of `youtube.com`.
 
 ## Lists
 
@@ -95,11 +104,11 @@ These are our documentation writing style guidelines.
 
 ## Numbered steps
 
-* Write complete sentences with capitalization and periods
-* Use imperative verbs
-* Clearly indicate where actions take place (UI location)
-* For single steps, use a bullet instead of a number
-* Use angle brackets for menu sequences (File > Open)
+* Write complete sentences with capitalization and periods.
+* Use imperative verbs.
+* Clearly indicate where actions take place (UI location).
+* For single steps, use a bullet instead of a number.
+* Use angle brackets for menu sequences (File > Open).
 
 ## Terminology
 
@@ -109,3 +118,18 @@ These are our documentation writing style guidelines.
 * Use the verb "to enable" instead "to allow" unless you're referring to permissions.
 * Follow the terms and capitalization guidelines in #fetch [VS Code docs wiki](https://github.com/microsoft/vscode-docs/wiki/VS-Code-glossary)
 * Don't use the following terms: "simply", "just", "easy", "obviously", "of course", "etc.", "delve", "crucial", "utilize", "leverage", "prior to", "in order to", "harness".
+
+## Metadata
+
+A docs or api page must have the following metadata fields, formatted with YAML frontmatter.
+
+```yaml
+---
+ContentId: <string>          # Required. Unique identifier for the content.
+DateApproved: <mm/dd/yyyy>   # Required. Approval date in MM/DD/YYYY format.
+PageTitle: <string>          # Required. Title shown in the browser tab.
+MetaDescription: <string>    # Required. SEO description. Keep under 160 chars.
+MetaSocialImage: <filename>  # Required. Image filename for social sharing (relative path).
+Keywords: [<string>, ...]    # Optional. Array of keywords for SEO/search purposes.
+---
+```
