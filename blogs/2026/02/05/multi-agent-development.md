@@ -45,7 +45,7 @@ With 1.109, you can run Claude and Codex agents alongside Copilot: locally, or i
 
 Codex has been available as a local agent [for a few months](https://code.visualstudio.com/blogs/2025/11/03/unified-agent-experience). Claude is new. It uses the official Claude Agent harness by Anthropic, so you get the same prompts, tools, and overall architecture as other Claude implementations.
 
-![Local agents available in VS Code](local-agents.png)
+![Screenshot of the Sessions Type picker in VS Code, showing the Claude and Codex agent options.](local-agents.png)
 
 GitHub also [just announced Claude and Codex agent support](https://github.blog/changelog/2026-02-04-claude-and-codex-are-now-available-in-public-preview-on-github/). Copilot Pro+ and Enterprise subscribers can use them in VS Code as cloud agents today.
 
