@@ -49,7 +49,7 @@ Codex has been available as a local agent [for a few months](https://code.visual
 
 GitHub also [just announced Claude and Codex agent support](https://github.blog/changelog/2026-02-04-claude-and-codex-are-now-available-in-public-preview-on-github/). Copilot Pro+ and Enterprise subscribers can use them in VS Code as cloud agents today.
 
-![Cloud agents available in VS Code](cloud-agents.png)
+![Screenshot of the Partner Agents picker in VS Code, showing options for Claude and Codex.](cloud-agents.png)
 
 > [!NOTE]
 > Enable or disable support for Claude agent sessions with the `github.copilot.chat.claudeAgent.enabled` setting.
