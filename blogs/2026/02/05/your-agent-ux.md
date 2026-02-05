@@ -1,14 +1,14 @@
 ---
 Order: 126
-TOCTitle: Your Unified Agent UX
-PageTitle: "VS Code: Your Unified Agent UX"
+TOCTitle: Multi-Agent Development
+PageTitle: "Your Home for Multi-Agent Development"
 MetaDescription: VS Code has become the unified interface for all your coding agents. Manage local, background, and cloud agents in one place, use Claude and Codex agents alongside Copilot, and benefit from open standards like MCP and Agent Skills.
 MetaSocialImage: your-agent-ux.png
 Date: 2026-02-05
 Author: VS Code Team
 ---
 
-# VS Code: Your Unified Agent UX
+# Your Home for Multi-Agent Development
 
 February 5, 2026 by VS Code Team, [@code](https://x.com/code)
 
@@ -16,7 +16,7 @@ Agents are everywhere. We've been working to make VS Code the home for multi-age
 
 With the [January 2026 release (1.109)](https://aka.ms/VSCode/109), we're taking the biggest step forward since we laid out that vision at GitHub Universe last year. You can now run Claude and Codex agents directly alongside GitHub Copilot. Start them as local agents when you need fast, interactive help, or delegate async to a cloud agent for longer-running tasks. We've also made updates to the Agent Sessions view, your single place to manage your agents.
 
-## Agent Sessions
+## Manage all your agents
 
 The agent landscape keeps moving fast. We're all still figuring out how to work with agents. Fire-and-forget when the task is clear, hands-on when you want control, or somewhere in between; it depends on the task, and it changes. Either way, more agents mean more sessions to keep track of.
 
@@ -58,8 +58,6 @@ GitHub also [just announced Claude and Codex agent support](https://github.blog/
 
 The beauty of this unified approach is that all these agents show up in the same Agent Sessions view. You can delegate tasks between them, compare their outputs, and pick the right tool for each job.
 
-![Diagram of agent types in VS Code](agent-types-diagram-v3.png)
-
 ## Parallel subagents
 
 [Subagents](https://code.visualstudio.com/docs/copilot/agents/subagents) are context-isolated agents that run tasks independently from your main agent session.
@@ -86,7 +84,7 @@ That's where open standards come in.
 
 We've also made [Agent Skills](https://code.visualstudio.com/docs/copilot/customization/agent-skills), Anthropic's open standard for extending AI agents, generally available. Skills are specialized capabilities that help agents produce high-quality outputs—they provide tested instructions for domains like testing strategies, API design, or performance optimization. Extension authors can now even package and distribute skills with their extensions using the `chatSkills` contribution point. This means the ecosystem can share specialized AI capabilities the same way it shares code snippets and themes.
 
-## What's next?
+## VS Code: your unified agent experience
 
 Agents are changing how we work. You shouldn't have to pick just one, or switch tools every time something new comes along. With VS Code, you can run the agents you want, extend them with open standards, and manage it all from one place.
 
@@ -94,4 +92,4 @@ A year ago, we were just introducing agent mode. Now you've got Copilot, Claude,
 
 Want to see these features demoed live? Join us for [Agent Sessions Day](https://youtube.com/live/tAezuMSJuFs) on February 19th!
 
-As always, Happy coding!
+Happy coding!
