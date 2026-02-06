@@ -41,9 +41,8 @@ Move the browser to its own floating window by right-clicking the editor tab and
 
 Select elements from a web page to add them as context to your chat prompt. This is useful for getting help with specific HTML elements, CSS styles, or debugging UI issues.
 
-1. Enable element selection with the `setting(chat.sendElementsToChat.enabled)` setting.
 1. Open the integrated browser and navigate to your web app.
-1. Select the **Start** button in the browser toolbar to enter selection mode.
+1. Select the **Add Element to Chat** button in the browser toolbar to enter selection mode.
 1. Hover over elements and select to add them to your chat prompt.
 
 Configure what information is included:
