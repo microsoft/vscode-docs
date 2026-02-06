@@ -205,9 +205,6 @@ You can create a custom agent file in your workspace or user profile.
 
 To update a custom agent definition file, select **Configure Custom Agents** from the agents dropdown, and then select a custom agent from the list to modify it.
 
-> [!NOTE]
-> If you've previously created custom chat modes with a `.chatmode.md` extension in the `.github/chatmodes` folder of your workspace, VS Code still recognizes those files as custom agents. You can use a Quick Fix action to rename and move them to the new `.github/agents` folder with a `.agent.md` extension.
-
 ## Customize the agents dropdown list
 
 If you have multiple custom agents, you can customize which ones appear in the agents dropdown. To show or hide specific custom agents:
@@ -242,7 +239,7 @@ Learn how you can [create custom agents for your organization](https://docs.gith
 
 Custom agents were previously known as custom chat modes. The functionality remains the same, but the terminology has been updated to better reflect their purpose in customizing AI behavior for specific tasks.
 
-VS Code still recognizes any existing `.chatmode.md` files as custom agents. You can use a Quick Fix action to rename and move them to the new `.github/agents` folder with a `.agent.md` extension.
+If you have existing `.chatmode.md` files, rename them to `.agent.md` to convert them to the new custom agent format and place them in the appropriate location (`setting(chat.agentFilesLocations)`) to continue using them.
 
 ### How do I remove a custom agent?
 
