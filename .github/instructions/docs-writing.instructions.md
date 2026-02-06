@@ -22,6 +22,7 @@ These are our documentation writing style guidelines.
 * Avoid multiple -ing words that can create ambiguity.
 * Keep prepositional phrases simple and clear.
 * Place modifiers close to what they modify.
+* Avoid em-dashes and prefer commas or separate sentences to break up complex thoughts.
 
 ## Capitalization
 
@@ -45,6 +46,7 @@ These are our documentation writing style guidelines.
 * Use one space after punctuation marks.
 * After a colon, capitalize only proper nouns.
 * Avoid semicolons - use separate sentences instead.
+* Avoid em-dashes and prefer commas or separate sentences to break up complex thoughts.
 * Use question marks sparingly.
 * Don't use slashes (/) - use "or" instead.
 * Prefer single over double quotes, avoiding typographic quotes.
