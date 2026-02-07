@@ -13,7 +13,7 @@ GitHub Copilot adds multi-agent development capabilities to Visual Studio Code. 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
 Follow a hands-on tutorial to build your first app with AI in VS Code.
 
-* [Open tutorial](/docs/copilot/getting-started.md)
+* [Start tutorial](/docs/copilot/getting-started.md)
 
 </div>
 
@@ -104,7 +104,7 @@ Learn more about [smart actions in VS Code](/docs/copilot/copilot-smart-actions.
 
 * **Collaborate via pull requests.** Delegate a task to a cloud agent that creates a branch, implements the changes, and opens a pull request for your team to review. Learn more about [cloud agents](/docs/copilot/agents/cloud-agents.md).
 
-## Customize the AI to your workflow
+## Customize AI for your workflow
 
 Agents work best when they understand your project's conventions, have the right tools, and use a model suited to the task. VS Code gives you several ways to tailor the AI so it produces code that fits your codebase from the start, instead of requiring manual corrections after the fact.
 
@@ -115,7 +115,7 @@ Create [custom agents](/docs/copilot/customization/custom-agents.md) that assume
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Customize AI">
 Explore all the ways to tailor the AI experience to your workflow.
 
-* [Customize Copilot](/docs/copilot/customization/overview.md)
+* [Open Customization Overview](/docs/copilot/customization/overview.md)
 
 </div>
 
