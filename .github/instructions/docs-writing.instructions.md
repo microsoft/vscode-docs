@@ -129,7 +129,6 @@ A docs or api page must have the following metadata fields, formatted with YAML 
 ---
 ContentId: <string>          # Required. Unique identifier for the content.
 DateApproved: <mm/dd/yyyy>   # Required. Approval date in MM/DD/YYYY format.
-PageTitle: <string>          # Required. Title shown in the browser tab.
 MetaDescription: <string>    # Required. SEO description. Keep under 160 chars.
 MetaSocialImage: <filename>  # Required. Image filename for social sharing (relative path).
 Keywords: [<string>, ...]    # Optional. Array of keywords for SEO/search purposes.
