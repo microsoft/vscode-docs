@@ -3,6 +3,16 @@ ContentId: 0aefcb70-7884-487f-953e-46c3e07f7cbe
 DateApproved: 02/04/2026
 MetaDescription: Use AI agents in VS Code to autonomously plan, implement, and test code across your project.
 MetaSocialImage: images/shared/github-copilot-social.png
+Keywords:
+- GitHub Copilot
+- AI
+- agents
+- inline suggestions
+- chat
+- MCP
+- introduction
+- overview
+- getting started
 ---
 # GitHub Copilot in VS Code
 
