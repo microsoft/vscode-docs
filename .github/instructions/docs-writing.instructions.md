@@ -103,6 +103,7 @@ These are our documentation writing style guidelines.
 * Use asterisks (*) for lists of items.
 * Use numbered lists for steps in a procedure.
 * Keep list items parallel in structure.
+* In lists with a lead-in term, use a colon as the separator. Don't use an em-dash or a dash.
 
 ## Numbered steps
 
