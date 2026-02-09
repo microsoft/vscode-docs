@@ -127,7 +127,7 @@ To configure a language model from a built-in provider:
 
 1. You can now select the model from the model picker in chat.
 
-    For a model to be available when using [agents](/docs/copilot/chat/copilot-chat.md#built-in-agents), it must support tool calling. If the model doesn't support tool calling, it won't be shown in the model picker.
+    For a model to be available when using [agents](/docs/copilot/agents/overview.md#built-in-agents), it must support tool calling. If the model doesn't support tool calling, it won't be shown in the model picker.
 
 > [!NOTE]
 > Configuring a custom OpenAI-compatible model is currently only available in [VS Code Insiders](https://code.visualstudio.com/insiders/) as of release 1.104. You can also manually add your OpenAI-compatible model configuration in the `setting(github.copilot.chat.customOAIModels)` setting.

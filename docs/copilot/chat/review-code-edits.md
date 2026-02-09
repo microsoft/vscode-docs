@@ -22,11 +22,27 @@ When you close VS Code, the status of the pending edits is remembered and restor
 
 ## Review changes
 
-With the editor overlay controls, you can navigate between the suggested edits by using the `kbstyle(Up)` and `kbstyle(Down)` controls. Use the **Keep** or **Undo** button to accept or reject the edits for a given file.
+Follow these steps to review the AI-generated code edits in a file:
+
+1. Open a file with pending edits by selecting it from the changed files list in the Chat view or from the Explorer view.
+
+1. Use the `kbstyle(Up)` and `kbstyle(Down)` controls in the editor overlay to navigate between individual edits within the file.
+
+1. For each edit, choose one of the following actions:
+    * Select **Keep** to accept the edit.
+    * Select **Undo** to reject the edit and revert the change.
+    * Hover over an inline change to accept or reject that specific change without affecting other edits in the file.
+
+1. Alternatively, accept or reject all changes across all files at once from the Chat view.
 
 ![Screenshot showing the Editor with proposed changes, highlighting the review controls in the editor overlay controls.](../images/review-code-edits/copilot-edits-file-review-controls.png)
 
-When you hover over an inline change, the overlay controls let you accept or reject individual changes. In the Chat view, you can accept or reject all changes across all files at once.
+The following keyboard shortcuts help you navigate and review edits:
+
+| Action | Shortcut |
+|---|---|
+| Navigate to next edit | `kbstyle(Down)` in the editor overlay |
+| Navigate to previous edit | `kbstyle(Up)` in the editor overlay |
 
 ## Source Control integration
 
@@ -34,9 +50,10 @@ If you stage your changes in the Source Control view, any pending edits are auto
 
 ## Auto-accept edits
 
-You can configure VS Code to automatically accept AI-generated code edits after a specific delay with the `setting(chat.editing.autoAccept)` setting. By hovering over the editor overlay controls, you can cancel the auto-accept countdown.
+You can configure VS Code to automatically accept AI-generated code edits after a configurable delay with the `setting(chat.editing.autoAccept)` setting. Hover over the editor overlay controls to stop the auto-accept countdown.
 
-If you automatically accept all edits, it's strongly recommended to still review the changes before committing them in source control. Learn more about the [security considerations of using AI in VS Code](/docs/copilot/security.md).
+> [!IMPORTANT]
+> If you automatically accept all edits, it's strongly recommended to review the changes before committing them in source control. Learn more about the [security considerations of using AI in VS Code](/docs/copilot/security.md).
 
 ## Edit sensitive files
 
@@ -56,4 +73,7 @@ The following example configuration automatically allows edits to all files exce
 
 ## Related resources
 
-* [Learn more about using chat in VS Code](/docs/copilot/chat/copilot-chat.md)
+* [Revert changes with checkpoints](/docs/copilot/chat/chat-checkpoints.md)
+* [Chat overview](/docs/copilot/chat/copilot-chat.md)
+* [Chat sessions](/docs/copilot/chat/chat-sessions.md)
+* [Security considerations for using AI in VS Code](/docs/copilot/security.md)

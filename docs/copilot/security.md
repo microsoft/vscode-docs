@@ -47,7 +47,7 @@ Auto-approval features are designed to streamline AI-assisted development by red
 * **Terminal auto-approval**: Potentially destructive or malicious commands are run without the user's control.
 * **Overall tool auto-approval**: Bypasses all user approvals, potentially leading to destructive actions, updating sensitive workspace files, or executing arbitrary code.
 
-Learn more about [managing auto approvals](/docs/copilot/chat/chat-tools.md#tool-approval).
+Learn more about [managing auto approvals](/docs/copilot/agents/agent-tools.md#tool-approval).
 
 ### Information exposure
 
@@ -88,13 +88,13 @@ VS Code limits the potential impact of sensitive actions by controlling their sc
 
 * **Workspace-limited file access**: Built-in agent tools can only read and write files within the current workspace folder. This prevents the AI agent from accessing or modifying files outside your project directory, such as system files or other projects on your machine.
 
-* **Tools picker**: You can selectively [enable or disable specific tools](/docs/copilot/chat/chat-tools.md) using the tools picker, giving you precise control over what capabilities are available to the AI agent. For example, you might restrict the agent to read-only operations during code review or planning.
+* **Tools picker**: You can selectively [enable or disable specific tools](/docs/copilot/agents/agent-tools.md) using the tools picker, giving you precise control over what capabilities are available to the AI agent. For example, you might restrict the agent to read-only operations during code review or planning.
 
 * **Session isolation**: You can grant permissions that are temporary and don't persist beyond the current session. This enables you to experiment with AI capabilities while maintaining long-term security boundaries.
 
 * **Request limits**: The system includes built-in safeguards to [prevent runaway operations](/docs/copilot/reference/copilot-settings.md#agent-settings) that could consume excessive resources or perform unintended bulk actions on your codebase.
 
-* **Terminal sandboxing (Experimental)**: On macOS and Linux, you can enable [terminal sandboxing](/docs/copilot/chat/chat-tools.md#sandbox-terminal-commands-experimental) to restrict file system and network access for commands executed by the agent. Sandboxed commands can only access the working directory and are blocked from network requests by default.
+* **Terminal sandboxing (Experimental)**: On macOS and Linux, you can enable [terminal sandboxing](/docs/copilot/agents/agent-tools.md#sandbox-terminal-commands-experimental) to restrict file system and network access for commands executed by the agent. Sandboxed commands can only access the working directory and are blocked from network requests by default.
 
 ### Permission management
 
@@ -104,7 +104,7 @@ VS Code uses a permission-based security model where you maintain control over p
 
 * **Tool approval**: MCP tool invocations require explicit user approval, which you can grant at different scopes: session-level for temporary access, workspace-level for project-specific trust, or user-level for broader permissions.
 
-Learn more about [tool and command approval](/docs/copilot/chat/chat-tools.md#tool-approval).
+Learn more about [tool and command approval](/docs/copilot/agents/agent-tools.md#tool-approval).
 
 ### Transparency
 
@@ -112,7 +112,7 @@ VS Code provides clear visibility into AI operations, ensuring you can review an
 
 * **Review flow for file changes**: While the AI agent can propose file modifications, you can [review all suggested changes](/docs/copilot/chat/review-code-edits.md) in a diff editor before they are applied. You can keep or undo individual changes, giving you granular control over what modifications are made to your codebase.
 
-* **Auto-approval notification**: When a [tool or terminal command is automatically approved](/docs/copilot/chat/chat-tools.md#tool-approval) within a chat conversation, VS Code provides an information message and link to the specific configuration setting that enabled this.
+* **Auto-approval notification**: When a [tool or terminal command is automatically approved](/docs/copilot/agents/agent-tools.md#tool-approval) within a chat conversation, VS Code provides an information message and link to the specific configuration setting that enabled this.
 
 * **Warning banner and explicit consent**: When using advanced modes that bypass normal safety checks, VS Code displays clear warning banners and requires explicit consent, ensuring you understand the security implications of your choices.
 
@@ -149,6 +149,6 @@ While VS Code includes many security protections, users should remain proactive 
 
 * [Workspace Trust](/docs/editing/workspaces/workspace-trust.md)
 * [MCP server trust](/docs/copilot/customization/mcp-servers.md#mcp-server-trust)
-* [Manage tool auto approvals](/docs/copilot/chat/chat-tools.md#tool-approval)
+* [Manage tool auto approvals](/docs/copilot/agents/agent-tools.md#tool-approval)
 * [Extension runtime security](/docs/configure/extensions/extension-runtime-security.md)
 * [VS Code enterprise support](/docs/enterprise/overview.md)

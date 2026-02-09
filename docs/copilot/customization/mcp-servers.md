@@ -16,9 +16,9 @@ keywords:
 ---
 # Use MCP servers in VS Code
 
-Model Context Protocol (MCP) is an open standard that lets AI models use external tools and services through a unified interface. In VS Code, MCP servers provide [tools](/docs/copilot/chat/chat-tools.md) for tasks like file operations, databases, or interacting with external APIs.
+Model Context Protocol (MCP) is an open standard that lets AI models use external tools and services through a unified interface. In VS Code, MCP servers provide [tools](/docs/copilot/agents/agent-tools.md) for tasks like file operations, databases, or interacting with external APIs.
 
-MCP servers are one of three ways to extend chat with tools in VS Code, alongside built-in tools and extension-contributed tools. Learn more about [types of tools](/docs/copilot/chat/chat-tools.md#types-of-tools).
+MCP servers are one of three ways to extend chat with tools in VS Code, alongside built-in tools and extension-contributed tools. Learn more about [types of tools](/docs/copilot/agents/agent-tools.md#types-of-tools).
 
 This article guides you through setting up MCP servers and using their capabilities in Visual Studio Code.
 
@@ -226,7 +226,7 @@ To use MCP tools in chat:
 
     ![Screenshot of the MCP tool confirmation dialog in chat.](../images/mcp-servers/mcp-tool-confirmation.png)
 
-Learn more about [using tools in chat](/docs/copilot/chat/chat-tools.md), including how to manage tool approvals, use the tool picker, and create tool sets.
+Learn more about [using tools in chat](/docs/copilot/agents/agent-tools.md), including how to manage tool approvals, use the tool picker, and create tool sets.
 
 ### Clear cached MCP tools
 
@@ -266,7 +266,7 @@ Learn more about [MCP Apps support in VS Code](https://code.visualstudio.com/blo
 
 As you add more MCP servers, the list of tools can become long. You can group related tools into a tool set to make them easier to manage and reference.
 
-Learn more about how to [create and use tool sets](/docs/copilot/chat/chat-tools.md#group-tools-with-tool-sets).
+Learn more about how to [create and use tool sets](/docs/copilot/agents/agent-tools.md#group-tools-with-tool-sets).
 
 ## Manage installed MCP servers
 
@@ -514,4 +514,4 @@ A chat request can have a maximum of 128 tools enabled at a time due to model co
 
 * [Model Context Protocol Documentation](https://modelcontextprotocol.io/)
 * [Model Context Protocol Server repository](https://github.com/modelcontextprotocol/servers)
-* [Use agents in VS Code chat](/docs/copilot/chat/copilot-chat.md#built-in-agents)
+* [Use agents in VS Code chat](/docs/copilot/agents/overview.md#built-in-agents)

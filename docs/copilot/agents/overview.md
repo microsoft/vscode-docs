@@ -106,6 +106,100 @@ Local agents operate in the chat interface in VS Code. When you close a chat ses
 
 Learn more about [using chat in VS Code](/docs/copilot/chat/copilot-chat.md).
 
+#### Built-in agents
+
+Local agent sessions use one of three built-in agents, each optimized for different types of tasks. You can switch between agents at any time during a chat session by selecting a different agent from the agent picker in the Chat view. For more specialized workflows, you can create your own [custom agents](/docs/copilot/customization/custom-agents.md).
+
+<details>
+<summary>Agent</summary>
+
+Agent is optimized for complex coding tasks based on high-level requirements that might require running terminal commands and tools. The AI operates autonomously, determining the relevant context and files to edit, planning the work needed, and iterating to resolve issues as they arise.
+
+VS Code directly applies code changes in the editor and the editor overlay controls enable you to navigate between the suggested edits and review them. The agent might invoke multiple [tools](/docs/copilot/agents/agent-tools.md) to accomplish different tasks.
+
+You can [customize chat with extra tools](/docs/copilot/agents/agent-tools.md) by adding MCP servers or installing extensions that contribute tools.
+
+Open chat with Agent: [Stable](vscode://GitHub.Copilot-Chat/chat?mode=agent) | [Insiders](vscode-insiders://GitHub.Copilot-Chat/chat?mode=agent)
+
+> [!IMPORTANT]
+> If you don't see the agent option, make sure agents are enabled in your VS Code settings (`setting(chat.agent.enabled)`). Your organization might also have disabled agents - contact your admin to enable this functionality.
+
+##### Get started with agents
+
+> [!TIP]
+> For a hands-on tutorial that demonstrates working with different agent types including background and cloud agents, see the [agents tutorial](/docs/copilot/agents/agents-tutorial.md).
+
+To start a local agent session:
+
+1. Select **Agent** from the agent picker in the Chat view.
+
+1. Type a high-level prompt in the chat input field. For example, you might ask:
+
+    ```prompt-agent
+    Implement a user authentication system with OAuth2 and JWT.
+    ```
+
+    or
+
+    ```prompt-agent
+    Set up a CI/CD pipeline for this project.
+    ```
+
+1. Use the tools picker to [enable tools](/docs/copilot/agents/agent-tools.md) and give the agent more capabilities.
+
+1. Select **Send** or press `kb(workbench.action.chat.submit)` to submit your prompt.
+
+1. Review and confirm code changes and tool invocations as the agent works through your request.
+
+    > [!TIP]
+    > VS Code helps you protect against inadvertent edits to sensitive files, such as workspace configuration settings or environment settings. Learn more about [editing sensitive files](/docs/copilot/chat/review-code-edits.md#edit-sensitive-files).
+
+</details>
+
+<details>
+<summary>Plan</summary>
+
+The plan agent is optimized for creating a structured implementation plan for a coding task. Use the plan agent when you want to break down a complex feature or change into smaller, manageable steps before implementation.
+
+The plan agent generates a detailed plan outlining the steps needed and asks clarifying questions to ensure a comprehensive understanding of the task. You can then hand off the plan to an implementation agent or use it as a guide.
+
+Open chat with Plan: [Stable](vscode://GitHub.Copilot-Chat/chat?mode=plan) | [Insiders](vscode-insiders://GitHub.Copilot-Chat/chat?mode=plan)
+
+Learn more about [planning with agents](/docs/copilot/agents/planning.md).
+
+</details>
+
+<details>
+<summary>Ask</summary>
+
+Ask is optimized for answering questions about your codebase, coding, and general technology concepts. Use Ask when you want to understand how something works, explore ideas, or get help with coding tasks.
+
+Ask uses agentic capabilities to research your codebase and gather relevant context. Responses can contain code blocks that you apply individually to your codebase. To apply a code block, hover over the code block and select the **Apply in Editor** button.
+
+Open chat with Ask: [Stable](vscode://GitHub.Copilot-Chat/chat?mode=ask) | [Insiders](vscode-insiders://GitHub.Copilot-Chat/chat?mode=ask)
+
+##### Get started with Ask
+
+1. Type your prompt in the chat input field. For example, you might ask:
+
+    ```prompt-ask
+    Provide 3 ways to implement a search feature in React.
+    ```
+
+    or
+
+    ```prompt-ask
+    Where is the db connection configured in this project? #codebase
+    ```
+
+1. Select **Ask** from the agent picker in the Chat view.
+
+1. Optionally, [add context to your prompt](/docs/copilot/chat/copilot-chat-context.md) to get more accurate responses.
+
+1. Select **Send** or press `kb(workbench.action.chat.submit)` to submit your prompt.
+
+</details>
+
 ### Background agents
 
 Background agents like Copilot CLI are CLI-based agents that run non-interactively in the background on your local machine. Background agents can work in isolated mode by using Git worktrees to prevent that code changes interfere with your current workspace. You can opt to run background agents in your current workspace, but this might result in conflicts if you are actively working on the same files. Background agents can't use MCP or extension-provided tools and are limited to the models provided by the CLI. To customize the behavior of the background agent, you can reuse workspace [custom agents](/docs/copilot/customization/custom-agents.md) to have it assume a specific role or persona.
@@ -315,9 +409,13 @@ To permanently delete an agent session, right-click the session in the sessions 
 
 * [Agents tutorial](/docs/copilot/agents/agents-tutorial.md): Hands-on tutorial for working with different agent types
 
+* [Planning](/docs/copilot/agents/planning.md): Create detailed implementation plans before coding
+
+* [Tools](/docs/copilot/agents/agent-tools.md): Extend agents with built-in, MCP, and extension tools
+
 * [Subagents](/docs/copilot/agents/subagents.md): Delegate tasks to context-isolated subagents
 
-* [Local agents](/docs/copilot/chat/copilot-chat.md): Master local agent sessions and chat features
+* [Chat](/docs/copilot/chat/copilot-chat.md): Learn about the chat interface and interaction features
 
 * [Background agents](/docs/copilot/agents/background-agents.md): Explore CLI-based agents and autonomous workflows
 

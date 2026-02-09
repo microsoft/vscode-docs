@@ -32,7 +32,7 @@ Depending on your task, you can choose between different Copilot tools.
 |------|----------|
 | [Inline suggestions](/docs/copilot/ai-powered-suggestions.md) | Streamline coding while staying in the flow.<br/>Receive inline suggestions for code snippets, variable names, and functions as you write them in the editor. |
 | [Chat](/docs/copilot/chat/copilot-chat.md) | Have an ongoing chat conversation for brainstorming design ideas or getting code suggestions, optionally calling on domain-specific chat participants.<br/>Choose to apply specific code suggestions to your codebase. |
-| [Use agents](/docs/copilot/chat/copilot-chat.md#built-in-agents) | Implement high-level requirements by starting an agentic coding flow.<br/>The agent autonomously invokes multiple tools to plan and implement the code changes and tasks that are needed. |
+| [Use agents](/docs/copilot/agents/overview.md#built-in-agents) | Implement high-level requirements by starting an agentic coding flow.<br/>The agent autonomously invokes multiple tools to plan and implement the code changes and tasks that are needed. |
 
 ## Personalize AI with instructions files
 
@@ -106,7 +106,7 @@ Find practical [examples of prompts to use with chat](https://docs.github.com/en
 
 Enrich your prompts with relevant context to get more accurate and relevant responses in chat. With the right tools, you can boost your developer productivity.
 
-* In [chat](/docs/copilot/chat/chat-tools.md), select the tools button to configure the tools you want to use or explicitly add them to your prompt.
+* In [chat](/docs/copilot/agents/agent-tools.md), select the tools button to configure the tools you want to use or explicitly add them to your prompt.
 * Use `#codebase` to let Copilot find the right files automatically by performing a code search.
 * Use the `#fetch` tool to fetch content from a web page or use `#githubRepo` to perform a code search on a GitHub repository.
 * Reference files, folders, or symbols in your prompt by using `#<file name>`, `#<folder name>`, or `#<symbol>`.
@@ -115,7 +115,7 @@ Enrich your prompts with relevant context to get more accurate and relevant resp
 * Add images or screenshots to your prompt to let Copilot analyze the image.
 * When using agents, prompt to preview your app to directly open it with the [integrated browser](/docs/debugtest/integrated-browser.md).
 
-When you use [agents](/docs/copilot/chat/copilot-chat.md#built-in-agents), the agent autonomously finds the relevant files and context for you.
+When you use [agents](/docs/copilot/agents/overview.md#built-in-agents), the agent autonomously finds the relevant files and context for you.
 
 Get more details about [adding context to chat prompts](/docs/copilot/chat/copilot-chat-context.md).
 
