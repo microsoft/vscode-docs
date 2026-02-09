@@ -75,7 +75,7 @@ Learn more about [planning with agents](/docs/copilot/chat/chat-planning.md).
 1. Enter a prompt that describes what you want to build, for example:
 
     ```prompt-agent
-    Create a basic node.js web app for sharing recipes. Make it look modern and responsive.
+    Create a basic Node.js web app for sharing recipes. Make it look modern and responsive.
     ```
 
 1. Review the generated code. The agent creates files, installs dependencies, and runs commands as needed.
