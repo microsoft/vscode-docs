@@ -24,7 +24,7 @@ The **Agent** option will not be available in the agents dropdown in the Chat vi
 
 ## Enable or disable extension language tools
 
-[Tools in chat](/docs/copilot/chat/chat-tools.md) extend the AI assistant's capabilities with specialized functions. These tools can come from built-in features, Model Context Protocol (MCP) servers, or third-party extensions.
+[Tools in chat](/docs/copilot/agents/agent-tools.md) extend the AI assistant's capabilities with specialized functions. These tools can come from built-in features, Model Context Protocol (MCP) servers, or third-party extensions.
 
 Third-party extensions can contribute tools that integrate with chat by using the [Language Model Tools API](/api/extension-guides/ai/tools).
 
@@ -62,7 +62,7 @@ Organizations with GitHub Copilot Enterprise or Business can also configure MCP 
 
 Agent tools can perform actions that modify files, run commands, or access external services. VS Code includes approval prompts for potentially risky operations. Organizations can enforce stricter approval requirements or disable auto-approval entirely.
 
-Learn more about [tool approval](/docs/copilot/chat/chat-tools.md#tool-approval) in VS Code.
+Learn more about [tool approval](/docs/copilot/agents/agent-tools.md#tool-approval) in VS Code.
 
 ### Disable global auto-approval
 
@@ -133,7 +133,7 @@ AI-powered development features can autonomously perform actions with user-level
 ## Related resources
 
 * [Enterprise policies reference](/docs/enterprise/policies.md) - Complete list of enterprise policies
-* [Use tools in chat](/docs/copilot/chat/chat-tools.md) - Learn how tools work in VS Code chat
+* [Use tools in chat](/docs/copilot/agents/agent-tools.md) - Learn how tools work in VS Code chat
 * [MCP servers in VS Code](/docs/copilot/customization/mcp-servers.md) - Configure and use MCP servers
 * [Custom instructions](/docs/copilot/customization/custom-instructions.md) - Define custom instructions for AI responses
 * [Custom agents](/docs/copilot/customization/custom-agents.md) - Create custom AI personas and workflows

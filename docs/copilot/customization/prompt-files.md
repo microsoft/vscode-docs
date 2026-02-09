@@ -28,9 +28,9 @@ The header is formatted as YAML frontmatter with the following fields:
 | `description`     | A short description of the prompt. |
 | `name`            | The name of the prompt, used after typing `/` in chat. If not specified, the file name is used. |
 | `argument-hint`   | Optional hint text shown in the chat input field to guide users on how to interact with the prompt. |
-| `agent`           | The agent used for running the prompt: `ask`, `edit`, `agent`, or the name of a [custom agent](/docs/copilot/customization/custom-agents.md). By default, the current agent is used. If tools are specified and the current agent is `ask` or `edit`, the default agent is `agent`. |
+| `agent`           | The agent used for running the prompt: `ask`, `edit`, `agent`, or the name of a [custom agent](/docs/copilot/customization/custom-agents.md). By default, the current agent is used. If tools are specified and the current agent is `edit`, the default agent is `agent`. |
 | `model`           | The language model used when running the prompt. If not specified, the currently selected model in model picker is used. |
-| `tools`           | A list of tool or tool set names that are available for this prompt. Can include built-in tools, tool sets, MCP tools, or tools contributed by extensions. To include all tools of an MCP server, use the `<server name>/*` format.<br/>Learn more about [tools in chat](/docs/copilot/chat/chat-tools.md). |
+| `tools`           | A list of tool or tool set names that are available for this prompt. Can include built-in tools, tool sets, MCP tools, or tools contributed by extensions. To include all tools of an MCP server, use the `<server name>/*` format.<br/>Learn more about [tools in chat](/docs/copilot/agents/agent-tools.md). |
 
 > [!NOTE]
 > If a given tool is not available when running the prompt, it is ignored.
@@ -203,5 +203,5 @@ To identify the source of a prompt file:
 * [Create custom instructions](/docs/copilot/customization/custom-instructions.md)
 * [Create custom agents](/docs/copilot/customization/custom-agents.md)
 * [Get started with chat in VS Code](/docs/copilot/chat/copilot-chat.md)
-* [Configure tools in chat](/docs/copilot/chat/chat-tools.md)
+* [Configure tools in chat](/docs/copilot/agents/agent-tools.md)
 * [Community contributed instructions, prompts, and custom agents](https://github.com/github/awesome-copilot)

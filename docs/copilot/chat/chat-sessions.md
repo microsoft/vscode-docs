@@ -25,9 +25,9 @@ If you're using agents, the session can run locally on your machine, in the back
 
 ## Start a new chat session
 
-VS Code supports different types of sessions (local, background, cloud, and third-party) and different views (side bar, editor tab, and separate window) for chat sessions. Learn more about [using the different agents](/docs/copilot/agents/overview.md).
+VS Code supports different types of sessions (local, background, cloud, and third-party) and different views (side bar, editor tab, and separate window) for chat sessions. Learn more about [the different agent types and session management](/docs/copilot/agents/overview.md).
 
-At any time, you can run multiple sessions in parallel, each focused on a different task. When you create a new agent session, the previous session remains active, allowing you to switch between tasks via the [agent sessions list](/docs/copilot/agents/overview.md#agent-sessions-list).
+At any time, you can run multiple sessions in parallel, each focused on a different task.
 
 | | |
 |-|-|
@@ -61,7 +61,7 @@ When you create a new chat session, the previous conversation history is cleared
 
 By default, when you start a new chat session, the Chat view shows your most recent sessions, whether they run locally, in the background, or in the cloud. Select **Show All Sessions** to view the full history of sessions, allowing you to search and filter the list. The list is scoped to your current workspace. If you don't have a workspace open, the list shows all sessions across your workspaces.
 
-Learn more about agents and [viewing and managing agent sessions](/docs/copilot/agents/overview.md).
+Learn more about [viewing and managing agent sessions](/docs/copilot/agents/overview.md#agent-sessions-list).
 
 > [!TIP]
 > Make the Chat view wider to automatically switch to side-by-side mode or use the toggle button in the top-right corner of the Chat view.

@@ -56,7 +56,7 @@ Use the built-in **Plan** agent to break a task into a structured implementation
 
 <video src="images/overview/plan-intro.mp4" title="Video showing the plan agent creating a structured implementation plan for adding authentication to the app." autoplay loop controls muted></video>
 
-Learn more about [planning with agents](/docs/copilot/chat/chat-planning.md).
+Learn more about [planning with agents](/docs/copilot/agents/planning.md).
 
 ## What can you do
 

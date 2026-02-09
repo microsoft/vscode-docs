@@ -115,9 +115,15 @@ When you ask a workspace-related question in chat, the behavior for determining 
 
     You don't need to explicitly reference the `#codebase` tool in your prompt, but you can do so if you want to ensure that workspace context is used for your question. This is useful if your prompt is ambiguous and might be interpreted as not requiring workspace context.
 
-* **Ask/Edit**
+* **Ask**
 
-    In Ask or Edit, VS Code performs intent detection on your prompt to determine if it requires workspace context. If requires workspace context, VS Code performs a codebase search and adds the relevant code snippets to the chat context. As opposed to using agents, no follow-up searches are performed.
+    In Ask, VS Code performs intent detection on your prompt to determine if it requires workspace context. If it requires workspace context, VS Code performs a codebase search and adds the relevant code snippets to the chat context.
+
+    You don't need to explicitly reference the `#codebase` tool in your prompt, but you can do so if you want to ensure that workspace context is used for your question. This is useful if your prompt is ambiguous and might be interpreted as not requiring workspace context.
+
+* **Edit**
+
+    In Edit, VS Code performs intent detection on your prompt to determine if it requires workspace context. If it requires workspace context, VS Code performs a codebase search and adds the relevant code snippets to the chat context. As opposed to using agents, no follow-up searches are performed.
 
     You don't need to explicitly reference the `#codebase` tool in your prompt, but you can do so if you want to ensure that workspace context is used for your question. This is useful if your prompt is ambiguous and might be interpreted as not requiring workspace context.
 
@@ -129,7 +135,7 @@ The way you phrase your question can significantly influence the quality of the 
 * Incorporate terms and concepts in your prompt that are likely to appear in your code or its documentation.
 * Explicitly include relevant context by selecting code, referencing files, or [#-mentioning context items](/docs/copilot/chat/copilot-chat-context.md) such as debug context, terminal output, and more.
 * Responses can draw from multiple references, such as "find exceptions without a catch block" or "provide examples of how handleError is called". However, don't anticipate a comprehensive code analysis across your codebase, such as "how many times is this function invoked?" or "rectify all bugs in this project".
-* When asking about information beyond the code, such as "who contributed to this file?" or "summarize review comments for this folder", make sure to configure the relevant [tools or MCP servers](/docs/copilot/chat/chat-tools.md) when using agents.
+* When asking about information beyond the code, such as "who contributed to this file?" or "summarize review comments for this folder", make sure to configure the relevant [tools or MCP servers](/docs/copilot/agents/agent-tools.md) when using agents.
 
 ## Private repositories
 
@@ -149,7 +155,7 @@ Conceptually, both `@workspace` and `#codebase` enable you to ask questions abou
 
     The `@workspace` participant is subject matter expert that is specialized to answering questions about your codebase. The language model hands off the entire chat prompt to the participant, which uses its knowledge of the codebase to provide an answer. The language model can't perform any additional processing or invoke other tools when using a chat participant. A chat prompt can only contain a single chat participant.
 
-* `#codebase` is a [chat tool](/docs/copilot/chat/chat-tools)
+* `#codebase` is a [chat tool](/docs/copilot/agents/agent-tools)
 
     The `#codebase` tool is specialized in searching your codebase for relevant information. It is one of many tools that the language model can choose to invoke when answering your chat prompt. The language model can decide to invoke the `#codebase` tool multiple times, interleaved with other tools, to gather the information it needs to answer your question. A chat prompt can contain multiple tools.
 

@@ -368,5 +368,5 @@ To identify the source of a custom instruction file:
 * [Create reusableprompt files](/docs/copilot/customization/prompt-files.md)
 * [Create custom agents](/docs/copilot/customization/custom-agents.md)
 * [Get started with chat in VS Code](/docs/copilot/chat/copilot-chat.md)
-* [Configure tools in chat](/docs/copilot/chat/chat-tools.md)
+* [Configure tools in chat](/docs/copilot/agents/agent-tools.md)
 * [Community contributed instructions, prompts, and custom agents](https://github.com/github/awesome-copilot)

@@ -114,27 +114,11 @@ Let's use edit mode to use a `.env` file to store the configuration for your web
 
 ## Start an agentic coding flow
 
-For more complex requests, you can use _agent mode_ to let Copilot autonomously plan and execute the tasks that are needed to complete your request. These tasks can involve editing code but also include running commands in the terminal. In agent mode, Copilot might invoke different tools to accomplish the task.
+For more complex requests, you can use _agent mode_ to let Copilot autonomously plan and execute the tasks that are needed to complete your request. These tasks can involve editing code but also include running commands in the terminal and invoking different tools.
 
-Let's use agent mode to make the web app about sharing travel tips and add testing.
+To try agent mode, select **Agent** from the agent picker in the Chat view and enter a prompt like "Make the app a travel blog. Add tests to avoid code regression."
 
-1. Open the Chat view and select **Agent** from the chat mode dropdown.
-
-    ![Screenshot of VS Code Copilot Chat view, showing the Agent mode dropdown.](./images/getting-started-chat/chat-mode-dropdown-agent.png)
-
-1. Enter "Make the app a travel blog. Add tests to avoid code regression." in the chat input field and press `kbstyle(Enter)`.
-
-    Note that you don't need to add context to your prompt. Agent mode automatically analyzes the code in your workspace.
-
-1. Copilot iterates to apply code changes and run commands like running tests. Confirm terminal commands by selecting **Continue** in the Chat view.
-
-    ![Screenshot of VS Code editor, showing the Chat view asking to confirm running tests in the terminal.](./images/getting-started-chat/copilot-chat-agent-terminal.png)
-
-    Depending on the complexity of your request, Copilot might take a few minutes to complete all tasks. If it encounters issues along the way, it iterates to fix them.
-
-1. Once Copilot completes the tasks, review the changes, and test the app.
-
-    You can also ask Copilot to run the app by giving it a prompt like "Run the app" or "Start the server".
+Learn more about [using agents in VS Code](/docs/copilot/agents/overview.md) or follow the [hands-on agents tutorial](/docs/copilot/agents/agents-tutorial.md).
 
 ## Congratulations
 

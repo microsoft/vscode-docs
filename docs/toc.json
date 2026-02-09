@@ -107,6 +107,8 @@
         "topics": [
           ["Overview", "/docs/copilot/agents/overview"],
           ["Agents Tutorial", "/docs/copilot/agents/agents-tutorial"],
+          ["Planning", "/docs/copilot/agents/planning"],
+          ["Tools", "/docs/copilot/agents/agent-tools"],
           ["Subagents", "/docs/copilot/agents/subagents"],
           ["Background Agents", "/docs/copilot/agents/background-agents"],
           ["Cloud Agents", "/docs/copilot/agents/cloud-agents"],
@@ -138,9 +140,7 @@
           ["Chat Sessions", "/docs/copilot/chat/chat-sessions"],
           ["Add Context", "/docs/copilot/chat/copilot-chat-context"],
           ["Review Edits", "/docs/copilot/chat/review-code-edits"],
-          ["Planning", "/docs/copilot/chat/chat-planning"],
           ["Checkpoints", "/docs/copilot/chat/chat-checkpoints"],
-          ["Tools", "/docs/copilot/chat/chat-tools"],
           ["Inline Chat", "/docs/copilot/chat/inline-chat"],
           ["Prompt Examples", "/docs/copilot/chat/prompt-examples"],
           ["Chat Debug View", "/docs/copilot/chat/chat-debug-view"]

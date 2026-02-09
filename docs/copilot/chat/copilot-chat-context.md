@@ -95,7 +95,7 @@ You can reference content from the web in your chat prompts, for example to get 
 
     The `fetch` tool caches the content of the web page for a limited time to improve performance. If the content of the page changes, you can force a refresh by restarting VS Code. If the page cannot be reached, the cache will expire after a short time (approximately five minutes).
 
-    VS Code prompts for confirmation before accessing external URLs to protect your privacy and security. Learn more about [configuring URL auto-approval](/docs/copilot/chat/chat-tools.md#url-approval).
+    VS Code prompts for confirmation before accessing external URLs to protect your privacy and security. Learn more about [configuring URL auto-approval](/docs/copilot/agents/agent-tools.md#url-approval).
 
     Example prompts using the `fetch` tool:
 
@@ -121,7 +121,7 @@ When using agents, the agent autonomously decides to use tools for performing sp
 
 If you reference a tool set or MCP server by its name, all tools from that set or server are made available to the agent for the current prompt.
 
-Learn more about [adding and using tools in chat](/docs/copilot/chat/chat-tools.md).
+Learn more about [adding and using tools in chat](/docs/copilot/agents/agent-tools.md).
 
 ## @-mentions
 
