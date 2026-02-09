@@ -39,6 +39,37 @@
       padding: 0.5em 1em;
       background: #f8f8f8;
     }
+    /* Collapsible sidebar styles */
+    .sidebar-nav li.folder > p,
+    .sidebar-nav li.folder > strong {
+      cursor: pointer;
+      position: relative;
+      user-select: none;
+      display: block;
+      padding-right: 20px;
+    }
+    .sidebar-nav li.folder > p::after,
+    .sidebar-nav li.folder > strong::after {
+      content: '\25B6';
+      font-size: 0.6em;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: transform 0.2s;
+      color: #999;
+    }
+    .sidebar-nav li.folder.open > p::after,
+    .sidebar-nav li.folder.open > strong::after {
+      transform: translateY(-50%) rotate(90deg);
+    }
+    .sidebar-nav li.folder > ul {
+      display: none !important;
+      overflow: hidden;
+    }
+    .sidebar-nav li.folder.open > ul {
+      display: block !important;
+    }
   </style>
 </head>
 <body>
@@ -68,6 +99,74 @@
         '/.*/_navbar.md': '/_navbar.md'
       },
       plugins: [
+        function collapsibleSidebar(hook) {
+          function initCollapsible() {
+            var nav = document.querySelector('.sidebar-nav');
+            if (!nav) return;
+            // Find all <li> that contain a <ul> child (i.e., sections with children)
+            var allLi = nav.querySelectorAll('li');
+            allLi.forEach(function (li) {
+              // Skip if already processed
+              if (li.classList.contains('folder')) return;
+              var childUl = null;
+              for (var i = 0; i < li.children.length; i++) {
+                if (li.children[i].tagName === 'UL') {
+                  childUl = li.children[i];
+                  break;
+                }
+              }
+              if (!childUl) return;
+              li.classList.add('folder');
+              // Find the direct child element to use as toggle
+              // Docsify renders `- **Text**` as <li><strong>Text</strong><ul>...</ul></li>
+              var toggle = null;
+              for (var j = 0; j < li.children.length; j++) {
+                var tag = li.children[j].tagName;
+                if (tag === 'P' || tag === 'A' || tag === 'STRONG') {
+                  toggle = li.children[j];
+                  break;
+                }
+              }
+              if (toggle) {
+                toggle.style.cursor = 'pointer';
+                toggle.addEventListener('click', function (e) {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  this.parentElement.classList.toggle('open');
+                });
+              }
+            });
+            // Auto-expand section containing the active link
+            var active = nav.querySelector('li.active');
+            if (active) {
+              var parent = active.parentElement;
+              while (parent) {
+                if (parent.tagName === 'LI' && parent.classList.contains('folder')) {
+                  parent.classList.add('open');
+                }
+                parent = parent.parentElement;
+              }
+            }
+            // Also check by current path
+            var currentPath = (window.location.hash.replace(/^#/, '') || '/').split('?')[0];
+            var links = nav.querySelectorAll('a');
+            links.forEach(function (a) {
+              var href = (a.getAttribute('href') || '').replace(/^#/, '').split('?')[0];
+              if (href && currentPath.indexOf(href) === 0) {
+                var li = a.closest('li.folder');
+                while (li) {
+                  li.classList.add('open');
+                  var parentUl = li.parentElement;
+                  li = parentUl ? parentUl.closest('li.folder') : null;
+                }
+              }
+            });
+          }
+          hook.doneEach(function () {
+            // Use setTimeout to ensure DOM is fully updated
+            setTimeout(initCollapsible, 0);
+          });
+        },
         function (hook, vm) {
           hook.beforeEach(function (content) {
             // 1. Strip YAML frontmatter
