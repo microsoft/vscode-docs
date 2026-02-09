@@ -94,7 +94,7 @@ You can also add models from other providers and use them in chat. Learn more ab
 
 Providing the right context helps the AI generate more relevant and accurate responses.
 
-* **Implicit context**: VS Code automatically includes the active file, your current selection, and the file name as context. When using agents, the agent decides autonomously if additional context is needed.
+* **Implicit context**: VS Code automatically includes the active file, your current selection, and the file name as context. When you use agents, the agent decides autonomously if additional context is needed.
 
 * **`#`-mentions**: type `#` in the chat input to explicitly reference files (`#file`), folders, symbols, your codebase (`#codebase`), terminal output (`#terminalSelection`), or tools like `#fetch` and `#githubRepo`.
 
@@ -106,40 +106,6 @@ Providing the right context helps the AI generate more relevant and accurate res
 
 Learn more about [managing context for AI](/docs/copilot/chat/copilot-chat-context.md).
 
-## Write effective prompts
-
-To get the best results from chat, keep these tips in mind:
-
-* **Be specific**: a vague prompt like `"improve this code"` gives generic results. A specific prompt like `"refactor the authentication middleware to use async/await and add error handling for expired tokens"` gives the AI a clear goal.
-
-* **Add context**: reference the relevant files, symbols, and tools in your prompt. For example, `"Add input validation to #userController.ts based on the schema in #types.ts"`.
-
-* **Use `/` commands**: type `/` to access common commands like `/new`, `/plan`, or `/explain`, or create your own [custom prompts](/docs/copilot/customization/prompt-files.md).
-
-* **Use `@`-mentions for domain help**: use `@vscode` for settings and configuration questions, `@terminal` for shell commands, and `@workspace` for project-wide questions.
-
-<details>
-<summary>Quick reference: common context items</summary>
-
-| Context item | Description |
-|---|---|
-| `#file` | Reference a specific file |
-| `#codebase` | Search across your workspace |
-| `#terminalSelection` | Include selected terminal output |
-| `#terminalLastCommand` | Include the last terminal command and output |
-| `#fetch <URL>` | Retrieve content from a web page |
-| `#githubRepo <repo>` | Search a GitHub repository |
-| `@vscode` | Ask about VS Code settings and features |
-| `@terminal` | Get help with shell commands |
-| `@workspace` | Ask about your project structure |
-
-</details>
-
-Get inspired by [prompt examples](/docs/copilot/chat/prompt-examples.md) or review the full [prompt engineering guide](/docs/copilot/guides/prompt-engineering-guide.md).
-
-> [!TIP]
-> Use [voice input](/docs/configure/accessibility/voice.md) to speak your prompts instead of typing them. This is especially useful for longer prompts or hands-free workflows.
-
 ## Review and manage changes
 
 After the AI makes changes to your files, you need to review and accept or discard them.
@@ -148,16 +114,26 @@ After the AI makes changes to your files, you need to review and accept or disca
 
 * **Use checkpoints**: VS Code can automatically create snapshots of your files at key points during chat interactions, enabling you to roll back to a previous state. Learn more about [checkpoints and editing requests](/docs/copilot/chat/chat-checkpoints.md).
 
-* **Source control integration**: staging your changes in the Source Control view automatically accepts any pending edits. Discarding changes also discards pending edits.
+* **Stage to accept**: staging your changes in the Source Control view automatically accepts any pending edits. Discarding changes also discards pending edits.
 
 ![Screenshot showing the Editor with proposed changes, highlighting the review controls in the editor overlay controls.](../images/review-code-edits/copilot-edits-file-review-controls.png)
 
-Learn more about [managing AI-generated changes](/docs/copilot/chat/review-code-edits.md).
+## Get better responses
+
+Chat gives you several ways to improve the quality and relevance of AI responses:
+
+* **Write effective prompts**: be specific about what you want, reference relevant files and symbols, and use `/` commands for common tasks. Get inspired by [prompt examples](/docs/copilot/chat/prompt-examples.md) or review the full [prompt engineering guide](/docs/copilot/guides/prompt-engineering-guide.md).
+
+* **Customize the AI**: tailor the AI's behavior to your project by adding [custom instructions](/docs/copilot/customization/custom-instructions.md), creating reusable [prompt files](/docs/copilot/customization/prompt-files.md), or building [custom agents](/docs/copilot/customization/custom-agents.md) for specialized workflows. For example, create a "Code Reviewer" agent that provides feedback on code quality and adherence to your team's coding standards.
+
+* **Extend with tools**: connect [MCP servers](/docs/copilot/customization/mcp-servers.md) or install extensions that contribute tools to give the agent access to external services, databases, or APIs.
+
+Learn more about [customizing AI in VS Code](/docs/copilot/customization/overview.md).
 
 ## Related resources
 
 * [Create and manage chat sessions](/docs/copilot/chat/chat-sessions.md)
-* [Add context to your prompts](/docs/copilot/chat/copilot-chat-context.md)
-* [Inline chat](/docs/copilot/chat/inline-chat.md)
+
 * [Prompt examples](/docs/copilot/chat/prompt-examples.md)
+
 * [Agents overview](/docs/copilot/agents/overview.md)
