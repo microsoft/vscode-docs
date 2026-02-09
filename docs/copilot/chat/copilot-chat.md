@@ -22,7 +22,7 @@ VS Code provides multiple ways to start an AI chat conversation, each optimized 
 |---|---|---|---|
 | **Chat view** | `kb(workbench.action.chat.open)` | Multi-turn conversations, agentic workflows, multi-file edits. Also available as an [editor tab or separate window](/docs/copilot/chat/chat-sessions.md#start-a-new-chat-session). | [Chat sessions](/docs/copilot/chat/chat-sessions.md) |
 | **Inline chat** | `kb(inlineChat.start)` | In-place code edits and terminal command suggestions. | [Inline chat](/docs/copilot/chat/inline-chat.md) |
-| **Quick chat** | `kb(workbench.action.quickchat.toggle)` | Quick questions without leaving your current view. Opens a lightweight chat panel at the top of the editor. | |
+| **Quick chat** | `kb(workbench.action.quickchat.toggle)` | Quick questions without leaving your current view. Opens a lightweight chat panel at the top of the editor. | [Quick Chat](/docs/copilot/chat/inline-chat.md#use-quick-chat) |
 | **Command line** | `code chat` | Starting chat from outside VS Code. | [CLI docs](/docs/configure/command-line.md#start-chat-from-the-command-line) |
 
 ## Submit your first prompt
@@ -50,9 +50,24 @@ To see how chat works, try creating a basic app:
 
 When you start or adjust a chat session, three choices shape how the AI responds: which agent to use, where the session runs, and which language model powers it.
 
+### Choose where to run
+
+Agent sessions can run in different environments to match your workflow. Select the session type from the session type dropdown in the Chat view.
+
+![Screenshot showing session type dropdown in the Chat view.](../images/agents-overview/agent-type-dropdown-jan.png)
+
+| Session type | Description |
+|---|---|
+| **Local** | Runs interactively in VS Code on your machine. Best for exploratory tasks that need immediate feedback. |
+| **Background** | Runs autonomously on your machine via the CLI. Best for well-defined tasks you want to run in the background. |
+| **Cloud** | Runs on remote infrastructure and opens a pull request. Best for team collaboration and well-defined tasks. |
+| **Third-party** | Uses agents from external providers like Anthropic or OpenAI. |
+
+You can hand off a session from one type to another mid-conversation, and the full conversation history carries over. Learn more about [agent types](/docs/copilot/agents/overview.md#types-of-agents) and [handing off sessions](/docs/copilot/agents/overview.md#hand-off-a-session-to-another-agent).
+
 ### Choose an agent
 
-Agents let chat assume a different role or persona optimized for specific tasks. Select an agent from the agent picker in the Chat view. You can switch between agents at any time during a session.
+Agents let chat assume a different role or persona optimized for specific tasks. Select an agent from the agents dropdown in the Chat view. You can switch between agents at any time during a session.
 
 ![Screenshot showing the Chat view with the agent picker expanded, displaying different agent options.](../images/customization/chat-mode-dropdown.png)
 
@@ -66,24 +81,11 @@ For more specialized workflows, create your own [custom agents](/docs/copilot/cu
 
 Learn more about the [built-in agents and their capabilities](/docs/copilot/agents/overview.md#built-in-agents).
 
-### Choose where to run
-
-Agent sessions can run in different environments to match your workflow. Select the session type from the session type picker in the Chat view.
-
-| Session type | Description |
-|---|---|
-| **Local** | Runs interactively in VS Code on your machine. Best for exploratory tasks that need immediate feedback. |
-| **Background** | Runs autonomously on your machine via the CLI. Best for well-defined tasks you want to run in the background. |
-| **Cloud** | Runs on remote infrastructure and opens a pull request. Best for team collaboration and well-defined tasks. |
-| **Third-party** | Uses agents from external providers like Anthropic or OpenAI. |
-
-You can hand off a session from one type to another mid-conversation, and the full conversation history carries over. Learn more about [agent types](/docs/copilot/agents/overview.md#types-of-agents) and [handing off sessions](/docs/copilot/agents/overview.md#hand-off-a-session-to-another-agent).
-
 ### Choose a language model
 
-VS Code offers different language models, each optimized for different tasks. Some models are designed for fast coding tasks, while others excel at complex reasoning and planning. Use the model picker in the chat input field to select the model that best fits your needs.
+VS Code offers different language models, each optimized for different tasks. Some models are designed for fast coding tasks, while others excel at complex reasoning and planning. Use the model dropdown in the chat input field to select the model that best fits your needs.
 
-![Screenshot of the language model picker in the Chat view, showing a dropdown list of available models.](images/copilot-chat/chat-model-picker.png)
+![Screenshot of the language model dropdown in the Chat view, showing a dropdown list of available models.](images/copilot-chat/chat-model-picker.png)
 
 You can also add models from other providers and use them in chat. Learn more about [language models in VS Code](/docs/copilot/customization/language-models.md).
 
