@@ -14,7 +14,7 @@ Keywords:
 
 # Using agents in Visual Studio Code
 
-Agents are what makes AI-powered autonomous coding possible and enable multi-step tasks that go beyond simple code suggestions and chat interactions. Visual Studio Code lets you create agent sessions that run locally or in the cloud, interactively or in the background. At any time, you can hand off tasks between different agent types to leverage their unique strengths. With the unified Chat view in VS Code, you have a central place to manage and monitor all your agent sessions, regardless of where they run.
+Agents are what makes AI-powered autonomous coding possible and enable multi-step tasks that go beyond simple code suggestions and chat interactions. Visual Studio Code lets you create agent sessions that run locally or in the cloud, interactively or in the background. At any time, you can hand off tasks between different agent types to take advantage of their unique strengths. With the unified Chat view in VS Code, you have a central place to manage and monitor all your agent sessions, regardless of where they run.
 
 This article provides an overview of the various agent types, how to create and manage agent sessions, delegate tasks between agents, and track their progress.
 
@@ -25,43 +25,25 @@ This article provides an overview of the various agent types, how to create and 
 
 ## What are agents?
 
-Agents handle complete coding tasks end-to-end, saving you time by doing more than just suggesting code or answering questions. They understand your project, make changes across multiple files, run commands, and adapt based on the results they get.
+Agents handle complete coding tasks end-to-end, saving you time by doing more than suggesting code or answering questions. They understand your project, make changes across multiple files, run commands, and adapt based on the results they get.
 
-For example, imagine you have a failing test. Instead of just suggesting a fix, an agent can read the error message, identify the root cause across multiple files, update the relevant code, run the tests again to verify the fix works, and even commit the changes.
+For example, imagine you have a failing test. Instead of suggesting a fix, an agent can read the error message, identify the root cause across multiple files, update the relevant code, run the tests again to verify the fix works, and even commit the changes.
 
-Give an agent a high-level task, and they break it down into steps, execute those steps using various tools, and self-correct when they hit errors or failed tests.
+Give an agent a high-level task, and it breaks the task down into steps, executes those steps using various tools, and self-corrects when it hits errors or failed tests.
 
-In VS Code, agents can run in different environments to match your workflow: locally in VS Code for interactive tasks, in the background on your machine for autonomous work, or remotely in the cloud for team collaboration. They perform coding tasks, run terminal commands, and use tools together to achieve your objectives. Some agents respond to your prompts in real-time to help you plan features or make targeted edits, while others work independently to implement multi-step changes.
+You can run multiple agent sessions in parallel, each focused on a different task. When you create a new agent session, the previous session remains active, and you can switch between tasks via the [agent sessions list](#agent-sessions-list).
 
-At any time, you can run multiple agent sessions in parallel, each focused on a different task. When you create a new agent session, the previous session remains active, allowing you to switch between tasks via the [agent sessions list](#agent-sessions-list).
+### Key concepts
 
-<details>
-<summary>How are agents different from custom agents?</summary>
+The following concepts describe different aspects of working with agents in VS Code:
 
-Custom agents enable you to let an agent assume a specific role or persona for a task, such as a code reviewer, tester, or security expert. A custom agent is a configuration that defines how an agent should behave, what tools it can use, and which model it should use.
-
-For example, a "Code Reviewer" custom agent might be configured to focus on identifying potential bugs and suggesting improvements based on team coding standards and industry best practices. The custom agent would only have read-only access to the codebase and would use specific repositories or documentation as context for its reviews. The outcome of the custom agent would be a detailed code review report based off a template.
-
-You can reuse custom agents across different agent types (local, background, cloud) to have them assume the same role or persona in different environments.
-
-Custom agents also allow you to specify hand offs in your custom agent definition to implement structured workflows that let the user perform follow-up actions with another agent. For example, the "Code Reviewer" custom agent could be configured to hand off to the built-in agent and ask it to implement the suggested changes.
-
-Learn more about [creating custom agents](/docs/copilot/customization/custom-agents.md).
-
-</details>
-
-<details>
-<summary>How are agents different from subagents?</summary>
-
-Subagents enable agents to break down complex tasks and perform them in isolated contexts. A subagent is an autonomous agent that is started as part of an agent session but operates independently and has its own context window. Subagents are useful to optimize context management for complex multi-step tasks like research or analysis. An agent can create multiple subagents to handle different parts of a single user request.
-
-For example, if you ask an agent to research a topic and summarize the findings, it can create a subagent to handle the research part. The subagent gathers information, processes it, and returns only the final summary to the main agent, keeping the main context focused on the primary conversation.
-
-Similar to agents themselves, subagents can also take advantage of custom agents to assume specific roles or personas for their tasks. If a subagent needs to perform research, you can have it use a "Researcher" custom agent that is optimized for gathering, analyzing, and summarizing information.
-
-Subagents are currently only supported in local agent sessions in VS Code. Learn more about [subagents](/docs/copilot/agents/subagents.md).
-
-</details>
+| Concept | What it is | Example |
+|---|---|---|
+| **Agent type** | *Where* and *how* an agent runs: [local](#local-agents), [background](#background-agents), [cloud](#cloud-agents), or [third-party](#third-party-agents). | Start a cloud agent for tasks that require team collaboration. |
+| **Built-in agent** | A pre-configured agent in VS Code: **Agent**, **Plan**, and **Ask**. These are ready to use without any setup. | Select the Plan agent to create a structured plan for building a new feature. |
+| **[Custom agent](/docs/copilot/customization/custom-agents.md)** | A reusable *configuration* (defined in an `.agent.md` file) that gives an agent a specific role, tools, and instructions. Custom agents work with any agent type. | Create a "Security Reviewer" custom agent with read-only tools that focuses on identifying vulnerabilities. |
+| **[Subagent](/docs/copilot/agents/subagents.md)** | A child agent spawned within a session to handle a subtask in its own isolated context window. | An agent researching a topic spawns a subagent to gather information, then receives only the summary back. |
+| **[Hand off](#hand-off-a-session-to-another-agent)** | Transferring a session from one agent type to another, carrying over the conversation history. | Start planning with a local agent, then hand off to a cloud agent to implement the plan as a pull request. |
 
 ## Types of agents
 
