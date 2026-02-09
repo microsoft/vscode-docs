@@ -175,12 +175,13 @@
             // 2. Rewrite absolute internal links to Docsify hash routes
             //    /docs/path/file.md#heading → #/docs/path/file?id=heading
             content = content.replace(
-              /\]\(\/(docs|api|blogs|learn|release-notes|remote)\/(.*?)\)/g,
+              /\]\(\/(docs|api|blogs|learn|release-notes|remote|updates)\/(.*?)\)/g,
               function (_match, section, rest) {
                 var parts = rest.split('#');
                 var filePath = parts[0].replace(/\.md$/, '');
                 var anchor = parts.length > 1 ? '?id=' + parts[1] : '';
-                return '](#/' + section + '/' + filePath + anchor + ')';
+                var routedSection = section === 'updates' ? 'release-notes' : section;
+                return '](#/' + routedSection + '/' + filePath + anchor + ')';
               }
             );
 
