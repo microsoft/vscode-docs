@@ -71,13 +71,13 @@ The first step to define a language model tool in your extension is to define it
     | `name` | The unique name of the tool, used to reference the tool in the extension implementation code. Format the name in the format `{verb}_{noun}`. See [naming guidelines](#guidelines-and-conventions). |
     | `displayName` | The user-friendly name of the tool, used for displaying in the UI. |
 
-1. If the tool can be used with [agents](/docs/copilot/chat/copilot-chat.md#_builtin-agents) or referenced in a chat prompt with `#`, add the following properties:
+1. If the tool can be used with [agents](/docs/copilot/agents/overview.md#built-in-agents) or referenced in a chat prompt with `#`, add the following properties:
 
     Users can enable or disable the tool in the Chat view, similar to how this is done for [Model Context Protocol (MCP) tools](/docs/copilot/customization/mcp-servers.md).
 
     | Property | Description |
     | -------- | ----------- |
-    | `canBeReferencedInPrompt` | Set to `true` if the tool can be used with [agents](/docs/copilot/chat/copilot-chat.md#_builtin-agents) or referenced in chat. |
+    | `canBeReferencedInPrompt` | Set to `true` if the tool can be used with [agents](/docs/copilot/agents/overview.md#built-in-agents) or referenced in chat. |
     | `toolReferenceName` | The name for users to reference the tool in a chat prompt via `#`. |
     | `icon` | The icon to display for the tool in the UI. |
     | `userDescription` | User-friendly description of the tool, used for displaying in the UI. |

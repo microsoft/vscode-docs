@@ -17,7 +17,7 @@ This article describes how to create and manage custom agents in VS Code.
 
 ## What are custom agents?
 
-The [built-in agents](/docs/copilot/chat/copilot-chat.md#switch-between-agents) provide general-purpose configurations for chat in VS Code. For a more tailored chat experience, you can create your own custom agents.
+The [built-in agents](/docs/copilot/agents/overview.md#built-in-agents) provide general-purpose configurations for chat in VS Code. For a more tailored chat experience, you can create your own custom agents.
 
 Custom agents consist of a set of instructions and tools that are applied when you switch to that agent. For example, a "Plan" agent could include instructions for generating an implementation plan and only use read-only tools. By creating a custom agent, you can quickly switch to that specific configuration without having to manually select relevant tools and instructions each time.
 

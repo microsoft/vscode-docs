@@ -173,7 +173,7 @@ Use chat participants to handle domain-specific requests in chat. Chat participa
 
 ## Use agents
 
-When using [agents](/docs/copilot/chat/copilot-chat.md#built-in-agents), you can use natural language to specify a high-level task, and let AI autonomously reason about the request, plan the work needed, and apply the changes to your codebase. Agents use a combination of code editing and tool invocation to accomplish the task you specified. As it processes your request, it monitors the outcome of edits and tools, and iterates to resolve any issues that arise.
+When using [agents](/docs/copilot/agents/overview.md#built-in-agents), you can use natural language to specify a high-level task, and let AI autonomously reason about the request, plan the work needed, and apply the changes to your codebase. Agents use a combination of code editing and tool invocation to accomplish the task you specified. As it processes your request, it monitors the outcome of edits and tools, and iterates to resolve any issues that arise.
 
 | Action | Description |
 |--------|-------------|
@@ -304,7 +304,7 @@ Copilot can help you create a new project by generating a scaffold of the projec
 
 | Action | Description |
 |--------|-------------|
-| Agent | Use [agents](/docs/copilot/chat/copilot-chat.md#built-in-agents) and use a natural language prompt to create a new project or file. For example, `Create a svelte web application to track my tasks`. |
+| Agent | Use [agents](/docs/copilot/agents/overview.md#built-in-agents) and use a natural language prompt to create a new project or file. For example, `Create a svelte web application to track my tasks`. |
 | `/new` | Use the `/new` command in the Chat view to scaffold a new project or a new file. Use natural language to describe the type of project/file you need, and preview the scaffolded content before creating it.<br/>Example: `/new Express app using typescript and svelte` |
 | `/newNotebook` | Use the `/newNotebook` command in the Chat view to generate a new Jupyter notebook based on your requirements. Use natural language to describe what the notebook should contain.<br/>Example: `/newNotebook get census data and preview key insights with Seaborn`. |
 
