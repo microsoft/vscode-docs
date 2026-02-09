@@ -7,6 +7,7 @@ MetaSocialImage: 1_<release number>/release-highlights.webp
 Date: <YYYY-MM-DD>
 DownloadVersion: 1.<release number>.0
 Milestone: <milestone name>
+ProductEdition: Insiders
 ---
 # <Month> <Year> Insiders (version 1.<release number>)
 
