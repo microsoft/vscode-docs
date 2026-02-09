@@ -12,7 +12,7 @@ If you are new to using chat in VS Code, learn more about [getting started with 
 
 ## General coding and technology questions
 
-Use **Ask** mode to get quick answers about coding concepts, technology topics, and general programming questions.
+Use the **Ask** agent to get quick answers about coding concepts, technology topics, and general programming questions.
 
 ```prompt
 What is a linked list?
@@ -28,7 +28,7 @@ Explain the difference between async/await and promises.
 
 ## Understanding and exploring your codebase
 
-Use **Ask** mode with `#codebase` to understand how your project works, locate specific functionality, or explore code relationships.
+Use the **Ask** agent with `#codebase` to understand how your project works, locate specific functionality, or explore code relationships.
 
 ```prompt
 Explain how authentication works in #codebase
@@ -48,7 +48,7 @@ Which testing framework is used for #calculator.test.js?
 
 ## Code generation and editing
 
-Use **Agent** mode for multi-file creation and **inline chat** (`kb(inlinechat.start)`) for targeted, in-place edits.
+Use **Agent** for multi-file creation and **inline chat** (`kb(inlinechat.start)`) for targeted, in-place edits.
 
 ```prompt
 Add a login button and style it based on #styles.css
@@ -64,7 +64,7 @@ Refactor this code to use async/await
 
 ## Testing and quality assurance
 
-Use **Agent** mode to generate tests or fix failing tests.
+Use **Agent** to generate tests or fix failing tests.
 
 ```prompt
 Add unit tests for the user service.
@@ -76,7 +76,7 @@ Fix the failing tests #testFailure
 
 ## Debugging and fixing issues
 
-Use **Agent** mode for fixing issues across files, or **Ask** mode to understand the root cause first.
+Use **Agent** for fixing issues across files, or **Ask** to understand the root cause first.
 
 ```prompt
 Fix the issues in #problems
@@ -132,7 +132,7 @@ undo the last git commit
 
 ## Working with Jupyter notebooks
 
-Use **Agent** mode to create, edit, and work with Jupyter notebooks.
+Use **Agent** to create, edit, and work with Jupyter notebooks.
 
 ```prompt
 /newNotebook use pandas and seaborn to read and visualize the titanic dataset. Show key information from the dataset.
