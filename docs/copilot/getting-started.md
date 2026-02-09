@@ -92,7 +92,7 @@ AI Agents are VS Code's most powerful AI capability. Given a natural language pr
 
 1. Review the generated files and select **Keep** to accept all the changes.
 
-1. Open your `index.html` file in the integrated browser VS Code by right-clickign the file and selecting **Show Preview**. You can add tasks, mark them as complete, and delete them.
+1. Open your `index.html` file in the integrated browser VS Code by right-clicking the file and selecting **Show Preview**. You can add tasks, mark them as complete, and delete them.
 
 1. Now, let's add an extra feature. Enter the following prompt in the chat input box:
 
