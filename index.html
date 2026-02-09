@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>VS Code Docs (Local Preview)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <style>
+    .sidebar .sidebar-nav > ul > li > p {
+      font-weight: 700;
+      margin: 0.8em 0 0.4em;
+    }
+    .sidebar .sidebar-nav h3 {
+      margin: 1.2em 0 0.4em 10px;
+      padding-bottom: 0.3em;
+      border-bottom: 1px solid #eee;
+      font-size: 0.9em;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #999;
+    }
+    .sidebar .sidebar-nav h3:first-child {
+      margin-top: 0.4em;
+    }
+    .markdown-section {
+      max-width: 900px;
+    }
+    .markdown-section img {
+      max-width: 100%;
+      height: auto;
+    }
+    .markdown-section video {
+      max-width: 100%;
+      height: auto;
+    }
+    /* Style admonition blocks */
+    .markdown-section blockquote {
+      border-left: 4px solid #42b983;
+      padding: 0.5em 1em;
+      background: #f8f8f8;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">Loading...</div>
+  <script>
+    window.$docsify = {
+      name: 'VS Code Docs',
+      repo: 'https://github.com/microsoft/vscode-docs',
+      loadSidebar: true,
+      loadNavbar: true,
+      relativePath: true,
+      subMaxLevel: 2,
+      auto2top: true,
+      search: {
+        placeholder: 'Search docs...',
+        noData: 'No results.',
+        depth: 3,
+        paths: 'auto'
+      },
+      alias: {
+        // Route sidebar per top-level section
+        '/docs.*/_sidebar.md': '/_sidebar_docs.md',
+        '/api.*/_sidebar.md': '/_sidebar_api.md',
+        '/blogs.*/_sidebar.md': '/_sidebar_blogs.md',
+        '/release-notes.*/_sidebar.md': '/_sidebar_release-notes.md',
+        '/.*/_sidebar.md': '/_sidebar.md',
+        '/.*/_navbar.md': '/_navbar.md'
+      },
+      plugins: [
+        function (hook, vm) {
+          hook.beforeEach(function (content) {
+            // 1. Strip YAML frontmatter
+            content = content.replace(/^---[\s\S]*?---\n*/m, '');
+
+            // 2. Rewrite absolute internal links to Docsify hash routes
+            //    /docs/path/file.md#heading → #/docs/path/file?id=heading
+            content = content.replace(
+              /\]\(\/(docs|api|blogs|learn|release-notes|remote)\/(.*?)\)/g,
+              function (_match, section, rest) {
+                var parts = rest.split('#');
+                var filePath = parts[0].replace(/\.md$/, '');
+                var anchor = parts.length > 1 ? '?id=' + parts[1] : '';
+                return '](#/' + section + '/' + filePath + anchor + ')';
+              }
+            );
+
+            // 3. Resolve relative paths in HTML src/poster/placeholder attributes
+            //    Docsify's relativePath only handles markdown images, not raw HTML
+            var file = vm.route.file || '';
+            var dir = file.substring(0, file.lastIndexOf('/') + 1);
+
+            content = content.replace(
+              /((?:src|poster|placeholder)=["'])(\.\.\/)+(.*?["'])/g,
+              function (_m, prefix, _dots, rest) {
+                // Count how many ../ segments and walk up from dir
+                var ups = _m.match(/\.\.\//g).length;
+                var base = dir;
+                for (var i = 0; i < ups; i++) {
+                  base = base.substring(0, base.slice(0, -1).lastIndexOf('/') + 1);
+                }
+                return prefix + base + rest;
+              }
+            );
+            content = content.replace(
+              /((?:src|poster|placeholder)=["'])\.\/((?!http)[^"']*["'])/g,
+              '$1' + dir + '$2'
+            );
+            content = content.replace(
+              /((?:src|poster|placeholder)=["'])(images\/)/g,
+              '$1' + dir + '$2'
+            );
+
+            return content;
+          });
+        }
+      ]
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
+</body>
+</html>
