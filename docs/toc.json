@@ -101,6 +101,35 @@
       ["Setup", "/docs/copilot/setup"],
       ["Quickstart", "/docs/copilot/getting-started"],
       ["", "", {
+        "name": "Agents",
+        "area": "copilot/agents",
+        "noCollapse": false,
+        "topics": [
+          ["Overview", "/docs/copilot/agents/overview"],
+          ["Agents Tutorial", "/docs/copilot/agents/agents-tutorial"],
+          ["Subagents", "/docs/copilot/agents/subagents"],
+          ["Background Agents", "/docs/copilot/agents/background-agents"],
+          ["Cloud Agents", "/docs/copilot/agents/cloud-agents"],
+          ["Third-Party Agents", "/docs/copilot/agents/third-party-agents"]
+        ]
+      }
+      ],
+      ["", "", {
+        "name": "Customization",
+        "area": "copilot/customization",
+        "noCollapse": false,
+        "topics": [
+          ["Overview", "/docs/copilot/customization/overview"],
+          ["Instructions", "/docs/copilot/customization/custom-instructions"],
+          ["Prompt Files", "/docs/copilot/customization/prompt-files"],
+          ["Custom Agents", "/docs/copilot/customization/custom-agents"],
+          ["Skills", "/docs/copilot/customization/agent-skills"],
+          ["Language Models", "/docs/copilot/customization/language-models"],
+          ["MCP", "/docs/copilot/customization/mcp-servers"]
+        ]
+      }
+      ],
+      ["", "", {
         "name": "Chat",
         "area": "copilot/chat",
         "noCollapse": false,
@@ -118,36 +147,8 @@
         ]
       }
       ],
-      ["", "", {
-        "name": "Agents",
-        "area": "copilot/agents",
-        "noCollapse": false,
-        "topics": [
-          ["Overview", "/docs/copilot/agents/overview"],
-          ["Agents Tutorial", "/docs/copilot/agents/agents-tutorial"],
-          ["Subagents", "/docs/copilot/agents/subagents"],
-          ["Background Agents", "/docs/copilot/agents/background-agents"],
-          ["Cloud Agents", "/docs/copilot/agents/cloud-agents"],
-          ["Third-Party Agents", "/docs/copilot/agents/third-party-agents"]
-        ]
-      }
-      ],
       ["Inline Suggestions", "/docs/copilot/ai-powered-suggestions"],
-      ["", "", {
-        "name": "Customization",
-        "area": "copilot/customization",
-        "noCollapse": false,
-        "topics": [
-          ["Overview", "/docs/copilot/customization/overview"],
-          ["Instructions", "/docs/copilot/customization/custom-instructions"],
-          ["Prompt Files", "/docs/copilot/customization/prompt-files"],
-          ["Custom Agents", "/docs/copilot/customization/custom-agents"],
-          ["Skills", "/docs/copilot/customization/agent-skills"],
-          ["Language Models", "/docs/copilot/customization/language-models"],
-          ["MCP", "/docs/copilot/customization/mcp-servers"]
-        ]
-      }
-      ],
+      ["Smart Actions", "/docs/copilot/copilot-smart-actions"],
       ["", "", {
         "name": "Guides",
         "area": "copilot/guides",
@@ -163,7 +164,6 @@
         ]
       }
       ],
-      ["Smart Actions", "/docs/copilot/copilot-smart-actions"],
       ["Tips and Tricks", "/docs/copilot/copilot-tips-and-tricks"],
       ["Security", "/docs/copilot/security"],
       ["Troubleshooting", "/docs/copilot/troubleshooting"],
