@@ -58,6 +58,16 @@ Use the built-in **Plan** agent to break a task into a structured implementation
 
 Learn more about [planning with agents](/docs/copilot/chat/chat-planning.md).
 
+## What can you do
+
+* **Build a feature end-to-end.** Describe a feature in natural language and the agent scaffolds the project, implements the logic across multiple files, and runs tests to verify the result.
+
+* **Debug and fix failing tests.** Point an agent at a failing test and it reads the error, traces the root cause across your codebase, applies a fix, and re-runs the test to confirm. Learn more about [debugging with AI](/docs/copilot/guides/debug-with-copilot.md).
+
+* **Refactor or migrate a codebase.** Ask an agent to plan a migration, for example, from one framework to another, and it applies coordinated changes across files while verifying with builds.
+
+* **Collaborate via pull requests.** Delegate a task to a cloud agent that creates a branch, implements the changes, and opens a pull request for your team to review. Learn more about [cloud agents](/docs/copilot/agents/cloud-agents.md).
+
 ## Getting started
 
 ### Step 1: Set up Copilot
@@ -106,23 +116,14 @@ VS Code includes predefined AI-powered actions for common tasks: generating comm
 
 Learn more about [smart actions in VS Code](/docs/copilot/copilot-smart-actions.md).
 
-## What can you do
-
-* **Build a feature end-to-end.** Describe a feature in natural language and the agent scaffolds the project, implements the logic across multiple files, and runs tests to verify the result.
-
-* **Debug and fix failing tests.** Point an agent at a failing test and it reads the error, traces the root cause across your codebase, applies a fix, and re-runs the test to confirm. Learn more about [debugging with AI](/docs/copilot/guides/debug-with-copilot.md).
-
-* **Refactor or migrate a codebase.** Ask an agent to plan a migration, for example, from one framework to another, and it applies coordinated changes across files while verifying with builds.
-
-* **Collaborate via pull requests.** Delegate a task to a cloud agent that creates a branch, implements the changes, and opens a pull request for your team to review. Learn more about [cloud agents](/docs/copilot/agents/cloud-agents.md).
-
 ## Customize AI for your workflow
 
-Agents work best when they understand your project's conventions, have the right tools, and use a model suited to the task. VS Code gives you several ways to tailor the AI so it produces code that fits your codebase from the start, instead of requiring manual corrections after the fact.
+Agents work best when they understand your project's conventions, have the right tools, and use a model suited to the task. VS Code gives you several ways to [tailor the AI](/docs/copilot/customization/overview.md) so it produces code that fits your codebase from the start, instead of requiring manual corrections after the fact.
 
-Create [custom agents](/docs/copilot/customization/custom-agents.md) that assume a specific role, such as a code reviewer or documentation writer, with their own tools and instructions. Define project-wide coding conventions with [custom instructions](/docs/copilot/customization/custom-instructions.md) so the AI generates code that matches your style. You can also [switch between language models](/docs/copilot/customization/language-models.md) to optimize for speed or reasoning depth, and extend agents with tools from [MCP servers](/docs/copilot/customization/mcp-servers.md) or Marketplace extensions.
-
-![Screenshot showing the Chat view with the agent picker highlighted.](images/overview/chat-mode-dropdown.png)
+* **[Custom instructions](/docs/copilot/customization/custom-instructions.md)**: Define project-wide coding conventions so the AI generates code that matches your style.
+* **[Agent skills](/docs/copilot/customization/agent-skills.md)**: Teach Copilot specialized capabilities that work across VS Code, GitHub Copilot CLI, and GitHub Copilot coding agent.
+* **[Custom agents](/docs/copilot/customization/custom-agents.md)**: Create agents that assume a specific role, such as a code reviewer or documentation writer, with their own tools and instructions.
+* **[MCP servers](/docs/copilot/customization/mcp-servers.md)**: Extend agents with tools from MCP servers or Marketplace extensions.
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Customize AI">
 Explore all the ways to tailor the AI experience to your workflow.
