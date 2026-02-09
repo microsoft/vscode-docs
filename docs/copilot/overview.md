@@ -18,8 +18,6 @@ Keywords:
 
 GitHub Copilot adds multi-agent development capabilities to Visual Studio Code. Plan your approach, then let AI agents implement and verify code changes across your project. Run multiple agent sessions in parallel: locally, in the background, or in the cloud. Manage them all from a central view. Inline suggestions, inline chat, and smart actions assist you throughout the rest of the coding workflow.
 
-<video src="images/overview/agent-mode-blog-video.mp4" title="Video showing an agent session building a complete feature in VS Code." autoplay loop controls muted></video>
-
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
 Follow a hands-on tutorial to build your first app with AI in VS Code.
 
@@ -31,22 +29,16 @@ Follow a hands-on tutorial to build your first app with AI in VS Code.
 
 Agents handle complete coding tasks end-to-end. Give an agent a high-level task and it breaks the work into steps, edits files, runs terminal commands, invokes tools, and self-corrects when it hits errors or failing tests. Each task runs inside an **agent session**, a persistent conversation you can track, pause, resume, or hand off to another agent.
 
-<video src="images/overview/agent-mode-short.mp4" title="Video showing an agent autonomously implementing a feature." autoplay loop controls muted></video>
+<video src="images/overview/agents-intro.mp4" title="Video showing an agent session building a complete feature in VS Code." autoplay loop controls muted></video>
 
 > [!IMPORTANT]
 > Your organization might have disabled agents in VS Code. Contact your admin to enable this functionality.
-
-### Plan before you build
-
-Use the built-in **Plan** agent to break a task into a structured implementation plan before writing any code. The Plan agent analyzes your codebase, asks clarifying questions, and produces a step-by-step plan. When the plan looks right, hand it off to an implementation agent to execute it, locally, in the background, or in the cloud.
-
-Learn more about [planning with agents](/docs/copilot/chat/chat-planning.md).
 
 ### Manage sessions from a central view
 
 Run multiple agent sessions in parallel, each focused on a different task. The **Sessions** view in the **Chat** panel gives you a single place to monitor all active sessions, whether they run locally, in the background, or in the cloud. See the status of each session, switch between them, review file changes, and pick up where you left off.
 
-![Screenshot showing the agent sessions list in the Chat view with multiple active sessions.](images/agents-overview/chat-sessions-view.png)
+![Screenshot showing the agent sessions list in the Chat view with multiple active sessions.](images/agents-overview/chat-sessions-view2.png)
 
 Learn more about [managing agent sessions](/docs/copilot/chat/chat-sessions.md).
 
@@ -54,7 +46,17 @@ Learn more about [managing agent sessions](/docs/copilot/chat/chat-sessions.md).
 
 Agents can run locally in VS Code for interactive work, in the background on your machine for autonomous tasks, or in the cloud for team collaboration via pull requests. You can also use third-party agents from providers like Anthropic and OpenAI. At any point, hand off a task from one agent type to another and the full conversation history carries over.
 
+![Screenshot showing the sessions type picker in the Chat view with options for local, background, cloud, and third-party agents.](images/agents-overview/sessions-type-picker.png)
+
 Learn more about [agent types and delegation](/docs/copilot/agents/overview.md) or follow the [agents tutorial](/docs/copilot/agents/agents-tutorial.md).
+
+### Plan before you build
+
+Use the built-in **Plan** agent to break a task into a structured implementation plan before writing any code. The Plan agent analyzes your codebase, asks clarifying questions, and produces a step-by-step plan. When the plan looks right, hand it off to an implementation agent to execute it, locally, in the background, or in the cloud.
+
+<video src="images/overview/plan-intro.mp4" title="Video showing the plan agent creating a structured implementation plan for adding authentication to the app." autoplay loop controls muted></video>
+
+Learn more about [planning with agents](/docs/copilot/chat/chat-planning.md).
 
 ## Getting started
 
