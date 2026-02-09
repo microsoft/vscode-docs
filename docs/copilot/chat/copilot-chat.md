@@ -48,7 +48,7 @@ To see how chat works, try creating a basic app:
 
 ## Configure your chat session
 
-When you start or adjust a chat session, there are three choices that shape how the AI responds: which agent to use, where the session runs, and which language model powers it.
+When you start or adjust a chat session, three choices shape how the AI responds: which agent to use, where the session runs, and which language model powers it.
 
 ### Choose an agent
 
@@ -59,7 +59,7 @@ Agents let chat assume a different role or persona optimized for specific tasks.
 VS Code provides three built-in agents:
 
 * **Agent**: autonomously plans and implements changes across files, runs terminal commands, and invokes tools.
-* **Plan**: creates a structured, step-by-step implementation plan before writing any code. Hand off the plan to an implementation agent when it looks right.
+* **Plan**: creates a structured, step-by-step implementation plan before writing any code. Hands the plan off to an implementation agent when it looks right.
 * **Ask**: answers questions about coding concepts, your codebase, or VS Code itself without making file changes.
 
 For more specialized workflows, create your own [custom agents](/docs/copilot/customization/custom-agents.md) that define a specific role, available tools, and a language model.
@@ -88,7 +88,7 @@ VS Code offers different language models, each optimized for different tasks. So
 You can also add models from other providers and use them in chat. Learn more about [language models in VS Code](/docs/copilot/customization/language-models.md).
 
 > [!NOTE]
-> The list of available models might vary based on your Copilot subscription and might change over time. See the GitHub Copilot documentation for more information about the [available language models](https://docs.github.com/en/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat?tool=vscode).
+> The list of available models might vary based on your Copilot subscription and might change over time. For more information about the [available language models](https://docs.github.com/en/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat?tool=vscode), see the GitHub Copilot documentation.
 
 ## Add context to your prompts
 
@@ -108,11 +108,11 @@ Learn more about [managing context for AI](/docs/copilot/chat/copilot-chat-conte
 
 ## Review and manage changes
 
-After the AI makes changes to your files, you need to review and accept or discard them.
+After the AI makes changes to your files, review and accept or discard them.
 
-* **Review inline diffs**: open a changed file to see inline diffs of the applied changes. Use the editor overlay controls to navigate between edits and **Keep** or **Undo** individual changes. Learn more about [reviewing AI-generated code edits](/docs/copilot/chat/review-code-edits.md).
+* **Review inline diffs**: open a changed file to see inline diffs of the applied changes. Use the editor overlay controls to navigate between edits and **Keep** or **Undo** individual changes. For more information, see [reviewing AI-generated code edits](/docs/copilot/chat/review-code-edits.md).
 
-* **Use checkpoints**: VS Code can automatically create snapshots of your files at key points during chat interactions, enabling you to roll back to a previous state. Learn more about [checkpoints and editing requests](/docs/copilot/chat/chat-checkpoints.md).
+* **Use checkpoints**: VS Code can automatically create snapshots of your files at key points during chat interactions, enabling you to roll back to a previous state. For more information, see [checkpoints and editing requests](/docs/copilot/chat/chat-checkpoints.md).
 
 * **Stage to accept**: staging your changes in the Source Control view automatically accepts any pending edits. Discarding changes also discards pending edits.
 
@@ -120,7 +120,7 @@ After the AI makes changes to your files, you need to review and accept or disca
 
 ## Get better responses
 
-Chat gives you several ways to improve the quality and relevance of AI responses:
+Chat provides several ways to improve the quality and relevance of AI responses:
 
 * **Write effective prompts**: be specific about what you want, reference relevant files and symbols, and use `/` commands for common tasks. Get inspired by [prompt examples](/docs/copilot/chat/prompt-examples.md) or review the full [prompt engineering guide](/docs/copilot/guides/prompt-engineering-guide.md).
 
@@ -128,7 +128,7 @@ Chat gives you several ways to improve the quality and relevance of AI responses
 
 * **Extend with tools**: connect [MCP servers](/docs/copilot/customization/mcp-servers.md) or install extensions that contribute tools to give the agent access to external services, databases, or APIs.
 
-Learn more about [customizing AI in VS Code](/docs/copilot/customization/overview.md).
+For more information, see [customizing AI in VS Code](/docs/copilot/customization/overview.md).
 
 ## Related resources
 
