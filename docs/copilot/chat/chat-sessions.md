@@ -10,15 +10,14 @@ Use chat in Visual Studio Code to have conversation-based AI interactions. A cha
 
 ## What is a chat session?
 
-A chat session is the history of your interactions with the AI within a single conversation and includes all prompts, responses, and context used during that conversation. Each chat session maintains its own history, allowing you to ask follow-up questions or refine your requests based on previous interactions.
+A chat session is a single conversation with the AI, including all prompts, responses, and context. Each session is independent, so context from one session does not carry over to another.
 
-As you interact with the AI, the chat session accumulates context from your prompts and responses (context window). When you create a new chat session, the previous conversation history is cleared, and a fresh context window is established for the new session. You can [monitor context window usage](/docs/copilot/chat/copilot-chat-context.md#monitor-context-window-usage) with the context control in the chat input box. Learn more about [managing context for AI](/docs/copilot/chat/copilot-chat-context.md).
+Key things to know about chat sessions:
 
-Use checkpoints to roll back to a previous state within a chat session or edit a previous prompt to modify the course of the conversation. Learn more about [checkpoints and editing chat requests](/docs/copilot/chat/chat-checkpoints.md).
-
-You can create multiple chat sessions to organize your conversations by topic or task. Each session is independent, so context from one session does not carry over to another. VS Code maintains the [history of your chat sessions](#chat-session-history), allowing you to return to previous conversations at any time.
-
-If you're using agents, the session can run locally on your machine, in the background using a CLI, or in the cloud. Learn more about [agents](/docs/copilot/agents/overview.md).
+* **Context window**: as you chat, the session accumulates context. Creating a new session clears the history and starts a fresh context window. You can [monitor context window usage](/docs/copilot/chat/copilot-chat-context.md#monitor-context-window-usage) in the chat input box.
+* **Checkpoints**: at any time, you can roll back to a previous state or edit a previous prompt to change direction. Learn more about [checkpoints](/docs/copilot/chat/chat-checkpoints.md).
+* **Session types**: sessions can run locally, in the background, or in the cloud. Learn more about [agents](/docs/copilot/agents/overview.md).
+* **Multiple sessions**: regardless of the session type, you can run multiple sessions in parallel, each focused on a different task. With the agent sessions view, you can monitor and switch between sessions. Learn more about [managing agent sessions](/docs/copilot/agents/overview.md#agent-sessions-list).
 
 > [!TIP]
 > Start a new chat session when you want to change topics to help the AI provide more relevant responses.
