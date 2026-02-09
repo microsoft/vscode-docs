@@ -41,7 +41,7 @@ Issues are grouped in H2 sections by their closed date. The TOC must be updated 
 
 Use [this template](template-release-note-insiders.md) for the Insiders release notes.
 
-The [1.109 release notes](./examples/v1_109.md) are a concrete example.
+The [1.109 release notes](./examples/v1_109.md) are a concrete example of an Insiders release note.
 
 ### Generation steps
 
