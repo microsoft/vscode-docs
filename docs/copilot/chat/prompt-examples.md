@@ -14,15 +14,15 @@ If you are new to using chat in VS Code, learn more about [getting started with 
 
 Use the **Ask** agent to get quick answers about coding concepts, technology topics, and general programming questions.
 
-```prompt
+```prompt-ask
 What is a linked list?
 ```
 
-```prompt
+```prompt-ask
 Provide 3 ways to implement a search feature in React.
 ```
 
-```prompt
+```prompt-ask
 Explain the difference between async/await and promises.
 ```
 
@@ -30,19 +30,19 @@ Explain the difference between async/await and promises.
 
 Use the **Ask** agent with `#codebase` to understand how your project works, locate specific functionality, or explore code relationships.
 
-```prompt
+```prompt-ask
 Explain how authentication works in #codebase
 ```
 
-```prompt
+```prompt-ask
 Where is the database connection string configured? #codebase
 ```
 
-```prompt
+```prompt-ask
 How do I build this #codebase?
 ```
 
-```prompt
+```prompt-ask
 Which testing framework is used for #calculator.test.js?
 ```
 

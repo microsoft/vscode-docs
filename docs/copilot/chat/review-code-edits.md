@@ -43,8 +43,6 @@ The following keyboard shortcuts help you navigate and review edits:
 |---|---|
 | Navigate to next edit | `kbstyle(Down)` in the editor overlay |
 | Navigate to previous edit | `kbstyle(Up)` in the editor overlay |
-| Accept all edits in the file | Select **Keep** in the editor overlay |
-| Reject all edits in the file | Select **Undo** in the editor overlay |
 
 ## Source Control integration
 
@@ -52,9 +50,10 @@ If you stage your changes in the Source Control view, any pending edits are auto
 
 ## Auto-accept edits
 
-You can configure VS Code to automatically accept AI-generated code edits after a specific delay with the `setting(chat.editing.autoAccept)` setting. By hovering over the editor overlay controls, you can cancel the auto-accept countdown.
+You can configure VS Code to automatically accept AI-generated code edits after a configurable delay with the `setting(chat.editing.autoAccept)` setting. Hover over the editor overlay controls to stop the auto-accept countdown.
 
-If you automatically accept all edits, it's strongly recommended to still review the changes before committing them in source control. Learn more about the [security considerations of using AI in VS Code](/docs/copilot/security.md).
+> [!IMPORTANT]
+> If you automatically accept all edits, it's strongly recommended to review the changes before committing them in source control. Learn more about the [security considerations of using AI in VS Code](/docs/copilot/security.md).
 
 ## Edit sensitive files
 

@@ -139,23 +139,17 @@ You can add elements from the browser window as context to your chat prompt. Thi
 
 To add elements from the integrated browser to your chat prompt:
 
-1. Enable selection from the browser with the `setting(chat.sendElementsToChat.enabled)` setting.
 1. Start your web application.
 1. Open the integrated browser by running the **Browser: Open Integrated Browser** command from the Command Palette.
-1. Select the **Start** button to start selecting elements from the current page.
-1. Hover over the elements of the web page and select to add them to the chat prompt.
+1. Enter the URL of the web page you want to interact with.
+1. Select the **Add Element to Chat** button. You can now hover over the elements of the web page and select them to add them as context to your chat prompt.
 
-    <video src="images/copilot-chat/simple-browser-select-element.mp4" title="Video showing how to select and add elements from the integrated browser to the chat prompt." autoplay loop controls muted></video>
-
-    Notice that the selected element is added as context to the current chat prompt.
+    <video src="images/copilot-chat/integrated-browser-select-element.mp4" title="Video showing how to select and add elements from the integrated browser to the chat prompt." autoplay loop controls muted></video>
 
 You can configure which information is included in the context:
 
-* Attach CSS - enable with the `setting(chat.sendElementsToChat.attachCSS)` setting.
-* Attach images - enable with the `setting(chat.sendElementsToChat.attachImages)` setting.
-
-> [!TIP]
-> This functionality is also available in the [Live Preview](https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server) extension (pre-release).
+* Attach CSS: `setting(chat.sendElementsToChat.attachCSS)` setting
+* Attach images: `setting(chat.sendElementsToChat.attachImages)` setting
 
 ## Monitor context window usage
 
