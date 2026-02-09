@@ -8,10 +8,7 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 
 With inline chat in Visual Studio Code, you can ask for generating code or making edits directly in the editor or get help with shell commands within the integrated terminal. Inline chat allows you to stay in the flow of your work without having to switch to a separate Chat view.
 
-## Prerequisites
-
-* Install the latest version of [Visual Studio Code](/download)
-* Access to [GitHub Copilot](/docs/copilot/setup.md)
+Use inline chat when you want to make quick, targeted edits within the visible code context. For multi-step tasks, multi-file changes, or broader codebase exploration, use the [Chat view](/docs/copilot/chat/copilot-chat.md) instead.
 
 ## Use editor inline chat
 
@@ -30,14 +27,14 @@ To use editor inline chat:
 
 1. VS Code shows a diff with the code suggestion inline in the editor. Accept or reject the changes.
 
-    ![Screenshot of editor inline chat asking to not use recursion for a factorial function.](images/copilot-chat/inline-chat-no-recursion.png)
+    ![Screenshot showing editor inline chat suggesting a non-recursive factorial implementation.](images/copilot-chat/inline-chat-no-recursion.png)
 
 1. Optionally, ask a follow-up question to get other suggestions or refine the results.
 
 > [!TIP]
 > Attach context to your inline chat prompt to include relevant files, code symbols, or other context. Learn more about [adding context to your chat prompt](/docs/copilot/chat/copilot-chat-context.md).
 
-## Show a visual hint on text selection (Experimental)
+### Show a visual hint on text selection (Experimental)
 
 When you select text in the editor, VS Code can display a visual hint to help you start inline chat for the selected code. Use the `setting(inlineChat.affordance)` setting to control how this hint appears:
 
@@ -80,7 +77,17 @@ If you change the model during an inline chat session, the selection persists fo
 
 Learn more about [choosing the right model for your task](/docs/copilot/customization/language-models.md#choose-the-right-model-for-your-task).
 
+## Use Quick Chat
+
+Quick Chat provides a lightweight chat panel that opens at the top of the editor. Use it for quick questions and short interactions without opening the full Chat view or leaving your current workflow.
+
+To open Quick Chat, press `kb(workbench.action.quickchat.toggle)` or select **Quick Chat** from the **Chat** menu in the title bar.
+
+Type your prompt and press `kbstyle(Enter)` to get a response. Quick Chat supports the same `#`-mentions and `@`-mentions as the Chat view for adding context. Select the **Open in Chat View** button to continue the conversation in the full Chat view.
+
 ## Related resources
 
+* [Chat overview](/docs/copilot/chat/copilot-chat.md)
 * [Add context to your chat prompt](/docs/copilot/chat/copilot-chat-context.md)
+* [Review AI-generated code edits](/docs/copilot/chat/review-code-edits.md)
 * [AI language models in VS Code](/docs/copilot/customization/language-models.md)

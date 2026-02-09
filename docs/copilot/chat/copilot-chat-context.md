@@ -1,7 +1,7 @@
 ---
 ContentId: 5d8a707d-a239-4cc7-92ee-ccc763e8eb9c
 DateApproved: 02/04/2026
-MetaDescription: "Learn how to manage context when using AI in VS Code, including workspace indexing, #-mentions for files and symbols, web content references, and custom instructions."
+MetaDescription: Learn how to manage context when using AI in VS Code, including workspace indexing, #-mentions for files and symbols, web content references, and custom instructions.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Manage context for AI
@@ -55,22 +55,6 @@ To provide specific files, folders, or symbols as context, add them to the chat 
 > [!NOTE]
 > If possible, the full contents of the file will be included when you attach a file. If that is too large to fit into the context window, an outline of the file will be included that includes functions and their descriptions without implementations. If the outline is also too large, then the file won't be part of the prompt.
 
-## Monitor context window usage
-
-The chat input box displays a context window control that shows how much of the model's context window is being used. This visual indicator helps you understand when chat summarization might occur or when you should start a new session.
-
-![Screenshot of VS Code Chat view, showing the context window usage control in the chat input box.](./images/copilot-chat/chat-context-window-control.png)
-
-The context window control provides the following information:
-
-* **Visual fill indicator**: a shaded bar shows the proportion of the context window currently in use
-* **Total usage and breakdown on hover**: hover over the control to see the exact token count as a fraction of the total available context (for example, 15K/128K) and a breakdown of usage by category
-
-As you send more requests in a conversation, the control updates to reflect the increasing context usage. The total available context (denominator) changes based on the AI model you select, since different models have different context window sizes.
-
-> [!TIP]
-> When the context window fills up, VS Code automatically summarizes the conversation history to free up space. Start a new chat session if you want to reset the context entirely.
-
 ### Perform a codebase search
 
 Instead of adding individual files manually, you can let VS Code find the right files from your codebase automatically. This can be useful when you don't know which files are relevant to your question.
@@ -80,7 +64,7 @@ Add `#codebase` in your prompt or select **Add Context** > **Tools** > **codebas
 The following prompt examples show how to use codebase search:
 
 * `"Explain how authentication works in #codebase"`
-* `"Where is the database connecting string configured? #codebase"`
+* `"Where is the database connection string configured? #codebase"`
 * `"Add a new API route for updating the address #codebase"`
 
 If you use [agents](/docs/copilot/agents/overview.md#built-in-agents), the agent will automatically use codebase search when it determines that additional context is needed to answer your question. You can still add `#codebase` if your question might be interpreted in different ways and you want to make sure the agent uses codebase search.
@@ -161,7 +145,7 @@ To add elements from the integrated browser to your chat prompt:
 1. Select the **Start** button to start selecting elements from the current page.
 1. Hover over the elements of the web page and select to add them to the chat prompt.
 
-    <video src="images/copilot-chat/simple-browser-select-element.mp4" title="Adding elements from the integrated browser to the chat prompt." autoplay loop controls muted></video>
+    <video src="images/copilot-chat/simple-browser-select-element.mp4" title="Video showing how to select and add elements from the integrated browser to the chat prompt." autoplay loop controls muted></video>
 
     Notice that the selected element is added as context to the current chat prompt.
 
@@ -172,3 +156,26 @@ You can configure which information is included in the context:
 
 > [!TIP]
 > This functionality is also available in the [Live Preview](https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server) extension (pre-release).
+
+## Monitor context window usage
+
+The chat input box displays a context window control that shows how much of the model's context window is being used. This visual indicator helps you understand when chat summarization might occur or when you should start a new session.
+
+![Screenshot of VS Code Chat view, showing the context window usage control in the chat input box.](./images/copilot-chat/chat-context-window-control.png)
+
+The context window control provides the following information:
+
+* **Visual fill indicator**: a shaded bar shows the proportion of the context window currently in use
+* **Total usage and breakdown on hover**: hover over the control to see the exact token count as a fraction of the total available context (for example, 15K/128K) and a breakdown of usage by category
+
+As you send more requests in a conversation, the control updates to reflect the increasing context usage. The total available context (denominator) changes based on the AI model you select, since different models have different context window sizes.
+
+> [!TIP]
+> When the context window fills up, VS Code automatically summarizes the conversation history to free up space. Start a [new chat session](/docs/copilot/chat/chat-sessions.md) if you want to reset the context entirely.
+
+## Related resources
+
+* [Chat overview](/docs/copilot/chat/copilot-chat.md)
+* [Prompt examples](/docs/copilot/chat/prompt-examples.md)
+* [Prompt engineering guide](/docs/copilot/guides/prompt-engineering-guide.md)
+* [Chat Debug view](/docs/copilot/chat/chat-debug-view.md)

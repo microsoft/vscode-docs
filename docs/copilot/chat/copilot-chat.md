@@ -22,7 +22,7 @@ VS Code provides multiple ways to start an AI chat conversation, each optimized 
 |---|---|---|---|
 | **Chat view** | `kb(workbench.action.chat.open)` | Multi-turn conversations, agentic workflows, multi-file edits. Also available as an [editor tab or separate window](/docs/copilot/chat/chat-sessions.md#start-a-new-chat-session). | [Chat sessions](/docs/copilot/chat/chat-sessions.md) |
 | **Inline chat** | `kb(inlineChat.start)` | In-place code edits and terminal command suggestions. | [Inline chat](/docs/copilot/chat/inline-chat.md) |
-| **Quick chat** | `kb(workbench.action.quickchat.toggle)` | Quick questions without leaving your current view. | |
+| **Quick chat** | `kb(workbench.action.quickchat.toggle)` | Quick questions without leaving your current view. Opens a lightweight chat panel at the top of the editor. | |
 | **Command line** | `code chat` | Starting chat from outside VS Code. | [CLI docs](/docs/configure/command-line.md#start-chat-from-the-command-line) |
 
 ## Submit your first prompt
@@ -129,6 +129,10 @@ Chat provides several ways to improve the quality and relevance of AI responses:
 * **Extend with tools**: connect [MCP servers](/docs/copilot/customization/mcp-servers.md) or install extensions that contribute tools to give the agent access to external services, databases, or APIs.
 
 For more information, see [customizing AI in VS Code](/docs/copilot/customization/overview.md).
+
+## Troubleshoot chat interactions
+
+Use the [Chat Debug view](/docs/copilot/chat/chat-debug-view.md) to inspect the details of AI requests and responses. The view shows the system prompt, user prompt, context sent to the language model, and tool invocations for each interaction. This is useful for understanding why the AI responded in a certain way or for troubleshooting unexpected results.
 
 ## Related resources
 

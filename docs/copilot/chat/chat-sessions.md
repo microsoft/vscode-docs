@@ -4,7 +4,7 @@ DateApproved: 02/04/2026
 MetaDescription: Learn how to create and manage chat sessions in Visual Studio Code, including opening chat in editor tabs, separate windows, and using chat session history.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
-# Manage chat sessions in VS Code
+# Manage chat sessions
 
 Use chat in Visual Studio Code to have conversation-based AI interactions. A chat session consists of the sequence of prompts and responses between you and the AI, along with any relevant context from your code or files. This article describes how to create and manage chat sessions, export chat sessions, and how to view the chat session history.
 
@@ -12,7 +12,7 @@ Use chat in Visual Studio Code to have conversation-based AI interactions. A cha
 
 A chat session is the history of your interactions with the AI within a single conversation and includes all prompts, responses, and context used during that conversation. Each chat session maintains its own history, allowing you to ask follow-up questions or refine your requests based on previous interactions.
 
-As you interact with the AI, the chat session accumulates context from your prompts and responses (context window). When you create a new chat session, the previous conversation history is cleared, and a fresh context window is established for the new session. You can [monitor context window usage](/docs/copilot/chat/copilot-chat-context.md#monitor-context-window-usage) with the context control in the chat input box.
+As you interact with the AI, the chat session accumulates context from your prompts and responses (context window). When you create a new chat session, the previous conversation history is cleared, and a fresh context window is established for the new session. You can [monitor context window usage](/docs/copilot/chat/copilot-chat-context.md#monitor-context-window-usage) with the context control in the chat input box. Learn more about [managing context for AI](/docs/copilot/chat/copilot-chat-context.md).
 
 Use checkpoints to roll back to a previous state within a chat session or edit a previous prompt to modify the course of the conversation. Learn more about [checkpoints and editing chat requests](/docs/copilot/chat/chat-checkpoints.md).
 
@@ -37,7 +37,7 @@ At any time, you can run multiple sessions in parallel, each focused on a differ
 
 ### Move a chat session to a different view
 
-You can move an existing chat session to a different view, such as from the Chat view to an editor tab or a separate window. This is useful when you want to change how you interact with the chat session or organize your workspace differently.
+You can move an existing chat session to a different view, such as from the Chat view to an editor tab or a separate window. When you move a session, the full conversation history and context are preserved.
 
 * In the Chat view, select the `...` icon and then select **Move Chat into Editor Area** or **Move Chat into New Window**.
 
@@ -104,7 +104,7 @@ To save a chat session as a reusable prompt:
 
 1. Type `/savePrompt` in the chat input box and press `Enter`.
 
-    The command creates a `.prompt.md` file that generalizes your current chat conversation into a reusable prompt. The prompt file has placeholders where appropriate.
+    The command creates a `.prompt.md` file, which is a reusable [prompt file](/docs/copilot/customization/prompt-files.md) that generalizes your current chat conversation into a template with placeholders. You can use prompt files to run the same type of task across different projects or codebases.
 
 1. Review and edit the generated prompt file as needed, then save it to your workspace.
 
@@ -133,5 +133,7 @@ Consider the following tips to help you work effectively with chat sessions:
 
 ## Related resources
 
-* [Get started with chat in VS Code](/docs/copilot/chat/copilot-chat.md)
+* [Chat overview](/docs/copilot/chat/copilot-chat.md)
+* [Manage context for AI](/docs/copilot/chat/copilot-chat-context.md)
 * [Revert changes with checkpoints](/docs/copilot/chat/chat-checkpoints.md)
+* [Review AI-generated code edits](/docs/copilot/chat/review-code-edits.md)

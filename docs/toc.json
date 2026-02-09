@@ -137,12 +137,12 @@
         "noCollapse": false,
         "topics": [
           ["Overview", "/docs/copilot/chat/copilot-chat"],
+          ["Inline Chat", "/docs/copilot/chat/inline-chat"],
           ["Chat Sessions", "/docs/copilot/chat/chat-sessions"],
           ["Add Context", "/docs/copilot/chat/copilot-chat-context"],
+          ["Prompt Examples", "/docs/copilot/chat/prompt-examples"],
           ["Review Edits", "/docs/copilot/chat/review-code-edits"],
           ["Checkpoints", "/docs/copilot/chat/chat-checkpoints"],
-          ["Inline Chat", "/docs/copilot/chat/inline-chat"],
-          ["Prompt Examples", "/docs/copilot/chat/prompt-examples"],
           ["Chat Debug View", "/docs/copilot/chat/chat-debug-view"]
         ]
       }
