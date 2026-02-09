@@ -102,7 +102,7 @@ Here are some of the filters available:
 * `@haspolicy`: settings that are controlled by your [organization](/docs/enterprise/policies.md).
 * `@id`: find a setting based on the setting ID. For example, `@id:workbench.activityBar.visible`.
 * `@lang`: apply a language filter based on a language ID. For example, `@lang:typescript`. See [Language-specific editor settings](#language-specific-editor-settings) for more details.
-* `@tag`: settings specific to a system of VS Code. For example, `@tag:workspaceTrust` for settings related to [Workspace Trust](/docs/editing/workspaces/workspace-trust.md), `@tag:accessibility` for settings related to accessibility, or `@tag:advanced` for advanced VS Code settings.
+* `@tag`: settings specific to a system of VS Code. For example, `@tag:workspaceTrust` for settings related to [Workspace Trust](/docs/editing/workspaces/workspace-trust.md), `@tag:accessibility` for settings related to accessibility, or `@tag:advanced` for advanced VS Code settings. Advanced settings are intended for specialized scenarios. By default, advanced settings are hidden from search results unless you use the `@tag:advanced` filter. To always show advanced settings in the Settings editor, enable `setting(workbench.settings.alwaysShowAdvancedSettings)`.
 
 The search bar remembers your settings search queries and supports undo or redo (`kb(undo)`/`kb(redo)`). You can quickly clear a search term or filter with the **Clear Settings Search Input** button at the right of the search bar.
 
