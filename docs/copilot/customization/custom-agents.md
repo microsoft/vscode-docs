@@ -3,6 +3,16 @@ ContentId: 276ecd8f-2a76-467e-bf82-846d49c13ab5
 DateApproved: 02/04/2026
 MetaDescription: Learn how to create custom agents (formerly custom chat modes) to tailor AI chat behavior in VS Code for your specific workflows and development scenarios.
 MetaSocialImage: ../images/shared/github-copilot-social.png
+Keywords:
+- custom agents
+- chat modes
+- agent personas
+- handoffs
+- subagents
+- copilot
+- ai
+- customize
+- code review
 ---
 # Custom agents in VS Code
 
@@ -82,7 +92,7 @@ The header is formatted as YAML frontmatter with the following fields:
 | `model`           | The AI model to use when running the prompt. Specify a single model name (string) or a prioritized list of models (array). When you specify an array, the system tries each model in order until an available one is found. If not specified, the currently selected model in model picker is used. |
 | `user-invokable`  | Optional boolean flag to control whether the agent appears in the agents dropdown in chat (default is `true`). Set to `false` to create agents that are only accessible as [subagents](/docs/copilot/agents/subagents.md) or programmatically. |
 | `disable-model-invocation` | Optional boolean flag to prevent the agent from being invoked as a subagent by other agents (default is `false`). |
-| `infer`           | **Deprecated.** Use `user-invokable` and `disable-model-invocation` instead. |
+| `infer`           | **Deprecated.** Use `user-invokable` and `disable-model-invocation` instead. Previously, `infer: true` (the default) made the agent both visible in the picker and available as a subagent. `infer: false` hid it from both. The new fields give you independent control: use `user-invokable: false` to hide from the picker while still allowing subagent invocation, or `disable-model-invocation: true` to prevent subagent invocation while keeping it in the picker. |
 | `target`          | The target environment or context for the custom agent (`vscode` or `github-copilot`). |
 | `mcp-servers`     | Optional list of Model Context Protocol (MCP) server config json to use with [custom agents in GitHub Copilot](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents) (target: `github-copilot`). |
 | `handoffs`        | Optional list of suggested next actions or prompts to transition between custom agents. Handoff buttons appear as interactive suggestions after a chat response completes. |
