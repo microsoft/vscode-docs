@@ -194,12 +194,6 @@ When an agent session completes and makes code changes to your project, the sess
 
 Depending on the agent type, you have options to apply the changes made by the agent onto your local workspace, or to check out the branch from the agent session (for cloud agents).
 
-## Rename agent sessions
-
-VS Code automatically names agent sessions based on the initial prompt or task description. However, you can rename an agent session at any time to give it a more meaningful name.
-
-To rename a session, right-click the session in the sessions list and select **Rename**. Enter the new name for the session and press Enter to save it.
-
 ## Archive agent sessions
 
 To keep the list of sessions organized, archive completed or inactive sessions. Archiving a session doesn't delete it but moves it out of the active sessions list. At any time, you can unarchive a session to restore it to the active sessions list.
