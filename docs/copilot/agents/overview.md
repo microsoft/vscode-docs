@@ -405,4 +405,6 @@ To permanently delete an agent session, right-click the session in the sessions 
 
 * [Third-party agents](/docs/copilot/agents/third-party-agents.md): Use Claude Agent and OpenAI Codex in VS Code
 
+* [Hooks](/docs/copilot/customization/hooks.md): Execute custom commands at lifecycle events for automation and policy enforcement
+
 * [Custom agents](/docs/copilot/customization/custom-agents.md): Create your own AI agents and extensions
