@@ -19,13 +19,7 @@ Subagents in Visual Studio Code provide context isolation and enable you to run 
 
 By default, subagents use the same model and tools as the main chat session but start with a clean context window. Subagents do not inherit the main agent's instructions or conversation history—they receive only the task prompt you provide. By running a custom agent as a subagent, you can apply specialized behavior, tools, and models for specific tasks. For example, use a research custom agent as a subagent to gather information and perform research tasks.
 
-```mermaid
-flowchart LR
-    A["Main Agent"] -->|"Spawns with task prompt"| B["Subagent\n(clean context)"]
-    B -->|"Works autonomously"| C["Research, analyze,\nexplore"]
-    C -->|"Returns summary"| A
-    A -->|"Continues with result"| D["Next step"]
-```
+<!-- TODO: add a diagram of subagents -->
 
 ## How subagent execution works
 
