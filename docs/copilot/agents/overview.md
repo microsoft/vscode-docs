@@ -217,4 +217,6 @@ To permanently delete an agent session, right-click the session in the sessions 
 
 * [Tools](/docs/copilot/agents/agent-tools.md): Extend agents with built-in, MCP, and extension tools.
 
+* [Hooks](/docs/copilot/customization/hooks.md): Execute custom commands at lifecycle events for automation and policy enforcement
+
 * [Custom agents](/docs/copilot/customization/custom-agents.md): Create your own AI agents and extensions.
