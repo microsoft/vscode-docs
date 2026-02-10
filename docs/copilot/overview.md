@@ -38,7 +38,7 @@ Agents handle complete coding tasks end-to-end. Give an agent a high-level task 
 
 Run multiple agent sessions in parallel, each focused on a different task. The **Sessions** view in the **Chat** panel gives you a single place to monitor all active sessions, whether they run locally, in the background, or in the cloud. See the status of each session, switch between them, review file changes, and pick up where you left off.
 
-![Screenshot showing the agent sessions list in the Chat view with multiple active sessions.](images/agents-overview/chat-sessions-view2.png)
+<video src="images/overview/agent-sessions-demo.mp4" title="Video showing the agent sessions list, demonstrating filtering, showing, and archiving sessions." autoplay loop controls muted></video>
 
 Learn more about [managing agent sessions](/docs/copilot/chat/chat-sessions.md).
 
