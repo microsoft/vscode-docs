@@ -152,51 +152,31 @@ When a filter is active, the sessions list automatically expands to show all mat
 
 ## Create an agent session
 
-You can create a new agent session in VS Code in different ways:
+You can create multiple agent sessions in parallel, each focused on a different task. When you create a new agent session, the previous session remains active, and you can switch between tasks via the [agent sessions list](#agent-sessions-list).
 
-* Create a new, empty agent session of a specific type.
+When you create a new agent session, it starts with an empty context window. Each agent session is independent, so context from one session does not carry over to another.
 
-* Hand off an existing session to another agent type via delegation.
+You can create a new agent session from the Chat view or by using the corresponding commands in the Command Palette.
 
-* Assign a task directly to an agent, such as a TODO comment or GitHub issue.
+1. Open the Chat view and select the **New Session** dropdown (`+`).
 
-### Create a new agent session
+    ![Screenshot of creating a new agent session from the Chat view.](../images/agents-overview/create-new-agent-session-v2.png)
 
-You can create a new agent session from the Chat view or by using the corresponding commands in the Command Palette. You can create multiple agent sessions in parallel, each focused on a different task. When you create a new agent session, the previous session stays active, so you can switch between tasks through the [agent sessions list](#agent-sessions-list).
-
-1. Open the Chat view.
-
-1. Select the **New Session** dropdown (`+`) and choose where to open the new session:
-
-    ![Screenshot of creating a new agent session from the Chat view.](../images/agents-overview/create-new-agent-session.png)
-
-1. Choose the agent type from the dropdown.
+1. Choose the agent type from the dropdown. Optionally, select a language model from the model picker.
 
     ![Screenshot showing agent type dropdown in new chat session.](../images/agents-overview/agent-type-dropdown-jan.png)
 
-At any time, you can move an agent session from the Chat view to a chat editor or new window through the actions in the overflow menu (...).
+1. Enter your prompt to assign a task to the agent. The agent starts working on the task.
 
-You can also start new agent sessions from the [VS Code welcome page](/docs/copilot/chat/chat-sessions.md#vs-code-welcome-page). Change its layout by setting the `setting(workbench.startupEditor)` setting to `agentSessionsWelcomePage` to quickly access recent sessions and start new tasks when you open VS Code.
+## Hand off a session to another agent
 
-Alternatively, use the following commands from the Command Palette (`kb(workbench.action.showCommands)`):
+You can hand off an existing task from one agent to another to use their unique strengths. For example, create a plan with a local agent, hand off to a background agent for proof of concepts, and then continue with a cloud agent to submit a pull request for team review.
 
-* **Chat: New Chat Editor/Window**: start a new local agent session in a chat editor
-* **Chat: New Background Agent**: start a new background agent session by using Copilot CLI in a chat editor
-* **Chat: New Cloud Agent**: start a new Copilot coding agent session in a chat editor
-* **Chat: New Claude Agent**: start a new Claude Agent session (Preview)
-* **Codex: New Codex Agent**: start a new OpenAI Codex background agent session in a chat editor
+To hand off a local agent session, select a different agent type from the session type dropdown in the chat input box. VS Code creates a new session, carrying over the full conversation history and context. The original session is archived after handoff.
 
-### Hand off a session to another agent
+![Screenshot showing the session type dropdown for handing off to another agent.](../images/agents-overview/hand-off-agent-session.png)
 
-Each agent type has unique strengths and capabilities. Local agents let you interact with the AI in real-time, whereas background agents are great for handling well-defined tasks autonomously, and cloud agents are great for team collaboration via pull requests.
-
-You can hand off (or delegate) an existing task from one agent to another agent. For example, you start with creating a plan with a local agent, then hand off to a background agent to create different variants as proof of concepts, and finally continue with a cloud agent to implement the final version in a pull request for team review.
-
-To hand off an ongoing local agent session, select a different agent type from the session type dropdown in the chat input box.
-
-VS Code creates a new agent session when you hand off, carrying over the full conversation history and context. You can then continue interacting with the new agent to complete the task. The original session is archived after handoff.
-
-In a background agent session, you can delegate to a cloud agent by entering the `/delegate` command in the chat input box. Optionally, you can provide additional instructions to the cloud agent after the `/delegate` command.
+In a background agent session, delegate to a cloud agent by entering the `/delegate` command in the chat input box. You can provide additional instructions after the `/delegate` command.
 
 ### Assign a coding task to an agent
 
@@ -210,9 +190,7 @@ In GitHub.com, or by using the GitHub Pull Requests extension, you can assign Gi
 
 When an agent session completes and makes code changes to your project, the session list shows the file change statistics for that session. To review the changes made by the agent, select the session from the list to open the session details.
 
-The session details view shows the full conversation history with the agent, along with any file changes made during the session. Right-click a changed file to see a diff editor for that file, or select the **View All Changes** action to see a multi-file diff editor with all changes made during the session.
-
-![Screenshot of the file changes diff editor in an agent session.](../images/agents-overview/agent-file-changes.png)
+![Screenshot of the file changes diff editor in an agent session.](../images/agents-overview/agent-file-changes-v2.png)
 
 Depending on the agent type, you have options to apply the changes made by the agent onto your local workspace, or to check out the branch from the agent session (for cloud agents).
 
@@ -243,20 +221,6 @@ To permanently delete an agent session, right-click the session in the sessions 
 
 * [Agents tutorial](/docs/copilot/agents/agents-tutorial.md): Hands-on tutorial for working with different agent types.
 
-* [Planning](/docs/copilot/agents/planning.md): Create detailed implementation plans before coding.
-
 * [Tools](/docs/copilot/agents/agent-tools.md): Extend agents with built-in, MCP, and extension tools.
-
-* [Subagents](/docs/copilot/agents/subagents.md): Delegate tasks to context-isolated subagents.
-
-* [Chat](/docs/copilot/chat/copilot-chat.md): Learn about the chat interface and interaction features.
-
-* [Local agents](/docs/copilot/agents/local-agents.md): Use interactive agents with full access to your workspace and tools.
-
-* [Background agents](/docs/copilot/agents/background-agents.md): Explore CLI-based agents and autonomous workflows.
-
-* [Cloud agents](/docs/copilot/agents/cloud-agents.md): Learn about GitHub Copilot Coding Agent and remote execution.
-
-* [Third-party agents](/docs/copilot/agents/third-party-agents.md): Use Claude Agent and OpenAI Codex in VS Code.
 
 * [Custom agents](/docs/copilot/customization/custom-agents.md): Create your own AI agents and extensions.

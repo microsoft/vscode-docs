@@ -64,7 +64,7 @@ The Chat view shows your recent and active chat sessions, regardless of where th
 
 You can have multiple sessions active at once and switch between them to compare different conversations or work on multiple tasks in parallel.
 
-![Screenshot of an agent session in VS Code showing code changes and chat interaction.](../images/agents-overview/chat-sessions-view2.png)
+![Screenshot of an agent session in VS Code showing code changes and chat interaction.](../images/agents-overview/chat-sessions-view-v3.png)
 
 The session list is scoped to your current workspace. If you don't have a workspace open, the list shows all sessions across your workspaces.
 
