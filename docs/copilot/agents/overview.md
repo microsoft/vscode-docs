@@ -14,7 +14,7 @@ Keywords:
 
 # Using agents in Visual Studio Code
 
-Agents are what makes AI-powered autonomous coding possible and enable multi-step tasks that go beyond simple code suggestions and chat interactions. Visual Studio Code lets you create agent sessions that run locally or in the cloud, interactively or in the background. At any time, you can hand off tasks between different agent types to take advantage of their unique strengths. With the unified Chat view in VS Code, you have a central place to manage and monitor all your agent sessions, regardless of where they run.
+Agents automate complete coding tasks that go beyond simple code suggestions and chat interactions. In Visual Studio Code, you can create agent sessions that run locally or in the cloud, interactively or in the background. Hand off tasks between different agent types to use their unique strengths. The unified Chat view gives you a central place to manage and monitor all your agent sessions, regardless of where they run.
 
 This article provides an overview of the various agent types, how to create and manage agent sessions, delegate tasks between agents, and track their progress.
 
@@ -25,11 +25,16 @@ This article provides an overview of the various agent types, how to create and 
 
 ## What are agents?
 
-Agents handle complete coding tasks end-to-end, saving you time by doing more than suggesting code or answering questions. They understand your project, make changes across multiple files, run commands, and adapt based on the results they get.
+Agents perform complete coding tasks end-to-end. They understand your project, make changes across multiple files, run commands, and adapt based on the results.
 
-For example, imagine you have a failing test. Instead of suggesting a fix, an agent can read the error message, identify the root cause across multiple files, update the relevant code, run the tests again to verify the fix works, and even commit the changes.
+For example, imagine you have a failing test. Instead of suggesting a fix, an agent can:
 
-Give an agent a high-level task, and it breaks the task down into steps, executes those steps using various tools, and self-corrects when it hits errors or failed tests.
+* Read the error message and identify the root cause across multiple files
+* Update the relevant code
+* Run the tests again to verify the fix works
+* Commit the changes
+
+You give an agent a high-level task, and it breaks it down into steps, executes those steps with tools, and self-corrects when it hits errors.
 
 You can run multiple agent sessions in parallel, each focused on a different task. When you create a new agent session, the previous session remains active, and you can switch between tasks via the [agent sessions list](#agent-sessions-list).
 
@@ -39,7 +44,7 @@ The following concepts describe different aspects of working with agents in VS C
 
 | Concept | What it is | Example |
 |---|---|---|
-| **Agent type** | *Where* and *how* an agent runs: [local](#local-agents), [background](#background-agents), [cloud](#cloud-agents), or [third-party](#third-party-agents). | Start a cloud agent for tasks that require team collaboration. |
+| **[Agent type](#types-of-agents)** | *Where* and *how* an agent runs: [local](#local-agents), [background](#background-agents), [cloud](#cloud-agents), or [third-party](#third-party-agents). | Start a cloud agent for tasks that require team collaboration. |
 | **Built-in agent** | A pre-configured agent in VS Code: **Agent**, **Plan**, and **Ask**. These are ready to use without any setup. | Select the Plan agent to create a structured plan for building a new feature. |
 | **[Custom agent](/docs/copilot/customization/custom-agents.md)** | A reusable *configuration* (defined in an `.agent.md` file) that gives an agent a specific role, tools, and instructions. Custom agents work with any agent type. | Create a "Security Reviewer" custom agent with read-only tools that focuses on identifying vulnerabilities. |
 | **[Subagent](/docs/copilot/agents/subagents.md)** | A child agent spawned within a session to handle a subtask in its own isolated context window. | An agent researching a topic spawns a subagent to gather information, then receives only the summary back. |
