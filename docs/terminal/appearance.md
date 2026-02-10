@@ -18,7 +18,7 @@ Text in the terminal can be customized with the following settings:
 - `setting(terminal.integrated.fontFamily)`: The font family to use, this takes a string in the format that fontFamily in CSS takes. For example, `"'Fira Code', monospace"` will configure `Fira Code` as the primary font and `monospace` as the fallback when it lacks glyphs.
 - `setting(terminal.integrated.fontSize)`: Changes the font size of text in the terminal.
 - `setting(terminal.integrated.letterSpacing)`: Configures additional horizontal spacing between characters in pixels.
-- `setting(terminal.integrated.lineHeight)`: Configures additional spacing vertical between characters as a multiplier of the regular line height. For example, `1.1` will add 10% additional vertical space.
+- `setting(terminal.integrated.lineHeight)`: Configures additional vertical spacing between characters as a multiplier of the regular line height. For example, `1.1` will add 10% additional vertical space.
 - `setting(terminal.integrated.fontWeight)`: Configures the font weight of "normal" text.
 - `setting(terminal.integrated.fontWeightBold)`: Configures the font weight of "bold" text.
 - `terminal.integrated.fontLigatures.*`: [Configure ligatures](#ligatures).

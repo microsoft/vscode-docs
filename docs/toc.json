@@ -128,7 +128,8 @@
           ["Custom Agents", "/docs/copilot/customization/custom-agents"],
           ["Skills", "/docs/copilot/customization/agent-skills"],
           ["Language Models", "/docs/copilot/customization/language-models"],
-          ["MCP", "/docs/copilot/customization/mcp-servers"]
+          ["MCP", "/docs/copilot/customization/mcp-servers"],
+          ["Hooks", "/docs/copilot/customization/hooks"]
         ]
       }
       ],

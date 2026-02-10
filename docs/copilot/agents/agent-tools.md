@@ -386,4 +386,5 @@ Yes. You can create tools in two ways:
 ## Related resources
 
 * [Chat tools reference](/docs/copilot/reference/copilot-vscode-features.md#chat-tools)
+* [Agent hooks](/docs/copilot/customization/hooks.md) - Execute custom commands at tool lifecycle events
 * [Security considerations for using AI in VS Code](/docs/copilot/security.md)
