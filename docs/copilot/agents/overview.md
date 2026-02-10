@@ -18,7 +18,7 @@ Agents automate complete coding tasks that go beyond simple code suggestions and
 
 This article provides an overview of the various agent types, how to create and manage agent sessions, delegate tasks between agents, and track their progress.
 
-![Screenshot of an agent session in VS Code showing code changes and chat interaction.](../images/agents-overview/chat-sessions-view2.png)
+![Screenshot of an agent session in VS Code showing code changes and chat interaction.](../images/agents-overview/chat-sessions-view-v3.png)
 
 > [!IMPORTANT]
 > Make sure agents are enabled in your VS Code settings (`setting(chat.agent.enabled)`). Your organization might also have disabled agents - contact your admin to enable this functionality.
