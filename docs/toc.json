@@ -110,6 +110,7 @@
           ["Planning", "/docs/copilot/agents/planning"],
           ["Tools", "/docs/copilot/agents/agent-tools"],
           ["Subagents", "/docs/copilot/agents/subagents"],
+          ["Local Agents", "/docs/copilot/agents/local-agents"],
           ["Background Agents", "/docs/copilot/agents/background-agents"],
           ["Cloud Agents", "/docs/copilot/agents/cloud-agents"],
           ["Third-Party Agents", "/docs/copilot/agents/third-party-agents"]
