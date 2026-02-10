@@ -21,11 +21,11 @@ Hooks enable you to execute custom shell commands at key lifecycle points during
 > [!NOTE]
 > Agent hooks are currently in Preview for VS Code Insiders 1.110. The configuration format and behavior might change in future releases.
 
-Hooks work across all agent types: local agents, background agents, and cloud agents. Each hook receives structured JSON input and can return JSON output to influence agent behavior.
+Hooks are designed to work across agent types, including local agents, background agents, and cloud agents. Each hook receives structured JSON input and can return JSON output to influence agent behavior.
 
 ## Why use hooks?
 
-Hooks provide deterministic, code-driven automation that goes beyond what AI-generated suggestions can offer:
+Hooks provide deterministic, code-driven automation. Unlike instructions or custom prompts that guide agent behavior, hooks execute your code at specific lifecycle points with guaranteed outcomes:
 
 * **Enforce security policies**: Block dangerous commands like `rm -rf` or `DROP TABLE` before they execute, regardless of how the agent was prompted.
 
@@ -52,8 +52,6 @@ VS Code supports eight hook events that fire at specific points during an agent 
 | `SubagentStop` | Subagent completes | Aggregate results, cleanup subagent resources |
 | `Stop` | Agent session ends | Generate reports, cleanup resources, send notifications |
 
-The `PreToolUse` hook is the most powerful. It can block tool execution, modify inputs, or change the approval flow.
-
 ## Configure hooks
 
 Hooks are configured in JSON files stored in your workspace or user directory.
@@ -63,13 +61,15 @@ Hooks are configured in JSON files stored in your workspace or user directory.
 VS Code searches for hook configuration files in these locations:
 
 * **Workspace**: `.github/hooks/*.json` - Project-specific hooks shared with your team
+* **Workspace**: `.claude/settings.local.json` - Local workspace hooks (not committed)
+* **Workspace**: `.claude/settings.json` - Workspace-level hooks
 * **User**: `~/.claude/settings.json` - Personal hooks applied across all workspaces
 
 Workspace hooks take precedence over user hooks for the same event type.
 
 ### Hook configuration format
 
-Create a JSON file with a `hooks` object containing arrays of hook commands for each event type:
+Create a JSON file with a `hooks` object containing arrays of hook commands for each event type. VS Code uses the same hook format as Claude Code and Copilot CLI for compatibility:
 
 ```json
 {
@@ -102,6 +102,9 @@ Each hook entry must have `type: "command"` and at least one command property:
 | `windows` | string | Windows-specific command override |
 | `linux` | string | Linux-specific command override |
 | `osx` | string | macOS-specific command override |
+
+> [!NOTE]
+> OS-specific commands are selected based on the extension host platform. In remote development scenarios (SSH, Containers, WSL), this might differ from your local operating system.
 | `cwd` | string | Working directory (relative to repository root) |
 | `env` | object | Additional environment variables |
 | `timeoutSec` | number | Timeout in seconds (default: 30) |
@@ -442,6 +445,16 @@ To see which hooks are loaded and check for configuration errors:
 **Timeout errors**: Increase the `timeoutSec` value or optimize your hook script. The default is 30 seconds.
 
 **JSON parse errors**: Verify your hook script outputs valid JSON to stdout. Use `jq` or a JSON library to construct output.
+
+## Frequently asked questions
+
+### How does VS Code handle Claude Code hook configurations?
+
+VS Code parses Claude Code's hook configuration format, including matcher syntax. Currently, matchers are treated as applying to all tools (`*`), so tool-specific matchers in Claude Code configurations apply globally when used in VS Code.
+
+### How does VS Code handle Copilot CLI hook configurations?
+
+VS Code parses Copilot CLI hook configurations and converts the lowerCamelCase hook event names (like `preToolUse`) to the PascalCase format used by VS Code (`PreToolUse`). Both `bash` and `powershell` command formats are supported.
 
 ## Security considerations
 
