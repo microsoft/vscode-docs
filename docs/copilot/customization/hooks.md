@@ -162,6 +162,10 @@ For `PreToolUse` and `PostToolUse` hooks, additional fields are included:
 
 The `tool_response` field is only present for `PostToolUse` hooks.
 
+For `UserPromptSubmit` hooks, a `prompt` field is included with the text the user submitted.
+
+For `Stop` and `SubagentStop` hooks, a `stop_hook_active` boolean is included. It is `true` when a stop hook is already keeping the session active.
+
 ### Output format
 
 Hooks can return JSON via stdout to influence agent behavior:
@@ -436,6 +440,14 @@ To see which hooks are loaded and check for configuration errors:
 
 1. Look for the hooks section to see loaded hooks and any validation errors.
 
+### View hook output
+
+To review hook output and errors:
+
+1. Open the **Output** panel.
+
+1. Select **Hooks** from the channel list.
+
 ### Common issues
 
 **Hook not executing**: Verify the hook file is in `.github/hooks/` and has a `.json` extension. Check that the `type` property is set to `"command"`.
@@ -450,7 +462,7 @@ To see which hooks are loaded and check for configuration errors:
 
 ### How does VS Code handle Claude Code hook configurations?
 
-VS Code parses Claude Code's hook configuration format, including matcher syntax. Currently, matchers are treated as applying to all tools (`*`), so tool-specific matchers in Claude Code configurations apply globally when used in VS Code.
+VS Code parses Claude Code's hook configuration format, including matcher syntax. Currently, VS Code ignores matcher values, so hooks apply to all tools. Claude Code uses an empty string matcher (`""`) to represent all tools.
 
 ### How does VS Code handle Copilot CLI hook configurations?
 
