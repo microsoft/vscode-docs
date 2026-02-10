@@ -259,9 +259,7 @@ The Chat view operates in two modes: compact and side-by-side. You can manually 
 
     In compact view, the list of sessions is embedded in the Chat view. When you select a session from the list, the Chat view switches to that session. Use the back button to return to the sessions list.
 
-    ![Screenshot of the Chat view in compact mode showing recent agent sessions.](../images/agents-overview/chat-view-compact.png)
-
-    Select **Show More** to expand the list to see all your agent sessions and to access the filtering options.
+    ![Screenshot of the Chat view in compact mode showing recent agent sessions.](../images/agents-overview/chat-view-compact2.png)
 
 * **Side-by-side**
 
