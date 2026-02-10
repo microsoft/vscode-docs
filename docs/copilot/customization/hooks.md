@@ -102,12 +102,12 @@ Each hook entry must have `type: "command"` and at least one command property:
 | `windows` | string | Windows-specific command override |
 | `linux` | string | Linux-specific command override |
 | `osx` | string | macOS-specific command override |
-
-> [!NOTE]
-> OS-specific commands are selected based on the extension host platform. In remote development scenarios (SSH, Containers, WSL), this might differ from your local operating system.
 | `cwd` | string | Working directory (relative to repository root) |
 | `env` | object | Additional environment variables |
 | `timeoutSec` | number | Timeout in seconds (default: 30) |
+
+> [!NOTE]
+> OS-specific commands are selected based on the extension host platform. In remote development scenarios (SSH, Containers, WSL), this might differ from your local operating system.
 
 ### OS-specific commands
 
