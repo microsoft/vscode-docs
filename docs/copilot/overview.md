@@ -90,6 +90,8 @@ Learn more about [planning with agents](/docs/copilot/agents/planning.md).
 
 1. Review the generated code. The agent creates files, installs dependencies, and runs commands as needed.
 
+1. Enter `/init` to configure your project for AI. This creates [custom instructions](/docs/copilot/customization/custom-instructions.md) that help the agent understand your codebase and generate better code.
+
 For a full hands-on tutorial covering inline suggestions, agents, inline chat, and customization, see [Get started with GitHub Copilot in VS Code](/docs/copilot/getting-started.md).
 
 ## More ways to code with AI
