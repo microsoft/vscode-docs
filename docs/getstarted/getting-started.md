@@ -10,6 +10,13 @@ In this tutorial, you learn about the key features of Visual Studio Code to help
 > [!TIP]
 > If you prefer a video to learn about Visual Studio Code, you can watch the [Getting Started video](https://www.youtube.com/watch?v=f8_uF_IDV50) on our YouTube channel.
 
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
+Follow a hands-on tutorial to build your first app with AI in VS Code.
+
+* [Start tutorial](/docs/copilot/getting-started.md)
+
+</div>
+
 ## Prerequisites
 
 - [Download and install Visual Studio Code on your computer](https://code.visualstudio.com/download)
@@ -332,6 +339,13 @@ Let's get started by getting code suggestions from Copilot.
     > You can also use the `kb(editor.action.quickFix)` keyboard shortcut to manually trigger a quick fix.
 
 There's a lot more you can do with Copilot in VS Code. Discover more about GitHub Copilot in VS Code with our [Copilot Quickstart](/docs/copilot/getting-started.md).
+
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Create a basic game">
+Use agents in VS Code to generate a tic-tac-toe game in your language of choice.
+
+* [Open in VS Code](vscode://GitHub.Copilot-Chat/chat?agent=agent%26prompt=%23newWorkspace%20Create%20a%20basic%20tic-tac-toe%20game.%20Ask%20the%20user%20about%20their%20language%20of%20choice)
+
+</div>
 
 ## Next steps
 

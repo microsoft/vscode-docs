@@ -10,6 +10,13 @@ This guide walks you through setting up GitHub Copilot in Visual Studio Code. To
 
 <video src="./images/setup/vscode-copilot-setup.mp4" poster="./images/setup/setup-copilot-sign-in.png" title="Setting up GitHub Copilot in Visual Studio Code" autoplay loop controls muted></video>
 
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
+Follow a hands-on tutorial to build your first app with AI in VS Code.
+
+* [Start tutorial](/docs/copilot/getting-started.md)
+
+</div>
+
 Follow these steps to get started with Copilot in VS Code:
 
 1. Hover over the Copilot icon in the Status Bar and select **Use AI Features**.

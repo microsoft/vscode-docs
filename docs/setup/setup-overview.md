@@ -10,6 +10,13 @@ VS Code is a free code editor, which runs on the macOS, Linux, and Windows opera
 
 VS Code is lightweight and should run on most available hardware and platform versions. You can review the [System Requirements](/docs/supporting/requirements.md) to check if your computer configuration is supported.
 
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
+Follow a hands-on tutorial to build your first app with AI in VS Code.
+
+* [Start tutorial](/docs/copilot/getting-started.md)
+
+</div>
+
 ## Set up VS Code for your platform
 
 1. Download and install Visual Studio Code for your platform

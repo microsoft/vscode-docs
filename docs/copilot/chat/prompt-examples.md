@@ -10,6 +10,13 @@ This article provides example prompts for chat in Visual Studio Code across diff
 
 If you are new to using chat in VS Code, learn more about [getting started with chat](/docs/copilot/chat/copilot-chat.md) or review [best practices for prompt crafting](/docs/copilot/guides/prompt-engineering-guide.md).
 
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
+Follow a hands-on tutorial to experience local, background, and cloud agents in VS Code.
+
+* [Start tutorial](/docs/copilot/agents/agents-tutorial.md)
+
+</div>
+
 ## General coding and technology questions
 
 Use the **Ask** agent to get quick answers about coding concepts, technology topics, and general programming questions.

@@ -179,10 +179,10 @@ You can create a new agent session from the Chat view or by using the correspond
     Generate a diagram that gives a high-level overview of the architecture of this project.
     ```
 
-<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Agents Tutorial">
-Get hands-on experience with agents in VS Code by following the Agents Tutorial.
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
+Follow a hands-on tutorial to experience local, background, and cloud agents in VS Code.
 
-* [Open Agents Tutorial](/docs/copilot/agents/agents-tutorial.md)
+* [Start tutorial](/docs/copilot/agents/agents-tutorial.md)
 
 </div>
 

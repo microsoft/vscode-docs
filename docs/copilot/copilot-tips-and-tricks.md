@@ -8,6 +8,13 @@ MetaSocialImage: images/shared/github-copilot-social.png
 
 This article provides tips and tricks to optimize your development experience for using GitHub Copilot in Visual Studio Code.
 
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
+Follow a hands-on tutorial to build your first app with AI in VS Code.
+
+* [Start tutorial](/docs/copilot/getting-started.md)
+
+</div>
+
 ## Checklist for using Copilot in VS Code
 
 Use the following checklist to get the most out of Copilot:
