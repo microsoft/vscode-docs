@@ -3,7 +3,7 @@ ContentId: 7c550054-4ade-4665-b368-215798c48673
 DateApproved: 02/04/2026
 MetaDescription: Learn how to configure and use Model Context Protocol (MCP) servers with GitHub Copilot in Visual Studio Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
-keywords:
+Keywords:
 - mcp
 - model context protocol
 - tools
@@ -498,7 +498,7 @@ Organizations can centrally manage access to MCP servers via GitHub policies. Le
 
 * Select the **Tools** button in the Chat view when using agents, and toggle specific tools on/off as needed.
 * Add specific tools to your prompt by using the **Add Context** button or by typing `#`.
-* For more advanced control, you can use `.github/copilot-instructions.md` to fine-tune tool usage.
+* For more advanced control, you can add rules to your `.github/copilot-instructions.md` file. For example, add a rule like "When querying the database, use the read-only MCP tool instead of direct SQL" or "Prefer the GitHub MCP server for repository operations" to guide tool selection.
 
 ### The MCP server is not starting when using Docker
 

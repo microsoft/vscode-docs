@@ -3,6 +3,16 @@ ContentId: 8b4f3c21-4e02-4a89-9f15-7a8d6b5c2e91
 DateApproved: 02/04/2026
 MetaDescription: Learn how to create custom instructions for GitHub Copilot Chat in VS Code to ensure AI responses match your coding practices, project requirements, and development standards.
 MetaSocialImage: ../images/shared/github-copilot-social.png
+Keywords:
+- customize
+- rules
+- instructions
+- copilot-instructions.md
+- AGENTS.md
+- CLAUDE.md
+- coding standards
+- ai
+- copilot
 ---
 # Use custom instructions in VS Code
 
@@ -333,7 +343,7 @@ If your instructions file is not being applied, check the following:
 
     * For an `AGENTS.md` file, ensure that the `setting(chat.useAgentsMdFile)` setting is enabled and that the file is located at the root of your workspace, and if `setting(chat.useNestedAgentsMdFiles)` is enabled in a subfolder of your workspace.
 
-    * For a `SKILLS.md` file, ensure that the `setting(chat.useAgentSkills)` setting is enabled and that the skills file is located in either `~/.claude/skills/*/` or in the `.claude/skills/` folder at the root of your workspace.
+    * For a `SKILL.md` file, ensure that the `setting(chat.useAgentSkills)` setting is enabled and that the skills file is located in `.github/skills/` (recommended) or `~/.copilot/skills/` for personal skills. Legacy paths `.claude/skills/` and `~/.claude/skills/` are also supported.
 
 1. For `*.instructions.md` files, check that the `applyTo` glob pattern matches the file you are working on. If no `applyTo` property is specified, the instructions file is not applied automatically. Verify the `References` section in the chat response to see which instructions files were used for your request.
 
@@ -365,7 +375,7 @@ To identify the source of a custom instruction file:
 
 * [Customize AI responses overview](/docs/copilot/customization/overview.md)
 * [Use Agent Skills](/docs/copilot/customization/agent-skills.md)
-* [Create reusableprompt files](/docs/copilot/customization/prompt-files.md)
+* [Create reusable prompt files](/docs/copilot/customization/prompt-files.md)
 * [Create custom agents](/docs/copilot/customization/custom-agents.md)
 * [Get started with chat in VS Code](/docs/copilot/chat/copilot-chat.md)
 * [Configure tools in chat](/docs/copilot/agents/agent-tools.md)

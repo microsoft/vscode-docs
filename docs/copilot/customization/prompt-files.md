@@ -3,6 +3,13 @@ ContentId: 5c8e7d42-9b1a-4f85-a3e2-6d5b8a9c1e43
 DateApproved: 02/04/2026
 MetaDescription: Learn how to create reusable prompt files for GitHub Copilot Chat in VS Code to standardize common development tasks and improve your coding workflow efficiency.
 MetaSocialImage: ../images/shared/github-copilot-social.png
+Keywords:
+- prompt files
+- slash commands
+- reusable prompts
+- copilot
+- ai
+- task automation
 ---
 # Use prompt files in VS Code
 
@@ -28,7 +35,7 @@ The header is formatted as YAML frontmatter with the following fields:
 | `description`     | A short description of the prompt. |
 | `name`            | The name of the prompt, used after typing `/` in chat. If not specified, the file name is used. |
 | `argument-hint`   | Optional hint text shown in the chat input field to guide users on how to interact with the prompt. |
-| `agent`           | The agent used for running the prompt: `ask`, `edit`, `agent`, or the name of a [custom agent](/docs/copilot/customization/custom-agents.md). By default, the current agent is used. If tools are specified and the current agent is `edit`, the default agent is `agent`. |
+| `agent`           | The agent used for running the prompt: `ask`, `agent`, `plan`, or the name of a [custom agent](/docs/copilot/customization/custom-agents.md). By default, the current agent is used. If tools are specified, the default agent is `agent`. |
 | `model`           | The language model used when running the prompt. If not specified, the currently selected model in model picker is used. |
 | `tools`           | A list of tool or tool set names that are available for this prompt. Can include built-in tools, tool sets, MCP tools, or tools contributed by extensions. To include all tools of an MCP server, use the `<server name>/*` format.<br/>Learn more about [tools in chat](/docs/copilot/agents/agent-tools.md). |
 

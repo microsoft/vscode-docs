@@ -1,5 +1,5 @@
 ---
-ContentId: 16c73175-a606-4aab-8ae5-a507
+ContentId: 16c73175-a606-4aab-8ae5-a5071d3b9e24
 DateApproved: 02/04/2026
 MetaDescription: Learn how to customize chat in VS Code with custom instructions, reusable prompt files, and custom agents to align AI responses with your coding practices and project requirements.
 MetaSocialImage: ../images/shared/github-copilot-social.png
@@ -18,20 +18,23 @@ Keywords:
 ---
 # Customize AI in Visual Studio Code
 
-AI models have broad general knowledge but don't know your codebase or team practices. Customization bridges this gap, tailoring responses to your coding standards, project structure, and workflows.
+AI models have broad general knowledge but don't know your codebase or team practices. Think of the AI as a skilled new team member: it writes great code, but doesn't know your conventions, architecture decisions, or preferred libraries. Customization is how you share that context, so responses match your coding standards, project structure, and workflows.
 
 This article covers the customization options in VS Code: custom instructions, prompt files, custom agents, agent skills, MCP servers, and language models.
 
 ## Quick reference
 
-| Option | Loading | Best For |
-|--------|---------|----------|
-| [Always-on instructions](#custom-instructions) | Every session | Codebase guardrails |
-| [File-based instructions](#custom-instructions) | Pattern match / description match | Area-specific rules |
-| [Prompts](#prompt-files) | User invokes | One-shot workflows |
-| [Skills](#agent-skills) | Description match, on-demand | Reusable capabilities |
-| [Custom agents](#custom-agents) | Top-level OR as subagent | Constrained workflows |
-| [MCP](#mcp-and-tools) | Session start | External gateways |
+| Goal | Use | When it activates |
+|------|-----|-------------------|
+| Apply coding standards everywhere | [Always-on instructions](#custom-instructions) | Automatically included in every request |
+| Different rules for different file types | [File-based instructions](#custom-instructions) | When files match a pattern or description |
+| Reusable task I run repeatedly | [Prompt files](#prompt-files) | When you invoke a slash command |
+| Package multi-step workflow with scripts | [Agent skills](#agent-skills) | When the task matches the skill description |
+| Specialized AI persona with tool restrictions | [Custom agents](#custom-agents) | When you select it or another agent delegates to it |
+| Connect to external APIs or databases | [MCP](#mcp-and-tools) | When the task matches a tool description |
+
+> [!TIP]
+> **Prompt files vs custom agents**: Prompt files are best for single, repeatable tasks invoked as slash commands (for example, scaffolding a component). Custom agents are persistent personas that control which tools are available and can orchestrate subagents for multi-step workflows.
 
 ## Custom instructions
 
@@ -99,31 +102,24 @@ Use different language models to:
 
 ## Getting started
 
-Implement AI customizations incrementally and start with the simplest options and gradually add more complexity as needed.
+Implement AI customizations incrementally. Start with the basics and add more as needed.
 
-### 1. Try different language models
+1. **Initialize your project**: Type `/init` in chat to analyze your workspace and generate a `.github/copilot-instructions.md` file with coding standards and project context tailored to your codebase. Review and refine the generated instructions.
 
-Start by experimenting with different language models to get better results for different types of work. Use the model picker in chat to switch between models - try faster models for simple tasks and more capable models for complex reasoning. This requires no extra setup and provides immediate results.
+1. **Add targeted rules**: Create file-based `*.instructions.md` files to apply specific rules for different parts of your codebase, such as language conventions or framework patterns.
 
-### 2. Set up basic guidelines
+1. **Automate repetitive tasks**: Create prompt files for common workflows like component generation, code reviews, or documentation. Add MCP servers to connect external services like issue trackers or databases.
 
-Create always-on `.github/copilot-instructions.md` custom instructions to establish common coding standards and provide project context. Keep it concise and focused on high-level guidelines to start.
+1. **Create specialized workflows**: Build custom agents for specific roles or project phases. Package reusable capabilities as agent skills to share across tools and minimize context usage.
 
-Gradually expand with file-based `*.instructions.md` custom instructions to assert more targeted rules for specific parts of your codebase or technologies.
+## Keep instructions concise
 
-### 3. Add task automation
+Every customization primitive consumes tokens from the model's context window. Use the context window control in the chat input to your current token usage.
 
-Once you identify repetitive tasks, create prompt files for common workflows like component generation, code reviews, or documentation tasks. These save time and can help ensure consistency across your team.
+Keep each file focused to avoid overwhelming the model. If the AI seems to "forget" rules, your instructions might be too long. Move specialized content to file-based instructions or agent skills.
 
-### 4. Extend capabilities
-
-When you need to connect external services or perform specialized operations, add MCP servers and tools to extend chat beyond basic code assistance and pull in organizational data or third-party APIs, like querying issue trackers or databases.
-
-### 5. Create specialized workflows
-
-For advanced usage, build custom agents that combine specific tools, instructions, and context for particular roles or project phases.
-
-Identify reusable capabilities and workflows and package them as Agent Skills, which can be loaded on-demand as needed. This expands agents with extra functionality, while minimizing the impact on context usage.
+> [!TIP]
+> To see what context is loaded for a chat request, right-click in the Chat view and select **Diagnostics**. This shows all loaded custom agents, prompt files, instruction files, and skills along with any errors.
 
 ## Troubleshoot customization issues
 
