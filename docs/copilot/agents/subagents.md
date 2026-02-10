@@ -17,18 +17,18 @@ Keywords:
 
 Subagents in Visual Studio Code provide context isolation and enable you to run tasks in a dedicated context window, separate from the main agent session. This allows you to delegate complex or multi-step tasks to autonomous subagents without affecting the context window of the main chat session and helps it stay focused on the primary task. VS Code can run multiple subagents in parallel to improve overall performance.
 
-By default, subagents use the same model and tools as the main chat session but start with a clean context window. Subagents do not inherit the main agent's instructions or conversation history—they receive only the task prompt you provide. By running a custom agent as a subagent, you can apply specialized behavior, tools, and models for specific tasks. For example, use a research custom agent as a subagent to gather information and perform research tasks.
+By default, subagents use the same model and tools as the main chat session but start with a clean context window. Subagents do not inherit the main agent's instructions or conversation history, they receive only the task prompt you provide. By running a custom agent as a subagent, you can apply specialized behavior, tools, and models for specific tasks. For example, use a research custom agent as a subagent to gather information and perform research tasks.
 
 <!-- TODO: add a diagram of subagents -->
 
 ## How subagent execution works
 
-Subagents are **synchronous**—the main agent waits for subagent results before continuing. This blocking behavior is intentional: subagent findings typically inform the next step of the task. Without the subagent results, the main agent lacks the information it needs to proceed effectively.
+Subagents are **synchronous**: the main agent waits for subagent results before continuing. This blocking behavior is intentional: subagent findings typically inform the next step of the task. Without the subagent results, the main agent lacks the information it needs to proceed effectively.
 
 However, VS Code can spawn **multiple subagents in parallel**. When you request parallel analysis (for example, "analyze security, performance, and accessibility simultaneously"), VS Code runs those subagents concurrently and waits for all results before the main agent continues.
 
 > [!NOTE]
-> Subagents are different from starting a new agent session. A new session creates an entirely separate conversation with no connection to your current task. Subagents maintain the relationship—they do focused work and report back to the main agent, which stays in control of the overall task.
+> Subagents are different from starting a new agent session. A new session creates an entirely separate conversation with no connection to your current task. Subagents maintain the relationship: they do focused work and report back to the main agent, which stays in control of the overall task.
 
 ### What the user sees
 
@@ -128,12 +128,12 @@ To invoke a subagent in chat, the `runSubagent` tool must be enabled. This tool 
 
 ### Agent-initiated vs user-invoked
 
-Subagents are typically **agent-initiated**, not directly invoked by users in chat. The main agent decides when context isolation helps—you don't manually type "run a subagent" for every task.
+Subagents are typically **agent-initiated**, not directly invoked by users in chat. The main agent decides when context isolation helps. You don't manually need to type "run a subagent" for every task.
 
 The pattern works like this:
 
 1. You (or your custom agent's instructions) describe a complex task.
-2. The main agent recognizes that part of the task benefits from isolated context.
+2. The main agent recognizes the part of the task that benefits from isolated context.
 3. The agent spawns a subagent, passing only the relevant subtask.
 4. The subagent works autonomously and returns a summary.
 5. The main agent incorporates the result and continues.
@@ -162,7 +162,7 @@ Then update the docs/ folder with the new documentation.
 
 ## Run a custom agent as a subagent (Experimental)
 
-By default, a subagent inherits the agent from the main chat session and uses the same model and tools. To define specific behavior for a subagent, use a [custom agent](/docs/copilot/customization/custom-agents.md). Custom agents can specify their own model, tools, and instructions—when used as a subagent, these settings override the defaults inherited from the main session.
+By default, a subagent inherits the agent from the main chat session and uses the same model and tools. To define specific behavior for a subagent, use a [custom agent](/docs/copilot/customization/custom-agents.md). Custom agents can specify their own model, tools, and instructions. When used as a subagent, these settings override the defaults inherited from the main session.
 
 ### Control subagent invocation
 
@@ -225,7 +225,7 @@ Subagents enable **orchestration patterns** where a coordinator agent delegates 
 
 ### Coordinator and worker pattern
 
-A coordinator agent manages the overall task and delegates subtasks to specialized subagents. Each worker agent can have a tailored set of tools—for example, planning and review agents need only read-only access, while the implementer needs edit capabilities.
+A coordinator agent manages the overall task and delegates subtasks to specialized subagents. Each worker agent can have a tailored set of tools. For example, planning and review agents need only read-only access, while the implementer needs edit capabilities.
 
 ```markdown
 ---
@@ -291,15 +291,15 @@ When asked to review code, run these subagents in parallel:
 - Correctness reviewer: logic errors, edge cases, type issues.
 - Code quality reviewer: readability, naming, duplication.
 - Security reviewer: input validation, injection risks, data exposure.
-- Architecture reviewer: does this fit the codebase patterns?
+- Architecture reviewer: codebase patterns, design consistency, structural alignment.
 
 After all subagents complete, synthesize findings into a prioritized summary. Note which issues are critical versus nice-to-have. Acknowledge what the code does well.
 ```
 
-This pattern works because each subagent approaches the code fresh, without being anchored by what other perspectives found. In this example, the orchestrator shapes each subagent's focus area through its prompt—a lightweight approach that requires no additional agent files.
+This pattern works because each subagent approaches the code fresh, without being anchored by what other perspectives found. In this example, the orchestrator shapes each subagent's focus area through its prompt. This is a lightweight approach that requires no additional agent files.
 
 > [!TIP]
-> For more control, each review perspective can be its own custom agent with specialized tool access. For example, a security reviewer might use a security-focused MCP server, while a code quality reviewer might have access to linting CLI tools. This lets each perspective use the best tools for its specific focus.
+> For more control, each review perspective can be its own custom agent with specialized tool access. For example, a security reviewer might use a security-focused MCP server, while a code-quality reviewer might have access to linting CLI tools. This lets each perspective use the best tools for its specific focus.
 
 ## Related resources
 
