@@ -152,9 +152,9 @@ When a filter is active, the sessions list automatically expands to show all mat
 
 ## Create an agent session
 
-You can create multiple agent sessions in parallel, each focused on a different task. When you create a new agent session, the previous session remains active, and you can switch between tasks via the [agent sessions list](#agent-sessions-list).
+You can create multiple agent sessions in parallel, each focused on a different task. When you create a new agent session, the previous session stays active, and you can switch between tasks through the [agent sessions list](#agent-sessions-list).
 
-When you create a new agent session, it starts with an empty context window. Each agent session is independent, so context from one session does not carry over to another.
+When you create a new agent session, it starts with an empty context window. Each agent session is independent, so context from one session doesn't carry over to another.
 
 You can create a new agent session from the Chat view or by using the corresponding commands in the Command Palette.
 
@@ -170,7 +170,7 @@ You can create a new agent session from the Chat view or by using the correspond
 
 ## Hand off a session to another agent
 
-You can hand off an existing task from one agent to another to use their unique strengths. For example, create a plan with a local agent, hand off to a background agent for proof of concepts, and then continue with a cloud agent to submit a pull request for team review.
+You can hand off an existing task from one agent to another agent to take advantage of their unique strengths. For example, create a plan with a local agent, hand off to a background agent for proof of concepts, and then continue with a cloud agent to submit a pull request for team review.
 
 To hand off a local agent session, select a different agent type from the session type dropdown in the chat input box. VS Code creates a new session, carrying over the full conversation history and context. The original session is archived after handoff.
 
@@ -180,11 +180,11 @@ In a background agent session, delegate to a cloud agent by entering the `/deleg
 
 ### Assign a coding task to an agent
 
-If you have the [GitHub Pull Requests](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension installed, you can assign an agent to implement `TODO` comments in your code.
+If you install the [GitHub Pull Requests](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension, you can assign an agent to implement `TODO` comments in your code.
 
 ![Screenshot of assigning a TODO comment to Copilot coding agent.](../images/agents-overview/assign-todo-to-agent.png)
 
-In GitHub.com, or by using the GitHub Pull Requests extension, you can assign GitHub issues to Copilot coding agent by assigning the issue to `copilot` or by mentioning it in an issue comment or pull request to ask for a code review.
+On GitHub.com, or by using the GitHub Pull Requests extension, you can assign GitHub issues to Copilot coding agent by assigning the issue to `copilot` or by mentioning it in an issue comment or pull request to ask for a code review.
 
 ## Review and apply file changes
 
