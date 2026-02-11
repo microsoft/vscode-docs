@@ -31,6 +31,10 @@ Follow these steps to get started with Copilot in VS Code:
 
     Learn the basics with the [Copilot Quickstart](/docs/copilot/getting-started.md).
 
+1. Type `/init` in a chat session to set up your project for AI.
+
+    The `/init` command analyzes your codebase and creates [custom instructions](/docs/copilot/customization/custom-instructions.md) to help the AI generate code that matches your coding practices.
+
 > [!IMPORTANT]
 > Telemetry in your free version of GitHub Copilot is currently enabled. By default, code suggestions that match public code, including code references in the VS Code and [github.com](http://github.com/copilot) experience, are allowed. You can opt out of telemetry data collection by disabling telemetry in VS Code by setting `setting(telemetry.telemetryLevel)` to `off`, or you can adjust both telemetry and code suggestion settings in [Copilot Settings](https://github.com/settings/copilot).
 
