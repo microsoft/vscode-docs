@@ -54,6 +54,7 @@ fi
 cat <<'EOF'
 {
   "continue": true,
+  "systemMessage": "Docs writing guidelines not loaded — verifying edit.",
   "hookSpecificOutput": {
     "hookEventName": "PostToolUse",
     "additionalContext": "You edited a file in docs/ without first reading the documentation writing guidelines. Please read .github/instructions/docs-writing.instructions.md now and verify your edit follows the style guide. Fix any issues."
