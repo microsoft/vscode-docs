@@ -1,13 +1,8 @@
 ---
-Order: 3
-Area: terminal
-TOCTitle: Shell Integration
 ContentId: a6a1652b-c0d8-4054-a2da-feb915eef2cc
-PageTitle: Terminal Shell Integration in Visual Studio Code
-DateApproved: 05/02/2024
+DateApproved: 02/04/2026
 MetaDescription: Visual Studio Code's embedded terminal can integrate with some shells to enhance the capabilities of the terminal.
 ---
-
 # Terminal Shell Integration
 
 Visual Studio Code has the ability to integrate with common shells, allowing the terminal to understand more about what's actually happening inside the shell. This additional information enables some useful features such as [working directory detection](#current-working-directory-detection) and command detection, [decorations](#command-decorations-and-the-overview-ruler), and [navigation](#command-navigation).
@@ -15,13 +10,13 @@ Visual Studio Code has the ability to integrate with common shells, allowing the
 Supported shells:
 
 - Linux/macOS: bash, fish, pwsh, zsh
-- Windows: pwsh
+- Windows: Git Bash, pwsh
 
 ## Installation
 
 ### Automatic script injection
 
-By default, the shell integration script should automatically activate on supported shells launched from VS Code. This is done by injecting arguments and/or environment variables when the shell session launches. This automatic injection can be disabled by setting `terminal.integrated.shellIntegration.enabled` to `false`.
+By default, the shell integration script should automatically activate on supported shells launched from VS Code. This is done by injecting arguments and/or environment variables when the shell session launches. This automatic injection can be disabled by setting `setting(terminal.integrated.shellIntegration.enabled)` to `false`.
 
 This standard, easy way will not work for some advanced use cases like in sub-shells, through a regular `ssh` session (when not using the [Remote - SSH extension](/docs/remote/ssh.md)) or for some complex shell setups. The recommended way to enable shell integration for those is [manual installation](#manual-installation).
 
@@ -29,7 +24,7 @@ This standard, easy way will not work for some advanced use cases like in sub-sh
 
 ### Manual installation
 
-To manually install shell integration, the VS Code shell integration script needs to run during your shell's initialization. Where and how to do this depends on the shell and OS you're using. When using manual install it's recommended to set `terminal.integrated.shellIntegration.enabled` to `false`, though not mandatory.
+To manually install shell integration, the VS Code shell integration script needs to run during your shell's initialization. Where and how to do this depends on the shell and OS you're using. When using manual install it's recommended to set `setting(terminal.integrated.shellIntegration.enabled)` to `false`, though not mandatory.
 
 > **Tip:** When using the [Insiders build](https://code.visualstudio.com/insiders), replace `code` with `code-insiders` below.
 
@@ -60,7 +55,7 @@ if ($env:TERM_PROGRAM -eq "vscode") { . "$(code --locate-shell-integration-path 
 
 **zsh**
 
-Add the following to your `~/.zshrc` file. Run `code ~/.zshrc` in bash to open the file in VS Code.
+Add the following to your `~/.zshrc` file. Run `code ~/.zshrc` in zsh to open the file in VS Code.
 
 ```sh
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
@@ -86,6 +81,47 @@ code --locate-shell-integration-path bash
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "/path/to/shell/integration/script.sh"
 ```
 
+## Shell integration quality
+
+When using shell integration, it has a "quality" associated with it that declares the capabilities of it. These qualities are determined by how the shell integration script behaves.
+
+- **None**: No shell integration is active.
+- **Rich**: Shell integration is active and command detection is working in an ideal way.
+- **Basic**: Shell integration is active, but command detection might not support all functionality. For example, the command run location is detected, but not its exit status.
+
+To view the shell integration quality, hover the terminal tab. Optionally, select **Show Details** on the hover to view more detailed information.
+
+## IntelliSense
+
+IntelliSense in the terminal enables you to receive suggestions for files, folders, commands, command arguments and options. This feature can be enabled or disabled with the `setting(terminal.integrated.suggest.enabled)` setting.
+
+![Screenshot of the terminal showing a user has typed git checkout and receives suggestions for the branch name.](images/shell-integration/terminal-suggest.png)
+
+As you type, a list of suggestions will appear. To manually trigger the suggestions, use the `kb(workbench.action.terminal.triggerSuggest)` keyboard shortcut.
+
+> [!TIP]
+> `kbstyle(Ctrl+Space)` may be the keybinding to trigger your Input Method Editor (IME) at the OS level. If so, you can rebind the `workbench.action.terminal.triggerSuggest` command with a custom [keybinding](https://code.visualstudio.com/docs/configure/keybindings#_keyboard-shortcuts-editor) or change the OS-level shortcut.
+
+By default, `kbstyle(Tab)` inserts the suggestion. Once you navigate the list, `kbstyle(Enter)` inserts the suggestion. You can configure this behavior with the `setting(terminal.integrated.suggest.selectionMode)` setting.
+
+There are various settings to configure how terminal IntelliSense behaves:
+
+- `setting(terminal.integrated.suggest.quickSuggestions)`: show automatically depending on the content of the command line, as opposed to manually via `kbstyle(Ctrl+Space)`.
+- `setting(terminal.integrated.suggest.suggestOnTriggerCharacters)`: show automatically after a "trigger character" such as `-` or `/`.
+- `setting(terminal.integrated.suggest.runOnEnter)`: optionally run the command when `kbstyle(Enter)` is used (not `kbstyle(Tab)`).
+- `setting(terminal.integrated.suggest.windowsExecutableExtensions)`: the list of extensions that are treated as executables on Windows.
+- `setting(terminal.integrated.suggest.providers)`: provides the ability to disable specific providers, for example extensions may contribute completions you don't want.
+- `setting(terminal.integrated.suggest.showStatusBar)`: show the status bar at the bottom of the IntelliSense popup.
+- `setting(terminal.integrated.suggest.cdPath)`: enable `$CDPATH` integration.
+- `setting(terminal.integrated.suggest.inlineSuggestion)`: integrate with shell "ghost text" and how to present it.
+- `setting(terminal.integrated.suggest.upArrowNavigatesHistory)`: send up arrow to the shell instead of browsing completions, this is particularly useful on zsh where you can filter and then press up to do a history search with that prefix.
+- `setting(terminal.integrated.suggest.selectionMode)`: how the Intellisense popup is focused which determines what `kbstyle(Enter)` and `kbstyle(Tab)` do.
+- `setting(terminal.integrated.suggest.insertTrailingSpace)`: insert a trailing space and re-trigger completions after accepting.
+
+### Global completion caching
+
+To improve performance, VS Code aggressively caches globals for a particular shell. When you make changes to shell startup logic that adds commands, manually refresh the cache with the **Terminal: Clear Suggest Cached Globals** command (`terminal.integrated.suggest.clearCachedGlobals`) if they weren't picked up automatically.
+
 ## Command decorations and the overview ruler
 
 One of the things that shell integration enables is the ability to get the exit codes of the commands run within the terminal. Using this information, decorations are added to the left of the line to indicate whether the command succeeded or failed. These decorations also show up in the relatively new overview ruler in the scroll bar, just like in the editor.
@@ -96,11 +132,19 @@ The decorations can be interacted with to give some contextual actions like re-r
 
 ![Clicking a successful command decoration shows a context menu containing items: Copy Output, Copy Output as HTML, Rerun Command and How does this work?](images/shell-integration/decoration-menu.png)
 
-The command and overview ruler decorations can be configured with the `terminal.integrated.shellIntegration.decorationsEnabled` setting.
+The command and overview ruler decorations can be configured with the `setting(terminal.integrated.shellIntegration.decorationsEnabled)` setting.
 
 ## Command navigation
 
 The commands detected by shell integration feed into the command navigation feature (`kbStyle(Ctrl/Cmd+Up)`, `kbStyle(Ctrl/Cmd+Down)`) to give it more reliable command positions. This feature allows for quick navigation between commands and selection of their output. To select from the current position to the command, you can also hold down `kbStyle(Shift)`, pressing `kbStyle(Shift+Ctrl/Cmd+Up)` and `kbStyle(Shift+Ctrl/Cmd+Down)`.
+
+## Command guide
+
+The command guide is a bar that shows up beside a command and its output when hovered. This helps more quickly identify the command and also is a way to verify that shell integration is working properly.
+
+![Screenshot of the terminal, highlighting the command guide vertical bar on the left-hand side to indicate the boundary of a command.](images/shell-integration/terminal-command-guide.png)
+
+You can customize the color of the command guide by using Color Themes. To toggle the command guide, configure the `setting(terminal.integrated.shellIntegration.showCommandGuide)` setting.
 
 ## Sticky scroll
 
@@ -108,7 +152,7 @@ The sticky scroll feature will "stick" the command that is partially showing at 
 
 ![Sticky scroll will show the command at the top of the terminal viewport](images/shell-integration/sticky-scroll.png)
 
-This can be enabled with the `terminal.integrated.stickyScroll.enabled` setting.
+This can be enabled with the `setting(terminal.integrated.stickyScroll.enabled)` setting.
 
 ## Quick fixes
 
@@ -124,7 +168,7 @@ Here are some of the built-in Quick Fixes:
 - When `git push` results in a suggestion to create a GitHub PR, suggest to open the link.
 - When a `General` or `cmd-not-found` PowerShell feedback provider triggers, suggest each suggestion.
 
-The Quick Fix feature also supports [accessibility signals](/docs/editor/accessibility.md#accessibility-signals) for additional feedback when a Quick Fix is available.
+The Quick Fix feature also supports [accessibility signals](/docs/configure/accessibility/accessibility.md#accessibility-signals) for additional feedback when a Quick Fix is available.
 
 ## Run recent command
 
@@ -138,11 +182,11 @@ Some other functionality of the command:
 - In the current session section, there is a clipboard icon in the right of the Quick Pick that will open the command output in an editor.
 - The pin action in the right of the Quick Pick can pin the command to the top of the list.
 - `kbstyle(Alt)` can be held to write the text to the terminal without running it.
-- The amount of history stored in the previous session section is determined by the `terminal.integrated.shellIntegration.history` setting.
+- The amount of history stored in the previous session section is determined by the `setting(terminal.integrated.shellIntegration.history)` setting.
 
-The default keybinding for this command is `kbstyle(Ctrl+Alt+R)`. However, when accessibility mode is on these are reversed; `kbstyle(Ctrl+R)` runs a recent command and `kbstyle(Ctrl+Alt+R)` sends Ctrl+R to the shell.
+The default keyboard shortcut for this command is `kbstyle(Ctrl+Alt+R)`. However, when accessibility mode is on these are reversed; `kbstyle(Ctrl+R)` runs a recent command and `kbstyle(Ctrl+Alt+R)` sends Ctrl+R to the shell.
 
-The keybindings can be flipped when accessibility mode is off with the following keybindings:
+The keyboard shortcuts can be flipped when accessibility mode is off with the following keyboard shortcuts:
 
 ```jsonc
 {
@@ -162,7 +206,7 @@ The keybindings can be flipped when accessibility mode is off with the following
 
 Similar to the run recent command feature, the **Terminal: Go to Recent Directory** command keeps track of directories that have been visited and allows quick filtering and navigating (`cd`) to them. `kbstyle(Alt)` can be held to write the text to the terminal without running it.
 
-The default keybinding for this command is `kb(workbench.action.terminal.goToRecentDirectory)` as it behaves similar to the **Go to Line/Column** command in the editor. Ctrl+G can be send to the shell with `kbstyle(Ctrl+Alt+G)`.
+The default keyboard shortcut for this command is `kb(workbench.action.terminal.goToRecentDirectory)` as it behaves similar to the **Go to Line/Column** command in the editor. Ctrl+G can be send to the shell with `kbstyle(Ctrl+Alt+G)`.
 
 ## Current working directory detection
 
@@ -172,11 +216,11 @@ One of the biggest features this enables is enhanced resolving of links in the t
 
 The current working directory is also used to show the directory in the terminal tab, in the run recent command quick pick and for the `"terminal.integrated.splitCwd": "inherited"` feature.
 
-## Extended PowerShell keybindings
+## Extended PowerShell keyboard shortcuts
 
-Windows' console API allows for more keybindings than Linux/macOS terminals, since VS Code's terminal emulates the latter even on Windows there are some PowerShell keybindings that aren't possible using the standard means due to lack of VT encoding such as `kbstyle(Ctrl+Space)`. Shell integration allows VS Code to attach a custom keybindings to send a special sequence to PowerShell that then gets handled in the shell integration script and forwarded to the proper key handler.
+Windows' console API allows for more keyboard shortcuts than Linux/macOS terminals, since VS Code's terminal emulates the latter even on Windows there are some PowerShell keyboard shortcuts that aren't possible using the standard means due to lack of VT encoding such as `kbstyle(Ctrl+Space)`. Shell integration allows VS Code to attach a custom keyboard shortcuts to send a special sequence to PowerShell that then gets handled in the shell integration script and forwarded to the proper key handler.
 
-The following keybindings should work in PowerShell when shell integration is enabled:
+The following keyboard shortcuts should work in PowerShell when shell integration is enabled:
 
 - `kbstyle(Ctrl+Space)`: Defaults to `MenuComplete` on Windows only
 - `kbstyle(Alt+Space)`: Defaults to `SetMark` on all platforms
@@ -186,10 +230,10 @@ The following keybindings should work in PowerShell when shell integration is en
 
 ## Enhanced accessibility
 
-The information that shell integration provides to VS Code is used to improve [accessibility in the terminal](/docs/editor/accessibility.md#terminal-accessibility). Some examples of enhancements are:
+The information that shell integration provides to VS Code is used to improve [accessibility in the terminal](/docs/configure/accessibility/accessibility.md#terminal-accessibility). Some examples of enhancements are:
 
 - Navigation through detected commands in the accessible buffer (`kb(workbench.action.terminal.focusAccessibleBuffer)`)
-- An [audio cue](/docs/editor/accessibility.md#accessibility-signals) plays when a command fails.
+- An [audio cue](/docs/configure/accessibility/accessibility.md#accessibility-signals) plays when a command fails.
 - Underlying text box synchronizing such that using the arrow and backspace keys behave more correctly.
 
 ## Supported escape sequences
@@ -202,11 +246,11 @@ VS Code has a set of custom escape sequences designed to enable the shell integr
 
 These sequences should be ignored by other terminals, but unless other terminals end up adopting the sequences more widely, it's recommended to check that `$TERM_PROGRAM` is `vscode` before writing them.
 
-- `OSC 633 ; A ST` - Mark prompt start.
-- `OSC 633 ; B ST` - Mark prompt end.
-- `OSC 633 ; C ST` - Mark pre-execution.
-- `OSC 633 ; D [; <exitcode>] ST` - Mark execution finished with an optional exit code.
-- `OSC 633 ; E ; <commandline> [; <nonce] ST` - Explicitly set the command line with an optional nonce.
+- `OSC 633 ; A ST`: Mark prompt start.
+- `OSC 633 ; B ST`: Mark prompt end.
+- `OSC 633 ; C ST`: Mark pre-execution.
+- `OSC 633 ; D [; <exitcode>] ST`: Mark execution finished with an optional exit code.
+- `OSC 633 ; E ; <commandline> [; <nonce>] ST`: Explicitly set the command line with an optional nonce.
 
   The E sequence allows the terminal to reliably get the exact command line interpreted by the shell. When this is not specified, the terminal may fallback to using the A, B and C sequences to get the command, or disable the detection all together if it's unreliable.
 
@@ -222,28 +266,30 @@ These sequences should be ignored by other terminals, but unless other terminals
   ";"  -> "\x3b"
   ```
 
-- `OSC 633 ; P ; <Property>=<Value> ST` - Set a property on the terminal, only known properties will be handled.
+- `OSC 633 ; P ; <Property>=<Value> ST`: Set a property on the terminal, only known properties will be handled.
 
   Known properties:
 
-  - `Cwd` - Reports the current working directory to the terminal.
-  - `IsWindows` - Indicates whether the terminal is using a Windows backend like winpty or conpty. This may be used to enable additional heuristics as the positioning of the shell integration sequences are not guaranteed to be correct. Valid values are `True` and `False`.
+  - `Cwd`: Reports the current working directory to the terminal.
+  - `IsWindows`: Indicates whether the terminal is using a Windows backend like winpty or conpty. This may be used to enable additional heuristics as the positioning of the shell integration sequences are not guaranteed to be correct. Valid values are `True` and `False`.
+  - `HasRichCommandDetection`: Indicates whether the terminal has rich command detection capabilities. This property is set to `True` when the shell integration script acts ideally as VS Code expects it, specifically sequences should come in the expected positions in the order `A, B, E, C, D`.
+
 
 ### Final Term shell integration
 
 VS Code supports Final Term's shell integration sequences, which allow non-VS Code shell integration scripts to work in VS Code. This results in a somewhat degraded experience as it doesn't support as many features as `OSC 633`. Here are the specific sequences that are supported:
 
-- `OSC 133 ; A ST` - Mark prompt start.
-- `OSC 133 ; B ST` - Mark prompt end.
-- `OSC 133 ; C ST` - Mark pre-execution.
-- `OSC 133 ; D [; <exitcode>] ST` - Mark execution finished with an optional exit code.
+- `OSC 133 ; A ST`: Mark prompt start.
+- `OSC 133 ; B ST`: Mark prompt end.
+- `OSC 133 ; C ST`: Mark pre-execution.
+- `OSC 133 ; D [; <exitcode>] ST`: Mark execution finished with an optional exit code.
 
 ### iTerm2 shell integration
 
 The following sequences that iTerm2 pioneered are supported:
 
-- `OSC 1337 ; CurrentDir=<Cwd> S` - Sets the current working directory of the terminal, similar to `OSC 633 ; P ; Cwd=<Cwd> ST`.
-- `OSC 1337 ; SetMark ST` - Adds a mark to the left of the line it was triggered on and also adds an annotation to the scroll bar:
+- `OSC 1337 ; CurrentDir=<Cwd> ST`: Sets the current working directory of the terminal, similar to `OSC 633 ; P ; Cwd=<Cwd> ST`.
+- `OSC 1337 ; SetMark ST`: Adds a mark to the left of the line it was triggered on and also adds an annotation to the scroll bar:
 
     ![When the sequence is written to the terminal a small grey circle will appear to the left of the command, with a matching annotation in the scroll bar](images/shell-integration/setmark.png)
 

@@ -1,11 +1,12 @@
 ---
-Order: 16
-Area: sourcecontrol
-TOCTitle: FAQ
-PageTitle: Source Control, Git & GitHub in VS Code Frequently Asked Questions
 ContentId: 431b4458-34c4-4aba-a0ee-eaddf7cd91a1
 MetaDescription: Visual Studio Code's Frequently Asked Questions (FAQ) for Source Control, Git & GitHub in VS Code
-DateApproved: 05/02/2024
+DateApproved: 02/04/2026
+Keywords:
+- source control
+- scm
+- version control
+- git
 ---
 # Source Control FAQ
 
@@ -21,11 +22,11 @@ Revert your last commit with the **Git: Undo Last Commit** command. This will re
 
 The **Git: Rename Branch…** command will prompt you for the new name.
 
-### How to I undo a git add before committing?
+### How to undo a git add before committing?
 
 Added files listed in the **Staged Changes** can be unstaged with the **-** icon or by drag-and-drop.
 
-### How to I edit the most recent commit message?
+### How to edit the most recent commit message?
 
 To update the commit message for the last local commit use the **Git: Commit Staged (Amend)** command. It will open an editor to edit and save the last message. Make sure that no other changes are staged, as they would be included with the commit.
 
@@ -79,7 +80,7 @@ VS Code uses `git rev-parse --show-toplevel` to determine the root of a Git repo
 
 To avoid confusion, and to reduce the risk of data loss, VS Code will display a notification and a new welcome view in the Source Control view, and will not automatically open Git repositories from the parent folders of workspaces and open files.
 
-You can control how Git repositories from parent folders are handled using the `git.openRepositoryInParentFolders` setting. If you would like to restore the old behavior, set the `git.openRepositoryInParentFolders` setting to `always`.
+You can control how Git repositories from parent folders are handled using the `setting(git.openRepositoryInParentFolders)` setting. If you would like to restore the old behavior, set the `setting(git.openRepositoryInParentFolders)` setting to `always`.
 
 ### Can I use SSH Git authentication with VS Code?
 
@@ -90,3 +91,7 @@ Yes, though VS Code works most easily with SSH keys without a passphrase. If you
 ### Is GitHub Enterprise supported?
 
 VS Code has official support for authentication with GitHub Enterprise Servers. Open a local checkout of a GHES repository and you will be prompted to sign in with your GitHub Enterprise Server account.
+
+## Troubleshooting
+
+For help diagnosing and resolving Git issues, see the [Troubleshooting](/docs/sourcecontrol/troubleshooting.md) guide. The guide covers using Git output logs and enabling trace logging for detailed diagnostic information.

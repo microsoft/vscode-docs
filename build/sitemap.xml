@@ -31,17 +31,12 @@
         <priority>0.70</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/learntocode</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.70</priority>
-    </url>
-    <url>
         <loc>https://code.visualstudio.com/migrate-from-brackets</loc>
         <changefreq>weekly</changefreq>
         <priority>0.70</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/supporting/FAQ</loc>
+        <loc>https://code.visualstudio.com/docs/supporting/faq</loc>
         <changefreq>weekly</changefreq>
         <priority>0.70</priority>
     </url>
@@ -77,11 +72,6 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/introvideos/configure</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/docs/introvideos/customize</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -146,12 +136,47 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/setup/enterprise</loc>
+        <loc>https://code.visualstudio.com/docs/enterprise/overview</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/enterprise/policies</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/enterprise/ai-settings</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/enterprise/telemetry</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/enterprise/updates</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/enterprise/extensions</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/setup/uninstall</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/getstarted/getting-started</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/getstarted/extensions</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -171,67 +196,87 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/getstarted/themes</loc>
+        <loc>https://code.visualstudio.com/docs/configure/settings</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/getstarted/settings</loc>
+        <loc>https://code.visualstudio.com/docs/getstarted/personalize-vscode</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/getstarted/keybindings</loc>
+        <loc>https://code.visualstudio.com/docs/configure/themes</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/getstarted/locales</loc>
+        <loc>https://code.visualstudio.com/docs/configure/keybindings</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/getstarted/telemetry</loc>
+        <loc>https://code.visualstudio.com/docs/configure/locales</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/codebasics</loc>
+        <loc>https://code.visualstudio.com/docs/configure/telemetry</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/editingevolved</loc>
+        <loc>https://code.visualstudio.com/docs/editing/codebasics</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/extension-marketplace</loc>
+        <loc>https://code.visualstudio.com/docs/editing/editingevolved</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/intellisense</loc>
+        <loc>https://code.visualstudio.com/docs/configure/extensions/extension-marketplace</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/refactoring</loc>
+        <loc>https://code.visualstudio.com/docs/configure/extensions/extension-runtime-security</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/vscode-web</loc>
+        <loc>https://code.visualstudio.com/docs/editing/intellisense</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/debugging</loc>
+        <loc>https://code.visualstudio.com/docs/editing/refactoring</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/command-line</loc>
+        <loc>https://code.visualstudio.com/docs/setup/vscode-web</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/debugtest/debugging</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/debugtest/debugging-configuration</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/debugtest/testing</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/configure/command-line</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -241,27 +286,32 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/tasks</loc>
+        <loc>https://code.visualstudio.com/docs/debugtest/tasks</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/settings-sync</loc>
+        <loc>https://code.visualstudio.com/docs/configure/settings-sync</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/profiles</loc>
+        <loc>https://code.visualstudio.com/docs/configure/profiles</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/port-forwarding</loc>
+        <loc>https://code.visualstudio.com/docs/debugtest/port-forwarding</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/custom-layout</loc>
+        <loc>https://code.visualstudio.com/docs/debugtest/integrated-browser</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/configure/custom-layout</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -271,12 +321,37 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/sourcecontrol/intro-to-git</loc>
+        <loc>https://code.visualstudio.com/docs/sourcecontrol/quickstart</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/sourcecontrol/staging-commits</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/sourcecontrol/branches-worktrees</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/sourcecontrol/repos-remotes</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/sourcecontrol/merge-conflicts</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/sourcecontrol/github</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/sourcecontrol/troubleshooting</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -287,6 +362,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/terminal/basics</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/terminal/getting-started</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -321,12 +401,77 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/copilot/copilot-coding-agent</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/copilot/ai-powered-suggestions</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/copilot/copilot-chat</loc>
+        <loc>https://code.visualstudio.com/docs/copilot/chat/chat-checkpoints</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/chat/chat-sessions</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/chat/chat-debug-view</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/agents/agent-tools</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/chat/review-code-edits</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/chat/copilot-chat-context</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/chat/copilot-chat</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/agents/planning</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/chat/inline-chat</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/guides/agents-tutorial</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/guides/prompt-engineering-guide</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/guides/test-driven-development-guide</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/chat/prompt-examples</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -336,17 +481,47 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/copilot/getting-started-chat</loc>
+        <loc>https://code.visualstudio.com/docs/copilot/copilot-tips-and-tricks</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/copilot/prompt-crafting</loc>
+        <loc>https://code.visualstudio.com/docs/copilot/customization/overview</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/copilot/workspace-context</loc>
+        <loc>https://code.visualstudio.com/docs/copilot/customization/custom-agents</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/customization/mcp-servers</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/customization/language-models</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/customization/custom-instructions</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/customization/prompt-files</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/security</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/copilot-smart-actions</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -356,7 +531,92 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/accessibility</loc>
+        <loc>https://code.visualstudio.com/docs/copilot/troubleshooting</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/agents/overview</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/agents/agents-tutorial</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/agents/subagents</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/agents/local-agents</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/agents/background-agents</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/agents/cloud-agents</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/agents/third-party-agents</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/guides/context-engineering-guide</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/guides/notebooks-with-ai</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/guides/test-with-copilot</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/guides/debug-with-copilot</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/guides/mcp-developer-guide</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/reference/copilot-vscode-features</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/reference/copilot-settings</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/reference/workspace-context</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/configure/accessibility/accessibility</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/configure/accessibility/voice</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -366,32 +626,32 @@
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/userdefinedsnippets</loc>
+        <loc>https://code.visualstudio.com/docs/editing/userdefinedsnippets</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/emmet</loc>
+        <loc>https://code.visualstudio.com/docs/languages/cpp</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/workspaces</loc>
+        <loc>https://code.visualstudio.com/docs/languages/emmet</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/workspace-trust</loc>
+        <loc>https://code.visualstudio.com/docs/editing/workspaces/workspaces</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/multi-root-workspaces</loc>
+        <loc>https://code.visualstudio.com/docs/editing/workspaces/workspace-trust</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/variables-reference</loc>
+        <loc>https://code.visualstudio.com/docs/editing/workspaces/multi-root-workspaces</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -401,7 +661,22 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/azure/extensions</loc>
+        <loc>https://code.visualstudio.com/docs/azure/overview</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/azure/vscodeforweb</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/azure/resourcesextension</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/azure/gettingstarted</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -507,6 +782,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/languages/polyglot</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/languages/swift</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -631,6 +911,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/python/run</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/python/editing</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -746,6 +1031,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/java/java-app-mod</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/java/java-tutorial</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -831,6 +1121,16 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/cpp/cpp-refactoring</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/cpp/customize-cpp-settings</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/cpp/config-mingw</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -866,11 +1166,6 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/cpp/customize-default-settings-cpp</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
         <loc>https://code.visualstudio.com/docs/cpp/configure-intellisense</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -882,11 +1177,6 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/cpp/colorization-cpp</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/docs/cpp/c-cpp-properties-schema-reference</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -917,6 +1207,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/cpp/cmake-linux</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/cpp/cmake-quickstart</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -1325,6 +1620,11 @@
         <priority>0.9</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/api/extension-guides/custom-data-extension</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/api/extension-guides/command</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -1340,12 +1640,57 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/api/extension-guides/chat</loc>
+        <loc>https://code.visualstudio.com/api/extension-guides/product-icon-theme</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/api/extension-guides/language-model</loc>
+        <loc>https://code.visualstudio.com/api/extension-guides/ai/ai-extensibility-overview</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/api/extension-guides/ai/chat</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/api/extension-guides/ai/chat-tutorial</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/api/extension-guides/ai/language-model</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/api/extension-guides/ai/language-model-tutorial</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/api/extension-guides/ai/tools</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/api/extension-guides/ai/language-model-chat-provider</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+        <url>
+        <loc>https://code.visualstudio.com/api/extension-guides/ai/mcp</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/api/extension-guides/ai/language-model-chat-provider</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/api/extension-guides/ai/prompt-tsx</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -1530,6 +1875,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/api/advanced-topics/tslint-eslint-migration</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/api/advanced-topics/extension-host</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -1594,97 +1944,114 @@
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
-
-    <!-- /learn -->
     <url>
-        <loc>https://code.visualstudio.com/learn</loc>
+        <loc>https://code.visualstudio.com/docs/reference/variables-reference</loc>
         <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
+        <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/learn/get-started/basics</loc>
+        <loc>https://code.visualstudio.com/docs/reference/default-keybindings</loc>
         <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
+        <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/learn/get-started/extensions</loc>
+        <loc>https://code.visualstudio.com/docs/reference/default-settings</loc>
         <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
+        <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/learn/get-started/personalize</loc>
+        <loc>https://code.visualstudio.com/docs/reference/tasks-appendix</loc>
         <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
+        <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/learn/educators/installers</loc>
+        <loc>https://code.visualstudio.com/docs/intelligentapps/overview</loc>
         <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
+        <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/learn/educators/codetour</loc>
+        <loc>https://code.visualstudio.com/docs/intelligentapps/gettingstarted</loc>
         <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
+        <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/learn/educators/learn-modules</loc>
+        <loc>https://code.visualstudio.com/docs/intelligentapps/copilot-tools</loc>
         <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
+        <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/learn/educators/nodejs</loc>
+        <loc>https://code.visualstudio.com/docs/intelligentapps/models</loc>
         <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
+        <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/learn/educators/python</loc>
+        <loc>https://code.visualstudio.com/docs/intelligentapps/playground</loc>
         <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
+        <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/learn/educators/webinars</loc>
+        <loc>https://code.visualstudio.com/docs/intelligentapps/modelconversion</loc>
         <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
+        <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/learn/students/nasa-python</loc>
+        <loc>https://code.visualstudio.com/docs/intelligentapps/agentbuilder</loc>
         <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
+        <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/learn/students/over-the-moon-python</loc>
+        <loc>https://code.visualstudio.com/docs/intelligentapps/bulkrun</loc>
         <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
+        <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/learn/students/wonder-woman-python</loc>
+        <loc>https://code.visualstudio.com/docs/intelligentapps/evaluation</loc>
         <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
+        <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/learn/collaboration/live-share</loc>
+        <loc>https://code.visualstudio.com/docs/intelligentapps/finetune</loc>
         <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
+        <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/learn/develop-cloud/overview</loc>
+        <loc>https://code.visualstudio.com/docs/intelligentapps/finetune-legacy</loc>
         <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
+        <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/learn/develop-cloud/containers</loc>
+        <loc>https://code.visualstudio.com/docs/intelligentapps/faq</loc>
         <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
+        <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/learn/develop-cloud/ssh-lab-machines</loc>
+        <loc>https://code.visualstudio.com/docs/intelligentapps/tracing</loc>
         <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
+        <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/learn/develop-cloud/wsl</loc>
+        <loc>https://code.visualstudio.com/docs/intelligentapps/reference/FileStructure</loc>
         <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
+        <priority>0.8</priority>
     </url>
-
+    <url>
+        <loc>https://code.visualstudio.com/docs/intelligentapps/reference/ManualConversionOnGPU</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/intelligentapps/reference/ManualModelConversion</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/intelligentapps/reference/SetupWithoutAITK</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/intelligentapps/reference/TemplateProject</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
 </urlset>

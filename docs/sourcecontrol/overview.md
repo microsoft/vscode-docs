@@ -1,278 +1,169 @@
 ---
-Order: 1
-Area: sourcecontrol
-TOCTitle: Overview
 ContentId: 7E22CCC0-2AB8-4729-A4C9-BE2B16853820
-PageTitle: Source Control with Git in Visual Studio Code
-DateApproved: 05/02/2024
-MetaDescription: Visual Studio Code source control management with integrated Git support.
+DateApproved: 02/04/2026
+MetaDescription: Learn how to use VS Code's integrated Git source control features like staging, committing, branching, merge conflict resolution, and GitHub integration.
+Keywords:
+- source control
+- scm
+- version control
+- git
 ---
-# Using Git source control in VS Code
+# Source Control in VS Code
 
-Visual Studio Code has integrated source control management (SCM) and includes [Git](https://git-scm.com/) support out-of-the-box. Many other source control providers are available through [extensions](/docs/editor/extension-marketplace.md) on the VS Code Marketplace.
+Visual Studio Code has integrated source control management (SCM) that lets you work with Git and other version control systems directly in your editor. Git support is built-in, and you can install extensions for other SCM providers from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=SCM%20Providers&sortBy=Installs).
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/i_23KUAEtUM" title="Using Git with Visual Studio Code (Official Beginner Tutorial)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+The integrated source control interface provides access to Git functionality through a graphical interface instead of terminal commands. You can perform Git operations like staging changes, committing files, creating branches, and resolving merge conflicts without switching to the command line.
 
-## Working in a Git repository
+Changes you make in the VS Code interface are synced with your command-line Git operations, so you can use both the UI and terminal as needed. The source control interface works alongside the command line rather than replacing it.
 
->**Just getting started with Git?** The [git-scm](https://git-scm.com/documentation) website is a good place to start, with a popular online [book](https://git-scm.com/book), Getting Started [videos](https://git-scm.com/video/what-is-git) and [cheat sheets](https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf). The VS Code documentation assumes you are already familiar with Git.
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/i_23KUAEtUM" title="Video showing how to use Git with Visual Studio Code." frameborder="0" allowfullscreen></iframe>
 
-![Overview of Git](images/overview/overview.png)
+## Prerequisites
 
->**Make sure Git is installed.** VS Code will use your machine's Git installation (at least version `2.0.0`), so you need to [install Git](https://git-scm.com/download) first before you get these features.
+To use Git features in VS Code, you need:
 
-The Source Control icon in the Activity Bar on the left will always indicate an **overview of how many changes** you currently have in your repository. Selecting the icon will show you the details of your current repository changes: **CHANGES**, **STAGED CHANGES** and **MERGE CHANGES**.
+* VS Code uses your machine's Git installation. [Install Git version 2.0.0 or later](https://git-scm.com/download) on your machine.
 
-Clicking each item will show you in detail **the textual changes within each file**. Note that for unstaged changes, the editor on the right still lets you edit the file: feel free to use it!
+* When you commit changes, Git uses your configured username and email. You can set these values with:
 
-You can also find indicators of the **status of your repository** in the bottom-left corner of VS Code: the **current branch**, **dirty indicators**, and the number of **incoming and outgoing commits** of the current branch. You can **checkout** any branch in your repository by clicking that status indicator and selecting the Git reference from the list.
+    ```bash
+    git config --global user.name "Your Name"
+    git config --global user.email "your.email@example.com"
+    ```
 
-> **Tip:** You can open VS Code in a sub-directory of a Git repository. VS Code's Git services will still work as usual, showing all changes within the repository, but file changes outside of the scoped directory are shaded with a tool tip indicating they are located outside the current workspace.
+> [!TIP]
+> If you're new to Git, the [git-scm](https://git-scm.com/doc) website is a good place to start, with a popular online [book](https://git-scm.com/book), Getting Started [videos](https://git-scm.com/video/what-is-git) and [cheat sheets](https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf).
 
-## Commit
+## Get started with a repository
 
-**Staging** (git add) and **unstaging** (git reset) can be done via contextual actions in the files or by drag-and-drop.
+VS Code automatically detects when you open a folder that's a Git repository and activates all source control features. To get started with a new or existing repository, you have several options:
 
->**Configure your Git username and email.** When you commit, be aware that if your username and/or email is not set in your Git configuration, Git will fall back to using information from your local machine. You can find the details in [Git commit information](https://git-scm.com/docs/git-commit#_commit_information).
+* **Initialize a new repository**: Create a new Git repository for your current folder.
 
-![Stage all changes button](images/overview/stage-changes.png)
+* **Clone a repository**: Clone an existing repository from GitHub or another Git host.
 
-You can type a commit message above the changes and press `kbstyle(Ctrl+Enter)` (macOS: `kbstyle(⌘+Enter)`) to commit them. If there are any staged changes, only those changes will be committed. Otherwise, you'll get a prompt asking you to select what changes you'd like to commit and get the option to change your commit settings.
+* **Open a remote repository**: Work with a repository without cloning it to your local machine with the [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=github.remotehub) extension.
 
-We've found this to be a great workflow. For example, in the earlier screenshot, only the staged changes to `overview.png` will be included in the commit. Later staging and commit actions could include the changes to `versioncontrol.md` and the two other `.png` images as a separate commit.
+> [!TIP]
+> You can publish a local repository directly to GitHub with the **Publish to GitHub** command, which creates a new repository and pushes your commits in one step.
 
-More specific **Commit** actions can be found in the **Views and More Actions** `...` menu on the top of the Source Control view.
+Learn more about [cloning and publishing repositories](/docs/sourcecontrol/repos-remotes.md#clone-repositories).
 
-![views and more actions button](images/overview/scm-more-actions.png)
+## Source control interface
 
-> **Tip:** If you commit your change to the wrong branch, undo your commit using the **Git: Undo Last Commit** command in the **Command Palette** (`kb(workbench.action.showCommands)`).
+VS Code provides Git functionality through several key interface elements. This UI integration enables you to perform Git operations without knowing terminal commands:
 
-<iframe src="https://www.youtube.com/embed/E6ADS2k8oNQ" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Git: Commits in Visual Studio Code"></iframe>
+* **Source Control view**: central hub for common Git operations like staging, committing, and managing changes
 
-### Author commit messages using an editor
+    ![Screenshot of the Source Control view showing staged changes, and the diff editor showing side-by-side changes.](images/overview/overview.png)
 
-If you don't enter a commit message when commiting changes, VS Code opens an editor for the `COMMIT_EDITMSG` file where you can author the commit message in the editor. After you provide a commit message, either close the editor tab, or select the **Accept Commit Message** button in the editor toolbar to commit the changes.
+* **Source Control Graph**: graphical representation of your commit history and branch relationships
 
-To cancel the commit operation, you can either clear the contents of the text editor and close the editor tab, or select the **Discard Commit Message** button in the editor toolbar.
+    ![Screenshot of the Source control graph showing commit history.](images/overview/source-control-graph.png)
 
-![Author commit message in a full text editor](images/overview/scm-git-editor.gif)
+* **Diff editor**: side-by-side file comparisons for effective change review
 
-You can disable this functionality by toggling the `git.useEditorAsCommitInput` setting. After the setting is changed, you have to restart VS Code for the change to take effect.
+    ![Screenshot of the diff editor showing changes between file versions.](images/overview/diff.png)
 
-To use the same flow for git commit commands executed in the integrated terminal, enable the `git.terminalGitEditor` setting.
+* **Additional UI elements**: in-context Git information like editor gutter indicators or Git blame annotations
 
-## Cloning a repository
+    ![Screenshot of editor gutter indicators showing line changes and a hover showing Git blame information.](images/overview/git-blame-status-bar.png)
 
-If you haven't opened a folder yet, the Source Control view will give you the options to **Open Folder** from your local machine or **Clone Repository**.
+## Common workflows
 
-![First run Source Control experience](images/overview/firstrun-source-control.png)
+### Review changes before committing
 
-If you select **Clone Repository**, you will be asked for the URL of the remote repository (for example on [GitHub](https://github.com/)) and the parent directory under which to put the local repository.
+Before committing changes, it's important to review them to ensure accuracy and quality. Use VS Code's AI features to perform a code review of your changes and get review comments and suggestions in the editor.
 
-For a GitHub repository, you would find the URL from the GitHub **Code** dialog.
+![Screenshot of the code review results, showing as editor overlay comments.](images/overview/copilot-code-review-results.png)
 
-![clone repository dialog](images/overview/GitHub-clone-dialog.png)
+### Stage and commit changes
 
-You would then paste that URL into the **Git: Clone** prompt.
+Review your changes in the Source Control view, then stage files by selecting the **+** icon next to each file or stage all changes at once. For more fine-grained control, stage specific lines or selections from a file's diff view.
 
-![set repository URL](images/overview/set-repo-URL.png)
+![Screenshot of staging changes in the Source Control view.](images/overview/stage-changes.png)
 
-You'll also see the option to **Clone from GitHub**. Once you authenticate with your GitHub account in VS Code, you'll be able to search through repositories by name, and select any repo to clone it. You can also start the flow to clone a Git repository with the **Git: Clone** command in the **Command Palette** (`kb(workbench.action.showCommands)`). To see a step-by-step walkthrough, check out our [Clone repos from VS Code](https://www.youtube.com/watch?v=bz1KauFlbQI) video.
+Type your commit message in the input box or select the sparkle icon (<i class="codicon codicon-sparkle"></i>) in the commit message input box to use AI to generate a commit message based on your staged changes.
 
->**Note**: If you'd like to work on a repository without cloning the contents to your local machine, you can install the [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=github.remotehub) extension to browse and edit directly on GitHub. You can learn more in the [GitHub Repositories extension](/docs/sourcecontrol/github.md#github-repositories-extension) section.
+![Screenshot of generating a commit message with Copilot.](images/overview/copilot-generate-commit-message.png)
 
-## Branches and Tags
+Learn more about [staging changes and writing commits](/docs/sourcecontrol/staging-commits.md).
 
-<iframe src="https://www.youtube.com/embed/b9LTz6joMf8?clip=Ugkxcq7zDGA4aMi8p7lICNMzTANn_8ozU5gK&amp;clipt=EPiBAxj08QU" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Create Git Branches in Visual Studio Code"></iframe>
+### Sync with remotes
 
-You can create and checkout branches directly within VS Code through the **Git: Create Branch** and **Git: Checkout to** commands in the **Command Palette** (`kb(workbench.action.showCommands)`).
+When your branch is connected to a remote branch, VS Code shows sync status in the Status Bar and shows incoming and outgoing commits in the Source Control view. You can quickly sync or perform individual fetch, pull, and push operations.
 
-If you run **Git: Checkout to**, you will see a dropdown list containing all of the branches or tags in the current repository. It will also give you the option to create a new branch if you decide that's a better option, or checkout a branch in detached mode.
+![Screenshot of the Source Control view showing the sync button indicating outgoing and incoming changes.](images/overview/incoming-outgoing-changes.png)
 
-![Git checkout](images/overview/gitbranches.png)
+Learn more about [working with repositories and remotes](/docs/sourcecontrol/repos-remotes.md).
 
-The **Git: Create Branch** command lets you quickly create a new branch. Just provide the name of your new branch and VS Code will create the branch and switch to it. If you choose to **Create new branch from...**, you'll get an extra prompt that allows you to specify which commit the new branch should be pointing to.
+### Resolve merge conflicts
 
-> **Tip**: VS Code can automatically save and restore open editors when you switch to another branch. Use the `scm.workingSets.enabled` setting to enable this feature. To control the open editors when switching to a branch for the first time, you can use the `scm.workingSets.default` setting.
+When you encounter merge conflicts, VS Code highlights the conflicting files in the Source Control view. Open a file with conflicts to see inline conflict markers. You have several options to resolve the conflicts:
 
-## Remotes
+* Use inline editor actions to choose how to resolve the conflicts directly in the editor
+* Use the 3-way merge editor for a side-by-side view of changes and merge result
+* Use AI assistance to help resolve merge conflicts
 
-Given that your repository is connected to some remote and that your checked out branch has an [upstream link](https://git-scm.com/book/ch3-5.html) to a branch in that remote, VS Code offers you useful actions to **push**, **pull**, and **sync** that branch (the latter will run a **pull** command followed by a **push** command). You can find these actions in the **Views and More Actions** `...` menu, along with the option to **add or remove a remote**.
+![Screenshot of the 3-way merge editor.](images/overview/merge-editor-overview.png)
 
-VS Code is able to periodically fetch changes from your remotes. This enables VS Code to show how many changes your local repository is ahead or behind the remote. This feature is disabled by default and you can use the `git.autofetch` [setting](/docs/getstarted/settings.md) to enable it.
+Learn more about [resolving merge conflicts](/docs/sourcecontrol/merge-conflicts.md).
 
->**Tip:** You should [set up a credential helper](https://docs.github.com/get-started/getting-started-with-git/caching-your-github-credentials-in-git) to avoid getting asked for credentials every time VS Code talks to your Git remotes.  If you don't do this, you may want to consider disabling automatic fetching via the `git.autofetch` [setting](/docs/getstarted/settings.md) to reduce the number of prompts you get.
+### Work with branches, worktrees, and stashes
 
-## Git Status Bar actions
+VS Code supports multiple workflows for managing parallel development work.
 
-There is a **Synchronize Changes** action in the Status Bar, next to the branch indicator, when the current checked out branch has an upstream branch configured. **Synchronize Changes** will pull remote changes down to your local repository and then push local commits to the upstream branch.
+* Quickly switch between **branches** within a single workspace to work on different features or fixes.
 
-![git status bar sync](images/overview/git-status-bar-sync.png)
+    ![Screenshot of the branch Quick Pick showing options to switch to a branch or create a new branch.](images/overview/gitbranches.png)
 
-If there is no upstream branch configured and the Git repository has remotes set up, the **Publish** action is enabled. This will let you publish the current branch to a remote.
+* Use Git **worktrees** to create separate working directories for different branches to work with multiple branches simultaneously.
 
-![git status bar publish](images/overview/git-status-bar-publish.png)
+* Use Git **stashes** to temporarily save uncommitted changes when you need to switch contexts quickly.
 
-## Gutter indicators
+Learn more about [working with branches and worktrees](/docs/sourcecontrol/branches-worktrees.md).
 
-If you open a folder that is a Git repository and begin making changes, VS Code will add useful annotations to the gutter and to the overview ruler.
+### View commit history
 
-* A red triangle indicates where lines have been deleted
-* A green bar indicates new added lines
-* A blue bar indicates modified lines
+It can be helpful to review the commit history to understand how your code has changed over time.
 
-![Gutter indicators](images/overview/gutter.png)
+* The **Source Control Graph** provides a visual representation of your branch structure and commit history, highlighting incoming and outgoing commits.
 
-## Merge conflicts
+    ![Screenshot of the Source Control Graph showing commit history and branch structure.](images/overview/source-control-graph.png)
 
-![Git merge](images/overview/merge-conflict.png)
+* The **Timeline view** in the Explorer view shows the commit history for a specific file, allowing you to see how it has evolved. You can filter the timeline to show only Git commits or to also include local file changes.
 
-Merge conflicts are recognized by VS Code. Differences are highlighted and there are inline actions to accept either one or both changes. Once the conflicts are resolved, stage the conflicting file so you can commit those changes.
+    ![Screenshot of the timeline view showing file commit history.](images/overview/timeline-view.png)
 
-## 3-way merge editor
+Learn more about [using the Graph and Timeline view and reviewing changes](/docs/sourcecontrol/staging-commits.md#timeline-view-for-file-history).
 
-To help you resolve merge conflicts, VS Code provides a 3-way merge editor where you can interactively accept incoming and current changes and view and edit the resulting merged file. The 3-way merge editor is opened by selecting the **Resolve in Merge Editor** button in the bottom right corner of a file with Git merge conflicts.
+## Working with GitHub pull requests and issues
 
-The 3-way merge editor displays separate views for **Incoming** changes (on the left), **Current** changes (on the right), and the **Result** of the merge (at the bottom). Conflicts are highlighted and can be resolved by using the CodeLens buttons.
+VS Code integrates with GitHub to provide pull request and issue management directly in your editor. Install the [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension to:
 
-![3-way merge editor](images/overview/merge-editor-overview.png)
+* Create, review, and merge pull requests
+* View and manage issues
+* Comment on and approve PRs without leaving VS Code
+* Check out PR branches and review changes locally
 
-### Resolving conflicts
+Learn more about [working with GitHub in VS Code](/docs/sourcecontrol/github.md).
 
-The 3-way merge editor allows you to resolve conflicts by accepting either one or both changes. You can also manually edit the result of the merge.
+## Other source control providers
 
-For some conflicts, the merge editor shows an **Accept Combination** button. Accepting the combination resolves the current conflict by smartly merging both changes. This is especially useful for changes in the same line that don't touch the same characters.
+VS Code supports multiple source control providers. While Git support is built-in, you can [install extensions](https://marketplace.visualstudio.com/search?target=VSCode&category=SCM%20Providers&sortBy=Installs) for other version control systems like Azure DevOps, Subversion, or Mercurial.
 
-Use the **Ignore** buttons to accept neither the incoming nor current change, but mark the conflict as resolved. This resets the conflicting area to the state before any changes were made.
-
-### Completing the merge
-
-You can use the conflict counter in the right of the result editor to keep track of how many unresolved conflicts are remaining. Clicking on the counter jumps to the next unresolved conflict. Once all conflicts are resolved, you can complete the merge by selecting **Complete Merge** in the bottom right corner. This stages the file and closes the merge editor.
-
-### Alternative layouts and more
-
-Selecting the three dots (**···**) in the top right corner of the merge editor opens a context menu with additional options. You can switch to a vertical layout and display the base view, which shows the state of the file before any changes were made.
-
-The three dots next to **Incoming**, **Current**, and **Result** offer options for each view, such as showing a side-by-side diff against base, accepting all changes, or resetting the result.
-
-### Understanding conflicts
-
-If you want to learn more about the details of how 3-way merge editors work, we can recommend the following video:
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/HosPml1qkrg" title="The EXTREMELY helpful guide to merge conflicts" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-## Viewing diffs
-
-Our Git tooling supports viewing of diffs within VS Code.
-
-![A File Diff in VS Code](images/overview/diff.png)
-
-The Diff editor has a separate gutter in the middle, which enables you to **Stage** or **Revert** changes code blocks. If you select a block of text, you can revert or stage the changes that are included in the selection.
-
-![Screenshot of the Diff editor, showing the Stage and Revert controls in the gutter](images/overview/diffEditor-stage-revert-demo.gif)
-
->**Tip:** You can diff any two files by first right clicking on a file in the Explorer or **OPEN EDITORS** list and selecting **Select for Compare** and then right-click on the second file to compare with and select **Compare with 'file_name_you_chose'**.   Alternatively from the keyboard hit `kb(workbench.action.showCommands)` and select **File: Compare Active File With** and you will be presented with a list of recent files.
-
-### Accessible Diff Viewer
-
-There is an Accessible Diff Viewer in the Diff editor that presents changes in a unified patch format. You can navigate between changes with **Go to Next Difference** (`kb(editor.action.accessibleDiffViewer.next)`) and **Go to Previous Difference** (`kb(editor.action.accessibleDiffViewer.prev)`). Lines can be navigated with arrow keys and pressing `kbstyle(Enter)` will jump back in the Diff editor and the selected line.
-
-![diff-review-pane](images/overview/diff-review-pane.png)
-
-**Note:** This experience is especially helpful for screen reader users.
-
-## Timeline view
-
-The Timeline view, accessible at the bottom of the File Explorer by default, is a unified view for visualizing time-series events (for example, Git commits) for a file.
-
-![Timeline view](images/overview/timeline-view.png)
-
-VS Code's built-in Git support provides the Git commit history of the specified file. Selecting a commit will open a diff view of the changes introduced by that commit. When you right-click on a commit, you'll get options to **Copy Commit ID** and **Copy Commit Message**.
-
-Visual Studio Code supports more Git history workflows through [extensions](/docs/editor/extension-marketplace.md) available on the VS Code Marketplace.
-
-<div class="marketplace-extensions-scm-history-curated"></div>
-
-> **Tip:** Click on an extension tile to read the description and reviews in the Marketplace.
-
-## Git output window
-
-You can always peek under the hood to see the Git commands we are using.  This is helpful if something strange is happening or if you are just curious. :)
-
-To open the Git output window, run **View** > **Output** and select **Log (Git)** from the dropdown list.
-
-## Initialize a repository
-
-If your workspace is on your local machine, you can enable Git source control by creating a Git repository with the **Initialize Repository** command. When VS Code doesn't detect an existing Git repository, the Source Control view will give you the options to **Initialize Repository** or **Publish to GitHub**.
-
-![Git initialize repository](images/overview/initialize-repository.png)
-
-You can also run the **Git: Initialize Repository** and **Publish to GitHub** commands from the **Command Palette** (`kb(workbench.action.showCommands)`). Running **Initialize Repository** will create the necessary Git repository metadata files and show your workspace files as untracked changes ready to be staged. **Publish to GitHub** will directly publish your workspace folder to a GitHub repository, allowing you to choose between private and public repositories. Check out our [publishing repos](https://www.youtube.com/watch?v=3BBvBwDW4CY) video for more information about publishing to GitHub.
-
-## VS Code as Git editor
-
-When you launch VS Code from the command line, you can pass the `--wait` argument to make the launch command wait until you have closed the new VS Code instance. This can be useful when you configure VS Code as your Git external editor so Git will wait until you close the launched VS Code instance.
-
-Here are the steps to do so:
-
-1. Make sure you can run `code --help` from the command line and you get help.
-    * if you do not see help, please follow these steps:
-        * macOS: Select **Shell Command: Install 'Code' command in path** from the **Command Palette**.
-        * Windows: Make sure you selected **Add to PATH** during the installation.
-        * Linux: Make sure you installed Code via our new `.deb` or `.rpm` packages.
-2. From the command line, run `git config --global core.editor "code --wait"`
-
-Now you can run `git config --global -e` and use VS Code as editor for configuring Git.
-
-### VS Code as Git difftool and mergetool
-
-You can use VS Code's diff and merge capabilities even when using Git from command-line. Add the following to your Git configurations to use VS Code as the diff and merge tool:
-
-```ini
-[diff]
-    tool = default-difftool
-[difftool "default-difftool"]
-    cmd = code --wait --diff $LOCAL $REMOTE
-[merge]
-  tool = code
-[mergetool "code"]
-  cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
-```
-
-This uses the `--diff` option that can be passed to VS Code to compare two files side by side. The merge tool will be used the next time Git discovers a merge conflict.
-
-To summarize, here are some examples of where you can use VS Code as the editor:
-
-* `git rebase HEAD~3 -i` do interactive rebase using VS Code
-* `git commit` use VS Code for the commit message
-* `git add -p` followed by `kbstyle(e)` for interactive add
-* `git difftool <commit>^ <commit>` use VS Code as the diff editor for changes
-
-## Working with GitHub Pull Requests and Issues
-
-Visual Studio Code can also bring in GitHub's pull requests and issues. Create your PRs in VS Code, review with comments, and approve them without switching context. Learn more about [GitHub PRs and Issues in VS Code](/docs/sourcecontrol/github.md).
-
-## SCM Providers
+Browse available SCM provider extensions in the Extensions view (`kb(workbench.view.extensions)`) by searching for `@category:"scm providers"`.
 
 <div class="marketplace-extensions-scm-curated"></div>
 
-> **Tip:** Click on an extension tile to read the description and reviews in the Marketplace.
-
-VS Code has support for handling multiple Source Control providers simultaneously. For example, you can open multiple Git repositories alongside your Azure DevOps Server local workspace and seamlessly work across your projects. To turn on the **Source Control Providers** view, select the overflow menu in the **Source Control** view (`kb(workbench.view.scm)`), hover over **Views**, and make sure that **Source Control Repositories** is marked with a check. The **Source Control Providers** view shows the detected providers and repositories, and you can scope the display of your changes by selecting a specific provider.
-
-![Source Control Repositories view option in overflow menu](images/overview/scm-providers-list.png)
-
-### SCM Provider extensions
-
-If you would like to install another SCM provider, you can search on the **scm providers** extension category in the **Extensions** view (`kb(workbench.view.extensions)`). Start typing '@ca' and you will see suggestions for extension categories like debuggers and linters. Select `@category:"scm providers"` to see available SCM providers.
-
-![SCM Provider category in the marketplace](images/overview/scm-provider-category.png)
-
 ## Next steps
 
-* [Intro Video - Git Version Control](/docs/introvideos/versioncontrol.md) - An introductory video providing an overview of VS Code Git support.
-* [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
-* [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
-* [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines
-* [Tasks](/docs/editor/tasks.md) - Running tasks with Gulp, Grunt, and Jake.  Showing Errors and Warnings
-* [Source Control API](/api/extension-guides/scm-provider.md) - If you want to integrate another Source Control provider into VS Code, see our Source Control API.
+* [Source Control Quickstart](/docs/sourcecontrol/quickstart.md) - Quickly get started with Git source control in VS Code
+
+* [Intro Video - Git Version Control](/docs/introvideos/versioncontrol.md) - An introductory video providing an overview of VS Code Git support
+
+* [Branches and Worktrees](/docs/sourcecontrol/branches-worktrees.md) - Learn about branch management, Git worktrees, and stash operations
+* [Repositories and Remotes](/docs/sourcecontrol/repos-remotes.md) - Learn about cloning, publishing, and syncing with remote repositories
+* [Working with GitHub](/docs/sourcecontrol/github.md) - Learn how to work with pull requests and issues in VS Code
+* [Troubleshooting](/docs/sourcecontrol/troubleshooting.md) - Diagnose and resolve Git issues with output logs and trace logging
+* [Copilot in VS Code](/docs/copilot/overview.md) - Discover more AI-powered features beyond Git workflows

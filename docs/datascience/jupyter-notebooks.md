@@ -1,17 +1,12 @@
 ---
-Order: 2
-Area: datascience
-TOCTitle: Jupyter Notebooks
 ContentId: 17345073-cb40-448c-a312-28982900f132
-PageTitle: Working with Jupyter Notebooks in Visual Studio Code
 DateApproved: 1/9/2023
 MetaDescription: Working with Jupyter Notebooks in Visual Studio Code.
 MetaSocialImage: images/tutorial/python-social.png
 ---
-
 # Jupyter Notebooks in VS Code
 
-[Jupyter](https://jupyter-notebook.readthedocs.io/en/latest/) (formerly IPython Notebook) is an open-source project that lets you easily combine Markdown text and executable Python source code on one canvas called a **notebook**. Visual Studio Code supports working with Jupyter Notebooks natively, and through [Python code files](/docs/python/jupyter-support-py.md). This topic covers the native support available for Jupyter Notebooks and demonstrates how to:
+[Jupyter](https://jupyter-notebook.readthedocs.io/en/latest/) (formerly IPython Notebook) is an open-source project that lets you easily combine Markdown text and executable Python source code on one canvas called a **notebook**. Visual Studio Code supports working with Jupyter Notebooks natively (through the [Jupyter extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter)), and through [Python code files](/docs/python/jupyter-support-py.md). This topic covers the native support available for Jupyter Notebooks and demonstrates how to:
 
 - Create, open, and save Jupyter Notebooks
 - Work with Jupyter code cells
@@ -19,17 +14,23 @@ MetaSocialImage: images/tutorial/python-social.png
 - Connect to a remote Jupyter server
 - Debug a Jupyter Notebook
 
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/suAkMeWJ1yE" title="Get started with Jupyter Notebooks in VS Code" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Setting up your environment
 
 To work with Python in Jupyter Notebooks, you must activate an Anaconda environment in VS Code, or another Python environment in which you've installed the [Jupyter package](https://pypi.org/project/jupyter/). To select an environment, use the **Python: Select Interpreter** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
 Once the appropriate environment is activated, you can create and open a Jupyter Notebook, connect to a remote Jupyter server for running code cells, and export a Jupyter Notebook as a Python file.
 
+### Environment variables
+
+Environment variables are loaded from a `.env` file. See [that section of the Python environments documentation](/docs/python/environments#environment-variable-definitions-file).
+
 ## Workspace Trust
 
-When getting started with Jupyter Notebooks, you'll want to make sure that you are working in a trusted workspace. Harmful code can be embedded in notebooks and the [Workspace Trust](/docs/editor/workspace-trust.md) feature allows you to indicate which folders and their contents should allow or restrict automatic code execution.
+When getting started with Jupyter Notebooks, you'll want to make sure that you are working in a trusted workspace. Harmful code can be embedded in notebooks and the [Workspace Trust](/docs/editing/workspaces/workspace-trust.md) feature allows you to indicate which folders and their contents should allow or restrict automatic code execution.
 
-If you attempt to open a notebook when VS Code is in an untrusted workspace running [Restricted Mode](/docs/editor/workspace-trust.md#restricted-mode), you will not be able to execute cells and rich outputs will be hidden.
+If you attempt to open a notebook when VS Code is in an untrusted workspace running [Restricted Mode](/docs/editing/workspaces/workspace-trust.md#restricted-mode), you will not be able to execute cells and rich outputs will be hidden.
 
 ## Create or open a Jupyter Notebook
 
@@ -77,7 +78,7 @@ You can save your Jupyter Notebook using the keyboard shortcut `kbstyle(Ctrl+S)`
 
 ## Export your Jupyter Notebook
 
-You can export a Jupyter Notebook as a Python file (`.py`), a PDF, or an HTML file. To export, select the **Export** action on the main toolbar. You'll then be presented with a dropdown of file format options.
+You can export a Jupyter Notebook as a Python file (`.py`), a PDF, or an HTML file. To export, select **...** > **Export** on the main toolbar. You're then presented with a dropdown of file format options.
 
  ![Convert Jupyter Notebook to Python file](images/jupyter/native-toolbar-export.png)
 
@@ -319,11 +320,11 @@ To connect to a remote Jupyter server:
 
    ![Prompt to supply a Jupyter server URI](images/jupyter/enter-server-url.png)
 
-> **Note:** For added security, Microsoft recommends configuring your Jupyter server with security precautions such as SSL and token support. This helps ensure that requests sent to the Jupyter server are authenticated and connections to the remote server are encrypted. For guidance about securing a notebook server, refer to the [Jupyter documentation](https://jupyter-notebook.readthedocs.io/en/stable/public_server.html#securing-a-notebook-server).
+> **Note:** For added security, Microsoft recommends configuring your Jupyter server with security precautions such as SSL and token support. This helps ensure that requests sent to the Jupyter server are authenticated and connections to the remote server are encrypted. For guidance about securing a notebook server, refer to the [Jupyter documentation](https://jupyter-server.readthedocs.io/en/latest/operators/public-server.html).
 
 ## Data Science profile template
 
-[Profiles](https://code.visualstudio.com/docs/editor/profiles) let you quickly switch your extensions, settings, and UI layout depending on your current project or task. To help you get started with Jupyter Notebooks, you can use the [Data Science profile template](/docs/editor/profiles.md#data-science-profile-template), which is a curated profile with useful extensions, settings, and snippets. You can use a profile template as is or use it as a starting point to customize further for you own workflows.
+[Profiles](https://code.visualstudio.com/docs/configure/profiles) let you quickly switch your extensions, settings, and UI layout depending on your current project or task. To help you get started with Jupyter Notebooks, you can use the [Data Science profile template](/docs/configure/profiles.md#data-science-profile-template), which is a curated profile with useful extensions, settings, and snippets. You can use a profile template as is or use it as a starting point to customize further for you own workflows.
 
 You select a profile template through the **Profiles** > **Create Profile...** dropdown:
 

@@ -1,5 +1,5 @@
 ---
-Order: 83
+Order: 
 TOCTitle: Shrinking VS Code with name mangling
 PageTitle: Shrinking VS Code with name mangling
 MetaDescription: A look at how we cut 20% off the size of VS Code's JavaScript with name mangling.

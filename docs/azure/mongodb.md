@@ -1,76 +1,74 @@
 ---
-Order: 5
-Area: azure
-TOCTitle: MongoDB
-PageTitle: Working with MongoDB in Visual Studio Code
 ContentId: d1187f99-354f-4798-9c19-e432e4ae8572
 MetaDescription: Working with MongoDB in Visual Studio Code
-DateApproved: 11/1/2022
+DateApproved: 11/1/2025
 ---
 # Working with MongoDB
 
-Visual Studio Code has great support for working with [MongoDB](https://www.mongodb.com/what-is-mongodb) databases, whether your own instance or in [Azure with MongoDB Atlas](https://www.mongodb.com/cloud/atlas/azure-mongodb?utm_campaign=marketplace&utm_source=&utm_medium=marketplace). With the [MongoDB for VS Code](https://marketplace.visualstudio.com/items?itemName=mongodb.mongodb-vscode) extension, you can create, manage, and query MongoDB databases from within VS Code.
+Visual Studio Code has great support for working with [MongoDB](https://www.mongodb.com/what-is-mongodb) databases, whether your own instance or with [Azure DocumentDB (with MongoDB compatibility)](https://learn.microsoft.com/azure/cosmos-db/mongodb/vcore/introduction). With the [DocumentDB for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-documentdb) extension, you can create, manage, and query MongoDB databases from within VS Code.
 
 ## Install the extension
 
-MongoDB support for VS Code is provided by the [MongoDB for VS Code](https://marketplace.visualstudio.com/items?itemName=mongodb.mongodb-vscode) extension. To install the MongoDB for VS Code extension, open the Extensions view by pressing `kb(workbench.view.extensions)` and search for 'MongoDB' to filter the results. Select the **MongoDB for VS Code** extension.
+MongoDB support for VS Code is provided by the [DocumentDB for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-documentdb) extension. To install the DocumentDB for VS Code extension, open the Extensions view by pressing `kb(workbench.view.extensions)` and search for 'DocumentDB' to filter the results. Select the **DocumentDB for VS Code** extension.
 
-![Select MongoDB for VS Code](images/mongodb/install-cosmosdb-extension.png)
+![Select DocumentDB for VS Code](images/documentdb/install-documentdb-extension.png)
 
 ## Connect to MongoDB
 
-Once you've installed the MongoDB for VS Code extension, you'll notice there is a new **MongoDB** Activity Bar view. Select the MongoDB view and you'll see the MongoDB Explorer.
+Once you've installed the DocumentDB for VS Code extension, you'll notice there is a new **DocumentDB** logo in the Activity Bar view. Select the DocumentDB logo and you'll see the Explorer.
 
-![MongoDB explorer](images/mongodb/cosmosdb-explorer.png)
+![DocumentDB explorer](images/documentdb/documentdb-explorer.png)
 
-To connect to a MongoDB database, select **Add Connection** and enter the connection details for the database then **Connect**, the default is a local MongoDB server at `mongodb://127.0.0.1:27017`. You can also enter a connection string, click the "connect with a connection string" link and paste the connection string.
+To connect to a MongoDB-compatible database:
 
-![Database Connection setup](images/mongodb/attach-database-account.png)
+1. Select **Add New Connection** in the DocumentDB Connection view
 
->**Note**: Make sure your MongoDB server (mongod.exe) is running if you are connecting to a local MongoDB server.
+1. Next, choose to connect with a connection string or use Service Discovery options:
 
-Once attached, you can work with the MongoDB server, managing MongoDB Databases, Collections, and Documents.
+    * Select **Connection String**, and then enter the connection string in the connection string Quick Pick.
 
-![attached MongoDB database](images/mongodb/attached-mongodb-database.png)
+        ![Database Connection setup](images/documentdb/attach-via-connection-string.png)
 
-You can expand databases to view their collections with their schema and indexes and you can select individual MongoDB Documents to view their JSON.
+    * Select **Service Discovery**, choose your provider, and then select **Save & Connect**.
 
-![open mongodb document](images/mongodb/open-document.png)
+        ![Database Connection setup](images/documentdb/attach-via-service-discovery.png)
 
-You can also attach a MongoDB shell to the active connection, simply by right-clicking on the connection itself.
+>**Note**: If you're not already signed in to Azure in VS Code, you'll be prompted to do so. This is required to use Service Discovery.
 
-![MongoDB Connection](images/mongodb/connection.png)
+Once connected, you can work with the MongoDB server, managing MongoDB Databases, Collections, and Documents.
 
->**Note**: Make sure the MongoDB shell (`mongo` or `mongosh`) [is installed](https://docs.mongodb.com/mongodb-shell/install#mdb-shell-install) and is on your path. In the extension's settings, you can choose which shell you are using.
+You can expand databases to view their collections in JSON/ Table/ Tree view with their schema and indexes.
 
-## MongoDB Commands
+![manage mongodb database](images/documentdb/manage-database.png)
 
-There are MongoDB specific commands available in the VS Code **Command Palette** (`kb(workbench.action.showCommands)`) as well as through Explorer context menus.
+You can also attach a MongoDB shell to the active connection, simply by right-clicking on the connection itself and selecting **Launch Shell**.
 
-![mongodb commands](images/mongodb/mongodb-commands.png)
+![MongoDB Connection](images/documentdb/launch-shell.jpeg)
 
-## Using Playgrounds
+>**Note**: Make sure the MongoDB shell (`mongo` or `mongosh`) is [installed](https://docs.mongodb.com/mongodb-shell/install#mdb-shell-install) and is on your path. In the extension's settings, you can choose which shell you are using.
 
-One of the most powerful features of the VS Code MongoDB integration is **Mongo Playgrounds**. Playgrounds let you create, run, and save MongoDB commands from a VS Code editor. Create a new playground with the **MongoDB: Create MongoDB Playground** command.
+## Using Scrapbook
 
-![new mongo Playground](images/mongodb/new-mongo-scrapbook.png)
+The **DocumentDB Scrapbook** is one of the most powerful features of this extension. It allows you to write, run, and save MongoDB commands directly within a VS Code editor, helping you prototype queries and scripts
 
-In a playground, you can reference MongoDB entities and commands and you get rich IntelliSense as you type. Playgrounds are useful for prototyping database operations and queries. Execute selected lines in the playground queries with the **MongoDB: Run Selected Lines From Playground** command.
+### Create a New Scrapbook
+1. In the DocumentDB Explorer, right-click the desired collection.
 
-![mongodb Playground](images/mongodb/scrapbook.png)
+1. From the menu, click **DocumentDB Scrapbook** and select **New DocumentDB Scrapbook**.
 
-![Run Playground queries](images/mongodb/run-playground.png)
+![launch documentdb scrapbook](images/documentdb/create-scrapbook.png)
 
-## MongoDB on Azure
+In a scrapbook, you can reference MongoDB entities and commands and you get rich IntelliSense as you type. Scrapbooks are useful for prototyping database operations and queries. Execute selected lines in the scrapbook queries with **Run Command**.
 
-You can easily create a MongoDB cluster on Azure for **Free** with [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/signup?utm_campaign=marketplace&utm_source=signup&utm_medium=marketplace).
+![Run scrapbook queries](images/documentdb/run-scrapbook.png)
 
-Choose **Create a New Cluster** from the dashboard and choose **Azure** as the Cloud Provider. Once the cluster is created, connect to using the connection string provided by **MongoDB Atlas**.
+## MongoDB on Azure DocumentDB
 
-![Create Azure Cluster](images/mongodb/create-azure-cluster.png)
+You can easily create a managed MongoDB cluster on Azure for **Free** with [Azure DocumentDB](https://aka.ms/documentdb).
 
 ## Next steps
 
-* [Azure Extensions](/docs/azure/extensions.md) - The VS Code Marketplace has hundreds of extensions for Azure and the cloud.
+* [Index Advisor](https://learn.microsoft.com/azure/documentdb/index-advisor) - Learn how to optimize your MongoDB performance with Index Advisor.
+* [Azure Extensions](/docs/azure/extensions.md) - The Visual Studio Marketplace has hundreds of VS Code extensions for Azure and the cloud.
 * [Deploying to Azure](/docs/azure/deployment.md) - Learn step-by-step how to deploy your application to Azure.
 * [Working with Docker](/docs/azure/docker.md) - Put your application in a Docker container for easy reuse and deployment.

@@ -1,0 +1,16 @@
+{
+	"OrgSettings": [
+		"chat.mcp.gallery.serviceUrl",
+		"extensions.gallery.serviceUrl",
+		"extensions.allowed",
+		"chat.tools.global.autoApprove",
+		"chat.tools.eligibleForAutoApproval",
+		"chat.mcp.access",
+		"chat.extensionTools.enabled",
+		"chat.agent.enabled",
+		"chat.tools.terminal.enableAutoApprove",
+		"update.mode",
+		"telemetry.telemetryLevel",
+		"telemetry.feedback.enabled"
+	]
+}

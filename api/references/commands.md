@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: A010AEDF-EF37-406E-96F5-E129408FFDE1
-DateApproved: 05/02/2024
+DateApproved: 02/04/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Visual Studio Code built-in commands reference.
@@ -252,9 +252,12 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 * _context_ - An InlineValueContext
 * _(returns)_ - A promise that resolves to an array of InlineValue objects
 
-`vscode.open` - Opens the provided resource in the editor.
+`vscode.open` - Opens the provided resource in the editor. Can be a text or binary file, or an http(s) URL. If you need more control over the options for opening a text file, use `vscode.window.showTextDocument` instead.
 
-* _Uri_ -
+* _uri_ - Uri of a text or binary file, or an http(s) URL
+* _columnOrOptions_ - (optional) Either the column in which to open, or editor options, see `vscode.TextDocumentShowOptions`
+* _label_ - Editor label (optional)
+* _(returns)_ - no result
 
 `vscode.openWith` - Opens the provided resource with a specific editor.
 
@@ -268,6 +271,12 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 * _left_ - Left-hand side resource of the diff editor
 * _right_ - Right-hand side resource of the diff editor
 * _title_ - Human readable title for the diff editor
+* _options_ - (optional) Either the column in which to open, or editor options (see vscode.TextDocumentShowOptions)
+
+`vscode.changes` - Opens a list of resources in the changes editor to compare their contents.
+
+* _title_ - Human readable title for the changes editor
+* _resourceList_ - List of resources to compare
 
 `vscode.prepareTypeHierarchy` - Prepare type hierarchy at a position inside a document
 
@@ -295,13 +304,6 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 * _name_ - The context key name
 * _value_ - The context key value
 * _(returns)_ - no result
-
-`vscode.executeMappedEditsProvider` - Execute Mapped Edits Provider
-
-* _uri_ - Uri of a text document
-* _string_array_ - Array of string,
-* _MappedEditsContext_ - Mapped Edits Context
-* _(returns)_ - A promise that resolves to a workspace edit or null
 
 `cursorMove` - Move cursor to a logical position in the view
 

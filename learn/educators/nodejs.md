@@ -41,7 +41,7 @@ These extensions are also part of the Node.js and JavaScript Education Extension
 
 ## Classroom settings
 
-And here are his recommended settings, which help his students have consistent formatting of their code to make his life reviewing and grading their work that much easier. You can use his settings by editing the [settings file](/docs/getstarted/settings.md) and pasting these in:
+And here are his recommended settings, which help his students have consistent formatting of their code to make his life reviewing and grading their work that much easier. You can use his settings by editing the [settings file](/docs/configure/settings.md) and pasting these in:
 
 ```json
 {

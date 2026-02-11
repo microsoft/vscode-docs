@@ -1,5 +1,5 @@
 ---
-Order: 65
+Order: 
 TOCTitle: Workspace Trust
 PageTitle: Workspace Trust in Visual Studio Code
 MetaDescription: The rationale and development of the Workspace Trust feature in Visual Studio Code.

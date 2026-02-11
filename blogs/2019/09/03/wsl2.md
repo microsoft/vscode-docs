@@ -1,5 +1,5 @@
 ---
-Order: 50
+Order: 
 TOCTitle: WSL 2
 PageTitle: Using WSL 2 with Visual Studio Code
 MetaDescription: Using WSL 2 with Visual Studio Code

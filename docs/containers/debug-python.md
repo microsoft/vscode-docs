@@ -1,18 +1,15 @@
 ---
-Area: containers
 ContentId: f9ffec31-9253-4f71-a4eb-79ea7b3a8f55
-PageTitle: Configure and troubleshoot debugging of Python apps running in a Docker container
 DateApproved: 12/21/2021
-MetaDescription: How to configure and troubleshoot debugging of Python apps running in a Docker container, using Visual Studio Code.
+MetaDescription: How to configure and troubleshoot debugging of Python apps running in a container, using Visual Studio Code.
 ---
-
 # Debug Python within a container
 
-When adding Docker files to a Python project, tasks and launch configurations are added to enable debugging the application within a Docker container. To accommodate the various scenarios of Python projects, some apps may require additional configuration.
+When adding Docker files to a Python project, tasks and launch configurations are added to enable debugging the application within a container. To accommodate the various scenarios of Python projects, some apps may require additional configuration.
 
-## Configuring the Docker container entry point
+## Configuring the container entry point
 
-You can configure the entry point of the Docker container by setting properties in `tasks.json`. VS Code automatically configures the container entry point when you first use the **Docker: Add Docker Files to Workspace...** command.
+You can configure the entry point of the container by setting properties in `tasks.json`. VS Code automatically configures the container entry point when you first use the **Containers: Add Docker Files to Workspace...** command.
 
 ### Example: Configuring the entry point for a Python module
 
@@ -60,7 +57,7 @@ You can configure the entry point of the Docker container by setting properties 
 
 ## Automatically launching the browser to the entry page of the application
 
-You can select the **Docker: Python - Django** or **Docker: Python - Flask** launch configurations to automatically launch the browser to the main page of the app. This feature is enabled by default, but you can configure this behavior explicitly by setting the `dockerServerReadyAction` object in `launch.json`.
+You can select the **Containers: Python - Django** or **Containers: Python - Flask** launch configurations to automatically launch the browser to the main page of the app. This feature is enabled by default, but you can configure this behavior explicitly by setting the `dockerServerReadyAction` object in `launch.json`.
 
 This feature depends on several aspects of the application:
 
@@ -74,7 +71,7 @@ Here is an example of using `dockerServerReadyAction` to launch the browser to o
 {
   "configurations": [
     {
-      "name": "Docker: Python - Django",
+      "name": "Containers: Python - Django",
       "type": "docker",
       "request": "launch",
       "preLaunchTask": "docker-run: debug",
@@ -104,11 +101,11 @@ Here is an example of using `dockerServerReadyAction` to launch the browser to o
 - `action`: The action to take when the pattern is found. Can be `debugWithChrome` or `openExternally`.
 
 - `pattern`: If the application logs a different message than shown above, set the `pattern` property of the [dockerServerReadyAction](/docs/containers/debug-common.md#dockerserverreadyaction-object-properties) object to a [JavaScript regular expression](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Regular_Expressions) that matches that message. The regular expression should include a capture group that corresponds to the port on which the application is listening.
-- `uriFormat`: By default, the Docker extension will open the main page of the browser (however that is determined by the application). If you want the browser to open a specific page like the example above, the `uriFormat` property of the [dockerServerReadyAction](/docs/containers/debug-common.md#dockerserverreadyaction-object-properties) object should be set to a format string with two string tokens to indicate the protocol and port substitution.
+- `uriFormat`: By default, the Container Tools extension will open the main page of the browser (however that is determined by the application). If you want the browser to open a specific page like the example above, the `uriFormat` property of the [dockerServerReadyAction](/docs/containers/debug-common.md#dockerserverreadyaction-object-properties) object should be set to a format string with two string tokens to indicate the protocol and port substitution.
 
 ## How to enable hot reloading in Django or Flask apps
 
-When you select **Docker: Add Docker Files to Workspace** for Django or Flask, we provide you a Dockerfile and `tasks.json` configured for static deployment. Each time you make changes to your app code, you need to rebuild and re-run your container. Hot reloading allows you to visualize changes in your app code as your container continues to run. Enable hot reloading with these steps:
+When you select **Containers: Add Docker Files to Workspace** for Django or Flask, we provide you a Dockerfile and `tasks.json` configured for static deployment. Each time you make changes to your app code, you need to rebuild and re-run your container. Hot reloading allows you to visualize changes in your app code as your container continues to run. Enable hot reloading with these steps:
 
 ### For Django Apps
 
@@ -160,7 +157,7 @@ When you select **Docker: Add Docker Files to Workspace** for Django or Flask, w
     }
     ```
 
-1. Select the **Docker: Python – Django** launch configuration and hit `kb(workbench.action.debug.start)` to build and run your container.
+1. Select the **Containers: Python – Django** launch configuration and hit `kb(workbench.action.debug.start)` to build and run your container.
 1. Modify and save any file.
 1. Refresh the browser and validate changes have been made.
 
@@ -223,7 +220,7 @@ When you select **Docker: Add Docker Files to Workspace** for Django or Flask, w
     }
     ```
 
-1. Select the **Docker: Python – Flask** launch configuration and hit `kb(workbench.action.debug.start)` to build and run your container.
+1. Select the **Containers: Python – Flask** launch configuration and hit `kb(workbench.action.debug.start)` to build and run your container.
 1. Modify and save any file.
 1. Refresh the browser and validate changes have been made.
 
@@ -253,7 +250,7 @@ When you select **Docker: Add Docker Files to Workspace** for Django or Flask, w
 
 1. The `dockerBuild` object in the JSON allows for the following parameters:
 
-    - context: The docker build context, from which your Dockerfile is called
+    - context: The build context, from which your Dockerfile is called
     - dockerfile: The path to the Dockerfile to execute
     - tag: The name of the image to be built, with its version tag
 

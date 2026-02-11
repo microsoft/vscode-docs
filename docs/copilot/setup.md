@@ -1,66 +1,115 @@
 ---
-Order: 2
-Area: copilot
-TOCTitle: Setup
 ContentId: 37fd3bd2-4209-49f6-bec5-c544d6b1b289
-PageTitle: Set up GitHub Copilot
-DateApproved: 02/28/2024
+DateApproved: 02/04/2026
 MetaDescription: Access your GitHub Copilot subscription and set up GitHub Copilot in Visual Studio.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
 # Set up GitHub Copilot in VS Code
 
-This tutorial walks you through setting up your GitHub Copilot subscription and installing the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension in Visual Studio Code. After you complete these steps, you can get started with GitHub Copilot in VS Code.
+This guide walks you through setting up GitHub Copilot in Visual Studio Code. To use Copilot in VS Code, you need to have access to GitHub Copilot with your GitHub account.
 
-For an overview of what you can do with GitHub Copilot in VS Code, see the [GitHub Copilot Overview](/docs/copilot/overview.md).
+<video src="./images/setup/vscode-copilot-setup.mp4" poster="./images/setup/setup-copilot-sign-in.png" title="Setting up GitHub Copilot in Visual Studio Code" autoplay loop controls muted></video>
 
-## Step 1: Set up your GitHub Copilot subscription
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
+Follow a hands-on tutorial to build your first app with AI in VS Code.
 
-If you want to use GitHub Copilot, you either need an active subscription for GitHub Copilot in your personal account, or you need to be assigned a seat in a subscription managed by an organization or enterprise.
+* [Start tutorial](/docs/copilot/getting-started.md)
 
-| Account type | Instructions |
-| ------------ | ------------ |
-| Personal account | Set up a subscription to **GitHub Copilot Individual** with your personal GitHub account. You can [activate a one-time 30-day trial to evaluate GitHub Copilot](https://github.com/github-copilot/signup).<br/><br/>If you didn't yet activate your free trial for Copilot, the GitHub Copilot extension notifies you in VS Code.<br/>![Copilot sign up notification in VS Code](images/setup/copilot-access-toast.png) |
-| Member of an organization | You need to be assigned a seat by an organization owner.<br/><br/>You can request access to **GitHub Copilot Business** from the [GitHub Copilot settings](https://github.com/settings/copilot) for your personal account.<br/>![Screenshot of Copilot settings, showing how to request access from an organization.](images/setup/request-cfb-access-settings.png) |
+</div>
 
-Learn more about [billing for GitHub Copilot](https://docs.github.com/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot).
+Follow these steps to get started with Copilot in VS Code:
 
-## Step 2: Install the GitHub Copilot extension
+1. Hover over the Copilot icon in the Status Bar and select **Use AI Features**.
 
-You use the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension to power your artificial intelligence (AI) suggestions in VS Code.
+1. Choose a sign-in method and follow the prompts.
 
-> <a class="install-extension-btn" href="vscode:extension/GitHub.copilot">Install the GitHub Copilot extension</a>
+    * If you already have a Copilot subscription for your account, VS Code will use that subscription.
 
-When you install the GitHub Copilot extension, the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension is also installed.
+    * If you don't have a Copilot subscription yet, you'll be signed up for the [Copilot Free plan](https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-free/about-github-copilot-free) and get a monthly limit of inline suggestions and chat interactions. Learn more about the different [GitHub Copilot plans](https://docs.github.com/en/copilot/get-started/plans).
 
-## Step 3: Sign in to GitHub
+1. Start using Copilot in VS Code!
 
-To use GitHub Copilot in Visual Studio Code, you must be signed into Visual Studio Code with the same GitHub account that has access to GitHub Copilot.
+    Learn the basics with the [Copilot Quickstart](/docs/copilot/getting-started.md).
 
-If you didn't previously authorize VS Code in your GitHub account, you're prompted to sign in to GitHub in VS Code:
+1. Type `/init` in a chat session to set up your project for AI.
 
-![VS Code notification to sign into the Copilot extension](images/setup/copilot-auth-toast.png)
+    The `/init` command analyzes your codebase and creates [custom instructions](/docs/copilot/customization/custom-instructions.md) to help the AI generate code that matches your coding practices.
 
-In your browser, GitHub requests the necessary permissions for GitHub Copilot. To approve these permissions, select **Authorize Visual Studio Code**.
+> [!IMPORTANT]
+> Telemetry in your free version of GitHub Copilot is currently enabled. By default, code suggestions that match public code, including code references in the VS Code and [github.com](http://github.com/copilot) experience, are allowed. You can opt out of telemetry data collection by disabling telemetry in VS Code by setting `setting(telemetry.telemetryLevel)` to `off`, or you can adjust both telemetry and code suggestion settings in [Copilot Settings](https://github.com/settings/copilot).
 
-> **Note**: If your Copilot subscription is associated with another GitHub account, sign out of your GitHub account in VS Code, and sign in with another account. Use the **Accounts** menu in the Activity bar for signing out of your current GitHub account.
+## Use Copilot with a GHE account
 
-## Validation: Check the Copilot status
+If your Copilot subscription is associated with a GitHub Enterprise (GHE) account, you can sign in to Copilot in VS Code with your GHE credentials.
 
-Now that you've signed up for GitHub Copilot and activated the extension, let's verify that it's actually active.
+1. If you haven't already, hover over the Copilot icon in the Status Bar and select **Use AI Features**.
 
-1. Open Visual Studio Code.
+1. In the sign in dialog, choose **Continue with GHE.com** and provide your GHE instance URL and credentials.
 
-1. Notice the GitHub Copilot icon in the status bar, which indicates that GitHub Copilot is active.
+If you need to switch between a GitHub.com account and a GHE account, see [Use a different GitHub account per workspace or profile](#use-a-different-github-account-per-workspace-or-profile) for instructions.
 
-    ![Screenshot showing the VS Code status bar, highlighting the Copilot icon that indicates Copilot is active.](./images/setup/vscode-status-bar-copilot-active.png)
+## Use a different GitHub account with Copilot
 
-1. Select the GitHub Copilot icon to open the Copilot status.
+If your Copilot subscription is associated with another GitHub account, follow these steps to sign out of your GitHub account in VS Code, and sign in with another account.
 
-    The GitHub Copilot status should show **Ready**.
+1. Select the **Accounts** menu in the Activity Bar, and then select **Sign out** for the account you're currently signed in with.
 
-    ![Screenshot showing the GitHub Copilot status menu in VS Code, indicating that the Copilot status is ready.](./images/setup/copilot-status-menu.png)
+    ![Accounts menu in VS Code, showing the option to sign out of the current GitHub account.](images/setup/vscode-accounts-menu-signout.png)
+
+1. Sign in to your GitHub account using any of the following methods:
+
+    * Select **Sign in to use Copilot** from the Copilot menu in the Status Bar.
+
+        ![Sign in to use Copilot from the Copilot status menu.](images/setup/copilot-signedout-sign-in.png)
+
+    * Select the **Accounts** menu in the Activity Bar, and then select **Sign in with GitHub to use GitHub Copilot**.
+
+        ![Accounts menu in VS Code, showing the option to sign in with GitHub to use GitHub Copilot.](images/setup/vscode-accounts-menu.png)
+
+    * Run the **GitHub Copilot: Sign in** command in the Command Palette (`kb(workbench.action.showCommands)`).
+
+## Use a different GitHub account per workspace or profile
+
+You can use different GitHub accounts for Copilot per VS Code workspace or profile. This is useful if you use Copilot with different accounts for work and personal projects, or if you want to use different accounts for different extensions that use GitHub authentication.
+
+Follow these steps to configure which GitHub account to use for Copilot. This configuration is saved per workspace and per profile.
+
+* For GitHub.com accounts:
+
+    1. In the Accounts menu in the Activity Bar, select **Manage Extension Account Preferences**
+    1. Select **GitHub Copilot Chat** from the list of extensions
+    1. Choose the GitHub account you want to use for Copilot in the current workspace and profile
+
+* For GHE.com accounts:
+
+    > [!TIP]
+    > If you only want to use a GHE account for Copilot, follow the steps in [Use Copilot with a GHE account](#use-copilot-with-a-ghe-account) to sign in with your GHE account.
+
+    1. Run **Preferences: Open User Settings (JSON)** or **Preferences: Open Workspace Settings (JSON)** from the Command Palette (`kb(workbench.action.showCommands)`)
+
+    1. Add the following setting to specify GitHub Enterprise as the authentication provider for Copilot:
+
+        ```json
+        "github.copilot.advanced": {
+            "authProvider": "github-enterprise"
+        }
+        ```
+
+    1. Re-sign in to your GitHub Enterprise account if you're not already signed in
+
+## Remove AI features from VS Code
+
+You can disable the built-in AI features in VS Code with the `setting(chat.disableAIFeatures)` setting, similar to how you configure other features in VS Code. This disables and hides features like chat or inline suggestions in VS Code and disables the Copilot extensions. You can configure the setting at the workspace or user level.
+
+Alternatively, use the **Learn How to Hide AI Features** action from the Chat menu in the title bar to access the setting.
+
+> [!NOTE]
+> If you have previously disabled the built-in AI features, your choice is respected upon updating to a new version of VS Code.
+
+## Disable AI features for a workspace
+
+To disable AI features for a specific workspace, configure the `setting(chat.disableAIFeatures)` setting in workspace settings. This setting is available in the Settings editor (`kb(workbench.action.openSettings)`), or you can edit the `settings.json` file in the workspace.
 
 ## Next steps
 
-You've successfully set up Copilot in VS Code with your GitHub Copilot subscription. Continue your journey and discover the key features of GitHub Copilot in VS Code with the [Copilot Getting Started Tutorial](/docs/copilot/getting-started.md).
+* Continue with the [Quickstart for using AI](/docs/copilot/getting-started.md) to discover the key features for AI-powered development in VS Code.

@@ -1,5 +1,5 @@
 ---
-Order: 80
+Order: 
 TOCTitle: VS Code and Copilot
 PageTitle: Visual Studio Code and GitHub Copilot AI
 MetaDescription: Learn about the Visual Studio Code team's experience and future with GitHub Copilot artificial intelligence

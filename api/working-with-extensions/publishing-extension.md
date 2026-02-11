@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 7EA90618-43A3-4873-A9B5-61CC131CE4EE
-DateApproved: 05/02/2024
+DateApproved: 02/04/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to publish Visual Studio Code extensions to the public Marketplace and share them with other developers.
@@ -47,7 +47,8 @@ $ vsce publish
 
 ---
 
-**Note:** Due to security concerns, `vsce` will not publish extensions that contain user-provided SVG images.
+> [!NOTE]
+> Due to security concerns, `vsce` will not publish extensions that contain user-provided SVG images.
 
 The publishing tool checks the following constraints:
 
@@ -64,9 +65,13 @@ Visual Studio Code uses [Azure DevOps](https://azure.microsoft.com/services/devo
 
 ### Get a Personal Access Token
 
-First off, follow the documentation to [create your own organization](https://learn.microsoft.com/azure/devops/organizations/accounts/create-organization) in Azure DevOps. In the following examples, the organization's name is `vscode`, you should use your new organization name as appropriate. Note that the organization's name doesn't necessarily have to be same as your publisher name.
+You can create a Personal Access Token via the Azure DevOps portal. To create a Personal Access Token:
 
-1. From your organization's home page (for example: `https://dev.azure.com/vscode`), open the User settings dropdown menu next to your profile image and select **Personal access tokens**:
+1. If you don't have an Azure DevOps organization yet, follow the steps in the [Create an organization](https://learn.microsoft.com/azure/devops/organizations/accounts/create-organization) article.
+
+1. Go to the [Azure DevOps portal](https://go.microsoft.com/fwlink/?LinkId=307137), and select your organization.
+
+1. Open the User settings dropdown menu next to your profile image and select **Personal access tokens**:
 
     ![Personal settings menu](images/publishing-extension/menu-pat.png)
 
@@ -103,7 +108,7 @@ To create a publisher:
     - **ID**: the **unique** identifier for your publisher in Marketplace that will be used in your extension URLs. ID cannot be changed once created.
     - **Name**: the **unique** name of your publisher that will be displayed in Marketplace with your extensions. This can be your company or brand name.
 
-    Below is an example of publisher identifier and name for the Docker extension:
+    Below is an example of publisher identifier and name for the Python extension:
 
     ![Example of publisher identifier and name](images/publishing-extension/publisher-id-and-name.png)
 
@@ -160,7 +165,8 @@ vsce publish 1.1.0
 
 Both commands will first modify the extension's `package.json` [version](/api/references/extension-manifest#fields) attribute and then publish it with the updated version.
 
-> **Note:** If you run `vsce publish` in a git repo, it will also create a version commit and tag via [npm-version](https://docs.npmjs.com/cli/version#description). The default commit message will be the extension's version, but you can supply a custom commit message using the `-m` flag. (The current version can be referenced from the commit message with `%s`).
+> [!NOTE]
+> If you run `vsce publish` in a git repo, it will also create a version commit and tag via [npm-version](https://docs.npmjs.com/cli/version#description). The default commit message will be the extension's version, but you can supply a custom commit message using the `-m` flag. (The current version can be referenced from the commit message with `%s`).
 
 ## Unpublishing extensions
 
@@ -172,7 +178,8 @@ Once unpublished, the extension's Availability status is changed to **Unpublishe
 
 ![Unpublished extension](images/publishing-extension/unpublished-extension.png)
 
-> **Note:** When you unpublish an extension, the Marketplace will preserve the extension statistics.
+> [!NOTE]
+> When you unpublish an extension, the Marketplace preserves the extension statistics. The extension remains publicly discoverable and available via an existing API.
 
 ## Removing extensions
 
@@ -190,11 +197,12 @@ You can remove an extension in two ways:
 
 In both cases, you will be prompted to confirm the removal by typing the extension name. Note that the removal action is **irreversible**.
 
-> **Note:** When you unpublish an extension, the Marketplace will remove any extension statistics. You may want to update your extension rather than unpublish it.
+> [!NOTE]
+> When you remove an extension, the Marketplace also removes any extension statistics. You may want to unpublish your extension rather than remove it.
 
 ## Deprecating extensions
 
-You can just deprecate an extension or deprecate in favor of another extension or a setting. The deprecated extension will be rendered with a dimmed strikethrough text in the UI:
+You can just deprecate an extension or deprecate in favor of another extension or a setting. The deprecated extension will be rendered with a dimmed strike-through text in the UI:
 
 ![Rust extension shown as deprecated in extension search](images/publishing-extension/deprecated-extension.png)
 
@@ -218,7 +226,8 @@ VS Code will not automatically migrate or uninstall already installed deprecated
 
 To mark your extension as deprecated, please leave a comment in the [Deprecated extensions](https://github.com/microsoft/vscode-discussions/discussions/1) discussion thread.
 
-> **Note:** For now, extensions are not rendered as deprecated in the Marketplace. This functionality will be available later.
+> [!NOTE]
+> For now, extensions are not rendered as deprecated in the Marketplace. This functionality will be available later.
 
 ## Packaging extensions
 
@@ -230,31 +239,31 @@ You can choose to package your extension if you want to:
 
 Packaging means creating a `.vsix` file that contains your extension. This file can then be installed in VS Code. Some extensions publish `.vsix` files as a part of their GitHub releases.
 
-For extension authors, to package an extension, run the following command in your extension's root folder:
+To package an extension, run the following command in your extension's root folder:
 
 ```bash
 vsce package
 ```
 
-This command will create a `.vsix` file in your extension's root folder. For example, `my-extension-0.0.1.vsix`.
+This command creates a `.vsix` file in your extension's root folder. For example, `my-extension-0.0.1.vsix`.
 
 For users, to install a `.vsix` file in VS Code:
 
-1. Go to the Extensions view.
-1. Click **Views and More Actions...**
-1. Select **Install from VSIX...**
+* From the Extensions view in VS Code:
 
-or
+  1. Go to the Extensions view.
+  1. Select **Views and More Actions...**
+  1. Select **Install from VSIX...**
 
-in your terminal, run the following command:
+* From the command line:
 
-```bash
-# if you use VS Code
-code --install-extension my-extension-0.0.1.vsix
+  ```bash
+  # if you use VS Code
+  code --install-extension my-extension-0.0.1.vsix
 
-# if you use VS Code Insiders
-code-insiders --install-extension my-extension-0.0.1.vsix
-```
+  # if you use VS Code Insiders
+  code-insiders --install-extension my-extension-0.0.1.vsix
+  ```
 
 ## Your extension folder
 
@@ -293,19 +302,23 @@ Here are some tips for making your extension look great on the Marketplace:
 
 - Add a `README.md` file to the root of your extension with the content you want to show on the extension's Marketplace page.
 
-  > **Note:** If you have a `repository` property in your `package.json` that points to a public GitHub repository, `vsce` will automatically detect it and adjust relative links accordingly, using the `main` branch by default. You can override this with the `--githubBranch` flag when running `vsce package` or `vsce publish`. You can also set base URLs for links and images with the `--baseContentUrl` and `--baseImagesUrl` flags.
+  > [!NOTE]
+  > If you have a `repository` property in your `package.json` that points to a public GitHub repository, `vsce` will automatically detect it and adjust relative links accordingly, using the `main` branch by default. You can override this with the `--githubBranch` flag when running `vsce package` or `vsce publish`. You can also set base URLs for links and images with the `--baseContentUrl` and `--baseImagesUrl` flags.
 
 - Add a `LICENSE` file to the root of your extension with the information about the extension's license.
 - Add a `CHANGELOG.md` file to the root of your extension with the information about the history of the changes for your extension.
 - Add a `SUPPORT.md` file to the root of your extension with the information about how to get support for your extension.
 - Set the banner background color on the Marketplace page by specifying the corresponding hex value via the `galleryBanner.color` property in `package.json`.
-- Set an icon by specifying a relative path to a 128x128px PNG file included in your extension via the `icon` property in `package.json`.
+- Set an icon by specifying a relative path to a PNG file of at least 128x128px included in your extension via the `icon` property in `package.json`.
 
 See more information in [Marketplace Presentation Tips](/api/references/extension-manifest#marketplace-presentation-tips).
 
 ### Verify a publisher
 
 You can become a **verified publisher** by verifying ownership of an [eligible domain](#eligible-domains) associated with your brand or identity. Once your publisher is verified, the Marketplace will add a verified badge to your extension details.
+
+#### Prerequisites
+To become verified, a publisher must have one or more extensions on the VS Marketplace for a minimum of 6 months, and the registration of the domain must also be at least 6 months old. Please wait until these criteria are met before applying for verification.
 
 ![Verified publisher indicators in VS Code](images/publishing-extension/verified-publisher.png)
 
@@ -336,13 +349,15 @@ To verify a publisher:
 
    ![Validation submitted](images/publishing-extension/validation-submitted.png)
 
-   Once your TXT record has been validated, the Marketplace team will review your request and grant verification within 5 business days.
+   Once your TXT record has been validated, the Marketplace team will review your request and let you know the result within 5 business days. The validation includes, but is not limited to: domain, website and extensions [prerequisites for track record](#prerequisites), content eligibility, legitimacy, trust and positive reputation.
 
-Once verified, you will also see the corresponding badge next to your publisher name in the Visual Studio Marketplace publisher management page:
+If validation is passed, you will see the corresponding badge next to your publisher name in the Visual Studio Marketplace publisher management page:
 
 ![Verified publisher manage](images/publishing-extension/verified-publisher-manage.png)
 
-> **Note**: Any changes to the publisher display name will revoke the verified badge.
+> **Notes**:
+> - Any changes to the publisher display name will revoke the verified badge.
+> - Any future [Terms of Use](https://cdn.vsassets.io/v/M190_20210811.1/_content/Microsoft-Visual-Studio-Marketplace-Terms-of-Use.pdf) or above mentioned validation violations from the publisher will revoke the verified badge.
 
 ### Eligible domains
 
@@ -367,7 +382,8 @@ To show a pricing label, add the `pricing` property to your `package.json`. For 
 
 Allowed values are: `Free` and `Trial` (case-sensitive). When the `pricing` property is not specified, the default value is `Free`.
 
->**Note:** Make sure to use the `vsce` version >= `2.10.0` when publishing your extension for the pricing label to work.
+> [!NOTE]
+> Make sure to use the `vsce` version >= `2.10.0` when publishing your extension for the pricing label to work.
 
 ### Extension Sponsor
 
@@ -381,7 +397,8 @@ To show a sponsor link, add the `sponsor` property to your `package.json`. For e
 }
 ```
 
-> **Note:** Make sure to use the `vsce` version >= `2.9.1` when publishing your extension for sponsorship to work.
+> [!NOTE]
+> Make sure to use the `vsce` version >= `2.9.1` when publishing your extension for sponsorship to work.
 
 The sponsor link will appear on your extension's page in Marketplace and VS Code in the extension details header:
 
@@ -401,7 +418,8 @@ You can create a `.vscodeignore` file to prevent some files from being included 
 
 You should ignore all files not needed at runtime. For example, if your extension is written in TypeScript, you should ignore all `**/*.ts` files, like in the example above.
 
-**Note:** Development dependencies listed in `devDependencies` will be automatically ignored, so you don't need to add them explicitly.
+> [!NOTE]
+> Development dependencies listed in `devDependencies` will be automatically ignored, so you don't need to add them explicitly.
 
 ### Pre-publish step
 
@@ -434,7 +452,7 @@ vsce package --pre-release
 vsce publish --pre-release
 ```
 
-We only support `major.minor.patch` for extension versions, `semver` pre-release tags are **not supported**. So, if you publish a `major.minor.patch-tag` release to the Marketplace, it will be treated as `major.minor.patch`, and the `tag` will be ignored. Versions must be different between pre-release and regular releases. That is, if `1.2.3` is uploaded as a pre-release, the next regular release must be uploaded with a distinct version, such as `1.2.4`. Full `semver` support will be available in the future.
+We only support `major.minor.patch` for extension versions, `semver` pre-release tags are **not supported**. Versions must be different between pre-release and regular releases. That is, if `1.2.3` is uploaded as a pre-release, the next regular release must be uploaded with a distinct version, such as `1.2.4`. Full `semver` support will be available in the future.
 
 VS Code will automatically update extensions to the highest version available, so even if a user opted-into a pre-release version and there is an extension release with a higher version, the user will be updated to the released version. So, we recommend that extensions use `major.EVEN_NUMBER.patch` for release versions and `major.ODD_NUMBER.patch` for pre-release versions. For example: `0.2.*` for release and `0.3.*` for pre-release.
 
@@ -442,7 +460,8 @@ If extension authors do not want their pre-release users to be updated to the re
 
 Pre-release extensions are supported after VS Code version `1.63.0`, so all pre-release extensions should have the `engines.vscode` value in their `package.json` set to `>= 1.63.0`.
 
-> **Note:** Extensions that already have a separate standalone pre-release extension should reach out to the VS Code team to enable the automatic uninstall of the outdated separate extension and install the pre-release version of the main extension.
+> [!NOTE]
+> Extensions that already have a separate standalone pre-release extension should reach out to the VS Code team to enable the automatic uninstall of the outdated separate extension and install the pre-release version of the main extension.
 
 ### Platform-specific extensions
 
@@ -481,15 +500,15 @@ Managing multiple platform-specific VSIXs might get overwhelming, so we suggest 
 
 ## Next steps
 
-- [Extension Marketplace](/docs/editor/extension-marketplace) - Learn more about VS Code's public Extension Marketplace.
+- [Extension Marketplace](/docs/configure/extensions/extension-marketplace) - Learn more about VS Code's public Extension Marketplace.
 - [Testing Extensions](/api/working-with-extensions/testing-extension) - Add tests to your extension project to ensure high quality.
 - [Bundling Extensions](/api/working-with-extensions/bundling-extension) - Improve load times by bundling your extension files with webpack.
 
 ## Common questions
 
-### I get a "You exceeded the number of allowed tags of 10" error when I try to publish my extension?
+### I get a "You exceeded the number of allowed tags of 30" error when I try to publish my extension?
 
-The Visual Studio Marketplace does not allow an extension package to have more than 10 `keywords` in the `package.json`. Keep the number of keywords/tags to less than 10 to avoid this error.
+The Visual Studio Marketplace does not allow an extension package to have more than 30 `keywords` in the `package.json`. Limit the number of keywords/tags to maximum 30 to avoid this error.
 
 ### I get 403 Forbidden (or 401 Unauthorized) error when I try to publish my extension?
 
@@ -520,3 +539,7 @@ The same rule applies for the [display name](/api/references/extension-manifest)
 ### What package managers are supported?
 
 You can either use npm or yarn v1 to manage your extension's dependencies.
+
+### I need help with my VS Marketplace account or support in publishing an extension?
+
+You can reach out to the VS Marketplace support team by signing in at [Manage Publishers & Extensions](https://marketplace.visualstudio.com/manage) and clicking on the ‘Contact Microsoft’ link at the top right.

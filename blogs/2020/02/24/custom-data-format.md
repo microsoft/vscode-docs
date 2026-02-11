@@ -1,5 +1,5 @@
 ---
-Order: 54
+Order: 
 TOCTitle: Custom Data Format
 PageTitle: "Custom Data Format: Evolving HTML and CSS language features"
 MetaDescription: "Custom Data Format: Evolving HTML and CSS language features"
@@ -46,7 +46,7 @@ To get started, users can write a JSON file `html.html-data.json`:
 }
 ```
 
-Then define a `html.customData` value in your user or workspace [settings](/docs/getstarted/settings.md) pointing to that data file:
+Then define a `html.customData` value in your user or workspace [settings](/docs/configure/settings.md) pointing to that data file:
 
 ```json
 {

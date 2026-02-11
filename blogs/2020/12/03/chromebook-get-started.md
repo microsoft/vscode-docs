@@ -1,5 +1,5 @@
 ---
-Order: 61
+Order: 
 TOCTitle: VS Code on Chromebook
 PageTitle: Coding and learning with VS Code on Chromebooks
 MetaDescription: Installing Visual Studio Code on Chromebooks with Crostini and getting started with coding and learning

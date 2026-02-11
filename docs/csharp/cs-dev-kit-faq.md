@@ -1,13 +1,8 @@
 ---
-Order: 12
-Area: csharp
-TOCTitle: FAQ
 ContentId: edd2c270-152c-419d-b5d9-06f2f95979cd
-PageTitle: C# Dev Kit extension FAQ
 DateApproved: 5/3/2024
 MetaDescription: C# Dev Kit extension Frequently Asked Questions (FAQ)
 ---
-
 # C# Dev Kit FAQ
 
 Use this FAQ (Frequently Asked Questions) topic to learn more about the C# Dev Kit extension and troubleshoot issues you may be experiencing.
@@ -65,7 +60,7 @@ No. C# Dev Kit is closed source but depends upon the C# for VS Code extension, w
 
 ### How can I contribute?
 
-The C# extension, which is a part of the C# Dev Kit, is fully open source and is subject to [these license terms](https://devdiv.visualstudio.com/DevDiv/_git/vscode-csharp-next?path=/RuntimeLicenses/license.txt). The source code to this extension is available on [https://github.com/dotnet/vscode-csharp](https://github.com/dotnet/vscode-csharp) and licensed under the MIT license.
+The C# extension, which is a part of the C# Dev Kit, is fully open source and is subject to [these license terms](https://aka.ms/vs/csdevkit/license). The source code to this extension is available on [https://github.com/dotnet/vscode-csharp](https://github.com/dotnet/vscode-csharp) and licensed under the MIT license.
 
 This project has adopted the code of conduct defined by the [Contributor Covenant](https://www.contributor-covenant.org) to clarify expected behavior in our community. For more information, see the [.NET Foundation Code of Conduct](https://dotnetfoundation.org/about/policies/code-of-conduct). By signing the [CLA](https://cla.dotnetfoundation.org/), the community is free to use your contribution to .NET Foundation projects.
 
@@ -75,7 +70,7 @@ This project has adopted the code of conduct defined by the [Contributor Covenan
 
 Note that, depending on your network speed, installing the .NET Core runtime might take some time. By default, the installation terminates unsuccessfully if it takes longer than 4.5 minutes to finish. If you believe this is too little (or too much) time to allow for the download, you can change the timeout value by setting `dotnetAcquisitionExtension.installTimeoutValue` to a custom value.
 
-[Learn more about configuring VS Code settings](/docs/getstarted/settings.md) and see below for an example of a custom timeout in a `settings.json` file. In this example, the custom timeout value is 180 seconds, or 3 minutes:
+[Learn more about configuring VS Code settings](/docs/configure/settings.md) and see below for an example of a custom timeout in a `settings.json` file. In this example, the custom timeout value is 180 seconds, or 3 minutes:
 
 ```json
 {
@@ -183,6 +178,12 @@ C# Dev Kit also requires that it has built your project successfully before test
 
 Once you have validated that your test project is part of the solution, build your solution by right-clicking on the solution in the Solution Explorer and select **Build** or use `kb(workbench.action.tasks.build)`. Once the build has been completed, your tests will appear in the Test Explorer panel.
 
+If your tests are still not appearing, consider the following additional checks:
+- **Supported .NET Core SDK**: Ensure you are using a supported .NET Core SDK for your platform and machine. Some SDKs do not work on specific operating systems or architectures. For more information, check the official .NET download page: [https://dotnet.microsoft.com/en-us/download](https://dotnet.microsoft.com/en-us/download).
+- **Valid SDK installation**: Verify that a valid SDK installation is detected. You can [enable diagnostic logging](#how-do-i-collect-logs-for-troubleshooting-issues-with-test-explorer) to check which SDK is detected for your .NET project. Note that .NET SDKs installed via unsupported tools like ASDF or [Mise](https://mise.jdx.dev/) may not be detected, as they deviate from Microsoft’s official installation methods. We recommend following the [official instructions](https://dotnet.microsoft.com/en-us/download).
+- **Build output**: Confirm that the build is complete and has generated the corresponding output binaries, such as `.dll` or `.exe` files.
+- **Project loading**: Ensure all projects have finished loading. In the Solution Explorer, look for a test icon next to test projects to confirm they are detected.
+
 ### My tests appear in the Test Explorer panel, but I cannot debug them
 
 Make sure that your tests are targeting NET Core. C# Dev Kit does not support .NET Framework projects, although .NET Framework projects may load and appear to work. The debugger in VS Code does not support .NET Framework.
@@ -192,6 +193,22 @@ Make sure that your tests are targeting NET Core. C# Dev Kit does not support .N
 C# Dev Kit requires that it has built your project successfully before tests will appear in the Test Explorer panel.
 
 Build your solution by right-clicking on the solution in the Solution Explorer and select **Build** or `kb(workbench.action.tasks.build)`. Once the build has been completed, your tests will appear in the Test Explorer panel.
+
+### How do I collect logs for troubleshooting issues with Test Explorer?
+
+If you are encountering issues with Test Explorer, you can enable diagnostic logging to gather more information for troubleshooting:
+
+1. Increase Test Explorer verbosity:
+    Navigate to the C# Dev Kit settings and increase the Test Explorer Verbosity setting from `minimal` to `diagnostic`. This will generate more detailed logs.
+2. Check the Output Window:
+    Open the Output window in Visual Studio Code, and select **C# Dev Kit - Test Explorer** from the dropdown. Diagnostic messages will appear with a `[dev]` prefix.
+3. Collect the following information:
+   When reporting an issue, ensure you include:
+   - The diagnostic logs from the Output window.
+   - Your operating system and version (for example, Windows 10, macOS 13).
+   - The version of the C# Dev Kit extension you are using. Go to the Extensions view, and hover over the extension to view the version information.
+
+This information will help in diagnosing and resolving the issue more efficiently.
 
 ## Debugger
 

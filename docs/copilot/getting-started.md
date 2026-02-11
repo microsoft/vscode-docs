@@ -1,157 +1,275 @@
 ---
-Order: 3
-Area: copilot
-TOCTitle: Getting Started Tutorial
 ContentId: 37fd3bd2-4209-49f6-bec5-c544d6b1b289
-PageTitle: GitHub Copilot getting started
-DateApproved: 05/02/2024
-MetaDescription: Get started with GitHub Copilot in Visual Studio Code and create your first AI-powered suggestions in the editor.
+DateApproved: 02/04/2026
+MetaDescription: Build your first web application with GitHub Copilot in VS Code. Learn inline suggestions, agents, inline chat, smart actions, and how to personalize your AI coding experience.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
-# Getting started with GitHub Copilot in VS Code
+# Get started with GitHub Copilot in VS Code
 
-This tutorial walks you through the key features of GitHub Copilot in Visual Studio Code. Learn how to get started with the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension to get AI-powered code suggestions in the editor, use chat conversations to refactor your code, and fix code errors with smart actions.
+GitHub Copilot transforms how you write code in Visual Studio Code. In this hands-on tutorial, you build a complete task management web application while discovering VS Code's AI capabilities: intelligent inline suggestions, autonomous feature development with agents, precise editing with inline chat, integrated smart actions, and powerful customization options.
 
-> **Note:** While we're using TypeScript for this tutorial, please note that Copilot is also trained on numerous other languages and a wide variety of frameworks.
+By the end of this tutorial, you'll have both a working web application and a personalized AI coding setup that adapts to your development style.
 
-For an overview of what you can do with GitHub Copilot in VS Code, see the [GitHub Copilot Overview](/docs/copilot/overview.md).
+<div class="docs-action" data-show-in-doc="true" data-show-in-sidebar="true" title="Create the sample app">
+Use chat in VS Code to generate the sample application in one go.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/2q0BoioYSxQ" title="GitHub Copilot Best Practices (what not to do)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+* [Open in VS Code](vscode://GitHub.Copilot-Chat/chat?agent=agent%26prompt=%23newWorkspace%20task%20manager%20web%20application%20with%20the%20ability%20to%20add%2C%20delete%2C%20and%20mark%20tasks%20as%20completed.%20Add%20the%20code%2C%20custom%20instructions%2C%20and%20all%20custom%20agent%20definitions%20to%20this%20new%20workspace%20as%20described%20in%20https%3A%2F%2Fcode.visualstudio.com%2Fdocs%2Fcopilot%2Fgetting-started%0AAsk%20the%20user%20which%20tech%20stack%20they%20want%20to%20use.)
+
+</div>
 
 ## Prerequisites
 
-* To use GitHub Copilot in VS Code, you must have the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension. When you install this extension, the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension is also installed.
+* VS Code installed on your machine. Download it from the [Visual Studio Code website](https://code.visualstudio.com/).
 
-* To use GitHub Copilot, you must have an active subscription for GitHub Copilot in your personal account, or you need to be assigned a seat by your organization.
+* Access to GitHub Copilot. Follow these steps to [Set up GitHub Copilot in VS Code](/docs/copilot/setup.md).
 
-Follow these steps to [set up GitHub Copilot in VS Code](/docs/copilot/setup.md) by signing up for a subscription and installing the Copilot extension in VS Code.
+    > [!TIP]
+    > If you don't have a Copilot subscription, you can sign up to use Copilot for free directly from within VS Code and get a monthly limit of inline suggestions and chat interactions.
 
-## Get your first code suggestion
+## Step 1: Experience inline suggestions
 
-Now that you've signed up for Copilot and activated the extension, let's see its assistance in action!
+AI-powered inline suggestions appear as you type, helping you write code faster and with fewer errors. Let's start building the foundation of your task manager.
 
-To get started with GitHub Copilot in VS Code, you don't have to do anything special. As you're typing code in the editor, Copilot automatically presents you code suggestions in the editor to help you code more efficiently.
+1. Create a new folder for your project and open it in VS Code.
 
-1. Open Visual Studio Code and create a new TypeScript file `Calculator.ts`.
+1. Create a new file called `index.html`.
 
-1. In the TypeScript file, start typing the following class definition.
+1. Start typing the following and, as you type, VS Code provides inline suggestions (_ghost text_):
 
-    ```typescript
-    class Calculator
+    ```html
+    <!DOCTYPE html>
     ```
 
-    Copilot automatically suggests a method for our `Calculator` class in gray dimmed text (ghost text). In our example, the `add` method is suggested. The exact suggestions can vary.
+    ![Screenshot showing Copilot suggesting HTML structure inline suggestion.](./images/getting-started/html-completion.png)
 
-    ![Screenshot of VS Code editor, showing Copilot suggesting the `add` method inside the `Calculator` class.](./images/getting-started/copilot-code-completion.png)
+    You might see different suggestions because large language models are nondeterministic.
 
-1. To accept the suggestion, press the `kbstyle(Tab)` key.
+1. Press `kbstyle(Tab)` to accept the suggestion.
 
-    Congratulations! You've just accepted your first AI-powered inline suggestion. As you continue typing, Copilot updates the inline suggestion accordingly.
+    Congratulations! You've just accepted your first AI-powered inline suggestion.
 
-1. For any given input, there might be multiple suggestions. Type the following inside the class to add a `fibonacci` method:
+1. Continue building your HTML structure. Inside the `<body>` tag, start typing:
 
-    ```typescript
-    fibonacci(n: number): number {
+    ```html
+    <div class="container">
+        <h1>My Task Manager</h1>
+        <form id="task-form">
     ```
 
-1. Hover over the suggestion in the editor and notice that there are multiple suggestions.
+    Notice how VS Code continues suggesting relevant HTML elements as you build your application structure.
 
-    ![Screenshot of VS Code editor, showing Copilot giving multiple suggestions for `fibonacci` when hovering over it.](./images/getting-started/copilot-code-completion-multiple.png)
+1. If you see multiple suggestions, hover over the ghost text to see navigation controls, or use `kb(editor.action.inlineSuggest.showNext)` and `kb(editor.action.inlineSuggest.showPrevious)` to cycle through options.
 
-    You can use the arrow controls or use the keybindings to show the next (`kb(editor.action.inlineSuggest.showNext)`) or previous (`kb(editor.action.inlineSuggest.showPrevious)`) suggestion.
+    ![Screenshot showing inline suggestion navigation controls.](./images/getting-started/inline-suggestion-navigation.png)
 
-AI-powered code completions can help you with generating boilerplate or repetitive code, letting you stay in the developer flow and focus on more complex coding tasks.
+Inline suggestions work automatically as you type, learning from your patterns and the context of your project. They're particularly helpful for writing boilerplate code, HTML structures, and repetitive patterns.
 
-## Refactor your code through AI chat
+## Step 2: Build complete features with agents
 
-As you work on an existing codebase, you often need to refactor or improve existing code. With the [Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension, you can use AI-driven chat conversations in VS Code to ask specific tasks about your code.
+AI Agents are VS Code's most powerful AI capability. Given a natural language prompt, they autonomously plan and implement complex features across multiple files. Let's use them to create the core functionality of your task manager application.
 
-Let's use Copilot Chat to help us with generating and refactoring code.
+1. Open the Chat view by pressing `kb(workbench.action.chat.open)` or by selecting the chat icon in the VS Code title bar.
 
-1. First, add a new TypeScript file `server.ts` to your workspace.
+    The Chat view is where you interact with the AI by using natural language prompts. You can have an ongoing conversation and iteratively refine your requests to get better results.
 
-    Let's use the Copilot inline chat in the editor to generate a simple Express web server.
+1. Select **Agent** in the agent dropdown menu to let the AI independently implement your request end-to-end.
 
-1. Now, press `kb(inlinechat.start)` on your keyboard to bring up Copilot inline chat.
+    ![Screenshot showing the agent picker in the Chat view.](./images/getting-started/agent-mode-selection.png)
 
-    With Copilot inline chat you get a chat interface that lets you ask questions about your code by using natural language.
+    > [!IMPORTANT]
+    > If you don't see the agent option, make sure agents are enabled in your VS Code settings (`setting(chat.agent.enabled)`). Your organization might also have disabled agents - contact your admin to enable this functionality.
 
-    ![Screenshot of VS Code editor, showing the Copilot inline chat control.](./images/getting-started/copilot-inline-chat.png)
+1. Enter the following prompt and press `kbstyle(Enter)`. The agent analyzes your request and begins implementing the solution.
 
-1. Type *"add a simple express web server"* in the chat input field, and press `kbstyle(Enter)` to send the chat request or prompt to Copilot.
+    ```prompt
+    Create a complete task manager web application with the ability to add, delete, and mark tasks as completed. Include modern CSS styling and make it responsive. Use semantic HTML and ensure it's accessible. Separate markup, styles, and scripts into their own files.
+    ```
 
-    Notice that Copilot returns a streaming response into the editor. The response is an implementation for a simple Node.js Express web server.
+    Watch as the agent generates the necessary files and code to implement your request. You should see it update the `index.html` file, create a `styles.css` file for styling, and a `script.js` file for functionality.
 
-    ![Screenshot of VS Code editor, showing the Copilot inline chat response for adding an Express web server.](./images/getting-started/copilot-inline-chat-express-server.png)
+    > [!TIP]
+    > Different language models might have different strengths. Use the model dropdown in the Chat view to switch between language models.
 
-1. Select **Accept** or press `kb(inlineChat.acceptChanges)` to apply the proposed code changes.
+1. Review the generated files and select **Keep** to accept all the changes.
 
-    Congratulations! You've used GitHub Copilot Chat for generating code using chat and natural language.
+1. Open your `index.html` file in the integrated browser VS Code by right-clicking the file and selecting **Show Preview**. You can add tasks, mark them as complete, and delete them.
 
-    Now, let's use Copilot Chat to help us refactor the code to return a static HTML file as the home page, instead of "Hello, World!".
+1. Now, let's add an extra feature. Enter the following prompt in the chat input box:
 
-1. In the editor, select the `app.get('/'`, req, res) method, and then press `kb(inlinechat.start)` to start inline chat.
+    ```prompt
+    Add a filter system with buttons to show all tasks, only completed tasks, or only pending tasks. Update the styling to match the existing design.
+    ```
 
-    By selecting a range of text in the editor, you provide more context to Copilot about your request.
+    Notice how the agent coordinates changes across multiple files to implement this feature completely.
 
-1. Type *"return a static index.html file"* in the chat input field, and press `kbstyle(Enter)` to send the chat request or prompt.
+Agents excel at understanding high-level requirements and translating them into working code. They're perfect for implementing new features, refactoring large sections of code, or building entire applications from scratch.
 
-    Notice how Copilot updates the existing method implementation to return an `index.html` file. Optionally, select the **Show changes** button to view a diff view and compare the changes.
+## Step 3: Make precise adjustments with inline chat
 
-    ![Screenshot of VS Code editor, showing the Copilot inline chat suggested changes, highlighting the `Show changes` button.](./images/getting-started/copilot-inline-chat-refactor.png)
+While agents handle large features, editor inline chat is perfect for targeted improvements to specific code sections within a file. Let's use it to enhance the task manager app.
 
-1. Select **Accept** or press `kb(inlineChat.acceptChanges)` to apply the proposed code changes.
+1. Open your JavaScript file and locate the code that adds new tasks.
 
-    Experiment further with Copilot Chat, for example to add more routes to your web server, or ask Copilot Chat to add error handling, and more.
+1. Select the code block and then press `kb(inlinechat.start)` to open editor inline chat.
 
-With Copilot Chat you can use a chat conversation and natural language to direct Copilot to perform specific tasks on your codebase. With inline chat, you can stay in the flow of coding, and ask for AI assistance in the moment, when you need it, without switching context.
+    ![Screenshot showing inline chat starting for selected code block.](./images/getting-started/inline-chat-start.png)
 
-## Use Copilot Chat for general programming questions
+    > [!NOTE]
+    > The exact code might vary because large language models are nondeterministic.
 
-As you're working in a new codebase, or exploring a new programming language, you might have more general questions come up. GitHub Copilot Chat lets you open a chat conversation on the side, and which keeps track of the history of your questions.
+1. Enter the following prompt:
 
-1. Open the Chat view from the Activity Bar or press `kb(workbench.action.chat.open)`.
+    ```text
+    Add input validation to prevent adding empty tasks and trim whitespace from task text.
+    ```
 
-    ![Screenshot of VS Code editor, showing the Copilot Chat view, highlighting the chat control in the Activity bar.](./images/getting-started/copilot-chat-view.png)
+    Notice how inline chat focuses specifically on the selected code and makes targeted improvements.
 
-1. Type "what is recursion?" in the chat input field and press `kb(workbench.action.chat.submit)` to send the request to Copilot.
+    ![Screenshot showing inline chat adding validation to selected function.](./images/getting-started/inline-chat-validation.png)
 
-    ![Screenshot of VS Code editor, showing the Copilot Chat view containing the answer to what recursion is. The result contains both text and a code block.](./images/getting-started/copilot-chat-view-recursion.png)
+1. Review the changes and select **Keep** to apply them.
 
-    Notice how the chat response contains rich results, consisting of text and a code block.
+Editor inline chat is ideal for making small, focused changes without affecting the broader codebase, like adding error handling, refactoring individual functions, or fixing bugs.
 
-1. You can also drag the Chat view to the Secondary side bar, for example if you want to view both the Chat view and Explorer view.
+## Step 4: Personalize your AI experience
 
-    ![Screenshot of VS Code editor, showing the Copilot Chat view in the Secondary side bar on the right.](./images/getting-started/copilot-chat-view-secondary-side-bar.png)
+Customizing chat makes it work better for your specific needs and coding style. You can set up custom instructions and build specialized custom agents. Let's create a complete personalization setup for your project.
 
-    Learn about [custom layouts and the Secondary side bar](/docs/editor/custom-layout.md#_secondary-side-bar).
+### Create custom instructions
 
-## Fix coding errors with Copilot
+Custom instructions tell the AI about your coding preferences and standards. These apply automatically to all chat interactions.
 
-Aside from inline completions and chat conversations, GitHub Copilot is available in different places and throughout your developer flow in VS Code. You might notice the presence of Copilot functionality through the *sparkle* icon in the VS Code user interface.
+1. Create a new folder called `.github` in your project root.
 
-One such place is the Copilot coding actions in the editor, whenever there you have a red squiggle because of a compiler error. Let's see how Copilot can help with resolving coding errors.
+1. Inside the `.github` folder, create a file called `copilot-instructions.md`.
 
-1. Open the `server.ts` TypeScript file that you created earlier in the editor.
+1. Add the following content:
 
-    Notice that the `import express from 'express';` statement contains a red squiggle. If you put the cursor on the red squiggle, you can see the Copilot sparkle appear.
+    ```markdown
+    # Project general coding guidelines
 
-    ![Screenshot of VS Code editor, showing the Copilot sparkle because of an error with the express import statement.](./images/getting-started/copilot-code-action-sparkle.png)
+    ## Code Style
+    - Use semantic HTML5 elements (header, main, section, article, etc.)
+    - Prefer modern JavaScript (ES6+) features like const/let, arrow functions, and template literals
 
-1. Select the sparkle to view the Copilot code actions, and then select **Fix using Copilot**.
+    ## Naming Conventions
+    - Use PascalCase for component names, interfaces, and type aliases
+    - Use camelCase for variables, functions, and methods
+    - Prefix private class members with underscore (_)
+    - Use ALL_CAPS for constants
 
-    ![Screenshot of VS Code editor, showing the Copilot code actions, hihglighting `Fix using Copilot`.](./images/getting-started/copilot-code-action-fix.png)
+    ## Code Quality
+    - Use meaningful variable and function names that clearly describe their purpose
+    - Include helpful comments for complex logic
+    - Add error handling for user inputs and API calls
+    ```
 
-    Notice that the second argument gets a red squiggle because the method only accepts one argument.
+1. Save the file. These instructions now apply to all your chat interactions in this project.
 
-1. Notice that the Copilot inline chat comes up, prepopulated with the error message, and a solution to fix the problem.
+1. Test the custom instructions by asking the agent to add a new feature:
 
-    ![Screenshot of VS Code editor, showing the Copilot inline chat proposing to install the express npm package to solve the problem.](./images/getting-started/copilot-code-action-fix-result.png)
+    ```prompt
+    Add a dark mode toggle button to the task manager.
+    ```
 
-    Directly from the chat response, you can optionally select the **Insert into Terminal** button to copy the proposed command in your terminal.
+    Notice how the generated code follows the guidelines you specified. VS Code supports more advanced custom instructions like applying instructions for specific file types.
 
-## Congratulations
+> [!TIP]
+> Use the `/init` slash command in chat to automatically generate custom instructions based on your project's structure and coding patterns. This is useful if you have an existing codebase and want to prepare it for AI assistance.
 
-Congratulations, you've now used artificial intelligence to enhance your coding! In this tutorial, you successfully set up Copilot in VS Code, and used Copilot code completions, Copilot Chat, and code actions to help you code more efficiently.
+### Create a custom agent for code reviews
 
-You've started experimenting with Copilot and there's a lot more you can do with it! To learn more about GitHub Copilot Chat, proceed to the [Copilot Chat Tutorial](/docs/copilot/getting-started-chat.md).
+Custom agents create specialized AI personas for specific tasks. Let's create a "Code Reviewer" agent that focuses on analysis and providing feedback on code. In the custom agent definition, you can define the AI's role, specific guidelines, and which tools it can use.
+
+1. Open the Command Palette and run the **Chat: New Custom Agent** command.
+
+1. Select `.github/agents` as the location.
+
+    This option adds the custom agent to your workspace, enabling other team members to use it when they open the project.
+
+1. Name the custom agent "Reviewer". This creates a new file called `Reviewer.agent.md` in the `.github/agents` folder.
+
+1. Replace the file contents with the following content. Note that this custom agent doesn't allow code changes.
+
+    ```markdown
+    ---
+    name: 'Reviewer'
+    description: 'Review code for quality and adherence to best practices.'
+    tools: ['vscode/askQuestions', 'vscode/vscodeAPI', 'read', 'agent', 'search', 'web']
+    ---
+    # Code Reviewer agent
+
+    You are an experienced senior developer conducting a thorough code review. Your role is to review the code for quality, best practices, and adherence to [project standards](../copilot-instructions.md) without making direct code changes.
+
+    When reviewing code, structure your feedback with clear headings and specific examples from the code being reviewed.
+
+    ## Analysis Focus
+    - Analyze code quality, structure, and best practices
+    - Identify potential bugs, security issues, or performance problems
+    - Evaluate accessibility and user experience considerations
+
+    ## Important Guidelines
+    - Ask clarifying questions about design decisions when appropriate
+    - Focus on explaining what should be changed and why
+    - DO NOT write or suggest specific code changes directly
+    ```
+
+1. Save the file. In the Chat view, you can now select this custom agent from the agent picker.
+
+    ![Screenshot showing the Reviewer custom agent in the agent picker.](./images/getting-started/custom-mode-dropdown.png)
+
+1. Test your custom agent by selecting **Reviewer** from the agent picker and entering the following prompt:
+
+    ```prompt-Reviewer
+    Review my full project
+    ```
+
+   Notice how the AI now behaves as a code reviewer, providing analysis and suggestions for improvements.
+
+    ![Screenshot showing custom reviewer agent analyzing code.](./images/getting-started/custom-reviewer-mode.png)
+
+## Step 5: Use smart actions for pre-built AI assistance
+
+Smart actions provide AI functionality directly integrated within VS Code's interface, seamlessly plugging into your development workflow. Unlike chat interactions, smart actions appear contextually where you need them most. Let's explore commit message generation as an example.
+
+1. Open the **Source Control** view by pressing `kb(workbench.view.scm)` or selecting the Source Control icon in the Activity Bar.
+
+1. If you haven't yet initialized a Git repository for your project, do so by selecting **Initialize Repository** in the Source Control view.
+
+1. Stage your changes by selecting the **+** button next to the files you want to commit.
+
+1. Select the **sparkle icon** to generate a commit message based on your staged changes.
+
+    The AI analyzes your staged changes and generates a descriptive commit message that follows conventional commit standards. The AI considers:
+
+    * What files were changed
+    * The nature of the changes (added features, bug fixes, refactoring)
+    * The scope and impact of modifications
+
+    ![Screenshot showing generated commit message in Source Control view.](./images/getting-started/generated-commit-message.png)
+
+1. Review the generated message. If you're satisfied with it, proceed with your commit. If you want a different style or focus, select the sparkle icon again to generate an alternative message.
+
+Smart actions like commit message generation demonstrate how AI integrates naturally into your existing workflow without requiring you to context-switch to chat interfaces. VS Code has many other smart actions to help you with debugging, testing, and more.
+
+## Next steps
+
+Congratulations! You've built a complete task management application and learned how to work effectively with AI across VS Code's core capabilities.
+
+You can further enhance your AI's capabilities by exploring other customization options:
+
+* Add more specialized agents for different tasks like planning, debugging, or documentation.
+* Create custom instructions for specific programming languages or frameworks.
+* Extend the AI's capabilities with extra tools from MCP (Model Context Protocol) servers or VS Code extensions.
+
+## Related resources
+
+* [Agents tutorial](/docs/copilot/agents/agents-tutorial.md): Hands-on tutorial for working with different agent types
+
+* [Cheat sheet for using AI features](/docs/copilot/reference/copilot-vscode-features.md) - Quick reference for all GitHub Copilot features in VS Code
+
+* [Chat documentation](/docs/copilot/chat/copilot-chat.md) - Deep dive into autonomous coding in VS Code
+
+* [Customization guide](/docs/copilot/customization/overview.md) - Advanced personalization techniques
+
+* [MCP tools](/docs/copilot/customization/mcp-servers.md) - Extend agents with external APIs and services
