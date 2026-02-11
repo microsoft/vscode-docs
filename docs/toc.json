@@ -100,6 +100,7 @@
       ["Overview", "/docs/copilot/overview"],
       ["Setup", "/docs/copilot/setup"],
       ["Quickstart", "/docs/copilot/getting-started"],
+      ["Best Practices", "/docs/copilot/copilot-tips-and-tricks"],
       ["", "", {
         "name": "Agents",
         "area": "copilot/agents",
@@ -166,7 +167,6 @@
         ]
       }
       ],
-      ["Tips and Tricks", "/docs/copilot/copilot-tips-and-tricks"],
       ["Security", "/docs/copilot/security"],
       ["Troubleshooting", "/docs/copilot/troubleshooting"],
       ["FAQ", "/docs/copilot/faq"],

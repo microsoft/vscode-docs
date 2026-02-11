@@ -1,207 +1,138 @@
 ---
 ContentId: 58ea6755-9bfa-42c2-a4c8-ff0510f9c031
 DateApproved: 02/06/2025
-MetaDescription: Tips and tricks to optimize your development experience with GitHub Copilot in VS Code.
+MetaDescription: Best practices for getting the most out of GitHub Copilot in VS Code, from writing prompts to configuring your project for AI.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
-# Tips and tricks for Copilot in VS Code
+# Best practices for using AI in VS Code
 
-This article provides tips and tricks to optimize your development experience for using GitHub Copilot in Visual Studio Code.
+This article covers proven practices for getting the most out of using AI in Visual Studio Code. Each section provides actionable guidance with links to deeper documentation.
 
-<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
-Follow a hands-on tutorial to build your first app with AI in VS Code.
+## Set up your project for AI
 
-* [Start tutorial](/docs/copilot/getting-started.md)
+Custom instructions tell the AI about your team's coding standards, preferred patterns, and project-specific context. This approach reduces repetitive prompting and improves the consistency of generated code.
 
-</div>
+To get started:
 
-## Checklist for using Copilot in VS Code
+1. Enter `/init` in the chat input to generate a `copilot-instructions.md` or `AGENTS.md` file tailored to your project structure.
 
-Use the following checklist to get the most out of Copilot:
+1. Edit the generated file to add or refine instructions.
 
-1. [Choose the right tool](#choose-the-right-copilot-tool). _Use the tool that's optimized for editing, asking questions, or staying in the flow of writing code._
+1. For language-specific or framework-specific rules, create additional `.instructions.md` files with `applyTo` glob patterns by using the **Chat: New Instructions File** command.
 
-1. [Personalize Copilot](#personalize-copilot-with-instructions-files). _Use custom instructions to get code suggestions that match your style and coding practices._
+**Write effective instructions:**
 
-1. [Write effective prompts](#prompt-engineering) and provide [context](#provide-the-right-context-and-tools). _Get the most relevant responses._
+* Keep instructions concise. If the instructions file is too long, the AI ignores rules. Include reasoning behind non-obvious rules so the AI can apply them in new contexts.
+* Show preferred and avoided patterns with short code examples.
+* Skip rules that your linter or formatter already enforces.
+* Prune regularly. If the AI already follows a rule without the instruction, remove it.
 
-1. [Index your workspace](#workspace-indexing). _Receive accurate responses to questions about your codebase._
+For more information, see [custom instructions](/docs/copilot/customization/custom-instructions.md) and the full [customization overview](/docs/copilot/customization/overview.md).
 
-1. [Choose your AI model](#choose-your-ai-model). _Choose between models for fast coding or planning/reasoning._
+## Pick the right tool for the task
 
-1. [Reuse prompts](#reusable-prompts). _Save time by saving and reusing task-specific prompts across your team._
+AI in VS Code offers several interaction modes. Choosing the right one for the task at hand saves time and produces better results.
 
-## Choose the right Copilot tool
+| Tool | Best for | Example |
+|------|----------|---------|
+| [Inline suggestions](/docs/copilot/ai-powered-suggestions.md) | Staying in the flow while writing code | Code completions, variable names, boilerplate |
+| [Ask (chat)](/docs/copilot/chat/copilot-chat.md) | Questions, brainstorming, exploring ideas | "How does authentication work in this project?" |
+| [Inline chat](/docs/copilot/chat/inline-chat.md) | Targeted, in-place edits without switching context | Refactoring a function, adding error handling |
+| [Agents](/docs/copilot/agents/overview.md) | Multi-file changes that require autonomous planning and tool use | Implementing a feature end-to-end |
+| [Plan](/docs/copilot/agents/planning.md) | Structured planning before implementation | Designing an architecture or migration strategy |
+| [Smart actions](/docs/copilot/copilot-smart-actions.md) | Built-in, specialized one-step tasks | Generating commit messages, fixing errors, renaming symbols |
 
-Depending on your task, you can choose between different Copilot tools.
+## Write effective prompts
 
-| Tool | Use case |
-|------|----------|
-| [Inline suggestions](/docs/copilot/ai-powered-suggestions.md) | Streamline coding while staying in the flow.<br/>Receive inline suggestions for code snippets, variable names, and functions as you write them in the editor. |
-| [Chat](/docs/copilot/chat/copilot-chat.md) | Have an ongoing chat conversation for brainstorming design ideas or getting code suggestions, optionally calling on domain-specific chat participants.<br/>Choose to apply specific code suggestions to your codebase. |
-| [Use agents](/docs/copilot/agents/overview.md#built-in-agents) | Implement high-level requirements by starting an agentic coding flow.<br/>The agent autonomously invokes multiple tools to plan and implement the code changes and tasks that are needed. |
+The quality of AI responses depends on the clarity and specificity of your prompt. These techniques help you get better results.
 
-## Personalize AI with instructions files
+* **Be specific about inputs, outputs, and constraints.** State the programming language, frameworks, and libraries you want to use. Describe expected behavior or include example input and output.
 
-When the AI generates code or answers questions, it tries to match your coding practices and preferences such as which libraries you use or how you name your variables. However, it might not always have enough context to do this effectively. For example, if you work with a specific framework version, you need to provide additional context in your prompts.
-
-To enhance AI responses, you can use _instructions files_ to provide contextual details about your team's coding practices, tools, or project specifics. You can then attach these instructions to your chat prompt, or have them applied automatically.
-
-To prime your workspace with always-on custom instructions based on your current project structure and coding patterns:
-
-1. Enter the `/init` command in the chat input. This generates a `copilot-instructions.md` or `AGENTS.md` file in the `.github` folder at the root of your workspace.
-
-1. Optionally, edit the generated instructions file to add or modify the instructions.
-
-1. For task or technology-specific instructions, you can create additional file-based `.instructions.md` instructions files by using the **Chat: New Instructions File** command in the Command Palette.
-
-Get more details about [using instructions files in VS Code](/docs/copilot/customization/custom-instructions.md).
-
-## Prompt engineering
-
-You can enhance the quality of Copilot's responses by using effective prompts. A well-crafted prompt can help Copilot understand your requirements better and generate more relevant code suggestions.
-
-* Start general, then get specific.
-
-    ```text
-    Generate a Calculator class.
-    Add methods for addition, subtraction, multiplication, division, and factorial.
-    Don't use any external libraries and don't use recursion.
+    ```prompt
+    Write a TypeScript function that validates email addresses.
+    Return true for valid addresses, false otherwise. Don't use regex.
+    Example: validateEmail("user@example.com") returns true
+    Example: validateEmail("invalid") returns false
     ```
 
-* Give examples of what you want.
+* **Break down complex tasks.** Instead of asking for an entire feature at once, decompose it into smaller, well-scoped steps. This approach produces more reliable results and makes it easier to catch problems early.
 
-    ```text
-    Generate a function that takes a string and returns the number of vowels in it.
-    Example:
-    findVowels("hello") returns 2
-    findVowels("sky") returns 0
+* **Include expected output for verification.** Provide test cases, expected results, or acceptance criteria so the AI can verify its own work. This step is one of the highest-leverage things you can do.
+
+    ```prompt
+    Implement a rate limiter using the token bucket algorithm.
+    Write unit tests that verify: 10 requests/second allowed,
+    11th request rejected, bucket refills after 1 second.
+    Run the tests after implementing.
     ```
 
-* Break down complex tasks into simpler tasks.
+* **Iterate with follow-up prompts.** Refine responses by adding constraints or corrections in follow-up messages rather than rewriting the entire prompt.
 
-    Instead of asking Copilot to generate a meal planner app, break it down into smaller tasks:
-    * Generate a function that takes a list of ingredients and returns a list of recipes.
-    * Generate a function that takes a list of recipes and returns a shopping list.
-    * Generate a function that takes a list of recipes and returns a meal plan for the week.
+* **Avoid vague prompts.** A prompt like "make this better" gives the AI no direction. Instead, specify what "better" means: "reduce the time complexity" or "add input validation for null values."
 
-* Provide the [right context](#provide-the-right-context-and-tools), such as code selections, files, terminal output, and more.
+For more information, see [prompt engineering](/docs/copilot/guides/prompt-engineering-guide.md) and find practical [prompt examples](https://docs.github.com/en/copilot/copilot-chat-cookbook) in the GitHub Copilot documentation.
 
-    Example, use the `#codebase` variable to refer to the entire codebase:
+## Provide the right context
 
-    ```text
-    Where is the database connection string used in #codebase?
-    ```
+The AI responds more accurately when it has relevant context. Use these techniques to point the AI at the right information:
 
-* Iterate on your prompts.
+* Use `#codebase` to explicitly instruct the AI to search your workspace for relevant code.
+* Reference specific files, folders, or symbols in your prompt with `#<file>`, `#<folder>`, or `#<symbol>`. Or, use drag and drop.
+* Use `#fetch` to pull content from a web page, or `#githubRepo` to search a GitHub repository.
+* Add problems, test failures, or terminal output for scenario-specific context.
+* Add images or screenshots to let the AI analyze visual content.
+* Use the [integrated browser](/docs/debugtest/integrated-browser.md) to preview your app and select page elements to use as context.
+* Add relevant tools by using **Configure Tools** in chat.
 
-    Provide follow-up prompts to refine or modify the response. For example:
+For more information, see [adding context to chat prompts](/docs/copilot/chat/copilot-chat-context.md) and [configuring tools](/docs/copilot/agents/agent-tools.md).
 
-    * "Write a function to calculate the factorial of a number."
-    * "Don't use recursion and optimize by using caching."
-    * "Use meaningful variable names."
+## Choose the right model
 
-* Keep chat history relevant.
+* VS Code supports multiple AI models. Choose the model that fits your task by using the model picker in the chat input field.
+* Use BYOK for more control over model selection and hosting options.
 
-    Copilot uses history of the conversation to provide context. Remove past questions and responses from the history if they're not relevant. Or, start a new session if you want to change the context.
+For more information, see [selecting AI models](/docs/copilot/customization/language-models.md) and [available models for Copilot Chat](https://docs.github.com/en/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat).
 
-Get more details about [prompt engineering](/docs/copilot/guides/prompt-engineering-guide.md).
+## Plan first, then implement
 
-Find practical [examples of prompts to use with chat](https://docs.github.com/en/copilot/copilot-chat-cookbook) in the GitHub Copilot documentation.
+For complex changes that span multiple files, separate planning from implementation. This approach prevents the AI from solving the wrong problem.
 
-## Provide the right context and tools
+1. **Explore.** Use ask mode or a subagent to read the relevant code and understand how it works before making changes.
+1. **Plan.** Use the [Plan agent](/docs/copilot/agents/planning.md) to create a structured implementation plan. Review and refine the plan before executing.
+1. **Implement.** Switch to agent mode and implement from the plan. Include tests or expected outputs so the agent can verify its own work.
+1. **Review.** Use [checkpoints](/docs/copilot/chat/chat-checkpoints.md) to review progress and rewind if the agent goes off track.
 
-Enrich your prompts with relevant context to get more accurate and relevant responses in chat. With the right tools, you can boost your developer productivity.
+For more information, see the [context engineering workflow](/docs/copilot/guides/context-engineering-guide.md).
 
-* In [chat](/docs/copilot/agents/agent-tools.md), select the tools button to configure the tools you want to use or explicitly add them to your prompt.
-* Use `#codebase` to let Copilot find the right files automatically by performing a code search.
-* Use the `#fetch` tool to fetch content from a web page or use `#githubRepo` to perform a code search on a GitHub repository.
-* Reference files, folders, or symbols in your prompt by using `#<file name>`, `#<folder name>`, or `#<symbol>`.
-* Drag and drop files, folders, or editor tabs onto the chat prompt.
-* Add problems, test failures, or terminal output to your chat prompt for scenario-specific context.
-* Add images or screenshots to your prompt to let Copilot analyze the image.
-* When using agents, prompt to preview your app to directly open it with the [integrated browser](/docs/debugtest/integrated-browser.md).
+## Manage context and sessions
 
-When you use [agents](/docs/copilot/agents/overview.md#built-in-agents), the agent autonomously finds the relevant files and context for you.
+AI responses might degrade as the conversation fills with irrelevant context. Manage your sessions proactively.
 
-Get more details about [adding context to chat prompts](/docs/copilot/chat/copilot-chat-context.md).
+* **Start new sessions for unrelated tasks.** Don't keep piling unrelated questions into one conversation. Context pollution reduces response quality.
+* **Remove irrelevant history.** Delete past questions and responses that are no longer relevant, or start a fresh session.
+* **Use subagents for investigation.** Delegate research and exploration to [subagents](/docs/copilot/agents/subagents.md) so the findings don't clutter your main context.
+* **Use workspace indexing.** For GitHub repositories, enable the [remote index](/docs/copilot/reference/workspace-context.md) for fast, accurate code search across your entire codebase. For non-GitHub repos, a local index is created automatically.
+* **Course-correct early.** If the AI is heading in the wrong direction, stop it and redirect with a more specific prompt. After two failed corrections, start a new session with a refined prompt that incorporates what you learned.
 
-## Reusable prompts
+For more information, see [session management](/docs/copilot/chat/chat-sessions.md) and [workspace indexing](/docs/copilot/reference/workspace-context.md).
 
-Prompt files enable you to save a prompt for a specific task with its context and instructions in a Markdown file. You can then attach and reuse that prompt in chat. If you store the prompt in your workspace, you can also share it with your team.
+## Customize with reusable primitives
 
-To create a reusable prompt:
+Commit reusable customization files to your repository so your entire team benefits from consistent AI behavior.
 
-1. Create a prompt file with the **Chat: New Prompt File** command in the Command Palette.
+* Save task-specific prompts with context and instructions in [prompt files](/docs/copilot/customization/prompt-files.md) (`.prompt.md`). Trigger them like slash commands by typing `/` followed by the prompt name (for example, `/security-review`).
+* Define specialized AI personas with scoped tool access by creating [custom agents](/docs/copilot/customization/custom-agents.md) (`.agent.md`). Use them for constrained workflows like code review, security audit, or planning.
+* Chain agents into manual workflows with handoffs or automate them with [Agent Skills](/docs/copilot/customization/agent-skills.md) for end-to-end automation of complex processes.
+* Use [subagents](/docs/copilot/agents/subagents.md) for isolated research that doesn't pollute main context.
+* Teach the AI domain-specific procedures (testing, deployment, debugging) with [Agent Skills](/docs/copilot/customization/agent-skills.md) (`SKILL.md`). Include scripts, examples, and reference docs alongside your instructions.
+* Write specific `description` in the Agent Skill YAML frontmatter that states both what the skill does and when to use it. The AI uses this field to decide whether to load the skill.
 
-    This command creates a `.prompt.md` file in the `.github/prompts` folder at the root of your workspace.
-
-1. Describe your prompt and relevant context in Markdown format.
-
-    For example, use this prompt to generate a new React form component.
-
-    ```markdown
-    Your goal is to generate a new React form component.
-
-    Ask for the form name and fields if not provided.
-
-    Requirements for the form:
-    * Use form design system components: [design-system/Form.md](../docs/design-system/Form.md)
-    * Use `react-hook-form` for form state management:
-    * Always define TypeScript types for your form data
-    * Prefer *uncontrolled* components using register
-    * Use `defaultValues` to prevent unnecessary rerenders
-    * Use `yup` for validation:
-    * Create reusable validation schemas in separate files
-    * Use TypeScript types to ensure type safety
-    * Customize UX-friendly validation rules
-    ```
-
-1. Optionally, add metadata about how to run the prompt in chat. Use the `agent` field to specify the agent, and the `tools` field to specify which agent mode tools to use.
-
-    ```markdown
-    ---
-    agent: 'agent'
-    tools: ['githubRepo', 'search/codebase']
-    description: 'Generate a new React form component'
-    ---
-    Your goal is to generate a new React form component based on the templates in #githubRepo contoso/react-templates.
-
-    Requirements for the form:
-    * Use form design system components: [design-system/Form.md](../docs/design-system/Form.md)
-    * Use `react-hook-form` for form state management:
-    * Always define TypeScript types for your form data
-    ```
-
-1. Run the command by typing `/`, followed by the prompt file name in the chat input field.
-
-    For example, type `/new-react-form` to run the prompt file named `new-react-form.prompt.md`.
-
-Get started with [prompt files](/docs/copilot/customization/prompt-files.md).
-
-## Choose your AI model
-
-Copilot offers different AI models to choose from. Some models are optimized for fast coding tasks, while others are better suited for slower planning and reasoning tasks.
-
-| Model type | Models |
-|-----------|--------|
-| Fast coding | <ul><li>GPT-4o</li><li>Claude Sonnet 3.5</li><li>Claude Sonnet 3.7</li><li>Gemini 2.0 Flash</li></ul> |
-| Reasoning/planning | <ul><li>Claude Sonnet 3.7 Thinking</li><li>o1</li><li>o3-mini</li></ul> |
-
-Choose the model that best fits your needs by using the model picker in the chat input field.
-
-Learn more about [AI models for Copilot Chat](https://docs.github.com/en/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat) in the GitHub Copilot documentation.
-
-## Workspace indexing
-
-Copilot uses an index to quickly and accurately search your codebase for relevant code snippets. This index can either be maintained by GitHub or stored locally on your machine.
-
-For GitHub repositories, you can use a remote index of your workspace, based on [GitHub code search](https://docs.github.com/en/enterprise-cloud@latest/copilot/using-github-copilot/asking-github-copilot-questions-in-github#asking-exploratory-questions-about-a-repository). This allows Copilot to search your entire codebase very quickly, even if the codebase is very large.
-
-Get more details about [workspace indexing](/docs/copilot/reference/workspace-context.md).
+Browse community skills in the [awesome-copilot](https://github.com/github/awesome-copilot) repository.
 
 ## Related resources
 
 * [Prompt engineering guide](/docs/copilot/guides/prompt-engineering-guide.md)
+* [Context engineering guide](/docs/copilot/guides/context-engineering-guide.md)
+* [Customization overview](/docs/copilot/customization/overview.md)
+* [Cheat sheet](/docs/copilot/reference/copilot-vscode-features.md)
 * [Best Practices for using GitHub Copilot](https://docs.github.com/en/copilot/using-github-copilot/best-practices-for-using-github-copilot) in the GitHub Copilot documentation
-* [Customize chat in VS Code](/docs/copilot/customization/overview.md)

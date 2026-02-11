@@ -159,5 +159,5 @@ You can start using GitHub Copilot for free with monthly limits on inline sugges
 * [Hands-on quickstart with GitHub Copilot](/docs/copilot/getting-started.md)
 * [Learn about agent types](/docs/copilot/agents/overview.md)
 * [Customize the AI for your workflow](/docs/copilot/customization/overview.md)
-* [Tips and tricks for using AI in VS Code](/docs/copilot/copilot-tips-and-tricks.md)
+* [Best practices for using AI in VS Code](/docs/copilot/copilot-tips-and-tricks.md)
 * [Set up Copilot in VS Code](/docs/copilot/setup.md)
