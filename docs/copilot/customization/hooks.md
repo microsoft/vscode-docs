@@ -46,7 +46,7 @@ VS Code supports eight hook events that fire at specific points during an agent 
 | `SessionStart` | User submits the first prompt of a new session | Initialize resources, log session start, validate project state |
 | `UserPromptSubmit` | User submits a prompt | Audit user requests, inject system context |
 | `PreToolUse` | Before agent invokes any tool | Block dangerous operations, require approval, modify tool input |
-| `PostToolUse` | After tool completes | Run formatters, log results, trigger follow-up actions |
+| `PostToolUse` | After tool completes successfully | Run formatters, log results, trigger follow-up actions |
 | `PreCompact` | Before conversation context is compacted | Export important context, save state before truncation |
 | `SubagentStart` | Subagent is spawned | Track nested agent usage, initialize subagent resources |
 | `SubagentStop` | Subagent completes | Aggregate results, cleanup subagent resources |
