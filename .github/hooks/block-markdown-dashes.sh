@@ -5,7 +5,8 @@ INPUT=$(cat)
 TOOL_NAME=$(echo "$INPUT" | jq -r '.tool_name')
 
 case "$TOOL_NAME" in
-  editFiles|createFile|create_file|edit_file|apply_patch|replace_string_in_file|multi_replace_string_in_file)
+  editFiles|createFile|create_file|edit_file|apply_patch|replace_string_in_file|multi_replace_string_in_file|\
+  copilot_replaceString|copilot_multiReplaceString|copilot_createFile|copilot_editFile)
     ;;
   *)
     echo '{"continue":true}'
@@ -44,8 +45,8 @@ if [ "$MD_EDITED" = "false" ]; then
   exit 0
 fi
 
-EM_DASH=$(printf '\u2014')
-EN_DASH=$(printf '\u2013')
+EM_DASH=$(printf '\xe2\x80\x94')
+EN_DASH=$(printf '\xe2\x80\x93')
 
 if echo "$TOOL_INPUT" | grep -q "$EM_DASH" || echo "$TOOL_INPUT" | grep -q "$EN_DASH"; then
   cat <<'EOF'
@@ -54,7 +55,7 @@ if echo "$TOOL_INPUT" | grep -q "$EM_DASH" || echo "$TOOL_INPUT" | grep -q "$EN_
     "hookEventName": "PreToolUse",
     "permissionDecision": "deny",
     "permissionDecisionReason": "Markdown edits must not include en dash or em dash characters.",
-    "additionalContext": "Replace en dash (U+2013) and em dash (U+2014) with ASCII alternatives like '--' or '-' before editing Markdown files."
+    "additionalContext": "Avoid em-dashes and prefer commas or separate sentences to break up complex thoughts."
   }
 }
 EOF

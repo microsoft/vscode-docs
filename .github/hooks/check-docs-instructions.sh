@@ -6,7 +6,8 @@ TOOL_NAME=$(echo "$INPUT" | jq -r '.tool_name')
 
 # Only act on file-editing tools
 case "$TOOL_NAME" in
-  editFiles|createFile|create_file|replace_string_in_file|multi_replace_string_in_file|edit_file|apply_patch)
+  editFiles|createFile|create_file|replace_string_in_file|multi_replace_string_in_file|edit_file|apply_patch|\
+  copilot_replaceString|copilot_multiReplaceString|copilot_createFile|copilot_editFile)
     ;;
   *)
     echo '{"continue":true}'
