@@ -78,7 +78,7 @@ Create a JSON file with a `hooks` object containing arrays of hook commands for 
       {
         "type": "command",
         "command": "./scripts/validate-tool.sh",
-        "timeoutSec": 15
+        "timeout": 15
       }
     ],
     "PostToolUse": [
@@ -104,7 +104,7 @@ Each hook entry must have `type: "command"` and at least one command property:
 | `osx` | string | macOS-specific command override |
 | `cwd` | string | Working directory (relative to repository root) |
 | `env` | object | Additional environment variables |
-| `timeoutSec` | number | Timeout in seconds (default: 30) |
+| `timeout` | number | Timeout in seconds (default: 30) |
 
 > [!NOTE]
 > OS-specific commands are selected based on the extension host platform. In remote development scenarios (SSH, Containers, WSL), this might differ from your local operating system.
@@ -135,9 +135,9 @@ The execution service selects the appropriate command based on your OS. If no OS
 
 Hooks communicate with VS Code through stdin (input) and stdout (output) using JSON.
 
-### Input format
+### Common input fields
 
-Every hook receives a JSON object via stdin with common fields:
+Every hook receives a JSON object via stdin with these common fields:
 
 ```json
 {
@@ -149,26 +149,9 @@ Every hook receives a JSON object via stdin with common fields:
 }
 ```
 
-For `PreToolUse` and `PostToolUse` hooks, additional fields are included:
+### Common output format
 
-```json
-{
-  "tool_name": "editFiles",
-  "tool_input": { "files": ["src/main.ts"] },
-  "tool_use_id": "tool-123",
-  "tool_response": "File edited successfully"
-}
-```
-
-The `tool_response` field is only present for `PostToolUse` hooks.
-
-For `UserPromptSubmit` hooks, a `prompt` field is included with the text the user submitted.
-
-For `Stop` and `SubagentStop` hooks, a `stop_hook_active` boolean is included. It is `true` when a stop hook is already keeping the session active.
-
-### Output format
-
-Hooks can return JSON via stdout to influence agent behavior:
+Hooks can return JSON via stdout to influence agent behavior. All hooks support these output fields:
 
 ```json
 {
@@ -194,7 +177,23 @@ The hook's exit code determines how VS Code handles the result:
 | `2` | Blocking error: stop processing and show error to model |
 | Other | Non-blocking warning: show warning to user, continue processing |
 
-## PreToolUse hook output
+## PreToolUse
+
+The `PreToolUse` hook fires before the agent invokes a tool.
+
+### PreToolUse input
+
+In addition to the common fields, `PreToolUse` hooks receive:
+
+```json
+{
+  "tool_name": "editFiles",
+  "tool_input": { "files": ["src/main.ts"] },
+  "tool_use_id": "tool-123"
+}
+```
+
+### PreToolUse output
 
 The `PreToolUse` hook can control tool execution through a `hookSpecificOutput` object:
 
@@ -223,6 +222,45 @@ The `PreToolUse` hook can control tool execution through a `hookSpecificOutput` 
 3. `allow` (least restrictive): auto-approves execution
 
 **`updatedInput` format**: To determine the format of `updatedInput`, run the command "Show Chat Debug View" and find the logged tool schema. If `updatedInput` doesn't match the expected schema, it will be ignored.
+
+## PostToolUse
+
+The `PostToolUse` hook fires after a tool completes successfully.
+
+### PostToolUse input
+
+In addition to the common fields, `PostToolUse` hooks receive:
+
+```json
+{
+  "tool_name": "editFiles",
+  "tool_input": { "files": ["src/main.ts"] },
+  "tool_use_id": "tool-123",
+  "tool_response": "File edited successfully"
+}
+```
+
+The `PostToolUse` hook uses the common output format only.
+
+## UserPromptSubmit
+
+The `UserPromptSubmit` hook fires when the user submits a prompt.
+
+### UserPromptSubmit input
+
+In addition to the common fields, `UserPromptSubmit` hooks receive a `prompt` field with the text the user submitted.
+
+The `UserPromptSubmit` hook uses the common output format only.
+
+## Stop and SubagentStop
+
+The `Stop` hook fires when the agent session ends. The `SubagentStop` hook fires when a subagent completes.
+
+### Stop and SubagentStop input
+
+In addition to the common fields, these hooks receive a `stop_hook_active` boolean. It is `true` when a stop hook is already keeping the session active.
+
+The `Stop` and `SubagentStop` hooks use the common output format only.
 
 ## Configure hooks with the /hooks command
 
@@ -297,7 +335,7 @@ Run Prettier automatically after any file modification:
         "type": "command",
         "command": "./scripts/format-changed-files.sh",
         "windows": "powershell -File scripts\\format-changed-files.ps1",
-        "timeoutSec": 30
+        "timeout": 30
       }
     ]
   }
@@ -460,7 +498,7 @@ To review hook output and errors:
 
 **Permission denied errors**: Ensure your hook scripts have execute permissions (`chmod +x script.sh`).
 
-**Timeout errors**: Increase the `timeoutSec` value or optimize your hook script. The default is 30 seconds.
+**Timeout errors**: Increase the `timeout` value or optimize your hook script. The default is 30 seconds.
 
 **JSON parse errors**: Verify your hook script outputs valid JSON to stdout. Use `jq` or a JSON library to construct output.
 
