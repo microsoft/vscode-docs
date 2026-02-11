@@ -34,7 +34,7 @@ The C++ extension provides tools that use language services to give Copilot Chat
 
 To enable these tools, select the **Enable Cpp Code Editing Tools** setting in your VS Code user settings.
 
-![Enable Cpp Code Editing tools setting in settings.json](/docs/cpp/images/cpp-code-editing-tools-setting.png)
+![Screenshot of the Settings editor, showing the Enable Cpp Code Editing Tools setting.](images/cpp-code-editing-tools-setting.png)
 
 ### Get Symbol Information (`GetSymbolInfo_CppTools`)
 
