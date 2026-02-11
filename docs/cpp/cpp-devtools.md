@@ -102,7 +102,7 @@ CMake tools allow Copilot Chat to understand your build configuration, targets, 
 - **Reference context:** Ask Copilot Chat to consider specific files, functions, or modules when analyzing changes
 - **Use custom instructions:** Set up [custom instructions](/docs/copilot/customization/custom-instructions.md) to guide Copilot Chat. Type `/init` to generate instructions for your project.
 - **Leverage latest models:** Use the latest AI models that support tool-calling for the most accurate code understanding and tool usage
-- **Optimize tool performance** Only enable relevant tools to your development workflow to avoid context bloat
+- **Optimize tool performance:** Only enable relevant tools to your development workflow to avoid context bloat
 
 ### When to Use Each Tool
 
