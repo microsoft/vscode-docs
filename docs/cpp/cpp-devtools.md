@@ -15,7 +15,14 @@ This guide covers the available tools and how to use them effectively with AI ag
 - Refactor code with full context awareness
 - Configure and build projects efficiently
 
-To get started with these tools, you'll need to have the **C/C++ DevTools extension** installed along with the [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) and [CMake Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools) extensions. These extensions are available automatically as part of the [C/C++ Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack).
+
+## Prerequisites
+
+- **C/C++ DevTools extension**
+- [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) extension
+- [CMake Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools) extension 
+
+These extensions are available as part of the [C/C++ Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack).
 
 You can enable/disable any of these tools at any point by navigating to the `Tools` option in chat and selecting the respective tool you'd like to enable/disable.
 
