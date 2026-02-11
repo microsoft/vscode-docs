@@ -55,8 +55,10 @@ Use custom instructions when you want to:
 
 Skills are stored in directories with a `SKILL.md` file that defines the skill's behavior. VS Code supports two types of skills:
 
-* Project skills, stored in your repository: `.github/skills/` (recommended) or `.claude/skills/` (legacy, for backward compatibility)
-* Personal skills, stored in your user profile: `~/.copilot/skills/` (recommended) or `~/.claude/skills/` (legacy, for backward compatibility)
+| Skill type | Location |
+| ---------- | -------- |
+| Project skills, stored in your repository | `.github/skills/`, `.claude/skills/`, `.agents/skills/` |
+| Personal skills, stored in your user profile | `~/.copilot/skills/`, `~/.claude/skills/`, `~/.agents/skills/` |
 
 > [!TIP]
 > You can configure additional locations where VS Code searches for skills by using the `setting(chat.agentSkillsLocations)` setting. This is useful for sharing skills across projects or keeping them in a central location.
@@ -88,11 +90,11 @@ To create a skill:
     * `test-template.js` - A template test file
     * `examples/` - Example test scenarios
 
-### SKILL.md file format
+## SKILL.md file format
 
 The `SKILL.md` file is a Markdown file with YAML frontmatter that defines the skill's metadata and behavior.
 
-#### Header (required)
+### Header (required)
 
 The header is formatted as YAML frontmatter with the following fields:
 
@@ -101,7 +103,7 @@ The header is formatted as YAML frontmatter with the following fields:
 | `name` | Yes | A unique identifier for the skill. Must be lowercase, using hyphens for spaces (for example, `webapp-testing`). Maximum 64 characters. |
 | `description` | Yes | A description of what the skill does **and when to use it**. Be specific about both capabilities and use cases to help Copilot decide when to load the skill. Maximum 1024 characters. |
 
-#### Body
+### Body
 
 The skill body contains the instructions, guidelines, and examples that Copilot should follow when using this skill. Write clear, specific instructions that describe:
 
