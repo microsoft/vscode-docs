@@ -43,7 +43,7 @@ VS Code supports eight hook events that fire at specific points during an agent 
 
 | Hook Event | When It Fires | Common Use Cases |
 |------------|---------------|------------------|
-| `SessionStart` | New agent session begins | Initialize resources, log session start, validate project state |
+| `SessionStart` | User submits the first prompt of a new session | Initialize resources, log session start, validate project state |
 | `UserPromptSubmit` | User submits a prompt | Audit user requests, inject system context |
 | `PreToolUse` | Before agent invokes any tool | Block dangerous operations, require approval, modify tool input |
 | `PostToolUse` | After tool completes successfully | Run formatters, log results, trigger follow-up actions |
@@ -221,6 +221,8 @@ The `PreToolUse` hook can control tool execution through a `hookSpecificOutput` 
 1. `deny` (most restrictive): blocks tool execution
 2. `ask`: requires user confirmation
 3. `allow` (least restrictive): auto-approves execution
+
+**`updatedInput` format**: To determine the format of `updatedInput`, run the command "Show Chat Debug View" and find the logged tool schema. If `updatedInput` doesn't match the expected schema, it will be ignored.
 
 ## Configure hooks with the /hooks command
 
@@ -430,6 +432,10 @@ EOF
 
 </details>
 
+## Safety
+
+If the agent has access to edit scripts run by hooks, then it has the ability to modify those scripts during its own run, and execute the code it writes. We recommend using the `chat.tools.edits.autoApprove` to disallow the agent from editing hook scripts without manual approval.
+
 ## Troubleshooting
 
 ### View hook diagnostics
@@ -446,7 +452,7 @@ To review hook output and errors:
 
 1. Open the **Output** panel.
 
-1. Select **Hooks** from the channel list.
+1. Select **GitHub Copilot Chat Hooks** from the channel list.
 
 ### Common issues
 
