@@ -7,7 +7,7 @@ ContentId:
 DateApproved: 02/17/2026
 MetaDescription:
 Keywords:
-
+---
 # Using C++ Development Tools with GitHub Copilot Chat
 Refactoring and making updates in C++ code often requires tracking down edits across multiple files and having knowledge of your build configuration.
 
