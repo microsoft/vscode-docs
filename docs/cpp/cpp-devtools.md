@@ -43,7 +43,7 @@ To enable these tools, select the **Enable Cpp Code Editing Tools** setting in y
 **Example Use Case:**
 *Optimize memory performance and ensure non-breaking changes*
 
-![User asking Copilot to refactor a symbol to be memory-safe, which invokes the get symbol info tool](/docs/cpp/images/get-symbol-info-example.png)
+![Screenshot of the Chat view, showing a prompt to refactor a symbol to be memory-safe, which invokes the get symbol info tool.](images/get-symbol-info-example.png)
 
 ---
 
