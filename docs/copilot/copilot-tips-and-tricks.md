@@ -10,7 +10,7 @@ This article covers proven practices for getting the most out of using AI in Vis
 
 ## Set up your project for AI
 
-Custom instructions tell the AI about your team's coding standards, preferred patterns, and project-specific context. This reduces repetitive prompting and improves consistency of generated code.
+Custom instructions tell the AI about your team's coding standards, preferred patterns, and project-specific context. This approach reduces repetitive prompting and improves the consistency of generated code.
 
 To get started:
 
@@ -22,12 +22,12 @@ To get started:
 
 **Write effective instructions:**
 
-* Keep instructions concise. If the instructions file is too long, rules get ignored. Include reasoning behind non-obvious rules so the AI can apply them in new contexts.
+* Keep instructions concise. If the instructions file is too long, the AI ignores rules. Include reasoning behind non-obvious rules so the AI can apply them in new contexts.
 * Show preferred and avoided patterns with short code examples.
 * Skip rules that your linter or formatter already enforces.
 * Prune regularly. If the AI already follows a rule without the instruction, remove it.
 
-Get more details about [custom instructions](/docs/copilot/customization/custom-instructions.md) and the full [customization overview](/docs/copilot/customization/overview.md).
+For more information, see [custom instructions](/docs/copilot/customization/custom-instructions.md) and the full [customization overview](/docs/copilot/customization/overview.md).
 
 ## Pick the right tool for the task
 
@@ -55,9 +55,9 @@ The quality of AI responses depends on the clarity and specificity of your promp
     Example: validateEmail("invalid") returns false
     ```
 
-* **Break down complex tasks.** Instead of asking for an entire feature at once, decompose it into smaller, well-scoped steps. This produces more reliable results and makes it easier to catch issues early.
+* **Break down complex tasks.** Instead of asking for an entire feature at once, decompose it into smaller, well-scoped steps. This approach produces more reliable results and makes it easier to catch problems early.
 
-* **Include expected output for verification.** Provide test cases, expected results, or acceptance criteria so the AI can verify its own work. This is one of the highest-leverage things you can do.
+* **Include expected output for verification.** Provide test cases, expected results, or acceptance criteria so the AI can verify its own work. This step is one of the highest-leverage things you can do.
 
     ```prompt
     Implement a rate limiter using the token bucket algorithm.
@@ -70,51 +70,51 @@ The quality of AI responses depends on the clarity and specificity of your promp
 
 * **Avoid vague prompts.** A prompt like "make this better" gives the AI no direction. Instead, specify what "better" means: "reduce the time complexity" or "add input validation for null values."
 
-Get more details about [prompt engineering](/docs/copilot/guides/prompt-engineering-guide.md) and find practical [prompt examples](https://docs.github.com/en/copilot/copilot-chat-cookbook) in the GitHub Copilot documentation.
+For more information, see [prompt engineering](/docs/copilot/guides/prompt-engineering-guide.md) and find practical [prompt examples](https://docs.github.com/en/copilot/copilot-chat-cookbook) in the GitHub Copilot documentation.
 
 ## Provide the right context
 
-The AI responds more accurately when it has relevant context. Use these techniques to point the AI at the right information.
+The AI responds more accurately when it has relevant context. Use these techniques to point the AI at the right information:
 
 * Use `#codebase` to explicitly instruct the AI to search your workspace for relevant code.
-* Reference specific files, folders, or symbols in your prompt with `#<file>`, `#<folder>`, or `#<symbol>` or use drag & drop.
+* Reference specific files, folders, or symbols in your prompt with `#<file>`, `#<folder>`, or `#<symbol>`. Or, use drag and drop.
 * Use `#fetch` to pull content from a web page, or `#githubRepo` to search a GitHub repository.
 * Add problems, test failures, or terminal output for scenario-specific context.
 * Add images or screenshots to let the AI analyze visual content.
 * Use the [integrated browser](/docs/debugtest/integrated-browser.md) to preview your app and select page elements to use as context.
-* Add relevant tools using **Configure Tools** in chat.
+* Add relevant tools by using **Configure Tools** in chat.
 
-Get more details about [adding context to chat prompts](/docs/copilot/chat/copilot-chat-context.md) and [configuring tools](/docs/copilot/agents/agent-tools.md).
+For more information, see [adding context to chat prompts](/docs/copilot/chat/copilot-chat-context.md) and [configuring tools](/docs/copilot/agents/agent-tools.md).
 
 ## Choose the right model
 
 * VS Code supports multiple AI models. Choose the model that fits your task by using the model picker in the chat input field.
 * Use BYOK for more control over model selection and hosting options.
 
-Learn more about [selecting AI models](/docs/copilot/customization/language-models.md) and [available models for Copilot Chat](https://docs.github.com/en/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat).
+For more information, see [selecting AI models](/docs/copilot/customization/language-models.md) and [available models for Copilot Chat](https://docs.github.com/en/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat).
 
 ## Plan first, then implement
 
-For complex changes that span multiple files, separate planning from implementation. This prevents the AI from solving the wrong problem.
+For complex changes that span multiple files, separate planning from implementation. This approach prevents the AI from solving the wrong problem.
 
 1. **Explore.** Use ask mode or a subagent to read the relevant code and understand how it works before making changes.
 1. **Plan.** Use the [Plan agent](/docs/copilot/agents/planning.md) to create a structured implementation plan. Review and refine the plan before executing.
 1. **Implement.** Switch to agent mode and implement from the plan. Include tests or expected outputs so the agent can verify its own work.
 1. **Review.** Use [checkpoints](/docs/copilot/chat/chat-checkpoints.md) to review progress and rewind if the agent goes off track.
 
-Get more details about the [context engineering workflow](/docs/copilot/guides/context-engineering-guide.md).
+For more information, see the [context engineering workflow](/docs/copilot/guides/context-engineering-guide.md).
 
 ## Manage context and sessions
 
 AI responses might degrade as the conversation fills with irrelevant context. Manage your sessions proactively.
 
-* **Start new sessions for unrelated tasks.** Do not keep piling unrelated questions into one conversation. Context pollution reduces response quality.
+* **Start new sessions for unrelated tasks.** Don't keep piling unrelated questions into one conversation. Context pollution reduces response quality.
 * **Remove irrelevant history.** Delete past questions and responses that are no longer relevant, or start a fresh session.
-* **Use subagents for investigation.** Delegate research and exploration to [subagents](/docs/copilot/agents/subagents.md) so the findings do not clutter your main context.
+* **Use subagents for investigation.** Delegate research and exploration to [subagents](/docs/copilot/agents/subagents.md) so the findings don't clutter your main context.
 * **Use workspace indexing.** For GitHub repositories, enable the [remote index](/docs/copilot/reference/workspace-context.md) for fast, accurate code search across your entire codebase. For non-GitHub repos, a local index is created automatically.
 * **Course-correct early.** If the AI is heading in the wrong direction, stop it and redirect with a more specific prompt. After two failed corrections, start a new session with a refined prompt that incorporates what you learned.
 
-Get more details about [session management](/docs/copilot/chat/chat-sessions.md) and [workspace indexing](/docs/copilot/reference/workspace-context.md).
+For more information, see [session management](/docs/copilot/chat/chat-sessions.md) and [workspace indexing](/docs/copilot/reference/workspace-context.md).
 
 ## Customize with reusable primitives
 
@@ -123,7 +123,7 @@ Commit reusable customization files to your repository so your entire team benef
 * Save task-specific prompts with context and instructions in [prompt files](/docs/copilot/customization/prompt-files.md) (`.prompt.md`). Trigger them like slash commands by typing `/` followed by the prompt name (for example, `/security-review`).
 * Define specialized AI personas with scoped tool access by creating [custom agents](/docs/copilot/customization/custom-agents.md) (`.agent.md`). Use them for constrained workflows like code review, security audit, or planning.
 * Chain agents into manual workflows with handoffs or automate them with [Agent Skills](/docs/copilot/customization/agent-skills.md) for end-to-end automation of complex processes.
-* Use [subagents](/docs/copilot/agents/subagents.md) for isolated research that does not pollute main context.
+* Use [subagents](/docs/copilot/agents/subagents.md) for isolated research that doesn't pollute main context.
 * Teach the AI domain-specific procedures (testing, deployment, debugging) with [Agent Skills](/docs/copilot/customization/agent-skills.md) (`SKILL.md`). Include scripts, examples, and reference docs alongside your instructions.
 * Write specific `description` in the Agent Skill YAML frontmatter that states both what the skill does and when to use it. The AI uses this field to decide whether to load the skill.
 
