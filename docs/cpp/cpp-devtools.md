@@ -81,7 +81,7 @@ CMake tools allow Copilot Chat to understand your build configuration, targets, 
 **Example Use Case:**
 *Resolving build errors*
 
-![User asking Copilot to resolve build errors, which invokes the CMake build tool](/docs/cpp/images/cmake-build-example.png)
+![Screenshot of the Chat view, showing a prompt to resolve build errors, which invokes the CMake build tool.](images/cmake-build-example.png)
 
 ---
 
