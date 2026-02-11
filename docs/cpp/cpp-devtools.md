@@ -66,7 +66,7 @@ To enable these tools, select the **Enable Cpp Code Editing Tools** setting in y
 **Example Use Case:**
 *Dependency analysis for module migration*
 
-![User asking Copilot to migrate a module into a separate library and thus requesting a dependency analysis, which invokes the get symbol call hierarchy tool](/docs/cpp/images/get-symbol-call-hierarchy-example.png)
+![Screenshot of the Chat view, showing a prompt to migrate a module into a separate library and thus requesting a dependency analysis, which invokes the get symbol call hierarchy tool.](images/get-symbol-call-hierarchy-example.png)
 
 ---
 
