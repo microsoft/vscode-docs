@@ -295,7 +295,10 @@ The `SessionStart` hook can inject additional context into the agent's conversat
 
 ```json
 {
-  "additionalContext": "Project: my-app v2.1.0 | Branch: main | Node: v20.11.0"
+  "hookSpecificOutput": {
+    "hookEventName": "SessionStart",
+    "additionalContext": "Project: my-app v2.1.0 | Branch: main | Node: v20.11.0"
+  }
 }
 ```
 
@@ -327,8 +330,11 @@ The `Stop` hook can prevent the agent from stopping:
 
 ```json
 {
-  "decision": "block",
-  "reason": "Run the test suite before finishing"
+  "hookSpecificOutput": {
+    "hookEventName": "Stop",
+    "decision": "block",
+    "reason": "Run the test suite before finishing"
+  }
 }
 ```
 
@@ -363,7 +369,10 @@ The `SubagentStart` hook can inject additional context into the subagent's conve
 
 ```json
 {
-  "additionalContext": "This subagent should follow the project coding guidelines"
+  "hookSpecificOutput": {
+    "hookEventName": "SubagentStart",
+    "additionalContext": "This subagent should follow the project coding guidelines"
+  }
 }
 ```
 
@@ -630,7 +639,10 @@ BRANCH=$(git branch --show-current 2>/dev/null || echo "unknown")
 
 cat <<EOF
 {
-  "additionalContext": "Project: $PROJECT_INFO | Branch: $BRANCH | Node: $(node -v 2>/dev/null || echo 'not installed')"
+  "hookSpecificOutput": {
+    "hookEventName": "SessionStart",
+    "additionalContext": "Project: $PROJECT_INFO | Branch: $BRANCH | Node: $(node -v 2>/dev/null || echo 'not installed')"
+  }
 }
 EOF
 ```
