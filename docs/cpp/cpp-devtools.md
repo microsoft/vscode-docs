@@ -3,9 +3,12 @@ Order: 9
 Area: cpp
 TOCTitle: C++ Dev Tools for Copilot
 PageTitle: Leveraging C++ Development Tools with GitHub Copilot Chat
+ContentId:
+DateApproved: 02/17/2026
+MetaDescription:
+Keywords:
 
 # Using C++ Development Tools with GitHub Copilot Chat
-
 Refactoring and making updates in C++ code often requires tracking down edits across multiple files and having knowledge of your build configuration.
 
 GitHub Copilot Chat can use the C++ tools built into VS Code to provide context-aware assistance for your C++ projects. By using code understanding and CMake tools, Copilot can understand your codebase structure, dependencies, and build configurations to give you more accurate, helpful, and fast responses.
