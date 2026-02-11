@@ -4,7 +4,7 @@ Area: cpp
 TOCTitle: C++ Dev Tools for Copilot
 PageTitle: Leveraging C++ Development Tools with GitHub Copilot Chat
 
-# Leveraging C++ Development Tools with GitHub Copilot Chat
+# Using C++ Development Tools with GitHub Copilot Chat
 
 Refactoring and making updates in C++ code often requires tracking down edits across multiple files and knowledge of your build configuration.
 
