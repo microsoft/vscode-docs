@@ -54,7 +54,7 @@ To enable these tools, select the **Enable Cpp Code Editing Tools** setting in y
 **Example Use Case:**
 *Add additional functionality to existing functions*
 
-![User asking Copilot to update an existing function and add a parameter for logging, which invokes the get symbol references tool](/docs/cpp/images/get-symbol-references-example.png)
+![Screenshot of the Chat view, showing a prompt to update an existing function and add a parameter for logging, which invokes the get symbol references tool.](images/get-symbol-references-example.png)
 
 ---
 
