@@ -38,7 +38,3 @@ Once you select a profile template, you can review the settings and extensions, 
 ## What else can you use notebooks for?
 
 The support for mixing executable code, equations, visualizations, and rich Markdown makes notebooks useful for breaking down new concepts in a storytelling form. This makes notebooks an exceptional tool for educators and students!
-
-Learn C#, F#, Powershell, JavaScript, HTML, SQL, KQL (Kusto Query Language), and [Mermaid](https://mermaid.js.org/intro/) with the [Polyglot Notebooks](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-interactive-vscode) extension.
-
-![Polyglot Notebooks in VS Code](images/overview/polyglot-nb-ext.png)
