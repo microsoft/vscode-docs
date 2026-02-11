@@ -26,7 +26,7 @@ These extensions are available as part of the [C/C++ Extension Pack](https://mar
 
 You can enable/disable any of these tools at any point by navigating to the `Tools` option in chat and selecting the respective tool you'd like to enable/disable.
 
-![All of the cpp tools listed in the Tools view](/docs/cpp/images/all-cpp-tools.png)
+![Screenshot showing the list of cpp tools in the chat tools Quick Pick.](images/all-cpp-tools.png)
 
 ## C++ code understanding tools
 
