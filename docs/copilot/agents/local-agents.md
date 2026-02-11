@@ -17,6 +17,13 @@ Local agents run directly within VS Code on your machine. You interact with loca
 
 Local agents operate in the chat interface in VS Code. When you close a chat session, the local agent remains active and you can track it in the sessions view.
 
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
+Follow a hands-on tutorial to experience local, background, and cloud agents in VS Code.
+
+* [Start tutorial](/docs/copilot/agents/agents-tutorial.md)
+
+</div>
+
 ## Why use local agents?
 
 * Interactive conversations that require immediate feedback, such as brainstorming, planning, or tasks that aren't yet fully defined

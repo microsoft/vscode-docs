@@ -3,8 +3,8 @@
 ContentId: 200bf922-3684-45ee-a8dd-43191d6b3f8b
 DateApproved: 02/04/2026
 
-VSCodeCommitHash: 587d46304c7f6c500b66440a4314f6d4540a4724
-VSCodeVersion: 1.108.0
+VSCodeCommitHash: f3d99dee2f4c63061a08f828e0ca6b6acf6ac0f8
+VSCodeVersion: 1.109.0
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Enterprise policies in Visual Studio Code enable organizations to centrally manage settings for their development teams. This reference details the available policies and how to implement them.
@@ -248,7 +248,7 @@ To remove policies and revert to default settings:
 
 ## Linux JSON policies
 
-You can configure VS Code setting policies on Linux devices by placing a JSON policy file at `/etc/vscode/policy.json`. This approach uses a simple JSON format to define policy values.
+Starting from VS Code version 1.106, you can configure VS Code setting policies on Linux devices by placing a JSON policy file at `/etc/vscode/policy.json`. This approach uses a simple JSON format to define policy values.
 
 These profiles can be deployed using Mobile Device Management (MDM) solutions or installed manually on individual devices.
 
@@ -377,7 +377,7 @@ The following table lists all available enterprise policies in VS Code.
 |------------|------------|-------------|----------------|
 | `McpGalleryServiceUrl` | `setting(chat.mcp.gallery.serviceUrl)` | Configure the MCP Gallery service URL to connect to | 1.101 |
 | `ExtensionGalleryServiceUrl` | `setting(extensions.gallery.serviceUrl)` | Configure the Marketplace service URL to connect to | 1.99 |
-| `AllowedExtensions` | `setting(extensions.allowed)` | Specify a list of extensions that are allowed to use. This helps maintain a secure and consistent development environment by restricting the use of unauthorized extensions. More information: https://code.visualstudio.com/docs/setup/enterprise#_configure-allowed-extensions | 1.96 |
+| `AllowedExtensions` | `setting(extensions.allowed)` | Specify a list of extensions that are allowed to use. This helps maintain a secure and consistent development environment by restricting the use of unauthorized extensions. More information: https://aka.ms/vscode/enterprise/extensions/allowed | 1.96 |
 | `ChatToolsAutoApprove` | `setting(chat.tools.global.autoApprove)` | Global auto approve also known as "YOLO mode" disables manual approval completely for all tools in all workspaces, allowing the agent to act fully autonomously. This is extremely dangerous and is *never* recommended, even containerized environments like Codespaces and Dev Containers have user keys forwarded into the container that could be compromised. This feature disables critical security protections and makes it much easier for an attacker to compromise the machine. | 1.99 |
 | `ChatToolsEligibleForAutoApproval` | `setting(chat.tools.eligibleForAutoApproval)` | Controls which tools are eligible for automatic approval. Tools set to 'false' will always present a confirmation and will never offer the option to auto-approve. The default behavior (or setting a tool to 'true') may result in the tool offering auto-approval options. | 1.107 |
 | `ChatMCP` | `setting(chat.mcp.access)` | Controls access to installed Model Context Protocol servers. | 1.99 |
@@ -388,9 +388,6 @@ The following table lists all available enterprise policies in VS Code.
 | `TelemetryLevel` | `setting(telemetry.telemetryLevel)` | Controls the level of telemetry. | 1.99 |
 | `EnableFeedback` | `setting(telemetry.feedback.enabled)` | Enable feedback mechanisms such as the issue reporter, surveys, and other feedback options. | 1.99 |
 
+
 > [!NOTE]
 > If you want to enact more policies, open an issue in the [VS Code GitHub repository](https://github.com/microsoft/vscode/issues). The team will determine if there is already a corresponding setting for the behavior or if a new setting and policy should be created.
-
-## Related resources
-
-<!-- TODO -->

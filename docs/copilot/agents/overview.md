@@ -20,6 +20,13 @@ This article provides an overview of the various agent types, how to create and 
 
 ![Screenshot of an agent session in VS Code showing code changes and chat interaction.](../images/agents-overview/chat-sessions-view-v3.png)
 
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Create a basic game">
+Use agents in VS Code to generate a tic-tac-toe game in your language of choice.
+
+* [Open in VS Code](vscode://GitHub.Copilot-Chat/chat?agent=agent%26prompt=%23newWorkspace%20Create%20a%20basic%20tic-tac-toe%20game.%20Ask%20the%20user%20about%20their%20language%20of%20choice)
+
+</div>
+
 > [!IMPORTANT]
 > Make sure agents are enabled in your VS Code settings (`setting(chat.agent.enabled)`). Your organization might also disable agents - contact your admin to enable this functionality.
 
@@ -166,7 +173,18 @@ You can create a new agent session from the Chat view or by using the correspond
 
     ![Screenshot showing agent type dropdown in new chat session.](../images/agents-overview/agent-type-dropdown-jan.png)
 
-1. Enter your prompt to assign a task to the agent. The agent starts working on the task.
+1. Enter a prompt to assign a task to the agent. The agent starts working on the task.
+
+    ```prompt
+    Generate a diagram that gives a high-level overview of the architecture of this project.
+    ```
+
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
+Follow a hands-on tutorial to experience local, background, and cloud agents in VS Code.
+
+* [Start tutorial](/docs/copilot/agents/agents-tutorial.md)
+
+</div>
 
 ## Hand off a session to another agent
 

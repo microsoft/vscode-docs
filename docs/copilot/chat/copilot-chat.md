@@ -8,6 +8,13 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 
 Chat in Visual Studio Code enables you to use natural language for AI-powered coding assistance. Ask questions about your code, get help understanding complex logic, generate new features, fix bugs, and more, all through a conversational interface. This article provides an overview of the chat surfaces, how to configure a chat session, add context, write effective prompts, and review AI-generated changes.
 
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
+Follow a hands-on tutorial to experience local, background, and cloud agents in VS Code.
+
+* [Start tutorial](/docs/copilot/agents/agents-tutorial.md)
+
+</div>
+
 ## Prerequisites
 
 * Access to [GitHub Copilot](/docs/copilot/setup.md). If you don't have a subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup).

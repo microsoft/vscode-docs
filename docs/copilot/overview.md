@@ -58,6 +58,13 @@ Use the built-in **Plan** agent to break a task into a structured implementation
 
 Learn more about [planning with agents](/docs/copilot/agents/planning.md).
 
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Plan a feature with agents">
+Use the Plan agent to create a structured implementation plan for a new feature.
+
+* [Open in VS Code](vscode://GitHub.Copilot-Chat/chat?agent=agent%26prompt=%2Fplan%20a%20terminal%20UI%20app%20to%20track%20my%20todo%20list.)
+
+</div>
+
 ## What can you do
 
 * **Build a feature end-to-end.** Describe a feature in natural language and the agent scaffolds the project, implements the logic across multiple files, and runs tests to verify the result.

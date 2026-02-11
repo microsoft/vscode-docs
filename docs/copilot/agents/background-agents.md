@@ -21,6 +21,13 @@ This article covers the key features of background agents, and how to start and 
 > [!TIP]
 > Third-party providers like OpenAI Codex also offer background agent capabilities. Learn more about [third-party agents](/docs/copilot/agents/third-party-agents.md).
 
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
+Follow a hands-on tutorial to experience local, background, and cloud agents in VS Code.
+
+* [Start tutorial](/docs/copilot/agents/agents-tutorial.md)
+
+</div>
+
 ## What are background agents?
 
 Unlike local agents that operate in and have aware of VS Code's editor context, background agents run independently via command-line interfaces (CLIs) on your local machine. You can view and manage all your background agent sessions from the unified Chat view in VS Code. This view also lets you create new background agent sessions directly from VS Code or hand off local agent conversations to background agents.
