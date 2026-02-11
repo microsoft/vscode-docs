@@ -8,7 +8,7 @@ PageTitle: Leveraging C++ Development Tools with GitHub Copilot Chat
 
 Refactoring and making updates in C++ code often requires tracking down edits across multiple files and having knowledge of your build configuration.
 
-GitHub Copilot Chat can leverage powerful C++ tools built into VS Code to provide context-aware assistance for your C++ projects. By using code understanding and CMake tools, Copilot can understand your codebase structure, dependencies, and build configurations to give you more accurate, helpful, and fast responses.
+GitHub Copilot Chat can use the C++ tools built into VS Code to provide context-aware assistance for your C++ projects. By using code understanding and CMake tools, Copilot can understand your codebase structure, dependencies, and build configurations to give you more accurate, helpful, and fast responses.
 
 This guide covers the available tools and how to use them effectively with agent mode to accomplish tasks such as:
 - Navigate and understand complex C++ codebases
