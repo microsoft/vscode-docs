@@ -98,7 +98,7 @@ CMake tools allow Copilot Chat to understand your build configuration, targets, 
 
 ### Tips for Effective Prompts
 
-- **Be specific:** Identify the exact symbol, file, or component you're asking about (e.g., "refactor the `getConfig()` function" rather than "make this faster")
+- **Be specific:** Identify the exact symbol, file, or component you're asking about (for example, "refactor the `getConfig()` function" rather than "make this faster")
 - **Reference context:** Ask Copilot Chat to consider specific files, functions, or modules when analyzing changes
 - **Use custom instructions:** Set up [custom instructions](https://github.com/microsoft/vscode-docs/blob/main/docs/copilot/customization/custom-instructions.md) to guide Copilot Chat
 - **Leverage latest models:** Use the latest AI models that support tool-calling for the most accurate code understanding and tool usage
