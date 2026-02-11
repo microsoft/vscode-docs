@@ -100,7 +100,14 @@ Use different language models to:
 - Switch to a more capable model for complex architectural decisions or detailed code reviews
 - Bring your own API key to access experimental models or use locally hosted models
 
-## Getting started
+## Set up your project for AI
+
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Generate instructions">
+Set up your project for AI with `/init` to generate custom instructions tailored to your project.
+
+* [Open in VS Code](vscode://GitHub.Copilot-Chat/chat?prompt=%2Finit)
+
+</div>
 
 Implement AI customizations incrementally. Start with the basics and add more as needed.
 
@@ -112,18 +119,11 @@ Implement AI customizations incrementally. Start with the basics and add more as
 
 1. **Create specialized workflows**: Build custom agents for specific roles or project phases. Package reusable capabilities as agent skills to share across tools and minimize context usage.
 
-## Keep instructions concise
-
-Every customization primitive consumes tokens from the model's context window. Use the context window control in the chat input to your current token usage.
-
-Keep each file focused to avoid overwhelming the model. If the AI seems to "forget" rules, your instructions might be too long. Move specialized content to file-based instructions or agent skills.
-
-> [!TIP]
-> To see what context is loaded for a chat request, right-click in the Chat view and select **Diagnostics**. This shows all loaded custom agents, prompt files, instruction files, and skills along with any errors.
-
 ## Troubleshoot customization issues
 
-If your customization files aren't being applied or are causing unexpected behavior, use the chat customization diagnostics view to identify problems. Right-click in the Chat view and select **Diagnostics** to see all loaded custom agents, prompt files, instruction files, and skills along with any errors.
+If your customization files aren't being applied or are causing unexpected behavior, use the chat customization diagnostics view to identify problems.
+
+Select **Configure Chat (gear icon)** > **Diagnostics** in the Chat view to see all loaded custom agents, prompt files, instruction files, and skills along with any errors. Check for issues like syntax errors, invalid configurations, or problems loading resources.
 
 Learn more about [troubleshooting AI in VS Code](/docs/copilot/troubleshooting.md).
 

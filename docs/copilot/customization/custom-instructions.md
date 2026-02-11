@@ -21,9 +21,9 @@ Custom instructions enable you to define common guidelines and rules that automa
 You can configure custom instructions to apply automatically to all chat requests or to specific files only. Alternatively, you can manually attach custom instructions to a specific chat prompt.
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Generate instructions">
-Let VS Code analyze your project and generate instructions tailored to your project with `/init`.
+Set up your project for AI with `/init` to generate custom instructions tailored to your project.
 
-* [Generate instructions](vscode://GitHub.Copilot-Chat/chat?prompt=%2Finit)
+* [Open in VS Code](vscode://GitHub.Copilot-Chat/chat?prompt=%2Finit)
 
 </div>
 
