@@ -2,11 +2,7 @@
 Order: 9
 Area: cpp
 TOCTitle: C++ Dev Tools for Copilot
-ContentId:
 PageTitle: Leveraging C++ Development Tools with GitHub Copilot Chat
-DateApproved:
-MetaDescription: Learn how to use C++ LSP-based tools and CMake tools with GitHub Copilot Chat to enhance your development workflow
----
 
 # Leveraging C++ Development Tools with GitHub Copilot Chat
 
@@ -85,6 +81,10 @@ CMake tools allow Copilot Chat to understand your build configuration, targets, 
 ### Run CTest (`RunCTest_CMakeTools`)
 
 **What it does:** Runs test suite defined by CTest in your project
+
+**Example Use Case:**
+*Fix code according to unit tests*
+![User asking to fix failing unit tests, which invokes run ctest](/docs/cpp/images/run-ctest-example.png.png)
 
 ---
 
