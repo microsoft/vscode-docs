@@ -30,7 +30,7 @@ You can enable/disable any of these tools at any point by navigating to the `Too
 
 ## C++ code understanding tools
 
-The C++ extension provides tools that leverage language services to give Copilot Chat deep understanding of your code structure, symbols, and relationships. Ensure you are [configured with IntelliSense](/cpp/configure-intellisense.md) to leverage these tools.
+The C++ extension provides tools that use language services to give Copilot Chat deep understanding of your code structure, symbols, and relationships. Ensure you have [configured with IntelliSense](/cpp/configure-intellisense.md) to take advantage of these tools.
 
 To enable these tools, select the **Enable Cpp Code Editing Tools** setting in your VS Code user settings.
 
