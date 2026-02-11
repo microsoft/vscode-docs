@@ -80,6 +80,8 @@ You can drag and drop editor groups on the workbench, move individual tabs betwe
 > [!NOTE]
 > VS Code uses editor groups whether or not you have enabled tabs. Without tabs, editor groups are a stack of your open items with the most recently selected item visible in the editor pane.
 
+If you like to split your editor window without using tabs see [Simulating Buffers](/docs/getstarted/userinterface.md#simulating-buffers).
+
 ### Split in group
 
 You can split the current editor without creating a new editor group with the **View: Split Editor in Group** command (`kb(workbench.action.splitEditorInGroup)`). To learn more about this editor mode and specific commands for navigating between the two sides, you can read the section in the [Custom Layout](/docs/configure/custom-layout.md#split-in-group) article.
@@ -508,6 +510,19 @@ Windows/Linux:
 ```json
 { "key": "ctrl+w", "command": "workbench.action.closeEditorsInGroup" }
 ```
+
+### Simulating Buffers
+
+If you're coming from buffer-centric editors such as Emacs or vi, you can emulate that workflow with:
+
+```json
+"workbench.editor.showTabs": "single",
+"workbench.editor.revealIfOpen": true,
+"workbench.editor.moveToActiveGroupIfOpen": true,
+"workbench.editor.closeEmptyGroups": false,
+```
+
+VS Code has a model where Editors live hierarchically within Editor Groups, and to split your screen you must use Editor Groups. Using `revealIfOpen` with `moveToActiveGroupIfOpen` causes Quick Open to move already-open Editors into the active Editor Group. This allows you to emulate buffer-centric environments—no tabs, split your screen, and you can view any Editor within any Editor Group without opening a file multiple times.
 
 ## Window management
 
