@@ -43,7 +43,7 @@ VS Code supports eight hook events that fire at specific points during an agent 
 
 | Hook Event | When It Fires | Common Use Cases |
 |------------|---------------|------------------|
-| `SessionStart` | New agent session begins | Initialize resources, log session start, validate project state |
+| `SessionStart` | User submits the first prompt of a new session | Initialize resources, log session start, validate project state |
 | `UserPromptSubmit` | User submits a prompt | Audit user requests, inject system context |
 | `PreToolUse` | Before agent invokes any tool | Block dangerous operations, require approval, modify tool input |
 | `PostToolUse` | After tool completes successfully | Run formatters, log results, trigger follow-up actions |
@@ -78,7 +78,7 @@ Create a JSON file with a `hooks` object containing arrays of hook commands for 
       {
         "type": "command",
         "command": "./scripts/validate-tool.sh",
-        "timeoutSec": 15
+        "timeout": 15
       }
     ],
     "PostToolUse": [
@@ -104,7 +104,7 @@ Each hook entry must have `type: "command"` and at least one command property:
 | `osx` | string | macOS-specific command override |
 | `cwd` | string | Working directory (relative to repository root) |
 | `env` | object | Additional environment variables |
-| `timeoutSec` | number | Timeout in seconds (default: 30) |
+| `timeout` | number | Timeout in seconds (default: 30) |
 
 > [!NOTE]
 > OS-specific commands are selected based on the extension host platform. In remote development scenarios (SSH, Containers, WSL), this might differ from your local operating system.
@@ -135,9 +135,9 @@ The execution service selects the appropriate command based on your OS. If no OS
 
 Hooks communicate with VS Code through stdin (input) and stdout (output) using JSON.
 
-### Input format
+### Common input fields
 
-Every hook receives a JSON object via stdin with common fields:
+Every hook receives a JSON object via stdin with these common fields:
 
 ```json
 {
@@ -149,26 +149,9 @@ Every hook receives a JSON object via stdin with common fields:
 }
 ```
 
-For `PreToolUse` and `PostToolUse` hooks, additional fields are included:
+### Common output format
 
-```json
-{
-  "tool_name": "editFiles",
-  "tool_input": { "files": ["src/main.ts"] },
-  "tool_use_id": "tool-123",
-  "tool_response": "File edited successfully"
-}
-```
-
-The `tool_response` field is only present for `PostToolUse` hooks.
-
-For `UserPromptSubmit` hooks, a `prompt` field is included with the text the user submitted.
-
-For `Stop` and `SubagentStop` hooks, a `stop_hook_active` boolean is included. It is `true` when a stop hook is already keeping the session active.
-
-### Output format
-
-Hooks can return JSON via stdout to influence agent behavior:
+Hooks can return JSON via stdout to influence agent behavior. All hooks support these output fields:
 
 ```json
 {
@@ -194,7 +177,23 @@ The hook's exit code determines how VS Code handles the result:
 | `2` | Blocking error: stop processing and show error to model |
 | Other | Non-blocking warning: show warning to user, continue processing |
 
-## PreToolUse hook output
+## PreToolUse
+
+The `PreToolUse` hook fires before the agent invokes a tool.
+
+### PreToolUse input
+
+In addition to the common fields, `PreToolUse` hooks receive:
+
+```json
+{
+  "tool_name": "editFiles",
+  "tool_input": { "files": ["src/main.ts"] },
+  "tool_use_id": "tool-123"
+}
+```
+
+### PreToolUse output
 
 The `PreToolUse` hook can control tool execution through a `hookSpecificOutput` object:
 
@@ -221,6 +220,223 @@ The `PreToolUse` hook can control tool execution through a `hookSpecificOutput` 
 1. `deny` (most restrictive): blocks tool execution
 2. `ask`: requires user confirmation
 3. `allow` (least restrictive): auto-approves execution
+
+**`updatedInput` format**: To determine the format of `updatedInput`, run the command "Show Chat Debug View" and find the logged tool schema. If `updatedInput` doesn't match the expected schema, it will be ignored.
+
+## PostToolUse
+
+The `PostToolUse` hook fires after a tool completes successfully.
+
+### PostToolUse input
+
+In addition to the common fields, `PostToolUse` hooks receive:
+
+```json
+{
+  "tool_name": "editFiles",
+  "tool_input": { "files": ["src/main.ts"] },
+  "tool_use_id": "tool-123",
+  "tool_response": "File edited successfully"
+}
+```
+
+### PostToolUse output
+
+The `PostToolUse` hook can provide additional context to the model, or block further processing:
+
+```json
+{
+  "decision": "block",
+  "reason": "Post-processing validation failed",
+  "hookSpecificOutput": {
+    "hookEventName": "PostToolUse",
+    "additionalContext": "The edited file has lint errors that need to be fixed"
+  }
+}
+```
+
+| Field | Values | Description |
+|-------|--------|-------------|
+| `decision` | `"block"` | Block further processing (optional) |
+| `reason` | string | Reason for blocking (shown to the model) |
+| `hookSpecificOutput.additionalContext` | string | Extra context injected into the conversation |
+
+## UserPromptSubmit
+
+The `UserPromptSubmit` hook fires when the user submits a prompt.
+
+### UserPromptSubmit input
+
+In addition to the common fields, `UserPromptSubmit` hooks receive a `prompt` field with the text the user submitted.
+
+The `UserPromptSubmit` hook uses the common output format only.
+
+## SessionStart
+
+The `SessionStart` hook fires when a new agent session begins.
+
+### SessionStart input
+
+In addition to the common fields, `SessionStart` hooks receive:
+
+```json
+{
+  "source": "new"
+}
+```
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `source` | string | How the session was started. Currently always `"new"`. |
+
+### SessionStart output
+
+The `SessionStart` hook can inject additional context into the agent's conversation:
+
+```json
+{
+  "hookSpecificOutput": {
+    "hookEventName": "SessionStart",
+    "additionalContext": "Project: my-app v2.1.0 | Branch: main | Node: v20.11.0"
+  }
+}
+```
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `additionalContext` | string | Context added to the agent's conversation |
+
+## Stop
+
+The `Stop` hook fires when the agent session ends.
+
+### Stop input
+
+In addition to the common fields, `Stop` hooks receive:
+
+```json
+{
+  "stop_hook_active": false
+}
+```
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `stop_hook_active` | boolean | `true` when the agent is already continuing as a result of a previous stop hook. Check this value to prevent the agent from running indefinitely. |
+
+### Stop output
+
+The `Stop` hook can prevent the agent from stopping:
+
+```json
+{
+  "hookSpecificOutput": {
+    "hookEventName": "Stop",
+    "decision": "block",
+    "reason": "Run the test suite before finishing"
+  }
+}
+```
+
+| Field | Values | Description |
+|-------|--------|-------------|
+| `decision` | `"block"` | Prevent the agent from stopping |
+| `reason` | string | Required when decision is `"block"`. Tells the agent why it should continue. |
+
+## SubagentStart
+
+The `SubagentStart` hook fires when a subagent is spawned.
+
+### SubagentStart input
+
+In addition to the common fields, `SubagentStart` hooks receive:
+
+```json
+{
+  "agent_id": "subagent-456",
+  "agent_type": "Plan"
+}
+```
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `agent_id` | string | Unique identifier for the subagent |
+| `agent_type` | string | The agent name (for example, `"Plan"` for built-in agents or custom agent names) |
+
+### SubagentStart output
+
+The `SubagentStart` hook can inject additional context into the subagent's conversation:
+
+```json
+{
+  "hookSpecificOutput": {
+    "hookEventName": "SubagentStart",
+    "additionalContext": "This subagent should follow the project coding guidelines"
+  }
+}
+```
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `additionalContext` | string | Context added to the subagent's conversation |
+
+## SubagentStop
+
+The `SubagentStop` hook fires when a subagent completes.
+
+### SubagentStop input
+
+In addition to the common fields, `SubagentStop` hooks receive:
+
+```json
+{
+  "agent_id": "subagent-456",
+  "agent_type": "Plan",
+  "stop_hook_active": false
+}
+```
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `agent_id` | string | Unique identifier for the subagent |
+| `agent_type` | string | The agent name (for example, `"Plan"` for built-in agents or custom agent names) |
+| `stop_hook_active` | boolean | `true` when the subagent is already continuing as a result of a previous stop hook. Check this value to prevent the subagent from running indefinitely. |
+
+### SubagentStop output
+
+The `SubagentStop` hook can prevent the subagent from stopping:
+
+```json
+{
+  "decision": "block",
+  "reason": "Verify subagent results before completing"
+}
+```
+
+| Field | Values | Description |
+|-------|--------|-------------|
+| `decision` | `"block"` | Prevent the subagent from stopping |
+| `reason` | string | Required when decision is `"block"`. Tells the subagent why it should continue. |
+
+## PreCompact
+
+The `PreCompact` hook fires before conversation context is compacted.
+
+### PreCompact input
+
+In addition to the common fields, `PreCompact` hooks receive:
+
+```json
+{
+  "trigger": "auto"
+}
+```
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `trigger` | string | How the compaction was triggered. `"auto"` when the conversation is too long for the prompt budget. |
+
+The `PreCompact` hook uses the common output format only.
 
 ## Configure hooks with the /hooks command
 
@@ -295,7 +511,7 @@ Run Prettier automatically after any file modification:
         "type": "command",
         "command": "./scripts/format-changed-files.sh",
         "windows": "powershell -File scripts\\format-changed-files.ps1",
-        "timeoutSec": 30
+        "timeout": 30
       }
     ]
   }
@@ -423,12 +639,19 @@ BRANCH=$(git branch --show-current 2>/dev/null || echo "unknown")
 
 cat <<EOF
 {
-  "systemMessage": "Project: $PROJECT_INFO | Branch: $BRANCH | Node: $(node -v 2>/dev/null || echo 'not installed')"
+  "hookSpecificOutput": {
+    "hookEventName": "SessionStart",
+    "additionalContext": "Project: $PROJECT_INFO | Branch: $BRANCH | Node: $(node -v 2>/dev/null || echo 'not installed')"
+  }
 }
 EOF
 ```
 
 </details>
+
+## Safety
+
+If the agent has access to edit scripts run by hooks, then it has the ability to modify those scripts during its own run, and execute the code it writes. We recommend using the `chat.tools.edits.autoApprove` to disallow the agent from editing hook scripts without manual approval.
 
 ## Troubleshooting
 
@@ -446,7 +669,7 @@ To review hook output and errors:
 
 1. Open the **Output** panel.
 
-1. Select **Hooks** from the channel list.
+1. Select **GitHub Copilot Chat Hooks** from the channel list.
 
 ### Common issues
 
@@ -454,7 +677,7 @@ To review hook output and errors:
 
 **Permission denied errors**: Ensure your hook scripts have execute permissions (`chmod +x script.sh`).
 
-**Timeout errors**: Increase the `timeoutSec` value or optimize your hook script. The default is 30 seconds.
+**Timeout errors**: Increase the `timeout` value or optimize your hook script. The default is 30 seconds.
 
 **JSON parse errors**: Verify your hook script outputs valid JSON to stdout. Use `jq` or a JSON library to construct output.
 
