@@ -46,7 +46,7 @@ VS Code supports eight hook events that fire at specific points during an agent 
 | `SessionStart` | User submits the first prompt of a new session | Initialize resources, log session start, validate project state |
 | `UserPromptSubmit` | User submits a prompt | Audit user requests, inject system context |
 | `PreToolUse` | Before agent invokes any tool | Block dangerous operations, require approval, modify tool input |
-| `PostToolUse` | After tool completes successfully | Run formatters, log results, trigger follow-up actions |
+| `PostToolUse` | After tool completes | Run formatters, log results, trigger follow-up actions |
 | `PreCompact` | Before conversation context is compacted | Export important context, save state before truncation |
 | `SubagentStart` | Subagent is spawned | Track nested agent usage, initialize subagent resources |
 | `SubagentStop` | Subagent completes | Aggregate results, cleanup subagent resources |
@@ -240,7 +240,26 @@ In addition to the common fields, `PostToolUse` hooks receive:
 }
 ```
 
-The `PostToolUse` hook uses the common output format only.
+### PostToolUse output
+
+The `PostToolUse` hook can provide additional context to the model, or block further processing:
+
+```json
+{
+  "decision": "block",
+  "reason": "Post-processing validation failed",
+  "hookSpecificOutput": {
+    "hookEventName": "PostToolUse",
+    "additionalContext": "The edited file has lint errors that need to be fixed"
+  }
+}
+```
+
+| Field | Values | Description |
+|-------|--------|-------------|
+| `decision` | `"block"` | Block further processing (optional) |
+| `reason` | string | Reason for blocking (shown to the model) |
+| `hookSpecificOutput.additionalContext` | string | Extra context injected into the conversation |
 
 ## UserPromptSubmit
 
@@ -252,15 +271,163 @@ In addition to the common fields, `UserPromptSubmit` hooks receive a `prompt` fi
 
 The `UserPromptSubmit` hook uses the common output format only.
 
-## Stop and SubagentStop
+## SessionStart
 
-The `Stop` hook fires when the agent session ends. The `SubagentStop` hook fires when a subagent completes.
+The `SessionStart` hook fires when a new agent session begins.
 
-### Stop and SubagentStop input
+### SessionStart input
 
-In addition to the common fields, these hooks receive a `stop_hook_active` boolean. It is `true` when a stop hook is already keeping the session active.
+In addition to the common fields, `SessionStart` hooks receive:
 
-The `Stop` and `SubagentStop` hooks use the common output format only.
+```json
+{
+  "source": "new"
+}
+```
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `source` | string | How the session was started. Currently always `"new"`. |
+
+### SessionStart output
+
+The `SessionStart` hook can inject additional context into the agent's conversation:
+
+```json
+{
+  "additionalContext": "Project: my-app v2.1.0 | Branch: main | Node: v20.11.0"
+}
+```
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `additionalContext` | string | Context added to the agent's conversation |
+
+## Stop
+
+The `Stop` hook fires when the agent session ends.
+
+### Stop input
+
+In addition to the common fields, `Stop` hooks receive:
+
+```json
+{
+  "stop_hook_active": false
+}
+```
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `stop_hook_active` | boolean | `true` when the agent is already continuing as a result of a previous stop hook. Check this value to prevent the agent from running indefinitely. |
+
+### Stop output
+
+The `Stop` hook can prevent the agent from stopping:
+
+```json
+{
+  "decision": "block",
+  "reason": "Run the test suite before finishing"
+}
+```
+
+| Field | Values | Description |
+|-------|--------|-------------|
+| `decision` | `"block"` | Prevent the agent from stopping |
+| `reason` | string | Required when decision is `"block"`. Tells the agent why it should continue. |
+
+## SubagentStart
+
+The `SubagentStart` hook fires when a subagent is spawned.
+
+### SubagentStart input
+
+In addition to the common fields, `SubagentStart` hooks receive:
+
+```json
+{
+  "agent_id": "subagent-456",
+  "agent_type": "Plan"
+}
+```
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `agent_id` | string | Unique identifier for the subagent |
+| `agent_type` | string | The agent name (for example, `"Plan"` for built-in agents or custom agent names) |
+
+### SubagentStart output
+
+The `SubagentStart` hook can inject additional context into the subagent's conversation:
+
+```json
+{
+  "additionalContext": "This subagent should follow the project coding guidelines"
+}
+```
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `additionalContext` | string | Context added to the subagent's conversation |
+
+## SubagentStop
+
+The `SubagentStop` hook fires when a subagent completes.
+
+### SubagentStop input
+
+In addition to the common fields, `SubagentStop` hooks receive:
+
+```json
+{
+  "agent_id": "subagent-456",
+  "agent_type": "Plan",
+  "stop_hook_active": false
+}
+```
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `agent_id` | string | Unique identifier for the subagent |
+| `agent_type` | string | The agent name (for example, `"Plan"` for built-in agents or custom agent names) |
+| `stop_hook_active` | boolean | `true` when the subagent is already continuing as a result of a previous stop hook. Check this value to prevent the subagent from running indefinitely. |
+
+### SubagentStop output
+
+The `SubagentStop` hook can prevent the subagent from stopping:
+
+```json
+{
+  "decision": "block",
+  "reason": "Verify subagent results before completing"
+}
+```
+
+| Field | Values | Description |
+|-------|--------|-------------|
+| `decision` | `"block"` | Prevent the subagent from stopping |
+| `reason` | string | Required when decision is `"block"`. Tells the subagent why it should continue. |
+
+## PreCompact
+
+The `PreCompact` hook fires before conversation context is compacted.
+
+### PreCompact input
+
+In addition to the common fields, `PreCompact` hooks receive:
+
+```json
+{
+  "trigger": "auto"
+}
+```
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `trigger` | string | How the compaction was triggered. `"auto"` when the conversation is too long for the prompt budget. |
+
+The `PreCompact` hook uses the common output format only.
 
 ## Configure hooks with the /hooks command
 
@@ -463,7 +630,7 @@ BRANCH=$(git branch --show-current 2>/dev/null || echo "unknown")
 
 cat <<EOF
 {
-  "systemMessage": "Project: $PROJECT_INFO | Branch: $BRANCH | Node: $(node -v 2>/dev/null || echo 'not installed')"
+  "additionalContext": "Project: $PROJECT_INFO | Branch: $BRANCH | Node: $(node -v 2>/dev/null || echo 'not installed')"
 }
 EOF
 ```
