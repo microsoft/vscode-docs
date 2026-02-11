@@ -17,6 +17,13 @@ Follow a hands-on tutorial to build your first app with AI in VS Code.
 
 </div>
 
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Watch the introduction video">
+Learn about the key features of Visual Studio Code in our introduction video.
+
+* [Watch video](https://www.youtube.com/watch?v=f8_uF_IDV50)
+
+</div>
+
 ## Prerequisites
 
 - [Download and install Visual Studio Code on your computer](https://code.visualstudio.com/download)
