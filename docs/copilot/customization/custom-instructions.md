@@ -51,6 +51,10 @@ Always-on instructions are automatically included in every chat request. Use the
     * Share instructions across multiple workspaces and repositories within a GitHub organization
     * Defined at the GitHub organization level
 
+* [`CLAUDE.md`](#use-a-claudemd-file) file
+    * For compatibility with Claude Code and other Claude-based tools
+    * Stored in the workspace root, `.claude` folder, or user home directory
+
 ### File-based instructions
 
 File-based instructions are applied when files that the agent is working on match a specified pattern or if the description matches the current task. Use file-based instructions for language-specific conventions, framework patterns, or rules that only apply to certain parts of your codebase.
@@ -127,8 +131,10 @@ You can define instructions for a specific workspace or at the user level, where
 
 | Scope | Default file location |
 |-------|-----------------------|
-| Workspace | `.github/instructions` or `.claude/rules` folder |
+| Workspace | `.github/instructions` folder |
 | User profile | `prompts` folder of the current [VS Code profile](/docs/configure/profiles.md) |
+
+For compatibility with Claude Code and other Claude-based tools, VS Code also detects instructions files in the `.claude/rules` workspace folder and the `~/.claude/rules` user folder.
 
 You can configure additional file locations for workspace instructions files with the `setting(chat.instructionsFilesLocations)` setting. This is useful if you want to keep instructions files in a different folder or have multiple folders for better organization.
 
@@ -268,6 +274,24 @@ When enabled, VS Code searches recursively in all subfolders of your workspace f
 
 > [!TIP]
 > For folder-specific instructions, you can also use multiple [`.instructions.md`](#use-instructionsmd-files) files with different `applyTo` patterns that match the folder structure.
+
+## Use a `CLAUDE.md` file
+
+VS Code automatically detects a `CLAUDE.md` file and applies it as always-on instructions, similar to `AGENTS.md`. This is useful if you use Claude Code or other Claude-based tools alongside VS Code and want a single set of instructions recognized by all of them.
+
+VS Code searches for `CLAUDE.md` files in these locations:
+
+| Location | Description |
+|----------|-------------|
+| Workspace root | `CLAUDE.md` in the root of your workspace |
+| `.claude` folder | `.claude/CLAUDE.md` in your workspace |
+| User home | `~/.claude/CLAUDE.md` for personal instructions across all projects |
+| Local variant | `CLAUDE.local.md` for local-only instructions (not committed to version control) |
+
+To enable or disable support for `CLAUDE.md` files, configure the `setting(chat.useClaudeMdFile)` setting.
+
+> [!NOTE]
+> For `.claude/rules` instructions files, VS Code uses a `paths` property instead of `applyTo` for glob patterns, following the [Claude Rules format](https://code.claude.com/docs/en/memory#basic-structure). The `paths` property accepts an array of glob patterns and defaults to `**` (all files) when omitted.
 
 ## Generate custom instructions for your workspace
 

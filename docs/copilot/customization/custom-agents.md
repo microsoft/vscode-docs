@@ -18,7 +18,7 @@ Keywords:
 
 Custom agents enable you to configure the AI to adopt different personas tailored to specific development roles and tasks. For example, you might create agents for a security reviewer, planner, solution architect, or other specialized roles. Each persona can have its own behavior, available tools, and instructions.
 
-You can also use handoffs to create guided workflows between agents, allowing you to transition seamlessly from one specialized agent to another with a single click. For example, you could move from planning agent directly into implementation agent, or hand off to a code reviewer with the relevant context.
+You can also use handoffs to create guided workflows between agents. Transition seamlessly from one specialized agent to another with a single select. For example, move from a planning agent directly into an implementation agent, or hand off to a code reviewer with the relevant context.
 
 This article describes how to create and manage custom agents in VS Code.
 
@@ -48,7 +48,7 @@ Custom agents also let you provide specialized instructions that define how the 
 
 Handoffs enable you to create guided sequential workflows that transition between agents with suggested next steps. After a chat response completes, handoff buttons appear that let users move to the next agent with relevant context and a pre-filled prompt.
 
-Handoffs are useful for orchestrating multi-step workflows, that give developer's control for reviewing and approving each step before moving to the next one. For example:
+Handoffs are useful for orchestrating multi-step workflows that give developers control for reviewing and approving each step before moving to the next one. For example:
 
 * **Planning → Implementation**: Generate a plan in planning agent, then hand off to implementation agent to start coding.
 * **Implementation → Review**: Complete implementation, then switch to a code review agent to check for quality and security issues.
@@ -191,6 +191,22 @@ Implement changes following existing code patterns. Make minimal, focused edits.
 
 </details>
 
+### Claude agent format
+
+Agent files in the `.claude/agents` folder use plain `.md` files and support Claude-specific frontmatter properties:
+
+| Field | Description |
+|-------|-------------|
+| `name` | Agent name (required) |
+| `description` | What the agent does |
+| `tools` | Comma-separated string of allowed tools (for example, `"Read, Grep, Glob, Bash"`) |
+| `disallowedTools` | Comma-separated string of tools to block |
+
+VS Code maps Claude-specific tool names to the corresponding VS Code tools. Both the VS Code `.agent.md` format (with YAML arrays for tools) and the Claude format (with comma-separated strings) are supported.
+
+> [!NOTE]
+> VS Code also detects `.md` files in the `.claude/agents` folder, following the [Claude sub-agents format](https://code.claude.com/docs/en/sub-agents). This enables you to use the same agent definitions across VS Code and Claude Code.
+
 ## Create a custom agent
 
 You can create a custom agent file in your workspace or user profile.
@@ -199,9 +215,11 @@ You can create a custom agent file in your workspace or user profile.
 
 1. Choose the location where the custom agent file should be created.
 
-    * **Workspace**: create the custom agent definition file in the `.github/agents` folder of your workspace to only use it within that workspace
+    * **Workspace**: Create the custom agent definition file in the `.github/agents` folder of your workspace to only use it within that workspace.
 
-    * **User profile**: create the custom agent definition file in the [current profile folder](/docs/configure/profiles.md) to use it across all your workspaces
+    * **User profile**: Create the custom agent definition file in the [current profile folder](/docs/configure/profiles.md) to use it across all your workspaces.
+
+    * **Workspace (Claude format)**: Create agent files in the `.claude/agents` folder for compatibility with Claude Code and other Claude-based tools.
 
     > [!TIP]
     > You can configure additional locations where VS Code searches for custom agent files by using the `setting(chat.agentFilesLocations)` setting. This is useful for sharing agents across projects or keeping them in a central location outside your workspace.
