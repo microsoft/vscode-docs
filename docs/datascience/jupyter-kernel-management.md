@@ -1,14 +1,9 @@
 ---
-Order: 9
-Area: datascience
-TOCTitle: Manage Jupyter Kernels
 ContentId: 3b6da7e6-c449-4c62-a019-9202412aac04
-PageTitle: Manage Jupyter Kernels in Visual Studio Code
 DateApproved: 8/7/2023
 MetaDescription: Descriptions of kernel selection options and tutorials on managing different types of kernels when working with Jupyter Notebooks in Visual Studio Code.
 MetaSocialImage: images/tutorial/python-social.png
 ---
-
 # Manage Jupyter Kernels in VS Code
 
 The Visual Studio Code notebooks' kernel picker helps you to pick specific kernels for your notebooks. You can open the kernel picker by clicking on **Select Kernel** on the upper right-hand corner of your notebook or through the Command Palette with the **Notebook: Select Notebook Kernel** command.

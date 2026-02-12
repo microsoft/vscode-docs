@@ -1,10 +1,6 @@
 ---
-Order: 12
-Area: python
-TOCTitle: FastAPI Tutorial
 ContentId: 0d32bced-91aa-5c2e-e569-6fc7995370ae
-PageTitle: Python and FastAPI tutorial in Visual Studio Code
-DateApproved: 12/11/2024
+DateApproved: 02/04/2026
 MetaDescription: Python FastAPI tutorial showing IntelliSense and debugging support in Visual Studio Code, the best Python IDE.
 ---
 # FastAPI Tutorial in Visual Studio Code
@@ -44,7 +40,7 @@ Once you're done, you can continue with the [Replace the database](#replace-the-
 To successfully complete this tutorial in [VS Code](https://code.visualstudio.com/), you first need to set up your Python development environment. Specifically, this tutorial requires:
 
 * Python 3 (check the [installation guide](/docs/python/python-tutorial.md#install-a-python-interpreter) if you don't have it installed)
-* [Python extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) (For additional details on installing extensions, you can read [Extension Marketplace](/docs/editor/extension-marketplace.md)).
+* [Python extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) (For additional details on installing extensions, you can read [Extension Marketplace](/docs/configure/extensions/extension-marketplace.md)).
 
 In this section, we will create a folder to open as a workspace in VS Code, set up a Python virtual environment, and install the project's dependencies.
 
@@ -52,7 +48,7 @@ In this section, we will create a folder to open as a workspace in VS Code, set 
 
 2. Open this new folder in VS Code (**File** > **Open Folder…**).
 
-3. When the [Workspace Trust](/docs/editor/workspace-trust.md) prompt shows up, select **Yes, I trust the authors** to allow the workspace to access necessary resources and extensions. You can learn more about Workspace Trust in the [documentation](/docs/editor/workspace-trust.md).
+3. When the [Workspace Trust](/docs/editing/workspaces/workspace-trust.md) prompt shows up, select **Yes, I trust the authors** to allow the workspace to access necessary resources and extensions. You can learn more about Workspace Trust in the [documentation](/docs/editing/workspaces/workspace-trust.md).
 
 Now, let's create a `requirements.txt` file that lists the dependencies we wish to install for the application. The `requirements.txt` file is a common practice in Python development, used to specify the libraries that your project relies on and their versions. This file helps ensure that anyone working on the project can recreate a similar development environment, making it a convenient component for maintaining consistency.
 
@@ -358,7 +354,7 @@ If you are already working on **GitHub Codespaces** with our existing template, 
 
 If you are on Windows, you can work with Redis by setting up either a [Docker container](https://www.docker.com/products/docker-desktop) or a [GitHub Codespace](https://github.com/features/codespaces). In this tutorial we will use a Docker container, but you can refer to the [section above](#github-codespaces) for instructions on how to set up a GitHub Codespace.
 
-Otherwise, if you are on a Linux or a macOS machine, you can install Redis by following the [instructions on their website](https://redis.io/docs/install), and then skip to the [Replace the database](#replace-the-database) section.
+Otherwise, if you are on a Linux or a macOS machine, you can install Redis by following the [instructions on their website](https://redis.io/docs/latest/), and then skip to the [Replace the database](#replace-the-database) section.
 
 ### Setting up a Docker Container on Windows
 
@@ -719,11 +715,11 @@ Then when you want to reset the database, you can open the `flushdb.py` file in 
 
 Note that this should be done with caution because it will delete all the keys in the current database, which could lead to data loss if done in production.
 
-## Optional: Create a ChatGPT plugin
+## Optional: Create a GPT Action
 
-With GitHub Codespaces, you can host your application for testing purposes when using [ChatGPT Plugins](https://platform.openai.com/docs/plugins/introduction). ChatGPT Plugins are tools that enable [ChatGPT](https://chat.openai.com/) to interact with existing APIs to enhance ChatGPT's abilities, allowing it to perform a wide range of actions. ChatGPT Plugins are not currently publicly available, but you can join their [wait list](https://openai.com/waitlist/plugins) to get access. Once you do, you can follow along the live stream recording below to create your own grocery list plugin for ChatGPT:
+With GitHub Codespaces, you can host your application for testing purposes when using [GPT Actions](https://platform.openai.com/docs/actions/introduction). GPT Actions are tools that enable [ChatGPT](https://chatgpt.com/) to interact with existing APIs to enhance ChatGPT's abilities, allowing it to perform a wide range of actions. You can follow along the live stream recording below to create your own grocery list plugin for ChatGPT:
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/fPCjEbRpK1M" title="Build a ChatGPT plugin with VS Code and Codespaces" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/fPCjEbRpK1M" title="Build a GPT Action with VS Code and Codespaces" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 >**Note**: All personal GitHub.com accounts have a monthly quota of free use of GitHub Codespaces included in the Free or Pro plan. For more information, go to [About billing for GitHub Codespaces](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces).
 

@@ -1,5 +1,5 @@
 ---
-Order: 64
+Order: 
 TOCTitle: Remote Repositories
 PageTitle: Remote Repositories extension for Visual Studio Code
 MetaDescription: Remotely browse and edit a source control repository from within Visual Studio Code.

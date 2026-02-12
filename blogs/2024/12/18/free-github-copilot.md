@@ -3,6 +3,7 @@ Order: 91
 TOCTitle: Announcing Copilot Free in VS Code
 PageTitle: Announcing a free GitHub Copilot for VS Code
 MetaDescription: Announcing a free plan for GitHub Copilot in Visual Studio Code.
+MetaSocialImage: copilot-free.jpg
 Date: 2024-12-18
 Author: Burke Holland
 ---
@@ -17,7 +18,7 @@ We're excited to announce an all new **free plan for GitHub Copilot**, available
 
 You can click on the link above or just enable GitHub Copilot right from within VS Code like so...
 
-<video src="blog-video-v2.mp4" title="Copilot Edits video" controls poster="/assets/blogs/2024/12/18/copilot-free.jpg"></video>
+<video src="blog-video-v2.mp4" title="Copilot Edits video" controls poster="copilot-free.jpg"></video>
 
 With GitHub Copilot Free you get **2000 code completions/month**. That's about 80 per working day - which is a lot. You also get **50 chat requests/month**, as well as **access to both GPT-4o and Claude 3.5 Sonnet models**.
 
@@ -27,7 +28,7 @@ With this announcement, GitHub Copilot becomes a core part of the VS Code experi
 
 ## Work with multiple files using Copilot Edits
 
-[Copilot Edits](https://code.visualstudio.com/docs/copilot/copilot-edits) is a multi-file editing experience that you can open from the top of the chat side bar. Given a prompt, Edits will propose changes across files including creating new files when needed. This gives you the conversational flow of chat combined with the power of Copilot's code generation capabilities. The result is something you have to try to believe.
+[Copilot Edits](https://code.visualstudio.com/docs/copilot/chat/copilot-edits) is a multi-file editing experience that you can open from the top of the chat side bar. Given a prompt, Edits will propose changes across files including creating new files when needed. This gives you the conversational flow of chat combined with the power of Copilot's code generation capabilities. The result is something you have to try to believe.
 
 <video src="../../11/12/blog-video-demo.mp4" title="Copilot Edits video" autoplay muted controls></video>
 
@@ -35,11 +36,11 @@ With this announcement, GitHub Copilot becomes a core part of the VS Code experi
 
 ## Multiple models, your choice
 
-Whether you're using [Chat](https://code.visualstudio.com/docs/copilot/copilot-chat), [Inline Chat](https://code.visualstudio.com/docs/copilot/getting-started-chat#_stay-in-the-flow-with-inline-chat), or [Copilot Edits](https://code.visualstudio.com/docs/copilot/copilot-edits), you get to decide who your pair programmer is.
+Whether you're using [Chat](https://code.visualstudio.com/docs/copilot/copilot-chat), [Inline Chat](https://code.visualstudio.com/docs/copilot/chat/getting-started-chat#_stay-in-the-flow-with-inline-chat), or [Copilot Edits](https://code.visualstudio.com/docs/copilot/chat/copilot-edits), you get to decide who your pair programmer is.
 
 ![AI model selection menu in VS Code.](model-picker.png)
 
-**Try this:** Use 4o to generate an implementation plan for a new feature and then feed that prompt to Claude in [GitHub Copilot Edits](https://code.visualstudio.com/docs/copilot/copilot-edits) to build it.
+**Try this:** Use 4o to generate an implementation plan for a new feature and then feed that prompt to Claude in [GitHub Copilot Edits](https://code.visualstudio.com/docs/copilot/chat/copilot-edits) to build it.
 
 ## Custom instructions
 
@@ -140,7 +141,7 @@ There's so much more GitHub Copilot we want to show you, but nothing can replace
 
 We ship updates and new features for GitHub Copilot every month. The best way to keep up with the latest and greatest in AI coding is to follow us on [X](https://twitter.com/code), [Bluesky](https://bsky.app/profile/vscode.dev), [LinkedIn](https://www.linkedin.com/showcase/vs-code/), and even [TikTok](https://www.tiktok.com/@vscode). We'll give you the updates as they drop - short and sweet - right in your feed.
 
-And if you've got feedback, we'd love to hear it. Feel free to @ us on social or drop an issue or feature request on the [GitHub Copilot extension issues repo](https://github.com/microsoft/vscode-copilot-release).
+And if you've got feedback, we'd love to hear it. Feel free to @ us on social or drop an issue or feature request on the [GitHub Copilot extension issues repo](https://github.com/microsoft/vscode/issues).
 
 ## GitHub Copilot in other places
 

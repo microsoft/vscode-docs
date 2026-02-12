@@ -3,6 +3,7 @@ Order: 85
 TOCTitle: VS Code Day 2024
 PageTitle: Visual Studio Code Day 2024
 MetaDescription: Learn about the latest Visual Studio Code features and extensions during VS Code Day 2024 on April 24, 2024
+MetaSocialImage: vscodeday-promo.png
 Date: 2024-04-15
 Author: Reynald Adolphe
 ---

@@ -1,0 +1,70 @@
+{
+  "name": "vscode-doc-assistant",
+  "publisher": "ms-vscode",
+  "displayName": "VS Code Doc AI Assistant",
+  "description": "VS Code Doc AI Assistant",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "main": "./dist/extension.js",
+  "contributes": {
+    "languageModelTools": [
+      {
+        "name": "getCurrentMilestone",
+        "toolReferenceName": "getCurrentMilestone",
+        "displayName": "VS Code Current Milestone Fetcher",
+        "modelDescription": "Use this tool to get the current milestone for the VS Code repository. Returns the current milestone name. Example: 'April 2024'.",
+        "canBeReferencedInPrompt": true
+      },
+      {
+        "name": "getReleaseFeatures",
+        "toolReferenceName": "getReleaseFeatures",
+        "displayName": "VS Code Release Features Fetcher",
+        "modelDescription": "Use this tool to get all features that current user worked on in the current release. Returns a list of features with title, body, number, labels, comments and associated issues.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "milestoneName": {
+              "type": "string",
+              "description": "The name of the milestone to fetch features for. Example: 'April 2024'."
+            }
+          }
+        },
+        "canBeReferencedInPrompt": true
+      }
+    ]
+  },
+  "extensionDependencies": [
+    "GitHub.copilot-chat"
+  ],
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.6",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.95.0",
+    "@typescript-eslint/eslint-plugin": "^7.11.0",
+    "@typescript-eslint/parser": "^7.11.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.0",
+    "eslint": "^8.57.0",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.4.5",
+    "webpack": "^5.92.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "@vscode/prompt-tsx": "^0.3.0-alpha.12",
+    "@octokit/rest": "18.2.1",
+    "@octokit/types": "6.10.1",
+    "apollo-boost": "^0.4.9",
+    "apollo-link-context": "1.0.20"
+  }
+}

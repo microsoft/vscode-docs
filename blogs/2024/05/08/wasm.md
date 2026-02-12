@@ -3,6 +3,7 @@ Order: 86
 TOCTitle: VS Code Extensions and WebAssembly
 PageTitle: VS Code Extensions and WebAssembly
 MetaDescription: Using WebAssembly for Extension Development.
+MetaSocialImage: resource-memory.png
 Date: 2024-05-08
 Author: Dirk Bäumer
 ---
@@ -25,7 +26,7 @@ I also want to say thank you to L. Pereira and Luke Wagner from [Fastly](https:/
 
 In the first example, we demonstrate how a developer can integrate a library written in Rust into a VS Code extension. As previously mentioned, components are described using a WIT file. In our example, the library performs simple operations such as addition, subtraction, multiplication, and division. The corresponding WIT file is shown below:
 
-```wit
+```text
 package vscode:example;
 
 interface types {
@@ -198,7 +199,7 @@ The [jco project](https://github.com/bytecodealliance/jco) also supports generat
 
 WIT files describe the interaction between the host (a VS Code extension) and the WebAssembly code, facilitating bi-directional communication. In our example, this feature allows the WebAssembly code to log traces of its activities. To enable this, we modify the WIT file as follows:
 
-```wit
+```text
 world calculator {
 
 	/// ....
@@ -258,7 +259,7 @@ The WebAssembly component model introduces the concept of resources, which provi
 
 Resources can also function in the reverse direction, where their state is managed by the WebAssembly code and accessed and manipulated by the extension code. This approach is particularly beneficial for VS Code to implement stateful services in WebAssembly, which are then accessed from the TypeScript side. In the example below, we define a resource that implements a calculator supporting the [reverse Polish notation](https://en.wikipedia.org/wiki/Reverse_Polish_notation), similar to those used in [Hewlett-Packard](https://www.hp.com/) hand-held calculators.
 
-```wit
+```text
 // wit/calculator.wit
 package vscode:example;
 

@@ -1,9 +1,5 @@
 ---
-Order: 13
-Area: java
-TOCTitle: Extensions
 ContentId: 6076911c-276b-41a3-8510-0022c03c0ef6
-PageTitle: Java extensions for Visual Studio Code
 DateApproved: 1/4/2022
 MetaDescription: Popular Java extensions for Visual Studio Code
 ---
@@ -11,7 +7,7 @@ MetaDescription: Popular Java extensions for Visual Studio Code
 
 Thanks to the great Java community around Visual Studio Code, you can use a wide range of extensions to enhance your Java development experience.
 
-> **Tip:** To learn how to install and manage your extensions, refer to the general [VS Code extension documentation](/docs/editor/extension-marketplace.md).
+> **Tip:** To learn how to install and manage your extensions, refer to the general [VS Code extension documentation](/docs/configure/extensions/extension-marketplace.md).
 
 In this topic, we recommend a list of popular extensions helpful for different Java development scenarios.
 
@@ -68,7 +64,7 @@ Support for Eclipse MicroProfile and Quarkus are provided via the following exte
 There are some extensions from the community for developers who might be used to the keyboard shortcuts from other Java IDEs.
 
 * [Eclipse Keymap](https://marketplace.visualstudio.com/items?itemName=alphabotsec.vscode-eclipse-keybindings)
-* [IntelliJ IDEA Keybindings](https://marketplace.visualstudio.com/items?itemName=k--kato.intellij-idea-keybindings)
+* [IntelliJ IDEA keyboard shortcuts](https://marketplace.visualstudio.com/items?itemName=k--kato.intellij-idea-keybindings)
 
 Keymap extensions apply keyboard shortcuts from other IDEs or editors on to VS Code so you don't have to retrain your fingers to new keyboard shortcuts.
 
@@ -77,7 +73,7 @@ Keymap extensions apply keyboard shortcuts from other IDEs or editors on to VS C
 We'd also like to recommend a couple of other extensions that are useful for remote and container development scenarios.
 
 * The [Remote Development](/docs/remote/remote-overview.md) extensions let you use VS Code to access a container, a remote machine, or the Windows Subsystem for Linux.
-* You can use [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension to build docker images and work with image registries.
+* You can use the [Container Tools](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers) extension to build docker images and work with image registries.
 * [Kubernetes](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools) extension provides an Explorer view to manage clusters and the nodes inside. It also provides advanced syntax support for editing Kubernetes manifest files.
 * [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) is a great tool to use when you need to collaborate with someone else on the same code base.
 

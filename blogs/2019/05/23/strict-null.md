@@ -1,5 +1,5 @@
 ---
-Order: 48
+Order: 
 TOCTitle: Strict null checking
 PageTitle: Strict null checking the Visual Studio Code codebase
 MetaDescription: Strict null checking the Visual Studio Code codebase

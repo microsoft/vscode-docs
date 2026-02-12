@@ -1,13 +1,8 @@
 ---
-Order: 2
-Area: csharp
-TOCTitle: Get Started
 ContentId: cdf9809e-0569-4aaf-937e-e247507d9609
-PageTitle: Get started with C# and .NET in Visual Studio Code
 DateApproved: 5/3/2024
 MetaDescription: Getting Started with C# and .NET Development in Visual Studio Code
 ---
-
 # Getting Started with C# in VS Code
 
 This getting started guide introduces you to C# and .NET for Visual Studio Code through the following tasks:
@@ -16,9 +11,9 @@ This getting started guide introduces you to C# and .NET for Visual Studio Code 
 1. Writing and running a simple "Hello World" application using C#.
 1. Introduce you to other learning resources for C# in VS Code.
 
-Keep in mind, that this guide won't teach you C#. Instead, it teaches you how to get set up for C# development in VS Code. If you're looking for resources to learn C#, check out our C# curriculum.
+Keep in mind, that this guide won't teach you C#. Instead, it teaches you how to get set up for C# development in VS Code. If you're looking for resources to learn C#, check out the free C# Certificate from freeCodeCamp.
 
-<a class="install-extension-btn" href="https://aka.ms/selfguidedcsharp">Learn C# Curriculum</a>
+<a class="install-extension-btn" href="https://aka.ms/csharp-certification">Earn C# Certification</a>
 
 ## Necessary tools
 
@@ -31,7 +26,7 @@ Keep in mind, that this guide won't teach you C#. Instead, it teaches you how to
 ### Installing VS Code and extensions
 
 1. If you haven't already done so, [install VS Code](https://code.visualstudio.com).
-1. Next, install [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) from the Visual Studio Marketplace. For additional details on installing extensions, read [Extension Marketplace](/docs/editor/extension-marketplace.md). The C# extension is called **C# Dev Kit** and it's published by Microsoft.
+1. Next, install [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) from the Visual Studio Marketplace. For additional details on installing extensions, read [Extension Marketplace](/docs/configure/extensions/extension-marketplace.md). The C# extension is called **C# Dev Kit** and it's published by Microsoft.
 
 >**Note**: C# Dev Kit supports cloud native development. To do cross-platform mobile and desktop development, you can use C# Dev Kit with the [.NET MAUI extension](https://aka.ms/mauidevkit-marketplace). Learn [how to get set up](https://aka.ms/mauidevkit-docs) with .NET MAUI in VS Code.
 

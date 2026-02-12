@@ -18,6 +18,7 @@ jobs:
 
   steps:
   - checkout: self
+    lfs: true
     path: vscode-docs
 
   - download: ${{ parameters.artifactName }}
@@ -44,6 +45,15 @@ jobs:
       versionSource: 'fromFile'
       versionFilePath: $(Pipeline.Workspace)/vscode-website/.nvmrc
       checkLatest: true
+
+  - script: npm config list
+    displayName: List npm properties
+
+  - powershell: |
+      if (Test-Path "$(Pipeline.Workspace)/vscode-website/server/.npmrc.optional") {
+        mv "$(Pipeline.Workspace)/vscode-website/server/.npmrc.optional" "$(Pipeline.Workspace)/vscode-website/server/.npmrc"
+      }
+    displayName: Enforce .npmrc
 
   - task: npmAuthenticate@0
     displayName: Setup NPM Authentication

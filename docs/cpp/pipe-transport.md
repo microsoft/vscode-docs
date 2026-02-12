@@ -1,11 +1,9 @@
 ---
-Order:
-Area: cpp
-TOCTitle: Pipe transport
 ContentId: 59BE5FF7-563F-4044-A562-294E75A75F96
-PageTitle: Pipe transport for remote communication in C++ projects
 DateApproved: 7/25/2019
 MetaDescription: How to set up pipe transport for debugging C++ code in Visual Studio Code.
+Keywords:
+- C++
 ---
 # Pipe transport
 

@@ -1,14 +1,9 @@
 ---
-Order: 5
-Area: java
-TOCTitle: Project Management
 ContentId: 251cba68-c77f-4ac6-a5de-1fab8dcca867
-PageTitle: Java project management in Visual Studio Code
 DateApproved: 4/25/2022
 MetaDescription: Lightweight Mode, Maven Support, Java Package and Dependency Management in Visual Studio Code
 MetaSocialImage:
 ---
-
 # Managing Java Projects in VS Code
 
 The [Project Manager for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency) extension helps you to manage your Java projects and their dependencies. It also helps you to create new Java projects, packages, and classes. To get the complete Java language support in Visual Studio Code, you can install the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), which includes the Project Manager for Java extension.
@@ -222,8 +217,7 @@ Clicking the language status item switches to standard mode.
 
 When you edit Java source code in Visual Studio Code, the Java language server is building your workspace to provide you with the necessary language features. You can see the detailed build task status and watch what is happening behind the scene by clicking the language status item in the Status bar. You can also select the **check details** link when a notification shows the language server is opening Java projects to see the build task status.
 
-<video autoplay loop muted playsinline controls title="Build status for the Java project">
-  <source src="/docs/java/java-project/java.build.status.mp4" type="video/mp4">
+<video src="images/java-project/java.build.status.mp4" autoplay loop muted playsinline controls title="Build status for the Java project">
 </video>
 
 ### Additional resources

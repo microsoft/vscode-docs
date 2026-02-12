@@ -1,13 +1,8 @@
 ---
-Order: 7
-Area: csharp
-TOCTitle: Project Management
 ContentId: 90d72255-dbe2-402a-aecc-a6edd12aadba
-PageTitle: Manage C# projects in Visual Studio Code
 DateApproved: 6/6/2023
 MetaDescription: Manage C# projects in Visual Studio Code
 ---
-
 # Project management
 
 When you create a C# application in Visual Studio Code, you start with a **project**. A project contains all files (such as source code, images, etc.) that are compiled into an executable, library, or website.  All of your related projects can then be stored in a container called a **solution**.  This article shows you how you can maintain all your projects and their respective files via the **Solution Explorer** view.

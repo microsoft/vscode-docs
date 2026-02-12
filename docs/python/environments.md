@@ -1,10 +1,6 @@
 ---
-Order: 8
-Area: python
-TOCTitle: Environments
 ContentId: 8fe4ca8b-fc70-4216-86c7-2c11b6c14cc6
-PageTitle: Using Python Environments in Visual Studio Code
-DateApproved: 12/11/2024
+DateApproved: 02/04/2026
 MetaDescription: Configuring Python Environments in Visual Studio Code
 MetaSocialImage: images/tutorial/python-social.png
 ---
@@ -13,6 +9,8 @@ MetaSocialImage: images/tutorial/python-social.png
 An "environment" in Python is the context in which a Python program runs that consists of an interpreter and any number of installed packages.
 
 > **Note**: If you'd like to become more familiar with the Python programming language, review [More Python resources](#more-python-resources).
+
+Support is provided through the [Python Environments extension](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-python-envs).
 
 ## Types of Python environments
 
@@ -34,7 +32,7 @@ A [**virtual environment**](https://docs.python.org/3/glossary.html#term-virtual
 
 #### Conda environments
 
-A **conda environment** is a Python environment that's managed using the `conda` package manager (see [Getting started with conda](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html)).Choosing between conda and virtual environments depends on your packaging needs, team standards, etc.
+A **conda environment** is a Python environment that's managed using the `conda` package manager (see [Getting started with conda](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html)). Choosing between conda and virtual environments depends on your packaging needs, team standards, etc.
 
 ### Python environment tools
 
@@ -124,7 +122,7 @@ The Python extension tries to find and then select what it deems the best enviro
 
 ![Python: Select Interpreter command](images/environments/select-interpreters-command.png)
 
->**Note**: If the Python extension doesn't find an interpreter, it issues a warning. On macOS 12.2 and older, the extension also issues a warning if you're using the OS-installed Python interpreter as it is known to have compatibility issues. In either case, you can disable these warnings by setting `python.disableInstallationCheck` to `true` in your user [settings](/docs/getstarted/settings.md).
+>**Note**: If the Python extension doesn't find an interpreter, it issues a warning. On macOS 12.2 and older, the extension also issues a warning if you're using the OS-installed Python interpreter as it is known to have compatibility issues. In either case, you can disable these warnings by setting `python.disableInstallationCheck` to `true` in your user [settings](/docs/configure/settings.md).
 
 The **Python: Select Interpreter** command displays a list of available global environments, conda environments, and virtual environments. (See the [Where the extension looks for environments](#where-the-extension-looks-for-environments) section for details, including the distinctions between these types of environments.) The following image, for example, shows several Anaconda and CPython installations along with a conda environment and a virtual environment (`env`) that's located within the workspace folder:
 
@@ -224,7 +222,7 @@ An environment variable definitions file is a text file containing key-value pai
 
 > **Note**: Environment variable definitions files are not necessarily cross-platform. For instance, while Unix uses `:` as a path separator in environment variables, Windows uses `;`. There is no normalization of such operating system differences, and so you need to make sure any environment definitions file use values that are compatible with your operating system.
 
-By default, the Python extension looks for and loads a file named `.env` in the current workspace folder, then applies those definitions. The file is identified by the default entry `"python.envFile": "${workspaceFolder}/.env"` in your user settings (see [General Python settings](/docs/python/settings-reference.md#general-python-settings)). You can change the `python.envFile` setting at any time to use a different definitions file.
+If you have `"python.terminal.useEnvFile": true` in your `settings.json`, the Python extension will looks for and loads a file named `.env` in the current workspace folder, then apply those definitions. The file is identified by the default entry `"python.envFile": "${workspaceFolder}/.env"` in your user settings (see [General Python settings](/docs/python/settings-reference.md#general-python-settings)). You can change the `python.envFile` setting at any time to use a different definitions file.
 
 >**Note**: Environment variable definitions files are not used in all situations where environment variables are available for use. Unless Visual Studio Code documentation states otherwise, these only affect certain scenarios as per their definition. For example, the extension doesn't use environment variable definitions files when resolving setting values.
 

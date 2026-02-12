@@ -1,11 +1,9 @@
 ---
-Order: 16
-Area: cpp
-TOCTitle: Configure IntelliSense for cross-compiling
 ContentId: 381b7ce1-5766-49b0-ad26-f9eedae70e63
-PageTitle: Configure IntelliSense for C++ cross-compilation
 DateApproved: 1/17/2023
 MetaDescription: Configure Visual Studio Code c_cpp_properties.json to get IntelliSense when you are compiling for a different platform
+Keywords:
+- C++
 ---
 # IntelliSense for cross-compiling
 
@@ -73,7 +71,6 @@ Given the settings above, your `c_cpp_configuration.json` file will look somethi
 
 ## Next steps
 
-- For more information about IntelliSense configuration, see [Customizing default settings](/docs/cpp/customize-default-settings-cpp.md).
+- For more information about IntelliSense configuration, see [Customizing default settings](/docs/cpp/customize-cpp-settings.md).
 - If you have trouble configuring the settings, please start a discussion at [GitHub discussions](https://github.com/microsoft/vscode-cpptools/discussions), or if you find an issue that needs to be fixed, file an issue at [GitHub issues](https://github.com/microsoft/vscode-cpptools/issues).
-- Explore the [c_cpp_properties schema](/docs/cpp/c-cpp-properties-schema-reference.md).
 - Review the [Overview of the C++ extension](/docs/languages/cpp.md).

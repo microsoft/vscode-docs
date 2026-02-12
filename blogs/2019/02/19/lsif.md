@@ -1,5 +1,5 @@
 ---
-Order: 46
+Order: 
 TOCTitle: Language Server Index Format
 PageTitle: Language Server Index Format
 MetaDescription: Rich Code Navigation without Checkout

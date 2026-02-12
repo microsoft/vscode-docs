@@ -1,5 +1,5 @@
 ---
-Order: 58
+Order: 
 TOCTitle: The Go experience
 PageTitle: Visual Studio Code Go extension joins the Go project
 MetaDescription: Visual Studio Code Go extension joins the Go project

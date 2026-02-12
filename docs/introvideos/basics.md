@@ -1,29 +1,27 @@
 ---
-Order:
-Area: introvideos
-TOCTitle: Getting started
 ContentId: baf150cd-6daf-4604-87db-a7c70a6706a7
-PageTitle:  Getting started with Visual Studio Code
 DateApproved: 5/4/2022
 MetaDescription: Download and learn the basics of Visual Studio Code.
 MetaSocialImage: images/opengraph/introvideos-social.png
 ---
 # Getting started with Visual Studio Code
 
-In this tutorial, we walk you through setting up Visual Studio Code and give an overview of the basic features.
+In this tutorial, we walk you through using Visual Studio Code powered with AI features.
 
-<iframe src="https://www.youtube-nocookie.com/embed/B-s71n0dHUk?autoplay=true" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Getting Started with Visual Studio Code"></iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/f8_uF_IDV50" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Getting Started with Visual Studio Code"></iframe>
 
 Here's the next video we recommend: [Code Editing in Visual Studio Code](/docs/introvideos/codeediting.md)
 
-Pick another video from the list: [Introductory Videos](/docs/getstarted/introvideos.md)
+Explore more in the [VS Code Tutorial](/docs/getstarted/getting-started.md) and [GitHub Copilot's Quickstart](/docs/getstarted/copilot-quickstart.md).
 
-## Video outline
+## Helpful shortcuts
 
 * Download and install VS Code.
   * From [https://code.visualstudio.com/download](https://code.visualstudio.com/download)
 * Open a folder
   * **File** > **Open Folder** (`kb(workbench.action.files.openFolder)`)
+* Open the Chat view
+  * **View** > **Chat** (`kb(workbench.action.chat.open)`)
 * File Explorer
   * **View** > **Explorer** (`kb(workbench.view.explorer)`)
 * Search view
@@ -52,14 +50,9 @@ Pick another video from the list: [Introductory Videos](/docs/getstarted/introvi
   * **File** > **Auto Save**
 * Run
   * **Run** > **Start Debugging** (`kb(workbench.action.debug.start)`)
-* Programming language extensions
-  * [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) - IntelliSense, linting, debugging, code formatting, refactoring, and more.
-  * [Live Preview](https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server) - Hosts a local server to preview your webpages.
 * Zoom
   * Zoom out (`kb(workbench.action.zoomOut)`)
   * Zoom in (`kb(workbench.action.zoomIn)`)
-* Customize your editor with color themes.
-  * **File** > **Preferences** > **Theme** > **Color Theme** (`kb(workbench.action.selectTheme)`)
 
 ## Next video
 
@@ -70,4 +63,4 @@ Pick another video from the list: [Introductory Videos](/docs/getstarted/introvi
 
 * [User Interface](/docs/getstarted/userinterface.md) - View the documentation for VS Code.
 * [Setup Overview](/docs/setup/setup-overview.md) - Documentation for getting up and running with VS Code, including platform specific setup.
-* [IntelliSense](/docs/editor/intellisense.md) -VS Code brings smart code completions as you type.
+* [IntelliSense](/docs/editing/intellisense.md) -VS Code brings smart code completions as you type.

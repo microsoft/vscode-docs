@@ -1,5 +1,5 @@
 ---
-Order: 57
+Order: 
 TOCTitle: VS Code at Build
 PageTitle: Visual Studio Code at Microsoft Build 2020
 MetaDescription: Visual Studio Code at Microsoft Build 2020

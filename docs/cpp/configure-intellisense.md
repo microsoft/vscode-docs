@@ -1,15 +1,13 @@
 ---
-Order: 15
-Area: cpp
-TOCTitle: Configure IntelliSense
 ContentId: bf494c65-12b4-4506-ab6c-1fad76d7ccf1
-PageTitle: Configure C/C++ IntelliSense
 DateApproved: 11/6/2023
 MetaDescription: Configure Visual Studio Code IntelliSense in the C/C++ extension
+Keywords:
+- C++
 ---
 # Configure C/C++ IntelliSense
 
-This article is about configuring the [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) extension to provide C++ specific [IntelliSense](/docs/editor/intellisense.md) suggestions in Visual Studio Code. IntelliSense is a helpful tool built into VS Code that provides various code editing features to help you code faster and more efficiently. For example, code completion, parameter info, syntax highlighting, Code Actions (light bulbs), and member lists are all generated using IntelliSense.
+This article is about configuring the [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) extension to provide C++ specific [IntelliSense](/docs/editing/intellisense.md) suggestions in Visual Studio Code. IntelliSense is a helpful tool built into VS Code that provides various code editing features to help you code faster and more efficiently. For example, code completion, parameter info, syntax highlighting, Code Actions (light bulbs), and member lists are all generated using IntelliSense.
 
 C/C++ IntelliSense only requires a C/C++ compiler to be installed on your system. The C/C++ compiler provides C++ specific information to IntelliSense, such as the locations of system include paths and other settings. For project level configurations, reference [Project level IntelliSense configuration](#project-level-intellisense-configuration) section.
 
@@ -25,7 +23,7 @@ If you don't have IntelliSense configured, the C/C++ extension shows a yellow in
 
 To configure, select the status bar indicator, which brings up the [configuration Quick Pick](#option-1-select-a-configuration-option-through-the-configuration-quick-pick). The Quick Pick can help you select or install a C/C++ compiler.
 
-If you do not see a status bar indicator, you can also check your project's `c_cpp_properties.json` file. This file stores all of your IntelliSense configuration settings. Navigate to this file by selecting **C/C++: Edit Configurations (UI)** from the Command Palette (`kb(workbench.action.showCommands)`). Check the `IntelliSense mode` to find your configuration. To learn more about the `c_cpp_properties.json` file, you can review the [schema reference](/docs/cpp/c-cpp-properties-schema-reference.md).
+If you do not see a status bar indicator, you can also check your project's `c_cpp_properties.json` file. This file stores all of your IntelliSense configuration settings. Navigate to this file by selecting **C/C++: Edit Configurations (UI)** from the Command Palette (`kb(workbench.action.showCommands)`). Check the `IntelliSense mode` to find your configuration.
 
 ![Command Palette filtered on C/C++ Edit Configurations command](images/intellisense/edit-configurations-ui.png)
 

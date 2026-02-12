@@ -1,0 +1,18 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "type": "command",
+        "command": "./.github/hooks/block-markdown-dashes.sh",
+        "timeoutSec": 10
+      }
+    ],
+    "PostToolUse": [
+      {
+        "type": "command",
+        "command": "./.github/hooks/check-docs-instructions.sh",
+        "timeoutSec": 10
+      }
+    ]
+  }
+}

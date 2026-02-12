@@ -1,5 +1,5 @@
 ---
-Order: 81
+Order: 
 TOCTitle: VS Code Day
 PageTitle: Visual Studio Code Day 2023
 MetaDescription: Learn about the latest Visual Studio Code features and extensions during VS Code Day 2023 on April 26, 2023
