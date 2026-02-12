@@ -211,6 +211,9 @@ VS Code maps Claude-specific tool names to the corresponding VS Code tools. Both
 
 You can create a custom agent file in your workspace or user profile.
 
+> [!TIP]
+> Type `/agents` in the chat input to quickly open the **Configure Custom Agents** menu.
+
 1. Select **Configure Custom Agents** from the agents dropdown and then select **Create new custom agent** or run the **Chat: New Custom Agent** command in the Command Palette (`kb(workbench.action.showCommands)`).
 
 1. Choose the location where the custom agent file should be created.
