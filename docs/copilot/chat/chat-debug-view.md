@@ -43,7 +43,7 @@ Each interaction in the Chat Debug view contains expandable sections. The follow
 | **Response** | The full text of the model's response, including reasoning. | Review the raw response to understand how the model interpreted your request. |
 | **Tool responses** | Inputs and outputs of tools invoked during the request. | Verify that tools received correct inputs and returned expected outputs. Useful for debugging MCP servers. |
 
-You can expand each section to see the full details. This is particularly useful when [using agents](/docs/copilot/agents/overview.md#built-in-agents) where multiple tools might be invoked as part of a single request.
+You can expand each section to see the full details. This is particularly useful when [using agents](/docs/copilot/agents/local-agents.md) where multiple tools might be invoked as part of a single request.
 
 ## Common troubleshooting scenarios
 
