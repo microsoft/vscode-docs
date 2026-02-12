@@ -2,9 +2,9 @@
 ContentId: 1d39c52e-5856-4ce0-b622-82d1fd1c7a54
 DateApproved: 02/17/2026
 MetaDescription: Use C++ code understanding and CMake tools to provide Copilot with rich symbol context and knowledge of your build configurations.
-Keywords: 
-- C++ 
-- CMake 
+Keywords:
+- C++
+- CMake
 - Copilot
 ---
 # Using C++ Development Tools with GitHub Copilot Chat
@@ -22,7 +22,7 @@ This guide covers the available tools and how to use them effectively with AI ag
 
 - **C/C++ DevTools extension**
 - [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) extension
-- [CMake Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools) extension 
+- [CMake Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools) extension
 
 These extensions are available as part of the [C/C++ Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack).
 
@@ -57,6 +57,10 @@ To enable these tools, select the **Enable Cpp Code Editing Tools** setting in y
 *Add additional functionality to existing functions*
 
 ![Screenshot of the Chat view, showing a prompt to update an existing function and add a parameter for logging, which invokes the get symbol references tool.](images/get-symbol-references-example.png)
+
+> **Note:** You can control the maximum number of symbol references by the tool returned by adjusting the symbol references limit setting in VS Code.
+>
+> ![Screenshot of the Settings editor, showing the symbol references limit setting.](images/get-symbol-references-setting.png)
 
 ---
 
