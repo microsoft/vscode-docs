@@ -156,6 +156,11 @@ Slash commands are shortcuts to specific functionality within the chat. You can 
 | `/plan` | Create a detailed implementation plan for a complex coding task. Research requirements, ask clarifying questions, and generate a structured plan with steps, verification, and decisions. |
 | `/search` | Generate a search query for the Search view. Use natural language to describe what you want to search for. |
 | `/startDebugging` | Generate a `launch.json` debug configuration file and start a debugging session from the Chat view. |
+| `/agents` | Configure your [custom agents](/docs/copilot/customization/custom-agents.md). |
+| `/hooks` | Configure your [hooks](/docs/copilot/customization/hooks.md). |
+| `/instructions` | Configure your [custom instructions](/docs/copilot/customization/custom-instructions.md). |
+| `/prompts` | Configure your [reusable prompt files](/docs/copilot/customization/prompt-files.md). |
+| `/skills` | Configure your [agent skills](/docs/copilot/customization/agent-skills.md). |
 | `/<prompt name>` | Run a [reusable prompt](/docs/copilot/customization/prompt-files.md) in chat. |
 
 ## Chat participants

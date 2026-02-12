@@ -53,6 +53,9 @@ Use custom instructions when you want to:
 
 ## Create a skill
 
+> [!TIP]
+> Type `/skills` in the chat input to quickly open the **Configure Skills** menu.
+
 Skills are stored in directories with a `SKILL.md` file that defines the skill's behavior. VS Code supports two types of skills:
 
 | Skill type | Location |

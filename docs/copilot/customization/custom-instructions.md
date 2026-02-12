@@ -169,6 +169,9 @@ When you create an instructions file, choose whether to store it in your workspa
 
 To create an instructions file:
 
+> [!TIP]
+> Type `/instructions` in the chat input to quickly open the **Configure Instructions and Rules** menu.
+
 1. In the Chat view, select **Configure Chat** (gear icon) > **Chat Instructions**, and then select **New instruction file**.
 
     ![Screenshot showing the Chat view, and Configure Chat menu, highlighting the Configure Chat button.](../images/customization/configure-chat-instructions.png)
