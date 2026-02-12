@@ -258,6 +258,21 @@ A **Python project** is any file or folder you want to associate with a specific
 
 If you only have one environment for your whole workspace, you don't need to set up projects explicitly—just select an interpreter and you're done.
 
+```text
+Workspace
+├── Python Project: backend/
+│     └── Environment: .venv (Python 3.12)
+│            └── Manager: venv
+│
+├── Python Project: frontend-utils/
+│     └── Environment: .venv (Python 3.10)
+│            └── Manager: venv
+│
+└── Python Project: ml-pipeline/
+       └── Environment: ml-env (Python 3.11)
+              └── Manager: conda
+```
+
 **What uses project assignments?**
 
 - **Running and debugging** — uses the project's environment
