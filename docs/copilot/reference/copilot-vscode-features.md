@@ -150,12 +150,14 @@ Slash commands are shortcuts to specific functionality within the chat. You can 
 | `/tests` | Generate tests for all or only the selected methods and functions in the editor. |
 | `/setupTests` | Get help setting up a testing framework for your code. Get recommendation for a relevant testing framework, steps to set up and configure it, and suggestions for VS Code testing extensions. |
 | `/clear` | Start a new chat session in the Chat view. |
+| `/debug` | Show the Chat Debug view to [inspect the chat logs for troubleshooting](/docs/copilot/troubleshooting.md). |
 | `/new` | Scaffold a new VS Code workspace or file. Use natural language to describe the type of project/file you need, and preview the scaffolded content before creating it. |
 | `/newNotebook` | Scaffold a new Jupyter notebook based on your requirements. Use natural language to describe what the notebook should contain. |
 | `/init` | Generate or update workspace instructions (`copilot-instructions.md` or `AGENTS.md`) based on your project structure and coding patterns. |
 | `/plan` | Create a detailed implementation plan for a complex coding task. Research requirements, ask clarifying questions, and generate a structured plan with steps, verification, and decisions. |
 | `/search` | Generate a search query for the Search view. Use natural language to describe what you want to search for. |
 | `/startDebugging` | Generate a `launch.json` debug configuration file and start a debugging session from the Chat view. |
+| `/<skill name>` | Run an [agent skill](/docs/copilot/customization/agent-skills.md) in chat. For example, if you have a skill file named `webapp-testing.md`, you can run it by typing `/webapp-testing`. |
 | `/<prompt name>` | Run a [reusable prompt](/docs/copilot/customization/prompt-files.md) in chat. |
 
 ## Chat participants
