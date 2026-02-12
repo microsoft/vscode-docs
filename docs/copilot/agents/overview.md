@@ -94,6 +94,9 @@ Learn more about [using chat in VS Code](/docs/copilot/chat/copilot-chat.md).
 
 ### Background agents
 
+> [!NOTE]
+> The term "background agent" might also appear as "Copilot CLI" or "worktree" in the VS Code interface while an experiment is being run.
+
 Background agents like Copilot CLI are CLI-based agents that run non-interactively in the background on your local machine. Background agents can work in isolated mode by using Git worktrees to prevent that code changes interfere with your current workspace. You can opt to run background agents in your current workspace, but this might result in conflicts if you are actively working on the same files. Background agents can't use MCP or extension-provided tools and are limited to the models provided by the CLI. To customize the behavior of the background agent, you can reuse workspace [custom agents](/docs/copilot/customization/custom-agents.md) to have it assume a specific role or persona.
 
 **Best for**:
