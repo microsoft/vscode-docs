@@ -179,6 +179,9 @@ You can create a new agent session from the Chat view or by using the correspond
     Generate a diagram that gives a high-level overview of the architecture of this project.
     ```
 
+> [!TIP]
+> You can send follow-up prompts while the agent is still working. Choose to [queue the message, steer the current request, or stop and send immediately](/docs/copilot/chat/chat-sessions.md#send-messages-while-a-request-is-running).
+
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
 Follow a hands-on tutorial to experience local, background, and cloud agents in VS Code.
 

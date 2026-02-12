@@ -133,6 +133,7 @@ Agents work best when they understand your project's conventions, have the right
 * **[Agent skills](/docs/copilot/customization/agent-skills.md)**: Teach Copilot specialized capabilities that work across VS Code, GitHub Copilot CLI, and GitHub Copilot coding agent.
 * **[Custom agents](/docs/copilot/customization/custom-agents.md)**: Create agents that assume a specific role, such as a code reviewer or documentation writer, with their own tools and instructions.
 * **[MCP servers](/docs/copilot/customization/mcp-servers.md)**: Extend agents with tools from MCP servers or Marketplace extensions.
+* **[Hooks](/docs/copilot/customization/hooks.md)**: Execute custom commands at specific events for automation and policy enforcement.
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Customize AI">
 Explore all the ways to tailor the AI experience to your workflow.

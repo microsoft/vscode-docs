@@ -112,7 +112,7 @@ AI responses might degrade as the conversation fills with irrelevant context. Ma
 * **Remove irrelevant history.** Delete past questions and responses that are no longer relevant, or start a fresh session.
 * **Use subagents for investigation.** Delegate research and exploration to [subagents](/docs/copilot/agents/subagents.md) so the findings don't clutter your main context.
 * **Use workspace indexing.** For GitHub repositories, enable the [remote index](/docs/copilot/reference/workspace-context.md) for fast, accurate code search across your entire codebase. For non-GitHub repos, a local index is created automatically.
-* **Course-correct early.** If the AI is heading in the wrong direction, stop it and redirect with a more specific prompt. After two failed corrections, start a new session with a refined prompt that incorporates what you learned.
+* **Course-correct early.** If the AI is heading in the wrong direction, [steer it with a follow-up message](/docs/copilot/chat/chat-sessions.md#send-messages-while-a-request-is-running) to redirect the current request, queue a corrective prompt for after the current response completes, or stop and send a new prompt immediately.
 
 For more information, see [session management](/docs/copilot/chat/chat-sessions.md) and [workspace indexing](/docs/copilot/reference/workspace-context.md).
 

@@ -67,7 +67,7 @@ The following prompt examples show how to use codebase search:
 * `"Where is the database connection string configured? #codebase"`
 * `"Add a new API route for updating the address #codebase"`
 
-If you use [agents](/docs/copilot/agents/overview.md#built-in-agents), the agent will automatically use codebase search when it determines that additional context is needed to answer your question. You can still add `#codebase` if your question might be interpreted in different ways and you want to make sure the agent uses codebase search.
+If you use [agents](/docs/copilot/agents/local-agents.md), the agent will automatically use codebase search when it determines that additional context is needed to answer your question. You can still add `#codebase` if your question might be interpreted in different ways and you want to make sure the agent uses codebase search.
 
 ### Reference content from the web
 
