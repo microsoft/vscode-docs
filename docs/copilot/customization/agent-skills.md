@@ -102,6 +102,9 @@ The header is formatted as YAML frontmatter with the following fields:
 |-------|----------|-------------|
 | `name` | Yes | A unique identifier for the skill. Must be lowercase, using hyphens for spaces (for example, `webapp-testing`). Maximum 64 characters. |
 | `description` | Yes | A description of what the skill does **and when to use it**. Be specific about both capabilities and use cases to help Copilot decide when to load the skill. Maximum 1024 characters. |
+| `argument-hint` | No | Hint text shown in the chat input field when the skill is invoked as a slash command. Helps users understand what additional information to provide (for example, `[test file] [options]`). |
+| `user-invokable` | No | Controls whether the skill appears as a slash command in the chat menu. Defaults to `true`. Set to `false` to hide the skill from the `/` menu while still allowing the agent to load it automatically. |
+| `disable-model-invocation` | No | Controls whether the agent can automatically load the skill based on relevance. Defaults to `false`. Set to `true` to require manual invocation through the `/` slash command only. |
 
 ### Body
 
@@ -200,6 +203,21 @@ This skill helps you debug failing GitHub Actions workflows in pull requests.
 
 </details>
 
+## Use skills as slash commands
+
+Skills are available as slash commands in chat, alongside [prompt files](/docs/copilot/customization/prompt-files.md). Type `/` in the chat input field to see a list of available skills and prompts, and select a skill to invoke it.
+
+You can add extra context after the slash command. For example, `/webapp-testing for the login page` or `/github-actions-debugging PR #42`.
+
+By default, all skills appear in the `/` menu. Use the `user-invokable` and `disable-model-invocation` frontmatter properties to control how each skill is accessed:
+
+| Configuration | Slash command | Auto-loaded by Copilot | Use case |
+|---|---|---|---|
+| Default (both properties omitted) | Yes | Yes | General-purpose skills |
+| `user-invokable: false` | No | Yes | Background knowledge skills that the model loads when relevant |
+| `disable-model-invocation: true` | Yes | No | Skills you only want to run on demand |
+| Both set | No | No | Disabled skills |
+
 ## How Copilot uses skills
 
 Skills use progressive disclosure to efficiently load content only when needed. This three-level loading system ensures you can install many skills without consuming context:
@@ -210,13 +228,13 @@ Copilot always knows which skills are available by reading their `name` and `des
 
 **Level 2: Instructions loading**
 
-When your request matches a skill's description, Copilot loads the `SKILL.md` file body into its context. Only then do the detailed instructions become available.
+When your request matches a skill's description, Copilot loads the `SKILL.md` file body into its context. Only then do the detailed instructions become available. You can also directly invoke a skill by using the `/` slash command in chat.
 
 **Level 3: Resource access**
 
 Copilot can access additional files in the skill directory (scripts, examples, documentation) only as needed. These resources don't load until Copilot references them, keeping your context efficient.
 
-This architecture means skills are automatically activated based on your prompt—you don't need to manually select them. You can install many skills, and Copilot will load only what's relevant for each task.
+This architecture means skills are both automatically activated based on your prompt and manually invocable through slash commands. You can install many skills, and Copilot loads only what's relevant for each task.
 
 ## Use shared skills
 

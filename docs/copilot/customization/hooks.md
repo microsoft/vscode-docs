@@ -19,7 +19,7 @@ Keywords:
 Hooks enable you to execute custom shell commands at key lifecycle points during agent sessions. Use hooks to automate workflows, enforce security policies, validate operations, and integrate with external tools. Hooks run deterministically and can control agent behavior, including blocking tool execution or injecting context into the conversation.
 
 > [!NOTE]
-> Agent hooks are currently in Preview for VS Code Insiders 1.110. The configuration format and behavior might change in future releases.
+> Agent hooks are currently in Preview for VS Code 1.109.2. The configuration format and behavior might change in future releases.
 
 Hooks are designed to work across agent types, including local agents, background agents, and cloud agents. Each hook receives structured JSON input and can return JSON output to influence agent behavior.
 

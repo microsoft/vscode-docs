@@ -144,7 +144,7 @@ To modify an existing prompt file, in the Chat view, select **Configure Chat** >
 
 You have multiple options to run a prompt file:
 
-* In the Chat view, type `/` followed by the prompt name in the chat input field.
+* In the Chat view, type `/` followed by the prompt name in the chat input field. [Agent skills](/docs/copilot/customization/agent-skills.md) also appear as slash commands alongside prompt files.
 
     You can add extra information in the chat input field. For example, `/create-react-form formName=MyForm` or `/create-api for listing customers`.
 
