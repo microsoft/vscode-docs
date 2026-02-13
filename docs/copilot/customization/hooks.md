@@ -21,6 +21,9 @@ Hooks enable you to execute custom shell commands at key lifecycle points during
 > [!NOTE]
 > Agent hooks are currently in Preview for VS Code 1.109.3. The configuration format and behavior might change in future releases.
 
+> [!IMPORTANT]
+> Your organization might have disabled the use of hooks in VS Code. Contact your admin for more information. See [enterprise policies](/docs/enterprise/policies.md) for details.
+
 Hooks are designed to work across agent types, including local agents, background agents, and cloud agents. Each hook receives structured JSON input and can return JSON output to influence agent behavior.
 
 ## Why use hooks?
@@ -343,6 +346,9 @@ The `Stop` hook can prevent the agent from stopping:
 | `decision` | `"block"` | Prevent the agent from stopping |
 | `reason` | string | Required when decision is `"block"`. Tells the agent why it should continue. |
 
+> [!IMPORTANT]
+> When a `Stop` hook blocks the agent from stopping, the agent continues running and the additional turns consume [premium requests](https://docs.github.com/en/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests). Always check the `stop_hook_active` field to prevent the agent from running indefinitely.
+
 ## SubagentStart
 
 The `SubagentStart` hook fires when a subagent is spawned.
@@ -417,6 +423,9 @@ The `SubagentStop` hook can prevent the subagent from stopping:
 |-------|--------|-------------|
 | `decision` | `"block"` | Prevent the subagent from stopping |
 | `reason` | string | Required when decision is `"block"`. Tells the subagent why it should continue. |
+
+> [!IMPORTANT]
+> When a `SubagentStop` hook blocks a subagent from stopping, the subagent continues running and the additional turns consume [premium requests](https://docs.github.com/en/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests). Always check the `stop_hook_active` field to prevent the subagent from running indefinitely.
 
 ## PreCompact
 

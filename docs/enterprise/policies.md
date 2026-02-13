@@ -383,6 +383,7 @@ The following table lists all available enterprise policies in VS Code.
 | `ChatMCP` | `setting(chat.mcp.access)` | Controls access to installed Model Context Protocol servers. | 1.99 |
 | `ChatAgentExtensionTools` | `setting(chat.extensionTools.enabled)` | Enable using tools contributed by third-party extensions. | 1.99 |
 | `ChatAgentMode` | `setting(chat.agent.enabled)` | When enabled, agent mode can be activated from chat and tools in agentic contexts with side effects can be used. | 1.99 |
+| `ChatHooks` | `setting(chat.useHooks)` | Controls whether hooks can be used in agent sessions. When disabled, hook configurations are ignored and no hook commands are executed. | 1.109 |
 | `ChatToolsTerminalEnableAutoApprove` | `setting(chat.tools.terminal.enableAutoApprove)` | Controls whether to allow auto approval in the run in terminal tool. | 1.104 |
 | `UpdateMode` | `setting(update.mode)` | Configure whether you receive automatic updates. Requires a restart after change. The updates are fetched from a Microsoft online service. | 1.67 |
 | `TelemetryLevel` | `setting(telemetry.telemetryLevel)` | Controls the level of telemetry. | 1.99 |
