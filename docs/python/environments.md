@@ -59,9 +59,9 @@ To manually trigger a refresh:
 
 You can also click the refresh icon in the **Environment Managers** view header.
 
-<!-- INSERT IMAGE: Screenshot of Environment Managers view with refresh button highlighted in the header
-     Alt text: Environment Managers panel showing the refresh button in the view header
-     Caption: Click the refresh icon to re-scan for environments -->
+![Screenshot showing the Environment Managers panel in the Python sidebar with the refresh button highlighted in the view header.](images/environments/environmentRefresh.png)
+
+_Click the refresh icon to re-scan for environments._
 
 ### Viewing Discovered Environments
 
@@ -70,9 +70,9 @@ Discovered environments appear in two places:
 1. **Environment Managers view** — In the Python sidebar, environments are grouped by manager type (venv, Conda, etc.)
 2. **Environment selection** — When selecting an interpreter for a project, all discovered environments appear in a unified list
 
-<!-- INSERT IMAGE: Screenshot of Environment Managers tree view showing environments grouped under managers
-     Alt text: Environment Managers panel with venv, Conda, and System sections expanded showing discovered environments
-     Caption: The Environment Managers view groups environments by type -->
+![Screenshot showing the Environment Managers tree view with Global, venv, and Conda sections expanded, displaying discovered Python environments grouped by manager type.](images/environments/EnvironmentManagerTree.png)
+
+_The Environment Managers view groups environments by type._
 
 > **Don't have an environment yet?** See [Managing Python Projects](managing-python-projects.md) to create one.
 
@@ -104,9 +104,9 @@ To quickly open search path settings:
 1. Open the Command Palette
 2. Run **Python Environments: Configure Search Settings**
 
-<!-- INSERT IMAGE: Screenshot of VS Code settings showing workspaceSearchPaths configuration
-     Alt text: VS Code Settings editor showing python-envs.workspaceSearchPaths setting with example glob patterns
-     Caption: Add custom glob patterns to search additional locations -->
+![Screenshot showing the VS Code Settings editor filtered to the Python Environments extension, displaying the python-envs Workspace Search Paths setting with a glob pattern entry.](images/environments/workspaceSearchPathsConfiguration.png)
+
+_Add custom glob patterns to search additional locations._
 
 **Global search paths**: For environments outside your workspace (like a shared `~/envs` folder), use `python-envs.globalSearchPaths`:
 
@@ -134,9 +134,9 @@ The selected environment is used for running code, debugging, and language featu
 
 > **Tip**: The debugger uses your selected environment by default. To use a different interpreter for debugging, set the `python` property in your `launch.json` debug configuration.
 
-<!-- INSERT IMAGE: Screenshot of status bar showing Python interpreter and the Select Interpreter quick pick
-     Alt text: VS Code status bar with Python version, and the interpreter selection dropdown
-     Caption: Click the status bar to switch environments -->
+![Screenshot showing the Select Interpreter quick pick with the currently selected interpreter at the top, and a list of discovered environments labeled by type such as Conda, Global, and Workspace.](images/environments/selectedInterpreter.png)
+
+_Click the status bar to switch environments._
 
 **How the extension auto-selects**: When you open a workspace without explicitly selecting an environment, the extension chooses one automatically:
 
@@ -164,9 +164,9 @@ For advanced troubleshooting, run the Python Environment Tool (PET) directly to 
    - **Find All Environments** — Runs `pet find --verbose` to list all discovered environments with detailed output
    - **Resolve Environment...** — Enter a path to a Python executable to debug why a specific environment isn't being detected
 
-<!-- INSERT IMAGE: Screenshot of terminal showing PET find --verbose output with discovered environments
-     Alt text: Terminal window showing verbose output from the Python Environment Tool listing discovered environments
-     Caption: PET verbose output shows exactly what environments are discovered and why -->
+![Screenshot showing the VS Code terminal with verbose output from the Python Environment Tool, displaying a breakdown of search times by locator, environment counts by type, and discovered managers.](images/environments/PETVerbose.png)
+
+_PET verbose output shows exactly what environments are discovered and why._
 
 This is useful when:
 
@@ -194,9 +194,9 @@ Click the **+** button in the Environment Managers view. The extension:
 
 This is the fastest way to get a working environment.
 
-<!-- INSERT IMAGE: Screenshot of Quick Create flow showing the + button and resulting environment
-     Alt text: Environment Managers view with + button highlighted, and a newly created .venv environment
-     Caption: Quick Create builds an environment with sensible defaults -->
+![Screenshot showing the Quick Create flow with the plus button in the Environment Managers view header, a prompt to select projects, and a status bar notification indicating the environment is being created.](images/environments/quickCreate.png)
+
+_Quick Create builds an environment with sensible defaults._
 
 **Custom Create**
 
@@ -207,9 +207,9 @@ For more control, run **Python: Create Environment** from the Command Palette an
 3. **Name your environment**: Enter a custom name or accept the default
 4. **Install dependencies**: Choose whether to install from `requirements.txt`, `pyproject.toml`, or `environment.yml`
 
-<!-- INSERT IMAGE: Screenshot of Custom Create flow showing version selection and dependency options
-     Alt text: Create Environment prompts showing Python version picker and dependency file selection
-     Caption: Custom Create lets you configure each step -->
+![Screenshot showing the Custom Create flow with the Select packages to install dialog, listing available packages with checkboxes and an install count indicator.](images/environments/selectPackage.png)
+
+_Custom Create lets you configure each step._
 
 **Using uv for faster creation**
 
@@ -294,9 +294,9 @@ Or click **+** in the **Python Projects** view and choose:
 
 > **Tip**: When you add a project, its folder is automatically added to the environment search path. Environments inside project folders (e.g., `my-project/.venv`) are discovered automatically—no need to update `workspaceSearchPaths`.
 
-<!-- INSERT IMAGE: Python Projects view showing + button menu with Add Existing and Auto Find options
-     Alt text: Python Projects panel with dropdown showing Add Existing and Auto Find options
-     Caption: Add existing folders or auto-discover projects -->
+![Screenshot showing the Python Projects panel with the Add Python Project dropdown menu displaying Add Existing and Auto Find options.](images/environments/addPythonProject.png)
+
+_Add existing folders or auto-discover projects._
 
 ### Assigning an environment
 
@@ -307,9 +307,9 @@ Once a folder is a project, assign its environment:
 
 The selected environment is used whenever you run or debug files in that project.
 
-<!-- INSERT IMAGE: Python Projects view showing environment selection for a project
-     Alt text: Project with environment dropdown expanded showing available interpreters
-     Caption: Click the environment to change it -->
+![Screenshot showing the Python Projects view with two projects listed, each assigned a Python environment, and the Environment Managers section below with available interpreters and installed packages.](images/environments/pythonProject.png)
+
+_Click the environment to change it._
 
 ### How settings are stored
 
@@ -374,9 +374,9 @@ Install and uninstall Python packages directly from VS Code without opening a te
 
 Or run **Python Envs: Manage Packages** from the Command Palette.
 
-<!-- INSERT IMAGE: Manage Packages quick pick showing package search and selection
-     Alt text: Package management dialog with search box and list of packages to install
-     Caption: Search and install packages directly from VS Code -->
+![Screenshot showing the Manage Packages dialog with a search box at the top and a scrollable list of packages with checkboxes, indicating installed packages and the total number selected for installation.](images/environments/ManagePackages.png)
+
+_Search and install packages directly from VS Code._
 
 **Installing from a requirements file**: You can also install packages from `requirements.txt`, `pyproject.toml`, or `environment.yml`. When prompted, select the file and the extension installs all listed dependencies.
 
@@ -481,9 +481,9 @@ You can open a new terminal with any environment activated:
 1. In the **Environment Managers** view, find the environment
 2. Right-click and select **Open in Terminal**
 
-<!-- INSERT IMAGE: Environment Managers context menu showing "Open in Terminal" option
-     Alt text: Right-click menu on an environment showing Open in Terminal option
-     Caption: Open a terminal with any environment activated -->
+![Screenshot showing the Environment Managers tree view with a venv environment selected and the Create Python Terminal tooltip visible on the terminal icon button.](images/environments/createPythonTerminal.png)
+
+_Open a terminal with any environment activated._
 
 For detailed troubleshooting and how activation works under the hood, see [Terminal Auto-Activation Explained](https://github.com/microsoft/vscode-python-environments/wiki/Terminal-Auto%E2%80%90Activation-Explained).
 
