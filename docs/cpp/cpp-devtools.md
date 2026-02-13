@@ -98,7 +98,7 @@ CMake tools allow Copilot Chat to understand your build configuration, targets, 
 **Example Use Case:**
 *Fix code according to unit tests*
 
-![Screenshot of the Chat view, showing a prompt to fix failing unit tests, which invokes run ctest.](images/run-ctest-example.png.png)
+![Screenshot of the Chat view, showing a prompt to fix failing unit tests, which invokes run ctest.](images/run-ctest-example.png)
 
 ---
 
