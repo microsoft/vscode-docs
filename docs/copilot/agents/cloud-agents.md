@@ -95,8 +95,6 @@ To hand off a local agent session to a cloud agent session:
 
     If you're using the [Plan agent](/docs/copilot/agents/planning.md), you can select **Continue in Cloud** from the **Start Implementation** dropdown to run the plan implementation in a cloud agent session
 
-1. Alternatively, type `@cloud` in the chat input to hand off the task to a cloud agent
-
 To hand off a background agent session to a cloud agent session, enter `/delegate` in the chat input of the background agent session. This command passes the full chat history and context to a new cloud agent session, which you can then monitor in the Chat view.
 
 ## View and manage cloud agent sessions
