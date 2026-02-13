@@ -103,7 +103,7 @@ The header is formatted as YAML frontmatter with the following fields:
 
 | Field | Required | Description |
 |-------|----------|-------------|
-| `name` | Yes | A unique identifier for the skill. Must be lowercase, using hyphens for spaces (for example, `webapp-testing`). Maximum 64 characters. |
+| `name` | Yes | A unique identifier for the skill. Must be lowercase, using hyphens for spaces (for example, `webapp-testing`). Must match the parent directory name. Maximum 64 characters. |
 | `description` | Yes | A description of what the skill does **and when to use it**. Be specific about both capabilities and use cases to help Copilot decide when to load the skill. Maximum 1024 characters. |
 | `argument-hint` | No | Hint text shown in the chat input field when the skill is invoked as a slash command. Helps users understand what additional information to provide (for example, `[test file] [options]`). |
 | `user-invokable` | No | Controls whether the skill appears as a slash command in the chat menu. Defaults to `true`. Set to `false` to hide the skill from the `/` menu while still allowing the agent to load it automatically. |
@@ -252,6 +252,53 @@ To use a shared skill:
 
 > [!TIP]
 > Always review shared skills before using them to ensure they meet your requirements and security standards. VS Code's [terminal tool](/docs/copilot/agents/agent-tools.md#terminal-commands) provides controls for script execution, including [auto-approve options](/docs/copilot/agents/agent-tools.md#automatically-approve-terminal-commands) with configurable allow-lists and tight controls over which code runs. Learn more about [security considerations](/docs/copilot/security.md#automated-approval) for auto-approval features.
+
+## Contribute skills from extensions
+
+Extensions can contribute skills using the `chatSkills` contribution point in their `package.json`. The path must point to a directory that contains a `SKILL.md` file, following the [Agent Skills specification](https://agentskills.io/specification).
+
+### Required folder structure
+
+The skill directory must follow this structure:
+
+```
+extension-root/
+└── skills/
+    └── my-skill/           # Directory name must match the `name` field in SKILL.md
+        └── SKILL.md         # Required
+```
+
+### Register the skill in package.json
+
+Add the `chatSkills` contribution point in your extension's `package.json`. The `path` property must point to a directory that contains a `SKILL.md` file:
+
+```json
+{
+  "contributes": {
+    "chatSkills": [
+      {
+        "path": "./skills/my-skill"
+      }
+    ]
+  }
+}
+```
+
+> [!IMPORTANT]
+> The `name` field in the `SKILL.md` frontmatter must match the parent directory name. For example, if the directory is `skills/my-skill/`, the `name` field must be `my-skill`. If the name does not match, the skill is not loaded.
+
+The `SKILL.md` file follows the same format as [project and personal skills](#create-a-skill). For example:
+
+```markdown
+---
+name: my-skill
+description: Description of what the skill does and when to use it.
+---
+
+# My Skill
+
+Detailed instructions for the skill...
+```
 
 ## Agent Skills standard
 
