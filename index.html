@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>VS Code Docs (Local Preview)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4.13.1/lib/themes/vue.css">
+  <style>
+    .sidebar .sidebar-nav > ul > li > p {
+      font-weight: 700;
+      margin: 0.8em 0 0.4em;
+    }
+    .sidebar .sidebar-nav h3 {
+      margin: 1.2em 0 0.4em 10px;
+      padding-bottom: 0.3em;
+      border-bottom: 1px solid #eee;
+      font-size: 0.9em;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #999;
+    }
+    .sidebar .sidebar-nav h3:first-child {
+      margin-top: 0.4em;
+    }
+    .markdown-section {
+      max-width: 900px;
+    }
+    .markdown-section img {
+      max-width: 100%;
+      height: auto;
+    }
+    .markdown-section video {
+      max-width: 100%;
+      height: auto;
+    }
+    /* Style blockquotes and GFM alert blocks */
+    .markdown-section blockquote {
+      border-left: 4px solid #42b983;
+      padding: 0.5em 1em;
+      background: #f8f8f8;
+    }
+    .markdown-section blockquote.alert-note {
+      border-left-color: #0969da;
+      background: #ddf4ff;
+    }
+    .markdown-section blockquote.alert-tip {
+      border-left-color: #1a7f37;
+      background: #dafbe1;
+    }
+    .markdown-section blockquote.alert-warning {
+      border-left-color: #9a6700;
+      background: #fff8c5;
+    }
+    .markdown-section blockquote.alert-important {
+      border-left-color: #8250df;
+      background: #fbefff;
+    }
+    .markdown-section blockquote.alert-caution {
+      border-left-color: #cf222e;
+      background: #ffebe9;
+    }
+    .markdown-section blockquote .alert-title {
+      display: flex;
+      align-items: center;
+      gap: 0.4em;
+      font-weight: 600;
+      margin-bottom: 0.25em;
+    }
+    /* Collapsible sidebar styles */
+    .sidebar-nav li.folder > p,
+    .sidebar-nav li.folder > strong {
+      cursor: pointer;
+      position: relative;
+      user-select: none;
+      display: block;
+      padding-right: 20px;
+    }
+    .sidebar-nav li.folder > p::after,
+    .sidebar-nav li.folder > strong::after {
+      content: '\25B6';
+      font-size: 0.6em;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: transform 0.2s;
+      color: #999;
+    }
+    .sidebar-nav li.folder.open > p::after,
+    .sidebar-nav li.folder.open > strong::after {
+      transform: translateY(-50%) rotate(90deg);
+    }
+    .sidebar-nav li.folder > ul {
+      display: none !important;
+      overflow: hidden;
+    }
+    .sidebar-nav li.folder.open > ul {
+      display: block !important;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">Loading...</div>
+  <script>
+    window.$docsify = {
+      name: 'VS Code Docs',
+      repo: 'https://github.com/microsoft/vscode-docs',
+      loadSidebar: true,
+      loadNavbar: true,
+      relativePath: true,
+      subMaxLevel: 2,
+      auto2top: true,
+      search: {
+        placeholder: 'Search docs...',
+        noData: 'No results.',
+        depth: 3,
+        paths: 'auto'
+      },
+      alias: {
+        // Route sidebar per top-level section
+        '/docs.*/_sidebar.md': '/_sidebar_docs.md',
+        '/api.*/_sidebar.md': '/_sidebar_api.md',
+        '/blogs.*/_sidebar.md': '/_sidebar_blogs.md',
+        '/release-notes.*/_sidebar.md': '/_sidebar_release-notes.md',
+        '/.*/_sidebar.md': '/_sidebar.md',
+        '/.*/_navbar.md': '/_navbar.md'
+      },
+      plugins: [
+        function ghAlertStyling(hook) {
+          hook.doneEach(function () {
+            document.querySelectorAll('.alert-title[data-alert-type]').forEach(function (span) {
+              var bq = span.closest('blockquote');
+              if (bq) bq.classList.add('alert-' + span.dataset.alertType);
+            });
+          });
+        },
+        function collapsibleSidebar(hook) {
+          function initCollapsible() {
+            var nav = document.querySelector('.sidebar-nav');
+            if (!nav) return;
+            // Find all <li> that contain a <ul> child (i.e., sections with children)
+            var allLi = nav.querySelectorAll('li');
+            allLi.forEach(function (li) {
+              // Skip if already processed
+              if (li.classList.contains('folder')) return;
+              var childUl = null;
+              for (var i = 0; i < li.children.length; i++) {
+                if (li.children[i].tagName === 'UL') {
+                  childUl = li.children[i];
+                  break;
+                }
+              }
+              if (!childUl) return;
+              li.classList.add('folder');
+              // Find the direct child element to use as toggle
+              // Docsify renders `- **Text**` as <li><strong>Text</strong><ul>...</ul></li>
+              var toggle = null;
+              for (var j = 0; j < li.children.length; j++) {
+                var tag = li.children[j].tagName;
+                if (tag === 'P' || tag === 'A' || tag === 'STRONG') {
+                  toggle = li.children[j];
+                  break;
+                }
+              }
+              if (toggle) {
+                toggle.style.cursor = 'pointer';
+                toggle.addEventListener('click', function (e) {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  this.parentElement.classList.toggle('open');
+                });
+              }
+            });
+            // Auto-expand section containing the active link
+            var active = nav.querySelector('li.active');
+            if (active) {
+              var parent = active.parentElement;
+              while (parent) {
+                if (parent.tagName === 'LI' && parent.classList.contains('folder')) {
+                  parent.classList.add('open');
+                }
+                parent = parent.parentElement;
+              }
+            }
+            // Also check by current path
+            var currentPath = (window.location.hash.replace(/^#/, '') || '/').split('?')[0];
+            var links = nav.querySelectorAll('a');
+            links.forEach(function (a) {
+              var href = (a.getAttribute('href') || '').replace(/^#/, '').split('?')[0];
+              if (href && currentPath.indexOf(href) === 0) {
+                var li = a.closest('li.folder');
+                while (li) {
+                  li.classList.add('open');
+                  var parentUl = li.parentElement;
+                  li = parentUl ? parentUl.closest('li.folder') : null;
+                }
+              }
+            });
+          }
+          hook.doneEach(function () {
+            // Use setTimeout to ensure DOM is fully updated
+            setTimeout(initCollapsible, 0);
+          });
+        },
+        function (hook, vm) {
+          hook.beforeEach(function (content) {
+            // 1. Strip YAML frontmatter
+            content = content.replace(/^---[\s\S]*?---\n*/m, '');
+
+            // 2. Transform GFM alert blocks (> [!NOTE], etc.)
+            //    Replace the type marker but keep content as markdown so links still work
+            content = content.replace(
+              /^(>\s*)\[!(NOTE|TIP|WARNING|IMPORTANT|CAUTION)\]\s*$/gm,
+              function (_, prefix, type) {
+                var icons = { NOTE: 'ℹ️', TIP: '💡', WARNING: '⚠️', IMPORTANT: '❗', CAUTION: '🔥' };
+                var label = type.charAt(0) + type.slice(1).toLowerCase();
+                return prefix + '<span class="alert-title" data-alert-type="' + type.toLowerCase() + '">' + (icons[type] || '') + ' ' + label + '</span>';
+              }
+            );
+
+            // 3. Rewrite absolute internal links to relative paths
+            //    With relativePath:true, docsify resolves links relative to the
+            //    current file, so /docs/setup/additional-components.md must become
+            //    a relative path like ./additional-components or ../configure/settings
+            var file = vm.route.file || '';
+            var dir = file.substring(0, file.lastIndexOf('/') + 1);
+            var currentParts = dir.split('/').filter(Boolean);
+
+            content = content.replace(
+              /\]\(\/(docs|api|blogs|learn|release-notes|remote|updates)\/(.*?)\)/g,
+              function (_match, section, rest) {
+                var hashIdx = rest.indexOf('#');
+                var filePath = hashIdx >= 0 ? rest.substring(0, hashIdx) : rest;
+                var anchor = hashIdx >= 0 ? '#' + rest.substring(hashIdx + 1) : '';
+                filePath = filePath.replace(/\.md$/, '');
+                var routedSection = section === 'updates' ? 'release-notes' : section;
+                var targetFull = routedSection + '/' + filePath;
+                var targetParts = targetFull.split('/').filter(Boolean);
+
+                // Compute relative path from current directory to target
+                var common = 0;
+                while (common < currentParts.length && common < targetParts.length &&
+                       currentParts[common] === targetParts[common]) {
+                  common++;
+                }
+                var ups = currentParts.length - common;
+                var rel = '';
+                for (var i = 0; i < ups; i++) rel += '../';
+                rel += targetParts.slice(common).join('/');
+                if (!rel) rel = '.';
+                return '](' + rel + anchor + ')';
+              }
+            );
+
+            // 4. Resolve relative paths in HTML src/poster/placeholder attributes
+            //    Docsify's relativePath only handles markdown images, not raw HTML
+
+            content = content.replace(
+              /((?:src|poster|placeholder)=["'])(\.\.\/)+(.*?["'])/g,
+              function (_m, prefix, _dots, rest) {
+                // Count how many ../ segments and walk up from dir
+                var ups = _m.match(/\.\.\//g).length;
+                var base = dir;
+                for (var i = 0; i < ups; i++) {
+                  base = base.substring(0, base.slice(0, -1).lastIndexOf('/') + 1);
+                }
+                return prefix + base + rest;
+              }
+            );
+            content = content.replace(
+              /((?:src|poster|placeholder)=["'])\.\/((?!http)[^"']*["'])/g,
+              '$1' + dir + '$2'
+            );
+            content = content.replace(
+              /((?:src|poster|placeholder)=["'])(images\/)/g,
+              '$1' + dir + '$2'
+            );
+
+            return content;
+          });
+        }
+      ]
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/zoom-image.min.js"></script>
+</body>
+</html>
