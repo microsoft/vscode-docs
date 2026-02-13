@@ -33,11 +33,38 @@
       max-width: 100%;
       height: auto;
     }
-    /* Style admonition blocks */
+    /* Style blockquotes and GFM alert blocks */
     .markdown-section blockquote {
       border-left: 4px solid #42b983;
       padding: 0.5em 1em;
       background: #f8f8f8;
+    }
+    .markdown-section blockquote.alert-note {
+      border-left-color: #0969da;
+      background: #ddf4ff;
+    }
+    .markdown-section blockquote.alert-tip {
+      border-left-color: #1a7f37;
+      background: #dafbe1;
+    }
+    .markdown-section blockquote.alert-warning {
+      border-left-color: #9a6700;
+      background: #fff8c5;
+    }
+    .markdown-section blockquote.alert-important {
+      border-left-color: #8250df;
+      background: #fbefff;
+    }
+    .markdown-section blockquote.alert-caution {
+      border-left-color: #cf222e;
+      background: #ffebe9;
+    }
+    .markdown-section blockquote .alert-title {
+      display: flex;
+      align-items: center;
+      gap: 0.4em;
+      font-weight: 600;
+      margin-bottom: 0.25em;
     }
     /* Collapsible sidebar styles */
     .sidebar-nav li.folder > p,
@@ -99,6 +126,14 @@
         '/.*/_navbar.md': '/_navbar.md'
       },
       plugins: [
+        function ghAlertStyling(hook) {
+          hook.doneEach(function () {
+            document.querySelectorAll('.alert-title[data-alert-type]').forEach(function (span) {
+              var bq = span.closest('blockquote');
+              if (bq) bq.classList.add('alert-' + span.dataset.alertType);
+            });
+          });
+        },
         function collapsibleSidebar(hook) {
           function initCollapsible() {
             var nav = document.querySelector('.sidebar-nav');
@@ -172,23 +207,53 @@
             // 1. Strip YAML frontmatter
             content = content.replace(/^---[\s\S]*?---\n*/m, '');
 
-            // 2. Rewrite absolute internal links to Docsify hash routes
-            //    /docs/path/file.md#heading → #/docs/path/file?id=heading
+            // 2. Transform GFM alert blocks (> [!NOTE], etc.)
+            //    Replace the type marker but keep content as markdown so links still work
             content = content.replace(
-              /\]\(\/(docs|api|blogs|learn|release-notes|remote|updates)\/(.*?)\)/g,
-              function (_match, section, rest) {
-                var parts = rest.split('#');
-                var filePath = parts[0].replace(/\.md$/, '');
-                var anchor = parts.length > 1 ? '?id=' + parts[1] : '';
-                var routedSection = section === 'updates' ? 'release-notes' : section;
-                return '](#/' + routedSection + '/' + filePath + anchor + ')';
+              /^(>\s*)\[!(NOTE|TIP|WARNING|IMPORTANT|CAUTION)\]\s*$/gm,
+              function (_, prefix, type) {
+                var icons = { NOTE: 'ℹ️', TIP: '💡', WARNING: '⚠️', IMPORTANT: '❗', CAUTION: '🔥' };
+                var label = type.charAt(0) + type.slice(1).toLowerCase();
+                return prefix + '<span class="alert-title" data-alert-type="' + type.toLowerCase() + '">' + (icons[type] || '') + ' ' + label + '</span>';
               }
             );
 
-            // 3. Resolve relative paths in HTML src/poster/placeholder attributes
-            //    Docsify's relativePath only handles markdown images, not raw HTML
+            // 3. Rewrite absolute internal links to relative paths
+            //    With relativePath:true, docsify resolves links relative to the
+            //    current file, so /docs/setup/additional-components.md must become
+            //    a relative path like ./additional-components or ../configure/settings
             var file = vm.route.file || '';
             var dir = file.substring(0, file.lastIndexOf('/') + 1);
+            var currentParts = dir.split('/').filter(Boolean);
+
+            content = content.replace(
+              /\]\(\/(docs|api|blogs|learn|release-notes|remote|updates)\/(.*?)\)/g,
+              function (_match, section, rest) {
+                var hashIdx = rest.indexOf('#');
+                var filePath = hashIdx >= 0 ? rest.substring(0, hashIdx) : rest;
+                var anchor = hashIdx >= 0 ? '#' + rest.substring(hashIdx + 1) : '';
+                filePath = filePath.replace(/\.md$/, '');
+                var routedSection = section === 'updates' ? 'release-notes' : section;
+                var targetFull = routedSection + '/' + filePath;
+                var targetParts = targetFull.split('/').filter(Boolean);
+
+                // Compute relative path from current directory to target
+                var common = 0;
+                while (common < currentParts.length && common < targetParts.length &&
+                       currentParts[common] === targetParts[common]) {
+                  common++;
+                }
+                var ups = currentParts.length - common;
+                var rel = '';
+                for (var i = 0; i < ups; i++) rel += '../';
+                rel += targetParts.slice(common).join('/');
+                if (!rel) rel = '.';
+                return '](' + rel + anchor + ')';
+              }
+            );
+
+            // 4. Resolve relative paths in HTML src/poster/placeholder attributes
+            //    Docsify's relativePath only handles markdown images, not raw HTML
 
             content = content.replace(
               /((?:src|poster|placeholder)=["'])(\.\.\/)+(.*?["'])/g,
@@ -219,5 +284,6 @@
   </script>
   <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/zoom-image.min.js"></script>
 </body>
 </html>
