@@ -3,8 +3,8 @@
 ContentId: 200bf922-3684-45ee-a8dd-43191d6b3f8b
 DateApproved: 02/04/2026
 
-VSCodeCommitHash: f3d99dee2f4c63061a08f828e0ca6b6acf6ac0f8
-VSCodeVersion: 1.109.0
+VSCodeCommitHash: b6a47e94e326b5c209d118cf0f994d6065585705
+VSCodeVersion: 1.109.3
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Enterprise policies in Visual Studio Code enable organizations to centrally manage settings for their development teams. This reference details the available policies and how to implement them.
@@ -383,6 +383,7 @@ The following table lists all available enterprise policies in VS Code.
 | `ChatMCP` | `setting(chat.mcp.access)` | Controls access to installed Model Context Protocol servers. | 1.99 |
 | `ChatAgentExtensionTools` | `setting(chat.extensionTools.enabled)` | Enable using tools contributed by third-party extensions. | 1.99 |
 | `ChatAgentMode` | `setting(chat.agent.enabled)` | When enabled, agent mode can be activated from chat and tools in agentic contexts with side effects can be used. | 1.99 |
+| `ChatHooks` | `setting(chat.useHooks)` | Controls whether chat hooks are executed at strategic points during an agent's workflow. Hooks are loaded from the files configured in `setting(chat.hookFilesLocations)`. | 1.109 |
 | `ChatToolsTerminalEnableAutoApprove` | `setting(chat.tools.terminal.enableAutoApprove)` | Controls whether to allow auto approval in the run in terminal tool. | 1.104 |
 | `UpdateMode` | `setting(update.mode)` | Configure whether you receive automatic updates. Requires a restart after change. The updates are fetched from a Microsoft online service. | 1.67 |
 | `TelemetryLevel` | `setting(telemetry.telemetryLevel)` | Controls the level of telemetry. | 1.99 |
