@@ -37,7 +37,7 @@ The sections below cover more advanced workflows like managing multiple projects
 
 ## Environment Discovery
 
-The Python Environments extension automatically discovers Python interpreters and virtual environments on your system. Discovery uses standard locations and common practices to find environments—no manual configuration required for typical setups.
+The Python Environments extension automatically discovers Python interpreters and virtual environments on your system. Discovery uses standard locations and common practices to find environments. This means there should be no manual configuration required for typical setups.
 
 The following environment managers are discovered automatically:
 
@@ -541,7 +541,7 @@ Community members are building extensions for additional environment managers li
 
 ### Pylance and multi-project workspaces
 
-Pylance does not support multiple Python projects with different interpreters in the same workspace. Even if you configure separate environments for different folders using [Python Projects](#python-projects), Pylance uses a single interpreter for the entire workspace—typically the one associated with the workspace root. If you need Pylance to use a different interpreter for a specific folder, consider opening that folder in a separate VS Code window.
+Pylance does not support multiple Python projects with different interpreters in the same workspace. Even if you configure separate environments for different folders using [Python Projects](#python-projects), Pylance uses a single interpreter for the entire workspace—typically the one associated with the workspace root. If you need Pylance to use a different interpreter for a specific folder, consider opening that folder in a separate VS Code window, or add the subfolder as a workspace folder in a multi-root workspace. Pylance runs per workspace folder, so each folder in a multi-root workspace can have its own interpreter.
 
 ### Jupyter notebooks
 
