@@ -424,9 +424,6 @@ The `SubagentStop` hook can prevent the subagent from stopping:
 | `decision` | `"block"` | Prevent the subagent from stopping |
 | `reason` | string | Required when decision is `"block"`. Tells the subagent why it should continue. |
 
-> [!IMPORTANT]
-> When a `SubagentStop` hook blocks a subagent from stopping, the subagent continues running and the additional turns consume [premium requests](https://docs.github.com/en/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests). Always check the `stop_hook_active` field to prevent the subagent from running indefinitely.
-
 ## PreCompact
 
 The `PreCompact` hook fires before conversation context is compacted.
