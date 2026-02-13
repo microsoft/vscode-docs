@@ -103,6 +103,7 @@ These are our documentation writing style guidelines.
 * Use asterisks (*) for lists of items.
 * Use numbered lists for steps in a procedure.
 * Keep list items parallel in structure.
+* In lists with a lead-in term, use a colon as the separator. Don't use an em-dash or a dash.
 
 ## Numbered steps
 
@@ -134,3 +135,17 @@ MetaSocialImage: <filename>  # Required. Image filename for social sharing (rela
 Keywords: [<string>, ...]    # Optional. Array of keywords for SEO/search purposes.
 ---
 ```
+
+## Table of content and sitemap
+
+- Add new articles to the table of contents in `docs/toc.json` or `api/toc.json` as appropriate.
+- Add new articles to the sitemap in `build/sitemap.xml`.
+- File name changes must be reflected in both the table of contents and sitemap.
+- Titles in table of contents must use title-style capitalization.
+
+## Article structure
+
+- Use headings to break up content into sections. Use H2 for main sections, H3 for subsections, and so on.
+- Start with an introduction that summarizes the article and its purpose. Include a clear statement of what the reader will learn or be able to do after reading.
+- Use a logical flow of information, starting with basic concepts and building up to more complex topics.
+- End with relevant links to related articles or resources for further learning.

@@ -4,13 +4,20 @@ DateApproved: 02/04/2026
 MetaDescription: Learn how to use the plan agent for autonomous planning and task management with the todo list in VS Code chat.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
-# Planning in VS Code chat
+# Planning with agents in VS Code
 
-Agents in Visual Studio Code chat help you execute complex coding tasks autonomously. The plan agent enables you to create detailed implementation plans before starting the implementation to ensure all requirements are met. With todo lists, the agent can ensure it stays focused on the overall goals and tracks progress effectively.
+Agents in Visual Studio Code help you execute complex coding tasks autonomously. The plan agent enables you to create detailed implementation plans before starting the implementation to ensure all requirements are met. With todo lists, the agent can ensure it stays focused on the overall goals and tracks progress effectively.
 
 Using plans and todos lets you structure and review details of the implementation with the agent before coding starts, improving the quality and reliability of the generated code. The plan and todos also provide better guidance to the agent to work through more complex and longer tasks in a systematic way.
 
-This article explains how to research and plan development tasks in VS Code chat, including the plan agent and todo lists.
+This article explains how to research and plan development tasks with agents in VS Code, including the plan agent and todo lists.
+
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Plan a feature with agents">
+Use the Plan agent to create a structured implementation plan for a new feature.
+
+* [Open in VS Code](vscode://GitHub.Copilot-Chat/chat?agent=agent%26prompt=%2Fplan%20a%20terminal%20UI%20app%20to%20track%20my%20todo%20list.)
+
+</div>
 
 ## Plan agent for detailed task research
 
@@ -29,12 +36,15 @@ The plan agent uses a 4-phase iterative workflow: **Discovery** (research) → *
 
 1. Open the Chat view by pressing `kb(workbench.action.chat.open)` and either select **Plan** from the agents dropdown, or type `/plan` followed by your task description.
 
-2. Enter a high-level task (feature, refactoring, bug, etc.) and submit it.
+2. Enter a high-level task (feature, refactoring, bug, etc.) and submit it. For example:
 
-    For example:
-    * "Implement a user authentication system with OAuth2 and JWT"
-    * "Add unit tests for all API endpoints"
-    * "Save doesn't reset the form fields after submission"
+    ```prompt-plan
+    Implement a user authentication system with OAuth2 and JWT
+    ```
+
+    ```prompt-plan
+    Add unit tests for all API endpoints
+    ```
 
 3. Answer any clarifying questions the agent asks after researching your task.
 
@@ -66,5 +76,5 @@ When working on complex tasks, VS Code's agent will create a todo list to track 
 
 ## Related resources
 
-* [Configure tools for agents in VS Code chat](/docs/copilot/chat/chat-tools.md)
+* [Configure tools for agents](/docs/copilot/agents/agent-tools.md)
 * [Context engineering user guide](/docs/copilot/guides/context-engineering-guide.md)

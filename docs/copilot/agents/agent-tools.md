@@ -12,9 +12,9 @@ keywords:
 - terminal
 - customization
 ---
-# Use tools in chat
+# Use tools with agents
 
-Tools extend chat in Visual Studio Code with specialized functionality for accomplishing specific tasks like searching code, running commands, fetching web content, or invoking APIs. VS Code supports three types of tools: built-in tools, Model Context Protocol (MCP) tools, and extension tools.
+Tools extend agents in Visual Studio Code with specialized functionality for accomplishing specific tasks like searching code, running commands, fetching web content, or invoking APIs. VS Code supports three types of tools: built-in tools, Model Context Protocol (MCP) tools, and extension tools.
 
 This article describes the different types of tools available in VS Code, how to use them in your chat prompts, and how to manage tool invocations and approvals.
 
@@ -83,7 +83,7 @@ When you customize chat with [prompt files](/docs/copilot/customization/prompt-f
 
 ## Use tools in your prompts
 
-When using [agents](/docs/copilot/chat/copilot-chat.md#built-in-agents), the agent automatically determines which tools to use from the enabled tools based on your prompt and the context of your request. The agent autonomously chooses and invokes relevant tools as needed to accomplish the task.
+When using [agents](/docs/copilot/agents/local-agents.md), the agent automatically determines which tools to use from the enabled tools based on your prompt and the context of your request. The agent autonomously chooses and invokes relevant tools as needed to accomplish the task.
 
 You can also explicitly reference tools in your prompts by typing `#` followed by the tool name. This is useful when you want to ensure a specific tool is used. Type `#` in the chat input field to see a list of available tools, including built-in tools, MCP tools from installed servers, extension tools, and tool sets.
 
@@ -386,4 +386,5 @@ Yes. You can create tools in two ways:
 ## Related resources
 
 * [Chat tools reference](/docs/copilot/reference/copilot-vscode-features.md#chat-tools)
+* [Agent hooks](/docs/copilot/customization/hooks.md) - Execute custom commands at tool lifecycle events
 * [Security considerations for using AI in VS Code](/docs/copilot/security.md)

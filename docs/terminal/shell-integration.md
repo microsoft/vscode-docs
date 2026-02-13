@@ -250,7 +250,7 @@ These sequences should be ignored by other terminals, but unless other terminals
 - `OSC 633 ; B ST`: Mark prompt end.
 - `OSC 633 ; C ST`: Mark pre-execution.
 - `OSC 633 ; D [; <exitcode>] ST`: Mark execution finished with an optional exit code.
-- `OSC 633 ; E ; <commandline> [; <nonce] ST`: Explicitly set the command line with an optional nonce.
+- `OSC 633 ; E ; <commandline> [; <nonce>] ST`: Explicitly set the command line with an optional nonce.
 
   The E sequence allows the terminal to reliably get the exact command line interpreted by the shell. When this is not specified, the terminal may fallback to using the A, B and C sequences to get the command, or disable the detection all together if it's unreliable.
 
@@ -288,7 +288,7 @@ VS Code supports Final Term's shell integration sequences, which allow non-VS Co
 
 The following sequences that iTerm2 pioneered are supported:
 
-- `OSC 1337 ; CurrentDir=<Cwd> S`: Sets the current working directory of the terminal, similar to `OSC 633 ; P ; Cwd=<Cwd> ST`.
+- `OSC 1337 ; CurrentDir=<Cwd> ST`: Sets the current working directory of the terminal, similar to `OSC 633 ; P ; Cwd=<Cwd> ST`.
 - `OSC 1337 ; SetMark ST`: Adds a mark to the left of the line it was triggered on and also adds an annotation to the scroll bar:
 
     ![When the sequence is written to the terminal a small grey circle will appear to the left of the command, with a matching annotation in the scroll bar](images/shell-integration/setmark.png)

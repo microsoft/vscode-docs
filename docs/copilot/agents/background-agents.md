@@ -12,6 +12,9 @@ Keywords:
 
 # Background agents in Visual Studio Code
 
+> [!NOTE]
+> The term "background agent" might also appear as "Copilot CLI" or "worktree" in the VS Code interface while an experiment is being run.
+
 Background agents in Visual Studio Code are CLI-based agents, such as Copilot CLI, that run in the background on your local machine. They operate autonomously while you continue other work in the editor. Background agents use Git worktrees to work isolated from your main workspace and prevent conflicts with your active work.
 
 This article covers the key features of background agents, and how to start and manage background sessions from Copilot CLI.
@@ -20,6 +23,13 @@ This article covers the key features of background agents, and how to start and 
 
 > [!TIP]
 > Third-party providers like OpenAI Codex also offer background agent capabilities. Learn more about [third-party agents](/docs/copilot/agents/third-party-agents.md).
+
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
+Follow a hands-on tutorial to experience local, background, and cloud agents in VS Code.
+
+* [Start tutorial](/docs/copilot/agents/agents-tutorial.md)
+
+</div>
 
 ## What are background agents?
 
@@ -61,7 +71,7 @@ If you prefer to view a background session in the terminal instead of the chat c
 
 Depending on your workflow, you can start background agent sessions in several ways. You can create a new session and provide the task details directly by using the CLI, or start a new session from the [Chat view](/docs/copilot/agents/overview.md#agent-sessions-list) in VS Code.
 
-Another approach - especially for complex tasks - is to first interact with a local agent in chat in VS Code, and once the scope and details are clear, hand off the task to a background agent session. For example, you might use the [Plan agent](/docs/copilot/chat/chat-planning.md) to outline a multi-step feature implementation, then delegate the actual coding to a background agent.
+Another approach - especially for complex tasks - is to first interact with a local agent in chat in VS Code, and once the scope and details are clear, hand off the task to a background agent session. For example, you might use the [Plan agent](/docs/copilot/agents/planning.md) to outline a multi-step feature implementation, then delegate the actual coding to a background agent.
 
 ### Create a Copilot CLI background agent session
 
@@ -104,7 +114,7 @@ To continue a local agent session in a background agent session:
 
         ![Screenshot showing the "Delegate Sessions" dropdown in VS Code chat interface.](../images/background-agents/continue-in-chat-background-jan.png)
 
-    * If you're using the [Plan agent](/docs/copilot/chat/chat-planning.md), select the **Start Implementation** dropdown and the select **Continue in Background** to run the implementation in a background agent session
+    * If you're using the [Plan agent](/docs/copilot/agents/planning.md), select the **Start Implementation** dropdown and the select **Continue in Background** to run the implementation in a background agent session
 
         ![Screenshot showing the "Start Implementation" button in VS Code chat interface.](../images/background-agents/plan-agent-start-implementation-background.png)
 

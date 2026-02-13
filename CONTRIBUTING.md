@@ -315,11 +315,17 @@ For example:
 
 ### Moving or renaming content
 
-Before moving or renaming content, a redirect should be added in case people have bookmarked the topic. Redirects are added in the private website repo.
+When you move, rename, or remove a page, add a redirect so that existing links and bookmarks continue to work. Add an entry in the `redirection.json` file in the corresponding content folder (`docs/`, `api/`, `blogs/`, or `remote/`):
 
-It seems to improve CSAT if, when a topic title or intent is changed, the filename is also updated. resulting in a new, more appropriate URL.
+```json
+[
+  { "from": "/docs/editor/old-page", "to": "/docs/editor/new-page", "status": 301 }
+]
+```
 
-For example: `/docs/editor/extension-gallery.md` -> `/docs/configure/extensions/extension-marketplace.md`
+* `from` — the old URL path (absolute, starting with `/`)
+* `to` — the new URL path or an external URL (starting with `https://`)
+* `status` — use `301` for permanent moves (most cases) or `302` for temporary redirects
 
 ### sitemap
 

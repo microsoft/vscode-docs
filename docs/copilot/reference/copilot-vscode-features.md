@@ -58,6 +58,7 @@ Start a natural language chat conversation to get help with coding tasks. For ex
 | `@`-mention | Reference [chat participants](#chat-participants) to handle domain-specific requests. |
 | Edit (<i class="codicon codicon-pencil"></i>) | [Edit a previous chat prompt](/docs/copilot/chat/chat-checkpoints.md#edit-a-previous-chat-request) and revert changes. |
 | History (<i class="codicon codicon-history"></i>) | Access your history of chat sessions. |
+| Queue or steer | [Send a follow-up message](/docs/copilot/chat/chat-sessions.md#send-messages-while-a-request-is-running) while a request is running. Choose to queue the message, steer the current request, or stop and send immediately. |
 | Voice (<i class="codicon codicon-mic"></i>) | Enter a chat prompt by using speech (voice chat). The chat response is read out aloud. |
 | [KaTeX](https://katex.org) | Render mathematical equations in chat responses. Enable with `setting(chat.math.enabled)`. Right-click on a math expression to copy the source expression. |
 | [Mermaid](https://mermaid.js.org) | Render Mermaid diagrams in chat responses. Enable with `setting(mermaid-chat.enabled)`. Right-click on a diagram to copy the source code. |
@@ -84,9 +85,9 @@ Get more relevant responses by providing [context to your chat prompt](/docs/cop
 
 ## Chat tools
 
-Use [tools](/docs/copilot/chat/chat-tools.md) in chat to accomplish specialized tasks while processing a user request. Examples of such tasks are listing the files in a directory, editing a file in your workspace, running a terminal command, getting the output from the terminal, and more.
+Use [tools](/docs/copilot/agents/agent-tools.md) in chat to accomplish specialized tasks while processing a user request. Examples of such tasks are listing the files in a directory, editing a file in your workspace, running a terminal command, getting the output from the terminal, and more.
 
-VS Code provides built-in tools, and you can extend chat with tools from [MCP servers](/docs/copilot/customization/mcp-servers.md) and [extensions](/api/extension-guides/ai/tools.md). Learn more about [types of tools](/docs/copilot/chat/chat-tools.md#types-of-tools).
+VS Code provides built-in tools, and you can extend chat with tools from [MCP servers](/docs/copilot/customization/mcp-servers.md) and [extensions](/api/extension-guides/ai/tools.md). Learn more about [types of tools](/docs/copilot/agents/agent-tools.md#types-of-tools).
 
 The following table lists the VS Code built-in tools:
 
@@ -149,12 +150,19 @@ Slash commands are shortcuts to specific functionality within the chat. You can 
 | `/tests` | Generate tests for all or only the selected methods and functions in the editor. |
 | `/setupTests` | Get help setting up a testing framework for your code. Get recommendation for a relevant testing framework, steps to set up and configure it, and suggestions for VS Code testing extensions. |
 | `/clear` | Start a new chat session in the Chat view. |
+| `/debug` | Show the Chat Debug view to [inspect the chat logs for troubleshooting](/docs/copilot/troubleshooting.md). |
 | `/new` | Scaffold a new VS Code workspace or file. Use natural language to describe the type of project/file you need, and preview the scaffolded content before creating it. |
 | `/newNotebook` | Scaffold a new Jupyter notebook based on your requirements. Use natural language to describe what the notebook should contain. |
 | `/init` | Generate or update workspace instructions (`copilot-instructions.md` or `AGENTS.md`) based on your project structure and coding patterns. |
 | `/plan` | Create a detailed implementation plan for a complex coding task. Research requirements, ask clarifying questions, and generate a structured plan with steps, verification, and decisions. |
 | `/search` | Generate a search query for the Search view. Use natural language to describe what you want to search for. |
 | `/startDebugging` | Generate a `launch.json` debug configuration file and start a debugging session from the Chat view. |
+| `/agents` | Configure your [custom agents](/docs/copilot/customization/custom-agents.md). |
+| `/hooks` | Configure your [hooks](/docs/copilot/customization/hooks.md). |
+| `/instructions` | Configure your [custom instructions](/docs/copilot/customization/custom-instructions.md). |
+| `/prompts` | Configure your [reusable prompt files](/docs/copilot/customization/prompt-files.md). |
+| `/skills` | Configure your [agent skills](/docs/copilot/customization/agent-skills.md). |
+| `/<skill name>` | Run an [agent skill](/docs/copilot/customization/agent-skills.md) in chat. For example, if you have a skill file named `webapp-testing.md`, you can run it by typing `/webapp-testing`. |
 | `/<prompt name>` | Run a [reusable prompt](/docs/copilot/customization/prompt-files.md) in chat. |
 
 ## Chat participants
@@ -173,14 +181,14 @@ Use chat participants to handle domain-specific requests in chat. Chat participa
 
 ## Use agents
 
-When using [agents](/docs/copilot/chat/copilot-chat.md#built-in-agents), you can use natural language to specify a high-level task, and let AI autonomously reason about the request, plan the work needed, and apply the changes to your codebase. Agents use a combination of code editing and tool invocation to accomplish the task you specified. As it processes your request, it monitors the outcome of edits and tools, and iterates to resolve any issues that arise.
+When using [agents](/docs/copilot/agents/local-agents.md), you can use natural language to specify a high-level task, and let AI autonomously reason about the request, plan the work needed, and apply the changes to your codebase. Agents use a combination of code editing and tool invocation to accomplish the task you specified. As it processes your request, it monitors the outcome of edits and tools, and iterates to resolve any issues that arise.
 
 | Action | Description |
 |--------|-------------|
 | `kb(workbench.action.chat.openAgent)` | Switch to using agents in the Chat view |
 | Tools (<i class="codicon codicon-tools"></i>) | Configure which tools are available when using agents. Select from built-in tools, MCP servers, and extension-provided tools. |
-| Auto-approve tools | Enable [auto-approval of all tools](/docs/copilot/chat/chat-tools.md#auto-approve-all-tools) when using agents (`setting(chat.tools.autoApprove)`). |
-| Auto-approve terminal commands | Enable [auto-approval of terminal commands](/docs/copilot/chat/chat-tools.md#automatically-approve-terminal-commands) when using agents (`setting(chat.tools.terminal.autoApprove)`). |
+| Auto-approve tools | Enable [auto-approval of all tools](/docs/copilot/agents/agent-tools.md#auto-approve-all-tools) when using agents (`setting(chat.tools.autoApprove)`). |
+| Auto-approve terminal commands | Enable [auto-approval of terminal commands](/docs/copilot/agents/agent-tools.md#automatically-approve-terminal-commands) when using agents (`setting(chat.tools.terminal.autoApprove)`). |
 | MCP | Configure [MCP servers](/docs/copilot/customization/mcp-servers.md) to extend agent capabilities and tools. |
 | [Third-party agents](/docs/copilot/agents/third-party-agents.md) | Use agents from external providers like Claude Agent (Preview) and OpenAI Codex with your Copilot subscription. |
 | Claude Agent _(Preview)_ | Start a Claude Agent session powered by Anthropic's Claude Agent SDK. Use `/agents`, `/hooks`, and `/memory` slash commands for advanced workflows. |
@@ -194,7 +202,7 @@ When using [agents](/docs/copilot/chat/copilot-chat.md#built-in-agents), you can
 
 ## Planning
 
-Use the [plan agent](/docs/copilot/chat/chat-planning.md) in VS Code chat to create detailed implementation plans before starting complex coding tasks. Hand off the approved plan to an implementation agent to start coding.
+Use the [plan agent](/docs/copilot/agents/planning.md) in VS Code chat to create detailed implementation plans before starting complex coding tasks. Hand off the approved plan to an implementation agent to start coding.
 
 | Action | Description |
 |--------|-------------|
@@ -304,7 +312,7 @@ Copilot can help you create a new project by generating a scaffold of the projec
 
 | Action | Description |
 |--------|-------------|
-| Agent | Use [agents](/docs/copilot/chat/copilot-chat.md#built-in-agents) and use a natural language prompt to create a new project or file. For example, `Create a svelte web application to track my tasks`. |
+| Agent | Use [agents](/docs/copilot/agents/local-agents.md) and use a natural language prompt to create a new project or file. For example, `Create a svelte web application to track my tasks`. |
 | `/new` | Use the `/new` command in the Chat view to scaffold a new project or a new file. Use natural language to describe the type of project/file you need, and preview the scaffolded content before creating it.<br/>Example: `/new Express app using typescript and svelte` |
 | `/newNotebook` | Use the `/newNotebook` command in the Chat view to generate a new Jupyter notebook based on your requirements. Use natural language to describe what the notebook should contain.<br/>Example: `/newNotebook get census data and preview key insights with Seaborn`. |
 

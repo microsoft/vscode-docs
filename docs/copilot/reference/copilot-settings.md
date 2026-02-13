@@ -60,6 +60,8 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 | `setting(chat.fontSize)`<br/>Font size in pixels for Markdown content in chat. | `13` |
 | `setting(chat.notifyWindowOnConfirmation)`<br/>Enable or disable showing an OS notification window when user input is needed. | `true` |
 | `setting(chat.notifyWindowOnResponseReceived)`<br/>Enable or disable showing an OS notification window when a chat response is received. | `true` |
+| `setting(chat.requestQueuing.enabled)` _(Experimental)_<br/>Enable or disable [message queuing](/docs/copilot/chat/chat-sessions.md#send-messages-while-a-request-is-running) while a request is in progress. When enabled, you can queue, steer, or stop and send new messages during active requests. | `true` |
+| `setting(chat.requestQueuing.defaultAction)`<br/>Configure the default action for the **Send** button while a request is in progress: `queue` adds the message to the queue, `steer` signals the current request to yield. | `"queue"` |
 | `setting(chat.tools.terminal.autoReplyToPrompts)` <br/>Automatically reply to terminal prompts with a default answer. | `false` |
 | `setting(chat.tools.terminal.terminalProfile.<platform>)`<br/>Configure which terminal profile to use for chat terminal commands on each platform. | `""` |
 | `setting(chat.useAgentsMdFile)` <br/>Enable or disable using `AGENTS.md` files as context for chat requests. | `true` |
@@ -81,18 +83,18 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 | `setting(github.copilot.chat.agent.autoFix)`<br/>Automatically diagnose and fix issues in the generated code changes. | `true` |
 | `setting(chat.mcp.access)`<br/>Manage which Model Context Protocol (MCP) servers can be used in VS Code. | `true` |
 | `setting(chat.mcp.discovery.enabled)`<br/>Configure automatic discovery of MCP server configuration from other applications. | `false` |
-| `setting(chat.tools.terminal.autoApprove)` <br/>Control which terminal commands are [auto-approved when using agents](/docs/copilot/chat/chat-tools.md#automatically-approve-terminal-commands). Commands can be set to `true` (auto-approve) or `false` (require approval). Regular expressions can be used by wrapping patterns in `/` characters. | `{ "rm": false, "rmdir": false, "del": false, "kill": false, "curl": false, "wget": false, "eval": false, "chmod": false, "chown": false, "/^Remove-Item\\b/i": false }` |
+| `setting(chat.tools.terminal.autoApprove)` <br/>Control which terminal commands are [auto-approved when using agents](/docs/copilot/agents/agent-tools.md#automatically-approve-terminal-commands). Commands can be set to `true` (auto-approve) or `false` (require approval). Regular expressions can be used by wrapping patterns in `/` characters. | `{ "rm": false, "rmdir": false, "del": false, "kill": false, "curl": false, "wget": false, "eval": false, "chmod": false, "chown": false, "/^Remove-Item\\b/i": false }` |
 | `setting(chat.tools.terminal.enableAutoApprove)` <br/>Enable or disable automatic approval of terminal commands. | `true` |
 | `setting(chat.tools.terminal.enforceTimeoutFromModel)` _(Experimental)_<br/>Control whether to enforce the timeout value that the agent specifies for terminal commands. When enabled, the agent stops tracking the command after the specified duration and returns the output collected so far. | `true` |
 | `setting(chat.tools.terminal.ignoreDefaultAutoApproveRules)` <br/>Ignore the default auto-approve rules for terminal commands. | `false` |
 | `setting(chat.tools.global.autoApprove)`<br/>Automatically approve all tools - this setting [disables critical security protections](/docs/copilot/security.md). | `false` |
-| `setting(chat.tools.urls.autoApprove)` <br/>Control which [URL requests and responses are auto-approved](/docs/copilot/chat/chat-tools.md#url-approval). | `[]` |
+| `setting(chat.tools.urls.autoApprove)` <br/>Control which [URL requests and responses are auto-approved](/docs/copilot/agents/agent-tools.md#url-approval). | `[]` |
 | `setting(chat.agent.thinking.collapsedTools)` _(Experimental)_<br/>Configure whether tool call details are collapsed or expanded by default in the chat conversation. | `always` |
 | `setting(chat.agent.thinkingStyle)` _(Experimental)_<br/>Configure how thinking tokens are presented in chat. | `fixedScrolling` |
 | `setting(chat.mcp.autoStart)` _(Experimental)_<br/>Automatically start MCP servers when MCP configuration changes are detected. | `newAndOutdated` |
 | `setting(chat.tools.eligibleForAutoApproval)` _(Experimental)_<br/>Configure which tools require manual approval before they can be used by agents. | `[]` |
 | `setting(chat.tools.terminal.blockDetectedFileWrites)` _(Experimental)_<br/>Require user approval for terminal commands that perform file writes. | `outsideWorkspace` |
-| `setting(chat.tools.terminal.sandbox.enabled)` _(Experimental)_<br/>Enable [sandboxing for terminal commands](/docs/copilot/chat/chat-tools.md#sandbox-terminal-commands-experimental) executed by the agent (macOS and Linux only). When enabled, commands are auto-approved and have restricted file system and network access. | `false` |
+| `setting(chat.tools.terminal.sandbox.enabled)` _(Experimental)_<br/>Enable [sandboxing for terminal commands](/docs/copilot/agents/agent-tools.md#sandbox-terminal-commands-experimental) executed by the agent (macOS and Linux only). When enabled, commands are auto-approved and have restricted file system and network access. | `false` |
 | `setting(chat.tools.terminal.sandbox.linuxFileSystem)` _(Experimental)_<br/>Configure file system access rules for sandboxed terminal commands on Linux. Supports `allowWrite`, `denyWrite`, and `denyRead` properties. | `{}` |
 | `setting(chat.tools.terminal.sandbox.macFileSystem)` _(Experimental)_<br/>Configure file system access rules for sandboxed terminal commands on macOS. Supports `allowWrite`, `denyWrite`, and `denyRead` properties. | `{}` |
 | `setting(chat.tools.terminal.sandbox.network)` _(Experimental)_<br/>Configure network access rules for sandboxed terminal commands. Supports `allowedDomains` property to specify permitted domains. | `{}` |

@@ -61,7 +61,7 @@
     ]
   },
   {
-    "name": "Edit code",
+    "name": "Edit Code",
     "area": "editing",
     "topics": [
       ["Basic Editing", "/docs/editing/codebasics"],
@@ -74,7 +74,7 @@
         "area": "editing/workspaces",
         "topics": [
           ["Overview", "/docs/editing/workspaces/workspaces"],
-          ["Multi-root Workspaces", "/docs/editing/workspaces/multi-root-workspaces"],
+          ["Multi-Root Workspaces", "/docs/editing/workspaces/multi-root-workspaces"],
           ["Workspace Trust", "/docs/editing/workspaces/workspace-trust"]
         ]
       }]
@@ -100,24 +100,7 @@
       ["Overview", "/docs/copilot/overview"],
       ["Setup", "/docs/copilot/setup"],
       ["Quickstart", "/docs/copilot/getting-started"],
-      ["", "", {
-        "name": "Chat",
-        "area": "copilot/chat",
-        "noCollapse": false,
-        "topics": [
-          ["Overview", "/docs/copilot/chat/copilot-chat"],
-          ["Chat Sessions", "/docs/copilot/chat/chat-sessions"],
-          ["Add Context", "/docs/copilot/chat/copilot-chat-context"],
-          ["Review Edits", "/docs/copilot/chat/review-code-edits"],
-          ["Planning", "/docs/copilot/chat/chat-planning"],
-          ["Checkpoints", "/docs/copilot/chat/chat-checkpoints"],
-          ["Tools", "/docs/copilot/chat/chat-tools"],
-          ["Inline Chat", "/docs/copilot/chat/inline-chat"],
-          ["Prompt Examples", "/docs/copilot/chat/prompt-examples"],
-          ["Chat Debug View", "/docs/copilot/chat/chat-debug-view"]
-        ]
-      }
-      ],
+      ["Best Practices", "/docs/copilot/copilot-tips-and-tricks"],
       ["", "", {
         "name": "Agents",
         "area": "copilot/agents",
@@ -125,14 +108,16 @@
         "topics": [
           ["Overview", "/docs/copilot/agents/overview"],
           ["Agents Tutorial", "/docs/copilot/agents/agents-tutorial"],
+          ["Planning", "/docs/copilot/agents/planning"],
+          ["Tools", "/docs/copilot/agents/agent-tools"],
           ["Subagents", "/docs/copilot/agents/subagents"],
+          ["Local Agents", "/docs/copilot/agents/local-agents"],
           ["Background Agents", "/docs/copilot/agents/background-agents"],
           ["Cloud Agents", "/docs/copilot/agents/cloud-agents"],
           ["Third-Party Agents", "/docs/copilot/agents/third-party-agents"]
         ]
       }
       ],
-      ["Inline Suggestions", "/docs/copilot/ai-powered-suggestions"],
       ["", "", {
         "name": "Customization",
         "area": "copilot/customization",
@@ -142,12 +127,31 @@
           ["Instructions", "/docs/copilot/customization/custom-instructions"],
           ["Prompt Files", "/docs/copilot/customization/prompt-files"],
           ["Custom Agents", "/docs/copilot/customization/custom-agents"],
-          ["Skills", "/docs/copilot/customization/agent-skills"],
+          ["Agent Skills", "/docs/copilot/customization/agent-skills"],
           ["Language Models", "/docs/copilot/customization/language-models"],
-          ["MCP", "/docs/copilot/customization/mcp-servers"]
+          ["MCP", "/docs/copilot/customization/mcp-servers"],
+          ["Hooks", "/docs/copilot/customization/hooks"]
         ]
       }
       ],
+      ["", "", {
+        "name": "Chat",
+        "area": "copilot/chat",
+        "noCollapse": false,
+        "topics": [
+          ["Overview", "/docs/copilot/chat/copilot-chat"],
+          ["Inline Chat", "/docs/copilot/chat/inline-chat"],
+          ["Chat Sessions", "/docs/copilot/chat/chat-sessions"],
+          ["Add Context", "/docs/copilot/chat/copilot-chat-context"],
+          ["Prompt Examples", "/docs/copilot/chat/prompt-examples"],
+          ["Review Edits", "/docs/copilot/chat/review-code-edits"],
+          ["Checkpoints", "/docs/copilot/chat/chat-checkpoints"],
+          ["Chat Debug View", "/docs/copilot/chat/chat-debug-view"]
+        ]
+      }
+      ],
+      ["Inline Suggestions", "/docs/copilot/ai-powered-suggestions"],
+      ["Smart Actions", "/docs/copilot/copilot-smart-actions"],
       ["", "", {
         "name": "Guides",
         "area": "copilot/guides",
@@ -163,8 +167,6 @@
         ]
       }
       ],
-      ["Smart Actions", "/docs/copilot/copilot-smart-actions"],
-      ["Tips and Tricks", "/docs/copilot/copilot-tips-and-tricks"],
       ["Security", "/docs/copilot/security"],
       ["Troubleshooting", "/docs/copilot/troubleshooting"],
       ["FAQ", "/docs/copilot/faq"],
@@ -396,7 +398,7 @@
       ["Azure Machine Learning", "/docs/datascience/azure-machine-learning"],
       ["Manage Jupyter Kernels", "/docs/datascience/jupyter-kernel-management"],
       ["Jupyter Notebooks on the Web", "/docs/datascience/notebooks-web"],
-      ["Data science in Microsoft Fabric", "/docs/datascience/microsoft-fabric-quickstart"]
+      ["Data Science in Microsoft Fabric", "/docs/datascience/microsoft-fabric-quickstart"]
     ]
   },
   {
@@ -404,14 +406,14 @@
     "area": "intelligentapps",
     "topics": [
       ["AI Toolkit Overview", "/docs/intelligentapps/overview"],
-      ["AI Toolkit Copilot tools", "/docs/intelligentapps/copilot-tools"],
+      ["AI Toolkit Copilot Tools", "/docs/intelligentapps/copilot-tools"],
       ["Models", "/docs/intelligentapps/models"],
       ["Playground", "/docs/intelligentapps/playground"],
       ["Agent Builder", "/docs/intelligentapps/agentbuilder"],
       ["Bulk Run", "/docs/intelligentapps/bulkrun"],
       ["Evaluation", "/docs/intelligentapps/evaluation"],
-      ["Fine-tuning (Automated Setup)", "/docs/intelligentapps/finetune"],
-      ["Fine-tuning (Project Template)", "/docs/intelligentapps/finetune-legacy"],
+      ["Fine-Tuning (Automated Setup)", "/docs/intelligentapps/finetune"],
+      ["Fine-Tuning (Project Template)", "/docs/intelligentapps/finetune-legacy"],
       ["Model Conversion", "/docs/intelligentapps/modelconversion"],
       ["Tracing", "/docs/intelligentapps/tracing"],
       ["Profiling (Windows ML)", "/docs/intelligentapps/profiling"],
@@ -422,7 +424,7 @@
         "topics": [
           ["File Structure", "/docs/intelligentapps/reference/FileStructure"],
           ["Manual Model Conversion", "/docs/intelligentapps/reference/ManualModelConversion"],
-          ["Manual Model Conversion On GPU", "/docs/intelligentapps/reference/ManualConversionOnGPU"],
+          ["Manual Model Conversion on GPU", "/docs/intelligentapps/reference/ManualConversionOnGPU"],
           ["Setup Environment Without AI Toolkit", "/docs/intelligentapps/reference/SetupWithoutAITK"],
           ["Template Project", "/docs/intelligentapps/reference/TemplateProject"]
         ]
