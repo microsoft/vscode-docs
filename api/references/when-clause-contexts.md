@@ -172,6 +172,9 @@ Context name | True when
 `resourceFilename` | True when the Explorer or editor filename matches.<br>Example: `"resourceFilename == gulpfile.js"`
 `resourceExtname` | True when the Explorer or editor filename extension matches.<br>Example: `"resourceExtname == .js"`
 `resourceDirname` | True when the Explorer or editor's resource absolute folder path matches.<br>Example: `"resourceDirname == /users/alice/project/src"`
+scmProvider | True when a source control provider is active.
+scmResourceGroup | True when the source control resource group context matches.
+originalResourceScheme | True when the original resource URI scheme matches.
 `resourcePath` | True when the Explorer or editor's resource absolute path matches.<br>Example: `"resourcePath == /users/alice/project/gulpfile.js"`
 `resourceLangId` | True when the Explorer or editor title [language ID](/docs/languages/identifiers) matches.<br>Example: `"resourceLangId == markdown"`
 `isFileSystemResource` | True when the Explorer or editor file is a file system resource that can be handled from a file system provider.
@@ -227,8 +230,15 @@ Context name | True when
 `view` | For `view/title` and `view/item/context`, the view to display the command in.<br>Example: `"view == myViewsExplorerID"`.
 `viewItem` | For `view/item/context`, the `contextValue` from the tree item.<br>Example:  `"viewItem == someContextValue"`.
 `webviewId` | For `webview/context`, the webview ID to display the command in.<br>Example: `"webviewId == catCoding"`.
+virtualWorkspace | True when the current workspace is a virtual workspace.
+isWorkspaceTrusted | True when the current workspace is trusted.
+webviewSection | For `webview/context`, the webview section to display the command in.
+
 `isFullscreen` | True when window is in fullscreen.
 `focusedView` | The identifier of the currently focused view.
+testId | True when the testing item ID matches.
+controllerId | True when the testing controller ID matches.
+testItemHasUri | True when the testing item has an associated URI.
 `canNavigateBack` | True if it is possible to navigate back.
 `canNavigateForward` | True if it is possible to navigate forward.
 `canNavigateToLastEditLocation` | True if it is possible to navigate to the last edit location.
