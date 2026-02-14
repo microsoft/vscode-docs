@@ -85,8 +85,6 @@ You can create a new Copilot CLI background agent session in VS Code in several 
 
 * While you're in a local chat session:
 
-    * Type `@cli <task description>` in the chat input and send the message
-
     * Enter a prompt, select the **Delegate Session** dropdown > **Background**
 
 * Run the **Chat: New Background Agent** command from the Command Palette (`kb(workbench.action.showCommands)`)
@@ -117,8 +115,6 @@ To continue a local agent session in a background agent session:
     * If you're using the [Plan agent](/docs/copilot/agents/planning.md), select the **Start Implementation** dropdown and the select **Continue in Background** to run the implementation in a background agent session
 
         ![Screenshot showing the "Start Implementation" button in VS Code chat interface.](../images/background-agents/plan-agent-start-implementation-background.png)
-
-    * Type `@cli` in the chat input to hand off the task to a background agent
 
 The background agent session starts automatically, carrying over the full conversation history and context. You can monitor the background agent's progress in the Chat view.
 
