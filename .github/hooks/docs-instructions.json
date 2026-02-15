@@ -1,0 +1,20 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "type": "command",
+        "command": "./.github/hooks/block-markdown-dashes.sh",
+        "windows": "powershell -ExecutionPolicy Bypass -File .github\\hooks\\block-markdown-dashes.ps1",
+        "timeout": 10
+      }
+    ],
+    "PostToolUse": [
+      {
+        "type": "command",
+        "command": "./.github/hooks/check-docs-instructions.sh",
+        "windows": "powershell -ExecutionPolicy Bypass -File .github\\hooks\\check-docs-instructions.ps1",
+        "timeout": 10
+      }
+    ]
+  }
+}

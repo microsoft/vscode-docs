@@ -93,6 +93,30 @@ Requirements for the form:
 </details>
 
 <details>
+<summary>Example: using variables</summary>
+
+```markdown
+---
+description: 'Generate unit tests for the current file'
+agent: 'agent'
+tools: ['search', 'read', 'edit']
+---
+Generate unit tests for [${fileBasename}](${file}).
+
+* Place the test file in the same directory: ${fileDirname}
+* Name the test file: ${fileBasenameNoExtension}.test.ts
+* Test framework: ${input:framework:jest or vitest}
+* Follow testing conventions in: [testing.md](../docs/testing.md)
+
+If there is a selection, only generate tests for this code:
+${selection}
+```
+
+This example combines workspace, file context, selection, and input variables. When you run the prompt, Copilot resolves `${file}`, `${fileBasename}`, `${fileDirname}`, and `${fileBasenameNoExtension}` from the active editor, uses `${selection}` for any selected text, and prompts you to enter a value for `${input:framework}`.
+
+</details>
+
+<details>
 <summary>Example: perform a security review of a REST API</summary>
 
 ```markdown
@@ -119,6 +143,9 @@ When you create a prompt file, choose whether to store it in your workspace or u
 
 To create a prompt file:
 
+> [!TIP]
+> Type `/prompts` in the chat input to quickly open the **Configure Prompt Files** menu.
+
 1. In the Chat view, select **Configure Chat** (gear icon) > **Prompt Files**, and then select **New prompt file**.
 
     ![Screenshot showing the Chat view, and Configure Chat menu, highlighting the Configure Chat button.](../images/customization/configure-chat-instructions.png)
@@ -144,7 +171,7 @@ To modify an existing prompt file, in the Chat view, select **Configure Chat** >
 
 You have multiple options to run a prompt file:
 
-* In the Chat view, type `/` followed by the prompt name in the chat input field.
+* In the Chat view, type `/` followed by the prompt name in the chat input field. [Agent skills](/docs/copilot/customization/agent-skills.md) also appear as slash commands alongside prompt files.
 
     You can add extra information in the chat input field. For example, `/create-react-form formName=MyForm` or `/create-api for listing customers`.
 

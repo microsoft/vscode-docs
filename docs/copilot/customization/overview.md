@@ -32,6 +32,7 @@ This article covers the customization options in VS Code: custom instructions, p
 | Package multi-step workflow with scripts | [Agent skills](#agent-skills) | When the task matches the skill description |
 | Specialized AI persona with tool restrictions | [Custom agents](#custom-agents) | When you select it or another agent delegates to it |
 | Connect to external APIs or databases | [MCP](#mcp-and-tools) | When the task matches a tool description |
+| Automate tasks at agent lifecycle points | [Hooks](#hooks) | When the agent reaches a matching lifecycle event |
 
 > [!TIP]
 > **Prompt files vs custom agents**: Prompt files are best for single, repeatable tasks invoked as slash commands (for example, scaffolding a component). Custom agents are persistent personas that control which tools are available and can orchestrate subagents for multi-step workflows.
@@ -90,6 +91,17 @@ Use MCP and tools to:
 - Connect database tools to query and analyze data without leaving your development environment
 - Integrate with external APIs to fetch real-time information or perform actions
 
+## Hooks
+
+[Hooks](/docs/copilot/customization/hooks.md) enable you to execute custom shell commands at key lifecycle points during agent sessions. Hooks provide deterministic, code-driven automation that runs regardless of how the agent is prompted.
+
+Use hooks to:
+
+* Enforce security policies by blocking dangerous commands before they execute
+* Automate code quality workflows by running formatters and linters after file edits
+* Create audit trails of all tool invocations for compliance
+* Inject project context into agent sessions automatically
+
 ## Language models
 
 [Language models](/docs/copilot/customization/language-models.md) let you choose from different AI models optimized for specific tasks. You can switch between models to get the best performance for code generation, reasoning, or specialized tasks like vision processing. Bring your own API key to access more models or have more control over model hosting.
@@ -135,3 +147,4 @@ Learn more about [troubleshooting AI in VS Code](/docs/copilot/troubleshooting.m
 - [Create custom agents](/docs/copilot/customization/custom-agents.md)
 - [Choose language models](/docs/copilot/customization/language-models.md)
 - [Use MCP servers and tools](/docs/copilot/customization/mcp-servers.md)
+- [Use hooks for lifecycle automation](/docs/copilot/customization/hooks.md)
