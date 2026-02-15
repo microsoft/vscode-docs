@@ -36,8 +36,14 @@ The following table summarizes the key security risks and the corresponding buil
 
 In a general sense, using a developer tool over source code might lead to unintended code execution. This can pose security risks especially when working with untrusted projects, making a robust security model essential.
 
-VS Code's security model is designed to help you safely browse and edit code regardless of where or who it came from. This model uses trust boundaries to limit the potential impact of untrusted code. VS Code defines multiple trust boundaries: workspace, extension publisher, MCP server, and network domain.
-Users need to explicitly consent to certain actions and permissions before they are considered trusted and allowed to proceed. Users can quickly revoke trust at any time via dedicated commands in the Command Palette.
+VS Code's security model is designed to help you safely browse and edit code regardless of where or who it came from. This model uses trust boundaries to limit the potential impact of untrusted code. Each trust boundary requires explicit consent before it is considered trusted:
+
+* **Workspace**: controls whether VS Code enables features like tasks, debugging, and workspace settings that can execute code from the project. An untrusted workspace runs in [restricted mode](/docs/editing/workspaces/workspace-trust.md), which also disables agents.
+* **Extension publisher**: controls whether extensions from a given publisher can be installed and run. VS Code prompts you to [trust the publisher](/docs/configure/extensions/extension-runtime-security.md) before activating their extensions.
+* **MCP server**: controls whether an MCP server can start and provide tools. VS Code prompts you to [trust each MCP server](/docs/copilot/customization/mcp-servers.md#mcp-server-trust) before it runs, and re-prompts after configuration changes.
+* **Network domain**: controls whether the agent can fetch content from a URL. VS Code prompts you to trust a domain before making requests to it, integrated with the [Trusted Domains](/docs/editing/editingevolved.md#_outgoing-link-protection) list.
+
+You can revoke trust at any time through dedicated commands in the Command Palette.
 
 ## Security considerations
 
