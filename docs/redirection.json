@@ -1,1 +1,3 @@
-[]
+[
+    { "from": "/docs/copilot/setup-simplified", "to": "/docs/copilot/setup", "status": 301 }
+]
