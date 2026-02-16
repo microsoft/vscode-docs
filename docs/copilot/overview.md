@@ -156,6 +156,7 @@ You can start using GitHub Copilot for free with monthly limits on inline sugges
 
 ## Next steps
 
+* [How GitHub Copilot works](/docs/copilot/core-concepts.md)
 * [Get started with agents](/docs/copilot/agents/agents-tutorial.md)
 * [Hands-on quickstart with GitHub Copilot](/docs/copilot/getting-started.md)
 * [Learn about agent types](/docs/copilot/agents/overview.md)
