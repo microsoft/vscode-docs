@@ -202,3 +202,4 @@ No, currently you need to have access to a Copilot plan (for example, Copilot Fr
 ## Related resources
 
 * [Available language models in GitHub Copilot](https://docs.github.com/en/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat?tool=vscode)
+* [Security considerations for AI in VS Code](/docs/copilot/security.md)
