@@ -478,6 +478,29 @@ function fancyAlert(arg) {
 }
 ```
 
+### Importing Code from External Files
+
+You can import code from external files into your documentation using the `<<< @/filepath` syntax. This is useful for keeping code samples in separate files that can be tested independently and reused across multiple pages.
+
+The `@/` prefix resolves to the root of the `vscode-docs` repository.
+
+**Basic usage** — the language is auto-detected from the file extension:
+
+```markdown
+<<< @/snippets/example.js
+```
+
+**Explicit language** — override the language by adding it in curly braces:
+
+```markdown
+<<< @/snippets/example.cs{c#}
+```
+
+The imported code is rendered as a fenced code block, with full syntax highlighting, a copy button, and a language label, just like inline code blocks.
+
+> [!NOTE]
+> The import directive must be on its own line. The referenced file path must be within the `vscode-docs` repository — paths that traverse outside the repository (for example, `@/../other-file`) are rejected and cause a build error.
+
 ### Prompt Code Blocks
 
 For prompts that should be interactive in the documentation, use the `prompt` code block syntax. This renders an "Open in VS Code" button on the website that launches VS Code chat and inserts the prompt in the chat input box.
