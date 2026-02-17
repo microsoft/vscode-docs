@@ -183,11 +183,11 @@ The extension provides two ways to create environments: **Quick Create** for spe
 
 Select the **+** button in the Environment Managers view. The extension performs the following steps:
 
-- Uses your default manager (venv by default, configurable via `python-envs.defaultEnvManager`)
-- Picks the latest Python version available
-- Names the environment `.venv` (or `.venv-1`, `.venv-2` if one already exists)
-- Installs dependencies from `requirements.txt` or `pyproject.toml` if found
-- Selects the new environment for your workspace
+* Uses your default manager (venv by default, configurable via `python-envs.defaultEnvManager`)
+* Picks the latest Python version available
+* Names the environment `.venv` (or `.venv-1`, `.venv-2` if one already exists)
+* Installs dependencies from `requirements.txt` or `pyproject.toml` if found
+* Selects the new environment for your workspace
 
 This is the fastest way to get a working environment.
 
@@ -366,11 +366,11 @@ For detailed guidance on templates, multi-root workspaces, common scenarios, and
 
 Install and uninstall Python packages directly from VS Code without opening a terminal.
 
-### Installing packages
+### Install packages
 
 1. In the **Environment Managers** view, find an environment
 2. Right-click and select **Manage Packages**
-3. Search for packages and select ones to install
+3. Search for packages and select the ones you want to install
 
 Or run **Python Envs: Manage Packages** from the Command Palette.
 
@@ -378,9 +378,9 @@ Or run **Python Envs: Manage Packages** from the Command Palette.
 
 _Search and install packages directly from VS Code._
 
-**Installing from a requirements file**: You can also install packages from `requirements.txt`, `pyproject.toml`, or `environment.yml`. When prompted, select the file and the extension installs all listed dependencies.
+**Installing from a requirements file**: You can also install packages from `requirements.txt`, `pyproject.toml`, or `environment.yml`. When prompted, select the file, and the extension installs all listed dependencies.
 
-### Uninstalling packages
+### Uninstall packages
 
 1. Expand an environment in the **Environment Managers** view to see installed packages
 2. Right-click a package and select **Uninstall Package**
@@ -402,10 +402,9 @@ To override the default, set `python-envs.defaultPackageManager`.
 
 ### Faster installation with uv
 
-If [uv](https://github.com/astral-sh/uv) is installed and `python-envs.alwaysUseUv` is enabled (the default), package installation in venv environments uses `uv pip` instead of regular pip—significantly faster for large dependency trees.
+If [uv](https://github.com/astral-sh/uv) is installed and `python-envs.alwaysUseUv` is enabled (the default), package installation in venv environments uses `uv pip` instead of regular `pip`, which is significantly faster for large dependency trees.
 
-
-## Settings and Configuration
+## Settings and configuration
 
 This section covers all extension settings, how interpreter selection works, and legacy settings migration.
 
@@ -428,7 +427,7 @@ For more details on interpreter selection behavior, see the [Interpreter Selecti
 
 ### When settings are written
 
-The extension only writes to settings when **you** make an explicit change:
+The extension only writes to settings when you make an explicit change:
 
 | Action | Writes to settings? |
 |--------|---------------------|
@@ -438,7 +437,7 @@ The extension only writes to settings when **you** make an explicit change:
 | You create a new environment | ✅ Yes — may update `pythonProjects` |
 | You change settings in UI | ✅ Yes |
 
-This means opening a workspace never pollutes your `settings.json` with auto-generated configuration.
+This ensures that opening a workspace does not add auto-generated entries to your `settings.json`.
 
 ### Python Environments settings
 
@@ -446,9 +445,9 @@ This means opening a workspace never pollutes your `settings.json` with auto-gen
 |---------|---------|-------------|
 | `python-envs.defaultEnvManager` | `ms-python.python:venv` | Default environment manager for creating environments. Options: `ms-python.python:venv`, `ms-python.python:conda` |
 | `python-envs.defaultPackageManager` | `ms-python.python:pip` | Default package manager. Usually determined by the environment manager. |
-| `python-envs.pythonProjects` | `[]` | Array of project configurations. Managed via UI — rarely edited manually. |
+| `python-envs.pythonProjects` | `[]` | Array of project configurations. Managed via UI, rarely edited manually. |
 | `python-envs.workspaceSearchPaths` | `["./**/.venv"]` | Glob patterns to search for environments in your workspace. Must be set at workspace level. |
-| `python-envs.globalSearchPaths` | `[]` | Absolute paths to search for environments globally (e.g., `~/envs`). |
+| `python-envs.globalSearchPaths` | `[]` | Absolute paths to search for environments globally (for example, `~/envs`). |
 | `python-envs.alwaysUseUv` | `true` | Use uv for venv creation and package installation when available. |
 
 ### Terminal settings
@@ -457,7 +456,7 @@ When you open a terminal in VS Code, the extension automatically activates your 
 
 | Setting | Default | Description |
 |---------|---------|-------------|
-| `python-envs.terminal.autoActivationType` | `shellStartup` | How environments are activated in terminals. See below. |
+| `python-envs.terminal.autoActivationType` | `command` | Determines how environments are activated in terminals. See below. |
 | `python-envs.terminal.showActivateButton` | `false` | (Experimental) Show activate/deactivate button in terminal. |
 | `python.terminal.useEnvFile` | `false` | When `true`, injects variables from `.env` files into terminals. |
 | `python.envFile` | `${workspaceFolder}/.env` | Path to the `.env` file to use when `useEnvFile` is enabled. |
@@ -466,13 +465,15 @@ When you open a terminal in VS Code, the extension automatically activates your 
 
 | Value | Behavior | Best for |
 |-------|----------|----------|
-| `shellStartup` | Activates via shell startup scripts—environment is active immediately when the terminal opens | Copilot terminal commands, cleaner experience |
+| `shellStartup` | Activates via shell startup scripts. The environment is active immediately when the terminal opens | Copilot terminal commands, cleaner experience |
 | `command` | Runs the activation command visibly in the terminal after it opens | Compatibility with all shells |
 | `off` | No automatic activation | Manual control |
 
-> **Tip**: Use `shellStartup` if you use Copilot to run terminal commands—it ensures the environment is active before the first command executes. This will become the default in a future release.
+> [!TIP]
+> Use `shellStartup` if you use Copilot to run terminal commands. It ensures that the environment is active before the first command executes. This will become the default in a future release.
 
-> **Note**: After changing `autoActivationType`, restart your terminals for the change to take effect. To undo `shellStartup` changes, run **Python Envs: Revert Shell Startup Script Changes**.
+> [!NOTE]
+> After changing `autoActivationType`, restart your terminals for the change to take effect. To undo `shellStartup` changes, run **Python Envs: Revert Shell Startup Script Changes**.
 
 **Opening a terminal for a specific environment:**
 
@@ -491,7 +492,7 @@ For detailed troubleshooting and how activation works under the hood, see [Termi
 
 To inject environment variables from a `.env` file into your terminals:
 
-1. Create a `.env` file in your workspace root (or specify a custom path with `python.envFile`)
+1. Create a `.env` file in your workspace root or specify a custom path with `python.envFile`
 2. Set `python.terminal.useEnvFile` to `true`
 
 ```
