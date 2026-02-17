@@ -2,6 +2,7 @@
 {
 	"name": "VS Code Docs",
 	"dockerFile": "Dockerfile",
+	"postCreateCommand": "./.devcontainer/post-create.sh",
 	"features": {
 		"ghcr.io/devcontainers/features/node:1": {}
 	},
