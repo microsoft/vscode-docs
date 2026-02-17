@@ -10,34 +10,30 @@ The Python Environments extension brings environment and package management into
 
 Core features:
 
-- 🌐 Creating, deleting, and switching between environments
-- 📦 Installing and managing packages
-- ✅ Activated python in terminals
-- 🖌️ Assigning environments to specific files or folders (called "Python projects")
+- Creating, deleting, and switching between environments
+- Installing and managing packages
+- Activated python in terminals
+- Assigning environments to specific files or folders (called "Python projects")
 
-The extension works alongside the Python extension and requires no setup to get started.
+The extension works alongside the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) and requires no setup to get started.
 
 ## Quick Start
 
-**Most users don't need to configure anything.** The extension automatically discovers your Python environments and uses them when you run code.
+**Most users don't need to configure anything.** The extension automatically discovers your Python environments and uses them when running code.
 
 If you have a simple setup (one environment for your whole workspace):
 
 1. Open a Python file
-2. Check the status bar to see which environment is active
-3. Click the status bar to switch environments if needed
+2. Check the Status Bar to see which environment is active
+3. To switch environments, select the environment control in the Status Bar
 
-**Need to create an environment?** Open the Python sidebar, expand **Environment Managers**, and click the **+** button. The extension walks you through the rest.
-
-The sections below cover more advanced workflows like managing multiple projects, configuring discovery, and troubleshooting.
+**Need to create an environment?** Open the Python sidebar, expand **Environment Managers**, and select the **+** button. The extension walks you through the different steps.
 
 
-## UI Tour
 
+## User interface components
 
-## Environment Discovery
-
-The Python Environments extension automatically discovers Python interpreters and virtual environments on your system. Discovery uses standard locations and common practices to find environments. This means there should be no manual configuration required for typical setups.
+## Environment discovery
 
 The following environment managers are discovered automatically:
 

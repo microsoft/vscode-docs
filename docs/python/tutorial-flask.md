@@ -40,7 +40,7 @@ The [Python Environments extension](/docs/python/environments.md) supports multi
 
 1. Open this folder in VS Code by navigating to the folder in a terminal and running `code .`, or by running VS Code and using the  **File** > **Open Folder** command.
 
-1. Create a virtual environment using the **Python: Create Environment** command:
+1. Create a virtual environment by using the **Python: Create Environment** command:
 
     1. Open the Command Palette (`kb(workbench.action.showCommands)`)
     2. Search for and select **Python: Create Environment**
@@ -49,7 +49,8 @@ The [Python Environments extension](/docs/python/environments.md) supports multi
 
     VS Code creates a `.venv` folder in your workspace and automatically selects the new environment.
 
-    > **Tip**: You can also create environments using the **Python** sidebar. Expand **Environment Managers** and click the **+** button for Quick Create, which uses sensible defaults.
+    > [!TIP]
+    > You can also create environments using the **Python** sidebar. Expand **Environment Managers** and select the **+** button for Quick Create, which uses sensible defaults.
 
     ![Flask tutorial: opening the Command Palette in VS Code](images/flask-tutorial/command-palette.png)
 

@@ -100,7 +100,8 @@ The debugger can also be run from the command line, if `debugpy` is installed in
 ### Install debugpy
 You can install [debugpy](https://pypi.org/project/debugpy/) using `python -m pip install --upgrade debugpy` into your Python environment.
 
-> **Tip**: While using a virtual environment is not required, it is a recommended best practice. You can create a virtual environment in VS Code by opening the Command Palette (`kb(workbench.action.showCommands)`) and running the **Python: Create Environment** command, or by clicking the **+** button in the Environment Managers view.
+> [!TIP]
+> While using a virtual environment is not required, it is a recommended best practice. You can create a virtual environment in VS Code by opening the Command Palette (`kb(workbench.action.showCommands)`) and running the **Python: Create Environment** command, or by selecting the **+** button in the Environment Managers view.
 
 ### Command line syntax
 The debugger command line syntax is as follows:

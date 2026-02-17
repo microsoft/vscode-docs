@@ -46,7 +46,8 @@ The [Python Environments extension](/docs/python/environments.md) supports multi
 
     VS Code creates a `.venv` folder in your workspace and automatically selects the new environment.
 
-    > **Tip**: You can also create environments using the **Python** sidebar. Expand **Environment Managers** and click the **+** button for Quick Create, which uses sensible defaults.
+    > [!TIP]
+    > You can also create environments by using the **Python** sidebar. Expand **Environment Managers** and select the **+** button for Quick Create, which uses sensible defaults.
 
     ![Django tutorial: opening the Command Palette in VS Code](images/shared/command-palette.png)
 
