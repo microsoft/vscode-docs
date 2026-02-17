@@ -17,7 +17,7 @@ VS Code supports several mechanisms to configure AI behavior for your project. E
 | Mechanism | Best for | Get started |
 |-----------|----------|-------------|
 | [Custom instructions](/docs/copilot/customization/custom-instructions.md) | Project-wide coding standards and architectural context | Enter `/init` to generate a base file |
-| [Prompt files](/docs/copilot/customization/custom-instructions.md#prompt-files) | Reusable prompts for recurring tasks (reviews, scaffolding) | Enter `/prompts` to manage |
+| [Prompt files](/docs/copilot/customization/prompt-files.md) | Reusable prompts for recurring tasks (reviews, scaffolding) | Enter `/prompts` to manage |
 | [Custom agents](/docs/copilot/customization/custom-agents.md) | Specialized workflows or personas (TDD, security audit) | Enter `/agents` to manage |
 | [Agent skills](/docs/copilot/customization/agent-skills.md) | Domain-specific capabilities (testing, deployment) | Enter `/skills` to manage |
 | [Tools and MCP servers](/docs/copilot/agents/agent-tools.md) | Connecting to external systems (databases, APIs, CLIs) | Configure in `mcp.json` |
@@ -100,6 +100,8 @@ For more information, see [adding context to chat prompts](/docs/copilot/chat/co
 Each AI model has different strengths. Some are better at reasoning, others excel at code generation or faster responses. Choosing the right model for your task improves results.
 
 * **Match model to task complexity.** Use fast models for simple completions and boilerplate. Switch to reasoning-optimized models for planning, debugging, or architectural decisions.
+
+* **Use latest models.** Newer models often have improved capabilities. VS Code continuously adds support for new models and model versions. Check the [available models](/docs/copilot/customization/language-models.md) and use the latest models.
 
 * **Pin models in prompt files and agents.** Specify preferred models in your prompt file or custom agent definitions to ensure the right model is used consistently for specific tasks.
 
