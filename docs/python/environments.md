@@ -21,7 +21,7 @@ The extension works alongside the [Python extension](https://marketplace.visuals
 
 **Most users don't need to configure anything.** The extension automatically discovers your Python environments and uses them when running code.
 
-If you have a simple setup (one environment for your whole workspace):
+If you have a basic setup, such as one environment for your whole workspace:
 
 1. Open a Python file
 2. Check the Status Bar to see which environment is active
@@ -46,7 +46,7 @@ The following environment managers are discovered automatically:
 | Poetry        | Project `.venv` folders and `~/.cache/pypoetry/virtualenvs`                          |
 | Pipenv        | `~/.local/share/virtualenvs` (Linux/macOS) or `%USERPROFILE%\.virtualenvs` (Windows) |
 
-Discovery runs automatically when the extension activates. The extension uses a Rust binary called PET (Python Environment Tool) that scans your system for Python environments. PET finds environment managers by checking your PATH (e.g., looking for `conda`, `pyenv`, `poetry` executables) and known installation locations, then searches for environments managed by each.
+Discovery runs automatically when the extension activates. The extension uses the Python Environment Tool (PET) Rust binary that scans your system for Python environments. PET finds environment managers by checking your PATH (for example, by looking for `conda`, `pyenv`, and `poetry` executables) and known installation locations, and then searches for environments managed by each of these environment managers.
 
 To manually trigger a refresh:
 
@@ -57,14 +57,14 @@ You can also click the refresh icon in the **Environment Managers** view header.
 
 ![Screenshot showing the Environment Managers panel in the Python sidebar with the refresh button highlighted in the view header.](images/environments/environmentRefresh.png)
 
-_Click the refresh icon to re-scan for environments._
+_Select the refresh icon to rescan for environments._
 
-### Viewing Discovered Environments
+### View discovered environments
 
 Discovered environments appear in two places:
 
-1. **Environment Managers view** — In the Python sidebar, environments are grouped by manager type (venv, Conda, etc.)
-2. **Environment selection** — When selecting an interpreter for a project, all discovered environments appear in a unified list
+* **Environment Managers view**: in the Python sidebar, environments are grouped by manager type (for example, venv, Conda, and more )
+* **Environment selection**: when selecting an interpreter for a project, all discovered environments appear in a unified list
 
 ![Screenshot showing the Environment Managers tree view with Global, venv, and Conda sections expanded, displaying discovered Python environments grouped by manager type.](images/environments/EnvironmentManagerTree.png)
 
@@ -72,13 +72,14 @@ _The Environment Managers view groups environments by type._
 
 > **Don't have an environment yet?** See [Managing Python Projects](managing-python-projects.md) to create one.
 
-### Configuring Search Paths
+### Configure search paths
 
 By default, the extension searches your entire workspace for virtual environments using the glob pattern `./**/.venv`. This finds any folder named `.venv` anywhere in your workspace.
 
 To discover environments in custom locations, update the `python-envs.workspaceSearchPaths` setting:
 
-> **Note**: This setting must be configured at the workspace or folder level, not user level.
+> [!NOTE]
+> This setting must be configured at the workspace or folder level, not user level.
 
 ```json
 {
@@ -92,7 +93,7 @@ To discover environments in custom locations, update the `python-envs.workspaceS
 
 **Tips**:
 
-- Use `**` for recursive searches (e.g., `./**/env` finds any folder named `env` at any depth)
+- Use `**` for recursive searches (for example, `./**/env` finds any folder named `env` at any depth)
 - Relative paths resolve from your workspace folder root
 
 To quickly open search path settings:
@@ -119,29 +120,29 @@ This setting requires absolute paths and is configured at the user (global) leve
 
 **Legacy settings**: If you previously used `python.venvPath` or `python.venvFolders`, these are automatically merged with the new search paths. Consider migrating to `python-envs.globalSearchPaths` for future compatibility.
 
-### Selecting an Environment
+### Select an environment
 
 To use a discovered environment:
 
-- **Status bar**: Click the Python version shown at the bottom of the window
-- **Command Palette**: Run **Python: Select Interpreter** and choose from the list
+* **Status Bar**: select the Python version shown at the bottom of the window
+* **Command Palette**: run **Python: Select Interpreter** and choose from the list
 
 The selected environment is used for running code, debugging, and language features like IntelliSense.
 
-> **Tip**: The debugger uses your selected environment by default. To use a different interpreter for debugging, set the `python` property in your `launch.json` debug configuration.
+> [!TIP]
+> By default, the debugger uses your selected environment. To use a different interpreter for debugging, set the `python` property in your `launch.json` debug configuration.
 
 ![Screenshot showing the Select Interpreter quick pick with the currently selected interpreter at the top, and a list of discovered environments labeled by type such as Conda, Global, and Workspace.](images/environments/selectedInterpreter.png)
 
-_Click the status bar to switch environments._
-
-**How the extension auto-selects**: When you open a workspace without explicitly selecting an environment, the extension chooses one automatically:
+_Select the Python version in the Status Bar to switch environments._
+**How the extension auto-selects**: When you open a workspace without explicitly selecting an environment, the extension chooses one automatically in the following order:
 
 1. Workspace-local virtual environments (`.venv`, `venv`)
 2. Global/system interpreters
 
-To override this, set `python-envs.defaultEnvManager` to prefer a specific manager (e.g., `ms-python.python:conda`), or configure [Python Projects](#python-projects) for per-folder control. The legacy setting ... is still supported as well....
+To override this priority order, set `python-envs.defaultEnvManager` to prefer a specific manager (for example, `ms-python.python:conda`), or configure [Python Projects](#python-projects) for per-folder control. The legacy setting is still supported as well.
 
-### Debugging Discovery
+### Troubleshoot environment discovery
 
 | Symptom                              | Cause                                             | Solution                                                                |
 | ------------------------------------ | ------------------------------------------------- | ----------------------------------------------------------------------- |
@@ -157,30 +158,30 @@ For advanced troubleshooting, run the Python Environment Tool (PET) directly to 
 1. Open the Command Palette
 2. Run **Python Environments: Run Python Environment Tool (PET) in Terminal...**
 3. Choose an option:
-   - **Find All Environments** — Runs `pet find --verbose` to list all discovered environments with detailed output
-   - **Resolve Environment...** — Enter a path to a Python executable to debug why a specific environment isn't being detected
+   * **Find All Environments**: runs `pet find --verbose` to list all discovered environments with detailed output
+   * **Resolve Environment...**: enter a path to a Python executable to debug why a specific environment isn't being detected
 
 ![Screenshot showing the VS Code terminal with verbose output from the Python Environment Tool, displaying a breakdown of search times by locator, environment counts by type, and discovered managers.](images/environments/PETVerbose.png)
 
 _PET verbose output shows exactly what environments are discovered and why._
 
-This is useful when:
+Advanced troubleshooting is useful for the following scenarios:
 
-- You need to verify an environment is being detected
-- You want to understand why an environment appears under a specific manager
-- You're debugging path resolution issues
+* You need to verify an environment is being detected
+* You want to understand why an environment appears under a specific manager
+* You're debugging path resolution issues
 
 
 
-## Creating, Deleting and Managing Environments
+## Create, delete, and manage environments
 
-### Creating Environments
+### Create environments
 
 The extension provides two ways to create environments: **Quick Create** for speed, and **Custom Create** for control.
 
 **Quick Create**
 
-Click the **+** button in the Environment Managers view. The extension:
+Select the **+** button in the Environment Managers view. The extension performs the following steps:
 
 - Uses your default manager (venv by default, configurable via `python-envs.defaultEnvManager`)
 - Picks the latest Python version available
