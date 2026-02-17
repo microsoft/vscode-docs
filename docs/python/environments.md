@@ -200,9 +200,9 @@ _Quick Create builds an environment with sensible defaults._
 For more control, run **Python: Create Environment** from the Command Palette and walk through the prompts:
 
 1. **Choose manager**: venv or conda
-2. **Select Python version**: Pick from discovered interpreters (venv) or available Python versions (conda)
-3. **Name your environment**: Enter a custom name or accept the default
-4. **Install dependencies**: Choose whether to install from `requirements.txt`, `pyproject.toml`, or `environment.yml`
+2. **Select Python version**: pick from discovered interpreters (venv) or available Python versions (conda)
+3. **Name your environment**: enter a custom name or accept the default
+4. **Install dependencies**: choose to install from `requirements.txt`, `pyproject.toml`, or `environment.yml`
 
 ![Screenshot showing the Custom Create flow with the Select packages to install dialog, listing available packages with checkboxes and an install count indicator.](images/environments/selectPackage.png)
 
@@ -210,7 +210,7 @@ _Custom Create lets you configure each step._
 
 **Using uv for faster creation**
 
-If [uv](https://github.com/astral-sh/uv) is installed, the extension uses it automatically for venv creation and package installation—significantly faster than standard tools. Control this with:
+If [uv](https://github.com/astral-sh/uv) is installed, the extension uses it automatically for venv creation and package installation, which is significantly faster than standard tools. Configure this with:
 
 ```json
 {
@@ -230,20 +230,21 @@ When `alwaysUseUv` is enabled (the default), uv manages all virtual environments
 | poetry  | —            | —             |
 | pipenv  | —            | —             |
 
-> **Note**: Only **venv** and **conda** support creating environments from VS Code. Other managers (pyenv, poetry, pipenv) discover existing environments but don't create new ones through the extension. Use their respective CLI tools to create environments, then the extension will discover them automatically.
+> [!NOTE]
+> Only **venv** and **conda** support creating environments from VS Code. Other managers (pyenv, poetry, pipenv) discover existing environments but don't create new ones through the extension. Use their respective CLI tools to create environments, and then the extension will discover them automatically.
 
-### Deleting Environments
+### Delete environments
 
 To delete an environment:
 
 1. In the **Environment Managers** view, find the environment
 2. Right-click and select **Delete**
 
-This removes the environment folder from disk. Any projects using that environment will need a new one selected.
+Deleting an environment removes the environment folder from disk. Any projects that use this environment will require that you select a new one.
 
-## Python Projects
+## Python projects
 
-A **Python project** is any file or folder you want to associate with a specific environment. By default, your entire workspace uses one environment. Projects let you assign different environments to different folders—essential for mono-repos, microservices, or testing across Python versions.
+A **Python project** is any file or folder you want to associate with a specific environment. By default, your entire workspace uses one environment. Projects let you assign different environments to different folders. This is essential for mono-repos, microservices, or testing across Python versions.
 
 ### Why use projects?
 
@@ -253,7 +254,7 @@ A **Python project** is any file or folder you want to associate with a specific
 | Testing Python 3.10 vs 3.12 | Manually switch interpreters | Assign different versions to different folders |
 | Shared workspace with teammates | Everyone configures manually | Settings sync via `.vscode/settings.json` |
 
-If you only have one environment for your whole workspace, you don't need to set up projects explicitly—just select an interpreter and you're done.
+If you only have one environment for your whole workspace, you don't need to set up projects explicitly. Select an interpreter and you're done.
 
 ```text
 Workspace
@@ -272,24 +273,26 @@ Workspace
 
 **What uses project assignments?**
 
-- **Running and debugging** — uses the project's environment
-- **Terminals** — activated with the project's environment
-- **Test Explorer** — each project gets its own test tree with its own interpreter (see [Multi-Project Testing](https://github.com/microsoft/vscode-python/wiki/Multi%E2%80%90Project-Testing-in-VS-Code))
+* **Running and debugging**: uses the project's environment
+* **Terminals**: activated with the project's environment
+* **Test Explorer**: each project gets its own test tree with its own interpreter (see [Multi-Project Testing](https://github.com/microsoft/vscode-python/wiki/Multi%E2%80%90Project-Testing-in-VS-Code))
 
-> **Note**: Pylance and Jupyter currently use a single interpreter per workspace, not per-project environments. See [Known Limitations](#known-limitations).
+> [!NOTE]
+> Pylance and Jupyter currently use a single interpreter per workspace, not per-project environments. See [Known Limitations](#known-limitations).
 
-### Adding a project
+### Add a project
 
 To treat a folder or file as a separate project:
 
 1. Right-click it in the Explorer
 2. Select **Add as Python Project**
 
-Or click **+** in the **Python Projects** view and choose:
-- **Add Existing** — select files/folders manually
-- **Auto Find** — discover folders with `pyproject.toml` or `setup.py`
+Alternatively, select **+** in the **Python Projects** view and choose either of these options:
+* **Add Existing**: select files/folders manually
+* **Auto Find**: discover folders with `pyproject.toml` or `setup.py`
 
-> **Tip**: When you add a project, its folder is automatically added to the environment search path. Environments inside project folders (e.g., `my-project/.venv`) are discovered automatically—no need to update `workspaceSearchPaths`.
+> [!TIP]
+> When you add a project, its folder is automatically added to the environment search path. Environments inside project folders (e.g., `my-project/.venv`) are discovered automatically without the need to update `workspaceSearchPaths`.
 
 ![Screenshot showing the Python Projects panel with the Add Python Project dropdown menu displaying Add Existing and Auto Find options.](images/environments/addPythonProject.png)
 
