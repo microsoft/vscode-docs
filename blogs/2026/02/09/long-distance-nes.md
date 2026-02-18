@@ -14,6 +14,8 @@ February 18, 2026 by [TODO](https://github.com/TODO)
 
 ## Introduction
 
+![A far away NES edit](jump.gif)
+
 What if Copilot could anticipate not just what to type next, but where you’ll need to edit next? We’ve been evolving next edit suggestions to support long-distance edits across a file, and this post walks through how we designed, trained, evaluated, and refined the system.
 
 On the GitHub Copilot team, we use the features we build every day. This tight feedback loop allows us to quickly identify bugs, uncover missing capabilities, and spot areas where we can further reduce friction for developers.
@@ -113,7 +115,8 @@ Because the full edit may be far away and potentially large, the widget does not
 
 If the preview looks useful, you can explicitly choose to jump to the suggested location and review or apply the full edit there. If not, you can continue editing uninterrupted.
 
-![A far away NES edit](jump.gif)
+![A far away jump suggestion with the window gradually getting smaller](rename_NES.gif)
+
 
 ---
 
