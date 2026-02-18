@@ -235,11 +235,19 @@ Next, run the file in the debugger using the "Python: Current file" configuratio
 
 You should see the message, **"ModuleNotFoundError: No module named 'numpy'"**. This message indicates that the required package isn't available in your interpreter. If you're using an Anaconda distribution or have previously installed the `numpy` package you may not see this message.
 
-To install the `numpy` package, stop the debugger and use the Command Palette to run **Terminal: Create New Terminal** (`kb(workbench.action.terminal.new)`). This command opens a command prompt for your selected interpreter.
+To install the `numpy` package, stop the debugger and use one of the following methods:
+
+**Option 1: Use the Package Management UI**
+
+1. Open the **Python** sidebar and expand **Environment Managers**
+2. Right-click on your environment and select **Manage Packages**
+3. Search for `numpy` and select **Install**
+
+**Option 2: Use the terminal**
+
+Run **Terminal: Create New Terminal** (`kb(workbench.action.terminal.new)`) from the Command Palette. This command opens a command prompt for your selected interpreter.
 
 To install the required packages in your virtual environment, enter the following commands as appropriate for your operating system:
-
-1. Install the packages
 
    ```bash
    # Don't use with Anaconda distributions because they include matplotlib already.
@@ -255,10 +263,14 @@ To install the required packages in your virtual environment, enter the followin
    python3 -m pip install numpy
    ```
 
-1. Now, rerun the program, with or without the debugger, to view the output!
+Now, rerun the program, with or without the debugger, to view the output!
 
 ### Managing dependencies across environments
-When working on Python projects, it’s essential to manage your dependencies effectively. One useful tip is to use the `pip freeze > requirements.txt` command. This command helps you create a `requirements.txt` file that lists all the packages installed in your virtual environment. This file can then be used to recreate the same environment elsewhere.
+
+When working on Python projects, it's essential to manage your dependencies effectively. One useful tip is to use the `pip freeze > requirements.txt` command. This command helps you create a `requirements.txt` file that lists all the packages installed in your virtual environment. This file can then be used to recreate the same environment elsewhere.
+
+> [!TIP]
+> When you create a new environment using **Python: Create Environment** or the **+** button in the Environment Managers view, the extension automatically detects and installs dependencies from `requirements.txt` or `pyproject.toml` if present in your workspace.
 
 Follow these steps to create a `requirements.txt` file:
 1. Activate your virtual environment, if you haven’t already.
