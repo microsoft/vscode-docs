@@ -19,7 +19,15 @@ What if Copilot could anticipate not just what to type next, but where you’ll 
 On the GitHub Copilot team, we use the features we build every day. This tight feedback loop allows us to quickly identify bugs, uncover missing capabilities, and spot areas where we can further reduce friction for developers.
 
 Last February, we released [next edit suggestions (NES)](https://code.visualstudio.com/blogs/2025/02/12/next-edit-suggestions) in GitHub Copilot. NES extends ghost text by suggesting edits near the current cursor position, rather than only inserting text at the cursor. By operating within a small window around the cursor, NES can propose contextually relevant edits without requiring you to manually select the exact edit location.
-<!-- TODO: Add NES screenshot and completions reference image -->
+
+**Ghost Text**
+
+![A series of ghost text suggestions](ghost.gif)
+
+**NES**
+
+![A series of NES edits](nes.gif)
+
 
 ---
 
@@ -105,7 +113,7 @@ Because the full edit may be far away and potentially large, the widget does not
 
 If the preview looks useful, you can explicitly choose to jump to the suggested location and review or apply the full edit there. If not, you can continue editing uninterrupted.
 
-<!-- TODO: Add resizing video here -->
+![A far away NES edit](jump.gif)
 
 ---
 
