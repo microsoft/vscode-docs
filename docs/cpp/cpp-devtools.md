@@ -8,15 +8,16 @@ Keywords:
 - Copilot
 ---
 # Using C++ Development Tools with GitHub Copilot Chat
+
 Refactoring and making updates in C++ code often requires tracking down edits across multiple files and having knowledge of your build configuration.
 
 GitHub Copilot Chat can use the C++ tools built into VS Code to provide context-aware assistance for your C++ projects. By using code understanding and CMake tools, Copilot can understand your codebase structure, dependencies, and build configurations to give you more accurate, helpful, and fast responses.
 
 This guide covers the available tools and how to use them effectively with AI agents to accomplish tasks such as:
+
 - Navigate and understand complex C++ codebases
 - Refactor code with full context awareness
 - Configure and build projects efficiently
-
 
 ## Prerequisites
 
@@ -32,7 +33,7 @@ You can enable/disable any of these tools at any point by navigating to the `Too
 
 ## C++ code understanding tools
 
-The C++ extension provides tools that use language services to give Copilot Chat deep understanding of your code structure, symbols, and relationships. Ensure you have [configured with IntelliSense](/cpp/configure-intellisense.md) to take advantage of these tools.
+The C++ extension provides tools that use language services to give Copilot Chat deep understanding of your code structure, symbols, and relationships. Ensure you have [configured with IntelliSense](/docs/cpp/configure-intellisense.md) to take advantage of these tools.
 
 To enable these tools, select the **Enable Cpp Code Editing Tools** setting in your VS Code user settings.
 
@@ -58,7 +59,8 @@ To enable these tools, select the **Enable Cpp Code Editing Tools** setting in y
 
 ![Screenshot of the Chat view, showing a prompt to update an existing function and add a parameter for logging, which invokes the get symbol references tool.](images/get-symbol-references-example.png)
 
-> **Note:** You can control the maximum number of symbol references by the tool returned by adjusting the symbol references limit setting in VS Code.
+> [!NOTE]
+> You can control the maximum number of symbol references returned by the tool by adjusting the symbol references limit setting in VS Code.
 >
 > ![Screenshot of the Settings editor, showing the symbol references limit setting.](images/get-symbol-references-setting.png)
 
@@ -67,7 +69,6 @@ To enable these tools, select the **Enable Cpp Code Editing Tools** setting in y
 ### Get Symbol Call Hierarchy (`GetSymbolCallHierarchy_CppTools`)
 
 **What it does:** Shows the call hierarchy for functions, revealing both incoming calls (who calls this function) and outgoing calls (what this function calls).
-
 
 **Example Use Case:**
 *Dependency analysis for module migration*
@@ -121,4 +122,3 @@ CMake tools allow Copilot Chat to understand your build configuration, targets, 
 **CMake Build:** Use when troubleshooting build issues or verifying that changes compile successfully.
 
 **CTest:** Use when validating changes against your test suite or debugging test failures.
-
