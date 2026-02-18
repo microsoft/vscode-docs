@@ -97,6 +97,8 @@ You can choose how the agent applies changes to your workspace:
 
 The OpenAI Codex agent uses OpenAI's Codex to perform coding tasks autonomously. Codex runs can run interactively in VS Code or unattended in the background.
 
+To disable the OpenAI Codex agent, disable or uninstall the [OpenAI Codex](https://marketplace.visualstudio.com/items?itemName=openai.chatgpt) extension in VS Code.
+
 ### Prerequisites
 
 * A Copilot Pro+ subscription for authentication
