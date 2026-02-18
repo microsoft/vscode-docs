@@ -63,21 +63,14 @@ VS Code supports the following MCP capabilities:
 
 </details>
 
-## Get started
-
-### Prerequisites
-
-* Install the latest version of [Visual Studio Code](/download)
-* Access to [Copilot](/docs/copilot/setup.md)
-
-### Add an MCP server
+## Add an MCP server
 
 When you install an MCP server, you can choose to install it in your [user profile](/docs/configure/profiles.md) or in the current workspace. The workspace configuration is stored in a `.vscode/mcp.json` file. Include in source control to share the same MCP server configuration with your team.
 
 > [!CAUTION]
 > Local MCP servers can run arbitrary code on your machine. Only add servers from trusted sources, and review the publisher and server configuration before starting it. VS Code prompts you to confirm that you [trust the MCP server](#mcp-server-trust) when you start an MCP server for the first time. Read the [Security documentation](/docs/copilot/security.md) for using AI in VS Code to understand the implications.
 
-#### Add an MCP server from the MCP server gallery
+### Add an MCP server from the MCP server gallery
 
 The Extensions view contains an MCP server gallery to help you discover and install MCP servers from within VS Code. The gallery lists MCP servers from the [GitHub MCP server registry](https://github.com/mcp).
 
@@ -93,7 +86,7 @@ To install an MCP server from the Extensions view:
 
 1. To view the MCP server details, select the MCP server in the list to open the details page.
 
-#### Other options to add an MCP server
+### Other options to add an MCP server
 
 You have several other options to add an MCP server in VS Code:
 
@@ -194,7 +187,7 @@ code --add-mcp "{\"name\":\"my-server\",\"command\": \"uvx\",\"args\": [\"mcp-se
 
 </details>
 
-### Configuration format
+## Configuration format
 
 MCP server configuration is saved in the `mcp.json` JSON file (`mcp.json`).
 
