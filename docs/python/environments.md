@@ -10,14 +10,14 @@ The Python Environments extension brings environment and package management into
 
 Core features:
 
-- Creating, deleting, and switching between environments
-- Installing and managing packages
-- Activated python in terminals
-- Assigning environments to specific files or folders (called "Python projects")
+* Creating, deleting, and switching between environments
+* Installing and managing packages
+* Activated Python in terminals
+* Assigning environments to specific files or folders (called "Python projects")
 
 The extension works alongside the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) and requires no setup to get started.
 
-## Quick Start
+## Quick start
 
 **Most users don't need to configure anything.** The extension automatically discovers your Python environments and uses them when running code.
 
@@ -33,7 +33,7 @@ If you have a basic setup, such as one environment for your whole workspace:
 
 ## User interface components
 
-## Environment discovery
+### Environment discovery
 
 The following environment managers are discovered automatically:
 
@@ -50,7 +50,7 @@ Discovery runs automatically when the extension activates. The extension uses th
 
 To manually trigger a refresh:
 
-1. Open the Command Palette (`Cmd+Shift+P` / `Ctrl+Shift+P`)
+1. Open the Command Palette (`Cmd+Shift+P` or `Ctrl+Shift+P`)
 2. Run **Python Environments: Refresh All Environment Managers**
 
 You can also click the refresh icon in the **Environment Managers** view header.
@@ -63,14 +63,15 @@ _Select the refresh icon to rescan for environments._
 
 Discovered environments appear in two places:
 
-* **Environment Managers view**: in the Python sidebar, environments are grouped by manager type (for example, venv, Conda, and more )
+* **Environment Managers view**: in the Python sidebar, environments are grouped by manager type (for example, venv, Conda, and more)
 * **Environment selection**: when selecting an interpreter for a project, all discovered environments appear in a unified list
 
 ![Screenshot showing the Environment Managers tree view with Global, venv, and Conda sections expanded, displaying discovered Python environments grouped by manager type.](images/environments/EnvironmentManagerTree.png)
 
 _The Environment Managers view groups environments by type._
 
-> **Don't have an environment yet?** See [Managing Python Projects](managing-python-projects.md) to create one.
+> [!TIP]
+> Don't have an environment yet? See the [Python Projects](#python-projects) section for information on how to create one with the extension.
 
 ### Configure search paths
 
@@ -93,8 +94,8 @@ To discover environments in custom locations, update the `python-envs.workspaceS
 
 **Tips**:
 
-- Use `**` for recursive searches (for example, `./**/env` finds any folder named `env` at any depth)
-- Relative paths resolve from your workspace folder root
+* Use `**` for recursive searches (for example, `./**/env` finds any folder named `env` at any depth)
+* Relative paths resolve from your workspace folder root
 
 To quickly open search path settings:
 
@@ -292,13 +293,13 @@ Alternatively, select **+** in the **Python Projects** view and choose either of
 * **Auto Find**: discover folders with `pyproject.toml` or `setup.py`
 
 > [!TIP]
-> When you add a project, its folder is automatically added to the environment search path. Environments inside project folders (e.g., `my-project/.venv`) are discovered automatically without the need to update `workspaceSearchPaths`.
+> When you add a project, its folder is automatically added to the environment search path. Environments inside project folders (for example, `my-project/.venv`) are discovered automatically without the need to update `workspaceSearchPaths`.
 
 ![Screenshot showing the Python Projects panel with the Add Python Project dropdown menu displaying Add Existing and Auto Find options.](images/environments/addPythonProject.png)
 
 _Add existing folders or auto-discover projects._
 
-### Assigning an environment
+### Assign an environment
 
 Once a folder is a project, assign its environment:
 
@@ -332,9 +333,9 @@ When you assign an environment to a project, the extension writes to your worksp
 
 Notice that settings store the **environment manager**, not hardcoded interpreter paths. The extension remembers which specific environment you selected separately, and resolves it at runtime. This design makes settings shareable:
 
-- **No machine-specific paths** — teammates don't need `/Users/yourname/.venv`
-- **Portable across systems** — works on macOS, Windows, and Linux
-- **Survives environment recreation** — if you delete and recreate `.venv`, it still works
+* **No machine-specific paths**: teammates don't need `/Users/yourname/.venv`
+* **Portable across systems**: works on macOS, Windows, and Linux
+* **Survives environment recreation**: if you delete and recreate `.venv`, it still works
 
 **Sharing with teammates:**
 1. Commit `.vscode/settings.json` to your repo
@@ -342,27 +343,28 @@ Notice that settings store the **environment manager**, not hardcoded interprete
 3. They create their own environments (Quick Create works great here)
 4. The extension automatically uses each project's configured manager
 
-> **Note**: The environment *folders* (like `.venv`) still need to be created on each machine. Only the configuration is shared, not the environment itself.
+> [!NOTE]
+> The environment *folders* (like `.venv`) still need to be created on each machine. Only the configuration is shared, not the environment itself.
 
-### Removing a project
+### Remove a project
 
-Right-click a project in the **Python Projects** view and select **Remove Python Project**. This removes the mapping—it doesn't delete any files.
+Right-click a project in the **Python Projects** view and select **Remove Python Project**. This removes the mapping. It does not delete any files.
 
-### Creating a project from a template
+### Create a project from a template
 
 To scaffold a new project with the right structure, run **Python Envs: Create New Project from Template** from the Command Palette. Choose between:
 
-- **Package** — creates a folder with `pyproject.toml`, package directory, and tests
-- **Script** — creates a single `.py` file with inline dependency metadata (PEP 723)
+* **Package**: creates a folder with `pyproject.toml`, package directory, and tests
+* **Script**: creates a single `.py` file with inline dependency metadata (PEP 723)
 
-See the full [Python Projects guide](managing-python-projects.md) for details on template structure.
+See the full [Python Projects guide](https://github.com/microsoft/vscode-python-environments/wiki/Python-Projects-Explained) for details on template structure.
 
 ### Learn more
 
-For detailed guidance on templates, multi-root workspaces, common scenarios, and troubleshooting, see the full [Python Projects guide](https://github.com/microsoft/vscode-python-environments/wiki/Making-and-Managing-Python-Projects).
+For detailed guidance on templates, multi-root workspaces, common scenarios, and troubleshooting, see the full [Python Projects guide](https://github.com/microsoft/vscode-python-environments/wiki/Python-Projects-Explained).
 
 
-## Package Management
+## Package management
 
 Install and uninstall Python packages directly from VS Code without opening a terminal.
 
@@ -419,7 +421,7 @@ When you open a workspace, the extension determines which environment to use by 
 | 3 | `python.defaultInterpreterPath` | Legacy setting, if configured |
 | 4 | Auto-discovery | Finds workspace-local `.venv`, then global interpreters |
 
-**Key principle**: User-configured settings always win over defaults. If you haven't explicitly set `defaultEnvManager` (it just has the built-in default), the extension skips it and checks the next priority.
+**Key principle**: User-configured settings always win over defaults. If you haven't explicitly set `defaultEnvManager` (it has the built-in default), the extension skips it and checks the next priority.
 
 **Caching**: The extension caches resolved environments for performance, but your explicit settings always take precedence over cached values. You never need to worry about stale cache overriding your choices.
 
@@ -433,8 +435,8 @@ The extension only writes to settings when you make an explicit change:
 |--------|---------------------|
 | Open workspace (first time) | ❌ No |
 | Extension auto-selects an environment | ❌ No |
-| You manually select an environment | ✅ Yes — updates `pythonProjects` |
-| You create a new environment | ✅ Yes — may update `pythonProjects` |
+| You manually select an environment | ✅ Yes, updates `pythonProjects` |
+| You create a new environment | ✅ Yes, may update `pythonProjects` |
 | You change settings in UI | ✅ Yes |
 
 This ensures that opening a workspace does not add auto-generated entries to your `settings.json`.
@@ -538,12 +540,19 @@ The Python Environments extension is designed to be extensible. Any environment 
 
 Community members are building extensions for additional environment managers like the [Pixi Extension](https://marketplace.visualstudio.com/items?itemName=renan-r-santos.pixi-code).
 
-## Known Limitations
+## Known limitations
 
 ### Pylance and multi-project workspaces
 
-Pylance does not support multiple Python projects with different interpreters in the same workspace. Even if you configure separate environments for different folders using [Python Projects](#python-projects), Pylance uses a single interpreter for the entire workspace, typically the one associated with the workspace root. If you need Pylance to use a different interpreter for a specific folder, consider opening that folder in a separate VS Code window, or add the subfolder as a workspace folder in a multi-root workspace. Pylance runs per workspace folder, so each folder in a multi-root workspace can have its own interpreter.
+Pylance does not support multiple Python projects with different interpreters in the same workspace. Even if you configure separate environments for different folders using [Python Projects](#python-projects), Pylance uses a single interpreter for the entire workspace—typically the one associated with the workspace root. To use different interpreters for different folders, add them as workspace folders in a [multi-root workspace](/docs/editing/workspaces/multi-root-workspaces.md) (**File** > **Add Folder to Workspace**), since Pylance runs independently per workspace folder.
 
 ### Jupyter notebooks
 
 Jupyter notebooks do not use the Python Environments API for environment discovery. Instead, they rely on the older Python extension API. This means notebook kernel selection may show a different set of environments than the **Environment Managers** view.
+
+## Next steps
+
+* [Python tutorial](/docs/python/python-tutorial.md) - Get started with Python in VS Code.
+* [Debugging](/docs/python/debugging.md) - Learn to debug your Python code.
+* [Testing](/docs/python/testing.md) - Configure and run tests for your Python projects.
+* [Settings reference](/docs/python/settings-reference.md) - Explore all Python extension settings.
