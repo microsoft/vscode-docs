@@ -29,7 +29,7 @@ These extensions are available as part of the [C/C++ Extension Pack](https://mar
 
 You can enable/disable any of these tools at any point by navigating to the `Tools` option in chat and selecting the respective tool you'd like to enable/disable.
 
-![Screenshot showing the list of cpp tools in the chat tools Quick Pick.](images/all-cpp-tools.png)
+![Screenshot showing the list of cpp tools in the chat tools Quick Pick.](images/cpp-devtools/all-cpp-tools.png)
 
 ## C++ code understanding tools
 
@@ -37,7 +37,7 @@ The C++ extension provides tools that use language services to give Copilot Chat
 
 To enable these tools, select the **Enable Cpp Code Editing Tools** setting in your VS Code user settings.
 
-![Screenshot of the Settings editor, showing the Enable Cpp Code Editing Tools setting.](images/cpp-code-editing-tools-setting.png)
+![Screenshot of the Settings editor, showing the Enable Cpp Code Editing Tools setting.](images/cpp-devtools/cpp-code-editing-tools-setting.png)
 
 ### Get Symbol Information (`GetSymbolInfo_CppTools`)
 
@@ -46,7 +46,7 @@ To enable these tools, select the **Enable Cpp Code Editing Tools** setting in y
 **Example Use Case:**
 *Optimize memory performance and ensure non-breaking changes*
 
-![Screenshot of the Chat view, showing a prompt to refactor a symbol to be memory-safe, which invokes the get symbol info tool.](images/get-symbol-info-example.png)
+![Screenshot of the Chat view, showing a prompt to refactor a symbol to be memory-safe, which invokes the get symbol info tool.](images/cpp-devtools/get-symbol-info-example.png)
 
 ---
 
@@ -57,12 +57,12 @@ To enable these tools, select the **Enable Cpp Code Editing Tools** setting in y
 **Example Use Case:**
 *Add additional functionality to existing functions*
 
-![Screenshot of the Chat view, showing a prompt to update an existing function and add a parameter for logging, which invokes the get symbol references tool.](images/get-symbol-references-example.png)
+![Screenshot of the Chat view, showing a prompt to update an existing function and add a parameter for logging, which invokes the get symbol references tool.](images/cpp-devtools/get-symbol-references-example.png)
 
 > [!NOTE]
 > You can control the maximum number of symbol references returned by the tool by adjusting the symbol references limit setting in VS Code.
 >
-> ![Screenshot of the Settings editor, showing the symbol references limit setting.](images/get-symbol-references-setting.png)
+> ![Screenshot of the Settings editor, showing the symbol references limit setting.](images/cpp-devtools/get-symbol-references-setting.png)
 
 ---
 
@@ -73,7 +73,7 @@ To enable these tools, select the **Enable Cpp Code Editing Tools** setting in y
 **Example Use Case:**
 *Dependency analysis for module migration*
 
-![Screenshot of the Chat view, showing a prompt to migrate a module into a separate library and thus requesting a dependency analysis, which invokes the get symbol call hierarchy tool.](images/get-symbol-call-hierarchy-example.png)
+![Screenshot of the Chat view, showing a prompt to migrate a module into a separate library and thus requesting a dependency analysis, which invokes the get symbol call hierarchy tool.](images/cpp-devtools/get-symbol-call-hierarchy-example.png)
 
 ---
 
@@ -88,7 +88,7 @@ CMake tools allow Copilot Chat to understand your build configuration, targets, 
 **Example Use Case:**
 *Resolving build errors*
 
-![Screenshot of the Chat view, showing a prompt to resolve build errors, which invokes the CMake build tool.](images/cmake-build-example.png)
+![Screenshot of the Chat view, showing a prompt to resolve build errors, which invokes the CMake build tool.](images/cpp-devtools/cmake-build-example.png)
 
 ---
 
@@ -99,7 +99,7 @@ CMake tools allow Copilot Chat to understand your build configuration, targets, 
 **Example Use Case:**
 *Fix code according to unit tests*
 
-![Screenshot of the Chat view, showing a prompt to fix failing unit tests, which invokes run ctest.](images/run-ctest-example.png)
+![Screenshot of the Chat view, showing a prompt to fix failing unit tests, which invokes run ctest.](images/cpp-devtools/run-ctest-example.png)
 
 ---
 
