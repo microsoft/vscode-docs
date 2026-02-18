@@ -6,7 +6,7 @@ MetaSocialImage: images/tutorial/python-social.png
 ---
 # Python environments in VS Code
 
-The Python Environments extension brings environment and package management into VS Code's UI. Whether you use venv, uv, conda, pyenv, poetry, or pipenv, the extension provides a single interface for all of them—create environments, install packages, and switch interpreters the same way regardless of which tool manages them.
+The Python Environments extension brings environment and package management into Visual Studio Code's UI. The extension provides a unified interface for creating environments, installing packages, and switching interpreters, regardless whether you're using `venv`, `uv`, `conda`, `pyenv`, `poetry`, or `pipenv`.
 
 Core features:
 
