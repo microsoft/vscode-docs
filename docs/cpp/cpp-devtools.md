@@ -21,7 +21,7 @@ This guide covers the available tools and how to use them effectively with AI ag
 
 ## Prerequisites
 
-- **C/C++ DevTools extension**
+- [C/C++ DevTools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpp-devtools) extension
 - [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) extension
 - [CMake Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools) extension
 
@@ -30,6 +30,10 @@ These extensions are available as part of the [C/C++ Extension Pack](https://mar
 You can enable/disable any of these tools at any point by navigating to the `Tools` option in chat and selecting the respective tool you'd like to enable/disable.
 
 ![Screenshot showing the list of cpp tools in the chat tools Quick Pick.](images/cpp-devtools/all-cpp-tools.png)
+
+> [!NOTE]
+> Only enable relevant tools to your development workflow to avoid context bloat. You can disable other tools, such as tools installed through MCP, via the same dialog.
+
 
 ## C++ code understanding tools
 
@@ -107,6 +111,7 @@ CMake tools allow Copilot Chat to understand your build configuration, targets, 
 
 - **Be specific:** Identify the exact symbol, file, or component you're asking about (for example, "refactor the `getConfig()` function" rather than "make this faster")
 - **Reference context:** Ask Copilot Chat to consider specific files, functions, or modules when analyzing changes
+- **Directly reference tools**: Directly reference relevant tools using # in chat to ensure invocation.
 - **Use custom instructions:** Set up [custom instructions](/docs/copilot/customization/custom-instructions.md) to guide Copilot Chat. Type `/init` to generate instructions for your project.
 - **Leverage latest models:** Use the latest AI models that support tool-calling for the most accurate code understanding and tool usage
 - **Optimize tool performance:** Only enable relevant tools to your development workflow to avoid context bloat
