@@ -15,7 +15,7 @@ Keywords:
 
 # How AI works in VS Code
 
-GitHub Copilot is an AI assistant powered by large language models. It integrates across VS Code through multiple surfaces, from inline suggestions as you type to autonomous agents that implement entire features. This article explains the core architecture, key concepts, and how all the Copilot features connect. For a hands-on tutorial, see the [Quickstart](/docs/copilot/getting-started.md). For practical tips, see [Best practices](/docs/copilot/copilot-tips-and-tricks.md).
+GitHub Copilot is an AI assistant powered by large language models. It integrates across VS Code through multiple surfaces, from inline suggestions as you type to autonomous agents that implement entire features. This article explains the core architecture, key concepts, and how all the Copilot features connect. For a hands-on tutorial, see the [Quickstart](/docs/copilot/getting-started.md). For practical tips, see [Best practices](/docs/copilot/best-practices.md).
 
 ## Agent loop
 
@@ -32,8 +32,6 @@ This process typically involves three kinds of actions:
 1. **Test and validate.** The agent runs tests, checks for compiler errors, and reviews its own changes. If something is wrong, it continues iterating.
 
 The agent chains these actions together as needed. A simple question might require only reading a few files. A bug fix might involve reading, editing, running tests, reading the failures, editing again, and re-running tests.
-
-Because language model output is probabilistic, the same task can follow slightly different paths in this loop.
 
 You can interrupt at any point to steer the agent in a different direction, provide additional context, or ask it to try a different approach. For more on reviewing changes and managing agent behavior, see [Stay in control](#stay-in-control).
 
@@ -97,11 +95,11 @@ Learn more about [adding context to chat](/docs/copilot/chat/copilot-chat-contex
 
 ## Tools
 
-Tools enable the model to interact with your codebase and environment: read and edit files, run terminal commands, search your workspace, interact with VS Code to get debug information or linting errors, and interact with external services. They are the building blocks that make agents autonomous and capable of complex tasks.
+Without tools, the model can only generate text based on its training data and the context you provide. With tools, you can give the model access to perform actions to retrieve up-to-date information, read and edit files in your codebase, execute commands, interact with VS Code, or connect to external services. Tools are the building blocks that make agents autonomous and capable of complex tasks.
 
-The model chooses which tools to use based on your prompt and what it learns along the way. When you ask "fix the failing tests," it might run the test suite, read the error output, search for the relevant source files, edit the code, and run the tests again to verify, chaining multiple tool calls in sequence.
+The model dynamically chooses which tools to use based on your prompt and what it learns along the way. When you ask "fix the failing tests," it might run the test suite, read the error output, search for the relevant source files, edit the code, and run the tests again to verify, chaining multiple tool calls in sequence.
 
-You can extend Copilot's built-in tools with [MCP servers](/docs/copilot/customization/mcp-servers.md) for external services, [agent skills](/docs/copilot/customization/agent-skills.md) for reusable capabilities, and [hooks](/docs/copilot/customization/hooks.md) for lifecycle automation. Learn more about [tools available to agents](/docs/copilot/agents/agent-tools.md).
+VS Code includes a variety of built-in tools for working with your codebase and your development environment. You can extend its functionality further with [MCP servers](/docs/copilot/customization/mcp-servers.md) for external services, [agent skills](/docs/copilot/customization/agent-skills.md) for reusable capabilities, and [hooks](/docs/copilot/customization/hooks.md) for lifecycle automation. Learn more about [tools available to agents](/docs/copilot/agents/agent-tools.md).
 
 ## Agent types
 
@@ -112,19 +110,21 @@ Agents run in different environments depending on when you need results and how 
 * **Cloud agents** run on GitHub's infrastructure. They create branches, implement changes, and open pull requests for your team to review.
 * **Third-party agents** connect external AI providers like Anthropic and OpenAI. You can hand off sessions between agent types at any point.
 
+![Diagram showing the different agent types: Local agents (interactive in VS Code), Background agents (autonomous on your machine), Cloud agents (run on GitHub's infrastructure), and Third-party agents (connect external AI providers).](images/agents-overview/agent-types-diagram-v3.png)
+
 Learn more about [agents and agent sessions](/docs/copilot/agents/overview.md).
 
 ## Stay in control
 
-AI-generated output requires review. Copilot includes multiple mechanisms to keep you in control of what changes reach your codebase.
+AI-generated output requires review. VS Code includes multiple mechanisms to keep you in control of what changes reach your codebase.
 
 * **Review edits before applying.** Agents show file changes in a diff view. You can review each change, accept or reject individual edits, and modify the code before saving. Learn more about [reviewing code edits](/docs/copilot/chat/review-code-edits.md).
 
-* **Use checkpoints to rewind.** Agent sessions create checkpoints as work progresses. If the agent takes a wrong turn, rewind to a previous checkpoint and try a different approach. Learn more about [checkpoints](/docs/copilot/chat/chat-checkpoints.md).
+* **Use checkpoints to revert.** Agent sessions create checkpoints as work progresses. If the agent takes a wrong turn, return to a previous checkpoint and try a different approach. Learn more about [checkpoints](/docs/copilot/chat/chat-checkpoints.md).
 
-* **Approve tool calls.** Copilot asks for your approval before running terminal commands or using tools with side effects. You control which tools can run automatically and which require confirmation.
+* **Approve tool calls.** VS Code asks for your approval before running terminal commands or using tools with side effects. You control which tools can run automatically and which require confirmation.
 
-* **Trust boundaries.** VS Code enforces security boundaries around file access, terminal sandboxing, and MCP server interactions. Learn more about [Copilot security](/docs/copilot/security.md).
+* **Trust boundaries.** VS Code enforces security boundaries around file access, URL access, terminal sandboxing, and MCP server interactions. Learn more about [AI security](/docs/copilot/security.md).
 
 Always review AI-generated code before committing. Verify that it handles edge cases, follows your project's conventions, and doesn't introduce security issues.
 
@@ -144,9 +144,6 @@ The most effective way to work with AI is to treat its output as a first draft: 
 
 ## Related resources
 
-* [Get started with GitHub Copilot in VS Code](/docs/copilot/getting-started.md)
-* [Best practices for using AI in VS Code](/docs/copilot/copilot-tips-and-tricks.md)
+* [Get started with AI in VS Code](/docs/copilot/getting-started.md)
+* [Best practices for using AI in VS Code](/docs/copilot/best-practices.md)
 * [Using agents in VS Code](/docs/copilot/agents/overview.md)
-* [Copilot Chat overview](/docs/copilot/chat/copilot-chat.md)
-* [Customize AI for your workflow](/docs/copilot/customization/overview.md)
-* [Manage context for AI](/docs/copilot/chat/copilot-chat-context.md)
