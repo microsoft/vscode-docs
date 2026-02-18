@@ -542,7 +542,7 @@ Community members are building extensions for additional environment managers li
 
 ### Pylance and multi-project workspaces
 
-Pylance does not support multiple Python projects with different interpreters in the same workspace. Even if you configure separate environments for different folders using [Python Projects](#python-projects), Pylance uses a single interpreter for the entire workspace—typically the one associated with the workspace root. If you need Pylance to use a different interpreter for a specific folder, consider opening that folder in a separate VS Code window, or add the subfolder as a workspace folder in a multi-root workspace. Pylance runs per workspace folder, so each folder in a multi-root workspace can have its own interpreter.
+Pylance does not support multiple Python projects with different interpreters in the same workspace. Even if you configure separate environments for different folders using [Python Projects](#python-projects), Pylance uses a single interpreter for the entire workspace, typically the one associated with the workspace root. If you need Pylance to use a different interpreter for a specific folder, consider opening that folder in a separate VS Code window, or add the subfolder as a workspace folder in a multi-root workspace. Pylance runs per workspace folder, so each folder in a multi-root workspace can have its own interpreter.
 
 ### Jupyter notebooks
 

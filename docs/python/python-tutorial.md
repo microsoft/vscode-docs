@@ -269,7 +269,8 @@ Now, rerun the program, with or without the debugger, to view the output!
 
 When working on Python projects, it's essential to manage your dependencies effectively. One useful tip is to use the `pip freeze > requirements.txt` command. This command helps you create a `requirements.txt` file that lists all the packages installed in your virtual environment. This file can then be used to recreate the same environment elsewhere.
 
-> **Tip**: When you create a new environment using **Python: Create Environment** or the **+** button in the Environment Managers view, the extension automatically detects and installs dependencies from `requirements.txt` or `pyproject.toml` if present in your workspace.
+> [!TIP]
+> When you create a new environment using **Python: Create Environment** or the **+** button in the Environment Managers view, the extension automatically detects and installs dependencies from `requirements.txt` or `pyproject.toml` if present in your workspace.
 
 Follow these steps to create a `requirements.txt` file:
 1. Activate your virtual environment, if you haven’t already.
