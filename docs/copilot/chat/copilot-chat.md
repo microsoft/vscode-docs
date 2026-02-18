@@ -8,6 +8,13 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 
 Chat in Visual Studio Code enables you to use natural language for AI-powered coding assistance. Ask questions about your code, get help understanding complex logic, generate new features, fix bugs, and more, all through a conversational interface. This article provides an overview of the chat surfaces, how to configure a chat session, add context, write effective prompts, and review AI-generated changes.
 
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
+Follow a hands-on tutorial to experience local, background, and cloud agents in VS Code.
+
+* [Start tutorial](/docs/copilot/agents/agents-tutorial.md)
+
+</div>
+
 ## Prerequisites
 
 * Access to [GitHub Copilot](/docs/copilot/setup.md). If you don't have a subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup).
@@ -31,7 +38,7 @@ To see how chat works, try creating a basic app:
 
 1. Open the Chat view by pressing `kb(workbench.action.chat.open)` or selecting **Chat** from the VS Code title bar.
 
-1. Select an agent from the agent picker. For example, select **Agent** to let chat autonomously determine what needs to be done and make changes to your workspace. Learn more about [built-in agents](/docs/copilot/agents/overview.md#built-in-agents).
+1. Select an agent from the agent picker. For example, select **Agent** to let chat autonomously determine what needs to be done and make changes to your workspace. Learn more about [built-in agents](/docs/copilot/agents/overview.md).
 
 1. Type the following prompt in the chat input field and press `kb(workbench.action.chat.submit)` to submit it:
 
@@ -45,6 +52,21 @@ To see how chat works, try creating a basic app:
 
 > [!TIP]
 > For a full hands-on walkthrough, follow the [agents tutorial](/docs/copilot/agents/agents-tutorial.md).
+
+## Send messages while a request is running
+
+> [!NOTE]
+> Message steering and queuing are experimental features.
+
+You don't have to wait for a response to finish before sending your next message. While a request is in progress, use the dropdown on the **Send** button to choose how to handle the new message:
+
+* **Add to Queue**: the message waits and sends automatically after the current response completes.
+* **Steer with Message**: the current request yields and your new message processes immediately.
+* **Stop and Send**: cancels the current request and sends your new message right away.
+
+![Screenshot of the Chat view with the Send button dropdown expanded, showing options to add to queue, steer with message, or stop and send.](../images/chat-sessions/send-dropdown.png)
+
+When you have multiple pending messages, drag and drop them to reorder. Learn more about [sending messages while a request is running](/docs/copilot/chat/chat-sessions.md#send-messages-while-a-request-is-running).
 
 ## Configure your chat session
 
@@ -79,7 +101,7 @@ VS Code provides three built-in agents:
 
 For more specialized workflows, create your own [custom agents](/docs/copilot/customization/custom-agents.md) that define a specific role, available tools, and a language model.
 
-Learn more about the [built-in agents and their capabilities](/docs/copilot/agents/overview.md#built-in-agents).
+Learn more about the [built-in agents and their capabilities](/docs/copilot/agents/local-agents.md).
 
 ### Choose a language model
 

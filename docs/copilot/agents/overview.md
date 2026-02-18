@@ -20,6 +20,13 @@ This article provides an overview of the various agent types, how to create and 
 
 ![Screenshot of an agent session in VS Code showing code changes and chat interaction.](../images/agents-overview/chat-sessions-view-v3.png)
 
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Create a basic game">
+Use agents in VS Code to generate a tic-tac-toe game in your language of choice.
+
+* [Open in VS Code](vscode://GitHub.Copilot-Chat/chat?agent=agent%26prompt=%23newWorkspace%20Create%20a%20basic%20tic-tac-toe%20game.%20Ask%20the%20user%20about%20their%20language%20of%20choice)
+
+</div>
+
 > [!IMPORTANT]
 > Make sure agents are enabled in your VS Code settings (`setting(chat.agent.enabled)`). Your organization might also disable agents - contact your admin to enable this functionality.
 
@@ -84,6 +91,9 @@ Local agent sessions use one of three built-in agents: **Agent** for complex cod
 Learn more about [local agents in VS Code](/docs/copilot/agents/local-agents.md).
 
 ### Background agents
+
+> [!NOTE]
+> The term "background agent" might also appear as "Copilot CLI" or "worktree" in the VS Code interface while an experiment is being run.
 
 Background agents, like Copilot CLI, are CLI-based agents that run non-interactively in the background on your local machine. They use Git worktrees to work isolated from your main workspace, preventing conflicts with your active work. Use background agents for well-defined tasks that have all necessary context, such as implementing a plan.
 
@@ -166,7 +176,21 @@ You can create a new agent session from the Chat view or by using the correspond
 
     ![Screenshot showing agent type dropdown in new chat session.](../images/agents-overview/agent-type-dropdown-jan.png)
 
-1. Enter your prompt to assign a task to the agent. The agent starts working on the task.
+1. Enter a prompt to assign a task to the agent. The agent starts working on the task.
+
+    ```prompt
+    Generate a diagram that gives a high-level overview of the architecture of this project.
+    ```
+
+> [!TIP]
+> You can send follow-up prompts while the agent is still working. Choose to [queue the message, steer the current request, or stop and send immediately](/docs/copilot/chat/chat-sessions.md#send-messages-while-a-request-is-running).
+
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
+Follow a hands-on tutorial to experience local, background, and cloud agents in VS Code.
+
+* [Start tutorial](/docs/copilot/agents/agents-tutorial.md)
+
+</div>
 
 ## Hand off a session to another agent
 

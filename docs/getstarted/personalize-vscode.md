@@ -14,6 +14,20 @@ This article covers the following topics:
 * [Change the look of VS Code with themes](#change-the-look-of-vs-code-with-themes)
 * [Change the display language](#change-the-display-language)
 
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
+Follow a hands-on tutorial to build your first app with AI in VS Code.
+
+* [Start tutorial](/docs/copilot/getting-started.md)
+
+</div>
+
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Watch the introduction video">
+Learn about the key features of Visual Studio Code in our introduction video.
+
+* [Watch video](https://www.youtube.com/watch?v=f8_uF_IDV50)
+
+</div>
+
 ## Configure settings
 
 Almost every aspect of VS Code can be customized via settings. Settings let you configure editor options such as enabling word wrapping or showing the minimap, setting up language-specific debugger settings, enabling Workspace Trust, and more. When you install extensions from the Visual Studio Marketplace, they might add their own [extension settings](/docs/getstarted/extensions.md#open-extension-settings).

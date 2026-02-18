@@ -130,6 +130,24 @@ Learn more about [making pull requests](https://docs.github.com/pull-requests/co
 
 ## Testing Your Changes
 
+### Preview locally with Docsify
+
+You can preview the documentation site locally using [Docsify](https://docsify.js.org/). This provides a browsable site with sidebar navigation, search, and cross-linking — useful for reviewing content changes before submitting a pull request.
+
+```bash
+npm install
+npm run serve
+```
+
+This starts a local server (default `http://localhost:3000`) with:
+
+* Sidebar navigation generated from `docs/toc.json` and `api/toc.json`
+* Top navbar to switch between Docs, Extension API, Blogs, and Release Notes
+* Full-text search across all content
+
+> [!NOTE]
+> The local preview is **not an exact copy of the production site** at code.visualstudio.com. Custom syntax like `kb(command.id)` keybinding macros, interactive `prompt` code blocks, and some layout details will not render as they do on the production site. Use the local preview to verify content, navigation, and cross-links.
+
 ### Validate your Markdown
 
 * Check that your Markdown is properly formatted
@@ -297,11 +315,17 @@ For example:
 
 ### Moving or renaming content
 
-Before moving or renaming content, a redirect should be added in case people have bookmarked the topic. Redirects are added in the private website repo.
+When you move, rename, or remove a page, add a redirect so that existing links and bookmarks continue to work. Add an entry in the `redirection.json` file in the corresponding content folder (`docs/`, `api/`, `blogs/`, or `remote/`):
 
-It seems to improve CSAT if, when a topic title or intent is changed, the filename is also updated. resulting in a new, more appropriate URL.
+```json
+[
+  { "from": "/docs/editor/old-page", "to": "/docs/editor/new-page", "status": 301 }
+]
+```
 
-For example: `/docs/editor/extension-gallery.md` -> `/docs/configure/extensions/extension-marketplace.md`
+* `from` — the old URL path (absolute, starting with `/`)
+* `to` — the new URL path or an external URL (starting with `https://`)
+* `status` — use `301` for permanent moves (most cases) or `302` for temporary redirects
 
 ### sitemap
 
@@ -453,6 +477,29 @@ function fancyAlert(arg) {
   }
 }
 ```
+
+### Importing Code from External Files
+
+You can import code from external files into your documentation using the `<<< @/filepath` syntax. This is useful for keeping code samples in separate files that can be tested independently and reused across multiple pages.
+
+The `@/` prefix resolves to the root of the `vscode-docs` repository.
+
+**Basic usage** — the language is auto-detected from the file extension:
+
+```markdown
+<<< @/snippets/example.js
+```
+
+**Explicit language** — override the language by adding it in curly braces:
+
+```markdown
+<<< @/snippets/example.cs{c#}
+```
+
+The imported code is rendered as a fenced code block, with full syntax highlighting, a copy button, and a language label, just like inline code blocks.
+
+> [!NOTE]
+> The import directive must be on its own line. The referenced file path must be within the `vscode-docs` repository — paths that traverse outside the repository (for example, `@/../other-file`) are rejected and cause a build error.
 
 ### Prompt Code Blocks
 

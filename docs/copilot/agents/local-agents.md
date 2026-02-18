@@ -17,6 +17,13 @@ Local agents run directly within VS Code on your machine. You interact with loca
 
 Local agents operate in the chat interface in VS Code. When you close a chat session, the local agent remains active and you can track it in the sessions view.
 
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
+Follow a hands-on tutorial to experience local, background, and cloud agents in VS Code.
+
+* [Start tutorial](/docs/copilot/agents/agents-tutorial.md)
+
+</div>
+
 ## Why use local agents?
 
 * Interactive conversations that require immediate feedback, such as brainstorming, planning, or tasks that aren't yet fully defined
@@ -93,6 +100,8 @@ To start a local agent session:
 1. Select **Send** or press `kb(workbench.action.chat.submit)` to submit your prompt.
 
 1. Review and confirm code changes and tool invocations as the agent works through your request.
+
+    You can send follow-up prompts while the agent is working. Queue messages for later, steer the agent in a new direction, or stop and send immediately. Learn more about [sending messages while a request is running](/docs/copilot/chat/chat-sessions.md#send-messages-while-a-request-is-running).
 
     > [!TIP]
     > VS Code helps you protect against inadvertent edits to sensitive files, such as workspace configuration settings or environment settings. Learn more about [editing sensitive files](/docs/copilot/chat/review-code-edits.md#edit-sensitive-files).

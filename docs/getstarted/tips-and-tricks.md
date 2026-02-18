@@ -13,6 +13,20 @@ If you're just getting started, make sure to check out the [VS Code tutorial](/d
 
 Prefer a video? You can watch the VS Code Day talks [Visual Studio Code tips and tricks](https://learn.microsoft.com/en-us/events/visual-studio-code-vs-code-day-2021/vs-code-tips-and-tricks) or [Elevate your VS Code experience](https://learn.microsoft.com/en-us/shows/vs-code-day-2023/elevate-your-vs-code-experience).
 
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
+Follow a hands-on tutorial to build your first app with AI in VS Code.
+
+* [Start tutorial](/docs/copilot/getting-started.md)
+
+</div>
+
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Watch the introduction video">
+Learn about the key features of Visual Studio Code in our introduction video.
+
+* [Watch video](https://www.youtube.com/watch?v=f8_uF_IDV50)
+
+</div>
+
 ## Basics
 
 ### Getting started

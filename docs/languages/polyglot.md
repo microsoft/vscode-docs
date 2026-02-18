@@ -5,6 +5,9 @@ MetaDescription: Polyglot Notebooks for multiple programming languages in Visual
 ---
 # Polyglot Notebooks in VS Code
 
+> [!IMPORTANT]
+> Polyglot Notebooks will be deprecated March 27th, 2026. For guidance, please visit: <http://aka.ms/pgnb-dep>
+
 **What is Polyglot Programming?**
 
 Polyglot programming is the practice of using multiple programming languages to leverage the strength of each language for different tasks.

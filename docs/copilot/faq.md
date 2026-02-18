@@ -184,4 +184,5 @@ It can be helpful to include information from the Copilot logs if you're reporti
 ## Additional resources
 
 - [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/)
+- [Security considerations for AI in VS Code](/docs/copilot/security.md)
 - [GitHub Copilot FAQ](https://github.com/features/copilot#faq) in the GitHub documentation

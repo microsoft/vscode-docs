@@ -481,7 +481,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/copilot/copilot-tips-and-tricks</loc>
+        <loc>https://code.visualstudio.com/docs/copilot/best-practices</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -512,6 +512,16 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/copilot/customization/prompt-files</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/customization/hooks</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/customization/agent-skills</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

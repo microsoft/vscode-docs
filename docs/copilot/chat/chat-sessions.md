@@ -8,6 +8,13 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 
 Use chat in Visual Studio Code to have conversation-based AI interactions. A chat session consists of the sequence of prompts and responses between you and the AI, along with any relevant context from your code or files. This article describes how to create and manage chat sessions, export chat sessions, and how to view the chat session history.
 
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
+Follow a hands-on tutorial to experience local, background, and cloud agents in VS Code.
+
+* [Start tutorial](/docs/copilot/agents/agents-tutorial.md)
+
+</div>
+
 ## What is a chat session?
 
 A chat session is a single conversation with the AI, including all prompts, responses, and context. Each session is independent, so context from one session does not carry over to another.
@@ -77,6 +84,27 @@ The VS Code welcome page can act as your startup experience for working with cha
 ![Screenshot of the VS Code welcome page showing recent chat sessions and embedded chat.](../images/chat-sessions/agent-sessions-welcome-page.png)
 
 To configure the VS Code welcome page as your startup experience, set `setting(workbench.startupEditor)` to `agentSessionsWelcomePage`.
+
+## Send messages while a request is running
+
+> [!NOTE]
+> Message steering and queuing are experimental features.
+
+You don't have to wait for a response to finish before sending your next message. While a request is in progress, the **Send** button changes to a dropdown that gives you three options for how to handle the new message.
+
+![Screenshot of the Send button dropdown menu showing options to queue, steer, or stop and send a new message.](../images/chat-sessions/send-dropdown.png)
+
+* **Add to Queue**: your message waits and sends automatically after the current response completes. The current response finishes uninterrupted.
+* **Steer with Message**: signals the current request to yield after finishing the current tool execution. The current response stops and your new message processes immediately. Use this to redirect the agent when it's heading in the wrong direction.
+* **Stop and Send**: cancels the current request entirely and sends your new message right away.
+
+The default action for the **Send** button is configurable. Use `setting(chat.requestQueuing.defaultAction)` to set it to `steer` (default) or `queue`.
+
+### Reorder pending messages
+
+When you have multiple pending messages (queued or steering), you can drag and drop them to change the order in which they are processed. A drag handle appears on hover when more than one message of the same type is pending.
+
+![Screenshot of pending messages in the chat input box with drag handles to reorder them.](../images/chat-sessions/pending-messages.png)
 
 ## Navigate between prompts in a chat session
 

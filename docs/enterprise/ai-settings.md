@@ -22,6 +22,14 @@ To disable agents entirely, set the `ChatAgentMode` policy to `false`. This conf
 
 The **Agent** option will not be available in the agents dropdown in the Chat view when this policy is applied. Developers can still use [ask or edit](/docs/copilot/chat/copilot-chat.md) for code explanations and file edits, but autonomous code generation and task execution are not available.
 
+## Enable or disable hooks
+
+[Hooks](/docs/copilot/customization/hooks.md) enable you to execute custom shell commands at key lifecycle points during agent sessions, such as before or after tool invocations, at session start, or when an agent stops. Hooks can automate workflows, enforce security policies, and control agent behavior.
+
+To disable hooks entirely, set the `ChatHooks` policy to `false`. This configures the `setting(chat.useHooks)` setting in VS Code.
+
+When this policy is applied, hook configurations are ignored and no hook commands are executed during agent sessions.
+
 ## Enable or disable extension language tools
 
 [Tools in chat](/docs/copilot/agents/agent-tools.md) extend the AI assistant's capabilities with specialized functions. These tools can come from built-in features, Model Context Protocol (MCP) servers, or third-party extensions.
