@@ -48,6 +48,14 @@ This separation allows each model to specialize. One learns spatial intent, and 
 ## Evaluation Dataset
 
 The overall evaluation framework is summarized below:
+```mermaid
+flowchart TD
+    A["Real Editing<br/>Workflows"]
+    B["Structured Evaluation<br/>Dataset"]
+    C["Spatial Intent Metrics<br/>(Jump + No-Jump)"]
+
+    A --> B --> C
+```
 
 To ensure the model improved real-world editing behavior, we designed a structured three-step evaluation process:
 
