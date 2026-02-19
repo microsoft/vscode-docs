@@ -98,3 +98,4 @@ You can then navigate to `http://localhost:3000` in your browser to see the docu
 ## Publishing
 
 Publishing merged pull requests is not automatic and is initiated manually after changes have been reviewed on an internal staging server. There is no specific time guarantee for when PR updates will be available on <https://code.visualstudio.com> but the intent is that they will usually be live within 24 hours.
+<!-- token scope test Thu Feb 19 20:12:35 UTC 2026 -->
