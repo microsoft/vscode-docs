@@ -809,6 +809,9 @@ Currently extension writers can contribute to:
 - `debug/callstack/context` group `inline` - Debug Call Stack view inline actions
 - `debug/toolBar` - Debug view toolbar
 - `debug/variables/context` - Debug Variables view context menu
+- `debug/watch/context` - Debug watch view context menu
+- `debug/hover/context` - Debug hover view context menu
+- `debug/createConfiguration` - Debug create configuration menu
 - `editor/context` - editor context menu
 - `editor/lineNumber/context` - editor line number context menu
 - `editor/title` - editor title menu bar
