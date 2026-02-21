@@ -29,4 +29,9 @@
     "markdown.editor.filePaste.videoSnippet": "<video src=\"${src}\" title=\"${title}\" autoplay loop controls muted></video>",
 
     "github.copilot.chat.codeGeneration.useInstructionFiles": false,
+    "remoteHub.gitProtocol": "ssh",
+    "remoteHub.richNavigation.enabled": true,
+    "remoteHub.switchToCreatedBranch": "always",
+    "remoteHub.staging.enabled": true,
+    "remoteHub.uncommittedChangesOnEntry": "none",
 }

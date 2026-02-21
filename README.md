@@ -3,14 +3,8 @@
   <h1 align="center">Visual Studio Code Documentation</h1>
 </p>
 
-You've found the Visual Studio Code documentation GitHub repository, which contains the content for the [Visual Studio Code documentation](https://code.visualstudio.com/docs).
-
-Topics submitted here will be published to the [Visual Studio Code](https://code.visualstudio.com) portal.
 
 If you are looking for the VS Code product GitHub repository, you can find it [here](https://github.com/microsoft/vscode).
-
-> [!IMPORTANT]
-> The vscode-docs repository uses [**Git LFS**](https://git-lfs.github.com/) (Large File Storage) for storing binary files such as images and `.gif`s. If you are contributing or updating images, please enable Git LFS per the instructions in the [Contributing](#cloning) section below.
 
 ## Index
 
@@ -39,10 +33,6 @@ If you want to give documentation feedback, please use the feedback control loca
 To enter documentation bugs, please create a [new GitHub issue](https://github.com/microsoft/vscode-docs/issues). Please check if there is an existing issue first.
 
 If you think the issue is with the VS Code product itself, please enter issues in the [VS Code product repo](https://github.com/microsoft/vscode/issues).
-
-## Contributing
-
-To contribute new topics/information or make changes to existing documentation, please read the [Contributing Guideline](./CONTRIBUTING.md).
 
 ### Workflow
 
@@ -80,7 +70,6 @@ You might want to clone the repo without the 1.6GB images. Here are the steps:
     - `git lfs pull -I "docs,api"` to download all images in `docs` and in `api`
     - `git lfs pull -I <PATTERN>`, as long as `<PATTERN>` is a valid [Git LFS Include and Exclude pattern](https://github.com/git-lfs/git-lfs/blob/main/docs/man/git-lfs-fetch.adoc#include-and-exclude).
 
-The history of this repo before we adopted LFS can be found at [microsoft/vscode-docs-archive](https://github.com/microsoft/vscode-docs-archive).
 
 ### Preview the website
 
@@ -94,7 +83,3 @@ npm run serve
 ```
 
 You can then navigate to `http://localhost:3000` in your browser to see the documentation website. Any changes you make to the Markdown files will automatically refresh the page so you can see your updates in real time.
-
-## Publishing
-
-Publishing merged pull requests is not automatic and is initiated manually after changes have been reviewed on an internal staging server. There is no specific time guarantee for when PR updates will be available on <https://code.visualstudio.com> but the intent is that they will usually be live within 24 hours.
