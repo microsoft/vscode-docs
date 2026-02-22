@@ -32,6 +32,12 @@ The benefits of using third-party agents in VS Code are:
 * **Rich editor integration**: Use VS Code's coding features, such as rich debugging and testing in combination with the agent's capabilities.
 * **Billing**: Authenticate and manage billing through your existing GitHub Copilot subscription without additional setup.
 
+## Enable third-party cloud agents
+
+You need to enable support for third-party agents in the cloud in your Copilot account settings before you can use them in VS Code. Follow the steps in [Enabling or disabling third-party coding agents in your repositories](https://docs.github.com/en/copilot/how-tos/manage-your-account/manage-policies#enabling-or-disabling-third-party-coding-agents-in-your-repositories) in the GitHub documentation.
+
+You don't need to install the provider's VS Code extension to use their cloud agent in VS Code.
+
 ## Claude Agent (Preview)
 
 Claude agent sessions provide agentic coding capabilities powered by Anthropic's Claude Agent SDK directly in VS Code. The Claude agent operates autonomously on your workspace to plan, execute, and iterate on coding tasks with its own set of tools and capabilities.
@@ -91,10 +97,12 @@ You can choose how the agent applies changes to your workspace:
 
 The OpenAI Codex agent uses OpenAI's Codex to perform coding tasks autonomously. Codex runs can run interactively in VS Code or unattended in the background.
 
+To disable the OpenAI Codex agent, disable or uninstall the [OpenAI Codex](https://marketplace.visualstudio.com/items?itemName=openai.chatgpt) extension in VS Code.
+
 ### Prerequisites
 
 * A Copilot Pro+ subscription for authentication
-* The [OpenAI Codex](https://marketplace.visualstudio.com/items?itemName=openai.chatgpt) extension installed from the Visual Studio Marketplace
+* For local sessions, the [OpenAI Codex](https://marketplace.visualstudio.com/items?itemName=openai.chatgpt) extension
 
 OpenAI Codex in VS Code enables you to use your Copilot Pro+ subscription to authenticate and access Codex without additional setup. Get more information about [GitHub Copilot billing and premium requests](https://docs.github.com/en/copilot/concepts/billing/copilot-requests) in the GitHub documentation.
 

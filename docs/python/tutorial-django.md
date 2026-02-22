@@ -31,58 +31,47 @@ To successfully complete this Django tutorial, you must do the following (which 
 
 In this section, you create a virtual environment in which Django is installed. Using a virtual environment avoids installing Django into a global Python environment and gives you exact control over the libraries used in an application. A virtual environment also makes it easy to [Create a requirements.txt file for the environment](#create-a-requirementstxt-file-for-the-environment).
 
+The [Python Environments extension](/docs/python/environments.md) supports multiple environment types including venv, conda, poetry, and others. This tutorial uses **venv** because it's built into Python and requires no additional tools. The steps for other environment types are similar — see [Creating environments](/docs/python/environments.md#creating-environments) for details.
+
 1. On your file system, create a project folder for this tutorial, such as `hello_django`.
-
-1. In that folder, use the following command (as appropriate to your computer) to create a virtual environment named `.venv` based on your current interpreter:
-
-    ```bash
-    # Linux
-    sudo apt-get install python3-venv    # If needed
-    python3 -m venv .venv
-    source .venv/bin/activate
-
-    # macOS
-    python3 -m venv .venv
-    source .venv/bin/activate
-
-    # Windows
-    py -3 -m venv .venv
-    .venv\scripts\activate
-    ```
-
-    > **Note**: Use a stock Python installation when running the above commands. If you use `python.exe` from an Anaconda installation, you see an error because the ensurepip module isn't available, and the environment is left in an unfinished state.
 
 1. Open the project folder in VS Code by running `code .`, or by running VS Code and using the **File** > **Open Folder** command.
 
-1. In VS Code, open the Command Palette (**View** > **Command Palette** or (`kb(workbench.action.showCommands)`)). Then select the **Python: Select Interpreter** command:
+1. Create a virtual environment using the **Python: Create Environment** command:
+
+    1. Open the Command Palette (`kb(workbench.action.showCommands)`)
+    2. Search for and select **Python: Create Environment**
+    3. Select **Venv** to create a venv environment
+    4. Select a Python interpreter to use for the environment
+
+    VS Code creates a `.venv` folder in your workspace and automatically selects the new environment.
+
+    > [!TIP]
+    > You can also create environments by using the **Python** sidebar. Expand **Environment Managers** and select the **+** button for Quick Create, which uses sensible defaults.
 
     ![Django tutorial: opening the Command Palette in VS Code](images/shared/command-palette.png)
 
-1. The command presents a list of available interpreters that VS Code can locate automatically (your list will vary; if you don't see the desired interpreter, see [Configuring Python environments](/docs/python/environments.md)). From the list, select the virtual environment in your project folder that starts with `./.venv` or `.\.venv`:
-
-    ![Django tutorial: Selecting the virtual environment for Python](images/shared/select-virtual-environment.png)
-
-1. Run [**Terminal: Create New Terminal**](/docs/terminal/basics.md) (`kb(workbench.action.terminal.new)`) from the Command Palette, which creates a terminal and automatically activates the virtual environment by running its activation script.
-
-    > **Note**: On Windows, if your default terminal type is PowerShell, you may see an error that it cannot run activate.ps1 because running scripts is disabled on the system. The error provides a link for information on how to allow scripts. Otherwise, use **Terminal: Select Default Profile** to set "Command Prompt" or "Git Bash" as your default instead.
-
-1. The selected environment appears on the right side of the VS Code status bar, and notices the **('.venv': venv)** indicator that tells you that you're using a virtual environment:
+1. The selected environment appears on the right side of the VS Code status bar, with the **('.venv': venv)** indicator showing that you're using a virtual environment:
 
     ![Django tutorial: selected environment showing in the VS Code status bar](images/shared/environment-in-status-bar.png)
 
-1. Update pip in the virtual environment by running the following command in the VS Code Terminal:
+1. Install Django in the virtual environment using one of these methods:
 
-   ```bash
-   python -m pip install --upgrade pip
-   ```
+    **Using the Package Management UI:**
 
-1. Install Django in the virtual environment by running the following command in the VS Code Terminal:
+    1. In the **Python** sidebar, expand **Environment Managers**
+    2. Right-click on your `.venv` environment and select **Manage Packages**
+    3. Search for `django` and select **Install**
+
+    **Using the terminal:**
+
+    Run [**Terminal: Create New Terminal**](/docs/terminal/basics.md) (`kb(workbench.action.terminal.new)`) from the Command Palette, which creates a terminal and automatically activates the virtual environment. Then run:
 
     ```bash
     python -m pip install django
     ```
 
-You now have a self-contained environment ready for writing Django code. VS Code activates the environment automatically when you use [**Terminal: Create New Terminal**](/docs/terminal/basics.md)  (`kb(workbench.action.terminal.new)`). If you open a separate command prompt or terminal, activate the environment by running `source .venv/bin/activate` (Linux/macOS) or `.venv\Scripts\Activate.ps1` (Windows).  You know the environment is activated when the command prompt shows **(.venv)** at the beginning.
+You now have a self-contained environment ready for writing Django code. VS Code activates the environment automatically when you open a new terminal. If you open a separate command prompt or terminal outside VS Code, activate the environment by running `source .venv/bin/activate` (Linux/macOS) or `.venv\Scripts\Activate.ps1` (Windows). You know the environment is activated when the command prompt shows **(.venv)** at the beginning.
 
 ## Create and run a minimal Django app
 

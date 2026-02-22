@@ -338,6 +338,7 @@
       ["Build with CMake", "/docs/cpp/build-with-cmake"],
       ["CMake Tools on Linux", "/docs/cpp/cmake-linux"],
       ["CMake Quick Start", "/docs/cpp/cmake-quickstart"],
+      ["C++ Dev Tools for Copilot", "/docs/cpp/cpp-devtools"],
       ["Editing and Navigating", "/docs/cpp/cpp-ide"],
       ["Debugging", "/docs/cpp/cpp-debug"],
       ["Configure Debugging", "/docs/cpp/launch-json-reference"],

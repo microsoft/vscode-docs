@@ -50,9 +50,11 @@ Key capabilities include:
 
 ### Third-party cloud agents
 
-VS Code supports third-party cloud agents like Claude coding agent and Codex coding agent as options for cloud agent sessions.
+VS Code supports third-party cloud agents like Claude coding agent and Codex coding agent as options for cloud agent sessions. You need to enable support for third-party agents in the cloud in your Copilot account settings before you can use them in VS Code.
 
-Learn more about [third-party agents in VS Code](/docs/copilot/agents/third-party-agents.md).
+You don't need to install the provider's VS Code extension to use their cloud agent in VS Code.
+
+Learn more about [third-party agents in VS Code](/docs/copilot/agents/third-party-agents.md) and how to enable them.
 
 ## Start a cloud agent session
 
@@ -94,8 +96,6 @@ To hand off a local agent session to a cloud agent session:
 1. Select the session type dropdown, and select **Cloud** to continue the session as a cloud agent.
 
     If you're using the [Plan agent](/docs/copilot/agents/planning.md), you can select **Continue in Cloud** from the **Start Implementation** dropdown to run the plan implementation in a cloud agent session
-
-1. Alternatively, type `@cloud` in the chat input to hand off the task to a cloud agent
 
 To hand off a background agent session to a cloud agent session, enter `/delegate` in the chat input of the background agent session. This command passes the full chat history and context to a new cloud agent session, which you can then monitor in the Chat view.
 
