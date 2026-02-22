@@ -49,11 +49,11 @@ To prevent interference with your active work in the editor, background agents u
 
 ### Copilot CLI
 
-The **Copilot CLI** is the primary background agent in VS Code. You can use the Copilot CLI directly from the terminal or start and manage sessions from with VS Code.
+The **Copilot CLI** is the primary background agent in VS Code. You can start and manage sessions from the Chat view or use the Copilot CLI directly from the VS Code terminal.
 
-VS Code automatically installs and configure the Copilot CLI for you. When you start a session directly in the CLI, that session also appears in the sessions list, where you can track its progress and interact with it further.
+VS Code automatically installs and configures the Copilot CLI for you. When you start a session directly in the CLI, that session also appears in the sessions list, where you can track its progress and interact with it further.
 
-Learn more about [Copilot CLI](https://docs.github.com/en/copilot/concepts/agents/about-copilot-cli) in the GitHub documentation.
+Learn more about [using Copilot CLI from the terminal](#use-copilot-cli-from-the-terminal) or see the [Copilot CLI](https://docs.github.com/en/copilot/concepts/agents/about-copilot-cli) documentation on GitHub.
 
 ## View and manage background agent sessions
 
@@ -61,11 +61,7 @@ You can view and manage all your background agent sessions from the Chat view in
 
 ![Screenshot of background agent filter in VS Code Chat view.](../images/background-agents/background-agent-filter.png)
 
-Select a background agent session from the list to open the session details in the Chat view. If you prefer to view the session in an editor tab (chat editor), right-click the session and select **Open as Editor**.
-
-If you prefer to view a background session in the terminal instead of the chat conversation in VS Code, right-click the session in the Chat view and select **Resume Agent Session in Terminal**. You can interact with the Copilot CLI directly in VS Code.
-
-![Screenshot showing the Copilot CLI session inside VS Code.](../images/background-agents/copilot-cli-in-terminal.png)
+Select a background agent session from the list to open the session details in the Chat view. If you prefer to view the session in an editor tab (chat editor), right-click the session and select **Open as Editor**. You can also [use the Copilot CLI from the terminal](#use-copilot-cli-from-the-terminal) to interact with sessions.
 
 ## Start a background agent session
 
@@ -85,8 +81,6 @@ You can create a new Copilot CLI background agent session in VS Code in several 
 
 * While you're in a local chat session:
 
-    * Type `@cli <task description>` in the chat input and send the message
-
     * Enter a prompt, select the **Delegate Session** dropdown > **Background**
 
 * Run the **Chat: New Background Agent** command from the Command Palette (`kb(workbench.action.showCommands)`)
@@ -94,9 +88,6 @@ You can create a new Copilot CLI background agent session in VS Code in several 
 A new background agent session opens where you can provide additional task details and track the progress of the Copilot CLI session.
 
 You can attach images in the chat input to provide visual context for a background session.
-
-> [!TIP]
-> When you use the GitHub Copilot CLI in the terminal to start a session, the Chat view in VS Code automatically detects and displays this background session. You can further interact with this background session from within VS Code.
 
 ### Hand off an agent session to a background agent
 
@@ -118,9 +109,38 @@ To continue a local agent session in a background agent session:
 
         ![Screenshot showing the "Start Implementation" button in VS Code chat interface.](../images/background-agents/plan-agent-start-implementation-background.png)
 
-    * Type `@cli` in the chat input to hand off the task to a background agent
-
 The background agent session starts automatically, carrying over the full conversation history and context. You can monitor the background agent's progress in the Chat view.
+
+## Use Copilot CLI from the terminal
+
+In addition to starting background agent sessions from the Chat view, you can use Copilot CLI directly from the VS Code terminal.
+
+### Open a Copilot CLI terminal
+
+VS Code registers a **GitHub Copilot CLI** terminal profile that you can use to open a dedicated Copilot CLI terminal. You can open a Copilot CLI terminal in several ways:
+
+* Select the dropdown next to the **+** button in the Terminal panel and select **GitHub Copilot CLI**
+
+* Run the **Chat: New CLI Session** command from the Command Palette to open a Copilot CLI terminal in the panel, or run **Chat: New CLI Session to the Side** to open it in an editor tab beside your current editor
+
+* Run the **Terminal: Create New Terminal (With Profile)** command from the Command Palette (`kb(workbench.action.showCommands)`) and select **GitHub Copilot CLI**
+
+* Type `copilot` in any VS Code integrated terminal to start the Copilot CLI directly
+
+The Copilot CLI terminal supports the following shells:
+
+* **bash** and **zsh** on macOS and Linux
+* **PowerShell** and **Command Prompt** on Windows
+
+### Start and resume sessions from the terminal
+
+When you start a new session from the Copilot CLI terminal, VS Code automatically detects the session and displays it in the Chat view sessions list. You can then track progress, send follow-up prompts, or review changes from either the terminal or the Chat view.
+
+To resume an existing background agent session in the terminal, right-click the session in the Chat view and select **Resume Agent Session in Terminal**.
+
+![Screenshot showing the Copilot CLI session inside VS Code.](../images/background-agents/copilot-cli-in-terminal.png)
+
+VS Code automatically handles authentication for the Copilot CLI terminal, so you don't need to sign in separately.
 
 ## Create background agent session
 

@@ -177,6 +177,7 @@
         "topics": [
           ["Cheat Sheet", "/docs/copilot/reference/copilot-vscode-features"],
           ["Settings Reference", "/docs/copilot/reference/copilot-settings"],
+          ["MCP Configuration", "/docs/copilot/reference/mcp-configuration"],
           ["Workspace Context", "/docs/copilot/reference/workspace-context"]
         ]
       }

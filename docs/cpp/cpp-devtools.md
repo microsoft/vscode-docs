@@ -8,19 +8,20 @@ Keywords:
 - Copilot
 ---
 # Using C++ Development Tools with GitHub Copilot Chat
+
 Refactoring and making updates in C++ code often requires tracking down edits across multiple files and having knowledge of your build configuration.
 
 GitHub Copilot Chat can use the C++ tools built into VS Code to provide context-aware assistance for your C++ projects. By using code understanding and CMake tools, Copilot can understand your codebase structure, dependencies, and build configurations to give you more accurate, helpful, and fast responses.
 
 This guide covers the available tools and how to use them effectively with AI agents to accomplish tasks such as:
+
 - Navigate and understand complex C++ codebases
 - Refactor code with full context awareness
 - Configure and build projects efficiently
 
-
 ## Prerequisites
 
-- **C/C++ DevTools extension**
+- [C/C++ DevTools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpp-devtools) extension
 - [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) extension
 - [CMake Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools) extension
 
@@ -28,15 +29,19 @@ These extensions are available as part of the [C/C++ Extension Pack](https://mar
 
 You can enable/disable any of these tools at any point by navigating to the `Tools` option in chat and selecting the respective tool you'd like to enable/disable.
 
-![Screenshot showing the list of cpp tools in the chat tools Quick Pick.](images/all-cpp-tools.png)
+![Screenshot showing the list of cpp tools in the chat tools Quick Pick.](images/cpp-devtools/all-cpp-tools.png)
+
+> [!NOTE]
+> Only enable relevant tools to your development workflow to avoid context bloat. You can disable other tools, such as tools installed through MCP, via the same dialog.
+
 
 ## C++ code understanding tools
 
-The C++ extension provides tools that use language services to give Copilot Chat deep understanding of your code structure, symbols, and relationships. Ensure you have [configured with IntelliSense](/cpp/configure-intellisense.md) to take advantage of these tools.
+The C++ extension provides tools that use language services to give Copilot Chat deep understanding of your code structure, symbols, and relationships. Ensure you have [configured with IntelliSense](/docs/cpp/configure-intellisense.md) to take advantage of these tools.
 
 To enable these tools, select the **Enable Cpp Code Editing Tools** setting in your VS Code user settings.
 
-![Screenshot of the Settings editor, showing the Enable Cpp Code Editing Tools setting.](images/cpp-code-editing-tools-setting.png)
+![Screenshot of the Settings editor, showing the Enable Cpp Code Editing Tools setting.](images/cpp-devtools/cpp-code-editing-tools-setting.png)
 
 ### Get Symbol Information (`GetSymbolInfo_CppTools`)
 
@@ -45,7 +50,7 @@ To enable these tools, select the **Enable Cpp Code Editing Tools** setting in y
 **Example Use Case:**
 *Optimize memory performance and ensure non-breaking changes*
 
-![Screenshot of the Chat view, showing a prompt to refactor a symbol to be memory-safe, which invokes the get symbol info tool.](images/get-symbol-info-example.png)
+![Screenshot of the Chat view, showing a prompt to refactor a symbol to be memory-safe, which invokes the get symbol info tool.](images/cpp-devtools/get-symbol-info-example.png)
 
 ---
 
@@ -56,11 +61,12 @@ To enable these tools, select the **Enable Cpp Code Editing Tools** setting in y
 **Example Use Case:**
 *Add additional functionality to existing functions*
 
-![Screenshot of the Chat view, showing a prompt to update an existing function and add a parameter for logging, which invokes the get symbol references tool.](images/get-symbol-references-example.png)
+![Screenshot of the Chat view, showing a prompt to update an existing function and add a parameter for logging, which invokes the get symbol references tool.](images/cpp-devtools/get-symbol-references-example.png)
 
-> **Note:** You can control the maximum number of symbol references by the tool returned by adjusting the symbol references limit setting in VS Code.
+> [!NOTE]
+> You can control the maximum number of symbol references returned by the tool by adjusting the symbol references limit setting in VS Code.
 >
-> ![Screenshot of the Settings editor, showing the symbol references limit setting.](images/get-symbol-references-setting.png)
+> ![Screenshot of the Settings editor, showing the symbol references limit setting.](images/cpp-devtools/get-symbol-references-setting.png)
 
 ---
 
@@ -68,11 +74,10 @@ To enable these tools, select the **Enable Cpp Code Editing Tools** setting in y
 
 **What it does:** Shows the call hierarchy for functions, revealing both incoming calls (who calls this function) and outgoing calls (what this function calls).
 
-
 **Example Use Case:**
 *Dependency analysis for module migration*
 
-![Screenshot of the Chat view, showing a prompt to migrate a module into a separate library and thus requesting a dependency analysis, which invokes the get symbol call hierarchy tool.](images/get-symbol-call-hierarchy-example.png)
+![Screenshot of the Chat view, showing a prompt to migrate a module into a separate library and thus requesting a dependency analysis, which invokes the get symbol call hierarchy tool.](images/cpp-devtools/get-symbol-call-hierarchy-example.png)
 
 ---
 
@@ -87,7 +92,7 @@ CMake tools allow Copilot Chat to understand your build configuration, targets, 
 **Example Use Case:**
 *Resolving build errors*
 
-![Screenshot of the Chat view, showing a prompt to resolve build errors, which invokes the CMake build tool.](images/cmake-build-example.png)
+![Screenshot of the Chat view, showing a prompt to resolve build errors, which invokes the CMake build tool.](images/cpp-devtools/cmake-build-example.png)
 
 ---
 
@@ -98,7 +103,7 @@ CMake tools allow Copilot Chat to understand your build configuration, targets, 
 **Example Use Case:**
 *Fix code according to unit tests*
 
-![Screenshot of the Chat view, showing a prompt to fix failing unit tests, which invokes run ctest.](images/run-ctest-example.png)
+![Screenshot of the Chat view, showing a prompt to fix failing unit tests, which invokes run ctest.](images/cpp-devtools/run-ctest-example.png)
 
 ---
 
@@ -106,6 +111,7 @@ CMake tools allow Copilot Chat to understand your build configuration, targets, 
 
 - **Be specific:** Identify the exact symbol, file, or component you're asking about (for example, "refactor the `getConfig()` function" rather than "make this faster")
 - **Reference context:** Ask Copilot Chat to consider specific files, functions, or modules when analyzing changes
+- **Directly reference tools**: Directly reference relevant tools using # in chat to ensure invocation.
 - **Use custom instructions:** Set up [custom instructions](/docs/copilot/customization/custom-instructions.md) to guide Copilot Chat. Type `/init` to generate instructions for your project.
 - **Leverage latest models:** Use the latest AI models that support tool-calling for the most accurate code understanding and tool usage
 - **Optimize tool performance:** Only enable relevant tools to your development workflow to avoid context bloat
@@ -121,4 +127,3 @@ CMake tools allow Copilot Chat to understand your build configuration, targets, 
 **CMake Build:** Use when troubleshooting build issues or verifying that changes compile successfully.
 
 **CTest:** Use when validating changes against your test suite or debugging test failures.
-
