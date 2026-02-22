@@ -15,7 +15,17 @@ Keywords:
 
 # How AI works in VS Code
 
-GitHub Copilot is an AI assistant powered by large language models. It integrates across VS Code through multiple surfaces, from inline suggestions as you type to autonomous agents that implement entire features. This article explains the core architecture, key concepts, and how all the AI features connect. For a hands-on tutorial, see the [Quickstart](/docs/copilot/getting-started.md). For practical tips, see [Best practices](/docs/copilot/best-practices.md).
+Visual Studio Code's built-in AI features are powered by GitHub Copilot and large language models (LLMs). These features span multiple surfaces, from inline suggestions as you type to autonomous agents that implement entire features. This article explains the core architecture, key concepts, and how all the AI features connect. For a hands-on tutorial, see the [Quickstart](/docs/copilot/getting-started.md). For practical tips, see [Best practices](/docs/copilot/best-practices.md).
+
+## AI features at a glance
+
+VS Code offers AI across a spectrum of interaction surfaces, each suited to different tasks:
+
+* **[Inline suggestions](/docs/copilot/ai-powered-suggestions.md)**: code suggestions that appear as ghost text while you type. These use specialized completion models and don't involve an agent loop or tools. [Next Edit Suggestions (NES)](/docs/copilot/ai-powered-suggestions.md#next-edit-suggestions) go further by predicting *where* your next edit should happen.
+* **[Chat](/docs/copilot/chat/copilot-chat.md)**: a conversational interface where you ask questions, explore ideas, or get explanations. In Ask mode, the model uses read-only tools to answer questions without modifying your code.
+* **[Agents](/docs/copilot/agents/overview.md)**: autonomous sessions that follow the full [agent loop](#agent-loop) — reading files, editing code, running commands, and iterating until the task is complete.
+* **[Inline chat](/docs/copilot/chat/inline-chat.md)**: a lightweight chat interface that opens directly in the editor for quick, focused edits.
+* **[Smart actions](/docs/copilot/copilot-smart-actions.md)**: one-click AI actions integrated into your workflow, like generating commit messages or fixing diagnostics errors.
 
 ## Agent loop
 
@@ -71,7 +81,7 @@ When the context window fills up, VS Code automatically summarizes older parts o
 
 To work effectively with context window limits:
 
-* **Start new sessions for new tasks.** Each session starts with a fresh context window. Don't reuse a single conversation for unrelated tasks.
+* **Start new sessions for new tasks.** A [session](/docs/copilot/chat/chat-sessions.md) is an independent conversation with its own context window and history. Each session starts fresh, so don't reuse a single conversation for unrelated tasks.
 * **Be selective with context.** Adding your entire codebase isn't always helpful. Reference specific files that are relevant to the task.
 * **Use custom instructions for persistent rules.** Rules you add in [custom instructions](/docs/copilot/customization/custom-instructions.md) are included in every request, so you don't lose them when the conversation is summarized.
 
@@ -95,11 +105,9 @@ Learn more about [adding context to chat](/docs/copilot/chat/copilot-chat-contex
 
 ## Tools
 
-Tools give the language model the ability to act on your development environment: reading and writing files, running terminal commands, navigating the editor, searching the web, and calling external APIs. Each tool call returns a result that the model uses to decide its next step, which is what turns a text generator into an agent.
+Tools give the language model the ability to act on your development environment. Each tool call returns a result that the model uses to decide its next step, which is what turns a text generator into an agent.
 
-The model selects tools based on what your task requires. For example, when you ask to add input validation to a form, the agent might search your project structure, read the relevant component, apply the edit, check for type errors, and then run the associated tests. Each result feeds into the next decision.
-
-VS Code includes a variety of built-in tools for working with your codebase and your development environment. You can extend its functionality further with [MCP servers](/docs/copilot/customization/mcp-servers.md) for external services, [agent skills](/docs/copilot/customization/agent-skills.md) for reusable capabilities, and [hooks](/docs/copilot/customization/hooks.md) for lifecycle automation. Learn more about [tools available to agents](/docs/copilot/agents/agent-tools.md).
+VS Code includes built-in tools for reading and writing files, running terminal commands, searching your codebase, and navigating the editor. Beyond built-in tools, you can connect to external services through [MCP servers](/docs/copilot/customization/mcp-servers.md) that use the Model Context Protocol (MCP), an open standard for giving AI models access to external tools and data sources. You can also define [agent skills](/docs/copilot/customization/agent-skills.md) that teach the agent domain-specific tasks, like generating API documentation or scaffolding components, and [hooks](/docs/copilot/customization/hooks.md) that run commands automatically at specific points, like formatting code after every edit. Learn more about [tools available to agents](/docs/copilot/agents/agent-tools.md).
 
 ## Agent types
 
@@ -139,6 +147,8 @@ AI is a powerful tool, but it has important limitations to understand.
 **Knowledge boundaries.** Models are trained on data up to a certain date. They might not know about recent framework versions, newly released APIs, or changes to your project. Use `#web` to give Copilot access to current information, and reference specific files with `#file` to ground responses in your actual code.
 
 **Context limits.** When a conversation grows long, the model loses access to earlier context. If responses start to degrade, start a new session and provide fresh context for the task at hand.
+
+**Prompt injection.** Malicious content in files, tool outputs, or web pages can attempt to redirect the agent's behavior. This is why VS Code includes [tool approval gates and trust boundaries](#stay-in-control). Learn more about [AI security](/docs/copilot/security.md).
 
 The most effective way to work with AI is to treat its output as a first draft: useful as a starting point, but always requiring your review and judgment.
 
