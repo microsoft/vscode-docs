@@ -195,9 +195,9 @@ MCP server configuration is saved in the `mcp.json` JSON file (`mcp.json`).
 
 The configuration file has two main sections:
 
-* **`"servers": {}`**: contains the list of MCP servers and their configurations - depending on the server type, different fields are required.
+* **`"servers": {}`**: an object that maps server names to their configurations. Each key is the server name, and the value is the server configuration object. Depending on the server type, different fields are required.
 
-* **`"inputs": []`**: optional placeholders for sensitive information like API keys.
+* **`"inputs": []`**: an optional array of input variable definitions for sensitive information like API keys.
 
 You can use [predefined variables](/docs/reference/variables-reference.md) in the server configuration, for example to refer to the workspace folder (`${workspaceFolder}`).
 
