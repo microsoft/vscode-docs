@@ -100,6 +100,7 @@
       ["Overview", "/docs/copilot/overview"],
       ["Setup", "/docs/copilot/setup"],
       ["Quickstart", "/docs/copilot/getting-started"],
+      ["Core Concepts", "/docs/copilot/core-concepts"],
       ["Best Practices", "/docs/copilot/best-practices"],
       ["", "", {
         "name": "Agents",
