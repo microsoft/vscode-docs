@@ -14,6 +14,18 @@
         "command": "./.github/hooks/check-docs-instructions.sh",
         "windows": "powershell -ExecutionPolicy Bypass -File .github\\hooks\\check-docs-instructions.ps1",
         "timeout": 10
+      },
+      {
+        "type": "command",
+        "command": "./.github/hooks/validate-frontmatter.sh",
+        "windows": "powershell -ExecutionPolicy Bypass -File .github\\hooks\\validate-frontmatter.ps1",
+        "timeout": 10
+      },
+      {
+        "type": "command",
+        "command": "./.github/hooks/check-terminology.sh",
+        "windows": "powershell -ExecutionPolicy Bypass -File .github\\hooks\\check-terminology.ps1",
+        "timeout": 10
       }
     ]
   }
