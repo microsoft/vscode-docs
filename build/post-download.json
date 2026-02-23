@@ -1,0 +1,30 @@
+{
+  "featured": {
+    "title": "Multi-agent development",
+    "description": "VS Code is your home for multi-agent development. Run multiple AI agent sessions in parallel, across different projects, environments, and agent harnesses.",
+    "link": "/updates/v1_109",
+    "image": "/assets/updates/1_109/vscode-v1109-social.webp"
+  },
+  "highlights": [
+    {
+      "type": "blog",
+      "title": "MCP Apps support",
+      "description": "Give agents a visual voice with MCP Apps support in VS Code.",
+      "link": "/blogs/2026/01/26/mcp-apps-support",
+      "image": "/assets/blogs/2026/01/26/mcp-apps-list-sort.png"
+    },
+    {
+      "type": "highlight",
+      "title": "Claude Sonnet 4.6 generally available",
+      "description": "Claude Sonnet 4.6, Anthropic’s latest agentic coding model, is now rolling out in GitHub Copilot.",
+      "link": "https://github.blog/changelog/2026-02-17-claude-sonnet-4-6-is-now-generally-available-in-github-copilot/",
+      "image": "https://github.blog/wp-content/uploads/2026/02/github-copilot-header_53f21b.png?w=2064"
+    },
+    {
+      "type": "insiders",
+      "title": "New in Insiders",
+      "description": "Use `/fork` to start a new session that inherits the current conversation context.",
+      "link": "/updates/v1_110"
+    }
+  ]
+}
