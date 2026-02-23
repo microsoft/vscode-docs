@@ -4,13 +4,13 @@ DateApproved: 02/04/2026
 MetaDescription: Learn how GitHub Copilot works in VS Code, from language models and context to agents and the agentic loop.
 MetaSocialImage: images/shared/github-copilot-social.png
 Keywords:
-  - copilot
-  - AI
-  - concepts
-  - language model
-  - context window
-  - agents
-  - agentic loop
+- copilot
+- ai
+- concepts
+- language model
+- context window
+- agents
+- agentic loop
 ---
 
 # How AI works in VS Code
