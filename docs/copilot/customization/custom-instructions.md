@@ -134,9 +134,20 @@ You can define instructions for a specific workspace or at the user level, where
 | Workspace | `.github/instructions` folder |
 | User profile | `prompts` folder of the current [VS Code profile](/docs/configure/profiles.md) |
 
+You can configure additional file locations for workspace instructions files with the `setting(chat.instructionsFilesLocations)` setting. This is useful if you want to keep instructions files in a different folder or have multiple folders for better organization.
+
 For compatibility with Claude Code and other Claude-based tools, VS Code also detects instructions files in the `.claude/rules` workspace folder and the `~/.claude/rules` user folder.
 
-You can configure additional file locations for workspace instructions files with the `setting(chat.instructionsFilesLocations)` setting. This is useful if you want to keep instructions files in a different folder or have multiple folders for better organization.
+The following code snippet shows how to configure instructions file locations, where only workspace-level instructions are enabled and user-level instructions are disabled:
+
+```json
+"chat.instructionsFilesLocations": {
+  ".github/instructions": true,
+  ".claude/rules": true,
+  "~/.copilot/instructions": false,
+  "~/.claude/rules": false
+}
+```
 
 ### Instructions file format
 

@@ -29,7 +29,7 @@ Follow a hands-on tutorial to build your first app with AI in VS Code.
 
 Agents handle complete coding tasks end-to-end. Give an agent a high-level task and it breaks the work into steps, edits files, runs terminal commands, invokes tools, and self-corrects when it hits errors or failing tests. Each task runs inside an **agent session**, a persistent conversation you can track, pause, resume, or hand off to another agent.
 
-<video src="images/overview/agents-intro.mp4" title="Video showing an agent session building a complete feature in VS Code." autoplay loop controls muted></video>
+<video src="images/overview/agents-intro.mp4" title="Video showing an agent session building a complete feature in VS Code." loop controls muted></video>
 
 > [!IMPORTANT]
 > Your organization might have disabled agents in VS Code. Contact your admin to enable this functionality.
@@ -38,7 +38,7 @@ Agents handle complete coding tasks end-to-end. Give an agent a high-level task 
 
 Run multiple agent sessions in parallel, each focused on a different task. The **Sessions** view in the **Chat** panel gives you a single place to monitor all active sessions, whether they run locally, in the background, or in the cloud. See the status of each session, switch between them, review file changes, and pick up where you left off.
 
-<video src="images/overview/agent-sessions-demo.mp4" title="Video showing the agent sessions list, demonstrating filtering, showing, and archiving sessions." autoplay loop controls muted></video>
+<video src="images/overview/agent-sessions-demo.mp4" title="Video showing the agent sessions list, demonstrating filtering, showing, and archiving sessions." loop controls muted></video>
 
 Learn more about [managing agent sessions](/docs/copilot/chat/chat-sessions.md).
 
@@ -54,7 +54,7 @@ Learn more about [agent types and delegation](/docs/copilot/agents/overview.md) 
 
 Use the built-in **Plan** agent to break a task into a structured implementation plan before writing any code. The Plan agent analyzes your codebase, asks clarifying questions, and produces a step-by-step plan. When the plan looks right, hand it off to an implementation agent to execute it, locally, in the background, or in the cloud.
 
-<video src="images/overview/plan-intro.mp4" title="Video showing the plan agent creating a structured implementation plan for adding authentication to the app." autoplay loop controls muted></video>
+<video src="images/overview/plan-intro.mp4" title="Video showing the plan agent creating a structured implementation plan for adding authentication to the app." loop controls muted></video>
 
 Learn more about [planning with agents](/docs/copilot/agents/planning.md).
 
@@ -107,7 +107,7 @@ For a full hands-on tutorial covering inline suggestions, agents, inline chat, a
 
 Copilot provides code suggestions as you type, from single-line completions to full function implementations. Next edit suggestions predict the next logical change based on your current edits.
 
-<video src="images/inline-suggestions/nes-video.mp4" title="Video showing inline code suggestions appearing as ghost text in the editor." autoplay loop controls muted poster="./images/inline-suggestions/point3d.png"></video>
+<video src="images/inline-suggestions/nes-video.mp4" title="Video showing inline code suggestions appearing as ghost text in the editor." loop controls muted poster="./images/inline-suggestions/point3d.png"></video>
 
 Learn more about [inline suggestions in VS Code](/docs/copilot/ai-powered-suggestions.md).
 

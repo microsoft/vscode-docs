@@ -18,7 +18,7 @@ Tools extend agents in Visual Studio Code with specialized functionality for acc
 
 This article describes the different types of tools available in VS Code, how to use them in your chat prompts, and how to manage tool invocations and approvals.
 
-<video src="../images/chat-tools/chat-tools-picker.mp4" title="Video showing how to select and configure tools in the chat tools picker." autoplay loop controls muted poster="../images/chat-tools/chat-tools-picker.png"></video>
+<video src="../images/chat-tools/chat-tools-picker.mp4" title="Video showing how to select and configure tools in the chat tools picker." loop controls muted poster="../images/chat-tools/chat-tools-picker.png"></video>
 
 ## Types of tools
 
