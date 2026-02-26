@@ -19,7 +19,7 @@ Keywords:
 Hooks enable you to execute custom shell commands at key lifecycle points during agent sessions. Use hooks to automate workflows, enforce security policies, validate operations, and integrate with external tools. Hooks run deterministically and can control agent behavior, including blocking tool execution or injecting context into the conversation.
 
 > [!NOTE]
-> Agent hooks are currently in Preview for VS Code 1.109.3. The configuration format and behavior might change in future releases.
+> Agent hooks are currently in Preview. The configuration format and behavior might change in future releases.
 
 > [!IMPORTANT]
 > Your organization might have disabled the use of hooks in VS Code. Contact your admin for more information. See [enterprise policies](/docs/enterprise/policies.md) for details.
@@ -73,17 +73,37 @@ VS Code searches for hook configuration files in these locations:
 
 Workspace hooks take precedence over user hooks for the same event type.
 
-Use the `setting(chat.hookFilesLocations)` setting to add custom hook file paths. You can specify paths to folders (VS Code loads all `*.json` files in the folder) or direct paths to individual `.json` files. Only relative paths and tilde (`~`) paths are supported.
+Use the `setting(chat.hookFilesLocations)` setting to customize which hook files are loaded. You can specify paths to folders (VS Code loads all `*.json` files in the folder) or direct paths to individual `.json` files. Only relative paths and tilde (`~`) paths are supported.
+
+The default value includes these locations:
 
 ```json
 "chat.hookFilesLocations": {
   ".github/hooks": true,
+  ".claude/settings.local.json": true,
+  ".claude/settings.json": true,
+  "~/.claude/settings.json": true
+}
+```
+
+To add custom locations, add entries to this setting:
+
+```json
+"chat.hookFilesLocations": {
   "custom/hooks": true,
   "~/my-hooks/security.json": true
 }
 ```
 
-Set a path to `false` to disable loading hooks from that location, including the default locations.
+Set a path to `false` to disable loading hooks from that location, including the default locations. For example, to stop loading hooks from Claude Code configuration files:
+
+```json
+"chat.hookFilesLocations": {
+  ".claude/settings.json": false,
+  ".claude/settings.local.json": false,
+  "~/.claude/settings.json": false
+}
+```
 
 ### Hook configuration format
 
@@ -194,6 +214,17 @@ The hook's exit code determines how VS Code handles the result:
 | `0` | Success: parse stdout as JSON |
 | `2` | Blocking error: stop processing and show error to model |
 | Other | Non-blocking warning: show warning to user, continue processing |
+
+### Choosing how to return data
+
+Hooks have several ways to control agent behavior: exit codes, top-level output fields (`continue`, `stopReason`), and hook-specific output fields (`hookSpecificOutput`). Use them in combination as follows:
+
+* **Exit code 2** is the simplest way to block an operation. The hook's stderr is shown to the model as context. No JSON output is needed.
+* **`continue: false`** in the JSON output stops the entire agent session. Use `stopReason` to tell the model why. This is more drastic than blocking a single tool call.
+* **`hookSpecificOutput`** provides fine-grained control specific to each hook event. For example, `PreToolUse` hooks use `permissionDecision` to allow, deny, or prompt for a single tool call without stopping the session.
+* **`systemMessage`** displays a warning to the user in the chat, regardless of other decisions.
+
+When multiple control mechanisms are used together, the most restrictive wins. For example, if a hook returns `continue: false` and `permissionDecision: "allow"`, the session still stops.
 
 ## PreToolUse
 
@@ -684,9 +715,9 @@ If the agent has access to edit scripts run by hooks, then it has the ability to
 
 To see which hooks are loaded and check for configuration errors:
 
-1. Right-click in the Chat view and select **Diagnostics**.
+1. Select **View Logs** to view all logs.
 
-1. Look for the hooks section to see loaded hooks and any validation errors.
+1. Look for "Load Hooks" to see loaded hooks and which locations they were loaded from.
 
 ### View hook output
 
@@ -710,7 +741,13 @@ To review hook output and errors:
 
 ### How does VS Code handle Claude Code hook configurations?
 
-VS Code parses Claude Code's hook configuration format, including matcher syntax. Currently, VS Code ignores matcher values, so hooks apply to all tools. Claude Code uses an empty string matcher (`""`) to represent all tools.
+VS Code reads hook configurations from `.claude/settings.json`, `.claude/settings.local.json`, and `~/.claude/settings.json` by default. VS Code parses Claude Code's hook configuration format, including matcher syntax. Currently, VS Code ignores matcher values, so hooks run on all tool invocations regardless of the matcher.
+
+If you are adapting a Claude Code hook for VS Code, be aware of the following differences:
+
+* **Tool input property names**: Claude Code uses snake_case for tool input properties (for example, `tool_input.file_path`), while VS Code tools use camelCase (for example, `tool_input.filePath`). Update your hook scripts to read the correct property names.
+* **Tool names**: Claude Code and VS Code use different tool names. For example, Claude Code uses `Write` and `Edit` for file operations, while VS Code uses tool names like `create_file` and `replace_string_in_file`. Check the tool name in the `tool_name` input field and update your hook logic accordingly.
+* **Matchers are ignored**: Hook matchers like `"Edit|Write"` are parsed but not applied. All hooks run on every matching event, regardless of the tool name in the matcher.
 
 ### How does VS Code handle Copilot CLI hook configurations?
 
