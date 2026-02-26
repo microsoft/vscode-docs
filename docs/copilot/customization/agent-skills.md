@@ -261,7 +261,7 @@ Extensions can contribute skills using the `chatSkills` contribution point in th
 
 The skill directory must follow this structure:
 
-```
+```text
 extension-root/
 └── skills/
     └── my-skill/           # Directory name must match the `name` field in SKILL.md
@@ -270,14 +270,14 @@ extension-root/
 
 ### Register the skill in package.json
 
-Add the `chatSkills` contribution point in your extension's `package.json`. The `path` property must point to a directory that contains a `SKILL.md` file:
+Add the `chatSkills` contribution point in your extension's `package.json`. The `path` property must point to the corresponding `SKILL.md` file:
 
 ```json
 {
   "contributes": {
     "chatSkills": [
       {
-        "path": "./skills/my-skill"
+        "path": "./skills/my-skill/SKILL.md"
       }
     ]
   }

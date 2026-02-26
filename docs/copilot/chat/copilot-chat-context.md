@@ -144,7 +144,7 @@ To add elements from the integrated browser to your chat prompt:
 1. Enter the URL of the web page you want to interact with.
 1. Select the **Add Element to Chat** button. You can now hover over the elements of the web page and select them to add them as context to your chat prompt.
 
-    <video src="images/copilot-chat/integrated-browser-select-element.mp4" title="Video showing how to select and add elements from the integrated browser to the chat prompt." autoplay loop controls muted></video>
+    <video src="images/copilot-chat/integrated-browser-select-element.mp4" title="Video showing how to select and add elements from the integrated browser to the chat prompt." loop controls muted></video>
 
 You can configure which information is included in the context:
 

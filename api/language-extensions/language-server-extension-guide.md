@@ -146,9 +146,9 @@ import {
   TransportKind
 } from 'vscode-languageclient/node';
 
-let client: LanguageClient;
+let client: LanguageClient | undefined;
 
-export function activate(context: ExtensionContext) {
+export async function activate(context: ExtensionContext) {
   // The server is implemented in node
   let serverModule = context.asAbsolutePath(path.join('server', 'out', 'server.js'));
   // The debug options for the server
@@ -185,14 +185,12 @@ export function activate(context: ExtensionContext) {
   );
 
   // Start the client. This will also launch the server
-  client.start();
+  await client.start();
 }
 
-export function deactivate(): Thenable<void> | undefined {
-  if (!client) {
-    return undefined;
-  }
-  return client.stop();
+export async function deactivate() {
+  await client?.dispose();
+  client = undefined
 }
 ```
 

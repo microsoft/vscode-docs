@@ -146,5 +146,5 @@ Learn more about [troubleshooting AI in VS Code](/docs/copilot/troubleshooting.m
 - [Create reusable prompt files](/docs/copilot/customization/prompt-files.md)
 - [Create custom agents](/docs/copilot/customization/custom-agents.md)
 - [Choose language models](/docs/copilot/customization/language-models.md)
-- [Use MCP servers and tools](/docs/copilot/customization/mcp-servers.md)
+- [Add and manage MCP servers](/docs/copilot/customization/mcp-servers.md)
 - [Use hooks for lifecycle automation](/docs/copilot/customization/hooks.md)
