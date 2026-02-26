@@ -73,6 +73,18 @@ VS Code searches for hook configuration files in these locations:
 
 Workspace hooks take precedence over user hooks for the same event type.
 
+Use the `setting(chat.hookFilesLocations)` setting to add custom hook file paths. You can specify paths to folders (VS Code loads all `*.json` files in the folder) or direct paths to individual `.json` files. Only relative paths and tilde (`~`) paths are supported.
+
+```json
+"chat.hookFilesLocations": {
+  ".github/hooks": true,
+  "custom/hooks": true,
+  "~/my-hooks/security.json": true
+}
+```
+
+Set a path to `false` to disable loading hooks from that location, including the default locations.
+
 ### Hook configuration format
 
 Create a JSON file with a `hooks` object containing arrays of hook commands for each event type. VS Code uses the same hook format as Claude Code and Copilot CLI for compatibility:
@@ -447,11 +459,15 @@ In addition to the common fields, `PreCompact` hooks receive:
 
 The `PreCompact` hook uses the common output format only.
 
-## Configure hooks with the /hooks command
+## Configure hooks with the UI
 
-Use the `/hooks` slash command in chat to configure hooks through an interactive UI:
+You can configure hooks through an interactive UI in several ways:
 
-1. Type `/hooks` in the chat input and press `kbstyle(Enter)`.
+* Type `/hooks` in the chat input and press `kbstyle(Enter)`.
+* Open the Command Palette (`kb(workbench.action.showCommands)`) and run **Chat: Configure Hooks**.
+* Select the **Settings** icon (<i class="codicon codicon-gear"></i>) at the top of the Chat view, then select **Hooks**.
+
+In the configure hooks menu:
 
 1. Select a hook event type from the list.
 
@@ -698,7 +714,7 @@ VS Code parses Claude Code's hook configuration format, including matcher syntax
 
 ### How does VS Code handle Copilot CLI hook configurations?
 
-VS Code parses Copilot CLI hook configurations and converts the lowerCamelCase hook event names (like `preToolUse`) to the PascalCase format used by VS Code (`PreToolUse`). Both `bash` and `powershell` command formats are supported.
+VS Code parses Copilot CLI hook configurations and converts the lowerCamelCase hook event names (like `preToolUse`) to the PascalCase format used by VS Code (`PreToolUse`). The `bash` and `powershell` command properties are mapped to OS-specific commands: `powershell` maps to `windows`, and `bash` maps to `osx` and `linux`.
 
 ## Security considerations
 
