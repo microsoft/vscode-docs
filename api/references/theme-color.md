@@ -1333,6 +1333,8 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `agentSessionReadIndicator.foreground`: Foreground color for the read indicator in an agent session.
 - `agentSessionSelectedBadge.border`: Border color for the badges in selected agent session items.
 - `agentSessionSelectedUnfocusedBadge.border`: Border color for the badges in selected agent session items when the view is unfocused.
+- `agentStatusIndicator.background`: Background color of the agent status indicator in the titlebar.
+- `aiCustomizationManagement.sashBorder`: The color of the Chat Customization Management editor splitview sash border.
 
 ## Extension colors
 
