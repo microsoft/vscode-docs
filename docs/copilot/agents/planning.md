@@ -74,7 +74,14 @@ When working on complex tasks, VS Code's agent will create a todo list to track 
 > [!TIP]
 > You can update the todo list using natural language like "revise step 1 to do x" or "add another task". If the agent's todos are not as expected, you can clear the list, but otherwise the agent manages the updates automatically based on your feedback and information it gathers while working on the request.
 
+## Session memory in plan mode
+
+The Plan agent automatically saves its implementation plan to a session memory file (`/memories/session/plan.md`). You can view this file during the session by running the **Chat: Show Memory Files** command. Session memory is cleared when the conversation ends, so the plan is not available in subsequent sessions.
+
+Session memory is one of three memory scopes that agents use to persist notes. Learn more about [memory in VS Code agents](/docs/copilot/agents/memory.md).
+
 ## Related resources
 
+* [Memory in VS Code agents](/docs/copilot/agents/memory.md)
 * [Configure tools for agents](/docs/copilot/agents/agent-tools.md)
 * [Context engineering user guide](/docs/copilot/guides/context-engineering-guide.md)

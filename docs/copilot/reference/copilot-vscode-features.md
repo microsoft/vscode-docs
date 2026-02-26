@@ -205,6 +205,7 @@ Use the [plan agent](/docs/copilot/agents/planning.md) in VS Code chat to create
 |--------|-------------|
 | Plan agent | Select the **Plan** agent from the agents dropdown or use the `/plan` slash command to create a detailed implementation plan for complex coding tasks. |
 | Todo list | View a todo list to track progress on complex tasks. Enable this with the `setting(chat.tools.todos.showWidget` setting. |
+| [Memory](/docs/copilot/agents/memory.md) | Agents save and recall persistent notes across conversations. Enable or disable with the `setting(github.copilot.chat.tools.memory.enabled)` setting. Use the **Chat: Show Memory Files** command to view stored memories. |
 
 ## Customize your chat experience
 

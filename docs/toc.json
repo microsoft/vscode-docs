@@ -110,6 +110,7 @@
           ["Overview", "/docs/copilot/agents/overview"],
           ["Agents Tutorial", "/docs/copilot/agents/agents-tutorial"],
           ["Planning", "/docs/copilot/agents/planning"],
+          ["Memory", "/docs/copilot/agents/memory"],
           ["Tools", "/docs/copilot/agents/agent-tools"],
           ["Subagents", "/docs/copilot/agents/subagents"],
           ["Local Agents", "/docs/copilot/agents/local-agents"],

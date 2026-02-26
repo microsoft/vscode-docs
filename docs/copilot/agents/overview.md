@@ -56,6 +56,7 @@ The following concepts describe different aspects of working with agents in VS C
 | **[Custom agent](/docs/copilot/customization/custom-agents.md)** | A reusable *configuration* (defined in an `.agent.md` file) that gives an agent a specific role, tools, and instructions. Custom agents work with any agent type. | Create a "Security Reviewer" custom agent with read-only tools that focuses on identifying vulnerabilities. |
 | **[Subagent](/docs/copilot/agents/subagents.md)** | A child agent spawned within a session to handle a subtask in its own isolated context window. | An agent researching a topic spawns a subagent to gather information, then receives only the summary back. |
 | **[Hand off](#hand-off-a-session-to-another-agent)** | Transferring a session from one agent type to another, carrying over the conversation history. | Start planning with a local agent, then hand off to a cloud agent to implement the plan as a pull request. |
+| **[Memory](/docs/copilot/agents/memory.md)** | Persistent notes that agents save and recall across conversations. Organized in three scopes: user, repository, and session. | Ask the agent to remember your coding preferences so it applies them in future sessions. |
 
 ## Types of agents
 
