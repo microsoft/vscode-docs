@@ -22,6 +22,9 @@ You can also use handoffs to create guided workflows between agents. Transition 
 
 This article describes how to create and manage custom agents in VS Code.
 
+> [!TIP]
+> Use the [Chat Customizations editor](/docs/copilot/customization/overview.md#chat-customizations-editor) (Preview) to discover, create, and manage all your chat customizations in one place. Run **Chat: Open Chat Customizations** from the Command Palette.
+
 > [!NOTE]
 > Custom agents are available as of VS Code release 1.106. Custom agents were previously known as custom chat modes.
 

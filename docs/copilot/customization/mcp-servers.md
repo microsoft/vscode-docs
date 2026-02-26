@@ -24,6 +24,9 @@ When you add an MCP server, VS Code automatically makes the MCP server [tools](/
 
 This article covers how to add, configure, and manage MCP servers. To learn about using tools in chat, see [Use tools with agents](/docs/copilot/agents/agent-tools.md).
 
+> [!TIP]
+> Use the [Chat Customizations editor](/docs/copilot/customization/overview.md#chat-customizations-editor) (Preview) to discover, create, and manage all your chat customizations in one place. Run **Chat: Open Chat Customizations** from the Command Palette.
+
 ## Quickstart: use an MCP server in chat
 
 Follow these steps to install an MCP server and use its tools in chat. This example uses the [Playwright](https://github.com/mcp/servers-playwright) MCP server to interact with web pages through a browser.

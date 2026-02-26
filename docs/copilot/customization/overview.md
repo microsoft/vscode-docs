@@ -43,14 +43,14 @@ This article covers the customization options in VS Code: custom instructions, p
 
 VS Code supports two type of custom instructions:
 
-- **Always-on instructions**: automatically applied to every chat session.
-- **File-based instructions**: applied based on file path patterns or based on the instruction description
+* **Always-on instructions**: automatically applied to every chat session.
+* **File-based instructions**: applied based on file path patterns or based on the instruction description
 
 Use custom instructions to:
 
-- Document _how_ to work with your code, such as coding standards, preferred technologies, or project requirements
-- Provide project-wide context that helps the AI understand the project's goal, architecture, and file structure
-- Specify task-specific guidelines, such as how to write tests, documentation, or perform code reviews
+* Document _how_ to work with your code, such as coding standards, preferred technologies, or project requirements
+* Provide project-wide context that helps the AI understand the project's goal, architecture, and file structure
+* Specify task-specific guidelines, such as how to write tests, documentation, or perform code reviews
 
 ## Agent Skills
 
@@ -58,10 +58,10 @@ Use custom instructions to:
 
 Use Agent Skills to:
 
-- Create reusable capabilities that work across different GitHub Copilot tools
-- Define specialized workflows for testing, debugging, or deployment processes
-- Share capabilities with the AI community using the open standard
-- Include scripts, examples, and other resources alongside instructions
+* Create reusable capabilities that work across different GitHub Copilot tools
+* Define specialized workflows for testing, debugging, or deployment processes
+* Share capabilities with the AI community using the open standard
+* Include scripts, examples, and other resources alongside instructions
 
 ## Prompt files
 
@@ -69,8 +69,8 @@ Use Agent Skills to:
 
 Use prompt files to:
 
-- Simplify prompting for common tasks, such as scaffolding a new component, running and fixing tests, or preparing a pull request
-- Override default behavior of a custom agent, such as creating a minimal implementation plan, or generating mockups for API calls
+* Simplify prompting for common tasks, such as scaffolding a new component, running and fixing tests, or preparing a pull request
+* Override default behavior of a custom agent, such as creating a minimal implementation plan, or generating mockups for API calls
 
 ## Custom agents
 
@@ -78,9 +78,9 @@ Use prompt files to:
 
 Use custom agents to:
 
-- Create specialist custom agents that focus on a specific task or role, giving them only the relevant context and tools
-- Create modular workflows by orchestrating multiple specialized agents, where each agent handles a specific part of the process
-- Help optimize context usage for complex tasks by running custom agents as [subagents](/docs/copilot/agents/subagents.md)
+* Create specialist custom agents that focus on a specific task or role, giving them only the relevant context and tools
+* Create modular workflows by orchestrating multiple specialized agents, where each agent handles a specific part of the process
+* Help optimize context usage for complex tasks by running custom agents as [subagents](/docs/copilot/agents/subagents.md)
 
 ## MCP and tools
 
@@ -88,8 +88,8 @@ Use custom agents to:
 
 Use MCP and tools to:
 
-- Connect database tools to query and analyze data without leaving your development environment
-- Integrate with external APIs to fetch real-time information or perform actions
+* Connect database tools to query and analyze data without leaving your development environment
+* Integrate with external APIs to fetch real-time information or perform actions
 
 ## Hooks
 
@@ -108,9 +108,9 @@ Use hooks to:
 
 Use different language models to:
 
-- Use a fast model for quick code suggestions and simple refactoring tasks
-- Switch to a more capable model for complex architectural decisions or detailed code reviews
-- Bring your own API key to access experimental models or use locally hosted models
+* Use a fast model for quick code suggestions and simple refactoring tasks
+* Switch to a more capable model for complex architectural decisions or detailed code reviews
+* Bring your own API key to access experimental models or use locally hosted models
 
 ## Set up your project for AI
 
@@ -131,6 +131,33 @@ Implement AI customizations incrementally. Start with the basics and add more as
 
 1. **Create specialized workflows**: Build custom agents for specific roles or project phases. Package reusable capabilities as agent skills to share across tools and minimize context usage.
 
+## Chat Customizations editor
+
+> [!NOTE]
+> The Chat Customizations editor is currently in preview.
+
+The Chat Customizations editor provides a centralized UI for discovering, creating, and managing all your chat customizations in one place, instead of working with individual files and commands.
+
+To open the Chat Customizations editor, run **Chat: Open Chat Customizations** from the Command Palette (`kb(workbench.action.showCommands)`).
+
+![Screenshot of the Chat Customizations editor, showing the sidebar with customization categories and the main view listing custom agents.](../images/customization/chat-customizations-editor.png)
+
+The editor sidebar lists seven customization categories:
+
+* **Agents** - custom agents for specialized AI personas
+* **Skills** - agent skills with instructions, scripts, and resources
+* **Instructions** - custom instruction files for coding standards and guidelines
+* **Prompts** - prompt files for repeatable tasks
+* **Hooks** - lifecycle automation scripts
+* **MCP Servers** - external tool integrations, with marketplace browsing and installation
+
+Select a category to view all existing customizations. From each category, you can:
+
+* Create new customizations for your workspace or user profile, with the option of AI-guided generation
+* Search and filter by name, description, or filename
+* Select an item to edit it in an embedded code editor
+* Browse and install MCP servers from the marketplace (in the MCP Servers section)
+
 ## Troubleshoot customization issues
 
 If your customization files aren't being applied or are causing unexpected behavior, use the chat customization diagnostics view to identify problems.
@@ -141,10 +168,10 @@ Learn more about [troubleshooting AI in VS Code](/docs/copilot/troubleshooting.m
 
 ## Related resources
 
-- [Create custom instructions](/docs/copilot/customization/custom-instructions.md)
-- [Use Agent Skills](/docs/copilot/customization/agent-skills.md)
-- [Create reusable prompt files](/docs/copilot/customization/prompt-files.md)
-- [Create custom agents](/docs/copilot/customization/custom-agents.md)
-- [Choose language models](/docs/copilot/customization/language-models.md)
-- [Add and manage MCP servers](/docs/copilot/customization/mcp-servers.md)
-- [Use hooks for lifecycle automation](/docs/copilot/customization/hooks.md)
+* [Create custom instructions](/docs/copilot/customization/custom-instructions.md)
+* [Use Agent Skills](/docs/copilot/customization/agent-skills.md)
+* [Create reusable prompt files](/docs/copilot/customization/prompt-files.md)
+* [Create custom agents](/docs/copilot/customization/custom-agents.md)
+* [Choose language models](/docs/copilot/customization/language-models.md)
+* [Add and manage MCP servers](/docs/copilot/customization/mcp-servers.md)
+* [Use hooks for lifecycle automation](/docs/copilot/customization/hooks.md)

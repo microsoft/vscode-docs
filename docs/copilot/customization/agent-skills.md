@@ -25,6 +25,9 @@ Key benefits of Agent Skills:
 * **Compose capabilities**: Combine multiple skills to build complex workflows
 * **Efficient loading**: Only relevant content loads into context when needed
 
+> [!TIP]
+> Use the [Chat Customizations editor](/docs/copilot/customization/overview.md#chat-customizations-editor) (Preview) to discover, create, and manage all your chat customizations in one place. Run **Chat: Open Chat Customizations** from the Command Palette.
+
 ## Agent Skills vs custom instructions
 
 While both Agent Skills and custom instructions help customize Copilot's behavior, they serve different purposes:
