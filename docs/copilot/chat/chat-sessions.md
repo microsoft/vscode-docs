@@ -87,9 +87,6 @@ To configure the VS Code welcome page as your startup experience, set `setting(w
 
 ## Send messages while a request is running
 
-> [!NOTE]
-> Message steering and queuing are experimental features.
-
 You don't have to wait for a response to finish before sending your next message. While a request is in progress, the **Send** button changes to a dropdown that gives you three options for how to handle the new message.
 
 ![Screenshot of the Send button dropdown menu showing options to queue, steer, or stop and send a new message.](../images/chat-sessions/send-dropdown.png)
