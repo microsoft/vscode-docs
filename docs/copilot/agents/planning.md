@@ -69,7 +69,7 @@ The plan agent uses a 4-phase iterative workflow: **Discovery** (research) → *
 
 When working on complex tasks, VS Code's agent will create a todo list to track progress. The todo list breaks down your request into individual tasks and updates automatically as the AI completes each step. This helps you to monitor progress and allows the agent to stay focused during long-running tasks.
 
-<video src="../images/chat-planning/todo-list-demo.mp4" title="Video showing the todo list control in the Chat view to track the progress of a chat request." autoplay loop controls muted></video>
+<video src="../images/chat-planning/todo-list-demo.mp4" title="Video showing the todo list control in the Chat view to track the progress of a chat request." loop controls muted></video>
 
 > [!TIP]
 > You can update the todo list using natural language like "revise step 1 to do x" or "add another task". If the agent's todos are not as expected, you can clear the list, but otherwise the agent manages the updates automatically based on your feedback and information it gathers while working on the request.

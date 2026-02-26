@@ -55,7 +55,7 @@ In this step, you use a local agent to create the initial todo app structure. Lo
     Create a simple todo app with HTML, CSS, and JavaScript. Include an input field to add todos, a list to display them, and a delete button for each item.
     ```
 
-    <video src="../images/agents-tutorial/local-agent-todo-app-scaffold-v2.mp4" alt="Video showing a local agent scaffolding a todo app in VS Code." muted autoplay loop></video>
+    <video src="../images/agents-tutorial/local-agent-todo-app-scaffold-v2.mp4" alt="Video showing a local agent scaffolding a todo app in VS Code." muted loop controls></video>
 
 1. Review as the agent generates the different files for the app. Use **Keep** or **Undo** to accept or reject changes as needed.
 
@@ -97,7 +97,7 @@ In this step, you use the plan agent to create an implementation plan for a them
 
 1. The background agent creates a Git worktree where it starts implementing the feature. You can track the background agent in the **Sessions** view. Select the session to see details about its progress.
 
-    <video src="../images/agents-tutorial/background-agent-theme-switcher-v2.mp4" alt="Video showing a background agent implementing a theme switcher feature in VS Code." muted autoplay loop></video>
+    <video src="../images/agents-tutorial/background-agent-theme-switcher-v2.mp4" alt="Video showing a background agent implementing a theme switcher feature in VS Code." muted loop controls></video>
 
     > [!TIP]
     > While the background agent works, you can continue editing your main workspace without conflicts.
@@ -131,7 +131,7 @@ In this step, you use a cloud agent (Copilot coding agent) to redesign the app l
 
 1. The cloud agent starts a new session to work on your request. It creates a branch and pull request in your GitHub repository.
 
-    <video src="../images/agents-tutorial/cloud-agent-redesign-todo-app-v2.mp4" alt="Video showing a cloud agent redesigning a todo app in VS Code." muted autoplay loop></video>
+    <video src="../images/agents-tutorial/cloud-agent-redesign-todo-app-v2.mp4" alt="Video showing a cloud agent redesigning a todo app in VS Code." muted loop controls></video>
 
 1. You can track the cloud agent in the **Sessions** view in the Chat view or select the link to view the pull request details.
 

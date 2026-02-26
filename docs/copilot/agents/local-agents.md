@@ -74,6 +74,12 @@ Ask uses agentic capabilities to research your codebase and gather relevant cont
 
 Open chat by using Ask: [Stable](vscode://GitHub.Copilot-Chat/chat?mode=ask) | [Insiders](vscode-insiders://GitHub.Copilot-Chat/chat?mode=ask)
 
+### Edit mode (hidden)
+
+Edit _mode_ is optimized for making multi-file code edits. VS Code applies the code changes directly in the editor and lets you review and accept the changes.
+
+Edit mode is hidden by default in the agent picker, unless your organization has disabled Agent mode. You can restore Edit mode by disabling the `setting(chat.editMode.hidden)` setting.
+
 ## Get started
 
 > [!TIP]
