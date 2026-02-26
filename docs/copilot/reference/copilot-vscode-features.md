@@ -162,6 +162,8 @@ Slash commands are shortcuts to specific functionality within the chat. You can 
 | `/instructions` | Configure your [custom instructions](/docs/copilot/customization/custom-instructions.md). |
 | `/prompts` | Configure your [reusable prompt files](/docs/copilot/customization/prompt-files.md). |
 | `/skills` | Configure your [agent skills](/docs/copilot/customization/agent-skills.md). |
+| `/yolo`<br/>`/autoApprove` | Enable [global auto-approval](/docs/copilot/agents/agent-tools.md#can-i-automatically-approve-all-tools-and-terminal-commands) of all tool calls (`setting(chat.tools.global.autoApprove)`). Shows a warning dialog the first time. |
+| `/disableYolo`<br/>`/disableAutoApprove` | Disable [global auto-approval](/docs/copilot/agents/agent-tools.md#can-i-automatically-approve-all-tools-and-terminal-commands) of all tool calls. |
 | `/<skill name>` | Run an [agent skill](/docs/copilot/customization/agent-skills.md) in chat. For example, if you have a skill file named `webapp-testing.md`, you can run it by typing `/webapp-testing`. |
 | `/<prompt name>` | Run a [reusable prompt](/docs/copilot/customization/prompt-files.md) in chat. |
 
