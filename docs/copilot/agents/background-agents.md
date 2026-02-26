@@ -39,6 +39,8 @@ Because background agents run in the background without user interaction, they a
 
 You can start a new background agent session directly in chat by choosing the background session type. Alternatively, you can hand off a local session to a background agent for continuation in the background.
 
+Background agents support slash commands in chat, including [reusable prompts](/docs/copilot/customization/prompt-files.md), [agent skills](/docs/copilot/customization/agent-skills.md), [hooks](/docs/copilot/customization/hooks.md), and `/compact` to manage long conversations. Type `/` in the chat input of a background session to see available commands.
+
 To prevent interference with your active work in the editor, background agents use Git worktrees to run in an [isolated environment](#create-background-agent-session) where they make changes without affecting your main workspace. When you start a background agent session, VS Code automatically creates a separate folder for that session.
 
 ### Limitations of background agents
