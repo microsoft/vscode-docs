@@ -282,12 +282,16 @@ Use the `setting(chat.tools.terminal.sandbox.network)` setting to allow specific
 {
   "chat.tools.terminal.sandbox.network": {
     // Allow network access to specific domains
-    "allowedDomains": ["api.github.com", "*.npmjs.org"]
+    "allowedDomains": ["api.github.com", "*.npmjs.org"],
+    // Include domains from the Trusted Domains list
+    "allowTrustedDomains": true
   }
 }
 ```
 
 By default, network access is blocked for all domains when sandboxing is enabled.
+
+When `allowTrustedDomains` is set to `true`, the domains from your [Trusted Domains](/docs/editing/editingevolved.md#outgoing-link-protection) list are automatically included in the allowed domains for network access. The sandbox configuration updates automatically when the Trusted Domains list changes.
 
 ## Group tools with tool sets
 
