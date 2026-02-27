@@ -9,7 +9,7 @@ Visual Studio Code has hundreds of [settings](/docs/configure/settings.md), thou
 
 ## Access the Profiles editor
 
-The **Profiles editor** enables you to create and manage your profiles in VS Code from a single place.
+The **Profiles editor** enables you to create and manage your profiles in VS Code from a single place. The Profiles editor opens by default in a [modal overlay](/docs/getstarted/userinterface.md#modal-editors) on top of the editor area.
 
 ![Screenshot that shows the Profiles editor.](images/profiles/profiles-editor.png)
 

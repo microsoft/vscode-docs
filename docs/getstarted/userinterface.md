@@ -96,6 +96,22 @@ To pin a floating window to the top of the screen, select the **Set Always on To
 
 To learn more about floating windows, read the section in the [Custom Layout](/docs/configure/custom-layout.md#floating-windows) article.
 
+### Modal editors
+
+Certain configuration editors in VS Code open in a centered modal overlay on top of the editor area, rather than as a regular editor tab. These modal editors include:
+
+* **Settings** editor
+* **Keyboard Shortcuts** editor
+* **Profiles** editor
+* **Workspace Trust** editor
+* **Language Models** editor
+* **Extensions** editor
+
+You can dismiss a modal editor by clicking outside of it, pressing `kbstyle(Escape)`, or selecting the close button. You can also maximize it to fill the editor area, or move it back into the main window as a regular editor tab.
+
+> [!NOTE]
+> You can control this behavior with the `setting(workbench.editor.useModal)` setting. Set it to `off` to always open editors as regular tabs, `some` to open only configuration editors as modal overlays (default), or `all` to open all editors in a modal overlay.
+
 ## Minimap
 
 A Minimap (code outline) gives you a high-level overview of your source code, which is useful for quick navigation and code understanding. A file's minimap is shown on the right side of the editor. You can select or drag the shaded area to quickly jump to different sections in your file.

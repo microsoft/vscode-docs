@@ -65,7 +65,7 @@ At any time, you can see which model and model multiplier are used by hovering o
 
 You can use the language models editor to view all avalable models, choose which models are shown in the model picker, and add more models by adding from built-in providers or from extension-provided model providers.
 
-To open the Language Models editor, open the model picker in the Chat view and select **Manage Models** or run the **Chat: Manage Language Models** command from the Command Palette.
+To open the Language Models editor, open the model picker in the Chat view and select **Manage Models** or run the **Chat: Manage Language Models** command from the Command Palette. The Language Models editor opens by default in a [modal overlay](/docs/getstarted/userinterface.md#modal-editors) on top of the editor area.
 
 ![Screenshot that shows the Language Models editor.](../images/language-models/language-models-editor.png)
 
