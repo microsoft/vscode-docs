@@ -26,7 +26,7 @@ This article covers how to add, configure, and manage MCP servers. To learn abou
 
 ## Quickstart: use an MCP server in chat
 
-Follow these steps to install an MCP server and use its tools in chat. This example uses the [Playwright](https://github.com/mcp/servers-playwright) MCP server to interact with web pages through a browser.
+Follow these steps to install an MCP server and use its tools in chat. This example uses the [Playwright](https://github.com/microsoft/playwright-mcp) MCP server to interact with web pages through a browser.
 
 1. Open the Extensions view (`kb(workbench.view.extensions)`) and enter `@mcp playwright` in the search field.
 
