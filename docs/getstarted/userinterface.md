@@ -339,7 +339,7 @@ Zen Mode can be further tuned with the following settings:
 
 If you are overwhelmed by notifications popping up, there is a way to reduce notifications, either for all notifications, or for notifications from a specific extension.
 
-Select the bell icon in the Status Bar to open the Notifications area. This is a place where you can access all notifications at any time, even if you have enabled Do Not Disturb Mode.
+Select the bell icon in the Status Bar (or in the title bar, if notifications are positioned at top-right) to open the Notifications area. This is a place where you can access all notifications at any time, even if you have enabled Do Not Disturb Mode. You can change the notification position with the `setting(workbench.notifications.position)` setting. Learn more about [notification positions](/docs/configure/custom-layout.md#notifications).
 
 ![Notifications center](images/userinterface/notifications-center.png)
 

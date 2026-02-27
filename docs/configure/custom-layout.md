@@ -161,6 +161,20 @@ You can also add views and panels to existing view or panel to create groups. Fo
 
 You are not limited to using the mouse for moving views and panels. You can also customize layouts via the keyboard with the **View: Move View** and **View: Move Focused View** commands, where dropdowns let you pick the UI element to move and the destination, either a location like the Side bar or Panel region or an existing view or panel to create a group.
 
+## Notifications
+
+By default, Visual Studio Code shows notification toasts and the Notification Center in the bottom-right corner of the workbench. You can change the position of notifications with the `setting(workbench.notifications.position)` setting (experimental).
+
+The available positions are:
+
+* `bottom-right` (default) - Notifications appear in the bottom-right corner. The bell icon is in the Status Bar.
+* `bottom-left` - Notifications appear in the bottom-left corner. The bell icon moves to the left side of the Status Bar.
+* `top-right` - Notifications slide in from the top-right corner, similar to OS-level notifications. The bell icon moves from the Status Bar to the title bar.
+
+You can also change the notification position directly from the Notification Center. Open the Notification Center by selecting the bell icon, and then select the position icon in the header toolbar to choose a different position.
+
+When the notification position is set to `top-right`, use the `setting(workbench.notifications.showInTitleBar)` setting to control whether the bell icon is visible in the title bar.
+
 ## Tool bars
 
 Most VS Code views and panels have tool bars displayed on the top right of their UI. For example, the Search view has a tool bar with actions such as **Refresh**, **Clear Search Results**, etc.:
