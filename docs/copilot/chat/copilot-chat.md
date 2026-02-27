@@ -156,7 +156,7 @@ For more information, see [customizing AI in VS Code](/docs/copilot/customizatio
 
 ## Troubleshoot chat interactions
 
-Use the [Chat Debug view](/docs/copilot/chat/chat-debug-view.md) to inspect the details of AI requests and responses. The view shows the system prompt, user prompt, context sent to the language model, and tool invocations for each interaction. This is useful for understanding why the AI responded in a certain way or for troubleshooting unexpected results.
+Use [Agent Logs and the Chat Debug view](/docs/copilot/chat/chat-debug-view.md) to inspect what happens when you send a prompt. Agent Logs shows a chronological event log of tool calls, LLM requests, and prompt file discovery. The Chat Debug view shows the raw system prompt, user prompt, context, and tool payloads for each interaction. These tools are useful for understanding why the AI responded in a certain way or for troubleshooting unexpected results.
 
 ## Related resources
 

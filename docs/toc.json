@@ -149,7 +149,7 @@
           ["Prompt Examples", "/docs/copilot/chat/prompt-examples"],
           ["Review Edits", "/docs/copilot/chat/review-code-edits"],
           ["Checkpoints", "/docs/copilot/chat/chat-checkpoints"],
-          ["Chat Debug View", "/docs/copilot/chat/chat-debug-view"]
+          ["Debug Chat Interactions", "/docs/copilot/chat/chat-debug-view"]
         ]
       }
       ],

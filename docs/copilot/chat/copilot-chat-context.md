@@ -187,4 +187,4 @@ As you send more requests in a conversation, the control updates to reflect the 
 * [Chat overview](/docs/copilot/chat/copilot-chat.md)
 * [Prompt examples](/docs/copilot/chat/prompt-examples.md)
 * [Prompt engineering guide](/docs/copilot/guides/prompt-engineering-guide.md)
-* [Chat Debug view](/docs/copilot/chat/chat-debug-view.md)
+* [Debug chat interactions](/docs/copilot/chat/chat-debug-view.md)
