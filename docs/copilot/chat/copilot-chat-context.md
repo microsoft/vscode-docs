@@ -151,6 +151,19 @@ You can configure which information is included in the context:
 * Attach CSS: `setting(chat.sendElementsToChat.attachCSS)` setting
 * Attach images: `setting(chat.sendElementsToChat.attachImages)` setting
 
+## Interact with browser pages
+
+> [!NOTE]
+> Browser tools for agents are currently experimental.
+
+Agents can directly read and interact with pages in the [integrated browser](/docs/debugtest/integrated-browser.md) by using built-in browser tools. This enables agents to navigate to URLs, read page content and console errors, take screenshots, click elements, type text, and more, without requiring an external MCP server.
+
+To enable browser tools, set the `setting(workbench.browser.enableChatTools)` setting to `true`.
+
+For example, you can ask an agent to open your web app, check for layout issues, or verify that a feature works correctly. The agent opens the browser, interacts with the page, and reports back with its findings.
+
+Learn more about [browser tools for agents](/docs/debugtest/integrated-browser.md#browser-tools-for-agents).
+
 ## Monitor context window usage
 
 The chat input box displays a context window control that shows how much of the model's context window is being used. This visual indicator helps you understand when chat summarization might occur or when you should start a new session.

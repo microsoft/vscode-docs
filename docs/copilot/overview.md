@@ -73,6 +73,8 @@ Use the Plan agent to create a structured implementation plan for a new feature.
 
 * **Refactor or migrate a codebase.** Ask an agent to plan a migration, for example, from one framework to another, and it applies coordinated changes across files while verifying with builds.
 
+* **Test and interact with web apps.** _(Experimental)_ Ask an agent to open your web app in the [integrated browser](/docs/debugtest/integrated-browser.md), verify a feature works, check for layout issues, or take screenshots. Enable browser tools with the `setting(workbench.browser.enableChatTools)` setting. Learn more about [browser tools for agents](/docs/debugtest/integrated-browser.md#browser-tools-for-agents).
+
 * **Collaborate via pull requests.** Delegate a task to a cloud agent that creates a branch, implements the changes, and opens a pull request for your team to review. Learn more about [cloud agents](/docs/copilot/agents/cloud-agents.md).
 
 ## Getting started

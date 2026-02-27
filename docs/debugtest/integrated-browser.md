@@ -79,6 +79,19 @@ VS Code also has a built-in Simple Browser to preview web pages that has limited
 
 The Live Preview extension can use the integrated browser for previewing web pages. Enable the `setting(livePreview.useIntegratedBrowser)` setting to use it as the default preview browser.
 
+## Browser tools for agents
+
+> [!NOTE]
+> Browser tools for agents are currently experimental.
+
+Agents can read and interact with pages in the integrated browser by using built-in browser tools. When enabled, agents can open browser pages, navigate to URLs, read page content and console errors, take screenshots, click elements, type text, hover over elements, drag elements, handle dialogs, and run Playwright code, all without requiring an external MCP server.
+
+To enable browser tools, set the `setting(workbench.browser.enableChatTools)` setting to `true`. The tools are then available to the agent automatically.
+
+Browser pages opened by the agent use isolated ephemeral sessions, so they don't share cookies or storage with your other browser tabs.
+
+Browser tools are different from [adding elements to AI chat](#add-elements-to-ai-chat). Element selection lets you manually pick page elements as context for a chat prompt. Browser tools let agents autonomously interact with web pages to complete tasks.
+
 ## Related
 
 * [Add context to AI chat](/docs/copilot/chat/copilot-chat-context.md)
