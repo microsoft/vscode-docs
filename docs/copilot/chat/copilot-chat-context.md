@@ -160,6 +160,8 @@ Agents can directly read and interact with pages in the [integrated browser](/do
 
 To enable browser tools, set the `setting(workbench.browser.enableChatTools)` setting to `true`.
 
+You can also share a browser page you already have open with the agent. Select the **Share with Agent** button in the browser toolbar to give the agent access to your page, including your existing session and login state.
+
 For example, you can ask an agent to open your web app, check for layout issues, or verify that a feature works correctly. The agent opens the browser, interacts with the page, and reports back with its findings.
 
 Learn more about [browser tools for agents](/docs/debugtest/integrated-browser.md#browser-tools-for-agents).
