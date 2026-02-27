@@ -180,7 +180,7 @@ The context window control provides the following information:
 As you send more requests in a conversation, the control updates to reflect the increasing context usage. The total available context (denominator) changes based on the AI model you select, since different models have different context window sizes.
 
 > [!TIP]
-> When the context window fills up, VS Code automatically summarizes the conversation history to free up space. Start a [new chat session](/docs/copilot/chat/chat-sessions.md) if you want to reset the context entirely.
+> When the context window fills up, VS Code automatically summarizes the conversation history to free up space. You can also type `/compact` in the chat input to manually trigger compaction at any time. Optionally, add custom instructions after the command to guide how the summary is generated, for example `/compact focus on the database schema decisions`. Start a [new chat session](/docs/copilot/chat/chat-sessions.md) if you want to reset the context entirely.
 
 ## Related resources
 

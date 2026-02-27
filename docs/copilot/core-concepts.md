@@ -89,7 +89,7 @@ VS Code gathers context automatically and gives you control over what to include
 
 The context window is the total amount of information a model can process in a single request. It includes everything: the system prompt, custom instructions, conversation history, file contents, tool outputs, and your current message. Different models have different context window sizes.
 
-When the context window fills up, VS Code automatically summarizes older parts of the conversation to make room. This means important details from early in a long conversation might be compressed or lost.
+When the context window fills up, VS Code automatically summarizes older parts of the conversation to make room. This means important details from early in a long conversation might be compressed or lost. You can also type `/compact` in the chat input to manually trigger compaction at any time, without waiting for the context window to fill up. Optionally, add custom instructions after the command to guide the summary, for example `/compact focus on the API design decisions`.
 
 To work effectively with context window limits:
 
