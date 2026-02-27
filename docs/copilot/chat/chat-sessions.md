@@ -65,6 +65,20 @@ Alternatively, choose any of the following commands from the Command Palette:
 * **Chat: Move Chat into New Window**
 * **Chat: Move Chat into Side Bar**
 
+## Fork a chat session
+
+Forking a chat session creates a new, independent session that inherits the conversation history from the original session. The forked session is fully separate from the original, so changes in one session do not affect the other. The new session title is prefixed with "Forked:" to help you identify it.
+
+Forking is useful when you want to explore an alternative approach, ask a side question, or branch a long conversation in a different direction without losing the original context.
+
+There are two ways to fork a chat session:
+
+* **Fork the entire session**: type `/fork` in the chat input box and press `kbstyle(Enter)`. A new session opens with the full conversation history copied from the current session.
+
+* **Fork from a checkpoint**: hover over a chat request in the conversation and select the **Fork Conversation** button. A new session opens that includes only the requests up to and including that checkpoint.
+
+    ![Screenshot of the Fork Conversation button in the checkpoint toolbar in the Chat view.](../images/chat-checkpoints/chat-fork-conversation.png)
+
 ## Session history
 
 The Chat view shows your recent and active chat sessions, regardless of where they run. When you select a session from the list, you can see the full conversation history and context for that session. Send new prompts in that session to continue the conversation.
