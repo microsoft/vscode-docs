@@ -217,7 +217,7 @@ Customize the Source Control Graph with these settings:
 
 * `setting(scm.graph.showIncomingChanges)`: show or hide incoming commits
 * `setting(scm.graph.showOutgoingChanges)`: show or hide outgoing commits
-* `setting(git.graph.pageSize)`: number of commits to load initially
+* `setting(scm.graph.pageSize)`: number of commits to load initially
 
 Learn more about [viewing commit history with the Source Control Graph](/docs/sourcecontrol/staging-commits.md#graph-view-for-commit-history).
 
