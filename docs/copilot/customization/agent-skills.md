@@ -252,6 +252,8 @@ This architecture means skills are both automatically activated based on your pr
 
 You can use skills created by others to enhance Copilot's capabilities. The [github/awesome-copilot](https://github.com/github/awesome-copilot) repository contains a growing community collection of skills, custom agents, instructions, and prompts. The [anthropics/skills](https://github.com/anthropics/skills) repository contains additional reference skills.
 
+You can also discover and install skills that are bundled in [agent plugins](/docs/copilot/customization/agent-plugins.md). Skills from installed plugins appear alongside your locally defined skills in the **Configure Skills** menu.
+
 To use a shared skill:
 
 1. Browse the available skills in the repository
@@ -327,3 +329,4 @@ Learn more about the Agent Skills standard at [agentskills.io](https://agentskil
 * [Create custom agents](/docs/copilot/customization/custom-agents.md)
 * [Agent Skills specification](https://agentskills.io)
 * [Reference skills repository](https://github.com/anthropics/skills)
+* [Discover and manage agent plugins](/docs/copilot/customization/agent-plugins.md)

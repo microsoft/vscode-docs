@@ -20,7 +20,7 @@ Keywords:
 
 AI models have broad general knowledge but don't know your codebase or team practices. Think of the AI as a skilled new team member: it writes great code, but doesn't know your conventions, architecture decisions, or preferred libraries. Customization is how you share that context, so responses match your coding standards, project structure, and workflows.
 
-This article covers the customization options in VS Code: custom instructions, prompt files, custom agents, agent skills, MCP servers, and language models.
+This article covers the customization options in VS Code: custom instructions, prompt files, custom agents, agent skills, MCP servers, agent plugins, and language models.
 
 ## Quick reference
 
@@ -33,6 +33,7 @@ This article covers the customization options in VS Code: custom instructions, p
 | Specialized AI persona with tool restrictions | [Custom agents](#custom-agents) | When you select it or another agent delegates to it |
 | Connect to external APIs or databases | [MCP](#mcp-and-tools) | When the task matches a tool description |
 | Automate tasks at agent lifecycle points | [Hooks](#hooks) | When the agent reaches a matching lifecycle event |
+| Install pre-packaged customizations from marketplaces | [Agent plugins](#agent-plugins) (Preview) | When you install a plugin |
 
 > [!TIP]
 > **Prompt files vs custom agents**: Prompt files are best for single, repeatable tasks invoked as slash commands (for example, scaffolding a component). Custom agents are persistent personas that control which tools are available and can orchestrate subagents for multi-step workflows.
@@ -101,6 +102,18 @@ Use hooks to:
 * Automate code quality workflows by running formatters and linters after file edits
 * Create audit trails of all tool invocations for compliance
 * Inject project context into agent sessions automatically
+
+## Agent plugins
+
+> **Note:** Agent plugins is currently in preview.
+
+[Agent plugins](/docs/copilot/customization/agent-plugins.md) are pre-packaged bundles of chat customizations that you can discover and install from plugin marketplaces. A single plugin can provide slash commands, skills, custom agents, hooks, and MCP servers. Installed plugins appear alongside your locally defined customizations.
+
+Use agent plugins to:
+
+* Discover and install ready-made customizations from plugin marketplaces
+* Extend Copilot with community-contributed commands, skills, and tools
+* Add additional marketplaces, including private repositories
 
 ## Language models
 
@@ -177,3 +190,4 @@ Learn more about [troubleshooting AI in VS Code](/docs/copilot/troubleshooting.m
 * [Choose language models](/docs/copilot/customization/language-models.md)
 * [Add and manage MCP servers](/docs/copilot/customization/mcp-servers.md)
 * [Use hooks for lifecycle automation](/docs/copilot/customization/hooks.md)
+* [Discover and manage agent plugins](/docs/copilot/customization/agent-plugins.md)

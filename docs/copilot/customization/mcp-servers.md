@@ -268,3 +268,4 @@ Verify that the command arguments are correct and that the container is not runn
 * [Use tools with agents](/docs/copilot/agents/agent-tools.md)
 * [Model Context Protocol Documentation](https://modelcontextprotocol.io/)
 * [MCP Apps support in VS Code](https://code.visualstudio.com/blogs/2026/01/26/mcp-apps-support)
+* [Discover and manage agent plugins](/docs/copilot/customization/agent-plugins.md)
