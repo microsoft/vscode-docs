@@ -96,6 +96,12 @@ To create a skill:
     * `test-template.js` - A template test file
     * `examples/` - Example test scenarios
 
+### Generate a skill with AI
+
+You can use AI to generate a skill based on a description of the capability. Type `/create-skill` in chat and describe the skill you want (for example, "a skill for running and debugging integration tests"). The agent asks clarifying questions and generates a `SKILL.md` file with the directory structure, instructions, and frontmatter.
+
+You can also extract a reusable skill from an ongoing conversation. For example, after a multi-turn session where you debugged a complex issue, ask "create a skill from how we just debugged that" to capture the multi-step procedure as a reusable skill.
+
 ## SKILL.md file format
 
 The `SKILL.md` file is a Markdown file with YAML frontmatter that defines the skill's metadata and behavior.

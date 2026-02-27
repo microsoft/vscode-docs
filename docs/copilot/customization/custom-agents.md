@@ -239,6 +239,12 @@ You can create a custom agent file in your workspace or user profile.
 
 To update a custom agent definition file, select **Configure Custom Agents** from the agents dropdown, and then select a custom agent from the list to modify it.
 
+### Generate a custom agent with AI
+
+You can use AI to generate a custom agent based on a description of the role. Type `/create-agent` in Agent mode chat and describe the persona you want (for example, "a security review agent"). The agent asks clarifying questions and generates an `.agent.md` file with appropriate tools, instructions, and frontmatter.
+
+You can also extract a custom agent from an ongoing conversation. For example, after a multi-turn debugging session, ask "make an agent for this kind of task" to capture the workflow as a reusable custom agent.
+
 ## Customize the agents dropdown list
 
 If you have multiple custom agents, you can customize which ones appear in the agents dropdown. To show or hide specific custom agents:

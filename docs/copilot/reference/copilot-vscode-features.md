@@ -163,6 +163,11 @@ Slash commands are shortcuts to specific functionality within the chat. You can 
 | `/instructions` | Configure your [custom instructions](/docs/copilot/customization/custom-instructions.md). |
 | `/prompts` | Configure your [reusable prompt files](/docs/copilot/customization/prompt-files.md). |
 | `/skills` | Configure your [agent skills](/docs/copilot/customization/agent-skills.md). |
+| `/create-prompt` | Generate a [prompt file](/docs/copilot/customization/prompt-files.md) with AI assistance in Agent mode. |
+| `/create-instruction` | Generate an [instructions file](/docs/copilot/customization/custom-instructions.md) with AI assistance in Agent mode. |
+| `/create-skill` | Generate an [agent skill](/docs/copilot/customization/agent-skills.md) with AI assistance in Agent mode. |
+| `/create-agent` | Generate a [custom agent](/docs/copilot/customization/custom-agents.md) with AI assistance in Agent mode. |
+| `/create-hook` | Generate a [hook](/docs/copilot/customization/hooks.md) configuration with AI assistance in Agent mode. |
 | `/yolo`<br/>`/autoApprove` | Enable [global auto-approval](/docs/copilot/agents/agent-tools.md#can-i-automatically-approve-all-tools-and-terminal-commands) of all tool calls (`setting(chat.tools.global.autoApprove)`). Shows a warning dialog the first time. |
 | `/disableYolo`<br/>`/disableAutoApprove` | Disable [global auto-approval](/docs/copilot/agents/agent-tools.md#can-i-automatically-approve-all-tools-and-terminal-commands) of all tool calls. |
 | `/<skill name>` | Run an [agent skill](/docs/copilot/customization/agent-skills.md) in chat. For example, if you have a skill file named `webapp-testing.md`, you can run it by typing `/webapp-testing`. |

@@ -196,6 +196,15 @@ To create an instructions file:
 
 To modify an existing instructions file, in the Chat view, select **Configure Chat** (gear icon) > **Chat Instructions**, and then select an instructions file from the list. Alternatively, use the **Chat: Configure Instructions** command from the Command Palette (`kb(workbench.action.showCommands)`) and select the instructions file from the Quick Pick.
 
+### Generate an instructions file with AI
+
+You can use AI to generate a targeted instructions file. Type `/create-instruction` in chat and describe the convention or guideline you want to enforce (for example, "always use tabs and single quotes in this project"). The agent asks clarifying questions and generates an `.instructions.md` file with the appropriate `applyTo` pattern and content.
+
+You can also extract instructions from an ongoing conversation. For example, if you corrected the agent's import style during a chat session, ask "extract an instruction from this" to capture that correction as a project convention.
+
+> [!NOTE]
+> `/create-instruction` generates targeted, on-demand instruction files. To generate workspace-wide always-on instructions, use the [`/init` command](#generate-custom-instructions-for-your-workspace) instead.
+
 <details>
 <summary>Example: Language-specific coding guidelines</summary>
 

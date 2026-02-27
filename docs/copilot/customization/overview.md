@@ -131,6 +131,8 @@ Implement AI customizations incrementally. Start with the basics and add more as
 
 1. **Create specialized workflows**: Build custom agents for specific roles or project phases. Package reusable capabilities as agent skills to share across tools and minimize context usage.
 
+1. **Generate customizations with AI**: Type `/create-prompt`, `/create-instruction`, `/create-skill`, `/create-agent`, or `/create-hook` in chat to generate any customization file with AI assistance. Describe what you want, and the agent asks clarifying questions and produces the file. You can also extract customizations from an ongoing conversation by asking in natural language, such as "save this as a skill" or "turn this into a reusable prompt".
+
 ## Chat Customizations editor
 
 > [!NOTE]

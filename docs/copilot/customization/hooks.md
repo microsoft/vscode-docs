@@ -508,6 +508,10 @@ In the configure hooks menu:
 
 The command opens the hook file in the editor with your cursor positioned at the command field, ready for editing.
 
+### Generate a hook with AI
+
+You can use AI to generate a hook configuration. Type `/create-hook` in chat and describe the automation you want (for example, "run ESLint after every file edit"). The agent asks clarifying questions and generates a hook configuration file with the appropriate event type, command, and settings.
+
 ## Usage scenarios
 
 The following examples demonstrate common hook patterns.

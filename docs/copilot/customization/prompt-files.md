@@ -170,6 +170,12 @@ To create a prompt file:
 
 To modify an existing prompt file, in the Chat view, select **Configure Chat** > **Prompt Files**, and then select a prompt file from the list. Alternatively, use the **Chat: Configure Prompt Files** command from the Command Palette (`kb(workbench.action.showCommands)`) and select the prompt file from the Quick Pick.
 
+### Generate a prompt file with AI
+
+You can use AI to generate a prompt file based on a description of the task. Type `/create-prompt` in chat and describe the task you want to automate (for example, "a prompt for generating unit tests"). The agent asks clarifying questions, generates a `.prompt.md` file with appropriate frontmatter and instructions, and offers you a choice between workspace and user storage.
+
+You can also extract a reusable prompt from an ongoing conversation. For example, after a multi-turn chat session, ask "turn this into a reusable prompt" or "save this workflow as a prompt", and the agent creates a prompt file that captures the workflow.
+
 ## Use a prompt file in chat
 
 You have multiple options to run a prompt file:
