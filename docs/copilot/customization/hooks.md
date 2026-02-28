@@ -195,15 +195,15 @@ Hooks can return JSON via stdout to influence agent behavior. All hooks support 
 {
   "continue": true,
   "stopReason": "Security policy violation",
-  "systemMessage": "Operation blocked by security hook"
+  "systemMessage": "Unit tests failed"
 }
 ```
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `continue` | boolean | Set to `false` to stop processing (default: `true`) |
-| `stopReason` | string | Reason for stopping (shown to the model) |
-| `systemMessage` | string | Message displayed to the user |
+| `stopReason` | string | Reason for stopping, when `continue` is `false` (shown to the user) |
+| `systemMessage` | string | Warning message displayed to the user |
 
 ### Exit codes
 
@@ -220,7 +220,7 @@ The hook's exit code determines how VS Code handles the result:
 Hooks have several ways to control agent behavior: exit codes, top-level output fields (`continue`, `stopReason`), and hook-specific output fields (`hookSpecificOutput`). Use them in combination as follows:
 
 * **Exit code 2** is the simplest way to block an operation. The hook's stderr is shown to the model as context. No JSON output is needed.
-* **`continue: false`** in the JSON output stops the entire agent session. Use `stopReason` to tell the model why. This is more drastic than blocking a single tool call.
+* **`continue: false`** in the JSON output stops the entire agent session. Use `stopReason` to tell the user why. This is more drastic than blocking a single tool call.
 * **`hookSpecificOutput`** provides fine-grained control specific to each hook event. For example, `PreToolUse` hooks use `permissionDecision` to allow, deny, or prompt for a single tool call without stopping the session.
 * **`systemMessage`** displays a warning to the user in the chat, regardless of other decisions.
 
