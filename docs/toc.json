@@ -277,7 +277,7 @@
     "area": "typescript",
     "topics": [
       ["Tutorial", "/docs/typescript/typescript-tutorial"],
-      ["Compiling", "/docs/typescript/typescript-compiling"],
+      ["Transpiling", "/docs/typescript/typescript-transpiling"],
       ["Editing", "/docs/typescript/typescript-editing"],
       ["Refactoring", "/docs/typescript/typescript-refactoring"],
       ["Debugging", "/docs/typescript/typescript-debugging"]
