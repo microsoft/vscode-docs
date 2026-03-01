@@ -1,11 +1,13 @@
 ---
-Order:
-TOCTitle: <Month> <Year>
-PageTitle: Visual Studio Code <Month> <Year>
-MetaDescription: Learn what is new in the Visual Studio Code <Month> <Year> Release (1.<release number>).
+Order: <sequence number>
+TOCTitle: 1.<release number>
+PageTitle: Visual Studio Code 1.<release number>
+MetaDescription: Learn what's new in Visual Studio Code 1.<release number>
 MetaSocialImage: 1_<release number>/release-highlights.webp
 Date: <YYYY-MM-DD>
 DownloadVersion: 1.<release number>.0
+Milestone: <milestone name>
+ProductEdition: Stable
 ---
 # <Month> <Year> (version 1.<release number>)
 
@@ -15,7 +17,7 @@ _Release date: <release Month day, year>_
 
 ---
 
-Welcome to the <Month> <Year> release of Visual Studio Code.
+Welcome to the 1.<release number> release of Visual Studio Code.
 
 ![Placeholder for release image](images/1_<release number>/release-highlights.png)
 
