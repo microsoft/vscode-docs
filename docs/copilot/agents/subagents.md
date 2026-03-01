@@ -172,7 +172,7 @@ By default, a subagent inherits the agent from the main chat session and uses th
 
 You can control how a custom agent can be invoked by using two frontmatter properties:
 
-* `user-invokable`: controls whether the agent appears in the agents dropdown in chat (default is `true`). Set to `false` to create agents that are only accessible as subagents.
+* `user-invocable`: controls whether the agent appears in the agents dropdown in chat (default is `true`). Set to `false` to create agents that are only accessible as subagents.
 * `disable-model-invocation`: prevents the agent from being invoked as a subagent by other agents (default is `false`). Set to `true` when agents should only be triggered explicitly by users.
 
 For example, to create an agent that can only be used as a subagent (not visible in the dropdown):
@@ -180,14 +180,14 @@ For example, to create an agent that can only be used as a subagent (not visible
 ```markdown
 ---
 name: internal-helper
-user-invokable: false
+user-invocable: false
 ---
 
 This agent can only be invoked as a subagent.
 ```
 
 > [!NOTE]
-> The `infer` property is deprecated. Use `user-invokable` and `disable-model-invocation` instead for more granular control.
+> The `infer` property is deprecated. Use `user-invocable` and `disable-model-invocation` instead for more granular control.
 
 To run a custom agent as a subagent, prompt the AI to use a custom or built-in agent for the subagent. For example:
 
@@ -254,7 +254,7 @@ The worker agents each define their own tool access and can pick a faster or mor
 ```markdown
 ---
 name: Planner
-user-invokable: false
+user-invocable: false
 tools: ['read', 'search']
 ---
 Break down feature requests into implementation tasks. Incorporate feedback from the Plan Architect.
@@ -263,7 +263,7 @@ Break down feature requests into implementation tasks. Incorporate feedback from
 ```markdown
 ---
 name: Plan Architect
-user-invokable: false
+user-invocable: false
 tools: ['read', 'search']
 ---
 Validate plans against the codebase. Identify existing patterns, utilities, and libraries that should be reused. Flag any plan steps that duplicate existing functionality.
@@ -272,7 +272,7 @@ Validate plans against the codebase. Identify existing patterns, utilities, and 
 ```markdown
 ---
 name: Implementer
-user-invokable: false
+user-invocable: false
 model: ['Claude Haiku 4.5 (copilot)', 'Gemini 3 Flash (Preview) (copilot)']
 ---
 Write code to complete assigned tasks.
