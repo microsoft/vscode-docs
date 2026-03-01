@@ -106,7 +106,7 @@ Follow the VS Code release notes writing style:
 
 * Welcome paragraph is present and correctly references the release month (not a different month).
 * The welcome paragraph does not contain TODO placeholders.
-* Standard H2 sections are present and in the expected order (see the [template](../release-note-writer/template-release-note-endgame.md) for canonical order).
+* Standard H2 sections are present and in the expected order (see the [template](../../../templates/template-release-note-endgame.md) for canonical order).
 * Each feature section has a descriptive H3 title and a clear explanation of the change and its benefit.
 * `Notable fixes` and `Thank you` sections are present at the end (skip their content during review).
 
