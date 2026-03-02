@@ -240,7 +240,10 @@ Related settings:
 >
 > If prompt injection is a possibility or you're in a high-risk environment, consider [enabling terminal sandboxing](#sandbox-terminal-commands-experimental) or running VS Code within a container.
 
-### Sandbox terminal commands (Experimental)
+### Sandbox terminal commands
+
+> [!NOTE]
+> Terminal sandboxing is currently in preview and is only supported on macOS and Linux. On Windows, the sandbox settings have no effect.
 
 Terminal sandboxing restricts file system and network access for commands executed by the agent. When sandboxing is enabled, terminal commands are auto-approved without requiring user confirmation, because they run in a controlled environment.
 
@@ -251,9 +254,6 @@ When sandboxing is enabled:
 * Commands have read and write access to the current working directory by default
 * Network access is blocked for all domains by default
 * Commands run without the standard confirmation dialog
-
-> [!NOTE]
-> Terminal sandboxing is currently supported on macOS and Linux only. On Windows, the sandbox settings have no effect.
 
 #### Configure file system access
 
