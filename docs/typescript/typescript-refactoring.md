@@ -117,7 +117,7 @@ Organize imports can also be done automatically when you save a TypeScript file 
 
 When you move or rename a file that is imported by other files in your TypeScript project, VS Code can automatically update all import paths that reference the moved file.
 
-The `typescript.updateImportsOnFileMove.enabled` setting controls this behavior. Valid settings values are:
+The `js/ts.updateImportsOnFileMove.enabled` setting controls this behavior. Valid settings values are:
 
 * `"prompt"` - The default. Asks if paths should be updated for each file move.
 * `"always"` - Always automatically update paths.
@@ -159,7 +159,7 @@ VS Code automatically suggests some common code simplifications such as converti
     Sorry, your browser doesn't support HTML 5 video.
 </video>
 
-Set `"typescript.suggestionActions.enabled"` to `false` to disable suggestions.
+Set `"js/ts.suggestionActions.enabled"` to `false` to disable suggestions.
 
 ## Next steps
 

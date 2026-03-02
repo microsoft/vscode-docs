@@ -52,7 +52,7 @@ Inlay hints add additional inline information to source code to help you underst
 
 This can help you understand the meaning of each argument at a glance, which is especially helpful for functions that take Boolean flags or have parameters that are easy to mix up.
 
-To enable parameter name hints, set `typescript.inlayHints.parameterNames.enabled`. There are three possible values:
+To enable parameter name hints, set `js/ts.inlayHints.parameterNames.enabled`. There are three possible values:
 
 * `none` — Disable parameter inlay hints.
 * `literals` — Only show inlay hints for literals (string, number, Boolean).
@@ -60,25 +60,25 @@ To enable parameter name hints, set `typescript.inlayHints.parameterNames.enable
 
 **Variable type inlay hints** show the types of variables that don't have explicit type annotations.
 
-Setting: `typescript.inlayHints.variableTypes.enabled`
+Setting: `js/ts.inlayHints.variableTypes.enabled`
 
 ![Variable type inlay hints](images/editing/inlay-var-types.png)
 
 **Property type inlay hints** show the type of class properties that don't have an explicit type annotation.
 
-Setting: `typescript.inlayHints.propertyDeclarationTypes.enabled`
+Setting: `js/ts.inlayHints.propertyDeclarationTypes.enabled`
 
 ![Property type inlay hints](images/editing/inlay-property-types.png)
 
 **Parameter type hints**  show the types of implicitly typed parameters.
 
-Setting: `typescript.inlayHints.parameterTypes.enabled`
+Setting: `js/ts.inlayHints.parameterTypes.enabled`
 
 ![Parameter type inlay hints](images/editing/inlay-parameter-types.png)
 
 **Return type inlay hints** show the return types of functions that don't have an explicit type annotation.
 
-Setting: `typescript.inlayHints.functionLikeReturnTypes.enabled`
+Setting: `js/ts.inlayHints.functionLikeReturnTypes.enabled`
 
 ![Return type inlay hints](images/editing/inlay-return-type.png)
 
@@ -88,7 +88,7 @@ The TypeScript references CodeLens displays an inline count of reference for cla
 
 ![TypeScript references CodeLens](images/editing/ts-references-code-lens.png)
 
-You can enable this by setting `"typescript.referencesCodeLens.enabled": true` in the User Settings file.
+You can enable this by setting `"js/ts.referencesCodeLens.enabled": true` in the User Settings file.
 
 Click on the reference count to quickly browse a list of references:
 
@@ -100,7 +100,7 @@ The TypeScript implementations CodeLens displays the number of implementors of a
 
 ![TypeScript implementations CodeLens](images/editing/ts-implementations-code-lens.png)
 
-You can enable this by setting `"typescript.implementationsCodeLens.enabled": true`.
+You can enable this by setting `"js/ts.implementationsCodeLens.enabled": true`.
 
 As with the references CodeLens, you can click on the implementation count to quickly browse a list of all implementations.
 
@@ -116,7 +116,7 @@ If you choose one of the suggestions from another file or module, VS Code will a
 
 ![After selecting a symbol from a different file, an import is added for it automatically](images/editing/auto-import-post.png)
 
-You can disable auto imports by setting `"typescript.suggest.autoImports": false`.
+You can disable auto imports by setting `"js/ts.suggest.autoImports": false`.
 
 ### Add imports on paste
 
@@ -124,7 +124,7 @@ When you copy and paste code between editors, VS Code can automatically add impo
 
 <video src="images/editing/jsts-update-imports-paste.mp4" title="Copy code from one editor to another shows the paste widget and results in adding imports when pasting. " autoplay loop controls muted></video>
 
-This feature is enabled by default, but you can disable it by toggling the `setting(typescript.updateImportsOnPaste.enabled)` setting.
+This feature is enabled by default, but you can disable it by toggling the `setting(js/ts.updateImportsOnPaste.enabled)` setting.
 
 You can make paste with imports the default behavior, without showing the paste control, by configuring the `setting(editor.pasteAs.preferences)` setting. Include `text.updateImports.jsts` or `text.updateImports` to always add imports when pasting.
 
@@ -140,7 +140,7 @@ VS Code also includes JSX-specific features such as autoclosing of JSX tags in T
     Sorry, your browser doesn't support HTML 5 video.
 </video>
 
-Set `"typescript.autoClosingTags"` to `false` to disable JSX tag closing.
+Set `"js/ts.autoClosingTags.enabled"` to `false` to disable JSX tag closing.
 
 ## JSDoc support
 
@@ -154,7 +154,7 @@ Keep in mind that when using JSDoc for TypeScript code, you should not include t
     Sorry, your browser doesn't support HTML 5 video.
 </video>
 
-To disable JSDoc comment suggestions in TypeScript, set `"typescript.suggest.completeJSDocs": false`.
+To disable JSDoc comment suggestions in TypeScript, set `"js/ts.suggest.completeJSDocs": false`.
 
 ## Code navigation
 
@@ -175,7 +175,7 @@ You can navigate via symbol search using the **Go to Symbol** commands from the 
 
 VS Code includes a TypeScript formatter that provides basic code formatting with reasonable defaults.
 
-Use the `typescript.format.*` [settings](/docs/configure/settings.md) to configure the built-in formatter, such as making braces appear on their own line. Or, if the built-in formatter is getting in the way, set `"typescript.format.enable"` to `false` to disable it.
+Use the `js/ts.format.*` [settings](/docs/configure/settings.md) to configure the built-in formatter, such as making braces appear on their own line. Or, if the built-in formatter is getting in the way, set `"js/ts.format.enable"` to `false` to disable it.
 
 For more specialized code formatting styles, try installing one of the formatting extensions from the VS Code marketplace.
 

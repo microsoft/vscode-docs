@@ -114,7 +114,7 @@ Task auto detection can be disabled using the following settings:
 
 ```json
 {
-    "typescript.tsc.autoDetect": "off",
+    "js/ts.tsc.autoDetect": "off",
     "grunt.autoDetect": "off",
     "jake.autoDetect": "off",
     "gulp.autoDetect": "off",

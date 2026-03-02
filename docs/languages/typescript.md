@@ -131,7 +131,7 @@ You can navigate via symbol search using the **Go to Symbol** commands from the 
 
 VS Code includes a TypeScript formatter that provides basic code formatting with reasonable defaults.
 
-Use the `typescript.format.*` [settings](/docs/configure/settings.md) to configure the built-in formatter, such as making braces appear on their own line. Or, if the built-in formatter is getting in the way, set `"typescript.format.enable"` to `false` to disable it.
+Use the `js/ts.format.*` [settings](/docs/configure/settings.md) to configure the built-in formatter, such as making braces appear on their own line. Or, if the built-in formatter is getting in the way, set `"js/ts.format.enable"` to `false` to disable it.
 
 For more specialized code formatting styles, try installing one of the formatting extensions from the VS Code Marketplace.
 
