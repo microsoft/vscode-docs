@@ -184,7 +184,7 @@ To learn more, see:
 * [TypeScript tutorial](/docs/typescript/typescript-tutorial.md) - Create a simple Hello World TypeScript in VS Code.
 * [Editing TypeScript](/docs/typescript/typescript-editing.md) - Specific editing features for TypeScript.
 * [Refactoring TypeScript](/docs/typescript/typescript-refactoring.md) - Useful refactorings from the TypeScript language service.
-* [Compiling TypeScript](/docs/typescript/typescript-compiling.md) - Compile TypeScript to a JavaScript target version.
+* [Transpiling TypeScript](/docs/typescript/typescript-transpiling.md) - Compile TypeScript to a JavaScript target version.
 * [Debugging TypeScript](/docs/typescript/typescript-debugging.md) - Learn about debugging TypeScript both server and client-side with VS Code.
 
 ## Common questions
@@ -197,4 +197,4 @@ No, the TypeScript language service that ships with Visual Studio 2019 and 2022 
 
 The simplest way to try out the latest TypeScript features in VS Code is to install the [JavaScript and TypeScript Nightly extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-next).
 
-You can also [configure VS Code to use a specific TypeScript version](/docs/typescript/typescript-compiling.md#using-newer-typescript-versions).
+You can also [configure VS Code to use a specific TypeScript version](/docs/typescript/typescript-transpiling.md#using-newer-typescript-versions).

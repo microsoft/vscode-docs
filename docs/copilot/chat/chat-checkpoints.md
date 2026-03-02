@@ -19,7 +19,7 @@ Each chat request in your conversation history is editable. When you edit a prev
 
 To edit a previous chat request, select the request in the Chat view to modify and then resend it. You can configure or disable the editing experience with the `setting(chat.editRequests)` setting.
 
-<video src="../images/chat-checkpoints/chat-edit-request.mp4" title="Video showing the editing of a previous chat request in the Chat view." autoplay loop controls muted></video>
+<video src="../images/chat-checkpoints/chat-edit-request.mp4" title="Video showing the editing of a previous chat request in the Chat view." loop controls muted></video>
 
 ## Use checkpoints to revert file changes
 

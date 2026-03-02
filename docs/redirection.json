@@ -1,4 +1,5 @@
 [
     { "from": "/docs/copilot/setup-simplified", "to": "/docs/copilot/setup", "status": 301 },
-    { "from": "/docs/copilot/copilot-tips-and-tricks", "to": "/docs/copilot/best-practices", "status": 301 }
+    { "from": "/docs/copilot/copilot-tips-and-tricks", "to": "/docs/copilot/best-practices", "status": 301 },
+    { "from": "/docs/typescript/typescript-compiling", "to": "/docs/typescript/typescript-transpiling", "status": 301 }
 ]
