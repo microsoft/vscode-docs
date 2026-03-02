@@ -14,16 +14,16 @@
       "image": "/assets/blogs/2026/01/26/mcp-apps-list-sort.png"
     },
     {
-      "type": "highlight",
-      "title": "Claude Sonnet 4.6 generally available",
-      "description": "Claude Sonnet 4.6, Anthropic’s latest agentic coding model, is now rolling out in GitHub Copilot.",
-      "link": "https://github.blog/changelog/2026-02-17-claude-sonnet-4-6-is-now-generally-available-in-github-copilot/",
-      "image": "https://github.blog/wp-content/uploads/2026/02/github-copilot-header_53f21b.png?w=2064"
+      "type": "documentation",
+      "title": "AI core concepts overview",
+      "description": "Get an overview of the core concepts and how AI agents work in VS Code.",
+      "link": "/docs/copilot/core-concepts",
+      "image": "/assets/docs/copilot/core-concepts/agent-loop.png"
     },
     {
       "type": "insiders",
       "title": "New in Insiders",
-      "description": "Use `/fork` to start a new session that inherits the current conversation context.",
+      "description": "Support for agent plugins to install agent customizations. Fork a chat conversation with `/fork` to explore alternative paths.",
       "link": "/updates/v1_110"
     }
   ]
