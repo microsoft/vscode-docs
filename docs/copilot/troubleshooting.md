@@ -42,12 +42,14 @@ For more information about network configuration, see [Network and firewall conf
 
 VS Code provides tools to inspect what happens when you send a prompt to the AI.
 
-**Agent Logs** is the primary debugging tool. It shows a chronological event log of agent interactions, including tool call sequences, LLM requests, token usage, prompt file discovery, and errors.
+The **Agent Debug panel** is the primary debugging tool. It shows a chronological event log of agent interactions, including tool call sequences, LLM requests, token usage, prompt file discovery, and errors.
 
-To open Agent Logs:
+To open the Agent Debug panel:
 
 1. Select the gear icon in the Chat view.
 1. Select **Show Agent Logs**.
+
+Alternatively, run **Developer: Open Agent Debug Panel** from the Command Palette.
 
 The **Chat Debug view** shows the raw details of each LLM request and response, including the full system prompt, context, and tool payloads.
 

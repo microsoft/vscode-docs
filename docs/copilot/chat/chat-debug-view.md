@@ -13,15 +13,18 @@ VS Code offers two complementary debugging tools:
 * **Agent Logs** (Preview) shows a chronological event log of everything that happens during a chat session, including tool calls, LLM requests, prompt file discovery, and errors.
 * **Chat Debug view** shows the raw details of each LLM request and response, including the full system prompt, user prompt, context, and tool invocation payloads.
 
-## Agent Logs
+## Agent Debug panel
 
-Agent Logs is the primary tool for understanding what happens when you send a prompt. It shows a chronological event log of agent interactions during a chat session, making it especially useful when debugging [custom agents](/docs/copilot/agents/local-agents.md) and orchestrated sub-agent workflows.
+> [!NOTE]
+> The Agent Debug panel is currently in preview.
 
-### Open Agent Logs
+The Agent Debug panel is the primary tool for understanding what happens when you send a prompt. It shows a chronological event log of agent interactions during a chat session, making it especially useful when debugging [custom agents](/docs/copilot/agents/local-agents.md) and orchestrated sub-agent workflows.
 
-To open Agent Logs, select the gear icon in the Chat view and select **Show Agent Logs**.
+### Open the Agent Debug panel
 
-The Agent Logs panel starts with a summary of the session, showing aggregate statistics such as total tool calls, token usage, error count, and overall duration.
+To open the Agent Debug panel, select the gear icon in the Chat view and select **Show Agent Logs**.
+
+The Agent Debug panel starts with a summary of the session, showing aggregate statistics such as total tool calls, token usage, error count, and overall duration.
 
 Below the summary, you can switch between two views:
 
@@ -41,6 +44,9 @@ Below the summary, you can switch between two views:
     ![Screenshot of the flow chart in Agent Logs, showing the interactions between agents and sub-agents.](../images/chat-debug-view/agent-flow-chart.png)
 
     You can pan and zoom the flow chart and select any node in the flow chart to see details about that event.
+
+> [!NOTE]
+> The Agent Debug panel is currently only available for local chat sessions. Log data is not persisted, so you can only view logs for chat sessions from your current VS Code session.
 
 ## Chat Debug view
 
