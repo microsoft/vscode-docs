@@ -109,7 +109,7 @@ Having the generated JavaScript file in the same folder as the TypeScript source
 
 Delete `helloworld.js` and run the command `tsc` with no options. You will see that `helloworld.js` is now placed in the `out` directory.
 
-See [Compiling TypeScript](/docs/typescript/typescript-compiling.md) to learn about other features of the TypeScript language service and how to use tasks to run your builds directly from VS Code.
+See [Transpiling TypeScript](/docs/typescript/typescript-transpiling.md) to learn about other features of the TypeScript language service and how to use tasks to run your builds directly from VS Code.
 
 ## Error checking
 
@@ -162,7 +162,7 @@ See [Debugging TypeScript](/docs/typescript/typescript-debugging.md) to learn mo
 
 This tutorial was a quick introduction to using VS Code for TypeScript development. Read on to learn more about using VS Code's compiling and debugging support for TypeScript:
 
-* [Compiling TypeScript](/docs/typescript/typescript-compiling.md) - Use VS Code's powerful task system for compiling TypeScript.
+* [Transpiling TypeScript](/docs/typescript/typescript-transpiling.md) - Use VS Code's powerful task system for compiling TypeScript.
 * [Editing TypeScript](/docs/typescript/typescript-editing.md) - Specific editing features for TypeScript.
 * [Refactoring TypeScript](/docs/typescript/typescript-refactoring.md) - Useful refactorings from the TypeScript language service.
 * [Debugging TypeScript](/docs/typescript/typescript-debugging.md) - Configure the debugger for your TypeScript project.

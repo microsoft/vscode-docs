@@ -1,9 +1,9 @@
 ---
 ContentId: 59543856-da91-4a0d-9a98-9d5f2bf70c71
 DateApproved: 02/04/2026
-MetaDescription: Learn about TypeScript compiling with Visual Studio Code.
+MetaDescription: Learn about TypeScript transpiling with Visual Studio Code.
 ---
-# Compiling TypeScript
+# Transpiling TypeScript
 
 [TypeScript](https://www.typescriptlang.org) is a typed superset of JavaScript that transpiles to plain JavaScript. It offers classes, modules, and interfaces to help you build robust components.
 
