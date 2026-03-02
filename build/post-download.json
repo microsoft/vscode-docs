@@ -1,9 +1,9 @@
 {
   "featured": {
-    "title": "Multi-agent development",
-    "description": "VS Code is your home for multi-agent development. Run multiple AI agent sessions in parallel, across different projects, environments, and agent harnesses.",
-    "link": "/updates/v1_109",
-    "image": "/assets/updates/1_109/vscode-v1109-social.webp"
+    "title": "Use agents for practical, more complex tasks",
+    "description": "Add automation with hooks, fork conversations to explore different approaches, and let agents use the integrated browser for testing and validation.",
+    "link": "/updates/v1_110",
+    "image": "/assets/updates/1_110/release-highlights.webp"
   },
   "highlights": [
     {
@@ -21,10 +21,11 @@
       "image": "/assets/docs/copilot/core-concepts/agent-loop.png"
     },
     {
-      "type": "insiders",
-      "title": "New in Insiders",
-      "description": "Support for agent plugins to install agent customizations. Fork a chat conversation with `/fork` to explore alternative paths.",
-      "link": "/updates/v1_110"
+      "type": "blog",
+      "title": "Multi-agent development",
+      "description": "VS Code is your home for multi-agent development. Run multiple AI agent sessions in parallel, across different projects, environments, and agent harnesses.",
+      "link": "/blogs/2026/02/05/multi-agent-development",
+      "image": "/assets/blogs/2026/02/05/your-agent-ux.png"
     }
   ]
 }
