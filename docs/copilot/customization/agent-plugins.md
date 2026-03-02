@@ -16,12 +16,12 @@ Keywords:
 ---
 # Agent plugins in VS Code (Preview)
 
-Agent plugins are pre-packaged bundles of chat customizations that you can discover and install from plugin marketplaces in Visual Studio Code. A single plugin can provide any combination of slash commands, [agent skills](/docs/copilot/customization/agent-skills.md), [custom agents](/docs/copilot/customization/custom-agents.md), [hooks](/docs/copilot/customization/hooks.md), and [MCP servers](/docs/copilot/customization/mcp-servers.md).
+Agent plugins are prepackaged bundles of chat customizations that you can discover and install from plugin marketplaces in Visual Studio Code. A single plugin can provide any combination of slash commands, [agent skills](/docs/copilot/customization/agent-skills.md), [custom agents](/docs/copilot/customization/custom-agents.md), [hooks](/docs/copilot/customization/hooks.md), and [MCP servers](/docs/copilot/customization/mcp-servers.md).
 
 Plugins work alongside your locally defined customizations. When you install a plugin, its commands, skills, agents, hooks, and MCP servers appear in chat.
 
 > [!NOTE]
-> Agent plugins are currently in preview. Enable or disable agent plugins with the `setting(chat.plugins.enabled)` setting.
+> Agent plugins are currently in preview. Enable or disable support for agent plugins with the `setting(chat.plugins.enabled)` setting.
 
 ## What plugins provide
 
@@ -95,7 +95,7 @@ Set the value to `true` to enable the plugin, or `false` to keep it registered b
 
 ## Related resources
 
-* [Customize AI responses overview](/docs/copilot/customization/overview.md)
+* [Finding and installing plugins for GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/plugins-finding-installing)
 * [Use Agent Skills](/docs/copilot/customization/agent-skills.md)
 * [Add and manage MCP servers](/docs/copilot/customization/mcp-servers.md)
 * [Use hooks for lifecycle automation](/docs/copilot/customization/hooks.md)
