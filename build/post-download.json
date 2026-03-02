@@ -1,0 +1,30 @@
+{
+  "featured": {
+    "title": "Multi-agent development",
+    "description": "VS Code is your home for multi-agent development. Run multiple AI agent sessions in parallel, across different projects, environments, and agent harnesses.",
+    "link": "/updates/v1_109",
+    "image": "/assets/updates/1_109/vscode-v1109-social.webp"
+  },
+  "highlights": [
+    {
+      "type": "blog",
+      "title": "MCP Apps support",
+      "description": "Give agents a visual voice with MCP Apps support in VS Code.",
+      "link": "/blogs/2026/01/26/mcp-apps-support",
+      "image": "/assets/blogs/2026/01/26/mcp-apps-list-sort.png"
+    },
+    {
+      "type": "documentation",
+      "title": "AI core concepts overview",
+      "description": "Get an overview of the core concepts and how AI agents work in VS Code.",
+      "link": "/docs/copilot/core-concepts",
+      "image": "/assets/docs/copilot/core-concepts/agent-loop.png"
+    },
+    {
+      "type": "insiders",
+      "title": "New in Insiders",
+      "description": "Support for agent plugins to install agent customizations. Fork a chat conversation with `/fork` to explore alternative paths.",
+      "link": "/updates/v1_110"
+    }
+  ]
+}
