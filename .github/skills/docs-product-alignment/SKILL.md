@@ -29,19 +29,19 @@ Audit VS Code Copilot documentation against current product capabilities and pro
 
 ## Terminology
 
-Use these terms consistently. The "Avoid" column lists terms that creep in but should not.
+Use these terms consistently. The "Avoid" column lists terms that should not appear in docs.
 
 | Concept | Use | Avoid |
 |---------|-----|-------|
-| Autonomous coding sessions | agents | agent mode, agentic workflows |
-| Running without user interaction | background agents | background agent mode |
+| Autonomous coding sessions | agents, agent mode (for the chat mode) | agentic workflows |
+| Running without user interaction | background agents | (none) |
 | Code suggestions as you type | inline suggestions | code completions, autocomplete |
 | Predicted next edit location | next edit suggestions (NES) | predictive edits |
-| Understanding code across files | workspace context, cross-file reasoning | deep semantic understanding (overuse) |
+| Understanding code across files | workspace context, cross-file reasoning | repeating "deep semantic understanding" across pages |
 | GitHub's search for code context | GitHub's code search | remote search |
 | VS Code's type/symbol analysis | language intelligence (IntelliSense, LSP) | code intelligence |
 | Multiple AI model options | multiple AI models | leading AI models |
-| Plan then implement workflow | Plan agent, implementation agent | planning mode |
+| Structured plan before coding | Plan agent | planning mode (except in custom agent prompts) |
 
 ## Capability areas
 
