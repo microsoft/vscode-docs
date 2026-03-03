@@ -180,7 +180,27 @@ The context window control provides the following information:
 As you send more requests in a conversation, the control updates to reflect the increasing context usage. The total available context (denominator) changes based on the AI model you select, since different models have different context window sizes.
 
 > [!TIP]
-> When the context window fills up, VS Code automatically summarizes the conversation history to free up space. You can also type `/compact` in the chat input to manually trigger compaction at any time. Optionally, add custom instructions after the command to guide how the summary is generated, for example `/compact focus on the database schema decisions`. Start a [new chat session](/docs/copilot/chat/chat-sessions.md) if you want to reset the context entirely.
+> When the context window fills up, VS Code automatically [compacts the conversation history](#context-compaction) to free up space.
+
+## Context compaction
+
+As a conversation grows, the accumulated messages and context can fill up the model's context window. Context compaction summarizes the conversation history to free up space, so you can continue working in the same session without losing important details.
+
+### Automatic compaction
+
+When the context window fills up, VS Code automatically compacts the conversation by summarizing earlier messages. This happens transparently in the background, so you can keep chatting without interruption.
+
+### Manual compaction
+
+You can also manually trigger compaction at any time, for example to refocus the conversation or reduce noise from earlier exchanges. Manual compaction is available for local, background, and Claude agent sessions.
+
+To manually compact the conversation, use one of the following methods:
+
+* Type `/compact` in the chat input field. Optionally, add custom instructions after the command to guide how the summary is generated, for example `/compact focus on the database schema decisions`.
+
+* Select the context window control in the chat input box, and then select **Compact Conversation**.
+
+If you want to reset the context entirely, start a [new chat session](/docs/copilot/chat/chat-sessions.md).
 
 ## Related resources
 
