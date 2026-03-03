@@ -98,7 +98,7 @@ AI Toolkit opens in its own view, with the AI Toolkit icon now displayed on the 
 
 - **Build Agent with GitHub Copilot**: This section enables you to use GitHub Copilot to help you build AI agents faster with AI Toolkit. It contains the following subsections:
     - **Create Agent**: Opens the Chat view and creates a prompt to build an AI agent with a Console application using GitHub Copilot.
-    - **Enable Tracing**: Opens the Chat pane and creates a prompt to add tracing to the current workspace using GitHub Copilot.
+    - **Enable Tracing**: Opens the Chat view and creates a prompt to add tracing to the current workspace using GitHub Copilot.
     - **Add Evaluation Framework**: Opens the Chat pane and creates a prompt to add the evaluation framework to the current workspace using GitHub Copilot.
 
 - **MCP Workflow**: This section contains tools you use to add an existing MCP server or to create a new one. It contains the following subsections:
