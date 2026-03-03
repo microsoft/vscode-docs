@@ -10,7 +10,7 @@ Audit VS Code Copilot documentation against current product capabilities and pro
 ## Guardrails
 
 - **Factual only.** Every claim must map to something the product does today. No superlatives, no competitive comparisons, no invented terminology.
-- **Two audiences.** Humans read the prose; AI agents and search crawlers index Keywords, MetaDescriptions, and opening paragraphs. Both matter.
+- **Two audiences.** Humans skim; AI agents read the full page. Accurate, well-structured content matters everywhere, not just in metadata and opening paragraphs.
 - **Minimal edits.** Change only what is inaccurate, outdated, or missing. One precise sentence beats a rewritten section.
 - **Verifiable.** If you cannot point to a UI element, setting, or documented behavior, do not write it.
 
