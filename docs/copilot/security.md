@@ -18,7 +18,7 @@ Keywords:
 AI-powered development capabilities can autonomously perform different development tasks, which might have significant security implications. In this article, you'll learn about VS Code's built-in security protections, the risks to be aware of, and how to configure your environment for safe AI-assisted development.
 
 > [!NOTE]
-> This article covers security controls in the VS Code editor for AI-powered development features. For information about how GitHub Copilot handles your data, privacy, and compliance, see the [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/).
+> This article covers security controls in the VS Code editor for AI-powered development features. For information about how GitHub Copilot handles your data, privacy, and compliance, see the [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/). For organization-wide AI policies and controls, see [AI settings for your organization](/docs/enterprise/ai-settings.md) and [enterprise policies](/docs/enterprise/policies.md).
 
 ## Recommended security baseline
 

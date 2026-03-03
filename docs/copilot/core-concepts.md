@@ -11,6 +11,11 @@ Keywords:
 - context window
 - agents
 - agentic loop
+- autonomous
+- multi-file editing
+- deep context
+- architecture
+- semantic search
 ---
 
 # How AI works in VS Code
@@ -21,10 +26,10 @@ Visual Studio Code's built-in AI features are powered by GitHub Copilot and larg
 
 VS Code offers AI across a spectrum of interaction surfaces, each suited to different tasks:
 
-* **[Inline suggestions](/docs/copilot/ai-powered-suggestions.md)**: code suggestions that appear as ghost text while you type. These use specialized completion models and don't involve an agent loop or tools. [Next Edit Suggestions (NES)](/docs/copilot/ai-powered-suggestions.md#next-edit-suggestions) go further by predicting *where* your next edit should happen.
+* **[Agents](/docs/copilot/agents/overview.md)**: autonomous sessions that follow the full [agent loop](#agent-loop), reading files, executing coordinated changes across multiple files, running commands, and iterating until the task is complete. Agents handle multi-step tasks end-to-end, from implementing features to architecture-level refactoring and framework migrations.
 * **[Chat](/docs/copilot/chat/copilot-chat.md)**: a conversational interface where you ask questions, explore ideas, or get explanations. In Ask mode, the model uses read-only tools to answer questions without modifying your code.
-* **[Agents](/docs/copilot/agents/overview.md)**: autonomous sessions that follow the full [agent loop](#agent-loop) — reading files, editing code, running commands, and iterating until the task is complete.
 * **[Inline chat](/docs/copilot/chat/inline-chat.md)**: a lightweight chat interface that opens directly in the editor for quick, focused edits.
+* **[Inline suggestions](/docs/copilot/ai-powered-suggestions.md)**: code suggestions that appear as ghost text while you type. These use specialized completion models and don't involve an agent loop or tools. [Next Edit Suggestions (NES)](/docs/copilot/ai-powered-suggestions.md#next-edit-suggestions) go further by predicting *where* your next edit should happen.
 * **[Smart actions](/docs/copilot/copilot-smart-actions.md)**: one-click AI actions integrated into your workflow, like generating commit messages or fixing diagnostics errors.
 
 ## Language models

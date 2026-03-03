@@ -8,6 +8,9 @@ Keywords:
 - agents
 - background agent
 - copilot cli
+- autonomous
+- worktree
+- parallel
 ---
 
 # Background agents in Visual Studio Code
@@ -15,7 +18,7 @@ Keywords:
 > [!NOTE]
 > The term "background agent" might also appear as "Copilot CLI" or "worktree" in the VS Code interface while an experiment is being run.
 
-Background agents in Visual Studio Code are CLI-based agents, such as Copilot CLI, that run in the background on your local machine. They operate autonomously while you continue other work in the editor. Background agents use Git worktrees to work isolated from your main workspace and prevent conflicts with your active work.
+Background agents in Visual Studio Code launch directly from VS Code and run autonomously on your local machine while you continue other work in the editor. They report progress back to the unified Chat view and use Git worktrees to work isolated from your main workspace, preventing conflicts with your active work. Run multiple background sessions in parallel to tackle independent tasks simultaneously.
 
 This article covers the key features of background agents, and how to start and manage background sessions from Copilot CLI.
 

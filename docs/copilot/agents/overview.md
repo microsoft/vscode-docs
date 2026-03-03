@@ -6,15 +6,21 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - ai
 - agents
+- autonomous
+- multi-file editing
+- architecture
+- refactoring
+- deep context
 - background agent
 - cloud agent
 - copilot coding agent
 - copilot cli
+- third-party agents
 ---
 
 # Using agents in Visual Studio Code
 
-Agents automate complete coding tasks that go beyond simple code suggestions and chat interactions. In Visual Studio Code, you can create agent sessions that run locally or in the cloud, interactively or in the background. Hand off tasks between different agent types to use their unique strengths. The unified Chat view gives you a central place to manage and monitor all your agent sessions, regardless of where they run.
+Agents automate complete coding tasks end-to-end, from implementing features across multiple files to architecture-level refactoring and framework migrations. In Visual Studio Code, you can create agent sessions that run locally or in the cloud, interactively or in the background. Choose from Copilot, third-party agents like Claude and Codex, or build your own custom agents. Hand off tasks between different agent types to use their unique strengths. The unified Chat view gives you a central place to manage and monitor all your agent sessions, regardless of where they run.
 
 This article provides an overview of the various agent types, how to create and manage agent sessions, delegate tasks between agents, and track their progress.
 
@@ -32,7 +38,7 @@ Use agents in VS Code to generate a tic-tac-toe game in your language of choice.
 
 ## What are agents?
 
-Agents perform complete coding tasks end-to-end. They understand your project, make changes across multiple files, run commands, and adapt based on the results.
+Agents perform complete coding tasks end-to-end. They analyze your project across files, execute coordinated changes, run commands, and adapt based on the results. Whether you're implementing a new feature, performing an architecture-level refactoring, or migrating between frameworks, agents handle the full multi-step workflow autonomously.
 
 For example, imagine you have a failing test. Instead of suggesting a fix, an agent can:
 

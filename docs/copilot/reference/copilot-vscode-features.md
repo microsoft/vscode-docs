@@ -1,12 +1,12 @@
 ---
 ContentId: de6f9f68-7dd5-4de3-a210-3db57882384b
 DateApproved: 02/04/2026
-MetaDescription: Get a quick overview of the AI features in Visual Studio Code. GitHub Copilot provides AI-powered features to help you write code faster and with less effort.
+MetaDescription: Quick reference for GitHub Copilot in VS Code, including autonomous agents, multi-file editing, inline suggestions, and enterprise controls.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # GitHub Copilot in VS Code cheat sheet
 
-GitHub Copilot in Visual Studio Code provides AI-powered features to help you write code faster and with less effort. This cheat sheet provides a quick overview of the features for GitHub Copilot in Visual Studio Code.
+GitHub Copilot in Visual Studio Code provides autonomous agents, inline suggestions, chat, and smart actions. Agents plan, implement, and verify changes across multiple files and run in parallel, locally, in the background, or in the cloud. Choose from multiple AI models, connect to external tools with MCP, and customize agents for your team's workflows. This cheat sheet gives you a quick overview of all features.
 
 > [!TIP]
 > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of inline suggestions and chat interactions.
