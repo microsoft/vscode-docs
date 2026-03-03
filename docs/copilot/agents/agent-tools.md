@@ -29,9 +29,9 @@ VS Code supports three types of tools that you can use in chat:
 
 VS Code provides a comprehensive set of built-in tools that are automatically available in chat. These tools cover common development tasks and are optimized for working within your workspace.
 
-Built-in tools don't require any installation or configuration and are available as soon as you start using chat.
+Built-in tools don't require any installation or configuration and are available as soon as you start using chat. For example, browser tools enable agents to interact with web pages in the integrated browser to test and validate web applications.
 
-For a complete list of built-in tools and their descriptions, see the [Chat tools reference](/docs/copilot/reference/copilot-vscode-features.md#chat-tools).
+For a complete list of built-in tools and their descriptions, see the [Chat tools reference](/docs/copilot/reference/copilot-vscode-features.md#chat-tools). To learn how to use browser tools for testing web apps, see [test web apps with browser agent tools](/docs/copilot/guides/browser-agent-testing-guide.md).
 
 </details>
 

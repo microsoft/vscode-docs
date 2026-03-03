@@ -165,6 +165,7 @@
           ["Test-Driven Development", "/docs/copilot/guides/test-driven-development-guide"],
           ["Edit Notebooks with AI", "/docs/copilot/guides/notebooks-with-ai"],
           ["Test with AI", "/docs/copilot/guides/test-with-copilot"],
+          ["Test Web Apps with Browser Tools", "/docs/copilot/guides/browser-agent-testing-guide"],
           ["Debug with AI", "/docs/copilot/guides/debug-with-copilot"],
           ["MCP Dev Guide", "/docs/copilot/guides/mcp-developer-guide"]
         ]

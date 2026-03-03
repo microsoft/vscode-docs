@@ -106,5 +106,6 @@ Shared pages use your existing browser session, including cookies and login stat
 
 ## Related
 
+* [Test web apps with browser agent tools](/docs/copilot/guides/browser-agent-testing-guide.md)
 * [Add context to AI chat](/docs/copilot/chat/copilot-chat-context.md)
 * [Port forwarding](/docs/debugtest/port-forwarding.md)
