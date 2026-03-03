@@ -8,6 +8,13 @@ MetaSocialImage: images/shared/github-copilot-social.png
 
 This article covers proven practices for getting the most out of using AI in Visual Studio Code. Each section provides actionable guidance with links to deeper documentation.
 
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="How AI works in VS Code">
+Learn about the agent loop, context window, tools, and other core concepts.
+
+* [Read about core concepts](/docs/copilot/core-concepts.md)
+
+</div>
+
 ## Optimize your project for AI
 
 By configuring your project and codebase with AI in mind, you can improve the accuracy of AI responses and ensure the AI follows your team's coding standards and practices.
