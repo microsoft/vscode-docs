@@ -1,31 +1,31 @@
 {
   "featured": {
-    "title": "Use agents for practical, more complex tasks",
-    "description": "Add automation with hooks, fork conversations to explore different approaches, and let agents use the integrated browser for testing and validation.",
+    "title": "Use agents for long-running and more complex tasks",
+    "description": "Customize chat with prepackaged agent plugins, let agents drive the browser and validate their own changes, and use agent memory to persist plans and context across long-running sessions.",
     "link": "/updates/v1_110",
     "image": "/assets/updates/1_110/release-highlights.webp"
   },
   "highlights": [
     {
       "type": "blog",
-      "title": "MCP Apps support",
-      "description": "Give agents a visual voice with MCP Apps support in VS Code.",
-      "link": "/blogs/2026/01/26/mcp-apps-support",
-      "image": "/assets/blogs/2026/01/26/mcp-apps-list-sort.png"
+      "title": "Multi-agent development",
+      "description": "VS Code is your home for multi-agent development. Run multiple AI agent sessions in parallel, across different projects, environments, and agent harnesses.",
+      "link": "/blogs/2026/02/05/multi-agent-development",
+      "image": "/assets/blogs/2026/02/05/your-agent-ux.png"
     },
     {
       "type": "documentation",
-      "title": "AI core concepts overview",
+      "title": "AI core concepts",
       "description": "Get an overview of the core concepts and how AI agents work in VS Code.",
       "link": "/docs/copilot/core-concepts",
       "image": "/assets/docs/copilot/core-concepts/agent-loop.png"
     },
     {
-      "type": "blog",
-      "title": "Multi-agent development",
-      "description": "VS Code is your home for multi-agent development. Run multiple AI agent sessions in parallel, across different projects, environments, and agent harnesses.",
-      "link": "/blogs/2026/02/05/multi-agent-development",
-      "image": "/assets/blogs/2026/02/05/your-agent-ux.png"
+      "type": "documentation",
+      "title": "Automate with hooks",
+      "description": "",
+      "link": "/docs/copilot/customization/hooks",
+      "image": "/assets/blogs/2026/01/26/mcp-apps-list-sort.png"
     }
   ]
 }
