@@ -99,19 +99,19 @@ If the agent discovers bugs during testing, it automatically analyzes the proble
 1. Let's introduce a bug by removing the division by zero check:
 
     ```javascript
-        function calculate() {
-      if (!operator || shouldReset) return;
+    function calculate() {
+        if (!operator || shouldReset) return;
 
-      const a = parseFloat(previous);
-      const b = parseFloat(current);
-      let result;
+        const a = parseFloat(previous);
+        const b = parseFloat(current);
+        let result;
 
-      switch (operator) {
+        switch (operator) {
         case '+': result = a + b; break;
         case '-': result = a - b; break;
         case '*': result = a * b; break;
         case '/': result = a / b; break;
-      }
+    }
     ```
 
 1. Ask the agent to test the division operation and fix any issues it finds:
