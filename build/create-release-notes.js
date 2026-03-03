@@ -7,8 +7,10 @@ const readline = require('readline');
 
 const ROOT = path.resolve(__dirname, '..');
 const RELEASE_NOTES_DIR = path.join(ROOT, 'release-notes');
+const RELEASE_NOTES_IMAGES_DIR = path.join(ROOT, 'release-notes', 'images');
 const TEMPLATE_STABLE = path.join(ROOT, 'templates', 'template-release-note-endgame.md');
 const TEMPLATE_INSIDERS = path.join(ROOT, 'templates', 'template-release-note-insiders.md');
+const TEMPLATE_IMAGES_DIR = path.join(ROOT, 'templates', 'images');
 
 function prompt(question) {
 	const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
@@ -85,6 +87,44 @@ function parseMonthYear(dateStr) {
 	const month = MONTHS[parseInt(parts[1], 10) - 1];
 	const year = parts[0];
 	return { month, year };
+}
+
+/**
+ * Copy images from templates/images to release-notes/images/1_<releaseNumber>/.
+ * Creates the target directory if it doesn't exist.
+ */
+function copyInsidersImages(releaseNumber) {
+	const targetDir = path.join(RELEASE_NOTES_IMAGES_DIR, `1_${releaseNumber}`);
+
+	if (!fs.existsSync(targetDir)) {
+		fs.mkdirSync(targetDir, { recursive: true });
+	}
+
+	if (!fs.existsSync(TEMPLATE_IMAGES_DIR)) {
+		console.warn(`Warning: Template images directory not found: ${TEMPLATE_IMAGES_DIR}`);
+		return;
+	}
+
+	const files = fs.readdirSync(TEMPLATE_IMAGES_DIR);
+	let copiedCount = 0;
+
+	for (const file of files) {
+		const srcPath = path.join(TEMPLATE_IMAGES_DIR, file);
+		const destPath = path.join(targetDir, file);
+
+		// Skip if not a file
+		if (!fs.statSync(srcPath).isFile()) {
+			continue;
+		}
+
+		fs.copyFileSync(srcPath, destPath);
+		copiedCount++;
+		console.log(`  Copied: ${path.relative(ROOT, destPath)}`);
+	}
+
+	if (copiedCount === 0) {
+		console.warn(`Warning: No images found in ${TEMPLATE_IMAGES_DIR}`);
+	}
 }
 
 function validateReleaseNumber(num) {
@@ -222,6 +262,12 @@ async function main() {
 	console.log(`  Version:        1.${releaseNumber}`);
 	console.log(`  Milestone:      ${milestone}`);
 	console.log(`  Date:           ${formattedDate}`);
+
+	// Copy images from templates folder for Insiders releases
+	if (isInsiders) {
+		console.log(`\nCopying images to release-notes/images/1_${releaseNumber}/:`);
+		copyInsidersImages(releaseNumber);
+	}
 }
 
 main().catch((err) => {
