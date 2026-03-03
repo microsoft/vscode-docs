@@ -1,20 +1,31 @@
 ---
 ContentId: c77dcce9-4ba9-40ac-8ae5-2df855088090
 DateApproved: 02/04/2026
-MetaDescription: Learn how workspace context gives chat a deep understanding of your entire codebase to provide accurate, contextual answers.
+MetaDescription: Learn how GitHub Copilot automatically understands your codebase using workspace context for cross-file reasoning and accurate answers.
 MetaSocialImage: ../images/shared/github-copilot-social.png
+Keywords:
+- workspace context
+- semantic search
+- cross-file reasoning
+- codebase understanding
+- large codebase
+- monorepo
+- indexing
+- language intelligence
+- LSP
+- GitHub code search
 ---
-# Make chat an expert in your workspace
+# How Copilot understands your workspace
 
-Chat becomes significantly more helpful when it has a deep understanding of your entire codebase, not just individual files. Workspace context is the underlying mechanism that enables the AI to search across your project, understand how components connect, and provide answers grounded in your actual code. This enables you to ask broad questions like "where is authentication handled?" or "how do I add a new API endpoint?" and get accurate answers based on your specific codebase.
+Copilot works best when it understands your entire codebase, not just individual files. Workspace context is the underlying mechanism that enables agents and chat to reason across files, understand how components connect, and provide answers grounded in your actual code. You can ask broad questions like "where is authentication handled?" or "how do I add a new API endpoint?" and get accurate answers based on your specific codebase.
 
-This article explains how workspace context works, how to manage your workspace index for optimal results, and how to use `@workspace` and `#codebase` to leverage it in your prompts.
+This article explains how workspace context works, how the workspace index is built, and how context is gathered across different modes.
 
-The intelligence behind workspace context automatically adjusts based on your project's size and setup, ensuring you get accurate results whether you're working on a small personal project or a large enterprise codebase.
+Workspace context automatically adjusts based on your project's size and setup. You get accurate results whether you're working on a small personal project or a large enterprise codebase with multiple repositories. During agent sessions, the agent autonomously searches your codebase, often performing multiple rounds of targeted searches to gather the context it needs for coordinated changes across files.
 
 ## How workspace context works
 
-VS Code uses intelligent search strategies to find the most relevant code for your questions. Rather than using a single approach, it automatically selects the best method based on your project size and available resources. VS Code might run multiple strategies in parallel and then choose the one that produces the best results the fastest.
+VS Code uses intelligent search strategies to find the most relevant code for your prompts. Rather than relying on a single approach, it automatically selects the best method based on your project size and available resources. VS Code runs multiple strategies in parallel and uses whichever produces the best results the fastest.
 
 ### What sources are used for context?
 
@@ -32,7 +43,7 @@ The workspace index can be maintained remotely by GitHub or stored locally on yo
 
 ### Search strategy
 
-For small projects, the entire workspace can be included directly in the chat context. For larger projects, VS Code uses different strategies to find the most relevant information to include in the chat context for your prompt.
+For small projects, the entire workspace can be included directly in the context. For larger projects, VS Code uses different strategies to find the most relevant information for your prompt.
 
 The following steps outline how VS Code constructs the workspace context:
 
@@ -40,20 +51,20 @@ The following steps outline how VS Code constructs the workspace context:
 
 1. Collect relevant code snippets from the [workspace index](#workspace-index) by using various approaches:
 
-    * [GitHub's code search](https://github.blog/2023-02-06-the-technology-behind-githubs-new-code-search)
+    * [GitHub's code search](https://github.blog/2023-02-06-the-technology-behind-githubs-new-code-search) for fast, comprehensive search across your repository and related repositories on GitHub
     * Local semantic search to find code that matches the meaning of your question, not just exact keywords
     * Text-based file-name and content search
-    * VS Code's language IntelliSense to add details like function signatures, parameters, and more.
+    * VS Code's language intelligence (IntelliSense, LSP) to resolve symbols, function signatures, type hierarchies, and cross-file references.
 
 1. If the resulting context is too large to fit in the _context window_, only the most relevant parts are kept.
 
 ## Workspace index
 
-Chat in VS Code uses an index to quickly and accurately search your codebase for relevant code snippets. This index can either be maintained by GitHub or stored locally on your machine.
+Copilot uses an index to quickly and accurately search your codebase for relevant code snippets. GitHub automatically indexes every workspace you open, regardless of hosting provider. The index can also be stored locally on your machine for repositories that are not backed by GitHub or Azure DevOps.
 
-The remote index is built from the committed state of your repository on GitHub or Azure DevOps. This means that any uncommitted changes in your local workspace are not included in the remote index.
+The remote index is built from the committed state of your repository. Any uncommitted changes in your local workspace are not included in the remote index.
 
-When you have local uncommitted changes, VS Code uses a hybrid approach combining the remote index with local file tracking. VS Code detects which files have been modified since the indexed commit and also reads the current file content from the editor for real-time content.
+When you have local uncommitted changes, VS Code uses a hybrid approach combining the remote index with local file tracking. VS Code detects which files have been modified since the indexed commit and also reads the current file content from the editor for real-time context.
 
 You can view the type of index that is being used and its indexing status in the Copilot status dashboard in the VS Code Status Bar.
 
@@ -61,21 +72,19 @@ You can view the type of index that is being used and its indexing status in the
 
 ### Remote index
 
-VS Code can use remote code search indexes to enable AI to search your codebase quickly, even for large codebases. Remote code search is currently available for workspaces that use GitHub or Azure DevOps repositories.
+GitHub automatically builds and maintains a remote code search index for your workspace. This enables fast, comprehensive search results even for large codebases.
 
 #### GitHub remote indexing
 
-VS Code automatically builds and uses remote code search indexes for any GitHub-backed repositories in your workspace. Sign in with your GitHub account in VS Code and chat will automatically start using any available remote code search indexes.
+When you open a workspace in VS Code, GitHub automatically indexes the repository. Sign in with your GitHub account and Copilot starts using the remote index right away. You can also trigger indexing manually by running the **Build Remote Workspace Index** command in the Command Palette (`kb(workbench.action.showCommands)`).
 
-Repositories are automatically indexed the first time `@workspace` or `#codebase` is used in chat.  You can also force indexing by running the **Build Remote Workspace Index** command in the Command Palette (`kb(workbench.action.showCommands)`).
+The index only needs to be built once per repository. After that, it is automatically kept up to date. Building the index is fast for small and medium sized projects, but might take some time if your repository contains hundreds of thousands of files. The remote index works best if GitHub has a relatively up-to-date version of your code, so push your code to GitHub regularly.
 
-The index only needs to be built once per repository. After that, the index is automatically kept up to date. Building the index is fast for small and medium sized projects, but may take a little time if your repository contains hundreds of thousands of files. The remote index works also best if GitHub has a relatively up-to-date version of your code, so make sure to push your code to GitHub regularly.
-
-Currently remote indexing works for GitHub repositories hosted on GitHub.com or on GitHub Enterprise Cloud. It is not supported for repositories that use GitHub Enterprise Server.
+Remote indexing works for GitHub repositories hosted on GitHub.com or on GitHub Enterprise Cloud. It is not supported for repositories that use GitHub Enterprise Server.
 
 #### Azure DevOps remote indexing
 
-VS Code can also use remote indexes for Azure DevOps repositories. These indexes are automatically built and maintained. Sign in with your Microsoft account in VS Code for chat to start using the remote indexes. Check the Copilot Status Bar item for the current index status and to get a sign-in link if your account doesn't have the right permissions to access the Azure DevOps repository.
+VS Code can also use remote indexes for Azure DevOps repositories. These indexes are automatically built and maintained. Sign in with your Microsoft account in VS Code for Copilot to start using the remote indexes. Check the Copilot Status Bar item for the current index status and to get a sign-in link if your account doesn't have the right permissions to access the Azure DevOps repository.
 
 ### Local index
 
@@ -105,37 +114,31 @@ The workspace index also excludes any files that are excluded from VS Code using
 
 VS Code also currently does not index binary files, such as images or PDFs.
 
-## Use workspace context in chat
+## How workspace context is used
 
-When you ask a workspace-related question in chat, the behavior for determining the workspace context depends on which agent you're using:
+How workspace context is gathered depends on which mode you're using in chat:
 
-* **Agent/Plan**
+* **Agent and Plan**
 
-    When using agents, the agent automatically performs an _agentic_ codebase search based on your prompt. This means that after performing an initial search to determine the workspace context, depending on the results, the agent might decide to perform additional, more targeted searches to gather the information it needs to answer your question.
-
-    You don't need to explicitly reference the `#codebase` tool in your prompt, but you can do so if you want to ensure that workspace context is used for your question. This is useful if your prompt is ambiguous and might be interpreted as not requiring workspace context.
+    Agents automatically perform agentic codebase searches based on your prompt. After an initial search, the agent might perform additional targeted searches to gather more context, depending on the results. Agents use tools like `codebase`, `grep`, `file`, and language intelligence to build a complete picture of the relevant code before making changes.
 
 * **Ask**
 
-    In Ask, VS Code performs intent detection on your prompt to determine if it requires workspace context. If it requires workspace context, VS Code performs a codebase search and adds the relevant code snippets to the chat context.
+    Ask mode uses the same agentic tool-based approach as agents. Copilot automatically searches your codebase with the tools available to it and gathers relevant code snippets. You can also explicitly reference files, symbols, or other [context items](/docs/copilot/chat/copilot-chat-context.md) in your prompt.
 
-    You don't need to explicitly reference the `#codebase` tool in your prompt, but you can do so if you want to ensure that workspace context is used for your question. This is useful if your prompt is ambiguous and might be interpreted as not requiring workspace context.
+* **Edit** _(deprecated)_
 
-* **Edit**
+    Edit mode is deprecated. Use agents or ask mode instead. Edit mode searches the workspace for relevant context but does not perform follow-up searches.
 
-    In Edit, VS Code performs intent detection on your prompt to determine if it requires workspace context. If it requires workspace context, VS Code performs a codebase search and adds the relevant code snippets to the chat context. As opposed to using agents, no follow-up searches are performed.
+## Tips for better workspace context
 
-    You don't need to explicitly reference the `#codebase` tool in your prompt, but you can do so if you want to ensure that workspace context is used for your question. This is useful if your prompt is ambiguous and might be interpreted as not requiring workspace context.
+The way you phrase your prompt influences the quality of the context and the accuracy of the response.
 
-## Tips for using workspace context
-
-The way you phrase your question can significantly influence the quality of the context and the accuracy of the response. To optimize results, consider the following tips:
-
-* Be specific and detailed in your question, avoiding vague or ambiguous terms like "what does this do", where "this" could be interpreted as the last answer, current file, or whole project.
-* Incorporate terms and concepts in your prompt that are likely to appear in your code or its documentation.
+* Be specific and detailed, avoiding vague terms like "what does this do", where "this" could be interpreted as the last answer, current file, or whole project.
+* Use terms and concepts that are likely to appear in your code or its documentation.
 * Explicitly include relevant context by selecting code, referencing files, or [#-mentioning context items](/docs/copilot/chat/copilot-chat-context.md) such as debug context, terminal output, and more.
-* Responses can draw from multiple references, such as "find exceptions without a catch block" or "provide examples of how handleError is called". However, don't anticipate a comprehensive code analysis across your codebase, such as "how many times is this function invoked?" or "rectify all bugs in this project".
-* When asking about information beyond the code, such as "who contributed to this file?" or "summarize review comments for this folder", make sure to configure the relevant [tools or MCP servers](/docs/copilot/agents/agent-tools.md) when using agents.
+* Responses can draw from multiple references, such as "find exceptions without a catch block" or "provide examples of how handleError is called". However, don't expect a comprehensive code analysis across the entire codebase, such as "how many times is this function invoked?" or "fix all bugs in this project".
+* For information beyond the code, such as "who contributed to this file?", configure the relevant [tools or MCP servers](/docs/copilot/agents/agent-tools.md).
 
 ## Private repositories
 
@@ -147,16 +150,8 @@ Learn more about security, privacy, and transparency in the [GitHub Copilot Trus
 
 ## Frequently asked questions
 
-### What is the difference between `@workspace` and `#codebase`?
+### Do I need to use `@workspace` or `#codebase` in my prompts?
 
-Conceptually, both `@workspace` and `#codebase` enable you to ask questions about your entire codebase. However, there are some differences in how you can use them:
+In most cases, no. Agents and ask mode automatically search your workspace for relevant context. You don't need to explicitly reference workspace context in your prompt.
 
-* `@workspace` is a [chat participant](/docs/copilot/chat/copilot-chat-context.md#atmentions)
-
-    The `@workspace` participant is subject matter expert that is specialized to answering questions about your codebase. The language model hands off the entire chat prompt to the participant, which uses its knowledge of the codebase to provide an answer. The language model can't perform any additional processing or invoke other tools when using a chat participant. A chat prompt can only contain a single chat participant.
-
-* `#codebase` is a [chat tool](/docs/copilot/agents/agent-tools)
-
-    The `#codebase` tool is specialized in searching your codebase for relevant information. It is one of many tools that the language model can choose to invoke when answering your chat prompt. The language model can decide to invoke the `#codebase` tool multiple times, interleaved with other tools, to gather the information it needs to answer your question. A chat prompt can contain multiple tools.
-
-It's recommended to use `#codebase` in your chat prompts, as it provides more flexibility.
+If you want to ensure that a specific prompt triggers a workspace search, you can still add `#codebase` as a [context item](/docs/copilot/chat/copilot-chat-context.md) in your prompt. The `@workspace` [chat participant](/docs/copilot/chat/copilot-chat-context.md#-mentions) is also still available for backward compatibility.

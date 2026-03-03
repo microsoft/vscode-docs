@@ -7,16 +7,29 @@ Keywords:
 - GitHub Copilot
 - AI
 - agents
+- autonomous
+- agentic
+- multi-file editing
+- architecture
+- refactoring
+- deep context
+- semantic search
+- codebase understanding
+- enterprise
+- large codebase
 - inline suggestions
 - chat
 - MCP
+- team
+- background agents
+- third-party agents
 - introduction
 - overview
 - getting started
 ---
 # GitHub Copilot in VS Code
 
-GitHub Copilot adds multi-agent development capabilities to Visual Studio Code. Plan your approach, then let AI agents implement and verify code changes across your project. Run multiple agent sessions in parallel: locally, in the background, or in the cloud. Manage them all from a central view. Inline suggestions, inline chat, and smart actions assist you throughout the rest of the coding workflow.
+GitHub Copilot provides AI-powered agents and coding tools in Visual Studio Code. Use autonomous agents that plan, implement, and verify changes across your entire project with deep semantic understanding of your codebase. Run multiple agent sessions in parallel: locally, in the background, or in the cloud. Choose from Copilot, third-party agents like Claude and Codex, or your own custom agents. Manage them all from a central view. Inline suggestions, inline chat, and smart actions assist you throughout the rest of the coding workflow.
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
 Follow a hands-on tutorial to build your first app with AI in VS Code.
