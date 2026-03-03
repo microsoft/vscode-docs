@@ -20,7 +20,7 @@ Audit VS Code Copilot documentation against current product capabilities and pro
 2. **Audit high-traffic pages.** Read each page and compare against current product truth. Focus on MetaDescriptions, Keywords, opening paragraphs, and terminology.
 3. **Gap analysis.** List what is inaccurate, outdated, or missing. Map each gap to a file and location. Prioritize by page traffic.
 4. **Edit.** Apply targeted changes. Vary phrasing across pages to avoid repetition.
-5. **Verify.** Search changed files for banned words, em-dashes, and MetaDescription length violations.
+5. **Verify.** Search changed files for style violations (see docs-writing instructions), em-dashes, and MetaDescription length.
 
 **High-traffic pages to always check:**
 - [docs/copilot/overview.md](/docs/copilot/overview.md), [docs/copilot/core-concepts.md](/docs/copilot/core-concepts.md), [docs/copilot/reference/copilot-vscode-features.md](/docs/copilot/reference/copilot-vscode-features.md)
