@@ -6,7 +6,7 @@ MetaDescription: Learn what's new in Visual Studio Code 1.<release number>
 MetaSocialImage: 1_<release number>/release-highlights.webp
 Date: <YYYY-MM-DD>
 DownloadVersion: 1.<release number>.0
-Milestone: <milestone name>
+Milestone: <milestone name (1.<release number>.0 or Month Year)>
 ProductEdition: Stable
 ---
 # <Month> <Year> (version 1.<release number>)
