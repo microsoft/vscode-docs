@@ -1,6 +1,6 @@
 ---
 ContentId: de6f9f68-7dd5-4de3-a210-3db57882384b
-DateApproved: 02/04/2026
+DateApproved: 3/4/2026
 MetaDescription: Quick reference for GitHub Copilot in VS Code, including autonomous agents, multi-file editing, inline suggestions, and enterprise controls.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---

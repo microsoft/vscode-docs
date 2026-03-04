@@ -1,6 +1,6 @@
 ---
 ContentId: 7ab2cd6c-45fd-4278-a6e8-1c9e060593ea
-DateApproved: 02/04/2026
+DateApproved: 3/4/2026
 MetaDescription: Get AI-powered inline suggestions from GitHub Copilot in VS Code, including ghost text completions and next edit suggestions.
 MetaSocialImage: images/shared/github-copilot-social.png
 Keywords: [nes, suggestions, inline completions, ghost text, next edit suggestions]

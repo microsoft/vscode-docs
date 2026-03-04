@@ -1,6 +1,6 @@
 ---
 ContentId: d8b3c7f1-2e4a-5b6d-9c0e-1f3a5b7d9e2c
-DateApproved: 02/04/2026
+DateApproved: 3/4/2026
 MetaDescription: Learn how GitHub Copilot works in VS Code, from language models and context to agents and the agentic loop.
 MetaSocialImage: images/shared/github-copilot-social.png
 Keywords:

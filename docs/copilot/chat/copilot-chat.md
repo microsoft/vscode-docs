@@ -1,6 +1,6 @@
 ---
 ContentId: 557a7e74-f77e-488d-90ea-fd2cfecfffda
-DateApproved: 02/04/2026
+DateApproved: 3/4/2026
 MetaDescription: Overview of chat in VS Code. Learn how to access different chat surfaces, configure your session, add context, write effective prompts, and review AI-generated changes.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---

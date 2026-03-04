@@ -1,6 +1,6 @@
 ---
 ContentId: 7c550054-4ade-4665-b368-215798c48673
-DateApproved: 02/04/2026
+DateApproved: 3/4/2026
 MetaDescription: Learn how to add and manage Model Context Protocol (MCP) servers with GitHub Copilot in Visual Studio Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
