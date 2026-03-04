@@ -42,6 +42,8 @@ You can also compact the session manually using `/compact`, providing instructio
 
 This keeps sessions focused without interrupting the workflow.
 
+![Screenshot showing the context window control and the compact option.](context-compaction.png)
+
 
 ## Agent controls
 
