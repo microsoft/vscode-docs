@@ -22,8 +22,6 @@ From enforcing policies with hooks to guiding agents mid-response, validating UI
 
 Long-running development work depends on maintaining continuity. As sessions grow, these updates make the current experience more effective for complex and long-running sessions, reducing the need to repeatedly restate project details.
 
-
-
 ### Handle large outputs
 
 Large diffs, generated files, or extensive logs can overwhelm a session if treated as an inline context.
@@ -48,8 +46,6 @@ This keeps sessions focused without interrupting the workflow.
 ## Agent controls
 
 As agents take on more responsibility, the way you interact with them matters just as much as what they generate. These updates make it easier to control the conversation and guide outcomes during active work.
-
-
 
 ### Guide the agent while it works
 
@@ -77,17 +73,22 @@ Each fork evolves independently, making it easier to compare implementations, ex
 
 In the demo below, `/fork` creates a parallel thread where a more minimal design direction is explored without affecting the original discussion.
 
+<video src="fork-a-conversation.mp4" title="Video demonstrating forking a conversation into parallel threads in VS Code." autoplay muted controls></video>
+
+
 ### Automate with hooks
 
 Teams frequently rely on conventions, validations, or automated checks to maintain consistency.
 
-Hooks execute deterministically at key lifecycle events, allowing teams to enforce policies and set guardrails that keep agent-driven changes aligned with project standards, rather than relying on repeated prompts.
+[Hooks](https://code.visualstudio.com/docs/copilot/customization/hooks) execute deterministically at key lifecycle events, allowing teams to enforce policies and set guardrails that keep agent-driven changes aligned with project standards, rather than relying on repeated prompts.
 
 For example, a team might automatically lint code before edits are applied, block changes to protected configuration files, or trigger a test suite whenever an agent modifies application logic.
 
 This keeps agent-driven changes aligned with your project’s standards without requiring constant supervision.
 
 The following demo shows a stop hook executing on session exit, detecting uncommitted changes and automatically committing and pushing them.
+
+<video src="automate-with-hooks.mp4" title="Video demonstrating a stop hook executing on session exit, detecting uncommitted changes and automatically committing and pushing them in VS Code." autoplay muted controls></video>
 
 ## Agent extensibility
 
@@ -99,7 +100,7 @@ Many development tasks repeat across sessions.
 
 Writing tests, refactoring code, or reviewing changes often follows patterns you already understand.
 
-Instead of rewriting instructions each time, you can invoke agent skills directly from chat using slash commands. Skills may come from built-in capabilities, extensions, or project-specific tooling.
+Instead of rewriting instructions each time, you can invoke agent skills directly from chat using slash commands. [Skills](https://code.visualstudio.com/docs/copilot/customization/agent-skills) may come from built-in capabilities, extensions, or project-specific tooling.
 
 Instead of prompting vaguely, you can intentionally invoke workflows.
 
@@ -112,6 +113,8 @@ For example:
 By default, available skills appear in the `/` menu, making them discoverable and easy to reuse across sessions.
 
 The following video demonstrates a frontend design skill driving the workflow end to end, implementing a new UI component, integrating live data, and validating the result without leaving VS Code.
+
+<video src="use-skills-on-demand.mp4" title="Video demonstrating a frontend design skill implementing a UI component and validating the result." autoplay muted controls></video>
 
 ### Validate changes without leaving the editor
 
@@ -127,6 +130,8 @@ Implementation, inspection, and validation now happen within the same workflow, 
 
 In the example below, the integrated browser opens and follows the page navigation, so you can validate changes as you interact with the application.
 
+<video src="use-integrated-browser.mp4" title="Video demonstrating browser validation of UI changes in the integrated VS Code browser." autoplay muted controls></video>
+
 ## Workflow integration across tools
 
 Development often moves between the terminal and the editor.
@@ -140,7 +145,9 @@ In practice:
 - A CLI process generates changes
 - VS Code surfaces them as diffs
 - You review and approve modifications directly in the editor
+- You review and approve modifications directly in the editor
 
+![Screenshot of the Copilot CLI screen with VS Code auto‑connect settings and a selected workspace.](./copilot-cli.png)
 
 ## The next step for agents in VS Code
 
@@ -148,6 +155,6 @@ Agents are becoming a natural part of everyday development. You shouldn’t have
 
 With the February 2026 release (1.110), VS Code gives you more control over how agents behave. They fit into your tools more naturally and carry context across sessions.
 
-We’re building this in the open. If you have feedback, ideas, or run into issues, open a discussion or file an issue in the VS Code repo or find us on social. We’d love to hear from you.
+We’re building this in the open. If you have feedback, ideas, or run into issues, open a discussion or file an issue in the [VS Code repo](https://github.com/microsoft/vscode/issues) or find us on social. We’d love to hear from you.
 
 Happy coding!
