@@ -1,30 +1,31 @@
 {
   "featured": {
-    "title": "Multi-agent development",
-    "description": "VS Code is your home for multi-agent development. Run multiple AI agent sessions in parallel, across different projects, environments, and agent harnesses.",
-    "link": "/updates/v1_109",
-    "image": "/assets/updates/1_109/vscode-v1109-social.webp"
+    "title": "Use agents for long-running and more complex tasks",
+    "description": "Customize chat with prepackaged agent plugins, let agents drive the browser and validate their own changes, and use agent memory to persist plans and context across long-running sessions.",
+    "link": "/updates/v1_110",
+    "image": "/assets/updates/1_110/agent-flow-chart.png"
   },
   "highlights": [
     {
       "type": "blog",
-      "title": "MCP Apps support",
-      "description": "Give agents a visual voice with MCP Apps support in VS Code.",
-      "link": "/blogs/2026/01/26/mcp-apps-support",
-      "image": "/assets/blogs/2026/01/26/mcp-apps-list-sort.png"
+      "title": "Multi-agent development",
+      "description": "VS Code is your home for multi-agent development. Run multiple AI agent sessions in parallel, across different projects, environments, and agent harnesses.",
+      "link": "/blogs/2026/02/05/multi-agent-development",
+      "image": "/assets/blogs/2026/02/05/your-agent-ux.png"
     },
     {
       "type": "documentation",
-      "title": "AI core concepts overview",
+      "title": "AI core concepts",
       "description": "Get an overview of the core concepts and how AI agents work in VS Code.",
       "link": "/docs/copilot/core-concepts",
       "image": "/assets/docs/copilot/core-concepts/agent-loop.png"
     },
     {
-      "type": "insiders",
-      "title": "New in Insiders",
-      "description": "Support for agent plugins to install agent customizations. Fork a chat conversation with `/fork` to explore alternative paths.",
-      "link": "/updates/v1_110"
+      "type": "tutorial",
+      "title": "Build and test with browser agent tools",
+      "description": "Let AI build web apps and automatically verify them in the integrated browser, catching and fixing bugs on its own.",
+      "link": "/docs/copilot/guides/browser-agent-testing-guide",
+      "image": "/assets/docs/copilot/browser-agent-testing-guide/browser-testing-hero.png"
     }
   ]
 }

@@ -1,6 +1,6 @@
 ---
 ContentId: 8f2c4a1d-9e3b-4c5f-a7d8-6b9c2e4f1a3d
-DateApproved: 02/04/2026
+DateApproved: 3/4/2026
 MetaDescription: Learn how to use built-in tools, MCP tools, and extension tools to extend chat in VS Code with specialized functionality.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 keywords:
@@ -29,9 +29,9 @@ VS Code supports three types of tools that you can use in chat:
 
 VS Code provides a comprehensive set of built-in tools that are automatically available in chat. These tools cover common development tasks and are optimized for working within your workspace.
 
-Built-in tools don't require any installation or configuration and are available as soon as you start using chat.
+Built-in tools don't require any installation or configuration and are available as soon as you start using chat. For example, browser tools enable agents to interact with web pages in the integrated browser to test and validate web applications.
 
-For a complete list of built-in tools and their descriptions, see the [Chat tools reference](/docs/copilot/reference/copilot-vscode-features.md#chat-tools).
+For a complete list of built-in tools and their descriptions, see the [Chat tools reference](/docs/copilot/reference/copilot-vscode-features.md#chat-tools). To learn how to use browser tools for testing web apps, see [test web apps with browser agent tools](/docs/copilot/guides/browser-agent-testing-guide.md).
 
 </details>
 
@@ -240,7 +240,10 @@ Related settings:
 >
 > If prompt injection is a possibility or you're in a high-risk environment, consider [enabling terminal sandboxing](#sandbox-terminal-commands-experimental) or running VS Code within a container.
 
-### Sandbox terminal commands (Experimental)
+### Sandbox terminal commands
+
+> [!NOTE]
+> Terminal sandboxing is currently in preview and is only supported on macOS and Linux. On Windows, the sandbox settings have no effect.
 
 Terminal sandboxing restricts file system and network access for commands executed by the agent. When sandboxing is enabled, terminal commands are auto-approved without requiring user confirmation, because they run in a controlled environment.
 
@@ -251,9 +254,6 @@ When sandboxing is enabled:
 * Commands have read and write access to the current working directory by default
 * Network access is blocked for all domains by default
 * Commands run without the standard confirmation dialog
-
-> [!NOTE]
-> Terminal sandboxing is currently supported on macOS and Linux only. On Windows, the sandbox settings have no effect.
 
 #### Configure file system access
 
@@ -282,12 +282,16 @@ Use the `setting(chat.tools.terminal.sandbox.network)` setting to allow specific
 {
   "chat.tools.terminal.sandbox.network": {
     // Allow network access to specific domains
-    "allowedDomains": ["api.github.com", "*.npmjs.org"]
+    "allowedDomains": ["api.github.com", "*.npmjs.org"],
+    // Include domains from the Trusted Domains list
+    "allowTrustedDomains": true
   }
 }
 ```
 
 By default, network access is blocked for all domains when sandboxing is enabled.
+
+When `allowTrustedDomains` is set to `true`, the domains from your [Trusted Domains](/docs/editing/editingevolved.md#outgoing-link-protection) list are automatically included in the allowed domains for network access. The sandbox configuration updates automatically when the Trusted Domains list changes.
 
 ## Group tools with tool sets
 
@@ -369,6 +373,8 @@ You can still configure the agent to use Command Prompt with the `setting(chat.t
 > This setting disables all manual approvals, including potentially destructive actions. It removes critical security protections and makes it easier for an attacker to compromise the machine. Only enable this setting if you understand the implications. See the [Security documentation](/docs/copilot/security.md) for more details.
 >
 > To allow all tools and terminal commands to run without prompting for user confirmation, enable the `chat.tools.global.autoApprove` setting. This setting applies globally across all your workspaces!
+
+You can also toggle global auto-approval directly from chat by using the `/yolo` or `/autoApprove` slash command to enable it, or `/disableYolo` or `/disableAutoApprove` to disable it. The first time you enable global auto-approval, a warning dialog asks you to confirm.
 
 ### What's the difference between tools and chat participants?
 

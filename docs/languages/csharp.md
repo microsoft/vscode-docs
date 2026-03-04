@@ -1,6 +1,6 @@
 ---
 ContentId: 40C8AAC1-C00D-4E91-8877-737A598346B6
-DateApproved: 02/04/2026
+DateApproved: 3/4/2026
 MetaDescription: Find out how to get the best out of Visual Studio Code and C#.
 MetaSocialImage: images/csharp/languages-csharp-social.png
 ---

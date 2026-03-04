@@ -1,6 +1,6 @@
 ---
 ContentId: a3e1f7c2-8d4b-4f9a-b6e5-2c8d3f1a9b7e
-DateApproved: 02/04/2026
+DateApproved: 3/4/2026
 MetaDescription: Reference for MCP server configuration format, commands, and settings in Visual Studio Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -8,6 +8,7 @@ Keywords:
 - model context protocol
 - mcp.json
 - configuration
+- sandbox
 - tools
 - copilot
 - reference
@@ -42,6 +43,8 @@ Use this configuration for servers that communicate through standard input and o
 | `args` | No | Array of arguments passed to the command | `["server.py", "--port", "3000"]` |
 | `env` | No | Environment variables for the server | `{"API_KEY": "${input:api-key}"}` |
 | `envFile` | No | Path to an environment file to load more variables | `"${workspaceFolder}/.env"` |
+| `sandboxEnabled` | No | Run the server in a sandboxed environment. Only supported on macOS and Linux. | `true` |
+| `sandbox` | No | File system and network access rules for the sandboxed server. Only applies when `sandboxEnabled` is `true`. See [Sandbox configuration](#sandbox-configuration). | `{"filesystem": {...}, "network": {...}}` |
 
 > [!NOTE]
 > When using Docker with stdio servers, don't use the detach option (`-d`). The server must run in the foreground to communicate with VS Code.
@@ -60,6 +63,56 @@ This example shows the minimal configuration for a basic, local MCP server using
             "-y",
             "@modelcontextprotocol/server-memory"
             ]
+        }
+    }
+}
+```
+
+</details>
+
+### Sandbox configuration
+
+You can enable sandboxing for locally-running stdio MCP servers to restrict their access to the file system and network. Sandboxed servers can only access the file system paths and network domains that you explicitly permit. Sandboxing is available on macOS and Linux only.
+
+To enable sandboxing for a server, set `"sandboxEnabled": true` in its configuration. Then, use the `sandbox` object to define the file system and network access rules. When a sandboxed server needs access that the current rules don't permit, check the server output for error messages and update the `sandbox` configuration accordingly.
+
+> [!NOTE]
+> When sandboxing is enabled, tool confirmations are auto-approved because the server runs in a controlled environment.
+
+The `sandbox` object supports the following properties:
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `filesystem.allowWrite` | string[] | File paths that the server is allowed to write to. |
+| `filesystem.denyRead` | string[] | File paths that the server is not allowed to read. |
+| `filesystem.denyWrite` | string[] | File paths that the server is not allowed to write to. |
+| `network.allowedDomains` | string[] | Domains that the server is allowed to access. Wildcards are supported, for example `*.example.com`. |
+| `network.deniedDomains` | string[] | Domains that the server is not allowed to access. |
+
+You can use [predefined variables](/docs/reference/variables-reference.md), such as `${workspaceFolder}`, in file system path values.
+
+<details>
+<summary>Example sandbox configuration</summary>
+
+This example enables sandboxing and grants write access to the workspace, denies read access to the `.ssh` directory, and allows network access to specific domains:
+
+```json
+{
+    "servers": {
+        "myServer": {
+            "type": "stdio",
+            "command": "npx",
+            "args": ["-y", "@example/mcp-server"],
+            "sandboxEnabled": true,
+            "sandbox": {
+                "filesystem": {
+                    "allowWrite": ["${workspaceFolder}"],
+                    "denyRead": ["${userHome}/.ssh"]
+                },
+                "network": {
+                    "allowedDomains": ["api.example.com", "*.cdn.example.com"]
+                }
+            }
         }
     }
 }

@@ -1,6 +1,6 @@
 ---
 ContentId: 7b232695-cbbe-4f3f-a625-abc7a5e6496c
-DateApproved: 02/04/2026
+DateApproved: 3/4/2026
 MetaDescription: Overview of the configuration settings for GitHub Copilot in Visual Studio Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -60,16 +60,17 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 | `setting(chat.fontSize)`<br/>Font size in pixels for Markdown content in chat. | `13` |
 | `setting(chat.notifyWindowOnConfirmation)`<br/>Enable or disable showing an OS notification window when user input is needed. | `true` |
 | `setting(chat.notifyWindowOnResponseReceived)`<br/>Enable or disable showing an OS notification window when a chat response is received. | `true` |
-| `setting(chat.requestQueuing.enabled)` _(Experimental)_<br/>Enable or disable [message queuing](/docs/copilot/chat/chat-sessions.md#send-messages-while-a-request-is-running) while a request is in progress. When enabled, you can queue, steer, or stop and send new messages during active requests. | `true` |
 | `setting(chat.requestQueuing.defaultAction)`<br/>Configure the default action for the **Send** button while a request is in progress: `queue` adds the message to the queue, `steer` signals the current request to yield. | `"queue"` |
 | `setting(chat.tools.terminal.autoReplyToPrompts)` <br/>Automatically reply to terminal prompts with a default answer. | `false` |
 | `setting(chat.tools.terminal.terminalProfile.<platform>)`<br/>Configure which terminal profile to use for chat terminal commands on each platform. | `""` |
+| `setting(chat.hookFilesLocations)` _(Preview)_ <br/>Configure additional [hook file locations](/docs/copilot/customization/hooks.md#hook-file-locations). Specify paths to folders (loads all `*.json` files) or direct paths to `.json` files. Only relative paths and tilde paths are supported. | `{}` |
 | `setting(chat.useAgentsMdFile)` <br/>Enable or disable using `AGENTS.md` files as context for chat requests. | `true` |
-| `setting(chat.math.enabled)` _(Preview)_<br/>Enable or disable math rendering with [KaTeX](https://katex.org) in chat. | `false` |
+| `setting(chat.math.enabled)` <br/>Enable or disable math rendering with [KaTeX](https://katex.org) in chat. | `false` |
 | `setting(chat.viewTitle.enabled)` _(Preview)_<br/>Show the title of the current chat session in the chat header. | `true` |
 | `setting(github.copilot.chat.codesearch.enabled)` _(Preview)_<br/>When using `#codebase` in the prompt, Copilot automatically discovers relevant files to be edited. | `false` |
 | `setting(chat.emptyState.history.enabled)` _(Experimental)_<br/>Show recent chat history in the empty state of the Chat view. | `false` |
 | `setting(chat.sendElementsToChat.enabled)` _(Experimental)_<br/>Enable sending elements from the [integrated browser](/docs/debugtest/integrated-browser.md) to the chat view as context. | `true` |
+| `setting(workbench.browser.enableChatTools)` _(Experimental)_<br/>Enable [browser tools](/docs/debugtest/integrated-browser.md#browser-tools-for-agents) that let agents interact with pages in the integrated browser. | `false` |
 | `setting(chat.useNestedAgentsMdFiles)` _(Experimental)_<br/>Enable or disable using `AGENTS.md` files in subfolders of your workspace as context for chat requests. | `false` |
 | `setting(github.copilot.chat.customOAIModels)` _(Experimental)_<br/>Configure custom OpenAI-compatible models for chat. | `[]` |
 | `setting(github.copilot.chat.edits.suggestRelatedFilesFromGitHistory)` _(Experimental)_<br/>Suggest related files from git history in chat context. | `true` |
@@ -99,7 +100,7 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 | `setting(chat.tools.terminal.sandbox.enabled)` _(Experimental)_<br/>Enable [sandboxing for terminal commands](/docs/copilot/agents/agent-tools.md#sandbox-terminal-commands-experimental) executed by the agent (macOS and Linux only). When enabled, commands are auto-approved and have restricted file system and network access. | `false` |
 | `setting(chat.tools.terminal.sandbox.linuxFileSystem)` _(Experimental)_<br/>Configure file system access rules for sandboxed terminal commands on Linux. Supports `allowWrite`, `denyWrite`, and `denyRead` properties. | `{}` |
 | `setting(chat.tools.terminal.sandbox.macFileSystem)` _(Experimental)_<br/>Configure file system access rules for sandboxed terminal commands on macOS. Supports `allowWrite`, `denyWrite`, and `denyRead` properties. | `{}` |
-| `setting(chat.tools.terminal.sandbox.network)` _(Experimental)_<br/>Configure network access rules for sandboxed terminal commands. Supports `allowedDomains` property to specify permitted domains. | `{}` |
+| `setting(chat.tools.terminal.sandbox.network)` _(Experimental)_<br/>Configure network access rules for sandboxed terminal commands. Supports `allowedDomains` to specify permitted domains and `allowTrustedDomains` to include domains from the [Trusted Domains](/docs/editing/editingevolved.md#outgoing-link-protection) list. | `{}` |
 | `setting(github.copilot.chat.newWorkspaceCreation.enabled)` _(Experimental)_<br/>Enable the tool for scaffolding a new workspace in chat. | `true` |
 | `setting(github.copilot.chat.agent.thinkingTool:true)` _(Experimental)_<br/>Enable the thinking tool when using agents. | `false` |
 | `setting(github.copilot.chat.summarizeAgentConversationHistory.enabled)` _(Experimental)_<br/>Automatically summarize the agent conversation history when the context window is full. | `true` |

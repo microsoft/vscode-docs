@@ -15,7 +15,7 @@ Visual Studio Code lets you perform most tasks directly from the keyboard. This 
 
 VS Code provides a rich keyboard shortcut editing experience with the Keyboard Shortcuts editor. The editor lists all available commands with and without keyboard shortcuts, and enables you to change, remove, or reset their keyboard shortcuts using the available actions. To find commands or keyboard shortcuts, use the search box and enter a command or shortcut to filter the list.
 
-To open the Keyboard Shortcuts editor, select the **File** > **Preferences** > **Keyboard Shortcuts** menu, or use the **Preferences: Open Keyboard Shortcuts** command (`kb(workbench.action.openGlobalKeybindings)`) in the Command Palette.
+To open the Keyboard Shortcuts editor, select the **File** > **Preferences** > **Keyboard Shortcuts** menu, or use the **Preferences: Open Keyboard Shortcuts** command (`kb(workbench.action.openGlobalKeybindings)`) in the Command Palette. The Keyboard Shortcuts editor opens by default in a [modal overlay](/docs/getstarted/userinterface.md#modal-editors) on top of the editor area.
 
 ![Keyboard Shortcuts](images/keybinding/keyboard-shortcuts.gif)
 

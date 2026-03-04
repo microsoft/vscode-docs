@@ -1,6 +1,6 @@
 ---
 ContentId: d0e271da-0372-4ab9-a2ab-b7add855bd5a
-DateApproved: 02/04/2026
+DateApproved: 3/4/2026
 MetaDescription: The Visual Studio Code editor includes browser debugging support. Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: ../editor/images/debugging/debugging-social.png
 ---
@@ -133,6 +133,12 @@ Most modern tools used for building web applications will work out of the box. I
 Each JavaScript file may reference a source map, by a URL or relative path. When dealing with web applications, you'll want to make sure that the URL is something the debugger running in VS Code can access. If it can't, you'll see errors in the **Debug Console** explaining which source maps failed to load, and why.
 
 If it can't access it directly, VS Code will try to use the browser's network stack to request the source map. This provides an opportunity for any authentication state or network settings in the browser to be applied to the request. For example, if your source maps are in a location guarded by cookie authentication, VS Code can load them if and only if the browser session has the necessary cookies.
+
+## Focus emulation
+
+When you debug a web application and switch focus to VS Code, the browser page loses focus. This causes `:focus` CSS styles to disappear, `document.hasFocus()` to return `false`, and focus event handlers to stop firing as expected.
+
+During a browser debug session, the **Debug Options** panel in the **Run and Debug** view provides an **Emulate a focused page** option. When you enable this option, the page behaves as if it still has focus, even when VS Code is in the foreground. The setting persists across debug sessions.
 
 ## Next steps
 

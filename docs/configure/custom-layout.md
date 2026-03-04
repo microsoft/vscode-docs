@@ -69,6 +69,17 @@ When the Activity Bar is in the top or bottom position, the **Account** and **Ma
 
 ![Activity Bar in top position with Account and Manage buttons on the right of the title bar](images/custom-layout/activity-bar-top.png)
 
+### Activity Bar size
+
+The Activity Bar supports two sizes: the larger default size and a compact size that matches the classic Activity Bar appearance. To switch to compact mode, set `setting(workbench.activityBar.compact)` to `true`.
+
+You can also toggle between sizes by right-clicking the Activity Bar and selecting **Default** or **Compact** from the **Activity Bar Size** submenu.
+
+![Screenshot of the Activity Bar context menu showing the Activity Bar Size submenu with Default and Compact options.](images/custom-layout/activity-bar-size.png)
+
+> [!NOTE]
+> The **Activity Bar Size** submenu only appears when the Activity Bar is in its default (side) position. If the Activity Bar is moved to the top or bottom, the size option is not available.
+
 ### Customize Layout control
 
 The VS Code title bar also has buttons to toggle the visibility of the main UI elements (Side bars and Panel region).
@@ -145,7 +156,8 @@ When the Panel alignment is **Center**, you can quickly toggle the Panel region 
 
 You can also maximize the Panel region via the **View: Toggle Maximized Panel** command.
 
-> **Note**: Besides customizing the overall Panel region display, individual panels may have their own layout customizations. For example, the Terminal lets you have [multiple open tabs](/docs/terminal/basics.md#managing-terminals) and [split existing terminals](/docs/terminal/basics.md#groups-split-panes).
+> [!NOTE]
+> Besides customizing the overall Panel region display, individual panels may have their own layout customizations. For example, the Terminal lets you have [multiple open tabs](/docs/terminal/basics.md#managing-terminals) and [split existing terminals](/docs/terminal/basics.md#groups-split-panes).
 
 ### Drag and drop views and panels
 
@@ -153,13 +165,28 @@ VS Code has a default layout of views and panels in the Primary Side bar and Pan
 
 ![The Source Control view in the Panel region and Problem panel in the Primary Side bar](images/custom-layout/non-default-layout.png)
 
->**Note**: Remember that you can reset a view and panel back to its default location with the **Reset Location** context menu item or all views and panels with the general **View: Reset View Locations** command.
+> [!NOTE]
+> Remember that you can reset a view and panel back to its default location with the **Reset Location** context menu item or all views and panels with the general **View: Reset View Locations** command.
 
 You can also add views and panels to existing view or panel to create groups. For example, you could move the Output panel to the Explorer view group by dragging over the Explorer Activity Bar item and then dropping into the view:
 
 ![Output panel moved to the Explorer view group](images/custom-layout/output-in-explorer-group.png)
 
 You are not limited to using the mouse for moving views and panels. You can also customize layouts via the keyboard with the **View: Move View** and **View: Move Focused View** commands, where dropdowns let you pick the UI element to move and the destination, either a location like the Side bar or Panel region or an existing view or panel to create a group.
+
+## Notifications
+
+By default, Visual Studio Code shows notification toasts and the Notification Center in the bottom-right corner of the workbench. You can change the position of notifications with the `setting(workbench.notifications.position)` setting (experimental).
+
+The available positions are:
+
+* `bottom-right` (default) - Notifications appear in the bottom-right corner. The bell icon is in the Status Bar.
+* `bottom-left` - Notifications appear in the bottom-left corner. The bell icon moves to the left side of the Status Bar.
+* `top-right` - Notifications slide in from the top-right corner, similar to OS-level notifications. The bell icon moves from the Status Bar to the title bar.
+
+You can also change the notification position directly from the Notification Center. Open the Notification Center by selecting the bell icon, and then select the position icon in the header toolbar to choose a different position.
+
+When the notification position is set to `top-right`, use the `setting(workbench.notifications.showInTitleBar)` setting to control whether the bell icon is visible in the title bar.
 
 ## Tool bars
 
