@@ -3,7 +3,7 @@
     "title": "Use agents for long-running and more complex tasks",
     "description": "Customize chat with prepackaged agent plugins, let agents drive the browser and validate their own changes, and use agent memory to persist plans and context across long-running sessions.",
     "link": "/updates/v1_110",
-    "image": "/assets/updates/1_110/release-highlights.webp"
+    "image": "/assets/updates/1_110/agent-flow-chart.png"
   },
   "highlights": [
     {
