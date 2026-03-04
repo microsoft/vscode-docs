@@ -3,45 +3,45 @@ ContentId: 8493ea9e-061a-4519-b807-57bd320cc60c
 DateApproved: 05/13/2025
 MetaDescription: Model Conversion reference about setup environment.
 ---
-# Setup environment manually
+# Set up the environment manually
 
-This article introduces how to manually set up Python environments for model conversion and model inference across different hardware targets.
+This article describes how to manually set up Python environments for model conversion and model inference across different hardware targets.
 
-## Setup environment for model conversion
+## Set up the environment for model conversion
 
-We recommend installing your environment in a [Python virtual environment by uv](https://docs.astral.sh/uv/reference/cli/#uv-venv) as this is used internally by AI Toolkit.
+It is recommended to install your environment in a [Python virtual environment using uv](https://docs.astral.sh/uv/reference/cli/#uv-venv), as AI Toolkit uses this internally.
 
-The default Python version is 3.12 unless configured specially.
+The default Python version is 3.12 unless configured otherwise.
 
 ### Requirements installation
 
-When AITK setups a venv, we install 3 kinds of requirements in order.
+When AI Toolkit sets up a virtual environment, it installs three kinds of requirements in order:
 
-- Base requirements: the fundamental requirements including all packages
-- Feature requirements: the additional requirements for the recipe that are installed after base
-- Project requirements: the requirements.txt file inside project to allow user for customization
+- **Base requirements**: The fundamental requirements, including all packages.
+- **Feature requirements**: Additional requirements for the recipe, installed after the base requirements.
+- **Project requirements**: The `requirements.txt` file inside the project, allowing you to customize dependencies.
 
 These files are hosted in the [olive-recipes repo](https://github.com/microsoft/olive-recipes/tree/main/.aitk/requirements).
 
 > [!NOTE]
-> We have [special commands](https://github.com/microsoft/olive-recipes/blob/main/.aitk/docs/guide/ReqCommands.md) to enrich the requirements file. So to install a requirements file, you should first check if there are any special commands and act acoordingly and then install it normally via `uv pip install -r xxx.txt`.
+> The requirements files support [special commands](https://github.com/microsoft/olive-recipes/blob/main/.aitk/docs/guide/ReqCommands.md) that enrich their content. Before installing a requirements file, check for any special commands and handle them accordingly, then install it normally with `uv pip install -r xxx.txt`.
 
-#### Example for Qualcomm NPU
+#### Example: Qualcomm NPU
 
-For [Deepseek Qualcomm NPU](https://github.com/microsoft/olive-recipes/blob/main/deepseek-ai-DeepSeek-R1-Distill-Qwen-1.5B/aitk/deepseek_qnn_config.json.config), `runtimeOverwrite.executeEp` is `CUDAExecutionProvider`, so the base requirements is [NvidiaGPU](https://github.com/microsoft/olive-recipes/blob/main/.aitk/requirements/requirements-NvidiaGPU.txt). `executeRuntimeFeatures` is `AutoGptq`, so the feature requirements is [AutoGptq](https://github.com/microsoft/olive-recipes/blob/main/.aitk/requirements/requirements-NvidiaGPU-AutoGptq.txt).
+For [Deepseek Qualcomm NPU](https://github.com/microsoft/olive-recipes/blob/main/deepseek-ai-DeepSeek-R1-Distill-Qwen-1.5B/aitk/deepseek_qnn_config.json.config), `runtimeOverwrite.executeEp` is `CUDAExecutionProvider`, so the base requirements file is [NvidiaGPU](https://github.com/microsoft/olive-recipes/blob/main/.aitk/requirements/requirements-NvidiaGPU.txt). `executeRuntimeFeatures` is `AutoGptq`, so the feature requirements file is [AutoGptq](https://github.com/microsoft/olive-recipes/blob/main/.aitk/requirements/requirements-NvidiaGPU-AutoGptq.txt).
 
-#### Example for AMD NPU
+#### Example: AMD NPU
 
-For [Deepseek AMD NPU](https://github.com/microsoft/olive-recipes/blob/main/deepseek-ai-DeepSeek-R1-Distill-Qwen-1.5B/aitk/deepseek_vitis_ai_config.json.config), `runtimeOverwrite.executeEp` is `AMD/Quark_py3.10.17`, so the base requirements is [AMD/Quark_py3.10.17](https://github.com/microsoft/olive-recipes/blob/main/.aitk/requirements/AMD/Quark_py3.10.17.txt). There is no feature requirements. Python 3.10 should be used for this venv.
+For [Deepseek AMD NPU](https://github.com/microsoft/olive-recipes/blob/main/deepseek-ai-DeepSeek-R1-Distill-Qwen-1.5B/aitk/deepseek_vitis_ai_config.json.config), `runtimeOverwrite.executeEp` is `AMD/Quark_py3.10.17`, so the base requirements file is [AMD/Quark_py3.10.17](https://github.com/microsoft/olive-recipes/blob/main/.aitk/requirements/AMD/Quark_py3.10.17.txt). There are no feature requirements. Use Python 3.10 for this virtual environment.
 
-## Setup environment for model inference
+## Set up the environment for model inference
 
-The process is similar to [Setup environment for model conversion](#setup-environment-for-model-conversion).
+The process is similar to [Set up the environment for model conversion](#set-up-the-environment-for-model-conversion).
 
 > [!TIP]
-> The same requirements file may also be used for conversion. So you may be only need to install `onnxruntime-windowsml`, `onnxruntime-genai-winml` from the file.
+> The same requirements file may also be used for conversion. You may only need to install `onnxruntime-windowsml` and `onnxruntime-genai-winml` from the file.
 
-[WCR](https://github.com/microsoft/olive-recipes/blob/main/.aitk/requirements/requirements-WCR.txt) is the up-to-date requirements for running models on all EPs in AITK.
+[WCR](https://github.com/microsoft/olive-recipes/blob/main/.aitk/requirements/requirements-WCR.txt) is the up-to-date requirements file for running models on all execution providers in AI Toolkit.
 
 > [!NOTE]
-> For LLM on QNN, an arm64 python will have better performance. There is a [requirements](https://github.com/microsoft/olive-recipes/blob/main/.aitk/requirements/requirements-QNN_LLM.txt) for it.
+> For LLM models on QNN, an arm64 Python environment provides better performance. A dedicated [requirements file](https://github.com/microsoft/olive-recipes/blob/main/.aitk/requirements/requirements-QNN_LLM.txt) is available for this configuration.
