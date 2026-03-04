@@ -2,7 +2,7 @@
 Order: 128
 TOCTitle: Agents for Real-World Dev
 PageTitle: "Making agents practical for real-world development"
-MetaDescription: Explore agent orchestration, extensibility, and continuity in VS Code 1.110: lifecycle hooks, agent skills, session memory, and integrated browser tools.
+MetaDescription: "Explore agent orchestration, extensibility, and continuity in VS Code 1.110: lifecycle hooks, agent skills, session memory, and integrated browser tools."
 MetaSocialImage:
 Date: 2026-03-05
 Author: VS Code Team
@@ -28,6 +28,8 @@ Large diffs, generated files, or extensive logs can overwhelm a session if treat
 
 VS Code now manages large outputs by streaming them to temporary files and prioritizing the most relevant information for the model. This keeps agents focused on the right details while optimizing context usage without additional work.
 
+<video src="embedded-terminal-streaming.mp4" title="Video showing terminal output auto-expanding for long-running commands." autoplay muted controls></video>
+
 ### Share agent memory
 
 Agent memory now spans coding agents, CLI workflows, and code review interactions, allowing agents to share context and build on common knowledge across sessions.
@@ -43,7 +45,6 @@ You can also compact the session manually using `/compact`, providing instructio
 This keeps sessions focused without interrupting the workflow.
 
 ![Screenshot showing the context window control and the compact option.](context-compaction.png)
-
 
 ## Agent controls
 
@@ -76,7 +77,6 @@ Each fork evolves independently, making it easier to compare implementations, ex
 In the demo below, `/fork` creates a parallel thread where a more minimal design direction is explored without affecting the original discussion.
 
 <video src="fork-a-conversation.mp4" title="Video demonstrating forking a conversation into parallel threads in VS Code." autoplay muted controls></video>
-
 
 ### Automate with hooks
 
@@ -147,15 +147,14 @@ In practice:
 - A CLI process generates changes
 - VS Code surfaces them as diffs
 - You review and approve modifications directly in the editor
-- You review and approve modifications directly in the editor
 
-![Screenshot of the Copilot CLI screen with VS Code auto‑connect settings and a selected workspace.](./copilot-cli.png)
+![Screenshot of the Copilot CLI screen with VS Code auto‑connect settings and a selected workspace.](copilot-cli.png)
 
 ## The next step for agents in VS Code
 
 Agents are becoming a natural part of everyday development. You shouldn’t have to adapt your workflow around them. They should adapt to the way you build.
 
-With the February 2026 release (1.110), VS Code gives you more control over how agents behave. They fit into your tools more naturally and carry context across sessions.
+With the [February 2026 release (1.110)](http://aka.ms/VSCode/110), VS Code gives you more control over how agents behave. They fit into your tools more naturally and carry context across sessions.
 
 We’re building this in the open. If you have feedback, ideas, or run into issues, open a discussion or file an issue in the [VS Code repo](https://github.com/microsoft/vscode/issues) or find us on social. We’d love to hear from you.
 
