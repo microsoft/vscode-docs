@@ -21,11 +21,11 @@
       "image": "/assets/docs/copilot/core-concepts/agent-loop.png"
     },
     {
-      "type": "documentation",
-      "title": "Automate with hooks",
-      "description": "",
-      "link": "/docs/copilot/customization/hooks",
-      "image": "/assets/blogs/2026/01/26/mcp-apps-list-sort.png"
+      "type": "tutorial",
+      "title": "Build and test with browser agent tools",
+      "description": "Let AI build web apps and automatically verify them in the integrated browser, catching and fixing bugs on its own.",
+      "link": "/docs/copilot/guides/browser-agent-testing-guide",
+      "image": "/assets/docs/copilot/guides/browser-agent-testing-guide/browser-testing-hero.png"
     }
   ]
 }
