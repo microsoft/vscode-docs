@@ -1,16 +1,16 @@
 ---
 Order: 104
-TOCTitle: "VS Code Dev Days 2025"
-PageTitle: "VS Code Dev Days – Join an event near you to learn about AI-assisted development"
+TOCTitle: VS Code Dev Days 2025
+PageTitle: VS Code Dev Days 2025
 MetaDescription: Join a VS Code Dev Days event to learn about GitHub Copilot in VS Code
 MetaSocialImage: VSCode-Dev-Days-banner.jpg
 Date: 2025-08-26
-Author: Katie Savage, Cynthia Zanoni
+Authors:
+  - name: Katie Savage
+    social: https://github.com/katiesavage
+  - name: Cynthia Zanoni
+    social: https://x.com/cynthiazanoni
 ---
-
-# VS Code Dev Days – Join an event near you to learn about AI-assisted development
-
-August 26th, 2025 by [Katie Savage](https://github.com/katiesavage) and [Cynthia Zanoni](https://x.com/cynthiazanoni)
 
 > *VS Code Dev Days is over, but you can view our [virtual event on demand](https://www.youtube.com/live/ujSgVqC94TQ?si=oe1QOjpU3RRqq0Ez) or check out the [free training and workshop content](https://github.com/microsoft/VS-Code-Dev-Days/tree/main).*
 

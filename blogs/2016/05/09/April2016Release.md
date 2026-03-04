@@ -1,16 +1,14 @@
 ---
 Order:
 TOCTitle: April 2016 Release
-PageTitle: Visual Studio April 2016 Release
+PageTitle: April 2016 release
 MetaDescription: Announcing the Visual Studio Code April 2016 Release
 Date: 2016-05-09
 ShortDescription: Announcing the April 2016 Release of VS Code
-Author: Chris Dias
+Authors:
+  - name: VS Code Team
+    social: https://twitter.com/code
 ---
-
-# April 2016 Release
-
-May 9, 2016 by The VS Code Team, [@code](https://twitter.com/code)
 
 Today we are releasing the April 2016 build of Visual Studio Code. This is our first monthly release after our 1.0 announcement last month and we really appreciate your support and feedback.
 

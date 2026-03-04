@@ -1,13 +1,14 @@
 ---
 Order:
-TOCTitle: Event-Stream Package Security Update
-PageTitle: Event-Stream Package Security Update
-MetaDescription: Event-Stream Package Security Update
+TOCTitle: Event-stream package security update
+PageTitle: Event-stream package security update
+MetaDescription: Event-stream package security update
 Date: 2018-11-26
-ShortDescription: Event-Stream Package Security Update
-Author: Kai Maetzel
+ShortDescription: Event-stream package security update
+Authors:
+  - name: Kai Maetzel
+    social: https://twitter.com/kaimaetzel
 ---
-# Event-Stream Package Security Update
 
 **Updated**: June 23, 2019
 
@@ -21,8 +22,6 @@ Below is the current list of blocked extensions:
 * `MaxGotovkin.tslens`
 
 ---
-
-November 26, 2018 Kai Maetzel, [@kaimaetzel](https://twitter.com/kaimaetzel)
 
 You might already have heard that the popular event-stream NPM package includes a malicious dependency. The details can be found in the following GitHub issue: [https://github.com/dominictarr/event-stream/issues/116](https://github.com/dominictarr/event-stream/issues/116). This vulnerability has been in existence for about two months but was only recently discovered.
 

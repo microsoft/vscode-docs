@@ -6,11 +6,10 @@ MetaDescription: A new home for the Debug Adapter Protocol
 MetaSocialImage: /assets/blogs/2018/08/07/with-DAP.png
 Date: 2018-08-07
 ShortDescription: The new Debug Adapter Protocol website
-Author: André Weinand
+Authors:
+  - name: André Weinand
+    social: https://twitter.com/weinand
 ---
-# New home for the Debug Adapter Protocol
-
-August 7, 2018 André Weinand, [@weinand](https://twitter.com/weinand)
 
 One goal of the July milestone was to move the **Debug Adapter Protocol** -- which was hiding itself in a somewhat obscure [GitHub project](https://github.com/microsoft/vscode-debugadapter-node) -- to a more prominent website (see feature request [#19636](https://github.com/microsoft/vscode/issues/19636)).
 

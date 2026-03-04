@@ -1,16 +1,14 @@
 ---
 Order:
 TOCTitle: The Language Server Protocol
-PageTitle: Common Language Server Protocol
+PageTitle: A common protocol for languages
 MetaDescription: A Common Language Server Protocol for any tool and any language.
 Date: 2016-06-27
 ShortDescription: Common Language Server Protocol
-Author: PJ Meyer
+Authors:
+  - name: VS Code Team
+    social: https://twitter.com/code
 ---
-
-# A Common Protocol for Languages
-
-June 27, 2016 by The VS Code Team, [@code](https://twitter.com/code)
 
 Visual Studio Code is an editor for any developer, no matter what programming language you use.  Between languages bundled in the tool or extensions in the [Marketplace](https://marketplace.visualstudio.com/VSCode), we have support for over [150 languages](/blogs/2016/04/14/vscode-1.0.md).  We’re also committed to developing VS Code in the open, and making the components that power VS Code available and open source.  One of our most notable components is the [Monaco editor](https://github.com/microsoft/monaco-editor), but another technology that powers VS Code is an [open, JSON-based protocol](https://github.com/microsoft/language-server-protocol) that anyone can use to add support for a new programming language to VS Code by implementing a "language server".
 

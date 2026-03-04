@@ -1,15 +1,13 @@
 ---
 Order: 
 TOCTitle: VS Code Community Discussions
-PageTitle: VS Code Community Discussions for Extension Authors
+PageTitle: VS Code Community Discussions for extension authors
 MetaDescription: Announcing the official launch of VS Code Community Discussions, a place for extension authors to connect.
 Date: 2022-10-04
-Author: Olivia Guzzardo
+Authors:
+  - name: Olivia Guzzardo
+    social: https://twitter.com/OliviaGuzzardo
 ---
-
-# VS Code Community Discussions for Extension Authors
-
-October 4, 2022 by Olivia Guzzardo, [@OliviaGuzzardo](https://twitter.com/OliviaGuzzardo)
 
 The true power of VS Code comes from its vast extension ecosystem, which only exists because of our incredible community of extension authors. Whether creating a new language extension to make it possible to program in virtually any language, developing a new theme to help with productivity, or extending the workbench to help with a unique developer workflow, extension authors help millions of people by sharing their creation.
 

@@ -1,17 +1,15 @@
 ---
 Order:
 TOCTitle: 1.0 Release
-PageTitle: Visual Studio Code 1.0 Release
+PageTitle: Visual Studio Code 1.0!
 MetaDescription: Visual Studio Code releases 1.0.
 Date: 2016-04-14
 ShortDescription: Visual Studio Code releases 1.0.
-Author: PJ Meyer
+Authors:
+  - name: VS Code Team
+    social: https://twitter.com/code
 MetaSocialImage: /assets/blogs/2016/04/14/header.png
 ---
-
-# Visual Studio Code 1.0!
-
-April 14, 2016 by The VS Code Team, [@code](https://twitter.com/code)
 
 ![header graphic](header.png)
 

@@ -1,16 +1,14 @@
 ---
 Order: 121
-TOCTitle: "Introducing the VS Code Insiders Podcast"
-PageTitle: "Introducing the VS Code Insiders Podcast"
+TOCTitle: Introducing the VS Code Insiders Podcast
+PageTitle: Introducing the VS Code Insiders Podcast
 MetaDescription: The VS Code Insiders Podcast is your insider's guide to the features, decisions, and people shaping the future of Visual Studio Code.
 MetaSocialImage: hero-vscode-podcast.webp
-Date: 2025-12-03
-Author: James Montemagno
+Date: 2025-12-01
+Authors:
+  - name: James Montemagno
+    social: https://x.com/jamesmontemagno
 ---
-
-# Introducing the VS Code Insiders Podcast
-
-December 1, 2025 by James Montemagno, [@jamesmontemagno](https://x.com/jamesmontemagno).
 
 ![VS Code Podcast Hero Banner - A modern podcast studio with VS Code logo, microphones, and code flowing in the background](hero-vscode-podcast.jpg)
 

@@ -1,14 +1,13 @@
 ---
 Order: 
-TOCTitle: Development Containers in Education
-PageTitle: Development Containers in Education with Visual Studio Code
-MetaDescription: Development Containers in Education with Visual Studio Code
+TOCTitle: Development containers in education
+PageTitle: "Development containers in education: A guide for instructors"
+MetaDescription: Development containers in education with Visual Studio Code.
 Date: 2020-07-27
-Author: Brigit Murtaugh
+Authors:
+  - name: Brigit Murtaugh
+    social: https://twitter.com/BrigitMurtaugh
 ---
-# Development Containers in Education: A Guide for Instructors
-
-July 27, 2020 by Brigit Murtaugh, [@BrigitMurtaugh](https://twitter.com/BrigitMurtaugh)
 
 We've heard from many educators that the first days or weeks of the semester can be lost to configuring the correct environment for students. Even so, students may still end up with a low-quality development experience or insufficient grading of their assignments:
 

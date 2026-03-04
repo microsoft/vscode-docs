@@ -1,16 +1,14 @@
 ---
 Order:
-TOCTitle: 1.7 Rollback Incident Report
-PageTitle: Visual Studio Code 1.7 Rollback Incident Report
+TOCTitle: 1.7 rollback incident report
+PageTitle: 1.7 rollback incident report
 MetaDescription: Visual Studio Code 1.7 Rollback Incident Report
 Date: 2016-11-03
 ShortDescription: Visual Studio Code 1.7 Rollback Incident Report
-Author: Wade Anderson
+Authors:
+  - name: Wade Anderson
+    social: https://twitter.com/waderyan_
 ---
-
-# 1.7 Rollback Incident Report
-
-November 3, 2016 by Wade Anderson, [@waderyan_](https://twitter.com/waderyan_)
 
 Last night Wednesday November 2nd, we rolled back the 1.7 release of Visual Studio Code to 1.6.1. If you had upgraded to 1.7, you would have been prompted to update back to 1.6.1. This morning we implemented a mitigation fix and created a new release and you should now be on VS Code 1.7.1. If you are not sure what version you are on, you can [find the version information](/docs/supporting/faq.md#how-do-i-find-what-version-of-vs-code-i-am-using) in the About dialog.
 

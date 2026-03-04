@@ -1,15 +1,13 @@
 ---
 Order: 
 TOCTitle: VS Code and Copilot
-PageTitle: Visual Studio Code and GitHub Copilot AI
+PageTitle: VS Code and GitHub Copilot
 MetaDescription: Learn about the Visual Studio Code team's experience and future with GitHub Copilot artificial intelligence
 Date: 2023-03-30
-Author: Chris Dias
+Authors:
+  - name: Chris Dias
+    social: https://twitter.com/chrisdias
 ---
-
-# Visual Studio Code and GitHub Copilot
-
-March 30, 2023 by Chris Dias, [@chrisdias](https://twitter.com/chrisdias)
 
 **AI did not write this blog post, but it will make your development experiences incredible.**
 

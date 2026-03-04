@@ -1,17 +1,15 @@
 ---
 Order: 
-TOCTitle: VS Code Sandboxing
-PageTitle: VS Code Sandboxing
+TOCTitle: VS Code sandboxing
+PageTitle: Migrating VS Code to process sandboxing
 MetaDescription: Migrating Visual Studio Code to Electron process sandboxing
 Date: 2022-11-28
-Author: Benjamin Pasero
+Authors:
+  - name: Benjamin Pasero
+    social: https://twitter.com/BenjaminPasero
 ---
 
-# Migrating VS Code to Process Sandboxing
-
 **A win-win for security and the VS Code architecture**
-
-November 28, 2022 by Benjamin Pasero, [@BenjaminPasero](https://twitter.com/BenjaminPasero)
 
 Enabling the [sandbox](https://www.electronjs.org/docs/latest/tutorial/sandbox) in [Electron](https://www.electronjs.org/) renderer processes is a critical requirement for secure and reliable Electron applications such as Visual Studio Code. The sandbox reduces the harm that malicious code can cause by limiting access to most system resources. In this blog post, we provide a detailed overview into how we managed to enable process sandboxing in VS Code, a journey that we [started in early 2020](https://github.com/microsoft/vscode/issues/92164) and plan to finish at the beginning of 2023. To help understand the challenge of process sandboxing, this blog post also describes details of the VS Code process model and how it evolved during this journey.
 

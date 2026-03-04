@@ -1,19 +1,17 @@
 ---
 Order:
 TOCTitle: Evolution of VS Code Insiders
-PageTitle: Evolution of Visual Studio Code Insiders
+PageTitle: Evolution of VS Code Insiders
 MetaDescription: Evolution of the Visual Studio Code Insiders Build
 MetaSocialImage: /assets/blogs/2016/11/30/opengraph_insiders.png
 Date: 2016-05-23
 ShortDescription: Evolution of the Insiders Build
-Author: Wade Anderson
+Authors:
+  - name: Wade Anderson
+    social: https://twitter.com/waderyan_
 ---
 
-# Evolution of the Insiders Build
-
-May 23, 2016 by Wade Anderson, [@waderyan_](https://twitter.com/waderyan_)
-
-Today over five thousand developers use the Visual Studio Code [Insiders Build](https://code.visualstudio.com/blogs/2016/02/01/introducing_insiders_build) for early access to new features and to validate bug fixes. We love the Insiders build because we get valuable feedback and usage insights prior to each Stable release. Thank you for your help!
+Today over five thousand developers use the Visual Studio Code [Insiders](https://code.visualstudio.com/blogs/2016/02/01/introducing_insiders_build) for early access to new features and to validate bug fixes. We love the Insiders build because we get valuable feedback and usage insights prior to each Stable release. Thank you for your help!
 
 Initially, we released an Insiders build once per month, a few days before the Stable release. Over time, we increased the frequency of Insiders builds and today we ship new Insiders builds roughly once a week.
 

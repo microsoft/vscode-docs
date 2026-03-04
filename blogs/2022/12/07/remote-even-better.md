@@ -1,15 +1,13 @@
 ---
 Order: 
-TOCTitle: Remote Development Even Better
-PageTitle: Making Remote Development Even Better
+TOCTitle: Remote development even better
+PageTitle: Making remote development even better
 MetaDescription: Announcing the release of the unified Visual Studio Code command-line interface and the latest improvements to remote development.
 Date: 2022-12-07
-Author: Brigit Murtaugh
+Authors:
+  - name: Brigit Murtaugh
+    social: https://twitter.com/BrigitMurtaugh
 ---
-
-# Remote Development Even Better
-
-December 07, 2022 by Brigit Murtaugh, [@BrigitMurtaugh](https://twitter.com/BrigitMurtaugh)
 
 At its core, Visual Studio Code is a code editor, and it integrates with other environments through our [remote development experiences](https://code.visualstudio.com/docs/remote/remote-overview) to become even more powerful and flexible:
 

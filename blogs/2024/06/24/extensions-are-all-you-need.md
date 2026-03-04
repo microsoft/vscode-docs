@@ -1,16 +1,14 @@
 ---
 Order: 88
 TOCTitle: Copilot extensions are all you need
-PageTitle: GitHub Copilot Extensions are all you need
+PageTitle: GitHub Copilot extensions are all you need
 MetaDescription: Learn how to extend GitHub Copilot by using the Chat and Language Model APIs in your Visual Studio Code extension. Get inspired by early adopters and their extensions.
 MetaSocialImage: chat-extension-sample.png
 Date: 2024-06-24
-Author: Isidor Nikolic
+Authors:
+  - name: Isidor Nikolic
+    social: https://x.com/isidorn
 ---
-
-# GitHub Copilot Extensions are all you need
-
-June 24, 2024 by Isidor Nikolic, [@isidorn](https://x.com/isidorn)
 
 In 2017, Google researchers introduced the concept of *transformers* in their seminal paper, ["Attention is All You Need"](https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf). These types of models, which prioritize information similarly to human focus, are the foundation of today’s modern language models, such as the ones that power GitHub Copilot.
 

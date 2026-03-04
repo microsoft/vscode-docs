@@ -1,16 +1,15 @@
 ---
 Order: 
 TOCTitle: Remote SSH
-PageTitle: Remote SSH access with Visual Studio Code
+PageTitle: Remote SSH with VS Code
 MetaDescription: Remote SSH access with Visual Studio Code
 MetaSocialImage: /assets/blogs/2019/07/25/social-remote-ssh.png
 Date: 2019-07-25
 ShortDescription: Remote SSH
-Author: Sana Ajani
+Authors:
+  - name: Sana Ajani
+    social: https://twitter.com/sana_ajani
 ---
-# Remote SSH with Visual Studio Code
-
-July 25, 2019 by Sana Ajani, [@sana_ajani](https://twitter.com/sana_ajani)
 
 ## Remote - SSH: Easy, smooth, and (like) local
 

@@ -1,16 +1,15 @@
 ---
 Order:
 TOCTitle: What's New for Chrome Debugging
-PageTitle: What's New for Chrome debugging in VS Code
+PageTitle: What's new for Chrome debugging
 MetaDescription: What's New for Chrome debugging in Visual Studio Code
 MetaSocialImage: /assets/blogs/2017/12/20/social_paused.png
 Date: 2017-12-20
 ShortDescription: Learn what's new with Chrome debugging in Visual Studio Code
-Author: Kenneth Auchenberg
+Authors:
+  - name: Kenneth Auchenberg
+    social: https://twitter.com/auchenberg
 ---
-# What's new for Chrome debugging
-
-December 20, 2017 by [Kenneth Auchenberg](https://twitter.com/auchenberg)
 
 Over the recent months, we have been busy improving the Chrome debugging experience for Visual Studio Code, and today we are happy to release three new features that we think will make client-side JavaScript debugging in VS Code easier and more reliable.
 

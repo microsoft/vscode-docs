@@ -1,16 +1,14 @@
 ---
 Order: 97
 TOCTitle: Agent mode available to all users
-PageTitle: "Agent mode: available to all users and supports MCP"
+PageTitle: "Agent mode: Available to all users and supports MCP"
 MetaDescription: Agent mode is now available to all users and supports MCP.
 MetaSocialImage: agent_full.png
 Date: 2025-04-07
-Author: Isidor Nikolic
+Authors:
+  - name: Isidor Nikolic
+    social: https://github.com/isidorn
 ---
-
-# Agent mode: available to all users and supports MCP
-
-April 7th, 2025 by [Isidor Nikolic](https://github.com/isidorn)
 
 Agent mode is rolling out to all VS Code users! The agent acts as an autonomous pair programmer that performs multi-step coding tasks at your command, such as analyzing your codebase, proposing file edits, and running terminal commands. It responds to compile and lint errors, monitors terminal output, and auto-corrects in a loop until the task is completed. The agent can also use contributed tools, allowing it to interact with external MCP servers or VS Code extensions to perform a wide variety of tasks.
 

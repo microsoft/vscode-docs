@@ -1,14 +1,15 @@
 ---
 Order: 
-TOCTitle: Remote Repositories
-PageTitle: Remote Repositories extension for Visual Studio Code
+TOCTitle: Remote repositories
+PageTitle: Remote repositories
 MetaDescription: Remotely browse and edit a source control repository from within Visual Studio Code.
 Date: 2021-06-10
-Author: Brigit Murtaugh, Eric Amodio
+Authors:
+  - name: Brigit Murtaugh
+    social: https://twitter.com/BrigitMurtaugh
+  - name: Eric Amodio
+    social: https://twitter.com/eamodio
 ---
-# Remote Repositories
-
-June 10, 2021 by Brigit Murtaugh, [@BrigitMurtaugh](https://twitter.com/BrigitMurtaugh), Eric Amodio, [@eamodio](https://twitter.com/eamodio)
 
 >**Note**: The Remote Repositories extension has been renamed to [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=github.remotehub) since this blog post was published. You can also check out the [latest documentation](/docs/sourcecontrol/github.md#github-repositories-extension), which will have the most updated information on the extension.
 

@@ -1,15 +1,13 @@
 ---
 Order: 
 TOCTitle: VS Code Day
-PageTitle: Visual Studio Code Day 2023
+PageTitle: "VS Code Day: An event for an editor?"
 MetaDescription: Learn about the latest Visual Studio Code features and extensions during VS Code Day 2023 on April 26, 2023
 Date: 2023-04-13
-Author: Burke Holland
+Authors:
+  - name: Burke Holland
+    social: https://twitter.com/burkeholland
 ---
-
-# VS Code Day: An event for an editor?
-
-April 13, 2023 by Burke Holland, [@burkeholland](https://twitter.com/burkeholland)
 
 VS Code Day is a one-day "Virtually Live" event starting at 10:00 AM PST on April 26. Naming things is hard, but we feel like this title says it all – a full day of community, learning, and all things Visual Studio Code. Registration is now open, and you can grab your spot today: [https://aka.ms/vscodeday](https://aka.ms/vscodeday).
 

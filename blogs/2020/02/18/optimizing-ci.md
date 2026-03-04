@@ -1,16 +1,17 @@
 ---
 Order: 
-TOCTitle: Improving CI Build Times
-PageTitle: How Visual Studio Code leverages Azure Pipelines Artifact Caching Tasks to improve CI
+TOCTitle: Improving CI build times
+PageTitle: Improving CI build times
 MetaDescription: How Visual Studio Code leverages Azure Pipelines Artifact Caching Tasks to improve CI
 MetaSocialImage: /assets/blogs/2020/02/18/hero.png
 Date: 2020-02-18
 ShortDescription: How Visual Studio Code leverages Azure Pipelines Artifact Caching Tasks to improve CI
-Author: Ethan Dennis, João Moreno
+Authors:
+  - name: Ethan Dennis
+    social: https://twitter.com/erdennis13
+  - name: João Moreno
+    social: https://twitter.com/joaomoreno
 ---
-# Improving CI Build Times
-
-February 18, 2020 by Ethan Dennis, [@erdennis13](https://twitter.com/erdennis13) and João Moreno, [@joaomoreno](https://twitter.com/joaomoreno)
 
 Visual Studio Code is a large project with lots of moving parts and an active participant list. We have [shown](https://code.visualstudio.com/blogs/2018/09/12/engineering-with-azure-pipelines) how we actively use Azure Pipelines to keep up with good engineering practices by maintaining our build and continuous integration infrastructure. In this blog post, we’ll talk about how we used the [Azure Pipelines Artifact Caching Tasks](https://github.com/microsoft/azure-pipelines-artifact-caching-tasks) to dramatically reduce our CI build times.
 

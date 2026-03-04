@@ -1,15 +1,13 @@
 ---
 Order: 
 TOCTitle: Custom Notebooks
-PageTitle: Notebooks, Visual Studio Code style
+PageTitle: Notebooks, VS Code style
 MetaDescription: Bringing custom notebook experiences to the Visual Studio Code extension Marketplace.
 Date: 2021-11-08
-Author: Tanha Kabir
+Authors:
+  - name: Tanha Kabir
+    social: https://twitter.com/_tanhakabir
 ---
-
-# Notebooks, Visual Studio Code style
-
-November 8, 2021 by Tanha Kabir, [@_tanhakabir](https://twitter.com/_tanhakabir)
 
 Notebooks are documents that contain a mix of rich Markdown, executable code snippets, and accompanying rich output. These are all separated into distinct cells and can be interleaved in any order.
 

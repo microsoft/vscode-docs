@@ -1,14 +1,13 @@
 ---
 Order: 
 TOCTitle: Notebooks
-PageTitle: The Coming of Age of Notebooks
+PageTitle: The coming of age of notebooks
 MetaDescription: Challenges with the rollout of the new native notebook experience in Visual Studio Code.
 Date: 2021-08-05
-Author: Chris Dias
+Authors:
+  - name: Chris Dias
+    social: https://twitter.com/chrisdias
 ---
-# The Coming of Age of Notebooks
-
-August 05, 2021 by Chris Dias, [@chrisdias](https://twitter.com/chrisdias)
 
 **A (not so) new way of doing development**
 

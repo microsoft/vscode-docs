@@ -1,16 +1,14 @@
 ---
 Order:
 TOCTitle: Customize VS Code Extension Roundup
-PageTitle: Customize Visual Studio Code Extension Roundup
+PageTitle: Customize VS Code extension roundup
 MetaDescription: Extensions to customize Visual Studio Code.
 Date: 2016-12-12
 ShortDescription: Extensions to customize Visual Studio Code.
-Author: Wade Anderson
+Authors:
+  - name: Wade Anderson
+    social: https://twitter.com/waderyan_
 ---
-
-# Customize VS Code Extension Roundup
-
-December 12, 2016 - Wade Anderson, [@waderyan_](https://twitter.com/waderyan_)
 
 You can customize Visual Studio Code in many ways. Install a new theme, add a snippet pack, or tweak your settings and keyboard shortcuts. We built VS Code to be flexible so you can make it work the way you do. You can install an extension from the VS Code [Marketplace](https://marketplace.visualstudio.com/vscode) or create your own (see [here](https://code.visualstudio.com/docs/extensions/overview) to get started writing an extension in JavaScript or TypeScript). In this blog, I want to highlight a few of my favorite extensions for customizing VS Code.
 

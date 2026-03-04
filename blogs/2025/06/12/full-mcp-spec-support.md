@@ -1,16 +1,16 @@
 ---
 Order: 101
-TOCTitle: Full MCP Spec Support
-PageTitle: "The Complete MCP Experience: Full Specification Support in VS Code"
+TOCTitle: Full MCP spec support
+PageTitle: "The complete MCP experience: Full specification support in VS Code"
 MetaDescription: VS Code now supports the complete Model Context Protocol specification, including authorization, prompts, resources, and sampling.
 MetaSocialImage: mcp-resources-context.png
 Date: 2025-06-12
-Author: Harald Kirschner
+Authors:
+  - name: Harald Kirschner
+    social: https://github.com/digitarald
+  - name: Tyler Leonhardt
+    social: https://github.com/tylerleonhardt
 ---
-
-# The Complete MCP Experience: Full Specification Support in VS Code
-
-June 12, 2025 by [Harald Kirschner](https://github.com/digitarald), [Connor Peet](https://github.com/connor4312), and [Tyler Leonhardt](https://github.com/tylerleonhardt)
 
 VS Code now supports the complete [Model Context Protocol specification](https://modelcontextprotocol.io/).
 

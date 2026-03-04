@@ -1,16 +1,16 @@
 ---
 Order: 125
-TOCTitle: MCP Apps Support
-PageTitle: "Giving Agents a Visual Voice: MCP Apps Support in VS Code"
+TOCTitle: MCP Apps support
+PageTitle: "Giving agents a visual voice: MCP Apps support in VS Code"
 MetaDescription: VS Code now supports MCP Apps, enabling AI agents to display interactive UIs for richer developer workflows.
 MetaSocialImage: mcp-apps-list-sort.png
 Date: 2026-01-26
-Author: Harald Kirschner, Connor Peet
+Authors:
+  - name: Harald Kirschner
+    social: https://github.com/digitarald
+  - name: Connor Peet
+    social: https://github.com/connor4312
 ---
-
-# Giving Agents a Visual Voice: MCP Apps Support in VS Code
-
-January 26, 2026 by [Harald Kirschner](https://github.com/digitarald) and [Connor Peet](https://github.com/connor4312)
 
 AI coding agents have become remarkably capable. Out of the box, they search your codebase, edit files, run terminal commands, and respond to compile errors. Add [MCP servers](https://code.visualstudio.com/docs/copilot/customization/mcp-servers), and they can query databases, browse the web with Playwright, summarize GitHub issues, and connect to your cloud platforms. Models can even process images—you can paste a screenshot to debug a layout issue, or have Playwright capture browser state for verification.
 

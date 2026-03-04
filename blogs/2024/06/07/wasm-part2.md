@@ -1,16 +1,13 @@
 ---
 Order: 87
-TOCTitle: VS Code Extensions and WebAssembly - Part Two
-PageTitle: VS Code Extensions and WebAssembly - Part Two
+TOCTitle: VS Code extensions and WebAssembly, part two
+PageTitle: Using WebAssembly for extension development, part two
 MetaDescription: Use WebAssembly in VS Code extensions to run in a separate worker, or write a language server with a language that compiles to WebAssembly.
 MetaSocialImage: goto-definition.png
 Date: 2024-06-07
-Author: Dirk Bäumer
+Authors:
+  - name: Dirk Bäumer
 ---
-
-# Using WebAssembly for Extension Development - Part Two
-
-June 7, 2024 by Dirk Bäumer
 
 In the previous blog post about using [WebAssembly for Extension Development](/blogs/2024/05/08/wasm.md), we demonstrated how the component model can be used to integrate WebAssembly code into your Visual Studio Code extension. In this blog post, we focus on two additional independent use cases: (a) running the WebAssembly code in a [worker](#executing-webassembly-code-in-a-worker) to avoid blocking the extension host's main thread, and (b) creating a [language server](#a-webassembly-based-language-server) using a language that compiles to WebAssembly.
 

@@ -1,16 +1,14 @@
 ---
 Order:
 TOCTitle: February 2016 Recovery Release
-PageTitle: Visual Studio Code February 2016 Recovery Release
+PageTitle: February 2016 recovery release
 MetaDescription: Visual Studio Code February 2016 Recovery Release
 Date: 2016-03-14
 ShortDescription: The February 2016 Recovery Release of VS Code
-Author: Chris Dias
+Authors:
+  - name: VS Code Team
+    social: https://twitter.com/code
 ---
-
-# February 2016 Recovery Release
-
-March 14, 2016 by The VS Code Team, [@code](https://twitter.com/code)
 
 If we find critical issues after a major update, we do what we call a "recovery" release. Today we're updating the February 2016 build with fixes for the following four issues:
 

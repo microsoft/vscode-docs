@@ -1,15 +1,14 @@
 ---
 Order:
-TOCTitle: Sublime Text Extension Roundup
-PageTitle: Sublime Text Extension Roundup
+TOCTitle: Sublime Text extension roundup
+PageTitle: Sublime Text extension roundup
 MetaDescription: Learn about VS Code extensions to add features that are missing from Sublime Text.
 Date: 2017-04-10
 ShortDescription: Learn about VS Code extensions to add features that are missing from Sublime Text.
-Author: Wade Anderson
+Authors:
+  - name: Wade Anderson
+    social: https://twitter.com/waderyan_
 ---
-# Sublime Text Extension Roundup
-
-April 10, 2017 Wade Anderson, [@waderyan_](https://twitter.com/waderyan_)
 
 I'm a big fan of Sublime Text. It was my [go to editor](https://www.youtube.com/watch?v=OnkYnm-WiVo&t=15s) for my first few years of programming. Naturally, I now like VS Code more, but sometimes I miss things from Sublime Text.
 

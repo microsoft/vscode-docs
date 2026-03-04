@@ -1,16 +1,15 @@
 ---
 Order: 
 TOCTitle: Inspecting Containers
-PageTitle: Inspecting Docker Containers with Visual Studio Code
+PageTitle: Inspecting containers with VS Code
 MetaDescription: Inspecting Docker Containers with Visual Studio Code
 MetaSocialImage: /assets/blogs/2019/10/31/social-remote-containers.png
 Date: 2019-10-31
 ShortDescription: Inspecting Docker Containers with Visual Studio Code
-Author: Bowden Kelly
+Authors:
+  - name: Bowden Kelly
+    social: https://twitter.com/bowdenk7
 ---
-# Inspecting Containers with VS Code
-
-October 31, 2019 by Bowden Kelly, [@bowdenk7](https://twitter.com/bowdenk7)
 
 When developing containerized applications, it is common to try to debug build and runtime issues by attaching a shell to the running container using `docker exec --it {containerID} /bin/sh`.
 

@@ -1,16 +1,14 @@
 ---
 Order: 93
 TOCTitle: Copilot Agent Mode (preview)
-PageTitle: Copilot Agent Mode (preview)
+PageTitle: Introducing GitHub Copilot agent mode (preview)
 MetaDescription: Announcing the GitHub Copilot agent mode in Visual Studio Code.
 MetaSocialImage: agent-mode.png
 Date: 2025-02-24
-Author: Isidor Nikolic
+Authors:
+  - name: Isidor Nikolic
+    social: https://github.com/isidorn
 ---
-
-# Introducing GitHub Copilot agent mode (preview)
-
-February 24, 2025 by [Isidor Nikolic](https://github.com/isidorn)
 
 > [!TIP]
 > Agent mode is now available in VS Code Stable and has support for MCP servers. Read more about the [updates to agent mode in our blog post](/blogs/2025/04/07/agentMode.md).

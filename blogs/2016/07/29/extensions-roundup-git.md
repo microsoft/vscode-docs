@@ -1,15 +1,14 @@
 ---
 Order:
 TOCTitle: Extensions Roundup - Fun with Git
-PageTitle: Visual Studio Code Extensions Roundup - Git August 2016
+PageTitle: Extensions roundup, fun with Git
 MetaDescription: Extensions to super power your Git workflow.
 Date: 2016-08-02
 ShortDescription: Extensions to super power your Git workflow.
-Author: Wade Anderson
+Authors:
+  - name: Wade Anderson
+    social: https://twitter.com/waderyan_
 ---
-# Extensions Roundup - Fun with Git
-
-August 2, 2016 by Wade Anderson, [@waderyan_](https://twitter.com/waderyan_)
 
 The first extension I built for Visual Studio Code was called [Git Blame](https://marketplace.visualstudio.com/items?itemName=waderyan.gitblame). It lets you quickly see which developer most recently modified the currently selected line ("blame"). It was simple and effective. Since the time when I built this extension, there have been many more awesome Git extensions added to the VS Code [Marketplace](https://marketplace.visualstudio.com/VSCode). Here are some of my favorite.
 

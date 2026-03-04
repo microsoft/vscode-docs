@@ -1,15 +1,14 @@
 ---
 Order:
-TOCTitle: Extension Packs
-PageTitle: Visual Studio Code Extension Packs
+TOCTitle: Extension packs
+PageTitle: Extension packs
 MetaDescription: Learn how to create and use Extension Packs in Visual Studio Code.
 Date: 2017-03-07
 ShortDescription: Learn how to create and use Extension Packs in Visual Studio Code.
-Author: Wade Anderson
+Authors:
+  - name: Wade Anderson
+    social: https://twitter.com/waderyan_
 ---
-# Extension Packs
-
-March 07, 2017 Wade Anderson, [@waderyan_](https://twitter.com/waderyan_)
 
 If you have followed our blog for the last year, you'll notice I write an Extension Roundup blog once a month. I like to write these blogs to let you know about the cool extensions being created in the community and to inspire you to create your own. I often put a theme around the Roundup blog: something like JavaScript extensions or CodeLens extensions (last month).
 

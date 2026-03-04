@@ -1,16 +1,14 @@
 ---
 Order:
 TOCTitle: Extensions Roundup
-PageTitle: Visual Studio Code Extensions Roundup May 2016
+PageTitle: Extensions roundup
 MetaDescription: New, useful, and interesting extensions in Visual Studio Code for May 2016.
 Date: 2016-05-04
 ShortDescription: New, useful, and interesting extensions in Visual Studio Code.
-Author: Wade Anderson
+Authors:
+  - name: Wade Anderson
+    social: https://twitter.com/waderyan_
 ---
-
-# Extensions Roundup
-
-May 4, 2016 by Wade Anderson, [@waderyan_](https://twitter.com/waderyan_)
 
 The Visual Studio Code Extension [Marketplace](https://marketplace.visualstudio.com/VSCode) does a great job of highlighting **Featured**, **Most Popular** and **Newly Added** extensions and we encourage you to browse the site to see what's new and what plug-ins other developers are using. In our extension roundups, we like to call out extensions that we've found interesting and useful.
 

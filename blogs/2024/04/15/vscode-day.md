@@ -1,16 +1,14 @@
 ---
 Order: 85
 TOCTitle: VS Code Day 2024
-PageTitle: Visual Studio Code Day 2024
+PageTitle: Your ultimate guide to VS Code Day 2024
 MetaDescription: Learn about the latest Visual Studio Code features and extensions during VS Code Day 2024 on April 24, 2024
 MetaSocialImage: vscodeday-promo.png
 Date: 2024-04-15
-Author: Reynald Adolphe
+Authors:
+  - name: Reynald Adolphe
+    social: https://twitter.com/ReynaldAdolphe
 ---
-
-# Your Ultimate Guide to VS Code Day 2024
-
-April 15, 2024 by Reynald Adolphe, [@ReynaldAdolphe](https://twitter.com/ReynaldAdolphe)
 
 > **Watch [all content from VS Code Day 2024](https://youtube.com/live/iCDfAC4f25w) now.**
 

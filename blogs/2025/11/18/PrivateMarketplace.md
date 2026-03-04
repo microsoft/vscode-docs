@@ -1,16 +1,14 @@
 ---
 Order: 120
-TOCTitle: "Announcing Private Marketplace for VS Code"
-PageTitle: "Announcing Private Marketplace for VS Code"
+TOCTitle: Announcing Private Marketplace for VS Code
+PageTitle: Announcing Private Marketplace for VS Code
 MetaDescription: Private Marketplace for VS Code extensions now generally available.
 MetaSocialImage: PrivateMarketplaceHero.png
 Date: 2025-11-18
-Author: Sean Iyer
+Authors:
+  - name: Sean Iyer
+    social: https://x.com/nuget
 ---
-
-# Introducing the Visual Studio Code Private Marketplace: Your Team's Secure, Curated Extension Hub 🎉
-
-November 18, 2025 by [Sean Iyer](https://x.com/nuget)
 
 Developers shouldn't have to juggle manual installs, worry about unverified extensions, or chase compliance exceptions just to get their favorite tools. Today, we're excited to announce Private Marketplace for VS Code—a dedicated, enterprise-ready hub that puts you in full control of how extensions are sourced, reviewed, and distributed to your dev teams. 🔐✨
 

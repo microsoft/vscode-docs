@@ -1,16 +1,14 @@
 ---
 Order:
 TOCTitle: Extensions Roundup
-PageTitle: Visual Studio Code Extensions Roundup
+PageTitle: VS Code extensions
 MetaDescription: New, useful, and interesting extensions in Visual Studio Code.
 Date: 2016-03-17
 ShortDescription: New, useful, and interesting extensions in Visual Studio Code.
-Author: Wade Anderson
+Authors:
+  - name: Wade Anderson
+    social: https://twitter.com/waderyan_
 ---
-
-# VS Code Extensions
-
-March 17, 2016 by Wade Anderson, [@waderyan_](https://twitter.com/waderyan_)
 
 In November 2015, we open sourced Visual Studio Code and introduced the [extensions API](https://code.visualstudio.com/docs/extensionAPI/vscode-api). The VS Code extensions [Marketplace](https://marketplace.visualstudio.com/VSCode) has over 850 extensions. Many new languages (Go, PowerShell, PHP, Python) and frameworks (Apache Cordova, React Native) are now supported.
 

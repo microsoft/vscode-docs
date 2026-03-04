@@ -1,16 +1,14 @@
 ---
 Order: 126
-TOCTitle: Multi-Agent Development
-PageTitle: "Your Home for Multi-Agent Development"
+TOCTitle: Multi-agent development
+PageTitle: Your home for multi-agent development
 MetaDescription: VS Code has become the unified interface for all your coding agents. Manage local, background, and cloud agents in one place, use Claude and Codex agents alongside Copilot, and benefit from open standards like MCP and Agent Skills.
 MetaSocialImage: your-agent-ux.png
 Date: 2026-02-05
-Author: VS Code Team
+Authors:
+  - name: VS Code Team
+    social: https://x.com/code
 ---
-
-# Your Home for Multi-Agent Development
-
-February 5, 2026 by VS Code Team, [@code](https://x.com/code)
 
 Agents are everywhere. We've been working to make VS Code the home for multi-agent development. One place to run your agents, manage your sessions, and pick the right tool for each task, without switching editors or juggling subscriptions.
 

@@ -1,16 +1,14 @@
 ---
 Order:
 TOCTitle: Intro Videos
-PageTitle: Visual Studio Code Introductory Videos
+PageTitle: Announcing intro videos
 MetaDescription: We want to help people get going with VS Code. Watch our new introductory videos to jump start your work with VS Code.
 Date: 2016-08-15
 ShortDescription: Watch our new intro videos to jump start your work with VS Code.
-Author: Wade Anderson
+Authors:
+  - name: Wade Anderson
+    social: https://twitter.com/waderyan_
 ---
-
-# Announcing Intro Videos
-
-August 15, 2016 by Wade Anderson, [@waderyan_](https://twitter.com/waderyan_)
 
 On the product team, we're constantly trying to make Visual Studio Code better. We spend hours in interviews, usability studies, and interacting with you online.
 

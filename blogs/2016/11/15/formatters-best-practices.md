@@ -1,16 +1,14 @@
 ---
 Order:
 TOCTitle: Creating a Formatter Extension
-PageTitle: Creating a Formatter Extension
+PageTitle: Creating a formatter extension
 MetaDescription: Best practices for creating a Visual Studio Code formatter extension.
 Date: 2016-11-21
 ShortDescription: Best practices for creating a Visual Studio Code formatter extension.
-Author: Johannes Rieken
+Authors:
+  - name: Johannes Rieken
+    social: https://twitter.com/johannesrieken
 ---
-
-# Creating a Formatter Extension
-
-November 21, 2016 by Johannes Rieken, [@johannesrieken](https://twitter.com/johannesrieken)
 
 Since its introduction, the Visual Studio Code extension API has provided support for source code formatters. The first language extensions we built, for example TypeScript, C# and Go, used the formatting API. We wrote this blog to explain the best practices for implementing formatters.
 

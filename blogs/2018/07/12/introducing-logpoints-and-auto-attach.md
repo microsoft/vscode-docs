@@ -6,11 +6,10 @@ MetaDescription: Introducing Logpoints and auto-attach to make debugging easier 
 MetaSocialImage: /assets/blogs/2018/07/12/debugger.png
 Date: 2018-07-12
 ShortDescription: Introducing Logpoints and auto-attach to make debugging easier and simpler to use
-Author: Kenneth Auchenberg
+Authors:
+  - name: Kenneth Auchenberg
+    social: https://twitter.com/auchenberg
 ---
-# Introducing Logpoints and auto-attach
-
-July 12, 2018 Kenneth Auchenberg, [@auchenberg](https://twitter.com/auchenberg)
 
 Over the past few months we have been busy improving the debugging experience in Visual Studio Code, and in this post, I'm going to talk about how we think about debugging, present the feedback we heard from our users, and explain the steps we are taking to make debugging easier and simpler in VS Code.
 

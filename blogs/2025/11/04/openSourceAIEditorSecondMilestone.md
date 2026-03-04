@@ -1,16 +1,14 @@
 ---
 Order: 109
-TOCTitle: "Open Source AI Editor: Second Milestone"
-PageTitle: "Open Source AI Editor: Second Milestone"
+TOCTitle: "Open source AI editor: Second milestone"
+PageTitle: "Open source AI editor: Second milestone"
 MetaDescription: Ghost text suggestions are now open source as part of the Copilot Chat extension - the second milestone in making VS Code an open source AI editor.
 MetaSocialImage: copilot-oct-pr.png
 Date: 2025-11-06
-Author: The VS Code team
+Authors:
+  - name: VS Code Team
+    social: https://x.com/code
 ---
-
-# Open Source AI Editor: Second Milestone
-
-November 6th, 2025 by the VS Code Team
 
 In [May](https://code.visualstudio.com/blogs/2025/05/19/openSourceAIEditor), we announced our initial plan to make VS Code an open source AI editor, and in [June](https://code.visualstudio.com/blogs/2025/06/30/openSourceAIEditorFirstMilestone), we reached our first milestone by open sourcing the GitHub Copilot Chat extension.
 

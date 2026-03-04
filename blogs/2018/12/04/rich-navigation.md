@@ -1,15 +1,14 @@
 ---
 Order:
-TOCTitle: Rich Code Navigation
-PageTitle: Rich Code Navigation
-MetaDescription: First look at a rich code navigation experience in Visual Studio
+TOCTitle: Rich code navigation
+PageTitle: First look at a rich code navigation experience
+MetaDescription: First look at a rich code navigation experience in Visual Studio Code
 Date: 2018-12-04
-ShortDescription: First look at a rich code navigation experience in Visual Studio
-Author: Jonathan Carter
+ShortDescription: First look at a rich code navigation experience in Visual Studio Code
+Authors:
+  - name: Jonathan Carter
+    social: https://twitter.com/LostInTangent
 ---
-# First look at a rich code navigation experience
-
-December 4, 2018 Jonathan Carter, [@lostintangent](https://twitter.com/LostInTangent)
 
 Pull requests are a critical collaboration tool for millions of developers every day, facilitating asynchronous code reviews and the distribution of knowledge amongst teams and open-source communities. Because of this widespread utility and adoption, any advancement to the PR review workflow can have a significant impact on developer productivity, product quality and release velocity.
 

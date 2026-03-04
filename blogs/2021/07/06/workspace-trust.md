@@ -1,14 +1,13 @@
 ---
 Order: 
-TOCTitle: Workspace Trust
-PageTitle: Workspace Trust in Visual Studio Code
+TOCTitle: Workspace trust
+PageTitle: Workspace trust
 MetaDescription: The rationale and development of the Workspace Trust feature in Visual Studio Code.
 Date: 2021-07-06
-Author: Chris Dias
+Authors:
+  - name: Chris Dias
+    social: https://twitter.com/chrisdias
 ---
-# Workspace Trust
-
-July 6, 2021 by Chris Dias, [@chrisdias](https://twitter.com/chrisdias)
 
 Can I trust myself? This is the existential question facing many Visual Studio Code users since the [1.57 update](https://code.visualstudio.com/updates/v1_57).
 

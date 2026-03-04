@@ -1,15 +1,13 @@
 ---
 Order: 
-TOCTitle: Moving from Local to Remote Development
-PageTitle: Using Containers to move from local to Remote Development
+TOCTitle: Moving from local to remote development
+PageTitle: Using containers to move from local to remote development
 MetaDescription: Increase productivity by moving your development environment from local, to containers, to the cloud.
 Date: 2022-04-04
-Author: Olivia Guzzardo
+Authors:
+  - name: Olivia Guzzardo
+    social: https://twitter.com/OliviaGuzzardo
 ---
-
-# Using Containers to move from Local to Remote Development
-
-April 4, 2022 by Olivia Guzzardo, [@OliviaGuzzardo](https://twitter.com/OliviaGuzzardo)
 
 One of my favorite things that industry professionals like to ask aspiring developers is, "How many lines of code does the average developer write per day?" Most guess in the hundreds or thousands – they're always shocked to hear that the actual average figure lies in the tens.
 

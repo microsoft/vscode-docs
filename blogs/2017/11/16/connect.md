@@ -1,16 +1,15 @@
 ---
 Order:
 TOCTitle: Connect 2017
-PageTitle: Visual Studio Code 2.6M Users, 12 months of momentum and more to come.
+PageTitle: VS Code at Connect(); 2017
 MetaDescription: Visual Studio Code 2.6M Users, 12 months of momentum and more to come.
 MetaSocialImage: /assets/blogs/2017/11/16/connect-social.png
-Date: 2017-11-16
+Date: 2017-11-15
 ShortDescription: Visual Studio Code 2.6M Users, 12 months of momentum and more to come. A summary of news from Connect(); 2017
-Author: Sean McBreen
+Authors:
+  - name: Sean McBreen
+    social: https://twitter.com/nz_sean
 ---
-# Visual Studio Code at Connect(); 2017
-
-November 15, 2017 Sean McBreen, [@nz_sean](https://twitter.com/nz_sean)
 
 On the day of our annual developer conference ([tune in here](https://www.microsoft.com/en-us/connectevent) if you missed it), we thought it would be cool to reflect on a few things highlighted today and touch on some things that have happened for Visual Studio Code in the last 12 months, for example:
 

@@ -1,16 +1,16 @@
 ---
 Order: 94
 TOCTitle: Better AI results with custom instructions
-PageTitle: "Context is all you need - Better AI results with custom instructions"
+PageTitle: "Context is all you need: Better AI results with custom instructions"
 MetaDescription: Announcing the general availability of custom instructions for VS Code.
 MetaSocialImage: tail-recursion.jpg
 Date: 2025-03-26
-Author: Rob Conery, Harald Kirschner
+Authors:
+  - name: Rob Conery
+    social: https://bsky.app/profile/robconery.com
+  - name: Harald Kirschner
+    social: https://twitter.com/burkeholland
 ---
-
-# Context is all you need: Better AI results with custom instructions
-
-March 26, 2025 by Rob Conery, [@robconery.com](https://bsky.app/profile/robconery.com), Burke Holland, [@burkeholland](https://twitter.com/burkeholland)
 
 Earlier this month, we announced the general availability of [custom instructions in Visual Studio Code](https://code.visualstudio.com/docs/copilot/copilot-customization). Custom instructions are how you give Copilot specific context about your team's workflow, your particular style preferences, libraries the model may not know about, etc.
 

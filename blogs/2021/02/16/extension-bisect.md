@@ -1,15 +1,13 @@
 ---
 Order: 
 TOCTitle: Extension bisect
-PageTitle: Visual Studio Code extension bisect utility
+PageTitle: Resolving extension issues with bisect
 MetaDescription: Find problematic extensions quickly with the Visual Studio Code extension bisect utility
 Date: 2021-02-16
-Author: Johannes Rieken
+Authors:
+  - name: Johannes Rieken
+    social: https://twitter.com/johannesrieken
 ---
-
-# Resolving extension issues with bisect
-
-February 16, 2021 by Johannes Rieken, [@johannesrieken](https://twitter.com/johannesrieken)
 
 > "Just like git-bisect, but for VS Code extensions."
 

@@ -1,15 +1,13 @@
 ---
 Order: 
 TOCTitle: VS Code on Chromebook
-PageTitle: Coding and learning with VS Code on Chromebooks
+PageTitle: Learning with VS Code on Chromebooks
 MetaDescription: Installing Visual Studio Code on Chromebooks with Crostini and getting started with coding and learning
 Date: 2020-12-03
-Author: Alessandro Segala
+Authors:
+  - name: Alessandro Segala
+    social: https://twitter.com/ItalyPaleAle
 ---
-
-# Learning with VS Code on Chromebooks
-
-December 3, 2020 by Alessandro Segala, [@ItalyPaleAle](https://twitter.com/ItalyPaleAle)
 
 For the last few years, Chromebooks running Google Chrome OS have been providing an alternative to "traditional" laptops. Thanks to lots of choices, from very affordable models to high-end ones, Chromebooks are especially popular among students, who can use them for learning, completing assignments, and attending classes virtually.
 

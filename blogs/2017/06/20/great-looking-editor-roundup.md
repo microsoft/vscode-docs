@@ -1,15 +1,14 @@
 ---
 Order:
-TOCTitle: Fresh Paint
-PageTitle: Fresh Paint - Give Visual Studio Code a New Look
+TOCTitle: Fresh paint
+PageTitle: Fresh paint, give VS Code a new look
 MetaDescription: Give VS Code a new look with these popular extensions, color themes, file icon themes and more.
 Date: 2017-06-20
 ShortDescription: Give VS Code a new look with these popular extensions, color themes, file icon themes and more.
-Author: Wade Anderson
+Authors:
+  - name: Wade Anderson
+    social: https://twitter.com/waderyan_
 ---
-# Fresh Paint - Give VS Code a New Look
-
-June 20, 2017 Wade Anderson, [@waderyan_](https://twitter.com/waderyan_)
 
 Having a great looking editor is a necessity for any full-time developer. We spend a lot of time in our editor and we like to keep things fresh and interesting!
 

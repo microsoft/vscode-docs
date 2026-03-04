@@ -1,15 +1,13 @@
 ---
 Order: 
 TOCTitle: Build 2021
-PageTitle: Visual Studio Code at Microsoft Build 2021
+PageTitle: VS Code at Build 2021
 MetaDescription: A hand-picked collection of Visual Studio Code content from Build 2021.
 Date: 2021-06-02
-Author: Alessandro Segala
+Authors:
+  - name: Alessandro Segala
+    social: https://twitter.com/ItalyPaleAle
 ---
-
-# Visual Studio Code at Build 2021
-
-June 2, 2021 by Alessandro Segala, [@ItalyPaleAle](https://twitter.com/ItalyPaleAle)
 
 > "That's a wrap! Now catch up with content on-demand."
 

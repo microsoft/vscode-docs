@@ -1,15 +1,13 @@
 ---
 Order: 
-TOCTitle: Dev Container Features
-PageTitle: Dev Container Features
-MetaDescription: What are dev container Features and what's new
+TOCTitle: Dev container features
+PageTitle: Custom dev container features
+MetaDescription: What are dev container features and what's new
 Date: 2022-09-15
-Author: Brigit Murtaugh
+Authors:
+  - name: Brigit Murtaugh
+    social: https://twitter.com/BrigitMurtaugh
 ---
-
-# Custom Dev Container Features
-
-September 15, 2022 by Brigit Murtaugh, [@BrigitMurtaugh](https://twitter.com/BrigitMurtaugh)
 
 We've all had that moment when setting up our development environment – "Oh, I just need one more thing!" – that "thing" being one more language or toolset (or maybe a few more 😊) to work on your project.
 

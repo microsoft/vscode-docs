@@ -1,15 +1,14 @@
 ---
 Order: 
 TOCTitle: VS Code at Build
-PageTitle: Visual Studio Code at Microsoft Build 2020
+PageTitle: VS Code at Build 2020
 MetaDescription: Visual Studio Code at Microsoft Build 2020
 Date: 2020-05-14
-Author: Alessandro Segala
+Authors:
+  - name: Alessandro Segala
+    social: https://twitter.com/ItalyPaleAle
 MetaSocialImage: /assets/blogs/2020/05/14/vscode-build-social.png
 ---
-# Visual Studio Code at Build 2020
-
-May 14, 2020 by Alessandro Segala, [@ItalyPaleAle](https://twitter.com/ItalyPaleAle)
 
 The [Microsoft Build 2020](https://mybuild.microsoft.com) conference is starting next Tuesday, May 19, and will be running for 48 continuous hours. For the first time, Build is a fully digital event, open to everyone for free.
 

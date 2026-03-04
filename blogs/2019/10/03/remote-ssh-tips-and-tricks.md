@@ -1,16 +1,15 @@
 ---
 Order: 
-TOCTitle: SSH Tips and Tricks
-PageTitle: Visual Studio Code Remote SSH Tips and Tricks
+TOCTitle: SSH tips and tricks
+PageTitle: Remote SSH tips and tricks
 MetaDescription: Visual Studio Code Remote-SSH Tips and Tricks
 MetaSocialImage: /assets/blogs/2019/10/03/social-remote-ssh.png
 Date: 2019-10-03
 ShortDescription: Remote SSH Tips and Tricks with Visual Studio Code
-Author: Sana Ajani
+Authors:
+  - name: Sana Ajani
+    social: https://twitter.com/sana_ajani
 ---
-# Remote SSH: Tips and Tricks
-
-October 3, 2019 by Sana Ajani, [@sana_ajani](https://twitter.com/sana_ajani)
 
 In a previous [Remote SSH blog post](/blogs/2019/07/25/remote-ssh.md), we went over how to set up a Linux virtual machine and connect to the VM using the [Remote - SSH extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) in Visual Studio Code. In this blog post, we'll go into some tips and tricks that you can use to get the most out of your remote setup.
 

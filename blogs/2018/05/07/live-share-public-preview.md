@@ -1,16 +1,15 @@
 ---
 Order:
-TOCTitle: Live Share Preview
-PageTitle: Announcing the Visual Studio Live Share Public Preview
+TOCTitle: Live Share preview
+PageTitle: Announcing the Live Share public preview
 MetaDescription: Real-time collaborative development
 MetaSocialImage: /assets/blogs/2017/11/15/ls-social-resized.png
 Date: 2018-05-07
 ShortDescription: Real-time collaborative development
-Author: Amanda Silver
+Authors:
+  - name: Amanda Silver
+    social: https://twitter.com/amandaksilver
 ---
-# Visual Studio Live Share Public Preview
-
-May 7, 2018 Amanda Silver, [@amandaksilver](https://twitter.com/amandaksilver)
 
 We are excited to announce the public preview of Visual Studio Live Share! At [Connect last November](https://code.visualstudio.com/blogs/2017/11/15/live-share), we showed how Live Share enables real-time collaborative editing and debugging from the comfort of your favorite tools. Since then, we’ve worked with thousands of developers worldwide, resolved hundreds of issues, and addressed top feature requests such as [adding support for Linux](https://github.com/MicrosoftDocs/live-share/issues/24). We’ve benefited greatly from all the feedback thus far, thank you! Today, we’re excited to announce that every developer using Visual Studio and Visual Studio Code can [get started with Live Share today](https://aka.ms/vsls)!
 

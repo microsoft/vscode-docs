@@ -1,16 +1,14 @@
 ---
 Order:
 TOCTitle: February 2016 Release
-PageTitle: Visual Studio February 2016 Release
+PageTitle: February 2016 release
 MetaDescription: Announcing the Visual Studio Code February 2016 Release
 Date: 2016-03-07
 ShortDescription: Announcing the February 2016 Release of VS Code
-Author: Chris Dias
+Authors:
+  - name: VS Code Team
+    social: https://twitter.com/code
 ---
-
-# February 2016 Release
-
-March 7, 2016 by The VS Code Team, [@code](https://twitter.com/code)
 
 Today we are releasing the February 2016 build of Visual Studio Code. This release brings many improvements to your development experience, including:
 

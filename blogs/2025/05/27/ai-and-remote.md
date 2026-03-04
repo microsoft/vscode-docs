@@ -1,16 +1,20 @@
 ---
 Order: 100
 TOCTitle: Enhance productivity with AI + Remote Dev
-PageTitle: "Enhance productivity with AI + Remote Dev"
+PageTitle: Enhance productivity with AI + Remote Dev
 MetaDescription: Enhance your developer productivity with AI and Remote Development.
 MetaSocialImage: ai-remote-development-social.png
 Date: 2025-05-27
-Author: Brigit Murtaugh, Christof Marti, Josh Spicer, Olivia Guzzardo McVicker
+Authors:
+  - name: Brigit Murtaugh
+    social: https://github.com/bamurtaugh
+  - name: Christof Marti
+    social: https://github.com/chrmarti
+  - name: Josh Spicer
+    social: https://github.com/joshspicer
+  - name: Olivia Guzzardo McVicker
+    social: https://github.com/olguzzar
 ---
-
-# Enhance productivity with AI + Remote Dev
-
-May 27th, 2025 by [Brigit Murtaugh](https://github.com/bamurtaugh), [Christof Marti](https://github.com/chrmarti), [Josh Spicer](https://github.com/joshspicer), [Olivia Guzzardo McVicker](https://github.com/olguzzar)
 
 One of the features that makes VS Code so flexible and powerful is [Remote Development](/docs/remote/remote-overview.md). Whether you're connecting to a secure VM from your local desktop, a hugely powerful computer from your tablet, or a containerized environment with all the dependencies your project needs – VS Code's ability to develop _anything from anywhere_ can help in just about any setup.
 

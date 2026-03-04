@@ -1,16 +1,14 @@
 ---
 Order: 122
-TOCTitle: "Building docfind"
-PageTitle: "Building docfind: Fast Client-Side Search with Rust and WebAssembly"
+TOCTitle: Building docfind
+PageTitle: "Building docfind: Fast client-side search with Rust and WebAssembly"
 MetaDescription: How we built docfind, a high-performance client-side search engine using Rust and WebAssembly, and how GitHub Copilot accelerated development.
 MetaSocialImage: docfind-social.png
 Date: 2026-01-15
-Author: João Moreno
+Authors:
+  - name: João Moreno
+    social: https://github.com/joaomoreno
 ---
-
-# Building docfind: Fast Client-Side Search with Rust and WebAssembly
-
-January 15, 2026 by [João Moreno](https://github.com/joaomoreno)
 
 If you've visited the [VS Code website](https://code.visualstudio.com/) recently, you might have noticed something new: a fast, responsive search experience that feels almost instant.
 

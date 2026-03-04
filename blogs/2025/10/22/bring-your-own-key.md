@@ -1,16 +1,16 @@
 ---
 Order: 107
-TOCTitle: Expanding Model Choice
-PageTitle: Expanding Model Choice in VS Code with Bring Your Own Key
+TOCTitle: Expanding model choice
+PageTitle: Expanding model choice in VS Code with bring your own key
 MetaDescription: Learn how the new Language Model Chat Provider API in VS Code is enabling more model choice and extensibility for chat experiences via the Bring Your Own Key experience.
 MetaSocialImage: expanding-model-choice.png
 Date: 2025-10-22
-Author: Olivia Guzzardo McVicker, Pierce Boggan
+Authors:
+  - name: Olivia Guzzardo McVicker
+    social: https://github.com/olguzzar
+  - name: Pierce Boggan
+    social: https://github.com/pierceboggan
 ---
-
-# Expanding Model Choice in VS Code with Bring Your Own Key
-
-October 22, 2025 by [Olivia Guzzardo McVicker](https://github.com/olguzzar), [Pierce Boggan](https://github.com/pierceboggan)
 
 We know that model choice is important to you. Our team has been hard at work making the latest models like [Claude Haiku 4.5](https://github.blog/changelog/2025-10-15-anthropics-claude-haiku-4-5-is-in-public-preview-for-github-copilot/) and [GPT 5 available](https://github.blog/changelog/2025-08-07-openai-gpt-5-is-now-in-public-preview-for-github-copilot/) to you on the same day they were announced. But we've also heard your feedback that you want support for even more models in VS Code, be it locally or in the cloud.
 

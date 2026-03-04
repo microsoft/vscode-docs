@@ -1,15 +1,13 @@
 ---
 Order:
-TOCTitle: Optimizations in Syntax Highlighting
-PageTitle: Optimizations in Syntax Highlighting, a Visual Studio Code Story
+TOCTitle: Optimizations in syntax highlighting
+PageTitle: Optimizations in syntax highlighting
 MetaDescription: Optimizations in tokenization and syntax highlighting in the Visual Studio Code/Monaco editor
 Date: 2017-02-08
-Author: Alexandru Dima
 MetaSocialImage: /assets/blogs/2017/02/08/syntax-highlighting-optimizations-social.png
+Authors:
+  - name: Alexandru Dima
 ---
-# Optimizations in Syntax Highlighting
-
-February 8, 2017 - Alexandru Dima
 
 Visual Studio Code version 1.9 includes a cool performance improvement that we've been working on and I wanted to tell its story.
 

@@ -1,16 +1,15 @@
 ---
 Order:
 TOCTitle: Using Azure Pipelines
-PageTitle: Visual Studio Code using Azure Pipelines
+PageTitle: VS Code using Azure Pipelines
 MetaDescription: Visual Studio Code using Azure Pipelines
 MetaSocialImage: /assets/blogs/2018/09/12/social_pipelines.png
 Date: 2018-09-12
 ShortDescription: Improved Engineering with Azure Pipelines
-Author: João Moreno
+Authors:
+  - name: João Moreno
+    social: https://twitter.com/joaomoreno
 ---
-# Visual Studio Code using Azure Pipelines
-
-September 12, 2018 João Moreno, [@joaomoreno](https://twitter.com/joaomoreno)
 
 One of my responsibilities as a developer on the Visual Studio Code team is to maintain and improve our build and continuous integration (CI) infrastructure. Given the latest feature announcements from [Azure Pipelines](https://aka.ms/azurecicd), the Visual Studio Code team has dramatically changed how we leverage Microsoft's technologies to provide a better collaboration platform for both our developers as well as our users. In this blog post, I'll guide you through a bit of Visual Studio Code's history, focusing on our CI processes and tools and how they have changed over time.
 

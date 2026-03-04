@@ -1,16 +1,15 @@
 ---
 Order:
-TOCTitle: The Icon Journey
-PageTitle: The Icon Journey
+TOCTitle: The icon journey
+PageTitle: The icon journey
 MetaDescription: Summary of feedback about the new icons and next steps
 MetaSocialImage: /assets/blogs/2017/10/24/blueicon.png
 Date: 2017-10-24
 ShortDescription: Summary of feedback about the new icons and next steps
-Author: Chris Dias
+Authors:
+  - name: Chris Dias
+    social: https://twitter.com/chrisdias
 ---
-# The Icon Journey
-
-October 24, 2017 Chris Dias, [@chrisdias](https://twitter.com/chrisdias)
 
 ## TL;DR
 

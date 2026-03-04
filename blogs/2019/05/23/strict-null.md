@@ -1,16 +1,15 @@
 ---
 Order: 
 TOCTitle: Strict null checking
-PageTitle: Strict null checking the Visual Studio Code codebase
+PageTitle: Strict null checking VS Code
 MetaDescription: Strict null checking the Visual Studio Code codebase
 MetaSocialImage: /assets/blogs/2019/05/23/social-strict-null.png
 Date: 2019-05-23
 ShortDescription: Strict null checking
-Author: Matt Bierner
+Authors:
+  - name: Matt Bierner
+    social: https://hachyderm.io/@mattbierner
 ---
-# Strict null checking Visual Studio Code
-
-May 23, 2019 by Matt Bierner, [@mattbierner](https://hachyderm.io/@mattbierner)
 
 ## Safety permits speed
 

@@ -1,16 +1,14 @@
 ---
 Order:
 TOCTitle: Goodbye User Voice
-PageTitle: Goodbye User Voice
+PageTitle: Goodbye User Voice, hello GitHub Reactions!
 MetaDescription: Visual Studio Code is closing User Voice in favor of GitHub reactions.
 Date: 2016-08-23
 ShortDescription: Visual Studio Code is closing User Voice in favor of GitHub reactions.
-Author: Wade Anderson
+Authors:
+  - name: Wade Anderson
+    social: https://twitter.com/waderyan_
 ---
-
-# Goodbye User Voice, Hello GitHub Reactions!
-
-August 23, 2016 by Wade Anderson, [@waderyan_](https://twitter.com/waderyan_)
 
 ## Feedback Channels
 

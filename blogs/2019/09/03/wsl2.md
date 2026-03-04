@@ -1,16 +1,15 @@
 ---
 Order: 
 TOCTitle: WSL 2
-PageTitle: Using WSL 2 with Visual Studio Code
+PageTitle: WSL 2 with VS Code
 MetaDescription: Using WSL 2 with Visual Studio Code
 MetaSocialImage: /assets/blogs/2019/09/03/social-wsl2.png
 Date: 2019-09-03
 ShortDescription: WSL 2 with VS Code
-Author: Matt Hernandez
+Authors:
+  - name: Matt Hernandez
+    social: https://twitter.com/fiveisprime
 ---
-# WSL 2 with Visual Studio Code
-
-September 3, 2019 by Matt Hernandez, [@fiveisprime](https://twitter.com/fiveisprime)
 
 It's been a couple of months since the initial betas for the [Windows Subsystem for Linux 2](https://devblogs.microsoft.com/commandline/announcing-wsl-2) (WSL 2) were launched and I wanted to share a bit about what this is all about and how this will help you be more productive. I've been using the beta since it landed in [Windows Insiders](https://insider.windows.com/getting-started/) and I quickly switched over to using WSL 2 exclusively in my daily development tasks.
 

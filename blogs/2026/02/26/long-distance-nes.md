@@ -1,16 +1,18 @@
 ---
 Order: 127
-TOCTitle: Long Distance NES
-PageTitle: "Building Long-Distance Next Edit Suggestions"
+TOCTitle: Long distance NES
+PageTitle: Building long-distance next edit suggestions
 MetaDescription: Learn how we extended next edit suggestions to work across your entire file, reducing friction and improving productivity in GitHub Copilot.
 MetaSocialImage: long-distance-nes-hero.png
 Date: 2026-02-26
-Author: Vikram Duvvur, Gaurav Mittal, Benjamin Simmonds
+Authors:
+  - name: Vikram Duvvur
+    social: https://github.com/vkrd
+  - name: Gaurav Mittal
+    social: https://github.com/g1910
+  - name: Benjamin Simmonds
+    social: https://github.com/benibenj
 ---
-
-# Building Long-Distance Next Edit Suggestions
-
-February 26, 2026 by [Vikram Duvvur](https://github.com/vkrd), [Gaurav Mittal](https://github.com/g1910), [Benjamin Simmonds](https://github.com/benibenj)
 
 Last February, we released [next edit suggestions (NES)](/docs/copilot/ai-powered-suggestions.md#next-edit-suggestions) in GitHub Copilot. NES extends ghost text by not just inserting code at your cursor, but suggesting edits nearby, anticipating what you'd change next. This was a powerful step forward, but it only worked within a small window around your cursor. In real editing workflows, the next change you need to make is often several screens away.
 

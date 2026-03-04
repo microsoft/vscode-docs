@@ -4,12 +4,10 @@ TOCTitle: The VS Code Server
 PageTitle: The VS Code Server
 MetaDescription: Securely connect to and develop on any remote machine with the VS Code Server private preview.
 Date: 2022-07-07
-Author: Brigit Murtaugh
+Authors:
+  - name: Brigit Murtaugh
+    social: https://twitter.com/BrigitMurtaugh
 ---
-
-# The Visual Studio Code Server
-
-July 7, 2022 by Brigit Murtaugh, [@BrigitMurtaugh](https://twitter.com/BrigitMurtaugh)
 
 ## A remote present and future
 

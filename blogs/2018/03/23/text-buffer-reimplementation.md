@@ -1,15 +1,14 @@
 ---
 Order:
-TOCTitle: Text Buffer Reimplementation
-PageTitle: Text Buffer Reimplementation, a Visual Studio Code Story
+TOCTitle: Text buffer reimplementation
+PageTitle: Text buffer reimplementation
 MetaDescription: Text Buffer Reimplementation in the Visual Studio Code/Monaco editor
 Date: 2018-03-23
-Author: Peng Lyu
+Authors:
+  - name: Peng Lyu
+    social: https://twitter.com/njukidreborn
 MetaSocialImage:
 ---
-# Text Buffer Reimplementation
-
-March 23, 2018 by Peng Lyu, [@njukidreborn](https://twitter.com/njukidreborn)
 
 The Visual Studio Code 1.21 release includes a brand new text buffer implementation which is much more performant, both in terms of speed and memory usage. In this blog post, I'd like to tell the story of how we selected and designed the data structures and algorithms that led to those improvements.
 

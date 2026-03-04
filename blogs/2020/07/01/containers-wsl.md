@@ -4,11 +4,10 @@ TOCTitle: Dev Containers in WSL 2
 PageTitle: Using Dev Containers in WSL 2
 MetaDescription: Using Dev Containers in WSL 2
 Date: 2020-07-01
-Author: Brigit Murtaugh
+Authors:
+  - name: Brigit Murtaugh
+    social: https://twitter.com/BrigitMurtaugh
 ---
-# Using Dev Containers in WSL 2
-
-July 1, 2020 by Brigit Murtaugh, [@BrigitMurtaugh](https://twitter.com/BrigitMurtaugh)
 
 Leveraging the power of Docker containers and the Windows Subsystem for Linux 2 (WSL 2), you can preserve your Windows environment by developing your applications in the sandboxed familiarity of a container in a deeply integrated Linux kernel.
 

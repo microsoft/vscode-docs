@@ -5,12 +5,10 @@ PageTitle: Announcing a free GitHub Copilot for VS Code
 MetaDescription: Announcing a free plan for GitHub Copilot in Visual Studio Code.
 MetaSocialImage: copilot-free.jpg
 Date: 2024-12-18
-Author: Burke Holland
+Authors:
+  - name: Burke Holland
+    social: https://twitter.com/burkeholland
 ---
-
-# Announcing a free GitHub Copilot for VS Code
-
-December 18, 2024 by Burke Holland, @burkeholland
 
 We're excited to announce an all new **free plan for GitHub Copilot**, available for everyone today in VS Code. All you need is a GitHub account. No trial. No subscription. No credit card required.
 

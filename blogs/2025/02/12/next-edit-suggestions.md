@@ -1,17 +1,17 @@
 ---
 Order: 92
-TOCTitle: Copilot Next Edit Suggestions (preview)
-PageTitle: Copilot Next Edit Suggestions (preview)
+TOCTitle: Copilot next edit suggestions (preview)
+PageTitle: Copilot next edit suggestions (preview)
 MetaDescription: Announcing the Next Edit Suggestions and Agent Mode for GitHub Copilot in Visual Studio Code.
 MetaSocialImage: nes-gutter-cover.png
 Date: 2025-02-12
-Author: Brigit Murtaugh, Burke Holland
+Authors:
+  - name: Brigit Murtaugh
+    social: https://github.com/bamurtaugh
+  - name: Burke Holland
+    social: https://github.com/burkeholland
 Keywords: [nes]
 ---
-
-# Copilot Next Edit Suggestions (preview)
-
-February 12, 2025 by [Brigit Murtaugh](https://github.com/bamurtaugh), [Burke Holland](https://github.com/burkeholland)
 
 We're excited to announce not one, not two, but _three_ previews for GitHub Copilot in this release of Visual Studio Code:
 

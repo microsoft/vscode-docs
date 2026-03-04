@@ -1,15 +1,14 @@
 ---
 Order:
-TOCTitle: Node.js Development with Visual Studio Code and Azure
-PageTitle: Node.js Development with Visual Studio Code and Azure
+TOCTitle: Node.js development with VS Code and Azure
+PageTitle: Node.js development with VS Code and Azure
 MetaDescription: Node.js Development with Visual Studio Code and Azure
-Date: 2017-01-15
+Date: 2017-01-04
 ShortDescription: Node.js Development with Visual Studio Code and Azure
-Author: Jonathan Carter
+Authors:
+  - name: Jonathan Carter
+    social: https://twitter.com/LostInTangent
 ---
-# Node.js Development with Visual Studio Code and Azure
-
-January, 4 2017 - Jonathan Carter, [@lostintangent](https://twitter.com/LostInTangent)
 
 Between Visual Studio Code and Azure, we're trying to contribute to simplifying and improving the overall developer experience of building, debugging and deploying Node.js applications. At [Node Interactive North America 2016](events.linuxfoundation.org/events/node-interactive), I was excited to be able to demo some of the work we've been doing recently based on community feedback, and this article tries to capture that workflow for folks who are interested in trying it out and/or are looking for a little more detail than I was able to cover in my talk.
 

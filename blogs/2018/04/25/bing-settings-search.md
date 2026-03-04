@@ -1,16 +1,15 @@
 ---
 Order:
-TOCTitle: Settings Search
+TOCTitle: Settings search
 PageTitle: Bing-powered settings search in VS Code
 MetaDescription: Improving settings search in VS Code with Bing
 MetaSocialImage: /assets/blogs/2018/04/25/SocialImg.gif
 Date: 2018-04-25
 ShortDescription: Improving settings search in VS Code with Bing
-Author: Rob Lourens
+Authors:
+  - name: Rob Lourens
+    social: https://twitter.com/roblourens
 ---
-# Bing-powered settings search in VS Code
-
-April 25, 2018 by Rob Lourens [@roblourens](https://twitter.com/roblourens) and Ankith Karat [ankar@microsoft.com](mailto:ankar@microsoft.com)
 
 Have you ever had trouble finding a certain setting in VS Code? You're not alone. Looking across common GitHub issues, StackOverflow questions, tweets, and user studies that we've done, we've seen many users having issues finding settings. This is no surprise given that VS Code includes more than 400 settings out of the box, and with extensions installed, many users can have significantly more. If you include typical user mistakes such as typos and the challenge of picking the right search terms, users have a hard time.
 

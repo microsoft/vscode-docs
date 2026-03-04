@@ -1,16 +1,14 @@
 ---
 Order: 98
 TOCTitle: Adding MCP in VS Code
-PageTitle: "Beyond the tools, adding MCP in VS Code"
+PageTitle: Beyond the tools, adding MCP in VS Code
 MetaDescription: Bring your own tools to VS Code's agent mode with MCP.
 MetaSocialImage: agent-mcp-tools.png
 Date: 2025-05-14
-Author: Harald Kirschner
+Authors:
+  - name: Harald Kirschner
+    social: https://github.com/digitarald
 ---
-
-# Beyond the tools, adding MCP in VS Code
-
-May 14th, 2025 by [Harald Kirschner](https://github.com/digitarald)
 
 When we first introduced [agent mode](https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode) in VS Code, it opened new ways of interacting with your code and workspace through chat. You could ask the agent to inspect files, run builds, and even [debug tests](https://code.visualstudio.com/docs/copilot/guides/test-with-copilot). But you were limited by what the model was trained on and the contents of your workspace. So, the next step was clear: we needed a way for agents to reach beyond those boundaries and interact with real, external services in a secure, user-controlled way.
 

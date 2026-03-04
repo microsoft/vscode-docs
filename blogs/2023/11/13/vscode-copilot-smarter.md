@@ -4,11 +4,10 @@ TOCTitle: Pursuit of wicked smartness in VS Code
 PageTitle: Pursuit of wicked smartness in VS Code
 MetaDescription: Smart artificial intelligence features in Visual Studio Code with GitHub Copilot
 Date: 2023-11-13
-Author: Chris Dias
+Authors:
+  - name: Chris Dias
+    social: https://twitter.com/chrisdias
 ---
-# Pursuit of wicked smartness in VS Code
-
-November 13, 2023 by Chris Dias, [@chrisdias](https://twitter.com/chrisdias)
 
 If you tuned into [GitHub Universe](https://githubuniverse.com) last week, you saw a tremendous amount of progress, innovation, and vision for artificial intelligence across the entire developer workflow. What we want to do in this blog post is focus in on the advancements around Visual Studio Code over the past few months helping to realize this broader vision.
 

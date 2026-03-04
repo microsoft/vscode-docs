@@ -1,15 +1,14 @@
 ---
 Order: 108
-TOCTitle: A Unified Agent Experience
-PageTitle: A Unified Experience for all Coding Agents
+TOCTitle: A unified agent experience
+PageTitle: A unified experience for all coding agents
 MetaDescription: "Agents took over VS Code in 2025. We released agent mode for VS Code, integration for the Copilot coding agent, and the new GitHub Copilot CLI. But Copilot is not the only agent game in town. There are now more coding agents than ever, including options from OpenAI and Anthropic."
 MetaSocialImage: unified-agent-experience.png
 Date: 2025-11-05
-Author: VS Code Team
+Authors:
+  - name: VS Code Team
+    social: https://twitter.com/code
 ---
-# A Unified Experience for all Coding Agents
-
-November 5, 2025 by VS Code Team, [@code](https://twitter.com/code)
 
 _Special thanks to Rob Lourens, Bhavya U, Matt Bierner, Peng Lyu, Osvaldo Ortega, Josh Spicer, Brigit Murtaugh, Martin Aeschlimann, Alex Britez and Harald Kirschner for their work on these features._
 

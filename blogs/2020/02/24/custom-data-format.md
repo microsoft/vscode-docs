@@ -1,16 +1,14 @@
 ---
 Order: 
-TOCTitle: Custom Data Format
-PageTitle: "Custom Data Format: Evolving HTML and CSS language features"
-MetaDescription: "Custom Data Format: Evolving HTML and CSS language features"
+TOCTitle: Custom data format
+PageTitle: "Custom data format: Evolving HTML and CSS language features"
+MetaDescription: Evolving HTML and CSS language features.
 Date: 2020-02-24
-Author: Pine Wu
+Authors:
+  - name: Pine Wu
+    social: https://github.com/octref
 MetaSocialImage:
 ---
-
-# Custom Data Format: Evolving HTML and CSS language features
-
-February 24, 2020 by Pine Wu, [@octref](https://github.com/octref)
 
 The web evolves and so do its languages. New entities continue to land in HTML and CSS specifications. [Custom Elements](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) and [Houdini](https://developer.mozilla.org/en-US/docs/Web/Houdini) allow users to extend HTML and CSS semantics. Many developers today use programming languages that embed HTML and CSS. Although HTML and CSS see increasingly flexible usage, editor support for new features often lags behind.
 

@@ -1,15 +1,13 @@
 ---
 Order: 
-TOCTitle: Markdown Language Server
-PageTitle: Introducing the Markdown Language Server
+TOCTitle: Markdown language server
+PageTitle: Introducing the Markdown language server
 MetaDescription: Why we decided to build a language server for working with Markdown
 Date: 2022-08-16
-Author: Matt Bierner
+Authors:
+  - name: Matt Bierner
+    social: https://hachyderm.io/@mattbierner
 ---
-
-# Introducing the Markdown Language Server
-
-August 16, 2022 by Matt Bierner, [@MattBierner](https://hachyderm.io/@mattbierner)
 
 Markdown support was the first feature I took ownership of when I joined Visual Studio Code back in 2016. Wow, has it really been six years? It was a great match though. I've worked with Markdown long enough that I often find myself hopefully typing backticks and asterisks into Twitter, Outlook, and just about every textbox my cursor lands in. It's been incredibly rewarding to grow VS Code's built-in Markdown support over the years and see how our Markdown extension has directly and indirectly shaped core features like webviews and notebooks.
 

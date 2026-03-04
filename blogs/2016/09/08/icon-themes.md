@@ -1,16 +1,14 @@
 ---
 Order:
 TOCTitle: File Icon Themes
-PageTitle: File and Folder Icons in Visual Studio Code
+PageTitle: File and folder icons in VS Code
 MetaDescription: File and Folder Icons in Visual Studio Code
 Date: 2016-09-08
 ShortDescription: The Visual Studio Code Explorer now supports file and folder icons. VS Code ships with two icon themes and more are available on the Marketplace.
-Author: Chris Dias
+Authors:
+  - name: Chris Dias
+    social: https://twitter.com/chrisdias
 ---
-
-# File and Folder Icons in VS Code!
-
-September 8, 2016 by Chris Dias,  [@chrisdias](https://twitter.com/chrisdias)
 
 ## Rebellion. Revolt. Uprising.
 

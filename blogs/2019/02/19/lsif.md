@@ -1,15 +1,13 @@
 ---
 Order: 
 TOCTitle: Language Server Index Format
-PageTitle: Language Server Index Format
+PageTitle: The Language Server Index Format (LSIF)
 MetaDescription: Rich Code Navigation without Checkout
 Date: 2019-02-19
 ShortDescription: Rich Code Navigation without Checkout
-Author: Dirk Bäumer
+Authors:
+  - name: Dirk Bäumer
 ---
-# The Language Server Index Format (LSIF)
-
-February 19, 2019 by Dirk Bäumer
 
 ## Rich code navigation without checkout
 

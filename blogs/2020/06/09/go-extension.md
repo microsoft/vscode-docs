@@ -1,14 +1,13 @@
 ---
 Order: 
 TOCTitle: The Go experience
-PageTitle: Visual Studio Code Go extension joins the Go project
+PageTitle: The Go extension joins the Go project
 MetaDescription: Visual Studio Code Go extension joins the Go project
 Date: 2020-06-09
-Author: Alessandro Segala
+Authors:
+  - name: VS Code Team
+    social: https://twitter.com/code
 ---
-# The next phase of the Go experience
-
-June 9, 2020 by The VS Code Team, [@code](https://twitter.com/code)
 
 From the beginning, we have worked with developer communities to build Visual Studio Code as a powerful, extensible editor. Five years into this journey, individuals and organizations in our community have helped us create an editor that is really for all developers, using any language.
 

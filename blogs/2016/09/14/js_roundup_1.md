@@ -1,16 +1,14 @@
 ---
 Order:
 TOCTitle: JavaScript Extensions Part 1
-PageTitle: Visual Studio Code JavaScript Extensions Part 1 Sep 2016
+PageTitle: JavaScript extensions, part 1
 MetaDescription: Essential JavaScript extensions for Visual Studio Code.
 Date: 2016-09-14
 ShortDescription: Essential JavaScript extensions for Visual Studio Code.
-Author: Wade Anderson
+Authors:
+  - name: Wade Anderson
+    social: https://twitter.com/waderyan_
 ---
-
-# JavaScript Extensions Part 1
-
-September 14, 2016 by Wade Anderson, [@waderyan_](https://twitter.com/waderyan_)
 
 > This is part one in a series on JavaScript extensions.
 

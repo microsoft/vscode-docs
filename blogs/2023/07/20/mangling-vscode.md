@@ -4,11 +4,10 @@ TOCTitle: Shrinking VS Code with name mangling
 PageTitle: Shrinking VS Code with name mangling
 MetaDescription: A look at how we cut 20% off the size of VS Code's JavaScript with name mangling.
 Date: 2023-07-20
-Author: Matt Bierner
+Authors:
+  - name: Matt Bierner
+    social: https://hachyderm.io/@mattbierner
 ---
-# Shrinking VS Code with name mangling
-
-July 20, 2023 by Matt Bierner, [@mattbierner](https://hachyderm.io/@mattbierner)
 
 We recently reduced the size of Visual Studio Code's shipped JavaScript by 20%. That works out to a little over 3.9 MB saved. Sure that's less than some of the individual gifs from our release notes, but that's still nothing to sniff at! Not only does this reduction mean less code you need to download and store on disk, it also improves startup time because less source code has to be scanned before the JavaScript is run. Not too shabby considering we got this reduction without deleting any code and without any major refactorings in our codebase. Instead all it took was a new build step: name mangling.
 
