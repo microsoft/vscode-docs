@@ -34,11 +34,18 @@ Use agents in VS Code to generate a tic-tac-toe game in your language of choice.
 </div>
 
 > [!IMPORTANT]
-> Make sure agents are enabled in your VS Code settings (`setting(chat.agent.enabled)`). Your organization might also disable agents - contact your admin to enable this functionality.
+> Enable agents in your VS Code settings (`setting(chat.agent.enabled)`). Your organization might also disable agents - contact your admin to enable this functionality.
 
 ## What are agents?
 
 Agents perform complete coding tasks end-to-end. They analyze your project across files, execute coordinated changes, run commands, and adapt based on the results. Whether you're implementing a new feature, performing an architecture-level refactoring, or migrating between frameworks, agents handle the full multi-step workflow autonomously.
+
+<div class="docs-action" data-show-in-doc="true" data-show-in-sidebar="false" title="Learn about AI core concepts">
+Get an overview of the core concepts and how AI agents work in VS Code.
+
+* [Learn about AI core concepts](/docs/copilot/core-concepts.md)
+
+</div>
 
 For example, imagine you have a failing test. Instead of suggesting a fix, an agent can:
 
