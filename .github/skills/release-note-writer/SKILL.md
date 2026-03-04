@@ -39,7 +39,7 @@ DO NOT continue until you have the release version and milestone name!!
 
 Issues are grouped in H2 sections by their closed date. The TOC must be updated to reflect the new sections and issues added.
 
-Use [this template](template-release-note-insiders.md) for the Insiders release notes.
+Use [this template](../../../templates/template-release-note-insiders.md) for the Insiders release notes.
 
 The [1.109 release notes](./examples/v1_109.md) are a concrete example of an Insiders release note.
 
@@ -76,7 +76,7 @@ DO NOT continue until you have the release version and release month and year!!
 
 ### File format
 
-Use [this template](template-release-note-endgame.md) for generating the initial Stable release notes.
+Use [this template](../../../templates/template-release-note-endgame.md) for generating the initial Stable release notes.
 
 ### Generation steps
 

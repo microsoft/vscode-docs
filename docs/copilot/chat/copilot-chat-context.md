@@ -1,6 +1,6 @@
 ---
 ContentId: 5d8a707d-a239-4cc7-92ee-ccc763e8eb9c
-DateApproved: 02/04/2026
+DateApproved: 3/4/2026
 MetaDescription: Learn how to manage context when using AI in VS Code, including workspace indexing, #-mentions for files and symbols, web content references, and custom instructions.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -151,6 +151,21 @@ You can configure which information is included in the context:
 * Attach CSS: `setting(chat.sendElementsToChat.attachCSS)` setting
 * Attach images: `setting(chat.sendElementsToChat.attachImages)` setting
 
+## Interact with browser pages
+
+> [!NOTE]
+> Browser tools for agents are currently experimental.
+
+Agents can directly read and interact with pages in the [integrated browser](/docs/debugtest/integrated-browser.md) by using built-in browser tools. This enables agents to navigate to URLs, read page content and console errors, take screenshots, click elements, type text, and more, without requiring an external MCP server.
+
+To enable browser tools, set the `setting(workbench.browser.enableChatTools)` setting to `true`.
+
+You can also share a browser page you already have open with the agent. Select the **Share with Agent** button in the browser toolbar to give the agent access to your page, including your existing session and login state.
+
+For example, you can ask an agent to open your web app, check for layout issues, or verify that a feature works correctly. The agent opens the browser, interacts with the page, and reports back with its findings.
+
+Learn more about [browser tools for agents](/docs/debugtest/integrated-browser.md#browser-tools-for-agents).
+
 ## Monitor context window usage
 
 The chat input box displays a context window control that shows how much of the model's context window is being used. This visual indicator helps you understand when chat summarization might occur or when you should start a new session.
@@ -165,11 +180,31 @@ The context window control provides the following information:
 As you send more requests in a conversation, the control updates to reflect the increasing context usage. The total available context (denominator) changes based on the AI model you select, since different models have different context window sizes.
 
 > [!TIP]
-> When the context window fills up, VS Code automatically summarizes the conversation history to free up space. Start a [new chat session](/docs/copilot/chat/chat-sessions.md) if you want to reset the context entirely.
+> When the context window fills up, VS Code automatically [compacts the conversation history](#context-compaction) to free up space.
+
+## Context compaction
+
+As a conversation grows, the accumulated messages and context can fill up the model's context window. Context compaction summarizes the conversation history to free up space, so you can continue working in the same session without losing important details.
+
+### Automatic compaction
+
+When the context window fills up, VS Code automatically compacts the conversation by summarizing earlier messages. This happens transparently in the background, so you can keep chatting without interruption.
+
+### Manual compaction
+
+You can also manually trigger compaction at any time, for example to refocus the conversation or reduce noise from earlier exchanges. Manual compaction is available for local, background, and Claude agent sessions.
+
+To manually compact the conversation, use one of the following methods:
+
+* Type `/compact` in the chat input field. Optionally, add custom instructions after the command to guide how the summary is generated, for example `/compact focus on the database schema decisions`.
+
+* Select the context window control in the chat input box, and then select **Compact Conversation**.
+
+If you want to reset the context entirely, start a [new chat session](/docs/copilot/chat/chat-sessions.md).
 
 ## Related resources
 
 * [Chat overview](/docs/copilot/chat/copilot-chat.md)
 * [Prompt examples](/docs/copilot/chat/prompt-examples.md)
 * [Prompt engineering guide](/docs/copilot/guides/prompt-engineering-guide.md)
-* [Chat Debug view](/docs/copilot/chat/chat-debug-view.md)
+* [Debug chat interactions](/docs/copilot/chat/chat-debug-view.md)

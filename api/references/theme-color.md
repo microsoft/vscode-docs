@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 02/04/2026
+DateApproved: 3/4/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -1333,6 +1333,8 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `agentSessionReadIndicator.foreground`: Foreground color for the read indicator in an agent session.
 - `agentSessionSelectedBadge.border`: Border color for the badges in selected agent session items.
 - `agentSessionSelectedUnfocusedBadge.border`: Border color for the badges in selected agent session items when the view is unfocused.
+- `agentStatusIndicator.background`: Background color of the agent status indicator in the titlebar.
+- `aiCustomizationManagement.sashBorder`: The color of the Chat Customization Management editor splitview sash border.
 
 ## Extension colors
 

@@ -1,6 +1,6 @@
 ---
 ContentId: c99a8442-e202-4427-b7c3-695469a00f92
-DateApproved: 02/16/2026
+DateApproved: 3/4/2026
 MetaDescription: Understand security considerations, built-in protections, and best practices when using AI-powered development features like agents and MCP servers in VS Code.
 MetaSocialImage: images/shared/github-copilot-social.png
 Keywords:
@@ -18,7 +18,7 @@ Keywords:
 AI-powered development capabilities can autonomously perform different development tasks, which might have significant security implications. In this article, you'll learn about VS Code's built-in security protections, the risks to be aware of, and how to configure your environment for safe AI-assisted development.
 
 > [!NOTE]
-> This article covers security controls in the VS Code editor for AI-powered development features. For information about how GitHub Copilot handles your data, privacy, and compliance, see the [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/).
+> This article covers security controls in the VS Code editor for AI-powered development features. For information about how GitHub Copilot handles your data, privacy, and compliance, see the [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/). For organization-wide AI policies and controls, see [AI settings for your organization](/docs/enterprise/ai-settings.md) and [enterprise policies](/docs/enterprise/policies.md).
 
 ## Recommended security baseline
 
@@ -91,10 +91,16 @@ Learn more about [tool and command approval](/docs/copilot/agents/agent-tools.md
 
 On macOS and Linux, you can enable [terminal sandboxing](/docs/copilot/agents/agent-tools.md#sandbox-terminal-commands-experimental) to restrict file system and network access for commands executed by the agent. When sandboxing is enabled, commands are auto-approved without a confirmation prompt because they run in a controlled environment.
 
-By default, sandboxed commands can only read and write files in the working directory, and all network access is blocked. You can configure allowed network domains through the sandbox settings, which can also inherit from the [Trusted Domains](/docs/editing/editingevolved.md#_outgoing-link-protection) list.
+By default, sandboxed commands can only read and write files in the working directory, and all network access is blocked. You can configure allowed network domains through the sandbox settings, which can also inherit from the [Trusted Domains](/docs/editing/editingevolved.md#outgoing-link-protection) list.
 
 > [!IMPORTANT]
 > Terminal sandboxing is the strongest protection against malicious terminal commands. If prompt injection is a concern, use terminal sandboxing or run VS Code in a [dev container](https://code.visualstudio.com/docs/devcontainers/containers) instead of relying on auto-approval rules alone. Auto-approval rules use best-effort command parsing and have known limitations with shell aliases, quote concatenation, and complex shell syntax.
+
+### MCP server sandboxing
+
+On macOS and Linux, you can enable sandboxing for locally-running MCP servers that use the stdio transport. When sandboxing is enabled, the server can only access the file system paths and network domains that you explicitly permit in the sandbox configuration. Tool calls from sandboxed servers are auto-approved because they run in a controlled environment.
+
+Learn more about [configuring MCP server sandboxing](/docs/copilot/customization/mcp-servers.md#sandbox-mcp-servers).
 
 ## Security risks to be aware of
 
@@ -111,7 +117,7 @@ All development tasks operate with the same permissions as the user.
 
 * **Extensions and MCP servers**: Extensions and MCP servers can operate on the user's machine with broad access to the system. They can access all files on the local machine, execute arbitrary code, and interact with system resources and external services.
 
-VS Code addresses these risks through [workspace-limited file access](#scope-and-isolation), [terminal approval and sandboxing](#terminal-sandboxing-experimental), and [trust boundaries](#trust-boundaries) for extensions and MCP servers.
+VS Code addresses these risks through [workspace-limited file access](#scope-and-isolation), [terminal approval and sandboxing](#terminal-sandboxing-experimental), [MCP server sandboxing](#mcp-server-sandboxing), and [trust boundaries](#trust-boundaries) for extensions and MCP servers.
 
 </details>
 

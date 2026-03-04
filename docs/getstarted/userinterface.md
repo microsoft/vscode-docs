@@ -1,6 +1,6 @@
 ---
 ContentId: 3a33f35b-cded-4f7f-8674-6f2ba5fca023
-DateApproved: 02/04/2026
+DateApproved: 3/4/2026
 MetaDescription: A quick overview of the Visual Studio Code user interface. Learn about the editor, window management, and special UI to handle source control, extension management, full text search and more.
 ---
 # User interface
@@ -95,6 +95,22 @@ Drag an editor tab out of the current VS Code window to open it in a floating wi
 To pin a floating window to the top of the screen, select the **Set Always on Top** option (pin icon) from its title bar.
 
 To learn more about floating windows, read the section in the [Custom Layout](/docs/configure/custom-layout.md#floating-windows) article.
+
+### Modal editors
+
+Certain configuration editors in VS Code open in a centered modal overlay on top of the editor area, rather than as a regular editor tab. These modal editors include:
+
+* **Settings** editor
+* **Keyboard Shortcuts** editor
+* **Profiles** editor
+* **Workspace Trust** editor
+* **Language Models** editor
+* **Extensions** editor
+
+You can dismiss a modal editor by clicking outside of it, pressing `kbstyle(Escape)`, or selecting the close button. You can also maximize it to fill the editor area, or move it back into the main window as a regular editor tab.
+
+> [!NOTE]
+> You can control this behavior with the `setting(workbench.editor.useModal)` setting. Set it to `off` to always open editors as regular tabs, `some` to open only configuration editors as modal overlays (default), or `all` to open all editors in a modal overlay.
 
 ## Minimap
 
@@ -323,7 +339,7 @@ Zen Mode can be further tuned with the following settings:
 
 If you are overwhelmed by notifications popping up, there is a way to reduce notifications, either for all notifications, or for notifications from a specific extension.
 
-Select the bell icon in the Status Bar to open the Notifications area. This is a place where you can access all notifications at any time, even if you have enabled Do Not Disturb Mode.
+Select the bell icon in the Status Bar (or in the title bar, if notifications are positioned at top-right) to open the Notifications area. This is a place where you can access all notifications at any time, even if you have enabled Do Not Disturb Mode. You can change the notification position with the `setting(workbench.notifications.position)` setting. Learn more about [notification positions](/docs/configure/custom-layout.md#notifications).
 
 ![Notifications center](images/userinterface/notifications-center.png)
 

@@ -1,22 +1,35 @@
 ---
 ContentId: 0aefcb70-7884-487f-953e-46c3e07f7cbe
-DateApproved: 02/04/2026
+DateApproved: 3/4/2026
 MetaDescription: Use AI agents in VS Code to autonomously plan, implement, and test code across your project.
 MetaSocialImage: images/shared/github-copilot-social.png
 Keywords:
 - GitHub Copilot
 - AI
 - agents
+- autonomous
+- agentic
+- multi-file editing
+- architecture
+- refactoring
+- deep context
+- semantic search
+- codebase understanding
+- enterprise
+- large codebase
 - inline suggestions
 - chat
 - MCP
+- team
+- background agents
+- third-party agents
 - introduction
 - overview
 - getting started
 ---
 # GitHub Copilot in VS Code
 
-GitHub Copilot adds multi-agent development capabilities to Visual Studio Code. Plan your approach, then let AI agents implement and verify code changes across your project. Run multiple agent sessions in parallel: locally, in the background, or in the cloud. Manage them all from a central view. Inline suggestions, inline chat, and smart actions assist you throughout the rest of the coding workflow.
+GitHub Copilot provides AI-powered agents and coding tools in Visual Studio Code. Use autonomous agents that plan, implement, and verify changes across your entire project with deep semantic understanding of your codebase. Run multiple agent sessions in parallel: locally, in the background, or in the cloud. Choose from Copilot, third-party agents like Claude and Codex, or your own custom agents. Manage them all from a central view. Inline suggestions, inline chat, and smart actions assist you throughout the rest of the coding workflow.
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
 Follow a hands-on tutorial to build your first app with AI in VS Code.
@@ -72,6 +85,8 @@ Use the Plan agent to create a structured implementation plan for a new feature.
 * **Debug and fix failing tests.** Point an agent at a failing test and it reads the error, traces the root cause across your codebase, applies a fix, and re-runs the test to confirm. Learn more about [debugging with AI](/docs/copilot/guides/debug-with-copilot.md).
 
 * **Refactor or migrate a codebase.** Ask an agent to plan a migration, for example, from one framework to another, and it applies coordinated changes across files while verifying with builds.
+
+* **Test and interact with web apps.** _(Experimental)_ Ask an agent to open your web app in the [integrated browser](/docs/debugtest/integrated-browser.md), verify a feature works, check for layout issues, or take screenshots. Follow the [browser agent testing guide](/docs/copilot/guides/browser-agent-testing-guide.md).
 
 * **Collaborate via pull requests.** Delegate a task to a cloud agent that creates a branch, implements the changes, and opens a pull request for your team to review. Learn more about [cloud agents](/docs/copilot/agents/cloud-agents.md).
 

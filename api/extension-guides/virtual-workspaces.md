@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: c64264b1-09cd-4680-b0dc-9f0f7803e451
-DateApproved: 02/04/2026
+DateApproved: 3/4/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to support virtual workspaces in extensions
