@@ -1,6 +1,6 @@
 ---
 ContentId: 9f84b21e-5b76-4c3a-a5dd-2021ab343f1f
-DateApproved: 02/04/2026
+DateApproved: 3/4/2026
 MetaDescription: Learn how to use GitHub Copilot in Visual Studio Code to write, debug, and fix tests.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -97,6 +97,7 @@ To get the best results when generating tests with Copilot, follow these tips:
 
 ## Next steps
 
+* Try [testing web apps with browser agent tools](/docs/copilot/guides/browser-agent-testing-guide.md).
 * Learn more about [Copilot in VS Code](/docs/copilot/overview.md).
 * Explore [general testing features in VS Code](/docs/debugtest/testing.md).
 * Check out example prompts for [generating unit tests](https://docs.github.com/en/copilot/example-prompts-for-github-copilot-chat/testing-code/generate-unit-tests)

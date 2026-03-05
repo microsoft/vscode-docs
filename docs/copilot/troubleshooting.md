@@ -1,6 +1,6 @@
 ---
 ContentId: f8e4b2c1-9d3a-4e5f-b6c7-8a9d0e1f2b3c
-DateApproved: 02/04/2026
+DateApproved: 3/4/2026
 MetaDescription: Troubleshoot GitHub Copilot issues in Visual Studio Code with logs, diagnostics, and debugging tools.
 MetaSocialImage: images/shared/github-copilot-social.png
 Keywords:
@@ -38,9 +38,20 @@ If you encounter problems connecting to GitHub Copilot, collect network connecti
 
 For more information about network configuration, see [Network and firewall configuration for Copilot](/docs/copilot/faq.md#network-and-firewall-configuration-for-copilot).
 
-## Chat Debug view
+## Debug chat interactions
 
-The Chat Debug view shows the details of AI requests and responses, including the system prompt, user prompt, context sent to the language model, and tool invocations. Use this view to understand how the AI interprets your requests and what context it uses to generate responses.
+VS Code provides tools to inspect what happens when you send a prompt to the AI.
+
+The **Agent Debug panel** is the primary debugging tool. It shows a chronological event log of agent interactions, including tool call sequences, LLM requests, token usage, prompt file discovery, and errors.
+
+To open the Agent Debug panel:
+
+1. Select the gear icon in the Chat view.
+1. Select **Show Agent Logs**.
+
+Alternatively, run **Developer: Open Agent Debug Panel** from the Command Palette.
+
+The **Chat Debug view** shows the raw details of each LLM request and response, including the full system prompt, context, and tool payloads.
 
 To open the Chat Debug view:
 
@@ -49,7 +60,7 @@ To open the Chat Debug view:
 
 Alternatively, run **Developer: Show Chat Debug View** from the Command Palette.
 
-Learn more about the [Chat Debug view](/docs/copilot/chat/chat-debug-view.md).
+Learn more about [debugging chat interactions](/docs/copilot/chat/chat-debug-view.md).
 
 ## Chat customization diagnostics
 
@@ -95,7 +106,7 @@ When reporting issues, include relevant information from the [Copilot logs](#vie
 
 ## Related resources
 
-* [Chat Debug view](/docs/copilot/chat/chat-debug-view.md)
+* [Debug chat interactions](/docs/copilot/chat/chat-debug-view.md)
 * [Custom instructions](/docs/copilot/customization/custom-instructions.md)
 * [MCP servers](/docs/copilot/customization/mcp-servers.md)
 * [GitHub Copilot FAQ](/docs/copilot/faq.md)

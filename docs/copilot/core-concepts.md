@@ -1,6 +1,6 @@
 ---
 ContentId: d8b3c7f1-2e4a-5b6d-9c0e-1f3a5b7d9e2c
-DateApproved: 02/04/2026
+DateApproved: 3/4/2026
 MetaDescription: Learn how GitHub Copilot works in VS Code, from language models and context to agents and the agentic loop.
 MetaSocialImage: images/shared/github-copilot-social.png
 Keywords:
@@ -11,20 +11,32 @@ Keywords:
 - context window
 - agents
 - agentic loop
+- autonomous
+- multi-file editing
+- deep context
+- architecture
+- semantic search
 ---
 
 # How AI works in VS Code
 
 Visual Studio Code's built-in AI features are powered by GitHub Copilot and large language models (LLMs). These features span multiple surfaces, from inline suggestions as you type to autonomous agents that implement entire features. This article explains the core architecture, key concepts, and how all the AI features connect. For a hands-on tutorial, see the [Quickstart](/docs/copilot/getting-started.md). For practical tips, see [Best practices](/docs/copilot/best-practices.md).
 
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
+Follow a hands-on tutorial to experience local, background, and cloud agents in VS Code.
+
+* [Start tutorial](/docs/copilot/agents/agents-tutorial.md)
+
+</div>
+
 ## AI features at a glance
 
 VS Code offers AI across a spectrum of interaction surfaces, each suited to different tasks:
 
-* **[Inline suggestions](/docs/copilot/ai-powered-suggestions.md)**: code suggestions that appear as ghost text while you type. These use specialized completion models and don't involve an agent loop or tools. [Next Edit Suggestions (NES)](/docs/copilot/ai-powered-suggestions.md#next-edit-suggestions) go further by predicting *where* your next edit should happen.
+* **[Agents](/docs/copilot/agents/overview.md)**: autonomous sessions that follow the full [agent loop](#agent-loop), reading files, executing coordinated changes across multiple files, running commands, and iterating until the task is complete. Agents handle multi-step tasks end-to-end, from implementing features to architecture-level refactoring and framework migrations.
 * **[Chat](/docs/copilot/chat/copilot-chat.md)**: a conversational interface where you ask questions, explore ideas, or get explanations. In Ask mode, the model uses read-only tools to answer questions without modifying your code.
-* **[Agents](/docs/copilot/agents/overview.md)**: autonomous sessions that follow the full [agent loop](#agent-loop) — reading files, editing code, running commands, and iterating until the task is complete.
 * **[Inline chat](/docs/copilot/chat/inline-chat.md)**: a lightweight chat interface that opens directly in the editor for quick, focused edits.
+* **[Inline suggestions](/docs/copilot/ai-powered-suggestions.md)**: code suggestions that appear as ghost text while you type. These use specialized completion models and don't involve an agent loop or tools. [Next Edit Suggestions (NES)](/docs/copilot/ai-powered-suggestions.md#next-edit-suggestions) go further by predicting *where* your next edit should happen.
 * **[Smart actions](/docs/copilot/copilot-smart-actions.md)**: one-click AI actions integrated into your workflow, like generating commit messages or fixing diagnostics errors.
 
 ## Language models
@@ -89,7 +101,7 @@ VS Code gathers context automatically and gives you control over what to include
 
 The context window is the total amount of information a model can process in a single request. It includes everything: the system prompt, custom instructions, conversation history, file contents, tool outputs, and your current message. Different models have different context window sizes.
 
-When the context window fills up, VS Code automatically summarizes older parts of the conversation to make room. This means important details from early in a long conversation might be compressed or lost.
+When the context window fills up, VS Code automatically summarizes older parts of the conversation to make room. This means important details from early in a long conversation might be compressed or lost. You can also type `/compact` in the chat input to manually trigger compaction at any time, without waiting for the context window to fill up. Optionally, add custom instructions after the command to guide the summary, for example `/compact focus on the API design decisions`.
 
 To work effectively with context window limits:
 

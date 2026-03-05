@@ -1,14 +1,15 @@
 ---
-Order:
+Order: <sequence number>
 TOCTitle: Insiders
-PageTitle: "Visual Studio Code <Month> <Year> (Insiders)"
-MetaDescription: Learn what is new in the Visual Studio Code <Month> <Year> Release (1.<release number>).
+PageTitle: "Visual Studio Code 1.<release number> (Insiders)"
+MetaDescription: Learn what's new in Visual Studio Code 1.<release number> (Insiders)
 MetaSocialImage: 1_<release number>/release-highlights.webp
 Date: <YYYY-MM-DD>
 DownloadVersion: 1.<release number>.0
-Milestone: <milestone name>
+Milestone: <milestone name (1.<release number>.0 or Month Year)>
+ProductEdition: Insiders
 ---
-# <Month> <Year> Insiders (version 1.<release number>)
+# VS Code 1.<release number> Insiders
 
 ![VS Code Insiders banner](images/1_<release number>/vscode-insiders-banner-medium.png)
 

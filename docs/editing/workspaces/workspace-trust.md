@@ -1,6 +1,6 @@
 ---
 ContentId: 51280c26-f78b-4f9c-997f-8350bd6ed07f
-DateApproved: 02/04/2026
+DateApproved: 3/4/2026
 MetaDescription: Visual Studio Code Workspace Trust folder security
 ---
 # Workspace Trust
@@ -30,7 +30,7 @@ The workbench displays a banner at the top with a link to **Manage** your folder
 
 Restricted Mode tries to prevent automatic code execution by disabling or limiting the operation of several VS Code features: AI agents, tasks, debugging, workspace settings, and extensions.
 
-To see the full list of features disabled in Restricted Mode, you can open the Workspace Trust editor via the **Manage** link in the banner, or by selecting the Restricted Mode badge in the Status Bar.
+To see the full list of features disabled in Restricted Mode, you can open the Workspace Trust editor via the **Manage** link in the banner, or by selecting the Restricted Mode badge in the Status Bar. The Workspace Trust editor opens by default in a [modal overlay](/docs/getstarted/userinterface.md#modal-editors) on top of the editor area.
 
 ![Workspace Trust editor](images/workspace-trust/workspace-trust-editor.png)
 

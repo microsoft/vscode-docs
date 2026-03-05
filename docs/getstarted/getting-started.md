@@ -1,6 +1,6 @@
 ---
 ContentId: 72ad9b70-5227-4032-81d7-6aec00a1e8f8
-DateApproved: 02/04/2026
+DateApproved: 3/4/2026
 MetaDescription: This tutorial gives you an overview of the key features of Visual Studio Code to help you get started quickly.
 ---
 # Tutorial: Get started with Visual Studio Code

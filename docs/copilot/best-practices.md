@@ -1,12 +1,19 @@
 ---
 ContentId: 58ea6755-9bfa-42c2-a4c8-ff0510f9c031
-DateApproved: 02/04/2026
+DateApproved: 3/4/2026
 MetaDescription: Best practices for getting the most out of GitHub Copilot in VS Code, from writing prompts to configuring your project for AI.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
 # Best practices for using AI in VS Code
 
 This article covers proven practices for getting the most out of using AI in Visual Studio Code. Each section provides actionable guidance with links to deeper documentation.
+
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="How AI works in VS Code">
+Learn about the agent loop, context window, tools, and other core concepts.
+
+* [Read about core concepts](/docs/copilot/core-concepts.md)
+
+</div>
 
 ## Optimize your project for AI
 
@@ -117,8 +124,8 @@ For complex changes that span multiple files, separate planning from implementat
 
 1. **Explore.** Use ask mode or a subagent to read the relevant code and understand how it works before making changes.
 1. **Plan.** Use the [Plan agent](/docs/copilot/agents/planning.md) to create a structured implementation plan. Review and refine the plan before executing.
-1. **Implement.** Switch to agent mode and implement from the plan. Include tests or expected outputs so the agent can verify its own work.
-1. **Review.** Use [checkpoints](/docs/copilot/chat/chat-checkpoints.md) to review progress and rewind if the agent goes off track.
+1. **Implement.** Switch to agent mode and implement from the plan. Include tests or expected outputs so the agent can verify its own work. Hand off to a [background agent](/docs/copilot/agents/background-agents.md) or [cloud agent](/docs/copilot/agents/cloud-agents.md) for longer tasks.
+1. **Review.** Use [checkpoints](/docs/copilot/chat/chat-checkpoints.md) to review progress, rewind if the agent goes off track, or [request a Copilot code review](https://docs.github.com/en/copilot/concepts/agents/code-review) on the resulting pull request.
 
 For more information, see the [context engineering workflow](/docs/copilot/guides/context-engineering-guide.md).
 
@@ -151,6 +158,22 @@ AI responses might degrade as the conversation fills with irrelevant context. Ma
 * **Scale with parallel sessions.** Run multiple sessions in parallel for independent tasks to save time and keep contexts separate. You can have multiple sessions running at once, across local, background, and cloud environments, and switch between them via the [Agent Sessions view](/docs/copilot/agents/overview.md#agent-sessions-list) in VS Code.
 
 For more information, see [session management](/docs/copilot/chat/chat-sessions.md) and [workspace indexing](/docs/copilot/reference/workspace-context.md).
+
+## Work with large codebases
+
+Copilot is designed to work effectively with large, complex, and multi-root workspaces. Use these practices to get the best results at scale.
+
+* **Use workspace indexing.** VS Code automatically indexes your project using semantic search, language intelligence, and GitHub's code search for deep cross-file reasoning. This works for both small projects and large enterprise codebases. For large repositories, use [remote indexing](/docs/copilot/reference/workspace-context.md#remote-index) for fast, comprehensive results across your repository and related repositories on GitHub.
+
+* **Scope work with multi-root workspaces.** For monorepos or projects with multiple services, use [multi-root workspaces](/docs/editing/workspaces/multi-root-workspaces.md) to give the AI clear boundaries and focused context.
+
+* **Provide project-level instructions.** Use [custom instructions](/docs/copilot/customization/custom-instructions.md) to describe your project's architecture, module boundaries, and conventions that the AI can't infer from code alone. This gives the AI the context it needs for architecture-level changes.
+
+* **Run parallel sessions for independent changes.** Break large tasks into independent subtasks and run them in [parallel agent sessions](/docs/copilot/agents/overview.md#agent-sessions-list), each focused on a different area of the codebase.
+
+* **Use the Plan agent for cross-cutting changes.** For changes that span many files or modules, start with the [Plan agent](/docs/copilot/agents/planning.md) to create a structured implementation plan before executing.
+
+For more information, see [workspace context](/docs/copilot/reference/workspace-context.md) and [agents](/docs/copilot/agents/overview.md).
 
 ## Related resources
 

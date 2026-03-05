@@ -60,10 +60,8 @@ And here are his recommended settings, which help his students have consistent f
     "tabnine.experimentalAutoImports": true,
 
     // Language-Specific
-    "javascript.format.insertSpaceBeforeFunctionParenthesis": false, // align with ESLint Standard
-    "javascript.updateImportsOnFileMove.enabled": "always",
-    "typescript.format.insertSpaceBeforeFunctionParenthesis": false, // align with ESLint Standard
-    "typescript.updateImportsOnFileMove.enabled": "always",
+    "js/ts.format.insertSpaceBeforeFunctionParenthesis": false, // align with ESLint Standard
+    "js/ts.updateImportsOnFileMove.enabled": "always",
     "[javascript]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint" // preconfig ESLint
     },

@@ -1,6 +1,6 @@
 ---
 ContentId: 8f9a3e5c-2b4d-4a7f-9c8e-1d6f3a2b5c4e
-DateApproved: 02/04/2026
+DateApproved: 3/4/2026
 MetaDescription: Learn how to use the plan agent for autonomous planning and task management with the todo list in VS Code chat.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -74,7 +74,14 @@ When working on complex tasks, VS Code's agent will create a todo list to track 
 > [!TIP]
 > You can update the todo list using natural language like "revise step 1 to do x" or "add another task". If the agent's todos are not as expected, you can clear the list, but otherwise the agent manages the updates automatically based on your feedback and information it gathers while working on the request.
 
+## Session memory in plan mode
+
+The Plan agent automatically saves its implementation plan to a session memory file (`/memories/session/plan.md`). You can view this file during the session by running the **Chat: Show Memory Files** command. Session memory is cleared when the conversation ends, so the plan is not available in subsequent sessions.
+
+Session memory is one of three memory scopes that agents use to persist notes. Learn more about [memory in VS Code agents](/docs/copilot/agents/memory.md).
+
 ## Related resources
 
+* [Memory in VS Code agents](/docs/copilot/agents/memory.md)
 * [Configure tools for agents](/docs/copilot/agents/agent-tools.md)
 * [Context engineering user guide](/docs/copilot/guides/context-engineering-guide.md)

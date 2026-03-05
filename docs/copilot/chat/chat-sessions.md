@@ -1,6 +1,6 @@
 ---
 ContentId: 7a2e5f8d-4c9b-41e6-b3a8-9d7f2e4c1b8a
-DateApproved: 02/04/2026
+DateApproved: 3/4/2026
 MetaDescription: Learn how to create and manage chat sessions in Visual Studio Code, including opening chat in editor tabs, separate windows, and using chat session history.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -65,6 +65,20 @@ Alternatively, choose any of the following commands from the Command Palette:
 * **Chat: Move Chat into New Window**
 * **Chat: Move Chat into Side Bar**
 
+## Fork a chat session
+
+Forking a chat session creates a new, independent session that inherits the conversation history from the original session. The forked session is fully separate from the original, so changes in one session do not affect the other. The new session title is prefixed with "Forked:" to help you identify it.
+
+Forking is useful when you want to explore an alternative approach, ask a side question, or branch a long conversation in a different direction without losing the original context.
+
+There are two ways to fork a chat session:
+
+* **Fork the entire session**: type `/fork` in the chat input box and press `kbstyle(Enter)`. A new session opens with the full conversation history copied from the current session.
+
+* **Fork from a checkpoint**: hover over a chat request in the conversation and select the **Fork Conversation** button. A new session opens that includes only the requests up to and including that checkpoint.
+
+    ![Screenshot of the Fork Conversation button in the checkpoint toolbar in the Chat view.](../images/chat-checkpoints/chat-fork-conversation.png)
+
 ## Session history
 
 The Chat view shows your recent and active chat sessions, regardless of where they run. When you select a session from the list, you can see the full conversation history and context for that session. Send new prompts in that session to continue the conversation.
@@ -87,9 +101,6 @@ To configure the VS Code welcome page as your startup experience, set `setting(w
 
 ## Send messages while a request is running
 
-> [!NOTE]
-> Message steering and queuing are experimental features.
-
 You don't have to wait for a response to finish before sending your next message. While a request is in progress, the **Send** button changes to a dropdown that gives you three options for how to handle the new message.
 
 ![Screenshot of the Send button dropdown menu showing options to queue, steer, or stop and send a new message.](../images/chat-sessions/send-dropdown.png)
@@ -105,6 +116,23 @@ The default action for the **Send** button is configurable. Use `setting(chat.re
 When you have multiple pending messages (queued or steering), you can drag and drop them to change the order in which they are processed. A drag handle appears on hover when more than one message of the same type is pending.
 
 ![Screenshot of pending messages in the chat input box with drag handles to reorder them.](../images/chat-sessions/pending-messages.png)
+
+## Get notified about chat responses
+
+When you're working in another window or application, VS Code can send you OS notifications to let you know about important chat events, so you don't have to keep checking back.
+
+Use `setting(chat.notifyWindowOnResponseReceived)` to configure when you receive an OS notification when a chat response is received. The notification includes a preview of the response, and selecting it brings focus to the chat session.
+
+Use `setting(chat.notifyWindowOnConfirmation)` to configure when you receive an OS notification when the agent needs your input or confirmation to continue.
+
+Both settings have three possible values:
+
+* `off`: never show notifications
+* `windowNotFocused` (default): show notifications only when the VS Code window is not focused
+* `always`: show notifications even when the VS Code window is in focus
+
+> [!TIP]
+> Set the value to `always` if you want to stay aware of chat activity while working in other parts of VS Code, such as when running long agent tasks in the background.
 
 ## Navigate between prompts in a chat session
 

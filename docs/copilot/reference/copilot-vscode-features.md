@@ -1,12 +1,12 @@
 ---
 ContentId: de6f9f68-7dd5-4de3-a210-3db57882384b
-DateApproved: 02/04/2026
-MetaDescription: Get a quick overview of the AI features in Visual Studio Code. GitHub Copilot provides AI-powered features to help you write code faster and with less effort.
+DateApproved: 3/4/2026
+MetaDescription: Quick reference for GitHub Copilot in VS Code, including autonomous agents, multi-file editing, inline suggestions, and enterprise controls.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # GitHub Copilot in VS Code cheat sheet
 
-GitHub Copilot in Visual Studio Code provides AI-powered features to help you write code faster and with less effort. This cheat sheet provides a quick overview of the features for GitHub Copilot in Visual Studio Code.
+GitHub Copilot in Visual Studio Code provides autonomous agents, inline suggestions, chat, and smart actions. Agents plan, implement, and verify changes across multiple files and run in parallel, locally, in the background, or in the cloud. Choose from multiple AI models, connect to external tools with MCP, and customize agents for your team's workflows. This cheat sheet gives you a quick overview of all features.
 
 > [!TIP]
 > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of inline suggestions and chat interactions.
@@ -115,6 +115,7 @@ The following table lists the VS Code built-in tools:
 | `#newJupyterNotebook` | Scaffold a new Jupyter notebook given a description. |
 | `#newWorkspace` | Create a new workspace. |
 | `#openSimpleBrowser` | Open the [integrated browser](/docs/debugtest/integrated-browser.md) and preview a locally-deployed web app. |
+| `#browser` (tool set) | _(Experimental)_ Interact with pages in the [integrated browser](/docs/debugtest/integrated-browser.md): navigate, read page content, take screenshots, click, type, hover, drag, and handle dialogs. Enable with `setting(workbench.browser.enableChatTools)`. |
 | `#problems` | Add workspace issues and problems from the **Problems** panel as context. Useful while fixing code or debugging. |
 | `#readFile` | Read the content of a file in the workspace. |
 | `#readNotebookCellOutput` | Read the output from a notebook cell execution. |
@@ -150,6 +151,8 @@ Slash commands are shortcuts to specific functionality within the chat. You can 
 | `/tests` | Generate tests for all or only the selected methods and functions in the editor. |
 | `/setupTests` | Get help setting up a testing framework for your code. Get recommendation for a relevant testing framework, steps to set up and configure it, and suggestions for VS Code testing extensions. |
 | `/clear` | Start a new chat session in the Chat view. |
+| `/compact` | Compact the conversation context by summarizing it. Useful when a conversation grows too long for the model's context window. |
+| `/fork` | Fork the current chat session into a new independent session that inherits the full conversation history. Learn more about [forking chat sessions](/docs/copilot/chat/chat-sessions.md#fork-a-chat-session). |
 | `/debug` | Show the Chat Debug view to [inspect the chat logs for troubleshooting](/docs/copilot/troubleshooting.md). |
 | `/new` | Scaffold a new VS Code workspace or file. Use natural language to describe the type of project/file you need, and preview the scaffolded content before creating it. |
 | `/newNotebook` | Scaffold a new Jupyter notebook based on your requirements. Use natural language to describe what the notebook should contain. |
@@ -162,6 +165,13 @@ Slash commands are shortcuts to specific functionality within the chat. You can 
 | `/instructions` | Configure your [custom instructions](/docs/copilot/customization/custom-instructions.md). |
 | `/prompts` | Configure your [reusable prompt files](/docs/copilot/customization/prompt-files.md). |
 | `/skills` | Configure your [agent skills](/docs/copilot/customization/agent-skills.md). |
+| `/create-prompt` | Generate a [prompt file](/docs/copilot/customization/prompt-files.md) with AI assistance in Agent mode. |
+| `/create-instruction` | Generate an [instructions file](/docs/copilot/customization/custom-instructions.md) with AI assistance in Agent mode. |
+| `/create-skill` | Generate an [agent skill](/docs/copilot/customization/agent-skills.md) with AI assistance in Agent mode. |
+| `/create-agent` | Generate a [custom agent](/docs/copilot/customization/custom-agents.md) with AI assistance in Agent mode. |
+| `/create-hook` | Generate a [hook](/docs/copilot/customization/hooks.md) configuration with AI assistance in Agent mode. |
+| `/yolo`<br/>`/autoApprove` | Enable [global auto-approval](/docs/copilot/agents/agent-tools.md#can-i-automatically-approve-all-tools-and-terminal-commands) of all tool calls (`setting(chat.tools.global.autoApprove)`). Shows a warning dialog the first time. |
+| `/disableYolo`<br/>`/disableAutoApprove` | Disable [global auto-approval](/docs/copilot/agents/agent-tools.md#can-i-automatically-approve-all-tools-and-terminal-commands) of all tool calls. |
 | `/<skill name>` | Run an [agent skill](/docs/copilot/customization/agent-skills.md) in chat. For example, if you have a skill file named `webapp-testing.md`, you can run it by typing `/webapp-testing`. |
 | `/<prompt name>` | Run a [reusable prompt](/docs/copilot/customization/prompt-files.md) in chat. |
 
@@ -205,6 +215,7 @@ Use the [plan agent](/docs/copilot/agents/planning.md) in VS Code chat to create
 |--------|-------------|
 | Plan agent | Select the **Plan** agent from the agents dropdown or use the `/plan` slash command to create a detailed implementation plan for complex coding tasks. |
 | Todo list | View a todo list to track progress on complex tasks. Enable this with the `setting(chat.tools.todos.showWidget` setting. |
+| [Memory](/docs/copilot/agents/memory.md) | Agents save and recall persistent notes across conversations. Enable or disable with the `setting(github.copilot.chat.tools.memory.enabled)` setting. Use the **Chat: Show Memory Files** command to view stored memories. |
 
 ## Customize your chat experience
 
