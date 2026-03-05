@@ -117,6 +117,22 @@ When you have multiple pending messages (queued or steering), you can drag and d
 
 ![Screenshot of pending messages in the chat input box with drag handles to reorder them.](../images/chat-sessions/pending-messages.png)
 
+## Get notified about chat responses
+
+When you're working in another window or application, VS Code can send you OS notifications to let you know about important chat events, so you don't have to keep checking back.
+
+Use `setting(chat.notifyWindowOnResponseReceived)` to configure when you receive an OS notification when a chat response is received. The notification includes a preview of the response, and selecting it brings focus to the chat session.
+
+Use `setting(chat.notifyWindowOnConfirmation)` to configure when you receive an OS notification when the agent needs your input or confirmation to continue.
+
+Both settings have three possible values:
+
+* `off`: never show notifications
+* `windowNotFocused` (default): show notifications only when the VS Code window is not focused
+* `always`: show notifications even when the VS Code window is in focus
+
+> **Tip:** Set the value to `always` if you want to stay aware of chat activity while working in other parts of VS Code, such as when running long agent tasks in the background.
+
 ## Navigate between prompts in a chat session
 
 Use the following keyboard shortcuts to navigate between prompts in a chat session:
