@@ -131,7 +131,8 @@ Both settings have three possible values:
 * `windowNotFocused` (default): show notifications only when the VS Code window is not focused
 * `always`: show notifications even when the VS Code window is in focus
 
-> **Tip:** Set the value to `always` if you want to stay aware of chat activity while working in other parts of VS Code, such as when running long agent tasks in the background.
+> [!TIP]
+> Set the value to `always` if you want to stay aware of chat activity while working in other parts of VS Code, such as when running long agent tasks in the background.
 
 ## Navigate between prompts in a chat session
 
