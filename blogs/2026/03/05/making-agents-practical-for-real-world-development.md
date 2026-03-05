@@ -60,7 +60,7 @@ As agents take on more responsibility, the way you interact with them matters ju
 
 ### Guide the agent while it works
 
-Agents sometimes head down the wrong path, and you can usually tell before they finish.
+Agents sometimes head down the wrong path and it's immediately obvious, even before it has finished the request.
 
 Previously, you had to wait for a response to complete it before redirecting it. Now, you can intervene while the agent is generating a response, guiding the direction of the work without restarting or losing context.
 
