@@ -50,7 +50,7 @@ Previously, you had no control over when context compaction was happening and wh
 
 Now you can manually run context compaction for a session by typing `/compact`. And in doing so, you can give the agent additional instructions on what information to keep or discard.
 
-This keeps sessions focused without interrupting the workflow.
+Especially when working with long-running sessions and dealing with lots of context, controlling compaction keeps the agent focused on the key information.
 
 ![Screenshot showing the context window control and the compact option.](context-compaction.png)
 
