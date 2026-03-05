@@ -36,7 +36,9 @@ From a UI perspective, large tools outputs in a chat conversation can make it di
 
 ### Share agent memory
 
-Agent memory now spans coding agents, CLI workflows, and code review interactions, allowing agents to share context and build on common knowledge across sessions.
+Agents in Visual Studio Code use memory to retain relevant context. Agent memory now spans coding agents, CLI workflows, and code review interactions.
+
+Rather than starting from scratch each session, agents recall your preferences, apply lessons from previous tasks, and build up knowledge about your codebase over time.
 
 Architectural decisions, naming conventions, and prior refactors remain part of the conversation, so you spend less time restating intent and more time continuing the work.
 
