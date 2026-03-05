@@ -168,4 +168,8 @@ With the [February 2026 release (1.110)](http://aka.ms/VSCode/110), VS Code give
 
 We’re building this in the open. If you have feedback, ideas, or run into issues, open a discussion or file an issue in the [VS Code repo](https://github.com/microsoft/vscode/issues) or find us on social. We’d love to hear from you.
 
-Happy coding!
+Want to see how these features can enhance your developer workflow?
+
+**Join us for our VS Code release livestream on March 19 at 8 AM PST. [Turn on notifications](http://aka.ms/VSCode/Mar19)!**
+
+Happy coding! 💙
