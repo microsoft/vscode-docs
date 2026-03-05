@@ -2,11 +2,11 @@
 agent: Plan
 description: Document a new or updated VS Code feature in the project documentation.
 argument-hint: Feature to document or link to relevant issue/PR.
-tools: ['github/*', 'read','search','web','agent','web/githubRepo', 'vscode/askQuestions']
+tools: [vscode/askQuestions, read, agent, search, web, 'github/*']
 ---
 Analyze the feature description and related code updates, and suggest updates to the vs code docs (docs/ folder). It is acceptable to say that no documentation update is needed. Ask the user for confirmation if you think no updates are needed.
 
-If needed, check the source code in #tool:web/githubRepo microsoft/vscode and microsoft/vscode-copilot-chat to understand the feature implementation.
+If needed, check the source code in GitHub repos microsoft/vscode and microsoft/vscode-copilot-chat to understand the feature implementation.
 
 Ask clarifying questions if the feature description is ambiguous or lacks details.
 
