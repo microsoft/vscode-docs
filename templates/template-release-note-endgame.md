@@ -17,15 +17,9 @@ _Release date: <release Month day, year>_
 
 ---
 
-Welcome to the 1.<release number> release of Visual Studio Code.
+Welcome to the 1.<release number> release of Visual Studio Code. This release ... <TODO @ntrogh>
 
-![Placeholder for release image](images/1_<release number>/release-highlights.png)
-
-This release brings significant updates across these key areas:
-
-* Area of improvement 1
-* Area of improvement 2
-* Area of improvement 3
+* [highlight](#bookmark): <highlight description>
 
 Happy Coding!
 
@@ -60,6 +54,7 @@ Happy Coding!
       <li><a href="#extension-authoring">Extension Authoring</a></li>
       <li><a href="#proposed-apis">Proposed APIs</a></li>
       <li><a href="#engineering">Engineering</a></li>
+      <li><a href="#deprecated-features-and-settings">Deprecated features and settings</a></li>
       <li><a href="#notable-fixes">Notable fixes</a></li>
       <li><a href="#thank-you">Thank you</a></li>
     </ul>
@@ -127,6 +122,13 @@ You can learn more about these features in the [Remote Development release notes
 
 
 ## Engineering
+
+
+## Deprecated features and settings
+
+### New deprecations in this release
+
+### Upcoming deprecations
 
 
 ## Notable fixes
