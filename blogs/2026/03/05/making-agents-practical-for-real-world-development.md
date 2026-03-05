@@ -28,7 +28,9 @@ In this release, we're improving how agents handle large outputs efficiently, ho
 
 Large diffs, generated files, or extensive logs can overwhelm a session if treated as an inline context.
 
-VS Code now manages large outputs by streaming them to temporary files and prioritizing the most relevant information for the model. This keeps agents focused on the right details while optimizing context usage without additional work.
+Agents and LLMs are great at working with files. VS Code now manages large outputs by streaming them to temporary files and prioritizing the most relevant information for the model. This keeps agents focused on the right details while optimizing context usage without additional work.
+
+From a UI perspective, large tools outputs in a chat conversation can make it difficult to follow the overall flow of what's happening in a session. VS Code now puts terminal output in collapsible sections, giving you the details if you want them, while keeping the session uncluttered.
 
 <video src="embedded-terminal-streaming.mp4" title="Video showing terminal output auto-expanding for long-running commands." autoplay muted controls></video>
 
