@@ -80,7 +80,9 @@ In our app, when new styling guidance is introduced to enhance the hero card wit
 
 Choosing an approach often means trying more than one solution. Restarting conversations or copying prompts makes comparison harder.
 
-Each fork evolves independently, making it easier to compare implementations, explore different routes, or experiment safely without rewriting context or starting over.
+To make this experience easier, you can now fork a chat session. This creates a new, independent session that inherits the conversation history from the original session. The forked session is fully separate from the original, so changes in one session do not affect the other.
+
+You can either type `/fork` and it will copy over the full conversation, or you can use the fork button at a specific checkpoint to _fork_ the conversation up until that point.
 
 In the demo below, `/fork` creates a parallel thread where a more minimal design direction is explored without affecting the original discussion.
 
