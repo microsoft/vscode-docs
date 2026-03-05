@@ -78,7 +78,7 @@ In our app, when new styling guidance is introduced to enhance the hero card wit
 
 ### Explore alternatives without losing context
 
-Choosing an approach often means trying more than one solution. Restarting conversations or copying prompts makes comparison harder.
+There are often different ways to solve a problem or multiple design options. You could create multiple chat sessions, one for each variant, but that would mean you need to copy over the existing context and conversation history.
 
 To make this experience easier, you can now fork a chat session. This creates a new, independent session that inherits the conversation history from the original session. The forked session is fully separate from the original, so changes in one session do not affect the other.
 
