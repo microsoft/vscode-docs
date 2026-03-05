@@ -64,7 +64,7 @@ Agents sometimes head down the wrong path, and you can usually tell before they 
 
 Previously, you had to wait for a response to complete it before redirecting it. Now, you can intervene while the agent is generating a response, guiding the direction of the work without restarting or losing context.
 
-You can also send follow-up instructions to refine or redirect the task as the work progresses.
+And if think of some extra tasks the agent should perform, you can now queue follow-on requests for the agent to perform once it has finished it's current task. If you queue up multiple requests, you can easily change the order in which they need to be performed.
 
 For example, you might clarify:
 
