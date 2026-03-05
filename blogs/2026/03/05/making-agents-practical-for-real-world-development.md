@@ -14,7 +14,7 @@ March 5, 2026 by VS Code Team, [@code](https://x.com/code)
 
 Agents are taking on more complex and longer-running development tasks.
 
-With the [February 2026 release (1.110)](http://aka.ms/VSCode/110), we’re making those workflows more practical inside Visual Studio Code by giving you greater control over how agents behave, integrate into your tools, and retain project context across sessions.
+With the [February 2026 release (1.110)](http://aka.ms/VSCode/110), we're making those workflows more practical inside Visual Studio Code by giving you greater control over how agents behave, integrate into your tools, and retain project context across sessions.
 
 From enforcing policies with hooks to guiding agents mid-response, validating UI features with integrated browser tools, and bringing structured skills directly into the editor, this release focuses on making agents reliable collaborators for real development work.
 
@@ -22,7 +22,7 @@ From enforcing policies with hooks to guiding agents mid-response, validating UI
 
 Codebases often have a complex architecture and project structure, and can consist of thousands of files. Agents might struggle to stay focused and find the right pieces of information, especially as sessions get longer.
 
-In this release, we're improving how agents handle large outputs efficiently, how they remember the most important parts of the task at hand, and giving your control over what information can be discarded.
+In this release, we're improving how agents handle large outputs efficiently, how they remember the most important parts of the task at hand, and giving you control over what information can be discarded.
 
 ### Handle large outputs
 
@@ -30,7 +30,7 @@ Large diffs, generated files, or extensive logs can overwhelm a session if treat
 
 Agents and LLMs are great at working with files. VS Code now manages large outputs by streaming them to temporary files and prioritizing the most relevant information for the model. This keeps agents focused on the right details while optimizing context usage without additional work.
 
-From a UI perspective, large tools outputs in a chat conversation can make it difficult to follow the overall flow of what's happening in a session. VS Code now puts terminal output in collapsible sections, giving you the details if you want them, while keeping the session uncluttered.
+From a UI perspective, large tool outputs in a chat conversation can make it difficult to follow the overall flow of what's happening in a session. VS Code now puts terminal output in collapsible sections, giving you the details if you want them, while keeping the session uncluttered.
 
 <video src="embedded-terminal-streaming.mp4" title="Video showing terminal output auto-expanding for long-running commands." autoplay muted controls></video>
 
@@ -64,7 +64,7 @@ Agents sometimes head down the wrong path and it's immediately obvious, even bef
 
 Previously, you had to wait for a response to complete before you could steer it in a different direction. Now, you can intervene while the agent is generating a response, guiding the direction of the work without restarting or losing context.
 
-And if think of some extra tasks the agent should perform, you can now queue follow-on requests for the agent to perform once it has finished it's current task. If you queue up multiple requests, you can easily change the order in which they need to be performed.
+And if you think of some extra tasks the agent should perform, you can now queue follow-on requests for the agent to perform once it has finished its current task. If you queue up multiple requests, you can easily change the order in which they need to be performed.
 
 For example, you might clarify:
 
