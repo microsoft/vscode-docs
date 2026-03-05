@@ -24,7 +24,7 @@ Key things to know about chat sessions:
 * **Context window**: as you chat, the session accumulates context. Creating a new session clears the history and starts a fresh context window. You can [monitor context window usage](/docs/copilot/chat/copilot-chat-context.md#monitor-context-window-usage) in the chat input box.
 * **Checkpoints**: at any time, you can roll back to a previous state or edit a previous prompt to change direction. Learn more about [checkpoints](/docs/copilot/chat/chat-checkpoints.md).
 * **Session types**: sessions can run locally, in the background, or in the cloud. Learn more about [agents](/docs/copilot/agents/overview.md).
-* **Multiple sessions**: regardless of the session type, you can run multiple sessions in parallel, each focused on a different task. With the agent sessions view, you can monitor and switch between sessions. Learn more about [managing agent sessions](/docs/copilot/agents/overview.md#agent-sessions-list).
+* **Multiple sessions**: regardless of the session type, you can run multiple sessions in parallel, each focused on a different task. With the agent sessions view, you can monitor and switch between sessions. Learn more about [managing agent sessions](/docs/copilot/agents/overview.md#agent-sessions-view).
 
 > [!TIP]
 > Start a new chat session when you want to change topics to help the AI provide more relevant responses.
@@ -89,7 +89,7 @@ You can have multiple sessions active at once and switch between them to compare
 
 The session list is scoped to your current workspace. If you don't have a workspace open, the list shows all sessions across your workspaces.
 
-Learn more about [viewing and managing sessions](/docs/copilot/agents/overview.md#agent-sessions-list).
+Learn more about [viewing and managing sessions](/docs/copilot/agents/overview.md#agent-sessions-view).
 
 ### VS Code welcome page
 

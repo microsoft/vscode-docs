@@ -33,7 +33,7 @@ Follow a hands-on tutorial to experience local, background, and cloud agents in 
 
 VS Code offers AI across a spectrum of interaction surfaces, each suited to different tasks:
 
-* **[Agents](/docs/copilot/agents/overview.md)**: autonomous sessions that follow the full [agent loop](#agent-loop), reading files, executing coordinated changes across multiple files, running commands, and iterating until the task is complete. Agents handle multi-step tasks end-to-end, from implementing features to architecture-level refactoring and framework migrations.
+* **[Agents](#agents)**: autonomous sessions that follow the full [agent loop](#agent-loop), reading files, executing coordinated changes across multiple files, running commands, and iterating until the task is complete. Agents handle multi-step tasks end-to-end, from implementing features to architecture-level refactoring and framework migrations.
 * **[Chat](/docs/copilot/chat/copilot-chat.md)**: a conversational interface where you ask questions, explore ideas, or get explanations. In Ask mode, the model uses read-only tools to answer questions without modifying your code.
 * **[Inline chat](/docs/copilot/chat/inline-chat.md)**: a lightweight chat interface that opens directly in the editor for quick, focused edits.
 * **[Inline suggestions](/docs/copilot/ai-powered-suggestions.md)**: code suggestions that appear as ghost text while you type. These use specialized completion models and don't involve an agent loop or tools. [Next Edit Suggestions (NES)](/docs/copilot/ai-powered-suggestions.md#next-edit-suggestions) go further by predicting *where* your next edit should happen.
@@ -43,47 +43,7 @@ VS Code offers AI across a spectrum of interaction surfaces, each suited to diff
 
 VS Code uses large language models (LLMs) to power its AI features. You can choose from multiple models through your GitHub Copilot plan or bring your own models.
 
-Each model has different strengths and weaknesses. Some are optimized for speed and work well for simple completions. Others have larger context windows or better reasoning capabilities, making them ideal for complex tasks. You can switch models at any time, based on your needs for a particular task.
-
-Key characteristics of LLMs:
-
-* **Nondeterministic**: the same prompt can produce different results each time. This is by design and reflects how the model samples from probability distributions.
-* **Context-dependent**: the quality of the response depends on the quality and relevance of the context provided in the prompt.
-* **Knowledge boundaries**: models are trained on data up to a certain date and might produce outdated or incorrect information for topics beyond their training data. Copilot mitigates this with tools like web search and workspace indexing.
-
-Learn more about [choosing and configuring language models](/docs/copilot/customization/language-models.md).
-
-## Agent loop
-
-When you give an AI coding assistant a task, it often follows an agentic loop. This pattern is common across modern AI assistants. Within VS Code, an agent is the system that plans and takes actions, and the [language model](#language-models) generates responses that inform those actions.
-
-At each step, the agent evaluates its progress and picks the next action. It might open a file to understand an API, make an edit, then run a command to verify the change worked. The output of each action becomes input for the next decision.
-
-![Diagram showing the agentic loop: User prompt -> Agent reasoning -> Tool calls (read files, edit code, run tests) -> Agent updates based on tool results -> Final output for user review](images/core-concepts/agent-loop.png)
-
-The agent loop typically involves three high-level stages:
-
-1. **Understand.** The agent reads files, searches the codebase, and looks up documentation to understand what needs to change.
-1. **Act.** The agent modifies code, runs terminal commands, installs dependencies, or calls external services through tools.
-1. **Validate.** The agent runs tests, checks for compiler errors, and reviews its own changes. If something is wrong, it continues iterating.
-
-The agent uses the [language model](#language-models) to reason about the best course of action. However, without the ability to interact with the environment, such as your code or the VS Code environment, the model is limited to providing generic responses. With [agent tools](#tools), the agent issues tool calls at each step to gather information and take actions like reading files, making code changes, running terminal commands, and reaching out to external services.
-
-The agent chains these actions together as needed until it accomplishes the task. Answering a question about your codebase might involve only a few file reads. Implementing a new feature typically loops through editing, running tests, diagnosing failures, and editing again until the tests pass.
-
-You stay in control throughout the process. Send a new message to redirect the agent, add context, or suggest a different approach. For more on reviewing changes and managing agent behavior, see [Stay in control](#stay-in-control).
-
-Behind the scenes, [VS Code assembles the current context](#how-vs-code-assembles-context) into a prompt and sends it to the language model. The model responds with text, a code edit, or a tool request. When a tool runs, its output is added to the context for the next iteration, and this cycle repeats until the task is complete.
-
-## Customize the agent loop
-
-The agent loop is not one-size-fits-all and might differ for each project. There are different options to personalize the agent's behavior, such as custom agents, agent skills, instructions, or hooks to optimize the agent loop for your project or team.
-
-A [**custom agent**](/docs/copilot/customization/custom-agents) lets you define different personas for the agent, each with their own instructions, available tools, language model, and optionally hand off to another agent. The built-in Plan agent is specialized in creating feature implementation plans. It only has access to read-only tools to perform deep research and analysis, and will outline a detailed implementation approach, without making changes to the codebase.
-
-With [**agent skills**](/docs/copilot/customization/agent-skills.md), you can teach the agent new capabilities for a specific domain or task and it can call on those skills dynamically when relevant for the task at hand. For example, create a security audit skill that includes instructions on how to analyze code for security issues and tools for checking against known vulnerability databases.
-
-Learn more about [AI customization options](/docs/copilot/customization/overview.md).
+Each model has different strengths and weaknesses. Some are optimized for speed and work well for simple completions. Others have larger context windows or better reasoning capabilities, making them ideal for complex tasks. You can switch models at any time, based on your needs for a particular task. Learn more about [choosing and configuring language models](/docs/copilot/customization/language-models.md).
 
 ## Context
 
@@ -115,17 +75,15 @@ When you send a message, VS Code builds a language model prompt from multiple so
 
 ![Diagram showing the context window as a container with seven layers: system instructions, customizations, user message, conversation history, implicit context, explicit references, and tool outputs, with an arrow sending the assembled prompt to the language model.](images/core-concepts/context-assembly.png)
 
-* **System instructions**: built-in guidelines that define the agent's behavior.
-* **Customizations**: AI customizations you set up, including custom agents, skills, and custom instructions.
-* **User message**: the current message you're sending to the agent.
-* **Conversation history**: the messages exchanged so far in the current session.
-* **Implicit context**: the file you're editing, your current selection, visible errors, and git state.
-* **Explicit references**: files, editor context, web content, and other sources you reference with `#`-mentions.
-* **Tool outputs**: results from file reads, terminal commands, codebase search results, and other tool calls during agent sessions.
+* **System instructions**: built-in behavior guidelines.
+* **Customizations**: custom agents, skills, and custom instructions.
+* **User message**: your current prompt.
+* **Conversation history**: previous messages in the session.
+* **Implicit context**: active file, selection, visible errors, and git state.
+* **Explicit references**: files, web content, and other `#`-mentions.
+* **Tool outputs**: results from file reads, terminal commands, and other tool calls.
 
-This assembled prompt is what the model sees. Everything outside of it is invisible to the model. This is why referencing specific files with `#file` produces better results than asking about code the model hasn't seen.
-
-Learn more about [adding context to chat](/docs/copilot/chat/copilot-chat-context.md) and [workspace indexing](/docs/copilot/reference/workspace-context.md).
+Everything outside this assembled prompt is invisible to the model. This is why referencing specific files with `#file` produces better results than asking about code the model hasn't seen. Learn more about [adding context to chat](/docs/copilot/chat/copilot-chat-context.md) and [workspace indexing](/docs/copilot/reference/workspace-context.md).
 
 ## Tools
 
@@ -139,18 +97,51 @@ Beyond built-in tools, you can extend what the agent can do:
 
 Learn more about [tools available to agents](/docs/copilot/agents/agent-tools.md).
 
-## Agent types
+## Agents
+
+Agents perform complete coding tasks end-to-end. They analyze your project across files, execute coordinated changes, run commands, and adapt based on the results. Whether you're implementing a new feature, performing an architecture-level refactoring, or migrating between frameworks, agents handle the full multi-step workflow autonomously.
+
+For example, imagine you have a failing test. Instead of suggesting a fix, an agent can:
+
+* Read the error message and identify the root cause across multiple files
+* Update the relevant code
+* Run the tests again to verify the fix works
+* Commit the changes
+
+You give an agent a high-level task, and it breaks the task down into steps, executes those steps with [tools](#tools), and self-corrects when it hits errors, following the [agent loop](#agent-loop).
+
+### Agent types
 
 Agents run in different environments depending on when you need results and how much oversight you want:
 
-* **Local agents** run interactively in VS Code. You see every step and can steer the agent in real time. Best for tasks where you want to stay hands-on.
-* **Background agents** run autonomously on your machine. Hand off a task and continue other work while the agent completes it.
-* **Cloud agents** run on GitHub's infrastructure. They create branches, implement changes, and open pull requests for your team to review.
-* **Third-party agents** connect external AI providers like Anthropic and OpenAI. You can hand off sessions between agent types at any point.
-
 ![Diagram showing the different agent types: Local agents (interactive in VS Code), Background agents (autonomous on your machine), Cloud agents (run on GitHub's infrastructure), and Third-party agents (connect external AI providers).](images/agents-overview/agent-types-diagram-v3.png)
 
-Learn more about [agents and agent sessions](/docs/copilot/agents/overview.md).
+* **[Local agents](/docs/copilot/agents/local-agents.md)** run interactively in VS Code. You see every step and can steer the agent in real time. Local agent sessions use one of three built-in agents: **Agent** for complex coding tasks, **Plan** for creating structured implementation plans, and **Ask** for answering questions about your codebase.
+* **[Background agents](/docs/copilot/agents/background-agents.md)** run autonomously on your machine. They use Git worktrees to work isolated from your main workspace, preventing conflicts with your active work. Hand off a task and continue other work while the agent completes it.
+* **[Cloud agents](/docs/copilot/agents/cloud-agents.md)** run on GitHub's infrastructure. They create branches, implement changes, and open pull requests for your team to review.
+* **[Third-party agents](/docs/copilot/agents/third-party-agents.md)** connect external AI providers like Anthropic and OpenAI. Depending on the provider, third-party agents can run locally or in the cloud.
+
+You can hand off sessions between agent types at any point, and you can run multiple agent sessions in parallel, each focused on a different task. Learn more about [working with agents and agent sessions](/docs/copilot/agents/overview.md).
+
+## Agent loop
+
+When you give an agent a task, it follows an agentic loop. At each step, the agent evaluates its progress and picks the next action. It might open a file to understand an API, make an edit, then run a command to verify the change worked. The output of each action becomes input for the next decision.
+
+![Diagram showing the agentic loop: User prompt -> Agent reasoning -> Tool calls (read files, edit code, run tests) -> Agent updates based on tool results -> Final output for user review](images/core-concepts/agent-loop.png)
+
+The agent loop typically involves three high-level stages:
+
+1. **Understand.** The agent reads files, searches the codebase, and looks up documentation to understand what needs to change.
+1. **Act.** The agent modifies code, runs terminal commands, installs dependencies, or calls external services through tools.
+1. **Validate.** The agent runs tests, checks for compiler errors, and reviews its own changes. If something is wrong, it continues iterating.
+
+At each step, the agent uses the [language model](#language-models) to reason and issues [tool](#tools) calls to take action. The agent chains these steps until the task is complete, whether that takes a few file reads or many rounds of editing, testing, and fixing.
+
+You stay in control throughout the process. Send a new message to redirect the agent, add context, or suggest a different approach. For more on reviewing changes and managing agent behavior, see [Stay in control](#stay-in-control).
+
+### Customize the agent loop
+
+The agent loop is not one-size-fits-all. You can personalize it with [custom agents](/docs/copilot/customization/custom-agents.md), [agent skills](/docs/copilot/customization/agent-skills.md), [custom instructions](/docs/copilot/customization/custom-instructions.md), and [hooks](/docs/copilot/customization/hooks.md) to optimize the workflow for your project or team. Learn more about [AI customization options](/docs/copilot/customization/overview.md).
 
 ## Stay in control
 

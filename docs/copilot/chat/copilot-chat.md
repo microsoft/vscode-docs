@@ -85,7 +85,7 @@ Agent sessions can run in different environments to match your workflow. Select 
 | **Cloud** | Runs on remote infrastructure and opens a pull request. Best for team collaboration and well-defined tasks. |
 | **Third-party** | Uses agents from external providers like Anthropic or OpenAI. |
 
-You can hand off a session from one type to another mid-conversation, and the full conversation history carries over. Learn more about [agent types](/docs/copilot/agents/overview.md#types-of-agents) and [handing off sessions](/docs/copilot/agents/overview.md#hand-off-a-session-to-another-agent).
+You can hand off a session from one type to another mid-conversation, and the full conversation history carries over. Learn more about [agent types](/docs/copilot/core-concepts.md#agent-types) and [handing off sessions](/docs/copilot/agents/overview.md#hand-off-a-session-to-another-agent).
 
 ### Choose an agent
 
