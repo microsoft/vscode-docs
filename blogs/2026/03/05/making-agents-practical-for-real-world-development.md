@@ -62,7 +62,7 @@ As agents take on more responsibility, the way you interact with them matters ju
 
 Agents sometimes head down the wrong path and it's immediately obvious, even before it has finished the request.
 
-Previously, you had to wait for a response to complete it before redirecting it. Now, you can intervene while the agent is generating a response, guiding the direction of the work without restarting or losing context.
+Previously, you had to wait for a response to complete before you could steer it in a different direction. Now, you can intervene while the agent is generating a response, guiding the direction of the work without restarting or losing context.
 
 And if think of some extra tasks the agent should perform, you can now queue follow-on requests for the agent to perform once it has finished it's current task. If you queue up multiple requests, you can easily change the order in which they need to be performed.
 
