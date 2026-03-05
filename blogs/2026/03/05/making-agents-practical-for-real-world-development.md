@@ -44,7 +44,7 @@ Architectural decisions, naming conventions, and prior refactors remain part of 
 
 ### Compact long sessions
 
-As conversations expand, VS Code automatically compacts older history. Earlier discussion is summarized, key decisions are preserved, and space is freed for ongoing work.
+As conversations expand, VS Code automatically compacts older history. Earlier discussions are summarized, key decisions are preserved, and space is freed up for ongoing work.
 
 Previously, you had no control over when context compaction was happening and what information was retained after compacting. Maybe you discussed several implementation variants, and only one specific one is important to remember and build upon.
 
