@@ -3,7 +3,7 @@ Order: 128
 TOCTitle: Agents for Real-World Dev
 PageTitle: "Making agents practical for real-world development"
 MetaDescription: "Explore agent orchestration, extensibility, and continuity in VS Code 1.110: lifecycle hooks, agent skills, session memory, and integrated browser tools."
-MetaSocialImage:
+MetaSocialImage: release-graphic.png
 Date: 2026-03-05
 Author: VS Code Team
 ---
@@ -74,7 +74,7 @@ For example, you might clarify:
 
 Fewer wasted edits, shorter feedback loops, and a conversation that stays on track.
 
-In our app, when new styling guidance is introduced to enhance the hero card with a gold accent and shimmer effect, the agent revisits the existing CSS and continues the implementation without restarting the session.
+In our app, when new styling guidance is introduced to enhance the hero card with a gold accent and shimmer effect, the agent revisits the existing CSS and continues the implementation [without restarting the session](https://code.visualstudio.com/docs/copilot/chat/chat-sessions#_send-messages-while-a-request-is-running).
 
 ### Explore alternatives without losing context
 
@@ -84,7 +84,7 @@ To make this experience easier, you can now fork a chat session. This creates a 
 
 You can either type `/fork` and it will copy over the full conversation, or you can use the fork button at a specific checkpoint to _fork_ the conversation up until that point.
 
-In the demo below, `/fork` creates a parallel thread where a more minimal design direction is explored without affecting the original discussion.
+In the demo below, [`/fork`](https://code.visualstudio.com/docs/copilot/chat/chat-sessions#_fork-a-chat-session) creates a parallel thread where a more minimal design direction is explored without affecting the original discussion.
 
 <video src="fork-a-conversation.mp4" title="Video demonstrating forking a conversation into parallel threads in VS Code." autoplay muted controls></video>
 
