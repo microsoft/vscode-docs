@@ -20,7 +20,9 @@ From enforcing policies with hooks to guiding agents mid-response, validating UI
 
 ## Give agents the right context
 
-Long-running development work depends on maintaining continuity. As sessions grow, these updates make the current experience more effective for complex and long-running sessions, reducing the need to repeatedly restate project details.
+Codebases often have a complex architecture and project structure, and can consist of thousands of files. Agents might struggle to stay focused and find the right pieces of information, especially as sessions get longer.
+
+In this release, we're improving how agents handle large outputs efficiently, how they remember the most important parts of the task at hand, and giving your control over what information can be discarded.
 
 ### Handle large outputs
 
