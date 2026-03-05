@@ -46,7 +46,9 @@ Architectural decisions, naming conventions, and prior refactors remain part of 
 
 As conversations expand, VS Code automatically compacts older history. Earlier discussion is summarized, key decisions are preserved, and space is freed for ongoing work.
 
-You can also compact the session manually using `/compact`, providing instructions about what context should be preserved or discarded as the conversation evolves.
+Previously, you had no control over when context compaction was happening and what information was retained after compacting. Maybe you discussed several implementation variants, and only one specific one is important to remember and build upon.
+
+Now you can manually run context compaction for a session by typing `/compact`. And in doing so, you can give the agent additional instructions on what information to keep or discard.
 
 This keeps sessions focused without interrupting the workflow.
 
