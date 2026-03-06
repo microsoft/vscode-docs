@@ -137,7 +137,20 @@ You can define instructions for a specific workspace or at the user level, where
 | Workspace | `.github/instructions` folder |
 | User profile | `prompts` folder of the current [VS Code profile](/docs/configure/profiles.md) |
 
-You can configure additional file locations for workspace instructions files with the `setting(chat.instructionsFilesLocations)` setting. This is useful if you want to keep instructions files in a different folder or have multiple folders for better organization.
+VS Code searches these folders recursively, so you can organize instructions files in subdirectories. For example, you can group instructions by team, language, or module:
+
+```text
+.github/instructions/
+  frontend/
+    react.instructions.md
+    accessibility.instructions.md
+  backend/
+    api-design.instructions.md
+  testing/
+    unit-tests.instructions.md
+```
+
+You can configure additional file locations for workspace instructions files with the `setting(chat.instructionsFilesLocations)` setting. This is useful if you want to keep instructions files in a different folder or have multiple folders for better organization. Custom locations are also searched recursively.
 
 For compatibility with Claude Code and other Claude-based tools, VS Code also detects instructions files in the `.claude/rules` workspace folder and the `~/.claude/rules` user folder.
 
@@ -194,7 +207,7 @@ To create an instructions file:
 
 1. Choose the location where to create the instructions file.
 
-    * **Workspace**: create the instructions file in the `.github/instructions` folder of your workspace to only use it within that workspace. Add more instruction folders for your workspace with the `setting(chat.instructionsFilesLocations)` setting.
+    * **Workspace**: create the instructions file in the `.github/instructions` folder of your workspace to only use it within that workspace. You can also create subdirectories within this folder to organize your instructions files. Add more instruction folders for your workspace with the `setting(chat.instructionsFilesLocations)` setting.
 
     * **User profile**: create the instructions files in the [current profile folder](/docs/configure/profiles.md) to use it across all your workspaces.
 
@@ -438,7 +451,7 @@ When multiple types of custom instructions exist, they are all provided to the A
 
 If your instructions file is not being applied, check the following:
 
-* Verify that your instructions file is in the correct location. A `.github/copilot-instructions.md` file must be in the `.github` folder at the root of your workspace. A `*.instructions.md` file must be in one of the folders specified in the `setting(chat.instructionsFilesLocations)` setting (default: `.github/instructions`) or in your user profile.
+* Verify that your instructions file is in the correct location. A `.github/copilot-instructions.md` file must be in the `.github` folder at the root of your workspace. A `*.instructions.md` file must be in one of the folders (or their subdirectories) specified in the `setting(chat.instructionsFilesLocations)` setting (default: `.github/instructions`) or in your user profile.
 
 * For `*.instructions.md` files, check that the `applyTo` glob pattern matches the file you are working on. If no `applyTo` property is specified, the instructions file is not applied automatically. Verify the **References** section in the chat response to see which instructions files were used.
 
