@@ -2,7 +2,7 @@
 agent: Plan
 description: Document a new or updated VS Code feature in the project documentation.
 argument-hint: Feature to document or link to relevant issue/PR.
-tools: [vscode/askQuestions, read, agent, search, web, 'github/*']
+tools: [vscode/askQuestions, read, agent, search, web]
 ---
 Analyze the feature description and related code updates, and suggest updates to the vs code docs (docs/ folder). It is acceptable to say that no documentation update is needed. Ask the user for confirmation if you think no updates are needed.
 
@@ -15,3 +15,5 @@ Ensure the documentation changes align with existing doc style guidelines.
 Don't update release notes or API docs unless explicitly asked.
 
 When screenshots need to be added or updated, add a TODO comment in the doc for a human to capture and insert the screenshot later.
+
+You should use the `gh` cmdline tool to interact with GitHub issues, PRs, and code.
