@@ -63,7 +63,7 @@ VS Code limits the potential impact of agent actions by controlling their scope 
 
 * **Request limits**: Built-in safeguards [prevent runaway operations](/docs/copilot/reference/copilot-settings.md#agent-settings) that consume excessive resources or perform unintended bulk actions on your codebase.
 
-* **Agent isolation**: [Background agents](/docs/copilot/agents/background-agents.md) work in a separate Git worktree, preventing conflicts with your active workspace. They have limited tool access and can only use local MCP servers that don't require authentication. [Cloud agents](/docs/copilot/agents/cloud-agents.md) run on remote infrastructure, which provides inherent isolation from your local machine and local resources.
+* **Agent isolation**: [Background agents](/docs/copilot/agents/copilot-cli.md) work in a separate Git worktree, preventing conflicts with your active workspace. They have limited tool access and can only use local MCP servers that don't require authentication. [Cloud agents](/docs/copilot/agents/cloud-agents.md) run on remote infrastructure, which provides inherent isolation from your local machine and local resources.
 
 * **Secure secrets store**: Sensitive input parameters for MCP servers are stored using VS Code's secure credentials store to protect authentication tokens and other sensitive data.
 

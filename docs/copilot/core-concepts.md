@@ -144,7 +144,7 @@ Learn more about [tools available to agents](/docs/copilot/agents/agent-tools.md
 Agents run in different environments depending on when you need results and how much oversight you want:
 
 * **Local agents** run interactively in VS Code. You see every step and can steer the agent in real time. Best for tasks where you want to stay hands-on.
-* **Background agents** run autonomously on your machine. Hand off a task and continue other work while the agent completes it.
+* **Copilot CLI** run autonomously on your machine. Hand off a task and continue other work while the agent completes it.
 * **Cloud agents** run on GitHub's infrastructure. They create branches, implement changes, and open pull requests for your team to review.
 * **Third-party agents** connect external AI providers like Anthropic and OpenAI. You can hand off sessions between agent types at any point.
 

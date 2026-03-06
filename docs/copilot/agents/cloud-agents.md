@@ -112,6 +112,6 @@ Select a cloud agent session from the list to open the session details in the Ch
 ## Related resources
 
 * [Agents overview](/docs/copilot/agents/overview.md): Understand different agent types and delegation
-* [Background agents](/docs/copilot/agents/background-agents.md): Learn about CLI-based autonomous agents for isolated development
+* [Background agents](/docs/copilot/agents/copilot-cli.md): Learn about CLI-based autonomous agents for isolated development
 * [Custom agents](/docs/copilot/customization/custom-agents.md): Create custom agent roles and personas
 * [GitHub Copilot coding agent](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/manage-agents): Managing agents on GitHub.com
