@@ -1,20 +1,26 @@
 ---
 ContentId: 7c4b8b5e-2d3f-4e8a-9b2c-1a5d6f8e9c0b
-DateApproved: 02/04/2026
+DateApproved: 3/4/2026
 MetaDescription: Learn about different types of AI agents in VS Code, including local chat, background agents, and cloud agents for coding tasks.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - ai
 - agents
+- autonomous
+- multi-file editing
+- architecture
+- refactoring
+- deep context
 - background agent
 - cloud agent
 - copilot coding agent
 - copilot cli
+- third-party agents
 ---
 
 # Using agents in Visual Studio Code
 
-Agents automate complete coding tasks that go beyond simple code suggestions and chat interactions. In Visual Studio Code, you can create agent sessions that run locally or in the cloud, interactively or in the background. Hand off tasks between different agent types to use their unique strengths. The unified Chat view gives you a central place to manage and monitor all your agent sessions, regardless of where they run.
+Agents automate complete coding tasks end-to-end, from implementing features across multiple files to architecture-level refactoring and framework migrations. In Visual Studio Code, you can create agent sessions that run locally or in the cloud, interactively or in the background. Choose from Copilot, third-party agents like Claude and Codex, or build your own custom agents. Hand off tasks between different agent types to use their unique strengths. The unified Chat view gives you a central place to manage and monitor all your agent sessions, regardless of where they run.
 
 This article provides an overview of the various agent types, how to create and manage agent sessions, delegate tasks between agents, and track their progress.
 
@@ -28,11 +34,18 @@ Use agents in VS Code to generate a tic-tac-toe game in your language of choice.
 </div>
 
 > [!IMPORTANT]
-> Make sure agents are enabled in your VS Code settings (`setting(chat.agent.enabled)`). Your organization might also disable agents - contact your admin to enable this functionality.
+> Enable agents in your VS Code settings (`setting(chat.agent.enabled)`). Your organization might also disable agents - contact your admin to enable this functionality.
 
 ## What are agents?
 
-Agents perform complete coding tasks end-to-end. They understand your project, make changes across multiple files, run commands, and adapt based on the results.
+Agents perform complete coding tasks end-to-end. They analyze your project across files, execute coordinated changes, run commands, and adapt based on the results. Whether you're implementing a new feature, performing an architecture-level refactoring, or migrating between frameworks, agents handle the full multi-step workflow autonomously.
+
+<div class="docs-action" data-show-in-doc="true" data-show-in-sidebar="false" title="Learn about AI core concepts">
+Get an overview of the core concepts and how AI agents work in VS Code.
+
+* [Learn about AI core concepts](/docs/copilot/core-concepts.md)
+
+</div>
 
 For example, imagine you have a failing test. Instead of suggesting a fix, an agent can:
 
@@ -56,6 +69,7 @@ The following concepts describe different aspects of working with agents in VS C
 | **[Custom agent](/docs/copilot/customization/custom-agents.md)** | A reusable *configuration* (defined in an `.agent.md` file) that gives an agent a specific role, tools, and instructions. Custom agents work with any agent type. | Create a "Security Reviewer" custom agent with read-only tools that focuses on identifying vulnerabilities. |
 | **[Subagent](/docs/copilot/agents/subagents.md)** | A child agent spawned within a session to handle a subtask in its own isolated context window. | An agent researching a topic spawns a subagent to gather information, then receives only the summary back. |
 | **[Hand off](#hand-off-a-session-to-another-agent)** | Transferring a session from one agent type to another, carrying over the conversation history. | Start planning with a local agent, then hand off to a cloud agent to implement the plan as a pull request. |
+| **[Memory](/docs/copilot/agents/memory.md)** | Persistent notes that agents save and recall across conversations. Organized in three scopes: user, repository, and session. | Ask the agent to remember your coding preferences so it applies them in future sessions. |
 
 ## Types of agents
 
@@ -75,6 +89,7 @@ Use the following table to find the right agent type for your task:
 | Get answers about my codebase | [Local agent](/docs/copilot/agents/local-agents.md) (Ask) |
 | Create a structured implementation plan | [Local agent](/docs/copilot/agents/local-agents.md) (Plan) |
 | Fix an issue that needs editor context (test failures, linting errors, debug output) | [Local agent](/docs/copilot/agents/local-agents.md) |
+| Build and test web apps with the integrated browser _(Experimental)_ | [Local agent](/docs/copilot/agents/local-agents.md). See the [browser agent testing guide](/docs/copilot/guides/browser-agent-testing-guide.md). |
 | Use specific VS Code extension tools or MCP servers | [Local agent](/docs/copilot/agents/local-agents.md) |
 | Implement a well-defined task while I keep working | [Background agent](/docs/copilot/agents/background-agents.md) or [Cloud agent](/docs/copilot/agents/cloud-agents.md) |
 | Explore multiple variants or proof of concepts | [Background agent](/docs/copilot/agents/background-agents.md) or [Cloud agent](/docs/copilot/agents/cloud-agents.md) |

@@ -66,15 +66,29 @@ Apply these specific guidelines to all release notes. For other text, follow the
 
 - Always use sentence case for headings, so only the first word is capitalized.
 - Don't apply an inline style like italic, bold, or inline code style to headings.
+- When a feature is in preview or experimental, include that status in the heading, e.g. `### New JavaScript debugging experience (Preview)`.
 
 ### Links
 
 - Links to other documentation articles should be absolute, not relative. Start absolute links with `https://code.visualstudio.com/docs/` and don't include the `.md` suffix.
+- Avoid raw URLs in the text. Instead, use descriptive link text that indicates the content of the linked article.
 - Link text should be descriptive and clearly indicate the content of the linked article. Don't use "click here" or "this link" or "here".
-- Image links MUST have an alt text that describes the image content, not the image file name, and start with "Screenshot showing".
-- Video links MUST have an alt text that describes the video content, not the video file name, and start with "Video showing".
+
+### Media files (images and videos)
+
+- Image links MUST have an alt text that describes the image content, not the image file name, and start with "Screenshot showing" or "Screenshot of".
+- Video links MUST have an alt text that describes the video content, not the video file name, and start with "Video showing" or "Video of".
+- Videos use the `video` tag, not `iframe` and have the following format: `<video src="[video URL]" title="[description of video content]." autoplay loop controls muted></video>`
 
 ### Text Formatting
 
 - Notes and tips are formatted as block quotes with the word "Note" or "Tip" in bold at the start of the line. Don't use alert-style formatting for these.
 - Use asterisks for lists, not hyphens or numbers.
+
+### Content Guidelines
+- Check for sensitive content and ensure that all language is inclusive and respectful.
+- The audience is developers who use VS Code, so the tone should be professional but approachable, and the content should be technically accurate and relevant to their needs.
+- Avoid marketing language or hype. Focus on clear, factual descriptions of features and changes.
+- There are no TODO placeholders
+- Settings use the `setting(setting.name)` format
+- Keyboard shortcuts use the `kb(command.commandId)` format

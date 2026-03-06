@@ -1,6 +1,6 @@
 ---
 ContentId: 8b4f3c21-4e02-4a89-9f15-7a8d6b5c2e91
-DateApproved: 02/04/2026
+DateApproved: 3/4/2026
 MetaDescription: Learn how to create custom instructions for GitHub Copilot Chat in VS Code to ensure AI responses match your coding practices, project requirements, and development standards.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -26,6 +26,9 @@ Set up your project for AI with `/init` to generate custom instructions tailored
 * [Open in VS Code](vscode://GitHub.Copilot-Chat/chat?prompt=%2Finit)
 
 </div>
+
+> [!TIP]
+> Use the [Chat Customizations editor](/docs/copilot/customization/overview.md#chat-customizations-editor) (Preview) to discover, create, and manage all your chat customizations in one place. Run **Chat: Open Chat Customizations** from the Command Palette.
 
 > [!NOTE]
 > Custom instructions are not taken into account for [inline suggestions](/docs/copilot/ai-powered-suggestions.md) as you type in the editor.
@@ -203,6 +206,15 @@ To create an instructions file:
     * Add instructions in the body of the file.
 
 To modify an existing instructions file, in the Chat view, select **Configure Chat** (gear icon) > **Chat Instructions**, and then select an instructions file from the list. Alternatively, use the **Chat: Configure Instructions** command from the Command Palette (`kb(workbench.action.showCommands)`) and select the instructions file from the Quick Pick.
+
+### Generate an instructions file with AI
+
+You can use AI to generate a targeted instructions file. Type `/create-instruction` in chat and describe the convention or guideline you want to enforce (for example, "always use tabs and single quotes in this project"). The agent asks clarifying questions and generates an `.instructions.md` file with the appropriate `applyTo` pattern and content.
+
+You can also extract instructions from an ongoing conversation. For example, if you corrected the agent's import style during a chat session, ask "extract an instruction from this" to capture that correction as a project convention.
+
+> [!NOTE]
+> `/create-instruction` generates targeted, on-demand instruction files. To generate workspace-wide always-on instructions, use the [`/init` command](#generate-custom-instructions-for-your-workspace) instead.
 
 <details>
 <summary>Example: Language-specific coding guidelines</summary>

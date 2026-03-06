@@ -1,6 +1,6 @@
 ---
 ContentId: 7c550054-4ade-4665-b368-215798c48673
-DateApproved: 02/04/2026
+DateApproved: 3/4/2026
 MetaDescription: Learn how to add and manage Model Context Protocol (MCP) servers with GitHub Copilot in Visual Studio Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -23,6 +23,9 @@ VS Code lets you install MCP servers from an MCP server gallery. By default, thi
 When you add an MCP server, VS Code automatically makes the MCP server [tools](/docs/copilot/agents/agent-tools.md), prompts, and resources available in chat.
 
 This article covers how to add, configure, and manage MCP servers. To learn about using tools in chat, see [Use tools with agents](/docs/copilot/agents/agent-tools.md).
+
+> [!TIP]
+> Use the [Chat Customizations editor](/docs/copilot/customization/overview.md#chat-customizations-editor) (Preview) to discover, create, and manage all your chat customizations in one place. Run **Chat: Open Chat Customizations** from the Command Palette.
 
 ## Quickstart: use an MCP server in chat
 
@@ -159,6 +162,42 @@ Beyond tools, MCP servers can provide other capabilities:
 | **Prompts** | Use preconfigured prompts from MCP servers for common tasks. | Type `/<MCP server>.<prompt>` in the chat input. |
 | **MCP Apps** | Get interactive UI components like forms, visualizations, and drag-and-drop lists rendered directly in chat. | MCP Apps appear inline when an MCP server supports them. |
 
+## Sandbox MCP servers
+
+On macOS and Linux, you can enable sandboxing for locally-running stdio MCP servers to restrict their access to the file system and network. Sandboxed servers run in an isolated environment and can only access the file paths and network domains that you explicitly permit.
+
+To enable sandboxing for a server, set `"sandboxEnabled": true` in the server configuration in your `mcp.json` file. You can further customize the sandbox restrictions by adding a `sandbox` object with specific file system and network rules.
+
+The following example shows how to enable sandboxing for a local MCP server and restrict its access to only write to files in the workspace and access a specific API domain:
+
+```json
+{
+    "servers": {
+        "myServer": {
+            "type": "stdio",
+            "command": "npx",
+            "args": ["-y", "@example/mcp-server"],
+            "sandboxEnabled": true,
+            "sandbox": {
+                "filesystem": {
+                    "allowWrite": ["${workspaceFolder}"]
+                },
+                "network": {
+                    "allowedDomains": ["api.example.com"]
+                }
+            }
+        }
+    }
+}
+```
+
+When sandboxing is enabled, tool calls from the server are auto-approved because they run in a controlled environment.
+
+For the full sandbox configuration schema, see the [Sandbox configuration](/docs/copilot/reference/mcp-configuration.md#sandbox-configuration) reference.
+
+> [!NOTE]
+> Sandboxing is currently not available on Windows.
+
 ## Manage MCP servers
 
 VS Code provides several options to manage your MCP servers, such as starting or stopping a server, viewing logs, uninstalling, or clearing cached tools.
@@ -229,3 +268,4 @@ Verify that the command arguments are correct and that the container is not runn
 * [Use tools with agents](/docs/copilot/agents/agent-tools.md)
 * [Model Context Protocol Documentation](https://modelcontextprotocol.io/)
 * [MCP Apps support in VS Code](https://code.visualstudio.com/blogs/2026/01/26/mcp-apps-support)
+* [Discover and manage agent plugins](/docs/copilot/customization/agent-plugins.md)

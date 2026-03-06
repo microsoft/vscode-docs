@@ -1,6 +1,6 @@
 ---
 ContentId: 59543856-da91-4a0d-9a98-9d5f2bf70c71
-DateApproved: 02/04/2026
+DateApproved: 3/4/2026
 MetaDescription: Learn about TypeScript transpiling with Visual Studio Code.
 ---
 # Transpiling TypeScript
@@ -201,29 +201,29 @@ If your workspace has a specific TypeScript version, you can switch between the 
 
 Use this to switch between the version of TypeScript that comes with VS Code and the version of TypeScript in your workspace. You can also trigger the TypeScript version selector with the **TypeScript: Select TypeScript Version** command.
 
-VS Code will automatically detect workspace versions of TypeScript that are installed under `node_modules` in the root of your workspace. You can also explicitly tell VS Code which version of TypeScript to use by configuring the `typescript.tsdk` in your user or workspace [settings](/docs/configure/settings.md). The `typescript.tsdk` setting should point to a directory containing the TypeScript `tsserver.js` file. You can find the TypeScript installation location using `npm list -g typescript`. The `tsserver.js` file is usually in the `lib` folder.
+VS Code will automatically detect workspace versions of TypeScript that are installed under `node_modules` in the root of your workspace. You can also explicitly tell VS Code which version of TypeScript to use by configuring the `js/ts.tsdk.path` in your user or workspace [settings](/docs/configure/settings.md). The `js/ts.tsdk.path` setting should point to a directory containing the TypeScript `tsserver.js` file. You can find the TypeScript installation location using `npm list -g typescript`. The `tsserver.js` file is usually in the `lib` folder.
 
 For example:
 
 ```json
 {
-   "typescript.tsdk": "/usr/local/lib/node_modules/typescript/lib"
+   "js/ts.tsdk.path": "/usr/local/lib/node_modules/typescript/lib"
 }
 ```
 
 >**Tip:** To get a specific TypeScript version, specify `@version` during npm install. For example, for TypeScript 3.6.0, you would use `npm install --save-dev typescript@3.6.0`. To preview the next version of TypeScript, run `npm install --save-dev typescript@next`.
 
-Note that while `typescript.tsdk` points to the `lib` directory inside of `typescript` in these examples, the `typescript` directory must be a full TypeScript install that contains the TypeScript `package.json` file.
+Note that while `js/ts.tsdk.path` points to the `lib` directory inside of `typescript` in these examples, the `typescript` directory must be a full TypeScript install that contains the TypeScript `package.json` file.
 
-You can also tell VS Code to use a specific version of TypeScript in a particular workspace by adding a `typescript.tsdk` workspace setting pointing to the directory of the `tsserver.js` file:
+You can also tell VS Code to use a specific version of TypeScript in a particular workspace by adding a `js/ts.tsdk.path` workspace setting pointing to the directory of the `tsserver.js` file:
 
 ```json
 {
-   "typescript.tsdk": "./node_modules/typescript/lib"
+   "js/ts.tsdk.path": "./node_modules/typescript/lib"
 }
 ```
 
-The `typescript.tsdk` workspace setting only tells VS Code that a workspace version of TypeScript exists. To actually start using the workspace version for IntelliSense, you must run the **TypeScript: Select TypeScript Version** command and select the workspace version.
+The `js/ts.tsdk.path` workspace setting only tells VS Code that a workspace version of TypeScript exists. To actually start using the workspace version for IntelliSense, you must run the **TypeScript: Select TypeScript Version** command and select the workspace version.
 
 ### Using TypeScript nightly builds
 
@@ -288,4 +288,4 @@ By default, VS Code TypeScript displays code style issues as warnings instead of
 
 Treating these as warnings is consistent with other tools, such as TSLint. These will still be displayed as errors when you run `tsc` from the command line.
 
-You can disable this behavior by setting `"typescript.reportStyleChecksAsWarnings": false` in your User [settings](/docs/configure/settings.md).
+You can disable this behavior by setting `"js/ts.reportStyleChecksAsWarnings": false` in your User [settings](/docs/configure/settings.md).

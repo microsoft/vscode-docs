@@ -1,6 +1,6 @@
 ---
 ContentId: 8f4d3e2a-9b7c-4e1d-a6f5-3c2b1d8e9f0a
-DateApproved: 02/04/2026
+DateApproved: 3/4/2026
 MetaDescription: Learn how to edit previous chat requests, restore your workspace to earlier states using checkpoints, and undo changes made by chat in Visual Studio Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -58,6 +58,12 @@ To redo changes after restoring a checkpoint, select **Redo** in the Chat view.
 To help you understand the effect of each chat request and make it easier to decide which checkpoint to restore to, enable the `setting(chat.checkpoints.showFileChanges)` setting. This shows the list of files that were modified at the end of each chat request, along with the number of lines added and removed in each file.
 
 ![Screenshot of the Chat view, showing the file changes at the end of a chat request.](../images/chat-checkpoints/chat-checkpoint-changed-files.png)
+
+### Fork from a checkpoint
+
+You can fork a conversation from a checkpoint to create a new, independent session that includes the conversation up to that point. This is useful when you want to branch off and explore an alternative approach while preserving the original conversation.
+
+To fork from a checkpoint, hover over a chat request and select the **Fork Conversation** button. Learn more about [forking chat sessions](/docs/copilot/chat/chat-sessions.md#fork-a-chat-session).
 
 ## Frequently asked questions
 
