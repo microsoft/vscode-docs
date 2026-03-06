@@ -119,22 +119,15 @@ Add a `hooks` field to the agent frontmatter with the same structure as hook con
 
 ```markdown
 ---
-name: "My Agent"
-description: "Example agent showing hooks in frontmatter"
-tools:
-  - "builtin:runInTerminal"
+name: "Strict Formatter"
+description: "Agent that auto-formats code after every edit"
 hooks:
-  preToolUse:
+  PostToolUse:
     - type: command
-      command: bash
-      args: ["-lc", "echo preToolUse from agent frontmatter"]
-  postToolUse:
-    - type: command
-      command: bash
-      args: ["-lc", "echo postToolUse from agent frontmatter"]
+      command: "./scripts/format-changed-files.sh"
 ---
 
-You are a custom agent. Do the thing.
+You are a code editing agent. After making changes, files are automatically formatted.
 ```
 
 ### Hook configuration format
@@ -355,7 +348,7 @@ The `UserPromptSubmit` hook uses the common output format only.
 
 ## SessionStart
 
-The `SessionStart` hook fires when a new agent session begins. When scoped to a custom agent that runs as a subagent, you can also use the `SubagentStart` hook.
+The `SessionStart` hook fires when a new agent session begins.
 
 ### SessionStart input
 
@@ -390,7 +383,7 @@ The `SessionStart` hook can inject additional context into the agent's conversat
 
 ## Stop
 
-The `Stop` hook fires when the agent session ends. When scoped to a custom agent that runs as a subagent, you can also use the `SubagentStop` hook.
+The `Stop` hook fires when the agent session ends. When scoped to a custom agent, the `Stop` hook is also treated as `SubagentStop`.
 
 ### Stop input
 
