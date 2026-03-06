@@ -42,23 +42,25 @@ For more information about network configuration, see [Network and firewall conf
 
 VS Code provides tools to inspect what happens when you send a prompt to the AI.
 
-The **Agent Debug panel** is the primary debugging tool. It shows a chronological event log of agent interactions, including tool call sequences, LLM requests, token usage, prompt file discovery, and errors.
+* **Agent Debug panel (Preview):**
 
-To open the Agent Debug panel:
+    Shows a chronological event log of agent interactions during a chat session, including tool call sequences, LLM requests, token usage, prompt file discovery, and errors. This is the primary tool for understanding and debugging chat interactions.
 
-1. Select the gear icon in the Chat view.
-1. Select **Show Agent Logs**.
+    To open the Agent Debug panel:
 
-Alternatively, run **Developer: Open Agent Debug Panel** from the Command Palette.
+    1. Select the gear icon in the Chat view.
+    1. Select **Show Agent Logs**.
 
-The **Chat Debug view** shows the raw details of each LLM request and response, including the full system prompt, context, and tool payloads.
+    From the Agent Debug panel, you can attach a snapshot of the agent debug events to a chat conversation to ask the AI questions about the session and troubleshoot a specific interaction. Select the sparkle icon in the Logs view to [attach debug events to chat](/docs/copilot/chat/chat-debug-view.md#attach-debug-events-to-chat).
 
-To open the Chat Debug view:
+* **Chat Debug view:**
 
-1. Select the overflow menu (`...`) in the Chat view.
-1. Select **Show Chat Debug View**.
+    Shows the raw details of each LLM request and response, including the full system prompt, user prompt, context, and tool invocation payloads. Use this view to inspect the exact data sent to and received from the language model for each interaction.
 
-Alternatively, run **Developer: Show Chat Debug View** from the Command Palette.
+    To open the Chat Debug view:
+
+    1. Select the overflow menu (`...`) in the Chat view.
+    1. Select **Show Chat Debug View**.
 
 Learn more about [debugging chat interactions](/docs/copilot/chat/chat-debug-view.md).
 
