@@ -40,7 +40,7 @@ For a complete list of built-in tools and their descriptions, see the [Chat tool
 
 Model Context Protocol (MCP) is an open standard that enables AI models to use external tools and services through a unified interface. MCP servers provide tools that you can add to VS Code to extend chat with extra capabilities.
 
-You need to install and configure MCP servers before you can use their tools in chat. MCP servers can run locally on your machine or be hosted remotely. MCP tools can also return interactive UI components via [MCP Apps](/docs/copilot/customization/mcp-servers.md#use-mcp-apps).
+You need to install and configure MCP servers before you can use their tools in chat. MCP servers can run locally on your machine or be hosted remotely. MCP tools can also return interactive UI components via MCP Apps.
 
 Learn more about [configuring MCP servers in VS Code](/docs/copilot/customization/mcp-servers.md).
 
@@ -99,6 +99,35 @@ Some tools accept parameters directly in the prompt. For example, `#fetch` requi
 > [!TIP]
 > By default, tool call details are collapsed in the chat conversation. You can uncollapse them by selecting the tool summary line in chat, or change the default behavior with the `setting(chat.agent.thinking.collapsedTools)` setting (experimental).
 
+## Permission levels
+
+The permissions picker in the Chat view controls how much autonomy the agent has during a session. Select a permission level from the permissions dropdown in the chat input area to choose how tool calls and approvals are handled.
+
+| Permission level | Description |
+|---|---|
+| **Default Approvals** | Uses your configured approval settings. Tools that require approval show a confirmation dialog before they run. |
+| **Bypass Approvals** | Auto-approves all tool calls without showing confirmation dialogs and automatically retries on errors. |
+| **Autopilot** (Preview) | Auto-approves all tool calls, automatically retries on errors, auto-responds to questions, and the agent continues working autonomously until the task is complete. |
+
+> [!CAUTION]
+> **Bypass Approvals** and **Autopilot** bypass manual approval prompts, including for potentially destructive actions like file edits, terminal commands, and external tool calls. The first time you enable either level, a warning dialog asks you to confirm. Only use these levels if you understand the security implications. See the [Security considerations](/docs/copilot/security.md) for more details.
+
+The permission level applies to the current chat session. You can change it at any time during a session by selecting a different level from the permissions picker. You can stop the agent at any time by selecting the stop button.
+
+### How Autopilot works
+
+> [!NOTE]
+> Autopilot is currently in preview.
+
+When you select the **Autopilot** permission level, the agent behaves differently from a standard agent session:
+
+* **Continuous iteration**: the agent keeps working autonomously until it determines the task is complete.
+* **Auto-approve all tools**: all tool calls are approved automatically, similar to the **Bypass Approvals** level.
+* **Auto-retry on errors**: the agent automatically retries when it encounters errors.
+* **Auto-respond to questions**: tools that normally block and ask your input, such as clarifying questions, auto-respond so the agent does not stall waiting for a reply. This behavior is specific to **Autopilot** and does not apply to **Bypass Approvals**.
+
+Autopilot is available in the Chat view when the `setting(chat.autopilot.enabled)` setting is enabled (on by default).
+
 ## Tool approval
 
 Some tools require your approval before they can run. This is a security measure because tools can perform actions that modify files, your environment, or attempt prompt injection attacks through malicious tool output.
@@ -131,7 +160,7 @@ When a tool attempts to access a URL, such as with the `fetch` tool, a two-step 
     You have options for one-time approval or for automatically approving future requests to the specific URL or domain. Selecting auto-approval does not influence the need for reviewing the results. When you select **Allow requests to**, you can choose to configure both pre and post approvals for the URL or domain.
 
     > [!NOTE]
-    > The pre-approval respects the ["Trusted Domains" feature](/docs/editing/editingevolved.md#_outgoing-link-protection). If a domain is listed there, you are automatically approved to make requests to that domain and defer the response reviewing step.
+    > The pre-approval respects the ["Trusted Domains" feature](/docs/editing/editingevolved.md#outgoing-link-protection). If a domain is listed there, you are automatically approved to make requests to that domain and defer the response reviewing step.
 
 * **Post-approval: approving the response content fetched from the URL**
 
@@ -238,7 +267,7 @@ Related settings:
 > * Detection of file writes is currently minimal, so it might be possible to write to files with the terminal that would not be possible by using the file editing agent tools.
 > * Subverting auto approval is possible through various techniques such as quote concatenation. For example `find -exec` is normally blocked, but `find -e"x"ec` is not, despite doing the same thing.
 >
-> If prompt injection is a possibility or you're in a high-risk environment, consider [enabling terminal sandboxing](#sandbox-terminal-commands-experimental) or running VS Code within a container.
+> If prompt injection is a possibility or you're in a high-risk environment, consider [enabling terminal sandboxing](#sandbox-terminal-commands) or running VS Code within a container.
 
 ### Sandbox terminal commands
 
@@ -369,12 +398,15 @@ You can still configure the agent to use Command Prompt with the `setting(chat.t
 
 ### Can I automatically approve all tools and terminal commands?
 
-> [!CAUTION]
-> This setting disables all manual approvals, including potentially destructive actions. It removes critical security protections and makes it easier for an attacker to compromise the machine. Only enable this setting if you understand the implications. See the [Security documentation](/docs/copilot/security.md) for more details.
->
-> To allow all tools and terminal commands to run without prompting for user confirmation, enable the `chat.tools.global.autoApprove` setting. This setting applies globally across all your workspaces!
+You have several options for auto-approving tool calls:
 
-You can also toggle global auto-approval directly from chat by using the `/yolo` or `/autoApprove` slash command to enable it, or `/disableYolo` or `/disableAutoApprove` to disable it. The first time you enable global auto-approval, a warning dialog asks you to confirm.
+* **Permission level**: select the **Bypass Approvals** or **Autopilot** permission level from the [permissions picker](#permission-levels) to auto-approve all tools for the current session.
+* **Global setting**: enable the `setting(chat.tools.global.autoApprove)` setting to auto-approve all tools across all your workspaces. You can also toggle this directly from chat by using the `/yolo` or `/autoApprove` slash command to enable it, or `/disableYolo` or `/disableAutoApprove` to disable it. The first time you enable global auto-approval, a warning dialog asks you to confirm.
+
+> [!CAUTION]
+> Both approaches disable manual approval prompts, including for potentially destructive actions. They remove critical security protections and make it easier for an attacker to compromise the machine. Only use these options if you understand the implications. See the [Security documentation](/docs/copilot/security.md) for more details.
+>
+> The `setting(chat.tools.global.autoApprove)` setting applies globally across all your workspaces. Use a session-scoped [permission level](#permission-levels) if you prefer to limit auto-approval to the current session.
 
 ### What's the difference between tools and chat participants?
 

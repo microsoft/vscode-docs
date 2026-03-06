@@ -103,6 +103,18 @@ For more specialized workflows, create your own [custom agents](/docs/copilot/cu
 
 Learn more about the [built-in agents and their capabilities](/docs/copilot/agents/local-agents.md).
 
+### Choose a permission level
+
+The permissions picker controls how much autonomy the agent has over tool approvals during a session. Select a permission level from the permissions dropdown in the chat input area.
+
+| Permission level | Description |
+|---|---|
+| **Default Approvals** | Uses your configured approval settings. Tools that require approval show a confirmation dialog. |
+| **Bypass Approvals** | Auto-approves all tool calls without confirmation dialogs. |
+| **Autopilot** (Preview) | Auto-approves all tool calls, auto-responds to questions, and the agent continues working autonomously until the task is complete. |
+
+Learn more about [permission levels and Autopilot](/docs/copilot/agents/agent-tools.md#permission-levels).
+
 ### Choose a language model
 
 VS Code offers different language models, each optimized for different tasks. Some models are designed for fast coding tasks, while others excel at complex reasoning and planning. Use the model dropdown in the chat input field to select the model that best fits your needs.
