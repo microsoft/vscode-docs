@@ -101,6 +101,7 @@ The header is formatted as YAML frontmatter with the following fields:
 | `handoffs.prompt` | The prompt text to send to the target agent. |
 | `handoffs.send`   | Optional boolean flag to auto-submit the prompt (default is `false`) |
 | `handoffs.model`  | Optional language model to use when the handoff executes. Use the qualified model name in the format `Model Name (vendor)`, for example `GPT-5 (copilot)` or `Claude Sonnet 4.5 (copilot)`. |
+| `hooks`            | Optional hook commands scoped to this agent. Hooks defined here only run when this agent is active, either invoked by the user or as a subagent. Uses the same format as [hook configuration files](/docs/copilot/customization/hooks.md#hook-configuration-format). Requires `setting(chat.useCustomAgentHooks)` to be enabled. |
 
 > [!NOTE]
 > If a given tool is not available when using the custom agent, it is ignored.
@@ -188,6 +189,35 @@ tools: ['editFiles', 'terminalLastCommand']
 ---
 Implement changes following existing code patterns. Make minimal, focused edits.
 ```
+
+</details>
+
+<details>
+<summary>Agent with scoped hooks example</summary>
+
+The following example shows a custom agent that defines hooks in its frontmatter. The `preToolUse` and `postToolUse` hooks only run when this agent is active. Enable `setting(chat.useCustomAgentHooks)` to use this feature.
+
+```markdown
+---
+name: "My Agent"
+description: "Example agent showing hooks in frontmatter"
+tools:
+  - "builtin:runInTerminal"
+hooks:
+  preToolUse:
+    - type: command
+      command: bash
+      args: ["-lc", "echo preToolUse from agent frontmatter"]
+  postToolUse:
+    - type: command
+      command: bash
+      args: ["-lc", "echo postToolUse from agent frontmatter"]
+---
+
+You are a custom agent. Do the thing.
+```
+
+Learn more about hooks in [Agent hooks](/docs/copilot/customization/hooks.md).
 
 </details>
 

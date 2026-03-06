@@ -64,6 +64,7 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 | `setting(chat.tools.terminal.autoReplyToPrompts)` <br/>Automatically reply to terminal prompts with a default answer. | `false` |
 | `setting(chat.tools.terminal.terminalProfile.<platform>)`<br/>Configure which terminal profile to use for chat terminal commands on each platform. | `""` |
 | `setting(chat.hookFilesLocations)` _(Preview)_ <br/>Configure additional [hook file locations](/docs/copilot/customization/hooks.md#hook-file-locations). Specify paths to folders (loads all `*.json` files) or direct paths to `.json` files. Only relative paths and tilde paths are supported. | `{}` |
+| `setting(chat.useCustomAgentHooks)` _(Preview)_ <br/>Enable [agent-scoped hooks](/docs/copilot/customization/hooks.md#agentscoped-hooks) defined in custom agent frontmatter. When enabled, hooks in `.agent.md` files run only when that agent is active. | `false` |
 | `setting(chat.useAgentsMdFile)` <br/>Enable or disable using `AGENTS.md` files as context for chat requests. | `true` |
 | `setting(chat.math.enabled)` <br/>Enable or disable math rendering with [KaTeX](https://katex.org) in chat. | `false` |
 | `setting(chat.viewTitle.enabled)` _(Preview)_<br/>Show the title of the current chat session in the chat header. | `true` |
