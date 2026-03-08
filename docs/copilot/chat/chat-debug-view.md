@@ -10,7 +10,7 @@ Visual Studio Code provides tools to help you understand what happens when you s
 
 VS Code offers two complementary debugging tools:
 
-* **Agent Logs** (Preview) shows a chronological event log of everything that happens during a chat session, including tool calls, LLM requests, prompt file discovery, and errors.
+* **Agent Debug panel** (Preview) shows a chronological event log of everything that happens during a chat session, including tool calls, LLM requests, prompt file discovery, and errors.
 * **Chat Debug view** shows the raw details of each LLM request and response, including the full system prompt, user prompt, context, and tool invocation payloads.
 
 ## Agent Debug panel
@@ -23,6 +23,7 @@ The Agent Debug panel is the primary tool for understanding what happens when yo
 To open the Agent Debug panel:
 
 * Select the gear icon in the Chat view and select **Show Agent Logs**.
+
 * Run **Developer: Open Agent Debug Panel** from the Command Palette.
 
 You can switch between three views in the Agent Debug panel:
