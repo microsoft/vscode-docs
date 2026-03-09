@@ -58,6 +58,8 @@ You can also manually check for updates by running **Help** > **Check for Update
 
 If you'd like to try our nightly builds to see new features early or verify bug fixes, you can install our [Insiders build](/insiders). The Insiders build installs side-by-side with the monthly Stable build and you can freely work with either on the same machine. The Insiders build is the same one the VS Code development team uses on a daily basis and we really appreciate people trying out new features and providing feedback.
 
+Because Insiders builds are released nightly, multiple builds often share the same product version number. To uniquely identify a specific Insiders build, use the commit ID shown in the **About** dialog in addition to the version number.
+
 ## Portable mode
 
 Visual Studio Code supports [Portable mode](https://en.wikipedia.org/wiki/Portable_application) installation. This mode enables all data created and maintained by VS Code to live near itself, so it can be moved around across environments, for example, on a USB drive. See the [VS Code Portable Mode](/docs/editor/portable.md) documentation for details.
@@ -86,7 +88,7 @@ VS Code doesn't include a traditional **File** > **New Project** dialog or pre-i
 
 ### How do I know which version I'm running?
 
-On Linux and Windows, choose **Help** > **About**. On macOS, use **Code** > **About Visual Studio Code**.
+On Linux and Windows, choose **Help** > **About**. On macOS, use **Code** > **About Visual Studio Code**. The **About** dialog shows the version number and the commit ID. For Insiders builds, multiple builds can share the same version number, so use the commit ID to uniquely identify your build.
 
 ### Why is VS Code saying my installation is unsupported?
 
