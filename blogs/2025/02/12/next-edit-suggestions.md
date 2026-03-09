@@ -1,5 +1,5 @@
 ---
-Order: 92
+Order: 
 TOCTitle: Copilot Next Edit Suggestions (preview)
 PageTitle: Copilot Next Edit Suggestions (preview)
 MetaDescription: Announcing the Next Edit Suggestions and Agent Mode for GitHub Copilot in Visual Studio Code.

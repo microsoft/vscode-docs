@@ -1,5 +1,5 @@
 ---
-Order: 85
+Order: 
 TOCTitle: VS Code Day 2024
 PageTitle: Visual Studio Code Day 2024
 MetaDescription: Learn about the latest Visual Studio Code features and extensions during VS Code Day 2024 on April 24, 2024
