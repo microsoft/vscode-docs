@@ -66,9 +66,8 @@ Start a natural language chat conversation to get help with coding tasks. For ex
 > **Tips**
 >
 > * Use `#`-mentions to add more context to your chat prompt.
-> * Use `/` commands and `@` participants to get more precise and relevant answers.
 > * Be specific, keep it simple, and ask follow-up questions to get the best results.
-> * Choose an agent that fits your needs: Ask, Edit, Agent, or create a custom agent.
+> * Choose a built-in agent or custom agent that fits your specific task.
 
 ## Add context to your prompt
 
@@ -184,7 +183,6 @@ Use chat participants to handle domain-specific requests in chat. Chat participa
 | `@github` | Use the `@github` participant to ask questions about GitHub repositories, issues, pull requests, and more. Get more information about the [available GitHub skills](https://docs.github.com/en/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide#currently-available-skills).<br/>Example: `@github What are all of the open PRs assigned to me?`, `@github Show me the recent merged PRs from @dancing-mona` |
 | `@terminal` | Use the `@terminal` participant to ask questions about the integrated terminal or shell commands.<br/>Example: `@terminal list the 5 largest files in this workspace` |
 | `@vscode` | Use the `@vscode` participant to ask questions about VS Code features, settings, and the VS Code extension APIs.<br/>Example: `@vscode how to enable  word wrapping?` |
-| `@workspace` | Use the `@workspace` participant to ask questions about the current workspace.<br/>Example: `@workspace how is authentication implemented?` |
 
 ## Use agents
 

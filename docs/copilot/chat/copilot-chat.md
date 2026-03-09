@@ -134,7 +134,7 @@ Providing the right context helps the AI generate more relevant and accurate res
 
 * **`#`-mentions**: type `#` in the chat input to explicitly reference files (`#file`), folders, symbols, your codebase (`#codebase`), terminal output (`#terminalSelection`), or tools like `#fetch` and `#githubRepo`.
 
-* **`@`-mentions**: type `@` to invoke specialized chat participants like `@vscode`, `@terminal`, or `@workspace`, each optimized for their respective domain.
+* **`@`-mentions**: type `@` to invoke specialized chat participants like `@vscode` or `@terminal`, each optimized for their respective domain.
 
 * **Vision**: attach images, such as screenshots or UI mockups, as context for your prompt.
 
