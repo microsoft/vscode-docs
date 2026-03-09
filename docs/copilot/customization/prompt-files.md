@@ -56,14 +56,10 @@ The body contains the prompt text in Markdown format. Provide specific instructi
 
 You can reference other workspace files by using Markdown links. Use relative paths to reference these files, and ensure that the paths are correct based on the location of the prompt file.
 
-To reference agent tools in the body text, use the `#tool:<tool-name>` syntax. For example, to reference the `githubRepo` tool, use `#tool:githubRepo`.
+To reference agent tools in the body text, use the `#tool:<tool-name>` syntax. For example, to reference the `browser` tool, use `#tool:browser`.
 
-Within a prompt file, you can reference variables by using the `${variableName}` syntax. You can reference the following variables:
-
-* Workspace variables - `${workspaceFolder}`, `${workspaceFolderBasename}`
-* Selection variables - `${selection}`, `${selectedText}`
-* File context variables - `${file}`, `${fileBasename}`, `${fileDirname}`, `${fileBasenameNoExtension}`
-* Input variables - `${input:variableName}`, `${input:variableName:placeholder}` (pass values to the prompt from the chat input field)
+> [!TIP]
+> If you want the user to provide additional information, you can use the `vscode/askQuestion` tool. You can also use a syntax like `${input:variableName}`, `${input:variableName:placeholder}`. Most language models understand this syntax and will prompt for these inputs.
 
 The following examples demonstrate how to use prompt files. For more community-contributed examples, see the [Awesome Copilot repository](https://github.com/github/awesome-copilot/tree/main).
 
@@ -74,12 +70,12 @@ The following examples demonstrate how to use prompt files. For more community-c
 ---
 agent: 'agent'
 model: GPT-4o
-tools: ['githubRepo', 'search/codebase']
+tools: ['search/codebase', 'vscode/askQuestions']
 description: 'Generate a new React form component'
 ---
-Your goal is to generate a new React form component based on the templates in #tool:githubRepo contoso/react-templates.
+Your goal is to generate a new React form component based on the templates in the Github repo contoso/react-templates.
 
-Ask for the form name and fields if not provided.
+Use the #tool:vscode/askQuestions to ask for the form name and fields if not provided.
 
 Requirements for the form:
 * Use form design system components: [design-system/Form.md](../docs/design-system/Form.md)
@@ -95,29 +91,6 @@ Requirements for the form:
 
 </details>
 
-<details>
-<summary>Example: using variables</summary>
-
-```markdown
----
-description: 'Generate unit tests for the current file'
-agent: 'agent'
-tools: ['search', 'read', 'edit']
----
-Generate unit tests for [${fileBasename}](${file}).
-
-* Place the test file in the same directory: ${fileDirname}
-* Name the test file: ${fileBasenameNoExtension}.test.ts
-* Test framework: ${input:framework:jest or vitest}
-* Follow testing conventions in: [testing.md](../docs/testing.md)
-
-If there is a selection, only generate tests for this code:
-${selection}
-```
-
-This example combines workspace, file context, selection, and input variables. When you run the prompt, Copilot resolves `${file}`, `${fileBasename}`, `${fileDirname}`, and `${fileBasenameNoExtension}` from the active editor, uses `${selection}` for any selected text, and prompts you to enter a value for `${input:framework}`.
-
-</details>
 
 <details>
 <summary>Example: perform a security review of a REST API</summary>
