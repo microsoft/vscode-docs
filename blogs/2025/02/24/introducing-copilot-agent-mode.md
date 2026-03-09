@@ -1,5 +1,5 @@
 ---
-Order: 93
+Order: 
 TOCTitle: Copilot Agent Mode (preview)
 PageTitle: Copilot Agent Mode (preview)
 MetaDescription: Announcing the GitHub Copilot agent mode in Visual Studio Code.

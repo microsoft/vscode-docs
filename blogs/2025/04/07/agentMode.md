@@ -1,5 +1,5 @@
 ---
-Order: 97
+Order: 
 TOCTitle: Agent mode available to all users
 PageTitle: "Agent mode: available to all users and supports MCP"
 MetaDescription: Agent mode is now available to all users and supports MCP.
