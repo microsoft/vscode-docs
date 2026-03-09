@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: bf0d9a5e-897b-450a-adf4-3c8ca9b8e9de
-DateApproved: 3/4/2026
+DateApproved: 3/9/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: UX guidelines for the Command Palette in a Visual Studio Code extension.
