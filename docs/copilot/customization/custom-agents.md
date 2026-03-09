@@ -324,6 +324,7 @@ To identify the source of a custom agent:
 
 ## Related resources
 
+* [Planning with agents](/docs/copilot/agents/planning.md)
 * [Customize AI with custom instructions](/docs/copilot/customization/custom-instructions.md)
 * [Create reusable prompt files](/docs/copilot/customization/prompt-files.md)
 * [Use tools in chat](/docs/copilot/agents/agent-tools.md)
