@@ -84,6 +84,12 @@ VS Code extensions might collect their own telemetry data. The `setting(telemetr
 
 Review the documentation of extensions used in your organization to understand their telemetry practices.
 
+## OpenTelemetry support for agent interactions
+
+[Copilot Chat](/docs/copilot/overview.md) in VS Code can export traces, metrics, and events via [OpenTelemetry](https://opentelemetry.io/) (OTel) to give you real-time visibility into agent interactions, LLM calls, tool execution, and token usage. You can use this telemetry data with any OTel-compatible backend.
+
+Learn more about how to [Monitor agent interactions with OpenTelemetry](https://github.com/microsoft/vscode-copilot-chat/blob/main/docs/monitoring/agent_monitoring.md).
+
 ## GDPR compliance
 
 VS Code is designed to be GDPR compliant. When users disable telemetry, VS Code stops sending telemetry data going forward. For more information about GDPR and VS Code, see the [telemetry documentation](/docs/configure/telemetry.md#gdpr-and-vs-code).
