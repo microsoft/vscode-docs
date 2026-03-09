@@ -113,7 +113,7 @@ Chat participants are specialized assistants that enable you to ask domain-speci
 
 Chat participants are different from [tools](#reference-tools) that are invoked as part of an agent flow to contribute and perform specific tasks.
 
-You can invoke a chat participant by @-mentioning it: type `@` followed by the participant name. VS Code has several built-in chat participants like `@vscode`, `@terminal`, or `@workspace`. They are optimized to answer questions about their respective domains.
+You can invoke a chat participant by @-mentioning it: type `@` followed by the participant name. VS Code has built-in chat participants like `@vscode` or `@terminal`. They are optimized to answer questions about their respective domains.
 
 The following examples show how to use @-mentions in your chat prompts:
 
