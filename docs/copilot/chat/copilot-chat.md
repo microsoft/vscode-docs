@@ -1,6 +1,6 @@
 ---
 ContentId: 557a7e74-f77e-488d-90ea-fd2cfecfffda
-DateApproved: 3/4/2026
+DateApproved: 3/9/2026
 MetaDescription: Overview of chat in VS Code. Learn how to access different chat surfaces, configure your session, add context, write effective prompts, and review AI-generated changes.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -102,6 +102,18 @@ VS Code provides three built-in agents:
 For more specialized workflows, create your own [custom agents](/docs/copilot/customization/custom-agents.md) that define a specific role, available tools, and a language model.
 
 Learn more about the [built-in agents and their capabilities](/docs/copilot/agents/local-agents.md).
+
+### Choose a permission level
+
+The permissions picker controls how much autonomy the agent has over tool approvals during a session. Select a permission level from the permissions dropdown in the chat input area.
+
+| Permission level | Description |
+|---|---|
+| **Default Approvals** | Uses your configured approval settings. Tools that require approval show a confirmation dialog. |
+| **Bypass Approvals** | Auto-approves all tool calls without confirmation dialogs. |
+| **Autopilot** (Preview) | Auto-approves all tool calls, auto-responds to questions, and the agent continues working autonomously until the task is complete. |
+
+Learn more about [permission levels and Autopilot](/docs/copilot/agents/agent-tools.md#permission-levels).
 
 ### Choose a language model
 

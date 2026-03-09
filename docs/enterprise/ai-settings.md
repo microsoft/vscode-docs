@@ -1,6 +1,6 @@
 ---
 ContentId: f8a9c3d2-4e7b-5f1a-b6c8-9d0e2f3a7b4c
-DateApproved: 3/4/2026
+DateApproved: 3/9/2026
 MetaDescription: Learn how to centrally manage AI settings in VS Code for enterprise environments, including agent mode, MCP servers, and tool approvals.
 ---
 
@@ -74,9 +74,9 @@ Learn more about [tool approval](/docs/copilot/agents/agent-tools.md#tool-approv
 
 ### Disable global auto-approval
 
-The `ChatToolsAutoApprove` policy controls the global auto-approval setting, also known as "YOLO mode". When enabled, the AI assistant can execute all tools without manual approval. This is not recommended for security reasons.
+The `ChatToolsAutoApprove` policy controls the global auto-approval setting. When enabled, the AI assistant can execute all tools without manual approval. This is not recommended for security reasons.
 
-To prevent developers from enabling global auto-approval, set the `ChatToolsAutoApprove` policy to `false`. This configures the `setting(chat.tools.global.autoApprove)` setting in VS Code.
+To prevent developers from enabling global auto-approval, set the `ChatToolsAutoApprove` policy to `false`. This configures the `setting(chat.tools.global.autoApprove)` setting in VS Code and also hides the **Bypass Approvals** and **Autopilot** options from the [permissions picker](/docs/copilot/agents/agent-tools.md#permission-levels) in the Chat view.
 
 > [!CAUTION]
 > Global auto-approval bypasses all security prompts for tool invocations. Disabling this feature is strongly recommended for enterprise environments.
