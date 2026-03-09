@@ -168,6 +168,7 @@
         ]
       }
       ],
+      ["Monitoring", "/docs/copilot/guides/monitoring-agents"],
       ["Security", "/docs/copilot/security"],
       ["Troubleshooting", "/docs/copilot/troubleshooting"],
       ["FAQ", "/docs/copilot/faq"],
