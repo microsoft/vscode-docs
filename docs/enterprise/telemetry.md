@@ -1,6 +1,6 @@
 ---
 ContentId: 9b3e5c2d-1a4f-6e8b-c7d9-0f2a3b4c5d6e
-DateApproved: 3/4/2026
+DateApproved: 3/9/2026
 MetaDescription: Learn how to centrally manage VS Code telemetry settings for enterprise environments, including telemetry levels and feedback options.
 ---
 

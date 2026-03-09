@@ -1,6 +1,6 @@
 ---
 ContentId: 9c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f
-DateApproved: 3/4/2026
+DateApproved: 3/9/2026
 MetaDescription: Learn how to use hooks in VS Code to execute custom shell commands at key lifecycle points during agent sessions for automation, validation, and policy enforcement.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -66,10 +66,11 @@ Hooks are configured in JSON files stored in your workspace or user directory.
 
 VS Code searches for hook configuration files in these locations:
 
-* **Workspace**: `.github/hooks/*.json` - Project-specific hooks shared with your team
-* **Workspace**: `.claude/settings.local.json` - Local workspace hooks (not committed)
-* **Workspace**: `.claude/settings.json` - Workspace-level hooks
-* **User**: `~/.claude/settings.json` - Personal hooks applied across all workspaces
+* **Workspace**: `.github/hooks/*.json` - project-specific hooks shared with your team
+* **Workspace**: `.claude/settings.local.json` - local workspace hooks (not committed)
+* **Workspace**: `.claude/settings.json` - workspace-level hooks
+* **User**: `~/.claude/settings.json` - personal hooks applied across all workspaces
+* **Custom agent frontmatter**: `hooks` field in `.agent.md` files - hooks scoped to a specific [custom agent](/docs/copilot/customization/custom-agents.md). See [Agent-scoped hooks](#agentscoped-hooks).
 
 Workspace hooks take precedence over user hooks for the same event type.
 
@@ -103,6 +104,30 @@ Set a path to `false` to disable loading hooks from that location, including the
   ".claude/settings.local.json": false,
   "~/.claude/settings.json": false
 }
+```
+
+### Agent-scoped hooks
+
+> [!NOTE]
+> Agent-scoped hooks are currently in preview.
+
+You can define hooks directly in a [custom agent's](/docs/copilot/customization/custom-agents.md) YAML frontmatter. Agent-scoped hooks only run when that custom agent is active, either selected by the user or invoked as a subagent. Agent-scoped hooks run in addition to any workspace or user-level hooks configured for the same event.
+
+To enable agent-scoped hooks, set `setting(chat.useCustomAgentHooks)` to `true`.
+
+Add a `hooks` field to the agent frontmatter with the same structure as hook configuration files: event names mapped to arrays of hook command objects.
+
+```markdown
+---
+name: "Strict Formatter"
+description: "Agent that auto-formats code after every edit"
+hooks:
+  PostToolUse:
+    - type: command
+      command: "./scripts/format-changed-files.sh"
+---
+
+You are a code editing agent. After making changes, files are automatically formatted.
 ```
 
 ### Hook configuration format
@@ -266,11 +291,12 @@ The `PreToolUse` hook can control tool execution through a `hookSpecificOutput` 
 | `additionalContext` | string | Extra context for the model |
 
 **Permission decision priority**: When multiple hooks run for the same tool invocation, the most restrictive decision wins:
+
 1. `deny` (most restrictive): blocks tool execution
 2. `ask`: requires user confirmation
 3. `allow` (least restrictive): auto-approves execution
 
-**`updatedInput` format**: To determine the format of `updatedInput`, open the [agent logs](/docs/copilot/chat/chat-debug-view.md#agent-logs) and find the logged tool schema. If `updatedInput` doesn't match the expected schema, it will be ignored.
+**`updatedInput` format**: To determine the format of `updatedInput`, open the [agent logs](/docs/copilot/chat/chat-debug-view.md#agent-debug-panel) and find the logged tool schema. If `updatedInput` doesn't match the expected schema, it will be ignored.
 
 ## PostToolUse
 
@@ -357,7 +383,7 @@ The `SessionStart` hook can inject additional context into the agent's conversat
 
 ## Stop
 
-The `Stop` hook fires when the agent session ends.
+The `Stop` hook fires when the agent session ends. When scoped to a custom agent, the `Stop` hook is also treated as `SubagentStop`.
 
 ### Stop input
 

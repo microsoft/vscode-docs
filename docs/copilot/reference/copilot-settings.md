@@ -1,6 +1,6 @@
 ---
 ContentId: 7b232695-cbbe-4f3f-a625-abc7a5e6496c
-DateApproved: 3/4/2026
+DateApproved: 3/9/2026
 MetaDescription: Overview of the configuration settings for GitHub Copilot in Visual Studio Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -64,6 +64,7 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 | `setting(chat.tools.terminal.autoReplyToPrompts)` <br/>Automatically reply to terminal prompts with a default answer. | `false` |
 | `setting(chat.tools.terminal.terminalProfile.<platform>)`<br/>Configure which terminal profile to use for chat terminal commands on each platform. | `""` |
 | `setting(chat.hookFilesLocations)` _(Preview)_ <br/>Configure additional [hook file locations](/docs/copilot/customization/hooks.md#hook-file-locations). Specify paths to folders (loads all `*.json` files) or direct paths to `.json` files. Only relative paths and tilde paths are supported. | `{}` |
+| `setting(chat.useCustomAgentHooks)` _(Preview)_ <br/>Enable [agent-scoped hooks](/docs/copilot/customization/hooks.md#agentscoped-hooks) defined in custom agent frontmatter. When enabled, hooks in `.agent.md` files run only when that agent is active. | `false` |
 | `setting(chat.useAgentsMdFile)` <br/>Enable or disable using `AGENTS.md` files as context for chat requests. | `true` |
 | `setting(chat.math.enabled)` <br/>Enable or disable math rendering with [KaTeX](https://katex.org) in chat. | `false` |
 | `setting(chat.viewTitle.enabled)` _(Preview)_<br/>Show the title of the current chat session in the chat header. | `true` |
@@ -91,6 +92,7 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 | `setting(chat.tools.terminal.enforceTimeoutFromModel)` _(Experimental)_<br/>Control whether to enforce the timeout value that the agent specifies for terminal commands. When enabled, the agent stops tracking the command after the specified duration and returns the output collected so far. | `true` |
 | `setting(chat.tools.terminal.ignoreDefaultAutoApproveRules)` <br/>Ignore the default auto-approve rules for terminal commands. | `false` |
 | `setting(chat.tools.global.autoApprove)`<br/>Automatically approve all tools - this setting [disables critical security protections](/docs/copilot/security.md). | `false` |
+| `setting(chat.autopilot.enabled)` _(Experimental)_<br/>Controls whether the [Autopilot permission level](/docs/copilot/agents/agent-tools.md#permission-levels) is available in the permissions picker. When enabled, Autopilot auto-approves all tool calls and continues until the task is done. | `true` |
 | `setting(chat.tools.urls.autoApprove)` <br/>Control which [URL requests and responses are auto-approved](/docs/copilot/agents/agent-tools.md#url-approval). | `[]` |
 | `setting(chat.agent.thinking.collapsedTools)` _(Experimental)_<br/>Configure whether tool call details are collapsed or expanded by default in the chat conversation. | `always` |
 | `setting(chat.agent.thinkingStyle)` _(Experimental)_<br/>Configure how thinking tokens are presented in chat. | `fixedScrolling` |
@@ -143,7 +145,7 @@ The [Agents view](/docs/copilot/agents/overview.md) provides a centralized locat
 
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(chat.instructionsFilesLocations)` <br/>Locations to search for custom instructions files. Relative paths are resolved from the root folder(s) of your workspace. Supports glob patterns for file paths. | `{ ".github/instructions": true, "~/.claude/rules": false" }` |
+| `setting(chat.instructionsFilesLocations)` <br/>Locations to search for custom instructions files. Each folder is searched recursively, including subdirectories. Relative paths are resolved from the root folder(s) of your workspace. Supports glob patterns for file paths. | `{ ".github/instructions": true, "~/.claude/rules": false" }` |
 | `setting(chat.includeApplyingInstructions)`<br/>Automatically add instruction files with a matching `applyTo` pattern to chat requests. | `true` |
 | `setting(chat.includeReferencedInstructions)`<br/>Automatically add instruction files referenced via Markdown links to chat requests. | `false` |
 | `setting(github.copilot.chat.codeGeneration.useInstructionFiles)`<br/>Automatically add custom instructions from `.github/copilot-instructions.md` to chat requests. | `true` |

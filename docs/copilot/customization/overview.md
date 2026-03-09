@@ -1,6 +1,6 @@
 ---
 ContentId: 16c73175-a606-4aab-8ae5-a5071d3b9e24
-DateApproved: 3/4/2026
+DateApproved: 3/9/2026
 MetaDescription: Learn how to customize chat in VS Code with custom instructions, reusable prompt files, and custom agents to align AI responses with your coding practices and project requirements.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:

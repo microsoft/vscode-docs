@@ -1,6 +1,6 @@
 ---
 ContentId: 3a7e9c4f-5d1b-4e8f-a2c6-8b0d3f5e7a9c
-DateApproved: 3/4/2026
+DateApproved: 3/9/2026
 MetaDescription: Learn how agents in VS Code use the memory tool and Copilot Memory to retain context, learn preferences, and improve over time across conversations.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---

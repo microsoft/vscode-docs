@@ -1,6 +1,6 @@
 ---
 ContentId: 7FDF94DB-3527-4296-BE1C-493495B89408
-DateApproved: 3/4/2026
+DateApproved: 3/9/2026
 MetaDescription: Get Visual Studio Code up and running on Linux.
 ---
 # Visual Studio Code on Linux
