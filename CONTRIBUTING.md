@@ -553,6 +553,6 @@ Ready to contribute? Here are some helpful resources:
 * [Documentation Writing Instructions](.github/instructions/docs-writing.instructions.md) - Writing style and grammar guidelines
 * [Blog Writing Instructions](.github/instructions/blog-writing.instructions.md) - For blog post contributions
 * [Release Notes Writing Instructions](.github/instructions/release-notes-writing.instructions.md) - For release notes contributions
-* [VS Code Issues](https://github.com/microsoft/vscode/issues) - The main VS Code repository for reporting documentation issues
+* [VS Code Issues](https://github.com/microsoft/vscode-docs/issues) - The main VS Code repository for reporting documentation issues
 
 Thank you for helping improve VS Code documentation!
