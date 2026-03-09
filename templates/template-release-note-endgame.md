@@ -9,7 +9,7 @@ DownloadVersion: 1.<release number>.0
 Milestone: <milestone name (1.<release number>.0 or Month Year)>
 ProductEdition: Stable
 ---
-# <Month> <Year> (version 1.<release number>)
+# Visual Studio Code 1.<release number>
 
 _Release date: <release Month day, year>_
 

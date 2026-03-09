@@ -9,7 +9,7 @@ DownloadVersion: 1.<release number>.0
 Milestone: <milestone name (1.<release number>.0 or Month Year)>
 ProductEdition: Insiders
 ---
-# VS Code 1.<release number> Insiders
+# Visual Studio Code 1.<release number> Insiders
 
 ![VS Code Insiders banner](images/1_<release number>/vscode-insiders-banner-medium.png)
 
