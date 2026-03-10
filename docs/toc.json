@@ -168,7 +168,8 @@
           ["Test with AI", "/docs/copilot/guides/test-with-copilot"],
           ["Test Web Apps with Browser Tools", "/docs/copilot/guides/browser-agent-testing-guide"],
           ["Debug with AI", "/docs/copilot/guides/debug-with-copilot"],
-          ["MCP Dev Guide", "/docs/copilot/guides/mcp-developer-guide"]
+          ["MCP Dev Guide", "/docs/copilot/guides/mcp-developer-guide"],
+          ["Monitoring", "/docs/copilot/guides/monitoring-agents"]
         ]
       }
       ],
