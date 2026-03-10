@@ -169,7 +169,7 @@
       ["Inline Suggestions", "/docs/copilot/ai-powered-suggestions"],
       ["Smart Actions", "/docs/copilot/copilot-smart-actions"],
       ["", "", {
-        "name": "Guides",
+        "name": "Guides & Tutorials",
         "area": "copilot/guides",
         "noCollapse": false,
         "topics": [
