@@ -20,11 +20,16 @@ Keywords:
 
 # Using agents in Visual Studio Code
 
-Agents automate complete coding tasks end-to-end, from implementing features across multiple files to architecture-level refactoring and framework migrations. In Visual Studio Code, you can create agent sessions that run locally or in the cloud, interactively or in the background.
+Agents in Visual Studio Code automate coding tasks by breaking them into steps, using [tools](/docs/copilot/concepts/tools.md) to read files, edit code, and run commands, and self-correcting when something goes wrong. For example, instead of suggesting a fix for a failing test, an agent can identify the root cause across files, update the code, rerun the tests, and commit the changes.
 
-Choose the agent harness and environment that best fits your task. With the unified Chat view, you can manage and monitor all your agent sessions in one place, regardless of where they run.
+VS Code supports agents that run locally, in the background, or in the cloud. This article helps you choose the right agent type, create and manage sessions, and hand off tasks between agents.
 
-This article provides an overview of the various agent types, how to create and manage agent sessions, delegate tasks between agents, and track their progress.
+<div class="docs-action" data-show-in-doc="true" data-show-in-sidebar="true" title="Core concepts">
+Learn about the agent loop, subagents, memory, and planning.
+
+* [Agents concepts](/docs/copilot/concepts/agents.md)
+
+</div>
 
 ![Screenshot of an agent session in VS Code showing code changes and chat interaction.](../images/agents-overview/chat-sessions-view.png)
 
@@ -38,24 +43,16 @@ Use agents in VS Code to generate a tic-tac-toe game in your language of choice.
 > [!IMPORTANT]
 > Enable agents in your VS Code settings (`setting(chat.agent.enabled)`). Your organization might also disable agents - contact your admin to enable this functionality.
 
-## What are agents?
-
-Agents perform complete coding tasks end-to-end. They analyze your project across files, execute coordinated changes, run commands, and adapt based on the results. You give an agent a high-level task, and it breaks the task down into steps, executes those steps with tools, and self-corrects when it hits errors.
-
-For background on the agent loop, agent types, subagents, memory, and planning, see [Agents concepts](/docs/copilot/concepts/agents.md).
-
-For example, imagine you have a failing test. Instead of suggesting a fix, an agent can:
-
-* Read the error message and identify the root cause across multiple files
-* Update the relevant code
-* Run the tests again to verify the fix works
-* Commit the changes
-
 You can run multiple agent sessions in parallel, each focused on a different task. When you create a new agent session, the previous session remains active, and you can switch between tasks via the [agent sessions list](#agent-sessions-list).
 
 ## Types of agents
 
 VS Code supports the following categories of agents, each designed for different use cases and levels of interaction:
+
+* [**Local agents**](/docs/copilot/agents/local-agents.md) run interactively in VS Code with full access to your workspace, tools, and models.
+* [**Copilot CLI**](/docs/copilot/agents/copilot-cli.md) agents run autonomously in the background on your machine, optionally using Git worktrees for isolation.
+* [**Cloud agents**](/docs/copilot/agents/cloud-agents.md) run on remote infrastructure and integrate with GitHub pull requests for team collaboration.
+* [**Third-party agents**](/docs/copilot/agents/third-party-agents.md) connect external AI providers like Anthropic and OpenAI, with options for running locally or in the cloud.
 
 ![Diagram showing agent types by environment and interaction.](../images/agents-overview/agent-types-diagram-v3.png)
 
@@ -78,32 +75,6 @@ Use the following table to find the right agent type for your task:
 | Create a PR for team review and collaboration | [Cloud agent](/docs/copilot/agents/cloud-agents.md) |
 | Assign a GitHub issue to an agent | [Cloud agent](/docs/copilot/agents/cloud-agents.md) |
 | Use a specific AI provider (Anthropic, OpenAI) | [Third-party agent](/docs/copilot/agents/third-party-agents.md) |
-
-### Local agents
-
-Local agents run directly within VS Code on your machine. You interact with local agents through chat to get immediate results to your prompts. Local agents have full access to your workspace, tools, and models. Use local agents for interactive tasks that require immediate feedback, such as brainstorming, planning, or exploratory work.
-
-Local agent sessions use one of three built-in agents: **Agent** for complex coding tasks, **Plan** for creating structured implementation plans, and **Ask** for answering questions about your codebase. You can also [create custom agents](/docs/copilot/customization/custom-agents.md) for specialized workflows.
-
-Learn more about [local agents in VS Code](/docs/copilot/agents/local-agents.md).
-
-### Copilot CLI
-
-Copilot CLI agents run in the background on your local machine and use the Copilot CLI agent harness. They can use Git worktrees to work isolated from your main workspace, preventing conflicts with your active work. Use Copilot CLI agents for well-defined tasks that have all necessary context, such as implementing a plan.
-
-Learn more about [Copilot CLI agents in VS Code](/docs/copilot/agents/copilot-cli.md).
-
-### Cloud agents
-
-Cloud agents, like Copilot coding agent, run on remote infrastructure and integrate with GitHub repositories and pull requests for team collaboration and code reviews. Use cloud agents for well-defined tasks where you want to collaborate with team members through pull requests, or for tasks that can run without immediate feedback.
-
-Learn more about [cloud agents in VS Code](/docs/copilot/agents/cloud-agents.md).
-
-### Third-party agents
-
-VS Code supports agents from third-party AI providers, like Anthropic and OpenAI. By using third-party agents, you can use the unique capabilities of these providers and their agent harness with your existing GitHub Copilot subscription, while benefiting from VS Code's unified session management and rich editor experience. Third-party providers might support options for running locally or in the cloud.
-
-Learn more about [third-party agents in VS Code](/docs/copilot/agents/third-party-agents.md).
 
 ## Agent sessions list
 

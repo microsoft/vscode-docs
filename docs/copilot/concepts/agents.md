@@ -19,7 +19,7 @@ Keywords:
 
 # Agents
 
-Agents automate complete coding tasks end-to-end, from implementing features across multiple files to architecture-level refactoring and framework migrations. You give an agent a high-level task, and it breaks the task down into steps, executes those steps with [tools](/docs/copilot/concepts/tools.md), and self-corrects when it hits errors. This article explains the core architecture of agents: the agent loop, agent types, subagents, memory, and planning.
+An agent is an AI system that autonomously plans and executes coding tasks. You give the agent a high-level goal, and it breaks the goal down into steps, executes those steps with [tools](/docs/copilot/concepts/tools.md), and self-corrects when it hits errors. This article explains the core architecture of agents: the agent loop, agent types, subagents, memory, and planning.
 
 ## Agent loop
 
@@ -55,16 +55,11 @@ Learn more about [customization concepts](/docs/copilot/concepts/customization.m
 
 ## Agent types
 
-Agents run in different environments depending on when you need results and how much oversight you want:
-
-* **Local agents** run interactively in VS Code. You see every step and can steer the agent in real time. Best for tasks where you want to stay hands-on.
-* **Copilot CLI** runs autonomously on your machine. Hand off a task and continue other work while the agent completes it.
-* **Cloud agents** run on GitHub's infrastructure. They create branches, implement changes, and open pull requests for your team to review.
-* **Third-party agents** connect external AI providers like Anthropic and OpenAI. You can hand off sessions between agent types at any point.
+Agents run in different environments depending on when you need results and how much oversight you want. The two key dimensions are *where* the agent runs (your machine or the cloud) and *how* you interact with it (interactively or autonomously in the background).
 
 ![Diagram showing the different agent types: Local agents (interactive in VS Code), Background agents (autonomous on your machine), Cloud agents (run on GitHub's infrastructure), and Third-party agents (connect external AI providers).](../images/agents-overview/agent-types-diagram-v3.png)
 
-Learn more about [using agents in VS Code](/docs/copilot/agents/overview.md).
+Learn more about [using agents in VS Code](/docs/copilot/agents/overview.md), including a decision table to help you choose the right agent type for your task.
 
 ## Subagents
 
