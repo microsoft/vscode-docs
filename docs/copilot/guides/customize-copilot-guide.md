@@ -166,17 +166,19 @@ MCP servers extend the AI with access to external tools and services. Add one fr
 
 1. Open the Extensions view (`kb(workbench.view.extensions)`) and type `@mcp` in the search field.
 
-1. Browse the available MCP servers and select **Install** for one that fits your workflow (for example, **Playwright** for browser automation or **GitHub** for repository operations).
+1. Browse the available MCP servers and select **Install** for **MarkItDown**, a tool that converts files like PDFs, Word documents, and spreadsheets to Markdown.
 
 1. When prompted, confirm that you trust the server.
 
-1. Open the Chat view and enter a prompt that uses the server's tools. For example, with Playwright installed:
+1. Select the **Configure Tools** button in the chat input and then enable the MarkItDown tool to allow the agent to use it.
+
+1. Open the Chat view and enter a prompt that uses the server's tools. For example, with MarkItDown installed:
 
     ```prompt
-    Navigate to my app at localhost:3000 and take a screenshot of the homepage.
+    Convert the file report.pdf in my workspace to Markdown.
     ```
 
-**Verify it works**: Copilot should invoke the MCP server tools and return results. Select the **Configure Tools** button in the chat input to see the available tools from the server.
+**Verify it works**: The agent should invoke the MarkItDown tool and return the file content as Markdown.
 
 > [!TIP]
 > You can also configure MCP servers manually by editing the `.vscode/mcp.json` file. Learn more in [Add and manage MCP servers](/docs/copilot/customization/mcp-servers.md).
