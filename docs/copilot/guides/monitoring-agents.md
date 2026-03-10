@@ -19,8 +19,6 @@ This article describes how to enable and configure OpenTelemetry monitoring for 
 
 Copilot Chat can export traces, metrics, and events via [OpenTelemetry](https://opentelemetry.io/) (OTel), giving you visibility into agent interactions, LLM calls, tool executions, and token usage. All signal names and attributes follow the [OTel GenAI Semantic Conventions](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/gen-ai/), so the data works with any OTel-compatible backend.
 
-OTel monitoring is off by default with zero runtime overhead. When disabled, the OTel SDK is not loaded at all. No data is emitted unless you explicitly enable it, and data goes only where you configure it.
-
 ## What gets collected
 
 Copilot Chat emits three types of OTel signals: traces, metrics, and events.
