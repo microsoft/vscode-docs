@@ -18,9 +18,11 @@ Keywords:
 ---
 # Customize AI in Visual Studio Code
 
-AI models have broad general knowledge but don't know your codebase or team practices. Think of the AI as a skilled new team member: it writes great code, but doesn't know your conventions, architecture decisions, or preferred libraries. Customization is how you share that context, so responses match your coding standards, project structure, and workflows.
+AI models have broad general knowledge but don't know your codebase or team practices. Customization is how you share that context, so responses match your coding standards, project structure, and workflows.
 
-This article covers the customization options in VS Code: custom instructions, prompt files, custom agents, agent skills, MCP servers, agent plugins, and language models. To access customizations, select the **Configure Chat (gear icon)** in the Chat view.
+For background on the different customization types and when to use each one, see [Customization concepts](/docs/copilot/concepts/customization.md).
+
+This article covers the customization options in VS Code and how to set up your project for AI. To access customizations, select the **Configure Chat (gear icon)** in the Chat view.
 
 ## Quick reference
 

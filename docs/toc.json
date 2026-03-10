@@ -100,7 +100,20 @@
       ["Overview", "/docs/copilot/overview"],
       ["Setup", "/docs/copilot/setup"],
       ["Quickstart", "/docs/copilot/getting-started"],
-      ["Concepts", "/docs/copilot/core-concepts"],
+      ["", "", {
+        "name": "Concepts",
+        "area": "copilot/concepts",
+        "noCollapse": false,
+        "topics": [
+          ["Overview", "/docs/copilot/concepts/overview"],
+          ["Language Models", "/docs/copilot/concepts/language-models"],
+          ["Context", "/docs/copilot/concepts/context"],
+          ["Tools", "/docs/copilot/concepts/tools"],
+          ["Agents", "/docs/copilot/concepts/agents"],
+          ["Customization", "/docs/copilot/concepts/customization"],
+          ["Trust & Safety", "/docs/copilot/concepts/trust-and-safety"]
+        ]
+      }],
       ["Best Practices", "/docs/copilot/best-practices"],
       ["", "", {
         "name": "Agents",

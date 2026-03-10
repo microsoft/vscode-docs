@@ -16,49 +16,9 @@ keywords:
 
 Tools extend agents in Visual Studio Code with specialized functionality for accomplishing specific tasks like searching code, running commands, fetching web content, or invoking APIs. VS Code supports three types of tools: built-in tools, Model Context Protocol (MCP) tools, and extension tools.
 
-This article describes the different types of tools available in VS Code, how to use them in your chat prompts, and how to manage tool invocations and approvals.
+For background on tool types and how tools work in the agent loop, see [Tools concepts](/docs/copilot/concepts/tools.md).
 
-<video src="../images/chat-tools/chat-tools-picker.mp4" title="Video showing how to select and configure tools in the chat tools picker." loop controls muted poster="../images/chat-tools/chat-tools-picker.png"></video>
-
-## Types of tools
-
-VS Code supports three types of tools that you can use in chat:
-
-<details>
-<summary>Built-in tools</summary>
-
-VS Code provides a comprehensive set of built-in tools that are automatically available in chat. These tools cover common development tasks and are optimized for working within your workspace.
-
-Built-in tools don't require any installation or configuration and are available as soon as you start using chat. For example, browser tools enable agents to interact with web pages in the integrated browser to test and validate web applications.
-
-For a complete list of built-in tools and their descriptions, see the [Chat tools reference](/docs/copilot/reference/copilot-vscode-features.md#chat-tools). To learn how to use browser tools for testing web apps, see [test web apps with browser agent tools](/docs/copilot/guides/browser-agent-testing-guide.md).
-
-</details>
-
-<details>
-<summary>MCP tools</summary>
-
-Model Context Protocol (MCP) is an open standard that enables AI models to use external tools and services through a unified interface. MCP servers provide tools that you can add to VS Code to extend chat with extra capabilities.
-
-You need to install and configure MCP servers before you can use their tools in chat. MCP servers can run locally on your machine or be hosted remotely. MCP tools can also return interactive UI components via MCP Apps.
-
-Learn more about [configuring MCP servers in VS Code](/docs/copilot/customization/mcp-servers.md).
-
-> [!IMPORTANT]
-> Your organization might have disabled the use of MCP servers in VS Code or restricted which MCP servers you can use. Contact your admin for more information.
-
-</details>
-
-<details>
-<summary>Extension tools</summary>
-
-VS Code extensions can contribute tools that integrate deeply with the editor. Extension tools use the Language Model Tools API to provide specialized functionality while accessing the full range of VS Code extension APIs.
-
-Extension tools are automatically available when you install an extension that contributes them. Users don't need separate installation or configuration beyond installing the extension itself.
-
-For developers looking to create extension tools, see the [Language Model Tools API guide](/api/extension-guides/ai/tools.md).
-
-</details>
+This article describes how to use tools in your chat prompts and how to manage tool invocations and approvals.
 
 ## Enable tools for chat
 

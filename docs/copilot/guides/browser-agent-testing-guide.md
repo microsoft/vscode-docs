@@ -164,6 +164,6 @@ Now that you understand how browser agent tools work, try these scenarios to exp
 ## Related resources
 
 * [Integrated browser](/docs/debugtest/integrated-browser.md)
-* [Core concepts of AI in VS Code](/docs/copilot/core-concepts.md)
+* [Core concepts of AI in VS Code](/docs/copilot/concepts/overview.md)
 * [Agents overview](/docs/copilot/agents/overview.md)
 * [Test with Copilot](/docs/copilot/guides/test-with-copilot.md)

@@ -6,11 +6,11 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Planning with agents in VS Code
 
-Agents in Visual Studio Code help you execute complex coding tasks autonomously. The plan agent enables you to create detailed implementation plans before starting the implementation to ensure all requirements are met. With todo lists, the agent can ensure it stays focused on the overall goals and tracks progress effectively.
+The plan agent enables you to create detailed implementation plans before starting the implementation to ensure all requirements are met. With todo lists, the agent can ensure it stays focused on the overall goals and tracks progress effectively.
 
-Using plans and todos lets you structure and review details of the implementation with the agent before coding starts, improving the quality and reliability of the generated code. The plan and todos also provide better guidance to the agent to work through more complex and longer tasks in a systematic way.
+For background on how the plan agent fits into the agent architecture, see [Agents concepts](/docs/copilot/concepts/agents.md#planning).
 
-This article explains how to research and plan development tasks with agents in VS Code, including the plan agent and todo lists.
+This article explains how to use the plan agent and todo lists in VS Code.
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Plan a feature with agents">
 Use the Plan agent to create a structured implementation plan for a new feature.
@@ -19,20 +19,7 @@ Use the Plan agent to create a structured implementation plan for a new feature.
 
 </div>
 
-## Plan agent for detailed task research
-
-The built-in plan agent collaborates with you to create detailed implementation plans before executing them. This ensures that all requirements are considered and addressed before any code changes are made. The plan agent does not make any code changes until the plan is reviewed and approved by you. Once approved, you can hand off the plan to the default agent or save the plan for further refinement, review, or team discussions.
-
-The plan agent is designed to:
-
-* Research the task comprehensively using read-only tools and codebase analysis to identify requirements and constraints
-* Ask clarifying questions interactively to resolve ambiguities before drafting the plan
-* Break down the task into manageable, actionable steps with clear verification criteria and documented decisions
-* Present a concise plan draft, based on a standardized plan format, for user review and iteration
-
-The plan agent uses a 4-phase iterative workflow: **Discovery** (research) → **Alignment** (ask questions) → **Design** (draft plan) → **Refinement** (iterate). Questions are asked through interactive prompts that pause the agent until you respond, ensuring better alignment with your intent before code changes are made.
-
-### How to plan a task
+## How to plan a task
 
 To plan a task, use the built-in **Plan** agent in the Chat view, describe your task, and iterate on the generated plan.
 

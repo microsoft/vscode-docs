@@ -18,9 +18,7 @@ Keywords:
 
 [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) is an open standard for connecting AI models to external tools and services. In Visual Studio Code, MCP servers provide [tools](/docs/copilot/agents/agent-tools.md) for tasks like file operations, databases, or external APIs. MCP servers can also provide [resources, prompts, and interactive apps](#other-mcp-capabilities).
 
-VS Code lets you install MCP servers from an MCP server gallery. By default, this gallery shows servers from the [GitHub MCP server registry](https://github.com/mcp). Alternatively, you can manually add MCP servers by updating the `mcp.json` configuration file in your workspace or user profile.
-
-When you add an MCP server, VS Code automatically makes the MCP server [tools](/docs/copilot/agents/agent-tools.md), prompts, and resources available in chat.
+For background on how MCP fits into the AI customization framework, see [Customization concepts](/docs/copilot/concepts/customization.md#mcp) and [Tools concepts](/docs/copilot/concepts/tools.md).
 
 This article covers how to add, configure, and manage MCP servers. To learn about using tools in chat, see [Use tools with agents](/docs/copilot/agents/agent-tools.md).
 

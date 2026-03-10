@@ -8,28 +8,7 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 
 By providing the right context, you can get more relevant and accurate responses from the AI in VS Code. In this article, you learn how to manage context in chat, including how to use #-mentions to reference files, folders, and symbols, how to reference web content, or how you can use custom instructions to guide the AI's responses.
 
-## Workspace indexing
-
-VS Code uses an index to quickly and accurately search your codebase for relevant code snippets. This index can either be maintained by GitHub or stored locally on your machine.
-
-The following workspace indexing options are available:
-
-* **Remote index**: if your code is hosted in a GitHub repository, you can build a remote index to search your codebase quickly, even for large codebases.
-* **Local index**: use an advanced semantic index that is stored on your local machine to provide fast and accurate search results for your codebase.
-* **Basic index**: if local indexing is not available, you can use simpler algorithms that are optimized to work locally for larger codebases.
-
-Learn more about [workspace indexing](/docs/copilot/reference/workspace-context.md).
-
-## Implicit context
-
-VS Code automatically provides context to the chat prompt based on your current activity. The following information is implicitly included in the chat context:
-
-* The currently selected text in the active editor.
-* The file name or notebook name of the active editor.
-* If you're using the **Ask** agent, the active file is automatically included as context.
-* When using **Agent**, it decides autonomously if the active file needs to be added to the chat context based on your prompt.
-
-![Screenshot of the Chat view, showing the active file as a suggested context item in the chat input box.](./images/copilot-chat/chat-context-current-file.png)
+For background on what context is and how VS Code assembles it, see [Context concepts](/docs/copilot/concepts/context.md).
 
 ## #-mentions
 
