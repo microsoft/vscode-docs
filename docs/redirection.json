@@ -1,4 +1,5 @@
 [
+    { "from": "/docs/copilot/core-concepts", "to": "/docs/copilot/concepts/overview", "status": 301 },
     { "from": "/docs/copilot/agents/background-agents", "to": "/docs/copilot/agents/copilot-cli", "status": 301 },
     { "from": "/docs/copilot/setup-simplified", "to": "/docs/copilot/setup", "status": 301 },
     { "from": "/docs/copilot/copilot-tips-and-tricks", "to": "/docs/copilot/best-practices", "status": 301 },

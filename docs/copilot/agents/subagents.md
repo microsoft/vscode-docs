@@ -15,24 +15,11 @@ Keywords:
 
 # Subagents in Visual Studio Code
 
-When working on complex tasks, you can delegate subtasks to subagents. A subagent is an independent AI agent that performs focused work, such as researching a topic, analyzing code, or reviewing changes, and reports the results back to the main agent. Because each subagent runs in its own context window, it doesn't add noise to your main conversation. VS Code can also run multiple subagents in parallel to speed up multi-part tasks.
+When working on complex tasks, you can delegate subtasks to subagents. A subagent is an independent AI agent that performs focused work, such as researching a topic, analyzing code, or reviewing changes, and reports the results back to the main agent.
 
-For example, the built-in [Plan agent](/docs/copilot/agents/planning.md) uses subagents to perform research and analysis before creating an implementation plan. Each subagent works autonomously and returns only its findings. The Plan agent synthesizes these findings into a final plan.
+For background on subagent concepts (context isolation, synchronous and parallel execution), see [Agents concepts](/docs/copilot/concepts/agents.md#subagents).
 
-By default, subagents use the same model and tools as the main chat session but start with a clean context window. Subagents don't inherit the main agent's instructions or conversation history. They receive only the task prompt you provide. By running a [custom agent](/docs/copilot/customization/custom-agents.md) as a subagent, you can apply specialized behavior, tools, and models for specific tasks.
-
-## How subagent execution works
-
-The following diagram shows how subagents work. The main agent receives your task, delegates subtasks to one or more subagents that each run in their own context window, and then combines the results.
-
-![Diagram that shows the subagent execution flow where the main agent delegates subtasks to subagents running in isolated context windows and receives result summaries back.](../images/subagents/subagent-execution-flow.png)
-
-Subagents are **synchronous**: the main agent waits for subagent results before continuing. This blocking behavior is intentional: subagent findings typically inform the next step of the task. Without the subagent results, the main agent lacks the information it needs to proceed effectively.
-
-However, VS Code can spawn **multiple subagents in parallel**. When you request parallel analysis (for example, "analyze security, performance, and accessibility simultaneously"), VS Code runs those subagents concurrently and waits for all results before the main agent continues.
-
-> [!NOTE]
-> Subagents are different from starting a new agent session. A new session creates an entirely separate conversation with no connection to your current task. Subagents maintain the relationship: they do focused work and report back to the main agent, which stays in control of the overall task.
+This article explains how to use subagents in VS Code, including usage scenarios, invocation patterns, and how to run custom agents as subagents.
 
 ### What the user sees
 
@@ -44,20 +31,6 @@ When a subagent runs, it appears in the chat as a collapsible tool call. By defa
 Select the subagent tool call to expand it and view the full details, including all tool calls the subagent made, the prompt passed to the subagent, and the returned result.
 
 This visibility gives you control over how much detail you see without cluttering your main conversation with intermediate steps.
-
-## Why use subagents?
-
-Subagents help you manage complex AI-assisted workflows more effectively:
-
-* **Keep main agent context focused**: The main agent's context window accumulates information from every prompt and response. By offloading research, analysis, or implementation tasks to subagents, you prevent context bloat and help the main agent stay focused on orchestrating the overall task.
-
-* **Improve performance with parallel execution**: VS Code can run multiple subagents simultaneously. For example, when implementing a feature, you can research authentication patterns, analyze existing code structure, and review documentation in parallel rather than sequentially.
-
-* **Isolate experimental or exploratory work**: Subagents are ideal for tasks where you want to explore options without committing to a direction. If a subagent's research leads to a dead end, only the final summary affects your main context - not all the intermediate exploration.
-
-* **Apply specialized behavior for specific tasks**: By combining subagents with [custom agents](/docs/copilot/customization/custom-agents.md), you can apply specialized tools, instructions, and models for specific subtasks. For example, use a security-focused custom agent to review code for vulnerabilities, while a documentation agent generates user guides.
-
-* **Reduce token usage and costs**: Because subagents have their own context windows, they don't add their full conversation history to the main agent's context. Only the final result is returned, which can significantly reduce overall token consumption for complex tasks.
 
 ## Usage scenarios
 

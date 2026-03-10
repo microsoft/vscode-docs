@@ -16,7 +16,11 @@ Keywords:
 
 # Agent hooks in Visual Studio Code (Preview)
 
-Hooks enable you to execute custom shell commands at key lifecycle points during agent sessions. Use hooks to automate workflows, enforce security policies, validate operations, and integrate with external tools. Hooks run deterministically and can control agent behavior, including blocking tool execution or injecting context into the conversation.
+Hooks enable you to execute custom shell commands at key lifecycle points during agent sessions. Use hooks to automate workflows, enforce security policies, validate operations, and integrate with external tools.
+
+For background on how hooks fit into the AI customization framework, see [Customization concepts](/docs/copilot/concepts/customization.md#hooks).
+
+This article explains how to configure and use hooks in VS Code.
 
 > [!NOTE]
 > Agent hooks are currently in Preview. The configuration format and behavior might change in future releases.

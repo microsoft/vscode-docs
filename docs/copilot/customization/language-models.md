@@ -14,7 +14,11 @@ Keywords:
 ---
 # AI language models in VS Code
 
-Visual Studio Code offers different built-in language models that are optimized for different tasks. You can also bring your own language model API key to use models from other providers. This article describes how to change the language model for chat or inline suggestions, and how to use your own API key.
+Visual Studio Code offers different built-in language models that are optimized for different tasks. You can also bring your own language model API key to use models from other providers.
+
+For background on how language models work and their key characteristics, see [Language models concepts](/docs/copilot/concepts/language-models.md).
+
+This article describes how to change the language model for chat or inline suggestions and how to use your own API key.
 
 ## Choose the right model for your task
 

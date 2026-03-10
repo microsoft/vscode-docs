@@ -17,8 +17,8 @@
       "type": "documentation",
       "title": "AI core concepts",
       "description": "Get an overview of the core concepts and how AI agents work in VS Code.",
-      "link": "/docs/copilot/core-concepts",
-      "image": "/assets/docs/copilot/core-concepts/agent-loop.png"
+      "link": "/docs/copilot/concepts/overview",
+      "image": "/assets/docs/copilot/concepts/agent-loop.png"
     },
     {
       "type": "tutorial",

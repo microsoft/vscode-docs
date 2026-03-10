@@ -40,14 +40,9 @@ Use agents in VS Code to generate a tic-tac-toe game in your language of choice.
 
 ## What are agents?
 
-Agents perform complete coding tasks end-to-end. They analyze your project across files, execute coordinated changes, run commands, and adapt based on the results. Whether you're implementing a new feature, performing an architecture-level refactoring, or migrating between frameworks, agents handle the full multi-step workflow autonomously.
+Agents perform complete coding tasks end-to-end. They analyze your project across files, execute coordinated changes, run commands, and adapt based on the results. You give an agent a high-level task, and it breaks the task down into steps, executes those steps with tools, and self-corrects when it hits errors.
 
-<div class="docs-action" data-show-in-doc="true" data-show-in-sidebar="false" title="Learn about AI core concepts">
-Get an overview of the core concepts and how AI agents work in VS Code.
-
-* [Learn about AI core concepts](/docs/copilot/core-concepts.md)
-
-</div>
+For background on the agent loop, agent types, subagents, memory, and planning, see [Agents concepts](/docs/copilot/concepts/agents.md).
 
 For example, imagine you have a failing test. Instead of suggesting a fix, an agent can:
 
@@ -56,22 +51,7 @@ For example, imagine you have a failing test. Instead of suggesting a fix, an ag
 * Run the tests again to verify the fix works
 * Commit the changes
 
-You give an agent a high-level task, and it breaks the task down into steps, executes those steps with tools, and self-corrects when it hits errors.
-
 You can run multiple agent sessions in parallel, each focused on a different task. When you create a new agent session, the previous session remains active, and you can switch between tasks via the [agent sessions list](#agent-sessions-list).
-
-### Key concepts
-
-The following concepts describe different aspects of working with agents in VS Code:
-
-| Concept | Description | Example |
-|---|---|---|
-| **[Agent type](#types-of-agents)** | *Where* and *how* an agent runs: [local](/docs/copilot/agents/local-agents.md), [Copilot CLI](/docs/copilot/agents/copilot-cli.md), [cloud](/docs/copilot/agents/cloud-agents.md), or [third-party](/docs/copilot/agents/third-party-agents.md). | Start a cloud agent for tasks that require team collaboration. |
-| **[Built-in agent](/docs/copilot/agents/local-agents.md#builtin-agents)** | A preconfigured agent in VS Code: **Agent**, **Plan**, and **Ask**. These agents are ready to use without any setup. | Select the Plan agent to create a structured plan for building a new feature. |
-| **[Custom agent](/docs/copilot/customization/custom-agents.md)** | A reusable *configuration* (defined in an `.agent.md` file) that gives an agent a specific role, tools, and instructions. Custom agents work with any agent type. | Create a "Security Reviewer" custom agent with read-only tools that focuses on identifying vulnerabilities. |
-| **[Subagent](/docs/copilot/agents/subagents.md)** | A child agent spawned within a session to handle a subtask in its own isolated context window. | An agent researching a topic spawns a subagent to gather information, then receives only the summary back. |
-| **[Hand off](#hand-off-a-session-to-another-agent)** | Transferring a session from one agent type to another, carrying over the conversation history. | Start planning with a local agent, then hand off to a cloud agent to implement the plan as a pull request. |
-| **[Memory](/docs/copilot/agents/memory.md)** | Persistent notes that agents save and recall across conversations. Organized in three scopes: user, repository, and session. | Ask the agent to remember your coding preferences so it applies them in future sessions. |
 
 ## Types of agents
 
