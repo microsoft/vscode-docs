@@ -81,7 +81,7 @@ Set up your project for AI with `/init` to generate custom instructions tailored
 
 </div>
 
-Implement AI customizations incrementally. Start with the basics and add more as needed.
+Implement AI customizations incrementally. Start with the basics and add more as needed. For a hands-on walkthrough, see the [Customize AI for your project](/docs/copilot/guides/customize-copilot-guide.md) guide.
 
 1. **Initialize your project**: type `/init` in chat to generate a `.github/copilot-instructions.md` file with coding standards tailored to your codebase.
 

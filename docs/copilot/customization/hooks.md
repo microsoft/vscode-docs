@@ -43,6 +43,27 @@ Hooks provide deterministic, code-driven automation. Unlike instructions or cust
 
 * **Control approvals**: Automatically approve safe operations while requiring confirmation for sensitive ones.
 
+## Quick start: your first hook
+
+The following example creates a hook that runs Prettier after every file edit. Create a `.github/hooks/format.json` file in your workspace:
+
+```json
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "type": "command",
+        "command": "npx prettier --write \"$TOOL_INPUT_FILE_PATH\""
+      }
+    ]
+  }
+}
+```
+
+After you save this file, VS Code automatically loads the hook. The next time the agent edits a file, Prettier runs on the changed file. Check the  **GitHub Copilot Chat Hooks** output channel to verify the hook executed.
+
+For more complex hooks that use custom scripts, see [Usage scenarios](#usage-scenarios).
+
 ## Hook lifecycle events
 
 VS Code supports eight hook events that fire at specific points during an agent session:

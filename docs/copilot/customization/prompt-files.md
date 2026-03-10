@@ -23,6 +23,9 @@ Use prompt files to:
 * Override default behavior of a custom agent, such as creating a minimal implementation plan or generating mockups for API calls
 
 > [!TIP]
+> **Prompt files, agents, or skills?** All three can be invoked as slash commands. Use prompt files for lightweight, single-task prompts. Use [custom agents](/docs/copilot/customization/custom-agents.md) when you need a persistent persona with its own tool restrictions and handoffs. Use [agent skills](/docs/copilot/customization/agent-skills.md) when you need a portable, multi-file capability with scripts and resources.
+
+> [!TIP]
 > Use the [Chat Customizations editor](/docs/copilot/customization/overview.md#chat-customizations-editor) (Preview) to discover, create, and manage all your chat customizations in one place. Run **Chat: Open Chat Customizations** from the Command Palette.
 
 ## Prompt file locations
@@ -182,13 +185,7 @@ The list of available tools in chat is determined by the following priority orde
 
 VS Code can sync your user prompt files across multiple devices by using [Settings Sync](/docs/configure/settings-sync.md).
 
-To sync your user prompt files, enable Settings Sync for prompt and instruction files:
-
-1. Make sure you have [Settings Sync](/docs/configure/settings-sync.md) enabled.
-
-1. Run **Settings Sync: Configure** from the Command Palette (`kb(workbench.action.showCommands)`).
-
-1. Select **Prompts and Instructions** from the list of settings to sync.
+To sync your user prompt files, enable Settings Sync and run **Settings Sync: Configure** from the Command Palette (`kb(workbench.action.showCommands)`). Select **Prompts and Instructions** from the list of settings to sync.
 
 ## Tips for writing effective prompts
 

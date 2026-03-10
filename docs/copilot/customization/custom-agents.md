@@ -23,6 +23,9 @@ You can also use handoffs to create guided workflows between agents. Transition 
 This article describes how to create and manage custom agents in VS Code.
 
 > [!TIP]
+> **Agents, prompt files, or skills?** Use custom agents when you need a persistent persona with specific tool restrictions, model preferences, or handoffs between roles. For one-off tasks that don't need tool restrictions, use [prompt files](/docs/copilot/customization/prompt-files.md). For portable, reusable capabilities with scripts and resources, use [agent skills](/docs/copilot/customization/agent-skills.md).
+
+> [!TIP]
 > Use the [Chat Customizations editor](/docs/copilot/customization/overview.md#chat-customizations-editor) (Preview) to discover, create, and manage all your chat customizations in one place. Run **Chat: Open Chat Customizations** from the Command Palette.
 
 ## What are custom agents?
@@ -275,13 +278,7 @@ If you have multiple custom agents, you can customize which ones appear in the a
 
 ## Tool list priority
 
-You can specify the list of available tools for both a custom agent and prompt file by using the `tools` metadata field. Prompt files can also reference a custom agent by using the `agent` metadata field.
-
-The list of available tools in chat is determined by the following priority order:
-
-1. Tools specified in the prompt file (if any)
-2. Tools from the referenced custom agent in the prompt file (if any)
-3. Default tools for the selected agent (if any)
+When you use `tools` in both a custom agent and a prompt file, the prompt file's tools take precedence. For the full priority order, see [Tool list priority](/docs/copilot/customization/prompt-files.md#tool-list-priority) in the prompt files documentation.
 
 ## Share custom agents across teams
 
@@ -321,6 +318,10 @@ To identify the source of a custom agent:
 
 > [!TIP]
 > Use the chat customization diagnostics view to see all loaded custom agents, prompt files, instruction files, and skills along with any errors. Right-click in the Chat view and select **Diagnostics**. Learn more about [troubleshooting AI in VS Code](/docs/copilot/troubleshooting.md).
+
+## Security considerations
+
+Custom agents can restrict which tools are available, which gives you control over what the AI can do. For security-sensitive workflows, create agents with read-only tools to prevent unintended modifications. When sharing agents in a repository, review the tool list and instructions to ensure they follow the principle of least privilege.
 
 ## Related resources
 

@@ -173,7 +173,7 @@ Instructions files are Markdown files with the `.instructions.md` extension. The
 |-------|----------|-------------|
 | `name` | No | Display name shown in the UI. Defaults to the file name. |
 | `description` | No | Short description shown on hover in the Chat view. |
-| `applyTo` | No | Glob pattern that defines which files the instructions apply to automatically, relative to the workspace root. Use `**` to apply to all files. If not specified, the instructions are not applied automatically — you can still add them manually to a chat request. |
+| `applyTo` | No | Glob pattern that defines which files the instructions apply to automatically, relative to the workspace root. Use `**` to apply to all files. If not specified, the instructions are not applied automatically, but you can still add them manually to a chat request. |
 
 The body contains the instructions in Markdown format. To reference agent tools, use the `#tool:<tool-name>` syntax (for example, `#tool:githubRepo`).
 
@@ -370,13 +370,7 @@ Learn how you can [add custom instructions for your organization](https://docs.g
 
 VS Code can sync your user instructions files across multiple devices by using [Settings Sync](/docs/configure/settings-sync.md).
 
-To sync your user instructions files, enable Settings Sync for prompt and instruction files:
-
-1. Make sure you have [Settings Sync](/docs/configure/settings-sync.md) enabled.
-
-1. Run **Settings Sync: Configure** from the Command Palette (`kb(workbench.action.showCommands)`).
-
-1. Select **Prompts and Instructions** from the list of settings to sync.
+To sync your user instructions files, enable Settings Sync and run **Settings Sync: Configure** from the Command Palette (`kb(workbench.action.showCommands)`). Select **Prompts and Instructions** from the list of settings to sync.
 
 ## Specify custom instructions in settings
 
@@ -428,7 +422,7 @@ When multiple types of custom instructions exist, they are all provided to the A
 
 * Keep your instructions short and self-contained. Each instruction should be a single, simple statement. If you need to provide multiple pieces of information, use multiple instructions.
 
-* Include the reasoning behind rules. When instructions explain _why_ a convention exists, the AI makes better decisions in edge cases. For example: "Use `date-fns` instead of `moment.js` — moment.js is deprecated and increases bundle size."
+* Include the reasoning behind rules. When instructions explain _why_ a convention exists, the AI makes better decisions in edge cases. For example: "Use `date-fns` instead of `moment.js` because moment.js is deprecated and increases bundle size."
 
 * Show preferred and avoided patterns with concrete code examples. The AI responds more effectively to examples than to abstract rules.
 

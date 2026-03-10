@@ -33,7 +33,25 @@ An agent plugin can bundle one or more of the following customization types:
 * **Hooks**: [hooks](/docs/copilot/customization/hooks.md) that execute shell commands at agent lifecycle points
 * **MCP servers**: [MCP servers](/docs/copilot/customization/mcp-servers.md) for external tool integrations
 
+For example, a testing plugin might include a `test-runner` skill with scripts, a `test-reviewer` agent with read-only tools, and an MCP server for a test reporting dashboard. The plugin directory structure looks like this:
+
+```text
+my-testing-plugin/
+  plugin.json              # Plugin metadata and configuration
+  skills/
+    test-runner/
+      SKILL.md             # Testing skill instructions
+      run-tests.sh         # Supporting script
+  agents/
+    test-reviewer.agent.md # Code review agent
+  hooks/
+    post-test.json         # Hook to run after tests
+```
+
 Once installed, plugin-provided customizations appear alongside your locally defined ones. For example, skills from a plugin show up in the **Configure Skills** menu, and MCP servers from a plugin appear in the MCP server list.
+
+> [!CAUTION]
+> Plugins can include hooks and MCP servers that run code on your machine. Review the plugin contents and publisher before installing, especially for plugins from community marketplaces.
 
 ## Discover and install plugins
 
