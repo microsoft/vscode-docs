@@ -15,6 +15,8 @@ Keywords:
 
 # Monitor agent usage with OpenTelemetry
 
+This article describes how to enable and configure OpenTelemetry monitoring for Copilot Chat agent interactions in VS Code.
+
 Copilot Chat can export traces, metrics, and events via [OpenTelemetry](https://opentelemetry.io/) (OTel), giving you visibility into agent interactions, LLM calls, tool executions, and token usage. All signal names and attributes follow the [OTel GenAI Semantic Conventions](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/gen-ai/), so the data works with any OTel-compatible backend.
 
 OTel monitoring is off by default with zero runtime overhead. When disabled, the OTel SDK is not loaded at all. No data is emitted unless you explicitly enable it, and data goes only where you configure it.
@@ -99,9 +101,9 @@ To capture full content, enable the `setting(github.copilot.chat.otel.captureCon
 
 OTel activates when any of the following conditions is true:
 
-- `setting(github.copilot.chat.otel.enabled)` is `true`
-- `COPILOT_OTEL_ENABLED=true`
-- `OTEL_EXPORTER_OTLP_ENDPOINT` is set
+* `setting(github.copilot.chat.otel.enabled)` is `true`
+* `COPILOT_OTEL_ENABLED=true`
+* `OTEL_EXPORTER_OTLP_ENDPOINT` is set
 
 ### VS Code settings
 
@@ -196,6 +198,8 @@ Set the auth header with the `OTEL_EXPORTER_OTLP_HEADERS` environment variable. 
 Any OTLP-compatible backend works, including [Grafana Tempo](https://grafana.com/oss/tempo/), [Honeycomb](https://www.honeycomb.io/), and [Datadog](https://www.datadoghq.com/). Refer to each backend's documentation for OTLP ingestion setup.
 
 ## Security and privacy
+
+OTel monitoring is off by default and emits no data until you explicitly enable it. You control what is collected and where it goes.
 
 | Aspect | Detail |
 |---|---|
