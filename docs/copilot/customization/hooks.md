@@ -87,11 +87,12 @@ Hooks are configured in JSON files stored in your workspace or user directory.
 
 VS Code searches for hook configuration files in these locations:
 
-* **Workspace**: `.github/hooks/*.json` - project-specific hooks shared with your team
-* **Workspace**: `.claude/settings.local.json` - local workspace hooks (not committed)
-* **Workspace**: `.claude/settings.json` - workspace-level hooks
-* **User**: `~/.claude/settings.json` - personal hooks applied across all workspaces
-* **Custom agent frontmatter**: `hooks` field in `.agent.md` files - hooks scoped to a specific [custom agent](/docs/copilot/customization/custom-agents.md). See [Agent-scoped hooks](#agentscoped-hooks).
+| Scope | Default file location |
+|-------|-----------------------|
+| Workspace | `.github/hooks/*.json` |
+| Workspace (Claude format) | `.claude/settings.json`, `.claude/settings.local.json` |
+| User | `~/.claude/settings.json` |
+| Custom agent | `hooks` field in `.agent.md` frontmatter (see [Agent-scoped hooks](#agent-scoped-hooks)) |
 
 Workspace hooks take precedence over user hooks for the same event type.
 

@@ -135,7 +135,8 @@ You can define instructions for a specific workspace or at the user level, where
 | Scope | Default file location |
 |-------|-----------------------|
 | Workspace | `.github/instructions` folder |
-| User profile | `prompts` folder of the current [VS Code profile](/docs/configure/profiles.md) |
+| Workspace (Claude format) | `.claude/rules` folder |
+| User profile | `~/.copilot/instructions`, `~/.claude/rules`, `instructions` folder of the current [VS Code profile](/docs/configure/profiles.md) |
 
 VS Code searches these folders recursively, so you can organize instructions files in subdirectories. For example, you can group instructions by team, language, or module:
 
@@ -199,17 +200,13 @@ To create an instructions file:
 > [!TIP]
 > Type `/instructions` in the chat input to quickly open the **Configure Instructions and Rules** menu.
 
-1. In the Chat view, select **Configure Chat** (gear icon) > **Chat Instructions**, and then select **New instruction file**.
+1. In the Chat view, select **Configure Chat** (gear icon) > **Instructions & Rules**, and then select **New instruction file**.
 
     ![Screenshot showing the Chat view, and Configure Chat menu, highlighting the Configure Chat button.](../images/customization/configure-chat-instructions.png)
 
     Alternatively, use the **Chat: New Instructions File** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
 1. Choose the location where to create the instructions file.
-
-    * **Workspace**: create the instructions file in the `.github/instructions` folder of your workspace to only use it within that workspace. You can also create subdirectories within this folder to organize your instructions files. Add more instruction folders for your workspace with the `setting(chat.instructionsFilesLocations)` setting.
-
-    * **User profile**: create the instructions files in the [current profile folder](/docs/configure/profiles.md) to use it across all your workspaces.
 
 1. Enter a file name for your instructions file. This is the default name that is used in the UI.
 
@@ -375,40 +372,15 @@ To sync your user instructions files, enable Settings Sync and run **Settings Sy
 ## Specify custom instructions in settings
 
 > [!NOTE]
-> Support for settings-based instructions might be removed in the future. We recommend using file-based instructions for instead.
+> Settings-based code generation and test generation instructions are deprecated as of VS Code 1.102. Use [file-based instructions](#types-of-instruction-files) instead.
 
-For specialized scenarios like code review or commit message generation, you can use VS Code settings to define custom instructions. For general coding instructions, use [file-based instructions](#types-of-instruction-files) instead.
+For code review, commit messages, and pull request descriptions, you can still use VS Code settings to define custom instructions. These settings accept an array of objects with either a `text` property (inline instruction) or a `file` property (path to a Markdown file).
 
-<details>
-<summary>Settings reference</summary>
-
-| Type of instruction | Setting name |
-|---------------------|--------------|
+| Scenario | Setting |
+|----------|---------|
 | Code review | `setting(github.copilot.chat.reviewSelection.instructions)` |
-| Commit message generation | `setting(github.copilot.chat.commitMessageGeneration.instructions)` |
-| Pull request title and description generation | `setting(github.copilot.chat.pullRequestDescriptionGeneration.instructions)` |
-| Code generation (deprecated)* | `setting(github.copilot.chat.codeGeneration.instructions)` |
-| Test generation (deprecated)* | `setting(github.copilot.chat.testGeneration.instructions)` |
-
-_\* The `codeGeneration` and `testGeneration` settings are deprecated as of VS Code 1.102. Use instructions files instead (`.github/copilot-instructions.md` or `*.instructions.md`)._
-
-You can define the custom instructions as text in the settings value (`text` property) or reference an external file (`file` property) in your workspace.
-
-The following code snippet shows how to define a set of instructions in the `settings.json` file.
-
-```json
-{
-    "github.copilot.chat.pullRequestDescriptionGeneration.instructions": [
-        { "text": "Always include a list of key changes." }
-    ],
-    "github.copilot.chat.reviewSelection.instructions": [
-        { "file": "guidance/backend-review-guidelines.md" },
-        { "file": "guidance/frontend-review-guidelines.md" }
-    ]
-}
-```
-
-</details>
+| Commit messages | `setting(github.copilot.chat.commitMessageGeneration.instructions)` |
+| Pull request descriptions | `setting(github.copilot.chat.pullRequestDescriptionGeneration.instructions)` |
 
 ## Instruction priority
 

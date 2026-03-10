@@ -40,7 +40,11 @@ Start by generating an instructions file that captures your project's coding sta
 
 1. Type `/init` and press `kbstyle(Enter)`.
 
-1. Copilot analyzes your project structure and generates a `.github/copilot-instructions.md` file tailored to your codebase.
+    ```prompt
+    /init
+    ```
+
+1. VS Code analyzes your project structure and generates a `.github/copilot-instructions.md` file tailored to your codebase.
 
 1. Review the generated file and customize it. For example, add a rule about your preferred import style:
 
@@ -61,9 +65,13 @@ Start by generating an instructions file that captures your project's coding sta
 
 When different parts of your codebase follow different conventions, use instructions files with `applyTo` patterns to target specific file types.
 
-1. Create the directory `.github/instructions/` in your workspace.
+1. In the Chat view, select **Configure Chat** (gear icon) > **Instructions & Rules**, and then select **New instruction file**.
 
-1. Create a file `.github/instructions/react.instructions.md` with the following content:
+1. Select `.github/instructions/` to store the instructions in your project.
+
+1. Enter a file name, such as `react`.
+
+1. Add the following content to the file:
 
     ```markdown
     ---
@@ -88,9 +96,13 @@ When different parts of your codebase follow different conventions, use instruct
 
 Prompt files encode common tasks as slash commands you can invoke in chat. Create one for a task you perform regularly.
 
-1. Create the directory `.github/prompts/` in your workspace if it does not already exist.
+1. In the Chat view, select **Configure Chat** (gear icon) > **Prompt Files**, and then select **New prompt file**.
 
-1. Create a file `.github/prompts/create-component.prompt.md`:
+1. Select `.github/prompts/` to store the prompt file in your project.
+
+1. Enter a file name, such as `create-component`.
+
+1. Add the following content to the file:
 
     ```markdown
     ---
@@ -118,9 +130,13 @@ Prompt files encode common tasks as slash commands you can invoke in chat. Creat
 
 Custom agents let the AI adopt specialized personas with specific tool access. Create a code reviewer agent that can only read code, not modify it.
 
-1. Create the directory `.github/agents/` in your workspace if it does not already exist.
+1. In the Chat view, select **Configure Chat** (gear icon) > **Custom Agents**, and then select **Create new custom agent**.
 
-1. Create a file `.github/agents/reviewer.agent.md`:
+1. Select `.github/agents/` to store the agent in your project.
+
+1. Enter a file name, such as `reviewer`.
+
+1. Add the following content to the file:
 
     ```markdown
     ---

@@ -74,6 +74,18 @@ handoffs:
 
 When users see the handoff button and select it, they switch to the target agent with the prompt pre-filled. If `send: true`, the prompt automatically submits to start the next workflow step.
 
+## Custom agent file locations
+
+You can define custom agents for a specific workspace or at the user level, where they are available across all your workspaces.
+
+| Scope | Default file location |
+|-------|-----------------------|
+| Workspace | `.github/agents` folder |
+| Workspace (Claude format) | `.claude/agents` folder |
+| User profile | `~/.copilot/agents`, `agents` folder of the current [VS Code profile](/docs/configure/profiles.md) |
+
+You can configure additional file locations for workspace custom agent files with the `setting(chat.agentFilesLocations)` setting.
+
 ## Custom agent file structure
 
 Custom agent files are Markdown files and use the `.agent.md` extension and have the following structure.
@@ -243,12 +255,6 @@ You can create a custom agent file in your workspace or user profile.
 1. Select **Configure Custom Agents** from the agents dropdown and then select **Create new custom agent** or run the **Chat: New Custom Agent** command in the Command Palette (`kb(workbench.action.showCommands)`).
 
 1. Choose the location where the custom agent file should be created.
-
-    * **Workspace**: Create the custom agent definition file in the `.github/agents` folder of your workspace to only use it within that workspace.
-
-    * **User profile**: Create the custom agent definition file in the [current profile folder](/docs/configure/profiles.md) to use it across all your workspaces.
-
-    * **Workspace (Claude format)**: Create agent files in the `.claude/agents` folder for compatibility with Claude Code and other Claude-based tools.
 
     > [!TIP]
     > You can configure additional locations where VS Code searches for custom agent files by using the `setting(chat.agentFilesLocations)` setting. This is useful for sharing agents across projects or keeping them in a central location outside your workspace.

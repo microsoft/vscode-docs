@@ -131,11 +131,7 @@ To create a prompt file:
 
     Alternatively, use the **Chat: New Prompt File** or **Chat: New Untitled Prompt File** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
-1. Choose the scope of the prompt file:
-
-    * **Workspace**: creates the prompt file in the `.github/prompts` folder of your workspace to only use it within that workspace. Add more prompt folders for your workspace with the `setting(chat.promptFilesLocations)` setting.
-
-    * **User profile**: creates the prompt file in the [current profile folder](/docs/configure/profiles.md) to use it across all your workspaces.
+1. Choose the location where to create the prompt file.
 
 1. Enter a file name for your prompt file. This is the default name that appears when you type `/` in chat.
 
