@@ -1,14 +1,14 @@
 ---
 ContentId: 2e8a4b9c-3d1f-5e7a-9c2b-4f6d8e1a3b5c
 DateApproved: 3/9/2026
-MetaDescription: Step-by-step guide to customizing AI in VS Code with instructions, prompt files, custom agents, and MCP servers.
+MetaDescription: Step-by-step guide to customizing AI in VS Code with instructions, prompt files, custom agents, and skills.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - customization
 - instructions
 - prompt files
 - custom agents
-- mcp
+- skills
 - copilot
 - ai
 - tutorial
@@ -23,7 +23,7 @@ By the end, your project will have:
 * File-specific instructions for frontend code
 * A reusable prompt file for a common task
 * A custom agent with restricted tools
-* An MCP server for external tool access
+* A skill for a specialized capability
 
 ## Prerequisites
 
@@ -160,28 +160,35 @@ Custom agents let the AI adopt specialized personas with specific tool access. C
 > [!TIP]
 > You can add `handoffs` to your agent to create guided workflows. For example, hand off from a planning agent to an implementation agent. Learn more in [Custom agents](/docs/copilot/customization/custom-agents.md#handoffs).
 
-## Step 5: Connect an external tool with MCP
+## Step 5: Create a skill for a specialized capability
 
-MCP servers extend the AI with access to external tools and services. Add one from the built-in gallery.
+Skills are folders of instructions, scripts, and resources that Copilot loads when relevant to perform specialized tasks. Unlike instructions files that define coding standards, skills teach Copilot how to perform specific workflows.
 
-1. Open the Extensions view (`kb(workbench.view.extensions)`) and type `@mcp` in the search field.
+1. Create a `.github/skills/update-readme/` directory in your workspace.
 
-1. Browse the available MCP servers and select **Install** for **MarkItDown**, a tool that converts files like PDFs, Word documents, and spreadsheets to Markdown.
+1. Create a `SKILL.md` file in the directory with the following content:
 
-1. When prompted, confirm that you trust the server.
+    ```markdown
+    ---
+    name: update-readme
+    description: Update the project README to reflect recent code changes. Whenever code changes are made, this skill reviews the changes and updates the README with new features, usage instructions, and API references.
+    ---
+    # Update README
 
-1. Select the **Configure Tools** button in the chat input and then enable the MarkItDown tool to allow the agent to use it.
-
-1. Open the Chat view and enter a prompt that uses the server's tools. For example, with MarkItDown installed:
-
-    ```prompt
-    Convert the file report.pdf in my workspace to Markdown.
+    When updating the README:
+    1. Review recent code changes to identify new or modified features
+    2. Update the relevant sections (installation, usage, API reference)
+    3. Add entries for new commands, configuration options, or environment variables
+    4. Remove documentation for deleted or deprecated features
+    5. Keep the existing tone, structure, and formatting conventions
     ```
 
-**Verify it works**: The agent should invoke the MarkItDown tool and return the file content as Markdown.
+1. Save the file.
+
+**Verify it works**: In chat, ask Copilot to add a new feature to your project (for example, "add a health check endpoint"). When it generates the code, it should also automatically update the README with the new endpoint's documentation. You can also invoke the skill directly by typing `/update-readme` in the Chat view.
 
 > [!TIP]
-> You can also configure MCP servers manually by editing the `.vscode/mcp.json` file. Learn more in [Add and manage MCP servers](/docs/copilot/customization/mcp-servers.md).
+> Type `/create-skill` in chat to generate a skill with AI assistance. You can also extract a skill from an ongoing conversation by asking "create a skill from what we just did". Learn more in [Agent Skills](/docs/copilot/customization/agent-skills.md).
 
 ## What you built
 
@@ -197,13 +204,14 @@ your-project/
       create-component.prompt.md     # Reusable component scaffolding (Step 3)
     agents/
       reviewer.agent.md              # Read-only code reviewer (Step 4)
-  .vscode/
-    mcp.json                         # MCP server configuration (Step 5)
+    skills/
+      update-readme/
+        SKILL.md                     # README updater workflow (Step 5)
 ```
 
 ## Next steps
 
-* Explore [agent skills](/docs/copilot/customization/agent-skills.md) to create portable, multi-file capabilities with scripts and resources
+* Add [MCP servers](/docs/copilot/customization/mcp-servers.md) to extend the agent with external tools and services
 * Set up [hooks](/docs/copilot/customization/hooks.md) to automate tasks at agent lifecycle points, such as running a formatter after every file edit
 * Browse [agent plugins](/docs/copilot/customization/agent-plugins.md) to install pre-packaged customizations from community marketplaces
 * Share customizations with your team by committing the `.github/` directory to your repository
