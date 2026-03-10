@@ -20,7 +20,7 @@ Keywords:
 
 AI models have broad general knowledge but don't know your codebase or team practices. Think of the AI as a skilled new team member: it writes great code, but doesn't know your conventions, architecture decisions, or preferred libraries. Customization is how you share that context, so responses match your coding standards, project structure, and workflows.
 
-This article covers the customization options in VS Code: custom instructions, prompt files, custom agents, agent skills, MCP servers, agent plugins, and language models.
+This article covers the customization options in VS Code: custom instructions, prompt files, custom agents, agent skills, MCP servers, agent plugins, and language models. To access customizations, select the **Configure Chat (gear icon)** in the Chat view.
 
 ## Quick reference
 
@@ -49,9 +49,6 @@ This article covers the customization options in VS Code: custom instructions, p
 
 [Prompt files](/docs/copilot/customization/prompt-files.md) encode common tasks as Markdown files you invoke as slash commands in chat. Use them for repeatable workflows like scaffolding components, running tests, or preparing pull requests.
 
-> [!TIP]
-> **Prompt files vs custom agents**: Prompt files are best for single, repeatable tasks invoked as slash commands. Custom agents are persistent personas that control which tools are available and can orchestrate [subagents](/docs/copilot/agents/subagents.md) for multi-step workflows.
-
 ### Custom agents
 
 [Custom agents](/docs/copilot/customization/custom-agents.md) let the AI adopt different personas for specific roles, such as security reviewer, database admin, or planner. Each agent defines its own behavior, available tools, and language model preferences in a Markdown file.
@@ -66,7 +63,8 @@ This article covers the customization options in VS Code: custom instructions, p
 
 ### Agent plugins
 
-> **Note:** Agent plugins is currently in preview.
+> [!NOTE]
+> Agent Plugins are currently in preview.
 
 [Agent plugins](/docs/copilot/customization/agent-plugins.md) are pre-packaged bundles of customizations you discover and install from plugin marketplaces. A single plugin can provide slash commands, skills, custom agents, hooks, and MCP servers.
 
@@ -100,13 +98,11 @@ Implement AI customizations incrementally. Start with the basics and add more as
 > [!NOTE]
 > The Chat Customizations editor is currently in preview.
 
-The Chat Customizations editor provides a centralized UI for discovering, creating, and managing all your customizations in one place.
+The Chat Customizations editor provides a centralized UI for discovering, creating, and managing all your customizations in one place. From the editor, you can browse customization categories (agents, skills, instructions, prompts, hooks, MCP servers), create new items with optional AI-guided generation, and edit existing customizations in an embedded code editor.
 
 To open the Chat Customizations editor, run **Chat: Open Chat Customizations** from the Command Palette (`kb(workbench.action.showCommands)`).
 
 ![Screenshot of the Chat Customizations editor, showing the sidebar with customization categories and the main view listing custom agents.](../images/customization/chat-customizations-editor.png)
-
-From the editor, you can browse customization categories (agents, skills, instructions, prompts, hooks, MCP servers), create new items with optional AI-guided generation, and edit existing customizations in an embedded code editor.
 
 ## Troubleshoot customization issues
 
