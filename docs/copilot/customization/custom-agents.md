@@ -26,7 +26,7 @@ This article describes how to create and manage custom agents in VS Code.
 > **Agents, prompt files, or skills?** Use custom agents when you need a persistent persona with specific tool restrictions, model preferences, or handoffs between roles. For one-off tasks that don't need tool restrictions, use [prompt files](/docs/copilot/customization/prompt-files.md). For portable, reusable capabilities with scripts and resources, use [agent skills](/docs/copilot/customization/agent-skills.md).
 
 > [!TIP]
-> Use the [Chat Customizations editor](/docs/copilot/customization/overview.md#chat-customizations-editor) (Preview) to discover, create, and manage all your chat customizations in one place. Run **Chat: Open Chat Customizations** from the Command Palette.
+> Use the [Chat Customizations editor](/docs/copilot/customization/overview.md#chat-customizations-editor) (Preview) to discover, create, and manage all your chat customizations in one place. Run **Chat: Open Customizations** from the Command Palette.
 
 ## What are custom agents?
 
