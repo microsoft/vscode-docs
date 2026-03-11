@@ -199,6 +199,7 @@ In both cases, you will be prompted to confirm the removal by typing the extensi
 
 > [!NOTE]
 > When you remove an extension, the Marketplace also removes any extension statistics. You may want to unpublish your extension rather than remove it.
+> Important! Extension names are unique identifiers in the Visual Studio Code Marketplace. Once an extension is removed, its extension name is permanently reserved and cannot be reused, even by the original publisher. This helps protect users from impersonation and maintains trust in the Marketplace ecosystem. Before deleting an extension, ensure that you no longer need the name, as this action is irreversible.
 
 ## Deprecating extensions
 
