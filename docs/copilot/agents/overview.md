@@ -20,7 +20,9 @@ Keywords:
 
 # Using agents in Visual Studio Code
 
-Agents in Visual Studio Code automate coding tasks by breaking them into steps, using [tools](/docs/copilot/concepts/tools.md) to read files, edit code, and run commands, and self-correcting when something goes wrong. For example, instead of suggesting a fix for a failing test, an agent can identify the root cause across files, update the code, rerun the tests, and commit the changes.
+VS Code is the home for agent-based development. Run any agent type with any model, connect tools and services through MCP servers and Marketplace extensions, and build custom agents tailored to your team. You are not locked into a single provider or workflow.
+
+Agents automate coding tasks by breaking them into steps, using [tools](/docs/copilot/concepts/tools.md) to read files, edit code, and run commands, and self-correcting when something goes wrong. For example, instead of suggesting a fix for a failing test, an agent can identify the root cause across files, update the code, rerun the tests, and commit the changes.
 
 VS Code supports agents that run locally, in the background, or in the cloud. This article helps you choose the right agent type, create and manage sessions, and hand off tasks between agents.
 
