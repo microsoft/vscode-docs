@@ -21,6 +21,13 @@ Keywords:
 
 An agent is an AI system that autonomously plans and executes coding tasks. You give the agent a high-level goal, and it breaks the goal down into steps, executes those steps with [tools](/docs/copilot/concepts/tools.md), and self-corrects when it hits errors. This article explains the core architecture of agents: the agent loop, agent types, subagents, memory, and planning.
 
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
+Follow a hands-on tutorial to experience local, background, and cloud agents in VS Code.
+
+* [Start agents tutorial](/docs/copilot/agents/agents-tutorial.md)
+
+</div>
+
 ## Agent loop
 
 When you give an agent a task, it follows an agentic loop. This pattern is common across modern AI assistants. Within VS Code, an agent is the system that plans and takes actions, and the [language model](/docs/copilot/concepts/language-models.md) generates responses that inform those actions.

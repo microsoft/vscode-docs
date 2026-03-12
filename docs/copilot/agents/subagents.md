@@ -21,7 +21,7 @@ For background on subagent concepts (context isolation, synchronous and parallel
 
 This article explains how to use subagents in VS Code, including usage scenarios, invocation patterns, and how to run custom agents as subagents.
 
-### What the user sees
+## What the user sees
 
 When a subagent runs, it appears in the chat as a collapsible tool call. By default, the subagent is collapsed and shows:
 
@@ -42,8 +42,8 @@ The following scenarios illustrate when subagents can improve your AI-assisted d
 When building a new feature, use a subagent to research best practices, evaluate libraries, or analyze existing patterns in your codebase before the main agent starts implementing:
 
 ```prompt
-Use a subagent to research OAuth 2.0 implementation patterns for Node.js applications.
-Compare passport.js vs auth0 vs custom implementation. Return a recommendation with pros and cons.
+Perform isolated research into different OAuth 2.0 implementation patterns for Node.js applications.
+Compare each against the current implementation and return a recommendation with pros and cons.
 ```
 
 The main agent receives only the final recommendation, keeping its context clean for the actual implementation work.
@@ -56,7 +56,7 @@ The main agent receives only the final recommendation, keeping its context clean
 When refactoring or reviewing code, run multiple subagents in parallel to analyze different aspects:
 
 ```prompt
-Analyze this codebase for refactoring opportunities. Use subagents to:
+Analyze this codebase for refactoring opportunities. Perform these tasks in parallel:
 1. Find duplicate code patterns
 2. Identify unused exports and dead code
 3. Review error handling consistency
@@ -73,7 +73,7 @@ Compile the findings into a prioritized action plan.
 When you're uncertain about the best approach, use subagents to explore different options without polluting your main context:
 
 ```prompt
-I need to implement caching for this API. Run three subagents in parallel to:
+I need to implement caching for this API. Do some isolated research on these three approaches:
 1. Design a Redis-based caching solution
 2. Design an in-memory caching solution with LRU eviction
 3. Design a hybrid approach with tiered caching
@@ -89,7 +89,7 @@ Compare the results and recommend the best approach for our use case.
 Use custom agents as subagents to apply different review perspectives:
 
 ```prompt
-Review the changes in this PR using subagents:
+Review the changes in this PR from different angles. Perform these reviews in parallel:
 - Run the security-reviewer agent to check for vulnerabilities
 - Run the performance-reviewer agent to identify bottlenecks
 - Run the accessibility-reviewer agent to verify a11y compliance

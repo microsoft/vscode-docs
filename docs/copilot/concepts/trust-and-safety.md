@@ -20,6 +20,13 @@ Keywords:
 
 AI-generated output requires review. Visual Studio Code includes multiple mechanisms to keep you in control of what changes reach your codebase. This article explains the control mechanisms, AI limitations, and security considerations you should be aware of.
 
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Learn more about AI safety">
+Understand the control mechanisms and safety considerations for using AI in VS Code.
+
+* [Learn about AI safety](/docs/copilot/security.md)
+
+</div>
+
 ## Stay in control
 
 Agents can read files, edit code, run terminal commands, and call external services. VS Code provides several mechanisms to ensure you remain in charge of what happens in your workspace:
