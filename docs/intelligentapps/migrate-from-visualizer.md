@@ -5,9 +5,9 @@ MetaDescription: Migrate from Local Agent Playground and Local Visualizer to Age
 ---
 # Migrate from Local Agent Playground & Local Visualizer to Agent Inspector
 
-## Why We're Making This Change
+## Why this change matters
 
-We're consolidating the **Local Agent Playground** and **Local Visualizer** into a single, unified experience called **Agent Inspector**. This transition brings significant improvements to your AI agent development workflow.
+AI Toolkit consolidates the **Local Agent Playground** and **Local Visualizer** into a single, unified experience called **Agent Inspector**. This transition improves your AI agent development workflow.
 
 ### Developer-Centric Benefits of Agent Inspector
 
