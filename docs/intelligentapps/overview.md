@@ -88,8 +88,8 @@ AI Toolkit opens in its own view, with the AI Toolkit icon now displayed on the 
     - **Model Catalog**: The model catalog lets you discover and access AI models from multiple sources including GitHub, ONNX, Ollama, OpenAI, Anthropic, and Google. Compare models side-by-side and find the right model for your use case.
     - **Model Playground**: The model playground provides an interactive environment to experiment with generative AI models. Test various prompts, adjust model parameters, compare responses from different models and explore multi-modal capabilities by attaching different types of input files.
     - **Conversion**: The model conversion tool helps you convert, quantize, optimize, and evaluate the pre-built machine learning models on your local Windows platform.
-   - **Fine-tuning**: This tool allows you to use your custom dataset to run fine-tuning jobs on a pre-trained model in a local computing environment with GPU or in the cloud (Azure Container Apps) with GPU.
-   - **Profiling (Windows ML)(Preview)**: This tool allows you to diagnose the CPU, GPU, NPU resource usages of the process, ONNX model on different execution providers, and Windows Machine Learning events.
+    - **Fine-tuning**: This tool allows you to use your custom dataset to run fine-tuning jobs on a pre-trained model in a local computing environment with GPU or in the cloud (Azure Container Apps) with GPU.
+    - **Profiling (Windows ML)(Preview)**: This tool allows you to diagnose the CPU, GPU, NPU resource usages of the process, ONNX model on different execution providers, and Windows Machine Learning events.
 
 - **Agent and Workflow Tools**: This section is where you can find the tools available to deploy and then work with your deployed agents in AI Toolkit. It contains the following subsections:
     - **Agent Builder**:  Create and deploy agents easily.
