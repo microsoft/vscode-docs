@@ -20,9 +20,9 @@ AI Toolkit consolidates the **Local Agent Playground** and **Local Visualizer** 
 
 ### Key Improvements
 
-1. **Unified Experience**: No more switching between a playground for chat and a separate visualizer for tracing — Agent Inspector combines both in a single, integrated interface.
+1. **Unified Experience**: No more switching between a playground for chat and a separate visualizer for tracing. Agent Inspector combines both in a single, integrated interface.
 
-2. **True Debugging Support**: Set breakpoints in your agent code, pause execution, inspect variables, and step through your workflow logic — something previously impossible with the separate tools.
+2. **True Debugging Support**: Set breakpoints in your agent code, pause execution, inspect variables, and step through your workflow logic. This was previously impossible with the separate tools.
 
 3. **Copilot-Assisted Setup**: GitHub Copilot can automatically generate the debugging configuration, endpoints, and environment setup, reducing manual configuration errors.
 
