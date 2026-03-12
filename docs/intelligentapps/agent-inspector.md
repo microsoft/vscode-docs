@@ -29,13 +29,13 @@ Use the Agent Inspector to debug, visualize, and improve your AI agents directly
 
 ### Option 1: Scaffold a sample (Recommended)
 
-1. Select **AI Toolkit** in the Activity Bar → **Agent and Workflow Tools** → **Agent Inspector**
+1. Select **AI Toolkit** in the Activity Bar > **Agent and Workflow Tools** > **Agent Inspector**.
 2. Select **Scaffold a Sample** to generate a pre-configured project
 3. Follow the README to run and debug the sample agent
 
 ### Option 2: Use Copilot to create anew agent
 
-1. Select **AI Toolkit** in the Activity Bar → **Agent and Workflow Tools** → **Agent Inspector**
+1. Select **AI Toolkit** in the Activity Bar > **Agent and Workflow Tools** > **Agent Inspector**.
 2. Select **Build with Copilot** and provide agent requirements
 3. Copilot generates agent code and configures debugging automatically
 4. Follow the instructions from Copilot output to run and debug your agent
