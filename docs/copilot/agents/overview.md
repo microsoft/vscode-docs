@@ -20,16 +20,16 @@ Keywords:
 
 # Using agents in Visual Studio Code
 
-VS Code is the home for agent-based development. Run any agent type with any model, connect tools and services through MCP servers and Marketplace extensions, and build custom agents tailored to your team. You are not locked into a single provider or workflow.
-
 Agents automate coding tasks by breaking them into steps, using [tools](/docs/copilot/concepts/tools.md) to read files, edit code, and run commands, and self-correcting when something goes wrong. For example, instead of suggesting a fix for a failing test, an agent can identify the root cause across files, update the code, rerun the tests, and commit the changes.
 
-VS Code supports agents that run locally, in the background, or in the cloud. This article helps you choose the right agent type, create and manage sessions, and hand off tasks between agents.
+Visual Studio Code supports agents that run locally, in the background, or in the cloud. Run any agent type with any model, connect tools and services through MCP servers and Marketplace extensions, and build custom agents tailored to your team.
 
-<div class="docs-action" data-show-in-doc="true" data-show-in-sidebar="true" title="Core concepts">
-Learn about the agent loop, subagents, memory, and planning.
+This article helps you choose the right agent type, create and manage sessions, and hand off tasks between agents.
 
-* [Agents concepts](/docs/copilot/concepts/agents.md)
+<div class="docs-action" data-show-in-doc="true" data-show-in-sidebar="true" title="How agents work">
+Understand the agent loop, how agents plan and execute tasks, and how memory and subagents work.
+
+* [Learn about agent concepts](/docs/copilot/concepts/agents.md)
 
 </div>
 
@@ -42,10 +42,8 @@ Use agents in VS Code to generate a tic-tac-toe game in your language of choice.
 
 </div>
 
-> [!IMPORTANT]
+> [!TIP]
 > Enable agents in your VS Code settings (`setting(chat.agent.enabled)`). Your organization might also disable agents - contact your admin to enable this functionality.
-
-You can run multiple agent sessions in parallel, each focused on a different task. When you create a new agent session, the previous session remains active, and you can switch between tasks via the [agent sessions list](#agent-sessions-list).
 
 ## Types of agents
 
