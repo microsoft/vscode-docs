@@ -10,7 +10,7 @@ MetaDescription: Get Visual Studio Code up and running on Windows
 1. [Download and install Visual Studio Code](#install-vs-code-on-windows)
 
     > [!NOTE]
-    > VS Code ships monthly releases and supports [auto-update](#updates) when a new release is available.
+    > VS Code ships weekly releases and supports [auto-update](#updates) when a new release is available.
 
 1. [Install additional components](/docs/setup/additional-components.md)
 
@@ -61,7 +61,7 @@ See the [Download Visual Studio Code](/download) page for a complete list of ava
 
 ## Updates
 
-VS Code ships monthly [releases](/updates) and supports auto-update when a new release is available. If you're prompted by VS Code, accept the newest update and it will be installed (you won't need to do anything else to get the latest bits).
+VS Code ships weekly [releases](/updates) and supports auto-update when a new release is available. If you're prompted by VS Code, accept the newest update and it will be installed (you won't need to do anything else to get the latest bits).
 
 > [!NOTE]
 > You can [disable auto-update](/docs/supporting/faq.md#how-do-i-opt-out-of-vs-code-autoupdates) if you prefer to update VS Code on your own schedule.
