@@ -12,7 +12,7 @@ Keywords:
 
 # Cloud agents in Visual Studio Code
 
-Cloud agents perform AI-powered coding tasks and run on remote infrastructure for scalable, isolated execution. Cloud agents run autonomously on remote infrastructure. For example, the GitHub Copilot coding agent run on GitHub's infrastructure and integrates with your GitHub repositories for team collaboration.
+Cloud agents run on remote infrastructure and integrate with GitHub repositories for team collaboration through pull requests. For example, the GitHub Copilot coding agent runs on GitHub's infrastructure and can implement features, address code review feedback, and open pull requests autonomously.
 
 This article covers the key features of cloud agents, and how to start and manage cloud agent sessions for coding tasks that can range anywhere from simple to complex.
 

@@ -23,6 +23,9 @@ Use prompt files to:
 * Override default behavior of a custom agent, such as creating a minimal implementation plan or generating mockups for API calls
 
 > [!TIP]
+> **Prompt files, agents, or skills?** Use prompt files for lightweight, single-task prompts. Use [custom agents](/docs/copilot/customization/custom-agents.md) when you need a persistent persona with its own tool restrictions and handoffs. Use [agent skills](/docs/copilot/customization/agent-skills.md) when you need a portable, multi-file capability with scripts and resources.
+
+> [!TIP]
 > Use the [Chat Customizations editor](/docs/copilot/customization/overview.md#chat-customizations-editor) (Preview) to discover, create, and manage all your chat customizations in one place. Run **Chat: Open Chat Customizations** from the Command Palette.
 
 ## Prompt file locations
@@ -56,14 +59,10 @@ The body contains the prompt text in Markdown format. Provide specific instructi
 
 You can reference other workspace files by using Markdown links. Use relative paths to reference these files, and ensure that the paths are correct based on the location of the prompt file.
 
-To reference agent tools in the body text, use the `#tool:<tool-name>` syntax. For example, to reference the `githubRepo` tool, use `#tool:githubRepo`.
+To reference agent tools in the body text, use the `#tool:<tool-name>` syntax. For example, to reference the `browser` tool, use `#tool:browser`.
 
-Within a prompt file, you can reference variables by using the `${variableName}` syntax. You can reference the following variables:
-
-* Workspace variables - `${workspaceFolder}`, `${workspaceFolderBasename}`
-* Selection variables - `${selection}`, `${selectedText}`
-* File context variables - `${file}`, `${fileBasename}`, `${fileDirname}`, `${fileBasenameNoExtension}`
-* Input variables - `${input:variableName}`, `${input:variableName:placeholder}` (pass values to the prompt from the chat input field)
+> [!TIP]
+> If you want the user to provide additional information, you can use the `vscode/askQuestion` tool. You can also use a syntax like `${input:variableName}`, `${input:variableName:placeholder}`. Most language models understand this syntax and will prompt for these inputs.
 
 The following examples demonstrate how to use prompt files. For more community-contributed examples, see the [Awesome Copilot repository](https://github.com/github/awesome-copilot/tree/main).
 
@@ -74,12 +73,12 @@ The following examples demonstrate how to use prompt files. For more community-c
 ---
 agent: 'agent'
 model: GPT-4o
-tools: ['githubRepo', 'search/codebase']
+tools: ['search/codebase', 'vscode/askQuestions']
 description: 'Generate a new React form component'
 ---
-Your goal is to generate a new React form component based on the templates in #tool:githubRepo contoso/react-templates.
+Your goal is to generate a new React form component based on the templates in the Github repo contoso/react-templates.
 
-Ask for the form name and fields if not provided.
+Use the #tool:vscode/askQuestions to ask for the form name and fields if not provided.
 
 Requirements for the form:
 * Use form design system components: [design-system/Form.md](../docs/design-system/Form.md)
@@ -95,29 +94,6 @@ Requirements for the form:
 
 </details>
 
-<details>
-<summary>Example: using variables</summary>
-
-```markdown
----
-description: 'Generate unit tests for the current file'
-agent: 'agent'
-tools: ['search', 'read', 'edit']
----
-Generate unit tests for [${fileBasename}](${file}).
-
-* Place the test file in the same directory: ${fileDirname}
-* Name the test file: ${fileBasenameNoExtension}.test.ts
-* Test framework: ${input:framework:jest or vitest}
-* Follow testing conventions in: [testing.md](../docs/testing.md)
-
-If there is a selection, only generate tests for this code:
-${selection}
-```
-
-This example combines workspace, file context, selection, and input variables. When you run the prompt, Copilot resolves `${file}`, `${fileBasename}`, `${fileDirname}`, and `${fileBasenameNoExtension}` from the active editor, uses `${selection}` for any selected text, and prompts you to enter a value for `${input:framework}`.
-
-</details>
 
 <details>
 <summary>Example: perform a security review of a REST API</summary>
@@ -155,11 +131,7 @@ To create a prompt file:
 
     Alternatively, use the **Chat: New Prompt File** or **Chat: New Untitled Prompt File** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
-1. Choose the scope of the prompt file:
-
-    * **Workspace**: creates the prompt file in the `.github/prompts` folder of your workspace to only use it within that workspace. Add more prompt folders for your workspace with the `setting(chat.promptFilesLocations)` setting.
-
-    * **User profile**: creates the prompt file in the [current profile folder](/docs/configure/profiles.md) to use it across all your workspaces.
+1. Choose the location where to create the prompt file.
 
 1. Enter a file name for your prompt file. This is the default name that appears when you type `/` in chat.
 
@@ -209,13 +181,7 @@ The list of available tools in chat is determined by the following priority orde
 
 VS Code can sync your user prompt files across multiple devices by using [Settings Sync](/docs/configure/settings-sync.md).
 
-To sync your user prompt files, enable Settings Sync for prompt and instruction files:
-
-1. Make sure you have [Settings Sync](/docs/configure/settings-sync.md) enabled.
-
-1. Run **Settings Sync: Configure** from the Command Palette (`kb(workbench.action.showCommands)`).
-
-1. Select **Prompts and Instructions** from the list of settings to sync.
+To sync your user prompt files, enable Settings Sync and run **Settings Sync: Configure** from the Command Palette (`kb(workbench.action.showCommands)`). Select **Prompts and Instructions** from the list of settings to sync.
 
 ## Tips for writing effective prompts
 

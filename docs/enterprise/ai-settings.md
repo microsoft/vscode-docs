@@ -138,6 +138,15 @@ Learn how to [create custom agents for your organization](https://docs.github.co
 
 AI-powered development features can autonomously perform actions with user-level permissions. Refer to the [security documentation](/docs/copilot/security.md) for a comprehensive overview of AI security considerations and best practices.
 
+### Agent deployment options and data residency
+
+Agents can run on different infrastructure depending on the agent type, and each option has different data residency and access control characteristics:
+
+* **Local agents and Copilot CLI** run on the developer's machine and process data locally.
+* **Cloud agents** run on GitHub's infrastructure. Code and conversation data are subject to the GitHub Copilot data handling policies.
+
+For GitHub Copilot's security, privacy, compliance, and transparency information, see the [GitHub Copilot Trust Center FAQ](https://copilot.github.trust.page/faq).
+
 ## Related resources
 
 * [Enterprise policies reference](/docs/enterprise/policies.md) - Complete list of enterprise policies
@@ -146,3 +155,4 @@ AI-powered development features can autonomously perform actions with user-level
 * [Custom instructions](/docs/copilot/customization/custom-instructions.md) - Define custom instructions for AI responses
 * [Custom agents](/docs/copilot/customization/custom-agents.md) - Create custom AI personas and workflows
 * [AI security considerations](/docs/copilot/security.md) - Security best practices for AI features
+* [GitHub Copilot Trust Center FAQ](https://copilot.github.trust.page/faq) - Security, privacy, and compliance information

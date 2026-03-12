@@ -13,7 +13,7 @@ Keywords:
 
 # Local agents in Visual Studio Code
 
-Local agents run directly within VS Code on your machine. You interact with local agents through chat to get immediate results to your prompts. Local agents work on your workspace and have access to the full range of tools and models available in VS Code. By [creating custom agents](/docs/copilot/customization/custom-agents.md), you can let the agent assume a specific role or persona for a task, such as a code reviewer, tester, or documentation writer.
+Local agents run interactively within Visual Studio Code on your machine. They work on your current workspace and have access to the full range of tools and models available in VS Code, including extension-provided tools and MCP servers. By [creating custom agents](/docs/copilot/customization/custom-agents.md), you can let the agent assume a specific role or persona for a task, such as a code reviewer, tester, or documentation writer.
 
 Local agents operate in the chat interface in VS Code. When you close a chat session, the local agent remains active and you can track it in the sessions view.
 
@@ -74,11 +74,9 @@ Ask uses agentic capabilities to research your codebase and gather relevant cont
 
 Open chat by using Ask: [Stable](vscode://GitHub.Copilot-Chat/chat?mode=ask) | [Insiders](vscode-insiders://GitHub.Copilot-Chat/chat?mode=ask)
 
-### Edit mode (hidden)
+### Edit mode (deprecated)
 
-Edit _mode_ is optimized for making multi-file code edits. VS Code applies the code changes directly in the editor and lets you review and accept the changes.
-
-Edit mode is hidden by default in the agent picker, unless your organization has disabled Agent mode. You can restore Edit mode by disabling the `setting(chat.editMode.hidden)` setting.
+Edit mode is deprecated. Use Agent mode for multi-file code edits instead. You can restore Edit mode by enabling the `setting(chat.editMode.hidden)` setting.
 
 ## Get started
 

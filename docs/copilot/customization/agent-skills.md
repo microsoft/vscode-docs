@@ -232,21 +232,15 @@ By default, all skills appear in the `/` menu. Use the `user-invocable` and `dis
 
 ## How Copilot uses skills
 
-Skills use progressive disclosure to efficiently load content only when needed. This three-level loading system ensures you can install many skills without consuming context:
+Skills load content progressively to keep your context efficient. Here is an example of how Copilot uses the `webapp-testing` skill:
 
-**Level 1: Skill discovery**
+1. **Discovery**: Copilot reads the skill's `name` and `description` from the YAML frontmatter. When you ask "help me test the login page", Copilot matches this to the `webapp-testing` skill based on its description.
 
-Copilot always knows which skills are available by reading their `name` and `description` from the YAML frontmatter. This metadata is lightweight and helps Copilot decide which skills are relevant to your request.
+2. **Instructions loading**: Copilot loads the `SKILL.md` body into its context, giving it access to the detailed testing procedures and guidelines. You can also trigger this step directly by typing `/webapp-testing` in chat.
 
-**Level 2: Instructions loading**
+3. **Resource access**: As Copilot works through the instructions, it accesses additional files in the skill directory, such as `test-template.js` or example scenarios, only when it references them.
 
-When your request matches a skill's description, Copilot loads the `SKILL.md` file body into its context. Only then do the detailed instructions become available. You can also directly invoke a skill by using the `/` slash command in chat.
-
-**Level 3: Resource access**
-
-Copilot can access additional files in the skill directory (scripts, examples, documentation) only as needed. These resources don't load until Copilot references them, keeping your context efficient.
-
-This architecture means skills are both automatically activated based on your prompt and manually invocable through slash commands. You can install many skills, and Copilot loads only what's relevant for each task.
+This three-level loading system means you can install many skills without consuming context. Copilot loads only what is relevant for each task.
 
 ## Use shared skills
 

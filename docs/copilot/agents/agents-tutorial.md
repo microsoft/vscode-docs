@@ -160,4 +160,5 @@ You've successfully used a cloud agent to collaborate on a feature using GitHub.
 You've successfully used different types of agents to build, enhance, and redesign a todo app. Continue exploring agents:
 
 * Learn about [agent types and when to use them](/docs/copilot/agents/overview.md)
+* [Plan and research tasks with the Plan agent](/docs/copilot/agents/planning.md)
 * Explore [creating custom agents](/docs/copilot/customization/custom-agents.md)

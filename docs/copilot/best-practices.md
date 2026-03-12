@@ -11,7 +11,7 @@ This article covers proven practices for getting the most out of using AI in Vis
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="How AI works in VS Code">
 Learn about the agent loop, context window, tools, and other core concepts.
 
-* [Read about core concepts](/docs/copilot/core-concepts.md)
+* [Read about core concepts](/docs/copilot/concepts/overview.md)
 
 </div>
 

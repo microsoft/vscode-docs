@@ -14,13 +14,17 @@ Keywords:
 ---
 # AI language models in VS Code
 
-Visual Studio Code offers different built-in language models that are optimized for different tasks. You can also bring your own language model API key to use models from other providers. This article describes how to change the language model for chat or inline suggestions, and how to use your own API key.
+Visual Studio Code offers different built-in language models that are optimized for different tasks. You can also bring your own language model API key to use models from other providers.
+
+For background on how language models work and their key characteristics, see [Language models concepts](/docs/copilot/concepts/language-models.md).
+
+This article describes how to change the language model for chat or inline suggestions and how to use your own API key.
 
 ## Choose the right model for your task
 
 By default, chat uses a base model to provide fast, capable responses for a wide range of tasks, such as coding, summarization, knowledge-based questions, reasoning, and more.
 
-However, you are not limited to using only this model. You can choose from a [selection of language models](https://docs.github.com/en/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat#ai-models-for-copilot-chat-1), each with its own particular strengths. For a detailed comparison of AI models, see [Choosing the right AI model for your task](https://docs.github.com/en/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task) in the GitHub Copilot documentation.
+However, you are not limited to using only this model. You can choose from a [selection of language models](https://docs.github.com/en/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat#ai-models-for-copilot-chat-1), each with its own particular strengths. As a general guideline, use a fast model (like GPT-5 Mini) for quick edits and simple questions, and a reasoning model (like Claude Opus) for complex refactoring, architectural decisions, or multi-step tasks. For a detailed comparison, see [Choosing the right AI model for your task](https://docs.github.com/en/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task) in the GitHub Copilot documentation.
 
 Depending on the [agent](/docs/copilot/customization/custom-agents.md) you are using, the list of available models might be different. For example, in agent mode, the list of models is limited to those that have good support for tool calling.
 
@@ -89,7 +93,7 @@ Hover over a model in the list and select the eye icon to show or hide the model
 ## Bring your own language model key
 
 > [!IMPORTANT]
-> This feature is not currently available to Copilot Business or Copilot Enterprise users.
+> Bring your own model key is not currently available to Copilot Business or Copilot Enterprise users. It is intended for individual experimentation with the newest models. Support for Business and Enterprise plans is planned for later this year.
 
 GitHub Copilot in VS Code comes with a variety of built-in language models that are optimized for different tasks. If you want to use a model that is not available as a built-in model, you can bring your own language model API key (BYOK) to use models from other providers.
 
@@ -175,9 +179,7 @@ To change the language model that is used for generating inline suggestions in t
 
 ### Why is bring your own model key not available for Copilot Business or Copilot Enterprise?
 
-Bringing your own model key is not available for Copilot Business or Copilot Enterprise because it's mainly meant to allow users to experiment with the newest models the moment they are announced, and not yet available as a built-in model in Copilot.
-
-Bringing your own model key will come to Copilot Business and Enterprise plans later this year, as we better understand the requirements that organizations have for using this functionality at scale. Copilot Business and Enterprise users can still use the built-in, managed models.
+Bringing your own model key is mainly intended for individual experimentation with the newest models, and is not yet available for Business or Enterprise plans. Support for these plans is planned for later this year. Copilot Business and Enterprise users can still use the built-in, managed models.
 
 ### Can I use locally hosted models with Copilot in VS Code?
 

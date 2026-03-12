@@ -193,7 +193,7 @@ The [Agents view](/docs/copilot/agents/overview.md) provides a centralized locat
 | Setting and Description | Default |
 |------------------------|---------------|
 | `setting(notebook.experimental.generate)` _(Experimental)_<br/>Enable the **Generate** action to create code cells with notebook inline chat. | `true` |
-| `setting(github.copilot.chat.edits.newNotebook.enabled)` _(Experimental)_<br/>Enable the notebook tool in edit mode to create a new notebook file. | `true` |
+| `setting(github.copilot.chat.edits.newNotebook.enabled)` _(Experimental)_<br/>Enable the notebook tool in Edit mode (deprecated) to create a new notebook file. | `true` |
 | `setting(github.copilot.chat.notebook.followCellExecution.enabled)` _(Experimental)_<br/>Show the currently executing cell in the editor. | `false` |
 
 ## Accessibility settings
