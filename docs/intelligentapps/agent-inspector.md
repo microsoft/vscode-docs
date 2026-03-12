@@ -139,10 +139,10 @@ For `WorkflowAgent`, view the execution graph with message flows between agents.
 
 When you press F5, the Inspector:
 
-1. **Starts the agent server** — The `agentdev` CLI wraps your agent as an HTTP server on port 8087, with debugpy attached on port 5679
-2. **Discovers agents** — The UI fetches available agents/workflows from `/agentdev/entities`
-3. **Streams execution** — Chat inputs go to `/v1/responses`, which streams back events via SSE for real-time visualization
-4. **Enables code navigation** — Double-clicking workflow nodes opens the corresponding source file in the editor
+1. **Starts the agent server:** The `agentdev` CLI wraps your agent as an HTTP server on port 8087, with debugpy attached on port 5679.
+2. **Discovers agents:** The UI fetches available agents/workflows from `/agentdev/entities`.
+3. **Streams execution:** Chat inputs go to `/v1/responses`, which streams back events via SSE for real-time visualization.
+4. **Enables code navigation:** Double-click workflow nodes to open the corresponding source file in the editor.
 
 ### Architecture overview
 
