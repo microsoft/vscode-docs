@@ -84,7 +84,7 @@ The quality of AI responses depends on the clarity and specificity of your promp
 
 * **Parallel tasks.** If you have multiple independent tasks, ask the AI to run them in parallel to save time. For example, "Perform isolated research about X and Y in parallel and summarize the findings."
 
-For more information, see [prompt engineering](/docs/copilot/guides/prompt-engineering-guide.md) and find practical [prompt examples](https://docs.github.com/en/copilot/copilot-chat-cookbook) in the GitHub Copilot documentation.
+For more information, find practical [prompt examples](https://docs.github.com/en/copilot/copilot-chat-cookbook) in the GitHub Copilot documentation.
 
 ## Provide the right context
 
@@ -177,7 +177,6 @@ For more information, see [workspace context](/docs/copilot/reference/workspace-
 
 ## Related resources
 
-* [Prompt engineering guide](/docs/copilot/guides/prompt-engineering-guide.md)
 * [Context engineering guide](/docs/copilot/guides/context-engineering-guide.md)
 * [Customization overview](/docs/copilot/customization/overview.md)
 * [Cheat sheet](/docs/copilot/reference/copilot-vscode-features.md)
