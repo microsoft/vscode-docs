@@ -7,7 +7,7 @@ MetaDescription: Debug, visualize, and iterate on AI agents with the Agent Inspe
 
 Use the Agent Inspector to debug, visualize, and improve your AI agents directly in VS Code. Press F5 to launch your agent with full debugger support, view streaming responses in real time, and see how multiple agents work together.
 
-![Screenshot showing the Agent Inspector interface](Images/agent-inspector/test_tool_visualizer.png)
+![Screenshot showing the Agent Inspector interface](./images/agent-inspector/test_tool_visualizer.png)
 
 ## Benefits
 
@@ -25,35 +25,35 @@ Use the Agent Inspector to debug, visualize, and improve your AI agents directly
 - **Python 3.10+** and **VS Code AI Toolkit** extension
 
 ## Quick start
-![Screenshot showing the Agent Inspector quick start](Images/agent-inspector/inspector.png)
+![Screenshot showing the Agent Inspector quick start](./images/agent-inspector/inspector.png)
 
 ### Option 1: Scaffold a sample (Recommended)
 
 1. Select **AI Toolkit** in the Activity Bar > **Agent and Workflow Tools** > **Agent Inspector**.
-2. Select **Scaffold a Sample** to generate a pre-configured project
-3. Follow the README to run and debug the sample agent
+1. Select **Scaffold a Sample** to generate a preconfigured project.
+1. Follow the README to run and debug the sample agent.
 
-### Option 2: Use Copilot to create anew agent
+### Option 2: Use Copilot to create a new agent
 
 1. Select **AI Toolkit** in the Activity Bar > **Agent and Workflow Tools** > **Agent Inspector**.
-2. Select **Build with Copilot** and provide agent requirements
-3. Copilot generates agent code and configures debugging automatically
-4. Follow the instructions from Copilot output to run and debug your agent
+1. Select **Build with Copilot** and provide agent requirements.
+1. Copilot generates agent code and configures debugging automatically.
+1. Follow the instructions from Copilot output to run and debug your agent.
 
 ### Option 3: Start with an existing agent
 
 If you already have an agent built with Microsoft Agent Framework SDK, ask GitHub Copilot to set up debugging for the Agent Inspector.
 
 1. Select **AIAgentExpert** from Agent Mode.
-2. Enter prompt:
+1. Enter prompt:
    ```
    Help me set up the debug environment for the workflow agent to use AI Toolkit Agent Inspector
    ```
-3. Copilot will generate the necessary configuration files and instructions to run and debug your agent using the Agent Inspector.
+1. Copilot generates the necessary configuration files and instructions to run and debug your agent using the Agent Inspector.
 
 ## Configure debugging manually
 
-Add these files to your `.vscode` folder to set up debugging for your agent and replace `${file}` with your agent's `entrypoint` python file path.
+Add these files to your `.vscode` folder to set up debugging for your agent, and replace `${file}` with your agent's `entrypoint` python file path.
 
 <details>
 <summary><b>tasks.json</b></summary>
@@ -118,14 +118,13 @@ Add these files to your `.vscode` folder to set up debugging for your agent and 
 
 ### Chat playground
 Send messages to trigger the workflow and view executions in real-time.
-![Chat message area](Images/agent-inspector/chat_area.png)
+![Chat message area](./images/agent-inspector/chat_area.png)
 
 ### Workflow visualization
 For `WorkflowAgent`, view the execution graph with message flows between agents. You can also:
-1. Click on each node to review agent inputs and outputs.
-2. Double-click any node to navigate to the code.
-3. Set breakpoints in the code to pause execution and inspect variables.
-![Workflow visualization](Images/agent-inspector/code_nav.png)
+1. Select each node to review agent inputs and outputs.
+1. Double-click any node to navigate to the code.
+1. Set breakpoints in the code to pause execution and inspect variables.![Screenshot showing workflow visualization](./images/agent-inspector/code_nav.png)
 
 ## Troubleshooting
 
@@ -140,10 +139,10 @@ For `WorkflowAgent`, view the execution graph with message flows between agents.
 When you press F5, the Inspector:
 
 1. **Starts the agent server:** The `agentdev` CLI wraps your agent as an HTTP server on port 8087, with debugpy attached on port 5679.
-2. **Discovers agents:** The UI fetches available agents/workflows from `/agentdev/entities`.
-3. **Streams execution:** Chat inputs go to `/v1/responses`, which streams back events via SSE for real-time visualization.
-4. **Enables code navigation:** Double-click workflow nodes to open the corresponding source file in the editor.
+1. **Discovers agents:** The UI fetches available agents/workflows from `/agentdev/entities`.
+1. **Streams execution:** Chat inputs go to `/v1/responses`, which streams back events via SSE for real-time visualization.
+1. **Enables code navigation:** Double-click workflow nodes to open the corresponding source file in the editor.
 
 ### Architecture overview
 
-![Diagram showing the Agent Inspector architecture](Images/agent-inspector/architecture-diagram.png)
+![Diagram showing the Agent Inspector architecture](./images/agent-inspector/architecture-diagram.png)

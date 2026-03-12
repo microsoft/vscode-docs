@@ -1,6 +1,6 @@
 ---
 ContentId: 52ad40fe-f352-4e16-a075-7a9606c5df3b
-DateApproved: 03/03/2026
+DateApproved: 03/12/2026
 MetaDescription: Find a popular generative AI model by publisher and source. Bring your own model that is hosted with a URL, or select an Ollama model.
 ---
 # Explore models in AI Toolkit
@@ -12,7 +12,7 @@ Within the model catalog, you can explore and utilize models from multiple hosti
 - Models hosted on GitHub, such as Llama3, Phi-3, and Mistral, including pay-as-you-go options.
 - Models provided directly by publishers, including OpenAI's ChatGPT, Anthropic's Claude, and Google's Gemini.
 - Models hosted on Microsoft Foundry.
-- Models downloaded locally from repositories like Foundry Local, Ollama and ONNX.
+- Models downloaded locally from repositories like Foundry Local, Ollama, and ONNX.
 - Custom self-hosted or externally deployed models accessible via Bring-Your-Own-Model (BYOM) integration.
 
 Deploy models directly to Foundry from within the model catalog, streamlining your workflow.
@@ -46,9 +46,9 @@ To find a model in the model catalog:
 To add a model from the model catalog:
 1. Locate the model you want to add in the model catalog.
 1. Select the **Add** on the model card
-1. The flow for adding models will be slightly different based on the providers:
+1. The flow for adding models is slightly different based on the providers:
 
-    - **Foundry Local**: Foundry Local downloads and runs the model, which may take a few minutes depending on your internet speed. The model is available on a localhost page and added to AI Toolkit. Learn more in [What is Foundry Local?](https://learn.microsoft.com/azure/ai-foundry/foundry-local/what-is-foundry-local?view=foundry-classic&preserve-view=true).
+    - **Foundry Local**: Foundry Local downloads and runs the model, which might take a few minutes depending on your internet speed. The model is available on a localhost page and added to AI Toolkit. Learn more in [What is Foundry Local?](https://learn.microsoft.com/azure/ai-foundry/foundry-local/what-is-foundry-local?view=foundry-classic&preserve-view=true).
 
     - **GitHub**: AI Toolkit asks for your GitHub credentials to access the model repository. Once authenticated, the model is added directly into AI Toolkit.
         > [!NOTE]
@@ -63,7 +63,7 @@ To add a model from the model catalog:
     - **OpenAI**, **Anthropic**, and **Google**: AI Toolkit prompts you to enter the API Key.
     - **Custom models**: Refer to the [Add a custom model](#add-a-custom-model) section for detailed instructions.
 
-Once added, the model appears under **MY MODELS** in the tree view, and you can use it in the [**Playground**](/docs/intelligentapps/playground.md) or [**Agent Builder**](/docs/intelligentapps/agentbuilder.md).
+Once added, the model appears under **MY RESOURCES/Models** in the tree view, and you can use it in the [**Playground**](/docs/intelligentapps/playground.md) or [**Agent Builder**](/docs/intelligentapps/agentbuilder.md).
 
 ## Add a custom model
 You can also add your own models that are hosted externally or run locally. There are several options available:
@@ -83,7 +83,7 @@ There are several entrypoints to add models to AI Toolkit:
 
 ### Add Ollama models
 
-Ollama enables many popular genAI models to run locally with CPU via GGUF quantization. If you have Ollama installed on your local machine with downloaded Ollama models, you can add them to AI Toolkit for use in the model playground.
+Ollama enables many popular genAI models to run locally with CPU via GGUF quantization. If Ollama is installed on your local machine with downloaded Ollama models, add them to AI Toolkit for use in the model playground.
 
 Prerequisites for using Ollama models in AI Toolkit:
 
@@ -92,7 +92,7 @@ Prerequisites for using Ollama models in AI Toolkit:
 
 To add local Ollama into AI Toolkit
 
-1. From one of the entrypoints mentioned above, select **Add Ollama Model**.
+1. From one of the entrypoints mentioned previously, select **Add Ollama Model**.
 
     ![Select model type to add](./images/models/select-type.png)
 
@@ -105,23 +105,23 @@ To add local Ollama into AI Toolkit
     > [!NOTE]
     > AI Toolkit only shows models that are already downloaded in Ollama and not yet added to AI Toolkit. To download a model from Ollama, you can run `ollama pull <model-name>`. To see the list of models supported by Ollama, see the [Ollama library](https://ollama.com/library) or refer to the [Ollama documentation](https://github.com/ollama/ollama).
 
-1. You should now see the selected Ollama model(s) in the list of models in the tree view.
+1. You should now see one or more selected Ollama models in the list of models in the tree view.
 
     > [!NOTE]
-    > Attachment is not support yet for Ollama models. Since we connect to Ollama using its [OpenAI compatible endpoint](https://github.com/ollama/ollama/blob/main/docs/openai.md) and it doesn't support attachments yet.
+    > Attachment isn't supported yet for Ollama models. AI Toolkit connects to Ollama using the [OpenAI compatible endpoint](https://github.com/ollama/ollama/blob/main/docs/openai.md) and doesn't support attachments yet.
 
 ### Add a custom model with OpenAI compatible endpoint
 
-If you have a self-hosted or deployed model that is accessible from the internet with an OpenAI compatible endpoint, you can add it to AI Toolkit and use it in the playground.
+For self-hosted or deployed models accessible from the internet with an OpenAI compatible endpoint, add it to AI Toolkit for use in the playground.
 
-1. From one of the entry points above, select **Add Custom Model**.
+1. From one of the entry points, select **Add Custom Model**.
 1. Enter the OpenAI compatible endpoint URL and the required information.
 
 To add a self-hosted or locally running Ollama model:
 
 1. Select **+ Add model** in the model catalog.
 1. In the model Quick Pick, choose **Ollama** or **Custom model**.
-1. Enter the required details to add the model.
+1. Enter the required details for the model.
 
 ### Add a custom ONNX model
 
@@ -129,20 +129,20 @@ To add a custom ONNX model, first convert it to the AI Toolkit model format usin
 
 ## Deploy a model to Microsoft Foundry
 
-You can deploy a model to Microsoft Foundry directly from the AI Toolkit. This allows you to run the model in the cloud and access it via an endpoint.
+Deploy a model to Microsoft Foundry directly from AI Toolkit. Run the model in the cloud and access it via an endpoint.
 
 1. From the model catalog, select the model you want to deploy.
 1. Select **Deploy to Microsoft Foundry**, either from the dropdown menu or directly from the **Deploy to Microsoft Foundry** button, as in the following screenshot:
 
     ![Screenshot of the AI Toolkit interface showing the model catalog with a model selected and the Deploy to Microsoft Foundry button highlighted.](./images/models/catalog-deploy-dropdown.png)
 
-1. In the **model deployment** tab, enter the required information, such as the model name, description, and any additional settings, as in the following screenshot:
+1. In the **model deployment** tab, enter the required information, such as the model name, description, and any other settings, as in the following screenshot:
 
     ![Screenshot of the AI Toolkit interface showing the model deployment tab with fields for model name, description, and additional settings.](./images/models/deploy-to-azure-dialog.png)
 
 1. Select **Deploy to Microsoft Foundry** to start the deployment process.
-1. A dialog will appear to confirm the deployment. Review the details and select **Deploy** to proceed.
-1. Once the deployment is complete, the model will be available in the **MY MODELS** section of AI Toolkit, and you can use it in the playground or agent builder.
+1. Confirm the deployment by reviewing the details and selecting **Deploy** to proceed.
+1. Once the deployment is complete, the model is available in the **MY RESOURCES/Models** section of AI Toolkit, and you can use it in the playground or agent builder.
 
 ## Select a model for testing
 
@@ -154,24 +154,24 @@ Use the actions on the model card in the model catalog:
 - **Try in Agent Builder**: Load the selected model in the [Agent Builder](/docs/intelligentapps/agentbuilder.md) to build AI agents.
 
 ## Manage models
-You can manage your models in the **MY MODELS** section of the AI Toolkit view. Here you can:
-- View the list of models you have added to AI Toolkit.
+You can manage your models in the **MY RESOURCES/Models** section of the AI Toolkit view:
+- View the list of models added to AI Toolkit.
 - Right-click on a model to access options such as:
-    - **Load in Playground**: Load the model in the [Playground](/docs/intelligentapps/playground.md) for testing.
-    - **Copy Model Name**: Copy the model name to the clipboard for use in other contexts, such as your code integration.
+  - **Load in Playground**: Load the model in the [Playground](/docs/intelligentapps/playground.md) for testing.
+  - **Copy Model Name**: Copy the model name to the clipboard for use in other contexts, such as your code integration.
     - **Refresh**: Refresh the model configuration to ensure you have the latest settings.
     - **Edit**: Modify the model settings, such as the API key or endpoint.
     - **Delete**: Remove the model from AI Toolkit.
     - **About this Model**: View detailed information about the model, including its publisher, source, and supported features.
 
 - Right-click on `ONNX` section title to access options such as:
-    - **Start Server**: Start the ONNX server to run ONNX models locally.
-    - **Stop Server**: Stop the ONNX server if it is running.
-    - **Copy Endpoint**: Copy the ONNX server endpoint to the clipboard for use in other contexts, such as your code integration.
+  - **Start Server**: Start the ONNX server to run ONNX models locally.
+  - **Stop Server**: Stop the ONNX server if it's running.
+  - **Copy Endpoint**: Copy the ONNX server endpoint to the clipboard for use in other contexts, such as your code integration.
 
 ## License and sign-in
 
-Some models require a publisher or hosting-service license and account to sign-in. In that case, before you can run the model in the [model playground](/docs/intelligentapps/playground.md), you are prompted to provide this information.
+Some models require a publisher or hosting-service license and account to sign-in. In that case, before you can run the model in the [model playground](/docs/intelligentapps/playground.md), you're prompted to provide this information.
 
 ## What you learned
 

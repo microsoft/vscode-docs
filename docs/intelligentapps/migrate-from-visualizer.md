@@ -1,50 +1,52 @@
 ---
 ContentId: c68118c4-453e-404a-97a5-4509850a2da2
-DateApproved: 03/03/2026
+DateApproved: 03/12/2026
 MetaDescription: Migrate from Local Agent Playground and Local Visualizer to Agent Inspector in AI Toolkit for unified debugging, workflow visualization, and code navigation.
 ---
 # Migrate from Local Agent Playground & Local Visualizer to Agent Inspector
+
+In this article, you learn how to migrate your existing AI agent projects from Local Agent Playground and Local Visualizer to Agent Inspector in AI Toolkit. Agent Inspector combines chat, workflow visualization, and debugging support into a single experience.
 
 ## Why this change matters
 
 AI Toolkit consolidates the **Local Agent Playground** and **Local Visualizer** into a single, unified experience called **Agent Inspector**. This transition improves your AI agent development workflow.
 
-### Developer-Centric Benefits of Agent Inspector
+### Developer-centric benefits of Agent Inspector
 
-| Capability | Previous Experience | Agent Inspector |
-|------------|---------------------|-----------------|
+| Capability | Previous experience | Agent Inspector |
+|------------|---------------------|------------------|
 | **Debugging** | No integrated debugging | One-click F5 debugging with breakpoints, variable inspection, and step-through |
-| **Code Navigation** | None | Double-click workflow nodes to jump directly to source code |
+| **Code navigation** | None | Double-click workflow nodes to jump directly to source code |
 | **Workflow + Chat** | Separate tools (Visualizer + Playground) | Unified interface with chat and visualization together |
-| **Production Path** | Manual deployment setup | Generated code uses Hosted Agent SDK, ready for Microsoft Foundry deployment |
+| **Production path** | Manual deployment setup | Generated code uses Hosted Agent SDK, ready for Microsoft Foundry deployment |
 
-### Key Improvements
+### Key improvements
 
-1. **Unified Experience**: No more switching between a playground for chat and a separate visualizer for tracing. Agent Inspector combines both in a single, integrated interface.
+1. **Unified experience**: Agent Inspector combines chat and tracing into a single interface, so you no longer need to switch between separate tools.
 
-2. **True Debugging Support**: Set breakpoints in your agent code, pause execution, inspect variables, and step through your workflow logic. This was previously impossible with the separate tools.
+2. **Debugging support**: Set breakpoints in your agent code, pause execution, inspect variables, and step through your workflow logic. The separate tools didn't offer these capabilities.
 
-3. **Copilot-Assisted Setup**: GitHub Copilot can automatically generate the debugging configuration, endpoints, and environment setup, reducing manual configuration errors.
+3. **Copilot-assisted setup**: GitHub Copilot can automatically generate the debugging configuration, endpoints, and environment setup, reducing manual configuration errors.
 
-4. **Code Navigation**: When viewing workflow execution graphs, double-click any node to immediately open the corresponding source file in your editor.
+4. **Code navigation**: When viewing workflow execution graphs, double-click any node to immediately open the corresponding source file in your editor.
 
-5. **Consistent with Production**: The `agentdev` CLI and Agent Framework SDK used in Agent Inspector are the same foundation you'll use for deploying to Microsoft Foundry, ensuring your local development matches production behavior.
+5. **Consistent with production**: The `agentdev` CLI and Agent Framework SDK used in Agent Inspector are the same foundation you use for deploying to Microsoft Foundry, ensuring your local development matches production behavior.
 
 ---
 
-## Migration Guide: Existing Projects
+## Migration guide: existing projects
 
-If you have an existing project already set up to use the **Local Visualizer** (via Microsoft Foundry extension) and/or **Local Agent Playground**, follow these steps to migrate to Agent Inspector.
+If your project uses the **Local Visualizer** (via the Microsoft Foundry extension) or the **Local Agent Playground**, follow these steps to migrate to Agent Inspector.
 
 ### Prerequisites
 
-Before migrating, ensure you have:
+Before you start, make sure you have:
 
 - **Python 3.10+** installed
-- **VS Code AI Toolkit extension** installed (this is where Agent Inspector lives)
-- Your agent built using the **Agent Framework SDK** (`agent-framework` package)
+- **VS Code AI Toolkit extension** installed (Agent Inspector is part of this extension)
+- Your agent built with the **Agent Framework SDK** (`agent-framework` package)
 
-### Step 1: Update Your Observability Code
+### Step 1: Update your observability code
 
 **Remove** the previous visualizer setup code:
 
@@ -54,23 +56,23 @@ from agent_framework.observability import setup_observability
 setup_observability(vs_code_extension_port=4319)
 ```
 
-Agent Inspector communicates with the locally running agent server through `agent-dev-cli`, without a hard dependency on OTEL tracing.
+Agent Inspector communicates with your agent server through `agent-dev-cli` and doesn't require OTEL tracing.
 
-### Step 2: Add VS Code Debug Configuration
+### Step 2: Add VS Code debug configuration
 
 You have two options:
 
-#### Option A: Let Copilot Configure It (Recommended)
+#### Option A: Let Copilot configure it (recommended)
 
-1. Open GitHub Copilot in VS Code
-2. Select **AIAgentExpert** from Agent Mode
+1. Open GitHub Copilot in VS Code.
+2. Select **AIAgentExpert** from Agent Mode.
 3. Enter this prompt:
    ```
    Help me set up the debug environment for the workflow agent to use AI Toolkit Agent Inspector
    ```
-4. Copilot will generate the necessary `.vscode/tasks.json` and `.vscode/launch.json` files
+4. Copilot generates the `.vscode/tasks.json` and `.vscode/launch.json` files for you.
 
-#### Option B: Manual Configuration
+#### Option B: Manual configuration
 
 Create or update your `.vscode` folder with these files:
 
@@ -134,50 +136,51 @@ Create or update your `.vscode` folder with these files:
 
 > **Note**: Replace `${file}` in tasks.json with your agent's entrypoint Python file path if you want a fixed configuration.
 
-### Step 3: Install Required Dependencies
+### Step 3: Install required dependencies
 
-Ensure `debugpy` and the `agent-dev-cli` CLI are installed:
+Install `debugpy` and `agent-dev-cli`:
 
 ```bash
 pip install debugpy agent-dev-cli
 ```
 
-### Step 4: Run Your Agent with Agent Inspector
+### Step 4: Run your agent with Agent Inspector
 
-1. Press `kbstyle(F5)` to start debugging
-2. Agent Inspector will automatically:
-   - Start your agent server on port 8087
-   - Attach the Python debugger on port 5679
-   - Open the Inspector UI with both chat playground and workflow visualization
+1. Press `kbstyle(F5)` to start debugging.
+2. Agent Inspector automatically:
+   - Starts your agent server on port 8087
+   - Attaches the Python debugger on port 5679
+   - Opens the Inspector UI with the chat playground and workflow visualization
 
-### What Changes for Your Workflow
+### What changes for your workflow
 
-| Before (Old Tools) | After (Agent Inspector) |
+| Before (old tools) | After (Agent Inspector) |
 |--------------------|-------------------------|
-| Run `Microsoft Foundry: Open Visualizer for Hosted Agents` command | Press **F5** in VS Code |
-| Enter endpoint URL manually in Local Agent Playground | Automatic — configured via launch.json |
-| View traces in separate Visualizer tab | Integrated in Inspector alongside chat |
+| Run `Microsoft Foundry: Open Visualizer for Hosted Agents` command | Press `kbstyle(F5)` in VS Code |
+| Enter endpoint URL manually in Local Agent Playground | Automatic, configured in launch.json |
+| View traces in a separate Visualizer tab | View traces in Inspector alongside chat |
 | No debugging | Full breakpoint and step-through debugging |
 
 ### Troubleshooting
 
 | Issue | Solution |
 |-------|----------|
-| Port 8087 already in use | Check for other running agent servers; terminate them first |
-| Port 5679 in use | Another debug session may be running; close it |
-| Breakpoints not hit | Ensure `debugpy` is installed and port 5679 matches in launch.json |
-| API/Framework errors | Agent Framework is actively evolving — copy terminal errors to Copilot for fixes |
+| Port 8087 already in use | Check for other running agent servers and stop them first |
+| Port 5679 in use | Another debug session might be running. Close it and try again |
+| Breakpoints not hit | Make sure `debugpy` is installed and port 5679 matches in launch.json |
+| API or framework errors | Agent Framework is actively evolving. Copy terminal errors into Copilot for help |
 
 ---
 
 ## Summary
 
-By migrating to Agent Inspector, you gain:
-- ✅ Unified chat + visualization experience
-- ✅ Full debugging support with breakpoints
-- ✅ One-click F5 launch
-- ✅ Code navigation from workflow nodes
-- ✅ Copilot-assisted configuration
-- ✅ Production-ready tooling alignment
+When you migrate to Agent Inspector, you get:
+
+- Chat and visualization in one place
+- Full debugging with breakpoints
+- One-click `kbstyle(F5)` launch
+- Code navigation from workflow nodes
+- Copilot-assisted configuration
+- Production-ready tooling
 
 For questions or issues, visit the [AI Toolkit GitHub repository](https://github.com/microsoft/vscode-ai-toolkit/issues).

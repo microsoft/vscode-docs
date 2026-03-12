@@ -1,6 +1,6 @@
 ---
 ContentId: 164299e8-d27d-40b9-8b8d-a6e05df8ac69
-DateApproved: 03/06/2026
+DateApproved: 03/12/2026
 MetaDescription: Build, test, and deploy AI applications with AI Toolkit for Visual Studio Code. Features model playground, prompt engineering, batch evaluation, fine-tuning, and multi-modal support for LLMs and SLMs.
 ---
 # AI Toolkit for Visual Studio Code
@@ -19,7 +19,7 @@ AI Toolkit offers seamless integration with popular AI models from providers lik
 | [Agent Inspector](/docs/intelligentapps/agentinspector) | Debug, visualize, and iterate on AI agents directly within VS Code. | ![Screenshot showing the Agent Inspector interface for debugging and visualizing AI agents](./images/overview/agent-inspector.png) |
 | [Bulk Run](/docs/intelligentapps/bulkrun) | Execute batch prompt testing across multiple models simultaneously. Ideal for comparing model performance and testing at scale with various input scenarios. | ![Screenshot showing the Bulk Run interface for batch testing prompts across multiple AI models](./images/overview/bulk-run.png) |
 | [Model Evaluation](/docs/intelligentapps/evaluation) | Comprehensive model assessment using datasets and standard metrics. Measure performance with built-in evaluators (F1 score, relevance, similarity, coherence) or create custom evaluation criteria. | ![Screenshot showing the Model Evaluation interface with metrics and performance analysis tools](./images/overview/eval.png) |
-| [Fine-tuning](/docs/intelligentapps/finetune) | Customize and adapt models for specific domains and requirements. Train models locally with GPU support or leverage Azure Container Apps for cloud-based fine-tuning. | ![Screenshot showing the Fine-tuning interface with model adaptation and training controls](./images/overview/fine-tune.png) |
+| [Fine-tuning](/docs/intelligentapps/finetune) | Customize and adapt models for specific domains and requirements. Train models locally with GPU support or use Azure Container Apps for cloud-based fine-tuning. | ![Screenshot showing the Fine-tuning interface with model adaptation and training controls](./images/overview/fine-tune.png) |
 | [Model Conversion](/docs/intelligentapps/modelconversion) | Convert, quantize, and optimize machine learning models for local deployment. Transform models from Hugging Face and other sources to run efficiently on Windows with CPU, GPU, or NPU acceleration. | ![Screenshot showing the Model Conversion interface with tools for optimizing and transforming AI models](./images/overview/conversion.png) |
 | [Tracing](/docs/intelligentapps/tracing) | Monitor and analyze the performance of your AI applications. Collect and visualize trace data to gain insights into model behavior and performance. | ![Screenshot showing the Tracing interface with tools for monitoring AI applications](./images/overview/tracing.png) |
 | [Profiling (Windows ML)](/docs/intelligentapps/profiling) | Diagnose the CPU, GPU, NPU resource usages of the process, ONNX model on different execution providers, and Windows Machine Learning events. | ![Screenshot showing the Profiling tool](./images/overview/profiling.png) |
@@ -75,7 +75,7 @@ You can also install AI Toolkit extension manually from the Visual Studio Code M
 
 ## Explore AI Toolkit
 
-AI Toolkit opens in its own view, with the AI Toolkit icon now displayed on the VS Code Activity Bar. The extension has several main sections: My Resources, Model Tools, Agent and Workflow Tools, MCP Workflow, and Help and Feedback.
+AI Toolkit opens in its own view, with the AI Toolkit icon now displayed on the VS Code Activity Bar. The extension has several main sections: My Resources, Model Tools, Agent and Workflow Tools, Build Agent with GitHub Copilot, and Help and Feedback.
 
 ![Screenshot showing the AI Toolkit Extension with highlighted sections."](./images/overview/initial-view.png)
 
@@ -85,35 +85,36 @@ AI Toolkit opens in its own view, with the AI Toolkit icon now displayed on the 
   - **Tools**: This section contains the tools you're working with in AI Toolkit.
 
 - **Model Tools**: This section contains the model tools you can use to build and deploy your AI applications. The **Model Tools** view is where you can find the tools available to deploy and then work with your deployed models. It contains the following subsections:
-    - **Model Catalog**: The model catalog lets you discover and access AI models from multiple sources including GitHub, ONNX, Ollama, OpenAI, Anthropic, and Google. Compare models side-by-side and find the right model for your use case.
-    - **Model Playground**: The model playground provides an interactive environment to experiment with generative AI models. Test various prompts, adjust model parameters, compare responses from different models and explore multi-modal capabilities by attaching different types of input files.
-    - **Conversion**: The model conversion tool helps you convert, quantize, optimize, and evaluate the pre-built machine learning models on your local Windows platform.
-    - **Fine-tuning**: This tool allows you to use your custom dataset to run fine-tuning jobs on a pre-trained model in a local computing environment with GPU or in the cloud (Azure Container Apps) with GPU.
-    - **Profiling (Windows ML)(Preview)**: This tool allows you to diagnose the CPU, GPU, NPU resource usages of the process, ONNX model on different execution providers, and Windows Machine Learning events.
+
+  - **Model Catalog**: The model catalog lets you discover and access AI models from multiple sources including GitHub, ONNX, Ollama, OpenAI, Anthropic, and Google. Compare models side-by-side and find the right model for your use case.
+  - **Model Playground**: The model playground provides an interactive environment to experiment with generative AI models.
+  - **Conversion**: The model conversion tool helps you convert, quantize, optimize, and evaluate the prebuilt machine learning models on your local Windows platform.
+  - **Fine-tuning**: This tool allows you to use your custom dataset to run fine-tuning jobs on a pretrained model in a local computing environment with GPU or in the cloud (Azure Container Apps) with GPU.
+  - **Profiling (Windows ML)(Preview)**: This tool allows you to diagnose the CPU, GPU, NPU resource usages of the process, ONNX model on different execution providers, and Windows Machine Learning events.
 
 - **Agent and Workflow Tools**: This section is where you can find the tools available to deploy and then work with your deployed agents in AI Toolkit. It contains the following subsections:
-    - **Agent Builder**:  Create and deploy agents easily.
-    - **Tool Catalog**: Browse and manage the tools available in AI Toolkit.
-    - **Agent Inspector**: Debug, visualize, and iterate on AI agents directly within VS Code.
-    - **Bulk Run**: Test agents and prompts against multiple test cases in batch mode.
-    - **Evaluation**: Evaluate models, prompts, and agents by comparing their outputs to ground truth data and computing evaluation metrics.
-    - **Tracing**: Trace capabilities to help you monitor and analyze the performance of your AI applications.
+  - **Agent Builder**:  Create and deploy agents easily.
+  - **Tool Catalog**: Browse and manage the tools available in AI Toolkit.
+  - **Agent Inspector**: Debug, visualize, and iterate on AI agents directly within VS Code.
+  - **Bulk Run**: Test agents and prompts against multiple test cases in batch mode.
+  - **Evaluation**: Evaluate models, prompts, and agents by comparing their outputs to ground truth data and computing evaluation metrics.
+  - **Tracing**: Trace capabilities to help you monitor and analyze the performance of your AI applications.
 
 - **Build Agent with GitHub Copilot**: This section enables you to use GitHub Copilot to help you build AI agents faster with AI Toolkit. It contains the following subsections:
-    - **Create Agent**: Opens the Chat view and creates a prompt to build an AI agent with a Console application using GitHub Copilot.
-    - **Workflows**: This section contains tools to help you create and orchestrate workflows. It contains the following tools:
-        - **New Workflow**: Creates a new workflow.
-        - **Orchestrate Foundry Agents**: Orchestrate a workflow using Foundry Agents.
+  - **Create Agent**: Opens the Chat view and creates a prompt to build an AI agent with a Console application using GitHub Copilot.
+  - **Workflows**: This section contains tools to help you create and orchestrate workflows. It contains the following tools:
+    - **New Workflow**: Creates a new workflow.
+    - **Orchestrate Foundry Agents**: Orchestrate a workflow using Foundry Agents.
     - **More Tools**
-        - **Enable Tracing**: Opens the Chat view and creates a prompt to add tracing to the current workspace using GitHub Copilot.
-        - **Add Evaluation Framework**: Opens the Chat view and creates a prompt to add the evaluation framework to the current workspace using GitHub Copilot.
+      - **Enable Tracing**: Opens the Chat view and creates a prompt to add tracing to the current workspace using GitHub Copilot.
+      - **Add Evaluation Framework**: Opens the Chat view and creates a prompt to add the evaluation framework to the current workspace using GitHub Copilot.
 
 - **Help and Feedback**: This section contains links to the Microsoft Foundry documentation, feedback, support, and the Microsoft Privacy Statement. It contains the following subsections:
-    - **Documentation**: The link to the Microsoft Foundry Extension documentation.
-    - **Resources**: The link to the AI Toolkit Tutorials Gallery, a collection of tutorials to help you get started with AI Toolkit.
-    - **Get Started**: The link to the getting started walkthrough to help you learn the basics of AI Toolkit.
-    - **What's New**: The link to the AI Toolkit release notes.
-    - **Report Issues on GitHub**: The link to the Microsoft Foundry extension GitHub repository issues page.
+  - **Documentation**: The link to the Microsoft Foundry Extension documentation.
+  - **Resources**: The link to the AI Toolkit Tutorials Gallery, a collection of tutorials to help you get started with AI Toolkit.
+  - **Get Started**: The link to the getting started walkthrough to help you learn the basics of AI Toolkit.
+  - **What's New**: The link to the AI Toolkit release notes.
+  - **Report Issues on GitHub**: The link to the Microsoft Foundry extension GitHub repository issues page.
 
 ## Get started with AI Toolkit
 
