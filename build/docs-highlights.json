@@ -1,0 +1,30 @@
+{
+  "getStarted": {
+    "title": "Get started with AI agents in VS Code",
+    "description": "Use AI agents to plan, write code, run tests, and fix bugs — all from a single chat session. Agents handle multi-step tasks so you can focus on what matters.",
+    "link": "/docs/copilot/agents/agents-tutorial",
+    "image": "/assets/docs/copilot/getting-started/agent-mode-selection.png"
+  },
+  "latest": [
+    {
+      "type": "tutorial",
+      "title": "Build a feature end-to-end with agents",
+      "description": "Walk through a complete agent session: describe a feature, let the agent plan, write code, and run tests.",
+      "link": "/docs/copilot/agents/agents-tutorial",
+      "image": "/assets/docs/copilot/agents-tutorial/tutorial-hero.png"
+    },
+    {
+      "type": "documentation",
+      "title": "AI core concepts",
+      "description": "Get an overview of the core concepts and how AI agents work in VS Code.",
+      "link": "/docs/copilot/core-concepts",
+      "image": "/assets/docs/copilot/core-concepts/agent-loop.png"
+    },
+    {
+      "type": "guide",
+      "title": "Customize AI for your team",
+      "description": "Configure custom instructions, prompt files, and MCP servers to tailor AI to your workflow.",
+      "link": "/docs/copilot/customization/overview"
+    }
+  ]
+}
