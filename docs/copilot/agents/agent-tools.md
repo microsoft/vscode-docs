@@ -20,6 +20,13 @@ For background on tool types and how tools work in the agent loop, see [Tools co
 
 This article describes how to use tools in your chat prompts and how to manage tool invocations and approvals.
 
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Try tools in action">
+Launch a chat prompt that uses the fetch tool to summarize the latest VS Code updates.
+
+* [Open in VS Code](vscode://GitHub.Copilot-Chat/chat?agent=agent%26prompt=Summarize%20the%20latest%20VS%20Code%20updates%20%23fetch%20https%3A%2F%2Fcode.visualstudio.com%2Fupdates)
+
+</div>
+
 ## Enable tools for chat
 
 Before you can use tools in chat, you need to enable them in the Chat view. You can enable or disable tools on a per-request basis by using the tools picker. You can add more tools by [installing MCP servers](/docs/copilot/customization/mcp-servers.md) or [extensions](/docs/getstarted/extensions.md) that contribute tools.

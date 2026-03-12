@@ -22,6 +22,13 @@ AI models have broad general knowledge but don't know your codebase or team prac
 
 This article explains the different customization options and when to use each one. For step-by-step configuration, see the individual guides linked from each section.
 
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with customizations">
+Follow a hands-on tutorial to discover the customization options and configure them for your project.
+
+* [Customization concepts](/docs/copilot/concepts/customization.md)
+
+</div>
+
 ## Customization options at a glance
 
 | Goal | Use | Example | When it activates |
