@@ -144,7 +144,7 @@ pip install debugpy agent-dev-cli
 
 ### Step 4: Run Your Agent with Agent Inspector
 
-1. Press **F5** to start debugging
+1. Press `kbstyle(F5)` to start debugging
 2. Agent Inspector will automatically:
    - Start your agent server on port 8087
    - Attach the Python debugger on port 5679
