@@ -107,7 +107,6 @@
         "area": "copilot/guides",
         "noCollapse": false,
         "topics": [
-          ["Prompt Engineering", "/docs/copilot/guides/prompt-engineering-guide"],
           ["Context Engineering", "/docs/copilot/guides/context-engineering-guide"],
           ["Customize AI", "/docs/copilot/guides/customize-copilot-guide"],
           ["Test-Driven Development", "/docs/copilot/guides/test-driven-development-guide"],
