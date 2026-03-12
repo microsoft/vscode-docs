@@ -3,7 +3,7 @@ ContentId: c68118c4-453e-404a-97a5-4509850a2da2
 DateApproved: 03/03/2026
 MetaDescription: Migrate from Local Agent Playground and Local Visualizer to Agent Inspector in AI Toolkit for unified debugging, workflow visualization, and code navigation.
 ---
-# Migrating from Local Agent Playground & Local Visualizer to Agent Inspector
+# Migrate from Local Agent Playground & Local Visualizer to Agent Inspector
 
 ## Why We're Making This Change
 
