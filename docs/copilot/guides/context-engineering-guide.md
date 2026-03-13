@@ -138,7 +138,7 @@ With a [custom agent](/docs/copilot/customization/custom-agents.md) for planning
     ```markdown
     ---
     description: 'Architect and planner to create detailed implementation plans.'
-    tools: ['fetch', 'githubRepo', 'problems', 'usages', 'search', 'todos', 'runSubagent', 'github/github-mcp-server/get_issue', 'github/github-mcp-server/get_issue_comments', 'github/github-mcp-server/list_issues']
+    tools: ['fetch', 'problems', 'usages', 'search', 'todos', 'runSubagent', 'github/github-mcp-server/get_issue', 'github/github-mcp-server/get_issue_comments', 'github/github-mcp-server/list_issues']
     handoffs:
     - label: Start Implementation
         agent: tdd

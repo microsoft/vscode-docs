@@ -107,14 +107,14 @@ Generate release notes based on the #changes
 
 ## Working with external resources
 
-Use `#fetch` and `#githubRepo` to reference content from the web or GitHub repositories.
+Use `#fetch` to reference content from the web or use the GitHub MCP server to search for code examples in public GitHub repositories.
 
 ```prompt
 How do I use the 'useState' hook in react 18? #fetch https://18.react.dev/reference/react/useState#usage
 ```
 
 ```prompt
-Build an API endpoint to fetch address info, use the template from #githubRepo contoso/api-templates
+Build an API endpoint to fetch address info, use the template from GitHub repo contoso/api-templates
 ```
 
 ```prompt

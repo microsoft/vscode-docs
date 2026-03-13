@@ -127,7 +127,7 @@ The custom agent file body contains the custom agent implementation, formatted a
 
 You can reference other files by using Markdown links, for example to reuse instructions files.
 
-To reference agent tools in the body text, use the `#tool:<tool-name>` syntax. For example, to reference the `githubRepo` tool, use `#tool:githubRepo`.
+To reference agent tools in the body text, use the `#tool:<tool-name>` syntax. For example, to reference the `fetch` tool, use `#tool:fetch`.
 
 When you select the custom agent in the Chat view, the guidelines in the custom agent file body are prepended to the user chat prompt.
 
@@ -142,7 +142,7 @@ The following code snippet shows an example of a "Plan" custom agent file that g
 ---
 description: Generate an implementation plan for new features or refactoring existing code.
 name: Planner
-tools: ['fetch', 'githubRepo', 'search', 'usages']
+tools: ['fetch', 'search', 'usages']
 model: ['Claude Opus 4.5', 'GPT-5.2']  # Tries models in order
 handoffs:
   - label: Implement Plan

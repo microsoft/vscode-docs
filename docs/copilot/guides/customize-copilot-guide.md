@@ -141,7 +141,7 @@ Custom agents let the AI adopt specialized personas with specific tool access. C
     ```markdown
     ---
     description: Review code for quality, security, and best practices
-    tools: ['search/codebase', 'search/workspace', 'githubRepo']
+    tools: ['search/codebase', 'search/workspace']
     ---
     You are a code reviewer. Analyze the provided code and identify:
 

@@ -107,7 +107,6 @@ The following table lists the VS Code built-in tools:
 | `#getProjectSetupInfo` | Provide instructions and configuration for scaffolding different types of projects. |
 | `#getTaskOutput` | Get the output from running a [task](/docs/debugtest/tasks.md) in the workspace. |
 | `#getTerminalOutput` | Get the output from running a terminal command in the workspace. |
-| `#githubRepo` | Perform a code search in a GitHub repo. For example, "what is a global snippet #githubRepo microsoft/vscode." |
 | `#installExtension` | Install a VS Code extension. |
 | `#listDirectory` | List files in a directory in the workspace. |
 | `#new` | Scaffold a new VS Code workspace, preconfigured with debug and run configurations. |

@@ -92,7 +92,7 @@ The AI responds more accurately when it has relevant context. Use these techniqu
 
 * The AI automatically performs code search to gather relevant context. When your prompt is ambiguous, you can guide the AI by referencing specific files, folders, or symbols in your prompt with `#<file>`, `#<folder>`, or `#<symbol>`.
 
-* To pull information from web pages or GitHub repositories, use `#fetch` or `#githubRepo` to provide the AI with up-to-date information beyond your codebase.
+* To pull information from web pages or GitHub repositories, use `#fetch` to provide the AI with up-to-date information beyond your codebase or use tools from MCP servers like GitHub MCP.
 
 * Reference VS Code environment context such as source control changes, terminal output, or test failures to help the AI understand the current state of your project and provide more relevant responses.
 

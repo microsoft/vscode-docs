@@ -22,6 +22,8 @@ View the full list of [supported context items](/docs/copilot/reference/copilot-
 
 ### Add files as context
 
+By default, VS Code performs uses workspace indexing to automatically include relevant files as context based on the conversation. However, you can also explicitly add specific files, folders, or symbols as context using #-mentions or the context picker. This can be useful when the question is ambiguous and could also be considered a general question about coding practices, and you want to make sure the AI considers specific parts of your codebase in its response.
+
 To provide specific files, folders, or symbols as context, add them to the chat using the following methods:
 
 * #-mention the file, folder, or symbol in your chat message by typing `#` followed by the name of the file, folder, or symbol.
@@ -31,58 +33,20 @@ To provide specific files, folders, or symbols as context, add them to the chat 
 
 * Select **Add Context** in the Chat view and select **Files & Folders** or **Symbols** from the Quick Pick.
 
-> [!NOTE]
-> If possible, the full contents of the file will be included when you attach a file. If that is too large to fit into the context window, an outline of the file will be included that includes functions and their descriptions without implementations. If the outline is also too large, then the file won't be part of the prompt.
-
-### Perform a codebase search
-
-Instead of adding individual files manually, you can let VS Code find the right files from your codebase automatically. This can be useful when you don't know which files are relevant to your question.
-
-Add `#codebase` in your prompt or select **Add Context** > **Tools** > **codebase** to enable code search for your workspace.
-
-The following prompt examples show how to use codebase search:
-
-* `"Explain how authentication works in #codebase"`
-* `"Where is the database connection string configured? #codebase"`
-* `"Add a new API route for updating the address #codebase"`
-
-If you use [agents](/docs/copilot/agents/local-agents.md), the agent will automatically use codebase search when it determines that additional context is needed to answer your question. You can still add `#codebase` if your question might be interpreted in different ways and you want to make sure the agent uses codebase search.
+To explicitly inform the AI that you want to use the entire codebase as context, you can add `#codebase` to your prompt.
 
 ### Reference content from the web
 
 You can reference content from the web in your chat prompts, for example to get the latest API reference or code examples.
 
-* `#fetch <URL>`
+You can directly include a URL in your prompt to get information from that webpage, or use the `#fetch` tool to indicate that you want to retrieve content from the web. For example:
 
-    Use the `fetch` tool to retrieve content from a specific web page. To use this tool, type `#fetch` followed by the URL of the page you want to reference.
+* `"What are the highlights of the latest VS Code release #fetch"`
+* `"Update the asp.net app to .net 9 #fetch https://learn.microsoft.com/en-us/aspnet/core/migration/80-90"`
 
-    The `fetch` tool caches the content of the web page for a limited time to improve performance. If the content of the page changes, you can force a refresh by restarting VS Code. If the page cannot be reached, the cache will expire after a short time (approximately five minutes).
+VS Code caches the content of the web page for a limited time to improve performance. If the content of the page changes, you can force a refresh by restarting VS Code. If the page cannot be reached, the cache will expire after a short time (approximately five minutes).
 
-    VS Code prompts for confirmation before accessing external URLs to protect your privacy and security. Learn more about [configuring URL auto-approval](/docs/copilot/agents/agent-tools.md#url-approval).
-
-    Example prompts using the `fetch` tool:
-
-    * `"What are the highlights of VS Code 1.100 #fetch https://code.visualstudio.com/updates/v1_100"`
-    * `"Update the asp.net app to .net 9 #fetch https://learn.microsoft.com/en-us/aspnet/core/migration/80-90"`
-
-* `#githubRepo <repo name>`
-
-    Use the `githubRepo` tool to perform a code search within a GitHub repository. Type `#githubRepo` followed by the repository name.
-
-    Example prompts using the `githubRepo` tool:
-
-    * `"How does routing work in next.js #githubRepo vercel/next.js"`
-    * `"Perform a code review to validate it's consistent with #githubRepo microsoft/typescript"`
-
-### Reference tools
-
-When using agents, the agent autonomously decides to use tools for performing specific tasks. If you want to explicitly reference a tool in your chat prompt, you can use #-mentions. Type `#` followed by the tool name and optional parameters:
-
-* `"Summarize #fetch https://code.visualstudio.com/updates"`
-* `"How does routing work? #githubRepo vercel/next.js"`
-* `"what are my open issues #github-mcp"` (use tools from the GitHub MCP server)
-
-If you reference a tool set or MCP server by its name, all tools from that set or server are made available to the agent for the current prompt.
+VS Code prompts for confirmation before accessing external URLs to protect your privacy and security. Learn more about [configuring URL auto-approval](/docs/copilot/agents/agent-tools.md#url-approval).
 
 Learn more about [adding and using tools in chat](/docs/copilot/agents/agent-tools.md).
 
@@ -90,7 +54,7 @@ Learn more about [adding and using tools in chat](/docs/copilot/agents/agent-too
 
 Chat participants are specialized assistants that enable you to ask domain-specific questions in chat. Imagine a chat participant as a domain expert to whom you hand off your chat request and it takes care of the rest.
 
-Chat participants are different from [tools](#reference-tools) that are invoked as part of an agent flow to contribute and perform specific tasks.
+Chat participants are different from tools that are invoked as part of an agent flow to contribute and perform specific tasks.
 
 You can invoke a chat participant by @-mentioning it: type `@` followed by the participant name. VS Code has built-in chat participants like `@vscode` or `@terminal`. They are optimized to answer questions about their respective domains.
 

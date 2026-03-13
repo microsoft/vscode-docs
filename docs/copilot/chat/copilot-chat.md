@@ -132,7 +132,7 @@ Providing the right context helps the AI generate more relevant and accurate res
 
 * **Implicit context**: VS Code automatically includes the active file, your current selection, and the file name as context. When you use agents, the agent decides autonomously if additional context is needed.
 
-* **`#`-mentions**: type `#` in the chat input to explicitly reference files (`#file`), folders, symbols, your codebase (`#codebase`), terminal output (`#terminalSelection`), or tools like `#fetch` and `#githubRepo`.
+* **`#`-mentions**: type `#` in the chat input to explicitly reference files (`#file`), folders, symbols, your codebase (`#codebase`), terminal output (`#terminalSelection`), or tools like `#fetch`.
 
 * **`@`-mentions**: type `@` to invoke specialized chat participants like `@vscode` or `@terminal`, each optimized for their respective domain.
 

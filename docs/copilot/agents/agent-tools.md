@@ -21,9 +21,9 @@ For background on tool types and how tools work in the agent loop, see [Tools co
 This article describes how to use tools in your chat prompts and how to manage tool invocations and approvals.
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Try tools in action">
-Launch a chat prompt that uses the fetch tool to summarize the latest VS Code updates.
+Launch a chat prompt that uses the web tool to summarize the latest VS Code updates.
 
-* [Open in VS Code](vscode://GitHub.Copilot-Chat/chat?agent=agent%26prompt=Summarize%20the%20latest%20VS%20Code%20updates%20%23fetch%20https%3A%2F%2Fcode.visualstudio.com%2Fupdates)
+* [Open in VS Code](vscode://GitHub.Copilot-Chat/chat?agent=agent%26prompt=Summarize%20the%20latest%20VS%20Code%20updates%20%23web)
 
 </div>
 
@@ -56,12 +56,10 @@ You can also explicitly reference tools in your prompts by typing `#` followed b
 
 **Examples of explicit tool references:**
 
-* `"Summarize the content from #fetch https://code.visualstudio.com/updates"`
-* `"How does routing work in Next.js? #githubRepo vercel/next.js"`
+* `"What is the latest version of Node.js #web"`
+* `"How does routing work in Next.js? #web"`
 * `"Fix the issues in #problems"`
 * `"Explain the authentication flow #codebase"`
-
-Some tools accept parameters directly in the prompt. For example, `#fetch` requires a URL and `#githubRepo` requires a repository name.
 
 > [!TIP]
 > By default, tool call details are collapsed in the chat conversation. You can uncollapse them by selecting the tool summary line in chat, or change the default behavior with the `setting(chat.agent.thinking.collapsedTools)` setting (experimental).
@@ -116,7 +114,7 @@ Organizations can also use device management policies to enforce manual approval
 
 ### URL approval
 
-When a tool attempts to access a URL, such as with the `fetch` tool, a two-step approval process is used to protect you from malicious or unexpected content. VS Code shows a confirmation dialog with the URL details for your review in the Chat view.
+When a tool attempts to access a URL, such as with the `#fetch` tool, a two-step approval process is used to protect you from malicious or unexpected content. VS Code shows a confirmation dialog with the URL details for your review in the Chat view.
 
 * **Pre-approval: approving the request to the URL**
 

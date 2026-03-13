@@ -176,7 +176,7 @@ Instructions files are Markdown files with the `.instructions.md` extension. The
 | `description` | No | Short description shown on hover in the Chat view. |
 | `applyTo` | No | Glob pattern that defines which files the instructions apply to automatically, relative to the workspace root. Use `**` to apply to all files. If not specified, the instructions are not applied automatically, but you can still add them manually to a chat request. |
 
-The body contains the instructions in Markdown format. To reference agent tools, use the `#tool:<tool-name>` syntax (for example, `#tool:githubRepo`).
+The body contains the instructions in Markdown format. To reference agent tools, use the `#tool:<tool-name>` syntax (for example, `#tool:fetch`).
 
 ```markdown
 ---
