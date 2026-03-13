@@ -10,7 +10,7 @@ Author: Pierce Boggan
 
 # How VS Code Builds with AI
 
-March 1, 2026 by [Pierce Boggan](https://github.com/pierceboggan)
+March 13, 2026 by [Pierce Boggan](https://github.com/pierceboggan)
 
 We use AI every day to ship VS Code. It's made us so much faster that, after ten years of monthly releases, we just went weekly. Agents were the key that unlocked this, not just for writing code, but across every part of how the team works.
 
