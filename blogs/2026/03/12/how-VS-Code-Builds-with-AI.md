@@ -57,7 +57,7 @@ From there, Peng decides what needs his focus, what to delegate to agents, and w
 ![A task management view showing a prioritized to-do list split into two sections: "Do Yourself (people/decisions)" with 4 items including prepping for VS Code Live Agent Sessions Day, scheduling a 1:1, sending a repo link, and communicating opt-out expectations; and "Open Code Tasks (delegate or do)" with 3 items including background agent worktree improvements, starting a group chat for review coordination, and discussing a GitHub endpoint for steering context. Each item includes status notes and dates.](task-management.png)
 
 
->>"Previously you're always working in sequence. Now you are empowered to do things in parallel. You have to build this habit. I don't write down meeting notes anymore. I'm kicking off the agents directly ... previously you have notes and then turn them into issues, and then someone else, or you, would pick that up later. Now it goes to the very end." — Peng Lyu
+>"Previously you're always working in sequence. Now you are empowered to do things in parallel. You have to build this habit. I don't write down meeting notes anymore. I'm kicking off the agents directly ... previously you have notes and then turn them into issues, and then someone else, or you, would pick that up later. Now it goes to the very end." — Peng Lyu
 
 It really is a new muscle. Someone in a meeting mentions something we need to go do, and I'll fire off agents right there. We’ve also enabled transcription for most of our meetings in Teams, so grabbing context after the fact is easy. What used to be meeting notes turned into issues turned into work is now just a prompt kicked off in the moment.
 
@@ -75,7 +75,7 @@ You can see it in the repo's public data: comparing Jan-Mar year over year, comm
 
 ![Bar chart titled VS Code Repo Activity Jan 1 to Mar 10 showing a year-over-year comparison using public GitHub data. Commits grew from 2,339 in 2025 to 5,104 in 2026, a 2.2x increase. Issues Closed grew from 2,916 in 2025 to 8,402 in 2026, a 2.9x increase. 2025 bars are gray, 2026 bars are blue.](repo-activity.png)
 
->>"Now that piece of code is written by Copilot, who is the right owner for it? I would say it's still our engineers who are accountable for the outcome. But you do need the right harness to welcome other people to contribute to your component." — Peng Lyu
+>"Now that piece of code is written by Copilot, who is the right owner for it? I would say it's still our engineers who are accountable for the outcome. But you do need the right harness to welcome other people to contribute to your component." — Peng Lyu
 
 The team also built a Chrome extension that shows triage suggestions directly on GitHub issues, like duplicates, owners, and labels. It includes a dashboard showing issue status across the team. Inside VS Code, custom slash commands let engineers groom issues and find duplicates without leaving the editor.
 
@@ -101,7 +101,7 @@ This workflow is also a litmus test for whether your codebase is agent-ready. Ca
 
 More velocity means more risk of regression.
 
->>"Without the right harness, for the first week or two your productivity is really high. Then you quickly reach a ceiling where you keep regressing." — Peng Lyu
+>"Without the right harness, for the first week or two your productivity is really high. Then you quickly reach a ceiling where you keep regressing." — Peng Lyu
 
 If a new component doesn't have good guardrails, agent-driven development starts strong and then quality degrades quickly. The fundamentals are still important, and with AI, we can actually improve upon them:
 
