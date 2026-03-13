@@ -3,7 +3,7 @@ Order: 129
 TOCTitle: How VS Code Builds with AI
 PageTitle: "How VS Code Builds with AI"
 MetaDescription: Learn how VS Code uses AI across its own development workflow with GitHub Copilot agent mode, automated testing, and AI-powered code review.
-MetaSocialImage: hero.png
+MetaSocialImage: weekly-release-announcement.png
 Date: 2026-03-12
 Author: Pierce Boggan
 ---
