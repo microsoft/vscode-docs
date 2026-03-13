@@ -1,6 +1,6 @@
 {
   "getStarted": {
-    "title": "Get started with AI agents in VS Code",
+    "title": "Get started with AI agents",
     "description": "Hand off tasks to autonomous AI agents that iterate until the job is done. Run them locally, in the background, or in the cloud, with your choice of AI provider. Track all sessions without leaving VS Code.",
     "link": "/docs/copilot/agents/agents-tutorial",
     "image": "/assets/docs/copilot/getting-started/agent-mode-selection.png"
