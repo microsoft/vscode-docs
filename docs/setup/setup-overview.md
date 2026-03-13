@@ -26,7 +26,7 @@ Follow a hands-on tutorial to build your first app with AI in VS Code.
     * [Windows](/docs/setup/windows.md)
 
     > [!NOTE]
-    > VS Code ships monthly releases and supports [auto-update](#update-cadence) when a new release is available.
+    > VS Code ships weekly releases and supports [auto-update](#update-cadence) when a new release is available.
 
 1. [Install additional components](/docs/setup/additional-components.md)
 
@@ -47,7 +47,7 @@ Follow a hands-on tutorial to build your first app with AI in VS Code.
 
 ## Update cadence
 
-VS Code releases a new version [each month](/updates) with new features and important bug fixes. Most platforms support auto updating and you are prompted to install the new release when it becomes available.
+VS Code releases a new version [each week](/updates) with new features and important bug fixes. Most platforms support auto updating and you are prompted to install the new release when it becomes available.
 
 You can also manually check for updates by running **Help** > **Check for Updates** on Linux and Windows, or running **Code** > **Check for Updates** on macOS.
 
@@ -56,7 +56,7 @@ You can also manually check for updates by running **Help** > **Check for Update
 
 ## Insiders nightly build
 
-If you'd like to try our nightly builds to see new features early or verify bug fixes, you can install our [Insiders build](/insiders). The Insiders build installs side-by-side with the monthly Stable build and you can freely work with either on the same machine. The Insiders build is the same one the VS Code development team uses on a daily basis and we really appreciate people trying out new features and providing feedback.
+If you'd like to try our nightly builds to see new features early or verify bug fixes, you can install our [Insiders build](/insiders). The Insiders build installs side-by-side with the weekly Stable build and you can freely work with either on the same machine. The Insiders build is the same one the VS Code development team uses on a daily basis and we really appreciate people trying out new features and providing feedback.
 
 Because Insiders builds are released nightly, multiple builds often share the same product version number. To uniquely identify a specific Insiders build, use the commit ID shown in the **About** dialog in addition to the version number.
 

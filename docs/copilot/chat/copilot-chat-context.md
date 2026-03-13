@@ -185,5 +185,5 @@ If you want to reset the context entirely, start a [new chat session](/docs/copi
 
 * [Chat overview](/docs/copilot/chat/copilot-chat.md)
 * [Prompt examples](/docs/copilot/chat/prompt-examples.md)
-* [Prompt engineering guide](/docs/copilot/guides/prompt-engineering-guide.md)
+* [Prompt engineering guide](/docs/copilot/best-practices.md)
 * [Debug chat interactions](/docs/copilot/chat/chat-debug-view.md)

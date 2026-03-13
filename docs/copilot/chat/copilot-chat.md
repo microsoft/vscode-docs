@@ -158,7 +158,7 @@ After the AI makes changes to your files, review and accept or discard them.
 
 Chat provides several ways to improve the quality and relevance of AI responses:
 
-* **Write effective prompts**: be specific about what you want, reference relevant files and symbols, and use `/` commands for common tasks. Get inspired by [prompt examples](/docs/copilot/chat/prompt-examples.md) or review the full [prompt engineering guide](/docs/copilot/guides/prompt-engineering-guide.md).
+* **Write effective prompts**: be specific about what you want, reference relevant files and symbols, and use `/` commands for common tasks. Get inspired by [prompt examples](/docs/copilot/chat/prompt-examples.md) or review the full [prompt engineering guide](/docs/copilot/best-practices.md).
 
 * **Customize the AI**: tailor the AI's behavior to your project by adding [custom instructions](/docs/copilot/customization/custom-instructions.md), creating reusable [prompt files](/docs/copilot/customization/prompt-files.md), or building [custom agents](/docs/copilot/customization/custom-agents.md) for specialized workflows. For example, create a "Code Reviewer" agent that provides feedback on code quality and adherence to your team's coding standards.
 

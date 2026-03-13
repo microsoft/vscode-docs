@@ -229,7 +229,7 @@ This activation event is emitted and interested extensions will be activated **s
 
 ## onTaskType
 
-`onTaskType:type` is emitted emitted whenever tasks of a certain type need to be listed or resolved.
+`onTaskType:type` is emitted whenever tasks of a certain type need to be listed or resolved.
 
 ```json
 "activationEvents": [

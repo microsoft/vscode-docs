@@ -5,7 +5,7 @@ MetaDescription: This tutorial gives you an overview of the key features of Visu
 ---
 # Tutorial: Get started with Visual Studio Code
 
-In this tutorial, you learn about the key features of Visual Studio Code to help you get started with coding quickly. You learn about the different components of the user interface and how to customize it to your liking. You then write some code and use the built-in code editing features, such as IntelliSense and Code Actions, and you learn about running and debugging your code. By installing a language extension, you add support for a different programming language.
+In this tutorial, you learn about the key features of Visual Studio Code to help you get started quickly. You learn about the different components of the user interface, use an AI agent to build a web app, and explore how to enhance your setup with extensions. You also learn about configuring VS Code settings, using source control, and running and debugging your code.
 
 > [!TIP]
 > If you prefer a video to learn about Visual Studio Code, you can watch the [Getting Started video](https://www.youtube.com/watch?v=f8_uF_IDV50) on our YouTube channel.
@@ -26,7 +26,12 @@ Learn about the key features of Visual Studio Code in our introduction video.
 
 ## Prerequisites
 
-- [Download and install Visual Studio Code on your computer](https://code.visualstudio.com/download)
+* [Download and install Visual Studio Code on your computer](https://code.visualstudio.com/download)
+* [Set up GitHub Copilot in VS Code](/docs/copilot/setup.md)
+* Install [Node.js](https://nodejs.org/) (for running and debugging JavaScript)
+
+> [!TIP]
+> If you don't have a Copilot subscription yet, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
 
 ## Open a folder in VS Code
 
@@ -74,6 +79,9 @@ Now that you have a folder open in VS Code, let's take a quick tour of the user 
     For example, the Run and Debug view enables you to configure and start debugging sessions.
 
     ![Screenshot that shows the Activity Bar and the Run and Debug view in the Primary Side Bar.](images/getting-started/activity-bar-and-side-bar.png)
+
+    > [!TIP]
+    > Notice the **Chat** view in the Activity Bar. This is where you interact with AI agents to generate code, ask questions, and more. You'll use it in the next step to build an app.
 
 ### View and edit files with the Editor
 
@@ -145,6 +153,69 @@ Now that you have a folder open in VS Code, let's take a quick tour of the user 
 > [!TIP]
 > VS Code uses fuzzy matching to find files or commands. For example, typing `odks` returns the `Open Default Keyboard Shortcuts` command.
 
+## Build an app with an AI agent
+
+Visual Studio Code has built-in support for GitHub Copilot for AI-powered coding. AI agents can autonomously plan a solution, create and edit multiple files, run terminal commands, and iterate on errors, all from a single natural-language prompt. You describe what you want, and the agent does whatever is needed to get the job done.
+
+Let's use agents to build a recipe list web app from a single prompt.
+
+1. Open the Chat view by pressing `kb(workbench.action.chat.open)`.
+
+1. Select **Agent** from the dropdown in the Chat view. Agents enable the AI to autonomously create and edit files, run terminal commands, and more.
+
+    ![Screenshot that shows the Agent mode selector in the Chat view.](images/getting-started/chat-agent-mode.png)
+
+1. Enter the following prompt in the chat input box:
+
+    ```prompt
+    Create a recipe list app with HTML, CSS, and JavaScript in separate files. Include an input field to add recipes with a name and description, a list to display them, and a delete button for each item. Use modern styling. Add some sample recipes to the list.
+    ```
+
+    > [!NOTE]
+    > If you haven't set up GitHub Copilot yet, you are prompted to sign in to your GitHub account and set up Copilot before you can send the prompt. If you don't have a Copilot subscription, you're associated with a free account that gives you a monthly limit of completions and chat interactions.
+
+1. Press `kbstyle(Enter)` to send the prompt.
+
+    The agent starts generating the app. Notice how it creates multiple files, shows you the proposed changes, and might request approval to run terminal commands.
+
+    ![Screenshot that shows the agent generating the recipe list app in the Chat view.](images/getting-started/agent-generating-app.png)
+
+1. Review the generated files and select **Keep** in the Chat view to accept all changes.
+
+In the next step, you install an extension to host the app in an integrated browser.
+
+## Enhance your setup with extensions
+
+VS Code has a rich ecosystem of extensions that let you add languages, debuggers, and tools to your installation to support your development workflow. There are thousands of extensions available in the [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode).
+
+Let's install an extension that helps with the recipe list app you just built.
+
+1. Select the **Extensions** view in the Activity Bar.
+
+    The Extensions view enables you to browse and install extensions from within VS Code.
+
+    ![Screenshot that shows the Extensions view, highlighting the Extensions icon in the Activity Bar.](images/getting-started/extensions-view.png)
+
+1. Enter *Live Preview* in the Extension view search box. Select the **Live Preview** extension published by Microsoft, and then select the **Install** button.
+
+    Live Preview launches a local development server with live reload for static and dynamic pages.
+
+1. Open the `index.html` file, right-click in the editor, and select **Show Preview**.
+
+    Your recipe list app now opens in a browser. When you make changes to your code, the browser automatically refreshes to show the latest version.
+
+    ![Screenshot that shows the recipe list app preview.](images/getting-started/recipe-list-preview.png)
+
+1. Continue the chat conversation by asking the agent to add a feature. Enter the following prompt:
+
+    ```prompt
+    Add the ability to mark recipes as favorites with a star icon. Favorite recipes should appear at the top of the list.
+    ```
+
+    The agent modifies the existing files to add the new feature. This shows how you can iteratively build on your app with follow-up prompts.
+
+Explore more AI features in VS Code with the [Copilot Quickstart](/docs/copilot/getting-started.md).
+
 ## Configure VS Code settings
 
 You can customize almost every part of VS Code by configuring settings. You can use the **Settings Editor** to modify the settings in VS Code or directly modify the `settings.json` file.
@@ -173,40 +244,6 @@ You can customize almost every part of VS Code by configuring settings. You can 
 
     User settings apply across all your workspaces. Workspace settings only apply to the current workspace. Workspace settings override user settings. Get more information about [settings in VS Code](/docs/configure/settings.md).
 
-## Write some code
-
-VS Code has built-in support for JavaScript, TypeScript, HTML, CSS, and more. In this tutorial, you create a sample JavaScript file and use some of the code editing features that VS Code offers.
-
-VS Code supports many programming languages and in a next step, you'll [install a language extension](#step-6-install-a-language-extension) to add support for a different language, namely Python.
-
-1. In the Explorer view, create a new file `app.js`, and start typing the following JavaScript code:
-
-    ```javascript
-    function sayHello(name) {
-        console.log('Hello, ' + name);
-    }
-
-    sayHello('VS Code');
-    ```
-
-    As you type, you should see suggestions popping up that help you complete your code (*IntelliSense*). You can use the `kbstyle(Up)` and `kbstyle(Down)` keys to navigate the suggestions, and `kbstyle(Tab)` to insert the selected suggestion.
-
-    Notice also the formatting of the code (*syntax highlighting*), to help you distinguish between different parts of the code.
-
-    ![Screen capture that shows IntelliSense in action for a JavaScript file.](images/getting-started/javascript-intellisense.gif)
-
-1. When you put the cursor on the string `Hello,`, you should see a lightbulb icon appear to indicate there's a Code Action.
-
-    You can also use the `kb(editor.action.triggerSuggest)` keyboard shortcut to open the lightbulb menu.
-
-1. Select the lightbulb icon, and then select **Convert to template string**.
-
-    ![Screenshot that shows the lightbulb Code Action to convert a string concatenation to a template string.](images/getting-started/code-action-template-string.png)
-
-    Code Actions are suggestions to apply quick fixes to your code. In this case, the Code Action converts `""Hello, " + name` into a [template string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) `` `Hello, ${name}` ``, which is a special JavaScript construct to embed expressions in strings.
-
-Learn more about code [editing features](/docs/editing/codebasics.md), [IntelliSense](/docs/editing/intellisense.md), [code navigation](/docs/editing/editingevolved.md), and [refactoring](/docs/editing/refactoring.md) in VS Code.
-
 ## Use source control
 
 Visual Studio Code has integrated source control management (SCM) and includes [Git](https://git-scm.com/) support out-of-the-box.
@@ -232,7 +269,7 @@ Let's use the built-in Git support to commit the changes you've made previously.
     > [!TIP]
     > To stage all changes, hover over **Changes** and select the **Stage All Changes** button.
 
-1. Enter a commit message, for example `Add hello function`, and then select the **Commit** to commit the changes to your Git repository.
+1. Enter a commit message, for example `Add recipe list app`, and then select the **Commit** to commit the changes to your Git repository.
 
     ![Screenshot that shows the Source Control view with a commit message.](images/getting-started/source-control-commit.png)
 
@@ -241,128 +278,50 @@ Let's use the built-in Git support to commit the changes you've made previously.
 
 There's a lot more to discover about source control in VS Code. Get more info about [source control in VS Code](/docs/sourcecontrol/overview.md).
 
-## Install a language extension
-
-VS Code has a rich ecosystem of extensions that let you add languages, debuggers, and tools to your installation to support your specific development workflow. There are thousands of extensions available in the [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode).
-
-Let's install a language extension to add support for Python, or any other programming language you are interested in.
-
-1. Select the **Extensions** view in the Activity Bar.
-
-    The Extensions view enables you to browse and install extensions from within VS Code.
-
-    ![Screenshot that shows the Extensions view, highlighting the Extensions icon in the Activity Bar.](images/getting-started/extensions-view.png)
-
-1. Enter *Python* in the Extension view search box to browse for Python-related extensions. Select the **Python** extension published by Microsoft, and then select the **Install** button.
-
-    ![Screenshot that shows the Extensions view with a search for Python extensions.](images/getting-started/extensions-search-python.png)
-
-1. Now, create a new Python file `hello.py` in your workspace, and start typing the following Python code:
-
-    ```python
-    def say_hello(name):
-        print("Hello, " + name)
-
-    say_hello("VS Code")
-    ```
-
-    Notice that you now also get suggestions and IntelliSense for the Python code.
-
-    ![Screen capture that shows IntelliSense in action for a Python file.](images/getting-started/python-intellisense.gif)
-
 ## Run and debug your code
 
-VS Code has built-in support for running and debugging Node.js applications. In this tutorial, you use the Python extension you installed in the previous step to debug a Python program.
+VS Code has built-in support for running and debugging JavaScript and Node.js applications. Let's use the debugger to step through the recipe list app that the agent generated.
 
-Let's debug the `hello.py` program that you created in the previous step.
+> [!NOTE]
+> Because the agent generates code dynamically, the file names and function names in your project might differ from the examples shown here. Look for similar patterns in your own generated code.
 
-1. Make sure that [Python 3](https://www.python.org/downloads/) is installed on your computer.
+1. Open the JavaScript file that the agent created for your recipe list app (for example, `app.js` or `script.js`).
 
-    If there's no Python interpreter installed on your computer, you'll see a notification in the lower right corner of the window. Select **Select Interpreter** to open the **Command Palette** and select the Python interpreter you want to use or install one.
-
-1. In the `hello.py` file, place the cursor on the `print` line and press `kbstyle(F9)` to set a breakpoint.
+1. Find the function that handles adding a recipe (for example, `addRecipe`). Place the cursor on the first line inside the function body and press `kbstyle(F9)` to set a breakpoint.
 
     A red dot appears in the left margin of the editor, indicating that a breakpoint is set. With a breakpoint, you can pause the execution of your program at a specific line of code.
 
-    ![Screenshot that shows a breakpoint in the editor.](images/getting-started/python-set-breakpoint.png)
+    ![Screenshot that shows a breakpoint set in the addRecipe function in the JavaScript file.](images/getting-started/js-set-breakpoint.png)
 
-1. Press `kbstyle(F5)` to start a debugging session.
+1. Open the Run and Debug view in the Activity Bar, select **Debug URL**, and enter the URL of your recipe list app preview (for example, `http://localhost:3000`).
 
-    1. Select the Python debugger:
+    ![Screenshot that shows the Debug URL configuration in the Run and Debug view.](images/getting-started/debug-url.png)
 
-        ![Screenshot that shows the Quick Pick menu to select the Python debug configuration.](images/getting-started/python-select-debugger.png)
+    The debugger starts and launches a browser window with your app.
 
-    1. Choose to run the current Python file:
-
-        ![Screenshot that shows the Quick Pick menu to select the Python debug configuration.](images/getting-started/python-debug-configuration.png)
-
-1. Notice that the program starts and that the execution stops at the breakpoint you set.
+1. When the breakpoint is hit, the execution pauses and VS Code highlights the current line.
 
     ![Screenshot that shows the program stopped at a breakpoint in the editor, highlighting the Variables view to inspect variables.](images/getting-started/vscode-debugging.png)
 
     > [!TIP]
-    > Inspect the value of the `name` variable by hovering over it in the editor while the execution is paused. You can view the value of variables at any time in the **Variables** view in the **Run and Debug** view.
+    > Inspect the values of variables by hovering over them in the editor while the execution is paused. You can view all variables at any time in the **Variables** view in the **Run and Debug** view.
 
-1. Press the **Continue** button in the Debug toolbar or press `kbstyle(F5)` to continue the execution.
+1. Use the Debug toolbar to step through the code. Press **Step Over** (`kbstyle(F10)`) to execute the current line and move to the next one, or press **Continue** (`kbstyle(F5)`) to resume execution.
 
     ![Screenshot that shows the Debug toolbar with the Continue button highlighted.](images/getting-started/debug-toolbar-play.png)
 
 There are many more debugging features in VS Code, such as watch variables, conditional breakpoints, and launch configurations. Dive into the details of [debugging in VS Code](/docs/debugtest/debugging.md).
 
-## Use AI to accelerate your coding
-
-VS Code has built-in support for GitHub Copilot, an AI-powered assistant that helps with a wide range of tasks, such as code completion, code refactoring, implementing new features, and more.
-
-Let's use chat-based interactions with AI to implement a new feature in the `hello.py` file.
-
-1. Make sure you have set up GitHub Copilot in VS Code. Follow the steps in our [Copilot Setup](/docs/copilot/setup.md) guide.
-
-    > [!TIP]
-    > If you don't have a Copilot subscription yet, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of inline suggestions and chat interactions.
-
-1. Open the Chat view by selecting the **Chat** > **Open Chat** in the VS Code title bar.
-
-    The Chat view is where you can have conversations with AI. You can ask questions about your code, plan new features, or ask to implement new functionality.
-
-    ![Screenshot that shows the Chat view.](images/getting-started/chat-view.png)
-
-1. In the chat input box, enter the following prompt to implement an interactive calendar:
-
-    ```prompt
-    Create a terminal-based interactive calendar in Python that shows the current month and allows users to navigate to previous and next months.
-    ```
-
-1. Press `kbstyle(Enter)` to send the prompt to the AI.
-
-    The AI responds in the chat conversation and starts generating the code. You can view the list of changed files, and the editor shows a diff of the changes.
-
-    ![Screenshot that shows the AI generating code in response to a prompt in the Chat view.](images/getting-started/ai-generating-code.png)
-
-1. Run the generated code to see the interactive calendar in action.
-
-    ![Screenshot that shows the terminal with the interactive calendar generated by AI.](images/getting-started/interactive-calendar.png)
-
-1. Review the generated code and select **Keep** to accept the changes.
-
-1. Experiment further by asking the AI follow-up questions to add more features to the calendar.
-
-For a deeper dive into using AI in VS Code, try our [Copilot Quickstart](/docs/copilot/getting-started.md) tutorial, where you can follow along with a hands-on tutorial to build your first app with AI in VS Code.
-
-<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Create a basic game">
-Use agents in VS Code to generate a tic-tac-toe game in your language of choice.
-
-* [Open in VS Code](vscode://GitHub.Copilot-Chat/chat?agent=agent%26prompt=%23newWorkspace%20Create%20a%20basic%20tic-tac-toe%20game.%20Ask%20the%20user%20about%20their%20language%20of%20choice)
-
-</div>
-
 ## Next steps
 
 Congratulations! You've completed the tutorial and explored some of the key features of Visual Studio Code. Now that you've learned the basics of Visual Studio Code, get more info about how to:
 
-- [Use AI to accelerate your coding](/docs/copilot/getting-started.md)
+* [Build your first app with AI](/docs/copilot/getting-started.md)
 
-- [Discover and run unit tests for your code](/docs/debugtest/testing.md)
+* [Explore different agent types](/docs/copilot/agents/agents-tutorial.md)
 
-- [Use the integrated terminal](/docs/terminal/getting-started.md)
+* [Discover and run unit tests for your code](/docs/debugtest/testing.md)
 
-- [Set up a remote development environment](/docs/remote/remote-overview.md)
+* [Use the integrated terminal](/docs/terminal/getting-started.md)
+
+* [Set up a remote development environment](/docs/remote/remote-overview.md)
