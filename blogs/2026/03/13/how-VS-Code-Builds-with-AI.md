@@ -3,7 +3,7 @@ Order: 129
 TOCTitle: How VS Code Builds with AI
 PageTitle: "How VS Code Builds with AI"
 MetaDescription: Learn how VS Code uses AI across its own development workflow with GitHub Copilot agent mode, automated testing, and AI-powered code review.
-MetaSocialImage: weekly-release-announcement.png
+MetaSocialImage: weekly-releases-x.png
 Date: 2026-03-13
 Author: Pierce Boggan
 ---
@@ -26,7 +26,7 @@ We shipped VS Code monthly for ten years. Every single month we went through our
 
 Recently, we decided to start shipping VS Code on a weekly cadence. And we wanted to keep the bar for rigor and quality just as high. A monthly cycle gives you breathing room with time to plan, time to run a full endgame week where the team cross-tests each other's features, and time to write thorough release notes. Moving to a weekly cadence means all of that has to get faster or get automated. This is a huge change and a year ago, we couldn't have done it. This shift was only possible because of the way agents have transformed how we work.
 
-![A screenshot of a GitHub issue where Kai Maetzel shares that the VS Code team is switching to weekly releases.](weekly-release-announcement.png)
+![A screenshot of a post on X from @pierceboggan that says "You told us you wanted features available in Insiders to VS Code stable, faster. We're moving towards weekly stable releases to bring top features to VS Code".](weekly-releases-x.png)
 
 The weekly cadence isn't about shipping faster for its own sake. It's about getting improvements to developers sooner. A bug fix that used to wait three weeks for the next stable release now ships in days. A feature that's merged on Monday can be in developers' editors that same week. That feedback loop of *ship > learn > iterate* just gets so much faster.
 
