@@ -16,14 +16,17 @@ We use AI every day to ship VS Code. It's made us so much faster that, after ten
 
 To kick off [Agent Sessions Day](https://youtube.com/live/tAezuMSJuFs), I sat down with Peng Lyu, Engineering Manager on the VS Code team, to walk through how the VS Code team actually uses AI for our day-to-day work. Not just building features (that part's self-evident), but everything *around* building features: triage, code review, release notes, validation, staying productive in a meeting-heavy schedule.
 
-What we showed is probably only 5% of what the team does with agents on any given day. But it's a representative slice of how a product used by millions of developers every day is built, and we wanted to write it down, talk about some big recent changes, and where we think we're going next.
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ee-obY-4rqk?si=N-y6jlg15iBzoKxH" title="Agent Sessions Day: How VS Code Builds with AI." frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+What we showed is probably only 5% of what the team does with agents on any given day. But it's a representative slice of how a product used by millions of developers every day is built, and we wanted to write it down, talk about some big recent changes, and where we think we're going next.
 
 ## After Ten Years of Monthly Releases, We Went Weekly
 
 We shipped VS Code monthly for ten years. Every single month we plan, build, test, endgame, ship, with the whole team rotating through roles along the way. It’s a rhythm that’s become part of the team’s culture.
 
 We moved to weekly just a couple weeks ago. The bar for rigor and quality stays just as high. That's a huge shift. A monthly cycle gives you breathing room with time to plan, time to run a full endgame week where the team cross-tests each other's features, and time to write thorough release notes. Moving to a weekly cadence means all of that has to get faster or get automated. A year ago, we couldn't have done it. The overhead would have buried us.
+
+![A screenshot of a GitHub issue where Kai Maetzel shares that the VS Code team is switching to weekly releases.](weekly-release-announcement.png)
 
 The weekly cadence isn't about shipping faster for its own sake. It's about getting improvements to developers sooner. A bug fix that used to wait three weeks for the next stable release now ships in days. A feature that's merged on Monday can be in developers' editors that same week. That feedback loop of *ship > learn > iterate* just gets so much faster.
 
@@ -38,7 +41,7 @@ These workflows evolve daily, as we learn and adapt. But these are key learnings
 6. **Keep humans in the loop for taste.** Agents check correctness. Humans evaluate delight.
 
 
-Here’s how each of those plays out in practice:
+Here’s how each of those plays out in practice.
 
 ### Working in Parallel
 
@@ -90,7 +93,9 @@ The traditional PM loop looks like this: write a spec or PRD → create issues �
 
 What's changed is that instead of a spec, I create a prototype: a PR!
 
-With agents in VS Code, I can go from someone giving us feedback on X or Reddit to a working prototype, self-host and experience it on Insiders, and continue to iterate. I had a PR merged last week that implements forking conversations in Copilot Chat. Together with Justin, one of our engineers, we reviewed the PR, worked through a few CSS changes together in the office and merged it. That's in VS Code now.
+With agents in VS Code, I can go from someone giving us feedback on X or Reddit to a working prototype, self-host and experience it on Insiders, and continue to iterate. I had a PR merged last month that implements forking conversations in Copilot Chat. Together with Justin, one of our engineers, we reviewed the PR, worked through a few CSS changes together in the office and merged it. That's in VS Code now.
+
+![A screenshot of an X post from @pierceboggan sharing that the fork feature is coming to VS Code.](fork.png)
 
 This doesn't mean all these prototypes end up in the product. Engineers are still accountable for code quality and architecture. If Peng looks at my PR and says "this doesn’t have the right architecture," that's fair, I'm fine with my PR getting thrown away and rebuilt. But the PR moves the conversation forward faster than any document ever could. The first PR doesn't have to be perfect. It moves the needle and starts a conversation with the engineer who owns that feature area.
 
