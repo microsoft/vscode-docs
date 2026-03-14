@@ -45,17 +45,17 @@
   ],
   "latest": [
     {
+      "type": "release",
+      "title": "VS Code 1.112 release",
+      "description": "Use hooks to run custom shell commands at key events during agent sessions.",
+      "link": "/updates/v1_112",
+      "image": "/assets/updates/1_112/release-graphic.webp"
+    },
+    {
       "type": "documentation",
       "title": "Agent hooks",
       "description": "Use hooks to run custom shell commands at key events during agent sessions.",
       "link": "/docs/copilot/customization/hooks"
-    },
-    {
-      "type": "documentation",
-      "title": "Set up a TDD flow",
-      "description": "Learn how to set up a Test-Driven Development (TDD) workflow with AI agents in VS Code.",
-      "link": "/docs/copilot/guides/test-driven-development-guide",
-      "image": "/assets/docs/copilot/test-driven-development-guide/tdd-implementation-diagram.png"
     },
     {
       "type": "blog",
