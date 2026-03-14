@@ -11,9 +11,9 @@ GitHub Copilot in VS Code provides AI-powered inline suggestions that complete y
 
 You might experience two kinds of inline suggestions from Copilot, both of which match your coding style and take your existing code into account:
 
-* **Ghost text suggestions** - Start typing in the editor, and Copilot provides dimmed *ghost text* suggestions at your current cursor location.
+* **Ghost text suggestions**: Start typing in the editor, and Copilot provides dimmed *ghost text* suggestions at your current cursor location.
 
-* **Next edit suggestions** - Predict your next code edit with Copilot next edit suggestions, aka Copilot NES. Based on the edits you're making, NES both predicts the location of the next edit you'll want to make and what that edit should be.
+* **Next edit suggestions**: Predict your next code edit with Copilot next edit suggestions, aka Copilot NES. Based on the edits you're making, NES both predicts the location of the next edit you'll want to make and what that edit should be.
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
 Follow a hands-on tutorial to build your first app with AI in VS Code.
@@ -22,36 +22,26 @@ Follow a hands-on tutorial to build your first app with AI in VS Code.
 
 </div>
 
-## Getting started
+## Prerequisites
 
-1. Install the GitHub Copilot extensions.
+* Visual Studio Code installed on your machine. Follow these steps to [set up VS Code](/docs/setup/setup-overview.md).
+* Access to a GitHub Copilot subscription. Follow these steps to [set up GitHub Copilot](/docs/copilot/setup.md). You can set up Copilot Free to get a monthly limit of inline suggestions and chat interactions.
 
-    > <a class="install-extension-btn" href="vscode:extension/GitHub.copilot?referrer=docs-copilot-ai-powered-suggestions">Install the GitHub Copilot extensions</a>
+## Ghost text suggestions
 
-1. Sign in with your GitHub account to use Copilot.
+### Getting your first suggestions
 
-    > [!TIP]
-    > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of inline suggestions and chat interactions.
+Copilot offers dimmed *ghost text* suggestions as you type: sometimes the completion of the current line, sometimes a whole new block of code.
 
-1. Discover the key features of Copilot in VS Code with our [Copilot Quickstart](/docs/copilot/getting-started.md).
+1. Open a file in a programming language of your choice and start typing. You should see inline suggestions from Copilot as you type.
 
-## Getting your first suggestions
+    The following example shows how Copilot suggests an implementation of the `calculateDaysBetweenDates` JavaScript function by using dimmed *ghost text*:
 
-Copilot offers dimmed *ghost text* suggestions as you type: sometimes the completion of the current line, sometimes a whole new block of code. You can accept all, or part of a suggestion, or you can keep typing and ignore the suggestions.
+    ![JavaScript ghost text suggestion.](images/inline-suggestions/js-suggest.png)
 
-Notice in the following example how Copilot suggests an implementation of the `calculateDaysBetweenDates` JavaScript function by using dimmed *ghost text*:
+1. Accept a suggestion by pressing the `kbstyle(Tab)` key.
 
-![JavaScript ghost text suggestion.](images/inline-suggestions/js-suggest.png)
-
-When you're presented with an inline suggestion, you can accept it with the `kbstyle(Tab)` key.
-
-Copilot tries to apply the same coding style that you already have in your code. Notice in the following example that Copilot applies the same input parameter naming scheme from the `add` method for the suggested `subtract` method.
-
-![JavaScript ghost text suggestion.](images/inline-suggestions/ts-suggest-parameter-names.png)
-
-### Partially accepting suggestions
-
-You might not want to accept an entire suggestion from GitHub Copilot. You can use the `kb(editor.action.inlineSuggest.acceptNextWord)` keyboard shortcut to accept either the next word of a suggestion, or the next line.
+    To partially accept a suggestion, use the `kb(editor.action.inlineSuggest.acceptNextWord)` keyboard shortcut to accept either the next word of a suggestion, or the next line.
 
 ### Alternative suggestions
 
