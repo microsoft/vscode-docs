@@ -92,6 +92,7 @@ The following table lists the VS Code built-in tools:
 
 | Chat variable/Tool | Description |
 |--------|-------------|
+| `#askQuestions` | Enables the agent to ask clarifying questions using the interactive questions carousel. |
 | `#changes` | List of source control changes. |
 | `#codebase` | Perform a code search in the current workspace to automatically find relevant context for the chat prompt. |
 | `#createAndRunTask` | Create and run a new [task](/docs/debugtest/tasks.md) in the workspace. |
