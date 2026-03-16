@@ -12,6 +12,8 @@ Visual Studio Code includes a built-in debugger for Edge and Chrome. There are a
 * Clicking a link in the [JavaScript debug terminal](/docs/nodejs/nodejs-debugging.md#javascript-debug-terminal).
 * Use a [launch config](#launch-configuration) to launch a browser with your app.
 
+You can also debug web apps in VS Code's [integrated browser](/docs/debugtest/integrated-browser.md#debugging) without launching an external browser.
+
 We also have more detailed walkthroughs to get started with [React](/docs/nodejs/reactjs-tutorial), [Angular](/docs/nodejs/angular-tutorial), and [Vue](/docs/nodejs/vuejs-tutorial), as well as other debugging [recipes](/docs/nodejs/debugging-recipes).
 
 ## Open Link command
@@ -49,6 +51,8 @@ In most cases, you'll want to start a new instance of the browser to debug your 
 ```
 
 When you hit `kb(workbench.action.debug.start)` or the **Start** button in the **Run and Debug** view, `http://localhost:8000` will be opened in debug mode. If you'd like to use Chrome instead of Edge, replace `msedge` with `chrome`.
+
+To debug inside VS Code without opening an external browser, use `editor-browser` as the type. Learn more about [debugging in the integrated browser](/docs/debugtest/integrated-browser.md#debugging).
 
 You can also debug a single file without running a server, for example:
 
