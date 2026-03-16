@@ -180,6 +180,8 @@ The [Agents view](/docs/copilot/agents/overview.md) provides a centralized locat
 
 | Setting and Description | Default |
 |------------------------|---------------|
+| `setting(github.copilot.chat.agentDebugLog.enabled)`<br/>Enable the [agent debug logs](/docs/copilot/chat/chat-debug-view.md) and the [`/troubleshoot`](/docs/copilot/chat/chat-debug-view.md#attach-debug-events-to-chat) slash command for inspecting chat sessions. | `false` |
+| `setting(github.copilot.chat.agentDebugLog.fileLogging.enabled)`<br/>Enable file logging for agent debug logs, which writes debug events to a file on disk. | `false` |
 | `setting(github.copilot.chat.startDebugging.enabled)` _(Preview)_<br/>Enables the experimental `/startDebugging` intent in the Chat view to generate debugging configuration. | `true` |
 | `setting(github.copilot.chat.copilotDebugCommand.enabled)` _(Preview)_<br/>Enables the `copilot-debug` terminal command. | `true` |
 

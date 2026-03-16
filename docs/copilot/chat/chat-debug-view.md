@@ -85,6 +85,11 @@ To attach debug events to chat:
 
 1. Select the sparkle icon in the top right of the Agent Debug panel. This opens the Chat view with the debug events snapshot attached as context.
 
+Alternatively, you can use the `/troubleshoot` slash command to ask questions about the current chat session directly, without opening the Agent Debug panel first. For example, type `/troubleshoot list all paths you tried to load customizations` or `/troubleshoot how many tokens did you use`.
+
+> [!NOTE]
+> The `/troubleshoot` command requires the `setting(github.copilot.chat.agentDebugLog.enabled)` setting to be enabled.
+
 ### Export and import sessions
 
 You can export a debug session to a JSON file to share it with others or analyze it offline. You can also import a previously exported file to view it in the Agent Debug panel.

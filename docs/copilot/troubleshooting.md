@@ -42,6 +42,10 @@ For more information about network configuration, see [Network and firewall conf
 
 VS Code provides tools to inspect what happens when you send a prompt to the AI.
 
+* **`/troubleshoot` slash command:**
+
+    Ask the AI to analyze the debug logs for the current chat session. Type `/troubleshoot` followed by your question, such as `/troubleshoot how many tokens did I use?` or `/troubleshoot list all paths you tried to load customizations`. Requires `setting(github.copilot.chat.agentDebugLog.enabled)` to be enabled.
+
 * **Agent Debug panel (Preview):**
 
     Shows a chronological event log of agent interactions during a chat session, including tool call sequences, LLM requests, token usage, prompt file discovery, and errors. This is the primary tool for understanding and debugging chat interactions.
