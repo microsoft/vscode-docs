@@ -13,18 +13,21 @@ VS Code offers two complementary debugging tools:
 * **Agent Debug panel** (Preview) shows a chronological event log of everything that happens during a chat session, including tool calls, LLM requests, prompt file discovery, and errors.
 * **Chat Debug view** shows the raw details of each LLM request and response, including the full system prompt, user prompt, context, and tool invocation payloads.
 
-## Agent Debug panel
+## Agent Debug Log panel
 
 > [!NOTE]
-> The Agent Debug panel is currently in preview.
+> The Agent Debug Log panel is currently in preview.
 
-The Agent Debug panel is the primary tool for understanding what happens when you send a prompt. It shows a chronological event log of agent interactions during a chat session, making it especially useful when debugging [custom agents](/docs/copilot/agents/local-agents.md) and orchestrated sub-agent workflows.
+The Agent Debug Log panel is the primary tool for understanding what happens when you send a prompt. It shows a chronological event log of agent interactions during a chat session, making it especially useful when debugging [custom agents](/docs/copilot/agents/local-agents.md) and orchestrated sub-agent workflows.
 
-To open the Agent Debug panel:
+To open the Agent Debug Logs panel:
 
+* Enable the following setting:
+   * `setting(github.copilot.chat.agentDebugLog.enabled)`
+  
 * Select the gear icon in the Chat view and select **Show Agent Debug Logs**.
 
-* Run **Developer: Open Agent Debug Panel** from the Command Palette.
+* Run **Developer: Open Agent Debug Logs** from the Command Palette.
 
 You can switch between three views in the Agent Debug panel:
 
@@ -35,7 +38,7 @@ You can switch between three views in the Agent Debug panel:
 * **Summary**: aggregate statistics about the session, such as total tool calls, token usage, error count, and overall duration.
 
 > [!NOTE]
-> The Agent Debug panel is currently only available for local chat sessions. Log data is not persisted, so you can only view logs for chat sessions from your current VS Code session. To save a session for later viewing, [export it to a file](#export-and-import-sessions).
+> The Agent Debug Logs panel is currently only available for local chat sessions. Log data is not persisted, so you can only view logs for chat sessions from your current VS Code session. To save a session for later viewing, [export it to a file](#export-and-import-sessions).
 
 ### Logs view
 
