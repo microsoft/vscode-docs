@@ -131,6 +131,8 @@ VS Code allows you to quickly find and replace text in the currently opened file
 
 VS Code immediately starts searching as you type. To only start searching when you press `kbstyle(Enter)`, clear the `setting(editor.find.findOnType)` setting.
 
+To automatically close the Find control after a match is found and return focus to the editor, enable the `setting(editor.find.closeOnResult)` setting.
+
 If there are multiple matches in the current file, press `kb(editor.action.nextMatchFindAction)` to go to the next result or `kb(editor.action.previousMatchFindAction)` to go to the previous result while the find input box has focus.
 
 By default, VS Code saves the history of your find and replace queries for a workspace and restores it across restarts. You can configure this behavior with the `setting(editor.find.history)` and `setting(editor.find.replaceHistory)` settings. Set the value to `never` to disable saving the history.
