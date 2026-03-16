@@ -152,6 +152,7 @@ The [Agents view](/docs/copilot/agents/overview.md) provides a centralized locat
 | `setting(github.copilot.chat.codeGeneration.useInstructionFiles)`<br/>Automatically add custom instructions from `.github/copilot-instructions.md` to chat requests. | `true` |
 | `setting(github.copilot.chat.commitMessageGeneration.instructions)` _(Experimental)_<br/>Custom instructions for generating commit messages with AI. | `[]` |
 | `setting(github.copilot.chat.pullRequestDescriptionGeneration.instructions)` _(Experimental)_<br/>Custom instructions for generating pull request titles and descriptions with AI. | `[]` |
+| `setting(chat.useCustomizationsInParentRepositories)`<br/>Enable discovery of chat customizations (instructions, prompts, agents, skills, hooks) in [parent repository folders](/docs/copilot/customization/overview.md#parent-repository-discovery). Useful for monorepo setups where you open a subfolder rather than the repository root. | `false` |
 
 ## Reusable prompt files settings
 

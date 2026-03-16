@@ -32,6 +32,9 @@ Use prompt files to:
 
 You can define prompt files for a specific workspace or at the user level, where they are available across all your workspaces.
 
+> [!TIP]
+> In a monorepo, enable `setting(chat.useCustomizationsInParentRepositories)` to discover prompt files from the parent repository root. Learn more about [parent repository discovery](/docs/copilot/customization/overview.md#parent-repository-discovery).
+
 | Scope | Default file location |
 |-------|-----------------------|
 | Workspace | `.github/prompts` folder |

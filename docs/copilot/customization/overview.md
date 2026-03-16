@@ -76,6 +76,40 @@ Implement AI customizations incrementally. Start with the basics and add more as
 
 1. **Generate customizations with AI**: type `/create-prompt`, `/create-instruction`, `/create-skill`, `/create-agent`, or `/create-hook` in chat to generate customization files with AI assistance.
 
+## Parent repository discovery
+
+In monorepo setups, you might open a subfolder of a repository in VS Code rather than the repo root. By default, Visual Studio Code only discovers customization files within your open workspace folder(s). Enable the `setting(chat.useCustomizationsInParentRepositories)` setting to also discover customizations from the parent repository.
+
+When this setting is enabled, VS Code walks up the folder hierarchy from each workspace folder until it finds a `.git` folder. If found, it collects customizations from all folders between the workspace folder and the repository root (inclusive). This applies to all customization types: always-on instructions (`copilot-instructions.md`, `AGENTS.md`, `CLAUDE.md`), file-based instructions, prompt files, custom agents, agent skills, and hooks.
+
+For example, consider the following monorepo structure:
+
+```text
+my-monorepo/              # repo root (has .git folder)
+├── .github/
+│   ├── copilot-instructions.md
+│   ├── instructions/
+│   │   └── style.instructions.md
+│   ├── prompts/
+│   │   └── review.prompt.md
+│   └── agents/
+│       └── reviewer.agent.md
+├── packages/
+│   └── frontend/          # opened as workspace folder
+│       └── src/
+```
+
+If you open only `packages/frontend/` in VS Code and enable the setting, VS Code discovers the customization files at the repo root, such as `copilot-instructions.md`, `style.instructions.md`, `review.prompt.md`, and `reviewer.agent.md`.
+
+Conditions for parent repository discovery:
+
+* The workspace folder does not contain a `.git` folder (it is not itself a repository root).
+* A parent folder contains a `.git` folder.
+* The parent repository folder is [trusted](/docs/editing/workspaces/workspace-trust.md). VS Code prompts you to trust the parent folder when the workspace is opened.
+
+> [!NOTE]
+> The `setting(chat.useCustomizationsInParentRepositories)` setting is disabled by default.
+
 ## Chat Customizations editor
 
 > [!NOTE]

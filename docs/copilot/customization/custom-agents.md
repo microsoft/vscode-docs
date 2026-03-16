@@ -78,6 +78,9 @@ When users see the handoff button and select it, they switch to the target agent
 
 You can define custom agents for a specific workspace or at the user level, where they are available across all your workspaces.
 
+> [!TIP]
+> In a monorepo, enable `setting(chat.useCustomizationsInParentRepositories)` to discover custom agents from the parent repository root. Learn more about [parent repository discovery](/docs/copilot/customization/overview.md#parent-repository-discovery).
+
 | Scope | Default file location |
 |-------|-----------------------|
 | Workspace | `.github/agents` folder |

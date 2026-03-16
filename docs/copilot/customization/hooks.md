@@ -91,6 +91,9 @@ Hooks are configured in JSON files stored in your workspace or user directory.
 
 VS Code searches for hook configuration files in these locations:
 
+> [!TIP]
+> In a monorepo, enable `setting(chat.useCustomizationsInParentRepositories)` to discover hooks from the parent repository root. Learn more about [parent repository discovery](/docs/copilot/customization/overview.md#parent-repository-discovery).
+
 | Scope | Default file location |
 |-------|-----------------------|
 | Workspace | `.github/hooks/*.json` |
