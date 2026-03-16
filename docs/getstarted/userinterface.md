@@ -170,6 +170,8 @@ By default, VS Code excludes some folders from showing in the Explorer view, suc
 
 You can also hide files and folders that are specified in your `.gitignore` files by enabling the `setting(explorer.excludeGitIgnore)` setting. When enabled, `.gitignore` patterns are applied with case-insensitive matching on Windows and macOS, and case-sensitive matching on Linux. For example, a pattern like `node_modules` in your `.gitignore` will match `node_modules/`, `Node_Modules/`, `NODE_MODULES/`, and other case variations on Windows and macOS, but only exact matches on Linux.
 
+When `setting(imageCarousel.explorerContextMenu.enabled)` _(Experimental)_ is enabled, you can right-click image files or folders in the Explorer and select **Open Images in Carousel** to browse images in a dedicated carousel view. This also works with multi-selection.
+
 > [!TIP]
 > You can hide derived resources files, like `*.meta` in Unity, or `*.js` in a TypeScript project. For Unity to exclude the `*.cs.meta` files, the pattern to choose would be: `"**/*.cs.meta": true`. For TypeScript, you can exclude generated JavaScript for TypeScript files with: `"**/*.js": {"when": "$(basename).ts"}`.
 

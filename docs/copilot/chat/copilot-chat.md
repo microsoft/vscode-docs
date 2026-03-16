@@ -76,7 +76,7 @@ When you start or adjust a chat session, three choices shape how the AI responds
 
 Agent sessions can run in different environments to match your workflow. Select the session type from the session type dropdown in the Chat view.
 
-![Screenshot showing session type dropdown in the Chat view.](../images/agents-overview/agent-type-dropdown-jan.png)
+![Screenshot showing session type dropdown in the Chat view.](../images/agents-overview/agent-type-dropdown.png)
 
 | Session type | Description |
 |---|---|
@@ -141,6 +141,12 @@ Providing the right context helps the AI generate more relevant and accurate res
 * **Browser elements** (Experimental): select elements from the [integrated browser](/docs/debugtest/integrated-browser.md) to add HTML, CSS, and screenshot context to your prompt.
 
 Learn more about [managing context for AI](/docs/copilot/chat/copilot-chat-context.md).
+
+## Image carousel (Experimental)
+
+When `setting(chat.imageCarousel.enabled)` is enabled, you can select image pills in chat responses to open a dedicated carousel view. Images from tool results (such as the integrated browser, Playwright, or other MCP servers) and images inlined in assistant messages are all accessible from the carousel.
+
+![Screenshot showing the image carousel view with multiple images.](../images/chat-sessions/image-carousel.png)
 
 ## Review and manage changes
 
