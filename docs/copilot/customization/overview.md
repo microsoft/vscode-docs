@@ -123,7 +123,7 @@ To open the Chat Customizations editor, run **Chat: Open Chat Customizations** f
 
 ## Troubleshoot customization issues
 
-If your customizations aren't being applied or cause unexpected behavior, select **Configure Chat (gear icon)** > **Show Agent Logs** in the Chat view to [troubleshoot agent issues](/docs/copilot/troubleshooting.md).
+If your customizations aren't being applied or cause unexpected behavior, select **Configure Chat (gear icon)** > **Show Agent Debug Logs** in the Chat view to [troubleshoot agent issues](/docs/copilot/troubleshooting.md).
 
 ## Related resources
 

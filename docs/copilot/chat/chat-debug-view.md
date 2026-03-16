@@ -22,7 +22,7 @@ The Agent Debug panel is the primary tool for understanding what happens when yo
 
 To open the Agent Debug panel:
 
-* Select the gear icon in the Chat view and select **Show Agent Logs**.
+* Select the gear icon in the Chat view and select **Show Agent Debug Logs**.
 
 * Run **Developer: Open Agent Debug Panel** from the Command Palette.
 
@@ -35,7 +35,7 @@ You can switch between three views in the Agent Debug panel:
 * **Summary**: aggregate statistics about the session, such as total tool calls, token usage, error count, and overall duration.
 
 > [!NOTE]
-> The Agent Debug panel is currently only available for local chat sessions. Log data is not persisted, so you can only view logs for chat sessions from your current VS Code session.
+> The Agent Debug panel is currently only available for local chat sessions. Log data is not persisted, so you can only view logs for chat sessions from your current VS Code session. To save a session for later viewing, [export it to a file](#export-and-import-sessions).
 
 ### Logs view
 
@@ -55,7 +55,7 @@ The Summary view provides aggregate statistics about the chat session, such as t
 
 To open the Summary view:
 
-1. Open the Agent Debug panel by selecting the gear icon in the Chat view and selecting **Show Agent Logs**.
+1. Open the Agent Debug panel by selecting the gear icon in the Chat view and selecting **Show Agent Debug Logs**.
 
 1. Select the session description in the breadcrumb at the top of the panel.
 
@@ -69,7 +69,7 @@ You can pan and zoom the flow chart and select any node in the flow chart to see
 
 To open the flowchart view, select **Agent Flow Chart** from the [Summary view](#summary-view).
 
-1. Open the Agent Debug panel by selecting the gear icon in the Chat view and selecting **Show Agent Logs**.
+1. Open the Agent Debug panel by selecting the gear icon in the Chat view and selecting **Show Agent Debug Logs**.
 
 1. Select the session description in the breadcrumb at the top of the panel.
 
@@ -84,6 +84,31 @@ To attach debug events to chat:
 1. Open the [Agent Logs view](#logs-view) for your chat session
 
 1. Select the sparkle icon in the top right of the Agent Debug panel. This opens the Chat view with the debug events snapshot attached as context.
+
+### Export and import sessions
+
+You can export a debug session to a JSON file to share it with others or analyze it offline. You can also import a previously exported file to view it in the Agent Debug panel.
+
+To export a session:
+
+1. Open the Agent Debug panel and navigate to the session you want to export.
+
+1. Select the **Export** icon (download) in the top-right toolbar of the panel.
+
+1. Choose a location to save the JSON file.
+
+If no session is selected, VS Code shows a notification that there is no active debug session to export.
+
+To import a session:
+
+1. Select the **Import** icon (upload) in the top-right toolbar of the Agent Debug panel.
+
+1. Select a previously exported JSON file.
+
+The imported session opens in the Agent Debug panel with its overview and metrics, just like a live session.
+
+> [!NOTE]
+> Importing files larger than 50 MB shows a warning dialog with the actual file size. Consider trimming the file or exporting a shorter session if you encounter this warning.
 
 ## Chat Debug view
 

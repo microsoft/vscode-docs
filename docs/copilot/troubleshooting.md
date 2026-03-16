@@ -49,7 +49,7 @@ VS Code provides tools to inspect what happens when you send a prompt to the AI.
     To open the Agent Debug panel:
 
     1. Select the gear icon in the Chat view.
-    1. Select **Show Agent Logs**.
+    1. Select **Show Agent Debug Logs**.
 
     From the Agent Debug panel, you can attach a snapshot of the agent debug events to a chat conversation to ask the AI questions about the session and troubleshoot a specific interaction. Select the sparkle icon in the Logs view to [attach debug events to chat](/docs/copilot/chat/chat-debug-view.md#attach-debug-events-to-chat).
 
