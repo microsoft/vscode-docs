@@ -69,13 +69,34 @@ VS Code provides a dedicated view in the Extensions sidebar to browse and manage
 
 1. Select **Install** to install a plugin in your user profile.
 
+    The first time you install a plugin from a new marketplace, VS Code shows a trust prompt. Review the marketplace source before confirming.
+
+### Install a plugin from source
+
+You can install a plugin directly from a Git repository URL, without adding a full marketplace first.
+
+* Run **Chat: Install Plugin From Source** from the Command Palette.
+* Alternatively, select the **+** button on the **Plugins** page of the Chat Customizations editor.
+
+Enter a Git repository URL (for example, `https://github.com/rwoll/markdown-review`) and VS Code clones and installs the plugin.
+
 ### View installed plugins
 
-The **Agent Plugins - Installed** view in the Extensions sidebar shows the plugins you have installed. From this view, you can enable, disable, or uninstall plugins.
+The **Agent Plugins - Installed** view in the Extensions view shows the plugins you have installed. From this view, you can enable, disable, or uninstall plugins.
 
-![Screenshot of the Agent Plugins - Installed view in the Extensions sidebar.](../images/agent-plugins/installed-plugins.png)
+![Screenshot of the Agent Plugins - Installed view in the Extensions view.](../images/agent-plugins/installed-plugins.png)
 
 You can also manage installed plugins from the Chat view by selecting the **gear icon** > **Plugins**.
+
+### Enable or disable plugins
+
+You can enable or disable a plugin globally or for a specific workspace. Use the context menu on a plugin in the Extensions view, or select the enable/disable button in the plugin editor.
+
+When a plugin is disabled, its skills, agents, hooks, MCP servers, and slash commands are no longer available. For example, skills from a disabled plugin do not appear in **Chat: Configure Skills**.
+
+### Uninstall plugins
+
+To remove a plugin, right-click it in the **Agent Plugins - Installed** view and select **Uninstall**. Plugins installed from an external source (such as npm, PyPI, or an external Git repository) are removed from disk. Plugins that are inlined in a marketplace repository remain on disk but are no longer active.
 
 ## Configure plugin marketplaces
 
@@ -89,6 +110,8 @@ Marketplaces are Git repositories that contain plugin definitions. You can refer
 * **file URI**: a `file:///` path to a marketplace repository already cloned on disk.
 
 Private repositories are also supported. If a public lookup fails, VS Code falls back to cloning the repository directly.
+
+Marketplace plugins can also reference external package sources such as npm or PyPI packages. For the full marketplace plugin schema, see the [Claude Code plugin marketplace documentation](https://code.claude.com/docs/en/plugin-marketplaces).
 
 ```json
 // settings.json
@@ -110,6 +133,37 @@ If you manually clone or download a plugin, you can register it with the `settin
 ```
 
 Set the value to `true` to enable the plugin, or `false` to keep it registered but disabled.
+
+## Update plugins
+
+VS Code checks for plugin updates when you run **Extensions: Check for Extension Updates** from the Command Palette, or automatically every 24 hours when `setting(extensions.autoUpdate)` is enabled.
+
+Updating pulls down changes from cloned marketplace repositories and checks for new versions of externally sourced plugins.
+
+Plugins sourced from npm or PyPI never update automatically. Instead, they show an **Update** button in the Extensions view. Selecting the button prompts you to confirm before running the install command. If an update is found during a background check, no action is taken until you explicitly select **Update**.
+
+## Workspace plugin recommendations
+
+Projects can recommend plugins for team members by configuring plugin settings in the workspace settings.
+
+* **`enabledPlugins`**: lists plugins that should be enabled by default. VS Code shows a notification the first time a chat message is sent and lists these plugins under `@agentPlugins @recommended` in the Extensions view.
+* **`extraKnownMarketplaces`**: registers additional marketplaces for the project. These marketplaces appear when you search `@agentPlugins` in the Extensions view.
+
+```json
+{
+    "extraKnownMarketplaces": {
+        "company-tools": {
+            "source": {
+                "source": "github",
+                "repo": "your-org/plugin-marketplace"
+            }
+        }
+    },
+    "enabledPlugins": {
+        "code-formatter@company-tools": true
+    }
+}
+```
 
 ## Related resources
 

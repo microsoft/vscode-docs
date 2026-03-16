@@ -115,7 +115,7 @@ Conditions for parent repository discovery:
 > [!NOTE]
 > The Chat Customizations editor is currently in preview.
 
-The Chat Customizations editor provides a centralized UI for discovering, creating, and managing all your customizations in one place. From the editor, you can browse customization categories (agents, skills, instructions, prompts, hooks, MCP servers), create new items with optional AI-guided generation, and edit existing customizations in an embedded code editor.
+The Chat Customizations editor provides a centralized UI for discovering, creating, and managing all your customizations in one place. From the editor, you can browse customization categories (agents, skills, instructions, prompts, hooks, MCP servers, plugins), create new items with optional AI-guided generation, and edit existing customizations in an embedded code editor. The **Plugins** page lists your installed [agent plugins](/docs/copilot/customization/agent-plugins.md) and lets you install new plugins from source with the **+** button.
 
 To open the Chat Customizations editor, run **Chat: Open Chat Customizations** from the Command Palette (`kb(workbench.action.showCommands)`).
 
