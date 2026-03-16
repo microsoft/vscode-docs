@@ -90,9 +90,14 @@ You can also manage installed plugins from the Chat view by selecting the **gear
 
 ### Enable or disable plugins
 
-You can enable or disable a plugin globally or for a specific workspace. Use the context menu on a plugin in the Extensions view, or select the enable/disable button in the plugin editor.
+You can enable or disable a plugin globally or for a specific workspace:
 
-When a plugin is disabled, its skills, agents, hooks, MCP servers, and slash commands are no longer available. For example, skills from a disabled plugin do not appear in **Chat: Configure Skills**.
+* Use the context menu on a plugin in the **Agent Plugins - Installed** section of the Extensions view.
+* Use the [Chat Customizations editor](/docs/copilot/customization/overview.md#chat-customizations-editor) to toggle a plugin's enabled state.
+
+The enable/disable state is stored separately from the plugin configuration, so it does not affect shared workspace settings.
+
+When a plugin is disabled, its skills, agents, hooks, MCP servers, and slash commands are no longer available. For example, skills from a disabled plugin do not appear in **Chat: Configure Skills**. Disabled plugins appear with a dimmed style in the Chat Customizations editor and Extensions view.
 
 ### Uninstall plugins
 
