@@ -95,11 +95,11 @@ Alternatively, you can use the `/troubleshoot` slash command to ask questions ab
 
 ### Export and import sessions
 
-You can export a debug session to a JSON file to share it with others or analyze it offline. You can also import a previously exported file to view it in the Agent Debug panel.
+You can export a debug session to a Open Telemetry JSON (OTLP format) file to share it with others or analyze it offline. You can also import a previously exported file to view it in the Agent Debug panel.
 
 To export a session:
 
-1. Open the Agent Debug panel and navigate to the session you want to export.
+1. Open the Agent Debug Logs panel and navigate to the session you want to export.
 
 1. Select the **Export** icon (download) in the top-right toolbar of the panel.
 
@@ -109,11 +109,11 @@ If no session is selected, VS Code shows a notification that there is no active 
 
 To import a session:
 
-1. Select the **Import** icon (upload) in the top-right toolbar of the Agent Debug panel.
+1. Select the **Import** icon (upload) in the top-right toolbar of the Agent Debug Logs panel.
 
 1. Select a previously exported JSON file.
 
-The imported session opens in the Agent Debug panel with its overview and metrics, just like a live session.
+The imported session opens in the Agent Debug Logs panel with its overview and metrics, just like a live session.
 
 > [!NOTE]
 > Importing files larger than 50 MB shows a warning dialog with the actual file size. Consider trimming the file or exporting a shorter session if you encounter this warning.
