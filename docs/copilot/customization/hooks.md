@@ -98,7 +98,7 @@ VS Code searches for hook configuration files in these locations:
 |-------|-----------------------|
 | Workspace | `.github/hooks/*.json` |
 | Workspace (Claude format) | `.claude/settings.json`, `.claude/settings.local.json` |
-| User | `~/.claude/settings.json` |
+| User | `~/.copilot/hooks, `~/.claude/settings.json` |
 | Custom agent | `hooks` field in `.agent.md` frontmatter (see [Agent-scoped hooks](#agent-scoped-hooks)) |
 
 Workspace hooks take precedence over user hooks for the same event type.
