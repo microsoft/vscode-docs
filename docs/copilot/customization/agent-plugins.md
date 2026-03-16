@@ -99,11 +99,11 @@ Private repositories are also supported. If a public lookup fails, VS Code falls
 
 ## Use local plugins
 
-If you manually clone or download a plugin, you can register it with the `setting(chat.plugins.paths)` setting. This setting maps local plugin directory paths to an enabled or disabled state.
+If you manually clone or download a plugin, you can register it with the `setting(chat.pluginLocations)` setting. This setting maps local plugin directory paths to an enabled or disabled state.
 
 ```json
 // settings.json
-"chat.plugins.paths": {
+"chat.pluginLocations": {
     "/path/to/my-plugin": true,
     "/path/to/another-plugin": false
 }
