@@ -47,14 +47,14 @@
     {
       "type": "release",
       "title": "VS Code 1.112 release",
-      "description": "Use hooks to run custom shell commands at key events during agent sessions.",
+      "description": "Let agents work autonomously with Autopilot permissions in Copilot CLI, debug web apps in the integrated browser, and troubleshoot agent behavior directly in chat.",
       "link": "/updates/v1_112",
       "image": "/assets/updates/1_112/release-graphic.webp"
     },
     {
       "type": "documentation",
       "title": "Agent hooks",
-      "description": "Use hooks to run custom shell commands at key events during agent sessions.",
+      "description": "Use hooks to automate workflows, enforce security policies, validate operations, and integrate with external tools.",
       "link": "/docs/copilot/customization/hooks"
     },
     {

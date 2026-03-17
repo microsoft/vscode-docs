@@ -1,7 +1,7 @@
 {
   "featured": {
-    "title": "Use agents for long-running and more complex tasks",
-    "description": "Customize chat with prepackaged agent plugins, let agents drive the browser and validate their own changes, and use agent memory to persist plans and context across long-running sessions.",
+    "title": "Agents that run, debug, and diagnose themselves",
+    "description": "Let agents work autonomously with Autopilot permissions in Copilot CLI, debug web apps in the integrated browser, and troubleshoot agent behavior directly in chat.",
     "link": "/updates/v1_112",
     "image": "/assets/updates/1_112/release-graphic.webp"
   },
