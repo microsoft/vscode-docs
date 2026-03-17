@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: C83BB647-A37E-45CE-BA4C-837B397C2ABE
-DateApproved: 3/4/2026
+DateApproved: 3/9/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: To support lazy activation of Visual Studio Code extensions (plug-ins), your extension controls when it should be loaded through a set of Activation Events.
@@ -229,7 +229,7 @@ This activation event is emitted and interested extensions will be activated **s
 
 ## onTaskType
 
-`onTaskType:type` is emitted emitted whenever tasks of a certain type need to be listed or resolved.
+`onTaskType:type` is emitted whenever tasks of a certain type need to be listed or resolved.
 
 ```json
 "activationEvents": [

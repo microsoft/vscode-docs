@@ -1,5 +1,5 @@
 ---
-Order: 90
+Order: 
 TOCTitle: GitHub Copilot for Azure
 PageTitle: Introducing GitHub Copilot for Azure
 MetaDescription: Introducing GitHub Copilot for Azure, a chat participant to ask about Azure and help you manage and troubleshoot your Azure resources.

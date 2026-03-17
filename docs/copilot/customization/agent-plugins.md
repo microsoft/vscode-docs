@@ -1,6 +1,6 @@
 ---
 ContentId: f9b2c4e3-8a7d-4e1f-b5c3-2d9a6f8e4b71
-DateApproved: 3/4/2026
+DateApproved: 3/9/2026
 MetaDescription: Learn how to discover, install, and manage agent plugins in VS Code to extend GitHub Copilot with pre-packaged commands, skills, agents, hooks, and MCP servers.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -33,7 +33,25 @@ An agent plugin can bundle one or more of the following customization types:
 * **Hooks**: [hooks](/docs/copilot/customization/hooks.md) that execute shell commands at agent lifecycle points
 * **MCP servers**: [MCP servers](/docs/copilot/customization/mcp-servers.md) for external tool integrations
 
+For example, a testing plugin might include a `test-runner` skill with scripts, a `test-reviewer` agent with read-only tools, and an MCP server for a test reporting dashboard. The plugin directory structure looks like this:
+
+```text
+my-testing-plugin/
+  plugin.json              # Plugin metadata and configuration
+  skills/
+    test-runner/
+      SKILL.md             # Testing skill instructions
+      run-tests.sh         # Supporting script
+  agents/
+    test-reviewer.agent.md # Code review agent
+  hooks/
+    post-test.json         # Hook to run after tests
+```
+
 Once installed, plugin-provided customizations appear alongside your locally defined ones. For example, skills from a plugin show up in the **Configure Skills** menu, and MCP servers from a plugin appear in the MCP server list.
+
+> [!CAUTION]
+> Plugins can include hooks and MCP servers that run code on your machine. Review the plugin contents and publisher before installing, especially for plugins from community marketplaces.
 
 ## Discover and install plugins
 
@@ -81,11 +99,11 @@ Private repositories are also supported. If a public lookup fails, VS Code falls
 
 ## Use local plugins
 
-If you manually clone or download a plugin, you can register it with the `setting(chat.plugins.paths)` setting. This setting maps local plugin directory paths to an enabled or disabled state.
+If you manually clone or download a plugin, you can register it with the `setting(chat.pluginLocations)` setting. This setting maps local plugin directory paths to an enabled or disabled state.
 
 ```json
 // settings.json
-"chat.plugins.paths": {
+"chat.pluginLocations": {
     "/path/to/my-plugin": true,
     "/path/to/another-plugin": false
 }

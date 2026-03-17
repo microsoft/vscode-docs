@@ -1,6 +1,6 @@
 ---
 ContentId: 3a7e9c4f-5d1b-4e8f-a2c6-8b0d3f5e7a9c
-DateApproved: 3/4/2026
+DateApproved: 3/9/2026
 MetaDescription: Learn how agents in VS Code use the memory tool and Copilot Memory to retain context, learn preferences, and improve over time across conversations.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -9,10 +9,7 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 
 Agents in Visual Studio Code use memory to retain context across conversations. Rather than starting from scratch each session, agents recall your preferences, apply lessons from previous tasks, and build up knowledge about your codebase over time.
 
-VS Code supports two complementary memory systems:
-
-* **Memory tool**: a built-in tool that stores notes locally on your machine, organized in three scopes (user, repository, and session). Agents both read and write to memory as they work.
-* **Copilot Memory**: a GitHub-hosted memory system that captures repository-specific insights across Copilot agents like coding agent, code review, and CLI. Copilot Memory is shared across GitHub Copilot surfaces beyond VS Code.
+For background on how memory fits into the agent architecture, see [Agents concepts](/docs/copilot/concepts/agents.md#memory).
 
 This article explains how to use the memory tool in VS Code, how to manage memory files, and how Copilot Memory extends memory across your development workflow.
 

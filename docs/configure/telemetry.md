@@ -100,6 +100,12 @@ The `endpoint` field describes what data handler the data is sent to. This is no
 * `MacAddressHash` - Used to identify a user of VS Code. This is hashed once on the client side and then hashed again on the pipeline side to make it impossible to identify a given user. On [VS Code for the Web](/docs/setup/vscode-web.md), a UUID is generated for this case.
 * `none` - Data does not require any special handling.
 
+## OpenTelemetry support for agent interactions
+
+[Copilot Chat](/docs/copilot/overview.md) in VS Code can export traces, metrics, and events via [OpenTelemetry](https://opentelemetry.io/) (OTel) to give you real-time visibility into agent interactions, LLM calls, tool execution, and token usage. You can use this telemetry data with any OTel-compatible backend.
+
+Learn more about how to [Monitor agent interactions with OpenTelemetry](https://github.com/microsoft/vscode-copilot-chat/blob/main/docs/monitoring/agent_monitoring.md).
+
 ## GDPR and VS Code
 
 In addition to supporting the General Data Protection Regulation (GDPR), the VS Code team takes privacy very seriously. That's both for Microsoft as a company and specifically within the VS Code team.

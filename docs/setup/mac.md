@@ -1,6 +1,6 @@
 ---
 ContentId: EEADB50A-F5E3-41E9-89DA-35F165196691
-DateApproved: 3/4/2026
+DateApproved: 3/9/2026
 MetaDescription: Get Visual Studio Code up and running on Mac (macOS).
 ---
 # Visual Studio Code on macOS
@@ -10,7 +10,7 @@ MetaDescription: Get Visual Studio Code up and running on Mac (macOS).
 1. [Download and install Visual Studio Code](#install-vs-code-on-macos)
 
     > [!NOTE]
-    > VS Code ships monthly releases and supports [auto-update](#updates) when a new release is available.
+    > VS Code ships weekly releases and supports [auto-update](#updates) when a new release is available.
 
 1. [Install additional components](/docs/setup/additional-components.md)
 
@@ -93,7 +93,7 @@ To manually add VS Code to your path:
 
 ## Updates
 
-VS Code ships monthly [releases](/updates) and supports auto-update when a new release is available. If you're prompted by VS Code, accept the newest update and it will get installed (you won't need to do anything else to get the latest bits).
+VS Code ships weekly [releases](/updates) and supports auto-update when a new release is available. If you're prompted by VS Code, accept the newest update and it will get installed (you won't need to do anything else to get the latest bits).
 
 > [!NOTE]
 > You can [disable auto-update](/docs/supporting/faq.md#how-do-i-opt-out-of-vs-code-autoupdates) if you prefer to update VS Code on your own schedule.

@@ -1,6 +1,6 @@
 ---
 ContentId: 37fd3bd2-4209-49f6-bec5-c544d6b1b289
-DateApproved: 3/4/2026
+DateApproved: 3/9/2026
 MetaDescription: Build your first app with GitHub Copilot agents in VS Code. Plan features, implement across files, and customize your AI workflow.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -42,7 +42,7 @@ AI-powered inline suggestions appear as you type, helping you write code faster 
 
     ![Screenshot showing Copilot suggesting HTML structure inline suggestion.](./images/getting-started/html-completion.png)
 
-    You might see different suggestions because large language models are [nondeterministic](/docs/copilot/core-concepts.md#ai-limitations).
+    You might see different suggestions because large language models are [nondeterministic](/docs/copilot/concepts/language-models.md#key-characteristics).
 
 1. Press `kbstyle(Tab)` to accept the suggestion.
 
@@ -264,7 +264,7 @@ You can further enhance your AI's capabilities by exploring other customization 
 
 ## Related resources
 
-* [How GitHub Copilot works](/docs/copilot/core-concepts.md): Core concepts, terminology, and the architecture behind Copilot's features
+* [How GitHub Copilot works](/docs/copilot/concepts/overview.md): Core concepts, terminology, and the architecture behind Copilot's features
 
 * [Agents tutorial](/docs/copilot/agents/agents-tutorial.md): Hands-on tutorial for working with different agent types
 

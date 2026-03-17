@@ -1,6 +1,6 @@
 ---
 ContentId: de6f9f68-7dd5-4de3-a210-3db57882384b
-DateApproved: 3/4/2026
+DateApproved: 3/9/2026
 MetaDescription: Quick reference for GitHub Copilot in VS Code, including autonomous agents, multi-file editing, inline suggestions, and enterprise controls.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -66,9 +66,8 @@ Start a natural language chat conversation to get help with coding tasks. For ex
 > **Tips**
 >
 > * Use `#`-mentions to add more context to your chat prompt.
-> * Use `/` commands and `@` participants to get more precise and relevant answers.
 > * Be specific, keep it simple, and ask follow-up questions to get the best results.
-> * Choose an agent that fits your needs: Ask, Edit, Agent, or create a custom agent.
+> * Choose a built-in agent or custom agent that fits your specific task.
 
 ## Add context to your prompt
 
@@ -184,7 +183,6 @@ Use chat participants to handle domain-specific requests in chat. Chat participa
 | `@github` | Use the `@github` participant to ask questions about GitHub repositories, issues, pull requests, and more. Get more information about the [available GitHub skills](https://docs.github.com/en/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide#currently-available-skills).<br/>Example: `@github What are all of the open PRs assigned to me?`, `@github Show me the recent merged PRs from @dancing-mona` |
 | `@terminal` | Use the `@terminal` participant to ask questions about the integrated terminal or shell commands.<br/>Example: `@terminal list the 5 largest files in this workspace` |
 | `@vscode` | Use the `@vscode` participant to ask questions about VS Code features, settings, and the VS Code extension APIs.<br/>Example: `@vscode how to enable  word wrapping?` |
-| `@workspace` | Use the `@workspace` participant to ask questions about the current workspace.<br/>Example: `@workspace how is authentication implemented?` |
 
 ## Use agents
 
@@ -194,6 +192,7 @@ When using [agents](/docs/copilot/agents/local-agents.md), you can use natural l
 |--------|-------------|
 | `kb(workbench.action.chat.openAgent)` | Switch to using agents in the Chat view |
 | Tools (<i class="codicon codicon-tools"></i>) | Configure which tools are available when using agents. Select from built-in tools, MCP servers, and extension-provided tools. |
+| Permission levels | Choose a [permission level](/docs/copilot/agents/agent-tools.md#permission-levels) for the current session: **Default Approvals**, **Bypass Approvals**, or **Autopilot** (Preview). Controls how tool approvals are handled. |
 | Auto-approve tools | Enable [auto-approval of all tools](/docs/copilot/agents/agent-tools.md#auto-approve-all-tools) when using agents (`setting(chat.tools.autoApprove)`). |
 | Auto-approve terminal commands | Enable [auto-approval of terminal commands](/docs/copilot/agents/agent-tools.md#automatically-approve-terminal-commands) when using agents (`setting(chat.tools.terminal.autoApprove)`). |
 | MCP | Configure [MCP servers](/docs/copilot/customization/mcp-servers.md) to extend agent capabilities and tools. |

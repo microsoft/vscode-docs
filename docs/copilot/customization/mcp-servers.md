@@ -1,6 +1,6 @@
 ---
 ContentId: 7c550054-4ade-4665-b368-215798c48673
-DateApproved: 3/4/2026
+DateApproved: 3/9/2026
 MetaDescription: Learn how to add and manage Model Context Protocol (MCP) servers with GitHub Copilot in Visual Studio Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -18,9 +18,7 @@ Keywords:
 
 [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) is an open standard for connecting AI models to external tools and services. In Visual Studio Code, MCP servers provide [tools](/docs/copilot/agents/agent-tools.md) for tasks like file operations, databases, or external APIs. MCP servers can also provide [resources, prompts, and interactive apps](#other-mcp-capabilities).
 
-VS Code lets you install MCP servers from an MCP server gallery. By default, this gallery shows servers from the [GitHub MCP server registry](https://github.com/mcp). Alternatively, you can manually add MCP servers by updating the `mcp.json` configuration file in your workspace or user profile.
-
-When you add an MCP server, VS Code automatically makes the MCP server [tools](/docs/copilot/agents/agent-tools.md), prompts, and resources available in chat.
+For background on how MCP fits into the AI customization framework, see [Customization concepts](/docs/copilot/concepts/customization.md#mcp) and [Tools concepts](/docs/copilot/concepts/tools.md).
 
 This article covers how to add, configure, and manage MCP servers. To learn about using tools in chat, see [Use tools with agents](/docs/copilot/agents/agent-tools.md).
 
@@ -70,7 +68,7 @@ To install an MCP server from the MCP server gallery:
 You can manually configure MCP servers by editing the `mcp.json` file. There are two locations for this file:
 
 * **Workspace**: create or open `.vscode/mcp.json` in your project. Include this file in source control to share MCP server configurations with your team.
-* **User profile**: run the **MCP: Open User Configuration** command to open the `mcp.json` file in your [user profile](/docs/configure/profiles.md). Servers configured here are available across all your workspaces. When you use multiple profiles, each profile can have its own MCP server configuration.
+* **User profile**: run the **MCP: Open User Configuration** command to open the `mcp.json` file in your [user profile](/docs/configure/profiles.md) folder. Servers configured here are available across all your workspaces. When you use multiple profiles, each profile can have its own MCP server configuration.
 
 You can also run **MCP: Add Server** in the Command Palette (`kb(workbench.action.showCommands)`) to add a server through a guided flow, choosing either **Workspace** or **Global** as the target.
 
@@ -158,9 +156,9 @@ Beyond tools, MCP servers can provide other capabilities:
 
 | Capability | Description | How to use |
 |------------|-------------|------------|
-| **Resources** | Access data from MCP servers as context in your prompts, such as files, database tables, or API responses. | In the Chat view, select **Add Context** > **MCP Resources**. You can also use the **MCP: Browse Resources** command. |
-| **Prompts** | Use preconfigured prompts from MCP servers for common tasks. | Type `/<MCP server>.<prompt>` in the chat input. |
-| **MCP Apps** | Get interactive UI components like forms, visualizations, and drag-and-drop lists rendered directly in chat. | MCP Apps appear inline when an MCP server supports them. |
+| **Resources** | Access data from MCP servers as context in your prompts, such as files, database tables, or API responses. Resources provide read-only context that you attach to a chat request. | In the Chat view, select **Add Context** > **MCP Resources**. You can also use the **MCP: Browse Resources** command. |
+| **Prompts** | Use preconfigured prompt templates from MCP servers to standardize common tasks. Each MCP server can expose its own set of prompts tailored to its capabilities. | Type `/<MCP server>.<prompt>` in the chat input. |
+| **MCP Apps** | Get interactive UI components like forms, visualizations, and drag-and-drop lists rendered directly in chat. MCP Apps enable richer interactions beyond text responses. Learn more in the [MCP Apps blog post](https://code.visualstudio.com/blogs/2026/01/26/mcp-apps-support). | MCP Apps appear inline when an MCP server supports them. |
 
 ## Sandbox MCP servers
 

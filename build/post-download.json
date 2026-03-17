@@ -2,23 +2,23 @@
   "featured": {
     "title": "Use agents for long-running and more complex tasks",
     "description": "Customize chat with prepackaged agent plugins, let agents drive the browser and validate their own changes, and use agent memory to persist plans and context across long-running sessions.",
-    "link": "/updates/v1_110",
-    "image": "/assets/updates/1_110/agent-flow-chart.png"
+    "link": "/updates/v1_111",
+    "image": "/assets/updates/1_111/release-graphic.webp"
   },
   "highlights": [
     {
       "type": "blog",
-      "title": "Multi-agent development",
-      "description": "VS Code is your home for multi-agent development. Run multiple AI agent sessions in parallel, across different projects, environments, and agent harnesses.",
-      "link": "/blogs/2026/02/05/multi-agent-development",
-      "image": "/assets/blogs/2026/02/05/your-agent-ux.png"
+      "title": "Agents for real-world development",
+      "description": "From enforcing policies with hooks to guiding agents mid-response, validating UI features with integrated browser tools, and bringing structured skills directly into the editor, this release focuses on making agents reliable collaborators for real development work.",
+      "link": "/blogs/2026/03/05/making-agents-practical-for-real-world-development",
+      "image": "/assets/blogs/2026/03/05/context-compaction.png"
     },
     {
       "type": "documentation",
       "title": "AI core concepts",
       "description": "Get an overview of the core concepts and how AI agents work in VS Code.",
-      "link": "/docs/copilot/core-concepts",
-      "image": "/assets/docs/copilot/core-concepts/agent-loop.png"
+      "link": "/docs/copilot/concepts/overview",
+      "image": "/assets/docs/copilot/concepts/agent-loop.png"
     },
     {
       "type": "tutorial",

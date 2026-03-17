@@ -248,7 +248,7 @@ async function main() {
 		.replace(/<Month> <Year>/g, `${contentMonth} ${contentYear}`)
 		.replace(/<YYYY-MM-DD>/g, releaseDate)
 		.replace(/<release number>/g, releaseNumber)
-		.replace(/<milestone name>/g, milestone)
+		.replace(/<milestone name[^>]*>/g, milestone)
 		.replace(/<Month>/g, contentMonth)
 		.replace(/<Year>/g, contentYear)
 		.replace(/<day>/g, String(contentDay))

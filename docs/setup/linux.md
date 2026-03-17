@@ -1,6 +1,6 @@
 ---
 ContentId: 7FDF94DB-3527-4296-BE1C-493495B89408
-DateApproved: 3/4/2026
+DateApproved: 3/9/2026
 MetaDescription: Get Visual Studio Code up and running on Linux.
 ---
 # Visual Studio Code on Linux
@@ -10,7 +10,7 @@ MetaDescription: Get Visual Studio Code up and running on Linux.
 1. [Download and install Visual Studio Code for your Linux distribution](#install-vs-code-on-linux)
 
     > [!NOTE]
-    > VS Code ships monthly releases and supports [auto-update](#updates) when a new release is available.
+    > VS Code ships weekly releases and supports [auto-update](#updates) when a new release is available.
 
 1. [Install additional components](/docs/setup/additional-components.md)
 
@@ -187,7 +187,7 @@ sudo dnf install <file>.rpm
 
 ## Updates
 
-VS Code ships monthly and you can see when a new release is available by checking the [release notes](/updates). If the VS Code repository was installed correctly, then your system package manager should handle auto-updating in the same way as other packages on the system.
+VS Code ships weekly and you can see when a new release is available by checking the [release notes](/updates). If the VS Code repository was installed correctly, then your system package manager should handle auto-updating in the same way as other packages on the system.
 
 > [!NOTE]
 > Updates are automatic and run in the background for the [Snap package](#snap).

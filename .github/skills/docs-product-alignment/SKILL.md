@@ -23,7 +23,7 @@ Audit VS Code Copilot documentation against current product capabilities and pro
 5. **Verify.** Search changed files for banned words, em-dashes, and MetaDescription length violations.
 
 **High-traffic pages to always check:**
-- [docs/copilot/overview.md](/docs/copilot/overview.md), [docs/copilot/core-concepts.md](/docs/copilot/core-concepts.md), [docs/copilot/reference/copilot-vscode-features.md](/docs/copilot/reference/copilot-vscode-features.md)
+- [docs/copilot/overview.md](/docs/copilot/overview.md), [docs/copilot/concepts/overview.md](/docs/copilot/concepts/overview.md), [docs/copilot/reference/copilot-vscode-features.md](/docs/copilot/reference/copilot-vscode-features.md)
 - [docs/copilot/getting-started.md](/docs/copilot/getting-started.md), [docs/copilot/agents/overview.md](/docs/copilot/agents/overview.md)
 - [docs/copilot/reference/workspace-context.md](/docs/copilot/reference/workspace-context.md), [docs/copilot/faq.md](/docs/copilot/faq.md)
 

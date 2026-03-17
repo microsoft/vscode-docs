@@ -1,6 +1,6 @@
 ---
 ContentId: 2f4a8e9d-3c5b-4f6e-a7d8-1c2b3e4f5a6b
-DateApproved: 3/4/2026
+DateApproved: 3/9/2026
 MetaDescription: Use Agent Logs and the Chat Debug view to inspect AI requests, tool invocations, and agent interactions in Visual Studio Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -10,7 +10,7 @@ Visual Studio Code provides tools to help you understand what happens when you s
 
 VS Code offers two complementary debugging tools:
 
-* **Agent Logs** (Preview) shows a chronological event log of everything that happens during a chat session, including tool calls, LLM requests, prompt file discovery, and errors.
+* **Agent Debug panel** (Preview) shows a chronological event log of everything that happens during a chat session, including tool calls, LLM requests, prompt file discovery, and errors.
 * **Chat Debug view** shows the raw details of each LLM request and response, including the full system prompt, user prompt, context, and tool invocation payloads.
 
 ## Agent Debug panel
@@ -20,33 +20,70 @@ VS Code offers two complementary debugging tools:
 
 The Agent Debug panel is the primary tool for understanding what happens when you send a prompt. It shows a chronological event log of agent interactions during a chat session, making it especially useful when debugging [custom agents](/docs/copilot/agents/local-agents.md) and orchestrated sub-agent workflows.
 
-### Open the Agent Debug panel
+To open the Agent Debug panel:
 
-To open the Agent Debug panel, select the gear icon in the Chat view and select **Show Agent Logs**.
+* Select the gear icon in the Chat view and select **Show Agent Logs**.
 
-The Agent Debug panel starts with a summary of the session, showing aggregate statistics such as total tool calls, token usage, error count, and overall duration.
+* Run **Developer: Open Agent Debug Panel** from the Command Palette.
 
-Below the summary, you can switch between two views:
+You can switch between three views in the Agent Debug panel:
 
-* **View Logs**: a chronological list of events during the session. You can switch between a flat list and a tree view that groups events by sub-agent. Use the category filters to focus on specific event types:
+* **Logs**: a chronological list of events during the session, with filtering options to focus on specific event types.
 
-    ![Screenshot of the list of events in Agent Logs.](../images/chat-debug-view/agent-logs.png)
+* **Agent Flow Chart**: a flow chart that visualizes the interactions between agents and sub-agents during the session.
 
-    | Category | What it shows |
-    |---|---|
-    | **Chat customizations** | Prompt file and instruction file discovery, including which files were loaded, skipped, or failed validation. |
-    | **Tool calls** | Each tool invocation with the tool name, arguments, duration, result summary, and error details if the call failed. |
-    | **LLM model turns** | Language model requests with token usage (total and cached) and request duration. |
-    | **Subagent invocations** | Agent loop lifecycle events, such as when agents start, finish, or hand off to sub-agents. |
-
-* **Agent Flow Chart**: a flowchart that visualizes the interactions between agents and sub-agents during the session.
-
-    ![Screenshot of the flow chart in Agent Logs, showing the interactions between agents and sub-agents.](../images/chat-debug-view/agent-flow-chart.png)
-
-    You can pan and zoom the flow chart and select any node in the flow chart to see details about that event.
+* **Summary**: aggregate statistics about the session, such as total tool calls, token usage, error count, and overall duration.
 
 > [!NOTE]
 > The Agent Debug panel is currently only available for local chat sessions. Log data is not persisted, so you can only view logs for chat sessions from your current VS Code session.
+
+### Logs view
+
+The Logs view shows a chronological list of events that occurred during the chat session. Each event includes a timestamp, event type, and summary information. You can expand each event to see more details, such as the full system prompt for an LLM request or the input and output for a tool call.
+
+![Screenshot of the list of events in Agent Logs.](../images/chat-debug-view/agent-logs.png)
+
+You can switch between a flat list and a tree view that groups events by subagent. Use the filter options to focus on specific events or event types.
+
+The Logs view is the default view when you open the Agent Debug panel. You can also switch to the Logs view from the [Summary view](#summary-view) by selecting **View Logs**.
+
+### Summary view
+
+The Summary view provides aggregate statistics about the chat session, such as total tool calls, token usage, error count, and overall duration.
+
+![Screenshot of the summary view in Agent Logs, showing aggregate statistics for the chat session.](../images/chat-debug-view/agent-logs-summary-v2.png)
+
+To open the Summary view:
+
+1. Open the Agent Debug panel by selecting the gear icon in the Chat view and selecting **Show Agent Logs**.
+
+1. Select the session description in the breadcrumb at the top of the panel.
+
+### Agent Flow Chart view
+
+The Agent Flow Chart view visualizes the sequence of events and interactions between agents, making it easier to understand complex orchestrations.
+
+![Screenshot of the flow chart in Agent Logs, showing the interactions between agents and sub-agents.](../images/chat-debug-view/agent-flow-chart-v2.png)
+
+You can pan and zoom the flow chart and select any node in the flow chart to see details about that event.
+
+To open the flowchart view, select **Agent Flow Chart** from the [Summary view](#summary-view).
+
+1. Open the Agent Debug panel by selecting the gear icon in the Chat view and selecting **Show Agent Logs**.
+
+1. Select the session description in the breadcrumb at the top of the panel.
+
+1. Select **Agent Flow Chart** from the Summary view.
+
+### Attach debug events to chat
+
+You can attach a snapshot of the agent debug events to a chat conversation and ask the AI questions about the current session. This is useful for understanding token usage, which customizations loaded, what tool calls happened, and how long requests took.
+
+To attach debug events to chat:
+
+1. Open the [Agent Logs view](#logs-view) for your chat session
+
+1. Select the sparkle icon in the top right of the Agent Debug panel. This opens the Chat view with the debug events snapshot attached as context.
 
 ## Chat Debug view
 

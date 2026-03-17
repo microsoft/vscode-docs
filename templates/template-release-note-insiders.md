@@ -9,7 +9,7 @@ DownloadVersion: 1.<release number>.0
 Milestone: <milestone name (1.<release number>.0 or Month Year)>
 ProductEdition: Insiders
 ---
-# VS Code 1.<release number> Insiders
+# Visual Studio Code 1.<release number> Insiders
 
 ![VS Code Insiders banner](images/1_<release number>/vscode-insiders-banner-medium.png)
 
@@ -18,7 +18,7 @@ _Last updated: <Month day, year>_
 These release notes cover the Insiders build of VS Code and continue to evolve as new features are added. To try the latest updates, [download Insiders](https://code.visualstudio.com/insiders).
 To read these release notes online, go to [code.visualstudio.com/updates](https://code.visualstudio.com/updates).
 
-You can still track our progress in the [Commit log](https://github.com/Microsoft/vscode/commits/main) and our list of [Closed issues](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%22<Month>+<Year>%22).
+You can still track our progress in the [Commit log](https://github.com/Microsoft/vscode/commits/main) and our list of [Closed issues](https://github.com/Microsoft/vscode/issues?q=is%3Aissue%20is%3Aclosed%20milestone%3A<milestone name>).
 
 _These release notes were generated using GitHub Copilot and might contain inaccuracies._
 
