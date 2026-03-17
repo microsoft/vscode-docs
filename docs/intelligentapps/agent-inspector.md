@@ -1,15 +1,17 @@
 ---
 ContentId: 7ea83c06-5ed4-41ff-8929-fc1c6ab5ffee
-DateApproved: 03/03/2026
+DateApproved: 03/17/2026
 MetaDescription: Debug, visualize, and iterate on AI agents with the Agent Inspector in AI Toolkit.
 ---
-# Develop Agents with Agent Inspector in AI Toolkit
+# Develop agents with Agent Inspector in AI Toolkit
 
-Use the Agent Inspector to debug, visualize, and improve your AI agents directly in VS Code. Press F5 to launch your agent with full debugger support, view streaming responses in real time, and see how multiple agents work together.
+This article describes how to use the Agent Inspector to debug, visualize, and improve your AI agents directly in VS Code. Press F5 to launch your agent with full debugger support, view streaming responses in real time, and see how multiple agents work together.
 
 ![Screenshot showing the Agent Inspector interface](./images/agent-inspector/test_tool_visualizer.png)
 
 ## Benefits
+
+Agent Inspector provides the following capabilities for your agent development workflow.
 
 | Benefit | Description |
 |---------|-------------|
@@ -25,6 +27,9 @@ Use the Agent Inspector to debug, visualize, and improve your AI agents directly
 - **Python 3.10+** and **VS Code AI Toolkit** extension
 
 ## Quick start
+
+Choose one of the following options to quickly start using Agent Inspector with your agent project.
+
 ![Screenshot showing the Agent Inspector quick start](./images/agent-inspector/inspector.png)
 
 ### Option 1: Scaffold a sample (Recommended)
@@ -44,11 +49,13 @@ Use the Agent Inspector to debug, visualize, and improve your AI agents directly
 
 If you already have an agent built with Microsoft Agent Framework SDK, ask GitHub Copilot to set up debugging for the Agent Inspector.
 
-1. Select **AIAgentExpert** from Agent Mode.
+1. Select **AIAgentExpert** from the Agent dropdown.
 1. Enter prompt:
-   ```
+
+   ```prompt-AIAgentExpert
    Help me set up the debug environment for the workflow agent to use AI Toolkit Agent Inspector
    ```
+
 1. Copilot generates the necessary configuration files and instructions to run and debug your agent using the Agent Inspector.
 
 ## Configure debugging manually

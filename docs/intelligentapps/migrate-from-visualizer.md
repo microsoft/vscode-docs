@@ -32,6 +32,15 @@ AI Toolkit consolidates the **Local Agent Playground** and **Local Visualizer** 
 
 5. **Consistent with production**: The `agentdev` CLI and Agent Framework SDK used in Agent Inspector are the same foundation you use for deploying to Microsoft Foundry, ensuring your local development matches production behavior.
 
+### What changes for your workflow
+
+| Before (old tools) | After (Agent Inspector) |
+|--------------------|-------------------------|
+| Run `Microsoft Foundry: Open Visualizer for Hosted Agents` command | Press `kbstyle(F5)` in VS Code |
+| Enter endpoint URL manually in Local Agent Playground | Automatic, configured in launch.json |
+| View traces in a separate Visualizer tab | View traces in Inspector alongside chat |
+| No debugging | Full breakpoint and step-through debugging |
+
 ---
 
 ## Migration guide: existing projects
@@ -152,15 +161,6 @@ pip install debugpy agent-dev-cli
    - Attaches the Python debugger on port 5679
    - Opens the Inspector UI with the chat playground and workflow visualization
 
-### What changes for your workflow
-
-| Before (old tools) | After (Agent Inspector) |
-|--------------------|-------------------------|
-| Run `Microsoft Foundry: Open Visualizer for Hosted Agents` command | Press `kbstyle(F5)` in VS Code |
-| Enter endpoint URL manually in Local Agent Playground | Automatic, configured in launch.json |
-| View traces in a separate Visualizer tab | View traces in Inspector alongside chat |
-| No debugging | Full breakpoint and step-through debugging |
-
 ### Troubleshooting
 
 | Issue | Solution |
@@ -170,17 +170,13 @@ pip install debugpy agent-dev-cli
 | Breakpoints not hit | Make sure `debugpy` is installed and port 5679 matches in launch.json |
 | API or framework errors | Agent Framework is actively evolving. Copy terminal errors into Copilot for help |
 
----
+For additional questions or issues, visit the [AI Toolkit GitHub repository](https://github.com/microsoft/vscode-ai-toolkit/issues).
 
-## Summary
+## What you learned
 
-When you migrate to Agent Inspector, you get:
+In this article, you learned how to:
 
-- Chat and visualization in one place
-- Full debugging with breakpoints
-- One-click `kbstyle(F5)` launch
-- Code navigation from workflow nodes
-- Copilot-assisted configuration
-- Production-ready tooling
-
-For questions or issues, visit the [AI Toolkit GitHub repository](https://github.com/microsoft/vscode-ai-toolkit/issues).
+- Migrate from Local Agent Playground and Local Visualizer to Agent Inspector.
+- Update your agent code and VS Code configuration for the new debugging experience.
+- Use the new capabilities of Agent Inspector to improve your agent development workflow.
+- Troubleshoot common issues during migration and setup.
