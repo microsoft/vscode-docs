@@ -1,6 +1,6 @@
 ---
 ContentId: 16c73175-a606-4aab-8ae5-a5071d3b9e24
-DateApproved: 3/9/2026
+DateApproved: 3/18/2026
 MetaDescription: Get started customizing AI in VS Code with custom instructions, prompt files, custom agents, MCP servers, and more to align AI responses with your coding practices.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -76,12 +76,46 @@ Implement AI customizations incrementally. Start with the basics and add more as
 
 1. **Generate customizations with AI**: type `/create-prompt`, `/create-instruction`, `/create-skill`, `/create-agent`, or `/create-hook` in chat to generate customization files with AI assistance.
 
+## Parent repository discovery
+
+In monorepo setups, you might open a subfolder of a repository in VS Code rather than the repo root. By default, Visual Studio Code only discovers customization files within your open workspace folder(s). Enable the `setting(chat.useCustomizationsInParentRepositories)` setting to also discover customizations from the parent repository.
+
+When this setting is enabled, VS Code walks up the folder hierarchy from each workspace folder until it finds a `.git` folder. If found, it collects customizations from all folders between the workspace folder and the repository root (inclusive). This applies to all customization types: always-on instructions (`copilot-instructions.md`, `AGENTS.md`, `CLAUDE.md`), file-based instructions, prompt files, custom agents, agent skills, and hooks.
+
+For example, consider the following monorepo structure:
+
+```text
+my-monorepo/              # repo root (has .git folder)
+├── .github/
+│   ├── copilot-instructions.md
+│   ├── instructions/
+│   │   └── style.instructions.md
+│   ├── prompts/
+│   │   └── review.prompt.md
+│   └── agents/
+│       └── reviewer.agent.md
+├── packages/
+│   └── frontend/          # opened as workspace folder
+│       └── src/
+```
+
+If you open only `packages/frontend/` in VS Code and enable the setting, VS Code discovers the customization files at the repo root, such as `copilot-instructions.md`, `style.instructions.md`, `review.prompt.md`, and `reviewer.agent.md`.
+
+Conditions for parent repository discovery:
+
+* The workspace folder does not contain a `.git` folder (it is not itself a repository root).
+* A parent folder contains a `.git` folder.
+* The parent repository folder is [trusted](/docs/editing/workspaces/workspace-trust.md). VS Code prompts you to trust the parent folder when the workspace is opened.
+
+> [!NOTE]
+> The `setting(chat.useCustomizationsInParentRepositories)` setting is disabled by default.
+
 ## Chat Customizations editor
 
 > [!NOTE]
 > The Chat Customizations editor is currently in preview.
 
-The Chat Customizations editor provides a centralized UI for discovering, creating, and managing all your customizations in one place. From the editor, you can browse customization categories (agents, skills, instructions, prompts, hooks, MCP servers), create new items with optional AI-guided generation, and edit existing customizations in an embedded code editor.
+The Chat Customizations editor provides a centralized UI for discovering, creating, and managing all your customizations in one place. From the editor, you can browse customization categories (agents, skills, instructions, prompts, hooks, MCP servers, plugins), create new items with optional AI-guided generation, and edit existing customizations in an embedded code editor. The **Plugins** page lists your installed [agent plugins](/docs/copilot/customization/agent-plugins.md) and lets you install new plugins from source with the **+** button. You can also [enable or disable MCP servers](/docs/copilot/customization/mcp-servers.md#enable-or-disable-mcp-servers) and [plugins](/docs/copilot/customization/agent-plugins.md#enable-or-disable-plugins) directly from the editor. Disabled items appear with a dimmed style and a status indicator.
 
 To open the Chat Customizations editor, run **Chat: Open Chat Customizations** from the Command Palette (`kb(workbench.action.showCommands)`).
 
@@ -89,7 +123,7 @@ To open the Chat Customizations editor, run **Chat: Open Chat Customizations** f
 
 ## Troubleshoot customization issues
 
-If your customizations aren't being applied or cause unexpected behavior, select **Configure Chat (gear icon)** > **Show Agent Logs** in the Chat view to [troubleshoot agent issues](/docs/copilot/troubleshooting.md).
+If your customizations aren't being applied or cause unexpected behavior, select **Configure Chat (gear icon)** > **Show Agent Debug Logs** in the Chat view to [troubleshoot agent issues](/docs/copilot/troubleshooting.md).
 
 ## Related resources
 

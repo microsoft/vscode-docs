@@ -1,6 +1,6 @@
 ---
 ContentId: f9b2c4e3-8a7d-4e1f-b5c3-2d9a6f8e4b71
-DateApproved: 3/9/2026
+DateApproved: 3/18/2026
 MetaDescription: Learn how to discover, install, and manage agent plugins in VS Code to extend GitHub Copilot with pre-packaged commands, skills, agents, hooks, and MCP servers.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -45,13 +45,176 @@ my-testing-plugin/
   agents/
     test-reviewer.agent.md # Code review agent
   hooks/
-    post-test.json         # Hook to run after tests
+    hooks.json             # Hook configuration
+  scripts/
+    validate-tests.sh      # Hook script
+  .mcp.json                # MCP server definitions
 ```
 
 Once installed, plugin-provided customizations appear alongside your locally defined ones. For example, skills from a plugin show up in the **Configure Skills** menu, and MCP servers from a plugin appear in the MCP server list.
 
 > [!CAUTION]
 > Plugins can include hooks and MCP servers that run code on your machine. Review the plugin contents and publisher before installing, especially for plugins from community marketplaces.
+
+## Hooks in plugins
+
+Plugins can include [hooks](/docs/copilot/customization/hooks.md) that run shell commands at agent lifecycle points. Plugin hooks work alongside your workspace and user-level hooks. When a plugin is enabled, its hooks fire in addition to any other hooks configured for the same event.
+
+### Hook file location
+
+The hook file location depends on the plugin format:
+
+| Plugin format | Hook file path |
+|---------------|----------------|
+| Claude | `hooks/hooks.json` |
+| Copilot | `hooks.json` (at the plugin root) |
+
+VS Code auto-detects the plugin format and discovers the hook file automatically.
+
+```text
+my-plugin/
+  hooks/
+    hooks.json           # Hook configuration (Claude format)
+  scripts/
+    format.sh            # Hook script referenced by hooks.json
+```
+
+### Hook configuration format
+
+Plugin hooks use the same base format as [workspace hooks](/docs/copilot/customization/hooks.md#hook-configuration-format). VS Code parses Claude Code hook configuration, including matcher syntax. Currently, VS Code ignores matcher values, so hooks run on every matching event.
+
+**Flat format** (same as workspace hooks):
+
+```json
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "type": "command",
+        "command": "${CLAUDE_PLUGIN_ROOT}/scripts/format.sh"
+      }
+    ]
+  }
+}
+```
+
+**Matcher format** (Claude compatibility syntax):
+
+```json
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/scripts/format.sh"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+VS Code parses the `matcher` field for compatibility with Claude Code, but currently ignores matcher values. If you need to filter hook behavior in VS Code, check the event input inside the hook script.
+
+### Reference plugin paths in hook commands
+
+For Claude-format plugins, use the `${CLAUDE_PLUGIN_ROOT}` token in hook commands to reference scripts and files within the plugin directory. VS Code expands this token to the plugin's absolute path at runtime and also sets a `CLAUDE_PLUGIN_ROOT` environment variable for the hook process. Inside your script, access this as `$CLAUDE_PLUGIN_ROOT` (or `%CLAUDE_PLUGIN_ROOT%` on Windows).
+
+This is important because plugins are installed to a location outside your workspace, so you cannot use relative paths.
+
+```json
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "type": "command",
+        "command": "${CLAUDE_PLUGIN_ROOT}/scripts/validate-tool.sh"
+      }
+    ]
+  }
+}
+```
+
+### Supported hook events
+
+Plugin hooks support the same lifecycle events as workspace hooks: `SessionStart`, `UserPromptSubmit`, `PreToolUse`, `PostToolUse`, `PreCompact`, `SubagentStart`, `SubagentStop`, and `Stop`. See [Hook lifecycle events](/docs/copilot/customization/hooks.md#hook-lifecycle-events) for details on each event.
+
+### How plugin hooks interact with other hooks
+
+Plugin hooks run alongside workspace-level and user-level hooks. When multiple hooks target the same event, all of them execute. For `PreToolUse` hooks, the most restrictive permission decision across all hooks wins: `deny` overrides `ask`, which overrides `allow`.
+
+Disabling a plugin also disables its hooks. You can enable or disable plugins globally or for a specific workspace from the Extensions view.
+
+## MCP servers in plugins
+
+Plugins can bundle [MCP servers](/docs/copilot/customization/mcp-servers.md) to provide agents with additional tools and data sources. Plugin MCP servers start automatically when the plugin is enabled and stop when the plugin is disabled.
+
+### MCP configuration file
+
+Place MCP server definitions in `.mcp.json` at the plugin root. VS Code discovers this file automatically when it loads the plugin.
+
+```text
+my-plugin/
+  .mcp.json              # MCP server definitions
+  servers/
+    db-server             # Server executable
+  config.json             # Server configuration
+```
+
+### MCP configuration format
+
+Plugin MCP servers are defined in a top-level `mcpServers` object. Each server entry specifies a command, arguments, and optional environment variables:
+
+```json
+{
+  "mcpServers": {
+    "plugin-database": {
+      "command": "${CLAUDE_PLUGIN_ROOT}/servers/db-server",
+      "args": ["--config", "${CLAUDE_PLUGIN_ROOT}/config.json"],
+      "env": {
+        "DB_PATH": "${CLAUDE_PLUGIN_ROOT}/data"
+      }
+    },
+    "plugin-api": {
+      "command": "npx",
+      "args": ["@company/mcp-server", "--plugin-mode"],
+      "cwd": "${CLAUDE_PLUGIN_ROOT}"
+    }
+  }
+}
+```
+
+> [!NOTE]
+> The top-level key is `mcpServers` (not `servers` as in the workspace `mcp.json`).
+
+### Reference plugin paths in server configuration
+
+For Claude-format plugins, use the `${CLAUDE_PLUGIN_ROOT}` token in MCP server fields to reference executables and files within the plugin directory. VS Code expands this token in the following fields:
+
+* `command`: the executable path
+* `args`: command-line arguments
+* `cwd`: working directory
+* `env`: environment variable values
+* `envFile`: path to an environment file
+* `url`: for HTTP-based MCP servers
+* `headers`: HTTP header values
+
+VS Code also injects a `CLAUDE_PLUGIN_ROOT` environment variable into the server process, so server code can access the plugin path at runtime.
+
+### How plugin MCP servers interact with other servers
+
+Plugin MCP servers appear alongside workspace and user-level MCP servers. You can manage them through the same tools:
+
+* Select **Configure Tools** in the Chat view to see tools from all MCP servers, including plugin servers.
+* Run **MCP: List Servers** from the Command Palette to view plugin servers alongside other servers.
+
+Plugin MCP servers are implicitly trusted when you install the plugin. Unlike workspace MCP servers, they do not show a separate trust prompt at startup.
+
+Disabling a plugin stops its MCP servers. Tools provided by the stopped servers are no longer available in chat.
 
 ## Discover and install plugins
 
@@ -69,13 +232,39 @@ VS Code provides a dedicated view in the Extensions sidebar to browse and manage
 
 1. Select **Install** to install a plugin in your user profile.
 
+    The first time you install a plugin from a new marketplace, VS Code shows a trust prompt. Review the marketplace source before confirming.
+
+### Install a plugin from source
+
+You can install a plugin directly from a Git repository URL, without adding a full marketplace first.
+
+* Run **Chat: Install Plugin From Source** from the Command Palette.
+* Alternatively, select the **+** button on the **Plugins** page of the Chat Customizations editor.
+
+Enter a Git repository URL (for example, `https://github.com/rwoll/markdown-review`) and VS Code clones and installs the plugin.
+
 ### View installed plugins
 
-The **Agent Plugins - Installed** view in the Extensions sidebar shows the plugins you have installed. From this view, you can enable, disable, or uninstall plugins.
+The **Agent Plugins - Installed** view in the Extensions view shows the plugins you have installed. From this view, you can enable, disable, or uninstall plugins.
 
-![Screenshot of the Agent Plugins - Installed view in the Extensions sidebar.](../images/agent-plugins/installed-plugins.png)
+![Screenshot of the Agent Plugins - Installed view in the Extensions view.](../images/agent-plugins/installed-plugins.png)
 
 You can also manage installed plugins from the Chat view by selecting the **gear icon** > **Plugins**.
+
+### Enable or disable plugins
+
+You can enable or disable a plugin globally or for a specific workspace:
+
+* Use the context menu on a plugin in the **Agent Plugins - Installed** section of the Extensions view.
+* Use the [Chat Customizations editor](/docs/copilot/customization/overview.md#chat-customizations-editor) to toggle a plugin's enabled state.
+
+The enable/disable state is stored separately from the plugin configuration, so it does not affect shared workspace settings.
+
+When a plugin is disabled, its skills, agents, hooks, MCP servers, and slash commands are no longer available. For example, skills from a disabled plugin do not appear in **Chat: Configure Skills**. Disabled plugins appear with a dimmed style in the Chat Customizations editor and Extensions view.
+
+### Uninstall plugins
+
+To remove a plugin, right-click it in the **Agent Plugins - Installed** view and select **Uninstall**. Plugins installed from an external source (such as npm, PyPI, or an external Git repository) are removed from disk. Plugins that are inlined in a marketplace repository remain on disk but are no longer active.
 
 ## Configure plugin marketplaces
 
@@ -89,6 +278,8 @@ Marketplaces are Git repositories that contain plugin definitions. You can refer
 * **file URI**: a `file:///` path to a marketplace repository already cloned on disk.
 
 Private repositories are also supported. If a public lookup fails, VS Code falls back to cloning the repository directly.
+
+Marketplace plugins can also reference external package sources such as npm or PyPI packages. For the full marketplace plugin schema, see the [Claude Code plugin marketplace documentation](https://code.claude.com/docs/en/plugin-marketplaces).
 
 ```json
 // settings.json
@@ -110,6 +301,37 @@ If you manually clone or download a plugin, you can register it with the `settin
 ```
 
 Set the value to `true` to enable the plugin, or `false` to keep it registered but disabled.
+
+## Update plugins
+
+VS Code checks for plugin updates when you run **Extensions: Check for Extension Updates** from the Command Palette, or automatically every 24 hours when `setting(extensions.autoUpdate)` is enabled.
+
+Updating pulls down changes from cloned marketplace repositories and checks for new versions of externally sourced plugins.
+
+Plugins sourced from npm or PyPI never update automatically. Instead, they show an **Update** button in the Extensions view. Selecting the button prompts you to confirm before running the install command. If an update is found during a background check, no action is taken until you explicitly select **Update**.
+
+## Workspace plugin recommendations
+
+Projects can recommend plugins for team members by configuring plugin settings in the workspace settings.
+
+* **`enabledPlugins`**: lists plugins that should be enabled by default. VS Code shows a notification the first time a chat message is sent and lists these plugins under `@agentPlugins @recommended` in the Extensions view.
+* **`extraKnownMarketplaces`**: registers additional marketplaces for the project. These marketplaces appear when you search `@agentPlugins` in the Extensions view.
+
+```json
+{
+    "extraKnownMarketplaces": {
+        "company-tools": {
+            "source": {
+                "source": "github",
+                "repo": "your-org/plugin-marketplace"
+            }
+        }
+    },
+    "enabledPlugins": {
+        "code-formatter@company-tools": true
+    }
+}
+```
 
 ## Related resources
 

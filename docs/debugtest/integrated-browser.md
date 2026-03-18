@@ -1,7 +1,7 @@
 ---
 ContentId: f8e2a7c1-9d3b-4e5f-a6c8-1b2d3e4f5a6b
-DateApproved: 3/9/2026
-MetaDescription: Use the integrated browser in VS Code to preview web apps, navigate to URLs, and select elements to add as context to AI chat.
+DateApproved: 3/18/2026
+MetaDescription: Use the integrated browser in VS Code to preview and debug web apps, navigate to URLs, and select elements to add as context to AI chat.
 MetaSocialImage: images/debugging/debugging-social.png
 ---
 # Integrated browser
@@ -32,6 +32,73 @@ The browser supports `http://`, `https://`, and `file://` URLs. Use the address 
 ## Developer Tools
 
 Toggle the browser's Developer Tools from the browser toolbar to inspect elements, view console output, and debug page issues.
+
+## Debugging
+
+You can debug web applications directly in the integrated browser by using the `editor-browser` debug type in your `launch.json` configuration. Launch a new browser tab with the debugger attached, or attach to a tab that is already open. This works anywhere Visual Studio Code Desktop is supported, even without an external browser installed.
+
+> [!NOTE]
+> The `editor-browser` debug type is not yet available in the **Run and Debug** auto-detection flows. You need to manually add it to your `launch.json` file.
+
+### Launch a debug session
+
+To launch a new integrated browser tab and start debugging, add a launch configuration to your `.vscode/launch.json` file:
+
+```json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "editor-browser",
+      "request": "launch",
+      "name": "Launch in integrated browser",
+      "url": "http://localhost:8000"
+    }
+  ]
+}
+```
+
+Press `kb(workbench.action.debug.start)` to open the URL in the integrated browser with the debugger attached. Standard debugging features like breakpoints, stepping, and variable inspection work as expected. The browser tab closes automatically when you stop the debug session.
+
+### Attach to an existing tab
+
+To attach the debugger to an integrated browser tab that is already open, use an attach configuration:
+
+```json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "editor-browser",
+      "request": "attach",
+      "name": "Attach to integrated browser"
+    }
+  ]
+}
+```
+
+When you start this configuration:
+
+* If no integrated browser tabs are open, VS Code creates a new tab and attaches to it.
+* If one tab is open, VS Code attaches to it automatically.
+* If multiple tabs are open, a picker lets you choose which tab to attach to.
+
+The browser tab stays open when you stop the debug session.
+
+To automatically attach to a tab with a specific URL, add a `urlFilter` property to the configuration:
+
+```json
+{
+  "type": "editor-browser",
+  "request": "attach",
+  "name": "Attach to localhost",
+  "urlFilter": "http://localhost:3000/*"
+}
+```
+
+If one tab matches the filter, VS Code attaches to it directly. If multiple tabs match, the picker shows only the filtered results.
+
+For a full reference of launch configuration attributes, see [Browser debugging in VS Code](/docs/nodejs/browser-debugging.md#launch-configuration-attributes).
 
 ## Standalone window
 
@@ -106,6 +173,7 @@ Shared pages use your existing browser session, including cookies and login stat
 
 ## Related
 
+* [Browser debugging in VS Code](/docs/nodejs/browser-debugging.md)
 * [Test web apps with browser agent tools](/docs/copilot/guides/browser-agent-testing-guide.md)
 * [Add context to AI chat](/docs/copilot/chat/copilot-chat-context.md)
 * [Port forwarding](/docs/debugtest/port-forwarding.md)

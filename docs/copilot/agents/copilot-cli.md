@@ -1,6 +1,6 @@
 ---
 ContentId: 9f1a2b3c-4e5f-6d7c-8a9b-1c2d3e4f5a6b
-DateApproved: 3/9/2026
+DateApproved: 3/18/2026
 MetaDescription: Learn how to use Copilot CLI within VS Code for autonomous coding tasks, terminal integration, and isolated development workflows in VS Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -39,11 +39,11 @@ Copilot CLI sessions run independently in the background on your local machine a
 
 Copilot SDK sessions run outside of VS Code and continue to run in the background when you close your VS Code window. This behavior is unlike local agents that use the VS Code agent harness inside the editor and stop running when VS Code stops.
 
-You can interact with Copilot CLI sessions from the unified Chat view. When a background session requires your input or needs permissions to perform an action, you can do so from within chat. The agent status indicator also provides hints when a session needs input.
+You can interact with Copilot CLI sessions from the unified Chat view. When a background session requires your input or needs [permissions](#permissions-and-approvals) to perform an action, you can do so from within chat. The agent status indicator also provides hints when a session needs input.
 
 Because Copilot CLI sessions run in the background, they are well-suited for tasks that have a well-defined scope, have all necessary context, and don't require frequent user interaction. Examples include implementing a feature from a plan, creating multiple variants of a proof of concept, or implementing clearly defined fixes or features.
 
-Copilot CLI supports slash commands in chat, including [reusable prompts](/docs/copilot/customization/prompt-files.md), [agent skills](/docs/copilot/customization/agent-skills.md), [hooks](/docs/copilot/customization/hooks.md), and `/compact` to manage long conversations. Type `/` in the chat input of a Copilot CLI session to see available commands.
+Copilot CLI supports slash commands in chat, including [reusable prompts](/docs/copilot/customization/prompt-files.md), [agent skills](/docs/copilot/customization/agent-skills.md), [hooks](/docs/copilot/customization/hooks.md), `/compact` to manage long conversations, and `/yolo` or `/autoApprove` to toggle [auto-approval of tools](/docs/copilot/agents/agent-tools.md#can-i-automatically-approve-all-tools-and-terminal-commands). Type `/` in the chat input of a Copilot CLI session to see available commands.
 
 ### Isolation modes
 
@@ -55,6 +55,13 @@ If you want the changes from the Copilot CLI session to be applied directly to y
 
 > [!NOTE]
 > To use Git worktrees and worktree isolation, your workspace needs to be a Git repository.
+
+### Permissions and approvals
+
+Copilot CLI sessions support the same [permission levels](/docs/copilot/agents/agent-tools.md#permission-levels) as local agents. The available permission levels depend on the isolation mode you choose:
+
+* **Worktree isolation**: the permission level is automatically set to **Bypass Approvals** and can't be changed. Because the agent operates on an isolated copy of your codebase (Git worktree), all tool calls are auto-approved without confirmation dialogs.
+* **Workspace isolation**: all three permission levels are available (**Default Approvals**, **Bypass Approvals**, and **Autopilot**), just like local agent sessions. Select a level from the permissions picker in the chat input area.
 
 ### Limitations of Copilot CLI sessions
 

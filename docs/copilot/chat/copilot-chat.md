@@ -1,6 +1,6 @@
 ---
 ContentId: 557a7e74-f77e-488d-90ea-fd2cfecfffda
-DateApproved: 3/9/2026
+DateApproved: 3/18/2026
 MetaDescription: Overview of chat in VS Code. Learn how to access different chat surfaces, configure your session, add context, write effective prompts, and review AI-generated changes.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -76,7 +76,7 @@ When you start or adjust a chat session, three choices shape how the AI responds
 
 Agent sessions can run in different environments to match your workflow. Select the session type from the session type dropdown in the Chat view.
 
-![Screenshot showing session type dropdown in the Chat view.](../images/agents-overview/agent-type-dropdown-jan.png)
+![Screenshot showing session type dropdown in the Chat view.](../images/agents-overview/agent-type-dropdown.png)
 
 | Session type | Description |
 |---|---|
@@ -132,7 +132,7 @@ Providing the right context helps the AI generate more relevant and accurate res
 
 * **Implicit context**: VS Code automatically includes the active file, your current selection, and the file name as context. When you use agents, the agent decides autonomously if additional context is needed.
 
-* **`#`-mentions**: type `#` in the chat input to explicitly reference files (`#file`), folders, symbols, your codebase (`#codebase`), terminal output (`#terminalSelection`), or tools like `#fetch` and `#githubRepo`.
+* **`#`-mentions**: type `#` in the chat input to explicitly reference files (`#file`), folders, symbols, your codebase (`#codebase`), terminal output (`#terminalSelection`), or tools like `#fetch`.
 
 * **`@`-mentions**: type `@` to invoke specialized chat participants like `@vscode` or `@terminal`, each optimized for their respective domain.
 
@@ -141,6 +141,12 @@ Providing the right context helps the AI generate more relevant and accurate res
 * **Browser elements** (Experimental): select elements from the [integrated browser](/docs/debugtest/integrated-browser.md) to add HTML, CSS, and screenshot context to your prompt.
 
 Learn more about [managing context for AI](/docs/copilot/chat/copilot-chat-context.md).
+
+## Image carousel (Experimental)
+
+When `setting(chat.imageCarousel.enabled)` is enabled, you can select image pills in chat responses to open a dedicated carousel view. Images from tool results (such as the integrated browser, Playwright, or other MCP servers) and images inlined in assistant messages are all accessible from the carousel.
+
+![Screenshot showing the image carousel view with multiple images.](../images/chat-sessions/image-carousel.png)
 
 ## Review and manage changes
 

@@ -1,6 +1,6 @@
 ---
 ContentId: 9c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f
-DateApproved: 3/9/2026
+DateApproved: 3/18/2026
 MetaDescription: Learn how to use hooks in VS Code to execute custom shell commands at key lifecycle points during agent sessions for automation, validation, and policy enforcement.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -91,12 +91,16 @@ Hooks are configured in JSON files stored in your workspace or user directory.
 
 VS Code searches for hook configuration files in these locations:
 
+> [!TIP]
+> In a monorepo, enable `setting(chat.useCustomizationsInParentRepositories)` to discover hooks from the parent repository root. Learn more about [parent repository discovery](/docs/copilot/customization/overview.md#parent-repository-discovery).
+
 | Scope | Default file location |
 |-------|-----------------------|
 | Workspace | `.github/hooks/*.json` |
 | Workspace (Claude format) | `.claude/settings.json`, `.claude/settings.local.json` |
-| User | `~/.claude/settings.json` |
+| User | `~/.copilot/hooks`, `~/.claude/settings.json` |
 | Custom agent | `hooks` field in `.agent.md` frontmatter (see [Agent-scoped hooks](#agent-scoped-hooks)) |
+| Plugin | `hooks.json` or `hooks/hooks.json`, depending on the plugin format (see [Hooks in plugins](/docs/copilot/customization/agent-plugins.md#hooks-in-plugins)) |
 
 Workspace hooks take precedence over user hooks for the same event type.
 
@@ -322,7 +326,7 @@ The `PreToolUse` hook can control tool execution through a `hookSpecificOutput` 
 2. `ask`: requires user confirmation
 3. `allow` (least restrictive): auto-approves execution
 
-**`updatedInput` format**: To determine the format of `updatedInput`, open the [agent logs](/docs/copilot/chat/chat-debug-view.md#agent-debug-panel) and find the logged tool schema. If `updatedInput` doesn't match the expected schema, it will be ignored.
+**`updatedInput` format**: To determine the format of `updatedInput`, open the [agent logs](/docs/copilot/chat/chat-debug-view.md#agent-debug-log-panel) and find the logged tool schema. If `updatedInput` doesn't match the expected schema, it will be ignored.
 
 ## PostToolUse
 

@@ -1,6 +1,6 @@
 ---
 ContentId: 276ecd8f-2a76-467e-bf82-846d49c13ab5
-DateApproved: 3/9/2026
+DateApproved: 3/18/2026
 MetaDescription: Learn how to create custom agents (formerly custom chat modes) to tailor AI chat behavior in VS Code for your specific workflows and development scenarios.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -78,6 +78,9 @@ When users see the handoff button and select it, they switch to the target agent
 
 You can define custom agents for a specific workspace or at the user level, where they are available across all your workspaces.
 
+> [!TIP]
+> In a monorepo, enable `setting(chat.useCustomizationsInParentRepositories)` to discover custom agents from the parent repository root. Learn more about [parent repository discovery](/docs/copilot/customization/overview.md#parent-repository-discovery).
+
 | Scope | Default file location |
 |-------|-----------------------|
 | Workspace | `.github/agents` folder |
@@ -127,7 +130,7 @@ The custom agent file body contains the custom agent implementation, formatted a
 
 You can reference other files by using Markdown links, for example to reuse instructions files.
 
-To reference agent tools in the body text, use the `#tool:<tool-name>` syntax. For example, to reference the `githubRepo` tool, use `#tool:githubRepo`.
+To reference agent tools in the body text, use the `#tool:<tool-name>` syntax. For example, to reference the `fetch` tool, use `#tool:fetch`.
 
 When you select the custom agent in the Chat view, the guidelines in the custom agent file body are prepended to the user chat prompt.
 
@@ -142,7 +145,7 @@ The following code snippet shows an example of a "Plan" custom agent file that g
 ---
 description: Generate an implementation plan for new features or refactoring existing code.
 name: Planner
-tools: ['fetch', 'githubRepo', 'search', 'usages']
+tools: ['fetch', 'search', 'usages']
 model: ['Claude Opus 4.5', 'GPT-5.2']  # Tries models in order
 handoffs:
   - label: Implement Plan

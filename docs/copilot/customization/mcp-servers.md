@@ -1,6 +1,6 @@
 ---
 ContentId: 7c550054-4ade-4665-b368-215798c48673
-DateApproved: 3/9/2026
+DateApproved: 3/18/2026
 MetaDescription: Learn how to add and manage Model Context Protocol (MCP) servers with GitHub Copilot in Visual Studio Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -206,6 +206,18 @@ VS Code provides several options to manage your MCP servers, such as starting or
 | **`mcp.json` editor** | Open the configuration file and use the inline actions (code lenses). Use **MCP: Open User Configuration** or **MCP: Open Workspace Folder Configuration** to open the file. | ![MCP server configuration with lenses to manage server.](../images/mcp-servers/mcp-server-config-lenses.png) |
 | **Command Palette** | Run **MCP: List Servers**, select a server, and choose an action. | ![Screenshot showing the actions for an MCP server in the Command Palette.](../images/mcp-servers/mcp-list-servers-actions.png) |
 
+## Enable or disable MCP servers
+
+You can enable or disable an MCP server globally or for a specific workspace. When an MCP server is disabled, it does not start and its tools, prompts, resources, and MCP apps are excluded from chat.
+
+To enable or disable an MCP server:
+
+* Right-click a server in the **MCP SERVERS - INSTALLED** section of the Extensions view and select **Enable** or **Disable**.
+* Run **MCP: List Servers** from the Command Palette, select a server, and choose **Enable** or **Disable**.
+* Use the [Chat Customizations editor](/docs/copilot/customization/overview.md#chat-customizations-editor) to toggle the server's enabled state.
+
+The enable/disable state is stored separately from the server configuration in `mcp.json`, so it does not affect shared configuration files.
+
 ## Centrally manage access to MCP servers in VS Code
 
 Organizations can centrally manage access to MCP servers via GitHub policies. Learn more about [enterprise management of MCP servers](/docs/enterprise/ai-settings.md#configure-mcp-server-access).
@@ -266,4 +278,4 @@ Verify that the command arguments are correct and that the container is not runn
 * [Use tools with agents](/docs/copilot/agents/agent-tools.md)
 * [Model Context Protocol Documentation](https://modelcontextprotocol.io/)
 * [MCP Apps support in VS Code](https://code.visualstudio.com/blogs/2026/01/26/mcp-apps-support)
-* [Discover and manage agent plugins](/docs/copilot/customization/agent-plugins.md)
+* [Discover and manage agent plugins](/docs/copilot/customization/agent-plugins.md), including [MCP servers in plugins](/docs/copilot/customization/agent-plugins.md#mcp-servers-in-plugins)

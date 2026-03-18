@@ -1,6 +1,6 @@
 ---
 ContentId: 9d8f3a2b-5c6e-4f7a-8b9c-1d2e3f4a5b6c
-DateApproved: 3/9/2026
+DateApproved: 3/18/2026
 MetaDescription: Discover effective prompt examples for chat in VS Code across different scenarios including code generation, debugging, testing, and working with notebooks.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -107,14 +107,14 @@ Generate release notes based on the #changes
 
 ## Working with external resources
 
-Use `#fetch` and `#githubRepo` to reference content from the web or GitHub repositories.
+Use `#fetch` to reference content from the web or use the GitHub MCP server to search for code examples in public GitHub repositories.
 
 ```prompt
 How do I use the 'useState' hook in react 18? #fetch https://18.react.dev/reference/react/useState#usage
 ```
 
 ```prompt
-Build an API endpoint to fetch address info, use the template from #githubRepo contoso/api-templates
+Build an API endpoint to fetch address info, use the template from GitHub repo contoso/api-templates
 ```
 
 ```prompt

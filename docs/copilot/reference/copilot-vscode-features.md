@@ -1,6 +1,6 @@
 ---
 ContentId: de6f9f68-7dd5-4de3-a210-3db57882384b
-DateApproved: 3/9/2026
+DateApproved: 3/18/2026
 MetaDescription: Quick reference for GitHub Copilot in VS Code, including autonomous agents, multi-file editing, inline suggestions, and enterprise controls.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -92,6 +92,7 @@ The following table lists the VS Code built-in tools:
 
 | Chat variable/Tool | Description |
 |--------|-------------|
+| `#askQuestions` | Enables the agent to ask clarifying questions using the interactive questions carousel. |
 | `#changes` | List of source control changes. |
 | `#codebase` | Perform a code search in the current workspace to automatically find relevant context for the chat prompt. |
 | `#createAndRunTask` | Create and run a new [task](/docs/debugtest/tasks.md) in the workspace. |
@@ -107,7 +108,6 @@ The following table lists the VS Code built-in tools:
 | `#getProjectSetupInfo` | Provide instructions and configuration for scaffolding different types of projects. |
 | `#getTaskOutput` | Get the output from running a [task](/docs/debugtest/tasks.md) in the workspace. |
 | `#getTerminalOutput` | Get the output from running a terminal command in the workspace. |
-| `#githubRepo` | Perform a code search in a GitHub repo. For example, "what is a global snippet #githubRepo microsoft/vscode." |
 | `#installExtension` | Install a VS Code extension. |
 | `#listDirectory` | List files in a directory in the workspace. |
 | `#new` | Scaffold a new VS Code workspace, preconfigured with debug and run configurations. |
@@ -153,6 +153,7 @@ Slash commands are shortcuts to specific functionality within the chat. You can 
 | `/compact` | Compact the conversation context by summarizing it. Useful when a conversation grows too long for the model's context window. |
 | `/fork` | Fork the current chat session into a new independent session that inherits the full conversation history. Learn more about [forking chat sessions](/docs/copilot/chat/chat-sessions.md#fork-a-chat-session). |
 | `/debug` | Show the Chat Debug view to [inspect the chat logs for troubleshooting](/docs/copilot/troubleshooting.md). |
+| `/troubleshoot` | Ask the AI to analyze the [agent debug logs](/docs/copilot/chat/chat-debug-view.md) for the current chat session. For example, `/troubleshoot how many tokens did I use?`. Requires `setting(github.copilot.chat.agentDebugLog.enabled)`. |
 | `/new` | Scaffold a new VS Code workspace or file. Use natural language to describe the type of project/file you need, and preview the scaffolded content before creating it. |
 | `/newNotebook` | Scaffold a new Jupyter notebook based on your requirements. Use natural language to describe what the notebook should contain. |
 | `/init` | Generate or update workspace instructions (`copilot-instructions.md` or `AGENTS.md`) based on your project structure and coding patterns. |
