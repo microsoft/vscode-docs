@@ -1,6 +1,6 @@
 ---
 ContentId: 3f9e2b7d-6a8c-4d1e-9f2a-8c4b5d7e9f1a
-DateApproved: 3/9/2026
+DateApproved: 3/18/2026
 MetaDescription: Learn how to use browser agent tools in VS Code to build and automatically test web applications with AI.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:

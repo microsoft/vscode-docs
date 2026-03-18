@@ -1,6 +1,6 @@
 ---
 ContentId: 2f4a8e9d-3c5b-4f6e-a7d8-1c2b3e4f5a6b
-DateApproved: 3/9/2026
+DateApproved: 3/18/2026
 MetaDescription: Use Agent Logs and the Chat Debug view to inspect AI requests, tool invocations, and agent interactions in Visual Studio Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
