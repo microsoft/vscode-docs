@@ -45,13 +45,176 @@ my-testing-plugin/
   agents/
     test-reviewer.agent.md # Code review agent
   hooks/
-    post-test.json         # Hook to run after tests
+    hooks.json             # Hook configuration
+  scripts/
+    validate-tests.sh      # Hook script
+  .mcp.json                # MCP server definitions
 ```
 
 Once installed, plugin-provided customizations appear alongside your locally defined ones. For example, skills from a plugin show up in the **Configure Skills** menu, and MCP servers from a plugin appear in the MCP server list.
 
 > [!CAUTION]
 > Plugins can include hooks and MCP servers that run code on your machine. Review the plugin contents and publisher before installing, especially for plugins from community marketplaces.
+
+## Hooks in plugins
+
+Plugins can include [hooks](/docs/copilot/customization/hooks.md) that run shell commands at agent lifecycle points. Plugin hooks work alongside your workspace and user-level hooks. When a plugin is enabled, its hooks fire in addition to any other hooks configured for the same event.
+
+### Hook file location
+
+The hook file location depends on the plugin format:
+
+| Plugin format | Hook file path |
+|---------------|----------------|
+| Claude | `hooks/hooks.json` |
+| Copilot | `hooks.json` (at the plugin root) |
+
+VS Code auto-detects the plugin format and discovers the hook file automatically.
+
+```text
+my-plugin/
+  hooks/
+    hooks.json           # Hook configuration (Claude format)
+  scripts/
+    format.sh            # Hook script referenced by hooks.json
+```
+
+### Hook configuration format
+
+Plugin hooks use the same base format as [workspace hooks](/docs/copilot/customization/hooks.md#hook-configuration-format). VS Code parses Claude Code hook configuration, including matcher syntax. Currently, VS Code ignores matcher values, so hooks run on every matching event.
+
+**Flat format** (same as workspace hooks):
+
+```json
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "type": "command",
+        "command": "${CLAUDE_PLUGIN_ROOT}/scripts/format.sh"
+      }
+    ]
+  }
+}
+```
+
+**Matcher format** (Claude compatibility syntax):
+
+```json
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/scripts/format.sh"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+VS Code parses the `matcher` field for compatibility with Claude Code, but currently ignores matcher values. If you need to filter hook behavior in VS Code, check the event input inside the hook script.
+
+### Reference plugin paths in hook commands
+
+For Claude-format plugins, use the `${CLAUDE_PLUGIN_ROOT}` token in hook commands to reference scripts and files within the plugin directory. VS Code expands this token to the plugin's absolute path at runtime and also sets a `CLAUDE_PLUGIN_ROOT` environment variable for the hook process. Inside your script, access this as `$CLAUDE_PLUGIN_ROOT` (or `%CLAUDE_PLUGIN_ROOT%` on Windows).
+
+This is important because plugins are installed to a location outside your workspace, so you cannot use relative paths.
+
+```json
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "type": "command",
+        "command": "${CLAUDE_PLUGIN_ROOT}/scripts/validate-tool.sh"
+      }
+    ]
+  }
+}
+```
+
+### Supported hook events
+
+Plugin hooks support the same lifecycle events as workspace hooks: `SessionStart`, `UserPromptSubmit`, `PreToolUse`, `PostToolUse`, `PreCompact`, `SubagentStart`, `SubagentStop`, and `Stop`. See [Hook lifecycle events](/docs/copilot/customization/hooks.md#hook-lifecycle-events) for details on each event.
+
+### How plugin hooks interact with other hooks
+
+Plugin hooks run alongside workspace-level and user-level hooks. When multiple hooks target the same event, all of them execute. For `PreToolUse` hooks, the most restrictive permission decision across all hooks wins: `deny` overrides `ask`, which overrides `allow`.
+
+Disabling a plugin also disables its hooks. You can enable or disable plugins globally or for a specific workspace from the Extensions view.
+
+## MCP servers in plugins
+
+Plugins can bundle [MCP servers](/docs/copilot/customization/mcp-servers.md) to provide agents with additional tools and data sources. Plugin MCP servers start automatically when the plugin is enabled and stop when the plugin is disabled.
+
+### MCP configuration file
+
+Place MCP server definitions in `.mcp.json` at the plugin root. VS Code discovers this file automatically when it loads the plugin.
+
+```text
+my-plugin/
+  .mcp.json              # MCP server definitions
+  servers/
+    db-server             # Server executable
+  config.json             # Server configuration
+```
+
+### MCP configuration format
+
+Plugin MCP servers are defined in a top-level `mcpServers` object. Each server entry specifies a command, arguments, and optional environment variables:
+
+```json
+{
+  "mcpServers": {
+    "plugin-database": {
+      "command": "${CLAUDE_PLUGIN_ROOT}/servers/db-server",
+      "args": ["--config", "${CLAUDE_PLUGIN_ROOT}/config.json"],
+      "env": {
+        "DB_PATH": "${CLAUDE_PLUGIN_ROOT}/data"
+      }
+    },
+    "plugin-api": {
+      "command": "npx",
+      "args": ["@company/mcp-server", "--plugin-mode"],
+      "cwd": "${CLAUDE_PLUGIN_ROOT}"
+    }
+  }
+}
+```
+
+> [!NOTE]
+> The top-level key is `mcpServers` (not `servers` as in the workspace `mcp.json`).
+
+### Reference plugin paths in server configuration
+
+For Claude-format plugins, use the `${CLAUDE_PLUGIN_ROOT}` token in MCP server fields to reference executables and files within the plugin directory. VS Code expands this token in the following fields:
+
+* `command`: the executable path
+* `args`: command-line arguments
+* `cwd`: working directory
+* `env`: environment variable values
+* `envFile`: path to an environment file
+* `url`: for HTTP-based MCP servers
+* `headers`: HTTP header values
+
+VS Code also injects a `CLAUDE_PLUGIN_ROOT` environment variable into the server process, so server code can access the plugin path at runtime.
+
+### How plugin MCP servers interact with other servers
+
+Plugin MCP servers appear alongside workspace and user-level MCP servers. You can manage them through the same tools:
+
+* Select **Configure Tools** in the Chat view to see tools from all MCP servers, including plugin servers.
+* Run **MCP: List Servers** from the Command Palette to view plugin servers alongside other servers.
+
+Plugin MCP servers are implicitly trusted when you install the plugin. Unlike workspace MCP servers, they do not show a separate trust prompt at startup.
+
+Disabling a plugin stops its MCP servers. Tools provided by the stopped servers are no longer available in chat.
 
 ## Discover and install plugins
 

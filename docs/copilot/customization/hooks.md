@@ -98,8 +98,9 @@ VS Code searches for hook configuration files in these locations:
 |-------|-----------------------|
 | Workspace | `.github/hooks/*.json` |
 | Workspace (Claude format) | `.claude/settings.json`, `.claude/settings.local.json` |
-| User | `~/.copilot/hooks, `~/.claude/settings.json` |
+| User | `~/.copilot/hooks`, `~/.claude/settings.json` |
 | Custom agent | `hooks` field in `.agent.md` frontmatter (see [Agent-scoped hooks](#agent-scoped-hooks)) |
+| Plugin | `hooks.json` or `hooks/hooks.json`, depending on the plugin format (see [Hooks in plugins](/docs/copilot/customization/agent-plugins.md#hooks-in-plugins)) |
 
 Workspace hooks take precedence over user hooks for the same event type.
 
@@ -325,7 +326,7 @@ The `PreToolUse` hook can control tool execution through a `hookSpecificOutput` 
 2. `ask`: requires user confirmation
 3. `allow` (least restrictive): auto-approves execution
 
-**`updatedInput` format**: To determine the format of `updatedInput`, open the [agent logs](/docs/copilot/chat/chat-debug-view.md#agent-debug-panel) and find the logged tool schema. If `updatedInput` doesn't match the expected schema, it will be ignored.
+**`updatedInput` format**: To determine the format of `updatedInput`, open the [agent logs](/docs/copilot/chat/chat-debug-view.md#agent-debug-log-panel) and find the logged tool schema. If `updatedInput` doesn't match the expected schema, it will be ignored.
 
 ## PostToolUse
 
