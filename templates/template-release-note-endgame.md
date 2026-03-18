@@ -29,6 +29,10 @@ VS Code is rolling out gradually to all users. Use **Check for Updates** in VS C
 
 To try new features as soon as possible, [**download the nightly Insiders build**](https://code.visualstudio.com/insiders), which includes the latest updates as soon as they are available.
 
+<!-- %IF IN_PRODUCT %
+You can view the release notes online at [code.visualstudio.com/updates](https://code.visualstudio.com/updates).
+%ENDIF % -->
+
 ---
 
 <!-- TOC
