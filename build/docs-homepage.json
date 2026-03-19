@@ -45,24 +45,24 @@
   ],
   "latest": [
     {
-      "type": "documentation",
-      "title": "Agent hooks",
-      "description": "Use hooks to run custom shell commands at key events during agent sessions.",
-      "link": "/docs/copilot/customization/hooks"
+      "type": "release",
+      "title": "VS Code 1.112 release",
+      "description": "Autopilot in Copilot CLI, debug with the integrated browser, and agent troubleshooting.",
+      "link": "/updates/v1_112",
+      "image": "/assets/updates/1_112/release-graphic.webp"
     },
     {
       "type": "documentation",
-      "title": "Set up a TDD flow",
-      "description": "Learn how to set up a Test-Driven Development (TDD) workflow with AI agents in VS Code.",
-      "link": "/docs/copilot/guides/test-driven-development-guide",
-      "image": "/assets/docs/copilot/test-driven-development-guide/tdd-implementation-diagram.png"
+      "title": "Agent hooks",
+      "description": "Use hooks to automate workflows, enforce security policies, validate operations, and integrate with external tools.",
+      "link": "/docs/copilot/customization/hooks"
     },
     {
       "type": "blog",
       "title": "How VS Code builds with AI",
       "description": "Learn how VS Code leverages AI to enhance development workflows and improve productivity.",
       "link": "/blogs/2026/03/13/how-VS-Code-Builds-with-AI",
-      "image": "/assets/blogs/2026/03/13/weekly-releases-x.png"
+      "image": "/assets/blogs/2026/03/13/vscode-build-with-ai-poster.png"
     }
   ]
 }

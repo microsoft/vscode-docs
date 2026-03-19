@@ -1,6 +1,6 @@
 ---
 ContentId: f8e4b2c1-9d3a-4e5f-b6c7-8a9d0e1f2b3c
-DateApproved: 3/9/2026
+DateApproved: 3/18/2026
 MetaDescription: Troubleshoot GitHub Copilot issues in Visual Studio Code with logs, diagnostics, and debugging tools.
 MetaSocialImage: images/shared/github-copilot-social.png
 Keywords:
@@ -40,18 +40,24 @@ For more information about network configuration, see [Network and firewall conf
 
 ## Debug chat interactions
 
-VS Code provides tools to inspect what happens when you send a prompt to the AI.
+VS Code provides different tools to inspect what happens when you send a prompt to the AI.
 
-* **Agent Debug panel (Preview):**
+* **`/troubleshoot` slash command:**
+
+    Ask the AI to analyze the debug logs for the current chat session. Type `/troubleshoot` followed by your question, such as `/troubleshoot how many tokens did I use?` or `/troubleshoot list all paths you tried to load customizations`. Requires `setting(github.copilot.chat.agentDebugLog.enabled)` to be enabled.
+
+* **Agent Debug Log panel (Preview):**
 
     Shows a chronological event log of agent interactions during a chat session, including tool call sequences, LLM requests, token usage, prompt file discovery, and errors. This is the primary tool for understanding and debugging chat interactions.
 
-    To open the Agent Debug panel:
+    To open the Agent Debug Log panel:
 
     1. Select the gear icon in the Chat view.
-    1. Select **Show Agent Logs**.
+    1. Select **Show Agent Debug Logs**.
 
-    From the Agent Debug panel, you can attach a snapshot of the agent debug events to a chat conversation to ask the AI questions about the session and troubleshoot a specific interaction. Select the sparkle icon in the Logs view to [attach debug events to chat](/docs/copilot/chat/chat-debug-view.md#attach-debug-events-to-chat).
+    From the Agent Debug Log panel, you can attach a snapshot of the agent debug events to a chat conversation to ask the AI questions about the session and troubleshoot a specific interaction.
+
+    Learn more about the [Agent Debug Log panel](/docs/copilot/chat/chat-debug-view.md#agent-debug-log-panel).
 
 * **Chat Debug view:**
 
@@ -62,26 +68,7 @@ VS Code provides tools to inspect what happens when you send a prompt to the AI.
     1. Select the overflow menu (`...`) in the Chat view.
     1. Select **Show Chat Debug View**.
 
-Learn more about [debugging chat interactions](/docs/copilot/chat/chat-debug-view.md).
-
-## Chat customization diagnostics
-
-The chat customization diagnostics view shows all currently loaded custom agents, prompt files, instruction files, and skills. Use this view to troubleshoot issues with customization files that aren't being applied or are causing errors.
-
-To open the diagnostics view:
-
-1. Right-click in the Chat view.
-1. Select **Diagnostics**.
-
-This opens a markdown document listing:
-
-* All active customization files and their locations
-* Load status for each file (loaded, failed, or skipped)
-* Error messages for files that failed to load
-* The order in which instructions are applied
-
-> [!TIP]
-> If a customization file isn't being applied, check the diagnostics view to verify it was loaded successfully and review any error messages.
+Learn more about the [Chat Debug view](/docs/copilot/chat/chat-debug-view.md#chat-debug-view).
 
 ## Troubleshoot MCP servers
 

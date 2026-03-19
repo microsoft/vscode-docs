@@ -1,15 +1,15 @@
 {
   "featured": {
-    "title": "Use agents for long-running and more complex tasks",
-    "description": "Customize chat with prepackaged agent plugins, let agents drive the browser and validate their own changes, and use agent memory to persist plans and context across long-running sessions.",
-    "link": "/updates/v1_111",
-    "image": "/assets/updates/1_111/release-graphic.webp"
+    "title": "Agents that run, debug, and diagnose themselves",
+    "description": "Let agents work autonomously with Autopilot permissions in Copilot CLI, debug web apps in the integrated browser, and troubleshoot agent behavior directly in chat.",
+    "link": "/updates/v1_112",
+    "image": "/assets/updates/1_112/release-graphic.webp"
   },
   "highlights": [
     {
       "type": "blog",
       "title": "Agents for real-world development",
-      "description": "From enforcing policies with hooks to guiding agents mid-response, validating UI features with integrated browser tools, and bringing structured skills directly into the editor, this release focuses on making agents reliable collaborators for real development work.",
+      "description": "From enforcing policies with hooks to guiding agents mid-response, validating UI features with integrated browser tools, and bringing structured skills directly into the editor.",
       "link": "/blogs/2026/03/05/making-agents-practical-for-real-world-development",
       "image": "/assets/blogs/2026/03/05/context-compaction.png"
     },

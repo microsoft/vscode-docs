@@ -1,6 +1,6 @@
 ---
 ContentId: E059E35A-8AD0-4D4A-9BE1-E23D45D75C1C
-DateApproved: 3/9/2026
+DateApproved: 3/18/2026
 MetaDescription: Get Visual Studio Code up and running on Raspberry Pi OS.
 ---
 # Visual Studio Code on Raspberry Pi

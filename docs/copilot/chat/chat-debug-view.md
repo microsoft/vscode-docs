@@ -1,6 +1,6 @@
 ---
 ContentId: 2f4a8e9d-3c5b-4f6e-a7d8-1c2b3e4f5a6b
-DateApproved: 3/9/2026
+DateApproved: 3/18/2026
 MetaDescription: Use Agent Logs and the Chat Debug view to inspect AI requests, tool invocations, and agent interactions in Visual Studio Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -10,21 +10,24 @@ Visual Studio Code provides tools to help you understand what happens when you s
 
 VS Code offers two complementary debugging tools:
 
-* **Agent Debug panel** (Preview) shows a chronological event log of everything that happens during a chat session, including tool calls, LLM requests, prompt file discovery, and errors.
+* **Agent Debug Log panel** (Preview) shows a chronological event log of everything that happens during a chat session, including tool calls, LLM requests, prompt file discovery, and errors.
 * **Chat Debug view** shows the raw details of each LLM request and response, including the full system prompt, user prompt, context, and tool invocation payloads.
 
-## Agent Debug panel
+## Agent Debug Log panel
 
 > [!NOTE]
-> The Agent Debug panel is currently in preview.
+> The Agent Debug Log panel is currently in preview.
 
-The Agent Debug panel is the primary tool for understanding what happens when you send a prompt. It shows a chronological event log of agent interactions during a chat session, making it especially useful when debugging [custom agents](/docs/copilot/agents/local-agents.md) and orchestrated sub-agent workflows.
+The Agent Debug Log panel is the primary tool for understanding what happens when you send a prompt. It shows a chronological event log of agent interactions during a chat session, making it especially useful when debugging [custom agents](/docs/copilot/agents/local-agents.md) and orchestrated sub-agent workflows.
 
-To open the Agent Debug panel:
+To open the Agent Debug Logs panel:
 
-* Select the gear icon in the Chat view and select **Show Agent Logs**.
+* Enable the following setting:
+   * `setting(github.copilot.chat.agentDebugLog.enabled)`
 
-* Run **Developer: Open Agent Debug Panel** from the Command Palette.
+* Select the gear icon in the Chat view and select **Show Agent Debug Logs**.
+
+* Run **Developer: Open Agent Debug Logs** from the Command Palette.
 
 You can switch between three views in the Agent Debug panel:
 
@@ -35,7 +38,7 @@ You can switch between three views in the Agent Debug panel:
 * **Summary**: aggregate statistics about the session, such as total tool calls, token usage, error count, and overall duration.
 
 > [!NOTE]
-> The Agent Debug panel is currently only available for local chat sessions. Log data is not persisted, so you can only view logs for chat sessions from your current VS Code session.
+> The Agent Debug Logs panel is currently only available for local chat sessions. Log data is not persisted, so you can only view logs for chat sessions from your current VS Code session. To save a session for later viewing, [export it to a file](#export-and-import-sessions).
 
 ### Logs view
 
@@ -55,7 +58,7 @@ The Summary view provides aggregate statistics about the chat session, such as t
 
 To open the Summary view:
 
-1. Open the Agent Debug panel by selecting the gear icon in the Chat view and selecting **Show Agent Logs**.
+1. Open the Agent Debug panel by selecting the gear icon in the Chat view and selecting **Show Agent Debug Logs**.
 
 1. Select the session description in the breadcrumb at the top of the panel.
 
@@ -69,7 +72,7 @@ You can pan and zoom the flow chart and select any node in the flow chart to see
 
 To open the flowchart view, select **Agent Flow Chart** from the [Summary view](#summary-view).
 
-1. Open the Agent Debug panel by selecting the gear icon in the Chat view and selecting **Show Agent Logs**.
+1. Open the Agent Debug panel by selecting the gear icon in the Chat view and selecting **Show Agent Debug Logs**.
 
 1. Select the session description in the breadcrumb at the top of the panel.
 
@@ -84,6 +87,36 @@ To attach debug events to chat:
 1. Open the [Agent Logs view](#logs-view) for your chat session
 
 1. Select the sparkle icon in the top right of the Agent Debug panel. This opens the Chat view with the debug events snapshot attached as context.
+
+Alternatively, you can use the `/troubleshoot` slash command to ask questions about the current chat session directly, without opening the Agent Debug panel first. For example, type `/troubleshoot list all paths you tried to load customizations` or `/troubleshoot how many tokens did you use`.
+
+> [!NOTE]
+> The `/troubleshoot` command requires the `setting(github.copilot.chat.agentDebugLog.enabled)` setting to be enabled.
+
+### Export and import sessions
+
+You can export a debug session to a Open Telemetry JSON (OTLP format) file to share it with others or analyze it offline. You can also import a previously exported file to view it in the Agent Debug panel.
+
+To export a session:
+
+1. Open the Agent Debug Logs panel and navigate to the session you want to export.
+
+1. Select the **Export** icon (download) in the top-right toolbar of the panel.
+
+1. Choose a location to save the JSON file.
+
+If no session is selected, VS Code shows a notification that there is no active debug session to export.
+
+To import a session:
+
+1. Select the **Import** icon (upload) in the top-right toolbar of the Agent Debug Logs panel.
+
+1. Select a previously exported JSON file.
+
+The imported session opens in the Agent Debug Logs panel with its overview and metrics, just like a live session.
+
+> [!NOTE]
+> Importing files larger than 50 MB shows a warning dialog with the actual file size. Consider trimming the file or exporting a shorter session if you encounter this warning.
 
 ## Chat Debug view
 

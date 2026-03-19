@@ -1,6 +1,6 @@
 ---
 ContentId: FC5262F3-D91D-4665-A5D2-BCBCCF66E53A
-DateApproved: 3/9/2026
+DateApproved: 3/18/2026
 MetaDescription: Get Visual Studio Code up and running.
 MetaSocialImage: images/quicksetup/quick-setup-social.png
 ---

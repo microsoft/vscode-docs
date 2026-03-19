@@ -1,6 +1,6 @@
 ---
 ContentId: a7d3e5f8-2c4b-4d9a-b8e1-3f6c9a2d7e41
-DateApproved: 3/9/2026
+DateApproved: 3/18/2026
 MetaDescription: Learn how to use Agent Skills in VS Code to teach GitHub Copilot specialized capabilities that work across VS Code, GitHub Copilot CLI, and GitHub Copilot coding agent.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -65,6 +65,9 @@ Skills are stored in directories with a `SKILL.md` file that defines the skill's
 | ---------- | -------- |
 | Project skills, stored in your repository | `.github/skills/`, `.claude/skills/`, `.agents/skills/` |
 | Personal skills, stored in your user profile | `~/.copilot/skills/`, `~/.claude/skills/`, `~/.agents/skills/` |
+
+> [!TIP]
+> In a monorepo, enable `setting(chat.useCustomizationsInParentRepositories)` to discover skills from the parent repository root. Learn more about [parent repository discovery](/docs/copilot/customization/overview.md#parent-repository-discovery).
 
 > [!TIP]
 > You can configure additional locations where VS Code searches for skills by using the `setting(chat.agentSkillsLocations)` setting. This is useful for sharing skills across projects or keeping them in a central location.
