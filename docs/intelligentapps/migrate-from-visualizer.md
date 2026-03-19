@@ -3,15 +3,15 @@ ContentId: c68118c4-453e-404a-97a5-4509850a2da2
 DateApproved: 03/12/2026
 MetaDescription: Migrate from Local Agent Playground and Local Visualizer to Agent Inspector in AI Toolkit for unified debugging, workflow visualization, and code navigation.
 ---
-# Migrate from Local Agent Playground & Local Visualizer to Agent Inspector
+# Migrate from Local Agent Playground and Local Visualizer to Agent Inspector
 
 In this article, you learn how to migrate your existing AI agent projects from Local Agent Playground and Local Visualizer to Agent Inspector in AI Toolkit. Agent Inspector combines chat, workflow visualization, and debugging support into a single experience.
-
-## Why this change matters
 
 AI Toolkit consolidates the **Local Agent Playground** and **Local Visualizer** into a single, unified experience called **Agent Inspector**. This transition improves your AI agent development workflow.
 
 ### Developer-centric benefits of Agent Inspector
+
+Agent Inspector provides several improvements over the previous tools.
 
 | Capability | Previous experience | Agent Inspector |
 |------------|---------------------|------------------|
@@ -21,6 +21,8 @@ AI Toolkit consolidates the **Local Agent Playground** and **Local Visualizer** 
 | **Production path** | Manual deployment setup | Generated code uses Hosted Agent SDK, ready for Microsoft Foundry deployment |
 
 ### Key improvements
+
+Agent Inspector offers the following improvements over Local Agent Playground and Local Visualizer.
 
 1. **Unified experience**: Agent Inspector combines chat and tracing into a single interface, so you no longer need to switch between separate tools.
 
@@ -52,26 +54,25 @@ If your project uses the **Local Visualizer** (via the Microsoft Foundry extensi
 Before you start, make sure you have:
 
 - **Python 3.10+** installed
-- **VS Code AI Toolkit extension** installed (Agent Inspector is part of this extension)
-- Your agent built with the **Agent Framework SDK** (`agent-framework` package)
+- **VS Code AI Toolkit extension** installed (Agent Inspector is part of this extension). For more information, see [install AI Toolkit](/docs/intelligentapps/overview.md#install-and-setup).
+- Your agent built with the [Agent Framework SDK (`agent-framework` package)](https://github.com/microsoft/agent-framework).
 
 ### Step 1: Update your observability code
 
-**Remove** the previous visualizer setup code:
+Remove the previous visualizer setup code:
+
+Agent Inspector communicates with your agent server through `agent-dev-cli` and doesn't require OTEL tracing. Remove the following code if you only need workflow visualization. If you want to keep using tracing features in AI Toolkit, change the port to 4317.
 
 ```python
-# You can remove this if you just need workflow visualization as tracing is not required, or change the port to 4317 if you want to keep using tracing features in AI Toolkit.
 from agent_framework.observability import setup_observability
 setup_observability(vs_code_extension_port=4319)
 ```
 
-Agent Inspector communicates with your agent server through `agent-dev-cli` and doesn't require OTEL tracing.
-
 ### Step 2: Add VS Code debug configuration
 
-You have two options:
+Use GitHub Copilot to generate the debug files, or add them manually:
 
-#### Option A: Let Copilot configure it (recommended)
+#### Option A: Let GitHub Copilot configure it (recommended)
 
 1. Open GitHub Copilot in VS Code.
 2. Select **AIAgentExpert** from Agent Mode.
@@ -79,7 +80,7 @@ You have two options:
    ```
    Help me set up the debug environment for the workflow agent to use AI Toolkit Agent Inspector
    ```
-4. Copilot generates the `.vscode/tasks.json` and `.vscode/launch.json` files for you.
+4. GitHub Copilot generates the `.vscode/tasks.json` and `.vscode/launch.json` files for you.
 
 #### Option B: Manual configuration
 
@@ -143,7 +144,8 @@ Create or update your `.vscode` folder with these files:
 }
 ```
 
-> **Note**: Replace `${file}` in tasks.json with your agent's entrypoint Python file path if you want a fixed configuration.
+> [!NOTE]
+> Replace `${file}` in tasks.json with your agent's entrypoint Python file path if you want a fixed configuration.
 
 ### Step 3: Install required dependencies
 

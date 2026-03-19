@@ -42,7 +42,7 @@ Choose one of the following options to quickly start using Agent Inspector with 
 
 1. Select **AI Toolkit** in the Activity Bar > **Agent and Workflow Tools** > **Agent Inspector**.
 1. Select **Build with Copilot** and provide agent requirements.
-1. Copilot generates agent code and configures debugging automatically.
+1. GitHub Copilot generates agent code and configures debugging automatically.
 1. Follow the instructions from Copilot output to run and debug your agent.
 
 ### Option 3: Start with an existing agent
@@ -56,7 +56,7 @@ If you already have an agent built with Microsoft Agent Framework SDK, ask GitHu
    Help me set up the debug environment for the workflow agent to use AI Toolkit Agent Inspector
    ```
 
-1. Copilot generates the necessary configuration files and instructions to run and debug your agent using the Agent Inspector.
+1. Github Copilot generates the necessary configuration files and instructions to run and debug your agent using the Agent Inspector.
 
 ## Configure debugging manually
 
@@ -121,7 +121,7 @@ Add these files to your `.vscode` folder to set up debugging for your agent, and
 ```
 </details>
 
-## Using the Inspector
+## Use the Inspector
 
 ### Chat playground
 Send messages to trigger the workflow and view executions in real-time.
@@ -151,5 +151,7 @@ When you press F5, the Inspector:
 1. **Enables code navigation:** Double-click workflow nodes to open the corresponding source file in the editor.
 
 ### Architecture overview
+
+The `agentdev` CLI launches a local TestToolServer that wraps your agent as an HTTP server on port 8087. The Inspector UI (a VS Code webview) communicates with this server over HTTP and WebSocket to list agents, stream SSE responses, and trigger code navigation in the editor. An EventMapper converts Agent Framework events into OpenAI-compatible SSE format, and a Python debugger (debugpy) attaches on port 5679 for step-through debugging. Your agent or workflow runs via `run_stream()` through the Agent Framework SDK.
 
 ![Diagram showing the Agent Inspector architecture](./images/agent-inspector/architecture-diagram.png)
