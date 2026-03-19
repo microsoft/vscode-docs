@@ -1,6 +1,6 @@
 ---
 ContentId: 58ea6755-9bfa-42c2-a4c8-ff0510f9c031
-DateApproved: 3/4/2026
+DateApproved: 3/9/2026
 MetaDescription: Best practices for getting the most out of GitHub Copilot in VS Code, from writing prompts to configuring your project for AI.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -11,7 +11,7 @@ This article covers proven practices for getting the most out of using AI in Vis
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="How AI works in VS Code">
 Learn about the agent loop, context window, tools, and other core concepts.
 
-* [Read about core concepts](/docs/copilot/core-concepts.md)
+* [Read about core concepts](/docs/copilot/concepts/overview.md)
 
 </div>
 
@@ -84,7 +84,7 @@ The quality of AI responses depends on the clarity and specificity of your promp
 
 * **Parallel tasks.** If you have multiple independent tasks, ask the AI to run them in parallel to save time. For example, "Perform isolated research about X and Y in parallel and summarize the findings."
 
-For more information, see [prompt engineering](/docs/copilot/guides/prompt-engineering-guide.md) and find practical [prompt examples](https://docs.github.com/en/copilot/copilot-chat-cookbook) in the GitHub Copilot documentation.
+For more information, find practical [prompt examples](https://docs.github.com/en/copilot/copilot-chat-cookbook) in the GitHub Copilot documentation.
 
 ## Provide the right context
 
@@ -124,7 +124,7 @@ For complex changes that span multiple files, separate planning from implementat
 
 1. **Explore.** Use ask mode or a subagent to read the relevant code and understand how it works before making changes.
 1. **Plan.** Use the [Plan agent](/docs/copilot/agents/planning.md) to create a structured implementation plan. Review and refine the plan before executing.
-1. **Implement.** Switch to agent mode and implement from the plan. Include tests or expected outputs so the agent can verify its own work. Hand off to a [background agent](/docs/copilot/agents/background-agents.md) or [cloud agent](/docs/copilot/agents/cloud-agents.md) for longer tasks.
+1. **Implement.** Switch to agent mode and implement from the plan. Include tests or expected outputs so the agent can verify its own work. Hand off to a [background agent](/docs/copilot/agents/copilot-cli.md) or [cloud agent](/docs/copilot/agents/cloud-agents.md) for longer tasks.
 1. **Review.** Use [checkpoints](/docs/copilot/chat/chat-checkpoints.md) to review progress, rewind if the agent goes off track, or [request a Copilot code review](https://docs.github.com/en/copilot/concepts/agents/code-review) on the resulting pull request.
 
 For more information, see the [context engineering workflow](/docs/copilot/guides/context-engineering-guide.md).
@@ -177,7 +177,6 @@ For more information, see [workspace context](/docs/copilot/reference/workspace-
 
 ## Related resources
 
-* [Prompt engineering guide](/docs/copilot/guides/prompt-engineering-guide.md)
 * [Context engineering guide](/docs/copilot/guides/context-engineering-guide.md)
 * [Customization overview](/docs/copilot/customization/overview.md)
 * [Cheat sheet](/docs/copilot/reference/copilot-vscode-features.md)

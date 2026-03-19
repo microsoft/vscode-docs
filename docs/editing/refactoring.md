@@ -1,6 +1,6 @@
 ---
 ContentId: 481dfd3a-d847-4ed3-b37b-7fc8d234a4c2
-DateApproved: 3/4/2026
+DateApproved: 3/9/2026
 MetaDescription: Refactoring source code in Visual Studio Code.
 ---
 # Refactoring
@@ -9,7 +9,7 @@ MetaDescription: Refactoring source code in Visual Studio Code.
 
 ![refactoring hero image](images/refactoring/refactoring-hero.png)
 
-For example, a common refactoring used to avoid duplicating code (a maintenance headache) is the [Extract Method](https://refactoring.com/catalog/extractMethod.html) refactoring, where you select source code and pull it out into its own shared method, so that can reuse the code elsewhere.
+For example, a common refactoring used to avoid duplicating code (a maintenance headache) is the [Extract Method](https://refactoring.com/catalog/extractMethod.html) refactoring, where you select source code and pull it out into its own shared method, so that you can reuse the code elsewhere.
 
 Refactorings are provided by a language service. VS Code has built-in support for TypeScript and JavaScript refactoring through the [TypeScript](https://www.typescriptlang.org/) language service. Refactoring support for other programming languages is enabled through VS Code [extensions](/docs/configure/extensions/extension-marketplace.md) that contribute language services.
 

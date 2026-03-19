@@ -1,6 +1,6 @@
 ---
 ContentId: c77dcce9-4ba9-40ac-8ae5-2df855088090
-DateApproved: 3/4/2026
+DateApproved: 3/9/2026
 MetaDescription: Learn how GitHub Copilot automatically understands your codebase using workspace context for cross-file reasoning and accurate answers.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -150,8 +150,8 @@ Learn more about security, privacy, and transparency in the [GitHub Copilot Trus
 
 ## Frequently asked questions
 
-### Do I need to use `@workspace` or `#codebase` in my prompts?
+### Do I need to use `#codebase` in my prompts?
 
 In most cases, no. Agents and ask mode automatically search your workspace for relevant context. You don't need to explicitly reference workspace context in your prompt.
 
-If you want to ensure that a specific prompt triggers a workspace search, you can still add `#codebase` as a [context item](/docs/copilot/chat/copilot-chat-context.md) in your prompt. The `@workspace` [chat participant](/docs/copilot/chat/copilot-chat-context.md#-mentions) is also still available for backward compatibility.
+If you want to ensure that a specific prompt triggers a workspace search, you can still add `#codebase` as a [context item](/docs/copilot/chat/copilot-chat-context.md) in your prompt.

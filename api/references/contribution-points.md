@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
-DateApproved: 3/4/2026
+DateApproved: 3/9/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various Contribution Points it is using in its package.json Extension Manifest file.
@@ -13,6 +13,8 @@ MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares
 
 - [`authentication`](/api/references/contribution-points#contributes.authentication)
 - [`breakpoints`](/api/references/contribution-points#contributes.breakpoints)
+- [`chatInstructions`](/api/references/contribution-points#contributes.chatInstructions)
+- [`chatPromptFiles`](/api/references/contribution-points#contributes.chatPromptFiles)
 - [`colors`](/api/references/contribution-points#contributes.colors)
 - [`commands`](/api/references/contribution-points#contributes.commands)
 - [`configuration`](/api/references/contribution-points#contributes.configuration)
@@ -79,6 +81,77 @@ Usually a debugger extension will also have a `contributes.breakpoints` entry wh
   }
 }
 ```
+
+## contributes.chatInstructions
+
+Contributes [instructions files](/docs/copilot/customization/custom-instructions.md) for Copilot Chat. Instructions files provide custom guidelines that are automatically included in chat requests to steer the behavior of Copilot. Use this contribution point to bundle reusable instructions with your extension, such as coding conventions, framework-specific guidelines, or domain-specific rules.
+
+Copilot automatically applies contributed instructions when the user's chat request is relevant to the instructions' use case. You do not need to manually attach them.
+
+Each entry requires a `path` to a Markdown file relative to the extension root. You can optionally specify a `when` clause to control when the instructions are enabled. Specify the `name` and `description` metadata inside the Markdown file itself rather than in the contribution point.
+
+```json
+{
+  "contributes": {
+    "chatInstructions": [
+      {
+        "path": "./prompts/textMateGuidelines.instructions.md"
+      }
+    ]
+  }
+}
+```
+
+You can use an optional `when` clause to conditionally enable the instructions based on context:
+
+```json
+{
+  "contributes": {
+    "chatInstructions": [
+      {
+        "path": "./prompts/textMateGuidelines.instructions.md",
+        "when": "resourceExtname == .tmLanguage"
+      }
+    ]
+  }
+}
+```
+
+### chatInstructions properties
+
+| Property | Type | Required | Description |
+| -------- | ---- | -------- | ----------- |
+| `path` | `string` | Yes | Path to the Markdown file relative to the extension root. The path must resolve to a location inside the extension. |
+| `when` | `string` | No | A [when clause](/api/references/when-clause-contexts) condition that must be true for this entry to be enabled. |
+
+See the [`chatPromptFiles`](/api/references/contribution-points#contributes.chatPromptFiles) contribution point for contributing reusable prompt files.
+
+## contributes.chatPromptFiles
+
+Contributes [prompt files](/docs/copilot/customization/custom-instructions.md) for Copilot Chat. Prompt files are reusable chat prompts that users can invoke as slash commands in chat. Use this contribution point to bundle ready-made prompts with your extension.
+
+Each entry requires a `path` to a Markdown file relative to the extension root. You can optionally specify a `when` clause to conditionally enable the prompt. Specify the `name` and `description` metadata inside the Markdown file itself rather than in the contribution point.
+
+```json
+{
+  "contributes": {
+    "chatPromptFiles": [
+      {
+        "path": "./prompts/reviewAndCreateIssue.prompt.md"
+      }
+    ]
+  }
+}
+```
+
+### chatPromptFiles properties
+
+| Property | Type | Required | Description |
+| -------- | ---- | -------- | ----------- |
+| `path` | `string` | Yes | Path to the Markdown file relative to the extension root. The path must resolve to a location inside the extension. |
+| `when` | `string` | No | A [when clause](/api/references/when-clause-contexts) condition that must be true for this entry to be enabled. |
+
+See the [`chatInstructions`](/api/references/contribution-points#contributes.chatInstructions) contribution point for contributing reusable instructions files.
 
 ## contributes.colors
 

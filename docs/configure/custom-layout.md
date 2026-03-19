@@ -31,11 +31,13 @@ To change the position of the Primary Side Bar, you can:
 
 By default, VS Code shows views in the Primary Side Bar located to the left of the editor region. It can be useful to see two views open at the same time. To do this, you can use the **Secondary Side Bar** to show views opposite the Primary Side Bar. The Secondary Side Bar is always positioned opposite the Primary Side Bar, regardless if you switched the position of the Primary Side Bar.
 
+When you first open a folder or multi-root workspace, the Secondary Side Bar is shown by default. In an empty window, it's hidden by default. You can configure this behavior with the `setting(workbench.secondarySideBar.defaultVisibility)` setting.
+
 The following image shows the Explorer view in the Primary Side Bar and the Copilot Chat view in the Secondary Side Bar:
 
 ![Explorer view in the Primary Side Bar and Copilot Chat view in the Secondary Side Bar.](images/custom-layout/secondary-side-bar.png)
 
-To show the Secondary Side Bar, you can use the layout controls in the VS Code title bar. If the layout controls are not visible, right-click the VS Code title bar and select **Layout Controls**.
+If the Secondary Side Bar is hidden, you can show it by using the layout controls in the VS Code title bar. If the layout controls are not visible, right-click the VS Code title bar and select **Layout Controls**.
 
 ![Title bar buttons to toggle main UI elements, with hover on Toggle Secondary Side Bar.](images/custom-layout/toggle-secondary-side-bar.png)
 
@@ -43,8 +45,6 @@ Alternatively, you can also open the Secondary Side Bar as follows:
 
 * Run the **View: Toggle Secondary Side Bar Visibility** command (or press `kb(workbench.action.toggleAuxiliaryBar)`)
 * Use the **View** > **Appearance** > **Secondary Side Bar** menu item
-
-If you want to automatically show the Secondary Side Bar when you open a new window or a workspace, you can configure this with the `setting(workbench.secondarySideBar.defaultVisibility)` setting.
 
 At any time, you can drag and drop views and panels into the Primary or Secondary Side Bar. VS Code will remember the layout of views and panels across your sessions.
 

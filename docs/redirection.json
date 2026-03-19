@@ -1,5 +1,8 @@
 [
+    { "from": "/docs/copilot/core-concepts", "to": "/docs/copilot/concepts/overview", "status": 301 },
+    { "from": "/docs/copilot/agents/background-agents", "to": "/docs/copilot/agents/copilot-cli", "status": 301 },
     { "from": "/docs/copilot/setup-simplified", "to": "/docs/copilot/setup", "status": 301 },
     { "from": "/docs/copilot/copilot-tips-and-tricks", "to": "/docs/copilot/best-practices", "status": 301 },
-    { "from": "/docs/typescript/typescript-compiling", "to": "/docs/typescript/typescript-transpiling", "status": 301 }
+    { "from": "/docs/typescript/typescript-compiling", "to": "/docs/typescript/typescript-transpiling", "status": 301 },
+    { "from": "/docs/copilot/guides/prompt-engineering-guide", "to": "/docs/copilot/best-practices", "status": 301 }
 ]

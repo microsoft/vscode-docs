@@ -1,6 +1,6 @@
 ---
 ContentId: 557a7e74-f77e-488d-90ea-fd2cfecfffda
-DateApproved: 3/4/2026
+DateApproved: 3/9/2026
 MetaDescription: Overview of chat in VS Code. Learn how to access different chat surfaces, configure your session, add context, write effective prompts, and review AI-generated changes.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -103,6 +103,18 @@ For more specialized workflows, create your own [custom agents](/docs/copilot/cu
 
 Learn more about the [built-in agents and their capabilities](/docs/copilot/agents/local-agents.md).
 
+### Choose a permission level
+
+The permissions picker controls how much autonomy the agent has over tool approvals during a session. Select a permission level from the permissions dropdown in the chat input area.
+
+| Permission level | Description |
+|---|---|
+| **Default Approvals** | Uses your configured approval settings. Tools that require approval show a confirmation dialog. |
+| **Bypass Approvals** | Auto-approves all tool calls without confirmation dialogs. |
+| **Autopilot** (Preview) | Auto-approves all tool calls, auto-responds to questions, and the agent continues working autonomously until the task is complete. |
+
+Learn more about [permission levels and Autopilot](/docs/copilot/agents/agent-tools.md#permission-levels).
+
 ### Choose a language model
 
 VS Code offers different language models, each optimized for different tasks. Some models are designed for fast coding tasks, while others excel at complex reasoning and planning. Use the model dropdown in the chat input field to select the model that best fits your needs.
@@ -122,7 +134,7 @@ Providing the right context helps the AI generate more relevant and accurate res
 
 * **`#`-mentions**: type `#` in the chat input to explicitly reference files (`#file`), folders, symbols, your codebase (`#codebase`), terminal output (`#terminalSelection`), or tools like `#fetch` and `#githubRepo`.
 
-* **`@`-mentions**: type `@` to invoke specialized chat participants like `@vscode`, `@terminal`, or `@workspace`, each optimized for their respective domain.
+* **`@`-mentions**: type `@` to invoke specialized chat participants like `@vscode` or `@terminal`, each optimized for their respective domain.
 
 * **Vision**: attach images, such as screenshots or UI mockups, as context for your prompt.
 
@@ -146,7 +158,7 @@ After the AI makes changes to your files, review and accept or discard them.
 
 Chat provides several ways to improve the quality and relevance of AI responses:
 
-* **Write effective prompts**: be specific about what you want, reference relevant files and symbols, and use `/` commands for common tasks. Get inspired by [prompt examples](/docs/copilot/chat/prompt-examples.md) or review the full [prompt engineering guide](/docs/copilot/guides/prompt-engineering-guide.md).
+* **Write effective prompts**: be specific about what you want, reference relevant files and symbols, and use `/` commands for common tasks. Get inspired by [prompt examples](/docs/copilot/chat/prompt-examples.md) or review the full [prompt engineering guide](/docs/copilot/best-practices.md).
 
 * **Customize the AI**: tailor the AI's behavior to your project by adding [custom instructions](/docs/copilot/customization/custom-instructions.md), creating reusable [prompt files](/docs/copilot/customization/prompt-files.md), or building [custom agents](/docs/copilot/customization/custom-agents.md) for specialized workflows. For example, create a "Code Reviewer" agent that provides feedback on code quality and adherence to your team's coding standards.
 

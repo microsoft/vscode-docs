@@ -1,12 +1,12 @@
 ---
 ContentId: 2c4d6e8f-0a1b-3c5d-7e9f-1a2b3c4d5e6f
-DateApproved: 3/4/2026
+DateApproved: 3/9/2026
 MetaDescription: Learn how to centrally manage VS Code automatic updates in enterprise environments, including update modes and deployment strategies.
 ---
 
 # Manage updates in enterprise environments
 
-VS Code releases monthly updates with new features, bug fixes, and security patches. Organizations can centrally manage how VS Code updates are handled across their development teams.
+VS Code releases weekly updates with new features, bug fixes, and security patches. Organizations can centrally manage how VS Code updates are handled across their development teams.
 
 This article covers how IT admins can configure automatic updates through [enterprise policies](/docs/enterprise/policies.md).
 
