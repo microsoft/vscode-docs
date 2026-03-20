@@ -1,6 +1,6 @@
 ---
 ContentId: FDA6D86C-FF24-49BC-A1EB-E3BA43130FA0
-DateApproved: 01/08/2026
+DateApproved: 02/04/2026
 MetaDescription: How to modify Visual Studio Code User and Workspace Settings.
 ---
 # User and workspace settings
@@ -48,6 +48,8 @@ Not all user settings are available as workspace settings. For example, applicat
 ## Settings editor
 
 The Settings editor provides a graphical interface to manage both user and workspace settings. To open the Settings editor, navigate to **File** > **Preferences** > **Settings**. Alternately, open the Settings editor from the **Command Palette** (`kb(workbench.action.showCommands)`) with **Preferences: Open Settings** or use the keyboard shortcut (`kb(workbench.action.openSettings)`).
+
+By default, the Settings editor opens in a [modal overlay](/docs/getstarted/userinterface.md#modal-editors) on top of the editor area. You can change this behavior with the `setting(workbench.editor.useModal)` setting. When you open the Settings JSON file, it opens as a regular editor tab in the main window.
 
 When you open the Settings editor, you can search and discover the settings you are looking for. When you search using the search bar, the Settings editor filters the settings to only show those that match your criteria. This makes finding settings quick and easy.
 
@@ -102,7 +104,7 @@ Here are some of the filters available:
 * `@haspolicy`: settings that are controlled by your [organization](/docs/enterprise/policies.md).
 * `@id`: find a setting based on the setting ID. For example, `@id:workbench.activityBar.visible`.
 * `@lang`: apply a language filter based on a language ID. For example, `@lang:typescript`. See [Language-specific editor settings](#language-specific-editor-settings) for more details.
-* `@tag`: settings specific to a system of VS Code. For example, `@tag:workspaceTrust` for settings related to [Workspace Trust](/docs/editing/workspaces/workspace-trust.md), `@tag:accessibility` for settings related to accessibility, or `@tag:advanced` for advanced VS Code settings.
+* `@tag`: settings specific to a system of VS Code. For example, `@tag:workspaceTrust` for settings related to [Workspace Trust](/docs/editing/workspaces/workspace-trust.md), `@tag:accessibility` for settings related to accessibility, or `@tag:advanced` for advanced VS Code settings. Advanced settings are intended for specialized scenarios. By default, advanced settings are hidden from search results unless you use the `@tag:advanced` filter. To always show advanced settings in the Settings editor, enable `setting(workbench.settings.alwaysShowAdvancedSettings)`.
 
 The search bar remembers your settings search queries and supports undo or redo (`kb(undo)`/`kb(redo)`). You can quickly clear a search term or filter with the **Clear Settings Search Input** button at the right of the search bar.
 
@@ -272,6 +274,9 @@ Setting values can be of various types:
 * Number - `"files.autoSaveDelay": 1000`
 * Array - `"editor.rulers": []`
 * Object - `"search.exclude": { "**/node_modules": true, "**/bower_components": true }`
+
+> [!NOTE]
+> Settings like `files.exclude` and `search.exclude` use [glob patterns](/docs/editor/glob-patterns.md) that follow your operating system's file system case sensitivity (case-insensitive on Windows/macOS, case-sensitive on Linux). Similarly, `.gitignore` file patterns (used with the `setting(explorer.excludeGitIgnore)` setting) also follow platform-specific case sensitivity rules.
 
 Values with primitive types and Array types are overridden, meaning a configured value in a scope that takes precedence over another scope is used instead of the value in the other scope. But, values with Object types are merged.
 

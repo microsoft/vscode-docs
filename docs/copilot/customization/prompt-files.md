@@ -1,56 +1,71 @@
 ---
 ContentId: 5c8e7d42-9b1a-4f85-a3e2-6d5b8a9c1e43
-DateApproved: 01/08/2026
+DateApproved: 3/18/2026
 MetaDescription: Learn how to create reusable prompt files for GitHub Copilot Chat in VS Code to standardize common development tasks and improve your coding workflow efficiency.
 MetaSocialImage: ../images/shared/github-copilot-social.png
+Keywords:
+- prompt files
+- slash commands
+- reusable prompts
+- copilot
+- ai
+- task automation
 ---
 # Use prompt files in VS Code
 
-Prompt files are Markdown files that define reusable prompts for common development tasks like generating code, performing code reviews, or scaffolding project components. They are standalone prompts that you can run directly in chat, enabling the creation of a library of standardized development workflows.
+Prompt files, also known as slash commands, let you simplify prompting for common tasks by encoding them as standalone Markdown files that you can invoke directly in chat. Each prompt file includes task-specific context and guidelines about how the task should be performed.
 
-They can include task-specific guidelines or reference custom instructions to ensure consistent execution. Unlike custom instructions that apply to all requests, prompt files are triggered on-demand for specific tasks.
+Unlike [custom instructions](/docs/copilot/customization/custom-instructions.md) that are applied automatically, you invoke prompt files manually in chat.
 
-VS Code supports two types of scopes for prompt files:
+Use prompt files to:
 
-* **Workspace prompt files**: Are only available within the workspace and are stored in the `.github/prompts` folder of the workspace.
-* **User prompt files**: Are available across multiple workspaces and are stored in the current [VS Code profile](/docs/configure/profiles.md).
+* Simplify prompting for common tasks, such as scaffolding a new component, running and fixing tests, or preparing a pull request
+* Override default behavior of a custom agent, such as creating a minimal implementation plan or generating mockups for API calls
 
-## Prompt file structure
+> [!TIP]
+> **Prompt files, agents, or skills?** Use prompt files for lightweight, single-task prompts. Use [custom agents](/docs/copilot/customization/custom-agents.md) when you need a persistent persona with its own tool restrictions and handoffs. Use [agent skills](/docs/copilot/customization/agent-skills.md) when you need a portable, multi-file capability with scripts and resources.
 
-Prompt files are Markdown files and use the `.prompt.md` extension and have this structure:
+> [!TIP]
+> Use the [Chat Customizations editor](/docs/copilot/customization/overview.md#chat-customizations-editor) (Preview) to discover, create, and manage all your chat customizations in one place. Run **Chat: Open Chat Customizations** from the Command Palette.
 
-### Header (optional)
+## Prompt file locations
 
-The header is formatted as YAML frontmatter with the following fields:
+You can define prompt files for a specific workspace or at the user level, where they are available across all your workspaces.
 
-| Field | Description |
-| --- | --- |
-| `description`     | A short description of the prompt. |
-| `name`            | The name of the prompt, used after typing `/` in chat. If not specified, the file name is used. |
-| `argument-hint`   | Optional hint text shown in the chat input field to guide users on how to interact with the prompt. |
-| `agent`           | The agent used for running the prompt: `ask`, `edit`, `agent`, or the name of a [custom agent](/docs/copilot/customization/custom-agents.md). By default, the current agent is used. If tools are specified and the current agent is `ask` or `edit`, the default agent is `agent`. |
-| `model`           | The language model used when running the prompt. If not specified, the currently selected model in model picker is used. |
-| `tools`           | A list of tool or tool set names that are available for this prompt. Can include built-in tools, tool sets, MCP tools, or tools contributed by extensions. To include all tools of an MCP server, use the `<server name>/*` format.<br/>Learn more about [tools in chat](/docs/copilot/chat/chat-tools.md). |
+> [!TIP]
+> In a monorepo, enable `setting(chat.useCustomizationsInParentRepositories)` to discover prompt files from the parent repository root. Learn more about [parent repository discovery](/docs/copilot/customization/overview.md#parent-repository-discovery).
+
+| Scope | Default file location |
+|-------|-----------------------|
+| Workspace | `.github/prompts` folder |
+| User profile | `prompts` folder of the current [VS Code profile](/docs/configure/profiles.md) |
+
+You can configure additional file locations for workspace prompt files with the `setting(chat.promptFilesLocations)` setting.
+
+## Prompt file format
+
+Prompt files are Markdown files with the `.prompt.md` extension. The optional YAML frontmatter header configures the prompt's behavior:
+
+| Field | Required | Description |
+| --- | --- | --- |
+| `description` | No | A short description of the prompt. |
+| `name` | No | The name of the prompt, used after typing `/` in chat. If not specified, the file name is used. |
+| `argument-hint` | No | Hint text shown in the chat input field to guide users on how to interact with the prompt. |
+| `agent` | No | The agent used for running the prompt: `ask`, `agent`, `plan`, or the name of a [custom agent](/docs/copilot/customization/custom-agents.md). By default, the current agent is used. If tools are specified, the default agent is `agent`. |
+| `model` | No | The language model used when running the prompt. If not specified, the currently selected model in model picker is used. |
+| `tools` | No | A list of tool or tool set names that are available for this prompt. Can include built-in tools, tool sets, MCP tools, or tools contributed by extensions. To include all tools of an MCP server, use the `<server name>/*` format.<br/>Learn more about [tools in chat](/docs/copilot/agents/agent-tools.md). |
 
 > [!NOTE]
 > If a given tool is not available when running the prompt, it is ignored.
 
-### Body
-
-The prompt file body contains the prompt text that is sent to the LLM when running the prompt in chat. Provide specific instructions, guidelines, or any other relevant information that you want the AI to follow.
+The body contains the prompt text in Markdown format. Provide specific instructions, guidelines, or any other relevant information that you want the AI to follow.
 
 You can reference other workspace files by using Markdown links. Use relative paths to reference these files, and ensure that the paths are correct based on the location of the prompt file.
 
-To reference agent tools in the body text, use the `#tool:<tool-name>` syntax. For example, to reference the `githubRepo` tool, use `#tool:githubRepo`.
+To reference agent tools in the body text, use the `#tool:<tool-name>` syntax. For example, to reference the `browser` tool, use `#tool:browser`.
 
-Within a prompt file, you can reference variables by using the `${variableName}` syntax. You can reference the following variables:
-
-* Workspace variables - `${workspaceFolder}`, `${workspaceFolderBasename}`
-* Selection variables - `${selection}`, `${selectedText}`
-* File context variables - `${file}`, `${fileBasename}`, `${fileDirname}`, `${fileBasenameNoExtension}`
-* Input variables - `${input:variableName}`, `${input:variableName:placeholder}` (pass values to the prompt from the chat input field)
-
-### Prompt file examples
+> [!TIP]
+> If you want the user to provide additional information, you can use the `vscode/askQuestion` tool. You can also use a syntax like `${input:variableName}`, `${input:variableName:placeholder}`. Most language models understand this syntax and will prompt for these inputs.
 
 The following examples demonstrate how to use prompt files. For more community-contributed examples, see the [Awesome Copilot repository](https://github.com/github/awesome-copilot/tree/main).
 
@@ -61,12 +76,12 @@ The following examples demonstrate how to use prompt files. For more community-c
 ---
 agent: 'agent'
 model: GPT-4o
-tools: ['githubRepo', 'search/codebase']
+tools: ['search/codebase', 'vscode/askQuestions']
 description: 'Generate a new React form component'
 ---
-Your goal is to generate a new React form component based on the templates in #tool:githubRepo contoso/react-templates.
+Your goal is to generate a new React form component based on the templates in the Github repo contoso/react-templates.
 
-Ask for the form name and fields if not provided.
+Use the #tool:vscode/askQuestions to ask for the form name and fields if not provided.
 
 Requirements for the form:
 * Use form design system components: [design-system/Form.md](../docs/design-system/Form.md)
@@ -81,6 +96,7 @@ Requirements for the form:
 ```
 
 </details>
+
 
 <details>
 <summary>Example: perform a security review of a REST API</summary>
@@ -109,17 +125,16 @@ When you create a prompt file, choose whether to store it in your workspace or u
 
 To create a prompt file:
 
+> [!TIP]
+> Type `/prompts` in the chat input to quickly open the **Configure Prompt Files** menu.
+
 1. In the Chat view, select **Configure Chat** (gear icon) > **Prompt Files**, and then select **New prompt file**.
 
     ![Screenshot showing the Chat view, and Configure Chat menu, highlighting the Configure Chat button.](../images/customization/configure-chat-instructions.png)
 
     Alternatively, use the **Chat: New Prompt File** or **Chat: New Untitled Prompt File** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
-1. Choose the location where the prompt file should be created.
-
-    * **Workspace**: create the prompt file in the `.github/prompts` folder of your workspace to only use it within that workspace. Add more prompt folders for your workspace with the `setting(chat.promptFilesLocations)` setting.
-
-    * **User profile**: create the prompt file in the [current profile folder](/docs/configure/profiles.md) to use it across all your workspaces.
+1. Choose the location where to create the prompt file.
 
 1. Enter a file name for your prompt file. This is the default name that appears when you type `/` in chat.
 
@@ -130,11 +145,17 @@ To create a prompt file:
 
 To modify an existing prompt file, in the Chat view, select **Configure Chat** > **Prompt Files**, and then select a prompt file from the list. Alternatively, use the **Chat: Configure Prompt Files** command from the Command Palette (`kb(workbench.action.showCommands)`) and select the prompt file from the Quick Pick.
 
+### Generate a prompt file with AI
+
+You can use AI to generate a prompt file based on a description of the task. Type `/create-prompt` in chat and describe the task you want to automate (for example, "a prompt for generating unit tests"). The agent asks clarifying questions, generates a `.prompt.md` file with appropriate frontmatter and instructions, and offers you a choice between workspace and user storage.
+
+You can also extract a reusable prompt from an ongoing conversation. For example, after a multi-turn chat session, ask "turn this into a reusable prompt" or "save this workflow as a prompt", and the agent creates a prompt file that captures the workflow.
+
 ## Use a prompt file in chat
 
 You have multiple options to run a prompt file:
 
-* In the Chat view, type `/` followed by the prompt name in the chat input field.
+* In the Chat view, type `/` followed by the prompt name in the chat input field. [Agent skills](/docs/copilot/customization/agent-skills.md) also appear as slash commands alongside prompt files.
 
     You can add extra information in the chat input field. For example, `/create-react-form formName=MyForm` or `/create-api for listing customers`.
 
@@ -147,7 +168,7 @@ You have multiple options to run a prompt file:
 > [!TIP]
 > Use the `setting(chat.promptFilesRecommendations)` setting to show prompts as recommended actions when starting a new chat session.
 >
-> ![Screenshot showing an "explain" prompt file recommendation in the Chat view.](../images/customization/prompt-file-recommendations.png)
+> ![Screenshot showing a "explain" prompt file recommendation in the Chat view.](../images/customization/prompt-file-recommendations.png)
 
 ## Tool list priority
 
@@ -163,15 +184,9 @@ The list of available tools in chat is determined by the following priority orde
 
 VS Code can sync your user prompt files across multiple devices by using [Settings Sync](/docs/configure/settings-sync.md).
 
-To sync your user prompt files, enable Settings Sync for prompt and instruction files:
+To sync your user prompt files, enable Settings Sync and run **Settings Sync: Configure** from the Command Palette (`kb(workbench.action.showCommands)`). Select **Prompts and Instructions** from the list of settings to sync.
 
-1. Make sure you have [Settings Sync](/docs/configure/settings-sync.md) enabled.
-
-1. Run **Settings Sync: Configure** from the Command Palette (`kb(workbench.action.showCommands)`).
-
-1. Select **Prompts and Instructions** from the list of settings to sync.
-
-## Tips for defining prompt files
+## Tips for writing effective prompts
 
 * Clearly describe what the prompt should accomplish and what output format is expected.
 
@@ -194,11 +209,11 @@ To identify the source of a prompt file:
 1. Select **Chat: Configure Prompt Files** from the Command Palette (`kb(workbench.action.showCommands)`).
 1. Hover over the prompt file in the list. The source location is displayed in a tooltip.
 
+> [!TIP]
+> Use the chat customization diagnostics view to see all loaded prompt files and any errors. Right-click in the Chat view and select **Diagnostics**. Learn more about [troubleshooting AI in VS Code](/docs/copilot/troubleshooting.md).
+
 ## Related resources
 
-* [Customize AI responses overview](/docs/copilot/customization/overview.md)
 * [Create custom instructions](/docs/copilot/customization/custom-instructions.md)
-* [Create custom agents](/docs/copilot/customization/custom-agents.md)
-* [Get started with chat in VS Code](/docs/copilot/chat/copilot-chat.md)
-* [Configure tools in chat](/docs/copilot/chat/chat-tools.md)
+* [Configure tools in chat](/docs/copilot/agents/agent-tools.md)
 * [Community contributed instructions, prompts, and custom agents](https://github.com/github/awesome-copilot)

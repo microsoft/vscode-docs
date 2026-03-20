@@ -1,77 +1,86 @@
 ---
 ContentId: 0aefcb70-7884-487f-953e-46c3e07f7cbe
-DateApproved: 01/08/2026
-MetaDescription: Copilot is your AI pair programmer tool in Visual Studio Code. Get code suggestions as you type in the editor, or use natural language chat to ask about your code or start an editing session for implementing new feature and fixing bugs.
+DateApproved: 3/18/2026
+MetaDescription: Describe what you want to build, and let agents in VS Code plan, implement, and verify the changes across your project.
 MetaSocialImage: images/shared/github-copilot-social.png
+Keywords:
+- GitHub Copilot
+- AI
+- agents
+- autonomous
+- agentic
+- multi-file editing
+- architecture
+- refactoring
+- semantic search
+- codebase understanding
+- enterprise
+- inline suggestions
+- chat
+- MCP
+- team
+- overview
+- getting started
 ---
 # GitHub Copilot in VS Code
 
-GitHub Copilot is an AI-powered coding assistant integrated into Visual Studio Code. It provides code suggestions, explanations, and automated implementations based on natural language prompts and existing code context. Copilot has been trained on public code repositories and can assist with most programming languages and frameworks.
+GitHub Copilot brings AI agents to Visual Studio Code. Describe what you want to build, and an agent plans the approach, writes the code, and verifies the result across your entire project. Choose from Copilot's built-in agents, third-party agents from providers like Anthropic and OpenAI, or your own custom agents, and run them locally, in the background, or in the cloud. For more targeted changes, inline suggestions and chat give you precise control directly in the editor.
 
-<video src="images/overview/agent-mode-blog-video.mp4" title="Agent mode hero video" autoplay loop controls muted></video>
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
+Follow a hands-on tutorial to build your first app with AI in VS Code.
 
-## Core capabilities
+* [Start tutorial](/docs/copilot/getting-started.md)
 
-### Inline suggestions
+</div>
 
-Copilot provides inline code suggestions as you type, ranging from single line completions to entire function implementations. With next edit suggestions, it predicts the next logical code change based on your current context.
+## Agents
 
-<video src="images/inline-suggestions/nes-video.mp4" title="Copilot NES video" autoplay loop controls muted poster="./images/inline-suggestions/point3d.png"></video>
+An agent is an AI assistant that works autonomously to complete a coding task. Unlike traditional code completion, which suggests the next few lines, an agent takes a goal, breaks it into steps, edits files across your project, runs commands, and self-corrects when something goes wrong.
 
-**Examples:**
+Give an agent a high-level description of what you want to build and it gets to work. Each task runs inside an **agent session**, a persistent conversation you can track, pause, resume, or hand off to another agent.
 
-- Type `function calculateTax(` to get a complete tax calculation implementation
-- Write `// Create a REST API endpoint for user authentication` to generate Express.js route code
-- Begin a React component with `const UserProfile = ({` to receive a complete functional component with TypeScript types
-
-Learn more about [inline suggestions in VS Code](/docs/copilot/ai-powered-suggestions.md).
-
-### Autonomous coding
+<video src="images/overview/agents-intro.mp4" title="Video showing an agent session building a complete feature in VS Code." controls muted></video>
 
 > [!IMPORTANT]
 > Your organization might have disabled agents in VS Code. Contact your admin to enable this functionality.
 
-Agents can autonomously plan and execute complex development tasks, coordinating multi-step workflows that involve running terminal commands or invoking specialized tools. It can transform high-level requirements into working code.
+### Plan before you build
 
-Install Model Context Protocol (MCP) servers or tools from Marketplace extensions to further enhance the capabilities of the autonomous coding experience. For example, pull information from a database or connect to external APIs.
+Use the built-in **Plan** agent to break a task into a structured implementation plan before writing any code. The Plan agent analyzes your codebase, asks clarifying questions, and produces a step-by-step plan. When the plan looks right, hand it off to an implementation agent to execute it, locally, in the background, or in the cloud.
 
-<video src="images/overview/agent-mode-short.mp4" title="Agent mode video" autoplay loop controls muted></video>
+<video src="images/overview/plan-intro.mp4" title="Video showing the plan agent creating a structured implementation plan for adding authentication to the app." controls muted></video>
 
-**Example tasks:**
+Learn more about [planning with agents](/docs/copilot/agents/planning.md).
 
-- Implement authentication using OAuth
-- Migrate the codebase to a new framework or language
-- Debug failing tests and apply fixes
-- Optimize performance across the application
+### Run agents anywhere
 
-Learn more about [autonomous coding with agents](/docs/copilot/chat/copilot-chat.md) and [configuring MCP servers in VS Code](/docs/copilot/customization/mcp-servers.md).
+Agents run where the work needs to happen. Run them locally in VS Code for interactive work, in the background for autonomous tasks, or in the cloud for team collaboration through pull requests. You can also use third-party agents from providers like Anthropic and OpenAI. At any point, hand off a task from one agent type to another and the relevant context carries over.
 
-### Natural language chat
+![Screenshot showing the sessions type picker in the Chat view with options for local, background, cloud, and third-party agents.](images/agents-overview/sessions-type-picker.png)
 
-Use natural language to interact with your codebase through chat interfaces. Ask questions, request explanations, or specify code changes using conversational prompts.
+Learn more about [agent types and delegation](/docs/copilot/agents/overview.md) or follow the [agents tutorial](/docs/copilot/agents/agents-tutorial.md).
 
-Apply changes across multiple files in your project using single prompts. Copilot analyzes your project structure and makes coordinated modifications.
+### Manage sessions from a central view
 
-**Common queries:**
+Run multiple agent sessions in parallel, each focused on a different task. The **Sessions** view in the **Chat** panel gives you a single place to monitor all active sessions, whether they run locally, in the background, or in the cloud. See the status of each session, switch between them, review file changes, and pick up where you left off.
 
-- "How does authentication work in this project?"
-- "What's causing the memory leak in the data processing function?"
-- "Add error handling to the payment processing service"
-- "Add a login form and backend API"
+<video src="images/overview/agent-sessions-demo.mp4" title="Video showing the agent sessions list, demonstrating filtering, showing, and archiving sessions." controls muted></video>
 
-![Screenshot of the Chat view, showing the response to asking how to add a login page to a web app.](images/overview/copilot-chat-view-add-page.png)
+Learn more about [managing agent sessions](/docs/copilot/chat/chat-sessions.md).
 
-Learn more about [using chat in VS Code](/docs/copilot/chat/copilot-chat.md).
+## What can you build
 
-### Smart actions
+Agents handle coding tasks end-to-end, from a single file change to a full feature shipped as a pull request.
 
-VS Code has many predefined actions for common development tasks that are enhanced with AI capabilities and integrated into the editor.
+* **Build a feature end-to-end.** Describe a feature in natural language and the agent scaffolds the project, implements the logic across multiple files, and runs tests to verify the result.
 
-From helping you write commit messages or pull requests descriptions, renaming code symbols, fixing errors in the editor, to semantic search that helps you find relevant files.
+* **Debug and fix failing tests.** Point an agent at a failing test and it reads the error, traces the root cause across your codebase, applies a fix, and re-runs the test to confirm. Learn more about [debugging with AI](/docs/copilot/guides/debug-with-copilot.md).
 
-![Screenshot of the Smart Actions menu in VS Code](images/overview/copilot-chat-fix-test-failure.png)
+* **Refactor or migrate a codebase.** Ask an agent to plan a migration, for example, from one framework to another, and it applies coordinated changes across files while verifying with builds.
 
-Learn more about the [smart actions in VS Code](/docs/copilot/copilot-smart-actions.md).
+* **Test and interact with web apps.** _(Experimental)_ Ask an agent to open your web app in the [integrated browser](/docs/debugtest/integrated-browser.md), verify a feature works, check for layout issues, or take screenshots. Follow the [browser agent testing guide](/docs/copilot/guides/browser-agent-testing-guide.md).
+
+* **Collaborate via pull requests.** Delegate a task to a cloud agent that creates a branch, implements the changes, and opens a pull request for your team to review. Learn more about [cloud agents](/docs/copilot/agents/cloud-agents.md).
 
 ## Getting started
 
@@ -79,148 +88,68 @@ Learn more about the [smart actions in VS Code](/docs/copilot/copilot-smart-acti
 
 1. Hover over the Copilot icon in the Status Bar and select **Set up Copilot**.
 
-    ![Hover over the Copilot icon in the Status Bar and select Set up Copilot.](images/setup/setup-copilot-status-bar.png)
+    ![Screenshot showing the Copilot icon in the Status Bar with the Set up Copilot option.](images/setup/setup-copilot-status-bar.png)
 
-1. Choose a sign-in method and follow the prompts. If you don't have a Copilot subscription yet, you'll be signed up for the [Copilot Free plan](https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-free/about-github-copilot-free).
+1. Choose a sign-in method and follow the prompts. If you don't have a Copilot subscription yet, you are signed up for the [Copilot Free plan](https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-free/about-github-copilot-free).
 
-### Step 2: Basic inline suggestions
+### Step 2: Start your first agent session
 
-1. Create a new file and start typing. VS Code shows inline suggestions in _ghost text_ in the editor.
+1. Open the **Chat** view (`kb(workbench.action.chat.open)`).
 
-    For example, create a new JavaScript file and start typing a function definition:
+1. Enter a prompt that describes what you want to build, for example:
 
-    ```javascript
-    // Try typing this in a new .js file:
-    function factorial(
+    ```prompt-agent
+    Create a basic Node.js web app for sharing recipes. Make it look modern and responsive.
     ```
 
-1. Accept the inline suggestions with the `kbstyle(Tab)` key.
+1. Review the generated code. The agent creates files, installs dependencies, and runs commands as needed.
 
-### Step 3: Autonomous coding
+1. Enter `/init` to configure your project for AI. This creates [custom instructions](/docs/copilot/customization/custom-instructions.md) that help the agent understand your codebase and generate better code.
 
-To perform more complex tasks in an autonomous manner, use agents in the chat interface. The AI will iterate on the code until the task is complete.
+For a full hands-on tutorial covering inline suggestions, agents, inline chat, and customization, see [Get started with GitHub Copilot in VS Code](/docs/copilot/getting-started.md).
 
-1. Open the Chat view (`kb(workbench.action.chat.open)`)
-1. Select **Agent** from the agent picker
-1. Ask to generate a basic web app, for example:
+## AI assistance as you type
 
-    ```prompt
-    Create a basic node.js web app for sharing recipes. Make it look modern and responsive.
-    ```
+For smaller changes or when you want more precise control, Copilot assists directly in the editor.
 
-Notice how the agent independently generates code across multiple files and installs dependencies as needed for the task.
+### Inline suggestions
 
-### Step 4: Inline chat
+Copilot provides code suggestions as you type, from single-line completions to full function implementations. Next edit suggestions predict the next logical change based on your current edits.
 
-To get help with generating, refactoring, or explaining code directly in the editor, you can use editor inline chat. Enter a prompt and the AI will suggest code changes in the current file, keeping you in the flow of coding.
+<video src="images/inline-suggestions/nes-video.mp4" title="Video showing inline code suggestions appearing as ghost text in the editor." controls muted poster="./images/inline-suggestions/point3d.png"></video>
 
-1. Select some code in your editor
-1. Press `kb(inlinechat.start)` to open editor inline chat
-1. Ask to explain or make a modification like: "Refactor this code to ..."
-1. Review and accept the suggested changes
+Learn more about [inline suggestions in VS Code](/docs/copilot/ai-powered-suggestions.md).
 
-## Usage scenarios
+### Inline chat
 
-### Code analysis and review
+Press `kb(inlinechat.start)` to open a chat prompt directly in the editor. Describe a change, and Copilot suggests edits in place, so you stay in the flow of coding. Use it for targeted refactors, explanations, or quick fixes without switching context.
 
-Understanding existing codebases and identifying issues:
+Learn more about [inline chat in VS Code](/docs/copilot/chat/inline-chat.md).
 
-- "Explain the authentication flow in this application"
-- "What are the potential security issues in this payment handler?"
-- "Document this API endpoint with proper JSDoc comments"
+### Smart actions
 
-### Debugging and troubleshooting
+VS Code includes predefined AI-powered actions for common tasks: generating commit messages, renaming symbols, fixing errors, and running semantic search across your project.
 
-Identifying and resolving code issues:
+![Screenshot showing the smart actions menu in VS Code with options to fix a test failure.](images/overview/copilot-chat-fix-test-failure.png)
 
-- "Why is this component re-rendering unnecessarily?"
-- "Find and fix the memory leak in this data processing pipeline"
-- "Optimize this database query for better performance"
+Learn more about [smart actions in VS Code](/docs/copilot/copilot-smart-actions.md).
 
-Learn more about using [AI for debugging](/docs/copilot/guides/debug-with-copilot.md).
+## Customize AI for your workflow
 
-### Feature implementation
+Agents work best when they understand your project's conventions, have the right tools, and use a model suited to the task. VS Code gives you several ways to [tailor the AI](/docs/copilot/customization/overview.md) so it produces code that fits your codebase from the start, instead of requiring manual corrections after the fact.
 
-Building new functionality:
+* **[Custom instructions](/docs/copilot/customization/custom-instructions.md)**: Define project-wide coding conventions so the AI generates code that matches your style.
+* **[Agent skills](/docs/copilot/customization/agent-skills.md)**: Teach Copilot specialized capabilities that work across VS Code, GitHub Copilot CLI, and GitHub Copilot coding agent.
+* **[Custom agents](/docs/copilot/customization/custom-agents.md)**: Create agents that assume a specific role, such as a code reviewer or documentation writer, with their own tools and instructions.
+* **[MCP servers](/docs/copilot/customization/mcp-servers.md)**: Extend agents with tools from MCP servers or Marketplace extensions.
+* **[Hooks](/docs/copilot/customization/hooks.md)**: Execute custom commands at specific events for automation and policy enforcement.
 
-- "Create a user registration system with email verification"
-- "Add real-time notifications using WebSockets"
-- "Implement a shopping cart with local storage persistence"
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Customize AI">
+Explore all the ways to tailor the AI experience to your workflow.
 
-### Testing and quality assurance
+* [Open Customization Overview](/docs/copilot/customization/overview.md)
 
-Generating tests and ensuring code quality:
-
-- "Generate comprehensive unit tests for this service class"
-- "Create integration tests for the API endpoints"
-- "Add property-based tests for this data validation function"
-
-Learn more about using [AI for testing](/docs/copilot/guides/test-with-copilot.md).
-
-### Learning and documentation
-
-Understanding new technologies and patterns:
-
-- "Show me the differences between async/await and Promises"
-- "How would you implement this pattern in Go instead of Python?"
-- "What are the best practices for error handling in React?"
-
-## Customize the AI to your workflow
-
-### Custom instructions
-
-Use custom instructions to define project-specific coding conventions and patterns, and the AI will generate code that matches your style. Automatically apply these instructions to all chat requests or only for specific file types.
-
-```markdown
----
-applyTo: "**"
----
-# My Coding Style
-- Use arrow functions for components
-- Prefer const over let
-- Always include TypeScript types
-- Use descriptive variable names
-- Follow the Repository pattern for data access
-```
-
-Learn more about [using custom instructions](/docs/copilot/customization/custom-instructions.md) to tailor the AI to your coding style.
-
-### Language models
-
-Quickly switch between different AI models to optimize for speed, reasoning, or specialized tasks. Choose from various built-in models or connect to external providers and bring your own API keys.
-
-![Screenshot that shows the model picker in the Chat view.](images/language-models/model-dropdown-change-model.png)
-
-Learn more about using [language models in VS Code](/docs/copilot/customization/language-models.md).
-
-### Custom agents
-
-The chat experience in VS Code can use different agents to switch between asking questions, making edits, or running autonomous coding sessions. You can also create custom agents that fit your workflow. For example, create a custom agent that focuses on planning and architecture discussions. Specify which tools the agent is allowed to use, and provide custom instructions to provide the right context in which it should operate.
-
-![Screenshot showing the Chat view, highlighting the agent picker.](images/overview/chat-mode-dropdown.png)
-
-Learn more about [creating your own custom agents](/docs/copilot/customization/custom-agents.md).
-
-### Extend chat with tools
-
-Extend the capabilities of the chat experience with specialized tools from MCP servers or Marketplace extensions. For example, add tools for querying databases, connecting to external APIs, or performing specialized tasks.
-
-![MCP tools list](images/mcp-servers/agent-mode-select-tools.png)
-
-Learn more about [using MCP servers and tools](/docs/copilot/customization/mcp-servers.md).
-
-## Best Practices
-
-- Choose the right tool for the task. Get inline suggestions while you're coding, use chat for natural language queries, and pick the agent that fits your workflow.
-
-- Write effective prompts to get the best results. Be specific, provide the right context, and iterate often.
-
-- Customize the AI to your coding style and project conventions by using custom instructions, prompt files, or custom agents.
-- Extend the AI's capabilities with tools from MCP servers or Marketplace extensions.
-
-- Choose a language model that is optimized for your task. Use fast models for quick code suggestions, reasoning models for more complex requests.
-
-Get more [tips and tricks for using AI in VS Code](/docs/copilot/copilot-tips-and-tricks.md).
+</div>
 
 ## Support
 
@@ -236,8 +165,6 @@ You can start using GitHub Copilot for free with monthly limits on inline sugges
 
 ## Next steps
 
-- [Set up Copilot in VS Code](/docs/copilot/setup.md)
-- [Get started with hands-on examples](/docs/copilot/getting-started.md)
-- [Customize the AI for your workflow](/docs/copilot/customization/overview.md)
-- [Learn about security considerations of using AI in VS Code](/docs/copilot/security.md)
-- [Get started with agents](/docs/copilot/agents/agents-tutorial.md)
+* [Quickstart: Get started with GitHub Copilot in VS Code](/docs/copilot/getting-started.md)
+* [Tutorial: Get started with agents in VS Code](/docs/copilot/agents/agents-tutorial.md)
+* [Customize the AI for your workflow](/docs/copilot/customization/overview.md)

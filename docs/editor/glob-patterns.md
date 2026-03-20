@@ -1,6 +1,6 @@
 ---
 ContentId: c2d81f09-3c24-4659-8aa0-9ca24ef4950d
-DateApproved: 01/08/2026
+DateApproved: 02/04/2026
 MetaDescription: Visual Studio Code glob patterns reference
 ---
 # Glob Patterns Reference
@@ -20,6 +20,25 @@ VS Code supports the following glob syntax:
 * `[!...]` to negate a range of characters to match (`example.[!0-9]` to match on `example.a`, `example.b`, but not `example.0`)
 
 **Note:** Paths are separated by `/` and not `\` even on Windows. But when applied, glob patterns will match paths with both slash and backslashes.
+
+## Case sensitivity
+
+Glob pattern matching behavior differs based on the platform's file system:
+
+* **Windows and macOS**: Glob patterns are **case-insensitive** by default. For example, the pattern `**/MyFolder/**` will match `myfolder/`, `MyFolder/`, `MYFOLDER/`, and any other case variation.
+* **Linux**: Glob patterns are **case-sensitive**. The pattern `**/MyFolder/**` will only match folders with that exact casing.
+
+This platform-aware behavior applies to all uses of glob patterns in VS Code, including:
+
+* Search view include/exclude patterns
+* `setting(files.exclude)` setting
+* `setting(search.exclude)` setting
+* `.gitignore` file patterns (when `setting(explorer.excludeGitIgnore)` is enabled)
+* Search Editor patterns
+
+For example, if you have a `.gitignore` file with a pattern like `build/`, this will match `build/`, `Build/`, `BUILD/`, and other case variations on Windows and macOS, but only exact matches on Linux. This ensures consistent behavior with how these file systems handle file and folder names.
+
+**Remote development:** When working with remote workspaces (such as WSL, SSH, or dev containers), the glob matching behavior follows the **remote** file system's case sensitivity rules, not the local client's operating system.
 
 ## Special cases
 

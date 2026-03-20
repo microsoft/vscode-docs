@@ -1,123 +1,131 @@
 ---
-ContentId: 16c73175-a606-4aab-8ae5-a507
-DateApproved: 01/08/2026
-MetaDescription: Learn how to customize chat in VS Code with custom instructions, reusable prompt files, and custom agents to align AI responses with your coding practices and project requirements.
+ContentId: 16c73175-a606-4aab-8ae5-a5071d3b9e24
+DateApproved: 3/18/2026
+MetaDescription: Get started customizing AI in VS Code with custom instructions, prompt files, custom agents, MCP servers, and more to align AI responses with your coding practices.
 MetaSocialImage: ../images/shared/github-copilot-social.png
+Keywords:
+- ai
+- copilot
+- customization
+- chat
+- instructions
+- rules
+- slash commands
+- prompt files
+- custom agents
+- agent skills
+- mcp
 ---
-# Customize chat to your workflow
+# Customize AI in Visual Studio Code
 
-You can customize chat in Visual Studio Code to match your coding practices and project requirements. Set up persistent configurations that automatically apply your preferred context, tools, and guidelines to every conversation. This saves time and ensures consistent responses without manually providing the same information in each chat request.
+Visual Studio Code gives you several ways to teach the AI about your codebase, coding standards, and workflows. This article introduces the customization options and helps you get started.
 
-## Customization options
+<div class="docs-action" data-show-in-doc="true" data-show-in-sidebar="true" title="Core concepts">
+Learn about the different customization types and when to use each one.
 
-There are six main ways to customize chat in Visual Studio Code. These options work independently or you can combine them for more comprehensive customization.
+* [Customization concepts](/docs/copilot/concepts/customization.md)
 
-### Custom instructions
+</div>
 
-[Custom instructions](/docs/copilot/customization/custom-instructions.md) let you define common guidelines or rules in a Markdown file for tasks like generating code, performing code reviews, or generating commit messages. With custom instruction, you describe _how_ a specific task should be performed. VS Code can automatically apply these instructions or you can choose to include them in specific chat requests.
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Tutorial">
+Follow a hands-on walkthrough to customize AI for your project.
 
-Use custom instructions to:
+* [Customize AI for your project](/docs/copilot/guides/customize-copilot-guide.md)
 
-- Specify coding practices, preferred technologies, or project requirements, so generated code follows your standards
-- Provide guidelines about how a commit message or pull request title and description should be structured
-- Set rules for code reviews, such as checking for security vulnerabilities, performance issues, or adherence to coding standards
+</div>
 
-### Agent Skills (Preview)
+To access customizations, select the **Configure Chat (gear icon)** in the Chat view.
 
-[Agent Skills](/docs/copilot/customization/agent-skills.md) enable you to teach Copilot specialized capabilities through folders containing instructions, scripts, and resources. This feature is currently available in [VS Code Insiders](https://code.visualstudio.com/insiders/) only. Agent Skills is an [open standard](https://agentskills.io) that works across multiple AI agents, including VS Code, GitHub Copilot CLI, and GitHub Copilot coding agent. This makes skills portable across different AI tools. Unlike custom instructions that primarily define coding guidelines, skills focus on specialized workflows and capabilities.
+## Customization scenarios
 
-Use Agent Skills to:
+The following sections describe common customization scenarios and which options to use for each one.
 
-- Create reusable capabilities that work across different GitHub Copilot tools
-- Define specialized workflows for testing, debugging, or deployment processes
-- Share capabilities with the AI community using the open standard
-- Include scripts, examples, and other resources alongside instructions
+### Define coding standards
 
-### Prompt files
+Use [custom instructions](/docs/copilot/customization/custom-instructions.md) to share project-wide rules and conventions with the AI. Always-on instructions apply to every request, while file-based instructions target specific file types or folders. For example, enforce ESLint rules across all files and apply React patterns only in `.tsx` files.
 
-[Prompt files](/docs/copilot/customization/prompt-files.md) let you define reusable prompts for common and repeatable development tasks in a Markdown file. Prompt files are standalone prompts that you can run directly in chat. You can include task-specific context and guidelines about how the task should be performed. Combine prompt files with custom instructions to ensure consistent execution of complex tasks.
+### Automate tasks and workflows
 
-Use prompt files to:
+Create [prompt files](/docs/copilot/customization/prompt-files.md) for repeatable tasks you run often, like scaffolding a component or preparing a pull request.
 
-- Create reusable prompts for common coding tasks, such as scaffolding a new component, API route, or generating tests
-- Define prompts for performing code reviews, such as checking for code quality, security vulnerabilities, or performance issues
-- Create step-by-step guides for complex processes or project-specific patterns
-- Define prompts for generating implementation plans, architectural designs, or migration strategies
+For more complex multi-step workflows that involve scripts and external tools, package them as [agent skills](/docs/copilot/customization/agent-skills.md).
 
-### Custom agents
+### Specialize the AI
 
-[Custom agents](/docs/copilot/customization/custom-agents.md) are a way to create a specialist assistant for specific roles or tasks, like a database administrator, front-end development, or planning. Within a custom agent Markdown file, you describe its scope and capabilities, which tools it can access, and a preferred language model.
+Create [custom agents](/docs/copilot/customization/custom-agents.md) that adopt specific personas, such as security reviewer, database admin, or planner. Each agent defines its own behavior, available tools, and language model preferences. Choose different [language models](/docs/copilot/customization/language-models.md) for different tasks, or bring your own API key to access additional models.
 
-Use custom agents to:
+### Discover and install plugins
 
-- Create a custom agent for planning, where the AI has read-only access to the codebase and can only generate implementation plans
-- Define a research custom agent, where the AI can reach out to external resources to explore new technologies or gather information
-- Create a front-end developer custom agent, where the AI can only generate and modify code related to front-end development
+Install [agent plugins](/docs/copilot/customization/agent-plugins.md) (preview) to add pre-packaged bundles of customizations from plugin marketplaces. A single plugin can provide slash commands, skills, custom agents, hooks, and MCP servers.
 
-### Language models
+### Connect external tools and data
 
-[Language models](/docs/copilot/customization/language-models.md) let you choose from different AI models optimized for specific tasks. You can switch between models to get the best performance for code generation, reasoning, or specialized tasks like vision processing. Bring your own API key to access more models or have more control over model hosting.
+Add [MCP servers](/docs/copilot/customization/mcp-servers.md) to give the AI access to databases, APIs, and other services through the [Model Context Protocol](https://modelcontextprotocol.io/). Use [hooks](/docs/copilot/customization/hooks.md) to run shell commands at key lifecycle points, such as running a formatter after every file edit or enforcing security policies.
 
-Use different language models to:
+## Get started
 
-- Use a fast model for quick code suggestions and simple refactoring tasks
-- Switch to a more capable model for complex architectural decisions or detailed code reviews
-- Bring your own API key to access experimental models or use locally hosted models
+Implement AI customizations incrementally. Start with the basics and add more as needed. For a hands-on walkthrough, see the [Customize AI for your project](/docs/copilot/guides/customize-copilot-guide.md) guide.
 
-### MCP and tools
+1. **Initialize your project**: type `/init` in chat to generate a `.github/copilot-instructions.md` file with coding standards tailored to your codebase.
 
-[MCP and tools](/docs/copilot/customization/mcp-servers.md) let you connect external services and specialized tools through Model Context Protocol (MCP). This extends chat capabilities beyond code to interact with databases, APIs, and other development tools.
+1. **Add targeted rules**: create file-based `*.instructions.md` files for specific parts of your codebase, such as language conventions or framework patterns.
 
-Use MCP and tools to:
+1. **Automate repetitive tasks**: create prompt files for common workflows and add MCP servers to connect external services.
 
-- Connect database tools to query and analyze data without leaving your development environment
-- Integrate with external APIs to fetch real-time information or perform actions
+1. **Create specialized workflows**: build custom agents for specific roles. Package reusable capabilities as agent skills to share across tools.
 
-## Usage scenarios
+1. **Generate customizations with AI**: type `/create-prompt`, `/create-instruction`, `/create-skill`, `/create-agent`, or `/create-hook` in chat to generate customization files with AI assistance.
 
-Different customization methods work best for different scenarios. The following table lists common use cases and the recommended approach:
+## Parent repository discovery
 
-| Use Case | Approach |
-|----------|----------|
-| Project-wide coding standards | [Custom instructions](/docs/copilot/customization/custom-instructions.md) |
-| Language or framework-specific rules | [Custom instructions with glob patterns](/docs/copilot/customization/custom-instructions.md#instructions-file-format) |
-| Specialized capabilities that work across tools | [Agent Skills](/docs/copilot/customization/agent-skills.md) |
-| Reusable development tasks | [Prompt files](/docs/copilot/customization/prompt-files.md) |
-| Use chat for planning or research | [Custom agents](/docs/copilot/customization/custom-agents.md) |
-| Define specialized workflows | [Custom agents](/docs/copilot/customization/custom-agents.md) |
-| Complex reasoning and analysis | [Language models](/docs/copilot/customization/language-models.md) |
-| Bring your own model | [Language models](/docs/copilot/customization/language-models.md) |
-| Integrate external services | [MCP and tools](/docs/copilot/customization/mcp-servers.md) |
+In monorepo setups, you might open a subfolder of a repository in VS Code rather than the repo root. By default, Visual Studio Code only discovers customization files within your open workspace folder(s). Enable the `setting(chat.useCustomizationsInParentRepositories)` setting to also discover customizations from the parent repository.
 
-## Getting started
+When this setting is enabled, VS Code walks up the folder hierarchy from each workspace folder until it finds a `.git` folder. If found, it collects customizations from all folders between the workspace folder and the repository root (inclusive). This applies to all customization types: always-on instructions (`copilot-instructions.md`, `AGENTS.md`, `CLAUDE.md`), file-based instructions, prompt files, custom agents, agent skills, and hooks.
 
-You can implement chat customizations incrementally, starting with the simplest options and gradually adding more complexity as needed.
+For example, consider the following monorepo structure:
 
-### 1. Try different language models
+```text
+my-monorepo/              # repo root (has .git folder)
+├── .github/
+│   ├── copilot-instructions.md
+│   ├── instructions/
+│   │   └── style.instructions.md
+│   ├── prompts/
+│   │   └── review.prompt.md
+│   └── agents/
+│       └── reviewer.agent.md
+├── packages/
+│   └── frontend/          # opened as workspace folder
+│       └── src/
+```
 
-Start by experimenting with different **language models** to get better results for different types of work. Use the model picker in chat to switch between models - try faster models for simple tasks and more capable models for complex reasoning. This requires no setup and provides immediate results.
+If you open only `packages/frontend/` in VS Code and enable the setting, VS Code discovers the customization files at the repo root, such as `copilot-instructions.md`, `style.instructions.md`, `review.prompt.md`, and `reviewer.agent.md`.
 
-### 2. Set up basic guidelines
+Conditions for parent repository discovery:
 
-Create **custom instructions** for consistent results across all your chat interactions. Create a `.github/copilot-instructions.md` file with your coding standards and preferences. This automatically improves all chat responses without extra effort. Create different instructions files for different parts of your codebase using glob patterns to target specific languages or frameworks.
+* The workspace folder does not contain a `.git` folder (it is not itself a repository root).
+* A parent folder contains a `.git` folder.
+* The parent repository folder is [trusted](/docs/editing/workspaces/workspace-trust.md). VS Code prompts you to trust the parent folder when the workspace is opened.
 
-### 3. Add task automation
+> [!NOTE]
+> The `setting(chat.useCustomizationsInParentRepositories)` setting is disabled by default.
 
-Once you identify repetitive tasks, create **prompt files** for common workflows like component generation, code reviews, or documentation tasks. These save time and ensure consistency across your team.
+## Chat Customizations editor
 
-### 4. Extend capabilities
+> [!NOTE]
+> The Chat Customizations editor is currently in preview.
 
-When you need to connect external services or perform specialized operations, add **MCP servers and tools** to extend chat beyond basic code assistance.
+The Chat Customizations editor provides a centralized UI for discovering, creating, and managing all your customizations in one place. From the editor, you can browse customization categories (agents, skills, instructions, prompts, hooks, MCP servers, plugins), create new items with optional AI-guided generation, and edit existing customizations in an embedded code editor. The **Plugins** page lists your installed [agent plugins](/docs/copilot/customization/agent-plugins.md) and lets you install new plugins from source with the **+** button. You can also [enable or disable MCP servers](/docs/copilot/customization/mcp-servers.md#enable-or-disable-mcp-servers) and [plugins](/docs/copilot/customization/agent-plugins.md#enable-or-disable-plugins) directly from the editor. Disabled items appear with a dimmed style and a status indicator.
 
-### 5. Create specialized workflows
+To open the Chat Customizations editor, run **Chat: Open Chat Customizations** from the Command Palette (`kb(workbench.action.showCommands)`).
 
-For advanced usage, build **custom agents** that combine specific tools, instructions, and context for particular roles or project phases.
+![Screenshot of the Chat Customizations editor, showing the sidebar with customization categories and the main view listing custom agents.](../images/customization/chat-customizations-editor.png)
+
+## Troubleshoot customization issues
+
+If your customizations aren't being applied or cause unexpected behavior, select **Configure Chat (gear icon)** > **Show Agent Debug Logs** in the Chat view to [troubleshoot agent issues](/docs/copilot/troubleshooting.md).
 
 ## Related resources
 
-- [Create custom instructions](/docs/copilot/customization/custom-instructions.md)
-- [Use Agent Skills](/docs/copilot/customization/agent-skills.md)
-- [Create reusable prompt files](/docs/copilot/customization/prompt-files.md)
-- [Create custom agents](/docs/copilot/customization/custom-agents.md)
-- [Choose language models](/docs/copilot/customization/language-models.md)
-- [Use MCP servers and tools](/docs/copilot/customization/mcp-servers.md)
+* [Customization concepts](/docs/copilot/concepts/customization.md)
+* [Customize AI for your project guide](/docs/copilot/guides/customize-copilot-guide.md)

@@ -1,6 +1,6 @@
 ---
 ContentId: f8820661-7772-47e6-b63e-ac59f6752d9c
-DateApproved: 01/08/2026
+DateApproved: 3/18/2026
 MetaDescription: Learn how to implement context engineering using VS Code's built-in AI features.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -11,7 +11,7 @@ This guide shows you how to set up a context engineering workflow in VS Code usi
 Context engineering is a systematic approach to providing AI agents with targeted project information to improve the quality and accuracy of generated code. By curating essential project context through custom instructions, implementation plans, and coding guidelines, you enable AI to make better decisions, improve accuracy, and maintain persistent knowledge across interactions.
 
 > [!TIP]
-> VS Code chat provides a [built-in plan agent](/docs/copilot/chat/chat-planning.md) to help you create detailed implementation plans before starting complex coding tasks. If you don't want to create a custom planning workflow, you can use the plan agent to generate implementation plans quickly.
+> VS Code chat provides a [built-in plan agent](/docs/copilot/agents/planning.md) to help you create detailed implementation plans before starting complex coding tasks. If you don't want to create a custom planning workflow, you can use the plan agent to generate implementation plans quickly.
 
 ## Context engineering workflow
 
@@ -138,7 +138,7 @@ With a [custom agent](/docs/copilot/customization/custom-agents.md) for planning
     ```markdown
     ---
     description: 'Architect and planner to create detailed implementation plans.'
-    tools: ['fetch', 'githubRepo', 'problems', 'usages', 'search', 'todos', 'runSubagent', 'github/github-mcp-server/get_issue', 'github/github-mcp-server/get_issue_comments', 'github/github-mcp-server/list_issues']
+    tools: ['fetch', 'problems', 'usages', 'search', 'todos', 'runSubagent', 'github/github-mcp-server/get_issue', 'github/github-mcp-server/get_issue_comments', 'github/github-mcp-server/list_issues']
     handoffs:
     - label: Start Implementation
         agent: tdd

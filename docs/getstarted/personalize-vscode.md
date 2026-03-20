@@ -1,6 +1,6 @@
 ---
 ContentId: ee9b8bb7-0e8a-478d-842b-f9691f25e820
-DateApproved: 01/08/2026
+DateApproved: 3/18/2026
 MetaDescription: Learn how to personalize VS Code to your likings with themes, icons, keyboard shortcuts, display language, and settings.
 ---
 # Personalize VS Code
@@ -13,6 +13,20 @@ This article covers the following topics:
 * [Change default keyboard shortcuts](#change-default-keyboard-shortcuts)
 * [Change the look of VS Code with themes](#change-the-look-of-vs-code-with-themes)
 * [Change the display language](#change-the-display-language)
+
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
+Follow a hands-on tutorial to build your first app with AI in VS Code.
+
+* [Start tutorial](/docs/copilot/getting-started.md)
+
+</div>
+
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Watch the introduction video">
+Learn about the key features of Visual Studio Code in our introduction video.
+
+* [Watch video](https://www.youtube.com/watch?v=f8_uF_IDV50)
+
+</div>
 
 ## Configure settings
 
@@ -34,6 +48,12 @@ To modify a setting in VS Code with the Settings editor:
 
     > [!TIP]
     > To show the settings you've modified, select the **modified** filter value in the Settings editor search bar.
+
+## Welcome page
+
+By default, VS Code shows a welcome page when you start it. The welcome page provides quick access to common tasks such as opening recent projects, cloning repositories, and installing extensions.
+
+You can customize what VS Code shows when you start it. If you frequently work with agent sessions, set the `setting(workbench.startupEditor)` setting to `agentSessionsWelcomePage` to show a welcome page with recent sessions, embedded chat, and quick actions. Learn more about the [Agent Sessions Welcome Page](/docs/copilot/chat/chat-sessions.md#vs-code-welcome-page).
 
 Get more details about [configuring settings in VS Code](/docs/configure/settings.md), such as configuring language-specific settings or syncing settings across machines.
 

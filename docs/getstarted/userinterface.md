@@ -1,6 +1,6 @@
 ---
 ContentId: 3a33f35b-cded-4f7f-8674-6f2ba5fca023
-DateApproved: 01/08/2026
+DateApproved: 3/18/2026
 MetaDescription: A quick overview of the Visual Studio Code user interface. Learn about the editor, window management, and special UI to handle source control, extension management, full text search and more.
 ---
 # User interface
@@ -8,6 +8,20 @@ MetaDescription: A quick overview of the Visual Studio Code user interface. Lear
 At its heart, Visual Studio Code is a code editor. Like many other code editors, VS Code adopts a common user interface and layout of an explorer on the left, showing all of the files and folders you have access to, and an editor on the right, showing the content of the files you have opened.
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/nORT3-kONgA" title="Transform your VS Code user interface" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
+Follow a hands-on tutorial to build your first app with AI in VS Code.
+
+* [Start tutorial](/docs/copilot/getting-started.md)
+
+</div>
+
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Watch the introduction video">
+Learn about the key features of Visual Studio Code in our introduction video.
+
+* [Watch video](https://www.youtube.com/watch?v=f8_uF_IDV50)
+
+</div>
 
 ## Basic layout
 
@@ -82,6 +96,22 @@ To pin a floating window to the top of the screen, select the **Set Always on To
 
 To learn more about floating windows, read the section in the [Custom Layout](/docs/configure/custom-layout.md#floating-windows) article.
 
+### Modal editors
+
+Certain configuration editors in VS Code open in a centered modal overlay on top of the editor area, rather than as a regular editor tab. These modal editors include:
+
+* **Settings** editor
+* **Keyboard Shortcuts** editor
+* **Profiles** editor
+* **Workspace Trust** editor
+* **Language Models** editor
+* **Extensions** editor
+
+You can dismiss a modal editor by clicking outside of it, pressing `kbstyle(Escape)`, or selecting the close button. You can also maximize it to fill the editor area, or move it back into the main window as a regular editor tab.
+
+> [!NOTE]
+> You can control this behavior with the `setting(workbench.editor.useModal)` setting. Set it to `off` to always open editors as regular tabs, `some` to open only configuration editors as modal overlays (default), or `all` to open all editors in a modal overlay.
+
 ## Minimap
 
 A Minimap (code outline) gives you a high-level overview of your source code, which is useful for quick navigation and code understanding. A file's minimap is shown on the right side of the editor. You can select or drag the shaded area to quickly jump to different sections in your file.
@@ -136,7 +166,11 @@ You can also navigate to the location of a file or folder in the native operatin
 > [!TIP]
 > Type `kb(workbench.action.quickOpen)` (**Quick Open**) to quickly search and open a file by its name.
 
-By default, VS Code excludes some folders from showing in the Explorer view, such as `.git`. Use the `setting(files.exclude)` setting to configure rules for hiding files and folders from the Explorer view.
+By default, VS Code excludes some folders from showing in the Explorer view, such as `.git`. Use the `setting(files.exclude)` setting to configure rules for hiding files and folders from the Explorer view. Glob patterns in this setting follow your operating system's case sensitivity rules (case-insensitive on Windows/macOS, case-sensitive on Linux). Learn more about [glob patterns](/docs/editor/glob-patterns.md).
+
+You can also hide files and folders that are specified in your `.gitignore` files by enabling the `setting(explorer.excludeGitIgnore)` setting. When enabled, `.gitignore` patterns are applied with case-insensitive matching on Windows and macOS, and case-sensitive matching on Linux. For example, a pattern like `node_modules` in your `.gitignore` will match `node_modules/`, `Node_Modules/`, `NODE_MODULES/`, and other case variations on Windows and macOS, but only exact matches on Linux.
+
+When `setting(imageCarousel.explorerContextMenu.enabled)` _(Experimental)_ is enabled, you can right-click image files or folders in the Explorer and select **Open Images in Carousel** to browse images in a dedicated carousel view. This also works with multi-selection.
 
 > [!TIP]
 > You can hide derived resources files, like `*.meta` in Unity, or `*.js` in a TypeScript project. For Unity to exclude the `*.cs.meta` files, the pattern to choose would be: `"**/*.cs.meta": true`. For TypeScript, you can exclude generated JavaScript for TypeScript files with: `"**/*.js": {"when": "$(basename).ts"}`.
@@ -307,7 +341,7 @@ Zen Mode can be further tuned with the following settings:
 
 If you are overwhelmed by notifications popping up, there is a way to reduce notifications, either for all notifications, or for notifications from a specific extension.
 
-Select the bell icon in the Status Bar to open the Notifications area. This is a place where you can access all notifications at any time, even if you have enabled Do Not Disturb Mode.
+Select the bell icon in the Status Bar (or in the title bar, if notifications are positioned at top-right) to open the Notifications area. This is a place where you can access all notifications at any time, even if you have enabled Do Not Disturb Mode. You can change the notification position with the `setting(workbench.notifications.position)` setting. Learn more about [notification positions](/docs/configure/custom-layout.md#notifications).
 
 ![Notifications center](images/userinterface/notifications-center.png)
 

@@ -1,6 +1,6 @@
 ---
 ContentId: F5EA1A52-1EF2-4127-ABA6-6CEF5447C608
-DateApproved: 01/08/2026
+DateApproved: 3/18/2026
 MetaDescription: Expand your development workflow with task integration in Visual Studio Code.
 ---
 # Integrate with External Tools via Tasks
@@ -114,7 +114,7 @@ Task auto detection can be disabled using the following settings:
 
 ```json
 {
-    "typescript.tsc.autoDetect": "off",
+    "js/ts.tsc.autoDetect": "off",
     "grunt.autoDetect": "off",
     "jake.autoDetect": "off",
     "gulp.autoDetect": "off",
@@ -606,7 +606,7 @@ To highlight the power of tasks, here are a few examples of how VS Code can use 
 
 ### Transpiling TypeScript to JavaScript
 
-The [TypeScript topic](/docs/typescript/typescript-compiling.md) includes an example that creates a task to transpile TypeScript to JavaScript and observe any related errors from within VS Code.
+The [TypeScript topic](/docs/typescript/typescript-transpiling.md) includes an example that creates a task to transpile TypeScript to JavaScript and observe any related errors from within VS Code.
 
 ### Transpiling Less and SCSS into CSS
 

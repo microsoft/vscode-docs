@@ -1,6 +1,6 @@
 ---
 ContentId: 7FDF94DB-3527-4296-BE1C-493495B89408
-DateApproved: 01/08/2026
+DateApproved: 3/18/2026
 MetaDescription: Get Visual Studio Code up and running on Linux.
 ---
 # Visual Studio Code on Linux
@@ -10,7 +10,7 @@ MetaDescription: Get Visual Studio Code up and running on Linux.
 1. [Download and install Visual Studio Code for your Linux distribution](#install-vs-code-on-linux)
 
     > [!NOTE]
-    > VS Code ships monthly releases and supports [auto-update](#updates) when a new release is available.
+    > VS Code ships weekly releases and supports [auto-update](#updates) when a new release is available.
 
 1. [Install additional components](/docs/setup/additional-components.md)
 
@@ -187,7 +187,7 @@ sudo dnf install <file>.rpm
 
 ## Updates
 
-VS Code ships monthly and you can see when a new release is available by checking the [release notes](/updates). If the VS Code repository was installed correctly, then your system package manager should handle auto-updating in the same way as other packages on the system.
+VS Code ships weekly and you can see when a new release is available by checking the [release notes](/updates). If the VS Code repository was installed correctly, then your system package manager should handle auto-updating in the same way as other packages on the system.
 
 > [!NOTE]
 > Updates are automatic and run in the background for the [Snap package](#snap).
@@ -285,17 +285,15 @@ The current limit can be viewed by running:
 cat /proc/sys/fs/inotify/max_user_watches
 ```
 
-The limit can be increased to its maximum by editing `/etc/sysctl.conf` (except on Arch Linux and Ubuntu 24.10 and later, read below) and adding this line to the end of the file:
+The limit can be increased to its maximum by editing `/etc/sysctl.conf` (Arch Linux and Ubuntu 24.10 and later use files in `/etc/sysctl.d/*.conf`) and adding this line to the end of the file:
 
 ```bash
 fs.inotify.max_user_watches=524288
 ```
 
-The new value can then be loaded in by running `sudo sysctl -p`.
+The new value can then be loaded in by running `sudo sysctl --system`.
 
 While 524,288 is the maximum number of files that can be watched, if you're in an environment that is particularly memory-constrained, you might want to lower the number. Each file watch [takes up 1,080 bytes](https://stackoverflow.com/a/7091897/1156119), so assuming that all 524,288 watches are consumed, that results in an upper bound of around 540 MiB.
-
-[Arch](https://www.archlinux.org/)-based distros (including Manjaro) and Ubuntu-based distros starting with 24.10 require you to change a different file; follow [these steps](https://gist.github.com/tbjgolden/c53ca37f3bc2fab8c930183310918c8c) instead.
 
 Another option is to exclude specific workspace directories from the VS Code file watcher with the `setting(files.watcherExclude)` [setting](/docs/configure/settings.md). The default for `setting(files.watcherExclude)` excludes `node_modules` and some folders under `.git`, but you can add other directories that you don't want VS Code to track.
 

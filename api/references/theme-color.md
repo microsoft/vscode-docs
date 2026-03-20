@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 01/08/2026
+DateApproved: 3/18/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -100,6 +100,7 @@ A set of colors for button widgets such as **Open Folder** button in the Explore
 - `button.secondaryForeground`: Secondary button foreground color.
 - `button.secondaryBackground`: Secondary button background color.
 - `button.secondaryHoverBackground`: Secondary button background color when hovering.
+- `button.secondaryBorder`: Secondary button border color.
 - `checkbox.background`: Background color of checkbox widget.
 - `checkbox.foreground`: Foreground color of checkbox widget.
 - `checkbox.disabled.background`: Background of a disabled checkbox.
@@ -504,6 +505,7 @@ Bracket matches:
 
 - `editorBracketMatch.background`: Background color behind matching brackets.
 - `editorBracketMatch.border`: Color for matching brackets boxes.
+- `editorBracketMatch.foreground`: Foreground color for matching brackets.
 
 Bracket pair colorization:
 
@@ -670,6 +672,7 @@ For coloring inserted and removed text, use either a background or a border colo
 - `chat.requestBubbleBackground`: Background color of the chat request bubble.
 - `chat.requestBubbleHoverBackground`: Background color of the chat request bubble on hover.
 - `chat.checkpointSeparator`: Chat checkpoint separator color.
+- `chat.thinkingShimmer`: Shimmer highlight for thinking/working labels.
 - `chatManagement.sashBorder`: The color of the Chat Management editor splitview sash border.
 
 ## Inline Chat colors
@@ -934,6 +937,7 @@ The banner appears below the title bar and spans the entire width of the workben
 - `extensionButton.foreground`: Button foreground color for extension actions.
 - `extensionButton.hoverBackground`: Button background hover color for extension actions.
 - `extensionButton.separator`: Button separator color for extension actions.
+- `extensionButton.border`: Button border color for extension actions.
 - `extensionBadge.remoteBackground`: Background color for the remote badge in the extensions view.
 - `extensionBadge.remoteForeground`: Foreground color for the remote badge in the extensions view.
 - `extensionIcon.starForeground`: The icon color for extension ratings.
@@ -1329,6 +1333,8 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `agentSessionReadIndicator.foreground`: Foreground color for the read indicator in an agent session.
 - `agentSessionSelectedBadge.border`: Border color for the badges in selected agent session items.
 - `agentSessionSelectedUnfocusedBadge.border`: Border color for the badges in selected agent session items when the view is unfocused.
+- `agentStatusIndicator.background`: Background color of the agent status indicator in the titlebar.
+- `aiCustomizationManagement.sashBorder`: The color of the Chat Customization Management editor splitview sash border.
 
 ## Extension colors
 

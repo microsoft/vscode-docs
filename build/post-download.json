@@ -1,0 +1,31 @@
+{
+  "featured": {
+    "title": "Agents that run, debug, and diagnose themselves",
+    "description": "Let agents work autonomously with Autopilot permissions in Copilot CLI, debug web apps in the integrated browser, and troubleshoot agent behavior directly in chat.",
+    "link": "/updates/v1_112",
+    "image": "/assets/updates/1_112/release-graphic.webp"
+  },
+  "highlights": [
+    {
+      "type": "blog",
+      "title": "Agents for real-world development",
+      "description": "From enforcing policies with hooks to guiding agents mid-response, validating UI features with integrated browser tools, and bringing structured skills directly into the editor.",
+      "link": "/blogs/2026/03/05/making-agents-practical-for-real-world-development",
+      "image": "/assets/blogs/2026/03/05/context-compaction.png"
+    },
+    {
+      "type": "documentation",
+      "title": "AI core concepts",
+      "description": "Get an overview of the core concepts and how AI agents work in VS Code.",
+      "link": "/docs/copilot/concepts/overview",
+      "image": "/assets/docs/copilot/concepts/agent-loop.png"
+    },
+    {
+      "type": "tutorial",
+      "title": "Build and test with browser agent tools",
+      "description": "Let AI build web apps and automatically verify them in the integrated browser, catching and fixing bugs on its own.",
+      "link": "/docs/copilot/guides/browser-agent-testing-guide",
+      "image": "/assets/docs/copilot/browser-agent-testing-guide/browser-testing-hero.png"
+    }
+  ]
+}

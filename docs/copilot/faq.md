@@ -1,6 +1,6 @@
 ---
 ContentId: e02ded07-6e5a-4f94-b618-434a2c3e8f09
-DateApproved: 01/08/2026
+DateApproved: 3/18/2026
 MetaDescription: Frequently asked questions for using GitHub Copilot in Visual Studio Code.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -135,6 +135,22 @@ Verify the following requirements to ensure Chat features work in Visual Studio 
 
 Verify that agents are enabled in your VS Code settings: `setting(chat.agent.enabled)`. It's possible that your organization has disabled this feature, verify with your administrator to have agents enabled.
 
+### What can agents do in VS Code?
+
+Agents handle complete coding tasks autonomously. They plan multi-step implementations, execute coordinated changes across multiple files, run terminal commands, invoke tools, and self-correct when they encounter errors. Use agents for feature implementation, architecture-level refactoring, framework migrations, debugging, and test generation. Learn more about [using agents](/docs/copilot/agents/overview.md).
+
+### Does Copilot work with large codebases and monorepos?
+
+Yes. VS Code automatically indexes your workspace using semantic search, language intelligence (LSP), and GitHub's code search to provide deep understanding across your repository. For large repositories, [remote indexing](/docs/copilot/reference/workspace-context.md#remote-index) uses GitHub's index for fast, comprehensive results across related repositories. Use [multi-root workspaces](/docs/editing/workspaces/multi-root-workspaces.md) to scope context in monorepos, and [custom instructions](/docs/copilot/customization/custom-instructions.md) to describe your project's architecture. See [best practices for large codebases](/docs/copilot/best-practices.md#work-with-large-codebases).
+
+### Can my organization control AI features and agent access?
+
+Yes. Organization administrators can manage Copilot through [enterprise AI settings](/docs/enterprise/ai-settings.md) and [policies](/docs/enterprise/policies.md), including enabling or disabling agents, controlling model access, configuring content exclusions, and enforcing trust boundaries. See the [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/) for compliance details.
+
+### Are agents usage-limited?
+
+Agents use premium requests from your Copilot plan. Paid plans include a monthly allocation of premium requests, and you can request additional capacity. You can run multiple agent sessions in parallel across local, background, and cloud environments. Users on the free plan have a monthly limit of chat interactions. See [GitHub Copilot plans](https://docs.github.com/en/copilot/get-started/plans) for details.
+
 ### Not all models are available in the language model picker
 
 You can choose which models are available in the language model picker. Learn how to [customize the language model picker](/docs/copilot/customization/language-models.md#customize-the-model-picker).
@@ -179,32 +195,10 @@ We track issues and feature requests for GitHub Copilot in VS Code in the [micro
 
 When you report an issue, follow the guidelines in our [wiki](https://github.com/microsoft/vscode/wiki/Copilot-Issues) to make sure your issue is actionable.
 
-It can be helpful to include information from the [GitHub Copilot logs](#view-logs-for-github-copilot-in-vs-code) if you're reporting an issue.
-
-### View logs for GitHub Copilot in VS Code
-
-The log files for the GitHub Copilot extension are stored in the standard log location for Visual Studio Code extensions.
-
-To get detailed logs for Copilot in VS Code, follow these steps:
-
-1. In the Command Palette (`kb(workbench.action.showCommands)`), run the **Developer: Set Log Level** command and set the value to **Trace** (you can do this only for the GitHub Copilot and GitHub Copilot Chat extensions).
-1. In the Command Palette (`kb(workbench.action.showCommands)`), run the **Output: Show Output Channels** command and select either GitHub Copilot or GitHub Copilot Chat from the list.
-1. In the Output panel, you can see the logs for the selected extension.
-1. To switch to another output channel, on the right of the Output panel, select **GitHub Copilot** or **GitHub Copilot Chat** from the dropdown menu.
-
-If you encounter problems connecting to GitHub Copilot, you can view network connectivity diagnostics logs:
-
-1. Open the Command Palette (`kb(workbench.action.showCommands)`).
-1. Run the **GitHub Copilot: Collect Diagnostics** command.
-1. An editor tab opens where you can inspect the diagnostics information.
-
-### Use the Chat Debug view
-
-You can use the Chat Debug view to see the details of AI requests and responses, including the prompt being used and the context that is sent to the language model. This view can help you understand how the AI is interpreting your requests and what context it is using to generate responses.
-
-Learn more about the [Chat Debug view](/docs/copilot/chat/chat-debug-view.md).
+It can be helpful to include information from the Copilot logs if you're reporting an issue. Learn how to [view logs and collect diagnostics](/docs/copilot/troubleshooting.md).
 
 ## Additional resources
 
 - [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/)
+- [Security considerations for AI in VS Code](/docs/copilot/security.md)
 - [GitHub Copilot FAQ](https://github.com/features/copilot#faq) in the GitHub documentation

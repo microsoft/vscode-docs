@@ -1,70 +1,147 @@
 ---
 ContentId: 7a2e5f8d-4c9b-41e6-b3a8-9d7f2e4c1b8a
-DateApproved: 01/08/2026
+DateApproved: 3/18/2026
 MetaDescription: Learn how to create and manage chat sessions in Visual Studio Code, including opening chat in editor tabs, separate windows, and using chat session history.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
-# Manage chat sessions in VS Code
+# Manage chat sessions
 
 Use chat in Visual Studio Code to have conversation-based AI interactions. A chat session consists of the sequence of prompts and responses between you and the AI, along with any relevant context from your code or files. This article describes how to create and manage chat sessions, export chat sessions, and how to view the chat session history.
 
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
+Follow a hands-on tutorial to experience local, background, and cloud agents in VS Code.
+
+* [Start tutorial](/docs/copilot/agents/agents-tutorial.md)
+
+</div>
+
 ## What is a chat session?
 
-A chat session is the history of your interactions with the AI within a single conversation and includes all prompts, responses, and context used during that conversation. Each chat session maintains its own history, allowing you to ask follow-up questions or refine your requests based on previous interactions.
+A chat session is a single conversation with the AI, including all prompts, responses, and context. Each session is independent, so context from one session does not carry over to another.
 
-As you interact with the AI, the chat session accumulates context from your prompts and responses (context window). When you create a new chat session, the previous conversation history is cleared, and a fresh context window is established for the new session.
+Key things to know about chat sessions:
 
-Use checkpoints to roll back to a previous state within a chat session or edit a previous prompt to modify the course of the conversation. Learn more about [checkpoints and editing chat requests](/docs/copilot/chat/chat-checkpoints.md).
-
-You can create multiple chat sessions to organize your conversations by topic or task. Each session is independent, so context from one session does not carry over to another. VS Code maintains the [history of your chat sessions](#chat-session-history), allowing you to return to previous conversations at any time.
-
-If you're using agents, the session can run locally on your machine, in the background using a CLI, or in the cloud. Learn more about [agents](/docs/copilot/agents/overview.md).
+* **Context window**: as you chat, the session accumulates context. Creating a new session clears the history and starts a fresh context window. You can [monitor context window usage](/docs/copilot/chat/copilot-chat-context.md#monitor-context-window-usage) in the chat input box.
+* **Checkpoints**: at any time, you can roll back to a previous state or edit a previous prompt to change direction. Learn more about [checkpoints](/docs/copilot/chat/chat-checkpoints.md).
+* **Session types**: sessions can run locally, in the background, or in the cloud. Learn more about [agents](/docs/copilot/agents/overview.md).
+* **Multiple sessions**: regardless of the session type, you can run multiple sessions in parallel, each focused on a different task. With the agent sessions view, you can monitor and switch between sessions. Learn more about [managing agent sessions](/docs/copilot/agents/overview.md#agent-sessions-list).
 
 > [!TIP]
 > Start a new chat session when you want to change topics to help the AI provide more relevant responses.
 
 ## Start a new chat session
 
-VS Code supports different types of sessions (local, background, and cloud) and different views (side bar, editor tab, and separate window) for chat sessions. Learn more about [background and cloud agent sessions](/docs/copilot/agents/overview.md).
+You can open chat sessions in different views, depending on how you prefer to work. At any time, you can run multiple sessions in parallel, each focused on a different task.
 
-| | |
-|-|-|
-| Open a local chat session in the side bar.<br/><br/><ul><li>In Chat view, **New Chat (+)** > **New Chat**</li><li>`kb(workbench.action.chat.newChat)`</li><li>**Chat: New Chat** command</li></ul> | ![Screenshot of opening a new chat session in the Chat view in VS Code.](../images/chat-sessions/new-chat-session-chat-view.png) |
-| Open local chat as an editor tab.<br/><br/><ul><li>In Chat view, **New Chat (+)** > **New Chat Editor**</li><li>**Chat: New Chat Editor** command</li></ul>| ![Screenshot of opening a new chat session in an editor tab in VS Code.](../images/chat-sessions/new-chat-session-editor-tab.png) |
-| Open local chat in a separate window.<br/><br/><ul><li>In Chat view, **New Chat (+)** > **New Chat Window**</li><li>`kb(workbench.action.chat.newChat)`</li><li>**Chat: New Chat Window** command</li></ul> | ![Screenshot  of opening a new chat session in a separate window in VS Code.](../images/chat-sessions/new-chat-session-separate-window.png) |
-| Open a background agent session.<br/><br/><ul><li>In Chat view, **New Chat (+)** > **New Background Agent**</li><li>**Chat: New Background Agent** command</li></ul> | ![Screenshot of opening a new background agent session in the Chat view in VS Code.](../images/chat-sessions/new-background-agent-session.png) |
-| Open a cloud agent session.<br/><br/><ul><li>In Chat view, **New Chat (+)** > **New Cloud Agent**</li><li>**Chat: New Cloud Agent** command</li></ul> | ![Screenshot of opening a new cloud agent session in the Chat view in VS Code.](../images/chat-sessions/new-cloud-agent-session.png) |
+To start a new chat session, use the **New Chat (+)** button in the Chat view, or use the keyboard shortcut `kb(workbench.action.chat.newChat)`.
 
-### Move a chat session to a different view
+![Screenshot of the New Chat button in the Chat view.](../images/chat-sessions/new-chat-button.png)
 
-You can move an existing chat session to a different view, such as from the Chat view to an editor tab or a separate window. This is useful when you want to change how you interact with the chat session or organize your workspace differently.
+Choose where to open the session:
 
-* In the Chat view, select the `...` icon and then select **Move Chat into Editor Area** or **Move Chat into New Window**.
+* **Side bar** (default): select **New Chat (+)** > **New Chat**, or run the **Chat: New Chat** command. Best for keeping chat visible alongside your code.
 
-* In an chat editor, select the `...` icon in the top-right corner of the editor tab, and then select **Move Chat into Secondary Side Bar**.
+    ![Screenshot of opening a new chat session in the Chat view in VS Code.](../images/chat-sessions/new-chat-session-chat-view.png)
 
-* In a chat window, select the **Move Chat into Secondary Side Bar** button in the window title bar.
+* **Editor tab**: select **New Chat (+)** > **New Chat Editor**, or run the **Chat: New Chat Editor** command. Best for giving chat more space or comparing sessions side by side.
 
-* Use the following commands from the Command Palette:
+    ![Screenshot of opening a new chat session in an editor tab in VS Code.](../images/chat-sessions/new-chat-session-editor-tab.png)
 
-    * **Chat: Move Chat into Editor Area**
+* **Separate window**: select **New Chat (+)** > **New Chat Window**, or run the **Chat: New Chat Window** command. Best for multi-monitor setups.
 
-    * **Chat: Move Chat into New Window**
+    ![Screenshot of opening a new chat session in a separate window in VS Code.](../images/chat-sessions/new-chat-session-separate-window.png)
 
-    * **Chat: Move Chat into Side Bar**
+VS Code also supports different session types (local, background, cloud, and third-party) that determine where the AI runs. Learn more about [agent types and session management](/docs/copilot/agents/overview.md).
 
-## Chat session history
+## Move a chat session to a different view
 
-When you create a new chat session, the previous conversation history is cleared. However, all your chat sessions are saved in the session history, allowing you to return to previous conversations and continue where you left off. This is useful when you want to review past interactions, reference previous responses, or resume a conversation from an earlier session.
+You can move an existing chat session between views at any time. The full conversation history and context are preserved.
 
-![Screenshot of an agent session in VS Code showing code changes and chat interaction.](../images/agents-overview/chat-sessions-view.png)
+Select the `...` menu in the Chat view, editor tab, or chat window and choose one of the **Move Chat into...** options.
 
-By default, when you start a new chat session, the Chat view shows your most recent sessions, whether they run locally, in the background, or in the cloud. Select **Show All Sessions** to view the full history of sessions, allowing you to search and filter the list. The list is scoped to your current workspace. If you don't have a workspace open, the list shows all sessions across your workspaces.
+Alternatively, choose any of the following commands from the Command Palette:
 
-Learn more about agents and [viewing and managing agent sessions](/docs/copilot/agents/overview.md).
+* **Chat: Move Chat into Editor Area**
+* **Chat: Move Chat into New Window**
+* **Chat: Move Chat into Side Bar**
+
+## Fork a chat session
+
+Forking a chat session creates a new, independent session that inherits the conversation history from the original session. The forked session is fully separate from the original, so changes in one session do not affect the other. The new session title is prefixed with "Forked:" to help you identify it.
+
+Forking is useful when you want to explore an alternative approach, ask a side question, or branch a long conversation in a different direction without losing the original context.
+
+There are two ways to fork a chat session:
+
+* **Fork the entire session**: type `/fork` in the chat input box and press `kbstyle(Enter)`. A new session opens with the full conversation history copied from the current session.
+
+* **Fork from a checkpoint**: hover over a chat request in the conversation and select the **Fork Conversation** button. A new session opens that includes only the requests up to and including that checkpoint.
+
+    ![Screenshot of the Fork Conversation button in the checkpoint toolbar in the Chat view.](../images/chat-checkpoints/chat-fork-conversation.png)
+
+## Session history
+
+The Chat view shows your recent and active chat sessions, regardless of where they run. When you select a session from the list, you can see the full conversation history and context for that session. Send new prompts in that session to continue the conversation.
+
+You can have multiple sessions active at once and switch between them to compare different conversations or work on multiple tasks in parallel.
+
+![Screenshot of an agent session in VS Code showing code changes and chat interaction.](../images/agents-overview/chat-sessions-view-v3.png)
+
+The session list is scoped to your current workspace. If you don't have a workspace open, the list shows all sessions across your workspaces.
+
+Learn more about [viewing and managing sessions](/docs/copilot/agents/overview.md#agent-sessions-list).
+
+### VS Code welcome page
+
+The VS Code welcome page can act as your startup experience for working with chat sessions. It provides quick access to your recent chat sessions, an embedded chat widget for starting new tasks, and quick actions for common tasks.
+
+![Screenshot of the VS Code welcome page showing recent chat sessions and embedded chat.](../images/chat-sessions/agent-sessions-welcome-page.png)
+
+To configure the VS Code welcome page as your startup experience, set `setting(workbench.startupEditor)` to `agentSessionsWelcomePage`.
+
+## Send messages while a request is running
+
+You don't have to wait for a response to finish before sending your next message. While a request is in progress, the **Send** button changes to a dropdown that gives you three options for how to handle the new message.
+
+![Screenshot of the Send button dropdown menu showing options to queue, steer, or stop and send a new message.](../images/chat-sessions/send-dropdown.png)
+
+* **Add to Queue**: your message waits and sends automatically after the current response completes. The current response finishes uninterrupted.
+* **Steer with Message**: signals the current request to yield after finishing the current tool execution. The current response stops and your new message processes immediately. Use this to redirect the agent when it's heading in the wrong direction.
+* **Stop and Send**: cancels the current request entirely and sends your new message right away.
+
+The default action for the **Send** button is configurable. Use `setting(chat.requestQueuing.defaultAction)` to set it to `steer` (default) or `queue`.
+
+### Reorder pending messages
+
+When you have multiple pending messages (queued or steering), you can drag and drop them to change the order in which they are processed. A drag handle appears on hover when more than one message of the same type is pending.
+
+![Screenshot of pending messages in the chat input box with drag handles to reorder them.](../images/chat-sessions/pending-messages.png)
+
+## Get notified about chat responses
+
+When you're working in another window or application, VS Code can send you OS notifications to let you know about important chat events, so you don't have to keep checking back.
+
+Use `setting(chat.notifyWindowOnResponseReceived)` to configure when you receive an OS notification when a chat response is received. The notification includes a preview of the response, and selecting it brings focus to the chat session.
+
+Use `setting(chat.notifyWindowOnConfirmation)` to configure when you receive an OS notification when the agent needs your input or confirmation to continue.
+
+Both settings have three possible values:
+
+* `off`: never show notifications
+* `windowNotFocused` (default): show notifications only when the VS Code window is not focused
+* `always`: show notifications even when the VS Code window is in focus
 
 > [!TIP]
-> Make the Chat view wider to automatically switch to side-by-side mode or use the toggle button in the top-right corner of the Chat view.
+> Set the value to `always` if you want to stay aware of chat activity while working in other parts of VS Code, such as when running long agent tasks in the background.
+
+## Navigate between prompts in a chat session
+
+Use the following keyboard shortcuts to navigate between prompts in a chat session:
+
+* `kb(workbench.action.chat.previousUserPrompt)`: Go to the previous prompt in the chat session.
+* `kb(workbench.action.chat.nextUserPrompt)`: Go to the next prompt in the chat session.
+* `kb(workbench.action.chat.previousCodeBlock)`: Go to the previous code block in the chat session.
+* `kb(workbench.action.chat.nextCodeBlock)`: Go to the next code block in the chat session.
 
 ## Save and export chat sessions
 
@@ -94,65 +171,9 @@ To save a chat session as a reusable prompt:
 
 1. Type `/savePrompt` in the chat input box and press `Enter`.
 
-    The command creates a `.prompt.md` file that generalizes your current chat conversation into a reusable prompt. The prompt file has placeholders where appropriate.
+    The command creates a `.prompt.md` file, which is a reusable [prompt file](/docs/copilot/customization/prompt-files.md) that generalizes your current chat conversation into a template with placeholders. You can use prompt files to run the same type of task across different projects or codebases.
 
 1. Review and edit the generated prompt file as needed, then save it to your workspace.
-
-## Context-isolated subagents
-
-A subagent enables you to delegate tasks to an isolated, autonomous agent within your chat session. Subagents operate independently from the main chat session and have their own context window. This is useful to optimize  context management for complex multi-step tasks like research or analysis.
-
-Subagents don't run asynchronously or in the background, however, they operate autonomously without pausing for user feedback. When a subagent completes its task, it returns only the final result to the main chat session, keeping the main context window focused on the primary conversation.
-
-Subagents use the same agent and have access to the same tools available to the main chat session, except for creating other subagents. They also use the same AI model as the main chat session.
-
-### Invoke a subagent
-
-To invoke a subagent in a prompt:
-
-1. Enable the `runSubagent` tool in the tool picker
-
-    If you use a [custom prompt file](/docs/copilot/customization/prompt-files.md) or [custom agent](/docs/copilot/customization/custom-agents.md), ensure you specify `runSubagent` in the `tools` frontmatter property.
-
-1. In the chat prompt, ask to use a subagent to perform a task.
-
-    The following examples illustrate how to invoke a subagent:
-
-    * `Use a subagent to research the best authentication methods for web applications. Summarize the findings.`
-    * `Run #runSubagent to research the user's task comprehensively using read-only tools. Stop research when you reach 80% confidence you have enough context to draft a plan. Return this context.`
-
-#### Use a custom agent with subagents (Experimental)
-
-By default, a subagent inherits the agent from the main chat session. You can configure a subagent to use a different built-in or custom agent. For example, if you want to run a research task as part of a development task, you can start the research task in a subagent that uses a research agent.
-
-To run a subagent with a specific agent:
-
-1. Enable support for custom agents in subagents with the `setting(chat.customAgentInSubagent.enabled)` setting
-
-1. Make sure the custom agent doesn't have its `infer` property set to `false`, as this prevents the agent from being used in subagents.
-
-1. Prompt the AI about which agents are available for use as subagents. Your custom agent should be listed.
-
-    ```prompt
-    Which subagents can you use?
-    ```
-
-1. Prompt the AI to use a custom or built-in agent for the subagent. For example:
-
-    * `Run the research agent as a subagent to research the best auth methods for this project.`
-    * `Use the plan agent in a subagent to create an implementation plan for myfeature. Then save the plan in plans/myfeature.plan.md`
-
-> [!NOTE]
-> To prevent a custom agent from being used as a subagent, set the metadata property `infer` to `false` in the `*.agent.md` file.
-
-## Navigate between prompts in a chat session
-
-Use the following keyboard shortcuts to navigate between prompts in a chat session:
-
-* `kb(workbench.action.chat.previousUserPrompt)`: Go to the previous prompt in the chat session.
-* `kb(workbench.action.chat.nextUserPrompt)`: Go to the next prompt in the chat session.
-* `kb(workbench.action.chat.previousCodeBlock)`: Go to the previous code block in the chat session.
-* `kb(workbench.action.chat.nextCodeBlock)`: Go to the next code block in the chat session.
 
 ## Tips for managing chat sessions
 
@@ -170,5 +191,7 @@ Consider the following tips to help you work effectively with chat sessions:
 
 ## Related resources
 
-* [Get started with chat in VS Code](/docs/copilot/chat/copilot-chat.md)
+* [Chat overview](/docs/copilot/chat/copilot-chat.md)
+* [Manage context for AI](/docs/copilot/chat/copilot-chat-context.md)
 * [Revert changes with checkpoints](/docs/copilot/chat/chat-checkpoints.md)
+* [Review AI-generated code edits](/docs/copilot/chat/review-code-edits.md)

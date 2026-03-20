@@ -1,6 +1,6 @@
 ---
 ContentId: 0d32bced-91aa-5c2e-e569-6fc7995370ae
-DateApproved: 01/08/2026
+DateApproved: 02/04/2026
 MetaDescription: Python FastAPI tutorial showing IntelliSense and debugging support in Visual Studio Code, the best Python IDE.
 ---
 # FastAPI Tutorial in Visual Studio Code

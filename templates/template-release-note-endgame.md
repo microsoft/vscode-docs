@@ -1,13 +1,15 @@
 ---
-Order:
-TOCTitle: <Month> <Year>
-PageTitle: Visual Studio Code <Month> <Year>
-MetaDescription: Learn what is new in the Visual Studio Code <Month> <Year> Release (1.<release number>).
+Order: <sequence number>
+TOCTitle: 1.<release number>
+PageTitle: Visual Studio Code 1.<release number>
+MetaDescription: Learn what's new in Visual Studio Code 1.<release number>
 MetaSocialImage: 1_<release number>/release-highlights.webp
 Date: <YYYY-MM-DD>
 DownloadVersion: 1.<release number>.0
+Milestone: <milestone name (1.<release number>.0 or Month Year)>
+ProductEdition: Stable
 ---
-# <Month> <Year> (version 1.<release number>)
+# Visual Studio Code 1.<release number>
 
 _Release date: <release Month day, year>_
 
@@ -15,25 +17,23 @@ _Release date: <release Month day, year>_
 
 ---
 
-Welcome to the <Month> <Year> release of Visual Studio Code.
+Welcome to the 1.<release number> release of Visual Studio Code. This release ... <TODO @ntrogh>
 
-![Placeholder for release image](images/1_<release number>/release-highlights.png)
-
-This release brings significant updates across these key areas:
-
-* Area of improvement 1
-* Area of improvement 2
-* Area of improvement 3
+* [highlight](#bookmark): <highlight description>
 
 Happy Coding!
 
-<br>
+---
 
->If you'd like to read these release notes online, go to [Updates](https://code.visualstudio.com/updates) on [code.visualstudio.com](https://code.visualstudio.com).<br>
+VS Code is rolling out gradually to all users. Use **Check for Updates** in VS Code to get the latest version immediately.
 
-> **Insiders: Want to try new features as soon as possible?**<br>
-> You can download the nightly Insiders build and try the latest updates as soon as they are available.<br>
-> [Download Insiders](https://code.visualstudio.com/insiders)<br>
+To try new features as soon as possible, [**download the nightly Insiders build**](https://code.visualstudio.com/insiders), which includes the latest updates as soon as they are available.
+
+<!-- %IF IN_PRODUCT %
+You can view the release notes online at [code.visualstudio.com/updates](https://code.visualstudio.com/updates).
+%ENDIF % -->
+
+---
 
 <!-- TOC
 <div class="toc-nav-layout">
@@ -58,6 +58,7 @@ Happy Coding!
       <li><a href="#extension-authoring">Extension Authoring</a></li>
       <li><a href="#proposed-apis">Proposed APIs</a></li>
       <li><a href="#engineering">Engineering</a></li>
+      <li><a href="#deprecated-features-and-settings">Deprecated features and settings</a></li>
       <li><a href="#notable-fixes">Notable fixes</a></li>
       <li><a href="#thank-you">Thank you</a></li>
     </ul>
@@ -125,6 +126,13 @@ You can learn more about these features in the [Remote Development release notes
 
 
 ## Engineering
+
+
+## Deprecated features and settings
+
+### New deprecations in this release
+
+### Upcoming deprecations
 
 
 ## Notable fixes

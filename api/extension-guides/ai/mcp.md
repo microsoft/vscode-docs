@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: e655f324-ed0b-452d-aff3-52cdca3978a5
-DateApproved: 01/08/2026
+DateApproved: 3/18/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A comprehensive guide for developers building MCP servers that work with Visual Studio Code.
@@ -11,7 +11,7 @@ MetaDescription: A comprehensive guide for developers building MCP servers that 
 
 Model Context Protocol (MCP) is an open standard that enables AI models to interact with external tools and services through a unified interface. Visual Studio Code implements the full MCP specification, enabling you to create MCP servers that provide tools, prompts, and resources for extending the capabilities of AI agents in VS Code.
 
-MCP servers provide one of three types of tools available in VS Code, alongside built-in tools and extension-contributed tools. Learn more about [tool types](/docs/copilot/chat/chat-tools.md#types-of-tools).
+MCP servers provide one of three types of tools available in VS Code, alongside built-in tools and extension-contributed tools. Learn more about [tool types](/docs/copilot/agents/agent-tools.md#types-of-tools).
 
 This guide covers everything you need to know to build MCP servers that work seamlessly with VS Code and other MCP clients.
 
@@ -49,6 +49,7 @@ VS Code supports the following MCP capabilities:
     * Authentication: authorize access to an MCP server using OAuth
     * Server instructions
     * Roots: provide information about the user's workspace root folder(s)
+    * [MCP Apps](https://modelcontextprotocol.github.io/ext-apps/api/): return interactive UI components from tools
 
 ### Tools
 
@@ -168,6 +169,62 @@ Users can view the sampling requests made by an MCP server with the **MCP: List 
 
 VS Code provides the MCP server with the user's workspace root folder information.
 
+### MCP Apps
+
+MCP Apps enable tools to return interactive UI components that render inline in chat instead of text-only output. This is useful for scenarios like drag-and-drop list reordering, visualizations, forms, and multi-step workflows.
+
+#### Architecture
+
+MCP Apps use a Tool + UI Resource pattern:
+
+1. Define a tool that returns a `_meta.ui.resourceUri` pointing to a UI resource
+1. Create a UI resource with the `ui://` URI scheme and MIME type `text/html;profile=mcp-app`
+1. The HTML resource runs in a sandboxed iframe and uses the MCP Apps SDK to communicate with VS Code
+
+#### SDK
+
+Use the [`@modelcontextprotocol/ext-apps`](https://github.com/modelcontextprotocol/ext-apps) package to build MCP Apps. The SDK provides:
+
+- **`App` class**: Main interface for communicating with the host
+    - `connect()`: Establish connection with VS Code
+    - `callServerTool(name, args)`: Call tools on the originating MCP server
+    - `sendMessage(content)`: Send a message to the chat input
+    - `updateModelContext(context)`: Provide context for future conversation turns
+    - `openLink(url)`: Request to open a URL in the browser
+    - `sendLog(level, message)`: Send debug logs (not added to conversation)
+
+- **Notification handlers**: Set these to receive events from VS Code
+    - `ontoolinput`: Receive complete tool arguments
+    - `ontoolinputpartial`: Receive streaming partial arguments
+    - `ontoolresult`: Receive tool execution results
+    - `ontoolcancelled`: Handle tool cancellation
+    - `onhostcontextchanged`: Respond to theme or locale changes
+    - `onteardown`: Clean up before unmounting
+
+#### VS Code behavior and limitations
+
+| Feature | VS Code Support |
+| ------- | --------------- |
+| Display modes | `inline` only (not `fullscreen` or `pip`) |
+| Send message | Fills chat input box; does not auto-send |
+| Context updates | Appear as attachments |
+| Clipboard write | Supported |
+| Camera, microphone, geolocation | Not supported |
+
+#### Security
+
+MCP Apps run in sandboxed iframes with Content Security Policy (CSP) enforcement. When defining a UI resource, declare the domains your app needs to access:
+
+- `connectDomains`: Domains for fetch/XHR requests
+- `resourceDomains`: Domains for images, fonts, and other resources
+- `frameDomains`: Domains that can be embedded in iframes
+
+#### Learn more
+
+- [MCP Apps specification](https://modelcontextprotocol.github.io/ext-apps/api/)
+- [MCP Apps SDK and examples](https://github.com/modelcontextprotocol/ext-apps)
+- [MCP Apps announcement blog post](https://code.visualstudio.com/blogs/2026/01/26/mcp-apps-support)
+
 ### Icons
 
 VS Code supports `icons` provided on MCP servers, resources, and tools. MCP Icons have a `src` property which is a URI to the image:
@@ -245,7 +302,7 @@ Extensions that want to register MCP servers must contribute the `contributes.mc
 
 ### 2. Implement the provider
 
-To register an MCP server in your extension, use the [`vscode.lm.registerMcpServerDefinitionProvider`](/api/references/vscode-api#lm.registerMcpServerDefinitionProvider) API to provide the [MCP configuration](/docs/copilot/chat/mcp-servers#_configuration-format) for the server. The API takes a `providerId` string and a `McpServerDefinitionProvider` object.
+To register an MCP server in your extension, use the [`vscode.lm.registerMcpServerDefinitionProvider`](/api/references/vscode-api#lm.registerMcpServerDefinitionProvider) API to provide the [MCP configuration](/docs/copilot/reference/mcp-configuration.md) for the server. The API takes a `providerId` string and a `McpServerDefinitionProvider` object.
 
 The `McpServerDefinitionProvider` object has three properties:
 
@@ -430,6 +487,6 @@ You might also find the [MCP for Beginners curriculum](https://github.com/micros
 ## Related content
 
 - [Contribute a language model tool](/api/extension-guides/ai/tools)
-- [Use MCP tools in agent mode](/docs/copilot/chat/mcp-servers)
+- [Use MCP tools in agent mode](/docs/copilot/customization/mcp-servers.md)
 - [VS Code curated list of MCP servers](https://code.visualstudio.com/mcp)
 - [Model Context Protocol Documentation](https://modelcontextprotocol.io/)

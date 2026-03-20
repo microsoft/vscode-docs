@@ -3,7 +3,7 @@ Order:
 TOCTitle: Troubleshoot Terminal Launch
 ContentId: c9dd7da5-2ad9-4862-bf24-2ed0fb65675e
 PageTitle: Troubleshoot Visual Studio Code Integrated Terminal launch failures
-DateApproved: 01/08/2026
+DateApproved: 02/04/2026
 MetaDescription: Troubleshoot Visual Studio Code Integrated Terminal launch failures
 ---
 
@@ -50,7 +50,7 @@ To troubleshoot Integrated Terminal launch failures in Visual Studio Code, follo
 
 2. **Test your shell directly.** Try running your designated integrated terminal shell outside VS Code from an external terminal or command prompt. Some terminal launch failures might be due to your shell installation and are not specific to VS Code. The exit codes displayed come from the shell and you might be able to diagnose shell issues by searching on the internet for the specific shell and exit code.
 
-3. **Use the most recent version of VS Code.** Each VS Code monthly release has many updates and fixes and might include integrated terminal improvements. You can check your VS Code version via **Help** > **About** (on macOS **Code** > **About Visual Studio Code**). To find the latest version of VS Code, go to the VS Code [release notes](/updates). You might also want to check that you have installed the latest version of your shell.
+3. **Use the most recent version of VS Code.** Each VS Code weekly release has many updates and fixes and might include integrated terminal improvements. You can check your VS Code version via **Help** > **About** (on macOS **Code** > **About Visual Studio Code**). To find the latest version of VS Code, go to the VS Code [release notes](/updates). You might also want to check that you have installed the latest version of your shell.
 
 4. **Use the most recent version of your shell.** If your shell is installed separate from your platform, try installing the latest available version of the shell. The same advice applies if you are on an older build of your operating system. For example, some older versions of Windows 10 did not work well with the VS Code terminal.
 

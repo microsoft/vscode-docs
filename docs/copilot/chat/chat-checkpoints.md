@@ -1,34 +1,31 @@
 ---
 ContentId: 8f4d3e2a-9b7c-4e1d-a6f5-3c2b1d8e9f0a
-DateApproved: 01/08/2026
+DateApproved: 3/18/2026
 MetaDescription: Learn how to edit previous chat requests, restore your workspace to earlier states using checkpoints, and undo changes made by chat in Visual Studio Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Revert changes with checkpoints and editing requests
 
-A chat session in Visual Studio Code might result in changes to one or more files in your workspace, which could be tedious to manually revert. For example, you might want to refine a previous chat request, try a different approach, or recover from unexpected changes.
+A chat session in Visual Studio Code might result in changes to one or more files in your workspace. VS Code provides two ways to undo or revise these changes:
 
-This article describes how to edit previous chat requests and how to use checkpoints to roll back file changes made by chat.
+* **Edit a previous request**: modify a prompt you already sent. VS Code reverts any changes made by that request and all subsequent requests, then resends the edited prompt. Use this when you want to rephrase a request and get different results.
+* **Restore a checkpoint**: roll back all file changes to a specific point in the conversation. Use this when you want to return to a known good state without modifying your prompts.
+
+Both features complement the [review workflow](/docs/copilot/chat/review-code-edits.md), where you accept or reject individual edits. Use checkpoints and editing when you want to undo an entire batch of changes at once.
 
 ## Edit a previous chat request
-
-> [!NOTE]
-> The ability to edit chat requests is available as of VS Code version 1.102.
 
 Each chat request in your conversation history is editable. When you edit a previous chat request, the edited request is sent to the language model as a new request, and any file changes made by the original request and subsequent requests are reverted.
 
 To edit a previous chat request, select the request in the Chat view to modify and then resend it. You can configure or disable the editing experience with the `setting(chat.editRequests)` setting.
 
-<video src="../images/chat-checkpoints/chat-edit-request.mp4" title="Video showing the editing of a previous chat request in the Chat view." autoplay loop controls muted></video>
+<video src="../images/chat-checkpoints/chat-edit-request.mp4" title="Video showing the editing of a previous chat request in the Chat view." loop controls muted></video>
 
 ## Use checkpoints to revert file changes
 
-> [!NOTE]
-> Checkpoints are available as of VS Code release 1.103.
-
 Chat checkpoints provide a way to restore the state of your workspace to a previous point in time, and are useful when chat interactions resulted in changes across multiple files.
 
-When checkpoints are enabled, VS Code automatically creates snapshots of your files at key points during chat interactions, allowing you to return to a known good state if the changes made by chat requests are not what you expected or if you want to try a different approach.
+When checkpoints are enabled, VS Code automatically creates a snapshot of affected files before each chat request is processed. This means each chat request in your conversation has a corresponding checkpoint you can restore to.
 
 To enable checkpoints, configure the `setting(chat.checkpoints.enabled)` setting.
 
@@ -62,6 +59,12 @@ To help you understand the effect of each chat request and make it easier to dec
 
 ![Screenshot of the Chat view, showing the file changes at the end of a chat request.](../images/chat-checkpoints/chat-checkpoint-changed-files.png)
 
+### Fork from a checkpoint
+
+You can fork a conversation from a checkpoint to create a new, independent session that includes the conversation up to that point. This is useful when you want to branch off and explore an alternative approach while preserving the original conversation.
+
+To fork from a checkpoint, hover over a chat request and select the **Fork Conversation** button. Learn more about [forking chat sessions](/docs/copilot/chat/chat-sessions.md#fork-a-chat-session).
+
 ## Frequently asked questions
 
 ### Do checkpoints replace Git version control?
@@ -70,4 +73,6 @@ No. Checkpoints are designed for quick iteration within a chat session and are t
 
 ## Related resources
 
-* [Get started with chat in VS Code](/docs/copilot/chat/copilot-chat.md)
+* [Review AI-generated code edits](/docs/copilot/chat/review-code-edits.md)
+* [Chat sessions](/docs/copilot/chat/chat-sessions.md)
+* [Chat overview](/docs/copilot/chat/copilot-chat.md)

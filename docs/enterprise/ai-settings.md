@@ -1,6 +1,6 @@
 ---
 ContentId: f8a9c3d2-4e7b-5f1a-b6c8-9d0e2f3a7b4c
-DateApproved: 01/08/2026
+DateApproved: 3/18/2026
 MetaDescription: Learn how to centrally manage AI settings in VS Code for enterprise environments, including agent mode, MCP servers, and tool approvals.
 ---
 
@@ -22,9 +22,17 @@ To disable agents entirely, set the `ChatAgentMode` policy to `false`. This conf
 
 The **Agent** option will not be available in the agents dropdown in the Chat view when this policy is applied. Developers can still use [ask or edit](/docs/copilot/chat/copilot-chat.md) for code explanations and file edits, but autonomous code generation and task execution are not available.
 
+## Enable or disable hooks
+
+[Hooks](/docs/copilot/customization/hooks.md) enable you to execute custom shell commands at key lifecycle points during agent sessions, such as before or after tool invocations, at session start, or when an agent stops. Hooks can automate workflows, enforce security policies, and control agent behavior.
+
+To disable hooks entirely, set the `ChatHooks` policy to `false`. This configures the `setting(chat.useHooks)` setting in VS Code.
+
+When this policy is applied, hook configurations are ignored and no hook commands are executed during agent sessions.
+
 ## Enable or disable extension language tools
 
-[Tools in chat](/docs/copilot/chat/chat-tools.md) extend the AI assistant's capabilities with specialized functions. These tools can come from built-in features, Model Context Protocol (MCP) servers, or third-party extensions.
+[Tools in chat](/docs/copilot/agents/agent-tools.md) extend the AI assistant's capabilities with specialized functions. These tools can come from built-in features, Model Context Protocol (MCP) servers, or third-party extensions.
 
 Third-party extensions can contribute tools that integrate with chat by using the [Language Model Tools API](/api/extension-guides/ai/tools).
 
@@ -62,13 +70,13 @@ Organizations with GitHub Copilot Enterprise or Business can also configure MCP 
 
 Agent tools can perform actions that modify files, run commands, or access external services. VS Code includes approval prompts for potentially risky operations. Organizations can enforce stricter approval requirements or disable auto-approval entirely.
 
-Learn more about [tool approval](/docs/copilot/chat/chat-tools.md#tool-approval) in VS Code.
+Learn more about [tool approval](/docs/copilot/agents/agent-tools.md#tool-approval) in VS Code.
 
 ### Disable global auto-approval
 
-The `ChatToolsAutoApprove` policy controls the global auto-approval setting, also known as "YOLO mode". When enabled, the AI assistant can execute all tools without manual approval. This is not recommended for security reasons.
+The `ChatToolsAutoApprove` policy controls the global auto-approval setting. When enabled, the AI assistant can execute all tools without manual approval. This is not recommended for security reasons.
 
-To prevent developers from enabling global auto-approval, set the `ChatToolsAutoApprove` policy to `false`. This configures the `setting(chat.tools.global.autoApprove)` setting in VS Code.
+To prevent developers from enabling global auto-approval, set the `ChatToolsAutoApprove` policy to `false`. This configures the `setting(chat.tools.global.autoApprove)` setting in VS Code and also hides the **Bypass Approvals** and **Autopilot** options from the [permissions picker](/docs/copilot/agents/agent-tools.md#permission-levels) in the Chat view.
 
 > [!CAUTION]
 > Global auto-approval bypasses all security prompts for tool invocations. Disabling this feature is strongly recommended for enterprise environments.
@@ -103,13 +111,48 @@ The `CopilotReviewSelection` policy controls whether developers can request code
 
 The `CopilotReviewAgent` policy controls access to the Copilot code review agent for reviewing pull requests and changed files. This configures the `setting(github.copilot.chat.reviewAgent.enabled)` setting in VS Code.
 
+## Configure organization-level AI customizations
+
+GitHub Copilot supports defining custom instructions and custom agents at the GitHub organization level. These customizations are automatically available to all organization members when they work in VS Code on repositories owned by the organization.
+
+### Organization-level custom instructions
+
+Organization administrators can define custom instructions that apply to all repositories in their organization. These instructions ensure consistent AI behavior across teams, such as enforcing coding standards, security guidelines, or documentation requirements.
+
+When developers have `setting(github.copilot.chat.organizationInstructions.enabled)` set to `true`, VS Code automatically detects and applies organization-level instructions to all chat requests. The instructions appear in the **Chat Instructions** menu alongside personal and workspace instructions.
+
+Learn how to [add custom instructions for your organization](https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-organization-instructions) in the GitHub documentation.
+
+### Organization-level custom agents
+
+Organizations can also define custom agents that are shared across all repositories. These agents provide specialized AI personas with specific tools and instructions tailored to your organization's workflows.
+
+When developers have `setting(github.copilot.chat.customAgents.showOrganizationAndEnterpriseAgents)` set to `true`, organization-level agents appear in the Agents dropdown alongside built-in and personal agents.
+
+Learn how to [create custom agents for your organization](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents) in the GitHub documentation.
+
+> [!NOTE]
+> Organization-level customizations are managed through GitHub organization settings, not VS Code enterprise policies. Individual developers control whether to use these customizations through their VS Code settings.
+
 ## Security considerations
 
 AI-powered development features can autonomously perform actions with user-level permissions. Refer to the [security documentation](/docs/copilot/security.md) for a comprehensive overview of AI security considerations and best practices.
 
+### Agent deployment options and data residency
+
+Agents can run on different infrastructure depending on the agent type, and each option has different data residency and access control characteristics:
+
+* **Local agents and Copilot CLI** run on the developer's machine and process data locally.
+* **Cloud agents** run on GitHub's infrastructure. Code and conversation data are subject to the GitHub Copilot data handling policies.
+
+For GitHub Copilot's security, privacy, compliance, and transparency information, see the [GitHub Copilot Trust Center FAQ](https://copilot.github.trust.page/faq).
+
 ## Related resources
 
 * [Enterprise policies reference](/docs/enterprise/policies.md) - Complete list of enterprise policies
-* [Use tools in chat](/docs/copilot/chat/chat-tools.md) - Learn how tools work in VS Code chat
+* [Use tools in chat](/docs/copilot/agents/agent-tools.md) - Learn how tools work in VS Code chat
 * [MCP servers in VS Code](/docs/copilot/customization/mcp-servers.md) - Configure and use MCP servers
+* [Custom instructions](/docs/copilot/customization/custom-instructions.md) - Define custom instructions for AI responses
+* [Custom agents](/docs/copilot/customization/custom-agents.md) - Create custom AI personas and workflows
 * [AI security considerations](/docs/copilot/security.md) - Security best practices for AI features
+* [GitHub Copilot Trust Center FAQ](https://copilot.github.trust.page/faq) - Security, privacy, and compliance information

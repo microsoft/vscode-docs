@@ -1,0 +1,393 @@
+---
+ContentId: 8f2c4a1d-9e3b-4c5f-a7d8-6b9c2e4f1a3d
+DateApproved: 3/18/2026
+MetaDescription: Learn how to use built-in tools, MCP tools, and extension tools to extend chat in VS Code with specialized functionality.
+MetaSocialImage: ../images/shared/github-copilot-social.png
+keywords:
+- copilot
+- ai
+- agents
+- chat
+- tools
+- terminal
+- customization
+---
+# Use tools with agents
+
+Tools extend agents in Visual Studio Code with specialized functionality for accomplishing specific tasks like searching code, running commands, fetching web content, or invoking APIs. VS Code supports three types of tools: built-in tools, Model Context Protocol (MCP) tools, and extension tools.
+
+For background on tool types and how tools work in the agent loop, see [Tools concepts](/docs/copilot/concepts/tools.md).
+
+This article describes how to use tools in your chat prompts and how to manage tool invocations and approvals.
+
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Try tools in action">
+Launch a chat prompt that uses the web tool to summarize the latest VS Code updates.
+
+* [Open in VS Code](vscode://GitHub.Copilot-Chat/chat?agent=agent%26prompt=Summarize%20the%20latest%20VS%20Code%20updates%20%23web)
+
+</div>
+
+## Enable tools for chat
+
+Before you can use tools in chat, you need to enable them in the Chat view. You can enable or disable tools on a per-request basis by using the tools picker. You can add more tools by [installing MCP servers](/docs/copilot/customization/mcp-servers.md) or [extensions](/docs/getstarted/extensions.md) that contribute tools.
+
+> [!TIP]
+> Select only the tools that are relevant for your prompt to improve your results.
+
+To access the tools picker:
+
+1. Open the Chat view and select **Agent** from the agent picker.
+
+1. Select the **Configure Tools** button in the chat input field.
+
+    ![Screenshot showing the Chat view, highlighting the Configure Tools button in the chat input.](../images/chat-tools/agent-mode-select-tools.png)
+
+1. Select or deselect tools to control which ones are available for the current request.
+
+    Use the search box to filter the list of tools.
+
+When you customize chat with [prompt files](/docs/copilot/customization/prompt-files.md) or [custom agents](/docs/copilot/customization/custom-agents.md), you can specify which tools are available for a given prompt or mode. Learn more about the [tool list priority order](/docs/copilot/customization/custom-agents.md#tool-list-priority).
+
+## Use tools in your prompts
+
+When using [agents](/docs/copilot/agents/local-agents.md), the agent automatically determines which tools to use from the enabled tools based on your prompt and the context of your request. The agent autonomously chooses and invokes relevant tools as needed to accomplish the task.
+
+You can also explicitly reference tools in your prompts by typing `#` followed by the tool name. This is useful when you want to ensure a specific tool is used. Type `#` in the chat input field to see a list of available tools, including built-in tools, MCP tools from installed servers, extension tools, and tool sets.
+
+**Examples of explicit tool references:**
+
+* `"What is the latest version of Node.js #web"`
+* `"How does routing work in Next.js? #web"`
+* `"Fix the issues in #problems"`
+* `"Explain the authentication flow #codebase"`
+
+> [!TIP]
+> By default, tool call details are collapsed in the chat conversation. You can uncollapse them by selecting the tool summary line in chat, or change the default behavior with the `setting(chat.agent.thinking.collapsedTools)` setting (experimental).
+
+## Permission levels
+
+The permissions picker in the Chat view controls how much autonomy the agent has during a session. Select a permission level from the permissions dropdown in the chat input area to choose how tool calls and approvals are handled.
+
+| Permission level | Description |
+|---|---|
+| **Default Approvals** | Uses your configured approval settings. Tools that require approval show a confirmation dialog before they run. |
+| **Bypass Approvals** | Auto-approves all tool calls without showing confirmation dialogs and automatically retries on errors. |
+| **Autopilot** (Preview) | Auto-approves all tool calls, automatically retries on errors, auto-responds to questions, and the agent continues working autonomously until the task is complete. |
+
+> [!CAUTION]
+> **Bypass Approvals** and **Autopilot** bypass manual approval prompts, including for potentially destructive actions like file edits, terminal commands, and external tool calls. The first time you enable either level, a warning dialog asks you to confirm. Only use these levels if you understand the security implications. See the [Security considerations](/docs/copilot/security.md) for more details.
+
+The permission level applies to the current chat session. You can change it at any time during a session by selecting a different level from the permissions picker. You can stop the agent at any time by selecting the stop button.
+
+### How Autopilot works
+
+> [!NOTE]
+> Autopilot is currently in preview.
+
+When you select the **Autopilot** permission level, the agent behaves differently from a standard agent session:
+
+* **Continuous iteration**: the agent keeps working autonomously until it determines the task is complete.
+* **Auto-approve all tools**: all tool calls are approved automatically, similar to the **Bypass Approvals** level.
+* **Auto-retry on errors**: the agent automatically retries when it encounters errors.
+* **Auto-respond to questions**: tools that normally block and ask your input, such as clarifying questions, auto-respond so the agent does not stall waiting for a reply. This behavior is specific to **Autopilot** and does not apply to **Bypass Approvals**.
+
+Autopilot is available in the Chat view when the `setting(chat.autopilot.enabled)` setting is enabled (on by default).
+
+## Tool approval
+
+Some tools require your approval before they can run. This is a security measure because tools can perform actions that modify files, your environment, or attempt prompt injection attacks through malicious tool output.
+
+When a tool requires approval, a confirmation dialog appears showing the tool details. Review the information carefully before approving the tool. You can approve the tool for a single use, for the current session, for the current workspace, or for all future invocations.
+
+![Screenshot of a tool confirmation dialog showing tool details and approval options.](../images/chat-tools/chat-approve-tool.png)
+
+Tools and agent actions might result in file modifications. Learn how you can prevent accidental [edits to sensitive files](/docs/copilot/chat/review-code-edits.md#edit-sensitive-files) in your workspace.
+
+> [!IMPORTANT]
+> Always review tool parameters carefully before approving, especially for tools that modify files, run commands, or access external services. See the [Security considerations](/docs/copilot/security.md) for using AI in VS Code.
+
+### Enable or disable tool auto approval (Experimental)
+
+By default, you can choose to automatically approve any tool. To prevent accidental approvals, you can disable automatic approvals for specific tools with the `setting(chat.tools.eligibleForAutoApproval)` setting. Set the value to `false` to always require manual approval for that tool.
+
+Organizations can also use device management policies to enforce manual approvals for specific tools. Learn more in the [Enterprise documentation](/docs/enterprise/ai-settings.md).
+
+### URL approval
+
+When a tool attempts to access a URL, such as with the `#fetch` tool, a two-step approval process is used to protect you from malicious or unexpected content. VS Code shows a confirmation dialog with the URL details for your review in the Chat view.
+
+* **Pre-approval: approving the request to the URL**
+
+    This step ensures that you trust the domain being contacted and can prevent sensitive data to be sent to untrusted sites.
+
+    ![Screenshot of a URL approval dialog showing URL details and approval options.](../images/chat-tools/chat-approve-url.png)
+
+    You have options for one-time approval or for automatically approving future requests to the specific URL or domain. Selecting auto-approval does not influence the need for reviewing the results. When you select **Allow requests to**, you can choose to configure both pre and post approvals for the URL or domain.
+
+    > [!NOTE]
+    > The pre-approval respects the ["Trusted Domains" feature](/docs/editing/editingevolved.md#outgoing-link-protection). If a domain is listed there, you are automatically approved to make requests to that domain and defer the response reviewing step.
+
+* **Post-approval: approving the response content fetched from the URL**
+
+    This step ensures that you review the fetched content before it is added to the chat or passed to other tools, preventing potential prompt injection attacks.
+
+    For example, you might approve a request to fetch content from a well-known site, like GitHub.com. But because the content, such as issue description or comments, is user-generated, it could contain harmful content that might manipulate the model's behavior.
+
+    You have options for one-time approval or for automatically approving future responses from the specific URL or domain.
+
+    > [!IMPORTANT]
+    > The post-approval step is not linked to the "Trusted Domains" feature and always requires your review. This is a security measure to prevent issues with untrusted content on a domain that you would otherwise trust.
+
+The `setting(chat.tools.urls.autoApprove)` setting is used to store your auto-approve URL patterns. The setting value is either a boolean to enable or disable auto-approvals for both requests and responses, or an object with `approveRequest` and `approveResponse` properties for granular control. You can use exact URLs, glob patterns, or wildcards.
+
+URL auto-approval examples:
+
+```jsonc
+{
+"chat.tools.urls.autoApprove": {
+    "https://www.example.com": false,
+    "https://*.contoso.com/*": true,
+    "https://example.com/api/*": {
+        "approveRequest": true,
+        "approveResponse": false
+    }
+}
+```
+
+### Reset tool confirmations
+
+To clear all saved tool approvals, use the **Chat: Reset Tool Confirmations** command in the Command Palette (`kb(workbench.action.showCommands)`).
+
+## Edit tool parameters
+
+You can review and edit the input parameters before a tool runs:
+
+1. When the tool confirmation dialog appears, select the chevron next to the tool name to expand its details.
+
+1. Edit any tool input parameters as needed.
+
+1. Select **Allow** to run the tool with the modified parameters.
+
+## Terminal commands
+
+The agent might use terminal commands as part of its workflow to accomplish tasks. When the agent decides to run terminal commands, it uses the built-in terminal tool to execute them in an integrated terminal within VS Code.
+
+In the chat conversation, the agent displays the commands it ran. You can view the output of the command inline in chat by selecting **Show Output** (`>`) next to the command. You can also view the full output in the integrated terminal by selecting **Show Terminal**.
+
+![Screenshot showing terminal command output in chat.](../images/chat-tools/terminal-command-output.png)
+
+Use the experimental `setting(chat.tools.terminal.outputLocation)` setting to configure where terminal command output appears: inline in chat, in the integrated terminal.
+
+In the terminal pane, you can see the list of terminals that the agent has used for a chat session. You can also distinguish agent terminals by the chat icon in the terminals list.
+
+![Screenshot showing the integrated terminal with multiple agent terminals.](../images/chat-tools/agent-terminals-in-terminal-pane.png)
+
+### Continue terminal commands in background
+
+When the agent runs a long-running terminal command, such as starting a development server or running a build in watch mode, you can push the command to the background. This allows the agent to continue with other tasks without waiting for the command to finish.
+
+While a command is running, a **Continue in Background** button appears next to the terminal command in the chat conversation. Select this button to move the command to the background. The command continues running, and the agent can check its output later or use the terminal for other tasks.
+
+The agent can also specify a timeout when running terminal commands. When the timeout is reached, the agent stops waiting for the command and returns the output collected so far. Use the `setting(chat.tools.terminal.enforceTimeoutFromModel)` setting to control whether to enforce the timeout value that the agent specifies.
+
+### Automatically approve terminal commands
+
+You can configure which terminal commands are automatically approved by using the `setting(chat.tools.terminal.autoApprove)` setting. You can specify both allowed and denied commands:
+
+* Set commands to `true` to automatically approve them
+* Set commands to `false` to always require approval
+* Use regular expressions by wrapping patterns in `/` characters
+
+For example:
+
+```jsonc
+{
+  // Allow the `mkdir` command
+  "mkdir": true,
+  // Allow `git status` and commands starting with `git show`
+  "/^git (status|show\\b.*)$/": true,
+
+  // Block the `del` command
+  "del": false,
+  // Block any command containing "dangerous"
+  "/dangerous/": false
+}
+```
+
+By default, patterns match against individual subcommands. For a command to be auto-approved, all subcommands must match a `true` entry and must not match a `false` entry.
+
+For advanced scenarios, use object syntax with the `matchCommandLine` property to match against the full command line instead of individual subcommands.
+
+Related settings:
+
+* `setting(chat.tools.terminal.enableAutoApprove)`: permanently disable auto-approve functionality
+* `setting(chat.tools.terminal.blockDetectedFileWrites)` (experimental): detection of file writes (experimental)
+* `setting(chat.tools.terminal.ignoreDefaultAutoApproveRules)` (experimental): disable all default rules (both allow and block), giving full control over all rules.
+
+> [!CAUTION]
+> Automatically approving terminal commands provides _best effort_ protections and assumes the agent is not acting maliciously. It's important to protect yourself from prompt injection when you enable terminal auto approve, as it might be possible for some commands to slip through. Here are some examples where the detection can fall over:
+>
+> * VS Code uses PowerShell and bash tree sitter grammars to extract sub-commands, so patterns are not detected if these grammars don't detect them.
+> * VS Code uses bash grammar because there is no zsh or fish grammar, so some sub-commands are not detected.
+> * Detection of file writes is currently minimal, so it might be possible to write to files with the terminal that would not be possible by using the file editing agent tools.
+> * Subverting auto approval is possible through various techniques such as quote concatenation. For example `find -exec` is normally blocked, but `find -e"x"ec` is not, despite doing the same thing.
+>
+> If prompt injection is a possibility or you're in a high-risk environment, consider [enabling terminal sandboxing](#sandbox-terminal-commands) or running VS Code within a container.
+
+### Sandbox terminal commands
+
+> [!NOTE]
+> Terminal sandboxing is currently in preview and is only supported on macOS and Linux. On Windows, the sandbox settings have no effect.
+
+Terminal sandboxing restricts file system and network access for commands executed by the agent. When sandboxing is enabled, terminal commands are auto-approved without requiring user confirmation, because they run in a controlled environment.
+
+To enable terminal sandboxing, set the `setting(chat.tools.terminal.sandbox.enabled)` setting to `true`.
+
+When sandboxing is enabled:
+
+* Commands have read and write access to the current working directory by default
+* Network access is blocked for all domains by default
+* Commands run without the standard confirmation dialog
+
+#### Configure file system access
+
+Use the `setting(chat.tools.terminal.sandbox.linuxFileSystem)` or `setting(chat.tools.terminal.sandbox.macFileSystem)` setting to control file system access:
+
+```jsonc
+{
+  "chat.tools.terminal.sandbox.macFileSystem": {
+    // Allow writes to the working directory
+    "allowWrite": ["."],
+    // Block writes to specific subdirectories
+    "denyWrite": ["./secrets/"],
+    // Block reads from specific paths
+    "denyRead": ["/etc/passwd"]
+  }
+}
+```
+
+The `denyWrite` and `denyRead` rules take precedence over `allowWrite` rules.
+
+#### Configure network access
+
+Use the `setting(chat.tools.terminal.sandbox.network)` setting to allow specific domains:
+
+```jsonc
+{
+  "chat.tools.terminal.sandbox.network": {
+    // Allow network access to specific domains
+    "allowedDomains": ["api.github.com", "*.npmjs.org"],
+    // Include domains from the Trusted Domains list
+    "allowTrustedDomains": true
+  }
+}
+```
+
+By default, network access is blocked for all domains when sandboxing is enabled.
+
+When `allowTrustedDomains` is set to `true`, the domains from your [Trusted Domains](/docs/editing/editingevolved.md#outgoing-link-protection) list are automatically included in the allowed domains for network access. The sandbox configuration updates automatically when the Trusted Domains list changes.
+
+## Group tools with tool sets
+
+A tool set is a collection of tools that you can reference as a single entity in your prompts. Tool sets help you organize related tools and make them easier to use in a chat prompt, [prompt files](/docs/copilot/customization/prompt-files.md), and [custom chat agents](/docs/copilot/customization/custom-agents.md). Some of the built-in tools are part of predefined tool sets, such as `#edit` and `#search`.
+
+### Create a tool set
+
+To create a tool set:
+
+1. Run the **Chat: Configure Tool Sets** command from the Command Palette and select **Create new tool sets file**.
+
+    Alternatively, select **Configure Chat** in the Chat view > **Tool Sets** > **Create new tool sets file**.
+
+    ![Screenshot showing the Chat view and Configure Chat menu, highlighting the Configure Chat button.](../images/customization/configure-chat-instructions.png)
+
+1. Define your tool set in the `.jsonc` file that opens.
+
+    A tool set has the following structure:
+
+    ```json
+    {
+        "reader": {
+            "tools": [
+                "changes",
+                "codebase",
+                "problems",
+                "usages"
+            ],
+            "description": "Tools for reading and gathering context",
+            "icon": "book"
+        }
+    }
+    ```
+
+    Tool set properties:
+
+    * `tools`: Array of tool names (built-in tools, MCP tools, or extension tools)
+    * `description`: Brief description displayed in the tools picker
+    * `icon`: Icon for the tool set (see [Product Icon Reference](/api/references/icons-in-labels.md))
+
+### Use a tool set
+
+Reference a tool set in your prompts by typing `#` followed by the tool set name:
+
+* `"Analyze the codebase for security issues #reader"`
+* `"Where is the DB connection string defined? #search"`
+
+In the tools picker, tool sets are available as collapsible groups of related tools. You can select or deselect entire tool sets to quickly enable or disable multiple related tools at once.
+
+## Frequently asked questions
+
+### How do I know which tools are available?
+
+Type `#` in the chat input field to see a list of all available tools. You can also use the tools picker in chat to view and manage the list of active tools.
+
+### I'm getting an error that says "Cannot have more than 128 tools per request."
+
+A chat request can have a maximum of 128 tools enabled at a time. If you see an error about exceeding 128 tools per request:
+
+* Open the tools picker in the Chat view and deselect some tools or entire MCP servers to reduce the count.
+
+* Alternatively, enable virtual tools with the `setting(github.copilot.chat.virtualTools.threshold)` setting to automatically manage large tool sets.
+
+### Why isn't the agent using Command Prompt as the terminal shell?
+
+The agent uses the shell you have configured as the default for the terminal, except when it's cmd. This is because [shell integration](https://code.visualstudio.com/docs/terminal/shell-integration) is not supported with Command Prompt, which means the agent has very limited visibility into what's going on inside the terminal. Instead of getting direct signals for when commands are being run or have finished running, the agent needs to rely on timeouts and watching for the terminal to idle to continue. This leads to a slow and flaky experience.
+
+You can still configure the agent to use Command Prompt with the `setting(chat.tools.terminal.terminalProfile.windows)` setting, however this will result in an inferior experience compared to using PowerShell.
+
+```json
+"chat.tools.terminal.terminalProfile.windows": {
+  "path": "C:\\WINDOWS\\System32\\cmd.exe"
+}
+```
+
+### Can I automatically approve all tools and terminal commands?
+
+You have several options for auto-approving tool calls:
+
+* **Permission level**: select the **Bypass Approvals** or **Autopilot** permission level from the [permissions picker](#permission-levels) to auto-approve all tools for the current session.
+* **Global setting**: enable the `setting(chat.tools.global.autoApprove)` setting to auto-approve all tools across all your workspaces. You can also toggle this directly from chat by using the `/yolo` or `/autoApprove` slash command to enable it, or `/disableYolo` or `/disableAutoApprove` to disable it. The first time you enable global auto-approval, a warning dialog asks you to confirm.
+
+> [!CAUTION]
+> Both approaches disable manual approval prompts, including for potentially destructive actions. They remove critical security protections and make it easier for an attacker to compromise the machine. Only use these options if you understand the implications. See the [Security documentation](/docs/copilot/security.md) for more details.
+>
+> The `setting(chat.tools.global.autoApprove)` setting applies globally across all your workspaces. Use a session-scoped [permission level](#permission-levels) if you prefer to limit auto-approval to the current session.
+
+### What's the difference between tools and chat participants?
+
+Chat participants are specialized assistants that enable you to ask domain-specific questions in chat. Imagine a chat participant as a domain expert to whom you hand off your chat request and it takes care of the rest.
+
+Tools are invoked as part of an agent flow to contribute and perform specific tasks. You can include multiple tools in a single chat request, but only one chat participant can be active at a time.
+
+### Can I create my own tools?
+
+Yes. You can create tools in two ways:
+
+* **Develop a VS Code extension** that contributes tools using the [Language Model Tools API](/api/extension-guides/ai/tools.md)
+* **Create an MCP server** that provides tools. See the [MCP developer guide](/docs/copilot/guides/mcp-developer-guide.md)
+
+## Related resources
+
+* [Chat tools reference](/docs/copilot/reference/copilot-vscode-features.md#chat-tools)
+* [Agent hooks](/docs/copilot/customization/hooks.md) - Execute custom commands at tool lifecycle events
+* [Security considerations for using AI in VS Code](/docs/copilot/security.md)

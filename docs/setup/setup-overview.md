@@ -1,6 +1,6 @@
 ---
 ContentId: FC5262F3-D91D-4665-A5D2-BCBCCF66E53A
-DateApproved: 01/08/2026
+DateApproved: 3/18/2026
 MetaDescription: Get Visual Studio Code up and running.
 MetaSocialImage: images/quicksetup/quick-setup-social.png
 ---
@@ -9,6 +9,13 @@ MetaSocialImage: images/quicksetup/quick-setup-social.png
 VS Code is a free code editor, which runs on the macOS, Linux, and Windows operating systems. Getting up and running with Visual Studio Code is quick and easy. It is a small download so you can install in a matter of minutes and give VS Code a try.
 
 VS Code is lightweight and should run on most available hardware and platform versions. You can review the [System Requirements](/docs/supporting/requirements.md) to check if your computer configuration is supported.
+
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
+Follow a hands-on tutorial to build your first app with AI in VS Code.
+
+* [Start tutorial](/docs/copilot/getting-started.md)
+
+</div>
 
 ## Set up VS Code for your platform
 
@@ -19,7 +26,7 @@ VS Code is lightweight and should run on most available hardware and platform ve
     * [Windows](/docs/setup/windows.md)
 
     > [!NOTE]
-    > VS Code ships monthly releases and supports [auto-update](#update-cadence) when a new release is available.
+    > VS Code ships weekly releases and supports [auto-update](#update-cadence) when a new release is available.
 
 1. [Install additional components](/docs/setup/additional-components.md)
 
@@ -40,7 +47,7 @@ VS Code is lightweight and should run on most available hardware and platform ve
 
 ## Update cadence
 
-VS Code releases a new version [each month](/updates) with new features and important bug fixes. Most platforms support auto updating and you are prompted to install the new release when it becomes available.
+VS Code releases a new version [each week](/updates) with new features and important bug fixes. Most platforms support auto updating and you are prompted to install the new release when it becomes available.
 
 You can also manually check for updates by running **Help** > **Check for Updates** on Linux and Windows, or running **Code** > **Check for Updates** on macOS.
 
@@ -49,7 +56,9 @@ You can also manually check for updates by running **Help** > **Check for Update
 
 ## Insiders nightly build
 
-If you'd like to try our nightly builds to see new features early or verify bug fixes, you can install our [Insiders build](/insiders). The Insiders build installs side-by-side with the monthly Stable build and you can freely work with either on the same machine. The Insiders build is the same one the VS Code development team uses on a daily basis and we really appreciate people trying out new features and providing feedback.
+If you'd like to try our nightly builds to see new features early or verify bug fixes, you can install our [Insiders build](/insiders). The Insiders build installs side-by-side with the weekly Stable build and you can freely work with either on the same machine. The Insiders build is the same one the VS Code development team uses on a daily basis and we really appreciate people trying out new features and providing feedback.
+
+Because Insiders builds are released nightly, multiple builds often share the same product version number. To uniquely identify a specific Insiders build, use the commit ID shown in the **About** dialog in addition to the version number.
 
 ## Portable mode
 
@@ -79,7 +88,7 @@ VS Code doesn't include a traditional **File** > **New Project** dialog or pre-i
 
 ### How do I know which version I'm running?
 
-On Linux and Windows, choose **Help** > **About**. On macOS, use **Code** > **About Visual Studio Code**.
+On Linux and Windows, choose **Help** > **About**. On macOS, use **Code** > **About Visual Studio Code**. The **About** dialog shows the version number and the commit ID. For Insiders builds, multiple builds can share the same version number, so use the commit ID to uniquely identify your build.
 
 ### Why is VS Code saying my installation is unsupported?
 

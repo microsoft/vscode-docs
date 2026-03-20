@@ -1,12 +1,19 @@
 ---
 ContentId: a18e245e-af72-4d0f-b322-fa1030af5284
-DateApproved: 01/08/2026
+DateApproved: 3/18/2026
 MetaDescription: Set up Copilot in VS Code
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
 # Set up Visual Studio Code with Copilot
 
 Welcome to AI-powered development with Visual Studio Code! Follow the steps in this guide to get started in minutes.
+
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
+Follow a hands-on tutorial to build your first app with AI in VS Code.
+
+* [Start tutorial](/docs/copilot/getting-started.md)
+
+</div>
 
 ## Set up Copilot in VS Code
 
