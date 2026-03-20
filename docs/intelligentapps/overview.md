@@ -100,7 +100,7 @@ AI Toolkit opens in its own view, with the AI Toolkit icon displayed on the VS C
   - **Model Playground**: The model playground provides an interactive environment to experiment with generative AI models.
   - **Model Conversion**: The model conversion tool helps you convert, quantize, optimize, and evaluate the prebuilt machine learning models on your local Windows platform.
   - **Fine-tuning**: This tool allows you to use your custom dataset to run fine-tuning jobs on a pre-trained model in a local computing environment with GPU or in the cloud (Azure Container Apps) with GPU.
-  - **Monitor**: This section is where you can find the tools available to deploy and then work with your deployed agents in AI Toolkit. It contains the following subsections:
+  - **Monitor**: This section is where you monitor and analyze the performance of your AI applications. It contains the following subsections:
     - **Tracing**: Trace capabilities to help you monitor and analyze the performance of your AI applications.
     - **Evaluation**: Evaluate models, prompts, and agents by comparing their outputs to ground truth data and computing evaluation metrics.
     - **Profiling (Windows ML)(Preview)**: This tool allows you to diagnose the CPU, GPU, NPU resource usages of the process, ONNX model on different execution providers, and Windows Machine Learning events.
