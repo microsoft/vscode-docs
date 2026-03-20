@@ -114,7 +114,7 @@ Organizations can also use device management policies to enforce manual approval
 
 ### URL approval
 
-When a tool attempts to access a URL, such as with the `#fetch` tool, a two-step approval process is used to protect you from malicious or unexpected content. VS Code shows a confirmation dialog with the URL details for your review in the Chat view.
+When a tool attempts to access a URL, such as with the `#web/fetch` tool, a two-step approval process is used to protect you from malicious or unexpected content. VS Code shows a confirmation dialog with the URL details for your review in the Chat view.
 
 * **Pre-approval: approving the request to the URL**
 
@@ -309,10 +309,10 @@ To create a tool set:
     {
         "reader": {
             "tools": [
-                "changes",
-                "codebase",
-                "problems",
-                "usages"
+                "search/changes",
+                "search/codebase",
+                "read/problems",
+                "search/usages"
             ],
             "description": "Tools for reading and gathering context",
             "icon": "book"
