@@ -75,56 +75,40 @@ You can also install AI Toolkit extension manually from the Visual Studio Code M
 
 ## Explore AI Toolkit
 
-AI Toolkit opens in its own view, with the AI Toolkit icon now displayed on the VS Code Activity Bar. The extension has several main sections: My Resources, Model Tools, Agent and Workflow Tools, Build Agent with GitHub Copilot, and Help and Feedback.
+AI Toolkit includes the Foundry sidebar directly, so you manage your Microsoft Foundry resources and AI Toolkit features in one place.
+
+> [!NOTE]
+> The Foundry sidebar retires on June 1, 2026. All Foundry sidebar features are now available in the AI Toolkit sidebar.
+
+AI Toolkit opens in its own view, with the AI Toolkit icon displayed on the VS Code Activity Bar. The extension has three main sections: My Resources, Developer Tools, and Help and Feedback.
 
 ![Screenshot showing the AI Toolkit Extension with highlighted sections."](./images/overview/initial-view.png)
 
 - **My Resources**: This section contains the resources you have access to in AI Toolkit. The **My Resources** section is the main view for interacting with your Azure AI resources. It contains the following subsections:
-  - **Models**: This section contains the models you can use to build and deploy for your AI applications. The **Models** view is where you can find your deployed models in AI Toolkit.
-  - **Agents**: This section contains your AI Toolkit deployed agents.
-  - **Tools**: This section contains the tools you're working with in AI Toolkit.
-
-- **Model Tools**: This section contains the model tools you can use to build and deploy your AI applications. The **Model Tools** view is where you can find the tools available to deploy and then work with your deployed models. It contains the following subsections:
-
-  - **Model Catalog**: The model catalog lets you discover and access AI models from multiple sources including GitHub, ONNX, Ollama, OpenAI, Anthropic, and Google. Compare models side-by-side and find the right model for your use case.
-  - **Model Playground**: The model playground provides an interactive environment to experiment with generative AI models.
-  - **Conversion**: The model conversion tool helps you convert, quantize, optimize, and evaluate the prebuilt machine learning models on your local Windows platform.
-  - **Fine-tuning**: This tool allows you to use your custom dataset to run fine-tuning jobs on a pretrained model in a local computing environment with GPU or in the cloud (Azure Container Apps) with GPU.
-  - **Profiling (Windows ML)(Preview)**: This tool allows you to diagnose the CPU, GPU, NPU resource usages of the process, ONNX model on different execution providers, and Windows Machine Learning events.
-
-- **Agent and Workflow Tools**: This section is where you can find the tools available to deploy and then work with your deployed agents in AI Toolkit. It contains the following subsections:
-  - **Agent Builder**:  Create and deploy agents easily.
-  - **Tool Catalog**: Browse and manage the tools available in AI Toolkit.
+  - **Local Resources**: This section contains the AI resources you have on your local machine, such as local models, agents, and tools.
+  - **Your Foundry Project** This section shows the Microsoft Foundry project connected to AI Toolkit. Use your Foundry project to manage and deploy AI resources, such as deployed models, prompt agents, hosted agents, connections, tools, vector stores, and classic agents.
+  - **Connected Resources**: This section contains the resources that are connected to AI Toolkit from providers such as GitHub models.
+- **Developer Tools**: This section contains the tools you can use to build and deploy your AI applications. The **Developer Tools** view is where you can find the tools available to deploy and then work with your deployed models and agents. It contains the following subsections:
+  - **Discover**: This section contains tools to help you discover and manage AI models and tools. It contains the following subsections:
+    - **Model Catalog**: The model catalog lets you discover and access AI models from multiple sources including GitHub, ONNX, Ollama, OpenAI, Anthropic, and Google. Compare models side-by-side and find the right model for your use case.
+    - **Tool Catalog**: Browse and manage the tools available in AI Toolkit.
+- **Build**: This section is where you can find the tools available to deploy and then work with your deployed agents in AI Toolkit. It contains the following subsections:
+  - **Create Agent**:  Create and deploy agents easily.
   - **Agent Inspector**: Debug, visualize, and iterate on AI agents directly within VS Code.
-  - **Bulk Run**: Test agents and prompts against multiple test cases in batch mode.
-  - **Evaluation**: Evaluate models, prompts, and agents by comparing their outputs to ground truth data and computing evaluation metrics.
-  - **Tracing**: Trace capabilities to help you monitor and analyze the performance of your AI applications.
-
-- **Build Agent with GitHub Copilot**: This section enables you to use GitHub Copilot to help you build AI agents faster with AI Toolkit. It contains the following subsections:
-  - **Create Agent**: Opens the Chat view and creates a prompt to build an AI agent with a Console application using GitHub Copilot.
-  - **Workflows**: This section contains tools to help you create and orchestrate workflows. It contains the following tools:
-    - **New Workflow**: Creates a new workflow.
-    - **Orchestrate Foundry Agents**: Orchestrate a workflow using Foundry Agents.
-    - **More Tools**
-      - **Enable Tracing**: Opens the Chat view and creates a prompt to add tracing to the current workspace using GitHub Copilot.
-      - **Add Evaluation Framework**: Opens the Chat view and creates a prompt to add the evaluation framework to the current workspace using GitHub Copilot.
-
-- **Help and Feedback**: This section contains links to the Microsoft Foundry documentation, feedback, support, and the Microsoft Privacy Statement. It contains the following subsections:
-  - **Documentation**: The link to the Microsoft Foundry Extension documentation.
-  - **Resources**: The link to the AI Toolkit Tutorials Gallery, a collection of tutorials to help you get started with AI Toolkit.
-  - **Get Started**: The link to the getting started walkthrough to help you learn the basics of AI Toolkit.
+  - **Deploy to Microsoft Foundry**: Deploy your local agent to Microsoft Foundry as a hosted agent.
+  - **Hosted Agent Playground**: The hosted agent playground provides an interactive environment to experiment with your hosted agents.
+  - **Model Playground**: The model playground provides an interactive environment to experiment with generative AI models.
+  - **Model Conversion**: The model conversion tool helps you convert, quantize, optimize, and evaluate the prebuilt machine learning models on your local Windows platform.
+  - **Fine-tuning**: This tool allows you to use your custom dataset to run fine-tuning jobs on a pre-trained model in a local computing environment with GPU or in the cloud (Azure Container Apps) with GPU.
+  - **Monitor**: This section is where you can find the tools available to deploy and then work with your deployed agents in AI Toolkit. It contains the following subsections:
+    - **Tracing**: Trace capabilities to help you monitor and analyze the performance of your AI applications.
+    - **Evaluation**: Evaluate models, prompts, and agents by comparing their outputs to ground truth data and computing evaluation metrics.
+    - **Profiling (Windows ML)(Preview)**: This tool allows you to diagnose the CPU, GPU, NPU resource usages of the process, ONNX model on different execution providers, and Windows Machine Learning events.
+- **Help and Feedback**: This section contains links to the AI Toolkit documentation, feedback, support, and the Microsoft Privacy Statement. It contains the following subsections:
+  - **View Documentation**: The link to the AI Toolkit documentation.
   - **What's New**: The link to the AI Toolkit release notes.
-  - **Report Issues on GitHub**: The link to the Microsoft Foundry extension GitHub repository issues page.
-
-## Get started with AI Toolkit
-
-The AI Toolkit has a getting started walkthrough that you can use to learn the basics of the AI Toolkit. The walkthrough takes you through the playground, where you can use chat to interact with AI models.
-
-1. Select the AI Toolkit view in the Activity Bar
-
-1. In the **Help and Feedback** section, select **Get Started** to open the walkthrough
-
-    ![Screenshot showing the AI Toolkit view in the Side Bar, and the getting started walkthrough.](./images/overview/get-started.png)
+  - **Report Issues**: The link to the AI Toolkit GitHub repository issues page.
+  - **Join Community**: Join the AI Toolkit community to share feedback and connect with other users and the AI Toolkit team.
 
 ## Next steps
 
