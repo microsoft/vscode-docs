@@ -62,20 +62,7 @@ When you start a chat session, the following choices shape how the AI responds:
 * **Session type**: determines where the agent runs (locally, in the background, or in the cloud). Learn more about [agent types](/docs/copilot/agents/overview.md#types-of-agents).
 * **Agent**: determines the role or persona of the AI, such as Agent, Plan, or Ask. Learn more about [choosing an agent](/docs/copilot/agents/overview.md#choose-an-agent).
 * **Permission level**: controls how much autonomy the agent has over tool approvals. Learn more about [permission levels](/docs/copilot/agents/overview.md#choose-a-permission-level).
-* **Language model**: determines which AI model powers the conversation. See [Choose a language model](#choose-a-language-model).
-
-### Choose a language model
-
-VS Code offers different language models, each optimized for different tasks. Some models are designed for fast coding tasks, while others excel at complex reasoning and planning. Use the model dropdown in the chat input field to select the model that best fits your needs.
-
-![Screenshot of the language model dropdown in the Chat view, showing a dropdown list of available models.](images/copilot-chat/chat-model-picker.png)
-
-For models that support reasoning, you can configure the [thinking effort level](/docs/copilot/customization/language-models.md#configure-thinking-effort) directly from the model picker to control how much reasoning the model applies.
-
-You can also add models from other providers and use them in chat. Learn more about [language models in VS Code](/docs/copilot/customization/language-models.md).
-
-> [!NOTE]
-> The list of available models might vary based on your Copilot subscription and might change over time. For more information about the [available language models](https://docs.github.com/en/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat?tool=vscode), see the GitHub Copilot documentation.
+* **Language model**: determines which AI model powers the conversation. Learn more about [language models in VS Code](/docs/copilot/customization/language-models.md).
 
 ## Add context to your prompts
 
