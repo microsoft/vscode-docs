@@ -190,7 +190,7 @@ Now we need a place to store the grocery list items. For simplicity, let's start
 3. Add the following route at the end of the `main.py` file:
 
     ```python
-    # Route to add a item
+    # Route to add an item
     @app.post("/items/{item_name}/{quantity}")
     def add_item(item_name: str, quantity: int):
         if quantity <= 0:
