@@ -23,10 +23,9 @@ VS Code supports several mechanisms to configure AI behavior for your project. E
 
 | Mechanism | Best for | Get started |
 |-----------|----------|-------------|
-| [Custom instructions](/docs/copilot/customization/custom-instructions.md) | Project-wide coding standards and architectural context | Enter `/init` to generate a base file |
-| [Prompt files](/docs/copilot/customization/prompt-files.md) | Reusable prompts for recurring tasks (reviews, scaffolding) | Enter `/prompts` to manage |
-| [Custom agents](/docs/copilot/customization/custom-agents.md) | Specialized workflows or personas (TDD, security audit) | Enter `/agents` to manage |
-| [Agent skills](/docs/copilot/customization/agent-skills.md) | Domain-specific capabilities (testing, deployment) | Enter `/skills` to manage |
+| [Custom instructions](/docs/copilot/customization/custom-instructions.md) | Project-wide coding standards and architectural context | Type `/init` to generate always-on instructions for your project |
+| [Custom agents](/docs/copilot/customization/custom-agents.md) | Specialized workflows or personas (TDD, security audit) | Type `/create-agent <description>` to generate a custom agent |
+| [Skills](/docs/copilot/customization/agent-skills.md) | Domain-specific capabilities (testing, deployment) | Type `/create-skill <description>` to generate a skill |
 | [Tools and MCP servers](/docs/copilot/agents/agent-tools.md) | Connecting to external systems (databases, APIs, CLIs) | Configure in `mcp.json` |
 
 Tips for effective project configuration:
@@ -49,6 +48,22 @@ AI in VS Code offers several interaction modes. Choosing the right one for the t
 | [Agents](/docs/copilot/agents/overview.md) | Multi-file changes that require autonomous planning and tool use | Implementing a feature end-to-end |
 | [Plan](/docs/copilot/agents/planning.md) | Structured planning before implementation | Designing an architecture or migration strategy |
 | [Smart actions](/docs/copilot/copilot-smart-actions.md) | Built-in, specialized one-step tasks | Generating commit messages, fixing errors, renaming symbols |
+
+## Choose the right agent type
+
+When working with agents, pick the agent type that matches your task and workflow. Each type trades off interactivity, speed, and isolation differently.
+
+* **Use local agents for interactive work.** Local agents run in your editor with full access to your workspace, tools, and extensions. Choose them when you need to iterate quickly, review changes as they happen, or use VS Code-specific tools like the [integrated browser](/docs/debugtest/integrated-browser.md) or MCP servers.
+
+* **Offload well-defined tasks to background agents.** Use [Copilot CLI](/docs/copilot/agents/copilot-cli.md) or [cloud agents](/docs/copilot/agents/cloud-agents.md) when the task is clear enough that you don't need to watch every step.
+
+* **Use cloud agents for team collaboration.** [Cloud agents](/docs/copilot/agents/cloud-agents.md) run remotely and create pull requests, making them ideal for tasks that benefit from team review or when you want to assign a GitHub issue directly to an agent.
+
+* **Run parallel sessions for independent tasks.** Spin up multiple agent sessions, across local, background, and cloud environments, to work on unrelated tasks simultaneously. Monitor them from the [sessions list](/docs/copilot/chat/chat-sessions.md#sessions-list).
+
+* **Hand off between agent types.** Start interactively with a local agent to explore and plan, then [hand off](/docs/copilot/agents/overview.md#hand-off-a-session-to-another-agent) to a background or cloud agent for implementation. The conversation history carries over.
+
+For more information, see [using agents](/docs/copilot/agents/overview.md) and the [agents tutorial](/docs/copilot/agents/agents-tutorial.md).
 
 ## Write effective prompts
 
@@ -152,6 +167,8 @@ AI responses might degrade as the conversation fills with irrelevant context. Ma
 * **Start new sessions for unrelated tasks.** Don't keep piling unrelated questions into one conversation. Context pollution reduces response quality.
 
 * **Remove irrelevant history.** Delete past questions and responses that are no longer relevant, or start a fresh session.
+
+* **Compact context.** Use [/compact](/docs/copilot/chat/copilot-chat-context.md#context-compaction) and provide instructions to selectively compact the context and retain only the most relevant information.
 
 * **Use subagents for investigation.** Hint the AI to perform research and exploration in isolation by using [subagents](/docs/copilot/agents/subagents.md) so the findings don't clutter your main context.
 
