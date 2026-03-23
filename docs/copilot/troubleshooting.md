@@ -52,8 +52,7 @@ VS Code provides different tools to inspect what happens when you send a prompt 
 
     To open the Agent Debug Log panel:
 
-    1. Select the gear icon in the Chat view.
-    1. Select **Show Agent Debug Logs**.
+    1. Select the ellipsis (**...**) menu in the Chat view and select **Show Agent Debug Logs**.
 
     From the Agent Debug Log panel, you can attach a snapshot of the agent debug events to a chat conversation to ask the AI questions about the session and troubleshoot a specific interaction.
 

@@ -255,27 +255,33 @@ You can create a custom agent file in your workspace or user profile.
 > [!TIP]
 > Type `/agents` in the chat input to quickly open the **Configure Custom Agents** menu.
 
-1. Select **Configure Custom Agents** from the agents dropdown and then select **Create new custom agent** or run the **Chat: New Custom Agent** command in the Command Palette (`kb(workbench.action.showCommands)`).
+1. In the Chat view, select **Configure Chat** (gear icon) to open the Chat Customizations editor and then select the **Agents** tab.
 
-1. Choose the location where the custom agent file should be created.
+1. Select **New Agent (Workspace)** or **New Agent (User)** from the dropdown, depending on where you want to store the agent file.
+
+    ![Screenshot of the Chat Customizations editor, showing the Agents tab and the dropdown to create a new custom agent.](../images/customization/create-custom-agent.png)
+
+    Alternatively, run the **Chat: New Custom Agent** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
     > [!TIP]
     > You can configure additional locations where VS Code searches for custom agent files by using the `setting(chat.agentFilesLocations)` setting. This is useful for sharing agents across projects or keeping them in a central location outside your workspace.
 
-1. Enter a file name for the custom agent. This is the default name that appears in the agents dropdown.
+1. Select the location and enter a file name for the custom agent. This is the default name that appears in the agents dropdown.
 
 1. Provide the details for the custom agent in the newly created `.agent.md` file.
 
     * Fill in the YAML frontmatter at the top of the file to configure the custom agent's name, description, tools, and other settings.
     * Add instructions for the custom agent in the body of the file.
 
-To update a custom agent definition file, select **Configure Custom Agents** from the agents dropdown, and then select a custom agent from the list to modify it.
+You can modify existing custom agents by opening them in the Chat Customizations editor.
 
 ### Generate a custom agent with AI
 
 You can use AI to generate a custom agent based on a description of the role. Type `/create-agent` in Agent mode chat and describe the persona you want (for example, "a security review agent"). The agent asks clarifying questions and generates an `.agent.md` file with appropriate tools, instructions, and frontmatter.
 
 You can also extract a custom agent from an ongoing conversation. For example, after a multi-turn debugging session, ask "make an agent for this kind of task" to capture the workflow as a reusable custom agent.
+
+You can also generate a custom agent from the Chat Customizations editor by selecting **Generate Agent** from the dropdown.
 
 ## Customize the agents dropdown list
 

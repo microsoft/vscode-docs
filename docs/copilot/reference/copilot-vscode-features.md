@@ -221,6 +221,8 @@ Customize your chat experience to generate responses that match your coding styl
 
 * [Custom agents](/docs/copilot/customization/custom-agents.md): Define how chat operates, which tools it can use, and how it interacts with the codebase. Each chat prompt is run within the boundaries of the agent, without having to configure tools and instructions for every request.
 
+Use the [Chat Customizations editor](/docs/copilot/customization/overview.md#chat-customizations-editor) (Preview) to discover, create, and manage all your customizations in one place. Select **Configure Chat** (gear icon) in the Chat view, or run **Chat: Open Chat Customizations** from the Command Palette.
+
 > **Tips**
 >
 > * Define language-specific instructions to get more accurate generated code for each language.

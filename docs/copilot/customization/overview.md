@@ -34,7 +34,9 @@ Follow a hands-on walkthrough to customize AI for your project.
 
 </div>
 
-To access customizations, select the **Configure Chat (gear icon)** in the Chat view.
+To access customizations, select the **Configure Chat (gear icon)** in the Chat view to open the [Chat Customizations editor](#chat-customizations-editor).
+
+![Screenshot of the Chat Customizations editor, showing the sidebar with customization categories and the main view listing custom agents.](../images/customization/chat-customizations-editor.png)
 
 ## Customization scenarios
 
@@ -115,15 +117,15 @@ Conditions for parent repository discovery:
 > [!NOTE]
 > The Chat Customizations editor is currently in preview.
 
-The Chat Customizations editor provides a centralized UI for discovering, creating, and managing all your customizations in one place. From the editor, you can browse customization categories (agents, skills, instructions, prompts, hooks, MCP servers, plugins), create new items with optional AI-guided generation, and edit existing customizations in an embedded code editor. The **Plugins** page lists your installed [agent plugins](/docs/copilot/customization/agent-plugins.md) and lets you install new plugins from source with the **+** button. You can also [enable or disable MCP servers](/docs/copilot/customization/mcp-servers.md#enable-or-disable-mcp-servers) and [plugins](/docs/copilot/customization/agent-plugins.md#enable-or-disable-plugins) directly from the editor. Disabled items appear with a dimmed style and a status indicator.
-
-To open the Chat Customizations editor, run **Chat: Open Chat Customizations** from the Command Palette (`kb(workbench.action.showCommands)`).
+The Chat Customizations editor provides a centralized UI for discovering, creating, and managing all your customizations in one place. From the editor, you can browse customization categories (agents, skills, instructions, prompts, hooks, MCP servers, plugins), create new items with optional AI-guided generation, and edit existing customizations in an embedded code editor.
 
 ![Screenshot of the Chat Customizations editor, showing the sidebar with customization categories and the main view listing custom agents.](../images/customization/chat-customizations-editor.png)
 
+To open the Chat Customizations editor, run **Chat: Open Chat Customizations** from the Command Palette (`kb(workbench.action.showCommands)`) or select the **Configure Chat (gear icon)** in the Chat view.
+
 ## Troubleshoot customization issues
 
-If your customizations aren't being applied or cause unexpected behavior, select **Configure Chat (gear icon)** > **Show Agent Debug Logs** in the Chat view to [troubleshoot agent issues](/docs/copilot/troubleshooting.md).
+If your customizations aren't being applied or cause unexpected behavior, select the ellipsis (**...**) menu in the Chat view and select **Show Agent Debug Logs** to [troubleshoot agent issues](/docs/copilot/troubleshooting.md).
 
 ## Related resources
 
