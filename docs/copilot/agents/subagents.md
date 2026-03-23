@@ -105,6 +105,8 @@ Consolidate findings into a single review summary.
 
 Subagents are typically **agent-initiated**, not directly invoked by users in chat. To allow the main agent to invoke subagents, make sure the `runSubagent` tool is enabled.
 
+By default, subagents themselves cannot invoke further subagents. To enable recursive nesting, configure the `setting(chat.subagents.maxDepth)` setting. Learn more in [Nested subagents](#nested-subagents).
+
 The main agent decides when context isolation helps. You don't need to manually type "run a subagent" for every task. The pattern works like this:
 
 1. You (or your custom agent's instructions) describe a complex task.
@@ -195,6 +197,39 @@ Implement the following feature using test-driven development. Use subagents to 
 2. Use the Green agent to implement code to pass the tests
 3. Use the Refactor agent to improve the code quality
 ```
+
+## Nested subagents
+
+By default, subagents cannot spawn further subagents. This prevents infinite recursion when agents accidentally call themselves in a loop. However, some workflows benefit from recursive delegation, for example, a divide-and-conquer agent that splits a large task into smaller pieces and delegates each piece to itself.
+
+To enable nested subagents, configure the `setting(chat.subagents.maxDepth)` setting. This setting controls how many levels deep subagents can nest:
+
+* **0** (default): subagents cannot spawn further subagents.
+* **1**: a subagent can spawn its own subagents, but those subagents cannot spawn further ones.
+* **Higher values**: each level allows one more layer of nesting, up to a maximum of 20.
+
+For example, with `chat.subagents.maxDepth` set to `3`, the main agent can spawn a subagent (depth 1), which can spawn another subagent (depth 2), which can spawn one more (depth 3). The subagent at depth 3 cannot spawn any further subagents.
+
+### Example: recursive agent
+
+A recursive agent lists itself in its own `agents` property. This enables divide-and-conquer patterns where the agent breaks a problem into smaller parts and delegates each part to a new instance of itself.
+
+```markdown
+---
+name: RecursiveProcessor
+tools: ['agent', 'read', 'search']
+agents: [RecursiveProcessor]
+argument-hint: A list of items to process
+---
+
+You process a list of items by dividing and conquering:
+- If the list has more than 4 items, split it in half and delegate each half to a RecursiveProcessor subagent.
+- If the list has 4 or fewer items, process the items directly.
+- Merge the results from each subagent into a final result.
+```
+
+> [!IMPORTANT]
+> Set `setting(chat.subagents.maxDepth)` to a value large enough for your recursion depth. For example, processing 16 items with a split factor of 2 requires at least a depth of 4.
 
 ## Orchestration patterns
 
