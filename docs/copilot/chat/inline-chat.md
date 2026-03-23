@@ -34,6 +34,14 @@ To use editor inline chat:
 > [!TIP]
 > Attach context to your inline chat prompt to include relevant files, code symbols, or other context. Learn more about [adding context to your chat prompt](/docs/copilot/chat/copilot-chat-context.md).
 
+### Inline chat in active editing sessions
+
+When a file belongs to an active chat editing session, pressing `kb(inlinechat.start)` opens "Ask in Chat" in the Chat view instead of regular inline chat. This routes your prompt into the existing session so it can use the full conversation context. The editor context menu also shows **Ask in Chat** instead of **Open Inline Chat** for these files.
+
+To always use regular inline chat, even for files that belong to a chat session, set `setting(inlineChat.askInChat)` to `false`.
+
+On files that don't belong to any chat session, `kb(inlinechat.start)` always opens regular inline chat, regardless of this setting.
+
 ### Show a visual hint on text selection (Experimental)
 
 When you select text in the editor, VS Code can display a visual hint to help you start inline chat for the selected code. Use the `setting(inlineChat.affordance)` setting to control how this hint appears:
