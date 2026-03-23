@@ -54,7 +54,7 @@ VS Code sets default effort levels based on evaluations and online performance d
 
 ### Thinking tokens
 
-Thinking tokens count toward the model's context window and are billed as output tokens, even though they are not visible in the response. The actual thinking output is typically returned in summarized form or can be omitted entirely for lower latency. Keep in mind that higher thinking effort levels can produce more thinking tokens, which increases both latency and cost.
+Thinking tokens count toward the model's context window, even though they are not visible in the response. The actual thinking output is typically returned in summarized form or can be omitted entirely for lower latency. Keep in mind that higher thinking effort levels can produce more thinking tokens, which can increase latency.
 
 Learn how to [configure the thinking effort level](/docs/copilot/customization/language-models.md#configure-thinking-effort) in VS Code.
 
