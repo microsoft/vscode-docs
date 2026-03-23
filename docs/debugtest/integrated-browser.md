@@ -21,6 +21,8 @@ You can open multiple browser instances simultaneously, each in its own editor t
 
 Enable the `setting(workbench.browser.openLocalhostLinks)` setting to automatically open `localhost` URLs in the integrated browser instead of your default system browser.
 
+When a browser tab is already open, the globe button in the title bar opens the [tab management](#tab-management) Quick Pick instead of creating a new browser tab. Use the `setting(workbench.browser.showInTitleBar)` setting to control whether the globe button appears in the title bar.
+
 ## Navigation
 
 The browser supports `http://`, `https://`, and `file://` URLs. Use the address bar to navigate to any URL, or use in-page links to navigate within a site.
@@ -28,6 +30,26 @@ The browser supports `http://`, `https://`, and `file://` URLs. Use the address 
 * Normal navigation and anchor links work as expected
 * `kbstyle(Ctrl+click)` (`kbstyle(Cmd+click)` on macOS) opens links in a new browser tab
 * Popups are blocked, but new tabs are allowed
+
+## Tab management
+
+Use the **Browser: Quick Open Browser Tab...** command (`kb(workbench.action.browser.quickOpen)`) to quickly switch between open browser tabs. The Quick Pick lists all open tabs grouped by editor group, and you can type to filter by tab name or URL.
+
+From the Quick Pick, you can:
+
+* Select a tab to switch to it
+* Select **New Integrated Browser Tab** to open a new browser tab
+* Select the close button on a tab to close it
+* Select the **Close All** button to close all browser tabs
+
+You can also close browser tabs with the following commands:
+
+| Command | Description |
+|---------|-------------|
+| **Browser: Close All Browser Tabs** | Close all browser tabs across all editor groups. |
+| **Browser: Close All Browser Tabs in Group** | Close all browser tabs in the current editor group. |
+
+The **Close All Browser Tabs** option is also available in the right-click context menu on browser editor tabs.
 
 ## Developer Tools
 
