@@ -38,6 +38,26 @@ When the context window fills up, VS Code automatically summarizes older parts o
 
 Learn more about [how VS Code assembles context](/docs/copilot/concepts/context.md) and [context compaction](/docs/copilot/chat/copilot-chat-context.md#context-compaction).
 
+## Thinking and reasoning
+
+Some language models can perform extended reasoning, also called "thinking", before producing a response. Instead of generating an answer immediately, a reasoning model first works through the problem internally, considering multiple approaches, evaluating trade-offs, and building a step-by-step chain of thought. This internal reasoning happens in dedicated thinking tokens that are separate from the final output.
+
+Reasoning models are especially effective for complex tasks like multi-step debugging, architectural planning, code refactoring, and mathematical or scientific analysis. For simpler tasks like generating boilerplate or answering basic questions, the extra reasoning adds latency without significant benefit.
+
+### Thinking effort
+
+Thinking effort controls how much reasoning a model applies to each request. Higher effort levels produce more thorough internal reasoning, which improves quality for complex problems. Lower effort levels reduce latency and token usage by limiting or skipping the thinking step.
+
+The available effort levels and their default values vary by model and provider. Some models also support *adaptive thinking*, where the model dynamically decides whether and how much to reason based on the complexity of each request, rather than always using a fixed thinking budget.
+
+VS Code sets default effort levels based on evaluations and online performance data, and has adaptive reasoning enabled where supported. For most use cases, the defaults work well without changes.
+
+### Thinking tokens
+
+Thinking tokens count toward the model's context window and are billed as output tokens, even though they are not visible in the response. The actual thinking output is typically returned in summarized form or can be omitted entirely for lower latency. Keep in mind that higher thinking effort levels can produce more thinking tokens, which increases both latency and cost.
+
+Learn how to [configure the thinking effort level](/docs/copilot/customization/language-models.md#configure-thinking-effort) in VS Code.
+
 ## Choose the right model
 
 Each model has different strengths. Some are optimized for speed and work well for simple completions. Others have larger context windows or better reasoning capabilities, making them ideal for complex tasks. You can switch models at any time, based on your needs for a particular task.

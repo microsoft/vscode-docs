@@ -114,6 +114,8 @@ Each AI model has different strengths. Some are better at reasoning, others exce
 
 * **Experiment and compare.** If you're not satisfied with a response, try a different model. Different models can produce significantly different results for the same prompt.
 
+* **Adjust thinking effort for reasoning models.** Use the [thinking effort control](/docs/copilot/customization/language-models.md#configure-thinking-effort) in the model picker to increase effort for complex tasks or reduce it for simpler ones.
+
 * **Use BYOK for additional control.** Bring your own API key for more model choices and hosting options.
 
 For more information, see [selecting AI models](/docs/copilot/customization/language-models.md) and [available models for Copilot Chat](https://docs.github.com/en/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat).

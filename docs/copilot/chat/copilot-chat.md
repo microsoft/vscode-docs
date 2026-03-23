@@ -70,6 +70,8 @@ VS Code offers different language models, each optimized for different tasks. So
 
 ![Screenshot of the language model dropdown in the Chat view, showing a dropdown list of available models.](images/copilot-chat/chat-model-picker.png)
 
+For models that support reasoning, you can configure the [thinking effort level](/docs/copilot/customization/language-models.md#configure-thinking-effort) directly from the model picker to control how much reasoning the model applies.
+
 You can also add models from other providers and use them in chat. Learn more about [language models in VS Code](/docs/copilot/customization/language-models.md).
 
 > [!NOTE]
