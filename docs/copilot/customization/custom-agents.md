@@ -62,7 +62,7 @@ To define handoffs in your agent file, add them to the frontmatter. Each handoff
 ```markdown
 ---
 description: Generate an implementation plan
-tools: ['search', 'fetch']
+tools: ['search', 'web']
 handoffs:
   - label: Start Implementation
     agent: implementation
@@ -130,7 +130,7 @@ The custom agent file body contains the custom agent implementation, formatted a
 
 You can reference other files by using Markdown links, for example to reuse instructions files.
 
-To reference agent tools in the body text, use the `#tool:<tool-name>` syntax. For example, to reference the `fetch` tool, use `#tool:fetch`.
+To reference agent tools in the body text, use the `#tool:<tool-name>` syntax. For example, to reference the `fetch` tool, use `#tool:web/fetch`.
 
 When you select the custom agent in the Chat view, the guidelines in the custom agent file body are prepended to the user chat prompt.
 
@@ -145,7 +145,7 @@ The following code snippet shows an example of a "Plan" custom agent file that g
 ---
 description: Generate an implementation plan for new features or refactoring existing code.
 name: Planner
-tools: ['fetch', 'search', 'usages']
+tools: ['web/fetch', 'search/codebase', 'search/usages']
 model: ['Claude Opus 4.5', 'GPT-5.2']  # Tries models in order
 handoffs:
   - label: Implement Plan
@@ -192,7 +192,7 @@ You are a feature builder. For each task:
 ---
 name: Researcher
 description: Research codebase patterns and gather context
-tools: ['codebase', 'fetch', 'usages']
+tools: ['search/codebase', 'web/fetch', 'search/usages']
 ---
 Research thoroughly using read-only tools. Return a summary of findings.
 ```
@@ -203,7 +203,7 @@ Research thoroughly using read-only tools. Return a summary of findings.
 ---
 name: Implementer
 description: Implement code changes based on provided context
-tools: ['editFiles', 'terminalLastCommand']
+tools: ['edit', 'read/terminalLastCommand']
 ---
 Implement changes following existing code patterns. Make minimal, focused edits.
 ```

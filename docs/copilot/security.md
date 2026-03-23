@@ -208,7 +208,7 @@ Organizations can implement [centralized security controls](/docs/enterprise/ai-
 * **Restrict extension tools**: Block extension-contributed tools while keeping built-in and MCP tools with the `ChatAgentExtensionTools` policy.
 * **Control MCP server sources**: Restrict MCP servers to a curated registry (`registryOnly`) or disable MCP support completely (`off`) with the `ChatMCP` policy. Organizations can also host a private MCP registry with the `McpGalleryServiceUrl` policy.
 * **Disable global auto-approval**: Prevent developers from enabling global auto-approval and hide the **Bypass Approvals** and **Autopilot** [permission levels](/docs/copilot/agents/agent-tools.md#permission-levels) with the `ChatToolsAutoApprove` policy.
-* **Require manual approval for specific tools**: Force manual approval for individual tools (for example, `runInTerminal` or `fetch`) with the `ChatToolsEligibleForAutoApproval` policy.
+* **Require manual approval for specific tools**: Force manual approval for individual tools (for example, `execute/runInTerminal` or `web/fetch`) with the `ChatToolsEligibleForAutoApproval` policy.
 * **Disable terminal auto-approval**: Turn off the rule-based terminal auto-approval system with the `ChatToolsTerminalEnableAutoApprove` policy.
 
 Learn more about [managing AI settings in enterprise environments](/docs/enterprise/ai-settings.md) and [deploying enterprise policies](/docs/enterprise/policies.md).
