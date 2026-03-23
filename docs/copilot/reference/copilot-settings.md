@@ -60,6 +60,7 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 | `setting(chat.editing.confirmEditRequestRemoval)`<br/>Ask for confirmation before undoing an edit. | `true` |
 | `setting(chat.editing.confirmEditRequestRetry)`<br/>Ask for confirmation before performing a redo of the last edit. | `true` |
 | `setting(chat.editing.autoAcceptDelay)`<br/>Configure a delay after which suggested edits are automatically accepted, use zero to disable auto-accept. | `0` |
+| `setting(chat.editing.revealNextChangeOnResolve)`<br/>Controls whether the editor automatically reveals the next change after keeping or undoing a chat edit. | `true` |
 | `setting(chat.fontFamily)`<br/>Font family for Markdown content in chat. | `"default"` |
 | `setting(chat.fontSize)`<br/>Font size in pixels for Markdown content in chat. | `13` |
 | `setting(chat.notifyWindowOnConfirmation)`<br/>Configure when to show an OS notification when user input is needed in a chat session: `off` to never show notifications, `windowNotFocused` (default) to show notifications only when the VS Code window is not focused, `always` to always show notifications. | `"windowNotFocused"` |

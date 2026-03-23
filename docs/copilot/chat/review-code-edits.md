@@ -51,6 +51,8 @@ The following keyboard shortcuts help you navigate and review edits:
 | Navigate to next edit | `kbstyle(Down)` in the editor overlay |
 | Navigate to previous edit | `kbstyle(Up)` in the editor overlay |
 
+When you keep or undo an edit in a file, the editor automatically navigates to the next edit with pending changes, which might be in a different file. To disable this auto-navigation and stay in the current file, set `setting(chat.editing.revealNextChangeOnResolve)` to `false`.
+
 ## Source Control integration
 
 If you stage your changes in the Source Control view, any pending edits are automatically accepted. On the other hand, if you discard your changes, any pending edits are also discarded.
