@@ -229,24 +229,9 @@ To save a chat session as a reusable prompt:
 
 1. Review and edit the generated prompt file as needed, then save it to your workspace.
 
-## Tips for managing chat sessions
-
-Consider the following tips to help you work effectively with chat sessions:
-
-* **Start a new session for different topics**: start a new chat session to avoid carrying over context from unrelated conversations. This helps you get more relevant responses.
-
-* **Use editor tabs for side-by-side comparisons**: open multiple chat sessions as editor tabs to compare different approaches or solutions side-by-side.
-
-* **Use separate windows for multi-monitor setups**: open chat in a separate window on a secondary monitor to keep it visible while you work on code in the main window.
-
-* **Background tasks with Copilot CLI**: use [Copilot CLI](/docs/copilot/agents/copilot-cli.md) to perform AI tasks in the background while you continue working in VS Code.
-
-* **Interactive agent sessions**: use [local agents](/docs/copilot/agents/local-agents.md) for interactive tasks that require real-time input and feedback.
-
 ## Related resources
 
 * [Chat overview](/docs/copilot/chat/copilot-chat.md)
 * [Agents overview](/docs/copilot/agents/overview.md)
 * [Manage context for AI](/docs/copilot/chat/copilot-chat-context.md)
-* [Revert changes with checkpoints](/docs/copilot/chat/chat-checkpoints.md)
-* [Review AI-generated code edits](/docs/copilot/chat/review-code-edits.md)
+* [Best practices for using AI](/docs/copilot/best-practices.md)
