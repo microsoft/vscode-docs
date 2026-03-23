@@ -46,10 +46,10 @@
   "latest": [
     {
       "type": "release",
-      "title": "VS Code 1.112 release",
+      "title": "VS Code 1.113 release",
       "description": "Autopilot in Copilot CLI, debug with the integrated browser, and agent troubleshooting.",
-      "link": "/updates/v1_112",
-      "image": "/assets/updates/1_112/release-graphic.webp"
+      "link": "/updates/v1_113",
+      "image": "/assets/updates/1_113/release-highlights.webp"
     },
     {
       "type": "documentation",

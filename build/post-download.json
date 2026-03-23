@@ -2,8 +2,8 @@
   "featured": {
     "title": "Agents that run, debug, and diagnose themselves",
     "description": "Let agents work autonomously with Autopilot permissions in Copilot CLI, debug web apps in the integrated browser, and troubleshoot agent behavior directly in chat.",
-    "link": "/updates/v1_112",
-    "image": "/assets/updates/1_112/release-graphic.webp"
+    "link": "/updates/v1_113",
+    "image": "/assets/updates/1_113/release-highlights.webp"
   },
   "highlights": [
     {
