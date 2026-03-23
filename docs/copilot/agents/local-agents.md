@@ -132,8 +132,8 @@ To start with Ask:
 
 ## Related resources
 
-* [Agents overview](/docs/copilot/agents/overview.md): Overview of agent types and session management.
+* [Agents overview](/docs/copilot/agents/overview.md): Choose agents, configure permissions, and hand off between agent types.
+* [Manage chat sessions](/docs/copilot/chat/chat-sessions.md): Create, switch between, and organize your sessions.
 * [Agents tutorial](/docs/copilot/agents/agents-tutorial.md): Hands-on tutorial for working with different agent types.
 * [Tools](/docs/copilot/agents/agent-tools.md): Extend agents with built-in, MCP, and extension tools.
 * [Custom agents](/docs/copilot/customization/custom-agents.md): Create your own AI agents and extensions.
-* [Chat](/docs/copilot/chat/copilot-chat.md): Learn about the chat interface and interaction features.

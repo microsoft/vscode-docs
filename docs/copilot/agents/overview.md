@@ -1,7 +1,7 @@
 ---
 ContentId: 7c4b8b5e-2d3f-4e8a-9b2c-1a5d6f8e9c0b
 DateApproved: 3/18/2026
-MetaDescription: Learn about different types of AI agents in VS Code, including local chat, Copilot CLI for running in the background, and cloud agents.
+MetaDescription: Learn about different types of AI agents in VS Code, including local agents, Copilot CLI for running in the background, and cloud agents.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - ai
@@ -20,11 +20,11 @@ Keywords:
 
 # Using agents in Visual Studio Code
 
-Agents automate coding tasks by breaking them into steps, using [tools](/docs/copilot/concepts/tools.md) to read files, edit code, and run commands, and self-correcting when something goes wrong. For example, instead of suggesting a fix for a failing test, an agent can identify the root cause across files, update the code, rerun the tests, and commit the changes.
+An agent is an AI assistant that works autonomously to complete a coding task. Give it a high-level goal, and it breaks the goal into steps, edits files across your project, runs commands, and self-corrects when something goes wrong. For example, instead of suggesting a fix for a failing test, an agent identifies the root cause across files, updates the code, reruns the tests, and commits the changes.
 
-Visual Studio Code supports agents that run locally, in the background, or in the cloud. Run any agent type with any model, connect tools and services through MCP servers and Marketplace extensions, and build custom agents tailored to your team.
+VS Code lets you run agents the way that fits your workflow. Work with them interactively in the editor, or let them run autonomously in the background from the CLI. Agents can run on your machine, in a remote cloud environment, or through a third-party provider like Anthropic or OpenAI. You decide how much autonomy to give them, from approving every tool call to letting them work fully on their own, and you can create custom agents to tailor their behavior to your project.
 
-This article helps you choose the right agent type, create and manage sessions, and hand off tasks between agents.
+You monitor and interact with all your sessions from a single [sessions list](/docs/copilot/chat/chat-sessions.md#sessions-list) in the Chat view, regardless of where they run.
 
 <div class="docs-action" data-show-in-doc="true" data-show-in-sidebar="true" title="How agents work">
 Understand the agent loop, how agents plan and execute tasks, and how memory and subagents work.
@@ -47,18 +47,18 @@ Use agents in VS Code to generate a tic-tac-toe game in your language of choice.
 
 ## Types of agents
 
-VS Code supports the following categories of agents, each designed for different use cases and levels of interaction:
+Agents run in different environments depending on when you need results and how much oversight you want. The two key dimensions are _where_ the agent runs (your machine or the cloud) and _how_ you interact with it (interactively or autonomously in the background).
 
-* [**Local agents**](/docs/copilot/agents/local-agents.md) run interactively in VS Code with full access to your workspace, tools, and models.
-* [**Copilot CLI**](/docs/copilot/agents/copilot-cli.md) agents run autonomously in the background on your machine, optionally using Git worktrees for isolation.
-* [**Cloud agents**](/docs/copilot/agents/cloud-agents.md) run on remote infrastructure and integrate with GitHub pull requests for team collaboration.
-* [**Third-party agents**](/docs/copilot/agents/third-party-agents.md) connect external AI providers like Anthropic and OpenAI, with options for running locally or in the cloud.
+* [**Local**](/docs/copilot/agents/local-agents.md): use the VS Code agent loop to run the agent interactively in the editor with full access to your workspace, tools, and models.
+* [**Copilot CLI**](/docs/copilot/agents/copilot-cli.md): use the Copilot CLI to run in the background on your machine, optionally using Git worktrees for isolation.
+* [**Cloud**](/docs/copilot/agents/cloud-agents.md): use GitHub Copilot to run remotely and integrate with GitHub pull requests for team collaboration.
+* [**Third-party**](/docs/copilot/agents/third-party-agents.md): use the third-party agent harness and SDK from Anthropic and OpenAI to run either locally on your machine or in the cloud.
 
-![Diagram showing agent types by environment and interaction.](../images/agents-overview/agent-types-diagram-v3.png)
+Select the agent type from the agent target dropdown in the Chat view.
 
-<!-- Diagram source: agent-types.excalidraw (credits: AnnaS) -->
+![Screenshot showing agent target dropdown in the Chat view.](../images/agents-overview/agent-type-dropdown.png)
 
-### Which agent should I use?
+### Which agent type should I use?
 
 Use the following table to find the right agent type for your task:
 
@@ -76,86 +76,33 @@ Use the following table to find the right agent type for your task:
 | Assign a GitHub issue to an agent | [Cloud agent](/docs/copilot/agents/cloud-agents.md) |
 | Use a specific AI provider (Anthropic, OpenAI) | [Third-party agent](/docs/copilot/agents/third-party-agents.md) |
 
-## Agent sessions list
+## Choose an agent
 
-The Chat view provides a unified view to manage all your agent sessions, regardless of where they run. By default, it shows your recent sessions, and gives information about their status, type, and file changes. Expand the list to see and filter all your agent sessions.
+If the agent type is _where_ the agent runs, the agent determines _how_ to perform the task based on its role or persona. For example, an agent with a code reviewer persona focuses on reviewing code changes for quality and style and providing feedback, instead of making code changes. The agent's definition determines which tools it can use, how it executes tasks, and potential handoff points to other agents.
 
-The list of sessions is scoped to your workspace. If you don't have a workspace open, the list shows all sessions across your workspaces. The sessions are grouped by time periods, such as **Today** or **Last Week**.
+Select an agent from the agents dropdown in the Chat view. You can switch between agents at any time during a session.
 
-The Chat view operates in two modes: compact and side-by-side. You can manually switch between compact and side-by-side mode by using the toggle control in the top-right corner of the Chat view.
+![Screenshot showing the Chat view with the agent picker expanded, displaying different agent options.](../images/customization/chat-mode-dropdown.png)
 
-* **Compact**:
+VS Code has three [built-in agents](/docs/copilot/agents/local-agents.md):
 
-    In compact view, the list of sessions is embedded in the Chat view. When you select a session from the list, the Chat view switches to that session. Use the back button to return to the sessions list.
+* **Agent**: autonomously plans and implements changes across files, runs terminal commands, and invokes tools.
+* **Plan**: creates a structured, step-by-step implementation plan before writing any code. Hands the plan off to an implementation agent when it looks right.
+* **Ask**: answers questions about coding concepts, your codebase, or VS Code itself without making file changes.
 
-    ![Screenshot of the Chat view in compact mode showing recent agent sessions.](../images/agents-overview/chat-view-compact2.png)
+For more specialized workflows, create your own [custom agents](/docs/copilot/customization/custom-agents.md) that define a specific role, available tools, and a language model.
 
-* **Side-by-side**
+## Choose a permission level
 
-    In side-by-side view, the list of sessions is shown side-by-side with the Chat view. Select a session from the list to view its details in the Chat view.
+Agents perform tasks autonomously, but you can control how much autonomy they have for invoking tools and terminal commands. Giving agents more autonomy can increase efficiency but may reduce oversight. The permissions picker in the Chat view lets you choose a permission level for each session, from approving every tool call to letting the agent work fully on its own.
 
-    ![Screenshot of the Chat view in expanded mode showing full agent session history.](../images/agents-overview/chat-view-expanded.png)
+| Permission level | Description |
+|---|---|
+| **Default Approvals** | Uses the approvals as specified in VS Code settings. By default, only read-only and safe tools don't require explicit approval. |
+| **Bypass Approvals** | Auto-approves all tool calls without confirmation dialogs. The agent might ask clarifying questions as it works. |
+| **Autopilot** (Preview) | Auto-approves all tool calls, auto-responds to questions, and the agent continues working autonomously until the task is complete. |
 
-    > [!TIP]
-    > When you make the Chat view wider, it automatically switches to side-by-side mode. Right-click on the sessions list and select **Sessions Orientation** to change this behavior (`setting(chat.viewSessions.orientation)`). You can also use the toggle button.
-
-Right-click a session in the list to see additional actions, such as different options to open the session details, archive the session, or agent-type specific actions like checking out a pull request (for cloud agent sessions).
-
-To hide the session list from the Chat view, right-click in an empty chat and unselect **Show Sessions** (`setting(chat.viewSessions.enabled)`).
-
-> [!NOTE]
-> Extension developers can learn how to integrate with the Agents view by using the proposed API [`chatSessionsProvider`](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.chatSessionsProvider.d.ts). The API is currently in a proposed state and subject to change.
-
-### Agent status indicator (Experimental)
-
-The agent status indicator provides quick access to your agent sessions directly from the command center in the title bar. The indicator displays visual badges for unread messages and in-progress sessions, so you can stay informed about your AI agent activity without switching views.
-
-![Screenshot showing the Agent Status Indicator in the command center with unread and in-progress badges.](../images/agents-overview/agent-status-indicator-v2.png)
-
-The indicator shows:
-
-* **Unread sessions badge**: Shows the count of chat sessions with new messages. Select the badge to filter the sessions list to show only unread sessions.
-* **In-progress sessions badge**: Shows the count of sessions with running agents. Select the badge to filter the sessions list to show only in-progress sessions.
-* **Sparkle icon**: Provides quick access to chat and session management options.
-
-You can configure the indicator's behavior by using the `setting(chat.agentsControl.clickBehavior)` setting to toggle chat visibility, cycle through chat states (show, maximize, hide), or focus the chat input.
-
-When a filter is active, the sessions list automatically expands to show all matching sessions. Select the badge again to clear the filter and return to the default view.
-
-> [!NOTE]
-> The agent status indicator is an experimental feature. Enable it by using `setting(chat.agentsControl.enabled)`. The unread and in-progress indicators require `setting(chat.viewSessions.enabled)` to be enabled.
-
-## Create an agent session
-
-You can create multiple agent sessions in parallel, each focused on a different task. When you create a new agent session, the previous session stays active, and you can switch between tasks through the [agent sessions list](#agent-sessions-list).
-
-When you create a new agent session, it starts with an empty context window. Each agent session is independent, so context from one session doesn't carry over to another.
-
-You can create a new agent session from the Chat view or by using the corresponding commands in the Command Palette.
-
-1. Open the Chat view and select the **New Session** dropdown (`+`).
-
-    ![Screenshot of creating a new agent session from the Chat view.](../images/agents-overview/create-new-agent-session.png)
-
-1. Choose the agent type from the dropdown. Optionally, select a language model from the model picker.
-
-    ![Screenshot showing agent type dropdown in new chat session.](../images/agents-overview/agent-type-dropdown.png)
-
-1. Enter a prompt to assign a task to the agent. The agent starts working on the task.
-
-    ```prompt
-    Generate a diagram that gives a high-level overview of the architecture of this project.
-    ```
-
-> [!TIP]
-> You can send follow-up prompts while the agent is still working. Choose to [queue the message, steer the current request, or stop and send immediately](/docs/copilot/chat/chat-sessions.md#send-messages-while-a-request-is-running).
-
-<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
-Follow a hands-on tutorial to experience local, Copilot CLI, and cloud agents in VS Code.
-
-* [Start tutorial](/docs/copilot/agents/agents-tutorial.md)
-
-</div>
+Learn more about [permission levels and Autopilot](/docs/copilot/agents/agent-tools.md#permission-levels).
 
 ## Hand off a session to another agent
 
@@ -175,32 +122,9 @@ If you install the [GitHub Pull Requests](https://marketplace.visualstudio.com/i
 
 On GitHub.com, or by using the GitHub Pull Requests extension, you can assign GitHub issues to Copilot coding agent by assigning the issue to `copilot` or by mentioning it in an issue comment or pull request to ask for a code review.
 
-## Review and apply file changes
-
-When an agent session completes and makes code changes to your project, the session list shows the file change statistics for that session. To review the changes made by the agent, select the session from the list to open the session details.
-
-![Screenshot of the file changes diff editor in an agent session.](../images/agents-overview/agent-file-changes-v2.png)
-
-Depending on the agent type, you have options to apply the changes made by the agent onto your local workspace, or to check out the branch from the agent session (for cloud agents).
-
-## Archive agent sessions
-
-To keep the list of sessions organized, archive completed or inactive sessions. Archiving a session doesn't delete it but moves it out of the active sessions list. At any time, you can unarchive a session to restore it to the active sessions list.
-
-To archive a session, hover over the session in the session list and select **Archive**. After you archive a session, it disappears from the list. Inversely, you can also unarchive a session in the same way.
-
-![Screenshot of archiving an agent session in the sessions view.](../images/agents-overview/agent-sessions-archive.png)
-
-To view your archived sessions, use the filter options in the sessions list and select the **Archived** filter.
-
-## Delete agent sessions
-
-To permanently delete an agent session, right-click the session in the sessions list and select **Delete**. Deleting a session removes it permanently and can't be undone. For [Copilot CLI sessions](/docs/copilot/agents/copilot-cli.md), deleting the session also removes any associated worktrees created for that session.
-
-> [!CAUTION]
-> Deleting a session is irreversible. If you just want to hide a session, consider [archiving](#archive-agent-sessions) it instead.
-
 ## Related resources
+
+* [Manage chat sessions](/docs/copilot/chat/chat-sessions.md): Create, switch between, and organize your agent sessions.
 
 * [Agents tutorial](/docs/copilot/agents/agents-tutorial.md): Hands-on tutorial for working with different agent types.
 

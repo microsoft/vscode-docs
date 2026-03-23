@@ -155,7 +155,7 @@ AI responses might degrade as the conversation fills with irrelevant context. Ma
 
 * **Choose the right session type.** Use local sessions for quick tasks on your current code that need your immediate attention, background tasks for tasks that can run locally and isolated from your main context, or cloud sessions that can benefit from team-collaboration.
 
-* **Scale with parallel sessions.** Run multiple sessions in parallel for independent tasks to save time and keep contexts separate. You can have multiple sessions running at once, across local, background, and cloud environments, and switch between them via the [Agent Sessions view](/docs/copilot/agents/overview.md#agent-sessions-list) in VS Code.
+* **Scale with parallel sessions.** Run multiple sessions in parallel for independent tasks to save time and keep contexts separate. You can have multiple sessions running at once, across local, background, and cloud environments, and switch between them via the [sessions list](/docs/copilot/chat/chat-sessions.md#sessions-list) in VS Code.
 
 For more information, see [session management](/docs/copilot/chat/chat-sessions.md) and [workspace indexing](/docs/copilot/reference/workspace-context.md).
 
@@ -169,7 +169,7 @@ Copilot is designed to work effectively with large, complex, and multi-root work
 
 * **Provide project-level instructions.** Use [custom instructions](/docs/copilot/customization/custom-instructions.md) to describe your project's architecture, module boundaries, and conventions that the AI can't infer from code alone. This gives the AI the context it needs for architecture-level changes.
 
-* **Run parallel sessions for independent changes.** Break large tasks into independent subtasks and run them in [parallel agent sessions](/docs/copilot/agents/overview.md#agent-sessions-list), each focused on a different area of the codebase.
+* **Run parallel sessions for independent changes.** Break large tasks into independent subtasks and run them in [parallel sessions](/docs/copilot/chat/chat-sessions.md#sessions-list), each focused on a different area of the codebase.
 
 * **Use the Plan agent for cross-cutting changes.** For changes that span many files or modules, start with the [Plan agent](/docs/copilot/agents/planning.md) to create a structured implementation plan before executing.
 
