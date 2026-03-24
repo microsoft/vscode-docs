@@ -82,7 +82,7 @@ Learn more about [managing context for AI](/docs/copilot/chat/copilot-chat-conte
 
 ## Image carousel (Experimental)
 
-When `setting(chat.imageCarousel.enabled)` is enabled, you can select image pills in chat responses to open a dedicated carousel view. Images from tool results (such as the integrated browser, Playwright, or other MCP servers) and images inlined in assistant messages are all accessible from the carousel.
+When `setting(imageCarousel.chat.enabled)` is enabled, you can select image pills in chat responses to open a dedicated carousel view. Images from tool results (such as the integrated browser, Playwright, or other MCP servers) and images inlined in assistant messages are all accessible from the carousel.
 
 ![Screenshot showing the image carousel view with multiple images.](../images/chat-sessions/image-carousel.png)
 
