@@ -189,7 +189,7 @@ The complete list of shortcuts is listed below:
 | for | for (T item : expr) | Creates a for statement |
 | fori | for (int i = 0; i < expr.length; i++) | Creates a for statement which iterates over an array |
 | forr | for (int i = expr.length-1; i >= 0; i--) | Creates a for statement which iterates over an array in reverse order |
-| if | if (expr) | Creates a if statement |
+| if | if (expr) | Creates an if statement |
 | nnull | if (expr != null) | Creates an if statement and checks if the expression does not resolve to null |
 | null | if (expr == null) | Creates an if statement which checks if expression resolves to null |
 | sysout | System.out.println(expr) | Sends the affected string to a System.out.println(..) call |

@@ -48,8 +48,8 @@ Icons may appear to the right of the terminal title on the tab label when a term
 
 Place multiple terminals side-by-side and create a group by splitting a terminal:
 
-* Hover over a entry in the list of terminals on the right and select the inline split button.
-* Right-click the context menu and selecting the **Split** menu option.
+* Hover over an entry in the list of terminals on the right and select the inline split button.
+* Right-click the context menu and select the **Split** menu option.
 * `kbstyle(Alt)` and click on a tab, the **+** button, or the single tab on the terminal panel.
 * Trigger the `kb(workbench.action.terminal.split)` command.
 
