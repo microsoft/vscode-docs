@@ -162,9 +162,7 @@ To clear stored data, select the menu in the browser toolbar and choose **Clear 
 > [!NOTE]
 > In untrusted workspaces, the browser always uses ephemeral mode regardless of the setting, to protect your data.
 
-## Use as a default browser
-
-VS Code also has a built-in Simple Browser to preview web pages that has limited functionality compared to the integrated browser. If you want to use the integrated browser instead of the Simple Browser, enable the `setting(simpleBrowser.useIntegratedBrowser)` setting.
+## Use with the Live Preview extension
 
 The Live Preview extension can use the integrated browser for previewing web pages. Enable the `setting(livePreview.useIntegratedBrowser)` setting to use it as the default preview browser.
 
