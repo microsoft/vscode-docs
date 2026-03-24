@@ -78,7 +78,6 @@
           ["Inline Chat", "/docs/copilot/chat/inline-chat"],
           ["Review Edits", "/docs/copilot/chat/review-code-edits"],
           ["Checkpoints", "/docs/copilot/chat/chat-checkpoints"],
-          ["Artifacts (Preview)", "/docs/copilot/chat/chat-artifacts"],
           ["Debug Chat Interactions", "/docs/copilot/chat/chat-debug-view"],
           ["Prompt Examples", "/docs/copilot/chat/prompt-examples"]
         ]

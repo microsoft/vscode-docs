@@ -94,7 +94,6 @@ The following table lists the VS Code built-in tools:
 |--------|-------------|
 | `#agent` (tool set) | Delegate tasks to other [agents](/docs/copilot/agents/subagents.md). |
 | `#agent/runSubagent` | Run a task in an isolated [subagent context](/docs/copilot/agents/subagents.md). Helps to improve the context management of the main agent thread. |
-| `#artifacts` | _(Preview)_ Surface important resources, such as links, screenshots, plans, and documents, in a dedicated [artifacts panel](/docs/copilot/chat/chat-artifacts.md). Enable with `setting(chat.artifacts.enabled)`. |
 | `#browser` (tool set) | _(Experimental)_ Interact with pages in the [integrated browser](/docs/debugtest/integrated-browser.md): navigate, read page content, take screenshots, click, type, hover, drag, and handle dialogs. Enable with `setting(workbench.browser.enableChatTools)`. |
 | `#edit` (tool set) | Enable modifications in the workspace. |
 | `#edit/createDirectory` | Create a new directory in the workspace. |

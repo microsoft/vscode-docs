@@ -86,10 +86,6 @@ When `setting(chat.imageCarousel.enabled)` is enabled, you can select image pill
 
 ![Screenshot showing the image carousel view with multiple images.](../images/chat-sessions/image-carousel.png)
 
-## Artifacts panel (Preview)
-
-When `setting(chat.artifacts.enabled)` is enabled, the agent can surface important resources, such as links, screenshots, plans, and documents, in a dedicated artifacts panel alongside the chat conversation. Select an artifact to open the resource. Learn more about the [artifacts panel](/docs/copilot/chat/chat-artifacts.md).
-
 ## Review and manage changes
 
 After the AI makes changes to your files, review and accept or discard them.
