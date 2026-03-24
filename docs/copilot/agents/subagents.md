@@ -105,7 +105,7 @@ Consolidate findings into a single review summary.
 
 Subagents are typically **agent-initiated**, not directly invoked by users in chat. To allow the main agent to invoke subagents, make sure the `runSubagent` tool is enabled.
 
-By default, subagents themselves cannot invoke further subagents. To enable recursive nesting, configure the `setting(chat.subagents.maxDepth)` setting. Learn more in [Nested subagents](#nested-subagents).
+By default, subagents themselves cannot invoke further subagents. To enable recursive nesting, enable the `setting(chat.subagents.allowInvocationsFromSubagents)` setting. Learn more in [Nested subagents](#nested-subagents).
 
 The main agent decides when context isolation helps. You don't need to manually type "run a subagent" for every task. The pattern works like this:
 
@@ -202,13 +202,7 @@ Implement the following feature using test-driven development. Use subagents to 
 
 By default, subagents cannot spawn further subagents. This prevents infinite recursion when agents accidentally call themselves in a loop. However, some workflows benefit from recursive delegation, for example, a divide-and-conquer agent that splits a large task into smaller pieces and delegates each piece to itself.
 
-To enable nested subagents, configure the `setting(chat.subagents.maxDepth)` setting. This setting controls how many levels deep subagents can nest:
-
-* **0** (default): subagents cannot spawn further subagents.
-* **1**: a subagent can spawn its own subagents, but those subagents cannot spawn further ones.
-* **Higher values**: each level allows one more layer of nesting, up to a maximum of 20.
-
-For example, with `chat.subagents.maxDepth` set to `3`, the main agent can spawn a subagent (depth 1), which can spawn another subagent (depth 2), which can spawn one more (depth 3). The subagent at depth 3 cannot spawn any further subagents.
+To enable nested subagents, enable the `setting(chat.subagents.allowInvocationsFromSubagents)` setting (`false` by default). When enabled, subagents can spawn their own subagents, up to a maximum nesting depth of 5.
 
 ### Example: recursive agent
 
@@ -227,9 +221,6 @@ You process a list of items by dividing and conquering:
 - If the list has 4 or fewer items, process the items directly.
 - Merge the results from each subagent into a final result.
 ```
-
-> [!IMPORTANT]
-> Set `setting(chat.subagents.maxDepth)` to a value large enough for your recursion depth. For example, processing 16 items with a split factor of 2 requires at least a depth of 4.
 
 ## Orchestration patterns
 
