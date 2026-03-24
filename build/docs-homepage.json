@@ -47,7 +47,7 @@
     {
       "type": "release",
       "title": "VS Code 1.113 release",
-      "description": "Autopilot in Copilot CLI, debug with the integrated browser, and agent troubleshooting.",
+      "description": "Manage all chat customizations from a unified editor, control model reasoning effort, and use MCP servers across all agent types.",
       "link": "/updates/v1_113",
       "image": "/assets/updates/1_113/release-highlights.webp"
     },
