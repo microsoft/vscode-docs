@@ -58,6 +58,9 @@ You can configure the thinking effort directly from the model picker:
 
 1. Select the **>** arrow that appears next to the model name to open the **Thinking Effort** submenu.
 
+    > [!NOTE]
+    > Non-reasoning models, such as GPT-4.1 and GPT-4o, do not show the thinking effort submenu.
+
 1. Select an effort level.
 
     ![Screenshot showing the Thinking Effort submenu in the model picker, with different effort levels such as None, Low, Medium, and High.](../images/language-models/thinking-effort-submenu.png)
@@ -65,7 +68,7 @@ You can configure the thinking effort directly from the model picker:
 The model picker label updates to show the selected effort level, for example "Claude Sonnet 4.6 · High". The effort level persists across conversations for the same model.
 
 > [!NOTE]
-> Non-reasoning models, such as GPT-4.1 and GPT-4o, do not show the thinking effort submenu.
+> The `setting(github.copilot.chat.anthropic.thinking.effort)` and `setting(github.copilot.chat.responsesApiReasoningEffort)` settings are deprecated. You should configure thinking effort directly via the language model picker.
 
 ## Auto model selection
 
@@ -88,7 +91,7 @@ At any time, you can see which model and model multiplier are used by hovering o
 
 ## Manage language models
 
-You can use the language models editor to view all avalable models, choose which models are shown in the model picker, and add more models by adding from built-in providers or from extension-provided model providers.
+You can use the language models editor to view all available models, choose which models are shown in the model picker, and add more models by adding from built-in providers or from extension-provided model providers.
 
 To open the Language Models editor, open the model picker in the Chat view and select **Manage Models** or run the **Chat: Manage Language Models** command from the Command Palette. The Language Models editor opens by default in a [modal overlay](/docs/getstarted/userinterface.md#modal-editors) on top of the editor area.
 
