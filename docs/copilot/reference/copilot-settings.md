@@ -117,7 +117,7 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 | `setting(chat.planAgent.defaultModel)` <br/>Select a default language model for the plan agent. | `"Auto (Vendor Default)"`|
 | `setting(github.copilot.chat.implementAgent.model)` _(Experimental)_<br/>Select the language model used for the implementation step after planning. | `` |
 | `setting(github.copilot.chat.planAgent.additionalTools)` _(Experimental)_<br/>Give the plan agent access to additional tools during research and planning phases. | `[]` |
-| `setting(chat.additionalReadAccessFolders)`<br/>Grant read-only access to additional folders outside the current workspace for built-in agent tools. | `[]` |
+| `setting(github.copilot.chat.additionalReadAccessFolders)`<br/>Grant read-only access to additional folders outside the current workspace for built-in agent tools. | `[]` |
 | `setting(github.copilot.chat.claudeAgent.enabled)` <br/>Enable or disable support for Claude agent sessions powered by Anthropic's Claude Agent SDK. | `true` |
 | `setting(github.copilot.chat.claudeAgent.allowDangerouslySkipPermissions)` <br/>Bypass all permission checks for the Claude agent. Only enable this in isolated sandbox environments. | `false` |
 | `setting(github.copilot.chat.agent.thinkingTool:true)` _(Experimental)_<br/>Enable the thinking tool when using agents. | `false` |
