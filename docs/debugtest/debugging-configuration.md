@@ -1,6 +1,6 @@
 ---
 ContentId: f8ea7d84-9b4e-4f42-874e-25aa6c7fa244
-DateApproved: 3/18/2026
+DateApproved: 3/25/2026
 MetaDescription: Learn how to configure debugging in Visual Studio Code with launch.json, including attributes, variable substitution, and compound configurations.
 MetaSocialImage: images/debugging/debugging-social.png
 ---
@@ -132,7 +132,7 @@ The following attributes are mandatory for every launch configuration:
 
 Here are some optional attributes available to all launch configurations:
 
-* `presentation` - using the `order`, `group`, and `hidden` attributes in the `presentation` object, you can sort, group, and hide configurations and compounds in the Debug configuration dropdown and in the Debug quick pick.
+* `presentation` - using the `order`, `group`, and `hidden` attributes in the `presentation` object, you can sort, group, and hide configurations and compounds in the Debug configuration dropdown and in the Debug quick pick. You can also set `presentation` inside [platform-specific sections](#platform-specific-properties) (`windows`, `linux`, `osx`) to control visibility per operating system.
 * `preLaunchTask` - to launch a task before the start of a debug session, set this attribute to the label of a task specified in [tasks.json](/docs/debugtest/tasks.md) (in the workspace's `.vscode` folder). Or, this can be set to `${defaultBuildTask}` to use your default build task.
 * `postDebugTask` - to launch a task at the very end of a debug session, set this attribute to the name of a task specified in [tasks.json](/docs/debugtest/tasks.md) (in the workspace's `.vscode` folder).
 * `internalConsoleOptions` - this attribute controls the visibility of the Debug console panel during a debugging session.
@@ -209,6 +209,27 @@ In the following example, debugging the program always **stops on entry**, excep
             "stopOnEntry": true,
             "osx": {
                 "stopOnEntry": false
+            }
+        }
+    ]
+}
+```
+
+You can also use platform-specific sections to control `presentation` properties. In the following example, the configuration is hidden from the Debug dropdown on macOS:
+
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program",
+            "program": "${workspaceFolder}/app.js",
+            "osx": {
+                "presentation": {
+                    "hidden": true
+                }
             }
         }
     ]

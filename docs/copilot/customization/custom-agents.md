@@ -1,6 +1,6 @@
 ---
 ContentId: 276ecd8f-2a76-467e-bf82-846d49c13ab5
-DateApproved: 3/18/2026
+DateApproved: 3/25/2026
 MetaDescription: Learn how to create custom agents (formerly custom chat modes) to tailor AI chat behavior in VS Code for your specific workflows and development scenarios.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -106,7 +106,7 @@ The header is formatted as YAML frontmatter with the following fields:
 | `name`            | The name of the custom agent. If not specified, the file name is used. |
 | `argument-hint`   | Optional hint text shown in the chat input field to guide users on how to interact with the custom agent. |
 | `tools`           | A list of tool or tool set names that are available for this custom agent. Can include built-in tools, tool sets, MCP tools, or tools contributed by extensions. To include all tools of an MCP server, use the `<server name>/*` format.<br/>Learn more about [tools in chat](/docs/copilot/agents/agent-tools.md). |
-| `agents`          | A list of agent names that are available as [subagents](/docs/copilot/agents/subagents.md) in this agent. Use `*` to allow all agents, or an empty array `[]` to prevent any subagent use. If you specify `agents`, ensure the `agent` tool is included in the `tools` property. |
+| `agents`          | A list of agent names that are available as [subagents](/docs/copilot/agents/subagents.md) in this agent. Use `*` to allow all agents, or an empty array `[]` to prevent any subagent use. If you specify `agents`, ensure the `agent` tool is included in the `tools` property. To create a self-referential agent that lists itself in `agents`, enable `setting(chat.subagents.allowInvocationsFromSubagents)`. Learn more about [nested subagents](/docs/copilot/agents/subagents.md#nested-subagents). |
 | `model`           | The AI model to use when running the prompt. Specify a single model name (string) or a prioritized list of models (array). When you specify an array, the system tries each model in order until an available one is found. If not specified, the currently selected model in model picker is used. |
 | `user-invocable`  | Optional boolean flag to control whether the agent appears in the agents dropdown in chat (default is `true`). Set to `false` to create agents that are only accessible as [subagents](/docs/copilot/agents/subagents.md) or programmatically. |
 | `disable-model-invocation` | Optional boolean flag to prevent the agent from being invoked as a subagent by other agents (default is `false`). |
@@ -255,27 +255,33 @@ You can create a custom agent file in your workspace or user profile.
 > [!TIP]
 > Type `/agents` in the chat input to quickly open the **Configure Custom Agents** menu.
 
-1. Select **Configure Custom Agents** from the agents dropdown and then select **Create new custom agent** or run the **Chat: New Custom Agent** command in the Command Palette (`kb(workbench.action.showCommands)`).
+1. In the Chat view, select **Configure Chat** (gear icon) to open the Chat Customizations editor and then select the **Agents** tab.
 
-1. Choose the location where the custom agent file should be created.
+1. Select **New Agent (Workspace)** or **New Agent (User)** from the dropdown, depending on where you want to store the agent file.
+
+    ![Screenshot of the Chat Customizations editor, showing the Agents tab and the dropdown to create a new custom agent.](../images/customization/create-custom-agent.png)
+
+    Alternatively, run the **Chat: New Custom Agent** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
     > [!TIP]
     > You can configure additional locations where VS Code searches for custom agent files by using the `setting(chat.agentFilesLocations)` setting. This is useful for sharing agents across projects or keeping them in a central location outside your workspace.
 
-1. Enter a file name for the custom agent. This is the default name that appears in the agents dropdown.
+1. Select the location and enter a file name for the custom agent. This is the default name that appears in the agents dropdown.
 
 1. Provide the details for the custom agent in the newly created `.agent.md` file.
 
     * Fill in the YAML frontmatter at the top of the file to configure the custom agent's name, description, tools, and other settings.
     * Add instructions for the custom agent in the body of the file.
 
-To update a custom agent definition file, select **Configure Custom Agents** from the agents dropdown, and then select a custom agent from the list to modify it.
+You can modify existing custom agents by opening them in the Chat Customizations editor.
 
 ### Generate a custom agent with AI
 
 You can use AI to generate a custom agent based on a description of the role. Type `/create-agent` in Agent mode chat and describe the persona you want (for example, "a security review agent"). The agent asks clarifying questions and generates an `.agent.md` file with appropriate tools, instructions, and frontmatter.
 
 You can also extract a custom agent from an ongoing conversation. For example, after a multi-turn debugging session, ask "make an agent for this kind of task" to capture the workflow as a reusable custom agent.
+
+You can also generate a custom agent from the Chat Customizations editor by selecting **Generate Agent** from the dropdown.
 
 ## Customize the agents dropdown list
 

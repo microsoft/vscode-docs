@@ -1,6 +1,6 @@
 ---
 ContentId: a7d3e5f8-2c4b-4d9a-b8e1-3f6c9a2d7e41
-DateApproved: 3/18/2026
+DateApproved: 3/25/2026
 MetaDescription: Learn how to use Agent Skills in VS Code to teach GitHub Copilot specialized capabilities that work across VS Code, GitHub Copilot CLI, and GitHub Copilot coding agent.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -74,11 +74,15 @@ Skills are stored in directories with a `SKILL.md` file that defines the skill's
 
 To create a skill:
 
-1. Create a `.github/skills` directory in your workspace.
+1. In the Chat view, select **Configure Chat** (gear icon) to open the Chat Customizations editor and then select the **Skills** tab.
 
-1. Create a subdirectory for your skill. Each skill should have its own directory (for example, `.github/skills/webapp-testing`).
+1. Select **New Skill (Workspace)** or **New Skill (User)** from the dropdown, depending on where you want to store the skill.
 
-1. Create a `SKILL.md` file in the skill directory with the following structure:
+    ![Screenshot of the Chat Customizations editor, showing the Skills tab and the dropdown to create a new skill.](../images/customization/create-skill.png)
+
+1. Select the location and enter a name for the skill.
+
+1. Complete the `SKILL.md` file by filling in the YAML frontmatter and adding instructions in the body of the file.
 
     ```markdown
     ---
@@ -104,6 +108,8 @@ To create a skill:
 You can use AI to generate a skill based on a description of the capability. Type `/create-skill` in chat and describe the skill you want (for example, "a skill for running and debugging integration tests"). The agent asks clarifying questions and generates a `SKILL.md` file with the directory structure, instructions, and frontmatter.
 
 You can also extract a reusable skill from an ongoing conversation. For example, after a multi-turn session where you debugged a complex issue, ask "create a skill from how we just debugged that" to capture the multi-step procedure as a reusable skill.
+
+You can also generate a skill from the Chat Customizations editor by selecting **Generate Skill** from the dropdown.
 
 ## SKILL.md file format
 

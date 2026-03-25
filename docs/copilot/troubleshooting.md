@@ -1,6 +1,6 @@
 ---
 ContentId: f8e4b2c1-9d3a-4e5f-b6c7-8a9d0e1f2b3c
-DateApproved: 3/18/2026
+DateApproved: 3/25/2026
 MetaDescription: Troubleshoot GitHub Copilot issues in Visual Studio Code with logs, diagnostics, and debugging tools.
 MetaSocialImage: images/shared/github-copilot-social.png
 Keywords:
@@ -52,8 +52,7 @@ VS Code provides different tools to inspect what happens when you send a prompt 
 
     To open the Agent Debug Log panel:
 
-    1. Select the gear icon in the Chat view.
-    1. Select **Show Agent Debug Logs**.
+    1. Select the ellipsis (**...**) menu in the Chat view and select **Show Agent Debug Logs**.
 
     From the Agent Debug Log panel, you can attach a snapshot of the agent debug events to a chat conversation to ask the AI questions about the session and troubleshoot a specific interaction.
 

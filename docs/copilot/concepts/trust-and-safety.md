@@ -1,6 +1,6 @@
 ---
 ContentId: a7b8c9d0-1e2f-3a4b-5c6d-7e8f9a0b1c2d
-DateApproved: 3/18/2026
+DateApproved: 3/25/2026
 MetaDescription: Learn about the control mechanisms and safety considerations when using AI in VS Code, including review tools, tool approval, and AI limitations.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
