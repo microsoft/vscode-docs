@@ -15,6 +15,7 @@ Prepares a new VS Code Stable release by running the following steps:
   1. Create the release notes file from the endgame template
   2. Update the VS Code commit hash and version in templates
   3. Export and clean up default keybindings
+  4. Generate the social media image for the release
 
 Arguments:
   version         The full version string (e.g. 1.114.0)
@@ -86,6 +87,11 @@ echo ""
 # Step 4: Clean up keybindings
 echo "--- Step 4: Clean up keybindings ---"
 node "$SCRIPT_DIR/cleanup-keybindings.js"
+echo ""
+
+# Step 5: Generate social media image
+echo "--- Step 5: Generate social media image ---"
+bash "$SCRIPT_DIR/generate-social-image.sh" "1.$RELEASE_NUMBER"
 echo ""
 
 echo "=== Release preparation (Part 1) complete ==="
