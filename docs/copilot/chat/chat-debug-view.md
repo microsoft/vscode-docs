@@ -1,6 +1,6 @@
 ---
 ContentId: 2f4a8e9d-3c5b-4f6e-a7d8-1c2b3e4f5a6b
-DateApproved: 3/18/2026
+DateApproved: 3/25/2026
 MetaDescription: Use Agent Logs and the Chat Debug view to inspect AI requests, tool invocations, and agent interactions in Visual Studio Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -25,7 +25,7 @@ To open the Agent Debug Logs panel:
 * Enable the following setting:
    * `setting(github.copilot.chat.agentDebugLog.enabled)`
 
-* Select the gear icon in the Chat view and select **Show Agent Debug Logs**.
+* Select the ellipsis (**...**) menu in the Chat view and select **Show Agent Debug Logs**.
 
 * Run **Developer: Open Agent Debug Logs** from the Command Palette.
 
@@ -58,7 +58,7 @@ The Summary view provides aggregate statistics about the chat session, such as t
 
 To open the Summary view:
 
-1. Open the Agent Debug panel by selecting the gear icon in the Chat view and selecting **Show Agent Debug Logs**.
+1. Open the Agent Debug panel by selecting the ellipsis (**...**) menu in the Chat view and selecting **Show Agent Debug Logs**.
 
 1. Select the session description in the breadcrumb at the top of the panel.
 
@@ -72,7 +72,7 @@ You can pan and zoom the flow chart and select any node in the flow chart to see
 
 To open the flowchart view, select **Agent Flow Chart** from the [Summary view](#summary-view).
 
-1. Open the Agent Debug panel by selecting the gear icon in the Chat view and selecting **Show Agent Debug Logs**.
+1. Open the Agent Debug panel by selecting the ellipsis (**...**) menu in the Chat view and selecting **Show Agent Debug Logs**.
 
 1. Select the session description in the breadcrumb at the top of the panel.
 

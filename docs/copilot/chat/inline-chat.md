@@ -1,6 +1,6 @@
 ---
 ContentId: e6b33fcb-8240-49dd-b6ca-5412d6fa669a
-DateApproved: 3/18/2026
+DateApproved: 3/25/2026
 MetaDescription: Use Inline Chat in Visual Studio Code to make edits directly in the editor or get command suggestions in the terminal.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -33,6 +33,14 @@ To use editor inline chat:
 
 > [!TIP]
 > Attach context to your inline chat prompt to include relevant files, code symbols, or other context. Learn more about [adding context to your chat prompt](/docs/copilot/chat/copilot-chat-context.md).
+
+### Inline chat in active editing sessions
+
+When a file belongs to an active chat editing session, pressing `kb(inlinechat.start)` opens "Ask in Chat" in the Chat view instead of regular inline chat. This routes your prompt into the existing session so it can use the full conversation context. The editor context menu also shows **Ask in Chat** instead of **Open Inline Chat** for these files.
+
+To always use regular inline chat, even for files that belong to a chat session, set `setting(inlineChat.askInChat)` to `false`.
+
+On files that don't belong to any chat session, `kb(inlinechat.start)` always opens regular inline chat, regardless of this setting.
 
 ### Show a visual hint on text selection (Experimental)
 

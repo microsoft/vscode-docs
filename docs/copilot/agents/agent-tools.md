@@ -1,6 +1,6 @@
 ---
 ContentId: 8f2c4a1d-9e3b-4c5f-a7d8-6b9c2e4f1a3d
-DateApproved: 3/18/2026
+DateApproved: 3/25/2026
 MetaDescription: Learn how to use built-in tools, MCP tools, and extension tools to extend chat in VS Code with specialized functionality.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 keywords:
@@ -114,7 +114,7 @@ Organizations can also use device management policies to enforce manual approval
 
 ### URL approval
 
-When a tool attempts to access a URL, such as with the `#fetch` tool, a two-step approval process is used to protect you from malicious or unexpected content. VS Code shows a confirmation dialog with the URL details for your review in the Chat view.
+When a tool attempts to access a URL, such as with the `#web/fetch` tool, a two-step approval process is used to protect you from malicious or unexpected content. VS Code shows a confirmation dialog with the URL details for your review in the Chat view.
 
 * **Pre-approval: approving the request to the URL**
 
@@ -297,9 +297,7 @@ To create a tool set:
 
 1. Run the **Chat: Configure Tool Sets** command from the Command Palette and select **Create new tool sets file**.
 
-    Alternatively, select **Configure Chat** in the Chat view > **Tool Sets** > **Create new tool sets file**.
-
-    ![Screenshot showing the Chat view and Configure Chat menu, highlighting the Configure Chat button.](../images/customization/configure-chat-instructions.png)
+    Alternatively, select the ellipsis (**...**) menu in the Chat view, select **Tool Sets**, and then select **Create new tool sets file**.
 
 1. Define your tool set in the `.jsonc` file that opens.
 
@@ -309,10 +307,10 @@ To create a tool set:
     {
         "reader": {
             "tools": [
-                "changes",
-                "codebase",
-                "problems",
-                "usages"
+                "search/changes",
+                "search/codebase",
+                "read/problems",
+                "search/usages"
             ],
             "description": "Tools for reading and gathering context",
             "icon": "book"

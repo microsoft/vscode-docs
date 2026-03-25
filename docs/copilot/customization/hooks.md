@@ -1,6 +1,6 @@
 ---
 ContentId: 9c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f
-DateApproved: 3/18/2026
+DateApproved: 3/25/2026
 MetaDescription: Learn how to use hooks in VS Code to execute custom shell commands at key lifecycle points during agent sessions for automation, validation, and policy enforcement.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -99,7 +99,7 @@ VS Code searches for hook configuration files in these locations:
 | Workspace | `.github/hooks/*.json` |
 | Workspace (Claude format) | `.claude/settings.json`, `.claude/settings.local.json` |
 | User | `~/.copilot/hooks`, `~/.claude/settings.json` |
-| Custom agent | `hooks` field in `.agent.md` frontmatter (see [Agent-scoped hooks](#agent-scoped-hooks)) |
+| Custom agent | `hooks` field in `.agent.md` frontmatter (see [Agent-scoped hooks](#agentscoped-hooks)) |
 | Plugin | `hooks.json` or `hooks/hooks.json`, depending on the plugin format (see [Hooks in plugins](/docs/copilot/customization/agent-plugins.md#hooks-in-plugins)) |
 
 Workspace hooks take precedence over user hooks for the same event type.

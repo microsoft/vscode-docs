@@ -1,6 +1,6 @@
 ---
 ContentId: f8e2a7c1-9d3b-4e5f-a6c8-1b2d3e4f5a6b
-DateApproved: 3/18/2026
+DateApproved: 3/25/2026
 MetaDescription: Use the integrated browser in VS Code to preview and debug web apps, navigate to URLs, and select elements to add as context to AI chat.
 MetaSocialImage: images/debugging/debugging-social.png
 ---
@@ -21,6 +21,8 @@ You can open multiple browser instances simultaneously, each in its own editor t
 
 Enable the `setting(workbench.browser.openLocalhostLinks)` setting to automatically open `localhost` URLs in the integrated browser instead of your default system browser.
 
+When a browser tab is already open, the globe button in the title bar opens the [tab management](#tab-management) Quick Pick instead of creating a new browser tab. Use the `setting(workbench.browser.showInTitleBar)` setting to control whether the globe button appears in the title bar.
+
 ## Navigation
 
 The browser supports `http://`, `https://`, and `file://` URLs. Use the address bar to navigate to any URL, or use in-page links to navigate within a site.
@@ -28,6 +30,26 @@ The browser supports `http://`, `https://`, and `file://` URLs. Use the address 
 * Normal navigation and anchor links work as expected
 * `kbstyle(Ctrl+click)` (`kbstyle(Cmd+click)` on macOS) opens links in a new browser tab
 * Popups are blocked, but new tabs are allowed
+
+## Tab management
+
+Use the **Browser: Quick Open Browser Tab...** command (`kb(workbench.action.browser.quickOpen)`) to quickly switch between open browser tabs. The Quick Pick lists all open tabs grouped by editor group, and you can type to filter by tab name or URL.
+
+From the Quick Pick, you can:
+
+* Select a tab to switch to it
+* Select **New Integrated Browser Tab** to open a new browser tab
+* Select the close button on a tab to close it
+* Select the **Close All** button to close all browser tabs
+
+You can also close browser tabs with the following commands:
+
+| Command | Description |
+|---------|-------------|
+| **Browser: Close All Browser Tabs** | Close all browser tabs across all editor groups. |
+| **Browser: Close All Browser Tabs in Group** | Close all browser tabs in the current editor group. |
+
+The **Close All Browser Tabs** option is also available in the right-click context menu on browser editor tabs.
 
 ## Developer Tools
 
@@ -140,9 +162,7 @@ To clear stored data, select the menu in the browser toolbar and choose **Clear 
 > [!NOTE]
 > In untrusted workspaces, the browser always uses ephemeral mode regardless of the setting, to protect your data.
 
-## Use as a default browser
-
-VS Code also has a built-in Simple Browser to preview web pages that has limited functionality compared to the integrated browser. If you want to use the integrated browser instead of the Simple Browser, enable the `setting(simpleBrowser.useIntegratedBrowser)` setting.
+## Use with the Live Preview extension
 
 The Live Preview extension can use the integrated browser for previewing web pages. Enable the `setting(livePreview.useIntegratedBrowser)` setting to use it as the default preview browser.
 

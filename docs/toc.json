@@ -73,18 +73,16 @@
         "noCollapse": false,
         "topics": [
           ["Overview", "/docs/copilot/chat/copilot-chat"],
-          ["Inline Chat", "/docs/copilot/chat/inline-chat"],
           ["Chat Sessions", "/docs/copilot/chat/chat-sessions"],
           ["Add Context", "/docs/copilot/chat/copilot-chat-context"],
-          ["Prompt Examples", "/docs/copilot/chat/prompt-examples"],
+          ["Inline Chat", "/docs/copilot/chat/inline-chat"],
           ["Review Edits", "/docs/copilot/chat/review-code-edits"],
           ["Checkpoints", "/docs/copilot/chat/chat-checkpoints"],
-          ["Debug Chat Interactions", "/docs/copilot/chat/chat-debug-view"]
+          ["Debug Chat Interactions", "/docs/copilot/chat/chat-debug-view"],
+          ["Prompt Examples", "/docs/copilot/chat/prompt-examples"]
         ]
       }
       ],
-      ["Inline Suggestions", "/docs/copilot/ai-powered-suggestions"],
-      ["Smart Actions", "/docs/copilot/copilot-smart-actions"],
       ["", "", {
         "name": "Customization",
         "area": "copilot/customization",
@@ -119,6 +117,8 @@
         ]
       }
       ],
+      ["Inline Suggestions", "/docs/copilot/ai-powered-suggestions"],
+      ["Smart Actions", "/docs/copilot/copilot-smart-actions"],
       ["Best Practices", "/docs/copilot/best-practices"],
       ["Security", "/docs/copilot/security"],
       ["Troubleshooting", "/docs/copilot/troubleshooting"],
@@ -429,6 +429,8 @@
       ["Models", "/docs/intelligentapps/models"],
       ["Playground", "/docs/intelligentapps/playground"],
       ["Agent Builder", "/docs/intelligentapps/agentbuilder"],
+      ["Agent Inspector", "/docs/intelligentapps/agent-inspector"],
+      ["Migrating from Visualizer to Agent Inspector", "/docs/intelligentapps/migrate-from-visualizer"],
       ["Bulk Run", "/docs/intelligentapps/bulkrun"],
       ["Evaluation", "/docs/intelligentapps/evaluation"],
       ["Fine-Tuning (Automated Setup)", "/docs/intelligentapps/finetune"],
