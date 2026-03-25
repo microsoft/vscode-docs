@@ -106,6 +106,17 @@ Tools and agent actions might result in file modifications. Learn how you can pr
 > [!IMPORTANT]
 > Always review tool parameters carefully before approving, especially for tools that modify files, run commands, or access external services. See the [Security considerations](/docs/copilot/security.md) for using AI in VS Code.
 
+### Manage tool approvals
+
+Use the **Chat: Manage Tool Approval** command from the Command Palette (`kb(workbench.action.showCommands)`) to centrally review and configure tool approvals. The Quick Pick shows all tools grouped by their source, such as an MCP server or extension.
+
+For each tool, you can configure two types of approvals:
+
+* **Pre-approval** ("without approval"): skip the confirmation dialog before the tool runs.
+* **Post-approval** ("without reviewing result"): skip reviewing the tool's output before it is added to the chat context. This is relevant for tools that return external data, where the content might contain prompt injection attempts.
+
+Expand a source to configure approvals for individual tools, or select the top-level checkboxes to trust all tools from a specific MCP server or extension at once.
+
 ### Enable or disable tool auto approval (Experimental)
 
 By default, you can choose to automatically approve any tool. To prevent accidental approvals, you can disable automatic approvals for specific tools with the `setting(chat.tools.eligibleForAutoApproval)` setting. Set the value to `false` to always require manual approval for that tool.
@@ -157,6 +168,8 @@ URL auto-approval examples:
 ### Reset tool confirmations
 
 To clear all saved tool approvals, use the **Chat: Reset Tool Confirmations** command in the Command Palette (`kb(workbench.action.showCommands)`).
+
+To review and selectively change individual tool approvals instead of clearing all of them, use the [**Chat: Manage Tool Approval**](#manage-tool-approvals) command.
 
 ## Edit tool parameters
 
