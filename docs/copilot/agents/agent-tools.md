@@ -347,17 +347,15 @@ A chat request can have a maximum of 128 tools enabled at a time. If you see an 
 
 * Alternatively, enable virtual tools with the `setting(github.copilot.chat.virtualTools.threshold)` setting to automatically manage large tool sets.
 
-### Why isn't the agent using Command Prompt as the terminal shell?
+### Why isn't the agent using my configured terminal shell?
 
-The agent uses the shell you have configured as the default for the terminal, except when it's cmd. This is because [shell integration](https://code.visualstudio.com/docs/terminal/shell-integration) is not supported with Command Prompt, which means the agent has very limited visibility into what's going on inside the terminal. Instead of getting direct signals for when commands are being run or have finished running, the agent needs to rely on timeouts and watching for the terminal to idle to continue. This leads to a slow and flaky experience.
+The agent uses the shell you have configured as the default for the terminal, except for `cmd` (Command Prompt) on Windows and `sh` on macOS/Linux. This is because [shell integration](/docs/terminal/shell-integration.md) is not supported with these shells, which means the agent has very limited visibility into what's going on inside the terminal. Instead of getting direct signals for when commands are being run or have finished running, the agent needs to rely on timeouts and watching for the terminal to idle to continue. This leads to a slow and flaky experience.
 
-You can still configure the agent to use Command Prompt with the `setting(chat.tools.terminal.terminalProfile.windows)` setting, however this will result in an inferior experience compared to using PowerShell.
+You can still configure the agent to use these shells with the terminal profile settings, however this will result in an inferior experience compared to using PowerShell on Windows or `bash`/`zsh` on macOS/Linux.
 
-```json
-"chat.tools.terminal.terminalProfile.windows": {
-  "path": "C:\\WINDOWS\\System32\\cmd.exe"
-}
-```
+* `setting(chat.tools.terminal.terminalProfile.windows)` - Override the shell on Windows
+* `setting(chat.tools.terminal.terminalProfile.osx)` - Override the shell on macOS
+* `setting(chat.tools.terminal.terminalProfile.linux)` - Override the shell on Linux
 
 ### Can I automatically approve all tools and terminal commands?
 
