@@ -1,6 +1,6 @@
 ---
 ContentId: 58ea6755-9bfa-42c2-a4c8-ff0510f9c031
-DateApproved: 3/18/2026
+DateApproved: 3/25/2026
 MetaDescription: Best practices for getting the most out of GitHub Copilot in VS Code, from writing prompts to configuring your project for AI.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -23,10 +23,9 @@ VS Code supports several mechanisms to configure AI behavior for your project. E
 
 | Mechanism | Best for | Get started |
 |-----------|----------|-------------|
-| [Custom instructions](/docs/copilot/customization/custom-instructions.md) | Project-wide coding standards and architectural context | Enter `/init` to generate a base file |
-| [Prompt files](/docs/copilot/customization/prompt-files.md) | Reusable prompts for recurring tasks (reviews, scaffolding) | Enter `/prompts` to manage |
-| [Custom agents](/docs/copilot/customization/custom-agents.md) | Specialized workflows or personas (TDD, security audit) | Enter `/agents` to manage |
-| [Agent skills](/docs/copilot/customization/agent-skills.md) | Domain-specific capabilities (testing, deployment) | Enter `/skills` to manage |
+| [Custom instructions](/docs/copilot/customization/custom-instructions.md) | Project-wide coding standards and architectural context | Type `/init` to generate always-on instructions for your project |
+| [Custom agents](/docs/copilot/customization/custom-agents.md) | Specialized workflows or personas (TDD, security audit) | Type `/create-agent <description>` to generate a custom agent |
+| [Skills](/docs/copilot/customization/agent-skills.md) | Domain-specific capabilities (testing, deployment) | Type `/create-skill <description>` to generate a skill |
 | [Tools and MCP servers](/docs/copilot/agents/agent-tools.md) | Connecting to external systems (databases, APIs, CLIs) | Configure in `mcp.json` |
 
 Tips for effective project configuration:
@@ -49,6 +48,22 @@ AI in VS Code offers several interaction modes. Choosing the right one for the t
 | [Agents](/docs/copilot/agents/overview.md) | Multi-file changes that require autonomous planning and tool use | Implementing a feature end-to-end |
 | [Plan](/docs/copilot/agents/planning.md) | Structured planning before implementation | Designing an architecture or migration strategy |
 | [Smart actions](/docs/copilot/copilot-smart-actions.md) | Built-in, specialized one-step tasks | Generating commit messages, fixing errors, renaming symbols |
+
+## Choose the right agent type
+
+When working with agents, pick the agent type that matches your task and workflow. Each type trades off interactivity, speed, and isolation differently.
+
+* **Use local agents for interactive work.** Local agents run in your editor with full access to your workspace, tools, and extensions. Choose them when you need to iterate quickly, review changes as they happen, or use VS Code-specific tools like the [integrated browser](/docs/debugtest/integrated-browser.md) or MCP servers.
+
+* **Offload well-defined tasks to background agents.** Use [Copilot CLI](/docs/copilot/agents/copilot-cli.md) or [cloud agents](/docs/copilot/agents/cloud-agents.md) when the task is clear enough that you don't need to watch every step.
+
+* **Use cloud agents for team collaboration.** [Cloud agents](/docs/copilot/agents/cloud-agents.md) run remotely and create pull requests, making them ideal for tasks that benefit from team review or when you want to assign a GitHub issue directly to an agent.
+
+* **Run parallel sessions for independent tasks.** Spin up multiple agent sessions, across local, background, and cloud environments, to work on unrelated tasks simultaneously. Monitor them from the [sessions list](/docs/copilot/chat/chat-sessions.md#sessions-list).
+
+* **Hand off between agent types.** Start interactively with a local agent to explore and plan, then [hand off](/docs/copilot/agents/overview.md#hand-off-a-session-to-another-agent) to a background or cloud agent for implementation. The conversation history carries over.
+
+For more information, see [using agents](/docs/copilot/agents/overview.md) and the [agents tutorial](/docs/copilot/agents/agents-tutorial.md).
 
 ## Write effective prompts
 
@@ -114,6 +129,8 @@ Each AI model has different strengths. Some are better at reasoning, others exce
 
 * **Experiment and compare.** If you're not satisfied with a response, try a different model. Different models can produce significantly different results for the same prompt.
 
+* **Adjust thinking effort for reasoning models.** Use the [thinking effort control](/docs/copilot/customization/language-models.md#configure-thinking-effort) in the model picker to increase effort for complex tasks or reduce it for simpler ones.
+
 * **Use BYOK for additional control.** Bring your own API key for more model choices and hosting options.
 
 For more information, see [selecting AI models](/docs/copilot/customization/language-models.md) and [available models for Copilot Chat](https://docs.github.com/en/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat).
@@ -151,11 +168,13 @@ AI responses might degrade as the conversation fills with irrelevant context. Ma
 
 * **Remove irrelevant history.** Delete past questions and responses that are no longer relevant, or start a fresh session.
 
+* **Compact context.** Use [/compact](/docs/copilot/chat/copilot-chat-context.md#context-compaction) and provide instructions to selectively compact the context and retain only the most relevant information.
+
 * **Use subagents for investigation.** Hint the AI to perform research and exploration in isolation by using [subagents](/docs/copilot/agents/subagents.md) so the findings don't clutter your main context.
 
 * **Choose the right session type.** Use local sessions for quick tasks on your current code that need your immediate attention, background tasks for tasks that can run locally and isolated from your main context, or cloud sessions that can benefit from team-collaboration.
 
-* **Scale with parallel sessions.** Run multiple sessions in parallel for independent tasks to save time and keep contexts separate. You can have multiple sessions running at once, across local, background, and cloud environments, and switch between them via the [Agent Sessions view](/docs/copilot/agents/overview.md#agent-sessions-list) in VS Code.
+* **Scale with parallel sessions.** Run multiple sessions in parallel for independent tasks to save time and keep contexts separate. You can have multiple sessions running at once, across local, background, and cloud environments, and switch between them via the [sessions list](/docs/copilot/chat/chat-sessions.md#sessions-list) in VS Code.
 
 For more information, see [session management](/docs/copilot/chat/chat-sessions.md) and [workspace indexing](/docs/copilot/reference/workspace-context.md).
 
@@ -169,7 +188,7 @@ Copilot is designed to work effectively with large, complex, and multi-root work
 
 * **Provide project-level instructions.** Use [custom instructions](/docs/copilot/customization/custom-instructions.md) to describe your project's architecture, module boundaries, and conventions that the AI can't infer from code alone. This gives the AI the context it needs for architecture-level changes.
 
-* **Run parallel sessions for independent changes.** Break large tasks into independent subtasks and run them in [parallel agent sessions](/docs/copilot/agents/overview.md#agent-sessions-list), each focused on a different area of the codebase.
+* **Run parallel sessions for independent changes.** Break large tasks into independent subtasks and run them in [parallel sessions](/docs/copilot/chat/chat-sessions.md#sessions-list), each focused on a different area of the codebase.
 
 * **Use the Plan agent for cross-cutting changes.** For changes that span many files or modules, start with the [Plan agent](/docs/copilot/agents/planning.md) to create a structured implementation plan before executing.
 

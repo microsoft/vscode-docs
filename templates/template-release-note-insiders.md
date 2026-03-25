@@ -3,7 +3,7 @@ Order: <sequence number>
 TOCTitle: Insiders
 PageTitle: "Visual Studio Code 1.<release number> (Insiders)"
 MetaDescription: Learn what's new in Visual Studio Code 1.<release number> (Insiders)
-MetaSocialImage: 1_<release number>/release-highlights.webp
+MetaSocialImage: 1_<release number>/vscode-insiders-header.webp
 Date: <YYYY-MM-DD>
 DownloadVersion: 1.<release number>.0
 Milestone: <milestone name (1.<release number>.0 or Month Year)>

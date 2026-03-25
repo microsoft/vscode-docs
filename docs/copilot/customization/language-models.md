@@ -1,6 +1,6 @@
 ---
 ContentId: 33e63aa1-1d8f-4d23-9733-1475f8c9f502
-DateApproved: 3/18/2026
+DateApproved: 3/25/2026
 MetaDescription: Learn how to choose between different AI language models and how to use your own language model API key in Visual Studio Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -46,6 +46,30 @@ You can further extend the list of available models by [using your own language 
 
 If you have a paid Copilot plan, the model picker shows the premium request multiplier for premium models. Learn more about [premium requests](https://docs.github.com/en/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests#premium-requests) in the GitHub Copilot documentation.
 
+## Configure thinking effort
+
+Some models support configurable thinking effort. Thinking effort controls how much reasoning the model applies to each request. Use a higher effort level for complex tasks like architectural decisions or multi-step debugging, and a lower level for straightforward code generation or simple questions. For background on how thinking and reasoning work, see [Thinking and reasoning](/docs/copilot/concepts/language-models.md#thinking-and-reasoning).
+
+VS Code sets recommended default effort levels based on evaluations and online performance data, and has adaptive reasoning enabled. Adaptive reasoning lets the model dynamically determine when and how much to think based on the complexity of each request. For most use cases, the defaults work well and you don't need to change them.
+
+You can configure the thinking effort directly from the model picker:
+
+1. Open the model picker in the chat input field and select a reasoning model.
+
+1. Select the **>** arrow that appears next to the model name to open the **Thinking Effort** submenu.
+
+    > [!NOTE]
+    > Non-reasoning models, such as GPT-4.1 and GPT-4o, do not show the thinking effort submenu.
+
+1. Select an effort level.
+
+    ![Screenshot showing the Thinking Effort submenu in the model picker, with different effort levels such as None, Low, Medium, and High.](../images/language-models/thinking-effort-submenu.png)
+
+The model picker label updates to show the selected effort level, for example "Claude Sonnet 4.6 · High". The effort level persists across conversations for the same model.
+
+> [!NOTE]
+> The `setting(github.copilot.chat.anthropic.thinking.effort)` and `setting(github.copilot.chat.responsesApiReasoningEffort)` settings are deprecated. You should configure thinking effort directly via the language model picker.
+
 ## Auto model selection
 
 > [!NOTE]
@@ -67,7 +91,7 @@ At any time, you can see which model and model multiplier are used by hovering o
 
 ## Manage language models
 
-You can use the language models editor to view all avalable models, choose which models are shown in the model picker, and add more models by adding from built-in providers or from extension-provided model providers.
+You can use the language models editor to view all available models, choose which models are shown in the model picker, and add more models by adding from built-in providers or from extension-provided model providers.
 
 To open the Language Models editor, open the model picker in the Chat view and select **Manage Models** or run the **Chat: Manage Language Models** command from the Command Palette. The Language Models editor opens by default in a [modal overlay](/docs/getstarted/userinterface.md#modal-editors) on top of the editor area.
 

@@ -1,6 +1,6 @@
 ---
 ContentId: 8b4f3c21-4e02-4a89-9f15-7a8d6b5c2e91
-DateApproved: 3/18/2026
+DateApproved: 3/25/2026
 MetaDescription: Learn how to create custom instructions for GitHub Copilot Chat in VS Code to ensure AI responses match your coding practices, project requirements, and development standards.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -179,7 +179,7 @@ Instructions files are Markdown files with the `.instructions.md` extension. The
 | `description` | No | Short description shown on hover in the Chat view. |
 | `applyTo` | No | Glob pattern that defines which files the instructions apply to automatically, relative to the workspace root. Use `**` to apply to all files. If not specified, the instructions are not applied automatically, but you can still add them manually to a chat request. |
 
-The body contains the instructions in Markdown format. To reference agent tools, use the `#tool:<tool-name>` syntax (for example, `#tool:fetch`).
+The body contains the instructions in Markdown format. To reference agent tools, use the `#tool:<tool-name>` syntax (for example, `#tool:web/fetch`).
 
 ```markdown
 ---
@@ -203,22 +203,22 @@ To create an instructions file:
 > [!TIP]
 > Type `/instructions` in the chat input to quickly open the **Configure Instructions and Rules** menu.
 
-1. In the Chat view, select **Configure Chat** (gear icon) > **Instructions & Rules**, and then select **New instruction file**.
+1. In the Chat view, select **Configure Chat** (gear icon) to open the Chat Customizations editor and then select the **Instructions** tab.
 
-    ![Screenshot showing the Chat view, and Configure Chat menu, highlighting the Configure Chat button.](../images/customization/configure-chat-instructions.png)
+1. Select **New Instructions (Workspace)** or **New Instructions (User)** from the dropdown, depending on where you want to store the instructions file.
+
+    ![Screenshot of the Chat Customizations editor, showing the Instructions tab and the dropdown to create a new instructions file.](../images/customization/create-instructions-file.png)
 
     Alternatively, use the **Chat: New Instructions File** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
-1. Choose the location where to create the instructions file.
-
-1. Enter a file name for your instructions file. This is the default name that is used in the UI.
+1. Select the location and enter a file name for your instructions file. This is the default name that is used in the UI.
 
 1. Author the custom instructions by using Markdown formatting.
 
     * Fill in the YAML frontmatter at the top of the file to configure the instructions' description, name, and when they apply.
     * Add instructions in the body of the file.
 
-To modify an existing instructions file, in the Chat view, select **Configure Chat** (gear icon) > **Chat Instructions**, and then select an instructions file from the list. Alternatively, use the **Chat: Configure Instructions** command from the Command Palette (`kb(workbench.action.showCommands)`) and select the instructions file from the Quick Pick.
+You can modify existing instruction files by opening them in the Chat Customizations editor.
 
 ### Generate an instructions file with AI
 
@@ -342,19 +342,13 @@ When you generate instructions, VS Code performs the following steps:
 1. It analyzes your project structure and coding patterns.
 1. It generates comprehensive workspace instructions tailored to your project.
 
-### Use the `/init` slash command
+To generate custom instructions for your workspace:
 
-The quickest way to prime your workspace with custom instructions is to type the `/init` slash command in the chat input box.
+* Type `/init` in the chat input box and press `kbstyle(Enter)`.
 
-The `/init` command is implemented as a contributed [prompt file](/docs/copilot/customization/prompt-files.md), so you can customize its behavior by modifying the underlying prompt.
+* Type `/create-instructions`, followed by a description of the instructions you want to generate.
 
-### Use a command to generate instructions
-
-To generate custom instructions for your workspace with a command:
-
-1. In the Chat view, select **Configure Chat** (gear icon) > **Generate Chat Instructions**.
-
-1. Review the generated instructions file and make any necessary edits.
+* In the Chat Customizations editor, select **Generate Instructions** from the dropdown.
 
 ## Share custom instructions across teams
 

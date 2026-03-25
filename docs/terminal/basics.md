@@ -1,6 +1,6 @@
 ---
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
-DateApproved: 3/18/2026
+DateApproved: 3/25/2026
 MetaDescription: Visual Studio Code has an integrated terminal to enable working in your shell of choice without leaving the editor.
 ---
 # Terminal Basics
@@ -48,8 +48,8 @@ Icons may appear to the right of the terminal title on the tab label when a term
 
 Place multiple terminals side-by-side and create a group by splitting a terminal:
 
-* Hover over a entry in the list of terminals on the right and select the inline split button.
-* Right-click the context menu and selecting the **Split** menu option.
+* Hover over an entry in the list of terminals on the right and select the inline split button.
+* Right-click the context menu and select the **Split** menu option.
 * `kbstyle(Alt)` and click on a tab, the **+** button, or the single tab on the terminal panel.
 * Trigger the `kb(workbench.action.terminal.split)` command.
 

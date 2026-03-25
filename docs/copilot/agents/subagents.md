@@ -1,6 +1,6 @@
 ---
 ContentId: 8b3c9f5e-4d2a-6f9b-3e1c-7a8d5f2e9b0c
-DateApproved: 3/18/2026
+DateApproved: 3/25/2026
 MetaDescription: Learn how to use context-isolated subagents in VS Code to delegate complex tasks to autonomous agents within your chat session.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -105,6 +105,8 @@ Consolidate findings into a single review summary.
 
 Subagents are typically **agent-initiated**, not directly invoked by users in chat. To allow the main agent to invoke subagents, make sure the `runSubagent` tool is enabled.
 
+By default, subagents themselves cannot invoke further subagents. To enable recursive nesting, enable the `setting(chat.subagents.allowInvocationsFromSubagents)` setting. Learn more in [Nested subagents](#nested-subagents).
+
 The main agent decides when context isolation helps. You don't need to manually type "run a subagent" for every task. The pattern works like this:
 
 1. You (or your custom agent's instructions) describe a complex task.
@@ -194,6 +196,30 @@ Implement the following feature using test-driven development. Use subagents to 
 1. Use the Red agent to write failing tests
 2. Use the Green agent to implement code to pass the tests
 3. Use the Refactor agent to improve the code quality
+```
+
+## Nested subagents
+
+By default, subagents cannot spawn further subagents. This prevents infinite recursion when agents accidentally call themselves in a loop. However, some workflows benefit from recursive delegation, for example, a divide-and-conquer agent that splits a large task into smaller pieces and delegates each piece to itself.
+
+To enable nested subagents, enable the `setting(chat.subagents.allowInvocationsFromSubagents)` setting (`false` by default). When enabled, subagents can spawn their own subagents, up to a maximum nesting depth of 5.
+
+### Example: recursive agent
+
+A recursive agent lists itself in its own `agents` property. This enables divide-and-conquer patterns where the agent breaks a problem into smaller parts and delegates each part to a new instance of itself.
+
+```markdown
+---
+name: RecursiveProcessor
+tools: ['agent', 'read', 'search']
+agents: [RecursiveProcessor]
+argument-hint: A list of items to process
+---
+
+You process a list of items by dividing and conquering:
+- If the list has more than 4 items, split it in half and delegate each half to a RecursiveProcessor subagent.
+- If the list has 4 or fewer items, process the items directly.
+- Merge the results from each subagent into a final result.
 ```
 
 ## Orchestration patterns
