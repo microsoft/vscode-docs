@@ -70,9 +70,9 @@ The permissions picker in the Chat view controls how much autonomy the agent has
 
 | Permission level | Description |
 |---|---|
-| **Default Approvals** | Uses your configured approval settings. Tools that require approval show a confirmation dialog before they run. |
-| **Bypass Approvals** | Auto-approves all tool calls without showing confirmation dialogs and automatically retries on errors. |
-| **Autopilot** (Preview) | Auto-approves all tool calls, automatically retries on errors, auto-responds to questions, and the agent continues working autonomously until the task is complete. |
+| **Default Approvals** | Uses your configured approval settings. Tools that require approval show a confirmation dialog before they run. The agent might ask clarifying questions if needed. |
+| **Bypass Approvals** | Auto-approves all tool calls without showing confirmation dialogs and automatically retries on errors. The agent might ask clarifying questions if needed. |
+| **Autopilot** (Preview) | Auto-approves all tool calls without showing confirmation dialogs and auto-responds to clarifying questions. The agent continues working autonomously until the task is completed. |
 
 > [!CAUTION]
 > **Bypass Approvals** and **Autopilot** bypass manual approval prompts, including for potentially destructive actions like file edits, terminal commands, and external tool calls. The first time you enable either level, a warning dialog asks you to confirm. Only use these levels if you understand the security implications. See the [Security considerations](/docs/copilot/security.md) for more details.
