@@ -101,13 +101,16 @@ Select any item to view its configurations. Create new items or edit existing on
 
 <!-- TODO: screenshot of the Customizations panel -->
 
-## Settings
+## Limitations
 
-| Setting | Description |
-|---|---|
-| `setting(chat.remoteAgentHosts)` | Configure remote agent host connections for running sessions on remote machines. |
-| `setting(workbench.startupEditor)` | Set to `agentSessionsWelcomePage` to use a sessions-first welcome page in the main VS Code window. |
-| `setting(chat.agentsControl.enabled)` | Show the session status indicator in the title bar for quick access to session activity. |
+* Only supports sessions with Copilot CLI and Copilot Cloud agents. To use local or third-party CLI agents, manage your sessions from the main VS Code window.
+
+* Only supports workspaces that are backed by a Git repository.
+
+* By default, Copilot CLI sessions are started with Git worktree isolation. Enable the `setting(github.copilot.chat.cli.isolationOption.enabled)` setting to enable choosing between workspace and worktree isolation on session creation.
+
+## Frequently asked questions
+
 
 ## Next steps
 
