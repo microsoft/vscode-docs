@@ -111,6 +111,30 @@ Select any item to view its configurations. Create new items or edit existing on
 
 ## Frequently asked questions
 
+<details>
+<summary>Can I continue sessions created in VS Code in the Sessions Window?</summary>
+
+Yes, sessions created in the main VS Code window with supported agent types (Copilot CLI and Copilot Cloud) will automatically appear in the Sessions Window. You can switch between the two interfaces without losing any session history or context.
+
+</details>
+
+<details>
+<summary>Can I use the Sessions Window with local or third-party CLI agents?</summary>
+
+The Sessions Window currently only supports sessions with Copilot CLI and Copilot Cloud agents. If you use local or third-party CLI agents, you can still manage those sessions from the main VS Code window, but they won't appear in the Sessions Window interface.
+
+</details>
+
+<details>
+<summary>Why are changes from a Copilot CLI session not applied in my main workspace?</summary>
+
+By default, Copilot CLI sessions from the Sessions Window are created with Git worktree isolation. This means that the agent operates in a separate folder created by Git worktree, which keeps changes isolated from your main workspace until you're ready to merge them. This allows you to review and test the agent's changes before integrating them into your main codebase.
+
+You can merge the worktree from the Sessions Window back into your main workspace or create a pull request to review the changes.
+
+If you prefer to have changes applied directly to your main workspace, you can enable the `setting(github.copilot.chat.cli.isolationOption.enabled)` setting to choose between workspace and worktree isolation when creating a session.
+
+</details>
 
 ## Next steps
 
