@@ -1,6 +1,6 @@
 ---
 ContentId: d0e271da-0372-4ab9-a2ab-b7add855bd5a
-DateApproved: 02/04/2026
+DateApproved: 3/25/2026
 MetaDescription: The Visual Studio Code editor includes browser debugging support. Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: ../editor/images/debugging/debugging-social.png
 ---
@@ -11,6 +11,8 @@ Visual Studio Code includes a built-in debugger for Edge and Chrome. There are a
 * Use the [Open Link](#open-link-command) command to debug a URL.
 * Clicking a link in the [JavaScript debug terminal](/docs/nodejs/nodejs-debugging.md#javascript-debug-terminal).
 * Use a [launch config](#launch-configuration) to launch a browser with your app.
+
+You can also debug web apps in VS Code's [integrated browser](/docs/debugtest/integrated-browser.md#debugging) without launching an external browser.
 
 We also have more detailed walkthroughs to get started with [React](/docs/nodejs/reactjs-tutorial), [Angular](/docs/nodejs/angular-tutorial), and [Vue](/docs/nodejs/vuejs-tutorial), as well as other debugging [recipes](/docs/nodejs/debugging-recipes).
 
@@ -49,6 +51,8 @@ In most cases, you'll want to start a new instance of the browser to debug your 
 ```
 
 When you hit `kb(workbench.action.debug.start)` or the **Start** button in the **Run and Debug** view, `http://localhost:8000` will be opened in debug mode. If you'd like to use Chrome instead of Edge, replace `msedge` with `chrome`.
+
+To debug inside VS Code without opening an external browser, use `editor-browser` as the type. Learn more about [debugging in the integrated browser](/docs/debugtest/integrated-browser.md#debugging).
 
 You can also debug a single file without running a server, for example:
 
@@ -133,6 +137,12 @@ Most modern tools used for building web applications will work out of the box. I
 Each JavaScript file may reference a source map, by a URL or relative path. When dealing with web applications, you'll want to make sure that the URL is something the debugger running in VS Code can access. If it can't, you'll see errors in the **Debug Console** explaining which source maps failed to load, and why.
 
 If it can't access it directly, VS Code will try to use the browser's network stack to request the source map. This provides an opportunity for any authentication state or network settings in the browser to be applied to the request. For example, if your source maps are in a location guarded by cookie authentication, VS Code can load them if and only if the browser session has the necessary cookies.
+
+## Focus emulation
+
+When you debug a web application and switch focus to VS Code, the browser page loses focus. This causes `:focus` CSS styles to disappear, `document.hasFocus()` to return `false`, and focus event handlers to stop firing as expected.
+
+During a browser debug session, the **Debug Options** panel in the **Run and Debug** view provides an **Emulate a focused page** option. When you enable this option, the page behaves as if it still has focus, even when VS Code is in the foreground. The setting persists across debug sessions.
 
 ## Next steps
 

@@ -1,5 +1,5 @@
 ---
-Order: 87
+Order: 
 TOCTitle: VS Code Extensions and WebAssembly - Part Two
 PageTitle: VS Code Extensions and WebAssembly - Part Two
 MetaDescription: Use WebAssembly in VS Code extensions to run in a separate worker, or write a language server with a language that compiles to WebAssembly.

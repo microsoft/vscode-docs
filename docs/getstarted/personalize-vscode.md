@@ -1,6 +1,6 @@
 ---
 ContentId: ee9b8bb7-0e8a-478d-842b-f9691f25e820
-DateApproved: 02/04/2026
+DateApproved: 3/25/2026
 MetaDescription: Learn how to personalize VS Code to your likings with themes, icons, keyboard shortcuts, display language, and settings.
 ---
 # Personalize VS Code
@@ -18,6 +18,13 @@ This article covers the following topics:
 Follow a hands-on tutorial to build your first app with AI in VS Code.
 
 * [Start tutorial](/docs/copilot/getting-started.md)
+
+</div>
+
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Watch the introduction video">
+Learn about the key features of Visual Studio Code in our introduction video.
+
+* [Watch video](https://www.youtube.com/watch?v=f8_uF_IDV50)
 
 </div>
 

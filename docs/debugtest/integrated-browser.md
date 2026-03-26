@@ -1,7 +1,7 @@
 ---
 ContentId: f8e2a7c1-9d3b-4e5f-a6c8-1b2d3e4f5a6b
-DateApproved: 02/04/2026
-MetaDescription: Use the integrated browser in VS Code to preview web apps, navigate to URLs, and select elements to add as context to AI chat.
+DateApproved: 3/25/2026
+MetaDescription: Use the integrated browser in VS Code to preview and debug web apps, navigate to URLs, and select elements to add as context to AI chat.
 MetaSocialImage: images/debugging/debugging-social.png
 ---
 # Integrated browser
@@ -21,6 +21,8 @@ You can open multiple browser instances simultaneously, each in its own editor t
 
 Enable the `setting(workbench.browser.openLocalhostLinks)` setting to automatically open `localhost` URLs in the integrated browser instead of your default system browser.
 
+When a browser tab is already open, the globe button in the title bar opens the [tab management](#tab-management) Quick Pick instead of creating a new browser tab. Use the `setting(workbench.browser.showInTitleBar)` setting to control whether the globe button appears in the title bar.
+
 ## Navigation
 
 The browser supports `http://`, `https://`, and `file://` URLs. Use the address bar to navigate to any URL, or use in-page links to navigate within a site.
@@ -29,9 +31,96 @@ The browser supports `http://`, `https://`, and `file://` URLs. Use the address 
 * `kbstyle(Ctrl+click)` (`kbstyle(Cmd+click)` on macOS) opens links in a new browser tab
 * Popups are blocked, but new tabs are allowed
 
+## Tab management
+
+Use the **Browser: Quick Open Browser Tab...** command (`kb(workbench.action.browser.quickOpen)`) to quickly switch between open browser tabs. The Quick Pick lists all open tabs grouped by editor group, and you can type to filter by tab name or URL.
+
+From the Quick Pick, you can:
+
+* Select a tab to switch to it
+* Select **New Integrated Browser Tab** to open a new browser tab
+* Select the close button on a tab to close it
+* Select the **Close All** button to close all browser tabs
+
+You can also close browser tabs with the following commands:
+
+| Command | Description |
+|---------|-------------|
+| **Browser: Close All Browser Tabs** | Close all browser tabs across all editor groups. |
+| **Browser: Close All Browser Tabs in Group** | Close all browser tabs in the current editor group. |
+
+The **Close All Browser Tabs** option is also available in the right-click context menu on browser editor tabs.
+
 ## Developer Tools
 
 Toggle the browser's Developer Tools from the browser toolbar to inspect elements, view console output, and debug page issues.
+
+## Debugging
+
+You can debug web applications directly in the integrated browser by using the `editor-browser` debug type in your `launch.json` configuration. Launch a new browser tab with the debugger attached, or attach to a tab that is already open. This works anywhere Visual Studio Code Desktop is supported, even without an external browser installed.
+
+> [!NOTE]
+> The `editor-browser` debug type is not yet available in the **Run and Debug** auto-detection flows. You need to manually add it to your `launch.json` file.
+
+### Launch a debug session
+
+To launch a new integrated browser tab and start debugging, add a launch configuration to your `.vscode/launch.json` file:
+
+```json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "editor-browser",
+      "request": "launch",
+      "name": "Launch in integrated browser",
+      "url": "http://localhost:8000"
+    }
+  ]
+}
+```
+
+Press `kb(workbench.action.debug.start)` to open the URL in the integrated browser with the debugger attached. Standard debugging features like breakpoints, stepping, and variable inspection work as expected. The browser tab closes automatically when you stop the debug session.
+
+### Attach to an existing tab
+
+To attach the debugger to an integrated browser tab that is already open, use an attach configuration:
+
+```json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "editor-browser",
+      "request": "attach",
+      "name": "Attach to integrated browser"
+    }
+  ]
+}
+```
+
+When you start this configuration:
+
+* If no integrated browser tabs are open, VS Code creates a new tab and attaches to it.
+* If one tab is open, VS Code attaches to it automatically.
+* If multiple tabs are open, a picker lets you choose which tab to attach to.
+
+The browser tab stays open when you stop the debug session.
+
+To automatically attach to a tab with a specific URL, add a `urlFilter` property to the configuration:
+
+```json
+{
+  "type": "editor-browser",
+  "request": "attach",
+  "name": "Attach to localhost",
+  "urlFilter": "http://localhost:3000/*"
+}
+```
+
+If one tab matches the filter, VS Code attaches to it directly. If multiple tabs match, the picker shows only the filtered results.
+
+For a full reference of launch configuration attributes, see [Browser debugging in VS Code](/docs/nodejs/browser-debugging.md#launch-configuration-attributes).
 
 ## Standalone window
 
@@ -73,13 +162,38 @@ To clear stored data, select the menu in the browser toolbar and choose **Clear 
 > [!NOTE]
 > In untrusted workspaces, the browser always uses ephemeral mode regardless of the setting, to protect your data.
 
-## Use as a default browser
-
-VS Code also has a built-in Simple Browser to preview web pages that has limited functionality compared to the integrated browser. If you want to use the integrated browser instead of the Simple Browser, enable the `setting(simpleBrowser.useIntegratedBrowser)` setting.
+## Use with the Live Preview extension
 
 The Live Preview extension can use the integrated browser for previewing web pages. Enable the `setting(livePreview.useIntegratedBrowser)` setting to use it as the default preview browser.
 
+## Browser tools for agents
+
+> [!NOTE]
+> Browser tools for agents are currently experimental.
+
+Agents can read and interact with pages in the integrated browser by using built-in browser tools. When enabled, agents can open browser pages, navigate to URLs, read page content and console errors, take screenshots, click elements, type text, hover over elements, drag elements, handle dialogs, and run Playwright code, all without requiring an external MCP server.
+
+Browser tools are different from [adding elements to AI chat](#add-elements-to-ai-chat). Element selection lets you manually pick page elements as context for a chat prompt. Browser tools let agents autonomously interact with web pages to complete tasks.
+
+To enable browser tools, set the `setting(workbench.browser.enableChatTools)` setting to `true`. The tools are then available to the agent automatically.
+
+Agents can only access browser pages that are either opened by the agent with the `openBrowserPage` tool, or explicitly shared by you with the **Share with Agent** button. Pages that are not shared are never visible to the agent.
+
+### Share a browser page with agents
+
+To let an agent read and interact with a page you opened, select the **Share with Agent** button in the browser toolbar. A confirmation dialog asks you to approve sharing before the agent gets access.
+
+![Screenshot showing the integrated browser, highlighting the Share with Agent button. The Chat view shows that the agent can see the shared browser page.](images/integrated-browser/share-with-agent.png)
+
+A visual indicator on the browser tab shows that a page is currently being shared. To stop sharing, select the **Share with Agent** button again. This immediately revokes the agent's access to that page.
+
+You can now ask the agent to read content from the page or interact with it. For example, you could ask "What is the title of the page?" or "Click the login button and tell me if it works."
+
+Shared pages use your existing browser session, including cookies and login state. Pages opened by the agent use isolated ephemeral sessions, so they don't share cookies or storage with your other browser tabs.
+
 ## Related
 
+* [Browser debugging in VS Code](/docs/nodejs/browser-debugging.md)
+* [Test web apps with browser agent tools](/docs/copilot/guides/browser-agent-testing-guide.md)
 * [Add context to AI chat](/docs/copilot/chat/copilot-chat-context.md)
 * [Port forwarding](/docs/debugtest/port-forwarding.md)

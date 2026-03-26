@@ -1,6 +1,6 @@
 ---
 ContentId: 5c8e7d42-9b1a-4f85-a3e2-6d5b8a9c1e43
-DateApproved: 02/04/2026
+DateApproved: 3/25/2026
 MetaDescription: Learn how to create reusable prompt files for GitHub Copilot Chat in VS Code to standardize common development tasks and improve your coding workflow efficiency.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -22,9 +22,18 @@ Use prompt files to:
 * Simplify prompting for common tasks, such as scaffolding a new component, running and fixing tests, or preparing a pull request
 * Override default behavior of a custom agent, such as creating a minimal implementation plan or generating mockups for API calls
 
+> [!TIP]
+> **Prompt files, agents, or skills?** Use prompt files for lightweight, single-task prompts. Use [custom agents](/docs/copilot/customization/custom-agents.md) when you need a persistent persona with its own tool restrictions and handoffs. Use [agent skills](/docs/copilot/customization/agent-skills.md) when you need a portable, multi-file capability with scripts and resources.
+
+> [!TIP]
+> Use the [Chat Customizations editor](/docs/copilot/customization/overview.md#chat-customizations-editor) (Preview) to discover, create, and manage all your chat customizations in one place. Run **Chat: Open Chat Customizations** from the Command Palette.
+
 ## Prompt file locations
 
 You can define prompt files for a specific workspace or at the user level, where they are available across all your workspaces.
+
+> [!TIP]
+> In a monorepo, enable `setting(chat.useCustomizationsInParentRepositories)` to discover prompt files from the parent repository root. Learn more about [parent repository discovery](/docs/copilot/customization/overview.md#parent-repository-discovery).
 
 | Scope | Default file location |
 |-------|-----------------------|
@@ -53,14 +62,10 @@ The body contains the prompt text in Markdown format. Provide specific instructi
 
 You can reference other workspace files by using Markdown links. Use relative paths to reference these files, and ensure that the paths are correct based on the location of the prompt file.
 
-To reference agent tools in the body text, use the `#tool:<tool-name>` syntax. For example, to reference the `githubRepo` tool, use `#tool:githubRepo`.
+To reference agent tools in the body text, use the `#tool:<tool-name>` syntax. For example, to reference the `browser` tool, use `#tool:browser`.
 
-Within a prompt file, you can reference variables by using the `${variableName}` syntax. You can reference the following variables:
-
-* Workspace variables - `${workspaceFolder}`, `${workspaceFolderBasename}`
-* Selection variables - `${selection}`, `${selectedText}`
-* File context variables - `${file}`, `${fileBasename}`, `${fileDirname}`, `${fileBasenameNoExtension}`
-* Input variables - `${input:variableName}`, `${input:variableName:placeholder}` (pass values to the prompt from the chat input field)
+> [!TIP]
+> If you want the user to provide additional information, you can use the `vscode/askQuestion` tool. You can also use a syntax like `${input:variableName}`, `${input:variableName:placeholder}`. Most language models understand this syntax and will prompt for these inputs.
 
 The following examples demonstrate how to use prompt files. For more community-contributed examples, see the [Awesome Copilot repository](https://github.com/github/awesome-copilot/tree/main).
 
@@ -71,12 +76,12 @@ The following examples demonstrate how to use prompt files. For more community-c
 ---
 agent: 'agent'
 model: GPT-4o
-tools: ['githubRepo', 'search/codebase']
+tools: ['search/codebase', 'vscode/askQuestions']
 description: 'Generate a new React form component'
 ---
-Your goal is to generate a new React form component based on the templates in #tool:githubRepo contoso/react-templates.
+Your goal is to generate a new React form component based on the templates in the Github repo contoso/react-templates.
 
-Ask for the form name and fields if not provided.
+Use the #tool:vscode/askQuestions to ask for the form name and fields if not provided.
 
 Requirements for the form:
 * Use form design system components: [design-system/Form.md](../docs/design-system/Form.md)
@@ -91,6 +96,7 @@ Requirements for the form:
 ```
 
 </details>
+
 
 <details>
 <summary>Example: perform a security review of a REST API</summary>
@@ -119,32 +125,39 @@ When you create a prompt file, choose whether to store it in your workspace or u
 
 To create a prompt file:
 
-1. In the Chat view, select **Configure Chat** (gear icon) > **Prompt Files**, and then select **New prompt file**.
+> [!TIP]
+> Type `/prompts` in the chat input to quickly open the **Configure Prompt Files** menu.
 
-    ![Screenshot showing the Chat view, and Configure Chat menu, highlighting the Configure Chat button.](../images/customization/configure-chat-instructions.png)
+1. In the Chat view, select **Configure Chat** (gear icon) to open the Chat Customizations editor and then select the **Prompts** tab.
+
+1. Select **New Prompt (Workspace)** or **New Prompt (User)** from the dropdown, depending on where you want to store the prompt file.
+
+    ![Screenshot of the Chat Customizations editor, showing the Prompts tab and the dropdown to create a new prompt file.](../images/customization/create-prompt-file.png)
 
     Alternatively, use the **Chat: New Prompt File** or **Chat: New Untitled Prompt File** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
-1. Choose the scope of the prompt file:
-
-    * **Workspace**: creates the prompt file in the `.github/prompts` folder of your workspace to only use it within that workspace. Add more prompt folders for your workspace with the `setting(chat.promptFilesLocations)` setting.
-
-    * **User profile**: creates the prompt file in the [current profile folder](/docs/configure/profiles.md) to use it across all your workspaces.
-
-1. Enter a file name for your prompt file. This is the default name that appears when you type `/` in chat.
+1. Select the location and enter a file name for your prompt file. This is the default name that appears when you type `/` in chat.
 
 1. Author the chat prompt by using Markdown formatting.
 
     * Fill in the YAML frontmatter at the top of the file to configure the prompt's description, agent, tools, and other settings.
     * Add instructions for the prompt in the body of the file.
 
-To modify an existing prompt file, in the Chat view, select **Configure Chat** > **Prompt Files**, and then select a prompt file from the list. Alternatively, use the **Chat: Configure Prompt Files** command from the Command Palette (`kb(workbench.action.showCommands)`) and select the prompt file from the Quick Pick.
+You can modify existing prompt files by opening them in the Chat Customizations editor.
+
+### Generate a prompt file with AI
+
+You can use AI to generate a prompt file based on a description of the task. Type `/create-prompt` in chat and describe the task you want to automate (for example, "a prompt for generating unit tests"). The agent asks clarifying questions, generates a `.prompt.md` file with appropriate frontmatter and instructions, and offers you a choice between workspace and user storage.
+
+You can also extract a reusable prompt from an ongoing conversation. For example, after a multi-turn chat session, ask "turn this into a reusable prompt" or "save this workflow as a prompt", and the agent creates a prompt file that captures the workflow.
+
+You can also generate a prompt file from the Chat Customizations editor by selecting **Generate Prompt** from the dropdown.
 
 ## Use a prompt file in chat
 
 You have multiple options to run a prompt file:
 
-* In the Chat view, type `/` followed by the prompt name in the chat input field.
+* In the Chat view, type `/` followed by the prompt name in the chat input field. [Agent skills](/docs/copilot/customization/agent-skills.md) also appear as slash commands alongside prompt files.
 
     You can add extra information in the chat input field. For example, `/create-react-form formName=MyForm` or `/create-api for listing customers`.
 
@@ -173,13 +186,7 @@ The list of available tools in chat is determined by the following priority orde
 
 VS Code can sync your user prompt files across multiple devices by using [Settings Sync](/docs/configure/settings-sync.md).
 
-To sync your user prompt files, enable Settings Sync for prompt and instruction files:
-
-1. Make sure you have [Settings Sync](/docs/configure/settings-sync.md) enabled.
-
-1. Run **Settings Sync: Configure** from the Command Palette (`kb(workbench.action.showCommands)`).
-
-1. Select **Prompts and Instructions** from the list of settings to sync.
+To sync your user prompt files, enable Settings Sync and run **Settings Sync: Configure** from the Command Palette (`kb(workbench.action.showCommands)`). Select **Prompts and Instructions** from the list of settings to sync.
 
 ## Tips for writing effective prompts
 

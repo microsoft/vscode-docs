@@ -1,6 +1,6 @@
 ---
 ContentId: 8d3f4a2e-9b1c-4f5e-a8d7-2c4b6e9f1a3d
-DateApproved: 02/04/2026
+DateApproved: 3/25/2026
 MetaDescription: Learn how to review and manage AI-generated code edits in Visual Studio Code chat.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -51,6 +51,8 @@ The following keyboard shortcuts help you navigate and review edits:
 | Navigate to next edit | `kbstyle(Down)` in the editor overlay |
 | Navigate to previous edit | `kbstyle(Up)` in the editor overlay |
 
+When you keep or undo an edit in a file, the editor automatically navigates to the next edit with pending changes, which might be in a different file. To disable this auto-navigation and stay in the current file, set `setting(chat.editing.revealNextChangeOnResolve)` to `false`.
+
 ## Source Control integration
 
 If you stage your changes in the Source Control view, any pending edits are automatically accepted. On the other hand, if you discard your changes, any pending edits are also discarded.
@@ -77,6 +79,14 @@ The following example configuration automatically allows edits to all files exce
   "**/.env": false
 }
 ```
+
+## Review file changes from the sessions list
+
+When a session completes and makes code changes to your project, the [sessions list](/docs/copilot/chat/chat-sessions.md#sessions-list) shows the file change statistics for that session. To review the changes, select the session from the list to open the session details.
+
+![Screenshot of the file changes diff editor in an agent session.](../images/agents-overview/agent-file-changes-v2.png)
+
+Depending on the agent type, you have options to apply the changes to your local workspace, or to check out the branch from the session (for cloud agents).
 
 ## Related resources
 

@@ -1,27 +1,35 @@
 ---
-Order:
+Order: <sequence number>
 TOCTitle: Insiders
-PageTitle: "Visual Studio Code <Month> <Year> (Insiders)"
-MetaDescription: Learn what is new in the Visual Studio Code <Month> <Year> Release (1.<release number>).
-MetaSocialImage: 1_<release number>/release-highlights.webp
+PageTitle: "Visual Studio Code 1.<release number> (Insiders)"
+MetaDescription: Learn what's new in Visual Studio Code 1.<release number> (Insiders)
+MetaSocialImage: 1_<release number>/vscode-insiders-header.webp
 Date: <YYYY-MM-DD>
 DownloadVersion: 1.<release number>.0
-Milestone: <milestone name>
+Milestone: <milestone name (1.<release number>.0 or Month Year)>
+ProductEdition: Insiders
 ---
-# <Month> <Year> Insiders (version 1.<release number>)
-
-![VS Code Insiders banner](images/1_<release number>/vscode-insiders-banner-medium.png)
+# Visual Studio Code 1.<release number> <!-- %IF INSIDERS % (Insiders) %ENDIF % -->
 
 _Last updated: <Month day, year>_
 
-These release notes cover the Insiders build of VS Code and continue to evolve as new features are added. To try the latest updates, [download Insiders](https://code.visualstudio.com/insiders).
-To read these release notes online, go to [code.visualstudio.com/updates](https://code.visualstudio.com/updates).
+Welcome to the 1.<release number> <!-- %IF INSIDERS % Insiders %ENDIF % --> release of Visual Studio Code.
 
-You can still track our progress in the [Commit log](https://github.com/Microsoft/vscode/commits/main) and our list of [Closed issues](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%22<Month>+<Year>%22).
+<!-- %IF INSIDERS %
+These release notes cover the Insiders build of VS Code and continue to evolve as new features are added.
 
-_These release notes were generated using GitHub Copilot and might contain inaccuracies._
+You can still track our progress in the [Commit log](https://github.com/Microsoft/vscode/commits/main) and our list of [Closed issues](https://github.com/Microsoft/vscode/issues?q=is%3Aissue%20is%3Aclosed%20milestone%3A<milestone name>).
+%ENDIF % -->
 
 Happy Coding!
+
+---
+
+To try new features as soon as possible, [**download the nightly Insiders build**](https://code.visualstudio.com/insiders), which includes the latest updates as soon as they are available.
+
+<!-- %IF IN_PRODUCT %
+You can view the release notes online at [code.visualstudio.com/updates](https://code.visualstudio.com/updates).
+%ENDIF % -->
 
 ---
 

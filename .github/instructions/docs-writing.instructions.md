@@ -141,6 +141,7 @@ Keywords: [<string>, ...]    # Optional. Array of keywords for SEO/search purpos
 - Add new articles to the table of contents in `docs/toc.json` or `api/toc.json` as appropriate.
 - Add new articles to the sitemap in `build/sitemap.xml`.
 - File name changes must be reflected in both the table of contents and sitemap.
+- Titles in table of contents must use title-style capitalization.
 
 ## Article structure
 

@@ -1,6 +1,6 @@
 ---
 ContentId: 276ecd8f-2a76-467e-bf82-846d49c13ab5
-DateApproved: 02/04/2026
+DateApproved: 3/25/2026
 MetaDescription: Learn how to create custom agents (formerly custom chat modes) to tailor AI chat behavior in VS Code for your specific workflows and development scenarios.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -18,22 +18,25 @@ Keywords:
 
 Custom agents enable you to configure the AI to adopt different personas tailored to specific development roles and tasks. For example, you might create agents for a security reviewer, planner, solution architect, or other specialized roles. Each persona can have its own behavior, available tools, and instructions.
 
-You can also use handoffs to create guided workflows between agents, allowing you to transition seamlessly from one specialized agent to another with a single click. For example, you could move from planning agent directly into implementation agent, or hand off to a code reviewer with the relevant context.
+You can also use handoffs to create guided workflows between agents. Transition seamlessly from one specialized agent to another with a single select. For example, move from a planning agent directly into an implementation agent, or hand off to a code reviewer with the relevant context.
 
 This article describes how to create and manage custom agents in VS Code.
 
-> [!NOTE]
-> Custom agents are available as of VS Code release 1.106. Custom agents were previously known as custom chat modes.
+> [!TIP]
+> **Agents, prompt files, or skills?** Use custom agents when you need a persistent persona with specific tool restrictions, model preferences, or handoffs between roles. For one-off tasks that don't need tool restrictions, use [prompt files](/docs/copilot/customization/prompt-files.md). For portable, reusable capabilities with scripts and resources, use [agent skills](/docs/copilot/customization/agent-skills.md).
+
+> [!TIP]
+> Use the [Chat Customizations editor](/docs/copilot/customization/overview.md#chat-customizations-editor) (Preview) to discover, create, and manage all your chat customizations in one place. Run **Chat: Open Chat Customizations** from the Command Palette.
 
 ## What are custom agents?
 
-The [built-in agents](/docs/copilot/agents/overview.md#built-in-agents) provide general-purpose configurations for chat in VS Code. For a more tailored chat experience, you can create your own custom agents.
+The [built-in agents](/docs/copilot/agents/local-agents.md) provide general-purpose configurations for chat in VS Code. For a more tailored chat experience, you can create your own custom agents.
 
 Custom agents consist of a set of instructions and tools that are applied when you switch to that agent. For example, a "Plan" agent could include instructions for generating an implementation plan and only use read-only tools. By creating a custom agent, you can quickly switch to that specific configuration without having to manually select relevant tools and instructions each time.
 
 Custom agents are defined in a `.agent.md` Markdown file, and can be stored in your workspace for others to use, or in your user profile, where you can reuse them across different workspaces.
 
-You can reuse your custom agents in [background agents](/docs/copilot/agents/background-agents.md) and [cloud agents](/docs/copilot/agents/cloud-agents.md), enabling you to run autonomous tasks with the same specialized configurations.
+You can reuse your custom agents in [background agents](/docs/copilot/agents/copilot-cli.md) and [cloud agents](/docs/copilot/agents/cloud-agents.md), enabling you to run autonomous tasks with the same specialized configurations.
 
 ## Why use custom agents?
 
@@ -48,7 +51,7 @@ Custom agents also let you provide specialized instructions that define how the 
 
 Handoffs enable you to create guided sequential workflows that transition between agents with suggested next steps. After a chat response completes, handoff buttons appear that let users move to the next agent with relevant context and a pre-filled prompt.
 
-Handoffs are useful for orchestrating multi-step workflows, that give developer's control for reviewing and approving each step before moving to the next one. For example:
+Handoffs are useful for orchestrating multi-step workflows that give developers control for reviewing and approving each step before moving to the next one. For example:
 
 * **Planning → Implementation**: Generate a plan in planning agent, then hand off to implementation agent to start coding.
 * **Implementation → Review**: Complete implementation, then switch to a code review agent to check for quality and security issues.
@@ -59,7 +62,7 @@ To define handoffs in your agent file, add them to the frontmatter. Each handoff
 ```markdown
 ---
 description: Generate an implementation plan
-tools: ['search', 'fetch']
+tools: ['search', 'web']
 handoffs:
   - label: Start Implementation
     agent: implementation
@@ -70,6 +73,21 @@ handoffs:
 ```
 
 When users see the handoff button and select it, they switch to the target agent with the prompt pre-filled. If `send: true`, the prompt automatically submits to start the next workflow step.
+
+## Custom agent file locations
+
+You can define custom agents for a specific workspace or at the user level, where they are available across all your workspaces.
+
+> [!TIP]
+> In a monorepo, enable `setting(chat.useCustomizationsInParentRepositories)` to discover custom agents from the parent repository root. Learn more about [parent repository discovery](/docs/copilot/customization/overview.md#parent-repository-discovery).
+
+| Scope | Default file location |
+|-------|-----------------------|
+| Workspace | `.github/agents` folder |
+| Workspace (Claude format) | `.claude/agents` folder |
+| User profile | `~/.copilot/agents`, `agents` folder of the current [VS Code profile](/docs/configure/profiles.md) |
+
+You can configure additional file locations for workspace custom agent files with the `setting(chat.agentFilesLocations)` setting.
 
 ## Custom agent file structure
 
@@ -88,11 +106,11 @@ The header is formatted as YAML frontmatter with the following fields:
 | `name`            | The name of the custom agent. If not specified, the file name is used. |
 | `argument-hint`   | Optional hint text shown in the chat input field to guide users on how to interact with the custom agent. |
 | `tools`           | A list of tool or tool set names that are available for this custom agent. Can include built-in tools, tool sets, MCP tools, or tools contributed by extensions. To include all tools of an MCP server, use the `<server name>/*` format.<br/>Learn more about [tools in chat](/docs/copilot/agents/agent-tools.md). |
-| `agents`          | A list of agent names that are available as [subagents](/docs/copilot/agents/subagents.md) in this agent. Use `*` to allow all agents, or an empty array `[]` to prevent any subagent use. If you specify `agents`, ensure the `agent` tool is included in the `tools` property. |
+| `agents`          | A list of agent names that are available as [subagents](/docs/copilot/agents/subagents.md) in this agent. Use `*` to allow all agents, or an empty array `[]` to prevent any subagent use. If you specify `agents`, ensure the `agent` tool is included in the `tools` property. To create a self-referential agent that lists itself in `agents`, enable `setting(chat.subagents.allowInvocationsFromSubagents)`. Learn more about [nested subagents](/docs/copilot/agents/subagents.md#nested-subagents). |
 | `model`           | The AI model to use when running the prompt. Specify a single model name (string) or a prioritized list of models (array). When you specify an array, the system tries each model in order until an available one is found. If not specified, the currently selected model in model picker is used. |
-| `user-invokable`  | Optional boolean flag to control whether the agent appears in the agents dropdown in chat (default is `true`). Set to `false` to create agents that are only accessible as [subagents](/docs/copilot/agents/subagents.md) or programmatically. |
+| `user-invocable`  | Optional boolean flag to control whether the agent appears in the agents dropdown in chat (default is `true`). Set to `false` to create agents that are only accessible as [subagents](/docs/copilot/agents/subagents.md) or programmatically. |
 | `disable-model-invocation` | Optional boolean flag to prevent the agent from being invoked as a subagent by other agents (default is `false`). |
-| `infer`           | **Deprecated.** Use `user-invokable` and `disable-model-invocation` instead. Previously, `infer: true` (the default) made the agent both visible in the picker and available as a subagent. `infer: false` hid it from both. The new fields give you independent control: use `user-invokable: false` to hide from the picker while still allowing subagent invocation, or `disable-model-invocation: true` to prevent subagent invocation while keeping it in the picker. |
+| `infer`           | **Deprecated.** Use `user-invocable` and `disable-model-invocation` instead. Previously, `infer: true` (the default) made the agent both visible in the picker and available as a subagent. `infer: false` hid it from both. The new fields give you independent control: use `user-invocable: false` to hide from the picker while still allowing subagent invocation, or `disable-model-invocation: true` to prevent subagent invocation while keeping it in the picker. |
 | `target`          | The target environment or context for the custom agent (`vscode` or `github-copilot`). |
 | `mcp-servers`     | Optional list of Model Context Protocol (MCP) server config json to use with [custom agents in GitHub Copilot](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents) (target: `github-copilot`). |
 | `handoffs`        | Optional list of suggested next actions or prompts to transition between custom agents. Handoff buttons appear as interactive suggestions after a chat response completes. |
@@ -101,6 +119,7 @@ The header is formatted as YAML frontmatter with the following fields:
 | `handoffs.prompt` | The prompt text to send to the target agent. |
 | `handoffs.send`   | Optional boolean flag to auto-submit the prompt (default is `false`) |
 | `handoffs.model`  | Optional language model to use when the handoff executes. Use the qualified model name in the format `Model Name (vendor)`, for example `GPT-5 (copilot)` or `Claude Sonnet 4.5 (copilot)`. |
+| `hooks` (Preview)  | Optional hook commands scoped to this agent. Hooks defined here only run when this agent is active, either invoked by the user or as a subagent. Uses the same format as [hook configuration files](/docs/copilot/customization/hooks.md#hook-configuration-format). Requires `setting(chat.useCustomAgentHooks)` to be enabled. |
 
 > [!NOTE]
 > If a given tool is not available when using the custom agent, it is ignored.
@@ -111,7 +130,7 @@ The custom agent file body contains the custom agent implementation, formatted a
 
 You can reference other files by using Markdown links, for example to reuse instructions files.
 
-To reference agent tools in the body text, use the `#tool:<tool-name>` syntax. For example, to reference the `githubRepo` tool, use `#tool:githubRepo`.
+To reference agent tools in the body text, use the `#tool:<tool-name>` syntax. For example, to reference the `fetch` tool, use `#tool:web/fetch`.
 
 When you select the custom agent in the Chat view, the guidelines in the custom agent file body are prepended to the user chat prompt.
 
@@ -126,7 +145,7 @@ The following code snippet shows an example of a "Plan" custom agent file that g
 ---
 description: Generate an implementation plan for new features or refactoring existing code.
 name: Planner
-tools: ['fetch', 'githubRepo', 'search', 'usages']
+tools: ['web/fetch', 'search/codebase', 'search/usages']
 model: ['Claude Opus 4.5', 'GPT-5.2']  # Tries models in order
 handoffs:
   - label: Implement Plan
@@ -173,7 +192,7 @@ You are a feature builder. For each task:
 ---
 name: Researcher
 description: Research codebase patterns and gather context
-tools: ['codebase', 'fetch', 'usages']
+tools: ['search/codebase', 'web/fetch', 'search/usages']
 ---
 Research thoroughly using read-only tools. Return a summary of findings.
 ```
@@ -184,36 +203,85 @@ Research thoroughly using read-only tools. Return a summary of findings.
 ---
 name: Implementer
 description: Implement code changes based on provided context
-tools: ['editFiles', 'terminalLastCommand']
+tools: ['edit', 'read/terminalLastCommand']
 ---
 Implement changes following existing code patterns. Make minimal, focused edits.
 ```
 
 </details>
 
+<details>
+<summary>Agent with scoped hooks example (Preview)</summary>
+
+The following example shows a custom agent that defines hooks in its frontmatter. The `PostToolUse` hook runs a formatter after file edits and only runs when this agent is active. Enable `setting(chat.useCustomAgentHooks)` to use this feature.
+
+```markdown
+---
+name: "Strict Formatter"
+description: "Agent that auto-formats code after every edit"
+hooks:
+  PostToolUse:
+    - type: command
+      command: "./scripts/format-changed-files.sh"
+---
+
+You are a code editing agent. After making changes, files are automatically formatted.
+```
+
+Learn more about hooks in [Agent hooks](/docs/copilot/customization/hooks.md).
+
+</details>
+
+### Claude agent format
+
+Agent files in the `.claude/agents` folder use plain `.md` files and support Claude-specific frontmatter properties:
+
+| Field | Description |
+|-------|-------------|
+| `name` | Agent name (required) |
+| `description` | What the agent does |
+| `tools` | Comma-separated string of allowed tools (for example, `"Read, Grep, Glob, Bash"`) |
+| `disallowedTools` | Comma-separated string of tools to block |
+
+VS Code maps Claude-specific tool names to the corresponding VS Code tools. Both the VS Code `.agent.md` format (with YAML arrays for tools) and the Claude format (with comma-separated strings) are supported.
+
+> [!NOTE]
+> VS Code also detects `.md` files in the `.claude/agents` folder, following the [Claude sub-agents format](https://code.claude.com/docs/en/sub-agents). This enables you to use the same agent definitions across VS Code and Claude Code.
+
 ## Create a custom agent
 
 You can create a custom agent file in your workspace or user profile.
 
-1. Select **Configure Custom Agents** from the agents dropdown and then select **Create new custom agent** or run the **Chat: New Custom Agent** command in the Command Palette (`kb(workbench.action.showCommands)`).
+> [!TIP]
+> Type `/agents` in the chat input to quickly open the **Configure Custom Agents** menu.
 
-1. Choose the location where the custom agent file should be created.
+1. In the Chat view, select **Configure Chat** (gear icon) to open the Chat Customizations editor and then select the **Agents** tab.
 
-    * **Workspace**: create the custom agent definition file in the `.github/agents` folder of your workspace to only use it within that workspace
+1. Select **New Agent (Workspace)** or **New Agent (User)** from the dropdown, depending on where you want to store the agent file.
 
-    * **User profile**: create the custom agent definition file in the [current profile folder](/docs/configure/profiles.md) to use it across all your workspaces
+    ![Screenshot of the Chat Customizations editor, showing the Agents tab and the dropdown to create a new custom agent.](../images/customization/create-custom-agent.png)
+
+    Alternatively, run the **Chat: New Custom Agent** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
     > [!TIP]
     > You can configure additional locations where VS Code searches for custom agent files by using the `setting(chat.agentFilesLocations)` setting. This is useful for sharing agents across projects or keeping them in a central location outside your workspace.
 
-1. Enter a file name for the custom agent. This is the default name that appears in the agents dropdown.
+1. Select the location and enter a file name for the custom agent. This is the default name that appears in the agents dropdown.
 
 1. Provide the details for the custom agent in the newly created `.agent.md` file.
 
     * Fill in the YAML frontmatter at the top of the file to configure the custom agent's name, description, tools, and other settings.
     * Add instructions for the custom agent in the body of the file.
 
-To update a custom agent definition file, select **Configure Custom Agents** from the agents dropdown, and then select a custom agent from the list to modify it.
+You can modify existing custom agents by opening them in the Chat Customizations editor.
+
+### Generate a custom agent with AI
+
+You can use AI to generate a custom agent based on a description of the role. Type `/create-agent` in Agent mode chat and describe the persona you want (for example, "a security review agent"). The agent asks clarifying questions and generates an `.agent.md` file with appropriate tools, instructions, and frontmatter.
+
+You can also extract a custom agent from an ongoing conversation. For example, after a multi-turn debugging session, ask "make an agent for this kind of task" to capture the workflow as a reusable custom agent.
+
+You can also generate a custom agent from the Chat Customizations editor by selecting **Generate Agent** from the dropdown.
 
 ## Customize the agents dropdown list
 
@@ -225,13 +293,7 @@ If you have multiple custom agents, you can customize which ones appear in the a
 
 ## Tool list priority
 
-You can specify the list of available tools for both a custom agent and prompt file by using the `tools` metadata field. Prompt files can also reference a custom agent by using the `agent` metadata field.
-
-The list of available tools in chat is determined by the following priority order:
-
-1. Tools specified in the prompt file (if any)
-2. Tools from the referenced custom agent in the prompt file (if any)
-3. Default tools for the selected agent (if any)
+When you use `tools` in both a custom agent and a prompt file, the prompt file's tools take precedence. For the full priority order, see [Tool list priority](/docs/copilot/customization/prompt-files.md#tool-list-priority) in the prompt files documentation.
 
 ## Share custom agents across teams
 
@@ -272,8 +334,13 @@ To identify the source of a custom agent:
 > [!TIP]
 > Use the chat customization diagnostics view to see all loaded custom agents, prompt files, instruction files, and skills along with any errors. Right-click in the Chat view and select **Diagnostics**. Learn more about [troubleshooting AI in VS Code](/docs/copilot/troubleshooting.md).
 
+## Security considerations
+
+Custom agents can restrict which tools are available, which gives you control over what the AI can do. For security-sensitive workflows, create agents with read-only tools to prevent unintended modifications. When sharing agents in a repository, review the tool list and instructions to ensure they follow the principle of least privilege.
+
 ## Related resources
 
+* [Planning with agents](/docs/copilot/agents/planning.md)
 * [Customize AI with custom instructions](/docs/copilot/customization/custom-instructions.md)
 * [Create reusable prompt files](/docs/copilot/customization/prompt-files.md)
 * [Use tools in chat](/docs/copilot/agents/agent-tools.md)

@@ -1,6 +1,6 @@
 ---
 ContentId: f0f31de2-a344-4ee6-8d5b-d3ac4e11e149
-DateApproved: 02/04/2026
+DateApproved: 3/25/2026
 MetaDescription: Use smart actions in VS Code to get help from AI for common development tasks, such as generating commit messages, renaming symbols, or fixing coding errors.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -118,7 +118,7 @@ Alternatively, you can:
 1. Follow Copilot's suggestions to fix the test
 
 > [!TIP]
-> When using [agents](/docs/copilot/agents/overview.md#built-in-agents), the agent monitors the test output when running tests, and automatically attempts to fix and rerun failing tests.
+> When using [agents](/docs/copilot/agents/local-agents.md), the agent monitors the test output when running tests, and automatically attempts to fix and rerun failing tests.
 
 ## Fix terminal errors
 

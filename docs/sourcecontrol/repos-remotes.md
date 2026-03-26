@@ -1,6 +1,6 @@
 ---
 ContentId: 8f34d9b6-3185-426a-b6d9-7e5ac7138a31
-DateApproved: 02/04/2026
+DateApproved: 3/25/2026
 MetaDescription: Master working with Git repositories and remotes in VS Code. Learn about cloning, publishing, push/pull/sync operations, upstream tracking, auto-fetch, and managing multiple repositories.
 Keywords:
 - source control
@@ -217,7 +217,7 @@ Customize the Source Control Graph with these settings:
 
 * `setting(scm.graph.showIncomingChanges)`: show or hide incoming commits
 * `setting(scm.graph.showOutgoingChanges)`: show or hide outgoing commits
-* `setting(git.graph.pageSize)`: number of commits to load initially
+* `setting(scm.graph.pageSize)`: number of commits to load initially
 
 Learn more about [viewing commit history with the Source Control Graph](/docs/sourcecontrol/staging-commits.md#graph-view-for-commit-history).
 

@@ -1,6 +1,6 @@
 ---
 ContentId: 3a6e8c1d-5f2b-4d9a-b7e1-9c4f2a8d6b3e
-DateApproved: 02/04/2026
+DateApproved: 3/25/2026
 MetaDescription: Learn how to use local agents in VS Code for interactive coding tasks with full access to your workspace, tools, and models.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -13,7 +13,7 @@ Keywords:
 
 # Local agents in Visual Studio Code
 
-Local agents run directly within VS Code on your machine. You interact with local agents through chat to get immediate results to your prompts. Local agents work on your workspace and have access to the full range of tools and models available in VS Code. By [creating custom agents](/docs/copilot/customization/custom-agents.md), you can let the agent assume a specific role or persona for a task, such as a code reviewer, tester, or documentation writer.
+Local agents run interactively within Visual Studio Code on your machine. They work on your current workspace and have access to the full range of tools and models available in VS Code, including extension-provided tools and MCP servers. By [creating custom agents](/docs/copilot/customization/custom-agents.md), you can let the agent assume a specific role or persona for a task, such as a code reviewer, tester, or documentation writer.
 
 Local agents operate in the chat interface in VS Code. When you close a chat session, the local agent remains active and you can track it in the sessions view.
 
@@ -74,6 +74,10 @@ Ask uses agentic capabilities to research your codebase and gather relevant cont
 
 Open chat by using Ask: [Stable](vscode://GitHub.Copilot-Chat/chat?mode=ask) | [Insiders](vscode-insiders://GitHub.Copilot-Chat/chat?mode=ask)
 
+### Edit mode (deprecated)
+
+Edit mode is deprecated. Use Agent mode for multi-file code edits instead. You can restore Edit mode by enabling the `setting(chat.editMode.hidden)` setting.
+
 ## Get started
 
 > [!TIP]
@@ -101,6 +105,8 @@ To start a local agent session:
 
 1. Review and confirm code changes and tool invocations as the agent works through your request.
 
+    You can send follow-up prompts while the agent is working. Queue messages for later, steer the agent in a new direction, or stop and send immediately. Learn more about [sending messages while a request is running](/docs/copilot/chat/chat-sessions.md#send-messages-while-a-request-is-running).
+
     > [!TIP]
     > VS Code helps you protect against inadvertent edits to sensitive files, such as workspace configuration settings or environment settings. Learn more about [editing sensitive files](/docs/copilot/chat/review-code-edits.md#edit-sensitive-files).
 
@@ -126,8 +132,8 @@ To start with Ask:
 
 ## Related resources
 
-* [Agents overview](/docs/copilot/agents/overview.md): Overview of agent types and session management.
+* [Agents overview](/docs/copilot/agents/overview.md): Choose agents, configure permissions, and hand off between agent types.
+* [Manage chat sessions](/docs/copilot/chat/chat-sessions.md): Create, switch between, and organize your sessions.
 * [Agents tutorial](/docs/copilot/agents/agents-tutorial.md): Hands-on tutorial for working with different agent types.
 * [Tools](/docs/copilot/agents/agent-tools.md): Extend agents with built-in, MCP, and extension tools.
 * [Custom agents](/docs/copilot/customization/custom-agents.md): Create your own AI agents and extensions.
-* [Chat](/docs/copilot/chat/copilot-chat.md): Learn about the chat interface and interaction features.

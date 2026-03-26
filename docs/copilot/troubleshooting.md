@@ -1,6 +1,6 @@
 ---
 ContentId: f8e4b2c1-9d3a-4e5f-b6c7-8a9d0e1f2b3c
-DateApproved: 02/04/2026
+DateApproved: 3/25/2026
 MetaDescription: Troubleshoot GitHub Copilot issues in Visual Studio Code with logs, diagnostics, and debugging tools.
 MetaSocialImage: images/shared/github-copilot-social.png
 Keywords:
@@ -38,37 +38,36 @@ If you encounter problems connecting to GitHub Copilot, collect network connecti
 
 For more information about network configuration, see [Network and firewall configuration for Copilot](/docs/copilot/faq.md#network-and-firewall-configuration-for-copilot).
 
-## Chat Debug view
+## Debug chat interactions
 
-The Chat Debug view shows the details of AI requests and responses, including the system prompt, user prompt, context sent to the language model, and tool invocations. Use this view to understand how the AI interprets your requests and what context it uses to generate responses.
+VS Code provides different tools to inspect what happens when you send a prompt to the AI.
 
-To open the Chat Debug view:
+* **`/troubleshoot` slash command:**
 
-1. Select the overflow menu (`...`) in the Chat view.
-1. Select **Show Chat Debug View**.
+    Ask the AI to analyze the debug logs for the current chat session. Type `/troubleshoot` followed by your question, such as `/troubleshoot how many tokens did I use?` or `/troubleshoot list all paths you tried to load customizations`. Requires `setting(github.copilot.chat.agentDebugLog.enabled)` to be enabled.
 
-Alternatively, run **Developer: Show Chat Debug View** from the Command Palette.
+* **Agent Debug Log panel (Preview):**
 
-Learn more about the [Chat Debug view](/docs/copilot/chat/chat-debug-view.md).
+    Shows a chronological event log of agent interactions during a chat session, including tool call sequences, LLM requests, token usage, prompt file discovery, and errors. This is the primary tool for understanding and debugging chat interactions.
 
-## Chat customization diagnostics
+    To open the Agent Debug Log panel:
 
-The chat customization diagnostics view shows all currently loaded custom agents, prompt files, instruction files, and skills. Use this view to troubleshoot issues with customization files that aren't being applied or are causing errors.
+    1. Select the ellipsis (**...**) menu in the Chat view and select **Show Agent Debug Logs**.
 
-To open the diagnostics view:
+    From the Agent Debug Log panel, you can attach a snapshot of the agent debug events to a chat conversation to ask the AI questions about the session and troubleshoot a specific interaction.
 
-1. Right-click in the Chat view.
-1. Select **Diagnostics**.
+    Learn more about the [Agent Debug Log panel](/docs/copilot/chat/chat-debug-view.md#agent-debug-log-panel).
 
-This opens a markdown document listing:
+* **Chat Debug view:**
 
-* All active customization files and their locations
-* Load status for each file (loaded, failed, or skipped)
-* Error messages for files that failed to load
-* The order in which instructions are applied
+    Shows the raw details of each LLM request and response, including the full system prompt, user prompt, context, and tool invocation payloads. Use this view to inspect the exact data sent to and received from the language model for each interaction.
 
-> [!TIP]
-> If a customization file isn't being applied, check the diagnostics view to verify it was loaded successfully and review any error messages.
+    To open the Chat Debug view:
+
+    1. Select the overflow menu (`...`) in the Chat view.
+    1. Select **Show Chat Debug View**.
+
+Learn more about the [Chat Debug view](/docs/copilot/chat/chat-debug-view.md#chat-debug-view).
 
 ## Troubleshoot MCP servers
 
@@ -95,7 +94,7 @@ When reporting issues, include relevant information from the [Copilot logs](#vie
 
 ## Related resources
 
-* [Chat Debug view](/docs/copilot/chat/chat-debug-view.md)
+* [Debug chat interactions](/docs/copilot/chat/chat-debug-view.md)
 * [Custom instructions](/docs/copilot/customization/custom-instructions.md)
 * [MCP servers](/docs/copilot/customization/mcp-servers.md)
 * [GitHub Copilot FAQ](/docs/copilot/faq.md)

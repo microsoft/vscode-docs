@@ -1,12 +1,12 @@
 ---
 ContentId: 557a7e74-f77e-488d-90ea-fd2cfecfffda
-DateApproved: 02/04/2026
-MetaDescription: Overview of chat in VS Code. Learn how to access different chat surfaces, configure your session, add context, write effective prompts, and review AI-generated changes.
+DateApproved: 3/25/2026
+MetaDescription: Overview of chat in VS Code. Learn how to access different chat surfaces, add context, choose a language model, write effective prompts, and review AI-generated changes.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Chat overview
 
-Chat in Visual Studio Code enables you to use natural language for AI-powered coding assistance. Ask questions about your code, get help understanding complex logic, generate new features, fix bugs, and more, all through a conversational interface. This article provides an overview of the chat surfaces, how to configure a chat session, add context, write effective prompts, and review AI-generated changes.
+Chat in Visual Studio Code enables you to use natural language for AI-powered coding assistance. Ask questions about your code, get help understanding complex logic, generate new features, fix bugs, and more, all through a conversational interface. This article provides an overview of the chat surfaces, how to add context, choose a language model, write effective prompts, and review AI-generated changes.
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
 Follow a hands-on tutorial to experience local, background, and cloud agents in VS Code.
@@ -38,7 +38,9 @@ To see how chat works, try creating a basic app:
 
 1. Open the Chat view by pressing `kb(workbench.action.chat.open)` or selecting **Chat** from the VS Code title bar.
 
-1. Select an agent from the agent picker. For example, select **Agent** to let chat autonomously determine what needs to be done and make changes to your workspace. Learn more about [built-in agents](/docs/copilot/agents/overview.md#built-in-agents).
+1. Select where you want to run the agent by using the **Agent Target** dropdown. For example, select **Local** to run the agent interactively in the editor with full access to your workspace, tools, and models.
+
+1. Select an agent from the agent picker. For example, select **Agent** to let chat autonomously determine what needs to be done and make changes to your workspace. Learn more about [choosing an agent](/docs/copilot/agents/overview.md#choose-an-agent).
 
 1. Type the following prompt in the chat input field and press `kb(workbench.action.chat.submit)` to submit it:
 
@@ -55,49 +57,12 @@ To see how chat works, try creating a basic app:
 
 ## Configure your chat session
 
-When you start or adjust a chat session, three choices shape how the AI responds: which agent to use, where the session runs, and which language model powers it.
+When you start a chat session, the following choices shape how the AI responds:
 
-### Choose where to run
-
-Agent sessions can run in different environments to match your workflow. Select the session type from the session type dropdown in the Chat view.
-
-![Screenshot showing session type dropdown in the Chat view.](../images/agents-overview/agent-type-dropdown-jan.png)
-
-| Session type | Description |
-|---|---|
-| **Local** | Runs interactively in VS Code on your machine. Best for exploratory tasks that need immediate feedback. |
-| **Background** | Runs autonomously on your machine via the CLI. Best for well-defined tasks you want to run in the background. |
-| **Cloud** | Runs on remote infrastructure and opens a pull request. Best for team collaboration and well-defined tasks. |
-| **Third-party** | Uses agents from external providers like Anthropic or OpenAI. |
-
-You can hand off a session from one type to another mid-conversation, and the full conversation history carries over. Learn more about [agent types](/docs/copilot/agents/overview.md#types-of-agents) and [handing off sessions](/docs/copilot/agents/overview.md#hand-off-a-session-to-another-agent).
-
-### Choose an agent
-
-Agents let chat assume a different role or persona optimized for specific tasks. Select an agent from the agents dropdown in the Chat view. You can switch between agents at any time during a session.
-
-![Screenshot showing the Chat view with the agent picker expanded, displaying different agent options.](../images/customization/chat-mode-dropdown.png)
-
-VS Code provides three built-in agents:
-
-* **Agent**: autonomously plans and implements changes across files, runs terminal commands, and invokes tools.
-* **Plan**: creates a structured, step-by-step implementation plan before writing any code. Hands the plan off to an implementation agent when it looks right.
-* **Ask**: answers questions about coding concepts, your codebase, or VS Code itself without making file changes.
-
-For more specialized workflows, create your own [custom agents](/docs/copilot/customization/custom-agents.md) that define a specific role, available tools, and a language model.
-
-Learn more about the [built-in agents and their capabilities](/docs/copilot/agents/overview.md#built-in-agents).
-
-### Choose a language model
-
-VS Code offers different language models, each optimized for different tasks. Some models are designed for fast coding tasks, while others excel at complex reasoning and planning. Use the model dropdown in the chat input field to select the model that best fits your needs.
-
-![Screenshot of the language model dropdown in the Chat view, showing a dropdown list of available models.](images/copilot-chat/chat-model-picker.png)
-
-You can also add models from other providers and use them in chat. Learn more about [language models in VS Code](/docs/copilot/customization/language-models.md).
-
-> [!NOTE]
-> The list of available models might vary based on your Copilot subscription and might change over time. For more information about the [available language models](https://docs.github.com/en/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat?tool=vscode), see the GitHub Copilot documentation.
+* **Session type**: determines where the agent runs (locally, in the background, or in the cloud). Learn more about [agent types](/docs/copilot/agents/overview.md#types-of-agents).
+* **Agent**: determines the role or persona of the AI, such as Agent, Plan, or Ask. Learn more about [choosing an agent](/docs/copilot/agents/overview.md#choose-an-agent).
+* **Permission level**: controls how much autonomy the agent has over tool approvals. Learn more about [permission levels](/docs/copilot/agents/overview.md#choose-a-permission-level).
+* **Language model**: determines which AI model powers the conversation. Learn more about [language models in VS Code](/docs/copilot/customization/language-models.md).
 
 ## Add context to your prompts
 
@@ -105,15 +70,21 @@ Providing the right context helps the AI generate more relevant and accurate res
 
 * **Implicit context**: VS Code automatically includes the active file, your current selection, and the file name as context. When you use agents, the agent decides autonomously if additional context is needed.
 
-* **`#`-mentions**: type `#` in the chat input to explicitly reference files (`#file`), folders, symbols, your codebase (`#codebase`), terminal output (`#terminalSelection`), or tools like `#fetch` and `#githubRepo`.
+* **`#`-mentions**: type `#` in the chat input to explicitly reference files (`#file`), folders, symbols, your codebase (`#codebase`), terminal output (`#terminalSelection`), or tools like `#fetch`.
 
-* **`@`-mentions**: type `@` to invoke specialized chat participants like `@vscode`, `@terminal`, or `@workspace`, each optimized for their respective domain.
+* **`@`-mentions**: type `@` to invoke specialized chat participants like `@vscode` or `@terminal`, each optimized for their respective domain.
 
 * **Vision**: attach images, such as screenshots or UI mockups, as context for your prompt.
 
 * **Browser elements** (Experimental): select elements from the [integrated browser](/docs/debugtest/integrated-browser.md) to add HTML, CSS, and screenshot context to your prompt.
 
 Learn more about [managing context for AI](/docs/copilot/chat/copilot-chat-context.md).
+
+## Image carousel (Experimental)
+
+When `setting(imageCarousel.chat.enabled)` is enabled, you can select image pills in chat responses to open a dedicated carousel view. Images from tool results (such as the integrated browser, Playwright, or other MCP servers) and images inlined in assistant messages are all accessible from the carousel.
+
+![Screenshot showing the image carousel view with multiple images.](../images/chat-sessions/image-carousel.png)
 
 ## Review and manage changes
 
@@ -131,7 +102,7 @@ After the AI makes changes to your files, review and accept or discard them.
 
 Chat provides several ways to improve the quality and relevance of AI responses:
 
-* **Write effective prompts**: be specific about what you want, reference relevant files and symbols, and use `/` commands for common tasks. Get inspired by [prompt examples](/docs/copilot/chat/prompt-examples.md) or review the full [prompt engineering guide](/docs/copilot/guides/prompt-engineering-guide.md).
+* **Write effective prompts**: be specific about what you want, reference relevant files and symbols, and use `/` commands for common tasks. Get inspired by [prompt examples](/docs/copilot/chat/prompt-examples.md) or review the full [prompt engineering guide](/docs/copilot/best-practices.md).
 
 * **Customize the AI**: tailor the AI's behavior to your project by adding [custom instructions](/docs/copilot/customization/custom-instructions.md), creating reusable [prompt files](/docs/copilot/customization/prompt-files.md), or building [custom agents](/docs/copilot/customization/custom-agents.md) for specialized workflows. For example, create a "Code Reviewer" agent that provides feedback on code quality and adherence to your team's coding standards.
 
@@ -141,12 +112,12 @@ For more information, see [customizing AI in VS Code](/docs/copilot/customizatio
 
 ## Troubleshoot chat interactions
 
-Use the [Chat Debug view](/docs/copilot/chat/chat-debug-view.md) to inspect the details of AI requests and responses. The view shows the system prompt, user prompt, context sent to the language model, and tool invocations for each interaction. This is useful for understanding why the AI responded in a certain way or for troubleshooting unexpected results.
+Use [Agent Logs and the Chat Debug view](/docs/copilot/chat/chat-debug-view.md) to inspect what happens when you send a prompt. Agent Logs shows a chronological event log of tool calls, LLM requests, and prompt file discovery. The Chat Debug view shows the raw system prompt, user prompt, context, and tool payloads for each interaction. These tools are useful for understanding why the AI responded in a certain way or for troubleshooting unexpected results.
 
 ## Related resources
 
 * [Create and manage chat sessions](/docs/copilot/chat/chat-sessions.md)
 
-* [Prompt examples](/docs/copilot/chat/prompt-examples.md)
+* [Choose agents and configure permissions](/docs/copilot/agents/overview.md)
 
-* [Agents overview](/docs/copilot/agents/overview.md)
+* [Prompt examples](/docs/copilot/chat/prompt-examples.md)

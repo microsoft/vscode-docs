@@ -1,6 +1,6 @@
 ---
 ContentId: DE4EAE2F-4542-4363-BB74-BE47D64141E6
-DateApproved: 02/04/2026
+DateApproved: 3/25/2026
 MetaDescription: Learn about the basic editing features of Visual Studio Code. Search, multiple selection, code formatting.
 MetaSocialImage: images/codebasics/code-basics-social.png
 ---
@@ -130,6 +130,8 @@ If something goes wrong with hot exit, all backups are stored in the following f
 VS Code allows you to quickly find and replace text in the currently opened file. Press `kb(actions.find)` to open the Find control in the editor and type the search string. The search results are highlighted in the editor, overview ruler, and minimap.
 
 VS Code immediately starts searching as you type. To only start searching when you press `kbstyle(Enter)`, clear the `setting(editor.find.findOnType)` setting.
+
+To automatically close the Find control after a match is found and return focus to the editor, enable the `setting(editor.find.closeOnResult)` setting.
 
 If there are multiple matches in the current file, press `kb(editor.action.nextMatchFindAction)` to go to the next result or `kb(editor.action.previousMatchFindAction)` to go to the previous result while the find input box has focus.
 

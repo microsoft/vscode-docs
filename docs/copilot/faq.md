@@ -1,6 +1,6 @@
 ---
 ContentId: e02ded07-6e5a-4f94-b618-434a2c3e8f09
-DateApproved: 02/04/2026
+DateApproved: 3/25/2026
 MetaDescription: Frequently asked questions for using GitHub Copilot in Visual Studio Code.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -135,6 +135,22 @@ Verify the following requirements to ensure Chat features work in Visual Studio 
 
 Verify that agents are enabled in your VS Code settings: `setting(chat.agent.enabled)`. It's possible that your organization has disabled this feature, verify with your administrator to have agents enabled.
 
+### What can agents do in VS Code?
+
+Agents handle complete coding tasks autonomously. They plan multi-step implementations, execute coordinated changes across multiple files, run terminal commands, invoke tools, and self-correct when they encounter errors. Use agents for feature implementation, architecture-level refactoring, framework migrations, debugging, and test generation. Learn more about [using agents](/docs/copilot/agents/overview.md).
+
+### Does Copilot work with large codebases and monorepos?
+
+Yes. VS Code automatically indexes your workspace using semantic search, language intelligence (LSP), and GitHub's code search to provide deep understanding across your repository. For large repositories, [remote indexing](/docs/copilot/reference/workspace-context.md#remote-index) uses GitHub's index for fast, comprehensive results across related repositories. Use [multi-root workspaces](/docs/editing/workspaces/multi-root-workspaces.md) to scope context in monorepos, and [custom instructions](/docs/copilot/customization/custom-instructions.md) to describe your project's architecture. See [best practices for large codebases](/docs/copilot/best-practices.md#work-with-large-codebases).
+
+### Can my organization control AI features and agent access?
+
+Yes. Organization administrators can manage Copilot through [enterprise AI settings](/docs/enterprise/ai-settings.md) and [policies](/docs/enterprise/policies.md), including enabling or disabling agents, controlling model access, configuring content exclusions, and enforcing trust boundaries. See the [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/) for compliance details.
+
+### Are agents usage-limited?
+
+Agents use premium requests from your Copilot plan. Paid plans include a monthly allocation of premium requests, and you can request additional capacity. You can run multiple agent sessions in parallel across local, background, and cloud environments. Users on the free plan have a monthly limit of chat interactions. See [GitHub Copilot plans](https://docs.github.com/en/copilot/get-started/plans) for details.
+
 ### Not all models are available in the language model picker
 
 You can choose which models are available in the language model picker. Learn how to [customize the language model picker](/docs/copilot/customization/language-models.md#customize-the-model-picker).
@@ -184,4 +200,5 @@ It can be helpful to include information from the Copilot logs if you're reporti
 ## Additional resources
 
 - [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/)
+- [Security considerations for AI in VS Code](/docs/copilot/security.md)
 - [GitHub Copilot FAQ](https://github.com/features/copilot#faq) in the GitHub documentation

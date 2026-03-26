@@ -1,5 +1,5 @@
 ---
-Order: 104
+Order: 
 TOCTitle: "VS Code Dev Days 2025"
 PageTitle: "VS Code Dev Days – Join an event near you to learn about AI-assisted development"
 MetaDescription: Join a VS Code Dev Days event to learn about GitHub Copilot in VS Code

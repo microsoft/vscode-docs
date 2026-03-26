@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: A8CBE8D6-1FEE-47BF-B81E-D79FA0DB5D03
-DateApproved: 02/04/2026
+DateApproved: 3/25/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to create Language Servers to provide rich language features in Visual Studio Code.
@@ -146,9 +146,9 @@ import {
   TransportKind
 } from 'vscode-languageclient/node';
 
-let client: LanguageClient;
+let client: LanguageClient | undefined;
 
-export function activate(context: ExtensionContext) {
+export async function activate(context: ExtensionContext) {
   // The server is implemented in node
   let serverModule = context.asAbsolutePath(path.join('server', 'out', 'server.js'));
   // The debug options for the server
@@ -185,14 +185,12 @@ export function activate(context: ExtensionContext) {
   );
 
   // Start the client. This will also launch the server
-  client.start();
+  await client.start();
 }
 
-export function deactivate(): Thenable<void> | undefined {
-  if (!client) {
-    return undefined;
-  }
-  return client.stop();
+export async function deactivate() {
+  await client?.dispose();
+  client = undefined
 }
 ```
 

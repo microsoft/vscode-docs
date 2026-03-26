@@ -1,6 +1,6 @@
 ---
 ContentId: F5EA1A52-1EF2-4127-ABA6-6CEF5447C608
-DateApproved: 02/04/2026
+DateApproved: 3/25/2026
 MetaDescription: Expand your development workflow with task integration in Visual Studio Code.
 ---
 # Integrate with External Tools via Tasks
@@ -114,7 +114,7 @@ Task auto detection can be disabled using the following settings:
 
 ```json
 {
-    "typescript.tsc.autoDetect": "off",
+    "js/ts.tsc.autoDetect": "off",
     "grunt.autoDetect": "off",
     "jake.autoDetect": "off",
     "gulp.autoDetect": "off",
@@ -373,7 +373,13 @@ You can specify a task's run behaviors using the `runOptions` property:
   * `default` - The task will only be run when executed through the **Run Task** command.
   * `folderOpen` - The task will be run when the containing folder is opened. The first time you open a folder that contains a task with `folderOpen`, you will be asked if you want to allow tasks to run automatically in that folder. You can change your decision later using the **Manage Automatic Tasks** command and selecting between **Allow Automatic Tasks** and **Disallow Automatic Tasks**.
 * **instanceLimit** - The number of instances of the task that are allowed to run simultaneously. The default value is `1`.
-
+* **instancePolicy** - Determines what happens when a task has reached its `instanceLimit`. Can be set to:
+  * `prompt` - Prompt the user which instance to terminate (default).
+  * `silent` - Don't start a new instance (silent).
+  * `terminateNewest` - Terminate the newest running instance.
+  * `terminateOldest` - Terminate the oldest running instance.
+  * `warn` - Don't start a new instance (show warning).
+  
 ## Customizing auto-detected tasks
 
 As mentioned above, you can customize auto-detected tasks in the `tasks.json` file. You usually do so to modify presentation properties or to attach a problem matcher to scan the task's output for errors and warnings. You can customize a task directly from the **Run Task** list by pressing the gear icon to the right to insert the corresponding task reference into the `tasks.json` file. Assume you have the following Gulp file to lint JavaScript files using ESLint (the file is taken from [https://github.com/adametry/gulp-eslint](https://github.com/adametry/gulp-eslint)):
@@ -606,7 +612,7 @@ To highlight the power of tasks, here are a few examples of how VS Code can use 
 
 ### Transpiling TypeScript to JavaScript
 
-The [TypeScript topic](/docs/typescript/typescript-compiling.md) includes an example that creates a task to transpile TypeScript to JavaScript and observe any related errors from within VS Code.
+The [TypeScript topic](/docs/typescript/typescript-transpiling.md) includes an example that creates a task to transpile TypeScript to JavaScript and observe any related errors from within VS Code.
 
 ### Transpiling Less and SCSS into CSS
 

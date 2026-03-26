@@ -1,6 +1,6 @@
 ---
 ContentId: 8f2c4a1d-9e3b-4c5f-a7d8-6b9c2e4f1a3d
-DateApproved: 02/04/2026
+DateApproved: 3/25/2026
 MetaDescription: Learn how to use built-in tools, MCP tools, and extension tools to extend chat in VS Code with specialized functionality.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 keywords:
@@ -16,49 +16,16 @@ keywords:
 
 Tools extend agents in Visual Studio Code with specialized functionality for accomplishing specific tasks like searching code, running commands, fetching web content, or invoking APIs. VS Code supports three types of tools: built-in tools, Model Context Protocol (MCP) tools, and extension tools.
 
-This article describes the different types of tools available in VS Code, how to use them in your chat prompts, and how to manage tool invocations and approvals.
+For background on tool types and how tools work in the agent loop, see [Tools concepts](/docs/copilot/concepts/tools.md).
 
-<video src="../images/chat-tools/chat-tools-picker.mp4" title="Video showing how to select and configure tools in the chat tools picker." autoplay loop controls muted poster="../images/chat-tools/chat-tools-picker.png"></video>
+This article describes how to use tools in your chat prompts and how to manage tool invocations and approvals.
 
-## Types of tools
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Try tools in action">
+Launch a chat prompt that uses the web tool to summarize the latest VS Code updates.
 
-VS Code supports three types of tools that you can use in chat:
+* [Open in VS Code](vscode://GitHub.Copilot-Chat/chat?agent=agent%26prompt=Summarize%20the%20latest%20VS%20Code%20updates%20%23web)
 
-<details>
-<summary>Built-in tools</summary>
-
-VS Code provides a comprehensive set of built-in tools that are automatically available in chat. These tools cover common development tasks and are optimized for working within your workspace.
-
-Built-in tools don't require any installation or configuration and are available as soon as you start using chat.
-
-For a complete list of built-in tools and their descriptions, see the [Chat tools reference](/docs/copilot/reference/copilot-vscode-features.md#chat-tools).
-
-</details>
-
-<details>
-<summary>MCP tools</summary>
-
-Model Context Protocol (MCP) is an open standard that enables AI models to use external tools and services through a unified interface. MCP servers provide tools that you can add to VS Code to extend chat with extra capabilities.
-
-You need to install and configure MCP servers before you can use their tools in chat. MCP servers can run locally on your machine or be hosted remotely. MCP tools can also return interactive UI components via [MCP Apps](/docs/copilot/customization/mcp-servers.md#use-mcp-apps).
-
-Learn more about [configuring MCP servers in VS Code](/docs/copilot/customization/mcp-servers.md).
-
-> [!IMPORTANT]
-> Your organization might have disabled the use of MCP servers in VS Code or restricted which MCP servers you can use. Contact your admin for more information.
-
-</details>
-
-<details>
-<summary>Extension tools</summary>
-
-VS Code extensions can contribute tools that integrate deeply with the editor. Extension tools use the Language Model Tools API to provide specialized functionality while accessing the full range of VS Code extension APIs.
-
-Extension tools are automatically available when you install an extension that contributes them. Users don't need separate installation or configuration beyond installing the extension itself.
-
-For developers looking to create extension tools, see the [Language Model Tools API guide](/api/extension-guides/ai/tools.md).
-
-</details>
+</div>
 
 ## Enable tools for chat
 
@@ -83,21 +50,48 @@ When you customize chat with [prompt files](/docs/copilot/customization/prompt-f
 
 ## Use tools in your prompts
 
-When using [agents](/docs/copilot/agents/overview.md#built-in-agents), the agent automatically determines which tools to use from the enabled tools based on your prompt and the context of your request. The agent autonomously chooses and invokes relevant tools as needed to accomplish the task.
+When using [agents](/docs/copilot/agents/local-agents.md), the agent automatically determines which tools to use from the enabled tools based on your prompt and the context of your request. The agent autonomously chooses and invokes relevant tools as needed to accomplish the task.
 
 You can also explicitly reference tools in your prompts by typing `#` followed by the tool name. This is useful when you want to ensure a specific tool is used. Type `#` in the chat input field to see a list of available tools, including built-in tools, MCP tools from installed servers, extension tools, and tool sets.
 
 **Examples of explicit tool references:**
 
-* `"Summarize the content from #fetch https://code.visualstudio.com/updates"`
-* `"How does routing work in Next.js? #githubRepo vercel/next.js"`
+* `"What is the latest version of Node.js #web"`
+* `"How does routing work in Next.js? #web"`
 * `"Fix the issues in #problems"`
 * `"Explain the authentication flow #codebase"`
 
-Some tools accept parameters directly in the prompt. For example, `#fetch` requires a URL and `#githubRepo` requires a repository name.
-
 > [!TIP]
 > By default, tool call details are collapsed in the chat conversation. You can uncollapse them by selecting the tool summary line in chat, or change the default behavior with the `setting(chat.agent.thinking.collapsedTools)` setting (experimental).
+
+## Permission levels
+
+The permissions picker in the Chat view controls how much autonomy the agent has during a session. Select a permission level from the permissions dropdown in the chat input area to choose how tool calls and approvals are handled.
+
+| Permission level | Description |
+|---|---|
+| **Default Approvals** | Uses your configured approval settings. Tools that require approval show a confirmation dialog before they run. The agent might ask clarifying questions if needed. |
+| **Bypass Approvals** | Auto-approves all tool calls without showing confirmation dialogs and automatically retries on errors. The agent might ask clarifying questions if needed. |
+| **Autopilot** (Preview) | Auto-approves all tool calls without showing confirmation dialogs and auto-responds to clarifying questions. The agent continues working autonomously until the task is completed. |
+
+> [!CAUTION]
+> **Bypass Approvals** and **Autopilot** bypass manual approval prompts, including for potentially destructive actions like file edits, terminal commands, and external tool calls. The first time you enable either level, a warning dialog asks you to confirm. Only use these levels if you understand the security implications. See the [Security considerations](/docs/copilot/security.md) for more details.
+
+The permission level applies to the current chat session. You can change it at any time during a session by selecting a different level from the permissions picker. You can stop the agent at any time by selecting the stop button.
+
+### How Autopilot works
+
+> [!NOTE]
+> Autopilot is currently in preview.
+
+When you select the **Autopilot** permission level, the agent behaves differently from a standard agent session:
+
+* **Continuous iteration**: the agent keeps working autonomously until it determines the task is complete.
+* **Auto-approve all tools**: all tool calls are approved automatically, similar to the **Bypass Approvals** level.
+* **Auto-retry on errors**: the agent automatically retries when it encounters errors.
+* **Auto-respond to questions**: tools that normally block and ask your input, such as clarifying questions, auto-respond so the agent does not stall waiting for a reply. This behavior is specific to **Autopilot** and does not apply to **Bypass Approvals**.
+
+Autopilot is available in the Chat view when the `setting(chat.autopilot.enabled)` setting is enabled (on by default).
 
 ## Tool approval
 
@@ -112,6 +106,17 @@ Tools and agent actions might result in file modifications. Learn how you can pr
 > [!IMPORTANT]
 > Always review tool parameters carefully before approving, especially for tools that modify files, run commands, or access external services. See the [Security considerations](/docs/copilot/security.md) for using AI in VS Code.
 
+### Manage tool approvals
+
+Use the **Chat: Manage Tool Approval** command from the Command Palette (`kb(workbench.action.showCommands)`) to centrally review and configure tool approvals. The Quick Pick shows all tools grouped by their source, such as an MCP server or extension.
+
+For each tool, you can configure two types of approvals:
+
+* **Pre-approval** ("without approval"): skip the confirmation dialog before the tool runs.
+* **Post-approval** ("without reviewing result"): skip reviewing the tool's output before it is added to the chat context. This is relevant for tools that return external data, where the content might contain prompt injection attempts.
+
+Expand a source to configure approvals for individual tools, or select the top-level checkboxes to trust all tools from a specific MCP server or extension at once.
+
 ### Enable or disable tool auto approval (Experimental)
 
 By default, you can choose to automatically approve any tool. To prevent accidental approvals, you can disable automatic approvals for specific tools with the `setting(chat.tools.eligibleForAutoApproval)` setting. Set the value to `false` to always require manual approval for that tool.
@@ -120,7 +125,7 @@ Organizations can also use device management policies to enforce manual approval
 
 ### URL approval
 
-When a tool attempts to access a URL, such as with the `fetch` tool, a two-step approval process is used to protect you from malicious or unexpected content. VS Code shows a confirmation dialog with the URL details for your review in the Chat view.
+When a tool attempts to access a URL, such as with the `#web/fetch` tool, a two-step approval process is used to protect you from malicious or unexpected content. VS Code shows a confirmation dialog with the URL details for your review in the Chat view.
 
 * **Pre-approval: approving the request to the URL**
 
@@ -131,7 +136,7 @@ When a tool attempts to access a URL, such as with the `fetch` tool, a two-step 
     You have options for one-time approval or for automatically approving future requests to the specific URL or domain. Selecting auto-approval does not influence the need for reviewing the results. When you select **Allow requests to**, you can choose to configure both pre and post approvals for the URL or domain.
 
     > [!NOTE]
-    > The pre-approval respects the ["Trusted Domains" feature](/docs/editing/editingevolved.md#_outgoing-link-protection). If a domain is listed there, you are automatically approved to make requests to that domain and defer the response reviewing step.
+    > The pre-approval respects the ["Trusted Domains" feature](/docs/editing/editingevolved.md#outgoing-link-protection). If a domain is listed there, you are automatically approved to make requests to that domain and defer the response reviewing step.
 
 * **Post-approval: approving the response content fetched from the URL**
 
@@ -163,6 +168,8 @@ URL auto-approval examples:
 ### Reset tool confirmations
 
 To clear all saved tool approvals, use the **Chat: Reset Tool Confirmations** command in the Command Palette (`kb(workbench.action.showCommands)`).
+
+To review and selectively change individual tool approvals instead of clearing all of them, use the [**Chat: Manage Tool Approval**](#manage-tool-approvals) command.
 
 ## Edit tool parameters
 
@@ -238,9 +245,12 @@ Related settings:
 > * Detection of file writes is currently minimal, so it might be possible to write to files with the terminal that would not be possible by using the file editing agent tools.
 > * Subverting auto approval is possible through various techniques such as quote concatenation. For example `find -exec` is normally blocked, but `find -e"x"ec` is not, despite doing the same thing.
 >
-> If prompt injection is a possibility or you're in a high-risk environment, consider [enabling terminal sandboxing](#sandbox-terminal-commands-experimental) or running VS Code within a container.
+> If prompt injection is a possibility or you're in a high-risk environment, consider [enabling terminal sandboxing](#sandbox-terminal-commands) or running VS Code within a container.
 
-### Sandbox terminal commands (Experimental)
+### Sandbox terminal commands
+
+> [!NOTE]
+> Terminal sandboxing is currently in preview and is only supported on macOS and Linux. On Windows, the sandbox settings have no effect.
 
 Terminal sandboxing restricts file system and network access for commands executed by the agent. When sandboxing is enabled, terminal commands are auto-approved without requiring user confirmation, because they run in a controlled environment.
 
@@ -251,9 +261,6 @@ When sandboxing is enabled:
 * Commands have read and write access to the current working directory by default
 * Network access is blocked for all domains by default
 * Commands run without the standard confirmation dialog
-
-> [!NOTE]
-> Terminal sandboxing is currently supported on macOS and Linux only. On Windows, the sandbox settings have no effect.
 
 #### Configure file system access
 
@@ -282,12 +289,16 @@ Use the `setting(chat.tools.terminal.sandbox.network)` setting to allow specific
 {
   "chat.tools.terminal.sandbox.network": {
     // Allow network access to specific domains
-    "allowedDomains": ["api.github.com", "*.npmjs.org"]
+    "allowedDomains": ["api.github.com", "*.npmjs.org"],
+    // Include domains from the Trusted Domains list
+    "allowTrustedDomains": true
   }
 }
 ```
 
 By default, network access is blocked for all domains when sandboxing is enabled.
+
+When `allowTrustedDomains` is set to `true`, the domains from your [Trusted Domains](/docs/editing/editingevolved.md#outgoing-link-protection) list are automatically included in the allowed domains for network access. The sandbox configuration updates automatically when the Trusted Domains list changes.
 
 ## Group tools with tool sets
 
@@ -299,9 +310,7 @@ To create a tool set:
 
 1. Run the **Chat: Configure Tool Sets** command from the Command Palette and select **Create new tool sets file**.
 
-    Alternatively, select **Configure Chat** in the Chat view > **Tool Sets** > **Create new tool sets file**.
-
-    ![Screenshot showing the Chat view and Configure Chat menu, highlighting the Configure Chat button.](../images/customization/configure-chat-instructions.png)
+    Alternatively, select the ellipsis (**...**) menu in the Chat view, select **Tool Sets**, and then select **Create new tool sets file**.
 
 1. Define your tool set in the `.jsonc` file that opens.
 
@@ -311,10 +320,10 @@ To create a tool set:
     {
         "reader": {
             "tools": [
-                "changes",
-                "codebase",
-                "problems",
-                "usages"
+                "search/changes",
+                "search/codebase",
+                "read/problems",
+                "search/usages"
             ],
             "description": "Tools for reading and gathering context",
             "icon": "book"
@@ -365,10 +374,15 @@ You can still configure the agent to use Command Prompt with the `setting(chat.t
 
 ### Can I automatically approve all tools and terminal commands?
 
+You have several options for auto-approving tool calls:
+
+* **Permission level**: select the **Bypass Approvals** or **Autopilot** permission level from the [permissions picker](#permission-levels) to auto-approve all tools for the current session.
+* **Global setting**: enable the `setting(chat.tools.global.autoApprove)` setting to auto-approve all tools across all your workspaces. You can also toggle this directly from chat by using the `/yolo` or `/autoApprove` slash command to enable it, or `/disableYolo` or `/disableAutoApprove` to disable it. The first time you enable global auto-approval, a warning dialog asks you to confirm.
+
 > [!CAUTION]
-> This setting disables all manual approvals, including potentially destructive actions. It removes critical security protections and makes it easier for an attacker to compromise the machine. Only enable this setting if you understand the implications. See the [Security documentation](/docs/copilot/security.md) for more details.
+> Both approaches disable manual approval prompts, including for potentially destructive actions. They remove critical security protections and make it easier for an attacker to compromise the machine. Only use these options if you understand the implications. See the [Security documentation](/docs/copilot/security.md) for more details.
 >
-> To allow all tools and terminal commands to run without prompting for user confirmation, enable the `chat.tools.global.autoApprove` setting. This setting applies globally across all your workspaces!
+> The `setting(chat.tools.global.autoApprove)` setting applies globally across all your workspaces. Use a session-scoped [permission level](#permission-levels) if you prefer to limit auto-approval to the current session.
 
 ### What's the difference between tools and chat participants?
 

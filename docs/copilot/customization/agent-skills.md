@@ -1,6 +1,6 @@
 ---
 ContentId: a7d3e5f8-2c4b-4d9a-b8e1-3f6c9a2d7e41
-DateApproved: 02/04/2026
+DateApproved: 3/25/2026
 MetaDescription: Learn how to use Agent Skills in VS Code to teach GitHub Copilot specialized capabilities that work across VS Code, GitHub Copilot CLI, and GitHub Copilot coding agent.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -24,6 +24,9 @@ Key benefits of Agent Skills:
 * **Reduce repetition**: Create once, use automatically across all conversations
 * **Compose capabilities**: Combine multiple skills to build complex workflows
 * **Efficient loading**: Only relevant content loads into context when needed
+
+> [!TIP]
+> Use the [Chat Customizations editor](/docs/copilot/customization/overview.md#chat-customizations-editor) (Preview) to discover, create, and manage all your chat customizations in one place. Run **Chat: Open Chat Customizations** from the Command Palette.
 
 ## Agent Skills vs custom instructions
 
@@ -53,21 +56,33 @@ Use custom instructions when you want to:
 
 ## Create a skill
 
+> [!TIP]
+> Type `/skills` in the chat input to quickly open the **Configure Skills** menu.
+
 Skills are stored in directories with a `SKILL.md` file that defines the skill's behavior. VS Code supports two types of skills:
 
-* Project skills, stored in your repository: `.github/skills/` (recommended) or `.claude/skills/` (legacy, for backward compatibility)
-* Personal skills, stored in your user profile: `~/.copilot/skills/` (recommended) or `~/.claude/skills/` (legacy, for backward compatibility)
+| Skill type | Location |
+| ---------- | -------- |
+| Project skills, stored in your repository | `.github/skills/`, `.claude/skills/`, `.agents/skills/` |
+| Personal skills, stored in your user profile | `~/.copilot/skills/`, `~/.claude/skills/`, `~/.agents/skills/` |
+
+> [!TIP]
+> In a monorepo, enable `setting(chat.useCustomizationsInParentRepositories)` to discover skills from the parent repository root. Learn more about [parent repository discovery](/docs/copilot/customization/overview.md#parent-repository-discovery).
 
 > [!TIP]
 > You can configure additional locations where VS Code searches for skills by using the `setting(chat.agentSkillsLocations)` setting. This is useful for sharing skills across projects or keeping them in a central location.
 
 To create a skill:
 
-1. Create a `.github/skills` directory in your workspace.
+1. In the Chat view, select **Configure Chat** (gear icon) to open the Chat Customizations editor and then select the **Skills** tab.
 
-1. Create a subdirectory for your skill. Each skill should have its own directory (for example, `.github/skills/webapp-testing`).
+1. Select **New Skill (Workspace)** or **New Skill (User)** from the dropdown, depending on where you want to store the skill.
 
-1. Create a `SKILL.md` file in the skill directory with the following structure:
+    ![Screenshot of the Chat Customizations editor, showing the Skills tab and the dropdown to create a new skill.](../images/customization/create-skill.png)
+
+1. Select the location and enter a name for the skill.
+
+1. Complete the `SKILL.md` file by filling in the YAML frontmatter and adding instructions in the body of the file.
 
     ```markdown
     ---
@@ -88,20 +103,31 @@ To create a skill:
     * `test-template.js` - A template test file
     * `examples/` - Example test scenarios
 
-### SKILL.md file format
+### Generate a skill with AI
+
+You can use AI to generate a skill based on a description of the capability. Type `/create-skill` in chat and describe the skill you want (for example, "a skill for running and debugging integration tests"). The agent asks clarifying questions and generates a `SKILL.md` file with the directory structure, instructions, and frontmatter.
+
+You can also extract a reusable skill from an ongoing conversation. For example, after a multi-turn session where you debugged a complex issue, ask "create a skill from how we just debugged that" to capture the multi-step procedure as a reusable skill.
+
+You can also generate a skill from the Chat Customizations editor by selecting **Generate Skill** from the dropdown.
+
+## SKILL.md file format
 
 The `SKILL.md` file is a Markdown file with YAML frontmatter that defines the skill's metadata and behavior.
 
-#### Header (required)
+### Header (required)
 
 The header is formatted as YAML frontmatter with the following fields:
 
 | Field | Required | Description |
 |-------|----------|-------------|
-| `name` | Yes | A unique identifier for the skill. Must be lowercase, using hyphens for spaces (for example, `webapp-testing`). Maximum 64 characters. |
+| `name` | Yes | A unique identifier for the skill. Must be lowercase, using hyphens for spaces (for example, `webapp-testing`). Must match the parent directory name. Maximum 64 characters. |
 | `description` | Yes | A description of what the skill does **and when to use it**. Be specific about both capabilities and use cases to help Copilot decide when to load the skill. Maximum 1024 characters. |
+| `argument-hint` | No | Hint text shown in the chat input field when the skill is invoked as a slash command. Helps users understand what additional information to provide (for example, `[test file] [options]`). |
+| `user-invocable` | No | Controls whether the skill appears as a slash command in the chat menu. Defaults to `true`. Set to `false` to hide the skill from the `/` menu while still allowing the agent to load it automatically. |
+| `disable-model-invocation` | No | Controls whether the agent can automatically load the skill based on relevance. Defaults to `false`. Set to `true` to require manual invocation through the `/` slash command only. |
 
-#### Body
+### Body
 
 The skill body contains the instructions, guidelines, and examples that Copilot should follow when using this skill. Write clear, specific instructions that describe:
 
@@ -198,27 +224,38 @@ This skill helps you debug failing GitHub Actions workflows in pull requests.
 
 </details>
 
+## Use skills as slash commands
+
+Skills are available as slash commands in chat, alongside [prompt files](/docs/copilot/customization/prompt-files.md). Type `/` in the chat input field to see a list of available skills and prompts, and select a skill to invoke it.
+
+You can add extra context after the slash command. For example, `/webapp-testing for the login page` or `/github-actions-debugging PR #42`.
+
+By default, all skills appear in the `/` menu. Use the `user-invocable` and `disable-model-invocation` frontmatter properties to control how each skill is accessed:
+
+| Configuration | Slash command | Auto-loaded by Copilot | Use case |
+|---|---|---|---|
+| Default (both properties omitted) | Yes | Yes | General-purpose skills |
+| `user-invocable: false` | No | Yes | Background knowledge skills that the model loads when relevant |
+| `disable-model-invocation: true` | Yes | No | Skills you only want to run on demand |
+| Both set | No | No | Disabled skills |
+
 ## How Copilot uses skills
 
-Skills use progressive disclosure to efficiently load content only when needed. This three-level loading system ensures you can install many skills without consuming context:
+Skills load content progressively to keep your context efficient. Here is an example of how Copilot uses the `webapp-testing` skill:
 
-**Level 1: Skill discovery**
+1. **Discovery**: Copilot reads the skill's `name` and `description` from the YAML frontmatter. When you ask "help me test the login page", Copilot matches this to the `webapp-testing` skill based on its description.
 
-Copilot always knows which skills are available by reading their `name` and `description` from the YAML frontmatter. This metadata is lightweight and helps Copilot decide which skills are relevant to your request.
+2. **Instructions loading**: Copilot loads the `SKILL.md` body into its context, giving it access to the detailed testing procedures and guidelines. You can also trigger this step directly by typing `/webapp-testing` in chat.
 
-**Level 2: Instructions loading**
+3. **Resource access**: As Copilot works through the instructions, it accesses additional files in the skill directory, such as `test-template.js` or example scenarios, only when it references them.
 
-When your request matches a skill's description, Copilot loads the `SKILL.md` file body into its context. Only then do the detailed instructions become available.
-
-**Level 3: Resource access**
-
-Copilot can access additional files in the skill directory (scripts, examples, documentation) only as needed. These resources don't load until Copilot references them, keeping your context efficient.
-
-This architecture means skills are automatically activated based on your prompt—you don't need to manually select them. You can install many skills, and Copilot will load only what's relevant for each task.
+This three-level loading system means you can install many skills without consuming context. Copilot loads only what is relevant for each task.
 
 ## Use shared skills
 
 You can use skills created by others to enhance Copilot's capabilities. The [github/awesome-copilot](https://github.com/github/awesome-copilot) repository contains a growing community collection of skills, custom agents, instructions, and prompts. The [anthropics/skills](https://github.com/anthropics/skills) repository contains additional reference skills.
+
+You can also discover and install skills that are bundled in [agent plugins](/docs/copilot/customization/agent-plugins.md). Skills from installed plugins appear alongside your locally defined skills in the **Configure Skills** menu.
 
 To use a shared skill:
 
@@ -229,6 +266,53 @@ To use a shared skill:
 
 > [!TIP]
 > Always review shared skills before using them to ensure they meet your requirements and security standards. VS Code's [terminal tool](/docs/copilot/agents/agent-tools.md#terminal-commands) provides controls for script execution, including [auto-approve options](/docs/copilot/agents/agent-tools.md#automatically-approve-terminal-commands) with configurable allow-lists and tight controls over which code runs. Learn more about [security considerations](/docs/copilot/security.md#automated-approval) for auto-approval features.
+
+## Contribute skills from extensions
+
+Extensions can contribute skills using the `chatSkills` contribution point in their `package.json`. The path must point to a directory that contains a `SKILL.md` file, following the [Agent Skills specification](https://agentskills.io/specification).
+
+### Required folder structure
+
+The skill directory must follow this structure:
+
+```text
+extension-root/
+└── skills/
+    └── my-skill/           # Directory name must match the `name` field in SKILL.md
+        └── SKILL.md         # Required
+```
+
+### Register the skill in package.json
+
+Add the `chatSkills` contribution point in your extension's `package.json`. The `path` property must point to the corresponding `SKILL.md` file:
+
+```json
+{
+  "contributes": {
+    "chatSkills": [
+      {
+        "path": "./skills/my-skill/SKILL.md"
+      }
+    ]
+  }
+}
+```
+
+> [!IMPORTANT]
+> The `name` field in the `SKILL.md` frontmatter must match the parent directory name. For example, if the directory is `skills/my-skill/`, the `name` field must be `my-skill`. If the name does not match, the skill is not loaded.
+
+The `SKILL.md` file follows the same format as [project and personal skills](#create-a-skill). For example:
+
+```markdown
+---
+name: my-skill
+description: Description of what the skill does and when to use it.
+---
+
+# My Skill
+
+Detailed instructions for the skill...
+```
 
 ## Agent Skills standard
 
@@ -248,3 +332,4 @@ Learn more about the Agent Skills standard at [agentskills.io](https://agentskil
 * [Create custom agents](/docs/copilot/customization/custom-agents.md)
 * [Agent Skills specification](https://agentskills.io)
 * [Reference skills repository](https://github.com/anthropics/skills)
+* [Discover and manage agent plugins](/docs/copilot/customization/agent-plugins.md)

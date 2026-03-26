@@ -1,6 +1,6 @@
 ---
 ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
-DateApproved: 02/04/2026
+DateApproved: 3/25/2026
 MetaDescription: Visual Studio Code Tips and Tricks for power users.
 ---
 # Visual Studio Code tips and tricks
@@ -17,6 +17,13 @@ Prefer a video? You can watch the VS Code Day talks [Visual Studio Code tips and
 Follow a hands-on tutorial to build your first app with AI in VS Code.
 
 * [Start tutorial](/docs/copilot/getting-started.md)
+
+</div>
+
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Watch the introduction video">
+Learn about the key features of Visual Studio Code in our introduction video.
+
+* [Watch video](https://www.youtube.com/watch?v=f8_uF_IDV50)
 
 </div>
 

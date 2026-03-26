@@ -1,12 +1,13 @@
 ---
 ContentId: 344271ac-56df-4cea-b0a9-2c135f7f3dec
-DateApproved: 02/04/2026
+DateApproved: 3/25/2026
 MetaDescription: Master Git staging and commits in VS Code with granular file control, AI-powered commit messages, visual diff reviews, and comprehensive change tracking tools.
 Keywords:
 - source control
 - scm
 - version control
 - git
+- ai
 ---
 # Staging and committing changes
 
@@ -134,6 +135,20 @@ To disable using the editor for commit messages and revert to the quick input co
 
 To use the same flow for `git commit` commands executed in the integrated terminal, enable the `setting(git.terminalGitEditor)` setting (restart your terminal for the change to take effect).
 
+### AI co-author attribution
+
+When you commit code that was generated with AI assistance, VS Code can automatically append a `Co-authored-by:` Git trailer to your commit message. This helps you and your team track which commits include AI-generated contributions.
+
+To enable this feature, configure the `setting(git.addAICoAuthor)` setting with one of the following values:
+
+* `off` (default): no co-author trailer is added
+* `chatAndAgent`: adds the trailer when committing code generated via Copilot Chat or agent mode
+* `all`: adds the trailer for all AI-generated code, including inline completions
+
+The trailer is added only when you commit from within VS Code. Commits made with external Git tools or the command line don't include the trailer.
+
+Co-author information from commit trailers is also shown in the [Git blame hover tooltip](#git-blame-information).
+
 ### Commit changes
 
 Select the **Commit** button in the Source Control view to commit the changes in the **Staged Changes** section. Any unstaged changes remain in the **Changes** section for future commits.
@@ -213,7 +228,7 @@ To perform an AI-powered code review of your uncommitted changes:
 
 ## Git blame information
 
-VS Code can show git blame information inline in the editor and in the Status Bar. Hover over the Status Bar item or editor inline hint to view detailed git blame information.
+VS Code can show git blame information inline in the editor and in the Status Bar. Hover over the Status Bar item or editor inline hint to view detailed git blame information, including any co-author trailers from the commit. If you [enable AI co-author attribution](#ai-co-author-attribution), the blame tooltip shows the AI co-author for commits that include AI-generated code.
 
 <video src="images/staging-commits/git-blame.mp4" title="Video showing Git blame information in the Status Bar and inline in the editor." autoplay muted loop></video>
 

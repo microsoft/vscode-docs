@@ -1,22 +1,30 @@
 ---
 ContentId: 0aefcb70-7884-487f-953e-46c3e07f7cbe
-DateApproved: 02/04/2026
-MetaDescription: Use AI agents in VS Code to autonomously plan, implement, and test code across your project.
+DateApproved: 3/25/2026
+MetaDescription: Describe what you want to build, and let agents in VS Code plan, implement, and verify the changes across your project.
 MetaSocialImage: images/shared/github-copilot-social.png
 Keywords:
 - GitHub Copilot
 - AI
 - agents
+- autonomous
+- agentic
+- multi-file editing
+- architecture
+- refactoring
+- semantic search
+- codebase understanding
+- enterprise
 - inline suggestions
 - chat
 - MCP
-- introduction
+- team
 - overview
 - getting started
 ---
 # GitHub Copilot in VS Code
 
-GitHub Copilot adds multi-agent development capabilities to Visual Studio Code. Plan your approach, then let AI agents implement and verify code changes across your project. Run multiple agent sessions in parallel: locally, in the background, or in the cloud. Manage them all from a central view. Inline suggestions, inline chat, and smart actions assist you throughout the rest of the coding workflow.
+GitHub Copilot brings AI agents to Visual Studio Code. Describe what you want to build, and an agent plans the approach, writes the code, and verifies the result across your entire project. Choose from Copilot's built-in agents, third-party agents from providers like Anthropic and OpenAI, or your own custom agents, and run them locally, in the background, or in the cloud. For more targeted changes, inline suggestions and chat give you precise control directly in the editor.
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
 Follow a hands-on tutorial to build your first app with AI in VS Code.
@@ -25,53 +33,52 @@ Follow a hands-on tutorial to build your first app with AI in VS Code.
 
 </div>
 
-## Agents and agent sessions
+## Agents
 
-Agents handle complete coding tasks end-to-end. Give an agent a high-level task and it breaks the work into steps, edits files, runs terminal commands, invokes tools, and self-corrects when it hits errors or failing tests. Each task runs inside an **agent session**, a persistent conversation you can track, pause, resume, or hand off to another agent.
+An agent is an AI assistant that works autonomously to complete a coding task. Unlike traditional code completion, which suggests the next few lines, an agent takes a goal, breaks it into steps, edits files across your project, runs commands, and self-corrects when something goes wrong.
 
-<video src="images/overview/agents-intro.mp4" title="Video showing an agent session building a complete feature in VS Code." autoplay loop controls muted></video>
+Give an agent a high-level description of what you want to build and it gets to work. Each task runs inside an **agent session**, a persistent conversation you can track, pause, resume, or hand off to another agent.
+
+<video src="images/overview/agents-intro.mp4" title="Video showing an agent session building a complete feature in VS Code." controls muted></video>
 
 > [!IMPORTANT]
 > Your organization might have disabled agents in VS Code. Contact your admin to enable this functionality.
-
-### Manage sessions from a central view
-
-Run multiple agent sessions in parallel, each focused on a different task. The **Sessions** view in the **Chat** panel gives you a single place to monitor all active sessions, whether they run locally, in the background, or in the cloud. See the status of each session, switch between them, review file changes, and pick up where you left off.
-
-<video src="images/overview/agent-sessions-demo.mp4" title="Video showing the agent sessions list, demonstrating filtering, showing, and archiving sessions." autoplay loop controls muted></video>
-
-Learn more about [managing agent sessions](/docs/copilot/chat/chat-sessions.md).
-
-### Run agents anywhere
-
-Agents can run locally in VS Code for interactive work, in the background on your machine for autonomous tasks, or in the cloud for team collaboration via pull requests. You can also use third-party agents from providers like Anthropic and OpenAI. At any point, hand off a task from one agent type to another and the full conversation history carries over.
-
-![Screenshot showing the sessions type picker in the Chat view with options for local, background, cloud, and third-party agents.](images/agents-overview/sessions-type-picker.png)
-
-Learn more about [agent types and delegation](/docs/copilot/agents/overview.md) or follow the [agents tutorial](/docs/copilot/agents/agents-tutorial.md).
 
 ### Plan before you build
 
 Use the built-in **Plan** agent to break a task into a structured implementation plan before writing any code. The Plan agent analyzes your codebase, asks clarifying questions, and produces a step-by-step plan. When the plan looks right, hand it off to an implementation agent to execute it, locally, in the background, or in the cloud.
 
-<video src="images/overview/plan-intro.mp4" title="Video showing the plan agent creating a structured implementation plan for adding authentication to the app." autoplay loop controls muted></video>
+<video src="images/overview/plan-intro.mp4" title="Video showing the plan agent creating a structured implementation plan for adding authentication to the app." controls muted></video>
 
 Learn more about [planning with agents](/docs/copilot/agents/planning.md).
 
-<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Plan a feature with agents">
-Use the Plan agent to create a structured implementation plan for a new feature.
+### Run agents anywhere
 
-* [Open in VS Code](vscode://GitHub.Copilot-Chat/chat?agent=agent%26prompt=%2Fplan%20a%20terminal%20UI%20app%20to%20track%20my%20todo%20list.)
+Agents run where the work needs to happen. Run them locally in VS Code for interactive work, in the background for autonomous tasks, or in the cloud for team collaboration through pull requests. You can also use third-party agents from providers like Anthropic and OpenAI. At any point, hand off a task from one agent type to another and the relevant context carries over.
 
-</div>
+![Screenshot showing the sessions type picker in the Chat view with options for local, background, cloud, and third-party agents.](images/agents-overview/sessions-type-picker.png)
 
-## What can you do
+Learn more about [agent types and delegation](/docs/copilot/agents/overview.md) or follow the [agents tutorial](/docs/copilot/agents/agents-tutorial.md).
+
+### Manage sessions from a central view
+
+Run multiple agent sessions in parallel, each focused on a different task. The **Sessions** view in the **Chat** panel gives you a single place to monitor all active sessions, whether they run locally, in the background, or in the cloud. See the status of each session, switch between them, review file changes, and pick up where you left off.
+
+<video src="images/overview/agent-sessions-demo.mp4" title="Video showing the agent sessions list, demonstrating filtering, showing, and archiving sessions." controls muted></video>
+
+Learn more about [managing agent sessions](/docs/copilot/chat/chat-sessions.md).
+
+## What can you build
+
+Agents handle coding tasks end-to-end, from a single file change to a full feature shipped as a pull request.
 
 * **Build a feature end-to-end.** Describe a feature in natural language and the agent scaffolds the project, implements the logic across multiple files, and runs tests to verify the result.
 
 * **Debug and fix failing tests.** Point an agent at a failing test and it reads the error, traces the root cause across your codebase, applies a fix, and re-runs the test to confirm. Learn more about [debugging with AI](/docs/copilot/guides/debug-with-copilot.md).
 
 * **Refactor or migrate a codebase.** Ask an agent to plan a migration, for example, from one framework to another, and it applies coordinated changes across files while verifying with builds.
+
+* **Test and interact with web apps.** _(Experimental)_ Ask an agent to open your web app in the [integrated browser](/docs/debugtest/integrated-browser.md), verify a feature works, check for layout issues, or take screenshots. Follow the [browser agent testing guide](/docs/copilot/guides/browser-agent-testing-guide.md).
 
 * **Collaborate via pull requests.** Delegate a task to a cloud agent that creates a branch, implements the changes, and opens a pull request for your team to review. Learn more about [cloud agents](/docs/copilot/agents/cloud-agents.md).
 
@@ -101,13 +108,15 @@ Use the Plan agent to create a structured implementation plan for a new feature.
 
 For a full hands-on tutorial covering inline suggestions, agents, inline chat, and customization, see [Get started with GitHub Copilot in VS Code](/docs/copilot/getting-started.md).
 
-## More ways to code with AI
+## AI assistance as you type
+
+For smaller changes or when you want more precise control, Copilot assists directly in the editor.
 
 ### Inline suggestions
 
 Copilot provides code suggestions as you type, from single-line completions to full function implementations. Next edit suggestions predict the next logical change based on your current edits.
 
-<video src="images/inline-suggestions/nes-video.mp4" title="Video showing inline code suggestions appearing as ghost text in the editor." autoplay loop controls muted poster="./images/inline-suggestions/point3d.png"></video>
+<video src="images/inline-suggestions/nes-video.mp4" title="Video showing inline code suggestions appearing as ghost text in the editor." controls muted poster="./images/inline-suggestions/point3d.png"></video>
 
 Learn more about [inline suggestions in VS Code](/docs/copilot/ai-powered-suggestions.md).
 
@@ -133,6 +142,7 @@ Agents work best when they understand your project's conventions, have the right
 * **[Agent skills](/docs/copilot/customization/agent-skills.md)**: Teach Copilot specialized capabilities that work across VS Code, GitHub Copilot CLI, and GitHub Copilot coding agent.
 * **[Custom agents](/docs/copilot/customization/custom-agents.md)**: Create agents that assume a specific role, such as a code reviewer or documentation writer, with their own tools and instructions.
 * **[MCP servers](/docs/copilot/customization/mcp-servers.md)**: Extend agents with tools from MCP servers or Marketplace extensions.
+* **[Hooks](/docs/copilot/customization/hooks.md)**: Execute custom commands at specific events for automation and policy enforcement.
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Customize AI">
 Explore all the ways to tailor the AI experience to your workflow.
@@ -155,9 +165,6 @@ You can start using GitHub Copilot for free with monthly limits on inline sugges
 
 ## Next steps
 
-* [Get started with agents](/docs/copilot/agents/agents-tutorial.md)
-* [Hands-on quickstart with GitHub Copilot](/docs/copilot/getting-started.md)
-* [Learn about agent types](/docs/copilot/agents/overview.md)
+* [Quickstart: Get started with GitHub Copilot in VS Code](/docs/copilot/getting-started.md)
+* [Tutorial: Get started with agents in VS Code](/docs/copilot/agents/agents-tutorial.md)
 * [Customize the AI for your workflow](/docs/copilot/customization/overview.md)
-* [Tips and tricks for using AI in VS Code](/docs/copilot/copilot-tips-and-tricks.md)
-* [Set up Copilot in VS Code](/docs/copilot/setup.md)

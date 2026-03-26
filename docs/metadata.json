@@ -8,6 +8,7 @@
 		"chat.mcp.access",
 		"chat.extensionTools.enabled",
 		"chat.agent.enabled",
+		"chat.useHooks",
 		"chat.tools.terminal.enableAutoApprove",
 		"update.mode",
 		"telemetry.telemetryLevel",

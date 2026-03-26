@@ -1,6 +1,6 @@
 ---
 ContentId: 9d8f3a2b-5c6e-4f7a-8b9c-1d2e3f4a5b6c
-DateApproved: 02/04/2026
+DateApproved: 3/25/2026
 MetaDescription: Discover effective prompt examples for chat in VS Code across different scenarios including code generation, debugging, testing, and working with notebooks.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -8,7 +8,7 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 
 This article provides example prompts for chat in Visual Studio Code across different scenarios and agents. Use these examples as inspiration to craft effective prompts for your own development tasks.
 
-If you are new to using chat in VS Code, learn more about [getting started with chat](/docs/copilot/chat/copilot-chat.md) or review [best practices for prompt crafting](/docs/copilot/guides/prompt-engineering-guide.md).
+If you are new to using chat in VS Code, learn more about [getting started with chat](/docs/copilot/chat/copilot-chat.md) or review [best practices for prompt crafting](/docs/copilot/best-practices.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
 Follow a hands-on tutorial to experience local, background, and cloud agents in VS Code.
@@ -107,14 +107,14 @@ Generate release notes based on the #changes
 
 ## Working with external resources
 
-Use `#fetch` and `#githubRepo` to reference content from the web or GitHub repositories.
+Use `#fetch` to reference content from the web or use the GitHub MCP server to search for code examples in public GitHub repositories.
 
 ```prompt
 How do I use the 'useState' hook in react 18? #fetch https://18.react.dev/reference/react/useState#usage
 ```
 
 ```prompt
-Build an API endpoint to fetch address info, use the template from #githubRepo contoso/api-templates
+Build an API endpoint to fetch address info, use the template from GitHub repo contoso/api-templates
 ```
 
 ```prompt
@@ -186,7 +186,7 @@ By building on earlier responses, the AI maintains context from the previous ste
 * **Iterate**: Start with a simple prompt and refine it based on the response. Ask follow-up questions to improve the results.
 * **Break down complex tasks**: Instead of asking for everything at once, break large tasks into smaller, manageable steps.
 
-Learn more about [best practices for crafting prompts](/docs/copilot/guides/prompt-engineering-guide.md) and [adding context to your prompts](/docs/copilot/chat/copilot-chat-context.md).
+Learn more about [best practices for crafting prompts](/docs/copilot/best-practices.md) and [adding context to your prompts](/docs/copilot/chat/copilot-chat-context.md).
 
 ## Related resources
 

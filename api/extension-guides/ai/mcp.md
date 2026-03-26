@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: e655f324-ed0b-452d-aff3-52cdca3978a5
-DateApproved: 02/04/2026
+DateApproved: 3/25/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A comprehensive guide for developers building MCP servers that work with Visual Studio Code.
@@ -302,7 +302,7 @@ Extensions that want to register MCP servers must contribute the `contributes.mc
 
 ### 2. Implement the provider
 
-To register an MCP server in your extension, use the [`vscode.lm.registerMcpServerDefinitionProvider`](/api/references/vscode-api#lm.registerMcpServerDefinitionProvider) API to provide the [MCP configuration](/docs/copilot/chat/mcp-servers#_configuration-format) for the server. The API takes a `providerId` string and a `McpServerDefinitionProvider` object.
+To register an MCP server in your extension, use the [`vscode.lm.registerMcpServerDefinitionProvider`](/api/references/vscode-api#lm.registerMcpServerDefinitionProvider) API to provide the [MCP configuration](/docs/copilot/reference/mcp-configuration.md) for the server. The API takes a `providerId` string and a `McpServerDefinitionProvider` object.
 
 The `McpServerDefinitionProvider` object has three properties:
 
@@ -487,6 +487,6 @@ You might also find the [MCP for Beginners curriculum](https://github.com/micros
 ## Related content
 
 - [Contribute a language model tool](/api/extension-guides/ai/tools)
-- [Use MCP tools in agent mode](/docs/copilot/chat/mcp-servers)
+- [Use MCP tools in agent mode](/docs/copilot/customization/mcp-servers.md)
 - [VS Code curated list of MCP servers](https://code.visualstudio.com/mcp)
 - [Model Context Protocol Documentation](https://modelcontextprotocol.io/)

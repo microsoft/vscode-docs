@@ -1,12 +1,12 @@
 ---
 ContentId: 8f2c9a1b-3d4e-5f6a-7b8c-9d0e1f2a3b4c
-DateApproved: 02/04/2026
+DateApproved: 3/25/2026
 MetaDescription: Get started with different types of agents in VS Code to run tasks locally, in the background, or in the cloud. Hand off work across agents to use what works best for your workflow.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - ai
 - agents
-- background agent
+- background
 - cloud agent
 - copilot coding agent
 - copilot cli
@@ -19,6 +19,13 @@ This tutorial walks you through using different types of agents in Visual Studio
 
 > [!TIP]
 > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of inline suggestions and chat interactions.
+
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Test web apps with browser agent tools">
+Use browser agent tools to build and automatically test web applications.
+
+* [Browser agent testing guide](/docs/copilot/guides/browser-agent-testing-guide.md)
+
+</div>
 
 ## Prerequisites
 
@@ -55,7 +62,7 @@ In this step, you use a local agent to create the initial todo app structure. Lo
     Create a simple todo app with HTML, CSS, and JavaScript. Include an input field to add todos, a list to display them, and a delete button for each item.
     ```
 
-    <video src="../images/agents-tutorial/local-agent-todo-app-scaffold-v2.mp4" alt="Video showing a local agent scaffolding a todo app in VS Code." muted autoplay loop></video>
+    <video src="../images/agents-tutorial/local-agent-todo-app-scaffold-v2.mp4" alt="Video showing a local agent scaffolding a todo app in VS Code." muted loop controls></video>
 
 1. Review as the agent generates the different files for the app. Use **Keep** or **Undo** to accept or reject changes as needed.
 
@@ -75,9 +82,9 @@ In this step, you use a local agent to create the initial todo app structure. Lo
 
 You now have a working todo app that you can extend with additional features. By using a local agent, you can interactively generate and refine your code in real-time.
 
-## Step 2: Use a background agent to implement a feature plan
+## Step 2: Use Copilot CLI to implement a feature plan
 
-In this step, you use the plan agent to create an implementation plan for a theme toggle and then hand off the implementation to a background agent. Background agents are ideal for delegating tasks that don't require immediate interaction. They use Git worktrees to isolate file changes from your main workspace and prevent conflicts.
+In this step, you use the plan agent to create an implementation plan for a theme toggle and then hand off the implementation to Copilot CLI in the background. Copilot CLI is ideal for delegating tasks that don't require immediate interaction. They can use Git worktrees to isolate file changes from your main workspace and prevent conflicts.
 
 1. First, commit your current changes in the Source Control view to have a clean state.
 
@@ -91,25 +98,27 @@ In this step, you use the plan agent to create an implementation plan for a them
 
 1. The plan agent might ask clarifying questions to refine the plan. Respond as needed.
 
-1. When you're ready, select **Start Implementation** > **Continue in Background** to hand off the plan to a background agent.
+1. When you're ready, select **Start Implementation** > **Continue in Copilot CLI** to hand off the plan to Copilot CLI.
 
-    ![Screenshot showing the Start Implementation button in the Chat view.](../images/agents-tutorial/start-implementation-button-v2.png)
+    ![Screenshot showing the Start Implementation button in the Chat view.](../images/agents-tutorial/plan-agent-start-implementation-cli.png)
 
-1. The background agent creates a Git worktree where it starts implementing the feature. You can track the background agent in the **Sessions** view. Select the session to see details about its progress.
+1. Copilot CLI creates a Git worktree where it starts implementing the feature. When asked, select **Copy Changes** to make sure all current changes are available to Copilot CLI.
 
-    <video src="../images/agents-tutorial/background-agent-theme-switcher-v2.mp4" alt="Video showing a background agent implementing a theme switcher feature in VS Code." muted autoplay loop></video>
+1. You can track the Copilot CLI session in the **Sessions** view. Select the session to see details about its progress.
 
-    > [!TIP]
-    > While the background agent works, you can continue editing your main workspace without conflicts.
-
-1. Once the background agent finishes, select any of the changed files to review its changes, or select **View All Changes** to open a multi-file diff editor with all the changes.
+    <video src="../images/agents-tutorial/background-agent-theme-switcher-v2.mp4" alt="Video showing Copilot CLI implementing a theme switcher feature in VS Code." muted loop controls></video>
 
     > [!TIP]
-    > You can send follow-up prompts to the background agent to make adjustments or improvements to the feature.
+    > While Copilot CLI works in the background, you can continue editing your main workspace without conflicts.
+
+1. Once the agent finishes, select any of the changed files to review its changes, or select **View All Changes** to open a multi-file diff editor with all the changes.
+
+    > [!TIP]
+    > You can send follow-up prompts to Copilot CLI to make adjustments or improvements to the feature.
 
 1. In the Chat view, select **Apply** to apply the changes to your main workspace.
 
-You've successfully used a background agent to perform a task autonomously in the background. You can start multiple background agents for different tasks without interrupting your main workflow.
+You've successfully used Copilot CLI to perform a task autonomously in the background. You can start multiple Copilot CLI sessions for different tasks without interrupting your main workflow.
 
 ## Step 3: Use a cloud agent to collaborate on a feature
 
@@ -131,7 +140,7 @@ In this step, you use a cloud agent (Copilot coding agent) to redesign the app l
 
 1. The cloud agent starts a new session to work on your request. It creates a branch and pull request in your GitHub repository.
 
-    <video src="../images/agents-tutorial/cloud-agent-redesign-todo-app-v2.mp4" alt="Video showing a cloud agent redesigning a todo app in VS Code." muted autoplay loop></video>
+    <video src="../images/agents-tutorial/cloud-agent-redesign-todo-app-v2.mp4" alt="Video showing a cloud agent redesigning a todo app in VS Code." muted loop controls></video>
 
 1. You can track the cloud agent in the **Sessions** view in the Chat view or select the link to view the pull request details.
 
@@ -151,4 +160,5 @@ You've successfully used a cloud agent to collaborate on a feature using GitHub.
 You've successfully used different types of agents to build, enhance, and redesign a todo app. Continue exploring agents:
 
 * Learn about [agent types and when to use them](/docs/copilot/agents/overview.md)
+* [Plan and research tasks with the Plan agent](/docs/copilot/agents/planning.md)
 * Explore [creating custom agents](/docs/copilot/customization/custom-agents.md)

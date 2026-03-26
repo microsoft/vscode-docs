@@ -1,12 +1,12 @@
 ---
 ContentId: 37fd3bd2-4209-49f6-bec5-c544d6b1b289
-DateApproved: 02/04/2026
-MetaDescription: Build your first web application with GitHub Copilot in VS Code. Learn inline suggestions, agents, inline chat, smart actions, and how to personalize your AI coding experience.
+DateApproved: 3/25/2026
+MetaDescription: Build your first app with GitHub Copilot agents in VS Code. Plan features, implement across files, and customize your AI workflow.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
 # Get started with GitHub Copilot in VS Code
 
-GitHub Copilot transforms how you write code in Visual Studio Code. In this hands-on tutorial, you build a complete task management web application while discovering VS Code's AI capabilities: intelligent inline suggestions, autonomous feature development with agents, precise editing with inline chat, integrated smart actions, and powerful customization options.
+GitHub Copilot transforms how you write code in Visual Studio Code. In this hands-on tutorial, you build a complete task management web application while discovering VS Code's AI capabilities: autonomous agents that implement features across multiple files, intelligent inline suggestions, precise editing with inline chat, integrated smart actions, and powerful customization options.
 
 By the end of this tutorial, you'll have both a working web application and a personalized AI coding setup that adapts to your development style.
 
@@ -42,7 +42,7 @@ AI-powered inline suggestions appear as you type, helping you write code faster 
 
     ![Screenshot showing Copilot suggesting HTML structure inline suggestion.](./images/getting-started/html-completion.png)
 
-    You might see different suggestions because large language models are nondeterministic.
+    You might see different suggestions because large language models are [nondeterministic](/docs/copilot/concepts/language-models.md#key-characteristics).
 
 1. Press `kbstyle(Tab)` to accept the suggestion.
 
@@ -263,6 +263,8 @@ You can further enhance your AI's capabilities by exploring other customization 
 * Extend the AI's capabilities with extra tools from MCP (Model Context Protocol) servers or VS Code extensions.
 
 ## Related resources
+
+* [How GitHub Copilot works](/docs/copilot/concepts/overview.md): Core concepts, terminology, and the architecture behind Copilot's features
 
 * [Agents tutorial](/docs/copilot/agents/agents-tutorial.md): Hands-on tutorial for working with different agent types
 

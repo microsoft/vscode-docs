@@ -1,6 +1,6 @@
 ---
 ContentId: 6f06908a-6694-4fad-ac1e-fc6d9c5747ca
-DateApproved: 02/04/2026
+DateApproved: 3/25/2026
 MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Go.
 ---
 # Go in Visual Studio Code

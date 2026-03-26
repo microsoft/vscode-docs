@@ -1,6 +1,6 @@
 ---
 ContentId: 84F36EDE-4D66-4A2E-B4D1-F020C73EB2AD
-DateApproved: 02/04/2026
+DateApproved: 3/25/2026
 MetaDescription: Setup VS Code's Network Connection.
 ---
 # Network Connections in Visual Studio Code
@@ -20,8 +20,6 @@ If you are behind a firewall that needs to allow specific domains used by VS Cod
 * `*.gallery.vsassets.io` - Visual Studio Marketplace
 * `*.gallerycdn.vsassets.io` - Visual Studio Marketplace
 * `rink.hockeyapp.net` - Crash reporting service
-* `bingsettingssearch.trafficmanager.net` - In-product settings search
-* `vscode.search.windows.net` - In-product settings search
 * `raw.githubusercontent.com` - GitHub repository raw file access
 * `vsmarketplacebadges.dev` - Visual Studio Marketplace badge service
 * `*.vscode-cdn.net` - Visual Studio Code CDN

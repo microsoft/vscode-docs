@@ -49,6 +49,8 @@ Not all user settings are available as workspace settings. For example, applicat
 
 The Settings editor provides a graphical interface to manage both user and workspace settings. To open the Settings editor, navigate to **File** > **Preferences** > **Settings**. Alternately, open the Settings editor from the **Command Palette** (`kb(workbench.action.showCommands)`) with **Preferences: Open Settings** or use the keyboard shortcut (`kb(workbench.action.openSettings)`).
 
+By default, the Settings editor opens in a [modal overlay](/docs/getstarted/userinterface.md#modal-editors) on top of the editor area. You can change this behavior with the `setting(workbench.editor.useModal)` setting. When you open the Settings JSON file, it opens as a regular editor tab in the main window.
+
 When you open the Settings editor, you can search and discover the settings you are looking for. When you search using the search bar, the Settings editor filters the settings to only show those that match your criteria. This makes finding settings quick and easy.
 
 ![Filtering settings by searching in the Settings editor](images/settings/settings-search.png)
