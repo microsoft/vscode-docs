@@ -67,6 +67,8 @@ You can open chat sessions in different views, depending on how you prefer to wo
 
 * **Maximized**: select the **Maximize** button in the Chat view title bar, or run the **View: Toggle Maximized Panel** command. The chat takes over the full editor area, giving it maximum space. Select the button again to restore the previous layout.
 
+* **Sessions Window**: a dedicated interface where sessions are the primary experience. Best for prompt-first workflows where you want to focus entirely on describing tasks and managing sessions. Run the **Chat: Open Sessions Window** command, or use `code --sessions` from the command line. Learn more about the [Sessions Window](/docs/copilot/sessions-window.md).
+
 You can move a chat session between views at any time. Select the `...` menu in the Chat view, editor tab, or chat window and choose one of the **Move Chat into...** options. Alternatively, use the corresponding **Chat: Move Chat** commands from the Command Palette.
 
 ## Sessions list

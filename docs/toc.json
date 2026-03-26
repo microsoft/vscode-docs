@@ -49,6 +49,7 @@
           ["Trust & Safety", "/docs/copilot/concepts/trust-and-safety"]
         ]
       }],
+      ["Sessions Window", "/docs/copilot/sessions-window"],
       ["", "", {
         "name": "Agents",
         "area": "copilot/agents",

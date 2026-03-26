@@ -68,6 +68,12 @@ Run multiple agent sessions in parallel, each focused on a different task. The *
 
 Learn more about [managing agent sessions](/docs/copilot/chat/chat-sessions.md).
 
+### Sessions Window
+
+If you prefer describing what you want over writing code directly, the [Sessions Window](/docs/copilot/sessions-window.md) gives you a dedicated interface where sessions and chat take center stage. Launch it as a standalone window to focus entirely on prompting, monitoring sessions, and configuring your AI setup. The Sessions Window also provides direct access to all your AI customizations, such as agents, instructions, prompts, and MCP servers, from a single sidebar panel.
+
+Learn more about the [Sessions Window](/docs/copilot/sessions-window.md).
+
 ## What can you build
 
 Agents handle coding tasks end-to-end, from a single file change to a full feature shipped as a pull request.
