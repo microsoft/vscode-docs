@@ -250,7 +250,9 @@ Related settings:
 ### Sandbox terminal commands
 
 > [!NOTE]
-> Terminal sandboxing is currently in preview and is only supported on macOS and Linux. On Windows, the sandbox settings have no effect.
+> Terminal sandboxing is currently in preview and is only supported on macOS and Linux. On Windows, only WSL2 environments are supported.
+
+For an overview of how sandboxing works, what it protects against, and OS-level implementation details, see [Agent sandboxing](/docs/copilot/concepts/trust-and-safety.md#agent-sandboxing).
 
 Terminal sandboxing restricts file system and network access for commands executed by the agent. When sandboxing is enabled, terminal commands are auto-approved without requiring user confirmation, because they run in a controlled environment.
 
@@ -258,13 +260,19 @@ To enable terminal sandboxing, set the `setting(chat.tools.terminal.sandbox.enab
 
 When sandboxing is enabled:
 
-* Commands have read and write access to the current working directory by default
-* Network access is blocked for all domains by default
-* Commands run without the standard confirmation dialog
+* Commands have read access to the entire file system
+* Commands have write access only to the current working directory and its subdirectories
+* Network access is blocked for all domains
+* Commands run without the user confirmation prompt
+
+> [!IMPORTANT]
+> If the required OS dependencies for sandboxing are not installed, VS Code shows a warning and runs commands without sandboxing.
 
 #### Configure file system access
 
-Use the `setting(chat.tools.terminal.sandbox.linuxFileSystem)` or `setting(chat.tools.terminal.sandbox.macFileSystem)` setting to control file system access:
+Use the `setting(chat.tools.terminal.sandbox.linuxFileSystem)` or `setting(chat.tools.terminal.sandbox.macFileSystem)` setting to control file system access.
+
+You can specify allow rules for write access and deny rules for both read and write access. These rules don't support glob patterns. The `denyWrite` and `denyRead` rules take precedence over `allowWrite` rules.
 
 ```jsonc
 {
@@ -279,11 +287,9 @@ Use the `setting(chat.tools.terminal.sandbox.linuxFileSystem)` or `setting(chat.
 }
 ```
 
-The `denyWrite` and `denyRead` rules take precedence over `allowWrite` rules.
-
 #### Configure network access
 
-Use the `setting(chat.tools.terminal.sandbox.network)` setting to allow specific domains:
+By default, network access is blocked for all domains when sandboxing is enabled. Use the `setting(chat.tools.terminal.sandbox.network)` setting to allow specific domains:
 
 ```jsonc
 {
@@ -295,8 +301,6 @@ Use the `setting(chat.tools.terminal.sandbox.network)` setting to allow specific
   }
 }
 ```
-
-By default, network access is blocked for all domains when sandboxing is enabled.
 
 When `allowTrustedDomains` is set to `true`, the domains from your [Trusted Domains](/docs/editing/editingevolved.md#outgoing-link-protection) list are automatically included in the allowed domains for network access. The sandbox configuration updates automatically when the Trusted Domains list changes.
 
