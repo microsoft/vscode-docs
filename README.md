@@ -5,9 +5,9 @@
 
 You've found the Visual Studio Code documentation GitHub repository, which contains the content for the [Visual Studio Code documentation](https://code.visualstudio.com/docs).
 
-Topics submitted here will be published to the [Visual Studio Code](https://code.visualstudio.com) portal.
+Content submitted here will be published to the [Visual Studio Code](https://code.visualstudio.com) portal.
 
-If you are looking for the VS Code product GitHub repository, you can find it [here](https://github.com/microsoft/vscode).
+If you are looking for the VS Code product repository on GitHub, you can find it [here](https://github.com/microsoft/vscode).
 
 > [!IMPORTANT]
 > The vscode-docs repository uses [**Git LFS**](https://git-lfs.github.com/) (Large File Storage) for storing binary files such as images and `.gif`s. If you are contributing or updating images, please enable Git LFS per the instructions in the [Contributing](#cloning) section below.
@@ -26,7 +26,7 @@ If you are looking for the VS Code product GitHub repository, you can find it [h
 
 ## Visual Studio Code
 
-[VS Code](https://code.visualstudio.com/) is a lightweight AI code editor for multi-agent development and a powerful development environment for building modern web, mobile, and cloud applications. It is free and available on your favorite platform - Linux, macOS, and Windows.
+[VS Code](https://code.visualstudio.com/) is a lightweight AI code editor for multi-agent development and a powerful development environment for building modern web, mobile, and cloud applications. It is free and available on your favorite platforms: Linux, macOS, and Windows.
 
 If you landed here looking for other information about VS Code, head over to [our website](https://code.visualstudio.com) for additional information.
 
@@ -57,9 +57,9 @@ The two suggested workflows are:
 ### Cloning
 
 1. Install [Git LFS](https://git-lfs.github.com/).
-2. Run `git lfs install` to setup global git hooks. You only need to run this once per machine.
+2. Run `git lfs install` to set up global Git hooks. You only need to run this once per machine.
 3. SSH auth: `git clone git@github.com:microsoft/vscode-docs.git`<br>HTTPS auth: `git clone https://github.com/microsoft/vscode-docs.git`
-4. Now you can `git add` binary files and commit them. They'll be tracked in LFS.
+4. Now you can use `git add` to add binary files and commit them. They'll be tracked in LFS.
 
 #### Cloning without binary files
 
@@ -74,7 +74,7 @@ You might want to clone the repo without the 1.6GB images. Here are the steps:
     - Windows:
       - SSH auth: `$env:GIT_LFS_SKIP_SMUDGE="1"; git clone git@github.com:microsoft/vscode-docs.git`
       - HTTPS auth: `$env:GIT_LFS_SKIP_SMUDGE="1"; git clone https://github.com/microsoft/vscode-docs.git`
-4. Now you can selectively checkout some binary files to work with. For example:
+4. Now you can selectively check out some binary files to work with. For example:
     - `git lfs pull -I "docs/nodejs"` to only download images in `docs/nodejs`
     - `git lfs pull -I "release-notes/images/1_4*/*"` to only download images in `release-notes/images/1_4*`
     - `git lfs pull -I "docs,api"` to download all images in `docs` and in `api`
@@ -93,7 +93,7 @@ npm install
 npm run serve
 ```
 
-You can then navigate to `http://localhost:3000` in your browser to see the documentation website. Any changes you make to the Markdown files will automatically refresh the page so you can see your updates in real time.
+You can then navigate to `http://localhost:3000` in your browser to see the documentation website. Any changes you make to the Markdown files will automatically refresh the page so you can see your updates in real-time.
 
 ## Publishing
 
