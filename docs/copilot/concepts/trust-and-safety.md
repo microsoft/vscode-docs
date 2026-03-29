@@ -35,7 +35,7 @@ Agents can read files, edit code, run terminal commands, and call external servi
 
 * **Use checkpoints to revert.** Agent sessions create checkpoints as work progresses. If the agent takes a wrong turn, return to a previous checkpoint and try a different approach. Learn more about [checkpoints](/docs/copilot/chat/chat-checkpoints.md).
 
-* **Approve tool calls.** VS Code asks for your approval before running terminal commands or using tools with side effects. You control which tools can run automatically and which require confirmation.
+* **Approve tool calls.** VS Code asks for your approval before running terminal commands or using tools with side effects. You control which tools can run automatically and which require confirmation. Use the **Chat: Manage Tool Approval** command to centrally [manage approvals](/docs/copilot/agents/agent-tools.md#manage-tool-approvals) for all tools.
 
 * **Choose a permission level.** Control how much autonomy the agent has: **Default Approvals** requires confirmation for sensitive tools, **Bypass Approvals** auto-approves all tool calls, and **Autopilot** (Preview) also auto-responds to questions and continues autonomously. For higher autonomy levels, pair with [terminal sandboxing](/docs/copilot/agents/agent-tools.md#sandbox-terminal-commands) or a container.
 

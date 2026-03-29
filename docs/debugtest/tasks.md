@@ -373,7 +373,13 @@ You can specify a task's run behaviors using the `runOptions` property:
   * `default` - The task will only be run when executed through the **Run Task** command.
   * `folderOpen` - The task will be run when the containing folder is opened. The first time you open a folder that contains a task with `folderOpen`, you will be asked if you want to allow tasks to run automatically in that folder. You can change your decision later using the **Manage Automatic Tasks** command and selecting between **Allow Automatic Tasks** and **Disallow Automatic Tasks**.
 * **instanceLimit** - The number of instances of the task that are allowed to run simultaneously. The default value is `1`.
-
+* **instancePolicy** - Determines what happens when a task has reached its `instanceLimit`. Can be set to:
+  * `prompt` - Prompt the user which instance to terminate (default).
+  * `silent` - Don't start a new instance (silent).
+  * `terminateNewest` - Terminate the newest running instance.
+  * `terminateOldest` - Terminate the oldest running instance.
+  * `warn` - Don't start a new instance (show warning).
+  
 ## Customizing auto-detected tasks
 
 As mentioned above, you can customize auto-detected tasks in the `tasks.json` file. You usually do so to modify presentation properties or to attach a problem matcher to scan the task's output for errors and warnings. You can customize a task directly from the **Run Task** list by pressing the gear icon to the right to insert the corresponding task reference into the `tasks.json` file. Assume you have the following Gulp file to lint JavaScript files using ESLint (the file is taken from [https://github.com/adametry/gulp-eslint](https://github.com/adametry/gulp-eslint)):
