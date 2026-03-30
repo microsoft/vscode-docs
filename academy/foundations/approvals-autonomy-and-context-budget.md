@@ -19,6 +19,8 @@ When the agent wants to run a terminal command, it shows an approval dialog with
 
 The approval dropdown gives fine-grained control over how broadly an approval applies.
 
+![Expanded approvals menu showing approval specificity and scope options in VS Code chat.](images/expanded-approvals.png)
+
 Specificity:
 
 * Command prefix, approve any command that starts with a specific prefix.
@@ -51,7 +53,10 @@ Auto-approves all tool calls and automatically retries when it hits errors. The 
 
 Autopilot goes further than Bypass. It auto-approves tool calls, auto-retries on errors, and resolves blocking questions on its own until it decides the task is complete.
 
-The first time you enable Bypass approvals or Autopilot, VS Code shows a warning. Both modes skip manual confirmations for actions that can modify files and run commands.
+> [!NOTE]
+> The first time you enable Bypass approvals or Autopilot, VS Code shows a warning. Both modes skip manual confirmations for actions that can modify files and run commands.
+
+![Screenshot showing the approval picker in VS Code chat with Default approvals, Bypass approvals, and Autopilot options.](images/approval-picker.png)
 
 ## Tool calls
 
@@ -68,6 +73,8 @@ The agent decides which tools to use based on your prompt and gathered context. 
 The model can only hold so much information in memory at one time. This limit is the context window, measured in tokens. When the context window fills up, the model starts losing track of earlier parts of the conversation.
 
 Select the token usage indicator in the chat panel to see a live breakdown of how the budget is being used.
+
+![Screenshot showing the context window indicator in VS Code chat with token usage and context breakdown details.](images/context-window.png)
 
 ### What's in your context budget
 

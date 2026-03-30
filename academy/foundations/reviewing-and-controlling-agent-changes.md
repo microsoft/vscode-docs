@@ -13,7 +13,9 @@ When an agent finishes a round of work, it leaves behind proposed changes, edits
 
 ## The files changed bar
 
-After every agent response that includes file edits, a files changed bar appears above the chat input. It lists every file the agent touched in that response.
+After every agent response that includes file edits, a files changed bar appears above the chat input. It lists every file the agent touched in that response. This is your starting point for reviewing what happened.
+
+![Files changed bar showing the list of agent-edited files in chat](images/files-changed.png)
 
 Select any file in the list to open the inline diff. Removals are highlighted in red and additions in green.
 
@@ -21,17 +23,33 @@ Nothing is permanent yet. The agent has proposed these changes, but they are not
 
 ## Per-change controls
 
-Inside the diff view, you will find **Keep** and **Undo** controls on each individual edit. This lets you keep the correct changes and undo only the incorrect ones.
+Inside the diff view, you will find **Keep** and **Undo** controls on each individual edit. Use the arrow navigation to move between edits within the file without scrolling manually.
+
+![Per-change controls showing Keep and Undo actions for individual edits in the diff view](images/per-change-controls.png)
+
+This lets you keep the correct changes and undo only the incorrect ones. This granularity matters. The agent might make ten changes to a file - nine correct, one wrong. You don't have to throw out the whole thing. Keep the nine, undo the one, and move on.
+
+Once you've reviewed a file, move to the next one in the files changed bar and repeat.
+
 
 ### Accept all or undo all
 
-When all changes look good, the top-level **Keep** button accepts everything at once. **Undo All** rolls back every file the agent touched in that round.
+When you're happy with all the changes across all files, the top-level **Keep** button accepts everything at once. **Undo All** rolls back every file the agent touched in this round, leaving your workspace exactly as it was before.
+
+![Top-level Keep All controls for accepting all agent changes](images/keep-all.png)
+
+
+Use **Accept All** when you trust the output. Use **Undo All** when the agent went in the wrong direction and you'd rather start over.
 
 ## Editing a previous message
 
 If your original prompt was missing a requirement, edit the prompt directly instead of sending a chain of follow-up corrections.
 
-Hover over any message in the chat and select the edit icon. Update the requirement and resend. The agent reruns from that point, replacing the conversation history after that message.
+Hover over any message in the chat and select the edit icon. Update the requirement and resend.
+
+![Editing a previous chat message in VS Code to update the original prompt](images/edit-message.png)
+
+The agent reruns from that point, replacing the conversation history after that message.
 
 For example, instead of sending a second message, rewrite the original prompt like this.
 
@@ -40,6 +58,8 @@ Using Python 3.13 and uv, implement a base62 encoder/decoder.
 
 Accept a number to encode or a base62 string to decode as a command-line argument.
 ```
+
+![Edited previous chat message in VS Code showing an updated prompt requirement](images/edited-message.png)
 
 ## Steering while the agent runs
 
@@ -55,15 +75,21 @@ Signals the agent to yield after it finishes its current tool call, then process
 
 ### Stop and send
 
-Cancels the current request entirely and sends your message as a fresh start.
+Cancels the current request entirely and sends your message as a fresh start. Use this when the agent has gone clearly off-track and continuing is wasteful.
 
-Most of the time, Steer with message is the right option for course correction.
+**Steer** is for adjusting direction. **Stop and Send** is for starting over. Most of the time, **Steer** is what you want.
+
+![Steer with Message option in the VS Code Send button dropdown while an agent is running](images/steer.png)
 
 ## Checkpoints and restore
 
 Every agent response in the chat is a checkpoint. Hover over any response to find **Restore Checkpoint**.
 
-Restoring a checkpoint rolls your workspace back to the state it was in at that point in the conversation. The code reverts and the conversation history rolls back.
+Restoring a checkpoint rolls your workspace back to the state it was in at that point in the conversation. The code reverts and the conversation history rolls back as if you never sent those subsequent messages. No manual cleanup, no `git stash` - it's a clean rollback.
+
+![Restore Checkpoint control in VS Code chat for rolling back an agent session to an earlier state](images/checkpoint.png)
+
+This is your safety net. You can try something, see where it goes, and if it's not the direction you wanted, walk it back completely.
 
 ## Forking a session
 
@@ -72,13 +98,21 @@ Next to Restore Checkpoint is **Fork**.
 * Restore takes you back. Everything after that checkpoint is gone, and you continue in the same session.
 * Fork creates a new independent session starting from that checkpoint. The original session stays intact.
 
+![Fork control in VS Code chat for creating a new session from an earlier checkpoint](images/fork.png)
+
+After forking, you have two sessions: the original, continuing as it was, and the fork, starting fresh from that checkpoint and going in a new direction. Neither session affects the other.
+
 You can also type `/fork` in the chat input to fork from the current point.
+
+![Using the /fork command in the VS Code chat input to create a new session from the current point](images/slash-fork.png)
 
 When to fork:
 
 * Explore a different architectural direction without losing current work.
 * Take the project toward an API while keeping a CLI version intact.
 * Compare two approaches side by side.
+
+Forks don't just protect against losing work - they change how boldly you can experiment. When you know you can always go back or branch off, you're free to try riskier approaches.
 
 ## Common patterns
 
