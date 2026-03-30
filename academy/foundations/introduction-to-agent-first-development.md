@@ -21,17 +21,19 @@ Before you start, install VS Code Insiders and set up the GitHub Copilot and Git
 
 Agents are not magic. Great results come from five things working together.
 
-1. Harness, the software layer that connects the model to your tools and workspace.
-1. Model, the AI that does the reasoning and generates the code.
-1. Context, the files, instructions, and details that help the agent understand your project.
-1. Tools, the actions an agent can execute, such as reading files, running commands, and searching.
-1. Prompt, the instructions you give the agent.
+1. Harness - the software layer that connects the model to your tools and workspace.
+1. Model - the AI that does the reasoning and generates the code.
+1. Context - the files, instructions, and details that help the agent understand your project.
+1. Tools - the actions an agent can execute, such as reading files, running commands, and searching.
+1. Prompt - the instructions you give the agent.
 
 Get all five right, and agents accomplish significantly more. Miss one, and results become unfocused.
 
 ## The harness
 
 In VS Code, the GitHub Copilot Chat panel is your harness. The harness is the software layer that wraps around the model and handles everything except the thinking.
+
+You can think of the harness like a wiring harness in a car. The engine still does the work, but the harness connects it to the dashboard, controls, and sensors so that power becomes usable.
 
 The harness gives the agent:
 
@@ -57,8 +59,6 @@ If you are getting started, Ask or Plan is a good entry point. Once you are read
 
 GitHub Copilot gives you a choice of models through the model picker. The model is the AI that does the reasoning and generates the code.
 
-![Model picker in VS Code chat showing available AI models and thinking effort options.](images/model-picker.png)
-
 You can control how deeply the model thinks through thinking effort levels.
 
 * **Low**, less reasoning and faster responses. Best for formatting, boilerplate, and simple fixes.
@@ -67,7 +67,7 @@ You can control how deeply the model thinks through thinking effort levels.
 
 There's also **Auto**, which selects the best available model based on capacity and performance - reducing rate limiting, latency, and errors.
 
-
+![Model picker in VS Code chat showing available AI models and thinking effort options.](images/model-picker.png)
 
 Match thinking effort to the task. Simple work? Low. Standard coding? Medium. Hard problem? High.
 
@@ -77,7 +77,7 @@ The prompt is the message you send to the agent, your instructions, goals, and r
 
 Here is a basic prompt to get started.
 
-Before continuing, make sure you have Python 3.13 or later and `uv` installed. The agent uses both to set up and run the project.
+**Before continuing**, make sure you have Python 3.13 or later and `uv` installed. The agent uses both to set up and run the project.
 
 ```prompt
 Using Python 3.13 and uv, implement a base62 encoder/decoder.
@@ -85,7 +85,7 @@ Using Python 3.13 and uv, implement a base62 encoder/decoder.
 
 ![Prompt example in VS Code chat showing a request to implement a base62 encoder/decoder with Python 3.13 and uv.](images/prompt.png)
 
-This gets the agent started, but the more specific you are, the better the results. Reference existing files, specify the pattern to follow, and define the scope clearly.
+This gets the agent started, but the more specific you are, the better the results. Reference existing files, specify the pattern to follow, and define the scope clearly. We'll cover prompt strategies in depth in later guides.
 
 ## Context
 
@@ -120,9 +120,9 @@ The built-in tools include:
 
 ![Tools picker in VS Code chat showing available agent tools that can be enabled for a session.](images/tool-picker.png)
 
-Each tool has a checkbox, so you can enable or disable it per session. More tools mean more capability, but too many tools can confuse the agent about which ones to use.
+Each tool has a checkbox, so you can enable or disable it per session. More tools mean more capability, but too many tools can confuse the agent about which ones to use. Keep the tool set selective for the task at hand.
 
-You can extend this set by adding tools through MCP servers and VS Code extensions.
+You can extend this set by adding tools through MCP servers and VS Code extensions, which we will cover in a later guide.
 
 ## Approvals
 
@@ -136,7 +136,9 @@ The [next guide](approvals-autonomy-and-context-budget.md) covers permission lev
 
 ## What's next
 
-You now have the mental model for what drives great agent results, harness, model, context, tools, and prompt. In the next guide, you will explore the approval system in more depth, learn how to control agent autonomy, and understand how to monitor your context budget as sessions run.
+You now have the mental model for what drives great agent results, harness, model, context, tools, and prompt. The agent is already capable of building real things - now it's about learning how to direct it well.
+
+In the [next guide](approvals-autonomy-and-context-budget.md), we'll cover the approval system in depth, look at how to control agent autonomy, and understand how to monitor your context budget as sessions run.
 
 ## Learn more
 
