@@ -22,17 +22,14 @@ To use editor inline chat:
 
 1. Type your prompt in the chat input field and press `kbstyle(Enter)`.
 
+    ![Screenshot showing the inline chat control.](images/copilot-chat/inline-chat-control.png)
+
     > [!TIP]
     > Select a block of code in the editor to scope the prompt to that code.
 
-1. VS Code shows a diff with the code suggestion inline in the editor. Accept or reject the changes.
+1. VS Code shows a diff with the code suggestion inline in the editor. Use **Keep** or **Undo** to accept or reject the changes.
 
-    ![Screenshot showing editor inline chat suggesting a non-recursive factorial implementation.](images/copilot-chat/inline-chat-no-recursion.png)
-
-1. Optionally, ask a follow-up question to get other suggestions or refine the results.
-
-> [!TIP]
-> Attach context to your inline chat prompt to include relevant files, code symbols, or other context. Learn more about [adding context to your chat prompt](/docs/copilot/chat/copilot-chat-context.md).
+    ![Screenshot showing editor inline chat suggesting a non-recursive factorial implementation.](images/copilot-chat/inline-chat-recursion.png)
 
 ### Inline chat in active editing sessions
 
@@ -69,7 +66,7 @@ To use terminal inline chat:
 
 1. Type your prompt in the chat input field and press `kbstyle(Enter)`.
 
-    ![Screenshot showing that you can ask complex questions like "list the top 5 largest files in the src dir"](images/copilot-chat/terminal-chat-2.png)
+    ![Screenshot showing that you can ask complex questions like "list the top 5 largest files in the src dir"](images/copilot-chat/terminal-chat.png)
 
 1. Review the response and select the **Run** (`kb(workbench.action.terminal.chat.runCommand)`) to run the command in the terminal
 
