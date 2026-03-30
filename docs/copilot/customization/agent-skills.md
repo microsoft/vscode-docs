@@ -66,11 +66,10 @@ Skills are stored in directories with a `SKILL.md` file that defines the skill's
 | Project skills, stored in your repository | `.github/skills/`, `.claude/skills/`, `.agents/skills/` |
 | Personal skills, stored in your user profile | `~/.copilot/skills/`, `~/.claude/skills/`, `~/.agents/skills/` |
 
-> [!TIP]
-> In a monorepo, enable `setting(chat.useCustomizationsInParentRepositories)` to discover skills from the parent repository root. Learn more about [parent repository discovery](/docs/copilot/customization/overview.md#parent-repository-discovery).
+You can configure additional file locations for project skills with the `setting(chat.skillsLocations)` setting. This is useful if you want to organize skills in a different folder structure or have multiple skill directories.
 
 > [!TIP]
-> You can configure additional locations where VS Code searches for skills by using the `setting(chat.agentSkillsLocations)` setting. This is useful for sharing skills across projects or keeping them in a central location.
+> In a monorepo, enable `setting(chat.useCustomizationsInParentRepositories)` to discover skills from the parent repository root. Learn more about [parent repository discovery](/docs/copilot/customization/overview.md#parent-repository-discovery).
 
 To create a skill:
 

@@ -130,18 +130,15 @@ Use `.instructions.md` files for:
 
 ### Instructions file locations
 
-You can define instructions for a specific workspace or at the user level, where they are applied across all your workspaces.
-
-> [!TIP]
-> In a monorepo, enable `setting(chat.useCustomizationsInParentRepositories)` to discover instructions from the parent repository root. Learn more about [parent repository discovery](/docs/copilot/customization/overview.md#parent-repository-discovery).
+You can define instructions for a specific workspace or at the user level, where they are applied across all your workspaces. The following table lists the default file locations for instructions files based on their scope. You can configure additional file locations for workspace instructions files with the `setting(chat.instructionsFilesLocations)` setting.
 
 | Scope | Default file location |
 |-------|-----------------------|
 | Workspace | `.github/instructions` folder |
 | Workspace (Claude format) | `.claude/rules` folder |
-| User profile | `~/.copilot/instructions`, `~/.claude/rules`, `instructions` folder of the current [VS Code profile](/docs/configure/profiles.md) |
+| User profile | `~/.copilot/instructions`, `~/.claude/rules`, or your user data (specific to your VS Code profile) |
 
-VS Code searches these folders recursively, so you can organize instructions files in subdirectories. For example, you can group instructions by team, language, or module:
+VS Code searches these folders recursively, to enable you to organize instructions files in subdirectories. For example, you can group instructions by team, language, or module:
 
 ```text
 .github/instructions/
@@ -154,11 +151,7 @@ VS Code searches these folders recursively, so you can organize instructions fil
     unit-tests.instructions.md
 ```
 
-You can configure additional file locations for workspace instructions files with the `setting(chat.instructionsFilesLocations)` setting. This is useful if you want to keep instructions files in a different folder or have multiple folders for better organization. Custom locations are also searched recursively.
-
-For compatibility with Claude Code and other Claude-based tools, VS Code also detects instructions files in the `.claude/rules` workspace folder and the `~/.claude/rules` user folder.
-
-The following code snippet shows how to configure instructions file locations, where only workspace-level instructions are enabled and user-level instructions are disabled:
+The following example shows how to configure the instructions file locations to only allow workspace-level instructions:
 
 ```json
 "chat.instructionsFilesLocations": {
@@ -168,6 +161,9 @@ The following code snippet shows how to configure instructions file locations, w
   "~/.claude/rules": false
 }
 ```
+
+> [!TIP]
+> In a monorepo, enable `setting(chat.useCustomizationsInParentRepositories)` to discover instructions from the parent repository root. Learn more about [parent repository discovery](/docs/copilot/customization/overview.md#parent-repository-discovery).
 
 ### Instructions file format
 
