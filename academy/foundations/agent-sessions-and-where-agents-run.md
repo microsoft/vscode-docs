@@ -9,7 +9,7 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 <!-- TODO update with the actual video id once published on youtube -->
 <iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen title="Agent sessions and where agents run"></iframe>
 
-As you work with agents, you accumulate multiple sessions across different features, bug fixes, and explorations. You also want to run several agents simultaneously. This guide covers how to navigate and manage agent sessions, and the difference between the three places an agent can run, locally in VS Code, in the background with Copilot CLI, and in the cloud on GitHub infrastructure.
+As you work with agents, you accumulate multiple sessions across different features, bug fixes, and explorations. You also want to run several agents simultaneously - one working interactively while another handles background tasks, for example. This guide covers how to navigate and manage agent sessions, and the difference between the three places an agent can run, locally in VS Code, in the background with Copilot CLI, and in the cloud on GitHub infrastructure.
 
 ## The agent sessions sidebar
 
@@ -21,15 +21,15 @@ The sidebar lists every session you have worked in. Each entry shows:
 
 * The session name.
 * A timestamp for when it was last active.
-* A file change count if the agent made changes you have not reviewed yet.
+* A file change count if the agent made changes you have not reviewed yet. This clears once you accept or undo them.
 
 ![Screenshot of the Agent Sessions view in VS Code, showing agent sessions with their names.](images/sessions-view.png)
 
-Select any session to open it in the Chat view. Every session is independent, with its own context window, conversation history, and tool results.
+Select any session to open it in the Chat view. The full conversation history is there, exactly where you left it. Every session is independent, with its own context window, conversation history, and tool results. What you do in one doesn't affect any other.
 
 ### Running multiple agents in parallel
 
-You do not have to finish one session before starting another. Start a new session and the previous one keeps working in the background.
+You do not have to finish one session before starting another. Start a new session, and the previous one keeps working in the background.
 
 This lets you run multiple agents at once.
 
@@ -43,20 +43,20 @@ If you want to watch more than one session at once, move a session into an edito
 
 Right-select any session for management options.
 
-* Archive hides the session from the active list but keeps it intact.
-* Delete removes the session permanently.
+* Archive hides the session from the active list but keeps it intact so you can search for it and reopen it later. Use this to declutter without losing history.
+* Delete removes the session permanently. Use this only when you're certain you don't need it.
 
 ## The agent type picker
 
 At the bottom of the chat input is the agent type picker. It shows the current agent type and controls where the next session runs.
 
-In a fresh session, it shows the available agent types. In an active session, it also offers handoff options.
+In a fresh session, it shows the available agent types. In an active session, it shows options to start a new session or hand off the current one to a different agent type.
 
 ![Screenshot of the agent type picker in VS Code, showing options for choosing where the agent runs and handing off between agent types.](images/agent-type.png)
 
 ## Local agents
 
-Local is the default. The agent runs interactively inside VS Code with access to your workspace, tools, and terminal.
+Local is the default agent type. The agent runs interactively inside VS Code with access to your workspace, tools, and terminal.
 
 Use Local when you want to:
 
@@ -64,15 +64,19 @@ Use Local when you want to:
 * Stay in control of each decision.
 * Do interactive debugging or exploratory development.
 
-## Copilot CLI background agents
+## Copilot CLI (background agents)
 
 Copilot CLI runs the agent as a background process on your machine while you keep working in the editor. You can run multiple CLI sessions in parallel.
 
-CLI sessions show up in the Agent Sessions sidebar alongside local sessions.
+CLI sessions show up in the Agent Sessions sidebar alongside local sessions - one place to view everything.
+
+Copilot CLI will be covered in depth in a later section of this series.
 
 ## Cloud agents
 
-Cloud runs the agent on GitHub infrastructure. It creates a pull request, pushes commits as it works, and leaves the result ready for review.
+Cloud takes the agent off your machine entirely. It runs the agent on GitHub infrastructure, and will create a pull request, push commits as it works, and leave the result ready for review.
+
+This is the fully asynchronous option. You can close VS Code, come back later, and review the work in the pull request.
 
 Use Cloud for tasks that are:
 
@@ -94,7 +98,9 @@ The agent spins up on GitHub infrastructure, creates a draft pull request, clone
 
 ### Viewing cloud sessions
 
-If you have the GitHub Pull Requests extension installed, the pull request shows up inside VS Code. On GitHub, the repository Agents tab shows active sessions, their status, and the linked pull request.
+If you have the GitHub Pull Requests extension installed, the pull request shows up inside VS Code.
+
+On GitHub.com, your repository's Agents tab shows active sessions, their status, and the linked pull request. You can open a session there to inspect its step-by-step log and send follow-up guidance mid-run.
 
 ## Handing off between agent types
 
@@ -102,6 +108,8 @@ In an active session, the agent type picker shows two options.
 
 * New Chat Session starts a fresh session with an empty context window.
 * Continue In hands off the current session to a different agent type and carries the full context forward.
+
+Use Continue In when you want to start locally, then hand the work off to a background or cloud agent without rebuilding context from scratch.
 
 ## Choosing the right agent type
 
@@ -115,7 +123,9 @@ In an active session, the agent type picker shows two options.
 
 ## What's next
 
-The Agent Sessions sidebar gives a complete view of work happening across agent types. In the [next guide](debugging-and-whats-happening-behind-the-scenes.md), you will go behind the scenes and inspect prompts, tool calls, and responses to understand what the agent is doing.
+The Agent Sessions sidebar gives a complete view of work happening across agent types. Local for interactive work. CLI for parallel background tasks. Cloud for fully async work that produces a pull request.
+
+In the [next guide](debugging-and-whats-happening-behind-the-scenes.md), you will go behind the scenes and inspect prompts, tool calls, and responses to understand what the agent is doing.
 
 ## Learn more
 

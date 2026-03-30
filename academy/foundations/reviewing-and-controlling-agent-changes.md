@@ -17,9 +17,9 @@ After every agent response that includes file edits, a files changed bar appears
 
 ![Files changed bar showing the list of agent-edited files in chat](images/files-changed.png)
 
-Select any file in the list to open the inline diff. Removals are highlighted in red and additions in green.
+Select any file in the list to open the inline diff. Removals are highlighted in red and additions in green, shown inline in the same editor view so you can read exactly what changed.
 
-Nothing is permanent yet. The agent has proposed these changes, but they are not saved until you explicitly accept them.
+Remember: nothing is permanent yet. The agent has proposed these changes, but they are not saved until you explicitly accept them.
 
 ## Per-change controls
 
@@ -31,13 +31,11 @@ This lets you keep the correct changes and undo only the incorrect ones. This gr
 
 Once you've reviewed a file, move to the next one in the files changed bar and repeat.
 
-
 ### Accept all or undo all
 
 When you're happy with all the changes across all files, the top-level **Keep** button accepts everything at once. **Undo All** rolls back every file the agent touched in this round, leaving your workspace exactly as it was before.
 
 ![Top-level Keep All controls for accepting all agent changes](images/keep-all.png)
-
 
 Use **Accept All** when you trust the output. Use **Undo All** when the agent went in the wrong direction and you'd rather start over.
 
@@ -51,7 +49,9 @@ Hover over any message in the chat and select the edit icon. Update the requirem
 
 The agent reruns from that point, replacing the conversation history after that message.
 
-For example, instead of sending a second message, rewrite the original prompt like this.
+This keeps your prompt history clean. Instead of stacking several corrections, you end up with one clear instruction and a clean response.
+
+For example, instead of sending a second message, rewrite the original prompt like this:
 
 ```prompt
 Using Python 3.13 and uv, implement a base62 encoder/decoder.
@@ -63,15 +63,21 @@ Accept a number to encode or a base62 string to decode as a command-line argumen
 
 ## Steering while the agent runs
 
+Sometimes you send a prompt and realize partway through that you want to change direction. You don't have to wait for the agent to finish and then undo - you can steer it mid-run.
+
 While the agent is working, the Send button becomes a dropdown with three options.
 
 ### Add to queue
 
-Holds your message and delivers it after the current response finishes.
+Holds your message and delivers it after the current response finishes. The agent completes its current work uninterrupted, then picks up your message next.
+
+Use this when you want to add something without interrupting the current flow.
 
 ### Steer with message
 
-Signals the agent to yield after it finishes its current tool call, then processes your message immediately.
+Signals the agent to yield after it finishes its current tool call, then processes your message immediately. The agent adjusts course without you having to cancel and lose what it's already done.
+
+This is the go-to option for mid-run course corrections.
 
 ### Stop and send
 
@@ -118,23 +124,25 @@ Forks don't just protect against losing work - they change how boldly you can ex
 
 ### Cleaning up a prompt retroactively
 
-Edit the original message and resend instead of stacking corrections.
+Edit the original message and resend instead of stacking corrections. Cleaner history, cleaner response.
 
 ### Mid-run change of plans
 
-Use **Steer with Message** so the agent adjusts without stopping.
+Use **Steer with Message** so the agent adjusts without stopping. The agent finishes its current action, reads your new direction, and adjusts.
 
 ### Something went wrong and needs a clean rollback
 
-Use **Restore Checkpoint**.
+Use **Restore Checkpoint** to go back to the last clean state before the wrong turn.
 
 ### Exploring two approaches at once
 
-Use **Fork**.
+Use **Fork** to create a second branch and try the alternative. Both sessions run independently and you can compare results.
 
 ## What's next
 
-With the files changed view, per-change controls, message editing, steering, and checkpoints, you have complete control over what the agent produces and where the session goes. In the [next guide](agent-sessions-and-where-agents-run.md), you will manage multiple agents at the same time and compare local, background, and cloud execution.
+With the files changed view, per-change controls, message editing, steering, and checkpoints, you have complete control over what the agent produces and where the session goes.
+
+In the [next guide](agent-sessions-and-where-agents-run.md), you will manage multiple agents at the same time and compare local, background, and cloud execution.
 
 ## Learn more
 
