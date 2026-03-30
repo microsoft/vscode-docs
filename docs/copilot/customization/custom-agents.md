@@ -76,18 +76,18 @@ When users see the handoff button and select it, they switch to the target agent
 
 ## Custom agent file locations
 
-You can define custom agents for a specific workspace or at the user level, where they are available across all your workspaces.
-
-> [!TIP]
-> In a monorepo, enable `setting(chat.useCustomizationsInParentRepositories)` to discover custom agents from the parent repository root. Learn more about [parent repository discovery](/docs/copilot/customization/overview.md#parent-repository-discovery).
+You can define custom agents for a specific workspace or at the user level, where they are available across all your workspaces. The following table lists the default file locations for custom agents based on their scope. You can configure additional file locations for workspace custom agent files with the `setting(chat.agentFilesLocations)` setting.
 
 | Scope | Default file location |
 |-------|-----------------------|
 | Workspace | `.github/agents` folder |
 | Workspace (Claude format) | `.claude/agents` folder |
-| User profile | `~/.copilot/agents`, `agents` folder of the current [VS Code profile](/docs/configure/profiles.md) |
+| User profile | `~/.copilot/agents` or your user data (specific to your VS Code profile) |
 
-You can configure additional file locations for workspace custom agent files with the `setting(chat.agentFilesLocations)` setting.
+To create a custom agent in user data, use the Chat Customizations editor or use the **Chat: New Custom Agent** command.
+
+> [!TIP]
+> In a monorepo, enable `setting(chat.useCustomizationsInParentRepositories)` to discover custom agents from the parent repository root. Learn more about [parent repository discovery](/docs/copilot/customization/overview.md#parent-repository-discovery).
 
 ## Custom agent file structure
 
