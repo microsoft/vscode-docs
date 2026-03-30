@@ -49,20 +49,27 @@ The harness also controls how autonomous the agent gets through three modes.
 | Plan | Outlines what it would do, but waits for approval before acting. |
 | Agent | Full autonomy. It plans, executes, and iterates until the task is done. |
 
+![Agent mode picker in VS Code chat showing the Ask, Plan, and Agent options.](images/agent-picker.png)
+
 If you are getting started, Ask or Plan is a good entry point. Once you are ready to implement, switch to Agent mode.
 
 ## The model
 
 GitHub Copilot gives you a choice of models through the model picker. The model is the AI that does the reasoning and generates the code.
 
+![Model picker in VS Code chat showing available AI models and thinking effort options.](images/model-picker.png)
+
 You can control how deeply the model thinks through thinking effort levels.
 
-* Low, less reasoning and faster responses. Best for formatting, boilerplate, and simple fixes.
-* Medium, balanced reasoning and speed. Good for refactoring, code reviews, and standard implementations.
-* High, maximum reasoning depth. Best for architecture decisions, multi-file refactors, and difficult debugging.
-* Auto, selects the best available model based on capacity and performance.
+* **Low**, less reasoning and faster responses. Best for formatting, boilerplate, and simple fixes.
+* **Medium**, balanced reasoning and speed. Good for refactoring, code reviews, and standard implementations.
+* **High**, maximum reasoning depth. Best for architecture decisions, multi-file refactors, and difficult debugging.
 
-Match thinking effort to the task. Use low for simple work, medium for standard coding, and high for hard problems.
+There's also **Auto**, which selects the best available model based on capacity and performance - reducing rate limiting, latency, and errors.
+
+
+
+Match thinking effort to the task. Simple work? Low. Standard coding? Medium. Hard problem? High.
 
 ## The prompt
 
@@ -75,6 +82,8 @@ Before continuing, make sure you have Python 3.13 or later and `uv` installed. T
 ```prompt
 Using Python 3.13 and uv, implement a base62 encoder/decoder.
 ```
+
+![Prompt example in VS Code chat showing a request to implement a base62 encoder/decoder with Python 3.13 and uv.](images/prompt.png)
 
 This gets the agent started, but the more specific you are, the better the results. Reference existing files, specify the pattern to follow, and define the scope clearly.
 
@@ -91,7 +100,9 @@ Context is a balancing act. Too much information confuses the agent. Too little 
 
 ## Tools
 
-Tools are the actions an agent can execute. Every action you see the agent take, reading a file, writing code, or running a command, is a tool call. You can view all available tools by selecting the tools icon in the chat input.
+Tools are the actions an agent can execute. Every action you see the agent take, reading a file, writing code, or running a command, is a tool call. You can view all available tools by selecting the tools icon in the Chat input.
+
+![Screenshot showing Configure Tools option in the Chat input.](images/tools.png)
 
 The built-in tools include:
 
@@ -107,6 +118,8 @@ The built-in tools include:
 | vscode | Use VS Code features and commands. |
 | todo | Manage and track todo items for task planning. |
 
+![Tools picker in VS Code chat showing available agent tools that can be enabled for a session.](images/tool-picker.png)
+
 Each tool has a checkbox, so you can enable or disable it per session. More tools mean more capability, but too many tools can confuse the agent about which ones to use.
 
 You can extend this set by adding tools through MCP servers and VS Code extensions.
@@ -114,6 +127,8 @@ You can extend this set by adding tools through MCP servers and VS Code extensio
 ## Approvals
 
 When the agent wants to run a terminal command for the first time, it pauses and asks for permission. The agent does not run commands on your machine without asking first.
+
+![Approval prompt in VS Code chat asking permission before running a terminal command.](images/approvals.png)
 
 Review the command and select **Allow** if it looks right. If something looks off, select **Skip** and correct the direction.
 

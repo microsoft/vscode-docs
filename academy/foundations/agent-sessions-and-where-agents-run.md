@@ -15,11 +15,15 @@ As you work with agents, you accumulate multiple sessions across different featu
 
 The Agent Sessions sidebar is your control center for everything happening across your agents. Open it from the VS Code activity bar, or select **Show Agent Sessions Sidebar** at the top of the Chat view.
 
+![Screenshot of the Agent Sessions sidebar in VS Code, showing agent sessions with their names, timestamps, and pending file changes.](images/agent-sessions-sidebar.png)
+
 The sidebar lists every session you have worked in. Each entry shows:
 
 * The session name.
 * A timestamp for when it was last active.
 * A file change count if the agent made changes you have not reviewed yet.
+
+![Screenshot of the Agent Sessions view in VS Code, showing agent sessions with their names.](images/sessions-view.png)
 
 Select any session to open it in the Chat view. Every session is independent, with its own context window, conversation history, and tool results.
 
@@ -47,6 +51,8 @@ Right-select any session for management options.
 At the bottom of the chat input is the agent type picker. It shows the current agent type and controls where the next session runs.
 
 In a fresh session, it shows the available agent types. In an active session, it also offers handoff options.
+
+![Screenshot of the agent type picker in VS Code, showing options for choosing where the agent runs and handing off between agent types.](images/agent-type.png)
 
 ## Local agents
 
