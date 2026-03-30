@@ -250,7 +250,7 @@ Related settings:
 ### Sandbox agent commands
 
 > [!NOTE]
-> Agent sandboxing is currently in preview and supported on macOS, Linux, and Windows WSL2.
+> Agent sandboxing is currently in preview and might further evolve.
 
 For an overview of how sandboxing works, what it protects against, and OS-level implementation details, see [Agent sandboxing](/docs/copilot/concepts/trust-and-safety.md#agent-sandboxing).
 

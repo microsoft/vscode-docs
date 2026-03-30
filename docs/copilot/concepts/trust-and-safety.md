@@ -48,7 +48,7 @@ Always review AI-generated code before committing. Verify that it handles edge c
 ## Agent sandboxing
 
 > [!NOTE]
-> Agent sandboxing is currently in preview and is supported on macOS, Linux, and Windows WSL2.
+> Agent sandboxing is currently in preview and might further evolve.
 
 Agent sandboxing uses operating system-level isolation to restrict what agents can access on your machine. Instead of relying solely on approval prompts before each action, sandboxing defines strict boundaries for file system and network access that are enforced by the OS itself.
 
@@ -107,6 +107,9 @@ Agent sandboxing relies on OS-level security primitives to enforce file system a
 | Linux and WSL2 | [bubblewrap](https://github.com/containers/bubblewrap) for file system isolation and `socat` for network proxying. | Install required packages: `sudo apt-get install bubblewrap socat` (Debian and Ubuntu) or `sudo dnf install bubblewrap socat` (Fedora). |
 
 WSL version 1 is not supported because bubblewrap requires Linux kernel features (user namespaces) that are only available in WSL2.
+
+> ![!NOTE]
+> Agent sandboxing support on Windows currently uses WSL2 as the underlying platform.
 
 ### What sandboxing does not cover
 
