@@ -93,10 +93,6 @@ Learn more about [tool and command approval](/docs/copilot/agents/agent-tools.md
 
 Agent sandboxing uses OS-level isolation to restrict what agent-executed processes can access on your machine. Rather than relying solely on approval prompts, sandboxing enforces strict file system and network boundaries at the kernel level, so commands cannot access resources outside the permitted scope, even if they are approved. For a deeper look at how sandboxing works and the OS-level enforcement details, see [Agent sandboxing](/docs/copilot/concepts/trust-and-safety.md#agent-sandboxing).
 
-On macOS and Linux, you can enable [terminal sandboxing](/docs/copilot/agents/agent-tools.md#sandbox-terminal-commands) to restrict file system and network access for commands executed by the agent. When sandboxing is enabled, commands are auto-approved without a confirmation prompt because they run in a controlled environment.
-
-By default, sandboxed commands can only write files in the working directory, and all network access is blocked. You can configure allowed network domains through the sandbox settings, which can also inherit from the [Trusted Domains](/docs/editing/editingevolved.md#outgoing-link-protection) list.
-
 > [!IMPORTANT]
 > Agent sandboxing is the strongest protection against malicious terminal commands. If prompt injection is a concern, use agent sandboxing or run VS Code in a [dev container](https://code.visualstudio.com/docs/devcontainers/containers) instead of relying on auto-approval rules alone. Auto-approval rules use best-effort command parsing and have known limitations with shell aliases, quote concatenation, and complex shell syntax.
 

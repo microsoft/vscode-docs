@@ -107,6 +107,8 @@ To disable terminal auto-approval entirely, set the policy to `false`. This conf
 
 Organizations should recommend that developers enable [agent sandboxing](/docs/copilot/concepts/trust-and-safety.md#agent-sandboxing), especially in environments where auto-approval or Autopilot mode is used. Agent sandboxing uses OS-level isolation to restrict file system and network access for agent-executed commands, which provides stronger protection than approval rules alone.
 
+<!-- TODO: sandboxing will be enabled by default in the future - update this guidance to recommend not disabling it -->
+
 Developers can enable sandboxing by setting `setting(chat.tools.terminal.sandbox.enabled)` to `true` (macOS, Linux, and WSL2 on Windows).
 
 ## Configure Copilot code review
