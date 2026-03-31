@@ -44,7 +44,7 @@ VS Code provides different tools to inspect what happens when you send a prompt 
 
 * **`/troubleshoot` slash command:**
 
-    Ask the AI to analyze the debug logs for the current chat session. Type `/troubleshoot` followed by your question, such as `/troubleshoot how many tokens did I use?` or `/troubleshoot list all paths you tried to load customizations`. Requires `setting(github.copilot.chat.agentDebugLog.enabled)` to be enabled.
+    Ask the AI to analyze the debug logs for a chat session. Optionally, include `#session` to select and diagnose a previous chat session.  Type `/troubleshoot` followed by your question, such as `/troubleshoot how many tokens did I use?` or `/troubleshoot list all paths you tried to load customizations in #session`. Requires `setting(github.copilot.chat.agentDebugLog.enabled)` to be enabled.
 
 * **Agent Debug Log panel (Preview):**
 
