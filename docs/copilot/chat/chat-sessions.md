@@ -213,8 +213,6 @@ To export a chat session:
 
 1. Choose a location to save the JSON file.
 
-Alternatively, you can copy individual prompts or responses to the clipboard by right-clicking the message and selecting **Copy**. To copy the entire chat session in Markdown format, right-click the Chat view and select **Copy All**.
-
 ### Save a chat session as a reusable prompt
 
 You can save a chat session as a [reusable prompt](/docs/copilot/customization/prompt-files.md) to reuse for similar tasks.
@@ -228,6 +226,16 @@ To save a chat session as a reusable prompt:
     The command creates a `.prompt.md` file, which is a reusable [prompt file](/docs/copilot/customization/prompt-files.md) that generalizes your current chat conversation into a template with placeholders. You can use prompt files to run the same type of task across different projects or codebases.
 
 1. Review and edit the generated prompt file as needed, then save it to your workspace.
+
+### Copy chat messages as Markdown
+
+The Chat view supports different options for copying chat messages as Markdown to the clipboard, available through the context menu when you right-click a message or the chat background.
+
+* **Copy**: Copy an individual prompt or response to the clipboard - the Markdown contains the response text, thinking steps, and tool calls.
+
+* **Copy All**: Copy the entire chat session in Markdown format, including all prompts, responses, thinking steps, and tool calls.
+
+* **Copy Final Response**: Copy just the final Markdown section of the agent's response, after the last tool call. This is useful for sharing or reusing the final output without the intermediate steps.
 
 ## Related resources
 
