@@ -102,6 +102,9 @@ To create a skill:
     * `test-template.js` - A template test file
     * `examples/` - Example test scenarios
 
+    > [!NOTE]
+    > Make sure to reference any additional files in your `SKILL.md` for them to be picked up by the agent. Use Markdown link syntax with relative paths, such as `[test template](./test-template.js)`.
+
 ### Generate a skill with AI
 
 You can use AI to generate a skill based on a description of the capability. Type `/create-skill` in chat and describe the skill you want (for example, "a skill for running and debugging integration tests"). The agent asks clarifying questions and generates a `SKILL.md` file with the directory structure, instructions, and frontmatter.
@@ -246,7 +249,7 @@ Skills load content progressively to keep your context efficient. Here is an exa
 
 2. **Instructions loading**: Copilot loads the `SKILL.md` body into its context, giving it access to the detailed testing procedures and guidelines. You can also trigger this step directly by typing `/webapp-testing` in chat.
 
-3. **Resource access**: As Copilot works through the instructions, it accesses additional files in the skill directory, such as `test-template.js` or example scenarios, only when it references them.
+3. **Resource access**: As Copilot works through the instructions, it accesses additional files in the skill directory, such as `test-template.js` or example scenarios, only when it references them. If a file isn't referenced in the instructions, it won't be loaded.
 
 This three-level loading system means you can install many skills without consuming context. Copilot loads only what is relevant for each task.
 
