@@ -75,7 +75,7 @@ MEDIA_FOLDER="release-notes/images/1_${RELEASE_NUMBER}"
 # Calculate next version
 NEXT_RELEASE_NUMBER=$((RELEASE_NUMBER + 1))
 NEXT_VERSION="1.${NEXT_RELEASE_NUMBER}.0"
-NEXT_MILESTONE="v$NEXT_VERSION"
+NEXT_MILESTONE="$NEXT_VERSION"
 LAST_UPDATED=$(date +%Y-%m-%d)
 
 # Determine the script directory and project root
