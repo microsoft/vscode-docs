@@ -11,7 +11,7 @@ ProductEdition: Insiders
 ---
 # Visual Studio Code 1.<release number> <!-- %IF INSIDERS % (Insiders) %ENDIF % -->
 
-<!-- %IF IN_PRODUCT % | [View online](https://code.visualstudio.com/updates)&nbsp;|&nbsp;%ENDIF % --> Follow us on [LinkedIn](https://www.linkedin.com/showcase/vs-code), [X](https://go.microsoft.com/fwlink/?LinkID=533687), [Bluesky](https://bsky.app/profile/vscode.dev) | <!-- %IF INSIDERS % Follow Insiders Changelog on [X](https://x.com/VSCodeChangelog) or [Bluesky](https://bsky.app/profile/vscodechangelog.bsky.social) | %ENDIF % -->
+Follow us on [LinkedIn](https://www.linkedin.com/showcase/vs-code), [X](https://go.microsoft.com/fwlink/?LinkID=533687), [Bluesky](https://bsky.app/profile/vscode.dev) | <!-- %IF INSIDERS % Follow Insiders Changelog on [X](https://x.com/VSCodeChangelog) or [Bluesky](https://bsky.app/profile/vscodechangelog.bsky.social) | %ENDIF % --> <!-- %IF IN_PRODUCT % [View online](https://code.visualstudio.com/updates)&nbsp;|&nbsp;%ENDIF % -->
 
 ---
 
