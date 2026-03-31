@@ -1,6 +1,6 @@
 ---
 ContentId: baf4717c-ea52-486e-9ea3-7bf1c4134dad
-DateApproved: 3/25/2026
+DateApproved: 4/1/2026
 MetaDescription: Using Emmet abbreviations inside Visual Studio Code.
 ---
 # Emmet in Visual Studio Code

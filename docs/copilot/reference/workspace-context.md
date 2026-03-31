@@ -1,6 +1,6 @@
 ---
 ContentId: c77dcce9-4ba9-40ac-8ae5-2df855088090
-DateApproved: 3/25/2026
+DateApproved: 4/1/2026
 MetaDescription: Learn how GitHub Copilot automatically understands your codebase using workspace context for cross-file reasoning and accurate answers.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
