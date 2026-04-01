@@ -1,6 +1,6 @@
 ---
 ContentId: 276ecd8f-2a76-467e-bf82-846d49c13ab5
-DateApproved: 3/25/2026
+DateApproved: 4/1/2026
 MetaDescription: Learn how to create custom agents (formerly custom chat modes) to tailor AI chat behavior in VS Code for your specific workflows and development scenarios.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
