@@ -9,7 +9,7 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 <!-- TODO update with the actual video id once published on youtube -->
 <iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen title="Agent sessions and where agents run"></iframe>
 
-As you work with agents, you accumulate multiple sessions across different features, bug fixes, and explorations. You also want to run several agents simultaneously - one working interactively while another handles background tasks, for example. This guide covers how to navigate and manage agent sessions, and the difference between the three places an agent can run, locally in VS Code, in the background with Copilot CLI, and in the cloud on GitHub infrastructure.
+As you work with agents, you accumulate multiple sessions across different features, bug fixes, and explorations. You also want to run several agents simultaneously - one working interactively while another handles background tasks, for example. This guide covers how to navigate and manage agent sessions, and the difference between the three places an agent can run, locally in VS Code, in the background with Copilot CLI, and remotely in the cloud on GitHub infrastructure.
 
 ## The agent sessions sidebar
 
@@ -74,17 +74,17 @@ Copilot CLI will be covered in depth in a later section of this series.
 
 ## Cloud agents
 
-Cloud takes the agent off your machine entirely. It runs the agent on GitHub infrastructure, and will create a pull request, push commits as it works, and leave the result ready for review.
+Cloud agents run on GitHub infrastructure, off your machine entirely. A cloud agent will create a pull request, push commits as it works, and leave the result ready for review.
 
 This is the fully asynchronous option. You can close VS Code, come back later, and review the work in the pull request.
 
-Use Cloud for tasks that are:
+Use cloud agents for tasks that are:
 
 * Well-scoped with a clear done state.
 * Suitable to hand off completely.
-* Naturally suited to a pull request workflow.
+* Naturally suited to team collaboration via pull requests.
 
-### Starting a cloud session
+### Starting a cloud agent session
 
 In a fresh session, select **Cloud** in the agent type picker.
 
@@ -94,11 +94,11 @@ Here is an example prompt.
 Add a README documenting the base62 encoder, what it does, how to run it, and examples of encoding and decoding from the command line.
 ```
 
-The agent spins up on GitHub infrastructure, creates a draft pull request, clones the repository, reads the code, and starts pushing commits.
+The agent spins up on GitHub infrastructure for you, creates a draft pull request, clones the repository, reads the code, and starts pushing commits.
 
-### Viewing cloud sessions
+### Viewing cloud agent sessions
 
-If you have the GitHub Pull Requests extension installed, the pull request shows up inside VS Code.
+If you have the [GitHub Pull Requests extension](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) installed, the pull request shows up inside VS Code.
 
 On GitHub.com, your repository's Agents tab shows active sessions, their status, and the linked pull request. You can open a session there to inspect its step-by-step log and send follow-up guidance mid-run.
 
