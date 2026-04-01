@@ -26,7 +26,7 @@ Use the following checklist to set up a secure starting point for AI-assisted de
 
 1. **Open untrusted projects in restricted mode.** Until you've reviewed a project for malicious content, rely on the [Workspace Trust](#trust-boundaries) boundary. Restricted mode disables agents in that workspace.
 
-1. **Enable terminal sandboxing.** On macOS and Linux, enable `setting(chat.tools.terminal.sandbox.enabled)` to restrict file system and network access for agent-executed commands. Learn more about [terminal sandboxing](#terminal-sandboxing-experimental).
+1. **Enable agent sandboxing.** On macOS and Linux (WSL2 on Windows), enable `setting(chat.tools.terminal.sandbox.enabled)` to restrict file system and network access for agent-executed commands. Learn more about [agent sandboxing](#agent-sandboxing-preview).
 
 1. **Review all file edits before accepting.** Use the [diff editor](/docs/copilot/chat/review-code-edits.md) to inspect proposed changes. Keep or undo individual changes before they are applied.
 
@@ -89,14 +89,12 @@ VS Code uses a permission-based security model where you maintain control over p
 
 Learn more about [tool and command approval](/docs/copilot/agents/agent-tools.md#tool-approval).
 
-### Terminal sandboxing (Experimental)
+### Agent sandboxing (Preview)
 
-On macOS and Linux, you can enable [terminal sandboxing](/docs/copilot/agents/agent-tools.md#sandbox-terminal-commands-experimental) to restrict file system and network access for commands executed by the agent. When sandboxing is enabled, commands are auto-approved without a confirmation prompt because they run in a controlled environment.
-
-By default, sandboxed commands can only read and write files in the working directory, and all network access is blocked. You can configure allowed network domains through the sandbox settings, which can also inherit from the [Trusted Domains](/docs/editing/editingevolved.md#outgoing-link-protection) list.
+Agent sandboxing uses OS-level isolation to restrict what agent-executed processes can access on your machine. Rather than relying solely on approval prompts, sandboxing enforces strict file system and network boundaries at the kernel level, so commands cannot access resources outside the permitted scope, even if they are approved. For a deeper look at how sandboxing works and the OS-level enforcement details, see [Agent sandboxing](/docs/copilot/concepts/trust-and-safety.md#agent-sandboxing).
 
 > [!IMPORTANT]
-> Terminal sandboxing is the strongest protection against malicious terminal commands. If prompt injection is a concern, use terminal sandboxing or run VS Code in a [dev container](https://code.visualstudio.com/docs/devcontainers/containers) instead of relying on auto-approval rules alone. Auto-approval rules use best-effort command parsing and have known limitations with shell aliases, quote concatenation, and complex shell syntax.
+> Agent sandboxing is the strongest protection against malicious terminal commands. If prompt injection is a concern, use agent sandboxing or run VS Code in a [dev container](https://code.visualstudio.com/docs/devcontainers/containers) instead of relying on auto-approval rules alone. Auto-approval rules use best-effort command parsing and have known limitations with shell aliases, quote concatenation, and complex shell syntax.
 
 ### MCP server sandboxing
 
@@ -117,9 +115,11 @@ All development tasks operate with the same permissions as the user.
 
 * **Terminal command execution**: The agent can execute terminal commands and shell scripts with your user privileges, potentially running system commands, installing software, or making configuration changes that affect your entire system.
 
+* **Actions on external services**: Commands and tools run with your credentials. Even without malicious intent, the agent might provision cloud resources, modify infrastructure settings, push code to a remote repository, or call an API that triggers a deployment or a financial transaction. Use [agent sandboxing](#agent-sandboxing-preview) to restrict network access to only the domains the agent needs.
+
 * **Extensions and MCP servers**: Extensions and MCP servers can operate on the user's machine with broad access to the system. They can access all files on the local machine, execute arbitrary code, and interact with system resources and external services.
 
-VS Code addresses these risks through [workspace-limited file access](#scope-and-isolation), [terminal approval and sandboxing](#terminal-sandboxing-experimental), [MCP server sandboxing](#mcp-server-sandboxing), and [trust boundaries](#trust-boundaries) for extensions and MCP servers.
+VS Code addresses these risks through [workspace-limited file access](#scope-and-isolation), [agent sandboxing](#agent-sandboxing-preview), and [trust boundaries](#trust-boundaries) for extensions and MCP servers.
 
 </details>
 
@@ -153,7 +153,7 @@ Auto-approval features reduce friction but come with security tradeoffs.
 
 * **Third-party agent permissions**: Some third-party agents offer settings that bypass all permission checks (for example, `allowDangerouslySkipPermissions` in the [Claude agent](/docs/copilot/agents/third-party-agents.md)). Enabling these settings removes the safety net of approval prompts and is only recommended in sandboxed or containerized environments.
 
-VS Code addresses these risks through [configurable approval scopes](#approvals-and-review), [terminal sandboxing](#terminal-sandboxing-experimental), [enterprise policies](#enterprise-policies), and [warning banners](#approvals-and-review) for dangerous modes.
+VS Code addresses these risks through [configurable approval scopes](#approvals-and-review), [agent sandboxing](#agent-sandboxing-preview), [enterprise policies](#enterprise-policies), and [warning banners](#approvals-and-review) for dangerous modes.
 
 Learn more about [managing auto approvals](/docs/copilot/agents/agent-tools.md#tool-approval).
 
@@ -188,7 +188,7 @@ For example, an MCP tool or the fetch tool might unsuspectingly retrieve data fr
 * **Tool output chaining**: Output from one tool becomes input for another, creating opportunities for malicious content to propagate through the system and influence subsequent operations.
 * **External data processing**: When the AI processes untrusted content from files, web requests, or external tools, malicious instructions embedded in that content can be interpreted as legitimate commands.
 
-VS Code addresses these risks through [URL two-step approval](#approvals-and-review), [edit review flow](#approvals-and-review), [terminal sandboxing](#terminal-sandboxing-experimental), and [Workspace Trust](#trust-boundaries) (opening untrusted projects in restricted mode disables agents).
+VS Code addresses these risks through [URL two-step approval](#approvals-and-review), [edit review flow](#approvals-and-review), [agent sandboxing](#agent-sandboxing-preview), and [Workspace Trust](#trust-boundaries) (opening untrusted projects in restricted mode disables agents).
 
 </details>
 
