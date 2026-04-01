@@ -1,6 +1,6 @@
 ---
 ContentId: a7b8c9d0-1e2f-3a4b-5c6d-7e8f9a0b1c2d
-DateApproved: 3/25/2026
+DateApproved: 4/1/2026
 MetaDescription: Learn about AI safety controls in VS Code, including agent sandboxing, tool approval, and security considerations for AI-assisted development.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:

@@ -11,6 +11,10 @@ ProductEdition: Insiders
 ---
 # Visual Studio Code 1.<release number> <!-- %IF INSIDERS % (Insiders) %ENDIF % -->
 
+Follow us on [LinkedIn](https://www.linkedin.com/showcase/vs-code), [X](https://go.microsoft.com/fwlink/?LinkID=533687), [Bluesky](https://bsky.app/profile/vscode.dev) | <!-- %IF INSIDERS % Follow Insiders Changelog on [X](https://x.com/VSCodeChangelog) or [Bluesky](https://bsky.app/profile/vscodechangelog.bsky.social) | %ENDIF % --> <!-- %IF IN_PRODUCT % [View online](https://code.visualstudio.com/updates)&nbsp;|&nbsp;%ENDIF % -->
+
+---
+
 _Last updated: <Month day, year>_
 
 Welcome to the 1.<release number> <!-- %IF INSIDERS % Insiders %ENDIF % --> release of Visual Studio Code.
@@ -25,13 +29,11 @@ Happy Coding!
 
 ---
 
+<!-- %IF STABLE %
 To try new features as soon as possible, [**download the nightly Insiders build**](https://code.visualstudio.com/insiders), which includes the latest updates as soon as they are available.
 
-<!-- %IF IN_PRODUCT %
-You can view the release notes online at [code.visualstudio.com/updates](https://code.visualstudio.com/updates).
-%ENDIF % -->
-
 ---
+%ENDIF % -->
 
 <!-- TOC
 <div class="toc-nav-layout">
