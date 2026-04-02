@@ -43,7 +43,7 @@ Agents have access to the following built-in search tools. You can also explicit
 
 | Tool | Description |
 |------|-------------|
-| **Semantic search** (`#codebase`) | Finds code that matches the meaning of your question, not just exact keywords. Requires a [workspace index](#workspace-index). |
+| **Semantic search** (`#codebase`) | Finds code that matches the meaning of your question, not just exact keywords. Requires a [workspace index](#semantic-index-sources). |
 | **Text search** | Searches file content for text matches, such as specific keywords. |
 | **Grep** | Searches for exact text or regex patterns across files. Works without an index. |
 | **File search** | Finds files by name or glob pattern. |
@@ -57,7 +57,7 @@ These tools work for any workspace size. For small projects, the entire workspac
 
 Agents search through the same sources a developer would use when navigating a codebase:
 
-* All [indexable files](#what-content-is-included-in-the-workspace-index) in the workspace, except those ignored by a `.gitignore` file
+* All [indexable files](#what-content-is-included-in-the-semantic-index) in the workspace, except those ignored by a `.gitignore` file
 * Directory structure with nested folders and file names
 * Code symbols and definitions (classes, functions, variables)
 * Currently selected text or visible text in the active editor
