@@ -6,8 +6,7 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Debugging and what's happening behind the scenes
 
-<!-- TODO update with the actual video id once published on youtube -->
-<iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen title="Debugging and what's happening behind the scenes"></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/aW2jlbbUREc?si=EmrRxM6eNywWK7sK" title="Video for debugging and what's happening behind the scenes." frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 When the agent does something unexpected, calls the wrong tool, produces an odd response, or ignores a customization file, you want to understand why. VS Code and GitHub Copilot Chat are open source, and that transparency extends to what happens at runtime. This guide covers the Agent Debug Log panel, the Chat Debug view, and how to use both to diagnose agent behavior.
 
