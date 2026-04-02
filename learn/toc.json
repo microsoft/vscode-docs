@@ -1,0 +1,10 @@
+[
+  {
+    "name": "Agent Foundations",
+    "area": "foundations",
+    "description": "Learn the fundamentals of building with AI agents in VS Code, from setup to your first agent-powered workflow.",
+    "topics": [
+      ["Overview", "/learn/foundations/overview"]
+    ]
+  }
+]
