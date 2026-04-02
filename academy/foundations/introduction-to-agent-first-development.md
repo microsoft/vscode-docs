@@ -8,13 +8,13 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/uu4sf8z9n8c?si=LCd-U0f2diDZ4JUE" title="Video for introduction to agent-first development." frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Writing code is changing. You can still write every single line yourself, and that might be appropriate for specific use cases. But another pattern is emerging across the industry, using agents in programming, often called agentic programming or agent-first development.
+How you write code is changing. You can still write every single line yourself, and that might be appropriate for specific use cases. But another pattern is emerging across the industry, using agents in programming, often called agentic programming or agent-first development.
 
 Instead of writing each line, you direct an AI coding agent to read your codebase, make edits, run commands, fix its own mistakes, and accomplish work. These agents operate in a loop. You give direction, the agent acts, you course-correct, and repeat until you reach your goal.
 
-This guide covers everything needed to kick off a first agent session with VS Code Insiders and GitHub Copilot.
+This guide covers everything needed to kick off a first agent session with VS Code and GitHub Copilot.
 
-Before you start, install VS Code Insiders and set up the GitHub Copilot and GitHub Copilot Chat extensions.
+Before you start, install [VS Code](https://code.visualstudio.com/) and [set up GitHub Copilot](https://code.visualstudio.com/docs/copilot/setup).
 
 ## The five pillars of great agent results
 
@@ -141,7 +141,7 @@ In the [next guide](approvals-autonomy-and-context-budget.md), we'll cover the a
 
 ## Learn more
 
-* [VS Code Insiders](https://code.visualstudio.com/insiders/)
-* [GitHub Copilot Chat extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat)
+* [Download VS Code](https://code.visualstudio.com)
+* [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/setup)
 * [Copilot Chat panel docs](https://code.visualstudio.com/docs/copilot/chat/copilot-chat)
 * [Choosing an AI model for Copilot Chat](https://docs.github.com/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat)
