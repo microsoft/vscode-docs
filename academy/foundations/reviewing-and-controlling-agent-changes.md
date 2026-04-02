@@ -6,8 +6,7 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Reviewing and controlling agent changes
 
-<!-- TODO update with the actual video id once published on youtube -->
-<iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen title="Reviewing and controlling agent changes"></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/oFSJs6RnFt4?si=jCPXRc6GxzgYG1y9" title="Video for reviewing and controlling agent changes." frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 When an agent finishes a round of work, it leaves behind proposed changes, edits to files, new files, and deleted files. Nothing is permanent until you say so. This guide covers how to review what the agent did, accept or undo changes at any granularity, and use the tools available to steer the agent, correct mistakes, and explore multiple directions without losing work.
 

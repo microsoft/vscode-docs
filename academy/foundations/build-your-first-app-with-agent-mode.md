@@ -6,8 +6,7 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Build your first app with agent mode
 
-<!-- TODO update with the actual video id once published on youtube -->
-<iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen title="Build your first app with agent mode"></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/hmfldW7dmgw?si=v9OJQDJZPMkGf-jt" title="Video for building your first app with agent mode." frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 This guide is a capstone walkthrough that ties together everything covered in the series. You will build a URL shortener from scratch using agent-first development, FastAPI for the API, Python `sqlite3` for the database, a simple HTML frontend, and the base62 encoder from earlier in the series.
 

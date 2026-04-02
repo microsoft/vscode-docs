@@ -6,8 +6,7 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Approvals, autonomy, and context budget
 
-<!-- TODO update with the actual video id once published on youtube -->
-<iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen title="Approvals, autonomy, and context budget"></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/WcN74XvZGes?si=OCbyVFSsIskUnHga" title="Video for approvals, autonomy, and context budget." frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Every action an agent takes on your machine, running a command, writing a file, or launching a server, happens through its tools. By default, terminal commands require explicit approval before they run. This guide covers how approvals work, how to set the right autonomy level for a session, and how to monitor context budget as work builds up.
 
