@@ -2,7 +2,7 @@
 ContentId: 9a8f0a40-f4f9-4d2b-b7b2-c1d54ef4c006
 DateApproved: 03/30/2026
 MetaDescription: Build a URL shortener with agent mode in VS Code using FastAPI, sqlite3, planning, autopilot, review tools, and forking.
-MetaSocialImage: ../images/shared/github-copilot-social.png
+MetaSocialImage: ../images/shared/agent-first-development-social.png
 ---
 # Build your first app with agent mode
 

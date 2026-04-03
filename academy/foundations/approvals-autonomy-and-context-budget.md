@@ -2,7 +2,7 @@
 ContentId: 9a8f0a40-f4f9-4d2b-b7b2-c1d54ef4c002
 DateApproved: 03/30/2026
 MetaDescription: Manage approvals, autonomy, and context budget for coding agents in VS Code, including scoped approvals and compaction.
-MetaSocialImage: ../images/shared/github-copilot-social.png
+MetaSocialImage: ../images/shared/agent-first-development-social.png
 ---
 # Approvals, autonomy, and context budget
 
@@ -32,7 +32,7 @@ Scope - how long the approval lasts:
 
 For example, if Python `uv` commands are trusted in a project, use an approval that covers `uv` in the workspace. If tighter control is needed, allow only the exact command in the current session.
 
-![Expanded approvals menu showing approval specificity and scope options in VS Code chat.](images/expanded-approvals.png)
+![Expanded approvals menu showing approval specificity and scope options in VS Code chat.](../images/expanded-approvals.png)
 
 You can also manage these rules in VS Code settings through **Configure Auto Approve**.
 
@@ -57,7 +57,7 @@ Autopilot goes further than Bypass. It auto-approves tool calls, auto-retries on
 > [!NOTE]
 > The first time you enable Bypass approvals or Autopilot, VS Code shows a warning. Both modes skip manual confirmations for actions that can modify files and run commands.
 
-![Screenshot showing the approval picker in VS Code chat with Default approvals, Bypass approvals, and Autopilot options.](images/approval-picker.png)
+![Screenshot showing the approval picker in VS Code chat with Default approvals, Bypass approvals, and Autopilot options.](../images/approval-picker.png)
 
 ## Tool calls
 
@@ -77,7 +77,7 @@ The model can only hold so much information in memory at one time. This limit is
 
 Select the token usage indicator in the chat panel to see a live breakdown of how the budget is being used.
 
-![Screenshot showing the context window indicator in VS Code chat with token usage and context breakdown details.](images/context-window.png)
+![Screenshot showing the context window indicator in VS Code chat with token usage and context breakdown details.](../images/context-window.png)
 
 ### What's in your context budget
 
