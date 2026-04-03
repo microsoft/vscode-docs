@@ -50,7 +50,7 @@ The harness also controls how autonomous the agent gets through three modes.
 | Plan | Outlines what it would do, but waits for approval before acting. |
 | Agent | Full autonomy. It plans, executes, and iterates until the task is done. |
 
-![Agent mode picker in VS Code chat showing the Ask, Plan, and Agent options.](../images/agent-picker.png)
+![Agent mode picker in VS Code chat showing the Ask, Plan, and Agent options.](../images/foundations/agent-picker.png)
 
 If you are getting started, Ask or Plan is a good entry point. Once you are ready to implement, switch to Agent mode.
 
@@ -66,7 +66,7 @@ You can control how deeply the model thinks through thinking effort levels.
 
 There's also **Auto**, which selects the best available model based on capacity and performance - reducing rate limiting, latency, and errors.
 
-![Model picker in VS Code chat showing available AI models and thinking effort options.](../images/model-picker.png)
+![Model picker in VS Code chat showing available AI models and thinking effort options.](../images/foundations/model-picker.png)
 
 Match thinking effort to the task. Simple work? Low. Standard coding? Medium. Hard problem? High.
 
@@ -82,7 +82,7 @@ Here is a basic prompt to get started.
 Using Python 3.13 and uv, implement a base62 encoder/decoder.
 ```
 
-![Prompt example in VS Code chat showing a request to implement a base62 encoder/decoder with Python 3.13 and uv.](../images/prompt.png)
+![Prompt example in VS Code chat showing a request to implement a base62 encoder/decoder with Python 3.13 and uv.](../images/foundations/prompt.png)
 
 This gets the agent started, but the more specific you are, the better the results. Reference existing files, specify the pattern to follow, and define the scope clearly. We'll cover prompt strategies in depth in later guides.
 
@@ -101,7 +101,7 @@ Context is a balancing act. Too much information confuses the agent. Too little 
 
 Tools are the actions an agent can execute. Every action you see the agent take, reading a file, writing code, or running a command, is a tool call. You can view all available tools by selecting the tools icon in the Chat input.
 
-![Screenshot showing Configure Tools option in the Chat input.](../images/tools.png)
+![Screenshot showing Configure Tools option in the Chat input.](../images/foundations/tools.png)
 
 The built-in tools include:
 
@@ -117,7 +117,7 @@ The built-in tools include:
 | vscode | Use VS Code features and commands. |
 | todo | Manage and track todo items for task planning. |
 
-![Tools picker in VS Code chat showing available agent tools that can be enabled for a session.](../images/tool-picker.png)
+![Tools picker in VS Code chat showing available agent tools that can be enabled for a session.](../images/foundations/tool-picker.png)
 
 Each tool has a checkbox, so you can enable or disable it per session. More tools mean more capability, but too many tools can confuse the agent about which ones to use. Keep the tool set selective for the task at hand.
 
@@ -127,7 +127,7 @@ You can extend this set by adding tools through MCP servers and VS Code extensio
 
 When the agent wants to run a terminal command for the first time, it pauses and asks for permission. The agent does not run commands on your machine without asking first.
 
-![Approval prompt in VS Code chat asking permission before running a terminal command.](../images/approvals.png)
+![Approval prompt in VS Code chat asking permission before running a terminal command.](../images/foundations/approvals.png)
 
 Review the command and select **Allow** if it looks right. If something looks off, select **Skip** and correct the direction.
 
