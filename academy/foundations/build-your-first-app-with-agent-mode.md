@@ -144,7 +144,7 @@ You built a working URL shortener through agent-first development.
 
 ## Your challenge
 
-Clone the repository for this project, open it in VS Code with GitHub Copilot, and extend the URL shortener.
+Create the URL shortener we built in this series, leverage the prompts we've used (or come up with your own!) and then extend it.
 
 Ideas:
 

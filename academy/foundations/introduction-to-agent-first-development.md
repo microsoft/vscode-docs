@@ -76,7 +76,7 @@ The prompt is the message you send to the agent, your instructions, goals, and r
 
 Here is a basic prompt to get started.
 
-**Before continuing**, make sure you have Python 3.13 or later and `uv` installed. The agent uses both to set up and run the project.
+**Before continuing**, make sure you have [Python 3.13 or later](https://www.python.org/downloads/) and [`uv`](https://docs.astral.sh/uv/guides/install-python/) installed. The agent uses both to set up and run the project.
 
 ```prompt
 Using Python 3.13 and uv, implement a base62 encoder/decoder.
