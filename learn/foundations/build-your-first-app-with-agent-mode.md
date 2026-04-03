@@ -10,7 +10,7 @@ MetaSocialImage: ../images/shared/agent-first-development-social.png
 
 This guide is a capstone walkthrough that ties together everything covered in the series. You will build a URL shortener from scratch using agent-first development, FastAPI for the API, Python `sqlite3` for the database, a simple HTML frontend, and the base62 encoder from earlier in the series.
 
-You will see the model picker, Plan mode, Autopilot, the files changed view, session forking, and the Agent Debug Logs all in action together.
+You will see the model picker, the plan agent, Autopilot, the files changed view, session forking, and the Agent Debug Logs all in action together.
 
 ## Choosing the right model
 
@@ -18,7 +18,7 @@ For a project spanning multiple files - database schema, API routing, frontend, 
 
 Open a fresh chat session, click the model picker, and set thinking effort to High.
 
-## Planning with Plan mode
+## Planning with the Plan agent
 
 For a project with several moving parts, use the Plan agent to start. It forces the agent to produce a structured outline and surface design questions before code is written.
 
@@ -28,7 +28,7 @@ Switch to the Plan agent, and use a detailed prompt such as the following:
 Build a URL shortener with FastAPI, Python's built-in sqlite3, and a simple HTML frontend served by FastAPI StaticFiles. Use uv for project management with Python 3.13. Use the existing base62 encoder in main.py to generate short codes from the database row ID. The API needs two endpoints. POST /shorten accepts a JSON body with a url field and returns the short code. GET /{code} redirects to the original URL. The frontend is a single index.html with a form to submit URLs and a section that displays the shortened link. Keep it minimal.
 ```
 
-This prompt names the framework, the database approach, the exact endpoints, the project management tool, and references existing code. Specific prompts give Plan mode clear boundaries.
+This prompt names the framework, the database approach, the exact endpoints, the project management tool, and references existing code. Specific prompts give the plan agent clear boundaries.
 
 ### Reviewing the plan
 
@@ -134,7 +134,7 @@ You can also attach a debug snapshot and ask a direct question such as `#debugEv
 You built a working URL shortener through agent-first development.
 
 * Model picker with high thinking effort for a multi-file project.
-* Plan mode to outline architecture before coding.
+* Plan agent to outline architecture before coding.
 * Autopilot to build the application without interruptions.
 * Agent Debug Logs to inspect what happened.
 * Context window indicator to monitor budget.
@@ -152,7 +152,7 @@ Ideas:
 * Expiration dates that disable old links automatically.
 * An analytics page that shows the top URLs by click count.
 
-Use Plan mode to scope the work, Agent mode to build it, and check your Agent Debug Logs to understand what the agent did.
+Use the plan agent to scope the work, Agent mode to build it, and check your Agent Debug Logs to understand what the agent did.
 
 When you finish, open the context window indicator and review the session stats so you can see how the work affected your context budget.
 
@@ -163,7 +163,7 @@ Watch for future sections covering MCP, custom instructions and skills, and more
 ## Learn more
 
 * [Agents tutorial in VS Code](https://code.visualstudio.com/docs/copilot/agents/agents-tutorial)
-* [Plan mode](https://docs.github.com/copilot/how-tos/chat-with-copilot/chat-in-ide#plan-mode)
+* [Planning with agents in VS Code](https://code.visualstudio.com/docs/copilot/agents/planning)
 * [Reviewing AI-generated code edits in VS Code](https://code.visualstudio.com/docs/copilot/chat/review-code-edits)
 * [Checkpoints and editing requests in VS Code](https://code.visualstudio.com/docs/copilot/chat/chat-checkpoints)
 * [Agent Logs and Chat Debug view](https://code.visualstudio.com/docs/copilot/chat/chat-debug-view)
