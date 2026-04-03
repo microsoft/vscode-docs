@@ -2,7 +2,7 @@
 ContentId: 9a8f0a40-f4f9-4d2b-b7b2-c1d54ef4c005
 DateApproved: 03/30/2026
 MetaDescription: Diagnose agent behavior in VS Code with Agent Debug Logs, Chat Debug view, debug event snapshots, and troubleshooting.
-MetaSocialImage: ../images/shared/github-copilot-social.png
+MetaSocialImage: ../images/shared/agent-first-development-social.png
 ---
 # Debugging and what's happening behind the scenes
 

@@ -2,7 +2,7 @@
 ContentId: 9a8f0a40-f4f9-4d2b-b7b2-c1d54ef4c004
 DateApproved: 03/30/2026
 MetaDescription: Manage agent sessions in VS Code across local, background, and cloud execution modes, and choose the right agent type.
-MetaSocialImage: ../images/shared/github-copilot-social.png
+MetaSocialImage: ../images/shared/agent-first-development-social.png
 ---
 # Agent sessions and where agents run
 
@@ -14,7 +14,7 @@ As you work with agents, you accumulate multiple sessions across different featu
 
 The Agent Sessions sidebar is your control center for everything happening across your agents. Open it from the VS Code activity bar, or select **Show Agent Sessions Sidebar** at the top of the Chat view.
 
-![Screenshot of the Agent Sessions sidebar in VS Code, showing agent sessions with their names, timestamps, and pending file changes.](images/agent-sessions-sidebar.png)
+![Screenshot of the Agent Sessions sidebar in VS Code, showing agent sessions with their names, timestamps, and pending file changes.](../images/agent-sessions-sidebar.png)
 
 The sidebar lists every session you have worked in. Each entry shows:
 
@@ -22,7 +22,7 @@ The sidebar lists every session you have worked in. Each entry shows:
 * A timestamp for when it was last active.
 * A file change count if the agent made changes you have not reviewed yet. This clears once you accept or undo them.
 
-![Screenshot of the Agent Sessions view in VS Code, showing agent sessions with their names.](images/sessions-view.png)
+![Screenshot of the Agent Sessions view in VS Code, showing agent sessions with their names.](../images/sessions-view.png)
 
 Select any session to open it in the Chat view. The full conversation history is there, exactly where you left it. Every session is independent, with its own context window, conversation history, and tool results. What you do in one doesn't affect any other.
 
@@ -51,7 +51,7 @@ At the bottom of the chat input is the agent type picker. It shows the current a
 
 In a fresh session, it shows the available agent types. In an active session, it shows options to start a new session or hand off the current one to a different agent type.
 
-![Screenshot of the agent type picker in VS Code, showing options for choosing where the agent runs and handing off between agent types.](images/agent-type.png)
+![Screenshot of the agent type picker in VS Code, showing options for choosing where the agent runs and handing off between agent types.](../images/agent-type.png)
 
 ## Local agents
 
