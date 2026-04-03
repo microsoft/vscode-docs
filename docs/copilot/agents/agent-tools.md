@@ -1,6 +1,6 @@
 ---
 ContentId: 8f2c4a1d-9e3b-4c5f-a7d8-6b9c2e4f1a3d
-DateApproved: 3/25/2026
+DateApproved: 4/1/2026
 MetaDescription: Learn how to use built-in tools, MCP tools, and extension tools to extend chat in VS Code with specialized functionality.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 keywords:
@@ -245,30 +245,38 @@ Related settings:
 > * Detection of file writes is currently minimal, so it might be possible to write to files with the terminal that would not be possible by using the file editing agent tools.
 > * Subverting auto approval is possible through various techniques such as quote concatenation. For example `find -exec` is normally blocked, but `find -e"x"ec` is not, despite doing the same thing.
 >
-> If prompt injection is a possibility or you're in a high-risk environment, consider [enabling terminal sandboxing](#sandbox-terminal-commands) or running VS Code within a container.
+> If prompt injection is a possibility or you're in a high-risk environment, consider [enabling agent sandboxing](#sandbox-agent-commands) or running VS Code within a container.
 
-### Sandbox terminal commands
+### Sandbox agent commands
 
 > [!NOTE]
-> Terminal sandboxing is currently in preview and is only supported on macOS and Linux. On Windows, the sandbox settings have no effect.
+> Agent sandboxing is currently in preview and might further evolve.
 
-Terminal sandboxing restricts file system and network access for commands executed by the agent. When sandboxing is enabled, terminal commands are auto-approved without requiring user confirmation, because they run in a controlled environment.
+For an overview of how sandboxing works, what it protects against, and OS-level implementation details, see [Agent sandboxing](/docs/copilot/concepts/trust-and-safety.md#agent-sandboxing).
 
-To enable terminal sandboxing, set the `setting(chat.tools.terminal.sandbox.enabled)` setting to `true`.
+Agent sandboxing restricts file system and network access for commands executed by the agent. When sandboxing is enabled, terminal commands are auto-approved without requiring user confirmation, because they run in a controlled environment.
+
+To enable agent sandboxing, set the `setting(chat.agent.sandbox)` setting to `true`.
 
 When sandboxing is enabled:
 
-* Commands have read and write access to the current working directory by default
-* Network access is blocked for all domains by default
-* Commands run without the standard confirmation dialog
+* Commands have read access to the entire file system
+* Commands have write access only to the current working directory and its subdirectories
+* Network access is blocked for all domains
+* Commands run without the user confirmation prompt
+
+> [!IMPORTANT]
+> If the required OS dependencies for sandboxing are not installed, VS Code offers to install the necessary components. If you choose not to install them, sandboxing is not enabled.
 
 #### Configure file system access
 
-Use the `setting(chat.tools.terminal.sandbox.linuxFileSystem)` or `setting(chat.tools.terminal.sandbox.macFileSystem)` setting to control file system access:
+Use the `setting(chat.agent.sandboxFileSystem.linux)` or `setting(chat.agent.sandboxFileSystem.mac)` setting to control file system access.
+
+You can specify allow rules for write access and deny rules for both read and write access. These rules don't support glob patterns. The `denyWrite` and `denyRead` rules take precedence over `allowWrite` rules.
 
 ```jsonc
 {
-  "chat.tools.terminal.sandbox.macFileSystem": {
+  "chat.agent.sandboxFileSystem.mac": {
     // Allow writes to the working directory
     "allowWrite": ["."],
     // Block writes to specific subdirectories
@@ -279,26 +287,20 @@ Use the `setting(chat.tools.terminal.sandbox.linuxFileSystem)` or `setting(chat.
 }
 ```
 
-The `denyWrite` and `denyRead` rules take precedence over `allowWrite` rules.
-
 #### Configure network access
 
-Use the `setting(chat.tools.terminal.sandbox.network)` setting to allow specific domains:
+By default, network access is blocked for all domains when sandboxing is enabled. Use the `setting(chat.agent.sandboxNetwork.allowedDomains)` and `setting(chat.agent.sandboxNetwork.deniedDomains)` setting to allow specific domains:
 
 ```jsonc
 {
-  "chat.tools.terminal.sandbox.network": {
-    // Allow network access to specific domains
-    "allowedDomains": ["api.github.com", "*.npmjs.org"],
-    // Include domains from the Trusted Domains list
-    "allowTrustedDomains": true
-  }
+    "chat.agent.sandboxNetwork.allowedDomains": [
+        "api.github.com"
+    ],
+    "chat.agent.sandboxNetwork.deniedDomains": [
+        "example.com"
+    ]
 }
 ```
-
-By default, network access is blocked for all domains when sandboxing is enabled.
-
-When `allowTrustedDomains` is set to `true`, the domains from your [Trusted Domains](/docs/editing/editingevolved.md#outgoing-link-protection) list are automatically included in the allowed domains for network access. The sandbox configuration updates automatically when the Trusted Domains list changes.
 
 ## Group tools with tool sets
 
@@ -360,17 +362,15 @@ A chat request can have a maximum of 128 tools enabled at a time. If you see an 
 
 * Alternatively, enable virtual tools with the `setting(github.copilot.chat.virtualTools.threshold)` setting to automatically manage large tool sets.
 
-### Why isn't the agent using Command Prompt as the terminal shell?
+### Why isn't the agent using my configured terminal shell?
 
-The agent uses the shell you have configured as the default for the terminal, except when it's cmd. This is because [shell integration](https://code.visualstudio.com/docs/terminal/shell-integration) is not supported with Command Prompt, which means the agent has very limited visibility into what's going on inside the terminal. Instead of getting direct signals for when commands are being run or have finished running, the agent needs to rely on timeouts and watching for the terminal to idle to continue. This leads to a slow and flaky experience.
+The agent uses the shell you have configured as the default for the terminal, except for `cmd` (Command Prompt) on Windows and `sh` on macOS/Linux. This is because [shell integration](/docs/terminal/shell-integration.md) is not supported with these shells, which means the agent has very limited visibility into what's going on inside the terminal. Instead of getting direct signals for when commands are being run or have finished running, the agent needs to rely on timeouts and watching for the terminal to idle to continue. This leads to a slow and flaky experience.
 
-You can still configure the agent to use Command Prompt with the `setting(chat.tools.terminal.terminalProfile.windows)` setting, however this will result in an inferior experience compared to using PowerShell.
+You can still configure the agent to use these shells with the terminal profile settings, however this will result in an inferior experience compared to using PowerShell on Windows or `bash`/`zsh` on macOS/Linux.
 
-```json
-"chat.tools.terminal.terminalProfile.windows": {
-  "path": "C:\\WINDOWS\\System32\\cmd.exe"
-}
-```
+* `setting(chat.tools.terminal.terminalProfile.windows)` - Override the shell on Windows
+* `setting(chat.tools.terminal.terminalProfile.osx)` - Override the shell on macOS
+* `setting(chat.tools.terminal.terminalProfile.linux)` - Override the shell on Linux
 
 ### Can I automatically approve all tools and terminal commands?
 
