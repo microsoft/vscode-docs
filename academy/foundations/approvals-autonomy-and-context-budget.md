@@ -30,7 +30,7 @@ Scope - how long the approval lasts:
 * This workspace - persists for the project.
 * Always - applies across future sessions.
 
-For example, if `uv` commands are trusted in a project, use an approval that covers `uv` in the workspace. If tighter control is needed, allow only the exact command in the current session.
+For example, if Python `uv` commands are trusted in a project, use an approval that covers `uv` in the workspace. If tighter control is needed, allow only the exact command in the current session.
 
 ![Expanded approvals menu showing approval specificity and scope options in VS Code chat.](images/expanded-approvals.png)
 

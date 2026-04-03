@@ -69,13 +69,7 @@ A typical build sequence looks like this.
 1. Start the server in the background.
 1. Run a verification script that tests the endpoints end to end.
 
-Autopilot shines during multi-step setup because the agent can install dependencies, create files, start services, and verify results without pausing for each approval.
-
-That verification step is important. A strong agent run does not stop at writing files. It verifies the app end to end before marking the task complete.
-
-### Why Autopilot shines here
-
-Autopilot is especially useful during multi-step setup because dependency installs, file creation, server startup, and verification can all happen without repeated approval dialogs. For a well-scoped plan you already reviewed, this is usually the right mode.
+Autopilot shines during multi-step setup because the agent can install dependencies, create files, start services, and verify results without pausing for each approval. That verification step is important. A strong agent run does not stop at writing files. It verifies the app end to end before marking the task complete.
 
 ## Checking the context window
 
