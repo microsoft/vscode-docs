@@ -137,7 +137,7 @@ The [next guide](approvals-autonomy-and-context-budget.md) covers permission lev
 
 You now have the mental model for what drives great agent results, harness, model, context, tools, and prompt. The agent is already capable of building real things - now it's about learning how to direct it well.
 
-In the [next guide](approvals-autonomy-and-context-budget.md), we'll cover the approval system in depth, look at how to control agent autonomy, and understand how to monitor your context budget as sessions run.
+In the [next guide](approvals-autonomy-and-context-budget.md), we'll cover the approval system in depth, look at how to control agent autonomy, and understand how to monitor your context budget as a session runs.
 
 ## Learn more
 

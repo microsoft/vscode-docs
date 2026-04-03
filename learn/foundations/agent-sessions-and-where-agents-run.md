@@ -40,7 +40,7 @@ If you want to watch more than one session at once, move a session into an edito
 
 ### Managing sessions
 
-Right-select any session for management options.
+Right-click any session for management options.
 
 * Archive hides the session from the active list but keeps it intact so you can search for it and reopen it later. Use this to declutter without losing history.
 * Delete removes the session permanently. Use this only when you're certain you don't need it.
