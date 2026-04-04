@@ -1,6 +1,6 @@
 ---
 ContentId: ff7a9f28-26b2-4ac6-8c16-1a16182bb6ca
-DateApproved: 4/1/2026
+DateApproved: 4/8/2026
 MetaDescription: Learn about TypeScript refactorings supported by Visual Studio Code.
 ---
 # Refactoring TypeScript
