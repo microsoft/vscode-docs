@@ -54,7 +54,7 @@ Start a natural language chat conversation to get help with coding tasks. For ex
 | Context window control | Visual indicator in the chat input box showing [context window usage](/docs/copilot/chat/copilot-chat-context.md#monitor-context-window-usage). Hover for total token count and a breakdown by category. |
 | `Add Context...` | Attach different types of [context to your chat prompt](/docs/copilot/chat/copilot-chat-context.md). |
 | `/`-command | Use [slash commands](#slash-commands) for common tasks or invoke a [reusable chat prompt](/docs/copilot/customization/overview.md). |
-| `#`-mention | Reference common tools or chat variables to [provide context](/docs/copilot/chat/copilot-chat-context.md) within in your prompt. |
+| `#`-mention | Reference common tools or chat variables to [provide context](/docs/copilot/chat/copilot-chat-context.md) within your prompt. |
 | `@`-mention | Reference [chat participants](#chat-participants) to handle domain-specific requests. |
 | Edit (<i class="codicon codicon-pencil"></i>) | [Edit a previous chat prompt](/docs/copilot/chat/chat-checkpoints.md#edit-a-previous-chat-request) and revert changes. |
 | History (<i class="codicon codicon-history"></i>) | Access your history of chat sessions. |
