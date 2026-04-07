@@ -1,9 +1,9 @@
 {
   "featured": {
-    "title": "A more streamlined chat experience",
-    "description": "Make your chat experience smoother and more efficient. Preview media outputs, easily share chat responses, and diagnose chat customization issues with less friction.",
-    "link": "/updates/v1_114",
-    "image": "/assets/updates/1_114/release-highlights.webp"
+    "title": "Introducing VS Code Agents companion app",
+    "description": "A new companion app optimized for agent-native development, running alongside VS Code Insiders. Run multiple agents simultaneously, across multiple repos. No extra installation needed.",
+    "link": "/updates/v1_115",
+    "image": "/assets/updates/1_115/release-highlights.webp"
   },
   "highlights": [
     {
