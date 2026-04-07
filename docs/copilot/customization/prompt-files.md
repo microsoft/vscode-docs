@@ -1,6 +1,6 @@
 ---
 ContentId: 5c8e7d42-9b1a-4f85-a3e2-6d5b8a9c1e43
-DateApproved: 3/25/2026
+DateApproved: 4/1/2026
 MetaDescription: Learn how to create reusable prompt files for GitHub Copilot Chat in VS Code to standardize common development tasks and improve your coding workflow efficiency.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -30,17 +30,17 @@ Use prompt files to:
 
 ## Prompt file locations
 
-You can define prompt files for a specific workspace or at the user level, where they are available across all your workspaces.
-
-> [!TIP]
-> In a monorepo, enable `setting(chat.useCustomizationsInParentRepositories)` to discover prompt files from the parent repository root. Learn more about [parent repository discovery](/docs/copilot/customization/overview.md#parent-repository-discovery).
+You can define prompt files for a specific workspace or at the user level, where they are available across all your workspaces. The following table lists the default file locations for prompt files based on their scope. You can configure additional file locations for workspace prompt files with the `setting(chat.promptFilesLocations)` setting.
 
 | Scope | Default file location |
 |-------|-----------------------|
 | Workspace | `.github/prompts` folder |
-| User profile | `prompts` folder of the current [VS Code profile](/docs/configure/profiles.md) |
+| User profile | Your user data (specific to your VS Code profile) |
 
-You can configure additional file locations for workspace prompt files with the `setting(chat.promptFilesLocations)` setting.
+To create a prompt file in user data, use the Chat Customizations editor or use the **Chat: New Prompt File** command.
+
+> [!TIP]
+> In a monorepo, enable `setting(chat.useCustomizationsInParentRepositories)` to discover prompt files from the parent repository root. Learn more about [parent repository discovery](/docs/copilot/customization/overview.md#parent-repository-discovery).
 
 ## Prompt file format
 

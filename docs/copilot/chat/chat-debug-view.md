@@ -1,6 +1,6 @@
 ---
 ContentId: 2f4a8e9d-3c5b-4f6e-a7d8-1c2b3e4f5a6b
-DateApproved: 3/25/2026
+DateApproved: 4/1/2026
 MetaDescription: Use Agent Logs and the Chat Debug view to inspect AI requests, tool invocations, and agent interactions in Visual Studio Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -88,7 +88,7 @@ To attach debug events to chat:
 
 1. Select the sparkle icon in the top right of the Agent Debug panel. This opens the Chat view with the debug events snapshot attached as context.
 
-Alternatively, you can use the `/troubleshoot` slash command to ask questions about the current chat session directly, without opening the Agent Debug panel first. For example, type `/troubleshoot list all paths you tried to load customizations` or `/troubleshoot how many tokens did you use`.
+Alternatively, you can use the `/troubleshoot` slash command to ask questions about a chat session directly, without opening the Agent Debug panel first. For example, type `/troubleshoot list all paths you tried to load customizations` or `/troubleshoot how many tokens did you use in #session`.
 
 > [!NOTE]
 > The `/troubleshoot` command requires the `setting(github.copilot.chat.agentDebugLog.enabled)` setting to be enabled.
@@ -177,7 +177,7 @@ If a custom instruction or prompt file doesn't seem to take effect:
 
 1. Open Agent Logs and check the **Discovery** events to see if the file was loaded, skipped, or failed validation.
 1. Verify the file location and `applyTo` pattern match the current context.
-1. Check the [chat customization diagnostics](/docs/copilot/troubleshooting.md#chat-customization-diagnostics) for error details.
+1. Check the [chat customization diagnostics](/docs/copilot/troubleshooting.md#debug-chat-interactions) for error details.
 
 ## Related resources
 

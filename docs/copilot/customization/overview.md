@@ -1,6 +1,6 @@
 ---
 ContentId: 16c73175-a606-4aab-8ae5-a5071d3b9e24
-DateApproved: 3/25/2026
+DateApproved: 4/1/2026
 MetaDescription: Get started customizing AI in VS Code with custom instructions, prompt files, custom agents, MCP servers, and more to align AI responses with your coding practices.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:

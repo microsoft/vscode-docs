@@ -1,6 +1,6 @@
 ---
 ContentId: F5EA1A52-1EF2-4127-ABA6-6CEF5447C608
-DateApproved: 3/25/2026
+DateApproved: 4/1/2026
 MetaDescription: Expand your development workflow with task integration in Visual Studio Code.
 ---
 # Integrate with External Tools via Tasks
@@ -727,6 +727,7 @@ test.js
 Our problem matcher is line-based so we need to capture the file name (test.js) with a different regular expression than the actual problem location and message (1:0   error  Missing "use strict" statement).
 
 To do this, use an array of problem patterns for the `pattern` property. This way you define a pattern per each line you want to match.
+> **Note:** In a multi-line problem matcher, each line in the output must be matched sequentially by the pattern array. Intermediate lines cannot be skipped, even if they are not needed for capturing values.
 
 The following problem pattern matches the output from ESLint in stylish mode - but still has one small issue that we need to resolve next. The code below has a first regular expression to capture the file name and the second to capture the line, column, severity, message, and error code:
 
