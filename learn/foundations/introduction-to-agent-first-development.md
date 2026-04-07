@@ -95,7 +95,7 @@ The agent can gather context automatically by searching your workspace and readi
 * Select the `+` icon in the chat input to attach specific files or folders.
 * Type `#` to reference specific context sources such as `#codebase`, `#file`, or `#fetch`.
 
-Context is a balancing act. Too much information confuses the agent. Too little leaves out the specifics it needs. A dedicated guide covers [context strategies](reviewing-and-controlling-agent-changes.md) in more depth.
+Context is a balancing act. Too much information confuses the agent. Too little leaves out the specifics it needs. A dedicated guide covers [context strategies](/learn/foundations/reviewing-and-controlling-agent-changes.md) in more depth.
 
 ## Tools
 
