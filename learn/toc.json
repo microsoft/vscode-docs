@@ -1,0 +1,15 @@
+[
+  {
+    "name": "Agent Foundations",
+    "area": "foundations",
+    "description": "Learn the fundamentals of building with AI agents in VS Code, from introducing agent-first development concepts to creating your first application using agent mode.",
+    "topics": [
+      ["Introduction to agent-first development", "/learn/foundations/introduction-to-agent-first-development"],
+      ["Your first agent session", "/learn/foundations/approvals-autonomy-and-context-budget"],
+      ["Reviewing and controlling agent changes", "/learn/foundations/reviewing-and-controlling-agent-changes"],
+      ["Agent sessions and where agents run", "/learn/foundations/agent-sessions-and-where-agents-run"],
+      ["Debugging agent work", "/learn/foundations/debugging-and-whats-happening-behind-the-scenes"],
+      ["Build your first app with agent mode", "/learn/foundations/build-your-first-app-with-agent-mode"]
+    ]
+  }
+]

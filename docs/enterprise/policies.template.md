@@ -1,10 +1,10 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 200bf922-3684-45ee-a8dd-43191d6b3f8b
-DateApproved: 3/25/2026
+DateApproved: 4/1/2026
 
-VSCodeCommitHash: 2b44ec5c3fcd5788a7fb6abaa231c6659018babc
-VSCodeVersion: 1.113.0
+VSCodeCommitHash: d63819fd8f5b898dc977c32f119dd3b6c5013768
+VSCodeVersion: 1.114.0
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Enterprise policies in Visual Studio Code enable organizations to centrally manage settings for their development teams. This reference details the available policies and how to implement them.
