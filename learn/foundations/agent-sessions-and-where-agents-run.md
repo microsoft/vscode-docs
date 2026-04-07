@@ -124,7 +124,7 @@ Use Continue In when you want to start locally, then hand the work off to a back
 
 The Agent Sessions sidebar gives a complete view of work happening across agent types. Local for interactive work. CLI for parallel background tasks. Cloud for fully async work that produces a pull request.
 
-In the [next guide](debugging-and-whats-happening-behind-the-scenes.md), you will go behind the scenes and inspect prompts, tool calls, and responses to understand what the agent is doing.
+In the [next guide](debugging-and-whats-happening-behind-the-scenes), you will go behind the scenes and inspect prompts, tool calls, and responses to understand what the agent is doing.
 
 ## Learn more
 

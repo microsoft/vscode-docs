@@ -131,7 +131,7 @@ When the agent wants to run a terminal command for the first time, it pauses and
 
 Review the command and select **Allow** if it looks right. If something looks off, select **Skip** and correct the direction.
 
-The [next guide](approvals-autonomy-and-context-budget.md) covers permission levels, scoped approvals, and how to control agent autonomy across a session.
+The [next guide](approvals-autonomy-and-context-budget) covers permission levels, scoped approvals, and how to control agent autonomy across a session.
 
 ## What's next
 
