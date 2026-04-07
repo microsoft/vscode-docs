@@ -4,7 +4,7 @@ DateApproved: 03/30/2026
 MetaDescription: Diagnose agent behavior in VS Code with Agent Debug Logs, Chat Debug view, debug event snapshots, and troubleshooting.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 ---
-# Debugging and what's happening behind the scenes
+# Debugging agent work
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/aW2jlbbUREc?si=EmrRxM6eNywWK7sK" title="Video for debugging and what's happening behind the scenes." frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
