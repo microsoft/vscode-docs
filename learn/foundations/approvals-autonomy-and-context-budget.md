@@ -4,7 +4,7 @@ DateApproved: 03/30/2026
 MetaDescription: Manage approvals, autonomy, and context budget for coding agents in VS Code, including scoped approvals and compaction.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 ---
-# Approvals, autonomy, and context budget
+# Your first agent session
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/WcN74XvZGes?si=OCbyVFSsIskUnHga" title="Video for approvals, autonomy, and context budget." frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
