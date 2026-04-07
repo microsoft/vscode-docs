@@ -46,10 +46,10 @@
   "latest": [
     {
       "type": "release",
-      "title": "VS Code 1.113 release",
-      "description": "Manage all chat customizations from a unified editor, control model reasoning effort, and use MCP servers across all agent types.",
-      "link": "/updates/v1_113",
-      "image": "/assets/updates/1_113/release-highlights.webp"
+      "title": "VS Code 1.114 release",
+      "description": "Make your chat experience smoother and more efficient. Preview media outputs, easily share chat responses, and diagnose chat customization issues with less friction.",
+      "link": "/updates/v1_114",
+      "image": "/assets/updates/1_114/release-highlights.webp"
     },
     {
       "type": "documentation",

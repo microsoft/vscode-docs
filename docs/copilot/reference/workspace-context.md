@@ -1,7 +1,7 @@
 ---
 ContentId: c77dcce9-4ba9-40ac-8ae5-2df855088090
-DateApproved: 3/25/2026
-MetaDescription: Learn how GitHub Copilot automatically understands your codebase using workspace context for cross-file reasoning and accurate answers.
+DateApproved: 4/1/2026
+MetaDescription: Learn how Copilot agents understand your codebase with semantic search, text search, grep, and other tools to gather context for accurate answers.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - workspace context
@@ -14,135 +14,98 @@ Keywords:
 - language intelligence
 - LSP
 - GitHub code search
+- grep
+- text search
+- agentic search
 ---
+
 # How Copilot understands your workspace
 
-Copilot works best when it understands your entire codebase, not just individual files. Workspace context is the underlying mechanism that enables agents and chat to reason across files, understand how components connect, and provide answers grounded in your actual code. You can ask broad questions like "where is authentication handled?" or "how do I add a new API endpoint?" and get accurate answers based on your specific codebase.
+Copilot agents search your entire codebase to understand how components connect and provide answers grounded in your actual code. You can ask broad questions like "where is authentication handled?" or "add tests for the list endpoint?" and get accurate answers and edits based on your codebase.
 
-This article explains how workspace context works, how the workspace index is built, and how context is gathered across different modes.
+This article explains how Copilot understands your codebase, including the different tools it uses for searching through your code and the indexes it creates to enable quick searches. These same general approaches are used on all codebases, from those with five files to those with 500,000 files.
 
-Workspace context automatically adjusts based on your project's size and setup. You get accurate results whether you're working on a small personal project or a large enterprise codebase with multiple repositories. During agent sessions, the agent autonomously searches your codebase, often performing multiple rounds of targeted searches to gather the context it needs for coordinated changes across files.
+## Search and read tools
 
-## How workspace context works
+When you send a prompt, Copilot analyzes what information it needs and automatically selects the right combination of search tools to either answer your question or start generating code edits. Copilot runs multiple tools for this, reviews the results, and automatically performs follow-up searches until it has a good understanding of the problem.
 
-VS Code uses intelligent search strategies to find the most relevant code for your prompts. Rather than relying on a single approach, it automatically selects the best method based on your project size and available resources. VS Code runs multiple strategies in parallel and uses whichever produces the best results the fastest.
+For example, when asked to "add error handling to the payment service", the agent might:
 
-### What sources are used for context?
+1. Use **semantic search** to find payment-related code across the project.
+1. Use **grep** to find existing error handling patterns in the codebase.
+1. Use **usages** to trace how the payment functions are called.
+1. Use **file search** to locate related configuration and test files.
+1. Read the relevant files and make coordinated changes.
 
-Workspace context searches through the same sources a developer would use when navigating a codebase in VS Code:
+This iterative approach means the agent gathers context the same way a developer would: by exploring the codebase from multiple angles until it has a complete picture.
 
-* All [indexable files](#what-content-is-included-in-the-workspace-index) in the workspace (workspace index), except those ignored by a `.gitignore` file
+Agents have access to the following built-in search tools. You can also explicitly reference these tools in your prompts by typing `#` followed by the tool name.
+
+| Tool | Description |
+|------|-------------|
+| **Semantic search** (`#codebase`) | Finds code that matches the meaning of your question, not just exact keywords. Requires a [workspace index](#semantic-index-sources). |
+| **Text search** | Searches file content for text matches, such as specific keywords. |
+| **Grep** | Searches for exact text or regex patterns across files. Works without an index. |
+| **File search** | Finds files by name or glob pattern. |
+| **Usages** | Combines Find All References, Find Implementation, and Go to Definition to trace how symbols are used across files. |
+| **List directory** | Lists the contents of a directory to explore the project structure. |
+| **Read file** | Reads the content of a specific file to examine its code in detail. |
+
+These tools work for any workspace size. For small projects, the entire workspace can be read directly into the agent's context. For larger projects, the agent selects the most efficient search strategy based on your project size and available resources.
+
+### What the agent has access to
+
+Agents search through the same sources a developer would use when navigating a codebase:
+
+* All [indexable files](#what-content-is-included-in-the-semantic-index) in the workspace, except those ignored by a `.gitignore` file
 * Directory structure with nested folders and file names
 * Code symbols and definitions (classes, functions, variables)
 * Currently selected text or visible text in the active editor
-
-The workspace index can be maintained remotely by GitHub or stored locally on your machine. See the [workspace index](#workspace-index) section for more details.
+* Conversation history and previous tool results
 
 > [!IMPORTANT]
 > `.gitignore` is bypassed if you have a file open or have text selected within an ignored file.
 
-### Search strategy
 
-For small projects, the entire workspace can be included directly in the context. For larger projects, VS Code uses different strategies to find the most relevant information for your prompt.
+## Semantic search
 
-The following steps outline how VS Code constructs the workspace context:
+The semantic search tool (`#codebase`) finds code by meaning rather than exact keywords.
 
-1. Determine which information from the workspace is needed to answer your question, also including the conversation history, workspace structure, and current editor selection.
+Semantic search requires building and maintaining an index so that it can run quickly, even on very large codebases. Copilot maintains this index for you automatically. Behind the scenes, parts of the index might be stored on your machine and parts might come from remote sources, but you don't need to manage this distinction.
 
-1. Collect relevant code snippets from the [workspace index](#workspace-index) by using various approaches:
-
-    * [GitHub's code search](https://github.blog/2023-02-06-the-technology-behind-githubs-new-code-search) for fast, comprehensive search across your repository and related repositories on GitHub
-    * Local semantic search to find code that matches the meaning of your question, not just exact keywords
-    * Text-based file-name and content search
-    * VS Code's language intelligence (IntelliSense, LSP) to resolve symbols, function signatures, type hierarchies, and cross-file references.
-
-1. If the resulting context is too large to fit in the _context window_, only the most relevant parts are kept.
-
-## Workspace index
-
-Copilot uses an index to quickly and accurately search your codebase for relevant code snippets. GitHub automatically indexes every workspace you open, regardless of hosting provider. The index can also be stored locally on your machine for repositories that are not backed by GitHub or Azure DevOps.
-
-The remote index is built from the committed state of your repository. Any uncommitted changes in your local workspace are not included in the remote index.
-
-When you have local uncommitted changes, VS Code uses a hybrid approach combining the remote index with local file tracking. VS Code detects which files have been modified since the indexed commit and also reads the current file content from the editor for real-time context.
-
-You can view the type of index that is being used and its indexing status in the Copilot status dashboard in the VS Code Status Bar.
+You can view the indexing status in the Copilot status dashboard in the VS Code Status Bar.
 
 ![Screenshot showing the workspace index status in the Copilot status menu.](../images/workspace-context/workspace-index-status.png)
 
-### Remote index
+### Semantic index sources
 
-GitHub automatically builds and maintains a remote code search index for your workspace. This enables fast, comprehensive search results even for large codebases.
+* **GitHub repositories**: GitHub automatically indexes the GitHub repositories in your workspace. Sign in with your GitHub account to use them. This index only needs to be built once per repository, which means it is often instantly available. GitHub builds and updates this index when needed. This is fast for small and medium sized projects, but might take some time if your repository contains hundreds of thousands of files. Remote indexing works for repositories hosted on GitHub.com or GitHub Enterprise Cloud. It is not supported for GitHub Enterprise Server.
 
-#### GitHub remote indexing
+* **Azure DevOps repositories**: Indexes are automatically built and maintained. Sign in with your Microsoft account in VS Code for Copilot to start using the index. Check the Copilot Status Bar item for the current index status.
 
-When you open a workspace in VS Code, GitHub automatically indexes the repository. Sign in with your GitHub account and Copilot starts using the remote index right away. You can also trigger indexing manually by running the **Build Remote Workspace Index** command in the Command Palette (`kb(workbench.action.showCommands)`).
+* **Other code**: Copilot can also build up a semantic index for code that is not in a GitHub or Azure DevOps repo through a feature called "External Ingest". This requires a paid Copilot subscription. Support for External Ingest is gradually rolling out to all users.
 
-The index only needs to be built once per repository. After that, it is automatically kept up to date. Building the index is fast for small and medium sized projects, but might take some time if your repository contains hundreds of thousands of files. The remote index works best if GitHub has a relatively up-to-date version of your code, so push your code to GitHub regularly.
+### What content is included in the semantic index
 
-Remote indexing works for GitHub repositories hosted on GitHub.com or on GitHub Enterprise Cloud. It is not supported for repositories that use GitHub Enterprise Server.
+VS Code indexes relevant text files that are part of your current project. This is not limited to specific file types or programming languages. VS Code automatically skips some common file types that are typically not relevant, such as `.tmp` or `.out` files.
 
-#### Azure DevOps remote indexing
+The workspace index also excludes files that are excluded from VS Code by the `setting(files.exclude)` setting or by a `.gitignore` file.
 
-VS Code can also use remote indexes for Azure DevOps repositories. These indexes are automatically built and maintained. Sign in with your Microsoft account in VS Code for Copilot to start using the remote indexes. Check the Copilot Status Bar item for the current index status and to get a sign-in link if your account doesn't have the right permissions to access the Azure DevOps repository.
+Binary files, such as images or PDFs, are not indexed.
 
-### Local index
+## Tips for better results
 
-If you can't use a [remote index](#remote-index), for example because you're not using a GitHub or Azure DevOps repository, VS Code can use an advanced semantic index that is stored on your local machine to provide fast, high quality search results. Currently, local indexes are limited to 2500 indexable files.
+The way you phrase your prompt influences which tools the agent uses and the quality of the results.
 
-To build a local index:
-
-* The project has less than 750 indexable files: VS Code automatically builds an advanced local index.
-
-* The project has between 750 and 2500 indexable files: run the **Build local workspace index** command in the Command Palette (`kb(workbench.action.showCommands)`) - this should only be run once.
-
-* The project has more than 2500 indexable files: use a [basic index](#basic-index).
-
-It might take some time to build the initial local index or update the index if many files have changed, for example when switching git branches. You can monitor the current local index status in the Copilot status dashboard in the Status Bar.
-
-### Basic index
-
-If your project does not have a [remote index](#remote-index) and has more than 2500 [indexable files](#what-content-is-included-in-the-workspace-index), VS Code falls back to using a basic index to search your codebase. This index uses simpler algorithms to search your codebase and is optimized to work locally for larger codebases.
-
-The basic index should work just fine for many types of chat prompts. However, if you find that chat is struggling to provide relevant answers to questions about your codebase, consider upgrading to a [remote index](#remote-index).
-
-### What content is included in the workspace index
-
-VS Code indexes relevant text files that are part of your current project. This is not limited to specific file types or programming languages, however VS Code automatically skips over some common file types that are typically not relevant to workspace questions, such as `.tmp` or `.out` files.
-
-The workspace index also excludes any files that are excluded from VS Code using the `setting(files.exclude)` setting or that are part of the `.gitignore` file.
-
-VS Code also currently does not index binary files, such as images or PDFs.
-
-## How workspace context is used
-
-How workspace context is gathered depends on which mode you're using in chat:
-
-* **Agent and Plan**
-
-    Agents automatically perform agentic codebase searches based on your prompt. After an initial search, the agent might perform additional targeted searches to gather more context, depending on the results. Agents use tools like `codebase`, `grep`, `file`, and language intelligence to build a complete picture of the relevant code before making changes.
-
-* **Ask**
-
-    Ask mode uses the same agentic tool-based approach as agents. Copilot automatically searches your codebase with the tools available to it and gathers relevant code snippets. You can also explicitly reference files, symbols, or other [context items](/docs/copilot/chat/copilot-chat-context.md) in your prompt.
-
-* **Edit** _(deprecated)_
-
-    Edit mode is deprecated. Use agents or ask mode instead. Edit mode searches the workspace for relevant context but does not perform follow-up searches.
-
-## Tips for better workspace context
-
-The way you phrase your prompt influences the quality of the context and the accuracy of the response.
-
-* Be specific and detailed, avoiding vague terms like "what does this do", where "this" could be interpreted as the last answer, current file, or whole project.
-* Use terms and concepts that are likely to appear in your code or its documentation.
-* Explicitly include relevant context by selecting code, referencing files, or [#-mentioning context items](/docs/copilot/chat/copilot-chat-context.md) such as debug context, terminal output, and more.
-* Responses can draw from multiple references, such as "find exceptions without a catch block" or "provide examples of how handleError is called". However, don't expect a comprehensive code analysis across the entire codebase, such as "how many times is this function invoked?" or "fix all bugs in this project".
-* For information beyond the code, such as "who contributed to this file?", configure the relevant [tools or MCP servers](/docs/copilot/agents/agent-tools.md).
+* **Be specific**: avoid vague terms like "what does this do", where "this" could mean the last answer, current file, or whole project.
+* **Use code terms**: use function names, class names, and concepts that appear in your code so the agent can find exact matches.
+* **Add context manually**: select code, reference files, or [#-mention context items](/docs/copilot/chat/copilot-chat-context.md) such as debug context, terminal output, and more.
+* **Scope your request**: responses can draw from multiple references, such as "find exceptions without a catch block". But don't expect a full codebase analysis, such as "how many times is this function invoked?".
+* **Use external tools for non-code questions**: for information like "who contributed to this file?", configure the relevant [tools or MCP servers](/docs/copilot/agents/agent-tools.md).
 
 ## Private repositories
 
-To enable more workspace search features for private repositories, we require additional permissions. If we detect that we don't have these permissions already, we will ask for them at startup. Once granted, we'll securely store the session for the future.
+To use semantic search for private repositories, Copilot may need additional permission. If these permissions are not already granted, VS Code asks for them at startup. Once granted, the session is securely stored for the future.
 
 ![Modal window asking for additional authentication for a private repository.](../images/workspace-context/authentication.png)
 
@@ -152,6 +115,10 @@ Learn more about security, privacy, and transparency in the [GitHub Copilot Trus
 
 ### Do I need to use `#codebase` in my prompts?
 
-In most cases, no. Agents and ask mode automatically search your workspace for relevant context. You don't need to explicitly reference workspace context in your prompt.
+No. Agents automatically use semantic search when it makes sense. You don't need to add `#codebase` to your prompt.
 
-If you want to ensure that a specific prompt triggers a workspace search, you can still add `#codebase` as a [context item](/docs/copilot/chat/copilot-chat-context.md) in your prompt.
+The `#codebase` tool is always semantic and provides consistent results. If you want to force a semantic search for a specific prompt, you can still add `#codebase` as a [context item](/docs/copilot/chat/copilot-chat-context.md).
+
+### What happens if my workspace is not semantically indexed?
+
+Agents still search your code effectively by using text search, grep, file search, and language intelligence. The workspace index enables semantic search, which finds code by meaning rather than keywords. Without it, agents rely on the other search tools and can still provide accurate results for most prompts. We've found that these other tools still provide great results.

@@ -1,6 +1,6 @@
 ---
 ContentId: 84F36EDE-4D66-4A2E-B4D1-F020C73EB2AD
-DateApproved: 3/25/2026
+DateApproved: 4/1/2026
 MetaDescription: Setup VS Code's Network Connection.
 ---
 # Network Connections in Visual Studio Code

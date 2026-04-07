@@ -1,6 +1,6 @@
 ---
 ContentId: 557a7e74-f77e-488d-90ea-fd2cfecfffda
-DateApproved: 3/25/2026
+DateApproved: 4/1/2026
 MetaDescription: Overview of chat in VS Code. Learn how to access different chat surfaces, add context, choose a language model, write effective prompts, and review AI-generated changes.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -82,7 +82,7 @@ Learn more about [managing context for AI](/docs/copilot/chat/copilot-chat-conte
 
 ## Image carousel (Experimental)
 
-When `setting(imageCarousel.chat.enabled)` is enabled, you can select image pills in chat responses to open a dedicated carousel view. Images from tool results (such as the integrated browser, Playwright, or other MCP servers) and images inlined in assistant messages are all accessible from the carousel.
+When `setting(imageCarousel.chat.enabled)` is enabled, you can select images or videos in chat responses to open a dedicated carousel view. Media files from tool results (such as the integrated browser, Playwright, or other MCP servers) and inlined in assistant messages are all accessible from the carousel.
 
 ![Screenshot showing the image carousel view with multiple images.](../images/chat-sessions/image-carousel.png)
 
