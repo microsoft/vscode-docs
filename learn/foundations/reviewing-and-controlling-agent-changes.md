@@ -141,7 +141,7 @@ Use **Fork** to create a second branch and try the alternative. Both sessions ru
 
 With the files changed view, per-change controls, message editing, steering, and checkpoints, you have complete control over what the agent produces and where the session goes.
 
-In the [next guide](agent-sessions-and-where-agents-run), you will manage multiple agents at the same time and compare local, background, and cloud execution.
+In the [next guide](/learn/foundations/agent-sessions-and-where-agents-run.md), you will manage multiple agents at the same time and compare local, background, and cloud execution.
 
 ## Learn more
 
