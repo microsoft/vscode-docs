@@ -131,13 +131,11 @@ When the agent wants to run a terminal command for the first time, it pauses and
 
 Review the command and select **Allow** if it looks right. If something looks off, select **Skip** and correct the direction.
 
-The [next guide](/learn/foundations/approvals-autonomy-and-context-budget.md) covers permission levels, scoped approvals, and how to control agent autonomy across a session.
-
 ## What's next
 
 You now have the mental model for what drives great agent results, harness, model, context, tools, and prompt. The agent is already capable of building real things - now it's about learning how to direct it well.
 
-In the [next guide](approvals-autonomy-and-context-budget.md), we'll cover the approval system in depth, look at how to control agent autonomy, and understand how to monitor your context budget as a session runs.
+In the [next guide](/learn/foundations/approvals-autonomy-and-context-budget.md), we'll cover the approval system in depth, look at how to control agent autonomy, and understand how to monitor your context budget as a session runs.
 
 ## Learn more
 
