@@ -1,6 +1,6 @@
 ---
 ContentId: 9f84b21e-5b76-4c3a-a5dd-2021ab343f1f
-DateApproved: 4/1/2026
+DateApproved: 4/8/2026
 MetaDescription: Learn how to use GitHub Copilot in Visual Studio Code to write, debug, and fix tests.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---

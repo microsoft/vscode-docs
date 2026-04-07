@@ -1,6 +1,6 @@
 ---
 ContentId: a4e7b2c1-3d5f-4a8e-b9c6-1e2d3f4a5b6c
-DateApproved: 4/1/2026
+DateApproved: 4/8/2026
 MetaDescription: Learn how to use the artifacts panel in Visual Studio Code to view important resources surfaced by the AI during a chat session.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
