@@ -8,7 +8,7 @@
       ["Your first agent session", "/learn/foundations/approvals-autonomy-and-context-budget"],
       ["Reviewing and controlling agent changes", "/learn/foundations/reviewing-and-controlling-agent-changes"],
       ["Agent sessions and where agents run", "/learn/foundations/agent-sessions-and-where-agents-run"],
-      ["Review agent work", "/learn/foundations/debugging-and-whats-happening-behind-the-scenes"],
+      ["Debugging agent work", "/learn/foundations/debugging-and-whats-happening-behind-the-scenes"],
       ["Build your first app with agent mode", "/learn/foundations/build-your-first-app-with-agent-mode"]
     ]
   }
