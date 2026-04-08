@@ -25,7 +25,7 @@ To successfully complete this tutorial, you must do the following:
 
 1. Install the Microsoft Visual C++ (MSVC) compiler toolset.
 
-   If you have a recent version of Visual Studio, open the Visual Studio Installer from the Windows Start menu and verify that the C++ workload is checked. If it's not installed, then check the box and select the **Modify** button in the installer.
+   If you have a recent version of Visual Studio, open the Visual Studio Installer from the Windows Start menu and verify that the C++ workload is checked. Verify also that the MSVC build tools and a Windows SDK are selected in the "Optional" section. If any of those components are not installed, check the appropriate boxes and select the **Modify** button in the installer.
 
    You can also install the **Desktop development with C++** workload without a full Visual Studio IDE installation. From the Visual Studio [Downloads](https://visualstudio.microsoft.com/downloads/#remote-tools-for-visual-studio-2022) page, scroll down until you see **Tools for Visual Studio** under the **All Downloads** section and select the download for **Build Tools for Visual Studio 2022**.
 
