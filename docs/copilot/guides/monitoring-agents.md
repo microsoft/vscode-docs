@@ -141,7 +141,7 @@ The [Aspire Dashboard](https://aspire.dev/dashboard/standalone/) is the simplest
 ```bash
 docker run --rm -d \
   -p 18888:18888 \
-  -p 4317:18889 \
+  -p 4318:18890 \
   --name aspire-dashboard \
   mcr.microsoft.com/dotnet/aspire-dashboard:latest
 ```
@@ -149,8 +149,7 @@ docker run --rm -d \
 ```json
 {
   "github.copilot.chat.otel.enabled": true,
-  "github.copilot.chat.otel.exporterType": "otlp-grpc",
-  "github.copilot.chat.otel.otlpEndpoint": "http://localhost:4317"
+  "github.copilot.chat.otel.captureContent": true
 }
 ```
 
