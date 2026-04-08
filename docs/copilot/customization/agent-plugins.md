@@ -56,6 +56,21 @@ Once installed, plugin-provided customizations appear alongside your locally def
 > [!CAUTION]
 > Plugins can include hooks and MCP servers that run code on your machine. Review the plugin contents and publisher before installing, especially for plugins from community marketplaces.
 
+## Plugin Formats
+The plugin format is auto-selected based on the plugin file path (relative to the plugin root).
+| Plugin format | Plugin file path(s) |
+|---------------|------------------|
+| Claude | `.claude-plugin/plugin.json` |
+| Copilot | `plugin.json`, `.github/plugin/plugin.json` |
+| OpenPlugin | `.plugin/plugin.json` |
+
+### Plugin Environment Variables
+| Plugin format | Plugin root |
+|---------------|------------------|
+| Claude | `${CLAUDE_PLUGIN_ROOT}` |
+| Copilot | (Not Defined) |
+| OpenPlugin | `${PLUGIN_ROOT}` |
+
 ## Hooks in plugins
 
 Plugins can include [hooks](/docs/copilot/customization/hooks.md) that run shell commands at agent lifecycle points. Plugin hooks work alongside your workspace and user-level hooks. When a plugin is enabled, its hooks fire in addition to any other hooks configured for the same event.
