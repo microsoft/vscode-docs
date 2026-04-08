@@ -155,6 +155,8 @@ docker run --rm -d \
 
 Open `http://localhost:18888` and go to **Traces** to view your agent interaction spans.
 
+![Screenshot showing agent interaction traces in the Aspire Dashboard with spans for invoke_agent, chat, and execute_tool.](../images/monitoring-agents/trace-aspire-dashboard.png)
+
 ### Jaeger
 
 [Jaeger](https://www.jaegertracing.io/) is an open-source distributed tracing platform that accepts OTLP directly.
