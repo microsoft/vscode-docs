@@ -1,6 +1,6 @@
 ---
 ContentId: 59543856-da91-4a0d-9a98-9d5f2bf70c71
-DateApproved: 4/1/2026
+DateApproved: 4/8/2026
 MetaDescription: Learn about TypeScript transpiling with Visual Studio Code.
 ---
 # Transpiling TypeScript

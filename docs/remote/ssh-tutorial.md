@@ -1,7 +1,7 @@
 ---
 ContentId: beb86509-a36f-4e3b-a32e-b3d8c3966dd7
 MetaDescription: Connect over SSH with Visual Studio Code
-DateApproved: 4/1/2026
+DateApproved: 4/8/2026
 ---
 # Remote development over SSH
 
