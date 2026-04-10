@@ -1,7 +1,7 @@
 ---
 ContentId: 8d5c9f2a-1e4b-7c9f-3a8e-2b7d4f1c6e0a
 DateApproved: 4/8/2026
-MetaDescription: Use cloud agents and GitHub Copilot coding agent in VS Code to autonomously handle coding tasks with automatic pull request generation and team collaboration workflows.
+MetaDescription: Use cloud agents like GitHub Copilot cloud agent in VS Code to autonomously handle coding tasks with automatic pull request generation and team collaboration workflows.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - ai
@@ -12,7 +12,7 @@ Keywords:
 
 # Cloud agents in Visual Studio Code
 
-Cloud agents run on remote infrastructure and integrate with GitHub repositories for team collaboration through pull requests. For example, the GitHub Copilot coding agent runs on GitHub's infrastructure and can implement features, address code review feedback, and open pull requests autonomously.
+Cloud agents run on remote infrastructure and integrate with GitHub repositories for team collaboration through pull requests. For example, the GitHub Copilot cloud agent runs on GitHub's infrastructure and can implement features, address code review feedback, and open pull requests autonomously.
 
 This article covers the key features of cloud agents, and how to start and manage cloud agent sessions for coding tasks that can range anywhere from simple to complex.
 
@@ -27,9 +27,9 @@ Follow a hands-on tutorial to experience local, background, and cloud agents in 
 
 ## What are cloud agents?
 
-Unlike local and background agents that run on your local machine, cloud agents like Copilot coding agent run on remote infrastructure. You can view and manage all your cloud agent sessions from the unified Chat view in VS Code. This view also lets you create new cloud agent sessions directly from VS Code or hand off local or background agent conversations to cloud agents.
+Unlike local and background agents that run on your local machine, cloud agents like Copilot cloud agent run on remote infrastructure. You can view and manage all your cloud agent sessions from the unified Chat view in VS Code. This view also lets you create new cloud agent sessions directly from VS Code or hand off local or background agent conversations to cloud agents.
 
-VS Code supports different cloud agents, such as Copilot coding agent and [third-party agents](/docs/copilot/agents/third-party-agents.md) like Claude and Codex.
+VS Code supports different cloud agents, such as Copilot cloud agent and [third-party agents](/docs/copilot/agents/third-party-agents.md) like Claude and Codex.
 
 Because cloud agents run remotely without user interaction, they are well-suited for tasks that have a well-defined scope and all necessary context. Their integration with pull requests makes them very effective for team collaboration.
 
@@ -37,9 +37,9 @@ Due to their remote execution environment, cloud agents can't directly access VS
 
 To assign a task to a cloud agent, you can either create a new cloud session directly from the Chat view or hand off a local or background agent conversation from VS Code to a cloud agent.
 
-### GitHub Copilot coding agent
+### GitHub Copilot cloud agent
 
-The **GitHub Copilot coding agent** is the primary cloud agent available in VS Code with your Copilot subscription.
+The **GitHub Copilot cloud agent** is the primary cloud agent available in VS Code with your Copilot subscription.
 
 Key capabilities include:
 
@@ -60,7 +60,7 @@ Learn more about [third-party agents in VS Code](/docs/copilot/agents/third-part
 
 You can start a cloud agent session either directly by sending a chat prompt to a cloud agent or by handing off an ongoing local or background conversation to a cloud agent. Handing off an ongoing conversation is especially useful for complex tasks that require initial clarification or planning before autonomous execution.
 
-If you prefer to work in the browser, you can also start cloud agent sessions directly from GitHub.com using the [GitHub Copilot coding agent](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/manage-agents).
+If you prefer to work in the browser, you can also start cloud agent sessions directly from GitHub.com using the [GitHub Copilot cloud agent](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/manage-agents).
 
 ### Create a new cloud agent session
 
@@ -83,7 +83,7 @@ To create a new cloud agent session:
 1. The cloud agent starts working on the task remotely. You can monitor the progress of the session in the Chat view and continue to interact with it.
 
 > [!NOTE]
-> If you have assigned an issue or pull request to the Copilot coding agent on GitHub.com, the session automatically appears in the session list in VS Code.
+> If you have assigned an issue or pull request to the Copilot cloud agent on GitHub.com, the session automatically appears in the session list in VS Code.
 
 ### Hand off an agent session to a cloud agent
 
@@ -114,4 +114,4 @@ Select a cloud agent session from the list to open the session details in the Ch
 * [Agents overview](/docs/copilot/agents/overview.md): Understand different agent types and delegation
 * [Background agents](/docs/copilot/agents/copilot-cli.md): Learn about CLI-based autonomous agents for isolated development
 * [Custom agents](/docs/copilot/customization/custom-agents.md): Create custom agent roles and personas
-* [GitHub Copilot coding agent](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/manage-agents): Managing agents on GitHub.com
+* [GitHub Copilot cloud agent](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/manage-agents): Managing agents on GitHub.com
