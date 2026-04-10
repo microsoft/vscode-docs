@@ -38,7 +38,7 @@ In this mode, the profiling tool starts profiling an already running app. You ca
 
 This option is ideal for profiling an app that is already running and you're unable to restart it for profiling purposes.
 
-![Screenshot that shows how to start by process id or name](./images/profiling/by-process-id-or-name.png)
+![Screenshot that shows how to start by process id or name](./images/profiling/by-process-id-or-name-2.png)
 
 ## Profile an ONNX model
 
@@ -65,6 +65,10 @@ If OP Profiling is enabled, op level data will be generated to allow you to insp
 The report contains detailed latencies for each op.
 
 ![Screenshot that shows the report data for each OP](./images/profiling/by-model-file-op-result.png)
+
+## Profile an ONNX GenAI Model
+
+In this mode, the profiling tool starts profiling an ONNX model file on a target execution provider (EP) for a given duration. You can see the resource usage while it's running.
 
 ## Resource Usages view
 
