@@ -19,7 +19,7 @@ In this article, you could learn how to start profiling and how to inspect the r
 In this mode, the profiling tool profiles the next app that is started and that is sending out Windows ML events.
 This option is ideal for testing a run-once app. In this case, you start profiling, then run the app, and the resource usages will begin showing up.
 
-![Screenshot that shows how to start by the next session](./images/profiling/the-next-session-guide.png)
+![Screenshot that shows how to start by the next session](./images/profiling/the-next-session-guide-2.png)
 
 The tool starts profiling a newly started app. This means that for profiling a Python notebook, if the kernel is already running, you need to restart the kernel to begin profiling for it. Just starting a new notebook does not automatically start profiling.
 
@@ -42,11 +42,11 @@ This option is ideal for profiling an app that is already running and you're una
 
 ## Profile an ONNX model
 
-In this mode, the profiling tool starts profiling an ONNX model file on a target execution provider (EP) or device policy for a given duration. You can see the resource usage while it's running.
+In this mode, the profiling tool starts profiling an ONNX model file on a target execution provider (EP) for a given duration. You can see the resource usage while it's running.
 
-This option is ideal for profiling an ONNX model on different EPs or device policies.
+This option is ideal for profiling an ONNX model on different EPs.
 
-![Screenshot that shows how to start by model file](./images/profiling/by-model-file-config.png)
+![Screenshot that shows how to start by model file](./images/profiling/by-model-file-config-2.png)
 
 After profiling, a notification shows up to guide you to open or save the report.
 
@@ -55,6 +55,16 @@ After profiling, a notification shows up to guide you to open or save the report
 The report contains detailed profiling statistics and results for the ONNX model.
 
 ![Screenshot that shows the report data](./images/profiling/by-model-file-result.png)
+
+### Benchmark time for each operation
+
+If OP Profiling is enabled, op level data will be generated to allow you to inspect the model in more details.
+
+![Screenshot that shows the succeeded notification with OP profiling enabled](./images/profiling/by-model-file-op-succeeded.png)
+
+The report contains detailed latencies for each op.
+
+![Screenshot that shows the report data for each OP](./images/profiling/by-model-file-op-result.png)
 
 ## Resource Usages view
 
