@@ -56,7 +56,7 @@ Once installed, plugin-provided customizations appear alongside your locally def
 > [!CAUTION]
 > Plugins can include hooks and MCP servers that run code on your machine. Review the plugin contents and publisher before installing, especially for plugins from community marketplaces.
 
-## Plugin Formats
+## Plugin formats
 The plugin format is auto-selected based on the plugin file path (relative to the plugin root).
 | Plugin format | Plugin file path(s) |
 |---------------|------------------|
