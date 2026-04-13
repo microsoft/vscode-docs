@@ -99,6 +99,24 @@ Consolidate findings into a single review summary.
 
 </details>
 
+<details>
+<summary>Multi-model consensus</summary>
+
+Use subagents with different models to get diverse perspectives on the same problem:
+
+```prompt
+I need to evaluate the error handling in our payment service.
+Run two subagents in parallel, each with a different model:
+1. Use GPT-4o to review the code for error handling gaps
+2. Use Claude Sonnet 4.6 to review the code for error handling gaps
+
+Compare their findings and highlight where they agree and disagree.
+```
+
+The main agent collects both results and synthesizes a combined analysis.
+
+</details>
+
 ## Invoke a subagent
 
 ### Agent-initiated vs. user-invoked
@@ -143,6 +161,8 @@ In the prompt instructions, you can then hint the agent to use subagents by sugg
 
 By default, a subagent inherits the agent from the main chat session and uses the same model and tools. To define specific behavior for a subagent, use a [custom agent](/docs/copilot/customization/custom-agents.md). Custom agents can specify their own model, tools, and instructions. When used as a subagent, these settings override the defaults inherited from the main session.
 
+The main agent can also request a specific model when invoking a subagent. Learn more in the [Model selection for subagents](#model-selection-for-subagents) section.
+
 ### Control subagent invocation
 
 You can control how a custom agent can be invoked by using two frontmatter properties:
@@ -168,6 +188,24 @@ To run a custom agent as a subagent, prompt the AI to use a custom or built-in a
 
 * `Run the Research agent as a subagent to research the best auth methods for this project.`
 * `Use the Plan agent in a subagent to create an implementation plan for myfeature. Then save the plan in plans/myfeature.plan.md`
+
+### Model selection for subagents
+
+When a subagent runs, the model is determined by the following priority order:
+
+1. **Explicit model parameter**: the main agent specifies a model directly when invoking the `runSubagent` tool.
+1. **Agent-configured model**: the [`model`](/docs/copilot/customization/custom-agents.md#header-optional) property in the custom agent's `.agent.md` frontmatter.
+1. **Main model**: the model running the parent conversation.
+
+To request a specific model for a subagent, include a model preference in your prompt:
+
+* `Run a subagent with Claude Sonnet 4.6 to research authentication patterns in this codebase.`
+* `Use GPT-4o in a subagent to analyze the performance of this module.`
+
+You can also define the model preference in your custom agent's instructions to consistently route subagent tasks to a specific model.
+
+> [!NOTE]
+> The requested model cannot exceed the cost tier of the main model. If you request a more expensive model, the subagent falls back to the main model.
 
 ### Restrict which subagents can be used (Experimental)
 
