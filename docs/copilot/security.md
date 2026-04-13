@@ -43,7 +43,7 @@ VS Code's security model uses trust boundaries to limit the potential impact of 
 * **Workspace**: controls whether VS Code enables features like tasks, debugging, and workspace settings that can execute code from the project. An untrusted workspace runs in [restricted mode](/docs/editing/workspaces/workspace-trust.md), which also disables agents.
 * **Extension publisher**: controls whether extensions from a given publisher can be installed and run. VS Code prompts you to [trust the publisher](/docs/configure/extensions/extension-runtime-security.md) before activating their extensions.
 * **MCP server**: controls whether an MCP server can start and provide tools. VS Code prompts you to [trust each MCP server](/docs/copilot/customization/mcp-servers.md#mcp-server-trust) before it runs, and re-prompts after configuration changes.
-* **Network domain**: controls whether the agent can fetch content from a URL. VS Code prompts you to trust a domain before making requests to it, integrated with the [Trusted Domains](/docs/editing/editingevolved.md#_outgoing-link-protection) list.
+* **Network domain**: controls whether the agent can fetch content from a URL. VS Code prompts you to trust a domain before making requests to it, integrated with the [Trusted Domains](/docs/editing/editingevolved.md#_outgoing-link-protection) list. You can also enable `setting(chat.agent.networkFilter)` to restrict which domains agent tools (fetch tool, integrated browser) and sandboxed terminal commands can access. Learn more about [network filtering](/docs/copilot/agents/agent-tools.md#configure-network-access).
 
 You can revoke trust at any time through dedicated commands in the Command Palette.
 
