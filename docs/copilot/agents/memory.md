@@ -89,14 +89,14 @@ VS Code provides commands to view and manage your memory files:
 > [!NOTE]
 > Copilot Memory is in preview and is separate from the local memory tool described above.
 
-[Copilot Memory](https://docs.github.com/copilot/how-tos/use-copilot-agents/copilot-memory) is a GitHub-hosted memory system that lets Copilot learn and retain repository-specific insights as it works. Unlike the local memory tool, Copilot Memory is shared across multiple GitHub Copilot surfaces, including Copilot coding agent, Copilot code review, and Copilot CLI.
+[Copilot Memory](https://docs.github.com/copilot/how-tos/use-copilot-agents/copilot-memory) is a GitHub-hosted memory system that lets Copilot learn and retain repository-specific insights as it works. Unlike the local memory tool, Copilot Memory is shared across multiple GitHub Copilot surfaces, including Copilot cloud agent, Copilot code review, and Copilot CLI.
 
 ### How Copilot Memory works
 
 As Copilot agents work in your repositories, they automatically capture tightly scoped insights called "memories". These memories are:
 
 * **Repository-scoped**: memories are tied to a specific repository and can only be created by contributors with write access.
-* **Cross-agent**: what one Copilot agent learns is available to other agents. For example, a pattern discovered by Copilot code review can later guide Copilot coding agent.
+* **Cross-agent**: what one Copilot agent learns is available to other agents. For example, a pattern discovered by Copilot code review can later guide Copilot cloud agent.
 * **Verified before use**: agents validate memories against the current codebase before applying them, preventing stale or incorrect information from affecting results.
 * **Automatically expired**: memories are deleted after 28 days to avoid outdated information.
 
