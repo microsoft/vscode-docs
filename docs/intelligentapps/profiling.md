@@ -66,7 +66,7 @@ The report contains detailed latencies for each op.
 
 ![Screenshot that shows the report data for each OP](./images/profiling/by-model-file-op-result.png)
 
-## Profile an ONNX GenAI Model
+## Profile an ONNX GenAI model
 
 In this mode, the profiling tool starts profiling an ONNX GenAI model on a target execution provider (EP) for a specified number of prompts. You can see the resource usage while it's running.
 
