@@ -11,6 +11,14 @@ Visual Studio Code takes security seriously and wants to help you safely browse 
 
 >**Note**: When in doubt, leave a folder in [Restricted Mode](#restricted-mode). You can always [enable trust](#trusting-a-workspace) later.
 
+Trusts are stored in a per user folder in one of these location, depending on the OS used:
+
+Location | OS
+--|--
+`$HOME/.config/Code/User/workspaceStorage` | Linux
+`$HOME/Library/Application Support/Code/User/workspaceStorage` | macOS
+`%APPDATA%/Code/User/workspaceStorage` | Windows
+
 ## Safe code browsing
 
 It's great that there is so much source code available on public repositories and file shares. No matter the coding task or problem, there is probably already a good solution available somewhere. It is also great that there are so many powerful coding tools available to help you understand, debug, and optimize your code. However, using open-source code and tools does have risks, and you can leave yourself open to malicious code execution and exploits.
