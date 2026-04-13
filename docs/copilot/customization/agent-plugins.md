@@ -64,7 +64,7 @@ The plugin format is auto-selected based on the plugin file path (relative to th
 | Copilot | `plugin.json`, `.github/plugin/plugin.json` |
 | OpenPlugin | `.plugin/plugin.json` |
 
-### Plugin Environment Variables
+### Plugin environment variables
 | Plugin format | Plugin root |
 |---------------|------------------|
 | Claude | `${CLAUDE_PLUGIN_ROOT}` |
