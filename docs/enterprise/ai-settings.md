@@ -38,6 +38,10 @@ Third-party extensions can contribute tools that integrate with chat by using th
 
 To prevent developers from using extension-contributed tools while still allowing built-in tools and MCP tools, set the `ChatAgentExtensionTools` policy to `false`. This configures the `setting(chat.extensionTools.enabled)` setting in VS Code.
 
+Chat agents can also use browser tools to open and interact with web pages in the Integrated Browser. To disable browser tools for chat agents, set the `BrowserChatTools` policy to `false`. This configures the `setting(workbench.browser.enableChatTools)` setting in VS Code.
+
+To disable agent plugin integration in chat, set the `ChatPluginsEnabled` policy to `false`. This configures the `setting(chat.plugins.enabled)` setting in VS Code.
+
 ## Configure MCP server access
 
 [Model Context Protocol (MCP) servers](/docs/copilot/customization/mcp-servers.md) extend chat with external tools and services. Organizations can control which MCP servers developers can use through both GitHub organization settings and VS Code policies.
@@ -48,11 +52,11 @@ The `ChatMCP` policy controls which sources MCP servers can be installed from. T
 
 The following values are supported:
 
-| Value          | Description                                                      |
-|----------------|------------------------------------------------------------------|
-| `allowed`      | Developers can run MCP servers from any source                   |
-| `registryOnly` | Developers can only run MCP servers from the configured registry |
-| `off`          | MCP server support is disabled                                   |
+| Value      | Description                                                      |
+|------------|------------------------------------------------------------------|
+| `all`      | Developers can run MCP servers from any source                   |
+| `registry` | Developers can only run MCP servers from the configured registry |
+| `none`     | MCP server support is disabled                                   |
 
 ### Configure a custom MCP registry
 
@@ -142,6 +146,18 @@ Copilot code review enables AI-powered review of code changes. Organizations can
 The `CopilotReviewSelection` policy controls whether developers can request code review for selected code in the editor. This configures the `setting(github.copilot.chat.reviewSelection.enabled)` setting in VS Code.
 
 The `CopilotReviewAgent` policy controls access to the Copilot code review agent for reviewing pull requests and changed files. This configures the `setting(github.copilot.chat.reviewAgent.enabled)` setting in VS Code.
+
+## Configure next edit suggestions
+
+Next edit suggestions (NES) propose a next edit based on recent changes, helping developers apply repetitive or related modifications more quickly.
+
+To disable next edit suggestions, set the `CopilotNextEditSuggestions` policy to `false`. This configures the `setting(github.copilot.nextEditSuggestions.enabled)` setting in VS Code.
+
+## Enable or disable Claude Agent
+
+Claude Agent sessions let developers start and resume agentic coding sessions powered by Anthropic's Claude Agent SDK directly in the editor, using their existing Copilot subscription.
+
+To disable Claude Agent sessions, set the `Claude3PIntegration` policy to `false`. This configures the `setting(github.copilot.chat.claudeAgent.enabled)` setting in VS Code.
 
 ## Configure organization-level AI customizations
 
