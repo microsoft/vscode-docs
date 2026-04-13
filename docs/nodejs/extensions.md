@@ -1,6 +1,6 @@
 ---
 ContentId: 3224f624-a3fc-4eeb-81d1-eb653a90a6fc
-DateApproved: 4/8/2026
+DateApproved: 4/15/2026
 MetaDescription: Learn more about installing and integrating JavaScript and Node.js extensions in the Visual Studio Code editor.
 ---
 # JavaScript extensions for VS Code
