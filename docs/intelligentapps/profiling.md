@@ -73,7 +73,7 @@ In this mode, the profiling tool starts profiling an ONNX GenAI model on a targe
 ![Screenshot that shows how to start by genai model](./images/profiling/by-genai-model-file-config.png)
 
 > [!NOTE]
-> You need to select the folder of the GenAI Model, i.e. the folder that contains `genai_config.json`.
+> You need to select the folder of the GenAI model, this is the folder that contains `genai_config.json`.
 
 ## Resource Usage view
 
