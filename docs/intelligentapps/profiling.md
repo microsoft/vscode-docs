@@ -5,9 +5,9 @@ MetaDescription: Profiling Quickstart in AI Toolkit.
 ---
 # Profiling an app using Windows Machine Learning
 
-Profiling is a tool designed to help developers and AI engineers to diagnose the CPU, GPU, NPU resource usages of processes, ONNX model on different execution providers, and Windows ML events.
+Profiling is a tool designed to help developers and AI engineers to diagnose CPU, GPU, and NPU resource usage of processes, profile ONNX models on different execution providers, and capture Windows ML events.
 
-In this article, you could learn how to start profiling and how to inspect the resource usages view and the events view.
+In this article, you learn how to start profiling and how to inspect the resource usage view and the events view.
 
 ## Prerequisites
 
@@ -17,7 +17,7 @@ In this article, you could learn how to start profiling and how to inspect the r
 ## Profile on app startup
 
 In this mode, the profiling tool profiles the next app that is started and that is sending out Windows ML events.
-This option is ideal for testing a run-once app. In this case, you start profiling, then run the app, and the resource usages will begin showing up.
+This option is ideal for testing a run-once app. In this case, you start profiling, then run the app, and the resource usage will appear.
 
 ![Screenshot that shows how to start by the next session](./images/profiling/the-next-session-guide-2.png)
 
@@ -58,7 +58,7 @@ The report contains detailed profiling statistics and results for the ONNX model
 
 ### Benchmark time for each operation
 
-If OP Profiling is enabled, op level data will be generated to allow you to inspect the model in more details.
+If OP Profiling is enabled, op level data will be generated to allow you to inspect the model in more detail.
 
 ![Screenshot that shows the succeeded notification with OP profiling enabled](./images/profiling/by-model-file-op-succeeded.png)
 
@@ -68,32 +68,35 @@ The report contains detailed latencies for each op.
 
 ## Profile an ONNX GenAI Model
 
-In this mode, the profiling tool starts profiling an ONNX GenAI model on a target execution provider (EP) for some number of prompts. You can see the resource usage while it's running.
+In this mode, the profiling tool starts profiling an ONNX GenAI model on a target execution provider (EP) for a specified number of prompts. You can see the resource usage while it's running.
 
 ![Screenshot that shows how to start by genai model](./images/profiling/by-genai-model-file-config.png)
 
-## Resource Usages view
+> [!NOTE]
+> You need to select the folder of the GenAI Model, i.e. the folder that contains `genai_config.json`.
 
-In the main window, the plot on the top shows usage of CPU, GPU, NPU, and memory. The usage is updated every second, and kept for 10 minutes. You can use the tools on the top right to navigate the timeline by zooming in, zooming out, and panning.
+## Resource Usage view
 
-![Screenshot that shows the resource usages view](./images/profiling/resource-usage-view.png)
+In the main window, the plot on the top shows usage of CPU, GPU, NPU, and memory. The usage is updated every second, and is kept for 10 minutes. You can use the tools on the top right to navigate the timeline by zooming in, zooming out, and panning.
+
+![Screenshot that shows the resource usage view](./images/profiling/resource-usage-view.png)
 
 > [!NOTE]
 > This feature uses performance counters. To achieve higher accuracy, you could also try [Windows Performance Recorder](https://learn.microsoft.com/en-us/windows-hardware/test/wpt/windows-performance-recorder).
 
 ## Windows ML Events view
 
-In the main window, the plot on the bottom shows Windows ML events. Its timeline is synced with the Resource Usages view, so you can easily determine how resources are used when certain events occur.
+In the main window, the plot on the bottom shows Windows ML events. Its timeline is synchronized with the Resource Usage view, so you can easily determine how resources are used when certain events occur.
 
-> [!Important]
+> [!IMPORTANT]
 > To receive Windows ML events, the tool needs to be run in admin mode. If VS Code is not started in admin mode, a notification shows up and guides you to restart VS Code. You need to close all other VS Code instances to make the restart in admin mode work.
 > ![Screenshot that shows a notification to restart VS Code in admin mode](./images/profiling/events-view-admin.png)
 
-Currently, we only show events of the following types:
+Currently, only the following event types are shown:
 
 - Ensure ExecutionProvider Ready: when Windows ML is preparing the EP
 - Session Creation: when the session is created
-- Inference: when the model inferences on the session
+- Inference: when the model runs inference on the session
 
 ![Screenshot that shows the Windows ML events view](./images/profiling/events-view.png)
 
@@ -102,7 +105,7 @@ Currently, we only show events of the following types:
 In this article, you learned how to:
 
 - Start profiling in different ways
-- Inspect the Resource Usages view
+- Inspect the Resource Usage view
 - Inspect the Windows ML Events view
 
 ## See also
