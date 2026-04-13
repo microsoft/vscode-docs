@@ -118,9 +118,9 @@ In a Copilot CLI session, delegate to a cloud agent by entering the `/delegate` 
 
 If you install the [GitHub Pull Requests](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension, you can assign an agent to implement `TODO` comments in your code.
 
-![Screenshot of assigning a TODO comment to Copilot coding agent.](../images/agents-overview/assign-todo-to-agent.png)
+![Screenshot of assigning a TODO comment to Copilot cloud agent.](../images/agents-overview/assign-todo-to-agent.png)
 
-On GitHub.com, or by using the GitHub Pull Requests extension, you can assign GitHub issues to Copilot coding agent by assigning the issue to `copilot` or by mentioning it in an issue comment or pull request to ask for a code review.
+On GitHub.com, or by using the GitHub Pull Requests extension, you can assign GitHub issues to Copilot cloud agent by assigning the issue to `copilot` or by mentioning it in an issue comment or pull request to ask for a code review.
 
 ## Related resources
 

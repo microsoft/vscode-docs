@@ -130,6 +130,15 @@ To start with Ask:
 
 1. Select **Send** or press `kb(workbench.action.chat.submit)` to submit your prompt.
 
+## Frequently asked questions
+
+<details>
+<summary>Does the language model run locally on my machine?</summary>
+
+The location of the language model does not depend on the agent type. The agent type determines where the agent harness is running, so where the agent orchestration logic runs. For example, local agents run within VS Code on your machine, while Copilot cloud agents run on remote servers.
+
+The location of the language model depends on the model provider you choose for a request. For example, if you choose a model provided by GitHub Copilot, it will run on remote infrastructure. If you choose a [BYOK model](/docs/copilot/customization/language-models.md#bring-your-own-language-model-key) that connects to a model running on your machine or private infrastructure, then the model will run there.
+
 ## Related resources
 
 * [Agents overview](/docs/copilot/agents/overview.md): Choose agents, configure permissions, and hand off between agent types.

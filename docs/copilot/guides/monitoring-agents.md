@@ -141,7 +141,7 @@ The [Aspire Dashboard](https://aspire.dev/dashboard/standalone/) is the simplest
 ```bash
 docker run --rm -d \
   -p 18888:18888 \
-  -p 4317:18889 \
+  -p 4318:18890 \
   --name aspire-dashboard \
   mcr.microsoft.com/dotnet/aspire-dashboard:latest
 ```
@@ -149,12 +149,13 @@ docker run --rm -d \
 ```json
 {
   "github.copilot.chat.otel.enabled": true,
-  "github.copilot.chat.otel.exporterType": "otlp-grpc",
-  "github.copilot.chat.otel.otlpEndpoint": "http://localhost:4317"
+  "github.copilot.chat.otel.captureContent": true
 }
 ```
 
 Open `http://localhost:18888` and go to **Traces** to view your agent interaction spans.
+
+![Screenshot showing agent interaction traces in the Aspire Dashboard with spans for invoke_agent, chat, and execute_tool.](../images/monitoring-agents/trace-aspire-dashboard.png)
 
 ### Jaeger
 

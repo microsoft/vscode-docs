@@ -122,9 +122,9 @@ You've successfully used Copilot CLI to perform a task autonomously in the backg
 
 ## Step 3: Use a cloud agent to collaborate on a feature
 
-In this step, you use a cloud agent (Copilot coding agent) to redesign the app layout and use pull requests and collaboration features in GitHub. Copilot coding agent runs on remote infrastructure and are ideal for tasks that don't require immediate feedback, don't need to run locally, or involve collaboration through GitHub.
+In this step, you use a cloud agent (Copilot cloud agent) to redesign the app layout and use pull requests and collaboration features in GitHub. Copilot cloud agent runs on remote infrastructure and are ideal for tasks that don't require immediate feedback, don't need to run locally, or involve collaboration through GitHub.
 
-1. First, publish the project to a GitHub repository and add it as a remote to use Copilot coding agent on your project.
+1. First, publish the project to a GitHub repository and add it as a remote to use Copilot cloud agent on your project.
 
     1. Run the **Publish to GitHub** command from the Command Palette (`kb(workbench.action.showCommands)`) and follow the prompts to create a new repository.
 
