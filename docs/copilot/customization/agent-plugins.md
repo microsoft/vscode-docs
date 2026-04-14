@@ -64,10 +64,13 @@ VS Code auto-detects the plugin format by checking for format-specific manifest 
 | OpenPlugin | `.plugin/plugin.json` |
 
 ### Plugin environment variables
+
+Some plugin formats provide a root token that you can use in hook commands and MCP server configurations to reference files within the plugin directory. VS Code expands the token at runtime and also sets it as an environment variable in the hook or server process.
+
 | Plugin format | Plugin root |
 |---------------|------------------|
 | Claude | `${CLAUDE_PLUGIN_ROOT}` |
-| Copilot | (Not Defined) |
+| Copilot | (Not defined) |
 | OpenPlugin | `${PLUGIN_ROOT}` |
 
 ## Hooks in plugins
