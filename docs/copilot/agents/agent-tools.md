@@ -1,6 +1,6 @@
 ---
 ContentId: 8f2c4a1d-9e3b-4c5f-a7d8-6b9c2e4f1a3d
-DateApproved: 4/8/2026
+DateApproved: 4/15/2026
 MetaDescription: Learn how to use built-in tools, MCP tools, and extension tools to extend chat in VS Code with specialized functionality.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 keywords:
@@ -289,14 +289,19 @@ You can specify allow rules for write access and deny rules for both read and wr
 
 #### Configure network access
 
-By default, network access is blocked for all domains when sandboxing is enabled. Use the `setting(chat.agent.sandboxNetwork.allowedDomains)` and `setting(chat.agent.sandboxNetwork.deniedDomains)` setting to allow specific domains:
+You can restrict which domains agent tools (fetch tool, integrated browser) can access by enabling the `setting(chat.agent.networkFilter)` setting. When enabled, network access is controlled by the `setting(chat.agent.allowedNetworkDomains)` and `setting(chat.agent.deniedNetworkDomains)` settings. When both lists are empty, all domains are blocked.
+
+When sandboxing is also enabled, these network rules additionally apply to terminal commands executed by the agent.
+
+Denied domains always take precedence over allowed domains. Both settings support wildcards like `*.example.com`.
 
 ```jsonc
 {
-    "chat.agent.sandboxNetwork.allowedDomains": [
+    "chat.agent.networkFilter": true,
+    "chat.agent.allowedNetworkDomains": [
         "api.github.com"
     ],
-    "chat.agent.sandboxNetwork.deniedDomains": [
+    "chat.agent.deniedNetworkDomains": [
         "example.com"
     ]
 }

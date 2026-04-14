@@ -1,6 +1,6 @@
 ---
 ContentId: 8f34d9b6-3185-426a-b6d9-7e5ac7138a31
-DateApproved: 4/8/2026
+DateApproved: 4/15/2026
 MetaDescription: Master working with Git repositories and remotes in VS Code. Learn about cloning, publishing, push/pull/sync operations, upstream tracking, auto-fetch, and managing multiple repositories.
 Keywords:
 - source control

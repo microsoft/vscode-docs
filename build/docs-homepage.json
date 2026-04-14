@@ -46,10 +46,10 @@
   "latest": [
     {
       "type": "release",
-      "title": "VS Code 1.115 release",
-      "description": "VS Code Agents - a new companion app optimized for agent-native development.",
-      "link": "/updates/v1_115",
-      "image": "/assets/updates/1_115/release-highlights.webp"
+      "title": "VS Code 1.116 release",
+      "description": "Full terminal access for agents. Interact with any terminal session, with improved input handling and background notifications.",
+      "link": "/updates/v1_116",
+      "image": "/assets/updates/1_116/release-highlights.webp"
     },
     {
       "type": "documentation",

@@ -1,6 +1,6 @@
 ---
 ContentId: 33e63aa1-1d8f-4d23-9733-1475f8c9f502
-DateApproved: 4/8/2026
+DateApproved: 4/15/2026
 MetaDescription: Learn how to choose between different AI language models and how to use your own language model API key in Visual Studio Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -116,8 +116,8 @@ Hover over a model in the list and select the eye icon to show or hide the model
 
 ## Bring your own language model key
 
-> [!NOTE]
-> If you are a Copilot Business or Enterprise user, your administrator must enable the **Bring Your Own Language Model Key in VS Code** policy in the [Copilot policy settings](https://github.com/settings/copilot/features) on GitHub.com.
+> [!IMPORTANT]
+> Bring your own model key is not currently available to Copilot Business or Copilot Enterprise users. It is intended for individual experimentation with the newest models. Support for Business and Enterprise plans is planned for later this year.
 
 GitHub Copilot in VS Code comes with a variety of built-in language models that are optimized for different tasks. If you want to use a model that is not available as a built-in model, you can bring your own language model API key (BYOK) to use models from other providers.
 
@@ -201,9 +201,9 @@ To change the language model that is used for generating inline suggestions in t
 
 ## Frequently asked questions
 
-### How do I enable bring your own model key for Copilot Business or Copilot Enterprise?
+### Why is bring your own model key not available for Copilot Business or Copilot Enterprise?
 
-If you are a Copilot Business or Enterprise user, your organization administrator must enable the **Bring Your Own Language Model Key in VS Code** policy in the [Copilot policy settings](https://github.com/settings/copilot/features) on GitHub.com. After the policy is enabled, you can use your own API keys to add models, just like individual plan users.
+Bringing your own model key is mainly intended for individual experimentation with the newest models, and is not yet available for Business or Enterprise plans. Support for these plans is planned for later this year. Copilot Business and Enterprise users can still use the built-in, managed models.
 
 ### Can I use locally hosted models with Copilot in VS Code?
 

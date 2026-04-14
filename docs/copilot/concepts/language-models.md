@@ -1,6 +1,6 @@
 ---
 ContentId: b2c3d4e5-6f7a-8b9c-0d1e-2f3a4b5c6d7e
-DateApproved: 4/8/2026
+DateApproved: 4/15/2026
 MetaDescription: Understand how large language models power AI features in VS Code, including model characteristics, context windows, and model selection.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:

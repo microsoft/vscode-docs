@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 7f90ee4f-cac1-4b99-aee6-c99e088789d0
-DateApproved: 4/8/2026
+DateApproved: 4/15/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to implement a LanguageModelChatProvider to contribute custom language models to VS Code's chat experience for extensions.
@@ -11,8 +11,8 @@ MetaDescription: Learn how to implement a LanguageModelChatProvider to contribut
 
 The Language Model Chat Provider API enables you to contribute your own language models to chat in Visual Studio Code.
 
-> [!NOTE]
-> If you are a Copilot Business or Enterprise user, your administrator must enable the **Bring Your Own Language Model Key in VS Code** policy in the [Copilot policy settings](https://github.com/settings/copilot/features) on GitHub.com for models provided through this API.
+> [!IMPORTANT]
+> Models provided through this API are currently only available to users on [individual GitHub Copilot plans](https://docs.github.com/en/copilot/concepts/billing/individual-plans).
 
 ## Overview
 

@@ -1,7 +1,7 @@
 ---
 ContentId: 431b4458-34c4-4aba-a0ee-eaddf7cd91a1
 MetaDescription: Visual Studio Code's Frequently Asked Questions (FAQ) for Source Control, Git & GitHub in VS Code
-DateApproved: 4/8/2026
+DateApproved: 4/15/2026
 Keywords:
 - source control
 - scm
