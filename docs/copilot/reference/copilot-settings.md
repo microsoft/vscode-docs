@@ -1,6 +1,6 @@
 ---
 ContentId: 7b232695-cbbe-4f3f-a625-abc7a5e6496c
-DateApproved: 4/8/2026
+DateApproved: 4/15/2026
 MetaDescription: Overview of the configuration settings for GitHub Copilot in Visual Studio Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -49,6 +49,10 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 | `setting(github.copilot.chat.scopeSelection)`<br/>Whether to prompt for a specific symbol scope if you use `/explain` and the active editor has no selection. | `false` |
 | `setting(github.copilot.chat.terminalChatLocation)`<br/>Controls where chat queries from the terminal should be opened. | `"chatView"` |
 | `setting(chat.detectParticipant.enabled)`<br/>Enable chat participant detection in the Chat view. | `true` |
+| `setting(chat.artifacts.enabled)` _(Experimental)_<br/>Enable or disable the [artifacts panel](/docs/copilot/chat/chat-artifacts.md) in the chat (preview). | `false` |
+| `setting(chat.artifacts.rules.byMimeType)` _(Experimental)_<br/>Rules for extracting artifacts from tool results by MIME type pattern. Maps MIME type patterns (such as `"image/*"`) to a group configuration. | `{ "image/*": { "groupName": "Screenshots", "onlyShowGroup": true } }` |
+| `setting(chat.artifacts.rules.byFilePath)` _(Experimental)_<br/>Rules for extracting artifacts from written files by file path glob pattern. Maps glob patterns (such as `"**/*plan*.md"`) to a group configuration. | `{ "**/*plan*.md": { "groupName": "Plans" } }` |
+| `setting(chat.artifacts.rules.byMemoryFilePath)` _(Experimental)_<br/>Rules for extracting artifacts from memory tool writes by memory file path glob pattern. Maps glob patterns to a group configuration. | `{ "**/*plan*.md": { "groupName": "Plans" } }` |
 | `setting(chat.checkpoints.enabled)` <br/>Enable or disable [checkpoints](/docs/copilot/chat/chat-checkpoints.md) in the chat. | `true` |
 | `setting(chat.checkpoints.showFileChanges)` <br/>Show a summary of file changes at the end of each chat request. | `false` |
 | `setting(chat.editRequests)`<br/>Enable or disable [editing previous chat requests](/docs/copilot/chat/chat-checkpoints.md#edit-a-previous-chat-request). | `"inline"` |
@@ -113,8 +117,9 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 | `setting(chat.agent.sandbox)` _(Preview)_<br/>Enable [sandboxing for agent commands](/docs/copilot/agents/agent-tools.md#sandbox-agent-commands) executed by the agent (macOS and Linux only). When enabled, commands are auto-approved and have restricted file system and network access. | `false` |
 | `setting(chat.agent.sandboxFileSystem.linux)` _(Preview)_<br/>Configure file system access rules for sandboxed agent commands on Linux. Supports `allowWrite`, `denyWrite`, and `denyRead` properties. | `{}` |
 | `setting(chat.agent.sandboxFileSystem.mac)` _(Preview)_<br/>Configure file system access rules for sandboxed agent commands on macOS. Supports `allowWrite`, `denyWrite`, and `denyRead` properties. | `{}` |
-| `setting(chat.agent.sandboxNetwork.allowedDomains)` _(Preview)_<br/>Configure allowed domains for network access in sandboxed agent commands. By default, all network access is blocked. | `[]` |
-| `setting(chat.agent.sandboxNetwork.deniedDomains)` _(Preview)_<br/>Configure denied domains for network access in sandboxed agent commands. Denied domains take precedence over allowed domains. | `[]` |
+| `setting(chat.agent.networkFilter)`<br/>Enable network domain filtering for agent tools (fetch tool, integrated browser). When enabled, network access is restricted according to `setting(chat.agent.allowedNetworkDomains)` and `setting(chat.agent.deniedNetworkDomains)`. When disabled, no filtering is applied. | `false` |
+| `setting(chat.agent.allowedNetworkDomains)`<br/>Configure allowed domains for network access by agent tools. Only takes effect when `setting(chat.agent.networkFilter)` is enabled. When sandboxing is also enabled, these rules additionally apply to terminal commands. When both allowed and denied lists are empty, all domains are blocked. Supports wildcards like `*.example.com`. | `[]` |
+| `setting(chat.agent.deniedNetworkDomains)`<br/>Configure denied domains for network access by agent tools. Only takes effect when `setting(chat.agent.networkFilter)` is enabled. Denied domains take precedence over allowed domains. Supports wildcards like `*.example.com`. | `[]` |
 | `setting(github.copilot.chat.newWorkspaceCreation.enabled)` _(Experimental)_<br/>Enable the tool for scaffolding a new workspace in chat. | `true` |
 | `setting(chat.planAgent.defaultModel)` <br/>Select a default language model for the plan agent. | `"Auto (Vendor Default)"`|
 | `setting(github.copilot.chat.implementAgent.model)` _(Experimental)_<br/>Select the language model used for the implementation step after planning. | `` |
