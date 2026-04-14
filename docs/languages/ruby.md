@@ -1,6 +1,6 @@
 ---
 ContentId: 33c079a7-f8d5-48fc-9d92-16be760b42ab
-DateApproved: 4/8/2026
+DateApproved: 4/15/2026
 MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Ruby.
 ---
 # Ruby in Visual Studio Code

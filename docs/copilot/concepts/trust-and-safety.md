@@ -1,6 +1,6 @@
 ---
 ContentId: a7b8c9d0-1e2f-3a4b-5c6d-7e8f9a0b1c2d
-DateApproved: 4/8/2026
+DateApproved: 4/15/2026
 MetaDescription: Learn about AI safety controls in VS Code, including agent sandboxing, tool approval, and security considerations for AI-assisted development.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -90,10 +90,12 @@ Without file system isolation, a compromised command could modify files anywhere
 
 Without network isolation, a compromised command could exfiltrate sensitive data or could perform unintended actions on external services. Network isolation prevents this by blocking all outbound connections by default.
 
+VS Code provides network domain filtering that applies to both agent tools (fetch tool, integrated browser) and sandboxed terminal commands. Enable `setting(chat.agent.networkFilter)` to activate network filtering. Use `setting(chat.agent.allowedNetworkDomains)` and `setting(chat.agent.deniedNetworkDomains)` to control which domains the agent can access. Learn how to [configure network access](/docs/copilot/agents/agent-tools.md#configure-network-access).
+
 * **Domain allowlist.** You can explicitly permit access to specific domains.
 
     > [!CAUTION]
-    > The agent can perform actions on allowed domains on your behalf, not just read data. For example, allowing `api.github.com` means the agent could create pull requests or modify repository settings. Allowing a cloud service API domain could lead to cloud resource modifications. Only configure this setting if absolutely required. This configuration is specified in a setting and applies to all sandboxed commands, not only the current task.
+    > The agent can perform actions on allowed domains on your behalf, not just read data. For example, allowing `api.github.com` means the agent could create pull requests or modify repository settings. Allowing a cloud service API domain could lead to cloud resource modifications. Only configure this setting if absolutely required. This configuration is specified in a setting and applies to all agent tools and sandboxed commands, not only the current task.
 
 * **Inherited restrictions.** All child processes inherit the same network restrictions, so scripts or tools that spawn subprocesses cannot bypass the network rules.
 
@@ -113,7 +115,10 @@ WSL version 1 is not supported because bubblewrap requires Linux kernel features
 
 ### What sandboxing does not cover
 
-Agent sandboxing applies only to shell subprocesses (terminal commands). It does not cover built-in file tools. The agent's read, edit, and write tools use VS Code's permission system directly, rather than running through the sandbox. The web fetch tool also runs outside the sandbox and is not subject to the sandbox's network restrictions.
+Agent sandboxing applies only to shell subprocesses (terminal commands). It does not cover built-in file tools. The agent's read, edit, and write tools use VS Code's permission system directly, rather than running through the sandbox.
+
+> [!TIP]
+> The `setting(chat.agent.networkFilter)` setting provides network domain filtering for agent tools like the fetch tool and integrated browser, independently of sandboxing. When both sandboxing and network filtering are enabled, network rules apply to all agent tools and terminal commands.
 
 Use the [review flow](/docs/copilot/chat/review-code-edits.md) and [sensitive file protection](/docs/copilot/chat/review-code-edits.md#edit-sensitive-files) to control these operations.
 
