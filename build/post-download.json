@@ -1,9 +1,9 @@
 {
   "featured": {
-    "title": "Introducing VS Code Agents companion app",
-    "description": "A new companion app optimized for agent-native development, running alongside VS Code Insiders. Run multiple agents simultaneously, across multiple repos. No extra installation needed.",
-    "link": "/updates/v1_115",
-    "image": "/assets/updates/1_115/release-highlights.webp"
+    "title": "Full terminal access for agents",
+    "description": "Agents now work with any terminal session in VS Code: REPLs, scripts, installers, and more. Improved input handling and background notifications keep things moving without manual polling.",
+    "link": "/updates/v1_116",
+    "image": "/assets/updates/1_116/release-highlights.webp"
   },
   "highlights": [
     {
