@@ -57,7 +57,7 @@ Once installed, plugin-provided customizations appear alongside your locally def
 > Plugins can include hooks and MCP servers that run code on your machine. Review the plugin contents and publisher before installing, especially for plugins from community marketplaces.
 
 ## Plugin formats
-The plugin format is auto-selected based on the plugin file path (relative to the plugin root).
+VS Code auto-detects the plugin format by checking for format-specific manifest paths. Copilot format is used as the default when no other format markers are found.
 | Plugin format | Plugin file path(s) |
 |---------------|------------------|
 | Claude | `.claude-plugin/plugin.json` |
