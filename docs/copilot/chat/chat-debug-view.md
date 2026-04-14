@@ -23,7 +23,7 @@ The Agent Debug Log panel is the primary tool for understanding what happens whe
 To open the Agent Debug Logs panel:
 
 * Enable the following setting:
-   * `setting(github.copilot.chat.agentDebugLog.enabled)`
+   * `setting(github.copilot.chat.agentDebugLog.fileLogging.enabled)`
 
 * Select the ellipsis (**...**) menu in the Chat view and select **Show Agent Debug Logs**.
 
@@ -38,7 +38,7 @@ You can switch between three views in the Agent Debug panel:
 * **Summary**: aggregate statistics about the session, such as total tool calls, token usage, error count, and overall duration.
 
 > [!NOTE]
-> The Agent Debug Logs panel is currently only available for local chat sessions. Log data is not persisted, so you can only view logs for chat sessions from your current VS Code session. To save a session for later viewing, [export it to a file](#export-and-import-sessions).
+> The Agent Debug Logs panel now shows both current and historical sessions. Log data is persisted locally on disk allowing viewing historical sessions. 
 
 ### Logs view
 
