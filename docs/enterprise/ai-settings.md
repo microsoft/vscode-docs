@@ -107,13 +107,13 @@ The `ChatToolsTerminalEnableAutoApprove` policy specifically controls the rule-b
 
 To disable terminal auto-approval entirely, set the policy to `false`. This configures the `setting(chat.tools.terminal.enableAutoApprove)` setting in VS Code.
 
-### Recommend agent sandboxing
+### Configure agent sandboxing
 
 Organizations should recommend that developers enable [agent sandboxing](/docs/copilot/concepts/trust-and-safety.md#agent-sandboxing), especially in environments where auto-approval or Autopilot mode is used. Agent sandboxing uses OS-level isolation to restrict file system and network access for agent-executed commands, which provides stronger protection than approval rules alone.
 
-<!-- TODO: sandboxing will be enabled by default in the future - update this guidance to recommend not disabling it -->
+The `ChatAgentSandboxEnabled` policy controls whether agent sandboxing is enabled or disabled. This configures the `setting(chat.agent.sandbox.enabled)` setting in VS Code.
 
-Developers can enable sandboxing by setting `setting(chat.tools.terminal.sandbox.enabled)` to `true` (macOS, Linux, and WSL2 on Windows).
+When set to `true`, agent-executed terminal commands run inside a sandbox environment with restricted permissions. When set to `false`, no sandbox is applied.
 
 ## Configure agent network filtering
 
