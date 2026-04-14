@@ -38,7 +38,7 @@ You can switch between three views in the Agent Debug panel:
 * **Summary**: aggregate statistics about the session, such as total tool calls, token usage, error count, and overall duration.
 
 > [!NOTE]
-> The Agent Debug Logs panel now shows both current and historical sessions. Log data is persisted locally on disk allowing viewing historical sessions. 
+> The Agent Debug Logs panel now shows both current and historical sessions. Logs are persisted locally on disk allowing you to view historical sessions. 
 
 ### Logs view
 
