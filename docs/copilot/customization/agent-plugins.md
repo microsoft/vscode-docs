@@ -61,7 +61,6 @@ VS Code auto-detects the plugin format by checking for format-specific manifest 
 | Plugin format | Plugin file path(s) |
 |---------------|------------------|
 | Claude | `.claude-plugin/plugin.json` |
-| Copilot | `plugin.json`, `.github/plugin/plugin.json` |
 | OpenPlugin | `.plugin/plugin.json` |
 
 ### Plugin environment variables
