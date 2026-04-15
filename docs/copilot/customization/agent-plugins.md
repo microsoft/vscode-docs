@@ -56,7 +56,49 @@ Once installed, plugin-provided customizations appear alongside your locally def
 > [!CAUTION]
 > Plugins can include hooks and MCP servers that run code on your machine. Review the plugin contents and publisher before installing, especially for plugins from community marketplaces.
 
+## Plugin metadata (plugin.json)
+
+Every plugin requires a `plugin.json` manifest file at its root. This file defines the plugin's identity and tells VS Code where to find its components.
+
+### Required field
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `name` | string | Kebab-case plugin name. Only lowercase letters, numbers, and hyphens are allowed. Maximum 64 characters. Do not use slashes, colons, or namespace prefixes (for example, `my-plugin` is valid but `myorg/my-plugin` is not). Invalid names cause the plugin to silently fail to load. |
+
+### Optional fields
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `description` | string | Brief description of the plugin. Maximum 1024 characters. |
+| `version` | string | Semantic version (for example, `1.0.0`). When a plugin is listed in a marketplace, version can appear in both `plugin.json` and the `marketplace.json` plugin entry. Bump the version in `plugin.json` when you publish changes. |
+| `author` | object | Author information with `name` (required), `email`, and `url` fields. |
+| `skills` | string or string[] | Path(s) to skill directories. Defaults to `skills/`. |
+| `agents` | string or string[] | Path(s) to agent directories. Defaults to `agents/`. |
+| `hooks` | string or object | Path to a hooks config file or an inline hooks object. |
+| `mcpServers` | string or object | Path to an MCP config file (for example, `.mcp.json`) or inline server definitions. |
+
+For the full field reference, see the [GitHub Copilot CLI plugin reference](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-plugin-reference#pluginjson).
+
+### Example plugin.json
+
+```json
+{
+  "name": "my-dev-tools",
+  "description": "React development utilities",
+  "version": "1.2.0",
+  "author": {
+    "name": "Jane Doe"
+  },
+  "skills": "skills/",
+  "agents": "agents/",
+  "hooks": "hooks.json",
+  "mcpServers": ".mcp.json"
+}
+```
+
 ## Plugin formats
+
 VS Code auto-detects the plugin format by checking for format-specific manifest paths. Copilot format is used as the default when no other format markers are found.
 | Plugin format | Plugin file path(s) |
 |---------------|------------------|
@@ -350,9 +392,57 @@ Projects can recommend plugins for team members by configuring plugin settings i
 }
 ```
 
+## Cross-tool compatibility
+
+The plugin format is shared between VS Code, GitHub Copilot CLI, and Claude Code. A single plugin repository can work across all three tools.
+
+VS Code auto-detects the plugin format by looking for `plugin.json` in multiple locations, checked in this order:
+
+1. `.plugin/plugin.json`
+1. `plugin.json` (at the plugin root)
+1. `.github/plugin/plugin.json`
+1. `.claude-plugin/plugin.json`
+
+If you author plugins for multiple tools, you can place `plugin.json` at the root and use symlinks or copies in the format-specific directories. Keep the `name` field identical across all copies to avoid conflicts.
+
+Key differences to be aware of across tools:
+
+* **Hook file location**: Claude-format plugins expect hooks in `hooks/hooks.json`, while Copilot-format plugins use `hooks.json` at the root. VS Code detects the format automatically.
+* **Plugin root token**: Claude-format plugins use `${CLAUDE_PLUGIN_ROOT}` to reference files within the plugin directory. This token is not available in Copilot-format plugins.
+* **Skill naming**: all tools require plain kebab-case names in `SKILL.md`. Namespace prefixes (like `myorg/skillname`) cause silent load failures.
+
+For tool-specific details, see the [GitHub Copilot CLI plugin reference](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-plugin-reference) and the [Claude Code plugin marketplace documentation](https://code.claude.com/docs/en/plugin-marketplaces).
+
+## Troubleshooting
+
+### Plugin does not appear after installation
+
+* Confirm that agent plugins are enabled: check that `setting(chat.plugins.enabled)` is set to `true`.
+* Verify the plugin's `name` field in `plugin.json` uses only lowercase letters, numbers, and hyphens. Slashes, colons, or other special characters cause the plugin to silently fail to load.
+* Check that `plugin.json` is in a recognized location (see [Cross-tool compatibility](#cross-tool-compatibility)).
+
+### Skills from a plugin do not load
+
+* Open the `SKILL.md` file and check the `name` field in the YAML frontmatter. The name must be plain kebab-case without namespace prefixes (for example, `test-runner`, not `myorg/test-runner`). Invalid names cause the skill to be silently skipped.
+* Make sure the skill directory name matches the `name` field in the `SKILL.md` frontmatter.
+
+### Plugin version does not update
+
+* Bump the `version` field in `plugin.json` (and in the `marketplace.json` plugin entry, if applicable) before pushing changes.
+* Run **Extensions: Check for Extension Updates** from the Command Palette to trigger an update check.
+
+### Installation fails with 'destination path already exists'
+
+This can happen when a previous install left cached data. Delete the cached plugin directory and retry:
+
+* **macOS**: `~/Library/Application Support/Code/agentPlugins/github.com/{org}/{repo}`
+* **Linux**: `~/.config/Code/agentPlugins/github.com/{org}/{repo}`
+* **Windows**: `%APPDATA%\Code\agentPlugins\github.com\{org}\{repo}`
+
 ## Related resources
 
 * [Finding and installing plugins for GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/plugins-finding-installing)
+* [GitHub Copilot CLI plugin reference](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-plugin-reference)
 * [Use Agent Skills](/docs/copilot/customization/agent-skills.md)
 * [Add and manage MCP servers](/docs/copilot/customization/mcp-servers.md)
 * [Use hooks for lifecycle automation](/docs/copilot/customization/hooks.md)
