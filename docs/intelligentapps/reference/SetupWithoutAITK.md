@@ -9,13 +9,13 @@ This article describes how to manually set up Python environments for model conv
 
 ## Set up the environment for model conversion
 
-It is recommended to install your environment in a [Python virtual environment using uv](https://docs.astral.sh/uv/reference/cli/#uv-venv), as AI Toolkit uses this internally.
+It is recommended to install your environment in a [Python virtual environment using uv](https://docs.astral.sh/uv/reference/cli/#uv-venv), as Foundry Toolkit uses this internally.
 
 The default Python version is 3.12 unless configured otherwise.
 
 ### Requirements installation
 
-When AI Toolkit sets up a virtual environment, it installs three kinds of requirements in order:
+When Foundry Toolkit sets up a virtual environment, it installs three kinds of requirements in order:
 
 - **Base requirements**: The fundamental requirements, including all packages.
 - **Feature requirements**: Additional requirements for the recipe, installed after the base requirements.
@@ -41,7 +41,7 @@ The process is similar to [Set up the environment for model conversion](#set-up-
 > [!TIP]
 > The same requirements file may also be used for conversion. You may only need to install `onnxruntime-windowsml` and `onnxruntime-genai-winml` from the file.
 
-[WCR](https://github.com/microsoft/olive-recipes/blob/main/.aitk/requirements/requirements-WCR.txt) is the up-to-date requirements file for running models on all execution providers in AI Toolkit.
+[WCR](https://github.com/microsoft/olive-recipes/blob/main/.aitk/requirements/requirements-WCR.txt) is the up-to-date requirements file for running models on all execution providers in Foundry Toolkit.
 
 > [!NOTE]
 > For LLM models on QNN, an arm64 Python environment provides better performance. A dedicated [requirements file](https://github.com/microsoft/olive-recipes/blob/main/.aitk/requirements/requirements-QNN_LLM.txt) is available for this configuration.

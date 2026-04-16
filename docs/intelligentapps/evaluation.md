@@ -1,17 +1,17 @@
 ---
 ContentId: 3342b8ef-72fe-4cca-baad-64ee57c05b5f
 DateApproved: 07/14/2025
-MetaDescription: Evaluate AI models, prompts, and agents using AI Toolkit's comprehensive evaluation system. Import datasets, run evaluations with built-in evaluators like F1 score, relevance, coherence, and similarity, or create custom LLM-based and code-based evaluators. Visualize and compare results in tables and charts.
+MetaDescription: Evaluate AI models, prompts, and agents using Foundry Toolkit's comprehensive evaluation system. Import datasets, run evaluations with built-in evaluators like F1 score, relevance, coherence, and similarity, or create custom LLM-based and code-based evaluators. Visualize and compare results in tables and charts.
 ---
 # Evaluate models, prompts, and agents
 
-You can evaluate models, prompts, and agents by comparing their outputs to ground truth data and computing evaluation metrics. AI Toolkit streamlines this process. Upload datasets and run comprehensive evaluations with minimal effort.
+You can evaluate models, prompts, and agents by comparing their outputs to ground truth data and computing evaluation metrics. Foundry Toolkit streamlines this process. Upload datasets and run comprehensive evaluations with minimal effort.
 
-![Screenshot showing the start of an evaluation in AI Toolkit.](./images/evaluation/evaluation.png)
+![Screenshot showing the start of an evaluation in Foundry Toolkit.](./images/evaluation/evaluation.png)
 
 ## Evaluate prompts and agents
 
-You can evaluate prompts and agents in **Agent Builder** by selecting the **Evaluation** tab. Before you evaluate, run your prompts or agents against a dataset. Read more about [Bulk run](/docs/intelligentapps/bulkrun.md) to learn how to work with a dataset.
+You can evaluate prompts and agents in **Agent Builder** by selecting the **Evaluation** tab. Before you evaluate, run your prompts or agents against a dataset.
 
 To evaluate prompts or agents:
 
@@ -29,7 +29,7 @@ To evaluate prompts or agents:
 
 ## Versioning and evaluation comparison
 
-AI Toolkit supports versioning of prompts and agents, so you can compare the performance of different versions. When you create a new version, you can run evaluations and compare results with previous versions.
+Foundry Toolkit supports versioning of prompts and agents, so you can compare the performance of different versions. When you create a new version, you can run evaluations and compare results with previous versions.
 
 To save a new version of a prompt or agent:
 
@@ -66,7 +66,7 @@ To compare evaluation results between versions:
 
 ## Built-in evaluators
 
-AI Toolkit provides a set of built-in evaluators to measure the performance of your models, prompts, and agents. These evaluators compute various metrics based on your model outputs and ground truth data.
+Foundry Toolkit provides a set of built-in evaluators to measure the performance of your models, prompts, and agents. These evaluators compute various metrics based on your model outputs and ground truth data.
 
 For agents:
 - **Intent Resolution**: Measures how accurately the agent identifies and addresses user intentions.
@@ -87,11 +87,11 @@ For textual similarity:
 - **GLEU**: Google-BLEU variant for sentence-level assessment; measures overlaps in n-grams between response and ground truth.
 - **METEOR**: Metric for Evaluation of Translation with Explicit Ordering; measures overlaps in n-grams between response and ground truth.
 
-The evaluators in AI Toolkit are based on the Azure Evaluation SDK. To learn more about observability for generative AI models, see the [Microsoft Foundry documentation](https://learn.microsoft.com/azure/ai-foundry/concepts/observability?tabs=warning).
+The evaluators in Foundry Toolkit are based on the Azure Evaluation SDK. To learn more about observability for generative AI models, see the [Microsoft Foundry documentation](https://learn.microsoft.com/azure/ai-foundry/concepts/observability?tabs=warning).
 
 ## Start a standalone evaluation job
 
-1. In the AI Toolkit view, select **TOOLS** > **Evaluation** to open the Evaluation view.
+1. In the Foundry Toolkit view, select **TOOLS** > **Evaluation** to open the Evaluation view.
 1. Select **Create Evaluation**, then provide the following information:
     - **Evaluation job name**: Use the default or enter a custom name.
     - **Evaluator**: Select from built-in or custom evaluators.
@@ -99,17 +99,17 @@ The evaluators in AI Toolkit are based on the Azure Evaluation SDK. To learn mor
     - **Dataset**: Select a sample dataset for learning, or import a JSONL file with the fields `query`, `response`, and `ground truth`.
 1. A new evaluation job is created. You are prompted to open the evaluation job details.
 
-    ![Screenshot showing the Open Evaluation dialog in AI Toolkit.](./images/evaluation/openevaluation.png)
+    ![Screenshot showing the Open Evaluation dialog in Foundry Toolkit.](./images/evaluation/openevaluation.png)
 
 1. Verify your dataset and select **Run Evaluation** to start the evaluation.
 
-    ![Screenshot showing the Run Evaluation dialog in AI Toolkit.](./images/evaluation/runevaluation.png)
+    ![Screenshot showing the Run Evaluation dialog in Foundry Toolkit.](./images/evaluation/runevaluation.png)
 
 ### Monitor the evaluation job
 
 After you start an evaluation job, you can view its status in the evaluation job view.
 
-![Screenshot showing a running evaluation in AI Toolkit.](./images/evaluation/running.png)
+![Screenshot showing a running evaluation in Foundry Toolkit.](./images/evaluation/running.png)
 
 Each evaluation job includes a link to the dataset used, logs from the evaluation process, a timestamp, and a link to the evaluation details.
 
@@ -123,9 +123,9 @@ You can also select **Open In Data Wrangler** to open the data with the [Data Wr
 
 ## Create custom evaluators
 
-You can create custom evaluators to extend the built-in evaluation capabilities of AI Toolkit. Custom evaluators let you define your own evaluation logic and metrics.
+You can create custom evaluators to extend the built-in evaluation capabilities of Foundry Toolkit. Custom evaluators let you define your own evaluation logic and metrics.
 
-![Screenshot showing the custom evaluator creation interface in AI Toolkit.](./images/evaluation/custom-evaluator.png)
+![Screenshot showing the custom evaluator creation interface in Foundry Toolkit.](./images/evaluation/custom-evaluator.png)
 
 To create a custom evaluator:
 
@@ -152,15 +152,15 @@ Make sure the LLM outputs a JSON result, for example: `{"score": 4, "reason": "T
 
 You can also use the **Examples** section to get started with your LLM-based evaluator.
 
-![Screenshot showing the LLM-based evaluator configuration in AI Toolkit.](./images/evaluation/LLM-eval.png)
+![Screenshot showing the LLM-based evaluator configuration in Foundry Toolkit.](./images/evaluation/LLM-eval.png)
 
 ### Code-based evaluator
 
 For code-based evaluators, define the evaluation logic using Python code. The code should return a JSON result with the evaluation score and reason.
 
-![Screenshot showing the Evaluators tab in AI Toolkit with options for creating code-based evaluators.](./images/evaluation/code-eval.png)
+![Screenshot showing the Evaluators tab in Foundry Toolkit with options for creating code-based evaluators.](./images/evaluation/code-eval.png)
 
-AI Toolkit provides a scaffold based on your evaluator name and whether you use an external library.
+Foundry Toolkit provides a scaffold based on your evaluator name and whether you use an external library.
 
 You can modify the code to implement your evaluation logic:
 
@@ -177,11 +177,42 @@ def measure_the_response_if_human_like_or_not(query, **kwargs):
     }
 ```
 
+## pytest Evaluations
+
+Use pytest and Visual Studio Code's Testing tools to create comprehensive evaluations for your agents.
+
+1. Navigate the tree view to find an agent and select it so that the Agent Builder view appears in the main area.
+1. Select the Evaluation tab.
+   ![Screenshot showing the evaluation setup feature to scaffold a pytest evaluation project.](./images/evaluation/pytest-evaluation-tab.png)
+1. Select the "Scaffold Evaluation Code" button.
+1. Choose the evaluator you want to scaffold and select OK. Regardless of which evaluator you select, you can edit the code later as needed.
+1. Select the folder where the scaffolded test code should be created. A new instance of Visual Studio Code will open with the new scaffolded test project loaded.
+1. Open the `README.md`. The "Quick Start" section contains the setup steps (also covered here). The `README.md` contains additional helpful information for understanding how to modify the project.
+1. Use the one-line command below to create Python environment and install dependencies.
+   - **Windows**
+
+     ```powershell
+     python -m venv .venv; .\.venv\Scripts\activate; pip install uv; uv pip install -r requirements.txt --prerelease=allow
+     ```
+
+   - **MacOS / Linux**
+
+     ```bash
+     python3 -m venv .venv && source .venv/bin/activate && pip install uv && uv pip install -r requirements.txt --prerelease=allow
+     ```
+
+1. Select the Python environment in VS Code. Open the Command Palette (`Ctrl+Shift+P` or `Cmd+Shift+P`), run `Python: Select Interpreter`, and select the new created environment.
+1. Open the `.env` file and verify your configuration. It is pre-configured with the connection information to your agent in Foundry.
+1. Open the `data.jsonl` file. This contains example data in the JSONL format. You should modify this data, possibly adding additional properties and values depending on the type of evaluator you selected. For example, some evaluators may need a combination of `query`, `response`, `context`, `ground_truth` or other properties. You could add your own custom properties and handle them in your test harness logic.
+1. Open the **Testing** panel in VS Code (select the flask icon in the Activity Bar)
+1. Select the play button next to the testing code to run all tests.
+1. View results in the Test Results panel.
+
 ## What you learned
 
 In this article, you learned how to:
 
-- Create and run evaluation jobs in AI Toolkit for VS Code.
+- Create and run evaluation jobs in Foundry Toolkit for VS Code.
 - Monitor the status of evaluation jobs and view their results.
 - Compare evaluation results between different versions of prompts and agents.
 - View version history for prompts and agents.

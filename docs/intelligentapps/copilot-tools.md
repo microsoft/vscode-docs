@@ -1,16 +1,16 @@
 ---
 ContentId: fb94d678-70e5-49e9-9192-a1294a2bc14d
 DateApproved: 10/28/2025
-MetaDescription: Get started using the AI Toolkit Copilot tools to streamline and enhance the development of AI agent applications.
+MetaDescription: Get started using the Foundry Toolkit Copilot tools to streamline and enhance the development of AI agent applications.
 ---
-# Use AI Toolkit Copilot tools for AI agent development
+# Use Foundry Toolkit Copilot tools for AI agent development
 
-The AI Toolkit Copilot tools help you build AI agent applications faster. These tools give you ready-made features, templates, and best practices. You can create smart applications that use AI more quickly.
+The Foundry Toolkit Copilot tools help you build AI agent applications faster. These tools give you ready-made features, templates, and best practices. You can create smart applications that use AI more quickly.
 
 > [!NOTE]
-> The AI Toolkit Copilot tools use the VS Code [Language Model Tool API](/api/extension-guides/ai/tools.md). These tools extend a large language model (LLM) with domain-specific features in chat. In agent mode, VS Code can automatically use these tools to handle user prompts and perform tasks.
+> The Foundry Toolkit Copilot tools use the VS Code [Language Model Tool API](/api/extension-guides/ai/tools.md). These tools extend a large language model (LLM) with domain-specific features in chat. In agent mode, VS Code can automatically use these tools to handle user prompts and perform tasks.
 
-The AI Toolkit Copilot tools include four main tools:
+The Foundry Toolkit Copilot tools include four main tools:
 
 - Agent Code Gen
 - AI Model Guide
@@ -20,21 +20,20 @@ The AI Toolkit Copilot tools include four main tools:
 ## Prerequisites
 
 1. [Visual Studio Code](/download) - Latest version to support MCP Server development.
-1. [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) Visual Studio Code extension
 1. [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) Visual Studio Code extension
-1. [AI Toolkit](https://marketplace.visualstudio.com/items?itemName=ms-ai.vscode-ai-toolkit) Visual Studio Code extension
+1. [Foundry Toolkit](https://marketplace.visualstudio.com/items?itemName=ms-ai.vscode-ai-toolkit) Visual Studio Code extension
 
-## Using Copilot tools in AI Toolkit
+## Using Copilot tools in Foundry Toolkit
 
-After installing the prerequisites, you can use the tools AI Toolkit provides when using agents in chat:
+After installing the prerequisites, you can use the tools Foundry Toolkit provides when using agents in chat:
 
 1. Open the Chat view `kb(workbench.action.chat.open)`, and select **Agent** from the dropdown.
 
-1. Select the **Tools** button to view the list of available tools.
+1. Select the **Configure Tools...** button to view the list of available tools.
 
     Optionally, select or deselect the tools you want to use. You can search tools by typing in the search box.
 
-    ![Screenshot showing the Chat view in Visual Studio Code with Agent mode selected. The Tools button is highlighted, displaying a list of available tools including Agent Code Gen, AI Model Guide, Evaluation Code Gen, and Tracing Code Gen.](./images/copilottools/select-tools.png)
+    ![Screenshot showing the Chat view in Visual Studio Code with Agent mode selected. The Tools button is highlighted, displaying a list of available tools including Agent Code Gen, AI Model Guide, Evaluation Code Gen, and Tracing Code Gen.](./images/copilottools/configure-tools.png)
 
 ## Agent Code Gen tool
 
@@ -158,6 +157,15 @@ Example requirement prompt:
 ```text
 Enable tracing for my AI travel assistant application built with the agent-framework SDK in Python.
 ```
+
+## Foundry Skills
+
+The Foundry Toolkit also installs two skills that help you use GitHub Copilot chat to work with agents and other resources and generate scaffolded code.
+
+- **microsoft-foundry-agent-framework-code-gen** - Generates and modifies AI agent code using the Microsoft Agent Framework SDK for Foundry. This skill scaffolds, builds, and enhances agent-based applications for Microsoft Foundry, including adding tools, fixing issues, and implementing multi-agent workflows.
+- **microsoft-foundry** Deploy, evaluate, and manage AI agents and Foundry resources end-to-end. This skill handles the full lifecycle of Foundry agents—from deployment and execution to evaluation, prompt optimization, and resource management.
+
+To use them, you need to do nothing special. The skills are invoked whenever the context of your conversation makes it clear that you want to work with Foundry or the Microsoft Agent Framework.
 
 ## What you learned
 

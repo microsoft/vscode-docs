@@ -5,13 +5,13 @@ MetaDescription: Use custom dataset to fine-tune a generative AI model in the Az
 ---
 # Fine-tune models
 
-Fine-tune AI model is a common practice that allows you to use your custom dataset to run **fine-tune** jobs on a pre-trained model in a computing environment with GPUs. AI Toolkit currently supports fine-tuning SLMs on local machine with GPU or in the cloud (Azure Container App) with GPU.
+Fine-tune AI model is a common practice that allows you to use your custom dataset to run **fine-tune** jobs on a pre-trained model in a computing environment with GPUs. Foundry Toolkit currently supports fine-tuning SLMs on local machine with GPU or in the cloud (Azure Container App) with GPU.
 
 A fine-tuned model can be downloaded to local and do inference test with GPUs, or be quantized to run locally on CPUs. Fine-tuned model can also be deployed to a cloud environment as remote model.
 
-## Fine-tune AI models on Azure with AI Toolkit for VS Code (Preview)
+## Fine-tune AI models on Azure with Foundry Toolkit for VS Code (Preview)
 
-AI Toolkit for VS Code now supports provisioning an Azure Container App to run model fine-tuning and host an inference endpoint in the cloud.
+Foundry Toolkit for VS Code now supports provisioning an Azure Container App to run model fine-tuning and host an inference endpoint in the cloud.
 
 ### Set up your cloud environment
 
@@ -21,18 +21,18 @@ AI Toolkit for VS Code now supports provisioning an Azure Container App to run m
 
 1. Accept the LICENSE on HuggingFace if you are fine-tuning Mistral or Llama.
 
-1. Enable Remote Fine-tuning and Inference feature flag in the AI Toolkit for VS Code
+1. Enable Remote Fine-tuning and Inference feature flag in the Foundry Toolkit for VS Code
     1. Open the VS Code Settings by selecting *File -> Preferences -> Settings*.
-    1. Navigate to *Extensions* and select *AI Toolkit*.
+    1. Navigate to *Extensions* and select *Foundry Toolkit*.
     1. Select the *"Enable to run fine-tuning and inference on Azure Container Apps"* option.
 
-      ![AI Toolkit Settings](./images/finetune/settings.png)
+      ![Foundry Toolkit Settings](./images/finetune/settings.png)
 
     1. Reload VS Code for the changes to take effect.
 
 ### Scaffold a fine-tune project
 
-1. Run the `AI Toolkit: Focus on Tools View` in the Command Palette (`kb(workbench.action.showCommands)`)
+1. Run the `Foundry Toolkit: Focus on Tools View` in the Command Palette (`kb(workbench.action.showCommands)`)
 1. Navigate to `Fine-tuning` to access the model catalog. Select a model for the fine-tuning. Assign a name to your project and select its location on your machine. Then, hit the *"Configure Project"* button.
     ![Panel: Select Model](./images/finetune/panel-select-model.png)
 1. Project Configuration
@@ -44,11 +44,11 @@ AI Toolkit for VS Code now supports provisioning an Azure Container App to run m
       ![Panel: Generate Project](./images/finetune/panel-generate-project.png)
 
 > [!NOTE]
-> The project currently works either locally or remotely within the AI Toolkit for VS Code. If you choose *"Fine-tune locally"* during project creation, it will run exclusively in WSL without cloud resources. Otherwise, the project will be restricted to run in the remote Azure Container App environment.
+> The project currently works either locally or remotely within the Foundry Toolkit for VS Code. If you choose *"Fine-tune locally"* during project creation, it will run exclusively in WSL without cloud resources. Otherwise, the project will be restricted to run in the remote Azure Container App environment.
 
 ### Provision Azure Resources
 
-To get started, you need to provision the Azure Resource for remote fine-tuning. From command palette find and execute `AI Toolkit: Provision Azure Container Apps job for fine-tuning`. During this process, you will be prompted to select your Azure Subscription and resource group.
+To get started, you need to provision the Azure Resource for remote fine-tuning. From command palette find and execute `Foundry Toolkit: Provision Azure Container Apps job for fine-tuning`. During this process, you will be prompted to select your Azure Subscription and resource group.
 
 ![Provision Fine-Tuning](./images/finetune/command-provision-finetune.png)
 
@@ -57,7 +57,7 @@ Monitor the progress of the provision through the link displayed in the output c
 
 ### Run fine-tuning
 
-To start the remote fine-tuning job, run the `AI Toolkit: Run fine-tuning` command in the Command Palette.
+To start the remote fine-tuning job, run the `Foundry Toolkit: Run fine-tuning` command in the Command Palette.
 
 ![Run Fine-tuning](./images/finetune/command-run-finetuning.png)
 
@@ -108,7 +108,7 @@ To view and query your logs, select the "*Console*" button and navigate to the L
 
 After initiating the fine-tuning job, you can also view logs on Azure by selecting the "*Show Streaming Logs in VS Code*" button in the VSCode notification.
 
-Or you can run the command `AI Toolkit: Show the running fine-tuning job streaming logs` in the Command Palette.
+Or you can run the command `Foundry Toolkit: Show the running fine-tuning job streaming logs` in the Command Palette.
 
 ![Streaming Log Command](./images/finetune/command-show-streaming-log.png)
 
@@ -128,7 +128,7 @@ After the adapters are trained in the remote environment, use a simple Gradio ap
 
 ### Provision Azure resources
 
-Similar to the fine-tuning process, you need to set up the Azure Resources for remote inference by executing the `AI Toolkit: Provision Azure Container Apps for inference` from the command palette. During this setup, you will be asked to select your Azure Subscription and resource group.
+Similar to the fine-tuning process, you need to set up the Azure Resources for remote inference by executing the `Foundry Toolkit: Provision Azure Container Apps for inference` from the command palette. During this setup, you will be asked to select your Azure Subscription and resource group.
 
 ![Provision Inference Resource](./images/finetune/command-provision-inference.png)
 
@@ -136,7 +136,7 @@ By default, the subscription and the resource group for inference should match t
 
 ### Deployment for inference
 
-If you wish to revise the inference code or reload the inference model, please execute the `AI Toolkit: Deploy for inference` command. This will synchronize your latest code with ACA and restart the replica.
+If you wish to revise the inference code or reload the inference model, please execute the `Foundry Toolkit: Deploy for inference` command. This will synchronize your latest code with ACA and restart the replica.
 
 ![Deploy for inference](./images/finetune/command-deploy.png)
 
@@ -157,15 +157,15 @@ You can access the inference API by selecting the "*Go to Inference Endpoint*" b
 | `infra` | Contains all necessary configurations for remote operations. |
 | `infra/provision/finetuning.parameters.json` | Holds parameters for the bicep templates, used for provisioning Azure resources for fine-tuning. |
 | `infra/provision/finetuning.bicep` | Contains templates for provisioning Azure resources for fine-tuning. |
-| `infra/finetuning.config.json` |The configuration file, generated by the `AI Toolkit: Provision Azure Container Apps job for fine-tuning` command. It is used as input for other remote command palettes. |
+| `infra/finetuning.config.json` |The configuration file, generated by the `Foundry Toolkit: Provision Azure Container Apps job for fine-tuning` command. It is used as input for other remote command palettes. |
 
 ### Configuring secrets for fine-tuning in Azure Container Apps
 
-Azure Container App Secrets provide a secure way to store and manage sensitive data within Azure Container Apps, like HuggingFace tokens and Weights & Biases API keys. Using AI toolkit's command palette, you can input the secrets into the provisioned Azure container app job(as stored in `./finetuning.config.json`). These secrets are then set as **environment variables** in all containers.
+Azure Container App Secrets provide a secure way to store and manage sensitive data within Azure Container Apps, like HuggingFace tokens and Weights & Biases API keys. Using Foundry Toolkit's command palette, you can input the secrets into the provisioned Azure container app job(as stored in `./finetuning.config.json`). These secrets are then set as **environment variables** in all containers.
 
 #### Steps
 
-1. In the Command Palette, type and select `AI Toolkit: Add Azure Container Apps Job secret for fine-tuning`
+1. In the Command Palette, type and select `Foundry Toolkit: Add Azure Container Apps Job secret for fine-tuning`
 
     ![Add secret](./images/finetune/command-add-secret.png)
 
@@ -181,7 +181,7 @@ After you've set up the secret, you can now use it in your Azure Container App. 
 
 ### Configuring Azure resource provision for fine-tune
 
-This guide will help you configure the `AI Toolkit: Provision Azure Container Apps job for fine-tuning` command.
+This guide will help you configure the `Foundry Toolkit: Provision Azure Container Apps job for fine-tuning` command.
 
 You can find configuration parameters in `./infra/provision/finetuning.parameters.json` file. Here are the details:
 
@@ -195,7 +195,7 @@ You can find configuration parameters in `./infra/provision/finetuning.parameter
 
 ### Using existing Azure resources
 
-If you have existing Azure resources that need to be configured for fine-tuning, you can specify their names in the `./infra/provision/finetuning.parameters.json` file and then run the `AI Toolkit: Provision Azure Container Apps job for fine-tuning` from the command palette. This will update the resources you've specified and create any that are missing.
+If you have existing Azure resources that need to be configured for fine-tuning, you can specify their names in the `./infra/provision/finetuning.parameters.json` file and then run the `Foundry Toolkit: Provision Azure Container Apps job for fine-tuning` from the command palette. This will update the resources you've specified and create any that are missing.
 
 For example, if you have an existing Azure container environment, your `./infra/finetuning.parameters.json` should look like this:
 
@@ -218,7 +218,7 @@ For example, if you have an existing Azure container environment, your `./infra/
 
 ### Manual provisioning
 
-If you prefer to manually set up the Azure resources, you can use the provided bicep files in the `./infra/provision` folders. If you've already set up and configured all the Azure resources without using the AI Toolkit command palette, you can simply enter the resource names in the `finetune.config.json` file.
+If you prefer to manually set up the Azure resources, you can use the provided bicep files in the `./infra/provision` folders. If you've already set up and configured all the Azure resources without using the Foundry Toolkit command palette, you can simply enter the resource names in the `finetune.config.json` file.
 
 For example:
 
@@ -246,11 +246,11 @@ For example:
 | `infra` | Contains all necessary configurations for remote operations. |
 | `infra/provision/inference.parameters.json` | Holds parameters for the bicep templates, used for provisioning Azure resources for inference. |
 | `infra/provision/inference.bicep` | Contains templates for provisioning Azure resources for inference. |
-| `infra/inference.config.json` |The configuration file, generated by the `AI Toolkit: Provision Azure Container Apps for inference` command. It is used as input for other remote command palettes. |
+| `infra/inference.config.json` |The configuration file, generated by the `Foundry Toolkit: Provision Azure Container Apps for inference` command. It is used as input for other remote command palettes. |
 
 ### Configuring Azure resource provisioning
 
-This guide will help you configure the `AI Toolkit: Provision Azure Container Apps for inference` command.
+This guide will help you configure the `Foundry Toolkit: Provision Azure Container Apps for inference` command.
 
 You can find configuration parameters in `./infra/provision/inference.parameters.json` file. Here are the details:
 
@@ -265,7 +265,7 @@ You can find configuration parameters in `./infra/provision/inference.parameters
 
 By default, the inference provision use the same Azure Container App Environment, Storage Account, Azure File Share, and Azure Log Analytics that were used for fine-tuning. A separate Azure Container App is created solely for the inference API.
 
-If you have customized the Azure resources during the fine-tuning step or want to use your own existing Azure resources for inference, specify their names in the `./infra/inference.parameters.json` file. Then, run the `AI Toolkit: Provision Azure Container Apps for inference` command from the command palette. This updates any specified resources and creates any that are missing.
+If you have customized the Azure resources during the fine-tuning step or want to use your own existing Azure resources for inference, specify their names in the `./infra/inference.parameters.json` file. Then, run the `Foundry Toolkit: Provision Azure Container Apps for inference` command from the command palette. This updates any specified resources and creates any that are missing.
 
 For example, if you have an existing Azure container environment, your `./infra/finetuning.parameters.json` should look like this:
 
@@ -288,7 +288,7 @@ For example, if you have an existing Azure container environment, your `./infra/
 
 ### Manual provisioning
 
-If you prefer to manually configure the Azure resources, you can use the provided bicep files in the `./infra/provision` folders. If you have already set up and configured all the Azure resources without using the AI Toolkit command palette, you can simply enter the resource names in the `inference.config.json` file.
+If you prefer to manually configure the Azure resources, you can use the provided bicep files in the `./infra/provision` folders. If you have already set up and configured all the Azure resources without using the Foundry Toolkit command palette, you can simply enter the resource names in the `inference.config.json` file.
 
 For example:
 
@@ -307,8 +307,8 @@ For example:
 
 In this article, you learned how to:
 
-- Set up the AI Toolkit for VS Code to support fine-tuning and inference in Azure Container Apps.
-- Create a fine-tuning project in AI Toolkit for VS Code.
+- Set up the Foundry Toolkit for VS Code to support fine-tuning and inference in Azure Container Apps.
+- Create a fine-tuning project in Foundry Toolkit for VS Code.
 - Configure the fine-tuning workflow, including dataset selection and training parameters.
 - Run the fine-tuning workflow to adapt a pre-trained model to your specific dataset.
 - View the results of the fine-tuning process, including metrics and logs.
@@ -317,4 +317,4 @@ In this article, you learned how to:
 - Re-evaluate a model using different datasets or training parameters.
 - Handle failed jobs and adjust configurations for re-runs.
 - Understand the supported models and their requirements for fine-tuning.
-- Use the AI Toolkit for VS Code to manage fine-tuning projects, including provisioning Azure resources, running fine-tuning jobs, and deploying models for inference.
+- Use the Foundry Toolkit for VS Code to manage fine-tuning projects, including provisioning Azure resources, running fine-tuning jobs, and deploying models for inference.
