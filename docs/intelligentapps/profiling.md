@@ -1,7 +1,7 @@
 ---
 ContentId: 8105f83b-8291-467e-abac-2344b4f368cd
 DateApproved: 12/14/2025
-MetaDescription: Profiling Quickstart in AI Toolkit.
+MetaDescription: Profiling Quickstart in Foundry Toolkit.
 ---
 # Profiling an app using Windows Machine Learning
 
@@ -12,7 +12,7 @@ In this article, you learn how to start profiling and how to inspect the resourc
 ## Prerequisites
 
 - Install the latest version of [Visual Studio Code](/download).
-- Install the AI Toolkit VS Code extension. For more information, see [install AI Toolkit](/docs/intelligentapps/overview.md#install-and-setup).
+- Install the Foundry Toolkit VS Code extension. For more information, see [install Foundry Toolkit](/docs/intelligentapps/overview.md#install-and-setup).
 
 ## Profile on app startup
 

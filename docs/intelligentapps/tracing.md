@@ -1,14 +1,14 @@
 ---
 ContentId: e1e49b32-272f-4aef-a73b-56920112057d
 DateApproved: 10/03/2025
-MetaDescription: AI Toolkit hosts a local  server to collect trace data. The collector server is OLTP-compatible and most language model SDKs either directly support OTLP or have third-party instrumentation libraries to support it.
+MetaDescription: Foundry Toolkit hosts a local  server to collect trace data. The collector server is OLTP-compatible and most language model SDKs either directly support OTLP or have third-party instrumentation libraries to support it.
 ---
 
-# Tracing in AI Toolkit
+# Tracing in Foundry Toolkit
 
-AI Toolkit provides tracing capabilities to help you monitor and analyze the performance of your AI applications. You can trace the execution of your AI applications, including interactions with generative AI models, to gain insights into their behavior and performance.
+Foundry Toolkit provides tracing capabilities to help you monitor and analyze the performance of your AI applications. You can trace the execution of your AI applications, including interactions with generative AI models, to gain insights into their behavior and performance.
 
-AI Toolkit hosts a local HTTP and gRPC server to collect trace data. The collector server is compatible with OTLP (OpenTelemetry Protocol) and most language model SDKs either directly support OTLP or have non-Microsoft instrumentation libraries to support it. Use AI Toolkit to visualize the collected instrumentation data.
+Foundry Toolkit hosts a local HTTP and gRPC server to collect trace data. The collector server is compatible with OTLP (OpenTelemetry Protocol) and most language model SDKs either directly support OTLP or have non-Microsoft instrumentation libraries to support it. Use Foundry Toolkit to visualize the collected instrumentation data.
 
 All frameworks or SDKs that support OTLP and follow [semantic conventions for generative AI systems](https://opentelemetry.io/docs/specs/semconv/gen-ai/) are supported. The following table contains common AI SDKs tested for compatibility.
 
@@ -605,7 +605,7 @@ The following end-to-end example uses the Azure AI Inference SDK in Python and s
 To run this example, you need the following prerequisites:
 
 - [Visual Studio Code](https://code.visualstudio.com/)
-- [AI Toolkit extension](https://marketplace.visualstudio.com/items?itemName=ms-windows-ai-studio.windows-ai-studio)
+- [Foundry Toolkit extension](https://marketplace.visualstudio.com/items?itemName=ms-windows-ai-studio.windows-ai-studio)
 - [Azure AI Inference SDK](https://pypi.org/project/azure-ai-inference/)
 - [OpenTelemetry](https://opentelemetry.io/)
 - [Python latest version](https://www.python.org/downloads)
@@ -755,7 +755,7 @@ Use the following instructions to deploy a preconfigured development environment
 
     1. In the terminal, run the code using the command `python main.py`.
 
-1. Check the trace data in AI Toolkit
+1. Check the trace data in Foundry Toolkit
 
     After you run the code and refresh the tracing webview, there's a new trace in the list.
 
@@ -780,7 +780,7 @@ The following end-to-end example uses the OpenAI Agents SDK in Python with Monoc
 To run this example, you need the following prerequisites:
 
 - [Visual Studio Code](https://code.visualstudio.com/)
-- [AI Toolkit extension](https://marketplace.visualstudio.com/items?itemName=ms-windows-ai-studio.windows-ai-studio)
+- [Foundry Toolkit extension](https://marketplace.visualstudio.com/items?itemName=ms-windows-ai-studio.windows-ai-studio)
 - [Okahu Trace Visualizer](https://marketplace.visualstudio.com/items?itemName=OkahuAI.okahu-ai-observability)
 - [OpenAI Agents SDK](https://github.com/openai/agents)
 - [OpenTelemetry](https://opentelemetry.io/)
@@ -966,7 +966,7 @@ Use the following instructions to deploy a preconfigured development environment
 
     1. In the terminal, run the code using the command `python main.py`.
 
-1. Check the trace data in AI Toolkit
+1. Check the trace data in Foundry Toolkit
 
     After you run the code and refresh the tracing webview, there's a new trace in the list.
 
@@ -988,7 +988,7 @@ In this article, you learned how to:
 
 - Set up tracing in your AI application using the Azure AI Inference SDK and OpenTelemetry.
 - Configure the OTLP trace exporter to send trace data to the local collector server.
-- Run your application to generate trace data and view traces in the AI Toolkit webview.
+- Run your application to generate trace data and view traces in the Foundry Toolkit webview.
 - Use the tracing feature with multiple SDKs and languages, including Python and TypeScript/JavaScript, and non-Microsoft tools via OTLP.
 - Instrument various AI frameworks (Anthropic, Gemini, LangChain, OpenAI, and more) using provided code snippets.
 - Use the tracing webview UI, including the **Start Collector** and **Refresh** buttons, to manage trace data.

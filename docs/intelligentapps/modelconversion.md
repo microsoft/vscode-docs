@@ -1,22 +1,22 @@
 ---
 ContentId: 2452fb1c-7636-44d3-a52d-00923844d384
 DateApproved: 07/14/2025
-MetaDescription: Model Conversion Quickstart in AI Toolkit.
+MetaDescription: Model Conversion Quickstart in Foundry Toolkit.
 ---
-# Convert a model with AI Toolkit for VS Code
+# Convert a model with Foundry Toolkit for VS Code
 
 Model conversion is an integrated development environment designed to help developers and AI engineers to convert, quantize, optimize and evaluate the pre-built machine learning models on your local Windows platform. It offers a streamlined, end-to-end experience for models converted from sources like Hugging Face, optimizing them and enabling inference on local devices powered by NPUs, GPUs, and CPUs.
 
 ## Prerequisites
 
 - Install the latest version of [Visual Studio Code](/download).
-- Install the AI Toolkit VS Code extension. For more information, see [install AI Toolkit](/docs/intelligentapps/overview.md#install-and-setup).
+- Install the Foundry Toolkit VS Code extension. For more information, see [install Foundry Toolkit](/docs/intelligentapps/overview.md#install-and-setup).
 
 ## Create project
 
 Creating a project in model conversion is the first step toward converting, optimizing, quantizing and evaluating machine learning models.
 
-1. Open the AI Toolkit view, and select **Models** > **Conversion** to launch model conversion
+1. Open the Foundry Toolkit view, and select **Models** > **Conversion** to launch model conversion
 
 2. Start a new project by selecting **New Model Project**
 
@@ -157,7 +157,7 @@ Running a workflow in model conversion is the core step that transform the pre-b
 
         ![Screenshot that shows Run with Cloud button.](./images/modelconversion/cloud-conversion-run.png)
 
-    2. AI Toolkit first checks if Azure resources for Cloud Conversion are prepared. If needed, you are prompted for your Azure subscription and resource group for provisioning Azure resources.
+    2. Foundry Toolkit first checks if Azure resources for Cloud Conversion are prepared. If needed, you are prompted for your Azure subscription and resource group for provisioning Azure resources.
 
         ![Screenshot that shows prompt for provisionning.](./images/modelconversion/provisioning.png)
 
@@ -254,7 +254,7 @@ Go to the History board. Select **Export** to share the model project with other
 
 In this article, you learned how to:
 
-- Create a model conversion project in AI Toolkit for VS Code.
+- Create a model conversion project in Foundry Toolkit for VS Code.
 - Configure the conversion workflow, including quantization and evaluation settings.
 - Run the conversion workflow to transform a pre-built model into an optimized ONNX model.
 - View the results of the conversion, including metrics and logs.

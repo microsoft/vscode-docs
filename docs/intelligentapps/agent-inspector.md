@@ -1,9 +1,9 @@
 ---
 ContentId: 7ea83c06-5ed4-41ff-8929-fc1c6ab5ffee
 DateApproved: 03/17/2026
-MetaDescription: Debug, visualize, and iterate on AI agents with the Agent Inspector in AI Toolkit.
+MetaDescription: Debug, visualize, and iterate on AI agents with the Agent Inspector in Foundry Toolkit.
 ---
-# Develop agents with Agent Inspector in AI Toolkit
+# Develop agents with Agent Inspector in Foundry Toolkit
 
 This article describes how to use the Agent Inspector to debug, visualize, and improve your AI agents directly in VS Code. Press F5 to launch your agent with full debugger support, view streaming responses in real time, and see how multiple agents work together.
 
@@ -23,25 +23,25 @@ Agent Inspector provides the following capabilities for your agent development w
 
 ## Prerequisites
 
-- **Agent Framework SDK**: Agent built using `agent-framework` SDK
-- **Python 3.10+** and **VS Code AI Toolkit** extension
+- **Python 3.10+** and **VS Code Foundry Toolkit** extension
+- [**Python** extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for debugging support (if using Python)
 
 ## Quick start
 
 Choose one of the following options to quickly start using Agent Inspector with your agent project.
 
-![Screenshot showing the Agent Inspector quick start](./images/agent-inspector/inspector.png)
+![Screenshot showing the Agent Inspector quick start](./images/agent-inspector/inspector-new.png)
 
 ### Option 1: Scaffold a sample (Recommended)
 
-1. Select **AI Toolkit** in the Activity Bar > **Agent and Workflow Tools** > **Agent Inspector**.
-1. Select **Scaffold a Sample** to generate a preconfigured project.
+1. Select **Foundry Toolkit** in the Activity Bar > **Developer Tools** > **Build** > **Agent Inspector**.
+1. Select **Try a Sample** to generate a preconfigured project.
 1. Follow the README to run and debug the sample agent.
 
 ### Option 2: Use Copilot to create a new agent
 
-1. Select **AI Toolkit** in the Activity Bar > **Agent and Workflow Tools** > **Agent Inspector**.
-1. Select **Build with Copilot** and provide agent requirements.
+1. Select **Foundry Toolkit** in the Activity Bar > **Developer Tools** > **Build** > **Agent Inspector**.
+1. Select **create with Copilot** and provide agent requirements.
 1. GitHub Copilot generates agent code and configures debugging automatically.
 1. Follow the instructions from Copilot output to run and debug your agent.
 
@@ -53,7 +53,7 @@ If you already have an agent built with Microsoft Agent Framework SDK, ask GitHu
 1. Enter prompt:
 
    ```prompt-AIAgentExpert
-   Help me set up the debug environment for the workflow agent to use AI Toolkit Agent Inspector
+   Help me set up the debug environment for the workflow agent to use Foundry Toolkit Agent Inspector
    ```
 
 1. Github Copilot generates the necessary configuration files and instructions to run and debug your agent using the Agent Inspector.
@@ -125,13 +125,13 @@ Add these files to your `.vscode` folder to set up debugging for your agent, and
 
 ### Chat playground
 Send messages to trigger the workflow and view executions in real-time.
-![Chat message area](./images/agent-inspector/chat_area.png)
+![Chat message area](./images/agent-inspector/chat-area-new.png)
 
 ### Workflow visualization
 For `WorkflowAgent`, view the execution graph with message flows between agents. You can also:
 1. Select each node to review agent inputs and outputs.
 1. Double-click any node to navigate to the code.
-1. Set breakpoints in the code to pause execution and inspect variables.![Screenshot showing workflow visualization](./images/agent-inspector/code_nav.png)
+1. Set breakpoints in the code to pause execution and inspect variables.![Screenshot showing workflow visualization](./images/agent-inspector/break-point.png)
 
 ## Troubleshooting
 

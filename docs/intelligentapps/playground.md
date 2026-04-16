@@ -3,18 +3,18 @@ ContentId: e919aee8-fd2e-401b-9d83-0ff6f98b23ba
 DateApproved: 10/03/2025
 MetaDescription: Chat with selected generative AI model in playground. Change system prompt and parameters. Add attachment for Multi-Modal models. Keep chat history.
 ---
-# Model playground in AI Toolkit
-The AI Toolkit playground provides an interactive environment to experiment with generative AI models. You can test various prompts, adjust model parameters, compare responses from different models and explore multi-modal capabilities by attaching different types of input files.
+# Model playground in Foundry Toolkit
+The Foundry Toolkit playground provides an interactive environment to experiment with generative AI models. You can test various prompts, adjust model parameters, compare responses from different models and explore multi-modal capabilities by attaching different types of input files.
 
-![AI Toolkit playground interface showing a chat interaction with a generative AI model.](./images/playground/playground.png)
+![Foundry Toolkit playground interface showing a chat interaction with a generative AI model.](./images/playground/model-playground.png)
 
 ## Test a model in the playground
 
 To access the playground:
 
-- In AI Toolkit view, select **Tools** > **Playground**
+- In Foundry Toolkit view, select **Developer Tools** > **Build** > **Model Playground**
 - Select **Try in Playground** from a model card in the model catalog
-- Double click a model from **MY Models** to open it in the playground
+- Double-click a model from **MY Models** to open it in the playground
 
 To test a model in the playground, follow these steps:
 
@@ -25,15 +25,15 @@ To test a model in the playground, follow these steps:
 
 ### Local model execution in the Playground
 
-AI Toolkit supports running local models in the playground. You can select a local model from the model dropdown list in the **Model Preferences** panel.
+Foundry Toolkit supports running local models in the playground. You can select a local model from the model dropdown list in the **Model Preferences** panel.
 
 ![Screenshot of local model support](./images/playground/local-model-support.png)
 
 ## GitHub Pay-as-you-go Model Support
 
-AI Toolkit now supports GitHub pay-as-you-go models, so you can keep working after passing free tier limits.
+Foundry Toolkit now supports GitHub pay-as-you-go models, so you can keep working after passing free tier limits.
 
-- When you reach GitHub’s model usage limit, AI Toolkit shows a warning with a link to GitHub’s paid usage documentation.
+- When you reach GitHub’s model usage limit, Foundry Toolkit shows a warning with a link to GitHub’s paid usage documentation.
 
     ![Screenshot of the GitHub Pay-as-you-go Model support](./images/playground/github-pay-as-you-go.png)
 
@@ -48,7 +48,7 @@ AI Toolkit now supports GitHub pay-as-you-go models, so you can keep working aft
 The **Model Preferences** panel allows you to select a model for playground interaction, set system prompts to guide the model's behavior and configure the model parameters for the selected model.
 
 ### Select a model
-The dropdown list in the **Model Preferences** panel shows the models you have added to AI Toolkit. You can select **Browse Models** to open the model catalog and add more models.
+The dropdown list in the **Model Preferences** panel shows the models you have added to Foundry Toolkit. You can select **Browse Models** to open the model catalog and add more models.
 
 ### System prompt
 A system prompt is a predefined instruction that guides the model's behavior and response style. You can add, edit, or delete the system prompt in the input text area to influence how the model generates responses.
@@ -70,7 +70,7 @@ For local models, there's an additional option **Show resource usage**. When ena
 
 ## Chat prompt
 
-![Chat prompt input box in AI Toolkit playground showing an attachment icon for adding files.](./images/playground/chat-prompt.png)
+![Chat prompt input box in Foundry Toolkit playground showing an attachment icon for adding files.](./images/playground/chat-prompt.png)
 
 The chat prompt is the input text you provide to the model. You can enter a question, statement, or any text that you want the model to respond to. The model generates a response based on the provided prompt and the configured system prompts and parameters.
 
@@ -85,14 +85,14 @@ Available features in the chat prompt input box:
 ### Switch between modes
 You can switch between different modes in the chat prompt input box:
 - **Use native supported AI features from a model**: This mode allows you to use the native capabilities of the selected model, such as web search or file attachment.
-- **Use all AI features**: This mode allows you to use AI feature implemented by AI Toolkit, such as file attachment regardless of the model's native capabilities.
+- **Use all AI features**: This mode allows you to use AI feature implemented by Foundry Toolkit, such as file attachment regardless of the model's native capabilities.
 
-If a capability is not supported by the selected model or by AI Toolkit, a warning appears above the chat prompt input box. The warning recommends that you switch to a different model that supports the feature.
+If a capability is not supported by the selected model or by Foundry Toolkit, a warning appears above the chat prompt input box. The warning recommends that you switch to a different model that supports the feature.
 
 ![Screenshot showing warning message displayed above the chat prompt input box stating Capability not supported.](./images/playground/capability-warning.png)
 
 ## Model responses
-![AI Toolkit playground response area showing a generated Python code snippet for encoding text in base64, with options to copy or regenerate the response.](./images/playground/response-area.png)
+![Foundry Toolkit playground response area showing a generated Python code snippet for encoding text in base64, with options to copy or regenerate the response.](./images/playground/response-area.png)
 
 Model responses are displayed above the chat prompt input box. Before you enter a chat prompt, the playground shows a welcome screen with three starter prompts for you to get started with the playground.
 
@@ -112,7 +112,7 @@ When **Show resource usage** is enabled for a local model, a summary of usage is
 ## Tool bar
 
 The tool bar in the playground provides quick access to various actions and features:
-![Tool bar in AI Toolkit playground showing buttons for clearing chat history, saving chat, and switching modes.](./images/playground/tool-bar.png)
+![Tool bar in Foundry Toolkit playground showing buttons for clearing chat history, saving chat, and switching modes.](./images/playground/tool-bar.png)
 
 - **New Playground**: Create a new playground session.
 - **History**: View, rename, delete, and switch to a chat history.
@@ -121,7 +121,7 @@ The tool bar in the playground provides quick access to various actions and feat
 - **View Code**: View the generated code for the chat prompt from LLM integration.
 
 ### Compare model responses
-![Screenshot showing side by side comparison of responses from different models in the AI Toolkit playground.](./images/playground/compare.png)
+![Screenshot showing side by side comparison of responses from different models in the Foundry Toolkit playground.](./images/playground/compare.png)
 
 The **Compare** feature allows you to compare responses from different models side by side. This is useful for evaluating the performance of different models on the same prompt.
 
@@ -141,7 +141,7 @@ For each model you are comparing, you can:
 
 In this article, you learned how to:
 
-- Use the AI Toolkit playground to interact with generative AI models.
+- Use the Foundry Toolkit playground to interact with generative AI models.
 - Test models in the playground, configure system prompts and parameters, and explore multi-modal capabilities by attaching files.
 - Use the Compare feature to evaluate the performance of different models on the same prompt and view responses side by side.
 - Use the chat prompt input box to send prompts, attach files or images, perform web searches, and switch between modes for AI features.

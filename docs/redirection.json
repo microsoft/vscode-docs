@@ -6,5 +6,6 @@
     { "from": "/docs/typescript/typescript-compiling", "to": "/docs/typescript/typescript-transpiling", "status": 301 },
     { "from": "/docs/copilot/guides/prompt-engineering-guide", "to": "/docs/copilot/best-practices", "status": 301 },
     { "from": "/docs/languages/polyglot", "to": "https://github.com/dotnet/interactive/issues/4163", "status": 301 },
-    { "from": "/docs/copilot/copilot-coding-agent", "to": "/docs/copilot/copilot-cloud-agent", "status": 301 }
+    { "from": "/docs/copilot/copilot-coding-agent", "to": "/docs/copilot/copilot-cloud-agent", "status": 301 },
+    { "from": "/docs/intelligentapps/bulkrun", "to": "/docs/intelligentapps/overview", "status": 301 }
 ]

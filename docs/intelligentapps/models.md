@@ -3,9 +3,9 @@ ContentId: 52ad40fe-f352-4e16-a075-7a9606c5df3b
 DateApproved: 03/12/2026
 MetaDescription: Find a popular generative AI model by publisher and source. Bring your own model that is hosted with a URL, or select an Ollama model.
 ---
-# Explore models in AI Toolkit
+# Explore models in Foundry Toolkit
 
-AI Toolkit provides comprehensive support for a wide variety of generative AI models, including both Small Language Models (SLMs) and Large Language Models (LLMs).
+Foundry Toolkit provides comprehensive support for a wide variety of generative AI models, including both Small Language Models (SLMs) and Large Language Models (LLMs).
 
 Within the model catalog, you can explore and utilize models from multiple hosting sources:
 
@@ -18,19 +18,19 @@ Within the model catalog, you can explore and utilize models from multiple hosti
 Deploy models directly to Foundry from within the model catalog, streamlining your workflow.
 
 > [!NOTE]
-> Use Microsoft Foundry, Foundry Local, and GitHub models added to AI Toolkit with GitHub Copilot. For more information, check out [Changing the model for chat conversations](/docs/copilot/customization/language-models#change-the-model-for-chat-conversations.md).
+> Use Microsoft Foundry, Foundry Local, and GitHub models added to Foundry Toolkit with GitHub Copilot. For more information, check out [Changing the model for chat conversations](/docs/copilot/customization/language-models#change-the-model-for-chat-conversations.md).
 
-![AI Toolkit model catalog displaying various generative AI models](./images/models/models.png)
+![Foundry Toolkit model catalog displaying various generative AI models](./images/models/models-new.png)
 
 ## Find a model
 
 To find a model in the model catalog:
 
-1. Select the AI Toolkit view in the Activity Bar
+1. Select the Foundry Toolkit view in the Activity Bar
 1. Select **MODELS** > **Catalog** to open the model catalog
 1. Use the filters to reduce the list of available models
 
-    - **Hosted by**: AI Toolkit supports Microsoft Foundry, Foundry Local, GitHub, ONNX, OpenAI, Ollama, Anthropic, Google, NVIDIA NIM, and Windows AI API as model hosting sources.
+    - **Hosted by**: Foundry Toolkit supports Microsoft Foundry, Foundry Local, GitHub, ONNX, OpenAI, Ollama, Anthropic, Google, NVIDIA NIM, MiniMax, Kimi, GLM and Windows AI API as model hosting sources.
     - **Publisher**: The publisher for AI models, such as Microsoft, Meta, Google, OpenAI, Anthropic, Mistral AI, and more.
     - **Feature**: Supported features of the model, such as `Text Attachment`, `Image Attachment`, `Web Search`, `Structured Outputs`, and more.
     - **Model type**: Filter models that can run remotely or locally on CPU, GPU, or NPU. This filter depends on the local availability.
@@ -48,19 +48,19 @@ To add a model from the model catalog:
 1. Select the **Add** on the model card
 1. The flow for adding models is slightly different based on the providers:
 
-    - **Foundry Local**: Foundry Local downloads and runs the model, which might take a few minutes depending on your internet speed. The model is available on a localhost page and added to AI Toolkit. Learn more in [What is Foundry Local?](https://learn.microsoft.com/azure/ai-foundry/foundry-local/what-is-foundry-local?view=foundry-classic&preserve-view=true).
+    - **Foundry Local**: Foundry Local downloads and runs the model, which might take a few minutes depending on your internet speed. The model is available on a localhost page and added to Foundry Toolkit. Learn more in [What is Foundry Local?](https://learn.microsoft.com/azure/ai-foundry/foundry-local/what-is-foundry-local?view=foundry-classic&preserve-view=true).
 
-    - **GitHub**: AI Toolkit asks for your GitHub credentials to access the model repository. Once authenticated, the model is added directly into AI Toolkit.
+    - **GitHub**: Foundry Toolkit asks for your GitHub credentials to access the model repository. Once authenticated, the model is added directly into Foundry Toolkit.
         > [!NOTE]
-        > AI Toolkit now [supports GitHub pay-as-you-go models](/docs/intelligentapps/playground.md#_github-payasyougo-model-support), so you can keep working after passing free tier limits.
-    - **ONNX**: The model is downloaded from ONNX and added to AI Toolkit.
-    - **Ollama**: The model is downloaded from Ollama and added to AI Toolkit.
+        > Foundry Toolkit now [supports GitHub pay-as-you-go models](/docs/intelligentapps/playground.md#_github-payasyougo-model-support), so you can keep working after passing free tier limits.
+    - **ONNX**: The model is downloaded from ONNX and added to Foundry Toolkit.
+    - **Ollama**: The model is downloaded from Ollama and added to Foundry Toolkit.
 
         > [!TIP]
         > You can edit the API key later by right-clicking the model and selecting **Edit** and view the encrypted value in `${HOME}/.aikt/models/my-models/yml` file.
-        > ![Screenshot of the AI Toolkit interface showing a model card with options Try in Playground, Download, and Load in Playground.](./images/models/model-operation.png)
+        > ![Screenshot of the Foundry Toolkit interface showing a model card with options Try in Playground, Download, and Load in Playground.](./images/models/model-operation.png)
 
-    - **OpenAI**, **Anthropic**, and **Google**: AI Toolkit prompts you to enter the API Key.
+    - **OpenAI**, **Anthropic**, and **Google**: Foundry Toolkit prompts you to enter the API Key.
     - **Custom models**: Refer to the [Add a custom model](#add-a-custom-model) section for detailed instructions.
 
 Once added, the model appears under **MY RESOURCES/Models** in the tree view, and you can use it in the [**Playground**](/docs/intelligentapps/playground.md) or [**Agent Builder**](/docs/intelligentapps/agentbuilder.md).
@@ -69,28 +69,28 @@ Once added, the model appears under **MY RESOURCES/Models** in the tree view, an
 You can also add your own models that are hosted externally or run locally. There are several options available:
 - Add Ollama models from the Ollama library or custom Ollama endpoints.
 - Add custom models that have an OpenAI compatible endpoint, such as a self-hosted model or a model running on a cloud service.
-- Add custom ONNX models, such as those from Hugging Face, using AI Toolkit's [model conversion tool](/docs/intelligentapps/modelconversion.md).
+- Add custom ONNX models, such as those from Hugging Face, using Foundry Toolkit's [model conversion tool](/docs/intelligentapps/modelconversion.md).
 
-There are several entrypoints to add models to AI Toolkit:
+There are several entrypoints to add models to Foundry Toolkit:
 - From **MY RESOURCES** section in the tree view, hover over **Models** and select the `+` icon.
-    ![Screenshot of the AI Toolkit interface showing the Model Catalog toolbar with the + Add model button highlighted, indicating where users can click to add a new custom model.](./images/models/custom-1.png)
+    ![Screenshot of the Foundry Toolkit interface showing the Model Catalog toolbar with the + Add model button highlighted, indicating where users can select to add a new custom model.](./images/models/custom-1-new.png)
 
 - From the **Model Catalog**, select the **+ Add model** button from the tool bar.
-    ![Screenshot of the AI Toolkit interface showing the Model Catalog toolbar with the + Add model button highlighted. The toolbar is located at the top of the catalog view, and the + Add model button is emphasized to indicate where users can click to add a new custom model.](./images/models/custom-2.png)
+    ![Screenshot of the Foundry Toolkit interface showing the Model Catalog toolbar with the + Add model button highlighted. The toolbar is located at the top of the catalog view, and the + Add model button is emphasized to indicate where users can select to add a new custom model.](./images/models/custom-2.png)
 
 - From the **Add Custom Models** section in the model catalog, select **+ Add Your Own Model**.
-    ![Screenshot of the AI Toolkit interface showing the Custom Models section in the model catalog. The + Add model button is highlighted, indicating where users can click to add a new custom model.](./images/models/custom-3.png)
+    ![Screenshot of the Foundry Toolkit interface showing the Custom Models section in the model catalog. The + Add model button is highlighted, indicating where users can select to add a new custom model.](./images/models/custom-3.png)
 
 ### Add Ollama models
 
-Ollama enables many popular genAI models to run locally with CPU via GGUF quantization. If Ollama is installed on your local machine with downloaded Ollama models, add them to AI Toolkit for use in the model playground.
+Ollama enables many popular genAI models to run locally with CPU via GGUF quantization. If Ollama is installed on your local machine with downloaded Ollama models, add them to Foundry Toolkit for use in the model playground.
 
-Prerequisites for using Ollama models in AI Toolkit:
+Prerequisites for using Ollama models in Foundry Toolkit:
 
-- AI Toolkit v0.6.2 or newer.
+- Foundry Toolkit v0.6.2 or newer.
 - [Ollama](https://ollama.com/download) (Tested on Ollama v0.4.1)
 
-To add local Ollama into AI Toolkit
+To add local Ollama into Foundry Toolkit
 
 1. From one of the entrypoints mentioned previously, select **Add Ollama Model**.
 
@@ -100,19 +100,19 @@ To add local Ollama into AI Toolkit
 
     If you start the Ollama runtime at a different endpoint, choose **Provide custom Ollama endpoint** to specify an Ollama endpoint.
 
-1. Select the models you want to add to AI Toolkit, and then select **OK**
+1. Select the models you want to add to Foundry Toolkit, and then select **OK**
 
     > [!NOTE]
-    > AI Toolkit only shows models that are already downloaded in Ollama and not yet added to AI Toolkit. To download a model from Ollama, you can run `ollama pull <model-name>`. To see the list of models supported by Ollama, see the [Ollama library](https://ollama.com/library) or refer to the [Ollama documentation](https://github.com/ollama/ollama).
+    > Foundry Toolkit only shows models that are already downloaded in Ollama and not yet added to Foundry Toolkit. To download a model from Ollama, you can run `ollama pull <model-name>`. To see the list of models supported by Ollama, see the [Ollama library](https://ollama.com/library) or refer to the [Ollama documentation](https://github.com/ollama/ollama).
 
 1. You should now see one or more selected Ollama models in the list of models in the tree view.
 
     > [!NOTE]
-    > Attachment isn't supported yet for Ollama models. AI Toolkit connects to Ollama using the [OpenAI compatible endpoint](https://github.com/ollama/ollama/blob/main/docs/openai.md) and doesn't support attachments yet.
+    > Attachment isn't supported yet for Ollama models. Foundry Toolkit connects to Ollama using the [OpenAI compatible endpoint](https://github.com/ollama/ollama/blob/main/docs/openai.md) and doesn't support attachments yet.
 
 ### Add a custom model with OpenAI compatible endpoint
 
-For self-hosted or deployed models accessible from the internet with an OpenAI compatible endpoint, add it to AI Toolkit for use in the playground.
+For self-hosted or deployed models accessible from the internet with an OpenAI compatible endpoint, add it to Foundry Toolkit for use in the playground.
 
 1. From one of the entry points, select **Add Custom Model**.
 1. Enter the OpenAI compatible endpoint URL and the required information.
@@ -125,24 +125,24 @@ To add a self-hosted or locally running Ollama model:
 
 ### Add a custom ONNX model
 
-To add a custom ONNX model, first convert it to the AI Toolkit model format using the [model conversion tool](/docs/intelligentapps/modelconversion.md). After conversion, add the model to AI Toolkit.
+To add a custom ONNX model, first convert it to the Foundry Toolkit model format using the [model conversion tool](/docs/intelligentapps/modelconversion.md). After conversion, add the model to Foundry Toolkit.
 
 ## Deploy a model to Microsoft Foundry
 
-Deploy a model to Microsoft Foundry directly from AI Toolkit. Run the model in the cloud and access it via an endpoint.
+Deploy a model to Microsoft Foundry directly from Foundry Toolkit. Run the model in the cloud and access it via an endpoint.
 
 1. From the model catalog, select the model you want to deploy.
 1. Select **Deploy to Microsoft Foundry**, either from the dropdown menu or directly from the **Deploy to Microsoft Foundry** button, as in the following screenshot:
 
-    ![Screenshot of the AI Toolkit interface showing the model catalog with a model selected and the Deploy to Microsoft Foundry button highlighted.](./images/models/catalog-deploy-dropdown.png)
+    ![Screenshot of the Foundry Toolkit interface showing the model catalog with a model selected and the Deploy to Microsoft Foundry button highlighted.](./images/models/catalog-deploy-dropdown-new.png)
 
 1. In the **model deployment** tab, enter the required information, such as the model name, description, and any other settings, as in the following screenshot:
 
-    ![Screenshot of the AI Toolkit interface showing the model deployment tab with fields for model name, description, and additional settings.](./images/models/deploy-to-azure-dialog.png)
+    ![Screenshot of the Foundry Toolkit interface showing the model deployment tab with fields for model name, description, and additional settings.](./images/models/deploy-to-azure-dialog.png)
 
 1. Select **Deploy to Microsoft Foundry** to start the deployment process.
 1. Confirm the deployment by reviewing the details and selecting **Deploy** to proceed.
-1. Once the deployment is complete, the model is available in the **MY RESOURCES/Models** section of AI Toolkit, and you can use it in the playground or agent builder.
+1. Once the deployment is complete, the model is available in the **MY RESOURCES** > **Your project name** > **Models** section of Foundry Toolkit, and you can use it in the playground or agent builder.
 
 ## Select a model for testing
 
@@ -154,14 +154,14 @@ Use the actions on the model card in the model catalog:
 - **Try in Agent Builder**: Load the selected model in the [Agent Builder](/docs/intelligentapps/agentbuilder.md) to build AI agents.
 
 ## Manage models
-You can manage your models in the **MY RESOURCES/Models** section of the AI Toolkit view:
-- View the list of models added to AI Toolkit.
+You can manage your models in the **MY RESOURCES/Models** section of the Foundry Toolkit view:
+- View the list of models added to Foundry Toolkit.
 - Right-click on a model to access options such as:
   - **Load in Playground**: Load the model in the [Playground](/docs/intelligentapps/playground.md) for testing.
   - **Copy Model Name**: Copy the model name to the clipboard for use in other contexts, such as your code integration.
     - **Refresh**: Refresh the model configuration to ensure you have the latest settings.
     - **Edit**: Modify the model settings, such as the API key or endpoint.
-    - **Delete**: Remove the model from AI Toolkit.
+    - **Delete**: Remove the model from Foundry Toolkit.
     - **About this Model**: View detailed information about the model, including its publisher, source, and supported features.
 
 - Right-click on `ONNX` section title to access options such as:
@@ -177,7 +177,7 @@ Some models require a publisher or hosting-service license and account to sign-i
 
 In this article, you learned how to:
 
-- Explore and manage generative AI models in AI Toolkit.
+- Explore and manage generative AI models in Foundry Toolkit.
 - Find models from various sources, including Microsoft Foundry, Foundry Local, GitHub, ONNX, OpenAI, Anthropic, Google, Ollama, and custom endpoints.
 - Add models to your toolkit and deploy them to Microsoft Foundry.
 - Add custom models, including Ollama and OpenAI compatible models, and test them in the playground or agent builder.
