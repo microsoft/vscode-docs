@@ -371,10 +371,15 @@ Plugins sourced from npm or PyPI never update automatically. Instead, they show 
 
 ## Workspace plugin recommendations
 
-Projects can recommend plugins for team members by configuring plugin settings in the workspace settings.
+Projects can recommend plugins for team members by configuring plugin settings in the workspace settings (`.claude/settings.json` or `.github/copilot/settings.json`).
 
-* **`enabledPlugins`**: lists plugins that should be enabled by default. VS Code shows a notification the first time a chat message is sent and lists these plugins under `@agentPlugins @recommended` in the Extensions view.
+VS Code shows a notification the first time a chat message is sent. You can view the recommended plugins by opening the Extensions view and filtering by `@agentPlugins @recommended`.
+
+Specify the following fields in the settings file to configure workspace plugin recommendations:
+
 * **`extraKnownMarketplaces`**: registers additional marketplaces for the project. These marketplaces appear when you search `@agentPlugins` in the Extensions view.
+
+* **`enabledPlugins`**: lists plugins that should be enabled by default.
 
 ```json
 {
