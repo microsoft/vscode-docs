@@ -1,9 +1,9 @@
 ---
 ContentId: c35d24d0-5d2c-493d-9635-10601a13848e
 DateApproved: 12/11/2024
-MetaDescription: Find answers to frequently asked questions (FAQ) using AI Toolkit. Get troubleshooting recommendations.
+MetaDescription: Find answers to frequently asked questions (FAQ) using Foundry Toolkit. Get troubleshooting recommendations.
 ---
-# AI Toolkit FAQ
+# Foundry Toolkit FAQ
 
 ## Models
 
@@ -23,7 +23,7 @@ Here are some examples about how to find your endpoint and authentication header
 
 1. Get the API key from the **Key** property in the **Endpoint** section.
 
-    After you copy the API key, add it in the format of `api-key: <YOUR_API_KEY>` for authentication header in AI Toolkit. See [Azure OpenAI service documentation](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference#request-header-2) to learn more about the authentication header.
+    After you copy the API key, add it in the format of `api-key: <YOUR_API_KEY>` for authentication header in Foundry Toolkit. See [Azure OpenAI service documentation](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference#request-header-2) to learn more about the authentication header.
 
 #### Example 2: OpenAI
 
@@ -31,7 +31,7 @@ Here are some examples about how to find your endpoint and authentication header
 
 1. Go to the [OpenAI documentation](https://platform.openai.com/docs/api-reference/authentication) and select `API Keys` or `Project API Keys` to create or retrieve your API key.
 
-    After you copy the API key, fill it in the format of `Authorization: Bearer <YOUR_API_KEY>` for authentication header in AI Toolkit. See the OpenAI documentation for more information.
+    After you copy the API key, fill it in the format of `Authorization: Bearer <YOUR_API_KEY>` for authentication header in Foundry Toolkit. See the OpenAI documentation for more information.
 
     ![Find model access key](./images/faq/8-openai-key.png)
 
@@ -66,7 +66,7 @@ Visit the [GitHub model market](https://aka.ms/github-model-marketplace) to find
 
 ### Can I use my own models or other models from Hugging Face?
 
-If your own model supports the OpenAI API contract, you can host it in the cloud and [add the model to AI Toolkit](/docs/intelligentapps/models.md) as a custom model. You need to provide key information such as model endpoint URL, access key and model name.
+If your own model supports the OpenAI API contract, you can host it in the cloud and [add the model to Foundry Toolkit](/docs/intelligentapps/models.md) as a custom model. You need to provide key information such as model endpoint URL, access key and model name.
 
 ## Fine-tuning
 
@@ -74,7 +74,7 @@ If your own model supports the OpenAI API contract, you can host it in the cloud
 
 No, you can just run with the default settings and our sample dataset for testing. You can also pick your own dataset, but you will need to tweak some settings. See the [fine-tuning tutorial](https://github.com/AI-Mou/windows-ai-studio/blob/main/walkthrough-hf-dataset.md) for more info.
 
-### AI Toolkit does not scaffold the fine-tuning project
+### Foundry Toolkit does not scaffold the fine-tuning project
 
 Make sure to check for the [extension prerequisites](https://github.com/AI-Mou/windows-ai-studio/blob/main/README.md#prerequisites) before installing the extension.
 
@@ -96,7 +96,7 @@ Before you start the `python finetuning/invoke_olive.py` command, make sure that
 
 ### Does the extension work in Linux or other systems?
 
-Yes, AI Toolkit runs on Windows, Mac, and Linux.
+Yes, Foundry Toolkit runs on Windows, Mac, and Linux.
 
 ### How can I disable the Conda auto activation from my WSL
 
@@ -116,7 +116,7 @@ Ensure that you request access to Llama through the [Llama 2 sign up page](https
 
 ### I can't save project inside WSL instance
 
-Because remote sessions are currently not supported when running the AI Toolkit actions, you cannot save your project while being connected to WSL. To close remote connections, select "WSL" at the bottom left of the screen and choose "Close Remote Connections".
+Because remote sessions are currently not supported when running the Foundry Toolkit actions, you cannot save your project while being connected to WSL. To close remote connections, select "WSL" at the bottom left of the screen and choose "Close Remote Connections".
 
 ### Error: GitHub API forbidden
 
@@ -125,13 +125,13 @@ We host the project templates in the `microsoft/windows-ai-studio-templates` Git
 See [this issue](https://github.com/microsoft/vscode-ai-toolkit/issues/70#issuecomment-2126089884) for a workaround. The detailed steps are:
 
 1. Sign out GitHub account from VS Code
-1. Reload VS Code and AI Toolkit and you will be asked to sign in GitHub again
+1. Reload VS Code and Foundry Toolkit and you will be asked to sign in GitHub again
 1. **Important:** In the browser's authorize page, make sure to authorize the app to access the Microsoft org
 
     ![Authorize Access](./images/faq/faq-github-api-forbidden.png)
 
 ### Cannot list, load, or download ONNX model
 
-Check the AI Toolkit log in the VS Code Output panel. If you see *Agent* errors or *Failed to get downloaded models*, then close all VS Code instances and reopen VS Code.
+Check the Foundry Toolkit log in the VS Code Output panel. If you see *Agent* errors or *Failed to get downloaded models*, then close all VS Code instances and reopen VS Code.
 
 (*This issue is caused by the underlying ONNX agent unexpectedly closing and the above step is to restart the agent.*)

@@ -1,13 +1,13 @@
 ---
 ContentId: c68118c4-453e-404a-97a5-4509850a2da2
 DateApproved: 03/12/2026
-MetaDescription: Migrate from Local Agent Playground and Local Visualizer to Agent Inspector in AI Toolkit for unified debugging, workflow visualization, and code navigation.
+MetaDescription: Migrate from Local Agent Playground and Local Visualizer to Agent Inspector in Foundry Toolkit for unified debugging, workflow visualization, and code navigation.
 ---
 # Migrate from Local Agent Playground and Local Visualizer to Agent Inspector
 
-In this article, you learn how to migrate your existing AI agent projects from Local Agent Playground and Local Visualizer to Agent Inspector in AI Toolkit. Agent Inspector combines chat, workflow visualization, and debugging support into a single experience.
+In this article, you learn how to migrate your existing AI agent projects from Local Agent Playground and Local Visualizer to Agent Inspector in Foundry Toolkit. Agent Inspector combines chat, workflow visualization, and debugging support into a single experience.
 
-AI Toolkit consolidates the **Local Agent Playground** and **Local Visualizer** into a single, unified experience called **Agent Inspector**. This transition improves your AI agent development workflow.
+Foundry Toolkit consolidates the **Local Agent Playground** and **Local Visualizer** into a single, unified experience called **Agent Inspector**. This transition improves your AI agent development workflow.
 
 ### Developer-centric benefits of Agent Inspector
 
@@ -54,14 +54,14 @@ If your project uses the **Local Visualizer** (via the Microsoft Foundry extensi
 Before you start, make sure you have:
 
 - **Python 3.10+** installed
-- **VS Code AI Toolkit extension** installed (Agent Inspector is part of this extension). For more information, see [install AI Toolkit](/docs/intelligentapps/overview.md#install-and-setup).
+- **VS Code Foundry Toolkit extension** installed (Agent Inspector is part of this extension). For more information, see [install Foundry Toolkit](/docs/intelligentapps/overview.md#install-and-setup).
 - Your agent built with the [Agent Framework SDK (`agent-framework` package)](https://github.com/microsoft/agent-framework).
 
 ### Step 1: Update your observability code
 
 Remove the previous visualizer setup code:
 
-Agent Inspector communicates with your agent server through `agent-dev-cli` and doesn't require OTEL tracing. Remove the following code if you only need workflow visualization. If you want to keep using tracing features in AI Toolkit, change the port to 4317.
+Agent Inspector communicates with your agent server through `agent-dev-cli` and doesn't require OTEL tracing. Remove the following code if you only need workflow visualization. If you want to keep using tracing features in Foundry Toolkit, change the port to 4317.
 
 ```python
 from agent_framework.observability import setup_observability
@@ -78,7 +78,7 @@ Use GitHub Copilot to generate the debug files, or add them manually:
 2. Select **AIAgentExpert** from Agent Mode.
 3. Enter this prompt:
    ```
-   Help me set up the debug environment for the workflow agent to use AI Toolkit Agent Inspector
+   Help me set up the debug environment for the workflow agent to use Foundry Toolkit Agent Inspector
    ```
 4. GitHub Copilot generates the `.vscode/tasks.json` and `.vscode/launch.json` files for you.
 
@@ -172,7 +172,7 @@ pip install debugpy agent-dev-cli
 | Breakpoints not hit | Make sure `debugpy` is installed and port 5679 matches in launch.json |
 | API or framework errors | Agent Framework is actively evolving. Copy terminal errors into Copilot for help |
 
-For additional questions or issues, visit the [AI Toolkit GitHub repository](https://github.com/microsoft/vscode-ai-toolkit/issues).
+For additional questions or issues, visit the [Foundry Toolkit GitHub repository](https://github.com/microsoft/vscode-ai-toolkit/issues).
 
 ## What you learned
 

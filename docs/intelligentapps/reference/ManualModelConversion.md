@@ -5,11 +5,11 @@ MetaDescription: Model Conversion reference about manual model conversion.
 ---
 # Convert models to ONNX format
 
-The AI Toolkit supports the [Open Neural Network Exchange](https://onnx.ai) (ONNX) format for running models locally. ONNX is an open standard for representing machine learning models, defining a common set of operators and a file format that enables models to run across various hardware platforms.
+The Foundry Toolkit supports the [Open Neural Network Exchange](https://onnx.ai) (ONNX) format for running models locally. ONNX is an open standard for representing machine learning models, defining a common set of operators and a file format that enables models to run across various hardware platforms.
 
-To use models from other catalogs, such as Microsoft Foundry or Hugging Face, in the AI Toolkit, you must first convert them to ONNX format.
+To use models from other catalogs, such as Microsoft Foundry or Hugging Face, in the Foundry Toolkit, you must first convert them to ONNX format.
 
-This tutorial guides you through converting Hugging Face models to ONNX format and loading them into the AI Toolkit.
+This tutorial guides you through converting Hugging Face models to ONNX format and loading them into the Foundry Toolkit.
 
 ## Set up the environment
 
@@ -53,12 +53,12 @@ To download models from Hugging Face:
 
 ## Create the directory structure
 
-The AI Toolkit loads ONNX models from its working directory:
+The Foundry Toolkit loads ONNX models from its working directory:
 
 * Windows: `%USERPROFILE%\.aitk\models`
 * Unix-like systems (macOS): `$HOME/.aitk/models`
 
-To ensure your models load correctly, create the required four-layer directory structure within the AI Toolkit's working directory. For example:
+To ensure your models load correctly, create the required four-layer directory structure within the Foundry Toolkit's working directory. For example:
 
 ```powershell
 mkdir C:\Users\Administrator\.aitk\models\microsoft\Phi-3.5-vision-instruct-onnx\cpu\phi3.5-cpu-int4-rtn-block-32
@@ -91,17 +91,17 @@ For more details on precision and execution providers, refer to these tutorials:
 - [Precision basics](https://huggingface.co/docs/optimum/en/concept_guides/quantization)
 - [Execution provider basics](https://onnxruntime.ai/docs/execution-providers)
 
-## Load models into AI Toolkit
+## Load models into Foundry Toolkit
 
-After conversion, move your ONNX model file into the newly created directory. The AI Toolkit automatically loads ONNX models from this directory upon activation.
+After conversion, move your ONNX model file into the newly created directory. The Foundry Toolkit automatically loads ONNX models from this directory upon activation.
 
 You can find your models in the `MY MODELS` view. To use a model, double-click its name or open `TOOLS` > `Playground` and select the model from the dropdown list to start interacting with it.
 
-> Note: The AI Toolkit does not support deleting manually added models directly. To remove a model, delete its directory manually.
+> Note: The Foundry Toolkit does not support deleting manually added models directly. To remove a model, delete its directory manually.
 
 ## Supported models for conversion
 
-The following table lists models supported for conversion to ONNX format in the AI Toolkit:
+The following table lists models supported for conversion to ONNX format in the Foundry Toolkit:
 
 | Support Matrix | Supported now | Under development | On the roadmap |
 | :------------: | :-----------: | :---------------: | :------------: |
