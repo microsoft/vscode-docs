@@ -64,6 +64,11 @@ The [1.109 release notes](./examples/v1_109.md) are a concrete example of an Ins
 
 1. For each issue in the JSON result, run a subagent to update the release notes and TOC with a concise technically accurate summary of the issue. Get more details from the associated PRs if needed. At the end of the summary, include a link to the GH issue which include the issue number and title (format: #12345: Issue title). Group issues under an H2 section that represents the closed date.
 
+### Phrasing guidelines for Insiders entries
+
+- When describing new capabilities, prefer the format "Add support for ..." over "... now supports ...". For example, write "Add support for sorting sessions by date" rather than "The sessions view now supports sorting by date".
+- Avoid using the word "now" in entries. State what changed directly instead. For example, write "Branch names are generated based on the user's prompt" rather than "Branch names are now generated based on the user's prompt".
+
 ## Stable Release Notes
 
 Stable release notes summarize the key features and improvements in a stable release of VS Code. They follow a more structured format with predefined sections for different feature areas. The release is intially created using a template and then updated by the engineering team.
