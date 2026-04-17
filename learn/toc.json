@@ -11,5 +11,20 @@
       ["Debugging agent work", "/learn/foundations/debugging-and-whats-happening-behind-the-scenes"],
       ["Build your first app with agent mode", "/learn/foundations/build-your-first-app-with-agent-mode"]
     ]
+  },
+  {
+    "name": "Customizations",
+    "area": "customizations",
+    "description": "Learn how to customize GitHub Copilot in VS Code using prompt files, instructions, skills, custom agents, and hooks.",
+    "topics": [
+      ["Why customization matters", "/learn/customizations/1-why-customization-matter"],
+      ["Prompt files", "/learn/customizations/2-prompt-files"],
+      ["Instructions", "/learn/customizations/3-instructions"],
+      ["Skills", "/learn/customizations/4-skills"],
+      ["Custom agent", "/learn/customizations/5-custom-agent"],
+      ["Hooks", "/learn/customizations/6-hooks"],
+      ["Customization Features Explained", "/learn/customizations/7-customization Features Explained"],
+      ["Demo", "/learn/customizations/8-demo"]
+    ]
   }
 ]
