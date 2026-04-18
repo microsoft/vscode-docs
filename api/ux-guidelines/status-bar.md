@@ -35,11 +35,11 @@ The [Status Bar](/api/extension-capabilities/extending-workbench#status-bar-item
 
 ### Progress Status Bar item
 
-When needing to show discreet progress (progress happening in the background), it's recommended to show a Status Bar item with the loading icon (you can also add spin animation). If progress needs to be elevated for user attention, we recommend moving to a progress notification.
+When needing to show discrete progress (progress happening in the background), it's recommended to show a Status Bar item with the loading icon (you can also add spin animation). If progress needs to be elevated for user attention, we recommend moving to a progress notification.
 
 ![Status Bar Progress](images/examples/status-bar-progress.png)
 
-*This example shows a progress Status Bar item that is discreet.*
+*This example shows a progress Status Bar item that is discrete.*
 
 
 ### Error and Warning Status Bar Items
