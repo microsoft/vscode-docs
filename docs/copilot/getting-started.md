@@ -1,6 +1,6 @@
 ---
 ContentId: 37fd3bd2-4209-49f6-bec5-c544d6b1b289
-DateApproved: 4/15/2026
+DateApproved: 4/22/2026
 MetaDescription: Build your first app with GitHub Copilot agents in VS Code. Plan features, implement across files, and customize your AI workflow.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
