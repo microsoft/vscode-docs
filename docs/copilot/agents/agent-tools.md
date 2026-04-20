@@ -93,6 +93,9 @@ When you select the **Autopilot** permission level, the agent behaves differentl
 
 Autopilot is available in the Chat view when the `setting(chat.autopilot.enabled)` setting is enabled (on by default).
 
+> [!NOTE]
+> Autopilot uses premium requests in the same way that these are used when you are working in the standard interactive interface. This means that as the agent continues to work autonomously, it can consume multiple requests.
+
 ## Tool approval
 
 Some tools require your approval before they can run. This is a security measure because tools can perform actions that modify files, your environment, or attempt prompt injection attacks through malicious tool output.
