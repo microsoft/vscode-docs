@@ -32,6 +32,7 @@ Use browser agent tools to build and automatically test web applications.
 To complete this tutorial, you need:
 
 * [Visual Studio Code installed on your computer](/download)
+* [Live Preview](https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server) extension installed in VS Code (for previewing the todo app)
 * [A GitHub account](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github) (for cloud agent workflow)
 * [A GitHub Copilot subscription](/docs/copilot/setup.md)
 
@@ -71,6 +72,11 @@ In this step, you use a local agent to create the initial todo app structure. Lo
     * Enable the integrated browser for `localhost` URLs by configuring `setting(workbench.browser.openLocalhostLinks)`
 
     * Open the `index.html` file and select the **Preview** button.
+
+        ![Screenshot showing the Preview button in the top right corner of the editor when an HTML file is open.](../images/agents-tutorial/preview-button.png)
+
+        > [!NOTE]
+        > If you don't see the preview button, make sure you have the [Live Preview](https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server) extension installed.
 
 1. Send additional prompts to enhance the app further. Notice that the preview updates live as you make changes.
 
