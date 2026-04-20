@@ -27,6 +27,9 @@ Follow a hands-on tutorial to build your first app with AI in VS Code.
 * Visual Studio Code installed on your machine. Follow these steps to [set up VS Code](/docs/setup/setup-overview.md).
 * Access to a GitHub Copilot subscription. Follow these steps to [set up GitHub Copilot](/docs/copilot/setup.md). You can set up Copilot Free to get a monthly limit of inline suggestions and chat interactions.
 
+> [!IMPORTANT]
+> **Starting April 20, 2026**, new sign-ups for Copilot Pro, Copilot Pro+, and student plans are temporarily paused. Additionally, we are tightening weekly usage limits. See [GitHub Copilot usage limits](https://docs.github.com/copilot/concepts/usage-limits).
+
 ## Ghost text suggestions
 
 ### Getting your first suggestions
