@@ -74,7 +74,7 @@ AI Agents are VS Code's most powerful AI capability. Given a natural language pr
 
 1. Select **Agent** in the agent dropdown menu to let the AI independently implement your request end-to-end.
 
-    ![Screenshot showing the agent picker in the Chat view.](./images/getting-started/agent-mode-selection.png)
+    ![Screenshot showing the agent picker in the Chat view.](./images/getting-started/agent-mode-selection-2.png)
 
     > [!IMPORTANT]
     > If you don't see the agent option, make sure agents are enabled in your VS Code settings (`setting(chat.agent.enabled)`). Your organization might also have disabled agents - contact your admin to enable this functionality.

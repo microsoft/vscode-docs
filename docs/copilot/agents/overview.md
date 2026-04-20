@@ -82,7 +82,7 @@ If the agent type is _where_ the agent runs, the agent determines _how_ to perfo
 
 Select an agent from the agents dropdown in the Chat view. You can switch between agents at any time during a session.
 
-![Screenshot showing the Chat view with the agent picker expanded, displaying different agent options.](../images/customization/chat-mode-dropdown.png)
+![Screenshot showing the agent picker in the Chat view.](../images/getting-started/agent-mode-selection-2.png)
 
 VS Code has three [built-in agents](/docs/copilot/agents/local-agents.md):
 

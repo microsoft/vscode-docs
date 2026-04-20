@@ -424,15 +424,15 @@
     "name": "Intelligent Apps",
     "area": "intelligentapps",
     "topics": [
-      ["AI Toolkit Overview", "/docs/intelligentapps/overview"],
-      ["AI Toolkit Copilot Tools", "/docs/intelligentapps/copilot-tools"],
+      ["Foundry Toolkit Overview", "/docs/intelligentapps/overview"],
+      ["Foundry Toolkit Copilot Tools", "/docs/intelligentapps/copilot-tools"],
+      ["Create Agents", "/docs/intelligentapps/create-agents"],
       ["Models", "/docs/intelligentapps/models"],
       ["Playground", "/docs/intelligentapps/playground"],
       ["Agent Builder", "/docs/intelligentapps/agentbuilder"],
       ["Agent Inspector", "/docs/intelligentapps/agent-inspector"],
-      ["Migrating from Visualizer to Agent Inspector", "/docs/intelligentapps/migrate-from-visualizer"],
-      ["Bulk Run", "/docs/intelligentapps/bulkrun"],
       ["Evaluation", "/docs/intelligentapps/evaluation"],
+      ["Tool Catalog", "/docs/intelligentapps/tool-catalog"],
       ["Fine-Tuning (Automated Setup)", "/docs/intelligentapps/finetune"],
       ["Fine-Tuning (Project Template)", "/docs/intelligentapps/finetune-legacy"],
       ["Model Conversion", "/docs/intelligentapps/modelconversion"],
@@ -446,8 +446,9 @@
           ["File Structure", "/docs/intelligentapps/reference/FileStructure"],
           ["Manual Model Conversion", "/docs/intelligentapps/reference/ManualModelConversion"],
           ["Manual Model Conversion on GPU", "/docs/intelligentapps/reference/ManualConversionOnGPU"],
-          ["Setup Environment Without AI Toolkit", "/docs/intelligentapps/reference/SetupWithoutAITK"],
-          ["Template Project", "/docs/intelligentapps/reference/TemplateProject"]
+          ["Setup Environment Without Foundry Toolkit", "/docs/intelligentapps/reference/SetupWithoutAITK"],
+          ["Template Project", "/docs/intelligentapps/reference/TemplateProject"],
+          ["Migrating from Visualizer to Agent Inspector", "/docs/intelligentapps/reference/migrate-from-visualizer"]
         ]
       }
       ]

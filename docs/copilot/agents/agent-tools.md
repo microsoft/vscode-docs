@@ -256,7 +256,7 @@ For an overview of how sandboxing works, what it protects against, and OS-level 
 
 Agent sandboxing restricts file system and network access for commands executed by the agent. When sandboxing is enabled, terminal commands are auto-approved without requiring user confirmation, because they run in a controlled environment.
 
-To enable agent sandboxing, set the `setting(chat.agent.sandbox)` setting to `true`.
+To enable agent sandboxing, set the `setting(chat.agent.sandbox.enabled)` setting to `true`.
 
 When sandboxing is enabled:
 
@@ -270,13 +270,13 @@ When sandboxing is enabled:
 
 #### Configure file system access
 
-Use the `setting(chat.agent.sandboxFileSystem.linux)` or `setting(chat.agent.sandboxFileSystem.mac)` setting to control file system access.
+Use the `setting(chat.agent.sandbox.FileSystem.linux)` or `setting(chat.agent.sandbox.FileSystem.mac)` setting to control file system access.
 
 You can specify allow rules for write access and deny rules for both read and write access. These rules don't support glob patterns. The `denyWrite` and `denyRead` rules take precedence over `allowWrite` rules.
 
 ```jsonc
 {
-  "chat.agent.sandboxFileSystem.mac": {
+  "chat.agent.sandbox.FileSystem.mac": {
     // Allow writes to the working directory
     "allowWrite": ["."],
     // Block writes to specific subdirectories
