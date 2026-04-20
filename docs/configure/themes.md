@@ -157,7 +157,7 @@ You can override the theme setting by:
 
 ```json
 "editor.semanticTokenColorCustomizations": {
-    "[Rouge]": {
+    "[Rogue]": {
         "enabled": true
     }
 }
@@ -169,7 +169,7 @@ Additional styling rules can be configured in `editor.semanticTokenColorCustomiz
 
 ```json
 "editor.semanticTokenColorCustomizations": {
-    "[Rouge]": {
+    "[Rogue]": {
         "enabled": true,
         "rules": {
             "*.declaration": { "bold": true }
