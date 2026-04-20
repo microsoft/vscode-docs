@@ -79,6 +79,9 @@ The permissions picker in the Chat view controls how much autonomy the agent has
 
 The permission level applies to the current chat session. You can change it at any time during a session by selecting a different level from the permissions picker. You can stop the agent at any time by selecting the stop button.
 
+> [!TIP]
+> By default, new chat sessions start with the **Default Approvals** level. To persist your preferred permission level across sessions, configure the `setting(chat.permissions.default)` setting.
+
 ### How Autopilot works
 
 > [!NOTE]

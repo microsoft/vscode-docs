@@ -102,6 +102,8 @@ Agents perform tasks autonomously, but you can control how much autonomy they ha
 | **Bypass Approvals** | Auto-approves all tool calls without confirmation dialogs. The agent might ask clarifying questions as it works. |
 | **Autopilot** (Preview) | Auto-approves all tool calls, auto-responds to questions, and the agent continues working autonomously until the task is complete. |
 
+To persist your preferred permission level across sessions, configure the `setting(chat.permissions.default)` setting.
+
 Learn more about [permission levels and Autopilot](/docs/copilot/agents/agent-tools.md#permission-levels).
 
 ## Hand off a session to another agent
