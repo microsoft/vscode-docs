@@ -26,6 +26,9 @@ Use chat in VS Code to generate the sample application in one go.
     > [!TIP]
     > If you don't have a Copilot subscription, you can sign up to use Copilot for free directly from within VS Code and get a monthly limit of inline suggestions and chat interactions.
 
+    > [!IMPORTANT]
+    > **Starting April 20, 2026**, new sign-ups for Copilot Pro, Copilot Pro+, and student plans are temporarily paused. Additionally, we are tightening weekly usage limits. See [GitHub Copilot usage limits](https://docs.github.com/copilot/concepts/usage-limits).
+
 ## Step 1: Experience inline suggestions
 
 AI-powered inline suggestions appear as you type, helping you write code faster and with fewer errors. Let's start building the foundation of your task manager.

@@ -159,6 +159,9 @@ To learn more about Copilot's security, privacy, compliance, and transparency, s
 
 ## Pricing
 
+> [!IMPORTANT]
+> **Starting April 20, 2026**, new sign-ups for Copilot Pro, Copilot Pro+, and student plans are temporarily paused. Additionally, we are tightening weekly usage limits. See [GitHub Copilot usage limits](https://docs.github.com/copilot/concepts/usage-limits).
+
 You can start using GitHub Copilot for free with monthly limits on inline suggestions and chat interactions. For more extensive usage, you can choose from various paid plans.
 
 [View detailed GitHub Copilot pricing](https://docs.github.com/en/copilot/get-started/plans)
