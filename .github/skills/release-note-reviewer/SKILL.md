@@ -108,6 +108,11 @@ Follow the VS Code release notes writing style:
 * The welcome paragraph does not contain TODO placeholders.
 * Standard H2 sections are present and in the expected order (see the [template](../../../templates/template-release-note-endgame.md) for canonical order).
 * Each feature section has a descriptive H3 title and a clear explanation of the change and its benefit.
+* Each feature section opens with a user benefit or problem statement, not just a mechanism description.
+* For features that span multiple releases, the entry re-establishes context in 1-2 sentences so it stands on its own without requiring readers to consult earlier notes.
+* Admin and policy features address both the administrative use case and the developer-facing impact.
+* No vague claims like "improved support" or "more efficient" without a concrete example or before/after comparison.
+* When multiple features relate to the same theme, they are grouped and led by the most impactful one.
 * `Notable fixes` and `Thank you` sections are present at the end (skip their content during review).
 
 #### Insiders-only checklist
