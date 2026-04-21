@@ -599,12 +599,12 @@ INPUT=$(cat)
 TOOL_NAME=$(echo "$INPUT" | jq -r '.tool_name')
 TOOL_INPUT=$(echo "$INPUT" | jq -r '.tool_input')
 
-if [ "$TOOL_NAME" = "runTerminalCommand" ]; then
+if [ "$TOOL_NAME" = "run_in_terminal" ]; then
   COMMAND=$(echo "$TOOL_INPUT" | jq -r '.command // empty')
 
   if echo "$COMMAND" | grep -qE '(rm\s+-rf|DROP\s+TABLE|DELETE\s+FROM)'; then
     echo '{"hookSpecificOutput":{"permissionDecision":"deny","permissionDecisionReason":"Destructive command blocked by security policy"}}'
-    exit 0
+    exit 2
   fi
 fi
 
@@ -717,7 +717,7 @@ INPUT=$(cat)
 TOOL_NAME=$(echo "$INPUT" | jq -r '.tool_name')
 
 # Tools that should always require approval
-SENSITIVE_TOOLS="runTerminalCommand|deleteFile|pushToGitHub"
+SENSITIVE_TOOLS="run_in_terminal|deleteFile|pushToGitHub"
 
 if echo "$TOOL_NAME" | grep -qE "^($SENSITIVE_TOOLS)$"; then
   echo '{"hookSpecificOutput":{"permissionDecision":"ask","permissionDecisionReason":"This operation requires manual approval"}}'
