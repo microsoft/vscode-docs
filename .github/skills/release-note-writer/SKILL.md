@@ -92,3 +92,25 @@ Use [this template](../../../templates/template-release-note-endgame.md) for gen
 1. If there is an existing release note for the specified version, and it's an Insiders release note, replace the content with the Stable release note template content.
 
 1. If there is an existing Stable release note for the specified version, perform a code review of the existing release note to ensure it adheres to the writing guidelines. Suggest improvements as needed.
+
+### Value proposition and feature framing
+
+The [writing instructions](../../instructions/release-notes-writing.instructions.md) define the value-proposition and feature-continuity rules. When writing Stable entries, keep these essentials top of mind:
+
+* Open each entry with the user benefit or the problem being solved, then explain mechanics.
+* For multi-release features, re-establish context in 1-2 sentences so the entry stands on its own.
+* For admin/policy features, cover both the admin use case and the developer-facing impact.
+* Prefer concrete examples and before/after comparisons over vague claims.
+
+### Verify context gaps with the user
+
+After a first pass of all feature sections, review the draft for gaps you cannot resolve from the issue, PR, or existing docs. Batch all gaps into a single ask-questions prompt rather than interrupting per section. Ask when:
+
+* **Value prop unclear**: You cannot confidently write a benefit-first opening from the source material.
+* **Multi-release context missing**: A feature builds on prior work but you cannot find earlier entries to reference.
+* **Audience ambiguous**: Framing differs depending on whether the audience is developers, admins, or extension authors.
+* **Docs coverage thin**: A feature references a concept that is undocumented or only mentioned as a sidenote, and you need guidance on how much to explain inline.
+
+For each gap, include your best-guess draft so the user can confirm or correct rather than write from scratch.
+
+Before asking, search the `docs/` folder for any referenced concepts. If docs coverage is thorough, link to the page and skip the question. Only flag concepts where coverage is thin or absent.

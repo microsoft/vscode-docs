@@ -1,6 +1,6 @@
 ---
 ContentId: f6a7b8c9-0d1e-2f3a-4b5c-6d7e8f9a0b1c
-DateApproved: 4/15/2026
+DateApproved: 4/22/2026
 MetaDescription: Learn about the AI customization options in VS Code, including instructions, prompt files, custom agents, skills, hooks, and plugins.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:

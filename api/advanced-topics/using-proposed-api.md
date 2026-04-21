@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: f4d4e9e0-8901-405c-aaf5-faa16c32588b
-DateApproved: 4/15/2026
+DateApproved: 4/22/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Use Visual Studio Code's Proposed API
@@ -11,7 +11,7 @@ MetaDescription: Use Visual Studio Code's Proposed API
 
 At Visual Studio Code, we take Extension API compatibility seriously. We give our best effort to avoid breaking API changes, and extension authors could expect published extensions to continue to work. However, this puts great limitation on us: once we introduce an API, we cannot easily change it anymore.
 
-Proposed APIs solve the problem for us. Proposed APIs are a set of unstable APIs that are implemented in VS Code but not exposed to the public as stable APIs does. They are **subject to change**, **only available in Insiders distribution** and **cannot be used in published extensions**. Nevertheless, extension authors could test these new APIs in local development and provide feedback for VS Code team to iterate on an API. Eventually, proposed APIs find their way into the stable API and becomes available for all extensions.
+Proposed APIs solve the problem for us. Proposed APIs are a set of unstable APIs that are implemented in VS Code but not exposed to the public as stable APIs does. They are **subject to change**, **only available in Insiders distribution** and **should not be used in published extensions**. Nevertheless, extension authors could test these new APIs in local development and provide feedback for VS Code team to iterate on an API. Eventually, proposed APIs find their way into the stable API and becomes available for all extensions.
 
 ## Using a proposed API
 
@@ -44,7 +44,7 @@ You can solve this issue by either:
 
 ## Sharing extensions using the proposed API
 
-While you're not able to publish extensions using the proposed API on the Marketplace, you can still share your extension with your peers by packaging and sharing your extension.
+While you should not publish extensions using the proposed API on the Marketplace, you can still share your extension with your peers by packaging and sharing your extension.
 
 To package your extension, you can run `vsce package` to create a VSIX file of your extension. You can then share this VSIX file to others to install the extension in their VS Code.
 

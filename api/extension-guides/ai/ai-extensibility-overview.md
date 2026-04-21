@@ -1,6 +1,6 @@
 ---
 ContentId: e375ec2a-43d3-4670-96e5-fd25a6aed272
-DateApproved: 4/15/2026
+DateApproved: 4/22/2026
 MetaDescription: Overview of how to extend the AI features in your Visual Studio Code extension by using the Language Model, Tools, and Chat APIs.
 ---
 # AI extensibility in VS Code

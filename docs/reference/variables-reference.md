@@ -1,6 +1,6 @@
 ---
 ContentId: ff9cd4ea-e3f0-4170-9451-2f2ea2b909ea
-DateApproved: 4/15/2026
+DateApproved: 4/22/2026
 MetaDescription: Visual Studio Code variable substitution reference
 ---
 # Variables reference

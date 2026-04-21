@@ -1,6 +1,6 @@
 ---
 ContentId: 8b3c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7e
-DateApproved: 4/15/2026
+DateApproved: 4/22/2026
 MetaDescription: Learn how to use third-party agents like Claude Agent and OpenAI Codex for autonomous coding tasks in VS Code, powered by your GitHub Copilot subscription.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
