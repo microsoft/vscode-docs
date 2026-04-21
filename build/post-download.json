@@ -1,9 +1,9 @@
 {
   "featured": {
-    "title": "Full terminal access for agents",
-    "description": "Agents now work with any terminal session in VS Code: REPLs, scripts, installers, and more. Improved input handling and background notifications keep things moving without manual polling.",
-    "link": "/updates/v1_116",
-    "image": "/assets/updates/1_116/release-highlights.webp"
+    "title": "Bring your own AI provider keys",
+    "description": "Copilot Business and Enterprise users can now use their own API keys to access models from OpenRouter, Ollama, Google, OpenAI, and more in chat. Plus smoother chat rendering and smarter terminal titles for agent CLIs.",
+    "link": "/updates/v1_117",
+    "image": "/assets/updates/1_117/release-highlights.webp"
   },
   "highlights": [
     {
