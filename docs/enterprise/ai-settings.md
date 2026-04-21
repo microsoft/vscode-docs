@@ -1,6 +1,6 @@
 ---
 ContentId: f8a9c3d2-4e7b-5f1a-b6c8-9d0e2f3a7b4c
-DateApproved: 4/15/2026
+DateApproved: 4/22/2026
 MetaDescription: Learn how to centrally manage AI settings in VS Code for enterprise environments, including agent mode, MCP servers, and tool approvals.
 ---
 
@@ -114,6 +114,30 @@ Organizations should recommend that developers enable [agent sandboxing](/docs/c
 The `ChatAgentSandboxEnabled` policy controls whether agent sandboxing is enabled or disabled. This configures the `setting(chat.agent.sandbox.enabled)` setting in VS Code.
 
 When set to `true`, agent-executed terminal commands run inside a sandbox environment with restricted permissions. When set to `false`, no sandbox is applied.
+
+## Configure agent network filtering
+
+Network filtering restricts which domains agent tools (fetch tool, integrated browser) can access during chat sessions. When enabled, agents can only reach domains that are explicitly allowed by the configured domain lists.
+
+### Enable network filtering
+
+The `ChatAgentNetworkFilter` policy enables network domain filtering for agent tools. This configures the `setting(chat.agent.networkFilter)` setting in VS Code.
+
+When the policy is set to `true`, network access by agent tools is restricted according to the allowed and denied domain lists. When set to `false` (the default), no network filtering is applied.
+
+When both domain lists are empty and the filter is enabled, all network access by agent tools is blocked.
+
+### Configure allowed domains
+
+The `ChatAgentAllowedNetworkDomains` policy controls which domains agent tools are permitted to access. This configures the `setting(chat.agent.allowedNetworkDomains)` setting in VS Code.
+
+Provide a list of domain patterns. Wildcards are supported, for example `*.example.com`. When [agent sandboxing](/docs/copilot/concepts/trust-and-safety.md#agent-sandboxing) is also enabled, these domain rules additionally apply to terminal commands executed by the agent.
+
+### Configure denied domains
+
+The `ChatAgentDeniedNetworkDomains` policy controls which domains agent tools are blocked from accessing. This configures the `setting(chat.agent.deniedNetworkDomains)` setting in VS Code.
+
+Denied domains always take precedence over allowed domains. Wildcards are supported, for example `*.example.com`.
 
 ## Configure agent network filtering
 

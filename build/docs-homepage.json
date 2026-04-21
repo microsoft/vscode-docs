@@ -46,10 +46,10 @@
   "latest": [
     {
       "type": "release",
-      "title": "VS Code 1.116 release",
-      "description": "Full terminal access for agents. Interact with any terminal session, with improved input handling and background notifications.",
-      "link": "/updates/v1_116",
-      "image": "/assets/updates/1_116/release-highlights.webp"
+      "title": "VS Code 1.117 release",
+      "description": "Bring your own AI provider keys for Copilot Business and Enterprise, with smoother chat rendering and smarter terminal titles for agent CLIs.",
+      "link": "/updates/v1_117",
+      "image": "/assets/updates/1_117/release-highlights.webp"
     },
     {
       "type": "documentation",

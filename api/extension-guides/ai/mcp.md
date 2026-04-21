@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: e655f324-ed0b-452d-aff3-52cdca3978a5
-DateApproved: 4/15/2026
+DateApproved: 4/22/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A comprehensive guide for developers building MCP servers that work with Visual Studio Code.

@@ -1,6 +1,6 @@
 ---
 ContentId: 7c4b8b5e-2d3f-4e8a-9b2c-1a5d6f8e9c0b
-DateApproved: 4/15/2026
+DateApproved: 4/22/2026
 MetaDescription: Learn about different types of AI agents in VS Code, including local agents, Copilot CLI for running in the background, and cloud agents.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -101,6 +101,8 @@ Agents perform tasks autonomously, but you can control how much autonomy they ha
 | **Default Approvals** | Uses the approvals as specified in VS Code settings. By default, only read-only and safe tools don't require explicit approval. |
 | **Bypass Approvals** | Auto-approves all tool calls without confirmation dialogs. The agent might ask clarifying questions as it works. |
 | **Autopilot** (Preview) | Auto-approves all tool calls, auto-responds to questions, and the agent continues working autonomously until the task is complete. |
+
+To persist your preferred permission level across sessions, configure the `setting(chat.permissions.default)` setting.
 
 Learn more about [permission levels and Autopilot](/docs/copilot/agents/agent-tools.md#permission-levels).
 

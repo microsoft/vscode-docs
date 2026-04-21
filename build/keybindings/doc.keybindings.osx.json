@@ -1141,6 +1141,21 @@
 { "key": "up",                    "command": "selectPrevCodeAction" },
 { "key": "space",                 "command": "toggleSectionCodeAction" },
 { "key": "escape",                "command": "clearFilterCodeActionWidget" },
-{ "key": "escape",                "command": "diffEditor.exitCompareMove" }
+{ "key": "escape",                "command": "diffEditor.exitCompareMove" },
+{ "key": "shift+cmd+.",           "command": "github.copilot.chat.copilotCLI.addFileReference" },
+{ "key": "alt+cmd+.",             "command": "github.copilot.chat.rerunWithCopilotDebug" },
+{ "key": "cmd+enter",             "command": "github.copilot.nes.captureExpected.confirm" },
+{ "key": "escape",                "command": "github.copilot.nes.captureExpected.abort" },
+{ "key": "cmd+k alt+cmd+s",       "command": "git.stageSelectedRanges" },
+{ "key": "cmd+k cmd+n",           "command": "git.unstageSelectedRanges" },
+{ "key": "cmd+k cmd+r",           "command": "git.revertSelectedRanges" },
+{ "key": "shift+cmd+v",           "command": "markdown.showPreview" },
+{ "key": "cmd+k v",               "command": "markdown.showPreviewToSide" },
+{ "key": "f10",                   "command": "extension.node-debug.startWithStopOnEntry" },
+{ "key": "f11",                   "command": "extension.node-debug.startWithStopOnEntry" },
+{ "key": "shift+alt+f12",         "command": "references-view.findReferences" },
+{ "key": "f4",                    "command": "references-view.next" },
+{ "key": "shift+f4",              "command": "references-view.prev" },
+{ "key": "shift+alt+h",           "command": "references-view.showCallHierarchy" }
 ]
 

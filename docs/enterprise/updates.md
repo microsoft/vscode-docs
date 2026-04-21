@@ -1,6 +1,6 @@
 ---
 ContentId: 2c4d6e8f-0a1b-3c5d-7e9f-1a2b3c4d5e6f
-DateApproved: 4/15/2026
+DateApproved: 4/22/2026
 MetaDescription: Learn how to centrally manage VS Code automatic updates in enterprise environments, including update modes and deployment strategies.
 ---
 

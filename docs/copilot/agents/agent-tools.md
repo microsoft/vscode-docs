@@ -1,6 +1,6 @@
 ---
 ContentId: 8f2c4a1d-9e3b-4c5f-a7d8-6b9c2e4f1a3d
-DateApproved: 4/15/2026
+DateApproved: 4/22/2026
 MetaDescription: Learn how to use built-in tools, MCP tools, and extension tools to extend chat in VS Code with specialized functionality.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 keywords:
@@ -79,6 +79,9 @@ The permissions picker in the Chat view controls how much autonomy the agent has
 
 The permission level applies to the current chat session. You can change it at any time during a session by selecting a different level from the permissions picker. You can stop the agent at any time by selecting the stop button.
 
+> [!TIP]
+> By default, new chat sessions start with the **Default Approvals** level. To persist your preferred permission level across sessions, configure the `setting(chat.permissions.default)` setting.
+
 ### How Autopilot works
 
 > [!NOTE]
@@ -92,6 +95,9 @@ When you select the **Autopilot** permission level, the agent behaves differentl
 * **Auto-respond to questions**: tools that normally block and ask your input, such as clarifying questions, auto-respond so the agent does not stall waiting for a reply. This behavior is specific to **Autopilot** and does not apply to **Bypass Approvals**.
 
 Autopilot is available in the Chat view when the `setting(chat.autopilot.enabled)` setting is enabled (on by default).
+
+> [!NOTE]
+> Autopilot uses premium requests in the same way that these are used when you are working in the standard interactive interface. This means that as the agent continues to work autonomously, it can consume multiple requests.
 
 ## Tool approval
 
