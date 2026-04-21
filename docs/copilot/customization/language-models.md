@@ -117,7 +117,7 @@ Hover over a model in the list and select the eye icon to show or hide the model
 ## Bring your own language model key
 
 > [!NOTE]
-> If you are a Copilot Business or Enterprise user, your administrator must enable the **Bring Your Own Language Model Key in VS Code** policy in the [Copilot policy settings](https://github.com/settings/copilot/features) on GitHub.com.
+> If you are a Copilot Business or Enterprise user, your administrator must enable the **Bring Your Own Language Model Key** policy in the [Copilot policy settings](https://github.com/settings/copilot/features) on GitHub.com.
 
 GitHub Copilot in VS Code comes with a variety of built-in language models that are optimized for different tasks. If you want to use a model that is not available as a built-in model, you can bring your own language model API key (BYOK) to use models from other providers.
 
