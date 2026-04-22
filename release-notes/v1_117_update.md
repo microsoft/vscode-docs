@@ -16,7 +16,7 @@
   ],
   "buttons": [
     {
-      "label": "Read the release notes",
+      "label": "Release Notes",
       "commandId": "update.showCurrentReleaseNotes",
       "style": "primary"
     }
