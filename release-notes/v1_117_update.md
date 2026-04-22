@@ -1,6 +1,5 @@
 ---
 {
-  "badge": "1.117",
   "title": "What's new in VS Code",
   "features": [
     {
