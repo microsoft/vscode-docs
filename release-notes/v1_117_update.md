@@ -18,11 +18,6 @@
     {
       "label": "Read the release notes",
       "commandId": "update.showCurrentReleaseNotes",
-      "style": "secondary"
-    },
-    {
-      "label": "Open Chat",
-      "commandId": "update.showCurrentReleaseNotes",
       "style": "primary"
     }
   ]
