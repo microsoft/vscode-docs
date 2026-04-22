@@ -75,7 +75,7 @@ GitHub Copilot has AI powered domain experts that you can mention with the `@` s
 
 GitHub Copilot will also do intent detection (as seen in the video) and include the `@workspace` automatically if it sees you are asking a question that requires full project context.
 
-**Try this:** Type `/help` into the chat prompt to see a list of all the particpants in GitHub Copilot and their various areas of expertise, as well as slash commands that can greatly reduce prompting.
+**Try this:** Type `/help` into the chat prompt to see a list of all the participants in GitHub Copilot and their various areas of expertise, as well as slash commands that can greatly reduce prompting.
 
 ## Naming things and other hard problems
 
@@ -117,7 +117,7 @@ Every VS Code extension can tie directly into the GitHub Copilot APIs and offer 
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/MLWlWrRAb4w?si=FzYwY_lOLUlfOmQ7" title="VS Code MongoDB extension" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-**Try this:** Build your own extension for GitHub Copilot using GitHub Copilot! We've created some new tutorials that show you how to [build a code tutor chat paricipant](https://code.visualstudio.com/api/extension-guides/chat-tutorial) or [generate AI-powered code annotations](https://code.visualstudio.com/api/extension-guides/language-model-tutorial).
+**Try this:** Build your own extension for GitHub Copilot using GitHub Copilot! We've created some new tutorials that show you how to [build a code tutor chat participant](https://code.visualstudio.com/api/extension-guides/chat-tutorial) or [generate AI-powered code annotations](https://code.visualstudio.com/api/extension-guides/language-model-tutorial).
 
 ## A vision for the future
 
