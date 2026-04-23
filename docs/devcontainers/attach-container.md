@@ -61,7 +61,7 @@ Finally, if you have extensions you want installed regardless of the container y
 
 ## Attached container configuration reference
 
-Attached container configuration files are similar to [devcontainer.json](https://containers.dev/implementors/json_reference) and supports a subset of its properties.
+Attached container configuration files are similar to [devcontainer.json](https://containers.dev/implementors/json_reference) and support a subset of its properties.
 
 | Property | Type | Description |
 |----------|------|-------------|
