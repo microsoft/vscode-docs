@@ -67,7 +67,7 @@ You can open chat sessions in different views, depending on how you prefer to wo
 
 * **Maximized**: select the **Maximize** button in the Chat view title bar, or run the **View: Toggle Maximized Panel** command. The chat takes over the full editor area, giving it maximum space. Select the button again to restore the previous layout.
 
-* **Agents App**: a dedicated companion app where agents are the primary experience. Best for prompt-first workflows where you want to focus entirely on describing tasks and managing agents. Run the **Chat: Open Agents Application** command, or use `code --agents` from the command line. Learn more about the [Agents App](/docs/copilot/agents-app.md).
+* **Agents App**: a dedicated companion app where agents are the primary experience. Best for agent-first workflows where you want to focus entirely on describing tasks and managing agents. Run the **Chat: Open Agents Application** command, or use `code --agents` from the command line. Learn more about the [Agents App](/docs/copilot/agents-app.md).
 
 You can move a chat session between views at any time. Select the `...` menu in the Chat view, editor tab, or chat window and choose one of the **Move Chat into...** options. Alternatively, use the corresponding **Chat: Move Chat** commands from the Command Palette.
 

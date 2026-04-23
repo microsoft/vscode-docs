@@ -1,7 +1,7 @@
 ---
 ContentId: b3e7a1d4-5f2c-4e9a-8b6d-1c0f3a2e5d47
 DateApproved: 3/25/2026
-MetaDescription: Use the standalone VS Code Agents application for a prompt-first coding experience where agents and chat are the primary interface to build with AI.
+MetaDescription: Use the standalone VS Code Agents application for an agent-first coding experience where agents and chat are the primary interface to build with AI.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
 # Use the VS Code Agents application
@@ -16,7 +16,7 @@ The Agents application is installed together with VS Code and runs as a separate
 > [!NOTE]
 > The Agents application is currently in preview.
 
-## Code-first vs. prompt-first
+## Code-first vs. agent-first
 
 There are two ways to work with AI in VS Code:
 
@@ -135,11 +135,23 @@ Select any item to view its configurations. Create new items or edit existing on
 
 <!-- TODO: screenshot of the Customizations panel -->
 
+## Reviewing changes
+
+TODO
+
+mention that you can comment inside the diff view and the agent will pick up those comments and adjust accordingly.
+
+## Merging changes and creating pull requests
+
+TODO
+
 ## Switch to another GitHub account
 
 TODO
 
 ## Limitations
+
+* You can start the integrated browser from the Command Palette or by selecting links. The agent can't open the integrated browser for you for now.
 
 * Only supports sessions with Copilot CLI and Copilot Cloud agents. To use local or third-party CLI agents, manage your sessions from the main VS Code window.
 
