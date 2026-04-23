@@ -210,7 +210,7 @@ Building progressive tool discovery taught us lessons that apply broadly to anyo
 
 5. **Use the platform's native primitives.** Anthropic's `defer_loading` and `tool_reference` blocks and OpenAI's `tool_search` with client-executed mode gave us the right abstractions. We just brought our own search quality.
 
-The result: VS Code's agent can access 200+ tools while paying the token cost of ~30 on most turns, with sub-millisecond discovery when it needs more. The model barely notices the difference, but your prompt cache, your latency, and your token bill certainly do.
+The result: VS Code's agent can access 200+ tools while paying the token cost of ~30 on most turns, with sub-millisecond discovery when it needs more. The model barely notices the difference, but your prompt cache and your latency certainly do.
 
 Looking ahead, we're exploring **personalized deferral**: instead of a static list of always-available tools, use each developer's actual usage patterns to decide what stays loaded. A data scientist would keep notebook tools always available. A web developer would keep browser tools. The core set adapts to you.
 
