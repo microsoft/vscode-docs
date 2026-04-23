@@ -161,7 +161,7 @@ If you are using WSL 2 and [Docker Desktop's WSL 2 back-end](https://docs.docker
 
     ![Dev Container Progress Notification](images/wsl/dev-container-progress.png)
 
-7. After the build completes, VS Code will automatically connect to the container. You can now work with the your source code from inside the container.
+7. After the build completes, VS Code will automatically connect to the container. You can now work with your source code from inside the container.
 
 See the [Dev Containers documentation](/docs/devcontainers/containers.md) for more information.
 
