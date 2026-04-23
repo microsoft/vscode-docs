@@ -277,7 +277,7 @@ For example:
 }
 ```
 
-See the [devcontainer.json reference](https://containers.dev/implementors/json_reference) for information other available properties such as the `workspaceFolder` and `shutdownAction`.
+See the [devcontainer.json reference](https://containers.dev/implementors/json_reference) for information on other available properties such as the `workspaceFolder` and `shutdownAction`.
 
 Once you have added a `.devcontainer/devcontainer.json` file to your folder, run the **Dev Containers: Reopen in Container** command (or **Dev Containers: Open Folder in Container...** if you are not yet in a container) from the Command Palette (`kbstyle(F1)`).
 
