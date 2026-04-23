@@ -76,7 +76,7 @@ To start a new agent session:
 
 1. Use the workspace dropdown to select a local folder or GitHub repository for the session.
 
-    New local folder sessions always use the Copilot CLI agent. You can hand off a session to a Copilot Cloud agent at any time during the session.
+    All new sessions use the Copilot CLI agent. You can use **Continue In** to hand off to a Copilot Cloud agent at any time during the session.
 
 1. Choose between workspace and worktree [isolation](/docs/copilot/agents/copilot-cli.md#isolation-modes) for the session.
 
@@ -91,9 +91,57 @@ To start a new agent session:
     The agent breaks your task into steps, writes code, runs commands, and self-corrects when something goes wrong. Continue the conversation to refine the results or change direction.
 
 > [!TIP]
-> Use the `+` button in the chat input to add extra context to the session, such as files, images, and more.
+> To run a session on a remote machine via SSH or dev tunnel, see [Open a session on a remote machine](#open-a-session-on-a-remote-machine). This is useful when you need to check the agent's work or start a new session while you're away from your main development machine.
 
 <!-- TODO: screenshot or video of a session in progress -->
+
+## Open a session on a remote machine
+
+
+You can connect to a remote machine to start a session there or track the progress of an existing session running on that machine. This is useful when you're away from your main development machine but still want to check in on your agent's work, or to take advantage of the remote machine's resources, such as specialized hardware or a specific environment configuration.
+
+The Agents application connects to the remote machine using the Agent Host Protocol (AHP) over SSH or a dev tunnel. When you connect, the application automatically installs and starts the Copilot CLI on the remote machine. This also means that the remote machine must be powered on and accessible over the network.
+
+> [!NOTE]
+> You can also connect to a remote machine from the browser-based version of the Agents application by using a dev tunnel connection.
+
+<!-- TODO: screenshot of the remote machine connection dialog -->
+
+### Connect via SSH
+
+**Prerequisite**: the remote machine must be accessible over SSH. No extra agent installation is needed on the remote machine.
+
+To start a session on a remote machine via SSH:
+
+1. Select **+ Session** to start a new session.
+
+1. In the workspace dropdown, select **SSH**. If you've already set up SSH connections, they will appear as options in the dropdown.
+
+1. Enter the SSH connection string for the remote machine (for example, `user@hostname`).
+
+1. Select the folder on the remote machine to use for the session.
+
+1. Type a prompt and press `kbstyle(Enter)` to start the session.
+
+### Connect via dev tunnel
+
+**Prerequisites**:
+
+* A dev tunnel is already running on the remote machine. See [Developing with Remote Tunnels](/docs/remote/tunnels.md) for setup instructions.
+
+To start a session on a remote machine via dev tunnel:
+
+1. Select **+ Session** to start a new session.
+
+1. In the workspace dropdown, select **Tunnels** and choose your account type.
+
+1. Choose the active dev tunnel from the list.
+
+1. Select the folder on the remote machine to use for the session.
+
+1. Type a prompt and press `kbstyle(Enter)` to start the session.
+
+<!-- TODO: explain difference with /remote in Copilot CLI session -->
 
 ## Monitor and resume sessions
 
