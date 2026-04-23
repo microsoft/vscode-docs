@@ -21,8 +21,6 @@ In this guide, we’ll build an app from scratch and use multiple customization 
 
 The app we’re building is called **Repo Analyzer**.
 
-![Repo Analyzer](../images/customizations/ep%208.1%20Repo%20Analyzer.png)
-
 Its purpose is simple: take in the URL of a GitHub repository, analyze the codebase, and grade the quality of the project on a scale from 1 to 10\.
 
 It also provides recommendations to improve the score, helping developers understand what changes could make the project stronger.
@@ -65,6 +63,8 @@ The result is a working first version of the app, complete with styling and vali
 ## **Testing the App**
 
 Once the app is generated, it can be tested against real repositories.
+
+![Repo Analyzer](../images/customizations/ep%208.1%20Repo%20Analyzer.png)
 
 For example, entering the URL of a GitHub project returns:
 
