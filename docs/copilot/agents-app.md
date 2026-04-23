@@ -6,7 +6,7 @@ MetaSocialImage: images/shared/github-copilot-social.png
 ---
 # Use the VS Code Agents application
 
-The VS Code Agents application is a dedicated application for building software with AI agents through a prompt-first approach. You focus on describing tasks to be done and monitoring progress, while agents handle the implementation. Work on a single task at a time, or run multiple sessions in parallel across CLI and cloud agents to tackle several tasks at once. The Agents application gives you a central place to coordinate all of that activity.
+The VS Code Agents application is a dedicated application for building software with AI agents through a an agent-first approach. You focus on describing tasks to be done and monitoring progress, while agents handle the implementation. Work on a single task at a time, or run multiple sessions in parallel across CLI and cloud agents to tackle several tasks at once. The Agents application gives you a central place to coordinate all of that activity.
 
 The Agents application runs as a separate instance that shares your sessions with the main VS Code window. You can switch between the two interfaces at any time, using the one that best fits your current workflow. For example, you might use the Agents application to manage multiple agent sessions across projects, while using the main VS Code window for focused coding and debugging.
 
@@ -22,9 +22,9 @@ There are two ways to work with AI in VS Code:
 
 * **Code-first**: you write code in the editor and use AI as a coding assistant to help you implement features, fix bugs, and refactor code. Your primary interface is the editor for writing and editing code, running and debugging. You use AI to enhance your existing coding workflow.
 
-* **Prompt-first**: you describe what you want in terms of requirements and hand off the task to an AI agent, which plans, implements, and verifies the result. Your primary interface is chat and the sessions list for managing your work, while the editor is a secondary interface for reviewing and tweaking the AI's implementation when necessary. You use AI to shift how you work and focus more on defining the problem and reviewing solutions.
+* **Agent-first**: you describe what you want in terms of requirements and hand off the task to an AI agent, which plans, implements, and verifies the result. Your primary interface is chat and the sessions list for managing your work, while the editor is a secondary interface for reviewing and tweaking the AI's implementation when necessary. You use AI to shift how you work and focus more on defining the problem and reviewing solutions.
 
-The Agents application is built for the prompt-first approach. It provides a focused environment for managing agent sessions across all your projects, with chat as the central interface for interacting with your agents, instead of focusing on editor tabs and file navigation.
+The Agents application is built for the agent-first approach. It provides a focused environment for managing agent sessions across all your projects, with chat as the central interface for interacting with your agents, instead of focusing on editor tabs and file navigation.
 
 ## Prerequisites
 
@@ -76,7 +76,7 @@ To start a new agent session:
 
 1. Use the workspace dropdown to select a local folder or GitHub repository for the session.
 
-    New sessions always use the Copilot CLI agent. You can hand off a session to a Copilot Cloud agent at any time during the session.
+    New local folder sessions always use the Copilot CLI agent. You can hand off a session to a Copilot Cloud agent at any time during the session.
 
 1. Choose between workspace and worktree [isolation](/docs/copilot/agents/copilot-cli.md#isolation-modes) for the session.
 
@@ -109,7 +109,13 @@ Right-click on any session in the list to see additional management options, suc
 
 ## Manage file changes
 
-TODO
+As agents complete their work, you may want to review the actual changes more closely: diffs, edits, and pull requests.
+
+The Changes panel gives you a full overview of all changes across the session. Run a code review, view all changes or just the last turn's changes, or discard individual files you don't want. You can also switch to the Files tab to browse the project's full file tree.
+
+You can click on any file in the agent's chat response to open a modal diff view - see exactly what changed, make edits inline, and save them back. If something's off, select specific lines in a file, leave a comment, and the agent picks up your feedback and adjusts.
+
+When it's time to ship, the Merge Changes dropdown lets you merge to your branch, merge and sync upstream, and create or draft a pull request. PR checks surface right in the panel so you can track CI status without leaving Agents. For non-git folders, you can initialize a repository right from the panel. Under the hood, these actions are powered by built-in [skills](/docs/copilot/customization/agent-skills) like commit, create-pr, merge-changes, and sync-upstream, which you can review and customize from the Customizations panel.
 
 ## Customize agents for your project and workflow
 
@@ -144,27 +150,26 @@ TODO
 ## Frequently asked questions
 
 <details>
-<summary>Can I continue sessions created in VS Code in the Sessions Window?</summary>
+<summary>Can I continue sessions created in VS Code in the Agents app?</summary>
 
-Yes, sessions created in the main VS Code window with supported agent types (Copilot CLI and Copilot Cloud) will automatically appear in the Sessions Window. You can switch between the two interfaces without losing any session history or context.
+Yes, sessions created in the main VS Code window with supported agent types (Copilot CLI and Copilot Cloud) will automatically appear in the Agents app. You can switch between the two interfaces without losing any session history or context.
 
 </details>
 
 <details>
-<summary>Can I use the Sessions Window with local or third-party CLI agents?</summary>
+<summary>Can I use the Agents app with local or third-party CLI agents?</summary>
 
-The Sessions Window currently only supports sessions with Copilot CLI and Copilot Cloud agents. If you use local or third-party CLI agents, you can still manage those sessions from the main VS Code window, but they won't appear in the Sessions Window interface.
+The Agents app currently only supports sessions with Copilot CLI and Copilot Cloud agents. If you use local or third-party CLI agents, you can still manage those sessions from the main VS Code window, but they won't yet appear in the Agents app.
 
 </details>
 
 <details>
 <summary>Why are changes from a Copilot CLI session not applied in my main workspace?</summary>
 
-By default, Copilot CLI sessions from the Sessions Window are created with Git worktree isolation. This means that the agent operates in a separate folder created by Git worktree, which keeps changes isolated from your main workspace until you're ready to merge them. This allows you to review and test the agent's changes before integrating them into your main codebase.
+By default, Copilot CLI sessions from the Agents app are created with Git worktree isolation. This means that the agent operates in a separate folder created by Git worktree, which keeps changes isolated from your main workspace until you're ready to merge them. This allows you to review and test the agent's changes before integrating them into your main codebase.
 
-You can merge the worktree from the Sessions Window back into your main workspace or create a pull request to review the changes.
+You can merge the worktree from the Agents app back into your main workspace or create a pull request to review the changes.
 
-If you prefer to have changes applied directly to your main workspace, you can enable the `setting(github.copilot.chat.cli.isolationOption.enabled)` setting to choose between workspace and worktree isolation when creating a session.
 
 </details>
 
