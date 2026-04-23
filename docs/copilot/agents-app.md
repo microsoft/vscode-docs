@@ -31,26 +31,22 @@ There are two ways to work with AI in VS Code:
 
 The Agents application is built for the agent-first approach. It provides a focused environment for managing agent sessions across all your projects, with chat as the central interface for interacting with your agents, instead of focusing on editor tabs and file navigation.
 
-## Start the Agents application
+## Open the Agents application
 
-The Agents application is a separate application that runs alongside your main VS Code window. You can access it directly without starting VS Code, via the command-line, or from within VS Code. You can switch between the Agents application and your main VS Code window at any time, depending on your workflow and the task at hand.
+The Agents application is a separate application that runs alongside your main VS Code window. To open the Agents application, use one of the following methods:
 
-1. Open the Agents application using one of these methods:
+* On Windows or Mac, you can open the Agents application directly from your Start menu or Applications folder by launching **Agents** (or **Agents - Insiders** for the Insiders version).
 
-    * On Windows or Mac, you can open the Agents application directly from your Start menu or Applications folder by launching **Agents** (or **Agents - Insiders** for the Insiders version).
+    > [!NOTE]
+    > The option to launch the Agents application from the OS is currently not available on Linux. You can still access the Agents application on Linux through the command line or from within VS Code.
 
-        > [!NOTE]
-        > The option to launch the Agents application from the OS is currently not available on Linux. You can still access the Agents application on Linux through the command line or from within VS Code.
+* In VS Code, run **Chat: Open Agents Application** from the Command Palette (`kb(workbench.action.showCommands)`).
 
-    * In VS Code, run **Chat: Open Agents Application** from the Command Palette (`kb(workbench.action.showCommands)`).
+* From the command line, run `code --agents`.
 
-    * From the command line, run `code --agents`.
+After first launch, sign in to GitHub if you haven't already. The Agents application requires GitHub authentication to access your Copilot subscription and sessions.
 
-1. After first launch, sign in to GitHub if you haven't already. The Agents application requires GitHub authentication to access your Copilot subscription and sessions.
-
-    ![Screenshot of the GitHub sign-in screen in the Agents application.](images/agents-app/sign-in.png)
-
-The Agents application picks up your existing Copilot CLI and Cloud agent sessions across your workspaces, so you can switch between the Agents application and your main VS Code window without losing any session history or context. If you start a new session in the Agents application, it will also appear in your main VS Code window.
+The Agents application picks up your existing Copilot CLI and Cloud agent sessions across your workspaces. This enables you to switch between the Agents application and your main VS Code window without losing any session history or context. If you start a new session in the Agents application, it also appears in your main VS Code window.
 
 ## Interface overview
 
@@ -74,7 +70,10 @@ To start a new agent session:
 
 1. Use the workspace dropdown to select a local folder or GitHub repository for the session.
 
-    All new sessions use the Copilot CLI agent. You can use **Continue In** to hand off to a Copilot Cloud agent at any time during the session.
+    New sessions use the Copilot CLI agent. You can use **Continue In** to hand off to a Copilot Cloud agent at any time during the session.
+
+    > [!TIP]
+    > You can track and create sessions that run on a remote machine via SSH or a dev tunnel. See [Open a session on a remote machine](#open-a-session-on-a-remote-machine) for more information.
 
 1. Choose between workspace and worktree [isolation](/docs/copilot/agents/copilot-cli.md#isolation-modes) for the session.
 
@@ -86,24 +85,18 @@ To start a new agent session:
 
 1. Type a prompt that describes what you want to accomplish, and press `kbstyle(Enter)`.
 
-    The agent breaks your task into steps, writes code, runs commands, and self-corrects when something goes wrong. Continue the conversation to refine the results or change direction.
-
-> [!TIP]
-> To run a session on a remote machine via SSH or dev tunnel, see [Open a session on a remote machine](#open-a-session-on-a-remote-machine). This is useful when you need to check the agent's work or start a new session while you're away from your main development machine.
+    The agent breaks down your task into steps, writes code, runs commands, and self-corrects when something goes wrong. Continue the conversation to refine the results or change direction.
 
 <!-- TODO: screenshot or video of a session in progress -->
 
 ## Open a session on a remote machine
 
-
 You can connect to a remote machine to start a session there or track the progress of an existing session running on that machine. This is useful when you're away from your main development machine but still want to check in on your agent's work, or to take advantage of the remote machine's resources, such as specialized hardware or a specific environment configuration.
 
 The Agents application connects to the remote machine using the Agent Host Protocol (AHP) over SSH or a dev tunnel. When you connect, the application automatically installs and starts the Copilot CLI on the remote machine. This also means that the remote machine must be powered on and accessible over the network.
 
-> [!NOTE]
-> You can also connect to a remote machine from the browser-based version of the Agents application by using a dev tunnel connection.
-
-<!-- TODO: screenshot of the remote machine connection dialog -->
+> [!TIP]
+> You can also connect to a remote machine from the browser-based Agents application in VS Code for the Web by using a dev tunnel connection.
 
 ### Connect via SSH
 
@@ -158,49 +151,58 @@ The sub-session appears as a new chat tab within the active session. The session
 > [!TIP]
 > To explore an alternative direction from a specific point in a session's conversation, [fork the session](/docs/copilot/chat/chat-sessions.md#fork-a-chat-session). Forking a session creates a new independent session with a copy of the conversation history up to a specific point.
 
-## Monitor and resume sessions
+## Manage your sessions
 
 The sessions list in the sidebar shows all your active sessions across workspaces. You can group sessions by project or by timeframe to keep track of related work. Each session item surfaces the key information such as session name, workspace, agent type, and file change stats.
 
 Use the filter and search options to narrow down the list and find the session you want to work on.
 
-Select any session to view its chat history, where you can continue the conversation. If the session has code changes, the changes panel is opened and shows the pending changes and a file explorer.
+Select any session to view the chat conversation history and pick up where you left off. The Changes panel surfaces the latest file updates from the agent and a file explorer view of the workspace.
 
 <!-- TODO: screenshot of the sessions list and changes panel -->
 
 Right-click on any session in the list to see additional management options, such as renaming, deleting, and more. For advanced session management, such as archiving, forking, checkpoints, and exporting, see [Manage chat sessions](/docs/copilot/chat/chat-sessions.md) in chat documentation.
 
-## Manage file changes
+## Manage and review file changes
 
-As agents complete their work, you may want to review the actual changes more closely: diffs, edits, and pull requests.
+As agents complete their work, you may want to review the actual changes more closely: diffs, edits, and pull requests. The Changes panel shows:
 
-The Changes panel gives you a full overview of all changes across the session. Run a code review, view all changes or just the last turn's changes, or discard individual files you don't want. You can also switch to the Files tab to browse the project's full file tree.
+* **Files**: a file explorer view of all files in the workspace.
+* **Changes**: a list of files that have been changed, added, or deleted by the agent. Select the **Branch Changes** dropdown to choose which changes to view. Select any file to view a diff of the changes made by the agent.
 
-You can click on any file in the agent's chat response to open a modal diff view - see exactly what changed, make edits inline, and save them back. If something's off, select specific lines in a file, leave a comment, and the agent picks up your feedback and adjusts.
+While reviewing the changes in the diff view, you can comment directly in the file to signal the agent to make adjustments.
 
-When it's time to ship, the Merge Changes dropdown lets you merge to your branch, merge and sync upstream, and create or draft a pull request. PR checks surface right in the panel so you can track CI status without leaving Agents. For non-git folders, you can initialize a repository right from the panel. Under the hood, these actions are powered by built-in [skills](/docs/copilot/customization/agent-skills) like commit, create-pr, merge-changes, and sync-upstream, which you can review and customize from the Customizations panel.
+For Copilot CLI sessions, the **Merge Changes** dropdown lets you merge to your branch, merge and sync upstream, and create a pull request.
+
+For Copilot Cloud sessions, select **Checkout** to check out the branch associated with the session's pull request locally, and optionally review or request further edits. You can also open the pull request on GitHub to review and merge there.
 
 ## Customize agents for your project and workflow
 
-The **Customizations** panel gives you direct access to all AI customization options. Each item shows a count badge when configurations exist in your workspace.
+The **Customizations** panel gives you direct access to all AI customization options:
 
 | Customization | What it does |
 |---|---|
 | **Agents** | Define custom agent personas with specific tools and instructions. [Learn more](/docs/copilot/customization/custom-agents.md). |
 | **Skills** | Add portable instruction folders that agents load when relevant. [Learn more](/docs/copilot/customization/agent-skills.md). |
 | **Instructions** | Set guidelines that shape how the AI generates code. [Learn more](/docs/copilot/customization/custom-instructions.md). |
-| **Prompts** | Create reusable prompt files for common tasks. [Learn more](/docs/copilot/customization/prompt-files.md). |
 | **Hooks** | Run shell commands at lifecycle points during agent sessions. [Learn more](/docs/copilot/customization/hooks.md). |
 | **MCP Servers** | Connect AI to external tools and services via the MCP standard. [Learn more](/docs/copilot/customization/mcp-servers.md). |
 | **Plugins** | Install prepackaged bundles of customizations. [Learn more](/docs/copilot/customization/agent-plugins.md). |
 
-Select any item to view its configurations. Create new items or edit existing ones with the built-in inline editor. Browse the marketplace to discover and install MCP servers and plugins. Enable or disable individual configurations without removing them.
+The Agent Customizations panel enables you to easily manage all your customizations in one place:
+
+* View and edit existing customizations for the project (workspace), or across all your projects (user).
+* Add new customzations by using the built-in editor or by generating them from a prompt.
+* Install plugins or MCP servers from the marketplace.
+* Enable or disable customizations without removing them.
 
 <!-- TODO: screenshot of the Customizations panel -->
 
+Use the dropdown in the top left of the Agent Customizations panel to choose which agent the customizations should apply to.
+
 ## Switch to another GitHub account
 
-TODO
+To use a different GitHub account in the Agents application, select the account icon in the top right corner of the application window and choose **Sign out**. After signing out, select **Sign in** to authenticate with a different GitHub account.
 
 ## Limitations
 
