@@ -4,11 +4,9 @@ DateApproved: 3/25/2026
 MetaDescription: Use the standalone VS Code Agents application for an agent-first coding experience where agents and chat are the primary interface to build with AI.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
-# Use the VS Code Agents application
+# Use the VS Code Agents application (Insiders)
 
-The VS Code Agents application is a dedicated application for building software with AI agents through a an agent-first approach. You focus on describing tasks to be done and monitoring progress, while agents handle the implementation. Work on a single task at a time, or run multiple sessions in parallel across CLI and cloud agents to tackle several tasks at once. The Agents application gives you a central place to coordinate all of that activity.
-
-The Agents application is installed together with VS Code and runs as a separate instance that shares your sessions with the main VS Code window. You can switch between the two interfaces at any time, using the one that best fits your current workflow. For example, you might use the Agents application to manage multiple agent sessions across projects, while using the main VS Code window for focused coding and debugging in a specific project.
+The Visual Studio Code Agents application is a separate app, installed alongside VS Code, built for the agent-first experience. Run multiple sessions in parallel across all your projects, all from one place. The Agents application shares your sessions with the main VS Code window, so you can switch between them at any time.
 
 <!-- TODO: screenshot of the Agents application after launch -->
 ![Screenshot of the Agents application after launch.](images/agents-app/sessions-window.png)
@@ -18,7 +16,7 @@ The Agents application is installed together with VS Code and runs as a separate
 
 ## Prerequisites
 
-The Agents application is installed together with VS Code or VS Code Insiders. It doesn't require a separate download or installation to access it.
+The Agents application is installed together with VS Code Insiders. It doesn't require a separate download or installation.
 
 * Visual Studio Code Insiders installed. [Download VS Code Insiders](/insiders).
 * Access to GitHub Copilot. Follow the steps in [Set up GitHub Copilot in VS Code](/docs/copilot/setup.md) to sign in and activate your subscription.
