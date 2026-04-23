@@ -170,6 +170,30 @@ By default, Copilot CLI sessions from the Agents app are created with Git worktr
 
 You can merge the worktree from the Agents app back into your main workspace or create a pull request to review the changes.
 
+</details>
+
+<details>
+<summary>When would I use the Agents app instead of VS Code?</summary>
+
+Use VS Code Agents when you want a streamlined, agent-first workflow. The Agents app provides a minimal interface built around orchestrating agents end-to-end (validation, review, PRs) across multiple projects, with agent customization (plugins, skills, MCP) front and center.
+
+Use VS Code when you want the full-featured editor, with support for the extensive extension ecosystem, debugging, notebooks, remote development, where AI assists your coding rather than being the central experience.
+
+Both experiences support agentic development: Agents is purpose-built for it, while VS Code offers it alongside everything else.
+
+</details>
+
+<details>
+<summary>How do I install and update the Agents app?</summary>
+
+The Agents app is installed and updated alongside VS Code, no additional installation or setup is needed.
+
+</details>
+
+<details>
+<summary>Can I use the integrated browser in the Agents app?</summary>
+
+Yes! You can run the command **Browser: Open Integrated Browser** in the Agents app, and you can enable the `setting(workbench.browser.openLocalhostLinks)` setting to automatically open localhost links in the integrated browser.
 
 </details>
 
