@@ -14,7 +14,14 @@ The Agents application is installed together with VS Code and runs as a separate
 ![Screenshot of the Agents application after launch.](images/agents-app/sessions-window.png)
 
 > [!NOTE]
-> The Agents application is currently in preview.
+> The Agents application is currently in preview and only available with VS Code Insiders.
+
+## Prerequisites
+
+The Agents application is installed together with VS Code or VS Code Insiders. It doesn't require a separate download or installation to access it.
+
+* Visual Studio Code Insiders installed. [Download VS Code Insiders](/insiders).
+* Access to GitHub Copilot. Follow the steps in [Set up GitHub Copilot in VS Code](/docs/copilot/setup.md) to sign in and activate your subscription.
 
 ## Code-first vs. agent-first
 
@@ -25,13 +32,6 @@ There are two ways to work with AI in VS Code:
 * **Agent-first**: you describe what you want in terms of requirements and hand off the task to an AI agent, which plans, implements, and verifies the result. Your primary interface is chat and the sessions list for managing your work, while the editor is a secondary interface for reviewing and tweaking the AI's implementation when necessary. You use AI to shift how you work and focus more on defining the problem and reviewing solutions.
 
 The Agents application is built for the agent-first approach. It provides a focused environment for managing agent sessions across all your projects, with chat as the central interface for interacting with your agents, instead of focusing on editor tabs and file navigation.
-
-## Prerequisites
-
-The Agents application is installed together with VS Code or VS Code Insiders. It doesn't require a separate download or installation to access it.
-
-* Visual Studio Code installed. [Download VS Code](/download).
-* Access to GitHub Copilot. Follow the steps in [Set up GitHub Copilot in VS Code](/docs/copilot/setup.md) to sign in and activate your subscription.
 
 ## Start the Agents application
 
@@ -143,6 +143,23 @@ To start a session on a remote machine via dev tunnel:
 
 <!-- TODO: explain difference with /remote in Copilot CLI session -->
 
+## Create a sub-session
+
+When you have an active session, you can start a sub-session to give the agent a separate, parallel task within the same workspace. A sub-session shares the same workspace and worktree as the parent session, but starts with a blank chat. The sub-session doesn't carry over the parent's conversation history.
+
+This is useful when you want to work on an independent task in the same project without interrupting the ongoing session or starting a completely new one from scratch.
+
+To create a sub-session:
+
+1. In an active session, select **New Sub-Session** (`+`) in the application title bar.
+
+1. Type a prompt and press `kbstyle(Enter)` to start the sub-session.
+
+The sub-session appears as a new chat tab within the active session. The session does not show as a separate item in the sessions list. You can switch between the parent session and sub-sessions by selecting the corresponding tab.
+
+> [!TIP]
+> To explore an alternative direction from a specific point in a session's conversation, [fork the session](/docs/copilot/chat/chat-sessions.md#fork-a-chat-session). Forking a session creates a new independent session with a copy of the conversation history up to a specific point.
+
 ## Monitor and resume sessions
 
 The sessions list in the sidebar shows all your active sessions across workspaces. You can group sessions by project or by timeframe to keep track of related work. Each session item surfaces the key information such as session name, workspace, agent type, and file change stats.
@@ -182,16 +199,6 @@ The **Customizations** panel gives you direct access to all AI customization opt
 Select any item to view its configurations. Create new items or edit existing ones with the built-in inline editor. Browse the marketplace to discover and install MCP servers and plugins. Enable or disable individual configurations without removing them.
 
 <!-- TODO: screenshot of the Customizations panel -->
-
-## Reviewing changes
-
-TODO
-
-mention that you can comment inside the diff view and the agent will pick up those comments and adjust accordingly.
-
-## Merging changes and creating pull requests
-
-TODO
 
 ## Switch to another GitHub account
 
