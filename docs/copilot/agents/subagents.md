@@ -157,7 +157,7 @@ Then update the docs/ folder with the new documentation.
 
 In the prompt instructions, you can then hint the agent to use subagents by suggesting isolated research or parallel analysis for specific subtasks.
 
-## Run a custom agent as a subagent (Experimental)
+## Run a custom agent as a subagent
 
 By default, a subagent inherits the agent from the main chat session and uses the same model and tools. To define specific behavior for a subagent, use a [custom agent](/docs/copilot/customization/custom-agents.md). Custom agents can specify their own model, tools, and instructions. When used as a subagent, these settings override the defaults inherited from the main session.
 
