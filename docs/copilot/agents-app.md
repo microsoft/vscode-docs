@@ -6,13 +6,16 @@ MetaSocialImage: images/shared/github-copilot-social.png
 ---
 # Use the VS Code Agents application (Insiders)
 
-The Visual Studio Code Agents application is a separate app, installed alongside VS Code, built for the agent-first experience. Run multiple sessions in parallel across all your projects, all from one place. The Agents application shares your sessions with the main VS Code window, so you can switch between them at any time.
+The Visual Studio Code Agents application is a separate app, installed alongside VS Code, built for the agent-first experience. The Agents application gives you access to all your workspaces without needing to open each one individually in a separate window. You can run multiple sessions in parallel across all your projects, all from one place.
 
-<!-- TODO: screenshot of the Agents application after launch -->
-![Screenshot of the Agents application after launch.](images/agents-app/sessions-window.png)
+The Agents application shares your sessions with the main VS Code window, so you can switch between them at any time.
+
+In this article, you learn about the VS Code Agents application and how to start and manage agent sessions across your projects.
+
+TODO: put hero video here
 
 > [!NOTE]
-> The Agents application is currently in preview and only available with VS Code Insiders.
+> The Agents application is currently in preview and only available with [VS Code Insiders](/insiders).
 
 ## Prerequisites
 
@@ -25,63 +28,73 @@ The Agents application is installed together with VS Code Insiders. It doesn't r
 
 There are two ways to work with AI in VS Code:
 
-* **Code-first**: you write code in the editor and use AI as a coding assistant to help you implement features, fix bugs, and refactor code. Your primary interface is the editor for writing and editing code, running and debugging. You use AI to enhance your existing coding workflow.
+* **Code-first**: you write code in the editor and use AI as a coding assistant to help you implement features, fix bugs, and refactor code. Your primary interface is the editor for editing code, testing, and debugging. You use AI to enhance your existing coding workflow.
 
-* **Agent-first**: you describe what you want in terms of requirements and hand off the task to an AI agent, which plans, implements, and verifies the result. Your primary interface is chat and the sessions list for managing your work, while the editor is a secondary interface for reviewing and tweaking the AI's implementation when necessary. You use AI to shift how you work and focus more on defining the problem and reviewing solutions.
+* **Agent-first**: you build applications by handing off (high-level) tasks to an AI agent. The agent plans, implements, and verifies the result. Your primary interface is chat and the sessions list for organizing work, while the editor is a secondary interface for reviewing and tweaking the AI's implementation when necessary. You use AI to shift how you work and focus more on defining the problem and reviewing solutions.
 
-The Agents application is built for the agent-first approach. It provides a focused environment for managing agent sessions across all your projects, with chat as the central interface for interacting with your agents, instead of focusing on editor tabs and file navigation.
+The Agents application is built for the agent-first approach. It provides a focused environment for managing agent sessions across all your projects, with chat as the central interface for interacting with your agents. The Agents application is a complement to VS Code, which is optimized for the code-first approach.
 
 ## Open the Agents application
 
 The Agents application is a separate application that runs alongside your main VS Code window. To open the Agents application, use one of the following methods:
 
-* On Windows or Mac, you can open the Agents application directly from your Start menu or Applications folder by launching **Agents** (or **Agents - Insiders** for the Insiders version).
+* Open the Agents application directly from your Start menu or Applications folder by launching  **Visual Studio Code Agents - Insiders** (Windows and macOS).
 
     > [!NOTE]
     > The option to launch the Agents application from the OS is currently not available on Linux. You can still access the Agents application on Linux through the command line or from within VS Code.
 
 * In VS Code, run **Chat: Open Agents Application** from the Command Palette (`kb(workbench.action.showCommands)`).
 
-* From the command line, run `code --agents`.
+* Run `code --agents` from the command line.
 
 After first launch, sign in to GitHub if you haven't already. The Agents application requires GitHub authentication to access your Copilot subscription and sessions.
 
-The Agents application picks up your existing Copilot CLI and Cloud agent sessions across your workspaces. This enables you to switch between the Agents application and your main VS Code window without losing any session history or context. If you start a new session in the Agents application, it also appears in your main VS Code window.
-
 ## Interface overview
+
+The Agents application picks up your existing Copilot CLI and Cloud agent sessions across your workspaces. You can switch between agent sessions across the different workspaces without needing to open each workspace in a separate window.
 
 The Sessions Window has the following main areas:
 
-1. **Sessions list**: in the sidebar, where you can view and manage all your sessions across workspaces.
+1. **Sessions list**: in the sidebar, where you can view and manage all your sessions across workspaces. By default, sessions are grouped by workspace. Right-click a session to see more commands, such as renaming, marking as done, pinning, and more.
 
-1. **Customizations panel**: on the left, where you can start new sessions, monitor and manage existing sessions, and customize your AI setup.
+1. **Customizations panel**: below the sessions list, where you can access your agent customizations to tailor the agent behavior to your workflow and preferences.
 
-1. **Chat area**: in the center, where you interact with your AI agent through chat during a session.
+1. **Chat area**: in the center, where you see the chat conversation history and where you can interact with the agent through prompts.
 
-1. **Changes panel**: on the right, where you can review file updates and other artifacts generated by your agent during a session.
+1. **Changes panel**: on the right, where you can review file changes and other artifacts generated by your agent during a session, and view a file explorer of the workspace.
+
+![Screenshot of the Agents application interface, showing the sessions list, customizations panel, chat area, and changes panel.](images/agents-app/agents-app-ui-annotated.png)
 
 ## Start an agent session
 
-With the Agents application, you can start agent sessions across all your projects without needing to open each project in a separate VS Code window. This simplifies working with multiple sessions for different tasks and projects, and gives you a central place to monitor and manage all your agent activity.
+The Agent application and VS Code share the same underlying agent sessions (Copilot CLI and Copilot cloud agent). This means that any session you start in the Agents application is immediately available in VS Code.
 
-To start a new agent session:
+To start a new agent session in the Agents application:
 
-1. Select **+ Session** at the top of the sidebar or hover over a workspace in the sessions list and select **+** to start a session scoped to that workspace.
+1. Select **New** at the top of the sidebar or press `kb(workbench.action.chat.newChat)`.
+
+    ![Screenshot showing how to start a new agent session by selecting New at the top of the sidebar in the Agents application.](images/agents-app/agents-app-new-session.png)
 
 1. Use the workspace dropdown to select a local folder or GitHub repository for the session.
+
+    You can directly start a session scoped to a specific workspace by hovering over a workspace in the sessions list and selecting **+**.
 
     New sessions use the Copilot CLI agent. You can use **Continue In** to hand off to a Copilot Cloud agent at any time during the session.
 
     > [!TIP]
     > You can track and create sessions that run on a remote machine via SSH or a dev tunnel. See [Open a session on a remote machine](#open-a-session-on-a-remote-machine) for more information.
 
-1. Choose between workspace and worktree [isolation](/docs/copilot/agents/copilot-cli.md#isolation-modes) for the session.
+1. Choose between folder and worktree [isolation](/docs/copilot/agents/copilot-cli.md#isolation-modes) for the session.
 
     With **worktree isolation**, the agent operates in a separate folder created by Git worktree, which keeps changes isolated from your main workspace until you're ready to merge them.
 
-    With **workspace isolation**, the agent operates directly in your main workspace, and changes are applied directly to your files. This is the default behavior for non-Git projects.
+    With **folder isolation**, the agent operates directly in your main workspace, and changes are applied directly to your files. This is the default behavior for non-Git projects.
 
-1. Optionally, select a custom agent and language model for the session. You can change these at any time during the session.
+    Optionally, select a source control branch to base the session on.
+
+    ![Screenshot showing how to select folder or worktree isolation and optionally choose a source control branch when starting a new agent session in the Agents application.](images/agents-app/agents-app-isolation-branch.png)
+
+1. Optionally, select a custom agent and language model for the session. You can change these at any point during the session.
 
 1. Type a prompt that describes what you want to accomplish, and press `kbstyle(Enter)`.
 
@@ -104,9 +117,11 @@ The Agents application connects to the remote machine using the Agent Host Proto
 
 To start a session on a remote machine via SSH:
 
-1. Select **+ Session** to start a new session.
+1. Select **New** or press `kb(workbench.action.chat.newChat)` to start a new agent session.
 
 1. In the workspace dropdown, select **SSH**. If you've already set up SSH connections, they will appear as options in the dropdown.
+
+    ![Screenshot showing how to select SSH in the workspace dropdown when starting a new agent session in the Agents application.](images/agents-app/agents-app-ssh.png)
 
 1. Enter the SSH connection string for the remote machine (for example, `user@hostname`).
 
@@ -122,9 +137,11 @@ To start a session on a remote machine via SSH:
 
 To start a session on a remote machine via dev tunnel:
 
-1. Select **+ Session** to start a new session.
+1. Select **New** or press `kb(workbench.action.chat.newChat)` to start a new agent session.
 
 1. In the workspace dropdown, select **Tunnels** and choose your account type.
+
+    ![Screenshot showing how to select Tunnels in the workspace dropdown when starting a new agent session in the Agents application.](images/agents-app/agents-app-tunnels.png)
 
 1. Choose the active dev tunnel from the list.
 
@@ -144,9 +161,11 @@ To create a sub-session:
 
 1. In an active session, select **New Sub-Session** (`+`) in the application title bar.
 
-1. Type a prompt and press `kbstyle(Enter)` to start the sub-session.
+    Notice that a new tab appears in the chat area for the sub-session, alongside the tab for the parent session. The sub-session does not appear as a separate item in the sessions list.
 
-The sub-session appears as a new chat tab within the active session. The session does not show as a separate item in the sessions list. You can switch between the parent session and sub-sessions by selecting the corresponding tab.
+    ![Screenshot showing how a new sub-session tab appears in the chat area alongside the parent session tab in the Agents application.](images/agents-app/agents-app-new-subsession.png)
+
+1. Type a prompt and press `kbstyle(Enter)` to start the sub-session.
 
 > [!TIP]
 > To explore an alternative direction from a specific point in a session's conversation, [fork the session](/docs/copilot/chat/chat-sessions.md#fork-a-chat-session). Forking a session creates a new independent session with a copy of the conversation history up to a specific point.
@@ -159,7 +178,7 @@ Use the filter and search options to narrow down the list and find the session y
 
 Select any session to view the chat conversation history and pick up where you left off. The Changes panel surfaces the latest file updates from the agent and a file explorer view of the workspace.
 
-<!-- TODO: screenshot of the sessions list and changes panel -->
+![Screenshot showing the sessions list in the sidebar in the Agents application.](images/agents-app/agents-app-session-list.png)
 
 Right-click on any session in the list to see additional management options, such as renaming, deleting, and more. For advanced session management, such as archiving, forking, checkpoints, and exporting, see [Manage chat sessions](/docs/copilot/chat/chat-sessions.md) in chat documentation.
 
@@ -175,6 +194,8 @@ While reviewing the changes in the diff view, you can comment directly in the fi
 For Copilot CLI sessions, the **Merge Changes** dropdown lets you merge to your branch, merge and sync upstream, and create a pull request.
 
 For Copilot Cloud sessions, select **Checkout** to check out the branch associated with the session's pull request locally, and optionally review or request further edits. You can also open the pull request on GitHub to review and merge there.
+
+![Screenshot showing the Changes panel in the Agents application, with the Files and Changes views visible.](images/agents-app/agents-app-changes.png)
 
 ## Customize agents for your project and workflow
 
@@ -196,9 +217,9 @@ The Agent Customizations panel enables you to easily manage all your customizati
 * Install plugins or MCP servers from the marketplace.
 * Enable or disable customizations without removing them.
 
-<!-- TODO: screenshot of the Customizations panel -->
-
 Use the dropdown in the top left of the Agent Customizations panel to choose which agent the customizations should apply to.
+
+![Screenshot showing the Agent Customizations panel in the Agents application, with the list of available customizations visible.](images/agents-app/agents-app-customizations.png)
 
 ## Switch to another GitHub account
 
