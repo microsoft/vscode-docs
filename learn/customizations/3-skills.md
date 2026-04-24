@@ -7,7 +7,7 @@ MetaSocialImage: ../images/shared/agent-first-development-social.png
 
 # Introduction to agent skills
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/mPjTZviv23s?si=ADTQ4EhKNhzvqrgZ" title="Agent Skills Explained in 5 Minutes" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/mPjTZviv23s?si=ADTQ4EhKNhzvqrgZ" title="Agent Skills Explained in 5 Minutes" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 Most developers are either using agent skills wrong… or not at all.
 
@@ -34,21 +34,21 @@ At a high level, a skill typically includes:
 - rules for how it should behave
 - references to related workflows or dependencies
 
-![Skill structure](../images/customizations/ep-3-0-skill-structure.png)
+![Diagram of the agent skill file structure showing description, rules, and dependencies](../images/customizations/ep-3-0-skill-structure.png)
 
 ## Where to find them
 
-![chat icon gear](../images/shared/chat-icon-gear.png)
+![Screenshot of the chat icon and gear icon in the VS Code title bar](../images/shared/chat-icon-gear.png)
 
-Agent skills live in the Customization UI alongside prompts and instructions. You can access them by opening Copilot Chat, selecting the gear icon, and navigating to the Skills section.
+Agent skills live in the Agent Customizations view alongside prompts and instructions. You can access them by opening Copilot Chat, selecting the gear icon, and navigating to the Skills section.
 
-![Skills Customization UI](../images/customizations/ep-3-2-skills-cust-ui.png)
+![Screenshot of the Agent Customizations view showing the Skills section with built-in and custom skills](../images/customizations/ep-3-2-skills-cust-ui.png)
 
 From here, you’ll see built-in skills, extension-provided skills, and any custom skills you create, all in one centralized place.
 
 ## Example: creating a prompt (using a skill)
 
-![create skill](../images/customizations/ep-3-3-create-skill.png)
+![Screenshot of Copilot Chat showing the result of the /create-skill command](../images/customizations/ep-3-3-create-skill.png)
 
 When you run a command like `/create`, you’re not just issuing a prompt — you’re activating a skill.
 

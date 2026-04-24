@@ -7,7 +7,7 @@ MetaSocialImage: ../images/shared/agent-first-development-social.png
 
 # Introduction to custom instructions
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/dk2biPguo_E?si=O15sDX8Jf18pXZFr" title="Custom Instructions: How I Really Made Copilot Listen!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/dk2biPguo_E?si=O15sDX8Jf18pXZFr" title="Custom Instructions: How I Really Made Copilot Listen!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 You’ve probably been lied to about custom instructions.
 
@@ -38,7 +38,7 @@ Instead of repeating expectations in every prompt, you define them once and let 
 
 ## Where to find them
 
-Custom instructions can easily be accessed inside the Agent Customizations UI.
+Custom instructions can easily be accessed inside the Agent Customizations view.
 
 To access them:
 
@@ -46,15 +46,15 @@ To access them:
 2. Select the Configure (gear) icon in the Chat view header.
 3. Navigate to Instructions
 
-![chat icon gear](../images/shared/chat-icon-gear.png)
+![Screenshot of the chat icon and gear icon in the VS Code title bar](../images/shared/chat-icon-gear.png)
 
-![Customization UI](../images/customizations/ep-2-1-cust-ui.png)
+![Screenshot of the Agent Customizations view showing the Instructions section](../images/customizations/ep-2-1-cust-ui.png)
 
 From here, you can view, edit, and manage all instruction files tied to your workflow.
 
 ## Example: enforcing SOLID principles
 
-![SOLID principles](../images/customizations/ep-2-3-solid.png)
+![Screenshot of a custom instruction file enforcing SOLID principles](../images/customizations/ep-2-3-solid.png)
 
 One example of custom instructions is enforcing coding principles like SOLID.
 
@@ -94,9 +94,9 @@ Instead of correcting AI output later, you guide it upfront.
 
 ## Creating custom instructions
 
-You can create custom instructions directly from the Customization UI.
+You can create custom instructions directly from the Agent Customizations view.
 
-![Generate custom instructions](../images/customizations/ep-2-5-generate-cust-instruct.png)
+![Screenshot of the Agent Customizations view showing the option to generate custom instructions](../images/customizations/ep-2-5-generate-cust-instruct.png)
 
 There are two approaches:
 
@@ -112,7 +112,7 @@ This gives you full control but requires more effort.
 
 ### AI-assisted creation
 
-![Slash custom instructions](../images/customizations/ep-2-6-slash-cust-instruct.png)
+![Screenshot of the Copilot Chat view showing the /create-instructions slash command](../images/customizations/ep-2-6-slash-cust-instruct.png)
 
 A faster approach is to let Copilot generate the instruction file.
 
@@ -143,9 +143,9 @@ If you ask the AI to redesign your UI, for example:
 
 - making it look like an 80s arcade
 
-| Before                                                                                        | After                                                               |
-| --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| <img src="../images/customizations/ep-2-7-calc-norm.png" alt="Calculator normal" width="85%"> | ![Calculator retro](../images/customizations/ep-2-8-calc-retro.png) |
+| Before                                                                                                                                        | After                                                                                                                   |
+| --------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| <img src="../images/customizations/ep-2-7-calc-norm.png" alt="Screenshot of the calculator app before applying the arcade theme" width="85%"> | ![Screenshot of the calculator app after applying the 80s arcade theme](../images/customizations/ep-2-8-calc-retro.png) |
 
 The AI will:
 

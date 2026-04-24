@@ -6,7 +6,7 @@ MetaDescription: Understand the differences between custom instructions, agent s
 
 # Understanding VS Code customization features together
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/oyMMotLlcgQ?si=899IQZ3GAgGhtkze" title="Instructions vs Skills vs Hooks & More Explained By Copilot Itself" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/oyMMotLlcgQ?si=899IQZ3GAgGhtkze" title="Instructions vs Skills vs Hooks & More Explained By Copilot Itself" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 There are quite a few customization options in VS Code.
 
@@ -28,7 +28,7 @@ One of the most effective ways to understand these features is to ask Copilot di
 
 For example, you can provide a list of features and ask for a short explanation of each. Copilot will generate concise summaries that help you quickly understand what each one does.
 
-![Customization Features Explained by Copilot](../images/customizations/ep-7-1-cust-feature-explained-by-copilot.png)
+![Screenshot of Copilot Chat explaining the differences between VS Code customization features](../images/customizations/ep-7-1-cust-feature-explained-by-copilot.png)
 
 This gives you a fast, high-level overview without needing to read through multiple docs.
 
@@ -36,7 +36,7 @@ This gives you a fast, high-level overview without needing to read through multi
 
 To go deeper, you can ask Copilot to generate a comparison chart.
 
-![Comparisons by Copilot](../images/customizations/ep-7-2-comparisons-by-copilot.png)
+![Screenshot of Copilot Chat generating a comparison chart of VS Code customization features](../images/customizations/ep-7-2-comparisons-by-copilot.png)
 
 This chart can include:
 
@@ -58,7 +58,7 @@ For example:
 - Custom Agents vs Skills
 - Hooks vs everything else
 
-![Key Differences by Copilot](../images/customizations/ep-7-3-key-differences-by-copilot.png)
+![Screenshot of Copilot Chat highlighting key differences between custom instructions, agents, skills, and hooks](../images/customizations/ep-7-3-key-differences-by-copilot.png)
 
 These comparisons help clarify how each feature behaves and when it should be used.
 
@@ -68,7 +68,7 @@ Another powerful approach is to quiz yourself.
 
 You can ask Copilot to generate scenario-based questions where you choose the correct feature for a given situation.
 
-![Quiz by Copilot](../images/customizations/ep-7-4-quiz-by-copilot.png)
+![Screenshot of Copilot Chat generating scenario-based quiz questions about VS Code customization features](../images/customizations/ep-7-4-quiz-by-copilot.png)
 
 For example, if you want AI to always follow a specific coding style, the correct answer would be custom instructions.
 

@@ -1,14 +1,14 @@
 ---
 ContentId: b1c2d3e4-f5a6-7b8c-9d0e-1f2a3b4c5d6e
 DateApproved: 04/17/2026
-MetaDescription: Learn why GitHub Copilot agent customization in VS Code matters, and how to get started with the Customization UI for more consistent AI results.
+MetaDescription: Learn why GitHub Copilot agent customization in VS Code matters, and how to get started with the Agent Customizations view for more consistent AI results.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 ---
 
 # Why agent customization matters
 
 <!-- IMAGE PLACEHOLDER - YouTube thumbnail embed showing the Customization UI -->
-<iframe width="560" height="315" src="https://www.youtube.com/embed/AZzCk-WGks4?si=pzfh99aDDFODSrG_" title="The Agent Customizations UI Nobody Knows About" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/AZzCk-WGks4?si=pzfh99aDDFODSrG_" title="The Agent Customizations UI Nobody Knows About" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 Most developers are using VS Code the same way: open chat, type something, and hope for a good result. Sometimes it works. Sometimes it doesn't.
 
@@ -16,10 +16,12 @@ But here's the problem. They never configure it.
 
 VS Code is no longer just an editor. It's an environment where you can define how AI works across your entire workflow. And if you're not doing that, you're essentially starting from scratch every time.
 
-This guide covers what agent customization is, why it matters, and how to use the Customization UI in VS Code. 
+This guide covers what agent customization is, why it matters, and how to use the Agent Customizations view in VS Code.
 
 ## Prerequisites
+
 Before you start: you'll need VS Code Insiders installed and the GitHub Copilot and GitHub Copilot Chat extensions set up and signed in.
+
 - [Download VS Code](https://code.visualstudio.com/)
 - [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/overview#_step-1-set-up-copilot)
 
@@ -59,22 +61,24 @@ Customization changes that. It allows you to:
 
 Instead of prompting better, you're building a system that works for you.
 
-## The customization UI
+## The Agent Customizations
 
 VS Code provides a single place to manage all customization features.
 
 To get started:
 
-1. Open the Chat view (select the chat icon in the VS Code title bar).  
+1. Open the Chat view (select the chat icon in the VS Code title bar).
 2. Select the Configure (gear) icon in the Chat view header.
 
 <!-- IMAGE PLACEHOLDER - Chat screenshot -->
-![Screenshot showing the Copilot Chat view with the Configure gear icon in the Chat view header.](../images/customizations/chat-icon-gear.png)
 
-This opens the Customization UI.
+![Screenshot of the Copilot Chat view with the Configure gear icon in the Chat view header](../images/customizations/chat-icon-gear.png)
+
+This opens the Agent Customizations view.
 
 <!-- IMAGE PLACEHOLDER - Customization UI screenshot -->
-![Screenshot showing the Customization UI in VS Code.](../images/customizations/chat-customizations.png)
+
+![Screenshot of the Agent Customizations view in VS Code showing agents, skills, instructions, prompts, and hooks](../images/customizations/agent-customizations.png)
 From here, you can create and manage:
 
 - Agents
@@ -85,18 +89,18 @@ From here, you can create and manage:
 
 Instead of searching across folders, everything is centralized for easier discovery and management.
 
-The Customization UI brings everything into one place. It makes it easier to define how your development environment behaves, not just what it generates. That's the shift.
+The Agent Customizations view brings everything into one place. It makes it easier to define how your development environment behaves, not just what it generates. That's the shift.
 
 Instead of interacting with AI one prompt at a time, you're building a system that consistently works the way you want.
 
 ## What's next
 
-You now understand what customization is and how the Customization UI brings it all together.
+You now understand what customization is and how the Agent Customizations view brings it all together.
 
 To learn more about each customization type and how to use them effectively, continue with the customization guides and videos in this series.
 
-
 ## Learn more
+
 - [Customize AI in Visual Studio Code](https://code.visualstudio.com/docs/copilot/customization/overview)
 - [Use custom instructions in VS Code](https://code.visualstudio.com/docs/copilot/customization/custom-instructions)
 - [Use agent skills in VS Code](https://code.visualstudio.com/docs/copilot/customization/agent-skills)

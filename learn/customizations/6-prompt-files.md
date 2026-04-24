@@ -7,7 +7,7 @@ MetaSocialImage: ../images/shared/agent-first-development-social.png
 
 # Introduction to prompt files
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/d37Y28uU2JY?si=MAKB-3F4Bopmv_Q6" title="Stop Prompting So Much. Do This Instead!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/d37Y28uU2JY?si=MAKB-3F4Bopmv_Q6" title="Stop Prompting So Much. Do This Instead!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 If you’re constantly repeating prompts, you’re doing too much.
 
@@ -54,7 +54,7 @@ One practical use of prompt files is learning or reviewing code.
 
 In this example, a prompt file was created to quiz you on the currently open files in your project.
 
-![Skills section in Chat Customizations panel in VS Code](../images/customizations/chat-customizations.png)
+![Prompt files section in the Agent Customizations view in VS Code](../images/customizations/agent-customizations.png)
 This prompt file:
 
 - analyzes the current code context
@@ -63,7 +63,7 @@ This prompt file:
 
 Once created, you can trigger it directly from chat using `/quiz-open-files`.
 
-![prompt file from chat](../images/customizations/ep-6-2-prompt-file-from-chat.png)
+![Screenshot of the Copilot Chat view showing the /quiz-open-files prompt file triggered from chat](../images/customizations/ep-6-2-prompt-file-from-chat.png)
 
 Instead of manually writing a long prompt every time, the logic is already defined and ready to reuse.
 
@@ -83,7 +83,7 @@ But for repeated workflows, they become extremely valuable.
 
 You can create prompt files directly from the chat interface.
 
-![prompt to create](../images/customizations/ep-6-3-prompt-to-create.png)
+![Screenshot of Copilot Chat showing the command to create a new prompt file](../images/customizations/ep-6-3-prompt-to-create.png)
 
 Start by triggering the create command and defining your intent.
 
@@ -95,7 +95,7 @@ For example, you might create a prompt to:
 
 Once created, the prompt file is stored and can be reused instantly.
 
-You can review and modify it at any time from the Customization UI.
+You can review and modify it at any time from the Agent Customizations view.
 
 ## Workspace vs user-level prompts
 
@@ -107,7 +107,7 @@ If you want to reuse them across multiple projects, move them to the user level 
 
 This allows you to build a personal library of reusable AI workflows.
 
-![workspace vs user](../images/customizations/ep-6-4-workspace-v-user.png)
+![Screenshot of the prompt file scope selection showing workspace and user-level options](../images/customizations/ep-6-4-workspace-v-user.png)
 
 ## Example: refactoring code
 

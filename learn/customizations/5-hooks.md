@@ -7,7 +7,7 @@ MetaSocialImage: ../images/shared/agent-first-development-social.png
 
 # Introduction to hooks
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ZsyiRa91XZg?si=tI_1D0AgRBSEMrel" title="Hooks: The Underestimated Feature" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ZsyiRa91XZg?si=tI_1D0AgRBSEMrel" title="Hooks: The Underestimated Feature" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 It seems like nobody talks enough about hooks.
 
@@ -66,7 +66,7 @@ The key idea is simple: once the action is defined, it runs every time without n
 
 ## Creating a hook
 
-To create a hook, you can use the Customization UI and generate one directly.
+To create a hook, you can use the Agent Customizations view and generate one directly.
 
 For example, you might create a hook that:
 
@@ -78,15 +78,15 @@ Copilot can generate the hook for you based on your description, including the n
 
 ## Example: hook in action
 
-![Prettier Hook](../images/customizations/ep-5-1-prettier-hook.png)
+![Screenshot of a hook configuration that runs Prettier automatically after a tool completes](../images/customizations/ep-5-1-prettier-hook.png)
 
 After creating the hook, you may need to reload your environment to activate it. Once it's active, it runs automatically based on the lifecycle event you defined.
 
-![Before Hook](../images/customizations/ep-5-2-before-hook.png)
+![Screenshot of a README file before the Prettier hook formats it](../images/customizations/ep-5-2-before-hook.png)
 
 When you make a change, like updating text in a README file, the hook is triggered in the background.
 
-![After Hook](../images/customizations/ep-5-3-after-hook.png)
+![Screenshot of the README file after the Prettier hook automatically formats it](../images/customizations/ep-5-3-after-hook.png)
 
 The result is immediate: the file is updated and formatted without any additional input. The hook quietly handles the work for you.
 
