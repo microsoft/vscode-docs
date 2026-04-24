@@ -65,7 +65,7 @@ Copilot CLI sessions support the same [permission levels](/docs/copilot/agents/a
 
 ### Use `/remote` to open a Copilot CLI session on GitHub (Experimental)
 
-You can mirror an active Copilot CLI session to a GitHub task page by using the `/remote` command in chat. This is useful when you want to monitor or steer the same background session from another device or browser while it continues running locally in VS Code.
+Copilot CLI sessions are not limited to VS Code. Use `/remote` to monitor and steer a running Copilot CLI session from GitHub on the web or on mobile while the session continues running in VS Code.
 
 To use `/remote`:
 
@@ -74,7 +74,7 @@ To use `/remote`:
 1. Run `/remote` in the chat input.
 1. Select **Open on GitHub** to open the linked task page.
 
-The GitHub task page mirrors the current session history, tool activity, and status updates. If the session requires approval for a tool call, the approval is shown in both VS Code and on GitHub. You can approve the request from either location, and the other prompt closes automatically.
+When remote control is enabled, VS Code streams the session history, tool activity, and status updates to the linked GitHub task page in real time. Activity stays in sync across VS Code and GitHub, so actions you take in one place are reflected in the other. If the session requires approval for a tool call or input for a question, the prompt is shown in both places and you can respond from either location.
 
 To stop mirroring the session to GitHub, run `/remote off`.
 
