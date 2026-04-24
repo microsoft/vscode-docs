@@ -26,7 +26,7 @@ The Agents application is installed together with VS Code Insiders. It doesn't r
 
 ## Code-first vs. agent-first
 
-There are two ways to work with AI in VS Code:
+There are two primary ways to work with AI in VS Code:
 
 * **Code-first**: you write code in the editor and use AI as a coding assistant to help you implement features, fix bugs, and refactor code. Your primary interface is the editor for editing code, testing, and debugging. You use AI to enhance your existing coding workflow.
 
