@@ -63,6 +63,24 @@ Copilot CLI sessions support the same [permission levels](/docs/copilot/agents/a
 * **Worktree isolation**: the permission level is automatically set to **Bypass Approvals** and can't be changed. Because the agent operates on an isolated copy of your codebase (Git worktree), all tool calls are auto-approved without confirmation dialogs.
 * **Workspace isolation**: all three permission levels are available (**Default Approvals**, **Bypass Approvals**, and **Autopilot**), just like local agent sessions. Select a level from the permissions picker in the chat input area.
 
+### Use `/remote` to open a Copilot CLI session on GitHub (Experimental)
+
+You can mirror an active Copilot CLI session to a GitHub task page by using the `/remote` command in chat. This is useful when you want to monitor or steer the same background session from another device or browser while it continues running locally in VS Code.
+
+To use `/remote`:
+
+1. Enable the `setting(github.copilot.chat.cli.remote.enabled)` setting.
+1. Start or resume a Copilot CLI session from the Chat view.
+1. Run `/remote` in the chat input.
+1. Select **Open on GitHub** to open the linked task page.
+
+The GitHub task page mirrors the current session history, tool activity, and status updates. If the session requires approval for a tool call, the approval is shown in both VS Code and on GitHub. You can approve the request from either location, and the other prompt closes automatically.
+
+To stop mirroring the session to GitHub, run `/remote off`.
+
+> [!NOTE]
+> `/remote` requires GitHub authentication in VS Code and a workspace that maps to a GitHub repository. If additional GitHub permissions are needed, VS Code prompts you to grant them before remote control is enabled.
+
 ### Limitations of Copilot CLI sessions
 
 * Copilot CLI sessions can't access all VS Code built-in tools. You can explicitly [add context](/docs/copilot/chat/copilot-chat-context.md) in the chat input.
