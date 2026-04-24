@@ -67,7 +67,7 @@ The Agents window has the following main areas:
 
 ## Start an agent session
 
-The Agent application and VS Code share the same underlying agent sessions (Copilot CLI and Copilot cloud agent). This means that any session you start in the Agents application is immediately available in VS Code.
+The Agents application and VS Code share the same underlying agent sessions (Copilot CLI, Copilot cloud, and Claude agent). This means that any session you start in the Agents application is immediately available in VS Code.
 
 To start a new agent session in the Agents application:
 
