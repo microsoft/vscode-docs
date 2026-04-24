@@ -112,7 +112,7 @@ Instead of asking the AI to do something, you define when it should happen and l
 
 Hooks help automate workflows without requiring input.
 
-If you want to understand how hooks, agents, skills, and instructions all fit together, the next step is comparing them as a complete system.
+To learn more about each customization type and how to use them effectively, continue with the customization guides and videos in this series.
 
 ## Learn more
 

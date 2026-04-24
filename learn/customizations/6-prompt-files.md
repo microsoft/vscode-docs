@@ -139,7 +139,7 @@ This leads to faster development and more consistent AI behavior.
 
 Prompt files are just one part of the customization system.
 
-If you want even more control over how AI behaves, the next step is exploring custom instructions.
+If you want to understand how hooks, agents, skills, and instructions all fit together, the next step is comparing them as a complete system.
 
 ## Learn more
 

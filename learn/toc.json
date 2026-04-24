@@ -23,8 +23,8 @@
       ["Custom agent", "/learn/customizations/4-custom-agent"],
       ["Hooks", "/learn/customizations/5-hooks"],
       ["Prompt files", "/learn/customizations/6-prompt-files"],
-      ["Customization Features Explained", "/learn/customizations/7-customization-features-explained"],
-      ["Customization Features In Practice", "/learn/customizations/8-demo"]
+      ["Customization features explained", "/learn/customizations/7-customization-features-explained"],
+      ["Customization features in practice", "/learn/customizations/8-demo"]
     ]
   }
 ]
