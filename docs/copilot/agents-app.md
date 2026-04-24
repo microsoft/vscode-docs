@@ -274,7 +274,7 @@ Both experiences support agentic development: Agents is purpose-built for it, wh
 <details>
 <summary>How do I install and update the Agents app?</summary>
 
-The Agents app is installed and updated alongside VS Code, no additional installation or setup is needed.
+The Agents app is installed and updated alongside VS Code Insiders, no additional installation or setup is needed.
 
 </details>
 
