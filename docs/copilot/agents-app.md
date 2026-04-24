@@ -53,7 +53,7 @@ The Agents application requires GitHub authentication to access your Copilot sub
 
 The Agents application picks up your existing Copilot CLI, Cloud, and Claude agent sessions across your workspaces. You can switch between agent sessions across the different workspaces without needing to open each workspace in a separate window.
 
-The Sessions Window has the following main areas:
+The Agents window has the following main areas:
 
 1. **Sessions list**: in the sidebar, where you can view and manage all your sessions across workspaces. By default, sessions are grouped by workspace. Right-click a session to see more commands, such as renaming, marking as done, pinning, and more.
 
