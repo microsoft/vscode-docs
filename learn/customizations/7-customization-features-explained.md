@@ -1,21 +1,18 @@
 ---
-ContentId: a6b7c8d9-e0f1-2a3b-4c5d-6e7f8a9b0c1d
+ContentId: d3e4f5a6-b7c8-9d0e-1f2a-3b4c5d6e7f8a
 DateApproved: 04/17/2026
-MetaDescription: Learn how to use hooks to customize GitHub Copilot workflows in VS Code.
-MetaSocialImage: ../images/shared/agent-first-development-social.png
+MetaDescription: Learn to use Copilot to understand instructions vs. skills vs. hooks & more.
 ---
 
 # Understanding VS Code customization features together
 
-IMAGE PLACEHOLDER — YouTube thumbnail embed showing comparison of features
+<iframe width="560" height="315" src="https://www.youtube.com/embed/oyMMotLlcgQ?si=899IQZ3GAgGhtkze" title="Instructions vs Skills vs Hooks & More Explained By Copilot Itself" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 There are quite a few customization options in VS Code.
 
 And it’s easy to get them confused.
 
 This guide breaks down how features like custom instructions, prompt files, agent skills, custom agents, and hooks all fit together — and shows how you can use Copilot itself to understand the differences.
-
-
 
 ## Why this gets confusing
 
@@ -25,25 +22,21 @@ They all influence how AI behaves, but they operate at different levels. Without
 
 Instead of trying to memorize definitions, a better approach is to explore them interactively.
 
-
-
 ## Using Copilot to learn the differences
 
 One of the most effective ways to understand these features is to ask Copilot directly.
 
 For example, you can provide a list of features and ask for a short explanation of each. Copilot will generate concise summaries that help you quickly understand what each one does.
 
-![Customization Features Explained by Copilot](../images/customizations/ep%207.1%20Cust%20Feature%20Explained%20by%20Copilot.png)
+![Customization Features Explained by Copilot](../images/customizations/ep-7-1-cust-feature-explained-by-copilot.png)
 
 This gives you a fast, high-level overview without needing to read through multiple docs.
-
-
 
 ## Building a comparison chart
 
 To go deeper, you can ask Copilot to generate a comparison chart.
 
-![Comparisons by Copilot](../images/customizations/ep%207.2%20Comparisons%20by%20Copilot.png)
+![Comparisons by Copilot](../images/customizations/ep-7-2-comparisons-by-copilot.png)
 
 This chart can include:
 
@@ -53,8 +46,6 @@ This chart can include:
 - scope (user, workspace, etc.)
 
 This turns abstract concepts into something you can scan and reference quickly.
-
-
 
 ## Key differences at a glance
 
@@ -67,11 +58,9 @@ For example:
 - Custom Agents vs Skills
 - Hooks vs everything else
 
-![Key Differences by Copilot](../images/customizations/ep%207.3%20Key%20Differences%20by%20Copilot.png)
+![Key Differences by Copilot](../images/customizations/ep-7-3-key-differences-by-copilot.png)
 
 These comparisons help clarify how each feature behaves and when it should be used.
-
-
 
 ## Learning through scenarios (quizzes)
 
@@ -79,13 +68,11 @@ Another powerful approach is to quiz yourself.
 
 You can ask Copilot to generate scenario-based questions where you choose the correct feature for a given situation.
 
-![Quiz by Copilot](../images/customizations/ep%207.4%20Quiz%20by%20Copilot.png)
+![Quiz by Copilot](../images/customizations/ep-7-4-quiz-by-copilot.png)
 
 For example, if you want AI to always follow a specific coding style, the correct answer would be custom instructions.
 
 This method reinforces understanding much faster than passive reading.
-
-
 
 ## Creating a reference you can reuse
 
@@ -99,8 +86,6 @@ For example, you can ask Copilot to generate an HTML file that includes:
 - quizzes
 
 This gives you a reusable resource you can revisit anytime.
-
-
 
 ## Why this approach matters
 
@@ -120,16 +105,13 @@ This represents a shift from:
 
 You’re not just consuming information. You’re generating explanations, comparisons, and examples tailored to your understanding.
 
-
-
 ## What’s next
 
 Now that you understand how these features fit together, the next step is applying them in a real project.
 
 There’s no better way to reinforce this than building something and using each feature in context.
 
-
-
 ## Learn more
+
 - [Customize AI in Visual Studio Code](https://code.visualstudio.com/docs/copilot/customization/overview)
 - [Community contributed customization features](https://github.com/github/awesome-copilot)

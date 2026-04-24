@@ -7,7 +7,7 @@ MetaSocialImage: ../images/shared/agent-first-development-social.png
 
 # Introduction to prompt files
 
-IMAGE PLACEHOLDER — YouTube thumbnail embed showing Prompt Files UI
+<iframe width="560" height="315" src="https://www.youtube.com/embed/d37Y28uU2JY?si=MAKB-3F4Bopmv_Q6" title="Stop Prompting So Much. Do This Instead!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 If you’re constantly repeating prompts, you’re doing too much.
 
@@ -16,6 +16,7 @@ Most developers still rely on typing instructions over and over in chat. It work
 This guide covers what prompt files are, why they matter, and how to use them effectively in VS Code.
 
 ## Prerequisites
+
 Before you start: you'll need VS Code Insiders installed and the GitHub Copilot and GitHub Copilot Chat extensions set up and signed in.
 
 - [Download VS Code](https://code.visualstudio.com/)
@@ -28,8 +29,6 @@ Before you start: you'll need VS Code Insiders installed and the GitHub Copilot 
 Instead of rewriting the same prompt repeatedly, you create it once and reference it whenever needed. This allows you to standardize workflows across projects or even across teams.
 
 They act as reusable building blocks for common tasks you perform during development.
-
-
 
 ## Why prompt files matter
 
@@ -49,8 +48,6 @@ Prompt files solve this by letting you define instructions once and reuse them w
 
 Instead of prompting better, you’re building a system that works for you.
 
-
-
 ## Example: quiz your codebase
 
 One practical use of prompt files is learning or reviewing code.
@@ -66,11 +63,9 @@ This prompt file:
 
 Once created, you can trigger it directly from chat using `/quiz-open-files`.
 
-![prompt file from chat](../images/customizations/ep%202.2%20prompt%20file%20from%20chat.png)
+![prompt file from chat](../images/customizations/ep-6-2-prompt-file-from-chat.png)
 
 Instead of manually writing a long prompt every time, the logic is already defined and ready to reuse.
-
-
 
 ## When prompt files make sense
 
@@ -84,13 +79,11 @@ If something is only done once, a prompt file may not be necessary.
 
 But for repeated workflows, they become extremely valuable.
 
-
-
 ## Creating a prompt file
 
 You can create prompt files directly from the chat interface.
 
-![prompt to create](../images/customizations/ep%202.3%20prompt%20to%20create.png)
+![prompt to create](../images/customizations/ep-6-3-prompt-to-create.png)
 
 Start by triggering the create command and defining your intent.
 
@@ -104,8 +97,6 @@ Once created, the prompt file is stored and can be reused instantly.
 
 You can review and modify it at any time from the Customization UI.
 
-
-
 ## Workspace vs user-level prompts
 
 By default, prompt files may be created at the workspace level.
@@ -116,9 +107,7 @@ If you want to reuse them across multiple projects, move them to the user level 
 
 This allows you to build a personal library of reusable AI workflows.
 
-![workspace vs user](../images/customizations/ep%202.4%20workspace%20v%20user.png)
-
-
+![workspace vs user](../images/customizations/ep-6-4-workspace-v-user.png)
 
 ## Example: refactoring code
 
@@ -134,8 +123,6 @@ When executed, the AI not only updates the code but also explains what was chang
 
 This makes it easier to evaluate different models and approaches based on efficiency and clarity.
 
-
-
 ## The bigger shift
 
 The real value of prompt files is not just convenience.
@@ -148,17 +135,14 @@ Instead of rewriting instructions every time, you define them once and reuse the
 
 This leads to faster development and more consistent AI behavior.
 
-
-
 ## What's next
 
 Prompt files are just one part of the customization system.
 
 If you want even more control over how AI behaves, the next step is exploring custom instructions.
 
-
-
 ## Learn more
+
 - [Customize AI in Visual Studio Code](https://code.visualstudio.com/docs/copilot/customization/overview)
 - [Use prompt files in VS Code](https://code.visualstudio.com/docs/copilot/customization/prompt-files)
 - [Community contributed customization features](https://github.com/github/awesome-copilot)

@@ -7,7 +7,7 @@ MetaSocialImage: ../images/shared/agent-first-development-social.png
 
 # Introduction to custom instructions
 
-IMAGE PLACEHOLDER — YouTube thumbnail embed showing Custom Instructions concept
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dk2biPguo_E?si=O15sDX8Jf18pXZFr" title="Custom Instructions: How I Really Made Copilot Listen!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 You’ve probably been lied to about custom instructions.
 
@@ -16,6 +16,7 @@ If you’re not using them properly, they’re far more powerful than most peopl
 This guide breaks down what custom instructions really are, how they’re meant to be used, and how they can transform your workflow in VS Code.
 
 ## Prerequisites
+
 Before you start: you'll need VS Code Insiders installed and the GitHub Copilot and GitHub Copilot Chat extensions set up and signed in.
 
 - [Download VS Code](https://code.visualstudio.com/)
@@ -25,7 +26,7 @@ Before you start: you'll need VS Code Insiders installed and the GitHub Copilot 
 
 A [custom instruction](https://code.visualstudio.com/docs/copilot/customization/custom-instructions) is like a rulebook for your AI.
 
-It’s a markdown file where you define:
+It’s a Markdown file where you define:
 
 - coding style
 - conventions
@@ -35,27 +36,26 @@ Once defined, the AI automatically follows these rules in every interaction.
 
 Instead of repeating expectations in every prompt, you define them once and let the system enforce them.
 
-
 ## Where to find them
 
 Custom instructions can easily be accessed inside the Agent Customizations UI.
 
 To access them:
 
-- Open Copilot Chat
-- Click the gear icon
-- Navigate to Instructions 
+1. Open the Chat view (select the chat icon in the VS Code title bar).
+2. Select the Configure (gear) icon in the Chat panel header.
+3. Navigate to Instructions
 
-![Customization UI](../images/customizations/ep%203.1%20Cust%20UI.png)
 
 ![chat icon gear](../images/shared/chat-icon-gear.png)
 
-From here, you can view, edit, and manage all instruction files tied to your workflow.
+![Customization UI](../images/customizations/ep-2-1-cust-ui.png)
 
+From here, you can view, edit, and manage all instruction files tied to your workflow.
 
 ## Example: enforcing SOLID principles
 
-![SOLID principles](../images/customizations/ep%203.3%20%20SOLID.png)
+![SOLID principles](../images/customizations/ep-2-3-solid.png)
 
 One example of custom instructions is enforcing coding principles like SOLID.
 
@@ -71,12 +71,11 @@ When the AI is asked to refactor code, it automatically:
 - explains what changes are needed
 - applies those changes
 
-<img src="../images/customizations/ep%203.4%20%20SOLID%20APPLIED.png" alt="SOLID applied" width="80%">
+<img src="../images/customizations/ep-2-4-solid-applied.png" alt="SOLID applied" width="80%">
 
 The key benefit is consistency.
 
 You don’t need to remember to ask for best practices every time. The system enforces them automatically.
-
 
 ## Why custom instructions matter
 
@@ -94,12 +93,11 @@ With custom instructions:
 
 Instead of correcting AI output later, you guide it upfront.
 
-
 ## Creating custom instructions
 
 You can create custom instructions directly from the Customization UI.
 
-![Generate custom instructions](../images/customizations/ep%203.5%20%20Generate%20Cust%20Intstruct.png)
+![Generate custom instructions](../images/customizations/ep-2-5-generate-cust-instruct.png)
 
 There are two approaches:
 
@@ -113,10 +111,9 @@ You define:
 
 This gives you full control but requires more effort.
 
-
 ### AI-assisted creation
 
-![Slash custom instructions](../images/customizations/ep%203.6%20%20Slash%20Cust%20Intstruct%20.png)
+![Slash custom instructions](../images/customizations/ep-2-6-slash-cust-instruct.png)
 
 A faster approach is to let Copilot generate the instruction file.
 
@@ -127,7 +124,6 @@ For example, you can ask it to:
 - **/create-instructions** to confirm when rules are used
 
 The AI creates the instruction file for you, which you can then review and refine.
-
 
 ## Example: accessibility (WCAG)
 
@@ -142,16 +138,15 @@ Once created, the instruction:
 
 Now, even if you ask for unrelated changes, like updating UI design, accessibility is still enforced.
 
-
 ## Example: UI transformation with rules applied
 
 If you ask the AI to redesign your UI, for example:
 
 - making it look like an 80s arcade
 
-| Before                                                                                                 | After                                                                        |
-| ------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------- |
-| <img src="../images/customizations/ep%203.7%20%20Calc%20Norm.png" alt="Calculator normal" width="85%"> | ![Calculator retro](../images/customizations/ep%203.8%20%20Calc%20Retro.png) |
+| Before                                                                                        | After                                                               |
+| --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| <img src="../images/customizations/ep-2-7-calc-norm.png" alt="Calculator normal" width="85%"> | ![Calculator retro](../images/customizations/ep-2-8-calc-retro.png) |
 
 The AI will:
 
@@ -159,7 +154,6 @@ The AI will:
 - enforce accessibility rules at the same time
 
 This shows how instructions persist across tasks, not just specific prompts.
-
 
 ## Individual vs team impact
 
@@ -173,7 +167,6 @@ Across a team, they ensure:
 
 Instead of reviewing and correcting inconsistencies later, everything is aligned from the start.
 
-
 ## The bigger shift
 
 Custom instructions represent a shift from:
@@ -184,16 +177,14 @@ You’re no longer adjusting outputs after they’re generated.
 
 You’re defining how the system behaves before generation even happens.
 
-
-
 ## What’s next
 
 Custom instructions give you control over behavior.
 
 If you want to go further and define reusable capabilities, the next step is exploring agent skills.
 
-
 ## Learn more
+
 - [Use custom instructions in VS Code](https://code.visualstudio.com/docs/copilot/customization/custom-instructions)
 - [Customize AI in Visual Studio Code](https://code.visualstudio.com/docs/copilot/customization/overview)
 - [Community contributed customization features](https://github.com/github/awesome-copilot)

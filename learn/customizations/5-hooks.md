@@ -7,7 +7,7 @@ MetaSocialImage: ../images/shared/agent-first-development-social.png
 
 # Introduction to hooks
 
-IMAGE PLACEHOLDER — YouTube thumbnail embed showing Hooks concept
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ZsyiRa91XZg?si=tI_1D0AgRBSEMrel" title="Hooks: The Underestimated Feature" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 It seems like nobody talks enough about hooks.
 
@@ -16,6 +16,7 @@ But they might be one of the most powerful features in VS Code right now.
 This guide breaks down what hooks are, how they work, and how to use them to automate your workflow.
 
 ## Prerequisites
+
 Before you start: you'll need VS Code Insiders installed and the GitHub Copilot and GitHub Copilot Chat extensions set up and signed in.
 
 - [Download VS Code](https://code.visualstudio.com/)
@@ -33,8 +34,6 @@ At a high level, hooks are commonly used to:
 - enforce security or coding standards
 - validate changes before or after execution
 - integrate with external tools
-
-
 
 ## Lifecycle events (where hooks run)
 
@@ -57,7 +56,6 @@ These events act as trigger points during an agent session. For example, a hook 
 
 Choosing the right lifecycle event is critical, because it defines when your automation actually happens.
 
-
 ## Example: auto-formatting with Prettier
 
 One of the most practical examples of hooks is automatically formatting code.
@@ -66,11 +64,7 @@ In this case, a hook is configured to run Prettier after every file edit. Instea
 
 The key idea is simple: once the action is defined, it runs every time without needing to ask.
 
-
-
 ## Creating a hook
-
-IMAGE PLACEHOLDER — “Generate Hook” UI
 
 To create a hook, you can use the Customization UI and generate one directly.
 
@@ -82,23 +76,19 @@ For example, you might create a hook that:
 
 Copilot can generate the hook for you based on your description, including the necessary configuration and commands.
 
-
-
 ## Example: hook in action
 
-![Prettier Hook](../images/customizations/ep%206.1%20Prettier%20Hook.png)
+![Prettier Hook](../images/customizations/ep-5-1-prettier-hook.png)
 
 After creating the hook, you may need to reload your environment to activate it. Once it's active, it runs automatically based on the lifecycle event you defined.
 
-![Before Hook](../images/customizations/ep%206.2%20Before%20Hook.png)
+![Before Hook](../images/customizations/ep-5-2-before-hook.png)
 
 When you make a change, like updating text in a README file, the hook is triggered in the background.
 
-![After Hook](../images/customizations/ep%206.3%20After%20Hook.png)
+![After Hook](../images/customizations/ep-5-3-after-hook.png)
 
 The result is immediate: the file is updated and formatted without any additional input. The hook quietly handles the work for you.
-
-
 
 ## Why hooks matter
 
@@ -118,15 +108,11 @@ Hooks represent a shift from:
 
 Instead of asking the AI to do something, you define when it should happen and let the system take care of it.
 
-
-
 ## What’s next
 
 Hooks help automate workflows without requiring input.
 
 If you want to understand how hooks, agents, skills, and instructions all fit together, the next step is comparing them as a complete system.
-
-
 
 ## Learn more
 

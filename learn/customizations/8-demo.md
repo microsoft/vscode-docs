@@ -7,7 +7,7 @@ MetaSocialImage: ../images/shared/agent-first-development-social.png
 
 # Customization features in practice
 
-IMAGE PLACEHOLDER — YouTube thumbnail embed showing app demo
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Bb45ZoKfJf0?si=SgI3qnVLwYpLUxZV" title="Customization Features in Practice" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 You may have seen quite a few videos about customization features in VS Code.
 
@@ -26,7 +26,7 @@ Before you start: you'll need VS Code Insiders installed and the GitHub Copilot 
 
 The app we’re building is called **Repo Analyzer**.
 
-Its purpose is simple: take in the URL of a GitHub repository, analyze the codebase, and grade the quality of the project on a scale from 1 to 10\.
+Its purpose is simple: take in the URL of a GitHub repository, analyze the codebase, and grade the quality of the project on a scale from 1 to 10.
 
 It also provides recommendations to improve the score, helping developers understand what changes could make the project stronger.
 
@@ -46,7 +46,7 @@ This saves time because you don’t need to repeat these instructions manually.
 
 ## Building the app with a custom agent
 
-![Arcade Agent](../images/customizations/ep%208.2%20Arcade%20Agent.png)
+![Arcade Agent](../images/customizations/ep-8-2-arcade-agent.png)
 
 To start, the **Arcade App Builder** custom agent is selected.
 
@@ -55,7 +55,7 @@ This agent already understands the design language and architectural style of th
 > **Prompt**  
 > Can you go ahead and create an app that will take in the URL from a GitHub repo and analyze the code, grading the quality from 1 to 10 and giving recommendations to improve the score.
 
-![Repo Analyzer - Initial View](../images/customizations/ep%208.3%20Repo%20Analyzer%20-%20Initial%20View.png)
+![Repo Analyzer - Initial View](../images/customizations/ep-8-3-repo-analyzer-initial-view.png)
 
 The result is a working first version of the app, complete with styling and validation logic.
 
@@ -63,7 +63,7 @@ The result is a working first version of the app, complete with styling and vali
 
 Once the app is generated, it can be tested against real repositories.
 
-![Repo Analyzer](../images/customizations/ep%208.1%20Repo%20Analyzer.png)
+![Repo Analyzer](../images/customizations/ep-8-1-repo-analyzer.png)
 
 For example, entering the URL of a GitHub project returns:
 
@@ -91,7 +91,7 @@ For example, you can confirm the dark/light mode feature is mentioned in the REA
 
 ## Verifying custom instructions
 
-![SOLID](../images/customizations/ep%208.4%20SOLID.png)
+![SOLID](../images/customizations/ep-8-4-solid.png)
 
 During development, custom instructions are applied automatically.
 
