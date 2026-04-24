@@ -109,7 +109,7 @@ You can connect to a remote machine to start a session there or track the progre
 The Agents application connects to the remote machine using the Agent Host Protocol (AHP) over SSH or a dev tunnel. When you connect, the application automatically installs and starts the Copilot CLI on the remote machine. This also means that the remote machine must be powered on and accessible over the network.
 
 > [!TIP]
-> You can also connect to a remote machine from the browser-based Agents application in VS Code for the Web by using a dev tunnel connection.
+> You can also connect to a remote machine from the browser-based Agents application in VS Code for the Web by using a dev tunnel connection at insiders.vscode.dev/agents.
 
 ### Connect via SSH
 
