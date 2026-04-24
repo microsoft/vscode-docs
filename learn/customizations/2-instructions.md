@@ -70,7 +70,7 @@ When the AI is asked to refactor code, it automatically:
 - explains what changes are needed
 - applies those changes
 
-<img src="../images/customizations/ep-2-4-solid-applied.png" alt="SOLID applied" width="80%">
+<img src="/assets/learn/customizations/ep-2-4-solid-applied.png" alt="SOLID applied" width="80%">
 
 The key benefit is consistency.
 
@@ -145,7 +145,7 @@ If you ask the AI to redesign your UI, for example:
 
 | Before                                                                                                                                        | After                                                                                                                   |
 | --------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| <img src="../images/customizations/ep-2-7-calc-norm.png" alt="Screenshot of the calculator app before applying the arcade theme" width="85%"> | ![Screenshot of the calculator app after applying the 80s arcade theme](../images/customizations/ep-2-8-calc-retro.png) |
+| <img src="/assets/learn/customizations/ep-2-7-calc-norm.png" alt="Screenshot of the calculator app before applying the arcade theme" width="85%"> | ![Screenshot of the calculator app after applying the 80s arcade theme](../images/customizations/ep-2-8-calc-retro.png) |
 
 The AI will:
 
