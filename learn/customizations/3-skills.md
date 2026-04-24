@@ -1,7 +1,7 @@
 ---
 ContentId: e4f5a6b7-c8d9-0e1f-2a3b-4c5d6e7f8a9b
 DateApproved: 04/17/2026
-MetaDescription: Learn how to use skills to extend GitHub Copilot capabilities in VS Code.
+MetaDescription: Learn how to create and use agent skills in VS Code to automate workflows, extend GitHub Copilot capabilities, and reduce repetitive tasks.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 ---
 
@@ -34,13 +34,13 @@ At a high level, a skill typically includes:
 - rules for how it should behave
 - references to related workflows or dependencies
 
-## ![Skill Structure](<../images/customizations/ep-3-0-skill-structure.png>)
+![Skill structure](../images/customizations/ep-3-0-skill-structure.png)
 
 ## Where to find them
 
 ![chat icon gear](../images/shared/chat-icon-gear.png)
 
-Agent skills live in the Customization UI alongside prompts and instructions. You can access them by opening Copilot Chat, clicking the gear icon, and navigating to the Skills section.
+Agent skills live in the Customization UI alongside prompts and instructions. You can access them by opening Copilot Chat, selecting the gear icon, and navigating to the Skills section.
 
 ![Skills Customization UI](../images/customizations/ep-3-2-skills-cust-ui.png)
 
@@ -120,6 +120,8 @@ If you want to go further and define complete systems with roles and responsibil
 
 ## Learn more
 
-- [Use agent skills in VS Code](https://code.visualstudio.com/docs/copilot/customization/agent-skills)
 - [Customize AI in Visual Studio Code](https://code.visualstudio.com/docs/copilot/customization/overview)
+- [Use agent skills in VS Code](https://code.visualstudio.com/docs/copilot/customization/agent-skills)
+- [Use custom agents in VS Code](https://code.visualstudio.com/docs/copilot/customization/custom-agents)
+- [Use custom instructions in VS Code](https://code.visualstudio.com/docs/copilot/customization/custom-instructions)
 - [Community contributed customization features](https://github.com/github/awesome-copilot)

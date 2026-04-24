@@ -1,7 +1,7 @@
 ---
 ContentId: d3e4f5a6-b7c8-9d0e-1f2a-3b4c5d6e7f8a
 DateApproved: 04/17/2026
-MetaDescription: Learn to use Copilot to understand instructions vs. skills vs. hooks & more.
+MetaDescription: Understand the differences between custom instructions, agent skills, hooks, custom agents, and prompt files in GitHub Copilot using interactive learning with Copilot.
 ---
 
 # Understanding VS Code customization features together
@@ -114,4 +114,9 @@ There’s no better way to reinforce this than building something and using each
 ## Learn more
 
 - [Customize AI in Visual Studio Code](https://code.visualstudio.com/docs/copilot/customization/overview)
+- [Use custom instructions in VS Code](https://code.visualstudio.com/docs/copilot/customization/custom-instructions)
+- [Use agent skills in VS Code](https://code.visualstudio.com/docs/copilot/customization/agent-skills)
+- [Use custom agents in VS Code](https://code.visualstudio.com/docs/copilot/customization/custom-agents)
+- [Use hooks in VS Code](https://code.visualstudio.com/docs/copilot/customization/hooks)
+- [Use prompt files in VS Code](https://code.visualstudio.com/docs/copilot/customization/prompt-files)
 - [Community contributed customization features](https://github.com/github/awesome-copilot)

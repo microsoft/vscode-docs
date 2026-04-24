@@ -1,7 +1,7 @@
 ---
 ContentId: d3e4f5a6-b7c8-9d0e-1f2a-3b4c5d6e7f8a
 DateApproved: 04/17/2026
-MetaDescription: Learn how to use instructions to customize GitHub Copilot behavior in VS Code.
+MetaDescription: Learn how to create and use custom instructions in VS Code to guide GitHub Copilot behavior, enforce coding standards, and get consistent chat results.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 ---
 
@@ -43,9 +43,8 @@ Custom instructions can easily be accessed inside the Agent Customizations UI.
 To access them:
 
 1. Open the Chat view (select the chat icon in the VS Code title bar).
-2. Select the Configure (gear) icon in the Chat panel header.
+2. Select the Configure (gear) icon in the Chat view header.
 3. Navigate to Instructions
-
 
 ![chat icon gear](../images/shared/chat-icon-gear.png)
 
@@ -185,6 +184,6 @@ If you want to go further and define reusable capabilities, the next step is exp
 
 ## Learn more
 
-- [Use custom instructions in VS Code](https://code.visualstudio.com/docs/copilot/customization/custom-instructions)
 - [Customize AI in Visual Studio Code](https://code.visualstudio.com/docs/copilot/customization/overview)
+- [Use custom instructions in VS Code](https://code.visualstudio.com/docs/copilot/customization/custom-instructions)
 - [Community contributed customization features](https://github.com/github/awesome-copilot)

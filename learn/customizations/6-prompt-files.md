@@ -1,7 +1,7 @@
 ---
 ContentId: c2d3e4f5-a6b7-8c9d-0e1f-2a3b4c5d6e7f
 DateApproved: 04/17/2026
-MetaDescription: Learn how to use prompt files to customize GitHub Copilot in VS Code.
+MetaDescription: Learn how to create and use reusable prompt files in VS Code to standardize workflows, reduce repetition, and customize GitHub Copilot behavior.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 ---
 
@@ -145,4 +145,7 @@ If you want even more control over how AI behaves, the next step is exploring cu
 
 - [Customize AI in Visual Studio Code](https://code.visualstudio.com/docs/copilot/customization/overview)
 - [Use prompt files in VS Code](https://code.visualstudio.com/docs/copilot/customization/prompt-files)
+- [Use custom instructions in VS Code](https://code.visualstudio.com/docs/copilot/customization/custom-instructions)
+- [Use agent skills in VS Code](https://code.visualstudio.com/docs/copilot/customization/agent-skills)
+- [Use custom agents in VS Code](https://code.visualstudio.com/docs/copilot/customization/custom-agents)
 - [Community contributed customization features](https://github.com/github/awesome-copilot)

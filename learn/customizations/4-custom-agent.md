@@ -1,7 +1,7 @@
 ---
 ContentId: f5a6b7c8-d9e0-1f2a-3b4c-5d6e7f8a9b0c
 DateApproved: 04/17/2026
-MetaDescription: Learn how to build and use custom agents with GitHub Copilot in VS Code.
+MetaDescription: Learn how to create and use custom agents with GitHub Copilot to define AI roles, maintain consistency, and build specialized workflows in VS Code.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 ---
 
@@ -39,7 +39,7 @@ This transforms the AI from a general assistant into a role-specific collaborato
 ## Where to find them
 
 ![chat icon gear](../images/customizations/chat-icon-gear.png)
-Custom agents are easily located in the Customization UI under the Agents section which you can get to by opening chat and clicking its gear.
+Custom agents are easily located in the Customization UI under the Agents section which you can get to by opening chat and selecting its gear.
 
 ![Custom Agents](../images/customizations/ep-4-1-cust-agents.png)
 
@@ -145,4 +145,7 @@ If you want to take it even further and trigger behavior automatically without p
 
 - [Customize AI in Visual Studio Code](https://code.visualstudio.com/docs/copilot/customization/overview)
 - [Use custom agents in VS Code](https://code.visualstudio.com/docs/copilot/customization/custom-agents)
+- [Use custom instructions in VS Code](https://code.visualstudio.com/docs/copilot/customization/custom-instructions)
+- [Use agent skills in VS Code](https://code.visualstudio.com/docs/copilot/customization/agent-skills)
+- [Use hooks in VS Code](https://code.visualstudio.com/docs/copilot/customization/hooks)
 - [Community contributed customization features](https://github.com/github/awesome-copilot)

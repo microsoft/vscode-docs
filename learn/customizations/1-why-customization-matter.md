@@ -1,7 +1,7 @@
 ---
 ContentId: b1c2d3e4-f5a6-7b8c-9d0e-1f2a3b4c5d6e
 DateApproved: 04/17/2026
-MetaDescription: Learn why agent customization matters for getting the most out of GitHub Copilot in VS Code.
+MetaDescription: Learn why GitHub Copilot agent customization in VS Code matters, and how to get started with the Customization UI for more consistent AI results.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 ---
 
@@ -23,7 +23,7 @@ Before you start: you'll need VS Code Insiders installed and the GitHub Copilot 
 - [Download VS Code](https://code.visualstudio.com/)
 - [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/overview#_step-1-set-up-copilot)
 
-## What is agent Customization?
+## What is agent customization?
 
 Agent customization in VS Code Copilot Chat lets you define how the AI behaves, responds, and operates within your workflow.
 
@@ -59,17 +59,17 @@ Customization changes that. It allows you to:
 
 Instead of prompting better, you're building a system that works for you.
 
-## The Customization UI
+## The customization UI
 
 VS Code provides a single place to manage all customization features.
 
 To get started:
 
 1. Open the Chat view (select the chat icon in the VS Code title bar).  
-2. Select the Configure (gear) icon in the Chat panel header.
+2. Select the Configure (gear) icon in the Chat view header.
 
 <!-- IMAGE PLACEHOLDER - Chat screenshot -->
-![Screenshot showing the Copilot Chat view with the Configure gear icon in the Chat panel header.](../images/customizations/chat-icon-gear.png)
+![Screenshot showing the Copilot Chat view with the Configure gear icon in the Chat view header.](../images/customizations/chat-icon-gear.png)
 
 This opens the Customization UI.
 
@@ -89,14 +89,18 @@ The Customization UI brings everything into one place. It makes it easier to def
 
 Instead of interacting with AI one prompt at a time, you're building a system that consistently works the way you want.
 
-## What's Next
+## What's next
 
 You now understand what customization is and how the Customization UI brings it all together.
 
 To learn more about each customization type and how to use them effectively, continue with the customization guides and videos in this series.
 
 
-## Learn more 
-- [Customize AI in Visual Studio Code](https://code.visualstudio.com/docs/copilot/customization/overview) 
-- [Choosing an AI model for Copilot Chat](https://code.visualstudio.com/docs/copilot/language-models) 
-- [Community contributed customization features](https://github.com/github/awesome-copilot) 
+## Learn more
+- [Customize AI in Visual Studio Code](https://code.visualstudio.com/docs/copilot/customization/overview)
+- [Use custom instructions in VS Code](https://code.visualstudio.com/docs/copilot/customization/custom-instructions)
+- [Use agent skills in VS Code](https://code.visualstudio.com/docs/copilot/customization/agent-skills)
+- [Use custom agents in VS Code](https://code.visualstudio.com/docs/copilot/customization/custom-agents)
+- [Use hooks in VS Code](https://code.visualstudio.com/docs/copilot/customization/hooks)
+- [Use prompt files in VS Code](https://code.visualstudio.com/docs/copilot/customization/prompt-files)
+- [Community contributed customization features](https://github.com/github/awesome-copilot)

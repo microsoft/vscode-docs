@@ -1,7 +1,7 @@
 ---
 ContentId: b7c8d9e0-f1a2-3b4c-5d6e-7f8a9b0c1d2e
 DateApproved: 04/17/2026
-MetaDescription: A hands-on demo of GitHub Copilot customization features in VS Code.
+MetaDescription: A hands-on demo of GitHub Copilot customization features: custom agents, skills, instructions, prompt files, and hooks working together in a real project.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 ---
 
@@ -181,4 +181,9 @@ Happy coding\!
 ## Learn more
 
 - [Customize AI in Visual Studio Code](https://code.visualstudio.com/docs/copilot/customization/overview)
+- [Use custom agents in VS Code](https://code.visualstudio.com/docs/copilot/customization/custom-agents)
+- [Use agent skills in VS Code](https://code.visualstudio.com/docs/copilot/customization/agent-skills)
+- [Use custom instructions in VS Code](https://code.visualstudio.com/docs/copilot/customization/custom-instructions)
+- [Use prompt files in VS Code](https://code.visualstudio.com/docs/copilot/customization/prompt-files)
+- [Use hooks in VS Code](https://code.visualstudio.com/docs/copilot/customization/hooks)
 - [Community contributed customization features](https://github.com/github/awesome-copilot)

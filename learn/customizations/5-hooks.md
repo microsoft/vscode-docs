@@ -1,7 +1,7 @@
 ---
 ContentId: a6b7c8d9-e0f1-2a3b-4c5d-6e7f8a9b0c1d
 DateApproved: 04/17/2026
-MetaDescription: Learn how to use hooks to customize GitHub Copilot workflows in VS Code.
+MetaDescription: Learn how to use hooks in VS Code to automate workflows, enforce standards, and trigger actions based on lifecycle events in GitHub Copilot.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 ---
 
@@ -118,4 +118,8 @@ If you want to understand how hooks, agents, skills, and instructions all fit to
 
 - [Customize AI in Visual Studio Code](https://code.visualstudio.com/docs/copilot/customization/overview)
 - [Use hooks in VS Code](https://code.visualstudio.com/docs/copilot/customization/hooks)
+- [Use custom instructions in VS Code](https://code.visualstudio.com/docs/copilot/customization/custom-instructions)
+- [Use agent skills in VS Code](https://code.visualstudio.com/docs/copilot/customization/agent-skills)
+- [Use custom agents in VS Code](https://code.visualstudio.com/docs/copilot/customization/custom-agents)
+- [Use prompt files in VS Code](https://code.visualstudio.com/docs/copilot/customization/prompt-files)
 - [Community contributed customization features](https://github.com/github/awesome-copilot)
