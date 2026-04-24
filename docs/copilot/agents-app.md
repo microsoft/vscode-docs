@@ -240,7 +240,7 @@ To use a different GitHub account in the Agents application, select the account 
 <details>
 <summary>Can I continue sessions created in VS Code in the Agents app?</summary>
 
-Yes, sessions created in the main VS Code window with supported agent types (Copilot CLI and Copilot Cloud) will automatically appear in the Agents app. You can switch between the two interfaces without losing any session history or context.
+Yes, sessions created in the main VS Code window with supported agent types (Copilot CLI, Copilot Cloud, and Claude agent) will automatically appear in the Agents app. You can switch between the two interfaces without losing any session history or context.
 
 </details>
 
