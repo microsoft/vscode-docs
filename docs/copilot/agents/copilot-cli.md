@@ -63,9 +63,9 @@ Copilot CLI sessions support the same [permission levels](/docs/copilot/agents/a
 * **Worktree isolation**: the permission level is automatically set to **Bypass Approvals** and can't be changed. Because the agent operates on an isolated copy of your codebase (Git worktree), all tool calls are auto-approved without confirmation dialogs.
 * **Workspace isolation**: all three permission levels are available (**Default Approvals**, **Bypass Approvals**, and **Autopilot**), just like local agent sessions. Select a level from the permissions picker in the chat input area.
 
-### Use `/remote` to open a Copilot CLI session on GitHub (Experimental)
+### Use `/remote` to continue a Copilot CLI session on GitHub (Experimental)
 
-Copilot CLI sessions are not limited to VS Code. Use `/remote` to monitor and steer a running Copilot CLI session from GitHub on the web or on mobile while the session continues running in VS Code.
+Use `/remote` when you want to keep moving on work that you started in VS Code after you step away from it. For example, you might start a Copilot CLI session in VS Code, leave your desk, and then continue following along from github.com or the GitHub Mobile app.
 
 To use `/remote`:
 
@@ -74,7 +74,7 @@ To use `/remote`:
 1. Run `/remote` in the chat input.
 1. Select **Open on GitHub** to open the linked task page.
 
-When remote control is enabled, VS Code streams the session history, tool activity, and status updates to the linked GitHub task page in real time. Activity stays in sync across VS Code and GitHub, so actions you take in one place are reflected in the other. If the session requires approval for a tool call or input for a question, the prompt is shown in both places and you can respond from either location.
+When remote control is enabled, VS Code streams the session history, tool activity, and status updates to the linked GitHub task page in real time. This lets you pick up the same session from GitHub without losing context. Activity stays in sync across VS Code and GitHub, so actions you take in one place are reflected in the other. If the session requires approval for a tool call or input for a question, the prompt is shown in both places and you can respond from either location.
 
 To stop mirroring the session to GitHub, run `/remote off`.
 
