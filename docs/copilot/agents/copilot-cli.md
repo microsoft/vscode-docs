@@ -63,6 +63,24 @@ Copilot CLI sessions support the same [permission levels](/docs/copilot/agents/a
 * **Worktree isolation**: the permission level is automatically set to **Bypass Approvals** and can't be changed. Because the agent operates on an isolated copy of your codebase (Git worktree), all tool calls are auto-approved without confirmation dialogs.
 * **Workspace isolation**: all three permission levels are available (**Default Approvals**, **Bypass Approvals**, and **Autopilot**), just like local agent sessions. Select a level from the permissions picker in the chat input area.
 
+### Use `/remote` to continue a Copilot CLI session on GitHub (Experimental)
+
+Use `/remote` to keep a Copilot CLI session going after you leave VS Code. Pick it up from github.com or the GitHub Mobile app without losing context.
+
+To use `/remote`:
+
+1. Enable the `setting(github.copilot.chat.cli.remote.enabled)` setting.
+1. Start or resume a Copilot CLI session from the Chat view.
+1. Run `/remote` in the chat input.
+1. Select **Open on GitHub** to open the linked task page.
+
+When remote control is enabled, VS Code streams the session history, tool activity, and status updates to the linked GitHub task page in real time. This lets you pick up the same session from GitHub without losing context. Activity stays in sync across VS Code and GitHub, so actions you take in one place are reflected in the other. If the session requires approval for a tool call or input for a question, the prompt is shown in both places and you can respond from either location.
+
+To stop mirroring the session to GitHub, run `/remote off`.
+
+> [!NOTE]
+> `/remote` requires GitHub authentication in VS Code and a workspace that maps to a GitHub repository. If additional GitHub permissions are needed, VS Code prompts you to grant them before remote control is enabled.
+
 ### Limitations of Copilot CLI sessions
 
 * Copilot CLI sessions can't access all VS Code built-in tools. You can explicitly [add context](/docs/copilot/chat/copilot-chat-context.md) in the chat input.
