@@ -65,7 +65,7 @@ Copilot CLI sessions support the same [permission levels](/docs/copilot/agents/a
 
 ### Use `/remote` to continue a Copilot CLI session on GitHub (Experimental)
 
-Use `/remote` when you want to keep moving on work that you started in VS Code after you step away from it. For example, you might start a Copilot CLI session in VS Code, leave your desk, and then continue following along from github.com or the GitHub Mobile app.
+Use `/remote` to keep a Copilot CLI session going after you leave VS Code. Pick it up from github.com or the GitHub Mobile app without losing context.
 
 To use `/remote`:
 
