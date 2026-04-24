@@ -167,7 +167,7 @@ See the [Dev Containers documentation](/docs/devcontainers/containers.md) for mo
 
 ## Known limitations
 
-This section contains a list of common know issues with WSL. The intent is not to provide a complete list of issues but to highlight some of the common problems seen with WSL.
+This section contains a list of common issues with WSL. The intent is not to provide a complete list of issues but to highlight some of the common problems seen with WSL.
 
 See [here for a list of active issues](https://aka.ms/vscode-remote/wsl/issues) related to WSL.
 
