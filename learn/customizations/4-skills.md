@@ -5,7 +5,7 @@ MetaDescription: Learn how to use skills to extend GitHub Copilot capabilities i
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 ---
 
-# **Introduction to Agent Skills**
+# Introduction to agent skills
 
 IMAGE PLACEHOLDER — YouTube thumbnail embed showing Agent Skills concept
 
@@ -15,9 +15,13 @@ And that’s a problem, because skills are one of the most powerful ways to exte
 
 This guide breaks down what agent skills are, how they work, and how to use them effectively in VS Code.
 
----
+## Prerequisites
+Before you start: you'll need VS Code Insiders installed and the GitHub Copilot and GitHub Copilot Chat extensions set up and signed in.
 
-## **What Are Agent Skills?**
+- [Download VS Code](https://code.visualstudio.com/)
+- [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/overview#_step-1-set-up-copilot)
+
+## What are agent skills?
 
 [Agent skills](https://code.visualstudio.com/docs/copilot/customization/agent-skills) are structured bundles that include instructions, scripts, and supporting resources. Instead of relying on one-off prompts, skills package everything needed to perform a task into a reusable system.
 
@@ -29,13 +33,11 @@ At a high level, a skill typically includes:
 - rules for how it should behave
 - references to related workflows or dependencies
 
-![Skill Structure](<../images/customizations/ep 4.0 Skill Structure.png>)
----
+## ![Skill Structure](<../images/customizations/ep 4.0 Skill Structure.png>)
 
+## Where to find them
 
-## **Where to Find Them**
-
-![chat icon gear](../images/customizations/ep%204.1%20chat-icon-gear.png)
+![chat icon gear](../images/shared/chat-icon-gear.png)
 
 Agent skills live in the Customization UI alongside prompts and instructions. You can access them by opening Copilot Chat, clicking the gear icon, and navigating to the Skills section.
 
@@ -43,9 +45,9 @@ Agent skills live in the Customization UI alongside prompts and instructions. Yo
 
 From here, you’ll see built-in skills, extension-provided skills, and any custom skills you create, all in one centralized place.
 
----
 
-## **Example: Creating a Prompt (Using a Skill)**
+
+## Example: creating a prompt (using a skill)
 
 ![create skill](../images/customizations/ep%204.3%20create%20skill.png)
 
@@ -59,9 +61,9 @@ That skill handles the entire workflow for you. Instead of manually thinking thr
 
 This is a great example of how skills operate behind the scenes to simplify complex workflows.
 
----
 
-## **Why Agent Skills Matter**
+
+## Why agent skills matter
 
 Without skills, you’re responsible for guiding every step manually. That often means repeating logic, making decisions each time, and dealing with inconsistent results.
 
@@ -73,9 +75,9 @@ The difference shows up in your workflow:
 - more consistent outputs
 - faster execution of multi-step tasks
 
----
 
-## **Creating a Custom Skill**
+
+## Creating a custom skill
 
 You can create your own skills to automate workflows specific to your project.
 
@@ -83,9 +85,9 @@ For example, you might want a skill that updates documentation automatically whe
 
 Copilot can guide this process by generating the initial version of the skill, which you can then review and refine.
 
----
 
-## **Example: Auto-Updating a README**
+
+## Example: auto-updating a README
 
 `/create-skill That will update the readme file whenever a feature is added to my project.`
 
@@ -105,9 +107,9 @@ Instead of manually updating documentation, the skill handles it for you.
 
 After the feature is added, the README reflects the change automatically. This keeps your project accurate without interrupting your workflow.
 
----
 
-## **Refining and Improving Skills**
+
+## Refining and improving skills
 
 Skills aren’t static. Over time, you can improve them by adjusting behavior, adding confirmations, or refining how they execute tasks.
 
@@ -119,19 +121,17 @@ Agent skills represent a shift from:
 
 Instead of handling tasks step-by-step, you define reusable capabilities that execute entire workflows for you.
 
----
 
-## **What’s Next**
+
+## What’s next
 
 Agent skills help you automate workflows.
 
 If you want to go further and define complete systems with roles and responsibilities, the next step is exploring custom agents.
 
----
 
-## **Learn more**
 
-- [Download VS Code](https://code.visualstudio.com/)
-- [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/setup)
-- [Copilot Chat panel docs](https://code.visualstudio.com/docs/copilot/chat/copilot-chat)
-- [Choosing an AI model for Copilot Chat](https://docs.github.com/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat)
+## Learn more
+- [Use agent skills in VS Code](https://code.visualstudio.com/docs/copilot/customization/agent-skills)
+- [Customize AI in Visual Studio Code](https://code.visualstudio.com/docs/copilot/customization/overview)
+- [Community contributed customization features](https://github.com/github/awesome-copilot)

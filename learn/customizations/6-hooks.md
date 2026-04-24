@@ -5,7 +5,7 @@ MetaDescription: Learn how to use hooks to customize GitHub Copilot workflows in
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 ---
 
-# **Introduction to Hooks**
+# Introduction to hooks
 
 IMAGE PLACEHOLDER — YouTube thumbnail embed showing Hooks concept
 
@@ -15,9 +15,13 @@ But they might be one of the most powerful features in VS Code right now.
 
 This guide breaks down what hooks are, how they work, and how to use them to automate your workflow.
 
----
+## Prerequisites
+Before you start: you'll need VS Code Insiders installed and the GitHub Copilot and GitHub Copilot Chat extensions set up and signed in.
 
-## **What Are Hooks?**
+- [Download VS Code](https://code.visualstudio.com/)
+- [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/overview#_step-1-set-up-copilot)
+
+## What are hooks?
 
 [Hooks](https://code.visualstudio.com/docs/copilot/customization/hooks) allow you to execute custom shell commands at specific lifecycle points during an agent session.
 
@@ -30,9 +34,9 @@ At a high level, hooks are commonly used to:
 - validate changes before or after execution
 - integrate with external tools
 
----
 
-## **Lifecycle Events (Where Hooks Run)**
+
+## Lifecycle events (where hooks run)
 
 VS Code supports eight hook events that fire at specific points during an agent session:
 
@@ -53,9 +57,8 @@ These events act as trigger points during an agent session. For example, a hook 
 
 Choosing the right lifecycle event is critical, because it defines when your automation actually happens.
 
----
 
-## **Example: Auto-Formatting with Prettier**
+## Example: auto-formatting with Prettier
 
 One of the most practical examples of hooks is automatically formatting code.
 
@@ -63,9 +66,9 @@ In this case, a hook is configured to run Prettier after every file edit. Instea
 
 The key idea is simple: once the action is defined, it runs every time without needing to ask.
 
----
 
-## **Creating a Hook**
+
+## Creating a hook
 
 IMAGE PLACEHOLDER — “Generate Hook” UI
 
@@ -79,9 +82,9 @@ For example, you might create a hook that:
 
 Copilot can generate the hook for you based on your description, including the necessary configuration and commands.
 
----
 
-## **Example: Hook in Action**
+
+## Example: hook in action
 
 ![Prettier Hook](../images/customizations/ep%206.1%20Prettier%20Hook.png)
 
@@ -95,9 +98,9 @@ When you make a change, like updating text in a README file, the hook is trigger
 
 The result is immediate: the file is updated and formatted without any additional input. The hook quietly handles the work for you.
 
----
 
-## **Why Hooks Matter**
+
+## Why hooks matter
 
 Hooks take automation to another level.
 
@@ -109,29 +112,24 @@ This changes how you work:
 - consistency is enforced automatically
 - workflows become seamless
 
----
-
-## **The Bigger Shift**
-
 Hooks represent a shift from:
 
 **manual execution → event-driven automation**
 
 Instead of asking the AI to do something, you define when it should happen and let the system take care of it.
 
----
 
-## **What’s Next**
+
+## What’s next
 
 Hooks help automate workflows without requiring input.
 
 If you want to understand how hooks, agents, skills, and instructions all fit together, the next step is comparing them as a complete system.
 
----
 
-## **Learn more**
 
-- [Download VS Code](https://code.visualstudio.com/)
-- [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/setup)
-- [Copilot Chat panel docs](https://code.visualstudio.com/docs/copilot/chat/copilot-chat)
-- [Choosing an AI model for Copilot Chat](https://docs.github.com/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat)
+## Learn more
+
+- [Customize AI in Visual Studio Code](https://code.visualstudio.com/docs/copilot/customization/overview)
+- [Use hooks in VS Code](https://code.visualstudio.com/docs/copilot/customization/hooks)
+- [Community contributed customization features](https://github.com/github/awesome-copilot)

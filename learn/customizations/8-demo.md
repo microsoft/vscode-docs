@@ -5,7 +5,7 @@ MetaDescription: A hands-on demo of GitHub Copilot customization features in VS 
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 ---
 
-# **Customization Features In Practice**
+# Customization features in practice
 
 IMAGE PLACEHOLDER — YouTube thumbnail embed showing app demo
 
@@ -15,9 +15,14 @@ Things like prompt files, custom instructions, agent skills, custom agents, and 
 
 In this guide, we’ll build an app from scratch and use multiple customization features throughout the workflow.
 
----
+## Prerequisites
 
-## **The Project: Repo Analyzer**
+Before you start: you'll need VS Code Insiders installed and the GitHub Copilot and GitHub Copilot Chat extensions set up and signed in.
+
+- [Download VS Code](https://code.visualstudio.com/)
+- [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/overview#_step-1-set-up-copilot)
+
+## The project: Repo Analyzer
 
 The app we’re building is called **Repo Analyzer**.
 
@@ -25,9 +30,7 @@ Its purpose is simple: take in the URL of a GitHub repository, analyze the codeb
 
 It also provides recommendations to improve the score, helping developers understand what changes could make the project stronger.
 
----
-
-## **The Features Working Together**
+## The features working together
 
 This project uses several customization features simultaneously.
 
@@ -41,9 +44,7 @@ Each one handles a specific part of the workflow:
 
 This saves time because you don’t need to repeat these instructions manually.
 
----
-
-## **Building the App with a Custom Agent**
+## Building the app with a custom agent
 
 ![Arcade Agent](../images/customizations/ep%208.2%20Arcade%20Agent.png)
 
@@ -58,9 +59,7 @@ This agent already understands the design language and architectural style of th
 
 The result is a working first version of the app, complete with styling and validation logic.
 
----
-
-## **Testing the App**
+## Testing the app
 
 Once the app is generated, it can be tested against real repositories.
 
@@ -74,9 +73,7 @@ For example, entering the URL of a GitHub project returns:
 
 This makes the app useful immediately, even in its first iteration.
 
----
-
-## **Testing the README Skill**
+## Testing the README skill
 
 Next, the **Update README** skill is tested.
 
@@ -92,9 +89,7 @@ For example, you can confirm the dark/light mode feature is mentioned in the REA
 > **Prompt**  
 > Remove the dark mode / light mode feature from the app.
 
----
-
-## **Verifying Custom Instructions**
+## Verifying custom instructions
 
 ![SOLID](../images/customizations/ep%208.4%20SOLID.png)
 
@@ -106,9 +101,7 @@ Without being explicitly prompted, Copilot confirms that it followed:
 
 This ensures the app is being built according to the standards you’ve already defined.
 
----
-
-## **Testing Hooks**
+## Testing hooks
 
 Hooks run in the background when files are modified.
 
@@ -119,9 +112,7 @@ For example, after changing the README title, the hook automatically formats the
 
 This keeps files clean and consistent as changes are made.
 
----
-
-## **Testing Prompt Files**
+## Testing prompt files
 
 Finally, the **Simplify Code** prompt file is used.
 
@@ -138,9 +129,7 @@ It then explains exactly what changes were made and why.
 
 This is especially useful because code simplification is something you may do repeatedly across multiple files.
 
----
-
-## **Why This Matters**
+## Why this matters
 
 This demo shows the full picture.
 
@@ -160,9 +149,7 @@ You’re no longer using AI one request at a time.
 
 You’re building an environment where multiple AI systems collaborate automatically during development.
 
----
-
-## **Your challenge**
+## Your challenge
 
 Now it’s your turn.
 
@@ -191,11 +178,7 @@ The more you combine these systems together, the faster and more consistent your
 
 Happy coding\!
 
----
+## Learn more
 
-## **Learn more**
-
-- [Download VS Code](https://code.visualstudio.com/)
-- [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/setup)
-- [Copilot Chat panel docs](https://code.visualstudio.com/docs/copilot/chat/copilot-chat)
-- [Choosing an AI model for Copilot Chat](https://docs.github.com/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat)
+- [Customize AI in Visual Studio Code](https://code.visualstudio.com/docs/copilot/customization/overview)
+- [Community contributed customization features](https://github.com/github/awesome-copilot)

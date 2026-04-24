@@ -5,7 +5,7 @@ MetaDescription: Learn how to build and use custom agents with GitHub Copilot in
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 ---
 
-# **Introduction to Custom Agents**
+# Introduction to custom agents
 
 IMAGE PLACEHOLDER — YouTube thumbnail embed showing Custom Agents concept
 
@@ -15,9 +15,13 @@ Short answer: yes, but only if you understand what they actually are and how to 
 
 This guide breaks down what custom agents are, how they work, and how to use them in a real workflow by building one from scratch.
 
----
+## Prerequisites
+Before you start: you'll need VS Code Insiders installed and the GitHub Copilot and GitHub Copilot Chat extensions set up and signed in.
 
-## **What Are Custom Agents?**
+- [Download VS Code](https://code.visualstudio.com/)
+- [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/overview#_step-1-set-up-copilot)
+
+## What are custom agents?
 
 [Custom agents](https://code.visualstudio.com/docs/copilot/customization/custom-agents) allow you to configure AI to take on specific roles.
 
@@ -31,9 +35,10 @@ Each agent can have its own:
 
 This transforms the AI from a general assistant into a role-specific collaborator.
 
----
 
-## **Where to Find Them**
+
+## Where to find them
+
 ![chat icon gear](../images/customizations/chat-icon-gear.png)
 Custom agents are easily located in the Customization UI under the Agents section which you can get to by opening chat and clicking its gear.
 
@@ -41,9 +46,9 @@ Custom agents are easily located in the Customization UI under the Agents sectio
 
 From here, you can view built-in agents as well as any custom agents you’ve created. Each one represents a specialized role that you can activate when needed.
 
----
 
-## **Example: Security Reviewer Agent**
+
+## Example: security reviewer agent
 
 IMAGE PLACEHOLDER — Agent selected via dropdown or @ mention
 
@@ -57,9 +62,9 @@ IMAGE PLACEHOLDER — Chat output showing categorized security findings
 
 This is a clear example of how an agent changes the behavior of the AI based on its defined role.
 
----
 
-## **Why Custom Agents Matter**
+
+## Why custom agents matter
 
 Without custom agents, you’re relying on a single, general-purpose assistant for everything.
 
@@ -71,9 +76,9 @@ With custom agents, you can switch between specialized roles depending on the ta
 
 Instead of constantly re-explaining context, you select the right agent and let it handle the task.
 
----
 
-## **Creating a Custom Agent**
+
+## Creating a custom agent
 
 One of the easiest ways to create a custom agent is to ask Copilot for help.
 
@@ -87,11 +92,11 @@ For example, you can describe your project and ask it to suggest an agent tailor
 
 This approach helps you think beyond just writing code and start designing workflows.
 
----
+
 
 ##
 
-## **Example: Arcade App Builder Agent**
+## Example: arcade app builder agent
 
 ![Arcade Agent](../images/customizations/ep%205.3%20Arcade%20Agent.png)
 
@@ -105,11 +110,11 @@ The agent is built with:
 
 It’s not just generating code. It’s applying context from the entire project.
 
----
+
 
 ##
 
-## **Using the Agent**
+## Using the agent
 
 ![Select Arcade Agent](../images/customizations/ep%205.4%20Select%20Arcade%20Agent.png)
 
@@ -117,9 +122,9 @@ Once created, using a custom agent is simple. You select it from the dropdown or
 
 When you ask it to build something, like a new calculator app, it applies all of its predefined rules and context automatically.
 
----
 
-## **Example: Building a New App**
+
+## Example: building a new app
 
 ![Arcade Tip Calculator](../images/customizations/ep%205.5%20Arcade%20Tip%20Calc.png)
 
@@ -133,9 +138,9 @@ What’s interesting is that the new app inherits characteristics from the origi
 
 The agent ensures consistency without needing to restate requirements.
 
----
 
-## **Why This Matters**
+
+## Why this matters
 
 Custom agents go beyond simple automation.
 
@@ -149,19 +154,18 @@ Custom agents represent a shift from:
 
 Instead of one AI doing everything, you create multiple agents, each optimized for a specific role.
 
----
 
-## **What’s Next**
+
+## What’s next
 
 Custom agents give you structured, role-based control over AI.
 
 If you want to take it even further and trigger behavior automatically without prompting, the next step is exploring hooks.
 
----
 
-## **Learn more**
 
-- [Download VS Code](https://code.visualstudio.com/)
-- [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/setup)
-- [Copilot Chat panel docs](https://code.visualstudio.com/docs/copilot/chat/copilot-chat)
-- [Choosing an AI model for Copilot Chat](https://docs.github.com/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat)
+## Learn more
+
+- [Customize AI in Visual Studio Code](https://code.visualstudio.com/docs/copilot/customization/overview)
+- [Use custom agents in VS Code](https://code.visualstudio.com/docs/copilot/customization/custom-agents)
+- [Community contributed customization features](https://github.com/github/awesome-copilot)

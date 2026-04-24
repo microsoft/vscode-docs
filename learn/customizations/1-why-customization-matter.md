@@ -1,13 +1,11 @@
 ---
 ContentId: b1c2d3e4-f5a6-7b8c-9d0e-1f2a3b4c5d6e
 DateApproved: 04/17/2026
-MetaDescription: Learn why customization matters for getting the most out of GitHub Copilot in VS Code.
+MetaDescription: Learn why agent customization matters for getting the most out of GitHub Copilot in VS Code.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 ---
 
-# Why customization matters
-
-Introduction to the Customization
+# Why agent customization matters
 
 <!-- IMAGE PLACEHOLDER - YouTube thumbnail embed showing the Customization UI -->
 
@@ -17,13 +15,16 @@ But here's the problem. They never configure it.
 
 VS Code is no longer just an editor. It's an environment where you can define how AI works across your entire workflow. And if you're not doing that, you're essentially starting from scratch every time.
 
-This guide covers what customization is, why it matters, and how to use the Customization UI in VS Code.
+This guide covers what agent customization is, why it matters, and how to use the Customization UI in VS Code. 
 
+## Prerequisites
 Before you start: you'll need VS Code Insiders installed and the GitHub Copilot and GitHub Copilot Chat extensions set up and signed in.
+- [Download VS Code](https://code.visualstudio.com/)
+- [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/overview#_step-1-set-up-copilot)
 
-## What is Customization?
+## What is agent Customization?
 
-Customization in VS Code Copilot Chat lets you define how the AI behaves, responds, and operates within your workflow.
+Agent customization in VS Code Copilot Chat lets you define how the AI behaves, responds, and operates within your workflow.
 
 Instead of relying on one-off prompts, you can create reusable building blocks:
 
@@ -35,7 +36,7 @@ Instead of relying on one-off prompts, you can create reusable building blocks:
 
 We'll cover the above in depth in later guides, but for now, just note that together these allow you to shape Copilot into a context-aware assistant that follows your standards, understands your project, and automates repetitive work.
 
-## Why Customization Matters
+## Why customization matters
 
 You may ask yourself: Is customization really needed? Why not just jump into doing the work without it? Without customization, every interaction looks like this:
 
@@ -63,16 +64,16 @@ VS Code provides a single place to manage all customization features.
 
 To get started:
 
-1. Open Copilot Chat (click the Chat icon).
-2. Click the Configure (gear) icon in the Chat panel header.
+1. Open the Chat view (select the chat icon in the VS Code title bar).  
+2. Select the Configure (gear) icon in the Chat panel header.
 
 <!-- IMAGE PLACEHOLDER - Chat screenshot -->
-![Chat icon with gear](../images/customizations/chat-icon-gear.png)
+![Screenshot showing the Copilot Chat view with the Configure gear icon in the Chat panel header.](../images/customizations/chat-icon-gear.png)
 
 This opens the Customization UI.
 
 <!-- IMAGE PLACEHOLDER - Customization UI screenshot -->
-![Chat customizations UI](../images/customizations/chat-customizations.png)
+![Screenshot showing the Customization UI in VS Code.](../images/customizations/chat-customizations.png)
 From here, you can create and manage:
 
 - Agents
@@ -93,8 +94,8 @@ You now understand what customization is and how the Customization UI brings it 
 
 To learn more about each customization type and how to use them effectively, continue with the customization guides and videos in this series.
 
-## Learn more
-- [Download VS Code](https://code.visualstudio.com/)
-- Set up GitHub Copilot in VS Code
-- Copilot Chat panel docs
-- Choosing an AI model for Copilot Chat
+
+## Learn more 
+- [Customize AI in Visual Studio Code](https://code.visualstudio.com/docs/copilot/customization/overview) 
+- [Choosing an AI model for Copilot Chat](https://code.visualstudio.com/docs/copilot/language-models) 
+- [Community contributed customization features](https://github.com/github/awesome-copilot) 
