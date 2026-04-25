@@ -20,6 +20,18 @@ Custom instructions enable you to define common guidelines and rules that automa
 
 You can configure custom instructions to apply automatically to all chat requests or to specific files only. Alternatively, you can manually attach custom instructions to a specific chat prompt.
 
+Use this mental model when deciding where to store instructions:
+
+| Instruction type | Typical location | Applied automatically? |
+| --- | --- | --- |
+| Workspace always-on instructions | `.github/copilot-instructions.md`, workspace `AGENTS.md`, workspace `CLAUDE.md` | Yes, for chat requests in the current workspace |
+| File-based instructions | `*.instructions.md` in the workspace or user profile | Only when the `applyTo` pattern matches, or when you attach or reference the file manually |
+| User/profile instructions | User-level `CLAUDE.md` or `*.instructions.md` files | `CLAUDE.md` is always on, while `*.instructions.md` files still need a matching `applyTo` pattern or manual attachment |
+| Organization instructions | GitHub organization instructions | Yes, when `setting(github.copilot.chat.organizationInstructions.enabled)` is enabled |
+
+> [!NOTE]
+> VS Code discovers instruction files from your current workspace, user profile, and GitHub organization. It does not fetch remote repository instruction files from GitHub.com unless that repository is the workspace you currently have open.
+
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Generate instructions">
 Set up your project for AI with `/init` to generate custom instructions tailored to your project.
 
