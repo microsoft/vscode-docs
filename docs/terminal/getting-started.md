@@ -1,6 +1,6 @@
 ---
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
-DateApproved: 4/22/2026
+DateApproved: 4/29/2026
 MetaDescription: Learn how to get started running shell commands with the integrated terminal in Visual Studio Code.
 ---
 # Getting started with the terminal

@@ -1,6 +1,6 @@
 ---
 ContentId: 2e8a4b9c-3d1f-5e7a-9c2b-4f6d8e1a3b5c
-DateApproved: 4/22/2026
+DateApproved: 4/29/2026
 MetaDescription: Step-by-step guide to customizing AI in VS Code with instructions, prompt files, custom agents, and skills.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:

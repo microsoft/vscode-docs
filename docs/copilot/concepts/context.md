@@ -1,6 +1,6 @@
 ---
 ContentId: c3d4e5f6-7a8b-9c0d-1e2f-3a4b5c6d7e8f
-DateApproved: 4/22/2026
+DateApproved: 4/29/2026
 MetaDescription: Learn how VS Code assembles context for AI prompts, including workspace indexing, implicit context, explicit references, and context window management.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:

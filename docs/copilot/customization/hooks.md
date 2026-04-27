@@ -1,6 +1,6 @@
 ---
 ContentId: 9c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f
-DateApproved: 4/22/2026
+DateApproved: 4/29/2026
 MetaDescription: Learn how to use hooks in VS Code to execute custom shell commands at key lifecycle points during agent sessions for automation, validation, and policy enforcement.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
