@@ -43,7 +43,9 @@ The Agents application is a separate application that runs alongside your main V
     > [!NOTE]
     > The option to launch the Agents application from the OS is currently not available on Linux. You can still access the Agents application on Linux through the command line or from within VS Code.
 
-* In VS Code, run **Chat: Open Agents Application** from the Command Palette (`kb(workbench.action.showCommands)`).
+* In VS Code, select the Agents icon in the title bar or run **Chat: Open Agents Application** from the Command Palette (`kb(workbench.action.showCommands)`).
+
+    You can also open the Agents application directly from the VS Code welcome page.
 
 * Run `code --agents` from the command line.
 
@@ -75,16 +77,19 @@ To start a new agent session in the Agents application:
 
     ![Screenshot showing how to start a new agent session by selecting New at the top of the sidebar in the Agents application.](images/agents-app/agents-app-new-session.png)
 
-1. Use the workspace dropdown to select a local folder or GitHub repository for the session.
+1. Use the workspace dropdown to select a local folder or GitHub repository for your chat session.
+
+    The type of agent is determined by the type of workspace you select:
+
+    * **Folder**: choose between the Copilot CLI or Claude agent to start a new session. You can select **Continue In** to hand off the session to a Copilot Cloud agent at any time during the session.
+    * **Repository**: sessions started in a GitHub repository use the Copilot cloud agent.
 
     You can directly start a session scoped to a specific workspace by hovering over a workspace in the sessions list and selecting **+**.
-
-    New sessions use the Copilot CLI agent. You can use **Continue In** to hand off to a Copilot Cloud agent at any time during the session.
 
     > [!TIP]
     > You can track and create sessions that run on a remote machine via SSH or a dev tunnel. See [Open a session on a remote machine](#open-a-session-on-a-remote-machine) for more information.
 
-1. Choose between folder and worktree [isolation](/docs/copilot/agents/copilot-cli.md#isolation-modes) for the session.
+1. For Copilot CLI sessions, choose between folder and worktree [isolation](/docs/copilot/agents/copilot-cli.md#isolation-modes) for the session.
 
     With **worktree isolation**, the agent operates in a separate folder created by Git worktree, which keeps changes isolated from your main workspace until you're ready to merge them.
 
@@ -100,7 +105,57 @@ To start a new agent session in the Agents application:
 
     The agent breaks down your task into steps, writes code, runs commands, and self-corrects when something goes wrong. Continue the conversation to refine the results or change direction.
 
-<!-- TODO: screenshot or video of a session in progress -->
+## Manage and review file changes
+
+The Changes panel in the Agents application provides a dedicated view with detailed information about the files and agent edits made during a session. The Changes panel is split into two main tabs:
+
+* **Files tab**: a file explorer view of all files in the workspace.
+* **Changes tab**: a list of files that have been changed, added, or deleted by the agent. Select the **Branch Changes** dropdown to choose which changes to view.
+
+To review changes made by the agent, select a file in the **Changes** tab to open a diff view that shows the edits the agent has made compared to the current state of the workspace. While reviewing the changes in the diff view, you can comment directly in the file to signal the agent to make adjustments.
+
+You can open the diff view side-by-side with the Chat view inside the Agents application or open it in a modal window to focus on the changes. Use the layout controls in the diff view toolbar to toggle between different display modes.
+
+![Screenshot showing the diff view in a modal window in the Agents application, with the layout controls in the diff view toolbar visible.](images/agents-app/agents-app-diff-view.png)
+
+After reviewing the changes, the Changes panel provides the following options to act on the edits made by the agent:
+
+* **Commit**: when using folder isolation, commit the changes made by the agent directly to your workspace.
+* **Merge**: when using worktree isolation, merge (and optionally sync upstream) and create a pull request.
+* **Checkout**: for Copilot Cloud sessions, check out the branch associated with the session's pull request locally to review or request further edits.
+
+![Screenshot showing the Changes panel in the Agents application, with the Files and Changes views visible.](images/agents-app/agents-app-changes.png)
+
+## Validate agent changes locally
+
+In addition to reviewing changes in the Changes panel, you can also validate the edits made by the agent locally before committing or merging them. The Agents application supports running tasks and commands in the context of the current session. For example, you can run a build or tests to ensure that the changes made by the agent do not break your project, or start a development server to verify that the edits behave as expected in a running environment.
+
+To configure tasks in the Agents application:
+
+1. Start or open a session.
+
+1. Select the **Tasks** dropdown in the title bar and select **Add Task**.
+
+    ![Screenshot showing the Add Task dialog in the Agents application, where you can configure a task to run in the context of the current session.](images/agents-app/agents-app-add-task.png)
+
+1. Provide the task details:
+
+    * **Name**: a descriptive name for the task.
+    * **Command**: the command to run when the task is executed (for example, `npm run build` or `pytest`).
+    * **Run Options**: automatically run the task when the session worktree is created.
+    * **Save In**: choose whether to save the task configuration in the workspace or your user profile for reuse across projects.
+
+1. Select **Add Task** to save the task configuration.
+
+Once the task is configured, it will appear in the **Tasks** dropdown, and you can run it in the context of the current session to validate the changes made by the agent.
+
+If your application involves browser-based behavior, you can use the [integrated browser](/docs/debugtest/integrated-browser.md) in the Agents application. Select a `localhost` link from the chat session to open it in the integrated browser inside the Agents application. The browser tab will persist across session switches, so if you open another session, the browser tab will open to the same page you had open previously and preserve the state of that page.
+
+![Screenshot showing the integrated browser open in the Agents application, displaying a localhost page that was opened from a link in the chat session.](images/agents-app/agents-app-integrated-browser.png)
+
+Alternatively, you can also select a `localhost` link from the integrated terminal or open the integrated browser with the **Open Integrated Browser** command from the Command Palette (`kb(workbench.action.showCommands)`). You can use the layout controls in the integrated browser to show it as a modal window or embedded in the Agents application layout alongside other views.
+
+If you want to run terminal commands in the context of the current session, select the **Open Terminal** icon in the title bar to open an integrated terminal with its current working directory set to the session's folder or worktree.
 
 ## Open a session on a remote machine
 
@@ -182,21 +237,6 @@ Select any session to view the chat conversation history and pick up where you l
 
 Right-click on any session in the list to see additional management options, such as renaming, deleting, and more. For advanced session management, such as archiving, forking, checkpoints, and exporting, see [Manage chat sessions](/docs/copilot/chat/chat-sessions.md) in chat documentation.
 
-## Manage and review file changes
-
-As agents complete their work, you may want to review the actual changes more closely: diffs, edits, and pull requests. The Changes panel shows:
-
-* **Files**: a file explorer view of all files in the workspace.
-* **Changes**: a list of files that have been changed, added, or deleted by the agent. Select the **Branch Changes** dropdown to choose which changes to view. Select any file to view a diff of the changes made by the agent.
-
-While reviewing the changes in the diff view, you can comment directly in the file to signal the agent to make adjustments.
-
-For Copilot CLI sessions, the **Merge Changes** dropdown lets you merge to your branch, merge and sync upstream, and create a pull request.
-
-For Copilot Cloud sessions, select **Checkout** to check out the branch associated with the session's pull request locally, and optionally review or request further edits. You can also open the pull request on GitHub to review and merge there.
-
-![Screenshot showing the Changes panel in the Agents application, with the Files and Changes views visible.](images/agents-app/agents-app-changes.png)
-
 ## Customize agents for your project and workflow
 
 The **Customizations** panel gives you direct access to all AI customization options:
@@ -227,13 +267,15 @@ To use a different GitHub account in the Agents application, select the account 
 
 ## Limitations
 
-* You can start the integrated browser from the Command Palette or by selecting links. The agent can't open the integrated browser for you for now.
+* The agent can't directly open the integrated browser for you for now. You can start the integrated browser from the Command Palette (**Browser: Open Integrated Browser**) or by selecting a `localhost` link in the Agents app.
 
-* Only supports sessions with Copilot CLI and Copilot Cloud agents. To use local or third-party CLI agents, manage your sessions from the main VS Code window.
+* The Agents application currently only supports the following agent types: Copilot CLI, Copilot Cloud, and Claude agent. To use local or other third-party agents, manage your sessions from the main VS Code window.
 
-* Copilot Cloud sessions in the Sessions are only supported for Git-backed repositories. For non-Git projects, you can still use Copilot CLI in the Agents application.
+* Copilot Cloud sessions are only supported for GitHub-backed repositories. For non-GitHub projects, you can still use Copilot CLI in the Agents application.
 
-* By default, Copilot CLI sessions are started with Git worktree isolation. Enable the `setting(github.copilot.chat.cli.isolationOption.enabled)` setting to enable choosing between workspace and worktree isolation on session creation.
+* The agents dropdown currently doesn't have the plan agent. You can still use the `/plan` command in a Copilot CLI or Claude agent session. In Copilot CLI sessions, the plan agent is also automatically invoked when you refer ask for creating a plan in your prompt.
+
+* Multi-root sessions are not yet supported in the Agents application. You can ask the agent to work across projects in a single session.
 
 ## Frequently asked questions
 
@@ -281,7 +323,7 @@ The Agents app is installed and updated alongside VS Code Insiders, no additiona
 <details>
 <summary>Can I use the integrated browser in the Agents app?</summary>
 
-Yes! You can run the command **Browser: Open Integrated Browser** in the Agents app, and you can enable the `setting(workbench.browser.openLocalhostLinks)` setting to automatically open localhost links in the integrated browser.
+Yes! You can run the command **Browser: Open Integrated Browser** in the Agents app or select a `localhost` link in the Agents app to open the integrated browser.
 
 </details>
 
