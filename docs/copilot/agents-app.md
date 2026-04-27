@@ -47,7 +47,7 @@ The Agents application is a separate application that runs alongside your main V
 
     You can also open the Agents application directly from the VS Code welcome page.
 
-* Run `code --agents` from the command line.
+* Run `code-insiders --agents` from the command line.
 
 The Agents application requires GitHub authentication to access your Copilot subscription and sessions. After first launch, you'll be signed in to GitHub if you've already signed in within VS Code .
 
