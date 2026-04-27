@@ -275,6 +275,8 @@ To use a different GitHub account in the Agents application, select the account 
 
 * The agents dropdown currently doesn't have the plan agent. You can still use the `/plan` command in a Copilot CLI or Claude agent session. In Copilot CLI sessions, the plan agent is also automatically invoked when you refer ask for creating a plan in your prompt.
 
+* Sub-sessions are currently not yet supported for Claude agent sessions.
+
 * Multi-root sessions are not yet supported in the Agents application. You can ask the agent to work across projects in a single session.
 
 ## Frequently asked questions
