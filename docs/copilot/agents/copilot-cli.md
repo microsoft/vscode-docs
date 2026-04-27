@@ -45,6 +45,16 @@ Because Copilot CLI sessions run in the background, they are well-suited for tas
 
 Copilot CLI supports slash commands in chat, including [reusable prompts](/docs/copilot/customization/prompt-files.md), [agent skills](/docs/copilot/customization/agent-skills.md), [hooks](/docs/copilot/customization/hooks.md), `/compact` to manage long conversations, and `/yolo` or `/autoApprove` to toggle [auto-approval of tools](/docs/copilot/agents/agent-tools.md#can-i-automatically-approve-all-tools-and-terminal-commands). Type `/` in the chat input of a Copilot CLI session to see available commands.
 
+### Use remote control for Copilot CLI sessions (Experimental)
+
+If you want to keep an eye on a long-running Copilot CLI chat when you are away from VS Code, you can expose the session on GitHub and continue monitoring or steering it from another device.
+
+To use remote control, first enable `setting(github.copilot.chat.cli.remote.enabled)`.
+
+* Run `/remote on` in a Copilot CLI session to enable remote control and create a GitHub task page for that chat.
+* Run `/remote` to check the current remote-control status. The `/remote` command only shows status and does not enable or disable remote control.
+* Run `/remote off` to stop syncing the session to GitHub and disable remote control.
+
 ### Isolation modes
 
 Copilot CLI supports two types of isolation modes to manage how changes from the agent are applied to your codebase: **Worktree** and **Workspace** isolation. You can choose the isolation mode when you create a new Copilot CLI session.
