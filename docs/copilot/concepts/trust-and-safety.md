@@ -110,7 +110,7 @@ Agent sandboxing relies on OS-level security primitives to enforce file system a
 
 WSL version 1 is not supported because bubblewrap requires Linux kernel features (user namespaces) that are only available in WSL2.
 
-> ![!NOTE]
+> [!NOTE]
 > Agent sandboxing support on Windows currently uses WSL2 as the underlying platform.
 
 ### What sandboxing does not cover
