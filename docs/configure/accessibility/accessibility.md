@@ -21,7 +21,7 @@ You can adjust the zoom level in VS Code with the **View** > **Appearance** > **
 
 ### Persisted zoom level
 
-When you adjust the zoom level with the **View** > **Appearance** > **Zoom In / Out** commands, the zoom level is persisted in the `setting(window.zoomLevel)` [setting](/docs/configure/settings.md). The default value is 0. Each increment above 0 (e.g. 1) or below (e.g. -1) represents zooming 20% larger or smaller. You can also enter decimals to adjust the zoom level with a finer granularity.
+When you adjust the zoom level with the **View** > **Appearance** > **Zoom In / Out** commands, the zoom level is persisted in the `setting(window.zoomLevel)` [setting](/docs/configure/settings.md). The default value is 0. Each increment above or below 0 represents zooming 20% in or out. You can also enter decimals to adjust the zoom level with a finer granularity.
 
 ## Accessibility help
 
