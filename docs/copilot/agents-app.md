@@ -12,6 +12,8 @@ The Agents application shares your sessions with the main VS Code window, so you
 
 In this article, you learn about the VS Code Agents application and how to start and manage agent sessions across your projects.
 
+<video src="images/agents-app/2649_AgentsDemo_v4.5.mp4" title="Video showing the Agents app experience in VS Code Insiders." controls></video>
+
 > [!NOTE]
 > The Agents application is currently in preview and only available with [VS Code Insiders](/insiders).
 
