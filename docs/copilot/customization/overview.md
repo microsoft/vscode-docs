@@ -34,9 +34,9 @@ Follow a hands-on walkthrough to customize AI for your project.
 
 </div>
 
-To access customizations, select the **Configure Chat (gear icon)** in the Chat view to open the [Chat Customizations editor](#chat-customizations-editor).
+To access customizations, select the **Configure Chat (gear icon)** in the Chat view to open the [Agent Customizations editor](#agent-customizations-editor).
 
-![Screenshot of the Chat Customizations editor, showing the sidebar with customization categories and the main view listing custom agents.](../images/customization/chat-customizations-editor.png)
+![Screenshot of the Agent Customizations editor, showing the sidebar with customization categories and the main view listing custom agents.](../images/customization/chat-customizations-editor.png)
 
 ## Customization scenarios
 
@@ -112,20 +112,20 @@ Conditions for parent repository discovery:
 > [!NOTE]
 > The `setting(chat.useCustomizationsInParentRepositories)` setting is disabled by default.
 
-## Chat Customizations editor
+## Agent Customizations editor
 
 > [!NOTE]
-> The Chat Customizations editor is currently in preview.
+> The Agent Customizations editor is currently in preview.
 
-The Chat Customizations editor provides a centralized UI for creating and managing all your chat customizations in one place. The editor organizes the different customization types into separate tabs and provides an embedded code editor for editing customization files with syntax highlighting and validation.
+The Agent Customizations editor provides a centralized UI for creating and managing all your agent customizations in one place. The editor organizes the different customization types into separate tabs and provides an embedded code editor for editing customization files with syntax highlighting and validation.
 
 You can create new customizations from scratch by editing the corresponding Markdown, or use AI to generate initial content based on your specific project.
 
 To add MCP servers and agent plugins, you can browse the corresponding marketplace directly from the editor, install new items, and manage existing ones.
 
-![Screenshot of the Chat Customizations editor, showing the sidebar with customization categories and the main view listing custom agents.](../images/customization/chat-customizations-editor.png)
+![Screenshot of the Agent Customizations editor, showing the sidebar with customization categories and the main view listing custom agents.](../images/customization/chat-customizations-editor.png)
 
-To open the Chat Customizations editor, select the **Configure Chat (gear icon)** in the Chat view or run **Chat: Open Chat Customizations** from the Command Palette (`kb(workbench.action.showCommands)`).
+To open the Agent Customizations editor, select the **Configure Chat (gear icon)** in the Chat view or run **Chat: Open Customizations** from the Command Palette (`kb(workbench.action.showCommands)`).
 
 You can configure customization for different [agent types](/docs/copilot/agents/overview.md#types-of-agents): local agents, Copilot CLI, and the Claude agent. Select the agent type from the dropdown at the top of the editor to view and manage customizations for that agent type.
 

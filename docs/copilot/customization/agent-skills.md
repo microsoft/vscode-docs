@@ -26,7 +26,7 @@ Key benefits of Agent Skills:
 * **Efficient loading**: Only relevant content loads into context when needed
 
 > [!TIP]
-> Use the [Chat Customizations editor](/docs/copilot/customization/overview.md#chat-customizations-editor) (Preview) to discover, create, and manage all your chat customizations in one place. Run **Chat: Open Chat Customizations** from the Command Palette.
+> Use the [Agent Customizations editor](/docs/copilot/customization/overview.md#agent-customizations-editor) (Preview) to discover, create, and manage all your agent customizations in one place. Run **Chat: Open Customizations** from the Command Palette.
 
 ## Agent Skills vs custom instructions
 
@@ -73,11 +73,11 @@ You can configure additional file locations for project skills with the `setting
 
 To create a skill:
 
-1. In the Chat view, select **Configure Chat** (gear icon) to open the Chat Customizations editor and then select the **Skills** tab.
+1. In the Chat view, select **Configure Chat** (gear icon) to open the Agent Customizations editor and then select the **Skills** tab.
 
 1. Select **New Skill (Workspace)** or **New Skill (User)** from the dropdown, depending on where you want to store the skill.
 
-    ![Screenshot of the Chat Customizations editor, showing the Skills tab and the dropdown to create a new skill.](../images/customization/create-skill.png)
+    ![Screenshot of the Agent Customizations editor, showing the Skills tab and the dropdown to create a new skill.](../images/customization/create-skill.png)
 
 1. Select the location and enter a name for the skill.
 
@@ -111,7 +111,7 @@ You can use AI to generate a skill based on a description of the capability. Typ
 
 You can also extract a reusable skill from an ongoing conversation. For example, after a multi-turn session where you debugged a complex issue, ask "create a skill from how we just debugged that" to capture the multi-step procedure as a reusable skill.
 
-You can also generate a skill from the Chat Customizations editor by selecting **Generate Skill** from the dropdown.
+You can also generate a skill from the Agent Customizations editor by selecting **Generate Skill** from the dropdown.
 
 ## SKILL.md file format
 

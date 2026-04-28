@@ -28,7 +28,7 @@ Set up your project for AI with `/init` to generate custom instructions tailored
 </div>
 
 > [!TIP]
-> Use the [Chat Customizations editor](/docs/copilot/customization/overview.md#chat-customizations-editor) (Preview) to discover, create, and manage all your chat customizations in one place. Run **Chat: Open Chat Customizations** from the Command Palette.
+> Use the [Agent Customizations editor](/docs/copilot/customization/overview.md#agent-customizations-editor) (Preview) to discover, create, and manage all your agent customizations in one place. Run **Chat: Open Customizations** from the Command Palette.
 
 > [!NOTE]
 > Custom instructions are not taken into account for [inline suggestions](/docs/copilot/ai-powered-suggestions.md) as you type in the editor.
@@ -199,11 +199,11 @@ To create an instructions file:
 > [!TIP]
 > Type `/instructions` in the chat input to quickly open the **Configure Instructions and Rules** menu.
 
-1. In the Chat view, select **Configure Chat** (gear icon) to open the Chat Customizations editor and then select the **Instructions** tab.
+1. In the Chat view, select **Configure Chat** (gear icon) to open the Agent Customizations editor and then select the **Instructions** tab.
 
 1. Select **New Instructions (Workspace)** or **New Instructions (User)** from the dropdown, depending on where you want to store the instructions file.
 
-    ![Screenshot of the Chat Customizations editor, showing the Instructions tab and the dropdown to create a new instructions file.](../images/customization/create-instructions-file.png)
+    ![Screenshot of the Agent Customizations editor, showing the Instructions tab and the dropdown to create a new instructions file.](../images/customization/create-instructions-file.png)
 
     Alternatively, use the **Chat: New Instructions File** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
@@ -214,7 +214,7 @@ To create an instructions file:
     * Fill in the YAML frontmatter at the top of the file to configure the instructions' description, name, and when they apply.
     * Add instructions in the body of the file.
 
-You can modify existing instruction files by opening them in the Chat Customizations editor.
+You can modify existing instruction files by opening them in the Agent Customizations editor.
 
 ### Generate an instructions file with AI
 
@@ -344,7 +344,7 @@ To generate custom instructions for your workspace:
 
 * Type `/create-instructions`, followed by a description of the instructions you want to generate.
 
-* In the Chat Customizations editor, select **Generate Instructions** from the dropdown.
+* In the Agent Customizations editor, select **Generate Instructions** from the dropdown.
 
 ## Share custom instructions across teams
 

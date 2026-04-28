@@ -26,7 +26,7 @@ This article describes how to create and manage custom agents in VS Code.
 > **Agents, prompt files, or skills?** Use custom agents when you need a persistent persona with specific tool restrictions, model preferences, or handoffs between roles. For one-off tasks that don't need tool restrictions, use [prompt files](/docs/copilot/customization/prompt-files.md). For portable, reusable capabilities with scripts and resources, use [agent skills](/docs/copilot/customization/agent-skills.md).
 
 > [!TIP]
-> Use the [Chat Customizations editor](/docs/copilot/customization/overview.md#chat-customizations-editor) (Preview) to discover, create, and manage all your chat customizations in one place. Run **Chat: Open Chat Customizations** from the Command Palette.
+> Use the [Agent Customizations editor](/docs/copilot/customization/overview.md#agent-customizations-editor) (Preview) to discover, create, and manage all your agent customizations in one place. Run **Chat: Open Customizations** from the Command Palette.
 
 ## What are custom agents?
 
@@ -84,7 +84,7 @@ You can define custom agents for a specific workspace or at the user level, wher
 | Workspace (Claude format) | `.claude/agents` folder |
 | User profile | `~/.copilot/agents` or your user data (specific to your VS Code profile) |
 
-To create a custom agent in user data, use the Chat Customizations editor or use the **Chat: New Custom Agent** command.
+To create a custom agent in user data, use the Agent Customizations editor or use the **Chat: New Custom Agent** command.
 
 > [!TIP]
 > In a monorepo, enable `setting(chat.useCustomizationsInParentRepositories)` to discover custom agents from the parent repository root. Learn more about [parent repository discovery](/docs/copilot/customization/overview.md#parent-repository-discovery).
@@ -255,11 +255,11 @@ You can create a custom agent file in your workspace or user profile.
 > [!TIP]
 > Type `/agents` in the chat input to quickly open the **Configure Custom Agents** menu.
 
-1. In the Chat view, select **Configure Chat** (gear icon) to open the Chat Customizations editor and then select the **Agents** tab.
+1. In the Chat view, select **Configure Chat** (gear icon) to open the Agent Customizations editor and then select the **Agents** tab.
 
 1. Select **New Agent (Workspace)** or **New Agent (User)** from the dropdown, depending on where you want to store the agent file.
 
-    ![Screenshot of the Chat Customizations editor, showing the Agents tab and the dropdown to create a new custom agent.](../images/customization/create-custom-agent.png)
+    ![Screenshot of the Agent Customizations editor, showing the Agents tab and the dropdown to create a new custom agent.](../images/customization/create-custom-agent.png)
 
     Alternatively, run the **Chat: New Custom Agent** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
@@ -273,7 +273,7 @@ You can create a custom agent file in your workspace or user profile.
     * Fill in the YAML frontmatter at the top of the file to configure the custom agent's name, description, tools, and other settings.
     * Add instructions for the custom agent in the body of the file.
 
-You can modify existing custom agents by opening them in the Chat Customizations editor.
+You can modify existing custom agents by opening them in the Agent Customizations editor.
 
 ### Generate a custom agent with AI
 
@@ -281,7 +281,7 @@ You can use AI to generate a custom agent based on a description of the role. Ty
 
 You can also extract a custom agent from an ongoing conversation. For example, after a multi-turn debugging session, ask "make an agent for this kind of task" to capture the workflow as a reusable custom agent.
 
-You can also generate a custom agent from the Chat Customizations editor by selecting **Generate Agent** from the dropdown.
+You can also generate a custom agent from the Agent Customizations editor by selecting **Generate Agent** from the dropdown.
 
 ## Customize the agents dropdown list
 
