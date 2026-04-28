@@ -369,6 +369,26 @@ To remove all policies and revert to default settings, delete the `/etc/vscode/p
 
 </details>
 
+## Verify policy enforcement
+
+After you deploy enterprise policies to a device, you can confirm that VS Code is reading and enforcing them with the **Developer: Policy Diagnostics** command. The command opens a new untitled Markdown document with a report of the current policy state on the device. It works the same way on Windows, macOS, and Linux.
+
+The report includes the following sections:
+
+* **System Information**: VS Code product name, version, and commit, useful for matching the report to a specific build.
+* **Account Information**: details of the default account that is signed in, including the raw account-level policy data returned by the account provider.
+* **Account Policy Gate**: state of the [approved GitHub organizations gate](/docs/enterprise/ai-settings.md#restrict-ai-features-to-approved-github-organizations) that controls AI features. Possible states are `inactive`, `satisfied`, and `restricted`. When the state is `restricted`, the report also lists a reason such as `noAccount`, `wrongProvider`, `orgNotApproved`, or `policyNotResolved`.
+* **Policy-Controlled Settings**: two tables that list the policy state for each registered setting:
+    * **Applied Policy**: settings that are currently overridden by a policy, with the setting key, policy name, policy source, default value, current value, and the value enforced by the policy.
+    * **Non-applied Policy**: registered policies that are not currently being enforced. Use this table to detect deployment errors, such as a misspelled key or a policy file that is not being read.
+* **Authentication Information**: registered authentication providers, sessions, accounts, and the extensions that have access to each account.
+
+> [!CAUTION]
+> The report can contain sensitive information such as account identifiers, session details, and the list of extensions with access to each account. Review the contents before you share the report.
+
+> [!TIP]
+> If the **Account Policy Gate** state is `policyNotResolved`, run the **Developer: Sync Account Policy** command to force a refresh of the account-side policy data, then regenerate the report.
+
 ## VS Code enterprise policy reference
 
 The following table lists all available enterprise policies in VS Code.
