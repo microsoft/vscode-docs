@@ -183,6 +183,10 @@ Context name | True when
 `filesExplorerFocus` | True if File Explorer section has keyboard focus.
 `openEditorsFocus` | True if OPEN EDITORS section has keyboard focus.
 `explorerResourceIsFolder` | True if a folder is selected in the Explorer.
+**Source control contexts** |
+`scmProvider` | True when the Source Control provider ID matches.<br>Example: `"scmProvider == git"`.
+`scmResourceGroup` | True when the Source Control resource group ID matches.<br>Example: `"scmResourceGroup == merge"`.
+`originalResourceScheme` | True when the original resource scheme in a Quick Diff editor matches.<br>Example: `"originalResourceScheme == git"`.
 **Editor widget contexts** |
 `findWidgetVisible` | Editor Find widget is visible.
 `suggestWidgetVisible` | Suggestion widget (IntelliSense) is visible.
@@ -203,6 +207,10 @@ Context name | True when
 **Integrated terminal contexts** |
 `terminalFocus` | An integrated terminal has focus.
 `terminalIsOpen` | An integrated terminal is opened.
+**Task execution contexts** |
+`shellExecutionSupported` | True when VS Code can run `ShellExecution` tasks.
+`processExecutionSupported` | True when VS Code can run `ProcessExecution` tasks.
+`customExecutionSupported` | True when VS Code can run `CustomExecution` tasks.
 **Timeline view contexts** |
 `timelineFollowActiveEditor` | True if the Timeline view is following the active editor.
 **Timeline view item contexts** |
@@ -211,6 +219,13 @@ Context name | True when
 `extension` | True when the extension's ID matches.<br>Example: `"extension == eamodio.gitlens"`.
 `extensionStatus` | True when the extension is installed.<br>Example: `"extensionStatus == installed"`.
 `extensionHasConfiguration` | True if the extension has configuration.
+**Testing contexts** |
+`testId` | True when the current Testing item ID matches.
+`controllerId` | True when the current Testing controller ID matches.
+`testItemHasUri` | True when the current Testing item is associated with a URI.
+**Workspace contexts** |
+`virtualWorkspace` | True when the current workspace uses a virtual file system.
+`isWorkspaceTrusted` | True when the current workspace is trusted.
 **Global UI contexts** |
 `notificationFocus` | Notification has keyboard focus.
 `notificationCenterVisible` | Notification Center is visible at the bottom right of VS Code.
@@ -227,6 +242,7 @@ Context name | True when
 `view` | For `view/title` and `view/item/context`, the view to display the command in.<br>Example: `"view == myViewsExplorerID"`.
 `viewItem` | For `view/item/context`, the `contextValue` from the tree item.<br>Example:  `"viewItem == someContextValue"`.
 `webviewId` | For `webview/context`, the webview ID to display the command in.<br>Example: `"webviewId == catCoding"`.
+`webviewSection` | For `webview/context`, the section of the webview to display the command in.<br>Example: `"webviewSection == 'editor'"`.
 `isFullscreen` | True when window is in fullscreen.
 `focusedView` | The identifier of the currently focused view.
 `canNavigateBack` | True if it is possible to navigate back.
