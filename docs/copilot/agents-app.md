@@ -12,8 +12,6 @@ The Agents application shares your sessions with the main VS Code window, so you
 
 In this article, you learn about the VS Code Agents application and how to start and manage agent sessions across your projects.
 
-TODO: put hero video here
-
 > [!NOTE]
 > The Agents application is currently in preview and only available with [VS Code Insiders](/insiders).
 
@@ -203,8 +201,6 @@ To start a session on a remote machine via dev tunnel:
 1. Select the folder on the remote machine to use for the session.
 
 1. Type a prompt and press `kbstyle(Enter)` to start the session.
-
-<!-- TODO: explain difference with /remote in Copilot CLI session -->
 
 ## Create a sub-session
 
