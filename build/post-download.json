@@ -1,9 +1,9 @@
 {
   "featured": {
-    "title": "Bring your own AI provider keys",
-    "description": "Copilot Business and Enterprise users can now use their own API keys to access models from OpenRouter, Ollama, Google, OpenAI, and more in chat. Plus smoother chat rendering and smarter terminal titles for agent CLIs.",
-    "link": "/updates/v1_117",
-    "image": "/assets/updates/1_117/release-highlights.webp"
+    "title": "Take your Copilot CLI sessions on the go",
+    "description": "Monitor and steer ongoing Copilot CLI sessions from GitHub.com or your phone, search any workspace by meaning with semantic indexing everywhere, and enjoy faster OpenAI responses over WebSockets.",
+    "link": "/updates/v1_118",
+    "image": "/assets/updates/1_118/release-highlights.webp"
   },
   "highlights": [
     {

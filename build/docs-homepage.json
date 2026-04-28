@@ -46,10 +46,10 @@
   "latest": [
     {
       "type": "release",
-      "title": "VS Code 1.117 release",
-      "description": "Bring your own AI provider keys for Copilot Business and Enterprise, with smoother chat rendering and smarter terminal titles for agent CLIs.",
-      "link": "/updates/v1_117",
-      "image": "/assets/updates/1_117/release-highlights.webp"
+      "title": "VS Code 1.118 release",
+      "description": "Remotey control your ongoing Copilot CLI sessions, semantic indexing in any workspace, and faster OpenAI responses.",
+      "link": "/updates/v1_118",
+      "image": "/assets/updates/1_118/release-highlights.webp"
     },
     {
       "type": "documentation",
