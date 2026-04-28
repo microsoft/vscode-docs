@@ -66,7 +66,6 @@ Agents search through the same sources a developer would use when navigating a c
 > [!IMPORTANT]
 > `.gitignore` is bypassed if you have a file open or have text selected within an ignored file.
 
-
 ## Semantic search
 
 The semantic search tool (`#codebase`) finds code by meaning rather than exact keywords.
@@ -79,11 +78,15 @@ You can view the indexing status in the Copilot status dashboard in the VS Code 
 
 ### Semantic index sources
 
-* **GitHub repositories**: GitHub automatically indexes the GitHub repositories in your workspace. Sign in with your GitHub account to use them. This index only needs to be built once per repository, which means it is often instantly available. GitHub builds and updates this index when needed. This is fast for small and medium sized projects, but might take some time if your repository contains hundreds of thousands of files. Remote indexing works for repositories hosted on GitHub.com or GitHub Enterprise Cloud. It is not supported for GitHub Enterprise Server.
+Copilot builds and maintains a semantic index for any workspace automatically. The index source determines how quickly the index becomes available for the first time:
+
+* **GitHub repositories**: GitHub indexes the GitHub repositories in your workspace. Sign in with your GitHub account to use them. This index only needs to be built once per repository, which means it is often instantly available. GitHub builds and updates this index when needed. This is fast for small and medium sized projects, but might take some time if your repository contains hundreds of thousands of files. Remote indexing works for repositories hosted on GitHub.com or GitHub Enterprise Cloud. It is not supported for GitHub Enterprise Server.
 
 * **Azure DevOps repositories**: Indexes are automatically built and maintained. Sign in with your Microsoft account in VS Code for Copilot to start using the index. Check the Copilot Status Bar item for the current index status.
 
-* **Other code**: Copilot can also build up a semantic index for code that is not in a GitHub or Azure DevOps repo through a feature called "External Ingest". This requires a paid Copilot subscription. Support for External Ingest is gradually rolling out to all users.
+* **Other workspaces**: For any other workspace, including local folders not backed by a GitHub or Azure DevOps repository, Copilot builds the semantic index for you. The initial build can take a few minutes, after which the index is kept up to date in the background.
+
+To build or rebuild the index for the current workspace on demand, run the **Build Codebase semantic index** command from the Command Palette.
 
 ### What content is included in the semantic index
 
@@ -121,4 +124,4 @@ The `#codebase` tool is always semantic and provides consistent results. If you 
 
 ### What happens if my workspace is not semantically indexed?
 
-Agents still search your code effectively by using text search, grep, file search, and language intelligence. The workspace index enables semantic search, which finds code by meaning rather than keywords. Without it, agents rely on the other search tools and can still provide accurate results for most prompts. We've found that these other tools still provide great results.
+Most workspaces are indexed automatically, but if the index isn't available yet (for example, while a new local workspace is still building its initial index), agents still search your code effectively by using text search, grep, file search, and language intelligence. The workspace index enables semantic search, which finds code by meaning rather than keywords. Without it, agents rely on the other search tools and can still provide accurate results for most prompts. We've found that these other tools still provide great results.
