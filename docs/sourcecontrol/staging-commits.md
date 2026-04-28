@@ -139,11 +139,11 @@ To use the same flow for `git commit` commands executed in the integrated termin
 
 When you commit code that was generated with AI assistance, VS Code can automatically append a `Co-authored-by:` Git trailer to your commit message. This helps you and your team track which commits include AI-generated contributions.
 
-To enable this feature, configure the `setting(git.addAICoAuthor)` setting with one of the following values:
+Configure the `setting(git.addAICoAuthor)` setting with one of the following values:
 
-* `off` (default): no co-author trailer is added
-* `chatAndAgent`: adds the trailer when committing code generated via Copilot Chat or agent mode
+* `chatAndAgent` (default): adds the trailer when committing code generated via Copilot Chat or agent mode
 * `all`: adds the trailer for all AI-generated code, including inline completions
+* `off`: no co-author trailer is added
 
 The trailer is added only when you commit from within VS Code. Commits made with external Git tools or the command line don't include the trailer.
 

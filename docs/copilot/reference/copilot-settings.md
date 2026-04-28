@@ -171,6 +171,12 @@ The [Agents view](/docs/copilot/agents/overview.md) provides a centralized locat
 | `setting(github.copilot.chat.reviewSelection.enabled)` _(Preview)_<br/>Enable code review with AI for an editor text selection. | `true` |
 | `setting(github.copilot.chat.reviewSelection.instructions)` _(Preview)_<br/>Custom instructions that are added to requests for reviewing the current editor selection with AI. | `[]` |
 
+## Source control settings
+
+| Setting and Description | Default |
+|------------------------|---------------|
+| `setting(git.addAICoAuthor)`<br/>Append a `Co-authored-by:` Git trailer to commit messages for AI-generated changes. Options: `off` (no trailer), `chatAndAgent` (trailer for Copilot Chat or agent mode changes), `all` (trailer for all AI-generated code, including inline completions). See [AI co-author attribution](/docs/sourcecontrol/staging-commits.md#ai-co-author-attribution). | `"chatAndAgent"` |
+
 ## Custom instructions settings
 
 | Setting and Description | Default |
