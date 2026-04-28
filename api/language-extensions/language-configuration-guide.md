@@ -26,7 +26,7 @@ Here is a [Language Configuration sample](https://github.com/microsoft/vscode-ex
 ```json
 {
   "comments": {
-    "lineComment": "//",
+    "lineComment": { "comment": "//" },
     "blockComment": ["/*", "*/"]
   },
   "brackets": [["{", "}"], ["[", "]"], ["(", ")"]],
@@ -64,13 +64,23 @@ Here is a [Language Configuration sample](https://github.com/microsoft/vscode-ex
 
 ## Comment toggling
 
-VS Code offers two commands for comment toggling. **Toggle Line Comment** and **Toggle Block Comment**. You can specify `comments.blockComment` and `comments.lineComment` to control how VS Code should comment out lines / blocks.
+VS Code offers two commands for comment toggling. **Toggle Line Comment** and **Toggle Block Comment**. You can specify `comments.blockComment` and `comments.lineComment` to control how VS Code should comment out lines / blocks. The `lineComment` property uses an object with a required `comment` field and an optional `noIndent` field.
 
 ```json
 {
   "comments": {
-    "lineComment": "//",
+    "lineComment": { "comment": "//" },
     "blockComment": ["/*", "*/"]
+  }
+}
+```
+
+If your language requires line comments to stay in the first column, set `noIndent` to `true`:
+
+```json
+{
+  "comments": {
+    "lineComment": { "comment": "#", "noIndent": true }
   }
 }
 ```
