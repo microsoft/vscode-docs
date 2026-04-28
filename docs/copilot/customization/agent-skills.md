@@ -128,6 +128,7 @@ The header is formatted as YAML frontmatter with the following fields:
 | `argument-hint` | No | Hint text shown in the chat input field when the skill is invoked as a slash command. Helps users understand what additional information to provide (for example, `[test file] [options]`). |
 | `user-invocable` | No | Controls whether the skill appears as a slash command in the chat menu. Defaults to `true`. Set to `false` to hide the skill from the `/` menu while still allowing the agent to load it automatically. |
 | `disable-model-invocation` | No | Controls whether the agent can automatically load the skill based on relevance. Defaults to `false`. Set to `true` to require manual invocation through the `/` slash command only. |
+| `context` | No | (Experimental) Controls how the skill is loaded. Defaults to inline (the skill's instructions are added to the parent agent's context). Set to `fork` to run the skill in a dedicated subagent context. See [Run a skill in a forked context](#run-a-skill-in-a-forked-context-experimental). |
 
 > [!IMPORTANT]
 > When a skill is distributed through a [plugin](/docs/copilot/customization/agent-plugins.md), the plugin name is automatically used as a command prefix (for example, `/my-plugin:test-runner`). Do not manually add namespace prefixes to the skill `name` field. Using prefixes like `myorg/skillname` or `myorg:skillname` causes the skill to silently fail to load.
@@ -143,6 +144,33 @@ The skill body contains the instructions, guidelines, and examples that Copilot 
 * References to any included scripts or resources
 
 You can reference files within the skill directory using relative paths. For example, to reference a script in your skill directory, use `[test script](./test-template.js)`.
+
+### Run a skill in a forked context (experimental)
+
+By default, when VS Code loads a skill, the skill's instructions are added to the parent agent's context window. For large skills, or skills whose intermediate reasoning isn't relevant to the rest of your conversation, you can instead run the skill in a **forked context**. In a forked context, the skill executes in a dedicated subagent and only its final result is returned to the parent agent. This keeps your main conversation's context clean.
+
+To run a skill in a forked context, set the `context` field in the `SKILL.md` frontmatter to `fork`:
+
+```markdown
+---
+name: review-pr
+description: Review a pull request for code quality, style, and correctness. Use when asked to review a PR.
+context: fork
+---
+
+# PR review
+
+Follow these steps to review the pull request...
+```
+
+Use `context: fork` for skills that:
+
+* Read many files or run lengthy investigations whose details don't need to stay in the main conversation
+* Produce a focused result (such as a summary, a report, or a small set of edits) that the parent agent can act on directly
+* Should not influence the parent agent's behavior beyond their final output
+
+> [!NOTE]
+> Running a skill in a forked context is an experimental feature. Enable the `setting(github.copilot.chat.skillTool.enabled)` setting in VS Code to use this feature.
 
 ## Example skills
 
@@ -255,6 +283,8 @@ Skills load content progressively to keep your context efficient. Here is an exa
 3. **Resource access**: As Copilot works through the instructions, it accesses additional files in the skill directory, such as `test-template.js` or example scenarios, only when it references them. If a file isn't referenced in the instructions, it won't be loaded.
 
 This three-level loading system means you can install many skills without consuming context. Copilot loads only what is relevant for each task.
+
+Skills that opt in to a [forked context](#run-a-skill-in-a-forked-context-experimental) follow the same discovery step, but their instructions and any files they read are loaded into a separate subagent. Only the skill's final result is returned to the parent agent.
 
 ## Use shared skills
 
