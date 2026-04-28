@@ -24,7 +24,7 @@ An agent is an AI assistant that works autonomously to complete a coding task. G
 
 VS Code lets you run agents the way that fits your workflow. Work with them interactively in the editor, or let them run autonomously in the background from the CLI. Agents can run on your machine, in a remote cloud environment, or through a third-party provider like Anthropic or OpenAI. You decide how much autonomy to give them, from approving every tool call to letting them work fully on their own, and you can create custom agents to tailor their behavior to your project.
 
-You monitor and interact with all your sessions from a single [sessions list](/docs/copilot/chat/chat-sessions.md#sessions-list) in the Chat view, regardless of where they run.
+You monitor and interact with all your sessions from a single [sessions list](/docs/copilot/chat/chat-sessions.md#sessions-list) in the Chat view, regardless of where they run. If you prefer working entirely through prompts, the [Agents app](/docs/copilot/agents-app.md) provides a dedicated interface where sessions and chat are the central experience, with built-in access to all your AI customizations.
 
 <div class="docs-action" data-show-in-doc="true" data-show-in-sidebar="true" title="How agents work">
 Understand the agent loop, how agents plan and execute tasks, and how memory and subagents work.
