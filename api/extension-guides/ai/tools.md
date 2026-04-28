@@ -262,6 +262,11 @@ When a user sends a chat prompt, the following steps occur:
 
 1. Copilot returns the final response to the user, which might include responses from multiple tools.
 
+When you build the follow-up prompt for Copilot models after one or more tool
+calls, make sure the final prompt message is a non-tool-result `UserMessage`.
+This gives the model a final user-facing turn where it can explain or summarize
+the tool results instead of ending the prompt with raw tool output only.
+
 ## Guidelines and conventions
 
 - **Naming**: write clear and descriptive names for tools and parameters.
