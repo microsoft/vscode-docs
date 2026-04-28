@@ -2,7 +2,7 @@
 agent: Plan
 description: Document a new or updated VS Code feature in the project documentation.
 argument-hint: Feature to document or link to relevant issue/PR.
-tools: [vscode/askQuestions, read, agent, search, web]
+tools: [vscode/memory, vscode/resolveMemoryFileUri, vscode/askQuestions, vscode/toolSearch, read, agent, search, web, artifacts]
 ---
 Analyze the feature description and related code updates, and suggest updates to the vs code docs (docs/ folder). It is acceptable to say that no documentation update is needed. Ask the user for confirmation if you think no updates are needed.
 
