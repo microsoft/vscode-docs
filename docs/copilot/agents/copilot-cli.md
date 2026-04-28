@@ -65,7 +65,7 @@ Copilot CLI sessions support the same [permission levels](/docs/copilot/agents/a
 
 ### Remote control Copilot CLI sessions (Experimental)
 
-The `/remote` command lets you remote control a Copilot CLI session from github.com or the GitHub Mobile app. This lets you pick up and interact with the same session even after you leave VS Code, while keeping the full session history and context in sync across both VS Code and GitHub.
+The `/remote on` command lets you remote control a Copilot CLI session from github.com or the GitHub Mobile app. With remote control, you can monitor and steer your ongoing Copilot CLI sessions from anywhere, giving you more flexibility to keep work moving without being tied to your machine. You keep the full session context and history in sync across both VS Code and GitHub.
 
 When remote control is enabled, VS Code streams the session history, tool activity, and status updates to the linked GitHub task page in real time. Actions you take in one place are reflected in the other. If the session requires approval for a tool call or input for a question, the prompt is shown in both places and you can respond from either location.
 
@@ -75,14 +75,16 @@ To use remote control a Copilot CLI session:
 
 1. Start or resume a Copilot CLI session from the Chat view.
 
-1. Run `/remote` in the chat input.
+1. Enter `/remote on` in the chat input.
 
 1. Select **Open on GitHub** to open the linked task page.
 
-To stop mirroring the session to GitHub, run `/remote off`.
+To stop mirroring the session to GitHub, enter `/remote off` in the chat input.
+
+Type `/remote` to view remote control status
 
 > [!NOTE]
-> `/remote` requires GitHub authentication in VS Code and a workspace that maps to a GitHub repository. If additional GitHub permissions are needed, VS Code prompts you to grant them before remote control is enabled.
+> Remote control requires GitHub authentication in VS Code and a workspace that maps to a GitHub repository. If additional GitHub permissions are needed, VS Code prompts you to grant them before remote control is enabled.
 
 ### Limitations of Copilot CLI sessions
 
