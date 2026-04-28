@@ -53,6 +53,17 @@ Agents have access to the following built-in search tools. You can also explicit
 
 These tools work for any workspace size. For small projects, the entire workspace can be read directly into the agent's context. For larger projects, the agent selects the most efficient search strategy based on your project size and available resources.
 
+### Search GitHub repositories beyond your workspace
+
+In addition to searching the current workspace, agents can search code in other GitHub repositories. This is useful when the agent needs to learn about a codebase that is not open locally, for example to look up an API in an upstream library or compare an implementation across repositories.
+
+| Tool | Description |
+|------|-------------|
+| **Semantic Search GitHub Repository** (`#githubRepo`) | Semantic search a GitHub repository for relevant source code snippets. Specify a repository using `owner/repo`. |
+| **GitHub Text Search** (`#githubTextSearch`) | Text search a GitHub repository or organization for files containing specific keywords or code patterns. |
+
+For more advanced GitHub workflows, such as searching and managing issues or pull requests, use the [GitHub MCP server](https://github.com/github/github-mcp-server).
+
 ### What the agent has access to
 
 Agents search through the same sources a developer would use when navigating a codebase:
