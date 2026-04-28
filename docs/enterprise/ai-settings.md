@@ -29,7 +29,7 @@ When the policy is not set, AI features are not restricted by this gate.
 
 This policy is fail-closed: if the user is not signed in, is signed in with a non-GitHub account, or is signed in to a GitHub account that does not belong to an approved organization, AI features remain disabled.
 
-IT admins can verify the gate state at any time with the **Developer: Policy Diagnostics** command, which includes an **Account Policy Gate** section.
+IT admins can verify the gate state at any time with the **Developer: Policy Diagnostics** command, which includes an **Account Policy Gate** section. For more information, see [Verify policy enforcement](/docs/enterprise/policies.md#verify-policy-enforcement).
 
 ## Enable or disable the use of agents
 
