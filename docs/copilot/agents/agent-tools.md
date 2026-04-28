@@ -266,7 +266,7 @@ To enable agent sandboxing, set the `setting(chat.agent.sandbox.enabled)` settin
 
 When sandboxing is enabled:
 
-* Commands have read access to workspace folders, the sandbox runtime temp folder, and any per-command paths that VS Code adds automatically (for example, paths required by `git`, `node`, `npm`, `dotnet`). Reads from your home directory (`$HOME`) are denied by default.
+* Commands have read access to the entire file system
 * Commands have write access only to the current working directory and its subdirectories
 * Network access is blocked for all domains
 * Commands run without the user confirmation prompt
@@ -278,17 +278,13 @@ When sandboxing is enabled:
 
 Use the `setting(chat.agent.sandbox.FileSystem.linux)` or `setting(chat.agent.sandbox.FileSystem.mac)` setting to control file system access.
 
-You can specify allow rules for read and write access, and deny rules for both read and write access. These rules don't support glob patterns. The `denyWrite` and `denyRead` rules take precedence over `allowWrite` and `allowRead` rules.
-
-Workspace folders, the sandbox runtime temp folder, and per-command read paths are allowed automatically, so you typically only need `allowRead` to grant access to tool configurations or data outside your workspace.
+You can specify allow rules for write access and deny rules for both read and write access. These rules don't support glob patterns. The `denyWrite` and `denyRead` rules take precedence over `allowWrite` rules.
 
 ```jsonc
 {
   "chat.agent.sandbox.FileSystem.mac": {
     // Allow writes to the working directory
     "allowWrite": ["."],
-    // Allow reads from an additional path outside the workspace
-    "allowRead": ["/Users/me/.config/myapp"],
     // Block writes to specific subdirectories
     "denyWrite": ["./secrets/"],
     // Block reads from specific paths

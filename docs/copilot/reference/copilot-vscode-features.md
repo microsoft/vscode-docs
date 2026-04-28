@@ -106,8 +106,6 @@ The following table lists the VS Code built-in tools:
 | `#execute/runInTerminal` | Run a shell command in the integrated terminal. |
 | `#execute/runNotebookCell` | Run a notebook cell. |
 | `#execute/testFailure` | Get unit test failure information. Useful when running and diagnosing [tests](/docs/debugtest/testing.md). |
-| `#githubRepo` | Semantic search a GitHub repository for relevant source code snippets. Specify a repository using `owner/repo`. |
-| `#githubTextSearch` | Text search a GitHub repository or organization for files containing specific keywords or code patterns. |
 | `#newWorkspace` | Create a new workspace. |
 | `#read` (tool set) | Read files in your workspace. |
 | `#read/getNotebookSummary` | Get the list of notebook cells and their details. |
