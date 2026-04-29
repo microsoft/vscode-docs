@@ -1,6 +1,6 @@
 ---
 ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
-DateApproved: 4/22/2026
+DateApproved: 4/29/2026
 MetaDescription: Visual Studio Code Tips and Tricks for power users.
 ---
 # Visual Studio Code tips and tricks

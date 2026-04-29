@@ -1,6 +1,6 @@
 ---
 ContentId: 2e8a4b9c-3d1f-5e7a-9c2b-4f6d8e1a3b5c
-DateApproved: 4/22/2026
+DateApproved: 4/29/2026
 MetaDescription: Step-by-step guide to customizing AI in VS Code with instructions, prompt files, custom agents, and skills.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -122,7 +122,7 @@ Custom agents let the AI adopt specialized personas with specific tool access. C
 
 Skills are folders of instructions, scripts, and resources that Copilot loads when relevant to perform specialized tasks. Unlike instructions files that define coding standards, skills teach Copilot how to perform specific workflows.
 
-1. Run the **Chat: Open Customizations** command from the Command Palette (`kb(workbench.action.showCommands)`) to open the Chat Customizations editor.
+1. Run the **Chat: Open Customizations** command from the Command Palette (`kb(workbench.action.showCommands)`) to open the Agent Customizations editor.
 
 1. Select the **Skills** tab and then select **New Skill (Workspace)** from the dropdown.
 
@@ -175,4 +175,4 @@ your-project/
 * Set up [hooks](/docs/copilot/customization/hooks.md) to automate tasks at agent lifecycle points, such as running a formatter after every file edit
 * Browse [agent plugins](/docs/copilot/customization/agent-plugins.md) to install pre-packaged customizations from community marketplaces
 * Share customizations with your team by committing the `.github/` directory to your repository
-* See all your customizations in one place with the [Chat Customizations editor](/docs/copilot/customization/overview.md#chat-customizations-editor)
+* See all your customizations in one place with the [Agent Customizations editor](/docs/copilot/customization/overview.md#agent-customizations-editor)

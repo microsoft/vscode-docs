@@ -1,6 +1,6 @@
 ---
 ContentId: f8a9c3d2-4e7b-5f1a-b6c8-9d0e2f3a7b4c
-DateApproved: 4/22/2026
+DateApproved: 4/29/2026
 MetaDescription: Learn how to centrally manage AI settings in VS Code for enterprise environments, including agent mode, MCP servers, and tool approvals.
 ---
 
@@ -13,6 +13,23 @@ This article covers the AI-related settings that IT admins can manage through [e
 Users can control the functionality and behavior of AI features through VS Code settings. Organizations can enforce specific configurations by deploying enterprise policies via device management solutions. These policies override user-configured settings on managed devices.
 
 Learn how to [deploy policies for VS Code](/docs/enterprise/policies.md) to your organization's devices.
+
+## Restrict AI features to approved GitHub organizations
+
+Organizations can require developers to be signed in to a GitHub account that belongs to an approved organization before AI features in VS Code are activated. This enables enterprises to ensure that account-level policies set by their GitHub organization (for example, Copilot content exclusions or model availability) are in effect before chat, agents, or inline suggestions become available.
+
+To enable this restriction, set the `ChatApprovedAccountOrganizations` policy to a JSON array of GitHub organization logins. For example, `["contoso", "contoso-research"]`. Use the wildcard value `["*"]` to allow any signed-in GitHub account.
+
+When the policy is set, AI features are gated until both of the following are true:
+
+* The user is signed in to a GitHub account that is a member of one of the approved organizations.
+* Account-level policy data has resolved.
+
+When the policy is not set, AI features are not restricted by this gate.
+
+This policy is fail-closed: if the user is not signed in, is signed in with a non-GitHub account, or is signed in to a GitHub account that does not belong to an approved organization, AI features remain disabled.
+
+IT admins can verify the gate state at any time with the **Developer: Policy Diagnostics** command, which includes an **Account Policy Gate** section. For more information, see [Verify policy enforcement](/docs/enterprise/policies.md#verify-policy-enforcement).
 
 ## Enable or disable the use of agents
 

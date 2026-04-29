@@ -1,6 +1,6 @@
 ---
 ContentId: 8a2b5f4c-9e3d-4c6a-b8f1-2d7e9a4c5b3f
-DateApproved: 4/22/2026
+DateApproved: 4/29/2026
 MetaDescription: Learn how to manage and control VS Code extensions in enterprise environments, including private marketplace, allowed extensions, and preinstalling extensions.
 ---
 

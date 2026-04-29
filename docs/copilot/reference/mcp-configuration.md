@@ -1,6 +1,6 @@
 ---
 ContentId: a3e1f7c2-8d4b-4f9a-b6e5-2c8d3f1a9b7e
-DateApproved: 4/22/2026
+DateApproved: 4/29/2026
 MetaDescription: Reference for MCP server configuration format, commands, and settings in Visual Studio Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:

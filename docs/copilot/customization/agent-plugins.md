@@ -1,6 +1,6 @@
 ---
 ContentId: f9b2c4e3-8a7d-4e1f-b5c3-2d9a6f8e4b71
-DateApproved: 4/22/2026
+DateApproved: 4/29/2026
 MetaDescription: Learn how to discover, install, and manage agent plugins in VS Code to extend GitHub Copilot with pre-packaged commands, skills, agents, hooks, and MCP servers.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -16,7 +16,7 @@ Keywords:
 ---
 # Agent plugins in VS Code (Preview)
 
-Agent plugins are prepackaged bundles of chat customizations that you can discover and install from plugin marketplaces in Visual Studio Code. A single plugin can provide any combination of slash commands, [agent skills](/docs/copilot/customization/agent-skills.md), [custom agents](/docs/copilot/customization/custom-agents.md), [hooks](/docs/copilot/customization/hooks.md), and [MCP servers](/docs/copilot/customization/mcp-servers.md).
+Agent plugins are prepackaged bundles of agent customizations that you can discover and install from plugin marketplaces in Visual Studio Code. A single plugin can provide any combination of slash commands, [agent skills](/docs/copilot/customization/agent-skills.md), [custom agents](/docs/copilot/customization/custom-agents.md), [hooks](/docs/copilot/customization/hooks.md), and [MCP servers](/docs/copilot/customization/mcp-servers.md).
 
 Plugins work alongside your locally defined customizations. When you install a plugin, its commands, skills, agents, hooks, and MCP servers appear in chat.
 
@@ -298,7 +298,7 @@ VS Code provides a dedicated view in the Extensions sidebar to browse and manage
 You can install a plugin directly from a Git repository URL, without adding a full marketplace first.
 
 * Run **Chat: Install Plugin From Source** from the Command Palette.
-* Alternatively, select the **+** button on the **Plugins** page of the Chat Customizations editor.
+* Alternatively, select the **+** button on the **Plugins** page of the Agent Customizations editor.
 
 Enter a Git repository URL (for example, `https://github.com/rwoll/markdown-review`) and VS Code clones and installs the plugin.
 
@@ -315,11 +315,11 @@ You can also manage installed plugins from the Chat view by selecting the **gear
 You can enable or disable a plugin globally or for a specific workspace:
 
 * Use the context menu on a plugin in the **Agent Plugins - Installed** section of the Extensions view.
-* Use the [Chat Customizations editor](/docs/copilot/customization/overview.md#chat-customizations-editor) to toggle a plugin's enabled state.
+* Use the [Agent Customizations editor](/docs/copilot/customization/overview.md#agent-customizations-editor) to toggle a plugin's enabled state.
 
 The enable/disable state is stored separately from the plugin configuration, so it does not affect shared workspace settings.
 
-When a plugin is disabled, its skills, agents, hooks, MCP servers, and slash commands are no longer available. For example, skills from a disabled plugin do not appear in **Chat: Configure Skills**. Disabled plugins appear with a dimmed style in the Chat Customizations editor and Extensions view.
+When a plugin is disabled, its skills, agents, hooks, MCP servers, and slash commands are no longer available. For example, skills from a disabled plugin do not appear in **Chat: Configure Skills**. Disabled plugins appear with a dimmed style in the Agent Customizations editor and Extensions view.
 
 ### Uninstall plugins
 

@@ -1,6 +1,6 @@
 ---
 ContentId: 7c550054-4ade-4665-b368-215798c48673
-DateApproved: 4/22/2026
+DateApproved: 4/29/2026
 MetaDescription: Learn how to add and manage Model Context Protocol (MCP) servers with GitHub Copilot in Visual Studio Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -23,7 +23,7 @@ For background on how MCP fits into the AI customization framework, see [Customi
 This article covers how to add, configure, and manage MCP servers. To learn about using tools in chat, see [Use tools with agents](/docs/copilot/agents/agent-tools.md).
 
 > [!TIP]
-> Use the [Chat Customizations editor](/docs/copilot/customization/overview.md#chat-customizations-editor) (Preview) to discover, create, and manage all your chat customizations in one place. Run **Chat: Open Chat Customizations** from the Command Palette.
+> Use the [Agent Customizations editor](/docs/copilot/customization/overview.md#agent-customizations-editor) (Preview) to discover, create, and manage all your agent customizations in one place. Run **Chat: Open Customizations** from the Command Palette.
 
 ## Quickstart: use an MCP server in chat
 
@@ -214,7 +214,7 @@ To enable or disable an MCP server:
 
 * Right-click a server in the **MCP SERVERS - INSTALLED** section of the Extensions view and select **Enable** or **Disable**.
 * Run **MCP: List Servers** from the Command Palette, select a server, and choose **Enable** or **Disable**.
-* Use the [Chat Customizations editor](/docs/copilot/customization/overview.md#chat-customizations-editor) to toggle the server's enabled state.
+* Use the [Agent Customizations editor](/docs/copilot/customization/overview.md#agent-customizations-editor) to toggle the server's enabled state.
 
 The enable/disable state is stored separately from the server configuration in `mcp.json`, so it does not affect shared configuration files.
 

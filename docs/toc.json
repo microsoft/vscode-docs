@@ -49,6 +49,7 @@
           ["Trust & Safety", "/docs/copilot/concepts/trust-and-safety"]
         ]
       }],
+      ["Agents Application (Insiders)", "/docs/copilot/agents-app"],
       ["", "", {
         "name": "Agents",
         "area": "copilot/agents",

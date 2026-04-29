@@ -1,6 +1,6 @@
 ---
 ContentId: 8d55f6b8-977f-4c26-a888-f3d8d982dd2d
-DateApproved: 4/22/2026
+DateApproved: 4/29/2026
 MetaDescription: You can open and work on multiple project folders in Visual Studio Code with multi-root workspaces.
 ---
 # Multi-root Workspaces

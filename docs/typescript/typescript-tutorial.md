@@ -1,6 +1,6 @@
 ---
 ContentId: cb4f3742-733c-49d8-96db-d4bf8403bf64
-DateApproved: 4/22/2026
+DateApproved: 4/29/2026
 MetaDescription: TypeScript tutorial with Visual Studio Code.
 MetaSocialImage: ../languages/images/typescript/typescript-social.png
 ---

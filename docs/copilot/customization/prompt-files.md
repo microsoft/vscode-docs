@@ -1,6 +1,6 @@
 ---
 ContentId: 5c8e7d42-9b1a-4f85-a3e2-6d5b8a9c1e43
-DateApproved: 4/22/2026
+DateApproved: 4/29/2026
 MetaDescription: Learn how to create reusable prompt files for GitHub Copilot Chat in VS Code to standardize common development tasks and improve your coding workflow efficiency.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -26,7 +26,7 @@ Use prompt files to:
 > **Prompt files, agents, or skills?** Use prompt files for lightweight, single-task prompts. Use [custom agents](/docs/copilot/customization/custom-agents.md) when you need a persistent persona with its own tool restrictions and handoffs. Use [agent skills](/docs/copilot/customization/agent-skills.md) when you need a portable, multi-file capability with scripts and resources.
 
 > [!TIP]
-> Use the [Chat Customizations editor](/docs/copilot/customization/overview.md#chat-customizations-editor) (Preview) to discover, create, and manage all your chat customizations in one place. Run **Chat: Open Chat Customizations** from the Command Palette.
+> Use the [Agent Customizations editor](/docs/copilot/customization/overview.md#agent-customizations-editor) (Preview) to discover, create, and manage all your agent customizations in one place. Run **Chat: Open Customizations** from the Command Palette.
 
 ## Prompt file locations
 
@@ -37,7 +37,7 @@ You can define prompt files for a specific workspace or at the user level, where
 | Workspace | `.github/prompts` folder |
 | User profile | Your user data (specific to your VS Code profile) |
 
-To create a prompt file in user data, use the Chat Customizations editor or use the **Chat: New Prompt File** command.
+To create a prompt file in user data, use the Agent Customizations editor or use the **Chat: New Prompt File** command.
 
 > [!TIP]
 > In a monorepo, enable `setting(chat.useCustomizationsInParentRepositories)` to discover prompt files from the parent repository root. Learn more about [parent repository discovery](/docs/copilot/customization/overview.md#parent-repository-discovery).
@@ -128,11 +128,11 @@ To create a prompt file:
 > [!TIP]
 > Type `/prompts` in the chat input to quickly open the **Configure Prompt Files** menu.
 
-1. In the Chat view, select **Configure Chat** (gear icon) to open the Chat Customizations editor and then select the **Prompts** tab.
+1. In the Chat view, select **Configure Chat** (gear icon) to open the Agent Customizations editor and then select the **Prompts** tab.
 
 1. Select **New Prompt (Workspace)** or **New Prompt (User)** from the dropdown, depending on where you want to store the prompt file.
 
-    ![Screenshot of the Chat Customizations editor, showing the Prompts tab and the dropdown to create a new prompt file.](../images/customization/create-prompt-file.png)
+    ![Screenshot of the Agent Customizations editor, showing the Prompts tab and the dropdown to create a new prompt file.](../images/customization/create-prompt-file.png)
 
     Alternatively, use the **Chat: New Prompt File** or **Chat: New Untitled Prompt File** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
@@ -143,7 +143,7 @@ To create a prompt file:
     * Fill in the YAML frontmatter at the top of the file to configure the prompt's description, agent, tools, and other settings.
     * Add instructions for the prompt in the body of the file.
 
-You can modify existing prompt files by opening them in the Chat Customizations editor.
+You can modify existing prompt files by opening them in the Agent Customizations editor.
 
 ### Generate a prompt file with AI
 
@@ -151,7 +151,7 @@ You can use AI to generate a prompt file based on a description of the task. Typ
 
 You can also extract a reusable prompt from an ongoing conversation. For example, after a multi-turn chat session, ask "turn this into a reusable prompt" or "save this workflow as a prompt", and the agent creates a prompt file that captures the workflow.
 
-You can also generate a prompt file from the Chat Customizations editor by selecting **Generate Prompt** from the dropdown.
+You can also generate a prompt file from the Agent Customizations editor by selecting **Generate Prompt** from the dropdown.
 
 ## Use a prompt file in chat
 

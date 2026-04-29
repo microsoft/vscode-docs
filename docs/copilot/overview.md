@@ -1,6 +1,6 @@
 ---
 ContentId: 0aefcb70-7884-487f-953e-46c3e07f7cbe
-DateApproved: 4/22/2026
+DateApproved: 4/29/2026
 MetaDescription: Describe what you want to build, and let agents in VS Code plan, implement, and verify the changes across your project.
 MetaSocialImage: images/shared/github-copilot-social.png
 Keywords:
@@ -67,6 +67,12 @@ Run multiple agent sessions in parallel, each focused on a different task. The *
 <video src="images/overview/agent-sessions-demo.mp4" title="Video showing the agent sessions list, demonstrating filtering, showing, and archiving sessions." controls muted></video>
 
 Learn more about [managing agent sessions](/docs/copilot/chat/chat-sessions.md).
+
+### Agents Application
+
+If you prefer describing what you want over writing code directly, the [Agents pp](/docs/copilot/agents-app.md) gives you a dedicated interface where sessions and chat take center stage. Launch it as a standalone window to focus entirely on prompting, monitoring sessions, and configuring your AI setup. The Agents app also provides direct access to all your AI customizations, such as agents, instructions, prompts, and MCP servers, from a single sidebar panel.
+
+Learn more about the [Agents app](/docs/copilot/agents-app.md).
 
 ## What can you build
 

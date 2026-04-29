@@ -1,6 +1,6 @@
 ---
 ContentId: de6f9f68-7dd5-4de3-a210-3db57882384b
-DateApproved: 4/22/2026
+DateApproved: 4/29/2026
 MetaDescription: Quick reference for GitHub Copilot in VS Code, including autonomous agents, multi-file editing, inline suggestions, and enterprise controls.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -106,6 +106,8 @@ The following table lists the VS Code built-in tools:
 | `#execute/runInTerminal` | Run a shell command in the integrated terminal. |
 | `#execute/runNotebookCell` | Run a notebook cell. |
 | `#execute/testFailure` | Get unit test failure information. Useful when running and diagnosing [tests](/docs/debugtest/testing.md). |
+| `#githubRepo` | Semantic search a GitHub repository for relevant source code snippets. Specify a repository using `owner/repo`. |
+| `#githubTextSearch` | Text search a GitHub repository or organization for files containing specific keywords or code patterns. |
 | `#newWorkspace` | Create a new workspace. |
 | `#read` (tool set) | Read files in your workspace. |
 | `#read/getNotebookSummary` | Get the list of notebook cells and their details. |
@@ -221,7 +223,7 @@ Customize your chat experience to generate responses that match your coding styl
 
 * [Custom agents](/docs/copilot/customization/custom-agents.md): Define how chat operates, which tools it can use, and how it interacts with the codebase. Each chat prompt is run within the boundaries of the agent, without having to configure tools and instructions for every request.
 
-Use the [Chat Customizations editor](/docs/copilot/customization/overview.md#chat-customizations-editor) (Preview) to discover, create, and manage all your customizations in one place. Select **Configure Chat** (gear icon) in the Chat view, or run **Chat: Open Chat Customizations** from the Command Palette.
+Use the [Agent Customizations editor](/docs/copilot/customization/overview.md#agent-customizations-editor) (Preview) to discover, create, and manage all your customizations in one place. Select **Configure Chat** (gear icon) in the Chat view, or run **Chat: Open Customizations** from the Command Palette.
 
 > **Tips**
 >

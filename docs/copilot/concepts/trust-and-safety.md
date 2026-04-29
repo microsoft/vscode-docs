@@ -1,6 +1,6 @@
 ---
 ContentId: a7b8c9d0-1e2f-3a4b-5c6d-7e8f9a0b1c2d
-DateApproved: 4/22/2026
+DateApproved: 4/29/2026
 MetaDescription: Learn about AI safety controls in VS Code, including agent sandboxing, tool approval, and security considerations for AI-assisted development.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -78,11 +78,13 @@ Sandboxing enforces two types of isolation: **file system access** and **network
 
 Without file system isolation, a compromised command could modify files anywhere on your machine, for example, injecting malicious code into your shell configuration (`~/.bashrc`, `~/.zshrc`) or reading SSH keys from `~/.ssh/`. File system isolation prevents this by restricting access to explicitly permitted paths.
 
-* **Default behavior.** Read access is allowed across the entire file system. Write access is limited to the current working directory and its subdirectories. When a request is made that requires additional permissions, VS Code prompts you to allow running the command outside the sandbox.
+* **Default behavior.** Read access is allowed for workspace folders and the sandbox runtime temp folder. Reads from your home directory (`$HOME`) are denied by default to protect sensitive files such as SSH keys, shell configuration, and credentials. Write access is limited to the current working directory and its subdirectories. When a request is made that requires additional permissions, VS Code prompts you to allow running the command outside the sandbox.
 
     ![Screenshot of a VS Code prompt asking the user to allow a command to run outside the sandbox for additional permissions.](../images/trust-and-safety/sandbox-prompt.png)
 
-* **Configurable rules.** You can grant write access to additional paths, or deny read or write access to specific paths. Deny rules always take precedence over allow rules.
+* **Per-command read paths.** Before a command runs, VS Code parses it and grants read access to the specific paths the command needs. This covers common developer workflows such as `git`, `node`, `npm`, `dotnet`, Java, and Rust. For example, running a `node` command automatically allows reads from the Node version manager directory, and running a `git` command allows reads from `~/.gitconfig`.
+
+* **Configurable rules.** You can grant read or write access to additional paths, or deny read or write access to specific paths. Deny rules always take precedence over allow rules.
 
 * **Inherited restrictions.** All child processes spawned by a sandboxed command inherit the same file system boundaries. This means tools like `npm`, `pip`, or build scripts are also restricted.
 

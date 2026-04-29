@@ -1,6 +1,6 @@
 ---
 ContentId: 7b232695-cbbe-4f3f-a625-abc7a5e6496c
-DateApproved: 4/22/2026
+DateApproved: 4/29/2026
 MetaDescription: Overview of the configuration settings for GitHub Copilot in Visual Studio Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -119,8 +119,8 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 | `setting(chat.tools.eligibleForAutoApproval)` _(Experimental)_<br/>Configure which tools require manual approval before they can be used by agents. | `[]` |
 | `setting(chat.tools.terminal.blockDetectedFileWrites)` _(Experimental)_<br/>Require user approval for terminal commands that perform file writes. | `outsideWorkspace` |
 | `setting(chat.agent.sandbox.enabled)` _(Preview)_<br/>Enable [sandboxing for agent commands](/docs/copilot/agents/agent-tools.md#sandbox-agent-commands) executed by the agent (macOS and Linux only). When enabled, commands are auto-approved and have restricted file system and network access. | `false` |
-| `setting(chat.agent.sandbox.FileSystem.linux)` _(Preview)_<br/>Configure file system access rules for sandboxed agent commands on Linux. Supports `allowWrite`, `denyWrite`, and `denyRead` properties. | `{}` |
-| `setting(chat.agent.sandbox.FileSystem.mac)` _(Preview)_<br/>Configure file system access rules for sandboxed agent commands on macOS. Supports `allowWrite`, `denyWrite`, and `denyRead` properties. | `{}` |
+| `setting(chat.agent.sandbox.FileSystem.linux)` _(Preview)_<br/>Configure file system access rules for sandboxed agent commands on Linux. Supports `allowRead`, `allowWrite`, `denyRead`, and `denyWrite` properties. | `{}` |
+| `setting(chat.agent.sandbox.FileSystem.mac)` _(Preview)_<br/>Configure file system access rules for sandboxed agent commands on macOS. Supports `allowRead`, `allowWrite`, `denyRead`, and `denyWrite` properties. | `{}` |
 | `setting(chat.agent.networkFilter)`<br/>Enable network domain filtering for agent tools (fetch tool, integrated browser). When enabled, network access is restricted according to `setting(chat.agent.allowedNetworkDomains)` and `setting(chat.agent.deniedNetworkDomains)`. When disabled, no filtering is applied. | `false` |
 | `setting(chat.agent.allowedNetworkDomains)`<br/>Configure allowed domains for network access by agent tools. Only takes effect when `setting(chat.agent.networkFilter)` is enabled. When sandboxing is also enabled, these rules additionally apply to terminal commands. When both allowed and denied lists are empty, all domains are blocked. Supports wildcards like `*.example.com`. | `[]` |
 | `setting(chat.agent.deniedNetworkDomains)`<br/>Configure denied domains for network access by agent tools. Only takes effect when `setting(chat.agent.networkFilter)` is enabled. Denied domains take precedence over allowed domains. Supports wildcards like `*.example.com`. | `[]` |
@@ -171,6 +171,12 @@ The [Agents view](/docs/copilot/agents/overview.md) provides a centralized locat
 | `setting(github.copilot.chat.reviewSelection.enabled)` _(Preview)_<br/>Enable code review with AI for an editor text selection. | `true` |
 | `setting(github.copilot.chat.reviewSelection.instructions)` _(Preview)_<br/>Custom instructions that are added to requests for reviewing the current editor selection with AI. | `[]` |
 
+## Source control settings
+
+| Setting and Description | Default |
+|------------------------|---------------|
+| `setting(git.addAICoAuthor)`<br/>Append a `Co-authored-by:` Git trailer to commit messages for AI-generated changes. Options: `off` (no trailer), `chatAndAgent` (trailer for Copilot Chat or agent mode changes), `all` (trailer for all AI-generated code, including inline completions). See [AI co-author attribution](/docs/sourcecontrol/staging-commits.md#ai-co-author-attribution). | `"chatAndAgent"` |
+
 ## Custom instructions settings
 
 | Setting and Description | Default |
@@ -182,7 +188,7 @@ The [Agents view](/docs/copilot/agents/overview.md) provides a centralized locat
 | `setting(github.copilot.chat.commitMessageGeneration.instructions)` _(Experimental)_<br/>Custom instructions for generating commit messages with AI. | `[]` |
 | `setting(github.copilot.chat.pullRequestDescriptionGeneration.instructions)` _(Experimental)_<br/>Custom instructions for generating pull request titles and descriptions with AI. | `[]` |
 | `setting(github.copilot.chat.organizationInstructions.enabled)`<br/>Enable discovery of custom instructions defined at the GitHub organization level. | `true` |
-| `setting(chat.useCustomizationsInParentRepositories)`<br/>Enable discovery of chat customizations (instructions, prompts, agents, skills, hooks) in [parent repository folders](/docs/copilot/customization/overview.md#parent-repository-discovery). Useful for monorepo setups where you open a subfolder rather than the repository root. | `false` |
+| `setting(chat.useCustomizationsInParentRepositories)`<br/>Enable discovery of agent customizations (instructions, prompts, agents, skills, hooks) in [parent repository folders](/docs/copilot/customization/overview.md#parent-repository-discovery). Useful for monorepo setups where you open a subfolder rather than the repository root. | `false` |
 
 ## Reusable prompt files settings
 
@@ -205,6 +211,7 @@ The [Agents view](/docs/copilot/agents/overview.md) provides a centralized locat
 |------------------------|---------------|
 | `setting(chat.useAgentSkills)` <br/>Enable support for [agent skills](/docs/copilot/customization/agent-skills.md) in VS Code. | `true` |
 | `setting(chat.agentSkillsLocations)` <br/>Locations to search for agent skills. Relative paths are resolved from the root folder(s) of your workspace. Supports home directory expansion (`~`) for user-specific paths. | `"chat.agentSkillsLocations": { ".github/skills": true,".claude/skills": true,"~/.copilot/skills": true,"~/.claude/skills": true}` |
+| `setting(github.copilot.chat.skillTool.enabled)` _(Experimental)_<br/>Enable the dedicated skill tool for invoking [agent skills](/docs/copilot/customization/agent-skills.md). Required to run skills with [`context: fork`](/docs/copilot/customization/agent-skills.md#run-a-skill-in-a-forked-context-experimental) in a separate subagent context. | `false` |
 
 ## Memory settings
 

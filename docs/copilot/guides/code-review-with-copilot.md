@@ -1,6 +1,6 @@
 ---
 ContentId: 3d26d330-5e97-4748-83d1-351aaddcc60c
-DateApproved: 4/22/2026
+DateApproved: 4/29/2026
 MetaDescription: Learn how to use GitHub Copilot in Visual Studio Code to review code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---

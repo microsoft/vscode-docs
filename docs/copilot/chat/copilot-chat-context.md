@@ -1,6 +1,6 @@
 ---
 ContentId: 5d8a707d-a239-4cc7-92ee-ccc763e8eb9c
-DateApproved: 4/22/2026
+DateApproved: 4/29/2026
 MetaDescription: Learn how to manage context when using AI in VS Code, including workspace indexing, #-mentions for files and symbols, web content references, and custom instructions.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---

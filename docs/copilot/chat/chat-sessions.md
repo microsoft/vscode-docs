@@ -1,6 +1,6 @@
 ---
 ContentId: 7a2e5f8d-4c9b-41e6-b3a8-9d7f2e4c1b8a
-DateApproved: 4/22/2026
+DateApproved: 4/29/2026
 MetaDescription: Learn how to create and manage chat sessions in Visual Studio Code, including the sessions list, opening chat in editor tabs, separate windows, and using chat session history.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -66,6 +66,8 @@ You can open chat sessions in different views, depending on how you prefer to wo
     ![Screenshot of opening a new chat session in a separate window in VS Code.](../images/chat-sessions/new-chat-session-separate-window.png)
 
 * **Maximized**: select the **Maximize** button in the Chat view title bar, or run the **View: Toggle Maximized Panel** command. The chat takes over the full editor area, giving it maximum space. Select the button again to restore the previous layout.
+
+* **Agents App**: a dedicated companion app where agents are the primary experience. Best for agent-first workflows where you want to focus entirely on describing tasks and managing agents. Run the **Chat: Open Agents Application** command, or use `code --agents` from the command line. Learn more about the [Agents App](/docs/copilot/agents-app.md).
 
 You can move a chat session between views at any time. Select the `...` menu in the Chat view, editor tab, or chat window and choose one of the **Move Chat into...** options. Alternatively, use the corresponding **Chat: Move Chat** commands from the Command Palette.
 
