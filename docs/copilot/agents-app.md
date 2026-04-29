@@ -15,7 +15,7 @@ In this article, you learn about the VS Code Agents application and how to start
 <video src="images/agents-app/2649_AgentsDemo_v4.5.mp4" title="Video showing the Agents app experience in VS Code Insiders." controls></video>
 
 > [!NOTE]
-> The Agents application is currently in preview and only available with [VS Code Insiders](/insiders).
+> The Agents application is currently in preview and only available with [VS Code Insiders](/insiders). We're actively shaping it based on your feedback and are excited to learn alongside developers. Please share your experience by [filing issues on GitHub](https://github.com/microsoft/vscode/issues), or feel free to browse [existing `agents-app` issues](https://github.com/microsoft/vscode/issues?q=state%3Aopen%20label%3A%22agents-app%22).
 
 ## Prerequisites
 
