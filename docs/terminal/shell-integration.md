@@ -22,7 +22,7 @@ This standard, easy way will not work for some advanced use cases like in sub-sh
 
 >**Note**: Automatic injection may not work on old versions of the shell, for example older versions of fish do not support the `$XDG_DATA_DIRS` environment variable which is how injection works. You may still be able to manually install to get it working.
 
->**Windows Note**: The VS Code shell integration requires having the [permission to run PowerShell scripts](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies). If you have exclusive use of your user account on your machine, consider running:
+>**Windows Note**: VS Code shell integration requires the [permission to run PowerShell scripts](https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies). If you have exclusive use of your user account on your machine, consider running:
 >
 > ```powershell
 > if ((Get-ExecutionPolicy -Scope LocalMachine) -eq 'Undefined' -and (Get-ExecutionPolicy -Scope CurrentUser) -eq 'Undefined') {
