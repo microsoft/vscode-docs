@@ -22,6 +22,14 @@ This standard, easy way will not work for some advanced use cases like in sub-sh
 
 >**Note**: Automatic injection may not work on old versions of the shell, for example older versions of fish do not support the `$XDG_DATA_DIRS` environment variable which is how injection works. You may still be able to manually install to get it working.
 
+>**Windows Note**: VS Code shell integration requires the [permission to run PowerShell scripts](https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies). If you have exclusive use of your user account on your machine, consider running:
+>
+> ```powershell
+> if ((Get-ExecutionPolicy -Scope LocalMachine) -eq 'Undefined' -and (Get-ExecutionPolicy -Scope CurrentUser) -eq 'Undefined') {
+>     Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+> }
+> ```
+
 ### Manual installation
 
 To manually install shell integration, the VS Code shell integration script needs to run during your shell's initialization. Where and how to do this depends on the shell and OS you're using. When using manual install it's recommended to set `setting(terminal.integrated.shellIntegration.enabled)` to `false`, though not mandatory.
