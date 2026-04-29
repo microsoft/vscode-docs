@@ -132,7 +132,7 @@ Sticky Scroll shows the starting lines of currently visible nested scopes at the
 > [!TIP]
 > You can enable/disable Sticky Scroll with the `setting(editor.stickyScroll.enabled)` setting.
 
-Sticky Scroll uses several different content models to create its headings. It is possible to choose between the outline provider model, the folding provider model, and the indentation model to determine which lines to display in the Sticky Scroll area. If a model is not available for the current language, VS Code falls back to the next model in the  order given above. The default model initially used comes from the `setting(editor.stickyScroll.defaultModel)` setting.
+Sticky Scroll uses several different content models to create its headings. It is possible to choose between the outline provider model, the folding provider model, and the indentation model to determine which lines to display in the Sticky Scroll area. If a model is not available for the current language, VS Code falls back to the next model in the order given above. The default model initially used comes from the `setting(editor.stickyScroll.defaultModel)` setting.
 
 ### Indent guides
 
