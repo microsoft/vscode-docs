@@ -53,6 +53,9 @@ Foundry Toolkit is designed for anyone working with generative AI, from beginner
 ## Install and setup
 
 ### Quick installation
+
+> The [.NET Runtime should be installed](https://learn.microsoft.com/en-us/dotnet/core/install/) as Foundry Toolkit depends on it
+
 The fastest way to get started is by installing the extension through the Visual Studio Marketplace:
 
 > <a class="install-extension-btn" href="vscode:extension/ms-windows-ai-studio.windows-ai-studio">Install the Foundry Toolkit for VS Code</a>
@@ -73,6 +76,14 @@ You can also install Foundry Toolkit extension manually from the Visual Studio C
 > [!TIP]
 > Check the **What's New** page after installation to see detailed features for each version.
 * After successful installation, the Foundry Toolkit icon appears in the Activity Bar.
+
+### Verifying and Installing Foundry Toolkit Pre-Requisites (Local Models)
+
+Foundry Toolkit provides local LLM running capabilities via [Foundry Local,](https://www.foundrylocal.ai/) complete the Foundry local setup by running the `AI Toolkit: Install environment prerequisites` command to leverage these capabilities.
+
+You can verify pre-requisites installation status with the `AI Toolkit: Validate environment prerequisites` Command:
+
+![Screenshot showing the Foundry Toolkit Validate environment prerequisites status report"](./images/overview/validate-pre-requisites.png)
 
 ## Explore Foundry Toolkit
 
