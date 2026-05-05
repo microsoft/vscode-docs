@@ -222,7 +222,7 @@ Context name | True when
 **Testing contexts** |
 `testId` | True when the current Testing item ID matches.
 `controllerId` | True when the current Testing controller ID matches.
-`testItemHasUri` | True when the current Testing item is associated with a URI.
+`testing.testItemHasUri` | True when the current Testing item is associated with a URI.
 **Workspace contexts** |
 `virtualWorkspace` | True when the current workspace uses a virtual file system.
 `isWorkspaceTrusted` | True when the current workspace is trusted.
