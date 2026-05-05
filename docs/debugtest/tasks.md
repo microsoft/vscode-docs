@@ -483,7 +483,7 @@ Below is an example of a custom task configuration that passes the current opene
 }
 ```
 
-Similarly, you can reference your project's configuration settings by prefixing the name with **${config:**. For example, `${config:python.formatting.autopep8Path}` returns the Python extension setting `formatting.autopep8Path`.
+Similarly, you can reference your project's configuration settings by prefixing the name with **`${config:`**. For example, `${config:python.formatting.autopep8Path}` returns the Python extension setting `formatting.autopep8Path`.
 
 Below is an example of a custom task configuration, which executes autopep8 on the current file using the autopep8 executable defined by the `python.formatting.autopep8Path` setting:
 
