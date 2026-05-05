@@ -74,10 +74,11 @@ VS Code offers two commands for comment toggling. **Toggle Line Comment** and **
   }
 }
 ```
-The `lineComment` property supports two formats for backward compatibility:
+
+The `lineComment` property supports two formats for backwards compatibility:
 
 - A string value for simple line comment definitions.
-- An object value that allows additional configuration options.
+- An object value that enables configuring the indentation behavior of comment lines.
 
 ```json
 {
@@ -90,8 +91,6 @@ The `lineComment` property supports two formats for backward compatibility:
   }
 }
 ```
-The object form allows additional control over line comments.  
-For example, `noIndent` disables automatic indentation when toggling line comments.
 
 ## Brackets definition
 
