@@ -1,8 +1,15 @@
 ---
 ContentId: 3a7e9c4f-5d1b-4e8f-a2c6-8b0d3f5e7a9c
 DateApproved: 4/29/2026
-MetaDescription: Learn how agents in VS Code use the memory tool and Copilot Memory to retain context, learn preferences, and improve over time across conversations.
+MetaDescription: Learn how VS Code agents use memory tools, memory scopes such as /memories/repo/, and Copilot Memory to retain context and improve over time.
 MetaSocialImage: ../images/shared/github-copilot-social.png
+Keywords:
+- memory tool
+- memories
+- /memories/
+- /memories/repo/
+- repository memory
+- Copilot Memory
 ---
 
 # Memory in VS Code agents
@@ -23,6 +30,8 @@ The memory tool is a built-in agent tool that allows agents to save and recall n
 ### Memory scopes
 
 Each scope serves a different purpose, depending on how long the information should persist and where it applies.
+
+Use the repository memory path, `/memories/repo/`, for memories that should apply only to the current workspace.
 
 | Scope | Path | Persists across sessions | Persists across workspaces | Use for |
 |---|---|---|---|---|

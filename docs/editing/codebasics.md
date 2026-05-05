@@ -1,8 +1,14 @@
 ---
 ContentId: DE4EAE2F-4542-4363-BB74-BE47D64141E6
 DateApproved: 4/29/2026
-MetaDescription: Learn about the basic editing features of Visual Studio Code. Search, multiple selection, code formatting.
+MetaDescription: Learn about basic editing in VS Code, including search, multiple cursors for simultaneous edits, column selection commands like cursorColumnSelectPageDown, and code formatting.
 MetaSocialImage: images/codebasics/code-basics-social.png
+Keywords:
+- simultaneous edits
+- multiple cursors
+- multi-cursor
+- column selection
+- cursorColumnSelectPageDown
 ---
 # Basic editing
 
@@ -19,6 +25,8 @@ Being able to keep your hands on the keyboard when writing code is crucial for h
 ## Multiple selections (multi-cursor)
 
 VS Code supports multiple cursors for fast, simultaneous edits. You can add secondary cursors (rendered thinner) with `kbstyle(Alt+Click)`. Each cursor operates independently based on the context it sits in. A common way to add more cursors is with `kb(editor.action.insertCursorBelow)` or `kb(editor.action.insertCursorAbove)` that insert cursors below or above.
+
+Use multiple cursors when you want to make simultaneous edits across repeated text or several lines.
 
 > [!NOTE]
 > Your graphics card driver (for example NVIDIA) might overwrite these default shortcuts.
@@ -78,7 +86,7 @@ Key|Command|Command ID
 `kb(cursorColumnSelectPageDown)`|Column Select Page Down|`cursorColumnSelectPageDown`
 `kb(cursorColumnSelectPageUp)`|Column Select Page Up|`cursorColumnSelectPageUp`
 
-You can [edit](/docs/configure/keybindings.md) your `keybindings.json` to bind them to something more familiar if you want.
+You can [edit](/docs/configure/keybindings.md) your `keybindings.json` to bind column selection command IDs such as `cursorColumnSelectPageDown` to something more familiar if you want.
 
 ### Column Selection mode
 
