@@ -15,6 +15,7 @@ MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares
 - [`breakpoints`](/api/references/contribution-points#contributes.breakpoints)
 - [`chatInstructions`](/api/references/contribution-points#contributes.chatInstructions)
 - [`chatPromptFiles`](/api/references/contribution-points#contributes.chatPromptFiles)
+- [`chatSkills`](/api/references/contribution-points#contributes.chatSkills)
 - [`colors`](/api/references/contribution-points#contributes.colors)
 - [`commands`](/api/references/contribution-points#contributes.commands)
 - [`configuration`](/api/references/contribution-points#contributes.configuration)
@@ -152,6 +153,33 @@ Each entry requires a `path` to a Markdown file relative to the extension root. 
 | `when` | `string` | No | A [when clause](/api/references/when-clause-contexts) condition that must be true for this entry to be enabled. |
 
 See the [`chatInstructions`](/api/references/contribution-points#contributes.chatInstructions) contribution point for contributing reusable instructions files.
+
+## contributes.chatSkills
+
+Contributes [Agent Skills](/docs/copilot/customization/agent-skills.md) for Copilot Chat. Agent Skills are folders of instructions, scripts, and resources that Copilot can load when relevant to perform specialized tasks. Use this contribution point to bundle reusable skills with your extension.
+
+Each entry requires a `path` to a `SKILL.md` file relative to the extension root. The `SKILL.md` file must follow the [Agent Skills specification](https://agentskills.io/specification), and its `name` field must match the parent directory name. You can optionally specify a `when` clause to conditionally enable the skill.
+
+```json
+{
+  "contributes": {
+    "chatSkills": [
+      {
+        "path": "./skills/my-skill/SKILL.md"
+      }
+    ]
+  }
+}
+```
+
+### chatSkills properties
+
+| Property | Type | Required | Description |
+| -------- | ---- | -------- | ----------- |
+| `path` | `string` | Yes | Path to the `SKILL.md` file relative to the extension root. The path must resolve to a location inside the extension, and the parent directory name must match the `name` field in `SKILL.md`. |
+| `when` | `string` | No | A [when clause](/api/references/when-clause-contexts) condition that must be true for this entry to be enabled. |
+
+See [Contribute skills from extensions](/docs/copilot/customization/agent-skills.md#contribute-skills-from-extensions) for the required skill structure and `SKILL.md` format.
 
 ## contributes.colors
 
