@@ -70,9 +70,9 @@ Learn more about [managing agent sessions](/docs/copilot/chat/chat-sessions.md).
 
 ### Agents Application
 
-If you prefer describing what you want over writing code directly, the [Agents pp](/docs/copilot/agents-app.md) gives you a dedicated interface where sessions and chat take center stage. Launch it as a standalone window to focus entirely on prompting, monitoring sessions, and configuring your AI setup. The Agents app also provides direct access to all your AI customizations, such as agents, instructions, prompts, and MCP servers, from a single sidebar panel.
+If you prefer describing what you want over writing code directly, the [Agents pp](/docs/copilot/agents/agents-window.md) gives you a dedicated interface where sessions and chat take center stage. Launch it as a standalone window to focus entirely on prompting, monitoring sessions, and configuring your AI setup. The Agents app also provides direct access to all your AI customizations, such as agents, instructions, prompts, and MCP servers, from a single sidebar panel.
 
-Learn more about the [Agents app](/docs/copilot/agents-app.md).
+Learn more about the [Agents app](/docs/copilot/agents/agents-window.md).
 
 ## What can you build
 
