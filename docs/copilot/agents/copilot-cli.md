@@ -209,4 +209,4 @@ To use custom agents with Copilot CLI:
 
 * [Agents overview](/docs/copilot/agents/overview.md): Understand different agent types and how to hand off tasks between agents
 * [Custom agents](/docs/copilot/customization/custom-agents.md): Create custom agent roles and personas
-* [GitHub Copilot CLI documentation](https://cli.github.com/manual/gh_copilot)
+* [GitHub Copilot CLI documentation](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-command-reference)
