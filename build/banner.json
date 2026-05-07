@@ -1,7 +1,5 @@
 {
   "enabled": true,
   "version": "2026-05-06-integrated-browser",
-  "message": "Get started ",
-  "linkText": "building web apps with the integrated browser and AI agents!",
-  "linkUrl": "https://code.visualstudio.com/docs/copilot/guides/browser-agent-testing-guide?source=vsc-website-banner"
+  "message": "<a href=\"https://code.visualstudio.com/docs/copilot/guides/browser-agent-testing-guide?source=vsc-website-banner\" target=\"_self\" rel=\"noopener\">Build and test web apps with the integrated browser and AI agents.</a>"
 }

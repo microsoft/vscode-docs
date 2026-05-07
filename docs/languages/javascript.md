@@ -74,11 +74,7 @@ VS Code understands many standard [JSDoc](https://jsdoc.app) annotations, and us
 
 Quickly create JSDoc comments for functions by typing `/**` before the function declaration, and select the **JSDoc comment** snippet suggestion:
 
-<video src="images/javascript/jsdoc-autofill.mp4" placeholder="images/javascript/jsdoc-autofill-placeholder.png" autoplay loop controls muted>
-    Sorry, your browser doesn't support HTML 5 video.
-</video>
-
-To disable JSDoc comment suggestions, set `"js/ts.suggest.jsdoc.enabled": false`.
+To disable JSDoc comment suggestions, disable the `setting(js/ts.suggest.jsdoc.enabled)` setting.
 
 ## Hover Information
 
@@ -253,6 +249,7 @@ The `setting(editor.codeActionsOnSave)` setting lets you configure a set of Code
 ```
 
 As of today, the following enums are supported:
+
 * `explicit` (default): Triggers Code Actions when explicitly saved. Same as `true`.
 * `always`: Triggers Code Actions when explicitly saved and on Auto Saves from window or focus changes.
 * `never`: Never triggers Code Actions on save. Same as `false`.
@@ -280,15 +277,7 @@ Set `"js/ts.suggestionActions.enabled"` to `false` to disable suggestions.
 
 ## Enhance completions with AI
 
-[GitHub Copilot](https://copilot.github.com/) is an AI-powered code completion tool that helps you write code faster and smarter. You can use the [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) in VS Code to generate code, or to learn from the code it generates.
-
-[![GitHub Copilot extension in the VS Code Marketplace](images/javascript/copilot-extension.png)](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
-
-GitHub Copilot provides suggestions for numerous languages and a wide variety of frameworks, and it works especially well for Python, JavaScript, TypeScript, Ruby, Go, C# and C++.
-
-You can learn more about how to get started with Copilot in the [Copilot documentation](/docs/editor/github-copilot.md).
-
-Once you have the Copilot extension installed and enabled, you can test it out for your JavaScript projects.
+GitHub Copilot can give you AI-powered inline suggestions that help you write code faster and smarter. GitHub Copilot provides suggestions for numerous languages and a wide variety of frameworks, and it works especially well for Python, JavaScript, TypeScript, Ruby, Go, C# and C++.Learn more about how to [get started with Copilot in VS Code](/docs/copilot/getting-started.md).
 
 Create a new file - you can use the **File: New File** command in the Command Palette (`kbstyle(F1)`).
 
@@ -407,19 +396,26 @@ Read on to find out about:
 * [Node.js](/docs/nodejs/nodejs-tutorial.md) - A walkthrough to create an Express Node.js application.
 * [TypeScript](/docs/languages/typescript.md) - VS Code has great support for TypeScript, which brings structure and strong typing to your JavaScript code.
 
-## Common questions
+## Frequently asked questions
 
-### Does VS Code support JSX and React Native?
+<details>
+<summary>Does VS Code support JSX and React Native?</summary>
 
 VS Code supports **JSX** and **React Native**. You will get IntelliSense for **React/JSX** and **React Native** from automatically downloaded type declaration (typings) files from the [npmjs](https://www.npmjs.com) type declaration file repository. Additionally, you can install the popular [React Native extension](https://marketplace.visualstudio.com/items?itemName=vsmobile.vscode-react-native) from  the Marketplace.
 
 To enable ES6 import statements for **React Native**, you need to set the `allowSyntheticDefaultImports` compiler option to `true`. This tells the compiler to create synthetic default members and you get IntelliSense. **React Native** uses **Babel** behind the scenes to create the proper run-time code with default members. If you also want to do debugging of **React Native** code, you can install the [React Native Extension](https://marketplace.visualstudio.com/items?itemName=vsmobile.vscode-react-native).
 
-### Does VS Code support the Dart programming language and the Flutter framework?
+</details>
+
+<details>
+<summary>Does VS Code support the Dart programming language and the Flutter framework?</summary>
 
 Yes, there are VS Code extensions for both [Dart](https://marketplace.visualstudio.com/items?itemName=Dart-Code.dart-code) and [Flutter](https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter) development. You can learn more at the [Flutter.dev](https://flutter.dev/docs/development/tools/vs-code) documentation.
 
-### IntelliSense is not working for external libraries
+</details>
+
+<details>
+<summary>IntelliSense is not working for external libraries</summary>
 
 `Automatic Type Acquisition` works for dependencies downloaded by npm (specified in `package.json`), Bower (specified in `bower.json`), and for many of the most common libraries listed in your folder structure (for example `jquery-3.1.1.min.js`).
 
@@ -442,16 +438,27 @@ When you want to use ES6 style imports but some type declaration (typings) files
 }
 ```
 
-### Can I debug minified/uglified JavaScript?
+</details>
+
+<details>
+<summary>Can I debug minified/uglified JavaScript?</summary>
 
 Yes, you can. You can see this working using JavaScript source maps in the [Node.js Debugging](/docs/nodejs/nodejs-debugging.md) topic.
 
-### How do I disable Syntax Validation when using non-ES6 constructs?
+</details>
+
+<details>
+<summary>How do I disable Syntax Validation when using non-ES6 constructs?</summary>
 
 Some users want to use syntax constructs like the proposed pipeline (`|>`) operator. However, these are currently not supported by VS Code's JavaScript language service and are flagged as errors. For users who still want to use these future features, we provide the `setting(js/ts.validate.enable)` [setting](/docs/configure/settings.md).
 
 With `js/ts.validate.enable: false`, you disable all built-in syntax checking. If you do this, we recommend that you use a linter like [ESLint](https://eslint.org) to validate your source code.
 
-### Can I use other JavaScript tools like Flow?
+</details>
+
+<details>
+<summary>Can I use other JavaScript tools like Flow?</summary>
 
 Yes, but some of [Flow's](https://flow.org) language features such as type and error checking may interfere with VS Code's built-in JavaScript support. To learn how to disable VS Code's built-in JavaScript support, see [Disable JavaScript support](/docs/nodejs/working-with-javascript.md#disable-javascript-support).
+
+</details>

@@ -114,3 +114,7 @@ After a first pass of all feature sections, review the draft for gaps you cannot
 For each gap, include your best-guess draft so the user can confirm or correct rather than write from scratch.
 
 Before asking, search the `docs/` folder for any referenced concepts. If docs coverage is thorough, link to the page and skip the question. Only flag concepts where coverage is thin or absent.
+
+## Review Procedure
+
+To review release notes, follow the full [review procedure](./review-procedure.md). This covers both standalone review and post-write validation, with checklists for Insiders and Stable release notes.

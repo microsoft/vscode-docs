@@ -1,22 +1,13 @@
----
-name: release-note-reviewer
-description: 'Review VS Code release notes for style, structure, and completeness. Use for reviewing Insiders or Stable release notes against writing guidelines. Produces an actionable list of recommendations.'
-argument-hint: 'Review the current release notes file'
----
-
-# Release Note Reviewer
+# Review Procedure
 
 Review Visual Studio Code release notes and produce a clear, actionable list of recommendations. Handles both **Insiders** and **Stable** release notes, each with its own checklist.
 
-## When to Use
-
-* After drafting or updating a release notes file.
+Use this procedure:
+* After drafting or updating release notes (run automatically as a validation pass).
 * Before publishing or merging release notes into the main branch.
-* When asked to review, proofread, or improve release notes.
+* When asked to review, proofread, or improve release notes (standalone review mode).
 
-## Procedure
-
-### 1. Determine release note type
+## 1. Determine release note type
 
 Read the file's YAML frontmatter and check the `ProductEdition` field:
 
@@ -27,24 +18,24 @@ Read the file's YAML frontmatter and check the `ProductEdition` field:
 
 If the file is not a release note (no recognizable frontmatter), tell the user and stop.
 
-### 2. Load writing guidelines
+## 2. Load writing guidelines
 
 Read the following instruction files to use as the review baseline:
 
 * [Release notes writing instructions](../../instructions/release-notes-writing.instructions.md)
 * [Documentation writing guidelines](../../instructions/docs-writing.instructions.md)
 
-### 3. Run the review checklist
+## 3. Run the review checklist
 
 Apply the checklist for the detected release note type. Check every item and record a recommendation for each violation.
 
-#### Common checklist (both types)
+### Common checklist (both types)
 
 **Frontmatter**
 
 * `Order`, `TOCTitle`, `PageTitle`, `MetaDescription`, `MetaSocialImage`, `Date`, `DownloadVersion`, `Milestone`, and `ProductEdition` are all present and well-formed.
 * `MetaDescription` is under 160 characters and starts with "Learn what is new".
-* `PageTitle` follows the pattern: `Visual Studio Code <Month> <Year>`.
+* `PageTitle` follows the pattern: `Visual Studio Code <Version>` or `Visual Studio Code <Version> (Insiders)`.
 * `MetaSocialImage` follows the pattern: `1_<release number>/release-highlights.webp`.
 * `Date` is in `YYYY-MM-DD` format and matches the release date mentioned in the content.
 * `DownloadVersion` follows the pattern: `1.<release number>.0`.
@@ -102,7 +93,7 @@ Follow the VS Code release notes writing style:
 * The HTML TOC block exists and lists all H2 sections present in the document.
 * Anchor `href` values match the H2 heading slugs.
 
-#### Stable-only checklist
+### Stable-only checklist
 
 * Welcome paragraph is present and correctly references the release month (not a different month).
 * The welcome paragraph does not contain TODO placeholders.
@@ -113,9 +104,9 @@ Follow the VS Code release notes writing style:
 * Admin and policy features address both the administrative use case and the developer-facing impact.
 * No vague claims like "improved support" or "more efficient" without a concrete example or before/after comparison.
 * When multiple features relate to the same theme, they are grouped and led by the most impactful one.
-* `Notable fixes` and `Thank you` sections are present at the end (skip their content during review).
+* `Notable fixes` and `Thank you` sections might be present at the end but are not required (skip their content during review).
 
-#### Insiders-only checklist
+### Insiders-only checklist
 
 * The VS Code Insiders banner image reference exists and points to the correct version folder.
 * The `_Last updated_` line is present and has a valid date.
@@ -123,7 +114,7 @@ Follow the VS Code release notes writing style:
 * Feature entries are grouped under H2 date headings (format: `## <Month> <day>, <year>`).
 * Each feature entry includes a link to a GitHub issue in the pattern `_[#issue-number](https://github.com/microsoft/vscode/issues/issue-number)_`.
 
-### 4. Generate the recommendations list
+## 4. Generate the recommendations list
 
 Produce a Markdown document with a list of recommendations. Each item must include:
 
@@ -149,7 +140,7 @@ Group recommendations by severity:
 
 If no issues are found, confirm that the release notes pass the review.
 
-### 5. Summary
+## 5. Summary
 
 End with a brief summary:
 

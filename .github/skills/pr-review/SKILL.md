@@ -8,7 +8,7 @@ argument-hint: '<PR number or branch> (defaults to the current PR / branch)'
 
 Review a vscode-docs pull request and verify every factual claim about VS Code behavior against the source code in `microsoft/vscode` and `microsoft/vscode-copilot-chat`. Produce an actionable list of findings the author can address before merging.
 
-This skill checks **technical accuracy only**. It does not enforce writing style, frontmatter, or release-notes structure — use the `release-note-reviewer` or `frontmatter-description` skills for those.
+This skill checks **technical accuracy only**. It does not enforce writing style, frontmatter, or release-notes structure — use the `release-note-writer` or `frontmatter-description` skills for those.
 
 ## When to Use
 
