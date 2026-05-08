@@ -222,8 +222,11 @@ For inserting the current date and time:
 * `CURRENT_HOUR` The current hour in 24-hour clock format
 * `CURRENT_MINUTE` The current minute as two digits
 * `CURRENT_SECOND` The current second as two digits
+* `CURRENT_MILLISECOND` The current millisecond as three digits (example `078`)
 * `CURRENT_SECONDS_UNIX` The number of seconds since the Unix epoch
+* `CURRENT_MILLISECONDS_UNIX` The number of milliseconds since the Unix epoch
 * `CURRENT_TIMEZONE_OFFSET` The current UTC time zone offset as `+HH:MM` or `-HH:MM` (example `-07:00`).
+* `CURRENT_TIMEZONE_NAME` The IANA name of the current time zone (example `America/Los_Angeles`)
 
 For inserting random values:
 
