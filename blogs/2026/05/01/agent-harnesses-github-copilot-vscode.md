@@ -14,7 +14,7 @@ May 7, 2026 by [Julia Kasper](https://github.com/jukasper)
 
 With each new model release, the same conversation is reignited. Which model is the smartest? Which one is fastest? Which one should we use? Those are useful questions, but for a product like Visual Studio Code the model is only one part of the agentic coding experience. What developers actually interact with is the coding harness: the layer that assembles context, exposes tools, runs the agent loop, interprets tool calls, and turns a model's output into something useful inside the editor. In this post, we'll look at what that harness does, why it matters, and how we evaluate it as models and developer workflows evolve.
 
-![Diagram showing that an agent is made up of a model plus a harness. The harness includes the agent loop, tools, context management, and system prompt.](agent_model_harness.png)
+![Diagram showing that an agent is made up of a model plus a harness. The harness includes the agent loop, tools, context management, and system prompt.](agent.png)
 
 ## What is the coding harness?
 
@@ -34,19 +34,13 @@ The logic that orchestrates these tasks, deciding when to continue or stop itera
 
 ## The agent loop
 
-At its core, when you use an agent in VS Code, a tool-calling loop happens: a **"think → act → observe → think again" cycle**. On each iteration, the agent harness builds the prompt (system instructions + context + history + all tool results so far), sends it to the model, and checks the response.
-
-If the response includes tool calls, the harness executes those tools, captures their results, and loops back. If there are no tool calls, the loop can finish and the assistant’s text becomes the final response.
+At its core, when you use an agent in VS Code, a tool-calling loop happens: a **"think → act → observe → think again"** cycle. On each iteration, the agent harness builds the prompt (system instructions + context + history + all tool results so far), sends it to the model, and checks the response. If the response includes tool calls, the harness executes those tools, captures their results, and loops back. If there are no tool calls, the loop can finish and the assistant’s text becomes the final response.
 
 ![Simplified diagram of the VS Code agent loop: the user sends a chat message, the tool-calling loop builds a prompt, sends it to the model, executes requested tools, records results, checks loop-control conditions, and either continues or finalizes the chat result.](agent-loop.png)
 
-A **turn** is the user-visible chat exchange: you send one message, and the agent eventually produces a response. During that turn, the agent loop may perform many **rounds**. A round is one pass through the loop: build the prompt, call the model, receive text and/or tool calls, execute any tools, record the results, and decide whether to continue. The full execution of all those rounds is the loop’s **run**.
+A **turn** is the user-visible chat exchange: you send one message, and the agent eventually produces a response. During that turn, the agent loop may perform many **rounds**. A round is one pass through the loop: build the prompt, call the model, receive text and/or tool calls, execute any tools, record the results, and decide whether to continue. The full execution of all those rounds is the loop’s **run**. A single user turn might trigger many rounds as the model searches files, reads code, edits files, runs tests, reads the output, and iterates on failures.
 
-A single user turn might trigger many rounds as the model searches files, reads code, edits files, runs tests, reads the output, and iterates on failures.
-
-The tool-calling loop is bounded by loop-control checks. We enforce a tool-call limit, checks for cancellation between rounds, and runs stop hooks. Stop hooks are extension points that can inspect the agent state and either allow it to finish or push it to keep working.
-
-Within the loop, the prompt is rebuilt on every iteration. That means the model always sees the latest state of the workspace: if it edited a file three rounds ago, the current prompt reflects that edit. The harness also manages conversation summarization. When the accumulated history grows too large, it compresses earlier rounds into a summary so the model can keep working without hitting the context window ceiling.
+The tool-calling loop is bounded by loop-control checks. We enforce a tool-call limit, check for cancellation between rounds, and run stop hooks. Stop hooks are extension points that can inspect the agent state and either allow it to finish or push it to keep working. Within the loop, the prompt is rebuilt on every iteration. That means the model always sees the latest state of the workspace: if it edited a file three rounds ago, the current prompt reflects that edit. The harness also manages conversation summarization. When the accumulated history grows too large, it compresses earlier rounds into a summary so the model can keep working without hitting the context window ceiling.
 
 ### Why do we need an agent loop?
 
@@ -94,7 +88,7 @@ We still run these benchmarks. They are useful regression tests. But when we dec
 
 That's why we built VSC-Bench, our offline evaluation suite for VS Code agent behavior. VSC-Bench focuses on VS Code-specific developer tasks that public benchmarks do not cover well: custom agent modes, extension workflows, MCP and tool use, terminal and browser interaction, multi-turn conversations, and multi-language coding tasks across TypeScript, Python, C++, and others.
 
-![Scatter chart comparing VSC-Bench model resolution rate against median total tokens, with each point representing a different model.](vscbench.png)
+![Scatter chart comparing VSC-Bench model resolution rate against median total tokens, with each point representing a different model.](benchmark.png)
 
 For example, one task asks the agent to scaffold a new API endpoint, write a test, run it, and fix any failures. The assertions check that the route exists, the test passes, and that the agent used the terminal to verify its work rather than just writing code and stopping.
 
