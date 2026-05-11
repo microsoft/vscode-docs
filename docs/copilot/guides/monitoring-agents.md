@@ -224,17 +224,19 @@ Copilot Chat's OTel output works with any backend that supports the OTLP protoco
 
 ### Aspire Dashboard
 
-The [Aspire Dashboard](https://aspire.dev/dashboard/standalone/) is the simplest option for local development. It is a single Docker container with a built-in OTLP endpoint and trace viewer, and requires no cloud account.
+The [Aspire Dashboard](https://aspire.dev/dashboard/standalone/) is the simplest option for local development. It is a single app with a built-in OTLP endpoint and trace viewer, and requires no cloud account.
+
+You can start the dashboard using the [Aspire CLI](https://aspire.dev/get-started/install-cli/):
+
+```bash
+aspire dashboard run
+```
+
+Or run the same standalone dashboard from its Docker container image:
 
 ```bash
 docker run --rm -d -p 18888:18888 -p 4318:18890 --name aspire-dashboard \
   mcr.microsoft.com/dotnet/aspire-dashboard:latest
-```
-
-Alternatively, you can start the dashboard using the [Aspire CLI](https://aspire.dev/get-started/install-cli/):
-
-```bash
-aspire dashboard run
 ```
 
 VS Code configuration:
