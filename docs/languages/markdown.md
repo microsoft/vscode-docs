@@ -235,6 +235,60 @@ Additionally, double clicking an element in the Markdown preview will automatica
 
 ![Markdown Preview double click switches to editor](images/Markdown/double-click-preview-switch.gif)
 
+### Markdown preview in diff view
+
+The Markdown preview can also render diffs, showing the rendered document with changes highlighted instead of the raw Markdown source.
+
+This behavior is opt-in. You can switch a single diff to the preview, or change the default editor used for Markdown diffs.
+
+#### Open a single diff in the Markdown preview
+
+To switch an open Markdown diff (for example, a file opened from the **Source Control** view) to the rendered preview:
+
+1. With the diff editor active, run **View: Reopen Editor With...** from the Command Palette (`kb(workbench.action.showCommands)`).
+1. Select **Markdown Preview**.
+
+To switch back, run **View: Reopen Editor With...** again and select the default text editor.
+
+#### Set the Markdown preview as the default editor
+
+To make the Markdown preview the default editor for all `.md` files, including diffs, configure the `setting(workbench.editorAssociations)` setting:
+
+```json
+"workbench.editorAssociations": {
+    "*.md": "vscode.markdown.preview.editor"
+}
+```
+
+With this setting, opening a Markdown file from the Explorer or a Markdown diff from Source Control opens the rendered preview by default. You can still use **View: Reopen Editor With...** to switch an individual editor back to the text view.
+
+#### Use the Markdown preview only for diffs
+
+To render only Markdown diffs in the preview while keeping regular file opens in the text editor, use the `setting(workbench.diffEditorAssociations)` setting:
+
+```json
+"workbench.diffEditorAssociations": {
+    "*.md": "vscode.markdown.preview.editor"
+}
+```
+
+`workbench.diffEditorAssociations` takes precedence over `workbench.editorAssociations` for diff views. You can combine the two settings to make the preview the default for normal file opens while keeping diffs in the text editor:
+
+```json
+"workbench.editorAssociations": {
+    "*.md": "vscode.markdown.preview.editor"
+},
+"workbench.diffEditorAssociations": {
+    "*.md": "default"
+}
+```
+
+#### Inline and side-by-side layouts
+
+Markdown diff previews support both side-by-side and inline layouts, like text diff editors. Switching the layout updates the default for any new Markdown diff editors you open.
+
+In a side-by-side preview, the two editors stay scroll-synced to keep matching content lined up as you scroll. Changed lines are highlighted, and changes within a line are highlighted more strongly to call out the exact word or phrase that was modified.
+
 ### Math formula rendering
 
 VS Code's built-in Markdown preview renders math equations using [KaTeX](https://katex.org/).
