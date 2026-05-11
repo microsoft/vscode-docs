@@ -1,6 +1,6 @@
 ---
 ContentId: 5d8a707d-a239-4cc7-92ee-ccc763e8eb9c
-DateApproved: 4/1/2026
+DateApproved: 5/6/2026
 MetaDescription: Learn how to manage context when using AI in VS Code, including workspace indexing, #-mentions for files and symbols, web content references, and custom instructions.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -103,7 +103,7 @@ Agents can directly read and interact with pages in the [integrated browser](/do
 
 To enable browser tools, set the `setting(workbench.browser.enableChatTools)` setting to `true`.
 
-You can also share a browser page you already have open with the agent. Select the **Share with Agent** button in the browser toolbar to give the agent access to your page, including your existing session and login state.
+You can also share a browser page you already have open with the agent. Select the **Share with Agent** button in the browser toolbar to give the agent access to your page, including your existing session and login state. Agents can also detect unshared tabs and prompt you to share one when needed, for example when you refer to a page the agent can't see.
 
 For example, you can ask an agent to open your web app, check for layout issues, or verify that a feature works correctly. The agent opens the browser, interacts with the page, and reports back with its findings.
 
@@ -132,6 +132,8 @@ As a conversation grows, the accumulated messages and context can fill up the mo
 ### Automatic compaction
 
 When the context window fills up, VS Code automatically compacts the conversation by summarizing earlier messages. This happens transparently in the background, so you can keep chatting without interruption.
+
+To disable automatic compaction, set `setting(github.copilot.chat.summarizeAgentConversationHistory.enabled)` to `false`.
 
 ### Manual compaction
 

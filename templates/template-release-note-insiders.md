@@ -3,7 +3,7 @@ Order: <sequence number>
 TOCTitle: Insiders
 PageTitle: "Visual Studio Code 1.<release number> (Insiders)"
 MetaDescription: Learn what's new in Visual Studio Code 1.<release number> (Insiders)
-MetaSocialImage: 1_<release number>/vscode-insiders-header.webp
+MetaSocialImage: 1_<release number>/release-highlights.webp
 Date: <YYYY-MM-DD>
 DownloadVersion: 1.<release number>.0
 Milestone: <milestone name (1.<release number>.0 or Month Year)>
@@ -11,7 +11,7 @@ ProductEdition: Insiders
 ---
 # Visual Studio Code 1.<release number> <!-- %IF INSIDERS % (Insiders) %ENDIF % -->
 
-Follow us on [LinkedIn](https://www.linkedin.com/showcase/vs-code), [X](https://go.microsoft.com/fwlink/?LinkID=533687), [Bluesky](https://bsky.app/profile/vscode.dev) | <!-- %IF INSIDERS % Follow Insiders Changelog on [X](https://x.com/VSCodeChangelog) or [Bluesky](https://bsky.app/profile/vscodechangelog.bsky.social) | %ENDIF % --> <!-- %IF IN_PRODUCT % [View online](https://code.visualstudio.com/updates)&nbsp;|&nbsp;%ENDIF % -->
+Follow us on [LinkedIn](https://www.linkedin.com/showcase/vs-code), [X](https://go.microsoft.com/fwlink/?LinkID=533687), [Bluesky](https://bsky.app/profile/vscode.dev) <!-- %IF INSIDERS % | Follow Insiders Changelog on [X](https://x.com/VSCodeChangelog) or [Bluesky](https://bsky.app/profile/vscodechangelog.bsky.social) %ENDIF % --> <!-- %IF IN_PRODUCT % | [View online](https://code.visualstudio.com/updates)%ENDIF % -->
 
 ---
 

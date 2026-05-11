@@ -1,7 +1,7 @@
 ---
 ContentId: 79bcdbf9-d6a5-4e04-bbee-e7bb71f09f0a
 MetaDescription: Using Visual Studio Code Remote Development with the Windows Subsystem for Linux (WSL)
-DateApproved: 4/1/2026
+DateApproved: 5/6/2026
 ---
 # Developing in WSL
 
@@ -161,13 +161,13 @@ If you are using WSL 2 and [Docker Desktop's WSL 2 back-end](https://docs.docker
 
     ![Dev Container Progress Notification](images/wsl/dev-container-progress.png)
 
-7. After the build completes, VS Code will automatically connect to the container. You can now work with the your source code from inside the container.
+7. After the build completes, VS Code will automatically connect to the container. You can now work with your source code from inside the container.
 
 See the [Dev Containers documentation](/docs/devcontainers/containers.md) for more information.
 
 ## Known limitations
 
-This section contains a list of common know issues with WSL. The intent is not to provide a complete list of issues but to highlight some of the common problems seen with WSL.
+This section contains a list of common issues with WSL. The intent is not to provide a complete list of issues but to highlight some of the common problems seen with WSL.
 
 See [here for a list of active issues](https://aka.ms/vscode-remote/wsl/issues) related to WSL.
 

@@ -15,9 +15,9 @@ OUTPUT_DIR="${REPO_ROOT}/release-notes/images/${VERSION_FOLDER}"
 
 mkdir -p "${OUTPUT_DIR}"
 
-magick -background none -fill white -font NimbusSans-Bold -pointsize 75 label:"v${VERSION}" text.png
+magick -background none -fill white -font NimbusSans-Bold -pointsize 75 label:"v${VERSION}" PNG32:text.png
 
-magick text.png "${TEMPLATES}/gradient.png" -alpha off -compose copy_opacity -composite text_masked.png
+magick "${TEMPLATES}/gradient.png" PNG32:text.png -compose DstIn -composite PNG32:text_masked.png
 
 magick "${TEMPLATES}/release-social-background.png" text_masked.png -geometry +675+432 -composite "${OUTPUT_DIR}/release-highlights.webp"
 

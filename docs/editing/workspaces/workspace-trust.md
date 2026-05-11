@@ -1,6 +1,6 @@
 ---
 ContentId: 51280c26-f78b-4f9c-997f-8350bd6ed07f
-DateApproved: 4/1/2026
+DateApproved: 5/6/2026
 MetaDescription: Visual Studio Code Workspace Trust folder security
 ---
 # Workspace Trust
@@ -17,8 +17,8 @@ It's great that there is so much source code available on public repositories an
 
 Workspace Trust provides an extra layer of security when working with unfamiliar code, by preventing automatic code execution of any code in your workspace if the workspace is open in "Restricted Mode".
 
-> [!NOTE]
-> The terms "workspace" and "folder" are used widely in the VS Code UI and documentation. You can think of a ["workspace"](/docs/editing/workspaces/workspaces.md) as a folder with extra metadata created and used by VS Code.
+> [!IMPORTANT]
+> Workspace trust is shared between VS Code and the [VS Code Agents application](/docs/copilot/agents-app.md). If the workspace is untrusted in VS Code, it is also untrusted in the Agents application, and agents will not run in either place. You can manage workspace trust from either VS Code or the Agents application, and the trust state is shared across both applications.
 
 ## Restricted Mode
 
@@ -28,13 +28,13 @@ The workbench displays a banner at the top with a link to **Manage** your folder
 
 ![Workspace Trust Restricted Mode banner](images/workspace-trust/restricted-mode-banner.png)
 
-Restricted Mode tries to prevent automatic code execution by disabling or limiting the operation of several VS Code features: AI agents, tasks, debugging, workspace settings, and extensions.
+Restricted Mode tries to prevent automatic code execution by disabling or limiting the operation of several VS Code features: AI agents, terminal, tasks, debugging, workspace settings, and extensions.
 
 To see the full list of features disabled in Restricted Mode, you can open the Workspace Trust editor via the **Manage** link in the banner, or by selecting the Restricted Mode badge in the Status Bar. The Workspace Trust editor opens by default in a [modal overlay](/docs/getstarted/userinterface.md#modal-editors) on top of the editor area.
 
 ![Workspace Trust editor](images/workspace-trust/workspace-trust-editor.png)
 
-> [!IMPORTANT]
+> [!CAUTION]
 > Workspace Trust can't prevent a malicious extension from executing code and ignoring **Restricted Mode**. You should only install and run extensions that come from a well-known publisher that you trust.
 
 ### AI agents
@@ -44,6 +44,14 @@ When you use AI-powered development features like agents in VS Code, these agent
 Until you've reviewed a project for malicious content, rely on the Workspace Trust boundary and open it in restricted mode. Opening a workspace in restricted mode disables agents in that workspace.
 
 Learn more about [AI security considerations](/docs/copilot/security.md) when using AI-powered development features in VS Code.
+
+### Terminal
+
+Shells can automatically execute code based on workspace contents, for example by sourcing `.env` files or running shell initialization scripts that reference the current directory. To protect against this, opening a [terminal](/docs/terminal/basics.md) is blocked by default when a folder is open in Restricted Mode.
+
+If you try to open a terminal while in Restricted Mode, VS Code displays a prompt to confirm that you trust the folder. If you cancel the dialog, VS Code stays in Restricted Mode, and does not open the terminal.
+
+If you configure your shell to prevent automatic code execution based on workspace contents, you can enable the `setting(terminal.integrated.allowInUntrustedWorkspace)` setting to allow terminals to open in Restricted Mode without a trust prompt.
 
 ### Tasks
 
@@ -128,6 +136,9 @@ When in Restricted Mode:
 You can also at any time use:
 
 * **Workspaces: Manage Workspace Trust** command from the Command Palette (`kb(workbench.action.showCommands)`)
+
+> [!IMPORTANT]
+> Workspace trust is shared between VS Code and the [VS Code Agents application](/docs/copilot/agents-app.md). If the workspace is untrusted in VS Code, it is also untrusted in the Agents application, and agents will not run in either place. You can manage workspace trust from either VS Code or the Agents application, and the trust state is shared across both applications.
 
 ## Selecting folders
 

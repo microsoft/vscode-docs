@@ -1,17 +1,16 @@
 {
   "featured": {
-    "title": "A more streamlined chat experience",
-    "description": "Make your chat experience smoother and more efficient. Preview media outputs, easily share chat responses, and diagnose chat customization issues with less friction.",
-    "link": "/updates/v1_114",
-    "image": "/assets/updates/1_114/release-highlights.webp"
+    "title": "Let agents see your browser",
+    "description": "Share browser tabs with agents so they can validate changes in real time, reduce token costs with a lightweight background agent for task tracking, and stay in flow with fewer sandbox approval prompts.",
+    "link": "/updates/v1_119",
+    "image": "/assets/updates/1_119/release-highlights.webp"
   },
   "highlights": [
     {
-      "type": "blog",
-      "title": "Agents for real-world development",
-      "description": "From enforcing policies with hooks to guiding agents mid-response, validating UI features with integrated browser tools, and bringing structured skills directly into the editor.",
-      "link": "/blogs/2026/03/05/making-agents-practical-for-real-world-development",
-      "image": "/assets/blogs/2026/03/05/context-compaction.png"
+      "type": "learn",
+      "title": "Learn VS Code",
+      "description": "Build your skills with structured training modules with hands-on exercises and real-world examples.",
+      "link": "/learn"
     },
     {
       "type": "documentation",

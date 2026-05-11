@@ -1,6 +1,6 @@
 ---
 ContentId: a7b8c9d0-1e2f-3a4b-5c6d-7e8f9a0b1c2d
-DateApproved: 4/1/2026
+DateApproved: 5/6/2026
 MetaDescription: Learn about AI safety controls in VS Code, including agent sandboxing, tool approval, and security considerations for AI-assisted development.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -78,11 +78,13 @@ Sandboxing enforces two types of isolation: **file system access** and **network
 
 Without file system isolation, a compromised command could modify files anywhere on your machine, for example, injecting malicious code into your shell configuration (`~/.bashrc`, `~/.zshrc`) or reading SSH keys from `~/.ssh/`. File system isolation prevents this by restricting access to explicitly permitted paths.
 
-* **Default behavior.** Read access is allowed across the entire file system. Write access is limited to the current working directory and its subdirectories. When a request is made that requires additional permissions, VS Code prompts you to allow running the command outside the sandbox.
+* **Default behavior.** Read access is allowed for workspace folders and the sandbox runtime temp folder. Reads from your home directory (`$HOME`) are denied by default to protect sensitive files such as SSH keys, shell configuration, and credentials. Write access is limited to the current working directory and its subdirectories. When a request is made that requires additional permissions, VS Code prompts you to allow running the command outside the sandbox.
 
     ![Screenshot of a VS Code prompt asking the user to allow a command to run outside the sandbox for additional permissions.](../images/trust-and-safety/sandbox-prompt.png)
 
-* **Configurable rules.** You can grant write access to additional paths, or deny read or write access to specific paths. Deny rules always take precedence over allow rules.
+* **Per-command read paths.** Before a command runs, VS Code parses it and grants read access to the specific paths the command needs. This covers common developer workflows such as `git`, `node`, `npm`, `dotnet`, Java, and Rust. For example, running a `node` command automatically allows reads from the Node version manager directory, and running a `git` command allows reads from `~/.gitconfig`.
+
+* **Configurable rules.** You can grant read or write access to additional paths, or deny read or write access to specific paths. Deny rules always take precedence over allow rules.
 
 * **Inherited restrictions.** All child processes spawned by a sandboxed command inherit the same file system boundaries. This means tools like `npm`, `pip`, or build scripts are also restricted.
 
@@ -90,10 +92,14 @@ Without file system isolation, a compromised command could modify files anywhere
 
 Without network isolation, a compromised command could exfiltrate sensitive data or could perform unintended actions on external services. Network isolation prevents this by blocking all outbound connections by default.
 
+When `setting(chat.agent.sandbox.enabled)` is set to `on`, all outbound network access is blocked unless you explicitly allow specific domains. If you want file system isolation but need unrestricted network access, set `setting(chat.agent.sandbox.enabled)` to `allowNetwork`. In this mode, commands can reach external services freely while file system restrictions still apply.
+
+VS Code provides network domain filtering that applies to both agent tools (fetch tool, integrated browser) and sandboxed terminal commands. Enable `setting(chat.agent.networkFilter)` to activate network filtering. Use `setting(chat.agent.allowedNetworkDomains)` and `setting(chat.agent.deniedNetworkDomains)` to control which domains the agent can access. Learn how to [configure network access](/docs/copilot/agents/agent-tools.md#configure-network-access).
+
 * **Domain allowlist.** You can explicitly permit access to specific domains.
 
     > [!CAUTION]
-    > The agent can perform actions on allowed domains on your behalf, not just read data. For example, allowing `api.github.com` means the agent could create pull requests or modify repository settings. Allowing a cloud service API domain could lead to cloud resource modifications. Only configure this setting if absolutely required. This configuration is specified in a setting and applies to all sandboxed commands, not only the current task.
+    > The agent can perform actions on allowed domains on your behalf, not just read data. For example, allowing `api.github.com` means the agent could create pull requests or modify repository settings. Allowing a cloud service API domain could lead to cloud resource modifications. Only configure this setting if absolutely required. This configuration is specified in a setting and applies to all agent tools and sandboxed commands, not only the current task.
 
 * **Inherited restrictions.** All child processes inherit the same network restrictions, so scripts or tools that spawn subprocesses cannot bypass the network rules.
 
@@ -108,12 +114,15 @@ Agent sandboxing relies on OS-level security primitives to enforce file system a
 
 WSL version 1 is not supported because bubblewrap requires Linux kernel features (user namespaces) that are only available in WSL2.
 
-> ![!NOTE]
+> [!NOTE]
 > Agent sandboxing support on Windows currently uses WSL2 as the underlying platform.
 
 ### What sandboxing does not cover
 
-Agent sandboxing applies only to shell subprocesses (terminal commands). It does not cover built-in file tools. The agent's read, edit, and write tools use VS Code's permission system directly, rather than running through the sandbox. The web fetch tool also runs outside the sandbox and is not subject to the sandbox's network restrictions.
+Agent sandboxing applies only to shell subprocesses (terminal commands). It does not cover built-in file tools. The agent's read, edit, and write tools use VS Code's permission system directly, rather than running through the sandbox.
+
+> [!TIP]
+> The `setting(chat.agent.networkFilter)` setting provides network domain filtering for agent tools like the fetch tool and integrated browser, independently of sandboxing. When both sandboxing and network filtering are enabled, network rules apply to all agent tools and terminal commands.
 
 Use the [review flow](/docs/copilot/chat/review-code-edits.md) and [sensitive file protection](/docs/copilot/chat/review-code-edits.md#edit-sensitive-files) to control these operations.
 

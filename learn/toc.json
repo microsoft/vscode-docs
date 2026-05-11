@@ -11,5 +11,20 @@
       ["Debugging agent work", "/learn/foundations/debugging-and-whats-happening-behind-the-scenes"],
       ["Build your first app with agent mode", "/learn/foundations/build-your-first-app-with-agent-mode"]
     ]
+  },
+  {
+    "name": "Customizations",
+    "area": "customizations",
+    "description": "Learn how to shape AI in VS Code around your workflow using custom agents, instructions, skills, prompt files, and hooks.",
+    "topics": [
+      ["Why customization matters", "/learn/customizations/1-why-customization-matter"],
+      ["Instructions", "/learn/customizations/2-instructions"],
+      ["Skills", "/learn/customizations/3-skills"],
+      ["Custom agent", "/learn/customizations/4-custom-agent"],
+      ["Hooks", "/learn/customizations/5-hooks"],
+      ["Prompt files", "/learn/customizations/6-prompt-files"],
+      ["Customization Features Explained", "/learn/customizations/7-customization-features-explained"],
+      ["Customization Features In Practice", "/learn/customizations/8-demo"]
+    ]
   }
 ]

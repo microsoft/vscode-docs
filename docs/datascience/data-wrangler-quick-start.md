@@ -74,7 +74,7 @@ Switching to Editing mode enables additional functionality and user interface el
 
 3. The **Export Menu** lets you export the code back into a Jupyter Notebook or export the data into a new file.
 
-4. When you have an operation selected and are previewing its effects on the data, the grid is overlayed with a **data diff** view of the changes you made to the data.
+4. When you have an operation selected and are previewing its effects on the data, the grid is overlaid with a **data diff** view of the changes you made to the data.
 
 5. The **Code Preview** section shows the Python and Pandas code that Data Wrangler has generated when an operation is selected. It remains empty when no operation is selected. You can edit the generated code, which results in the data grid highlighting the effects on the data.
 

@@ -3,7 +3,7 @@
     "title": "Get started with AI agents",
     "description": "Hand off tasks to autonomous AI agents that iterate until the job is done. Run them locally, in the background, or in the cloud, with your choice of AI provider. Track all sessions without leaving VS Code.",
     "link": "/docs/copilot/agents/agents-tutorial",
-    "image": "/assets/docs/copilot/getting-started/agent-mode-selection.png"
+    "image": "/assets/docs/copilot/getting-started/agent-mode-selection-2.png"
   },
   "featured": [
     {
@@ -46,16 +46,16 @@
   "latest": [
     {
       "type": "release",
-      "title": "VS Code 1.114 release",
-      "description": "Make your chat experience smoother and more efficient. Preview media outputs, easily share chat responses, and diagnose chat customization issues with less friction.",
-      "link": "/updates/v1_114",
-      "image": "/assets/updates/1_114/release-highlights.webp"
+      "title": "VS Code 1.119 release",
+      "description": "Share browser tabs with agents, cut token costs with background task tracking, and work with fewer sandbox interruptions.",
+      "link": "/updates/v1_119",
+      "image": "/assets/updates/1_119/release-highlights.webp"
     },
     {
       "type": "documentation",
-      "title": "Agent hooks",
-      "description": "Use hooks to automate workflows, enforce security policies, validate operations, and integrate with external tools.",
-      "link": "/docs/copilot/customization/hooks"
+      "title": "Agents App (Insiders)",
+      "description": "Work in an Agent-first mode with the new, standalone Agents App.",
+      "link": "/docs/copilot/agents-app"
     },
     {
       "type": "blog",

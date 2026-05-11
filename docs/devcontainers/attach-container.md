@@ -1,7 +1,7 @@
 ---
 ContentId: ed14ef07-f44c-4675-b95b-cb5faffc7abb
 MetaDescription: Attach to a running container using Visual Studio Code Remote Development
-DateApproved: 4/1/2026
+DateApproved: 5/6/2026
 ---
 # Attach to a running container
 
@@ -61,7 +61,7 @@ Finally, if you have extensions you want installed regardless of the container y
 
 ## Attached container configuration reference
 
-Attached container configuration files are similar to [devcontainer.json](https://containers.dev/implementors/json_reference) and supports a subset of its properties.
+Attached container configuration files are similar to [devcontainer.json](https://containers.dev/implementors/json_reference) and support a subset of its properties.
 
 | Property | Type | Description |
 |----------|------|-------------|

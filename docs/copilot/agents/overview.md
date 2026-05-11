@@ -1,6 +1,6 @@
 ---
 ContentId: 7c4b8b5e-2d3f-4e8a-9b2c-1a5d6f8e9c0b
-DateApproved: 4/1/2026
+DateApproved: 5/6/2026
 MetaDescription: Learn about different types of AI agents in VS Code, including local agents, Copilot CLI for running in the background, and cloud agents.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -24,7 +24,7 @@ An agent is an AI assistant that works autonomously to complete a coding task. G
 
 VS Code lets you run agents the way that fits your workflow. Work with them interactively in the editor, or let them run autonomously in the background from the CLI. Agents can run on your machine, in a remote cloud environment, or through a third-party provider like Anthropic or OpenAI. You decide how much autonomy to give them, from approving every tool call to letting them work fully on their own, and you can create custom agents to tailor their behavior to your project.
 
-You monitor and interact with all your sessions from a single [sessions list](/docs/copilot/chat/chat-sessions.md#sessions-list) in the Chat view, regardless of where they run.
+You monitor and interact with all your sessions from a single [sessions list](/docs/copilot/chat/chat-sessions.md#sessions-list) in the Chat view, regardless of where they run. If you prefer working entirely through prompts, the [Agents app](/docs/copilot/agents-app.md) provides a dedicated interface where sessions and chat are the central experience, with built-in access to all your AI customizations.
 
 <div class="docs-action" data-show-in-doc="true" data-show-in-sidebar="true" title="How agents work">
 Understand the agent loop, how agents plan and execute tasks, and how memory and subagents work.
@@ -82,7 +82,7 @@ If the agent type is _where_ the agent runs, the agent determines _how_ to perfo
 
 Select an agent from the agents dropdown in the Chat view. You can switch between agents at any time during a session.
 
-![Screenshot showing the Chat view with the agent picker expanded, displaying different agent options.](../images/customization/chat-mode-dropdown.png)
+![Screenshot showing the agent picker in the Chat view.](../images/getting-started/agent-mode-selection-2.png)
 
 VS Code has three [built-in agents](/docs/copilot/agents/local-agents.md):
 
@@ -102,6 +102,8 @@ Agents perform tasks autonomously, but you can control how much autonomy they ha
 | **Bypass Approvals** | Auto-approves all tool calls without confirmation dialogs. The agent might ask clarifying questions as it works. |
 | **Autopilot** (Preview) | Auto-approves all tool calls, auto-responds to questions, and the agent continues working autonomously until the task is complete. |
 
+To persist your preferred permission level across sessions, configure the `setting(chat.permissions.default)` setting.
+
 Learn more about [permission levels and Autopilot](/docs/copilot/agents/agent-tools.md#permission-levels).
 
 ## Hand off a session to another agent
@@ -118,9 +120,9 @@ In a Copilot CLI session, delegate to a cloud agent by entering the `/delegate` 
 
 If you install the [GitHub Pull Requests](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension, you can assign an agent to implement `TODO` comments in your code.
 
-![Screenshot of assigning a TODO comment to Copilot coding agent.](../images/agents-overview/assign-todo-to-agent.png)
+![Screenshot of assigning a TODO comment to Copilot cloud agent.](../images/agents-overview/assign-todo-to-agent.png)
 
-On GitHub.com, or by using the GitHub Pull Requests extension, you can assign GitHub issues to Copilot coding agent by assigning the issue to `copilot` or by mentioning it in an issue comment or pull request to ask for a code review.
+On GitHub.com, or by using the GitHub Pull Requests extension, you can assign GitHub issues to Copilot cloud agent by assigning the issue to `copilot` or by mentioning it in an issue comment or pull request to ask for a code review.
 
 ## Related resources
 

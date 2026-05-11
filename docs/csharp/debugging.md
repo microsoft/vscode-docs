@@ -135,6 +135,9 @@ This property is ignored unless `mode` is set to `loadOnlyIncluded`
 * `csharp.experimental.debug.hotReload` - When true, the debugger will enable applying changes while debugging if the target application supports hot reload.
 * `csharp.debug.hotReloadOnSave` - When true (the default state), the debugger will automatically apply code changes when the file is saved.
 * `csharp.debug.hotReloadVerbosity` - Controls the logging verbosity for the **C# Hot Reload** Output window. It can be set from `minimal` (default), `detailed` or `diagnostic`. It is recommended to increase the verbosity level if hot reload starts behaving unexpectedly.
+* `csharp.debug.terminateChildProcesses` - When the debug session ends, if this is set to `true`, the debugger will terminate the debuggee and all child processes it spawned. If set to `false`, only the debuggee itself is terminated and child processes are left running. This option defaults to `false`.
+  - On Windows, child processes are tracked using a Job Object. Processes that need to outlive the debug session can opt out by passing the `CREATE_BREAKAWAY_FROM_JOB` flag when calling `CreateProcess`.,
+
 
 ## Breakpoints
 
