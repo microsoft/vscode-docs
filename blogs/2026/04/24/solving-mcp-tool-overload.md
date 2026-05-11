@@ -18,31 +18,7 @@ That creates real problems: the **model gets slower and it picks the wrong tool 
 
 We strongly believe that **the client should handle tool management**, not the user. Developers shouldn't have to think about which tools to enable, worry about token budgets, or pay penalties in performance and cost just because their ecosystem is rich. The hard parts of agentic optimization, including how tools are provided to the model, should be invisible. This post walks through how we built that into VS Code: **progressive tool discovery**.
 
-<!-- TODO: Replace ASCII art with designed diagram -->
-
-```text
-  ALL TOOLS LOADED                    CORE + DEFERRED
-  (before)                            (after)
-
-  +---------------------------+       +---------------------------+
-  | System prompt   ~6K tok   |       | System prompt   ~6K tok   |
-  +---------------------------+       +---------------------------+
-  | read_file        { ... }  |       | read_file        { ... }  |
-  | grep_search      { ... }  |       | grep_search      { ... }  |
-  | run_in_terminal  { ... }  |       | run_in_terminal  { ... }  |
-  | replace_string   { ... }  |       | replace_string   { ... }  |
-  | ...28 more full schemas   |       | ...28 more full schemas   |
-  +---------------------------+       +------ stable prefix ------+
-  | open_browser     { ... }  |       | open_browser  (deferred)  |
-  | click_element    { ... }  |       | click_element (deferred)  |
-  | run_notebook     { ... }  |       | run_notebook  (deferred)  |
-  | create_pr        { ... }  |       | create_pr     (deferred)  |
-  | ...170 more full schemas  |       | ...170 more (deferred)    |
-  +---------------------------+       +---------------------------+
-
-  Total: ~18,800 tokens                Total: ~6,400 tokens
-         (12K+ just for tools)                (schemas hidden for deferred)
-```
+![Diagram showing before and after comparison of tool token usage, from 18,800 tokens with all tools loaded to 6,400 tokens with core plus deferred tools, a 65% reduction.](tool-token-comparison.png)
 
 ## A core toolkit and a search index
 
@@ -85,32 +61,7 @@ From the model's perspective, the flow is simple:
 
 One extra tool call, and the agent has exactly what it needs.
 
-<!-- TODO: Replace ASCII art with designed diagram -->
-
-```text
-  User                     Model                  VS Code               Anthropic API
-   |                        |                       |                       |
-   |-- "open this URL" ---->|                       |                       |
-   |                        |                       |                       |
-   |                        |-- tool_search -------->|                       |
-   |                        |   "open browser page"  |                       |
-   |                        |                        |                       |
-   |                        |                    [embed query]               |
-   |                        |                    [cosine sim vs cache]       |
-   |                        |                    [top-k matches]             |
-   |                        |                        |                       |
-   |                        |<-- tool_reference[] ---|                       |
-   |                        |    open_browser_page   |                       |
-   |                        |    click_element       |                       |
-   |                        |    screenshot_page     |                       |
-   |                        |                        |                       |
-   |                        |                        |-- expand schemas ---->|
-   |                        |                        |   (API resolves refs) |
-   |                        |                        |                       |
-   |                        |-- open_browser_page -->|                       |
-   |                        |   { url: "..." }       |                       |
-   |                        |                        |                       |
-```
+![Sequence diagram showing the tool search flow between User, Model, VS Code, and API Provider, with six steps from user request through tool discovery and execution.](tool-search-sequence.png)
 
 > Progressive discovery with `defer_loading` is currently enabled for Claude Sonnet 4.5+ and Opus 4.5+ (Haiku does not support `tool_search`). OpenAI's GPT 5.4 and newer models also support `tool_search`. For Gemini models, VS Code uses a separate tool grouping system that consolidates related tools into virtual groups. Subagents only get curated, small tool sets and they skip `tool_search` entirely.
 
@@ -150,30 +101,7 @@ The agent shouldn't have to wait for a network round-trip every time it needs to
 
 The result: the first time you use an MCP server's tools, there's a brief computation. Every subsequent search is instant.
 
-<!-- TODO: Replace ASCII art with designed diagram -->
-
-```text
-  tool_search("open browser page")
-       |
-       v
-  +------------------+    tool embs   +------------------------+
-  | Embed query      |--- hit? ------>| Layer 1: Pre-computed  |
-  | (API call or     |                | (built-in tools,       |
-  | local model)     |                |  shipped with VS Code) |
-  +------------------+                +------------------------+
-       |                                    miss |
-       v                                         v
-  +------------------+    tool embs   +------------------------+
-  | Cosine similarity|--- hit? ------>| Layer 2: Local binary  |
-  | top-k results    |                | (MCP/ext tools, LRU,   |
-  +------------------+                |  1000 entries, hashed)  |
-       |                              +------------------------+
-       v                                         |
-  [tool_reference]                           miss |
-  open_browser_page                               v
-  click_element                          [compute embedding]
-  screenshot_page                        [write to cache]
-```
+![Diagram showing the two-layer embedding cache architecture, with a pre-computed cache for built-in tools and a local persistent cache for MCP and extension tools, feeding into cosine similarity for sub-millisecond tool lookup.](embedding-cache.png)
 
 ## Teaching the model the protocol
 
