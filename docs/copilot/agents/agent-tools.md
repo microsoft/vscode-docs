@@ -268,8 +268,8 @@ To configure agent sandboxing, set the `setting(chat.agent.sandbox.enabled)` set
 
 | Value | Description |
 |-------|-------------|
-| `off` | Sandboxing is disabled. |
-| `on` | Full sandboxing with file system and network isolation (default). All outbound network access is blocked unless domains are explicitly allowed. |
+| `off` (default) | Sandboxing is disabled. |
+| `on` | Full sandboxing with file system and network isolation. All outbound network access is blocked unless domains are explicitly allowed. |
 | `allowNetwork` | Sandboxing with file system isolation only. Outbound network traffic is allowed without requiring domain configuration, while file system restrictions still apply. |
 
 When sandboxing is enabled (`on` or `allowNetwork`):
