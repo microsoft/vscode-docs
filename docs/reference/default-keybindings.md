@@ -1,6 +1,6 @@
 ---
 ContentId: 5822cc5a-0744-4cf0-9498-05767a0fc2d4
-DateApproved: 5/6/2026
+DateApproved: 5/13/2026
 MetaDescription: Reference of default keyboard shortcuts in Visual Studio Code.
 ---
 # Default keyboard shortcuts reference
@@ -171,7 +171,7 @@ Show Extensions|`kb(workbench.view.extensions)`|`workbench.view.extensions`
 Show Output|`kb(workbench.action.output.toggleOutput)`|`workbench.action.output.toggleOutput`
 Quick Open View|`kb(workbench.action.quickOpenView)`|`workbench.action.quickOpenView`
 Open New Command Prompt|`kb(workbench.action.terminal.openNativeConsole)`|`workbench.action.terminal.openNativeConsole`
-Toggle Markdown Preview|`kb(markdown.showPreview)`|`markdown.showPreview`
+Toggle Markdown Preview|`kb(markdown.togglePreview)`|`markdown.togglePreview`
 Open Preview to the Side|`kb(markdown.showPreviewToSide)`|`markdown.showPreviewToSide`
 Toggle Integrated Terminal|`kb(workbench.action.terminal.toggleTerminal)`|`workbench.action.terminal.toggleTerminal`
 

@@ -1,6 +1,6 @@
 ---
 ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
-DateApproved: 5/6/2026
+DateApproved: 5/13/2026
 MetaDescription: Visual Studio Code Tips and Tricks for power users.
 ---
 # Visual Studio Code tips and tricks
@@ -716,7 +716,7 @@ Keyboard Shortcut: `kb(cursorTop)` and `kb(cursorBottom)`
 
 In a Markdown file, use
 
-Keyboard Shortcut: `kb(markdown.showPreview)`
+Keyboard Shortcut: `kb(markdown.togglePreview)`
 
 ![Markdown preview](images/tips-and-tricks/markdown-preview.png)
 

@@ -1,6 +1,6 @@
 ---
 ContentId: F54BB3D4-76FB-4547-A9D0-F725CEBB905C
-DateApproved: 5/6/2026
+DateApproved: 5/13/2026
 MetaDescription: Get the best out of Visual Studio Code for JavaScript development
 ---
 # JavaScript in Visual Studio Code
