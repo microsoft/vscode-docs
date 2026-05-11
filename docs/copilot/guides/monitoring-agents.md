@@ -227,12 +227,17 @@ Copilot Chat's OTel output works with any backend that supports the OTLP protoco
 The [Aspire Dashboard](https://aspire.dev/dashboard/standalone/) is the simplest option for local development. It is a single Docker container with a built-in OTLP endpoint and trace viewer, and requires no cloud account.
 
 ```bash
-docker run --rm -d \
-  -p 18888:18888 \
-  -p 4318:18890 \
-  --name aspire-dashboard \
+docker run --rm -d -p 18888:18888 -p 4318:18890 --name aspire-dashboard \
   mcr.microsoft.com/dotnet/aspire-dashboard:latest
 ```
+
+Alternatively, you can start the dashboard using the [Aspire CLI](https://aspire.dev/get-started/install-cli/):
+
+```bash
+aspire dashboard run
+```
+
+VS Code configuration:
 
 ```json
 {
@@ -253,6 +258,8 @@ Open `http://localhost:18888` and go to **Traces** to view your agent interactio
 docker run -d --name jaeger -p 16686:16686 -p 4318:4318 jaegertracing/jaeger:latest
 ```
 
+VS Code configuration:
+
 ```json
 {
   "github.copilot.chat.otel.enabled": true,
@@ -269,6 +276,8 @@ Use an [OTel Collector](https://opentelemetry.io/docs/collector/) with the [Azur
 ### Langfuse
 
 [Langfuse](https://langfuse.com/) is an open-source LLM observability platform with native OTLP ingestion and support for OTel GenAI Semantic Conventions.
+
+VS Code configuration:
 
 ```json
 {
