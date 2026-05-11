@@ -1,6 +1,6 @@
 ---
 ContentId: f8a9c3d2-4e7b-5f1a-b6c8-9d0e2f3a7b4c
-DateApproved: 4/1/2026
+DateApproved: 5/6/2026
 MetaDescription: Learn how to centrally manage AI settings in VS Code for enterprise environments, including agent mode, MCP servers, and tool approvals.
 ---
 
@@ -13,6 +13,23 @@ This article covers the AI-related settings that IT admins can manage through [e
 Users can control the functionality and behavior of AI features through VS Code settings. Organizations can enforce specific configurations by deploying enterprise policies via device management solutions. These policies override user-configured settings on managed devices.
 
 Learn how to [deploy policies for VS Code](/docs/enterprise/policies.md) to your organization's devices.
+
+## Restrict AI features to approved GitHub organizations
+
+Organizations can require developers to be signed in to a GitHub account that belongs to an approved organization before AI features in VS Code are activated. This enables enterprises to ensure that account-level policies set by their GitHub organization (for example, Copilot content exclusions or model availability) are in effect before chat, agents, or inline suggestions become available.
+
+To enable this restriction, set the `ChatApprovedAccountOrganizations` policy to a JSON array of GitHub organization logins. For example, `["contoso", "contoso-research"]`. Use the wildcard value `["*"]` to allow any signed-in GitHub account.
+
+When the policy is set, AI features are gated until both of the following are true:
+
+* The user is signed in to a GitHub account that is a member of one of the approved organizations.
+* Account-level policy data has resolved.
+
+When the policy is not set, AI features are not restricted by this gate.
+
+This policy is fail-closed: if the user is not signed in, is signed in with a non-GitHub account, or is signed in to a GitHub account that does not belong to an approved organization, AI features remain disabled.
+
+IT admins can verify the gate state at any time with the **Developer: Policy Diagnostics** command, which includes an **Account Policy Gate** section. For more information, see [Verify policy enforcement](/docs/enterprise/policies.md#verify-policy-enforcement).
 
 ## Enable or disable the use of agents
 
@@ -38,6 +55,10 @@ Third-party extensions can contribute tools that integrate with chat by using th
 
 To prevent developers from using extension-contributed tools while still allowing built-in tools and MCP tools, set the `ChatAgentExtensionTools` policy to `false`. This configures the `setting(chat.extensionTools.enabled)` setting in VS Code.
 
+Chat agents can also use browser tools to open and interact with web pages in the Integrated Browser. To disable browser tools for chat agents, set the `BrowserChatTools` policy to `false`. This configures the `setting(workbench.browser.enableChatTools)` setting in VS Code.
+
+To disable agent plugin integration in chat, set the `ChatPluginsEnabled` policy to `false`. This configures the `setting(chat.plugins.enabled)` setting in VS Code.
+
 ## Configure MCP server access
 
 [Model Context Protocol (MCP) servers](/docs/copilot/customization/mcp-servers.md) extend chat with external tools and services. Organizations can control which MCP servers developers can use through both GitHub organization settings and VS Code policies.
@@ -48,11 +69,11 @@ The `ChatMCP` policy controls which sources MCP servers can be installed from. T
 
 The following values are supported:
 
-| Value          | Description                                                      |
-|----------------|------------------------------------------------------------------|
-| `allowed`      | Developers can run MCP servers from any source                   |
-| `registryOnly` | Developers can only run MCP servers from the configured registry |
-| `off`          | MCP server support is disabled                                   |
+| Value      | Description                                                      |
+|------------|------------------------------------------------------------------|
+| `all`      | Developers can run MCP servers from any source                   |
+| `registry` | Developers can only run MCP servers from the configured registry |
+| `none`     | MCP server support is disabled                                   |
 
 ### Configure a custom MCP registry
 
@@ -103,13 +124,61 @@ The `ChatToolsTerminalEnableAutoApprove` policy specifically controls the rule-b
 
 To disable terminal auto-approval entirely, set the policy to `false`. This configures the `setting(chat.tools.terminal.enableAutoApprove)` setting in VS Code.
 
-### Recommend agent sandboxing
+### Configure agent sandboxing
 
 Organizations should recommend that developers enable [agent sandboxing](/docs/copilot/concepts/trust-and-safety.md#agent-sandboxing), especially in environments where auto-approval or Autopilot mode is used. Agent sandboxing uses OS-level isolation to restrict file system and network access for agent-executed commands, which provides stronger protection than approval rules alone.
 
-<!-- TODO: sandboxing will be enabled by default in the future - update this guidance to recommend not disabling it -->
+The `ChatAgentSandboxEnabled` policy controls whether agent sandboxing is enabled or disabled. This configures the `setting(chat.agent.sandbox.enabled)` setting in VS Code.
 
-Developers can enable sandboxing by setting `setting(chat.tools.terminal.sandbox.enabled)` to `true` (macOS, Linux, and WSL2 on Windows).
+When set to `true`, agent-executed terminal commands run inside a sandbox environment with restricted permissions. When set to `false`, no sandbox is applied.
+
+## Configure agent network filtering
+
+Network filtering restricts which domains agent tools (fetch tool, integrated browser) can access during chat sessions. When enabled, agents can only reach domains that are explicitly allowed by the configured domain lists.
+
+### Enable network filtering
+
+The `ChatAgentNetworkFilter` policy enables network domain filtering for agent tools. This configures the `setting(chat.agent.networkFilter)` setting in VS Code.
+
+When the policy is set to `true`, network access by agent tools is restricted according to the allowed and denied domain lists. When set to `false` (the default), no network filtering is applied.
+
+When both domain lists are empty and the filter is enabled, all network access by agent tools is blocked.
+
+### Configure allowed domains
+
+The `ChatAgentAllowedNetworkDomains` policy controls which domains agent tools are permitted to access. This configures the `setting(chat.agent.allowedNetworkDomains)` setting in VS Code.
+
+Provide a list of domain patterns. Wildcards are supported, for example `*.example.com`. When [agent sandboxing](/docs/copilot/concepts/trust-and-safety.md#agent-sandboxing) is also enabled, these domain rules additionally apply to terminal commands executed by the agent.
+
+### Configure denied domains
+
+The `ChatAgentDeniedNetworkDomains` policy controls which domains agent tools are blocked from accessing. This configures the `setting(chat.agent.deniedNetworkDomains)` setting in VS Code.
+
+Denied domains always take precedence over allowed domains. Wildcards are supported, for example `*.example.com`.
+
+## Configure agent network filtering
+
+Network filtering restricts which domains agent tools (fetch tool, integrated browser) can access during chat sessions. When enabled, agents can only reach domains that are explicitly allowed by the configured domain lists.
+
+### Enable network filtering
+
+The `ChatAgentNetworkFilter` policy enables network domain filtering for agent tools. This configures the `setting(chat.agent.networkFilter)` setting in VS Code.
+
+When the policy is set to `true`, network access by agent tools is restricted according to the allowed and denied domain lists. When set to `false` (the default), no network filtering is applied.
+
+When both domain lists are empty and the filter is enabled, all network access by agent tools is blocked.
+
+### Configure allowed domains
+
+The `ChatAgentAllowedNetworkDomains` policy controls which domains agent tools are permitted to access. This configures the `setting(chat.agent.allowedNetworkDomains)` setting in VS Code.
+
+Provide a list of domain patterns. Wildcards are supported, for example `*.example.com`. When [agent sandboxing](/docs/copilot/concepts/trust-and-safety.md#agent-sandboxing) is also enabled, these domain rules additionally apply to terminal commands executed by the agent.
+
+### Configure denied domains
+
+The `ChatAgentDeniedNetworkDomains` policy controls which domains agent tools are blocked from accessing. This configures the `setting(chat.agent.deniedNetworkDomains)` setting in VS Code.
+
+Denied domains always take precedence over allowed domains. Wildcards are supported, for example `*.example.com`.
 
 ## Configure Copilot code review
 
@@ -118,6 +187,18 @@ Copilot code review enables AI-powered review of code changes. Organizations can
 The `CopilotReviewSelection` policy controls whether developers can request code review for selected code in the editor. This configures the `setting(github.copilot.chat.reviewSelection.enabled)` setting in VS Code.
 
 The `CopilotReviewAgent` policy controls access to the Copilot code review agent for reviewing pull requests and changed files. This configures the `setting(github.copilot.chat.reviewAgent.enabled)` setting in VS Code.
+
+## Configure next edit suggestions
+
+Next edit suggestions (NES) propose a next edit based on recent changes, helping developers apply repetitive or related modifications more quickly.
+
+To disable next edit suggestions, set the `CopilotNextEditSuggestions` policy to `false`. This configures the `setting(github.copilot.nextEditSuggestions.enabled)` setting in VS Code.
+
+## Enable or disable Claude Agent
+
+Claude Agent sessions let developers start and resume agentic coding sessions powered by Anthropic's Claude Agent SDK directly in the editor, using their existing Copilot subscription.
+
+To disable Claude Agent sessions, set the `Claude3PIntegration` policy to `false`. This configures the `setting(github.copilot.chat.claudeAgent.enabled)` setting in VS Code.
 
 ## Configure organization-level AI customizations
 

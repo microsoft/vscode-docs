@@ -1,6 +1,6 @@
 ---
 ContentId: f8e2a7c1-9d3b-4e5f-a6c8-1b2d3e4f5a6b
-DateApproved: 4/1/2026
+DateApproved: 5/6/2026
 MetaDescription: Use the integrated browser in VS Code to preview and debug web apps, navigate to URLs, and select elements to add as context to AI chat.
 MetaSocialImage: images/debugging/debugging-social.png
 ---
@@ -177,7 +177,6 @@ Browser tools are different from [adding elements to AI chat](#add-elements-to-a
 
 To enable browser tools, set the `setting(workbench.browser.enableChatTools)` setting to `true`. The tools are then available to the agent automatically.
 
-Agents can only access browser pages that are either opened by the agent with the `openBrowserPage` tool, or explicitly shared by you with the **Share with Agent** button. Pages that are not shared are never visible to the agent.
 
 ### Share a browser page with agents
 
@@ -190,6 +189,14 @@ A visual indicator on the browser tab shows that a page is currently being share
 You can now ask the agent to read content from the page or interact with it. For example, you could ask "What is the title of the page?" or "Click the login button and tell me if it works."
 
 Shared pages use your existing browser session, including cookies and login state. Pages opened by the agent use isolated ephemeral sessions, so they don't share cookies or storage with your other browser tabs.
+
+### Agent-initiated share requests
+
+When you have open browser tabs that are not shared, the agent can detect that unshared tabs exist and prompt you to share one. For example, if you ask "what's on this browser page?" and no tabs are shared, the agent shows a question carousel that lets you choose whether to share a tab.
+
+When the agent tries to open a new page and you already have open tabs on the same domain, you are prompted to share an existing tab instead of opening a new one. Only tabs with a matching domain and port are listed. If you select **No**, the agent opens a new tab and only the new tab is shared.
+
+In autopilot mode, share requests are automatically declined to preserve your privacy.
 
 ## Related
 

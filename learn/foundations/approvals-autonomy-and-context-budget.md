@@ -113,7 +113,7 @@ Sub-agents also help here because they run isolated tasks in their own context w
 
 ## What's next
 
-You now understand how to stay in control while the agent works, using scoped approvals, choosing the right autonomy level, and keeping an eye on context budget. In the [next guide](reviewing-and-controlling-agent-changes.md), you will review the changes the agent made, accept or undo them at any granularity, and use checkpoints and forks to explore different directions without losing work.
+You now understand how to stay in control while the agent works, using scoped approvals, choosing the right autonomy level, and keeping an eye on context budget. In the [next guide](/learn/foundations/reviewing-and-controlling-agent-changes.md), you will review the changes the agent made, accept or undo them at any granularity, and use checkpoints and forks to explore different directions without losing work.
 
 ## Learn more
 

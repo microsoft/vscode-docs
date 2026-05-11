@@ -59,10 +59,10 @@ Use the `compilerPath` variable to add a compiler. This variable is the full pat
 
 For more information about the `c_cpp_properties.json` file, review the [schema reference](/docs/cpp/c-cpp-properties-schema-reference.md).
 
-Select the sample below based on your operating system for a `c_cpp_configuration.json` file:
+Select the sample below based on your operating system for a `c_cpp_properties.json` file:
 
 <details>
-<summary><b>> Sample c_cpp_configuration.json on Windows</b></summary>
+<summary><b>> Sample c_cpp_properties.json on Windows</b></summary>
 <br>
 
 Using the default install path for MinGW:
@@ -94,7 +94,7 @@ Using the default install path for MinGW:
 </details>
 <br>
 <details>
-<summary><b>> Sample c_cpp_configuration.json on macOS</b></summary>
+<summary><b>> Sample c_cpp_properties.json on macOS</b></summary>
 <br>
 Using the default install path for Clang:
 
@@ -123,7 +123,7 @@ Using the default install path for Clang:
 </details>
 <br>
 <details>
-<summary><b>> Sample c_cpp_configuration.json on Linux</b></summary>
+<summary><b>> Sample c_cpp_properties.json on Linux</b></summary>
 <br>
 Using the default install path for GCC:
 

@@ -1,6 +1,6 @@
 ---
 ContentId: 37fd3bd2-4209-49f6-bec5-c544d6b1b289
-DateApproved: 4/1/2026
+DateApproved: 5/6/2026
 MetaDescription: Build your first app with GitHub Copilot agents in VS Code. Plan features, implement across files, and customize your AI workflow.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -25,6 +25,9 @@ Use chat in VS Code to generate the sample application in one go.
 
     > [!TIP]
     > If you don't have a Copilot subscription, you can sign up to use Copilot for free directly from within VS Code and get a monthly limit of inline suggestions and chat interactions.
+
+    > [!IMPORTANT]
+    > **Starting April 20, 2026**, new sign-ups for Copilot Pro, Copilot Pro+, and student plans are temporarily paused. Additionally, we are tightening weekly usage limits. See [GitHub Copilot usage limits](https://docs.github.com/copilot/concepts/usage-limits).
 
 ## Step 1: Experience inline suggestions
 
@@ -74,7 +77,7 @@ AI Agents are VS Code's most powerful AI capability. Given a natural language pr
 
 1. Select **Agent** in the agent dropdown menu to let the AI independently implement your request end-to-end.
 
-    ![Screenshot showing the agent picker in the Chat view.](./images/getting-started/agent-mode-selection.png)
+    ![Screenshot showing the agent picker in the Chat view.](./images/getting-started/agent-mode-selection-2.png)
 
     > [!IMPORTANT]
     > If you don't see the agent option, make sure agents are enabled in your VS Code settings (`setting(chat.agent.enabled)`). Your organization might also have disabled agents - contact your admin to enable this functionality.

@@ -1,6 +1,6 @@
 ---
 ContentId: 8f2c9a1b-3d4e-5f6a-7b8c-9d0e1f2a3b4c
-DateApproved: 4/1/2026
+DateApproved: 5/6/2026
 MetaDescription: Get started with different types of agents in VS Code to run tasks locally, in the background, or in the cloud. Hand off work across agents to use what works best for your workflow.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -32,6 +32,7 @@ Use browser agent tools to build and automatically test web applications.
 To complete this tutorial, you need:
 
 * [Visual Studio Code installed on your computer](/download)
+* [Live Preview](https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server) extension installed in VS Code (for previewing the todo app)
 * [A GitHub account](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github) (for cloud agent workflow)
 * [A GitHub Copilot subscription](/docs/copilot/setup.md)
 
@@ -71,6 +72,11 @@ In this step, you use a local agent to create the initial todo app structure. Lo
     * Enable the integrated browser for `localhost` URLs by configuring `setting(workbench.browser.openLocalhostLinks)`
 
     * Open the `index.html` file and select the **Preview** button.
+
+        ![Screenshot showing the Preview button in the top right corner of the editor when an HTML file is open.](../images/agents-tutorial/preview-button.png)
+
+        > [!NOTE]
+        > If you don't see the preview button, make sure you have the [Live Preview](https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server) extension installed.
 
 1. Send additional prompts to enhance the app further. Notice that the preview updates live as you make changes.
 
@@ -122,9 +128,9 @@ You've successfully used Copilot CLI to perform a task autonomously in the backg
 
 ## Step 3: Use a cloud agent to collaborate on a feature
 
-In this step, you use a cloud agent (Copilot coding agent) to redesign the app layout and use pull requests and collaboration features in GitHub. Copilot coding agent runs on remote infrastructure and are ideal for tasks that don't require immediate feedback, don't need to run locally, or involve collaboration through GitHub.
+In this step, you use a cloud agent (Copilot cloud agent) to redesign the app layout and use pull requests and collaboration features in GitHub. Copilot cloud agent runs on remote infrastructure and are ideal for tasks that don't require immediate feedback, don't need to run locally, or involve collaboration through GitHub.
 
-1. First, publish the project to a GitHub repository and add it as a remote to use Copilot coding agent on your project.
+1. First, publish the project to a GitHub repository and add it as a remote to use Copilot cloud agent on your project.
 
     1. Run the **Publish to GitHub** command from the Command Palette (`kb(workbench.action.showCommands)`) and follow the prompts to create a new repository.
 

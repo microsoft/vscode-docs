@@ -161,7 +161,7 @@ You can import an existing profile from the **Profiles editor** by selecting the
 
 ![Import profile from the Profiles editor](images/profiles/profiles-editor-import-profile.png)
 
-When you select **Import Profile...**, you are prompted for the URL of a GitHub gist or the file location of a profile via an **Import Profile** dialog. Once you have selected the profile, the [Profile creation form](#create-a-profile) opens with the profile to import pre-selected. You can continue to modify the profile and select **Create** to import the profile.
+When you select **Import Profile...**, you are prompted for the URL of a GitHub gist or the file location of a profile via an **Import Profile** dialog. Once you have selected the profile, the [Profile creation form](#create-a-profile) opens with the profile to import preselected. You can continue to modify the profile and select **Create** to import the profile.
 
 ## Uses for profiles
 

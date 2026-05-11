@@ -1,6 +1,6 @@
 ---
 ContentId: a6a1652b-c0d8-4054-a2da-feb915eef2cc
-DateApproved: 4/1/2026
+DateApproved: 5/6/2026
 MetaDescription: Visual Studio Code's embedded terminal can integrate with some shells to enhance the capabilities of the terminal.
 ---
 # Terminal Shell Integration
@@ -21,6 +21,14 @@ By default, the shell integration script should automatically activate on suppor
 This standard, easy way will not work for some advanced use cases like in sub-shells, through a regular `ssh` session (when not using the [Remote - SSH extension](/docs/remote/ssh.md)) or for some complex shell setups. The recommended way to enable shell integration for those is [manual installation](#manual-installation).
 
 >**Note**: Automatic injection may not work on old versions of the shell, for example older versions of fish do not support the `$XDG_DATA_DIRS` environment variable which is how injection works. You may still be able to manually install to get it working.
+
+>**Windows Note**: VS Code shell integration requires the [permission to run PowerShell scripts](https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies). If you have exclusive use of your user account on your machine, consider running:
+>
+> ```powershell
+> if ((Get-ExecutionPolicy -Scope LocalMachine) -eq 'Undefined' -and (Get-ExecutionPolicy -Scope CurrentUser) -eq 'Undefined') {
+>     Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+> }
+> ```
 
 ### Manual installation
 

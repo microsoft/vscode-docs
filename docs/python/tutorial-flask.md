@@ -515,7 +515,7 @@ For more information on code snippets in general, refer to [Creating snippets](/
 
 With the code snippet in place, you can quickly create templates for the Home, About, and Contact pages.
 
-1. In the `templates` folder, create a new file named `home.html`, Then start typing `flext` to see the snippet appear as a completion:
+1. In the `templates` folder, create a new file named `home.html`. Then start typing `flext` to see the snippet appear as a completion:
 
     ![Flask tutorial: autocompletion for the flextlayout code snippet](images/flask-tutorial/autocomplete-for-code-snippet.png)
 

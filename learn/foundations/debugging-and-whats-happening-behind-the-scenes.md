@@ -147,7 +147,7 @@ Log data is not persisted across VS Code sessions. The Agent Debug Log panel and
 
 The Agent Debug Log panel and Chat Debug view give you complete visibility into what the agent is doing: the Logs view for the timeline, the Summary for the numbers, the Flow Chart for the structure, and the Chat Debug view for the raw payloads. And when you need to ask questions about a session in plain language, `#debugEventsSnapshot` and `/troubleshoot` let you do exactly that.
 
-That's the full foundation: harness, model, context, tools, prompt, sessions, and the debugging layer. In the [final guide](build-your-first-app-with-agent-mode.md), you will put everything together and build a real application from scratch.
+That's the full foundation: harness, model, context, tools, prompt, sessions, and the debugging layer. In the [final guide](/learn/foundations/build-your-first-app-with-agent-mode.md), you will put everything together and build a real application from scratch.
 
 ## Learn more
 

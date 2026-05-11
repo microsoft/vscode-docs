@@ -1,6 +1,6 @@
 ---
 ContentId: 2f4a8e9d-3c5b-4f6e-a7d8-1c2b3e4f5a6b
-DateApproved: 4/1/2026
+DateApproved: 5/6/2026
 MetaDescription: Use Agent Logs and the Chat Debug view to inspect AI requests, tool invocations, and agent interactions in Visual Studio Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -23,7 +23,7 @@ The Agent Debug Log panel is the primary tool for understanding what happens whe
 To open the Agent Debug Logs panel:
 
 * Enable the following setting:
-   * `setting(github.copilot.chat.agentDebugLog.enabled)`
+   * `setting(github.copilot.chat.agentDebugLog.fileLogging.enabled)`
 
 * Select the ellipsis (**...**) menu in the Chat view and select **Show Agent Debug Logs**.
 
@@ -38,7 +38,7 @@ You can switch between three views in the Agent Debug panel:
 * **Summary**: aggregate statistics about the session, such as total tool calls, token usage, error count, and overall duration.
 
 > [!NOTE]
-> The Agent Debug Logs panel is currently only available for local chat sessions. Log data is not persisted, so you can only view logs for chat sessions from your current VS Code session. To save a session for later viewing, [export it to a file](#export-and-import-sessions).
+> The Agent Debug Logs panel now shows both current and historical sessions. Logs are persisted locally on disk allowing you to view historical sessions. 
 
 ### Logs view
 
@@ -91,7 +91,7 @@ To attach debug events to chat:
 Alternatively, you can use the `/troubleshoot` slash command to ask questions about a chat session directly, without opening the Agent Debug panel first. For example, type `/troubleshoot list all paths you tried to load customizations` or `/troubleshoot how many tokens did you use in #session`.
 
 > [!NOTE]
-> The `/troubleshoot` command requires the `setting(github.copilot.chat.agentDebugLog.enabled)` setting to be enabled.
+> The `/troubleshoot` command requires the `setting(github.copilot.chat.fileLogging.enabled)` setting to be enabled.
 
 ### Export and import sessions
 

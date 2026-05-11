@@ -1,6 +1,6 @@
 ---
 ContentId: 0aefcb70-7884-487f-953e-46c3e07f7cbe
-DateApproved: 4/1/2026
+DateApproved: 5/6/2026
 MetaDescription: Describe what you want to build, and let agents in VS Code plan, implement, and verify the changes across your project.
 MetaSocialImage: images/shared/github-copilot-social.png
 Keywords:
@@ -67,6 +67,12 @@ Run multiple agent sessions in parallel, each focused on a different task. The *
 <video src="images/overview/agent-sessions-demo.mp4" title="Video showing the agent sessions list, demonstrating filtering, showing, and archiving sessions." controls muted></video>
 
 Learn more about [managing agent sessions](/docs/copilot/chat/chat-sessions.md).
+
+### Agents Application
+
+If you prefer describing what you want over writing code directly, the [Agents pp](/docs/copilot/agents-app.md) gives you a dedicated interface where sessions and chat take center stage. Launch it as a standalone window to focus entirely on prompting, monitoring sessions, and configuring your AI setup. The Agents app also provides direct access to all your AI customizations, such as agents, instructions, prompts, and MCP servers, from a single sidebar panel.
+
+Learn more about the [Agents app](/docs/copilot/agents-app.md).
 
 ## What can you build
 
@@ -139,7 +145,7 @@ Learn more about [smart actions in VS Code](/docs/copilot/copilot-smart-actions.
 Agents work best when they understand your project's conventions, have the right tools, and use a model suited to the task. VS Code gives you several ways to [tailor the AI](/docs/copilot/customization/overview.md) so it produces code that fits your codebase from the start, instead of requiring manual corrections after the fact.
 
 * **[Custom instructions](/docs/copilot/customization/custom-instructions.md)**: Define project-wide coding conventions so the AI generates code that matches your style.
-* **[Agent skills](/docs/copilot/customization/agent-skills.md)**: Teach Copilot specialized capabilities that work across VS Code, GitHub Copilot CLI, and GitHub Copilot coding agent.
+* **[Agent skills](/docs/copilot/customization/agent-skills.md)**: Teach Copilot specialized capabilities that work across VS Code, GitHub Copilot CLI, and GitHub Copilot cloud agent.
 * **[Custom agents](/docs/copilot/customization/custom-agents.md)**: Create agents that assume a specific role, such as a code reviewer or documentation writer, with their own tools and instructions.
 * **[MCP servers](/docs/copilot/customization/mcp-servers.md)**: Extend agents with tools from MCP servers or Marketplace extensions.
 * **[Hooks](/docs/copilot/customization/hooks.md)**: Execute custom commands at specific events for automation and policy enforcement.
@@ -158,6 +164,9 @@ Support for GitHub Copilot Chat is provided by GitHub and can be reached at <htt
 To learn more about Copilot's security, privacy, compliance, and transparency, see the [GitHub Copilot Trust Center FAQ](https://copilot.github.trust.page/faq).
 
 ## Pricing
+
+> [!IMPORTANT]
+> **Starting April 20, 2026**, new sign-ups for Copilot Pro, Copilot Pro+, and student plans are temporarily paused. Additionally, we are tightening weekly usage limits. See [GitHub Copilot usage limits](https://docs.github.com/copilot/concepts/usage-limits).
 
 You can start using GitHub Copilot for free with monthly limits on inline suggestions and chat interactions. For more extensive usage, you can choose from various paid plans.
 

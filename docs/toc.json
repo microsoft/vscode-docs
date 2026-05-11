@@ -49,6 +49,7 @@
           ["Trust & Safety", "/docs/copilot/concepts/trust-and-safety"]
         ]
       }],
+      ["Agents Application (Insiders)", "/docs/copilot/agents-app"],
       ["", "", {
         "name": "Agents",
         "area": "copilot/agents",
@@ -78,6 +79,7 @@
           ["Inline Chat", "/docs/copilot/chat/inline-chat"],
           ["Review Edits", "/docs/copilot/chat/review-code-edits"],
           ["Checkpoints", "/docs/copilot/chat/chat-checkpoints"],
+          ["Artifacts Panel", "/docs/copilot/chat/chat-artifacts"],
           ["Debug Chat Interactions", "/docs/copilot/chat/chat-debug-view"],
           ["Prompt Examples", "/docs/copilot/chat/prompt-examples"]
         ]
@@ -113,7 +115,7 @@
           ["Test Web Apps with Browser Tools", "/docs/copilot/guides/browser-agent-testing-guide"],
           ["Debug with AI", "/docs/copilot/guides/debug-with-copilot"],
           ["MCP Dev Guide", "/docs/copilot/guides/mcp-developer-guide"],
-          ["Monitoring", "/docs/copilot/guides/monitoring-agents"]
+          ["OpenTelemetry Monitoring", "/docs/copilot/guides/monitoring-agents"]
         ]
       }
       ],
@@ -447,7 +449,7 @@
           ["Manual Model Conversion on GPU", "/docs/intelligentapps/reference/ManualConversionOnGPU"],
           ["Setup Environment Without Foundry Toolkit", "/docs/intelligentapps/reference/SetupWithoutAITK"],
           ["Template Project", "/docs/intelligentapps/reference/TemplateProject"],
-          ["Migrating from Visualizer to Agent Inspector", "/docs/intelligentapps/migrate-from-visualizer"]
+          ["Migrating from Visualizer to Agent Inspector", "/docs/intelligentapps/reference/migrate-from-visualizer"]
         ]
       }
       ]

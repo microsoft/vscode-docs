@@ -232,6 +232,8 @@ You can configure language specific editor settings for multiple languages at on
 }
 ```
 
+If a setting is configured in both a single-language block and a multiple-language block, the single-language value takes precedence. This precedence is applied before the normal setting scope precedence rules.
+
 ## Profile settings
 
 You can use [profiles in VS Code](/docs/configure/profiles.md) to create sets of customizations and quickly switch between them. For example, they are a great way to customize VS Code for a specific programming language.

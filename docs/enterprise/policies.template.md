@@ -1,10 +1,10 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 200bf922-3684-45ee-a8dd-43191d6b3f8b
-DateApproved: 4/1/2026
+DateApproved: 5/6/2026
 
-VSCodeCommitHash: d63819fd8f5b898dc977c32f119dd3b6c5013768
-VSCodeVersion: 1.114.0
+VSCodeCommitHash: 530cb5de713aec2e96059e2f6cf41a95403cdb3d
+VSCodeVersion: 1.119.0
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Enterprise policies in Visual Studio Code enable organizations to centrally manage settings for their development teams. This reference details the available policies and how to implement them.
@@ -368,6 +368,26 @@ These tools allow administrators to deploy, update, and remove policies remotely
 To remove all policies and revert to default settings, delete the `/etc/vscode/policy.json` file and restart VS Code.
 
 </details>
+
+## Verify policy enforcement
+
+After you deploy enterprise policies to a device, you can confirm that VS Code is reading and enforcing them with the **Developer: Policy Diagnostics** command. The command opens a new untitled Markdown document with a report of the current policy state on the device. It works the same way on Windows, macOS, and Linux.
+
+The report includes the following sections:
+
+* **System Information**: VS Code product name, version, and commit, useful for matching the report to a specific build.
+* **Account Information**: details of the default account that is signed in, including the raw account-level policy data returned by the account provider.
+* **Account Policy Gate**: state of the [approved GitHub organizations gate](/docs/enterprise/ai-settings.md#restrict-ai-features-to-approved-github-organizations) that controls AI features. Possible states are `inactive`, `satisfied`, and `restricted`. When the state is `restricted`, the report also lists a reason such as `noAccount`, `wrongProvider`, `orgNotApproved`, or `policyNotResolved`.
+* **Policy-Controlled Settings**: two tables that list the policy state for each registered setting:
+    * **Applied Policy**: settings that are currently overridden by a policy, with the setting key, policy name, policy source, default value, current value, and the value enforced by the policy.
+    * **Non-applied Policy**: registered policies that are not currently being enforced. Use this table to detect deployment errors, such as a misspelled key or a policy file that is not being read.
+* **Authentication Information**: registered authentication providers, sessions, accounts, and the extensions that have access to each account.
+
+> [!CAUTION]
+> The report can contain sensitive information such as account identifiers, session details, and the list of extensions with access to each account. Review the contents before you share the report.
+
+> [!TIP]
+> If the **Account Policy Gate** state is `policyNotResolved`, run the **Developer: Sync Account Policy** command to force a refresh of the account-side policy data, then regenerate the report.
 
 ## VS Code enterprise policy reference
 
