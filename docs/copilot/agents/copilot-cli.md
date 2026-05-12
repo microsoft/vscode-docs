@@ -66,7 +66,7 @@ Copilot CLI sessions support the same [permission levels](/docs/copilot/agents/a
 * **Worktree isolation**: the permission level is automatically set to **Bypass Approvals** and can't be changed. Because the agent operates on an isolated copy of your codebase (Git worktree), all tool calls are auto-approved without confirmation dialogs.
 * **Workspace isolation**: all three permission levels are available (**Default Approvals**, **Bypass Approvals**, and **Autopilot**), just like local agent sessions. Select a level from the permissions picker in the chat input area.
 
-### Remote control Copilot CLI sessions
+### Remote control Copilot CLI sessions (Experimental)
 
 The `/remote on` command lets you remote control a Copilot CLI session from github.com or the GitHub Mobile app. With remote control, you can monitor and steer your ongoing Copilot CLI sessions from anywhere, giving you more flexibility to keep work moving without being tied to your machine. You keep the full session context and history in sync across both VS Code and GitHub.
 
