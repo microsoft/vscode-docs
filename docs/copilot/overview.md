@@ -1,6 +1,6 @@
 ---
 ContentId: 0aefcb70-7884-487f-953e-46c3e07f7cbe
-DateApproved: 5/6/2026
+DateApproved: 5/13/2026
 MetaDescription: Describe what you want to build, and let agents in VS Code plan, implement, and verify the changes across your project.
 MetaSocialImage: images/shared/github-copilot-social.png
 Keywords:
@@ -68,11 +68,16 @@ Run multiple agent sessions in parallel, each focused on a different task. The *
 
 Learn more about [managing agent sessions](/docs/copilot/chat/chat-sessions.md).
 
-### Agents Application
+### Agents window (Preview)
 
-If you prefer describing what you want over writing code directly, the [Agents pp](/docs/copilot/agents-app.md) gives you a dedicated interface where sessions and chat take center stage. Launch it as a standalone window to focus entirely on prompting, monitoring sessions, and configuring your AI setup. The Agents app also provides direct access to all your AI customizations, such as agents, instructions, prompts, and MCP servers, from a single sidebar panel.
+VS Code lets you work with agents the way that fits your workflow, with two main surfaces you can pick from and move freely between:
 
-Learn more about the [Agents app](/docs/copilot/agents-app.md).
+* **Editor window**: stay in the main VS Code window when you're writing code and want AI to assist alongside the editor, debugger, and extensions.
+* **[Agents window](/docs/copilot/agents/agents-window.md) (Preview)**: switch to an agent-first surface when you want to think in prompts and orchestrate agent sessions across multiple projects, with a Changes panel for reviewing edits and direct access to your AI customizations (agents, skills, instructions, hooks, MCP servers) from a single sidebar panel.
+
+Both surfaces share agent sessions and VS Code configuration (like settings and keybindings), making transitions smooth. Open the Agents window with the **Open in Agents** button in the title bar.
+
+Learn more about the [Agents window](/docs/copilot/agents/agents-window.md).
 
 ## What can you build
 
