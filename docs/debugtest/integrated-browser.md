@@ -19,8 +19,8 @@ There are several ways to open the integrated browser:
 
 * Run the **Browser: Open Integrated Browser** command from the Command Palette (`kb(workbench.action.showCommands)`).
 * Select **View** > **Browser** from the menu bar, or use the `kb(workbench.action.browser.openFromViewMenu)` keyboard shortcut.
-* Select the globe button in the title bar. Use the `setting(workbench.browser.showInTitleBar)` setting to control whether the globe button appears.
-* Click on a `localhost` link anywhere in Terminal, chat, etc., with the `setting(workbench.browser.openLocalhostLinks)` setting enabled.
+* Select the globe button in the VS Code title bar. Use the `setting(workbench.browser.showInTitleBar)` setting to control whether the globe button appears.
+* Select a `localhost` link anywhere in VS Code, like the terminal or chat. Enable this behavior with the `setting(workbench.browser.openLocalhostLinks)` setting.
 * Ask an agent to open or interact with a web page. See [Browser tools for agents](#browser-tools-for-agents).
 * Start a debug session with the `editor-browser` debug type. See [Debugging](#debugging).
 
