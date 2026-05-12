@@ -1,6 +1,6 @@
 ---
 ContentId: 19c60eb6-662b-444a-92f6-009642cc1e5b
-DateApproved: 5/6/2026
+DateApproved: 5/13/2026
 MetaDescription: TypeScript debugging with Visual Studio Code.
 MetaSocialImage: ../languages/images/typescript/typescript-social.png
 ---

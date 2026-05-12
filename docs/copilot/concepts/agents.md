@@ -1,6 +1,6 @@
 ---
 ContentId: e5f6a7b8-9c0d-1e2f-3a4b-5c6d7e8f9a0b
-DateApproved: 5/6/2026
+DateApproved: 5/13/2026
 MetaDescription: Learn about agents in VS Code, including the agent loop, agent types, subagents, memory, and planning.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -20,6 +20,11 @@ Keywords:
 # Agents
 
 An agent is an AI system that autonomously plans and executes coding tasks. You give the agent a high-level goal, and it breaks the goal down into steps, executes those steps with [tools](/docs/copilot/concepts/tools.md), and self-corrects when it hits errors. This article explains the core architecture of agents: the agent loop, agent types, subagents, memory, and planning.
+
+VS Code lets you work with agents the way that fits your workflow, with two surfaces you can pick from and move freely between:
+
+* **Editor window**: stay in the main VS Code window when you're writing code and want AI to assist alongside the editor, debugger, and extensions.
+* **[Agents window](/docs/copilot/agents/agents-window.md) (Preview)**: switch to an agent-first surface when you want to think in prompts and orchestrate agent sessions across multiple projects.
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
 Follow a hands-on tutorial to experience local, background, and cloud agents in VS Code.
@@ -84,6 +89,18 @@ Key characteristics of subagents:
 For example, the built-in [Plan agent](#planning) uses subagents to perform research and analysis before creating an implementation plan. Each subagent works autonomously and returns only its findings.
 
 Learn more about [using subagents](/docs/copilot/agents/subagents.md).
+
+## Code-first vs. agent-first
+
+There are different ways to work with AI in your development process, and the right approach depends on your preferences and the task at hand. There are two primary ways to work with AI in VS Code to support different workflows:
+
+* **Code-first**: you write code in the editor and use AI as a coding assistant to help you implement features, fix bugs, and refactor code. Your primary interface is the editor for reviewing and editing code, testing, and debugging. You use AI to **enhance your existing coding workflow**.
+
+* **Agent-first** or **Task-first**: you describe (high-level) tasks and requirements in chat and hand them to an AI agent. The agent plans, implements, and verifies the result. Your primary interface is chat and the sessions list for organizing work, while the editor is a secondary interface for reviewing and tweaking the AI's implementation when necessary. You use AI to shift how you work and **focus on defining the problem and reviewing solutions**.
+
+The [Agents window](/docs/copilot/agents/agents-window.md) is built for the agent-first approach, natively in VS Code. It provides a focused environment for managing agent sessions across all your projects, with chat as the central interface for interacting with your agents. The Agents window complements the main [VS Code window](/docs/copilot/agents/agents-tutorial.md), which is optimized for the code-first approach.
+
+Both surfaces share sessions and VS Code configuration like settings and keybindings, so you don't have to commit to only one or the other. Use the editor window when you want full-featured editing, debugging, notebooks, the extension ecosystem, and remote development, with AI assisting your coding. Use the Agents window when you want to think in prompts, orchestrate work across multiple projects, and keep AI customizations (like plugins, skills, and MCP) front and center.
 
 ## Memory
 

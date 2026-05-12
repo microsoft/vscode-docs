@@ -1,6 +1,6 @@
 ---
 ContentId: EEADB50A-F5E3-41E9-89DA-35F165196691
-DateApproved: 5/6/2026
+DateApproved: 5/13/2026
 MetaDescription: Get Visual Studio Code up and running on Mac (macOS).
 ---
 # Visual Studio Code on macOS

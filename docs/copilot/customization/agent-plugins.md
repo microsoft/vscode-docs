@@ -1,6 +1,6 @@
 ---
 ContentId: f9b2c4e3-8a7d-4e1f-b5c3-2d9a6f8e4b71
-DateApproved: 5/6/2026
+DateApproved: 5/13/2026
 MetaDescription: Learn how to discover, install, and manage agent plugins in VS Code to extend GitHub Copilot with pre-packaged commands, skills, agents, hooks, and MCP servers.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -301,6 +301,12 @@ You can install a plugin directly from a Git repository URL, without adding a fu
 * Alternatively, select the **+** button on the **Plugins** page of the Agent Customizations editor.
 
 Enter a Git repository URL (for example, `https://github.com/rwoll/markdown-review`) and VS Code clones and installs the plugin.
+
+### Plugins installed by GitHub Copilot CLI
+
+VS Code automatically discovers plugins that you install with the [GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/plugins-finding-installing) to enable you to use them also in VS Code. Plugins from `~/.copilot/installed-plugins/` appear in the **Agent Plugins - Installed** view alongside plugins you installed from a marketplace or from source.
+
+The CLI stores plugins under `~/.copilot/installed-plugins/<marketplace>/<plugin>/`. Plugins installed directly from a Git URL (rather than from a marketplace) live under the `_direct` bucket, for example `~/.copilot/installed-plugins/_direct/github--moda-linter--copilot-plugin/`.
 
 ### View installed plugins
 
