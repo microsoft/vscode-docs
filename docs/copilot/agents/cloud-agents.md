@@ -31,6 +31,9 @@ Unlike local and background agents that run on your local machine, cloud agents 
 
 VS Code supports different cloud agents, such as Copilot cloud agent and [third-party agents](/docs/copilot/agents/third-party-agents.md) like Claude and Codex.
 
+> [!TIP]
+> If you prefer an agent-first surface for running cloud agent sessions alongside Copilot CLI and Claude sessions across multiple projects, use the [Agents window](/docs/copilot/agents/agents-window.md). Sessions are shared between the main VS Code window and the Agents window.
+
 Because cloud agents run remotely without user interaction, they are well-suited for tasks that have a well-defined scope and all necessary context. Their integration with pull requests makes them very effective for team collaboration.
 
 Due to their remote execution environment, cloud agents can't directly access VS Code built-in tools and run-time context (like failed tests or text selections). They are limited to the MCP servers and language models that are configured in the cloud agent service.

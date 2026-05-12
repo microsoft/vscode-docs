@@ -24,6 +24,9 @@ This article covers the key features of Copilot CLI agents, and how to start and
 ![Screenshot of Copilot CLI session as a chat editor in VS Code.](../images/background-agents/copilot-cli-session.png)
 
 > [!TIP]
+> If you primarily work with agents across multiple projects, you can also manage your Copilot CLI sessions in the [Agents window](/docs/copilot/agents/agents-window.md), an agent-first surface that shares sessions with the main VS Code window.
+
+> [!TIP]
 > Third-party providers like OpenAI Codex also offer background capabilities. Learn more about [third-party agents](/docs/copilot/agents/third-party-agents.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
