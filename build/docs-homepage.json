@@ -52,12 +52,6 @@
       "image": "/assets/updates/1_120/release-highlights.webp"
     },
     {
-      "type": "documentation",
-      "title": "Agents Window",
-      "description": "Work in an agent-first mode across all your projects with the Agents window.",
-      "link": "/docs/copilot/agents/agents-window"
-    },
-    {
       "type": "blog",
       "title": "How VS Code builds with AI",
       "description": "Learn how VS Code leverages AI to enhance development workflows and improve productivity.",
