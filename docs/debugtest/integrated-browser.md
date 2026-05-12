@@ -15,13 +15,16 @@ The integrated browser enables you to open and interact with web pages directly 
 
 ## Open the browser
 
-Run the **Browser: Open Integrated Browser** command from the Command Palette (`kb(workbench.action.showCommands)`).
+There are several ways to open the integrated browser:
 
-You can open multiple browser instances simultaneously, each in its own editor tab.
+* Run the **Browser: Open Integrated Browser** command from the Command Palette (`kb(workbench.action.showCommands)`).
+* Select **View** > **Browser** from the menu bar, or use the `kb(workbench.action.browser.openFromViewMenu)` keyboard shortcut.
+* Select the globe button in the title bar. Use the `setting(workbench.browser.showInTitleBar)` setting to control whether the globe button appears.
+* Click on a `localhost` link anywhere in Terminal, chat, etc., with the `setting(workbench.browser.openLocalhostLinks)` setting enabled.
+* Ask an agent to open or interact with a web page. See [Browser tools for agents](#browser-tools-for-agents).
+* Start a debug session with the `editor-browser` debug type. See [Debugging](#debugging).
 
-Enable the `setting(workbench.browser.openLocalhostLinks)` setting to automatically open `localhost` URLs in the integrated browser instead of your default system browser.
-
-When a browser tab is already open, the globe button in the title bar opens the [tab management](#tab-management) Quick Pick instead of creating a new browser tab. Use the `setting(workbench.browser.showInTitleBar)` setting to control whether the globe button appears in the title bar.
+You can open multiple browser instances simultaneously, each in its own editor tab. When a browser tab is already open, the **View** > **Browser** menu item and the title bar globe button open the [tab management](#tab-management) Quick Pick instead of creating a new browser tab.
 
 ## Navigation
 
