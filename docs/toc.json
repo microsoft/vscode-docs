@@ -56,7 +56,7 @@
         "topics": [
           ["Overview", "/docs/copilot/agents/overview"],
           ["Agents Tutorial", "/docs/copilot/agents/agents-tutorial"],
-          ["Agent-First Workflows", "/docs/copilot/agents/agents-window"],
+          ["Agents Window", "/docs/copilot/agents/agents-window"],
           ["Planning", "/docs/copilot/agents/planning"],
           ["Memory", "/docs/copilot/agents/memory"],
           ["Tools", "/docs/copilot/agents/agent-tools"],
