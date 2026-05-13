@@ -213,6 +213,9 @@ To start a session on a remote machine via dev tunnel:
 
 1. Type a prompt and press `kbstyle(Enter)` to start the session.
 
+> [!IMPORTANT]
+> Ensure your dev tunnel requires authentication (GitHub or Microsoft account). If the tunnel allows anonymous access, anyone who discovers the URL can reach your machine and start agent sessions. This is especially dangerous when auto-approval modes are active, because unauthorized users can trigger AI-assisted command execution with your credentials. For more information, see [Security](/docs/copilot/security.md).
+
 ## Create a sub-session
 
 When you have an active session, you can start a sub-session to give the agent a separate, parallel task within the same workspace. A sub-session shares the same workspace and worktree as the parent session, but starts with a blank chat. The sub-session doesn't carry over the parent's conversation history.
