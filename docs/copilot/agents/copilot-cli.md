@@ -66,37 +66,6 @@ Copilot CLI sessions support the same [permission levels](/docs/copilot/agents/a
 * **Worktree isolation**: the permission level is automatically set to **Bypass Approvals** and can't be changed. Because the agent operates on an isolated copy of your codebase (Git worktree), all tool calls are auto-approved without confirmation dialogs.
 * **Workspace isolation**: all three permission levels are available (**Default Approvals**, **Bypass Approvals**, and **Autopilot**), just like local agent sessions. Select a level from the permissions picker in the chat input area.
 
-### Remote control Copilot CLI sessions (Experimental)
-
-The `/remote on` command lets you remote control a Copilot CLI session from github.com or the GitHub Mobile app. With remote control, you can monitor and steer your ongoing Copilot CLI sessions from anywhere, giving you more flexibility to keep work moving without being tied to your machine. You keep the full session context and history in sync across both VS Code and GitHub.
-
-When remote control is enabled, VS Code streams the session history, tool activity, and status updates to the linked GitHub task page in real time. Actions you take in one place are reflected in the other. If the session requires approval for a tool call or input for a question, the prompt is shown in both places and you can respond from either location.
-
-To use remote control for a Copilot CLI session:
-
-1. Enable the `setting(github.copilot.chat.cli.remote.enabled)` setting.
-
-1. Start or resume a Copilot CLI session from the Chat view.
-
-1. Enter `/remote on` in the chat input to enable remote control and create the linked GitHub task page.
-
-1. Select **Open on GitHub** to open the linked task page.
-
-Run `/remote` at any time to check the current remote-control status. The `/remote` command only shows status and does not enable or disable remote control.
-
-To stop mirroring the session to GitHub, enter `/remote off` in the chat input.
-
-> [!NOTE]
-> Remote control requires GitHub authentication in VS Code and a workspace that maps to a GitHub repository. If additional GitHub permissions are needed, VS Code prompts you to grant them before remote control is enabled.
-
-### Limitations of Copilot CLI sessions
-
-* Copilot CLI sessions can't access all VS Code built-in tools. You can explicitly [add context](/docs/copilot/chat/copilot-chat-context.md) in the chat input.
-
-* Don't have access to extension-provided tools and are limited to the models available via the CLI tool.
-
-* Can currently only access local MCP servers that don't require authentication.
-
 ## Create a Copilot CLI session
 
 To create a new Copilot CLI session in VS Code:
@@ -146,6 +115,29 @@ To hand off a local agent session to Copilot CLI:
         ![Screenshot showing the "Start Implementation" button in VS Code chat interface.](../images/background-agents/plan-agent-start-implementation-cli.png)
 
 The Copilot CLI session starts automatically, carrying over the full conversation history and context.
+
+## Remote control Copilot CLI sessions (Experimental)
+
+The `"/remote on"` command lets you remote control a Copilot CLI session from github.com or the GitHub Mobile app. With remote control, you can monitor and steer your ongoing Copilot CLI sessions from anywhere, giving you more flexibility to keep work moving without being tied to your machine. You keep the full session context and history in sync across both VS Code and GitHub.
+
+When remote control is enabled, VS Code streams the session history, tool activity, and status updates to the linked GitHub task page in real time. Actions you take in one place are reflected in the other. If the session requires approval for a tool call or input for a question, the prompt is shown in both places and you can respond from either location.
+
+To use remote control for a Copilot CLI session:
+
+1. Start or resume a Copilot CLI session from the Chat view.
+
+1. Enter `"/remote on"` in the chat input to enable remote control and create the linked GitHub task page.
+
+1. Select **Open on GitHub** to open the linked task page or scan the QR code to open it on your mobile device.
+
+Run `"/remote"` at any time to check the current remote-control status. The `"/remote"` command only shows status and does not enable or disable remote control.
+
+To stop mirroring the session to GitHub, enter `"/remote off"` in the chat input.
+
+To disable remote control support for Copilot CLI sessions in VS Code, disable the `setting(github.copilot.chat.cli.remote.enabled)` setting.
+
+> [!NOTE]
+> Remote control requires GitHub authentication in VS Code and a workspace that maps to a GitHub repository. If additional GitHub permissions are needed, VS Code prompts you to grant them before remote control is enabled.
 
 ## Use Copilot CLI from the terminal
 
@@ -207,6 +199,14 @@ To use custom agents with Copilot CLI:
 
 > [!NOTE]
 > Currently, only custom agents defined in the workspace are available for Copilot CLI sessions. Learn more about [creating a custom agent](/docs/copilot/customization/custom-agents.md#create-a-custom-agent).
+
+## Limitations of Copilot CLI sessions
+
+* Copilot CLI sessions can't access all VS Code built-in tools. You can explicitly [add context](/docs/copilot/chat/copilot-chat-context.md) in the chat input.
+
+* Don't have access to extension-provided tools and are limited to the models available via the CLI tool.
+
+* Can currently only access local MCP servers that don't require authentication.
 
 ## Related resources
 

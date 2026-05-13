@@ -57,6 +57,12 @@
       "description": "Learn how VS Code leverages AI to enhance development workflows and improve productivity.",
       "link": "/blogs/2026/03/13/how-VS-Code-Builds-with-AI",
       "image": "/assets/blogs/2026/03/13/vscode-build-with-ai-poster.png"
+    },
+    {
+      "type": "documentation",
+      "title": "Remote control Copilot CLI",
+      "description": "Monitor and steer ongoing Copilot CLI sessions from github.com or GitHub Mobile.",
+      "link": "/docs/copilot/agents/copilot-cli#_remote-control-copilot-cli-sessions-experimental"
     }
   ]
 }
