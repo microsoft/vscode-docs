@@ -32,7 +32,7 @@ Starting from VS Code version 1.69, each release ships with a `policies` directo
 
 You can get the ADMX and ADML files from either an existing installation or by downloading and extracting the VS Code zip archive. Follow these steps to obtain the files:
 
-1. Download the [VS Code zip archive](https://code.visualstudio.com/docs/?dv=winzip) for your version of VS Code.
+1. Download the [VS Code zip archive](/download) for your version of VS Code.
 1. Extract the zip file to a temporary location.
 1. Navigate to the `policies` folder in the extracted files. This folder contains the ADMX template files (for example, `vscode.admx`) and a `locales` subfolder with ADML files for different languages.
 
