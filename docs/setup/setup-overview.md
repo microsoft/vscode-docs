@@ -22,19 +22,19 @@ Follow a hands-on tutorial to build your first app with AI in VS Code.
 Choose the setup path that matches where you want to work.
 
 <div class="card-grid">
-    <a class="card" href="/docs/setup/windows.md">
+    <a class="card" href="/docs/setup/windows">
         <i class="codicon codicon-device-desktop" aria-hidden="true"></i>
         <p>Install on Windows</p>
     </a>
-    <a class="card" href="/docs/setup/mac.md">
+    <a class="card" href="/docs/setup/mac">
         <i class="codicon codicon-device-desktop" aria-hidden="true"></i>
         <p>Install on macOS</p>
     </a>
-    <a class="card" href="/docs/setup/linux.md">
+    <a class="card" href="/docs/setup/linux">
         <i class="codicon codicon-terminal" aria-hidden="true"></i>
         <p>Install on Linux</p>
     </a>
-    <a class="card" href="/docs/setup/vscode-web.md">
+    <a class="card" href="/docs/setup/vscode-web">
         <i class="codicon codicon-globe" aria-hidden="true"></i>
         <p>Use VS Code for the Web</p>
     </a>

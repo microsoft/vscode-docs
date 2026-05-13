@@ -12,34 +12,8 @@ Visual Studio Code is available on Linux through official Debian, RPM, and Snap 
 
 Choose the package method that matches your Linux distribution.
 
-<div class="card-grid">
-    <a class="card" href="#debian-and-ubuntubased-distributions">
-        <i class="codicon codicon-package" aria-hidden="true"></i>
-        <p>Debian and Ubuntu</p>
-    </a>
-    <a class="card" href="#rhel-fedora-and-centosbased-distributions">
-        <i class="codicon codicon-package" aria-hidden="true"></i>
-        <p>RHEL, Fedora, and CentOS</p>
-    </a>
-    <a class="card" href="#snap-package">
-        <i class="codicon codicon-archive" aria-hidden="true"></i>
-        <p>Snap package</p>
-    </a>
-    <a class="card" href="#opensuse-and-sle-baseddistributions">
-        <i class="codicon codicon-package" aria-hidden="true"></i>
-        <p>openSUSE and SLE</p>
-    </a>
-    <a class="card" href="#arch-linux-aur-package">
-        <i class="codicon codicon-terminal" aria-hidden="true"></i>
-        <p>Arch Linux AUR</p>
-    </a>
-    <a class="card" href="#nix-package">
-        <i class="codicon codicon-terminal" aria-hidden="true"></i>
-        <p>Nix</p>
-    </a>
-</div>
-
-### Debian and Ubuntu-based distributions
+<details id="_debian-and-ubuntubased-distributions">
+<summary id="debian-and-ubuntu-based-distributions">Debian and Ubuntu-based distributions</summary>
 
 1. Download the [.deb package](https://go.microsoft.com/fwlink/?LinkID=760868).
 
@@ -94,7 +68,10 @@ To manually install the apt repository:
 > [!NOTE]
 > Due to the manual signing process and publishing system, the Debian repository could lag behind by up to three hours and not immediately contain the latest version of VS Code.
 
-### RHEL, Fedora, and CentOS-based distributions
+</details>
+
+<details id="_rhel-fedora-and-centosbased-distributions">
+<summary id="rhel-fedora-and-centos-based-distributions">RHEL, Fedora, and CentOS-based distributions</summary>
 
 Microsoft provides the stable 64-bit VS Code package for RHEL, Fedora, and CentOS-based distributions in a yum repository.
 
@@ -122,7 +99,10 @@ Microsoft provides the stable 64-bit VS Code package for RHEL, Fedora, and CentO
 > [!NOTE]
 > Due to the manual signing process and publishing system, the yum repository could lag behind by up to three hours and not immediately contain the latest version of VS Code.
 
-### Snap package
+</details>
+
+<details id="_snap-package">
+<summary id="snap-package">Snap package</summary>
 
 VS Code is officially distributed as a Snap package in the [Snap Store](https://snapcraft.io/store).
 
@@ -141,9 +121,12 @@ Once installed, the Snap daemon automatically updates VS Code in the background.
 
 Learn more about snaps from the [official Snap documentation](https://docs.snapcraft.io).
 
-### openSUSE and SLE-based distributions
+</details>
 
-The yum repository from the [RHEL, Fedora, and CentOS section](#rhel-fedora-and-centos-based-distributions) also works for openSUSE and SLE-based systems.
+<details id="_opensuse-and-slebased-distributions">
+<summary id="opensuse-and-sle-based-distributions">openSUSE and SLE-based distributions</summary>
+
+The yum repository from the [RHEL, Fedora, and CentOS panel](#rhel-fedora-and-centosbased-distributions) also works for openSUSE and SLE-based systems.
 
 1. Install the key and yum repository:
 
@@ -158,13 +141,19 @@ The yum repository from the [RHEL, Fedora, and CentOS section](#rhel-fedora-and-
     sudo zypper install code
     ```
 
-### Arch Linux AUR package
+</details>
+
+<details id="_arch-linux-aur-package">
+<summary id="arch-linux-aur-package">Arch Linux AUR package</summary>
 
 The [Arch User Repository package for VS Code](https://aur.archlinux.org/packages/visual-studio-code-bin) is community maintained.
 
 For installation details, see the Arch Linux wiki article about [installing AUR packages](https://wiki.archlinux.org/index.php/Arch_User_Repository).
 
-### Nix package
+</details>
+
+<details id="_nix-package">
+<summary id="nix-package">Nix package</summary>
 
 The [VS Code Nix package](https://github.com/NixOS/nixpkgs/blob/master/pkgs/applications/editors/vscode/vscode.nix) in the nixpkgs repository is community maintained.
 
@@ -178,7 +167,10 @@ To install VS Code by using Nix:
     nix-env -i vscode
     ```
 
-### Manual RPM package
+</details>
+
+<details id="_manual-rpm-package">
+<summary id="manual-rpm-package">Manual RPM package</summary>
 
 Download and install the [VS Code .rpm package](https://go.microsoft.com/fwlink/?LinkID=760867) manually when repository installation is not available. Auto-update does not work unless the repository is installed.
 
@@ -190,6 +182,8 @@ sudo dnf install <file>.rpm
 
 > [!NOTE]
 > Other binaries are available on the [VS Code download page](/download).
+
+</details>
 
 ## Updates
 
