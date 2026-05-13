@@ -1,6 +1,6 @@
 ---
 ContentId: 643d022e-9370-4ca5-bccd-c3a583c5df75
-DateApproved: 5/6/2026
+DateApproved: 5/13/2026
 MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Rust.
 ---
 # Rust in Visual Studio Code

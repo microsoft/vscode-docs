@@ -46,16 +46,10 @@
   "latest": [
     {
       "type": "release",
-      "title": "VS Code 1.119 release",
-      "description": "Share browser tabs with agents, cut token costs with background task tracking, and work with fewer sandbox interruptions.",
-      "link": "/updates/v1_119",
-      "image": "/assets/updates/1_119/release-highlights.webp"
-    },
-    {
-      "type": "documentation",
-      "title": "Agents App (Insiders)",
-      "description": "Work in an Agent-first mode with the new, standalone Agents App.",
-      "link": "/docs/copilot/agents-app"
+      "title": "VS Code 1.120 release",
+      "description": "Run agents across all your projects with the Agents window.",
+      "link": "/updates/v1_120",
+      "image": "/assets/updates/1_120/release-highlights.webp"
     },
     {
       "type": "blog",

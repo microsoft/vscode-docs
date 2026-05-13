@@ -1,6 +1,6 @@
 ---
 ContentId: 51280c26-f78b-4f9c-997f-8350bd6ed07f
-DateApproved: 5/6/2026
+DateApproved: 5/13/2026
 MetaDescription: Visual Studio Code Workspace Trust folder security
 ---
 # Workspace Trust
@@ -18,7 +18,7 @@ It's great that there is so much source code available on public repositories an
 Workspace Trust provides an extra layer of security when working with unfamiliar code, by preventing automatic code execution of any code in your workspace if the workspace is open in "Restricted Mode".
 
 > [!IMPORTANT]
-> Workspace trust is shared between VS Code and the [VS Code Agents application](/docs/copilot/agents-app.md). If the workspace is untrusted in VS Code, it is also untrusted in the Agents application, and agents will not run in either place. You can manage workspace trust from either VS Code or the Agents application, and the trust state is shared across both applications.
+> Workspace trust is shared between your VS Code window and the [Agents window](/docs/copilot/agents/agents-window.md). If the workspace is untrusted in VS Code, it is also untrusted in the Agents window, and agents will not run in either place. You can manage workspace trust from either surface, and the trust state is shared across both.
 
 ## Restricted Mode
 
@@ -138,7 +138,7 @@ You can also at any time use:
 * **Workspaces: Manage Workspace Trust** command from the Command Palette (`kb(workbench.action.showCommands)`)
 
 > [!IMPORTANT]
-> Workspace trust is shared between VS Code and the [VS Code Agents application](/docs/copilot/agents-app.md). If the workspace is untrusted in VS Code, it is also untrusted in the Agents application, and agents will not run in either place. You can manage workspace trust from either VS Code or the Agents application, and the trust state is shared across both applications.
+> Workspace trust is shared between your VS Code window and the [Agents window](/docs/copilot/agents/agents-window.md). If the workspace is untrusted in VS Code, it is also untrusted in the Agents window, and agents will not run in either place. You can manage workspace trust from either surface, and the trust state is shared across both.
 
 ## Selecting folders
 

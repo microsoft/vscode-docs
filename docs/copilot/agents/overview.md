@@ -1,6 +1,6 @@
 ---
 ContentId: 7c4b8b5e-2d3f-4e8a-9b2c-1a5d6f8e9c0b
-DateApproved: 5/6/2026
+DateApproved: 5/13/2026
 MetaDescription: Learn about different types of AI agents in VS Code, including local agents, Copilot CLI for running in the background, and cloud agents.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -22,9 +22,14 @@ Keywords:
 
 An agent is an AI assistant that works autonomously to complete a coding task. Give it a high-level goal, and it breaks the goal into steps, edits files across your project, runs commands, and self-corrects when something goes wrong. For example, instead of suggesting a fix for a failing test, an agent identifies the root cause across files, updates the code, reruns the tests, and commits the changes.
 
-VS Code lets you run agents the way that fits your workflow. Work with them interactively in the editor, or let them run autonomously in the background from the CLI. Agents can run on your machine, in a remote cloud environment, or through a third-party provider like Anthropic or OpenAI. You decide how much autonomy to give them, from approving every tool call to letting them work fully on their own, and you can create custom agents to tailor their behavior to your project.
+VS Code lets you work with agents the way that fits your workflow, with two surfaces you can pick from and move freely between:
 
-You monitor and interact with all your sessions from a single [sessions list](/docs/copilot/chat/chat-sessions.md#sessions-list) in the Chat view, regardless of where they run. If you prefer working entirely through prompts, the [Agents app](/docs/copilot/agents-app.md) provides a dedicated interface where sessions and chat are the central experience, with built-in access to all your AI customizations.
+* **Editor window**: stay in the main VS Code window when you're writing code and want AI to assist alongside the editor, debugger, and extensions.
+* **[Agents window](/docs/copilot/agents/agents-window.md) (Preview)**: switch to an agent-first surface when you want to think in prompts and orchestrate agent sessions across multiple projects.
+
+Both surfaces share the same sessions, settings, and keybindings, so you can pick your path without committing to one or the other.
+
+Agents can run on your machine, in a remote cloud environment, or through a third-party provider like Anthropic or OpenAI. You decide how much autonomy to give them, from approving every tool call to letting them work fully on their own, and you can create custom agents to tailor their behavior to your project. You monitor and interact with all your sessions from a single [sessions list](/docs/copilot/chat/chat-sessions.md#sessions-list), regardless of where they run.
 
 <div class="docs-action" data-show-in-doc="true" data-show-in-sidebar="true" title="How agents work">
 Understand the agent loop, how agents plan and execute tasks, and how memory and subagents work.
@@ -72,9 +77,20 @@ Use the following table to find the right agent type for your task:
 | Use specific VS Code extension tools or MCP servers | [Local agent](/docs/copilot/agents/local-agents.md) |
 | Implement a well-defined task while I keep working | [Copilot CLI](/docs/copilot/agents/copilot-cli.md) or [Cloud agent](/docs/copilot/agents/cloud-agents.md) |
 | Explore multiple variants or proof of concepts | [Copilot CLI](/docs/copilot/agents/copilot-cli.md) or [Cloud agent](/docs/copilot/agents/cloud-agents.md) |
+| Orchestrate agent sessions across multiple projects in a single, agent-first surface | [Agents window](/docs/copilot/agents/agents-window.md) |
 | Create a PR for team review and collaboration | [Cloud agent](/docs/copilot/agents/cloud-agents.md) |
 | Assign a GitHub issue to an agent | [Cloud agent](/docs/copilot/agents/cloud-agents.md) |
 | Use a specific AI provider (Anthropic, OpenAI) | [Third-party agent](/docs/copilot/agents/third-party-agents.md) |
+
+## Where to work with agents
+
+VS Code gives you two surfaces for working with agents, and you can pick the one that matches your workflow (or move freely between them):
+
+* **Main VS Code window (editor-first)**: the full editor experience with debugging, notebooks, the extension ecosystem, and remote development. AI assists your coding through chat, inline suggestions, and agent sessions in the Chat view. Best when you're primarily writing and editing code in a single workspace.
+
+* **[Agents window](/docs/copilot/agents/agents-window.md) (agent-first, Preview)**: a dedicated window optimized for orchestrating agents across multiple projects. Chat and the sessions list are the primary interface, with a Changes panel for reviewing edits and a Customizations panel for managing customizations in one place. Best when your primary workflow is thinking in prompts and running tasks across workspaces.
+
+Both surfaces share agent sessions and VS Code configuration (like settings and keybindings), making transitions smooth. Open the Agents window with the **Open in Agents** button in the title bar.
 
 ## Choose an agent
 

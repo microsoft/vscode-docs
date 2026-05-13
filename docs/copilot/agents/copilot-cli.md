@@ -1,6 +1,6 @@
 ---
 ContentId: 9f1a2b3c-4e5f-6d7c-8a9b-1c2d3e4f5a6b
-DateApproved: 5/6/2026
+DateApproved: 5/13/2026
 MetaDescription: Learn how to use Copilot CLI within VS Code for autonomous coding tasks, terminal integration, and isolated development workflows in VS Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -22,6 +22,9 @@ To start a Copilot CLI session, you can either [create a new session](#create-a-
 This article covers the key features of Copilot CLI agents, and how to start and manage background sessions from Copilot CLI.
 
 ![Screenshot of Copilot CLI session as a chat editor in VS Code.](../images/background-agents/copilot-cli-session.png)
+
+> [!TIP]
+> If you primarily work with agents across multiple projects, you can also manage your Copilot CLI sessions in the [Agents window](/docs/copilot/agents/agents-window.md), an agent-first surface that shares sessions with the main VS Code window.
 
 > [!TIP]
 > Third-party providers like OpenAI Codex also offer background capabilities. Learn more about [third-party agents](/docs/copilot/agents/third-party-agents.md).
@@ -184,7 +187,7 @@ After the session starts, the repository picker becomes disabled for that sessio
 > [!TIP]
 > To view all repositories in your workspace, enable the `setting(scm.repositories.explorer)` setting and open the Source Control view.
 
-## Use custom agents with Copilot CLI (Experimental)
+## Use custom agents with Copilot CLI
 
 [Custom agents](/docs/copilot/customization/custom-agents.md) let you define custom personas and roles for agents in VS Code. For example, you might create a custom agent for performing code reviews. Custom agents can define specific instructions and behaviors.
 
