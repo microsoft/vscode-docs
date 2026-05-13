@@ -143,6 +143,13 @@ Once you connect from a remote VS Code instance, an SSH connection is created ov
 
 You can learn more about the security of the underlying dev tunnels service in its [documentation](https://learn.microsoft.com/azure/developer/dev-tunnels/security).
 
+> [!CAUTION]
+> While VS Code Tunnels always require GitHub or Microsoft account authentication, the underlying [Microsoft Dev Tunnels](https://learn.microsoft.com/azure/developer/dev-tunnels/overview) service supports anonymous access. If you create a tunnel with anonymous access enabled (for example, through the `devtunnel` CLI), anyone who discovers the tunnel URL can access your machine without authentication.
+>
+> This risk is especially severe when AI agents are configured with auto-approval modes such as **Bypass Approvals**, **Autopilot**, or `/yolo`. An unauthorized user who reaches the tunnel endpoint can trigger AI-assisted command execution with your credentials and permissions. Never enable anonymous access on tunnels connected to machines where AI auto-approval is active.
+>
+> Organizations can deploy the **Disable anonymous tunnel access** group policy to prevent anonymous tunnels across managed devices. Learn more about [Dev Tunnels group policies](https://learn.microsoft.com/azure/developer/dev-tunnels/policies). For AI-specific enterprise policies, see [AI settings for your organization](/docs/enterprise/ai-settings.md). For a full overview of AI security controls, see [Security](/docs/copilot/security.md).
+
 ### Are there usage limits for the tunneling service?
 
 To avoid abuse of the underlying tunneling service, there are usage limits in place for resources like number of tunnels and bandwidth. We anticipate most users to never reach these limits.
