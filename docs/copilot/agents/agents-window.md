@@ -4,7 +4,7 @@ DateApproved: 5/13/2026
 MetaDescription: Use the Agents window in VS Code for an agent-first coding experience where agents and chat are the primary interface to build with AI.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
-# Use the Agents window in VS Code (Preview)
+# Use the Agents window (Preview)
 
 The Agents window is a dedicated window in VS Code, built for an agent-first workflow. It's the natural complement to the VS Code editor window: the editor window is optimized for code-centric work in a single workspace, while the Agents window is optimized for orchestrating higher-level tasks across projects, with chat and the sessions list as the primary interface.
 
