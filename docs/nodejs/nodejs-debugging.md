@@ -368,7 +368,7 @@ npx babel script.js --out-file script-compiled.js --source-maps
 
 **Webpack**
 
-Webpack has [numerous](https://webpack.js.org/configuration/devtool/) source map options. We recommend setting the property `devtool: "source-map"` in your `webpack.config.js` for the best fidelity of results, although you can experiment with other settings causes slowdowns in your build.
+Webpack has [numerous](https://webpack.js.org/configuration/devtool/) source map options. We recommend setting the property `devtool: "source-map"` in your `webpack.config.js` for the best fidelity of results, although you can experiment with other settings even though they might cause slowdowns in your build.
 
 Also, if you have additional compilation steps in webpack, such as using a TypeScript loader, you'll also want to make sure that those steps are set up to generate sourcemaps. Otherwise, the sourcemaps that webpack generates will map back to the compiled code from the loader, instead of the real sources.
 
