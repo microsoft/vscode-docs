@@ -12,7 +12,7 @@ Author: VS Code Team
 
 May 14, 2026 by [Julia Kasper](https://github.com/jukasper)
 
-With each new model release, the same conversation is reignited. Which model is the smartest? Which one is fastest? Which one should we use? Those are useful questions, but for a product like Visual Studio Code the model is only one part of the agentic coding experience. What developers actually interact with is the coding harness: the layer that assembles context, exposes tools, runs the agent loop, interprets tool calls, and turns a model's output into something useful inside the editor. In this post, we'll look at what that harness does, why it matters, and how we evaluate it as models and developer workflows evolve.
+With each new model release, the same conversation is reignited. Which model is the smartest? Which one is fastest? Which one should we use? Those are useful questions, but for a product like Visual Studio Code, the model is only one part of the agentic coding experience. What developers actually interact with is the coding harness: the layer that assembles context, exposes tools, runs the agent loop, interprets tool calls, and turns a model's output into something useful inside the editor. In this post, we'll look at what that harness does, why it matters, and how we evaluate it as models and developer workflows evolve.
 
 ![Diagram showing that an agent is made up of a model plus a harness. The harness includes the agent loop, tools, context management, and system prompt.](agent.png)
 
@@ -42,8 +42,8 @@ A **turn** is the user-visible chat exchange: you send one message, and the agen
 
 The tool-calling loop is bounded by loop-control checks. We enforce a tool-call limit, check for cancellation between rounds, and run stop hooks. Stop hooks are extension points that can inspect the agent state and either allow it to finish or push it to keep working. Within the loop, the prompt is rebuilt on every iteration. That means the model always sees the latest state of the workspace: if it edited a file three rounds ago, the current prompt reflects that edit. The harness also manages conversation summarization. When the accumulated history grows too large, it compresses earlier rounds into a summary so the model can keep working without hitting the context window ceiling.
 
-> **Note:**
-> Want to see the harness in action? You can [explore the VS Code source code](https://github.com/microsoft/vscode), use the Tools UI in Chat to review the tools available for a request, and open the [Chat Debug View](https://code.visualstudio.com/docs/copilot/chat/chat-debug-view) to inspect the prompts, tool calls, and results.
+> [!NOTE]
+> Want to see the harness in action? You can [explore the VS Code source code](https://github.com/microsoft/vscode), use the Tools UI in Chat to review the tools available for a request, and open the [Agent Debug Log panel](https://code.visualstudio.com/docs/copilot/chat/chat-debug-view#_agent-debug-log-panel) in the Chat Debug View to inspect the prompts, tool calls, results, and a flowchart visualization of the agent's execution.
 
 ## The harness is the product
 
@@ -59,7 +59,7 @@ But integrating a new model is rarely just adding an extra option to the model p
 
 Different models need different harness behavior. Claude models use `replace_string_in_file` for edits; GPT models use `apply_patch`. Gemini needs reminders to use tool-calling instead of narrating it, and breaks on orphaned tool calls in history. Some models support extended thinking and need reasoning-effort controls. Some work best with a concise system prompt; others need verbose, structured instructions to stay on track. The harness selects different system prompts per model - Claude Sonnet 4 gets a different prompt than Claude 4.5, which gets a different one than Opus.
 
-All these per-model differences aren't trivial. They translate into per-model system prompts, per-model tool sets, and per-model conversation management. This means that when a new model ships, we can't just flip a switch but we need to validate its behavior. We validate tool schemas, retune defaults, and re-run full agent sessions before anything ships. Beyond the model functioning correctly, the harder question is how can we verify that a new model actually gives better results.
+All these per-model differences aren't trivial. They translate into per-model system prompts, per-model tool sets, and per-model conversation management. This means that when a new model ships, we can't just flip a switch but we need to validate its behavior. We validate tool schemas, retune defaults, and re-run full agent sessions before anything ships. Beyond the model functioning correctly, the harder question is how we can verify that a new model actually gives better results.
 
 ## Evaluation keeps the harness honest
 
