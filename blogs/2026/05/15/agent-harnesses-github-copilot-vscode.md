@@ -10,7 +10,7 @@ Author: VS Code Team
 
 # The Coding Harness Behind GitHub Copilot in VS Code
 
-May 15, 2026 by [Julia Kasper](https://github.com/jukasper)
+May 15, 2026 by [Julia Kasper](https://github.com/jukasper), [Megan Rogge](https://github.com/meganrogge) and [Aaron Munger](https://github.com/amunger)
 
 With each new model release, the same conversation is reignited. Which model is the smartest? Which one is fastest? Which one should we use? Those are useful questions, but for a product like Visual Studio Code the model is only one part of the agentic coding experience. What developers actually interact with is the coding harness: the layer that assembles context, exposes tools, runs the agent loop, interprets tool calls, and turns a model's output into something useful inside the editor. In this post, we'll look at what that harness does, why it matters, and how we evaluate it as models and developer workflows evolve.
 
