@@ -101,7 +101,7 @@ Operator | Symbol | Example
 In | `in` | `"resourceFilename in supportedFolders"`
 Not in | `not in` | `"resourceFilename not in supportedFolders"`
 
-First, determine which folders should support the command, and add the folder names to an array. Then, use the [`setContext` command](#add-a-custom-when-clause-context) to turn the array into a context key:
+First, determine which folders should support the command, and add the folder names to an array. Then, use the [`setContext` command](/api/references/when-clause-contexts#add-a-custom-when-clause-context) to turn the array into a context key:
 
 ```ts
 vscode.commands.executeCommand('setContext', 'ext.supportedFolders', [ 'test', 'foo', 'bar' ]);
@@ -137,7 +137,7 @@ In that example, we are taking the value of `resourceFilename` (which is the nam
 
 Below are some of the available context keys, which evaluate to Boolean true/false.
 
-The list here isn't exhaustive and you can find other when clause contexts by searching and filtering in the Keyboard Shortcuts editor (**Preferences: Open Keyboard Shortcuts**) or reviewing the Default Keybindings JSON file (**Preferences: Open Default Keyboard Shortcuts (JSON)**). You can also identify context keys you are interested in using the [Inspect Context Keys utility](#inspect-context-keys-utility).
+The list here isn't exhaustive and you can find other when clause contexts by searching and filtering in the Keyboard Shortcuts editor (**Preferences: Open Keyboard Shortcuts**) or reviewing the Default Keybindings JSON file (**Preferences: Open Default Keyboard Shortcuts (JSON)**). You can also identify context keys you are interested in using the [Inspect Context Keys utility](/api/references/when-clause-contexts#inspect-context-keys-utility).
 
 Context name | True when
 ------------ | ------------
@@ -355,6 +355,6 @@ When you run **Developer: Inspect Context Keys**, your cursor will highlight ele
 
 ![Inspect Context Keys output](images/when-clause-contexts/inspect-context-keys.png)
 
-The list of active context keys is extensive and may contain [custom context keys](#add-a-custom-when-clause-context) from extensions you have installed.
+The list of active context keys is extensive and may contain [custom context keys](/api/references/when-clause-contexts#add-a-custom-when-clause-context) from extensions you have installed.
 
 >**Note**: Some context keys are for VS Code internal use and may change in the future.
