@@ -140,6 +140,13 @@
   },
 
   {
+    "name": "Agent Native Development",
+    "area": "agent-native",
+    "link": "/docs/agent-native/overview",
+    "topics": []
+  },
+
+  {
     "name": "Enterprise",
     "area": "enterprise",
     "topics": [

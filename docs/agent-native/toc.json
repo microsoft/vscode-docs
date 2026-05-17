@@ -1,0 +1,9 @@
+[
+  {
+    "name": "Concepts",
+    "area": "concepts",
+    "topics": [
+      ["Agent Concepts", "/docs/copilot/concepts/agents"]
+    ]
+  }
+]
