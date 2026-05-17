@@ -1,0 +1,143 @@
+[
+  {
+    "name": "Language Support",
+    "area": "lang-support",
+    "topics": [
+      ["JavaScript", "/docs/languages/javascript"],
+      ["JSON", "/docs/languages/json"],
+      ["HTML", "/docs/languages/html"],
+      ["Emmet", "/docs/languages/emmet"],
+      ["CSS, SCSS and Less", "/docs/languages/css"],
+      ["TypeScript", "/docs/languages/typescript"],
+      ["Markdown", "/docs/languages/markdown"],
+      ["PowerShell", "/docs/languages/powershell"],
+      ["C++", "/docs/languages/cpp"],
+      ["Java", "/docs/languages/java"],
+      ["PHP", "/docs/languages/php"],
+      ["Python", "/docs/languages/python"],
+      ["Julia", "/docs/languages/julia"],
+      ["R", "/docs/languages/r"],
+      ["Ruby", "/docs/languages/ruby"],
+      ["Rust", "/docs/languages/rust"],
+      ["Go", "/docs/languages/go"],
+      ["T-SQL", "/docs/languages/tsql"],
+      ["C#", "/docs/languages/csharp"],
+      [".NET", "/docs/languages/dotnet"],
+      ["Swift", "/docs/languages/swift"]
+    ]
+  },
+  {
+    "name": "Node.js / JavaScript",
+    "area": "nodejs",
+    "topics": [
+      ["Working with JavaScript", "/docs/nodejs/working-with-javascript"],
+      ["Node.js Tutorial", "/docs/nodejs/nodejs-tutorial"],
+      ["Node.js Debugging", "/docs/nodejs/nodejs-debugging"],
+      ["Deploy Node.js Apps", "/docs/nodejs/nodejs-deployment"],
+      ["Browser Debugging", "/docs/nodejs/browser-debugging"],
+      ["Angular Tutorial", "/docs/nodejs/angular-tutorial"],
+      ["React Tutorial", "/docs/nodejs/reactjs-tutorial"],
+      ["Vue Tutorial", "/docs/nodejs/vuejs-tutorial"],
+      ["Debugging Recipes", "/docs/nodejs/debugging-recipes"],
+      ["Performance Profiling", "/docs/nodejs/profiling"],
+      ["Extensions", "/docs/nodejs/extensions"]
+    ]
+  },
+  {
+    "name": "TypeScript",
+    "area": "typescript",
+    "topics": [
+      ["Tutorial", "/docs/typescript/typescript-tutorial"],
+      ["Transpiling", "/docs/typescript/typescript-transpiling"],
+      ["Editing", "/docs/typescript/typescript-editing"],
+      ["Refactoring", "/docs/typescript/typescript-refactoring"],
+      ["Debugging", "/docs/typescript/typescript-debugging"]
+    ]
+  },
+  {
+    "name": "Python",
+    "area": "python",
+    "topics": [
+      ["Quick Start", "/docs/python/python-quick-start"],
+      ["Tutorial", "/docs/python/python-tutorial"],
+      ["Run Python Code", "/docs/python/run"],
+      ["Editing", "/docs/python/editing"],
+      ["Linting", "/docs/python/linting"],
+      ["Formatting", "/docs/python/formatting"],
+      ["Debugging", "/docs/python/debugging"],
+      ["Environments", "/docs/python/environments"],
+      ["Testing", "/docs/python/testing"],
+      ["Python Interactive", "/docs/python/jupyter-support-py"],
+      ["Django Tutorial", "/docs/python/tutorial-django"],
+      ["FastAPI Tutorial", "/docs/python/tutorial-fastapi"],
+      ["Flask Tutorial", "/docs/python/tutorial-flask"],
+      ["Create Containers", "/docs/python/tutorial-create-containers"],
+      ["Deploy Python Apps", "/docs/python/python-on-azure"],
+      ["Python in the Web", "/docs/python/python-web"],
+      ["Settings Reference", "/docs/python/settings-reference"]
+    ]
+  },
+  {
+    "name": "Java",
+    "area": "java",
+    "topics": [
+      ["Getting Started", "/docs/java/java-tutorial"],
+      ["Navigate and Edit", "/docs/java/java-editing"],
+      ["Refactoring", "/docs/java/java-refactoring"],
+      ["Formatting and Linting", "/docs/java/java-linting"],
+      ["Project Management", "/docs/java/java-project"],
+      ["Build Tools", "/docs/java/java-build"],
+      ["Run and Debug", "/docs/java/java-debugging"],
+      ["Testing", "/docs/java/java-testing"],
+      ["Spring Boot", "/docs/java/java-spring-boot"],
+      ["Modernizing Java Apps", "/docs/java/java-app-mod"],
+      ["Application Servers", "/docs/java/java-tomcat-jetty"],
+      ["Deploy Java Apps", "/docs/java/java-on-azure"],
+      ["GUI Applications", "/docs/java/java-gui"],
+      ["Extensions", "/docs/java/extensions"],
+      ["FAQ", "/docs/java/java-faq"]
+    ]
+  },
+  {
+    "name": "C++",
+    "area": "cpp",
+    "topics": [
+      ["Intro Videos", "/docs/cpp/introvideos-cpp"],
+      ["GCC on Linux", "/docs/cpp/config-linux"],
+      ["GCC on Windows", "/docs/cpp/config-mingw"],
+      ["GCC on Windows Subsystem for Linux", "/docs/cpp/config-wsl"],
+      ["Clang on macOS", "/docs/cpp/config-clang-mac"],
+      ["Microsoft C++ on Windows", "/docs/cpp/config-msvc"],
+      ["Build with CMake", "/docs/cpp/build-with-cmake"],
+      ["CMake Tools on Linux", "/docs/cpp/cmake-linux"],
+      ["CMake Quick Start", "/docs/cpp/cmake-quickstart"],
+      ["C++ Dev Tools for Copilot", "/docs/cpp/cpp-devtools"],
+      ["Editing and Navigating", "/docs/cpp/cpp-ide"],
+      ["Debugging", "/docs/cpp/cpp-debug"],
+      ["Configure Debugging", "/docs/cpp/launch-json-reference"],
+      ["Refactoring", "/docs/cpp/cpp-refactoring"],
+      ["Settings Reference", "/docs/cpp/customize-cpp-settings"],
+      ["Configure IntelliSense", "/docs/cpp/configure-intellisense"],
+      ["Configure IntelliSense for Cross-Compiling", "/docs/cpp/configure-intellisense-crosscompilation"],
+      ["FAQ", "/docs/cpp/faq-cpp"]
+    ]
+  },
+  {
+    "name": "C#",
+    "area": "csharp",
+    "topics": [
+      ["Intro Videos", "/docs/csharp/introvideos-csharp"],
+      ["Get Started", "/docs/csharp/get-started"],
+      ["Navigate and Edit", "/docs/csharp/navigate-edit"],
+      ["IntelliCode", "/docs/csharp/intellicode"],
+      ["Refactoring", "/docs/csharp/refactoring"],
+      ["Formatting and Linting", "/docs/csharp/formatting-linting"],
+      ["Project Management", "/docs/csharp/project-management"],
+      ["Build Tools", "/docs/csharp/build-tools"],
+      ["Package Management", "/docs/csharp/package-management"],
+      ["Run and Debug", "/docs/csharp/debugging"],
+      ["Testing", "/docs/csharp/testing"],
+      ["FAQ", "/docs/csharp/cs-dev-kit-faq"]
+    ]
+  }
+]

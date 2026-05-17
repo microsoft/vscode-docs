@@ -1,0 +1,92 @@
+[
+  {
+    "name": "Configure",
+    "area": "configure",
+    "topics": [
+      ["Display Language", "/docs/configure/locales"],
+      ["Layout", "/docs/configure/custom-layout"],
+      ["Keyboard Shortcuts", "/docs/configure/keybindings"],
+      ["Settings", "/docs/configure/settings"],
+      ["Settings Sync", "/docs/configure/settings-sync"],
+      ["", "", {
+        "name": "Extensions",
+        "area": "configure/extensions",
+        "topics": [
+          ["Extension Marketplace", "/docs/configure/extensions/extension-marketplace"],
+          ["Extension Runtime Security", "/docs/configure/extensions/extension-runtime-security"]
+        ]
+      }],
+      ["Themes", "/docs/configure/themes"],
+      ["Profiles", "/docs/configure/profiles"],
+      ["", "", {
+        "name": "Accessibility",
+        "area": "configure/accessibility",
+        "topics": [
+          ["Overview", "/docs/configure/accessibility/accessibility"],
+          ["Voice Interactions", "/docs/configure/accessibility/voice"]
+        ]
+      }],
+      ["Command Line Interface", "/docs/configure/command-line"],
+      ["Telemetry", "/docs/configure/telemetry"]
+    ]
+  },
+  {
+    "name": "Edit Code",
+    "area": "editing",
+    "topics": [
+      ["Basic Editing", "/docs/editing/codebasics"],
+      ["IntelliSense", "/docs/editing/intellisense"],
+      ["Code Navigation", "/docs/editing/editingevolved"],
+      ["Refactoring", "/docs/editing/refactoring"],
+      ["Snippets", "/docs/editing/userdefinedsnippets"],
+      ["", "", {
+        "name": "Workspaces",
+        "area": "editing/workspaces",
+        "topics": [
+          ["Overview", "/docs/editing/workspaces/workspaces"],
+          ["Multi-Root Workspaces", "/docs/editing/workspaces/multi-root-workspaces"],
+          ["Workspace Trust", "/docs/editing/workspaces/workspace-trust"]
+        ]
+      }]
+    ]
+  },
+  {
+    "name": "Build, Debug, Test",
+    "area": "debugtest",
+    "topics": [
+      ["Tasks", "/docs/debugtest/tasks"],
+      ["Debugging", "/docs/debugtest/debugging"],
+      ["Debug Configuration", "/docs/debugtest/debugging-configuration"],
+      ["Testing", "/docs/debugtest/testing"],
+      ["Port Forwarding", "/docs/debugtest/port-forwarding"],
+      ["Integrated Browser", "/docs/debugtest/integrated-browser"]
+    ]
+  },
+  {
+    "name": "Source Control",
+    "area": "sourcecontrol",
+    "topics": [
+      ["Overview", "/docs/sourcecontrol/overview"],
+      ["Quickstart", "/docs/sourcecontrol/quickstart"],
+      ["Staging & Committing", "/docs/sourcecontrol/staging-commits"],
+      ["Branches & Worktrees", "/docs/sourcecontrol/branches-worktrees"],
+      ["Repositories & Remotes", "/docs/sourcecontrol/repos-remotes"],
+      ["Merge Conflicts", "/docs/sourcecontrol/merge-conflicts"],
+      ["Collaborate on GitHub", "/docs/sourcecontrol/github"],
+      ["Troubleshooting", "/docs/sourcecontrol/troubleshooting"],
+      ["FAQ", "/docs/sourcecontrol/faq"]
+    ]
+  },
+  {
+    "name": "Terminal",
+    "area": "terminal",
+    "topics": [
+      ["Getting Started Tutorial", "/docs/terminal/getting-started"],
+      ["Terminal Basics", "/docs/terminal/basics"],
+      ["Terminal Profiles", "/docs/terminal/profiles"],
+      ["Shell Integration", "/docs/terminal/shell-integration"],
+      ["Appearance", "/docs/terminal/appearance"],
+      ["Advanced", "/docs/terminal/advanced"]
+    ]
+  }
+]
