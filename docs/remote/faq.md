@@ -165,6 +165,10 @@ Follow these steps to configure your environment for this workaround:
 
 You can now connect to the remote by using the [Remote - SSH](https://aka.ms/vscode-remote/download/ssh) extension. On successful connection, VS Code will show a dialog and banner message about the connection not being supported.
 
+### Can I run VS Code Server on 32-bit ARM Linux hosts?
+
+VS Code release 1.122 is the last release that supports running the prebuilt servers on 32-bit ARM Linux hosts. Starting with VS Code release 1.123, you will need to use a supported x86_64 or ARM64 Linux host for remote development.
+
 ### Can I install individual extensions instead of the extension pack?
 
 Yes. The [Remote Development extension pack](https://aka.ms/vscode-remote/download/extension) provides a convenient way for you to access all of the latest remote capabilities as they are released. However, you can always install the individual extensions from the Marketplace or VS Code Extensions view.
