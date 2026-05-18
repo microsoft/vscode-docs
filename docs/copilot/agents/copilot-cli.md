@@ -54,6 +54,8 @@ Copilot CLI supports two types of isolation modes to manage how changes from the
 
 To isolate changes from the Copilot CLI agent and prevent interference with your active work, use **Worktree** isolation. In this mode, VS Code creates a [Git worktree](/docs/sourcecontrol/branches-worktrees.md#understanding-worktrees) in a separate folder for the Copilot CLI session. All changes made by the agent are applied to the worktree, keeping them separate from your main workspace until you're ready to review and apply them.
 
+If you [fork](/docs/copilot/chat/chat-sessions.md#fork-a-chat-session) a Copilot CLI session that uses worktree isolation, the forked session continues to use the same worktree as the original session. VS Code removes the shared worktree only after the last linked session is deleted or archived.
+
 If you want the changes from the Copilot CLI session to be applied directly to your current workspace, you can choose **Workspace** isolation. In this mode, the agent operates directly in your current workspace, and changes are applied in place.
 
 > [!NOTE]
