@@ -11,7 +11,6 @@ The artifacts panel in Visual Studio Code surfaces important resources, such as 
 > [!NOTE]
 > The artifacts panel is currently in preview. To enable it, set `setting(chat.artifacts.enabled)` to `true`.
 
-<!-- TODO: capture screenshot of the unified artifact view showing grouped sources (rules, agent, subagent) -->
 ![Screenshot of the artifacts panel in the Chat view, showing example artifacts such as links, images, and documents.](../images/chat-artifacts/chat-artifacts-list.png)
 
 ## Artifact sources
