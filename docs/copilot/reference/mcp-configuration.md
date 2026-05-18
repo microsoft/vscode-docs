@@ -129,8 +129,18 @@ Use this configuration for servers that communicate over HTTP. VS Code first tri
 | `type` | Yes | Server connection type | `"http"`, `"sse"` |
 | `url` | Yes | URL of the server | `"http://localhost:3000"`, `"https://api.example.com/mcp"` |
 | `headers` | No | HTTP headers for authentication or configuration | `{"Authorization": "Bearer ${input:api-token}"}` |
+| `oauth` | No | OAuth configuration for authenticating with the server | `{"clientId": "12348411142.11062036567072"}` |
 
 In addition to servers available over the network, VS Code can connect to MCP servers listening for HTTP traffic on Unix sockets or Windows named pipes by specifying the socket or pipe path in the form `unix:///path/to/server.sock` or `pipe:///pipe/named-pipe` on Windows. You can specify subpaths by using a URL fragment, such as `unix:///tmp/server.sock#/mcp/subpath`.
+
+The `oauth` object supports the following property:
+
+| Property | Type | Required | Description |
+|----------|------|----------|-------------|
+| `clientId` | string | Yes | The OAuth client ID to use when authenticating with the server. |
+
+> [!NOTE]
+> When `oauth` is configured, VS Code handles the OAuth flow automatically. A browser window opens for authorization on the first connection to the server.
 
 <details>
 <summary>Example remote server configuration</summary>
@@ -143,6 +153,27 @@ This example shows the minimal configuration for a remote MCP server without aut
         "context7": {
             "type": "http",
             "url": "https://mcp.context7.com/mcp"
+        }
+    }
+}
+```
+
+</details>
+
+<details>
+<summary>Example HTTP server with OAuth</summary>
+
+This example shows the configuration for an MCP server that uses OAuth for authentication. On first use, VS Code opens a browser window to complete the OAuth flow.
+
+```json
+{
+    "servers": {
+        "slack": {
+            "type": "http",
+            "url": "https://mcp.slack.com/mcp",
+            "oauth": {
+                "clientId": "12348411142.11062036567072"
+            }
         }
     }
 }
