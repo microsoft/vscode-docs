@@ -151,7 +151,7 @@ The [Agents view](/docs/copilot/agents/overview.md) provides a centralized locat
 | `setting(chat.agentsControl.enabled)` _(Experimental)_<br/>Enable the [session status indicator](/docs/copilot/chat/chat-sessions.md#session-status-indicator-experimental) in the command center. Shows unread and in-progress session badges. | `true` |
 | `setting(chat.agentsControl.clickBehavior)` _(Experimental)_<br/>Configure the behavior when selecting the chat icon in the agent status indicator. | `"cycle"` (Insiders)<br/>`"default"` (Stable) |
 | `setting(chat.unifiedAgentsBar.enabled)` _(Experimental)_<br/>Replace the command center search box with a unified chat and search control. | `false` |
-| `setting(github.copilot.chat.cli.remote.enabled)` _(Experimental)_<br/>Enable remote control support for Copilot CLI sessions from github.com or the GitHub Mobile app. | `true` |
+| `setting(github.copilot.chat.cli.remote.enabled)` <br/>Enable remote control support for Copilot CLI sessions from github.com or the GitHub Mobile app. | `true` |
 
 ## Inline chat settings
 
