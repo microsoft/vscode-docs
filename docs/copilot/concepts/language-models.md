@@ -60,11 +60,23 @@ Learn how to [configure the thinking effort level](/docs/copilot/customization/l
 
 ## Choose the right model
 
-Each model has different strengths. Some are optimized for speed and work well for simple completions. Others have larger context windows or better reasoning capabilities, making them ideal for complex tasks. You can switch models at any time, based on your needs for a particular task.
+Each model has different strengths. Some are optimized for speed and work well for quick edits and simple questions. Others have larger context windows or better reasoning capabilities, making them ideal for complex tasks. As a general guideline:
 
-VS Code also supports **auto model selection**, which automatically selects a model to ensure optimal performance and reduce rate limits. Auto selects from available models and applies a request discount for paid users.
+* **Fast models** are best for quick code edits, boilerplate generation, and straightforward questions.
+* **Reasoning models** excel at complex refactoring, architectural decisions, multi-step debugging, and tasks that require analyzing trade-offs.
+* **Large context models** work well for large codebases or long conversations where retaining more information matters.
 
-Learn more about [choosing and configuring language models](/docs/copilot/customization/language-models.md).
+You can switch models at any time, based on your needs for a particular task. For a detailed comparison, see [Choosing the right AI model for your task](https://docs.github.com/en/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task) in the GitHub Copilot documentation.
+
+### Auto model selection
+
+With auto model selection, VS Code automatically selects a model based on current availability and performance. It detects degraded model performance and routes requests to the best-performing model at that point in time. Auto selects from multiple models and respects your organization's [model access settings](https://docs.github.com/en/copilot/how-tos/use-ai-models/configure-access-to-ai-models). If none of the preferred models are available or you run out of premium requests, auto falls back to a model at 0x multiplier.
+
+### Premium requests and multipliers
+
+Different models consume premium requests at different rates, expressed as a multiplier. For example, a model with a 2x multiplier uses two premium requests per interaction. When you use auto model selection, VS Code applies a variable [model multiplier](https://docs.github.com/en/copilot/concepts/billing/copilot-requests#model-multipliers) based on the selected model. If you are a paid user, auto applies a request discount.
+
+Learn how to [choose and configure language models](/docs/copilot/customization/language-models.md) in VS Code.
 
 ## Related resources
 
