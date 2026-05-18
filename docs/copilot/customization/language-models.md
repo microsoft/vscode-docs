@@ -96,7 +96,7 @@ At any time, you can see which model and model multiplier are used by hovering o
 
 You can use the language models editor to view all available models, choose which models are shown in the model picker, and add more models by adding from built-in providers or from extension-provided model providers.
 
-To open the Language Models editor, open the model picker in the Chat view and select **Manage Models** or run the **Chat: Manage Language Models** command from the Command Palette. The Language Models editor opens by default in a [modal overlay](/docs/getstarted/userinterface.md#modal-editors) on top of the editor area.
+To open the Language Models editor, open the model picker in the Chat view and select **Manage Language Models** (gear icon) or run the **Chat: Manage Language Models** command from the Command Palette. The Language Models editor opens by default in a [modal overlay](/docs/getstarted/userinterface.md#modal-editors) on top of the editor area.
 
 ![Screenshot that shows the Language Models editor.](../images/language-models/language-models-editor.png)
 
@@ -150,7 +150,7 @@ VS Code supports several built-in model providers that you can use to add more m
 
 To configure a language model from a built-in provider:
 
-1. Select **Manage Models** from the language model picker in the Chat view or run the **Chat: Manage Language Models** command from the Command Palette.
+1. Select **Manage Language Models** (gear icon) from the language model picker in the Chat view or run the **Chat: Manage Language Models** command from the Command Palette.
 
 1. In the Language Models editor, select **Add Models**, and then select a model provider from the list.
 
@@ -169,13 +169,100 @@ To configure a language model from a built-in provider:
     For a model to be available when using [agents](/docs/copilot/agents/overview.md), it must support tool calling. If the model doesn't support tool calling, it won't be shown in the model picker.
 
 > [!NOTE]
-> Configuring a custom OpenAI-compatible model is currently only available in [VS Code Insiders](https://code.visualstudio.com/insiders/) as of release 1.104. You can also manually add your OpenAI-compatible model configuration in the `setting(github.copilot.chat.customOAIModels)` setting.
+> The Custom Endpoint provider is currently only available in [VS Code Insiders](https://code.visualstudio.com/insiders/). It replaces the deprecated OpenAI Compatible provider and supports additional API types. The `setting(github.copilot.chat.customOAIModels)` setting is deprecated.
+
+### Add a custom endpoint model
+
+The Custom Endpoint provider lets you connect any compatible API endpoint to chat in VS Code. It supports three API types, which you can select per model:
+
+* **Chat Completions**: for any OpenAI-compatible `/chat/completions` endpoint.
+* **Responses**: for the OpenAI Responses API (`/responses`), which supports reasoning and extended thinking.
+* **Messages**: for the Anthropic Messages API (`/messages`).
+
+To add a model with the Custom Endpoint provider:
+
+1. Select **Manage Language Models** (gear icon) from the language model picker in the Chat view, or run the **Chat: Manage Language Models** command.
+
+1. Select **Add Models**, and then select **Custom Endpoint** from the list.
+
+1. Enter a display name and API key for the endpoint.
+
+1. Select the API type: **Chat Completions**, **Responses**, or **Messages**.
+
+1. VS Code opens a `chatLanguageModels.json` file where you can configure the model details. Update the model properties and save the file.
+
+    The following example shows a Chat Completions configuration for an OpenAI endpoint:
+
+    ```json
+    [
+      {
+        "vendor": "customendpoint",
+        "apiKey": "YOUR_API_KEY",
+        "apiType": "chat-completions",
+        "models": [
+          {
+            "id": "gpt-4o",
+            "name": "GPT-4o",
+            "url": "https://api.openai.com/v1/chat/completions",
+            "toolCalling": true,
+            "vision": true,
+            "maxInputTokens": 128000,
+            "maxOutputTokens": 16000
+          }
+        ]
+      }
+    ]
+    ```
+
+    The following example shows a Messages API configuration for an Anthropic endpoint:
+
+    ```json
+    [
+      {
+        "vendor": "customendpoint",
+        "apiKey": "YOUR_API_KEY",
+        "apiType": "messages",
+        "models": [
+          {
+            "id": "claude-sonnet-4-6",
+            "name": "Claude Sonnet 4.6",
+            "url": "https://api.anthropic.com/v1/messages",
+            "toolCalling": true,
+            "vision": true,
+            "maxInputTokens": 200000,
+            "maxOutputTokens": 64000
+          }
+        ]
+      }
+    ]
+    ```
+
+    Each model in the `models` array supports the following properties:
+
+    | Property | Description |
+    |----------|-------------|
+    | `id` | Model identifier sent to the API. |
+    | `name` | Display name shown in the model picker. |
+    | `url` | Full endpoint URL for the model. |
+    | `apiType` | _(Optional)_ Override the API type per model (`chat-completions`, `responses`, or `messages`). Defaults to the provider-level `apiType`. |
+    | `toolCalling` | Set to `true` if the model supports tool calling. |
+    | `vision` | Set to `true` if the model supports image inputs. |
+    | `maxInputTokens` | Maximum number of input tokens the model accepts. |
+    | `maxOutputTokens` | Maximum number of output tokens the model generates. |
+
+1. Select the model from the model picker in chat.
+
+    > [!TIP]
+    > If the model you added does not immediately appear in the model picker, restart VS Code.
+
+> [!NOTE]
+> The **OpenAI Compatible** provider is deprecated. If you previously used it, switch to the **Custom Endpoint** provider, which supports the same Chat Completions API along with the Responses API and Messages API.
 
 ## Update model provider details
 
 To update the details of a model provider you have configured previously:
 
-1. Select **Manage Models** from the language model picker in the Chat view or run the **Chat: Manage Language Models** command from the Command Palette.
+1. Select **Manage Language Models** (gear icon) from the language model picker in the Chat view or run the **Chat: Manage Language Models** command from the Command Palette.
 
 1. In the Language Models editor, select the gear icon for the model provider you want to update.
 
