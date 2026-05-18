@@ -120,7 +120,7 @@ Hover over a model in the list and select the eye icon to show or hide the model
 ## Bring your own language model key
 
 > [!NOTE]
-> If you are a Copilot Business or Enterprise user, your administrator can disable the **Bring Your Own Language Model Key** policy in the [Copilot policy settings](https://github.com/settings/copilot/features) on GitHub.com.
+> If you are a Copilot Business or Enterprise user, your administrator can disable the **Bring Your Own Language Model Key in VS Code** policy in the [Copilot policy settings](https://github.com/settings/copilot/features) on GitHub.com. For more details, see the [GitHub Copilot documentation](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/use-your-own-api-keys).
 
 GitHub Copilot in VS Code comes with a variety of built-in language models that are optimized for different tasks. If you want to use a model that is not available as a built-in model, you can bring your own language model API key (BYOK) to use models from other providers.
 
@@ -206,7 +206,7 @@ To change the language model that is used for generating inline suggestions in t
 
 ### How do I enable bring your own model key for Copilot Business or Copilot Enterprise?
 
-If you are a Copilot Business or Enterprise user, your organization administrator must enable the **Bring Your Own Language Model Key in VS Code** policy in the [Copilot policy settings](https://github.com/settings/copilot/features) on GitHub.com. After the policy is enabled, you can use your own API keys to add models, just like individual plan users.
+If you are a Copilot Business or Enterprise user, your organization administrator must enable the **Bring Your Own Language Model Key in VS Code** policy in the [Copilot policy settings](https://github.com/settings/copilot/features) on GitHub.com. After the policy is enabled, you can use your own API keys to add models, just like individual plan users. For more details, see the [GitHub Copilot documentation](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/use-your-own-api-keys).
 
 ### Can I use locally hosted models with Copilot in VS Code?
 
