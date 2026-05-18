@@ -117,6 +117,18 @@ Hover over a model in the list and select the eye icon to show or hide the model
 
 ![Screenshot that shows the Language Models editor with the eye icon to show or hide models in the model picker.](../images/language-models/language-models-hide.png)
 
+### Pin favorite models
+
+Pin models to keep them in a fixed position at the top of the model picker. Pinned models appear in a dedicated **Pinned** section and don't shift around as you use other models.
+
+To pin or unpin a model:
+
+1. Open the model picker in the chat input field.
+
+1. Hover over a model and select the pin icon to add it to the **Pinned** section.
+
+1. To unpin a model, hover over it in the **Pinned** section and select the unpin icon.
+
 ## Bring your own language model key
 
 > [!NOTE]
