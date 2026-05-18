@@ -348,4 +348,5 @@ OTel monitoring is off by default and emits no data until you explicitly enable 
 - [Copilot settings reference](/docs/copilot/reference/copilot-settings.md)
 - [Troubleshoot AI in VS Code](/docs/copilot/troubleshooting.md)
 - [OTel GenAI Semantic Conventions](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/gen-ai/)
+- [Inside the LLM Call: GenAI Observability with OpenTelemetry](https://opentelemetry.io/blog/2026/genai-observability/)
 - [Aspire Dashboard standalone docs](https://aspire.dev/dashboard/standalone/)
