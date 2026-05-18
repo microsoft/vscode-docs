@@ -78,6 +78,26 @@ Different models consume premium requests at different rates, expressed as a mul
 
 Learn how to [choose and configure language models](/docs/copilot/customization/language-models.md) in VS Code.
 
+## Bring your own language model key
+
+If the built-in models don't meet your needs, you can bring your own language model API key (BYOK) to use models from other providers or to run models locally. BYOK lets you connect to any compatible model provider while still using the VS Code chat experience and tools.
+
+### Why bring your own key
+
+* **Model choice**: access hundreds of models from different providers, beyond the built-in models.
+* **Experimentation**: try new models or features that are not yet available in the built-in models.
+* **Local compute**: use your own compute for one of the models already supported in GitHub Copilot or to run models not yet available.
+* **Greater control**: bypass the standard rate limits and restrictions imposed on the built-in models.
+
+### Considerations
+
+* BYOK only applies to the chat experience and doesn't affect inline suggestions or other AI-powered features in VS Code.
+* Capabilities are model-dependent and might differ from the built-in models, for example, support for tool calling, vision, or thinking.
+* The Copilot service API is still used for some tasks, such as sending embeddings and repository indexing.
+* There is no guarantee that responsible AI filtering is applied to the model's output when using BYOK.
+
+Learn how to [add your own language model key](/docs/copilot/customization/language-models.md#bring-your-own-language-model-key) in VS Code.
+
 ## Related resources
 
 * [Context](/docs/copilot/concepts/context.md)
