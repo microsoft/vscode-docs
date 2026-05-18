@@ -153,7 +153,7 @@ VS Code provides different options to add more models:
 
 * Only applies to the chat experience and doesn't affect inline suggestions or other AI-powered features in VS Code.
 * Capabilities are model-dependent and might differ from the built-in models, for example, support for tool calling, vision, or thinking.
-* The Copilot service API is still used for some tasks, such as sending embeddings, repository indexing, query refinement, intent detection, and side queries.
+* The Copilot service API is still used for some tasks, such as sending embeddings and repository indexing. You can override the models used for other background utility tasks (such as title generation and intent detection) with the `setting(chat.utilityModel)` and `setting(chat.utilitySmallModel)` [settings](#change-the-model-for-utility-tasks).
 * There is no guarantee that responsible AI filtering is applied to the model's output when using BYOK.
 
 ### Add a model from a built in provider
@@ -300,6 +300,17 @@ To change the language model that is used for generating inline suggestions in t
 
 > [!NOTE]
 > The models that are available for inline suggestions might evolve over time as we add support for more models.
+
+## Change the model for utility tasks
+
+In addition to the main chat model, VS Code uses lightweight models in the background for utility tasks such as generating titles, creating commit messages, and detecting intent. By default, these tasks use built-in utility models provided by GitHub Copilot. You can override which model is used for these tasks with any available model, including [BYOK](#bring-your-own-language-model-key) and extension-provided models.
+
+There are two settings for utility models, depending on the type of task:
+
+* `setting(chat.utilityModel)`: Override the model used for general utility flows, such as generating titles and summaries, settings search, and Git review.
+* `setting(chat.utilitySmallModel)`: Override the model used for fast, lightweight utility flows, such as commit messages, rename suggestions, branch name generation, prompt categorization, and intent detection. A fast and inexpensive model is recommended for this setting.
+
+Both settings default to **Default**, which uses the built-in utility model from GitHub Copilot.
 
 ## Frequently asked questions
 
