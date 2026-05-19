@@ -93,6 +93,12 @@ If you prefer to switch to indentation based folding for HTML use:
 },
 ```
 
+## Preview HTML files in the Integrated Browser
+
+You can preview HTML files in the [Integrated Browser](/docs/debugtest/integrated-browser.md) inside VS Code.
+
+To open an HTML file in the Integrated Browser, right-click the file in the File Explorer or the editor tab and select **Open in Integrated Browser**.
+
 ## Formatting
 
 To improve the formatting of your HTML source code, you can use the **Format Document** command `kb(editor.action.formatDocument)` to format the entire file or **Format Selection** `kb(editor.action.formatSelection)` to just format the selected text.
@@ -118,7 +124,8 @@ The HTML formatter is based on [js-beautify](https://www.npmjs.com/package/js-be
 * `setting(html.format.templating)`: Honor django, erb, handlebars and php templating language tags.
 * `setting(html.format.unformattedContentDelimiter)`: Keep text content together between this string.
 
->**Tip:** The formatter doesn't format the tags listed in the `setting(html.format.unformatted)` and `setting(html.format.contentUnformatted)` settings. Embedded JavaScript is formatted unless 'script' tags are excluded.
+> [!TIP]
+> The formatter doesn't format the tags listed in the `setting(html.format.unformatted)` and `setting(html.format.contentUnformatted)` settings. Embedded JavaScript is formatted unless 'script' tags are excluded.
 
 The Marketplace has several alternative formatters to choose from. If you want to use a different formatter, define
 `"html.format.enable": false` in your settings to turn off the built-in formatter.
@@ -129,7 +136,8 @@ VS Code supports [Emmet snippet](https://emmet.io/) expansion. Emmet abbreviatio
 
 ![Emmet HTML support built-in](images/html/emmetsnippet.gif)
 
->**Tip:** See the HTML section of the [Emmet cheat sheet](https://docs.emmet.io/cheat-sheet) for valid abbreviations.
+> [!TIP]
+> See the HTML section of the [Emmet cheat sheet](https://docs.emmet.io/cheat-sheet) for valid abbreviations.
 
 If you'd like to use HTML Emmet abbreviations with other languages, you can associate one of the Emmet modes (such as `css`, `html`) with other languages with the `setting(emmet.includeLanguages)` [setting](/docs/configure/settings.md). The setting takes a [language identifier](/docs/languages/overview.md#language-identifier) and associates it with the language ID of an Emmet supported mode.
 
@@ -157,7 +165,8 @@ Install an extension to add more functionality. Go to the **Extensions** view (`
 
 <div class="marketplace-extensions-html-curated"></div>
 
-> Tip: Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
+> [!TIP]
+> Select an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
 
 ## Next steps
 
@@ -166,9 +175,3 @@ Read on to find out about:
 * [CSS, SCSS, and Less](/docs/languages/css.md) - VS Code has first class support for CSS including Less and SCSS.
 * [Emmet](/docs/languages/emmet.md) - Learn about VS Code's powerful built-in Emmet support.
 * [Emmet official documentation](https://docs.emmet.io/) - Emmet, the essential toolkit for web-developers.
-
-## Common questions
-
-### Does VS Code have HTML preview?
-
-No, VS Code doesn't have built-in support for HTML preview but there are extensions available in the VS Code [Marketplace](https://marketplace.visualstudio.com/vscode). Open the **Extensions** view (`kb(workbench.view.extensions)`) and search on 'live preview' or 'html preview' to see a list of available HTML preview extensions.
