@@ -289,6 +289,28 @@ Markdown diff previews support both side-by-side and inline layouts, like text d
 
 In a side-by-side preview, the two editors stay scroll-synced to keep matching content lined up as you scroll. Changed lines are highlighted, and changes within a line are highlighted more strongly to call out the exact word or phrase that was modified.
 
+### Mermaid diagram rendering
+
+VS Code's built-in Markdown preview renders [Mermaid](https://mermaid.js.org) diagrams in `mermaid` fenced code blocks.
+
+````markdown
+```mermaid
+flowchart LR
+  Sleep[Sleep] --> Wake{Awake?}
+  Wake -->|No| Sleep
+  Wake -->|Hungry| Snack[Get treat]
+  Wake -->|Not in sunbeam| Move[Move to sunbeam]
+  Wake -->|Human is typing| Keyboard[Sleep on keyboard]
+  Snack --> Sleep
+  Move --> Sleep
+  Keyboard --> Sleep
+```
+````
+
+In the rendered preview, you can pan and zoom larger diagrams to inspect them in place. By default, mouse navigation uses `kbstyle(Alt)` (`kbstyle(Option)` on macOS): hold it and drag to pan, scroll to zoom, or click the diagram to zoom in. Hold `kbstyle(Alt)`+`kbstyle(Shift)` and click to zoom out. You can also use a pinch gesture to zoom without holding `kbstyle(Alt)`.
+
+Hover over or focus the diagram to show controls for toggling pan mode, zooming in, zooming out, and resetting pan and zoom. Open the context menu for a rendered diagram and select **Copy Diagram Source** to copy its Mermaid source.
+
 ### Math formula rendering
 
 VS Code's built-in Markdown preview renders math equations using [KaTeX](https://katex.org/).
