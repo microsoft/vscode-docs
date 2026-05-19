@@ -1,9 +1,9 @@
 {
   "featured": {
-    "title": "Orchestrate agents across all your projects",
-    "description": "Designed for agent-first development, use the Agents window to direct agents across multiple projects. See all your sessions in one place and easily switch between them.",
-    "link": "/updates/v1_120",
-    "image": "/assets/updates/1_120/release-highlights.webp"
+    "title": "Manage your agents remotely",
+    "description": "Run and manage agents on remote machines, built-in previewing of HTML and Mermaid diagrams, and terminal optimizations.",
+    "link": "/updates/v1_121",
+    "image": "/assets/updates/1_121/release-highlights.webp"
   },
   "highlights": [
     {
