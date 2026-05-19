@@ -22,6 +22,16 @@ To successfully complete this tutorial, you need to first set up your Python dev
 - [VS Code](https://code.visualstudio.com/)
 - [VS Code Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) (For additional details on installing extensions, see [Extension Marketplace](/docs/configure/extensions/extension-marketplace.md))
 
+## Understanding the Python development stack
+
+If you are new to programming, you might wonder why you need to install multiple things. It helps to understand the three distinct components of your setup:
+
+* **Visual Studio Code (The Editor)**: This is your workspace—a powerful text editor where you write, read, and manage your code files. It does not run your code on its own.
+* **The Python Extension (The Helper)**: This is an add-on you install inside VS Code. It teaches the editor how to understand Python, providing features like autocomplete (IntelliSense), code formatting, and debugging tools.
+* **The Python Interpreter (The Runner)**: This is the actual engine installed on your computer that reads your Python code and translates it so your computer can execute it.
+
+Think of VS Code as a kitchen, the Python extension as the recipe book that helps you cook, and the Python interpreter as the stove that actually cooks the food.
+
 ## Install a Python interpreter
 
 Along with the Python extension, you need to install a Python interpreter. Which interpreter you use is dependent on your specific needs, but some guidance is provided below.
@@ -62,6 +72,12 @@ The built-in Python 3 installation on Linux works well, but to install other Pyt
 >```
 >If the installation was successful, the output window should show the version of Python that you installed.
 >Alternatively, you can use the `py -0` command in the VS Code integrated terminal to view the versions of python installed on your machine. The default interpreter is identified by an asterisk (*).
+
+> [!NOTE]
+> **What is a "Shell" or "Terminal"?**
+> You will often see references to a "shell" or "terminal prompt" in programming guides. A shell (or terminal) is a text-based interface that allows you to run commands on your computer (like Command Prompt or PowerShell on Windows, and Terminal on macOS or Linux). 
+>
+> **Why restart it?** When you install Python for the first time, your computer updates its internal list of available tools (called the `PATH` environment variable). To make sure your terminal/shell detects the newly installed Python interpreter, you must **restart** it. You can do this simply by closing your current VS Code window or terminal application, and opening a new one.
 
 ## Start VS Code in a workspace folder
 
