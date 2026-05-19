@@ -122,6 +122,9 @@ The Copilot CLI session starts automatically, carrying over the full conversatio
 
 The `"/remote on"` command lets you remote control a Copilot CLI session from github.com or the GitHub Mobile app. With remote control, you can monitor and steer your ongoing Copilot CLI sessions from anywhere, giving you more flexibility to keep work moving without being tied to your machine. You keep the full session context and history in sync across both VS Code and GitHub.
 
+> [!TIP]
+> Remote control is one of two ways to run agent sessions remotely. You can also connect the [Agents window](/docs/copilot/agents/agents-window.md) to a remote machine over SSH or a dev tunnel. Learn more about [remote agent sessions](/docs/copilot/concepts/agents.md#remote-agent-sessions).
+
 When remote control is enabled, VS Code streams the session history, tool activity, and status updates to the linked GitHub task page in real time. Actions you take in one place are reflected in the other. If the session requires approval for a tool call or input for a question, the prompt is shown in both places and you can respond from either location.
 
 To use remote control for a Copilot CLI session:

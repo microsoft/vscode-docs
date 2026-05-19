@@ -80,7 +80,7 @@ VS Code lets you work with agents the way that fits your workflow, with two main
 * **Editor window**: stay in the main VS Code window when you're writing code and want AI to assist alongside the editor, debugger, and extensions.
 * **[Agents window](/docs/copilot/agents/agents-window.md) (Preview)**: switch to an agent-first surface when you want to think in prompts and orchestrate agent sessions across multiple projects, with a Changes panel for reviewing edits and direct access to your AI customizations (agents, skills, instructions, hooks, MCP servers) from a single sidebar panel.
 
-Both surfaces share agent sessions and VS Code configuration (like settings and keybindings), making transitions smooth. Open the Agents window with the **Open in Agents** button in the title bar.
+Both surfaces share agent sessions and VS Code configuration (like settings and keybindings), making transitions smooth. Open the Agents window with the **Open in Agents** button in the title bar. You can also connect the Agents window to a remote machine over SSH or a dev tunnel, and [monitor sessions from a browser](https://insiders.vscode.dev/agents) on any device. Learn more about [remote agent sessions](/docs/copilot/concepts/agents.md#remote-agent-sessions).
 
 Learn more about the [Agents window](/docs/copilot/agents/agents-window.md).
 

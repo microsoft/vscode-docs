@@ -174,7 +174,7 @@ If you want to run terminal commands in the context of the current session, sele
 
 You can connect to a remote machine to start a session there or track the progress of an existing session running on that machine. This is useful when you're away from your main development machine but still want to check in on your agent's work, or to take advantage of the remote machine's resources, such as specialized hardware or a specific environment configuration.
 
-The Agents window connects to the remote machine using the Agent Host Protocol (AHP) over SSH or a dev tunnel. When you connect, the Agents window automatically installs and starts the Copilot CLI on the remote machine. This also means that the remote machine must be powered on and accessible over the network.
+The Agents window connects to the remote machine using the [Agent Host Protocol (AHP)](https://microsoft.github.io/agent-host-protocol/) over SSH or a dev tunnel. When you connect, the Agents window automatically installs and starts the VS Code CLI on the remote machine. This also means that the remote machine must be powered on and accessible over the network.
 
 ### Connect via SSH
 

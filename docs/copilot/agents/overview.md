@@ -29,7 +29,9 @@ VS Code lets you work with agents the way that fits your workflow, with two surf
 
 Both surfaces share the same sessions, settings, and keybindings, so you can pick your path without committing to one or the other.
 
-Agents can run on your machine, in a remote cloud environment, or through a third-party provider like Anthropic or OpenAI. You decide how much autonomy to give them, from approving every tool call to letting them work fully on their own, and you can create custom agents to tailor their behavior to your project. You monitor and interact with all your sessions from a single [sessions list](/docs/copilot/chat/chat-sessions.md#sessions-list), regardless of where they run.
+Agents can run on your machine, in a remote cloud environment, or through a third-party provider like Anthropic or OpenAI. You can also run agent sessions on a remote machine you own and monitor them from anywhere, whether from the [Agents window](/docs/copilot/agents/agents-window.md), a [browser](https://insiders.vscode.dev/agents), or your phone. Sessions keep running on the remote even when you disconnect, so you can close your laptop and check back later. Learn more about [remote agent sessions](/docs/copilot/concepts/agents.md#remote-agent-sessions).
+
+You decide how much autonomy to give agents, from approving every tool call to letting them work fully on their own, and you can create custom agents to tailor their behavior to your project. You monitor and interact with all your sessions from a single [sessions list](/docs/copilot/chat/chat-sessions.md#sessions-list), regardless of where they run.
 
 <div class="docs-action" data-show-in-doc="true" data-show-in-sidebar="true" title="How agents work">
 Understand the agent loop, how agents plan and execute tasks, and how memory and subagents work.
