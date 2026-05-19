@@ -97,7 +97,9 @@ If you prefer to switch to indentation based folding for HTML use:
 
 You can preview HTML files in the [Integrated Browser](/docs/debugtest/integrated-browser.md) inside VS Code.
 
-To open an HTML file in the Integrated Browser, right-click the file in the File Explorer or the editor tab and select **Open in Integrated Browser**.
+To open an HTML file in the Integrated Browser, right-click the file in the File Explorer or the editor tab and select **Open in Integrated Browser**. You can also select the **Show Preview** icon in the editor title bar when an HTML file is active.
+
+As you modify the HTML file, the preview updates in real time to reflect your changes.
 
 ## Formatting
 
