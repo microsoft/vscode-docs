@@ -13,6 +13,8 @@ When you create a C# application in Visual Studio Code, you start with a **proje
 
 The new C# Dev Kit extension contains a new view in the Primary Sidebar, the **Solution Explorer**. This view provides a structured view of your application, its solutions, and its projects for effortless, central project management. When you open a Workspace that contains .NET solution files or project files, the Solution Explorer will automatically appear.
 
+> **Tip**: If the Solution Explorer section is not visible in the Explorer pane, you can enable it manually. Open the **Explorer** view, select the **Views and More Actions** (`...`) button in the Explorer title bar, and check **Solution Explorer** to toggle it on. Note that right-clicking the Activity Bar does not control this specific view.
+
 If you have a single solution file (.sln file) in the workspace, the Solution Explorer will detect that file and automatically load it after the workspace is loaded. For example, take a look at the animation below showing the experience of opening a workspace with a single solution file.
 
 ![Open workspace with 1 solution file](images/project-management/open-workspace-1-sln-file.gif)
