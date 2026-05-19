@@ -4,12 +4,12 @@
   "features": [
     {
       "icon": "hubot",
-      "title": "Agents Window (Preview)",
+      "title": "Agents window (preview)",
       "description": "The Agents window is built for agent-driven development across multiple projects and sessions."
     },
     {
       "icon": "markdown",
-      "title": "Built-in Mermaid Diagrams",
+      "title": "Built-in Mermaid diagrams",
       "description": "Mermaid diagrams now render natively in the Markdown preview, notebook Markdown cells, and chat."
     }
   ],
@@ -20,7 +20,7 @@
       "style": "primary"
     },
     {
-      "label": "Release Notes",
+      "label": "Show Release Notes",
       "commandId": "update.showCurrentReleaseNotes",
       "style": "secondary",
       "args": ["1.121.0"]
