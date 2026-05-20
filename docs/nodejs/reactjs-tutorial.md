@@ -1,6 +1,6 @@
 ---
 ContentId: 2dd2eeff-2eb3-4a0c-a59d-ea9a0b10c468
-DateApproved: 5/13/2026
+DateApproved: 5/20/2026
 MetaDescription: React JavaScript tutorial showing IntelliSense, debugging, and code navigation support in the Visual Studio Code editor.
 ---
 # Using React in Visual Studio Code

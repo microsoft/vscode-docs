@@ -379,6 +379,7 @@
 { "key": "cmd+i",                 "command": "toggleSuggestionDetails" },
 { "key": "ctrl+space",            "command": "toggleSuggestionDetails" },
 { "key": "ctrl+alt+space",        "command": "toggleSuggestionFocus" },
+{ "key": "shift+tab",             "command": "jumpToPrevSnippetPlaceholder" },
 { "key": "enter",                 "command": "acceptRenameInput" },
 { "key": "cmd+enter",             "command": "acceptRenameInputWithPreview" },
 { "key": "shift+escape",          "command": "cancelLinkedEditingInput" },

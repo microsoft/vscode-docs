@@ -1,7 +1,7 @@
 ---
 ContentId: 33e63aa1-1d8f-4d23-9733-1475f8c9f502
-DateApproved: 5/13/2026
-MetaDescription: Learn how to choose between different AI language models and how to use your own language model API key in Visual Studio Code.
+DateApproved: 5/20/2026
+MetaDescription: Configure AI language models in VS Code, change chat and inline models, set thinking effort, and bring your own API key.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - language models
@@ -14,45 +14,35 @@ Keywords:
 ---
 # AI language models in VS Code
 
-Visual Studio Code offers different built-in language models that are optimized for different tasks. You can also bring your own language model API key to use models from other providers.
+Visual Studio Code gives you access to multiple built-in language models, each optimized for different tasks. You can switch models for chat, inline suggestions, and utility tasks, and you can add more models by bringing your own API key.
 
-For background on how language models work and their key characteristics, see [Language models concepts](/docs/copilot/concepts/language-models.md).
+For background on how language models work, their characteristics, and how to choose the right model, see [Language models concepts](/docs/copilot/concepts/language-models.md).
 
-This article describes how to change the language model for chat or inline suggestions and how to use your own API key.
+## Change the model for chat
 
-## Choose the right model for your task
+Use the language model picker in the chat input field to change the model for chat conversations and code editing.
 
-By default, chat uses a base model to provide fast, capable responses for a wide range of tasks, such as coding, summarization, knowledge-based questions, reasoning, and more.
+![Screenshot that shows the model picker in the Chat view.](../images/language-models/model-dropdown-change-model-v2.png)
 
-However, you are not limited to using only this model. You can choose from a [selection of language models](https://docs.github.com/en/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat#ai-models-for-copilot-chat-1), each with its own particular strengths. As a general guideline, use a fast model for quick edits and simple questions, and a reasoning model for complex refactoring, architectural decisions, or multi-step tasks. For a detailed comparison, see [Choosing the right AI model for your task](https://docs.github.com/en/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task) in the GitHub Copilot documentation.
+Different models have different strengths. Use a fast model for quick edits and simple questions, and a reasoning model for complex refactoring, architectural decisions, or multi-step tasks. Depending on the [type of agent](/docs/copilot/concepts/agents.md#agent-types) you are using, the list of available models might differ.
 
-Depending on the [agent](/docs/copilot/customization/custom-agents.md) you are using, the list of available models might be different. For example, in agent mode, the list of models is limited to those that have good support for tool calling.
-
-> [!NOTE]
-> If you are a Copilot Business or Enterprise user, your administrator needs to enable certain models for your organization by opting in to `Editor Preview Features` in the [Copilot policy settings](https://docs.github.com/en/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) on GitHub.com.
-
-## Change the model for chat conversations
-
-Use the language model picker in the chat input field to change the model that is used for chat conversations and code editing.
-
-![Screenshot that shows the model picker in the Chat view.](../images/language-models/model-dropdown-change-model.png)
+You can further extend the list of available models by [using your own language model API key](#bring-your-own-language-model-key).
 
 > [!TIP]
 > Install the AI Toolkit extension to add more language models to enhance GitHub Copilot capabilities.
 >
 > For more information, see [Change the chat model](https://docs.github.com/en/copilot/how-tos/use-ai-models/change-the-chat-model#adding-more-models).
 
-You can further extend the list of available models by [using your own language model API key](#bring-your-own-language-model-key).
-
-If you have a paid Copilot plan, the model picker shows the premium request multiplier for premium models. Learn more about [premium requests](https://docs.github.com/en/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests#premium-requests) in the GitHub Copilot documentation.
+> [!NOTE]
+> If you are a Copilot Business or Enterprise user, your administrator needs to enable certain models for your organization by opting in to `Editor Preview Features` in the [Copilot policy settings](https://docs.github.com/en/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) on GitHub.com.
 
 ## Configure thinking effort
 
-Some models support configurable thinking effort. Thinking effort controls how much reasoning the model applies to each request. Use a higher effort level for complex tasks like architectural decisions or multi-step debugging, and a lower level for straightforward code generation or simple questions. For background on how thinking and reasoning work, see [Thinking and reasoning](/docs/copilot/concepts/language-models.md#thinking-and-reasoning).
+Some models support configurable thinking effort, which controls how much reasoning the model applies to each request. For background on thinking and reasoning, see [Thinking and reasoning](/docs/copilot/concepts/language-models.md#thinking-and-reasoning).
 
-VS Code sets recommended default effort levels based on evaluations and online performance data, and has adaptive reasoning enabled. Adaptive reasoning lets the model dynamically determine when and how much to think based on the complexity of each request. For most use cases, the defaults work well and you don't need to change them.
+By default, VS Code sets recommended effort levels and has adaptive reasoning enabled, where the model dynamically determines how much to think based on the complexity of each request. For most use cases, the defaults work well.
 
-You can configure the thinking effort directly from the model picker:
+To configure the thinking effort:
 
 1. Open the model picker in the chat input field and select a reasoning model.
 
@@ -68,35 +58,24 @@ You can configure the thinking effort directly from the model picker:
 The model picker label updates to show the selected effort level, for example "Claude Sonnet 4.6 · High". The effort level persists across conversations for the same model.
 
 > [!NOTE]
-> The `setting(github.copilot.chat.anthropic.thinking.effort)` and `setting(github.copilot.chat.responsesApiReasoningEffort)` settings are deprecated. You should configure thinking effort directly via the language model picker.
+> The `setting(github.copilot.chat.anthropic.thinking.effort)` and `setting(github.copilot.chat.responsesApiReasoningEffort)` settings are deprecated. Configure thinking effort directly from the language model picker.
 
-## Auto model selection
+## Use auto model selection
 
-> [!NOTE]
-> Auto model selection is available as of VS Code release 1.104.
+With auto model selection, VS Code automatically selects the best-performing model and reduces rate limits from excessive usage of a single model. For background on how auto model selection works, see [Auto model selection](/docs/copilot/concepts/language-models.md#auto-model-selection).
 
-With auto model selection, VS Code automatically selects a model to ensure that you get the optimal performance and reduce rate limits due to excessive usage of particular language models. It detects degraded model performance and uses the best model at that point in time. We continue to improve this feature to pick the most suitable model for your needs.
+To use auto model selection, select **Auto** from the model picker in chat. You can see which model is used for generating a response by hovering over the chat response.
 
-To use auto model selection, select **Auto** from the model picker in chat.
-
-Currently, auto chooses between Claude Sonnet 4, GPT-5, GPT-5 mini and other models. If your organization has [opted out of certain models](https://docs.github.com/en/copilot/how-tos/use-ai-models/configure-access-to-ai-models), auto will not select those models. If none of these models are available or you run out of premium requests, auto will fall back to a model at 0x multiplier.
+![Screenshot of a chat response, showing the selected model on hover.](../images/language-models/chat-response-selected-model.png)
 
 > [!IMPORTANT]
 > **Starting April 20, 2026**, new sign-ups for Copilot Pro, Copilot Pro+, and student plans are temporarily paused. Additionally, we are tightening weekly usage limits. If you hit a weekly limit and you have premium requests remaining, you can continue using Copilot with auto model selection. See [GitHub Copilot usage limits](https://docs.github.com/copilot/concepts/usage-limits).
-
-### Multiplier discounts
-
-When using auto model selection, VS Code uses a variable [model multiplier](https://docs.github.com/en/copilot/concepts/billing/copilot-requests#model-multipliers), based on the selected model. If you are a paid user, auto will apply a request discount.
-
-At any time, you can see which model and model multiplier are used by hovering over the chat response.
-
-![Screenshot of a chat response, showing the selected model on hover.](../images/language-models/chat-response-selected-model.png)
 
 ## Manage language models
 
 You can use the language models editor to view all available models, choose which models are shown in the model picker, and add more models by adding from built-in providers or from extension-provided model providers.
 
-To open the Language Models editor, open the model picker in the Chat view and select **Manage Models** or run the **Chat: Manage Language Models** command from the Command Palette. The Language Models editor opens by default in a [modal overlay](/docs/getstarted/userinterface.md#modal-editors) on top of the editor area.
+To open the Language Models editor, open the model picker in the Chat view and select **Manage Language Models** (gear icon) or run the **Chat: Manage Language Models** command from the Command Palette. The Language Models editor opens by default in a [modal overlay](/docs/getstarted/userinterface.md#modal-editors) on top of the editor area.
 
 ![Screenshot that shows the Language Models editor.](../images/language-models/language-models-editor.png)
 
@@ -117,32 +96,32 @@ Hover over a model in the list and select the eye icon to show or hide the model
 
 ![Screenshot that shows the Language Models editor with the eye icon to show or hide models in the model picker.](../images/language-models/language-models-hide.png)
 
+### Pin favorite models
+
+Pin models to keep them in a fixed position at the top of the model picker. Pinned models appear in a dedicated **Pinned** section and don't shift around as you use other models.
+
+To pin or unpin a model:
+
+1. Open the model picker in the chat input field.
+
+1. Hover over a model and select the pin icon to add it to the **Pinned** section.
+
+1. To unpin a model, hover over it in the **Pinned** section and select the unpin icon.
+
 ## Bring your own language model key
 
-> [!NOTE]
-> If you are a Copilot Business or Enterprise user, your administrator can disable the **Bring Your Own Language Model Key** policy in the [Copilot policy settings](https://github.com/settings/copilot/features) on GitHub.com.
+If you want to use a model that is not available as a built-in model or want to control the model hosting, you can bring your own language model API key (BYOK) to use models from other providers or to run models locally. For background on why you might bring your own key and what to consider, see [Bring your own language model key](/docs/copilot/concepts/language-models.md#bring-your-own-language-model-key).
 
-GitHub Copilot in VS Code comes with a variety of built-in language models that are optimized for different tasks. If you want to use a model that is not available as a built-in model, you can bring your own language model API key (BYOK) to use models from other providers.
-
-Using your own language model API key in VS Code has several benefits:
-
-* **Model choice**: access hundreds of models from different providers, beyond the built-in models.
-* **Experimentation**: experiment with new models or features that are not yet available in the built-in models.
-* **Local compute**: use your own compute for one of the models already supported in GitHub Copilot or to run models not yet available.
-* **Greater control**: by using your own key, you can bypass the standard rate limits and restrictions imposed on the built-in models.
+You can also use these models to [override the models used for background utility tasks](#configure-models-for-other-features) (such as title generation and intent detection).
 
 VS Code provides different options to add more models:
 
-* Use one of the [built-in model providers](#add-a-model-from-a-built-in-provider)
+* **Built-in providers**: connect to cloud model providers like Microsoft Azure, Anthropic, Google Gemini, OpenAI, and others. See [Add a model from a built-in provider](#add-a-model-from-a-built-in-provider).
+* **Custom endpoint** _(VS Code Insiders)_: connect any OpenAI-compatible, Responses API, or Anthropic Messages API endpoint, including self-hosted or enterprise endpoints. See [Add a custom endpoint model](#add-a-custom-endpoint-model).
+* **Extensions**: install a language model provider extension from the Visual Studio Marketplace. See [Add a model provider extension](#add-a-model-provider-extension).
 
-* Install a [language model provider extension](https://marketplace.visualstudio.com/search?term=tag%3Alanguage-models&target=VSCode&category=All%20categories&sortBy=Relevance) from the Visual Studio Marketplace, for example, [AI Toolkit for VS Code with Foundry Local](https://aka.ms/AIToolkit)
-
-### Considerations when using bring your own model key
-
-* Only applies to the chat experience and doesn't affect inline suggestions or other AI-powered features in VS Code.
-* Capabilities are model-dependent and might differ from the built-in models, for example, support for tool calling, vision, or thinking.
-* The Copilot service API is still used for some tasks, such as sending embeddings, repository indexing, query refinement, intent detection, and side queries.
-* There is no guarantee that responsible AI filtering is applied to the model's output when using BYOK.
+> [!NOTE]
+> If you are a Copilot Business or Enterprise user, your administrator can disable the **Bring Your Own Language Model Key in VS Code** policy in the [Copilot policy settings](https://github.com/settings/copilot/features) on GitHub.com. For more details, see the [GitHub Copilot documentation](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/use-your-own-api-keys).
 
 ### Add a model from a built in provider
 
@@ -150,40 +129,109 @@ VS Code supports several built-in model providers that you can use to add more m
 
 To configure a language model from a built-in provider:
 
-1. Select **Manage Models** from the language model picker in the Chat view or run the **Chat: Manage Language Models** command from the Command Palette.
+1. Select **Manage Language Models** (gear icon) from the language model picker in the Chat view or run the **Chat: Manage Language Models** command from the Command Palette.
 
 1. In the Language Models editor, select **Add Models**, and then select a model provider from the list.
 
-    ![Screenshot that shows the model provider Quick Pick.](../images/language-models/model-provider-quick-pick.png)
+    ![Screenshot that shows the model provider Quick Pick.](../images/language-models/model-provider-quick-pick-v2.png)
 
-1. Enter the provider-specific details, such as the API key or endpoint URL.
+1. Enter the provider-specific and model-specific details, such as the API key or endpoint URL.
 
-1. Depending on the provider, enter the model details or select a model from the list.
+1. After configuring the model, you can now select it from the model picker in chat.
 
-    The following screenshot shows the model picker for Ollama running locally, with the Phi-4 model deployed.
+    For a model to be available when using agents in chat, it must support tool calling. If the model doesn't support tool calling, it won't be shown in the model picker.
 
-    ![Screenshot that shows the model picker of Ollama running locally, allowing you to select a model from the list of available models.](../images/language-models/ollama-installed-models-quick-pick.png)
-
-1. You can now select the model from the model picker in chat.
-
-    For a model to be available when using [agents](/docs/copilot/agents/overview.md), it must support tool calling. If the model doesn't support tool calling, it won't be shown in the model picker.
+### Add a custom endpoint model
 
 > [!NOTE]
-> Configuring a custom OpenAI-compatible model is currently only available in [VS Code Insiders](https://code.visualstudio.com/insiders/) as of release 1.104. You can also manually add your OpenAI-compatible model configuration in the `setting(github.copilot.chat.customOAIModels)` setting.
+> The Custom Endpoint provider is currently only available in [VS Code Insiders](https://code.visualstudio.com/insiders/). It replaces the deprecated OpenAI Compatible provider and supports additional API types. The `setting(github.copilot.chat.customOAIModels)` setting is deprecated.
+
+The Custom Endpoint provider lets you connect any compatible API endpoint to chat in VS Code. It supports three API types, which you can select per model: Chat Completions, Responses, and Messages.
+
+To add a model with the Custom Endpoint provider:
+
+1. Select **Manage Language Models** (gear icon) from the language model picker in the Chat view, or run the **Chat: Manage Language Models** command.
+
+1. In the Language Models editor, select **Add Models**, and then select **Custom Endpoint** from the list.
+
+1. Enter a display name and API key for the endpoint.
+
+1. Select the API type: **Chat Completions**, **Responses**, or **Messages**.
+
+1. VS Code opens a `chatLanguageModels.json` file where you can configure the model details. Update the model properties and save the file.
+
+    The following example shows a Messages API configuration for an Anthropic endpoint:
+
+    ```json
+    [
+      {
+        "vendor": "customendpoint",
+        "apiKey": "YOUR_API_KEY",
+        "apiType": "messages",
+        "models": [
+          {
+            "id": "claude-sonnet-4-6",
+            "name": "Claude Sonnet 4.6",
+            "url": "https://api.anthropic.com/v1/messages",
+            "toolCalling": true,
+            "vision": true,
+            "maxInputTokens": 200000,
+            "maxOutputTokens": 64000
+          }
+        ]
+      }
+    ]
+    ```
+
+    Each model in the `models` array supports the following properties:
+
+    | Property | Description |
+    |----------|-------------|
+    | `id` | Model identifier sent to the API. |
+    | `name` | Display name shown in the model picker. |
+    | `url` | Full endpoint URL for the model. |
+    | `apiType` | _(Optional)_ Override the API type per model (`chat-completions`, `responses`, or `messages`). Defaults to the provider-level `apiType`. |
+    | `toolCalling` | Set to `true` if the model supports tool calling. |
+    | `vision` | Set to `true` if the model supports image inputs. |
+    | `maxInputTokens` | Maximum number of input tokens the model accepts. |
+    | `maxOutputTokens` | Maximum number of output tokens the model generates. |
+
+1. After configuring the model, select it from the model picker in chat.
+
+    > [!TIP]
+    > If the model you added does not immediately appear in the model picker, restart VS Code.
+
+### Add a model provider extension
+
+You can install extensions from the Visual Studio Marketplace that add language model providers to VS Code. These extensions can provide access to additional cloud-hosted or locally running models. For example, the Foundry Toolkit for VS Code extension provides access to Foundry's local and cloud-hosted models.
+
+To add a model provider extension:
+
+1. Open the Extensions view and search for `@tag:language-models`.
+
+1. Select **Install** to install the extension, for example, [Foundry Toolkit for VS Code](https://aka.ms/AIToolkit).
+
+1. Follow the extension's setup instructions to configure model access.
+
+1. The extension's models appear in the model picker in chat and in the Language Model editor. If the models don't appear, reload VS Code.
 
 ## Update model provider details
 
-To update the details of a model provider you have configured previously:
+To update the details of a model provider you configured previously:
 
-1. Select **Manage Models** from the language model picker in the Chat view or run the **Chat: Manage Language Models** command from the Command Palette.
+1. Select **Manage Language Models** (gear icon) from the language model picker in the Chat view or run the **Chat: Manage Language Models** command from the Command Palette.
 
-1. In the Language Models editor, select the gear icon for the model provider you want to update.
+1. In the Language Models editor, select the gear icon next to the model provider you want to update.
 
    ![Screenshot that shows the model provider Quick Pick, with a gear icon next to the provider name.](../images/language-models/reconfigure-model-provider.png)
 
 1. Update the provider details, such as the API key or endpoint URL.
 
-## Change the model for inline chat
+## Configure models for other features
+
+In addition to the main chat model, you can configure which model is used for inline chat, inline suggestions, and background utility tasks.
+
+### Change the model for inline chat
 
 You can configure a default language model for editor inline chat. This enables you to use a different model for inline chat than for chat conversations.
 
@@ -191,7 +239,7 @@ To configure the default model for inline chat, use the `setting(inlineChat.defa
 
 If you change the model during an inline chat session, the selection persists for the remainder of the session. After you reload VS Code, the model resets to the value specified in the `setting(inlineChat.defaultModel)` setting.
 
-## Change the model for inline suggestions
+### Change the model for inline suggestions
 
 To change the language model that is used for generating inline suggestions in the editor:
 
@@ -202,11 +250,22 @@ To change the language model that is used for generating inline suggestions in t
 > [!NOTE]
 > The models that are available for inline suggestions might evolve over time as we add support for more models.
 
+### Change the model for utility tasks
+
+In addition to the main chat model, VS Code uses lightweight models in the background for utility tasks such as generating titles, creating commit messages, and detecting intent. By default, these tasks use built-in utility models provided by GitHub Copilot. You can override which model is used for these tasks with any available model, including [BYOK](#bring-your-own-language-model-key) and extension-provided models.
+
+There are two settings for utility models, depending on the type of task:
+
+* `setting(chat.utilityModel)`: Override the model used for general utility flows, such as generating titles and summaries, settings search, and Git review.
+* `setting(chat.utilitySmallModel)`: Override the model used for fast, lightweight utility flows, such as commit messages, rename suggestions, branch name generation, prompt categorization, and intent detection. A fast and inexpensive model is recommended for this setting.
+
+Both settings default to **Default**, which uses the built-in utility model from GitHub Copilot.
+
 ## Frequently asked questions
 
 ### How do I enable bring your own model key for Copilot Business or Copilot Enterprise?
 
-If you are a Copilot Business or Enterprise user, your organization administrator must enable the **Bring Your Own Language Model Key in VS Code** policy in the [Copilot policy settings](https://github.com/settings/copilot/features) on GitHub.com. After the policy is enabled, you can use your own API keys to add models, just like individual plan users.
+If you are a Copilot Business or Enterprise user, your organization administrator must enable the **Bring Your Own Language Model Key in VS Code** policy in the [Copilot policy settings](https://github.com/settings/copilot/features) on GitHub.com. After the policy is enabled, you can use your own API keys to add models, just like individual plan users. For more details, see the [GitHub Copilot documentation](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/use-your-own-api-keys).
 
 ### Can I use locally hosted models with Copilot in VS Code?
 
@@ -230,5 +289,7 @@ No, currently you need to have access to a Copilot plan (for example, Copilot Fr
 
 ## Related resources
 
+* [Language models concepts](/docs/copilot/concepts/language-models.md)
 * [Available language models in GitHub Copilot](https://docs.github.com/en/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat?tool=vscode)
+* [Choosing the right AI model for your task](https://docs.github.com/en/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task)
 * [Security considerations for AI in VS Code](/docs/copilot/security.md)

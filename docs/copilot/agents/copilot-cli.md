@@ -1,6 +1,6 @@
 ---
 ContentId: 9f1a2b3c-4e5f-6d7c-8a9b-1c2d3e4f5a6b
-DateApproved: 5/13/2026
+DateApproved: 5/20/2026
 MetaDescription: Learn how to use Copilot CLI within VS Code for autonomous coding tasks, terminal integration, and isolated development workflows in VS Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -53,6 +53,8 @@ Copilot CLI supports slash commands in chat, including [reusable prompts](/docs/
 Copilot CLI supports two types of isolation modes to manage how changes from the agent are applied to your codebase: **Worktree** and **Workspace** isolation. You can choose the isolation mode when you create a new Copilot CLI session.
 
 To isolate changes from the Copilot CLI agent and prevent interference with your active work, use **Worktree** isolation. In this mode, VS Code creates a [Git worktree](/docs/sourcecontrol/branches-worktrees.md#understanding-worktrees) in a separate folder for the Copilot CLI session. All changes made by the agent are applied to the worktree, keeping them separate from your main workspace until you're ready to review and apply them.
+
+If you [fork](/docs/copilot/chat/chat-sessions.md#fork-a-chat-session) a Copilot CLI session that uses worktree isolation, the forked session continues to use the same worktree as the original session. VS Code removes the shared worktree only after the last linked session is deleted or archived.
 
 If you want the changes from the Copilot CLI session to be applied directly to your current workspace, you can choose **Workspace** isolation. In this mode, the agent operates directly in your current workspace, and changes are applied in place.
 
@@ -119,6 +121,9 @@ The Copilot CLI session starts automatically, carrying over the full conversatio
 ## Remote control Copilot CLI sessions
 
 The `"/remote on"` command lets you remote control a Copilot CLI session from github.com or the GitHub Mobile app. With remote control, you can monitor and steer your ongoing Copilot CLI sessions from anywhere, giving you more flexibility to keep work moving without being tied to your machine. You keep the full session context and history in sync across both VS Code and GitHub.
+
+> [!TIP]
+> Remote control is one of two ways to run agent sessions remotely. You can also connect the [Agents window](/docs/copilot/agents/agents-window.md) to a remote machine over SSH or a dev tunnel. Learn more about [remote agent sessions](/docs/copilot/concepts/agents.md#remote-agent-sessions).
 
 When remote control is enabled, VS Code streams the session history, tool activity, and status updates to the linked GitHub task page in real time. Actions you take in one place are reflected in the other. If the session requires approval for a tool call or input for a question, the prompt is shown in both places and you can respond from either location.
 
