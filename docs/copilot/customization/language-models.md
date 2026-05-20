@@ -62,7 +62,7 @@ The model picker label updates to show the selected effort level, for example "C
 
 ## Use auto model selection
 
-With auto model selection, VS Code automatically selects the best-performing model and reduces rate limits from excessive usage of a single model. For background on how auto model selection works, see [Auto model selection](/docs/copilot/concepts/language-models.md#auto-model-selection).
+With auto model selection, VS Code evaluates task complexity and real-time model availability to route each request to the optimal model. For background on how auto model selection works, see [Auto model selection](/docs/copilot/concepts/language-models.md#auto-model-selection).
 
 To use auto model selection, select **Auto** from the model picker in chat. You can see which model is used for generating a response by hovering over the chat response.
 
