@@ -1,5 +1,5 @@
----
 {
+  "markdown": "",
   "title": "New in VS Code 1.121",
   "features": [
     {
@@ -27,4 +27,3 @@
     }
   ]
 }
----
