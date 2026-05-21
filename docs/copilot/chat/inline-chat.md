@@ -1,6 +1,6 @@
 ---
 ContentId: e6b33fcb-8240-49dd-b6ca-5412d6fa669a
-DateApproved: 5/13/2026
+DateApproved: 5/20/2026
 MetaDescription: Use Inline Chat in Visual Studio Code to make edits directly in the editor or get command suggestions in the terminal.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -78,7 +78,7 @@ You can change the language model that is used for editor inline chat. To config
 
 If you change the model during an inline chat session, the selection persists for the remainder of the session. After you reload VS Code, the model resets to the value specified in the `setting(inlineChat.defaultModel)` setting.
 
-Learn more about [choosing the right model for your task](/docs/copilot/customization/language-models.md#choose-the-right-model-for-your-task).
+Learn more about [choosing the right model for your task](/docs/copilot/concepts/language-models.md#choose-the-right-model).
 
 ## Use Quick Chat
 

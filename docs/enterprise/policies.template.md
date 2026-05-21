@@ -1,10 +1,10 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 200bf922-3684-45ee-a8dd-43191d6b3f8b
-DateApproved: 5/13/2026
+DateApproved: 5/20/2026
 
-VSCodeCommitHash: 05ca786e54e18b696b4f47427e620580d83404ff
-VSCodeVersion: 1.120.0
+VSCodeCommitHash: 176a9676e5176710ae404778546b3c01b011832e
+VSCodeVersion: 1.121.0
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Enterprise policies in Visual Studio Code enable organizations to centrally manage settings for their development teams. This reference details the available policies and how to implement them.
@@ -32,7 +32,7 @@ Starting from VS Code version 1.69, each release ships with a `policies` directo
 
 You can get the ADMX and ADML files from either an existing installation or by downloading and extracting the VS Code zip archive. Follow these steps to obtain the files:
 
-1. Download the [VS Code zip archive](https://code.visualstudio.com/docs/?dv=winzip) for your version of VS Code.
+1. Download the [VS Code zip archive](/download) for your version of VS Code.
 1. Extract the zip file to a temporary location.
 1. Navigate to the `policies` folder in the extracted files. This folder contains the ADMX template files (for example, `vscode.admx`) and a `locales` subfolder with ADML files for different languages.
 

@@ -1,6 +1,6 @@
 ---
 ContentId: 3AC4DBB5-1469-47FD-9CC2-6C94684D4A9D
-DateApproved: 5/13/2026
+DateApproved: 5/20/2026
 MetaDescription: The Visual Studio Code editor includes Node.js debugging support. Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: ../editor/images/debugging/debugging-social.png
 ---
@@ -368,7 +368,7 @@ npx babel script.js --out-file script-compiled.js --source-maps
 
 **Webpack**
 
-Webpack has [numerous](https://webpack.js.org/configuration/devtool/) source map options. We recommend setting the property `devtool: "source-map"` in your `webpack.config.js` for the best fidelity of results, although you can experiment with other settings causes slowdowns in your build.
+Webpack has [numerous](https://webpack.js.org/configuration/devtool/) source map options. We recommend setting the property `devtool: "source-map"` in your `webpack.config.js` for the best fidelity of results, although you can experiment with other settings even though they might cause slowdowns in your build.
 
 Also, if you have additional compilation steps in webpack, such as using a TypeScript loader, you'll also want to make sure that those steps are set up to generate sourcemaps. Otherwise, the sourcemaps that webpack generates will map back to the compiled code from the loader, instead of the real sources.
 

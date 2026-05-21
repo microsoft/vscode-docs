@@ -1,6 +1,6 @@
 ---
 ContentId: 7a2e5f8d-4c9b-41e6-b3a8-9d7f2e4c1b8a
-DateApproved: 5/13/2026
+DateApproved: 5/20/2026
 MetaDescription: Learn how to create and manage chat sessions in Visual Studio Code, including the sessions list, opening chat in editor tabs, separate windows, and using chat session history.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -138,6 +138,8 @@ To view your archived sessions, use the filter options in the sessions list and 
 
 To permanently delete a session, right-click the session in the sessions list and select **Delete**. Deleting a session removes it permanently and can't be undone. For [Copilot CLI sessions](/docs/copilot/agents/copilot-cli.md), deleting the session also removes any associated worktrees created for that session.
 
+If multiple Copilot CLI sessions share the same worktree, such as after you fork a session, deleting one session does not remove the shared worktree while another session still uses it. The worktree is removed only after the last linked session is deleted or archived.
+
 > [!CAUTION]
 > Deleting a session is irreversible. If you just want to hide a session, consider [archiving](#archive-sessions) it instead.
 
@@ -162,6 +164,8 @@ When you have multiple pending messages (queued or steering), you can drag and d
 ## Fork a chat session
 
 Forking a chat session creates a new, independent session that inherits the conversation history from the original session. The forked session is fully separate from the original, so changes in one session do not affect the other. The new session title is prefixed with "Forked:" to help you identify it.
+
+For [Copilot CLI](/docs/copilot/agents/copilot-cli.md) sessions that use worktree isolation, the forked session continues to use the same worktree as the original session.
 
 Forking is useful when you want to explore an alternative approach, ask a side question, or branch a long conversation in a different direction without losing the original context.
 

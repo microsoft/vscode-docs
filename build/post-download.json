@@ -1,9 +1,9 @@
 {
   "featured": {
-    "title": "Let agents see your browser",
-    "description": "Share browser tabs with agents so they can validate changes in real time, reduce token costs with a lightweight background agent for task tracking, and stay in flow with fewer sandbox approval prompts.",
-    "link": "/updates/v1_119",
-    "image": "/assets/updates/1_119/release-highlights.webp"
+    "title": "Manage your agents remotely",
+    "description": "Run and manage agents on remote machines, built-in previewing of HTML and Mermaid diagrams, and terminal optimizations.",
+    "link": "/updates/v1_121",
+    "image": "/assets/updates/1_121/release-highlights.webp"
   },
   "highlights": [
     {

@@ -1,6 +1,6 @@
 ---
 ContentId: 7b232695-cbbe-4f3f-a625-abc7a5e6496c
-DateApproved: 5/13/2026
+DateApproved: 5/20/2026
 MetaDescription: Overview of the configuration settings for GitHub Copilot in Visual Studio Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -89,7 +89,9 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 | `setting(workbench.browser.enableChatTools)` _(Experimental)_<br/>Enable [browser tools](/docs/debugtest/integrated-browser.md#browser-tools-for-agents) that let agents interact with pages in the integrated browser. | `true` |
 | `setting(chat.useClaudeMdFile)`<br/>Enable or disable using `CLAUDE.md` files as always-on custom instructions. | `true` |
 | `setting(chat.useNestedAgentsMdFiles)` _(Experimental)_<br/>Enable or disable using `AGENTS.md` files in subfolders of your workspace as context for chat requests. | `false` |
-| `setting(github.copilot.chat.customOAIModels)` _(Experimental)_<br/>Configure custom OpenAI-compatible models for chat. | `[]` |
+| `setting(github.copilot.chat.customOAIModels)` _(Deprecated)_<br/>Configure custom OpenAI-compatible models for chat. Deprecated in favor of the [Custom Endpoint](/docs/copilot/customization/language-models.md#add-a-custom-endpoint-model) provider, which supports Chat Completions, Responses, and Messages APIs. | `[]` |
+| `setting(chat.utilityModel)`<br/>Override the language model used for built-in [utility flows](/docs/copilot/customization/language-models.md#change-the-model-for-utility-tasks), such as generating titles, summaries, and fallback responses. | `"Default"` |
+| `setting(chat.utilitySmallModel)`<br/>Override the language model used for fast, lightweight [utility flows](/docs/copilot/customization/language-models.md#change-the-model-for-utility-tasks), such as commit messages, rename suggestions, and intent detection. A fast, inexpensive model is recommended. | `"Default"` |
 | `setting(github.copilot.chat.edits.suggestRelatedFilesFromGitHistory)` _(Experimental)_<br/>Suggest related files from git history in chat context. | `true` |
 
 ## Agent settings
@@ -103,6 +105,8 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 | `setting(chat.mcp.discovery.enabled)`<br/>Configure automatic discovery of MCP server configuration from other applications. | `false` |
 | `setting(chat.mcp.serverSampling)`<br/>Configure which models are exposed to MCP servers for sampling. | `{}` |
 | `setting(chat.mcp.apps.enabled)` _(Experimental)_<br/>Enable or disable MCP Apps, which are rich user interfaces provided by MCP servers. | `true` |
+| `setting(chat.tools.compressOutput.enabled)` _(Preview)_<br/>Compress large terminal output before sending it to the model to reduce context window usage. Collapses unchanged diff hunks, drops lockfile diffs, and strips install progress. | `false` |
+| `setting(chat.tools.riskAssessment.enabled)` _(Experimental)_<br/>Show an AI-generated risk badge on terminal command confirmations, indicating whether a command is safe, requires caution, or should be reviewed carefully. | `true` |
 | `setting(chat.tools.terminal.autoApprove)` <br/>Control which terminal commands are [auto-approved when using agents](/docs/copilot/agents/agent-tools.md#automatically-approve-terminal-commands). Commands can be set to `true` (auto-approve) or `false` (require approval). Regular expressions can be used by wrapping patterns in `/` characters. | `{ "rm": false, "rmdir": false, "del": false, "kill": false, "curl": false, "wget": false, "eval": false, "chmod": false, "chown": false, "/^Remove-Item\\b/i": false }` |
 | `setting(chat.tools.terminal.enableAutoApprove)` <br/>Enable or disable automatic approval of terminal commands. | `true` |
 | `setting(chat.tools.edits.autoApprove)` <br/>Configure which files require approval before edits are applied. Uses glob patterns to match file paths in your workspace. | `{}` |
@@ -125,6 +129,7 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 | `setting(chat.agent.allowedNetworkDomains)`<br/>Configure allowed domains for network access by agent tools. Only takes effect when `setting(chat.agent.networkFilter)` is enabled. When sandboxing is also enabled, these rules additionally apply to terminal commands. When both allowed and denied lists are empty, all domains are blocked. Supports wildcards like `*.example.com`. | `[]` |
 | `setting(chat.agent.deniedNetworkDomains)`<br/>Configure denied domains for network access by agent tools. Only takes effect when `setting(chat.agent.networkFilter)` is enabled. Denied domains take precedence over allowed domains. Supports wildcards like `*.example.com`. | `[]` |
 | `setting(github.copilot.chat.newWorkspaceCreation.enabled)` _(Experimental)_<br/>Enable the tool for scaffolding a new workspace in chat. | `true` |
+| `setting(chat.planWidget.inlineEditor.enabled)` <br/>Use an inline editor inside the plan control to edit plans, instead of opening a separate editor tab. | `true` |
 | `setting(chat.planAgent.defaultModel)` <br/>Select a default language model for the plan agent. | `"Auto (Vendor Default)"`|
 | `setting(github.copilot.chat.implementAgent.model)` _(Experimental)_<br/>Select the language model used for the implementation step after planning. | `` |
 | `setting(github.copilot.chat.planAgent.additionalTools)` _(Experimental)_<br/>Give the plan agent access to additional tools during research and planning phases. | `[]` |
@@ -148,6 +153,7 @@ The [Agents view](/docs/copilot/agents/overview.md) provides a centralized locat
 | `setting(chat.agentsControl.enabled)` _(Experimental)_<br/>Enable the [session status indicator](/docs/copilot/chat/chat-sessions.md#session-status-indicator-experimental) in the command center. Shows unread and in-progress session badges. | `true` |
 | `setting(chat.agentsControl.clickBehavior)` _(Experimental)_<br/>Configure the behavior when selecting the chat icon in the agent status indicator. | `"cycle"` (Insiders)<br/>`"default"` (Stable) |
 | `setting(chat.unifiedAgentsBar.enabled)` _(Experimental)_<br/>Replace the command center search box with a unified chat and search control. | `false` |
+| `setting(github.copilot.chat.cli.remote.enabled)` <br/>Enable remote control support for Copilot CLI sessions from github.com or the GitHub Mobile app. | `true` |
 
 ## Inline chat settings
 
@@ -202,7 +208,7 @@ The [Agents view](/docs/copilot/agents/overview.md) provides a centralized locat
 | Setting and Description | Default |
 |------------------------|---------------|
 | `setting(chat.agentFilesLocations)` <br/>Locations to search for custom agent files. Relative paths are resolved from the root folder(s) of your workspace. Supports home directory expansion (`~`) for user-specific paths. | `{ ".github/agents": true }` |
-| `setting(github.copilot.chat.cli.customAgents.enabled)` _(Experimental)_<br/>Enable using custom agents from GitHub background agent sessions. | `false` |
+| `setting(github.copilot.chat.cli.customAgents.enabled)` <br/>Enable using custom agents from GitHub background agent sessions. | `false` |
 | `setting(github.copilot.chat.organizationCustomAgents.enabled)` <br/>Enable discovery of custom agents defined at the GitHub organization level. | `true` |
 
 ## Agent skills settings

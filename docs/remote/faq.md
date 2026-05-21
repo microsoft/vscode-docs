@@ -1,7 +1,7 @@
 ---
 ContentId: 66bc3337-5fe1-4dac-bde1-a9302ff4c0cb
 MetaDescription: Visual Studio Code Remote Development Frequently Asked Questions (FAQ) for SSH, Containers, and WSL
-DateApproved: 5/13/2026
+DateApproved: 5/20/2026
 ---
 # Remote Development FAQ
 
@@ -164,6 +164,10 @@ Follow these steps to configure your environment for this workaround:
     * **VSCODE_SERVER_PATCHELF_PATH** path to the [patchelf](https://github.com/NixOS/patchelf) binary on the remote host
 
 You can now connect to the remote by using the [Remote - SSH](https://aka.ms/vscode-remote/download/ssh) extension. On successful connection, VS Code will show a dialog and banner message about the connection not being supported.
+
+### Can I run VS Code Server on 32-bit ARM Linux hosts?
+
+VS Code release 1.122 is the last release that supports running the prebuilt servers on 32-bit ARM Linux hosts. Starting with VS Code release 1.123, you will need to use a supported x86_64 or ARM64 Linux host for remote development.
 
 ### Can I install individual extensions instead of the extension pack?
 

@@ -1,134 +1,118 @@
 ---
 ContentId: EEADB50A-F5E3-41E9-89DA-35F165196691
-DateApproved: 5/13/2026
-MetaDescription: Get Visual Studio Code up and running on Mac (macOS).
+DateApproved: 5/20/2026
+MetaDescription: Install Visual Studio Code on macOS, add the code command to your path, and resolve common setup issues.
+MetaSocialImage: images/quicksetup/quick-setup-social.png
 ---
-# Visual Studio Code on macOS
+# Installing Visual Studio Code on macOS
 
-## Installation
-
-1. [Download and install Visual Studio Code](#install-vs-code-on-macos)
-
-    > [!NOTE]
-    > VS Code ships weekly releases and supports [auto-update](#updates) when a new release is available.
-
-1. [Install additional components](/docs/setup/additional-components.md)
-
-    Install Git, Node.js, TypeScript, language runtimes, and more.
-
-1. [Install VS Code extensions from the Visual Studio Marketplace](https://marketplace.visualstudio.com/VSCode)
-
-    Customize VS Code with themes, formatters, language extensions and debuggers for your favorite languages, and more.
-
-1. [Enable AI features](/docs/copilot/setup.md)
-
-    > [!TIP]
-    > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of inline suggestions and chat interactions.
-
-1. [Get started with the VS Code tutorial](/docs/getstarted/getting-started.md)
-
-    Discover the user interface and key features of VS Code.
+Visual Studio Code is available for macOS through a downloadable disk image. VS Code supports Intel-based Macs and Macs with Apple silicon.
 
 ## Install VS Code on macOS
 
 1. [Download Visual Studio Code](https://go.microsoft.com/fwlink/?LinkID=534106) for macOS.
 
-1. Open the downloaded `.dmg` file
+1. Open the downloaded `.dmg` file.
 
-1. Drag `Visual Studio Code.app` to the **Applications** folder
+1. Drag `Visual Studio Code.app` to the **Applications** folder.
 
-1. Open VS Code from the **Applications** folder, by double clicking the icon.
+1. Open VS Code from the **Applications** folder by double-clicking the icon.
 
-1. Add VS Code to your Dock by right-clicking on the icon, located in the Dock, to bring up the context menu and choosing **Options**, **Keep in Dock**.
+1. To keep VS Code in the Dock, Control-click the icon in the Dock, then select **Options** > **Keep in Dock**.
+
+> [!NOTE]
+> The [Download Visual Studio Code](/download) page also lists Universal, Intel chip, and Apple silicon builds.
 
 ## Launch VS Code from the command line
 
-To run VS Code from the terminal by typing `code`, add it to the `$PATH` environment variable using one of the following methods:
+To run VS Code from the terminal by typing `code`, add VS Code to the `$PATH` environment variable.
 
-### Configure the path with VS Code
+### Configure PATH with VS Code
 
-1. Launch VS Code
+1. Launch VS Code.
 
-1. Open the **Command Palette** (`kbstyle(Cmd+Shift+P)`), type 'shell command', and run the **Shell Command: Install 'code' command in PATH** command.
+1. Open the **Command Palette** (`kbstyle(Cmd+Shift+P)`), type `shell command`, and run the **Shell Command: Install 'code' command in PATH** command.
 
-    ![macOS shell commands](images/mac/shell-command.png)
+    ![Screenshot showing the Shell Command command in the Command Palette on macOS.](images/mac/shell-command.png)
 
 1. Restart the terminal for the new `$PATH` value to take effect.
 
-    You can now type 'code .' in any folder to start editing files in that folder.
+    Run `code .` in any folder to start editing files in that folder.
 
 > [!NOTE]
-> If you still have the old `code` alias in your `.bash_profile` (or equivalent) from an early VS Code version, remove it and replace it by running the **Shell Command: Install 'code' command in PATH** command.
+> If an old `code` alias remains in `.bash_profile` or an equivalent shell profile from an earlier VS Code version, remove it and run the **Shell Command: Install 'code' command in PATH** command again.
 
-### Manually configure the path
+### Manually configure PATH
 
-To manually add VS Code to your path:
+To manually add VS Code to your path, run the command for your shell.
 
-1. Run the following commands:
+**Zsh**:
 
-    **Zsh**:
+```zsh
+cat << EOF >> ~/.zprofile
+# Add Visual Studio Code (code)
+export PATH="\$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+EOF
+```
 
-    ```zsh
-    cat << EOF >> ~/.zprofile
-    # Add Visual Studio Code (code)
-    export PATH="\$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-    EOF
-    ```
+**Bash**:
 
-    **Bash**:
+```bash
+cat << EOF >> ~/.bash_profile
+# Add Visual Studio Code (code)
+export PATH="\$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+EOF
+```
 
-    ```bash
-    cat << EOF >> ~/.bash_profile
-    # Add Visual Studio Code (code)
-    export PATH="\$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-    EOF
-    ```
+> [!NOTE]
+> The leading backslash in `\$PATH` prevents `$PATH` from expanding during concatenation. Remove the backslash when running the export command directly in a terminal.
 
-    > [!NOTE]
-    > The leading slash `\` is required to prevent `$PATH` from expanding during the concatenation. Remove the leading slash if you want to run the export command directly in a terminal.
-
-1. Start a new terminal to pick up your changes.
-
-    You can now type 'code .' in any folder to start editing files in that folder.
+Start a new terminal to pick up your changes. Run `code .` in any folder to start editing files in that folder.
 
 ## Updates
 
-VS Code ships weekly [releases](/updates) and supports auto-update when a new release is available. If you're prompted by VS Code, accept the newest update and it will get installed (you won't need to do anything else to get the latest bits).
+VS Code ships weekly [releases](/updates) and supports auto-update when a new release is available. When VS Code prompts you for an update, accept the prompt to install the new version.
 
 > [!NOTE]
-> You can [disable auto-update](/docs/supporting/faq.md#how-do-i-opt-out-of-vs-code-autoupdates) if you prefer to update VS Code on your own schedule.
+> [Disable auto-update](/docs/supporting/faq.md#how-do-i-opt-out-of-vs-code-auto-updates) if you prefer to update VS Code on your own schedule.
 
 ## Touch Bar support
 
-Out of the box, VS Code adds the following Touch Bar actions:
+VS Code adds these Touch Bar actions on supported Macs:
 
-* To navigate in the editor history
-* The full Debug tool bar to control the debugger on your Touch Bar:
+* Editor history navigation.
+* The Debug toolbar for controlling the debugger.
 
-![macOS Touch Bar](images/mac/touchbar.gif)
+![Screenshot showing VS Code Touch Bar actions on macOS.](images/mac/touchbar.gif)
 
-## Mojave privacy protections
+## After installation
 
-On macOS Mojave, you might see dialogs saying "Visual Studio Code would like to access your {calendar/contacts/photos}." This is due to the new privacy protections in Mojave and is not specific to VS Code. The same dialogs might be displayed when running other applications as well. The dialog is shown once for each type of personal data and it is fine to choose **Don't Allow**, since VS Code does not need access to those folders.
+After you install VS Code, finish setup for your development workflow:
 
-## Next steps
-
-Once you have installed VS Code, these topics will help you learn more about it:
-
-* [VS Code tutorial](/docs/getstarted/getting-started.md) - A quick hands-on tour of the key features of VS Code.
-* [Tips and Tricks](/docs/getstarted/tips-and-tricks.md) - A collection of productivity tips for working with VS Code.
-* [AI-assisted coding](/docs/copilot/overview.md) - Learn about using GitHub Copilot in VS Code to help you write code faster.
+* [Install additional components](/docs/setup/additional-components.md), including Git, Node.js, TypeScript, language runtimes, and command-line tools.
+* [Install extensions from the Visual Studio Marketplace](https://marketplace.visualstudio.com/VSCode) to add themes, formatters, debuggers, and language support.
+* [Set up GitHub Copilot](/docs/copilot/setup.md) to use AI features in VS Code.
+* [Start the VS Code tutorial](/docs/getstarted/getting-started.md) for a hands-on tour of the user interface and key features.
 
 ## Common questions
 
-### Why do I see "Visual Studio Code would like access to your calendar."
+<details>
+<summary>Why does Visual Studio Code ask for access to my calendar?</summary>
 
-If you are running macOS Mojave version, you may see dialogs saying "Visual Studio Code would like to access your {calendar/contacts/photos}." This is due to the new privacy protections in Mojave [discussed above](#mojave-privacy-protections). It is fine to choose **Don't Allow** since VS Code does not need access to those folders.
+On macOS Mojave, dialogs might say "Visual Studio Code would like to access your calendar, contacts, or photos." These dialogs come from macOS privacy protections and are not specific to VS Code. Select **Don't Allow** because VS Code does not need access to those folders.
 
-### VS Code fails to update
+</details>
 
-If VS Code doesn't update once it restarts, it might be set under quarantine by macOS. Follow the steps in this [issue](https://github.com/microsoft/vscode/issues/7426#issuecomment-425093469) for resolution.
+<details>
+<summary>VS Code fails to update</summary>
 
-### Does VS Code run on Apple silicon machines?
+If VS Code doesn't update after restart, macOS might have set it under quarantine. Follow the steps in [issue #7426](https://github.com/microsoft/vscode/issues/7426#issuecomment-425093469) to resolve the issue.
 
-Yes, VS Code supports macOS Arm64 builds that can run on Macs with the Apple silicon chipsets. You can install the Universal build, which includes both Intel and Apple silicon builds, or one of the platform-specific builds.
+</details>
+
+<details>
+<summary>Does VS Code run on Apple silicon machines?</summary>
+
+Yes. VS Code supports macOS Arm64 builds that run on Macs with Apple silicon. Install the Universal build, which includes both Intel and Apple silicon builds, or install one of the platform-specific builds.
+
+</details>

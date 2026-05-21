@@ -1,6 +1,6 @@
 ---
 ContentId: 2f4a8e9d-3c5b-4f6e-a7d8-1c2b3e4f5a6b
-DateApproved: 5/13/2026
+DateApproved: 5/20/2026
 MetaDescription: Use Agent Logs and the Chat Debug view to inspect AI requests, tool invocations, and agent interactions in Visual Studio Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -29,7 +29,7 @@ To open the Agent Debug Logs panel:
 
 * Run **Developer: Open Agent Debug Logs** from the Command Palette.
 
-You can switch between three views in the Agent Debug panel:
+You can switch between four views in the Agent Debug panel:
 
 * **Logs**: a chronological list of events during the session, with filtering options to focus on specific event types.
 
@@ -37,8 +37,10 @@ You can switch between three views in the Agent Debug panel:
 
 * **Summary**: aggregate statistics about the session, such as total tool calls, token usage, error count, and overall duration.
 
+* **Cache Explorer**: a side-by-side diff of consecutive model requests that helps diagnose prompt-cache misses.
+
 > [!NOTE]
-> The Agent Debug Logs panel now shows both current and historical sessions. Logs are persisted locally on disk allowing you to view historical sessions. 
+> The Agent Debug Logs panel now shows both current and historical sessions. Logs are persisted locally on disk allowing you to view historical sessions.
 
 ### Logs view
 
@@ -54,7 +56,9 @@ The Logs view is the default view when you open the Agent Debug panel. You can a
 
 The Summary view provides aggregate statistics about the chat session, such as total tool calls, token usage, error count, and overall duration.
 
-![Screenshot of the summary view in Agent Logs, showing aggregate statistics for the chat session.](../images/chat-debug-view/agent-logs-summary-v2.png)
+![Screenshot of the summary view in Agent Logs, showing aggregate statistics for the chat session.](../images/chat-debug-view/agent-logs-summary-v3.png)
+
+From the Summary view, you can select **View Logs**, **Agent Flow Chart**, or **Cache Explorer** to switch to one of those views.
 
 To open the Summary view:
 
@@ -77,6 +81,31 @@ To open the flowchart view, select **Agent Flow Chart** from the [Summary view](
 1. Select the session description in the breadcrumb at the top of the panel.
 
 1. Select **Agent Flow Chart** from the Summary view.
+
+### Cache Explorer view
+
+The Cache Explorer view helps you diagnose prompt-cache misses by comparing consecutive model-turn requests in a session. Prompt caching lets language model providers reuse the prefix of a request that matches a previous one, which reduces latency and token costs. When the cache hit rate is low, the Cache Explorer pinpoints exactly where the prompt prefix diverges.
+
+![Screenshot of the Cache Explorer view in Agent Logs, showing a side-by-side diff of two model requests.](../images/chat-debug-view/cache-explorer.png)
+
+The view has two panels:
+
+* Lists of all model turns in the session, grouped by user request. Each turn shows the cache hit percentage, duration, model name, and timestamp. Select a turn to compare it against the previous turn.
+* The main content shows a side-by-side prefix diff between the current request and the previous request.
+
+The main content area includes the following information:
+
+* **Cache performance**: the cache hit percentage and the number of input tokens reused out of the total.
+* **Prompt signature**: a visual summary of each component in the request (system instructions, tool definitions, and messages) with color-coded status indicators. The first divergence point marks where the prompt cache breaks.
+* **Components**: expandable sections for system instructions, tool definitions, and individual messages that show the text-level diff between the two requests.
+
+To open the Cache Explorer view:
+
+1. Open the Agent Debug panel by selecting the ellipsis (**...**) menu in the Chat view and selecting **Show Agent Debug Logs**.
+
+1. Select the session description in the breadcrumb at the top to go to the Summary view.
+
+1. Select **Cache Explorer** to open the Cache Explorer view for the selected session.
 
 ### Attach debug events to chat
 

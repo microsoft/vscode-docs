@@ -46,23 +46,23 @@
   "latest": [
     {
       "type": "release",
-      "title": "VS Code 1.119 release",
-      "description": "Share browser tabs with agents, cut token costs with background task tracking, and work with fewer sandbox interruptions.",
-      "link": "/updates/v1_119",
-      "image": "/assets/updates/1_119/release-highlights.webp"
+      "title": "VS Code 1.121 release",
+      "description": "Remote control your agent sessions, built-in Mermaid and HTML preview, and terminal optimizations.",
+      "link": "/updates/v1_121",
+      "image": "/assets/updates/1_121/release-highlights.webp"
     },
     {
       "type": "documentation",
-      "title": "Agents Window",
-      "description": "Work in an agent-first mode across all your projects with the Agents window.",
-      "link": "/docs/copilot/agents/agents-window"
+      "title": "Remote control Copilot CLI",
+      "description": "Monitor and steer ongoing Copilot CLI sessions from github.com or GitHub Mobile.",
+      "link": "/docs/copilot/agents/copilot-cli#_remote-control-copilot-cli-sessions-experimental"
     },
     {
       "type": "blog",
-      "title": "How VS Code builds with AI",
-      "description": "Learn how VS Code leverages AI to enhance development workflows and improve productivity.",
-      "link": "/blogs/2026/03/13/how-VS-Code-Builds-with-AI",
-      "image": "/assets/blogs/2026/03/13/vscode-build-with-ai-poster.png"
+      "title": "VS Code coding harness",
+      "description": "Learn about the coding harness, model evaluations, and the agent processing workflow.",
+      "link": "/blogs/2026/05/15/agent-harnesses-github-copilot-vscode",
+      "image": "/assets/blogs/2026/05/15/agent.png"
     }
   ]
 }

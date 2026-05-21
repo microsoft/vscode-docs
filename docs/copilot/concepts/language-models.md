@@ -1,6 +1,6 @@
 ---
 ContentId: b2c3d4e5-6f7a-8b9c-0d1e-2f3a4b5c6d7e
-DateApproved: 5/13/2026
+DateApproved: 5/20/2026
 MetaDescription: Understand how large language models power AI features in VS Code, including model characteristics, context windows, and model selection.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -60,11 +60,47 @@ Learn how to [configure the thinking effort level](/docs/copilot/customization/l
 
 ## Choose the right model
 
-Each model has different strengths. Some are optimized for speed and work well for simple completions. Others have larger context windows or better reasoning capabilities, making them ideal for complex tasks. You can switch models at any time, based on your needs for a particular task.
+Each model has different strengths. Some are optimized for speed and work well for quick edits and simple questions. Others have larger context windows or better reasoning capabilities, making them ideal for complex tasks. As a general guideline:
 
-VS Code also supports **auto model selection**, which automatically selects a model to ensure optimal performance and reduce rate limits. Auto selects from available models and applies a request discount for paid users.
+* **Fast models** are best for quick code edits, boilerplate generation, and straightforward questions.
+* **Reasoning models** excel at complex refactoring, architectural decisions, multi-step debugging, and tasks that require analyzing trade-offs.
+* **Large context models** work well for large codebases or long conversations where retaining more information matters.
 
-Learn more about [choosing and configuring language models](/docs/copilot/customization/language-models.md).
+You can switch models at any time, based on your needs for a particular task. For a detailed comparison, see [Choosing the right AI model for your task](https://docs.github.com/en/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task) in the GitHub Copilot documentation.
+
+### Auto model selection
+
+Auto model selection combines two systems to route each request to the optimal model. One system tracks real-time model health and availability, while the other evaluates task complexity. Together, they match each task to the model that can solve it most efficiently, reserving higher-cost reasoning models for problems that need them and routing simpler tasks to faster models.
+
+Auto selects from multiple models and respects your organization's [model access settings](https://docs.github.com/en/copilot/how-tos/use-ai-models/configure-access-to-ai-models). Auto won't select models that have a premium request multiplier greater than 1x, models excluded by administrator policies, or models restricted by data-residency policies. If none of the preferred models are available or you run out of premium requests, auto falls back to a model at 0x multiplier.
+
+For more details, see [About Copilot auto model selection](https://docs.github.com/en/copilot/concepts/auto-model-selection) in the GitHub documentation.
+
+### Premium requests and multipliers
+
+Different models consume premium requests at different rates, expressed as a multiplier. For example, a model with a 2x multiplier uses two premium requests per interaction. When you use auto model selection, VS Code applies a variable [model multiplier](https://docs.github.com/en/copilot/concepts/billing/copilot-requests#model-multipliers) based on the selected model. If you are on a paid Copilot plan, auto applies a 10% multiplier discount.
+
+Learn how to [choose and configure language models](/docs/copilot/customization/language-models.md) in VS Code.
+
+## Bring your own language model key
+
+If the built-in models don't meet your needs, you can bring your own language model API key (BYOK) to use models from other providers or to run models locally. BYOK lets you connect to any compatible model provider while still using the VS Code chat experience and tools.
+
+### Why bring your own key
+
+* **Model choice**: access hundreds of models from different providers, beyond the built-in models.
+* **Experimentation**: try new models or features that are not yet available in the built-in models.
+* **Local compute**: use your own compute for one of the models already supported in GitHub Copilot or to run models not yet available.
+* **Greater control**: bypass the standard rate limits and restrictions imposed on the built-in models.
+
+### Considerations
+
+* BYOK only applies to the chat experience and doesn't affect inline suggestions or other AI-powered features in VS Code.
+* Capabilities are model-dependent and might differ from the built-in models, for example, support for tool calling, vision, or thinking.
+* The Copilot service API is still used for some tasks, such as sending embeddings and repository indexing.
+* There is no guarantee that responsible AI filtering is applied to the model's output when using BYOK.
+
+Learn how to [add your own language model key](/docs/copilot/customization/language-models.md#bring-your-own-language-model-key) in VS Code.
 
 ## Related resources
 

@@ -1,6 +1,6 @@
 ---
 ContentId: 0aefcb70-7884-487f-953e-46c3e07f7cbe
-DateApproved: 5/13/2026
+DateApproved: 5/20/2026
 MetaDescription: Describe what you want to build, and let agents in VS Code plan, implement, and verify the changes across your project.
 MetaSocialImage: images/shared/github-copilot-social.png
 Keywords:
@@ -41,6 +41,11 @@ Give an agent a high-level description of what you want to build and it gets to 
 
 <video src="images/overview/agents-intro.mp4" title="Video showing an agent session building a complete feature in VS Code." controls muted></video>
 
+VS Code lets you work with agents the way that fits your workflow, with two surfaces you can pick from and move freely between:
+
+* **Editor window**: stay in the main VS Code window when you're writing code and want AI to assist alongside the editor, debugger, and extensions.
+* **[Agents window](/docs/copilot/agents/agents-window.md) (Preview)**: switch to an agent-first surface when you want to think in prompts and orchestrate agent sessions across multiple projects.
+
 > [!IMPORTANT]
 > Your organization might have disabled agents in VS Code. Contact your admin to enable this functionality.
 
@@ -75,7 +80,7 @@ VS Code lets you work with agents the way that fits your workflow, with two main
 * **Editor window**: stay in the main VS Code window when you're writing code and want AI to assist alongside the editor, debugger, and extensions.
 * **[Agents window](/docs/copilot/agents/agents-window.md) (Preview)**: switch to an agent-first surface when you want to think in prompts and orchestrate agent sessions across multiple projects, with a Changes panel for reviewing edits and direct access to your AI customizations (agents, skills, instructions, hooks, MCP servers) from a single sidebar panel.
 
-Both surfaces share agent sessions and VS Code configuration (like settings and keybindings), making transitions smooth. Open the Agents window with the **Open in Agents** button in the title bar.
+Both surfaces share agent sessions and VS Code configuration (like settings and keybindings), making transitions smooth. Open the Agents window with the **Open in Agents** button in the title bar. You can also connect the Agents window to a remote machine over SSH or a dev tunnel, and [monitor sessions from a browser](https://insiders.vscode.dev/agents) on any device. Learn more about [remote agent sessions](/docs/copilot/concepts/agents.md#remote-agent-sessions).
 
 Learn more about the [Agents window](/docs/copilot/agents/agents-window.md).
 

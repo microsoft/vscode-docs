@@ -1,6 +1,6 @@
 ---
 ContentId: d7a80c88-c091-4d13-9240-d432c12407a7
-DateApproved: 5/13/2026
+DateApproved: 5/20/2026
 MetaDescription: Make your local web services accessible over the internet with Visual Studio Code
 ---
 # Port Forwarding
@@ -41,6 +41,8 @@ By default, both hosting and connecting to a tunnel require authentication with 
 
 > [!CAUTION]
 > If you've opened a **Public** port, any user with your link can access the forwarded service. Avoid hosting confidential information or insecure services on public ports.
+>
+> This is especially dangerous when AI agents are configured with auto-approval modes such as **Bypass Approvals**, **Autopilot**, or `/yolo`. Anyone with access to the public URL can interact with services that have AI command execution capabilities, potentially running commands with your credentials. For more information, see [Security](/docs/copilot/security.md).
 
 Learn more about the [security of the underlying dev tunnels service](https://learn.microsoft.com/azure/developer/dev-tunnels/security).
 

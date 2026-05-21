@@ -1,7 +1,7 @@
 ---
 ContentId: eceea3f0-feee-47c2-8b65-1f1b0825355b
 MetaDescription: Visual Studio Code Remote Development
-DateApproved: 5/13/2026
+DateApproved: 5/20/2026
 ---
 # VS Code Remote Development
 
