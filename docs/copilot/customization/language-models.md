@@ -326,7 +326,7 @@ You can use locally hosted models in chat by using [bring your own model key](#b
 Currently, you cannot connect to a local model for inline suggestions. VS Code provides an extension API [`InlineCompletionItemProvider`](/api/references/vscode-api.md#InlineCompletionItemProvider) that enables extensions to contribute a custom completion provider. You can get started with our [Inline Completions sample](https://github.com/microsoft/vscode-extension-samples/blob/main/inline-completions).
 
 > [!NOTE]
-> Currently, using a locally hosted models still requires the Copilot service for some tasks. Therefore, your GitHub account needs to have access to a Copilot plan (for example, Copilot Free) and you need to be online. This requirement might change in a future release.
+> Currently, using a locally hosted model still requires the Copilot service for some tasks. Therefore, your GitHub account needs to have access to a Copilot plan (for example, Copilot Free) and you need to be online. This requirement might change in a future release.
 
 ### Can I use a local model without an internet connection?
 
