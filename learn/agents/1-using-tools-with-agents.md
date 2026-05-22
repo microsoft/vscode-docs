@@ -18,7 +18,10 @@ Tools give agents in VS Code access to the workspace, the web, APIs, and other c
 
 ## Prerequisites
 
-Before you start, install VS Code and sign in to GitHub Copilot. You also need access to the tools you want to use, such as MCP servers or extensions that contribute tools.
+Before you start: you'll need VS Code Insiders installed and the GitHub Copilot and GitHub Copilot Chat extensions set up and signed in. You also need access to the tools you want to use, such as MCP servers or extensions that contribute tools.
+
+* [Download VS Code](https://code.visualstudio.com/)
+* [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/overview#_step-1-set-up-copilot)
 
 ## What tools do
 
@@ -30,13 +33,21 @@ Agents use tools to search code, read files, run commands, fetch content, and ca
 
 The agent selects tools from the enabled set based on your prompt and context. If you want to force a specific tool, type `#` and the tool name in chat.
 
+For example, use `#codebase` in a prompt when you want the agent to focus on your repository context.
+
+To install more tools, open the Extensions view and search with the `@mcp` filter for MCP servers, or search normally for extensions that contribute tools.
+
 ## Choose the right tools
 
 Open the Chat view, switch to **Agent**, and use the **Configure Tools** button in the chat input to choose the tools for the current session.
 
-Select only the tools you need. A smaller tool set gives the model less to sort through and usually leads to better results.
-
 ![Screenshot showing the Chat view with the Configure Tools button in the chat input.](../../docs/copilot/images/chat-tools/agent-mode-select-tools.png)
+
+Select only the tools you need. A smaller tool set gives the model less to sort through and usually leads to better results. Every enabled tool also consumes part of the model's context window.
+
+A chat request can have a maximum of 128 tools enabled at a time, so keeping the active set focused also helps avoid tool count issues.
+
+![Screenshot showing the tool picker drop-down with built-in tools, MCP servers, and user-defined tool sets.](../../docs/copilot/images/chat-tools/chat-tools-picker.png)
 
 > [!TIP]
 > Start with the fewest tools that can complete the task, then add more only when the agent needs them.
@@ -45,9 +56,22 @@ Select only the tools you need. A smaller tool set gives the model less to sort 
 
 Tool sets let you save related tools as a single reusable group. You can use them in chat prompts, prompt files, and custom agents.
 
-Create a tool set from the Command Palette with **Chat: Configure Tool Sets**. Then add the tools you want in the generated `.jsonc` file.
+Create a tool set from the Command Palette with **Chat: Configure Tool Sets**, or from the cog in the tool picker with **Create a new tool set file**. Then add the tools you want in the generated `.jsonc` file.
 
-Use tool sets when you want a repeatable setup for a task such as Python work, web research, or repository changes.
+Use tool sets when you want a repeatable setup for a task such as Python work, web research, or repository changes. Tool sets you create show up under **User defined tool sets** in the tool picker.
+
+## Limit tools for a custom agent
+
+When you build a [custom agent](https://code.visualstudio.com/docs/copilot/customization/custom-agents), you can list the tools and tool sets it has access to in the `tools` field of the agent's markdown frontmatter:
+
+```yaml
+---
+description: Python testing helper
+tools: ['search', 'edit', 'pylance', 'runTests']
+---
+```
+
+You can also select **Configure Tools** in the agent file to pick tools from a quick pick and have VS Code update the list for you.
 
 ## Manage approvals
 
@@ -62,7 +86,7 @@ You can keep your preferred mode across sessions with `setting(chat.permissions.
 > [!CAUTION]
 > Higher autonomy levels reduce the amount of review you do before tools run. Use them with care, especially when the agent can edit files or run terminal commands.
 
-![Screenshot of a tool confirmation dialog showing tool details and approval options.](../../docs/copilot/images/chat-tools/chat-approve-tool.png)
+![Screenshot of approval options.](../../docs/copilot/chat/images/copilot-chat/chat-approval-options.png)
 
 ## Use sandboxing for risky commands
 

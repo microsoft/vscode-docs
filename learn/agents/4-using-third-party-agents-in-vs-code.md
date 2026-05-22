@@ -18,7 +18,10 @@ Third-party agents let you use provider-specific agent experiences inside VS Cod
 
 ## Prerequisites
 
-Before you start, install VS Code and sign in to GitHub Copilot. For cloud partner agents, make sure they are enabled in your GitHub Copilot settings. For Codex, install the OpenAI Codex extension.
+Before you start: you'll need VS Code Insiders installed and the GitHub Copilot and GitHub Copilot Chat extensions set up and signed in. For cloud partner agents, make sure they are enabled in your GitHub Copilot settings. For Codex, install the OpenAI Codex extension.
+
+* [Download VS Code](https://code.visualstudio.com/)
+* [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/overview#_step-1-set-up-copilot)
 
 ## What third-party agents are
 
@@ -40,31 +43,49 @@ Open the Chat view, select **New Chat**, and choose the agent type from the **Se
 
 For cloud sessions, first select **Cloud**, then choose the partner agent from the **Partner Agent** dropdown.
 
-For Claude, you can also use its slash commands, such as `/agents`, `/hooks`, and `/memory`.
+![Screenshot showing session type dropdown with Claude agent option selected.](../../docs/copilot/images/third-party-agents/claude-agent-new-chat-1.121.png)
 
-For Codex, install the OpenAI Codex VS Code extension and open the Codex view or the Codex tab in chat.
+For Codex, install the [OpenAI Codex](https://marketplace.visualstudio.com/items?itemName=openai.chatgpt) extension first. You can then open the Codex view from its activity bar icon or switch to the **Codex** tab in the Chat view.
 
-![Screenshot showing session type dropdown with Claude agent option selected.](../../docs/copilot/images/third-party-agents/claude-agent-new-chat.png)
+## Claude agent slash commands
 
-![Screenshot showing session type dropdown with Codex agent option selected.](../../docs/copilot/images/third-party-agents/codex-agent-new-chat.png)
+Inside a Claude session, type `/` in the chat input to see the available commands.
+
+| Slash command | Description |
+|---------------|-------------|
+| `/agents` | Wizard for creating and managing Claude sub-agents. |
+| `/hooks` | Configure lifecycle hooks that run at key points during a session. |
+| `/memory` | Open and edit the `CLAUDE.md` memory file used across sessions. |
+| `/init` | Initialize a new `CLAUDE.md` memory file for the project. |
+| `/review` | Review code changes in a pull request. |
+| `/security-review` | Run a security review on pending changes. |
 
 ## Enable cloud partner agents
 
-Before you can use cloud partner agents, enable them in your GitHub Copilot settings in GitHub. Once they are enabled, they appear in the VS Code session picker.
+Before you can use cloud partner agents, enable them in your GitHub Copilot settings. From github.com, open your profile menu, go to **Copilot settings** > **Cloud Agent**, then turn on the partner agents you want under **Partner Agents**.
 
-![Screenshot showing cloud agent partner selection picker in chat input.](../../docs/copilot/images/third-party-agents/partner-agent-cloud-chat.png)
+You can start a cloud session from the **Agents** tab on a GitHub repository: select the Copilot logo on the **New session** button to choose Claude or Codex.
 
 ## Choose the right permission mode
 
-Third-party agents can run with different permission modes, depending on the provider. Pick the mode that matches the task and your risk tolerance. For sensitive work, keep approval in the loop and combine the agent with sandboxing when possible.
+Claude agent runs with one of three permission modes that you can pick from the chat input:
+
+* **Edit automatically**: Claude makes workspace changes autonomously as it works.
+* **Request approval**: Claude asks for your review before making changes.
+* **Plan**: Claude outlines its intended approach before starting work.
+
+Pick the mode that matches the task and your risk tolerance. For sensitive work, keep approval in the loop and combine the agent with sandboxing when possible.
+
+![Screenshot showing Claude agent permission mode options.](../../docs/copilot/images/third-party-agents/claude-agent-permission-modes.png)
+
+> [!CAUTION]
+> The `setting(github.copilot.chat.claudeAgent.allowDangerouslySkipPermissions)` setting bypasses all permission checks. Only enable it in isolated sandbox environments with no internet access.
 
 ## Learn more about Claude and Codex
 
-Claude sessions use Anthropic's Claude Agent SDK and are available through your Copilot subscription. Codex sessions use the OpenAI Codex extension and support the same editor-centric workflow.
+Claude sessions use Anthropic's Claude Agent SDK and are available through your Copilot subscription. Codex sessions use the OpenAI Codex extension and authenticate with a Copilot Pro+ subscription, with no extra setup required.
 
 Use either provider when you want to stay in VS Code and still take advantage of a third-party agent's own model and harness.
-
-![Screenshot showing Claude agent permission mode options.](../../docs/copilot/images/third-party-agents/claude-agent-permission-modes.png)
 
 ## Why this matters
 

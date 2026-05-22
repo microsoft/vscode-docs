@@ -20,23 +20,30 @@ This course shows how to install plugins, browse available collections, use plug
 
 ## Prerequisites
 
-Before you start, install VS Code and sign in to GitHub Copilot. Then enable support for agent plugins in your settings.
+Before you start: you'll need VS Code Insiders installed and the GitHub Copilot and GitHub Copilot Chat extensions set up and signed in. Then enable support for agent plugins in your settings.
+
+* [Download VS Code](https://code.visualstudio.com/)
+* [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/overview#_step-1-set-up-copilot)
 
 ## What plugins provide
 
 A plugin can include any combination of:
 
-* Slash commands.
-* Agent skills.
-* Custom agents.
-* Hooks.
-* MCP servers.
+* Slash commands
+* Agent skills
+* Custom agents
+* Hooks
+* MCP servers
 
 That makes plugins useful for sharing a team workflow or adopting a prebuilt package of agent behavior.
 
 ## Install and manage plugins
 
-Enable plugin support in the settings, then open the Agent Customizations view from the Chat view to browse available plugins.
+Agent plugins are currently in preview. Enable them with `setting(chat.plugins.enabled)` in your user settings before you can install or browse plugins.
+
+By default, VS Code discovers plugins from the [copilot-plugins](https://github.com/github/copilot-plugins) and [awesome-copilot](https://github.com/github/awesome-copilot/) marketplaces. You can add more with `setting(chat.plugins.marketplaces)`.
+
+Open the **Agent Customizations** view from the cog in the Chat view, then select **Plugins** in the left menu to browse available plugins.
 
 From there, you can:
 
@@ -45,7 +52,7 @@ From there, you can:
 * Create your own plugin.
 * Review which customizations are already installed.
 
-After installation, the plugin's customizations appear alongside your local ones.
+After installation, the plugin's customizations appear alongside your local ones in the **Agent Plugins - Installed** section of the Extensions view.
 
 ![Screenshot of browsing agent plugins in the Extensions sidebar.](../../docs/copilot/images/agent-plugins/extensions-view.png)
 
@@ -55,22 +62,40 @@ After installation, the plugin's customizations appear alongside your local ones
 
 Plugins can expose custom agents, skills, and MCP servers all in one place. In chat, you can invoke plugin content with slash commands or by selecting the relevant customization from the picker.
 
+For example, after installing the awesome-copilot plugin, you can run `/awesome-copilot:suggest` to have the plugin look across your project and recommend related collections you can install next.
+
 That makes plugins useful when you want a single install to add a complete workflow, such as a testing package that includes a testing skill, a review agent, and an MCP server for reporting.
 
-![Screenshot of the Agent Customizations editor showing installed plugin content.](../../docs/copilot/images/customization/chat-customizations-editor.png)
+![Screenshot of the Agent Customizations editor showing installed plugin content.](../../docs/copilot/images/customization/chat-customizations-editor-plugins.png)
 
 > [!CAUTION]
 > Plugins can run hooks and MCP servers on your machine. Review the contents and publisher before you install one.
 
 ## Plugin structure
 
-Plugins are defined by a `plugin.json` manifest and can point to folders for skills, agents, hooks, and MCP server definitions. That keeps related automation in one package and makes it easier to share across a team.
+Plugins are defined by a `plugin.json` manifest and can point to folders for skills, agents, hooks, and MCP server definitions. The plugin format is shared between VS Code, GitHub Copilot CLI, and Claude Code, so a single plugin repository can work across all three tools.
 
 ## Share recommended plugins
 
-If you want to recommend plugins for your team, add a shared plugin marketplace configuration to your repository and commit it. That lets teammates browse the same recommended sources and install the same collections in their own workspaces.
+To share a curated set of plugins with your team, add an `extraKnownMarketplaces` and `enabledPlugins` block to your project's `.github/copilot/settings.json` (or `.claude/settings.json`) file and commit it.
 
-Use this approach when you want consistent tooling across a team without forcing a plugin into every workspace.
+```json
+{
+    "extraKnownMarketplaces": {
+        "company-tools": {
+            "source": {
+                "source": "github",
+                "repo": "your-org/plugin-marketplace"
+            }
+        }
+    },
+    "enabledPlugins": {
+        "code-formatter@company-tools": true
+    }
+}
+```
+
+Use this approach when you want consistent tooling across a team without forcing a plugin into every workspace. VS Code shows a notification the first time a chat message is sent, and team members can also view the recommended plugins from the Extensions view with the `@agentPlugins @recommended` filter.
 
 ## Why this matters
 

@@ -20,17 +20,22 @@ This course shows how to install an MCP server, configure it in your workspace o
 
 ## Prerequisites
 
-Before you start, install VS Code and sign in to GitHub Copilot. You also need access to an MCP server or the ability to add one from the marketplace.
+Before you start: you'll need VS Code Insiders installed and the GitHub Copilot and GitHub Copilot Chat extensions set up and signed in. You also need access to an MCP server or the ability to add one from the marketplace.
+
+* [Download VS Code](https://code.visualstudio.com/)
+* [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/overview#_step-1-set-up-copilot)
 
 ## What MCP adds
 
-Model Context Protocol is built around three primitives:
+[Model Context Protocol](https://modelcontextprotocol.io/) is an open standard maintained by the Linux Foundation, and VS Code has full spec support. Think of MCP as the connector between agents and the external tools, data, and prompts they need.
+
+MCP is built around three primitives:
 
 * **Tools**: actions the agent can invoke.
 * **Resources**: context the agent can read.
 * **Prompts**: reusable prompt templates that standardize interactions.
 
-That combination turns MCP into a flexible way to ground agents in external systems.
+Servers can also expose interactive UI through MCP Apps, which render forms or visualizations inline in chat.
 
 ## Install an MCP server
 
@@ -49,7 +54,7 @@ There are two common configuration scopes:
 
 Use workspace configuration when you want a server tied to a project. Use user profile configuration when you want the server available across workspaces.
 
-You can also add a server through **MCP: Add Server** or open the user configuration with **MCP: Open User Configuration**.
+You can also add a server through **MCP: Add Server** or open the user configuration with **MCP: Open User Configuration**. For servers that need credentials, store them in inputs in the user `mcp.json` so secrets are not committed to the workspace.
 
 > [!TIP]
 > VS Code provides IntelliSense and inline actions for `mcp.json`, which makes it easier to start, stop, and inspect servers.
@@ -60,13 +65,17 @@ You can also add a server through **MCP: Add Server** or open the user configura
 
 Once a server is installed and enabled, open Chat, switch to **Agent**, and select the server's tools in the tools picker.
 
-The agent can then call the server's tools when your prompt needs external context or actions. For example, an MCP server can ground a question in product documentation or call a browser tool to work with a web page.
+The agent can then call the server's tools when your prompt needs external context or actions. For example, with the Microsoft Learn MCP server enabled, a prompt like "What are the Microsoft Python best practices?" grounds the answer in official documentation by calling the server's tools.
+
+![Screenshot showing an MCP tool invocation in chat with the input and output shown.](../../docs/copilot/images/mcp-servers/chat-agent-mode-tool-invocation.png)
 
 ## Secure MCP servers
 
 Treat local MCP servers as code that can run on your machine. Review the publisher and configuration before you install one.
 
-For local stdio servers on macOS and Linux, you can enable sandboxing to restrict file system and network access. Sandboxed servers are auto-approved because they already run in a controlled environment.
+By default, MCP tool calls prompt for approval before running, which keeps a human in the loop. For local stdio servers on macOS and Linux, you can enable sandboxing to restrict file system and network access. Sandboxed servers are auto-approved because they already run in a controlled environment.
+
+For example, with the Playwright MCP server, enabling sandboxing lets the agent navigate pages and run browser tasks without prompting on every step, because the work is isolated from your host.
 
 If a server needs more access, update the sandbox rules instead of widening access for the whole machine.
 
@@ -78,10 +87,16 @@ You can manage servers from several places in VS Code:
 
 * The Extensions view.
 * The `mcp.json` editor.
-* The Command Palette.
-* The Agent Customizations view.
+* The Command Palette, including **MCP: List Servers**.
+* The Agent Customizations view from the cog in the Chat view.
 
-Use these surfaces to start or stop a server, inspect output, and install additional servers from the marketplace.
+Use these surfaces to start or stop a server, browse the marketplace, and install additional servers.
+
+![Screenshot showing the actions for an MCP server in the Command Palette.](../../docs/copilot/images/mcp-servers/mcp-list-servers-actions.png)
+
+To debug a server, select **Show Output** from the server's actions to see logs from every request the server handles.
+
+![Screenshot showing the MCP server output panel with logs.](../../docs/copilot/images/mcp-servers/mcp-server-error-output.png)
 
 ## Why this matters
 
