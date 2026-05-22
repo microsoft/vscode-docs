@@ -232,6 +232,25 @@ For information about attaching to a remote process, such as debugging a process
 
 If provided, this explicitly controls hardware breakpoint behavior for remote targets. If `require` is set to true, always use hardware breakpoints. Default value is `false`. `limit` is an optional limit on the number of available hardware breakpoints to use which is only enforced when `require` is true and `limit` is greater than 0. Defaults value is 0. Example: ```"hardwareBreakpoints": { require: true, limit: 6 }```.
 
+### debuginfod
+
+Controls GDB's [debuginfod](https://sourceware.org/elfutils/Debuginfod.html) behavior for downloading debug symbols from debuginfod servers. This is useful on Linux systems where debuginfod is configured (such as Ubuntu, Fedora, or Arch Linux).
+
+- **enabled**: If `true` (default), GDB's debuginfod support is enabled, allowing it to download debug symbols automatically. Set to `false` to prevent GDB from contacting debuginfod servers, which can be useful if the debuginfod server is unreachable and causing GDB to hang on launch.
+- **timeout**: The timeout in seconds for debuginfod server requests. Default is `30`. Set to `0` to use GDB/libdebuginfod defaults with no override.
+
+**Example:**
+
+```json
+{
+   ...
+   "debuginfod": {
+      "enabled": true,
+      "timeout": 10
+   }
+}
+```
+
 ## Additional properties
 
 ### processId
