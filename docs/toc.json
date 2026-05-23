@@ -1,23 +1,25 @@
 [
   {
-    "name": "Setup",
-    "area": "setup",
-    "topics": [
-      ["Overview", "/docs/setup/setup-overview"],
-      ["Linux", "/docs/setup/linux"],
-      ["macOS", "/docs/setup/mac"],
-      ["Windows", "/docs/setup/windows"],
-      ["VS Code for the Web", "/docs/setup/vscode-web"],
-      ["Raspberry Pi", "/docs/setup/raspberry-pi"],
-      ["Network", "/docs/setup/network"],
-      ["Additional Components", "/docs/setup/additional-components"],
-      ["Uninstall", "/docs/setup/uninstall"]
-    ]
-  },
-  {
     "name": "Get Started",
     "area": "getstarted",
     "topics": [
+      ["", "", {
+
+        "name": "Setup",
+        "area": "setup",
+        "topics": [
+          ["Overview", "/docs/setup/setup-overview"],
+          ["Linux", "/docs/setup/linux"],
+          ["macOS", "/docs/setup/mac"],
+          ["Windows", "/docs/setup/windows"],
+          ["VS Code for the Web", "/docs/setup/vscode-web"],
+          ["Raspberry Pi", "/docs/setup/raspberry-pi"],
+          ["Network", "/docs/setup/network"],
+          ["Additional Components", "/docs/setup/additional-components"],
+          ["Uninstall", "/docs/setup/uninstall"]
+        ]
+
+      }],
       ["VS Code Tutorial", "/docs/getstarted/getting-started"],
       ["Copilot Quickstart", "/docs/getstarted/copilot-quickstart"],
       ["User Interface", "/docs/getstarted/userinterface"],
@@ -29,148 +31,78 @@
   },
 
   {
-    "name": "GitHub Copilot",
-    "area": "copilot",
-    "topics": [
-      ["Overview", "/docs/copilot/overview"],
-      ["Setup", "/docs/copilot/setup"],
-      ["Quickstart", "/docs/copilot/getting-started"],
-      ["", "", {
-        "name": "Concepts",
-        "area": "copilot/concepts",
-        "noCollapse": false,
-        "topics": [
-          ["Overview", "/docs/copilot/concepts/overview"],
-          ["Language Models", "/docs/copilot/concepts/language-models"],
-          ["Context", "/docs/copilot/concepts/context"],
-          ["Tools", "/docs/copilot/concepts/tools"],
-          ["Agents", "/docs/copilot/concepts/agents"],
-          ["Customization", "/docs/copilot/concepts/customization"],
-          ["Trust & Safety", "/docs/copilot/concepts/trust-and-safety"]
-        ]
-      }],
-      ["", "", {
-        "name": "Agents",
-        "area": "copilot/agents",
-        "noCollapse": false,
-        "topics": [
-          ["Overview", "/docs/copilot/agents/overview"],
-          ["Agents Tutorial", "/docs/copilot/agents/agents-tutorial"],
-          ["Agents Window", "/docs/copilot/agents/agents-window"],
-          ["Planning", "/docs/copilot/agents/planning"],
-          ["Memory", "/docs/copilot/agents/memory"],
-          ["Tools", "/docs/copilot/agents/agent-tools"],
-          ["Subagents", "/docs/copilot/agents/subagents"],
-          ["Local Agents", "/docs/copilot/agents/local-agents"],
-          ["Copilot CLI", "/docs/copilot/agents/copilot-cli"],
-          ["Cloud Agents", "/docs/copilot/agents/cloud-agents"],
-          ["Third-Party Agents", "/docs/copilot/agents/third-party-agents"]
-        ]
-      }
-      ],
-      ["", "", {
-        "name": "Chat",
-        "area": "copilot/chat",
-        "noCollapse": false,
-        "topics": [
-          ["Overview", "/docs/copilot/chat/copilot-chat"],
-          ["Chat Sessions", "/docs/copilot/chat/chat-sessions"],
-          ["Add Context", "/docs/copilot/chat/copilot-chat-context"],
-          ["Inline Chat", "/docs/copilot/chat/inline-chat"],
-          ["Review Edits", "/docs/copilot/chat/review-code-edits"],
-          ["Checkpoints", "/docs/copilot/chat/chat-checkpoints"],
-          ["Artifacts Panel", "/docs/copilot/chat/chat-artifacts"],
-          ["Debug Chat Interactions", "/docs/copilot/chat/chat-debug-view"],
-          ["Prompt Examples", "/docs/copilot/chat/prompt-examples"]
-        ]
-      }
-      ],
-      ["", "", {
-        "name": "Customization",
-        "area": "copilot/customization",
-        "noCollapse": false,
-        "topics": [
-          ["Overview", "/docs/copilot/customization/overview"],
-          ["Instructions", "/docs/copilot/customization/custom-instructions"],
-          ["Prompt Files", "/docs/copilot/customization/prompt-files"],
-          ["Custom Agents", "/docs/copilot/customization/custom-agents"],
-          ["Agent Skills", "/docs/copilot/customization/agent-skills"],
-          ["Language Models", "/docs/copilot/customization/language-models"],
-          ["MCP", "/docs/copilot/customization/mcp-servers"],
-          ["Hooks", "/docs/copilot/customization/hooks"],
-          ["Plugins", "/docs/copilot/customization/agent-plugins"]
-        ]
-      }
-      ],
-      ["", "", {
-        "name": "Guides & Tutorials",
-        "area": "copilot/guides",
-        "noCollapse": false,
-        "topics": [
-          ["Context Engineering", "/docs/copilot/guides/context-engineering-guide"],
-          ["Customize AI", "/docs/copilot/guides/customize-copilot-guide"],
-          ["Test-Driven Development", "/docs/copilot/guides/test-driven-development-guide"],
-          ["Edit Notebooks with AI", "/docs/copilot/guides/notebooks-with-ai"],
-          ["Test with AI", "/docs/copilot/guides/test-with-copilot"],
-          ["Test Web Apps with Browser Tools", "/docs/copilot/guides/browser-agent-testing-guide"],
-          ["Debug with AI", "/docs/copilot/guides/debug-with-copilot"],
-          ["MCP Dev Guide", "/docs/copilot/guides/mcp-developer-guide"],
-          ["OpenTelemetry Monitoring", "/docs/copilot/guides/monitoring-agents"]
-        ]
-      }
-      ],
-      ["Inline Suggestions", "/docs/copilot/ai-powered-suggestions"],
-      ["Smart Actions", "/docs/copilot/copilot-smart-actions"],
-      ["Best Practices", "/docs/copilot/best-practices"],
-      ["Security", "/docs/copilot/security"],
-      ["Troubleshooting", "/docs/copilot/troubleshooting"],
-      ["FAQ", "/docs/copilot/faq"],
-      ["", "", {
-        "name": "Reference",
-        "area": "copilot/reference",
-        "topics": [
-          ["Cheat Sheet", "/docs/copilot/reference/copilot-vscode-features"],
-          ["Settings Reference", "/docs/copilot/reference/copilot-settings"],
-          ["MCP Configuration", "/docs/copilot/reference/mcp-configuration"],
-          ["Workspace Context", "/docs/copilot/reference/workspace-context"]
-        ]
-      }
-      ]
-    ]
-  },
-
-  {
-    "name": "Agent Native Development",
-    "area": "agent-native",
-    "link": "/docs/agent-native/overview",
-    "topics": []
-  },
-
-  {
-    "name": "Enterprise",
-    "area": "enterprise",
-    "topics": [
-      ["Overview", "/docs/enterprise/overview"],
-      ["Enterprise Policies", "/docs/enterprise/policies"],
-      ["AI Settings", "/docs/enterprise/ai-settings"],
-      ["Extensions", "/docs/enterprise/extensions"],
-      ["Telemetry", "/docs/enterprise/telemetry"],
-      ["Updates", "/docs/enterprise/updates"]
-    ]
-  },
-
-  {
-    "name": "Core Editor Features",
+    "name": "Editor",
     "area": "core-editor",
     "link": "/docs/core-editor/overview",
     "topics": []
   },
 
   {
-    "name": "Languages & Runtimes",
-    "area": "languages",
-    "link": "/docs/languages/overview",
-    "topics": []
+    "name": "Agents",
+    "area": "copilot",
+    "link": "/docs/agent-native/overview",
+    "topics": [ ]
+  },
+
+  {
+    "name": "Terminal",
+    "area": "terminal",
+    "topics": [
+      ["Getting Started Tutorial", "/docs/terminal/getting-started"],
+      ["Terminal Basics", "/docs/terminal/basics"],
+      ["Terminal Profiles", "/docs/terminal/profiles"],
+      ["Shell Integration", "/docs/terminal/shell-integration"],
+      ["Appearance", "/docs/terminal/appearance"],
+      ["Advanced", "/docs/terminal/advanced"]
+    ]
+  },
+
+  {
+    "name": "Debugging",
+    "area": "debug",
+    "topics": [
+      ["Debugging", "/docs/debugtest/debugging"],
+      ["Debug Configuration", "/docs/debugtest/debugging-configuration"],
+      ["Tasks", "/docs/debugtest/tasks"],
+      ["", "", {
+        "name": "Guides & Tutorials",
+        "area": "debugging/guides",
+        "topics": [
+          ["Debug with AI", "/docs/copilot/guides/debug-with-copilot"],
+        ]
+        }
+      ]
+    ]
+  },
+
+  {
+    "name": "Testing",
+    "area": "test",
+    "topics": [
+      ["Testing", "/docs/debugtest/testing"],
+      ["Integrated Browser", "/docs/debugtest/integrated-browser"],
+      ["Port Forwarding", "/docs/debugtest/port-forwarding"],
+      ["", "", {
+        "name": "Guides & Tutorials",
+        "area": "testing/guides",
+        "topics": [
+          ["Test-Driven Development", "/docs/copilot/guides/test-driven-development-guide"],
+          ["Test with AI", "/docs/copilot/guides/test-with-copilot"],
+          ["Test Web Apps with Browser Tools", "/docs/copilot/guides/browser-agent-testing-guide"],
+        ]
+        }
+      ]
+    ]
+  },
+
+  {
+    "name": "Customization",
+    "area": "configure",
+    "topics": [
+      ["Editor Customization", "/docs/configure/locales"],
+      ["Agent Customization", "/docs/copilot/customization/overview"],
+      ["Extension Marketplace", "/docs/configure/extensions/extension-marketplace"],
+    ]
   },
 
   {
