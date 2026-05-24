@@ -5,39 +5,42 @@
     "link": "/docs/copilot/agents/agents-tutorial",
     "image": "/assets/docs/copilot/getting-started/agent-mode-selection-2.png"
   },
-  "paths": [
+  "featured": [
     {
-      "icon": "codicon-hubot",
-      "title": "Build with agents",
-      "description": "Delegate tasks to autonomous AI agents that plan, execute, and iterate on your behalf.",
-      "highlights": [
-        "Generate entire features from a single prompt",
-        "Run agents locally, in the background, or in the cloud",
-        "Automate testing, refactoring, and documentation"
-      ],
-      "link": "/docs/copilot/agents/agents-tutorial"
+      "icon": "codicon-lightbulb",
+      "title": "Learn about the agent loop",
+      "description": "Understand the core concepts of how AI agents plan, act, and iterate to complete tasks.",
+      "link": "/docs/copilot/concepts/agents"
     },
     {
-      "icon": "codicon-sparkle",
-      "title": "Code with AI assistance",
-      "description": "Stay in control while AI accelerates your workflow with smart suggestions and chat.",
-      "highlights": [
-        "Get context-aware code completions as you type",
-        "Ask questions and get answers in inline chat",
-        "Refactor, fix, and generate tests with a single action"
-      ],
-      "link": "/docs/copilot/getting-started"
+      "icon": "codicon-debug",
+      "title": "Test and debug with browser agents",
+      "description": "Let AI agents use the integrated browser to validate and fix issues in your application.",
+      "link": "/docs/copilot/guides/browser-agent-testing-guide"
     },
     {
-      "icon": "codicon-code",
-      "title": "Explore the editor",
-      "description": "Master the core features of VS Code that make you productive in any language.",
-      "highlights": [
-        "Powerful editing, IntelliSense, and navigation",
-        "Integrated debugging, terminal, and source control",
-        "Thousands of extensions for any workflow"
-      ],
+      "icon": "codicon-settings-gear",
+      "title": "Customize AI for your project",
+      "description": "Configure custom instructions, prompt files, and MCP servers to tailor AI to your workflow.",
+      "link": "/docs/copilot/guides/customize-copilot-guide"
+    },
+    {
+      "icon": "codicon-tools",
+      "title": "Set up VS Code",
+      "description": "Install VS Code on Windows, macOS, or Linux and get running.",
+      "link": "/docs/setup/setup-overview"
+    },
+    {
+      "icon": "codicon-mortar-board",
+      "title": "Learn VS Code basics",
+      "description": "Explore the editor, settings, extensions, and key features.",
       "link": "/docs/getstarted/getting-started"
+    },
+    {
+      "icon": "codicon-organization",
+      "title": "VS Code for enterprise",
+      "description": "Learn how to configure VS Code for enterprise environments with policies, extension management, and AI customization options.",
+      "link": "/docs/enterprise/overview"
     }
   ],
   "latest": [
