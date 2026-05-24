@@ -1,8 +1,10 @@
 [
   {
-    "name": "Edit Code",
+    "name": "Write code",
     "area": "editing",
     "topics": [
+      ["User Interface", "/docs/getstarted/userinterface"],
+      ["Tips and Tricks", "/docs/getstarted/tips-and-tricks"],
       ["Basic Editing", "/docs/editing/codebasics"],
       ["IntelliSense", "/docs/editing/intellisense"],
       ["Code Navigation", "/docs/editing/editingevolved"],
@@ -21,7 +23,7 @@
   },
 
   {
-    "name": "Configure",
+    "name": "Configure the editor",
     "area": "configure",
     "topics": [
       ["Display Language", "/docs/configure/locales"],
@@ -53,9 +55,13 @@
   },
 
   {
-    "name": "Languages & Runtimes",
-    "area": "languages",
-    "link": "/docs/languages/overview",
-    "topics": []
-  },
+    "name": "Reference",
+    "area": "reference",
+    "topics": [
+      ["Default Keyboard Shortcuts", "/docs/reference/default-keybindings"],
+      ["Default Settings", "/docs/reference/default-settings"],
+      ["Substitution Variables", "/docs/reference/variables-reference"],
+      ["Tasks Schema", "/docs/reference/tasks-appendix"]
+    ]
+  }
 ]
