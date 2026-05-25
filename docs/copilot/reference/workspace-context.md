@@ -21,7 +21,7 @@ Keywords:
 
 # How Copilot understands your workspace
 
-Copilot agents search your entire codebase to understand how components connect and provide answers grounded in your actual code. You can ask broad questions like "where is authentication handled?" or "add tests for the list endpoint" and get accurate answers and edits based on your codebase.
+Copilot agents search your entire codebase to understand how components connect and provide answers grounded in your actual code. You can use broad prompts like "where is authentication handled?" or "add tests for the list endpoint" and get accurate answers and edits based on your codebase.
 
 This article explains how Copilot understands your codebase, including the different tools it uses for searching through your code and the indexes it creates to enable quick searches. These same general approaches are used on all codebases, from those with five files to those with 500,000 files.
 
