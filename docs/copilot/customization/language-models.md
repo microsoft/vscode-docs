@@ -62,7 +62,7 @@ The model picker label updates to show the selected effort level, for example "C
 
 ## Use auto model selection
 
-With auto model selection, VS Code automatically selects the best-performing model and reduces rate limits from excessive usage of a single model. For background on how auto model selection works, see [Auto model selection](/docs/copilot/concepts/language-models.md#auto-model-selection).
+With auto model selection, VS Code evaluates task complexity and real-time model availability to route each request to the optimal model. For background on how auto model selection works, see [Auto model selection](/docs/copilot/concepts/language-models.md#auto-model-selection).
 
 To use auto model selection, select **Auto** from the model picker in chat. You can see which model is used for generating a response by hovering over the chat response.
 
@@ -112,30 +112,60 @@ To pin or unpin a model:
 
 If you want to use a model that is not available as a built-in model or want to control the model hosting, you can bring your own language model API key (BYOK) to use models from other providers or to run models locally. For background on why you might bring your own key and what to consider, see [Bring your own language model key](/docs/copilot/concepts/language-models.md#bring-your-own-language-model-key).
 
-You can also use these models to [override the models used for background utility tasks](#configure-models-for-other-features) (such as title generation and intent detection).
+VS Code provides different options to add more language models:
 
-VS Code provides different options to add more models:
+| Option | When to use | Get started |
+|--------|-------------|-------------|
+| [Built-in providers](#add-a-model-from-a-built-in-provider) | The provider you want is already listed (Azure, Anthropic, Gemini, OpenAI, and others) | Enter your API key for a known provider |
+| [Custom endpoint](#add-a-custom-endpoint-model) _(Insiders)_ | You have a self-hosted, enterprise, or other endpoint that speaks Chat Completions, Responses, or Messages API | Point VS Code at any compatible URL |
+| [Extensions](#add-a-model-provider-extension) | A marketplace extension provides the model, for example AI Toolkit for local models | Install the extension and follow its setup |
 
-* **Built-in providers**: connect to cloud model providers like Microsoft Azure, Anthropic, Google Gemini, OpenAI, and others. See [Add a model from a built-in provider](#add-a-model-from-a-built-in-provider).
-* **Custom endpoint** _(VS Code Insiders)_: connect any OpenAI-compatible, Responses API, or Anthropic Messages API endpoint, including self-hosted or enterprise endpoints. See [Add a custom endpoint model](#add-a-custom-endpoint-model).
-* **Extensions**: install a language model provider extension from the Visual Studio Marketplace. See [Add a model provider extension](#add-a-model-provider-extension).
+You can also use these models to [override the models used for utility tasks in VS Code](#configure-models-for-other-features) (such as title generation and intent detection).
 
 > [!NOTE]
 > If you are a Copilot Business or Enterprise user, your administrator can disable the **Bring Your Own Language Model Key in VS Code** policy in the [Copilot policy settings](https://github.com/settings/copilot/features) on GitHub.com. For more details, see the [GitHub Copilot documentation](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/use-your-own-api-keys).
 
 ### Add a model from a built in provider
 
-VS Code supports several built-in model providers that you can use to add more models to the model picker in chat.
+Pick from a set of common providers that are ready to use in VS Code. Depending on the provider, you need an API key and other configuration details like the endpoint URL.
 
 To configure a language model from a built-in provider:
 
-1. Select **Manage Language Models** (gear icon) from the language model picker in the Chat view or run the **Chat: Manage Language Models** command from the Command Palette.
+1. Open the Language Models editor by selecting **Manage Language Models** (gear icon) from the language model picker or via the **Chat: Manage Language Models** command from the Command Palette.
 
-1. In the Language Models editor, select **Add Models**, and then select a model provider from the list.
+1. Select **Add Models**, and then select a model provider from the list.
 
     ![Screenshot that shows the model provider Quick Pick.](../images/language-models/model-provider-quick-pick-v2.png)
 
-1. Enter the provider-specific and model-specific details, such as the API key or endpoint URL.
+1. Enter a group name for the models. This is the grouping label shown in the model picker and Language Models editor.
+
+    You can change the group name later from the Language Models editor if needed.
+
+1. Enter the provider-specific details, such as the API key or endpoint URL.
+
+1. If the provider requires additional configuration, VS Code opens a `chatLanguageModels.json` file where you can configure the provider and model details. See the [Model configuration reference](#model-configuration-reference) for details on the configuration properties.
+
+    The following example shows an Azure OpenAI configuration that uses Entra ID authentication:
+
+    ```json
+    [
+      {
+        "name": "Azure",
+        "vendor": "azure",
+        "models": [
+          {
+            "id": "<my-deployment-name>",
+            "name": "GPT-5.5",
+            "url": "https://<my-endpoint>.openai.azure.com",
+            "toolCalling": true,
+            "vision": true,
+            "maxInputTokens": 200000,
+            "maxOutputTokens": 64000
+          }
+        ]
+      }
+    ]
+    ```
 
 1. After configuring the model, you can now select it from the model picker in chat.
 
@@ -150,21 +180,26 @@ The Custom Endpoint provider lets you connect any compatible API endpoint to cha
 
 To add a model with the Custom Endpoint provider:
 
-1. Select **Manage Language Models** (gear icon) from the language model picker in the Chat view, or run the **Chat: Manage Language Models** command.
+1. Open the Language Models editor by selecting **Manage Language Models** (gear icon) from the language model picker or via the **Chat: Manage Language Models** command from the Command Palette.
 
-1. In the Language Models editor, select **Add Models**, and then select **Custom Endpoint** from the list.
+1. Select **Add Models**, and then select **Custom Endpoint** from the list.
+
+1. Enter a group name for the models. This is the grouping label shown in the model picker and Language Models editor.
+
+    You can change the group name later from the Language Models editor if needed.
 
 1. Enter a display name and API key for the endpoint.
 
-1. Select the API type: **Chat Completions**, **Responses**, or **Messages**.
+1. Select the API type: **Chat Completions**, **Responses**, or **Messages**. Make sure the model supports this API type.
 
-1. VS Code opens a `chatLanguageModels.json` file where you can configure the model details. Update the model properties and save the file.
+1. VS Code opens a `chatLanguageModels.json` file where you can configure the model details. Update the model properties and save the file. See the [Model configuration reference](#model-configuration-reference) for details on the configuration properties.
 
     The following example shows a Messages API configuration for an Anthropic endpoint:
 
     ```json
     [
       {
+        "name": "Anthropic",
         "vendor": "customendpoint",
         "apiKey": "YOUR_API_KEY",
         "apiType": "messages",
@@ -182,19 +217,6 @@ To add a model with the Custom Endpoint provider:
       }
     ]
     ```
-
-    Each model in the `models` array supports the following properties:
-
-    | Property | Description |
-    |----------|-------------|
-    | `id` | Model identifier sent to the API. |
-    | `name` | Display name shown in the model picker. |
-    | `url` | Full endpoint URL for the model. |
-    | `apiType` | _(Optional)_ Override the API type per model (`chat-completions`, `responses`, or `messages`). Defaults to the provider-level `apiType`. |
-    | `toolCalling` | Set to `true` if the model supports tool calling. |
-    | `vision` | Set to `true` if the model supports image inputs. |
-    | `maxInputTokens` | Maximum number of input tokens the model accepts. |
-    | `maxOutputTokens` | Maximum number of output tokens the model generates. |
 
 1. After configuring the model, select it from the model picker in chat.
 
@@ -261,6 +283,33 @@ There are two settings for utility models, depending on the type of task:
 
 Both settings default to **Default**, which uses the built-in utility model from GitHub Copilot.
 
+## Model configuration reference
+
+When you add BYOK model, you can configure the model properties in the `chatLanguageModels.json` file. The configuration has two levels: provider-level and model-level.
+
+Depending on the provider, some provider and model properties might be required while others are optional. For example, some providers only require an API key and endpoint URL and discover the available models automatically, while others require you to specify the details for each model.
+
+The provider-level properties include:
+
+| Property | Description |
+|----------|-------------|
+| `vendor` | The provider of the model, for example `azure`, `openai`, `customendpoint` |
+| `name` | The display name (group name) of the provider shown in the UI. |
+| `models` | _(Optional)_ An array of model configurations provided by this provider. |
+
+Each model in the `models` array supports the following properties:
+
+| Property | Description |
+|----------|-------------|
+| `id` | Model identifier sent to the API. For example, for Foundry this is the deployment name. |
+| `name` | Display name shown in the model picker. |
+| `url` | Full endpoint URL for the model. |
+| `apiType` | _(Optional)_ Override the API type per model (`chat-completions`, `responses`, or `messages`). Defaults to the provider-level `apiType`. |
+| `toolCalling` | Set to `true` if the model supports tool calling. |
+| `vision` | Set to `true` if the model supports image inputs. |
+| `maxInputTokens` | Maximum number of input tokens the model accepts. |
+| `maxOutputTokens` | Maximum number of output tokens the model generates. |
+
 ## Frequently asked questions
 
 ### How do I enable bring your own model key for Copilot Business or Copilot Enterprise?
@@ -277,7 +326,7 @@ You can use locally hosted models in chat by using [bring your own model key](#b
 Currently, you cannot connect to a local model for inline suggestions. VS Code provides an extension API [`InlineCompletionItemProvider`](/api/references/vscode-api.md#InlineCompletionItemProvider) that enables extensions to contribute a custom completion provider. You can get started with our [Inline Completions sample](https://github.com/microsoft/vscode-extension-samples/blob/main/inline-completions).
 
 > [!NOTE]
-> Currently, using a locally hosted models still requires the Copilot service for some tasks. Therefore, your GitHub account needs to have access to a Copilot plan (for example, Copilot Free) and you need to be online. This requirement might change in a future release.
+> Currently, using a locally hosted model still requires the Copilot service for some tasks. Therefore, your GitHub account needs to have access to a Copilot plan (for example, Copilot Free) and you need to be online. This requirement might change in a future release.
 
 ### Can I use a local model without an internet connection?
 

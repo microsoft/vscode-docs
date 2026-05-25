@@ -70,11 +70,15 @@ You can switch models at any time, based on your needs for a particular task. Fo
 
 ### Auto model selection
 
-With auto model selection, VS Code automatically selects a model based on current availability and performance. It detects degraded model performance and routes requests to the best-performing model at that point in time. Auto selects from multiple models and respects your organization's [model access settings](https://docs.github.com/en/copilot/how-tos/use-ai-models/configure-access-to-ai-models). If none of the preferred models are available or you run out of premium requests, auto falls back to a model at 0x multiplier.
+Auto model selection combines two systems to route each request to the optimal model. One system tracks real-time model health and availability, while the other evaluates task complexity. Together, they match each task to the model that can solve it most efficiently, reserving higher-cost reasoning models for problems that need them and routing simpler tasks to faster models.
+
+Auto selects from multiple models and respects your organization's [model access settings](https://docs.github.com/en/copilot/how-tos/use-ai-models/configure-access-to-ai-models). Auto won't select models that have a premium request multiplier greater than 1x, models excluded by administrator policies, or models restricted by data-residency policies. If none of the preferred models are available or you run out of premium requests, auto falls back to a model at 0x multiplier.
+
+For more details, see [About Copilot auto model selection](https://docs.github.com/en/copilot/concepts/auto-model-selection) in the GitHub documentation.
 
 ### Premium requests and multipliers
 
-Different models consume premium requests at different rates, expressed as a multiplier. For example, a model with a 2x multiplier uses two premium requests per interaction. When you use auto model selection, VS Code applies a variable [model multiplier](https://docs.github.com/en/copilot/concepts/billing/copilot-requests#model-multipliers) based on the selected model. If you are a paid user, auto applies a request discount.
+Different models consume premium requests at different rates, expressed as a multiplier. For example, a model with a 2x multiplier uses two premium requests per interaction. When you use auto model selection, VS Code applies a variable [model multiplier](https://docs.github.com/en/copilot/concepts/billing/copilot-requests#model-multipliers) based on the selected model. If you are on a paid Copilot plan, auto applies a 10% multiplier discount.
 
 Learn how to [choose and configure language models](/docs/copilot/customization/language-models.md) in VS Code.
 
