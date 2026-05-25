@@ -1,6 +1,6 @@
 ---
 ContentId: DD4E5A59-1586-4A5D-8047-3D58B2FE6937
-DateApproved: 5/20/2026
+DateApproved: 5/28/2026
 MetaDescription: Learn about Visual Studio Code editor features (syntax highlighting, snippets, linting) and extensions for PHP.
 ---
 # PHP in Visual Studio Code
