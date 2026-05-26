@@ -40,7 +40,7 @@ You can view the current Copilot usage in the Copilot status dashboard, availabl
 * **Inline suggestions**: The percentage of inline suggestions quota you have used in the current month. Paid plans have an unlimited quota for inline suggestions.
 * **AI credits**: The percentage of your monthly AI credits allowance you have used in the current month.
 
-Visit the GitHub Copilot documentation for more information about [monitoring usage and entitlements](https://docs.github.com/en/copilot/managing-copilot/monitoring-usage-and-entitlements/monitoring-your-copilot-usage-and-entitlements).
+Visit the GitHub Copilot documentation for more information about [monitoring usage and entitlements](https://docs.github.com/en/copilot/managing-copilot/monitoring-usage-and-entitlements/monitoring-your-copilot-usage-and-entitlements). For tips on reducing credit consumption, see [optimize AI credit usage](/docs/copilot/guides/optimize-usage.md).
 
 ### I reached my inline suggestions or AI credits limit
 
@@ -51,6 +51,8 @@ For users on Copilot Free, to access more inline suggestions and AI credits, you
 <!-- TODO: add screenshot -->
 
 If you're on a paid plan and exhaust your AI credits, you can set a budget for additional usage and keep working, or wait until the next monthly cycle when your allowance resets. Learn more about [what happens if you exceed your included AI credits](https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-individuals#what-happens-if-i-exceed-my-included-ai-credits) in the GitHub Copilot documentation.
+
+For tips on reducing credit consumption, see [optimize AI credit usage](/docs/copilot/guides/optimize-usage.md).
 
 ### My Copilot subscription is not detected in VS Code
 

@@ -127,7 +127,7 @@ As you send more requests in a conversation, the control updates to reflect the 
 
 ## Context compaction
 
-As a conversation grows, the accumulated messages and context can fill up the model's context window. Context compaction summarizes the conversation history to free up space, so you can continue working in the same session without losing important details.
+As a conversation grows, the accumulated messages and context can fill up the model's context window. Context compaction summarizes the conversation history to free up space, so you can continue working in the same session without losing important details. Compacting also reduces the number of tokens sent with each subsequent request, which helps manage [AI credit consumption](/docs/copilot/guides/optimize-usage.md).
 
 ### Automatic compaction
 

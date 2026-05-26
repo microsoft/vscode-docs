@@ -42,6 +42,9 @@ Some models support configurable thinking effort, which controls how much reason
 
 By default, VS Code sets recommended effort levels and has adaptive reasoning enabled, where the model dynamically determines how much to think based on the complexity of each request. For most use cases, the defaults work well.
 
+> [!TIP]
+> Higher thinking effort produces more thinking tokens, which increases [AI credit](/docs/copilot/concepts/language-models.md#ai-credits-and-model-costs) consumption. Only increase thinking effort for genuinely complex tasks. Learn more about [optimizing AI credit usage](/docs/copilot/guides/optimize-usage.md).
+
 To configure the thinking effort:
 
 1. Open the model picker in the chat input field and select a reasoning model.
