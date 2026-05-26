@@ -3,10 +3,13 @@
     "name": "Write code",
     "area": "editing",
     "topics": [
+      ["Tutorial", "/docs/getstarted/getting-started"],
       ["User Interface", "/docs/getstarted/userinterface"],
       ["Tips and Tricks", "/docs/getstarted/tips-and-tricks"],
       ["Basic Editing", "/docs/editing/codebasics"],
       ["IntelliSense", "/docs/editing/intellisense"],
+      ["Inline Suggestions", "/docs/copilot/ai-powered-suggestions"],
+      ["Smart Actions", "/docs/copilot/copilot-smart-actions"],
       ["Code Navigation", "/docs/editing/editingevolved"],
       ["Refactoring", "/docs/editing/refactoring"],
       ["Snippets", "/docs/editing/userdefinedsnippets"],
