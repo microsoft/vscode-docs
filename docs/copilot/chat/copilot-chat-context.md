@@ -1,6 +1,6 @@
 ---
 ContentId: 5d8a707d-a239-4cc7-92ee-ccc763e8eb9c
-DateApproved: 5/28/2026
+DateApproved: 5/20/2026
 MetaDescription: Learn how to manage context when using AI in VS Code, including workspace indexing, #-mentions for files and symbols, web content references, and custom instructions.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -74,11 +74,15 @@ Chat supports vision capabilities, which means you can attach an image as contex
 > [!TIP]
 > You can drag and drop an image from a web browser onto the Chat view to add it as context.
 
-## Add browser elements (Experimental)
+## Add browser context (Experimental)
 
 VS Code has a built-in [integrated browser](/docs/debugtest/integrated-browser.md) that you can use to preview and interact with web pages inside VS Code, for example to do quick testing and debugging of your web application.
 
-You can add elements from the browser window as context to your chat prompt. This is useful when you want to get help with specific parts of a web page, such as HTML elements, CSS styles, or JavaScript code.
+The browser toolbar has an **Add to Chat** split button with actions that let you attach different types of context from the current page to your chat prompt:
+
+* **Add Element to Chat**: select HTML elements from the page to add as context, including their CSS styles and screenshots.
+* **Add Screenshot to Chat**: capture a screenshot of the current browser viewport and attach it as an image.
+* **Add Console Logs to Chat**: capture the console output from the page and attach it as context, useful for debugging runtime errors.
 
 To add elements from the integrated browser to your chat prompt:
 
@@ -89,10 +93,12 @@ To add elements from the integrated browser to your chat prompt:
 
     <video src="images/copilot-chat/integrated-browser-select-element.mp4" title="Video showing how to select and add elements from the integrated browser to the chat prompt." loop controls muted></video>
 
-You can configure which information is included in the context:
+You can configure which information is included when adding elements:
 
 * Attach CSS: `setting(chat.sendElementsToChat.attachCSS)` setting
 * Attach images: `setting(chat.sendElementsToChat.attachImages)` setting
+
+Learn more about [browser-to-chat actions](/docs/debugtest/integrated-browser.md#add-context-to-ai-chat).
 
 ## Interact with browser pages
 
