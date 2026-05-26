@@ -88,6 +88,8 @@ The user setting **Editor: Column Selection** controls this feature. Once this m
 
 By default, VS Code requires an explicit action to save your changes to disk, `kb(workbench.action.files.save)`.
 
+When an editor has unsaved changes, a circle indicator is displayed in the editor tab, and the Explorer view shows a badge indicating the number of unsaved files. These indicators convey that your changes have not been saved to disk, though they are safely stored in a backup location by the [Hot Exit](#hot-exit) feature.
+
 However, it's easy to turn on `Auto Save`, which will save your changes after a configured delay or when focus leaves the editor. With this option turned on, there is no need to explicitly save the file. The easiest way to turn on `Auto Save` is with the **File** > **Auto Save** toggle that turns on and off save after a delay.
 
 For more control over `Auto Save`, open User or Workspace [settings](/docs/configure/settings.md) and find the associated settings:
