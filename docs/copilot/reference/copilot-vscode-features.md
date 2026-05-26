@@ -12,7 +12,7 @@ GitHub Copilot in Visual Studio Code provides autonomous agents, inline suggesti
 > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly allowance of inline suggestions and AI credits.
 
 > [!IMPORTANT]
-> New sign-ups for Copilot Pro, Copilot Pro+, and student plans are temporarily paused until June 15.
+> New sign-ups for Copilot Pro, Copilot Pro+, and student plans are temporarily paused.
 
 ## Essential keyboard shortcuts
 

@@ -28,7 +28,7 @@ Follow these steps to get started with Copilot in VS Code:
     * If you don't have a Copilot subscription yet, you'll be signed up for the [Copilot Free plan](https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-free/about-github-copilot-free) and get a monthly allowance of inline suggestions and AI credits. Learn more about the different [GitHub Copilot plans](https://docs.github.com/en/copilot/get-started/plans).
 
     > [!IMPORTANT]
-    > New sign-ups for Copilot Pro, Copilot Pro+, and student plans are temporarily paused until June 15.
+    > New sign-ups for Copilot Pro, Copilot Pro+, and student plans are temporarily paused.
 
 1. Start using Copilot in VS Code!
 
