@@ -274,7 +274,7 @@ You can monitor progress through the session logs accessible from the pull reque
 
 ### What security protections does Copilot cloud agent have?
 
-Copilot cloud agent includes built-in security protections and operates within GitHub's security framework. For detailed information about security measures, permissions, and branch protection compatibility, see the [GitHub Copilot cloud agent security documentation](https://docs.github.com/en/copilot/concepts/about-copilot-coding-agent#built-in-security-protections).
+Copilot cloud agent includes built-in security protections and operates within GitHub's security framework. For detailed information about security measures, permissions, and branch protection compatibility, see the [GitHub Copilot cloud agent security documentation](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/risks-and-mitigations).
 
 ### Can I extend Copilot cloud agent with external tools?
 
