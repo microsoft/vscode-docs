@@ -104,7 +104,7 @@ To disable the OpenAI Codex agent, disable or uninstall the [OpenAI Codex](https
 * A Copilot Pro+ subscription for authentication
 * For local sessions, the [OpenAI Codex](https://marketplace.visualstudio.com/items?itemName=openai.chatgpt) extension
 
-OpenAI Codex in VS Code enables you to use your Copilot Pro+ subscription to authenticate and access Codex without additional setup. Get more information about [GitHub Copilot billing and premium requests](https://docs.github.com/en/copilot/concepts/billing/copilot-requests) in the GitHub documentation.
+OpenAI Codex in VS Code enables you to use your Copilot Pro+ subscription to authenticate and access Codex without additional setup. Get more information about [GitHub Copilot usage-based billing](https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-individuals) in the GitHub documentation.
 
 ### Start a Codex session
 

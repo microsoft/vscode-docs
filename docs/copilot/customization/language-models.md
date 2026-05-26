@@ -68,9 +68,6 @@ To use auto model selection, select **Auto** from the model picker in chat. You 
 
 ![Screenshot of a chat response, showing the selected model on hover.](../images/language-models/chat-response-selected-model.png)
 
-> [!IMPORTANT]
-> **Starting April 20, 2026**, new sign-ups for Copilot Pro, Copilot Pro+, and student plans are temporarily paused. Additionally, we are tightening weekly usage limits. If you hit a weekly limit and you have premium requests remaining, you can continue using Copilot with auto model selection. See [GitHub Copilot usage limits](https://docs.github.com/copilot/concepts/usage-limits).
-
 ## Manage language models
 
 You can use the language models editor to view all available models, choose which models are shown in the model picker, and add more models by adding from built-in providers or from extension-provided model providers.

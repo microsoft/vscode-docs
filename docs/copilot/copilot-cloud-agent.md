@@ -45,7 +45,7 @@ Ensure you are signed into the GitHub Pull Request extension with the correct Gi
 You can also manage coding agent sessions from a dedicated chat editor and view a **Chat Sessions** view by enabling the experimental setting `setting(chat.agentSessionsViewLocation)`.
 
 > [!TIP]
-> If you don't have Copilot access yet, you can sign up for the [Copilot Free plan](https://github.com/features/copilot/plans) to get a monthly limit of interactions.
+> If you don't have Copilot access yet, you can sign up for the [Copilot Free plan](https://github.com/features/copilot/plans) to get a monthly allowance of inline suggestions and AI credits.
 
 ## Assign work to Copilot cloud agent in VS Code
 
