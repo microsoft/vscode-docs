@@ -309,6 +309,13 @@ Each model in the `models` array supports the following properties:
 | `vision` | Set to `true` if the model supports image inputs. |
 | `maxInputTokens` | Maximum number of input tokens the model accepts. |
 | `maxOutputTokens` | Maximum number of output tokens the model generates. |
+| `editTools` | _(Optional)_ An array of edit tools the model supports. If not configured, the editor tries multiple edit tools and picks the best one. Possible values: `find-replace`, `multi-find-replace`, `apply-patch`, `code-rewrite`. |
+| `thinking` | _(Optional)_ Set to `true` if the model supports thinking capabilities. Defaults to `false`. |
+| `streaming` | _(Optional)_ Set to `true` if the model supports streaming responses. Defaults to `true`. |
+| `zeroDataRetentionEnabled` | _(Optional)_ Set to `true` if Zero Data Retention (ZDR) is enabled for this endpoint. When enabled, `previous_response_id` is not sent in requests via the Responses API. Defaults to `false`. |
+| `supportsReasoningEffort` | _(Optional)_ An array of reasoning effort levels the model accepts (for example, `["low", "medium", "high"]`). When set, a **Thinking Effort** picker is shown in the model picker. Common levels are `minimal`, `low`, `medium`, `high`. |
+| `reasoningEffortFormat` | _(Optional)_ Body shape used to forward reasoning effort to the model. `chat-completions` sends a top-level `reasoning_effort` string. `responses` sends a nested `reasoning.effort` object. When unset, the format follows the URL. |
+| `requestHeaders` | _(Optional)_ An object of additional HTTP headers to include with requests to this model. Certain reserved headers (forbidden, forwarding, and internal headers) are not allowed and are ignored if present. |
 
 ## Frequently asked questions
 
