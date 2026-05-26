@@ -19,6 +19,9 @@ Copilot can help with the following testing tasks:
 > [!TIP]
 > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly allowance of inline suggestions and AI credits.
 
+> [!IMPORTANT]
+> New sign-ups for Copilot Pro, Copilot Pro+, and student plans are temporarily paused until June 15.
+
 ## Set up your testing framework
 
 To accelerate your testing workflow, Copilot can help set up the testing framework and VS Code extensions for your project. Copilot suggests appropriate testing frameworks based on your project type.

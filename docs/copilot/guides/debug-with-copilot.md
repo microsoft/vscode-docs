@@ -17,6 +17,9 @@ Copilot can help with the following debugging tasks:
 > [!TIP]
 > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly allowance of inline suggestions and AI credits.
 
+> [!IMPORTANT]
+> New sign-ups for Copilot Pro, Copilot Pro+, and student plans are temporarily paused until June 15.
+
 ## Set up debug configuration with Copilot
 
 VS Code uses the `launch.json` file to store [debug configuration](/docs/debugtest/debugging-configuration.md). Copilot can help you create and customize this file to set up debugging for your project.

@@ -26,6 +26,9 @@ Use chat in VS Code to generate the sample application in one go.
     > [!TIP]
     > If you don't have a Copilot subscription, you can sign up to use Copilot for free directly from within VS Code and get a monthly allowance of inline suggestions and AI credits.
 
+    > [!IMPORTANT]
+    > New sign-ups for Copilot Pro, Copilot Pro+, and student plans are temporarily paused until June 15.
+
 ## Step 1: Experience inline suggestions
 
 AI-powered inline suggestions appear as you type, helping you write code faster and with fewer errors. Let's start building the foundation of your task manager.

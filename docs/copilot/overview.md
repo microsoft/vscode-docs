@@ -108,6 +108,9 @@ Agents handle coding tasks end-to-end, from a single file change to a full featu
 
 1. Choose a sign-in method and follow the prompts. If you don't have a Copilot subscription yet, you are signed up for the [Copilot Free plan](https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-free/about-github-copilot-free).
 
+    > [!IMPORTANT]
+    > New sign-ups for Copilot Pro, Copilot Pro+, and student plans are temporarily paused until June 15.
+
 ### Step 2: Start your first agent session
 
 1. Open the **Chat** view (`kb(workbench.action.chat.open)`).
