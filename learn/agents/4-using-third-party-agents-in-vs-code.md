@@ -62,9 +62,9 @@ Inside a Claude session, type `/` in the chat input to see the available command
 
 ## Enable cloud partner agents
 
-Before you can use cloud partner agents, enable them in your GitHub Copilot settings. From github.com, open your profile menu, go to **Copilot settings** > **Cloud Agent**, then turn on the partner agents you want under **Partner Agents**.
+Before you can use cloud partner agents, enable third-party coding agents for your GitHub Copilot account by following the GitHub documentation.
 
-You can start a cloud session from the **Agents** tab on a GitHub repository: select the Copilot logo on the **New session** button to choose Claude or Codex.
+After third-party coding agents are enabled for your account, return to VS Code and start a session with Claude or Codex from the chat agent picker.
 
 ## Choose the right permission mode
 
