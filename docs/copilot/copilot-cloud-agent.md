@@ -48,7 +48,7 @@ You can also manage coding agent sessions from a dedicated chat editor and view 
 > If you don't have Copilot access yet, you can sign up for the [Copilot Free plan](https://github.com/features/copilot/plans) to get a monthly allowance of inline suggestions and AI credits.
 
 > [!IMPORTANT]
-> New sign-ups for Copilot Pro, Copilot Pro+, and student plans are temporarily paused.
+    > **Starting April 20, 2026**, new sign-ups for Copilot Pro, Copilot Pro+, and student plans are temporarily paused. Additionally, we are tightening weekly usage limits. See [GitHub Copilot usage limits](https://docs.github.com/copilot/concepts/usage-limits).
 
 ## Assign work to Copilot cloud agent in VS Code
 
