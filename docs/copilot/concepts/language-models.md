@@ -92,12 +92,12 @@ If the built-in models don't meet your needs, you can bring your own language mo
 * **Experimentation**: try new models or features that are not yet available in the built-in models.
 * **Local compute**: use your own compute for one of the models already supported in GitHub Copilot or to run models not yet available.
 * **Greater control**: bypass the standard rate limits and restrictions imposed on the built-in models.
+* **Offline and air-gapped environments**: use AI chat features with a local model like Ollama without a GitHub account, a Copilot plan, or an internet connection.
 
 ### Considerations
 
-* BYOK only applies to the chat experience and doesn't affect inline suggestions or other AI-powered features in VS Code.
+* BYOK only applies to the chat experience and utility tasks. Inline suggestions (code completions) and features that rely on embeddings, such as semantic search, still require a GitHub account.
 * Capabilities are model-dependent and might differ from the built-in models, for example, support for tool calling, vision, or thinking.
-* The Copilot service API is still used for some tasks, such as sending embeddings and repository indexing.
 * There is no guarantee that responsible AI filtering is applied to the model's output when using BYOK.
 
 Learn how to [add your own language model key](/docs/copilot/customization/language-models.md#bring-your-own-language-model-key) in VS Code.
