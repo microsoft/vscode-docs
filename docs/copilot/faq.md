@@ -37,9 +37,8 @@ Depending on your Copilot plan, you might have different levels of access and li
 
 You can view the current Copilot usage in the Copilot status dashboard, available through the VS Code Status Bar. The dashboard shows the following information:
 
-- **Inline suggestions**: The percentage of inline suggestions quota you have used in the current month.
-- **Chat messages**: The percentage of chat requests quota you have used in the current month.
-- **AI credits**: The percentage of your monthly AI credits allowance you have used in the current month.
+* **Inline suggestions**: The percentage of inline suggestions quota you have used in the current month. Paid plans have an unlimited quota for inline suggestions.
+* **AI credits**: The percentage of your monthly AI credits allowance you have used in the current month.
 
 Visit the GitHub Copilot documentation for more information about [monitoring usage and entitlements](https://docs.github.com/en/copilot/managing-copilot/monitoring-usage-and-entitlements/monitoring-your-copilot-usage-and-entitlements).
 
@@ -49,7 +48,7 @@ Your inline suggestions allowance and AI credits allowance reset every month. If
 
 For users on Copilot Free, to access more inline suggestions and AI credits, you can sign up for a [paid plan](https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-individuals) directly from VS Code. Alternatively, you can wait until the next month to continue using Copilot for free.
 
-![Visual indicators in Chat view, Status Bar, and title bar that you reached a limit for Copilot chat messages.](images/faq/copilot-chat-limit-reached.png)
+<!-- TODO: add screenshot -->
 
 If you're on a paid plan and exhaust your AI credits, you can set a budget for additional usage and keep working, or wait until the next monthly cycle when your allowance resets. Learn more about [what happens if you exceed your included AI credits](https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-individuals#what-happens-if-i-exceed-my-included-ai-credits) in the GitHub Copilot documentation.
 
