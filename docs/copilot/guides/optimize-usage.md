@@ -12,12 +12,12 @@ Each GitHub Copilot plan includes a monthly allowance of [AI credits](https://do
 
 More capable models cost more per token, while lighter models extend your usage further. Match the model to the complexity of the task:
 
-* Use **fast models** for quick edits, boilerplate generation, and straightforward questions.
+* Use **lighter models** for quick edits, boilerplate generation, and straightforward questions.
 * Use **reasoning models** for complex refactoring, architectural decisions, and multi-step debugging.
 * Use **auto model selection** to let VS Code route each request to an efficient model that balances quality and cost.
 * Use [custom agents](/docs/copilot/customization/custom-agents.md) with a preferred model to route specific subtasks to specialized, cost-effective models. When you invoke a custom agent as a subagent, it uses its own configured model instead of the chat session's model.
 
-The model picker in chat shows the relative cost of each model. Use this information to make informed choices.
+The model picker in chat shows cost details in the hover menu, including cost per token type and a generic cost tier label (Low, Medium, High). Use this information to make informed choices.
 
 For more information, see [choosing and configuring language models](/docs/copilot/customization/language-models.md) and [best practices for model selection](/docs/copilot/best-practices.md#choose-the-right-model).
 
@@ -80,7 +80,7 @@ For more information, see [context compaction](/docs/copilot/chat/copilot-chat-c
 
 ## Monitor your usage
 
-You can view your current Copilot usage in the Copilot status dashboard, available through the VS Code Status Bar. The dashboard shows the percentage of your monthly allowance you have used for inline suggestions and AI credits.
+You can view your current Copilot usage in the Copilot status dashboard, available through the VS Code Status Bar. The dashboard shows the percentage of your monthly allowance you have used for AI credits (and inline suggestions for the Copilot Free plan).
 
 <!-- TODO: add screenshot of Copilot status dashboard -->
 
