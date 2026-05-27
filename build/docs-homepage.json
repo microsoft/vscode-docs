@@ -3,7 +3,7 @@
     "title": "Get started with AI agents",
     "description": "Hand off tasks to autonomous AI agents that iterate until the job is done. Run them locally, in the background, or in the cloud, with your choice of AI provider. Track all sessions without leaving VS Code.",
     "link": "/docs/agents/agents-tutorial",
-    "image": "/assets/docs/copilot/getting-started/agent-mode-selection-2.png"
+    "image": "/assets/docs/agents/getting-started/agent-mode-selection-2.png"
   },
   "featured": [
     {
@@ -16,13 +16,13 @@
       "icon": "codicon-debug",
       "title": "Test and debug with browser agents",
       "description": "Let AI agents use the integrated browser to validate and fix issues in your application.",
-      "link": "/docs/copilot/guides/browser-agent-testing-guide"
+      "link": "/docs/agents/guides/browser-agent-testing-guide"
     },
     {
       "icon": "codicon-settings-gear",
       "title": "Customize AI for your project",
-      "description": "Configure custom instructions, prompt files, and MCP servers to tailor AI to your workflow.",
-      "link": "/docs/copilot/guides/customize-copilot-guide"
+      "description": "Configure custom instructions, skills, and MCP servers to tailor AI to your workflow.",
+      "link": "/docs/agent-customization/overview"
     },
     {
       "icon": "codicon-tools",
