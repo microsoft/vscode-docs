@@ -1,6 +1,6 @@
 ---
 ContentId: b3e7a1d4-5f2c-4e9a-8b6d-1c0f3a2e5d47
-DateApproved: 5/20/2026
+DateApproved: 5/28/2026
 MetaDescription: Use the Agents window in VS Code for an agent-first coding experience where agents and chat are the primary interface to build with AI.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---

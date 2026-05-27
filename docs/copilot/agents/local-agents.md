@@ -1,6 +1,6 @@
 ---
 ContentId: 3a6e8c1d-5f2b-4d9a-b7e1-9c4f2a8d6b3e
-DateApproved: 5/20/2026
+DateApproved: 5/28/2026
 MetaDescription: Learn how to use local agents in VS Code for interactive coding tasks with full access to your workspace, tools, and models.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:

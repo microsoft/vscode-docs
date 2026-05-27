@@ -1,7 +1,7 @@
 ---
 ContentId: f8e2a7c1-9d3b-4e5f-a6c8-1b2d3e4f5a6b
-DateApproved: 5/20/2026
-MetaDescription: Use the integrated browser in VS Code to preview and debug web apps, navigate to URLs, and select elements to add as context to AI chat.
+DateApproved: 5/28/2026
+MetaDescription: Use the integrated browser in VS Code to preview and debug web apps, navigate to URLs, and add page elements, screenshots, or console logs as context to AI chat.
 MetaSocialImage: images/debugging/debugging-social.png
 ---
 # Integrated browser
@@ -129,7 +129,13 @@ For a full reference of launch configuration attributes, see [Browser debugging 
 
 Move the browser to its own floating window by right-clicking the editor tab and selecting **Move into New Window**. Use **Set Always on Top** from the floating window's title bar to keep it visible.
 
-## Add elements to AI chat
+## Add context to AI chat
+
+The browser toolbar has an **Add to Chat** split button with actions that let you capture different types of context from the current page and attach them to your chat prompt. These actions are also available from the Command Palette.
+
+<!-- TODO: add screenshot of the "Add to Chat" split-button dropdown showing the three actions -->
+
+### Add elements
 
 Select elements from a web page to add them as context to your chat prompt. This is useful for getting help with specific HTML elements, CSS styles, or debugging UI issues.
 
@@ -143,6 +149,18 @@ Configure what information is included:
 |--------------------------------------------------|-------------------------------------------|
 | `setting(chat.sendElementsToChat.attachCSS)`     | Include CSS styles for selected elements  |
 | `setting(chat.sendElementsToChat.attachImages)`  | Include screenshots of selected elements  |
+
+### Add a screenshot
+
+Capture a screenshot of the current browser viewport and attach it as an image to your chat prompt. Use this to ask about layout issues, get feedback on a design, or show the current state of your web app.
+
+Select **Add Screenshot to Chat** from the browser toolbar or run the **Browser: Add Screenshot to Chat** command. The screenshot is captured before the chat panel opens, so it reflects the page as you see it.
+
+### Add console logs
+
+Capture the console output from the current page and attach it as context to your chat prompt. This is useful for debugging runtime errors or unexpected behavior in your web app.
+
+Select **Add Console Logs to Chat** from the browser toolbar or run the **Browser: Add Console Logs to Chat** command.
 
 Learn more about [adding context to chat](/docs/copilot/chat/copilot-chat-context.md).
 
@@ -176,7 +194,7 @@ The Live Preview extension can use the integrated browser for previewing web pag
 
 Agents can read and interact with pages in the integrated browser by using built-in browser tools. When enabled, agents can open browser pages, navigate to URLs, read page content and console errors, take screenshots, click elements, type text, hover over elements, drag elements, handle dialogs, and run Playwright code, all without requiring an external MCP server.
 
-Browser tools are different from [adding elements to AI chat](#add-elements-to-ai-chat). Element selection lets you manually pick page elements as context for a chat prompt. Browser tools let agents autonomously interact with web pages to complete tasks.
+Browser tools are different from [adding context to AI chat](#add-context-to-ai-chat). The Add to Chat actions let you manually pick page elements, capture screenshots, or attach console logs as context for a chat prompt. Browser tools let agents autonomously interact with web pages to complete tasks.
 
 To enable browser tools, set the `setting(workbench.browser.enableChatTools)` setting to `true`. The tools are then available to the agent automatically.
 

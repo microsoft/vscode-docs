@@ -1,6 +1,6 @@
 ---
 ContentId: 33e63aa1-1d8f-4d23-9733-1475f8c9f502
-DateApproved: 5/20/2026
+DateApproved: 5/28/2026
 MetaDescription: Configure AI language models in VS Code, change chat and inline models, set thinking effort, and bring your own API key.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -112,6 +112,11 @@ To pin or unpin a model:
 
 If you want to use a model that is not available as a built-in model or want to control the model hosting, you can bring your own language model API key (BYOK) to use models from other providers or to run models locally. For background on why you might bring your own key and what to consider, see [Bring your own language model key](/docs/copilot/concepts/language-models.md#bring-your-own-language-model-key).
 
+BYOK models work without signing into a GitHub account and without a Copilot plan. You can add models with the **Chat: Manage Language Models** command even when you are not signed in. This enables you to use AI chat features entirely with your own models, including fully offline scenarios with local models such as Ollama.
+
+> [!NOTE]
+> Some features still require a GitHub account: semantic search, inline suggestions (code completions), and features that rely on embeddings. BYOK applies to the chat experience and utility tasks only.
+
 VS Code provides different options to add more language models:
 
 | Option | When to use | Get started |
@@ -174,7 +179,7 @@ To configure a language model from a built-in provider:
 ### Add a custom endpoint model
 
 > [!NOTE]
-> The Custom Endpoint provider is currently only available in [VS Code Insiders](https://code.visualstudio.com/insiders/). It replaces the deprecated OpenAI Compatible provider and supports additional API types. The `setting(github.copilot.chat.customOAIModels)` setting is deprecated.
+> It replaces the deprecated OpenAI Compatible provider and supports additional API types. The `setting(github.copilot.chat.customOAIModels)` setting is deprecated.
 
 The Custom Endpoint provider lets you connect any compatible API endpoint to chat in VS Code. It supports three API types, which you can select per model: Chat Completions, Responses, and Messages.
 
@@ -283,6 +288,8 @@ There are two settings for utility models, depending on the type of task:
 
 Both settings default to **Default**, which uses the built-in utility model from GitHub Copilot.
 
+If you use BYOK models without signing into a GitHub account, the built-in utility models are not available. VS Code shows a notification in the Chat view that prompts you to configure utility models. Set `setting(chat.utilityModel)` and `setting(chat.utilitySmallModel)` to a BYOK model to enable utility features like title generation and commit message creation.
+
 ## Model configuration reference
 
 When you add BYOK model, you can configure the model properties in the `chatLanguageModels.json` file. The configuration has two levels: provider-level and model-level.
@@ -309,6 +316,13 @@ Each model in the `models` array supports the following properties:
 | `vision` | Set to `true` if the model supports image inputs. |
 | `maxInputTokens` | Maximum number of input tokens the model accepts. |
 | `maxOutputTokens` | Maximum number of output tokens the model generates. |
+| `editTools` | _(Optional)_ An array of edit tools the model supports. If not configured, the editor tries multiple edit tools and picks the best one. Possible values: `find-replace`, `multi-find-replace`, `apply-patch`, `code-rewrite`. |
+| `thinking` | _(Optional)_ Set to `true` if the model supports thinking capabilities. Defaults to `false`. |
+| `streaming` | _(Optional)_ Set to `true` if the model supports streaming responses. Defaults to `true`. |
+| `zeroDataRetentionEnabled` | _(Optional)_ Set to `true` if Zero Data Retention (ZDR) is enabled for this endpoint. When enabled, `previous_response_id` is not sent in requests via the Responses API. Defaults to `false`. |
+| `supportsReasoningEffort` | _(Optional)_ An array of reasoning effort levels the model accepts (for example, `["low", "medium", "high"]`). When set, a **Thinking Effort** picker is shown in the model picker. Common levels are `minimal`, `low`, `medium`, `high`. |
+| `reasoningEffortFormat` | _(Optional)_ Body shape used to forward reasoning effort to the model. `chat-completions` sends a top-level `reasoning_effort` string. `responses` sends a nested `reasoning.effort` object. When unset, the format follows the URL. |
+| `requestHeaders` | _(Optional)_ An object of additional HTTP headers to include with requests to this model. Certain reserved headers (forbidden, forwarding, and internal headers) are not allowed and are ignored if present. |
 
 ## Frequently asked questions
 
@@ -323,18 +337,20 @@ You can use locally hosted models in chat by using [bring your own model key](#b
 * Use a built-in model provider that supports local models
 * Install an extension from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/search?term=tag%3Alanguage-models&target=VSCode&category=All%20categories&sortBy=Relevance), for example, [AI Toolkit for VS Code with Foundry Local](https://aka.ms/AIToolkit)
 
+Locally hosted models work without a GitHub account, without a Copilot plan, and without an internet connection. To get the full set of utility features (title generation, commit messages, and others), configure `setting(chat.utilityModel)` and `setting(chat.utilitySmallModel)` to point to a local model.
+
 Currently, you cannot connect to a local model for inline suggestions. VS Code provides an extension API [`InlineCompletionItemProvider`](/api/references/vscode-api.md#InlineCompletionItemProvider) that enables extensions to contribute a custom completion provider. You can get started with our [Inline Completions sample](https://github.com/microsoft/vscode-extension-samples/blob/main/inline-completions).
 
 > [!NOTE]
-> Currently, using a locally hosted model still requires the Copilot service for some tasks. Therefore, your GitHub account needs to have access to a Copilot plan (for example, Copilot Free) and you need to be online. This requirement might change in a future release.
+> Some features require a GitHub account and internet connectivity: semantic search, inline suggestions (code completions), and features that rely on embeddings. These features are not available through BYOK models.
 
 ### Can I use a local model without an internet connection?
 
-Currently, using a local model requires access to the Copilot service and therefore requires you to be online. This requirement might change in a future release.
+Yes, you can use a local model completely offline. Add a local model provider such as Ollama by using the **Chat: Manage Language Models** command, select the model in chat, and start using it. To also enable utility features like title generation and commit messages, set `setting(chat.utilityModel)` and `setting(chat.utilitySmallModel)` to a local model. Features that depend on the GitHub Copilot service, such as semantic search, inline suggestions, and embeddings, are not available offline.
 
 ### Can I use a local model without a Copilot plan?
 
-No, currently you need to have access to a Copilot plan (for example, Copilot Free) to use a local model. This requirement might change in a future release.
+Yes, you can use BYOK models, including local models, without a Copilot plan and without signing into a GitHub account. Add a model with the **Chat: Manage Language Models** command and select it in chat. Features that depend on the GitHub Copilot service, such as semantic search, inline suggestions, and embeddings, require a Copilot plan.
 
 ## Related resources
 
