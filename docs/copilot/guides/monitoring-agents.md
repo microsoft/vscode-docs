@@ -23,6 +23,18 @@ Copilot Chat can export traces, metrics, and events via [OpenTelemetry](https://
 
 Copilot Chat emits three types of OTel signals: traces, metrics, and events.
 
+### Attribute namespaces
+
+Copilot Chat emits OTel attributes under three namespaces:
+
+| Namespace | Source | When to use |
+|---|---|---|
+| `gen_ai.*` | [OTel GenAI Semantic Conventions](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/gen-ai/) | Whenever a standard key exists |
+| `github.copilot.*` | Canonical Copilot-specific namespace, shared with the [GitHub Copilot CLI OpenTelemetry conventions](https://docs.github.com/copilot/reference/copilot-cli-reference/cli-command-reference#opentelemetry-monitoring) | Preferred for new dashboards, alerts, and queries |
+| `copilot_chat.*` | Original VS Code extension namespace | Legacy. Several keys are now dual-emitted alongside `github.copilot.*` equivalents |
+
+Legacy `copilot_chat.*` keys continue to emit indefinitely so existing collectors, dashboards, and downstream consumers keep working without changes. There is no sunset date. The tables in this section mark dual-emitted rows as **Legacy** with a pointer to the preferred key.
+
 ### Traces
 
 Each agent interaction produces a hierarchical span tree that captures the full execution flow:
@@ -36,15 +48,98 @@ invoke_agent copilot                           [~15s]
   └── (span ends)
 ```
 
-Three span types make up the trace:
-
-| Span | Description | Key attributes |
-|---|---|---|
-| `invoke_agent` | Wraps the entire agent orchestration, including all LLM calls and tool executions | Agent name, conversation ID, turn count, total token usage |
-| `chat` | A single LLM API call | Model, token counts, response time, finish reason |
-| `execute_tool` | A single tool invocation | Tool name, tool type, duration, success status |
-
 When an agent invokes a subagent (for example, through the `runSubagent` tool), the trace context is automatically propagated. The subagent's `invoke_agent` span appears as a child of the parent agent's `execute_tool` span, producing a connected trace tree across async boundaries.
+
+#### `invoke_agent` span
+
+Wraps the entire agent orchestration, including all LLM calls and tool executions.
+
+| Attribute | Description |
+|---|---|
+| `gen_ai.operation.name` | Always `invoke_agent` |
+| `gen_ai.provider.name` | Provider (for example, `github`) |
+| `gen_ai.agent.name` | Agent name (for example, `copilot`, `copilotcli`, `claude`) |
+| `gen_ai.conversation.id` | Conversation session ID |
+| `gen_ai.request.model` | Requested model |
+| `gen_ai.response.model` | Resolved model |
+| `gen_ai.usage.input_tokens` | Total input tokens across the session |
+| `gen_ai.usage.output_tokens` | Total output tokens across the session |
+| `gen_ai.usage.cache_read.input_tokens` | Cache-read input tokens, when available |
+| `gen_ai.usage.cache_creation.input_tokens` | Cache-creation input tokens, when available |
+| `github.copilot.agent.type` | `builtin`, `custom`, or `plugin` |
+| `github.copilot.git.repository` | Repository remote URL, when in a Git repo |
+| `github.copilot.git.branch` | Active branch, when in a Git repo |
+| `github.copilot.git.commit_sha` | Current commit, when in a Git repo |
+| `github.copilot.github.org` | GitHub org owner, for GitHub remotes only |
+| `copilot_chat.repo.remote_url` | Legacy. Prefer `github.copilot.git.repository` |
+| `copilot_chat.repo.head_branch_name` | Legacy. Prefer `github.copilot.git.branch` |
+| `copilot_chat.repo.head_commit_hash` | Legacy. Prefer `github.copilot.git.commit_sha` |
+| `copilot_chat.turn_count` | LLM round-trips in this session |
+| `error.type` | Error class, on failure |
+| `gen_ai.input.messages` | Full prompt messages (content capture only) |
+| `gen_ai.output.messages` | Full response messages (content capture only) |
+| `gen_ai.tool.definitions` | Tool schemas (content capture only) |
+
+#### `chat` span
+
+One span per LLM API call.
+
+| Attribute | Description |
+|---|---|
+| `gen_ai.operation.name` | Always `chat` |
+| `gen_ai.provider.name` | Provider name |
+| `gen_ai.request.model` | Requested model |
+| `gen_ai.response.model` | Resolved model |
+| `gen_ai.response.finish_reasons` | Stop reasons (for example, `["stop"]`) |
+| `gen_ai.request.max_tokens` | Max output tokens |
+| `gen_ai.request.temperature` | Temperature, when set |
+| `gen_ai.request.top_p` | Top-p, when set |
+| `gen_ai.usage.input_tokens` | Input tokens for this call |
+| `gen_ai.usage.output_tokens` | Output tokens for this call |
+| `gen_ai.usage.cache_read.input_tokens` | Cache-read input tokens, when available |
+| `gen_ai.usage.cache_creation.input_tokens` | Cache-creation input tokens, when available |
+| `gen_ai.usage.reasoning.output_tokens` | Reasoning tokens, when available |
+| `gen_ai.usage.reasoning_tokens` | Legacy. Prefer `gen_ai.usage.reasoning.output_tokens` |
+| `copilot_chat.time_to_first_token` | Time to first SSE token (milliseconds) |
+| `server.address` | API hostname |
+| `error.type` | Error class, on failure |
+
+#### `execute_tool` span
+
+One span per tool invocation.
+
+| Attribute | Description |
+|---|---|
+| `gen_ai.operation.name` | Always `execute_tool` |
+| `gen_ai.tool.name` | Tool name (for example, `readFile`) |
+| `gen_ai.tool.type` | `function` or `extension` (MCP tools) |
+| `gen_ai.tool.call.id` | Tool call identifier |
+| `github.copilot.tool.parameters.edit_type` | For edit tools: `create`, `update`, `str_replace`, or `insert` |
+| `github.copilot.tool.parameters.skill_name` | For skill invocations |
+| `github.copilot.tool.parameters.mcp_server_name_hash` | For MCP tools: SHA-256 of the server name |
+| `github.copilot.tool.parameters.mcp_tool_name` | For MCP tools: invoked tool name |
+| `github.copilot.tool.parameters.command` | For shell tools (content capture only, truncated) |
+| `github.copilot.tool.parameters.file_path` | For file tools (content capture only) |
+| `github.copilot.tool.parameters.mcp_server_name` | For MCP tools (content capture only) |
+| `error.type` | Error class, on failure |
+| `gen_ai.tool.call.arguments` | Tool input arguments (content capture only) |
+| `gen_ai.tool.call.result` | Tool output (content capture only) |
+
+#### `execute_hook` span
+
+One span per hook execution (for example, `PreToolUse`, `Stop`).
+
+| Attribute | Description |
+|---|---|
+| `gen_ai.operation.name` | Always `execute_hook` |
+| `github.copilot.hook.decision` | `pass`, `block`, or `non_blocking_error` |
+| `github.copilot.hook.duration` | Hook execution duration (seconds) |
+| `github.copilot.hook.tool_names` | Tools the hook is scoped to, as a JSON array |
+| `copilot_chat.hook_type` | Hook event (for example, `PreToolUse`) |
+| `copilot_chat.hook_result_kind` | `success`, `error`, or `non_blocking_error` |
+| `copilot_chat.hook_input` | Hook input payload (truncated) |
+| `copilot_chat.hook_output` | Hook stdout, on success (truncated) |
+| `error.type` | Error class, on failure |
 
 ### Metrics
 
