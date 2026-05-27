@@ -24,7 +24,7 @@ Follow a hands-on tutorial to build your first app with AI in VS Code.
 
 ## Prerequisites
 
-* Visual Studio Code installed on your machine. Follow these steps to [set up VS Code](/docs/setup/setup-overview.md).
+* Visual Studio Code installed on your machine. Follow these steps to [set up VS Code](/docs/getstarted/setup-overview.md).
 * Access to a GitHub Copilot subscription. Follow these steps to [set up GitHub Copilot](/docs/copilot/setup.md). You can set up Copilot Free to get a monthly limit of inline suggestions and chat interactions.
 
 > [!IMPORTANT]

@@ -95,7 +95,7 @@ If you don't yet have a Copilot subscription, you can use Copilot for free by si
 
 ### Which OSs are supported?
 
-VS Code runs on macOS, Linux, and Windows. See the [Requirements documentation](requirements) for the supported versions. You can find more platform specific details in the [Setup overview](/docs/setup/setup-overview.md).
+VS Code runs on macOS, Linux, and Windows. See the [Requirements documentation](requirements) for the supported versions. You can find more platform specific details in the [Setup overview](/docs/getstarted/setup-overview.md).
 
 ### Can I run VS Code on older Windows versions?
 

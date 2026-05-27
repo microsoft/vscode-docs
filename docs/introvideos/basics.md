@@ -62,5 +62,5 @@ Explore more in the [VS Code Tutorial](/docs/editing/getting-started.md) and [Gi
 ## Related resources
 
 * [User Interface](/docs/editing/userinterface.md) - View the documentation for VS Code.
-* [Setup Overview](/docs/setup/setup-overview.md) - Documentation for getting up and running with VS Code, including platform specific setup.
+* [Setup Overview](/docs/getstarted/setup-overview.md) - Documentation for getting up and running with VS Code, including platform specific setup.
 * [IntelliSense](/docs/editing/intellisense.md) -VS Code brings smart code completions as you type.

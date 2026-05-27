@@ -16,5 +16,6 @@
     { "from": "/docs/getstarted/getting-started", "to": "/docs/editing/getting-started", "status": 301 },
     { "from": "/docs/getstarted/tips-and-tricks", "to": "/docs/editing/tips-and-tricks", "status": 301 },
     { "from": "/docs/getstarted/userinterface", "to": "/docs/editing/userinterface", "status": 301 },
-    { "from": "/docs/editor/portable", "to": "/docs/setup/portable", "status": 301 }
+    { "from": "/docs/editor/portable", "to": "/docs/setup/portable", "status": 301 },
+    { "from": "/docs/setup/setup-overview", "to": "/docs/getstarted/setup-overview", "status": 301 }
 ]
