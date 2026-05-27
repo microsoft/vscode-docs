@@ -1,9 +1,9 @@
 {
   "featured": {
-    "title": "Manage your agents remotely",
-    "description": "Run and manage agents on remote machines, built-in previewing of HTML and Mermaid diagrams, and terminal optimizations.",
-    "link": "/updates/v1_121",
-    "image": "/assets/updates/1_121/release-highlights.webp"
+    "title": "Use any AI model without signing in",
+    "description": "Bring your own key (BYOK) to use any language model in air-gapped environments, test web apps across devices, and create richer issue reports.",
+    "link": "/updates/v1_122",
+    "image": "/assets/updates/1_122/release-highlights.webp"
   },
   "highlights": [
     {
