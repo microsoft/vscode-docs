@@ -1,7 +1,7 @@
 [
     {
         "name": "Agents",
-        "area": "copilot",
+        "area": "agents",
         "topics": [
             ["Overview", "/docs/copilot/agents/overview"],
             ["Agents Tutorial", "/docs/copilot/agents/agents-tutorial"],
