@@ -204,6 +204,6 @@ In autopilot mode, share requests are automatically declined to preserve your pr
 ## Related
 
 * [Browser debugging in VS Code](/docs/nodejs/browser-debugging.md)
-* [Test web apps with browser agent tools](/docs/copilot/guides/browser-agent-testing-guide.md)
+* [Test web apps with browser agent tools](/docs/agents/guides/browser-agent-testing-guide.md)
 * [Add context to AI chat](/docs/chat/copilot-chat-context.md)
 * [Port forwarding](/docs/debugtest/port-forwarding.md)

@@ -132,7 +132,7 @@ To create a prompt file:
 
 1. Select **New Prompt (Workspace)** or **New Prompt (User)** from the dropdown, depending on where you want to store the prompt file.
 
-    ![Screenshot of the Agent Customizations editor, showing the Prompts tab and the dropdown to create a new prompt file.](../images/customization/create-prompt-file.png)
+    ![Screenshot of the Agent Customizations editor, showing the Prompts tab and the dropdown to create a new prompt file.](images/customization/create-prompt-file.png)
 
     Alternatively, use the **Chat: New Prompt File** or **Chat: New Untitled Prompt File** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
@@ -170,7 +170,7 @@ You have multiple options to run a prompt file:
 > [!TIP]
 > Use the `setting(chat.promptFilesRecommendations)` setting to show prompts as recommended actions when starting a new chat session.
 >
-> ![Screenshot showing a "explain" prompt file recommendation in the Chat view.](../images/customization/prompt-file-recommendations.png)
+> ![Screenshot showing a "explain" prompt file recommendation in the Chat view.](images/customization/prompt-file-recommendations.png)
 
 ## Tool list priority
 
@@ -212,7 +212,7 @@ To identify the source of a prompt file:
 1. Hover over the prompt file in the list. The source location is displayed in a tooltip.
 
 > [!TIP]
-> Use the chat customization diagnostics view to see all loaded prompt files and any errors. Right-click in the Chat view and select **Diagnostics**. Learn more about [troubleshooting AI in VS Code](/docs/copilot/troubleshooting.md).
+> Use the chat customization diagnostics view to see all loaded prompt files and any errors. Right-click in the Chat view and select **Diagnostics**. Learn more about [troubleshooting AI in VS Code](/docs/agents/agent-troubleshooting/troubleshooting.md).
 
 ## Related resources
 

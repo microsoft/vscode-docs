@@ -67,4 +67,4 @@ The agent can also use the `#artifactRules` tool to override the extraction rule
 
 * [Chat overview](/docs/chat/copilot-chat.md)
 * [Agent tools](/docs/agents/agent-tools.md)
-* [Copilot settings reference](/docs/copilot/reference/copilot-settings.md)
+* [Copilot settings reference](/docs/agents/reference/copilot-settings.md)

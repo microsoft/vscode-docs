@@ -2,7 +2,7 @@
 ContentId: f8e4b2c1-9d3a-4e5f-b6c7-8a9d0e1f2b3c
 DateApproved: 5/13/2026
 MetaDescription: Troubleshoot GitHub Copilot issues in Visual Studio Code with logs, diagnostics, and debugging tools.
-MetaSocialImage: images/shared/github-copilot-social.png
+MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - ai
 - copilot
@@ -36,7 +36,7 @@ If you encounter problems connecting to GitHub Copilot, collect network connecti
 1. Run **GitHub Copilot: Collect Diagnostics**.
 1. An editor tab opens with diagnostic information you can review and share when reporting issues.
 
-For more information about network configuration, see [Network and firewall configuration for Copilot](/docs/copilot/faq.md#network-and-firewall-configuration-for-copilot).
+For more information about network configuration, see [Network and firewall configuration for Copilot](/docs/agents/agent-troubleshooting/faq.md#network-and-firewall-configuration-for-copilot).
 
 ## Debug chat interactions
 
@@ -56,7 +56,7 @@ VS Code provides different tools to inspect what happens when you send a prompt 
 
     From the Agent Debug Log panel, you can attach a snapshot of the agent debug events to a chat conversation to ask the AI questions about the session and troubleshoot a specific interaction.
 
-    Learn more about the [Agent Debug Log panel](/docs/chat/chat-debug-view.md#agent-debug-log-panel).
+    Learn more about the [Agent Debug Log panel](/docs/agents/agent-troubleshooting/chat-debug-view.md#agent-debug-log-panel).
 
 * **Chat Debug view:**
 
@@ -67,7 +67,7 @@ VS Code provides different tools to inspect what happens when you send a prompt 
     1. Select the overflow menu (`...`) in the Chat view.
     1. Select **Show Chat Debug View**.
 
-Learn more about the [Chat Debug view](/docs/chat/chat-debug-view.md#chat-debug-view).
+Learn more about the [Chat Debug view](/docs/agents/agent-troubleshooting/chat-debug-view.md#chat-debug-view).
 
 ## Troubleshoot MCP servers
 
@@ -94,7 +94,7 @@ When reporting issues, include relevant information from the [Copilot logs](#vie
 
 ## Related resources
 
-* [Debug chat interactions](/docs/chat/chat-debug-view.md)
+* [Debug chat interactions](/docs/agents/agent-troubleshooting/chat-debug-view.md)
 * [Custom instructions](/docs/agent-customization/custom-instructions.md)
 * [MCP servers](/docs/agent-customization/mcp-servers.md)
-* [GitHub Copilot FAQ](/docs/copilot/faq.md)
+* [GitHub Copilot FAQ](/docs/agents/agent-troubleshooting/faq.md)

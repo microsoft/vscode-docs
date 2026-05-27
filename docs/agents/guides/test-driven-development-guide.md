@@ -259,7 +259,7 @@ Now that the TDD custom agents are set up, you can use them to implement feature
 
 Learn more about testing and AI customization in VS Code:
 
-* [Testing with AI](/docs/copilot/guides/test-with-copilot.md)
+* [Testing with AI](/docs/agents/guides/test-with-copilot.md)
 * [Custom agents](/docs/agent-customization/custom-agents.md)
 * [Custom instructions](/docs/agent-customization/custom-instructions.md)
 * [Running tests with VS Code](/docs/debugtest/testing.md)

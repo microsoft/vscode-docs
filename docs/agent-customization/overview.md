@@ -30,13 +30,13 @@ Learn about the different customization types and when to use each one.
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Tutorial">
 Follow a hands-on walkthrough to customize AI for your project.
 
-* [Customize AI for your project](/docs/copilot/guides/customize-copilot-guide.md)
+* [Customize AI for your project](/docs/agents/guides/customize-copilot-guide.md)
 
 </div>
 
 To access customizations, select the **Configure Chat (gear icon)** in the Chat view to open the [Agent Customizations editor](#agent-customizations-editor).
 
-![Screenshot of the Agent Customizations editor, showing the sidebar with customization categories and the main view listing custom agents.](../images/customization/chat-customizations-editor.png)
+![Screenshot of the Agent Customizations editor, showing the sidebar with customization categories and the main view listing custom agents.](images/customization/chat-customizations-editor.png)
 
 ## Customization scenarios
 
@@ -66,7 +66,7 @@ Add [MCP servers](/docs/agent-customization/mcp-servers.md) to give the AI acces
 
 ## Get started
 
-Implement AI customizations incrementally. Start with the basics and add more as needed. For a hands-on walkthrough, see the [Customize AI for your project](/docs/copilot/guides/customize-copilot-guide.md) guide.
+Implement AI customizations incrementally. Start with the basics and add more as needed. For a hands-on walkthrough, see the [Customize AI for your project](/docs/agents/guides/customize-copilot-guide.md) guide.
 
 1. **Initialize your project**: type `/init` in chat to generate a `.github/copilot-instructions.md` file with coding standards tailored to your codebase.
 
@@ -123,7 +123,7 @@ You can create new customizations from scratch by editing the corresponding Mark
 
 To add MCP servers and agent plugins, you can browse the corresponding marketplace directly from the editor, install new items, and manage existing ones.
 
-![Screenshot of the Agent Customizations editor, showing the sidebar with customization categories and the main view listing custom agents.](../images/customization/chat-customizations-editor.png)
+![Screenshot of the Agent Customizations editor, showing the sidebar with customization categories and the main view listing custom agents.](images/customization/chat-customizations-editor.png)
 
 To open the Agent Customizations editor, select the **Configure Chat (gear icon)** in the Chat view or run **Chat: Open Customizations** from the Command Palette (`kb(workbench.action.showCommands)`).
 
@@ -131,9 +131,9 @@ You can configure customization for different [agent types](/docs/agents/overvie
 
 ## Troubleshoot customization issues
 
-If your customizations aren't being applied or cause unexpected behavior, select the ellipsis (**...**) menu in the Chat view and select **Show Agent Debug Logs** to [troubleshoot agent issues](/docs/copilot/troubleshooting.md).
+If your customizations aren't being applied or cause unexpected behavior, select the ellipsis (**...**) menu in the Chat view and select **Show Agent Debug Logs** to [troubleshoot agent issues](/docs/agents/agent-troubleshooting/troubleshooting.md).
 
 ## Related resources
 
 * [Customization concepts](/docs/agents/concepts/customization.md)
-* [Customize AI for your project guide](/docs/copilot/guides/customize-copilot-guide.md)
+* [Customize AI for your project guide](/docs/agents/guides/customize-copilot-guide.md)

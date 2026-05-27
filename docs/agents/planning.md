@@ -64,4 +64,4 @@ You can tailor the planning process to fit your team's workflow:
 
 * [Memory in VS Code agents](/docs/agents/memory.md)
 * [Configure tools for agents](/docs/agents/agent-tools.md)
-* [Context engineering user guide](/docs/copilot/guides/context-engineering-guide.md)
+* [Context engineering user guide](/docs/agents/guides/context-engineering-guide.md)

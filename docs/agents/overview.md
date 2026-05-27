@@ -73,7 +73,7 @@ Use the following table to find the right agent type for your task:
 | Get answers about my codebase | [Local agent](/docs/agents/agent-types/local-agents.md) (Ask) |
 | Create a structured implementation plan | [Local agent](/docs/agents/agent-types/local-agents.md) (Plan) |
 | Fix an issue that needs editor context (test failures, linting errors, debug output) | [Local agent](/docs/agents/agent-types/local-agents.md) |
-| Build and test web apps with the integrated browser _(Experimental)_ | [Local agent](/docs/agents/agent-types/local-agents.md). See the [browser agent testing guide](/docs/copilot/guides/browser-agent-testing-guide.md). |
+| Build and test web apps with the integrated browser _(Experimental)_ | [Local agent](/docs/agents/agent-types/local-agents.md). See the [browser agent testing guide](/docs/agents/guides/browser-agent-testing-guide.md). |
 | Use specific VS Code extension tools or MCP servers | [Local agent](/docs/agents/agent-types/local-agents.md) |
 | Implement a well-defined task while I keep working | [Copilot CLI](/docs/agents/agent-types/copilot-cli.md) or [Cloud agent](/docs/agents/agent-types/cloud-agents.md) |
 | Explore multiple variants or proof of concepts | [Copilot CLI](/docs/agents/agent-types/copilot-cli.md) or [Cloud agent](/docs/agents/agent-types/cloud-agents.md) |

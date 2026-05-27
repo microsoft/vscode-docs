@@ -1,17 +1,27 @@
 {
 	"OrgSettings": [
-		"chat.mcp.gallery.serviceUrl",
-		"extensions.gallery.serviceUrl",
 		"extensions.allowed",
 		"chat.tools.global.autoApprove",
+		"chat.sessionSync.enabled",
 		"chat.tools.eligibleForAutoApproval",
 		"chat.mcp.access",
 		"chat.extensionTools.enabled",
+		"chat.plugins.enabled",
 		"chat.agent.enabled",
+		"chat.agent.networkFilter",
+		"chat.agent.allowedNetworkDomains",
+		"chat.agent.deniedNetworkDomains",
+		"chat.editMode.hidden",
 		"chat.useHooks",
 		"chat.tools.terminal.enableAutoApprove",
+		"chat.agent.sandbox.enabled",
 		"update.mode",
 		"telemetry.telemetryLevel",
-		"telemetry.feedback.enabled"
+		"telemetry.feedback.enabled",
+		"workbench.browser.enableChatTools",
+		"github.copilot.nextEditSuggestions.enabled",
+		"github.copilot.chat.reviewSelection.enabled",
+		"github.copilot.chat.reviewAgent.enabled",
+		"github.copilot.chat.claudeAgent.enabled"
 	]
 }

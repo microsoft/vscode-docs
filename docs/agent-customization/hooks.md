@@ -326,7 +326,7 @@ The `PreToolUse` hook can control tool execution through a `hookSpecificOutput` 
 2. `ask`: requires user confirmation
 3. `allow` (least restrictive): auto-approves execution
 
-**`updatedInput` format**: To determine the format of `updatedInput`, open the [agent logs](/docs/chat/chat-debug-view.md#agent-debug-log-panel) and find the logged tool schema. If `updatedInput` doesn't match the expected schema, it will be ignored.
+**`updatedInput` format**: To determine the format of `updatedInput`, open the [agent logs](/docs/agents/agent-troubleshooting/chat-debug-view.md#agent-debug-log-panel) and find the logged tool schema. If `updatedInput` doesn't match the expected schema, it will be ignored.
 
 ## PostToolUse
 

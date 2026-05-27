@@ -76,39 +76,39 @@
 
     {
         "name": "Guides & Tutorials",
-        "area": "copilot/guides",
+        "area": "agents/guides",
         "topics": [
-            ["Prompt Examples", "/docs/chat/prompt-examples"],
-            ["Context Engineering", "/docs/copilot/guides/context-engineering-guide"],
-            ["Customize AI", "/docs/copilot/guides/customize-copilot-guide"],
-            ["Test-Driven Development", "/docs/copilot/guides/test-driven-development-guide"],
-            ["Edit Notebooks with AI", "/docs/copilot/guides/notebooks-with-ai"],
-            ["Test with AI", "/docs/copilot/guides/test-with-copilot"],
-            ["Test Web Apps with Browser Tools", "/docs/copilot/guides/browser-agent-testing-guide"],
-            ["Debug with AI", "/docs/copilot/guides/debug-with-copilot"],
-            ["MCP Dev Guide", "/docs/copilot/guides/mcp-developer-guide"],
-            ["OpenTelemetry Monitoring", "/docs/copilot/guides/monitoring-agents"]
+            ["Prompt Examples", "/docs/agents/guides/prompt-examples"],
+            ["Context Engineering", "/docs/agents/guides/context-engineering-guide"],
+            ["Customize AI", "/docs/agents/guides/customize-copilot-guide"],
+            ["Test-Driven Development", "/docs/agents/guides/test-driven-development-guide"],
+            ["Edit Notebooks with AI", "/docs/agents/guides/notebooks-with-ai"],
+            ["Test with AI", "/docs/agents/guides/test-with-copilot"],
+            ["Test Web Apps with Browser Tools", "/docs/agents/guides/browser-agent-testing-guide"],
+            ["Debug with AI", "/docs/agents/guides/debug-with-copilot"],
+            ["MCP Dev Guide", "/docs/agents/guides/mcp-developer-guide"],
+            ["OpenTelemetry Monitoring", "/docs/agents/guides/monitoring-agents"]
         ]
     },
 
     {
         "name": "Troubleshooting",
-        "area": "troubleshooting",
+        "area": "agents/agent-troubleshooting",
         "topics": [
-            ["Debug Chat Interactions", "/docs/chat/chat-debug-view"],
-            ["Troubleshooting", "/docs/copilot/troubleshooting"],
-            ["FAQ", "/docs/copilot/faq"],
+            ["Debug Chat Interactions", "/docs/agents/agent-troubleshooting/chat-debug-view"],
+            ["Troubleshooting", "/docs/agents/agent-troubleshooting/troubleshooting"],
+            ["FAQ", "/docs/agents/agent-troubleshooting/faq"],
         ]
     },
 
     {
         "name": "Reference",
-        "area": "reference",
+        "area": "agents/reference",
         "topics": [
-            ["Cheat Sheet", "/docs/copilot/reference/copilot-vscode-features"],
-            ["Settings Reference", "/docs/copilot/reference/copilot-settings"],
-            ["MCP Configuration", "/docs/copilot/reference/mcp-configuration"],
-            ["Workspace Context", "/docs/copilot/reference/workspace-context"]
+            ["Cheat Sheet", "/docs/agents/reference/copilot-vscode-features"],
+            ["Settings Reference", "/docs/agents/reference/copilot-settings"],
+            ["MCP Configuration", "/docs/agents/reference/mcp-configuration"],
+            ["Workspace Context", "/docs/agents/reference/workspace-context"]
         ]
     }
 ]

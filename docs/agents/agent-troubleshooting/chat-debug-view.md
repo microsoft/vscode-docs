@@ -181,7 +181,7 @@ You can expand each section to see the full details. This is particularly useful
 If the AI responds with generic information instead of referencing your codebase:
 
 1. Open Agent Logs and check for **Discovery** events to verify that workspace files were indexed.
-1. Open the Chat Debug view and check the **Context** section to verify that workspace files appear in the context. If they don't, check that [workspace indexing](/docs/copilot/reference/workspace-context.md) is active.
+1. Open the Chat Debug view and check the **Context** section to verify that workspace files appear in the context. If they don't, check that [workspace indexing](/docs/agents/reference/workspace-context.md) is active.
 1. Try adding explicit `#`-mentions (such as `#file` or `#codebase`) to ensure the right files are included. Learn more about [managing context](/docs/chat/copilot-chat-context.md).
 
 ### An MCP tool is not being invoked
@@ -206,11 +206,11 @@ If a custom instruction or prompt file doesn't seem to take effect:
 
 1. Open Agent Logs and check the **Discovery** events to see if the file was loaded, skipped, or failed validation.
 1. Verify the file location and `applyTo` pattern match the current context.
-1. Check the [chat customization diagnostics](/docs/copilot/troubleshooting.md#debug-chat-interactions) for error details.
+1. Check the [chat customization diagnostics](/docs/agents/agent-troubleshooting/troubleshooting.md#debug-chat-interactions) for error details.
 
 ## Related resources
 
 * [Chat overview](/docs/chat/copilot-chat.md)
 * [Manage context for AI](/docs/chat/copilot-chat-context.md)
-* [Troubleshoot AI in VS Code](/docs/copilot/troubleshooting.md)
+* [Troubleshoot AI in VS Code](/docs/agents/agent-troubleshooting/troubleshooting.md)
 * [Security considerations for using AI in VS Code](/docs/copilot/security.md)

@@ -259,7 +259,7 @@ You can create a custom agent file in your workspace or user profile.
 
 1. Select **New Agent (Workspace)** or **New Agent (User)** from the dropdown, depending on where you want to store the agent file.
 
-    ![Screenshot of the Agent Customizations editor, showing the Agents tab and the dropdown to create a new custom agent.](../images/customization/create-custom-agent.png)
+    ![Screenshot of the Agent Customizations editor, showing the Agents tab and the dropdown to create a new custom agent.](images/customization/create-custom-agent.png)
 
     Alternatively, run the **Chat: New Custom Agent** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
@@ -332,7 +332,7 @@ To identify the source of a custom agent:
 1. Hover over the custom agent in the list. The source location is displayed in a tooltip.
 
 > [!TIP]
-> Use the chat customization diagnostics view to see all loaded custom agents, prompt files, instruction files, and skills along with any errors. Right-click in the Chat view and select **Diagnostics**. Learn more about [troubleshooting AI in VS Code](/docs/copilot/troubleshooting.md).
+> Use the chat customization diagnostics view to see all loaded custom agents, prompt files, instruction files, and skills along with any errors. Right-click in the Chat view and select **Diagnostics**. Learn more about [troubleshooting AI in VS Code](/docs/agents/agent-troubleshooting/troubleshooting.md).
 
 ## Security considerations
 

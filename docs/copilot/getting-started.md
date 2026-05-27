@@ -271,7 +271,7 @@ You can further enhance your AI's capabilities by exploring other customization 
 
 * [Agents tutorial](/docs/agents/agents-tutorial.md): Hands-on tutorial for working with different agent types
 
-* [Cheat sheet for using AI features](/docs/copilot/reference/copilot-vscode-features.md) - Quick reference for all GitHub Copilot features in VS Code
+* [Cheat sheet for using AI features](/docs/agents/reference/copilot-vscode-features.md) - Quick reference for all GitHub Copilot features in VS Code
 
 * [Chat documentation](/docs/chat/copilot-chat.md) - Deep dive into autonomous coding in VS Code
 

@@ -35,7 +35,7 @@ Depending on the [agent](/docs/agent-customization/custom-agents.md) you are usi
 
 Use the language model picker in the chat input field to change the model that is used for chat conversations and code editing.
 
-![Screenshot that shows the model picker in the Chat view.](../images/language-models/model-dropdown-change-model.png)
+![Screenshot that shows the model picker in the Chat view.](images/language-models/model-dropdown-change-model.png)
 
 > [!TIP]
 > Install the AI Toolkit extension to add more language models to enhance GitHub Copilot capabilities.
@@ -63,7 +63,7 @@ You can configure the thinking effort directly from the model picker:
 
 1. Select an effort level.
 
-    ![Screenshot showing the Thinking Effort submenu in the model picker, with different effort levels such as None, Low, Medium, and High.](../images/language-models/thinking-effort-submenu.png)
+    ![Screenshot showing the Thinking Effort submenu in the model picker, with different effort levels such as None, Low, Medium, and High.](images/language-models/thinking-effort-submenu.png)
 
 The model picker label updates to show the selected effort level, for example "Claude Sonnet 4.6 · High". The effort level persists across conversations for the same model.
 
@@ -90,7 +90,7 @@ When using auto model selection, VS Code uses a variable [model multiplier](http
 
 At any time, you can see which model and model multiplier are used by hovering over the chat response.
 
-![Screenshot of a chat response, showing the selected model on hover.](../images/language-models/chat-response-selected-model.png)
+![Screenshot of a chat response, showing the selected model on hover.](images/language-models/chat-response-selected-model.png)
 
 ## Manage language models
 
@@ -98,7 +98,7 @@ You can use the language models editor to view all available models, choose whic
 
 To open the Language Models editor, open the model picker in the Chat view and select **Manage Models** or run the **Chat: Manage Language Models** command from the Command Palette. The Language Models editor opens by default in a [modal overlay](/docs/editing/userinterface.md#modal-editors) on top of the editor area.
 
-![Screenshot that shows the Language Models editor.](../images/language-models/language-models-editor.png)
+![Screenshot that shows the Language Models editor.](images/language-models/language-models-editor.png)
 
 The editor lists all models available to you, showing key information such as the model capabilities, context size, billing details, and visibility status. By default, models are grouped by provider, but you can also group them by visibility.
 
@@ -115,7 +115,7 @@ You can customize which models are shown in the model picker by changing the vis
 
 Hover over a model in the list and select the eye icon to show or hide the model in the model picker.
 
-![Screenshot that shows the Language Models editor with the eye icon to show or hide models in the model picker.](../images/language-models/language-models-hide.png)
+![Screenshot that shows the Language Models editor with the eye icon to show or hide models in the model picker.](images/language-models/language-models-hide.png)
 
 ## Bring your own language model key
 
@@ -154,7 +154,7 @@ To configure a language model from a built-in provider:
 
 1. In the Language Models editor, select **Add Models**, and then select a model provider from the list.
 
-    ![Screenshot that shows the model provider Quick Pick.](../images/language-models/model-provider-quick-pick.png)
+    ![Screenshot that shows the model provider Quick Pick.](images/language-models/model-provider-quick-pick.png)
 
 1. Enter the provider-specific details, such as the API key or endpoint URL.
 
@@ -162,7 +162,7 @@ To configure a language model from a built-in provider:
 
     The following screenshot shows the model picker for Ollama running locally, with the Phi-4 model deployed.
 
-    ![Screenshot that shows the model picker of Ollama running locally, allowing you to select a model from the list of available models.](../images/language-models/ollama-installed-models-quick-pick.png)
+    ![Screenshot that shows the model picker of Ollama running locally, allowing you to select a model from the list of available models.](images/language-models/ollama-installed-models-quick-pick.png)
 
 1. You can now select the model from the model picker in chat.
 
@@ -179,7 +179,7 @@ To update the details of a model provider you have configured previously:
 
 1. In the Language Models editor, select the gear icon for the model provider you want to update.
 
-   ![Screenshot that shows the model provider Quick Pick, with a gear icon next to the provider name.](../images/language-models/reconfigure-model-provider.png)
+   ![Screenshot that shows the model provider Quick Pick, with a gear icon next to the provider name.](images/language-models/reconfigure-model-provider.png)
 
 1. Update the provider details, such as the API key or endpoint URL.
 

@@ -18,7 +18,7 @@ Type the `#` symbol in the chat input field to see a list of available context i
 
 ![Screenshot of VS Code Chat view, showing the chat variable picker.](./images/copilot-chat/copilot-chat-view-chat-variables.png)
 
-View the full list of [supported context items](/docs/copilot/reference/copilot-vscode-features.md#chat-tools).
+View the full list of [supported context items](/docs/agents/reference/copilot-vscode-features.md#chat-tools).
 
 ### Add files as context
 
@@ -152,4 +152,4 @@ If you want to reset the context entirely, start a [new chat session](/docs/chat
 * [Chat overview](/docs/chat/copilot-chat.md)
 * [Prompt examples](/docs/chat/prompt-examples.md)
 * [Prompt engineering guide](/docs/agents/best-practices.md)
-* [Debug chat interactions](/docs/chat/chat-debug-view.md)
+* [Debug chat interactions](/docs/agents/agent-troubleshooting/chat-debug-view.md)

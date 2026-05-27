@@ -203,7 +203,7 @@ To create an instructions file:
 
 1. Select **New Instructions (Workspace)** or **New Instructions (User)** from the dropdown, depending on where you want to store the instructions file.
 
-    ![Screenshot of the Agent Customizations editor, showing the Instructions tab and the dropdown to create a new instructions file.](../images/customization/create-instructions-file.png)
+    ![Screenshot of the Agent Customizations editor, showing the Instructions tab and the dropdown to create a new instructions file.](images/customization/create-instructions-file.png)
 
     Alternatively, use the **Chat: New Instructions File** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
@@ -406,7 +406,7 @@ When multiple types of custom instructions exist, they are all provided to the A
 ### Why is my instructions file not being applied?
 
 > [!TIP]
-> Use the chat customization diagnostics view to see all loaded instruction files and any errors. Right-click in the Chat view and select **Diagnostics**. Learn more about [troubleshooting AI in VS Code](/docs/copilot/troubleshooting.md).
+> Use the chat customization diagnostics view to see all loaded instruction files and any errors. Right-click in the Chat view and select **Diagnostics**. Learn more about [troubleshooting AI in VS Code](/docs/agents/agent-troubleshooting/troubleshooting.md).
 
 If your instructions file is not being applied, check the following:
 
@@ -427,7 +427,7 @@ To identify the source of a custom instruction file:
 1. Select **Chat: Configure Instructions** from the Command Palette (`kb(workbench.action.showCommands)`).
 1. Hover over the instruction file in the list. The source location is displayed in a tooltip.
 
-Use the chat customization diagnostics view to see all loaded instruction files and any errors. Right-click in the Chat view and select **Diagnostics**. Learn more about [troubleshooting AI in VS Code](/docs/copilot/troubleshooting.md).
+Use the chat customization diagnostics view to see all loaded instruction files and any errors. Right-click in the Chat view and select **Diagnostics**. Learn more about [troubleshooting AI in VS Code](/docs/agents/agent-troubleshooting/troubleshooting.md).
 
 ## Related resources
 

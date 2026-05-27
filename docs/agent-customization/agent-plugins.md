@@ -287,7 +287,7 @@ VS Code provides a dedicated view in the Extensions sidebar to browse and manage
 
 1. Browse the list of available plugins from your configured marketplaces.
 
-    ![Screenshot of browsing agent plugins in the Extensions sidebar.](../images/agent-plugins/extensions-view.png)
+    ![Screenshot of browsing agent plugins in the Extensions sidebar.](images/agent-plugins/extensions-view.png)
 
 1. Select **Install** to install a plugin in your user profile.
 
@@ -312,7 +312,7 @@ The CLI stores plugins under `~/.copilot/installed-plugins/<marketplace>/<plugin
 
 The **Agent Plugins - Installed** view in the Extensions view shows the plugins you have installed. From this view, you can enable, disable, or uninstall plugins.
 
-![Screenshot of the Agent Plugins - Installed view in the Extensions view.](../images/agent-plugins/installed-plugins.png)
+![Screenshot of the Agent Plugins - Installed view in the Extensions view.](images/agent-plugins/installed-plugins.png)
 
 You can also manage installed plugins from the Chat view by selecting the **gear icon** > **Plugins**.
 

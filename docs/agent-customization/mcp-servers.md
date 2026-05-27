@@ -73,7 +73,7 @@ You can manually configure MCP servers by editing the `mcp.json` file. There are
 You can also run **MCP: Add Server** in the Command Palette (`kb(workbench.action.showCommands)`) to add a server through a guided flow, choosing either **Workspace** or **Global** as the target.
 
 > [!IMPORTANT]
-> Avoid hardcoding sensitive information like API keys. Use [input variables](/docs/copilot/reference/mcp-configuration.md#input-variables-for-sensitive-data) or environment files instead.
+> Avoid hardcoding sensitive information like API keys. Use [input variables](/docs/agents/reference/mcp-configuration.md#input-variables-for-sensitive-data) or environment files instead.
 
 The following example shows an `mcp.json` file that configures a remote MCP server and a local MCP server:
 
@@ -92,7 +92,7 @@ The following example shows an `mcp.json` file that configures a remote MCP serv
 }
 ```
 
-VS Code provides IntelliSense for the configuration file. For the full configuration schema and field reference, see the [MCP configuration reference](/docs/copilot/reference/mcp-configuration.md).
+VS Code provides IntelliSense for the configuration file. For the full configuration schema and field reference, see the [MCP configuration reference](/docs/agents/reference/mcp-configuration.md).
 
 > [!NOTE]
 > MCP servers run wherever they are configured. Servers in your user profile run locally. If you're connected to a [remote](/docs/remote/remote-overview.md) and want a server to run on the remote machine, define it in the workspace settings or remote user settings (**MCP: Open Remote User Configuration**).
@@ -191,7 +191,7 @@ The following example shows how to enable sandboxing for a local MCP server and 
 
 When sandboxing is enabled, tool calls from the server are auto-approved because they run in a controlled environment.
 
-For the full sandbox configuration schema, see the [Sandbox configuration](/docs/copilot/reference/mcp-configuration.md#sandbox-configuration) reference.
+For the full sandbox configuration schema, see the [Sandbox configuration](/docs/agents/reference/mcp-configuration.md#sandbox-configuration) reference.
 
 > [!NOTE]
 > Sandboxing is currently not available on Windows.
@@ -202,9 +202,9 @@ VS Code provides several options to manage your MCP servers, such as starting or
 
 | Method | Description | |
 |--------|-------------|---|
-| **Extensions view** | Right-click a server in the **MCP SERVERS - INSTALLED** section or select the gear icon. | ![Screenshot showing the MCP servers in the Extensions view.](../images/mcp-servers/extensions-view-mcp-servers.png) |
-| **`mcp.json` editor** | Open the configuration file and use the inline actions (code lenses). Use **MCP: Open User Configuration** or **MCP: Open Workspace Folder Configuration** to open the file. | ![MCP server configuration with lenses to manage server.](../images/mcp-servers/mcp-server-config-lenses.png) |
-| **Command Palette** | Run **MCP: List Servers**, select a server, and choose an action. | ![Screenshot showing the actions for an MCP server in the Command Palette.](../images/mcp-servers/mcp-list-servers-actions.png) |
+| **Extensions view** | Right-click a server in the **MCP SERVERS - INSTALLED** section or select the gear icon. | ![Screenshot showing the MCP servers in the Extensions view.](images/mcp-servers/extensions-view-mcp-servers.png) |
+| **`mcp.json` editor** | Open the configuration file and use the inline actions (code lenses). Use **MCP: Open User Configuration** or **MCP: Open Workspace Folder Configuration** to open the file. | ![MCP server configuration with lenses to manage server.](images/mcp-servers/mcp-server-config-lenses.png) |
+| **Command Palette** | Run **MCP: List Servers**, select a server, and choose an action. | ![Screenshot showing the actions for an MCP server in the Command Palette.](images/mcp-servers/mcp-list-servers-actions.png) |
 
 ## Enable or disable MCP servers
 
@@ -232,7 +232,7 @@ You can configure VS Code to automatically restart the MCP server when configura
 
 When you add an MCP server to your workspace or change its configuration, you need to confirm that you trust the server and its capabilities before starting it. VS Code shows a dialog to confirm that you trust the server when you start a server for the first time. In the dialog, select the link to the MCP server to review its configuration.
 
-![Screenshot showing the MCP server trust prompt.](../images/mcp-servers/mcp-server-trust-dialog.png)
+![Screenshot showing the MCP server trust prompt.](images/mcp-servers/mcp-server-trust-dialog.png)
 
 If you don't trust the MCP server, it will not be started, and chat requests will continue without using the tools provided by the server.
 
@@ -257,11 +257,11 @@ To synchronize MCP server configuration with Settings Sync:
 
 When VS Code encounters an issue with an MCP server, it shows an error indicator in the Chat view.
 
-![MCP Server Error](../images/mcp-servers/mcp-error-loading-tool.png)
+![MCP Server Error](images/mcp-servers/mcp-error-loading-tool.png)
 
 Select the error notification in the Chat view, and then select the **Show Output** option to view the server logs. Alternatively, run **MCP: List Servers** from the Command Palette, select the server, and then choose **Show Output**.
 
-![MCP Server Error Output](../images/mcp-servers/mcp-server-error-output.png)
+![MCP Server Error Output](images/mcp-servers/mcp-server-error-output.png)
 
 ## Frequently asked questions
 
@@ -274,7 +274,7 @@ Verify that the command arguments are correct and that the container is not runn
 
 ## Related resources
 
-* [MCP configuration reference](/docs/copilot/reference/mcp-configuration.md)
+* [MCP configuration reference](/docs/agents/reference/mcp-configuration.md)
 * [Use tools with agents](/docs/agents/agent-tools.md)
 * [Model Context Protocol Documentation](https://modelcontextprotocol.io/)
 * [MCP Apps support in VS Code](https://code.visualstudio.com/blogs/2026/01/26/mcp-apps-support)

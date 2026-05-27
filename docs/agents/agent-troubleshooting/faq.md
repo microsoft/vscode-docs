@@ -2,7 +2,7 @@
 ContentId: e02ded07-6e5a-4f94-b618-434a2c3e8f09
 DateApproved: 5/13/2026
 MetaDescription: Frequently asked questions for using GitHub Copilot in Visual Studio Code.
-MetaSocialImage: images/shared/github-copilot-social.png
+MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # GitHub Copilot frequently asked questions
 
@@ -26,7 +26,7 @@ Signing in with a GitHub account that has access to GitHub Copilot has the follo
 * [Increased monthly limit of chat interactions](https://docs.github.com/en/copilot/get-started/plans#comparing-copilot-plans)
 * [Access to premium language models in chat](https://docs.github.com/en/copilot/reference/ai-models/supported-models#supported-ai-models-per-copilot-plan) beyond auto model selection
 * [Bring your own model keys](/docs/agent-customization/language-models.md#bring-your-own-language-model-key) (BYOK) to access more models
-* [Remote repository indexing and semantic code search](/docs/copilot/reference/workspace-context.md#remote-index)
+* [Remote repository indexing and semantic code search](/docs/agents/reference/workspace-context.md#remote-index)
 * [Copilot code review](https://docs.github.com/en/copilot/concepts/agents/code-review)
 * [Copilot content exclusions](https://docs.github.com/en/copilot/how-tos/configure-content-exclusion/exclude-content-from-copilot)
 * [Delegate tasks to Copilot cloud agent](/docs/agents/agent-types/cloud-agents.md#github-copilot-cloud-agent) for background execution
@@ -50,7 +50,7 @@ Your limit of inline suggestions and chat interactions is reset every month. If 
 
 For users on Copilot Free, to access more inline suggestions and chat interactions, you can sign up for a [paid plan](https://docs.github.com/en/copilot/concepts/billing/individual-plans) directly from VS Code. Alternatively, you can wait until the next month to continue using Copilot for free.
 
-![Visual indicators in Chat view, Status Bar, and title bar that you reached a limit for Copilot chat messages.](images/faq/copilot-chat-limit-reached.png)
+![Visual indicators in Chat view, Status Bar, and title bar that you reached a limit for Copilot chat messages.](../images/faq/copilot-chat-limit-reached.png)
 
 If you're on a paid plan and use all of your premium requests, you can still use Copilot with one of the included models for the rest of the month. You can also request additional premium requests beyond your plan's limit. Learn more about [getting additional premium requests](https://docs.github.com/en/copilot/concepts/billing/copilot-requests#what-if-i-run-out-of-premium-requests) in the GitHub Copilot documentation.
 
@@ -97,11 +97,11 @@ See [Rate limits for GitHub Copilot](https://docs.github.com/en/copilot/troubles
 
 Yes, you can switch to the pre-release (nightly) version of a Copilot extension to try the latest features and fixes. From the Extensions view, right-click or select the gear icon to bring up the context menu, and then select **Switch to Pre-Release Version**:
 
-![Extensions view context menu with Switch to Pre-Release Version option](images/faq/switch-to-pre-release.png)
+![Extensions view context menu with Switch to Pre-Release Version option](../images/faq/switch-to-pre-release.png)
 
 You can tell if you're running a pre-release version by the "Pre-release" badge in the extension details:
 
-![Pre-release version of the GitHub Copilot extension](images/faq/copilot-ext-pre-release.png)
+![Pre-release version of the GitHub Copilot extension](../images/faq/copilot-ext-pre-release.png)
 
 ## Inline suggestions
 
@@ -109,7 +109,7 @@ You can tell if you're running a pre-release version by the "Pre-release" badge 
 
 You can enable or disable inline suggestions in VS Code by using the checkboxes in the Copilot status dashboard from the VS Code Status Bar. You can enable or disable inline suggestions globally or for the file type of the active editor.
 
-![Screenshot showing the VS Code status bar, highlighting the Copilot icon that indicates Copilot is active.](./images/faq/copilot-disable-completions.png)
+![Screenshot showing the VS Code status bar, highlighting the Copilot icon that indicates Copilot is active.](../images/faq/copilot-disable-completions.png)
 
 Alternatively, use the `setting(github.copilot.enable)` and `setting(github.copilot.nextEditSuggestions.enabled)` settings to enable or disable inline suggestions and next edit suggestions, respectively. You can configure these settings at the workspace or user level.
 
@@ -141,7 +141,7 @@ Agents handle complete coding tasks autonomously. They plan multi-step implement
 
 ### Does Copilot work with large codebases and monorepos?
 
-Yes. VS Code automatically indexes your workspace using semantic search, language intelligence (LSP), and GitHub's code search to provide deep understanding across your repository. For large repositories, [remote indexing](/docs/copilot/reference/workspace-context.md#remote-index) uses GitHub's index for fast, comprehensive results across related repositories. Use [multi-root workspaces](/docs/editing/workspaces/multi-root-workspaces.md) to scope context in monorepos, and [custom instructions](/docs/agent-customization/custom-instructions.md) to describe your project's architecture. See [best practices for large codebases](/docs/agents/best-practices.md#work-with-large-codebases).
+Yes. VS Code automatically indexes your workspace using semantic search, language intelligence (LSP), and GitHub's code search to provide deep understanding across your repository. For large repositories, [remote indexing](/docs/agents/reference/workspace-context.md#remote-index) uses GitHub's index for fast, comprehensive results across related repositories. Use [multi-root workspaces](/docs/editing/workspaces/multi-root-workspaces.md) to scope context in monorepos, and [custom instructions](/docs/agent-customization/custom-instructions.md) to describe your project's architecture. See [best practices for large codebases](/docs/agents/best-practices.md#work-with-large-codebases).
 
 ### Can my organization control AI features and agent access?
 
@@ -179,23 +179,23 @@ We track issues and feature requests for GitHub Copilot in VS Code in the [micro
 
     Use the **Send Copilot Completion Feedback** action when hovering over a ghost text suggestion in the editor. In the Issue Reporter, provide a clear and detailed description of the issue, including steps to reproduce it.
 
-    ![Screenshot that shows sending Copilot Ghost Text Feedback action in the editor.](images/faq/code-completions-feedback.png)
+    ![Screenshot that shows sending Copilot Ghost Text Feedback action in the editor.](../images/faq/code-completions-feedback.png)
 
 - **Next edit suggestions**
 
     Select the **Feedback** action in the next edit suggestions menu in the editor gutter. In the Issue Reporter, provide a clear and detailed description of the issue, including steps to reproduce it.
 
-    ![Screenshot that shows next edit suggestions menu in the editor gutter.](images/faq/nes-feedback.png)
+    ![Screenshot that shows next edit suggestions menu in the editor gutter.](../images/faq/nes-feedback.png)
 
 - **General issues**
 
     Open the VS Code Issue reporter (**Help menu** > **Report Issue**), select the **VS Code Extension** source, and then select the **GitHub Copilot Chat** extension. Provide a clear and detailed description of the issue, including steps to reproduce it.
 
-    ![Screenshot that shows VS Code Issue Reporter with GitHub Copilot Chat selected.](images/faq/issue-reporter.png)
+    ![Screenshot that shows VS Code Issue Reporter with GitHub Copilot Chat selected.](../images/faq/issue-reporter.png)
 
 When you report an issue, follow the guidelines in our [wiki](https://github.com/microsoft/vscode/wiki/Copilot-Issues) to make sure your issue is actionable.
 
-It can be helpful to include information from the Copilot logs if you're reporting an issue. Learn how to [view logs and collect diagnostics](/docs/copilot/troubleshooting.md).
+It can be helpful to include information from the Copilot logs if you're reporting an issue. Learn how to [view logs and collect diagnostics](/docs/agents/agent-troubleshooting/troubleshooting.md).
 
 ## Additional resources
 

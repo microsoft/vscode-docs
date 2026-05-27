@@ -77,7 +77,7 @@ To create a skill:
 
 1. Select **New Skill (Workspace)** or **New Skill (User)** from the dropdown, depending on where you want to store the skill.
 
-    ![Screenshot of the Agent Customizations editor, showing the Skills tab and the dropdown to create a new skill.](../images/customization/create-skill.png)
+    ![Screenshot of the Agent Customizations editor, showing the Skills tab and the dropdown to create a new skill.](images/customization/create-skill.png)
 
 1. Select the location and enter a name for the skill.
 

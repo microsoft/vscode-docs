@@ -3,8 +3,8 @@
 ContentId: 200bf922-3684-45ee-a8dd-43191d6b3f8b
 DateApproved: 5/13/2026
 
-VSCodeCommitHash: b6a47e94e326b5c209d118cf0f994d6065585705
-VSCodeVersion: 1.109.3
+VSCodeCommitHash: 05ca786e54e18b696b4f47427e620580d83404ff
+VSCodeVersion: 1.120.0
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Enterprise policies in Visual Studio Code enable organizations to centrally manage settings for their development teams. This reference details the available policies and how to implement them.
@@ -32,7 +32,7 @@ Starting from VS Code version 1.69, each release ships with a `policies` directo
 
 You can get the ADMX and ADML files from either an existing installation or by downloading and extracting the VS Code zip archive. Follow these steps to obtain the files:
 
-1. Download the [VS Code zip archive](https://code.visualstudio.com/docs/?dv=winzip) for your version of VS Code.
+1. Download the [VS Code zip archive](/download) for your version of VS Code.
 1. Extract the zip file to a temporary location.
 1. Navigate to the `policies` folder in the extracted files. This folder contains the ADMX template files (for example, `vscode.admx`) and a `locales` subfolder with ADML files for different languages.
 
@@ -369,25 +369,58 @@ To remove all policies and revert to default settings, delete the `/etc/vscode/p
 
 </details>
 
+## Verify policy enforcement
+
+After you deploy enterprise policies to a device, you can confirm that VS Code is reading and enforcing them with the **Developer: Policy Diagnostics** command. The command opens a new untitled Markdown document with a report of the current policy state on the device. It works the same way on Windows, macOS, and Linux.
+
+The report includes the following sections:
+
+* **System Information**: VS Code product name, version, and commit, useful for matching the report to a specific build.
+* **Account Information**: details of the default account that is signed in, including the raw account-level policy data returned by the account provider.
+* **Account Policy Gate**: state of the [approved GitHub organizations gate](/docs/enterprise/ai-settings.md#restrict-ai-features-to-approved-github-organizations) that controls AI features. Possible states are `inactive`, `satisfied`, and `restricted`. When the state is `restricted`, the report also lists a reason such as `noAccount`, `wrongProvider`, `orgNotApproved`, or `policyNotResolved`.
+* **Policy-Controlled Settings**: two tables that list the policy state for each registered setting:
+    * **Applied Policy**: settings that are currently overridden by a policy, with the setting key, policy name, policy source, default value, current value, and the value enforced by the policy.
+    * **Non-applied Policy**: registered policies that are not currently being enforced. Use this table to detect deployment errors, such as a misspelled key or a policy file that is not being read.
+* **Authentication Information**: registered authentication providers, sessions, accounts, and the extensions that have access to each account.
+
+> [!CAUTION]
+> The report can contain sensitive information such as account identifiers, session details, and the list of extensions with access to each account. Review the contents before you share the report.
+
+> [!TIP]
+> If the **Account Policy Gate** state is `policyNotResolved`, run the **Developer: Sync Account Policy** command to force a refresh of the account-side policy data, then regenerate the report.
+
 ## VS Code enterprise policy reference
 
 The following table lists all available enterprise policies in VS Code.
 
-| Policy Name | Setting ID | Description | Minimum Version |
-|------------|------------|-------------|----------------|
-| `McpGalleryServiceUrl` | `setting(chat.mcp.gallery.serviceUrl)` | Configure the MCP Gallery service URL to connect to | 1.101 |
-| `ExtensionGalleryServiceUrl` | `setting(extensions.gallery.serviceUrl)` | Configure the Marketplace service URL to connect to | 1.99 |
-| `AllowedExtensions` | `setting(extensions.allowed)` | Specify a list of extensions that are allowed to use. This helps maintain a secure and consistent development environment by restricting the use of unauthorized extensions. More information: https://aka.ms/vscode/enterprise/extensions/allowed | 1.96 |
-| `ChatToolsAutoApprove` | `setting(chat.tools.global.autoApprove)` | Global auto approve also known as "YOLO mode" disables manual approval completely for all tools in all workspaces, allowing the agent to act fully autonomously. This is extremely dangerous and is *never* recommended, even containerized environments like Codespaces and Dev Containers have user keys forwarded into the container that could be compromised. This feature disables critical security protections and makes it much easier for an attacker to compromise the machine. | 1.99 |
-| `ChatToolsEligibleForAutoApproval` | `setting(chat.tools.eligibleForAutoApproval)` | Controls which tools are eligible for automatic approval. Tools set to 'false' will always present a confirmation and will never offer the option to auto-approve. The default behavior (or setting a tool to 'true') may result in the tool offering auto-approval options. | 1.107 |
-| `ChatMCP` | `setting(chat.mcp.access)` | Controls access to installed Model Context Protocol servers. | 1.99 |
-| `ChatAgentExtensionTools` | `setting(chat.extensionTools.enabled)` | Enable using tools contributed by third-party extensions. | 1.99 |
-| `ChatAgentMode` | `setting(chat.agent.enabled)` | When enabled, agent mode can be activated from chat and tools in agentic contexts with side effects can be used. | 1.99 |
-| `ChatHooks` | `setting(chat.useHooks)` | Controls whether hooks can be used in agent sessions. When disabled, hook configurations are ignored and no hook commands are executed. | 1.109 |
-| `ChatToolsTerminalEnableAutoApprove` | `setting(chat.tools.terminal.enableAutoApprove)` | Controls whether to allow auto approval in the run in terminal tool. | 1.104 |
-| `UpdateMode` | `setting(update.mode)` | Configure whether you receive automatic updates. Requires a restart after change. The updates are fetched from a Microsoft online service. | 1.67 |
-| `TelemetryLevel` | `setting(telemetry.telemetryLevel)` | Controls the level of telemetry. | 1.99 |
-| `EnableFeedback` | `setting(telemetry.feedback.enabled)` | Enable feedback mechanisms such as the issue reporter, surveys, and other feedback options. | 1.99 |
+| Policy<br>Setting ID | Description |
+|:--|:--|
+| `McpGalleryServiceUrl` | <span data-min-version="1.101">Configure the MCP Gallery service URL to connect to</span> |
+| `ChatApprovedAccountOrganizations` | <span data-min-version="1.118">Setting this policy to a non-empty list activates the Approved Account gate: all AI features are disabled until the user signs into a GitHub account whose organizations intersect this list AND the account-side policy data has resolved. Comparison is case-insensitive. Use '*' as a wildcard to accept any signed-in GitHub or GHE account (use this for GHE deployments where the organization list is not surfaced).</span> |
+| `ExtensionGalleryServiceUrl` | <span data-min-version="1.99">Configure the Marketplace service URL to connect to</span> |
+| `AllowedExtensions`<br>`setting(extensions.allowed)` | <span data-min-version="1.96">Specify a list of extensions that are allowed to use. This helps maintain a secure and consistent development environment by restricting the use of unauthorized extensions. More information: https://aka.ms/vscode/enterprise/extensions/allowed</span> |
+| `ChatToolsAutoApprove`<br>`setting(chat.tools.global.autoApprove)` | <span data-min-version="1.99">Global auto approve also known as "YOLO mode" disables manual approval completely for all tools in all workspaces, allowing the agent to act fully autonomously. This is extremely dangerous and is *never* recommended, even containerized environments like Codespaces and Dev Containers have user keys forwarded into the container that could be compromised. This feature disables critical security protections and makes it much easier for an attacker to compromise the machine. Note: This setting only controls tool approval and does not prevent the agent from asking questions. To automatically answer agent questions, use the `#chat.autoReply#` setting.</span> |
+| `CopilotSessionSync`<br>`setting(chat.sessionSync.enabled)` | <span data-min-version="1.119">Enable session sync to GitHub.com for cross-device Copilot session history. When disabled by organization policy, session data is kept local only.</span> |
+| `ChatToolsEligibleForAutoApproval`<br>`setting(chat.tools.eligibleForAutoApproval)` | <span data-min-version="1.107">Controls which tools are eligible for automatic approval. Tools set to 'false' will always present a confirmation and will never offer the option to auto-approve. The default behavior (or setting a tool to 'true') may result in the tool offering auto-approval options.</span> |
+| `ChatMCP`<br>`setting(chat.mcp.access)` | <span data-min-version="1.99">Controls access to installed Model Context Protocol servers.</span> |
+| `ChatAgentExtensionTools`<br>`setting(chat.extensionTools.enabled)` | <span data-min-version="1.99">Enable using tools contributed by third-party extensions.</span> |
+| `ChatPluginsEnabled`<br>`setting(chat.plugins.enabled)` | <span data-min-version="1.116">Enable agent plugin integration in chat.</span> |
+| `ChatAgentMode`<br>`setting(chat.agent.enabled)` | <span data-min-version="1.99">When enabled, agent mode can be activated from chat and tools in agentic contexts with side effects can be used.</span> |
+| `ChatAgentNetworkFilter`<br>`setting(chat.agent.networkFilter)` | <span data-min-version="1.116">When enabled, network access by agent tools (fetch tool, integrated browser) is restricted according to `#chat.agent.allowedNetworkDomains#` and `#chat.agent.deniedNetworkDomains#`. Domain filtering is also applied to those tools when `#chat.agent.sandbox.enabled#` is enabled.</span> |
+| `ChatAgentAllowedNetworkDomains`<br>`setting(chat.agent.allowedNetworkDomains)` | <span data-min-version="1.116">Allowed domains for network access by agent tools (fetch tool, integrated browser). Applies when `#chat.agent.networkFilter#` or `#chat.agent.sandbox.enabled#` is enabled. When `#chat.agent.sandbox.enabled#` is set to `allowNetwork`, all domains are allowed. Supports wildcards like `*.example.com`. When both allowed and denied lists are empty, all domains are blocked. Denied domains (see `#chat.agent.deniedNetworkDomains#`) take precedence.</span> |
+| `ChatAgentDeniedNetworkDomains`<br>`setting(chat.agent.deniedNetworkDomains)` | <span data-min-version="1.116">Denied domains for network access by agent tools (fetch tool, integrated browser). Applies when `#chat.agent.networkFilter#` or `#chat.agent.sandbox.enabled#` is enabled. This does not apply when `#chat.agent.sandbox.enabled#` is set to `allowNetwork`. Takes precedence over `#chat.agent.allowedNetworkDomains#`. Supports wildcards like `*.example.com`.</span> |
+| `DeprecatedEditModeHidden`<br>`setting(chat.editMode.hidden)` | <span data-min-version="1.112">When enabled, hides the Edit mode from the chat mode picker.</span> |
+| `ChatHooks`<br>`setting(chat.useHooks)` | <span data-min-version="1.109">Controls whether chat hooks are executed at strategic points during an agent's workflow. Hooks are loaded from the files configured in `#chat.hookFilesLocations#`.</span> |
+| `ChatToolsTerminalEnableAutoApprove`<br>`setting(chat.tools.terminal.enableAutoApprove)` | <span data-min-version="1.104">Controls whether to allow auto approval in the run in terminal tool.</span> |
+| `ChatAgentSandboxEnabled`<br>`setting(chat.agent.sandbox.enabled)` | <span data-min-version="1.116">Controls whether agent mode uses sandboxing to restrict what tools can do. When enabled, tools like the terminal are run in a sandboxed environment to limit access to the system.</span> |
+| `UpdateMode`<br>`setting(update.mode)` | <span data-min-version="1.67">Configure whether you receive automatic updates. Requires a restart after change. The updates are fetched from a Microsoft online service.</span> |
+| `TelemetryLevel`<br>`setting(telemetry.telemetryLevel)` | <span data-min-version="1.99">Controls the level of telemetry.</span> |
+| `EnableFeedback`<br>`setting(telemetry.feedback.enabled)` | <span data-min-version="1.99">Enable feedback mechanisms such as the issue reporter, surveys, and other feedback options.</span> |
+| `BrowserChatTools`<br>`setting(workbench.browser.enableChatTools)` | <span data-min-version="1.110">When enabled, chat agents can use browser tools to open and interact with pages in the Integrated Browser.</span> |
+| `CopilotNextEditSuggestions`<br>`setting(github.copilot.nextEditSuggestions.enabled)` | <span data-min-version="1.99">Whether to enable next edit suggestions (NES). NES can propose a next edit based on your recent changes.</span> |
+| `CopilotReviewSelection`<br>`setting(github.copilot.chat.reviewSelection.enabled)` | <span data-min-version="1.104">Enables code review on current selection.</span> |
+| `CopilotReviewAgent`<br>`setting(github.copilot.chat.reviewAgent.enabled)` | <span data-min-version="1.104">Enables the code review agent.</span> |
+| `Claude3PIntegration`<br>`setting(github.copilot.chat.claudeAgent.enabled)` | <span data-min-version="1.113">Enable Claude Agent sessions in VS Code. Start and resume agentic coding sessions powered by Anthropic Claude Agent SDK directly in the editor. Uses your existing Copilot subscription.</span> |
 
 
 > [!NOTE]

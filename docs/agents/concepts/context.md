@@ -48,7 +48,7 @@ VS Code uses an index to quickly and accurately search your codebase for relevan
 * **Local index**: use an advanced semantic index stored on your local machine for fast and accurate search results.
 * **Basic index**: if local indexing is not available, simpler algorithms work locally for larger codebases.
 
-Learn more about [workspace indexing](/docs/copilot/reference/workspace-context.md).
+Learn more about [workspace indexing](/docs/agents/reference/workspace-context.md).
 
 ## Implicit context
 
@@ -99,5 +99,5 @@ Learn more about [adding context to chat](/docs/chat/copilot-chat-context.md).
 
 * [Language models](/docs/agents/concepts/language-models.md)
 * [Manage context for AI](/docs/chat/copilot-chat-context.md)
-* [Context engineering guide](/docs/copilot/guides/context-engineering-guide.md)
-* [Workspace indexing](/docs/copilot/reference/workspace-context.md)
+* [Context engineering guide](/docs/agents/guides/context-engineering-guide.md)
+* [Workspace indexing](/docs/agents/reference/workspace-context.md)

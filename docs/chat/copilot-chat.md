@@ -115,7 +115,7 @@ For more information, see [customizing AI in VS Code](/docs/agent-customization/
 
 ## Troubleshoot chat interactions
 
-Use [Agent Logs and the Chat Debug view](/docs/chat/chat-debug-view.md) to inspect what happens when you send a prompt. Agent Logs shows a chronological event log of tool calls, LLM requests, and prompt file discovery. The Chat Debug view shows the raw system prompt, user prompt, context, and tool payloads for each interaction. These tools are useful for understanding why the AI responded in a certain way or for troubleshooting unexpected results.
+Use [Agent Logs and the Chat Debug view](/docs/agents/agent-troubleshooting/chat-debug-view.md) to inspect what happens when you send a prompt. Agent Logs shows a chronological event log of tool calls, LLM requests, and prompt file discovery. The Chat Debug view shows the raw system prompt, user prompt, context, and tool payloads for each interaction. These tools are useful for understanding why the AI responded in a certain way or for troubleshooting unexpected results.
 
 ## Related resources
 

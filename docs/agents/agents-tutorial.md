@@ -23,7 +23,7 @@ This tutorial walks you through using different types of agents in Visual Studio
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Test web apps with browser agent tools">
 Use browser agent tools to build and automatically test web applications.
 
-* [Browser agent testing guide](/docs/copilot/guides/browser-agent-testing-guide.md)
+* [Browser agent testing guide](/docs/agents/guides/browser-agent-testing-guide.md)
 
 </div>
 

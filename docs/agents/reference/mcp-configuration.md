@@ -236,7 +236,7 @@ The following table lists the MCP-related commands available in the Command Pale
 
 ## Settings
 
-For a full list of VS Code AI settings, see the [AI Settings Reference](/docs/copilot/reference/copilot-settings.md). The following settings are specific to MCP servers.
+For a full list of VS Code AI settings, see the [AI Settings Reference](/docs/agents/reference/copilot-settings.md). The following settings are specific to MCP servers.
 
 | Setting | Description |
 |---------|-------------|
@@ -250,4 +250,4 @@ For a full list of VS Code AI settings, see the [AI Settings Reference](/docs/co
 
 * [Add and manage MCP servers](/docs/agent-customization/mcp-servers.md)
 * [Model Context Protocol Documentation](https://modelcontextprotocol.io/)
-* [MCP Dev Guide](/docs/copilot/guides/mcp-developer-guide.md)
+* [MCP Dev Guide](/docs/agents/guides/mcp-developer-guide.md)

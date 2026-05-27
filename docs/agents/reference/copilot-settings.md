@@ -228,7 +228,7 @@ The [Agents view](/docs/agents/overview.md) provides a centralized location for 
 
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(github.copilot.chat.otel.enabled)` <br/>Enable [OpenTelemetry](/docs/copilot/guides/monitoring-agents.md) emission for Copilot Chat agent interactions. | `false` |
+| `setting(github.copilot.chat.otel.enabled)` <br/>Enable [OpenTelemetry](/docs/agents/guides/monitoring-agents.md) emission for Copilot Chat agent interactions. | `false` |
 | `setting(github.copilot.chat.otel.exporterType)` <br/>OTel exporter type: `otlp-http`, `otlp-grpc`, `console`, or `file`. | `"otlp-http"` |
 | `setting(github.copilot.chat.otel.otlpEndpoint)` <br/>OTLP collector endpoint URL. | `"http://localhost:4318"` |
 | `setting(github.copilot.chat.otel.outfile)` <br/>File path for JSON-lines output when using the `file` exporter type. | `""` |
@@ -246,7 +246,7 @@ The [Agents view](/docs/agents/overview.md) provides a centralized location for 
 
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(github.copilot.chat.agentDebugLog.enabled)`<br/>Enable the [agent debug logs](/docs/chat/chat-debug-view.md) and the [`/troubleshoot`](/docs/chat/chat-debug-view.md#attach-debug-events-to-chat) slash command for inspecting chat sessions. | `false` |
+| `setting(github.copilot.chat.agentDebugLog.enabled)`<br/>Enable the [agent debug logs](/docs/agents/agent-troubleshooting/chat-debug-view.md) and the [`/troubleshoot`](/docs/agents/agent-troubleshooting/chat-debug-view.md#attach-debug-events-to-chat) slash command for inspecting chat sessions. | `false` |
 | `setting(github.copilot.chat.agentDebugLog.fileLogging.enabled)`<br/>Enable file logging for agent debug logs, which writes debug events to a file on disk. | `false` |
 | `setting(github.copilot.chat.startDebugging.enabled)` _(Preview)_<br/>Enables the experimental `/startDebugging` intent in the Chat view to generate debugging configuration. | `true` |
 | `setting(github.copilot.chat.copilotDebugCommand.enabled)` _(Preview)_<br/>Enables the `copilot-debug` terminal command. | `true` |
@@ -287,4 +287,4 @@ The [Agents view](/docs/agents/overview.md) provides a centralized location for 
 
 ## Related resources
 
-* [Get a quick overview of the Copilot features in VS Code](/docs/copilot/reference/copilot-vscode-features.md)
+* [Get a quick overview of the Copilot features in VS Code](/docs/agents/reference/copilot-vscode-features.md)
