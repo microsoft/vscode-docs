@@ -72,7 +72,7 @@ Because Insiders builds are released nightly, multiple builds often share the sa
 
 ## Portable mode
 
-Visual Studio Code supports [portable mode](https://en.wikipedia.org/wiki/Portable_application). Portable mode stores VS Code data near the application so the installation can move between environments, such as on a USB drive. See the [VS Code portable mode](/docs/editor/portable.md) documentation for details.
+Visual Studio Code supports [portable mode](https://en.wikipedia.org/wiki/Portable_application). Portable mode stores VS Code data near the application so the installation can move between environments, such as on a USB drive. See the [VS Code portable mode](/docs/setup/portable.md) documentation for details.
 
 ## Next steps
 

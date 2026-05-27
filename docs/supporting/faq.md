@@ -115,11 +115,11 @@ VS Code will no longer provide product updates or security fixes on macOS Big Su
 
 Starting with VS Code release 1.86.1 (January 2024), VS Code desktop is only compatible with Linux distributions based on glibc 2.28 or later, for example, Debian 10, RHEL 8, or Ubuntu 20.04.
 
-If you are unable to upgrade your Linux distribution, the recommended alternative is to use our [web client](/docs/setup/vscode-web.md). If you would like to use the desktop version, then you can download the VS Code release 1.85 from [here](https://code.visualstudio.com/updates/v1_85). Depending on your platform, make sure to disable updates to stay on that version. A good recommendation is to set up the installation with [Portable Mode](/docs/editor/portable.md).
+If you are unable to upgrade your Linux distribution, the recommended alternative is to use our [web client](/docs/setup/vscode-web.md). If you would like to use the desktop version, then you can download the VS Code release 1.85 from [here](https://code.visualstudio.com/updates/v1_85). Depending on your platform, make sure to disable updates to stay on that version. A good recommendation is to set up the installation with [Portable Mode](/docs/setup/portable.md).
 
 ### Can I run a portable version of VS Code?
 
-Yes, VS Code has a [Portable Mode](/docs/editor/portable.md) that lets you keep settings and data in the same location as your installation, for example, on a USB drive.
+Yes, VS Code has a [Portable Mode](/docs/setup/portable.md) that lets you keep settings and data in the same location as your installation, for example, on a USB drive.
 
 
 ## Telemetry and crash reporting

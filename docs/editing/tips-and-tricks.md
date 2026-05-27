@@ -1068,7 +1068,7 @@ With the setting `setting(npm.enableRunFromFolder)`, you can enable to run npm s
 
 ## Portable mode
 
-VS Code has a [Portable mode](/docs/editor/portable.md) which lets you keep settings and data in the same location as your installation, for example, on a USB drive.
+VS Code has a [Portable mode](/docs/setup/portable.md) which lets you keep settings and data in the same location as your installation, for example, on a USB drive.
 
 ## Insiders builds
 

@@ -127,8 +127,8 @@ There are several CLI options that help with reproducing errors and advanced set
 
 Argument|Description
 ------------------|-----------
-`--extensions-dir <dir>` | Set the root path for extensions.<br>Overridden in [Portable Mode](/docs/editor/portable.md) by the `data` folder.
-`--user-data-dir <dir>` | Specifies the directory that user data is kept in. Can be used to run multiple isolated instances of VS Code with separate environments, settings, and extensions. Also useful when running as root.<br>Overridden in [Portable Mode](/docs/editor/portable.md) by the `data` folder.
+`--extensions-dir <dir>` | Set the root path for extensions.<br>Overridden in [Portable Mode](/docs/setup/portable.md) by the `data` folder.
+`--user-data-dir <dir>` | Specifies the directory that user data is kept in. Can be used to run multiple isolated instances of VS Code with separate environments, settings, and extensions. Also useful when running as root.<br>Overridden in [Portable Mode](/docs/setup/portable.md) by the `data` folder.
 `-s, --status` | Print process usage and diagnostics information.
 `-p, --performance` | Start with the **Developer: Startup Performance** command enabled.
 `--disable-gpu` | Disable GPU hardware acceleration.
@@ -256,7 +256,7 @@ VS Code has an [Integrated Terminal](/docs/terminal/basics.md) where you can run
 
 ### Can I specify the settings location for VS Code in order to have a portable version?
 
-Not directly through the command line, but VS Code has a [Portable Mode](/docs/editor/portable.md), which lets you keep settings and data in the same location as your installation, for example, on a USB drive.
+Not directly through the command line, but VS Code has a [Portable Mode](/docs/setup/portable.md), which lets you keep settings and data in the same location as your installation, for example, on a USB drive.
 
 ### How do I detect when a shell was launched by VS Code?
 
