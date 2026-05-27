@@ -86,6 +86,8 @@ You can view your current Copilot usage in the Copilot status dashboard, availab
 
 Visit the GitHub Copilot documentation for more information about [monitoring usage and entitlements](https://docs.github.com/en/copilot/managing-copilot/monitoring-usage-and-entitlements/monitoring-your-copilot-usage-and-entitlements).
 
+For session-level guidance, see [Using GitHub Copilot CLI session data](https://docs.github.com/en/copilot/how-tos/copilot-cli/use-copilot-cli/chronicle) and run `/chronicle:cost-tips` for targeted cost-saving recommendations.
+
 ## Inspect token usage and caching
 
 Use the [Agent Debug Logs](/docs/copilot/chat/chat-debug-view.md) to understand what is consuming credits in a session:
