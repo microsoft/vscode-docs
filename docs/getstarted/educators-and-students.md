@@ -152,4 +152,4 @@ After you navigate to VS Code for the Web, you can then install the [Live Share]
 ## Next steps
 
 - Watch the [VS Code intro videos](/docs/getstarted/introvideos.md)
-- Check out the [VS Code tips and tricks](/docs/getstarted/tips-and-tricks.md)
+- Check out the [VS Code tips and tricks](/docs/editing/tips-and-tricks.md)

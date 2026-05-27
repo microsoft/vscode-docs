@@ -12,7 +12,7 @@ Author: Vikram Duvvur, Gaurav Mittal, Benjamin Simmonds
 
 February 26, 2026 by [Vikram Duvvur](https://github.com/vkrd), [Gaurav Mittal](https://github.com/g1910), [Benjamin Simmonds](https://github.com/benibenj)
 
-Last February, we released [next edit suggestions (NES)](/docs/copilot/ai-powered-suggestions.md#next-edit-suggestions) in GitHub Copilot. NES extends ghost text by not just inserting code at your cursor, but suggesting edits nearby, anticipating what you'd change next. This was a powerful step forward, but it only worked within a small window around your cursor. In real editing workflows, the next change you need to make is often several screens away.
+Last February, we released [next edit suggestions (NES)](/docs/editing/ai-powered-suggestions.md#next-edit-suggestions) in GitHub Copilot. NES extends ghost text by not just inserting code at your cursor, but suggesting edits nearby, anticipating what you'd change next. This was a powerful step forward, but it only worked within a small window around your cursor. In real editing workflows, the next change you need to make is often several screens away.
 
 That's what we set out to solve with long-distance next edit suggestions: extending NES to predict and suggest edits anywhere in your file, not just near your current cursor position.
 
@@ -117,7 +117,7 @@ Looking ahead, we plan to extend this work with cross-file suggestions, enabling
 
 ## Try It Out
 
-Long-distance next edit suggestions are available now in [VS Code](https://code.visualstudio.com/) for users with a [GitHub Copilot](https://github.com/features/copilot) subscription - just ensure you have [next edit suggestions](/docs/copilot/ai-powered-suggestions.md#next-edit-suggestions) and extended NES range `setting(github.copilot.nextEditSuggestions.extendedRange)` enabled in VS Code. Give it a try the next time you're doing refactoring work—renaming variables, updating function signatures, or making changes that ripple through your file. We'd love to hear your feedback!
+Long-distance next edit suggestions are available now in [VS Code](https://code.visualstudio.com/) for users with a [GitHub Copilot](https://github.com/features/copilot) subscription - just ensure you have [next edit suggestions](/docs/editing/ai-powered-suggestions.md#next-edit-suggestions) and extended NES range `setting(github.copilot.nextEditSuggestions.extendedRange)` enabled in VS Code. Give it a try the next time you're doing refactoring work—renaming variables, updating function signatures, or making changes that ripple through your file. We'd love to hear your feedback!
 
 Happy coding! 💙
 

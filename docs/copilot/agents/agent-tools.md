@@ -29,7 +29,7 @@ Launch a chat prompt that uses the web tool to summarize the latest VS Code upda
 
 ## Enable tools for chat
 
-Before you can use tools in chat, you need to enable them in the Chat view. You can enable or disable tools on a per-request basis by using the tools picker. You can add more tools by [installing MCP servers](/docs/copilot/customization/mcp-servers.md) or [extensions](/docs/getstarted/extensions.md) that contribute tools.
+Before you can use tools in chat, you need to enable them in the Chat view. You can enable or disable tools on a per-request basis by using the tools picker. You can add more tools by [installing MCP servers](/docs/copilot/customization/mcp-servers.md) or [extensions](/docs/configure/extensions/extensions.md) that contribute tools.
 
 > [!TIP]
 > Select only the tools that are relevant for your prompt to improve your results.

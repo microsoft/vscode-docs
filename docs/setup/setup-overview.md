@@ -50,7 +50,7 @@ After you install VS Code, finish setup for your development workflow:
 * [Install additional components](/docs/setup/additional-components.md), including Git, Node.js, TypeScript, language runtimes, and command-line tools.
 * [Install extensions from the Visual Studio Marketplace](https://marketplace.visualstudio.com/VSCode) to add themes, formatters, debuggers, and language support.
 * [Set up GitHub Copilot](/docs/copilot/setup.md) to use AI features in VS Code.
-* [Start the VS Code tutorial](/docs/getstarted/getting-started.md) for a hands-on tour of the user interface and key features.
+* [Start the VS Code tutorial](/docs/editing/getting-started.md) for a hands-on tour of the user interface and key features.
 
 > [!TIP]
 > New Copilot users can start with the [Copilot Free plan](https://github.com/github-copilot/signup), which includes a monthly limit of inline suggestions and chat interactions.
@@ -78,8 +78,8 @@ Visual Studio Code supports [portable mode](https://en.wikipedia.org/wiki/Portab
 
 These topics help you learn more after setup:
 
-* [VS Code tutorial](/docs/getstarted/getting-started.md) - A quick hands-on tour of the key features of VS Code.
-* [Tips and Tricks](/docs/getstarted/tips-and-tricks.md) - A collection of productivity tips for working with VS Code.
+* [VS Code tutorial](/docs/editing/getting-started.md) - A quick hands-on tour of the key features of VS Code.
+* [Tips and Tricks](/docs/editing/tips-and-tricks.md) - A collection of productivity tips for working with VS Code.
 * [AI-assisted coding](/docs/copilot/overview.md) - Learn how GitHub Copilot in VS Code helps you write code faster.
 
 ## Common questions

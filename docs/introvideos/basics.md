@@ -12,7 +12,7 @@ In this tutorial, we walk you through using Visual Studio Code powered with AI f
 
 Here's the next video we recommend: [Code Editing in Visual Studio Code](/docs/introvideos/codeediting.md)
 
-Explore more in the [VS Code Tutorial](/docs/getstarted/getting-started.md) and [GitHub Copilot's Quickstart](/docs/getstarted/copilot-quickstart.md).
+Explore more in the [VS Code Tutorial](/docs/editing/getting-started.md) and [GitHub Copilot's Quickstart](/docs/getstarted/copilot-quickstart.md).
 
 ## Helpful shortcuts
 
@@ -61,6 +61,6 @@ Explore more in the [VS Code Tutorial](/docs/getstarted/getting-started.md) and 
 
 ## Related resources
 
-* [User Interface](/docs/getstarted/userinterface.md) - View the documentation for VS Code.
+* [User Interface](/docs/editing/userinterface.md) - View the documentation for VS Code.
 * [Setup Overview](/docs/setup/setup-overview.md) - Documentation for getting up and running with VS Code, including platform specific setup.
 * [IntelliSense](/docs/editing/intellisense.md) -VS Code brings smart code completions as you type.

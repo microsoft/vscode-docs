@@ -101,7 +101,7 @@ Now that you have a folder open in VS Code, let's take a quick tour of the user 
 
 1. Add more files to your workspace and notice that each file opens a new Editor tab.
 
-    You can open as many editors as you like and view them side by side vertically or horizontally. Learn more about [side by side editing](/docs/getstarted/userinterface.md#side-by-side-editing).
+    You can open as many editors as you like and view them side by side vertically or horizontally. Learn more about [side by side editing](/docs/editing/userinterface.md#side-by-side-editing).
 
     ![Screenshot that shows multiple Editor tabs.](images/getting-started/multiple-editors.png)
 

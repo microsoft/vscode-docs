@@ -42,12 +42,12 @@ AI in VS Code offers several interaction modes. Choosing the right one for the t
 
 | Tool | Best for | Example |
 |------|----------|---------|
-| [Inline suggestions](/docs/copilot/ai-powered-suggestions.md) | Staying in the flow while writing code | Code completions, variable names, boilerplate |
+| [Inline suggestions](/docs/editing/ai-powered-suggestions.md) | Staying in the flow while writing code | Code completions, variable names, boilerplate |
 | [Ask (chat)](/docs/copilot/chat/copilot-chat.md) | Questions, brainstorming, exploring ideas | "How does authentication work in this project?" |
 | [Inline chat](/docs/copilot/chat/inline-chat.md) | Targeted, in-place edits without switching context | Refactoring a function, adding error handling |
 | [Agents](/docs/copilot/agents/overview.md) | Multi-file changes that require autonomous planning and tool use | Implementing a feature end-to-end |
 | [Plan](/docs/copilot/agents/planning.md) | Structured planning before implementation | Designing an architecture or migration strategy |
-| [Smart actions](/docs/copilot/copilot-smart-actions.md) | Built-in, specialized one-step tasks | Generating commit messages, fixing errors, renaming symbols |
+| [Smart actions](/docs/editing/copilot-smart-actions.md) | Built-in, specialized one-step tasks | Generating commit messages, fixing errors, renaming symbols |
 
 ## Choose the right agent type
 

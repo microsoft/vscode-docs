@@ -134,7 +134,7 @@ Copilot provides code suggestions as you type, from single-line completions to f
 
 <video src="images/inline-suggestions/nes-video.mp4" title="Video showing inline code suggestions appearing as ghost text in the editor." controls muted poster="./images/inline-suggestions/point3d.png"></video>
 
-Learn more about [inline suggestions in VS Code](/docs/copilot/ai-powered-suggestions.md).
+Learn more about [inline suggestions in VS Code](/docs/editing/ai-powered-suggestions.md).
 
 ### Inline chat
 
@@ -148,7 +148,7 @@ VS Code includes predefined AI-powered actions for common tasks: generating comm
 
 ![Screenshot showing the smart actions menu in VS Code with options to fix a test failure.](images/overview/copilot-chat-fix-test-failure.png)
 
-Learn more about [smart actions in VS Code](/docs/copilot/copilot-smart-actions.md).
+Learn more about [smart actions in VS Code](/docs/editing/copilot-smart-actions.md).
 
 ## Customize AI for your workflow
 

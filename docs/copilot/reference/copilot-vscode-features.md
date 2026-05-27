@@ -29,12 +29,12 @@ GitHub Copilot in Visual Studio Code provides autonomous agents, inline suggesti
     * Inline chat in the editor or terminal (`kb(inlineChat.start)`): ask questions while you're in the flow
     * Quick Chat (`kb(workbench.action.quickchat.toggle)`): ask quick questions without leaving your current task
 
-* AI in the [editor](/docs/copilot/ai-powered-suggestions.md)
+* AI in the [editor](/docs/editing/ai-powered-suggestions.md)
     * Inline suggestions: get suggestions as you type, press `kb(editor.action.inlineSuggest.commit)` to accept a suggestion
     * Edit context menu actions: access common AI actions like explaining or fixing code, generating tests, or reviewing a text selection
     * Code actions: get editor code actions (lightbulb) to fix linting and compiler errors
 
-* Task-specific [smart actions](/docs/copilot/copilot-smart-actions.md) across VS Code
+* Task-specific [smart actions](/docs/editing/copilot-smart-actions.md) across VS Code
     * Generate commit messages and pull request titles and descriptions
     * Fix testing errors
     * Semantic file search suggestions
@@ -233,11 +233,11 @@ Use the [Agent Customizations editor](/docs/copilot/customization/overview.md#ag
 
 ## Editor AI features
 
-As you're coding in the editor, you can use Copilot to generate inline suggestions as you're typing. Invoke Inline Chat to ask questions and get help from Copilot, while staying in the flow of coding. For example, ask Copilot to generate unit tests for a function or method. Get more information about [inline suggestions](/docs/copilot/ai-powered-suggestions.md) and [Inline Chat](/docs/copilot/chat/inline-chat.md).
+As you're coding in the editor, you can use Copilot to generate inline suggestions as you're typing. Invoke Inline Chat to ask questions and get help from Copilot, while staying in the flow of coding. For example, ask Copilot to generate unit tests for a function or method. Get more information about [inline suggestions](/docs/editing/ai-powered-suggestions.md) and [Inline Chat](/docs/copilot/chat/inline-chat.md).
 
 | Action | Description |
 |--------|-------------|
-| Inline suggestions | Start typing in the editor and get [inline suggestions](/docs/copilot/ai-powered-suggestions.md) that match your coding style and take your existing code into account. |
+| Inline suggestions | Start typing in the editor and get [inline suggestions](/docs/editing/ai-powered-suggestions.md) that match your coding style and take your existing code into account. |
 | Code comments | Provide an inline suggestions prompt by writing instructions in a code comment.<br/>Example: `# write a calculator class with methods for add, subtract, and multiply. Use static methods.` |
 | `kb(inlinechat.start)` | Start editor inline chat to send a chat request directly from the editor. Use natural language and reference chat variables and slash commands to provide context. |
 | `kb(editor.action.rename)` | Get AI-powered suggestions when renaming symbols in your code. |

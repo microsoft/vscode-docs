@@ -17,7 +17,7 @@ When the Python extension is installed and a Python file is open within the edit
 
 ![Configure Python Tests button displayed in the Test Explorer when tests haven't been configured.](images/testing/test-explorer-no-tests.png)
 
-Tests can be configured anytime by using the **Python: Configure Tests** command from the [Command Palette](/docs/getstarted/userinterface.md#command-palette) or by setting either `python.testing.unittestEnabled` or `python.testing.pytestEnabled` in the Settings editor or `settings.json` file as described in the VS Code [Settings](/docs/configure/settings.md) documentation. Each framework also has specific configuration settings as described under [Test configuration settings](#test-configuration-settings) for their folders and patterns.
+Tests can be configured anytime by using the **Python: Configure Tests** command from the [Command Palette](/docs/editing/userinterface.md#command-palette) or by setting either `python.testing.unittestEnabled` or `python.testing.pytestEnabled` in the Settings editor or `settings.json` file as described in the VS Code [Settings](/docs/configure/settings.md) documentation. Each framework also has specific configuration settings as described under [Test configuration settings](#test-configuration-settings) for their folders and patterns.
 
 If you enable pytest and it is not currently installed in the activated environment, the Python extension attempts to install it in the background. Furthermore, if both frameworks are enabled, the Python extension only runs `pytest`.
 

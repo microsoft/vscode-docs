@@ -154,7 +154,7 @@ I have to be honest, it's unlikely that I would have finished this project witho
 
 **Research and exploration.** When I was evaluating FST, RAKE, and FSST, I used Copilot to understand how these libraries worked, ask clarifying questions, and bounce ideas around. It was like having a knowledgeable colleague available at any hour.
 
-**Efficient Rust development.** This was perhaps the biggest win. Copilot's [Next Edit Suggestions](/docs/copilot/ai-powered-suggestions#_next-edit-suggestions) turned me into a productive Rust programmer. I no longer spent mental energy fighting the borrow checker or looking up syntax. Copilot handled the mechanical parts, letting me focus on the logic.
+**Efficient Rust development.** This was perhaps the biggest win. Copilot's [Next Edit Suggestions](/docs/editing/ai-powered-suggestions#_next-edit-suggestions) turned me into a productive Rust programmer. I no longer spent mental energy fighting the borrow checker or looking up syntax. Copilot handled the mechanical parts, letting me focus on the logic.
 
 **Scaffolding the WASM target.** When I asked Copilot to add a WebAssembly output target to the project, it didn't just add the configuration, it inferred that I wanted a search function exported and scaffolded the entire `lib.rs` with the right `wasm-bindgen` annotations. It even told me which command to run to build it.
 

@@ -30,7 +30,7 @@ Learn about the key features of Visual Studio Code in our introduction video.
 
 ## Configure settings
 
-Almost every aspect of VS Code can be customized via settings. Settings let you configure editor options such as enabling word wrapping or showing the minimap, setting up language-specific debugger settings, enabling Workspace Trust, and more. When you install extensions from the Visual Studio Marketplace, they might add their own [extension settings](/docs/getstarted/extensions.md#open-extension-settings).
+Almost every aspect of VS Code can be customized via settings. Settings let you configure editor options such as enabling word wrapping or showing the minimap, setting up language-specific debugger settings, enabling Workspace Trust, and more. When you install extensions from the Visual Studio Marketplace, they might add their own [extension settings](/docs/configure/extensions/extensions.md#open-extension-settings).
 
 The Settings editor (`kb(workbench.action.openSettings)`) provides a graphical interface to modify settings. When you modify settings, VS Code stores them in the `settings.json` file. Optionally, you can edit the `settings.json` file directly.
 
@@ -111,7 +111,7 @@ Get more details about [changing the display language in VS Code](/docs/configur
 
 After personalizing VS Code, you can:
 
-* [Explore key VS Code features with our Quickstart](/docs/getstarted/getting-started.md)
-* [Install extensions to add features for your programming language](/docs/getstarted/extensions.md)
+* [Explore key VS Code features with our Quickstart](/docs/editing/getting-started.md)
+* [Install extensions to add features for your programming language](/docs/configure/extensions/extensions.md)
 * [Set up version control with Git](/docs/sourcecontrol/overview.md)
 * [Configure debugging for your project](/docs/debugtest/debugging.md)

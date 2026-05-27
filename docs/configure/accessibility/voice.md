@@ -65,6 +65,6 @@ Each language for the speech extension comes as its own extension. When you star
 Read on to find out about:
 
 * [Other VS Code accessibility features](/docs/configure/accessibility/accessibility.md).
-* [Visual Studio Code User Interface](/docs/getstarted/userinterface.md) - A quick orientation to VS Code.
+* [Visual Studio Code User Interface](/docs/editing/userinterface.md) - A quick orientation to VS Code.
 * [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful VS Code editor.
 * [Code Navigation](/docs/editing/editingevolved.md) - Move quickly through your source code.

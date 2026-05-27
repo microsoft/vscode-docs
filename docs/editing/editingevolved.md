@@ -198,7 +198,7 @@ The **Trusted Domains** JSON file also has comments with examples of the support
 Now that you know how the editor works, time to try a few other things...
 
 * [Intro Video - Code Editing](/docs/introvideos/codeediting.md) - Watch an introductory video on code editing features.
-* [User Interface](/docs/getstarted/userinterface.md) - In case you missed a basic orientation around VS Code.
+* [User Interface](/docs/editing/userinterface.md) - In case you missed a basic orientation around VS Code.
 * [Key Bindings](/docs/configure/keybindings.md) - Learn how to modify keyboard shortcuts to your preference.
 * [Debugging](/docs/debugtest/debugging.md) - This is where VS Code really shines.
 

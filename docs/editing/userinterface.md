@@ -38,7 +38,7 @@ VS Code comes with a simple and intuitive layout that maximizes the space provid
 
 Each time you start VS Code, it opens up in the same state it was in when you last closed it. The folder, layout, and opened files are preserved.
 
-Open files in each editor are displayed with tabbed headers (Tabs) at the top of the editor region. To learn more about tabbed headers, see the [Tabs](/docs/getstarted/userinterface.md#tabs) section.
+Open files in each editor are displayed with tabbed headers (Tabs) at the top of the editor region. To learn more about tabbed headers, see the [Tabs](/docs/editing/userinterface.md#tabs) section.
 
 > [!TIP]
 > You can move the Primary Side Bar to the right hand side by right-clicking the Activity Bar and selecting **Move Primary Side Bar Right** or toggle its visibility (`kb(workbench.action.toggleSidebarVisibility)`).
@@ -374,7 +374,7 @@ If you don't want to use tabs, you can disable the feature by setting the `setti
     "workbench.editor.showTabs": "single"
 ```
 
-See the section below to optimize VS Code for [working without Tabs](/docs/getstarted/userinterface.md#working-without-tabs).
+See the section below to optimize VS Code for [working without Tabs](/docs/editing/userinterface.md#working-without-tabs).
 
 > [!TIP]
 > Double-click in the editor title area to quickly create a new tab.
@@ -449,7 +449,7 @@ The following examples use the `${extname}` variable for the file `tests/editor.
 * `${extname(-2)}` => ts
 
 > [!NOTE]
-> The custom tab labels also apply in the Open Editors view and in [Quick Open](/docs/getstarted/tips-and-tricks.md#quick-open) (`kb(workbench.action.quickOpen)`).
+> The custom tab labels also apply in the Open Editors view and in [Quick Open](/docs/editing/tips-and-tricks.md#quick-open) (`kb(workbench.action.quickOpen)`).
 
 ## Grid editor layout
 
@@ -498,7 +498,7 @@ If you prefer not to use tabs (tabbed headings), you can disable tabs entirely b
 
 ### Disable Preview mode
 
-Without tabs, the **Open Editors** section of the Explorer view is a quick way to do file navigation. However, with [preview editor mode](/docs/getstarted/userinterface.md#preview-mode) enabled, files are not added to the Open Editors section. You can disable this feature through the `setting(workbench.editor.enablePreview)` and `setting(workbench.editor.enablePreviewFromQuickOpen)` settings.
+Without tabs, the **Open Editors** section of the Explorer view is a quick way to do file navigation. However, with [preview editor mode](/docs/editing/userinterface.md#preview-mode) enabled, files are not added to the Open Editors section. You can disable this feature through the `setting(workbench.editor.enablePreview)` and `setting(workbench.editor.enablePreviewFromQuickOpen)` settings.
 
 ### Use keyboard shortcuts to navigate the editor history
 

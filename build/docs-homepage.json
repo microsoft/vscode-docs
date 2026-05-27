@@ -34,7 +34,7 @@
       "icon": "codicon-mortar-board",
       "title": "Learn VS Code basics",
       "description": "Explore the editor, settings, extensions, and key features.",
-      "link": "/docs/getstarted/getting-started"
+      "link": "/docs/editing/getting-started"
     },
     {
       "icon": "codicon-organization",

@@ -5,9 +5,9 @@ MetaDescription: Visual Studio Code Tips and Tricks for power users.
 ---
 # Visual Studio Code tips and tricks
 
-Use the tips and tricks in this article to jump right in and learn how to be productive with Visual Studio Code. Become familiar with the powerful editing, code intelligence, and source code control features and learn useful keyboard shortcuts. Make sure to explore the other in-depth topics in [Getting Started](/docs/getstarted/userinterface.md) and the [User Guide](/docs/editing/codebasics.md) to learn more.
+Use the tips and tricks in this article to jump right in and learn how to be productive with Visual Studio Code. Become familiar with the powerful editing, code intelligence, and source code control features and learn useful keyboard shortcuts. Make sure to explore the other in-depth topics in [Getting Started](/docs/editing/userinterface.md) and the [User Guide](/docs/editing/codebasics.md) to learn more.
 
-If you're just getting started, make sure to check out the [VS Code tutorial](/docs/getstarted/getting-started.md) for a step-by-step to discover the key features.
+If you're just getting started, make sure to check out the [VS Code tutorial](/docs/editing/getting-started.md) for a step-by-step to discover the key features.
 
 > If you don't have Visual Studio Code installed, go to the [Download](/download) page. You can find platform specific setup instructions at [Running VS Code on Linux](/docs/setup/linux.md), [macOS](/docs/setup/mac.md), and [Windows](/docs/setup/windows.md).
 

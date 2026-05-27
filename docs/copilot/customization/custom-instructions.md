@@ -31,7 +31,7 @@ Set up your project for AI with `/init` to generate custom instructions tailored
 > Use the [Agent Customizations editor](/docs/copilot/customization/overview.md#agent-customizations-editor) (Preview) to discover, create, and manage all your agent customizations in one place. Run **Chat: Open Customizations** from the Command Palette.
 
 > [!NOTE]
-> Custom instructions are not taken into account for [inline suggestions](/docs/copilot/ai-powered-suggestions.md) as you type in the editor.
+> Custom instructions are not taken into account for [inline suggestions](/docs/editing/ai-powered-suggestions.md) as you type in the editor.
 
 ## Types of instruction files
 

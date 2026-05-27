@@ -58,6 +58,6 @@ You can uninstall an extension from the Extensions view in VS Code. If you want 
 * [Extension Marketplace](/docs/configure/extensions/extension-marketplace.md): learn more about recommended extensions, pre-release extensions, or installing extensions from the command-line.
 * [Extension runtime security](/docs/configure/extensions/extension-runtime-security.md): learn more about how VS Code protects you from malicious extensions.
 * [VS Code extension development](/api/get-started/your-first-extension.md): create and publish your own extension for VS Code.
-* [VS Code Quickstart](/docs/getstarted/getting-started.md): discover the key features of VS Code with a step-by-step guide.
+* [VS Code Quickstart](/docs/editing/getting-started.md): discover the key features of VS Code with a step-by-step guide.
 * [Version control](/docs/sourcecontrol/overview.md): learn how to set up version control with Git in VS Code.
 * [Debugging](/docs/debugtest/debugging.md): configure debugging for your project.

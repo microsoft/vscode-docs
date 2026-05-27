@@ -25,7 +25,7 @@ You can configure the Python extension through settings. Learn more in the [Pyth
 
 ## Run Python code
 
-To experience Python, create a file (using the [File Explorer](/docs/getstarted/userinterface.md#explorer)) named `hello.py` and paste in the following code:
+To experience Python, create a file (using the [File Explorer](/docs/editing/userinterface.md#explorer)) named `hello.py` and paste in the following code:
 
 ```python
 print("Hello World")

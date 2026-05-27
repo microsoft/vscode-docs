@@ -39,7 +39,7 @@ The source control icon in the Activity Bar also shows a badge with the number o
 
 ### Editor gutter indicators
 
-To help you quickly identify changes in your files, VS Code shows gutter indicators in the editor next to the line number to represent added, modified, or deleted lines since your last commit. You can also see these indicators in the [minimap](/docs/getstarted/userinterface.md#minimap).
+To help you quickly identify changes in your files, VS Code shows gutter indicators in the editor next to the line number to represent added, modified, or deleted lines since your last commit. You can also see these indicators in the [minimap](/docs/editing/userinterface.md#minimap).
 
 The gutter color indicates the type of change:
 
@@ -274,7 +274,7 @@ The Timeline view, accessible at the bottom of the File Explorer, is a unified v
 
 ![Screenshot of the timeline view showing file commit history.](images/overview/timeline-view.png)
 
-Learn more about the [Timeline view](/docs/getstarted/userinterface.md#timeline-view).
+Learn more about the [Timeline view](/docs/editing/userinterface.md#timeline-view).
 
 ## Next steps
 
