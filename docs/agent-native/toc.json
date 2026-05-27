@@ -6,6 +6,20 @@
             ["Overview", "/docs/agents/overview"],
             ["Agents Tutorial", "/docs/agents/agents-tutorial"],
 
+            ["", "",     {
+                "name": "Concepts",
+                "area": "agents/concepts",
+                "topics": [
+                    ["Overview", "/docs/agents/concepts/overview"],
+                    ["Language Models", "/docs/agents/concepts/language-models"],
+                    ["Context", "/docs/agents/concepts/context"],
+                    ["Tools", "/docs/agents/concepts/tools"],
+                    ["Agents", "/docs/agents/concepts/agents"],
+                    ["Customization", "/docs/agents/concepts/customization"],
+                    ["Trust & Safety", "/docs/agents/concepts/trust-and-safety"]
+                ]
+            }],
+
             ["Agents Window", "/docs/agents/agents-window"],
 
             ["", "", {
@@ -57,20 +71,6 @@
             ["Review Edits", "/docs/chat/review-code-edits"],
             ["Checkpoints", "/docs/chat/chat-checkpoints"],
             ["Artifacts Panel", "/docs/chat/chat-artifacts"],
-        ]
-    },
-
-    {
-        "name": "Concepts",
-        "area": "agents/concepts",
-        "topics": [
-            ["Overview", "/docs/agents/concepts/overview"],
-            ["Language Models", "/docs/agents/concepts/language-models"],
-            ["Context", "/docs/agents/concepts/context"],
-            ["Tools", "/docs/agents/concepts/tools"],
-            ["Agents", "/docs/agents/concepts/agents"],
-            ["Customization", "/docs/agents/concepts/customization"],
-            ["Trust & Safety", "/docs/agents/concepts/trust-and-safety"]
         ]
     },
 
