@@ -1,7 +1,7 @@
 [
   {
     "name": "Language Support",
-    "area": "lang-support",
+    "area": "languages",
     "topics": [
       ["JavaScript", "/docs/languages/javascript"],
       ["JSON", "/docs/languages/json"],
