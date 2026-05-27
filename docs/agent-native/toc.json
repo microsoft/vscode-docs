@@ -24,7 +24,7 @@
 
             ["", "", {
                 "name": "Agent Types",
-                "area": "agents",
+                "area": "agents/agent-types",
                 "topics": [
                     ["Local Agents", "/docs/agents/agent-types/local-agents"],
                     ["Copilot CLI", "/docs/agents/agent-types/copilot-cli"],
