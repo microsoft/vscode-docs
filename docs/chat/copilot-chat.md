@@ -87,7 +87,7 @@ Learn more about [managing context for AI](/docs/chat/copilot-chat-context.md).
 
 When `setting(imageCarousel.chat.enabled)` is enabled, you can select images or videos in chat responses to open a dedicated carousel view. Media files from tool results (such as the integrated browser, Playwright, or other MCP servers) and inlined in assistant messages are all accessible from the carousel.
 
-![Screenshot showing the image carousel view with multiple images.](../images/chat-sessions/image-carousel.png)
+![Screenshot showing the image carousel view with multiple images.](images/chat-sessions/image-carousel.png)
 
 ## Review and manage changes
 
@@ -99,7 +99,7 @@ After the AI makes changes to your files, review and accept or discard them.
 
 * **Stage to accept**: staging your changes in the Source Control view automatically accepts any pending edits. Discarding changes also discards pending edits.
 
-![Screenshot showing the Editor with proposed changes, highlighting the review controls in the editor overlay controls.](../images/review-code-edits/copilot-edits-file-review-controls.png)
+![Screenshot showing the Editor with proposed changes, highlighting the review controls in the editor overlay controls.](images/review-code-edits/copilot-edits-file-review-controls.png)
 
 ## Get better responses
 

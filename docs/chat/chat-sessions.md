@@ -37,7 +37,7 @@ To start a new chat session:
 
 1. Use the **New Chat (+)** button in the Chat view, or use the keyboard shortcut `kb(workbench.action.chat.newChat)`.
 
-    ![Screenshot of the New Chat button in the Chat view.](../images/chat-sessions/new-chat-button.png)
+    ![Screenshot of the New Chat button in the Chat view.](images/chat-sessions/new-chat-button.png)
 
 1. Select where you want to run the agent by using the **Agent Target** dropdown. For example, select **Local** to run the agent interactively in the editor with full access to your workspace, tools, and models.
 
@@ -55,15 +55,15 @@ You can open chat sessions in different views, depending on how you prefer to wo
 
 * **Side bar** (default): select **New Chat (+)** > **New Chat**, or run the **Chat: New Chat** command. Best for keeping chat visible alongside your code.
 
-    ![Screenshot of opening a new chat session in the Chat view in VS Code.](../images/chat-sessions/new-chat-session-chat-view.png)
+    ![Screenshot of opening a new chat session in the Chat view in VS Code.](images/chat-sessions/new-chat-session-chat-view.png)
 
 * **Editor tab**: select **New Chat (+)** > **New Chat Editor**, or run the **Chat: New Chat Editor** command. Best for giving chat more space or comparing sessions side by side.
 
-    ![Screenshot of opening a new chat session in an editor tab in VS Code.](../images/chat-sessions/new-chat-session-editor-tab.png)
+    ![Screenshot of opening a new chat session in an editor tab in VS Code.](images/chat-sessions/new-chat-session-editor-tab.png)
 
 * **Separate window**: select **New Chat (+)** > **New Chat Window**, or run the **Chat: New Chat Window** command. Best for multi-monitor setups.
 
-    ![Screenshot of opening a new chat session in a separate window in VS Code.](../images/chat-sessions/new-chat-session-separate-window.png)
+    ![Screenshot of opening a new chat session in a separate window in VS Code.](images/chat-sessions/new-chat-session-separate-window.png)
 
 * **Maximized**: select the **Maximize** button in the Chat view title bar, or run the **View: Toggle Maximized Panel** command. The chat takes over the full editor area, giving it maximum space. Select the button again to restore the previous layout.
 
@@ -145,7 +145,7 @@ To permanently delete a session, right-click the session in the sessions list an
 
 You don't have to wait for a response to finish before sending your next message. While a request is in progress, the **Send** button changes to a dropdown that gives you three options for how to handle the new message.
 
-![Screenshot of the Send button dropdown menu showing options to queue, steer, or stop and send a new message.](../images/chat-sessions/send-dropdown.png)
+![Screenshot of the Send button dropdown menu showing options to queue, steer, or stop and send a new message.](images/chat-sessions/send-dropdown.png)
 
 * **Add to Queue**: your message waits and sends automatically after the current response completes. The current response finishes uninterrupted.
 * **Steer with Message**: signals the current request to yield after finishing the current tool execution. The current response stops and your new message processes immediately. Use this to redirect the agent when it's heading in the wrong direction.
@@ -157,7 +157,7 @@ The default action for the **Send** button is configurable. Use `setting(chat.re
 
 When you have multiple pending messages (queued or steering), you can drag and drop them to change the order in which they are processed. A drag handle appears on hover when more than one message of the same type is pending.
 
-![Screenshot of pending messages in the chat input box with drag handles to reorder them.](../images/chat-sessions/pending-messages.png)
+![Screenshot of pending messages in the chat input box with drag handles to reorder them.](images/chat-sessions/pending-messages.png)
 
 ## Fork a chat session
 
@@ -171,7 +171,7 @@ There are two ways to fork a chat session:
 
 * **Fork from a checkpoint**: hover over a chat request in the conversation and select the **Fork Conversation** button. A new session opens that includes only the requests up to and including that checkpoint.
 
-    ![Screenshot of the Fork Conversation button in the checkpoint toolbar in the Chat view.](../images/chat-checkpoints/chat-fork-conversation.png)
+    ![Screenshot of the Fork Conversation button in the checkpoint toolbar in the Chat view.](images/chat-checkpoints/chat-fork-conversation.png)
 
 ## Get notified about chat responses
 

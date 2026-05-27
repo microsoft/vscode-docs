@@ -21,7 +21,7 @@ Once the AI has made changes to your files, they are directly applied and saved 
 
 The Chat view shows the list of files that were edited and are pending your review. Files with pending edits also have an indicator in the Explorer view and editor tabs with a squared-dot icon.
 
-![Screenshot that shows the Chat view, highlighting the changed files list and the indicator in the Explorer view and editor tabs.](../images/review-code-edits/copilot-edits-changed-files-full.png)
+![Screenshot that shows the Chat view, highlighting the changed files list and the indicator in the Explorer view and editor tabs.](images/review-code-edits/copilot-edits-changed-files-full.png)
 
 When you open a file that was changed, the editor shows an inline diff of the applied changes.
 
@@ -42,7 +42,7 @@ Follow these steps to review the AI-generated code edits in a file:
 
 1. Alternatively, accept or reject all changes across all files at once from the Chat view.
 
-![Screenshot showing the Editor with proposed changes, highlighting the review controls in the editor overlay controls.](../images/review-code-edits/copilot-edits-file-review-controls.png)
+![Screenshot showing the Editor with proposed changes, highlighting the review controls in the editor overlay controls.](images/review-code-edits/copilot-edits-file-review-controls.png)
 
 The following keyboard shortcuts help you navigate and review edits:
 
