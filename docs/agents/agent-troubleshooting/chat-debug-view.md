@@ -213,4 +213,4 @@ If a custom instruction or prompt file doesn't seem to take effect:
 * [Chat overview](/docs/chat/copilot-chat.md)
 * [Manage context for AI](/docs/chat/copilot-chat-context.md)
 * [Troubleshoot AI in VS Code](/docs/agents/agent-troubleshooting/troubleshooting.md)
-* [Security considerations for using AI in VS Code](/docs/copilot/security.md)
+* [Security considerations for using AI in VS Code](/docs/agents/security.md)

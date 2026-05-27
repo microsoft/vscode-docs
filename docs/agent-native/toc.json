@@ -39,7 +39,7 @@
             ["Subagents", "/docs/agents/subagents"],
 
             ["Best Practices", "/docs/agents/best-practices"],
-            ["Security", "/docs/copilot/security"],
+            ["Security", "/docs/agents/security"],
         ]
     },
 

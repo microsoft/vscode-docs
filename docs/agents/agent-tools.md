@@ -75,7 +75,7 @@ The permissions picker in the Chat view controls how much autonomy the agent has
 | **Autopilot** (Preview) | Auto-approves all tool calls without showing confirmation dialogs and auto-responds to clarifying questions. The agent continues working autonomously until the task is completed. |
 
 > [!CAUTION]
-> **Bypass Approvals** and **Autopilot** bypass manual approval prompts, including for potentially destructive actions like file edits, terminal commands, and external tool calls. The first time you enable either level, a warning dialog asks you to confirm. Only use these levels if you understand the security implications. See the [Security considerations](/docs/copilot/security.md) for more details.
+> **Bypass Approvals** and **Autopilot** bypass manual approval prompts, including for potentially destructive actions like file edits, terminal commands, and external tool calls. The first time you enable either level, a warning dialog asks you to confirm. Only use these levels if you understand the security implications. See the [Security considerations](/docs/agents/security.md) for more details.
 
 The permission level applies to the current chat session. You can change it at any time during a session by selecting a different level from the permissions picker. You can stop the agent at any time by selecting the stop button.
 
@@ -410,7 +410,7 @@ You have several options for auto-approving tool calls:
 * **Global setting**: enable the `setting(chat.tools.global.autoApprove)` setting to auto-approve all tools across all your workspaces. You can also toggle this directly from chat by using the `/yolo` or `/autoApprove` slash command to enable it, or `/disableYolo` or `/disableAutoApprove` to disable it. The first time you enable global auto-approval, a warning dialog asks you to confirm.
 
 > [!CAUTION]
-> Both approaches disable manual approval prompts, including for potentially destructive actions. They remove critical security protections and make it easier for an attacker to compromise the machine. Only use these options if you understand the implications. See the [Security documentation](/docs/copilot/security.md) for more details.
+> Both approaches disable manual approval prompts, including for potentially destructive actions. They remove critical security protections and make it easier for an attacker to compromise the machine. Only use these options if you understand the implications. See the [Security documentation](/docs/agents/security.md) for more details.
 >
 > The `setting(chat.tools.global.autoApprove)` setting applies globally across all your workspaces. Use a session-scoped [permission level](#permission-levels) if you prefer to limit auto-approval to the current session.
 
@@ -431,4 +431,4 @@ Yes. You can create tools in two ways:
 
 * [Chat tools reference](/docs/agents/reference/copilot-vscode-features.md#chat-tools)
 * [Agent hooks](/docs/agent-customization/hooks.md) - Execute custom commands at tool lifecycle events
-* [Security considerations for using AI in VS Code](/docs/copilot/security.md)
+* [Security considerations for using AI in VS Code](/docs/agents/security.md)

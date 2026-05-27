@@ -62,7 +62,7 @@ If you stage your changes in the Source Control view, any pending edits are auto
 You can configure VS Code to automatically accept AI-generated code edits after a configurable delay with the `setting(chat.editing.autoAccept)` setting. Hover over the editor overlay controls to stop the auto-accept countdown.
 
 > [!IMPORTANT]
-> If you automatically accept all edits, it's strongly recommended to review the changes before committing them in source control. Learn more about the [security considerations of using AI in VS Code](/docs/copilot/security.md).
+> If you automatically accept all edits, it's strongly recommended to review the changes before committing them in source control. Learn more about the [security considerations of using AI in VS Code](/docs/agents/security.md).
 
 ## Edit sensitive files
 
@@ -84,7 +84,7 @@ The following example configuration automatically allows edits to all files exce
 
 When a session completes and makes code changes to your project, the [sessions list](/docs/chat/chat-sessions.md#sessions-list) shows the file change statistics for that session. To review the changes, select the session from the list to open the session details.
 
-![Screenshot of the file changes diff editor in an agent session.](../images/agents-overview/agent-file-changes-v2.png)
+![Screenshot of the file changes diff editor in an agent session.](images/agents-overview/agent-file-changes-v2.png)
 
 Depending on the agent type, you have options to apply the changes to your local workspace, or to check out the branch from the session (for cloud agents).
 
@@ -93,4 +93,4 @@ Depending on the agent type, you have options to apply the changes to your local
 * [Revert changes with checkpoints](/docs/chat/chat-checkpoints.md)
 * [Chat overview](/docs/chat/copilot-chat.md)
 * [Chat sessions](/docs/chat/chat-sessions.md)
-* [Security considerations for using AI in VS Code](/docs/copilot/security.md)
+* [Security considerations for using AI in VS Code](/docs/agents/security.md)

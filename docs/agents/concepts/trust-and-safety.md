@@ -25,7 +25,7 @@ AI-generated output requires review. Visual Studio Code includes multiple mechan
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Learn more about AI safety">
 Understand the control mechanisms and safety considerations for using AI in VS Code.
 
-* [Learn about AI safety](/docs/copilot/security.md)
+* [Learn about AI safety](/docs/agents/security.md)
 
 </div>
 
@@ -41,7 +41,7 @@ Agents can read files, edit code, run terminal commands, and call external servi
 
 * **Choose a permission level.** Control how much autonomy the agent has: **Default Approvals** requires confirmation for sensitive tools, **Bypass Approvals** auto-approves all tool calls, and **Autopilot** (Preview) also auto-responds to questions and continues autonomously. For higher autonomy levels, pair with [agent sandboxing](#agent-sandboxing) or a container.
 
-* **Trust boundaries.** VS Code enforces security boundaries around file access, URL access, [agent sandboxing](#agent-sandboxing), and MCP server interactions. Learn more about [AI security](/docs/copilot/security.md).
+* **Trust boundaries.** VS Code enforces security boundaries around file access, URL access, [agent sandboxing](#agent-sandboxing), and MCP server interactions. Learn more about [AI security](/docs/agents/security.md).
 
 Always review AI-generated code before committing. Verify that it handles edge cases, follows your project's conventions, and doesn't introduce security issues.
 
@@ -134,13 +134,13 @@ Agent sandboxing is currently in preview and continues to evolve to cover more t
 
 **Incorrect output.** Models can generate code that looks correct but contains bugs, uses deprecated APIs, or doesn't handle edge cases. Always test AI-generated code, especially for logic that affects security, data integrity, or critical flows.
 
-**Prompt injection.** Malicious content in files, tool outputs, or web pages can attempt to redirect the agent's behavior. This is why VS Code includes tool approval gates and trust boundaries. Learn more about [AI security](/docs/copilot/security.md).
+**Prompt injection.** Malicious content in files, tool outputs, or web pages can attempt to redirect the agent's behavior. This is why VS Code includes tool approval gates and trust boundaries. Learn more about [AI security](/docs/agents/security.md).
 
 Treat AI-generated output as a first draft: useful as a starting point, but always requiring your review and judgment. For more on how models work, including nondeterminism, knowledge boundaries, and context limits, see [Language models](/docs/agents/concepts/language-models.md).
 
 ## Related resources
 
-* [AI security considerations](/docs/copilot/security.md)
+* [AI security considerations](/docs/agents/security.md)
 * [Terminal sandbox configuration](/docs/agents/agent-tools.md#sandbox-terminal-commands)
 * [Reviewing code edits](/docs/chat/review-code-edits.md)
 * [Checkpoints](/docs/chat/chat-checkpoints.md)

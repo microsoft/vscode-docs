@@ -98,7 +98,7 @@ If the agent type is _where_ the agent runs, the agent determines _how_ to perfo
 
 Select an agent from the agents dropdown in the Chat view. You can switch between agents at any time during a session.
 
-![Screenshot showing the agent picker in the Chat view.](../images/getting-started/agent-mode-selection-2.png)
+![Screenshot showing the agent picker in the Chat view.](images/getting-started/agent-mode-selection-2.png)
 
 VS Code has three [built-in agents](/docs/agents/agent-types/local-agents.md):
 
@@ -128,7 +128,7 @@ You can hand off an existing task from one agent to another agent to take advant
 
 To hand off a local agent session, select a different agent type from the session type dropdown in the chat input box. VS Code creates a new session, carrying over the full conversation history and context. The original session is archived after handoff.
 
-![Screenshot showing the session type dropdown for handing off to another agent.](../images/background-agents/continue-in-cli.png)
+![Screenshot showing the session type dropdown for handing off to another agent.](images/copilot-cli/continue-in-cli.png)
 
 In a Copilot CLI session, delegate to a cloud agent by entering the `/delegate` command in the chat input box. You can provide additional instructions after the `/delegate` command.
 

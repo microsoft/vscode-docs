@@ -79,7 +79,7 @@ Use the find and filter options to find specific sessions. You can also pin impo
 
 The list of sessions is scoped to your workspace. If you don't have a workspace open, the list shows all sessions across your workspaces. The sessions are grouped by time periods, such as **Today** or **Last Week**.
 
-![Screenshot of an agent session in VS Code showing code changes and chat interaction.](../images/agents-overview/chat-sessions-view.png)
+![Screenshot of an agent session in VS Code showing code changes and chat interaction.](images/agents-overview/chat-sessions-view.png)
 
 Right-click a session in the list to see additional actions, such as different options to open the session details, archive the session, or agent-type specific actions like checking out a pull request (for cloud agent sessions).
 
@@ -91,13 +91,13 @@ The Chat view operates in two modes: compact and side-by-side. You can manually 
 
     In compact view, the list of sessions is embedded in the Chat view. When you select a session from the list, the Chat view switches to that session. Use the back button to return to the sessions list.
 
-    ![Screenshot of the Chat view in compact mode showing recent agent sessions.](../images/agents-overview/chat-view-compact2.png)
+    ![Screenshot of the Chat view in compact mode showing recent agent sessions.](images/agents-overview/chat-view-compact2.png)
 
 * **Side-by-side**
 
     In side-by-side view, the list of sessions is shown side-by-side with the Chat view. Select a session from the list to view its details in the Chat view.
 
-    ![Screenshot of the Chat view in expanded mode showing full agent session history.](../images/agents-overview/chat-view-expanded.png)
+    ![Screenshot of the Chat view in expanded mode showing full agent session history.](images/agents-overview/chat-view-expanded.png)
 
     When you make the Chat view wider, it automatically switches to side-by-side mode. Right-click on the sessions list and select **Sessions Orientation** to change this behavior (`setting(chat.viewSessions.orientation)`). You can also use the toggle button.
 
@@ -108,7 +108,7 @@ The Chat view operates in two modes: compact and side-by-side. You can manually 
 
 The session status indicator provides quick access to your sessions directly from the command center in the title bar. The indicator displays visual badges for unread messages and in-progress sessions, so you can stay informed about AI activity without switching views.
 
-![Screenshot showing the session status indicator in the command center with unread and in-progress badges.](../images/agents-overview/agent-status-indicator-v2.png)
+![Screenshot showing the session status indicator in the command center with unread and in-progress badges.](images/agents-overview/agent-status-indicator-v2.png)
 
 The indicator shows:
 
@@ -130,7 +130,7 @@ To keep the sessions list organized, archive completed or inactive sessions. Arc
 
 To archive a session, hover over the session in the sessions list and select **Archive**. After you archive a session, it disappears from the list. Inversely, you can also unarchive a session in the same way.
 
-![Screenshot of archiving an agent session in the sessions view.](../images/agents-overview/agent-sessions-archive.png)
+![Screenshot of archiving an agent session in the sessions view.](images/agents-overview/agent-sessions-archive.png)
 
 To view your archived sessions, use the filter options in the sessions list and select the **Archived** filter.
 

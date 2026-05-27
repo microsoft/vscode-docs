@@ -158,7 +158,7 @@ AI-generated code can contain bugs, security issues, or subtle logic errors. Alw
 
 * **Check for security issues.** Review AI-generated code for common vulnerabilities such as injection flaws, hardcoded secrets, or missing input validation. Avoid pasting credentials or sensitive data into prompts.
 
-For more information, see [GitHub Copilot security](/docs/copilot/security.md) and the [GitHub Copilot Trust Center](https://copilot.github.trust.page/faq).
+For more information, see [GitHub Copilot security](/docs/agents/security.md) and the [GitHub Copilot Trust Center](https://copilot.github.trust.page/faq).
 
 ## Manage context and sessions
 
@@ -199,5 +199,5 @@ For more information, see [workspace context](/docs/agents/reference/workspace-c
 * [Context engineering guide](/docs/agents/guides/context-engineering-guide.md)
 * [Customization overview](/docs/agent-customization/overview.md)
 * [Cheat sheet](/docs/agents/reference/copilot-vscode-features.md)
-* [GitHub Copilot security](/docs/copilot/security.md)
+* [GitHub Copilot security](/docs/agents/security.md)
 * [Best Practices for using GitHub Copilot](https://docs.github.com/en/copilot/using-github-copilot/best-practices-for-using-github-copilot) in the GitHub Copilot documentation

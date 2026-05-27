@@ -43,7 +43,7 @@ When you use AI-powered development features like agents in VS Code, these agent
 
 Until you've reviewed a project for malicious content, rely on the Workspace Trust boundary and open it in restricted mode. Opening a workspace in restricted mode disables agents in that workspace.
 
-Learn more about [AI security considerations](/docs/copilot/security.md) when using AI-powered development features in VS Code.
+Learn more about [AI security considerations](/docs/agents/security.md) when using AI-powered development features in VS Code.
 
 ### Terminal
 

@@ -61,7 +61,7 @@ To install an MCP server from the MCP server gallery:
 1. To view the MCP server details, select the MCP server in the list to open the details page.
 
 > [!CAUTION]
-> Local MCP servers can run arbitrary code on your machine. Only add servers from [trusted sources](#mcp-server-trust), and review the publisher and server configuration before starting it. Read the [Security documentation](/docs/copilot/security.md) for using AI in VS Code to understand the implications.
+> Local MCP servers can run arbitrary code on your machine. Only add servers from [trusted sources](#mcp-server-trust), and review the publisher and server configuration before starting it. Read the [Security documentation](/docs/agents/security.md) for using AI in VS Code to understand the implications.
 
 ### Configure the `mcp.json` file
 

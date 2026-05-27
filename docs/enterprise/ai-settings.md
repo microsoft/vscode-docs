@@ -227,7 +227,7 @@ Learn how to [create custom agents for your organization](https://docs.github.co
 
 ## Security considerations
 
-AI-powered development features can autonomously perform actions with user-level permissions. Refer to the [security documentation](/docs/copilot/security.md) for a comprehensive overview of AI security considerations and best practices.
+AI-powered development features can autonomously perform actions with user-level permissions. Refer to the [security documentation](/docs/agents/security.md) for a comprehensive overview of AI security considerations and best practices.
 
 For environments where agents operate with elevated autonomy (auto-approval or Autopilot mode), recommend that developers enable [agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing) or work inside a [dev container](/docs/devcontainers/containers.md) to limit the impact of unintended or malicious actions.
 
@@ -247,5 +247,5 @@ For GitHub Copilot's security, privacy, compliance, and transparency information
 * [MCP servers in VS Code](/docs/agent-customization/mcp-servers.md) - Configure and use MCP servers
 * [Custom instructions](/docs/agent-customization/custom-instructions.md) - Define custom instructions for AI responses
 * [Custom agents](/docs/agent-customization/custom-agents.md) - Create custom AI personas and workflows
-* [AI security considerations](/docs/copilot/security.md) - Security best practices for AI features
+* [AI security considerations](/docs/agents/security.md) - Security best practices for AI features
 * [GitHub Copilot Trust Center FAQ](https://copilot.github.trust.page/faq) - Security, privacy, and compliance information
