@@ -86,7 +86,7 @@ You can view your current Copilot usage in the Copilot status dashboard, availab
 
 Visit the GitHub Copilot documentation for more information about [monitoring usage and entitlements](https://docs.github.com/en/copilot/managing-copilot/monitoring-usage-and-entitlements/monitoring-your-copilot-usage-and-entitlements).
 
-For session-level guidance, see [Using GitHub Copilot CLI session data](https://docs.github.com/en/copilot/how-tos/copilot-cli/use-copilot-cli/chronicle) and run `/chronicle:cost-tips` for targeted cost-saving recommendations.
+You can also run the `/chronicle:cost-tips` command in any chat session to get personalized recommendations for optimizing your AI credit usage based on your recent activity. Learn more about [session insights and the chronicle command](/docs/copilot/chat/session-insights.md).
 
 ## Inspect token usage and caching
 
