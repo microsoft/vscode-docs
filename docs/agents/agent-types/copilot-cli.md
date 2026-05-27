@@ -2,7 +2,7 @@
 ContentId: 9f1a2b3c-4e5f-6d7c-8a9b-1c2d3e4f5a6b
 DateApproved: 5/13/2026
 MetaDescription: Learn how to use Copilot CLI within VS Code for autonomous coding tasks, terminal integration, and isolated development workflows in VS Code.
-MetaSocialImage: ../images/shared/github-copilot-social.png
+MetaSocialImage: ../../images/shared/github-copilot-social.png
 Keywords:
 - ai
 - agents
@@ -21,13 +21,13 @@ To start a Copilot CLI session, you can either [create a new session](#create-a-
 
 This article covers the key features of Copilot CLI agents, and how to start and manage background sessions from Copilot CLI.
 
-![Screenshot of Copilot CLI session as a chat editor in VS Code.](images/copilot-cli/copilot-cli-session.png)
+![Screenshot of Copilot CLI session as a chat editor in VS Code.](../images/copilot-cli/copilot-cli-session.png)
 
 > [!TIP]
 > If you primarily work with agents across multiple projects, you can also manage your Copilot CLI sessions in the [Agents window](/docs/agents/agents-window.md), an agent-first surface that shares sessions with the main VS Code window.
 
 > [!TIP]
-> Third-party providers like OpenAI Codex also offer background capabilities. Learn more about [third-party agents](/docs/agents/third-party-agents.md).
+> Third-party providers like OpenAI Codex also offer background capabilities. Learn more about [third-party agents](/docs/agents/agent-types/third-party-agents.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
 Follow a hands-on tutorial to experience local, background, and cloud agents in VS Code.
@@ -108,11 +108,11 @@ To hand off a local agent session to Copilot CLI:
 
     * Open the **Session Target** dropdown and then select **Copilot CLI**
 
-        ![Screenshot showing the Session Target dropdown in VS Code chat interface.](images/copilot-cli/continue-in-cli.png)
+        ![Screenshot showing the Session Target dropdown in VS Code chat interface.](../images/copilot-cli/continue-in-cli.png)
 
     * If you're using the [Plan agent](/docs/agents/planning.md), select the **Start Implementation** dropdown and the select **Continue in Copilot CLI** to run the implementation in a Copilot CLI session
 
-        ![Screenshot showing the "Start Implementation" button in VS Code chat interface.](images/copilot-cli/plan-agent-start-implementation-cli.png)
+        ![Screenshot showing the "Start Implementation" button in VS Code chat interface.](../images/copilot-cli/plan-agent-start-implementation-cli.png)
 
 The Copilot CLI session starts automatically, carrying over the full conversation history and context.
 
@@ -143,7 +143,7 @@ To disable remote control support for Copilot CLI sessions in VS Code, disable t
 
 In addition to starting Copilot CLI sessions from the Chat view, you can use Copilot CLI directly from the VS Code terminal.
 
-![Screenshot showing the Copilot CLI session inside VS Code.](images/copilot-cli/copilot-cli-in-terminal.png)
+![Screenshot showing the Copilot CLI session inside VS Code.](../images/copilot-cli/copilot-cli-in-terminal.png)
 
 ### Open a Copilot CLI terminal
 
@@ -193,7 +193,7 @@ To use custom agents with Copilot CLI:
 
 1. Create a new Copilot CLI session and select the custom agent from the Agents dropdown
 
-    ![Screenshot showing custom agent selection in VS Code chat interface.](images/copilot-cli/custom-agent-selection-v2.png)
+    ![Screenshot showing custom agent selection in VS Code chat interface.](../images/copilot-cli/custom-agent-selection-v2.png)
 
 1. Enter a prompt and notice that the custom agent is used to handle the task
 

@@ -2,7 +2,7 @@
 ContentId: 8d5c9f2a-1e4b-7c9f-3a8e-2b7d4f1c6e0a
 DateApproved: 5/13/2026
 MetaDescription: Use cloud agents like GitHub Copilot cloud agent in VS Code to autonomously handle coding tasks with automatic pull request generation and team collaboration workflows.
-MetaSocialImage: ../images/shared/github-copilot-social.png
+MetaSocialImage: ../../images/shared/github-copilot-social.png
 Keywords:
 - ai
 - agents
@@ -16,7 +16,7 @@ Cloud agents run on remote infrastructure and integrate with GitHub repositories
 
 This article covers the key features of cloud agents, and how to start and manage cloud agent sessions for coding tasks that can range anywhere from simple to complex.
 
-![Screenshot of cloud agent session as a chat editor in VS Code.](images/cloud-agents/cloud-agent-session.png)
+![Screenshot of cloud agent session as a chat editor in VS Code.](../images/cloud-agents/cloud-agent-session.png)
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
 Follow a hands-on tutorial to experience local, background, and cloud agents in VS Code.
@@ -29,7 +29,7 @@ Follow a hands-on tutorial to experience local, background, and cloud agents in 
 
 Unlike local and background agents that run on your local machine, cloud agents like Copilot cloud agent run on remote infrastructure. You can view and manage all your cloud agent sessions from the unified Chat view in VS Code. This view also lets you create new cloud agent sessions directly from VS Code or hand off local or background agent conversations to cloud agents.
 
-VS Code supports different cloud agents, such as Copilot cloud agent and [third-party agents](/docs/agents/third-party-agents.md) like Claude and Codex.
+VS Code supports different cloud agents, such as Copilot cloud agent and [third-party agents](/docs/agents/agent-types/third-party-agents.md) like Claude and Codex.
 
 > [!TIP]
 > If you prefer an agent-first surface for running cloud agent sessions alongside Copilot CLI and Claude sessions across multiple projects, use the [Agents window](/docs/agents/agents-window.md). Sessions are shared between the main VS Code window and the Agents window.
@@ -57,7 +57,7 @@ VS Code supports third-party cloud agents like Claude coding agent and Codex cod
 
 You don't need to install the provider's VS Code extension to use their cloud agent in VS Code.
 
-Learn more about [third-party agents in VS Code](/docs/agents/third-party-agents.md) and how to enable them.
+Learn more about [third-party agents in VS Code](/docs/agents/agent-types/third-party-agents.md) and how to enable them.
 
 ## Start a cloud agent session
 
@@ -106,15 +106,15 @@ To hand off a background agent session to a cloud agent session, enter `/delegat
 
 You can view and manage all your cloud agent sessions from the Chat view in VS Code. Filter the session list to show only cloud agent sessions by selecting the **Cloud Agents** from the filter options.
 
-![Screenshot of cloud agent filter in VS Code Chat view.](images/cloud-agents/cloud-agent-filter.png)
+![Screenshot of cloud agent filter in VS Code Chat view.](../images/cloud-agents/cloud-agent-filter.png)
 
 Select a cloud agent session from the list to open the session details in the Chat view. If you prefer to view the session in an editor tab (chat editor), right-click the session and select **Open as Editor**.
 
-![Screenshot of cloud agent session as a chat editor in VS Code.](images/cloud-agents/cloud-agent-session.png)
+![Screenshot of cloud agent session as a chat editor in VS Code.](../images/cloud-agents/cloud-agent-session.png)
 
 ## Related resources
 
 * [Agents overview](/docs/agents/overview.md): Understand different agent types and delegation
-* [Background agents](/docs/agents/copilot-cli.md): Learn about CLI-based autonomous agents for isolated development
+* [Background agents](/docs/agents/agent-types/copilot-cli.md): Learn about CLI-based autonomous agents for isolated development
 * [Custom agents](/docs/agent-customization/custom-agents.md): Create custom agent roles and personas
 * [GitHub Copilot cloud agent](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/manage-agents): Managing agents on GitHub.com

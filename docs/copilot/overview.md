@@ -96,7 +96,7 @@ Agents handle coding tasks end-to-end, from a single file change to a full featu
 
 * **Test and interact with web apps.** _(Experimental)_ Ask an agent to open your web app in the [integrated browser](/docs/debugtest/integrated-browser.md), verify a feature works, check for layout issues, or take screenshots. Follow the [browser agent testing guide](/docs/copilot/guides/browser-agent-testing-guide.md).
 
-* **Collaborate via pull requests.** Delegate a task to a cloud agent that creates a branch, implements the changes, and opens a pull request for your team to review. Learn more about [cloud agents](/docs/agents/cloud-agents.md).
+* **Collaborate via pull requests.** Delegate a task to a cloud agent that creates a branch, implements the changes, and opens a pull request for your team to review. Learn more about [cloud agents](/docs/agents/agent-types/cloud-agents.md).
 
 ## Getting started
 

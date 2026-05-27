@@ -26,10 +26,10 @@
                 "name": "Agent Types",
                 "area": "agents",
                 "topics": [
-                    ["Local Agents", "/docs/agents/local-agents"],
-                    ["Copilot CLI", "/docs/agents/copilot-cli"],
-                    ["Cloud Agents", "/docs/agents/cloud-agents"],
-                    ["Third-Party Agents", "/docs/agents/third-party-agents"]
+                    ["Local Agents", "/docs/agents/agent-types/local-agents"],
+                    ["Copilot CLI", "/docs/agents/agent-types/copilot-cli"],
+                    ["Cloud Agents", "/docs/agents/agent-types/cloud-agents"],
+                    ["Third-Party Agents", "/docs/agents/agent-types/third-party-agents"]
                 ]
             }],
 

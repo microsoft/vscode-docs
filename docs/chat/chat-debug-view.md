@@ -18,7 +18,7 @@ VS Code offers two complementary debugging tools:
 > [!NOTE]
 > The Agent Debug Log panel is currently in preview.
 
-The Agent Debug Log panel is the primary tool for understanding what happens when you send a prompt. It shows a chronological event log of agent interactions during a chat session, making it especially useful when debugging [custom agents](/docs/agents/local-agents.md) and orchestrated sub-agent workflows.
+The Agent Debug Log panel is the primary tool for understanding what happens when you send a prompt. It shows a chronological event log of agent interactions during a chat session, making it especially useful when debugging [custom agents](/docs/agents/agent-types/local-agents.md) and orchestrated sub-agent workflows.
 
 To open the Agent Debug Logs panel:
 
@@ -172,7 +172,7 @@ Each interaction in the Chat Debug view contains expandable sections:
 | **Response** | The full text of the model's response, including reasoning. | Review the raw response to understand how the model interpreted your request. |
 | **Tool responses** | Inputs and outputs of tools invoked during the request. | Verify that tools received correct inputs and returned expected outputs. Useful for debugging MCP servers. |
 
-You can expand each section to see the full details. This is particularly useful when [using agents](/docs/agents/local-agents.md) where multiple tools might be invoked as part of a single request.
+You can expand each section to see the full details. This is particularly useful when [using agents](/docs/agents/agent-types/local-agents.md) where multiple tools might be invoked as part of a single request.
 
 ## Common troubleshooting scenarios
 

@@ -1,6 +1,6 @@
 [
     { "from": "/docs/copilot/core-concepts", "to": "/docs/agents/concepts/overview", "status": 301 },
-    { "from": "/docs/copilot/agents/background-agents", "to": "/docs/agents/copilot-cli", "status": 301 },
+    { "from": "/docs/copilot/agents/background-agents", "to": "/docs/agents/agent-types/copilot-cli", "status": 301 },
     { "from": "/docs/copilot/setup-simplified", "to": "/docs/copilot/setup", "status": 301 },
     { "from": "/docs/copilot/copilot-tips-and-tricks", "to": "/docs/agents/best-practices", "status": 301 },
     { "from": "/docs/typescript/typescript-compiling", "to": "/docs/typescript/typescript-transpiling", "status": 301 },
@@ -22,14 +22,14 @@
     { "from": "/docs/copilot/agents/agents-tutorial", "to": "/docs/agents/agents-tutorial", "status": 301 },
     { "from": "/docs/copilot/agents/agents-window", "to": "/docs/agents/agents-window", "status": 301 },
     { "from": "/docs/copilot/agents/agent-tools", "to": "/docs/agents/agent-tools", "status": 301 },
-    { "from": "/docs/copilot/agents/cloud-agents", "to": "/docs/agents/cloud-agents", "status": 301 },
-    { "from": "/docs/copilot/agents/copilot-cli", "to": "/docs/agents/copilot-cli", "status": 301 },
-    { "from": "/docs/copilot/agents/local-agents", "to": "/docs/agents/local-agents", "status": 301 },
+    { "from": "/docs/copilot/agents/cloud-agents", "to": "/docs/agents/agent-types/cloud-agents", "status": 301 },
+    { "from": "/docs/copilot/agents/copilot-cli", "to": "/docs/agents/agent-types/copilot-cli", "status": 301 },
+    { "from": "/docs/copilot/agents/local-agents", "to": "/docs/agents/agent-types/local-agents", "status": 301 },
     { "from": "/docs/copilot/agents/memory", "to": "/docs/agents/memory", "status": 301 },
     { "from": "/docs/copilot/agents/planning", "to": "/docs/agents/planning", "status": 301 },
     { "from": "/docs/copilot/agents/security", "to": "/docs/agents/security", "status": 301 },
     { "from": "/docs/copilot/agents/subagents", "to": "/docs/agents/subagents", "status": 301 },
-    { "from": "/docs/copilot/agents/third-party-agents", "to": "/docs/agents/third-party-agents", "status": 301 },
+    { "from": "/docs/copilot/agents/third-party-agents", "to": "/docs/agents/agent-types/third-party-agents", "status": 301 },
     { "from": "/docs/copilot/best-practices", "to": "/docs/agents/best-practices", "status": 301 },
     { "from": "/docs/copilot/chat/copilot-chat", "to": "/docs/chat/copilot-chat", "status": 301 },
     { "from": "/docs/copilot/chat/copilot-chat-context", "to": "/docs/chat/copilot-chat-context", "status": 301 },
@@ -55,5 +55,9 @@
     { "from": "/docs/copilot/concepts/customization", "to": "/docs/agents/concepts/customization", "status": 301 },
     { "from": "/docs/copilot/concepts/language-models", "to": "/docs/agents/concepts/language-models", "status": 301 },
     { "from": "/docs/copilot/concepts/tools", "to": "/docs/agents/concepts/tools", "status": 301 },
-    { "from": "/docs/copilot/concepts/trust-and-safety", "to": "/docs/agents/concepts/trust-and-safety", "status": 301 }
+    { "from": "/docs/copilot/concepts/trust-and-safety", "to": "/docs/agents/concepts/trust-and-safety", "status": 301 },
+    { "from": "/docs/agents/local-agents", "to": "/docs/agents/agent-types/local-agents", "status": 301 },
+    { "from": "/docs/agents/copilot-cli", "to": "/docs/agents/agent-types/copilot-cli", "status": 301 },
+    { "from": "/docs/agents/cloud-agents", "to": "/docs/agents/agent-types/cloud-agents", "status": 301 },
+    { "from": "/docs/agents/third-party-agents", "to": "/docs/agents/agent-types/third-party-agents", "status": 301 }
 ]

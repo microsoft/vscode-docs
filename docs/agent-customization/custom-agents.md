@@ -30,13 +30,13 @@ This article describes how to create and manage custom agents in VS Code.
 
 ## What are custom agents?
 
-The [built-in agents](/docs/agents/local-agents.md) provide general-purpose configurations for chat in VS Code. For a more tailored chat experience, you can create your own custom agents.
+The [built-in agents](/docs/agents/agent-types/local-agents.md) provide general-purpose configurations for chat in VS Code. For a more tailored chat experience, you can create your own custom agents.
 
 Custom agents consist of a set of instructions and tools that are applied when you switch to that agent. For example, a "Plan" agent could include instructions for generating an implementation plan and only use read-only tools. By creating a custom agent, you can quickly switch to that specific configuration without having to manually select relevant tools and instructions each time.
 
 Custom agents are defined in a `.agent.md` Markdown file, and can be stored in your workspace for others to use, or in your user profile, where you can reuse them across different workspaces.
 
-You can reuse your custom agents in [background agents](/docs/agents/copilot-cli.md) and [cloud agents](/docs/agents/cloud-agents.md), enabling you to run autonomous tasks with the same specialized configurations.
+You can reuse your custom agents in [background agents](/docs/agents/agent-types/copilot-cli.md) and [cloud agents](/docs/agents/agent-types/cloud-agents.md), enabling you to run autonomous tasks with the same specialized configurations.
 
 ## Why use custom agents?
 

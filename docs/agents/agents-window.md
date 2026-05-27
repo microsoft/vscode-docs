@@ -94,7 +94,7 @@ To start a new agent session in the Agents window:
     * **Folder**: choose between the Copilot CLI or Claude agent to start a new session. You can select **Continue In** to hand off the session to a Copilot Cloud agent at any time during the session.
     * **Repository**: sessions started in a GitHub repository use the Copilot cloud agent.
 
-1. For Copilot CLI sessions, choose between folder and worktree [isolation](/docs/agents/copilot-cli.md#isolation-modes) for the session.
+1. For Copilot CLI sessions, choose between folder and worktree [isolation](/docs/agents/agent-types/copilot-cli.md#isolation-modes) for the session.
 
     * **Worktree isolation**: the agent operates in a separate folder backed by a [Git worktree](/docs/sourcecontrol/branches-worktrees.md), which keeps changes isolated from your main workspace until you're ready to merge them.
     * **Folder isolation**: the agent operates in your main workspace, and changes are applied directly to your files. This is the default behavior for non-Git projects.

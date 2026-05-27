@@ -8,7 +8,7 @@ MetaSocialImage: images/shared/github-copilot-social.png
 
 [GitHub Copilot cloud agent](https://docs.github.com/en/copilot/concepts/about-copilot-coding-agent) is a GitHub-hosted, autonomous AI developer that works independently in the background to complete development tasks. To invoke the coding agent, assign a GitHub issue to Copilot or delegate a task from chat, and the agent will work autonomously to implement features, fix bugs, and make changes across your repository using its own isolated development environment.
 
-This is different from [using agents](/docs/agents/local-agents.md) in VS Code, which provide interactive development within the editor and requires your active participation during the coding session.
+This is different from [using agents](/docs/agents/agent-types/local-agents.md) in VS Code, which provide interactive development within the editor and requires your active participation during the coding session.
 
 ![GIF showing how to assign an issue to Copilot cloud agent from within VS Code.](images/copilot-coding-agent/assign-to-copilot-gif.gif)
 
@@ -252,7 +252,7 @@ VS Code offers two autonomous coding experiences. While using agents in VS Code 
 | **Output** | Creates pull requests | Edits files directly |
 | **Best for** | Well-defined tasks, background work | Interactive development, immediate feedback |
 
-Learn more about [using agents in VS Code](/docs/agents/local-agents.md).
+Learn more about [using agents in VS Code](/docs/agents/agent-types/local-agents.md).
 
 ### Why isn't the agent starting?
 

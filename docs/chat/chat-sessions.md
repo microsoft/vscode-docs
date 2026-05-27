@@ -136,7 +136,7 @@ To view your archived sessions, use the filter options in the sessions list and 
 
 ## Delete sessions
 
-To permanently delete a session, right-click the session in the sessions list and select **Delete**. Deleting a session removes it permanently and can't be undone. For [Copilot CLI sessions](/docs/agents/copilot-cli.md), deleting the session also removes any associated worktrees created for that session.
+To permanently delete a session, right-click the session in the sessions list and select **Delete**. Deleting a session removes it permanently and can't be undone. For [Copilot CLI sessions](/docs/agents/agent-types/copilot-cli.md), deleting the session also removes any associated worktrees created for that session.
 
 > [!CAUTION]
 > Deleting a session is irreversible. If you just want to hide a session, consider [archiving](#archive-sessions) it instead.

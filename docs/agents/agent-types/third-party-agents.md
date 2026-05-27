@@ -2,7 +2,7 @@
 ContentId: 8b3c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7e
 DateApproved: 5/13/2026
 MetaDescription: Learn how to use third-party agents like Claude Agent and OpenAI Codex for autonomous coding tasks in VS Code, powered by your GitHub Copilot subscription.
-MetaSocialImage: ../images/shared/github-copilot-social.png
+MetaSocialImage: ../../images/shared/github-copilot-social.png
 Keywords:
 - ai
 - agents
@@ -54,11 +54,11 @@ To start a new Claude agent session:
 
     * For a local session, select **Claude** from the **Session Type** dropdown
 
-        ![Screenshot showing session type dropdown with Claude agent option selected.](images/third-party-agents/claude-agent-new-chat.png)
+        ![Screenshot showing session type dropdown with Claude agent option selected.](../images/third-party-agents/claude-agent-new-chat.png)
 
     * For a cloud session, select **Cloud** from the **Session Type** dropdown. Then, select **Claude** from the **Partner Agent** dropdown.
 
-        ![Screenshot showing cloud agent partner selection picker in chat input.](images/third-party-agents/partner-agent-cloud-chat.png)
+        ![Screenshot showing cloud agent partner selection picker in chat input.](../images/third-party-agents/partner-agent-cloud-chat.png)
 
 1. Enter your prompt and let the agent work on the task
 
@@ -88,7 +88,7 @@ You can choose how the agent applies changes to your workspace:
 * **Request approval**: Claude agent asks for your review before making changes to your workspace.
 * **Plan**: Claude agent outlines its intended approach before starting work on the task.
 
-![Screenshot showing Claude agent permission mode options.](images/third-party-agents/claude-agent-permission-modes.png)
+![Screenshot showing Claude agent permission mode options.](../images/third-party-agents/claude-agent-permission-modes.png)
 
 > [!CAUTION]
 > The `setting(github.copilot.chat.claudeAgent.allowDangerouslySkipPermissions)` setting bypasses all permission checks. Only enable this in isolated sandbox environments with no internet access.
@@ -116,11 +116,11 @@ To start a new OpenAI Codex agent session:
 
     * For a local session, select **Codex** from the **Session Type** dropdown
 
-        ![Screenshot showing session type dropdown with Codex agent option selected.](images/third-party-agents/codex-agent-new-chat.png)
+        ![Screenshot showing session type dropdown with Codex agent option selected.](../images/third-party-agents/codex-agent-new-chat.png)
 
     * For a cloud session, select **Cloud** from the **Session Type** dropdown. Then, select **Codex** from the **Partner Agent** dropdown.
 
-        ![Screenshot showing cloud agent partner selection picker in chat input.](images/third-party-agents/partner-agent-cloud-chat.png)
+        ![Screenshot showing cloud agent partner selection picker in chat input.](../images/third-party-agents/partner-agent-cloud-chat.png)
 
 1. Enter your prompt in the chat editor input and let the agent work on the task
 

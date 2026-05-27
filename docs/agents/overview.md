@@ -54,10 +54,10 @@ Use agents in VS Code to generate a tic-tac-toe game in your language of choice.
 
 Agents run in different environments depending on when you need results and how much oversight you want. The two key dimensions are _where_ the agent runs (your machine or the cloud) and _how_ you interact with it (interactively or autonomously in the background).
 
-* [**Local**](/docs/agents/local-agents.md): use the VS Code agent loop to run the agent interactively in the editor with full access to your workspace, tools, and models.
-* [**Copilot CLI**](/docs/agents/copilot-cli.md): use the Copilot CLI to run in the background on your machine, optionally using Git worktrees for isolation.
-* [**Cloud**](/docs/agents/cloud-agents.md): use GitHub Copilot to run remotely and integrate with GitHub pull requests for team collaboration.
-* [**Third-party**](/docs/agents/third-party-agents.md): use the third-party agent harness and SDK from Anthropic and OpenAI to run either locally on your machine or in the cloud.
+* [**Local**](/docs/agents/agent-types/local-agents.md): use the VS Code agent loop to run the agent interactively in the editor with full access to your workspace, tools, and models.
+* [**Copilot CLI**](/docs/agents/agent-types/copilot-cli.md): use the Copilot CLI to run in the background on your machine, optionally using Git worktrees for isolation.
+* [**Cloud**](/docs/agents/agent-types/cloud-agents.md): use GitHub Copilot to run remotely and integrate with GitHub pull requests for team collaboration.
+* [**Third-party**](/docs/agents/agent-types/third-party-agents.md): use the third-party agent harness and SDK from Anthropic and OpenAI to run either locally on your machine or in the cloud.
 
 Select the agent type from the agent target dropdown in the Chat view.
 
@@ -69,18 +69,18 @@ Use the following table to find the right agent type for your task:
 
 | I want to... | Use |
 |---|---|
-| Brainstorm, explore, or iterate on an idea interactively | [Local agent](/docs/agents/local-agents.md) |
-| Get answers about my codebase | [Local agent](/docs/agents/local-agents.md) (Ask) |
-| Create a structured implementation plan | [Local agent](/docs/agents/local-agents.md) (Plan) |
-| Fix an issue that needs editor context (test failures, linting errors, debug output) | [Local agent](/docs/agents/local-agents.md) |
-| Build and test web apps with the integrated browser _(Experimental)_ | [Local agent](/docs/agents/local-agents.md). See the [browser agent testing guide](/docs/copilot/guides/browser-agent-testing-guide.md). |
-| Use specific VS Code extension tools or MCP servers | [Local agent](/docs/agents/local-agents.md) |
-| Implement a well-defined task while I keep working | [Copilot CLI](/docs/agents/copilot-cli.md) or [Cloud agent](/docs/agents/cloud-agents.md) |
-| Explore multiple variants or proof of concepts | [Copilot CLI](/docs/agents/copilot-cli.md) or [Cloud agent](/docs/agents/cloud-agents.md) |
+| Brainstorm, explore, or iterate on an idea interactively | [Local agent](/docs/agents/agent-types/local-agents.md) |
+| Get answers about my codebase | [Local agent](/docs/agents/agent-types/local-agents.md) (Ask) |
+| Create a structured implementation plan | [Local agent](/docs/agents/agent-types/local-agents.md) (Plan) |
+| Fix an issue that needs editor context (test failures, linting errors, debug output) | [Local agent](/docs/agents/agent-types/local-agents.md) |
+| Build and test web apps with the integrated browser _(Experimental)_ | [Local agent](/docs/agents/agent-types/local-agents.md). See the [browser agent testing guide](/docs/copilot/guides/browser-agent-testing-guide.md). |
+| Use specific VS Code extension tools or MCP servers | [Local agent](/docs/agents/agent-types/local-agents.md) |
+| Implement a well-defined task while I keep working | [Copilot CLI](/docs/agents/agent-types/copilot-cli.md) or [Cloud agent](/docs/agents/agent-types/cloud-agents.md) |
+| Explore multiple variants or proof of concepts | [Copilot CLI](/docs/agents/agent-types/copilot-cli.md) or [Cloud agent](/docs/agents/agent-types/cloud-agents.md) |
 | Orchestrate agent sessions across multiple projects in a single, agent-first surface | [Agents window](/docs/agents/agents-window.md) |
-| Create a PR for team review and collaboration | [Cloud agent](/docs/agents/cloud-agents.md) |
-| Assign a GitHub issue to an agent | [Cloud agent](/docs/agents/cloud-agents.md) |
-| Use a specific AI provider (Anthropic, OpenAI) | [Third-party agent](/docs/agents/third-party-agents.md) |
+| Create a PR for team review and collaboration | [Cloud agent](/docs/agents/agent-types/cloud-agents.md) |
+| Assign a GitHub issue to an agent | [Cloud agent](/docs/agents/agent-types/cloud-agents.md) |
+| Use a specific AI provider (Anthropic, OpenAI) | [Third-party agent](/docs/agents/agent-types/third-party-agents.md) |
 
 ## Where to work with agents
 
@@ -100,7 +100,7 @@ Select an agent from the agents dropdown in the Chat view. You can switch betwee
 
 ![Screenshot showing the agent picker in the Chat view.](../images/getting-started/agent-mode-selection-2.png)
 
-VS Code has three [built-in agents](/docs/agents/local-agents.md):
+VS Code has three [built-in agents](/docs/agents/agent-types/local-agents.md):
 
 * **Agent**: autonomously plans and implements changes across files, runs terminal commands, and invokes tools.
 * **Plan**: creates a structured, step-by-step implementation plan before writing any code. Hands the plan off to an implementation agent when it looks right.

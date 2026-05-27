@@ -183,7 +183,7 @@ Use chat participants to handle domain-specific requests in chat. Chat participa
 
 ## Use agents
 
-When using [agents](/docs/agents/local-agents.md), you can use natural language to specify a high-level task, and let AI autonomously reason about the request, plan the work needed, and apply the changes to your codebase. Agents use a combination of code editing and tool invocation to accomplish the task you specified. As it processes your request, it monitors the outcome of edits and tools, and iterates to resolve any issues that arise.
+When using [agents](/docs/agents/agent-types/local-agents.md), you can use natural language to specify a high-level task, and let AI autonomously reason about the request, plan the work needed, and apply the changes to your codebase. Agents use a combination of code editing and tool invocation to accomplish the task you specified. As it processes your request, it monitors the outcome of edits and tools, and iterates to resolve any issues that arise.
 
 | Action | Description |
 |--------|-------------|
@@ -193,7 +193,7 @@ When using [agents](/docs/agents/local-agents.md), you can use natural language 
 | Auto-approve tools | Enable [auto-approval of all tools](/docs/agents/agent-tools.md#auto-approve-all-tools) when using agents (`setting(chat.tools.autoApprove)`). |
 | Auto-approve terminal commands | Enable [auto-approval of terminal commands](/docs/agents/agent-tools.md#automatically-approve-terminal-commands) when using agents (`setting(chat.tools.terminal.autoApprove)`). |
 | MCP | Configure [MCP servers](/docs/agent-customization/mcp-servers.md) to extend agent capabilities and tools. |
-| [Third-party agents](/docs/agents/third-party-agents.md) | Use agents from external providers like Claude Agent (Preview) and OpenAI Codex with your Copilot subscription. |
+| [Third-party agents](/docs/agents/agent-types/third-party-agents.md) | Use agents from external providers like Claude Agent (Preview) and OpenAI Codex with your Copilot subscription. |
 | Claude Agent _(Preview)_ | Start a Claude Agent session powered by Anthropic's Claude Agent SDK. Use `/agents`, `/hooks`, and `/memory` slash commands for advanced workflows. |
 
 > **Tips**
@@ -318,7 +318,7 @@ Copilot can help you create a new project by generating a scaffold of the projec
 
 | Action | Description |
 |--------|-------------|
-| Agent | Use [agents](/docs/agents/local-agents.md) and use a natural language prompt to create a new project or file. For example, `Create a svelte web application to track my tasks`. |
+| Agent | Use [agents](/docs/agents/agent-types/local-agents.md) and use a natural language prompt to create a new project or file. For example, `Create a svelte web application to track my tasks`. |
 | `/new` | Use the `/new` command in the Chat view to scaffold a new project or a new file. Use natural language to describe the type of project/file you need, and preview the scaffolded content before creating it.<br/>Example: `/new Express app using typescript and svelte` |
 | `/newNotebook` | Use the `/newNotebook` command in the Chat view to generate a new Jupyter notebook based on your requirements. Use natural language to describe what the notebook should contain.<br/>Example: `/newNotebook get census data and preview key insights with Seaborn`. |
 

@@ -65,7 +65,7 @@ VS Code limits the potential impact of agent actions by controlling their scope 
 
 * **Request limits**: Built-in safeguards [prevent runaway operations](/docs/copilot/reference/copilot-settings.md#agent-settings) that consume excessive resources or perform unintended bulk actions on your codebase.
 
-* **Agent isolation**: [Background agents](/docs/agents/copilot-cli.md) work in a separate Git worktree, preventing conflicts with your active workspace. They have limited tool access and can only use local MCP servers that don't require authentication. [Cloud agents](/docs/agents/cloud-agents.md) run on remote infrastructure, which provides inherent isolation from your local machine and local resources.
+* **Agent isolation**: [Background agents](/docs/agents/agent-types/copilot-cli.md) work in a separate Git worktree, preventing conflicts with your active workspace. They have limited tool access and can only use local MCP servers that don't require authentication. [Cloud agents](/docs/agents/agent-types/cloud-agents.md) run on remote infrastructure, which provides inherent isolation from your local machine and local resources.
 
 * **Secure secrets store**: Sensitive input parameters for MCP servers are stored using VS Code's secure credentials store to protect authentication tokens and other sensitive data.
 
@@ -155,7 +155,7 @@ Auto-approval features reduce friction but come with security tradeoffs.
 
 * **Autopilot mode**: The **Autopilot** permission level combines auto-approval with autonomous iteration. The agent continues working without user intervention until it marks the task as complete. This reduces your ability to review intermediate steps.
 
-* **Third-party agent permissions**: Some third-party agents offer settings that bypass all permission checks (for example, `allowDangerouslySkipPermissions` in the [Claude agent](/docs/agents/third-party-agents.md)). Enabling these settings removes the safety net of approval prompts and is only recommended in sandboxed or containerized environments.
+* **Third-party agent permissions**: Some third-party agents offer settings that bypass all permission checks (for example, `allowDangerouslySkipPermissions` in the [Claude agent](/docs/agents/agent-types/third-party-agents.md)). Enabling these settings removes the safety net of approval prompts and is only recommended in sandboxed or containerized environments.
 
 * **Auto-approval with remote access**: When auto-approval modes are combined with [dev tunnels](/docs/remote/tunnels.md) or [forwarded ports](/docs/debugtest/port-forwarding.md) that allow anonymous or public access, anyone who discovers the URL can trigger AI-assisted command execution on your machine. Disable anonymous tunnel access and require authentication before using any auto-approval mode. Organizations can enforce this with the [Dev Tunnels group policies](https://learn.microsoft.com/azure/developer/dev-tunnels/policies).
 
