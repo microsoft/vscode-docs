@@ -25,7 +25,7 @@ This article explains the different customization options and when to use each o
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with customizations">
 Follow a hands-on tutorial to discover the customization options and configure them for your project.
 
-* [Customization concepts](/docs/copilot/concepts/customization.md)
+* [Customization concepts](/docs/agents/concepts/customization.md)
 
 </div>
 
@@ -81,7 +81,7 @@ Learn more about [creating custom agents](/docs/agent-customization/custom-agent
 
 ## MCP
 
-[Model Context Protocol (MCP)](https://modelcontextprotocol.io/) is an open standard for connecting the AI to external tools and data sources. Without MCP, the AI can only work with code and the terminal. MCP servers extend its reach by providing [tools](/docs/copilot/concepts/tools.md) that query databases, call APIs, interact with cloud services, or access any other external system.
+[Model Context Protocol (MCP)](https://modelcontextprotocol.io/) is an open standard for connecting the AI to external tools and data sources. Without MCP, the AI can only work with code and the terminal. MCP servers extend its reach by providing [tools](/docs/agents/concepts/tools.md) that query databases, call APIs, interact with cloud services, or access any other external system.
 
 MCP servers run locally or remotely and can also provide resources, prompts, and interactive apps.
 
@@ -105,5 +105,5 @@ Learn more about [agent plugins](/docs/agent-customization/agent-plugins.md).
 ## Related resources
 
 * [Get started with customization](/docs/agent-customization/overview.md)
-* [Agents](/docs/copilot/concepts/agents.md)
-* [Tools](/docs/copilot/concepts/tools.md)
+* [Agents](/docs/agents/concepts/agents.md)
+* [Tools](/docs/agents/concepts/tools.md)

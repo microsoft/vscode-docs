@@ -8,7 +8,7 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 
 The plan agent enables you to create detailed implementation plans before starting the implementation to ensure all requirements are met. With todo lists, the agent can ensure it stays focused on the overall goals and tracks progress effectively.
 
-For background on how the plan agent fits into the agent architecture, see [Agents concepts](/docs/copilot/concepts/agents.md#planning).
+For background on how the plan agent fits into the agent architecture, see [Agents concepts](/docs/agents/concepts/agents.md#planning).
 
 This article explains how to use the plan agent and todo lists in VS Code.
 

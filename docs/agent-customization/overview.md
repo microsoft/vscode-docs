@@ -23,7 +23,7 @@ Visual Studio Code gives you several ways to teach the AI about your codebase, c
 <div class="docs-action" data-show-in-doc="true" data-show-in-sidebar="true" title="Core concepts">
 Learn about the different customization types and when to use each one.
 
-* [Customization concepts](/docs/copilot/concepts/customization.md)
+* [Customization concepts](/docs/agents/concepts/customization.md)
 
 </div>
 
@@ -135,5 +135,5 @@ If your customizations aren't being applied or cause unexpected behavior, select
 
 ## Related resources
 
-* [Customization concepts](/docs/copilot/concepts/customization.md)
+* [Customization concepts](/docs/agents/concepts/customization.md)
 * [Customize AI for your project guide](/docs/copilot/guides/customize-copilot-guide.md)

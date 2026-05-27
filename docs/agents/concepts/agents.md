@@ -19,7 +19,7 @@ Keywords:
 
 # Agents
 
-An agent is an AI system that autonomously plans and executes coding tasks. You give the agent a high-level goal, and it breaks the goal down into steps, executes those steps with [tools](/docs/copilot/concepts/tools.md), and self-corrects when it hits errors. This article explains the core architecture of agents: the agent loop, agent types, subagents, memory, and planning.
+An agent is an AI system that autonomously plans and executes coding tasks. You give the agent a high-level goal, and it breaks the goal down into steps, executes those steps with [tools](/docs/agents/concepts/tools.md), and self-corrects when it hits errors. This article explains the core architecture of agents: the agent loop, agent types, subagents, memory, and planning.
 
 VS Code lets you work with agents the way that fits your workflow, with two surfaces you can pick from and move freely between:
 
@@ -35,7 +35,7 @@ Follow a hands-on tutorial to experience local, background, and cloud agents in 
 
 ## Agent loop
 
-When you give an agent a task, it follows an agentic loop. This pattern is common across modern AI assistants. Within VS Code, an agent is the system that plans and takes actions, and the [language model](/docs/copilot/concepts/language-models.md) generates responses that inform those actions.
+When you give an agent a task, it follows an agentic loop. This pattern is common across modern AI assistants. Within VS Code, an agent is the system that plans and takes actions, and the [language model](/docs/agents/concepts/language-models.md) generates responses that inform those actions.
 
 At each step, the agent evaluates its progress and picks the next action. It might open a file to understand an API, make an edit, then run a command to verify the change worked. The output of each action becomes input for the next decision.
 
@@ -44,16 +44,16 @@ At each step, the agent evaluates its progress and picks the next action. It mig
 The agent loop typically involves three high-level stages:
 
 1. **Understand.** The agent reads files, searches the codebase, and looks up documentation to understand what needs to change.
-1. **Act.** The agent modifies code, runs terminal commands, installs dependencies, or calls external services through [tools](/docs/copilot/concepts/tools.md).
+1. **Act.** The agent modifies code, runs terminal commands, installs dependencies, or calls external services through [tools](/docs/agents/concepts/tools.md).
 1. **Validate.** The agent runs tests, checks for compiler errors, and reviews its own changes. If something is wrong, it continues iterating.
 
 The agent uses the language model to reason about the best course of action. However, without the ability to interact with the environment, the model is limited to providing generic responses. With tools, the agent issues tool calls at each step to gather information and take actions like reading files, making code changes, running terminal commands, and reaching out to external services.
 
 The agent chains these actions together as needed until it accomplishes the task. Answering a question about your codebase might involve only a few file reads. Implementing a new feature typically loops through editing, running tests, diagnosing failures, and editing again until the tests pass.
 
-Behind the scenes, [VS Code assembles the current context](/docs/copilot/concepts/context.md#how-vs-code-assembles-context) into a prompt and sends it to the language model. The model responds with text, a code edit, or a tool request. When a tool runs, its output is added to the context for the next iteration, and this cycle repeats until the task is complete.
+Behind the scenes, [VS Code assembles the current context](/docs/agents/concepts/context.md#how-vs-code-assembles-context) into a prompt and sends it to the language model. The model responds with text, a code edit, or a tool request. When a tool runs, its output is added to the context for the next iteration, and this cycle repeats until the task is complete.
 
-You stay in control throughout the process. Send a new message to redirect the agent, add context, or suggest a different approach. For more on reviewing changes and managing agent behavior, see [Trust and safety](/docs/copilot/concepts/trust-and-safety.md).
+You stay in control throughout the process. Send a new message to redirect the agent, add context, or suggest a different approach. For more on reviewing changes and managing agent behavior, see [Trust and safety](/docs/agents/concepts/trust-and-safety.md).
 
 ### Customize the agent loop
 
@@ -63,7 +63,7 @@ The agent loop is not one-size-fits-all and might differ for each project. There
 * With [**agent skills**](/docs/agent-customization/agent-skills.md), you can teach the agent new capabilities for a specific domain or task.
 * [**Hooks**](/docs/agent-customization/hooks.md) run custom commands at specific lifecycle points in the agent loop.
 
-Learn more about [customization concepts](/docs/copilot/concepts/customization.md).
+Learn more about [customization concepts](/docs/agents/concepts/customization.md).
 
 ## Agent types
 
@@ -77,7 +77,7 @@ Learn more about [using agents in VS Code](/docs/agents/overview.md), including 
 
 When working on complex tasks, the main agent can delegate subtasks to subagents. A subagent is an independent AI agent that performs focused work, such as researching a topic or analyzing code, and reports the results back to the main agent.
 
-The primary benefit of subagents is context optimization. Without subagents, every file read, search result, and intermediate step during research accumulates in the main agent's [context window](/docs/copilot/concepts/language-models.md#context-window), potentially crowding out important information. Subagents perform their work in a separate context window and return only a summary, keeping the main conversation focused on the task at hand.
+The primary benefit of subagents is context optimization. Without subagents, every file read, search result, and intermediate step during research accumulates in the main agent's [context window](/docs/agents/concepts/language-models.md#context-window), potentially crowding out important information. Subagents perform their work in a separate context window and return only a summary, keeping the main conversation focused on the task at hand.
 
 Key characteristics of subagents:
 
@@ -134,6 +134,6 @@ Learn more about [planning with agents](/docs/agents/planning.md).
 ## Related resources
 
 * [Using agents in VS Code](/docs/agents/overview.md)
-* [Tools](/docs/copilot/concepts/tools.md)
-* [Context](/docs/copilot/concepts/context.md)
-* [Trust and safety](/docs/copilot/concepts/trust-and-safety.md)
+* [Tools](/docs/agents/concepts/tools.md)
+* [Context](/docs/agents/concepts/context.md)
+* [Trust and safety](/docs/agents/concepts/trust-and-safety.md)

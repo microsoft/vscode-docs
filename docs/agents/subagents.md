@@ -17,7 +17,7 @@ Keywords:
 
 When working on complex tasks, you can delegate subtasks to subagents. A subagent is an independent AI agent that performs focused work, such as researching a topic, analyzing code, or reviewing changes, and reports the results back to the main agent.
 
-For background on subagent concepts (context isolation, synchronous and parallel execution), see [Agents concepts](/docs/copilot/concepts/agents.md#subagents).
+For background on subagent concepts (context isolation, synchronous and parallel execution), see [Agents concepts](/docs/agents/concepts/agents.md#subagents).
 
 This article explains how to use subagents in VS Code, including usage scenarios, invocation patterns, and how to run custom agents as subagents.
 

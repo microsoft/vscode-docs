@@ -45,7 +45,7 @@ AI-powered inline suggestions appear as you type, helping you write code faster 
 
     ![Screenshot showing Copilot suggesting HTML structure inline suggestion.](./images/getting-started/html-completion.png)
 
-    You might see different suggestions because large language models are [nondeterministic](/docs/copilot/concepts/language-models.md#key-characteristics).
+    You might see different suggestions because large language models are [nondeterministic](/docs/agents/concepts/language-models.md#key-characteristics).
 
 1. Press `kbstyle(Tab)` to accept the suggestion.
 
@@ -267,7 +267,7 @@ You can further enhance your AI's capabilities by exploring other customization 
 
 ## Related resources
 
-* [How GitHub Copilot works](/docs/copilot/concepts/overview.md): Core concepts, terminology, and the architecture behind Copilot's features
+* [How GitHub Copilot works](/docs/agents/concepts/overview.md): Core concepts, terminology, and the architecture behind Copilot's features
 
 * [Agents tutorial](/docs/agents/agents-tutorial.md): Hands-on tutorial for working with different agent types
 

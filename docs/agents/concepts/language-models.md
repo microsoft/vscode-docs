@@ -20,9 +20,9 @@ Visual Studio Code uses large language models (LLMs) to power its AI features. Y
 
 ## How language models work
 
-A language model processes text input (a "prompt") and generates text output. In VS Code, the prompt is assembled from multiple sources: your message, conversation history, file contents, tool outputs, and custom instructions. The model generates responses that can include explanations, code edits, or requests to call [tools](/docs/copilot/concepts/tools.md).
+A language model processes text input (a "prompt") and generates text output. In VS Code, the prompt is assembled from multiple sources: your message, conversation history, file contents, tool outputs, and custom instructions. The model generates responses that can include explanations, code edits, or requests to call [tools](/docs/agents/concepts/tools.md).
 
-Language models don't execute code or access files directly. Instead, they generate text that the [agent loop](/docs/copilot/concepts/agents.md#agent-loop) interprets as actions. When a model requests a tool call, VS Code executes the tool and feeds the result back to the model for the next iteration.
+Language models don't execute code or access files directly. Instead, they generate text that the [agent loop](/docs/agents/concepts/agents.md#agent-loop) interprets as actions. When a model requests a tool call, VS Code executes the tool and feeds the result back to the model for the next iteration.
 
 ## Key characteristics
 
@@ -36,7 +36,7 @@ The context window is the total amount of information a model can process in a s
 
 When the context window fills up, VS Code automatically summarizes older parts of the conversation to make room. This means important details from early in a long conversation might be compressed or lost. You can also type `/compact` in the chat input to manually trigger compaction at any time. Optionally, add custom instructions after the command to guide the summary, for example `/compact focus on the API design decisions`.
 
-Learn more about [how VS Code assembles context](/docs/copilot/concepts/context.md) and [context compaction](/docs/chat/copilot-chat-context.md#context-compaction).
+Learn more about [how VS Code assembles context](/docs/agents/concepts/context.md) and [context compaction](/docs/chat/copilot-chat-context.md#context-compaction).
 
 ## Thinking and reasoning
 
@@ -68,5 +68,5 @@ Learn more about [choosing and configuring language models](/docs/agent-customiz
 
 ## Related resources
 
-* [Context](/docs/copilot/concepts/context.md)
+* [Context](/docs/agents/concepts/context.md)
 * [AI language models in VS Code](/docs/agent-customization/language-models.md)

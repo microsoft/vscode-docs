@@ -93,7 +93,7 @@ Learn more about [tool and command approval](/docs/agents/agent-tools.md#tool-ap
 
 ### Agent sandboxing (Preview)
 
-Agent sandboxing uses OS-level isolation to restrict what agent-executed processes can access on your machine. Rather than relying solely on approval prompts, sandboxing enforces strict file system and network boundaries at the kernel level, so commands cannot access resources outside the permitted scope, even if they are approved. For a deeper look at how sandboxing works and the OS-level enforcement details, see [Agent sandboxing](/docs/copilot/concepts/trust-and-safety.md#agent-sandboxing).
+Agent sandboxing uses OS-level isolation to restrict what agent-executed processes can access on your machine. Rather than relying solely on approval prompts, sandboxing enforces strict file system and network boundaries at the kernel level, so commands cannot access resources outside the permitted scope, even if they are approved. For a deeper look at how sandboxing works and the OS-level enforcement details, see [Agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing).
 
 > [!IMPORTANT]
 > Agent sandboxing is the strongest protection against malicious terminal commands. If prompt injection is a concern, use agent sandboxing or run VS Code in a [dev container](https://code.visualstudio.com/docs/devcontainers/containers) instead of relying on auto-approval rules alone. Auto-approval rules use best-effort command parsing and have known limitations with shell aliases, quote concatenation, and complex shell syntax.

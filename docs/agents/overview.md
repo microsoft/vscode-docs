@@ -34,7 +34,7 @@ Agents can run on your machine, in a remote cloud environment, or through a thir
 <div class="docs-action" data-show-in-doc="true" data-show-in-sidebar="true" title="How agents work">
 Understand the agent loop, how agents plan and execute tasks, and how memory and subagents work.
 
-* [Learn about agent concepts](/docs/copilot/concepts/agents.md)
+* [Learn about agent concepts](/docs/agents/concepts/agents.md)
 
 </div>
 

@@ -10,7 +10,7 @@
       "icon": "codicon-lightbulb",
       "title": "Learn about the agent loop",
       "description": "Understand the core concepts of how AI agents plan, act, and iterate to complete tasks.",
-      "link": "/docs/copilot/concepts/agents"
+      "link": "/docs/agents/concepts/agents"
     },
     {
       "icon": "codicon-debug",

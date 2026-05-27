@@ -16,9 +16,9 @@ Keywords:
 
 # Tools
 
-Tools are the mechanism that lets the model act on your development environment. Without tools, a [language model](/docs/copilot/concepts/language-models.md) can only generate text. With tools, an [agent](/docs/copilot/concepts/agents.md) can read files, write code, run terminal commands, search your codebase, and connect to external services.
+Tools are the mechanism that lets the model act on your development environment. Without tools, a [language model](/docs/agents/concepts/language-models.md) can only generate text. With tools, an [agent](/docs/agents/concepts/agents.md) can read files, write code, run terminal commands, search your codebase, and connect to external services.
 
-During the [agent loop](/docs/copilot/concepts/agents.md#agent-loop), the model decides which tools to call based on the task. Each tool call produces output that becomes part of the [context](/docs/copilot/concepts/context.md) for the next iteration.
+During the [agent loop](/docs/agents/concepts/agents.md#agent-loop), the model decides which tools to call based on the task. Each tool call produces output that becomes part of the [context](/docs/agents/concepts/context.md) for the next iteration.
 
 This article explains the types of tools available, how the agent selects and uses them, and how you can control which tools are enabled.
 
@@ -42,7 +42,7 @@ Use the **Configure Tools** button in the chat input field to enable or disable 
 
 Limiting the available tools can help in several ways:
 
-* **Preserve context**: every tool call produces output that consumes space in the [context window](/docs/copilot/concepts/language-models.md#context-window). Fewer tools means the agent is less likely to make unnecessary calls that fill up the context.
+* **Preserve context**: every tool call produces output that consumes space in the [context window](/docs/agents/concepts/language-models.md#context-window). Fewer tools means the agent is less likely to make unnecessary calls that fill up the context.
 * **Get more relevant results**: when fewer tools are available, the agent focuses on the most appropriate ones rather than choosing from a large set.
 * **Improve performance**: a smaller tool set reduces the decision space for the model, which can speed up responses.
 
@@ -58,10 +58,10 @@ Tools can perform actions that modify files, your environment, or access externa
 * **URL approval**: when a tool accesses a URL, a two-step process verifies both the request and the response content.
 * **Permission levels**: the permissions picker controls how much autonomy the agent has, from requiring manual approval to fully autonomous operation.
 
-Learn more about [trust and safety](/docs/copilot/concepts/trust-and-safety.md).
+Learn more about [trust and safety](/docs/agents/concepts/trust-and-safety.md).
 
 ## Related resources
 
 * [Use tools with agents](/docs/agents/agent-tools.md)
 * [Add and manage MCP servers](/docs/agent-customization/mcp-servers.md)
-* [Agents](/docs/copilot/concepts/agents.md)
+* [Agents](/docs/agents/concepts/agents.md)

@@ -16,7 +16,7 @@ keywords:
 
 Tools extend agents in Visual Studio Code with specialized functionality for accomplishing specific tasks like searching code, running commands, fetching web content, or invoking APIs. VS Code supports three types of tools: built-in tools, Model Context Protocol (MCP) tools, and extension tools.
 
-For background on tool types and how tools work in the agent loop, see [Tools concepts](/docs/copilot/concepts/tools.md).
+For background on tool types and how tools work in the agent loop, see [Tools concepts](/docs/agents/concepts/tools.md).
 
 This article describes how to use tools in your chat prompts and how to manage tool invocations and approvals.
 
@@ -258,7 +258,7 @@ Related settings:
 > [!NOTE]
 > Agent sandboxing is currently in preview and might further evolve.
 
-For an overview of how sandboxing works, what it protects against, and OS-level implementation details, see [Agent sandboxing](/docs/copilot/concepts/trust-and-safety.md#agent-sandboxing).
+For an overview of how sandboxing works, what it protects against, and OS-level implementation details, see [Agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing).
 
 Agent sandboxing restricts file system and network access for commands executed by the agent. When sandboxing is enabled, terminal commands are auto-approved without requiring user confirmation, because they run in a controlled environment.
 

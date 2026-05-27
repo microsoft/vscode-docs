@@ -128,7 +128,7 @@ To disable terminal auto-approval entirely, set the policy to `false`. This conf
 
 ### Configure agent sandboxing
 
-Organizations should recommend that developers enable [agent sandboxing](/docs/copilot/concepts/trust-and-safety.md#agent-sandboxing), especially in environments where auto-approval or Autopilot mode is used. Agent sandboxing uses OS-level isolation to restrict file system and network access for agent-executed commands, which provides stronger protection than approval rules alone.
+Organizations should recommend that developers enable [agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing), especially in environments where auto-approval or Autopilot mode is used. Agent sandboxing uses OS-level isolation to restrict file system and network access for agent-executed commands, which provides stronger protection than approval rules alone.
 
 The `ChatAgentSandboxEnabled` policy controls whether agent sandboxing is enabled or disabled. This configures the `setting(chat.agent.sandbox.enabled)` setting in VS Code.
 
@@ -150,7 +150,7 @@ When both domain lists are empty and the filter is enabled, all network access b
 
 The `ChatAgentAllowedNetworkDomains` policy controls which domains agent tools are permitted to access. This configures the `setting(chat.agent.allowedNetworkDomains)` setting in VS Code.
 
-Provide a list of domain patterns. Wildcards are supported, for example `*.example.com`. When [agent sandboxing](/docs/copilot/concepts/trust-and-safety.md#agent-sandboxing) is also enabled, these domain rules additionally apply to terminal commands executed by the agent.
+Provide a list of domain patterns. Wildcards are supported, for example `*.example.com`. When [agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing) is also enabled, these domain rules additionally apply to terminal commands executed by the agent.
 
 ### Configure denied domains
 
@@ -174,7 +174,7 @@ When both domain lists are empty and the filter is enabled, all network access b
 
 The `ChatAgentAllowedNetworkDomains` policy controls which domains agent tools are permitted to access. This configures the `setting(chat.agent.allowedNetworkDomains)` setting in VS Code.
 
-Provide a list of domain patterns. Wildcards are supported, for example `*.example.com`. When [agent sandboxing](/docs/copilot/concepts/trust-and-safety.md#agent-sandboxing) is also enabled, these domain rules additionally apply to terminal commands executed by the agent.
+Provide a list of domain patterns. Wildcards are supported, for example `*.example.com`. When [agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing) is also enabled, these domain rules additionally apply to terminal commands executed by the agent.
 
 ### Configure denied domains
 
@@ -229,7 +229,7 @@ Learn how to [create custom agents for your organization](https://docs.github.co
 
 AI-powered development features can autonomously perform actions with user-level permissions. Refer to the [security documentation](/docs/copilot/security.md) for a comprehensive overview of AI security considerations and best practices.
 
-For environments where agents operate with elevated autonomy (auto-approval or Autopilot mode), recommend that developers enable [agent sandboxing](/docs/copilot/concepts/trust-and-safety.md#agent-sandboxing) or work inside a [dev container](/docs/devcontainers/containers.md) to limit the impact of unintended or malicious actions.
+For environments where agents operate with elevated autonomy (auto-approval or Autopilot mode), recommend that developers enable [agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing) or work inside a [dev container](/docs/devcontainers/containers.md) to limit the impact of unintended or malicious actions.
 
 ### Agent deployment options and data residency
 

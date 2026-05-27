@@ -16,7 +16,7 @@ Keywords:
 
 Visual Studio Code offers different built-in language models that are optimized for different tasks. You can also bring your own language model API key to use models from other providers.
 
-For background on how language models work and their key characteristics, see [Language models concepts](/docs/copilot/concepts/language-models.md).
+For background on how language models work and their key characteristics, see [Language models concepts](/docs/agents/concepts/language-models.md).
 
 This article describes how to change the language model for chat or inline suggestions and how to use your own API key.
 
@@ -48,7 +48,7 @@ If you have a paid Copilot plan, the model picker shows the premium request mult
 
 ## Configure thinking effort
 
-Some models support configurable thinking effort. Thinking effort controls how much reasoning the model applies to each request. Use a higher effort level for complex tasks like architectural decisions or multi-step debugging, and a lower level for straightforward code generation or simple questions. For background on how thinking and reasoning work, see [Thinking and reasoning](/docs/copilot/concepts/language-models.md#thinking-and-reasoning).
+Some models support configurable thinking effort. Thinking effort controls how much reasoning the model applies to each request. Use a higher effort level for complex tasks like architectural decisions or multi-step debugging, and a lower level for straightforward code generation or simple questions. For background on how thinking and reasoning work, see [Thinking and reasoning](/docs/agents/concepts/language-models.md#thinking-and-reasoning).
 
 VS Code sets recommended default effort levels based on evaluations and online performance data, and has adaptive reasoning enabled. Adaptive reasoning lets the model dynamically determine when and how much to think based on the complexity of each request. For most use cases, the defaults work well and you don't need to change them.
 

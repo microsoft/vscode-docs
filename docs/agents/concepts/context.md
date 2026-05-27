@@ -97,7 +97,7 @@ Learn more about [adding context to chat](/docs/chat/copilot-chat-context.md).
 
 ## Related resources
 
-* [Language models](/docs/copilot/concepts/language-models.md)
+* [Language models](/docs/agents/concepts/language-models.md)
 * [Manage context for AI](/docs/chat/copilot-chat-context.md)
 * [Context engineering guide](/docs/copilot/guides/context-engineering-guide.md)
 * [Workspace indexing](/docs/copilot/reference/workspace-context.md)
