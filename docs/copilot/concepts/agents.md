@@ -24,12 +24,12 @@ An agent is an AI system that autonomously plans and executes coding tasks. You 
 VS Code lets you work with agents the way that fits your workflow, with two surfaces you can pick from and move freely between:
 
 * **Editor window**: stay in the main VS Code window when you're writing code and want AI to assist alongside the editor, debugger, and extensions.
-* **[Agents window](/docs/copilot/agents/agents-window.md) (Preview)**: switch to an agent-first surface when you want to think in prompts and orchestrate agent sessions across multiple projects.
+* **[Agents window](/docs/agents/agents-window.md) (Preview)**: switch to an agent-first surface when you want to think in prompts and orchestrate agent sessions across multiple projects.
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
 Follow a hands-on tutorial to experience local, background, and cloud agents in VS Code.
 
-* [Start agents tutorial](/docs/copilot/agents/agents-tutorial.md)
+* [Start agents tutorial](/docs/agents/agents-tutorial.md)
 
 </div>
 
@@ -59,9 +59,9 @@ You stay in control throughout the process. Send a new message to redirect the a
 
 The agent loop is not one-size-fits-all and might differ for each project. There are different options to personalize the agent's behavior:
 
-* A [**custom agent**](/docs/copilot/customization/custom-agents.md) lets you define different personas, each with their own instructions, available tools, language model, and optionally hand off to another agent.
-* With [**agent skills**](/docs/copilot/customization/agent-skills.md), you can teach the agent new capabilities for a specific domain or task.
-* [**Hooks**](/docs/copilot/customization/hooks.md) run custom commands at specific lifecycle points in the agent loop.
+* A [**custom agent**](/docs/agent-customization/custom-agents.md) lets you define different personas, each with their own instructions, available tools, language model, and optionally hand off to another agent.
+* With [**agent skills**](/docs/agent-customization/agent-skills.md), you can teach the agent new capabilities for a specific domain or task.
+* [**Hooks**](/docs/agent-customization/hooks.md) run custom commands at specific lifecycle points in the agent loop.
 
 Learn more about [customization concepts](/docs/copilot/concepts/customization.md).
 
@@ -71,7 +71,7 @@ Agents run in different environments depending on when you need results and how 
 
 ![Diagram showing the different agent types: Local agents (interactive in VS Code), Background agents (autonomous on your machine), Cloud agents (run on GitHub's infrastructure), and Third-party agents (connect external AI providers).](../images/agents-overview/agent-types-diagram-v3.png)
 
-Learn more about [using agents in VS Code](/docs/copilot/agents/overview.md), including a decision table to help you choose the right agent type for your task.
+Learn more about [using agents in VS Code](/docs/agents/overview.md), including a decision table to help you choose the right agent type for your task.
 
 ## Subagents
 
@@ -88,7 +88,7 @@ Key characteristics of subagents:
 
 For example, the built-in [Plan agent](#planning) uses subagents to perform research and analysis before creating an implementation plan. Each subagent works autonomously and returns only its findings.
 
-Learn more about [using subagents](/docs/copilot/agents/subagents.md).
+Learn more about [using subagents](/docs/agents/subagents.md).
 
 ## Code-first vs. agent-first
 
@@ -98,7 +98,7 @@ There are different ways to work with AI in your development process, and the ri
 
 * **Agent-first** or **Task-first**: you describe (high-level) tasks and requirements in chat and hand them to an AI agent. The agent plans, implements, and verifies the result. Your primary interface is chat and the sessions list for organizing work, while the editor is a secondary interface for reviewing and tweaking the AI's implementation when necessary. You use AI to shift how you work and **focus on defining the problem and reviewing solutions**.
 
-The [Agents window](/docs/copilot/agents/agents-window.md) is built for the agent-first approach, natively in VS Code. It provides a focused environment for managing agent sessions across all your projects, with chat as the central interface for interacting with your agents. The Agents window complements the main [VS Code window](/docs/copilot/agents/agents-tutorial.md), which is optimized for the code-first approach.
+The [Agents window](/docs/agents/agents-window.md) is built for the agent-first approach, natively in VS Code. It provides a focused environment for managing agent sessions across all your projects, with chat as the central interface for interacting with your agents. The Agents window complements the main [VS Code window](/docs/agents/agents-tutorial.md), which is optimized for the code-first approach.
 
 Both surfaces share sessions and VS Code configuration like settings and keybindings, so you don't have to commit to only one or the other. Use the editor window when you want full-featured editing, debugging, notebooks, the extension ecosystem, and remote development, with AI assisting your coding. Use the Agents window when you want to think in prompts, orchestrate work across multiple projects, and keep AI customizations (like plugins, skills, and MCP) front and center.
 
@@ -114,7 +114,7 @@ VS Code supports two complementary memory systems:
     * **Session memory** (`/memories/session/`): scoped to the current conversation, cleared when it ends.
 * **Copilot Memory**: a GitHub-hosted memory system that captures repository-specific insights across Copilot surfaces (coding agent, code review, CLI). Shared across GitHub Copilot beyond VS Code.
 
-Learn more about [memory in VS Code agents](/docs/copilot/agents/memory.md).
+Learn more about [memory in VS Code agents](/docs/agents/memory.md).
 
 ## Planning
 
@@ -129,11 +129,11 @@ The plan agent uses a 4-phase iterative workflow:
 
 The Plan agent does not make code changes until the plan is reviewed and approved. Once approved, you can hand off the plan to the default agent or save it for further refinement.
 
-Learn more about [planning with agents](/docs/copilot/agents/planning.md).
+Learn more about [planning with agents](/docs/agents/planning.md).
 
 ## Related resources
 
-* [Using agents in VS Code](/docs/copilot/agents/overview.md)
+* [Using agents in VS Code](/docs/agents/overview.md)
 * [Tools](/docs/copilot/concepts/tools.md)
 * [Context](/docs/copilot/concepts/context.md)
 * [Trust and safety](/docs/copilot/concepts/trust-and-safety.md)

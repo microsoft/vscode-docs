@@ -318,7 +318,7 @@ Congratulations! You've completed the tutorial and explored some of the key feat
 
 * [Build your first app with AI](/docs/copilot/getting-started.md)
 
-* [Explore different agent types](/docs/copilot/agents/agents-tutorial.md)
+* [Explore different agent types](/docs/agents/agents-tutorial.md)
 
 * [Discover and run unit tests for your code](/docs/debugtest/testing.md)
 

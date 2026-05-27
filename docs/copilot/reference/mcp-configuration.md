@@ -16,7 +16,7 @@ Keywords:
 ---
 # MCP configuration reference
 
-This article provides a reference for the MCP server configuration file format, related commands, and settings in VS Code. For information about adding and managing MCP servers, see [Add and manage MCP servers](/docs/copilot/customization/mcp-servers.md).
+This article provides a reference for the MCP server configuration file format, related commands, and settings in VS Code. For information about adding and managing MCP servers, see [Add and manage MCP servers](/docs/agent-customization/mcp-servers.md).
 
 ## Configuration file
 
@@ -248,6 +248,6 @@ For a full list of VS Code AI settings, see the [AI Settings Reference](/docs/co
 
 ## Related resources
 
-* [Add and manage MCP servers](/docs/copilot/customization/mcp-servers.md)
+* [Add and manage MCP servers](/docs/agent-customization/mcp-servers.md)
 * [Model Context Protocol Documentation](https://modelcontextprotocol.io/)
 * [MCP Dev Guide](/docs/copilot/guides/mcp-developer-guide.md)

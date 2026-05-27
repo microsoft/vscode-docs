@@ -24,7 +24,7 @@ Before you start: you'll need VS Code Insiders installed and the GitHub Copilot 
 
 ## What are custom agents?
 
-[Custom agents](https://code.visualstudio.com/docs/copilot/customization/custom-agents) allow you to configure AI to take on specific roles.
+[Custom agents](https://code.visualstudio.com/docs/agent-customization/custom-agents) allow you to configure AI to take on specific roles.
 
 Instead of a generic assistant, you define a persona with a clear purpose, behavior, and scope. This could be something like a security reviewer, planner, or solution architect.
 
@@ -143,9 +143,9 @@ If you want to take it even further and trigger behavior automatically without p
 
 ## Learn more
 
-- [Customize AI in Visual Studio Code](https://code.visualstudio.com/docs/copilot/customization/overview)
-- [Use custom agents in VS Code](https://code.visualstudio.com/docs/copilot/customization/custom-agents)
-- [Use custom instructions in VS Code](https://code.visualstudio.com/docs/copilot/customization/custom-instructions)
-- [Use agent skills in VS Code](https://code.visualstudio.com/docs/copilot/customization/agent-skills)
-- [Use hooks in VS Code](https://code.visualstudio.com/docs/copilot/customization/hooks)
+- [Customize AI in Visual Studio Code](https://code.visualstudio.com/docs/agent-customization/overview)
+- [Use custom agents in VS Code](https://code.visualstudio.com/docs/agent-customization/custom-agents)
+- [Use custom instructions in VS Code](https://code.visualstudio.com/docs/agent-customization/custom-instructions)
+- [Use agent skills in VS Code](https://code.visualstudio.com/docs/agent-customization/agent-skills)
+- [Use hooks in VS Code](https://code.visualstudio.com/docs/agent-customization/hooks)
 - [Community contributed customization features](https://github.com/github/awesome-copilot)

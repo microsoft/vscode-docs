@@ -2,7 +2,7 @@
   "getStarted": {
     "title": "Get started with AI agents",
     "description": "Hand off tasks to autonomous AI agents that iterate until the job is done. Run them locally, in the background, or in the cloud, with your choice of AI provider. Track all sessions without leaving VS Code.",
-    "link": "/docs/copilot/agents/agents-tutorial",
+    "link": "/docs/agents/agents-tutorial",
     "image": "/assets/docs/copilot/getting-started/agent-mode-selection-2.png"
   },
   "featured": [
@@ -55,7 +55,7 @@
       "type": "documentation",
       "title": "Remote control Copilot CLI",
       "description": "Monitor and steer ongoing Copilot CLI sessions from github.com or GitHub Mobile.",
-      "link": "/docs/copilot/agents/copilot-cli#_remote-control-copilot-cli-sessions-experimental"
+      "link": "/docs/agents/copilot-cli#_remote-control-copilot-cli-sessions-experimental"
     },
     {
       "type": "blog",

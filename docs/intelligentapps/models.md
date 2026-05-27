@@ -18,7 +18,7 @@ Within the model catalog, you can explore and utilize models from multiple hosti
 Deploy models directly to Foundry from within the model catalog, streamlining your workflow.
 
 > [!NOTE]
-> Use Microsoft Foundry, Foundry Local, and GitHub models added to Foundry Toolkit with GitHub Copilot. For more information, check out [Changing the model for chat conversations](/docs/copilot/customization/language-models#change-the-model-for-chat-conversations.md).
+> Use Microsoft Foundry, Foundry Local, and GitHub models added to Foundry Toolkit with GitHub Copilot. For more information, check out [Changing the model for chat conversations](/docs/agent-customization/language-models#change-the-model-for-chat-conversations.md).
 
 ![Foundry Toolkit model catalog displaying various generative AI models](./images/models/models-new.png)
 

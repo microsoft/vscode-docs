@@ -36,7 +36,7 @@ The context window is the total amount of information a model can process in a s
 
 When the context window fills up, VS Code automatically summarizes older parts of the conversation to make room. This means important details from early in a long conversation might be compressed or lost. You can also type `/compact` in the chat input to manually trigger compaction at any time. Optionally, add custom instructions after the command to guide the summary, for example `/compact focus on the API design decisions`.
 
-Learn more about [how VS Code assembles context](/docs/copilot/concepts/context.md) and [context compaction](/docs/copilot/chat/copilot-chat-context.md#context-compaction).
+Learn more about [how VS Code assembles context](/docs/copilot/concepts/context.md) and [context compaction](/docs/chat/copilot-chat-context.md#context-compaction).
 
 ## Thinking and reasoning
 
@@ -56,7 +56,7 @@ VS Code sets default effort levels based on evaluations and online performance d
 
 Thinking tokens count toward the model's context window, even though they are not visible in the response. The actual thinking output is typically returned in summarized form or can be omitted entirely for lower latency. Keep in mind that higher thinking effort levels can produce more thinking tokens, which can increase latency.
 
-Learn how to [configure the thinking effort level](/docs/copilot/customization/language-models.md#configure-thinking-effort) in VS Code.
+Learn how to [configure the thinking effort level](/docs/agent-customization/language-models.md#configure-thinking-effort) in VS Code.
 
 ## Choose the right model
 
@@ -64,9 +64,9 @@ Each model has different strengths. Some are optimized for speed and work well f
 
 VS Code also supports **auto model selection**, which automatically selects a model to ensure optimal performance and reduce rate limits. Auto selects from available models and applies a request discount for paid users.
 
-Learn more about [choosing and configuring language models](/docs/copilot/customization/language-models.md).
+Learn more about [choosing and configuring language models](/docs/agent-customization/language-models.md).
 
 ## Related resources
 
 * [Context](/docs/copilot/concepts/context.md)
-* [AI language models in VS Code](/docs/copilot/customization/language-models.md)
+* [AI language models in VS Code](/docs/agent-customization/language-models.md)

@@ -7,7 +7,7 @@ Keywords: [nes, suggestions, inline completions, ghost text, next edit suggestio
 ---
 # Inline suggestions from GitHub Copilot in VS Code
 
-GitHub Copilot in VS Code provides AI-powered inline suggestions that complete your code, comments, tests, and more as you type. Inline suggestions work with a broad range of programming languages and frameworks. They are one of several AI surfaces in VS Code, alongside [agents](/docs/copilot/agents/overview.md) for autonomous multi-file tasks, [chat](/docs/copilot/chat/copilot-chat.md), and [smart actions](/docs/editing/copilot-smart-actions.md).
+GitHub Copilot in VS Code provides AI-powered inline suggestions that complete your code, comments, tests, and more as you type. Inline suggestions work with a broad range of programming languages and frameworks. They are one of several AI surfaces in VS Code, alongside [agents](/docs/agents/overview.md) for autonomous multi-file tasks, [chat](/docs/chat/copilot-chat.md), and [smart actions](/docs/editing/copilot-smart-actions.md).
 
 You might experience two kinds of inline suggestions from Copilot, both of which match your coding style and take your existing code into account:
 
@@ -131,7 +131,7 @@ Alternatively, use the **Snooze Inline Suggestions** and **Cancel Snooze Inline 
 
 ## Change the AI model for suggestions
 
-Different Large Language Models (LLMs) are trained on different types of data and might have different capabilities and strengths. Learn more about how to [choose between different AI language models](/docs/copilot/customization/language-models.md) in VS Code.
+Different Large Language Models (LLMs) are trained on different types of data and might have different capabilities and strengths. Learn more about how to [choose between different AI language models](/docs/agent-customization/language-models.md) in VS Code.
 
 To change the language model that is used for generating ghost text suggestions in the editor:
 
@@ -181,6 +181,6 @@ To give you relevant inline suggestions, Copilot looks at the current and open f
 
 * Discover the key features in the [Quickstart](/docs/copilot/getting-started.md).
 
-* Use AI chat conversations with [chat in VS Code](/docs/copilot/chat/copilot-chat.md).
+* Use AI chat conversations with [chat in VS Code](/docs/chat/copilot-chat.md).
 
 * Watch the videos in our [VS Code Copilot Series](https://www.youtube.com/playlist?list=PLj6YeMhvp2S5_hvBl2SE-7YCHYlLQ0bPt) on YouTube.

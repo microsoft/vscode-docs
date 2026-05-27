@@ -47,7 +47,7 @@ With custom agent handoffs, you can transition from one phase to the next once t
 * **Green phase** → runs tests to verify implementation, then hands off to **Refactor phase**
 * **Refactor phase** → runs tests to ensure they still pass, then hands off back to **Red phase** to start the next cycle
 
-If you have established test conventions, you can use [custom instructions](/docs/copilot/customization/custom-instructions.md) to set up a testing context that guides the AI in generating tests that align with your project's standards.
+If you have established test conventions, you can use [custom instructions](/docs/agent-customization/custom-instructions.md) to set up a testing context that guides the AI in generating tests that align with your project's standards.
 
 The following diagram shows how custom agents work together to implement the TDD workflow, with handoffs enabling smooth transitions between phases.
 
@@ -113,7 +113,7 @@ Create a "TDD-red" custom agent that focuses on the red phase of TDD. This custo
 
 **Why this helps**: Without a focused mode, the AI might mix implementation suggestions with test creation, and miss the core TDD principle of writing tests first.
 
-To create the `.github/agents/TDD-red.agent.md` red phase [custom agent](/docs/copilot/customization/custom-agents.md):
+To create the `.github/agents/TDD-red.agent.md` red phase [custom agent](/docs/agent-customization/custom-agents.md):
 
 1. Run the **Chat: New Custom Agent** command in the Command Palette.
 
@@ -142,7 +142,7 @@ To create the `.github/agents/TDD-red.agent.md` red phase [custom agent](/docs/c
 
 Create a "TDD-green" custom agent that focuses on the green phase of TDD. This custom agent is only responsible for writing the minimal implementation code to make the tests pass, without modifying the test code. After implementing, this agent runs the tests to verify they pass, then hands off to the refactor phase custom agent.
 
-To create the `.github/agents/TDD-green.agent.md` green phase [custom agent](/docs/copilot/customization/custom-agents.md):
+To create the `.github/agents/TDD-green.agent.md` green phase [custom agent](/docs/agent-customization/custom-agents.md):
 
 1. Run the **Chat: New Custom Agent** command in the Command Palette.
 
@@ -174,7 +174,7 @@ To create the `.github/agents/TDD-green.agent.md` green phase [custom agent](/do
 
 Create a "TDD-refactor" custom agent that focuses on the refactor phase of TDD to improve code quality while keeping all tests passing. This agent is responsible for cleaning up code, removing duplication, improving naming, and enhancing structure without changing functionality. After refactoring, this agent runs the tests to ensure they still pass, then hands off back to the red phase to start the next TDD cycle.
 
-To create the `.github/agents/TDD-refactor.agent.md` refactor phase [custom chat agent](/docs/copilot/customization/custom-agents.md):
+To create the `.github/agents/TDD-refactor.agent.md` refactor phase [custom chat agent](/docs/agent-customization/custom-agents.md):
 
 1. Run the **Chat: New Custom Agent** command in the Command Palette.
 
@@ -260,6 +260,6 @@ Now that the TDD custom agents are set up, you can use them to implement feature
 Learn more about testing and AI customization in VS Code:
 
 * [Testing with AI](/docs/copilot/guides/test-with-copilot.md)
-* [Custom agents](/docs/copilot/customization/custom-agents.md)
-* [Custom instructions](/docs/copilot/customization/custom-instructions.md)
+* [Custom agents](/docs/agent-customization/custom-agents.md)
+* [Custom instructions](/docs/agent-customization/custom-instructions.md)
 * [Running tests with VS Code](/docs/debugtest/testing.md)

@@ -59,7 +59,7 @@ Start by generating an instructions file that captures your project's coding sta
 **Verify it works**: Ask Copilot to generate some code (for example, "create a utility function for date formatting"). Check that the response follows your coding standards. Select the **References** section in the chat response to confirm that `copilot-instructions.md` was included.
 
 > [!TIP]
-> Learn more about always-on instructions in [Use custom instructions](/docs/copilot/customization/custom-instructions.md#use-a-githubcopilot-instructionsmd-file).
+> Learn more about always-on instructions in [Use custom instructions](/docs/agent-customization/custom-instructions.md#use-a-githubcopilot-instructionsmd-file).
 
 ## Step 2: Add file-specific instructions
 
@@ -78,7 +78,7 @@ When different parts of your codebase follow different conventions, use instruct
 **Verify it works**: Open a `.tsx` file and ask Copilot to "create a user profile card component". The response should follow your React-specific conventions. Check the **References** section to confirm the instructions file was applied.
 
 > [!TIP]
-> You can create multiple instructions files for different file types, frameworks, or modules. Learn more in [Use `.instructions.md` files](/docs/copilot/customization/custom-instructions.md#use-instructionsmd-files).
+> You can create multiple instructions files for different file types, frameworks, or modules. Learn more in [Use `.instructions.md` files](/docs/agent-customization/custom-instructions.md#use-instructionsmd-files).
 
 ## Step 3: Create a reusable prompt file
 
@@ -97,7 +97,7 @@ Prompt files encode common tasks as slash commands you can invoke in chat. Creat
 **Verify it works**: In the Chat view, type `/<prompt name> data table with sorting and filtering` and press `kbstyle(Enter)`. The agent should scaffold the component and test file according to your conventions.
 
 > [!TIP]
-> Type `/create-prompt` in chat to generate a prompt file with AI assistance. You can also extract a reusable prompt from an ongoing conversation by asking "save this workflow as a prompt". Learn more in [Use prompt files](/docs/copilot/customization/prompt-files.md).
+> Type `/create-prompt` in chat to generate a prompt file with AI assistance. You can also extract a reusable prompt from an ongoing conversation by asking "save this workflow as a prompt". Learn more in [Use prompt files](/docs/agent-customization/prompt-files.md).
 
 ## Step 4: Build a custom agent
 
@@ -116,7 +116,7 @@ Custom agents let the AI adopt specialized personas with specific tool access. C
 **Verify it works**: Select the **Reviewer** agent from the agents dropdown in the Chat view, then ask "review the authentication module". The agent should analyze the code without making changes.
 
 > [!TIP]
-> You can add `handoffs` to your agent to create guided workflows. For example, hand off from a planning agent to an implementation agent. Learn more in [Custom agents](/docs/copilot/customization/custom-agents.md#handoffs).
+> You can add `handoffs` to your agent to create guided workflows. For example, hand off from a planning agent to an implementation agent. Learn more in [Custom agents](/docs/agent-customization/custom-agents.md#handoffs).
 
 ## Step 5: Create a skill for a specialized capability
 
@@ -148,7 +148,7 @@ Skills are folders of instructions, scripts, and resources that Copilot loads wh
 **Verify it works**: In chat, ask Copilot to add a new feature to your project (for example, "add a health check endpoint"). When it generates the code, it should also automatically update the README with the new endpoint's documentation. You can also invoke the skill directly by typing `/update-readme` in the Chat view.
 
 > [!TIP]
-> Type `/create-skill` in chat to generate a skill with AI assistance. You can also extract a skill from an ongoing conversation by asking "create a skill from what we just did". Learn more in [Agent Skills](/docs/copilot/customization/agent-skills.md).
+> Type `/create-skill` in chat to generate a skill with AI assistance. You can also extract a skill from an ongoing conversation by asking "create a skill from what we just did". Learn more in [Agent Skills](/docs/agent-customization/agent-skills.md).
 
 ## What you built
 
@@ -171,8 +171,8 @@ your-project/
 
 ## Next steps
 
-* Add [MCP servers](/docs/copilot/customization/mcp-servers.md) to extend the agent with external tools and services
-* Set up [hooks](/docs/copilot/customization/hooks.md) to automate tasks at agent lifecycle points, such as running a formatter after every file edit
-* Browse [agent plugins](/docs/copilot/customization/agent-plugins.md) to install pre-packaged customizations from community marketplaces
+* Add [MCP servers](/docs/agent-customization/mcp-servers.md) to extend the agent with external tools and services
+* Set up [hooks](/docs/agent-customization/hooks.md) to automate tasks at agent lifecycle points, such as running a formatter after every file edit
+* Browse [agent plugins](/docs/agent-customization/agent-plugins.md) to install pre-packaged customizations from community marketplaces
 * Share customizations with your team by committing the `.github/` directory to your repository
-* See all your customizations in one place with the [Agent Customizations editor](/docs/copilot/customization/overview.md#agent-customizations-editor)
+* See all your customizations in one place with the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor)

@@ -9,7 +9,7 @@ MetaDescription: A guide to creating an AI extension in Visual Studio Code
 
 # Chat Participant API
 
-Chat participants are specialized assistants that enable users to extend [chat in VS Code](/docs/copilot/chat/copilot-chat) with domain-specific experts. Users invoke a chat participant by @-mentioning it, and the participant is then responsible for handling the user's natural language prompt.
+Chat participants are specialized assistants that enable users to extend [chat in VS Code](/docs/chat/copilot-chat) with domain-specific experts. Users invoke a chat participant by @-mentioning it, and the participant is then responsible for handling the user's natural language prompt.
 
 In this extension guide, you learn how to create a chat participant by using the Chat Participant API.
 

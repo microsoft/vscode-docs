@@ -61,9 +61,9 @@ VS Code automatically provides context to the prompt based on your current activ
 
 ## Working effectively with context
 
-* **Start new sessions for new tasks.** A [session](/docs/copilot/chat/chat-sessions.md) is an independent conversation with its own context window and history. Each session starts fresh, so don't reuse a single conversation for unrelated tasks.
+* **Start new sessions for new tasks.** A [session](/docs/chat/chat-sessions.md) is an independent conversation with its own context window and history. Each session starts fresh, so don't reuse a single conversation for unrelated tasks.
 * **Be selective with context.** Adding your entire codebase isn't always helpful. Reference specific files that are relevant to the task.
-* **Use custom instructions for persistent rules.** Rules you add in [custom instructions](/docs/copilot/customization/custom-instructions.md) are included in every request, so you don't lose them when the conversation is summarized.
+* **Use custom instructions for persistent rules.** Rules you add in [custom instructions](/docs/agent-customization/custom-instructions.md) are included in every request, so you don't lose them when the conversation is summarized.
 
 ### Examples
 
@@ -93,11 +93,11 @@ Migrate the auth module to the latest passport.js API #fetch https://www.passpor
 
 The model uses the current documentation from the web to guide the migration, avoiding outdated API patterns from its training data.
 
-Learn more about [adding context to chat](/docs/copilot/chat/copilot-chat-context.md).
+Learn more about [adding context to chat](/docs/chat/copilot-chat-context.md).
 
 ## Related resources
 
 * [Language models](/docs/copilot/concepts/language-models.md)
-* [Manage context for AI](/docs/copilot/chat/copilot-chat-context.md)
+* [Manage context for AI](/docs/chat/copilot-chat-context.md)
 * [Context engineering guide](/docs/copilot/guides/context-engineering-guide.md)
 * [Workspace indexing](/docs/copilot/reference/workspace-context.md)

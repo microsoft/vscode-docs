@@ -44,7 +44,7 @@ That's why we've introduced a new feature in VS Code for orchestrating all your 
 
 ## Agent Sessions
 
-There's a new view in the VS Code side bar called "[Agent Sessions](https://code.visualstudio.com/docs/copilot/chat/chat-sessions#_agent-sessions)". It gives you one place to manage all your agents, whether they're running locally or in the cloud.
+There's a new view in the VS Code side bar called "[Agent Sessions](https://code.visualstudio.com/docs/chat/chat-sessions#_agent-sessions)". It gives you one place to manage all your agents, whether they're running locally or in the cloud.
 
 ![VS Code window with Agent Sessions sidebar showing Copilot, Coding Agent, CLI, and Codex statuses against a calm gray workspace](agent-sessions.png)
 
@@ -98,9 +98,9 @@ These custom agents are also available when you delegate to other agents such as
 
 [Context Confusion](https://www.dbreunig.com/2025/06/26/how-to-fix-your-context.html) is a real problem with agents. The more you interact, the more context they track - and the more likely they are to get confused. There's a whole new discipline for managing context called "Context Engineering".
 
-With the latest VS Code release, we've added a tool called "[runSubagent](https://code.visualstudio.com/docs/copilot/chat/chat-sessions#_contextisolated-subagents)" to help you manage context.
+With the latest VS Code release, we've added a tool called "[runSubagent](https://code.visualstudio.com/docs/chat/chat-sessions#_contextisolated-subagents)" to help you manage context.
 
-[Subagents](https://code.visualstudio.com/docs/copilot/chat/chat-sessions#_contextisolated-subagents) run independently from the main chat and have their own context. You can call one by adding the `#runSubagent` tool to your prompt. The LLM creates a prompt, hands it off to a subagent, and that agent only gets the context you send. It knows nothing about the rest of your chat, and your chat knows nothing about the subagent's context. Subagents don't pause for feedback and have access to most of the same tools as the main chat.
+[Subagents](https://code.visualstudio.com/docs/chat/chat-sessions#_contextisolated-subagents) run independently from the main chat and have their own context. You can call one by adding the `#runSubagent` tool to your prompt. The LLM creates a prompt, hands it off to a subagent, and that agent only gets the context you send. It knows nothing about the rest of your chat, and your chat knows nothing about the subagent's context. Subagents don't pause for feedback and have access to most of the same tools as the main chat.
 
 When a subagent finishes, it returns the final result to the main chat - and only that result joins the main context. Subagents keep your main chat lean while letting you go on sidebars and deep dives. For example, if you're building an API and need to research authentication, spin up a subagent to do that.
 

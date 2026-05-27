@@ -11,12 +11,12 @@ MetaDescription: A comprehensive guide for developers building MCP servers that 
 
 Model Context Protocol (MCP) is an open standard that enables AI models to interact with external tools and services through a unified interface. Visual Studio Code implements the full MCP specification, enabling you to create MCP servers that provide tools, prompts, and resources for extending the capabilities of AI agents in VS Code.
 
-MCP servers provide one of three types of tools available in VS Code, alongside built-in tools and extension-contributed tools. Learn more about [tool types](/docs/copilot/agents/agent-tools.md#types-of-tools).
+MCP servers provide one of three types of tools available in VS Code, alongside built-in tools and extension-contributed tools. Learn more about [tool types](/docs/agents/agent-tools.md#types-of-tools).
 
 This guide covers everything you need to know to build MCP servers that work seamlessly with VS Code and other MCP clients.
 
 > [!TIP]
-> For information about using MCP servers as an end user, see [Use MCP servers in VS Code](/docs/copilot/customization/mcp-servers.md).
+> For information about using MCP servers as an end user, see [Use MCP servers in VS Code](/docs/agent-customization/mcp-servers.md).
 
 ## Why use MCP servers?
 
@@ -244,7 +244,7 @@ Users can add MCP servers within VS Code in several ways:
 - Extension: VS Code extensions can register MCP servers programmatically.
 - Command line: Install MCP servers from the command line with the `--add-mcp` VS Code command-line option.
 
-Learn more about the different ways to [add MCP servers to VS Code](/docs/copilot/customization/mcp-servers#add-an-mcp-server).
+Learn more about the different ways to [add MCP servers to VS Code](/docs/agent-customization/mcp-servers#add-an-mcp-server).
 
 ## Manage MCP servers
 
@@ -487,6 +487,6 @@ You might also find the [MCP for Beginners curriculum](https://github.com/micros
 ## Related content
 
 - [Contribute a language model tool](/api/extension-guides/ai/tools)
-- [Use MCP tools in agent mode](/docs/copilot/customization/mcp-servers.md)
+- [Use MCP tools in agent mode](/docs/agent-customization/mcp-servers.md)
 - [VS Code curated list of MCP servers](https://code.visualstudio.com/mcp)
 - [Model Context Protocol Documentation](https://modelcontextprotocol.io/)

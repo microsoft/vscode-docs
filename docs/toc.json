@@ -12,19 +12,19 @@
     {
         "name": "Agents",
         "area": "copilot",
-        "link": "/docs/copilot/agents/overview",
+        "link": "/docs/agents/overview",
         "topics": [
-            ["Overview", "/docs/copilot/agents/overview"],
-            ["Agents Tutorial", "/docs/copilot/agents/agents-tutorial"],
+            ["Overview", "/docs/agents/overview"],
+            ["Agents Tutorial", "/docs/agents/agents-tutorial"],
 
             ["", "", {
                 "name": "Agent Capabilities",
                 "area": "copilot/agent-capabilities",
                 "topics": [
-                    ["Planning", "/docs/copilot/agents/planning"],
-                    ["Memory", "/docs/copilot/agents/memory"],
-                    ["Tools", "/docs/copilot/agents/agent-tools"],
-                    ["Subagents", "/docs/copilot/agents/subagents"]
+                    ["Planning", "/docs/agents/planning"],
+                    ["Memory", "/docs/agents/memory"],
+                    ["Tools", "/docs/agents/agent-tools"],
+                    ["Subagents", "/docs/agents/subagents"]
                 ]
             }],
 
@@ -32,10 +32,10 @@
                 "name": "Agent Types",
                 "area": "copilot/agent-types",
                 "topics": [
-                    ["Local Agents", "/docs/copilot/agents/local-agents"],
-                    ["Copilot CLI", "/docs/copilot/agents/copilot-cli"],
-                    ["Cloud Agents", "/docs/copilot/agents/cloud-agents"],
-                    ["Third-Party Agents", "/docs/copilot/agents/third-party-agents"]
+                    ["Local Agents", "/docs/agents/local-agents"],
+                    ["Copilot CLI", "/docs/agents/copilot-cli"],
+                    ["Cloud Agents", "/docs/agents/cloud-agents"],
+                    ["Third-Party Agents", "/docs/agents/third-party-agents"]
                 ]
             }],
 
@@ -56,15 +56,15 @@
                 "name": "Chat",
                 "area": "copilot/chat",
                 "topics": [
-                    ["Overview", "/docs/copilot/chat/copilot-chat"],
-                    ["Chat Sessions", "/docs/copilot/chat/chat-sessions"],
-                    ["Add Context", "/docs/copilot/chat/copilot-chat-context"],
-                    ["Inline Chat", "/docs/copilot/chat/inline-chat"],
-                    ["Review Edits", "/docs/copilot/chat/review-code-edits"],
-                    ["Checkpoints", "/docs/copilot/chat/chat-checkpoints"],
-                    ["Artifacts Panel", "/docs/copilot/chat/chat-artifacts"],
-                    ["Debug Chat Interactions", "/docs/copilot/chat/chat-debug-view"],
-                    ["Prompt Examples", "/docs/copilot/chat/prompt-examples"]
+                    ["Overview", "/docs/chat/copilot-chat"],
+                    ["Chat Sessions", "/docs/chat/chat-sessions"],
+                    ["Add Context", "/docs/chat/copilot-chat-context"],
+                    ["Inline Chat", "/docs/chat/inline-chat"],
+                    ["Review Edits", "/docs/chat/review-code-edits"],
+                    ["Checkpoints", "/docs/chat/chat-checkpoints"],
+                    ["Artifacts Panel", "/docs/chat/chat-artifacts"],
+                    ["Debug Chat Interactions", "/docs/chat/chat-debug-view"],
+                    ["Prompt Examples", "/docs/chat/prompt-examples"]
                 ]
             }],
             ["", "", {
@@ -83,7 +83,7 @@
                 ]
             }],
 
-            ["Best Practices", "/docs/copilot/best-practices"],
+            ["Best Practices", "/docs/agents/best-practices"],
             ["Security", "/docs/copilot/security"],
             ["Troubleshooting", "/docs/copilot/troubleshooting"],
             ["FAQ", "/docs/copilot/faq"],

@@ -113,9 +113,9 @@ The way you phrase your prompt influences which tools the agent uses and the qua
 
 * **Be specific**: avoid vague terms like "what does this do", where "this" could mean the last answer, current file, or whole project.
 * **Use code terms**: use function names, class names, and concepts that appear in your code so the agent can find exact matches.
-* **Add context manually**: select code, reference files, or [#-mention context items](/docs/copilot/chat/copilot-chat-context.md) such as debug context, terminal output, and more.
+* **Add context manually**: select code, reference files, or [#-mention context items](/docs/chat/copilot-chat-context.md) such as debug context, terminal output, and more.
 * **Scope your request**: responses can draw from multiple references, such as "find exceptions without a catch block". But don't expect a full codebase analysis, such as "how many times is this function invoked?".
-* **Use external tools for non-code questions**: for information like "who contributed to this file?", configure the relevant [tools or MCP servers](/docs/copilot/agents/agent-tools.md).
+* **Use external tools for non-code questions**: for information like "who contributed to this file?", configure the relevant [tools or MCP servers](/docs/agents/agent-tools.md).
 
 ## Private repositories
 
@@ -131,7 +131,7 @@ Learn more about security, privacy, and transparency in the [GitHub Copilot Trus
 
 No. Agents automatically use semantic search when it makes sense. You don't need to add `#codebase` to your prompt.
 
-The `#codebase` tool is always semantic and provides consistent results. If you want to force a semantic search for a specific prompt, you can still add `#codebase` as a [context item](/docs/copilot/chat/copilot-chat-context.md).
+The `#codebase` tool is always semantic and provides consistent results. If you want to force a semantic search for a specific prompt, you can still add `#codebase` as a [context item](/docs/chat/copilot-chat-context.md).
 
 ### What happens if my workspace is not semantically indexed?
 

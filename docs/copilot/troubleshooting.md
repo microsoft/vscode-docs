@@ -56,7 +56,7 @@ VS Code provides different tools to inspect what happens when you send a prompt 
 
     From the Agent Debug Log panel, you can attach a snapshot of the agent debug events to a chat conversation to ask the AI questions about the session and troubleshoot a specific interaction.
 
-    Learn more about the [Agent Debug Log panel](/docs/copilot/chat/chat-debug-view.md#agent-debug-log-panel).
+    Learn more about the [Agent Debug Log panel](/docs/chat/chat-debug-view.md#agent-debug-log-panel).
 
 * **Chat Debug view:**
 
@@ -67,7 +67,7 @@ VS Code provides different tools to inspect what happens when you send a prompt 
     1. Select the overflow menu (`...`) in the Chat view.
     1. Select **Show Chat Debug View**.
 
-Learn more about the [Chat Debug view](/docs/copilot/chat/chat-debug-view.md#chat-debug-view).
+Learn more about the [Chat Debug view](/docs/chat/chat-debug-view.md#chat-debug-view).
 
 ## Troubleshoot MCP servers
 
@@ -80,7 +80,7 @@ To troubleshoot MCP servers:
 1. Select **Show Output** to view the server's logs.
 1. Select **Restart Server** to restart a misbehaving server.
 
-Learn more about [configuring and debugging MCP servers](/docs/copilot/customization/mcp-servers.md).
+Learn more about [configuring and debugging MCP servers](/docs/agent-customization/mcp-servers.md).
 
 ## Provide feedback
 
@@ -94,7 +94,7 @@ When reporting issues, include relevant information from the [Copilot logs](#vie
 
 ## Related resources
 
-* [Debug chat interactions](/docs/copilot/chat/chat-debug-view.md)
-* [Custom instructions](/docs/copilot/customization/custom-instructions.md)
-* [MCP servers](/docs/copilot/customization/mcp-servers.md)
+* [Debug chat interactions](/docs/chat/chat-debug-view.md)
+* [Custom instructions](/docs/agent-customization/custom-instructions.md)
+* [MCP servers](/docs/agent-customization/mcp-servers.md)
 * [GitHub Copilot FAQ](/docs/copilot/faq.md)

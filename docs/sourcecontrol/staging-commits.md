@@ -104,7 +104,7 @@ Once you've staged your changes, you can create a commit to save them to your lo
 
 A commit message describes the changes you're committing and helps others (and your future self) understand the purpose of the commit. Type your message in the commit message input box at the top of the Source Control view and select **Commit** to save your staged changes.
 
-To help you write a commit message, select the sparkle icon <i class="codicon codicon-sparkle"></i> in the commit message input box to use AI to generate the message based on your staged changes. You can [create custom instructions](/docs/copilot/customization/custom-instructions.md#specify-custom-instructions-in-settings) to guide the AI in generating messages.
+To help you write a commit message, select the sparkle icon <i class="codicon codicon-sparkle"></i> in the commit message input box to use AI to generate the message based on your staged changes. You can [create custom instructions](/docs/agent-customization/custom-instructions.md#specify-custom-instructions-in-settings) to guide the AI in generating messages.
 
 ![Screenshot of generating a commit message with AI.](images/staging-commits/generate-commit-message.png)
 

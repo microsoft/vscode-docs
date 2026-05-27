@@ -117,7 +117,7 @@ You now understand how to stay in control while the agent works, using scoped ap
 
 ## Learn more
 
-* [Using agents in VS Code](https://code.visualstudio.com/docs/copilot/agents/overview)
-* [Chat overview in VS Code](https://code.visualstudio.com/docs/copilot/chat/copilot-chat)
-* [Managing context for AI in VS Code](https://code.visualstudio.com/docs/copilot/chat/copilot-chat-context)
-* [Create and manage chat sessions](https://code.visualstudio.com/docs/copilot/chat/chat-sessions)
+* [Using agents in VS Code](https://code.visualstudio.com/docs/agents/overview)
+* [Chat overview in VS Code](https://code.visualstudio.com/docs/chat/copilot-chat)
+* [Managing context for AI in VS Code](https://code.visualstudio.com/docs/chat/copilot-chat-context)
+* [Create and manage chat sessions](https://code.visualstudio.com/docs/chat/chat-sessions)

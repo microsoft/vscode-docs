@@ -73,7 +73,7 @@ Alternatively, you can:
 1. Follow Copilot's suggestions to fix the test
 
 > [!TIP]
-> When using [agents](/docs/copilot/agents/local-agents.md), the agent monitors the test output when running tests, and automatically attempts to fix and rerun failing tests.
+> When using [agents](/docs/agents/local-agents.md), the agent monitors the test output when running tests, and automatically attempts to fix and rerun failing tests.
 
 ## Personalize test generation
 
@@ -84,7 +84,7 @@ If your organization has specific testing requirements, you can customize how Co
 * Set code structure preferences
 * Request specific test patterns or methodologies
 
-Get more information about [personalizing Copilot for generating tests](/docs/copilot/customization/overview.md).
+Get more information about [personalizing Copilot for generating tests](/docs/agent-customization/overview.md).
 
 ## Tips for better test generation
 

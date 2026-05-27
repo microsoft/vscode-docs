@@ -72,7 +72,7 @@ You can use Copilot Chat to help you fix coding issues or improve your code.
     * "Refactor this code"
     * "Improve the performance of this code"
 
-Learn more about using [Copilot Chat](/docs/copilot/chat/copilot-chat.md) in VS Code.
+Learn more about using [Copilot Chat](/docs/chat/copilot-chat.md) in VS Code.
 
 ### Use editor smart actions
 

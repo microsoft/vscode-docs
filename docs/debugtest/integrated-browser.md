@@ -144,7 +144,7 @@ Configure what information is included:
 | `setting(chat.sendElementsToChat.attachCSS)`     | Include CSS styles for selected elements  |
 | `setting(chat.sendElementsToChat.attachImages)`  | Include screenshots of selected elements  |
 
-Learn more about [adding context to chat](/docs/copilot/chat/copilot-chat-context.md).
+Learn more about [adding context to chat](/docs/chat/copilot-chat-context.md).
 
 ## Permissions
 
@@ -205,5 +205,5 @@ In autopilot mode, share requests are automatically declined to preserve your pr
 
 * [Browser debugging in VS Code](/docs/nodejs/browser-debugging.md)
 * [Test web apps with browser agent tools](/docs/copilot/guides/browser-agent-testing-guide.md)
-* [Add context to AI chat](/docs/copilot/chat/copilot-chat-context.md)
+* [Add context to AI chat](/docs/chat/copilot-chat-context.md)
 * [Port forwarding](/docs/debugtest/port-forwarding.md)

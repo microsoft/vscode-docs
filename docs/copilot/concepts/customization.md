@@ -53,7 +53,7 @@ There are two types:
 * **Always-on instructions**: project-wide rules defined in `.github/copilot-instructions.md` that apply to every request. Use these for conventions the whole team follows, like code style, naming patterns, or preferred libraries.
 * **File-based instructions**: guidelines in `.instructions.md` files that apply based on file path patterns or task descriptions. Use these when different parts of your codebase need different rules, such as React patterns for `.tsx` files or API conventions for your backend.
 
-Learn more about [creating custom instructions](/docs/copilot/customization/custom-instructions.md).
+Learn more about [creating custom instructions](/docs/agent-customization/custom-instructions.md).
 
 ## Prompt files
 
@@ -61,7 +61,7 @@ Prompt files are reusable Markdown files that encode a specific task and appear 
 
 Prompt files are useful for tasks like scaffolding a new component, generating test cases for a module, or preparing a pull request description.
 
-Learn more about [creating prompt files](/docs/copilot/customization/prompt-files.md).
+Learn more about [creating prompt files](/docs/agent-customization/prompt-files.md).
 
 ## Agent skills
 
@@ -69,7 +69,7 @@ Agent skills package multi-step capabilities as folders containing instructions,
 
 Skills load on demand when the task matches their description. They are built on an [open standard](https://agentskills.io), so the same skill works across different agent types.
 
-Learn more about [creating agent skills](/docs/copilot/customization/agent-skills.md).
+Learn more about [creating agent skills](/docs/agent-customization/agent-skills.md).
 
 ## Custom agents
 
@@ -77,7 +77,7 @@ Custom agents give the AI a specific persona and constrained set of tools for a 
 
 Each agent is defined in a `.agent.md` file that specifies its behavior, available tools, and language model preferences. Agents can also delegate to other agents, which enables multi-step workflows where different specialists handle different parts of a task.
 
-Learn more about [creating custom agents](/docs/copilot/customization/custom-agents.md).
+Learn more about [creating custom agents](/docs/agent-customization/custom-agents.md).
 
 ## MCP
 
@@ -85,13 +85,13 @@ Learn more about [creating custom agents](/docs/copilot/customization/custom-age
 
 MCP servers run locally or remotely and can also provide resources, prompts, and interactive apps.
 
-Learn more about [adding and managing MCP servers](/docs/copilot/customization/mcp-servers.md).
+Learn more about [adding and managing MCP servers](/docs/agent-customization/mcp-servers.md).
 
 ## Hooks
 
 Hooks run custom shell commands at specific points during an agent session. While instructions and prompts guide what the AI does, hooks guarantee that your code runs at defined lifecycle points. This makes hooks the right choice when you need deterministic outcomes, such as running a formatter after every file edit, blocking commits that fail a lint check, or logging every tool invocation for an audit trail.
 
-Learn more about [configuring hooks](/docs/copilot/customization/hooks.md).
+Learn more about [configuring hooks](/docs/agent-customization/hooks.md).
 
 ## Agent plugins
 
@@ -100,10 +100,10 @@ Agent plugins are pre-packaged bundles of customizations you discover and instal
 > [!NOTE]
 > Agent plugins are currently in preview.
 
-Learn more about [agent plugins](/docs/copilot/customization/agent-plugins.md).
+Learn more about [agent plugins](/docs/agent-customization/agent-plugins.md).
 
 ## Related resources
 
-* [Get started with customization](/docs/copilot/customization/overview.md)
+* [Get started with customization](/docs/agent-customization/overview.md)
 * [Agents](/docs/copilot/concepts/agents.md)
 * [Tools](/docs/copilot/concepts/tools.md)

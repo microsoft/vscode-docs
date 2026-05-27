@@ -11,7 +11,7 @@ This guide shows you how to set up a context engineering workflow in VS Code usi
 Context engineering is a systematic approach to providing AI agents with targeted project information to improve the quality and accuracy of generated code. By curating essential project context through custom instructions, implementation plans, and coding guidelines, you enable AI to make better decisions, improve accuracy, and maintain persistent knowledge across interactions.
 
 > [!TIP]
-> VS Code chat provides a [built-in plan agent](/docs/copilot/agents/planning.md) to help you create detailed implementation plans before starting complex coding tasks. If you don't want to create a custom planning workflow, you can use the plan agent to generate implementation plans quickly.
+> VS Code chat provides a [built-in plan agent](/docs/agents/planning.md) to help you create detailed implementation plans before starting complex coding tasks. If you don't want to create a custom planning workflow, you can use the plan agent to generate implementation plans quickly.
 
 ## Context engineering workflow
 
@@ -67,7 +67,7 @@ To ground the AI agent in the specifics of the project, collect key project info
     > * `Generate a PRODUCT.md (max 2 page) file that describes the product functionality of the project.`
     > * `Generate a CONTRIBUTING.md (max 1 page) file that describes developer guidelines and best practices for contributing to the project.`
 
-1. Create a `.github/copilot-instructions.md` [instructions file](/docs/copilot/customization/custom-instructions.md#use-a-githubcopilot-instructionsmd-file) at the root of your repository.
+1. Create a `.github/copilot-instructions.md` [instructions file](/docs/agent-customization/custom-instructions.md#use-a-githubcopilot-instructionsmd-file) at the root of your repository.
 
     The instructions in this file are automatically included in all chat interactions as context for the AI agent.
 
@@ -92,7 +92,7 @@ To ground the AI agent in the specifics of the project, collect key project info
 
 Once you have the project-specific context in place, you can use AI to prompt the creation of an implementation plan for a new feature or bug fix. Generating an implementation plan is an iterative process that might require multiple rounds of refinement to ensure it's complete and accurate.
 
-With a [custom agent](/docs/copilot/customization/custom-agents.md) for planning, you can create a dedicated persona with planning-specific guidelines and tools (for example, read-only access to the codebase). They can also capture specific workflows for brainstorming, researching, and collaborating for your project and team.
+With a [custom agent](/docs/agent-customization/custom-agents.md) for planning, you can create a dedicated persona with planning-specific guidelines and tools (for example, read-only access to the codebase). They can also capture specific workflows for brainstorming, researching, and collaborating for your project and team.
 
 > [!TIP]
 > Once you create custom agents, treat them as living documents. Refine and improve them over time based on any mistakes or shortcomings you observe in the agent's behavior.
@@ -123,9 +123,9 @@ With a [custom agent](/docs/copilot/customization/custom-agents.md) for planning
     Outline 1-3 open questions or uncertainties that need to be clarified.
     ```
 
-1. Create a planning [agent](/docs/copilot/customization/custom-agents.md) `.github/agents/plan.agent.md`
+1. Create a planning [agent](/docs/agent-customization/custom-agents.md) `.github/agents/plan.agent.md`
 
-    The planning agent defines a planning persona and instructs the agent not to perform implementation tasks, but to focus on creating the implementation plan. You can specify [handoffs](/docs/copilot/customization/custom-agents.md#handoffs) to transition to an implementation agent after the plan is complete.
+    The planning agent defines a planning persona and instructs the agent not to perform implementation tasks, but to focus on creating the implementation plan. You can specify [handoffs](/docs/agent-customization/custom-agents.md#handoffs) to transition to an implementation agent after the plan is complete.
 
     To create a custom agent, run the **Chat: New Custom Agent** command in the Command Palette.
 
@@ -162,7 +162,7 @@ With a [custom agent](/docs/copilot/customization/custom-agents.md) for planning
 
     You can also reference a GitHub issue to provide specific context: `Implement the feature from issue #43`, in which case the agent will fetch the issue description and comments to come up with requirements.
 
-1. Optionally, create a [prompt file](/docs/copilot/customization/prompt-files.md) `.github/prompts/plan.prompt.md` that invokes plan agent and instructs the agent to create an implementation plan from a provided feature request.
+1. Optionally, create a [prompt file](/docs/agent-customization/prompt-files.md) `.github/prompts/plan.prompt.md` that invokes plan agent and instructs the agent to create an implementation plan from a provided feature request.
 
     The following `plan-qna.prompt.md` file provides a varied starting point for the planning prompt, using the same workflow but adding a clarification step.
 
@@ -198,7 +198,7 @@ After you have generated and refined the implementation plan, you can now use AI
     > [!TIP]
     > Agent is optimized for executing multi-step tasks and figuring out how to best accomplish a goal based on the plan and your project context. You only need to provide the plan file or reference it in your prompt.
 
-1. For a more customized workflow, create a [custom agent](/docs/copilot/customization/custom-agents.md) `.github/agents/implement.agent.md` specialized in implementing code based on a plan.
+1. For a more customized workflow, create a [custom agent](/docs/agent-customization/custom-agents.md) `.github/agents/implement.agent.md` specialized in implementing code based on a plan.
 
     The following `tdd.agent.md` file provides a starting point for a test-driven implementation custom agent.
 
@@ -259,7 +259,7 @@ Following these best practices helps you establish a sustainable and effective c
 
 ### Workflow optimization
 
-**Handoffs between agents**: Use [handoffs](/docs/copilot/customization/custom-agents.md#handoffs) to create guided transitions and implement end-to-end development workflows between planning, implementation, and review agents.
+**Handoffs between agents**: Use [handoffs](/docs/agent-customization/custom-agents.md#handoffs) to create guided transitions and implement end-to-end development workflows between planning, implementation, and review agents.
 
 **Implement feedback loops**: Continuously validate that AI understands your context correctly. Ask clarifying questions and course-correct early when misunderstandings occur.
 
@@ -292,7 +292,7 @@ A successful context engineering setup should result in:
 
 **For teams**: Share context engineering setups through version control and establish team conventions for maintaining shared context.
 
-**For large projects**: Consider creating context hierarchies with project-wide, module-specific, and feature-specific context layers using [instructions files](/docs/copilot/customization/custom-instructions.md).
+**For large projects**: Consider creating context hierarchies with project-wide, module-specific, and feature-specific context layers using [instructions files](/docs/agent-customization/custom-instructions.md).
 
 **For long-term projects**: Establish regular context review cycles to keep documentation current and remove outdated information.
 
@@ -304,6 +304,6 @@ By following these practices and continuously refining your approach, you'll dev
 
 Learn more about customizing AI in VS Code:
 
-* [Instructions files](/docs/copilot/customization/custom-instructions.md)
-* [Custom agents](/docs/copilot/customization/custom-agents.md)
-* [Prompt files](/docs/copilot/customization/prompt-files.md)
+* [Instructions files](/docs/agent-customization/custom-instructions.md)
+* [Custom agents](/docs/agent-customization/custom-agents.md)
+* [Prompt files](/docs/agent-customization/prompt-files.md)

@@ -52,13 +52,13 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 | `setting(github.copilot.chat.scopeSelection)`<br/>Whether to prompt for a specific symbol scope if you use `/explain` and the active editor has no selection. | `false` |
 | `setting(github.copilot.chat.terminalChatLocation)`<br/>Controls where chat queries from the terminal should be opened. | `"chatView"` |
 | `setting(chat.detectParticipant.enabled)`<br/>Enable chat participant detection in the Chat view. | `true` |
-| `setting(chat.artifacts.enabled)` _(Experimental)_<br/>Enable or disable the [artifacts panel](/docs/copilot/chat/chat-artifacts.md) in the chat (preview). | `false` |
+| `setting(chat.artifacts.enabled)` _(Experimental)_<br/>Enable or disable the [artifacts panel](/docs/chat/chat-artifacts.md) in the chat (preview). | `false` |
 | `setting(chat.artifacts.rules.byMimeType)` _(Experimental)_<br/>Rules for extracting artifacts from tool results by MIME type pattern. Maps MIME type patterns (such as `"image/*"`) to a group configuration. | `{ "image/*": { "groupName": "Screenshots", "onlyShowGroup": true } }` |
 | `setting(chat.artifacts.rules.byFilePath)` _(Experimental)_<br/>Rules for extracting artifacts from written files by file path glob pattern. Maps glob patterns (such as `"**/*plan*.md"`) to a group configuration. | `{ "**/*plan*.md": { "groupName": "Plans" } }` |
 | `setting(chat.artifacts.rules.byMemoryFilePath)` _(Experimental)_<br/>Rules for extracting artifacts from memory tool writes by memory file path glob pattern. Maps glob patterns to a group configuration. | `{ "**/*plan*.md": { "groupName": "Plans" } }` |
-| `setting(chat.checkpoints.enabled)` <br/>Enable or disable [checkpoints](/docs/copilot/chat/chat-checkpoints.md) in the chat. | `true` |
+| `setting(chat.checkpoints.enabled)` <br/>Enable or disable [checkpoints](/docs/chat/chat-checkpoints.md) in the chat. | `true` |
 | `setting(chat.checkpoints.showFileChanges)` <br/>Show a summary of file changes at the end of each chat request. | `false` |
-| `setting(chat.editRequests)`<br/>Enable or disable [editing previous chat requests](/docs/copilot/chat/chat-checkpoints.md#edit-a-previous-chat-request). | `"inline"` |
+| `setting(chat.editRequests)`<br/>Enable or disable [editing previous chat requests](/docs/chat/chat-checkpoints.md#edit-a-previous-chat-request). | `"inline"` |
 | `setting(chat.editor.fontFamily)`<br/>Font family in chat codeblocks. | `"default"` |
 | `setting(chat.editor.fontSize)`<br/>Font size in pixels in chat codeblocks. | `14` |
 | `setting(chat.editor.fontWeight)`<br/>Font weight in chat codeblocks. | `"default"` |
@@ -75,8 +75,8 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 | `setting(chat.requestQueuing.defaultAction)`<br/>Configure the default action for the **Send** button while a request is in progress: `queue` adds the message to the queue, `steer` signals the current request to yield. | `"queue"` |
 | `setting(chat.tools.terminal.autoReplyToPrompts)` <br/>Automatically reply to terminal prompts with a default answer. | `false` |
 | `setting(chat.tools.terminal.terminalProfile.<platform>)`<br/>Configure which terminal profile to use for chat terminal commands on each platform. | `""` |
-| `setting(chat.hookFilesLocations)` _(Preview)_ <br/>Configure additional [hook file locations](/docs/copilot/customization/hooks.md#hook-file-locations). Specify paths to folders (loads all `*.json` files) or direct paths to `.json` files. Only relative paths and tilde paths are supported. | `{}` |
-| `setting(chat.useCustomAgentHooks)` _(Preview)_ <br/>Enable [agent-scoped hooks](/docs/copilot/customization/hooks.md#agentscoped-hooks) defined in custom agent frontmatter. When enabled, hooks in `.agent.md` files run only when that agent is active. | `false` |
+| `setting(chat.hookFilesLocations)` _(Preview)_ <br/>Configure additional [hook file locations](/docs/agent-customization/hooks.md#hook-file-locations). Specify paths to folders (loads all `*.json` files) or direct paths to `.json` files. Only relative paths and tilde paths are supported. | `{}` |
+| `setting(chat.useCustomAgentHooks)` _(Preview)_ <br/>Enable [agent-scoped hooks](/docs/agent-customization/hooks.md#agentscoped-hooks) defined in custom agent frontmatter. When enabled, hooks in `.agent.md` files run only when that agent is active. | `false` |
 | `setting(chat.useAgentsMdFile)` <br/>Enable or disable using `AGENTS.md` files as context for chat requests. | `true` |
 | `setting(chat.math.enabled)` <br/>Enable or disable math rendering with [KaTeX](https://katex.org) in chat. | `false` |
 | `setting(chat.viewTitle.enabled)` _(Preview)_<br/>Show the title of the current chat session in the chat header. | `true` |
@@ -105,22 +105,22 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 | `setting(chat.mcp.apps.enabled)` _(Experimental)_<br/>Enable or disable MCP Apps, which are rich user interfaces provided by MCP servers. | `true` |
 | `setting(chat.tools.compressOutput.enabled)` _(Preview)_<br/>Compress large terminal output before sending it to the model to reduce context window usage. Collapses unchanged diff hunks, drops lockfile diffs, and strips install progress. | `false` |
 | `setting(chat.tools.riskAssessment.enabled)` _(Experimental)_<br/>Show an AI-generated risk badge on terminal command confirmations, indicating whether a command is safe, requires caution, or should be reviewed carefully. | `true` |
-| `setting(chat.tools.terminal.autoApprove)` <br/>Control which terminal commands are [auto-approved when using agents](/docs/copilot/agents/agent-tools.md#automatically-approve-terminal-commands). Commands can be set to `true` (auto-approve) or `false` (require approval). Regular expressions can be used by wrapping patterns in `/` characters. | `{ "rm": false, "rmdir": false, "del": false, "kill": false, "curl": false, "wget": false, "eval": false, "chmod": false, "chown": false, "/^Remove-Item\\b/i": false }` |
+| `setting(chat.tools.terminal.autoApprove)` <br/>Control which terminal commands are [auto-approved when using agents](/docs/agents/agent-tools.md#automatically-approve-terminal-commands). Commands can be set to `true` (auto-approve) or `false` (require approval). Regular expressions can be used by wrapping patterns in `/` characters. | `{ "rm": false, "rmdir": false, "del": false, "kill": false, "curl": false, "wget": false, "eval": false, "chmod": false, "chown": false, "/^Remove-Item\\b/i": false }` |
 | `setting(chat.tools.terminal.enableAutoApprove)` <br/>Enable or disable automatic approval of terminal commands. | `true` |
 | `setting(chat.tools.edits.autoApprove)` <br/>Configure which files require approval before edits are applied. Uses glob patterns to match file paths in your workspace. | `{}` |
 | `setting(chat.tools.terminal.outputLocation)` _(Experimental)_<br/>Configure where terminal command output appears: inline in chat or in the integrated terminal. | `"chat"` |
 | `setting(chat.tools.terminal.enforceTimeoutFromModel)` _(Experimental)_<br/>Control whether to enforce the timeout value that the agent specifies for terminal commands. When enabled, the agent stops tracking the command after the specified duration and returns the output collected so far. | `true` |
 | `setting(chat.tools.terminal.ignoreDefaultAutoApproveRules)` <br/>Ignore the default auto-approve rules for terminal commands. | `false` |
 | `setting(chat.tools.global.autoApprove)`<br/>Automatically approve all tools - this setting [disables critical security protections](/docs/copilot/security.md). | `false` |
-| `setting(chat.autopilot.enabled)` _(Experimental)_<br/>Controls whether the [Autopilot permission level](/docs/copilot/agents/agent-tools.md#permission-levels) is available in the permissions picker. When enabled, Autopilot auto-approves all tool calls and continues until the task is done. | `true` |
-| `setting(chat.permissions.default)` _(Experimental)_<br/>Set the default [permission level](/docs/copilot/agents/agent-tools.md#permission-levels) for new chat sessions. Options: `default` (Default Approvals), `autoApprove` (Bypass Approvals), `autopilot` (Autopilot). You can still change the permission level per session. If enterprise policy disables auto-approval, new sessions use Default Approvals. | `"default"` |
-| `setting(chat.tools.urls.autoApprove)` <br/>Control which [URL requests and responses are auto-approved](/docs/copilot/agents/agent-tools.md#url-approval). | `[]` |
+| `setting(chat.autopilot.enabled)` _(Experimental)_<br/>Controls whether the [Autopilot permission level](/docs/agents/agent-tools.md#permission-levels) is available in the permissions picker. When enabled, Autopilot auto-approves all tool calls and continues until the task is done. | `true` |
+| `setting(chat.permissions.default)` _(Experimental)_<br/>Set the default [permission level](/docs/agents/agent-tools.md#permission-levels) for new chat sessions. Options: `default` (Default Approvals), `autoApprove` (Bypass Approvals), `autopilot` (Autopilot). You can still change the permission level per session. If enterprise policy disables auto-approval, new sessions use Default Approvals. | `"default"` |
+| `setting(chat.tools.urls.autoApprove)` <br/>Control which [URL requests and responses are auto-approved](/docs/agents/agent-tools.md#url-approval). | `[]` |
 | `setting(chat.agent.thinking.collapsedTools)` _(Experimental)_<br/>Configure whether tool call details are collapsed or expanded by default in the chat conversation. | `always` |
 | `setting(chat.agent.thinkingStyle)` _(Experimental)_<br/>Configure how thinking tokens are presented in chat. | `fixedScrolling` |
 | `setting(chat.mcp.autoStart)` _(Experimental)_<br/>Automatically start MCP servers when MCP configuration changes are detected. | `newAndOutdated` |
 | `setting(chat.tools.eligibleForAutoApproval)` _(Experimental)_<br/>Configure which tools require manual approval before they can be used by agents. | `[]` |
 | `setting(chat.tools.terminal.blockDetectedFileWrites)` _(Experimental)_<br/>Require user approval for terminal commands that perform file writes outside the workspace. Writes to the OS temporary folder (`/tmp` on macOS and Linux, `%TEMP%` on Windows) are exempt when session-level command approval is active. | `outsideWorkspace` |
-| `setting(chat.agent.sandbox.enabled)` _(Preview)_<br/>Enable [sandboxing for agent commands](/docs/copilot/agents/agent-tools.md#sandbox-agent-commands) executed by the agent (macOS and Linux only). Possible values: `off` (disabled), `on` (full file system and network isolation), `allowNetwork` (file system isolation only, all outbound network traffic is allowed). When enabled, commands are auto-approved and have restricted access. | `off` |
+| `setting(chat.agent.sandbox.enabled)` _(Preview)_<br/>Enable [sandboxing for agent commands](/docs/agents/agent-tools.md#sandbox-agent-commands) executed by the agent (macOS and Linux only). Possible values: `off` (disabled), `on` (full file system and network isolation), `allowNetwork` (file system isolation only, all outbound network traffic is allowed). When enabled, commands are auto-approved and have restricted access. | `off` |
 | `setting(chat.agent.sandbox.FileSystem.linux)` _(Preview)_<br/>Configure file system access rules for sandboxed agent commands on Linux. Supports `allowRead`, `allowWrite`, `denyRead`, and `denyWrite` properties. | `{}` |
 | `setting(chat.agent.sandbox.FileSystem.mac)` _(Preview)_<br/>Configure file system access rules for sandboxed agent commands on macOS. Supports `allowRead`, `allowWrite`, `denyRead`, and `denyWrite` properties. | `{}` |
 | `setting(chat.agent.networkFilter)`<br/>Enable network domain filtering for agent tools (fetch tool, integrated browser). When enabled, network access is restricted according to `setting(chat.agent.allowedNetworkDomains)` and `setting(chat.agent.deniedNetworkDomains)`. When disabled, no filtering is applied. | `false` |
@@ -140,15 +140,15 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 
 ## Agent sessions
 
-The [Agents view](/docs/copilot/agents/overview.md) provides a centralized location for managing both local chat conversations and remote coding agent sessions. This view enables you to work with multiple AI sessions simultaneously, track their progress, and manage long-running tasks efficiently.
+The [Agents view](/docs/agents/overview.md) provides a centralized location for managing both local chat conversations and remote coding agent sessions. This view enables you to work with multiple AI sessions simultaneously, track their progress, and manage long-running tasks efficiently.
 
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(workbench.startupEditor)` <br/>Configure the VS Code welcome page to act as your agent sessions entry point. Set to `agentSessionsWelcomePage` to show the [VS Code welcome page](/docs/copilot/chat/chat-sessions.md#vs-code-welcome-page) with recent sessions, embedded chat, and quick actions. | N/A |
+| `setting(workbench.startupEditor)` <br/>Configure the VS Code welcome page to act as your agent sessions entry point. Set to `agentSessionsWelcomePage` to show the [VS Code welcome page](/docs/chat/chat-sessions.md#vs-code-welcome-page) with recent sessions, embedded chat, and quick actions. | N/A |
 | `setting(chat.viewSessions.enabled)` <br/>Show the agent sessions list in the Chat view. | `true` |
 | `setting(chat.viewSessions.orientation)` <br/>Control the layout orientation of the sessions list in the Chat view. | `"sideBySide"` |
 | `setting(chat.editMode.hidden)` <br/>Restore the deprecated Edit mode for multi-file code edits. | `true` |
-| `setting(chat.agentsControl.enabled)` _(Experimental)_<br/>Enable the [session status indicator](/docs/copilot/chat/chat-sessions.md#session-status-indicator-experimental) in the command center. Shows unread and in-progress session badges. | `true` |
+| `setting(chat.agentsControl.enabled)` _(Experimental)_<br/>Enable the [session status indicator](/docs/chat/chat-sessions.md#session-status-indicator-experimental) in the command center. Shows unread and in-progress session badges. | `true` |
 | `setting(chat.agentsControl.clickBehavior)` _(Experimental)_<br/>Configure the behavior when selecting the chat icon in the agent status indicator. | `"cycle"` (Insiders)<br/>`"default"` (Stable) |
 | `setting(chat.unifiedAgentsBar.enabled)` _(Experimental)_<br/>Replace the command center search box with a unified chat and search control. | `false` |
 | `setting(github.copilot.chat.cli.remote.enabled)` _(Experimental)_<br/>Enable remote control support for Copilot CLI sessions from github.com or the GitHub Mobile app. | `true` |
@@ -192,7 +192,7 @@ The [Agents view](/docs/copilot/agents/overview.md) provides a centralized locat
 | `setting(github.copilot.chat.commitMessageGeneration.instructions)` _(Experimental)_<br/>Custom instructions for generating commit messages with AI. | `[]` |
 | `setting(github.copilot.chat.pullRequestDescriptionGeneration.instructions)` _(Experimental)_<br/>Custom instructions for generating pull request titles and descriptions with AI. | `[]` |
 | `setting(github.copilot.chat.organizationInstructions.enabled)`<br/>Enable discovery of custom instructions defined at the GitHub organization level. | `true` |
-| `setting(chat.useCustomizationsInParentRepositories)`<br/>Enable discovery of agent customizations (instructions, prompts, agents, skills, hooks) in [parent repository folders](/docs/copilot/customization/overview.md#parent-repository-discovery). Useful for monorepo setups where you open a subfolder rather than the repository root. | `false` |
+| `setting(chat.useCustomizationsInParentRepositories)`<br/>Enable discovery of agent customizations (instructions, prompts, agents, skills, hooks) in [parent repository folders](/docs/agent-customization/overview.md#parent-repository-discovery). Useful for monorepo setups where you open a subfolder rather than the repository root. | `false` |
 
 ## Reusable prompt files settings
 
@@ -213,16 +213,16 @@ The [Agents view](/docs/copilot/agents/overview.md) provides a centralized locat
 
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(chat.useAgentSkills)` <br/>Enable support for [agent skills](/docs/copilot/customization/agent-skills.md) in VS Code. | `true` |
+| `setting(chat.useAgentSkills)` <br/>Enable support for [agent skills](/docs/agent-customization/agent-skills.md) in VS Code. | `true` |
 | `setting(chat.agentSkillsLocations)` <br/>Locations to search for agent skills. Relative paths are resolved from the root folder(s) of your workspace. Supports home directory expansion (`~`) for user-specific paths. | `"chat.agentSkillsLocations": { ".github/skills": true,".claude/skills": true,"~/.copilot/skills": true,"~/.claude/skills": true}` |
-| `setting(github.copilot.chat.skillTool.enabled)` _(Experimental)_<br/>Enable the dedicated skill tool for invoking [agent skills](/docs/copilot/customization/agent-skills.md). Required to run skills with [`context: fork`](/docs/copilot/customization/agent-skills.md#run-a-skill-in-a-forked-context-experimental) in a separate subagent context. | `false` |
+| `setting(github.copilot.chat.skillTool.enabled)` _(Experimental)_<br/>Enable the dedicated skill tool for invoking [agent skills](/docs/agent-customization/agent-skills.md). Required to run skills with [`context: fork`](/docs/agent-customization/agent-skills.md#run-a-skill-in-a-forked-context-experimental) in a separate subagent context. | `false` |
 
 ## Memory settings
 
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(github.copilot.chat.tools.memory.enabled)` _(Preview)_<br/>Enable or disable the built-in [memory tool](/docs/copilot/agents/memory.md), which enables agents to save and recall notes across conversations. | `true` |
-| `setting(github.copilot.chat.copilotMemory.enabled)` _(Preview)_<br/>Enable [Copilot Memory](/docs/copilot/agents/memory.md#copilot-memory) integration in VS Code. Copilot Memory is a GitHub-hosted memory system that retains repository-specific insights across multiple Copilot surfaces. | `false` |
+| `setting(github.copilot.chat.tools.memory.enabled)` _(Preview)_<br/>Enable or disable the built-in [memory tool](/docs/agents/memory.md), which enables agents to save and recall notes across conversations. | `true` |
+| `setting(github.copilot.chat.copilotMemory.enabled)` _(Preview)_<br/>Enable [Copilot Memory](/docs/agents/memory.md#copilot-memory) integration in VS Code. Copilot Memory is a GitHub-hosted memory system that retains repository-specific insights across multiple Copilot surfaces. | `false` |
 
 ## Observability settings
 
@@ -238,7 +238,7 @@ The [Agents view](/docs/copilot/agents/overview.md) provides a centralized locat
 
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(chat.plugins.enabled)` _(Preview)_<br/>Enable or disable support for [agent plugins](/docs/copilot/customization/agent-plugins.md). | `false` |
+| `setting(chat.plugins.enabled)` _(Preview)_<br/>Enable or disable support for [agent plugins](/docs/agent-customization/agent-plugins.md). | `false` |
 | `setting(chat.plugins.marketplaces)` _(Experimental)_<br/>Configure additional plugin marketplace Git repositories for discovering agent plugins. | `["github/copilot-plugins", "github/awesome-copilot"]` |
 | `setting(chat.pluginLocations)` _(Experimental)_<br/>Register locally cloned or downloaded agent plugins by mapping directory paths to an enabled or disabled state. | `{}` |
 
@@ -246,7 +246,7 @@ The [Agents view](/docs/copilot/agents/overview.md) provides a centralized locat
 
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(github.copilot.chat.agentDebugLog.enabled)`<br/>Enable the [agent debug logs](/docs/copilot/chat/chat-debug-view.md) and the [`/troubleshoot`](/docs/copilot/chat/chat-debug-view.md#attach-debug-events-to-chat) slash command for inspecting chat sessions. | `false` |
+| `setting(github.copilot.chat.agentDebugLog.enabled)`<br/>Enable the [agent debug logs](/docs/chat/chat-debug-view.md) and the [`/troubleshoot`](/docs/chat/chat-debug-view.md#attach-debug-events-to-chat) slash command for inspecting chat sessions. | `false` |
 | `setting(github.copilot.chat.agentDebugLog.fileLogging.enabled)`<br/>Enable file logging for agent debug logs, which writes debug events to a file on disk. | `false` |
 | `setting(github.copilot.chat.startDebugging.enabled)` _(Preview)_<br/>Enables the experimental `/startDebugging` intent in the Chat view to generate debugging configuration. | `true` |
 | `setting(github.copilot.chat.copilotDebugCommand.enabled)` _(Preview)_<br/>Enables the `copilot-debug` terminal command. | `true` |

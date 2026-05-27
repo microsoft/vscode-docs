@@ -75,7 +75,7 @@ Instead of adding individual files manually, you can let VS Code find the right 
 
 ![Screenshot of Chat view, showing the Attach context button and context Quick Pick.](../images/prompt-engineering-guide/copilot-chat-view-attach-context.png)
 
-Learn more about [using context in chat](/docs/copilot/chat/copilot-chat-context.md).
+Learn more about [using context in chat](/docs/chat/copilot-chat-context.md).
 
 ### Be specific and keep it simple
 

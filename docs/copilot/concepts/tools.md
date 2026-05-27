@@ -46,9 +46,9 @@ Limiting the available tools can help in several ways:
 * **Get more relevant results**: when fewer tools are available, the agent focuses on the most appropriate ones rather than choosing from a large set.
 * **Improve performance**: a smaller tool set reduces the decision space for the model, which can speed up responses.
 
-You can also control tool availability through [prompt files](/docs/copilot/customization/prompt-files.md) and [custom agents](/docs/copilot/customization/custom-agents.md), which let you define a fixed set of tools for specific tasks or workflows.
+You can also control tool availability through [prompt files](/docs/agent-customization/prompt-files.md) and [custom agents](/docs/agent-customization/custom-agents.md), which let you define a fixed set of tools for specific tasks or workflows.
 
-Learn more about [enabling tools for chat](/docs/copilot/agents/agent-tools.md#enable-tools-for-chat).
+Learn more about [enabling tools for chat](/docs/agents/agent-tools.md#enable-tools-for-chat).
 
 ## Tool approval and trust
 
@@ -62,6 +62,6 @@ Learn more about [trust and safety](/docs/copilot/concepts/trust-and-safety.md).
 
 ## Related resources
 
-* [Use tools with agents](/docs/copilot/agents/agent-tools.md)
-* [Add and manage MCP servers](/docs/copilot/customization/mcp-servers.md)
+* [Use tools with agents](/docs/agents/agent-tools.md)
+* [Add and manage MCP servers](/docs/agent-customization/mcp-servers.md)
 * [Agents](/docs/copilot/concepts/agents.md)

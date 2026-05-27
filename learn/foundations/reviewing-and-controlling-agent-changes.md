@@ -145,7 +145,7 @@ In the [next guide](/learn/foundations/agent-sessions-and-where-agents-run.md), 
 
 ## Learn more
 
-* [Reviewing AI-generated code edits in VS Code](https://code.visualstudio.com/docs/copilot/chat/review-code-edits)
-* [Checkpoints and editing requests in VS Code](https://code.visualstudio.com/docs/copilot/chat/chat-checkpoints)
-* [Create and manage chat sessions](https://code.visualstudio.com/docs/copilot/chat/chat-sessions)
-* [Chat overview in VS Code](https://code.visualstudio.com/docs/copilot/chat/copilot-chat)
+* [Reviewing AI-generated code edits in VS Code](https://code.visualstudio.com/docs/chat/review-code-edits)
+* [Checkpoints and editing requests in VS Code](https://code.visualstudio.com/docs/chat/chat-checkpoints)
+* [Create and manage chat sessions](https://code.visualstudio.com/docs/chat/chat-sessions)
+* [Chat overview in VS Code](https://code.visualstudio.com/docs/chat/copilot-chat)

@@ -3,28 +3,28 @@
         "name": "Agents",
         "area": "agents",
         "topics": [
-            ["Overview", "/docs/copilot/agents/overview"],
-            ["Agents Tutorial", "/docs/copilot/agents/agents-tutorial"],
+            ["Overview", "/docs/agents/overview"],
+            ["Agents Tutorial", "/docs/agents/agents-tutorial"],
 
-            ["Agents Window", "/docs/copilot/agents/agents-window"],
+            ["Agents Window", "/docs/agents/agents-window"],
 
             ["", "", {
                 "name": "Agent Types",
-                "area": "agent-types",
+                "area": "agents",
                 "topics": [
-                    ["Local Agents", "/docs/copilot/agents/local-agents"],
-                    ["Copilot CLI", "/docs/copilot/agents/copilot-cli"],
-                    ["Cloud Agents", "/docs/copilot/agents/cloud-agents"],
-                    ["Third-Party Agents", "/docs/copilot/agents/third-party-agents"]
+                    ["Local Agents", "/docs/agents/local-agents"],
+                    ["Copilot CLI", "/docs/agents/copilot-cli"],
+                    ["Cloud Agents", "/docs/agents/cloud-agents"],
+                    ["Third-Party Agents", "/docs/agents/third-party-agents"]
                 ]
             }],
 
-            ["Planning", "/docs/copilot/agents/planning"],
-            ["Memory", "/docs/copilot/agents/memory"],
-            ["Tools", "/docs/copilot/agents/agent-tools"],
-            ["Subagents", "/docs/copilot/agents/subagents"],
+            ["Planning", "/docs/agents/planning"],
+            ["Memory", "/docs/agents/memory"],
+            ["Tools", "/docs/agents/agent-tools"],
+            ["Subagents", "/docs/agents/subagents"],
 
-            ["Best Practices", "/docs/copilot/best-practices"],
+            ["Best Practices", "/docs/agents/best-practices"],
             ["Security", "/docs/copilot/security"],
         ]
     },
@@ -34,15 +34,15 @@
         "area": "customization",
         "noCollapse": false,
         "topics": [
-            ["Overview", "/docs/copilot/customization/overview"],
-            ["Instructions", "/docs/copilot/customization/custom-instructions"],
-            ["Prompt Files", "/docs/copilot/customization/prompt-files"],
-            ["Custom Agents", "/docs/copilot/customization/custom-agents"],
-            ["Agent Skills", "/docs/copilot/customization/agent-skills"],
-            ["Language Models", "/docs/copilot/customization/language-models"],
-            ["MCP", "/docs/copilot/customization/mcp-servers"],
-            ["Hooks", "/docs/copilot/customization/hooks"],
-            ["Plugins", "/docs/copilot/customization/agent-plugins"]
+            ["Overview", "/docs/agent-customization/overview"],
+            ["Instructions", "/docs/agent-customization/custom-instructions"],
+            ["Prompt Files", "/docs/agent-customization/prompt-files"],
+            ["Custom Agents", "/docs/agent-customization/custom-agents"],
+            ["Agent Skills", "/docs/agent-customization/agent-skills"],
+            ["Language Models", "/docs/agent-customization/language-models"],
+            ["MCP", "/docs/agent-customization/mcp-servers"],
+            ["Hooks", "/docs/agent-customization/hooks"],
+            ["Plugins", "/docs/agent-customization/agent-plugins"]
         ]
     },
 
@@ -50,13 +50,13 @@
         "name": "Chat",
         "area": "chat",
         "topics": [
-            ["Overview", "/docs/copilot/chat/copilot-chat"],
-            ["Chat Sessions", "/docs/copilot/chat/chat-sessions"],
-            ["Add Context", "/docs/copilot/chat/copilot-chat-context"],
-            ["Inline Chat", "/docs/copilot/chat/inline-chat"],
-            ["Review Edits", "/docs/copilot/chat/review-code-edits"],
-            ["Checkpoints", "/docs/copilot/chat/chat-checkpoints"],
-            ["Artifacts Panel", "/docs/copilot/chat/chat-artifacts"],
+            ["Overview", "/docs/chat/copilot-chat"],
+            ["Chat Sessions", "/docs/chat/chat-sessions"],
+            ["Add Context", "/docs/chat/copilot-chat-context"],
+            ["Inline Chat", "/docs/chat/inline-chat"],
+            ["Review Edits", "/docs/chat/review-code-edits"],
+            ["Checkpoints", "/docs/chat/chat-checkpoints"],
+            ["Artifacts Panel", "/docs/chat/chat-artifacts"],
         ]
     },
 
@@ -78,7 +78,7 @@
         "name": "Guides & Tutorials",
         "area": "copilot/guides",
         "topics": [
-            ["Prompt Examples", "/docs/copilot/chat/prompt-examples"],
+            ["Prompt Examples", "/docs/chat/prompt-examples"],
             ["Context Engineering", "/docs/copilot/guides/context-engineering-guide"],
             ["Customize AI", "/docs/copilot/guides/customize-copilot-guide"],
             ["Test-Driven Development", "/docs/copilot/guides/test-driven-development-guide"],
@@ -95,7 +95,7 @@
         "name": "Troubleshooting",
         "area": "troubleshooting",
         "topics": [
-            ["Debug Chat Interactions", "/docs/copilot/chat/chat-debug-view"],
+            ["Debug Chat Interactions", "/docs/chat/chat-debug-view"],
             ["Troubleshooting", "/docs/copilot/troubleshooting"],
             ["FAQ", "/docs/copilot/faq"],
         ]

@@ -25,11 +25,11 @@ Signing in with a GitHub account that has access to GitHub Copilot has the follo
 
 * [Increased monthly limit of chat interactions](https://docs.github.com/en/copilot/get-started/plans#comparing-copilot-plans)
 * [Access to premium language models in chat](https://docs.github.com/en/copilot/reference/ai-models/supported-models#supported-ai-models-per-copilot-plan) beyond auto model selection
-* [Bring your own model keys](/docs/copilot/customization/language-models.md#bring-your-own-language-model-key) (BYOK) to access more models
+* [Bring your own model keys](/docs/agent-customization/language-models.md#bring-your-own-language-model-key) (BYOK) to access more models
 * [Remote repository indexing and semantic code search](/docs/copilot/reference/workspace-context.md#remote-index)
 * [Copilot code review](https://docs.github.com/en/copilot/concepts/agents/code-review)
 * [Copilot content exclusions](https://docs.github.com/en/copilot/how-tos/configure-content-exclusion/exclude-content-from-copilot)
-* [Delegate tasks to Copilot cloud agent](/docs/copilot/agents/cloud-agents.md#github-copilot-cloud-agent) for background execution
+* [Delegate tasks to Copilot cloud agent](/docs/agents/cloud-agents.md#github-copilot-cloud-agent) for background execution
 
 Depending on your Copilot plan, you might have different levels of access and limits. See [GitHub Copilot plans](https://docs.github.com/en/copilot/get-started/plans) for more information.
 
@@ -137,11 +137,11 @@ Verify that agents are enabled in your VS Code settings: `setting(chat.agent.ena
 
 ### What can agents do in VS Code?
 
-Agents handle complete coding tasks autonomously. They plan multi-step implementations, execute coordinated changes across multiple files, run terminal commands, invoke tools, and self-correct when they encounter errors. Use agents for feature implementation, architecture-level refactoring, framework migrations, debugging, and test generation. Learn more about [using agents](/docs/copilot/agents/overview.md).
+Agents handle complete coding tasks autonomously. They plan multi-step implementations, execute coordinated changes across multiple files, run terminal commands, invoke tools, and self-correct when they encounter errors. Use agents for feature implementation, architecture-level refactoring, framework migrations, debugging, and test generation. Learn more about [using agents](/docs/agents/overview.md).
 
 ### Does Copilot work with large codebases and monorepos?
 
-Yes. VS Code automatically indexes your workspace using semantic search, language intelligence (LSP), and GitHub's code search to provide deep understanding across your repository. For large repositories, [remote indexing](/docs/copilot/reference/workspace-context.md#remote-index) uses GitHub's index for fast, comprehensive results across related repositories. Use [multi-root workspaces](/docs/editing/workspaces/multi-root-workspaces.md) to scope context in monorepos, and [custom instructions](/docs/copilot/customization/custom-instructions.md) to describe your project's architecture. See [best practices for large codebases](/docs/copilot/best-practices.md#work-with-large-codebases).
+Yes. VS Code automatically indexes your workspace using semantic search, language intelligence (LSP), and GitHub's code search to provide deep understanding across your repository. For large repositories, [remote indexing](/docs/copilot/reference/workspace-context.md#remote-index) uses GitHub's index for fast, comprehensive results across related repositories. Use [multi-root workspaces](/docs/editing/workspaces/multi-root-workspaces.md) to scope context in monorepos, and [custom instructions](/docs/agent-customization/custom-instructions.md) to describe your project's architecture. See [best practices for large codebases](/docs/agents/best-practices.md#work-with-large-codebases).
 
 ### Can my organization control AI features and agent access?
 
@@ -153,7 +153,7 @@ Agents use premium requests from your Copilot plan. Paid plans include a monthly
 
 ### Not all models are available in the language model picker
 
-You can choose which models are available in the language model picker. Learn how to [customize the language model picker](/docs/copilot/customization/language-models.md#customize-the-model-picker).
+You can choose which models are available in the language model picker. Learn how to [customize the language model picker](/docs/agent-customization/language-models.md#customize-the-model-picker).
 
 Organizations can restrict access to certain models. If you believe a model should be available, contact your organization administrator.
 

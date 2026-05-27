@@ -24,7 +24,7 @@ Audit VS Code Copilot documentation against current product capabilities and pro
 
 **High-traffic pages to always check:**
 - [docs/copilot/overview.md](/docs/copilot/overview.md), [docs/copilot/concepts/overview.md](/docs/copilot/concepts/overview.md), [docs/copilot/reference/copilot-vscode-features.md](/docs/copilot/reference/copilot-vscode-features.md)
-- [docs/copilot/getting-started.md](/docs/copilot/getting-started.md), [docs/copilot/agents/overview.md](/docs/copilot/agents/overview.md)
+- [docs/copilot/getting-started.md](/docs/copilot/getting-started.md), [docs/copilot/agents/overview.md](/docs/agents/overview.md)
 - [docs/copilot/reference/workspace-context.md](/docs/copilot/reference/workspace-context.md), [docs/copilot/faq.md](/docs/copilot/faq.md)
 
 ## Terminology
