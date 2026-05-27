@@ -19,6 +19,8 @@ You can now create a new React application by typing:
 
 ```bash
 npx create-react-app my-app
+
+>**Note**: `create-react-app` is no longer actively maintained. The React team now recommends using a framework like [Vite](https://vite.dev) (`npm create vite@latest my-app -- --template react`) or [Next.js](https://nextjs.org). The steps in this tutorial still apply to any React project setup.
 ```
 
 where `my-app` is the name of the folder for your application. This may take a few minutes to create the React application and install its dependencies.
