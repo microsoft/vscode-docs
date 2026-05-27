@@ -3,13 +3,13 @@
     "name": "Write code",
     "area": "editing",
     "topics": [
-      ["Tutorial", "/docs/getstarted/getting-started"],
-      ["User Interface", "/docs/getstarted/userinterface"],
-      ["Tips and Tricks", "/docs/getstarted/tips-and-tricks"],
+      ["Tutorial", "/docs/editing/getting-started"],
+      ["User Interface", "/docs/editing/userinterface"],
+      ["Tips and Tricks", "/docs/editing/tips-and-tricks"],
       ["Basic Editing", "/docs/editing/codebasics"],
       ["IntelliSense", "/docs/editing/intellisense"],
-      ["Inline Suggestions", "/docs/copilot/ai-powered-suggestions"],
-      ["Smart Actions", "/docs/copilot/copilot-smart-actions"],
+      ["Inline Suggestions", "/docs/editing/ai-powered-suggestions"],
+      ["Smart Actions", "/docs/editing/copilot-smart-actions"],
       ["Code Navigation", "/docs/editing/editingevolved"],
       ["Refactoring", "/docs/editing/refactoring"],
       ["Snippets", "/docs/editing/userdefinedsnippets"],
@@ -38,6 +38,7 @@
         "name": "Extensions",
         "area": "configure/extensions",
         "topics": [
+          ["Overview", "/docs/configure/extensions/extensions"],
           ["Extension Marketplace", "/docs/configure/extensions/extension-marketplace"],
           ["Extension Runtime Security", "/docs/configure/extensions/extension-runtime-security"]
         ]
