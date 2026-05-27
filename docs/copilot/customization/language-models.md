@@ -179,7 +179,7 @@ To configure a language model from a built-in provider:
 ### Add a custom endpoint model
 
 > [!NOTE]
-> The Custom Endpoint provider is currently only available in [VS Code Insiders](https://code.visualstudio.com/insiders/). It replaces the deprecated OpenAI Compatible provider and supports additional API types. The `setting(github.copilot.chat.customOAIModels)` setting is deprecated.
+> It replaces the deprecated OpenAI Compatible provider and supports additional API types. The `setting(github.copilot.chat.customOAIModels)` setting is deprecated.
 
 The Custom Endpoint provider lets you connect any compatible API endpoint to chat in VS Code. It supports three API types, which you can select per model: Chat Completions, Responses, and Messages.
 
