@@ -9,5 +9,11 @@
     { "from": "/docs/copilot/copilot-coding-agent", "to": "/docs/copilot/copilot-cloud-agent", "status": 301 },
     { "from": "/docs/intelligentapps/bulkrun", "to": "/docs/intelligentapps/overview", "status": 301 },
     { "from": "/docs/copilot/agents-app", "to": "/docs/copilot/agents/agents-window", "status": 301 },
-    { "from": "/docs/getstarted/introvideos", "to": "https://www.youtube.com/@code", "status": 301 }
+    { "from": "/docs/getstarted/introvideos", "to": "https://www.youtube.com/@code", "status": 301 },
+    { "from": "/docs/getstarted/extensions", "to": "/docs/configure/extensions/extensions", "status": 301 },
+    { "from": "/docs/copilot/ai-powered-suggestions", "to": "/docs/editing/ai-powered-suggestions", "status": 301 },
+    { "from": "/docs/copilot/copilot-smart-actions", "to": "/docs/editing/copilot-smart-actions", "status": 301 },
+    { "from": "/docs/getstarted/getting-started", "to": "/docs/editing/getting-started", "status": 301 },
+    { "from": "/docs/getstarted/tips-and-tricks", "to": "/docs/editing/tips-and-tricks", "status": 301 },
+    { "from": "/docs/getstarted/userinterface", "to": "/docs/editing/userinterface", "status": 301 }
 ]
