@@ -76,7 +76,6 @@
           ["Overview", "/docs/copilot/chat/copilot-chat"],
           ["Chat Sessions", "/docs/copilot/chat/chat-sessions"],
           ["Session Insights", "/docs/copilot/chat/session-insights"],
-          ["Sync Sessions", "/docs/copilot/chat/session-sync"],
           ["Add Context", "/docs/copilot/chat/copilot-chat-context"],
           ["Inline Chat", "/docs/copilot/chat/inline-chat"],
           ["Review Edits", "/docs/copilot/chat/review-code-edits"],
