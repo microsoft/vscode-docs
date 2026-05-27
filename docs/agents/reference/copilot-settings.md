@@ -1,6 +1,6 @@
 ---
 ContentId: 7b232695-cbbe-4f3f-a625-abc7a5e6496c
-DateApproved: 5/13/2026
+DateApproved: 5/20/2026
 MetaDescription: Overview of the configuration settings for GitHub Copilot in Visual Studio Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -89,7 +89,9 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 | `setting(workbench.browser.enableChatTools)` _(Experimental)_<br/>Enable [browser tools](/docs/debugtest/integrated-browser.md#browser-tools-for-agents) that let agents interact with pages in the integrated browser. | `true` |
 | `setting(chat.useClaudeMdFile)`<br/>Enable or disable using `CLAUDE.md` files as always-on custom instructions. | `true` |
 | `setting(chat.useNestedAgentsMdFiles)` _(Experimental)_<br/>Enable or disable using `AGENTS.md` files in subfolders of your workspace as context for chat requests. | `false` |
-| `setting(github.copilot.chat.customOAIModels)` _(Experimental)_<br/>Configure custom OpenAI-compatible models for chat. | `[]` |
+| `setting(github.copilot.chat.customOAIModels)` _(Deprecated)_<br/>Configure custom OpenAI-compatible models for chat. Deprecated in favor of the [Custom Endpoint](/docs/copilot/customization/language-models.md#add-a-custom-endpoint-model) provider, which supports Chat Completions, Responses, and Messages APIs. | `[]` |
+| `setting(chat.utilityModel)`<br/>Override the language model used for built-in [utility flows](/docs/copilot/customization/language-models.md#change-the-model-for-utility-tasks), such as generating titles, summaries, and fallback responses. | `"Default"` |
+| `setting(chat.utilitySmallModel)`<br/>Override the language model used for fast, lightweight [utility flows](/docs/copilot/customization/language-models.md#change-the-model-for-utility-tasks), such as commit messages, rename suggestions, and intent detection. A fast, inexpensive model is recommended. | `"Default"` |
 | `setting(github.copilot.chat.edits.suggestRelatedFilesFromGitHistory)` _(Experimental)_<br/>Suggest related files from git history in chat context. | `true` |
 
 ## Agent settings
@@ -151,7 +153,7 @@ The [Agents view](/docs/agents/overview.md) provides a centralized location for 
 | `setting(chat.agentsControl.enabled)` _(Experimental)_<br/>Enable the [session status indicator](/docs/chat/chat-sessions.md#session-status-indicator-experimental) in the command center. Shows unread and in-progress session badges. | `true` |
 | `setting(chat.agentsControl.clickBehavior)` _(Experimental)_<br/>Configure the behavior when selecting the chat icon in the agent status indicator. | `"cycle"` (Insiders)<br/>`"default"` (Stable) |
 | `setting(chat.unifiedAgentsBar.enabled)` _(Experimental)_<br/>Replace the command center search box with a unified chat and search control. | `false` |
-| `setting(github.copilot.chat.cli.remote.enabled)` _(Experimental)_<br/>Enable remote control support for Copilot CLI sessions from github.com or the GitHub Mobile app. | `true` |
+| `setting(github.copilot.chat.cli.remote.enabled)` <br/>Enable remote control support for Copilot CLI sessions from github.com or the GitHub Mobile app. | `true` |
 
 ## Inline chat settings
 

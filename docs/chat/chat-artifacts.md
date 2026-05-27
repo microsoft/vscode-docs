@@ -1,6 +1,6 @@
 ---
 ContentId: a4e7b2c1-3d5f-4a8e-b9c6-1e2d3f4a5b6c
-DateApproved: 5/13/2026
+DateApproved: 5/20/2026
 MetaDescription: Learn how to use the artifacts panel in Visual Studio Code to view important resources surfaced by the AI during a chat session.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -11,7 +11,6 @@ The artifacts panel in Visual Studio Code surfaces important resources, such as 
 > [!NOTE]
 > The artifacts panel is currently in preview. To enable it, set `setting(chat.artifacts.enabled)` to `true`.
 
-<!-- TODO: capture screenshot of the unified artifact view showing grouped sources (rules, agent, subagent) -->
 ![Screenshot of the artifacts panel in the Chat view, showing example artifacts such as links, images, and documents.](images/chat-artifacts/chat-artifacts-list.png)
 
 ## Artifact sources

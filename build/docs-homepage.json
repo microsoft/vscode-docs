@@ -46,10 +46,10 @@
   "latest": [
     {
       "type": "release",
-      "title": "VS Code 1.120 release",
-      "description": "Run agents across all your projects with the Agents window.",
-      "link": "/updates/v1_120",
-      "image": "/assets/updates/1_120/release-highlights.webp"
+      "title": "VS Code 1.121 release",
+      "description": "Remote control your agent sessions, built-in Mermaid and HTML preview, and terminal optimizations.",
+      "link": "/updates/v1_121",
+      "image": "/assets/updates/1_121/release-highlights.webp"
     },
     {
       "type": "documentation",

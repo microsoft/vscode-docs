@@ -1,6 +1,6 @@
 ---
 ContentId: b3e7a1d4-5f2c-4e9a-8b6d-1c0f3a2e5d47
-DateApproved: 5/13/2026
+DateApproved: 5/20/2026
 MetaDescription: Use the Agents window in VS Code for an agent-first coding experience where agents and chat are the primary interface to build with AI.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -45,6 +45,8 @@ The Agents window opens as a dedicated VS Code window alongside your main editor
     ![Screenshot showing how to open the Agents window from the Open in Agents button in the title bar and from the Welcome page.](images/agents-window/vscode-open-in-agents.png)
 
 * Run `code --agents` from the command line.
+
+* Open <https://insiders.vscode.dev/agents> in a browser to use the Agents window from any device. See [Use the Agents window in the browser](#use-the-agents-window-in-the-browser) for setup instructions.
 
 The Agents window requires GitHub authentication to access your Copilot subscription and sessions. If you're already signed in to GitHub in VS Code, you'll also be signed in when the Agents window opens.
 
@@ -172,10 +174,7 @@ If you want to run terminal commands in the context of the current session, sele
 
 You can connect to a remote machine to start a session there or track the progress of an existing session running on that machine. This is useful when you're away from your main development machine but still want to check in on your agent's work, or to take advantage of the remote machine's resources, such as specialized hardware or a specific environment configuration.
 
-The Agents window connects to the remote machine using the Agent Host Protocol (AHP) over SSH or a dev tunnel. When you connect, the Agents window automatically installs and starts the Copilot CLI on the remote machine. This also means that the remote machine must be powered on and accessible over the network.
-
-> [!TIP]
-> You can also connect to a remote machine from the browser-based Agents window in VS Code for the Web by using a dev tunnel connection at <https://insiders.vscode.dev/agents>.
+The Agents window connects to the remote machine using the [Agent Host Protocol (AHP)](https://microsoft.github.io/agent-host-protocol/) over SSH or a dev tunnel. When you connect, the Agents window automatically installs and starts the VS Code CLI on the remote machine. This also means that the remote machine must be powered on and accessible over the network.
 
 ### Connect via SSH
 
@@ -215,6 +214,43 @@ To start a session on a remote machine via dev tunnel:
 
 > [!IMPORTANT]
 > Ensure your dev tunnel requires authentication (GitHub or Microsoft account). If the tunnel allows anonymous access, anyone who discovers the URL can reach your machine and start agent sessions. This is especially dangerous when auto-approval modes are active, because unauthorized users can trigger AI-assisted command execution with your credentials. For more information, see [Security](/docs/agents/security.md).
+
+## Use the Agents window in the browser
+
+The Agents window is also available as a web client at <https://insiders.vscode.dev/agents>, so you can manage agent sessions from any device with a browser. This is useful when you're away from your main development machine, working from a mobile device, or want to check in on sessions running on a remote host without installing Visual Studio Code locally.
+
+The browser-based Agents window connects to your development machine through a [dev tunnel](/docs/remote/tunnels.md). Agent sessions run on the remote host, and the browser acts as a lightweight client for chatting, reviewing changes, and managing sessions.
+
+### Set up a dev tunnel
+
+Before you can use the Agents window in the browser, start a dev tunnel on the machine you want to connect to:
+
+1. On your remote host, run the following command to start a dev tunnel:
+
+    ```bash
+    code-insiders tunnel
+    ```
+
+    If you're using the stable release, run `code tunnel` instead.
+
+    The first time you run this command, you're prompted to authenticate with your GitHub or Microsoft account. The tunnel requires authentication by default for security.
+
+1. After the tunnel is running, open <https://insiders.vscode.dev/agents> in a browser on any device.
+
+1. Sign in with **Continue with GitHub** when prompted. If you're already authenticated, the Agents window loads directly.
+
+1. Your tunnel host appears in the hosts bar at the top of the window. Select it to connect.
+
+1. Choose a folder on the remote machine, select an agent, and start a session.
+
+### Host management
+
+The hosts bar in the browser-based Agents window shows your available tunnel hosts. Each host displays its connection status:
+
+* **Online**: the host is reachable and you can start or continue sessions on it.
+* **Offline**: the tunnel on the host is not running. Start the tunnel on the host to bring it back online.
+
+You can connect and disconnect from hosts directly through the hosts bar. If a host goes offline while you have an active session, the session shows a disconnected state. When the host comes back online, the session reconnects automatically.
 
 ## Create a sub-session
 
