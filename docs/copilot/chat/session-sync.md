@@ -6,7 +6,7 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Sync Copilot sessions to GitHub
 
-By default, VS Code syncs your GitHub Copilot chat sessions to your GitHub account, including all local agent sessions. Synced sessions are private to you and are not visible to anyone else unless you explicitly share them. They appear on github.com in the **Agents** tab of your repository, enabling [session insights](/docs/copilot/chat/session-insights.md) to query across all your sessions, including those from Copilot CLI, coding agent, code review, and the GitHub Copilot Desktop app.
+By default, VS Code syncs your GitHub Copilot chat sessions to your GitHub account, including all local agent sessions. Synced sessions are private to you and are not visible to anyone else unless you explicitly share them. They appear on GitHub.com in the **Agents** tab of your repository, enabling [session insights](/docs/copilot/chat/session-insights.md) to query across all your sessions, including those from Copilot CLI, coding agent, code review, and the GitHub Copilot Desktop app.
 
 ## Opt out of session sync
 
@@ -29,7 +29,7 @@ Sessions from matching repositories are stored locally only.
 
 For Copilot Business and Copilot Enterprise users, two policies control session sync:
 
-* **GitHub.com enterprise policy** ("Store local sessions in the Cloud"): enterprise and organization owners configure this on github.com to enable or disable cloud sync for their users.
+* **GitHub.com enterprise policy** ("Store local sessions in the Cloud"): enterprise and organization owners configure this on GitHub.com to enable or disable cloud sync for their users.
 * **VS Code group policy** (`CopilotSessionSync`): when disabled, the `setting(chat.sessionSync.enabled)` setting is forced to `false` and sessions stay local only.
 
 > [!IMPORTANT]
@@ -39,9 +39,9 @@ When disabled by policy, the session sync status shows **Disabled by policy** an
 
 ## Share a session
 
-Sessions are unshared by default. On github.com, you can share a synced session for view-only access to anyone who has access to the repository:
+Sessions are not shared by default. On GitHub.com, you can share a synced session for view-only access to anyone who has access to the repository:
 
-1. Open the **Agents** tab on github.com.
+1. Open the **Agents** tab on GitHub.com.
 2. Select a session and open **Sharing settings** from the `...` menu.
 3. Enable sharing to give repository collaborators view-only access.
 
@@ -55,8 +55,8 @@ The session sync status appears in the Copilot status bar in the Chat view. It s
 |-------|-------------|
 | **Not enabled** | Session sync is off. Data stays local to this device. |
 | **Enabled** | Sessions are syncing to your GitHub account. |
-| **N sessions synced** | Shows how many sessions have been uploaded. Select to view sessions on github.com. |
-| **Syncing N session(s)** | Upload is in progress. |
+| **N sessions synced** | Shows how many sessions have been uploaded. Select to view sessions on GitHub.com. |
+| **Syncing N sessions** | Upload is in progress. |
 | **Disabled by policy** | Your organization's policy prevents session sync. |
 | **Sync error** | Something went wrong during the last sync. Try again later. |
 
@@ -64,16 +64,16 @@ The session sync status appears in the Copilot status bar in the Chat view. It s
 
 * Sessions are private to you by default. Synced sessions are tied to your personal GitHub account and are accessible only to you unless you explicitly share them.
 * Secrets such as tokens, API keys, and credentials are automatically stripped before data leaves your machine.
-* You can opt out at any time by setting `setting(chat.sessionSync.enabled)` to `false`. Existing synced sessions remain on github.com until you delete them.
+* You can opt out at any time by setting `setting(chat.sessionSync.enabled)` to `false`. Existing synced sessions remain on GitHub.com until you delete them.
 
 ## Delete synced sessions
 
 To delete synced session data, run the **Delete Session Sync Data** command (`github.copilot.sessionSync.deleteSessions`) from the Command Palette. The command shows a picker where you select which sessions to remove. After selecting sessions, you choose the deletion scope:
 
-* **Delete from local and cloud**: removes session data from your machine and from github.com. This action cannot be undone.
-* **Delete from cloud only**: removes session data from github.com but keeps local data intact.
+* **Delete from local and cloud**: removes session data from your machine and from GitHub.com. This action cannot be undone.
+* **Delete from cloud only**: removes session data from GitHub.com but keeps local data intact.
 
-You can also hide or delete individual synced sessions from the **Agents** tab on github.com. Hiding a session removes it from your session index so it no longer appears in query results.
+You can also hide or delete individual synced sessions from the **Agents** tab on GitHub.com. Hiding a session removes it from your session index so it no longer appears in query results.
 
 ## Settings reference
 
