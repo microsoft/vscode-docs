@@ -106,7 +106,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/setup/setup-overview</loc>
+        <loc>https://code.visualstudio.com/docs/getstarted/overview</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

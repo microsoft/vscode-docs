@@ -28,7 +28,7 @@
       "icon": "codicon-tools",
       "title": "Set up VS Code",
       "description": "Install VS Code on Windows, macOS, or Linux and get running.",
-      "link": "/docs/getstarted/setup-overview"
+      "link": "/docs/getstarted/overview"
     },
     {
       "icon": "codicon-mortar-board",

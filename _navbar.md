@@ -1,4 +1,4 @@
-* [Docs](/docs/getstarted/setup-overview)
+* [Docs](/docs/getstarted/overview)
 * [Extension API](/api/get-started/your-first-extension)
 * [Learn](/learn/foundations/introduction-to-agent-first-development)
 * [Blogs](/blogs/)

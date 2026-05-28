@@ -3,7 +3,7 @@
         "name": "Get Started",
         "area": "getstarted",
         "topics": [
-        ["Overview", "/docs/getstarted/setup-overview"],
+        ["Overview", "/docs/getstarted/overview"],
         ["Tutorial", "/docs/getstarted/getting-started"],
         ["Intro Videos", "/docs/getstarted/introvideos"]
         ]
