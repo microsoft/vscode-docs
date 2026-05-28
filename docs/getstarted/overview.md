@@ -19,6 +19,10 @@ Follow a hands-on tutorial to build your first app with AI in VS Code.
 
 </div>
 
+## Explore VS Code
+
+Explore the features that make VS Code the home for mult-agent development.
+
 <div class="card-grid">
     <a class="card" href="/docs/agents/overview">
         <i class="codicon codicon-hubot" aria-hidden="true"></i>
