@@ -395,7 +395,9 @@ module.exports = defineConfig([
 ]);
 ```
 
-Why use two configurations?
+### Why use two configurations?
+
+Each configuration serves a distinct purpose:
 
 - **trustedWorkspaceTests**: Gives you a baseline run where trust restrictions are not applied. This helps verify your extension's full-feature behavior and catch regressions in the trusted path.
 - **untrustedWorkspaceTests**: Verifies Restricted Mode behavior with Workspace Trust still enabled. Using a dedicated `--user-data-dir` prevents previously persisted trust decisions from making this run accidentally trusted.
