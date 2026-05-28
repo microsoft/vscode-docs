@@ -71,14 +71,6 @@ Agents run where the work needs to happen. Run them locally for interactive work
 
 Pick from dozens of models across OpenAI, Anthropic, Google, and more, or bring your own API key to use any model from any provider. Switch models at any time without changing your workflow. Learn more about [agent types](/docs/agents/overview.md) and [language models](/docs/agent-customization/language-models.md).
 
-## Plan before you build
-
-Use the built-in Plan agent to break a task into a structured implementation plan before writing any code. The Plan agent analyzes your codebase, asks clarifying questions, and produces a step-by-step plan. When the plan looks right, hand it off to an implementation agent to execute it.
-
-<video src="images/overview/plan-intro.mp4" title="Video showing the plan agent creating a structured implementation plan for adding authentication to the app." controls muted></video>
-
-Learn more about [planning with agents](/docs/agents/planning.md).
-
 ## Make agents work your way
 
 Agents work best when they understand your project's conventions and have the right tools. VS Code gives you several ways to tailor agents so they produce code that fits your codebase and team practices from the start.
@@ -121,6 +113,20 @@ Learn more about [customizing agents](/docs/agent-customization/overview.md).
 Agents can read and edit files, run terminal commands, and call external services. VS Code keeps you in control: approve or deny tool calls before they run, set a permission level that matches the autonomy you are comfortable with, and enable agent sandboxing to restrict file system and network access at the OS level. Learn more about [trust and safety](/docs/agents/concepts/trust-and-safety.md) and [AI security](/docs/agents/security.md).
 
 Organizations can centrally manage which AI features, models, and tools are available across their teams. Admins define policies that control agent capabilities, restrict MCP servers or extensions, and enforce compliance requirements, so developers get a consistent, governed experience out of the box. Learn more about [enterprise AI policies](/docs/enterprise/ai-settings.md).
+
+## Get started
+
+AI features are built into VS Code. To enable them, sign in with your GitHub account:
+
+1. Hover over the Copilot icon in the **Status Bar** and select **Use AI Features**.
+1. Follow the prompts to sign in. If you don't have a subscription yet, you are signed up for the free plan with monthly limits on suggestions and chat.
+
+That's it. Open the **Chat** view (`kb(workbench.action.chat.open)`) and start building.
+
+> [!TIP]
+> You can also bring your own API key to use models from any provider without a Copilot subscription. Learn more about [language models](/docs/agent-customization/language-models.md).
+
+For detailed setup options, including GitHub Enterprise accounts and disabling AI features, see [Set up GitHub Copilot](/docs/copilot/setup.md).
 
 ## Next steps
 
