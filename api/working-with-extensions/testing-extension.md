@@ -369,6 +369,11 @@ If your extension declares `capabilities.untrustedWorkspaces` in `package.json`,
 
 When using `@vscode/test-cli`, define separate test configurations so you can run each trust state independently:
 
+- **trustedWorkspaceTests**: Gives you a baseline run where trust restrictions are not applied. This helps verify your extension's full-feature behavior and catch regressions in the trusted path.
+- **untrustedWorkspaceTests**: Verifies Restricted Mode behavior with Workspace Trust still enabled. Using a dedicated `--user-data-dir` prevents previously persisted trust decisions from making this run accidentally trusted.
+
+Because each configuration has its own `label`, you can run them independently (for example, `vscode-test --label trustedWorkspaceTests` and `vscode-test --label untrustedWorkspaceTests`) or run both in sequence.
+
 ```js
 // .vscode-test.js
 const { defineConfig } = require('@vscode/test-cli');
@@ -394,15 +399,6 @@ module.exports = defineConfig([
   },
 ]);
 ```
-
-### Why use two configurations?
-
-Each configuration serves a distinct purpose:
-
-- **trustedWorkspaceTests**: Gives you a baseline run where trust restrictions are not applied. This helps verify your extension's full-feature behavior and catch regressions in the trusted path.
-- **untrustedWorkspaceTests**: Verifies Restricted Mode behavior with Workspace Trust still enabled. Using a dedicated `--user-data-dir` prevents previously persisted trust decisions from making this run accidentally trusted.
-
-Because each configuration has its own `label`, you can run them independently (for example, `vscode-test --label trustedWorkspaceTests` and `vscode-test --label untrustedWorkspaceTests`) or run both in sequence.
 
 In your tests, assert trust-aware behavior by checking `vscode.workspace.isTrusted`:
 
