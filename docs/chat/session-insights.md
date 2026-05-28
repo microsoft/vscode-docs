@@ -53,5 +53,5 @@ Situations where reindexing helps:
 
 ## Related content
 
-* [Manage chat sessions](/docs/copilot/chat/chat-sessions.md) - Create and organize chat sessions
-* [Settings reference](/docs/copilot/reference/copilot-settings.md) - All Copilot settings
+* [Manage chat sessions](/docs/chat/chat-sessions.md) - Create and organize chat sessions
+* [Settings reference](/docs/agents/reference/copilot-settings.md) - All Copilot settings

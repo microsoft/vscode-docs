@@ -69,7 +69,7 @@ If you're building MCP servers, add MCP Apps to make them more interactive. VS C
 - [MCP Apps demo repository](https://github.com/digitarald/mcp-apps-playground)
 - [MCP Apps SDK and examples](https://github.com/modelcontextprotocol/ext-apps/)
 - [VS Code MCP documentation](https://code.visualstudio.com/docs/agent-customization/mcp-servers)
-- [MCP server development guide](https://code.visualstudio.com/docs/copilot/guides/mcp-developer-guide)
+- [MCP server development guide](https://code.visualstudio.com/docs/agents/guides/mcp-developer-guide)
 - [MCP Apps announcement](https://blog.modelcontextprotocol.io/posts/2026-01-26-mcp-apps/)
 
 Try building your first MCP App and share what you create with the community. Sometimes showing is better than telling—now your agents can do both.

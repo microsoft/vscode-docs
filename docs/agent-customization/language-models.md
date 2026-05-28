@@ -62,7 +62,7 @@ The model picker label updates to show the selected effort level, for example "C
 
 ## Use auto model selection
 
-With auto model selection, VS Code evaluates task complexity and real-time model availability to route each request to the optimal model. For background on how auto model selection works, see [Auto model selection](/docs/copilot/concepts/language-models.md#auto-model-selection).
+With auto model selection, VS Code evaluates task complexity and real-time model availability to route each request to the optimal model. For background on how auto model selection works, see [Auto model selection](/docs/agents/concepts/language-models.md#auto-model-selection).
 
 To use auto model selection, select **Auto** from the model picker in chat. You can see which model is used for generating a response by hovering over the chat response.
 
@@ -110,7 +110,7 @@ To pin or unpin a model:
 
 ## Bring your own language model key
 
-If you want to use a model that is not available as a built-in model or want to control the model hosting, you can bring your own language model API key (BYOK) to use models from other providers or to run models locally. For background on why you might bring your own key and what to consider, see [Bring your own language model key](/docs/copilot/concepts/language-models.md#bring-your-own-language-model-key).
+If you want to use a model that is not available as a built-in model or want to control the model hosting, you can bring your own language model API key (BYOK) to use models from other providers or to run models locally. For background on why you might bring your own key and what to consider, see [Bring your own language model key](/docs/agents/concepts/language-models.md#bring-your-own-language-model-key).
 
 BYOK models work without signing into a GitHub account and without a Copilot plan. You can add models with the **Chat: Manage Language Models** command even when you are not signed in. This enables you to use AI chat features entirely with your own models, including fully offline scenarios with local models such as Ollama.
 
@@ -354,7 +354,7 @@ Yes, you can use BYOK models, including local models, without a Copilot plan and
 
 ## Related resources
 
-* [Language models concepts](/docs/copilot/concepts/language-models.md)
+* [Language models concepts](/docs/agents/concepts/language-models.md)
 * [Available language models in GitHub Copilot](https://docs.github.com/en/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat?tool=vscode)
 * [Choosing the right AI model for your task](https://docs.github.com/en/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task)
-* [Security considerations for AI in VS Code](/docs/copilot/security.md)
+* [Security considerations for AI in VS Code](/docs/agents/security.md)

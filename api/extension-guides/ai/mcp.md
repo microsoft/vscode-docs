@@ -41,7 +41,7 @@ VS Code supports the following MCP capabilities:
     * Server-sent events (`sse`) - legacy support.
 
 * [Features](https://modelcontextprotocol.io/specification/2025-06-18#features):
-    * Tools: extend [agent mode](/docs/copilot/chat/chat-agent-mode) with extra tools
+    * Tools: extend [agent mode](/docs/chat/copilot-chat) with extra tools
     * Prompts: add reusable prompts as slash commands in chat
     * Resources: provide data and content that users can add as chat context or interact with directly in VS Code
     * Elicitation: request input from the user
@@ -302,7 +302,7 @@ Extensions that want to register MCP servers must contribute the `contributes.mc
 
 ### 2. Implement the provider
 
-To register an MCP server in your extension, use the [`vscode.lm.registerMcpServerDefinitionProvider`](/api/references/vscode-api#lm.registerMcpServerDefinitionProvider) API to provide the [MCP configuration](/docs/copilot/reference/mcp-configuration.md) for the server. The API takes a `providerId` string and a `McpServerDefinitionProvider` object.
+To register an MCP server in your extension, use the [`vscode.lm.registerMcpServerDefinitionProvider`](/api/references/vscode-api#lm.registerMcpServerDefinitionProvider) API to provide the [MCP configuration](/docs/agents/reference/mcp-configuration.md) for the server. The API takes a `providerId` string and a `McpServerDefinitionProvider` object.
 
 The `McpServerDefinitionProvider` object has three properties:
 

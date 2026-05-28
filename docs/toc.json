@@ -65,7 +65,7 @@
         "name": "Guides & Tutorials",
         "area": "debugging/guides",
         "topics": [
-          ["Debug with AI", "/docs/copilot/guides/debug-with-copilot"],
+          ["Debug with AI", "/docs/agents/guides/debug-with-copilot"],
         ]
         }
       ]
@@ -83,9 +83,9 @@
         "name": "Guides & Tutorials",
         "area": "testing/guides",
         "topics": [
-          ["Test-Driven Development", "/docs/copilot/guides/test-driven-development-guide"],
-          ["Test with AI", "/docs/copilot/guides/test-with-copilot"],
-          ["Test Web Apps with Browser Tools", "/docs/copilot/guides/browser-agent-testing-guide"],
+          ["Test-Driven Development", "/docs/agents/guides/test-driven-development-guide"],
+          ["Test with AI", "/docs/agents/guides/test-with-copilot"],
+          ["Test Web Apps with Browser Tools", "/docs/agents/guides/browser-agent-testing-guide"],
         ]
         }
       ]

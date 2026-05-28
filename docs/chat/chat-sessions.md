@@ -25,7 +25,7 @@ Key things to know about chat sessions:
 * **Checkpoints**: at any time, you can roll back to a previous state or edit a previous prompt to change direction. Learn more about [checkpoints](/docs/chat/chat-checkpoints.md).
 * **Agent types**: sessions can run locally, in the background, or in the cloud. Learn more about [agent types](/docs/agents/overview.md#types-of-agents).
 * **Multiple sessions**: you can run multiple sessions in parallel, each focused on a different task. Use the [sessions list](#sessions-list) to monitor ongoing sessions and switch between them.
-* **Session insights**: query your session history to generate standup reports, get tips, and search past work. Learn more about [session insights](/docs/copilot/chat/session-insights.md).
+* **Session insights**: query your session history to generate standup reports, get tips, and search past work. Learn more about [session insights](/docs/chat/session-insights.md).
 
 > [!TIP]
 > Start a new chat session when you want to change topics to help the AI provide more relevant responses.
@@ -166,7 +166,7 @@ When you have multiple pending messages (queued or steering), you can drag and d
 
 Forking a chat session creates a new, independent session that inherits the conversation history from the original session. The forked session is fully separate from the original, so changes in one session do not affect the other. The new session title is prefixed with "Forked:" to help you identify it.
 
-For [Copilot CLI](/docs/copilot/agents/copilot-cli.md) sessions that use worktree isolation, the forked session continues to use the same worktree as the original session.
+For [Copilot CLI](/docs/agents/agent-types/copilot-cli.md) sessions that use worktree isolation, the forked session continues to use the same worktree as the original session.
 
 Forking is useful when you want to explore an alternative approach, ask a side question, or branch a long conversation in a different direction without losing the original context.
 

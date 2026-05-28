@@ -106,14 +106,14 @@ Both surfaces share sessions and VS Code configuration like settings and keybind
 
 ## Remote agent sessions
 
-Agent sessions don't have to run on your local machine. You can run sessions on a remote host and connect to them from the [Agents window](/docs/copilot/agents/agents-window.md), a browser, or other clients. This is useful when you want to take advantage of a remote machine's resources, keep sessions running while you're away, or monitor progress from a different device. The remote machine must be powered on and accessible over the network.
+Agent sessions don't have to run on your local machine. You can run sessions on a remote host and connect to them from the [Agents window](/docs/agents/agents-window.md), a browser, or other clients. This is useful when you want to take advantage of a remote machine's resources, keep sessions running while you're away, or monitor progress from a different device. The remote machine must be powered on and accessible over the network.
 
 VS Code supports two ways to work with remote agent sessions:
 
 | Method | How it works |
 |---|---|
-| Agents window<br>with remote connections | Connect the Agents window to a remote machine over SSH or a dev tunnel. The Agents window automatically installs and starts the VS Code CLI on the remote, which runs an agent host process that manages sessions.<br><br>Multiple clients can connect to the same agent host simultaneously and see a synchronized view of all sessions, using the open [Agent Host Protocol (AHP)](https://microsoft.github.io/agent-host-protocol/). Sessions continue running on the remote even if all clients disconnect.<br><br>Learn more about [connecting to a remote machine](/docs/copilot/agents/agents-window.md#open-a-session-on-a-remote-machine). |
-| Copilot CLI<br>remote control | Use the `/remote on` command in a [Copilot CLI session](/docs/copilot/agents/copilot-cli.md) to mirror the session to GitHub. You can then monitor and steer the session from github.com or the GitHub Mobile app while it continues running on your machine.<br><br>Learn more about [remote control for Copilot CLI sessions](/docs/copilot/agents/copilot-cli.md#remote-control-copilot-cli-sessions-experimental). |
+| Agents window<br>with remote connections | Connect the Agents window to a remote machine over SSH or a dev tunnel. The Agents window automatically installs and starts the VS Code CLI on the remote, which runs an agent host process that manages sessions.<br><br>Multiple clients can connect to the same agent host simultaneously and see a synchronized view of all sessions, using the open [Agent Host Protocol (AHP)](https://microsoft.github.io/agent-host-protocol/). Sessions continue running on the remote even if all clients disconnect.<br><br>Learn more about [connecting to a remote machine](/docs/agents/agents-window.md#open-a-session-on-a-remote-machine). |
+| Copilot CLI<br>remote control | Use the `/remote on` command in a [Copilot CLI session](/docs/agents/agent-types/copilot-cli.md) to mirror the session to GitHub. You can then monitor and steer the session from github.com or the GitHub Mobile app while it continues running on your machine.<br><br>Learn more about [remote control for Copilot CLI sessions](/docs/agents/agent-types/copilot-cli.md#remote-control-copilot-cli-sessions-experimental). |
 
 ## Memory
 

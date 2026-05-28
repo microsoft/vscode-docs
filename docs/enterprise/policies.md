@@ -3,8 +3,8 @@
 ContentId: 200bf922-3684-45ee-a8dd-43191d6b3f8b
 DateApproved: 5/28/2026
 
-VSCodeCommitHash: 05ca786e54e18b696b4f47427e620580d83404ff
-VSCodeVersion: 1.120.0
+VSCodeCommitHash: 5dbc18b9f6914161325aef30f3d86c2095ad2f0c
+VSCodeVersion: 1.122.0
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Enterprise policies in Visual Studio Code enable organizations to centrally manage settings for their development teams. This reference details the available policies and how to implement them.
@@ -400,7 +400,7 @@ The following table lists all available enterprise policies in VS Code.
 | `ExtensionGalleryServiceUrl` | <span data-min-version="1.99">Configure the Marketplace service URL to connect to</span> |
 | `AllowedExtensions`<br>`setting(extensions.allowed)` | <span data-min-version="1.96">Specify a list of extensions that are allowed to use. This helps maintain a secure and consistent development environment by restricting the use of unauthorized extensions. More information: https://aka.ms/vscode/enterprise/extensions/allowed</span> |
 | `ChatToolsAutoApprove`<br>`setting(chat.tools.global.autoApprove)` | <span data-min-version="1.99">Global auto approve also known as "YOLO mode" disables manual approval completely for all tools in all workspaces, allowing the agent to act fully autonomously. This is extremely dangerous and is *never* recommended, even containerized environments like Codespaces and Dev Containers have user keys forwarded into the container that could be compromised. This feature disables critical security protections and makes it much easier for an attacker to compromise the machine. Note: This setting only controls tool approval and does not prevent the agent from asking questions. To automatically answer agent questions, use the `#chat.autoReply#` setting.</span> |
-| `CopilotSessionSync`<br>`setting(chat.sessionSync.enabled)` | <span data-min-version="1.119">Enable session sync to GitHub.com for cross-device Copilot session history. When disabled by organization policy, session data is kept local only.</span> |
+| `CopilotSessionSync`<br>`setting(chat.sessionSync.enabled)` | <span data-min-version="1.121">Enable session sync to GitHub.com for cross-device Copilot session history. When disabled by organization policy, session data is kept local only.</span> |
 | `ChatToolsEligibleForAutoApproval`<br>`setting(chat.tools.eligibleForAutoApproval)` | <span data-min-version="1.107">Controls which tools are eligible for automatic approval. Tools set to 'false' will always present a confirmation and will never offer the option to auto-approve. The default behavior (or setting a tool to 'true') may result in the tool offering auto-approval options.</span> |
 | `ChatMCP`<br>`setting(chat.mcp.access)` | <span data-min-version="1.99">Controls access to installed Model Context Protocol servers.</span> |
 | `ChatAgentExtensionTools`<br>`setting(chat.extensionTools.enabled)` | <span data-min-version="1.99">Enable using tools contributed by third-party extensions.</span> |
@@ -413,6 +413,9 @@ The following table lists all available enterprise policies in VS Code.
 | `ChatHooks`<br>`setting(chat.useHooks)` | <span data-min-version="1.109">Controls whether chat hooks are executed at strategic points during an agent's workflow. Hooks are loaded from the files configured in `#chat.hookFilesLocations#`.</span> |
 | `ChatToolsTerminalEnableAutoApprove`<br>`setting(chat.tools.terminal.enableAutoApprove)` | <span data-min-version="1.104">Controls whether to allow auto approval in the run in terminal tool.</span> |
 | `ChatAgentSandboxEnabled`<br>`setting(chat.agent.sandbox.enabled)` | <span data-min-version="1.116">Controls whether agent mode uses sandboxing to restrict what tools can do. When enabled, tools like the terminal are run in a sandboxed environment to limit access to the system.</span> |
+| `ChatAgentSandboxAllowUnsandboxedCommands`<br>`setting(chat.agent.sandbox.allowUnsandboxedCommands)` | <span data-min-version="1.116">Controls whether agent mode terminal commands can run outside the sandbox after user confirmation when a sandboxed command fails or when sandbox restrictions would block the command. This applies only when `#chat.agent.sandbox.enabled#` is enabled.</span> |
+| `ChatAgentSandboxAutoApproveUnsandboxedCommands`<br>`setting(chat.agent.sandbox.autoApproveUnsandboxedCommands)` | <span data-min-version="1.116">Controls whether agent mode terminal commands that run outside the sandbox are auto-approved. This applies only when both `#chat.agent.sandbox.enabled#` and `#chat.agent.sandbox.allowUnsandboxedCommands#` are enabled.</span> |
+| `ChatAgentSandboxAllowAutoApprove`<br>`setting(chat.agent.sandbox.allowAutoApprove)` | <span data-min-version="1.116">Controls whether agent mode terminal commands that run inside the sandbox are auto-approved. When disabled, the run in terminal tool uses the existing approval flow. This applies only when `#chat.agent.sandbox.enabled#` is enabled.</span> |
 | `UpdateMode`<br>`setting(update.mode)` | <span data-min-version="1.67">Configure whether you receive automatic updates. Requires a restart after change. The updates are fetched from a Microsoft online service.</span> |
 | `TelemetryLevel`<br>`setting(telemetry.telemetryLevel)` | <span data-min-version="1.99">Controls the level of telemetry.</span> |
 | `EnableFeedback`<br>`setting(telemetry.feedback.enabled)` | <span data-min-version="1.99">Enable feedback mechanisms such as the issue reporter, surveys, and other feedback options.</span> |
