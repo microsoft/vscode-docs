@@ -114,7 +114,7 @@
       ["Windows", "/docs/setup/windows"],
       ["Raspberry Pi", "/docs/setup/raspberry-pi"],
       ["Network", "/docs/setup/network"],
-      ["Portable", "/docs/setup/portable"],
+      ["Portable Mode", "/docs/setup/portable"],
       ["Additional Components", "/docs/setup/additional-components"],
       ["Uninstall", "/docs/setup/uninstall"]
     ]
