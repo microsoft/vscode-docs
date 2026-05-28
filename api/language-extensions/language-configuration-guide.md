@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: cd928e7f-bb5a-43b0-8e15-d398e416386d
-DateApproved: 4/29/2026
+DateApproved: 5/28/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to configure language support for any language in Visual Studio Code.
@@ -26,7 +26,7 @@ Here is a [Language Configuration sample](https://github.com/microsoft/vscode-ex
 ```json
 {
   "comments": {
-    "lineComment": "//",
+    "lineComment": { "comment": "//" },
     "blockComment": ["/*", "*/"]
   },
   "brackets": [["{", "}"], ["[", "]"], ["(", ")"]],
@@ -64,12 +64,39 @@ Here is a [Language Configuration sample](https://github.com/microsoft/vscode-ex
 
 ## Comment toggling
 
-VS Code offers two commands for comment toggling. **Toggle Line Comment** and **Toggle Block Comment**. You can specify `comments.blockComment` and `comments.lineComment` to control how VS Code should comment out lines / blocks.
+VS Code offers two commands for comment toggling. **Toggle Line Comment** and **Toggle Block Comment**. You can specify `comments.blockComment` and `comments.lineComment` to control how VS Code should comment out lines / blocks. The `lineComment` property uses an object with a required `comment` field and an optional `noIndent` field.
 
 ```json
 {
   "comments": {
-    "lineComment": "//",
+    "lineComment": { "comment": "//" },
+    "blockComment": ["/*", "*/"]
+  }
+}
+```
+
+If your language requires line comments to stay in the first column, set `noIndent` to `true`:
+
+```json
+{
+  "comments": {
+    "lineComment": { "comment": "#", "noIndent": true }
+  }
+}
+```
+
+The `lineComment` property supports two formats for backwards compatibility:
+
+- A string value for simple line comment definitions.
+- An object value that enables configuring the indentation behavior of comment lines.
+
+```json
+{
+  "comments": {
+    "lineComment": {
+      "comment": "//",
+      "noIndent": true
+    },
     "blockComment": ["/*", "*/"]
   }
 }
