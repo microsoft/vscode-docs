@@ -395,6 +395,13 @@ module.exports = defineConfig([
 ]);
 ```
 
+Why two configurations?
+
+- `trustedWorkspaceTests`: Gives you a baseline run where trust restrictions are not applied. This helps verify your extension's full-feature behavior and catch regressions in the trusted path.
+- `untrustedWorkspaceTests`: Verifies Restricted Mode behavior with Workspace Trust still enabled. Using a dedicated `--user-data-dir` prevents previously persisted trust decisions from making this run accidentally trusted.
+
+Because each configuration has its own `label`, you can run them independently (for example, `vscode-test --label trustedWorkspaceTests` and `vscode-test --label untrustedWorkspaceTests`) or run both in sequence.
+
 In your tests, assert trust-aware behavior by checking `vscode.workspace.isTrusted`:
 
 ```ts
