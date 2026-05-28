@@ -40,18 +40,18 @@ Follow a hands-on tutorial to build your first app with AI in VS Code.
 VS Code gives you two surfaces for working with agents. Pick the one that fits your current task and switch freely between them. Both share the same agent sessions, settings, and keybindings, so switching costs nothing.
 
 <div class="card-grid">
-    <a class="card" href="/docs/chat/copilot-chat">
-        <i class="codicon codicon-code" aria-hidden="true"></i>
-        <div>
-            <p><strong>Code-first</strong></p>
-            <p>Agents assist alongside your editor, debugger, and extensions.</p>
-        </div>
-    </a>
     <a class="card" href="/docs/agents/agents-window">
         <i class="codicon codicon-hubot" aria-hidden="true"></i>
         <div>
             <p><strong>Agent-first</strong></p>
             <p>Orchestrate agents across projects with chat as the primary interface.</p>
+        </div>
+    </a>
+    <a class="card" href="/docs/chat/copilot-chat">
+        <i class="codicon codicon-code" aria-hidden="true"></i>
+        <div>
+            <p><strong>Code-first</strong></p>
+            <p>Agents assist alongside your editor, debugger, and extensions.</p>
         </div>
     </a>
     <a class="card" href="/docs/agents/overview">
@@ -134,17 +134,17 @@ For detailed setup options, including GitHub Enterprise accounts and disabling A
         <i class="codicon codicon-mortar-board" aria-hidden="true"></i>
         <p>Agents tutorial</p>
     </a>
-    <a class="card" href="/docs/agents/concepts/agents">
-        <i class="codicon codicon-lightbulb" aria-hidden="true"></i>
-        <p>Agent concepts</p>
+    <a class="card" href="/docs/agents/agents-window">
+        <i class="codicon codicon-window" aria-hidden="true"></i>
+        <p>Agents window</p>
     </a>
     <a class="card" href="/docs/agent-customization/overview">
         <i class="codicon codicon-settings-gear" aria-hidden="true"></i>
         <p>Customize agents</p>
     </a>
-    <a class="card" href="/docs/agents/agents-window">
-        <i class="codicon codicon-window" aria-hidden="true"></i>
-        <p>Agents window</p>
+    <a class="card" href="/docs/agents/concepts/agents">
+        <i class="codicon codicon-lightbulb" aria-hidden="true"></i>
+        <p>Agent concepts</p>
     </a>
     <a class="card" href="/docs/agents/best-practices">
         <i class="codicon codicon-checklist" aria-hidden="true"></i>
