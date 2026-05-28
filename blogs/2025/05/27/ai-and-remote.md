@@ -127,7 +127,7 @@ Note that remote environments that are part of your local machine (like dev cont
 
 ## What's Next
 
-We're excited about the future of Remote Development and AI in VS Code. Our monthly releases are packed with exciting new features, and we're constantly looking ahead to what's next, like supporting Copilot Chat [in the web](/docs/setup/vscode-web.md) ([vscode.dev](http://vscode.dev/microsoft/vscode), [github.dev](http://github.dev/microsoft/vscode)).
+We're excited about the future of Remote Development and AI in VS Code. Our monthly releases are packed with exciting new features, and we're constantly looking ahead to what's next, like supporting Copilot Chat [in the web](/docs/remote/vscode-web.md) ([vscode.dev](http://vscode.dev/microsoft/vscode), [github.dev](http://github.dev/microsoft/vscode)).
 
 Happy (smart and remote) coding!
 Brigit, Christof, Josh, and Olivia

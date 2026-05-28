@@ -8,9 +8,9 @@ MetaSocialImage: images/quicksetup/quick-setup-social.png
 
 Visual Studio Code is the open platform for AI agents. Run any agent with any model across your full project in a free, open-source editor for Windows, macOS, and Linux. Agents plan, implement across files, run tests, and iterate autonomously, so you can focus on the ideas that matter.
 
-VS Code is also built to be extended. Thousands of [extensions](/docs/configure/extensions/extension-marketplace.md) add language support, debuggers, themes, and integrations. Connect [MCP servers](/docs/agents/concepts/tools.md#model-context-protocol-mcp), define [custom instructions](/docs/agent-customization/overview.md), and build your own tools with the [extension API](/api/get-started/your-first-extension.md). Under the hood, VS Code is a powerful code editor with built-in debugging, Git, IntelliSense, and support for every major language.
+VS Code is also built to be extended. Thousands of [extensions](/docs/configure/extensions/extension-marketplace.md) add language support, debuggers, themes, and integrations. Connect [MCP servers](/docs/agent-customization/mcp-servers.md), define [custom instructions](/docs/agent-customization/overview.md), and build your own tools with the [extension API](/api/get-started/your-first-extension.md). Under the hood, VS Code is a powerful code editor with built-in debugging, Git, IntelliSense, and support for every major language.
 
-You can [download](https://code.visualstudio.com/download) and install VS Code on your desktop, or open it instantly in the browser at [vscode.dev](https://vscode.dev) with zero setup. VS Code ships weekly [Stable](/updates) releases with auto-update. To preview upcoming features, install the [Insiders](/insiders) build, which ships nightly and runs side by side with Stable.
+You can [download](https://code.visualstudio.com/download) and install VS Code on your desktop, or open it instantly in the browser at [vscode.dev](https://vscode.dev) with zero setup (learn more about [VS Code for the Web](/docs/remote/vscode-web.md)). VS Code ships weekly [Stable](/updates) releases with auto-update. To preview upcoming features, install the [Insiders](/insiders) build, which ships nightly and runs side by side with Stable.
 
 [Download VS Code](https://code.visualstudio.com/download)
 

@@ -76,5 +76,6 @@
     { "from": "/docs/copilot/reference/copilot-settings", "to": "/docs/agents/reference/copilot-settings", "status": 301 },
     { "from": "/docs/copilot/reference/mcp-configuration", "to": "/docs/agents/reference/mcp-configuration", "status": 301 },
     { "from": "/docs/copilot/reference/workspace-context", "to": "/docs/agents/reference/workspace-context", "status": 301 },
-    { "from": "/docs/copilot/security", "to": "/docs/agents/security", "status": 301 }
+    { "from": "/docs/copilot/security", "to": "/docs/agents/security", "status": 301 },
+    { "from": "/docs/setup/vscode-web", "to": "/docs/remote/vscode-web", "status": 301 }
 ]

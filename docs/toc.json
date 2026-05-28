@@ -110,6 +110,7 @@
     "area": "remote",
     "topics": [
       ["Overview", "/docs/remote/remote-overview"],
+      ["VS Code for the Web", "/docs/remote/vscode-web"],
       ["SSH", "/docs/remote/ssh"],
       ["SSH Tutorial", "/docs/remote/ssh-tutorial"],
       ["Tunnels", "/docs/remote/tunnels"],
