@@ -45,7 +45,7 @@
     "name": "Terminal",
     "area": "terminal",
     "topics": [
-      ["Getting Started Tutorial", "/docs/terminal/getting-started"],
+      ["Get Started", "/docs/terminal/getting-started"],
       ["Terminal Basics", "/docs/terminal/basics"],
       ["Terminal Profiles", "/docs/terminal/profiles"],
       ["Shell Integration", "/docs/terminal/shell-integration"],
@@ -102,6 +102,25 @@
       ["Extensions", "/docs/enterprise/extensions"],
       ["Telemetry", "/docs/enterprise/telemetry"],
       ["Updates", "/docs/enterprise/updates"]
+    ]
+  },
+
+  {
+    "name": "Remote",
+    "area": "remote",
+    "topics": [
+      ["Overview", "/docs/remote/remote-overview"],
+      ["SSH", "/docs/remote/ssh"],
+      ["SSH Tutorial", "/docs/remote/ssh-tutorial"],
+      ["Tunnels", "/docs/remote/tunnels"],
+      ["Dev Containers", "/docs/remote/dev-containers"],
+      ["WSL", "/docs/remote/wsl"],
+      ["WSL Tutorial", "/docs/remote/wsl-tutorial"],
+      ["GitHub Codespaces", "/docs/remote/codespaces"],
+      ["VS Code Server", "/docs/remote/vscode-server"],
+      ["Linux Prerequisites", "/docs/remote/linux"],
+      ["Tips and Tricks", "/docs/remote/troubleshooting"],
+      ["FAQ", "/docs/remote/faq"]
     ]
   },
 

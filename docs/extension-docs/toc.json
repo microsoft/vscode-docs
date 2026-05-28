@@ -85,23 +85,6 @@
     ]
   },
   {
-    "name": "Remote",
-    "area": "remote",
-    "topics": [
-      ["Overview", "/docs/remote/remote-overview"],
-      ["SSH", "/docs/remote/ssh"],
-      ["Dev Containers", "/docs/remote/dev-containers"],
-      ["Windows Subsystem for Linux", "/docs/remote/wsl"],
-      ["GitHub Codespaces", "/docs/remote/codespaces"],
-      ["VS Code Server", "/docs/remote/vscode-server"],
-      ["Tunnels", "/docs/remote/tunnels"],
-      ["SSH Tutorial", "/docs/remote/ssh-tutorial"],
-      ["WSL Tutorial", "/docs/remote/wsl-tutorial"],
-      ["Tips and Tricks", "/docs/remote/troubleshooting"],
-      ["FAQ", "/docs/remote/faq"]
-    ]
-  },
-  {
     "name": "Dev Containers",
     "area": "devcontainers",
     "topics": [
