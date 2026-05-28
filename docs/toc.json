@@ -12,7 +12,7 @@
     {
         "name": "Agents",
         "area": "copilot",
-        "link": "/docs/agents/overview",
+        "link": "/docs/agent-native/overview",
         "toc": "agent-native/toc.json",
         "topics": []
     },

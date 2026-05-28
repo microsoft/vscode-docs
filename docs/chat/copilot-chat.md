@@ -117,6 +117,12 @@ For more information, see [customizing AI in VS Code](/docs/agent-customization/
 
 Use [Agent Logs and the Chat Debug view](/docs/agents/agent-troubleshooting/chat-debug-view.md) to inspect what happens when you send a prompt. Agent Logs shows a chronological event log of tool calls, LLM requests, and prompt file discovery. The Chat Debug view shows the raw system prompt, user prompt, context, and tool payloads for each interaction. These tools are useful for understanding why the AI responded in a certain way or for troubleshooting unexpected results.
 
+## Support
+
+Support for GitHub Copilot Chat is provided by GitHub and can be reached at <https://support.github.com>.
+
+To learn more about Copilot's security, privacy, compliance, and transparency, see the [GitHub Copilot Trust Center FAQ](https://copilot.github.trust.page/faq).
+
 ## Related resources
 
 * [Create and manage chat sessions](/docs/chat/chat-sessions.md)
