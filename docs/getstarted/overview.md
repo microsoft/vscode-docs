@@ -1,14 +1,18 @@
 ---
 ContentId: FC5262F3-D91D-4665-A5D2-BCBCCF66E53A
 DateApproved: 5/28/2026
-MetaDescription: Install Visual Studio Code on Windows, macOS, or Linux and choose related setup options for your workflow.
+MetaDescription: Get started with Visual Studio Code, the open platform for AI agents. Install on Windows, macOS, or Linux and start building with agentic coding, extensions, and a powerful editor.
 MetaSocialImage: images/quicksetup/quick-setup-social.png
 ---
-# Setting up Visual Studio Code
+# Get started with Visual Studio Code
 
-Visual Studio Code is a code editor for Windows, macOS, and Linux. Use this article to choose an installation path, check requirements, and find related setup options.
+Visual Studio Code is the open platform for AI agents. Run any agent with any model across your full project in a free, open-source editor for Windows, macOS, and Linux. Agents plan, implement across files, run tests, and iterate autonomously, so you can focus on the ideas that matter.
 
-VS Code is lightweight and should run on most available hardware and platform versions. Review the [system requirements](/docs/supporting/requirements.md) to check if your computer configuration is supported.
+VS Code is also built to be extended. Thousands of [extensions](/docs/configure/extensions/extension-marketplace.md) add language support, debuggers, themes, and integrations. Connect [MCP servers](/docs/agents/concepts/tools.md#model-context-protocol-mcp), define [custom instructions](/docs/agent-customization/overview.md), and build your own tools with the [extension API](/api/get-started/your-first-extension.md). Under the hood, VS Code is a powerful code editor with built-in debugging, Git, IntelliSense, and support for every major language.
+
+You can [download](https://code.visualstudio.com/download) and install VS Code on your desktop, or open it instantly in the browser at [vscode.dev](https://vscode.dev) with zero setup. VS Code ships weekly [Stable](/updates) releases with auto-update. To preview upcoming features, install the [Insiders](/insiders) build, which ships nightly and runs side by side with Stable.
+
+[Download VS Code](https://code.visualstudio.com/download)
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
 Follow a hands-on tutorial to build your first app with AI in VS Code.
@@ -17,70 +21,79 @@ Follow a hands-on tutorial to build your first app with AI in VS Code.
 
 </div>
 
-## Set up VS Code for your platform
-
-Choose the setup path that matches where you want to work.
-
 <div class="card-grid">
-    <a class="card" href="/docs/setup/windows">
-        <i class="codicon codicon-device-desktop" aria-hidden="true"></i>
-        <p>Install on Windows</p>
+    <a class="card" href="/docs/agents/overview">
+        <i class="codicon codicon-copilot" aria-hidden="true"></i>
+        <p>AI agents</p>
     </a>
-    <a class="card" href="/docs/setup/mac">
-        <i class="codicon codicon-device-desktop" aria-hidden="true"></i>
-        <p>Install on macOS</p>
+    <a class="card" href="/docs/configure/extensions/extension-marketplace">
+        <i class="codicon codicon-extensions" aria-hidden="true"></i>
+        <p>Extensible platform</p>
     </a>
-    <a class="card" href="/docs/setup/linux">
-        <i class="codicon codicon-terminal" aria-hidden="true"></i>
-        <p>Install on Linux</p>
-    </a>
-    <a class="card" href="/docs/setup/vscode-web">
-        <i class="codicon codicon-globe" aria-hidden="true"></i>
-        <p>Use VS Code for the Web</p>
+    <a class="card" href="/docs/getstarted/getting-started">
+        <i class="codicon codicon-tools" aria-hidden="true"></i>
+        <p>Powerful editor</p>
     </a>
 </div>
 
-> [!NOTE]
-> VS Code ships weekly releases. Most desktop installs support [auto-update](#update-cadence) when a new release is available.
+## Install VS Code
 
-## After installation
+[Download the installer](https://code.visualstudio.com/download) for your platform and follow the steps below. VS Code is lightweight and runs on most available hardware. Review the [system requirements](/docs/supporting/requirements.md) for details.
 
-After you install VS Code, finish setup for your development workflow:
+<details>
+<summary>Windows</summary>
 
-* [Install additional components](/docs/setup/additional-components.md), including Git, Node.js, TypeScript, language runtimes, and command-line tools.
-* [Install extensions from the Visual Studio Marketplace](https://marketplace.visualstudio.com/VSCode) to add themes, formatters, debuggers, and language support.
-* [Set up GitHub Copilot](/docs/copilot/setup.md) to use AI features in VS Code.
-* [Start the VS Code tutorial](/docs/editing/getting-started.md) for a hands-on tour of the user interface and key features.
+1. Download the [User Setup installer](https://code.visualstudio.com/download) (`.exe`).
+1. Run the installer and follow the prompts.
+1. VS Code is ready to use. The installer adds `code` to your PATH so you can open a folder from the terminal with `code .`.
 
-> [!TIP]
-> New Copilot users can start with the [Copilot Free plan](https://github.com/github-copilot/signup), which includes a monthly limit of inline suggestions and chat interactions.
+For System Setup, ZIP archive, or other options, see the [full Windows setup guide](/docs/setup/windows.md).
 
-## Update cadence
+</details>
 
-VS Code releases a new version [each week](/updates) with new features and important bug fixes. Most platforms support auto update and prompt you to install the new release when it becomes available.
+<details>
+<summary>macOS</summary>
 
-To check for updates manually, run **Help** > **Check for Updates** on Windows and Linux, or run **Code** > **Check for Updates** on macOS.
+1. Download the [`.dmg` installer](https://code.visualstudio.com/download).
+1. Open the `.dmg` file and drag **Visual Studio Code.app** to the **Applications** folder.
+1. Open VS Code from the Applications folder or Spotlight.
 
-> [!NOTE]
-> [Disable auto-update](/docs/supporting/faq.md#how-do-i-opt-out-of-vs-code-auto-updates) if you prefer to update VS Code on your own schedule.
+To use the `code` command in the terminal, open the Command Palette (`kb(workbench.action.showCommands)`) and run **Shell Command: Install 'code' command in PATH**. For more options, see the [full macOS setup guide](/docs/setup/mac.md).
 
-## Insiders nightly build
+</details>
 
-To try nightly builds, preview new features, or verify bug fixes, install the [Insiders build](/insiders). The Insiders build installs side by side with the weekly Stable build. The VS Code development team uses the Insiders build every day and welcomes feedback from people trying new features early.
+<details>
+<summary>Linux</summary>
 
-Because Insiders builds are released nightly, multiple builds often share the same product version number. To uniquely identify a specific Insiders build, use the commit ID shown in the **About** dialog in addition to the version number.
+Download the package for your distribution from the [download page](https://code.visualstudio.com/download):
 
-## Portable mode
+* **Debian / Ubuntu** - Download the `.deb` package and install it with `sudo apt install ./<file>.deb`.
+* **Fedora / RHEL** - Download the `.rpm` package and install it with `sudo dnf install ./<file>.rpm`.
 
-Visual Studio Code supports [portable mode](https://en.wikipedia.org/wiki/Portable_application). Portable mode stores VS Code data near the application so the installation can move between environments, such as on a USB drive. See the [VS Code portable mode](/docs/setup/portable.md) documentation for details.
+Installing the package sets up the apt or dnf repository for automatic updates. For Snap, Arch, Nix, and other options, see the [full Linux setup guide](/docs/setup/linux.md).
+
+</details>
 
 ## Next steps
 
-These topics help you learn more after setup:
-
-* [VS Code tutorial](/docs/editing/getting-started.md) - A quick hands-on tour of the key features of VS Code.
-* [Tips and Tricks](/docs/editing/tips-and-tricks.md) - A collection of productivity tips for working with VS Code.
-* [AI-assisted coding](/docs/copilot/overview.md) - Learn how GitHub Copilot in VS Code helps you write code faster.
+<div class="card-grid">
+    <a class="card" href="/docs/getstarted/getting-started">
+        <i class="codicon codicon-mortar-board" aria-hidden="true"></i>
+        <p>Take the VS Code tutorial</p>
+    </a>
+    <a class="card" href="/docs/agents/agents-tutorial">
+        <i class="codicon codicon-lightbulb" aria-hidden="true"></i>
+        <p>Build apps with agents</p>
+    </a>
+    <a class="card" href="/docs/agent-customization/overview">
+        <i class="codicon codicon-settings-gear" aria-hidden="true"></i>
+        <p>Learn about customizing agents</p>
+    </a>
+    <a class="card" href="/docs/editing/tips-and-tricks">
+        <i class="codicon codicon-book" aria-hidden="true"></i>
+        <p>VS Code tips and tricks</p>
+    </a>
+</div>
 
 ## Common questions
 
