@@ -66,6 +66,7 @@
         "topics": [
             ["Overview", "/docs/chat/copilot-chat"],
             ["Chat Sessions", "/docs/chat/chat-sessions"],
+            ["Session Insights", "/docs/chat/session-insights"],
             ["Add Context", "/docs/chat/copilot-chat-context"],
             ["Inline Chat", "/docs/chat/inline-chat"],
             ["Review Edits", "/docs/chat/review-code-edits"],
