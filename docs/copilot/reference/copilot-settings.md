@@ -94,8 +94,6 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 | `setting(chat.utilitySmallModel)`<br/>Override the language model used for fast, lightweight [utility flows](/docs/copilot/customization/language-models.md#change-the-model-for-utility-tasks), such as commit messages, rename suggestions, and intent detection. A fast, inexpensive model is recommended. | `"Default"` |
 | `setting(github.copilot.chat.edits.suggestRelatedFilesFromGitHistory)` _(Experimental)_<br/>Suggest related files from git history in chat context. | `true` |
 | `setting(github.copilot.chat.localIndex.enabled)`<br/>Enable local session tracking for [session insights](/docs/copilot/chat/session-insights.md) and `/chronicle` commands. | `true` |
-| `setting(chat.sessionSync.enabled)`<br/>Enable [session sync](/docs/copilot/chat/session-sync.md) to GitHub.com. When enabled, Copilot session data syncs to your GitHub account for cross-device access. Requires `setting(github.copilot.chat.localIndex.enabled)` to also be enabled. | `true` |
-| `setting(chat.sessionSync.excludeRepositories)`<br/>Repository patterns to exclude from [session sync](/docs/copilot/chat/session-sync.md). Use exact `owner/repo` names or glob patterns like `my-org/*`. Sessions from matching repositories are stored locally only. | `[]` |
 
 ## Agent settings
 
