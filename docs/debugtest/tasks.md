@@ -1,6 +1,6 @@
 ---
 ContentId: F5EA1A52-1EF2-4127-ABA6-6CEF5447C608
-DateApproved: 5/20/2026
+DateApproved: 5/28/2026
 MetaDescription: Expand your development workflow with task integration in Visual Studio Code.
 ---
 # Integrate with External Tools via Tasks
@@ -379,7 +379,7 @@ You can specify a task's run behaviors using the `runOptions` property:
   * `terminateNewest` - Terminate the newest running instance.
   * `terminateOldest` - Terminate the oldest running instance.
   * `warn` - Don't start a new instance (show warning).
-  
+
 ## Customizing auto-detected tasks
 
 As mentioned above, you can customize auto-detected tasks in the `tasks.json` file. You usually do so to modify presentation properties or to attach a problem matcher to scan the task's output for errors and warnings. You can customize a task directly from the **Run Task** list by pressing the gear icon to the right to insert the corresponding task reference into the `tasks.json` file. Assume you have the following Gulp file to lint JavaScript files using ESLint (the file is taken from [https://github.com/adametry/gulp-eslint](https://github.com/adametry/gulp-eslint)):
@@ -727,7 +727,18 @@ test.js
 Our problem matcher is line-based so we need to capture the file name (test.js) with a different regular expression than the actual problem location and message (1:0   error  Missing "use strict" statement).
 
 To do this, use an array of problem patterns for the `pattern` property. This way you define a pattern per each line you want to match.
-> **Note:** In a multi-line problem matcher, each line in the output must be matched sequentially by the pattern array. Intermediate lines cannot be skipped, even if they are not needed for capturing values.
+
+> **Note:** In a multi-line problem matcher, the pattern array must match every consecutive line of output, starting from the first pattern. You cannot skip intermediate lines, even if they contain no useful information.
+
+If your tool outputs three lines and you only need data from the first and third, your pattern array still needs three entries. Use `{"regexp": "^.*$"}` with no capture group assignments for lines you don't need data from:
+
+```json
+"pattern": [
+    { "regexp": "^Error:\\s+(.*)$", "message": 1 },
+    { "regexp": "^.*$" },
+    { "regexp": "^\\s+at\\s+(.*):(\\d+)$", "file": 1, "line": 2 }
+]
+```
 
 The following problem pattern matches the output from ESLint in stylish mode - but still has one small issue that we need to resolve next. The code below has a first regular expression to capture the file name and the second to capture the line, column, severity, message, and error code:
 

@@ -1,6 +1,6 @@
 ---
 ContentId: 7a2e5f8d-4c9b-41e6-b3a8-9d7f2e4c1b8a
-DateApproved: 5/20/2026
+DateApproved: 5/28/2026
 MetaDescription: Learn how to create and manage chat sessions in Visual Studio Code, including the sessions list, opening chat in editor tabs, separate windows, and using chat session history.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -25,6 +25,7 @@ Key things to know about chat sessions:
 * **Checkpoints**: at any time, you can roll back to a previous state or edit a previous prompt to change direction. Learn more about [checkpoints](/docs/chat/chat-checkpoints.md).
 * **Agent types**: sessions can run locally, in the background, or in the cloud. Learn more about [agent types](/docs/agents/overview.md#types-of-agents).
 * **Multiple sessions**: you can run multiple sessions in parallel, each focused on a different task. Use the [sessions list](#sessions-list) to monitor ongoing sessions and switch between them.
+* **Session insights**: query your session history to generate standup reports, get tips, and search past work. Learn more about [session insights](/docs/copilot/chat/session-insights.md).
 
 > [!TIP]
 > Start a new chat session when you want to change topics to help the AI provide more relevant responses.
