@@ -13,6 +13,7 @@
         "name": "Agents",
         "area": "copilot",
         "link": "/docs/agents/overview",
+        "toc": "agent-native/toc.json",
         "topics": []
     },
 
@@ -20,6 +21,7 @@
         "name": "Editor",
         "area": "core-editor",
         "link": "/docs/core-editor/overview",
+        "toc": "core-editor/toc.json",
         "topics": []
     },
 
@@ -122,6 +124,7 @@
     "name": "Languages & Runtimes",
     "area": "languages",
     "link": "/docs/languages/overview",
+    "toc": "languages/toc.json",
     "topics": []
   },
 
@@ -129,6 +132,7 @@
     "name": "Extension Docs",
     "area": "extension-docs",
     "link": "/docs/extension-docs/overview",
+    "toc": "extension-docs/toc.json",
     "topics": []
   },
 ]
