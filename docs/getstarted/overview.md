@@ -6,11 +6,9 @@ MetaSocialImage: images/quicksetup/quick-setup-social.png
 ---
 # Get started with Visual Studio Code
 
-Visual Studio Code is the open platform for AI agents. Run any agent with any model across your full project in a free, open-source editor for Windows, macOS, and Linux. Agents plan, implement across files, run tests, and iterate autonomously, so you can focus on the ideas that matter.
+Visual Studio Code is a free, open-source code editor for Windows, macOS, and Linux. It is the open platform for AI agents, built to be extended, and backed by a powerful editor with built-in debugging, Git, and IntelliSense.
 
-VS Code is also built to be extended. Thousands of [extensions](/docs/configure/extensions/extension-marketplace.md) add language support, debuggers, themes, and integrations. Connect [MCP servers](/docs/agent-customization/mcp-servers.md), define [custom instructions](/docs/agent-customization/overview.md), install [agent skills](/docs/agent-customization/agent-skills.md), and build your own tools with the [extension API](/api/get-started/your-first-extension.md). Under the hood, VS Code is a powerful code editor with built-in debugging, Git, IntelliSense, and support for every major language.
-
-You can [download](https://code.visualstudio.com/download) and install VS Code on your desktop, or open it instantly in the browser at [vscode.dev](https://vscode.dev) with zero setup (learn more about [VS Code for the Web](/docs/remote/vscode-web.md)). VS Code ships weekly [Stable](/updates) releases with auto-update. To preview upcoming features, install the [Insiders](/insiders) build, which ships nightly and runs side by side with Stable.
+You can [download](https://code.visualstudio.com/download) and install VS Code on your desktop, or open it instantly in the browser at [vscode.dev](https://vscode.dev) with zero setup (learn more about [VS Code for the Web](/docs/remote/vscode-web.md)).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
 Follow a hands-on tutorial to build your first app with AI in VS Code.
@@ -28,21 +26,21 @@ Explore the features that make VS Code the home for mult-agent development.
         <i class="codicon codicon-hubot" aria-hidden="true"></i>
         <div>
             <p><strong>AI agents</strong></p>
-            <p>Run any agent with any model. Agents plan, code, and iterate across your full project.</p>
+            <p>Run any agent with any model across your full project.</p>
         </div>
     </a>
     <a class="card" href="/docs/core-editor/overview">
         <i class="codicon codicon-tools" aria-hidden="true"></i>
         <div>
             <p><strong>Powerful editor</strong></p>
-            <p>Built-in debugging, Git, IntelliSense, and support for every major language.</p>
+            <p>Debugging, Git, IntelliSense, and every major language.</p>
         </div>
     </a>
     <a class="card" href="/docs/configure/extensions/extensions">
         <i class="codicon codicon-extensions" aria-hidden="true"></i>
         <div>
             <p><strong>Extensible platform</strong></p>
-            <p>Thousands of extensions, MCP servers, custom instructions, and an open API.</p>
+            <p>Extensions, MCP servers, custom instructions, and an open API.</p>
         </div>
     </a>
 </div>
@@ -50,6 +48,8 @@ Explore the features that make VS Code the home for mult-agent development.
 ## Install VS Code
 
 [Download the installer](https://code.visualstudio.com/download) for your platform and follow the steps below. VS Code is lightweight and runs on most available hardware. Review the [system requirements](/docs/supporting/requirements.md) for details.
+
+VS Code ships weekly [Stable](/updates) releases with auto-update. To preview upcoming features, install the [Insiders](/insiders) build, which ships nightly and runs side by side with Stable.
 
 <details>
 <summary>Windows</summary>
