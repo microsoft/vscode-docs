@@ -28,7 +28,7 @@ This guide walks you through using browser agent tools to build a calculator app
 To complete this guide, you need:
 
 * [Visual Studio Code installed on your computer](/download)
-* [A GitHub Copilot subscription](/docs/copilot/setup.md)
+* [A GitHub Copilot subscription](/docs/setup/copilot.md)
 * Browser agent tools enabled with the `setting(workbench.browser.enableChatTools)` setting
 
 ## How browser agent tools work

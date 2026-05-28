@@ -34,7 +34,7 @@ To complete this tutorial, you need:
 * [Visual Studio Code installed on your computer](/download)
 * [Live Preview](https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server) extension installed in VS Code (for previewing the todo app)
 * [A GitHub account](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github) (for cloud agent workflow)
-* [A GitHub Copilot subscription](/docs/copilot/setup.md)
+* [A GitHub Copilot subscription](/docs/setup/copilot.md)
 
 ## Step 1: Use a local agent to scaffold an app
 

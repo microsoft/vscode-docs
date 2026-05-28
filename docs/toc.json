@@ -129,6 +129,7 @@
     "name": "Advanced Setup",
     "area": "setup",
     "topics": [
+      ["GitHub Copilot Setup", "/docs/setup/copilot"],
       ["Linux", "/docs/setup/linux"],
       ["macOS", "/docs/setup/mac"],
       ["Windows", "/docs/setup/windows"],

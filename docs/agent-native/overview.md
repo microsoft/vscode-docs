@@ -120,13 +120,12 @@ AI features are built into VS Code. To enable them, sign in with your GitHub acc
 
 1. Hover over the Copilot icon in the **Status Bar** and select **Use AI Features**.
 1. Follow the prompts to sign in. If you don't have a subscription yet, you are signed up for the free plan with monthly limits on suggestions and chat.
-
-That's it. Open the **Chat** view (`kb(workbench.action.chat.open)`) and start building.
+1. You can now use AI features in VS Code.
 
 > [!TIP]
 > You can also bring your own API key to use models from any provider without a Copilot subscription. Learn more about [language models](/docs/agent-customization/language-models.md).
 
-For detailed setup options, including GitHub Enterprise accounts and disabling AI features, see [Set up GitHub Copilot](/docs/copilot/setup.md).
+For detailed setup options, including GitHub Enterprise accounts and disabling AI features, see [Set up GitHub Copilot](/docs/setup/copilot.md).
 
 ## Next steps
 

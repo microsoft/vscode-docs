@@ -330,7 +330,7 @@ You can also right-click on a terminal tab and select **Toggle Size to Content W
 
 ## GitHub Copilot in the terminal
 
-If you have access to [GitHub Copilot](/docs/copilot/setup.md), you can use it to get AI-powered help with terminal commands and shell scripting. There are several ways to use Copilot with the terminal:
+If you have access to [GitHub Copilot](/docs/setup/copilot.md), you can use it to get AI-powered help with terminal commands and shell scripting. There are several ways to use Copilot with the terminal:
 
 ### Terminal inline chat
 

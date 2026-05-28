@@ -21,7 +21,7 @@ Use chat in VS Code to generate the sample application in one go.
 
 * VS Code installed on your machine. Download it from the [Visual Studio Code website](https://code.visualstudio.com/).
 
-* Access to GitHub Copilot. Follow these steps to [Set up GitHub Copilot in VS Code](/docs/copilot/setup.md).
+* Access to GitHub Copilot. Follow these steps to [Set up GitHub Copilot in VS Code](/docs/setup/copilot.md).
 
     > [!TIP]
     > If you don't have a Copilot subscription, you can sign up to use Copilot for free directly from within VS Code and get a monthly limit of inline suggestions and chat interactions.

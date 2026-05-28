@@ -20,7 +20,7 @@ In this article, you learn about the Agents window and how to start and manage a
 ## Prerequisites
 
 * Visual Studio Code installed. [Download VS Code](/download).
-* Access to GitHub Copilot. Follow the steps in [Set up GitHub Copilot in VS Code](/docs/copilot/setup.md) to sign in and activate your subscription.
+* Access to GitHub Copilot. Follow the steps in [Set up GitHub Copilot in VS Code](/docs/setup/copilot.md) to sign in and activate your subscription.
 
 ## Code-first vs. agent-first
 

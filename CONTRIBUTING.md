@@ -274,7 +274,7 @@ The following example shows a `Guides` subsection with two topics, within the `G
       "area": "copilot",
       "topics": [
         ["Overview", "/docs/copilot/overview"],
-        ["Setup", "/docs/copilot/setup"],
+        ["Setup", "/docs/setup/copilot"],
         ["", "", {
           "name": "Guides",
           "area": "copilot/guides",

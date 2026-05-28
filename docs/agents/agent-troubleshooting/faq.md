@@ -58,7 +58,7 @@ If you're on a paid plan and use all of your premium requests, you can still use
 
 To use chat in Visual Studio Code, you must be signed into Visual Studio Code with a GitHub account that has access to GitHub Copilot.
 
-- If your Copilot subscription is associated with another GitHub account, sign out of your GitHub account and sign in with another account. Use the **Accounts** menu in the Activity Bar for signing out of your current GitHub account. See [Use a different GitHub account with Copilot](/docs/copilot/setup.md#use-a-different-github-account-with-copilot) for more information.
+- If your Copilot subscription is associated with another GitHub account, sign out of your GitHub account and sign in with another account. Use the **Accounts** menu in the Activity Bar for signing out of your current GitHub account. See [Use a different GitHub account with Copilot](/docs/setup/copilot.md#use-a-different-github-account-with-copilot) for more information.
 
 - Verify that your Copilot subscription is still active in [GitHub Copilot settings](https://github.com/settings/copilot).
 
@@ -68,7 +68,7 @@ To use chat in Visual Studio Code, you must be signed into Visual Studio Code wi
 
 If your Copilot subscription is associated with another GitHub account, sign out of your GitHub account in VS Code, and sign in with another account.
 
-See [Use a different GitHub account with Copilot](/docs/copilot/setup.md#use-a-different-github-account-with-copilot) for more information.
+See [Use a different GitHub account with Copilot](/docs/setup/copilot.md#use-a-different-github-account-with-copilot) for more information.
 
 ## General Copilot questions
 

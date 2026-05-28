@@ -401,7 +401,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/copilot/setup</loc>
+        <loc>https://code.visualstudio.com/docs/setup/copilot</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

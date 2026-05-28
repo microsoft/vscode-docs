@@ -27,7 +27,7 @@ Learn about the key features of Visual Studio Code in our introduction video.
 ## Prerequisites
 
 * [Download and install Visual Studio Code on your computer](https://code.visualstudio.com/download)
-* [Set up GitHub Copilot in VS Code](/docs/copilot/setup.md)
+* [Set up GitHub Copilot in VS Code](/docs/setup/copilot.md)
 * Install [Node.js](https://nodejs.org/) (for running and debugging JavaScript)
 
 > [!TIP]

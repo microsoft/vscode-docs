@@ -2,13 +2,11 @@
 ContentId: 37fd3bd2-4209-49f6-bec5-c544d6b1b289
 DateApproved: 5/28/2026
 MetaDescription: Access your GitHub Copilot subscription and set up GitHub Copilot in Visual Studio.
-MetaSocialImage: images/shared/github-copilot-social.png
+MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Set up GitHub Copilot in VS Code
 
 This guide walks you through setting up GitHub Copilot in Visual Studio Code. To use Copilot in VS Code, you need to have access to GitHub Copilot with your GitHub account.
-
-<video src="./images/setup/vscode-copilot-setup.mp4" poster="./images/setup/setup-copilot-sign-in.png" title="Setting up GitHub Copilot in Visual Studio Code" loop controls muted></video>
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
 Follow a hands-on tutorial to build your first app with AI in VS Code.
@@ -57,17 +55,17 @@ If your Copilot subscription is associated with another GitHub account, follow t
 
 1. Select the **Accounts** menu in the Activity Bar, and then select **Sign out** for the account you're currently signed in with.
 
-    ![Accounts menu in VS Code, showing the option to sign out of the current GitHub account.](images/setup/vscode-accounts-menu-signout.png)
+    ![Accounts menu in VS Code, showing the option to sign out of the current GitHub account.](images/copilot/vscode-accounts-menu-signout.png)
 
 1. Sign in to your GitHub account using any of the following methods:
 
     * Select **Sign in to use Copilot** from the Copilot menu in the Status Bar.
 
-        ![Sign in to use Copilot from the Copilot status menu.](images/setup/copilot-signedout-sign-in.png)
+        ![Sign in to use Copilot from the Copilot status menu.](images/copilot/copilot-signedout-sign-in.png)
 
     * Select the **Accounts** menu in the Activity Bar, and then select **Sign in with GitHub to use GitHub Copilot**.
 
-        ![Accounts menu in VS Code, showing the option to sign in with GitHub to use GitHub Copilot.](images/setup/vscode-accounts-menu.png)
+        ![Accounts menu in VS Code, showing the option to sign in with GitHub to use GitHub Copilot.](images/copilot/vscode-accounts-menu.png)
 
     * Run the **GitHub Copilot: Sign in** command in the Command Palette (`kb(workbench.action.showCommands)`).
 

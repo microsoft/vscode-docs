@@ -14,7 +14,7 @@ Instead of writing each line, you direct an AI coding agent to read your codebas
 
 This guide covers everything needed to kick off a first agent session with VS Code and GitHub Copilot.
 
-Before you start, install [VS Code](https://code.visualstudio.com/) and [set up GitHub Copilot](https://code.visualstudio.com/docs/copilot/setup).
+Before you start, install [VS Code](https://code.visualstudio.com/) and [set up GitHub Copilot](https://code.visualstudio.com/docs/setup/copilot).
 
 ## The five pillars of great agent results
 
@@ -140,6 +140,6 @@ In the [next guide](/learn/foundations/approvals-autonomy-and-context-budget.md)
 ## Learn more
 
 * [Download VS Code](https://code.visualstudio.com)
-* [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/setup)
+* [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/setup/copilot)
 * [Copilot Chat panel docs](https://code.visualstudio.com/docs/chat/copilot-chat)
 * [Choosing an AI model for Copilot Chat](https://docs.github.com/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat)
