@@ -26,6 +26,8 @@ Keywords:
 
 Visual Studio Code comes with AI agents built in. Describe what you want to build, and an agent plans the approach, writes the code, and verifies the result across your entire project. Agents handle tasks end-to-end: build features across multiple files, debug and fix failing tests, refactor between frameworks, [test web apps with the integrated browser](/docs/agents/guides/browser-agent-testing-guide.md), or [ship a pull request](/docs/agents/agent-types/cloud-agents.md) for team review.
 
+<video src="images/overview/agents-intro.mp4" title="Video showing an agent session building a complete feature in VS Code." controls muted></video>
+
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
 Follow a hands-on tutorial to build your first app with AI in VS Code.
 
@@ -38,23 +40,28 @@ Follow a hands-on tutorial to build your first app with AI in VS Code.
 VS Code gives you two surfaces for working with agents. Pick the one that fits your current task and switch freely between them. Both share the same agent sessions, settings, and keybindings, so switching costs nothing.
 
 <div class="card-grid">
-    <a class="card" href="/docs/agents/overview">
+    <a class="card" href="/docs/chat/copilot-chat">
         <i class="codicon codicon-code" aria-hidden="true"></i>
         <div>
             <p><strong>Code-first</strong></p>
-            <p>Use the Chat view alongside your editor to let agents help you with coding tasks for a specific project. Review the code at every step of the way.</p>
+            <p>Agents assist alongside your editor, debugger, and extensions.</p>
         </div>
     </a>
     <a class="card" href="/docs/agents/agents-window">
         <i class="codicon codicon-hubot" aria-hidden="true"></i>
         <div>
             <p><strong>Agent-first</strong></p>
-            <p>Use the Agents window when you want to work in a task-focused way and orchestrate agents across projects with chat as the primary interface. Review outcomes instead of code.</p>
+            <p>Orchestrate agents across projects with chat as the primary interface.</p>
+        </div>
+    </a>
+    <a class="card" href="/docs/agents/overview">
+        <i class="codicon codicon-arrow-swap" aria-hidden="true"></i>
+        <div>
+            <p><strong>Switch anytime</strong></p>
+            <p>Both surfaces share sessions, settings, and keybindings. Move between them freely.</p>
         </div>
     </a>
 </div>
-
-<video src="images/overview/agents-intro.mp4" title="Video showing an agent session building a complete feature in VS Code." controls muted></video>
 
 ## Run any agent with any model
 
@@ -114,9 +121,6 @@ Learn more about [customizing agents](/docs/agent-customization/overview.md).
 Agents can read and edit files, run terminal commands, and call external services. VS Code keeps you in control: approve or deny tool calls before they run, set a permission level that matches the autonomy you are comfortable with, and enable agent sandboxing to restrict file system and network access at the OS level. Learn more about [trust and safety](/docs/agents/concepts/trust-and-safety.md) and [AI security](/docs/agents/security.md).
 
 Organizations can centrally manage which AI features, models, and tools are available across their teams. Admins define policies that control agent capabilities, restrict MCP servers or extensions, and enforce compliance requirements, so developers get a consistent, governed experience out of the box. Learn more about [enterprise AI policies](/docs/enterprise/ai-settings.md).
-
-> [!IMPORTANT]
-> Your organization might have disabled agents in VS Code. Contact your admin to enable this functionality.
 
 ## Next steps
 
