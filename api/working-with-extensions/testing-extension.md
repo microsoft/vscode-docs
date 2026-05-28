@@ -363,6 +363,62 @@ async function main() {
 main();
 ```
 
+## Testing Workspace Trust behavior
+
+If your extension declares `capabilities.untrustedWorkspaces` in `package.json`, add integration tests for both trusted and untrusted workspaces.
+
+When using `@vscode/test-cli`, define separate test configurations so you can run each trust state independently:
+
+```js
+// .vscode-test.js
+const { defineConfig } = require('@vscode/test-cli');
+const path = require('path');
+
+module.exports = defineConfig([
+  {
+    label: 'trustedWorkspaceTests',
+    files: 'out/test/**/*.test.js',
+    workspaceFolder: './test/fixtures/trusted-workspace',
+    // Optional: disables Workspace Trust for this run
+    launchArgs: ['--disable-workspace-trust'],
+  },
+  {
+    label: 'untrustedWorkspaceTests',
+    files: 'out/test/**/*.test.js',
+    workspaceFolder: './test/fixtures/untrusted-workspace',
+    // Keep Workspace Trust enabled and isolate user data for deterministic runs
+    launchArgs: [
+      '--user-data-dir',
+      path.join(__dirname, '.vscode-test', 'user-data-untrusted'),
+    ],
+  },
+]);
+```
+
+In your tests, assert trust-aware behavior by checking `vscode.workspace.isTrusted`:
+
+```ts
+import * as assert from 'assert';
+import * as vscode from 'vscode';
+
+suite('Workspace Trust Tests', () => {
+  test('extension behavior changes by trust state', async () => {
+    const isFeatureAvailable = await vscode.commands.executeCommand<boolean>(
+      'myExtension.isRestrictedFeatureEnabled'
+    );
+
+    if (vscode.workspace.isTrusted) {
+      assert.strictEqual(isFeatureAvailable, true);
+    } else {
+      assert.strictEqual(isFeatureAvailable, false);
+    }
+  });
+});
+```
+
+> **Note**: You can't programmatically grant or revoke Workspace Trust from an extension test. Use separate test runs for trusted and untrusted states.
+
 ## Next steps
 
 - [Continuous Integration](/api/working-with-extensions/continuous-integration) - Run your extension tests in a Continuous Integration service such as Azure DevOps.
+- [Workspace Trust Extension Guide](/api/extension-guides/workspace-trust) - Learn how to declare and handle workspace trust in your extension.
