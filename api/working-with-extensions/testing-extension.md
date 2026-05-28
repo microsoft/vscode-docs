@@ -365,17 +365,14 @@ main();
 
 ## Testing Workspace Trust behavior
 
-If your extension declares support for [Workspace Trust](/api/extension-guides/workspace-trust) (via the `capabilities.untrustedWorkspaces` field in `package.json`), you should write integration tests that verify your extension behaves correctly in both trusted and untrusted workspaces.
+If your extension declares `capabilities.untrustedWorkspaces` in `package.json`, add integration tests for both trusted and untrusted workspaces. You can't programmatically grant or revoke Workspace Trust from an extension test. Use separate test runs for trusted and untrusted states.
 
-### How Workspace Trust works in tests
+When using `@vscode/test-cli`, define separate test configurations so you can run each trust state independently:
 
-By default, the Extension Development Host opens workspaces as **trusted**. To test your extension's behavior in an **untrusted** (Restricted Mode) workspace, you need to open a workspace folder that VS Code treats as untrusted by passing the `--disable-workspace-trust` flag **and** pointing to a folder that has not been explicitly trusted by the user.
+- **trustedWorkspaceTests**: Gives you a baseline run where trust restrictions are not applied. This helps verify your extension's full-feature behavior and catch regressions in the trusted path.
+- **untrustedWorkspaceTests**: Verifies Restricted Mode behavior with Workspace Trust still enabled. Using a dedicated `--user-data-dir` prevents previously persisted trust decisions from making this run accidentally trusted.
 
-The most reliable approach is to use a temporary, fresh workspace folder that has never been opened before — VS Code will prompt for trust on a new workspace, but in a headless test environment, the workspace defaults to untrusted when `security.workspace.trust.enabled` is `true` and no trust has been granted.
-
-### Configuring separate test runs for trusted and untrusted workspaces
-
-When using `@vscode/test-cli`, you can define separate test configurations for each trust state:
+Because each configuration has its own `label`, you can run them independently (for example, `vscode-test --label trustedWorkspaceTests` and `vscode-test --label untrustedWorkspaceTests`) or run both in sequence.
 
 ```js
 // .vscode-test.js
@@ -387,12 +384,14 @@ module.exports = defineConfig([
     label: 'trustedWorkspaceTests',
     files: 'out/test/**/*.test.js',
     workspaceFolder: './test/fixtures/trusted-workspace',
+    // Optional: disables Workspace Trust for this run
+    launchArgs: ['--disable-workspace-trust'],
   },
   {
     label: 'untrustedWorkspaceTests',
     files: 'out/test/**/*.test.js',
     workspaceFolder: './test/fixtures/untrusted-workspace',
-    // Pass user data dir to isolate trust settings per test run
+    // Keep Workspace Trust enabled and isolate user data for deterministic runs
     launchArgs: [
       '--user-data-dir',
       path.join(__dirname, '.vscode-test', 'user-data-untrusted'),
@@ -401,88 +400,25 @@ module.exports = defineConfig([
 ]);
 ```
 
-Because VS Code persists trust decisions in the user data directory, using a dedicated `--user-data-dir` for the untrusted test run ensures the workspace is never automatically trusted between runs.
-
-### Writing tests that assert trust state
-
-Inside your test suite, you can read the current trust state using `vscode.workspace.isTrusted` and assert that your extension responds correctly:
+In your tests, assert trust-aware behavior by checking `vscode.workspace.isTrusted`:
 
 ```ts
 import * as assert from 'assert';
 import * as vscode from 'vscode';
 
 suite('Workspace Trust Tests', () => {
-
-  test('workspace is trusted by default in standard test run', () => {
-    assert.strictEqual(vscode.workspace.isTrusted, true);
-  });
-
-  test('extension disables restricted features in untrusted workspace', async () => {
-    // Replace with your extension's actual command or exported API
+  test('extension behavior changes by trust state', async () => {
     const isFeatureAvailable = await vscode.commands.executeCommand<boolean>(
       'myExtension.isRestrictedFeatureEnabled'
     );
 
     if (vscode.workspace.isTrusted) {
-      assert.strictEqual(isFeatureAvailable, true, 'Feature should be enabled in a trusted workspace');
+      assert.strictEqual(isFeatureAvailable, true);
     } else {
-      assert.strictEqual(isFeatureAvailable, false, 'Feature should be disabled in an untrusted workspace');
+      assert.strictEqual(isFeatureAvailable, false);
     }
-  });
-
-  test('extension respects onDidChangeTrust event', async () => {
-    let trustChanged = false;
-    const disposable = vscode.workspace.onDidGrantWorkspaceTrust(() => {
-      trustChanged = true;
-    });
-
-    // In a real scenario, trust would be granted programmatically or by user action.
-    // This test demonstrates how to listen for the event.
-    disposable.dispose();
-
-    // Verify the listener was registered without error
-    assert.ok(true);
   });
 });
-```
-
-> **Note**: You cannot programmatically grant or revoke workspace trust from within a test. To verify behavior across both trust states, run separate test configurations as shown above — one for each trust state.
-
-### Using `launch.json` to test an untrusted workspace
-
-If you prefer using the debug launch configuration, add a second configuration that points to an isolated user data directory:
-
-```json
-{
-  "version": "0.2.0",
-  "configurations": [
-    {
-      "name": "Extension Tests (Trusted)",
-      "type": "extensionHost",
-      "request": "launch",
-      "runtimeExecutable": "${execPath}",
-      "args": [
-        "--extensionDevelopmentPath=${workspaceFolder}",
-        "--extensionTestsPath=${workspaceFolder}/out/test/suite/index",
-        "${workspaceFolder}/test/fixtures/trusted-workspace"
-      ],
-      "outFiles": ["${workspaceFolder}/out/test/**/*.js"]
-    },
-    {
-      "name": "Extension Tests (Untrusted)",
-      "type": "extensionHost",
-      "request": "launch",
-      "runtimeExecutable": "${execPath}",
-      "args": [
-        "--extensionDevelopmentPath=${workspaceFolder}",
-        "--extensionTestsPath=${workspaceFolder}/out/test/suite/index",
-        "--user-data-dir=${workspaceFolder}/.vscode-test/user-data-untrusted",
-        "${workspaceFolder}/test/fixtures/untrusted-workspace"
-      ],
-      "outFiles": ["${workspaceFolder}/out/test/**/*.js"]
-    }
-  ]
-}
 ```
 
 For more information on how to declare trust requirements in your extension manifest and how to use the `vscode.workspace.isTrusted` API, see the [Workspace Trust Extension Guide](/api/extension-guides/workspace-trust).
