@@ -8,11 +8,9 @@ MetaSocialImage: images/quicksetup/quick-setup-social.png
 
 Visual Studio Code is the open platform for AI agents. Run any agent with any model across your full project in a free, open-source editor for Windows, macOS, and Linux. Agents plan, implement across files, run tests, and iterate autonomously, so you can focus on the ideas that matter.
 
-VS Code is also built to be extended. Thousands of [extensions](/docs/configure/extensions/extension-marketplace.md) add language support, debuggers, themes, and integrations. Connect [MCP servers](/docs/agent-customization/mcp-servers.md), define [custom instructions](/docs/agent-customization/overview.md), and build your own tools with the [extension API](/api/get-started/your-first-extension.md). Under the hood, VS Code is a powerful code editor with built-in debugging, Git, IntelliSense, and support for every major language.
+VS Code is also built to be extended. Thousands of [extensions](/docs/configure/extensions/extension-marketplace.md) add language support, debuggers, themes, and integrations. Connect [MCP servers](/docs/agent-customization/mcp-servers.md), define [custom instructions](/docs/agent-customization/overview.md), install [agent skills](/docs/agent-customization/agent-skills.md), and build your own tools with the [extension API](/api/get-started/your-first-extension.md). Under the hood, VS Code is a powerful code editor with built-in debugging, Git, IntelliSense, and support for every major language.
 
 You can [download](https://code.visualstudio.com/download) and install VS Code on your desktop, or open it instantly in the browser at [vscode.dev](https://vscode.dev) with zero setup (learn more about [VS Code for the Web](/docs/remote/vscode-web.md)). VS Code ships weekly [Stable](/updates) releases with auto-update. To preview upcoming features, install the [Insiders](/insiders) build, which ships nightly and runs side by side with Stable.
-
-[Download VS Code](https://code.visualstudio.com/download)
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
 Follow a hands-on tutorial to build your first app with AI in VS Code.
@@ -23,16 +21,25 @@ Follow a hands-on tutorial to build your first app with AI in VS Code.
 
 <div class="card-grid">
     <a class="card" href="/docs/agents/overview">
-        <i class="codicon codicon-copilot" aria-hidden="true"></i>
-        <p>AI agents</p>
+        <i class="codicon codicon-hubot" aria-hidden="true"></i>
+        <div>
+            <p><strong>AI agents</strong></p>
+            <p>Run any agent with any model. Agents plan, code, and iterate across your full project.</p>
+        </div>
     </a>
-    <a class="card" href="/docs/configure/extensions/extension-marketplace">
-        <i class="codicon codicon-extensions" aria-hidden="true"></i>
-        <p>Extensible platform</p>
-    </a>
-    <a class="card" href="/docs/getstarted/getting-started">
+    <a class="card" href="/docs/core-editor/overview">
         <i class="codicon codicon-tools" aria-hidden="true"></i>
-        <p>Powerful editor</p>
+        <div>
+            <p><strong>Powerful editor</strong></p>
+            <p>Built-in debugging, Git, IntelliSense, and support for every major language.</p>
+        </div>
+    </a>
+    <a class="card" href="/docs/configure/extensions/extensions">
+        <i class="codicon codicon-extensions" aria-hidden="true"></i>
+        <div>
+            <p><strong>Extensible platform</strong></p>
+            <p>Thousands of extensions, MCP servers, custom instructions, and an open API.</p>
+        </div>
     </a>
 </div>
 
@@ -79,21 +86,16 @@ Installing the package sets up the apt or dnf repository for automatic updates. 
 <div class="card-grid">
     <a class="card" href="/docs/getstarted/getting-started">
         <i class="codicon codicon-mortar-board" aria-hidden="true"></i>
-        <p>Take the VS Code tutorial</p>
+        <p>Discover VS Code</p>
     </a>
     <a class="card" href="/docs/agents/agents-tutorial">
         <i class="codicon codicon-lightbulb" aria-hidden="true"></i>
-        <p>Build apps with agents</p>
+        <p>Build with agents</p>
     </a>
     <a class="card" href="/docs/agent-customization/overview">
         <i class="codicon codicon-settings-gear" aria-hidden="true"></i>
-        <p>Learn about customizing agents</p>
-    </a>
-    <a class="card" href="/docs/editing/tips-and-tricks">
-        <i class="codicon codicon-book" aria-hidden="true"></i>
-        <p>VS Code tips and tricks</p>
-    </a>
-</div>
+        <p>Customize agents</p>
+    </a></div>
 
 ## Common questions
 
