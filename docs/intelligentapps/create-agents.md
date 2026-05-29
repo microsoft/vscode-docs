@@ -1,7 +1,7 @@
 ---
 ContentId: 09f4c3b8-1504-4fb2-9f84-5aa0fbe3969a
 DateApproved: 04/15/2026
-MetaDescription: Learn how to create AI agents with the AI Toolkit in Visual Studio Code, including hosted agents using templates or Copilot with Foundry skills and prompt agents using Agent Builder.
+MetaDescription: Learn how to create AI agents with the Foundry Toolkit in Visual Studio Code, including hosted agents using templates or Copilot with Foundry skills and prompt agents using Agent Builder.
 ---
 
 # Create agents with the Foundry Toolkit

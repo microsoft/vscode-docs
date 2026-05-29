@@ -16,13 +16,13 @@ Foundry Toolkit offers seamless integration with popular AI models from provider
 | [Create agents](/docs/intelligentapps/create-agents.md) | Use different techniques to create Prompt Agents utilizing tools and vectors or Hosted Agents with custom code. | ![Screenshot showing the Create Agents interface with various starting points for creating a new agent](./images/overview/create-agent.png) |
 | [Model Catalog](/docs/intelligentapps/models.md) | Discover and access AI models from multiple sources including Microsoft Foundry, Foundry Local, GitHub, ONNX, Ollama, OpenAI, Anthropic, and Google. Compare models side-by-side and find the perfect fit for your use case. | ![Screenshot showing the Foundry Toolkit Model Catalog interface with various AI model options](./images/overview/model-catalog.png) |
 | [Playground](/docs/intelligentapps/playground.md) | Interactive chat environment for real-time model testing. Experiment with different prompts, parameters, and multi-modal inputs including images and attachments. | ![Screenshot showing the Foundry Toolkit Playground interface with chat messaging and model parameter controls](./images/overview/model-playground.png) |
-| [Agent Builder](/docs/intelligentapps/agentbuilder) | Streamlined prompt engineering and agent development workflow. Create sophisticated prompts, integrate MCP tools, and generate production-ready code with structured outputs. | ![Screenshot showing the Agent Builder interface for creating and managing AI agents](./images/overview/agent-builder-new.png) |
-| [Agent Inspector](/docs/intelligentapps/agent-inspector) | Debug, visualize, and iterate on AI agents directly within VS Code. | ![Screenshot showing the Agent Inspector interface for debugging and visualizing AI agents](./images/overview/agent-inspector-new.png) |
+| [Agent Builder](/docs/intelligentapps/agentbuilder) | Streamlined prompt engineering and agent development workflow. Create sophisticated prompts, integrate MCP tools, and generate production-ready code with structured outputs. | ![Screenshot showing the Agent Builder interface for creating and managing AI agents](./images/overview/agent-builder.png) |
+| [Agent Inspector](/docs/intelligentapps/agent-inspector) | Debug, visualize, and iterate on AI agents directly within VS Code. | ![Screenshot showing the Agent Inspector interface for debugging and visualizing AI agents](./images/overview/agent-inspector.png) |
 | [Model Evaluation](/docs/intelligentapps/evaluation) | Comprehensive model assessment using datasets and standard metrics. Measure performance with built-in evaluators (F1 score, relevance, similarity, coherence) or create custom evaluation criteria. | ![Screenshot showing the Model Evaluation interface with metrics and performance analysis tools](./images/overview/model-evaluation.png) |
 | [Tool Catalog](/docs/intelligentapps/tool-catalog) | Connect Foundry tools and local MCP server tools using the Tool Catalog in Visual Studio Code and add them to agents with Agent Builder | ![Screenshot showing the tool catalog with a list of many tools hosted in Foundry](./images/overview/tool-catalog.png) |
 | [Fine-tuning](/docs/intelligentapps/finetune) | Customize and adapt models for specific domains and requirements. Train models locally with GPU support or use Azure Container Apps for cloud-based fine-tuning. | ![Screenshot showing the Fine-tuning interface with model adaptation and training controls](./images/overview/fine-tuning.png) |
 | [Model Conversion](/docs/intelligentapps/modelconversion) | Convert, quantize, and optimize machine learning models for local deployment. Transform models from Hugging Face and other sources to run efficiently on Windows with CPU, GPU, or NPU acceleration. | ![Screenshot showing the Model Conversion interface with tools for optimizing and transforming AI models](./images/overview/model-conversion.png) |
-| [Tracing](/docs/intelligentapps/tracing) | Monitor and analyze the performance of your AI applications. Collect and visualize trace data to gain insights into model behavior and performance. | ![Screenshot showing the Tracing interface with tools for monitoring AI applications](./images/overview/tracing-new.png) |
+| [Tracing](/docs/intelligentapps/tracing) | Monitor and analyze the performance of your AI applications. Collect and visualize trace data to gain insights into model behavior and performance. | ![Screenshot showing the Tracing interface with tools for monitoring AI applications](./images/overview/tracing.png) |
 | [Profiling (Windows ML)](/docs/intelligentapps/profiling) | Diagnose the CPU, GPU, NPU resource usages of the process, ONNX model on different execution providers, and Windows Machine Learning events. | ![Screenshot showing the Profiling tool](./images/overview/profiling.png) |
 
 ## Who is Foundry Toolkit for?
@@ -71,7 +71,7 @@ You can also install Foundry Toolkit extension manually from the Visual Studio C
 
 * Search for **Foundry Toolkit for Visual Studio Code** and select **Install** from search results.
 
-   ![Screenshot showing the Foundry Toolkit extension in the VS Code Marketplace with the install button](./images/overview/install-2.png)
+   ![Screenshot showing the Foundry Toolkit extension in the VS Code Marketplace with the install button](./images/overview/install.png)
 
 > [!TIP]
 > Check the **What's New** page after installation to see detailed features for each version.
@@ -79,11 +79,11 @@ You can also install Foundry Toolkit extension manually from the Visual Studio C
 
 ### Verifying and Installing Foundry Toolkit Pre-Requisites (Local Models)
 
-Foundry Toolkit provides local LLM running capabilities via [Foundry Local,](https://www.foundrylocal.ai/) complete the Foundry local setup by running the `AI Toolkit: Install environment prerequisites` command to leverage these capabilities.
+Foundry Toolkit provides local LLM running capabilities via [Foundry Local,](https://www.foundrylocal.ai/) complete the Foundry local setup by running the `Foundry Toolkit: Install environment prerequisites` command to leverage these capabilities.
 
-You can verify pre-requisites installation status with the `AI Toolkit: Validate environment prerequisites` Command:
+You can verify pre-requisites installation status with the `Foundry Toolkit: Validate environment prerequisites` Command:
 
-![Screenshot showing the Foundry Toolkit Validate environment prerequisites status report"](./images/overview/validate-pre-requisites.png)
+![Screenshot showing the Foundry Toolkit Validate environment prerequisites status report"](./images/overview/validate-prerequisites.png)
 
 ## Explore Foundry Toolkit
 
