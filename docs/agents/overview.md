@@ -87,18 +87,10 @@ Use the following table to find the right agent type for your task:
 
 | I want to... | Use |
 |---|---|
-| Brainstorm, explore, or iterate on an idea interactively | [Local agent](/docs/agents/agent-types/local-agents.md) |
-| Get answers about my codebase | [Local agent](/docs/agents/agent-types/local-agents.md) (Ask) |
-| Create a structured implementation plan | [Local agent](/docs/agents/agent-types/local-agents.md) (Plan) |
-| Fix an issue that needs editor context (test failures, linting errors, debug output) | [Local agent](/docs/agents/agent-types/local-agents.md) |
-| Build and test web apps with the integrated browser _(Experimental)_ | [Local agent](/docs/agents/agent-types/local-agents.md). See the [browser agent testing guide](/docs/agents/guides/browser-agent-testing-guide.md). |
-| Use specific VS Code extension tools or MCP servers | [Local agent](/docs/agents/agent-types/local-agents.md) |
-| Implement a well-defined task while I keep working | [Copilot CLI](/docs/agents/agent-types/copilot-cli.md) or [Cloud agent](/docs/agents/agent-types/cloud-agents.md) |
-| Explore multiple variants or proof of concepts | [Copilot CLI](/docs/agents/agent-types/copilot-cli.md) or [Cloud agent](/docs/agents/agent-types/cloud-agents.md) |
-| Orchestrate agent sessions across multiple projects in a single, agent-first surface | [Agents window](/docs/agents/agents-window.md) |
-| Create a PR for team review and collaboration | [Cloud agent](/docs/agents/agent-types/cloud-agents.md) |
-| Assign a GitHub issue to an agent | [Cloud agent](/docs/agents/agent-types/cloud-agents.md) |
-| Use a specific AI provider (Anthropic, OpenAI) | [Third-party agent](/docs/agents/agent-types/third-party-agents.md) |
+| Iterate interactively, get answers about my codebase, plan, or fix issues that need editor context like test failures and debug output | [Local agent](/docs/agents/agent-types/local-agents.md) |
+| Implement a well-defined task or explore proof of concepts while I keep working | [Copilot CLI](/docs/agents/agent-types/copilot-cli.md) or [Cloud agent](/docs/agents/agent-types/cloud-agents.md) |
+| Create a PR for team review or assign a GitHub issue to an agent | [Cloud agent](/docs/agents/agent-types/cloud-agents.md) |
+| Use a specific AI provider, such as Anthropic or OpenAI | [Third-party agent](/docs/agents/agent-types/third-party-agents.md) |
 
 ## Choose an agent
 
