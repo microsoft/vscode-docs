@@ -4,21 +4,7 @@
         "area": "agents",
         "topics": [
             ["Overview", "/docs/agents/overview"],
-            ["Agents Tutorial", "/docs/agents/agents-tutorial"],
-
-            ["", "",     {
-                "name": "Concepts",
-                "area": "agents/concepts",
-                "topics": [
-                    ["Overview", "/docs/agents/concepts/overview"],
-                    ["Language Models", "/docs/agents/concepts/language-models"],
-                    ["Context", "/docs/agents/concepts/context"],
-                    ["Tools", "/docs/agents/concepts/tools"],
-                    ["Agents", "/docs/agents/concepts/agents"],
-                    ["Customization", "/docs/agents/concepts/customization"],
-                    ["Trust & Safety", "/docs/agents/concepts/trust-and-safety"]
-                ]
-            }],
+            ["Get Started", "/docs/agents/agents-tutorial"],
 
             ["Agents Window", "/docs/agents/agents-window"],
 
@@ -76,7 +62,21 @@
     },
 
     {
-        "name": "Guides & Tutorials",
+        "name": "Concepts",
+        "area": "agents/concepts",
+        "topics": [
+            ["Overview", "/docs/agents/concepts/overview"],
+            ["Language Models", "/docs/agents/concepts/language-models"],
+            ["Context", "/docs/agents/concepts/context"],
+            ["Tools", "/docs/agents/concepts/tools"],
+            ["Agents", "/docs/agents/concepts/agents"],
+            ["Customization", "/docs/agents/concepts/customization"],
+            ["Trust & Safety", "/docs/agents/concepts/trust-and-safety"]
+        ]
+    },
+
+    {
+        "name": "Guides",
         "area": "agents/guides",
         "topics": [
             ["Prompt Examples", "/docs/agents/guides/prompt-examples"],
