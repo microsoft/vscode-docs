@@ -47,7 +47,7 @@ VS Code gives you two surfaces for working with agents. Pick the one that fits y
             <p>Orchestrate agents across projects with chat as the primary interface.</p>
         </div>
     </a>
-    <a class="card" href="/docs/chat/copilot-chat">
+    <a class="card" href="/docs/agents/chat-view">
         <i class="codicon codicon-code" aria-hidden="true"></i>
         <div>
             <p><strong>Code-first</strong></p>

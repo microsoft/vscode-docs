@@ -6,7 +6,10 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Chat overview
 
-Chat in Visual Studio Code enables you to use natural language for AI-powered coding assistance. Ask questions about your code, get help understanding complex logic, generate new features, fix bugs, and more, all through a conversational interface. This article provides an overview of the chat surfaces, how to add context, choose a language model, write effective prompts, and review AI-generated changes.
+Chat in Visual Studio Code enables you to use natural language for AI-powered coding assistance. Ask questions about your code, get help understanding complex logic, generate new features, fix bugs, and more, all through a conversational interface. This article describes how to interact with chat, regardless of whether you work in the [Chat view](/docs/agents/chat-view.md) or the [Agents window](/docs/agents/agents-window.md): how to add context, choose a language model, write effective prompts, and review AI-generated changes.
+
+> [!NOTE]
+> VS Code gives you two surfaces for working with agents: the [Chat view](/docs/agents/chat-view.md) for a code-first workflow in a single workspace, and the [Agents window](/docs/agents/agents-window.md) for an agent-first workflow across projects. The mechanics in this article apply to both. Learn more about [where to work with agents](/docs/agents/overview.md#where-to-work-with-agents).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
 Follow a hands-on tutorial to experience local, background, and cloud agents in VS Code.
@@ -30,7 +33,8 @@ VS Code provides multiple ways to start an AI chat conversation, each optimized 
 
 | Surface | Shortcut | Best for | Learn more |
 |---|---|---|---|
-| **Chat view** | `kb(workbench.action.chat.open)` | Multi-turn conversations, agentic workflows, multi-file edits. Also available as an [editor tab or separate window](/docs/chat/chat-sessions.md#start-a-new-chat-session). | [Chat sessions](/docs/chat/chat-sessions.md) |
+| **Chat view** | `kb(workbench.action.chat.open)` | Multi-turn conversations, agentic workflows, multi-file edits, while you stay focused on a single workspace. | [Chat view](/docs/agents/chat-view.md) |
+| **Agents window** | `code --agents` | Orchestrating agents across multiple projects in a dedicated, agent-first window. | [Agents window](/docs/agents/agents-window.md) |
 | **Inline chat** | `kb(inlineChat.start)` | In-place code edits and terminal command suggestions. | [Inline chat](/docs/chat/inline-chat.md) |
 | **Quick chat** | `kb(workbench.action.quickchat.toggle)` | Quick questions without leaving your current view. Opens a lightweight chat panel at the top of the editor. | [Quick Chat](/docs/chat/inline-chat.md#use-quick-chat) |
 | **Command line** | `code chat` | Starting chat from outside VS Code. | [CLI docs](/docs/configure/command-line.md#start-chat-from-the-command-line) |

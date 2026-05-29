@@ -14,6 +14,9 @@ In this article, you learn about the Agents window and how to start and manage a
 
 <video src="images/agents-window/agents-demo-20260510.mp4" title="Video showing the Agents window experience in VS Code Insiders." controls></video>
 
+> [!TIP]
+> The Agents window (agent-first) and the [Chat view](/docs/agents/chat-view.md) (code-first) are the main surfaces for working with agents. They share the same sessions and settings, so you can move freely between them. For help choosing, see [where to work with agents](/docs/agents/overview.md#where-to-work-with-agents).
+
 > [!NOTE]
 > The Agents window is currently in preview. We're actively shaping it based on your feedback and are excited to learn alongside developers. Please share your experience by [filing issues on GitHub](https://github.com/microsoft/vscode/issues), or browse [existing issues](https://github.com/microsoft/vscode/issues?q=state%3Aopen%20label%3A%22agents-window%22).
 
@@ -21,18 +24,6 @@ In this article, you learn about the Agents window and how to start and manage a
 
 * Visual Studio Code installed. [Download VS Code](/download).
 * Access to GitHub Copilot. Follow the steps in [Set up GitHub Copilot in VS Code](/docs/setup/copilot.md) to sign in and activate your subscription.
-
-## Code-first vs. agent-first
-
-There are different ways to work with AI in your development process, and the right approach depends on your preferences and the task at hand. There are two primary ways to work with AI in VS Code to support different workflows:
-
-* **Code-first**: you write code in the editor and use AI as a coding assistant to help you implement features, fix bugs, and refactor code. Your primary interface is the editor for reviewing and editing code, testing, and debugging. You use AI to **enhance your existing coding workflow**.
-
-* **Agent-first** or **Task-first**: you describe (high-level) tasks and requirements in chat and hand them to an AI agent. The agent plans, implements, and verifies the result. Your primary interface is chat and the sessions list for organizing work, while the editor is a secondary interface for reviewing and tweaking the AI's implementation when necessary. You use AI to shift how you work and **focus on defining the problem and reviewing solutions**.
-
-The Agents window is built for the agent-first approach, natively in VS Code. It provides a focused environment for managing agent sessions across all your projects, with chat as the central interface for interacting with your agents. The Agents window complements the main VS Code window, which is optimized for the code-first approach.
-
-Both surfaces share sessions and VS Code configuration like settings and keybindings, so you don't have to commit to only one or the other. Use the editor window when you want full-featured editing, debugging, notebooks, the extension ecosystem, and remote development, with AI assisting your coding. Use the Agents window when you want to think in prompts, orchestrate work across multiple projects, and keep AI customizations (like plugins, skills, and MCP) front and center.
 
 ## Open the Agents window
 

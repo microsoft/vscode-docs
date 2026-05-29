@@ -62,7 +62,7 @@ VS Code gives you different surfaces for working with agents, and you can pick t
 
 * **[Agents window](/docs/agents/agents-window.md) (agent-first, Preview)**: a dedicated window for working across multiple projects from a single place. Chat and the sessions list are the primary interface, where you prompt agents and describe the functional tasks you want accomplished. Best when your primary workflow is thinking in prompts and orchestrating agents across workspaces.
 
-* **[Chat view](/docs/chat/chat-sessions.md) (code-first)**: chat lives alongside your editor tabs in the main VS Code window, with full access to debugging, notebooks, the extension ecosystem, and remote development. AI assists your coding through chat, inline suggestions, and agent sessions. Best when you're primarily writing and editing code in a single workspace.
+* **[Chat view](/docs/agents/chat-view.md) (code-first)**: chat lives alongside your editor tabs in the main VS Code window, with full access to debugging, notebooks, the extension ecosystem, and remote development. AI assists your coding through chat, inline suggestions, and agent sessions. Best when you're primarily writing and editing code in a single workspace.
 
 Both surfaces share agent sessions and VS Code configuration like settings and keybindings, making transitions smooth. Open the Agents window with the **Open in Agents** button in the title bar. Learn more about the [Agents window](/docs/agents/agents-window.md).
 
