@@ -38,7 +38,6 @@
     { "from": "/docs/copilot/chat/chat-sessions", "to": "/docs/agents/sessions/chat-sessions", "status": 301 },
     { "from": "/docs/chat/chat-sessions", "to": "/docs/agents/sessions/chat-sessions", "status": 301 },
     { "from": "/docs/chat/session-insights", "to": "/docs/agents/sessions/session-insights", "status": 301 },
-    { "from": "/docs/chat/session-sync", "to": "/docs/agents/sessions/session-sync", "status": 301 },
     { "from": "/docs/copilot/chat/prompt-examples", "to": "/docs/chat/prompt-examples", "status": 301 },
     { "from": "/docs/copilot/chat/chat-artifacts", "to": "/docs/chat/chat-artifacts", "status": 301 },
     { "from": "/docs/copilot/chat/chat-checkpoints", "to": "/docs/chat/chat-checkpoints", "status": 301 },
