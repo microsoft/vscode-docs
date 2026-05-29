@@ -71,6 +71,8 @@ When you start a chat session, the following choices shape how the AI responds:
 * **Permission level**: controls how much autonomy the agent has over tool approvals. Learn more about [permission levels](/docs/agents/overview.md#choose-a-permission-level).
 * **Language model**: determines which AI model powers the conversation. Learn more about [language models in VS Code](/docs/agent-customization/language-models.md).
 
+For the steps to start, switch between, and organize sessions, see [Manage chat sessions](/docs/agents/sessions/chat-sessions.md).
+
 ## Add context to your prompts
 
 Providing the right context helps the AI generate more relevant and accurate responses.
@@ -129,7 +131,7 @@ To learn more about Copilot's security, privacy, compliance, and transparency, s
 
 ## Related resources
 
-* [Create and manage chat sessions](/docs/chat/chat-sessions.md)
+* [Create and manage chat sessions](/docs/agents/sessions/chat-sessions.md)
 
 * [Choose agents and configure permissions](/docs/agents/overview.md)
 

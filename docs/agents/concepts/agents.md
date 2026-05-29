@@ -104,6 +104,14 @@ The [Agents window](/docs/agents/agents-window.md) is built for the agent-first 
 
 Both surfaces share sessions and VS Code configuration like settings and keybindings, so you don't have to commit to only one or the other. Use the [Chat view](/docs/agents/chat-view.md) when you want full-featured editing, debugging, notebooks, the extension ecosystem, and remote development, with AI assisting your coding. Use the Agents window when you want to think in prompts, orchestrate work across multiple projects, and keep AI customizations (like plugins, skills, and MCP) front and center.
 
+## Chat sessions
+
+A chat session is a single conversation with an agent, including all prompts, responses, and the context accumulated along the way. Each session is independent and has its own context window, so work in one session doesn't leak into another. Sessions are the unit of organization for agent work: you can run several in parallel, switch between them, fork a session to explore an alternative direction, and roll back to a previous checkpoint.
+
+Because the [Chat view](/docs/agents/chat-view.md) and the [Agents window](/docs/agents/agents-window.md) share the same sessions, you can start a task in one surface and continue it in the other. The sessions list gives you a unified view of all your sessions, regardless of where they run.
+
+Learn more about [managing chat sessions](/docs/agents/sessions/chat-sessions.md).
+
 ## Remote agent sessions
 
 Agent sessions don't have to run on your local machine. You can run sessions on a remote host and connect to them from the [Agents window](/docs/agents/agents-window.md), a browser, or other clients. This is useful when you want to take advantage of a remote machine's resources, keep sessions running while you're away, or monitor progress from a different device. The remote machine must be powered on and accessible over the network.

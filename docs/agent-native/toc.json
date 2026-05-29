@@ -10,6 +10,16 @@
             ["Chat View", "/docs/agents/chat-view"],
 
             ["", "", {
+                "name": "Sessions",
+                "area": "agents/sessions",
+                "topics": [
+                    ["Manage Sessions", "/docs/agents/sessions/chat-sessions"],
+                    ["Session Insights", "/docs/agents/sessions/session-insights"],
+                    ["Sync Sessions", "/docs/agents/sessions/session-sync"]
+                ]
+            }],
+
+            ["", "", {
                 "name": "Agent Types",
                 "area": "agents/agent-types",
                 "topics": [
@@ -48,12 +58,10 @@
     },
 
     {
-        "name": "Chat",
+        "name": "Using Chat",
         "area": "chat",
         "topics": [
             ["Overview", "/docs/chat/copilot-chat"],
-            ["Chat Sessions", "/docs/chat/chat-sessions"],
-            ["Session Insights", "/docs/chat/session-insights"],
             ["Add Context", "/docs/chat/copilot-chat-context"],
             ["Inline Chat", "/docs/chat/inline-chat"],
             ["Review Edits", "/docs/chat/review-code-edits"],

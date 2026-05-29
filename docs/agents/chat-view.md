@@ -24,7 +24,7 @@ In this article, you learn how to open and work with agents in the Chat view.
 
 ## Open the Chat view
 
-The Chat view opens in the Secondary Side Bar, next to your editor. You can also open chat in an editor tab, a separate window, or maximized to give it more space. Learn more about [where to open a chat session](/docs/chat/chat-sessions.md#where-to-open-a-chat-session).
+The Chat view opens in the Secondary Side Bar, next to your editor. You can also open chat in an editor tab, a separate window, or maximized to give it more space. Learn more about [where to open a chat session](/docs/agents/sessions/chat-sessions.md#where-to-open-a-chat-session).
 
 To open the Chat view, use one of the following methods:
 
@@ -40,7 +40,7 @@ To open the Chat view, use one of the following methods:
 
 The Chat view keeps the agent next to your code, so you can prompt, review, and edit in the same window. The Chat view has the following main areas:
 
-1. **Sessions list**: at the top of the view, where you can view and manage your sessions for the current workspace. Learn more about the [sessions list](/docs/chat/chat-sessions.md#sessions-list).
+1. **Sessions list**: at the top of the view, where you can view and manage your sessions for the current workspace. Learn more about the [sessions list](/docs/agents/sessions/chat-sessions.md#sessions-list).
 
 1. **Chat conversation**: in the center, where you see the conversation history and the agent's responses, including the changes it makes to your code.
 
@@ -93,5 +93,5 @@ To switch to the agent-first experience, select the **Open in Agents** button in
 ## Next steps
 
 * [Interact with chat](/docs/chat/copilot-chat.md) - add context, write effective prompts, and review changes.
-* [Manage chat sessions](/docs/chat/chat-sessions.md) - open chat in editor tabs and windows, and organize your sessions.
+* [Manage chat sessions](/docs/agents/sessions/chat-sessions.md) - open chat in editor tabs and windows, and organize your sessions.
 * [Use the Agents window](/docs/agents/agents-window.md) - work with agents across multiple projects.

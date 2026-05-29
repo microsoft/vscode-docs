@@ -63,7 +63,7 @@ To help you understand the effect of each chat request and make it easier to dec
 
 You can fork a conversation from a checkpoint to create a new, independent session that includes the conversation up to that point. This is useful when you want to branch off and explore an alternative approach while preserving the original conversation.
 
-To fork from a checkpoint, hover over a chat request and select the **Fork Conversation** button. Learn more about [forking chat sessions](/docs/chat/chat-sessions.md#fork-a-chat-session).
+To fork from a checkpoint, hover over a chat request and select the **Fork Conversation** button. Learn more about [forking chat sessions](/docs/agents/sessions/chat-sessions.md#fork-a-chat-session).
 
 ## Frequently asked questions
 
@@ -74,5 +74,5 @@ No. Checkpoints are designed for quick iteration within a chat session and are t
 ## Related resources
 
 * [Review AI-generated code edits](/docs/chat/review-code-edits.md)
-* [Chat sessions](/docs/chat/chat-sessions.md)
+* [Chat sessions](/docs/agents/sessions/chat-sessions.md)
 * [Chat overview](/docs/chat/copilot-chat.md)

@@ -58,7 +58,7 @@ Start a natural language chat conversation to get help with coding tasks. For ex
 | `@`-mention | Reference [chat participants](#chat-participants) to handle domain-specific requests. |
 | Edit (<i class="codicon codicon-pencil"></i>) | [Edit a previous chat prompt](/docs/chat/chat-checkpoints.md#edit-a-previous-chat-request) and revert changes. |
 | History (<i class="codicon codicon-history"></i>) | Access your history of chat sessions. |
-| Queue or steer | [Send a follow-up message](/docs/chat/chat-sessions.md#send-messages-while-a-request-is-running) while a request is running. Choose to queue the message, steer the current request, or stop and send immediately. |
+| Queue or steer | [Send a follow-up message](/docs/agents/sessions/chat-sessions.md#send-messages-while-a-request-is-running) while a request is running. Choose to queue the message, steer the current request, or stop and send immediately. |
 | Voice (<i class="codicon codicon-mic"></i>) | Enter a chat prompt by using speech (voice chat). The chat response is read out aloud. |
 | [KaTeX](https://katex.org) | Render mathematical equations in chat responses. Enable with `setting(chat.math.enabled)`. Right-click on a math expression to copy the source expression. |
 | [Mermaid](https://mermaid.js.org) | Render Mermaid diagrams in chat responses. Enable with `setting(mermaid-chat.enabled)`. Right-click on a diagram to copy the source code. |
@@ -147,7 +147,7 @@ Slash commands are shortcuts to specific functionality within the chat. You can 
 | `/setupTests` | Get help setting up a testing framework for your code. Get recommendation for a relevant testing framework, steps to set up and configure it, and suggestions for VS Code testing extensions. |
 | `/clear` | Start a new chat session in the Chat view. |
 | `/compact` | Compact the conversation context by summarizing it. Useful when a conversation grows too long for the model's context window. |
-| `/fork` | Fork the current chat session into a new independent session that inherits the full conversation history. Learn more about [forking chat sessions](/docs/chat/chat-sessions.md#fork-a-chat-session). |
+| `/fork` | Fork the current chat session into a new independent session that inherits the full conversation history. Learn more about [forking chat sessions](/docs/agents/sessions/chat-sessions.md#fork-a-chat-session). |
 | `/debug` | Show the Chat Debug view to [inspect the chat logs for troubleshooting](/docs/agents/agent-troubleshooting/troubleshooting.md). |
 | `/troubleshoot` | Ask the AI to analyze the [agent debug logs](/docs/agents/agent-troubleshooting/chat-debug-view.md) for the current chat session. Optionally, include `#session` to select and diagnose a previous chat session. For example, `/troubleshoot how many tokens did I use?` or `/troubleshoot list all paths you tried to load customizations in #session`. Requires `setting(github.copilot.chat.agentDebugLog.enabled)`. |
 | `/new` | Scaffold a new VS Code workspace or file. Use natural language to describe the type of project/file you need, and preview the scaffolded content before creating it. |

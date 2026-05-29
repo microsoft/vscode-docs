@@ -82,7 +82,7 @@ The following example configuration automatically allows edits to all files exce
 
 ## Review file changes from the sessions list
 
-When a session completes and makes code changes to your project, the [sessions list](/docs/chat/chat-sessions.md#sessions-list) shows the file change statistics for that session. To review the changes, select the session from the list to open the session details.
+When a session completes and makes code changes to your project, the [sessions list](/docs/agents/sessions/chat-sessions.md#sessions-list) shows the file change statistics for that session. To review the changes, select the session from the list to open the session details.
 
 ![Screenshot of the file changes diff editor in an agent session.](images/agents-overview/agent-file-changes-v2.png)
 
@@ -92,5 +92,5 @@ Depending on the agent type, you have options to apply the changes to your local
 
 * [Revert changes with checkpoints](/docs/chat/chat-checkpoints.md)
 * [Chat overview](/docs/chat/copilot-chat.md)
-* [Chat sessions](/docs/chat/chat-sessions.md)
+* [Chat sessions](/docs/agents/sessions/chat-sessions.md)
 * [Security considerations for using AI in VS Code](/docs/agents/security.md)

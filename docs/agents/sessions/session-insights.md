@@ -2,7 +2,7 @@
 ContentId: a3f7d8e2-5c4b-49a1-b6d3-7e8f9a2c1d4b
 DateApproved: 5/28/2026
 MetaDescription: Use chronicle commands in VS Code to generate standup reports, get personalized tips, and query your Copilot session history with natural language.
-MetaSocialImage: ../images/shared/github-copilot-social.png
+MetaSocialImage: ../../images/shared/github-copilot-social.png
 ---
 # Query session history with chronicle
 
@@ -53,5 +53,5 @@ Situations where reindexing helps:
 
 ## Related content
 
-* [Manage chat sessions](/docs/chat/chat-sessions.md) - Create and organize chat sessions
+* [Manage chat sessions](/docs/agents/sessions/chat-sessions.md) - Create and organize chat sessions
 * [Settings reference](/docs/agents/reference/copilot-settings.md) - All Copilot settings

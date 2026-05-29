@@ -61,7 +61,7 @@ VS Code automatically provides context to the prompt based on your current activ
 
 ## Working effectively with context
 
-* **Start new sessions for new tasks.** A [session](/docs/chat/chat-sessions.md) is an independent conversation with its own context window and history. Each session starts fresh, so don't reuse a single conversation for unrelated tasks.
+* **Start new sessions for new tasks.** A [session](/docs/agents/sessions/chat-sessions.md) is an independent conversation with its own context window and history. Each session starts fresh, so don't reuse a single conversation for unrelated tasks.
 * **Be selective with context.** Adding your entire codebase isn't always helpful. Reference specific files that are relevant to the task.
 * **Use custom instructions for persistent rules.** Rules you add in [custom instructions](/docs/agent-customization/custom-instructions.md) are included in every request, so you don't lose them when the conversation is summarized.
 

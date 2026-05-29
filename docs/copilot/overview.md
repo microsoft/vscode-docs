@@ -71,7 +71,7 @@ Run multiple agent sessions in parallel, each focused on a different task. The *
 
 <video src="images/overview/agent-sessions-demo.mp4" title="Video showing the agent sessions list, demonstrating filtering, showing, and archiving sessions." controls muted></video>
 
-Learn more about [managing agent sessions](/docs/chat/chat-sessions.md).
+Learn more about [managing agent sessions](/docs/agents/sessions/chat-sessions.md).
 
 ### Agents window (Preview)
 

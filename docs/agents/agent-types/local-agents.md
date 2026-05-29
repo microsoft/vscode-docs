@@ -105,7 +105,7 @@ To start a local agent session:
 
 1. Review and confirm code changes and tool invocations as the agent works through your request.
 
-    You can send follow-up prompts while the agent is working. Queue messages for later, steer the agent in a new direction, or stop and send immediately. Learn more about [sending messages while a request is running](/docs/chat/chat-sessions.md#send-messages-while-a-request-is-running).
+    You can send follow-up prompts while the agent is working. Queue messages for later, steer the agent in a new direction, or stop and send immediately. Learn more about [sending messages while a request is running](/docs/agents/sessions/chat-sessions.md#send-messages-while-a-request-is-running).
 
     > [!TIP]
     > VS Code helps you protect against inadvertent edits to sensitive files, such as workspace configuration settings or environment settings. Learn more about [editing sensitive files](/docs/chat/review-code-edits.md#edit-sensitive-files).
@@ -142,7 +142,7 @@ The location of the language model depends on the model provider you choose for 
 ## Related resources
 
 * [Agents overview](/docs/agents/overview.md): Choose agents, configure permissions, and hand off between agent types.
-* [Manage chat sessions](/docs/chat/chat-sessions.md): Create, switch between, and organize your sessions.
+* [Manage chat sessions](/docs/agents/sessions/chat-sessions.md): Create, switch between, and organize your sessions.
 * [Agents tutorial](/docs/agents/agents-tutorial.md): Hands-on tutorial for working with different agent types.
 * [Tools](/docs/agents/agent-tools.md): Extend agents with built-in, MCP, and extension tools.
 * [Custom agents](/docs/agent-customization/custom-agents.md): Create your own AI agents and extensions.

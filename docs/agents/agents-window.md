@@ -260,7 +260,7 @@ To create a sub-session:
 1. Type a prompt and press `kbstyle(Enter)` to start the sub-session.
 
 > [!TIP]
-> To explore an alternative direction from a specific point in a session's conversation, [fork the session](/docs/chat/chat-sessions.md#fork-a-chat-session). Forking a session creates a new independent session with a copy of the conversation history up to a specific point.
+> To explore an alternative direction from a specific point in a session's conversation, [fork the session](/docs/agents/sessions/chat-sessions.md#fork-a-chat-session). Forking a session creates a new independent session with a copy of the conversation history up to a specific point.
 
 ## Manage your sessions
 
@@ -272,7 +272,7 @@ Select any session to view the chat conversation history and pick up where you l
 
 ![Screenshot showing the sessions list in the sidebar in the Agents window.](images/agents-window/agents-window-session-list.png)
 
-Right-click on any session in the list to see additional management options, such as renaming, deleting, and more. For advanced session management, such as archiving, forking, checkpoints, and exporting, see [Manage chat sessions](/docs/chat/chat-sessions.md) in chat documentation.
+Right-click on any session in the list to see additional management options, such as renaming, deleting, and more. For advanced session management, such as archiving, forking, checkpoints, and exporting, see [Manage chat sessions](/docs/agents/sessions/chat-sessions.md) in chat documentation.
 
 > [!TIP]
 > Use the arrow buttons in the top-left of the title bar to navigate between recent sessions without leaving the window.
@@ -408,7 +408,7 @@ Yes. You can access the integrated browser via the run menu in the top right of 
 
 ## Next steps
 
-* [Manage chat sessions](/docs/chat/chat-sessions.md) - checkpoints, forking, archiving, and exporting sessions.
+* [Manage chat sessions](/docs/agents/sessions/chat-sessions.md) - checkpoints, forking, archiving, and exporting sessions.
 * [Using agents](/docs/agents/overview.md) - agent types, delegation, and autonomy levels.
 * [Customize AI](/docs/agent-customization/overview.md) - full customization reference.
 * [Best practices](/docs/agents/best-practices.md) - tips for effective prompting.

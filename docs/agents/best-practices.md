@@ -59,7 +59,7 @@ When working with agents, pick the agent type that matches your task and workflo
 
 * **Use cloud agents for team collaboration.** [Cloud agents](/docs/agents/agent-types/cloud-agents.md) run remotely and create pull requests, making them ideal for tasks that benefit from team review or when you want to assign a GitHub issue directly to an agent.
 
-* **Run parallel sessions for independent tasks.** Spin up multiple agent sessions, across local, background, and cloud environments, to work on unrelated tasks simultaneously. Monitor them from the [sessions list](/docs/chat/chat-sessions.md#sessions-list).
+* **Run parallel sessions for independent tasks.** Spin up multiple agent sessions, across local, background, and cloud environments, to work on unrelated tasks simultaneously. Monitor them from the [sessions list](/docs/agents/sessions/chat-sessions.md#sessions-list).
 
 * **Hand off between agent types.** Start interactively with a local agent to explore and plan, then [hand off](/docs/agents/overview.md#hand-off-a-session-to-another-agent) to a background or cloud agent for implementation. The conversation history carries over.
 
@@ -93,7 +93,7 @@ The quality of AI responses depends on the clarity and specificity of your promp
 
 * **Iterate with follow-up prompts.** Refine responses by adding constraints or corrections in follow-up messages rather than rewriting the entire prompt.
 
-* **Course-correct early.** If the AI is heading in the wrong direction, [steer it](/docs/chat/chat-sessions.md#send-messages-while-a-request-is-running) with a follow-up message to redirect the current request, queue a follow-up request, or stop and send a new prompt.
+* **Course-correct early.** If the AI is heading in the wrong direction, [steer it](/docs/agents/sessions/chat-sessions.md#send-messages-while-a-request-is-running) with a follow-up message to redirect the current request, queue a follow-up request, or stop and send a new prompt.
 
 * **Tell the AI to ask clarifying questions.** If a task is ambiguous, instruct the AI to ask you questions before proceeding. This leads to more accurate results than guessing at requirements.
 
@@ -174,9 +174,9 @@ AI responses might degrade as the conversation fills with irrelevant context. Ma
 
 * **Choose the right session type.** Use local sessions for quick tasks on your current code that need your immediate attention, background tasks for tasks that can run locally and isolated from your main context, or cloud sessions that can benefit from team-collaboration.
 
-* **Scale with parallel sessions.** Run multiple sessions in parallel for independent tasks to save time and keep contexts separate. You can have multiple sessions running at once, across local, background, and cloud environments, and switch between them via the [sessions list](/docs/chat/chat-sessions.md#sessions-list) in VS Code.
+* **Scale with parallel sessions.** Run multiple sessions in parallel for independent tasks to save time and keep contexts separate. You can have multiple sessions running at once, across local, background, and cloud environments, and switch between them via the [sessions list](/docs/agents/sessions/chat-sessions.md#sessions-list) in VS Code.
 
-For more information, see [session management](/docs/chat/chat-sessions.md) and [workspace indexing](/docs/agents/reference/workspace-context.md).
+For more information, see [session management](/docs/agents/sessions/chat-sessions.md) and [workspace indexing](/docs/agents/reference/workspace-context.md).
 
 ## Work with large codebases
 
@@ -188,7 +188,7 @@ Copilot is designed to work effectively with large, complex, and multi-root work
 
 * **Provide project-level instructions.** Use [custom instructions](/docs/agent-customization/custom-instructions.md) to describe your project's architecture, module boundaries, and conventions that the AI can't infer from code alone. This gives the AI the context it needs for architecture-level changes.
 
-* **Run parallel sessions for independent changes.** Break large tasks into independent subtasks and run them in [parallel sessions](/docs/chat/chat-sessions.md#sessions-list), each focused on a different area of the codebase.
+* **Run parallel sessions for independent changes.** Break large tasks into independent subtasks and run them in [parallel sessions](/docs/agents/sessions/chat-sessions.md#sessions-list), each focused on a different area of the codebase.
 
 * **Use the Plan agent for cross-cutting changes.** For changes that span many files or modules, start with the [Plan agent](/docs/agents/planning.md) to create a structured implementation plan before executing.
 

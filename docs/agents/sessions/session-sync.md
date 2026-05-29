@@ -2,11 +2,11 @@
 ContentId: b4e8c9f3-6d5a-4b2e-c7a4-8f9e1b3d2c5a
 DateApproved:
 MetaDescription: Sync your Copilot chat sessions to GitHub for cross-device access, enterprise policy controls, and sharing with teammates.
-MetaSocialImage: ../images/shared/github-copilot-social.png
+MetaSocialImage: ../../images/shared/github-copilot-social.png
 ---
 # Sync Copilot sessions to GitHub
 
-By default, VS Code syncs your GitHub Copilot chat sessions to your GitHub account, including all local agent sessions. Synced sessions are private to you and are not visible to anyone else unless you explicitly share them. They appear on GitHub.com in the **Agents** tab of your repository, enabling [session insights](/docs/chat/session-insights.md) to query across all your sessions, including those from Copilot CLI, coding agent, code review, and the GitHub Copilot Desktop app.
+By default, VS Code syncs your GitHub Copilot chat sessions to your GitHub account, including all local agent sessions. Synced sessions are private to you and are not visible to anyone else unless you explicitly share them. They appear on GitHub.com in the **Agents** tab of your repository, enabling [session insights](/docs/agents/sessions/session-insights.md) to query across all your sessions, including those from Copilot CLI, coding agent, code review, and the GitHub Copilot Desktop app.
 
 ## Opt out of session sync
 
@@ -85,6 +85,6 @@ You can also hide or delete individual synced sessions from the **Agents** tab o
 
 ## Related content
 
-* [Session insights](/docs/chat/session-insights.md) - Query your session history for standup reports, tips, and search
-* [Manage chat sessions](/docs/chat/chat-sessions.md) - Create and organize chat sessions
+* [Session insights](/docs/agents/sessions/session-insights.md) - Query your session history for standup reports, tips, and search
+* [Manage chat sessions](/docs/agents/sessions/chat-sessions.md) - Create and organize chat sessions
 * [Security](/docs/agents/security.md) - Copilot security and privacy

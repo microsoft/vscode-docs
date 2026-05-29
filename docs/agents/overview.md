@@ -136,7 +136,7 @@ In a Copilot CLI session, delegate to a cloud agent by entering the `/delegate` 
 
 ## Related resources
 
-* [Manage chat sessions](/docs/chat/chat-sessions.md): Create, switch between, and organize your agent sessions.
+* [Manage chat sessions](/docs/agents/sessions/chat-sessions.md): Create, switch between, and organize your agent sessions.
 
 * [Agents tutorial](/docs/agents/agents-tutorial.md): Hands-on tutorial for working with different agent types.
 

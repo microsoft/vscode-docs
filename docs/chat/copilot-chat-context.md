@@ -151,7 +151,7 @@ To manually compact the conversation, use one of the following methods:
 
 * Select the context window control in the chat input box, and then select **Compact Conversation**.
 
-If you want to reset the context entirely, start a [new chat session](/docs/chat/chat-sessions.md).
+If you want to reset the context entirely, start a [new chat session](/docs/agents/sessions/chat-sessions.md).
 
 ## Related resources
 
