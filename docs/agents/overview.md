@@ -22,16 +22,9 @@ Keywords:
 
 An agent is an AI assistant that works autonomously to complete a coding task. Give it a high-level goal, and it breaks the goal into steps, edits files across your project, runs commands, and self-corrects when something goes wrong. For example, instead of suggesting a fix for a failing test, an agent identifies the root cause across files, updates the code, reruns the tests, and commits the changes.
 
-VS Code lets you work with agents the way that fits your workflow, with two surfaces you can pick from and move freely between:
+Agents handle tasks end-to-end. Use them to build features across multiple files, debug and fix failing tests, refactor between frameworks, [test web apps with the integrated browser](/docs/agents/guides/browser-agent-testing-guide.md), or [ship a pull request](/docs/agents/agent-types/cloud-agents.md) for team review.
 
-* **Editor window**: stay in the main VS Code window when you're writing code and want AI to assist alongside the editor, debugger, and extensions.
-* **[Agents window](/docs/agents/agents-window.md) (Preview)**: switch to an agent-first surface when you want to think in prompts and orchestrate agent sessions across multiple projects.
-
-Both surfaces share the same sessions, settings, and keybindings, so you can pick your path without committing to one or the other.
-
-Agents can run on your machine, in a remote cloud environment, or through a third-party provider like Anthropic or OpenAI. You can also run agent sessions on a remote machine you own and monitor them from anywhere, whether from the [Agents window](/docs/agents/agents-window.md), a [browser](https://insiders.vscode.dev/agents), or your phone. Sessions keep running on the remote even when you disconnect, so you can close your laptop and check back later. Learn more about [remote agent sessions](/docs/agents/concepts/agents.md#remote-agent-sessions).
-
-You decide how much autonomy to give agents, from approving every tool call to letting them work fully on their own, and you can create custom agents to tailor their behavior to your project. You monitor and interact with all your sessions from a single [sessions list](/docs/chat/chat-sessions.md#sessions-list), regardless of where they run.
+This article walks through the choices you make when working with agents: which agent type to use, which agent to give the task to, how much autonomy to grant, and where to do the work.
 
 <div class="docs-action" data-show-in-doc="true" data-show-in-sidebar="true" title="How agents work">
 Understand the agent loop, how agents plan and execute tasks, and how memory and subagents work.
@@ -52,9 +45,30 @@ Use agents in VS Code to generate a tic-tac-toe game in your language of choice.
 > [!TIP]
 > Enable agents in your VS Code settings (`setting(chat.agent.enabled)`). Your organization might also disable agents - contact your admin to enable this functionality.
 
+## Key choices when working with agents
+
+Working with agents comes down to a few decisions. You can adjust each one per task and change your mind at any time:
+
+* [**Choose where to work**](#where-to-work-with-agents): work in the editor window or the dedicated Agents window.
+* [**Choose an agent type**](#types-of-agents): decide where and how the agent runs, on your machine, in the background, in the cloud, or through a third-party provider.
+* [**Choose an agent**](#choose-an-agent): pick the agent persona that matches the task, such as building, planning, or answering questions, and the language model that fits.
+* [**Choose a permission level**](#choose-a-permission-level): decide how much autonomy the agent has to run tools and commands.
+
+You can also [hand off a session](#hand-off-a-session-to-another-agent) from one agent to another to take advantage of their different strengths.
+
+## Where to work with agents
+
+VS Code gives you different surfaces for working with agents, and you can pick the one that matches your workflow or move freely between them:
+
+* **[Agents window](/docs/agents/agents-window.md) (agent-first, Preview)**: a dedicated window for working across multiple projects from a single place. Chat and the sessions list are the primary interface, where you prompt agents and describe the functional tasks you want accomplished. Best when your primary workflow is thinking in prompts and orchestrating agents across workspaces.
+
+* **Main VS Code window (code-first)**: the full editor experience with debugging, notebooks, the extension ecosystem, and remote development. AI assists your coding through chat, inline suggestions, and agent sessions in the Chat view. Best when you're primarily writing and editing code in a single workspace.
+
+Both surfaces share agent sessions and VS Code configuration like settings and keybindings, making transitions smooth. Open the Agents window with the **Open in Agents** button in the title bar. Learn more about the [Agents window](/docs/agents/agents-window.md).
+
 ## Types of agents
 
-Agents run in different environments depending on when you need results and how much oversight you want. The two key dimensions are _where_ the agent runs (your machine or the cloud) and _how_ you interact with it (interactively or autonomously in the background).
+Agents run in different environments depending on when you need results and how much oversight you want. Learn more about the [agent types and how they work](/docs/agents/concepts/agents.md#agent-types).
 
 * [**Local**](/docs/agents/agent-types/local-agents.md): use the VS Code agent loop to run the agent interactively in the editor with full access to your workspace, tools, and models.
 * [**Copilot CLI**](/docs/agents/agent-types/copilot-cli.md): use the Copilot CLI to run in the background on your machine, optionally using Git worktrees for isolation.
@@ -64,6 +78,8 @@ Agents run in different environments depending on when you need results and how 
 Select the agent type from the agent target dropdown in the Chat view.
 
 ![Screenshot showing agent target dropdown in the Chat view.](images/agents-overview/agent-type-dropdown.png)
+
+You can also run agent sessions on a remote machine you own and monitor them from anywhere, whether from the [Agents window](/docs/agents/agents-window.md), a [browser](https://insiders.vscode.dev/agents), or your phone. Sessions keep running on the remote even when you disconnect, so you can close your laptop and check back later. Learn more about [remote agent sessions](/docs/agents/concepts/agents.md#remote-agent-sessions).
 
 ### Which agent type should I use?
 
@@ -84,16 +100,6 @@ Use the following table to find the right agent type for your task:
 | Assign a GitHub issue to an agent | [Cloud agent](/docs/agents/agent-types/cloud-agents.md) |
 | Use a specific AI provider (Anthropic, OpenAI) | [Third-party agent](/docs/agents/agent-types/third-party-agents.md) |
 
-## Where to work with agents
-
-VS Code gives you two surfaces for working with agents, and you can pick the one that matches your workflow (or move freely between them):
-
-* **Main VS Code window (editor-first)**: the full editor experience with debugging, notebooks, the extension ecosystem, and remote development. AI assists your coding through chat, inline suggestions, and agent sessions in the Chat view. Best when you're primarily writing and editing code in a single workspace.
-
-* **[Agents window](/docs/agents/agents-window.md) (agent-first, Preview)**: a dedicated window optimized for orchestrating agents across multiple projects. Chat and the sessions list are the primary interface, with a Changes panel for reviewing edits and a Customizations panel for managing customizations in one place. Best when your primary workflow is thinking in prompts and running tasks across workspaces.
-
-Both surfaces share agent sessions and VS Code configuration (like settings and keybindings), making transitions smooth. Open the Agents window with the **Open in Agents** button in the title bar.
-
 ## Choose an agent
 
 If the agent type is _where_ the agent runs, the agent determines _how_ to perform the task based on its role or persona. For example, an agent with a code reviewer persona focuses on reviewing code changes for quality and style and providing feedback, instead of making code changes. The agent's definition determines which tools it can use, how it executes tasks, and potential handoff points to other agents.
@@ -109,6 +115,8 @@ VS Code has three [built-in agents](/docs/agents/agent-types/local-agents.md):
 * **Ask**: answers questions about coding concepts, your codebase, or VS Code itself without making file changes.
 
 For more specialized workflows, create your own [custom agents](/docs/agent-customization/custom-agents.md) that define a specific role, available tools, and a language model.
+
+Within a session, you can also pick the language model that best fits the task. Use a fast model for quick edits and questions, or a model with stronger reasoning for complex, multi-step work. Switch models at any time from the model picker in the Chat view. Learn more about [language models](/docs/agent-customization/language-models.md).
 
 ## Choose a permission level
 
@@ -134,22 +142,10 @@ To hand off a local agent session, select a different agent type from the sessio
 
 In a Copilot CLI session, delegate to a cloud agent by entering the `/delegate` command in the chat input box. You can provide additional instructions after the `/delegate` command.
 
-### Assign a coding task to an agent
-
-If you install the [GitHub Pull Requests](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension, you can assign an agent to implement `TODO` comments in your code.
-
-![Screenshot of assigning a TODO comment to Copilot cloud agent.](images/agents-overview/assign-todo-to-agent.png)
-
-On GitHub.com, or by using the GitHub Pull Requests extension, you can assign GitHub issues to Copilot cloud agent by assigning the issue to `copilot` or by mentioning it in an issue comment or pull request to ask for a code review.
-
 ## Related resources
 
 * [Manage chat sessions](/docs/chat/chat-sessions.md): Create, switch between, and organize your agent sessions.
 
 * [Agents tutorial](/docs/agents/agents-tutorial.md): Hands-on tutorial for working with different agent types.
 
-* [Tools](/docs/agents/agent-tools.md): Extend agents with built-in, MCP, and extension tools.
-
-* [Hooks](/docs/agent-customization/hooks.md): Execute custom commands at lifecycle events for automation and policy enforcement.
-
-* [Custom agents](/docs/agent-customization/custom-agents.md): Create your own AI agents and extensions.
+* [Agent customization](/docs/agent-customization/overview.md): Tailor agents to your project and workflow.
