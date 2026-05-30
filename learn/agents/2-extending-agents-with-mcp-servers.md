@@ -18,7 +18,7 @@ MCP servers connect agents to external tools and data sources. In this guide, yo
 
 ## Prerequisites
 
-Before you start, install VS Code Insiders, enable AI features, and sign in to GitHub Copilot. You also need access to an MCP server or the ability to add one from the marketplace.
+Before you start, install VS Code, enable AI features, and sign in to GitHub Copilot. You also need access to an MCP server or the ability to add one from the marketplace.
 
 * [Download VS Code](https://code.visualstudio.com/)
 * [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/overview#_step-1-set-up-copilot)

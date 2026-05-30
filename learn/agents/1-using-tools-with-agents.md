@@ -18,7 +18,7 @@ Tools are how agents act on your request. They search your workspace, read files
 
 ## Prerequisites
 
-Before you start, install VS Code Insiders, enable AI features, and sign in to GitHub Copilot. You also need access to any extra tools you want to try, such as MCP servers or extensions that contribute tools.
+Before you start, install VS Code, enable AI features, and sign in to GitHub Copilot. You also need access to any extra tools you want to try, such as MCP servers or extensions that contribute tools.
 
 * [Download VS Code](https://code.visualstudio.com/)
 * [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/overview#_step-1-set-up-copilot)

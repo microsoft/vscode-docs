@@ -18,7 +18,7 @@ Agent plugins bundle multiple customizations into one installable package. In th
 
 ## Prerequisites
 
-Before you start, install VS Code Insiders, enable AI features, and sign in to GitHub Copilot. Then enable support for agent plugins with `setting(chat.plugins.enabled)`.
+Before you start, install VS Code, enable AI features, and sign in to GitHub Copilot. Then enable support for agent plugins with `setting(chat.plugins.enabled)`.
 
 * [Download VS Code](https://code.visualstudio.com/)
 * [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/overview#_step-1-set-up-copilot)

@@ -18,7 +18,7 @@ Third-party agents let you use provider-specific agent experiences inside VS Cod
 
 ## Prerequisites
 
-Before you start, install VS Code Insiders, enable AI features, and sign in to GitHub Copilot. For cloud partner agents, follow the GitHub documentation to enable third-party coding agents for your account. You do not need the provider's VS Code extension for cloud partner agents. For local Codex sessions, install the OpenAI Codex extension.
+Before you start, install VS Code, enable AI features, and sign in to GitHub Copilot. For cloud partner agents, follow the GitHub documentation to enable third-party coding agents for your account. You do not need the provider's VS Code extension for cloud partner agents. For local Codex sessions, install the OpenAI Codex extension.
 
 * [Download VS Code](https://code.visualstudio.com/)
 * [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/overview#_step-1-set-up-copilot)
