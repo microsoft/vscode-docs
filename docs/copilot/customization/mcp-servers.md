@@ -164,7 +164,7 @@ Beyond tools, MCP servers can provide other capabilities:
 
 On macOS and Linux, you can enable sandboxing for locally-running stdio MCP servers to restrict their access to the file system and network. Sandboxed servers run in an isolated environment and can only access the file paths and network domains that you explicitly permit.
 
-To enable sandboxing for a server, set `"sandboxEnabled": true` in the server configuration in your `mcp.json` file. You can further customize the sandbox restrictions by adding a `sandbox` object with specific file system and network rules.
+To enable sandboxing for a server, set `"sandboxEnabled": true` in the server configuration in your `mcp.json` file. You can further customize the sandbox restrictions by adding a top-level `sandbox` object with specific file system and network rules.
 
 The following example shows how to enable sandboxing for a local MCP server and restrict its access to only write to files in the workspace and access a specific API domain:
 
@@ -175,15 +175,15 @@ The following example shows how to enable sandboxing for a local MCP server and 
             "type": "stdio",
             "command": "npx",
             "args": ["-y", "@example/mcp-server"],
-            "sandboxEnabled": true,
-            "sandbox": {
-                "filesystem": {
-                    "allowWrite": ["${workspaceFolder}"]
-                },
-                "network": {
-                    "allowedDomains": ["api.example.com"]
-                }
-            }
+            "sandboxEnabled": true
+        }
+    },
+    "sandbox": {
+        "filesystem": {
+            "allowWrite": ["${workspaceFolder}"]
+        },
+        "network": {
+            "allowedDomains": ["api.example.com"]
         }
     }
 }
