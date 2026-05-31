@@ -371,19 +371,27 @@ You can specify a task's run behaviors using the `runOptions` property:
 * **reevaluateOnRerun**: Controls how variables are evaluated when a task is executed through the **Rerun Last Task** command. The default is `true`, meaning that variables will be reevaluated when a task is rerun. When set to `false` the resolved variable values from the previous run of the task will be used.
 * **runOn**: Specifies when a task is run.
   * `default` - The task will only be run when executed through the **Run Task** command.
-  * `folderOpen` - The task will be run when the containing folder is opened. The first time you open a folder that contains a task with `folderOpen`, you will be asked if you want to allow tasks to run automatically in that folder. You can change your decision later using the **Manage Automatic Tasks** command and selecting between **Allow Automatic Tasks** and **Disallow Automatic Tasks**.
+  * `folderOpen`: The task will be run when the containing folder is opened. See also how you can [control automatic task execution](#control-automatic-task-execution).
 
-### Controlling automatic task execution
+* **instanceLimit**: The number of instances of the task that are allowed to run simultaneously. The default value is `1`.
 
-The `task.allowAutomaticTasks` setting controls whether tasks with `"runOn": "folderOpen"` are allowed to run automatically when you open a workspace. This setting provides security by preventing unintended task execution.
+* **instancePolicy**: Determines what happens when a task has reached its `instanceLimit`. Can be set to:
+  * `prompt` - Prompt the user which instance to terminate (default).
+  * `silent` - Don't start a new instance (silent).
+  * `terminateNewest` - Terminate the newest running instance.
+  * `terminateOldest` - Terminate the oldest running instance.
+  * `warn` - Don't start a new instance (show warning).
 
->**Note:** As of [VS Code 1.109](/updates/v1_109.md#automatic-tasks-disabled-by-default), the default for `task.allowAutomaticTasks` changed from `on` to `off` to improve security.
+### Control automatic task execution
 
-* **off** (default) - Automatic tasks will not run when opening a workspace. You must explicitly allow them using the **Manage Automatic Tasks** command.
-* **on** - Automatic tasks will always run when opening a workspace without prompting.
-* **auto** - You will be prompted once per folder to allow or disallow automatic tasks.
+The `setting(task.allowAutomaticTasks)` setting controls whether tasks with `"runOn": "folderOpen"` are allowed to run automatically when you open a workspace. Automatic tasks never run in an [untrusted workspace](/docs/editing/workspaces/workspace-trust.md), regardless of this setting.
 
-To change this setting, add it to your user or workspace settings:
+The setting accepts two values:
+
+* **off** (default): Don't run automatic tasks. If you haven't yet made a choice for the current workspace, you are prompted once to **Allow** or **Disallow** automatic tasks. If you select **Disallow** (or set the value to `off` explicitly), tasks won't run and you aren't prompted again.
+* **on**: Always run automatic tasks when opening a trusted workspace, without prompting.
+
+To configure the setting, add it to your user or workspace settings:
 
 ```json
 {
@@ -391,17 +399,7 @@ To change this setting, add it to your user or workspace settings:
 }
 ```
 
-You can also manage automatic tasks on a per-workspace basis using the **Manage Automatic Tasks** command from the Command Palette, which allows you to choose **Allow Automatic Tasks** or **Disallow Automatic Tasks** for the current workspace.
-
-### Additional run options
-
-* **instanceLimit** - The number of instances of the task that are allowed to run simultaneously. The default value is `1`.
-* **instancePolicy** - Determines what happens when a task has reached its `instanceLimit`. Can be set to:
-  * `prompt` - Prompt the user which instance to terminate (default).
-  * `silent` - Don't start a new instance (silent).
-  * `terminateNewest` - Terminate the newest running instance.
-  * `terminateOldest` - Terminate the oldest running instance.
-  * `warn` - Don't start a new instance (show warning).
+You can also change your choice at any time using the **Tasks: Manage Automatic Tasks** command from the Command Palette, and selecting between **Allow Automatic Tasks** and **Disallow Automatic Tasks** for the current workspace.
 
 ## Customizing auto-detected tasks
 
