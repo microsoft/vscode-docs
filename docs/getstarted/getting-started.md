@@ -76,29 +76,21 @@ In this part, you open your folder in the Agents window and build your portfolio
 
     You can also open the Agents window from the VS Code welcome page, or run the **Chat: Open Agents Window** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
-    <!-- TODO screenshot: Open in Agents button in the VS Code title bar. -->
+    ![Screenshot of the Open in Agents button in the VS Code title bar.](images/getting-started/open-in-agents-button.png)
 
 1. If you're prompted to sign in, select a sign-in method and continue.
 
     The Agents window needs access to your GitHub Copilot subscription to run agent sessions. If you're already signed in to GitHub in VS Code, you're signed in here too.
 
-<!-- ### Get to know the Agents window
-
-The Agents window has a few main areas:
-
-* **Sessions list**: in the sidebar, where you view and manage all your agent sessions across your projects.
-* **Chat area**: in the center, where you type prompts and follow the agent's progress.
-* **Changes panel**: on the right, where you review the files the agent creates or edits, and a file explorer of your workspace. -->
-
-<!-- TODO screenshot: Agents window interface with the sessions list, chat area, and Changes panel. -->
-
 ### Start an agent session
 
-1. Select **New** at the top of the sidebar to start a new session.
+1. Select **New** at the top of the left sidebar to start a new session.
 
-    <!-- TODO screenshot: New button at the top of the Agents window sidebar. -->
+    The sidebar shows your list of active agent sessions, grouped by workspace. In the bottom left, you can access your agent customization to modify the agent's behavior to match your coding practices.
 
-1. In the workspace dropdown, select your `myportfolio` folder.
+1. In the workspace dropdown, select the `myportfolio` folder on your machine.
+
+    ![Screenshot of the workspace dropdown and Agent selection in the Agents window.](images/getting-started/workspace-dropdown.png)
 
     If you're prompted to trust the folder, select **Yes, I trust the authors**.
 
@@ -109,13 +101,9 @@ The Agents window has a few main areas:
 
     Copilot CLI runs the agent on your local machine. VS Code installs and configures Copilot CLI for you, so there's nothing extra to set up.
 
-    <!-- TODO screenshot: agent dropdown with Copilot CLI selected in the Agents window. -->
-
 1. Notice that the isolation is initialized to **Folder** to let the agent apply changes directly to your workspace.
 
-    If you have an existing Git repo, you can also choose the **Worktree** option, which keeps changes in a separate Git worktree until you're ready to merge them.
-
-    <!-- TODO screenshot: Folder isolation selected when starting a Copilot CLI session. -->
+    If you have an existing Git repo with commits, you can also choose to let the agent work in a separate Git worktree and merge the changes later.
 
 1. Enter the following prompt in the chat input and press `kbstyle(Enter)`:
 
@@ -125,7 +113,7 @@ The Agents window has a few main areas:
 
     The agent plans the work, creates the files, and self-corrects if something goes wrong. It might ask for approval before it runs a command. Review the request and approve it to continue.
 
-    <!-- TODO screenshot: agent generating the portfolio page files in the Agents window. -->
+    ![Screenshot of the agent generating the portfolio page files in the Agents window.](images/getting-started/agent-generating-files.png)
 
 ### Preview your page
 
