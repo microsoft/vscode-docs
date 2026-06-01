@@ -31,7 +31,7 @@ Learn about the key features of Visual Studio Code in our introduction video.
 * Install [Node.js](https://nodejs.org/) (for running and debugging JavaScript)
 
 > [!TIP]
-> If you don't have a Copilot subscription yet, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
+> If you don't have a Copilot subscription yet, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly allowance of inline suggestions and AI credits.
 
 ## Open a folder in VS Code
 
@@ -172,7 +172,7 @@ Let's use agents to build a recipe list web app from a single prompt.
     ```
 
     > [!NOTE]
-    > If you haven't set up GitHub Copilot yet, you are prompted to sign in to your GitHub account and set up Copilot before you can send the prompt. If you don't have a Copilot subscription, you're associated with a free account that gives you a monthly limit of completions and chat interactions.
+    > If you haven't set up GitHub Copilot yet, you are prompted to sign in to your GitHub account and set up Copilot before you can send the prompt. If you don't have a Copilot subscription, you're associated with a free account that gives you a monthly allowance of inline suggestions and AI credits.
 
 1. Press `kbstyle(Enter)` to send the prompt.
 

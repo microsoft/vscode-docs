@@ -72,13 +72,15 @@ You can switch models at any time, based on your needs for a particular task. Fo
 
 Auto model selection combines two systems to route each request to the optimal model. One system tracks real-time model health and availability, while the other evaluates task complexity. Together, they match each task to the model that can solve it most efficiently, reserving higher-cost reasoning models for problems that need them and routing simpler tasks to faster models.
 
-Auto selects from multiple models and respects your organization's [model access settings](https://docs.github.com/en/copilot/how-tos/use-ai-models/configure-access-to-ai-models). Auto won't select models that have a premium request multiplier greater than 1x, models excluded by administrator policies, or models restricted by data-residency policies. If none of the preferred models are available or you run out of premium requests, auto falls back to a model at 0x multiplier.
+Auto selects from multiple models and respects your organization's [model access settings](https://docs.github.com/en/copilot/how-tos/use-ai-models/configure-access-to-ai-models). Auto won't select models excluded by administrator policies or models restricted by data-residency policies.
 
 For more details, see [About Copilot auto model selection](https://docs.github.com/en/copilot/concepts/auto-model-selection) in the GitHub documentation.
 
-### Premium requests and multipliers
+### AI credits and model costs
 
-Different models consume premium requests at different rates, expressed as a multiplier. For example, a model with a 2x multiplier uses two premium requests per interaction. When you use auto model selection, VS Code applies a variable [model multiplier](https://docs.github.com/en/copilot/concepts/billing/copilot-requests#model-multipliers) based on the selected model. If you are on a paid Copilot plan, auto applies a 10% multiplier discount.
+Each Copilot plan includes a monthly allowance of [AI credits](https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-individuals). Different models consume AI credits at different rates, based on the model and the number of tokens processed. More capable models cost more per token, while lighter models extend your usage further. When you use auto model selection, VS Code routes each request to an efficient model that balances quality and cost.
+
+Other factors also affect credit consumption, such as [thinking effort](/docs/copilot/customization/language-models.md#configure-thinking-effort) (higher effort produces more thinking tokens), context window size, and tool usage. For practical tips on reducing credit consumption, see [optimize AI credit usage](/docs/copilot/guides/optimize-usage.md).
 
 Learn how to [choose and configure language models](/docs/copilot/customization/language-models.md) in VS Code.
 

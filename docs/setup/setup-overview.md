@@ -53,7 +53,7 @@ After you install VS Code, finish setup for your development workflow:
 * [Start the VS Code tutorial](/docs/getstarted/getting-started.md) for a hands-on tour of the user interface and key features.
 
 > [!TIP]
-> New Copilot users can start with the [Copilot Free plan](https://github.com/github-copilot/signup), which includes a monthly limit of inline suggestions and chat interactions.
+> New Copilot users can start with the [Copilot Free plan](https://github.com/github-copilot/signup), which includes a monthly allowance of inline suggestions and AI credits.
 
 ## Update cadence
 

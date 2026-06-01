@@ -449,7 +449,7 @@ The `Stop` hook can prevent the agent from stopping:
 | `reason` | string | Required when decision is `"block"`. Tells the agent why it should continue. |
 
 > [!IMPORTANT]
-> When a `Stop` hook blocks the agent from stopping, the agent continues running and the additional turns consume [premium requests](https://docs.github.com/en/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests). Always check the `stop_hook_active` field to prevent the agent from running indefinitely.
+> When a `Stop` hook blocks the agent from stopping, the agent continues running and the additional turns consume [AI credits](https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-individuals). Always check the `stop_hook_active` field to prevent the agent from running indefinitely.
 
 ## SubagentStart
 

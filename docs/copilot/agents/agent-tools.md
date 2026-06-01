@@ -97,7 +97,7 @@ When you select the **Autopilot** permission level, the agent behaves differentl
 Autopilot is available in the Chat view when the `setting(chat.autopilot.enabled)` setting is enabled (on by default).
 
 > [!NOTE]
-> Autopilot uses premium requests in the same way that these are used when you are working in the standard interactive interface. This means that as the agent continues to work autonomously, it can consume multiple requests.
+> Autopilot consumes AI credits in the same way as the standard interactive interface. Learn more about [usage-based billing](https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-individuals).
 
 ## Tool approval
 

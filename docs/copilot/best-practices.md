@@ -42,7 +42,7 @@ AI in VS Code offers several interaction modes. Choosing the right one for the t
 
 | Tool | Best for | Example |
 |------|----------|---------|
-| [Inline suggestions](/docs/copilot/ai-powered-suggestions.md) | Staying in the flow while writing code | Code completions, variable names, boilerplate |
+| [Inline suggestions](/docs/copilot/ai-powered-suggestions.md) | Staying in the flow while writing code | Inline suggestions, variable names, boilerplate |
 | [Ask (chat)](/docs/copilot/chat/copilot-chat.md) | Questions, brainstorming, exploring ideas | "How does authentication work in this project?" |
 | [Inline chat](/docs/copilot/chat/inline-chat.md) | Targeted, in-place edits without switching context | Refactoring a function, adding error handling |
 | [Agents](/docs/copilot/agents/overview.md) | Multi-file changes that require autonomous planning and tool use | Implementing a feature end-to-end |
@@ -133,11 +133,13 @@ Each AI model has different strengths. Some are better at reasoning, others exce
 
 * **Use BYOK for additional control.** Bring your own API key for more model choices and hosting options.
 
+* **Consider credit consumption.** More capable models consume more [AI credits](/docs/copilot/concepts/language-models.md#ai-credits-and-model-costs) per token. Auto model selection balances quality and cost automatically. For more tips, see [optimize AI credit usage](/docs/copilot/guides/optimize-usage.md).
+
 For more information, see [selecting AI models](/docs/copilot/customization/language-models.md) and [available models for Copilot Chat](https://docs.github.com/en/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat).
 
 ## Plan first, then implement
 
-For complex changes that span multiple files, separate planning from implementation. This approach prevents the AI from solving the wrong problem.
+For complex changes that span multiple files, separate planning from implementation. This approach prevents the AI from solving the wrong problem and avoids spending [AI credits](/docs/copilot/concepts/language-models.md#ai-credits-and-model-costs) on code that needs to be thrown away.
 
 1. **Explore.** Use ask mode or a subagent to read the relevant code and understand how it works before making changes.
 1. **Plan.** Use the [Plan agent](/docs/copilot/agents/planning.md) to create a structured implementation plan. Review and refine the plan before executing.
@@ -164,11 +166,11 @@ For more information, see [GitHub Copilot security](/docs/copilot/security.md) a
 
 AI responses might degrade as the conversation fills with irrelevant context. Manage your sessions proactively.
 
-* **Start new sessions for unrelated tasks.** Don't keep piling unrelated questions into one conversation. Context pollution reduces response quality.
+* **Start new sessions for unrelated tasks.** Don't keep piling unrelated questions into one conversation. Context pollution reduces response quality and wastes tokens on irrelevant history.
 
 * **Remove irrelevant history.** Delete past questions and responses that are no longer relevant, or start a fresh session.
 
-* **Compact context.** Use [/compact](/docs/copilot/chat/copilot-chat-context.md#context-compaction) and provide instructions to selectively compact the context and retain only the most relevant information.
+* **Compact context.** Use [/compact](/docs/copilot/chat/copilot-chat-context.md#context-compaction) and provide instructions to selectively compact the context and retain only the most relevant information. Compacting reduces the tokens sent with each subsequent request, which helps [manage AI credit usage](/docs/copilot/guides/optimize-usage.md).
 
 * **Use subagents for investigation.** Hint the AI to perform research and exploration in isolation by using [subagents](/docs/copilot/agents/subagents.md) so the findings don't clutter your main context.
 
@@ -176,7 +178,9 @@ AI responses might degrade as the conversation fills with irrelevant context. Ma
 
 * **Scale with parallel sessions.** Run multiple sessions in parallel for independent tasks to save time and keep contexts separate. You can have multiple sessions running at once, across local, background, and cloud environments, and switch between them via the [sessions list](/docs/copilot/chat/chat-sessions.md#sessions-list) in VS Code.
 
-For more information, see [session management](/docs/copilot/chat/chat-sessions.md) and [workspace indexing](/docs/copilot/reference/workspace-context.md).
+* **Fork instead of re-prompting.** Use [`/fork`](/docs/copilot/chat/chat-sessions.md#fork-a-chat-session) to explore alternatives without losing context, instead of starting over and re-establishing context from scratch.
+
+For more information, see [session management](/docs/copilot/chat/chat-sessions.md), [workspace indexing](/docs/copilot/reference/workspace-context.md), and [optimize AI credit usage](/docs/copilot/guides/optimize-usage.md).
 
 ## Work with large codebases
 

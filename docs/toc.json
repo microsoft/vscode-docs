@@ -109,6 +109,7 @@
         "noCollapse": false,
         "topics": [
           ["Context Engineering", "/docs/copilot/guides/context-engineering-guide"],
+          ["Optimize AI Credit Usage", "/docs/copilot/guides/optimize-usage"],
           ["Customize AI", "/docs/copilot/guides/customize-copilot-guide"],
           ["Test-Driven Development", "/docs/copilot/guides/test-driven-development-guide"],
           ["Edit Notebooks with AI", "/docs/copilot/guides/notebooks-with-ai"],
