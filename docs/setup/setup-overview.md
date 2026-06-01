@@ -1,6 +1,6 @@
 ---
 ContentId: FC5262F3-D91D-4665-A5D2-BCBCCF66E53A
-DateApproved: 5/28/2026
+DateApproved: 6/3/2026
 MetaDescription: Install Visual Studio Code on Windows, macOS, or Linux and choose related setup options for your workflow.
 MetaSocialImage: images/quicksetup/quick-setup-social.png
 ---

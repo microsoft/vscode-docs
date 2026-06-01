@@ -1,7 +1,7 @@
 ---
 ContentId: b4e8c9f3-6d5a-4b2e-c7a4-8f9e1b3d2c5a
 DateApproved:
-MetaDescription: Sync your Copilot chat sessions to GitHub for cross-device access, enterprise policy controls, and sharing with teammates.
+6/3/2026
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Sync Copilot sessions to GitHub
