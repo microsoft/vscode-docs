@@ -43,6 +43,7 @@ Use the **Configure Tools** button in the chat input field to enable or disable 
 Limiting the available tools can help in several ways:
 
 * **Preserve context**: every tool call produces output that consumes space in the [context window](/docs/agents/concepts/language-models.md#context-window). Fewer tools means the agent is less likely to make unnecessary calls that fill up the context.
+* **Reduce credit consumption**: unnecessary tool calls increase token usage and consume more [AI credits](/docs/agents/concepts/language-models.md#ai-credits-and-model-costs). Disabling tools you don't need for a task helps keep costs down.
 * **Get more relevant results**: when fewer tools are available, the agent focuses on the most appropriate ones rather than choosing from a large set.
 * **Improve performance**: a smaller tool set reduces the decision space for the model, which can speed up responses.
 

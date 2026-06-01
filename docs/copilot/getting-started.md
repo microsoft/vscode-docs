@@ -24,10 +24,10 @@ Use chat in VS Code to generate the sample application in one go.
 * Access to GitHub Copilot. Follow these steps to [Set up GitHub Copilot in VS Code](/docs/setup/copilot.md).
 
     > [!TIP]
-    > If you don't have a Copilot subscription, you can sign up to use Copilot for free directly from within VS Code and get a monthly limit of inline suggestions and chat interactions.
+    > If you don't have a Copilot subscription, you can sign up to use Copilot for free directly from within VS Code and get a monthly allowance of inline suggestions and AI credits.
 
     > [!IMPORTANT]
-    > **Starting April 20, 2026**, new sign-ups for Copilot Pro, Copilot Pro+, and student plans are temporarily paused. Additionally, we are tightening weekly usage limits. See [GitHub Copilot usage limits](https://docs.github.com/copilot/concepts/usage-limits).
+    > **Starting April 20, 2026**, new sign-ups for Copilot Pro, Copilot Pro+, Max, and Student plans are temporarily paused.
 
 ## Step 1: Experience inline suggestions
 

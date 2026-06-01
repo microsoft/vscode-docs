@@ -45,6 +45,7 @@
       ["Playground", "/docs/intelligentapps/playground"],
       ["Agent Builder", "/docs/intelligentapps/agentbuilder"],
       ["Agent Inspector", "/docs/intelligentapps/agent-inspector"],
+      ["Hosted Agents (Preview)", "/docs/intelligentapps/hosted-agents"],
       ["Evaluation", "/docs/intelligentapps/evaluation"],
       ["Tool Catalog", "/docs/intelligentapps/tool-catalog"],
       ["Fine-Tuning (Automated Setup)", "/docs/intelligentapps/finetune"],
