@@ -15,7 +15,7 @@ You build a simple personal portfolio page with HTML, CSS, and JavaScript. The p
 > If you prefer a video to learn about Visual Studio Code, you can watch the [Getting Started video](https://www.youtube.com/watch?v=f8_uF_IDV50) on our YouTube channel.
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Explore agent types">
-Follow a hands-on tutorial that uses local, background, and cloud agents in VS Code.
+Follow a hands-on tutorial to explore different agent types like local, CLI, and cloud agents.
 
 * [Start tutorial](/docs/agents/agents-tutorial.md)
 
@@ -55,6 +55,13 @@ Agents work in the context of a folder, also known as a *workspace*. You start b
     > You can also initialize a repository later from the **Source Control** view in VS Code. You use source control near the end of this tutorial to commit your changes.
 
 ## Build with the Agents window
+
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Explore the Agent window">
+Learn more about agent-first development with the Agents window in VS Code.
+
+* [Start tutorial](/docs/agents/agents-window.md)
+
+</div>
 
 The Agents window is a dedicated window in VS Code, built for an agent-first workflow. It's optimized for orchestrating tasks across projects, so you can start agent sessions, watch them work, and switch between workspaces without opening a separate window for each one. This is different from the editor window and the Chat view, which are centered on coding within a single workspace.
 
@@ -174,6 +181,13 @@ Before you commit the agent's work, review what changed. The **Changes** panel l
     <!-- TODO screenshot: Commit button in the Agents window Changes panel. -->
 
 ## Write code with agents in the editor
+
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Explore agents in VS Code">
+Learn more about using agents to support for coding workflow in VS Code.
+
+* [Start tutorial](/docs/agents/chat-view.md)
+
+</div>
 
 For some changes, you might prefer a code-first approach, where your focus is on writing code and agents help you in the process. For example, you might want to add a theme switcher and fine-tune the styles as you go. For this approach, you switch to the editor and use the Chat view.
 
