@@ -1,5 +1,5 @@
 {
   "enabled": true,
-  "version": "2026-05-13-agents-window",
-  "message": "<a href=\"https://code.visualstudio.com/docs/agents/agents-window?source=vsc-website-banner\" target=\"_self\" rel=\"noopener\">Use the Agents window to build in an agent-first way.</a>"
+  "version": "2026-06-01-vscode-live-build",
+  "message": "<a href=\"https://aka.ms/VSCode/Livestage\" target=\"_self\" rel=\"noopener\">💻 Join VS Code Live at MS Build on June 3.</a>"
 }
