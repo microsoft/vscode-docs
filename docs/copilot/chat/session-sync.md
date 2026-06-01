@@ -1,7 +1,7 @@
 ---
 ContentId: b4e8c9f3-6d5a-4b2e-c7a4-8f9e1b3d2c5a
-DateApproved:
-6/3/2026
+DateApproved: 6/3/2026
+MetaDescription: Sync your GitHub Copilot chat sessions to your GitHub account to access session insights, share sessions, and query across all your sessions from any device.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Sync Copilot sessions to GitHub
