@@ -96,6 +96,8 @@ When `setting(chat.agent.sandbox.enabled)` is set to `on`, all outbound network 
 
 VS Code provides network domain filtering that applies to both agent tools (fetch tool, integrated browser) and sandboxed terminal commands. Enable `setting(chat.agent.networkFilter)` to activate network filtering. Use `setting(chat.agent.allowedNetworkDomains)` and `setting(chat.agent.deniedNetworkDomains)` to control which domains the agent can access. Learn how to [configure network access](/docs/agents/agent-tools.md#configure-network-access).
 
+* **Retry with network access.** When a sandboxed command is blocked by network restrictions, the agent first asks for confirmation to retry inside the sandbox with unrestricted network access before falling back to running the command outside the sandbox.
+
 * **Domain allowlist.** You can explicitly permit access to specific domains.
 
     > [!CAUTION]

@@ -322,6 +322,8 @@ When sandboxing is also enabled, these network rules additionally apply to termi
 
 Denied domains always take precedence over allowed domains. Both settings support wildcards like `*.example.com`.
 
+When a sandboxed command is blocked by network restrictions and `setting(chat.agent.sandbox.retryWithAllowNetworkRequests)` is enabled (default), the agent asks for confirmation to retry the command inside the sandbox with unrestricted network access. The file system restrictions still apply to the retried command. If you disable this setting, the agent instead falls back to the confirmation to run the command outside the sandbox, which is controlled by `setting(chat.agent.sandbox.allowUnsandboxedCommands)`.
+
 ```jsonc
 {
     "chat.agent.networkFilter": true,
