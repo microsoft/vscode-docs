@@ -59,7 +59,7 @@ Agents work in the context of a folder, also known as a *workspace*. You start b
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Explore the Agent window">
 Learn more about agent-first development with the Agents window in VS Code.
 
-* [Start tutorial](/docs/agents/agents-window.md)
+* [Learn about Agents](/docs/agents/agents-window.md)
 
 </div>
 
@@ -173,7 +173,7 @@ Before you commit the agent's work, review what changed. The **Changes** panel l
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Explore agents in VS Code">
 Learn more about using agents to support for coding workflow in VS Code.
 
-* [Start tutorial](/docs/agents/chat-view.md)
+* [Learn about chat](/docs/agents/chat-view.md)
 
 </div>
 
