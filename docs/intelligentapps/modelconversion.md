@@ -250,6 +250,65 @@ The default runtime is: `C:\Users\{user_name}\.aitk\bin\model_lab_runtime\Python
 
 Go to the History board. Select **Export** to share the model project with others. This copies the model project without history folder. If you want to share models with others, select the corresponding jobs. This copies the selected history folder containing the model and its configuration.
 
+## Build with Windows ML CLI (preview)
+
+In addition to the Olive-based conversion workflow, Foundry Toolkit also provides a streamlined **Build** flow powered by [Windows ML CLI](https://learn.microsoft.com/en-us/windows/ai/new-windows-ml/overview). It analyzes your model, downloads the matching execution providers (EPs) for the local device, and produces optimized ONNX artifacts with minimal configuration.
+
+Use Windows ML CLI when you want to:
+
+- Quickly bring a Hugging Face model or an existing local ONNX file onto Windows.
+- Let the toolkit pick the right EPs and optimization recipe for the current hardware.
+- Iterate on **Build**, **Evaluation**, and **Performance** runs from a single panel.
+
+### Choose a Windows ML CLI base model
+
+When you create a new model project (or add a model to an existing one), the **Choose a Base Model** page exposes a **Recommend Process** area powered by Windows ML CLI:
+
+![Screenshot that shows the Recommend Process area with Hugging Face Hub and Local ONNX Files cards.](./images/modelconversion/winmlcli-recommend-process.png)
+
+- **Hugging Face Hub**: enter any Hugging Face model ID and let Windows ML CLI download, analyze, and build the model.
+- **Local ONNX Files**: browse to an ONNX file on disk and let Windows ML CLI analyze and optimize it.
+
+You can also pick a curated Hugging Face model that is already validated for Windows ML CLI. Open the **Provided By** filter and select **Windows ML CLI** to see the supported list.
+
+![Screenshot that shows HuggingFace Models filtered by the Windows ML CLI provider.](./images/modelconversion/winmlcli-model-list.png)
+
+### Run the Build flow
+
+After the project opens, the **Run Workflows** panel shows a **Build Flow** card for each selected Windows ML CLI model.
+
+![Screenshot that shows the Build Flow card with Edit Config and Build buttons for a Hugging Face model.](./images/modelconversion/winmlcli-build-flow.png)
+
+For Hugging Face models, the toolkit automatically downloads the model and starts an initial configuration pass. The card transitions through three states:
+
+- **Configuring**: the model is being downloaded and analyzed.
+- **Configured**: a configuration is ready. Select **Edit Config** to review or tweak the generated recipe per precision (for example `fp16`, `w8a8`, `w8a16`), then select **Build** to produce the optimized model.
+- **Failed**: configuration could not be completed. The card shows the failure inline and exposes a **Re-config** button (placed to the left of **Edit Config**) so you can retry without leaving the workflow.
+
+> [!NOTE]
+> Configuration only runs automatically on first entry, or after you explicitly select **Re-config**. The toolkit does not retry a failed configuration on its own, so you can inspect the log and decide when to try again.
+
+For Local ONNX models, no download is required. Select **Build** directly to let Windows ML CLI analyze the file and report EP compatibility.
+
+![Screenshot that shows the Build Flow card for a local ONNX model with just a Build button.](./images/modelconversion/winmlcli-local-onnx.png)
+
+### Inspect Build, Evaluation, and Performance results
+
+Each Build run produces an entry in the **Generated Flow History** table. From there you can:
+
+- Select **View Config** to open the configuration file used for the run.
+- Select **View Analysis** to open the EP compatibility analysis.
+- Select **Performance** to launch a performance run against a chosen EP.
+- Select **logs** next to the status to open the raw Windows ML CLI log.
+- Select **Export** to copy the artifact, or **Delete** to remove it.
+
+![Screenshot that shows the Generated Flow History table with View Config, View Analysis, Performance, Export, and Delete actions.](./images/modelconversion/winmlcli-history.png)
+
+Performance results (device, latency, throughput) are shown directly in the table so you can compare runs at a glance.
+
+> [!TIP]
+> If a Build, Evaluation, or Performance run fails, the log shows a `Run WinMLCLI error with code <N>!` message. Open the linked log file to view the underlying Windows ML CLI output.
+
 ## What you learned
 
 In this article, you learned how to:
@@ -263,6 +322,7 @@ In this article, you learned how to:
 - Re-evaluate a model using different execution providers or datasets.
 - Handle failed jobs and adjust configurations for re-runs.
 - Understand the supported models and their requirements for conversion and quantization.
+- Build a Hugging Face or local ONNX model with the Windows ML CLI flow.
 
 ## See also
 
