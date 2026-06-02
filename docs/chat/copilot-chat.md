@@ -23,7 +23,7 @@ Follow a hands-on tutorial to experience local, background, and cloud agents in 
 * Access to [GitHub Copilot](/docs/setup/copilot.md). If you don't have a subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup).
 
 > [!IMPORTANT]
-> **Starting April 20, 2026**, new sign-ups for Copilot Pro, Copilot Pro+, Max, and Student plans are temporarily paused. 
+> **Starting April 20, 2026**, new sign-ups for Copilot Pro, Copilot Pro+, Max, and Student plans are temporarily paused.
 
 ## Access chat in VS Code
 
@@ -111,7 +111,7 @@ After the AI makes changes to your files, review and accept or discard them.
 
 Chat provides several ways to improve the quality and relevance of AI responses:
 
-* **Write effective prompts**: be specific about what you want, reference relevant files and symbols, and use `/` commands for common tasks. Get inspired by [prompt examples](/docs/chat/prompt-examples.md) or review the full [prompt engineering guide](/docs/agents/best-practices.md).
+* **Write effective prompts**: be specific about what you want, reference relevant files and symbols, and use `/` commands for common tasks. Get inspired by [prompt examples](/docs/agents/guides/prompt-examples.md) or review the full [prompt engineering guide](/docs/agents/best-practices.md).
 
 * **Customize the AI**: tailor the AI's behavior to your project by adding [custom instructions](/docs/agent-customization/custom-instructions.md), creating reusable [prompt files](/docs/agent-customization/prompt-files.md), or building [custom agents](/docs/agent-customization/custom-agents.md) for specialized workflows. For example, create a "Code Reviewer" agent that provides feedback on code quality and adherence to your team's coding standards.
 
@@ -135,4 +135,4 @@ To learn more about Copilot's security, privacy, compliance, and transparency, s
 
 * [Choose agents and configure permissions](/docs/agents/overview.md)
 
-* [Prompt examples](/docs/chat/prompt-examples.md)
+* [Prompt examples](/docs/agents/guides/prompt-examples.md)
