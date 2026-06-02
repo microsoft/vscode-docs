@@ -152,9 +152,20 @@ Configure what information is included:
 
 ### Add a screenshot
 
-Capture a screenshot of the current browser viewport and attach it as an image to your chat prompt. Use this to ask about layout issues, get feedback on a design, or show the current state of your web app.
+Capture a screenshot of the page and attach it as an image to your chat prompt. Use this to ask about layout issues, get feedback on a design, or show the current state of your web app. The screenshot is captured before the chat panel opens, so it reflects the page as you see it.
 
-Select **Add Screenshot to Chat** from the browser toolbar or run the **Browser: Add Screenshot to Chat** command. The screenshot is captured before the chat panel opens, so it reflects the page as you see it.
+The **Add to Chat** dropdown in the browser toolbar offers three capture modes:
+
+| Mode | Description |
+|------|-------------|
+| **Add Screenshot to Chat** | Capture the current browser viewport. |
+| **Add Area Screenshot to Chat** | Drag to select a rectangular area of the page, then capture only that region. |
+| **Add Full Page Screenshot to Chat (Experimental)** | Capture the entire scrollable page, including content beyond the current viewport. |
+
+Each mode is also available as a **Browser:** command in the Command Palette.
+
+> [!NOTE]
+> The full page screenshot mode is experimental. To enable it, set `setting(workbench.browser.experimentalUserTools.enabled)` to `true`.
 
 ### Add console logs
 
