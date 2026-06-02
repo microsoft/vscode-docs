@@ -89,6 +89,7 @@
         "topics": [
             ["Prompt Examples", "/docs/agents/guides/prompt-examples"],
             ["Context Engineering", "/docs/agents/guides/context-engineering-guide"],
+            ["Optimize AI Credit Usage", "/docs/agents/guides/optimize-usage"],
             ["Customize AI", "/docs/agents/guides/customize-copilot-guide"],
             ["Test-Driven Development", "/docs/agents/guides/test-driven-development-guide"],
             ["Edit Notebooks with AI", "/docs/agents/guides/notebooks-with-ai"],
