@@ -19,7 +19,7 @@ We've open sourced the GitHub Copilot Chat extension under the MIT license and a
 
 This change does not affect current GitHub Copilot subscriptions. To use GitHub Copilot, you'll continue to need both a GitHub account, and access to a GitHub Copilot subscription.
 
-Individual developers who don't have access to Copilot through an organization or enterprise have access to the [GitHub Copilot free plan](https://aka.ms/github-docs-copilot-free) ([restrictions may apply](https://docs.github.com/en/site-policy/other-site-policies/github-and-trade-controls#github-copilot)). If that plan doesn't meet your needs, you can sign up for a Copilot paid plan or [bring your own model keys](https://code.visualstudio.com/docs/copilot/language-models#_bring-your-own-language-model-key).
+Individual developers who don't have access to Copilot through an organization or enterprise have access to the [GitHub Copilot free plan](https://aka.ms/github-docs-copilot-free) ([restrictions may apply](https://docs.github.com/en/site-policy/other-site-policies/github-and-trade-controls#github-copilot)). If that plan doesn't meet your needs, you can sign up for a Copilot paid plan or [bring your own model keys](https://code.visualstudio.com/docs/agent-customization/language-models#_bring-your-own-language-model-key).
 
 ### Will the GitHub Copilot backend services also be open sourced?
 
@@ -89,13 +89,13 @@ Visual Studio Code is a streamlined code editor with support for development ope
 
 Yes, VS Code is free for private or commercial use. See the [product license](https://code.visualstudio.com/license) for details.
 
-If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of inline suggestions and chat interactions.
+If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly allowance of inline suggestions and AI credits.
 
 ## Platform support
 
 ### Which OSs are supported?
 
-VS Code runs on macOS, Linux, and Windows. See the [Requirements documentation](requirements) for the supported versions. You can find more platform specific details in the [Setup overview](/docs/setup/setup-overview.md).
+VS Code runs on macOS, Linux, and Windows. See the [Requirements documentation](requirements) for the supported versions. You can find more platform specific details in the [Setup overview](/docs/getstarted/overview.md).
 
 ### Can I run VS Code on older Windows versions?
 
@@ -115,11 +115,11 @@ VS Code will no longer provide product updates or security fixes on macOS Big Su
 
 Starting with VS Code release 1.86.1 (January 2024), VS Code desktop is only compatible with Linux distributions based on glibc 2.28 or later, for example, Debian 10, RHEL 8, or Ubuntu 20.04.
 
-If you are unable to upgrade your Linux distribution, the recommended alternative is to use our [web client](/docs/setup/vscode-web.md). If you would like to use the desktop version, then you can download the VS Code release 1.85 from [here](https://code.visualstudio.com/updates/v1_85). Depending on your platform, make sure to disable updates to stay on that version. A good recommendation is to set up the installation with [Portable Mode](/docs/editor/portable.md).
+If you are unable to upgrade your Linux distribution, the recommended alternative is to use our [web client](/docs/remote/vscode-web.md). If you would like to use the desktop version, then you can download the VS Code release 1.85 from [here](https://code.visualstudio.com/updates/v1_85). Depending on your platform, make sure to disable updates to stay on that version. A good recommendation is to set up the installation with [Portable Mode](/docs/setup/portable.md).
 
 ### Can I run a portable version of VS Code?
 
-Yes, VS Code has a [Portable Mode](/docs/editor/portable.md) that lets you keep settings and data in the same location as your installation, for example, on a USB drive.
+Yes, VS Code has a [Portable Mode](/docs/setup/portable.md) that lets you keep settings and data in the same location as your installation, for example, on a USB drive.
 
 
 ## Telemetry and crash reporting

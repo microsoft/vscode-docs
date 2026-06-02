@@ -47,6 +47,6 @@ If you prefer a code editor-centric development tool or are building cross-platf
 
 Read on to find out about:
 
-* [Visual Studio Code User Interface](/docs/getstarted/userinterface.md) - A quick orientation to VS Code.
+* [Visual Studio Code User Interface](/docs/editing/userinterface.md) - A quick orientation to VS Code.
 * [Intro Videos](/docs/getstarted/introvideos.md) - Learn about the VS Code editor features.
 * [Debugging](/docs/debugtest/debugging.md) - OK time for the really fun stuff - break, step, watch.

@@ -21,13 +21,13 @@ Use chat in VS Code to generate the sample application in one go.
 
 * VS Code installed on your machine. Download it from the [Visual Studio Code website](https://code.visualstudio.com/).
 
-* Access to GitHub Copilot. Follow these steps to [Set up GitHub Copilot in VS Code](/docs/copilot/setup.md).
+* Access to GitHub Copilot. Follow these steps to [Set up GitHub Copilot in VS Code](/docs/setup/copilot.md).
 
     > [!TIP]
-    > If you don't have a Copilot subscription, you can sign up to use Copilot for free directly from within VS Code and get a monthly limit of inline suggestions and chat interactions.
+    > If you don't have a Copilot subscription, you can sign up to use Copilot for free directly from within VS Code and get a monthly allowance of inline suggestions and AI credits.
 
     > [!IMPORTANT]
-    > **Starting April 20, 2026**, new sign-ups for Copilot Pro, Copilot Pro+, and student plans are temporarily paused. Additionally, we are tightening weekly usage limits. See [GitHub Copilot usage limits](https://docs.github.com/copilot/concepts/usage-limits).
+    > **Starting April 20, 2026**, new sign-ups for Copilot Pro, Copilot Pro+, Max, and Student plans are temporarily paused.
 
 ## Step 1: Experience inline suggestions
 
@@ -45,7 +45,7 @@ AI-powered inline suggestions appear as you type, helping you write code faster 
 
     ![Screenshot showing Copilot suggesting HTML structure inline suggestion.](./images/getting-started/html-completion.png)
 
-    You might see different suggestions because large language models are [nondeterministic](/docs/copilot/concepts/language-models.md#key-characteristics).
+    You might see different suggestions because large language models are [nondeterministic](/docs/agents/concepts/language-models.md#key-characteristics).
 
 1. Press `kbstyle(Tab)` to accept the suggestion.
 
@@ -267,14 +267,14 @@ You can further enhance your AI's capabilities by exploring other customization 
 
 ## Related resources
 
-* [How GitHub Copilot works](/docs/copilot/concepts/overview.md): Core concepts, terminology, and the architecture behind Copilot's features
+* [How GitHub Copilot works](/docs/agents/concepts/overview.md): Core concepts, terminology, and the architecture behind Copilot's features
 
-* [Agents tutorial](/docs/copilot/agents/agents-tutorial.md): Hands-on tutorial for working with different agent types
+* [Agents tutorial](/docs/agents/agents-tutorial.md): Hands-on tutorial for working with different agent types
 
-* [Cheat sheet for using AI features](/docs/copilot/reference/copilot-vscode-features.md) - Quick reference for all GitHub Copilot features in VS Code
+* [Cheat sheet for using AI features](/docs/agents/reference/copilot-vscode-features.md) - Quick reference for all GitHub Copilot features in VS Code
 
-* [Chat documentation](/docs/copilot/chat/copilot-chat.md) - Deep dive into autonomous coding in VS Code
+* [Chat documentation](/docs/chat/copilot-chat.md) - Deep dive into autonomous coding in VS Code
 
-* [Customization guide](/docs/copilot/customization/overview.md) - Advanced personalization techniques
+* [Customization guide](/docs/agent-customization/overview.md) - Advanced personalization techniques
 
-* [MCP tools](/docs/copilot/customization/mcp-servers.md) - Extend agents with external APIs and services
+* [MCP tools](/docs/agent-customization/mcp-servers.md) - Extend agents with external APIs and services

@@ -1,0 +1,123 @@
+[
+    {
+        "name": "Agents",
+        "area": "agents",
+        "topics": [
+            ["Overview", "/docs/agents/overview"],
+            ["Get Started", "/docs/agents/agents-tutorial"],
+
+            ["Agents Window", "/docs/agents/agents-window"],
+            ["Chat View", "/docs/agents/chat-view"],
+
+            ["", "", {
+                "name": "Sessions",
+                "area": "agents/sessions",
+                "topics": [
+                    ["Manage Sessions", "/docs/agents/sessions/chat-sessions"],
+                    ["Session Insights", "/docs/agents/sessions/session-insights"]
+                ]
+            }],
+
+            ["", "", {
+                "name": "Agent Types",
+                "area": "agents/agent-types",
+                "topics": [
+                    ["Local Agents", "/docs/agents/agent-types/local-agents"],
+                    ["Copilot CLI", "/docs/agents/agent-types/copilot-cli"],
+                    ["Cloud Agents", "/docs/agents/agent-types/cloud-agents"],
+                    ["Third-Party Agents", "/docs/agents/agent-types/third-party-agents"]
+                ]
+            }],
+
+            ["Planning", "/docs/agents/planning"],
+            ["Memory", "/docs/agents/memory"],
+            ["Tools", "/docs/agents/agent-tools"],
+            ["Subagents", "/docs/agents/subagents"],
+
+            ["Best Practices", "/docs/agents/best-practices"],
+            ["Security", "/docs/agents/security"],
+        ]
+    },
+
+    {
+        "name": "Agent Customization",
+        "area": "agent-customization",
+        "noCollapse": false,
+        "topics": [
+            ["Overview", "/docs/agent-customization/overview"],
+            ["Instructions", "/docs/agent-customization/custom-instructions"],
+            ["Prompt Files", "/docs/agent-customization/prompt-files"],
+            ["Custom Agents", "/docs/agent-customization/custom-agents"],
+            ["Agent Skills", "/docs/agent-customization/agent-skills"],
+            ["Language Models", "/docs/agent-customization/language-models"],
+            ["MCP", "/docs/agent-customization/mcp-servers"],
+            ["Hooks", "/docs/agent-customization/hooks"],
+            ["Plugins", "/docs/agent-customization/agent-plugins"]
+        ]
+    },
+
+    {
+        "name": "Using Chat",
+        "area": "chat",
+        "topics": [
+            ["Overview", "/docs/chat/copilot-chat"],
+            ["Add Context", "/docs/chat/copilot-chat-context"],
+            ["Inline Chat", "/docs/chat/inline-chat"],
+            ["Review Edits", "/docs/chat/review-code-edits"],
+            ["Checkpoints", "/docs/chat/chat-checkpoints"],
+            ["Artifacts Panel", "/docs/chat/chat-artifacts"],
+        ]
+    },
+
+    {
+        "name": "Concepts",
+        "area": "agents/concepts",
+        "topics": [
+            ["Overview", "/docs/agents/concepts/overview"],
+            ["Language Models", "/docs/agents/concepts/language-models"],
+            ["Context", "/docs/agents/concepts/context"],
+            ["Tools", "/docs/agents/concepts/tools"],
+            ["Agents", "/docs/agents/concepts/agents"],
+            ["Customization", "/docs/agents/concepts/customization"],
+            ["Trust & Safety", "/docs/agents/concepts/trust-and-safety"]
+        ]
+    },
+
+    {
+        "name": "Guides",
+        "area": "agents/guides",
+        "topics": [
+            ["Prompt Examples", "/docs/agents/guides/prompt-examples"],
+            ["Context Engineering", "/docs/agents/guides/context-engineering-guide"],
+            ["Customize AI", "/docs/agents/guides/customize-copilot-guide"],
+            ["Test-Driven Development", "/docs/agents/guides/test-driven-development-guide"],
+            ["Edit Notebooks with AI", "/docs/agents/guides/notebooks-with-ai"],
+            ["Test with AI", "/docs/agents/guides/test-with-copilot"],
+            ["Test Web Apps with Browser Tools", "/docs/agents/guides/browser-agent-testing-guide"],
+            ["Debug with AI", "/docs/agents/guides/debug-with-copilot"],
+            ["MCP Dev Guide", "/docs/agents/guides/mcp-developer-guide"],
+            ["OpenTelemetry Monitoring", "/docs/agents/guides/monitoring-agents"]
+        ]
+    },
+
+    {
+        "name": "Troubleshooting",
+        "area": "agents/agent-troubleshooting",
+        "topics": [
+            ["Debug Chat Interactions", "/docs/agents/agent-troubleshooting/chat-debug-view"],
+            ["Troubleshooting", "/docs/agents/agent-troubleshooting/troubleshooting"],
+            ["FAQ", "/docs/agents/agent-troubleshooting/faq"],
+        ]
+    },
+
+    {
+        "name": "Reference",
+        "area": "agents/reference",
+        "topics": [
+            ["Cheat Sheet", "/docs/agents/reference/copilot-vscode-features"],
+            ["Settings Reference", "/docs/agents/reference/copilot-settings"],
+            ["MCP Configuration", "/docs/agents/reference/mcp-configuration"],
+            ["Workspace Context", "/docs/agents/reference/workspace-context"]
+        ]
+    }
+]
