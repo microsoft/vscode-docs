@@ -197,7 +197,7 @@ You can configure advanced search options by selecting the ellipsis (**Toggle Se
 
 ### Advanced search options
 
-![Advanced search options](images/codebasics/searchadvanced.png)
+![Advanced search options](images/codebasics/searchadvanced-v2.png)
 
 In the two input boxes below the search box, you can enter patterns to include or exclude from the search. If you enter `example`, that will match every folder and file named `example` in the workspace. If you enter `./example`, that will match the folder `example/` at the top level of your workspace. Use `,` to separate multiple patterns. Paths must use forward slashes. You can also use [glob pattern](/docs/editor/glob-patterns.md) syntax, for example:
 
@@ -215,6 +215,8 @@ VS Code excludes some folders by default to reduce the number of search results 
 Note that glob patterns in the Search view work differently than in settings such as `setting(files.exclude)` and `setting(search.exclude)`. In the settings, you must use `**/example` to match a folder named `example` in subfolder `folder1/example` in your workspace. In the Search view, the `**` prefix is assumed. The glob patterns in these settings are always evaluated relative to the path of the workspace folder.
 
 Also note the **Use Exclude Settings and Ignore Files** toggle button in the **files to exclude** box. The toggle determines whether to exclude files that are ignored by your `.gitignore` files and/or matched by your `setting(files.exclude)` and `setting(search.exclude)` settings.
+
+In the **files to include** box, you can use the **Search only in changed files** toggle button to restrict search results to files that have uncommitted source control changes. This toggle is disabled when there's no repository or no changes to search.
 
 > [!NOTE]
 > Patterns in `.gitignore` files are matched case-insensitively on Windows and macOS, and case-sensitively on Linux. Learn more about [glob pattern case sensitivity](/docs/editor/glob-patterns.md#case-sensitivity).

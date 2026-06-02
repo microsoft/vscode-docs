@@ -130,7 +130,7 @@ The three dots next to **Incoming**, **Current**, and **Result** offer options f
 > [!NOTE]
 > AI-assisted conflict resolution is an experimental feature and requires a GitHub Copilot subscription.
 
-VS Code can [use AI](/docs/copilot/setup.md) to help resolve merge conflicts automatically. This feature analyzes both versions of the conflicting changes and proposes a resolution:
+VS Code can [use AI](/docs/setup/copilot.md) to help resolve merge conflicts automatically. This feature analyzes both versions of the conflicting changes and proposes a resolution:
 
 1. Open a file with conflicts in the editor
 

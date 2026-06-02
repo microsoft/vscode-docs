@@ -12,7 +12,7 @@ Author: Harald Kirschner, Connor Peet
 
 January 26, 2026 by [Harald Kirschner](https://github.com/digitarald) and [Connor Peet](https://github.com/connor4312)
 
-AI coding agents have become remarkably capable. Out of the box, they search your codebase, edit files, run terminal commands, and respond to compile errors. Add [MCP servers](https://code.visualstudio.com/docs/copilot/customization/mcp-servers), and they can query databases, browse the web with Playwright, summarize GitHub issues, and connect to your cloud platforms. Models can even process images—you can paste a screenshot to debug a layout issue, or have Playwright capture browser state for verification.
+AI coding agents have become remarkably capable. Out of the box, they search your codebase, edit files, run terminal commands, and respond to compile errors. Add [MCP servers](https://code.visualstudio.com/docs/agent-customization/mcp-servers), and they can query databases, browse the web with Playwright, summarize GitHub issues, and connect to your cloud platforms. Models can even process images—you can paste a screenshot to debug a layout issue, or have Playwright capture browser state for verification.
 
 Agents format tables, structure data, and render ASCII diagrams. But none of this is interactive. When you need to reorder a list, confirm a destructive action with specifics, or explore a visualization, you're back to describing things in sentences.
 
@@ -58,7 +58,7 @@ We've built a few [demos](https://github.com/digitarald/mcp-apps-playground) to 
 
 ## A Natural Fit for VS Code
 
-VS Code has always been more than a text editor. Extensions bring UI and interaction into the editor through webview panels, custom editors, and sidebar views. Jupyter notebooks showed that mixing code with rich output transforms workflows. [GitHub Copilot agents](https://code.visualstudio.com/docs/copilot/agents/overview) gave AI the ability to work autonomously in your workspace.
+VS Code has always been more than a text editor. Extensions bring UI and interaction into the editor through webview panels, custom editors, and sidebar views. Jupyter notebooks showed that mixing code with rich output transforms workflows. [GitHub Copilot agents](https://code.visualstudio.com/docs/agents/overview) gave AI the ability to work autonomously in your workspace.
 
 MCP Apps is the next layer: giving agents a visual voice to communicate back. You see what's happening, make choices with confidence, and stay in control.
 
@@ -68,8 +68,8 @@ If you're building MCP servers, add MCP Apps to make them more interactive. VS C
 
 - [MCP Apps demo repository](https://github.com/digitarald/mcp-apps-playground)
 - [MCP Apps SDK and examples](https://github.com/modelcontextprotocol/ext-apps/)
-- [VS Code MCP documentation](https://code.visualstudio.com/docs/copilot/customization/mcp-servers)
-- [MCP server development guide](https://code.visualstudio.com/docs/copilot/guides/mcp-developer-guide)
+- [VS Code MCP documentation](https://code.visualstudio.com/docs/agent-customization/mcp-servers)
+- [MCP server development guide](https://code.visualstudio.com/docs/agents/guides/mcp-developer-guide)
 - [MCP Apps announcement](https://blog.modelcontextprotocol.io/posts/2026-01-26-mcp-apps/)
 
 Try building your first MCP App and share what you create with the community. Sometimes showing is better than telling—now your agents can do both.

@@ -2,39 +2,39 @@
   "getStarted": {
     "title": "Get started with AI agents",
     "description": "Hand off tasks to autonomous AI agents that iterate until the job is done. Run them locally, in the background, or in the cloud, with your choice of AI provider. Track all sessions without leaving VS Code.",
-    "link": "/docs/copilot/agents/agents-tutorial",
-    "image": "/assets/docs/copilot/getting-started/agent-mode-selection-2.png"
+    "link": "/docs/agents/agents-tutorial",
+    "image": "/assets/docs/agents/getting-started/agent-mode-selection-2.png"
   },
   "featured": [
     {
       "icon": "codicon-lightbulb",
       "title": "Learn about the agent loop",
       "description": "Understand the core concepts of how AI agents plan, act, and iterate to complete tasks.",
-      "link": "/docs/copilot/concepts/agents"
+      "link": "/docs/agents/concepts/agents"
     },
     {
       "icon": "codicon-debug",
       "title": "Test and debug with browser agents",
       "description": "Let AI agents use the integrated browser to validate and fix issues in your application.",
-      "link": "/docs/copilot/guides/browser-agent-testing-guide"
+      "link": "/docs/agents/guides/browser-agent-testing-guide"
     },
     {
       "icon": "codicon-settings-gear",
       "title": "Customize AI for your project",
-      "description": "Configure custom instructions, prompt files, and MCP servers to tailor AI to your workflow.",
-      "link": "/docs/copilot/guides/customize-copilot-guide"
+      "description": "Configure custom instructions, skills, and MCP servers to tailor AI to your workflow.",
+      "link": "/docs/agent-customization/overview"
     },
     {
       "icon": "codicon-tools",
       "title": "Set up VS Code",
       "description": "Install VS Code on Windows, macOS, or Linux and get running.",
-      "link": "/docs/setup/setup-overview"
+      "link": "/docs/getstarted/overview"
     },
     {
       "icon": "codicon-mortar-board",
       "title": "Learn VS Code basics",
       "description": "Explore the editor, settings, extensions, and key features.",
-      "link": "/docs/getstarted/getting-started"
+      "link": "/docs/editing/getting-started"
     },
     {
       "icon": "codicon-organization",
@@ -55,7 +55,7 @@
       "type": "documentation",
       "title": "Remote control Copilot CLI",
       "description": "Monitor and steer ongoing Copilot CLI sessions from github.com or GitHub Mobile.",
-      "link": "/docs/copilot/agents/copilot-cli#_remote-control-copilot-cli-sessions-experimental"
+      "link": "/docs/agents/agent-types/copilot-cli#_remote-control-copilot-cli-sessions-experimental"
     },
     {
       "type": "blog",

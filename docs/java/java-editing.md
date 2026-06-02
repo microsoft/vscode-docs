@@ -11,7 +11,7 @@ If you run into any issues when using the features below, you can contact us by 
 
 ## Code navigation
 
-With the [Outline view](/docs/getstarted/userinterface.md#outline-view), you can conveniently navigate the members within the current file. [Projects view](/docs/java/java-project.md#projects-view) also provide a great overview of your project. As a Java editor, it also supports Call Hierarchy, Type Hierarchy, Definition Navigation, Search Types in Workspace, etc.
+With the [Outline view](/docs/editing/userinterface.md#outline-view), you can conveniently navigate the members within the current file. [Projects view](/docs/java/java-project.md#projects-view) also provide a great overview of your project. As a Java editor, it also supports Call Hierarchy, Type Hierarchy, Definition Navigation, Search Types in Workspace, etc.
 
 ## Search for symbols
 

@@ -115,7 +115,7 @@ When a new file is pasted into `/docs/api/readme.md`, the image is now created u
 
 You can use AI to generate or update alt text for images in Markdown files. To generate alt text:
 
-1. Make sure you have [set up Copilot](/docs/copilot/setup.md) in your VS Code environment. You can get started with Copilot for free.
+1. Make sure you have [set up Copilot](/docs/setup/copilot.md) in your VS Code environment. You can get started with Copilot for free.
 
 1. Open a Markdown file.
 1. Put the cursor on an image link.

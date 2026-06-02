@@ -85,7 +85,7 @@ Usually a debugger extension will also have a `contributes.breakpoints` entry wh
 
 ## contributes.chatInstructions
 
-Contributes [instructions files](/docs/copilot/customization/custom-instructions.md) for Copilot Chat. Instructions files provide custom guidelines that are automatically included in chat requests to steer the behavior of Copilot. Use this contribution point to bundle reusable instructions with your extension, such as coding conventions, framework-specific guidelines, or domain-specific rules.
+Contributes [instructions files](/docs/agent-customization/custom-instructions.md) for Copilot Chat. Instructions files provide custom guidelines that are automatically included in chat requests to steer the behavior of Copilot. Use this contribution point to bundle reusable instructions with your extension, such as coding conventions, framework-specific guidelines, or domain-specific rules.
 
 Copilot automatically applies contributed instructions when the user's chat request is relevant to the instructions' use case. You do not need to manually attach them.
 
@@ -129,7 +129,7 @@ See the [`chatPromptFiles`](/api/references/contribution-points#contributes.chat
 
 ## contributes.chatPromptFiles
 
-Contributes [prompt files](/docs/copilot/customization/custom-instructions.md) for Copilot Chat. Prompt files are reusable chat prompts that users can invoke as slash commands in chat. Use this contribution point to bundle ready-made prompts with your extension.
+Contributes [prompt files](/docs/agent-customization/custom-instructions.md) for Copilot Chat. Prompt files are reusable chat prompts that users can invoke as slash commands in chat. Use this contribution point to bundle ready-made prompts with your extension.
 
 Each entry requires a `path` to a Markdown file relative to the extension root. You can optionally specify a `when` clause to conditionally enable the prompt. Specify the `name` and `description` metadata inside the Markdown file itself rather than in the contribution point.
 
@@ -156,7 +156,7 @@ See the [`chatInstructions`](/api/references/contribution-points#contributes.cha
 
 ## contributes.chatSkills
 
-Contributes [Agent Skills](/docs/copilot/customization/agent-skills.md) for Copilot Chat. Agent Skills are folders of instructions, scripts, and resources that Copilot can load when relevant to perform specialized tasks. Use this contribution point to bundle reusable skills with your extension.
+Contributes [Agent Skills](/docs/agent-customization/agent-skills.md) for Copilot Chat. Agent Skills are folders of instructions, scripts, and resources that Copilot can load when relevant to perform specialized tasks. Use this contribution point to bundle reusable skills with your extension.
 
 Each entry requires a `path` to a `SKILL.md` file relative to the extension root. The `SKILL.md` file must follow the [Agent Skills specification](https://agentskills.io/specification), and its `name` field must match the parent directory name. You can optionally specify a `when` clause to conditionally enable the skill.
 
@@ -179,7 +179,7 @@ Each entry requires a `path` to a `SKILL.md` file relative to the extension root
 | `path` | `string` | Yes | Path to the `SKILL.md` file relative to the extension root. The path must resolve to a location inside the extension, and the parent directory name must match the `name` field in `SKILL.md`. |
 | `when` | `string` | No | A [when clause](/api/references/when-clause-contexts) condition that must be true for this entry to be enabled. |
 
-See [Contribute skills from extensions](/docs/copilot/customization/agent-skills.md#contribute-skills-from-extensions) for the required skill structure and `SKILL.md` format.
+See [Contribute skills from extensions](/docs/agent-customization/agent-skills.md#contribute-skills-from-extensions) for the required skill structure and `SKILL.md` format.
 
 ## contributes.colors
 
