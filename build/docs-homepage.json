@@ -2,15 +2,15 @@
   "getStarted": {
     "title": "Get started with AI agents",
     "description": "Hand off tasks to autonomous AI agents that iterate until the job is done. Run them locally, in the background, or in the cloud, with your choice of AI provider. Track all sessions without leaving VS Code.",
-    "link": "/docs/agents/agents-tutorial",
+    "link": "/docs/getstarted/getting-started",
     "image": "/assets/docs/agents/getting-started/agent-mode-selection-2.png"
   },
   "featured": [
     {
       "icon": "codicon-lightbulb",
-      "title": "Learn about the agent loop",
-      "description": "Understand the core concepts of how AI agents plan, act, and iterate to complete tasks.",
-      "link": "/docs/agents/concepts/agents"
+      "title": "Optimize your AI usage",
+      "description": "Tips to help you get the most out of AI agents, while optimizing for cost and performance.",
+      "link": "/docs/agents/guides/optimize-usage"
     },
     {
       "icon": "codicon-debug",
