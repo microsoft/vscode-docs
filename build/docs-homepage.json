@@ -46,10 +46,10 @@
   "latest": [
     {
       "type": "release",
-      "title": "VS Code 1.122 release",
-      "description": "Use any AI model without signing in (BYOK), device emulation in the browser, and richer issue reports.",
-      "link": "/updates/v1_122",
-      "image": "/assets/updates/1_122/release-highlights.webp"
+      "title": "VS Code 1.123 release",
+      "description": "Session sync across machines, deep research agent, and integrated browser improvements.",
+      "link": "/updates/v1_123",
+      "image": "/assets/updates/1_123/release-highlights.webp"
     },
     {
       "type": "documentation",
