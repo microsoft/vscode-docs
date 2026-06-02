@@ -381,7 +381,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 When developing MCP servers, you can enable _development mode_ for MCP servers by adding a `dev` key to the MCP server configuration. This is an object with two properties:
 
-* `watch`: A file glob pattern to watch for files change that will restart the MCP server.
+* `watch`: A glob pattern, or an array of glob patterns, to watch for file changes that restart the MCP server.
 * `debug`: Enables you to set up a debugger with the MCP server. Currently, VS Code supports debugging Node.js and Python MCP servers.
 
     <details>
