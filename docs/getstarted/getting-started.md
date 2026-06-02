@@ -14,20 +14,6 @@ You build a simple personal portfolio page with HTML, CSS, and JavaScript. The p
 > [!TIP]
 > If you prefer a video to learn about Visual Studio Code, you can watch the [Getting Started video](https://www.youtube.com/watch?v=f8_uF_IDV50) on our YouTube channel.
 
-<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Explore agent types">
-Follow a hands-on tutorial to explore different agent types like local, CLI, and cloud agents.
-
-* [Start tutorial](/docs/agents/agents-tutorial.md)
-
-</div>
-
-<!-- <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Watch the introduction video">
-Learn about the key features of Visual Studio Code in our introduction video.
-
-* [Watch video](https://www.youtube.com/watch?v=f8_uF_IDV50)
-
-</div> -->
-
 ## Prerequisites
 
 * [Download and install Visual Studio Code on your computer](https://code.visualstudio.com/download)
@@ -56,10 +42,10 @@ Agents work in the context of a folder, also known as a *workspace*. You start b
 
 ## Build with the Agents window
 
-<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Explore the Agent window">
-Learn more about agent-first development with the Agents window in VS Code.
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Explore the Agents window">
+Use the Agents window to run and monitor agent sessions across your projects from a single place in VS Code.
 
-* [Start tutorial](/docs/agents/agents-window.md)
+* [Learn about the Agents window](/docs/agents/agents-window.md)
 
 </div>
 
@@ -170,10 +156,10 @@ Before you commit the agent's work, review what changed. The **Changes** panel l
 
 ## Write code with agents in the editor
 
-<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Explore agents in VS Code">
-Learn more about using agents to support for coding workflow in VS Code.
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Explore the Chat view">
+Use the Chat view alongside your editor to let agents assist you with coding tasks in your active workspace.
 
-* [Start tutorial](/docs/agents/chat-view.md)
+* [Learn about the Chat view](/docs/agents/chat-view.md)
 
 </div>
 
