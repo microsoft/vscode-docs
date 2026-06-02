@@ -22,7 +22,7 @@ For background on how language models work, their characteristics, and how to ch
 
 Use the language model picker in the chat input field to change the model for chat conversations and code editing.
 
-![Screenshot that shows the model picker in the Chat view.](../images/language-models/model-dropdown-change-model-v2.png)
+![Screenshot that shows the model picker in the Chat view.](images/language-models/model-dropdown-change-model-v2.png)
 
 Different models have different strengths. Use a fast model for quick edits and simple questions, and a reasoning model for complex refactoring, architectural decisions, or multi-step tasks. Depending on the [type of agent](/docs/agents/concepts/agents.md#agent-types) you are using, the list of available models might differ.
 
@@ -43,7 +43,7 @@ Some models support configurable thinking effort, which controls how much reason
 By default, VS Code sets recommended effort levels and has adaptive reasoning enabled, where the model dynamically determines how much to think based on the complexity of each request. For most use cases, the defaults work well.
 
 > [!TIP]
-> Higher thinking effort produces more thinking tokens, which increases [AI credit](/docs/copilot/concepts/language-models.md#ai-credits-and-model-costs) consumption. Only increase thinking effort for genuinely complex tasks. Learn more about [optimizing AI credit usage](/docs/copilot/guides/optimize-usage.md).
+> Higher thinking effort produces more thinking tokens, which increases [AI credit](/docs/agents/concepts/language-models.md#ai-credits-and-model-costs) consumption. Only increase thinking effort for genuinely complex tasks. Learn more about [optimizing AI credit usage](/docs/agents/guides/optimize-usage.md).
 
 To configure the thinking effort:
 
@@ -69,13 +69,13 @@ With auto model selection, VS Code evaluates task complexity and real-time model
 
 To use auto model selection, select **Auto** from the model picker in chat. You can see which model is used for generating a response by hovering over the chat response.
 
-![Screenshot of a chat response, showing the selected model on hover.](../images/language-models/chat-response-selected-model.png)
+![Screenshot of a chat response, showing the selected model on hover.](images/language-models/chat-response-selected-model.png)
 
 ## Manage language models
 
 You can use the language models editor to view all available models, choose which models are shown in the model picker, and add more models by adding from built-in providers or from extension-provided model providers.
 
-To open the Language Models editor, open the model picker in the Chat view and select **Manage Language Models** (gear icon) or run the **Chat: Manage Language Models** command from the Command Palette. The Language Models editor opens by default in a [modal overlay](/docs/getstarted/userinterface.md#modal-editors) on top of the editor area.
+To open the Language Models editor, open the model picker in the Chat view and select **Manage Language Models** (gear icon) or run the **Chat: Manage Language Models** command from the Command Palette. The Language Models editor opens by default in a [modal overlay](/docs/editing/userinterface.md#modal-editors) on top of the editor area.
 
 ![Screenshot that shows the Language Models editor.](images/language-models/language-models-editor.png)
 
@@ -94,7 +94,7 @@ You can customize which models are shown in the model picker by changing the vis
 
 Hover over a model in the list and select the eye icon to show or hide the model in the model picker.
 
-![Screenshot that shows the Language Models editor with the eye icon to show or hide models in the model picker.](../images/language-models/language-models-hide.png)
+![Screenshot that shows the Language Models editor with the eye icon to show or hide models in the model picker.](images/language-models/language-models-hide.png)
 
 ### Pin favorite models
 
@@ -140,7 +140,7 @@ To configure a language model from a built-in provider:
 
 1. Select **Add Models**, and then select a model provider from the list.
 
-    ![Screenshot that shows the model provider Quick Pick.](../images/language-models/model-provider-quick-pick-v2.png)
+    ![Screenshot that shows the model provider Quick Pick.](images/language-models/model-provider-quick-pick-v2.png)
 
 1. Enter a group name for the models. This is the grouping label shown in the model picker and Language Models editor.
 
