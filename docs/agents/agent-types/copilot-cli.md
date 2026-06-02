@@ -11,7 +11,6 @@ Keywords:
 - autonomous
 - worktree
 - parallel
-- rubber duck
 ---
 
 # Copilot CLI sessions in Visual Studio Code
@@ -206,28 +205,6 @@ To use custom agents with Copilot CLI:
 > [!NOTE]
 > Currently, only custom agents defined in the workspace are available for Copilot CLI sessions. Learn more about [creating a custom agent](/docs/agent-customization/custom-agents.md#create-a-custom-agent).
 
-## Get a second opinion with the rubber duck agent
-
-> [!NOTE]
-> The rubber duck agent in VS Code is currently in preview and available only in Copilot CLI (local) sessions.
-
-The rubber duck agent is a built-in critic that gives Copilot a second opinion on its plans, code, and tests. When enabled, Copilot can hand its current work to the rubber duck agent for review, such as after planning a change but before implementing it.
-
-To provide an independent perspective, the rubber duck agent runs on a different language model than the one driving your session, which reduces shared blind spots. The rubber duck agent has read-only access to your codebase and never edits files or runs commands that change your environment.
-
-To enable the rubber duck agent, configure the `setting(chat.agentHost.rubberDuck.enabled)` setting, and then restart your Copilot CLI session.
-
-Copilot consults the rubber duck agent automatically when useful and summarizes the critique in the timeline. You can also request a review explicitly by typing `/rubber-duck` followed by a prompt, for example:
-
-```prompt
-/rubber-duck your plan provides the simplest implementation possible that meets the requirements
-```
-
-> [!NOTE]
-> The rubber duck agent is available only when your session uses a Claude or GPT language model.
-
-For more information about the rubber duck agent, see [About the rubber duck agent](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/rubber-duck) in the GitHub documentation.
-
 ## Limitations of Copilot CLI sessions
 
 * Copilot CLI sessions can't access all VS Code built-in tools. You can explicitly [add context](/docs/chat/copilot-chat-context.md) in the chat input.
@@ -240,5 +217,4 @@ For more information about the rubber duck agent, see [About the rubber duck age
 
 * [Agents overview](/docs/agents/overview.md): Understand different agent types and how to hand off tasks between agents
 * [Custom agents](/docs/agent-customization/custom-agents.md): Create custom agent roles and personas
-* [About the rubber duck agent](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/rubber-duck): Learn more about the built-in critic in the GitHub documentation
 * [GitHub Copilot CLI documentation](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-command-reference)

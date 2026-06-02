@@ -117,9 +117,6 @@ The main agent collects both results and synthesizes a combined analysis.
 
 </details>
 
-> [!TIP]
-> When working in a Copilot CLI session, the built-in [rubber duck agent](/docs/agents/agent-types/copilot-cli.md#get-a-second-opinion-with-the-rubber-duck-agent) provides a similar second opinion automatically. It reviews the agent's plans, code, and tests with a different language model and reports back with actionable feedback.
-
 ## Invoke a subagent
 
 ### Agent-initiated vs. user-invoked
