@@ -10,7 +10,7 @@ Visual Studio Code comes with a simple user interface and convenient default lay
 This article starts by discussing [Workbench](#workbench) customizations to rearrange UI elements such as the side bars, views, and panels. Later in the article, we'll cover customization of the [Editor](#editor) region with editor groups, split editors, and editor tabs.
 
 > [!NOTE]
-> If you are new to VS Code, you may want to start with the [user interface overview](/docs/getstarted/userinterface.md) or take a look at the [Tips and Tricks](/docs/getstarted/tips-and-tricks.md) article.
+> If you are new to VS Code, you may want to start with the [user interface overview](/docs/editing/userinterface.md) or take a look at the [Tips and Tricks](/docs/editing/tips-and-tricks.md) article.
 
 ## Workbench
 
@@ -210,13 +210,13 @@ You can customize the layout of the VS Code editor region independently of the w
 
 The **View** > **Appearance** menu has a section for customizing the editor region. There you'll find toggles for:
 
-* **Minimap** - A [visual overview](/docs/getstarted/userinterface.md#minimap) of your current file. **View: Toggle Minimap**.
-* **Breadcrumbs** - Display [folder, file, and current symbol](/docs/getstarted/userinterface.md#breadcrumbs) information for the active file. **View: Toggle Breadcrumbs**.
-* **Sticky Scroll** - Display [nested symbol scopes](/docs/getstarted/userinterface.md#sticky-scroll) in the active file. **View: Toggle Sticky Scroll**.
+* **Minimap** - A [visual overview](/docs/editing/userinterface.md#minimap) of your current file. **View: Toggle Minimap**.
+* **Breadcrumbs** - Display [folder, file, and current symbol](/docs/editing/userinterface.md#breadcrumbs) information for the active file. **View: Toggle Breadcrumbs**.
+* **Sticky Scroll** - Display [nested symbol scopes](/docs/editing/userinterface.md#sticky-scroll) in the active file. **View: Toggle Sticky Scroll**.
 
 ### Editor groups
 
-By default, each opened editor goes into the same **editor group** and adds a new editor tab to the right. You can create new editor groups in order to group similar or related files,  or to allow [side by side editing](/docs/getstarted/userinterface.md#side-by-side-editing) of the same file.
+By default, each opened editor goes into the same **editor group** and adds a new editor tab to the right. You can create new editor groups in order to group similar or related files,  or to allow [side by side editing](/docs/editing/userinterface.md#side-by-side-editing) of the same file.
 
 Create a new editor group by dragging an editor to the side, or by using one of the **Split** commands in the editor tab context menu to duplicate the current editor into a new editor group to the left, right, above, or below.
 
@@ -247,7 +247,7 @@ The **Workbench > Editor: Split in Group Layout** (`setting(workbench.editor.spl
 
 ### Grid layout
 
-If you'd like more control over the editor group layout, you can use the [grid layout](/docs/getstarted/userinterface.md#grid-editor-layout), where you can have multiple rows and columns of editor groups visible. The **View** > **Editor Layout** menu lists various editor layout options (for example, **Two Columns**, **Three Columns**, **Grid (2x2)**) and you can adjust the group sizes by grabbing and moving the sash between them.
+If you'd like more control over the editor group layout, you can use the [grid layout](/docs/editing/userinterface.md#grid-editor-layout), where you can have multiple rows and columns of editor groups visible. The **View** > **Editor Layout** menu lists various editor layout options (for example, **Two Columns**, **Three Columns**, **Grid (2x2)**) and you can adjust the group sizes by grabbing and moving the sash between them.
 
 ![Editor Grid 2x2 layout with the sash highlighted](images/custom-layout/grid-editor-layout.png)
 
@@ -339,6 +339,6 @@ You must have more that one editor group for these commands to be available.
 
 Read on to find out about:
 
-* [Visual Studio Code User Interface](/docs/getstarted/userinterface.md) - A quick orientation to VS Code.
+* [Visual Studio Code User Interface](/docs/editing/userinterface.md) - A quick orientation to VS Code.
 * [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful VS Code editor.
 * [Code Navigation](/docs/editing/editingevolved.md) - Move quickly through your source code.

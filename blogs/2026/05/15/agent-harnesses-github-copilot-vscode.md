@@ -43,7 +43,7 @@ A **turn** is the user-visible chat exchange: you send one message, and the agen
 The tool-calling loop is bounded by loop-control checks. We enforce a tool-call limit, check for cancellation between rounds, and run stop hooks. Stop hooks are extension points that can inspect the agent state and either allow it to finish or push it to keep working. Within the loop, the prompt is rebuilt on every iteration. That means the model always sees the latest state of the workspace: if it edited a file three rounds ago, the current prompt reflects that edit. The harness also manages conversation summarization. When the accumulated history grows too large, it compresses earlier rounds into a summary so the model can keep working without hitting the context window ceiling.
 
 > **Note:**
-> Want to see the harness in action? You can [explore the VS Code source code](https://github.com/microsoft/vscode), use the Tools UI in Chat to review the tools available for a request, and open the [Chat Debug View](https://code.visualstudio.com/docs/copilot/chat/chat-debug-view) to inspect the prompts, tool calls, and results.
+> Want to see the harness in action? You can [explore the VS Code source code](https://github.com/microsoft/vscode), use the Tools UI in Chat to review the tools available for a request, and open the [Chat Debug View](https://code.visualstudio.com/docs/chat/chat-debug-view) to inspect the prompts, tool calls, and results.
 
 ## The harness is the product
 
@@ -108,6 +108,6 @@ We started with a question developers ask every few months: which model is best?
 
 As models gain new capabilities like longer context, better planning, and native tool use, the harness evolves to take advantage of them. And as developers push agent mode into new workflows, we feed what we learn back into the loop, the tools, and the evaluations. Every VS Code release ships harness improvements alongside model updates.
 
-If you're curious about how the harness works, you can get hands-on with it today. Explore the [VS Code source code](https://github.com/microsoft/vscode), use the Tools UI in Chat to see which tools are available for a request, and open the [Chat Debug View](https://code.visualstudio.com/docs/copilot/chat/chat-debug-view) to inspect the prompts, tool calls, and results behind an agent run. Try switching models, add your own tools, and let us know what works — share your feedback in [our GitHub repo](https://github.com/microsoft/vscode).
+If you're curious about how the harness works, you can get hands-on with it today. Explore the [VS Code source code](https://github.com/microsoft/vscode), use the Tools UI in Chat to see which tools are available for a request, and open the [Chat Debug View](https://code.visualstudio.com/docs/chat/chat-debug-view) to inspect the prompts, tool calls, and results behind an agent run. Try switching models, add your own tools, and let us know what works — share your feedback in [our GitHub repo](https://github.com/microsoft/vscode).
 
 Happy coding! 💙

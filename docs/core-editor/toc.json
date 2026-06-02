@@ -1,0 +1,71 @@
+[
+  {
+    "name": "Write code",
+    "area": "editing",
+    "topics": [
+      ["Tutorial", "/docs/editing/getting-started"],
+      ["User Interface", "/docs/editing/userinterface"],
+      ["Tips and Tricks", "/docs/editing/tips-and-tricks"],
+      ["Basic Editing", "/docs/editing/codebasics"],
+      ["IntelliSense", "/docs/editing/intellisense"],
+      ["Inline Suggestions", "/docs/editing/ai-powered-suggestions"],
+      ["Smart Actions", "/docs/editing/copilot-smart-actions"],
+      ["Code Navigation", "/docs/editing/editingevolved"],
+      ["Refactoring", "/docs/editing/refactoring"],
+      ["Snippets", "/docs/editing/userdefinedsnippets"],
+      ["", "", {
+        "name": "Workspaces",
+        "area": "editing/workspaces",
+        "topics": [
+          ["Overview", "/docs/editing/workspaces/workspaces"],
+          ["Multi-Root Workspaces", "/docs/editing/workspaces/multi-root-workspaces"],
+          ["Workspace Trust", "/docs/editing/workspaces/workspace-trust"]
+        ]
+      }]
+    ]
+  },
+
+  {
+    "name": "Configure the editor",
+    "area": "configure",
+    "topics": [
+      ["Display Language", "/docs/configure/locales"],
+      ["Layout", "/docs/configure/custom-layout"],
+      ["Keyboard Shortcuts", "/docs/configure/keybindings"],
+      ["Settings", "/docs/configure/settings"],
+      ["Settings Sync", "/docs/configure/settings-sync"],
+      ["", "", {
+        "name": "Extensions",
+        "area": "configure/extensions",
+        "topics": [
+          ["Overview", "/docs/configure/extensions/extensions"],
+          ["Extension Marketplace", "/docs/configure/extensions/extension-marketplace"],
+          ["Extension Runtime Security", "/docs/configure/extensions/extension-runtime-security"]
+        ]
+      }],
+      ["Themes", "/docs/configure/themes"],
+      ["Profiles", "/docs/configure/profiles"],
+      ["", "", {
+        "name": "Accessibility",
+        "area": "configure/accessibility",
+        "topics": [
+          ["Overview", "/docs/configure/accessibility/accessibility"],
+          ["Voice Interactions", "/docs/configure/accessibility/voice"]
+        ]
+      }],
+      ["Command Line Interface", "/docs/configure/command-line"],
+      ["Telemetry", "/docs/configure/telemetry"]
+    ]
+  },
+
+  {
+    "name": "Reference",
+    "area": "reference",
+    "topics": [
+      ["Default Keyboard Shortcuts", "/docs/reference/default-keybindings"],
+      ["Default Settings", "/docs/reference/default-settings"],
+      ["Substitution Variables", "/docs/reference/variables-reference"],
+      ["Tasks Schema", "/docs/reference/tasks-appendix"]
+    ]
+  }
+]

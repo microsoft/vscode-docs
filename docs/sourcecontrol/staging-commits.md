@@ -39,7 +39,7 @@ The source control icon in the Activity Bar also shows a badge with the number o
 
 ### Editor gutter indicators
 
-To help you quickly identify changes in your files, VS Code shows gutter indicators in the editor next to the line number to represent added, modified, or deleted lines since your last commit. You can also see these indicators in the [minimap](/docs/getstarted/userinterface.md#minimap).
+To help you quickly identify changes in your files, VS Code shows gutter indicators in the editor next to the line number to represent added, modified, or deleted lines since your last commit. You can also see these indicators in the [minimap](/docs/editing/userinterface.md#minimap).
 
 The gutter color indicates the type of change:
 
@@ -104,7 +104,7 @@ Once you've staged your changes, you can create a commit to save them to your lo
 
 A commit message describes the changes you're committing and helps others (and your future self) understand the purpose of the commit. Type your message in the commit message input box at the top of the Source Control view and select **Commit** to save your staged changes.
 
-To help you write a commit message, select the sparkle icon <i class="codicon codicon-sparkle"></i> in the commit message input box to use AI to generate the message based on your staged changes. You can [create custom instructions](/docs/copilot/customization/custom-instructions.md#specify-custom-instructions-in-settings) to guide the AI in generating messages.
+To help you write a commit message, select the sparkle icon <i class="codicon codicon-sparkle"></i> in the commit message input box to use AI to generate the message based on your staged changes. You can [create custom instructions](/docs/agent-customization/custom-instructions.md#specify-custom-instructions-in-settings) to guide the AI in generating messages.
 
 ![Screenshot of generating a commit message with AI.](images/staging-commits/generate-commit-message.png)
 
@@ -274,7 +274,7 @@ The Timeline view, accessible at the bottom of the File Explorer, is a unified v
 
 ![Screenshot of the timeline view showing file commit history.](images/overview/timeline-view.png)
 
-Learn more about the [Timeline view](/docs/getstarted/userinterface.md#timeline-view).
+Learn more about the [Timeline view](/docs/editing/userinterface.md#timeline-view).
 
 ## Next steps
 

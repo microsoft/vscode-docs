@@ -54,4 +54,4 @@ Pick another video from the list: [Introductory Videos](/docs/getstarted/introvi
 * [Tasks](/docs/debugtest/tasks.md) - Create tasks to use external tools inside VS Code.
 * [JavaScript Linters](/docs/languages/javascript.md#linters) - Install linters for JavaScript.
 * [Code Folding](/docs/editing/codebasics.md#folding) - See the details of source code folding.
-* [Tips and Tricks](/docs/getstarted/tips-and-tricks.md) - Helpful tips and tricks for VS Code.
+* [Tips and Tricks](/docs/editing/tips-and-tricks.md) - Helpful tips and tricks for VS Code.

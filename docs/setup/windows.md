@@ -81,8 +81,8 @@ After you install VS Code, finish setup for your development workflow:
 
 * [Install additional components](/docs/setup/additional-components.md), including Git, Node.js, TypeScript, language runtimes, and command-line tools.
 * [Install extensions from the Visual Studio Marketplace](https://marketplace.visualstudio.com/VSCode) to add themes, formatters, debuggers, and language support.
-* [Set up GitHub Copilot](/docs/copilot/setup.md) to use AI features in VS Code.
-* [Start the VS Code tutorial](/docs/getstarted/getting-started.md) for a hands-on tour of the user interface and key features.
+* [Set up GitHub Copilot](/docs/setup/copilot.md) to use AI features in VS Code.
+* [Start the VS Code tutorial](/docs/editing/getting-started.md) for a hands-on tour of the user interface and key features.
 
 ## Common questions
 
