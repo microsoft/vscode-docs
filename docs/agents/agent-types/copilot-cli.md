@@ -1,6 +1,6 @@
 ---
 ContentId: 9f1a2b3c-4e5f-6d7c-8a9b-1c2d3e4f5a6b
-DateApproved: 5/28/2026
+DateApproved: 6/3/2026
 MetaDescription: Learn how to use Copilot CLI within VS Code for autonomous coding tasks, terminal integration, and isolated development workflows in VS Code.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 Keywords:
@@ -11,6 +11,8 @@ Keywords:
 - autonomous
 - worktree
 - parallel
+- research
+- deep research
 ---
 
 # Copilot CLI sessions in Visual Studio Code
@@ -46,7 +48,7 @@ You can interact with Copilot CLI sessions from the unified Chat view. When a ba
 
 Because Copilot CLI sessions run in the background, they are well-suited for tasks that have a well-defined scope, have all necessary context, and don't require frequent user interaction. Examples include implementing a feature from a plan, creating multiple variants of a proof of concept, or implementing clearly defined fixes or features.
 
-Copilot CLI supports slash commands in chat, including [reusable prompts](/docs/agent-customization/prompt-files.md), [agent skills](/docs/agent-customization/agent-skills.md), [hooks](/docs/agent-customization/hooks.md), `/compact` to manage long conversations, and `/yolo` or `/autoApprove` to toggle [auto-approval of tools](/docs/agents/agent-tools.md#can-i-automatically-approve-all-tools-and-terminal-commands). Type `/` in the chat input of a Copilot CLI session to see available commands.
+Copilot CLI supports slash commands in chat, including [reusable prompts](/docs/agent-customization/prompt-files.md), [agent skills](/docs/agent-customization/agent-skills.md), [hooks](/docs/agent-customization/hooks.md), `/compact` to manage long conversations, `/research` to [run deep research](#run-deep-research-with-the-research-agent), and `/yolo` or `/autoApprove` to toggle [auto-approval of tools](/docs/agents/agent-tools.md#can-i-automatically-approve-all-tools-and-terminal-commands). Type `/` in the chat input of a Copilot CLI session to see available commands.
 
 ### Isolation modes
 
@@ -205,6 +207,26 @@ To use custom agents with Copilot CLI:
 > [!NOTE]
 > Currently, only custom agents defined in the workspace are available for Copilot CLI sessions. Learn more about [creating a custom agent](/docs/agent-customization/custom-agents.md#create-a-custom-agent).
 
+## Run deep research with the research agent
+
+> [!NOTE]
+> The research agent in VS Code is currently in preview and available only in Copilot CLI (local) sessions in Insiders.
+
+The research agent performs deep research on a topic and produces a thorough, well-cited Markdown report. It gathers and synthesizes information from your codebase, relevant GitHub repositories, and the web, which makes it useful for investigating unfamiliar code, comparing approaches, or understanding how a library or API works.
+
+Unlike a regular chat response, which is optimized for quick answers, the research agent is optimized for depth. It has read-only access and produces a report instead of changing your code, so it's best suited for investigation rather than implementation.
+
+To run the research agent, type `/research` followed by your topic in the chat input of a Copilot CLI session, for example:
+
+```prompt
+/research How does the authentication flow work in this codebase?
+```
+
+> [!TIP]
+> For research that feeds directly into an implementation plan, use the [Plan agent](/docs/agents/planning.md), which researches your task before proposing a plan. To delegate focused research within a session without producing a standalone report, use [subagents](/docs/agents/subagents.md).
+
+For more information about the research agent, see [Researching with GitHub Copilot CLI](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/research) in the GitHub documentation.
+
 ## Limitations of Copilot CLI sessions
 
 * Copilot CLI sessions can't access all VS Code built-in tools. You can explicitly [add context](/docs/chat/copilot-chat-context.md) in the chat input.
@@ -217,4 +239,5 @@ To use custom agents with Copilot CLI:
 
 * [Agents overview](/docs/agents/overview.md): Understand different agent types and how to hand off tasks between agents
 * [Custom agents](/docs/agent-customization/custom-agents.md): Create custom agent roles and personas
+* [Researching with GitHub Copilot CLI](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/research): Learn more about the research agent in the GitHub documentation
 * [GitHub Copilot CLI documentation](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-command-reference)

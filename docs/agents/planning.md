@@ -1,6 +1,6 @@
 ---
 ContentId: 8f9a3e5c-2b4d-4a7f-9c8e-1d6f3a2b5c4e
-DateApproved: 5/28/2026
+DateApproved: 6/3/2026
 MetaDescription: Learn how to use the plan agent for autonomous planning and task management with the todo list in VS Code chat.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -62,6 +62,7 @@ You can tailor the planning process to fit your team's workflow:
 
 ## Related resources
 
+* [Run deep research with the research agent](/docs/agents/agent-types/copilot-cli.md#run-deep-research-with-the-research-agent)
 * [Memory in VS Code agents](/docs/agents/memory.md)
 * [Configure tools for agents](/docs/agents/agent-tools.md)
 * [Context engineering user guide](/docs/agents/guides/context-engineering-guide.md)

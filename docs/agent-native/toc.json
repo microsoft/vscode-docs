@@ -14,7 +14,8 @@
                 "area": "agents/sessions",
                 "topics": [
                     ["Manage Sessions", "/docs/agents/sessions/chat-sessions"],
-                    ["Session Insights", "/docs/agents/sessions/session-insights"]
+                    ["Session Insights", "/docs/agents/sessions/session-insights"],
+                    ["Sync Sessions", "/docs/agents/sessions/session-sync"]
                 ]
             }],
 

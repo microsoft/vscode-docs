@@ -1,6 +1,6 @@
 ---
 ContentId: 8b3c9f5e-4d2a-6f9b-3e1c-7a8d5f2e9b0c
-DateApproved: 5/28/2026
+DateApproved: 6/3/2026
 MetaDescription: Learn how to use context-isolated subagents in VS Code to delegate complex tasks to autonomous agents within your chat session.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -16,6 +16,9 @@ Keywords:
 # Subagents in Visual Studio Code
 
 When working on complex tasks, you can delegate subtasks to subagents. A subagent is an independent AI agent that performs focused work, such as researching a topic, analyzing code, or reviewing changes, and reports the results back to the main agent.
+
+> [!TIP]
+> To run deep research that produces a standalone, shareable report rather than feeding results back into your main conversation, use the built-in [research agent](/docs/agents/agent-types/copilot-cli.md#run-deep-research-with-the-research-agent) in Copilot CLI sessions.
 
 For background on subagent concepts (context isolation, synchronous and parallel execution), see [Agents concepts](/docs/agents/concepts/agents.md#subagents).
 

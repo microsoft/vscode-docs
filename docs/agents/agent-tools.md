@@ -1,6 +1,6 @@
 ---
 ContentId: 8f2c4a1d-9e3b-4c5f-a7d8-6b9c2e4f1a3d
-DateApproved: 5/28/2026
+DateApproved: 6/3/2026
 MetaDescription: Learn how to use built-in tools, MCP tools, and extension tools to extend chat in VS Code with specialized functionality.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 keywords:
@@ -321,6 +321,8 @@ You can restrict which domains agent tools (fetch tool, integrated browser) can 
 When sandboxing is also enabled, these network rules additionally apply to terminal commands executed by the agent.
 
 Denied domains always take precedence over allowed domains. Both settings support wildcards like `*.example.com`.
+
+When a sandboxed command is blocked by network restrictions and `setting(chat.agent.sandbox.retryWithAllowNetworkRequests)` is enabled (default), the agent asks for confirmation to retry the command inside the sandbox with unrestricted network access. The file system restrictions still apply to the retried command. If you disable this setting, the agent instead falls back to the confirmation to run the command outside the sandbox, which is controlled by `setting(chat.agent.sandbox.allowUnsandboxedCommands)`.
 
 ```jsonc
 {
