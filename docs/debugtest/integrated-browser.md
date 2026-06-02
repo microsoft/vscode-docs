@@ -34,6 +34,29 @@ The browser supports `http://`, `https://`, and `file://` URLs. Use the address 
 * `kbstyle(Ctrl+click)` (`kbstyle(Cmd+click)` on macOS) opens links in a new browser tab
 * Popups are blocked, but new tabs are allowed
 
+### Address bar and suggestions
+
+When you select the address bar, a suggestions picker opens to help you navigate. On a new browser tab, the picker opens automatically. Type a URL and press `kbstyle(Enter)` to navigate. As you type, the picker filters your favorites and other suggestions.
+
+To focus the address bar and open the picker at any time, run the **Browser: Focus URL Input** command or press `kb(browser.focusUrlInput)`.
+
+![Screenshot of a popup around the browser URL bar showing favorites and opened tabs.](images/integrated-browser/browser-url-bar.png)
+
+You can control the picker with the keyboard:
+
+* Press `kbstyle(Esc)` to close the picker and switch to a plain input. Type to reopen the picker, press `kbstyle(Enter)` to navigate, or press `kbstyle(Esc)` again to focus the loaded page.
+* Press `kbstyle(Tab)` to move focus along the browser toolbar.
+
+### Favorites
+
+To favorite the current page, open the address bar and select the star icon. The star icon stays visible in the address bar to indicate that the page is favorited. Favorited pages appear in the suggestions picker and filter as you type. Select a favorite to navigate to it.
+
+![Screenshot of the integrated browser highlighting a star button labeled "Add to Favorites" in the browser URL bar.](images/integrated-browser/browser-favorite-button.png)
+
+### Open tabs
+
+On a new browser tab that hasn't navigated to a page, the suggestions picker also lists your other open browser tabs. Select a tab to switch to it. VS Code closes the new tab and activates the one you selected.
+
 ## Tab management
 
 Use the **Browser: Quick Open Browser Tab...** command (`kb(workbench.action.browser.quickOpen)`) to quickly switch between open browser tabs. The Quick Pick lists all open tabs grouped by editor group, and you can type to filter by tab name or URL.
