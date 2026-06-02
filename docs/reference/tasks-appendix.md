@@ -1,6 +1,6 @@
 ---
 ContentId: 6DCA48F5-0566-4AEB-9C4C-CCBBA2945347
-DateApproved: 5/28/2026
+DateApproved: 6/3/2026
 MetaDescription: Additional info for using task runners in Visual Studio Code.
 ---
 # Appendix
@@ -44,13 +44,13 @@ interface BaseTaskConfiguration {
      * The type of a custom task. Tasks of type "shell" are executed
      * inside a shell (e.g. bash, cmd, powershell, ...)
      */
-    type: "shell" | "process";
+    type?: "shell" | "process";
 
     /**
      * The command to be executed. Can be an external program or a shell
      * command.
      */
-    command: string;
+    command?: string;
 
     /**
      * Specifies whether a global command is a background task.
@@ -136,13 +136,13 @@ interface TaskDescription {
      * The type of a custom task. Tasks of type "shell" are executed
      * inside a shell (e.g. bash, cmd, powershell, ...)
      */
-    type: "shell" | "process";
+    type?: "shell" | "process";
 
     /**
      * The command to execute. If the type is "shell" it should be the full
      * command line including any additional arguments passed to the command.
      */
-    command: string;
+    command?: string;
 
     /**
      * Whether the executed command is kept alive and runs in the background.
@@ -319,12 +319,26 @@ interface BackgroundMatcher {
     /**
      * If matched in the output the start of a background task is signaled.
      */
-    beginsPattern?: string;
+    beginsPattern?: string | WatchingPattern;
 
     /**
      * If matched in the output the end of a background task is signaled.
      */
-    endsPattern?: string;
+    endsPattern?: string | WatchingPattern;
+}
+
+interface WatchingPattern {
+
+    /**
+     * The regular expression to detect the begin or end of a background task.
+     */
+    regexp?: string;
+
+    /**
+     * The match group index of the filename. If provided, the expression
+     * is matched for that file only.
+     */
+    file?: number;
 }
 
 interface ProblemPattern {

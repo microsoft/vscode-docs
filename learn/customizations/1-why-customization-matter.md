@@ -101,10 +101,10 @@ To learn more about each customization type and how to use them effectively, con
 
 ## Learn more
 
-- [Customize AI in Visual Studio Code](https://code.visualstudio.com/docs/copilot/customization/overview)
-- [Use custom instructions in VS Code](https://code.visualstudio.com/docs/copilot/customization/custom-instructions)
-- [Use agent skills in VS Code](https://code.visualstudio.com/docs/copilot/customization/agent-skills)
-- [Use custom agents in VS Code](https://code.visualstudio.com/docs/copilot/customization/custom-agents)
-- [Use hooks in VS Code](https://code.visualstudio.com/docs/copilot/customization/hooks)
-- [Use prompt files in VS Code](https://code.visualstudio.com/docs/copilot/customization/prompt-files)
+- [Customize AI in Visual Studio Code](https://code.visualstudio.com/docs/agent-customization/overview)
+- [Use custom instructions in VS Code](https://code.visualstudio.com/docs/agent-customization/custom-instructions)
+- [Use agent skills in VS Code](https://code.visualstudio.com/docs/agent-customization/agent-skills)
+- [Use custom agents in VS Code](https://code.visualstudio.com/docs/agent-customization/custom-agents)
+- [Use hooks in VS Code](https://code.visualstudio.com/docs/agent-customization/hooks)
+- [Use prompt files in VS Code](https://code.visualstudio.com/docs/agent-customization/prompt-files)
 - [Community contributed customization features](https://github.com/github/awesome-copilot)

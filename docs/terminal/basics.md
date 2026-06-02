@@ -1,6 +1,6 @@
 ---
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
-DateApproved: 5/28/2026
+DateApproved: 6/3/2026
 MetaDescription: Visual Studio Code has an integrated terminal to enable working in your shell of choice without leaving the editor.
 ---
 # Terminal Basics
@@ -330,7 +330,7 @@ You can also right-click on a terminal tab and select **Toggle Size to Content W
 
 ## GitHub Copilot in the terminal
 
-If you have access to [GitHub Copilot](/docs/copilot/setup.md), you can use it to get AI-powered help with terminal commands and shell scripting. There are several ways to use Copilot with the terminal:
+If you have access to [GitHub Copilot](/docs/setup/copilot.md), you can use it to get AI-powered help with terminal commands and shell scripting. There are several ways to use Copilot with the terminal:
 
 ### Terminal inline chat
 
@@ -347,7 +347,7 @@ Start an inline chat directly in the terminal to get help with shell commands:
 
 When Copilot provides a response, you can select **Run** to execute the command directly or **Insert** to add it to the terminal for further editing.
 
-For more information about using GitHub Copilot with the terminal, see [Use terminal inline chat](/docs/copilot/chat/inline-chat.md#use-terminal-inline-chat).
+For more information about using GitHub Copilot with the terminal, see [Use terminal inline chat](/docs/chat/inline-chat.md#use-terminal-inline-chat).
 
 ### Terminal chat participant
 
@@ -374,7 +374,7 @@ You can include terminal information as context in your chat prompts:
 
 The basics of the terminal have been covered in this document. Read on to find out more about:
 
-* [Terminal inline chat](/docs/copilot/chat/inline-chat.md#use-terminal-inline-chat) - AI-powered suggestions right in your terminal.
+* [Terminal inline chat](/docs/chat/inline-chat.md#use-terminal-inline-chat) - AI-powered suggestions right in your terminal.
 * [Tasks](/docs/debugtest/tasks.md) - Tasks let you integrate with external tools and leverage the terminal heavily.
 * [Mastering VS Code's Terminal](https://www.growingwiththeweb.com/2017/03/mastering-vscodes-terminal.html) - An external blog with plenty of power user tips for the terminal.
 * Explore terminal commands by browsing the keyboard shortcuts within VS Code (**Preferences: Open Keyboard Shortcuts** then search on 'terminal').

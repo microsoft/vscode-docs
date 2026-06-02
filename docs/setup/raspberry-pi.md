@@ -1,6 +1,6 @@
 ---
 ContentId: E059E35A-8AD0-4D4A-9BE1-E23D45D75C1C
-DateApproved: 5/28/2026
+DateApproved: 6/3/2026
 MetaDescription: Get Visual Studio Code up and running on Raspberry Pi OS.
 ---
 # Visual Studio Code on Raspberry Pi
@@ -48,5 +48,5 @@ VS Code is not officially supported on Raspberry Pi. Check our [community discus
 Once you have installed VS Code, these topics will help you learn more about it:
 
 * [Additional Components](/docs/setup/additional-components.md) - Learn how to install Git, Node.js, TypeScript, and tools like Yeoman.
-* [User Interface](/docs/getstarted/userinterface.md) - A quick orientation to VS Code.
+* [User Interface](/docs/editing/userinterface.md) - A quick orientation to VS Code.
 * [User/Workspace Settings](/docs/configure/settings.md) - Learn how to configure VS Code to your preferences through settings.

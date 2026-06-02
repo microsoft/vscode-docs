@@ -1,6 +1,6 @@
 ---
 ContentId: 2dd2eeff-2eb3-4a0c-a59d-ea9a0b10c468
-DateApproved: 5/28/2026
+DateApproved: 6/3/2026
 MetaDescription: React JavaScript tutorial showing IntelliSense, debugging, and code navigation support in the Visual Studio Code editor.
 ---
 # Using React in Visual Studio Code
@@ -11,9 +11,12 @@ MetaDescription: React JavaScript tutorial showing IntelliSense, debugging, and 
 
 ## Welcome to React
 
+> [!IMPORTANT]
+> `create-react-app` [is no longer actively maintained](https://react.dev/blog/2025/02/14/sunsetting-create-react-app). The React team now recommends using a framework like [Vite](https://vite.dev) (`npm create vite@latest my-app -- --template react`) or [Next.js](https://nextjs.org). The steps in this tutorial still apply to any React project setup.
+
 We'll be using the `create-react-app` [generator](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app) for this tutorial. To use the generator as well as run the React application server, you'll need [Node.js](https://nodejs.org/) JavaScript runtime and [npm](https://www.npmjs.com/) (Node.js package manager) installed. npm is included with Node.js which you can download and install from [Node.js downloads](https://nodejs.org/en/download/).
 
->**Tip**: To test that you have Node.js and npm correctly installed on your machine, you can type `node --version` and `npm --version` in a terminal or command prompt.
+> **Tip**: To test that you have Node.js and npm correctly installed on your machine, you can type `node --version` and `npm --version` in a terminal or command prompt.
 
 You can now create a new React application by typing:
 

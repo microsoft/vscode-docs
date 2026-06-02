@@ -5,7 +5,7 @@ TOCTitle: Set Docker Compose project name
 PageTitle: Set Docker Compose project name
 ContentId: 3071cf6e-1a93-498a-91e9-48f439c589b3
 MetaDescription: Set Docker Compose project name
-DateApproved: 5/28/2026
+DateApproved: 6/3/2026
 ---
 # Set Docker Compose project name
 

@@ -9,7 +9,7 @@ The navigation and editing tools described in this overview are enabled by the [
 
 ## Code Navigation
 
-With the [Outline view](/docs/getstarted/userinterface.md#outline-view), you can conveniently navigate the members within the current file. Installing the C# Dev Kit extension also gives you the [Solution Explorer view](/docs/csharp/project-management.md). This view helps you add, manage, and modify your projects contained within a larger solution without switching between the command line and the editor.
+With the [Outline view](/docs/editing/userinterface.md#outline-view), you can conveniently navigate the members within the current file. Installing the C# Dev Kit extension also gives you the [Solution Explorer view](/docs/csharp/project-management.md). This view helps you add, manage, and modify your projects contained within a larger solution without switching between the command line and the editor.
 
 ## Go To Definition
 

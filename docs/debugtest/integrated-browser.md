@@ -1,6 +1,6 @@
 ---
 ContentId: f8e2a7c1-9d3b-4e5f-a6c8-1b2d3e4f5a6b
-DateApproved: 5/28/2026
+DateApproved: 6/3/2026
 MetaDescription: Use the integrated browser in VS Code to preview and debug web apps, navigate to URLs, and add page elements, screenshots, or console logs as context to AI chat.
 MetaSocialImage: images/debugging/debugging-social.png
 ---
@@ -162,7 +162,7 @@ Capture the console output from the current page and attach it as context to you
 
 Select **Add Console Logs to Chat** from the browser toolbar or run the **Browser: Add Console Logs to Chat** command.
 
-Learn more about [adding context to chat](/docs/copilot/chat/copilot-chat-context.md).
+Learn more about [adding context to chat](/docs/chat/copilot-chat-context.md).
 
 ## Permissions
 
@@ -222,6 +222,6 @@ In autopilot mode, share requests are automatically declined to preserve your pr
 ## Related
 
 * [Browser debugging in VS Code](/docs/nodejs/browser-debugging.md)
-* [Test web apps with browser agent tools](/docs/copilot/guides/browser-agent-testing-guide.md)
-* [Add context to AI chat](/docs/copilot/chat/copilot-chat-context.md)
+* [Test web apps with browser agent tools](/docs/agents/guides/browser-agent-testing-guide.md)
+* [Add context to AI chat](/docs/chat/copilot-chat-context.md)
 * [Port forwarding](/docs/debugtest/port-forwarding.md)

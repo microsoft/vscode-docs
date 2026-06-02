@@ -1,6 +1,6 @@
 ---
 ContentId: c2cb770d-571d-4edf-9eb9-b5b8977c21a0
-DateApproved: 5/28/2026
+DateApproved: 6/3/2026
 MetaDescription: Learn about Visual Studio Code as a Python IDE (code completion, debugging, linting).
 ---
 # Python in Visual Studio Code
@@ -25,7 +25,7 @@ You can configure the Python extension through settings. Learn more in the [Pyth
 
 ## Run Python code
 
-To experience Python, create a file (using the [File Explorer](/docs/getstarted/userinterface.md#explorer)) named `hello.py` and paste in the following code:
+To experience Python, create a file (using the [File Explorer](/docs/editing/userinterface.md#explorer)) named `hello.py` and paste in the following code:
 
 ```python
 print("Hello World")

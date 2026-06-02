@@ -46,6 +46,6 @@ Pick another video from the list: [Introductory Videos](/docs/getstarted/introvi
 
 ## Related resources
 
-* [Tips and Tricks](/docs/getstarted/tips-and-tricks.md) - Learn more productivity tips and tricks.
+* [Tips and Tricks](/docs/editing/tips-and-tricks.md) - Learn more productivity tips and tricks.
 * [Code Editing](/docs/editing/codebasics.md) - Discover the full power of the VS Code editor.
 * [IntelliSense](/docs/editing/intellisense.md) - Smart code completions and methods signatures.
