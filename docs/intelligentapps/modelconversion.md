@@ -252,7 +252,7 @@ Go to the History board. Select **Export** to share the model project with other
 
 ## Build with Windows ML CLI (preview)
 
-In addition to the Olive-based conversion workflow, Foundry Toolkit also provides a streamlined **Build** flow powered by [Windows ML CLI](https://learn.microsoft.com/en-us/windows/ai/new-windows-ml/overview). It analyzes your model, downloads the matching execution providers (EPs) for the local device, and produces optimized ONNX artifacts with minimal configuration.
+In addition to the Olive-based conversion workflow, Foundry Toolkit also provides a streamlined **Build** flow powered by [Windows ML CLI](https://github.com/microsoft/winml-cli). It analyzes your model, downloads the matching execution providers (EPs) for the local device, and produces optimized ONNX artifacts with minimal configuration.
 
 Use Windows ML CLI when you want to:
 
