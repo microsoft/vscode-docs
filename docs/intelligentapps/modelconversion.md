@@ -279,14 +279,16 @@ After the project opens, the **Run Workflows** panel shows a **Build Flow** card
 
 ![Screenshot that shows the Build Flow card with Edit Config and Build buttons for a Hugging Face model.](./images/modelconversion/winmlcli-build-flow.png)
 
-For Hugging Face models, the toolkit automatically downloads the model and starts an initial configuration pass. The card transitions through three states:
+The behavior on first entry depends on how the model was added to the project:
 
-- **Configuring**: the model is being downloaded and analyzed.
-- **Configured**: a configuration is ready. Select **Edit Config** to review or tweak the generated recipe per precision (for example `fp16`, `w8a8`, `w8a16`), then select **Build** to produce the optimized model.
-- **Failed**: configuration could not be completed. The card shows the failure inline and exposes a **Re-config** button (placed to the left of **Edit Config**) so you can retry without leaving the workflow.
+- **Built-in models** (the curated entries that already have a model card) ship with a prepared configuration. The Build Flow card opens directly in the **Configured** state — no auto-configuration runs. Select **Edit Config** to review the prepared recipe, then select **Build**.
+- **Hugging Face models added by ID** are downloaded and analyzed automatically on first entry. The card transitions through these states:
+  - **Configuring**: the model is being downloaded and analyzed.
+  - **Configured**: a configuration is ready. Select **Edit Config** to review or tweak the generated recipe per precision (for example `fp16`, `w8a8`, `w8a16`), then select **Build** to produce the optimized model.
+  - **Failed**: configuration could not be completed. The card shows the failure inline and exposes a **Re-config** button (placed to the left of **Edit Config**) so you can retry without leaving the workflow.
 
 > [!NOTE]
-> Configuration only runs automatically on first entry, or after you explicitly select **Re-config**. The toolkit does not retry a failed configuration on its own, so you can inspect the log and decide when to try again.
+> Auto-configuration only runs on first entry for Hugging Face models added by ID, or after you explicitly select **Re-config**. The toolkit does not retry a failed configuration on its own, so you can inspect the log and decide when to try again.
 
 For Local ONNX models, no download is required. Select **Build** directly to let Windows ML CLI analyze the file and report EP compatibility.
 
@@ -298,16 +300,10 @@ Each Build run produces an entry in the **Generated Flow History** table. From t
 
 - Select **View Config** to open the configuration file used for the run.
 - Select **View Analysis** to open the EP compatibility analysis.
-- Select **Performance** to launch a performance run against a chosen EP.
-- Select **logs** next to the status to open the raw Windows ML CLI log.
-- Select **Export** to copy the artifact, or **Delete** to remove it.
+- Select **Performance** to launch a performance run against a chosen EP and view device, latency, and throughput results directly in the table.
+- Select **Evaluation** to run a quality evaluation. Evaluation is only available for **built-in models**, which ship with a prepared evaluation dataset and metrics.
 
-![Screenshot that shows the Generated Flow History table with View Config, View Analysis, Performance, Export, and Delete actions.](./images/modelconversion/winmlcli-history.png)
-
-Performance results (device, latency, throughput) are shown directly in the table so you can compare runs at a glance.
-
-> [!TIP]
-> If a Build, Evaluation, or Performance run fails, the log shows a `Run WinMLCLI error with code <N>!` message. Open the linked log file to view the underlying Windows ML CLI output.
+![Screenshot that shows the Generated Flow History table with View Config, View Analysis, Performance, and Evaluation actions.](./images/modelconversion/winmlcli-history.png)
 
 ## What you learned
 
