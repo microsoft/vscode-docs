@@ -49,6 +49,50 @@ When you start a chat session, the following choices shape how the AI responds:
 
 For the steps to start, switch between, and organize sessions, see [Manage chat sessions](/docs/agents/sessions/chat-sessions.md).
 
+## Send messages while a request is running
+
+You don't have to wait for a response to finish before sending your next message. While a request is in progress, the **Send** button changes to a dropdown that gives you three options for how to handle the new message.
+
+![Screenshot of the Send button dropdown menu showing options to queue, steer, or stop and send a new message.](images/chat-sessions/send-dropdown.png)
+
+* **Add to Queue**: your message waits and sends automatically after the current response completes. The current response finishes uninterrupted.
+* **Steer with Message**: signals the current request to yield after finishing the current tool execution. The current response stops and your new message processes immediately. Use this to redirect the agent when it's heading in the wrong direction.
+* **Stop and Send**: cancels the current request entirely and sends your new message right away.
+
+The default action for the **Send** button is configurable. Use `setting(chat.requestQueuing.defaultAction)` to set it to `steer` (default) or `queue`.
+
+### Reorder pending messages
+
+When you have multiple pending messages (queued or steering), you can drag and drop them to change the order in which they are processed. A drag handle appears on hover when more than one message of the same type is pending.
+
+![Screenshot of pending messages in the chat input box with drag handles to reorder them.](images/chat-sessions/pending-messages.png)
+
+## Get notified about chat responses
+
+When you're working in another window or application, VS Code can send you OS notifications to let you know about important chat events, so you don't have to keep checking back.
+
+Use `setting(chat.notifyWindowOnResponseReceived)` to configure when you receive an OS notification when a chat response is received. The notification includes a preview of the response, and selecting it brings focus to the chat session.
+
+Use `setting(chat.notifyWindowOnConfirmation)` to configure when you receive an OS notification when the agent needs your input or confirmation to continue.
+
+Both settings have three possible values:
+
+* `off`: never show notifications
+* `windowNotFocused` (default): show notifications only when the VS Code window is not focused
+* `always`: show notifications even when the VS Code window is in focus
+
+> [!TIP]
+> Set the value to `always` if you want to stay aware of chat activity while working in other parts of VS Code, such as when running long agent tasks in the background.
+
+## Navigate between prompts in a chat session
+
+Use the following keyboard shortcuts to navigate between prompts in a chat session:
+
+* `kb(workbench.action.chat.previousUserPrompt)`: Go to the previous prompt in the chat session.
+* `kb(workbench.action.chat.nextUserPrompt)`: Go to the next prompt in the chat session.
+* `kb(workbench.action.chat.previousCodeBlock)`: Go to the previous code block in the chat session.
+* `kb(workbench.action.chat.nextCodeBlock)`: Go to the next code block in the chat session.
+
 ## Add context to your prompts
 
 Providing the right context helps the AI generate more relevant and accurate responses.
