@@ -31,7 +31,7 @@ Visual Studio Code comes with AI agents built in. Describe what you want to buil
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
 Follow a hands-on tutorial to build your first app with AI in VS Code.
 
-* [Start tutorial](/docs/copilot/getting-started.md)
+* [Start tutorial](/docs/getstarted/getting-started.md)
 
 </div>
 

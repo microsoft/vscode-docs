@@ -92,4 +92,4 @@ To fix coding issues for your application code without writing a prompt, you can
 ## Next steps
 
 * Explore [general debugging features in VS Code](/docs/debugtest/debugging.md).
-* Learn more about [Copilot in VS Code](/docs/copilot/overview.md).
+* Learn more about [Copilot in VS Code](/docs/agent-native/overview.md).

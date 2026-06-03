@@ -277,7 +277,7 @@ Set `"js/ts.suggestionActions.enabled"` to `false` to disable suggestions.
 
 ## Enhance completions with AI
 
-GitHub Copilot can give you AI-powered inline suggestions that help you write code faster and smarter. GitHub Copilot provides suggestions for numerous languages and a wide variety of frameworks, and it works especially well for Python, JavaScript, TypeScript, Ruby, Go, C# and C++.Learn more about how to [get started with Copilot in VS Code](/docs/copilot/getting-started.md).
+GitHub Copilot can give you AI-powered inline suggestions that help you write code faster and smarter. GitHub Copilot provides suggestions for numerous languages and a wide variety of frameworks, and it works especially well for Python, JavaScript, TypeScript, Ruby, Go, C# and C++.Learn more about how to [get started with Copilot in VS Code](/docs/getstarted/getting-started.md).
 
 Create a new file - you can use the **File: New File** command in the Command Palette (`kbstyle(F1)`).
 

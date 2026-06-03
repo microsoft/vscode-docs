@@ -18,7 +18,7 @@ You might experience two kinds of inline suggestions from Copilot, both of which
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
 Follow a hands-on tutorial to build your first app with AI in VS Code.
 
-* [Start tutorial](/docs/copilot/getting-started.md)
+* [Start tutorial](/docs/getstarted/getting-started.md)
 
 </div>
 
@@ -176,7 +176,7 @@ To give you relevant inline suggestions, Copilot looks at the current and open f
 
 ## Next steps
 
-* Discover the key features in the [Quickstart](/docs/copilot/getting-started.md).
+* Discover the key features in the [Quickstart](/docs/getstarted/getting-started.md).
 
 * Use AI chat conversations with [chat in VS Code](/docs/chat/copilot-chat.md).
 

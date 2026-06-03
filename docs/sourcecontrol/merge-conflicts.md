@@ -179,4 +179,4 @@ git config --global difftool.vscode.cmd 'code --wait --diff $LOCAL $REMOTE'
 * [Staging and Committing](/docs/sourcecontrol/staging-commits.md) - Learn about staging changes and creating commits
 * [Repositories and Remotes](/docs/sourcecontrol/repos-remotes.md) - Learn about working with remote repositories
 * [Source Control Overview](/docs/sourcecontrol/overview.md) - Explore other Git features in VS Code
-* [Copilot in VS Code](/docs/copilot/overview.md) - Discover more AI-powered development features
+* [Copilot in VS Code](/docs/agent-native/overview.md) - Discover more AI-powered development features

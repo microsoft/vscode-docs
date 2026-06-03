@@ -29,7 +29,7 @@ GitHub Copilot brings AI agents to Visual Studio Code. Describe what you want to
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
 Follow a hands-on tutorial to build your first app with AI in VS Code.
 
-* [Start tutorial](/docs/copilot/getting-started.md)
+* [Start tutorial](/docs/getstarted/getting-started.md)
 
 </div>
 
@@ -125,7 +125,7 @@ Agents handle coding tasks end-to-end, from a single file change to a full featu
 
 1. Enter `/init` to configure your project for AI. This creates [custom instructions](/docs/agent-customization/custom-instructions.md) that help the agent understand your codebase and generate better code.
 
-For a full hands-on tutorial covering inline suggestions, agents, inline chat, and customization, see [Get started with GitHub Copilot in VS Code](/docs/copilot/getting-started.md).
+For a full hands-on tutorial covering inline suggestions, agents, inline chat, and customization, see [Get started with GitHub Copilot in VS Code](/docs/getstarted/getting-started.md).
 
 ## AI assistance as you type
 
@@ -184,6 +184,6 @@ You can start using GitHub Copilot for free with a monthly allowance of inline s
 
 ## Next steps
 
-* [Quickstart: Get started with GitHub Copilot in VS Code](/docs/copilot/getting-started.md)
+* [Quickstart: Get started with GitHub Copilot in VS Code](/docs/getstarted/getting-started.md)
 * [Tutorial: Get started with agents in VS Code](/docs/agents/agents-tutorial.md)
 * [Customize the AI for your workflow](/docs/agent-customization/overview.md)

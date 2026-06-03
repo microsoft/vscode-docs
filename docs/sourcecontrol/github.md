@@ -287,4 +287,4 @@ In the event that your pending changes are not automatically applied to your tar
 
 ## Next steps
 
-* Learn more about [AI in VS Code](/docs/copilot/overview.md) - Learn about AI features in VS Code.
+* Learn more about [AI in VS Code](/docs/agent-native/overview.md) - Learn about AI features in VS Code.
