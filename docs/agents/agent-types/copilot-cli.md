@@ -52,13 +52,13 @@ Copilot CLI supports slash commands in chat, including [reusable prompts](/docs/
 
 ### Isolation modes
 
-Copilot CLI supports two types of isolation modes to manage how changes from the agent are applied to your codebase: **Worktree** and **Workspace** isolation. You can choose the isolation mode when you create a new Copilot CLI session.
+Copilot CLI supports two types of isolation modes to manage how changes from the agent are applied to your codebase: **Worktree** and **Folder** isolation. You can choose the isolation mode when you create a new Copilot CLI session.
 
 To isolate changes from the Copilot CLI agent and prevent interference with your active work, use **Worktree** isolation. In this mode, VS Code creates a [Git worktree](/docs/sourcecontrol/branches-worktrees.md#understanding-worktrees) in a separate folder for the Copilot CLI session. All changes made by the agent are applied to the worktree, keeping them separate from your main workspace until you're ready to review and apply them.
 
 If you [fork](/docs/agents/sessions/chat-sessions.md#fork-a-chat-session) a Copilot CLI session that uses worktree isolation, the forked session continues to use the same worktree as the original session. VS Code removes the shared worktree only after the last linked session is deleted or archived.
 
-If you want the changes from the Copilot CLI session to be applied directly to your current workspace, you can choose **Workspace** isolation. In this mode, the agent operates directly in your current workspace, and changes are applied in place.
+If you want the changes from the Copilot CLI session to be applied directly to your current workspace, you can choose **Folder** isolation. In this mode, the agent operates directly in your current workspace, and changes are applied in place.
 
 > [!NOTE]
 > To use Git worktrees and worktree isolation, your workspace needs to be a Git repository.
@@ -68,7 +68,7 @@ If you want the changes from the Copilot CLI session to be applied directly to y
 Copilot CLI sessions support the same [permission levels](/docs/agents/agent-tools.md#permission-levels) as local agents. The available permission levels depend on the isolation mode you choose:
 
 * **Worktree isolation**: the permission level is automatically set to **Bypass Approvals** and can't be changed. Because the agent operates on an isolated copy of your codebase (Git worktree), all tool calls are auto-approved without confirmation dialogs.
-* **Workspace isolation**: all three permission levels are available (**Default Approvals**, **Bypass Approvals**, and **Autopilot**), just like local agent sessions. Select a level from the permissions picker in the chat input area.
+* **Folder isolation**: all three permission levels are available (**Default Approvals**, **Bypass Approvals**, and **Autopilot**), just like local agent sessions. Select a level from the permissions picker in the chat input area.
 
 ## Create a Copilot CLI session
 
@@ -82,7 +82,7 @@ To create a new Copilot CLI session in VS Code:
 
     * Run the **Chat: New Copilot CLI** command from the Command Palette (`kb(workbench.action.showCommands)`)
 
-1. Choose between workspace or worktree [isolation mode](#isolation-modes)
+1. Choose between folder or worktree [isolation mode](#isolation-modes)
 
     If you use worktree isolation, the agent automatically commits changes to the worktree at the end of each turn, so the session history stays aligned with the commit history.
 
