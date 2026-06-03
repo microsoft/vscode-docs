@@ -55,6 +55,14 @@ The Chat view keeps the agent next to your code, so you can prompt, review, and 
 
 The Chat view operates in two modes: compact and side-by-side. Use the toggle control in the top-right corner of the Chat view to switch between them. In compact mode, the sessions list and conversation share the same panel. In side-by-side mode, the sessions list stays visible next to the conversation. Learn more about [sessions list layout options](/docs/agents/sessions/chat-sessions.md#sessions-list-in-the-chat-view).
 
+## Start a session
+
+To start a new session, select **New Chat** (`+`) or press `kb(workbench.action.chat.newChat)`. Before you send your first prompt, use the controls in the chat input area to choose an agent target, agent, language model, and permission level. You can adjust these at any time during a session. Learn more about [configuring your chat session](/docs/chat/chat-overview.md#configure-your-chat-session).
+
+![Screenshot showing the agent target dropdown in the Chat view.](images/agents-overview/agent-type-dropdown.png)
+
+Type a prompt and press `kb(workbench.action.chat.submit)` to start. The agent breaks down your task into steps, edits files in your workspace, runs commands, and self-corrects when something goes wrong. Learn more about [managing chat sessions](/docs/agents/sessions/chat-sessions.md).
+
 ## Work with the agent
 
 After you send a prompt, the agent works through the task step by step. Because the Chat view lives inside the main VS Code window, you can interact with the agent's changes using the full editor experience.
@@ -69,19 +77,6 @@ After you send a prompt, the agent works through the task step by step. Because 
 
 > [!TIP]
 > You can open chat in an editor tab, a separate window, or maximized for more space. Learn more about [where to open a chat session](/docs/agents/sessions/chat-sessions.md#where-to-open-a-chat-session).
-
-## Configure and start a session
-
-Each session in the Chat view is shaped by the controls in the chat input area. You can adjust these at any time during a session.
-
-* **Agent target**: where the agent runs, such as locally, in the background (Copilot CLI), or in the cloud. Learn more about [agent types](/docs/agents/overview.md#types-of-agents).
-* **Agent**: the role or persona, such as Agent, Plan, or Ask. Learn more about [choosing an agent](/docs/agents/overview.md#choose-an-agent).
-* **Language model**: the AI model that powers the conversation. Learn more about [language models](/docs/agent-customization/language-models.md).
-* **Permission level**: how much autonomy the agent has over tool approvals. Learn more about [permission levels](/docs/agents/overview.md#choose-a-permission-level).
-
-![Screenshot showing the agent target dropdown in the Chat view.](images/agents-overview/agent-type-dropdown.png)
-
-To start a new session, select **New Chat** (`+`) or press `kb(workbench.action.chat.newChat)`, configure the session, type a prompt, and press `kb(workbench.action.chat.submit)`. The agent breaks down your task into steps, edits files in your workspace, runs commands, and self-corrects when something goes wrong. Learn more about [managing chat sessions](/docs/agents/sessions/chat-sessions.md).
 
 ## Next steps
 
