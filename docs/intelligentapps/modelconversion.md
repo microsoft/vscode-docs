@@ -267,6 +267,19 @@ You can also pick a curated Hugging Face model that is already validated for Win
 
 ![Screenshot that shows HuggingFace Models filtered by the Windows ML CLI provider.](./images/modelconversion/winmlcli-model-list.png)
 
+> [!NOTE]
+> Models generated through Windows ML CLI can run across all execution providers (EPs) supported by Windows ML. Supported EPs include:
+>
+> - QNN (NPU, GPU)
+> - OpenVINO (CPU, NPU, GPU)
+> - VitisAI (NPU)
+> - NVIDIA TensorRT RTX (GPU)
+> - DirectML (DML) (GPU)
+> - CPU
+
+> [!NOTE]
+> For "bring your own model" scenarios using the **Hugging Face Hub** or **Local ONNX Files** templates, Windows ML CLI currently supports classic deep learning models only. LLM support is coming soon.
+
 ### Run the Build flow
 
 After the project opens, the **Run Workflows** panel shows a **Build Flow** card for each selected Windows ML CLI model.
@@ -275,11 +288,18 @@ After the project opens, the **Run Workflows** panel shows a **Build Flow** card
 
 The behavior on first entry depends on how the model was added to the project:
 
-- **Built-in models** (the curated entries that already have a model card) ship with a prepared configuration. The Build Flow card opens directly in the **Configured** state — no auto-configuration runs. Select **Edit Config** to review the prepared recipe, then select **Build**.
+- **Built-in models** already include validated configurations for Windows ML CLI workflows. These curated models ship with prepared Build Config files optimized for Windows ML EPs. The Build Flow card opens directly in the **Configured** state — no auto-configuration runs. Select **Edit Config** to review the prepared recipe, then select **Build**.
 - **Hugging Face models added by ID** are downloaded and analyzed automatically on first entry. The card transitions through these states:
   - **Configuring**: the model is being downloaded and analyzed.
   - **Configured**: a configuration is ready. Select **Edit Config** to review or tweak the generated recipe per precision (for example `fp16`, `w8a8`, `w8a16`), then select **Build** to produce the optimized model.
   - **Failed**: configuration could not be completed. The card shows the failure inline and exposes a **Re-config** button (placed to the left of **Edit Config**) so you can retry without leaving the workflow.
+
+> [!NOTE]
+> A **Failed** configuring state usually means the model could not be automatically mapped to a supported optimization or validation workflow. This may happen when:
+>
+> - the model architecture is not yet supported,
+> - required model metadata is missing, or
+> - the ONNX graph contains unsupported operators.
 
 > [!NOTE]
 > Auto-configuration only runs on first entry for Hugging Face models added by ID, or after you explicitly select **Re-config**. The toolkit does not retry a failed configuration on its own, so you can inspect the log and decide when to try again.
