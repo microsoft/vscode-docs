@@ -252,13 +252,7 @@ Go to the History board. Select **Export** to share the model project with other
 
 ## Build with Windows ML CLI (preview)
 
-In addition to the Olive-based conversion workflow, Foundry Toolkit also provides a streamlined **Build** flow powered by [Windows ML CLI](https://github.com/microsoft/winml-cli). It analyzes your model, downloads the matching execution providers (EPs) for the local device, and produces optimized ONNX artifacts with minimal configuration.
-
-Use Windows ML CLI when you want to:
-
-- Quickly bring a Hugging Face model or an existing local ONNX file onto Windows.
-- Let the toolkit pick the right EPs and optimization recipe for the current hardware.
-- Iterate on **Build**, **Evaluation**, and **Performance** runs from a single panel.
+In addition to the Olive-based conversion workflow, Foundry Toolkit also provides a streamlined **Build** flow powered by [Windows ML CLI](https://github.com/microsoft/winml-cli). Olive recipes focus on EP-driven optimization workflows, while Windows ML CLI provides a streamlined cross-EP developer workflow for Windows ML. Rather than manually assembling optimization recipes, you can use Windows ML CLI to convert, analyze, optimize, validate, and benchmark models through a simplified command-line experience on Windows PCs. Beyond converting models from Hugging Face, Windows ML CLI can also analyze, optimize, validate, and benchmark existing ONNX models directly on Windows PCs.
 
 ### Choose a Windows ML CLI base model
 
@@ -266,7 +260,7 @@ When you create a new model project (or add a model to an existing one), the **C
 
 ![Screenshot that shows the Recommend Process area with Hugging Face Hub and Local ONNX Files cards.](./images/modelconversion/winmlcli-recommend-process.png)
 
-- **Hugging Face Hub**: enter any Hugging Face model ID and let Windows ML CLI download, analyze, and build the model.
+- **Hugging Face Hub**: provide a Hugging Face model ID (for example, `microsoft/resnet-50`), and Windows ML CLI will automatically download, convert, analyze, and optimize the model.
 - **Local ONNX Files**: browse to an ONNX file on disk and let Windows ML CLI analyze and optimize it.
 
 You can also pick a curated Hugging Face model that is already validated for Windows ML CLI. Open the **Provided By** filter and select **Windows ML CLI** to see the supported list.
