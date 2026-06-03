@@ -85,9 +85,16 @@ Both the Chat view and the Agents window provide a sessions list to manage your 
 
 * In the **Agents window**, the sessions list shows sessions across all your workspaces and groups them by workspace by default, so you can monitor work across projects from one place.
 
-Use the find and filter options to find specific sessions. You can also pin important sessions to keep them at the top of the list for easy access. Hover over a session and select the pin icon to pin or unpin it.
+The session list supports the following capabilities:
 
-Right-click a session in the list to see additional actions, such as different options to open the session details, archive the session, or agent-type specific actions like checking out a pull request (for cloud agent sessions).
+* Sorting on different fields
+* Grouping (Agents window)
+* Searching on session title
+* Pinning to the top of the list
+* Archiving
+* Deleting
+
+Right-click a session in the list to see additional actions. Some actions are specific for the session's agent type and status. For example, checking out a pull request for a cloud agent session.
 
 ### Sessions list in the Chat view
 

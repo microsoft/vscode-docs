@@ -97,15 +97,13 @@ The agent now starts working on your request. Learn more about [interacting in c
 
 ## Manage your sessions
 
-The sessions list in the sidebar shows all your active sessions across workspaces. You can group sessions by project or by timeframe to keep track of related work. Each session item surfaces the key information such as session name, workspace, agent type, and file change stats.
+The session list in the sidebar shows all your ongoing sessions across your workspaces. Each session item surfaces the key information such as session name, workspace, agent type, and file change stats.
 
-Use the filter and search options to narrow down the list and find the session you want to work on.
+By default, sessions are grouped by workspace and you can also group on timeframe. See [Manage Sessions](/docs/agents/sessions/chat-sessions.md) for more details on working with the session list.
 
-Select any session to view the chat conversation history and pick up where you left off. If the session is already visible in a session view, selecting it in the list activates that view. Otherwise, it replaces the current active (unpinned) session view. The Changes panel surfaces the latest file updates from the agent and a file explorer view of the workspace.
+When you select a session in the list, the chat panel shows the complete history of that session. This session then becomes the active session and the **Changes** panel surfaces the latest file updates from the agent in that session and the files in the associated workspace.
 
 ![Screenshot showing the sessions list in the sidebar in the Agents window.](images/agents-window/agents-window-session-list.png)
-
-Right-click on any session in the list to see additional management options, such as renaming, deleting, and more. For advanced session management, such as archiving, forking, checkpoints, and exporting, see [Manage chat sessions](/docs/agents/sessions/chat-sessions.md) in chat documentation.
 
 ## Manage and review file changes
 
