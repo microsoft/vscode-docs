@@ -275,7 +275,9 @@ To change the language model that is used for generating inline suggestions in t
 1. Select **Change Completions Model...**, and then select one of the models from the list.
 
 > [!NOTE]
-> The models that are available for inline suggestions might evolve over time as we add support for more models.
+> The list of available models might vary and change over time. When no alternative models are available, the option to change the model is not available.
+>
+> If you are a Copilot Business or Enterprise user, your Administrator needs to enable certain models for your organization by opting in to `Editor Preview Features` in the [Copilot policy settings](https://docs.github.com/en/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) on GitHub.com.
 
 ### Change the model for utility tasks
 
