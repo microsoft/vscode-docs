@@ -27,40 +27,16 @@ Follow a hands-on tutorial to experience local, background, and cloud agents in 
 
 ## Access chat in VS Code
 
-VS Code provides multiple ways to start an AI chat conversation, each optimized for different workflows. Use the **Chat** menu in the VS Code title bar or the corresponding keyboard shortcuts.
+VS Code gives you two main surfaces for working with agents, plus lightweight options for quick interactions:
+
+* **[Agents window](/docs/agents/agents-window.md)**: a dedicated, agent-first window for orchestrating tasks across multiple projects. Open it from the **Open in Agents** button in the title bar, or run `code --agents`.
+* **[Chat view](/docs/agents/chat-view.md)**: a code-first experience where the agent assists you in the main VS Code window while you stay focused on a single workspace. Open it with `kb(workbench.action.chat.open)`.
+* **[Inline chat](/docs/chat/inline-chat.md)**: press `kb(inlineChat.start)` for quick, in-place code edits or terminal command suggestions.
+* **[Quick Chat](/docs/chat/inline-chat.md#use-quick-chat)**: press `kb(workbench.action.quickchat.toggle)` for a lightweight chat panel at the top of the editor.
 
 ![Screenshot of the Copilot Chat menu in the VS Code Command Center.](images/copilot-chat/copilot-chat-menu-command-center.png)
 
-| Surface | Shortcut | Best for | Learn more |
-|---|---|---|---|
-| **Chat view** | `kb(workbench.action.chat.open)` | Multi-turn conversations, agentic workflows, multi-file edits, while you stay focused on a single workspace. | [Chat view](/docs/agents/chat-view.md) |
-| **Agents window** | `code --agents` | Orchestrating agents across multiple projects in a dedicated, agent-first window. | [Agents window](/docs/agents/agents-window.md) |
-| **Inline chat** | `kb(inlineChat.start)` | In-place code edits and terminal command suggestions. | [Inline chat](/docs/chat/inline-chat.md) |
-| **Quick chat** | `kb(workbench.action.quickchat.toggle)` | Quick questions without leaving your current view. Opens a lightweight chat panel at the top of the editor. | [Quick Chat](/docs/chat/inline-chat.md#use-quick-chat) |
-| **Command line** | `code chat` | Starting chat from outside VS Code. | [CLI docs](/docs/configure/command-line.md#start-chat-from-the-command-line) |
-
-## Submit your first prompt
-
-To see how chat works, try creating a basic app:
-
-1. Open the Chat view by pressing `kb(workbench.action.chat.open)` or selecting **Chat** from the VS Code title bar.
-
-1. Select where you want to run the agent by using the **Agent Target** dropdown. For example, select **Local** to run the agent interactively in the editor with full access to your workspace, tools, and models.
-
-1. Select an agent from the agent picker. For example, select **Agent** to let chat autonomously determine what needs to be done and make changes to your workspace. Learn more about [choosing an agent](/docs/agents/overview.md#choose-an-agent).
-
-1. Type the following prompt in the chat input field and press `kb(workbench.action.chat.submit)` to submit it:
-
-    ```prompt
-    Create a basic calculator app with HTML, CSS, and JavaScript
-    ```
-
-    The agent applies changes directly to your workspace and might also run terminal commands, for example, to install dependencies or run build scripts.
-
-1. In the editor, [review the suggested changes](/docs/chat/review-code-edits.md) and choose to keep or discard them.
-
-> [!TIP]
-> For a full hands-on walkthrough, follow the [agents tutorial](/docs/agents/agents-tutorial.md).
+For step-by-step instructions on getting started in each surface, see the [Agents window](/docs/agents/agents-window.md) and [Chat view](/docs/agents/chat-view.md) articles, or follow the hands-on [VS Code tutorial](/docs/getstarted/getting-started.md).
 
 ## Configure your chat session
 

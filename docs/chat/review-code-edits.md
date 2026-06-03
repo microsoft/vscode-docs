@@ -8,6 +8,9 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 
 When you interact with chat in Visual Studio Code, the AI can generate code edits across multiple files in your project. This article explains how to review, accept, or discard these AI-generated code edits.
 
+> [!NOTE]
+> The features on this page work in both the [Chat view](/docs/agents/chat-view.md) and the [Agents window](/docs/agents/agents-window.md).
+
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
 Follow a hands-on tutorial to experience local, background, and cloud agents in VS Code.
 
@@ -91,6 +94,6 @@ Depending on the agent type, you have options to apply the changes to your local
 ## Related resources
 
 * [Revert changes with checkpoints](/docs/chat/chat-checkpoints.md)
-* [Chat overview](/docs/chat/copilot-chat.md)
+* [Chat overview](/docs/chat/chat-overview.md)
 * [Chat sessions](/docs/agents/sessions/chat-sessions.md)
 * [Security considerations for using AI in VS Code](/docs/agents/security.md)

@@ -41,7 +41,7 @@ VS Code supports the following MCP capabilities:
     * Server-sent events (`sse`) - legacy support.
 
 * [Features](https://modelcontextprotocol.io/specification/2025-06-18#features):
-    * Tools: extend [agent mode](/docs/chat/copilot-chat) with extra tools
+    * Tools: extend [agent mode](/docs/chat/chat-overview) with extra tools
     * Prompts: add reusable prompts as slash commands in chat
     * Resources: provide data and content that users can add as chat context or interact with directly in VS Code
     * Elicitation: request input from the user

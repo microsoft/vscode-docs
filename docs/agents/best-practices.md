@@ -43,7 +43,7 @@ AI in VS Code offers several interaction modes. Choosing the right one for the t
 | Tool | Best for | Example |
 |------|----------|---------|
 | [Inline suggestions](/docs/editing/ai-powered-suggestions.md) | Staying in the flow while writing code | Inline suggestions, variable names, boilerplate |
-| [Ask (chat)](/docs/chat/copilot-chat.md) | Questions, brainstorming, exploring ideas | "How does authentication work in this project?" |
+| [Ask (chat)](/docs/chat/chat-overview.md) | Questions, brainstorming, exploring ideas | "How does authentication work in this project?" |
 | [Inline chat](/docs/chat/inline-chat.md) | Targeted, in-place edits without switching context | Refactoring a function, adding error handling |
 | [Agents](/docs/agents/overview.md) | Multi-file changes that require autonomous planning and tool use | Implementing a feature end-to-end |
 | [Plan](/docs/agents/planning.md) | Structured planning before implementation | Designing an architecture or migration strategy |

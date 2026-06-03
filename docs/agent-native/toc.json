@@ -8,6 +8,7 @@
 
             ["Agents Window", "/docs/agents/agents-window"],
             ["Chat View", "/docs/agents/chat-view"],
+            ["Remote Agent Sessions", "/docs/agents/remote-agent-sessions"],
 
             ["", "", {
                 "name": "Sessions",
@@ -61,7 +62,7 @@
         "name": "Using Chat",
         "area": "chat",
         "topics": [
-            ["Overview", "/docs/chat/copilot-chat"],
+            ["Overview", "/docs/chat/chat-overview"],
             ["Add Context", "/docs/chat/copilot-chat-context"],
             ["Inline Chat", "/docs/chat/inline-chat"],
             ["Review Edits", "/docs/chat/review-code-edits"],

@@ -7,7 +7,7 @@ Keywords: [nes, suggestions, inline completions, ghost text, next edit suggestio
 ---
 # Inline suggestions from GitHub Copilot in VS Code
 
-GitHub Copilot in VS Code provides AI-powered inline suggestions that complete your code, comments, tests, and more as you type. Inline suggestions work with a broad range of programming languages and frameworks. They are one of several AI surfaces in VS Code, alongside [agents](/docs/agents/overview.md) for autonomous multi-file tasks, [chat](/docs/chat/copilot-chat.md), and [smart actions](/docs/editing/copilot-smart-actions.md).
+GitHub Copilot in VS Code provides AI-powered inline suggestions that complete your code, comments, tests, and more as you type. Inline suggestions work with a broad range of programming languages and frameworks. They are one of several AI surfaces in VS Code, alongside [agents](/docs/agents/overview.md) for autonomous multi-file tasks, [chat](/docs/chat/chat-overview.md), and [smart actions](/docs/editing/copilot-smart-actions.md).
 
 You might experience two kinds of inline suggestions from Copilot, both of which match your coding style and take your existing code into account:
 
@@ -178,6 +178,6 @@ To give you relevant inline suggestions, Copilot looks at the current and open f
 
 * Discover the key features in the [Quickstart](/docs/copilot/getting-started.md).
 
-* Use AI chat conversations with [chat in VS Code](/docs/chat/copilot-chat.md).
+* Use AI chat conversations with [chat in VS Code](/docs/chat/chat-overview.md).
 
 * Watch the videos in our [VS Code Copilot Series](https://www.youtube.com/playlist?list=PLj6YeMhvp2S5_hvBl2SE-7YCHYlLQ0bPt) on YouTube.

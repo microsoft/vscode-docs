@@ -273,7 +273,7 @@ You can further enhance your AI's capabilities by exploring other customization 
 
 * [Cheat sheet for using AI features](/docs/agents/reference/copilot-vscode-features.md) - Quick reference for all GitHub Copilot features in VS Code
 
-* [Chat documentation](/docs/chat/copilot-chat.md) - Deep dive into autonomous coding in VS Code
+* [Chat documentation](/docs/chat/chat-overview.md) - Deep dive into autonomous coding in VS Code
 
 * [Customization guide](/docs/agent-customization/overview.md) - Advanced personalization techniques
 

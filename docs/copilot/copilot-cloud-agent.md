@@ -301,7 +301,7 @@ For detailed information about limitations, compatibility, and usage costs, see 
 ## Next steps
 
 * Enable Copilot cloud agent by following the [GitHub setup guide](https://docs.github.com/en/copilot/using-github-copilot/coding-agent/enabling-copilot-coding-agent)
-* Try [agents in VS Code chat](/docs/chat/copilot-chat.md) for immediate, interactive coding assistance
+* Try [agents in VS Code chat](/docs/chat/chat-overview.md) for immediate, interactive coding assistance
 
 ## Related resources
 

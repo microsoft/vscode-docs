@@ -37,7 +37,7 @@ IT admins can verify the gate state at any time with the **Developer: Policy Dia
 
 To disable agents entirely, set the `ChatAgentMode` policy to `false`. This configures the `setting(chat.agent.enabled)` setting in VS Code.
 
-The **Agent** option will not be available in the agents dropdown in the Chat view when this policy is applied. Developers can still use [ask or edit](/docs/chat/copilot-chat.md) for code explanations and file edits, but autonomous code generation and task execution are not available.
+The **Agent** option will not be available in the agents dropdown in the Chat view when this policy is applied. Developers can still use [ask or edit](/docs/chat/chat-overview.md) for code explanations and file edits, but autonomous code generation and task execution are not available.
 
 ## Enable or disable hooks
 

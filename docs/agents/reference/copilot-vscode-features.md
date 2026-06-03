@@ -44,13 +44,13 @@ GitHub Copilot in Visual Studio Code provides autonomous agents, inline suggesti
 
 ## Chat experience in VS Code
 
-Start a natural language chat conversation to get help with coding tasks. For example, ask to explain a block of code or a programming concept, refactor a piece of code, or implement a new feature. Get more information about using [Copilot Chat](/docs/chat/copilot-chat.md).
+Start a natural language chat conversation to get help with coding tasks. For example, ask to explain a block of code or a programming concept, refactor a piece of code, or implement a new feature. Get more information about using [Copilot Chat](/docs/chat/chat-overview.md).
 
 | Action | Description |
 |--------|-------------|
-| `kb(workbench.action.chat.open)` | Open the [Chat view](/docs/chat/copilot-chat.md) in the Secondary Side Bar. |
+| `kb(workbench.action.chat.open)` | Open the [Chat view](/docs/chat/chat-overview.md) in the Secondary Side Bar. |
 | `kb(inlinechat.start)` | Start [inline chat](/docs/chat/inline-chat.md) to open chat in the editor or terminal. |
-| `kb(workbench.action.quickchat.toggle)` | Open [Quick Chat](/docs/chat/copilot-chat.md) without interrupting your workflow. |
+| `kb(workbench.action.quickchat.toggle)` | Open [Quick Chat](/docs/chat/chat-overview.md) without interrupting your workflow. |
 | `kb(workbench.action.chat.newChat)` | Start a new chat session in the Chat view. |
 | `kb(workbench.action.chat.toggleAgentMode)` | Toggle between different [agents](/docs/agent-customization/custom-agents.md) in the Chat view. |
 | `kb(workbench.action.chat.openModelPicker)` | Show the model picker to [select a different AI model](/docs/agent-customization/language-models.md) for chat. |

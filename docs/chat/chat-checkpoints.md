@@ -11,6 +11,9 @@ A chat session in Visual Studio Code might result in changes to one or more file
 * **Edit a previous request**: modify a prompt you already sent. VS Code reverts any changes made by that request and all subsequent requests, then resends the edited prompt. Use this when you want to rephrase a request and get different results.
 * **Restore a checkpoint**: roll back all file changes to a specific point in the conversation. Use this when you want to return to a known good state without modifying your prompts.
 
+> [!NOTE]
+> The features on this page work in both the [Chat view](/docs/agents/chat-view.md) and the [Agents window](/docs/agents/agents-window.md).
+
 Both features complement the [review workflow](/docs/chat/review-code-edits.md), where you accept or reject individual edits. Use checkpoints and editing when you want to undo an entire batch of changes at once.
 
 ## Edit a previous chat request
@@ -75,4 +78,4 @@ No. Checkpoints are designed for quick iteration within a chat session and are t
 
 * [Review AI-generated code edits](/docs/chat/review-code-edits.md)
 * [Chat sessions](/docs/agents/sessions/chat-sessions.md)
-* [Chat overview](/docs/chat/copilot-chat.md)
+* [Chat overview](/docs/chat/chat-overview.md)

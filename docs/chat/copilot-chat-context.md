@@ -8,6 +8,9 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 
 By providing the right context, you can get more relevant and accurate responses from the AI in VS Code. In this article, you learn how to manage context in chat, including how to use #-mentions to reference files, folders, and symbols, how to reference web content, or how you can use custom instructions to guide the AI's responses.
 
+> [!NOTE]
+> The features on this page work in both the [Chat view](/docs/agents/chat-view.md) and the [Agents window](/docs/agents/agents-window.md).
+
 For background on what context is and how VS Code assembles it, see [Context concepts](/docs/agents/concepts/context.md).
 
 ## #-mentions

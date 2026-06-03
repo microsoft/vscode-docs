@@ -210,7 +210,7 @@ If a custom instruction or prompt file doesn't seem to take effect:
 
 ## Related resources
 
-* [Chat overview](/docs/chat/copilot-chat.md)
+* [Chat overview](/docs/chat/chat-overview.md)
 * [Manage context for AI](/docs/chat/copilot-chat-context.md)
 * [Troubleshoot AI in VS Code](/docs/agents/agent-troubleshooting/troubleshooting.md)
 * [Security considerations for using AI in VS Code](/docs/agents/security.md)

@@ -9,7 +9,7 @@ MetaDescription: A guide to creating a language model tool and how to implement 
 
 # Language Model Tool API
 
-Language model tools enable you to extend the functionality of a large language model (LLM) in chat with domain-specific capabilities. To process a user's chat prompt, [agents](/docs/chat/copilot-chat.md) in VS Code can automatically invoke these tools to perform specialized tasks as part of the conversation.
+Language model tools enable you to extend the functionality of a large language model (LLM) in chat with domain-specific capabilities. To process a user's chat prompt, [agents](/docs/chat/chat-overview.md) in VS Code can automatically invoke these tools to perform specialized tasks as part of the conversation.
 
 By contributing a language model tool in your VS Code extension, you can extend the agentic coding workflow while also providing deep integration with the editor. Extension tools are one of three types of tools available in VS Code, alongside [built-in tools and MCP tools](/docs/agents/agent-tools.md#types-of-tools).
 

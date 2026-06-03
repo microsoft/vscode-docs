@@ -6,16 +6,21 @@ MetaSocialImage: images/shared/github-copilot-social.png
 ---
 # Use the Chat view
 
-The Chat view is where you work with agents in Visual Studio Code while staying focused on the code in your current project. It lives alongside your editor tabs in the main VS Code window, so you can prompt an agent, review its changes, and keep writing, debugging, and testing code without leaving your workspace. The Chat view is built for a code-first workflow within a single workspace, where the editor remains your primary interface and the agent assists your coding.
+The Chat view is where you work with agents in Visual Studio Code while staying focused on the code in your current project. It lives alongside your editor tabs in the main VS Code window, so you can prompt an agent, review its changes, and keep writing code without leaving your workspace.
 
-Use the Chat view when your work centers on a single project and you want full access to the editor, debugger, notebooks, extensions, and remote development while an agent helps you implement features, fix bugs, and refactor code.
+Use the Chat view when your work centers on a single project and you want to:
+
+* **Edit and review in the editor**: open changed files to see inline diffs, and use the editor overlay controls to keep or undo individual edits. Learn more about [reviewing AI-generated code edits](/docs/chat/review-code-edits.md).
+* **Debug and test**: use the debugger, run tasks, and execute tests to validate the agent's changes before you commit them.
+* **Use extensions and notebooks**: the agent has access to your installed extensions and can [edit notebooks](/docs/agents/guides/notebooks-with-ai.md) directly in the editor.
+* **Work remotely**: if you're connected to a [remote workspace](/docs/remote/remote-overview.md), agents in the Chat view work there too, with access to the same context and tools as you have.
 
 In this article, you learn how to open and work with agents in the Chat view.
 
 ![Screenshot showing an agent session in the Chat view alongside the editor in VS Code.](images/agents-overview/chat-sessions-view.png)
 
 > [!TIP]
-> The Chat view (code-first) and the [Agents window](/docs/agents/agents-window.md) (agent-first) are the main surfaces for working with agents. They share the same sessions and settings, so you can move freely between them. For help choosing, see [where to work with agents](/docs/agents/overview.md#where-to-work-with-agents).
+> The Chat view (code-first) and the [Agents window](/docs/agents/agents-window.md) (agent-first) are the main surfaces for working with agents. They share the same sessions and settings, so you can move freely between them. To switch, select the **Open in Agents** button in the title bar, or run `code --agents`. For help choosing, see [where to work with agents](/docs/agents/overview.md#where-to-work-with-agents).
 
 ## Prerequisites
 
@@ -50,48 +55,21 @@ The Chat view keeps the agent next to your code, so you can prompt, review, and 
 
 The Chat view operates in two modes: compact and side-by-side. Use the toggle control in the top-right corner of the Chat view to switch between them.
 
-## Start a chat session
+## Configure and start a session
 
-To start working with an agent in the Chat view:
+Each session in the Chat view is shaped by the controls in the chat input area. You can adjust these at any time during a session.
 
-1. Select **New Chat** (`+`) in the Chat view, or press `kb(workbench.action.chat.newChat)`.
+* **Agent target**: where the agent runs, such as locally, in the background (Copilot CLI), or in the cloud. Learn more about [agent types](/docs/agents/overview.md#types-of-agents).
+* **Agent**: the role or persona, such as Agent, Plan, or Ask. Learn more about [choosing an agent](/docs/agents/overview.md#choose-an-agent).
+* **Language model**: the AI model that powers the conversation. Learn more about [language models](/docs/agent-customization/language-models.md).
+* **Permission level**: how much autonomy the agent has over tool approvals. Learn more about [permission levels](/docs/agents/overview.md#choose-a-permission-level).
 
-1. Select where you want to run the agent by using the **Agent Target** dropdown. For example, select **Local** to run the agent interactively in the editor with full access to your workspace, tools, and models.
+![Screenshot showing the agent target dropdown in the Chat view.](images/agents-overview/agent-type-dropdown.png)
 
-    ![Screenshot showing the agent target dropdown in the Chat view.](images/agents-overview/agent-type-dropdown.png)
-
-1. Select an agent from the **Agent** dropdown. For example, select **Agent** to let chat autonomously determine what needs to be done and make changes to your workspace.
-
-    ![Screenshot showing the agent picker in the Chat view.](images/getting-started/agent-mode-selection-2.png)
-
-1. Optionally, select a language model and a permission level for the session. You can change these at any time during the session.
-
-1. Type a prompt that describes what you want to accomplish, and press `kb(workbench.action.chat.submit)`.
-
-    The agent breaks down your task into steps, edits files in your workspace, runs commands, and self-corrects when something goes wrong. Continue the conversation to refine the results or change direction.
-
-Learn more about [how to interact with chat](/docs/chat/copilot-chat.md), including how to configure a session, add context, write effective prompts, and review changes.
-
-## Work alongside your code
-
-Because the Chat view runs in the main VS Code window, the agent works in the context of your open workspace, and you keep the full editing experience available while the agent works:
-
-* **Edit and review in the editor**: open changed files to see inline diffs, and use the editor overlay controls to keep or undo individual edits. Learn more about [reviewing AI-generated code edits](/docs/chat/review-code-edits.md).
-
-* **Debug and test**: use the debugger, run tasks, and execute tests to validate the agent's changes before you commit them.
-
-* **Use extensions and notebooks**: the agent has access to your installed extensions and can [edit notebooks](/docs/agents/guides/notebooks-with-ai.md) directly in the editor.
-
-* **Remote development**: if you're connected to a [remote workspace](/docs/remote/remote-overview.md), agents in the Chat view work there too, with access to the same context and tools as you have.
-
-## Shared sessions with the Agents window
-
-The Chat view and the [Agents window](/docs/agents/agents-window.md) share the same underlying agent sessions for supported agent types. A session you start in the Chat view is immediately available in the Agents window, and the other way around, so you can switch surfaces without losing session history or context.
-
-To switch to the agent-first experience, select the **Open in Agents** button in the title bar, run the **Chat: Open Agents Window** command, or run `code --agents` from the command line. Learn more about the [Agents window](/docs/agents/agents-window.md).
+To start a new session, select **New Chat** (`+`) or press `kb(workbench.action.chat.newChat)`, configure the session, type a prompt, and press `kb(workbench.action.chat.submit)`. The agent breaks down your task into steps, edits files in your workspace, runs commands, and self-corrects when something goes wrong. Learn more about [managing chat sessions](/docs/agents/sessions/chat-sessions.md).
 
 ## Next steps
 
-* [Interact with chat](/docs/chat/copilot-chat.md) - add context, write effective prompts, and review changes.
-* [Manage chat sessions](/docs/agents/sessions/chat-sessions.md) - open chat in editor tabs and windows, and organize your sessions.
+* [Chat overview](/docs/chat/chat-overview.md) - add context, write effective prompts, and review changes.
+* [Manage chat sessions](/docs/agents/sessions/chat-sessions.md) - organize, archive, and fork sessions.
 * [Use the Agents window](/docs/agents/agents-window.md) - work with agents across multiple projects.

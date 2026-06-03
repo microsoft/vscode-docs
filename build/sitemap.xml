@@ -391,17 +391,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/copilot/overview</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
         <loc>https://code.visualstudio.com/docs/setup/copilot</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/docs/copilot/copilot-cloud-agent</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -436,7 +426,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/chat/copilot-chat</loc>
+        <loc>https://code.visualstudio.com/docs/chat/chat-overview</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -461,12 +451,12 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/copilot/getting-started</loc>
+        <loc>https://code.visualstudio.com/docs/agents/agents-window</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/agents/agents-window</loc>
+        <loc>https://code.visualstudio.com/docs/agents/remote-agent-sessions</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
