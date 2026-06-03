@@ -76,19 +76,19 @@ Model Conversion currently supports a growing list of models, including top Hugg
 
 ### (Optional) Update a model project
 
-Sometimes after extension update, you will see notification "Neeed Update" for your model projects.
+Sometimes after a Foundry Toolkit update, you see a **Need Update** notification for your model projects.
 
 ![Screenshot that shows a model needs update](./images/modelconversion/need-update.png)
 
-It means some of the workflows are updated and you could either
+It means some of the workflows are updated, and you could either:
 
-- Click Update if you haven't manually modify workflows
-- Restore extension to the previous version so you could continue to use workflows with previous versions
-- Backup your modifications and click update
+- Select **Update** if you haven't manually modified the workflows.
+- Restore Foundry Toolkit to the previous version so you could continue to use the workflows from that version.
+- Back up your modifications and then select **Update**.
 
-For the converted models, if they are running well, you could still use them. Or you could re-reun the workflow to generate a new one. If the workflows is not updated much, it will be fast because previous results are cached.
+For the converted models, if they are running well, you could still use them. Or you could re-run the workflow to generate a new one. If the workflows are not changed much, it will be fast because previous results are cached.
 
-Learn more in [How to update model project](/docs/intelligentapps/reference/HowToUpdateModelProject.md).
+Learn more in [How to update a model project](/docs/intelligentapps/reference/HowToUpdateModelProject.md).
 
 
 ## Run workflow
@@ -285,5 +285,5 @@ In this article, you learned how to:
 - [How to manually setup GPU conversion](/docs/intelligentapps/reference/ManualConversionOnGPU.md)
 - [How to manually setup environment](/docs/intelligentapps/reference/SetupWithoutAITK.md)
 - [How to customize model template](/docs/intelligentapps/reference/TemplateProject.md)
-- [How to update model project](/docs/intelligentapps/reference/HowToUpdateModelProject.md)
+- [How to update a model project](/docs/intelligentapps/reference/HowToUpdateModelProject.md)
 - [Conversion file structure](/docs/intelligentapps/reference/FileStructure.md)

@@ -66,9 +66,9 @@ The report contains detailed latencies for each op.
 
 ![Screenshot that shows the report data for each OP](./images/profiling/by-model-file-op-result.png)
 
-#### Enable operation level data for Intel (OpenVINO) EP
+#### Enable op level data for Intel (OpenVINO) EP
 
-To see op-level profiling data when running on Intel (OpenVINO) EP, you need to do the following:
+To see op level data when running on the Intel (OpenVINO) EP, do the following:
 
 - Download [Intel® Unified Telemetry](https://www.intel.com/content/www/us/en/developer/tools/intel-unified-telemetry.html)
 - Extract the content to a path like `C:\Users\XXX\Downloads\ut-tool-ext-v0.2.0-beta1.1`
