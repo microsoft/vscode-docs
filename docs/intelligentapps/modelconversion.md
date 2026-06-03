@@ -296,7 +296,7 @@ Built-in models already include validated configurations for Windows ML CLI work
 
 Hugging Face models added by ID are automatically processed on first entry. The card transitions through these states:
 
-- **Configuring**: the model is being downloaded and analyzed.
+- **Configuring**: Windows ML CLI inspects the model on Hugging Face and generates the build config.
 - **Configured**: a configuration is ready.
 - **Failed**: configuration could not be completed. The card shows the failure inline and exposes a **Re-config** button (placed to the left of **Edit Config**) so you can retry without leaving the workflow.
 
