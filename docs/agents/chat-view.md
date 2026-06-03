@@ -53,7 +53,22 @@ The Chat view keeps the agent next to your code, so you can prompt, review, and 
 
 ![Screenshot showing the Chat view with the sessions list, conversation, and chat input.](images/agents-overview/chat-view-expanded.png)
 
-The Chat view operates in two modes: compact and side-by-side. Use the toggle control in the top-right corner of the Chat view to switch between them.
+The Chat view operates in two modes: compact and side-by-side. Use the toggle control in the top-right corner of the Chat view to switch between them. In compact mode, the sessions list and conversation share the same panel. In side-by-side mode, the sessions list stays visible next to the conversation. Learn more about [sessions list layout options](/docs/agents/sessions/chat-sessions.md#sessions-list-in-the-chat-view).
+
+## Work with the agent
+
+After you send a prompt, the agent works through the task step by step. Because the Chat view lives inside the main VS Code window, you can interact with the agent's changes using the full editor experience.
+
+* **Review edits in the editor**: the agent edits files directly in your workspace. Open a changed file to see an inline diff of the applied changes, and use the editor overlay controls to keep or undo individual edits. Learn more about [reviewing AI-generated code edits](/docs/chat/review-code-edits.md).
+
+* **Follow terminal activity**: when the agent runs shell commands, such as installing dependencies or running a build, the commands execute in the integrated terminal. You can see the output in real time and intervene if needed.
+
+* **Debug and test**: use the VS Code debugger, run tasks, and execute tests to validate the agent's changes before you commit them. This is a key advantage of working in the Chat view, where the full editor tooling is always available.
+
+* **Use extensions and notebooks**: the agent has access to your installed extensions and can work with [notebooks](/docs/agents/guides/notebooks-with-ai.md) directly in the editor.
+
+> [!TIP]
+> You can open chat in an editor tab, a separate window, or maximized for more space. Learn more about [where to open a chat session](/docs/agents/sessions/chat-sessions.md#where-to-open-a-chat-session).
 
 ## Configure and start a session
 
