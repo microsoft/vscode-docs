@@ -1,9 +1,9 @@
 {
   "featured": {
-    "title": "Use any AI model without signing in",
-    "description": "Bring your own key (BYOK) to use any language model in air-gapped environments, test web apps across devices, and create richer issue reports.",
-    "link": "/updates/v1_122",
-    "image": "/assets/updates/1_122/release-highlights.webp"
+    "title": "Session sync, deep research, and more",
+    "description": "Sync your chat sessions across machines, run deep research on any topic, work with multiple agent sessions side by side.",
+    "link": "/updates/v1_123",
+    "image": "/assets/updates/1_123/release-highlights.webp"
   },
   "highlights": [
     {
