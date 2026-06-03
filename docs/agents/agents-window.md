@@ -80,17 +80,32 @@ To start a new agent session in the Agents window:
     > [!TIP]
     > You can track and create sessions that run on a remote machine via SSH or a dev tunnel. See [remote agent sessions](/docs/agents/remote-agent-sessions.md) for more information.
 
-1. After selecting the workspace, choose the agent for the session from the dropdown. The available agent types depend on the type of workspace you select:
+1. After selecting the workspace, choose the agent type for the session from the dropdown.
+
+    The available agent types might vary depending on the location of the workspace:
 
     * **Folder**: choose between the Copilot CLI or Claude agent. You can select **Continue In** to hand off the session to a Copilot Cloud agent at any time.
     * **Repository**: sessions started in a GitHub repository use the Copilot cloud agent.
 
-1. Optionally, select a custom agent and language model for the session. You can change these at any point during the session. Learn more about [configuring your chat session](/docs/chat/chat-overview.md#configure-your-chat-session).
+1. Optionally, select extra configuration options for the session like a custom agent, language model, permission level, and more.
+
+    You can change these at any point during the session. Learn more about [configuring your chat session](/docs/chat/chat-overview.md#configure-your-chat-session).
 
 1. Type a prompt that describes what you want to accomplish, and press `kbstyle(Enter)`.
 
-> [!NOTE]
-> For Copilot CLI sessions, you also choose between folder and worktree [isolation modes](/docs/agents/agent-types/copilot-cli.md#isolation-modes) and optionally select a source control branch.
+The agent now starts working on your request. Learn more about [interacting in chat](/docs/chat/chat-overview.md).
+
+## Manage your sessions
+
+The sessions list in the sidebar shows all your active sessions across workspaces. You can group sessions by project or by timeframe to keep track of related work. Each session item surfaces the key information such as session name, workspace, agent type, and file change stats.
+
+Use the filter and search options to narrow down the list and find the session you want to work on.
+
+Select any session to view the chat conversation history and pick up where you left off. If the session is already visible in a session view, selecting it in the list activates that view. Otherwise, it replaces the current active (unpinned) session view. The Changes panel surfaces the latest file updates from the agent and a file explorer view of the workspace.
+
+![Screenshot showing the sessions list in the sidebar in the Agents window.](images/agents-window/agents-window-session-list.png)
+
+Right-click on any session in the list to see additional management options, such as renaming, deleting, and more. For advanced session management, such as archiving, forking, checkpoints, and exporting, see [Manage chat sessions](/docs/agents/sessions/chat-sessions.md) in chat documentation.
 
 ## Manage and review file changes
 
@@ -193,21 +208,6 @@ You can have more than one session open at the same time in the Agents window to
 <video src="images/agents-window/sessions-grid.mp4" title="Video showing multiple agent sessions open side by side in the Agents window." autoplay loop controls muted></video>
 
 Only one session view is *active* at any time. The **Terminal**, **Files**, and **Changes** views always reflect the active session. By default, selecting a session in the sessions list replaces the active view. Pin a session view (top-right toolbar) to prevent it from being replaced.
-
-## Manage your sessions
-
-The sessions list in the sidebar shows all your active sessions across workspaces. You can group sessions by project or by timeframe to keep track of related work. Each session item surfaces the key information such as session name, workspace, agent type, and file change stats.
-
-Use the filter and search options to narrow down the list and find the session you want to work on.
-
-Select any session to view the chat conversation history and pick up where you left off. If the session is already visible in a session view, selecting it in the list activates that view. Otherwise, it replaces the current active (unpinned) session view. The Changes panel surfaces the latest file updates from the agent and a file explorer view of the workspace.
-
-![Screenshot showing the sessions list in the sidebar in the Agents window.](images/agents-window/agents-window-session-list.png)
-
-Right-click on any session in the list to see additional management options, such as renaming, deleting, and more. For advanced session management, such as archiving, forking, checkpoints, and exporting, see [Manage chat sessions](/docs/agents/sessions/chat-sessions.md) in chat documentation.
-
-> [!TIP]
-> Use the arrow buttons in the top-left of the title bar to navigate between recent sessions without leaving the window.
 
 ## Customize agents for your project and workflow
 
