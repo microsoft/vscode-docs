@@ -10,7 +10,7 @@ This article covers tips to write prompts to get better and more relevant respon
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/hh1nOX14TyY" title="Core principles of prompt engineering with GitHub Copilot" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-If you are new to VS Code or AI, you might want to review the [AI in VS Code Overview](/docs/copilot/overview.md) article first or dive straight into the [Getting started](/docs/copilot/getting-started.md) tutorial.
+If you are new to VS Code or AI, you might want to review the [AI in VS Code Overview](/docs/agent-native/overview.md) article first or dive straight into the [Getting started](/docs/getstarted/getting-started.md) tutorial.
 
 ## Getting the most out of inline suggestions
 

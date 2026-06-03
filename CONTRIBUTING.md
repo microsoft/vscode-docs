@@ -273,7 +273,7 @@ The following example shows a `Guides` subsection with two topics, within the `G
       "name": "GitHub Copilot",
       "area": "copilot",
       "topics": [
-        ["Overview", "/docs/copilot/overview"],
+        ["Overview", "/docs/agent-native/overview"],
         ["Setup", "/docs/setup/copilot"],
         ["", "", {
           "name": "Guides",

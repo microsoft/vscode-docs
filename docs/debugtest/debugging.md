@@ -263,7 +263,7 @@ To see a tutorial on the basics of debugging, check out this video:
 
 To learn more about Copilot and AI-assisted debugging in VS Code:
 
-* [Debugging and fixing issues with Copilot](/docs/copilot/overview.md#fix-issues)
+* [Debugging and fixing issues with Copilot](/docs/agents/guides/debug-with-copilot.md)
 * [Copilot cheat sheet for debugging and fixing issues](/docs/agents/reference/copilot-vscode-features.md#debug-and-fix-problems)
 
 To learn about debugging support for other programming languages via VS Code extensions:
