@@ -6,7 +6,9 @@ MetaSocialImage: ../../images/shared/github-copilot-social.png
 ---
 # Manage chat sessions
 
-Use chat in Visual Studio Code to have conversation-based AI interactions. A chat session consists of the sequence of prompts and responses between you and the AI, along with any relevant context from your code or files. This article describes how to create and manage chat sessions, use the sessions list, and organize your sessions. These features work in both the [Chat view](/docs/agents/chat-view.md) and the [Agents window](/docs/agents/agents-window.md).
+Use chat in Visual Studio Code to have conversation-based AI interactions. A chat session consists of the sequence of prompts and responses between you and the AI, along with any relevant context from your code or files.
+
+This article describes how to create and manage chat sessions, use the sessions list, and organize your sessions. These features work in both the [Chat view](/docs/agents/chat-view.md) and the [Agents window](/docs/agents/agents-window.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
 Follow a hands-on tutorial to experience local, background, and cloud agents in VS Code.
@@ -34,21 +36,23 @@ Key things to know about chat sessions:
 
 When you start a new chat session, you begin a new conversation with the AI. Each session has its own context window and can run with a different agent type and permission level. You can run multiple sessions in parallel, each focused on a different task or topic. Use the [sessions list](#sessions-list) to monitor and switch between your active sessions.
 
-To start a new chat session, press `kb(workbench.action.chat.newChat)` or select the **New Chat** button in either the Chat view or the Agents window.
+To start a new chat session:
 
-![Screenshot of the New Chat button in the Chat view.](images/chat-sessions/new-chat-button.png)
+1. Create an empty session by selecting the **New Chat** button. The UI might differ slightly in the Chat view or the Agents window.
 
-Then configure the session:
+1. For the Agents window, choose the workspace or repository for the session, as it can target any of your projects.
 
-1. Select where you want to run the agent by using the **Agent Target** dropdown. For example, select **Local** to run the agent interactively in the editor with full access to your workspace, tools, and models.
+1. Choose an agent type to determine where the agent session runs and what capabilities it has access to.
 
-1. Select an agent from the **Agent** dropdown to choose the role or persona for the session. For example, select **Plan** to have the agent create a structured implementation plan before writing any code. You can switch between agents at any time during a session.
+    You can choose from local, Copilot CLI, Cloud, or third-party. Learn more about [agent types](/docs/agents/overview.md#types-of-agents).
 
-1. Optionally, select a permission level from the **Permissions** dropdown to control how much autonomy the agent has over tool approvals.
+1. Optionally, select additional configuration options for the session:
 
-1. Type your prompt in the chat input box and press `kb(workbench.action.chat.submit)` to submit it.
+    * **Agent**: determines the role or persona of the AI, such as Agent, Plan, or Ask. Learn more about [choosing an agent](/docs/agents/overview.md#choose-an-agent).
+    * **Permission level**: controls how much autonomy the agent has over tool approvals. Learn more about [permission levels](/docs/agents/overview.md#choose-a-permission-level).
+    * **Language model**: determines which AI model powers the conversation. Learn more about [language models in VS Code](/docs/agent-customization/language-models.md).
 
-Learn more about [configuring your chat session](/docs/chat/chat-overview.md#configure-your-chat-session), including agent targets, agents, and permission levels.
+1. Type your prompt and press `kb(workbench.action.chat.submit)` to submit it. Learn more about [configuring your chat session](/docs/chat/chat-overview.md#configure-your-chat-session), including agent targets, agents, and permission levels.
 
 ## Where to open a chat session
 
@@ -56,19 +60,19 @@ You can open chat sessions in different views, depending on how you prefer to wo
 
 ### In the Chat view
 
-The Chat view offers several layout options within the main VS Code window. Learn more about the [Chat view](/docs/agents/chat-view.md).
+The Chat view is designed for a code-first workflow, keeping the agent next to your code for easy prompting, reviewing, and editing in the same window. The Chat view offers several layout options within the main VS Code window. Learn more about the [Chat view](/docs/agents/chat-view.md).
 
 * **Side bar** (default): select **New Chat (+)** > **New Chat**, or run the **Chat: New Chat** command. Best for keeping chat visible alongside your code.
 
-    ![Screenshot of opening a new chat session in the Chat view in VS Code.](images/chat-sessions/new-chat-session-chat-view.png)
+    ![Screenshot of opening a new chat session in the Chat view in VS Code.](../images/chat-sessions/new-chat-session-chat-view.png)
 
 * **Editor tab**: select **New Chat (+)** > **New Chat Editor**, or run the **Chat: New Chat Editor** command. Best for giving chat more space or comparing sessions side by side.
 
-    ![Screenshot of opening a new chat session in an editor tab in VS Code.](images/chat-sessions/new-chat-session-editor-tab.png)
+    ![Screenshot of opening a new chat session in an editor tab in VS Code.](../images/chat-sessions/new-chat-session-editor-tab.png)
 
 * **Separate window**: select **New Chat (+)** > **New Chat Window**, or run the **Chat: New Chat Window** command. Best for multi-monitor setups.
 
-    ![Screenshot of opening a new chat session in a separate window in VS Code.](images/chat-sessions/new-chat-session-separate-window.png)
+    ![Screenshot of opening a new chat session in a separate window in VS Code.](../images/chat-sessions/new-chat-session-separate-window.png)
 
 * **Maximized**: select the **Maximize** button in the Chat view title bar, or run the **View: Toggle Maximized Panel** command. The chat takes over the full editor area, giving it maximum space. Select the button again to restore the previous layout.
 
@@ -77,12 +81,10 @@ The Chat view offers several layout options within the main VS Code window. Lear
 The Agents window is a dedicated window for agent-first workflows. It lets you orchestrate sessions across multiple projects from one place. Learn more about the [Agents window](/docs/agents/agents-window.md).
 
 * Select the **Open in Agents** button in the title bar, run the **Chat: Open Agents Window** command, or use `code --agents` from the command line.
+
 * Open <https://insiders.vscode.dev/agents> in a browser to manage sessions from any device. Learn more about [remote agent sessions](/docs/agents/remote-agent-sessions.md).
+
 * In the Agents window, you can [open multiple sessions side by side](/docs/agents/agents-window.md#open-multiple-sessions-side-by-side) to compare or review work in parallel.
-
-### Move between surfaces
-
-You can move a chat session between views at any time. Select the `...` menu in the Chat view, editor tab, or chat window and choose one of the **Move Chat into...** options. Alternatively, use the corresponding **Chat: Move Chat** commands from the Command Palette. Sessions started in either surface are automatically available in the other.
 
 ## Sessions list
 
@@ -169,7 +171,7 @@ If multiple Copilot CLI sessions share the same worktree, such as after you fork
 
 You don't have to wait for a response to finish before sending your next message. While a request is in progress, the **Send** button changes to a dropdown that gives you three options for how to handle the new message.
 
-![Screenshot of the Send button dropdown menu showing options to queue, steer, or stop and send a new message.](images/chat-sessions/send-dropdown.png)
+![Screenshot of the Send button dropdown menu showing options to queue, steer, or stop and send a new message.](../images/chat-sessions/send-dropdown.png)
 
 * **Add to Queue**: your message waits and sends automatically after the current response completes. The current response finishes uninterrupted.
 * **Steer with Message**: signals the current request to yield after finishing the current tool execution. The current response stops and your new message processes immediately. Use this to redirect the agent when it's heading in the wrong direction.
@@ -181,7 +183,7 @@ The default action for the **Send** button is configurable. Use `setting(chat.re
 
 When you have multiple pending messages (queued or steering), you can drag and drop them to change the order in which they are processed. A drag handle appears on hover when more than one message of the same type is pending.
 
-![Screenshot of pending messages in the chat input box with drag handles to reorder them.](images/chat-sessions/pending-messages.png)
+![Screenshot of pending messages in the chat input box with drag handles to reorder them.](../images/chat-sessions/pending-messages.png)
 
 ## Fork a chat session
 

@@ -63,6 +63,8 @@ The Agents window has the following main areas:
 
 The Agents window and the main VS Code window share the same underlying agent sessions (Copilot CLI, Copilot cloud, and Claude agent). This means that any session you start in the Agents window is immediately available in the main VS Code window.
 
+Unlike the Chat view, where sessions are scoped to the open workspace, the Agents window lets you choose which workspace or repository to target when you start a session.
+
 To start a new agent session in the Agents window:
 
 1. Select **New** at the top of the sidebar or press `kb(workbench.action.chat.newChat)`.
@@ -78,29 +80,17 @@ To start a new agent session in the Agents window:
     > [!TIP]
     > You can track and create sessions that run on a remote machine via SSH or a dev tunnel. See [remote agent sessions](/docs/agents/remote-agent-sessions.md) for more information.
 
-1. After selecting the workspace, choose the agent for the session from the dropdown.
+1. After selecting the workspace, choose the agent for the session from the dropdown. The available agent types depend on the type of workspace you select:
 
-    ![Screenshot showing how to select the agent type from the dropdown after selecting a workspace when starting a new agent session in the Agents window.](images/agents-window/agents-window-agent-dropdown.png)
-
-    The available agent types are determined by the type of workspace you select:
-
-    * **Folder**: choose between the Copilot CLI or Claude agent to start a new session. You can select **Continue In** to hand off the session to a Copilot Cloud agent at any time during the session.
+    * **Folder**: choose between the Copilot CLI or Claude agent. You can select **Continue In** to hand off the session to a Copilot Cloud agent at any time.
     * **Repository**: sessions started in a GitHub repository use the Copilot cloud agent.
 
-1. For Copilot CLI sessions, choose between folder and worktree [isolation](/docs/agents/agent-types/copilot-cli.md#isolation-modes) for the session.
-
-    * **Worktree isolation**: the agent operates in a separate folder backed by a [Git worktree](/docs/sourcecontrol/branches-worktrees.md), which keeps changes isolated from your main workspace until you're ready to merge them.
-    * **Folder isolation**: the agent operates in your main workspace, and changes are applied directly to your files. This is the default behavior for non-Git projects.
-
-    Optionally, select a source control branch to base the session on.
-
-    ![Screenshot showing how to select folder or worktree isolation and optionally choose a source control branch when starting a new agent session in the Agents window.](images/agents-window/agents-window-isolation-branch.png)
-
-1. Optionally, select a custom agent and language model for the session. You can change these at any point during the session.
+1. Optionally, select a custom agent and language model for the session. You can change these at any point during the session. Learn more about [configuring your chat session](/docs/chat/chat-overview.md#configure-your-chat-session).
 
 1. Type a prompt that describes what you want to accomplish, and press `kbstyle(Enter)`.
 
-    The agent breaks down your task into steps, writes code, runs commands, and self-corrects when something goes wrong. Continue the conversation to refine the results or change direction.
+> [!NOTE]
+> For Copilot CLI sessions, you also choose between folder and worktree [isolation modes](/docs/agents/agent-types/copilot-cli.md#isolation-modes) and optionally select a source control branch.
 
 ## Manage and review file changes
 
