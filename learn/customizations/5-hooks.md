@@ -24,7 +24,7 @@ Before you start: you'll need VS Code Insiders installed and the GitHub Copilot 
 
 ## What are hooks?
 
-[Hooks](https://code.visualstudio.com/docs/copilot/customization/hooks) allow you to execute custom shell commands at specific lifecycle points during an agent session.
+[Hooks](https://code.visualstudio.com/docs/agent-customization/hooks) allow you to execute custom shell commands at specific lifecycle points during an agent session.
 
 Instead of manually running tasks, hooks let you define actions that happen automatically in response to events. This makes them ideal for automation, validation, and enforcing consistency across your workflow.
 
@@ -116,10 +116,10 @@ If you want to understand how hooks, agents, skills, and instructions all fit to
 
 ## Learn more
 
-- [Customize AI in Visual Studio Code](https://code.visualstudio.com/docs/copilot/customization/overview)
-- [Use hooks in VS Code](https://code.visualstudio.com/docs/copilot/customization/hooks)
-- [Use custom instructions in VS Code](https://code.visualstudio.com/docs/copilot/customization/custom-instructions)
-- [Use agent skills in VS Code](https://code.visualstudio.com/docs/copilot/customization/agent-skills)
-- [Use custom agents in VS Code](https://code.visualstudio.com/docs/copilot/customization/custom-agents)
-- [Use prompt files in VS Code](https://code.visualstudio.com/docs/copilot/customization/prompt-files)
+- [Customize AI in Visual Studio Code](https://code.visualstudio.com/docs/agent-customization/overview)
+- [Use hooks in VS Code](https://code.visualstudio.com/docs/agent-customization/hooks)
+- [Use custom instructions in VS Code](https://code.visualstudio.com/docs/agent-customization/custom-instructions)
+- [Use agent skills in VS Code](https://code.visualstudio.com/docs/agent-customization/agent-skills)
+- [Use custom agents in VS Code](https://code.visualstudio.com/docs/agent-customization/custom-agents)
+- [Use prompt files in VS Code](https://code.visualstudio.com/docs/agent-customization/prompt-files)
 - [Community contributed customization features](https://github.com/github/awesome-copilot)

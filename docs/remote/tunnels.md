@@ -1,7 +1,7 @@
 ---
 ContentId: 5d33c1af-b4e6-4894-aae1-acf95ee3ffa8
 MetaDescription: Using the Visual Studio Code Remote Tunnels extension
-DateApproved: 5/20/2026
+DateApproved: 6/3/2026
 ---
 # Developing with Remote Tunnels
 
@@ -148,7 +148,7 @@ You can learn more about the security of the underlying dev tunnels service in i
 >
 > This risk is especially severe when AI agents are configured with auto-approval modes such as **Bypass Approvals**, **Autopilot**, or `/yolo`. An unauthorized user who reaches the tunnel endpoint can trigger AI-assisted command execution with your credentials and permissions. Never enable anonymous access on tunnels connected to machines where AI auto-approval is active.
 >
-> Organizations can deploy the **Disable anonymous tunnel access** group policy to prevent anonymous tunnels across managed devices. Learn more about [Dev Tunnels group policies](https://learn.microsoft.com/azure/developer/dev-tunnels/policies). For AI-specific enterprise policies, see [AI settings for your organization](/docs/enterprise/ai-settings.md). For a full overview of AI security controls, see [Security](/docs/copilot/security.md).
+> Organizations can deploy the **Disable anonymous tunnel access** group policy to prevent anonymous tunnels across managed devices. Learn more about [Dev Tunnels group policies](https://learn.microsoft.com/azure/developer/dev-tunnels/policies). For AI-specific enterprise policies, see [AI settings for your organization](/docs/enterprise/ai-settings.md). For a full overview of AI security controls, see [Security](/docs/agents/security.md).
 
 ### Are there usage limits for the tunneling service?
 

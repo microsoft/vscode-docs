@@ -1,6 +1,6 @@
 ---
 ContentId: 243B79C2-819F-4257-B80D-2CD9CCB04C84
-DateApproved: 5/20/2026
+DateApproved: 6/3/2026
 MetaDescription: Setting up additional components to use with Visual Studio Code.
 ---
 # Additional components and tools
@@ -42,6 +42,6 @@ Visual Studio Code integrates with existing tool chains.  We think the following
 
 ## Next steps
 
-* [User Interface](/docs/getstarted/userinterface.md) - A quick orientation around VS Code.
+* [User Interface](/docs/editing/userinterface.md) - A quick orientation around VS Code.
 * [User/Workspace Settings](/docs/configure/settings.md) - Learn how to configure VS Code to your preferences through settings.
 * [Languages](/docs/languages/overview.md) - VS Code supports many programming languages out-of-the-box as well as many more through community created extensions.

@@ -1,6 +1,6 @@
 ---
 ContentId: FB3B14D9-A59A-4968-ACFC-5FB5D4E9B70E
-DateApproved: 5/20/2026
+DateApproved: 6/3/2026
 MetaDescription: Edit JSON files in Visual Studio Code
 ---
 # Editing JSON with Visual Studio Code

@@ -19,7 +19,7 @@ We've open sourced the GitHub Copilot Chat extension under the MIT license and a
 
 This change does not affect current GitHub Copilot subscriptions. To use GitHub Copilot, you'll continue to need both a GitHub account, and access to a GitHub Copilot subscription.
 
-Individual developers who don't have access to Copilot through an organization or enterprise have access to the [GitHub Copilot free plan](https://aka.ms/github-docs-copilot-free) ([restrictions may apply](https://docs.github.com/en/site-policy/other-site-policies/github-and-trade-controls#github-copilot)). If that plan doesn't meet your needs, you can sign up for a Copilot paid plan or [bring your own model keys](https://code.visualstudio.com/docs/copilot/language-models#_bring-your-own-language-model-key).
+Individual developers who don't have access to Copilot through an organization or enterprise have access to the [GitHub Copilot free plan](https://aka.ms/github-docs-copilot-free) ([restrictions may apply](https://docs.github.com/en/site-policy/other-site-policies/github-and-trade-controls#github-copilot)). If that plan doesn't meet your needs, you can sign up for a Copilot paid plan or [bring your own model keys](https://code.visualstudio.com/docs/agent-customization/language-models#_bring-your-own-language-model-key).
 
 ### Will the GitHub Copilot backend services also be open sourced?
 
@@ -89,13 +89,13 @@ Visual Studio Code is a streamlined code editor with support for development ope
 
 Yes, VS Code is free for private or commercial use. See the [product license](https://code.visualstudio.com/license) for details.
 
-If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of inline suggestions and chat interactions.
+If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly allowance of inline suggestions and AI credits.
 
 ## Platform support
 
 ### Which OSs are supported?
 
-VS Code runs on macOS, Linux, and Windows. See the [Requirements documentation](requirements) for the supported versions. You can find more platform specific details in the [Setup overview](/docs/setup/setup-overview.md).
+VS Code runs on macOS, Linux, and Windows. See the [Requirements documentation](requirements) for the supported versions. You can find more platform specific details in the [Setup overview](/docs/getstarted/overview.md).
 
 ### Can I run VS Code on older Windows versions?
 
@@ -115,36 +115,36 @@ VS Code will no longer provide product updates or security fixes on macOS Big Su
 
 Starting with VS Code release 1.86.1 (January 2024), VS Code desktop is only compatible with Linux distributions based on glibc 2.28 or later, for example, Debian 10, RHEL 8, or Ubuntu 20.04.
 
-If you are unable to upgrade your Linux distribution, the recommended alternative is to use our [web client](/docs/setup/vscode-web.md). If you would like to use the desktop version, then you can download the VS Code release 1.85 from [here](https://code.visualstudio.com/updates/v1_85). Depending on your platform, make sure to disable updates to stay on that version. A good recommendation is to set up the installation with [Portable Mode](/docs/editor/portable.md).
+If you are unable to upgrade your Linux distribution, the recommended alternative is to use our [web client](/docs/remote/vscode-web.md). If you would like to use the desktop version, then you can download the VS Code release 1.85 from [here](https://code.visualstudio.com/updates/v1_85). Depending on your platform, make sure to disable updates to stay on that version. A good recommendation is to set up the installation with [Portable Mode](/docs/setup/portable.md).
 
 ### Can I run a portable version of VS Code?
 
-Yes, VS Code has a [Portable Mode](/docs/editor/portable.md) that lets you keep settings and data in the same location as your installation, for example, on a USB drive.
+Yes, VS Code has a [Portable Mode](/docs/setup/portable.md) that lets you keep settings and data in the same location as your installation, for example, on a USB drive.
 
 
 ## Telemetry and crash reporting
 
 ### How to disable telemetry reporting
 
-VS Code collects usage data and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) and [telemetry documentation](/docs/getstarted/telemetry.md) to learn more.
+VS Code collects usage data and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) and [telemetry documentation](/docs/configure/telemetry.md) to learn more.
 
-If you don't want to send usage data to Microsoft, you can set the `telemetry.telemetryLevel` user [setting](/docs/configure/settings.md) to `off`.
+If you don't want to send usage data to Microsoft, you can set the `setting(telemetry.telemetryLevel)` user [setting](/docs/configure/settings.md) to `off`.
 
 From **File** > **Preferences** > **Settings**, search for `telemetry`, and set the **Telemetry: Telemetry Level** setting to `off`. This will silence all telemetry events from VS Code going forward.
 
-> **Important Notice**: VS Code gives you the option to install Microsoft and third party extensions. These extensions may be collecting their own usage data and are not controlled by the `telemetry.telemetryLevel` setting. Consult the specific extension's documentation to learn about its telemetry reporting.
+> **Important Notice**: VS Code gives you the option to install Microsoft and third party extensions. These extensions may be collecting their own usage data and are not controlled by the `setting(telemetry.telemetryLevel)` setting. Consult the specific extension's documentation to learn about its telemetry reporting.
 
 #### How to disable experiments
 
-VS Code uses experiments to try out new features or progressively roll them out. Our experimentation framework calls out to a Microsoft-owned service and is therefore disabled when telemetry is disabled. However, if you want to disable experiments regardless of your telemetry preferences, you may set the `workbench.enableExperiments` user [setting](/docs/configure/settings.md) to `false`.
+VS Code uses experiments to try out new features or progressively roll them out. Our experimentation framework calls out to a Microsoft-owned service and is therefore disabled when telemetry is disabled. However, if you want to disable experiments regardless of your telemetry preferences, you may set the `setting(workbench.enableExperiments)` user [setting](/docs/configure/settings.md) to `false`.
 
 From **File** > **Preferences** > **Settings**, search for `experiments`, and uncheck the **Workbench: Enable Experiments** setting. This will prevent VS Code from calling out to the service and opt out of any ongoing experiments.
 
 ### How to disable crash reporting
 
-VS Code collects data about any crashes that occur and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) and [telemetry documentation](/docs/getstarted/telemetry.md) to learn more.
+VS Code collects data about any crashes that occur and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) and [telemetry documentation](/docs/configure/telemetry.md) to learn more.
 
-If you don't want to send crash data to Microsoft, you can change the `telemetry.telemetryLevel` user [setting](/docs/configure/settings.md) to `off`.
+If you don't want to send crash data to Microsoft, you can change the `setting(telemetry.telemetryLevel)` user [setting](/docs/configure/settings.md) to `off`.
 
 From **File** > **Preferences** > **Settings**, search for `telemetry`, and set the **Telemetry: Telemetry Level** setting to `off`. This will silence all telemetry events including crash reporting from VS Code. You will need to restart VS Code for the setting change to take effect.
 
@@ -158,11 +158,11 @@ To support GDPR:
 * The team actively reviews and classifies all telemetry sent (documented in [our OSS codebase](https://github.com/microsoft/vscode/pull/34997)).
 * There are valid data retention policies in place for any data collected, for example crash dumps.
 
-You can learn more about VS Code's GDPR compliance in the [telemetry documentation](/docs/getstarted/telemetry.md).
+You can learn more about VS Code's GDPR compliance in the [telemetry documentation](/docs/configure/telemetry.md).
 
 ## What online services does VS Code use?
 
-Beyond crash reporting and telemetry, VS Code uses online services for various other purposes such as downloading product updates, finding, installing, and updating extensions, or providing Natural Language Search within the Settings editor. You can learn more in [Managing online services](/docs/getstarted/telemetry.md#managing-online-services).
+Beyond crash reporting and telemetry, VS Code uses online services for various other purposes such as downloading product updates, finding, installing, and updating extensions, or providing Natural Language Search within the Settings editor. You can learn more in [Managing online services](/docs/configure/telemetry.md#managing-online-services).
 
 You can choose to turn on/off features that use these services. From **File** > **Preferences** > **Settings**, and type the tag `@tag:usesOnlineServices`. This will display all settings that control the usage of online services and you can individually switch them on or off.
 
@@ -209,7 +209,7 @@ No. While the source code for an extension from Microsoft may be open source, we
 
 We provide the Visual Studio Marketplace for use only by the Visual Studio family of products: Microsoft Visual Studio, Visual Studio Code, GitHub Codespaces, Azure DevOps, Azure DevOps Server, and successor products and services offered by us and Microsoft affiliates, such as GitHub, Inc. Therefore, alternative products including those built on a fork of the [Code - OSS Repository](https://github.com/microsoft/vscode), are not permitted to access the Visual Studio Marketplace. We do this to protect the security and quality of the ecosystem, including the following measures:
 
-* Extensions run in the context and with the permissions of the product, and they might contain executable code. The [Marketplace vets every extension](/docs/editor/extension-runtime-security.md#marketplace-protections) for security and to prevent them from performing malicious activity. When you install an extension with a product in the Visual Studio family, you know that it has been vetted to run in that context.
+* Extensions run in the context and with the permissions of the product, and they might contain executable code. The [Marketplace vets every extension](/docs/configure/extensions/extension-runtime-security.md#marketplace-protections) for security and to prevent them from performing malicious activity. When you install an extension with a product in the Visual Studio family, you know that it has been vetted to run in that context.
 
 * When a malicious extension is reported and verified, or a vulnerability is found in an extension dependency, the extension is removed from the Marketplace, added to a block list, and automatically uninstalled by VS Code.
 
@@ -223,7 +223,7 @@ See [#31168](https://github.com/microsoft/vscode/issues/31168#issuecomment-28109
 
 Installing extensions from the Visual Studio Marketplace has many advantages over installing them from other sources.
 
-* The Visual Studio Marketplace employs [several mechanisms](/docs/editor/extension-runtime-security.md#marketplace-protections) to protect you from installing malicious extensions, including malware scanning, dynamic detection, publisher verification, and more. When you install extensions from a different source, there is no guarantee that the extension is safe to run in your context.
+* The Visual Studio Marketplace employs [several mechanisms](/docs/configure/extensions/extension-runtime-security.md#marketplace-protections) to protect you from installing malicious extensions, including malware scanning, dynamic detection, publisher verification, and more. When you install extensions from a different source, there is no guarantee that the extension is safe to run in your context.
 
 * When a malicious extension is reported and verified, or a vulnerability is found in an extension dependency, the extension is removed from the Marketplace, added to a *block list*, and automatically uninstalled by VS Code.
 
@@ -311,28 +311,33 @@ To install the Insiders build, go to the [Insiders download page](/insiders).
 
 ### How do I opt out of VS Code auto-updates?
 
-By default, VS Code is set up to auto-update for macOS and Windows users when we release new updates. If you do not want to get automatic updates, you can set the **Update: Mode** setting from `default` to `none`.
+By default, VS Code is set up to auto-update for macOS and Windows users when we release new updates. If you do not want to get automatic updates, configure the **Update: Mode** setting (`setting(update.mode)`) from `default` to `none`.
 
 To modify the update mode, go to **File** > **Preferences** > **Settings**, search for `update mode` and change the setting to `none`.
 
 If you use the JSON editor for your settings, add the following line:
 
 ```json
+{
     "update.mode": "none"
+}
 ```
 
 You can install a previous release of VS Code by uninstalling your current version and then installing the download provided at the top of a specific [release notes](/updates) page.
 
->**Note:** On Linux: If the VS Code repository was installed correctly then your system package manager should handle auto-updating in the same way as other packages on the system. See [Installing VS Code on Linux](/docs/setup/linux.md).
+> [!NOTE]
+> On Linux: If the VS Code repository was installed correctly then your system package manager should handle auto-updating in the same way as other packages on the system. See [Installing VS Code on Linux](/docs/setup/linux.md).
 
 #### Opt out of extension updates
 
-By default, VS Code will also auto-update extensions as new versions become available. If you do not want extensions to automatically update, you can clear the **Extensions: Auto Update** check box in the Settings editor (`kb(workbench.action.openSettings)`).
+By default, VS Code will also auto-update extensions as new versions become available. If you do not want extensions to automatically update, you can clear the **Extensions: Auto Update** setting (`setting(extensions.autoUpdate)`) in the Settings editor (`kb(workbench.action.openSettings)`).
 
 If you use the JSON editor to modify your settings, add the following line:
 
 ```json
+{
     "extensions.autoUpdate": false
+}
 ```
 
 ## Where can I find the Visual Studio Code icons?
@@ -403,7 +408,7 @@ rm -r ~/.config/Code/GPUCache
 
 ### VS Code gets unresponsive right after opening a folder
 
-When you open a folder, VS Code will search for typical project files to offer you additional tooling (for example, the solution picker in the Status bar to open a solution). If you open a folder with lots of files, the search can take a large amount of time and CPU resources during which VS Code might be slow to respond. We plan to improve this in the future but for now you can exclude folders from the explorer via the `files.exclude` setting and they will not be searched for project files:
+When you open a folder, VS Code will search for typical project files to offer you additional tooling (for example, the solution picker in the Status bar to open a solution). If you open a folder with lots of files, the search can take a large amount of time and CPU resources during which VS Code might be slow to respond. We plan to improve this in the future but for now you can exclude folders from the explorer via the `setting(files.exclude)` setting and they will not be searched for project files:
 
 ```json
     "files.exclude": {

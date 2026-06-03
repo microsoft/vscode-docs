@@ -1,6 +1,6 @@
 ---
 ContentId: f8a9c3d2-4e7b-5f1a-b6c8-9d0e2f3a7b4c
-DateApproved: 5/20/2026
+DateApproved: 6/3/2026
 MetaDescription: Learn how to centrally manage AI settings in VS Code for enterprise environments, including agent mode, MCP servers, and tool approvals.
 ---
 
@@ -33,15 +33,15 @@ IT admins can verify the gate state at any time with the **Developer: Policy Dia
 
 ## Enable or disable the use of agents
 
-[Agents](/docs/copilot/agents/overview.md) enable the AI to autonomously perform tasks like editing files, running terminal commands, and using tools. Agents enable developers to provide a high-level requirement and have the AI assistant analyze, plan, and execute the necessary steps to achieve that goal.
+[Agents](/docs/agents/overview.md) enable the AI to autonomously perform tasks like editing files, running terminal commands, and using tools. Agents enable developers to provide a high-level requirement and have the AI assistant analyze, plan, and execute the necessary steps to achieve that goal.
 
 To disable agents entirely, set the `ChatAgentMode` policy to `false`. This configures the `setting(chat.agent.enabled)` setting in VS Code.
 
-The **Agent** option will not be available in the agents dropdown in the Chat view when this policy is applied. Developers can still use [ask or edit](/docs/copilot/chat/copilot-chat.md) for code explanations and file edits, but autonomous code generation and task execution are not available.
+The **Agent** option will not be available in the agents dropdown in the Chat view when this policy is applied. Developers can still use [ask or edit](/docs/chat/copilot-chat.md) for code explanations and file edits, but autonomous code generation and task execution are not available.
 
 ## Enable or disable hooks
 
-[Hooks](/docs/copilot/customization/hooks.md) enable you to execute custom shell commands at key lifecycle points during agent sessions, such as before or after tool invocations, at session start, or when an agent stops. Hooks can automate workflows, enforce security policies, and control agent behavior.
+[Hooks](/docs/agent-customization/hooks.md) enable you to execute custom shell commands at key lifecycle points during agent sessions, such as before or after tool invocations, at session start, or when an agent stops. Hooks can automate workflows, enforce security policies, and control agent behavior.
 
 To disable hooks entirely, set the `ChatHooks` policy to `false`. This configures the `setting(chat.useHooks)` setting in VS Code.
 
@@ -49,7 +49,7 @@ When this policy is applied, hook configurations are ignored and no hook command
 
 ## Enable or disable extension language tools
 
-[Tools in chat](/docs/copilot/agents/agent-tools.md) extend the AI assistant's capabilities with specialized functions. These tools can come from built-in features, Model Context Protocol (MCP) servers, or third-party extensions.
+[Tools in chat](/docs/agents/agent-tools.md) extend the AI assistant's capabilities with specialized functions. These tools can come from built-in features, Model Context Protocol (MCP) servers, or third-party extensions.
 
 Third-party extensions can contribute tools that integrate with chat by using the [Language Model Tools API](/api/extension-guides/ai/tools).
 
@@ -61,7 +61,7 @@ To disable agent plugin integration in chat, set the `ChatPluginsEnabled` policy
 
 ## Configure MCP server access
 
-[Model Context Protocol (MCP) servers](/docs/copilot/customization/mcp-servers.md) extend chat with external tools and services. Organizations can control which MCP servers developers can use through both GitHub organization settings and VS Code policies.
+[Model Context Protocol (MCP) servers](/docs/agent-customization/mcp-servers.md) extend chat with external tools and services. Organizations can control which MCP servers developers can use through both GitHub organization settings and VS Code policies.
 
 ### Restrict MCP server sources
 
@@ -91,13 +91,13 @@ Organizations with GitHub Copilot Enterprise or Business can also configure MCP 
 
 Agent tools can perform actions that modify files, run commands, or access external services. VS Code includes approval prompts for potentially risky operations. Organizations can enforce stricter approval requirements or disable auto-approval entirely.
 
-Learn more about [tool approval](/docs/copilot/agents/agent-tools.md#tool-approval) in VS Code.
+Learn more about [tool approval](/docs/agents/agent-tools.md#tool-approval) in VS Code.
 
 ### Disable global auto-approval
 
 The `ChatToolsAutoApprove` policy controls the global auto-approval setting. When enabled, the AI assistant can execute all tools without manual approval. This is not recommended for security reasons.
 
-To prevent developers from enabling global auto-approval, set the `ChatToolsAutoApprove` policy to `false`. This configures the `setting(chat.tools.global.autoApprove)` setting in VS Code and also hides the **Bypass Approvals** and **Autopilot** options from the [permissions picker](/docs/copilot/agents/agent-tools.md#permission-levels) in the Chat view.
+To prevent developers from enabling global auto-approval, set the `ChatToolsAutoApprove` policy to `false`. This configures the `setting(chat.tools.global.autoApprove)` setting in VS Code and also hides the **Bypass Approvals** and **Autopilot** options from the [permissions picker](/docs/agents/agent-tools.md#permission-levels) in the Chat view.
 
 > [!CAUTION]
 > Global auto-approval bypasses all security prompts for tool invocations. Disabling this feature is strongly recommended for enterprise environments.
@@ -128,7 +128,7 @@ To disable terminal auto-approval entirely, set the policy to `false`. This conf
 
 ### Configure agent sandboxing
 
-Organizations should recommend that developers enable [agent sandboxing](/docs/copilot/concepts/trust-and-safety.md#agent-sandboxing), especially in environments where auto-approval or Autopilot mode is used. Agent sandboxing uses OS-level isolation to restrict file system and network access for agent-executed commands, which provides stronger protection than approval rules alone.
+Organizations should recommend that developers enable [agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing), especially in environments where auto-approval or Autopilot mode is used. Agent sandboxing uses OS-level isolation to restrict file system and network access for agent-executed commands, which provides stronger protection than approval rules alone.
 
 The `ChatAgentSandboxEnabled` policy controls whether agent sandboxing is enabled or disabled. This configures the `setting(chat.agent.sandbox.enabled)` setting in VS Code.
 
@@ -150,7 +150,7 @@ When both domain lists are empty and the filter is enabled, all network access b
 
 The `ChatAgentAllowedNetworkDomains` policy controls which domains agent tools are permitted to access. This configures the `setting(chat.agent.allowedNetworkDomains)` setting in VS Code.
 
-Provide a list of domain patterns. Wildcards are supported, for example `*.example.com`. When [agent sandboxing](/docs/copilot/concepts/trust-and-safety.md#agent-sandboxing) is also enabled, these domain rules additionally apply to terminal commands executed by the agent.
+Provide a list of domain patterns. Wildcards are supported, for example `*.example.com`. When [agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing) is also enabled, these domain rules additionally apply to terminal commands executed by the agent.
 
 ### Configure denied domains
 
@@ -174,7 +174,7 @@ When both domain lists are empty and the filter is enabled, all network access b
 
 The `ChatAgentAllowedNetworkDomains` policy controls which domains agent tools are permitted to access. This configures the `setting(chat.agent.allowedNetworkDomains)` setting in VS Code.
 
-Provide a list of domain patterns. Wildcards are supported, for example `*.example.com`. When [agent sandboxing](/docs/copilot/concepts/trust-and-safety.md#agent-sandboxing) is also enabled, these domain rules additionally apply to terminal commands executed by the agent.
+Provide a list of domain patterns. Wildcards are supported, for example `*.example.com`. When [agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing) is also enabled, these domain rules additionally apply to terminal commands executed by the agent.
 
 ### Configure denied domains
 
@@ -227,9 +227,9 @@ Learn how to [create custom agents for your organization](https://docs.github.co
 
 ## Security considerations
 
-AI-powered development features can autonomously perform actions with user-level permissions. Refer to the [security documentation](/docs/copilot/security.md) for a comprehensive overview of AI security considerations and best practices.
+AI-powered development features can autonomously perform actions with user-level permissions. Refer to the [security documentation](/docs/agents/security.md) for a comprehensive overview of AI security considerations and best practices.
 
-For environments where agents operate with elevated autonomy (auto-approval or Autopilot mode), recommend that developers enable [agent sandboxing](/docs/copilot/concepts/trust-and-safety.md#agent-sandboxing) or work inside a [dev container](/docs/devcontainers/containers.md) to limit the impact of unintended or malicious actions.
+For environments where agents operate with elevated autonomy (auto-approval or Autopilot mode), recommend that developers enable [agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing) or work inside a [dev container](/docs/devcontainers/containers.md) to limit the impact of unintended or malicious actions.
 
 ### Agent deployment options and data residency
 
@@ -243,9 +243,9 @@ For GitHub Copilot's security, privacy, compliance, and transparency information
 ## Related resources
 
 * [Enterprise policies reference](/docs/enterprise/policies.md) - Complete list of enterprise policies
-* [Use tools in chat](/docs/copilot/agents/agent-tools.md) - Learn how tools work in VS Code chat
-* [MCP servers in VS Code](/docs/copilot/customization/mcp-servers.md) - Configure and use MCP servers
-* [Custom instructions](/docs/copilot/customization/custom-instructions.md) - Define custom instructions for AI responses
-* [Custom agents](/docs/copilot/customization/custom-agents.md) - Create custom AI personas and workflows
-* [AI security considerations](/docs/copilot/security.md) - Security best practices for AI features
+* [Use tools in chat](/docs/agents/agent-tools.md) - Learn how tools work in VS Code chat
+* [MCP servers in VS Code](/docs/agent-customization/mcp-servers.md) - Configure and use MCP servers
+* [Custom instructions](/docs/agent-customization/custom-instructions.md) - Define custom instructions for AI responses
+* [Custom agents](/docs/agent-customization/custom-agents.md) - Create custom AI personas and workflows
+* [AI security considerations](/docs/agents/security.md) - Security best practices for AI features
 * [GitHub Copilot Trust Center FAQ](https://copilot.github.trust.page/faq) - Security, privacy, and compliance information

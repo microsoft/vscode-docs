@@ -14,7 +14,7 @@ October 22, 2025 by [Olivia Guzzardo McVicker](https://github.com/olguzzar), [Pi
 
 We know that model choice is important to you. Our team has been hard at work making the latest models like [Claude Haiku 4.5](https://github.blog/changelog/2025-10-15-anthropics-claude-haiku-4-5-is-in-public-preview-for-github-copilot/) and [GPT 5 available](https://github.blog/changelog/2025-08-07-openai-gpt-5-is-now-in-public-preview-for-github-copilot/) to you on the same day they were announced. But we've also heard your feedback that you want support for even more models in VS Code, be it locally or in the cloud.
 
-In March, we released the [bring your own key (BYOK)](https://code.visualstudio.com/docs/copilot/customization/language-models#_bring-your-own-language-model-key) functionality to let you pick from hundreds of models from supported providers like OpenRouter, Ollama, Google, OpenAI, and more to power chat experiences in VS Code.
+In March, we released the [bring your own key (BYOK)](https://code.visualstudio.com/docs/agent-customization/language-models#_bring-your-own-language-model-key) functionality to let you pick from hundreds of models from supported providers like OpenRouter, Ollama, Google, OpenAI, and more to power chat experiences in VS Code.
 
 Now, we're taking BYOK to the next level. In the [v1.104 release](https://code.visualstudio.com/updates/v1_104), we introduced the [Language Model Chat Provider API](https://code.visualstudio.com/api/extension-guides/ai/language-model-chat-provider) that enables model providers to contribute their models directly through VS Code extensions.
 
@@ -48,7 +48,7 @@ For extension developers interested in contributing their own models, check out 
 
 ## OpenAI-compatible Models
 
-For developers using OpenAI-compatible models, you can use the custom **OpenAI Compatible** provider for any OpenAI-compatible API endpoint and [configure the models for use in chat](https://code.visualstudio.com/docs/copilot/customization/language-models#_use-an-openaicompatible-model). This feature is currently available in VS Code Insiders only.
+For developers using OpenAI-compatible models, you can use the custom **OpenAI Compatible** provider for any OpenAI-compatible API endpoint and [configure the models for use in chat](https://code.visualstudio.com/docs/agent-customization/language-models#_use-an-openaicompatible-model). This feature is currently available in VS Code Insiders only.
 
 ![Screenshot showing OpenAI-compatible model configuration in VS Code.](manage-openai-compatible.png)
 

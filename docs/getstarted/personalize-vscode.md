@@ -1,6 +1,6 @@
 ---
 ContentId: ee9b8bb7-0e8a-478d-842b-f9691f25e820
-DateApproved: 5/20/2026
+DateApproved: 6/3/2026
 MetaDescription: Learn how to personalize VS Code to your likings with themes, icons, keyboard shortcuts, display language, and settings.
 ---
 # Personalize VS Code
@@ -30,7 +30,7 @@ Learn about the key features of Visual Studio Code in our introduction video.
 
 ## Configure settings
 
-Almost every aspect of VS Code can be customized via settings. Settings let you configure editor options such as enabling word wrapping or showing the minimap, setting up language-specific debugger settings, enabling Workspace Trust, and more. When you install extensions from the Visual Studio Marketplace, they might add their own [extension settings](/docs/getstarted/extensions.md#open-extension-settings).
+Almost every aspect of VS Code can be customized via settings. Settings let you configure editor options such as enabling word wrapping or showing the minimap, setting up language-specific debugger settings, enabling Workspace Trust, and more. When you install extensions from the Visual Studio Marketplace, they might add their own [extension settings](/docs/configure/extensions/extensions.md#open-extension-settings).
 
 The Settings editor (`kb(workbench.action.openSettings)`) provides a graphical interface to modify settings. When you modify settings, VS Code stores them in the `settings.json` file. Optionally, you can edit the `settings.json` file directly.
 
@@ -53,7 +53,7 @@ To modify a setting in VS Code with the Settings editor:
 
 By default, VS Code shows a welcome page when you start it. The welcome page provides quick access to common tasks such as opening recent projects, cloning repositories, and installing extensions.
 
-You can customize what VS Code shows when you start it. If you frequently work with agent sessions, set the `setting(workbench.startupEditor)` setting to `agentSessionsWelcomePage` to show a welcome page with recent sessions, embedded chat, and quick actions. Learn more about the [Agent Sessions Welcome Page](/docs/copilot/chat/chat-sessions.md#vs-code-welcome-page).
+You can customize what VS Code shows when you start it. If you frequently work with agent sessions, set the `setting(workbench.startupEditor)` setting to `agentSessionsWelcomePage` to show a welcome page with recent sessions, embedded chat, and quick actions. Learn more about the [Agent Sessions Welcome Page](/docs/agents/sessions/chat-sessions.md#vs-code-welcome-page).
 
 Get more details about [configuring settings in VS Code](/docs/configure/settings.md), such as configuring language-specific settings or syncing settings across machines.
 
@@ -111,7 +111,7 @@ Get more details about [changing the display language in VS Code](/docs/configur
 
 After personalizing VS Code, you can:
 
-* [Explore key VS Code features with our Quickstart](/docs/getstarted/getting-started.md)
-* [Install extensions to add features for your programming language](/docs/getstarted/extensions.md)
+* [Explore key VS Code features with our Quickstart](/docs/editing/getting-started.md)
+* [Install extensions to add features for your programming language](/docs/configure/extensions/extensions.md)
 * [Set up version control with Git](/docs/sourcecontrol/overview.md)
 * [Configure debugging for your project](/docs/debugtest/debugging.md)

@@ -26,7 +26,7 @@ You can launch VS Code from the command line to quickly open a file, folder, or 
 > [!NOTE]
 > Users on macOS must first run a command (**Shell Command: Install 'code' command in PATH**) to add VS Code executable to the `PATH` environment variable. Read the [macOS setup guide](/docs/setup/mac.md) for help.
 
-Windows and Linux installations should add the VS Code binaries location to your system path. If this isn't the case, you can manually add the location to the `Path` environment variable (`$PATH` on Linux). For example, on Windows, the default VS Code binaries location is `AppData\Local\Programs\Microsoft VS Code\bin`. To review platform-specific setup instructions, see [Setup](/docs/setup/setup-overview.md).
+Windows and Linux installations should add the VS Code binaries location to your system path. If this isn't the case, you can manually add the location to the `Path` environment variable (`$PATH` on Linux). For example, on Windows, the default VS Code binaries location is `AppData\Local\Programs\Microsoft VS Code\bin`. To review platform-specific setup instructions, see [Setup](/docs/getstarted/overview.md).
 
 > [!NOTE]
 > If you are using the VS Code [Insiders](/insiders) preview, you launch your Insiders build with `code-insiders`.
@@ -127,8 +127,8 @@ There are several CLI options that help with reproducing errors and advanced set
 
 Argument|Description
 ------------------|-----------
-`--extensions-dir <dir>` | Set the root path for extensions.<br>Overridden in [Portable Mode](/docs/editor/portable.md) by the `data` folder.
-`--user-data-dir <dir>` | Specifies the directory that user data is kept in. Can be used to run multiple isolated instances of VS Code with separate environments, settings, and extensions. Also useful when running as root.<br>Overridden in [Portable Mode](/docs/editor/portable.md) by the `data` folder.
+`--extensions-dir <dir>` | Set the root path for extensions.<br>Overridden in [Portable Mode](/docs/setup/portable.md) by the `data` folder.
+`--user-data-dir <dir>` | Specifies the directory that user data is kept in. Can be used to run multiple isolated instances of VS Code with separate environments, settings, and extensions. Also useful when running as root.<br>Overridden in [Portable Mode](/docs/setup/portable.md) by the `data` folder.
 `-s, --status` | Print process usage and diagnostics information.
 `-p, --performance` | Start with the **Developer: Startup Performance** command enabled.
 `--disable-gpu` | Disable GPU hardware acceleration.
@@ -256,7 +256,7 @@ VS Code has an [Integrated Terminal](/docs/terminal/basics.md) where you can run
 
 ### Can I specify the settings location for VS Code in order to have a portable version?
 
-Not directly through the command line, but VS Code has a [Portable Mode](/docs/editor/portable.md), which lets you keep settings and data in the same location as your installation, for example, on a USB drive.
+Not directly through the command line, but VS Code has a [Portable Mode](/docs/setup/portable.md), which lets you keep settings and data in the same location as your installation, for example, on a USB drive.
 
 ### How do I detect when a shell was launched by VS Code?
 

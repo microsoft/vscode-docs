@@ -1,6 +1,6 @@
 ---
 ContentId: 47A8BA5A-A103-4B61-B5FB-185C15E54C52
-DateApproved: 5/20/2026
+DateApproved: 6/3/2026
 MetaDescription: Get the best out of Visual Studio Code for Markdown
 ---
 # Markdown and Visual Studio Code
@@ -115,7 +115,7 @@ When a new file is pasted into `/docs/api/readme.md`, the image is now created u
 
 You can use AI to generate or update alt text for images in Markdown files. To generate alt text:
 
-1. Make sure you have [set up Copilot](/docs/copilot/setup.md) in your VS Code environment. You can get started with Copilot for free.
+1. Make sure you have [set up Copilot](/docs/setup/copilot.md) in your VS Code environment. You can get started with Copilot for free.
 
 1. Open a Markdown file.
 1. Put the cursor on an image link.

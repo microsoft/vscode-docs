@@ -1,6 +1,6 @@
 ---
 ContentId: DE4EAE2F-4542-4363-BB74-BE47D64141E6
-DateApproved: 5/20/2026
+DateApproved: 6/3/2026
 MetaDescription: Learn about the basic editing features of Visual Studio Code. Search, multiple selection, code formatting.
 MetaSocialImage: images/codebasics/code-basics-social.png
 ---
@@ -87,6 +87,8 @@ The user setting **Editor: Column Selection** controls this feature. Once this m
 ## Save / Auto Save
 
 By default, VS Code requires an explicit action to save your changes to disk, `kb(workbench.action.files.save)`.
+
+When an editor has unsaved changes, a dot indicator is displayed in the editor tab, and the Explorer view shows a badge indicating the number of unsaved files. These changes are not yet saved to disk, but VS Code automatically backs them up so they can be restored if the application closes unexpectedly (see [Hot Exit](#hot-exit)).
 
 However, it's easy to turn on `Auto Save`, which will save your changes after a configured delay or when focus leaves the editor. With this option turned on, there is no need to explicitly save the file. The easiest way to turn on `Auto Save` is with the **File** > **Auto Save** toggle that turns on and off save after a delay.
 
@@ -195,7 +197,7 @@ You can configure advanced search options by selecting the ellipsis (**Toggle Se
 
 ### Advanced search options
 
-![Advanced search options](images/codebasics/searchadvanced.png)
+![Advanced search options](images/codebasics/searchadvanced-v2.png)
 
 In the two input boxes below the search box, you can enter patterns to include or exclude from the search. If you enter `example`, that will match every folder and file named `example` in the workspace. If you enter `./example`, that will match the folder `example/` at the top level of your workspace. Use `,` to separate multiple patterns. Paths must use forward slashes. You can also use [glob pattern](/docs/editor/glob-patterns.md) syntax, for example:
 
@@ -213,6 +215,8 @@ VS Code excludes some folders by default to reduce the number of search results 
 Note that glob patterns in the Search view work differently than in settings such as `setting(files.exclude)` and `setting(search.exclude)`. In the settings, you must use `**/example` to match a folder named `example` in subfolder `folder1/example` in your workspace. In the Search view, the `**` prefix is assumed. The glob patterns in these settings are always evaluated relative to the path of the workspace folder.
 
 Also note the **Use Exclude Settings and Ignore Files** toggle button in the **files to exclude** box. The toggle determines whether to exclude files that are ignored by your `.gitignore` files and/or matched by your `setting(files.exclude)` and `setting(search.exclude)` settings.
+
+In the **files to include** box, you can use the **Search only in changed files** toggle button to restrict search results to files that have uncommitted source control changes. This toggle is disabled when there's no repository or no changes to search.
 
 > [!NOTE]
 > Patterns in `.gitignore` files are matched case-insensitively on Windows and macOS, and case-sensitively on Linux. Learn more about [glob pattern case sensitivity](/docs/editor/glob-patterns.md#case-sensitivity).

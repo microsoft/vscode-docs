@@ -254,7 +254,7 @@ The following example shows a `Getting Started` section that has two topics.
       "name": "Getting Started",
       "area": "getstarted",
       "topics": [
-        ["VS Code Tutorial", "/docs/getstarted/getting-started"],
+        ["VS Code Tutorial", "/docs/editing/getting-started"],
         ["Copilot Quickstart", "/docs/getstarted/copilot-quickstart"]
       ]
     },
@@ -274,17 +274,17 @@ The following example shows a `Guides` subsection with two topics, within the `G
       "area": "copilot",
       "topics": [
         ["Overview", "/docs/copilot/overview"],
-        ["Setup", "/docs/copilot/setup"],
+        ["Setup", "/docs/setup/copilot"],
         ["", "", {
           "name": "Guides",
           "area": "copilot/guides",
           "topics": [
-            ["Test with Copilot", "/docs/copilot/guides/test-with-copilot"],
-            ["Debug with Copilot", "/docs/copilot/guides/debug-with-copilot"]
+            ["Test with Copilot", "/docs/agents/guides/test-with-copilot"],
+            ["Debug with Copilot", "/docs/agents/guides/debug-with-copilot"]
           ]
         }
         ],
-        ["FAQ", "/docs/copilot/faq"]
+        ["FAQ", "/docs/agents/agent-troubleshooting/faq"]
       ]
     },
 ```

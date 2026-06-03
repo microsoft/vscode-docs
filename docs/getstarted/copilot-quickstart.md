@@ -1,6 +1,6 @@
 ---
 ContentId: b9184911-c822-4ea4-b19b-aba239313c88
-DateApproved: 5/20/2026
+DateApproved: 6/3/2026
 MetaDescription: Get started with GitHub Copilot in Visual Studio Code and create your first AI-powered suggestions in the editor.
 ---
 # Quickstart: Getting started with GitHub Copilot in VS Code

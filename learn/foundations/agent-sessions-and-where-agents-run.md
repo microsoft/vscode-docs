@@ -128,5 +128,5 @@ In the [next guide](/learn/foundations/debugging-and-whats-happening-behind-the-
 
 ## Learn more
 
-* [Using agents in VS Code](https://code.visualstudio.com/docs/copilot/agents/overview)
+* [Using agents in VS Code](https://code.visualstudio.com/docs/agents/overview)
 * [GitHub Pull Requests extension](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github)
