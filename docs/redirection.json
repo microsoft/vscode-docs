@@ -81,5 +81,6 @@
     { "from": "/docs/copilot/reference/workspace-context", "to": "/docs/agents/reference/workspace-context", "status": 301 },
     { "from": "/docs/copilot/security", "to": "/docs/agents/security", "status": 301 },
     { "from": "/docs/setup/vscode-web", "to": "/docs/remote/vscode-web", "status": 301 },
-    { "from": "/docs/copilot/chat/session-insights", "to": "/docs/agents/sessions/session-insights", "status": 301 }
+    { "from": "/docs/copilot/chat/session-insights", "to": "/docs/agents/sessions/session-insights", "status": 301 },
+    { "from": "/docs/copilot/guides/optimize-usage", "to": "/docs/agents/guides/optimize-usage", "status": 301 }
 ]

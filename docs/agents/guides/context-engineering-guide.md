@@ -247,7 +247,7 @@ Following these best practices helps you establish a sustainable and effective c
 
 **Maintain context isolation**: Keep different types of work (planning, coding, testing, debugging) in separate chat sessions to prevent context mixing and confusion.
 
-**Be mindful of credit consumption**: More context files, larger instruction sets, and complex agent chains all increase token usage and [AI credit](/docs/copilot/concepts/language-models.md#ai-credits-and-model-costs) consumption. Start with concise context and expand only when needed. For more tips, see [optimize AI credit usage](/docs/copilot/guides/optimize-usage.md).
+**Be mindful of credit consumption**: More context files, larger instruction sets, and complex agent chains all increase token usage and [AI credit](/docs/copilot/concepts/language-models.md#ai-credits-and-model-costs) consumption. Start with concise context and expand only when needed. For more tips, see [optimize AI credit usage](/docs/agents/guides/optimize-usage.md).
 
 ### Documentation strategies
 
