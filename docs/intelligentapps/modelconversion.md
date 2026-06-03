@@ -286,13 +286,19 @@ After the project opens, the **Run Workflows** panel shows a **Build Flow** card
 
 ![Screenshot that shows the Build Flow card with Edit Config and Build buttons for a Hugging Face model.](./images/modelconversion/winmlcli-build-flow.png)
 
-The behavior on first entry depends on how the model was added to the project:
+The behavior on first entry depends on how the model was added to the project.
 
-- **Built-in models** already include validated configurations for Windows ML CLI workflows. These curated models ship with prepared Build Config files optimized for Windows ML EPs. The Build Flow card opens directly in the **Configured** state — no auto-configuration runs. Select **Edit Config** to review the prepared recipe, then select **Build**.
-- **Hugging Face models added by ID** are downloaded and analyzed automatically on first entry. The card transitions through these states:
-  - **Configuring**: the model is being downloaded and analyzed.
-  - **Configured**: a configuration is ready. Select **Edit Config** to review or tweak the generated recipe per precision (for example `fp16`, `w8a8`, `w8a16`), then select **Build** to produce the optimized model.
-  - **Failed**: configuration could not be completed. The card shows the failure inline and exposes a **Re-config** button (placed to the left of **Edit Config**) so you can retry without leaving the workflow.
+#### Built-in models
+
+Built-in models already include validated configurations for Windows ML CLI workflows. These curated models ship with prepared Build Config files optimized for Windows ML EPs. The Build Flow card opens directly in the **Configured** state — no auto-configuration runs. Select **Edit Config** to review the prepared recipe, then select **Build**.
+
+#### Hugging Face models added by ID
+
+Hugging Face models added by ID are automatically processed on first entry. The card transitions through these states:
+
+- **Configuring**: the model is being downloaded and analyzed.
+- **Configured**: a configuration is ready.
+- **Failed**: configuration could not be completed. The card shows the failure inline and exposes a **Re-config** button (placed to the left of **Edit Config**) so you can retry without leaving the workflow.
 
 > [!NOTE]
 > A **Failed** configuring state usually means the model could not be automatically mapped to a supported optimization or validation workflow. This may happen when:
@@ -304,7 +310,40 @@ The behavior on first entry depends on how the model was added to the project:
 > [!NOTE]
 > Auto-configuration only runs on first entry for Hugging Face models added by ID, or after you explicitly select **Re-config**. The toolkit does not retry a failed configuration on its own, so you can inspect the log and decide when to try again.
 
-For Local ONNX models, no download is required. Select **Build** directly to let Windows ML CLI analyze the file and report EP compatibility.
+**Step 1: Generate the build config**
+
+Windows ML CLI queries Hugging Face, auto-detects the task and model type, and generates Build Config JSON files automatically. During onboarding, Windows ML CLI generates three configuration variants:
+
+- `config-noquant.json`
+- `config-w8a16.json`
+- `config-w8a8.json`
+
+The primary difference between them is the quantization strategy:
+
+- **No Quant** — full precision model.
+- **W8A16** — 8-bit weights with 16-bit activations.
+- **W8A8** — 8-bit weights with 8-bit activations for more aggressive compression and performance optimization.
+
+**Step 2: Customize the config**
+
+You can customize the workflow before running the build pipeline. Typical customization areas include task type, compile target, and precision details. By default, **Compile** is set to `null`. You can customize **Compile** with a target EP.
+
+**Step 3: Run the build**
+
+Selecting **Build** runs all four pipeline stages in sequence:
+
+1. Export
+2. Optimize
+3. Quantize
+4. Compile
+
+The workflow reads the settings recorded in `config*.json`. After the build step, Windows ML CLI automatically generates a declarative `build_config.json` file that defines how the workflow runs end-to-end. You can inspect and customize it through **View Config**. This declarative configuration model makes it easy to integrate Windows ML CLI into CI/CD pipelines with reproducible and portable build workflows.
+
+Windows ML CLI also generates an analyze report, which you can open through **View Analyze**. The analyze results provide detailed model compatibility insights, including supported operators, partially supported operators, and unsupported operators for Windows ML EPs. During analysis, Windows ML CLI automatically inspects the ONNX graph, detects optimization patterns, and generates recommended Windows ML optimization workflows.
+
+#### Local ONNX models
+
+For Local ONNX models, the Build workflow automatically analyzes the ONNX graph and generates a recommended Windows ML optimization workflow. Because the input is already an ONNX model, Windows ML CLI skips the **Export** stage and starts directly from model optimization. By default, the **Build** configuration also skips the **Quantize** and **Compile** stages — you can customize them later.
 
 ![Screenshot that shows the Build Flow card for a local ONNX model with just a Build button.](./images/modelconversion/winmlcli-local-onnx.png)
 
