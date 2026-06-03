@@ -80,5 +80,6 @@
     { "from": "/docs/copilot/reference/mcp-configuration", "to": "/docs/agents/reference/mcp-configuration", "status": 301 },
     { "from": "/docs/copilot/reference/workspace-context", "to": "/docs/agents/reference/workspace-context", "status": 301 },
     { "from": "/docs/copilot/security", "to": "/docs/agents/security", "status": 301 },
-    { "from": "/docs/setup/vscode-web", "to": "/docs/remote/vscode-web", "status": 301 }
+    { "from": "/docs/setup/vscode-web", "to": "/docs/remote/vscode-web", "status": 301 },
+    { "from": "/docs/copilot/chat/session-insights", "to": "/docs/agents/sessions/session-insights", "status": 301 }
 ]
