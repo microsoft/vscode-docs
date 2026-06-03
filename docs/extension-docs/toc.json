@@ -62,6 +62,7 @@
           ["Manual Model Conversion", "/docs/intelligentapps/reference/ManualModelConversion"],
           ["Manual Model Conversion on GPU", "/docs/intelligentapps/reference/ManualConversionOnGPU"],
           ["Setup Environment Without Foundry Toolkit", "/docs/intelligentapps/reference/SetupWithoutAITK"],
+          ["Update Project", "/docs/intelligentapps/reference/HowToUpdateModelProject"],
           ["Template Project", "/docs/intelligentapps/reference/TemplateProject"],
           ["Migrating from Visualizer to Agent Inspector", "/docs/intelligentapps/reference/migrate-from-visualizer"]
         ]
