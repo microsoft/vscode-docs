@@ -112,7 +112,7 @@ steps:
 
 8. Publish Using Managed Identity
    - In your pipeline, generate a Microsoft Entra ID (AAD) access token via Azure CLI. 
-   - Use the token with your publishing commands (for example: vsce publish --azure-credential). 
+   - Use the token with your publishing commands (for example: `vsce publish --azure-credential`). 
 
 Sample YAML tasks.  Replace <ExtensionDirectory> with the extension directory path.
 
