@@ -11,7 +11,7 @@
 
     {
         "name": "Agents",
-        "area": "agents",
+        "area": "agentic",
         "link": "/docs/agents/overview",
         "toc": "agents/toc.json",
         "topics": []
