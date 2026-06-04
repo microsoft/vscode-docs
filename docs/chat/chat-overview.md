@@ -1,16 +1,16 @@
 ---
 ContentId: 557a7e74-f77e-488d-90ea-fd2cfecfffda
 DateApproved: 6/3/2026
-MetaDescription: Overview of chat in VS Code. Learn how to access different chat surfaces, add context, choose a language model, write effective prompts, and review AI-generated changes.
+MetaDescription: Learn how to use chat in VS Code. Access different chat surfaces, send a request, add context, write effective prompts, and review AI-generated changes.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
-# Chat overview
+# Use chat in VS Code
 
 Chat in Visual Studio Code lets you use natural language for interacting with AI agents. Ask questions about your code, get help understanding complex logic, generate new features, fix bugs, and more, all through a conversational interface.
 
 VS Code gives you two main surfaces for working with agents: the [Agents window](/docs/agents/agents-window.md) for an **agent-first** workflow across projects and the [Chat view](/docs/agents/chat-view.md) for a **code-first** workflow in a single workspace.
 
-This article describes the mechanics of how to interact with chat: how to add context, choose a language model, write effective prompts, and review AI-generated changes.
+This article describes the mechanics of how to interact with chat: how to add context, choose a language model, write effective prompts, and review AI-generated changes. For an overview of what agents can do, see [Build with agents in VS Code](/docs/agent-native/overview.md). To configure a session, see [Configure your agent session](/docs/agents/overview.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
 Follow a hands-on tutorial to experience local, background, and cloud agents in VS Code.
@@ -44,8 +44,7 @@ For common tasks, you can use slash commands as shortcuts for frequently used pr
 
 You can run multiple sessions in parallel to work on different tasks simultaneously. When you start a new session, the previous session remains active in the background, allowing you to switch back to it at any time without losing context. Learn more in [Manage chat sessions](/docs/agents/sessions/chat-sessions.md).
 
-Each session has configuration options that shape the AI behavior, including the [session type](/docs/agents/overview.md#types-of-agents), [agent](/docs/agents/overview.md#choose-an-agent), [permission level](/docs/agents/overview.md#choose-a-permission-level), and [language model](/docs/agent-customization/language-models.md).
-
+Each session has configuration options that shape how the agent responds, such as the agent type, agent, permission level, and language model. Learn how to [configure your agent session](/docs/agents/overview.md).
 
 ## Send messages while a request is running
 

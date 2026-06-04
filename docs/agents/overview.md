@@ -1,7 +1,7 @@
 ---
 ContentId: 7c4b8b5e-2d3f-4e8a-9b2c-1a5d6f8e9c0b
 DateApproved: 5/28/2026
-MetaDescription: Learn about different types of AI agents in VS Code, including local agents, Copilot CLI for running in the background, and cloud agents.
+MetaDescription: Configure an agent session in VS Code. Choose where to work, the agent type, the agent, the language model, and the permission level for each task.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - ai
@@ -18,13 +18,13 @@ Keywords:
 - third-party agents
 ---
 
-# Using agents in Visual Studio Code
+# Configure your agent session
 
 An agent is an AI assistant that works autonomously to complete a coding task. Give it a high-level goal, and it breaks the goal into steps, edits files across your project, runs commands, and self-corrects when something goes wrong. For example, instead of suggesting a fix for a failing test, an agent identifies the root cause across files, updates the code, reruns the tests, and commits the changes.
 
 Agents handle tasks end-to-end. Use them to build features across multiple files, debug and fix failing tests, refactor between frameworks, [test web apps with the integrated browser](/docs/agents/guides/browser-agent-testing-guide.md), or [ship a pull request](/docs/agents/agent-types/cloud-agents.md) for team review.
 
-This article walks through the choices you make when working with agents: which agent type to use, which agent to give the task to, how much autonomy to grant, and where to do the work.
+When you start an agent session, you configure it to fit the task: where to do the work, which agent type to use, which agent to give the task to, which language model to use, and how much autonomy to grant. This article walks through each of these choices. You can adjust them per session and change your mind at any time.
 
 <div class="docs-action" data-show-in-doc="true" data-show-in-sidebar="true" title="How agents work">
 Understand the agent loop, how agents plan and execute tasks, and how memory and subagents work.
@@ -51,7 +51,8 @@ Working with agents comes down to a few decisions. You can adjust each one per t
 
 * [**Choose where to work**](#where-to-work-with-agents): work in the editor window or the dedicated Agents window.
 * [**Choose an agent type**](#types-of-agents): decide where and how the agent runs, on your machine, in the background, in the cloud, or through a third-party provider.
-* [**Choose an agent**](#choose-an-agent): pick the agent persona that matches the task, such as building, planning, or answering questions, and the language model that fits.
+* [**Choose an agent**](#choose-an-agent): pick the agent persona that matches the task, such as building, planning, or answering questions.
+* [**Choose a language model**](#choose-a-language-model): pick the model that fits the task, from fast models for quick edits to stronger reasoning models for complex work.
 * [**Choose a permission level**](#choose-a-permission-level): decide how much autonomy the agent has to run tools and commands.
 
 You can also [hand off a session](#hand-off-a-session-to-another-agent) from one agent to another to take advantage of their different strengths.
@@ -68,7 +69,7 @@ Both surfaces share agent sessions and VS Code configuration like settings and k
 
 ## Types of agents
 
-Agents run in different environments depending on when you need results and how much oversight you want. Learn more about the [agent types and how they work](/docs/agents/concepts/agents.md#agent-types).
+The agent type determines where and how the agent runs, not which window you work in. Agents run in different environments depending on when you need results and how much oversight you want. Learn more about the [agent types and how they work](/docs/agents/concepts/agents.md#agent-types).
 
 * [**Local**](/docs/agents/agent-types/local-agents.md): use the VS Code agent loop to run the agent interactively in the editor with full access to your workspace, tools, and models.
 * [**Copilot CLI**](/docs/agents/agent-types/copilot-cli.md): use the Copilot CLI to run in the background on your machine, optionally using Git worktrees for isolation.
@@ -108,21 +109,19 @@ VS Code has three [built-in agents](/docs/agents/agent-types/local-agents.md):
 
 For more specialized workflows, create your own [custom agents](/docs/agent-customization/custom-agents.md) that define a specific role, available tools, and a language model.
 
-Within a session, you can also pick the language model that best fits the task. Use a fast model for quick edits and questions, or a model with stronger reasoning for complex, multi-step work. Switch models at any time from the model picker in the Chat view. Learn more about [language models](/docs/agent-customization/language-models.md).
+## Choose a language model
+
+Within a session, you can pick the language model that best fits the task. Use a fast model for quick edits and questions, or a model with stronger reasoning for complex, multi-step work. You can also bring your own API key to use a model from any provider.
+
+Switch models at any time from the model picker in the Chat view. Changing the model doesn't change your agent, agent type, or permission level. Learn more about [language models](/docs/agent-customization/language-models.md).
 
 ## Choose a permission level
 
-Agents perform tasks autonomously, but you can control how much autonomy they have for invoking tools and terminal commands. Giving agents more autonomy can increase efficiency but may reduce oversight. The permissions picker in the Chat view lets you choose a permission level for each session, from approving every tool call to letting the agent work fully on its own.
-
-| Permission level | Description |
-|---|---|
-| **Default Approvals** | Uses the approvals as specified in VS Code settings. By default, only read-only and safe tools don't require explicit approval. |
-| **Bypass Approvals** | Auto-approves all tool calls without confirmation dialogs. The agent might ask clarifying questions as it works. |
-| **Autopilot** (Preview) | Auto-approves all tool calls, auto-responds to questions, and the agent continues working autonomously until the task is complete. |
+Agents perform tasks autonomously, but you can control how much autonomy they have for invoking tools and terminal commands. Giving agents more autonomy can increase efficiency but might reduce oversight. The permissions picker in the Chat view lets you choose a permission level for each session, from approving every tool call (**Default Approvals**) to letting the agent work fully on its own (**Autopilot**).
 
 To persist your preferred permission level across sessions, configure the `setting(chat.permissions.default)` setting.
 
-Learn more about [permission levels and Autopilot](/docs/agents/agent-tools.md#permission-levels).
+For a breakdown of each permission level, how tool approvals work, and how Autopilot iterates, see [permission levels and tool approval](/docs/agents/agent-tools.md#permission-levels).
 
 ## Hand off a session to another agent
 
@@ -136,8 +135,14 @@ In a Copilot CLI session, delegate to a cloud agent by entering the `/delegate` 
 
 ## Related resources
 
+* [Build with agents in VS Code](/docs/agent-native/overview.md): See what you can build with agents and how to get started.
+
+* [Use chat in VS Code](/docs/chat/chat-overview.md): Send requests, add context, and review the changes agents make.
+
 * [Manage chat sessions](/docs/agents/sessions/chat-sessions.md): Create, switch between, and organize your agent sessions.
 
 * [Agents tutorial](/docs/agents/agents-tutorial.md): Hands-on tutorial for working with different agent types.
+
+* [How AI works in VS Code](/docs/agents/concepts/overview.md): Understand the concepts behind agents, context, tools, and models.
 
 * [Agent customization](/docs/agent-customization/overview.md): Tailor agents to your project and workflow.

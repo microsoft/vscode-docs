@@ -57,7 +57,7 @@ The Chat view operates in two modes: compact and side-by-side. Use the toggle co
 
 ## Start a session
 
-To start a new session, select **New Chat** (`+`) or press `kb(workbench.action.chat.newChat)`. Before you send your first prompt, use the controls in the chat input area to choose an agent target, agent, language model, and permission level. You can adjust these at any time during a session. Learn more about [configuring your chat session](/docs/chat/chat-overview.md#configure-your-chat-session).
+To start a new session, select **New Chat** (`+`) or press `kb(workbench.action.chat.newChat)`. Before you send your first prompt, use the controls in the chat input area to choose an agent target, agent, language model, and permission level. You can adjust these at any time during a session. Learn more about [configuring your agent session](/docs/agents/overview.md).
 
 ![Screenshot showing the agent target dropdown in the Chat view.](images/agents-overview/agent-type-dropdown.png)
 

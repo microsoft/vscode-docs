@@ -63,6 +63,8 @@ VS Code gives you two surfaces for working with agents. Pick the one that fits y
     </a>
 </div>
 
+Chat is how you interact with agents in both surfaces. Learn how to [use chat in VS Code](/docs/chat/chat-overview.md) to send requests, add context, and review the changes agents make.
+
 ## Run any agent with any model
 
 Agents run where the work needs to happen. Run them locally for interactive work, in the background for autonomous tasks, in the cloud for team collaboration through pull requests, or through third-party providers like Anthropic and OpenAI. Hand off a task from one agent type to another at any point, and the relevant context carries over.

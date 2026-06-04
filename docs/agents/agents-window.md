@@ -89,7 +89,7 @@ To start a new agent session in the Agents window:
 
 1. Optionally, select extra configuration options for the session like a custom agent, language model, permission level, and more.
 
-    You can change these at any point during the session. Learn more about [configuring your chat session](/docs/chat/chat-overview.md#configure-your-chat-session).
+    You can change these at any point during the session. Learn more about [configuring your agent session](/docs/agents/overview.md).
 
 1. Type a prompt that describes what you want to accomplish, and press `kbstyle(Enter)`.
 

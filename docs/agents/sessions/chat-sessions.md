@@ -38,7 +38,7 @@ To start a new chat session:
     * **Permission level**: controls how much autonomy the agent has over tool approvals. Learn more about [permission levels](/docs/agents/overview.md#choose-a-permission-level).
     * **Language model**: determines which AI model powers the conversation. Learn more about [language models in VS Code](/docs/agent-customization/language-models.md).
 
-1. Type your prompt and press `kb(workbench.action.chat.submit)` to submit it. Learn more about [configuring your chat session](/docs/chat/chat-overview.md#configure-your-chat-session), including agent targets, agents, and permission levels.
+1. Type your prompt and press `kb(workbench.action.chat.submit)` to submit it. Learn more about [configuring your agent session](/docs/agents/overview.md), including agent types, agents, and permission levels.
 
 ## Where to open a chat session
 
@@ -214,7 +214,7 @@ The Chat view supports different options for copying chat messages as Markdown t
 
 ## Related resources
 
-* [Chat overview](/docs/chat/chat-overview.md)
+* [Use chat in VS Code](/docs/chat/chat-overview.md)
 * [Agents overview](/docs/agents/overview.md)
 * [Manage context for AI](/docs/chat/copilot-chat-context.md)
 * [Best practices for using AI](/docs/agents/best-practices.md)

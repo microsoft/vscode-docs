@@ -11,7 +11,7 @@
 
     {
         "name": "Agents",
-        "area": "copilot",
+        "area": "agent-native",
         "link": "/docs/agent-native/overview",
         "toc": "agent-native/toc.json",
         "topics": []

@@ -94,6 +94,6 @@ Depending on the agent type, you have options to apply the changes to your local
 ## Related resources
 
 * [Revert changes with checkpoints](/docs/chat/chat-checkpoints.md)
-* [Chat overview](/docs/chat/chat-overview.md)
+* [Use chat in VS Code](/docs/chat/chat-overview.md)
 * [Chat sessions](/docs/agents/sessions/chat-sessions.md)
 * [Security considerations for using AI in VS Code](/docs/agents/security.md)
