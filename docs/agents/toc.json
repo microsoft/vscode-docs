@@ -3,7 +3,7 @@
         "name": "Agents",
         "area": "agents",
         "topics": [
-            ["Configure Agent Sessions", "/docs/agents/overview"],
+            ["Overview", "/docs/agents/overview"],
             ["Tutorial", "/docs/agents/agents-tutorial"],
 
             ["Agents Window", "/docs/agents/agents-window"],

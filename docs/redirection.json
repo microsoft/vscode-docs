@@ -1,4 +1,5 @@
 [
+    { "from": "/docs/agent-native/overview", "to": "/docs/agents/overview", "status": 301 },
     { "from": "/docs/copilot/core-concepts", "to": "/docs/agents/concepts/overview", "status": 301 },
     { "from": "/docs/copilot/agents/background-agents", "to": "/docs/agents/agent-types/copilot-cli", "status": 301 },
     { "from": "/docs/copilot/setup-simplified", "to": "/docs/setup/copilot", "status": 301 },

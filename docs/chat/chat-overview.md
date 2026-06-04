@@ -10,7 +10,7 @@ Chat in Visual Studio Code lets you use natural language for interacting with AI
 
 VS Code gives you two main surfaces for working with agents: the [Agents window](/docs/agents/agents-window.md) for an **agent-first** workflow across projects and the [Chat view](/docs/agents/chat-view.md) for a **code-first** workflow in a single workspace.
 
-This article describes the mechanics of how to interact with chat: how to add context, choose a language model, write effective prompts, and review AI-generated changes. For an overview of what agents can do, see [Build with agents in VS Code](/docs/agent-native/overview.md). To configure a session, see [Configure your agent session](/docs/agents/overview.md).
+This article describes the mechanics of how to interact with chat: how to add context, choose a language model, write effective prompts, and review AI-generated changes. For an overview of what agents can do and how to configure a session, see [Build with agents in VS Code](/docs/agents/overview.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
 Follow a hands-on tutorial to experience local, background, and cloud agents in VS Code.

@@ -18,7 +18,7 @@ Keywords:
 
 Visual Studio Code's built-in AI features are powered by GitHub Copilot and large language models (LLMs). This article explains the concepts behind those features, the building blocks that power them, and how they fit together. Use it to understand *how* AI works in VS Code, so you can make better decisions as you use it.
 
-To learn what you can build with agents, see [Build with agents in VS Code](/docs/agent-native/overview.md). To start interacting, see [Use chat in VS Code](/docs/chat/chat-overview.md).
+To learn what you can build with agents, see [Build with agents in VS Code](/docs/agents/overview.md). To start interacting, see [Use chat in VS Code](/docs/chat/chat-overview.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
 Follow a hands-on tutorial to build your first app with AI in VS Code.
