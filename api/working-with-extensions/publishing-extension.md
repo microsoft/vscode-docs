@@ -81,7 +81,7 @@ Establish link between Azure DevOps and Azure:
    - Exchange required values between systems:
       * From Azure DevOps → Azure: **issuer and subject**
       * From Azure → Azure DevOps: **client ID, tenant ID, subscription**
-   - In Azure DevOps, select Verify and save 
+   - In Azure DevOps, select **Verify and save** 
 
 4. Grant Pipeline Access
    - Open the service connection
