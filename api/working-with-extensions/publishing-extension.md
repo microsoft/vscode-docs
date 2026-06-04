@@ -141,7 +141,7 @@ Sample YAML tasks.  Replace <ExtensionDirectory> with the extension directory pa
 
 ***
 `vsce` can also publish extensions using [Personal Access Tokens](https://learn.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate). 
-> [!NOTE]
+> [!IMPORTANT]
 > Due to security concerns, consider using the more secure Microsoft Entra tokens over higher-risk personal access tokens. 
 
 ### Get a Personal Access Token
