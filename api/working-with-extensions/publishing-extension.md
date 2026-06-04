@@ -61,7 +61,7 @@ The publishing tool checks the following constraints:
 
 Visual Studio Code uses [Azure DevOps](https://azure.microsoft.com/services/devops/) for its Marketplace services. This means that authentication, hosting, and management of extensions are provided through Azure DevOps.
 
-### Secure Automated Publishing to Visual Studio Marketplace
+### Secure automated publishing to Visual Studio Marketplace
 To improve security and align with Microsoft best practices, extension publishing should use **[Microsoft Entra ID–based authentication](https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/entra?view=azure-devops)** with **workload identity federation and managed identities**, eliminating long-lived secrets such as Personal Access Tokens (PATs) and enabling secure, automated publishing pipelines. This approach strengthens the overall security posture by removing reliance on stored credentials, simplifies operations through native integration with Azure Pipelines and Entra ID, scales effectively across environments, and aligns with modern identity and access management standards required for enterprise compliance.For more information, see [Reduce PAT usage](https://devblogs.microsoft.com/devops/reducing-pat-usage-across-azure-devops/).
 
 1. Create a Service Connection (Azure DevOps)
