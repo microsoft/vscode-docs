@@ -92,7 +92,7 @@ Each agent session is configured along a few dimensions. Adjust them per task an
 
 | Choice | Description |
 |---|---|
-| [Agent type](/docs/agents/concepts/agents.md#agent-types) | Where and how the agent runs: interactively in VS Code (local), in the background on your machine (Copilot CLI), remotely on GitHub's infrastructure (cloud), or through a third-party provider like Anthropic or OpenAI. |
+| [Agent type](/docs/agents/agent-types/local-agents.md) | Where and how the agent runs: interactively in VS Code (local), in the background on your machine (Copilot CLI), remotely on GitHub's infrastructure (cloud), or through a third-party provider like Anthropic or OpenAI. |
 | [Agent](/docs/agents/agent-types/local-agents.md) | The persona that determines how the agent approaches the task and which tools it can use. Pick one of the built-in agents (Agent, Plan, Ask) or create a [custom agent](/docs/agent-customization/custom-agents.md) for specialized roles like code reviewer or documentation writer. |
 | [Language model](/docs/agent-customization/language-models.md) | The model that powers the agent's reasoning. Use a fast model for quick edits and questions, or a stronger reasoning model for complex, multi-step work. You can also bring your own API key to use models from other providers. |
 | [Permission level](/docs/agents/agent-tools.md#permission-levels) | How much autonomy the agent has to invoke tools and run terminal commands, from approving every action (Default Approvals) to letting the agent work fully on its own (Autopilot). |

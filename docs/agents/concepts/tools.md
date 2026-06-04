@@ -36,20 +36,16 @@ When an agent processes a task, the model examines the available tools and decid
 
 You can also explicitly reference tools in your prompts by typing `#` followed by the tool name. This is useful when you want to ensure a specific tool is used.
 
-## Control which tools are available
+## Why limit the available tools
 
-Use the **Configure Tools** button in the chat input field to enable or disable individual tools for the current request. This gives you direct control over which tools the agent can use.
+Every tool the agent can call adds to the decision space the model has to reason about, and every tool call produces output that is added to the [context window](/docs/agents/concepts/language-models.md#context-window). Narrowing the set of available tools to those relevant for the task helps to:
 
-Limiting the available tools can help in several ways:
+* **Preserve context**: fewer tool calls means less context consumed by intermediate results.
+* **Reduce credit consumption**: unnecessary tool calls increase token usage and consume more [AI credits](/docs/agents/concepts/language-models.md#ai-credits-and-model-costs).
+* **Get more relevant results**: the agent focuses on the most appropriate tools rather than choosing from a large set.
+* **Improve performance**: a smaller tool set reduces the decision space for the model.
 
-* **Preserve context**: every tool call produces output that consumes space in the [context window](/docs/agents/concepts/language-models.md#context-window). Fewer tools means the agent is less likely to make unnecessary calls that fill up the context.
-* **Reduce credit consumption**: unnecessary tool calls increase token usage and consume more [AI credits](/docs/agents/concepts/language-models.md#ai-credits-and-model-costs). Disabling tools you don't need for a task helps keep costs down.
-* **Get more relevant results**: when fewer tools are available, the agent focuses on the most appropriate ones rather than choosing from a large set.
-* **Improve performance**: a smaller tool set reduces the decision space for the model, which can speed up responses.
-
-You can also control tool availability through [prompt files](/docs/agent-customization/prompt-files.md) and [custom agents](/docs/agent-customization/custom-agents.md), which let you define a fixed set of tools for specific tasks or workflows.
-
-Learn more about [enabling tools for chat](/docs/agents/agent-tools.md#enable-tools-for-chat).
+Tool availability can be scoped per request, or fixed for specific workflows through [prompt files](/docs/agent-customization/prompt-files.md) and [custom agents](/docs/agent-customization/custom-agents.md). For configuration steps, see [Use tools with agents](/docs/agents/agent-tools.md).
 
 ## Tool approval and trust
 
@@ -57,7 +53,7 @@ Tools can perform actions that modify files, your environment, or access externa
 
 * **Approval prompts**: tools with side effects show a confirmation dialog before running. You can approve for a single use, the current session, or all future invocations.
 * **URL approval**: when a tool accesses a URL, a two-step process verifies both the request and the response content.
-* **Permission levels**: the permissions picker controls how much autonomy the agent has, from requiring manual approval to fully autonomous operation.
+* **Permission levels**: the [permissions picker](/docs/agents/agent-tools.md#permission-levels) controls how much autonomy the agent has, from requiring manual approval to fully autonomous operation.
 
 Learn more about [trust and safety](/docs/agents/concepts/trust-and-safety.md).
 

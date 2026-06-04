@@ -127,7 +127,7 @@ To add MCP servers and agent plugins, you can browse the corresponding marketpla
 
 To open the Agent Customizations editor, select the **Configure Chat (gear icon)** in the Chat view or run **Chat: Open Customizations** from the Command Palette (`kb(workbench.action.showCommands)`).
 
-You can configure customization for different [agent types](/docs/agents/overview.md#types-of-agents): local agents, Copilot CLI, and the Claude agent. Select the agent type from the dropdown at the top of the editor to view and manage customizations for that agent type.
+You can configure customization for different [agent types](/docs/agents/overview.md#configure-your-agent-session): local agents, Copilot CLI, and the Claude agent. Select the agent type from the dropdown at the top of the editor to view and manage customizations for that agent type.
 
 ## Troubleshoot customization issues
 

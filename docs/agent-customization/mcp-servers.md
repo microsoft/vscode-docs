@@ -18,7 +18,7 @@ Keywords:
 
 [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) is an open standard for connecting AI models to external tools and services. In Visual Studio Code, MCP servers provide [tools](/docs/agents/agent-tools.md) for tasks like file operations, databases, or external APIs. MCP servers can also provide [resources, prompts, and interactive apps](#other-mcp-capabilities).
 
-For background on how MCP fits into the AI customization framework, see [Customization concepts](/docs/agents/concepts/customization.md#mcp) and [Tools concepts](/docs/agents/concepts/tools.md).
+For background on how MCP fits into the AI customization framework, see [Customization concepts](/docs/agents/concepts/customization.md) and [Tools concepts](/docs/agents/concepts/tools.md).
 
 This article covers how to add, configure, and manage MCP servers. To learn about using tools in chat, see [Use tools with agents](/docs/agents/agent-tools.md).
 

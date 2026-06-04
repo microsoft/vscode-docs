@@ -30,12 +30,12 @@ To start a new chat session:
 
 1. Choose an agent type to determine where the agent session runs and what capabilities it has access to.
 
-    You can choose from local, Copilot CLI, Cloud, or third-party. Learn more about [agent types](/docs/agents/overview.md#types-of-agents).
+    You can choose from local, Copilot CLI, Cloud, or third-party. Learn more about [agent types](/docs/agents/overview.md#configure-your-agent-session).
 
 1. Optionally, select additional configuration options for the session:
 
-    * **Agent**: determines the role or persona of the AI, such as Agent, Plan, or Ask. Learn more about [choosing an agent](/docs/agents/overview.md#choose-an-agent).
-    * **Permission level**: controls how much autonomy the agent has over tool approvals. Learn more about [permission levels](/docs/agents/overview.md#choose-a-permission-level).
+    * **Agent**: determines the role or persona of the AI, such as Agent, Plan, or Ask. Learn more about [choosing an agent](/docs/agents/overview.md#configure-your-agent-session).
+    * **Permission level**: controls how much autonomy the agent has over tool approvals. Learn more about [permission levels](/docs/agents/agent-tools.md#permission-levels).
     * **Language model**: determines which AI model powers the conversation. Learn more about [language models in VS Code](/docs/agent-customization/language-models.md).
 
 1. Type your prompt and press `kb(workbench.action.chat.submit)` to submit it. Learn more about [configuring your agent session](/docs/agents/overview.md), including agent types, agents, and permission levels.

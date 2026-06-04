@@ -61,7 +61,7 @@ Every tool call produces output that consumes space in the [context window](/doc
 * Use the **Configure Tools** button in the chat input field to enable or disable individual tools or entire MCP servers for the current request.
 * In [custom agents](/docs/copilot/customization/custom-agents.md), specify only the tools the agent needs via the `tools` property. This prevents the agent from calling tools that aren't relevant to its workflow.
 
-For more information, see [control which tools are available](/docs/copilot/concepts/tools.md#control-which-tools-are-available).
+For more information, see [Use tools with agents](/docs/agents/agent-tools.md).
 
 ## Exclude files from Copilot context
 

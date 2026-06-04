@@ -18,7 +18,7 @@ Keywords:
 
 Hooks enable you to execute custom shell commands at key lifecycle points during agent sessions. Use hooks to automate workflows, enforce security policies, validate operations, and integrate with external tools.
 
-For background on how hooks fit into the AI customization framework, see [Customization concepts](/docs/agents/concepts/customization.md#hooks).
+For background on how hooks fit into the AI customization framework, see [Customization concepts](/docs/agents/concepts/customization.md).
 
 This article explains how to configure and use hooks in VS Code.
 

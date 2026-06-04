@@ -25,7 +25,7 @@ This article explains the different customization options and when to use each o
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with customizations">
 Follow a hands-on tutorial to discover the customization options and configure them for your project.
 
-* [Customization concepts](/docs/agents/concepts/customization.md)
+* [Customize AI for your project](/docs/agents/guides/customize-copilot-guide.md)
 
 </div>
 
@@ -33,77 +33,32 @@ Follow a hands-on tutorial to discover the customization options and configure t
 
 | Goal | Use | Example | When it activates |
 |------|-----|---------|-------------------|
-| Apply coding standards everywhere | [Always-on instructions](#custom-instructions) | Enforce ESLint rules, require JSDoc comments | Automatically included in every request |
-| Different rules for different file types | [File-based instructions](#custom-instructions) | React patterns for `.tsx` files | When files match a pattern or description |
-| Reusable task I run repeatedly | [Prompt files](#prompt-files) | Scaffold a React component | When you invoke a slash command |
-| Package multi-step workflow with scripts | [Agent skills](#agent-skills) | Test, lint, and deploy pipeline | When the task matches the skill description |
-| Specialized AI persona with tool restrictions | [Custom agents](#custom-agents) | Security reviewer, database admin | When you select it or another agent delegates to it |
-| Connect to external APIs or databases | [MCP](#mcp) | Query a PostgreSQL database | When the task matches a tool description |
-| Automate tasks at agent lifecycle points | [Hooks](#hooks) | Run formatter after every file edit | When the agent reaches a matching lifecycle event |
-| Install pre-packaged customizations | [Agent plugins](#agent-plugins) | Install a community testing plugin | When you install a plugin |
+| Apply coding standards everywhere | [Always-on instructions](/docs/agent-customization/custom-instructions.md) | Enforce ESLint rules, require JSDoc comments | Automatically included in every request |
+| Different rules for different file types | [File-based instructions](/docs/agent-customization/custom-instructions.md) | React patterns for `.tsx` files | When files match a pattern or description |
+| Reusable task I run repeatedly | [Prompt files](/docs/agent-customization/prompt-files.md) | Scaffold a React component | When you invoke a slash command |
+| Package multi-step workflow with scripts | [Agent skills](/docs/agent-customization/agent-skills.md) | Test, lint, and deploy pipeline | When the task matches the skill description |
+| Specialized AI persona with tool restrictions | [Custom agents](/docs/agent-customization/custom-agents.md) | Security reviewer, database admin | When you select it or another agent delegates to it |
+| Connect to external APIs or databases | [MCP](/docs/agent-customization/mcp-servers.md) | Query a PostgreSQL database | When the task matches a tool description |
+| Automate tasks at agent lifecycle points | [Hooks](/docs/agent-customization/hooks.md) | Run formatter after every file edit | When the agent reaches a matching lifecycle event |
+| Install pre-packaged customizations | [Agent plugins](/docs/agent-customization/agent-plugins.md) | Install a community testing plugin | When you install a plugin |
 
 Start with custom instructions for project-wide standards. Add prompt files when you have repeatable tasks. Use MCP when you need external data. Create custom agents for specialized personas. You can combine multiple customization types as your needs grow.
 
-## Custom instructions
+## How customizations combine
 
-Custom instructions are Markdown files that define coding standards and project context. The AI includes them automatically in chat requests, so you don't need to repeat rules in every prompt. Instructions are the simplest customization to set up and the best place to start.
+The customization options are designed to layer:
 
-There are two types:
+* **Instructions** shape *how* the AI writes code (conventions, style, libraries).
+* **Prompt files** and **agent skills** encapsulate *what* the AI does for recurring tasks, from a single prompt up to a multi-step workflow with scripts.
+* **Custom agents** define *who* the AI acts as (persona, tools, model), and can delegate to other agents for multi-step workflows.
+* **MCP servers** extend *what the AI can reach* by adding [tools](/docs/agents/concepts/tools.md) that connect to external systems.
+* **Hooks** enforce *deterministic actions* at specific lifecycle points in the agent loop, regardless of what the model decides to do.
+* **Agent plugins** are pre-packaged bundles of the above, distributed through plugin marketplaces.
 
-* **Always-on instructions**: project-wide rules defined in `.github/copilot-instructions.md` that apply to every request. Use these for conventions the whole team follows, like code style, naming patterns, or preferred libraries.
-* **File-based instructions**: guidelines in `.instructions.md` files that apply based on file path patterns or task descriptions. Use these when different parts of your codebase need different rules, such as React patterns for `.tsx` files or API conventions for your backend.
-
-Learn more about [creating custom instructions](/docs/agent-customization/custom-instructions.md).
-
-## Prompt files
-
-Prompt files are reusable Markdown files that encode a specific task and appear as slash commands in chat. When you find yourself typing the same kind of prompt repeatedly, a prompt file turns it into a one-step command. Each prompt file can reference specific files, tools, and context to give the AI everything it needs for that task.
-
-Prompt files are useful for tasks like scaffolding a new component, generating test cases for a module, or preparing a pull request description.
-
-Learn more about [creating prompt files](/docs/agent-customization/prompt-files.md).
-
-## Agent skills
-
-Agent skills package multi-step capabilities as folders containing instructions, scripts, and resources. Unlike prompt files, which provide a single prompt, skills give the AI a complete toolkit for a domain-specific task such as generating API documentation, running security audits, or performing database migrations.
-
-Skills load on demand when the task matches their description. They are built on an [open standard](https://agentskills.io), so the same skill works across different agent types.
-
-Learn more about [creating agent skills](/docs/agent-customization/agent-skills.md).
-
-## Custom agents
-
-Custom agents give the AI a specific persona and constrained set of tools for a particular role. For example, a security reviewer agent only has access to code analysis tools and follows security-focused instructions, while a database admin agent connects to your database through MCP and follows your schema conventions.
-
-Each agent is defined in a `.agent.md` file that specifies its behavior, available tools, and language model preferences. Agents can also delegate to other agents, which enables multi-step workflows where different specialists handle different parts of a task.
-
-Learn more about [creating custom agents](/docs/agent-customization/custom-agents.md).
-
-## MCP
-
-[Model Context Protocol (MCP)](https://modelcontextprotocol.io/) is an open standard for connecting the AI to external tools and data sources. Without MCP, the AI can only work with code and the terminal. MCP servers extend its reach by providing [tools](/docs/agents/concepts/tools.md) that query databases, call APIs, interact with cloud services, or access any other external system.
-
-MCP servers run locally or remotely and can also provide resources, prompts, and interactive apps.
-
-Learn more about [adding and managing MCP servers](/docs/agent-customization/mcp-servers.md).
-
-## Hooks
-
-Hooks run custom shell commands at specific points during an agent session. While instructions and prompts guide what the AI does, hooks guarantee that your code runs at defined lifecycle points. This makes hooks the right choice when you need deterministic outcomes, such as running a formatter after every file edit, blocking commits that fail a lint check, or logging every tool invocation for an audit trail.
-
-Learn more about [configuring hooks](/docs/agent-customization/hooks.md).
-
-## Agent plugins
-
-Agent plugins are pre-packaged bundles of customizations you discover and install from plugin marketplaces. Instead of building everything yourself, you can install a plugin that provides a ready-made combination of slash commands, skills, custom agents, hooks, and MCP servers. Plugins are useful for adopting community best practices or sharing internal tooling across teams.
-
-> [!NOTE]
-> Agent plugins are currently in preview.
-
-Learn more about [agent plugins](/docs/agent-customization/agent-plugins.md).
+For configuration steps and examples, see [Customize AI in Visual Studio Code](/docs/agent-customization/overview.md) and the individual articles linked from the table above.
 
 ## Related resources
 
-* [Get started with customization](/docs/agent-customization/overview.md)
+* [Customize AI in Visual Studio Code](/docs/agent-customization/overview.md)
 * [Agents](/docs/agents/concepts/agents.md)
 * [Tools](/docs/agents/concepts/tools.md)

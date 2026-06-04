@@ -10,12 +10,12 @@ The Agents window is a dedicated window in VS Code, built for an agent-first wor
 
 The Agents window gives you access to all your workspaces from one place and lets you run and track multiple sessions in parallel across your projects without opening each workspace in a separate window. It shares the same agent sessions, settings, and keybindings with the main VS Code window, so you can move freely between an editor-focused workflow and an agent-focused workflow at any time without losing context.
 
-In this article, you learn about the Agents window and how to start and manage agent sessions across your projects.
+In this article, you learn about the Agents window and how to start and manage agent sessions across your projects. For chat mechanics that apply to both the Agents window and the [Chat view](/docs/agents/chat-view.md) — such as sending requests, adding context, and reviewing changes — see [Use chat in VS Code](/docs/chat/chat-overview.md).
 
 <video src="images/agents-window/agents-demo-20260510.mp4" title="Video showing the Agents window experience in VS Code Insiders." controls></video>
 
 > [!TIP]
-> The Agents window (agent-first) and the [Chat view](/docs/agents/chat-view.md) (code-first) are the main surfaces for working with agents. They share the same sessions and settings, so you can move freely between them. For help choosing, see [where to work with agents](/docs/agents/overview.md#where-to-work-with-agents).
+> The Agents window (agent-first) and the [Chat view](/docs/agents/chat-view.md) (code-first) are the main surfaces for working with agents. They share the same sessions and settings, so you can move freely between them. For help choosing, see [Choose how you work with agents](/docs/agents/overview.md#choose-how-you-work-with-agents).
 
 > [!NOTE]
 > The Agents window is currently in preview. We're actively shaping it based on your feedback and are excited to learn alongside developers. Please share your experience by [filing issues on GitHub](https://github.com/microsoft/vscode/issues), or browse [existing issues](https://github.com/microsoft/vscode/issues?q=state%3Aopen%20label%3A%22agents-window%22).
