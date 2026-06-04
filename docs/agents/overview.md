@@ -70,7 +70,12 @@ AI features are built into VS Code. To enable them, sign in with your GitHub acc
 VS Code gives you two main surfaces for working with agents: the Agents window and the Chat view. Pick the one that fits your current task and switch freely between them. Both share the same agent sessions.
 
 * **[Agents window (agent-first, Preview)](/docs/agents/agents-window.md)**: A dedicated window for orchestrating agents across multiple projects from a single place. Chat is your primary interface where you assign high-level tasks to agents.
+
+    ![Screenshot showing how to start a new agent session by selecting New at the top of the sidebar in the Agents window.](images/agents-window/agents-window-new-session.png)
+
 * **[Chat view (code-first)](/docs/agents/chat-view.md)**: A chat panel sits in the sidebar alongside your workspace editor tabs. Agents assist you with coding tasks, while you have full access to VS Code's rich coding experience.
+
+    ![Screenshot showing the Chat view with the sessions list, conversation, and chat input.](images/agents-overview/chat-view-expanded.png)
 
 ## Configure your agent session
 
