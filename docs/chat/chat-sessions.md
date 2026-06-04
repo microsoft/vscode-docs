@@ -17,16 +17,56 @@ Follow a hands-on tutorial to experience local, background, and cloud agents in 
 
 ## Start a new chat session
 
-When you start a new chat session, you begin a new conversation with the AI. Each session has its own context window and can run with a different agent type and permission level. You can run multiple sessions in parallel, each focused on a different task or topic. Use the [sessions list](#sessions-list) to monitor and switch between your active sessions.
+When you start a new chat session, you begin a new conversation with the AI. Each session has its own context window and can run with a different agent type. You can run multiple sessions in parallel, each focused on a different task or topic. Use the [sessions list](#sessions-list) to monitor and switch between different sessions.
 
 > [!TIP]
 > Start a new chat session when you want to change topics to help the AI provide more relevant responses.
 
-To start a new chat session:
+Depending on how you prefer to work or the task you want to accomplish, you can choose between different chat experiences in VS Code. Each experience is optimized for different workflows, but they share the same underlying sessions to enable you to switch between them at any time.
 
-1. Create an empty session by selecting the **New Chat** button. The UI might differ slightly in the Chat view or the Agents window.
+{% tabs id="chat-surface" %}
+{% tab label="Agents window" %}
 
-1. For the Agents window, choose the workspace or repository for the session, as it can target any of your projects.
+The [Agents window](/docs/agents/agents-window.md) is a dedicated window for orchestrating agents across multiple projects from a single place. Chat is your primary interface where you assign high-level tasks to agents. The Agents window is optimized for **agents-first workflows**.
+
+![Screenshot of the Agents window showing the sessions list, workspace picker, and chat input.](images/chat-sessions/agents-window-new-session.png)
+
+To start a new chat session in the Agents window:
+
+1. Open the Agents window by selecting the **Open in Agents** button in the VS Code title bar.
+
+1. Select **New** in the sidebar to create a new session.
+
+1. Choose the workspace or repository for the session, as the Agents window can target any of your projects.
+
+1. Choose an agent type from the dropdown to indicate where the agent session runs and how it operates.
+
+    You can choose from local, Copilot CLI, Cloud, or third-party. Learn more about [agent types](/docs/agents/overview.md#configure-your-agent-session).
+
+1. Optionally, select additional configuration options for the session:
+
+    * **Agent**: determines the role or persona of the AI, such as Agent, Plan, or Ask. Learn more about [choosing an agent](/docs/agents/overview.md#configure-your-agent-session).
+
+    * **Permission level**: controls how much autonomy the agent has over tool approvals. Learn more about [permission levels](/docs/agents/agent-tools.md#permission-levels).
+
+    * **Language model**: determines which AI model powers the conversation. Learn more about [language models in VS Code](/docs/agent-customization/language-models.md).
+
+1. Type your prompt and press `kb(workbench.action.chat.submit)` to submit it. The agent's response appears in the chat area, and the agent may take actions such as editing files, running commands, or asking follow-up questions.
+
+{% /tab %}
+{% tab label="Chat view" %}
+
+The [Chat view](/docs/agents/chat-view.md) is a chat panel that sits in the sidebar alongside your workspace editor tabs. Agents assist you with coding tasks, while you have full access to VS Code's rich coding experience. The Chat view is optimized for **code-first workflows**.
+
+![Screenshot of opening a new chat session in the Chat view in VS Code.](images/chat-sessions/new-chat-session-chat-view.png)
+
+To start a new chat session in the Chat view:
+
+1. Open the Chat view by selecting the **Chat** icon in the VS Code title bar.
+
+1. Create an empty session by selecting the **New Chat** (`+`) button.
+
+    The session is scoped to the current workspace, so if you have a workspace open, the session is automatically linked to that workspace.
 
 1. Choose an agent type to determine where the agent session runs and what capabilities it has access to.
 
@@ -35,70 +75,43 @@ To start a new chat session:
 1. Optionally, select additional configuration options for the session:
 
     * **Agent**: determines the role or persona of the AI, such as Agent, Plan, or Ask. Learn more about [choosing an agent](/docs/agents/overview.md#configure-your-agent-session).
+
     * **Permission level**: controls how much autonomy the agent has over tool approvals. Learn more about [permission levels](/docs/agents/agent-tools.md#permission-levels).
+
     * **Language model**: determines which AI model powers the conversation. Learn more about [language models in VS Code](/docs/agent-customization/language-models.md).
 
-1. Type your prompt and press `kb(workbench.action.chat.submit)` to submit it. Learn more about [configuring your agent session](/docs/agents/overview.md), including agent types, agents, and permission levels.
+1. Type your prompt and press `kb(workbench.action.chat.submit)` to submit it. The agent's response appears in the chat area, and the agent may take actions such as editing files, running commands, or asking follow-up questions.
 
-## Where to open a chat session
-
-You can open chat sessions in different views, depending on how you prefer to work:
-
-* **[Agents window](/docs/agents/agents-window.md)** (agent-first): a dedicated window where chat and the sessions list are the primary interface. Best when you're orchestrating agents across multiple projects.
-* **[Chat view](/docs/agents/chat-view.md)** (code-first): chat lives alongside your editor in the main VS Code window, with full access to debugging, notebooks, and extensions. Best when you're writing and editing code in a single workspace.
-
-Both surfaces share the same sessions and settings, so you can move freely between them.
-
-### In the Agents window
-
-The Agents window lets you orchestrate sessions across multiple projects from one place. Learn more about the [Agents window](/docs/agents/agents-window.md).
-
-![Screenshot of the Agents window showing the sessions list, workspace picker, and chat input.](images/chat-sessions/agents-window-new-session.png)
-
-* Select the **Open in Agents** button in the title bar, run the **Chat: Open Agents Window** command, or use `code --agents` from the command line.
-
-* Open <https://insiders.vscode.dev/agents> in a browser to manage sessions from any device. Learn more about [remote agent sessions](/docs/agents/remote-agent-sessions.md).
-
-* In the Agents window, you can [open multiple sessions side by side](/docs/agents/agents-window.md#open-multiple-sessions-side-by-side) to compare or review work in parallel.
-
-### In the Chat view
-
-The Chat view offers several layout options within the main VS Code window. Learn more about the [Chat view](/docs/agents/chat-view.md).
-
-* **Side bar** (default): select **New Chat (+)** > **New Chat**, or run the **Chat: New Chat** command. Best for keeping chat visible alongside your code.
-
-    ![Screenshot of opening a new chat session in the Chat view in VS Code.](images/chat-sessions/new-chat-session-chat-view.png)
-
-* **Editor tab**: select **New Chat (+)** > **New Chat Editor**, or run the **Chat: New Chat Editor** command. Best for giving chat more space or comparing sessions side by side.
-
-    ![Screenshot of opening a new chat session in an editor tab in VS Code.](images/chat-sessions/new-chat-session-editor-tab.png)
-
-* **Separate window**: select **New Chat (+)** > **New Chat Window**, or run the **Chat: New Chat Window** command. Best for multi-monitor setups.
-
-    ![Screenshot of opening a new chat session in a separate window in VS Code.](images/chat-sessions/new-chat-session-separate-window.png)
+{% /tab %}
+{% /tabs %}
 
 ## Sessions list
 
-Both the Chat view and the Agents window provide a sessions list to manage your sessions. The sessions list shows your sessions with information about their status, type, and file changes.
+The sessions list is your central hub for managing all your chat sessions, regardless of where you started them or where they are running. The sessions list shows your sessions with information about their status, type, and file changes.
 
-* In the **Chat view**, the sessions list is scoped to your current workspace and groups sessions by time period, such as **Today** or **Last Week**. If you don't have a workspace open, the list shows all sessions across your workspaces.
+Hover over a session to see actions for pinning or [archiving](#archive-sessions) it.  Right-click a session in the list to see additional actions like deleting or changing the session's state. Some actions are specific for the session's agent type and state. For example, checking out a pull request for a cloud agent session.
 
-* In the **Agents window**, the sessions list shows sessions across all your workspaces and groups them by workspace by default, so you can monitor work across projects from one place.
+Use the pinning action to keep important sessions easily accessible at the top of your list. Pinned sessions stay at the top of the list regardless of their activity or state, so you can quickly find and return to them.
 
-The session list supports the following capabilities:
+{% tabs id="chat-surface" %}
+{% tab label="Agents window" %}
 
-* Sorting on different fields
-* Grouping (Agents window)
-* Searching on session title
-* Pinning to the top of the list
-* Archiving
-* Deleting
+In the Agents window, the sessions list is located in the left sidebar. It shows sessions from all your workspaces, so you can monitor work across projects from a single place. Each session item surfaces key information such as session name, workspace, agent type, and file change stats.
 
-Right-click a session in the list to see additional actions. Some actions are specific for the session's agent type and status. For example, checking out a pull request for a cloud agent session.
+By default, the list is filtered to only show active sessions. You can change the filter to show sessions of different states, such as completed or archived.
 
-### Sessions list in the Chat view
+Sessions are grouped by workspace by default, and you can switch the grouping to organize by timeframe instead.
 
-To hide the session list from the Chat view, right-click in an empty chat and unselect **Show Sessions** (`setting(chat.viewSessions.enabled)`).
+You can hide the left sidebar by selecting the **Toggle Sidebar** button in the top-left corner of the Agents window or by using the `kb(workbench.action.toggleSidebarVisibility)` keyboard shortcut.
+
+{% /tab %}
+{% tab label="Chat view" %}
+
+In the **Chat view**, the sessions list is scoped to your current workspace and groups sessions by time period, such as **Today** or **Last Week**. If you don't have a workspace open, the list shows all sessions across your workspaces.
+
+By default, the list is filtered to only show active sessions. You can change the filter to show sessions of different states, such as completed or archived.
+
+To hide the session list from the Chat view, right-click in an empty chat and unselect **Show Sessions** or use the `setting(chat.viewSessions.enabled)` setting.
 
 The Chat view operates in two modes: compact and side-by-side. You can manually switch between compact and side-by-side mode by using the toggle control in the top-right corner of the Chat view.
 
@@ -109,33 +122,8 @@ The Chat view operates in two modes: compact and side-by-side. You can manually 
 > [!NOTE]
 > Extension developers can learn how to integrate with the sessions view by using the proposed API [`chatSessionsProvider`](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.chatSessionsProvider.d.ts). The API is currently in a proposed state and subject to change.
 
-### Sessions list in the Agents window
-
-In the Agents window, the sessions list is in the sidebar and shows all your active sessions across workspaces.
-
-Sessions are grouped by workspace by default, and you can switch the grouping to organize by timeframe instead. Each session item surfaces key information such as session name, workspace, agent type, and file change stats.
-
-You can also open multiple sessions side by side in the Agents window to compare results or review work in parallel. Learn more about [managing sessions in the Agents window](/docs/agents/agents-window.md#manage-your-sessions).
-
-### Session status indicator (Experimental)
-
-The session status indicator provides quick access to your sessions directly from the command center in the title bar. The indicator displays visual badges for unread messages and in-progress sessions, so you can stay informed about AI activity without switching views.
-
-![Screenshot showing the session status indicator in the command center with unread and in-progress badges.](../agents/images/agents-overview/agent-status-indicator-v2.png)
-
-The indicator shows:
-
-* **Unread sessions badge**: shows the count of chat sessions with new messages. Select the badge to filter the sessions list to show only unread sessions.
-* **In-progress sessions badge**: shows the count of sessions with running agents. Select the badge to filter the sessions list to show only in-progress sessions.
-* **Sparkle icon**: provides quick access to chat and session management options.
-
-You can configure the status indicator's visibility by using the `setting(chat.agentsControl.enabled)` setting.
-
-### View sessions on the welcome page
-
-The VS Code welcome page can act as your startup experience for working with chat sessions. It provides quick access to your recent chat sessions, an embedded chat widget for starting new tasks, and quick actions for common tasks.
-
-To configure the VS Code welcome page as your startup experience, set `setting(workbench.startupEditor)` to `agentSessionsWelcomePage`.
+{% /tab %}
+{% /tabs %}
 
 ## Archive sessions
 
@@ -188,20 +176,6 @@ To export a chat session:
 
 1. Choose a location to save the JSON file.
 
-### Save a chat session as a reusable prompt
-
-You can save a chat session as a [reusable prompt](/docs/agent-customization/prompt-files.md) to reuse for similar tasks.
-
-To save a chat session as a reusable prompt:
-
-1. Open the chat session you want to save in the Chat view.
-
-1. Type `/savePrompt` in the chat input box and press `Enter`.
-
-    The command creates a `.prompt.md` file, which is a reusable [prompt file](/docs/agent-customization/prompt-files.md) that generalizes your current chat conversation into a template with placeholders. You can use prompt files to run the same type of task across different projects or codebases.
-
-1. Review and edit the generated prompt file as needed, then save it to your workspace.
-
 ### Copy chat messages as Markdown
 
 The Chat view supports different options for copying chat messages as Markdown to the clipboard, available through the context menu when you right-click a message or the chat background.
@@ -211,6 +185,26 @@ The Chat view supports different options for copying chat messages as Markdown t
 * **Copy All**: Copy the entire chat session in Markdown format, including all prompts, responses, thinking steps, and tool calls.
 
 * **Copy Final Response**: Copy just the final Markdown section of the agent's response, after the last tool call. This is useful for sharing or reusing the final output without the intermediate steps.
+
+## Session status indicator (Experimental)
+
+The session status indicator provides quick access to your sessions directly from the command center in the title bar. The indicator displays visual badges for unread messages and in-progress sessions, so you can stay informed about AI activity without switching views.
+
+![Screenshot showing the session status indicator in the command center with unread and in-progress badges.](../agents/images/agents-overview/agent-status-indicator-v2.png)
+
+The indicator shows:
+
+* **Unread sessions badge**: shows the count of chat sessions with new messages. Select the badge to filter the sessions list to show only unread sessions.
+* **In-progress sessions badge**: shows the count of sessions with running agents. Select the badge to filter the sessions list to show only in-progress sessions.
+* **Sparkle icon**: provides quick access to chat and session management options.
+
+You can configure the status indicator's visibility by using the `setting(chat.agentsControl.enabled)` setting.
+
+## View sessions on the VS Code welcome page
+
+The VS Code welcome page can act as your startup experience for working with chat sessions. It provides quick access to your recent chat sessions, an embedded chat widget for starting new tasks, and quick actions for common tasks.
+
+To configure the VS Code welcome page as your startup experience, set `setting(workbench.startupEditor)` to `agentSessionsWelcomePage`.
 
 ## Related resources
 

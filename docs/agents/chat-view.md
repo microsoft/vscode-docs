@@ -29,9 +29,7 @@ In this article, you learn how to open and work with agents in the Chat view. Fo
 
 ## Open the Chat view
 
-The Chat view opens in the Secondary Side Bar, next to your editor. You can also open chat in an editor tab, a separate window, or maximized to give it more space. Learn more about [where to open a chat session](/docs/chat/chat-sessions.md#where-to-open-a-chat-session).
-
-To open the Chat view, use one of the following methods:
+The Chat view opens in the Secondary Side Bar, next to your editor. To open the Chat view, use one of the following methods:
 
 * Select the **Chat** menu in the VS Code title bar, and then select **Open Chat**.
 
@@ -40,6 +38,22 @@ To open the Chat view, use one of the following methods:
 * Use the keyboard shortcut `kb(workbench.action.chat.open)`.
 
 * Run `code chat` from the command line to start chat from outside VS Code. Learn more about [starting chat from the command line](/docs/configure/command-line.md#start-chat-from-the-command-line).
+
+### Layout options
+
+The Chat view offers several layout options within the main VS Code window. Choose the layout that best fits your workflow:
+
+* **Side bar** (default): select **New Chat (+)** > **New Chat**, or run the **Chat: New Chat** command. Best for keeping chat visible alongside your code.
+
+    ![Screenshot of opening a new chat session in the Chat view in VS Code.](../chat/images/chat-sessions/new-chat-session-chat-view.png)
+
+* **Editor tab**: select **New Chat (+)** > **New Chat Editor**, or run the **Chat: New Chat Editor** command. Best for giving chat more space or comparing sessions side by side.
+
+    ![Screenshot of opening a new chat session in an editor tab in VS Code.](../chat/images/chat-sessions/new-chat-session-editor-tab.png)
+
+* **Separate window**: select **New Chat (+)** > **New Chat Window**, or run the **Chat: New Chat Window** command. Best for multi-monitor setups.
+
+    ![Screenshot of opening a new chat session in a separate window in VS Code.](../chat/images/chat-sessions/new-chat-session-separate-window.png)
 
 ## Interface overview
 
@@ -53,7 +67,7 @@ The Chat view keeps the agent next to your code, so you can prompt, review, and 
 
 ![Screenshot showing the Chat view with the sessions list, conversation, and chat input.](images/agents-overview/chat-view-expanded.png)
 
-The Chat view operates in two modes: compact and side-by-side. Use the toggle control in the top-right corner of the Chat view to switch between them. In compact mode, the sessions list and conversation share the same panel. In side-by-side mode, the sessions list stays visible next to the conversation. Learn more about [sessions list layout options](/docs/chat/chat-sessions.md#sessions-list-in-the-chat-view).
+The Chat view operates in two modes: compact and side-by-side. Use the toggle control in the top-right corner of the Chat view to switch between them. In compact mode, the sessions list and conversation share the same panel. In side-by-side mode, the sessions list stays visible next to the conversation. Learn more about [sessions list layout options](/docs/chat/chat-sessions.md#sessions-list).
 
 ## Start a session
 
@@ -76,7 +90,7 @@ After you send a prompt, the agent works through the task step by step. Because 
 * **Use extensions and notebooks**: the agent has access to your installed extensions and can work with [notebooks](/docs/agents/guides/notebooks-with-ai.md) directly in the editor.
 
 > [!TIP]
-> You can open chat in an editor tab, a separate window, or maximized for more space. Learn more about [where to open a chat session](/docs/chat/chat-sessions.md#where-to-open-a-chat-session).
+> You can open chat in an editor tab, a separate window, or maximized for more space. Learn more about the [Chat view layout options](#layout-options).
 
 ## Next steps
 
