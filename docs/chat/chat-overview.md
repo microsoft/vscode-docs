@@ -6,10 +6,11 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Chat overview
 
-Chat in Visual Studio Code enables you to use natural language for AI-powered coding assistance. Ask questions about your code, get help understanding complex logic, generate new features, fix bugs, and more, all through a conversational interface. This article describes how to interact with chat, regardless of whether you work in the [Chat view](/docs/agents/chat-view.md) or the [Agents window](/docs/agents/agents-window.md): how to add context, choose a language model, write effective prompts, and review AI-generated changes.
+Chat in Visual Studio Code lets you use natural language for interacting with AI agents. Ask questions about your code, get help understanding complex logic, generate new features, fix bugs, and more, all through a conversational interface.
 
-> [!NOTE]
-> VS Code gives you two surfaces for working with agents: the [Chat view](/docs/agents/chat-view.md) for a code-first workflow in a single workspace, and the [Agents window](/docs/agents/agents-window.md) for an agent-first workflow across projects. The mechanics in this article apply to both. Learn more about [where to work with agents](/docs/agents/overview.md#where-to-work-with-agents).
+VS Code gives you two main surfaces for working with agents: the [Agents window](/docs/agents/agents-window.md) for an **agent-first** workflow across projects and the [Chat view](/docs/agents/chat-view.md) for a **code-first** workflow in a single workspace.
+
+This article describes the mechanics of how to interact with chat: how to add context, choose a language model, write effective prompts, and review AI-generated changes.
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
 Follow a hands-on tutorial to experience local, background, and cloud agents in VS Code.
@@ -18,36 +19,33 @@ Follow a hands-on tutorial to experience local, background, and cloud agents in 
 
 </div>
 
-## Prerequisites
+## Ways to chat in VS Code
 
-* Access to [GitHub Copilot](/docs/setup/copilot.md). If you don't have a subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup).
+VS Code gives you two main surfaces for working with agents, plus lightweight options for quick interactions. You can choose the experience that best fits your current task and workflow, and switch between them as needed.
 
-> [!IMPORTANT]
-> **Starting April 20, 2026**, new sign-ups for Copilot Pro, Copilot Pro+, Max, and Student plans are temporarily paused.
+| Name | Description | How to open |
+|------|-------------|-------------|
+| [Agents window](/docs/agents/agents-window.md) | A dedicated, agent-first window for orchestrating tasks across multiple projects. Focus on high-level tasks and outcomes. | <ul><li>Select **Open in Agents** in the VS Code title bar</li><li>Use the **Chat: Open Agents Window** command</li><li>Run `code --agents`</li></ul> |
+| [Chat view](/docs/agents/chat-view.md) | A code-first experience running in the editor sidebar, to assist you with coding tasks in your workspace. | <ul><li>Select the chat icon in the VS Code title bar</li><li>Use the **Chat: Open Chat** command</li><li>Press `kb(workbench.action.chat.open)`</li></ul> |
+| [Inline chat](/docs/chat/inline-chat.md) | Quick, in-place code edits or terminal suggestions. | <ul><li>Press `kb(inlineChat.start)`</li></ul> |
+| [Quick Chat](/docs/chat/inline-chat.md#use-quick-chat) | A lightweight chat panel at the top of the editor. | <ul><li>Press `kb(workbench.action.quickchat.toggle)`</li></ul> |
 
-## Access chat in VS Code
+## Send a chat request
 
-VS Code gives you two main surfaces for working with agents, plus lightweight options for quick interactions:
+Type your message in the chat input box and press `kbstyle(Enter)` or select the **Send** button. The agent analyzes your code, makes the changes, and responds with a summary. You can then continue the conversation with follow-up messages. For example, you might start with a request like:
 
-* **[Agents window](/docs/agents/agents-window.md)**: a dedicated, agent-first window for orchestrating tasks across multiple projects. Open it from the **Open in Agents** button in the title bar, or run `code --agents`.
-* **[Chat view](/docs/agents/chat-view.md)**: a code-first experience where the agent assists you in the main VS Code window while you stay focused on a single workspace. Open it with `kb(workbench.action.chat.open)`.
-* **[Inline chat](/docs/chat/inline-chat.md)**: press `kb(inlineChat.start)` for quick, in-place code edits or terminal command suggestions.
-* **[Quick Chat](/docs/chat/inline-chat.md#use-quick-chat)**: press `kb(workbench.action.quickchat.toggle)` for a lightweight chat panel at the top of the editor.
+```prompt
+Add input validation to the signup form
+```
 
-![Screenshot of the Copilot Chat menu in the VS Code Command Center.](images/copilot-chat/copilot-chat-menu-command-center.png)
+To give extra project-specific context, you can [add context to your prompt](#add-context-to-your-prompts) by referencing files, symbols, or other information with `#`-mentions.
 
-For step-by-step instructions on getting started in each surface, see the [Agents window](/docs/agents/agents-window.md) and [Chat view](/docs/agents/chat-view.md) articles, or follow the hands-on [VS Code tutorial](/docs/getstarted/getting-started.md).
+For common tasks, you can use slash commands as shortcuts for frequently used prompts or to invoke [agent skills](/docs/agent-customization/agent-skills.md). Type `/` in the chat input to see all available commands.
 
-## Configure your chat session
+You can run multiple sessions in parallel to work on different tasks simultaneously. When you start a new session, the previous session remains active in the background, allowing you to switch back to it at any time without losing context. Learn more in [Manage chat sessions](/docs/agents/sessions/chat-sessions.md).
 
-When you start a chat session, the following choices shape how the AI responds:
+Each session has configuration options that shape the AI behavior, including the [session type](/docs/agents/overview.md#types-of-agents), [agent](/docs/agents/overview.md#choose-an-agent), [permission level](/docs/agents/overview.md#choose-a-permission-level), and [language model](/docs/agent-customization/language-models.md).
 
-* **Session type**: determines where the agent runs (locally, in the background, or in the cloud). Learn more about [agent types](/docs/agents/overview.md#types-of-agents).
-* **Agent**: determines the role or persona of the AI, such as Agent, Plan, or Ask. Learn more about [choosing an agent](/docs/agents/overview.md#choose-an-agent).
-* **Permission level**: controls how much autonomy the agent has over tool approvals. Learn more about [permission levels](/docs/agents/overview.md#choose-a-permission-level).
-* **Language model**: determines which AI model powers the conversation. Learn more about [language models in VS Code](/docs/agent-customization/language-models.md).
-
-For the steps to start, switch between, and organize sessions, see [Manage chat sessions](/docs/agents/sessions/chat-sessions.md).
 
 ## Send messages while a request is running
 
@@ -100,8 +98,6 @@ Providing the right context helps the AI generate more relevant and accurate res
 * **Implicit context**: VS Code automatically includes the active file, your current selection, and the file name as context. When you use agents, the agent decides autonomously if additional context is needed.
 
 * **`#`-mentions**: type `#` in the chat input to explicitly reference files (`#file`), folders, symbols, your codebase (`#codebase`), terminal output (`#terminalSelection`), or tools like `#fetch`.
-
-* **`@`-mentions**: type `@` to invoke specialized chat participants like `@vscode` or `@terminal`, each optimized for their respective domain.
 
 * **Vision**: attach images, such as screenshots or UI mockups, as context for your prompt.
 
