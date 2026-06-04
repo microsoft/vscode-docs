@@ -128,7 +128,8 @@ To create the `.github/agents/TDD-red.agent.md` red phase [custom agent](/docs/a
     ---
     name: TDD Red
     description: TDD phase for writing FAILING tests
-    infer: true
+    disable-model-invocation: false
+    user-invocable: true
     tools: ['read', 'edit', 'search']
     handoffs:
       - label: TDD Green
@@ -157,7 +158,8 @@ To create the `.github/agents/TDD-green.agent.md` green phase [custom agent](/do
     ---
     name: TDD Green
     description: TDD phase for writing MINIMAL implementation to pass tests
-    infer: true
+    disable-model-invocation: false
+    user-invocable: true
     tools: ['search', 'edit', 'execute']
     handoffs:
       - label: TDD Refactor
@@ -190,7 +192,8 @@ To create the `.github/agents/TDD-refactor.agent.md` refactor phase [custom chat
     name: TDD Refactor
     description: Refactor code while maintaining passing tests
     tools: ['search', 'edit', 'read', 'execute']
-    infer: true
+    disable-model-invocation: false
+    user-invocable: true
     handoffs:
       - label: TDD Red
         agent: TDD Red
