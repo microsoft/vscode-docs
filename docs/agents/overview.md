@@ -69,22 +69,8 @@ AI features are built into VS Code. To enable them, sign in with your GitHub acc
 
 VS Code gives you two main surfaces for working with agents: the Agents window and the Chat view. Pick the one that fits your current task and switch freely between them. Both share the same agent sessions.
 
-<div class="card-grid">
-    <a class="card" href="/docs/agents/agents-window">
-        <i class="codicon codicon-hubot" aria-hidden="true"></i>
-        <div>
-            <p><strong>Agents window (agent-first, Preview)</strong></p>
-            <p>A dedicated window for orchestrating agents across multiple projects. Chat is your primary interface where you assign high-level tasks to agents.</p>
-        </div>
-    </a>
-    <a class="card" href="/docs/agents/chat-view">
-        <i class="codicon codicon-code" aria-hidden="true"></i>
-        <div>
-            <p><strong>Chat view (code-first)</strong></p>
-            <p>A chat panel sits in the sidebar alongside your workspace editor tabs. Agents assist you with coding tasks, while you have full access to VS Code's rich coding experience.</p>
-        </div>
-    </a>
-</div>
+* **[Agents window (agent-first, Preview)](/docs/agents/agents-window.md)**: A dedicated window for orchestrating agents across multiple projects from a single place. Chat is your primary interface where you assign high-level tasks to agents.
+* **[Chat view (code-first)](/docs/agents/chat-view.md)**: A chat panel sits in the sidebar alongside your workspace editor tabs. Agents assist you with coding tasks, while you have full access to VS Code's rich coding experience.
 
 ## Configure your agent session
 
