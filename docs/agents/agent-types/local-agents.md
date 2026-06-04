@@ -142,7 +142,7 @@ The location of the language model depends on the model provider you choose for 
 ## Related resources
 
 * [Agents overview](/docs/agents/overview.md): Choose agents, configure permissions, and hand off between agent types.
-* [Manage chat sessions](/docs/agents/sessions/chat-sessions.md): Create, switch between, and organize your sessions.
+* [Manage chat sessions](/docs/chat/chat-sessions.md): Create, switch between, and organize your sessions.
 * [Agents tutorial](/docs/agents/agents-tutorial.md): Hands-on tutorial for working with different agent types.
 * [Tools](/docs/agents/agent-tools.md): Extend agents with built-in, MCP, and extension tools.
 * [Custom agents](/docs/agent-customization/custom-agents.md): Create your own AI agents and extensions.

@@ -29,7 +29,7 @@ In this article, you learn how to open and work with agents in the Chat view. Fo
 
 ## Open the Chat view
 
-The Chat view opens in the Secondary Side Bar, next to your editor. You can also open chat in an editor tab, a separate window, or maximized to give it more space. Learn more about [where to open a chat session](/docs/agents/sessions/chat-sessions.md#where-to-open-a-chat-session).
+The Chat view opens in the Secondary Side Bar, next to your editor. You can also open chat in an editor tab, a separate window, or maximized to give it more space. Learn more about [where to open a chat session](/docs/chat/chat-sessions.md#where-to-open-a-chat-session).
 
 To open the Chat view, use one of the following methods:
 
@@ -45,7 +45,7 @@ To open the Chat view, use one of the following methods:
 
 The Chat view keeps the agent next to your code, so you can prompt, review, and edit in the same window. The Chat view has the following main areas:
 
-1. **Sessions list**: at the top of the view, where you can view and manage your sessions for the current workspace. Learn more about the [sessions list](/docs/agents/sessions/chat-sessions.md#sessions-list).
+1. **Sessions list**: at the top of the view, where you can view and manage your sessions for the current workspace. Learn more about the [sessions list](/docs/chat/chat-sessions.md#sessions-list).
 
 1. **Chat conversation**: in the center, where you see the conversation history and the agent's responses, including the changes it makes to your code.
 
@@ -53,7 +53,7 @@ The Chat view keeps the agent next to your code, so you can prompt, review, and 
 
 ![Screenshot showing the Chat view with the sessions list, conversation, and chat input.](images/agents-overview/chat-view-expanded.png)
 
-The Chat view operates in two modes: compact and side-by-side. Use the toggle control in the top-right corner of the Chat view to switch between them. In compact mode, the sessions list and conversation share the same panel. In side-by-side mode, the sessions list stays visible next to the conversation. Learn more about [sessions list layout options](/docs/agents/sessions/chat-sessions.md#sessions-list-in-the-chat-view).
+The Chat view operates in two modes: compact and side-by-side. Use the toggle control in the top-right corner of the Chat view to switch between them. In compact mode, the sessions list and conversation share the same panel. In side-by-side mode, the sessions list stays visible next to the conversation. Learn more about [sessions list layout options](/docs/chat/chat-sessions.md#sessions-list-in-the-chat-view).
 
 ## Start a session
 
@@ -61,7 +61,7 @@ To start a new session, select **New Chat** (`+`) or press `kb(workbench.action.
 
 ![Screenshot showing the agent target dropdown in the Chat view.](images/agents-overview/agent-type-dropdown.png)
 
-Type a prompt and press `kb(workbench.action.chat.submit)` to start. The agent breaks down your task into steps, edits files in your workspace, runs commands, and self-corrects when something goes wrong. Learn more about [managing chat sessions](/docs/agents/sessions/chat-sessions.md).
+Type a prompt and press `kb(workbench.action.chat.submit)` to start. The agent breaks down your task into steps, edits files in your workspace, runs commands, and self-corrects when something goes wrong. Learn more about [managing chat sessions](/docs/chat/chat-sessions.md).
 
 ## Work with the agent
 
@@ -76,10 +76,10 @@ After you send a prompt, the agent works through the task step by step. Because 
 * **Use extensions and notebooks**: the agent has access to your installed extensions and can work with [notebooks](/docs/agents/guides/notebooks-with-ai.md) directly in the editor.
 
 > [!TIP]
-> You can open chat in an editor tab, a separate window, or maximized for more space. Learn more about [where to open a chat session](/docs/agents/sessions/chat-sessions.md#where-to-open-a-chat-session).
+> You can open chat in an editor tab, a separate window, or maximized for more space. Learn more about [where to open a chat session](/docs/chat/chat-sessions.md#where-to-open-a-chat-session).
 
 ## Next steps
 
 * [Chat overview](/docs/chat/chat-overview.md) - add context, write effective prompts, and review changes.
-* [Manage chat sessions](/docs/agents/sessions/chat-sessions.md) - organize, archive, and fork sessions.
+* [Manage chat sessions](/docs/chat/chat-sessions.md) - organize, archive, and fork sessions.
 * [Use the Agents window](/docs/agents/agents-window.md) - work with agents across multiple projects.

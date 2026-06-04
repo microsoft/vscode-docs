@@ -95,7 +95,7 @@ A chat session is a single conversation with an agent, including all prompts, re
 
 Because the [Chat view](/docs/agents/chat-view.md) and the [Agents window](/docs/agents/agents-window.md) share the same sessions, you can start a task in one surface and continue it in the other. The sessions list gives you a unified view of all your sessions, regardless of where they run.
 
-Learn more about [managing chat sessions](/docs/agents/sessions/chat-sessions.md).
+Learn more about [managing chat sessions](/docs/chat/chat-sessions.md).
 
 ## Remote agent sessions
 

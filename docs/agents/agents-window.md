@@ -99,7 +99,7 @@ The agent now starts working on your request. Learn more about [interacting in c
 
 The session list in the sidebar shows all your ongoing sessions across your workspaces. Each session item surfaces the key information such as session name, workspace, agent type, and file change stats.
 
-By default, sessions are grouped by workspace and you can also group on timeframe. See [Manage Sessions](/docs/agents/sessions/chat-sessions.md) for more details on working with the session list.
+By default, sessions are grouped by workspace and you can also group on timeframe. See [Manage Sessions](/docs/chat/chat-sessions.md) for more details on working with the session list.
 
 When you select a session in the list, the chat panel shows the complete history of that session. This session then becomes the active session and the **Changes** panel surfaces the latest file updates from the agent in that session and the files in the associated workspace.
 
@@ -193,7 +193,7 @@ To create a sub-session:
 1. Type a prompt and press `kbstyle(Enter)` to start the sub-session.
 
 > [!TIP]
-> To explore an alternative direction from a specific point in a session's conversation, [fork the session](/docs/agents/sessions/chat-sessions.md#fork-a-chat-session). Forking a session creates a new independent session with a copy of the conversation history up to a specific point.
+> To explore an alternative direction from a specific point in a session's conversation, [fork the session](/docs/chat/chat-sessions.md#fork-a-chat-session). Forking a session creates a new independent session with a copy of the conversation history up to a specific point.
 
 ## Open multiple sessions side by side
 
@@ -339,5 +339,5 @@ Yes. You can access the integrated browser via the run menu in the top right of 
 ## Next steps
 
 * [Chat overview](/docs/chat/chat-overview.md) - add context, write effective prompts, and review changes.
-* [Manage chat sessions](/docs/agents/sessions/chat-sessions.md) - checkpoints, forking, archiving, and exporting sessions.
+* [Manage chat sessions](/docs/chat/chat-sessions.md) - checkpoints, forking, archiving, and exporting sessions.
 * [Remote agent sessions](/docs/agents/remote-agent-sessions.md) - SSH, dev tunnels, and browser-based access.

@@ -13,7 +13,6 @@
                 "name": "Sessions",
                 "area": "agents/sessions",
                 "topics": [
-                    ["Manage Sessions", "/docs/agents/sessions/chat-sessions"],
                     ["Session Insights", "/docs/agents/sessions/session-insights"],
                     ["Sync Sessions", "/docs/agents/sessions/session-sync"]
                 ]
@@ -62,6 +61,7 @@
         "area": "chat",
         "topics": [
             ["Overview", "/docs/chat/chat-overview"],
+            ["Chat Sessions", "/docs/chat/chat-sessions"],
             ["Add Context", "/docs/chat/copilot-chat-context"],
             ["Inline Chat", "/docs/chat/inline-chat"],
             ["Review Edits", "/docs/chat/review-code-edits"],

@@ -40,7 +40,7 @@ To give extra project-specific context, you can [add context to your prompt](#ad
 
 For common tasks, you can use slash commands as shortcuts for frequently used prompts or to invoke [agent skills](/docs/agent-customization/agent-skills.md). Type `/` in the chat input to see all available commands.
 
-You can run multiple sessions in parallel to work on different tasks simultaneously. When you start a new session, the previous session remains active in the background, allowing you to switch back to it at any time without losing context. Learn more in [Manage chat sessions](/docs/agents/sessions/chat-sessions.md).
+You can run multiple sessions in parallel to work on different tasks simultaneously. When you start a new session, the previous session remains active in the background, allowing you to switch back to it at any time without losing context. Learn more in [Manage chat sessions](/docs/chat/chat-sessions.md).
 
 Each session has configuration options that shape how the agent responds, such as the agent type, agent, permission level, and language model. Learn how to [configure your agent session](/docs/agents/overview.md).
 
@@ -61,32 +61,6 @@ The default action for the **Send** button is configurable. Use `setting(chat.re
 When you have multiple pending messages (queued or steering), you can drag and drop them to change the order in which they are processed. A drag handle appears on hover when more than one message of the same type is pending.
 
 ![Screenshot of pending messages in the chat input box with drag handles to reorder them.](images/chat-sessions/pending-messages.png)
-
-## Get notified about chat responses
-
-When you're working in another window or application, VS Code can send you OS notifications to let you know about important chat events, so you don't have to keep checking back.
-
-Use `setting(chat.notifyWindowOnResponseReceived)` to configure when you receive an OS notification when a chat response is received. The notification includes a preview of the response, and selecting it brings focus to the chat session.
-
-Use `setting(chat.notifyWindowOnConfirmation)` to configure when you receive an OS notification when the agent needs your input or confirmation to continue.
-
-Both settings have three possible values:
-
-* `off`: never show notifications
-* `windowNotFocused` (default): show notifications only when the VS Code window is not focused
-* `always`: show notifications even when the VS Code window is in focus
-
-> [!TIP]
-> Set the value to `always` if you want to stay aware of chat activity while working in other parts of VS Code, such as when running long agent tasks in the background.
-
-## Navigate between prompts in a chat session
-
-Use the following keyboard shortcuts to navigate between prompts in a chat session:
-
-* `kb(workbench.action.chat.previousUserPrompt)`: Go to the previous prompt in the chat session.
-* `kb(workbench.action.chat.nextUserPrompt)`: Go to the next prompt in the chat session.
-* `kb(workbench.action.chat.previousCodeBlock)`: Go to the previous code block in the chat session.
-* `kb(workbench.action.chat.nextCodeBlock)`: Go to the next code block in the chat session.
 
 ## Add context to your prompts
 
@@ -120,6 +94,32 @@ After the AI makes changes to your files, review and accept or discard them.
 
 ![Screenshot showing the Editor with proposed changes, highlighting the review controls in the editor overlay controls.](images/review-code-edits/copilot-edits-file-review-controls.png)
 
+## Get notified about chat responses
+
+When you're working in another window or application, VS Code can send you OS notifications to let you know about important chat events, so you don't have to keep checking back.
+
+Use `setting(chat.notifyWindowOnResponseReceived)` to configure when you receive an OS notification when a chat response is received. The notification includes a preview of the response, and selecting it brings focus to the chat session.
+
+Use `setting(chat.notifyWindowOnConfirmation)` to configure when you receive an OS notification when the agent needs your input or confirmation to continue.
+
+Both settings have three possible values:
+
+* `off`: never show notifications
+* `windowNotFocused` (default): show notifications only when the VS Code window is not focused
+* `always`: show notifications even when the VS Code window is in focus
+
+> [!TIP]
+> Set the value to `always` if you want to stay aware of chat activity while working in other parts of VS Code, such as when running long agent tasks in the background.
+
+## Navigate between prompts in a chat session
+
+Use the following keyboard shortcuts to navigate between prompts in a chat session:
+
+* `kb(workbench.action.chat.previousUserPrompt)`: Go to the previous prompt in the chat session.
+* `kb(workbench.action.chat.nextUserPrompt)`: Go to the next prompt in the chat session.
+* `kb(workbench.action.chat.previousCodeBlock)`: Go to the previous code block in the chat session.
+* `kb(workbench.action.chat.nextCodeBlock)`: Go to the next code block in the chat session.
+
 ## Get better responses
 
 Chat provides several ways to improve the quality and relevance of AI responses:
@@ -144,7 +144,7 @@ To learn more about Copilot's security, privacy, compliance, and transparency, s
 
 ## Related resources
 
-* [Create and manage chat sessions](/docs/agents/sessions/chat-sessions.md)
+* [Create and manage chat sessions](/docs/chat/chat-sessions.md)
 
 * [Choose agents and configure permissions](/docs/agents/overview.md)
 

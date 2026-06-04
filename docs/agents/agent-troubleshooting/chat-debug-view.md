@@ -198,7 +198,7 @@ If the AI doesn't call an expected tool:
 If the response appears truncated:
 
 1. Check Agent Logs for **LLM requests** events to review token usage.
-1. A full context window might cause the model to truncate its response. Start a [new chat session](/docs/agents/sessions/chat-sessions.md) to reset the context.
+1. A full context window might cause the model to truncate its response. Start a [new chat session](/docs/chat/chat-sessions.md) to reset the context.
 
 ### A prompt file is not being applied
 

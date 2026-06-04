@@ -150,7 +150,7 @@ Slash commands are shortcuts to specific functionality within the chat. You can 
 | `/setupTests` | Get help setting up a testing framework for your code. Get recommendation for a relevant testing framework, steps to set up and configure it, and suggestions for VS Code testing extensions. |
 | `/clear` | Start a new chat session in the Chat view. |
 | `/compact` | Compact the conversation context by summarizing it. Useful when a conversation grows too long for the model's context window. |
-| `/fork` | Fork the current chat session into a new independent session that inherits the full conversation history. Learn more about [forking chat sessions](/docs/agents/sessions/chat-sessions.md#fork-a-chat-session). |
+| `/fork` | Fork the current chat session into a new independent session that inherits the full conversation history. Learn more about [forking chat sessions](/docs/chat/chat-sessions.md#fork-a-chat-session). |
 | `/debug` | Show the Chat Debug view to [inspect the chat logs for troubleshooting](/docs/agents/agent-troubleshooting/troubleshooting.md). |
 | `/troubleshoot` | Ask the AI to analyze the [agent debug logs](/docs/agents/agent-troubleshooting/chat-debug-view.md) for the current chat session. Optionally, include `#session` to select and diagnose a previous chat session. For example, `/troubleshoot how many tokens did I use?` or `/troubleshoot list all paths you tried to load customizations in #session`. Requires `setting(github.copilot.chat.agentDebugLog.enabled)`. |
 | `/new` | Scaffold a new VS Code workspace or file. Use natural language to describe the type of project/file you need, and preview the scaffolded content before creating it. |

@@ -55,5 +55,5 @@ Situations where reindexing helps:
 ## Related content
 
 * [Session sync](/docs/agents/sessions/session-sync.md) - Sync sessions to your GitHub account for cross-device access
-* [Manage chat sessions](/docs/agents/sessions/chat-sessions.md) - Create and organize chat sessions
+* [Manage chat sessions](/docs/chat/chat-sessions.md) - Create and organize chat sessions
 * [Settings reference](/docs/agents/reference/copilot-settings.md) - All Copilot settings

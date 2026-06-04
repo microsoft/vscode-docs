@@ -349,4 +349,4 @@ This pattern works because each subagent approaches the code fresh, without bein
 
 * [Agents overview](/docs/agents/overview.md) - Learn about the different types of agents in VS Code
 * [Custom agents](/docs/agent-customization/custom-agents.md) - Create your own AI agents
-* [Chat sessions](/docs/agents/sessions/chat-sessions.md) - Manage chat sessions in VS Code
+* [Chat sessions](/docs/chat/chat-sessions.md) - Manage chat sessions in VS Code

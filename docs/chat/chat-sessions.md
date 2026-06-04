@@ -2,9 +2,9 @@
 ContentId: 7a2e5f8d-4c9b-41e6-b3a8-9d7f2e4c1b8a
 DateApproved: 6/3/2026
 MetaDescription: Learn how to create and manage chat sessions in Visual Studio Code, including the sessions list, opening chat in editor tabs, separate windows, and using chat session history.
-MetaSocialImage: ../../images/shared/github-copilot-social.png
+MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
-# Manage chat sessions
+# Work with chat sessions in VS Code
 
 Use chat in Visual Studio Code to have conversation-based AI interactions. A [chat session](/docs/agents/concepts/agents.md#chat-sessions) consists of the sequence of prompts and responses between you and the AI, along with any relevant context from your code or files. This article describes how to create and manage chat sessions, use the sessions list, and organize your sessions. These features work in both the [Chat view](/docs/agents/chat-view.md) and the [Agents window](/docs/agents/agents-window.md).
 
@@ -53,7 +53,7 @@ Both surfaces share the same sessions and settings, so you can move freely betwe
 
 The Agents window lets you orchestrate sessions across multiple projects from one place. Learn more about the [Agents window](/docs/agents/agents-window.md).
 
-![Screenshot of the Agents window showing the sessions list, workspace picker, and chat input.](../images/chat-sessions/agents-window-new-session.png)
+![Screenshot of the Agents window showing the sessions list, workspace picker, and chat input.](images/chat-sessions/agents-window-new-session.png)
 
 * Select the **Open in Agents** button in the title bar, run the **Chat: Open Agents Window** command, or use `code --agents` from the command line.
 
@@ -67,15 +67,15 @@ The Chat view offers several layout options within the main VS Code window. Lear
 
 * **Side bar** (default): select **New Chat (+)** > **New Chat**, or run the **Chat: New Chat** command. Best for keeping chat visible alongside your code.
 
-    ![Screenshot of opening a new chat session in the Chat view in VS Code.](../images/chat-sessions/new-chat-session-chat-view.png)
+    ![Screenshot of opening a new chat session in the Chat view in VS Code.](images/chat-sessions/new-chat-session-chat-view.png)
 
 * **Editor tab**: select **New Chat (+)** > **New Chat Editor**, or run the **Chat: New Chat Editor** command. Best for giving chat more space or comparing sessions side by side.
 
-    ![Screenshot of opening a new chat session in an editor tab in VS Code.](../images/chat-sessions/new-chat-session-editor-tab.png)
+    ![Screenshot of opening a new chat session in an editor tab in VS Code.](images/chat-sessions/new-chat-session-editor-tab.png)
 
 * **Separate window**: select **New Chat (+)** > **New Chat Window**, or run the **Chat: New Chat Window** command. Best for multi-monitor setups.
 
-    ![Screenshot of opening a new chat session in a separate window in VS Code.](../images/chat-sessions/new-chat-session-separate-window.png)
+    ![Screenshot of opening a new chat session in a separate window in VS Code.](images/chat-sessions/new-chat-session-separate-window.png)
 
 ## Sessions list
 
@@ -121,7 +121,7 @@ You can also open multiple sessions side by side in the Agents window to compare
 
 The session status indicator provides quick access to your sessions directly from the command center in the title bar. The indicator displays visual badges for unread messages and in-progress sessions, so you can stay informed about AI activity without switching views.
 
-![Screenshot showing the session status indicator in the command center with unread and in-progress badges.](../images/agents-overview/agent-status-indicator-v2.png)
+![Screenshot showing the session status indicator in the command center with unread and in-progress badges.](../agents/images/agents-overview/agent-status-indicator-v2.png)
 
 The indicator shows:
 
@@ -143,7 +143,7 @@ To keep the sessions list organized, archive completed or inactive sessions. Arc
 
 To archive a session, hover over the session in the sessions list and select **Archive**. After you archive a session, it disappears from the list. Inversely, you can also unarchive a session in the same way.
 
-![Screenshot of archiving an agent session in the sessions view.](../images/agents-overview/agent-sessions-archive.png)
+![Screenshot of archiving an agent session in the sessions view.](../agents/images/agents-overview/agent-sessions-archive.png)
 
 To view your archived sessions, use the filter options in the sessions list and select the **Archived** filter.
 
@@ -170,7 +170,7 @@ There are two ways to fork a chat session:
 
 * **Fork from a checkpoint**: hover over a chat request in the conversation and select the **Fork Conversation** button. A new session opens that includes only the requests up to and including that checkpoint.
 
-    ![Screenshot of the Fork Conversation button in the checkpoint toolbar in the Chat view.](../../chat/images/chat-checkpoints/chat-fork-conversation.png)
+    ![Screenshot of the Fork Conversation button in the checkpoint toolbar in the Chat view.](images/chat-checkpoints/chat-fork-conversation.png)
 
 ## Save and export chat sessions
 
