@@ -1,4 +1,4 @@
-// Generates _sidebar.md from docs/toc.json and api/toc.json
+// Generates _sidebar.md from docs/toc.json, api/toc.json, and learn/toc.json
 // Usage: node build/generate-sidebar.js
 
 const fs = require('fs');
@@ -9,7 +9,9 @@ const ROOT = path.resolve(__dirname, '..');
 function loadJSON(filePath) {
   const raw = fs.readFileSync(filePath, 'utf-8');
   // Strip JS-style comments (// ...) that appear in api/toc.json
-  const cleaned = raw.replace(/^\s*\/\/.*$/gm, '');
+  let cleaned = raw.replace(/^\s*\/\/.*$/gm, '');
+  // Strip trailing commas before ] or } (common in hand-edited JSON)
+  cleaned = cleaned.replace(/,\s*([}\]])/g, '$1');
   return JSON.parse(cleaned);
 }
 
@@ -48,6 +50,17 @@ function renderTopics(topics, indent) {
   return md;
 }
 
+function renderSection(section, indent) {
+  let md = '';
+  if (section.link) {
+    md += `${indent}- [**${section.name}**](${section.link})\n`;
+  } else {
+    md += `${indent}- **${section.name}**\n`;
+  }
+  md += renderTopics(section.topics, indent + '  ');
+  return md;
+}
+
 function buildSidebar() {
   const docsToc = loadJSON(path.join(ROOT, 'docs', 'toc.json'));
   const apiToc = loadJSON(path.join(ROOT, 'api', 'toc.json'));
@@ -55,8 +68,20 @@ function buildSidebar() {
   // Docs sidebar
   let docsSidebar = '';
   for (const section of docsToc) {
-    docsSidebar += `- **${section.name}**\n`;
-    docsSidebar += renderTopics(section.topics, '  ');
+    // If section delegates to a subsection toc file, load and inline it
+    if (section.toc) {
+      const subToc = loadJSON(path.join(ROOT, 'docs', section.toc));
+      if (section.link) {
+        docsSidebar += `- [**${section.name}**](${section.link})\n`;
+      } else {
+        docsSidebar += `- **${section.name}**\n`;
+      }
+      for (const subSection of subToc) {
+        docsSidebar += renderSection(subSection, '  ');
+      }
+    } else {
+      docsSidebar += renderSection(section, '');
+    }
   }
   fs.writeFileSync(path.join(ROOT, '_sidebar_docs.md'), docsSidebar, 'utf-8');
   console.log('Generated _sidebar_docs.md');
@@ -64,11 +89,22 @@ function buildSidebar() {
   // API sidebar
   let apiSidebar = '';
   for (const section of apiToc) {
-    apiSidebar += `- **${section.name}**\n`;
-    apiSidebar += renderTopics(section.topics, '  ');
+    apiSidebar += renderSection(section, '');
   }
   fs.writeFileSync(path.join(ROOT, '_sidebar_api.md'), apiSidebar, 'utf-8');
   console.log('Generated _sidebar_api.md');
+
+  // Learn sidebar
+  const learnTocPath = path.join(ROOT, 'learn', 'toc.json');
+  if (fs.existsSync(learnTocPath)) {
+    const learnToc = loadJSON(learnTocPath);
+    let learnSidebar = '';
+    for (const section of learnToc) {
+      learnSidebar += renderSection(section, '');
+    }
+    fs.writeFileSync(path.join(ROOT, '_sidebar_learn.md'), learnSidebar, 'utf-8');
+    console.log('Generated _sidebar_learn.md');
+  }
 
   // Release Notes sidebar — sorted by Order descending, using TOCTitle
   const rnDir = path.join(ROOT, 'release-notes');

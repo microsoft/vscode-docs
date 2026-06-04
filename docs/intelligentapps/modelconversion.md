@@ -250,6 +250,114 @@ The default runtime is: `C:\Users\{user_name}\.aitk\bin\model_lab_runtime\Python
 
 Go to the History board. Select **Export** to share the model project with others. This copies the model project without history folder. If you want to share models with others, select the corresponding jobs. This copies the selected history folder containing the model and its configuration.
 
+## Build with Windows ML CLI (preview)
+
+In addition to the Olive-based conversion workflow, Foundry Toolkit also provides a streamlined **Build** flow powered by [Windows ML CLI](https://github.com/microsoft/winml-cli). Olive recipes focus on EP-driven optimization workflows, while Windows ML CLI provides a streamlined cross-EP developer workflow for Windows ML. Rather than manually assembling optimization recipes, you can use Windows ML CLI to convert, analyze, optimize, validate, and benchmark models through a simplified command-line experience on Windows PCs. Beyond converting models from Hugging Face, Windows ML CLI can also analyze, optimize, validate, and benchmark existing ONNX models directly on Windows PCs.
+
+### Choose a Windows ML CLI base model
+
+When you create a new model project (or add a model to an existing one), the **Choose a Base Model** page exposes a **Recommend Process** area powered by Windows ML CLI:
+
+![Screenshot that shows the Recommend Process area with Hugging Face Hub and Local ONNX Files cards.](./images/modelconversion/winmlcli-recommend-process.png)
+
+- **Hugging Face Hub**: provide a Hugging Face model ID (for example, `microsoft/resnet-50`), and Windows ML CLI will automatically download, convert, analyze, and optimize the model.
+- **Local ONNX Files**: browse to an ONNX file on disk and let Windows ML CLI analyze and optimize it.
+
+You can also pick a curated Hugging Face model that is already validated for Windows ML CLI. Open the **Provided By** filter and select **Windows ML CLI** to see the supported list.
+
+![Screenshot that shows HuggingFace Models filtered by the Windows ML CLI provider.](./images/modelconversion/winmlcli-model-list.png)
+
+> [!NOTE]
+> Models generated through Windows ML CLI can run across all execution providers (EPs) supported by Windows ML. Supported EPs include:
+>
+> - QNN (NPU, GPU)
+> - OpenVINO (CPU, NPU, GPU)
+> - VitisAI (NPU)
+> - NVIDIA TensorRT RTX (GPU)
+> - DirectML (DML) (GPU)
+> - CPU
+
+> [!NOTE]
+> For "bring your own model" scenarios using the **Hugging Face Hub** or **Local ONNX Files** templates, Windows ML CLI currently supports classic deep learning models only. LLM support is coming soon.
+
+### Run the Build flow
+
+After the project opens, the **Run Workflows** panel shows a **Build Flow** card for each selected Windows ML CLI model.
+
+![Screenshot that shows the Build Flow card with Edit Config and Build buttons for a Hugging Face model.](./images/modelconversion/winmlcli-build-flow.png)
+
+The behavior on first entry depends on how the model was added to the project.
+
+#### Built-in models
+
+Built-in models already include validated configurations for Windows ML CLI workflows. These curated models ship with prepared Build Config files optimized for Windows ML EPs. The Build Flow card opens directly in the **Configured** state — no auto-configuration runs. Select **Edit Config** to review the prepared recipe, then select **Build**.
+
+#### Hugging Face models added by ID
+
+Hugging Face models added by ID are automatically processed on first entry. The card transitions through these states:
+
+- **Configuring**: Windows ML CLI inspects the model on Hugging Face and generates the build config.
+- **Configured**: a configuration is ready.
+- **Failed**: configuration could not be completed. The card shows the failure inline and exposes a **Re-config** button (placed to the left of **Edit Config**) so you can retry without leaving the workflow.
+
+> [!NOTE]
+> A **Failed** configuring state usually means the model could not be automatically mapped to a supported optimization or validation workflow. This may happen when:
+>
+> - the model architecture is not yet supported,
+> - required model metadata is missing, or
+> - the ONNX graph contains unsupported operators.
+
+> [!NOTE]
+> Auto-configuration only runs on first entry for Hugging Face models added by ID, or after you explicitly select **Re-config**. The toolkit does not retry a failed configuration on its own, so you can inspect the log and decide when to try again.
+
+**Step 1: Generate the build config**
+
+Windows ML CLI queries Hugging Face, auto-detects the task and model type, and generates Build Config JSON files automatically. During onboarding, Windows ML CLI generates three configuration variants:
+
+- `config-noquant.json`
+- `config-w8a16.json`
+- `config-w8a8.json`
+
+The primary difference between them is the quantization strategy:
+
+- **No Quant** — full precision model.
+- **W8A16** — 8-bit weights with 16-bit activations.
+- **W8A8** — 8-bit weights with 8-bit activations for more aggressive compression and performance optimization.
+
+**Step 2: Customize the config**
+
+You can customize the workflow before running the build pipeline. Typical customization areas include task type, compile target, and precision details. By default, **Compile** is set to `null`. You can customize **Compile** with a target EP.
+
+**Step 3: Run the build**
+
+Selecting **Build** runs all four pipeline stages in sequence:
+
+1. Export
+2. Optimize
+3. Quantize
+4. Compile
+
+The workflow reads the settings recorded in `config*.json`. After the build step, Windows ML CLI automatically generates a declarative `build_config.json` file that defines how the workflow runs end-to-end. You can inspect and customize it through **View Config**. This declarative configuration model makes it easy to integrate Windows ML CLI into CI/CD pipelines with reproducible and portable build workflows.
+
+Windows ML CLI also generates an analyze report, which you can open through **View Analyze**. The analyze results provide detailed model compatibility insights, including supported operators, partially supported operators, and unsupported operators for Windows ML EPs. During analysis, Windows ML CLI automatically inspects the ONNX graph, detects optimization patterns, and generates recommended Windows ML optimization workflows.
+
+#### Local ONNX models
+
+For Local ONNX models, the Build workflow automatically analyzes the ONNX graph and generates a recommended Windows ML optimization workflow. Because the input is already an ONNX model, Windows ML CLI skips the **Export** stage and starts directly from model optimization. By default, the **Build** configuration also skips the **Quantize** and **Compile** stages — you can customize them later.
+
+![Screenshot that shows the Build Flow card for a local ONNX model with just a Build button.](./images/modelconversion/winmlcli-local-onnx.png)
+
+### Inspect Build, Evaluation, and Performance results
+
+Each Build run produces an entry in the **Generated Flow History** table. From there you can:
+
+- Select **View Config** to open the configuration file used for the run.
+- Select **View Analysis** to open the EP compatibility analysis.
+- Select **Performance** to launch a performance run against a chosen EP and view device, latency, and throughput results directly in the table.
+- Select **Evaluation** to run a quality evaluation. Evaluation is only available for **built-in models**, which ship with a prepared evaluation dataset and metrics.
+
+![Screenshot that shows the Generated Flow History table with View Config, View Analysis, Performance, and Evaluation actions.](./images/modelconversion/winmlcli-history.png)
+
 ## What you learned
 
 In this article, you learned how to:
@@ -263,6 +371,7 @@ In this article, you learned how to:
 - Re-evaluate a model using different execution providers or datasets.
 - Handle failed jobs and adjust configurations for re-runs.
 - Understand the supported models and their requirements for conversion and quantization.
+- Build a Hugging Face or local ONNX model with the Windows ML CLI flow.
 
 ## See also
 

@@ -1,6 +1,6 @@
 ---
 ContentId: f8e2a7c1-9d3b-4e5f-a6c8-1b2d3e4f5a6b
-DateApproved: 5/28/2026
+DateApproved: 6/3/2026
 MetaDescription: Use the integrated browser in VS Code to preview and debug web apps, navigate to URLs, and add page elements, screenshots, or console logs as context to AI chat.
 MetaSocialImage: images/debugging/debugging-social.png
 ---
@@ -33,6 +33,29 @@ The browser supports `http://`, `https://`, and `file://` URLs. Use the address 
 * Normal navigation and anchor links work as expected
 * `kbstyle(Ctrl+click)` (`kbstyle(Cmd+click)` on macOS) opens links in a new browser tab
 * Popups are blocked, but new tabs are allowed
+
+### Address bar and suggestions
+
+When you select the address bar, a suggestions picker opens to help you navigate. On a new browser tab, the picker opens automatically. Type a URL and press `kbstyle(Enter)` to navigate. As you type, the picker filters your favorites and other suggestions.
+
+To focus the address bar and open the picker at any time, run the **Browser: Focus URL Input** command or press `kb(browser.focusUrlInput)`.
+
+![Screenshot of a popup around the browser URL bar showing favorites and opened tabs.](images/integrated-browser/browser-url-bar.png)
+
+You can control the picker with the keyboard:
+
+* Press `kbstyle(Esc)` to close the picker and switch to a plain input. Type to reopen the picker, press `kbstyle(Enter)` to navigate, or press `kbstyle(Esc)` again to focus the loaded page.
+* Press `kbstyle(Tab)` to move focus along the browser toolbar.
+
+### Favorites
+
+To favorite the current page, open the address bar and select the star icon. The star icon stays visible in the address bar to indicate that the page is favorited. Favorited pages appear in the suggestions picker and filter as you type. Select a favorite to navigate to it.
+
+![Screenshot of the integrated browser highlighting a star button labeled "Add to Favorites" in the browser URL bar.](images/integrated-browser/browser-favorite-button.png)
+
+### Open tabs
+
+On a new browser tab that hasn't navigated to a page, the suggestions picker also lists your other open browser tabs. Select a tab to switch to it. VS Code closes the new tab and activates the one you selected.
 
 ## Tab management
 
@@ -152,9 +175,20 @@ Configure what information is included:
 
 ### Add a screenshot
 
-Capture a screenshot of the current browser viewport and attach it as an image to your chat prompt. Use this to ask about layout issues, get feedback on a design, or show the current state of your web app.
+Capture a screenshot of the page and attach it as an image to your chat prompt. Use this to ask about layout issues, get feedback on a design, or show the current state of your web app. The screenshot is captured before the chat panel opens, so it reflects the page as you see it.
 
-Select **Add Screenshot to Chat** from the browser toolbar or run the **Browser: Add Screenshot to Chat** command. The screenshot is captured before the chat panel opens, so it reflects the page as you see it.
+The **Add to Chat** dropdown in the browser toolbar offers three capture modes:
+
+| Mode | Description |
+|------|-------------|
+| **Add Screenshot to Chat** | Capture the current browser viewport. |
+| **Add Area Screenshot to Chat** | Drag to select a rectangular area of the page, then capture only that region. |
+| **Add Full Page Screenshot to Chat (Experimental)** | Capture the entire scrollable page, including content beyond the current viewport. |
+
+Each mode is also available as a **Browser:** command in the Command Palette.
+
+> [!NOTE]
+> The full page screenshot mode is experimental. To enable it, set `setting(workbench.browser.experimentalUserTools.enabled)` to `true`.
 
 ### Add console logs
 
@@ -162,7 +196,7 @@ Capture the console output from the current page and attach it as context to you
 
 Select **Add Console Logs to Chat** from the browser toolbar or run the **Browser: Add Console Logs to Chat** command.
 
-Learn more about [adding context to chat](/docs/copilot/chat/copilot-chat-context.md).
+Learn more about [adding context to chat](/docs/chat/copilot-chat-context.md).
 
 ## Permissions
 
@@ -222,6 +256,6 @@ In autopilot mode, share requests are automatically declined to preserve your pr
 ## Related
 
 * [Browser debugging in VS Code](/docs/nodejs/browser-debugging.md)
-* [Test web apps with browser agent tools](/docs/copilot/guides/browser-agent-testing-guide.md)
-* [Add context to AI chat](/docs/copilot/chat/copilot-chat-context.md)
+* [Test web apps with browser agent tools](/docs/agents/guides/browser-agent-testing-guide.md)
+* [Add context to AI chat](/docs/chat/copilot-chat-context.md)
 * [Port forwarding](/docs/debugtest/port-forwarding.md)

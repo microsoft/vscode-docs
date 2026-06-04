@@ -1,9 +1,9 @@
 {
   "featured": {
-    "title": "Use any AI model without signing in",
-    "description": "Bring your own key (BYOK) to use any language model in air-gapped environments, test web apps across devices, and create richer issue reports.",
-    "link": "/updates/v1_122",
-    "image": "/assets/updates/1_122/release-highlights.webp"
+    "title": "Session sync, deep research, and more",
+    "description": "Sync your chat sessions across machines, run deep research on any topic, work with multiple agent sessions side by side.",
+    "link": "/updates/v1_123",
+    "image": "/assets/updates/1_123/release-highlights.webp"
   },
   "highlights": [
     {
@@ -14,17 +14,17 @@
     },
     {
       "type": "documentation",
-      "title": "AI core concepts",
-      "description": "Get an overview of the core concepts and how AI agents work in VS Code.",
-      "link": "/docs/copilot/concepts/overview",
-      "image": "/assets/docs/copilot/concepts/agent-loop.png"
+      "title": "Optimize your AI usage",
+      "description": "Tips to help you get the most out of AI agents, while optimizing for cost and performance.",
+      "link": "/docs/agents/guides/optimize-usage",
+      "image": "/assets/docs/agents/optimize-usage-guide/copilot-status-dashboard.png"
     },
     {
       "type": "tutorial",
       "title": "Build and test with browser agent tools",
       "description": "Let AI build web apps and automatically verify them in the integrated browser, catching and fixing bugs on its own.",
-      "link": "/docs/copilot/guides/browser-agent-testing-guide",
-      "image": "/assets/docs/copilot/browser-agent-testing-guide/browser-testing-hero.png"
+      "link": "/docs/agents/guides/browser-agent-testing-guide",
+      "image": "/assets/docs/agents/browser-agent-testing-guide/browser-testing-hero.png"
     }
   ]
 }

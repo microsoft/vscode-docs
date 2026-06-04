@@ -64,7 +64,7 @@ Running multiple agents is one thing. Getting them to work together is another.
 
 Let's say you're adding a new feature and your agent needs to research authentication patterns, check how similar features are structured in your codebase, AND scan the relevant docs. Doing this sequentially eats up time and adds a lot of context that makes it hard for the agent to focus on what's important.
 
-[Subagents](https://code.visualstudio.com/docs/copilot/agents/subagents) solve this. They're context-isolated agents that run independently from your main session—your main agent delegates work and only the final result flows back. The intermediate exploration stays contained, keeping your primary context clean.
+[Subagents](https://code.visualstudio.com/docs/agents/subagents) solve this. They're context-isolated agents that run independently from your main session—your main agent delegates work and only the final result flows back. The intermediate exploration stays contained, keeping your primary context clean.
 
 What's new this release: VS Code can now run multiple subagents in parallel. Fire off multiple tasks at once, get results faster, and save premium requests in the process.
 
@@ -72,7 +72,7 @@ We've also added better visibility into what subagents are doing. You can see wh
 
 <video src="subagents-clip.mp4" title="Video demonstrating parallel subagents in VS Code." autoplay muted controls></video>
 
-Combine this with [custom agents](https://code.visualstudio.com/docs/copilot/customization/custom-agents) to give each subagent specialized behavior: a research agent with read-only access and web search tools, an implementation agent with full editing capabilities, a security agent focused on vulnerability scanning. Define the tools, instructions, and model for each. Use [handoffs](https://code.visualstudio.com/docs/copilot/customization/custom-agents#_handoffs) to create workflows that transition from plan to implement to review—all orchestrated from your main session.
+Combine this with [custom agents](https://code.visualstudio.com/docs/agent-customization/custom-agents) to give each subagent specialized behavior: a research agent with read-only access and web search tools, an implementation agent with full editing capabilities, a security agent focused on vulnerability scanning. Define the tools, instructions, and model for each. Use [handoffs](https://code.visualstudio.com/docs/agent-customization/custom-agents#_handoffs) to create workflows that transition from plan to implement to review—all orchestrated from your main session.
 
 ## Building on open standards
 
@@ -84,7 +84,7 @@ That's where open standards come in.
 
 <video src="mcp-apps-wide-demo.mp4" title="Video demonstrating MCP Apps in VS Code." autoplay muted controls></video>
 
-We've also made [Agent Skills](https://code.visualstudio.com/docs/copilot/customization/agent-skills), Anthropic's open standard for extending AI agents, generally available. Skills are specialized capabilities that help agents produce high-quality outputs—they provide tested instructions for domains like testing strategies, API design, or performance optimization. Extension authors can now even package and distribute skills with their extensions using the `chatSkills` contribution point. This means the ecosystem can share specialized AI capabilities the same way it shares code snippets and themes.
+We've also made [Agent Skills](https://code.visualstudio.com/docs/agent-customization/agent-skills), Anthropic's open standard for extending AI agents, generally available. Skills are specialized capabilities that help agents produce high-quality outputs—they provide tested instructions for domains like testing strategies, API design, or performance optimization. Extension authors can now even package and distribute skills with their extensions using the `chatSkills` contribution point. This means the ecosystem can share specialized AI capabilities the same way it shares code snippets and themes.
 
 ## VS Code: your unified agent experience
 

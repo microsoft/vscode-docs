@@ -1,6 +1,6 @@
 ---
 ContentId: f8b9e2a4-7c1d-4f5e-9a8b-3d2e1f0c6789
-DateApproved: 5/28/2026
+DateApproved: 6/3/2026
 MetaDescription: Learn how to interact with the GitHub Copilot cloud agent in VS Code to autonomously implement features and fix bugs in the background.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -8,7 +8,7 @@ MetaSocialImage: images/shared/github-copilot-social.png
 
 [GitHub Copilot cloud agent](https://docs.github.com/en/copilot/concepts/about-copilot-coding-agent) is a GitHub-hosted, autonomous AI developer that works independently in the background to complete development tasks. To invoke the coding agent, assign a GitHub issue to Copilot or delegate a task from chat, and the agent will work autonomously to implement features, fix bugs, and make changes across your repository using its own isolated development environment.
 
-This is different from [using agents](/docs/copilot/agents/local-agents.md) in VS Code, which provide interactive development within the editor and requires your active participation during the coding session.
+This is different from [using agents](/docs/agents/agent-types/local-agents.md) in VS Code, which provide interactive development within the editor and requires your active participation during the coding session.
 
 ![GIF showing how to assign an issue to Copilot cloud agent from within VS Code.](images/copilot-coding-agent/assign-to-copilot-gif.gif)
 
@@ -255,7 +255,7 @@ VS Code offers two autonomous coding experiences. While using agents in VS Code 
 | **Output** | Creates pull requests | Edits files directly |
 | **Best for** | Well-defined tasks, background work | Interactive development, immediate feedback |
 
-Learn more about [using agents in VS Code](/docs/copilot/agents/local-agents.md).
+Learn more about [using agents in VS Code](/docs/agents/agent-types/local-agents.md).
 
 ### Why isn't the agent starting?
 
@@ -301,10 +301,10 @@ For detailed information about limitations, compatibility, and usage costs, see 
 ## Next steps
 
 * Enable Copilot cloud agent by following the [GitHub setup guide](https://docs.github.com/en/copilot/using-github-copilot/coding-agent/enabling-copilot-coding-agent)
-* Try [agents in VS Code chat](/docs/copilot/chat/copilot-chat.md) for immediate, interactive coding assistance
+* Try [agents in VS Code chat](/docs/chat/copilot-chat.md) for immediate, interactive coding assistance
 
 ## Related resources
 
 * [GitHub Copilot cloud agent documentation](https://docs.github.com/en/copilot/using-github-copilot/coding-agent)
 * [GitHub Pull Requests extension](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github)
-* [Manage chat sessions](/docs/copilot/chat/chat-sessions.md)
+* [Manage chat sessions](/docs/agents/sessions/chat-sessions.md)

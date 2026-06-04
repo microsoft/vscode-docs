@@ -30,7 +30,7 @@ Combined with **streamable HTTP transport** (which landed in our previous versio
 
 ## Beyond Tools: The Complete MCP Primitives
 
-While tools handle individual actions, [**Prompts**](https://modelcontextprotocol.io/docs/concepts/prompts) deliver complete workflows. These aren't static templates—they're dynamic, context-aware starting points that servers can tailor to your current workspace and project state. When a server provides prompts, they appear directly in VS Code's slash commands next to your [user-defined prompts](https://code.visualstudio.com/docs/copilot/copilot-customization#_prompt-files-experimental), letting you invoke sophisticated workflows with a simple `/mcp.servername.promptname` command.
+While tools handle individual actions, [**Prompts**](https://modelcontextprotocol.io/docs/concepts/prompts) deliver complete workflows. These aren't static templates—they're dynamic, context-aware starting points that servers can tailor to your current workspace and project state. When a server provides prompts, they appear directly in VS Code's slash commands next to your [user-defined prompts](https://code.visualstudio.com/docs/agent-customization/prompt-files), letting you invoke sophisticated workflows with a simple `/mcp.servername.promptname` command.
 
 ![Screenshot of the Chat view, referencing a prompt from the Gistpad MCP server, which asks for additional input values.](mcp-prompt-invocation.png)
 
@@ -46,7 +46,7 @@ Perhaps the most upvoted MCP capability is [**Sampling**](https://modelcontextpr
 
 The complete MCP experience is available now in VS Code. Try the [GitHub MCP server](https://github.blog/changelog/2025-06-12-remote-github-mcp-server-is-now-available-in-public-preview/) with its new remote capabilities and VS Code authentication integration, explore servers that provide rich prompts and resources, or build your own server that takes advantage of the full specification.
 
-To get started, check out the [VS Code MCP documentation](https://code.visualstudio.com/docs/copilot/chat/mcp-servers), browse the [official server repository](https://github.com/modelcontextprotocol/servers), or dive into the [Model Context Protocol specification](https://modelcontextprotocol.io/).
+To get started, check out the [VS Code MCP documentation](https://code.visualstudio.com/docs/agent-customization/mcp-servers), browse the [official server repository](https://github.com/modelcontextprotocol/servers), or dive into the [Model Context Protocol specification](https://modelcontextprotocol.io/).
 
 The MCP ecosystem now has a client that provides the complete foundation to build on.
 

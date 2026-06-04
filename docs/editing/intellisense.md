@@ -1,6 +1,6 @@
 ---
 ContentId: 80f4fa1e-d4c5-42cf-8b12-4b8e88c41c3e
-DateApproved: 5/28/2026
+DateApproved: 6/3/2026
 MetaDescription:  Learn about Visual Studio Code IntelliSense (intelligent code completion).
 ---
 # IntelliSense
@@ -180,7 +180,7 @@ To get started:
 
 1. Install the [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot).
 
-1. Discover the key functionality with our [Copilot quickstart](/docs/copilot/getting-started.md).
+1. Discover the key functionality with our [Copilot quickstart](/docs/getstarted/getting-started.md).
 
 > [!TIP]
 > If you don't have a Copilot subscription yet, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly allowance of inline suggestions and AI credits.
@@ -206,7 +206,7 @@ IntelliSense is just one of VS Code's powerful features. Read on to learn more:
 
 * [Debugging](/docs/debugtest/debugging.md) - Learn how to set up debugging for your application.
 * [Creating Language extensions](/api/language-extensions/programmatic-language-features.md) - Learn how to create extensions that add IntelliSense for new programming languages.
-* [GitHub Copilot in VS Code](/docs/copilot/overview.md) - Learn how to use AI with GitHub Copilot to enhance your coding.
+* [GitHub Copilot in VS Code](/docs/agent-native/overview.md) - Learn how to use AI with GitHub Copilot to enhance your coding.
 
 ## Common questions
 

@@ -1,7 +1,7 @@
 ---
 ContentId: d750ab6d-82c2-4e64-8fbb-7888e1374381
 MetaDescription: Using Visual Studio Code Server
-DateApproved: 5/28/2026
+DateApproved: 6/3/2026
 ---
 # Visual Studio Code Server
 
@@ -96,7 +96,7 @@ Pure UI extensions are not supported when using a web-based instance of VS Code,
 
 ### Are there browser limitations?
 
-While working in the browser, there are certain limitations and configuration steps to consider. You can read more about this in the [VS Code for the Web](/docs/setup/vscode-web.md#additional-browser-setup) documentation.
+While working in the browser, there are certain limitations and configuration steps to consider. You can read more about this in the [VS Code for the Web](/docs/remote/vscode-web.md#additional-browser-setup) documentation.
 
 ### How can I keep the VS Code Server up-to-date?
 

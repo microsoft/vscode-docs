@@ -1,6 +1,6 @@
 ---
 ContentId: F54BB3D4-76FB-4547-A9D0-F725CEBB905C
-DateApproved: 5/28/2026
+DateApproved: 6/3/2026
 MetaDescription: Get the best out of Visual Studio Code for JavaScript development
 ---
 # JavaScript in Visual Studio Code
@@ -277,7 +277,7 @@ Set `"js/ts.suggestionActions.enabled"` to `false` to disable suggestions.
 
 ## Enhance completions with AI
 
-GitHub Copilot can give you AI-powered inline suggestions that help you write code faster and smarter. GitHub Copilot provides suggestions for numerous languages and a wide variety of frameworks, and it works especially well for Python, JavaScript, TypeScript, Ruby, Go, C# and C++.Learn more about how to [get started with Copilot in VS Code](/docs/copilot/getting-started.md).
+GitHub Copilot can give you AI-powered inline suggestions that help you write code faster and smarter. GitHub Copilot provides suggestions for numerous languages and a wide variety of frameworks, and it works especially well for Python, JavaScript, TypeScript, Ruby, Go, C# and C++.Learn more about how to [get started with Copilot in VS Code](/docs/getstarted/getting-started.md).
 
 Create a new file - you can use the **File: New File** command in the Command Palette (`kbstyle(F1)`).
 

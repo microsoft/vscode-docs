@@ -1,6 +1,6 @@
 ---
 ContentId: 8688bb6d-793e-4a37-aed2-5af4cfe89940
-DateApproved: 5/28/2026
+DateApproved: 6/3/2026
 MetaDescription: Learn about using PowerShell in Visual Studio Code
 ---
 # PowerShell in Visual Studio Code
@@ -224,10 +224,10 @@ If you find a bug, [open an issue][22] and revert to the stable version while we
 [06]: /docs/configure/settings
 [07]: /docs/configure/themes
 [08]: /docs/editing/userdefinedsnippets
-[09]: /docs/getstarted/tips-and-tricks#_errors-and-warnings
-[10]: /docs/getstarted/userinterface#_outline-view
+[09]: /docs/editing/tips-and-tricks#_errors-and-warnings
+[10]: /docs/editing/userinterface#_outline-view
 [11]: http://github.com/PowerShell/PSScriptAnalyzer
-[12]: https://code.visualstudio.com/docs/setup/vscode-web
+[12]: https://code.visualstudio.com/docs/remote/vscode-web
 [13]: https://code.visualstudio.com/docs/remote/remote-overview
 [14]: https://code.visualstudio.com/docs/remote/vscode-server
 [15]: https://devblogs.microsoft.com/scripting/debugging-powershell-script-in-visual-studio-code-part-1/

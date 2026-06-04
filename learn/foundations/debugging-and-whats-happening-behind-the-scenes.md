@@ -151,4 +151,4 @@ That's the full foundation: harness, model, context, tools, prompt, sessions, an
 
 ## Learn more
 
-* [Debug chat interactions](https://code.visualstudio.com/docs/copilot/chat/chat-debug-view)
+* [Debug chat interactions](https://code.visualstudio.com/docs/chat/chat-debug-view)

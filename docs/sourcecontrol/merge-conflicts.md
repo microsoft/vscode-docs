@@ -1,6 +1,6 @@
 ---
 ContentId: 8f4e9d2a-3b5c-4e7a-9f1d-2c8a5b6e3d9f
-DateApproved: 5/28/2026
+DateApproved: 6/3/2026
 MetaDescription: Learn how to resolve Git merge conflicts in VS Code using inline editor actions, the 3-way merge editor, and AI-assisted resolution.
 Keywords:
 - source control
@@ -130,7 +130,7 @@ The three dots next to **Incoming**, **Current**, and **Result** offer options f
 > [!NOTE]
 > AI-assisted conflict resolution is an experimental feature and requires a GitHub Copilot subscription.
 
-VS Code can [use AI](/docs/copilot/setup.md) to help resolve merge conflicts automatically. This feature analyzes both versions of the conflicting changes and proposes a resolution:
+VS Code can [use AI](/docs/setup/copilot.md) to help resolve merge conflicts automatically. This feature analyzes both versions of the conflicting changes and proposes a resolution:
 
 1. Open a file with conflicts in the editor
 
@@ -179,4 +179,4 @@ git config --global difftool.vscode.cmd 'code --wait --diff $LOCAL $REMOTE'
 * [Staging and Committing](/docs/sourcecontrol/staging-commits.md) - Learn about staging changes and creating commits
 * [Repositories and Remotes](/docs/sourcecontrol/repos-remotes.md) - Learn about working with remote repositories
 * [Source Control Overview](/docs/sourcecontrol/overview.md) - Explore other Git features in VS Code
-* [Copilot in VS Code](/docs/copilot/overview.md) - Discover more AI-powered development features
+* [Copilot in VS Code](/docs/agent-native/overview.md) - Discover more AI-powered development features

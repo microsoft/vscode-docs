@@ -1,6 +1,6 @@
 ---
 ContentId: a18e245e-af72-4d0f-b322-fa1030af5284
-DateApproved: 5/28/2026
+DateApproved: 6/3/2026
 MetaDescription: Set up Copilot in VS Code
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -11,7 +11,7 @@ Welcome to AI-powered development with Visual Studio Code! Follow the steps in t
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
 Follow a hands-on tutorial to build your first app with AI in VS Code.
 
-* [Start tutorial](/docs/copilot/getting-started.md)
+* [Start tutorial](/docs/getstarted/getting-started.md)
 
 </div>
 
@@ -37,10 +37,10 @@ To use Copilot in VS Code, you need access to a GitHub Copilot subscription. You
     > [!IMPORTANT]
     > Telemetry in your free version of GitHub Copilot is currently enabled. By default, code suggestions that match public code, including code references in the VS Code and <github.com> experience, are allowed. You can opt out of telemetry data collection by disabling telemetry in VS Code by setting `setting(telemetry.telemetryLevel)` to `off`, or you can adjust both telemetry and code suggestion settings in [Copilot Settings](https://github.com/settings/copilot).
 
-1. You can now start using Copilot in VS Code. Learn the basics with the [Copilot Quickstart](/docs/copilot/getting-started.md).
+1. You can now start using Copilot in VS Code. Learn the basics with the [Copilot Quickstart](/docs/getstarted/getting-started.md).
 
 ## Next steps
 
-- Discover AI-powered development in VS Code with our [Copilot Quickstart](/docs/copilot/getting-started.md)
-- Get an [overview of Copilot in VS Code](/docs/copilot/overview.md)
+- Discover AI-powered development in VS Code with our [Copilot Quickstart](/docs/getstarted/getting-started.md)
+- Get an [overview of Copilot in VS Code](/docs/agent-native/overview.md)
 - Get more info about the [Copilot Free plan details and conditions](https://docs.github.com/en/copilot/about-github-copilot/subscription-plans-for-github-copilot)
