@@ -89,7 +89,8 @@ Establish link between Azure DevOps and Azure:
 
 5. Retrieve Managed Identity Resource ID (one-time)
    - Run an Azure CLI task to retrieve the identity information:
-```steps: 
+```yaml
+steps: 
 - task: AzureCLI@2
   displayName: 'Get identity details'
   inputs:
