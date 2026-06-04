@@ -100,7 +100,7 @@ steps:
     inlineScript: |
       az rest -u https://app.vssps.visualstudio.com/_apis/profile/profiles/me --resource 499b84ac-1321-427f-aa17-267ca6975798
 ```
-   - From the output JSON, capture the managed identity resource ID (the id field).
+   - From the output JSON, capture the managed identity resource ID (the `id` field).
 
 6. Authorize the Identity in Visual Studio Marketplace
    - Add the managed identity (using its resource ID) as a member of your publisher. 
