@@ -88,7 +88,7 @@ Installing the package sets up the apt or dnf repository for automatic updates. 
         <i class="codicon codicon-mortar-board" aria-hidden="true"></i>
         <p>Discover VS Code</p>
     </a>
-    <a class="card" href="/docs/agents/agents-tutorial">
+    <a class="card" href="/docs/agents/overview">
         <i class="codicon codicon-lightbulb" aria-hidden="true"></i>
         <p>Build with agents</p>
     </a>
