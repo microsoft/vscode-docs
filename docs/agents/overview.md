@@ -93,59 +93,17 @@ Each agent session has a few settings that control how it runs. Choose them when
 
 ## Tailor agents to your codebase
 
-Agents work best when they understand your project's conventions and have the right tools. VS Code gives you several ways to tailor agents so they produce code that fits your codebase and team practices from the start. Learn more about [customizing agents](/docs/agent-customization/overview.md).
+Agents work best when they understand your project's conventions and have the right tools. VS Code gives you several ways to tailor agents so they produce code that fits your codebase and team practices from the start:
 
-<div class="card-grid">
-    <a class="card" href="/docs/agent-customization/custom-agents">
-        <i class="codicon codicon-person" aria-hidden="true"></i>
-        <div>
-            <p><strong>Custom agents</strong></p>
-            <p>Create agents with a specific role, such as a code reviewer or documentation writer.</p>
-        </div>
-    </a>
-    <a class="card" href="/docs/agent-customization/agent-skills">
-        <i class="codicon codicon-symbol-event" aria-hidden="true"></i>
-        <div>
-            <p><strong>Agent skills</strong></p>
-            <p>Teach agents specialized capabilities that work across VS Code, CLI, and cloud agents.</p>
-        </div>
-    </a>
-    <a class="card" href="/docs/agent-customization/custom-instructions">
-        <i class="codicon codicon-note" aria-hidden="true"></i>
-        <div>
-            <p><strong>Custom instructions</strong></p>
-            <p>Define coding standards and conventions so agents generate code that matches your style.</p>
-        </div>
-    </a>
-    <a class="card" href="/docs/agent-customization/prompt-files">
-        <i class="codicon codicon-comment-discussion" aria-hidden="true"></i>
-        <div>
-            <p><strong>Prompt files</strong></p>
-            <p>Save and reuse common prompts for repeatable tasks.</p>
-        </div>
-    </a>
-    <a class="card" href="/docs/agent-customization/hooks">
-        <i class="codicon codicon-zap" aria-hidden="true"></i>
-        <div>
-            <p><strong>Hooks</strong></p>
-            <p>Run custom scripts at key points in an agent session to validate, log, or transform actions.</p>
-        </div>
-    </a>
-    <a class="card" href="/docs/agent-customization/mcp-servers">
-        <i class="codicon codicon-server" aria-hidden="true"></i>
-        <div>
-            <p><strong>MCP servers</strong></p>
-            <p>Connect external tools and services so agents can access databases, APIs, and more.</p>
-        </div>
-    </a>
-    <a class="card" href="/docs/agent-customization/agent-plugins">
-        <i class="codicon codicon-extensions" aria-hidden="true"></i>
-        <div>
-            <p><strong>Plugins</strong></p>
-            <p>Install pre-packaged bundles of agent customizations from the Marketplace.</p>
-        </div>
-    </a>
-</div>
+* **Set coding standards**: define project-wide rules and conventions with [custom instructions](/docs/agent-customization/custom-instructions.md) so agents generate code in your style.
+
+* **Automate repeatable tasks**: capture common prompts in [prompt files](/docs/agent-customization/prompt-files.md), or package multi-step workflows with scripts as [agent skills](/docs/agent-customization/agent-skills.md).
+
+* **Specialize the agent**: create [custom agents](/docs/agent-customization/custom-agents.md) for personas or roles like code reviewer, security expert, or tester.
+
+* **Connect external tools and data**: add [MCP servers](/docs/agent-customization/mcp-servers.md) to reach databases and APIs, and use [hooks](/docs/agent-customization/hooks.md) to run scripts at key points in an agent session.
+
+To decide which option fits your goal, see [customization concepts](/docs/agents/concepts/customization.md). For setup steps and examples, see [customizing agents](/docs/agent-customization/overview.md). You can also install [plugins](/docs/agent-customization/agent-plugins.md) to add pre-packaged bundles of these customizations from the Marketplace.
 
 ## Trust and control
 

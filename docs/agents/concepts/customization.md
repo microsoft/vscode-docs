@@ -20,7 +20,7 @@ Keywords:
 
 AI models have broad general knowledge but don't know your codebase or team practices. Think of the AI as a skilled new team member: it writes great code, but doesn't know your conventions, architecture decisions, or preferred libraries. Customization is how you share that context, so responses match your coding standards, project structure, and workflows.
 
-This article explains the different customization options and when to use each one. For step-by-step configuration, see the individual guides linked from each section.
+This article is the decision matrix for customization: it explains the different options and helps you choose which one fits your goal. For setup steps and examples, see [Customize AI in Visual Studio Code](/docs/agent-customization/overview.md) and the individual guides linked from each option.
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with customizations">
 Follow a hands-on tutorial to discover the customization options and configure them for your project.

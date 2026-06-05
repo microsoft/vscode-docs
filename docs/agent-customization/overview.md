@@ -40,29 +40,19 @@ To access customizations, select the **Configure Chat (gear icon)** in the Chat 
 
 ## Customization scenarios
 
-The following sections describe common customization scenarios and which options to use for each one.
+VS Code offers several customization options, each suited to a different goal:
 
-### Define coding standards
+* **Define coding standards**: [custom instructions](/docs/agent-customization/custom-instructions.md)
 
-Use [custom instructions](/docs/agent-customization/custom-instructions.md) to share project-wide rules and conventions with the AI. Always-on instructions apply to every request, while file-based instructions target specific file types or folders. For example, enforce ESLint rules across all files and apply React patterns only in `.tsx` files.
+* **Automate tasks and workflows**: [prompt files](/docs/agent-customization/prompt-files.md) and [agent skills](/docs/agent-customization/agent-skills.md)
 
-### Automate tasks and workflows
+* **Specialize the AI**: [custom agents](/docs/agent-customization/custom-agents.md) and [language models](/docs/agent-customization/language-models.md)
 
-Create [prompt files](/docs/agent-customization/prompt-files.md) for repeatable tasks you run often, like scaffolding a component or preparing a pull request.
+* **Connect external tools and data**: [MCP servers](/docs/agent-customization/mcp-servers.md) and [hooks](/docs/agent-customization/hooks.md)
 
-For more complex multi-step workflows that involve scripts and external tools, package them as [agent skills](/docs/agent-customization/agent-skills.md).
+* **Install pre-packaged bundles**: [agent plugins](/docs/agent-customization/agent-plugins.md) (preview)
 
-### Specialize the AI
-
-Create [custom agents](/docs/agent-customization/custom-agents.md) that adopt specific personas, such as security reviewer, database admin, or planner. Each agent defines its own behavior, available tools, and language model preferences. Choose different [language models](/docs/agent-customization/language-models.md) for different tasks, or bring your own API key to access additional models.
-
-### Discover and install plugins
-
-Install [agent plugins](/docs/agent-customization/agent-plugins.md) (preview) to add pre-packaged bundles of customizations from plugin marketplaces. A single plugin can provide slash commands, skills, custom agents, hooks, and MCP servers.
-
-### Connect external tools and data
-
-Add [MCP servers](/docs/agent-customization/mcp-servers.md) to give the AI access to databases, APIs, and other services through the [Model Context Protocol](https://modelcontextprotocol.io/). Use [hooks](/docs/agent-customization/hooks.md) to run shell commands at key lifecycle points, such as running a formatter after every file edit or enforcing security policies.
+To compare the options and decide which one fits your goal, see [Customization concepts](/docs/agents/concepts/customization.md). The rest of this article focuses on how to set up and manage customizations.
 
 ## Get started
 
