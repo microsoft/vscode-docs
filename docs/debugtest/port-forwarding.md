@@ -41,8 +41,6 @@ By default, both hosting and connecting to a tunnel require authentication with 
 
 > [!CAUTION]
 > If you've opened a **Public** port, any user with your link can access the forwarded service. Avoid hosting confidential information or insecure services on public ports.
->
-> This is especially dangerous when AI agents are configured with auto-approval modes such as **Bypass Approvals**, **Autopilot**, or `/yolo`. Anyone with access to the public URL can interact with services that have AI command execution capabilities, potentially running commands with your credentials. For more information, see [Security](/docs/agents/security.md).
 
 Learn more about the [security of the underlying dev tunnels service](https://learn.microsoft.com/azure/developer/dev-tunnels/security).
 
