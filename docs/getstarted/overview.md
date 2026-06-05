@@ -81,6 +81,27 @@ Installing the package sets up the apt or dnf repository for automatic updates. 
 
 </details>
 
+## Enable AI features
+
+VS Code has built-in support for AI features like inline suggestions and AI agents that help you with coding tasks. You can get started with AI features by signing in to GitHub and use your GitHub Copilot subscription to get access to a variety of large language models and other AI features in VS Code.
+
+Follow these steps to get started with Copilot in VS Code:
+
+1. Select **Sign In** from the VS Code title bar or hover over the Copilot icon in the Status Bar and select **Enable AI features**.
+
+    ![Screenshot showing a new VS Code window, highlighting the Copilot icon in the Status Bar and the Sign In button in the VS Code title bar.](images/overview/vscode-enable-ai-features.png)
+
+1. Choose a sign-in method and follow the prompts.
+
+    * If you already have a Copilot subscription for your account, VS Code will use that subscription.
+
+    * If you don't have a Copilot subscription yet, you'll be signed up for the [Copilot Free plan](https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-free/about-github-copilot-free) and get a monthly allowance of inline suggestions and AI credits.
+
+1. Start using Copilot in VS Code!
+
+> [!TIP]
+> You can also use AI features in VS Code without using a Copilot subscription by bringing your own language model API key. Learn more about [using language models in VS Code](/docs/agent-customization/language-models.md#bring-your-own-language-model-key).
+
 ## Next steps
 
 <div class="card-grid">

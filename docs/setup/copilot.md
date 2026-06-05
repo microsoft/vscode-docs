@@ -11,7 +11,7 @@ This guide walks you through setting up GitHub Copilot in Visual Studio Code. To
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
 Follow a hands-on tutorial to build your first app with AI in VS Code.
 
-* [Start tutorial](/docs/copilot/getting-started.md)
+* [Start tutorial](/docs/getstarted/getting-started.md)
 
 </div>
 
@@ -30,7 +30,7 @@ Follow these steps to get started with Copilot in VS Code:
 
 1. Start using Copilot in VS Code!
 
-    Learn the basics with the [Copilot Quickstart](/docs/copilot/getting-started.md).
+    Learn the basics with the [VS Code Tutorial](/docs/getstarted/getting-started.md).
 
 1. Type `/init` in a chat session to set up your project for AI.
 
@@ -113,4 +113,4 @@ To disable AI features for a specific workspace, configure the `setting(chat.dis
 
 ## Next steps
 
-* Continue with the [Quickstart for using AI](/docs/copilot/getting-started.md) to discover the key features for AI-powered development in VS Code.
+* Continue with the [Quickstart for using AI](/docs/getstarted/getting-started.md) to discover the key features for AI-powered development in VS Code.

@@ -11,14 +11,13 @@ You start in the Agents window, a dedicated surface for an agent-first workflow.
 
 You build a simple personal portfolio page with HTML, CSS, and JavaScript. The page is fully static, so you don't need to install any runtimes or build tools to follow along.
 
-> [!TIP]
-> If you prefer a video to learn about Visual Studio Code, you can watch the [Getting Started video](https://www.youtube.com/watch?v=f8_uF_IDV50) on our YouTube channel.
-
 ## Prerequisites
 
-* [Download and install Visual Studio Code on your computer](https://code.visualstudio.com/download)
-* [Set up GitHub Copilot in VS Code](/docs/setup/copilot.md)
-* [Install Git](https://git-scm.com/) on your computer
+* [Download and install Visual Studio Code](/download)
+
+* [Enable AI features in VS Code](/docs/getstarted/overview.md#enable-ai-features)
+
+* [Install Git](https://git-scm.com/)
 
 > [!TIP]
 > If you don't have a Copilot subscription yet, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly allowance of inline suggestions and AI credits.
@@ -49,7 +48,7 @@ Use the Agents window to run and monitor agent sessions across your projects fro
 
 </div>
 
-The Agents window is a dedicated window in VS Code, built for an agent-first workflow. It's optimized for orchestrating tasks across projects, so you can start agent sessions, watch them work, and switch between workspaces without opening a separate window for each one. This is different from the editor window and the Chat view, which are centered on coding within a single workspace.
+The Agents window is a dedicated window in VS Code, built for an agent-first workflow. It's optimized for orchestrating tasks across projects, so you can start agent sessions, watch them work, and switch between workspaces without opening a separate window for each one.
 
 In this part, you open your folder in the Agents window and build your portfolio page from a single prompt.
 
