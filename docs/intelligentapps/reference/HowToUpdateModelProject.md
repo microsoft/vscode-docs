@@ -33,7 +33,7 @@ The reverse direction is more complex, but you may still be able to use the Oliv
 
 This is a workaround, but it will not allow you to use new recipes or new features.
 
-## About history
+## Impact on model history
 
 The model in history is still valid, and you could still use it.
 
