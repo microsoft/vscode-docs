@@ -69,14 +69,24 @@ AI features are built into VS Code. To enable them, sign in with your GitHub acc
 
 VS Code gives you two main surfaces for working with agents: the **Agents window** and the **Chat view**. Pick the one that fits your current task and switch freely between them. Both share the same agent sessions, letting you start a session in one and continue it in the other without losing context.
 
-|  | [Agents window](/docs/agents/agents-window.md) (Preview) | [Chat view](/docs/agents/chat-view.md) |
-|---|---|---|
-| **Approach** | Agent-first | Code-first |
-| **Scope** | Work across all your workspaces from one window. | Scoped to the workspace you have open in VS Code. |
-| **Best for** | You assign high-level tasks and evaluate the outcomes. Ideal for orchestrating agents across your workspaces. | You give the agent coding tasks and review the code it produces, staying close to your project. |
-| **Where you work** | A dedicated window focused on chat as the primary interface. | A chat panel in the sidebar, next to your workspace editor tabs. |
-| **Running agents** | Run and track multiple agents in parallel across workspaces. | Keep an agent focused on the code you're actively working on. |
-| **Preview** | ![Screenshot showing how to start a new agent session by selecting New at the top of the sidebar in the Agents window.](images/agents-window/agents-window-new-session.png) | ![Screenshot showing the Chat view with the sessions list, conversation, and chat input.](images/agents-overview/chat-view-expanded.png) |
+The choice comes down to your approach and your scope. The Agents window is **agent-first** and works across **all your workspaces** from a single window, so it's ideal when you assign high-level tasks and orchestrate multiple agents in parallel across projects. The Chat view is **code-first** and is **scoped to the workspace** you have open, so it's ideal when you give the agent coding tasks and stay close to the code it produces.
+
+{% tabs id="agent-surface" %}
+{% tab label="Agents window" %}
+
+The [Agents window](/docs/agents/agents-window.md) (Preview) is a dedicated window focused on chat as the primary interface. It works across all your workspaces from one window, so you can assign high-level tasks, evaluate the outcomes, and run and track multiple agents in parallel. The Agents window is optimized for **agent-first workflows**.
+
+![Screenshot showing how to start a new agent session by selecting New at the top of the sidebar in the Agents window.](images/agents-window/agents-window-new-session.png)
+
+{% /tab %}
+{% tab label="Chat view" %}
+
+The [Chat view](/docs/agents/chat-view.md) is a chat panel in the sidebar, next to your workspace editor tabs. It's scoped to the workspace you have open in VS Code, so you can give the agent coding tasks, review the code it produces, and keep an agent focused on the code you're actively working on. The Chat view is optimized for **code-first workflows**.
+
+![Screenshot showing the Chat view with the sessions list, conversation, and chat input.](images/agents-overview/chat-view-expanded.png)
+
+{% /tab %}
+{% /tabs %}
 
 ## Configure your agent session
 
