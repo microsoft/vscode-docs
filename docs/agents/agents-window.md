@@ -203,9 +203,6 @@ To start a session on a remote machine via dev tunnel:
 
 1. Type a prompt and press `kbstyle(Enter)` to start the session.
 
-> [!IMPORTANT]
-> Ensure your dev tunnel requires authentication (GitHub or Microsoft account). If the tunnel allows anonymous access, anyone who discovers the URL can reach your machine and start agent sessions. This is especially dangerous when auto-approval modes are active, because unauthorized users can trigger AI-assisted command execution with your credentials. For more information, see [Security](/docs/agents/security.md).
-
 ## Use the Agents window in the browser
 
 The Agents window is also available as a web client at <https://insiders.vscode.dev/agents>, so you can manage agent sessions from any device with a browser. This is useful when you're away from your main development machine, working from a mobile device, or want to check in on sessions running on a remote host without installing Visual Studio Code locally.
