@@ -47,8 +47,8 @@ Follow a hands-on tutorial to build your first app with AI in VS Code.
 
 VS Code ships weekly [Stable](/updates) releases with auto-update. To preview upcoming features, install the [Insiders](/insiders) build, which ships nightly and runs side by side with Stable.
 
-<details>
-<summary>Windows</summary>
+{% tabs id="os" %}
+{% tab label="Windows" %}
 
 1. Download the [User Setup installer](https://code.visualstudio.com/download) (`.exe`).
 1. Run the installer and follow the prompts.
@@ -56,10 +56,8 @@ VS Code ships weekly [Stable](/updates) releases with auto-update. To preview up
 
 For System Setup, ZIP archive, or other options, see the [full Windows setup guide](/docs/setup/windows.md).
 
-</details>
-
-<details>
-<summary>macOS</summary>
+{% /tab %}
+{% tab label="macOS" %}
 
 1. Download the [`.dmg` installer](https://code.visualstudio.com/download).
 1. Open the `.dmg` file and drag **Visual Studio Code.app** to the **Applications** folder.
@@ -67,19 +65,21 @@ For System Setup, ZIP archive, or other options, see the [full Windows setup gui
 
 To use the `code` command in the terminal, open the Command Palette (`kb(workbench.action.showCommands)`) and run **Shell Command: Install 'code' command in PATH**. For more options, see the [full macOS setup guide](/docs/setup/mac.md).
 
-</details>
+{% /tab %}
+{% tab label="Linux" %}
 
-<details>
-<summary>Linux</summary>
+Choose your distribution below for installation instructions. Installing the package sets up the apt or dnf repository for automatic updates. For Snap, Arch, Nix, and other options, see the [full Linux setup guide](/docs/setup/linux.md).
 
-Download the package for your distribution from the [download page](https://code.visualstudio.com/download):
+* **Debian / Ubuntu**
+     1. Download the `.deb` package from the [VS Code download page](/download)
+     1. Install it with `sudo apt install ./<file>.deb`
 
-* **Debian / Ubuntu** - Download the `.deb` package and install it with `sudo apt install ./<file>.deb`.
-* **Fedora / RHEL** - Download the `.rpm` package and install it with `sudo dnf install ./<file>.rpm`.
+* **Fedora / RHEL**
+     1. Download the `.rpm` package from the [VS Code download page](/download)
+     1. Install it with `sudo dnf install ./<file>.rpm`
 
-Installing the package sets up the apt or dnf repository for automatic updates. For Snap, Arch, Nix, and other options, see the [full Linux setup guide](/docs/setup/linux.md).
-
-</details>
+{% /tab %}
+{% /tabs %}
 
 ## Enable AI features
 
