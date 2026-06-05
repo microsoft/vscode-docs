@@ -27,14 +27,15 @@ By the end, your project will have:
 
 ## Prerequisites
 
-* [VS Code](https://code.visualstudio.com/download) installed
-* A [GitHub Copilot plan](https://docs.github.com/en/copilot/about-github-copilot/subscription-plans-for-github-copilot) (Free, Pro, Business, or Enterprise)
-* The [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) installed
-* An open workspace or folder in VS Code
+* [Download and install Visual Studio Code](/download)
+
+* [Enable AI features in VS Code](/docs/getstarted/overview.md#enable-ai-features)
 
 ## Step 1: Set project-wide coding standards
 
 Start by generating an instructions file that captures your project's coding standards. These instructions are automatically included in every chat request.
+
+1. Open a workspace or folder in VS Code that contains the codebase you want to customize AI for.
 
 1. Open the Chat view (`kb(workbench.action.chat.open)`).
 
