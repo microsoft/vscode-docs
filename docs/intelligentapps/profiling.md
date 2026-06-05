@@ -74,7 +74,7 @@ To see op level data when running on the Intel (OpenVINO) EP, do the following:
 - Extract the content to a path like `C:\Users\XXX\Downloads\ut-tool-ext-v0.2.0-beta1.1`
 - In Foundry Toolkit settings, set `Model Lab Intel Unified Telemetry Path` to `C:\Users\XXX\Downloads\ut-tool-ext-v0.2.0-beta1.1\bin`
 
-Intel Unified Telemetry requires administrator privileges to run. If VS Code is not running as administrator, profiling will prompt for elevation and open a new terminal window showing its progress; please wait and do not close that window.
+Intel Unified Telemetry requires administrator privileges to run. If VS Code is not running as administrator, profiling will prompt for elevation and open a new terminal window showing its progress. Don't close this window until the process has completed.
 
 If VS Code is already running as administrator, you won't be prompted and no additional window will open.
 
