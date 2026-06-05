@@ -74,6 +74,22 @@ Model Conversion currently supports a growing list of models, including top Hugg
 
     ![Screenshot that shows how to delete a model project. It contains a button to open mean and detele a model project.](./images/modelconversion/delete-project.png)
 
+### (Optional) Update a model project
+
+After a Foundry Toolkit update, you might see a **Need Update** notification for your model projects.
+
+![Screenshot showing that a model needs an update](./images/modelconversion/need-update.png)
+
+It means some of the workflows are updated, and you could either:
+
+- Select **Update** if you haven't manually modified the workflows.
+- Create a new model project and migrate your changes from the old model project into it or vice versa.
+- Restore Foundry Toolkit to the previous version so you could continue to use the workflows from that version.
+
+For the converted models, if they are running well, you could still use them. Or you could re-run the workflow to generate a new one. If the workflows are not changed much, it will be fast because previous results are cached.
+
+Learn more in [How to update a model project](/docs/intelligentapps/reference/UpdateModelProject.md).
+
 
 ## Run workflow
 
@@ -128,8 +144,8 @@ Running a workflow in model conversion is the core step that transform the pre-b
 
     In this section, you need to select the Execution Provider (EP) you want to use for evaluation, regardless of the platform on which the model was converted.
     - **Evaluate on**: the target device that you want to evaluate the model. Possible values are:
-      - **Qualcomm NPU**: to use this, you need a compatible Qualcomm device.
-      - **AMD NPU**: to use this, you need a device with a supported AMD NPU.
+      - **Qualcomm NPU/GPU**: to use this, you need a compatible Qualcomm device.
+      - **AMD NPU/GPU**: to use this, you need a device with a supported AMD NPU/GPU.
       - **Intel CPU/GPU/NPU**: to use this, you need a device with a supported Intel CPU/GPU/NPU.
       - **NVIDIA TRT for RTX**: to use this, you need a device with a Nvidia GPU that supports TensorRT for RTX.
       - **DirectML**: to use this, you need a device with a GPU that supports DirectML.
@@ -222,11 +238,11 @@ The History Board in **Conversion** is your central dashboard for tracking, revi
   ![Screenshot that shows actions, including inference, copy model path and re-evaluate.](./images/modelconversion/historyaction.png)
 
 
-## Copy converted model path
+### Copy converted model path
 
 - Select **Copy model path** from the dropdown. The output converted model path like `c:/{workspace}/{model_project}/history/{workflow}/model/model.onnx` will be copied to your clipboard for your reference. For LLM models, the output folder will be copied instead.
 
-## Use sample notebook for model inference
+### Use sample notebook for model inference
 
 - Select **Inference in Sample** from the dropdown.
 - Choose the Python environment
@@ -246,7 +262,7 @@ The default runtime is: `C:\Users\{user_name}\.aitk\bin\model_lab_runtime\Python
 >
 > **Sample location:** Inference samples are stored alongside the run artifacts in the history folder.
 
-## Export and share with others
+### Export and share with others
 
 Go to the History board. Select **Export** to share the model project with others. This copies the model project without history folder. If you want to share models with others, select the corresponding jobs. This copies the selected history folder containing the model and its configuration.
 
@@ -378,4 +394,5 @@ In this article, you learned how to:
 - [How to manually setup GPU conversion](/docs/intelligentapps/reference/ManualConversionOnGPU.md)
 - [How to manually setup environment](/docs/intelligentapps/reference/SetupWithoutAITK.md)
 - [How to customize model template](/docs/intelligentapps/reference/TemplateProject.md)
+- [How to update a model project](/docs/intelligentapps/reference/UpdateModelProject.md)
 - [Conversion file structure](/docs/intelligentapps/reference/FileStructure.md)

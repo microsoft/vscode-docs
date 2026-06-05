@@ -66,6 +66,19 @@ The report contains detailed latencies for each op.
 
 ![Screenshot that shows the report data for each OP](./images/profiling/by-model-file-op-result.png)
 
+#### Enable op level data for Intel (OpenVINO) EP
+
+To see op level data when running on the Intel (OpenVINO) EP, do the following:
+
+1. Download [Intel® Unified Telemetry](https://www.intel.com/content/www/us/en/developer/tools/intel-unified-telemetry.html)
+1. Extract the content to a path like `C:\Users\XXX\Downloads\ut-tool-ext-v0.2.0-beta1.1`
+1. In Foundry Toolkit settings, set `Model Lab Intel Unified Telemetry Path` to `C:\Users\XXX\Downloads\ut-tool-ext-v0.2.0-beta1.1\bin`
+
+Intel Unified Telemetry requires administrator privileges to run. If VS Code is not running as administrator, profiling will prompt for elevation and open a new terminal window showing its progress. Don't close this window until the process has completed.
+
+If VS Code is already running as administrator, you won't be prompted and no additional window will open.
+
+
 ## Profile an ONNX GenAI model
 
 In this mode, the profiling tool starts profiling an ONNX GenAI model on a target execution provider (EP) for a specified number of prompts. You can see the resource usage while it's running.
