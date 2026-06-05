@@ -76,7 +76,7 @@ Model Conversion currently supports a growing list of models, including top Hugg
 
 ### (Optional) Update a model project
 
-Sometimes after a Foundry Toolkit update, you see a **Need Update** notification for your model projects.
+After a Foundry Toolkit update, you might see a **Need Update** notification for your model projects.
 
 ![Screenshot that shows a model needs update](./images/modelconversion/need-update.png)
 
