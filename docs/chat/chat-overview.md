@@ -44,6 +44,9 @@ You can run multiple sessions in parallel to work on different tasks simultaneou
 
 Each session has configuration options that shape how the agent responds, such as the agent type, agent, permission level, and language model. Learn how to [configure your agent session](/docs/agents/overview.md).
 
+> [!TIP]
+> To get the best results, be specific about what you want, provide relevant context, and write clear instructions. For more information, see [Get better responses](#get-better-responses).
+
 ## Send messages while a request is running
 
 You don't have to wait for a response to finish before sending your next message. While a request is in progress, the **Send** button changes to a dropdown that gives you three options for how to handle the new message.
