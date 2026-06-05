@@ -67,15 +67,16 @@ AI features are built into VS Code. To enable them, sign in with your GitHub acc
 
 ## Choose how you work with agents
 
-VS Code gives you two main surfaces for working with agents: the Agents window and the Chat view. Pick the one that fits your current task and switch freely between them. Both share the same agent sessions.
+VS Code gives you two main surfaces for working with agents: the **Agents window** and the **Chat view**. Pick the one that fits your current task and switch freely between them. Both share the same agent sessions, letting you start a session in one and continue it in the other without losing context.
 
-* **[Agents window (agent-first, Preview)](/docs/agents/agents-window.md)**: A dedicated window for orchestrating agents across multiple projects from a single place. Chat is your primary interface where you assign high-level tasks to agents.
-
-    ![Screenshot showing how to start a new agent session by selecting New at the top of the sidebar in the Agents window.](images/agents-window/agents-window-new-session.png)
-
-* **[Chat view (code-first)](/docs/agents/chat-view.md)**: A chat panel sits in the sidebar alongside your workspace editor tabs. Agents assist you with coding tasks, while you have full access to VS Code's rich coding experience.
-
-    ![Screenshot showing the Chat view with the sessions list, conversation, and chat input.](images/agents-overview/chat-view-expanded.png)
+|  | [Agents window](/docs/agents/agents-window.md) (Preview) | [Chat view](/docs/agents/chat-view.md) |
+|---|---|---|
+| **Approach** | Agent-first | Code-first |
+| **Scope** | Work across all your workspaces from one window. | Scoped to the workspace you have open in VS Code. |
+| **Best for** | You assign high-level tasks and evaluate the outcomes. Ideal for orchestrating agents across your workspaces. | You give the agent coding tasks and review the code it produces, staying close to your project. |
+| **Where you work** | A dedicated window focused on chat as the primary interface. | A chat panel in the sidebar, next to your workspace editor tabs. |
+| **Running agents** | Run and track multiple agents in parallel across workspaces. | Keep an agent focused on the code you're actively working on. |
+| **Preview** | ![Screenshot showing how to start a new agent session by selecting New at the top of the sidebar in the Agents window.](images/agents-window/agents-window-new-session.png) | ![Screenshot showing the Chat view with the sessions list, conversation, and chat input.](images/agents-overview/chat-view-expanded.png) |
 
 ## Configure your agent session
 
