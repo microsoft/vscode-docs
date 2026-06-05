@@ -70,7 +70,7 @@ Agents run in different environments depending on when you need results and how 
 
 ![Diagram showing the different agent types: Local agents (interactive in VS Code), Background agents (autonomous on your machine), Cloud agents (run on GitHub's infrastructure), and Third-party agents (connect external AI providers).](../images/agents-overview/agent-types-diagram-v3.png)
 
-For descriptions of each agent type and guidance on choosing the right one for your task, see [Build with agents in VS Code](/docs/agents/overview.md#configure-your-agent-session) and the individual articles under [Agent types](/docs/agents/agent-types/local-agents.md).
+For a description of each agent type, see the individual articles under [Agent types](/docs/agents/agent-types/local-agents.md). For guidance on choosing where to work with agents, see [Build with agents in VS Code](/docs/agents/overview.md#configure-your-agent-session).
 
 ## Subagents
 

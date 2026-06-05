@@ -80,16 +80,14 @@ VS Code gives you two main surfaces for working with agents: the **Agents window
 
 ## Configure your agent session
 
-Each agent session is configured along a few dimensions. Adjust them per task and change your mind at any time.
+Each agent session has a few settings that control how it runs. Choose them when you start a session and adjust them at any time as your task evolves.
 
 | Choice | Description |
 |---|---|
-| [Agent type](/docs/agents/agent-types/local-agents.md) | Where and how the agent runs: interactively in VS Code (local), in the background on your machine (Copilot CLI), remotely on GitHub's infrastructure (cloud), or through a third-party provider like Anthropic or OpenAI. |
-| [Agent](/docs/agents/agent-types/local-agents.md) | The persona that determines how the agent approaches the task and which tools it can use. Pick one of the built-in agents (Agent, Plan, Ask) or create a [custom agent](/docs/agent-customization/custom-agents.md) for specialized roles like code reviewer or documentation writer. |
-| [Language model](/docs/agent-customization/language-models.md) | The model that powers the agent's reasoning. Use a fast model for quick edits and questions, or a stronger reasoning model for complex, multi-step work. You can also bring your own API key to use models from other providers. |
-| [Permission level](/docs/agents/agent-tools.md#permission-levels) | How much autonomy the agent has to invoke tools and run terminal commands, from approving every action (Default Approvals) to letting the agent work fully on its own (Autopilot). |
-
-You can also hand off an in-progress session to a different agent type to take advantage of their strengths, for example moving from a local Plan session to a [Copilot CLI](/docs/agents/agent-types/copilot-cli.md#hand-off-a-local-session-to-copilot-cli) or [cloud](/docs/agents/agent-types/cloud-agents.md#hand-off-an-agent-session-to-a-cloud-agent) session for autonomous execution.
+| **Agent type** | Where the agent runs and how you interact with it: interactively in VS Code with [local agents](/docs/agents/agent-types/local-agents.md), in the background on your machine with [Copilot CLI](/docs/agents/agent-types/copilot-cli.md), remotely on GitHub's infrastructure with [cloud agents](/docs/agents/agent-types/cloud-agents.md), or through a [third-party provider](/docs/agents/agent-types/third-party-agents.md) like Anthropic or OpenAI.<br>You can hand off an in-progress session to a different agent type, for example to pass a local Plan session to [Copilot CLI](/docs/agents/agent-types/copilot-cli.md#hand-off-a-local-session-to-copilot-cli) or a [cloud](/docs/agents/agent-types/cloud-agents.md#hand-off-an-agent-session-to-a-cloud-agent) agent. |
+| [Agent](/docs/agents/agent-types/local-agents.md#built-in-agents) | The persona that shapes how the agent approaches a task and which tools it can use. Pick a built-in agent (Agent, Plan, Ask) or use a [custom agent](/docs/agent-customization/custom-agents.md) for a specialized role like a security expert or documentation writer. |
+| [Language model](/docs/agent-customization/language-models.md) | The model that powers the agent's reasoning. Pick a fast model for quick edits and questions, or a stronger reasoning model for complex, multi-step or research work. |
+| [Permission level](/docs/agents/agent-tools.md#permission-levels) | How much autonomy the agent has to run tools and terminal commands, from approving every action to letting it work on its own. |
 
 ![Screenshot showing an agent session in VS Code with code changes and chat interaction.](images/agents-overview/chat-sessions-view.png)
 
