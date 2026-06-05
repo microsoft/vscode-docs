@@ -70,9 +70,9 @@ The report contains detailed latencies for each op.
 
 To see op level data when running on the Intel (OpenVINO) EP, do the following:
 
-- Download [Intel® Unified Telemetry](https://www.intel.com/content/www/us/en/developer/tools/intel-unified-telemetry.html)
-- Extract the content to a path like `C:\Users\XXX\Downloads\ut-tool-ext-v0.2.0-beta1.1`
-- In Foundry Toolkit settings, set `Model Lab Intel Unified Telemetry Path` to `C:\Users\XXX\Downloads\ut-tool-ext-v0.2.0-beta1.1\bin`
+1. Download [Intel® Unified Telemetry](https://www.intel.com/content/www/us/en/developer/tools/intel-unified-telemetry.html)
+1. Extract the content to a path like `C:\Users\XXX\Downloads\ut-tool-ext-v0.2.0-beta1.1`
+1. In Foundry Toolkit settings, set `Model Lab Intel Unified Telemetry Path` to `C:\Users\XXX\Downloads\ut-tool-ext-v0.2.0-beta1.1\bin`
 
 Intel Unified Telemetry requires administrator privileges to run. If VS Code is not running as administrator, profiling will prompt for elevation and open a new terminal window showing its progress. Don't close this window until the process has completed.
 

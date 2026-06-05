@@ -78,17 +78,17 @@ Model Conversion currently supports a growing list of models, including top Hugg
 
 After a Foundry Toolkit update, you might see a **Need Update** notification for your model projects.
 
-![Screenshot that shows a model needs update](./images/modelconversion/need-update.png)
+![Screenshot showing that a model needs an update](./images/modelconversion/need-update.png)
 
 It means some of the workflows are updated, and you could either:
 
 - Select **Update** if you haven't manually modified the workflows.
+- Create a new model project and migrate your changes from the old model project into it or vice versa.
 - Restore Foundry Toolkit to the previous version so you could continue to use the workflows from that version.
-- Back up your modifications and then select **Update**.
 
 For the converted models, if they are running well, you could still use them. Or you could re-run the workflow to generate a new one. If the workflows are not changed much, it will be fast because previous results are cached.
 
-Learn more in [How to update a model project](/docs/intelligentapps/reference/HowToUpdateModelProject.md).
+Learn more in [How to update a model project](/docs/intelligentapps/reference/UpdateModelProject.md).
 
 
 ## Run workflow
@@ -285,5 +285,5 @@ In this article, you learned how to:
 - [How to manually setup GPU conversion](/docs/intelligentapps/reference/ManualConversionOnGPU.md)
 - [How to manually setup environment](/docs/intelligentapps/reference/SetupWithoutAITK.md)
 - [How to customize model template](/docs/intelligentapps/reference/TemplateProject.md)
-- [How to update a model project](/docs/intelligentapps/reference/HowToUpdateModelProject.md)
+- [How to update a model project](/docs/intelligentapps/reference/UpdateModelProject.md)
 - [Conversion file structure](/docs/intelligentapps/reference/FileStructure.md)
