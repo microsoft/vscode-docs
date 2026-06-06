@@ -10,6 +10,8 @@ Visual Studio Code is a free, open-source code editor for Windows, macOS, and Li
 
 You can [download](https://code.visualstudio.com/download) and install VS Code on your desktop, or open it instantly in the browser at [vscode.dev](https://vscode.dev) with zero setup (learn more about [VS Code for the Web](/docs/remote/vscode-web.md)).
 
+![Screenshot of VS Code with a travel blog project open, showing an agent session in the Chat view and previewing the site in the integrated browser.](images/overview/vscode-overview.png)
+
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with VS Code">
 Follow a hands-on tutorial to build your first app with AI in VS Code.
 
