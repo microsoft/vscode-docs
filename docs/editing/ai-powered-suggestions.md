@@ -18,7 +18,7 @@ You might experience two kinds of inline suggestions from Copilot, both of which
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
 Follow a hands-on tutorial to build your first app with AI in VS Code.
 
-* [Start tutorial](/docs/copilot/getting-started.md)
+* [Start tutorial](/docs/getstarted/getting-started.md)
 
 </div>
 
@@ -132,14 +132,14 @@ Different Large Language Models (LLMs) are trained on different types of data an
 
 To change the language model that is used for generating ghost text suggestions in the editor:
 
-1. Open the Command Palette (`kbstyle(F1)`).
+1. Select **Configure Inline Suggestions...** from the Chat menu in the VS Code title bar.
 
-1. Type **change completions model** and select the **GitHub Copilot: Change Completions Model** command.
-
-1. In the dropdown menu, select the model you want to use.
+1. Select **Change Completions Model...**, and then select one of the models from the list.
 
 > [!NOTE]
-> The list of available models might vary and change over time. The model picker may not always show more than one model, and preview models and additional inline suggestion models will become available there if/when we release them. If you are a Copilot Business or Enterprise user, your Administrator needs to enable certain models for your organization by opting in to `Editor Preview Features` in the [Copilot policy settings](https://docs.github.com/en/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) on GitHub.com.
+> The list of available models might vary and change over time. When no alternative models are available, the option to change the model is not available.
+>
+> If you are a Copilot Business or Enterprise user, your Administrator needs to enable certain models for your organization by opting in to `Editor Preview Features` in the [Copilot policy settings](https://docs.github.com/en/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) on GitHub.com.
 
 ## Tips & tricks
 
@@ -176,7 +176,7 @@ To give you relevant inline suggestions, Copilot looks at the current and open f
 
 ## Next steps
 
-* Discover the key features in the [Quickstart](/docs/copilot/getting-started.md).
+* Discover the key features in the [Quickstart](/docs/getstarted/getting-started.md).
 
 * Use AI chat conversations with [chat in VS Code](/docs/chat/copilot-chat.md).
 

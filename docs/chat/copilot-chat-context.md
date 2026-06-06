@@ -129,11 +129,11 @@ The context window control provides the following information:
 As you send more requests in a conversation, the control updates to reflect the increasing context usage. The total available context (denominator) changes based on the AI model you select, since different models have different context window sizes.
 
 > [!TIP]
-> When the context window fills up, VS Code automatically [compacts the conversation history](#context-compaction) to free up space.
+> When the context window fills up, VS Code automatically compacts the conversation history to free up space.
 
 ## Context compaction
 
-As a conversation grows, the accumulated messages and context can fill up the model's context window. Context compaction summarizes the conversation history to free up space, so you can continue working in the same session without losing important details. Compacting also reduces the number of tokens sent with each subsequent request, which helps manage [AI credit consumption](/docs/copilot/guides/optimize-usage.md).
+As a conversation grows, the accumulated messages and context can fill up the model's context window. Context compaction summarizes the conversation history to free up space, so you can continue working in the same session without losing important details. Compacting also reduces the number of tokens sent with each subsequent request, which helps manage [AI credit consumption](/docs/agents/guides/optimize-usage.md).
 
 ### Automatic compaction
 
@@ -155,7 +155,7 @@ If you want to reset the context entirely, start a [new chat session](/docs/agen
 
 ## Related resources
 
-* [Chat overview](/docs/chat/copilot-chat.md)
-* [Prompt examples](/docs/chat/prompt-examples.md)
+* [Chat overview](/docs/agents/chat-view.md)
+* [Prompt examples](/docs/agents/guides/prompt-examples.md)
 * [Prompt engineering guide](/docs/agents/best-practices.md)
 * [Debug chat interactions](/docs/agents/agent-troubleshooting/chat-debug-view.md)

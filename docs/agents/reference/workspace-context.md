@@ -95,7 +95,7 @@ Copilot builds and maintains a semantic index for any workspace automatically. T
 
 * **Azure DevOps repositories**: Indexes are automatically built and maintained. Sign in with your Microsoft account in VS Code for Copilot to start using the index. Check the Copilot Status Bar item for the current index status.
 
-* **Other workspaces**: For any other workspace, including local folders not backed by a GitHub or Azure DevOps repository, Copilot builds the semantic index for you. The initial build can take a few minutes, after which the index is kept up to date in the background.
+* **Other workspaces**: For any other workspace, including local folders not backed by a GitHub or Azure DevOps repository, Copilot builds the semantic index for you. The initial build can take a few minutes, after which the index is kept up to date in the background. This feature is currently enabled for personal accounts but off by default for organization and enterprise users. See the [GitHub docs](https://docs.github.com/en/copilot/concepts/context/repository-indexing#semantic-indexing-for-non-github-repositories) for more details about how to enable this feature using a policy.
 
 To build or rebuild the index for the current workspace on demand, run the **Build Codebase semantic index** command from the Command Palette.
 

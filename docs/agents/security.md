@@ -34,8 +34,6 @@ Use the following checklist to set up a secure starting point for AI-assisted de
 
 1. **Keep auto-approval scoped to the session.** Grant tool and terminal permissions at the session level rather than workspace or user level. This limits the duration of elevated trust.
 
-1. **Never expose tunnels or forwarded ports with anonymous or public access when AI auto-approval is active.** If you use [dev tunnels](/docs/remote/tunnels.md) or [port forwarding](/docs/debugtest/port-forwarding.md), ensure they require authentication. Anonymous or public access combined with auto-approval modes lets anyone who discovers the URL execute commands with your credentials.
-
 1. **Review MCP servers before trusting them.** Verify that MCP servers come from a trustworthy source and review their configuration before starting them.
 
 ## Trust boundaries
@@ -45,7 +43,7 @@ VS Code's security model uses trust boundaries to limit the potential impact of 
 * **Workspace**: controls whether VS Code enables features like tasks, debugging, and workspace settings that can execute code from the project. An untrusted workspace runs in [restricted mode](/docs/editing/workspaces/workspace-trust.md), which also disables agents.
 * **Extension publisher**: controls whether extensions from a given publisher can be installed and run. VS Code prompts you to [trust the publisher](/docs/configure/extensions/extension-runtime-security.md) before activating their extensions.
 * **MCP server**: controls whether an MCP server can start and provide tools. VS Code prompts you to [trust each MCP server](/docs/agent-customization/mcp-servers.md#mcp-server-trust) before it runs, and re-prompts after configuration changes.
-* **Network domain**: controls whether the agent can fetch content from a URL. VS Code prompts you to trust a domain before making requests to it, integrated with the [Trusted Domains](/docs/editing/editingevolved.md#_outgoing-link-protection) list. You can also enable `setting(chat.agent.networkFilter)` to restrict which domains agent tools (fetch tool, integrated browser) and sandboxed terminal commands can access. Learn more about [network filtering](/docs/agents/agent-tools.md#configure-network-access).
+* **Network domain**: controls whether the agent can fetch content from a URL. VS Code prompts you to trust a domain before making requests to it, integrated with the [Trusted Domains](/docs/editing/editingevolved.md#outgoing-link-protection) list. You can also enable `setting(chat.agent.networkFilter)` to restrict which domains agent tools (fetch tool, integrated browser) and sandboxed terminal commands can access. Learn more about [network filtering](/docs/agents/agent-tools.md#configure-network-access).
 
 You can revoke trust at any time through dedicated commands in the Command Palette.
 
@@ -121,8 +119,6 @@ All development tasks operate with the same permissions as the user.
 
 * **Extensions and MCP servers**: Extensions and MCP servers can operate on the user's machine with broad access to the system. They can access all files on the local machine, execute arbitrary code, and interact with system resources and external services.
 
-* **Remote access via tunnels or port forwarding**: If you expose your development machine through [dev tunnels](/docs/remote/tunnels.md) or [forwarded ports](/docs/debugtest/port-forwarding.md) with anonymous or public access, anyone who discovers the URL can reach your environment. When combined with auto-approval modes, this creates a remote code execution vector where unauthorized users can trigger AI-assisted commands with your credentials. Always require authentication for tunnels and forwarded ports.
-
 VS Code addresses these risks through [workspace-limited file access](#scope-and-isolation), [agent sandboxing](#agent-sandboxing-preview), and [trust boundaries](#trust-boundaries) for extensions and MCP servers.
 
 </details>
@@ -156,8 +152,6 @@ Auto-approval features reduce friction but come with security tradeoffs.
 * **Autopilot mode**: The **Autopilot** permission level combines auto-approval with autonomous iteration. The agent continues working without user intervention until it marks the task as complete. This reduces your ability to review intermediate steps.
 
 * **Third-party agent permissions**: Some third-party agents offer settings that bypass all permission checks (for example, `allowDangerouslySkipPermissions` in the [Claude agent](/docs/agents/agent-types/third-party-agents.md)). Enabling these settings removes the safety net of approval prompts and is only recommended in sandboxed or containerized environments.
-
-* **Auto-approval with remote access**: When auto-approval modes are combined with [dev tunnels](/docs/remote/tunnels.md) or [forwarded ports](/docs/debugtest/port-forwarding.md) that allow anonymous or public access, anyone who discovers the URL can trigger AI-assisted command execution on your machine. Disable anonymous tunnel access and require authentication before using any auto-approval mode. Organizations can enforce this with the [Dev Tunnels group policies](https://learn.microsoft.com/azure/developer/dev-tunnels/policies).
 
 VS Code addresses these risks through [configurable approval scopes](#approvals-and-review), [agent sandboxing](#agent-sandboxing-preview), [enterprise policies](#enterprise-policies), and [warning banners](#approvals-and-review) for dangerous modes.
 

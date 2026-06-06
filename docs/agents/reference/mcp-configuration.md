@@ -24,11 +24,13 @@ MCP server configuration is stored in the `mcp.json` JSON file. This file can be
 
 ### Configuration structure
 
-The configuration file has two main sections:
+The configuration file has three main sections:
 
 * **`"servers": {}`**: an object that maps server names to their configurations. Each key is the server name, and the value is the server configuration object. Depending on the server type, different fields are required.
 
 * **`"inputs": []`**: an optional array of input variable definitions for sensitive information like API keys.
+
+* **`"sandbox": {}`**: an optional object that defines file system and network access rules for sandboxed servers. See [Sandbox configuration](#sandbox-configuration). Only applies on macOS and Linux.
 
 You can use [predefined variables](/docs/reference/variables-reference.md) in the server configuration, for example to refer to the workspace folder (`${workspaceFolder}`).
 
@@ -41,10 +43,11 @@ Use this configuration for servers that communicate through standard input and o
 | `type` | Yes | Server connection type | `"stdio"` |
 | `command` | Yes | Command to start the server executable. Must be available on your system path or contain its full path. | `"npx"`, `"node"`, `"python"`, `"docker"` |
 | `args` | No | Array of arguments passed to the command | `["server.py", "--port", "3000"]` |
-| `env` | No | Environment variables for the server | `{"API_KEY": "${input:api-key}"}` |
+| `cwd` | No | Working directory for the server command. Defaults to the workspace folder when run in a workspace. | `"${workspaceFolder}"` |
+| `env` | No | Environment variables for the server. Values can be strings, numbers, or null. | `{"API_KEY": "${input:api-key}"}` |
 | `envFile` | No | Path to an environment file to load more variables | `"${workspaceFolder}/.env"` |
+| `dev` | No | Development mode settings to watch for file changes and debug the server. See [Development mode](#development-mode). | `{"watch": "src/**/*.ts"}` |
 | `sandboxEnabled` | No | Run the server in a sandboxed environment. Only supported on macOS and Linux. | `true` |
-| `sandbox` | No | File system and network access rules for the sandboxed server. Only applies when `sandboxEnabled` is `true`. See [Sandbox configuration](#sandbox-configuration). | `{"filesystem": {...}, "network": {...}}` |
 
 > [!NOTE]
 > When using Docker with stdio servers, don't use the detach option (`-d`). The server must run in the foreground to communicate with VS Code.
@@ -74,7 +77,7 @@ This example shows the minimal configuration for a basic, local MCP server using
 
 You can enable sandboxing for locally-running stdio MCP servers to restrict their access to the file system and network. Sandboxed servers can only access the file system paths and network domains that you explicitly permit. Sandboxing is available on macOS and Linux only.
 
-To enable sandboxing for a server, set `"sandboxEnabled": true` in its configuration. Then, use the `sandbox` object to define the file system and network access rules. When a sandboxed server needs access that the current rules don't permit, check the server output for error messages and update the `sandbox` configuration accordingly.
+To enable sandboxing for a server, set `\"sandboxEnabled\": true` in its configuration. Then, define a top-level `sandbox` object to specify the file system and network access rules. The `sandbox` object is a sibling of `servers` and `inputs`, and its rules apply to all sandboxed servers. When a sandboxed server needs access that the current rules don't permit, check the server output for error messages and update the `sandbox` configuration accordingly.
 
 > [!NOTE]
 > When sandboxing is enabled, tool confirmations are auto-approved because the server runs in a controlled environment.
@@ -103,16 +106,16 @@ This example enables sandboxing and grants write access to the workspace, denies
             "type": "stdio",
             "command": "npx",
             "args": ["-y", "@example/mcp-server"],
-            "sandboxEnabled": true,
-            "sandbox": {
-                "filesystem": {
-                    "allowWrite": ["${workspaceFolder}"],
-                    "denyRead": ["${userHome}/.ssh"]
-                },
-                "network": {
-                    "allowedDomains": ["api.example.com", "*.cdn.example.com"]
-                }
-            }
+            "sandboxEnabled": true
+        }
+    },
+    "sandbox": {
+        "filesystem": {
+            "allowWrite": ["${workspaceFolder}"],
+            "denyRead": ["${userHome}/.ssh"]
+        },
+        "network": {
+            "allowedDomains": ["api.example.com", "*.cdn.example.com"]
         }
     }
 }
@@ -133,11 +136,12 @@ Use this configuration for servers that communicate over HTTP. VS Code first tri
 
 In addition to servers available over the network, VS Code can connect to MCP servers listening for HTTP traffic on Unix sockets or Windows named pipes by specifying the socket or pipe path in the form `unix:///path/to/server.sock` or `pipe:///pipe/named-pipe` on Windows. You can specify subpaths by using a URL fragment, such as `unix:///tmp/server.sock#/mcp/subpath`.
 
-The `oauth` object supports the following property:
+The `oauth` object supports the following properties:
 
 | Property | Type | Required | Description |
 |----------|------|----------|-------------|
 | `clientId` | string | Yes | The OAuth client ID to use when authenticating with the server. |
+| `enterpriseManaged` | boolean | No | (Preview) Authenticate through the enterprise single sign-on (SSO) issuer configured by the `mcp.enterpriseManagedAuth.idp` setting, using the OAuth Identity Assertion Authorization Grant (ID-JAG). After a one-time sign-in, subsequent enterprise-managed servers connect silently. Default is `false`. |
 
 > [!NOTE]
 > When `oauth` is configured, VS Code handles the OAuth flow automatically. A browser window opens for authorization on the first connection to the server.
@@ -187,14 +191,41 @@ Input variables let you define placeholders for configuration values, avoiding t
 
 When you reference an input variable using `${input:variable-id}`, VS Code prompts you for the value when the server starts for the first time. The value is then securely stored for subsequent use. Learn more about [input variables](/docs/reference/variables-reference.md#input-variables) in VS Code.
 
-**Input variable properties:**
+Each input variable has a `type` that determines how VS Code prompts for the value. The following input types are supported:
+
+* `promptString`: opens an input box to ask the user for a free-text value.
+* `pickString`: shows a list of options for the user to choose from.
+* `command`: runs a command and uses its result as the input value.
+
+**Common properties:**
 
 | Field | Required | Description | Example |
 |-------|----------|-------------|---------|
-| `type` | Yes | Type of input prompt | `"promptString"` |
+| `type` | Yes | Type of input prompt: `promptString`, `pickString`, or `command` | `"promptString"` |
 | `id` | Yes | Unique identifier to reference in server config | `"api-key"`, `"database-url"` |
+
+**`promptString` properties:**
+
+| Field | Required | Description | Example |
+|-------|----------|-------------|---------|
 | `description` | Yes | User-friendly prompt text | `"GitHub Personal Access Token"` |
+| `default` | No | Default value for the input | `"https://localhost"` |
 | `password` | No | Hide typed input (default: false) | `true` for API keys and passwords |
+
+**`pickString` properties:**
+
+| Field | Required | Description | Example |
+|-------|----------|-------------|---------|
+| `description` | Yes | User-friendly prompt text | `"Select an environment"` |
+| `options` | Yes | Array of options to choose from. Each option is a string, or an object with `label` and `value` properties. | `["dev", "prod"]` |
+| `default` | No | Default value for the input | `"dev"` |
+
+**`command` properties:**
+
+| Field | Required | Description | Example |
+|-------|----------|-------------|---------|
+| `command` | Yes | Command ID to run to obtain the input value | `"myExtension.getApiKey"` |
+| `args` | No | Arguments passed to the command. Can be a string, array, or object. | `{ "scope": "global" }` |
 
 <details>
 <summary>Example server configuration with input variables</summary>
@@ -233,8 +264,8 @@ This example configures a local server that requires an API key:
 
 You can enable _development mode_ for MCP servers by adding a `dev` key to the server configuration. This is an object with two properties:
 
-* `watch`: A file glob pattern to watch for file changes that restarts the MCP server.
-* `debug`: Enables you to set up a debugger with the MCP server. Currently, VS Code supports debugging Node.js and Python MCP servers.
+* `watch`: A glob pattern, or an array of glob patterns, to watch for file changes that restart the MCP server. Available for all server types.
+* `debug`: Enables you to set up a debugger with the MCP server. Currently, VS Code supports debugging Node.js and Python MCP servers. Available for stdio servers only.
 
 Learn more about [MCP development mode](/api/extension-guides/ai/mcp.md#mcp-development-mode-in-vs-code) in the MCP Dev Guide.
 

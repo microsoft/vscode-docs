@@ -16,12 +16,12 @@ Keywords:
 
 # AI features in VS Code
 
-Visual Studio Code's built-in AI features are powered by GitHub Copilot and large language models (LLMs). These features span multiple surfaces, from inline suggestions as you type to autonomous agents that implement entire features. This article provides an overview of the AI features and how they connect. For a hands-on tutorial, see the [Quickstart](/docs/copilot/getting-started.md).
+Visual Studio Code's built-in AI features are powered by GitHub Copilot and large language models (LLMs). These features span multiple surfaces, from inline suggestions as you type to autonomous agents that implement entire features. This article provides an overview of the AI features and how they connect. For a hands-on tutorial, see the [Quickstart](/docs/getstarted/getting-started.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
 Follow a hands-on tutorial to build your first app with AI in VS Code.
 
-* [Start tutorial](/docs/copilot/getting-started.md)
+* [Start tutorial](/docs/getstarted/getting-started.md)
 
 </div>
 
@@ -48,6 +48,6 @@ The following conceptual articles explain the architecture and building blocks t
 
 ## Related resources
 
-* [Quickstart: Get started with AI in VS Code](/docs/copilot/getting-started.md)
+* [Quickstart: Get started with AI in VS Code](/docs/getstarted/getting-started.md)
 * [Best practices for using AI in VS Code](/docs/agents/best-practices.md)
 * [Using agents in VS Code](/docs/agents/overview.md)

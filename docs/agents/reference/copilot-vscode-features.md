@@ -89,7 +89,7 @@ Get more relevant responses by providing [context to your chat prompt](/docs/cha
 
 Use [tools](/docs/agents/agent-tools.md) in chat to accomplish specialized tasks while processing a user request. Examples of such tasks are listing the files in a directory, editing a file in your workspace, running a terminal command, getting the output from the terminal, and more.
 
-VS Code provides built-in tools, and you can extend chat with tools from [MCP servers](/docs/agent-customization/mcp-servers.md) and [extensions](/api/extension-guides/ai/tools.md). Learn more about [types of tools](/docs/agents/agent-tools.md#types-of-tools).
+VS Code provides built-in tools, and you can extend chat with tools from [MCP servers](/docs/agent-customization/mcp-servers.md) and [extensions](/api/extension-guides/ai/tools.md). Learn more about [types of tools](/docs/agents/agent-tools.md).
 
 The following table lists the VS Code built-in tools:
 
@@ -193,7 +193,7 @@ When using [agents](/docs/agents/agent-types/local-agents.md), you can use natur
 | `kb(workbench.action.chat.openAgent)` | Switch to using agents in the Chat view |
 | Tools (<i class="codicon codicon-tools"></i>) | Configure which tools are available when using agents. Select from built-in tools, MCP servers, and extension-provided tools. |
 | Permission levels | Choose a [permission level](/docs/agents/agent-tools.md#permission-levels) for the current session: **Default Approvals**, **Bypass Approvals**, or **Autopilot** (Preview). Controls how tool approvals are handled. |
-| Auto-approve tools | Enable [auto-approval of all tools](/docs/agents/agent-tools.md#auto-approve-all-tools) when using agents (`setting(chat.tools.autoApprove)`). |
+| Auto-approve tools | Enable [auto-approval of all tools](/docs/agents/agent-tools.md#automatically-approve-terminal-commands) when using agents (`setting(chat.tools.autoApprove)`). |
 | Auto-approve terminal commands | Enable [auto-approval of terminal commands](/docs/agents/agent-tools.md#automatically-approve-terminal-commands) when using agents (`setting(chat.tools.terminal.autoApprove)`). |
 | MCP | Configure [MCP servers](/docs/agent-customization/mcp-servers.md) to extend agent capabilities and tools. |
 | [Third-party agents](/docs/agents/agent-types/third-party-agents.md) | Use agents from external providers like Claude Agent (Preview) and OpenAI Codex with your Copilot subscription. |
@@ -262,7 +262,7 @@ Use AI to analyze the changes in your commits and pull requests and provide sugg
 | `#changes` | Add the current source control changes as context in your chat prompt. |
 | Commit as context | Add a commit from the source control history as context in your chat prompt. |
 | Commit message | Generate a commit message for the current changes in a source control commit. |
-| Merge conflicts (Experimental) | Get help [resolving Git merge conflicts with AI](/docs/sourcecontrol/overview#resolve-merge-conflicts-with-ai-experimental). |
+| Merge conflicts (Experimental) | Get help [resolving Git merge conflicts with AI](/docs/sourcecontrol/merge-conflicts.md). |
 | Pull request description | Generate a pull request title and description that correspond with the changes in your pull request. |
 | `@github` | Use the `@github` participant in chat to ask about issues, pull requests, and more across your repositories. Get more information about the [available GitHub skills](https://docs.github.com/en/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide#currently-available-skills).<br/>Example: `@github What are all of the open PRs assigned to me?`, `@github Show me the recent merged pr's from @dancing-mona`  |
 
@@ -349,4 +349,4 @@ You can use chat to help you with Python programming tasks in the Native Python 
 
 ## Next steps
 
-* [Tutorial: Get started with AI features in VS Code](/docs/copilot/getting-started.md)
+* [Tutorial: Get started with AI features in VS Code](/docs/getstarted/getting-started.md)
