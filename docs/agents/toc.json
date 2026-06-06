@@ -29,12 +29,12 @@
                 ]
             }],
 
+            ["Approvals & Permissions", "/docs/agents/approvals"],
             ["Planning", "/docs/agents/planning"],
             ["Memory", "/docs/agents/memory"],
             ["Subagents", "/docs/agents/subagents"],
 
             ["Best Practices", "/docs/agents/best-practices"],
-            ["Approvals & Permissions", "/docs/agents/approvals"],
             ["Security", "/docs/agents/security"],
         ]
     },
