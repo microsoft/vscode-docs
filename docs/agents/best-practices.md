@@ -182,6 +182,18 @@ AI responses might degrade as the conversation fills with irrelevant context. Ma
 
 For more information, see [session management](/docs/chat/chat-sessions.md), [workspace indexing](/docs/agents/reference/workspace-context.md), and [optimize AI credit usage](/docs/agents/guides/optimize-usage.md).
 
+## Optimize AI credit usage
+
+Many of the practices in this article also help you control cost. More capable models, large contexts, and throwaway work all consume [AI credits](/docs/agents/concepts/language-models.md#ai-credits-and-model-costs). A few levers have the biggest impact:
+
+* **Match the model to the task.** Use faster, cheaper models for simple work and reserve premium models for planning, debugging, and architectural decisions. Auto model selection balances quality and cost for you.
+
+* **Keep context lean.** Send only relevant context, [compact](/docs/chat/copilot-chat-context.md#context-compaction) long conversations, and start fresh sessions for unrelated tasks to avoid paying for irrelevant history on every request.
+
+* **Plan before you implement.** Separating planning from implementation avoids spending credits on code you throw away.
+
+For a complete set of techniques, see [optimize AI credit usage](/docs/agents/guides/optimize-usage.md).
+
 ## Work with large codebases
 
 Copilot is designed to work effectively with large, complex, and multi-root workspaces. Use these practices to get the best results at scale.
@@ -201,6 +213,7 @@ For more information, see [workspace context](/docs/agents/reference/workspace-c
 ## Related resources
 
 * [Context engineering guide](/docs/agents/guides/context-engineering-guide.md)
+* [Optimize AI credit usage](/docs/agents/guides/optimize-usage.md)
 * [Customization overview](/docs/agent-customization/overview.md)
 * [Cheat sheet](/docs/agents/reference/copilot-vscode-features.md)
 * [GitHub Copilot security](/docs/agents/security.md)
