@@ -384,11 +384,15 @@ In the tools picker, tool sets are available as collapsible groups of related to
 
 ## Frequently asked questions
 
-### How do I know which tools are available?
+<details>
+<summary>How do I know which tools are available?</summary>
 
 Type `#` in the chat input field to see a list of all available tools. You can also use the tools picker in chat to view and manage the list of active tools.
 
-### I'm getting an error that says "Cannot have more than 128 tools per request."
+</details>
+
+<details>
+<summary>I'm getting an error that says "Cannot have more than 128 tools per request."</summary>
 
 A chat request can have a maximum of 128 tools enabled at a time. If you see an error about exceeding 128 tools per request:
 
@@ -396,7 +400,10 @@ A chat request can have a maximum of 128 tools enabled at a time. If you see an 
 
 * Alternatively, enable virtual tools with the `setting(github.copilot.chat.virtualTools.threshold)` setting to automatically manage large tool sets.
 
-### Why isn't the agent using my configured terminal shell?
+</details>
+
+<details>
+<summary>Why isn't the agent using my configured terminal shell?</summary>
 
 The agent uses the shell you have configured as the default for the terminal, except for `cmd` (Command Prompt) on Windows and `sh` on macOS/Linux. This is because [shell integration](/docs/terminal/shell-integration.md) is not supported with these shells, which means the agent has very limited visibility into what's going on inside the terminal. Instead of getting direct signals for when commands are being run or have finished running, the agent needs to rely on timeouts and watching for the terminal to idle to continue. This leads to a slow and flaky experience.
 
@@ -406,7 +413,10 @@ You can still configure the agent to use these shells with the terminal profile 
 * `setting(chat.tools.terminal.terminalProfile.osx)` - Override the shell on macOS
 * `setting(chat.tools.terminal.terminalProfile.linux)` - Override the shell on Linux
 
-### Can I automatically approve all tools and terminal commands?
+</details>
+
+<details>
+<summary>Can I automatically approve all tools and terminal commands?</summary>
 
 You have several options for auto-approving tool calls:
 
@@ -418,18 +428,17 @@ You have several options for auto-approving tool calls:
 >
 > The `setting(chat.tools.global.autoApprove)` setting applies globally across all your workspaces. Use a session-scoped [permission level](#permission-levels) if you prefer to limit auto-approval to the current session.
 
-### What's the difference between tools and chat participants?
+</details>
 
-Chat participants are specialized assistants that enable you to ask domain-specific questions in chat. Imagine a chat participant as a domain expert to whom you hand off your chat request and it takes care of the rest.
-
-Tools are invoked as part of an agent flow to contribute and perform specific tasks. You can include multiple tools in a single chat request, but only one chat participant can be active at a time.
-
-### Can I create my own tools?
+<details>
+<summary>Can I create my own tools?</summary>
 
 Yes. You can create tools in two ways:
 
 * **Develop a VS Code extension** that contributes tools using the [Language Model Tools API](/api/extension-guides/ai/tools.md)
 * **Create an MCP server** that provides tools. See the [MCP developer guide](/docs/agents/guides/mcp-developer-guide.md)
+
+</details>
 
 ## Related resources
 
