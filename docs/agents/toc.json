@@ -31,10 +31,10 @@
 
             ["Planning", "/docs/agents/planning"],
             ["Memory", "/docs/agents/memory"],
-            ["Tools", "/docs/agents/agent-tools"],
             ["Subagents", "/docs/agents/subagents"],
 
             ["Best Practices", "/docs/agents/best-practices"],
+            ["Approvals & Permissions", "/docs/agents/approvals"],
             ["Security", "/docs/agents/security"],
         ]
     },
@@ -63,6 +63,7 @@
             ["Overview", "/docs/chat/chat-overview"],
             ["Chat Sessions", "/docs/chat/chat-sessions"],
             ["Add Context", "/docs/chat/copilot-chat-context"],
+            ["Tools", "/docs/chat/chat-tools"],
             ["Inline Chat", "/docs/chat/inline-chat"],
             ["Review Edits", "/docs/chat/review-code-edits"],
             ["Checkpoints", "/docs/chat/chat-checkpoints"],

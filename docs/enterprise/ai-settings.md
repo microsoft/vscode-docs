@@ -49,7 +49,7 @@ When this policy is applied, hook configurations are ignored and no hook command
 
 ## Enable or disable extension language tools
 
-[Tools in chat](/docs/agents/agent-tools.md) extend the AI assistant's capabilities with specialized functions. These tools can come from built-in features, Model Context Protocol (MCP) servers, or third-party extensions.
+[Tools in chat](/docs/chat/chat-tools.md) extend the AI assistant's capabilities with specialized functions. These tools can come from built-in features, Model Context Protocol (MCP) servers, or third-party extensions.
 
 Third-party extensions can contribute tools that integrate with chat by using the [Language Model Tools API](/api/extension-guides/ai/tools).
 
@@ -91,13 +91,13 @@ Organizations with GitHub Copilot Enterprise or Business can also configure MCP 
 
 Agent tools can perform actions that modify files, run commands, or access external services. VS Code includes approval prompts for potentially risky operations. Organizations can enforce stricter approval requirements or disable auto-approval entirely.
 
-Learn more about [tool approval](/docs/agents/agent-tools.md#tool-approval) in VS Code.
+Learn more about [tool approval](/docs/agents/approvals.md#tool-approval) in VS Code.
 
 ### Disable global auto-approval
 
 The `ChatToolsAutoApprove` policy controls the global auto-approval setting. When enabled, the AI assistant can execute all tools without manual approval. This is not recommended for security reasons.
 
-To prevent developers from enabling global auto-approval, set the `ChatToolsAutoApprove` policy to `false`. This configures the `setting(chat.tools.global.autoApprove)` setting in VS Code and also hides the **Bypass Approvals** and **Autopilot** options from the [permissions picker](/docs/agents/agent-tools.md#permission-levels) in the Chat view.
+To prevent developers from enabling global auto-approval, set the `ChatToolsAutoApprove` policy to `false`. This configures the `setting(chat.tools.global.autoApprove)` setting in VS Code and also hides the **Bypass Approvals** and **Autopilot** options from the [permissions picker](/docs/agents/approvals.md#permission-levels) in the Chat view.
 
 > [!CAUTION]
 > Global auto-approval bypasses all security prompts for tool invocations. Disabling this feature is strongly recommended for enterprise environments.
@@ -243,7 +243,7 @@ For GitHub Copilot's security, privacy, compliance, and transparency information
 ## Related resources
 
 * [Enterprise policies reference](/docs/enterprise/policies.md) - Complete list of enterprise policies
-* [Use tools in chat](/docs/agents/agent-tools.md) - Learn how tools work in VS Code chat
+* [Use tools in chat](/docs/chat/chat-tools.md) - Learn how tools work in VS Code chat
 * [MCP servers in VS Code](/docs/agent-customization/mcp-servers.md) - Configure and use MCP servers
 * [Custom instructions](/docs/agent-customization/custom-instructions.md) - Define custom instructions for AI responses
 * [Custom agents](/docs/agent-customization/custom-agents.md) - Create custom AI personas and workflows

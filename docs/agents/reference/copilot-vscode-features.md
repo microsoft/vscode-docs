@@ -87,9 +87,9 @@ Get more relevant responses by providing [context to your chat prompt](/docs/cha
 
 ## Chat tools
 
-Use [tools](/docs/agents/agent-tools.md) in chat to accomplish specialized tasks while processing a user request. Examples of such tasks are listing the files in a directory, editing a file in your workspace, running a terminal command, getting the output from the terminal, and more.
+Use [tools](/docs/chat/chat-tools.md) in chat to accomplish specialized tasks while processing a user request. Examples of such tasks are listing the files in a directory, editing a file in your workspace, running a terminal command, getting the output from the terminal, and more.
 
-VS Code provides built-in tools, and you can extend chat with tools from [MCP servers](/docs/agent-customization/mcp-servers.md) and [extensions](/api/extension-guides/ai/tools.md). Learn more about [types of tools](/docs/agents/agent-tools.md#types-of-tools).
+VS Code provides built-in tools, and you can extend chat with tools from [MCP servers](/docs/agent-customization/mcp-servers.md) and [extensions](/api/extension-guides/ai/tools.md). Learn more about [types of tools](/docs/agents/concepts/tools.md#types-of-tools).
 
 The following table lists the VS Code built-in tools:
 
@@ -169,8 +169,8 @@ Slash commands are shortcuts to specific functionality within the chat. You can 
 | `/create-skill` | Generate an [agent skill](/docs/agent-customization/agent-skills.md) with AI assistance in Agent mode. |
 | `/create-agent` | Generate a [custom agent](/docs/agent-customization/custom-agents.md) with AI assistance in Agent mode. |
 | `/create-hook` | Generate a [hook](/docs/agent-customization/hooks.md) configuration with AI assistance in Agent mode. |
-| `/yolo`<br/>`/autoApprove` | Enable [global auto-approval](/docs/agents/agent-tools.md#can-i-automatically-approve-all-tools-and-terminal-commands) of all tool calls (`setting(chat.tools.global.autoApprove)`). Shows a warning dialog the first time. |
-| `/disableYolo`<br/>`/disableAutoApprove` | Disable [global auto-approval](/docs/agents/agent-tools.md#can-i-automatically-approve-all-tools-and-terminal-commands) of all tool calls. |
+| `/yolo`<br/>`/autoApprove` | Enable [global auto-approval](/docs/agents/approvals.md#can-i-automatically-approve-all-tools-and-terminal-commands) of all tool calls (`setting(chat.tools.global.autoApprove)`). Shows a warning dialog the first time. |
+| `/disableYolo`<br/>`/disableAutoApprove` | Disable [global auto-approval](/docs/agents/approvals.md#can-i-automatically-approve-all-tools-and-terminal-commands) of all tool calls. |
 | `/<skill name>` | Run an [agent skill](/docs/agent-customization/agent-skills.md) in chat. For example, if you have a skill file named `webapp-testing.md`, you can run it by typing `/webapp-testing`. |
 | `/<prompt name>` | Run a [reusable prompt](/docs/agent-customization/prompt-files.md) in chat. |
 
@@ -192,9 +192,9 @@ When using [agents](/docs/agents/agent-types/local-agents.md), you can use natur
 |--------|-------------|
 | `kb(workbench.action.chat.openAgent)` | Switch to using agents in the Chat view |
 | Tools (<i class="codicon codicon-tools"></i>) | Configure which tools are available when using agents. Select from built-in tools, MCP servers, and extension-provided tools. |
-| Permission levels | Choose a [permission level](/docs/agents/agent-tools.md#permission-levels) for the current session: **Default Approvals**, **Bypass Approvals**, or **Autopilot** (Preview). Controls how tool approvals are handled. |
-| Auto-approve tools | Enable [auto-approval of all tools](/docs/agents/agent-tools.md#auto-approve-all-tools) when using agents (`setting(chat.tools.autoApprove)`). |
-| Auto-approve terminal commands | Enable [auto-approval of terminal commands](/docs/agents/agent-tools.md#automatically-approve-terminal-commands) when using agents (`setting(chat.tools.terminal.autoApprove)`). |
+| Permission levels | Choose a [permission level](/docs/agents/approvals.md#permission-levels) for the current session: **Default Approvals**, **Bypass Approvals**, or **Autopilot**. Controls how tool approvals are handled. |
+| Auto-approve tools | Enable [auto-approval of all tools](/docs/agents/approvals.md#tool-approval) when using agents (`setting(chat.tools.autoApprove)`). |
+| Auto-approve terminal commands | Enable [auto-approval of terminal commands](/docs/agents/approvals.md#automatically-approve-terminal-commands) when using agents (`setting(chat.tools.terminal.autoApprove)`). |
 | MCP | Configure [MCP servers](/docs/agent-customization/mcp-servers.md) to extend agent capabilities and tools. |
 | [Third-party agents](/docs/agents/agent-types/third-party-agents.md) | Use agents from external providers like Claude Agent (Preview) and OpenAI Codex with your Copilot subscription. |
 | Claude Agent _(Preview)_ | Start a Claude Agent session powered by Anthropic's Claude Agent SDK. Use `/agents`, `/hooks`, and `/memory` slash commands for advanced workflows. |

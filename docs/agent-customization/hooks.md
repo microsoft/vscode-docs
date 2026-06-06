@@ -828,7 +828,7 @@ VS Code parses Copilot CLI hook configurations and converts the lowerCamelCase h
 
 ## Related resources
 
-* [Use tools with agents](/docs/agents/agent-tools.md) - Learn about tool approval and execution
+* [Use tools in chat](/docs/chat/chat-tools.md) - Learn about tool approval and execution
 * [Custom agents](/docs/agent-customization/custom-agents.md) - Create specialized agent configurations
 * [Subagents](/docs/agents/subagents.md) - Delegate tasks to context-isolated subagents
 * [Security considerations](/docs/agents/security.md) - Best practices for AI security in VS Code

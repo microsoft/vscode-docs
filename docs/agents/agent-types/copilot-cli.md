@@ -48,7 +48,7 @@ You can interact with Copilot CLI sessions from the unified Chat view. When a ba
 
 Because Copilot CLI sessions run in the background, they are well-suited for tasks that have a well-defined scope, have all necessary context, and don't require frequent user interaction. Examples include implementing a feature from a plan, creating multiple variants of a proof of concept, or implementing clearly defined fixes or features.
 
-Copilot CLI supports slash commands in chat, including [reusable prompts](/docs/agent-customization/prompt-files.md), [agent skills](/docs/agent-customization/agent-skills.md), [hooks](/docs/agent-customization/hooks.md), `/compact` to manage long conversations, `/research` to [run deep research](#run-deep-research-with-the-research-agent), and `/yolo` or `/autoApprove` to toggle [auto-approval of tools](/docs/agents/agent-tools.md#can-i-automatically-approve-all-tools-and-terminal-commands). Type `/` in the chat input of a Copilot CLI session to see available commands.
+Copilot CLI supports slash commands in chat, including [reusable prompts](/docs/agent-customization/prompt-files.md), [agent skills](/docs/agent-customization/agent-skills.md), [hooks](/docs/agent-customization/hooks.md), `/compact` to manage long conversations, `/research` to [run deep research](#run-deep-research-with-the-research-agent), and `/yolo` or `/autoApprove` to toggle [auto-approval of tools](/docs/agents/approvals.md#can-i-automatically-approve-all-tools-and-terminal-commands). Type `/` in the chat input of a Copilot CLI session to see available commands.
 
 ### Isolation modes
 
@@ -65,7 +65,7 @@ If you want the changes from the Copilot CLI session to be applied directly to y
 
 ### Permissions and approvals
 
-Copilot CLI sessions support the same [permission levels](/docs/agents/agent-tools.md#permission-levels) as local agents. The available permission levels depend on the isolation mode you choose:
+Copilot CLI sessions support the same [permission levels](/docs/agents/approvals.md#permission-levels) as local agents. The available permission levels depend on the isolation mode you choose:
 
 * **Worktree isolation**: the permission level is automatically set to **Bypass Approvals** and can't be changed. Because the agent operates on an isolated copy of your codebase (Git worktree), all tool calls are auto-approved without confirmation dialogs.
 * **Folder isolation**: all three permission levels are available (**Default Approvals**, **Bypass Approvals**, and **Autopilot**), just like local agent sessions. Select a level from the permissions picker in the chat input area.

@@ -53,7 +53,7 @@ Prompt files are Markdown files with the `.prompt.md` extension. The optional YA
 | `argument-hint` | No | Hint text shown in the chat input field to guide users on how to interact with the prompt. |
 | `agent` | No | The agent used for running the prompt: `ask`, `agent`, `plan`, or the name of a [custom agent](/docs/agent-customization/custom-agents.md). By default, the current agent is used. If tools are specified, the default agent is `agent`. |
 | `model` | No | The language model used when running the prompt. If not specified, the currently selected model in model picker is used. |
-| `tools` | No | A list of tool or tool set names that are available for this prompt. Can include built-in tools, tool sets, MCP tools, or tools contributed by extensions. To include all tools of an MCP server, use the `<server name>/*` format.<br/>Learn more about [tools in chat](/docs/agents/agent-tools.md). |
+| `tools` | No | A list of tool or tool set names that are available for this prompt. Can include built-in tools, tool sets, MCP tools, or tools contributed by extensions. To include all tools of an MCP server, use the `<server name>/*` format.<br/>Learn more about [tools in chat](/docs/chat/chat-tools.md). |
 
 > [!NOTE]
 > If a given tool is not available when running the prompt, it is ignored.
@@ -217,5 +217,5 @@ To identify the source of a prompt file:
 ## Related resources
 
 * [Create custom instructions](/docs/agent-customization/custom-instructions.md)
-* [Configure tools in chat](/docs/agents/agent-tools.md)
+* [Configure tools in chat](/docs/chat/chat-tools.md)
 * [Community contributed instructions, prompts, and custom agents](https://github.com/github/awesome-copilot)

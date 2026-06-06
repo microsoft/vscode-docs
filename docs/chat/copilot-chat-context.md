@@ -49,9 +49,9 @@ You can directly include a URL in your prompt to get information from that webpa
 
 VS Code caches the content of the web page for a limited time to improve performance. If the content of the page changes, you can force a refresh by restarting VS Code. If the page cannot be reached, the cache will expire after a short time (approximately five minutes).
 
-VS Code prompts for confirmation before accessing external URLs to protect your privacy and security. Learn more about [configuring URL auto-approval](/docs/agents/agent-tools.md#url-approval).
+VS Code prompts for confirmation before accessing external URLs to protect your privacy and security. Learn more about [configuring URL auto-approval](/docs/agents/approvals.md#url-approval).
 
-Learn more about [adding and using tools in chat](/docs/agents/agent-tools.md).
+Learn more about [adding and using tools in chat](/docs/chat/chat-tools.md).
 
 ## @-mentions
 

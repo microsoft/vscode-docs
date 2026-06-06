@@ -129,6 +129,6 @@ The two systems are complementary. Use the local memory tool for personal prefer
 ## Related resources
 
 * [Planning with agents](/docs/agents/planning.md)
-* [Agent tools](/docs/agents/agent-tools.md)
+* [Agent tools](/docs/chat/chat-tools.md)
 * [Enabling and curating Copilot Memory](https://docs.github.com/copilot/how-tos/use-copilot-agents/copilot-memory) (GitHub documentation)
 * [Building an agentic memory system for GitHub Copilot](https://github.blog/ai-and-ml/github-copilot/building-an-agentic-memory-system-for-github-copilot/) (GitHub blog)

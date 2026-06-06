@@ -16,11 +16,11 @@ Keywords:
 ---
 # Add and manage MCP servers in VS Code
 
-[Model Context Protocol (MCP)](https://modelcontextprotocol.io/) is an open standard for connecting AI models to external tools and services. In Visual Studio Code, MCP servers provide [tools](/docs/agents/agent-tools.md) for tasks like file operations, databases, or external APIs. MCP servers can also provide [resources, prompts, and interactive apps](#other-mcp-capabilities).
+[Model Context Protocol (MCP)](https://modelcontextprotocol.io/) is an open standard for connecting AI models to external tools and services. In Visual Studio Code, MCP servers provide [tools](/docs/chat/chat-tools.md) for tasks like file operations, databases, or external APIs. MCP servers can also provide [resources, prompts, and interactive apps](#other-mcp-capabilities).
 
 For background on how MCP fits into the AI customization framework, see [Customization concepts](/docs/agents/concepts/customization.md) and [Tools concepts](/docs/agents/concepts/tools.md).
 
-This article covers how to add, configure, and manage MCP servers. To learn about using tools in chat, see [Use tools with agents](/docs/agents/agent-tools.md).
+This article covers how to add, configure, and manage MCP servers. To learn about using tools in chat, see [Use tools in chat](/docs/chat/chat-tools.md).
 
 > [!TIP]
 > Use the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) (Preview) to discover, create, and manage all your agent customizations in one place. Run **Chat: Open Customizations** from the Command Palette.
@@ -275,7 +275,7 @@ Verify that the command arguments are correct and that the container is not runn
 ## Related resources
 
 * [MCP configuration reference](/docs/agents/reference/mcp-configuration.md)
-* [Use tools with agents](/docs/agents/agent-tools.md)
+* [Use tools in chat](/docs/chat/chat-tools.md)
 * [Model Context Protocol Documentation](https://modelcontextprotocol.io/)
 * [MCP Apps support in VS Code](https://code.visualstudio.com/blogs/2026/01/26/mcp-apps-support)
 * [Discover and manage agent plugins](/docs/agent-customization/agent-plugins.md), including [MCP servers in plugins](/docs/agent-customization/agent-plugins.md#mcp-servers-in-plugins)

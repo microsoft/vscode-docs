@@ -26,7 +26,7 @@ VS Code supports several mechanisms to configure AI behavior for your project. E
 | [Custom instructions](/docs/agent-customization/custom-instructions.md) | Project-wide coding standards and architectural context | Type `/init` to generate always-on instructions for your project |
 | [Custom agents](/docs/agent-customization/custom-agents.md) | Specialized workflows or personas (TDD, security audit) | Type `/create-agent <description>` to generate a custom agent |
 | [Skills](/docs/agent-customization/agent-skills.md) | Domain-specific capabilities (testing, deployment) | Type `/create-skill <description>` to generate a skill |
-| [Tools and MCP servers](/docs/agents/agent-tools.md) | Connecting to external systems (databases, APIs, CLIs) | Configure in `mcp.json` |
+| [Tools and MCP servers](/docs/chat/chat-tools.md) | Connecting to external systems (databases, APIs, CLIs) | Configure in `mcp.json` |
 
 Tips for effective project configuration:
 
@@ -115,7 +115,7 @@ The AI responds more accurately when it has relevant context. Use these techniqu
 
 * Use the [integrated browser](/docs/debugtest/integrated-browser.md) to preview your app and select page elements to use as context.
 
-For more information, see [adding context to chat prompts](/docs/chat/copilot-chat-context.md) and [configuring tools](/docs/agents/agent-tools.md).
+For more information, see [adding context to chat prompts](/docs/chat/copilot-chat-context.md) and [configuring tools](/docs/chat/chat-tools.md).
 
 ## Choose the right model
 

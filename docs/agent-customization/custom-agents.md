@@ -105,7 +105,7 @@ The header is formatted as YAML frontmatter with the following fields:
 | `description`     | A brief description of the custom agent, shown as placeholder text in the chat input field. |
 | `name`            | The name of the custom agent. If not specified, the file name is used. |
 | `argument-hint`   | Optional hint text shown in the chat input field to guide users on how to interact with the custom agent. |
-| `tools`           | A list of tool or tool set names that are available for this custom agent. Can include built-in tools, tool sets, MCP tools, or tools contributed by extensions. To include all tools of an MCP server, use the `<server name>/*` format.<br/>Learn more about [tools in chat](/docs/agents/agent-tools.md). |
+| `tools`           | A list of tool or tool set names that are available for this custom agent. Can include built-in tools, tool sets, MCP tools, or tools contributed by extensions. To include all tools of an MCP server, use the `<server name>/*` format.<br/>Learn more about [tools in chat](/docs/chat/chat-tools.md). |
 | `agents`          | A list of agent names that are available as [subagents](/docs/agents/subagents.md) in this agent. Use `*` to allow all agents, or an empty array `[]` to prevent any subagent use. If you specify `agents`, ensure the `agent` tool is included in the `tools` property. To create a self-referential agent that lists itself in `agents`, enable `setting(chat.subagents.allowInvocationsFromSubagents)`. Learn more about [nested subagents](/docs/agents/subagents.md#nested-subagents). |
 | `model`           | The AI model to use when running the prompt. Specify a single model name (string) or a prioritized list of models (array). When you specify an array, the system tries each model in order until an available one is found. If not specified, the currently selected model in model picker is used. |
 | `user-invocable`  | Optional boolean flag to control whether the agent appears in the agents dropdown in chat (default is `true`). Set to `false` to create agents that are only accessible as [subagents](/docs/agents/subagents.md) or programmatically. |
@@ -343,4 +343,4 @@ Custom agents can restrict which tools are available, which gives you control ov
 * [Planning with agents](/docs/agents/planning.md)
 * [Customize AI with custom instructions](/docs/agent-customization/custom-instructions.md)
 * [Create reusable prompt files](/docs/agent-customization/prompt-files.md)
-* [Use tools in chat](/docs/agents/agent-tools.md)
+* [Use tools in chat](/docs/chat/chat-tools.md)
