@@ -8,7 +8,7 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 
 With inline chat in Visual Studio Code, you can ask for generating code or making edits directly in the editor or get help with shell commands within the integrated terminal. Inline chat allows you to stay in the flow of your work without having to switch to a separate Chat view.
 
-Use inline chat when you want to make quick, targeted edits within the visible code context. For multi-step tasks, multi-file changes, or broader codebase exploration, use the [Chat view](/docs/chat/copilot-chat.md) instead.
+Use inline chat when you want to make quick, targeted edits within the visible code context. For multi-step tasks, multi-file changes, or broader codebase exploration, use the [Chat view](/docs/chat/chat-overview.md) instead.
 
 ## Use editor inline chat
 
@@ -90,7 +90,7 @@ Type your prompt and press `kbstyle(Enter)` to get a response. Quick Chat suppor
 
 ## Related resources
 
-* [Chat overview](/docs/chat/copilot-chat.md)
+* [Use chat in VS Code](/docs/chat/chat-overview.md)
 * [Add context to your chat prompt](/docs/chat/copilot-chat-context.md)
 * [Review AI-generated code edits](/docs/chat/review-code-edits.md)
 * [AI language models in VS Code](/docs/agent-customization/language-models.md)

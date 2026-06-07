@@ -24,7 +24,7 @@ Use the language model picker in the chat input field to change the model for ch
 
 ![Screenshot that shows the model picker in the Chat view.](images/language-models/model-dropdown-change-model-v2.png)
 
-Different models have different strengths. Use a fast model for quick edits and simple questions, and a reasoning model for complex refactoring, architectural decisions, or multi-step tasks. Depending on the [type of agent](/docs/agents/concepts/agents.md#agent-types) you are using, the list of available models might differ.
+Different models have different strengths. Use a fast model for quick edits and simple questions, and a reasoning model for complex refactoring, architectural decisions, or multi-step tasks. Depending on the [type of agent](/docs/agents/overview.md#configure-your-agent-session) you are using, the list of available models might differ.
 
 You can further extend the list of available models by [using your own language model API key](#bring-your-own-language-model-key).
 

@@ -11,6 +11,9 @@ A chat session in Visual Studio Code might result in changes to one or more file
 * **Edit a previous request**: modify a prompt you already sent. VS Code reverts any changes made by that request and all subsequent requests, then resends the edited prompt. Use this when you want to rephrase a request and get different results.
 * **Restore a checkpoint**: roll back all file changes to a specific point in the conversation. Use this when you want to return to a known good state without modifying your prompts.
 
+> [!NOTE]
+> The features on this page work in both the [Chat view](/docs/agents/chat-view.md) and the [Agents window](/docs/agents/agents-window.md).
+
 Both features complement the [review workflow](/docs/chat/review-code-edits.md), where you accept or reject individual edits. Use checkpoints and editing when you want to undo an entire batch of changes at once.
 
 ## Edit a previous chat request
@@ -63,7 +66,7 @@ To help you understand the effect of each chat request and make it easier to dec
 
 You can fork a conversation from a checkpoint to create a new, independent session that includes the conversation up to that point. This is useful when you want to branch off and explore an alternative approach while preserving the original conversation.
 
-To fork from a checkpoint, hover over a chat request and select the **Fork Conversation** button. Learn more about [forking chat sessions](/docs/agents/sessions/chat-sessions.md#fork-a-chat-session).
+To fork from a checkpoint, hover over a chat request and select the **Fork Conversation** button. Learn more about [forking chat sessions](/docs/chat/chat-sessions.md#fork-a-chat-session).
 
 ## Frequently asked questions
 
@@ -74,5 +77,5 @@ No. Checkpoints are designed for quick iteration within a chat session and are t
 ## Related resources
 
 * [Review AI-generated code edits](/docs/chat/review-code-edits.md)
-* [Chat sessions](/docs/agents/sessions/chat-sessions.md)
-* [Chat overview](/docs/chat/copilot-chat.md)
+* [Chat sessions](/docs/chat/chat-sessions.md)
+* [Chat overview](/docs/chat/chat-overview.md)

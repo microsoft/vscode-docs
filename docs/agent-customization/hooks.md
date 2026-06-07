@@ -18,7 +18,7 @@ Keywords:
 
 Hooks enable you to execute custom shell commands at key lifecycle points during agent sessions. Use hooks to automate workflows, enforce security policies, validate operations, and integrate with external tools.
 
-For background on how hooks fit into the AI customization framework, see [Customization concepts](/docs/agents/concepts/customization.md#hooks).
+For background on how hooks fit into the AI customization framework, see [Customization concepts](/docs/agents/concepts/customization.md).
 
 This article explains how to configure and use hooks in VS Code.
 
@@ -29,7 +29,7 @@ This article explains how to configure and use hooks in VS Code.
 > Your organization might have disabled the use of hooks in VS Code. Contact your admin for more information. See [enterprise policies](/docs/enterprise/policies.md) for details.
 
 > [!TIP]
-> Use the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) (Preview) to discover, create, and manage all your agent customizations in one place. Run **Chat: Open Customizations** from the Command Palette.
+> Use the [Agent Customizations editor](/docs/agent-customization/overview.md#manage-customizations-in-the-editor) (Preview) to discover, create, and manage all your agent customizations in one place. Run **Chat: Open Customizations** from the Command Palette.
 
 Hooks are designed to work across agent types, including local agents, background agents, and cloud agents. Each hook receives structured JSON input and can return JSON output to influence agent behavior.
 
@@ -92,7 +92,7 @@ Hooks are configured in JSON files stored in your workspace or user directory.
 VS Code searches for hook configuration files in these locations:
 
 > [!TIP]
-> In a monorepo, enable `setting(chat.useCustomizationsInParentRepositories)` to discover hooks from the parent repository root. Learn more about [parent repository discovery](/docs/agent-customization/overview.md#parent-repository-discovery).
+> In a monorepo, enable `setting(chat.useCustomizationsInParentRepositories)` to discover hooks from the parent repository root. Learn more about [parent repository discovery](/docs/agent-customization/overview.md#use-customizations-in-a-monorepo).
 
 | Scope | Default file location |
 |-------|-----------------------|
@@ -828,7 +828,7 @@ VS Code parses Copilot CLI hook configurations and converts the lowerCamelCase h
 
 ## Related resources
 
-* [Use tools with agents](/docs/agents/agent-tools.md) - Learn about tool approval and execution
+* [Use tools in chat](/docs/chat/chat-tools.md) - Learn about tool approval and execution
 * [Custom agents](/docs/agent-customization/custom-agents.md) - Create specialized agent configurations
 * [Subagents](/docs/agents/subagents.md) - Delegate tasks to context-isolated subagents
 * [Security considerations](/docs/agents/security.md) - Best practices for AI security in VS Code

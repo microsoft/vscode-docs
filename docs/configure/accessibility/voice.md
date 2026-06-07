@@ -5,7 +5,7 @@ MetaDescription: Visual Studio Code voice accessibility features. Learn here abo
 ---
 # Voice support
 
-The [VS Code Speech](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-speech) extension enables various features by using your voice. Once installed, the extension enables you to dictate into the editor, or to verbally interact with [chat in VS Code](/docs/chat/copilot-chat.md).
+The [VS Code Speech](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-speech) extension enables various features by using your voice. Once installed, the extension enables you to dictate into the editor, or to verbally interact with [chat in VS Code](/docs/chat/chat-overview.md).
 
 ![Screenshot of the VS Code Speech extension marketplace details](images/accessibility/speech-extension.png)
 
@@ -29,7 +29,7 @@ Press and hold the keyboard shortcut for the voice start command (`kb(workbench.
 
 ## Voice in chat
 
-You can use your voice to talk to [chat in VS Code](/docs/chat/copilot-chat.md) easily. The command **Chat: Start Voice Chat** (`kb(workbench.action.chat.startVoiceChat)`) brings up a voice chat, regardless of where the current focus is. If the focus is in the editor, editor inline chat is started, otherwise the Chat view is opened. Alternatively, you can start voice chat in a specific location by using the **Chat: Inline Voice Chat**, **Chat: Quick Voice Chat**, or **Chat: Voice Chat in Chat View** commands.
+You can use your voice to talk to [chat in VS Code](/docs/chat/chat-overview.md) easily. The command **Chat: Start Voice Chat** (`kb(workbench.action.chat.startVoiceChat)`) brings up a voice chat, regardless of where the current focus is. If the focus is in the editor, editor inline chat is started, otherwise the Chat view is opened. Alternatively, you can start voice chat in a specific location by using the **Chat: Inline Voice Chat**, **Chat: Quick Voice Chat**, or **Chat: Voice Chat in Chat View** commands.
 
 When voice chat is active, a microphone icon appears in the chat input field, indicating that voice input is active:
 
