@@ -351,7 +351,7 @@ For more information about using GitHub Copilot with the terminal, see [Use term
 
 ### Terminal chat participant
 
-Use the dedicated `@terminal` chat participant in ask mode in the Chat view:
+Use the dedicated `@terminal` chat participant in chat to ask questions about terminal commands, shell scripting, or explaining terminal output:
 
 1. Open the Chat view (`kb(workbench.action.chat.open)`)
 2. Start your question with `@terminal` to direct it to the terminal participant

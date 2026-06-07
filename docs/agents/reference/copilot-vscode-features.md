@@ -58,7 +58,6 @@ Start a natural language chat conversation to get help with coding tasks. For ex
 | `Add Context...` | Attach different types of [context to your chat prompt](/docs/chat/copilot-chat-context.md). |
 | `/`-command | Use [slash commands](#slash-commands) for common tasks or invoke a [reusable chat prompt](/docs/agent-customization/overview.md). |
 | `#`-mention | Reference common tools or chat variables to [provide context](/docs/chat/copilot-chat-context.md) within your prompt. |
-| `@`-mention | Reference [chat participants](#chat-participants) to handle domain-specific requests. |
 | Edit (<i class="codicon codicon-pencil"></i>) | [Edit a previous chat prompt](/docs/chat/chat-checkpoints.md#edit-a-previous-chat-request) and revert changes. |
 | History (<i class="codicon codicon-history"></i>) | Access your history of chat sessions. |
 | Queue or steer | [Send a follow-up message](/docs/chat/chat-overview.md#send-messages-while-a-request-is-running) while a request is running. Choose to queue the message, steer the current request, or stop and send immediately. |
@@ -169,8 +168,8 @@ Slash commands are shortcuts to specific functionality within the chat. You can 
 | `/create-skill` | Generate an [agent skill](/docs/agent-customization/agent-skills.md) with AI assistance in Agent mode. |
 | `/create-agent` | Generate a [custom agent](/docs/agent-customization/custom-agents.md) with AI assistance in Agent mode. |
 | `/create-hook` | Generate a [hook](/docs/agent-customization/hooks.md) configuration with AI assistance in Agent mode. |
-| `/yolo`<br/>`/autoApprove` | Enable [global auto-approval](/docs/agents/approvals.md#can-i-automatically-approve-all-tools-and-terminal-commands) of all tool calls (`setting(chat.tools.global.autoApprove)`). Shows a warning dialog the first time. |
-| `/disableYolo`<br/>`/disableAutoApprove` | Disable [global auto-approval](/docs/agents/approvals.md#can-i-automatically-approve-all-tools-and-terminal-commands) of all tool calls. |
+| `/yolo`<br/>`/autoApprove` | Enable [global auto-approval](/docs/agents/approvals.md) of all tool calls (`setting(chat.tools.global.autoApprove)`). Shows a warning dialog the first time. |
+| `/disableYolo`<br/>`/disableAutoApprove` | Disable [global auto-approval](/docs/agents/approvals.md) of all tool calls. |
 | `/<skill name>` | Run an [agent skill](/docs/agent-customization/agent-skills.md) in chat. For example, if you have a skill file named `webapp-testing.md`, you can run it by typing `/webapp-testing`. |
 | `/<prompt name>` | Run a [reusable prompt](/docs/agent-customization/prompt-files.md) in chat. |
 
