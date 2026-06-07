@@ -18,7 +18,7 @@ Keywords:
 ---
 # Customize AI in Visual Studio Code
 
-Visual Studio Code gives you several ways to teach the AI about your codebase, coding standards, and workflows. This article introduces the customization options and helps you get started.
+Visual Studio Code gives you several ways to teach the AI about your codebase, coding standards, and workflows. This article introduces the customization options and helps you get started. You can manage customizations from both the [Chat view](/docs/agents/chat-view.md) and the [Agents window](/docs/agents/agents-window.md).
 
 <div class="docs-action" data-show-in-doc="true" data-show-in-sidebar="true" title="Core concepts">
 Learn about the different customization types and when to use each one.
@@ -34,11 +34,7 @@ Follow a hands-on walkthrough to customize AI for your project.
 
 </div>
 
-To access customizations, select the **Configure Chat (gear icon)** in the Chat view to open the [Agent Customizations editor](#agent-customizations-editor).
-
-![Screenshot of the Agent Customizations editor, showing the sidebar with customization categories and the main view listing custom agents.](images/customization/chat-customizations-editor.png)
-
-## Customization scenarios
+## Choose a customization type
 
 VS Code offers several customization options, each suited to a different goal:
 
@@ -56,19 +52,54 @@ To compare the options and decide which one fits your goal, see [Customization c
 
 ## Get started
 
-Implement AI customizations incrementally. Start with the basics and add more as needed. For a hands-on walkthrough, see the [Customize AI for your project](/docs/agents/guides/customize-copilot-guide.md) guide.
+The most effective approach is to adopt customizations incrementally. Start with project-wide instructions, then add more specific customizations as you identify recurring needs. For a hands-on walkthrough, see the [Customize AI for your project](/docs/agents/guides/customize-copilot-guide.md) guide.
 
-1. **Initialize your project**: type `/init` in chat to generate a `.github/copilot-instructions.md` file with coding standards tailored to your codebase.
+1. **Set up project instructions**: type `/init` in chat to generate a `.github/copilot-instructions.md` file with coding standards tailored to your codebase.
 
-1. **Add targeted rules**: create file-based `*.instructions.md` files for specific parts of your codebase, such as language conventions or framework patterns.
+1. **Add targeted instructions**: create `*.instructions.md` files that apply to specific languages, frameworks, or folders in your codebase.
 
-1. **Automate repetitive tasks**: create prompt files for common workflows and add MCP servers to connect external services.
+1. **Automate repetitive tasks**: create prompt files for common workflows, such as generating tests or scaffolding components.
 
-1. **Create specialized workflows**: build custom agents for specific roles. Package reusable capabilities as agent skills to share across tools.
+1. **Specialize the AI for specific roles**: create custom agents, and package reusable capabilities as agent skills to share across projects and tools.
 
-1. **Generate customizations with AI**: type `/create-prompt`, `/create-instruction`, `/create-skill`, `/create-agent`, or `/create-hook` in chat to generate customization files with AI assistance.
+1. **Connect external tools and data**: add MCP servers and hooks to extend the AI with external services and custom actions.
 
-## Parent repository discovery
+> [!TIP]
+> You can generate customization files with AI. Type `/create-instruction`, `/create-prompt`, `/create-skill`, `/create-agent`, or `/create-hook` in chat to scaffold a new customization with AI assistance.
+
+## Manage customizations in the editor
+
+> [!NOTE]
+> The Agent Customizations editor is currently in preview.
+
+The Agent Customizations editor provides a centralized UI for creating and managing all your agent customizations in one place. The editor organizes the different customization types into separate tabs and provides an embedded code editor for editing customization files with syntax highlighting and validation.
+
+You can create new customizations from scratch by editing the corresponding Markdown, or use AI to generate initial content based on your specific project.
+
+To add MCP servers and agent plugins, you can browse the corresponding marketplace directly from the editor, install new items, and manage existing ones.
+
+You can open the Agent Customizations editor from either chat surface:
+
+{% tabs id="chat-surface" %}
+{% tab label="Agents window" %}
+
+In the Agents window, select a customization type in the **Customizations** panel below the sessions list.
+
+![Screenshot showing the Agent Customizations panel in the Agents window, with the list of available customizations visible.](images/customization/agents-window-customizations.png)
+
+{% /tab %}
+{% tab label="Chat view" %}
+
+In the Chat view, select the **Configure Chat (gear icon)** or run **Chat: Open Customizations** from the Command Palette (`kb(workbench.action.showCommands)`).
+
+![Screenshot of the Agent Customizations editor, showing the sidebar with customization categories and the main view listing custom agents.](images/customization/chat-customizations-editor.png)
+
+{% /tab %}
+{% /tabs %}
+
+You can configure customization for different [agent types](/docs/agents/overview.md#configure-your-agent-session): local agents, Copilot CLI, and the Claude agent. Select the agent type from the dropdown at the top of the editor to view and manage customizations for that agent type.
+
+## Use customizations in a monorepo
 
 In monorepo setups, you might open a subfolder of a repository in VS Code rather than the repo root. By default, Visual Studio Code only discovers customization files within your open workspace folder(s). Enable the `setting(chat.useCustomizationsInParentRepositories)` setting to also discover customizations from the parent repository.
 
@@ -102,26 +133,9 @@ Conditions for parent repository discovery:
 > [!NOTE]
 > The `setting(chat.useCustomizationsInParentRepositories)` setting is disabled by default.
 
-## Agent Customizations editor
-
-> [!NOTE]
-> The Agent Customizations editor is currently in preview.
-
-The Agent Customizations editor provides a centralized UI for creating and managing all your agent customizations in one place. The editor organizes the different customization types into separate tabs and provides an embedded code editor for editing customization files with syntax highlighting and validation.
-
-You can create new customizations from scratch by editing the corresponding Markdown, or use AI to generate initial content based on your specific project.
-
-To add MCP servers and agent plugins, you can browse the corresponding marketplace directly from the editor, install new items, and manage existing ones.
-
-![Screenshot of the Agent Customizations editor, showing the sidebar with customization categories and the main view listing custom agents.](images/customization/chat-customizations-editor.png)
-
-To open the Agent Customizations editor, select the **Configure Chat (gear icon)** in the Chat view or run **Chat: Open Customizations** from the Command Palette (`kb(workbench.action.showCommands)`).
-
-You can configure customization for different [agent types](/docs/agents/overview.md#configure-your-agent-session): local agents, Copilot CLI, and the Claude agent. Select the agent type from the dropdown at the top of the editor to view and manage customizations for that agent type.
-
 ## Troubleshoot customization issues
 
-If your customizations aren't being applied or cause unexpected behavior, select the ellipsis (**...**) menu in the Chat view and select **Show Agent Debug Logs** to [troubleshoot agent issues](/docs/agents/agent-troubleshooting/troubleshooting.md).
+If your customizations aren't being applied or cause unexpected behavior, open the **Agent Debug Logs** panel to [troubleshoot agent issues](/docs/agents/agent-troubleshooting/troubleshooting.md). Run **Developer: Open Agent Debug Panel** from the Command Palette (`kb(workbench.action.showCommands)`), or in the Chat view select the ellipsis (**...**) menu and select **Show Agent Debug Logs**.
 
 ## Related resources
 

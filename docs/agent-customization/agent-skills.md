@@ -26,7 +26,7 @@ Key benefits of Agent Skills:
 * **Efficient loading**: Only relevant content loads into context when needed
 
 > [!TIP]
-> Use the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) (Preview) to discover, create, and manage all your agent customizations in one place. Run **Chat: Open Customizations** from the Command Palette.
+> Use the [Agent Customizations editor](/docs/agent-customization/overview.md#manage-customizations-in-the-editor) (Preview) to discover, create, and manage all your agent customizations in one place. Run **Chat: Open Customizations** from the Command Palette.
 
 ## Agent Skills vs custom instructions
 
@@ -69,7 +69,7 @@ Skills are stored in directories with a `SKILL.md` file that defines the skill's
 You can configure additional file locations for project skills with the `setting(chat.agentSkillsLocations)` setting. This is useful if you want to organize skills in a different folder structure or have multiple skill directories.
 
 > [!TIP]
-> In a monorepo, enable `setting(chat.useCustomizationsInParentRepositories)` to discover skills from the parent repository root. Learn more about [parent repository discovery](/docs/agent-customization/overview.md#parent-repository-discovery).
+> In a monorepo, enable `setting(chat.useCustomizationsInParentRepositories)` to discover skills from the parent repository root. Learn more about [parent repository discovery](/docs/agent-customization/overview.md#use-customizations-in-a-monorepo).
 
 To create a skill:
 
