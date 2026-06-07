@@ -6,10 +6,10 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Review AI-generated code edits
 
-When you interact with chat in Visual Studio Code, the AI can generate code edits across multiple files in your project. This article explains how to review, accept, or discard these AI-generated code edits.
+When you interact with chat in Visual Studio Code, the agent can generate code edits across multiple files in your project. This article explains how to review, accept, or discard these AI-generated code edits.
 
 > [!NOTE]
-> The features on this page work in both the [Chat view](/docs/agents/chat-view.md) and the [Agents window](/docs/agents/agents-window.md).
+> You can review AI-generated edits in both the [Chat view](/docs/agents/chat-view.md) and the [Agents window](/docs/agents/agents-window.md). The review experience follows the same concepts but the user interface might differ between the two surfaces.
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
 Follow a hands-on tutorial to experience local, background, and cloud agents in VS Code.
@@ -20,19 +20,52 @@ Follow a hands-on tutorial to experience local, background, and cloud agents in 
 
 ## Pending changes
 
-Once the AI has made changes to your files, they are directly applied and saved to disk. VS Code keeps track of which files have pending edits and lets you review them individually or all at once.
+After the agent updates your files, VS Code applies and saves the edits to disk. VS Code keeps track of which files have pending edits and lets you review them individually or all at once.
 
-The Chat view shows the list of files that were edited and are pending your review. Files with pending edits also have an indicator in the Explorer view and editor tabs with a squared-dot icon.
+{% tabs id="chat-surface" %}
+{% tab label="Agents window" %}
+
+In the Agents window, the dedicated **Changes** panel lists the edited files and shows their diff stats. Select a file to open its diff view.
+
+![Screenshot showing the Changes panel in the Agents window, highlighting the Changes and Files tabs and the list of edited files.](images/agents-window/agents-window-changes.png)
+
+For more information about the Changes panel, see [Manage and review file changes](/docs/agents/agents-window.md#manage-and-review-file-changes).
+
+{% /tab %}
+{% tab label="Chat view" %}
+
+The Chat view shows the list of files that were edited and are pending your review. Files with pending edits also have a squared-dot icon indicator in the Explorer view and editor tabs.
 
 ![Screenshot that shows the Chat view, highlighting the changed files list and the indicator in the Explorer view and editor tabs.](images/review-code-edits/copilot-edits-changed-files-full.png)
 
 When you open a file that was changed, the editor shows an inline diff of the applied changes.
 
+{% /tab %}
+{% /tabs %}
+
 When you close VS Code, the status of the pending edits is remembered and restored when you reopen VS Code.
 
 ## Review changes
 
-Follow these steps to review the AI-generated code edits in a file:
+How you review AI-generated edits depends on which surface you use. In the Chat view, you review edits directly in the editor. In the Agents window, you review edits in the dedicated Changes panel.
+
+{% tabs id="chat-surface" %}
+{% tab label="Agents window" %}
+
+In the Agents window, you review edits in the dedicated **Changes** panel instead of the editor overlay:
+
+1. Select a file in the **Changes** tab to open a diff view of the agent's edits.
+
+1. Select **Add Feedback** in the diff view to comment on a specific edit and signal the agent to make adjustments.
+
+1. Use the **Commit**, **Merge**, **Checkout**, or **Discard** actions to act on the edits.
+
+For more information, see [Manage and review file changes](/docs/agents/agents-window.md#manage-and-review-file-changes).
+
+{% /tab %}
+{% tab label="Chat view" %}
+
+To review the AI-generated code edits in a file:
 
 1. Open a file with pending edits by selecting it from the changed files list in the Chat view or from the Explorer view.
 
@@ -56,16 +89,19 @@ The following keyboard shortcuts help you navigate and review edits:
 
 When you keep or undo an edit in a file, the editor automatically navigates to the next edit with pending changes, which might be in a different file. To disable this auto-navigation and stay in the current file, set `setting(chat.editing.revealNextChangeOnResolve)` to `false`.
 
+{% /tab %}
+{% /tabs %}
+
 ## Source Control integration
 
-If you stage your changes in the Source Control view, any pending edits are automatically accepted. On the other hand, if you discard your changes, any pending edits are also discarded.
+If you stage your changes in the Source Control view, any pending edits are automatically accepted. If you discard your changes, any pending edits are also discarded.
 
 ## Auto-accept edits
 
 You can configure VS Code to automatically accept AI-generated code edits after a configurable delay with the `setting(chat.editing.autoAccept)` setting. Hover over the editor overlay controls to stop the auto-accept countdown.
 
 > [!IMPORTANT]
-> If you automatically accept all edits, it's strongly recommended to review the changes before committing them in source control. Learn more about the [security considerations of using AI in VS Code](/docs/agents/security.md).
+> If you automatically accept all edits, review the changes before you commit them in source control. Learn more about the [security considerations of using AI in VS Code](/docs/agents/security.md).
 
 ## Edit sensitive files
 
