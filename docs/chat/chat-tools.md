@@ -74,33 +74,6 @@ You can review and edit the input parameters before a tool runs:
 
 1. Select **Allow** to run the tool with the modified parameters.
 
-## Terminal commands
-
-The agent might use terminal commands as part of its workflow to accomplish tasks. When the agent decides to run terminal commands, it uses the built-in terminal tool to execute them in an integrated terminal within VS Code.
-
-In the chat conversation, the agent displays the commands it ran. You can view the output of the command inline in chat by selecting **Show Output** (`>`) next to the command. You can also view the full output in the integrated terminal by selecting **Show Terminal**.
-
-![Screenshot showing terminal command output in chat.](images/chat-tools/terminal-command-output.png)
-
-Use the experimental `setting(chat.tools.terminal.outputLocation)` setting to configure where terminal command output appears: inline in chat, in the integrated terminal.
-
-In the terminal pane, you can see the list of terminals that the agent has used for a chat session. You can also distinguish agent terminals by the chat icon in the terminals list.
-
-![Screenshot showing the integrated terminal with multiple agent terminals.](images/chat-tools/agent-terminals-in-terminal-pane.png)
-
-### Continue terminal commands in background
-
-When the agent runs a long-running terminal command, such as starting a development server or running a build in watch mode, you can push the command to the background. This allows the agent to continue with other tasks without waiting for the command to finish.
-
-While a command is running, a **Continue in Background** button appears next to the terminal command in the chat conversation. Select this button to move the command to the background. The command continues running, and the agent can check its output later or use the terminal for other tasks.
-
-The agent can also specify a timeout when running terminal commands. When the timeout is reached, the agent stops waiting for the command and returns the output collected so far. Use the `setting(chat.tools.terminal.enforceTimeoutFromModel)` setting to control whether to enforce the timeout value that the agent specifies.
-
-The agent can also choose to run commands directly in the background, without user interaction. Background terminals that you have not revealed are automatically cleaned up when their command finishes, which prevents stale terminals from accumulating over a long session. To reveal a background terminal and keep it open after the command completes, select the **Show** link in the chat tool invocation header. The terminal output remains visible in the chat conversation even after a terminal is cleaned up.
-
-> [!TIP]
-> To automatically approve terminal commands or restrict file system and network access for agent commands, see [Manage approvals and permissions](/docs/agents/approvals.md).
-
 ## Group tools with tool sets
 
 A tool set is a collection of tools that you can reference as a single entity in your prompts. Tool sets help you organize related tools and make them easier to use in a chat prompt, [prompt files](/docs/agent-customization/prompt-files.md), and [custom chat agents](/docs/agent-customization/custom-agents.md). Some of the built-in tools are part of predefined tool sets, such as `#edit` and `#search`.
@@ -146,6 +119,31 @@ Reference a tool set in your prompts by typing `#` followed by the tool set name
 * `"Where is the DB connection string defined? #search"`
 
 In the tools picker, tool sets are available as collapsible groups of related tools. You can select or deselect entire tool sets to quickly enable or disable multiple related tools at once.
+
+## Run terminal commands
+
+Of all the built-in tools, the terminal tool is one of the most frequently used. The agent uses it to run commands as part of its workflow, for example to install dependencies, run a build, or execute tests. Because terminal commands can change your environment, VS Code provides additional controls for reviewing, running, and monitoring them, building on the [approval](/docs/agents/approvals.md) behavior described earlier.
+
+When the agent decides to run a command, it uses the built-in terminal tool to execute it in an integrated terminal within VS Code.
+
+In the chat conversation, the agent displays the commands it ran. You can view the output of the command inline in chat by selecting **Show Output** (`>`) next to the command. You can also view the full output in the integrated terminal by selecting **Show Terminal**.
+
+![Screenshot showing terminal command output in chat.](images/chat-tools/terminal-command-output.png)
+
+Use the experimental `setting(chat.tools.terminal.outputLocation)` setting to configure where terminal command output appears: inline in chat, or directly in the integrated terminal.
+
+### Continue terminal commands in background
+
+When the agent runs a long-running terminal command, such as starting a development server or running a build in watch mode, you can push the command to the background. This allows the agent to continue with other tasks without waiting for the command to finish.
+
+While a command is running, a **Continue in Background** button appears next to the terminal command in the chat conversation. Select this button to move the command to the background. The command continues running, and the agent can check its output later or use the terminal for other tasks.
+
+The agent can also specify a timeout when running terminal commands. When the timeout is reached, the agent stops waiting for the command and returns the output collected so far. Use the `setting(chat.tools.terminal.enforceTimeoutFromModel)` setting to control whether to enforce the timeout value that the agent specifies.
+
+The agent can also choose to run commands directly in the background, without user interaction. Background terminals that you have not revealed are automatically cleaned up when their command finishes, which prevents stale terminals from accumulating over a long session. To reveal a background terminal and keep it open after the command completes, select the **Show** link in the chat tool invocation header. The terminal output remains visible in the chat conversation even after a terminal is cleaned up.
+
+> [!TIP]
+> To automatically approve terminal commands or restrict file system and network access for agent commands, see [Manage approvals and permissions](/docs/agents/approvals.md).
 
 ## Frequently asked questions
 

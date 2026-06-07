@@ -141,7 +141,7 @@ URL auto-approval examples:
 
 ## Automatically approve terminal commands
 
-The agent uses a single terminal tool to run [terminal commands](/docs/chat/chat-tools.md#terminal-commands), but that tool can run any command. Approving the terminal tool once would be too broad, so terminal commands are approved per command rather than per tool.
+The agent uses a single terminal tool to run [terminal commands](/docs/chat/chat-tools.md#run-terminal-commands), but that tool can run any command. Approving the terminal tool once would be too broad, so terminal commands are approved per command rather than per tool.
 
 By default, VS Code already auto-approves a set of safe commands and blocks risky ones, such as `rm` and `del`, that always require manual approval. Use the `setting(chat.tools.terminal.autoApprove)` setting to extend or override these defaults with your own allow and deny list:
 
