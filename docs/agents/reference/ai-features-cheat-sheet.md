@@ -1,12 +1,12 @@
 ---
 ContentId: de6f9f68-7dd5-4de3-a210-3db57882384b
 DateApproved: 6/3/2026
-MetaDescription: Quick reference for GitHub Copilot in VS Code, including autonomous agents, multi-file editing, inline suggestions, and enterprise controls.
+MetaDescription: Quick reference for AI features in VS Code, including autonomous agents, multi-file editing, inline suggestions, and enterprise controls.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
-# GitHub Copilot in VS Code cheat sheet
+# AI features in VS Code cheat sheet
 
-GitHub Copilot in Visual Studio Code provides autonomous agents, inline suggestions, chat, and smart actions. Agents plan, implement, and verify changes across multiple files and run in parallel, locally, in the background, or in the cloud. Choose from multiple AI models, connect to external tools with MCP, and customize agents for your team's workflows. This cheat sheet gives you a quick overview of all features.
+Visual Studio Code provides AI-powered autonomous agents, inline suggestions, chat, and smart actions. Agents plan, implement, and verify changes across multiple files and run in parallel, locally, in the background, or in the cloud. Choose from multiple AI models, connect to external tools with MCP, and customize agents for your team's workflows. This cheat sheet gives you a quick overview of all features.
 
 > [!TIP]
 > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly allowance of inline suggestions and AI credits.
@@ -44,7 +44,7 @@ GitHub Copilot in Visual Studio Code provides autonomous agents, inline suggesti
 
 ## Chat experience in VS Code
 
-Start a natural language chat conversation to get help with coding tasks. For example, ask to explain a block of code or a programming concept, refactor a piece of code, or implement a new feature. Get more information about using [Copilot Chat](/docs/chat/chat-overview.md).
+Start a natural language chat conversation to get help with coding tasks. For example, ask to explain a block of code or a programming concept, refactor a piece of code, or implement a new feature. Get more information about [using chat](/docs/chat/chat-overview.md).
 
 | Action | Description |
 |--------|-------------|
@@ -235,7 +235,7 @@ Use the [Agent Customizations editor](/docs/agent-customization/overview.md#mana
 
 ## Editor AI features
 
-As you're coding in the editor, you can use Copilot to generate inline suggestions as you're typing. Invoke Inline Chat to ask questions and get help from Copilot, while staying in the flow of coding. For example, ask Copilot to generate unit tests for a function or method. Get more information about [inline suggestions](/docs/editing/ai-powered-suggestions.md) and [Inline Chat](/docs/chat/inline-chat.md).
+As you're coding in the editor, you can use AI to generate inline suggestions as you're typing. Invoke Inline Chat to ask questions and get help while staying in the flow of coding. For example, ask the AI to generate unit tests for a function or method. Get more information about [inline suggestions](/docs/editing/ai-powered-suggestions.md) and [Inline Chat](/docs/chat/inline-chat.md).
 
 | Action | Description |
 |--------|-------------|
@@ -291,7 +291,7 @@ VS Code can generate tests for functions and methods in your codebase by using s
 |--------|-------------|
 | `/tests` | Generate tests for all or only the selected methods and functions in the editor. The generated tests are appended in an existing tests file or a new tests file is created.  |
 | `/setupTests` | Get help setting up a testing framework for your code. Get recommendation for a relevant testing framework, steps to set up and configure it, and suggestions for VS Code testing extensions.   |
-| `/fixTestFailure` | Ask Copilot for suggestions on how to fix failing tests. |
+| `/fixTestFailure` | Ask the AI for suggestions on how to fix failing tests. |
 | Test coverage _(Experimental)_ | Generate tests for functions and methods that are not yet covered by tests. [Get more information](https://code.visualstudio.com/updates/v1_93#_generate-tests-based-on-test-coverage-experimental). |
 
 > **Tips**
@@ -300,23 +300,23 @@ VS Code can generate tests for functions and methods in your codebase by using s
 
 ## Debug and fix problems
 
-Use Copilot to help fix coding problems and to get help with configuring and starting debugging sessions in VS Code.
+Use AI to help fix coding problems and to get help with configuring and starting debugging sessions in VS Code.
 
 | Action | Description |
 |--------|-------------|
-| `/fix` | Ask Copilot for suggestions on how to fix a block of code or how to resolve any compiler or linting errors in your code. For example, to help fix unresolved Node.js package names. |
-| `/fixTestFailure` | Ask Copilot for suggestions on how to fix failing tests. |
+| `/fix` | Ask the AI for suggestions on how to fix a block of code or how to resolve any compiler or linting errors in your code. For example, to help fix unresolved Node.js package names. |
+| `/fixTestFailure` | Ask the AI for suggestions on how to fix failing tests. |
 | `/startDebugging` _(Experimental)_ | Generate a `launch.json` debug configuration file and [start a debugging session](/docs/agents/guides/debug-with-copilot.md) from the Chat view. |
 | `copilot-debug` command | Terminal command to help you [debug your programs](/docs/agents/guides/debug-with-copilot.md). Prefix a run command to start a debugging session for it (for example, `copilot-debug python foo.py`). |
 
 > **Tips**
 >
 > * Provide additional information about the type of fix you need, such as optimizing the memory consumption or performance.
-> * Watch for Copilot Code Actions in the editor that indicate suggestions for fixing problems in your code.
+> * Watch for AI Code Actions in the editor that indicate suggestions for fixing problems in your code.
 
 ## Scaffold a new project
 
-Copilot can help you create a new project by generating a scaffold of the project structure, or generate a notebook based on your requirements.
+AI can help you create a new project by generating a scaffold of the project structure, or generate a notebook based on your requirements.
 
 | Action | Description |
 |--------|-------------|

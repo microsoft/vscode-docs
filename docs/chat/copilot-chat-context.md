@@ -21,7 +21,7 @@ Type the `#` symbol in the chat input field to see a list of available context i
 
 ![Screenshot of VS Code Chat view, showing the chat variable picker.](./images/copilot-chat/copilot-chat-view-chat-variables.png)
 
-View the full list of [supported context items](/docs/agents/reference/copilot-vscode-features.md#chat-tools).
+View the full list of [supported context items](/docs/agents/reference/ai-features-cheat-sheet.md#chat-tools).
 
 ### Add files as context
 

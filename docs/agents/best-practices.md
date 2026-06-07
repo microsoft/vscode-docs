@@ -215,6 +215,6 @@ For more information, see [workspace context](/docs/agents/reference/workspace-c
 * [Context engineering guide](/docs/agents/guides/context-engineering-guide.md)
 * [Optimize AI credit usage](/docs/agents/guides/optimize-usage.md)
 * [Customization overview](/docs/agent-customization/overview.md)
-* [Cheat sheet](/docs/agents/reference/copilot-vscode-features.md)
+* [Cheat sheet](/docs/agents/reference/ai-features-cheat-sheet.md)
 * [GitHub Copilot security](/docs/agents/security.md)
 * [Best Practices for using GitHub Copilot](https://docs.github.com/en/copilot/using-github-copilot/best-practices-for-using-github-copilot) in the GitHub Copilot documentation

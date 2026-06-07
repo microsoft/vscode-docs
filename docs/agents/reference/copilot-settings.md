@@ -291,4 +291,4 @@ The [Agents view](/docs/agents/overview.md) provides a centralized location for 
 
 ## Related resources
 
-* [Get a quick overview of the Copilot features in VS Code](/docs/agents/reference/copilot-vscode-features.md)
+* [Get a quick overview of the AI features in VS Code](/docs/agents/reference/ai-features-cheat-sheet.md)
