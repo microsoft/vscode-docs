@@ -6,7 +6,7 @@ MetaSocialImage: ../../images/shared/github-copilot-social.png
 ---
 # Query session history with chronicle
 
-Your GitHub Copilot sessions build a searchable history of everything you work on. Ask natural language questions about past sessions, generate standup reports, get personalized tips, and search your coding history. With [session sync](/docs/copilot/chat/session-sync.md) active by default, queries draw from sessions across Copilot CLI, coding agent, code review, and VS Code.
+Your GitHub Copilot sessions build a searchable history of everything you work on. Ask natural language questions about past sessions, generate standup reports, get personalized tips, and search your coding history. With [session sync](/docs/agents/sessions/session-sync.md) active by default, queries draw from sessions across Copilot CLI, coding agent, code review, and VS Code.
 
 ## Chronicle commands
 

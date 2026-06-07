@@ -273,7 +273,7 @@ The following example shows a `Guides` subsection with two topics, within the `G
       "name": "GitHub Copilot",
       "area": "copilot",
       "topics": [
-        ["Overview", "/docs/copilot/overview"],
+        ["Overview", "/docs/agent-native/overview"],
         ["Setup", "/docs/setup/copilot"],
         ["", "", {
           "name": "Guides",
@@ -524,6 +524,50 @@ There are two types of prompt code blocks:
   ````
 
 Use prompt code blocks when you want readers to easily try the prompt in VS Code Chat. The prompt text should be complete and actionable.
+
+### Tabs
+
+Use tabs to present parallel variants of the same content — for example, instructions that differ between two views, tools, or languages. Readers see only the variant they pick, and their selection is remembered across the page (and shared between switchers that use the same `id`).
+
+Tabs use a Markdoc-style syntax that is processed at build time:
+
+```markdown
+{% tabs id="chat-surface" %}
+
+{% tab label="Agents window" %}
+
+Content for the **Agents window** variant. You can use any Markdown here, including
+lists, code blocks, images, and callouts.
+
+{% /tab %}
+
+{% tab label="Chat view" %}
+
+Content for the **Chat view** variant.
+
+{% /tab %}
+
+{% /tabs %}
+```
+
+The block has a few rules:
+
+* `{% tabs %}` requires an `id` that is unique per page. The `id` is used as the localStorage key and the URL query parameter for persistence, so use a stable, slug-cased value.
+* Each `{% tab %}` requires a `label`. The label becomes the tab button text, and a slugified version of it is used as the persisted value (so renaming a label changes the URL/localStorage key).
+* `{% tabs %}`, `{% tab %}`, `{% /tab %}`, and `{% /tabs %}` markers must each start at the beginning of a line.
+* Place a blank line before and after the inner content so markdown-it renders it as Markdown rather than as an HTML block.
+* Nested `{% tabs %}` blocks are not supported.
+
+You can place multiple `{% tabs %}` blocks on the same page. Blocks that share the same `id` stay in sync — selecting a tab in one switches all of them. This is useful when the same set of variants applies to several sections of an article.
+
+To opt out of processing for a single marker — for example, when documenting the syntax itself — escape the opening `{` with a backslash: `\{% tabs id="..." %}`.
+
+The selected tab is preserved via:
+
+* A URL query parameter (`?<id>=<slugified-label>`), so links can deep-link to a specific variant.
+* `localStorage`, so the choice is remembered when the reader returns to the page.
+
+Use tabs sparingly. They are best for genuinely parallel content where readers only need one path; do not use them to hide important information that all readers need to see.
 
 ## Gotchas
 

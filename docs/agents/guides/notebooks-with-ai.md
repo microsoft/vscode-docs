@@ -18,7 +18,7 @@ To create a new notebook with AI, choose either of these options:
 
 * Choose [Agent](vscode://GitHub.Copilot-Chat/chat?mode=agent) and type a natural language prompt asking to create a new notebook.
 
-See the [Prompt examples](/docs/chat/prompt-examples.md#working-with-jupyter-notebooks) article for effective notebook prompts.
+See the [Prompt examples](/docs/agents/guides/prompt-examples.md#working-with-jupyter-notebooks) article for effective notebook prompts.
 
 The following screenshot shows how the output from the agent to the prompt *Create a Jupyter notebook to read data from #housing.csv* (you can get this dataset from [Kaggle](https://www.kaggle.com/search?q=housing+dataset+in%3Adatasets)):
 

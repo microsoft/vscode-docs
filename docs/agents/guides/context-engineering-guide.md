@@ -247,7 +247,7 @@ Following these best practices helps you establish a sustainable and effective c
 
 **Maintain context isolation**: Keep different types of work (planning, coding, testing, debugging) in separate chat sessions to prevent context mixing and confusion.
 
-**Be mindful of credit consumption**: More context files, larger instruction sets, and complex agent chains all increase token usage and [AI credit](/docs/copilot/concepts/language-models.md#ai-credits-and-model-costs) consumption. Start with concise context and expand only when needed. For more tips, see [optimize AI credit usage](/docs/copilot/guides/optimize-usage.md).
+**Be mindful of credit consumption**: More context files, larger instruction sets, and complex agent chains all increase token usage and [AI credit](/docs/agents/concepts/language-models.md#ai-credits-and-model-costs) consumption. Start with concise context and expand only when needed. For more tips, see [optimize AI credit usage](/docs/agents/guides/optimize-usage.md).
 
 ### Documentation strategies
 
@@ -271,7 +271,7 @@ Following these best practices helps you establish a sustainable and effective c
 
 **Version your context**: Use git to track changes to your context engineering setup, allowing you to revert problematic changes and understand what works best.
 
-**Verify cache performance**: Use the [Agent Debug Logs](/docs/copilot/chat/chat-debug-view.md) to check prompt cache hit rates and token usage. Good cache performance means your context setup is structured in a way that the model provider can reuse previous request prefixes, reducing latency and token costs.
+**Verify cache performance**: Use the [Agent Debug Logs](/docs/agents/agent-troubleshooting/chat-debug-view.md) to check prompt cache hit rates and token usage. Good cache performance means your context setup is structured in a way that the model provider can reuse previous request prefixes, reducing latency and token costs.
 
 ### Anti-patterns to avoid
 
@@ -283,7 +283,7 @@ Following these best practices helps you establish a sustainable and effective c
 
 **One-size-fits-all**: Different team members or project phases may need different context configurations. Be flexible in your approach.
 
-**Over-engineering agent chains**: Deeply nested subagent workflows and excessive tool calls multiply token usage and [credit consumption](/docs/copilot/concepts/language-models.md#ai-credits-and-model-costs). Keep agent chains as shallow as practical and limit tools to what each agent actually needs.
+**Over-engineering agent chains**: Deeply nested subagent workflows and excessive tool calls multiply token usage and [credit consumption](/docs/agents/concepts/language-models.md#ai-credits-and-model-costs). Keep agent chains as shallow as practical and limit tools to what each agent actually needs.
 
 ### Measuring success
 

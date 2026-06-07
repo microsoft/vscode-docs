@@ -23,7 +23,7 @@ To learn what you can build with agents, see [Build with agents in VS Code](/doc
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
 Follow a hands-on tutorial to build your first app with AI in VS Code.
 
-* [Start tutorial](/docs/copilot/getting-started.md)
+* [Start tutorial](/docs/getstarted/getting-started.md)
 
 </div>
 
@@ -56,6 +56,6 @@ To put these concepts into practice, see [Configure your agent session](/docs/ag
 
 ## Related resources
 
-* [Quickstart: Get started with AI in VS Code](/docs/copilot/getting-started.md)
+* [Quickstart: Get started with AI in VS Code](/docs/getstarted/getting-started.md)
 * [Best practices for using AI in VS Code](/docs/agents/best-practices.md)
 * [Configure your agent session](/docs/agents/overview.md)

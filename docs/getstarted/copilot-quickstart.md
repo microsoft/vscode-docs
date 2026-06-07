@@ -5,4 +5,4 @@ MetaDescription: Get started with GitHub Copilot in Visual Studio Code and creat
 ---
 # Quickstart: Getting started with GitHub Copilot in VS Code
 
-This page is redirected to /docs/copilot/getting-started.md and only exists to keep the "Copilot Quickstart" TOC item.
+This page is redirected to /docs/getstarted/getting-started.md and only exists to keep the "Copilot Quickstart" TOC item.
