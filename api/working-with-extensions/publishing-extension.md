@@ -293,6 +293,21 @@ In both cases, you will be prompted to confirm the removal by typing the extensi
 > When you remove an extension, the Marketplace also removes any extension statistics. You may want to unpublish your extension rather than remove it.
 > Important! Extension names are unique identifiers in the Visual Studio Code Marketplace. Once an extension is removed, its extension name is permanently reserved and cannot be reused, even by the original publisher. This helps protect users from impersonation and maintains trust in the Marketplace ecosystem. Before deleting an extension, ensure that you no longer need the name, as this action is irreversible.
 
+## Removing specific extension versions
+
+You can remove a specific extension version from the [Visual Studio Marketplace publisher management page](https://marketplace.visualstudio.com/manage) by clicking **More Actions > Reports**:
+
+![Screenshot showing the More Actions menu with the Reports option in the Marketplace publisher management page](images/publishing-extension/extension-manage.png)
+
+Select the **Manage** tab and then click on **Delete this version**.
+
+![Screenshot showing the manage tab with the Delete this version button](images/publishing-extension/remove-version.png)
+
+You are prompted to confirm the removal by typing the extension name. This action is **irreversible**.
+
+> [!NOTE]
+> Important! Once deleted, a version number cannot be reused for a new publish. Additionally, you cannot delete the latest version of an extension.
+
 ## Deprecating extensions
 
 You can just deprecate an extension or deprecate in favor of another extension or a setting. The deprecated extension will be rendered with a dimmed strike-through text in the UI:
