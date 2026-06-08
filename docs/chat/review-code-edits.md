@@ -56,7 +56,11 @@ In the Agents window, you review edits in the dedicated **Changes** panel instea
 
 1. Select a file in the **Changes** tab to open a diff view of the agent's edits.
 
+    ![Screenshot showing the Changes panel in the Agents window, highlighting the list of edited files and the diff view.](images/review-code-edits/agents-window-diff-view.png)
+
 1. Select **Add Feedback** in the diff view to comment on a specific edit and signal the agent to make adjustments.
+
+    ![Screenshot showing the Add Feedback button in the Changes diff view.](images/review-code-edits/agents-window-add-feedback.png)
 
 1. Use the **Commit**, **Merge**, **Checkout**, or **Discard** actions to act on the edits.
 
@@ -69,6 +73,8 @@ To review the AI-generated code edits in a file:
 
 1. Open a file with pending edits by selecting it from the changed files list in the Chat view or from the Explorer view.
 
+    ![Screenshot showing the Editor with proposed changes, highlighting the review controls in the editor overlay controls.](images/review-code-edits/copilot-edits-file-review-controls.png)
+
 1. Use the `kbstyle(Up)` and `kbstyle(Down)` controls in the editor overlay to navigate between individual edits within the file.
 
 1. For each edit, choose one of the following actions:
@@ -77,8 +83,6 @@ To review the AI-generated code edits in a file:
     * Hover over an inline change to accept or reject that specific change without affecting other edits in the file.
 
 1. Alternatively, accept or reject all changes across all files at once from the Chat view.
-
-![Screenshot showing the Editor with proposed changes, highlighting the review controls in the editor overlay controls.](images/review-code-edits/copilot-edits-file-review-controls.png)
 
 The following keyboard shortcuts help you navigate and review edits:
 
