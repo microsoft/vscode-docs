@@ -95,6 +95,9 @@ To start a new agent session in the Agents window:
 
 The agent now starts working on your request. Learn more about [interacting in chat](/docs/chat/chat-overview.md).
 
+> [!TIP]
+> To start a session in the background without leaving the current session, press `kbstyle(Alt+Enter)` or hold `kbstyle(Alt)` and select **Send**. The newly started session appears in the sessions list once it commits.
+
 ## Manage your sessions
 
 The session list in the sidebar shows all your ongoing sessions across your workspaces. Each session item surfaces the key information such as session name, workspace, agent type, and file change stats.
