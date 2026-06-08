@@ -11,6 +11,13 @@ You start in the Agents window, a dedicated surface for an agent-first workflow.
 
 You build a simple personal portfolio page with HTML, CSS, and JavaScript. The page is fully static, so you don't need to install any runtimes or build tools to follow along.
 
+<div class="docs-action" data-show-in-doc="true" data-show-in-sidebar="true" title="Learn VS Code editor features">
+Get familiar with the VS Code user interface, editing features, and key productivity tools.
+
+* [Start the VS Code editing tutorial](/docs/editing/getting-started.md)
+
+</div>
+
 ## Prerequisites
 
 * [Download and install Visual Studio Code](/download)
