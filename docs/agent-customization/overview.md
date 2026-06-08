@@ -34,106 +34,24 @@ Follow a hands-on walkthrough to customize AI for your project.
 
 </div>
 
-## Choose a customization type
+## Customization types
 
-VS Code offers several customization types, each suited to a different goal. They range from lightweight always-on instructions to packaged bundles of capabilities. Pick a type based on what you want to teach the agent, and combine multiple types as your needs grow. Select a tab to learn what each type does and see a few examples.
+VS Code offers several customization types, each suited to a different goal. The following list gives a quick description of each type and links to its setup article:
 
-{% tabs id="customization-types" %}
-{% tab label="Instructions" %}
-
-[Instructions](/docs/agent-customization/custom-instructions.md) describe your coding standards, conventions, and project structure so the agent writes code the way your team does. Apply them to every request, or scope them to specific files with glob patterns.
-
-* Enforce your ESLint rules and require JSDoc comments across the codebase.
-
-* Describe the project structure so the agent knows where to find and place files.
-
-* Apply React component conventions only to `.tsx` files.
-
-{% /tab %}
-{% tab label="Skills" %}
-
-[Agent skills](/docs/agent-customization/agent-skills.md) package multi-step workflows, scripts, and resources that the agent loads when a task matches the skill. Use them for repeatable procedures that go beyond a single prompt.
-
-* Run a test, lint, and deploy pipeline as one workflow.
-
-* Generate release notes with bundled helper scripts.
-
-* Follow a documented procedure for adding a new API endpoint.
-
-{% /tab %}
-{% tab label="Agents" %}
-
-[Custom agents](/docs/agent-customization/custom-agents.md) define a specialized persona with its own instructions, tool access, and model. Use them to focus the agent on a specific role and limit what it can do.
-
-* Create a security reviewer with read-only tool access.
-
-* Set up a database admin persona for schema and query work.
-
-* Build a documentation writer with a restricted toolset.
-
-{% /tab %}
-{% tab label="Models" %}
-
-[Language models](/docs/agent-customization/language-models.md) let you choose which model handles your requests. Switch models per task, or bring your own model and API key.
-
-* Route simple edits to a faster, lower-cost model.
-
-* Use a more capable model for complex refactoring.
-
-* Bring your own model with your own API key.
-
-{% /tab %}
-{% tab label="MCP" %}
-
-[MCP servers](/docs/agent-customization/mcp-servers.md) connect the agent to external tools, services, and data through the Model Context Protocol. The agent calls a server when the task matches one of its tools.
-
-* Query a PostgreSQL database for live data.
-
-* Fetch and update GitHub issues and pull requests.
-
-* Automate a browser with Playwright.
-
-{% /tab %}
-{% tab label="Hooks" %}
-
-[Hooks](/docs/agent-customization/hooks.md) run deterministic actions at specific points in the agent loop, regardless of what the model decides to do. Use them to enforce policies and guardrails.
-
-* Run a formatter after every file edit.
-
-* Block edits to protected files or folders.
-
-* Log every command the agent runs.
-
-{% /tab %}
-{% tab label="Plugins" %}
-
-[Agent plugins](/docs/agent-customization/agent-plugins.md) (preview) bundle the other customization types into a single installable package. Install one to add a ready-made set of capabilities.
-
-* Install a community testing plugin.
-
-* Share a standard toolset across your team.
-
-* Distribute a domain-specific set of instructions and skills.
-
-{% /tab %}
-{% tab label="Prompts" %}
-
-[Prompt files](/docs/agent-customization/prompt-files.md) save reusable prompts that you invoke as slash commands in chat. Use them to standardize tasks you run often.
-
-* Scaffold a React component from a single command.
-
-* Generate a standard pull request description.
-
-* Run a consistent security review prompt.
-
-{% /tab %}
-{% /tabs %}
+* [Instructions](/docs/agent-customization/custom-instructions.md): describe your coding standards, conventions, and project structure, applied to every request or scoped to specific files.
+* [Prompt files](/docs/agent-customization/prompt-files.md): save reusable prompts that you invoke as slash commands in chat.
+* [Agent skills](/docs/agent-customization/agent-skills.md): package multi-step workflows, scripts, and resources that the agent loads when a task matches.
+* [Custom agents](/docs/agent-customization/custom-agents.md): define a specialized persona with its own instructions, tool access, and model.
+* [Language models](/docs/agent-customization/language-models.md): choose which model handles your requests, or bring your own model and API key.
+* [MCP servers](/docs/agent-customization/mcp-servers.md): connect the agent to external tools, services, and data through the Model Context Protocol.
+* [Hooks](/docs/agent-customization/hooks.md): run deterministic actions at specific points in the agent loop to enforce policies and guardrails.
+* [Agent plugins](/docs/agent-customization/agent-plugins.md) (preview): bundle the other customization types into a single installable package.
 
 To compare the options and decide which one fits your goal, see [Customization concepts](/docs/agents/concepts/customization.md). The rest of this article focuses on how to set up and manage customizations.
 
-## Get started
+## Get started incrementally
 
-The most effective approach is to adopt customizations incrementally. Start with project-wide instructions, then add more specific customizations as you identify recurring needs. For a hands-on walkthrough, see the [Customize AI for your project](/docs/agents/guides/customize-copilot-guide.md) guide.
+Adopt customizations gradually rather than all at once. Start with project-wide instructions, then add more specific customizations as you identify recurring needs. For a hands-on walkthrough, see the [Customize AI for your project](/docs/agents/guides/customize-copilot-guide.md) guide.
 
 1. **Set up project instructions**: type `/init` in chat to generate a `.github/copilot-instructions.md` file with coding standards tailored to your codebase.
 
