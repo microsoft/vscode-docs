@@ -119,6 +119,9 @@ To review changes made by the agent, select a file in the **Changes** tab to ope
 
 ![Screenshot showing the diff view in a modal window in the Agents window, with the layout controls in the diff view toolbar visible.](images/agents-window/agents-window-diff-view.png)
 
+> [!TIP]
+> By default, selecting a file opens a multi-file diff editor with all the changes in the session. To open a focused single-file diff editor for the selected file instead, enable the `setting(sessions.changes.openSingleFileDiff)` setting.
+
 You can open the diff view side-by-side with the Chat view inside the Agents window or open it in a modal window to focus on the changes. Use the layout controls in the diff view toolbar to toggle between different display modes.
 
 While reviewing the changes in the diff view, click inside an edit and then select **Add Feedback** to enter a feedback comment directly in the file and signal the agent to make adjustments.
