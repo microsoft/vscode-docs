@@ -50,7 +50,7 @@ VS Code offers several customization types, each suited to a different goal. The
 * Apply React component conventions only to `.tsx` files.
 
 {% /tab %}
-{% tab label="Agent skills" %}
+{% tab label="Skills" %}
 
 [Agent skills](/docs/agent-customization/agent-skills.md) package multi-step workflows, scripts, and resources that the agent loads when a task matches the skill. Use them for repeatable procedures that go beyond a single prompt.
 
@@ -61,7 +61,7 @@ VS Code offers several customization types, each suited to a different goal. The
 * Follow a documented procedure for adding a new API endpoint.
 
 {% /tab %}
-{% tab label="Custom agents" %}
+{% tab label="Agents" %}
 
 [Custom agents](/docs/agent-customization/custom-agents.md) define a specialized persona with its own instructions, tool access, and model. Use them to focus the agent on a specific role and limit what it can do.
 
@@ -72,7 +72,7 @@ VS Code offers several customization types, each suited to a different goal. The
 * Build a documentation writer with a restricted toolset.
 
 {% /tab %}
-{% tab label="Language models" %}
+{% tab label="Models" %}
 
 [Language models](/docs/agent-customization/language-models.md) let you choose which model handles your requests. Switch models per task, or bring your own model and API key.
 
@@ -83,7 +83,7 @@ VS Code offers several customization types, each suited to a different goal. The
 * Bring your own model with your own API key.
 
 {% /tab %}
-{% tab label="MCP servers" %}
+{% tab label="MCP" %}
 
 [MCP servers](/docs/agent-customization/mcp-servers.md) connect the agent to external tools, services, and data through the Model Context Protocol. The agent calls a server when the task matches one of its tools.
 
@@ -105,7 +105,7 @@ VS Code offers several customization types, each suited to a different goal. The
 * Log every command the agent runs.
 
 {% /tab %}
-{% tab label="Agent plugins" %}
+{% tab label="Plugins" %}
 
 [Agent plugins](/docs/agent-customization/agent-plugins.md) (preview) bundle the other customization types into a single installable package. Install one to add a ready-made set of capabilities.
 
@@ -116,7 +116,7 @@ VS Code offers several customization types, each suited to a different goal. The
 * Distribute a domain-specific set of instructions and skills.
 
 {% /tab %}
-{% tab label="Prompt files" %}
+{% tab label="Prompts" %}
 
 [Prompt files](/docs/agent-customization/prompt-files.md) save reusable prompts that you invoke as slash commands in chat. Use them to standardize tasks you run often.
 
