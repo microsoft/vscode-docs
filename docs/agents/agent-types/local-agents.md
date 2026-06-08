@@ -47,9 +47,9 @@ Local agent sessions use one of three built-in agents, each optimized for differ
 
 Agent is optimized for complex coding tasks based on high-level requirements that might require running terminal commands and tools. The AI operates autonomously, determining the relevant context and files to edit, planning the work needed, and iterating to resolve problems as they arise.
 
-VS Code directly applies code changes in the editor, and the editor overlay controls enable you to navigate between the suggested edits and review them. The agent might invoke multiple [tools](/docs/agents/agent-tools.md) to accomplish different tasks.
+VS Code directly applies code changes in the editor, and the editor overlay controls enable you to navigate between the suggested edits and review them. The agent might invoke multiple [tools](/docs/chat/chat-tools.md) to accomplish different tasks.
 
-You can [customize chat with extra tools](/docs/agents/agent-tools.md) by adding MCP servers or installing extensions that contribute tools.
+You can [customize chat with extra tools](/docs/chat/chat-tools.md) by adding MCP servers or installing extensions that contribute tools.
 
 Open chat with Agent: [Stable](vscode://GitHub.Copilot-Chat/chat?mode=agent) | [Insiders](vscode-insiders://GitHub.Copilot-Chat/chat?mode=agent)
 
@@ -99,13 +99,13 @@ To start a local agent session:
     Set up a CI/CD pipeline for this project.
     ```
 
-1. Use the tools picker to [enable tools](/docs/agents/agent-tools.md) and give the agent more capabilities.
+1. Use the tools picker to [enable tools](/docs/chat/chat-tools.md) and give the agent more capabilities.
 
 1. Select **Send** or press `kb(workbench.action.chat.submit)` to submit your prompt.
 
 1. Review and confirm code changes and tool invocations as the agent works through your request.
 
-    You can send follow-up prompts while the agent is working. Queue messages for later, steer the agent in a new direction, or stop and send immediately. Learn more about [sending messages while a request is running](/docs/agents/sessions/chat-sessions.md#send-messages-while-a-request-is-running).
+    You can send follow-up prompts while the agent is working. Queue messages for later, steer the agent in a new direction, or stop and send immediately. Learn more about [sending messages while a request is running](/docs/chat/chat-overview.md#send-messages-while-a-request-is-running).
 
     > [!TIP]
     > VS Code helps you protect against inadvertent edits to sensitive files, such as workspace configuration settings or environment settings. Learn more about [editing sensitive files](/docs/chat/review-code-edits.md#edit-sensitive-files).
@@ -142,7 +142,7 @@ The location of the language model depends on the model provider you choose for 
 ## Related resources
 
 * [Agents overview](/docs/agents/overview.md): Choose agents, configure permissions, and hand off between agent types.
-* [Manage chat sessions](/docs/agents/sessions/chat-sessions.md): Create, switch between, and organize your sessions.
+* [Manage chat sessions](/docs/chat/chat-sessions.md): Create, switch between, and organize your sessions.
 * [Agents tutorial](/docs/agents/agents-tutorial.md): Hands-on tutorial for working with different agent types.
-* [Tools](/docs/agents/agent-tools.md): Extend agents with built-in, MCP, and extension tools.
+* [Tools](/docs/chat/chat-tools.md): Extend agents with built-in, MCP, and extension tools.
 * [Custom agents](/docs/agent-customization/custom-agents.md): Create your own AI agents and extensions.

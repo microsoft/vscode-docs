@@ -9,6 +9,9 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 The artifacts panel in Visual Studio Code surfaces important resources, such as screenshots, plans, and documents, alongside the chat conversation. Artifacts can come from multiple sources simultaneously and are displayed in a collapsible tree control, grouped by origin.
 
 > [!NOTE]
+> The features on this page work in both the [Chat view](/docs/agents/chat-view.md) and the [Agents window](/docs/agents/agents-window.md).
+
+> [!NOTE]
 > The artifacts panel is currently in preview. To enable it, set `setting(chat.artifacts.enabled)` to `true`.
 
 ![Screenshot of the artifacts panel in the Chat view, showing example artifacts such as links, images, and documents.](images/chat-artifacts/chat-artifacts-list.png)
@@ -64,6 +67,6 @@ The agent can also use the `#artifactRules` tool to override the extraction rule
 
 ## Related resources
 
-* [Chat overview](/docs/chat/copilot-chat.md)
-* [Agent tools](/docs/agents/agent-tools.md)
+* [Chat overview](/docs/chat/chat-overview.md)
+* [Agent tools](/docs/chat/chat-tools.md)
 * [Copilot settings reference](/docs/agents/reference/copilot-settings.md)

@@ -86,5 +86,5 @@ You can also hide or delete individual synced sessions from the **Agents** tab o
 ## Related content
 
 * [Session insights](/docs/agents/sessions/session-insights.md) - Query your session history for standup reports, tips, and search
-* [Manage chat sessions](/docs/agents/sessions/chat-sessions.md) - Create and organize chat sessions
+* [Manage chat sessions](/docs/chat/chat-sessions.md) - Create and organize chat sessions
 * [Security](/docs/agents/security.md) - Copilot security and privacy

@@ -64,5 +64,5 @@ You can tailor the planning process to fit your team's workflow:
 
 * [Run deep research with the research agent](/docs/agents/agent-types/copilot-cli.md#run-deep-research-with-the-research-agent)
 * [Memory in VS Code agents](/docs/agents/memory.md)
-* [Configure tools for agents](/docs/agents/agent-tools.md)
+* [Configure tools for agents](/docs/chat/chat-tools.md)
 * [Context engineering user guide](/docs/agents/guides/context-engineering-guide.md)

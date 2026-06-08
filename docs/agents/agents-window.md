@@ -10,12 +10,12 @@ The Agents window is a dedicated window in VS Code, built for an agent-first wor
 
 The Agents window gives you access to all your workspaces from one place and lets you run and track multiple sessions in parallel across your projects without opening each workspace in a separate window. It shares the same agent sessions, settings, and keybindings with the main VS Code window, so you can move freely between an editor-focused workflow and an agent-focused workflow at any time without losing context.
 
-In this article, you learn about the Agents window and how to start and manage agent sessions across your projects.
+In this article, you learn about the Agents window and how to start and manage agent sessions across your projects. For chat mechanics that apply to both the Agents window and the [Chat view](/docs/agents/chat-view.md) — such as sending requests, adding context, and reviewing changes — see [Use chat in VS Code](/docs/chat/chat-overview.md).
 
 <video src="images/agents-window/agents-demo-20260510.mp4" title="Video showing the Agents window experience in VS Code Insiders." controls></video>
 
 > [!TIP]
-> The Agents window (agent-first) and the [Chat view](/docs/agents/chat-view.md) (code-first) are the main surfaces for working with agents. They share the same sessions and settings, so you can move freely between them. For help choosing, see [where to work with agents](/docs/agents/overview.md#where-to-work-with-agents).
+> The Agents window (agent-first) and the [Chat view](/docs/agents/chat-view.md) (code-first) are the main surfaces for working with agents. They share the same sessions and settings, so you can move freely between them. For help choosing, see [Choose how you work with agents](/docs/agents/overview.md#choose-how-you-work-with-agents).
 
 > [!NOTE]
 > The Agents window is currently in preview. We're actively shaping it based on your feedback and are excited to learn alongside developers. Please share your experience by [filing issues on GitHub](https://github.com/microsoft/vscode/issues), or browse [existing issues](https://github.com/microsoft/vscode/issues?q=state%3Aopen%20label%3A%22agents-window%22).
@@ -37,7 +37,7 @@ The Agents window opens as a dedicated VS Code window alongside your main editor
 
 * Run `code --agents` from the command line.
 
-* Open <https://insiders.vscode.dev/agents> in a browser to use the Agents window from any device. See [Use the Agents window in the browser](#use-the-agents-window-in-the-browser) for setup instructions.
+* Open <https://insiders.vscode.dev/agents> in a browser to use the Agents window from any device. See [remote agent sessions](/docs/agents/remote-agent-sessions.md#use-the-agents-window-in-the-browser) for setup instructions.
 
 The Agents window requires GitHub authentication to access your Copilot subscription and sessions. If you're already signed in to GitHub in VS Code, you'll also be signed in when the Agents window opens.
 
@@ -63,6 +63,8 @@ The Agents window has the following main areas:
 
 The Agents window and the main VS Code window share the same underlying agent sessions (Copilot CLI, Copilot cloud, and Claude agent). This means that any session you start in the Agents window is immediately available in the main VS Code window.
 
+Unlike the Chat view, where sessions are scoped to the open workspace, the Agents window lets you choose which workspace or repository to target when you start a session.
+
 To start a new agent session in the Agents window:
 
 1. Select **New** at the top of the sidebar or press `kb(workbench.action.chat.newChat)`.
@@ -76,31 +78,32 @@ To start a new agent session in the Agents window:
     If the folder or repository you select isn't trusted yet, you'll be [prompted to trust](#trust-a-folder) it before you can start a session.
 
     > [!TIP]
-    > You can track and create sessions that run on a remote machine via SSH or a dev tunnel. See [Open a session on a remote machine](#open-a-session-on-a-remote-machine) for more information.
+    > You can track and create sessions that run on a remote machine via SSH or a dev tunnel. See [remote agent sessions](/docs/agents/remote-agent-sessions.md) for more information.
 
-1. After selecting the workspace, choose the agent for the session from the dropdown.
+1. After selecting the workspace, choose the agent type for the session from the dropdown.
 
-    ![Screenshot showing how to select the agent type from the dropdown after selecting a workspace when starting a new agent session in the Agents window.](images/agents-window/agents-window-agent-dropdown.png)
+    The available agent types might vary depending on the location of the workspace:
 
-    The available agent types are determined by the type of workspace you select:
-
-    * **Folder**: choose between the Copilot CLI or Claude agent to start a new session. You can select **Continue In** to hand off the session to a Copilot Cloud agent at any time during the session.
+    * **Folder**: choose between the Copilot CLI or Claude agent. You can select **Continue In** to hand off the session to a Copilot Cloud agent at any time.
     * **Repository**: sessions started in a GitHub repository use the Copilot cloud agent.
 
-1. For Copilot CLI sessions, choose between folder and worktree [isolation](/docs/agents/agent-types/copilot-cli.md#isolation-modes) for the session.
+1. Optionally, select extra configuration options for the session like a custom agent, language model, permission level, and more.
 
-    * **Worktree isolation**: the agent operates in a separate folder backed by a [Git worktree](/docs/sourcecontrol/branches-worktrees.md), which keeps changes isolated from your main workspace until you're ready to merge them.
-    * **Folder isolation**: the agent operates in your main workspace, and changes are applied directly to your files. This is the default behavior for non-Git projects.
-
-    Optionally, select a source control branch to base the session on.
-
-    ![Screenshot showing how to select folder or worktree isolation and optionally choose a source control branch when starting a new agent session in the Agents window.](images/agents-window/agents-window-isolation-branch.png)
-
-1. Optionally, select a custom agent and language model for the session. You can change these at any point during the session.
+    You can change these at any point during the session. Learn more about [configuring your agent session](/docs/agents/overview.md).
 
 1. Type a prompt that describes what you want to accomplish, and press `kbstyle(Enter)`.
 
-    The agent breaks down your task into steps, writes code, runs commands, and self-corrects when something goes wrong. Continue the conversation to refine the results or change direction.
+The agent now starts working on your request. Learn more about [interacting in chat](/docs/chat/chat-overview.md).
+
+## Manage your sessions
+
+The session list in the sidebar shows all your ongoing sessions across your workspaces. Each session item surfaces the key information such as session name, workspace, agent type, and file change stats.
+
+By default, sessions are grouped by workspace and you can also group on timeframe. See [Manage Sessions](/docs/chat/chat-sessions.md) for more details on working with the session list.
+
+When you select a session in the list, the chat panel shows the complete history of that session. This session then becomes the active session and the **Changes** panel surfaces the latest file updates from the agent in that session and the files in the associated workspace.
+
+![Screenshot showing the sessions list in the sidebar in the Agents window.](images/agents-window/agents-window-session-list.png)
 
 ## Manage and review file changes
 
@@ -161,84 +164,17 @@ Alternatively, you can also select a `localhost` link from the integrated termin
 
 If you want to run terminal commands in the context of the current session, select the **Open Terminal** icon in the title bar to open an integrated terminal with its current working directory set to the session's folder or worktree.
 
-## Open a session on a remote machine
+## Work with agents remotely
 
-You can connect to a remote machine to start a session there or track the progress of an existing session running on that machine. This is useful when you're away from your main development machine but still want to check in on your agent's work, or to take advantage of the remote machine's resources, such as specialized hardware or a specific environment configuration.
+The Agents window lets you work with agents on remote machines and from any device with a browser.
 
-The Agents window connects to the remote machine using the [Agent Host Protocol (AHP)](https://microsoft.github.io/agent-host-protocol/) over SSH or a dev tunnel. When you connect, the Agents window automatically installs and starts the VS Code CLI on the remote machine. This also means that the remote machine must be powered on and accessible over the network.
+* **Browser-based access**: open <https://insiders.vscode.dev/agents> to manage agent sessions from any device, including mobile. The browser-based Agents window connects to your development machine through a dev tunnel and provides the full session management experience without installing Visual Studio Code locally.
 
-### Connect via SSH
+* **SSH**: connect to a remote machine over SSH directly from the workspace dropdown. The Agents window automatically installs and starts the VS Code CLI on the remote machine.
 
-**Prerequisite**: the remote machine must be accessible over SSH. No extra agent installation is needed on the remote machine.
+* **Dev tunnels**: connect to a machine running a [dev tunnel](/docs/remote/tunnels.md) to start sessions or check in on existing ones.
 
-To start a session on a remote machine via SSH:
-
-1. Select **New** or press `kb(workbench.action.chat.newChat)` to start a new agent session.
-
-1. In the workspace dropdown, select the **Remote** tab, and then select **SSH**. If you've already set up SSH connections, they will appear as options in the dropdown.
-
-    ![Screenshot showing how to select SSH in the workspace dropdown when starting a new agent session in the Agents window.](images/agents-window/agents-window-remote.png)
-
-1. Enter the SSH connection string for the remote machine (for example, `user@hostname`).
-
-1. Select the folder on the remote machine to use for the session.
-
-1. Type a prompt and press `kbstyle(Enter)` to start the session.
-
-### Connect via dev tunnel
-
-**Prerequisite**: a dev tunnel is already running on the remote machine. See [Developing with Remote Tunnels](/docs/remote/tunnels.md) for setup instructions.
-
-To start a session on a remote machine via dev tunnel:
-
-1. Select **New** or press `kb(workbench.action.chat.newChat)` to start a new agent session.
-
-1. In the workspace dropdown, select the **Remote** tab, and then select **Tunnels** and choose your account type.
-
-    ![Screenshot showing how to select Tunnels in the workspace dropdown when starting a new agent session in the Agents window.](images/agents-window/agents-window-remote.png)
-
-1. Choose the active dev tunnel from the list.
-
-1. Select the folder on the remote machine to use for the session.
-
-1. Type a prompt and press `kbstyle(Enter)` to start the session.
-
-## Use the Agents window in the browser
-
-The Agents window is also available as a web client at <https://insiders.vscode.dev/agents>, so you can manage agent sessions from any device with a browser. This is useful when you're away from your main development machine, working from a mobile device, or want to check in on sessions running on a remote host without installing Visual Studio Code locally.
-
-The browser-based Agents window connects to your development machine through a [dev tunnel](/docs/remote/tunnels.md). Agent sessions run on the remote host, and the browser acts as a lightweight client for chatting, reviewing changes, and managing sessions.
-
-### Set up a dev tunnel
-
-Before you can use the Agents window in the browser, start a dev tunnel on the machine you want to connect to:
-
-1. On your remote host, run the following command to start a dev tunnel:
-
-    ```bash
-    code-insiders tunnel
-    ```
-
-    If you're using the stable release, run `code tunnel` instead.
-
-    The first time you run this command, you're prompted to authenticate with your GitHub or Microsoft account. The tunnel requires authentication by default for security.
-
-1. After the tunnel is running, open <https://insiders.vscode.dev/agents> in a browser on any device.
-
-1. Sign in with **Continue with GitHub** when prompted. If you're already authenticated, the Agents window loads directly.
-
-1. Your tunnel host appears in the hosts bar at the top of the window. Select it to connect.
-
-1. Choose a folder on the remote machine, select an agent, and start a session.
-
-### Host management
-
-The hosts bar in the browser-based Agents window shows your available tunnel hosts. Each host displays its connection status:
-
-* **Online**: the host is reachable and you can start or continue sessions on it.
-* **Offline**: the tunnel on the host is not running. Start the tunnel on the host to bring it back online.
-
-You can connect and disconnect from hosts directly through the hosts bar. If a host goes offline while you have an active session, the session shows a disconnected state. When the host comes back online, the session reconnects automatically.
+Learn more about setting up and using remote connections in [remote agent sessions](/docs/agents/remote-agent-sessions.md).
 
 ## Create a sub-session
 
@@ -257,7 +193,7 @@ To create a sub-session:
 1. Type a prompt and press `kbstyle(Enter)` to start the sub-session.
 
 > [!TIP]
-> To explore an alternative direction from a specific point in a session's conversation, [fork the session](/docs/agents/sessions/chat-sessions.md#fork-a-chat-session). Forking a session creates a new independent session with a copy of the conversation history up to a specific point.
+> To explore an alternative direction from a specific point in a session's conversation, [fork the session](/docs/chat/chat-sessions.md#fork-a-chat-session). Forking a session creates a new independent session with a copy of the conversation history up to a specific point.
 
 ## Open multiple sessions side by side
 
@@ -270,21 +206,6 @@ You can have more than one session open at the same time in the Agents window to
 <video src="images/agents-window/sessions-grid.mp4" title="Video showing multiple agent sessions open side by side in the Agents window." autoplay loop controls muted></video>
 
 Only one session view is *active* at any time. The **Terminal**, **Files**, and **Changes** views always reflect the active session. By default, selecting a session in the sessions list replaces the active view. Pin a session view (top-right toolbar) to prevent it from being replaced.
-
-## Manage your sessions
-
-The sessions list in the sidebar shows all your active sessions across workspaces. You can group sessions by project or by timeframe to keep track of related work. Each session item surfaces the key information such as session name, workspace, agent type, and file change stats.
-
-Use the filter and search options to narrow down the list and find the session you want to work on.
-
-Select any session to view the chat conversation history and pick up where you left off. If the session is already visible in a session view, selecting it in the list activates that view. Otherwise, it replaces the current active (unpinned) session view. The Changes panel surfaces the latest file updates from the agent and a file explorer view of the workspace.
-
-![Screenshot showing the sessions list in the sidebar in the Agents window.](images/agents-window/agents-window-session-list.png)
-
-Right-click on any session in the list to see additional management options, such as renaming, deleting, and more. For advanced session management, such as archiving, forking, checkpoints, and exporting, see [Manage chat sessions](/docs/agents/sessions/chat-sessions.md) in chat documentation.
-
-> [!TIP]
-> Use the arrow buttons in the top-left of the title bar to navigate between recent sessions without leaving the window.
 
 ## Customize agents for your project and workflow
 
@@ -417,7 +338,6 @@ Yes. You can access the integrated browser via the run menu in the top right of 
 
 ## Next steps
 
-* [Manage chat sessions](/docs/agents/sessions/chat-sessions.md) - checkpoints, forking, archiving, and exporting sessions.
-* [Using agents](/docs/agents/overview.md) - agent types, delegation, and autonomy levels.
-* [Customize AI](/docs/agent-customization/overview.md) - full customization reference.
-* [Best practices](/docs/agents/best-practices.md) - tips for effective prompting.
+* [Chat overview](/docs/chat/chat-overview.md) - add context, write effective prompts, and review changes.
+* [Manage chat sessions](/docs/chat/chat-sessions.md) - checkpoints, forking, archiving, and exporting sessions.
+* [Remote agent sessions](/docs/agents/remote-agent-sessions.md) - SSH, dev tunnels, and browser-based access.

@@ -113,7 +113,7 @@ Copilot will investigate the issue and provide actionable insights:
 
 ## Run autonomous coding sessions safely in remote environments
 
-As part of completing the tasks for a user prompt, [agent mode](/docs/chat/copilot-chat.md) can run tools and terminal commands. Agent mode is powerful because it not only proposes code changes but can also run terminal commands and tools. For example, it can install project dependencies or run tests. However, some of these actions might be destructive, such as deleting files, modifying local configuration, and more. Therefore, you need to approve the use of tools and terminal commands in agent mode.
+As part of completing the tasks for a user prompt, [agent mode](/docs/chat/chat-overview.md) can run tools and terminal commands. Agent mode is powerful because it not only proposes code changes but can also run terminal commands and tools. For example, it can install project dependencies or run tests. However, some of these actions might be destructive, such as deleting files, modifying local configuration, and more. Therefore, you need to approve the use of tools and terminal commands in agent mode.
 
 ![Agent mode tool approval options dropdown](chat-tool-approval.png)
 

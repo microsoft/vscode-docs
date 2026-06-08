@@ -30,7 +30,7 @@ Follow these steps to get started with Copilot in VS Code:
 
 1. Start using Copilot in VS Code!
 
-    Learn the basics with the [Copilot Quickstart](/docs/getstarted/getting-started.md).
+    Learn the basics with the [VS Code Tutorial](/docs/getstarted/getting-started.md).
 
 1. Type `/init` in a chat session to set up your project for AI.
 
