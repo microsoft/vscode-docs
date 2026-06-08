@@ -1,14 +1,14 @@
 ---
 ContentId: 7b232695-cbbe-4f3f-a625-abc7a5e6496c
 DateApproved: 6/10/2026
-MetaDescription: Overview of the configuration settings for GitHub Copilot in Visual Studio Code.
+MetaDescription: Overview of the configuration settings for AI features and agents in Visual Studio Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
-# GitHub Copilot in VS Code settings reference
+# AI settings reference
 
-This article lists the configuration settings for GitHub Copilot in Visual Studio Code. For general information about working with settings in VS Code, refer to [User and workspace settings](/docs/configure/settings.md).
+This article lists the configuration settings for the AI features and agents in Visual Studio Code. For general information about working with settings in VS Code, refer to [User and workspace settings](/docs/configure/settings.md).
 
-The team is continuously working on improving Copilot in VS Code and adding new features. Some features are still experimental. Try them out and share your feedback in [our issues](https://github.com/microsoft/vscode/issues). Get more info about the [feature lifecycle in VS Code](/docs/configure/settings.md#feature-lifecycle).
+The team is continuously working on improving the AI features in VS Code and adding new functionality. Some features are still experimental. Try them out and share your feedback in [our issues](https://github.com/microsoft/vscode/issues). Get more info about the [feature lifecycle in VS Code](/docs/configure/settings.md#feature-lifecycle).
 
 > [!TIP]
 > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly allowance of inline suggestions and AI credits.
@@ -31,12 +31,12 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(github.copilot.editor.enableCodeActions)`<br/>Controls if Copilot commands are shown as Code Actions when available. | `true` |
+| `setting(github.copilot.editor.enableCodeActions)`<br/>Controls if AI commands are shown as Code Actions when available. | `true` |
 | `setting(github.copilot.renameSuggestions.triggerAutomatically)`<br/>Generate symbol renaming suggestions. | `true` |
 | `setting(github.copilot.enable)`<br/>Enable or disable inline suggestions for specified [languages](/docs/languages/identifiers.md). | `{ "*": true, "plaintext": false, "markdown": false, "scminput": false }` |
 | `setting(github.copilot.nextEditSuggestions.enabled)`<br/>Enables [next edit suggestions](/docs/editing/ai-powered-suggestions.md#next-edit-suggestions) (NES). | `true` |
 | `setting(editor.inlineSuggest.edits.allowCodeShifting)`<br/>Configure if NES is able to shift your code to show a suggestion. | `"always"` |
-| `setting(editor.inlineSuggest.edits.renderSideBySide)`<br/>Configure if NES can show larger suggestions side-by-side if possible, or if Copilot NES should always show larger suggestions below the relevant code. | `"auto"` |
+| `setting(editor.inlineSuggest.edits.renderSideBySide)`<br/>Configure if NES can show larger suggestions side-by-side if possible, or if NES should always show larger suggestions below the relevant code. | `"auto"` |
 | `setting(github.copilot.nextEditSuggestions.fixes)`<br/>Enable next edit suggestions based on diagnostics (squiggles). For example, missing imports. | `true` |
 | `setting(editor.inlineSuggest.edits.showCollapsed)`<br/>Show NES code changes in the editor only when you press `kbstyle(Tab)` to navigate to the suggestion or hover over the gutter arrow. | `false` |
 | `setting(editor.inlineSuggest.fontFamily)`<br/>Configure the font family for inline completions. | `"default"` |
@@ -80,7 +80,7 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 | `setting(chat.useAgentsMdFile)` <br/>Enable or disable using `AGENTS.md` files as context for chat requests. | `true` |
 | `setting(chat.math.enabled)` <br/>Enable or disable math rendering with [KaTeX](https://katex.org) in chat. | `false` |
 | `setting(chat.viewTitle.enabled)` _(Preview)_<br/>Show the title of the current chat session in the chat header. | `true` |
-| `setting(github.copilot.chat.codesearch.enabled)` _(Preview)_<br/>When using `#codebase` in the prompt, Copilot automatically discovers relevant files to be edited. | `false` |
+| `setting(github.copilot.chat.codesearch.enabled)` _(Preview)_<br/>When using `#codebase` in the prompt, the agent automatically discovers relevant files to be edited. | `false` |
 | `setting(chat.emptyState.history.enabled)` _(Experimental)_<br/>Show recent chat history in the empty state of the Chat view. | `false` |
 | `setting(imageCarousel.chat.enabled)` _(Experimental)_<br/>Enable the image carousel for browsing images from chat responses. Select image pills in tool results or assistant messages to open a carousel view. | `false` |
 | `setting(chat.sendElementsToChat.enabled)` _(Experimental)_<br/>Enable sending elements from the [integrated browser](/docs/debugtest/integrated-browser.md) to the chat view as context. | `true` |
@@ -102,7 +102,7 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 | Setting and Description | Default |
 |------------------------|---------------|
 | `setting(chat.agent.enabled:true)`<br/>Enable or disable using agents (requires VS Code 1.99 or later). | `true` |
-| `setting(chat.agent.maxRequests)`<br/>Maximum number of requests that Copilot can make using agents. | `25` |
+| `setting(chat.agent.maxRequests)`<br/>Maximum number of requests that the agent can make. | `25` |
 | `setting(github.copilot.chat.agent.autoFix)`<br/>Automatically diagnose and fix issues in the generated code changes. | `true` |
 | `setting(chat.mcp.access)`<br/>Manage which Model Context Protocol (MCP) servers can be used in VS Code. | `true` |
 | `setting(chat.mcp.discovery.enabled)`<br/>Configure automatic discovery of MCP server configuration from other applications. | `false` |

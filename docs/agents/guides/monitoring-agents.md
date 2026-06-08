@@ -440,7 +440,7 @@ OTel monitoring is off by default and emits no data until you explicitly enable 
 
 ## Related content
 
-* [Copilot settings reference](/docs/agents/reference/copilot-settings.md)
+* [AI settings reference](/docs/agents/reference/ai-settings.md)
 * [Troubleshoot AI in VS Code](/docs/agents/agent-troubleshooting/troubleshooting.md)
 * [OTel GenAI Semantic Conventions](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/gen-ai/)
 * [Inside the LLM Call: GenAI Observability with OpenTelemetry](https://opentelemetry.io/blog/2026/genai-observability/)

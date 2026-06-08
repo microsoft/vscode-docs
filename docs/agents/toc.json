@@ -118,7 +118,7 @@
         "area": "agents/reference",
         "topics": [
             ["Cheat Sheet", "/docs/agents/reference/ai-features-cheat-sheet"],
-            ["Settings Reference", "/docs/agents/reference/copilot-settings"],
+            ["Settings Reference", "/docs/agents/reference/ai-settings"],
             ["MCP Configuration", "/docs/agents/reference/mcp-configuration"],
             ["Workspace Context", "/docs/agents/reference/workspace-context"]
         ]

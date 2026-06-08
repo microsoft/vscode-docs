@@ -298,7 +298,7 @@ The following table lists the MCP-related commands available in the Command Pale
 
 ## Settings
 
-For a full list of VS Code AI settings, see the [AI Settings Reference](/docs/agents/reference/copilot-settings.md). The following settings are specific to MCP servers.
+For a full list of VS Code AI settings, see the [AI Settings Reference](/docs/agents/reference/ai-settings.md). The following settings are specific to MCP servers.
 
 | Setting | Description |
 |---------|-------------|
