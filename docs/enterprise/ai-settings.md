@@ -59,6 +59,25 @@ Chat agents can also use browser tools to open and interact with web pages in th
 
 To disable agent plugin integration in chat, set the `ChatPluginsEnabled` policy to `false`. This configures the `setting(chat.plugins.enabled)` setting in VS Code.
 
+## Manage agent plugins and marketplaces
+
+[Agent plugins](/docs/agent-customization/agent-plugins.md) are prepackaged bundles of agent customizations that developers discover and install from plugin marketplaces. Organizations can centrally control which plugins and marketplaces are available, instead of having each developer configure them locally.
+
+VS Code reads these policies from the same Copilot enterprise settings file that drives [enterprise plugin standards for Copilot CLI](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-plugin-standards), so a single policy definition applies to both clients. You can also configure them through your existing device management solution.
+
+> [!NOTE]
+> These plugin policies are experimental.
+
+The following policies are available:
+
+* To allowlist the plugin IDs that developers can use, set the `ChatEnabledPlugins` policy. This configures the `setting(chat.plugins.enabledPlugins)` setting in VS Code. The organization explicitly enables or disables each plugin in the list.
+* To make additional plugin marketplaces available, set the `ChatExtraMarketplaces` policy. This configures the `setting(chat.plugins.extraMarketplaces)` setting in VS Code. This policy has no user-facing setting and can only be configured through policy.
+* To trust only the marketplaces supplied by policy, set the `ChatStrictMarketplaces` policy to `true`. This configures the `setting(chat.plugins.strictMarketplaces)` setting in VS Code. When this policy is enabled, marketplaces that developers add through `setting(chat.plugins.marketplaces)` are not trusted.
+
+Plugins that are blocked by policy remain visible in the Extensions view but appear disabled. Marketplaces that are managed by policy are tagged as such in the marketplace picker.
+
+IT admins can verify the applied plugin policies with the **Developer: Policy Diagnostics** command, which includes a **Managed Settings** section. For more information, see [Verify policy enforcement](/docs/enterprise/policies.md#verify-policy-enforcement).
+
 ## Configure MCP server access
 
 [Model Context Protocol (MCP) servers](/docs/agent-customization/mcp-servers.md) extend chat with external tools and services. Organizations can control which MCP servers developers can use through both GitHub organization settings and VS Code policies.

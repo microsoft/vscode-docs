@@ -353,6 +353,9 @@ Marketplace plugins can also reference external package sources such as npm or P
 ]
 ```
 
+> [!NOTE]
+> Enterprise admins can centrally control which plugins and marketplaces are available to developers. For more information, see [Manage agent plugins and marketplaces](/docs/enterprise/ai-settings.md#manage-agent-plugins-and-marketplaces).
+
 ## Use local plugins
 
 If you manually clone or download a plugin, you can register it with the `setting(chat.pluginLocations)` setting. This setting maps local plugin directory paths to an enabled or disabled state.
