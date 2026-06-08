@@ -465,6 +465,8 @@ Setting: `setting(files.simpleDialog)`
 > [!TIP]
 > Use the eye icon in the top right corner to show or hide files and folders starting with a dot.
 
+When you open a folder and enter a path that doesn't exist, the simple file dialog prompts you to create the folder.
+
 ### Show Explorer view
 
 Keyboard Shortcut: `kb(workbench.view.explorer)`
