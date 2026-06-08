@@ -210,6 +210,13 @@ You can have more than one session open at the same time in the Agents window to
 
 Only one session view is *active* at any time. The **Terminal**, **Files**, and **Changes** views always reflect the active session. By default, selecting a session in the sessions list replaces the active view. Pin a session view (top-right toolbar) to prevent it from being replaced.
 
+When you have multiple sessions open, you can use keyboard shortcuts to move between them and manage them, similar to working with editors:
+
+* Press `kb(sessions.focusSessionInGrid1)` through `kb(sessions.focusSessionInGrid9)` to focus a session by its position in the grid, from left to right.
+* Press `kb(sessions.closeAllSessions)` to close all open sessions and return to the new-session view. This shortcut applies when a session has focus.
+
+These commands are also available in the Command Palette (`kb(workbench.action.showCommands)`).
+
 ## Customize agents for your project and workflow
 
 The **Customizations** panel gives you direct access to all AI customization options:
