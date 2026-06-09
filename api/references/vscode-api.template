@@ -3,8 +3,8 @@
 ContentId: 8CEBCDF8-4F0A-4C81-A904-3DEA43480EA6
 DateApproved: 02/04/2026
 
-VSCodeCommitHash: 176a9676e5176710ae404778546b3c01b011832e
-VSCodeVersion: 1.121.0
+VSCodeCommitHash: 1ec0e888245715a58ccd42565c3105846700aa88
+VSCodeVersion: 1.123.0
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Visual Studio Code extensions (plug-in) API Reference.

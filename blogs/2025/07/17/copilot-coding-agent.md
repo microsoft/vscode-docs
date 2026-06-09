@@ -82,7 +82,7 @@ But it gets even better - because you can do all of this right from VS Code.
 
 ### Start sessions from Copilot Chat
 
-We find ourselves wanting to do more and more right from the [chat panel](https://code.visualstudio.com/docs/copilot/chat/copilot-chat) in VS Code. While we love working in GitHub, many of us find that VS Code is our home base. Bringing Coding Agent into chat means you're not locked into the issue workflow. Now, you can - at any point in a chat, no matter how long - delegate the task you're working on directly to the Coding Agent. All of the context that's part of your current chat session will be handed off to the Coding Agent.
+We find ourselves wanting to do more and more right from the [chat panel](https://code.visualstudio.com/docs/chat/copilot-chat) in VS Code. While we love working in GitHub, many of us find that VS Code is our home base. Bringing Coding Agent into chat means you're not locked into the issue workflow. Now, you can - at any point in a chat, no matter how long - delegate the task you're working on directly to the Coding Agent. All of the context that's part of your current chat session will be handed off to the Coding Agent.
 
 The Coding Agent then opens a PR and goes directly to work - skipping the issue step entirely. It distills down the context into a detailed PR description and you'll see that Copilot Coding Agent makes use of "to-do lists" so that you can see what it's doing and where it is in the process at a glance.
 

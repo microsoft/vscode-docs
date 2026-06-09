@@ -55,7 +55,7 @@ Here's an example instruction our team found helpful:
 This is a dev container that includes `python3` and `pip3` pre-installed and available on the `PATH`, along with the Python language extensions for Python development.
 ```
 
-To get started with custom instructions in a remote environment, you can use the same [instruction files](/docs/copilot/customization/overview.md) remotely that you were already using locally.
+To get started with custom instructions in a remote environment, you can use the same [instruction files](/docs/agent-customization/overview.md) remotely that you were already using locally.
 
 ## Configure AI for your dev container
 
@@ -113,7 +113,7 @@ Copilot will investigate the issue and provide actionable insights:
 
 ## Run autonomous coding sessions safely in remote environments
 
-As part of completing the tasks for a user prompt, [agent mode](/docs/copilot/chat/chat-agent-mode.md) can run tools and terminal commands. Agent mode is powerful because it not only proposes code changes but can also run terminal commands and tools. For example, it can install project dependencies or run tests. However, some of these actions might be destructive, such as deleting files, modifying local configuration, and more. Therefore, you need to approve the use of tools and terminal commands in agent mode.
+As part of completing the tasks for a user prompt, [agent mode](/docs/chat/chat-overview.md) can run tools and terminal commands. Agent mode is powerful because it not only proposes code changes but can also run terminal commands and tools. For example, it can install project dependencies or run tests. However, some of these actions might be destructive, such as deleting files, modifying local configuration, and more. Therefore, you need to approve the use of tools and terminal commands in agent mode.
 
 ![Agent mode tool approval options dropdown](chat-tool-approval.png)
 
@@ -127,7 +127,7 @@ Note that remote environments that are part of your local machine (like dev cont
 
 ## What's Next
 
-We're excited about the future of Remote Development and AI in VS Code. Our monthly releases are packed with exciting new features, and we're constantly looking ahead to what's next, like supporting Copilot Chat [in the web](/docs/setup/vscode-web.md) ([vscode.dev](http://vscode.dev/microsoft/vscode), [github.dev](http://github.dev/microsoft/vscode)).
+We're excited about the future of Remote Development and AI in VS Code. Our monthly releases are packed with exciting new features, and we're constantly looking ahead to what's next, like supporting Copilot Chat [in the web](/docs/remote/vscode-web.md) ([vscode.dev](http://vscode.dev/microsoft/vscode), [github.dev](http://github.dev/microsoft/vscode)).
 
 Happy (smart and remote) coding!
 Brigit, Christof, Josh, and Olivia

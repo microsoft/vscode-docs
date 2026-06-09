@@ -1,327 +1,242 @@
 ---
 ContentId: 72ad9b70-5227-4032-81d7-6aec00a1e8f8
-DateApproved: 5/20/2026
-MetaDescription: This tutorial gives you an overview of the key features of Visual Studio Code to help you get started quickly.
+DateApproved: 6/3/2026
+MetaDescription: Get started with agentic coding in Visual Studio Code. Build an app from a prompt with the Agents window and the Chat view, and learn the VS Code basics.
 ---
-# Tutorial: Get started with Visual Studio Code
+# Tutorial: Agentic coding in VS Code
 
-In this tutorial, you learn about the key features of Visual Studio Code to help you get started quickly. You learn about the different components of the user interface, use an AI agent to build a web app, and explore how to enhance your setup with extensions. You also learn about configuring VS Code settings, using source control, and running and debugging your code.
+In this tutorial, you learn how to build with AI agents in Visual Studio Code. Agents can plan a solution, create and edit multiple files, run commands, and fix their own errors, all from a single natural-language prompt. You describe what you want, and the agent does the work.
 
-> [!TIP]
-> If you prefer a video to learn about Visual Studio Code, you can watch the [Getting Started video](https://www.youtube.com/watch?v=f8_uF_IDV50) on our YouTube channel.
+You start in the Agents window, a dedicated surface for an agent-first workflow. Then you switch to the Chat view, where an agent assists you while you work in the editor. Along the way, you pick up the VS Code basics you need, like opening a workspace, using the integrated browser, and committing your changes with source control.
 
-<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
-Follow a hands-on tutorial to build your first app with AI in VS Code.
+You build a simple personal portfolio page with HTML, CSS, and JavaScript. The page is fully static, so you don't need to install any runtimes or build tools to follow along.
 
-* [Start tutorial](/docs/copilot/getting-started.md)
+<div class="docs-action" data-show-in-doc="true" data-show-in-sidebar="true" title="Learn VS Code editor features">
+Get familiar with the VS Code user interface, editing features, and key productivity tools.
 
-</div>
-
-<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Watch the introduction video">
-Learn about the key features of Visual Studio Code in our introduction video.
-
-* [Watch video](https://www.youtube.com/watch?v=f8_uF_IDV50)
+* [Start the VS Code editing tutorial](/docs/editing/getting-started.md)
 
 </div>
 
 ## Prerequisites
 
-* [Download and install Visual Studio Code on your computer](https://code.visualstudio.com/download)
-* [Set up GitHub Copilot in VS Code](/docs/copilot/setup.md)
-* Install [Node.js](https://nodejs.org/) (for running and debugging JavaScript)
+* [Download and install Visual Studio Code](/download)
+
+* [Enable AI features in VS Code](/docs/getstarted/overview.md#enable-ai-features)
+
+* [Install Git](https://git-scm.com/)
 
 > [!TIP]
-> If you don't have a Copilot subscription yet, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
+> If you don't have a Copilot subscription yet, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly allowance of inline suggestions and AI credits.
 
-## Open a folder in VS Code
+## Create a project folder
 
-You can use VS Code to work on individual files to make quick edits, or you can open a folder, also known as a *workspace*.
+Agents work in the context of a folder, also known as a *workspace*. You start by creating a folder for your project. You don't need to open the folder in VS Code yet. In the next step, you open it in the Agents window, which lets you work across multiple workspaces without opening a separate window for each one.
 
-Let's start by creating a folder and opening it in VS Code. You'll use this folder throughout the tutorial.
+1. On your computer, create a new folder named `myportfolio`.
 
-1. Open Visual Studio Code and select **File** > **Open Folder...** from the menu to open a folder.
-
-1. Select **New Folder** and create a new folder named `vscode101`. Then select **Select Folder** (**Open** on macOS) to open the folder in VS Code.
-
-    VS Code now considers the folder you've opened a workspace.
-
-1. On the Workspace Trust dialog, select **Yes, I trust the authors** to enable all features in the workspace.
-
-    ![Screenshot that shows the Workspace Trust dialog.](images/getting-started/workspace-trust.png)
-
-    > [!IMPORTANT]
-    > Workspace Trust lets you decide whether code in your project folder can be executed by VS Code. When you download code from the internet, you should first review it to make sure it's safe to run. Get more info about [Workspace Trust](/docs/editing/workspaces/workspace-trust.md).
-
-1. You should now see the **Explorer** view on the left, showing the name of the folder.
-
-    You'll use the Explorer view to view and manage the files and folders in your workspace.
-
-    ![Screenshot of VS Code with the Explorer view opened and showing the vscode101 folder.](images/getting-started/vscode-folder-opened.png)
-
-> [!TIP]
-> When you open a folder in VS Code, VS Code can restore the UI state for that folder, such as the open files, the active view, and the layout of the editor. You can also configure settings that only apply to that folder, or define debug configurations. Get more info about [workspaces](/docs/editing/workspaces/workspaces.md).
-
-## Explore the user interface
-
-Now that you have a folder open in VS Code, let's take a quick tour of the user interface.
-
-### Switch between views with the Activity Bar
-
-1. Use the Activity Bar to switch between different views.
-
-    ![Screenshot that highlights the Activity Bar.](images/getting-started/activity-bar.png)
-
-    > [!TIP]
-    > Hover over the Activity Bar to see the name of each view and the corresponding keyboard shortcut. You can toggle a view open and closed by selecting the view again or pressing the keyboard shortcut.
-
-1. When you select a view in the Activity Bar, the **Primary Side Bar** opens to show view-specific information.
-
-    For example, the Run and Debug view enables you to configure and start debugging sessions.
-
-    ![Screenshot that shows the Activity Bar and the Run and Debug view in the Primary Side Bar.](images/getting-started/activity-bar-and-side-bar.png)
-
-    > [!TIP]
-    > Notice the **Chat** view in the Activity Bar. This is where you interact with AI agents to generate code, ask questions, and more. You'll use it in the next step to build an app.
-
-### View and edit files with the Editor
-
-1. Select the Explorer view in the Activity Bar, and select the **New File...** button to create a new file in your workspace.
-
-    ![Screenshot that shows the New File button in the Explorer view.](images/getting-started/explorer-new-file.png)
-
-1. Enter the name `index.html` and press `kbstyle(Enter)`.
-
-    A file is added to your workspace and an Editor opens in the main area of the window.
-
-    ![Screenshot that shows the Editor in the main area of the window.](images/getting-started/new-file-editor.png)
-
-1. Start typing some HTML code in the `index.html` file.
-
-    As you type, you should see suggestions popping up that help you complete your code (*IntelliSense*). You can use the `kbstyle(Up)` and `kbstyle(Down)` keys to navigate the suggestions, and `kbstyle(Tab)` to insert the selected suggestion.
-
-1. Add more files to your workspace and notice that each file opens a new Editor tab.
-
-    You can open as many editors as you like and view them side by side vertically or horizontally. Learn more about [side by side editing](/docs/getstarted/userinterface.md#side-by-side-editing).
-
-    ![Screenshot that shows multiple Editor tabs.](images/getting-started/multiple-editors.png)
-
-### Access the terminal from the Panel area
-
-1. VS Code has an integrated terminal. Open it by pressing `kb(workbench.action.terminal.toggleTerminal)`. You can also use the **View** > **Terminal** menu item.
-
-    You can choose between different shells, such as PowerShell, Command Prompt, or Bash, depending on your operating system configuration.
-
-    ![Screenshot that shows the Panel area with the Terminal view.](images/getting-started/vscode-panel.png)
-
-1. In the terminal, enter the following command to create a new file in your workspace.
+1. Put the folder under Git version control to track changes. Open a terminal and run the following commands:
 
     ```bash
-    echo "Hello, VS Code" > greetings.txt
+    cd myportfolio
+    git init
     ```
 
-    The default working folder is the root of your workspace. Notice that the Explorer view automatically picks up and shows the new file.
-
-    ![Screenshot that shows the Explorer view with the new file.](images/getting-started/terminal-new-file.png)
-
-1. You can open multiple terminals simultaneously. Select the **Launch Profile** dropdown to view the available shells and choose one.
-
-    ![Screenshot that shows the Launch Profile dropdown with the available shells.](images/getting-started/terminal-launch-profile.png)
-
-### Access commands with the Command Palette
-
-1. Open the **Command Palette** by pressing `kb(workbench.action.showCommands)`. You can also use the **View** > **Command Palette** menu item.
-
-    Many of the commands in VS Code are available through the Command Palette. When you install extensions, they can add extra commands to the Command Palette.
-
-    ![Screenshot that shows the Command Palette.](images/getting-started/command-palette.png)
-
     > [!TIP]
-    > Notice that the Command Palette shows the default keyboard shortcut for commands that have one. You can use the keyboard shortcut to run the command directly.
+    > You can also initialize a repository from the **Source Control** view in VS Code.
 
-1. The Command Palette supports different modes of operation:
+## Build features with the Agents window
 
-    1. **Command mode (`>`)**: after the `>` symbol, start typing to filter the command list. For example, type `move terminal` to find commands to move the terminal to a new window.
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Explore the Agents window">
+Use the Agents window to run and monitor agent sessions across your projects from a single place in VS Code.
 
-        ![Screenshot that shows the Command Palette, listing the entries for moving the terminal.](images/getting-started/command-palette-move-terminal.png)
+* [Learn about the Agents window](/docs/agents/agents-window.md)
 
-    1. **Quick Open mode**: remove the `>` character and start typing to search for files in your workspace. You can use the `kb(workbench.action.quickOpen)` keyboard shortcut to open the Command Palette and start searching for files directly.
+</div>
 
-        ![Screenshot that shows the Quick Open feature in the Command Palette.](images/getting-started/quick-open.png)
+The Agents window (preview) is a dedicated window in VS Code that is optimized for working with agents across all your projects without needing to open a separate VS Code window for each one.
 
-    1. **Symbol search mode (`#`)**: replace the `>` character by `#` to search for symbols like variables or functions in your code.
+In this part, you open your folder in the Agents window and task an agent to build your portfolio page.
 
-> [!TIP]
-> VS Code uses fuzzy matching to find files or commands. For example, typing `odks` returns the `Open Default Keyboard Shortcuts` command.
+### Open the Agents window
 
-## Build an app with an AI agent
+1. In VS Code, select the **Open in Agents** button in the VS Code title bar.
 
-Visual Studio Code has built-in support for GitHub Copilot for AI-powered coding. AI agents can autonomously plan a solution, create and edit multiple files, run terminal commands, and iterate on errors, all from a single natural-language prompt. You describe what you want, and the agent does whatever is needed to get the job done.
+    You can also open the Agents window from the VS Code welcome page, or run the **Chat: Open Agents Window** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
-Let's use agents to build a recipe list web app from a single prompt.
+    ![Screenshot of the Open in Agents button in the VS Code title bar.](images/getting-started/open-in-agents-button.png)
 
-1. Open the Chat view by pressing `kb(workbench.action.chat.open)`.
+1. If you're prompted to sign in, select a sign-in method and continue.
 
-1. Select **Agent** from the dropdown in the Chat view. Agents enable the AI to autonomously create and edit files, run terminal commands, and more.
+    The Agents window needs access to your GitHub Copilot subscription to run agent sessions. If you're already signed in to GitHub in VS Code, you're signed in here too.
 
-    ![Screenshot that shows the Agent mode selector in the Chat view.](images/getting-started/chat-agent-mode.png)
+### Start an agent session
 
-1. Enter the following prompt in the chat input box:
+1. Select **New** at the top of the left sidebar to start a new session.
+
+    ![Screenshot of the New button in the Agents window sidebar.](images/getting-started/agents-new-session.png)
+
+    The sidebar shows your list of active agent sessions, grouped by workspace. You can use the sessions list to switch between sessions. In the bottom left, you can configure customizations to modify the agent's behavior to match your coding practices.
+
+1. In the workspace dropdown, select the `myportfolio` folder on your machine.
+
+    ![Screenshot of the workspace dropdown and Agent selection in the Agents window.](images/getting-started/workspace-dropdown.png)
+
+    If you're prompted to trust the folder, select **Yes, I trust the authors**.
+
+    > [!IMPORTANT]
+    > Workspace Trust lets you decide whether code in your project folder can be executed. When you download code from the internet, you should first review it to make sure it's safe to run. Get more info about [Workspace Trust](/docs/editing/workspaces/workspace-trust.md).
+
+1. Make sure the **Copilot CLI** agent type is selected. This indicates that Copilot CLI runs the agent session on your local machine.
+
+    VS Code installs and configures Copilot CLI for you, so there's nothing extra to set up.
+
+1. Keep the other default configuration options:
+
+    * **Agent**: the generic agent for performing the task. For specialized tasks, you could create custom agents, like a code review or testing agent.
+    * **Language model**: depending on your setup, you can choose from multiple language models and configure additional settings.
+    * **Default Approvals**: the agent will automatically approve safe actions but will ask for your approval for potentially risky actions.
+    * **Folder & branch**: the agent works directly on the files in your folder and commits to the current branch.
+
+1. Enter the following prompt in the chat input and press `kbstyle(Enter)`:
 
     ```prompt
-    Create a recipe list app with HTML, CSS, and JavaScript in separate files. Include an input field to add recipes with a name and description, a list to display them, and a delete button for each item. Use modern styling. Add some sample recipes to the list.
+    Create a personal portfolio page with HTML, CSS, and JavaScript in separate files. Include a header with my name and a short bio, a section for projects with cards, and a contact section. Use modern styling and add some sample content.
     ```
 
-    > [!NOTE]
-    > If you haven't set up GitHub Copilot yet, you are prompted to sign in to your GitHub account and set up Copilot before you can send the prompt. If you don't have a Copilot subscription, you're associated with a free account that gives you a monthly limit of completions and chat interactions.
+1. The agent analyzes your request, plans the work, and then starts creating and editing files. If it encounters errors, it self-corrects or asks for clarification and approval.
 
-1. Press `kbstyle(Enter)` to send the prompt.
+    ![Screenshot of the agent generating the portfolio page files in the Agents window.](images/getting-started/agent-generating-files.png)
 
-    The agent starts generating the app. Notice how it creates multiple files, shows you the proposed changes, and might request approval to run terminal commands.
+### Preview and iterate on the design
 
-    ![Screenshot that shows the agent generating the recipe list app in the Chat view.](images/getting-started/agent-generating-app.png)
+The Agents window is great for workflows where you hand off tasks to the agent and then validate the outcome, rather than the specific code. For web-based applications, you can preview the agent's work in the integrated browser without having to leave VS Code.
 
-1. Review the generated files and select **Keep** in the Chat view to accept all changes.
+To preview the generated portfolio in the integrated browser:
 
-In the next step, you install an extension to host the app in an integrated browser.
+1. The **Files** panel shows the files the agent created. Right-click the `index.html` file and select **Open in Integrated Browser**.
 
-## Enhance your setup with extensions
+    If you don't see the option to open in the integrated browser, make sure you are in the **Files** panel.
 
-VS Code has a rich ecosystem of extensions that let you add languages, debuggers, and tools to your installation to support your development workflow. There are thousands of extensions available in the [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode).
+    ![Screenshot of the portfolio page open in the integrated browser in the Agents window.](images/getting-started/portfolio-integrated-browser.png)
 
-Let's install an extension that helps with the recipe list app you just built.
+    > [!TIP]
+    > Select the **Open in Editor Area** button in the modal window title bar to view the browser alongside the chat conversation.
 
-1. Select the **Extensions** view in the Activity Bar.
+1. Let's make a design change to the page. In the integrated browser, select the **Add Element to Chat** button to enter selection mode.
 
-    The Extensions view enables you to browse and install extensions from within VS Code.
+    ![Screenshot of the integrated browser toolbar, highlighting the Add Element to Chat button.](images/getting-started/add-element-to-chat-button.png)
 
-    ![Screenshot that shows the Extensions view, highlighting the Extensions icon in the Activity Bar.](images/getting-started/extensions-view.png)
+1. Hover over the page and select an element you want to change, for example select the main title.
 
-1. Enter *Live Preview* in the Extension view search box. Select the **Live Preview** extension published by Microsoft, and then select the **Install** button.
+    The agent adds the selected element to your prompt as context, including its HTML, CSS, and a screenshot.
 
-    Live Preview launches a local development server with live reload for static and dynamic pages.
-
-1. Open the `index.html` file, right-click in the editor, and select **Show Preview**.
-
-    Your recipe list app now opens in a browser. When you make changes to your code, the browser automatically refreshes to show the latest version.
-
-    ![Screenshot that shows the recipe list app preview.](images/getting-started/recipe-list-preview.png)
-
-1. Continue the chat conversation by asking the agent to add a feature. Enter the following prompt:
+1. In the chat input, enter a prompt that describes the change you want, and press `kbstyle(Enter)`. For example:
 
     ```prompt
-    Add the ability to mark recipes as favorites with a star icon. Favorite recipes should appear at the top of the list.
+    Use a gradient color for the text and use cursive.
     ```
 
-    The agent modifies the existing files to add the new feature. This shows how you can iteratively build on your app with follow-up prompts.
+1. The agent applies the change to the element you selected. Refresh the page in the integrated browser to see the updates.
 
-Explore more AI features in VS Code with the [Copilot Quickstart](/docs/copilot/getting-started.md).
+> The integrated browser lets you view and iterate on the agent's work without switching context.
 
-## Configure VS Code settings
+### Review and commit the changes
 
-You can customize almost every part of VS Code by configuring settings. You can use the **Settings Editor** to modify the settings in VS Code or directly modify the `settings.json` file.
+Before you commit the agent's work, you might want to review the actual code changes that the agent applied. The **Changes** panel lists every file the agent created or modified during its session. To review and commit the file changes:
 
-1. Press `kb(workbench.action.openSettings)` to open the Settings Editor (or select the **File** > **Preferences** > **Settings** menu item).
+1. Select the **Changes** panel to see the list of files the agent added or modified. Each item also shows change stats and an add/delete/update indicator.
 
-    ![Screenshot that shows the Settings Editor.](images/getting-started/settings-editor.png)
+    ![Screenshot of the Changes panel in the Agents window, showing the list of files changed by the agent.](images/getting-started/changes-panel.png)
 
-    > [!TIP]
-    > Use the search box to filter the list of settings that are shown.
+    Notice that the summary change stats are also shown in sessions list.
 
-1. By default, VS Code doesn't automatically save modified files. Select a value from the Auto Save dropdown to change this behavior.
+1. Select a file to open the diff view and review the agent's edits. You can move between the different files with the navigation controls in the title bar.
 
-    ![Screenshot that shows the Auto Save dropdown in the Settings Editor.](images/getting-started/settings-editor-auto-save.png)
+    ![Screenshot of the diff view showing the changes made by the agent to a file.](images/getting-started/diff-view.png)
 
-    VS Code automatically applies changes to settings. When you modify a file in your workspace, it should now be automatically saved.
-
-1. To revert a setting to its default value, select the gear icon next to the setting and select **Reset Setting**.
-
-    ![Screenshot that shows the gear icon next to a setting in the Settings Editor.](images/getting-started/settings-editor-reset-setting.png)
+    In this case, all files were newly created, so the diff view shows all lines as additions. For modified files, you'll see both additions and deletions.
 
     > [!TIP]
-    > You can quickly find all modified settings by typing `@modified` in the search box or selecting the **Modified** filter.
+    > When you select a block of text in the diff view, you can submit inline feedback to the agent about that specific part of the code.
 
-1. You can use the tabs in the Settings Editor to switch between **User** settings and **Workspace** settings.
+1. Close the diff view and select **Commit Changes** in the **Changes** panel to save the agent's changes to your Git repository.
 
-    User settings apply across all your workspaces. Workspace settings only apply to the current workspace. Workspace settings override user settings. Get more information about [settings in VS Code](/docs/configure/settings.md).
+    After committing the changes, the **Changes** panel is back empty because there are no pending changes. The change stats are also cleared from the entry in the session list.
 
-## Use source control
+## Write code with agents in the editor
 
-Visual Studio Code has integrated source control management (SCM) and includes [Git](https://git-scm.com/) support out-of-the-box.
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Explore the Chat view">
+Use the Chat view alongside your editor to let agents assist you with coding tasks in your active workspace.
 
-Let's use the built-in Git support to commit the changes you've made previously.
+* [Learn about the Chat view](/docs/agents/chat-view.md)
 
-1. Select the **Source Control** view in the Activity Bar to open the Source Control view.
+</div>
 
-    ![Screenshot that shows the Source Control view, highlighting the button in the Activity Bar.](images/getting-started/source-control-view.png)
+For some changes, you might prefer a code-first approach, where your focus is on writing code and agents help you in the process. For example, you might want to add a theme switcher and fine-tune the styles as you go. For this approach, you switch to the editor and use the Chat view.
 
-1. Make sure you have [Git](https://git-scm.com/) installed on your computer. If you don't have Git installed, you'll see a button in the Source Control view to install it on your machine.
+### Open the editor for your workspace
 
-1. Select **Initialize Repository** to create a new Git repository for your workspace.
+1. In the Agents window, select the **Open in Editor** button in the title bar to open the active workspace in the editor.
 
-    ![Screenshot that shows the Source Control view, highlighting the Initialize Repository button.](images/getting-started/source-control-initialize.png)
+    ![Screenshot of the Open in Editor button in the Agents window title bar.](images/getting-started/open-in-editor-button.png)
 
-    After you initialize a repository, the Source Control view shows the changes you've made in your workspace.
+    This opens a new VS Code window with your workspace. The Chat view is still open in the right sidebar, so you can interact with agents while you work in the editor.
 
-1. You can stage individual changes by hovering over a file and selecting `+` next to a file.
+1. Notice that the left sidebar shows the **Explorer** view, which displays the files in your workspace. Select a file to open it in an editor tab in the main area.
 
-    ![Screenshot that shows the Source Control view with changes in the workspace.](images/getting-started/source-control-changes.png)
+    ![Screenshot of the editor showing the Explorer view with the portfolio files and the Chat view with the active agent session.](images/getting-started/explorer-and-chat-view.png)
 
-    > [!TIP]
-    > To stage all changes, hover over **Changes** and select the **Stage All Changes** button.
+    The Chat view in the right sidebar shows the ongoing agent session you created previously in the Agents window.
 
-1. Enter a commit message, for example `Add recipe list app`, and then select the **Commit** to commit the changes to your Git repository.
+### Start a new session from the Chat view
 
-    ![Screenshot that shows the Source Control view with a commit message.](images/getting-started/source-control-commit.png)
+The Chat view is located in the right sidebar of the editor, alongside your editor tabs, and is optimized for letting agents assist you while you're writing code.
 
-    > [!TIP]
-    > Select **Graph** in the Source Control view to show a visual representation of the commit history of your Git repository.
+In this step, you start a new session to run an agent to add a theme switcher to your portfolio page. The agent applies the changes directly to your files, and you can review them as inline diffs in the editor.
 
-There's a lot more to discover about source control in VS Code. Get more info about [source control in VS Code](/docs/sourcecontrol/overview.md).
+1. Select **New Chat** (`+`) to start a new session.
 
-## Run and debug your code
+    ![Screenshot of the New Chat button in the Chat view title bar.](images/getting-started/new-chat-button.png)
 
-VS Code has built-in support for running and debugging JavaScript and Node.js applications. Let's use the debugger to step through the recipe list app that the agent generated.
+1. Make sure **Local** is selected from the **Session Target** dropdown to run the agent in the context of the editor, with access to your files, tools, and the integrated browser.
 
-> [!NOTE]
-> Because the agent generates code dynamically, the file names and function names in your project might differ from the examples shown here. Look for similar patterns in your own generated code.
+    ![Screenshot of the Session Target dropdown in the Chat view, showing the Local option selected.](images/getting-started/session-target-dropdown.png)
 
-1. Open the JavaScript file that the agent created for your recipe list app (for example, `app.js` or `script.js`).
+1. Enter the following prompt in the chat input and press `kbstyle(Enter)`:
 
-1. Find the function that handles adding a recipe (for example, `addRecipe`). Place the cursor on the first line inside the function body and press `kbstyle(F9)` to set a breakpoint.
+    ```prompt
+    Add a theme switcher button that toggles between a light and dark color theme for the page.
+    ```
 
-    A red dot appears in the left margin of the editor, indicating that a breakpoint is set. With a breakpoint, you can pause the execution of your program at a specific line of code.
+    The agent applies the changes to your files. You can see the changes stream into the editor in real time as inline diffs.
 
-    ![Screenshot that shows a breakpoint set in the addRecipe function in the JavaScript file.](images/getting-started/js-set-breakpoint.png)
+1. The Chat view shows the list of changed files. Open a file to review the changes directly in the editor, where you can use the overlay controls to **Keep** or **Undo** individual edits.
 
-1. Open the Run and Debug view in the Activity Bar, select **Debug URL**, and enter the URL of your recipe list app preview (for example, `http://localhost:3000`).
+    ![Screenshot of the inline diff view in the editor, showing the changes made by the agent and the Keep and Undo controls.](images/getting-started/inline-diff-editor.png)
 
-    ![Screenshot that shows the Debug URL configuration in the Run and Debug view.](images/getting-started/debug-url.png)
+    Select **Keep** to accept the changes.
 
-    The debugger starts and launches a browser window with your app.
+1. Select the `index.html` file and select the **Open in Integrated Browser** (globe) button in the title bar to preview the page with the new theme switcher in the integrated browser.
 
-1. When the breakpoint is hit, the execution pauses and VS Code highlights the current line.
+1. Ask the agent to preview the page and validate the new feature itself in the browser. This way, the agent can iterate on its changes based on what it sees in the browser. Enter the following prompt and press `kbstyle(Enter)`:
 
-    ![Screenshot that shows the program stopped at a breakpoint in the editor, highlighting the Variables view to inspect variables.](images/getting-started/vscode-debugging.png)
+    ```prompt
+    Verify that the theme switcher works correctly and review the design aligns with the rest of the page. If there are any issues, fix them.
+    ```
 
-    > [!TIP]
-    > Inspect the values of variables by hovering over them in the editor while the execution is paused. You can view all variables at any time in the **Variables** view in the **Run and Debug** view.
+    ![Screenshot of the agent opening the integrated browser for previewing and validating its changes.](images/getting-started/agent-validate-changes.png)
 
-1. Use the Debug toolbar to step through the code. Press **Step Over** (`kbstyle(F10)`) to execute the current line and move to the next one, or press **Continue** (`kbstyle(F5)`) to resume execution.
+    The agent asks to approve opening the integrated browser. Select **Allow in this session** to let the agent access the browser for previewing and validating its changes.
 
-    ![Screenshot that shows the Debug toolbar with the Continue button highlighted.](images/getting-started/debug-toolbar-play.png)
-
-There are many more debugging features in VS Code, such as watch variables, conditional breakpoints, and launch configurations. Dive into the details of [debugging in VS Code](/docs/debugtest/debugging.md).
+Congratulations! You built a portfolio page by using AI agents, where you used both an agent-first and code-first approach. You used the integrated browser to let the agent preview and validate its own changes.
 
 ## Next steps
 
-Congratulations! You've completed the tutorial and explored some of the key features of Visual Studio Code. Now that you've learned the basics of Visual Studio Code, get more info about how to:
+To go deeper with agentic coding in Visual Studio Code, get more info about how to:
 
-* [Build your first app with AI](/docs/copilot/getting-started.md)
+* [Explore different agent types and hand off tasks](/docs/agents/agents-tutorial.md)
 
-* [Explore different agent types](/docs/copilot/agents/agents-tutorial.md)
+* [Learn more about the Agents window](/docs/agents/agents-window.md)
 
-* [Discover and run unit tests for your code](/docs/debugtest/testing.md)
-
-* [Use the integrated terminal](/docs/terminal/getting-started.md)
-
-* [Set up a remote development environment](/docs/remote/remote-overview.md)
+* [Learn more about the Chat view](/docs/agents/chat-view.md)

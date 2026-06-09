@@ -177,6 +177,11 @@ async function updateDocumentation(docDate) {
 
 	const patterns = [
 		'api/**/*.md',
+		'docs/agent-customization/**/*.md',
+		'docs/agents/**/*.md',
+		'docs/chat/**/*.md',
+		'docs/core-editor/**/*.md',
+		'docs/extension-docs/**/*.md',
 		'docs/setup/**/*.md',
 		'docs/getstarted/**/*.md',
 		'docs/editing/**/*.md',

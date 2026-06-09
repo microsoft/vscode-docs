@@ -1,6 +1,6 @@
 ---
 ContentId: 7E22CCC0-2AB8-4729-A4C9-BE2B16853820
-DateApproved: 5/20/2026
+DateApproved: 6/3/2026
 MetaDescription: Learn how to use VS Code's integrated Git source control features like staging, committing, branching, merge conflict resolution, and GitHub integration.
 Keywords:
 - source control
@@ -166,4 +166,4 @@ Browse available SCM provider extensions in the Extensions view (`kb(workbench.v
 * [Repositories and Remotes](/docs/sourcecontrol/repos-remotes.md) - Learn about cloning, publishing, and syncing with remote repositories
 * [Working with GitHub](/docs/sourcecontrol/github.md) - Learn how to work with pull requests and issues in VS Code
 * [Troubleshooting](/docs/sourcecontrol/troubleshooting.md) - Diagnose and resolve Git issues with output logs and trace logging
-* [Copilot in VS Code](/docs/copilot/overview.md) - Discover more AI-powered features beyond Git workflows
+* [Copilot in VS Code](/docs/agent-native/overview.md) - Discover more AI-powered features beyond Git workflows

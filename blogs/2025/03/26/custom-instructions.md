@@ -12,7 +12,7 @@ Author: Rob Conery, Harald Kirschner
 
 March 26, 2025 by Rob Conery, [@robconery.com](https://bsky.app/profile/robconery.com), Burke Holland, [@burkeholland](https://twitter.com/burkeholland)
 
-Earlier this month, we announced the general availability of [custom instructions in Visual Studio Code](https://code.visualstudio.com/docs/copilot/copilot-customization). Custom instructions are how you give Copilot specific context about your team's workflow, your particular style preferences, libraries the model may not know about, etc.
+Earlier this month, we announced the general availability of [custom instructions in Visual Studio Code](https://code.visualstudio.com/docs/agent-customization/custom-instructions). Custom instructions are how you give Copilot specific context about your team's workflow, your particular style preferences, libraries the model may not know about, etc.
 
 In this post we'll dive into what custom instructions are, how you can use them today to drastically improve your results with GitHub Copilot, and even a brand new preview feature called "prompt files" that you can try today.
 

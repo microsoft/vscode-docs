@@ -20,11 +20,11 @@ This guide covers what prompt files are, why they matter, and how to use them ef
 Before you start: you'll need VS Code Insiders installed and the GitHub Copilot and GitHub Copilot Chat extensions set up and signed in.
 
 - [Download VS Code](https://code.visualstudio.com/)
-- [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/overview#_step-1-set-up-copilot)
+- [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/agent-native/overview#_step-1-set-up-copilot)
 
 ## What are prompt files?
 
-[Prompt files](https://code.visualstudio.com/docs/copilot/customization/prompt-files) are reusable Markdown files that define instructions or context for chat sessions.
+[Prompt files](https://code.visualstudio.com/docs/agent-customization/prompt-files) are reusable Markdown files that define instructions or context for chat sessions.
 
 Instead of rewriting the same prompt repeatedly, you create it once and reference it whenever needed. This allows you to standardize workflows across projects or even across teams.
 
@@ -143,9 +143,9 @@ If you want even more control over how AI behaves, the next step is exploring cu
 
 ## Learn more
 
-- [Customize AI in Visual Studio Code](https://code.visualstudio.com/docs/copilot/customization/overview)
-- [Use prompt files in VS Code](https://code.visualstudio.com/docs/copilot/customization/prompt-files)
-- [Use custom instructions in VS Code](https://code.visualstudio.com/docs/copilot/customization/custom-instructions)
-- [Use agent skills in VS Code](https://code.visualstudio.com/docs/copilot/customization/agent-skills)
-- [Use custom agents in VS Code](https://code.visualstudio.com/docs/copilot/customization/custom-agents)
+- [Customize AI in Visual Studio Code](https://code.visualstudio.com/docs/agent-customization/overview)
+- [Use prompt files in VS Code](https://code.visualstudio.com/docs/agent-customization/prompt-files)
+- [Use custom instructions in VS Code](https://code.visualstudio.com/docs/agent-customization/custom-instructions)
+- [Use agent skills in VS Code](https://code.visualstudio.com/docs/agent-customization/agent-skills)
+- [Use custom agents in VS Code](https://code.visualstudio.com/docs/agent-customization/custom-agents)
 - [Community contributed customization features](https://github.com/github/awesome-copilot)

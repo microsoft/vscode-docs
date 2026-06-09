@@ -1,0 +1,104 @@
+[
+  {
+    "name": "Container Tools",
+    "area": "containers",
+    "topics": [
+      ["Overview", "/docs/containers/overview"],
+      ["Node.js", "/docs/containers/quickstart-node"],
+      ["Python", "/docs/containers/quickstart-python"],
+      ["ASP.NET Core", "/docs/containers/quickstart-aspnet-core"],
+      ["Debug", "/docs/containers/debug-common"],
+      ["Docker Compose", "/docs/containers/docker-compose"],
+      ["Registries", "/docs/containers/quickstart-container-registries"],
+      ["Deploy to Azure", "/docs/containers/app-service"],
+      ["Choose a Dev Environment", "/docs/containers/choosing-dev-environment"],
+      ["Customize", "/docs/containers/reference"],
+      ["Develop with Kubernetes", "/docs/containers/bridge-to-kubernetes"],
+      ["Tips and Tricks", "/docs/containers/troubleshooting"]
+    ]
+  },
+  {
+    "name": "Data Science",
+    "area": "datascience",
+    "topics": [
+      ["Overview", "/docs/datascience/overview"],
+      ["Jupyter Notebooks", "/docs/datascience/jupyter-notebooks"],
+      ["Data Science Tutorial", "/docs/datascience/data-science-tutorial"],
+      ["Python Interactive", "/docs/datascience/python-interactive"],
+      ["Data Wrangler Quick Start", "/docs/datascience/data-wrangler-quick-start"],
+      ["Data Wrangler", "/docs/datascience/data-wrangler"],
+      ["PyTorch Support", "/docs/datascience/pytorch-support"],
+      ["Azure Machine Learning", "/docs/datascience/azure-machine-learning"],
+      ["Manage Jupyter Kernels", "/docs/datascience/jupyter-kernel-management"],
+      ["Jupyter Notebooks on the Web", "/docs/datascience/notebooks-web"],
+      ["Data Science in Microsoft Fabric", "/docs/datascience/microsoft-fabric-quickstart"]
+    ]
+  },
+  {
+    "name": "Intelligent Apps",
+    "area": "intelligentapps",
+    "topics": [
+      ["Foundry Toolkit Overview", "/docs/intelligentapps/overview"],
+      ["Foundry Toolkit Copilot Tools", "/docs/intelligentapps/copilot-tools"],
+      ["Create Agents", "/docs/intelligentapps/create-agents"],
+      ["Models", "/docs/intelligentapps/models"],
+      ["Playground", "/docs/intelligentapps/playground"],
+      ["Agent Builder", "/docs/intelligentapps/agentbuilder"],
+      ["Agent Inspector", "/docs/intelligentapps/agent-inspector"],
+      ["Hosted Agents (Preview)", "/docs/intelligentapps/hosted-agents"],
+      ["Evaluation", "/docs/intelligentapps/evaluation"],
+      ["Tool Catalog", "/docs/intelligentapps/tool-catalog"],
+      ["Fine-Tuning (Automated Setup)", "/docs/intelligentapps/finetune"],
+      ["Fine-Tuning (Project Template)", "/docs/intelligentapps/finetune-legacy"],
+      ["Model Conversion", "/docs/intelligentapps/modelconversion"],
+      ["Tracing", "/docs/intelligentapps/tracing"],
+      ["Profiling (Windows ML)", "/docs/intelligentapps/profiling"],
+      ["FAQ", "/docs/intelligentapps/faq"],
+      ["", "", {
+        "name": "Reference",
+        "area": "intelligentapps/reference",
+        "topics": [
+          ["File Structure", "/docs/intelligentapps/reference/FileStructure"],
+          ["Manual Model Conversion", "/docs/intelligentapps/reference/ManualModelConversion"],
+          ["Manual Model Conversion on GPU", "/docs/intelligentapps/reference/ManualConversionOnGPU"],
+          ["Setup Environment Without Foundry Toolkit", "/docs/intelligentapps/reference/SetupWithoutAITK"],
+          ["Update Project", "/docs/intelligentapps/reference/UpdateModelProject"],
+          ["Template Project", "/docs/intelligentapps/reference/TemplateProject"],
+          ["Migrating from Visualizer to Agent Inspector", "/docs/intelligentapps/reference/migrate-from-visualizer"]
+        ]
+      }
+      ]
+    ]
+  },
+  {
+    "name": "Azure",
+    "area": "azure",
+    "topics": [
+      ["Overview", "/docs/azure/overview"],
+      ["Getting Started", "/docs/azure/gettingstarted"],
+      ["Resources View", "/docs/azure/resourcesextension"],
+      ["Deployment", "/docs/azure/deployment"],
+      ["VS Code for the Web - Azure","/docs/azure/vscodeforweb"],
+      ["Containers", "/docs/azure/containers"],
+      ["Azure Kubernetes Service", "/docs/azure/aksextensions"],
+      ["Kubernetes", "/docs/azure/kubernetes"],
+      ["MongoDB", "/docs/azure/mongodb"],
+      ["Remote Debugging for Node.js", "/docs/azure/remote-debugging"]
+    ]
+  },
+  {
+    "name": "Dev Containers",
+    "area": "devcontainers",
+    "topics": [
+      ["Overview", "/docs/devcontainers/containers"],
+      ["Tutorial", "/docs/devcontainers/tutorial"],
+      ["Attach to Container", "/docs/devcontainers/attach-container"],
+      ["Create Dev Container", "/docs/devcontainers/create-dev-container"],
+      ["Advanced Containers", "/docs/devcontainers/containers-advanced"],
+      ["devcontainer.json", "/docs/devcontainers/devcontainerjson-reference"],
+      ["Dev Container CLI", "/docs/devcontainers/devcontainer-cli"],
+      ["Tips and Tricks", "/docs/devcontainers/tips-and-tricks"],
+      ["FAQ", "/docs/devcontainers/faq"]
+    ]
+  }
+]

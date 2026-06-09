@@ -20,11 +20,11 @@ This guide breaks down what custom instructions really are, how they’re meant 
 Before you start: you'll need VS Code Insiders installed and the GitHub Copilot and GitHub Copilot Chat extensions set up and signed in.
 
 - [Download VS Code](https://code.visualstudio.com/)
-- [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/overview#_step-1-set-up-copilot)
+- [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/agent-native/overview#_step-1-set-up-copilot)
 
 ## What are custom instructions?
 
-A [custom instruction](https://code.visualstudio.com/docs/copilot/customization/custom-instructions) is like a rulebook for your AI.
+A [custom instruction](https://code.visualstudio.com/docs/agent-customization/custom-instructions) is like a rulebook for your AI.
 
 It’s a Markdown file where you define:
 
@@ -184,6 +184,6 @@ If you want to go further and define reusable capabilities, the next step is exp
 
 ## Learn more
 
-- [Customize AI in Visual Studio Code](https://code.visualstudio.com/docs/copilot/customization/overview)
-- [Use custom instructions in VS Code](https://code.visualstudio.com/docs/copilot/customization/custom-instructions)
+- [Customize AI in Visual Studio Code](https://code.visualstudio.com/docs/agent-customization/overview)
+- [Use custom instructions in VS Code](https://code.visualstudio.com/docs/agent-customization/custom-instructions)
 - [Community contributed customization features](https://github.com/github/awesome-copilot)
