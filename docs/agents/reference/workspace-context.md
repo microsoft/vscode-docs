@@ -17,6 +17,8 @@ Keywords:
 - grep
 - text search
 - agentic search
+- files.exclude
+- search.exclude
 ---
 
 # How Copilot understands your workspace
@@ -76,6 +78,53 @@ Agents search through the same sources a developer would use when navigating a c
 
 > [!IMPORTANT]
 > `.gitignore` is bypassed if you have a file open or have text selected within an ignored file.
+
+### Improve agent search with exclusion settings
+
+When an agent searches your workspace with **text search** or **grep**, every match returned becomes part of the conversation context, even if the agent never opens the file. Generated files, build artifacts, logs, and large datasets can produce many irrelevant matches that bury useful results and fill the context window with noise.
+
+Configure exclusion settings to keep agent searches focused on source code you care about:
+
+* **`.gitignore`**: excludes files from text search, grep, and the [semantic index](#what-content-is-included-in-the-semantic-index).
+* **`setting(files.exclude)`**: hides files from the Explorer and excludes them from text search, grep, and the semantic index.
+* **`setting(search.exclude)`**: excludes files from text search and grep while keeping them visible in the Explorer.
+
+Strict exclusions improve search relevance, speed up searches over large workspaces, and reduce the tokens consumed by search results. This also helps [manage AI credit usage](/docs/agents/guides/optimize-usage.md#exclude-files-from-copilot-context).
+
+Add exclusion patterns to your [workspace settings](/docs/configure/settings.md). Patterns use [glob syntax](/docs/editor/glob-patterns.md).
+
+**Node.js**
+
+```json
+"search.exclude": {
+  "**/node_modules": true,
+  "**/dist": true,
+  "**/coverage": true
+}
+```
+
+**Python**
+
+```json
+"search.exclude": {
+  "**/__pycache__": true,
+  "**/.venv": true,
+  "**/.pytest_cache": true
+}
+```
+
+**AI and data projects**
+
+```json
+"search.exclude": {
+  "**/*.jsonl": true,
+  "**/*.parquet": true,
+  "**/datasets/**": true
+}
+```
+
+> [!TIP]
+> When a text search returns no results because of exclusion settings, the agent receives a hint and can search ignored paths if needed, for example when investigating a dependency in `node_modules`.
 
 ## Semantic search
 

@@ -65,12 +65,15 @@ For more information, see [Use tools in chat](/docs/chat/chat-tools.md).
 
 ## Exclude files from Copilot context
 
-Large generated files, build outputs, or irrelevant directories can be included in the AI context, increasing token usage without adding value. Exclude these files to reduce unnecessary context:
+Large generated files, build outputs, or irrelevant directories can increase token usage without adding value. Exclude these files to keep agent context focused:
 
-* Use a `.gitignore` file to exclude files from the [workspace index](/docs/agents/reference/workspace-context.md#what-content-is-included-in-the-semantic-index). The workspace index respects `.gitignore` rules.
-* Use the `setting(files.exclude)` setting to hide files from VS Code entirely, which also excludes them from the index.
+* Use a `.gitignore` file to exclude files from the [workspace index](/docs/agents/reference/workspace-context.md#what-content-is-included-in-the-semantic-index) and from agent text search and grep.
+* Use the `setting(files.exclude)` setting to hide files from VS Code entirely, which also excludes them from the index and agent search tools.
+* Use the `setting(search.exclude)` setting to exclude files from agent text search and grep while keeping them visible in the Explorer, for example log files you want to open manually but not include in search results.
 
-For more information, see [workspace context](/docs/agents/reference/workspace-context.md).
+Search match snippets count toward the context window even when the agent doesn't open the matched file. Excluding noisy paths reduces irrelevant tokens in search results.
+
+For more information and example configurations, see [improve agent search with exclusion settings](/docs/agents/reference/workspace-context.md#improve-agent-search-with-exclusion-settings).
 
 ## Manage context with compaction
 
