@@ -221,13 +221,6 @@ The [Agents view](/docs/agents/overview.md) provides a centralized location for 
 | `setting(chat.agentSkillsLocations)` <br/>Locations to search for agent skills. Relative paths are resolved from the root folder(s) of your workspace. Supports home directory expansion (`~`) for user-specific paths. | `"chat.agentSkillsLocations": { ".github/skills": true,".claude/skills": true,"~/.copilot/skills": true,"~/.claude/skills": true}` |
 | `setting(github.copilot.chat.skillTool.enabled)` _(Experimental)_<br/>Enable the dedicated skill tool for invoking [agent skills](/docs/agent-customization/agent-skills.md). Required to run skills with [`context: fork`](/docs/agent-customization/agent-skills.md#run-a-skill-in-a-forked-context-experimental) in a separate subagent context. | `false` |
 
-## Memory settings
-
-| Setting and Description | Default |
-|------------------------|---------------|
-| `setting(github.copilot.chat.tools.memory.enabled)` _(Preview)_<br/>Enable or disable the built-in [memory tool](/docs/agents/memory.md), which enables agents to save and recall notes across conversations. | `true` |
-| `setting(github.copilot.chat.copilotMemory.enabled)` _(Preview)_<br/>Enable [Copilot Memory](/docs/agents/memory.md#copilot-memory) integration in VS Code. Copilot Memory is a GitHub-hosted memory system that retains repository-specific insights across multiple Copilot surfaces. | `false` |
-
 ## Observability settings
 
 | Setting and Description | Default |
