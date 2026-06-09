@@ -19,30 +19,6 @@ Follow a hands-on tutorial to build your first app with AI in VS Code.
 
 </div>
 
-<div class="card-grid">
-    <a class="card" href="/docs/agents/overview">
-        <i class="codicon codicon-hubot" aria-hidden="true"></i>
-        <div>
-            <p><strong>AI agents</strong></p>
-            <p>Run any agent with any model across your full project.</p>
-        </div>
-    </a>
-    <a class="card" href="/docs/core-editor/overview">
-        <i class="codicon codicon-tools" aria-hidden="true"></i>
-        <div>
-            <p><strong>Powerful editor</strong></p>
-            <p>Debugging, Git, IntelliSense, and every major language.</p>
-        </div>
-    </a>
-    <a class="card" href="/docs/configure/extensions/extensions">
-        <i class="codicon codicon-extensions" aria-hidden="true"></i>
-        <div>
-            <p><strong>Extensible platform</strong></p>
-            <p>Extensions, MCP servers, custom instructions, and an open API.</p>
-        </div>
-    </a>
-</div>
-
 ## Install VS Code
 
 [Download the installer](https://code.visualstudio.com/download) for your platform and follow the steps below. VS Code is lightweight and runs on most available hardware. Review the [system requirements](/docs/supporting/requirements.md) for details.
@@ -108,17 +84,27 @@ Follow these steps to get started with Copilot in VS Code:
 
 <div class="card-grid">
     <a class="card" href="/docs/getstarted/getting-started">
-        <i class="codicon codicon-mortar-board" aria-hidden="true"></i>
-        <p>Discover VS Code</p>
+        <i class="codicon codicon-hubot" aria-hidden="true"></i>
+        <div>
+            <p><strong>AI agents</strong></p>
+            <p>Learn about AI agents in our hands-on guide.</p>
+        </div>
     </a>
-    <a class="card" href="/docs/agents/overview">
-        <i class="codicon codicon-lightbulb" aria-hidden="true"></i>
-        <p>Build with agents</p>
+    <a class="card" href="/docs/editing/getting-started">
+        <i class="codicon codicon-tools" aria-hidden="true"></i>
+        <div>
+            <p><strong>Powerful editor</strong></p>
+            <p>Learn the basics of editing, debugging, and language support in VS Code.</p>
+        </div>
     </a>
-    <a class="card" href="/docs/agent-customization/overview">
-        <i class="codicon codicon-settings-gear" aria-hidden="true"></i>
-        <p>Customize agents</p>
-    </a></div>
+    <a class="card" href="/docs/configure/extensions/extensions">
+        <i class="codicon codicon-extensions" aria-hidden="true"></i>
+        <div>
+            <p><strong>Extensible platform</strong></p>
+            <p>Extensions, MCP servers, custom instructions, and an open API.</p>
+        </div>
+    </a>
+</div>
 
 ## Common questions
 
