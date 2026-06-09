@@ -59,6 +59,15 @@ When you select the **Autopilot** permission level, the agent behaves differentl
 > [!NOTE]
 > Autopilot consumes AI credits in the same way as using chat in an interactive way. Learn more about [usage-based billing](https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-individuals).
 
+### Advanced Autopilot
+
+> [!NOTE]
+> Advanced Autopilot is currently in preview.
+
+By default, Autopilot keeps iterating until the agent itself signals that the task is complete. Advanced Autopilot delegates this decision to a separate model instead. After each Autopilot turn, a small, fast model evaluates whether your original request is complete. If it isn't, Autopilot keeps working and uses that evaluation as guidance for the next turn.
+
+To try Advanced Autopilot, set `setting(chat.autopilot.advanced.enabled)` to `true`.
+
 ## Tool approval
 
 Some tools require your approval before they can run. This is a security measure because tools can modify files or change your environment. In addition, the data a tool returns might contain prompt injection attempts that try to manipulate the agent.
