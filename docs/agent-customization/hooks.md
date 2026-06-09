@@ -242,6 +242,17 @@ Every hook receives a JSON object via stdin with these common fields:
 }
 ```
 
+| Field | Type | Description |
+|-------|------|-------------|
+| `timestamp` | string | ISO 8601 timestamp when the hook fired |
+| `cwd` | string | Working directory for the agent session |
+| `sessionId` | string | Unique identifier for the current agent session |
+| `hookEventName` | string | Name of the hook event (for example, `PreToolUse`) |
+| `transcript_path` | string \| null | Absolute path to a file containing the session conversation transcript, when available |
+
+> [!NOTE]
+> `transcript_path` is provided for convenience — for example, logging, auditing, or lightweight checks such as whether a file was read during the session. The transcript file format is not a stable hook API and may change in future VS Code releases. Prefer the documented hook input fields (`tool_name`, `tool_input`, `prompt`, and so on) whenever possible.
+
 ### Common output format
 
 Hooks can return JSON via stdout to influence agent behavior. All hooks support these output fields:
