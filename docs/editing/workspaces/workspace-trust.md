@@ -1,6 +1,6 @@
 ---
 ContentId: 51280c26-f78b-4f9c-997f-8350bd6ed07f
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 MetaDescription: Visual Studio Code Workspace Trust folder security
 ---
 # Workspace Trust

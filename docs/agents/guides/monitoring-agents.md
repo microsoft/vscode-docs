@@ -1,6 +1,6 @@
 ---
 ContentId: 4e7a2c91-b8d3-4f6e-a1c5-9d0e3f7b2a84
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 MetaDescription: Learn how to monitor GitHub Copilot agent interactions in VS Code with OpenTelemetry traces, metrics, and events.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -440,7 +440,7 @@ OTel monitoring is off by default and emits no data until you explicitly enable 
 
 ## Related content
 
-* [Copilot settings reference](/docs/agents/reference/copilot-settings.md)
+* [AI settings reference](/docs/agents/reference/ai-settings.md)
 * [Troubleshoot AI in VS Code](/docs/agents/agent-troubleshooting/troubleshooting.md)
 * [OTel GenAI Semantic Conventions](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/gen-ai/)
 * [Inside the LLM Call: GenAI Observability with OpenTelemetry](https://opentelemetry.io/blog/2026/genai-observability/)

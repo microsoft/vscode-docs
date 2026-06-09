@@ -1,6 +1,6 @@
 ---
 ContentId: 3a7e9c4f-5d1b-4e8f-a2c6-8b0d3f5e7a9c
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 MetaDescription: Learn how agents in VS Code use the memory tool and Copilot Memory to retain context, learn preferences, and improve over time across conversations.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -16,9 +16,9 @@ This article explains how to use the memory tool in VS Code, how to manage memor
 ## Memory tool
 
 > [!NOTE]
-> The memory tool is currently in preview. You can enable or disable it with the `setting(github.copilot.chat.tools.memory.enabled)` setting.
+> The memory tool is currently in preview.
 
-The memory tool is a built-in agent tool that allows agents to save and recall notes as they work. You can also explicitly ask the agent to remember something. All data is stored locally on your machine. The memory tool is enabled by default.
+The memory tool is a built-in agent tool that allows agents to save and recall notes as they work. You can also explicitly ask the agent to remember something. All data is stored locally on your machine.
 
 ### Memory scopes
 
@@ -106,8 +106,6 @@ Copilot Memory is turned off by default and must be enabled in your GitHub setti
 
 * **Individual users** (Copilot Pro or Pro+): enable Copilot Memory in your [personal Copilot settings](https://github.com/settings/copilot) on GitHub.
 * **Organizations and enterprises**: enable through policy settings in your organization or enterprise settings.
-
-In addition, you need to enable Copilot Memory integration in VS Code with the `setting(github.copilot.chat.copilotMemory.enabled)` setting.
 
 Repository owners can review and delete stored memories in **Repository Settings** > **Copilot** > **Memory**.
 

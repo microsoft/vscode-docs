@@ -46,10 +46,10 @@
   "latest": [
     {
       "type": "release",
-      "title": "VS Code 1.123 release",
-      "description": "Session sync across machines, deep research agent, and integrated browser improvements.",
-      "link": "/updates/v1_123",
-      "image": "/assets/updates/1_123/release-highlights.webp"
+      "title": "VS Code 1.124 release",
+      "description": "Autopilot enabled by default and faster agent session navigation.",
+      "link": "/updates/v1_124",
+      "image": "/assets/updates/1_124/release-highlights.webp"
     },
     {
       "type": "documentation",
