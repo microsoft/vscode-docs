@@ -57,7 +57,7 @@ The Language Models editor shows the models available to you, grouped by provide
 
 This is also where you can keep the model picker focused. If you are testing several providers, you can hide models you do not use often and keep your day-to-day models easy to find.
 
-## Add models from a built-in provider
+## Adding models from a built-in provider
 
 If the provider you want is built into VS Code, setup is a few clicks.
 
@@ -94,9 +94,9 @@ For example, an Azure OpenAI configuration can include a deployment name, endpoi
 ]
 ```
 
-The exact fields depend on the provider and model. The important part is that after the provider is configured, the model becomes available from the same picker you use for the rest of Chat.
+The exact fields depend on the provider and model. The important part is that after the provider is configured, the model becomes available from the same picker you use for the rest of Chat. For more information, check out the docs: https://code.visualstudio.com/docs/agent-customization/language-models#_add-a-model-from-a-built-in-provider.
 
-## Add models from extensions
+## Adding models from extensions
 
 VS Code also supports language model provider extensions. These extensions can contribute models directly into the Language Models editor and Chat model picker.
 
@@ -108,9 +108,11 @@ To find provider extensions:
 4. Follow the extension's setup instructions.
 5. Select the model from the Chat model picker.
 
+![Extensions with language models](language-models-extensions.png)
+
 This extensibility is a big part of the BYOK story. Instead of every provider needing to be hard-coded into VS Code, extensions can bring new model providers into the editor as the ecosystem evolves.
 
-## Add a custom endpoint (VS Code Insiders)
+## Adding a custom endpoint (VS Code Insiders)
 
 If you have a self-hosted, enterprise, or compatible API endpoint, you can add it with the **Custom Endpoint** provider. This feature is currently available in [VS Code Insiders](https://code.visualstudio.com/insiders/) only.
 
@@ -127,7 +129,7 @@ The flow is similar to adding a built-in provider:
 
 If a model does not appear immediately, try reloading VS Code.
 
-## Manage and reconfigure models
+## Managing and reconfiguring models
 
 After you add a provider, you can return to the Language Models editor to update it. Select the gear icon next to a provider to change details such as the API key, endpoint, or model configuration.
 
@@ -145,18 +147,6 @@ For everyday work, you might choose:
 - A reasoning model for planning, debugging, or complex refactors.
 - A local model when you want to experiment offline.
 - A provider-specific model when your team already has workflows around that provider.
-
-## Troubleshooting
-
-If something does not show up as expected, start with the Language Models editor. It gives you the clearest view of what VS Code has configured.
-
-Common things to check:
-
-- Reload VS Code after adding or changing a provider.
-- Confirm the model is visible in the Language Models editor.
-- If a model is missing from the agent model picker, it likely does not support tool calling — VS Code automatically hides models without tool calling support when using agents.
-- Double-check the endpoint URL, model ID, API type, and API key.
-- For organization accounts, confirm BYOK is enabled in Copilot policy settings.
 
 ## Try it out
 
