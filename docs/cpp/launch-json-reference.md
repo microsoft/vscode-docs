@@ -236,7 +236,7 @@ If provided, this explicitly controls hardware breakpoint behavior for remote ta
 
 Controls GDB's [debuginfod](https://sourceware.org/elfutils/Debuginfod.html) behavior for downloading debug symbols from debuginfod servers. This is useful on Linux systems where debuginfod is configured (such as Ubuntu, Fedora, or Arch Linux).
 
-- **enabled**: If `true` (default), GDB's debuginfod support is enabled, allowing it to download debug symbols automatically. Set to `false` to prevent GDB from contacting debuginfod servers, which can be useful if the debuginfod server is unreachable and causing GDB to hang on launch.
+- **enabled**: If `true`, GDB's debuginfod support is enabled, allowing it to download debug symbols automatically. Default is `false`, which prevents GDB from contacting debuginfod servers that might be unreachable and cause GDB to hang on launch.
 - **timeout**: The timeout in seconds for debuginfod server requests. Default is `30`. Set to `0` to use GDB/libdebuginfod defaults with no override.
 
 **Example:**
