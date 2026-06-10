@@ -37,7 +37,7 @@ For this lesson, use the Playwright MCP server as the example. It gives the agen
 
 When the server starts, VS Code discovers its tools and makes them available in chat.
 
-![Screenshot showing the MCP servers in the Extensions view.](../../docs/agent-customization/images/mcp-servers/extensions-view-mcp-servers.png)
+![Screenshot showing the MCP servers in the Extensions view.](../images/agents/extensions-view-mcp-servers.png)
 
 ## Use the server in chat
 
@@ -59,7 +59,7 @@ Now give the agent a task that actually needs browser access.
 
 The agent should call the Playwright MCP tools because the task requires browser interaction. If it asks for approval before a tool call, review the action and approve it when it matches the task.
 
-![Screenshot showing an MCP tool invocation in chat with the input and output shown.](../../docs/agent-customization/images/mcp-servers/chat-agent-mode-tool-invocation.png)
+![Screenshot showing an MCP tool invocation in chat with the input and output shown.](../images/agents/chat-agent-mode-tool-invocation.png)
 
 ## Decide where the configuration belongs
 
@@ -78,7 +78,7 @@ For servers that need credentials, do not hardcode secrets in a workspace file. 
 > [!TIP]
 > VS Code provides IntelliSense and inline actions for `mcp.json`, which makes it easier to start, stop, and inspect servers.
 
-![MCP server configuration with lenses to manage server.](../../docs/agent-customization/images/mcp-servers/mcp-server-config-lenses.png)
+![MCP server configuration with lenses to manage server.](../images/agents/mcp-server-config-lenses.png)
 
 ## Learn what MCP can provide
 
@@ -113,7 +113,7 @@ To enable sandboxing for a local stdio server, set `sandboxEnabled` to `true` in
 }
 ```
 
-![Screenshot showing the MCP server trust prompt.](../../docs/agent-customization/images/mcp-servers/mcp-server-trust-dialog.png)
+![Screenshot showing the MCP server trust prompt.](../images/agents/mcp-server-trust-dialog.png)
 
 ## Practice with a second server
 
@@ -142,11 +142,11 @@ You can manage servers from several places in VS Code:
 
 Use these surfaces to start or stop a server, browse the marketplace, and install additional servers.
 
-![Screenshot showing the actions for an MCP server in the Command Palette.](../../docs/agent-customization/images/mcp-servers/mcp-list-servers-actions.png)
+![Screenshot showing the actions for an MCP server in the Command Palette.](../images/agents/mcp-list-servers-actions.png)
 
 To debug a server, select **Show Output** from the server's actions to see logs from every request the server handles.
 
-![Screenshot showing the MCP server output panel with logs.](../../docs/agent-customization/images/mcp-servers/mcp-server-error-output.png)
+![Screenshot showing the MCP server output panel with logs.](../images/agents/mcp-server-error-output.png)
 
 ## Why this matters
 

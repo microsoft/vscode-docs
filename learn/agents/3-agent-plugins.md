@@ -74,9 +74,9 @@ From there, you can:
 
 After installation, the plugin's customizations appear alongside your local ones in the **Agent Plugins - Installed** section of the Extensions view.
 
-![Screenshot of browsing agent plugins in the Extensions sidebar.](../../docs/agent-customization/images/agent-plugins/extensions-view.png)
+![Screenshot of browsing agent plugins in the Extensions sidebar.](../images/agents/extensions-view.png)
 
-![Screenshot of the Agent Plugins - Installed view in the Extensions view.](../../docs/agent-customization/images/agent-plugins/installed-plugins.png)
+![Screenshot of the Agent Plugins - Installed view in the Extensions view.](../images/agents/installed-plugins.png)
 
 ## Try a plugin command
 
@@ -98,7 +98,7 @@ Try this sequence:
 
 The goal is not to install everything. The goal is to see how a plugin can bring a complete workflow into chat with one command.
 
-![Screenshot of the Agent Customizations editor showing installed plugin content.](../../docs/copilot/images/customization/chat-customizations-editor-plugins.png)
+![Screenshot of the Agent Customizations editor showing installed plugin content.](../images/agents/chat-customizations-editor-plugins.png)
 
 > [!CAUTION]
 > Plugins can run hooks and MCP servers on your machine. Review the contents and publisher before you install one.
