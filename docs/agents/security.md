@@ -1,6 +1,6 @@
 ---
 ContentId: c99a8442-e202-4427-b7c3-695469a00f92
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 MetaDescription: Understand security considerations, built-in protections, and best practices when using AI-powered development features like agents and MCP servers in VS Code.
 MetaSocialImage: images/shared/github-copilot-social.png
 Keywords:
@@ -61,7 +61,7 @@ VS Code limits the potential impact of agent actions by controlling their scope 
 
 * **Session isolation**: You can grant permissions that are temporary and don't persist beyond the current session. This enables you to experiment with AI capabilities while maintaining long-term security boundaries.
 
-* **Request limits**: Built-in safeguards [prevent runaway operations](/docs/agents/reference/copilot-settings.md#agent-settings) that consume excessive resources or perform unintended bulk actions on your codebase.
+* **Request limits**: Built-in safeguards [prevent runaway operations](/docs/agents/reference/ai-settings.md#agent-settings) that consume excessive resources or perform unintended bulk actions on your codebase.
 
 * **Agent isolation**: [Background agents](/docs/agents/agent-types/copilot-cli.md) work in a separate Git worktree, preventing conflicts with your active workspace. They have limited tool access and can only use local MCP servers that don't require authentication. [Cloud agents](/docs/agents/agent-types/cloud-agents.md) run on remote infrastructure, which provides inherent isolation from your local machine and local resources.
 
