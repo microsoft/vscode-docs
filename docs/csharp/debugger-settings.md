@@ -192,7 +192,7 @@ Notes about this:
 
 3. `serverReadyAction` is a new feature from VS Code. It is recommended over the previous`launchBrowser` feature that is built into the C# extension's debugger as it can work when the C# extension is running on a remote machine, it uses the default browser configured for VS Code, and it also allows using a script debugger. You can continue using `launchBrowser` instead if none of those features are important to you. You also can continue to use `launchBrowser` if you want to run a specific program instead of starting the default browser.
 
-4. More documentation for `serverReadyAction` can be found in the [Visual Studio Code February 2019 release notes](https://code.visualstudio.com/updates/v1_32#_automatically-open-a-uri-when-debugging-a-server-program).
+4. More documentation for `serverReadyAction` can be found in the [Visual Studio Code February 2019 release notes](/updates/v1_32.md#automatically-open-a-uri-when-debugging-a-server-program).
 
 5. The way this works is that VS Code scrapes the output that is set to the console. If a line matches the pattern, it launches a browser against the URL that was 'captured' by the pattern.
 
