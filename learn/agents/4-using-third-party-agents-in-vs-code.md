@@ -117,7 +117,7 @@ Pick the mode that matches the task:
 
 For sensitive work, keep approval in the loop and combine the agent with sandboxing when possible.
 
-![Screenshot showing Claude agent permission mode options.](../../docs/copilot/images/third-party-agents/claude-agent-permission-modes.png)
+![Screenshot showing Claude agent permission mode options.](../../docs/agents/images/third-party-agents/claude-agent-permission-modes.png)
 
 > [!CAUTION]
 > The `setting(github.copilot.chat.claudeAgent.allowDangerouslySkipPermissions)` setting bypasses all permission checks. Only enable it in isolated sandbox environments with no internet access.

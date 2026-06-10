@@ -74,9 +74,9 @@ From there, you can:
 
 After installation, the plugin's customizations appear alongside your local ones in the **Agent Plugins - Installed** section of the Extensions view.
 
-![Screenshot of browsing agent plugins in the Extensions sidebar.](../../docs/copilot/images/agent-plugins/extensions-view.png)
+![Screenshot of browsing agent plugins in the Extensions sidebar.](../../docs/agent-customization/images/agent-plugins/extensions-view.png)
 
-![Screenshot of the Agent Plugins - Installed view in the Extensions view.](../../docs/copilot/images/agent-plugins/installed-plugins.png)
+![Screenshot of the Agent Plugins - Installed view in the Extensions view.](../../docs/agent-customization/images/agent-plugins/installed-plugins.png)
 
 ## Try a plugin command
 

@@ -146,8 +146,7 @@ You can keep your preferred mode across sessions with `setting(chat.permissions.
 > [!CAUTION]
 > Higher autonomy levels reduce the amount of review you do before tools run. Use them with care, especially when the agent can edit files or run terminal commands.
 
-TODO:
-![Screenshot of approval options.](../../docs/chat/images/copilot-chat/chat-approval-options.png)
+![Screenshot of approval options.](../../docs/copilot/chat/images/copilot-chat/chat-approval-options.png)
 
 ## Add sandboxing for terminal work
 
