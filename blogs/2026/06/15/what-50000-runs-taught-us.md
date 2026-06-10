@@ -4,7 +4,7 @@ TOCTitle: 50,000 Runs, One Eval
 PageTitle: "What 50,000 Runs of a 5-Line Eval Taught Us"
 MetaDescription: See how one small VSC-Bench task detects infrastructure incidents and reveals how coding models calibrate their effort.
 MetaSocialImage: 50000-runs-social.png
-Date: 2026-06-11
+Date: 2026-06-15
 Author: Karthik Nadig
 Keywords:
   - vsc-bench
@@ -15,9 +15,7 @@ Keywords:
 
 # What 50,000 Runs of a 5-Line Eval Taught Us
 
-June 11, 2026 by [Karthik Nadig](https://github.com/knadig)
-
-<!-- TODO: Add a social image named 50000-runs-social.png. -->
+June 15, 2026 by VS Code Eval Team, [@code](https://x.com/code)
 
 Our VS Code agent gets one instruction: add `HELLO` to `HELLO.txt`. There is no large codebase to understand, no test suite to debug, and no architectural decision to make. The task looks almost too simple to be useful.
 
