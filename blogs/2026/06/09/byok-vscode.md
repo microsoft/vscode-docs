@@ -12,7 +12,9 @@ Author: Kayla Cinnamon
 
 June 9, 2026 by [Kayla Cinnamon](https://github.com/cinnamon-msft)
 
-Model choice is moving fast, and we want to support flexibility. Sometimes you want the built-in models available through GitHub Copilot. Sometimes you want to try a new model from a provider your team already uses. Sometimes you want to experiment locally. VS Code allows you to do all of these workflows with bring your own language model key (BYOK) and bring your own local model.
+At Microsoft Build this year, I had the opportunity to present in the opening keynote. One thing I showed was using local models inside VS Code on the new Surface RTX Spark Dev Box. Check out the [recording at 12:18](https://build.microsoft.com/sessions/KEY01).
+
+Using local models gives you even greater flexibility when working with agents. Sometimes you want the built-in models available through GitHub Copilot. Sometimes you want to try a new model from a provider your team already uses. Sometimes you want to experiment locally. VS Code allows you to do all of these workflows with bring your own language model key (BYOK) and bring your own local model.
 
 With BYOK in VS Code, you can add models from providers like Azure, Anthropic, Huggingface, Gemini, OpenAI, OpenRouter, or you can run a model locally with Ollama, Foundry Local, and more, then use them directly from the Chat model picker.
 
@@ -45,7 +47,7 @@ There are a few important details to keep in mind:
 
 In other words, BYOK expands model choice in VS Code Chat, but it does not replace every Copilot-powered feature in the editor.
 
-## Configuring BYOK in the Language Models editor
+## Getting started with BYOK
 
 The easiest way to get started is through the **Language Models** editor.
 
