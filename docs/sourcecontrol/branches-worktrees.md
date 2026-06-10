@@ -1,6 +1,6 @@
 ---
 ContentId: a9b2c3d4-e5f6-7890-ab12-cd3456789012
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 MetaDescription: Learn how to work with Git branches and worktrees in VS Code. Create, switch between, and manage multiple branches, use Git worktrees for parallel development, and manage stashes for temporary changes.
 Keywords:
 - source control
@@ -131,6 +131,21 @@ To create a new worktree in VS Code:
 
 The new worktree appears as a separate entry in the **Source Control Repositories** view.
 
+### Include files when creating a worktree
+
+When you create a worktree, Git doesn't copy files that are excluded by `.gitignore`, such as local configuration files, environment files, or installed dependencies. To work in the new worktree, you might need these files to be present.
+
+Use the `setting(git.worktreeIncludeFiles)` setting to configure [glob patterns](https://aka.ms/vscode-glob-patterns) for files and folders to copy into a new worktree. A file is copied only when it matches one of the patterns and is also listed in `.gitignore`.
+
+A common use is to copy the `node_modules` folder into each new worktree. This way, you can start working right away without having to reinstall dependencies. For example, configure the setting as follows to also copy a local `.env` file:
+
+```json
+"git.worktreeIncludeFiles": [
+    ".env",
+    "node_modules/**"
+]
+```
+
 ### Switch between worktrees
 
 VS Code can display multiple repositories (including worktrees) simultaneously:
@@ -148,6 +163,12 @@ There are multiple ways to open a worktree:
 * Right-click the worktree in the Source Control Repositories view and select **Open Worktree in New Window** or **Open Worktree in Current Window**.
 
 * Run the **Git: Open Worktree in Current Window** or **Git: Open Worktree in New Window** command in the Command Palette and select the desired worktree.
+
+### Automatically detect worktrees
+
+By default, VS Code lists the worktrees that you create from the **Source Control Repositories** view. To also automatically detect worktrees that already exist in your repository, enable the `setting(git.detectWorktrees)` setting. When this setting is enabled, VS Code scans the repository for worktrees and shows them in the **Source Control Repositories** view.
+
+To avoid scanning a large number of worktrees, VS Code limits the number of detected worktrees. Use the `setting(git.detectWorktreesLimit)` setting to change this limit. The default value is 50.
 
 ### Compare and migrate changes from a worktree
 

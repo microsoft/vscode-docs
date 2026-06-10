@@ -1,6 +1,6 @@
 ---
 ContentId: f8e2a7c1-9d3b-4e5f-a6c8-1b2d3e4f5a6b
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 MetaDescription: Use the integrated browser in VS Code to preview and debug web apps, navigate to URLs, and add page elements, screenshots, or console logs as context to AI chat.
 MetaSocialImage: images/debugging/debugging-social.png
 ---
@@ -56,6 +56,34 @@ To favorite the current page, open the address bar and select the star icon. The
 ### Open tabs
 
 On a new browser tab that hasn't navigated to a page, the suggestions picker also lists your other open browser tabs. Select a tab to switch to it. VS Code closes the new tab and activates the one you selected.
+
+### Recents and history
+
+When you open a new browser tab, the suggestions picker shows a **Recents** group with the three most recent pages that you navigated to explicitly, such as by typing a URL. Pages that you reached by following a link don't appear in Recents.
+
+As you type in the address bar, a **History** group shows up to six matching pages from your browser history. Select the remove icon on a suggestion to delete that page from your history.
+
+To browse or search your full history, see [Browser history](#browser-history).
+
+## Browser history
+
+The integrated browser keeps a history of the pages you visit so you can revisit them later. History is available in all [session storage](#session-storage) modes except ephemeral.
+
+To open the history view, press `kb(workbench.action.browser.showHistory)` or run the **Browser: History** command from the Command Palette. You can also add a **History** button to the browser toolbar from the toolbar overflow menu.
+
+The history view lists visited pages grouped by day, with the most recent pages first. Type in the input to filter the list by page title or URL, then select a page to navigate to it.
+
+To remove pages from your history:
+
+* Select the **Remove from History** button on an individual entry.
+* Select the **Clear Entries for This Day** button on a day heading to remove all pages from that day.
+* Select the **Clear All History** button at the top of the view to remove your entire history.
+
+Clearing browser storage also clears the history for that storage scope.
+
+History is tracked separately for each storage scope. Global sessions share history across workspaces, while each workspace session keeps its own history.
+
+By default, the browser keeps up to 200 history items per storage scope and removes the oldest entries when the limit is reached. Use the `setting(workbench.browser.maxHistoryEntries)` setting to change the limit. Set it to `0` to disable history.
 
 ## Tab management
 

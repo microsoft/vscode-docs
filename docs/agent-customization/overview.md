@@ -1,6 +1,6 @@
 ---
 ContentId: 16c73175-a606-4aab-8ae5-a5071d3b9e24
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 MetaDescription: Get started customizing AI in VS Code with custom instructions, prompt files, custom agents, MCP servers, and more to align AI responses with your coding practices.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -34,25 +34,24 @@ Follow a hands-on walkthrough to customize AI for your project.
 
 </div>
 
-## Choose a customization type
+## Customization types
 
-VS Code offers several customization options, each suited to a different goal:
+VS Code offers several customization types, each suited to a different goal. The following list gives a quick description of each type and links to its setup article:
 
-* **Define coding standards**: [custom instructions](/docs/agent-customization/custom-instructions.md)
-
-* **Automate tasks and workflows**: [prompt files](/docs/agent-customization/prompt-files.md) and [agent skills](/docs/agent-customization/agent-skills.md)
-
-* **Specialize the AI**: [custom agents](/docs/agent-customization/custom-agents.md) and [language models](/docs/agent-customization/language-models.md)
-
-* **Connect external tools and data**: [MCP servers](/docs/agent-customization/mcp-servers.md) and [hooks](/docs/agent-customization/hooks.md)
-
-* **Install pre-packaged bundles**: [agent plugins](/docs/agent-customization/agent-plugins.md) (preview)
+* [Instructions](/docs/agent-customization/custom-instructions.md): describe your coding standards, conventions, and project structure, applied to every request or scoped to specific files.
+* [Prompt files](/docs/agent-customization/prompt-files.md): save reusable prompts that you invoke as slash commands in chat.
+* [Agent skills](/docs/agent-customization/agent-skills.md): package multi-step workflows, scripts, and resources that the agent loads when a task matches.
+* [Custom agents](/docs/agent-customization/custom-agents.md): define a specialized persona with its own instructions, tool access, and model.
+* [Language models](/docs/agent-customization/language-models.md): choose which model handles your requests, or bring your own model and API key.
+* [MCP servers](/docs/agent-customization/mcp-servers.md): connect the agent to external tools, services, and data through the Model Context Protocol.
+* [Hooks](/docs/agent-customization/hooks.md): run deterministic actions at specific points in the agent loop to enforce policies and guardrails.
+* [Agent plugins](/docs/agent-customization/agent-plugins.md) (preview): bundle the other customization types into a single installable package.
 
 To compare the options and decide which one fits your goal, see [Customization concepts](/docs/agents/concepts/customization.md). The rest of this article focuses on how to set up and manage customizations.
 
-## Get started
+## Get started incrementally
 
-The most effective approach is to adopt customizations incrementally. Start with project-wide instructions, then add more specific customizations as you identify recurring needs. For a hands-on walkthrough, see the [Customize AI for your project](/docs/agents/guides/customize-copilot-guide.md) guide.
+Adopt customizations gradually rather than all at once. Start with project-wide instructions, then add more specific customizations as you identify recurring needs. For a hands-on walkthrough, see the [Customize AI for your project](/docs/agents/guides/customize-copilot-guide.md) guide.
 
 1. **Set up project instructions**: type `/init` in chat to generate a `.github/copilot-instructions.md` file with coding standards tailored to your codebase.
 

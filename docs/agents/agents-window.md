@@ -1,6 +1,6 @@
 ---
 ContentId: b3e7a1d4-5f2c-4e9a-8b6d-1c0f3a2e5d47
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 MetaDescription: Use the Agents window in VS Code for an agent-first coding experience where agents and chat are the primary interface to build with AI.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -95,6 +95,9 @@ To start a new agent session in the Agents window:
 
 The agent now starts working on your request. Learn more about [interacting in chat](/docs/chat/chat-overview.md).
 
+> [!TIP]
+> To start a session in the background without leaving the current session, press `kbstyle(Alt+Enter)` or hold `kbstyle(Alt)` and select **Send**. The newly started session appears in the sessions list once it commits.
+
 ## Manage your sessions
 
 The session list in the sidebar shows all your ongoing sessions across your workspaces. Each session item surfaces the key information such as session name, workspace, agent type, and file change stats.
@@ -115,6 +118,9 @@ The Changes panel in the Agents window provides a dedicated view with detailed i
 To review changes made by the agent, select a file in the **Changes** tab to open a diff view that shows the edits the agent has made compared to the current state of the workspace.
 
 ![Screenshot showing the diff view in a modal window in the Agents window, with the layout controls in the diff view toolbar visible.](images/agents-window/agents-window-diff-view.png)
+
+> [!TIP]
+> By default, selecting a file opens a multi-file diff editor with all the changes in the session. To open a focused single-file diff editor for the selected file instead, enable the `setting(sessions.changes.openSingleFileDiff)` setting.
 
 You can open the diff view side-by-side with the Chat view inside the Agents window or open it in a modal window to focus on the changes. Use the layout controls in the diff view toolbar to toggle between different display modes.
 
@@ -206,6 +212,13 @@ You can have more than one session open at the same time in the Agents window to
 <video src="images/agents-window/sessions-grid.mp4" title="Video showing multiple agent sessions open side by side in the Agents window." autoplay loop controls muted></video>
 
 Only one session view is *active* at any time. The **Terminal**, **Files**, and **Changes** views always reflect the active session. By default, selecting a session in the sessions list replaces the active view. Pin a session view (top-right toolbar) to prevent it from being replaced.
+
+When you have multiple sessions open, you can use keyboard shortcuts to move between them and manage them, similar to working with editors:
+
+* Press `kb(sessions.focusSessionInGrid1)` through `kb(sessions.focusSessionInGrid9)` to focus a session by its position in the grid, from left to right.
+* Press `kb(sessions.closeAllSessions)` to close all open sessions and return to the new-session view. This shortcut applies when a session has focus.
+
+These commands are also available in the Command Palette (`kb(workbench.action.showCommands)`).
 
 ## Customize agents for your project and workflow
 

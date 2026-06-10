@@ -1,9 +1,9 @@
 {
   "featured": {
-    "title": "Session sync, deep research, and more",
-    "description": "Sync your chat sessions across machines, run deep research on any topic, work with multiple agent sessions side by side.",
-    "link": "/updates/v1_123",
-    "image": "/assets/updates/1_123/release-highlights.webp"
+    "title": "Smarter Autopilot and faster agent sessions",
+    "description": "Autopilot is enabled by default and decides when a task is truly done, navigate agent sessions with the keyboard, and restore your layout on reload.",
+    "link": "/updates/v1_124",
+    "image": "/assets/updates/1_124/release-highlights.webp"
   },
   "highlights": [
     {

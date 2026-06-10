@@ -1,6 +1,6 @@
 ---
 ContentId: 3b7e6d52-0c41-4f8a-9d2e-1a5c7b9e4f60
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 MetaDescription: Learn how to manage tool approvals, configure auto-approval, set permission levels, and sandbox agent commands to control agent autonomy in VS Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 keywords:
@@ -58,6 +58,15 @@ When you select the **Autopilot** permission level, the agent behaves differentl
 
 > [!NOTE]
 > Autopilot consumes AI credits in the same way as using chat in an interactive way. Learn more about [usage-based billing](https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-individuals).
+
+### Advanced Autopilot
+
+> [!NOTE]
+> Advanced Autopilot is currently in preview.
+
+By default, Autopilot keeps iterating until the agent itself signals that the task is complete. Advanced Autopilot delegates this decision to a separate model instead. After each Autopilot turn, a small, fast model evaluates whether your original request is complete. If it isn't, Autopilot keeps working and uses that evaluation as guidance for the next turn.
+
+To try Advanced Autopilot, set `setting(chat.autopilot.advanced.enabled)` to `true`.
 
 ## Tool approval
 
