@@ -343,6 +343,7 @@ H2 subheadings (`##`) appear in the right-hand navigation panel of documentation
 **Example structure:**
 
 ```markdown
+
 # Main Topic Title (H1)
 
 ## Getting Started (H2 - appears in right nav)
