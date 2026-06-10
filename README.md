@@ -12,6 +12,14 @@ If you are looking for the VS Code product GitHub repository, you can find it [h
 > [!IMPORTANT]
 > The vscode-docs repository uses [**Git LFS**](https://git-lfs.github.com/) (Large File Storage) for storing binary files such as images and `.gif`s. If you are contributing or updating images, please enable Git LFS per the instructions in the [Contributing](#cloning) section below.
 
+
+<!-- AUTO-PACKAGE-BADGES:START -->
+<!-- Auto-generated package badges -->
+
+![npm version](https://img.shields.io/npm/v/vscode-docs?style=flat-square&logo=npm&color=blue) ![npm downloads](https://img.shields.io/npm/dw/vscode-docs?style=flat-square&color=brightgreen) ![npm license](https://img.shields.io/npm/l/vscode-docs?style=flat-square) [![Deployed](https://img.shields.io/badge/deployed-0.10.3-blue?style=flat-square)](https://www.npmjs.com/package/vscode-docs)
+
+<!-- AUTO-PACKAGE-BADGES:END -->
+
 ## Index
 
 - [Index](#index)
