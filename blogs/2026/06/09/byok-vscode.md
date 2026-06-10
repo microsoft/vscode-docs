@@ -96,7 +96,7 @@ For example, an Azure OpenAI configuration can include a deployment name, endpoi
 ]
 ```
 
-The exact fields depend on the provider and model. The important part is that after the provider is configured, the model becomes available from the same picker you use for the rest of Chat. For more information, check out the docs: https://code.visualstudio.com/docs/agent-customization/language-models#_add-a-model-from-a-built-in-provider.
+The exact fields depend on the provider and model. The important part is that after the provider is configured, the model becomes available from the same picker you use for the rest of Chat. For more information, check out the [docs](https://code.visualstudio.com/docs/agent-customization/language-models#_add-a-model-from-a-built-in-provider).
 
 ## Adding models from extensions
 
