@@ -236,7 +236,7 @@ The **Customizations** panel gives you direct access to all AI customization opt
 The Agent Customizations panel enables you to easily manage all your customizations in one place:
 
 * View and edit existing customizations for the project (workspace), or across all your projects (user).
-* Add new customzations by using the built-in editor or by generating them from a prompt.
+* Add new customizations by using the built-in editor or by generating them from a prompt.
 * Install plugins or MCP servers from the marketplace.
 * Enable or disable customizations without removing them.
 
