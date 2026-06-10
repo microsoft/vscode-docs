@@ -112,30 +112,9 @@ To find provider extensions:
 
 This extensibility is a big part of the BYOK story. Instead of every provider needing to be hard-coded into VS Code, extensions can bring new model providers into the editor as the ecosystem evolves.
 
-## Adding a custom endpoint (VS Code Insiders)
+## Leveraging utility models
 
-If you have a self-hosted, enterprise, or compatible API endpoint, you can add it with the **Custom Endpoint** provider. This feature is currently available in [VS Code Insiders](https://code.visualstudio.com/insiders/) only.
-
-Custom Endpoint supports API types such as Chat Completions, Responses, and Messages. This is useful when your model is not available from a built-in provider but exposes an API that VS Code can call.
-
-The flow is similar to adding a built-in provider:
-
-1. Open **Chat: Manage Language Models**.
-2. Select **Add Models**.
-3. Choose **Custom Endpoint**.
-4. Enter the group name, display name, API key, and API type.
-5. Update the generated `chatLanguageModels.json` configuration with your model details.
-6. Save the file and select the model in Chat.
-
-If a model does not appear immediately, try reloading VS Code.
-
-## Managing and reconfiguring models
-
-After you add a provider, you can return to the Language Models editor to update it. Select the gear icon next to a provider to change details such as the API key, endpoint, or model configuration.
-
-![Reconfiguring a model provider in the Language Models editor.](reconfigure-model-provider.png)
-
-You can also decide which models appear in the picker. I like this because it lets me experiment without turning the picker into a wall of model names. Keep the models you use every day visible, and hide the ones you only need occasionally.
+VS Code also uses lightweight models in the background for small tasks like generating chat titles, commit messages, and rename suggestions. These default to built-in Copilot models and most users won't need to touch them. But if you're using BYOK without signing into a GitHub account, those defaults aren't available. VS Code will show a notification in the Chat view prompting you to configure them. Set `setting(chat.utilityModel)` and `setting(chat.utilitySmallModel)` to one of your BYOK models to keep those features working. A fast, inexpensive model works well here.
 
 ## Choosing the right model
 
@@ -147,6 +126,9 @@ For everyday work, you might choose:
 - A reasoning model for planning, debugging, or complex refactors.
 - A local model when you want to experiment offline.
 - A provider-specific model when your team already has workflows around that provider.
+
+Simply choose which model you want to use in the model picker below the Chat box.
+![The VS Code Chat model picker showing available language models.](model-dropdown-change-model-v2.png)
 
 ## Try it out
 
