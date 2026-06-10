@@ -1,8 +1,8 @@
 ---
 Order: 131
 TOCTitle: Bring Your Own Key
-PageTitle: "Use your own language model key in VS Code"
-MetaDescription: Learn how to use bring your own key (BYOK) in VS Code to add models from providers like Azure, Anthropic, Gemini, OpenAI, OpenRouter, Ollama, Foundry Local, and more.
+PageTitle: "Use your own language model key or local model in VS Code"
+MetaDescription: Learn how to use bring your own key (BYOK) in VS Code to add models from providers like Azure, Anthropic, Gemini, OpenAI, Huggingface, OpenRouter, or use a local model with Ollama, Foundry Local, and more.
 MetaSocialImage: language-models-editor.png
 Date: 2026-06-09
 Author: Kayla Cinnamon
@@ -12,15 +12,15 @@ Author: Kayla Cinnamon
 
 June 9, 2026 by [Kayla Cinnamon](https://github.com/cinnamon-msft)
 
-Model choice is moving fast, and we want to support flexibility. Sometimes you want the built-in models available through GitHub Copilot. Sometimes you want to try a new model from a provider your team already uses. Sometimes you want to experiment locally. VS Code allows you to do all of these workflows with bring your own language model key, or BYOK.
+Model choice is moving fast, and we want to support flexibility. Sometimes you want the built-in models available through GitHub Copilot. Sometimes you want to try a new model from a provider your team already uses. Sometimes you want to experiment locally. VS Code allows you to do all of these workflows with bring your own language model key (BYOK) and bring your own local model.
 
-With BYOK in VS Code, you can add models from providers like Azure, Anthropic, Gemini, OpenAI, OpenRouter, Ollama, Foundry Local, and more, then use them directly from the Chat model picker.
+With BYOK in VS Code, you can add models from providers like Azure, Anthropic, Huggingface, Gemini, OpenAI, OpenRouter, or you can run a model locally with Ollama, Foundry Local, and more, then use them directly from the Chat model picker.
 
 ![The VS Code Chat model picker showing available language models.](model-dropdown-change-model-v2.png)
 
 ## What is BYOK?
 
-BYOK lets you use a language model from a supported provider by adding your own API key or endpoint configuration in VS Code. Once configured, those models appear in the same Chat model picker you already use for Copilot.
+BYOK lets you use a language model from a supported provider by adding your own API key or endpoint configuration in VS Code. Once configured, those models appear in the same Chat model picker you already use for Copilot. Support is built in for several providers and VS Code is extensible, so any model provider can enable support through an extension.
 
 This gives you more choice for chat and agent workflows. For example, you can:
 
@@ -37,7 +37,7 @@ BYOK models are available for VS Code chat experiences, including agent workflow
 
 There are a few important details to keep in mind:
 
-- BYOK models work without signing into a GitHub account and without a Copilot plan. You can add and use models entirely with your own API keys, including fully offline scenarios with local models.
+- BYOK models work without signing into a GitHub account and **without** a Copilot plan. You can add and use models entirely with your own API keys, including fully **offline scenarios with local models**.
 - BYOK applies to chat and utility tasks, not standard code completions.
 - Some AI features, such as semantic search, inline suggestions, and features that rely on embeddings, still require a GitHub account or Copilot support.
 - Usage for provider-backed BYOK models is billed directly by that provider and does not count against GitHub Copilot request quotas.
@@ -45,7 +45,7 @@ There are a few important details to keep in mind:
 
 In other words, BYOK expands model choice in VS Code Chat, but it does not replace every Copilot-powered feature in the editor.
 
-## Open the Language Models editor
+## Configuring BYOK in the Language Models editor
 
 The easiest way to get started is through the **Language Models** editor.
 
