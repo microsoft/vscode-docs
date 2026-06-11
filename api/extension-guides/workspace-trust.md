@@ -11,7 +11,7 @@ MetaDescription: A guide for updating Visual Studio Code extensions to support W
 
 ## What is Workspace Trust?
 
-[Workspace Trust](/docs/editor/workspace-trust) is a feature driven by the security risks associated with unintended code execution when a user opens a workspace in VS Code. For example, consider that a language extension, in order to provide functionality, may execute code from the currently loaded workspace. In this scenario, the user should trust that the contents of the workspace are not malicious. Workspace Trust centralizes this decision within VS Code and supports a [Restricted Mode](/docs/editor/workspace-trust#_restricted-mode) to protect against automatic code execution so that extension authors do not have to handle this infrastructure themselves. VS Code offers static declaration and API support to onboard extensions quickly without the need to duplicate code across extensions.
+[Workspace Trust](/docs/editing/workspaces/workspace-trust.md) is a feature driven by the security risks associated with unintended code execution when a user opens a workspace in VS Code. For example, consider that a language extension, in order to provide functionality, may execute code from the currently loaded workspace. In this scenario, the user should trust that the contents of the workspace are not malicious. Workspace Trust centralizes this decision within VS Code and supports a [Restricted Mode](/docs/editing/workspaces/workspace-trust.md#restricted-mode) to protect against automatic code execution so that extension authors do not have to handle this infrastructure themselves. VS Code offers static declaration and API support to onboard extensions quickly without the need to duplicate code across extensions.
 
 ## Onboarding
 

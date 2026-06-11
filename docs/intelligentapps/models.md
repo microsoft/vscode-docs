@@ -63,7 +63,7 @@ To add a model from the model catalog:
 
     - **GitHub**: Foundry Toolkit asks for your GitHub credentials to access the model repository. Once authenticated, the model is added directly into Foundry Toolkit.
         > [!NOTE]
-        > Foundry Toolkit now [supports GitHub pay-as-you-go models](/docs/intelligentapps/playground.md#_github-payasyougo-model-support), so you can keep working after passing free tier limits.
+        > Foundry Toolkit now [supports GitHub pay-as-you-go models](/docs/intelligentapps/playground.md#github-pay-as-you-go-model-support), so you can keep working after passing free tier limits.
 
     - **ONNX**: To add an ONNX model, first convert it to the Foundry Toolkit model format using the [model conversion tool](/docs/intelligentapps/modelconversion.md). After conversion, add the model to Foundry Toolkit.
 

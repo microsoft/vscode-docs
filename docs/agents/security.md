@@ -67,7 +67,7 @@ VS Code limits the potential impact of agent actions by controlling their scope 
 
 * **Secure secrets store**: Sensitive input parameters for MCP servers are stored using VS Code's secure credentials store to protect authentication tokens and other sensitive data.
 
-* **MCP authentication**: VS Code [implements the MCP authorization specification](https://code.visualstudio.com/blogs/2025/06/12/full-mcp-spec-support#_securityfirst-the-new-authorization-foundation) to enable OAuth authentication between VS Code and external tools and services.
+* **MCP authentication**: VS Code [implements the MCP authorization specification](/blogs/2025/06/12/full-mcp-spec-support.md#security-first-the-new-authorization-foundation) to enable OAuth authentication between VS Code and external tools and services.
 
 ### Approvals and review
 
