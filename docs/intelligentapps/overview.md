@@ -64,7 +64,7 @@ After successful installation, the Foundry Toolkit icon appears in the Activity 
 
 ### Manual installation
 
-You can also install Foundry Toolkit extension manually from the Visual Studio Code Marketplace. Follow the steps detailed in [Install an extension](/docs/configure/extensions/extension-marketplace#_install-an-extension).
+You can also install Foundry Toolkit extension manually from the Visual Studio Code Marketplace. Follow the steps detailed in [Install an extension](/docs/configure/extensions/extension-marketplace.md#install-an-extension).
 
 > [!TIP]
    Alternatively, select the Extensions icon in the Activity Bar.
@@ -75,6 +75,7 @@ You can also install Foundry Toolkit extension manually from the Visual Studio C
 
 > [!TIP]
 > Check the **What's New** page after installation to see detailed features for each version.
+
 * After successful installation, the Foundry Toolkit icon appears in the Activity Bar.
 
 ### Verifying and Installing Foundry Toolkit Pre-Requisites (Local Models)
