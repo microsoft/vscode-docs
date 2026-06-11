@@ -17,10 +17,10 @@ For the latest videos and tutorials, visit the official VS Code YouTube channel.
     </a>
     <a class="card" href="/docs/getstarted/getting-started">
         <i class="codicon codicon-mortar-board" aria-hidden="true"></i>
-        <p>Getting started tutorial</p>
+        <p>Get started with agents in VS Code</p>
     </a>
     <a class="card" href="/docs/editing/getting-started">
         <i class="codicon codicon-edit" aria-hidden="true"></i>
-        <p>Editing getting started tutorial</p>
+        <p>Learn the basics of editing in VS Code</p>
     </a>
 </div>
