@@ -297,7 +297,7 @@ In both cases, you will be prompted to confirm the removal by typing the extensi
 
 ## Removing specific extension versions
 
-You can remove a specific extension version from the [Visual Studio Marketplace publisher management page](https://marketplace.visualstudio.com/manage) by clicking **More Actions > Reports**:
+You can remove a specific extension version from the [Visual Studio Marketplace publisher management page](https://marketplace.visualstudio.com/manage) by selecting **More Actions > Reports**:
 
 ![Screenshot showing the More Actions menu with the Reports option in the Marketplace publisher management page](images/publishing-extension/extension-manage.png)
 
