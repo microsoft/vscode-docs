@@ -74,22 +74,24 @@ If the provider you want is built into VS Code, setup is a few clicks.
 
 Depending on the provider, VS Code might open a `chatLanguageModels.json` file so you can finish configuring model details.
 
-For example, an Azure OpenAI configuration can include a deployment name, endpoint URL, and capability information:
+For example, a Mistral configuration specifies the endpoint URL, API type, and model capabilities:
 
 ```json
 [
   {
-    "name": "Azure",
-    "vendor": "azure",
+    "name": "Mistral",
+    "vendor": "customendpoint",
+    "apiKey": "<your-mistral-api-key>",
+    "apiType": "chat-completions",
     "models": [
       {
-        "id": "<my-deployment-name>",
-        "name": "GPT-5.5",
-        "url": "https://<my-endpoint>.openai.azure.com",
+        "id": "mistral-medium-latest",
+        "name": "mistral medium",
+        "url": "https://api.mistral.ai/v1/chat/completions",
         "toolCalling": true,
         "vision": true,
-        "maxInputTokens": 200000,
-        "maxOutputTokens": 64000
+        "maxInputTokens": 256000,
+        "maxOutputTokens": 16000
       }
     ]
   }
