@@ -301,7 +301,7 @@ You can remove a specific extension version from the [Visual Studio Marketplace 
 
 ![Screenshot showing the More Actions menu with the Reports option in the Marketplace publisher management page](images/publishing-extension/extension-manage.png)
 
-Select the **Manage** tab and then click on **Delete this version**.
+On the **Manage** tab, select **Delete this version**.
 
 ![Screenshot showing the manage tab with the Delete this version button](images/publishing-extension/remove-version.png)
 
