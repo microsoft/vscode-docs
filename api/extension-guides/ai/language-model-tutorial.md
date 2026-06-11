@@ -154,11 +154,8 @@ const disposable = vscode.commands.registerTextEditorCommand('code-tutor.annotat
   // Get the code with line numbers from the current editor
   const codeWithLineNumbers = getVisibleCodeWithLineNumbers(textEditor);
 
-  // select the 4o chat model
-  let [model] = await vscode.lm.selectChatModels({
-    vendor: 'copilot',
-    family: 'gpt-4o',
-  });
+  // select a Copilot chat model
+  let [model] = await vscode.lm.selectChatModels({ vendor: 'copilot' });
 });
 ```
 
@@ -181,11 +178,8 @@ const disposable = vscode.commands.registerTextEditorCommand('code-tutor.annotat
   // Get the code with line numbers from the current editor
   const codeWithLineNumbers = getVisibleCodeWithLineNumbers(textEditor);
 
-  // select the 4o chat model
-  let [model] = await vscode.lm.selectChatModels({
-    vendor: 'copilot',
-    family: 'gpt-4o',
-  });
+  // select a Copilot chat model
+  let [model] = await vscode.lm.selectChatModels({ vendor: 'copilot' });
 
   // init the chat message
   const messages = [
@@ -203,11 +197,8 @@ const disposable = vscode.commands.registerTextEditorCommand('code-tutor.annotat
   // Get the code with line numbers from the current editor
   const codeWithLineNumbers = getVisibleCodeWithLineNumbers(textEditor);
 
-  // select the 4o chat model
-  let [model] = await vscode.lm.selectChatModels({
-    vendor: 'copilot',
-    family: 'gpt-4o',
-  });
+  // select a Copilot chat model
+  let [model] = await vscode.lm.selectChatModels({ vendor: 'copilot' });
 
   // init the chat message
   const messages = [
