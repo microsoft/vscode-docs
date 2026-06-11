@@ -57,7 +57,7 @@ Try Claude with a contained task first, such as asking it to inspect a small fea
 Inspect the current branch and propose a plan for one small refactor. Do not edit files yet.
 ```
 
-![Screenshot showing session type dropdown with Claude agent option selected.](../../docs/copilot/images/third-party-agents/claude-agent-new-chat-1.121.png)
+![Screenshot showing session type dropdown with Claude agent option selected.](../images/agents/claude-agent-new-chat-1.121.png)
 
 Starting with a planning prompt gives you a low-risk way to see how the provider agent approaches the repository before it changes files.
 
@@ -117,7 +117,7 @@ Pick the mode that matches the task:
 
 For sensitive work, keep approval in the loop and combine the agent with sandboxing when possible.
 
-![Screenshot showing Claude agent permission mode options.](../../docs/copilot/images/third-party-agents/claude-agent-permission-modes.png)
+![Screenshot showing Claude agent permission mode options.](../images/agents/claude-agent-permission-modes.png)
 
 > [!CAUTION]
 > The `setting(github.copilot.chat.claudeAgent.allowDangerouslySkipPermissions)` setting bypasses all permission checks. Only enable it in isolated sandbox environments with no internet access.

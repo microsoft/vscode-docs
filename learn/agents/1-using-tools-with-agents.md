@@ -55,7 +55,7 @@ The agent selects from the enabled tools based on your prompt and context. Your 
 
 1. Send the prompt.
 
-![Screenshot showing the Chat view with the Configure Tools button in the chat input.](../../docs/copilot/images/chat-tools/agent-mode-select-tools.png)
+![Screenshot showing the Chat view with the Configure Tools button in the chat input.](../images/agents/agent-mode-select-tools.png)
 
 Starting small helps the agent stay focused. It also reduces tool definitions in the model context window. VS Code can expose some groups as virtual tools to keep tool counts manageable, but a smaller active set still makes the task easier for the model to reason about.
 
@@ -78,7 +78,7 @@ Use explicit tool references when the task has a clear source of truth:
 * Use `#problems` when you want the agent to fix current diagnostics.
 * Use `#web` when the answer needs current external documentation.
 
-![Screenshot showing the tool picker drop-down with built-in tools, MCP servers, and user-defined tool sets.](../../docs/copilot/images/chat-tools/chat-tools-picker.png)
+![Screenshot showing the tool picker drop-down with built-in tools, MCP servers, and user-defined tool sets.](../images/agents/chat-tools-picker.png)
 
 ## Decide between individual tools and tool sets
 
@@ -146,7 +146,7 @@ You can keep your preferred mode across sessions with `setting(chat.permissions.
 > [!CAUTION]
 > Higher autonomy levels reduce the amount of review you do before tools run. Use them with care, especially when the agent can edit files or run terminal commands.
 
-![Screenshot of approval options.](../../docs/copilot/chat/images/copilot-chat/chat-approval-options.png)
+![Screenshot of approval options.](../images/agents/chat-approval-options.png)
 
 ## Add sandboxing for terminal work
 
