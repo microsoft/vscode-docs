@@ -12,7 +12,7 @@ Author: Kayla Cinnamon
 
 June 9, 2026 by [Kayla Cinnamon](https://github.com/cinnamon-msft)
 
-At Microsoft Build this year, I had the opportunity to present in the opening keynote. One thing I showed was using local models inside VS Code on the new Surface RTX Spark Dev Box. Check out the [recording at 12:18](https://build.microsoft.com/sessions/KEY01).
+At Microsoft Build this year, I had the opportunity to present in the opening keynote. One thing I showed was using local models inside VS Code on the new Surface RTX Spark Dev Box. My model was periodically analyzing my log files and giving me summaries, so I could easily diagnose issues without having to look through the logs myself. Check out the [recording at 12:18](https://build.microsoft.com/sessions/KEY01).
 
 Using local models gives you even greater flexibility when working with agents. Sometimes you want the built-in models available through GitHub Copilot. Sometimes you want to try a new model from a provider your team already uses. Sometimes you want to experiment locally. VS Code allows you to do all of these workflows with bring your own language model key (BYOK) and bring your own local model.
 
@@ -39,7 +39,7 @@ BYOK models are available for VS Code chat experiences, including agent workflow
 
 There are a few important details to keep in mind:
 
-- BYOK models work without signing into a GitHub account and **without** a Copilot plan. You can add and use models entirely with your own API keys, including fully **offline scenarios with local models**.
+- BYOK models work **without** signing into a GitHub account and **without** a Copilot plan. You can add and use models entirely with your own API keys, including fully **offline scenarios with local models**.
 - BYOK applies to chat and utility tasks, not standard code completions.
 - Some AI features, such as semantic search, inline suggestions, and features that rely on embeddings, still require a GitHub account or Copilot support.
 - Usage for provider-backed BYOK models is billed directly by that provider and does not count against GitHub Copilot request quotas.
@@ -117,6 +117,8 @@ This extensibility is a big part of the BYOK story. Instead of every provider ne
 ## Leveraging utility models
 
 VS Code also uses lightweight models in the background for small tasks like generating chat titles, commit messages, and rename suggestions. These default to built-in Copilot models and most users won't need to touch them. But if you're using BYOK without signing into a GitHub account, those defaults aren't available. VS Code will show a notification in the Chat view prompting you to configure them. Set `setting(chat.utilityModel)` and `setting(chat.utilitySmallModel)` to one of your BYOK models to keep those features working. A fast, inexpensive model works well here.
+
+![Settings for Chat Utility Model](chat-utility-model.png)
 
 ## Choosing the right model
 
