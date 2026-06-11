@@ -31,10 +31,8 @@ We call the task `say_hello`:
 promptSteps:
   - text: Add HELLO to HELLO.txt.
     assertions:
-        - comment: HELLO.txt file should exist
-          check: file_exists("HELLO.txt")
-        - comment: HELLO.txt file should contain 'HELLO' text
-          check: file_contains("HELLO.txt", "HELLO")
+        - check: file_exists("HELLO.txt")  # HELLO.txt file should exist
+        - check: file_contains("HELLO.txt", "HELLO")  # HELLO.txt file should contain 'HELLO' text
 
 ```
 
@@ -46,7 +44,7 @@ The task starts in the same empty workspace with the same tools and fixed prompt
 
 > **Methodology:** All runs use the same empty workspace, identical tool availability, and a fixed prompt. Model names are anonymized using nature-themed codenames, and vendor families are shuffled across categories. Failure categories are stamped at write-time by the harness, not retroactively classified. Tables below show representative models chosen to illustrate behavioral range, not the full set.
 
-## The mirror
+## The model behavior
 
 As expected, `say_hello` almost always passes. The more interesting signal is *how* each model gets there: whether it can match its effort down to match the simplicity of the request.
 
@@ -134,6 +132,26 @@ It was not a one-off. The same test kept surfacing platform problems that nobody
 * **A policy change with a side effect:** Someone updated an access policy, and a model that should have stayed available quietly dropped off. The policy team did not know. We did, because `say_hello` started returning routing errors for that model within minutes.
 * **An auth regression nobody had reported:** Bring-your-own-key models began failing authentication before a single customer noticed. `say_hello` caught it because it runs across every supported authentication path.
 * **Outages, caught before they cost anything:** We spotted a service degradation before launching expensive full-scale evaluation runs. The price of catching it early was one trivial benchmark; the price of missing it was hundreds of compute-hours spent against a broken pipeline.
+
+### The numbers behind the stories
+
+say_hello passes about 93% of the time, and when it fails it is almost never the model's fault. Across roughly 56,000 runs spanning about six months, fewer than 4,200 failed — a median day clears 94.6%, and 86 of 191 days finish at or above 95%. The table below breaks the failures down by cause. Every percentage is a share of failures, not of all runs, so a category at 29% is still a sliver of everything we ran.
+
+| Category | % of failures | What it means |
+| --- | --- | --- |
+| Chat / API flakes | 29% | Upstream chat service intermittently drops requests |
+| Model routing errors | 22% | Model configured but not reachable |
+| Generic harness errors | 21% | The test harness itself crashed or errored out |
+| Dependency outages | 8% | An upstream service went down |
+| Chat / UI errors | 7% | Extension or widget crashes |
+| Rate limits / quota | 6% | Quota exhaustion under concurrent load |
+| Harness export / parsing | 4% | The harness couldn't capture or read back the result |
+| Agent timeout | 2% | The model kept thinking past the time limit |
+| Other infra | 2% | Auth, network, extension activation, and the like |
+| **Wrong answer from the model** | **0%** | Not once in 56,000 runs did a model fail to write HELLO |
+
+
+![Every run in context. About 92.5% pass; the small slice that fails is almost entirely infrastructure, and none of it is the model getting the answer wrong.](failure-share.png)
 
 Put another way, 97% of those rare failures trace to infrastructure rather than the model. And because every failure is categorized the moment it happens, the daily timeline reads like a heartbeat: each dip is an incident we could name and fix.
 
