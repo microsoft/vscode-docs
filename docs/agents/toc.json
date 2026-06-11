@@ -46,13 +46,13 @@
         "topics": [
             ["Overview", "/docs/agent-customization/overview"],
             ["Instructions", "/docs/agent-customization/custom-instructions"],
-            ["Prompt Files", "/docs/agent-customization/prompt-files"],
-            ["Custom Agents", "/docs/agent-customization/custom-agents"],
             ["Agent Skills", "/docs/agent-customization/agent-skills"],
+            ["Custom Agents", "/docs/agent-customization/custom-agents"],
             ["Language Models", "/docs/agent-customization/language-models"],
             ["MCP", "/docs/agent-customization/mcp-servers"],
             ["Hooks", "/docs/agent-customization/hooks"],
-            ["Plugins", "/docs/agent-customization/agent-plugins"]
+            ["Plugins", "/docs/agent-customization/agent-plugins"],
+            ["Prompt Files", "/docs/agent-customization/prompt-files"],
         ]
     },
 
@@ -118,7 +118,7 @@
         "area": "agents/reference",
         "topics": [
             ["Cheat Sheet", "/docs/agents/reference/ai-features-cheat-sheet"],
-            ["Settings Reference", "/docs/agents/reference/copilot-settings"],
+            ["Settings Reference", "/docs/agents/reference/ai-settings"],
             ["MCP Configuration", "/docs/agents/reference/mcp-configuration"],
             ["Workspace Context", "/docs/agents/reference/workspace-context"]
         ]

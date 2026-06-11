@@ -1,6 +1,6 @@
 ---
 ContentId: de6f9f68-7dd5-4de3-a210-3db57882384b
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 MetaDescription: Quick reference for AI features in VS Code, including autonomous agents, multi-file editing, inline suggestions, and enterprise controls.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -213,7 +213,7 @@ Use the [plan agent](/docs/agents/planning.md) in VS Code chat to create detaile
 |--------|-------------|
 | Plan agent | Select the **Plan** agent from the agents dropdown or use the `/plan` slash command to create a detailed implementation plan for complex coding tasks. |
 | Todo list | View a todo list to track progress on complex tasks. Enable this with the `setting(chat.tools.todos.showWidget` setting. |
-| [Memory](/docs/agents/memory.md) | Agents save and recall persistent notes across conversations. Enable or disable with the `setting(github.copilot.chat.tools.memory.enabled)` setting. Use the **Chat: Show Memory Files** command to view stored memories. |
+| [Memory](/docs/agents/memory.md) | Agents save and recall persistent notes across conversations. Use the **Chat: Show Memory Files** command to view stored memories. |
 
 ## Customize your chat experience
 
@@ -292,7 +292,7 @@ VS Code can generate tests for functions and methods in your codebase by using s
 | `/tests` | Generate tests for all or only the selected methods and functions in the editor. The generated tests are appended in an existing tests file or a new tests file is created.  |
 | `/setupTests` | Get help setting up a testing framework for your code. Get recommendation for a relevant testing framework, steps to set up and configure it, and suggestions for VS Code testing extensions.   |
 | `/fixTestFailure` | Ask the AI for suggestions on how to fix failing tests. |
-| Test coverage _(Experimental)_ | Generate tests for functions and methods that are not yet covered by tests. [Get more information](https://code.visualstudio.com/updates/v1_93#_generate-tests-based-on-test-coverage-experimental). |
+| Test coverage _(Experimental)_ | Generate tests for functions and methods that are not yet covered by tests. [Get more information](/updates/v1_93.md#generate-tests-based-on-test-coverage-experimental). |
 
 > **Tips**
 >

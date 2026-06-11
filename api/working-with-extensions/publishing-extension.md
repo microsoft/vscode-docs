@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 7EA90618-43A3-4873-A9B5-61CC131CE4EE
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to publish Visual Studio Code extensions to the public Marketplace and share them with other developers.
@@ -61,10 +61,12 @@ The publishing tool checks the following constraints:
 
 Visual Studio Code uses [Azure DevOps](https://azure.microsoft.com/services/devops/) for its Marketplace services. This means that authentication, hosting, and management of extensions are provided through Azure DevOps.
 
+> [!IMPORTANT]
+> On December 1, 2026, global Personal Access Tokens (PATs) in Azure DevOps are retired. To keep publishing extensions, use [secure automated publishing](#secure-automated-publishing-to-visual-studio-marketplace) with Microsoft Entra ID instead of PATs. For more information, see [Retirement of global Personal Access Tokens in Azure DevOps](https://devblogs.microsoft.com/devops/retirement-of-global-personal-access-tokens-in-azure-devops/).
+
 ### Secure automated publishing to Visual Studio Marketplace
 
-Follow these steps to improve security and align with Microsoft best practices!
-We strongly recommend that extension publishing use [Microsoft Entra ID–based authentication](https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/entra?view=azure-devops) with **workload identity federation and managed identities**, eliminating long-lived secrets such as Personal Access Tokens (PATs) and enabling secure, automated publishing pipelines.
+We recommend that extension publishing use [Microsoft Entra ID–based authentication](https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/entra?view=azure-devops) with **workload identity federation and managed identities**. This approach eliminates long-lived secrets such as Personal Access Tokens (PATs) and enables secure, automated publishing pipelines.
 
 This approach strengthens the overall security posture by removing reliance on stored credentials, simplifies operations through native integration with Azure Pipelines and Entra ID, scales effectively across environments, and aligns with modern identity and access management standards required for enterprise compliance. For more information, see [Reduce PAT usage](https://devblogs.microsoft.com/devops/reducing-pat-usage-across-azure-devops/).
 
@@ -153,7 +155,7 @@ Sample YAML tasks.  Replace <ExtensionDirectory> with the extension directory pa
 `vsce` can also publish extensions using [Personal Access Tokens](https://learn.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate).
 
 > [!IMPORTANT]
-> Due to security concerns, consider using the more secure Microsoft Entra tokens over higher-risk personal access tokens.
+> Global PATs in Azure DevOps are retired on December 1, 2026. We recommend that you use [secure automated publishing](#secure-automated-publishing-to-visual-studio-marketplace) with Microsoft Entra ID instead of PATs. For more information, see [Retirement of global Personal Access Tokens in Azure DevOps](https://devblogs.microsoft.com/devops/retirement-of-global-personal-access-tokens-in-azure-devops/).
 
 ### Get a Personal Access Token
 
@@ -292,6 +294,21 @@ In both cases, you will be prompted to confirm the removal by typing the extensi
 > [!NOTE]
 > When you remove an extension, the Marketplace also removes any extension statistics. You may want to unpublish your extension rather than remove it.
 > Important! Extension names are unique identifiers in the Visual Studio Code Marketplace. Once an extension is removed, its extension name is permanently reserved and cannot be reused, even by the original publisher. This helps protect users from impersonation and maintains trust in the Marketplace ecosystem. Before deleting an extension, ensure that you no longer need the name, as this action is irreversible.
+
+## Removing specific extension versions
+
+You can remove a specific extension version from the [Visual Studio Marketplace publisher management page](https://marketplace.visualstudio.com/manage) by selecting **More Actions > Reports**:
+
+![Screenshot showing the More Actions menu with the Reports option in the Marketplace publisher management page](images/publishing-extension/extension-manage.png)
+
+On the **Manage** tab, select **Delete this version**.
+
+![Screenshot showing the manage tab with the Delete this version button](images/publishing-extension/remove-version.png)
+
+You are prompted to confirm the removal by typing the extension name. This action is **irreversible**.
+
+> [!IMPORTANT]
+> Once deleted, you can't reuse this version number for a new publish. Additionally, you cannot delete the latest version of an extension.
 
 ## Deprecating extensions
 

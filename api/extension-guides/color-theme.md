@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 113b458a-3692-4ccf-a181-048bd572a120
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to creating Color Theme in Visual Studio Code
@@ -131,7 +131,7 @@ We also have recommendations on how to make your extension look great on the VS 
 
 ## Adding a new Color ID
 
-Color IDs can also be contributed by extensions through the [color contribution point](/api/references/contribution-points#contributes.colors). These colors also appear when using code complete in the `workbench.colorCustomizations` settings and the color theme definition file. Users can see what colors an extension defines in the [extension contributions](/docs/configure/extensions/extension-marketplace#_extension-details) tab.
+Color IDs can also be contributed by extensions through the [color contribution point](/api/references/contribution-points#contributes.colors). These colors also appear when using code complete in the `workbench.colorCustomizations` settings and the color theme definition file. Users can see what colors an extension defines in the [extension contributions](/docs/configure/extensions/extension-marketplace.md#extension-details) tab.
 
 ## Further reading
 

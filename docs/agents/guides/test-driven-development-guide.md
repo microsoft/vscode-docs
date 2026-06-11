@@ -1,6 +1,6 @@
 ---
 ContentId: a9c5f4d2-8e91-4b3a-9d2c-7f1e3b8a6c4d
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 MetaDescription: Learn how to set up a test-driven development (TDD) workflow in VS Code with Copilot and custom agents and instructions.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:

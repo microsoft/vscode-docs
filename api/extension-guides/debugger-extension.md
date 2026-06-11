@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 49EF49AD-8BE6-4D46-ADC8-D678BDC04E85
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to provide debugger extensions (plug-ins) for Visual Studio Code through a Debug Adapter.
@@ -38,7 +38,7 @@ This intermediary is typically a standalone process that communicates with the d
 
 We call this intermediary the **Debug Adapter** (or **DA** for short) and the abstract protocol that is used between the DA and VS Code is the **Debug Adapter Protocol** (**DAP** for short).
 Since the Debug Adapter Protocol is independent from VS Code, it has its own [web site](https://microsoft.github.io/debug-adapter-protocol/) where you can find an [introduction and overview](https://microsoft.github.io/debug-adapter-protocol/overview), the detailed [specification](https://microsoft.github.io/debug-adapter-protocol/specification), and some lists with [known implementations and supporting tools](https://microsoft.github.io/debug-adapter-protocol/implementors/adapters/).
-The history of and motivation behind DAP is explained in this [blog post](https://code.visualstudio.com/blogs/2018/08/07/debug-adapter-protocol-website#_why-the-need-for-decoupling-with-protocols).
+The history of and motivation behind DAP is explained in this [blog post](/blogs/2018/08/07/debug-adapter-protocol-website.md#why-the-need-for-decoupling-with-protocols).
 
 Since debug adapters are independent from VS Code and can be used in [other developments tools](https://microsoft.github.io/debug-adapter-protocol/implementors/tools/), they do not match VS Code's extensibility architecture which is based on extensions and contribution points.
 

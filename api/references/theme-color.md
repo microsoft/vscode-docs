@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -348,7 +348,7 @@ Editor Groups are the containers of editors. There can be many editor groups. A 
 
 ## Editor colors
 
-The most prominent editor colors are the token colors used for syntax highlighting and are based on the language grammar installed. These colors are defined by the Color Theme but can also be customized with the `editor.tokenColorCustomizations` setting. See [Customize a Color Theme](/docs/configure/themes#_customize-a-color-theme) for details on updating a Color Theme and the available token types.
+The most prominent editor colors are the token colors used for syntax highlighting and are based on the language grammar installed. These colors are defined by the Color Theme but can also be customized with the `editor.tokenColorCustomizations` setting. See [Customize a Color Theme](/docs/configure/themes.md#customize-a-color-theme) for details on updating a Color Theme and the available token types.
 
 All other editor colors are listed here:
 

@@ -226,6 +226,20 @@ The **Split** editor commands are also available from the **View** > **Editor La
 
 If you'd like to go quickly between vertical and horizontal editor group layout, you can use the **Toggle Vertical/Horizontal Editor Layout** command (`kb(workbench.action.toggleEditorGroupLayout)`).
 
+### Maximize and expand an editor group
+
+When you work with multiple editor groups, you can temporarily give the active group more space. Double-click an editor tab to toggle the size of its editor group, or use the **View: Toggle Maximize Editor Group** command (`kb(workbench.action.toggleMaximizeEditorGroup)`).
+
+The **Workbench > Editor: Double Click Tab To Toggle Editor Group Sizes** (`setting(workbench.editor.doubleClickTabToToggleEditorGroupSizes)`) setting controls how the editor group is resized when you double-click a tab:
+
+* `expand`: The editor group takes as much space as possible by making all other editor groups as small as possible. This is the default.
+
+* `maximize`: All other editor groups are hidden and the current editor group is maximized to fill the entire editor area.
+
+* `off`: No editor group is resized when you double-click a tab.
+
+This setting applies only when `setting(workbench.editor.showTabs)` is set to `multiple`.
+
 ### Split in group
 
 You can also split an editor in the same group for side by side editing with the **View: Split Editor in Group** command (`kb(workbench.action.splitEditorInGroup)`).
