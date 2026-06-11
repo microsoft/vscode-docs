@@ -307,7 +307,7 @@ Select the **Manage** tab and then click on **Delete this version**.
 
 You are prompted to confirm the removal by typing the extension name. This action is **irreversible**.
 
-> [!NOTE]
+> [!IMPORTANT]
 > Once deleted, you can't reuse this version number for a new publish. Additionally, you cannot delete the latest version of an extension.
 
 ## Deprecating extensions
