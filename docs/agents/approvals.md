@@ -56,17 +56,12 @@ When you select the **Autopilot** permission level, the agent behaves differentl
 * **Auto-retry on errors**: the agent automatically retries when it encounters errors.
 * **Auto-respond to questions**: tools that normally block and ask your input, such as clarifying questions, auto-respond so the agent does not stall waiting for a reply. This behavior is specific to **Autopilot** and does not apply to **Bypass Approvals**.
 
+With autopilot, the agent keeps iterating until it considers the task is complete. You can enable advanced autopilot (preview), which delegates this decision to a separate model instead. After each autopilot turn, a small, fast model evaluates whether your original request is complete. If it isn't, autopilot keeps working and uses that evaluation as guidance for the next turn.
+
+To use advanced autopilot (preview) functionality, set `setting(chat.autopilot.advanced.enabled)` to `true`.
+
 > [!NOTE]
 > Autopilot consumes AI credits in the same way as using chat in an interactive way. Learn more about [usage-based billing](https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-individuals).
-
-### Advanced Autopilot
-
-> [!NOTE]
-> Advanced Autopilot is currently in preview.
-
-By default, Autopilot keeps iterating until the agent itself signals that the task is complete. Advanced Autopilot delegates this decision to a separate model instead. After each Autopilot turn, a small, fast model evaluates whether your original request is complete. If it isn't, Autopilot keeps working and uses that evaluation as guidance for the next turn.
-
-To try Advanced Autopilot, set `setting(chat.autopilot.advanced.enabled)` to `true`.
 
 ## Tool approval
 
