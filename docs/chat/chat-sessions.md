@@ -131,7 +131,9 @@ The Chat view operates in two modes: compact and side-by-side. You can manually 
 
 ## Archive sessions
 
-To keep the sessions list organized, archive or mark sessions as done when they're completed or you no longer need them. Archiving a session does not delete it but changes its status to move it out of the active sessions list. At any time, you can unarchive a session to restore it to the active sessions list.
+To keep the sessions list organized, archive or mark sessions as done when they're completed or you no longer need them. Archiving a session does not delete it. At any time, you can unarchive a session to restore it to the active sessions list.
+
+When you archive (or mark as done) a session, its status changes so it moves out of the active sessions list. If the session uses a worktree, such as a Copilot CLI session, the worktree is removed from the file system, provided its working tree is clean. The branch and any commits are preserved, so restoring the session re-creates the worktree from that branch and no work is lost.
 
 To archive a session, hover over the session in the sessions list and select the **Archive** (Chat view) or **Mark as Done** (Agents Window) option.
 
