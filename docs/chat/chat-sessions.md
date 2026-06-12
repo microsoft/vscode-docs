@@ -89,6 +89,8 @@ To start a new chat session in the Chat view:
 
 The sessions list is your central hub for managing all your chat sessions, regardless of where you started them or where they are running. The sessions list shows your sessions with information about their status, type, and file changes.
 
+![Screenshot of the sessions list showing multiple sessions with different statuses, types, and file change stats.](images/chat-sessions/chat-view-sessions-list.png)
+
 Hover over a session to see actions for pinning or [archiving](#archive-sessions) it.  Right-click a session in the list to see additional actions like deleting or changing the session's state. Some actions are specific for the session's agent type and state. For example, checking out a pull request for a cloud agent session.
 
 Use the pinning action to keep important sessions easily accessible at the top of your list. Pinned sessions stay at the top of the list regardless of their activity or state, so you can quickly find and return to them.
@@ -96,7 +98,9 @@ Use the pinning action to keep important sessions easily accessible at the top o
 {% tabs id="chat-surface" %}
 {% tab label="Agents window" %}
 
-In the Agents window, the sessions list is located in the left sidebar. It shows sessions from all your workspaces, so you can monitor work across projects from a single place. Each session item surfaces key information such as session name, workspace, agent type, and file change stats.
+In the **Agents window**, the sessions list is located in the left sidebar. It shows sessions from all your workspaces, so you can monitor work across projects from a single place. Each session item surfaces key information such as session name, workspace, agent type, and file change stats.
+
+![Screenshot of the sessions list in the Agents window, showing multiple sessions with different agent types and file change stats.](images/chat-sessions/agents-window-sessions-list.png)
 
 By default, the list is filtered to only show active sessions. You can change the filter to show sessions of different states, such as completed or archived.
 
@@ -127,13 +131,15 @@ The Chat view operates in two modes: compact and side-by-side. You can manually 
 
 ## Archive sessions
 
-To keep the sessions list organized, archive completed or inactive sessions. Archiving a session does not delete it but moves it out of the active sessions list. At any time, you can unarchive a session to restore it to the active sessions list.
+To keep the sessions list organized, archive or mark sessions as done when they're completed or you no longer need them. Archiving a session does not delete it. At any time, you can unarchive a session to restore it to the active sessions list.
 
-To archive a session, hover over the session in the sessions list and select **Archive**. After you archive a session, it disappears from the list. Inversely, you can also unarchive a session in the same way.
+When you archive (or mark as done) a session, its status changes so it moves out of the active sessions list. If the session uses a worktree, such as a Copilot CLI session, the worktree is removed from the file system, provided its working tree is clean. The branch and any commits are preserved, so restoring the session re-creates the worktree from that branch and no work is lost.
 
-![Screenshot of archiving an agent session in the sessions view.](../agents/images/agents-overview/agent-sessions-archive.png)
+To archive a session, hover over the session in the sessions list and select the **Archive** (Chat view) or **Mark as Done** (Agents Window) option.
 
-To view your archived sessions, use the filter options in the sessions list and select the **Archived** filter.
+![Screenshot of archiving an agent session in the sessions view.](../agents/images/agents-overview/agent-sessions-archive-v2.png)
+
+To view your archived sessions, use the filter options in the sessions list and select the **Archived** (Chat view) or **Done** (Agents Window) filter.
 
 ## Delete sessions
 
