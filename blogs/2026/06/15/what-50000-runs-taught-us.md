@@ -21,36 +21,32 @@ Our VS Code agent gets one instruction: add `HELLO` to `HELLO.txt`. There is no 
 
 We ran it more than 50,000 times. It became our most useful distributed systems probe, and an accidental mirror for model behavior.
 
-In our [previous post](https://code.visualstudio.com/blogs/2026/05/15/agent-harnesses-github-copilot-vscode), we introduced VSC-Bench, the offline evaluation suite we use to measure agent behavior in Visual Studio Code. This time, we're zooming all the way in and we're focusing on our simplest eval and what we learned from running it at scale.
+In our [previous post](https://code.visualstudio.com/blogs/2026/05/15/agent-harnesses-github-copilot-vscode), we introduced VSC-Bench, the offline evaluation suite we use to measure agent behavior in VS Code. This blog post focuses on the simplest test case and what it revealed to us at scale.
 
 ## The five-line eval
 
-We call the task `say_hello`:
+The `say_hello` task simply asks the agent "Add HELLO to HELLO.txt"
 
 ```yaml
 promptSteps:
   - text: Add HELLO to HELLO.txt.
     assertions:
-        - check: file_exists("HELLO.txt")  # HELLO.txt file should exist
-        - check: file_contains("HELLO.txt", "HELLO")  # HELLO.txt file should contain 'HELLO' text
+        - check: file_exists("HELLO.txt")
+        - check: file_contains("HELLO.txt", "HELLO")
 
 ```
 
-One prompt. Two assertions. Create a file and put a word in it.
-
-This task runs as a smoke test before every benchmark suite and over the last six months it quietly accumulated 50,974 runs across 30 models, and that volume turned a throwaway sanity check into a mirror for how differently models approach even the simplest work. As a side effect, it also became our most reliable alarm for infrastructure failures.
-
-The task starts in the same empty workspace with the same tools and fixed prompt on every run. It runs before every benchmark suite as a smoke test. Over six months, it accumulated 50,974 runs across 30 models.
-
-> **Methodology:** All runs use the same empty workspace, identical tool availability, and a fixed prompt. Model names are anonymized using nature-themed codenames, and vendor families are shuffled across categories. Failure categories are stamped at write-time by the harness, not retroactively classified. Tables below show representative models chosen to illustrate behavioral range, not the full set.
+Every run starts in the same empty workspace, with the same tools and the same fixed prompt, using our VS Code agent harness in chat mode. Because `say_hello` runs as a smoke test before every benchmark suite, it quietly accumulated 50,974 runs across 30 models over six months. What started as a throwaway sanity check became a mirror for how differently models approach even the simplest work, and one of our most reliable alarms for infrastructure failures.
 
 ## The model behavior
 
-As expected, `say_hello` almost always passes. The more interesting signal is *how* each model gets there: whether it can match its effort down to match the simplicity of the request.
+As expected, `say_hello` almost always passes. The more interesting signal is *how* each model gets there: whether it recognizes that a simple request needs only a simple path.
 
 ### The direct path
 
 The most direct path requires only 1 tool call to create the file with the requested content. A useful response needs about 50 output tokens, including the tool-call structure. Anything beyond that is overhead for this task.
+
+> **Note:** In the following graphs, model names are anonymized using nature-themed codenames, and vendor families are shuffled across categories. Failure categories are stamped at write-time by the harness, not retroactively classified. Tables below show representative models chosen to illustrate behavioral range, not the full set.
 
 We measured the share of passing runs in which each model took that one-tool-call path:
 
@@ -70,7 +66,7 @@ We measured the share of passing runs in which each model took that one-tool-cal
 | Amazon | 1,180 | 0% | Searches and plans every single time. |
 
 
-No model takes the direct path every time. Three models never even take it across thousands of passing runs. They all produce the right file, but they reach the same destination with very different amounts of work. Even on a task with no ambiguity, some models still plan, search, or choose a more complex editing tool. They all produce the right file, but they do not spend the same amount of work to get there.
+No model takes the direct path every time. Three models never even take it across thousands of passing runs. They all produce the right file, but they reach the same destination with very different amounts of work. Even on a task with almost no ambiguity, some models still plan, search, or choose a more complex editing tool. They all produce the right file, but they do not spend the same amount of work to get there.
 
 ### How models spend their overhead
 
