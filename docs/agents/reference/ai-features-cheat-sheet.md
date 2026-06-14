@@ -292,7 +292,7 @@ VS Code can generate tests for functions and methods in your codebase by using s
 | `/tests` | Generate tests for all or only the selected methods and functions in the editor. The generated tests are appended in an existing tests file or a new tests file is created.  |
 | `/setupTests` | Get help setting up a testing framework for your code. Get recommendation for a relevant testing framework, steps to set up and configure it, and suggestions for VS Code testing extensions.   |
 | `/fixTestFailure` | Ask the AI for suggestions on how to fix failing tests. |
-| Test coverage _(Experimental)_ | Generate tests for functions and methods that are not yet covered by tests. [Get more information](https://code.visualstudio.com/updates/v1_93#_generate-tests-based-on-test-coverage-experimental). |
+| Test coverage _(Experimental)_ | Generate tests for functions and methods that are not yet covered by tests. [Get more information](/updates/v1_93.md#generate-tests-based-on-test-coverage-experimental). |
 
 > **Tips**
 >

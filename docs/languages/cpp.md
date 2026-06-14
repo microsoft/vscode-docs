@@ -52,17 +52,17 @@ If you don't have a compiler installed, you can follow one of our installation t
 
 **Windows**:
 
-<a class="next-topic-btn" href="/docs/cpp/config-msvc#_prerequisites">Go to the MSVC tutorial</a>
+<a class="next-topic-btn" href="/docs/cpp/config-msvc.md#prerequisites">Go to the MSVC tutorial</a>
 
-<a class="next-topic-btn" href="/docs/cpp/config-mingw#_prerequisites">Go to the MinGW tutorial</a>
+<a class="next-topic-btn" href="/docs/cpp/config-mingw.md#prerequisites">Go to the MinGW tutorial</a>
 
 **Linux**:
 
-<a class="next-topic-btn" href="/docs/cpp/config-linux#_prerequisites">Go to the GCC tutorial</a>
+<a class="next-topic-btn" href="/docs/cpp/config-linux.md#prerequisites">Go to the GCC tutorial</a>
 
 **macOS**:
 
-<a class="next-topic-btn" href="/docs/cpp/config-clang-mac#_prerequisites">Go to the Clang tutorial</a>
+<a class="next-topic-btn" href="/docs/cpp/config-clang-mac.md#prerequisites">Go to the Clang tutorial</a>
 
 > **Note**: If you would prefer a full Integrated Development Environment (IDE), with built-in compilation, debugging, and project templates (File > New Project), there are many options available, such as the [Visual Studio Community](https://visualstudio.microsoft.com/vs/community) edition.
 
@@ -105,7 +105,7 @@ To understand the process, let's install Mingw-w64 via [MSYS2](https://www.msys2
     gdb --version
     ```
 
-    You should see output that states which versions of GCC, g++ and GDB you have installed. If this is not the case, make sure your PATH entry matches the Mingw-w64 binary location where the compiler tools are located or reference the [troubleshooting section](/docs/cpp/config-mingw.md#_check-your-mingw-installation).
+    You should see output that states which versions of GCC, g++ and GDB you have installed. If this is not the case, make sure your PATH entry matches the Mingw-w64 binary location where the compiler tools are located or reference the [troubleshooting section](/docs/cpp/config-mingw.md#check-your-mingw-installation).
 
 ## Create a Hello World App
 

@@ -1159,7 +1159,7 @@ This problem matcher can now be used in a `tasks.json` file via a name reference
 }
 ```
 
-Also see: [Defining a Problem Matcher](/docs/debugtest/tasks#_defining-a-problem-matcher)
+Also see: [Defining a Problem Matcher](/docs/debugtest/tasks.md#defining-a-problem-matcher)
 
 ## contributes.problemPatterns
 
@@ -1276,7 +1276,7 @@ See the [Semantic Highlighting Guide](/api/language-extensions/semantic-highligh
 
 ## contributes.snippets
 
-Contribute snippets for a specific language. The `language` attribute is the [language identifier](/docs/languages/identifiers) and the `path` is the relative path to the snippet file, which defines snippets in the [VS Code snippet format](/docs/editing/userdefinedsnippets#_snippet-syntax).
+Contribute snippets for a specific language. The `language` attribute is the [language identifier](/docs/languages/identifiers) and the `path` is the relative path to the snippet file, which defines snippets in the [VS Code snippet format](/docs/editing/userdefinedsnippets.md#snippet-syntax).
 
 The example below shows adding snippets for the Go language.
 
