@@ -390,6 +390,7 @@
 { "key": "up",                    "command": "focusPreviousRenameSuggestion" },
 { "key": "shift+cmd+l",           "command": "addCursorsAtSearchResults" },
 { "key": "escape",                "command": "agentSession.exitAgentSessionProjection" },
+{ "key": "space",                 "command": "agentsVoice.pushToTalk" },
 { "key": "shift+cmd+;",           "command": "breadcrumbs.focus" },
 { "key": "shift+cmd+.",           "command": "breadcrumbs.focusAndSelect" },
 { "key": "alt+right",             "command": "breadcrumbs.focusNext" },
