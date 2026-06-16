@@ -142,6 +142,10 @@ BYOK gives you more flexibility in VS Code without adding more tools to your wor
 
 To learn more, check out the VS Code docs on [AI language models](https://code.visualstudio.com/docs/agent-customization/language-models), the VS Code blog post on [Expanding Model Choice in VS Code with Bring Your Own Key](https://code.visualstudio.com/blogs/2025/10/22/bring-your-own-key), and the GitHub changelog entry for [BYOK availability in VS Code](https://github.blog/changelog/2026-04-22-bring-your-own-language-model-key-in-vs-code-now-available/).
 
+We also have a video for how to [Bring Your Own AI... No Sign-In Required!](https://www.youtube.com/watch?v=EB7dQv1ALCU).
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/EB7dQv1ALCU?si=mDo0BJiZ5FLJBPwJ" title="Bring Your Own AI... No Sign-In Required!" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 We are continuing to improve model choice in VS Code, and your feedback helps shape what comes next. Try BYOK with your workflow and let us know what you think in the [VS Code repository](https://github.com/microsoft/vscode).
 
 Happy coding! 💙
