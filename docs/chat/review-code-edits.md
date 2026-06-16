@@ -60,9 +60,11 @@ In the Agents window, you review edits in the dedicated **Changes** panel instea
 
     By default, selecting a file opens a multi-file diff editor with all the changes. To open a focused single-file diff editor for the selected file instead, enable the `setting(sessions.changes.openSingleFileDiff)` setting.
 
-1. Select **Add Feedback** in the diff view to comment on a specific edit and signal the agent to make adjustments.
+1. Select a range of code in a changed file, select **Add Feedback**, and enter a comment that describes the change you want. Add more comments on other selections or files, and then select **Submit Feedback** to send them to the agent.
 
     ![Screenshot showing the Add Feedback button in the Changes diff view.](images/review-code-edits/agents-window-add-feedback.png)
+
+    The agent reads your comments, makes the requested edits, and resolves each comment. Resolved comments disappear from the diff view.
 
 1. Use the **Commit**, **Merge**, **Checkout**, or **Discard** actions to act on the edits.
 
