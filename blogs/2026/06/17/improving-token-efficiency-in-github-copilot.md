@@ -3,7 +3,7 @@ Order: 140
 TOCTitle: Improving Token Efficiency
 PageTitle: "Improving token efficiency in GitHub Copilot"
 MetaDescription: Learn how we're improving token efficiency in GitHub Copilot to reduce costs and latency for users.
-MetaSocialImage: NICK-TODO.png
+MetaSocialImage: cache-explorer.webp
 Date: 2026-06-17
 Author: Ryan Caldwell, Bhavya U
 ---
