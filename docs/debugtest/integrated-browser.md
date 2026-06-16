@@ -47,6 +47,12 @@ You can control the picker with the keyboard:
 * Press `kbstyle(Esc)` to close the picker and switch to a plain input. Type to reopen the picker, press `kbstyle(Enter)` to navigate, or press `kbstyle(Esc)` again to focus the loaded page.
 * Press `kbstyle(Tab)` to move focus along the browser toolbar.
 
+### Search the web
+
+You can search the web from the address bar, just like in a regular browser. Use the `setting(workbench.browser.searchEngine)` setting to choose a search engine: Bing, Google, Yahoo, or DuckDuckGo. The default value `none` disables web search and treats your input as a URL only.
+
+When web search is enabled, the picker offers a search option based on what you type. Text that is clearly not a URL, such as a phrase with spaces, shows only a search option. A clear URL offers navigation first, then search. Ambiguous input that could be either offers search first, then navigation.
+
 ### Favorites
 
 To favorite the current page, open the address bar and select the star icon. The star icon stays visible in the address bar to indicate that the page is favorited. Favorited pages appear in the suggestions picker and filter as you type. Select a favorite to navigate to it.
