@@ -152,13 +152,18 @@ There is also an **Enable All Extensions** command in the **More Actions** (`...
 
 VS Code checks for extension updates and installs them automatically. After an update, you are prompted to restart the extension host (**Restart Extensions**).
 
-If you'd rather update your extensions manually, you can disable auto-update with the **Disable Auto Update for All Extensions** command or the corresponding action in the Extensions view. You can also configure the `setting(extensions.autoUpdate)` [setting](/docs/configure/settings.md). Use the **Enable Auto Update for All Extensions** command to re-enable auto update.
+If you'd rather update your extensions manually, you can disable auto-update with the **Disable Auto Update for Extensions** command or the corresponding action in the Extensions view. You can also configure the `setting(extensions.autoUpdate)` setting. Use the **Enable Auto Update for Extensions** command to re-enable auto update.
 
-![Disable auto update for all extensions action](images/extension-marketplace/disable-auto-update-all-extensions.png)
+![Screenshot of the Extensions context menu with the Disable Auto Update for Extensions action.](images/extension-marketplace/disable-auto-update-all-extensions-v2.png)
 
 You can also configure auto update for individual extensions by right-clicking on an extension and toggling the **Auto Update** item.
 
+By default, VS Code waits a short time after an update is published before it installs the update automatically. Use the `setting(extensions.autoUpdateDelay)` setting to configure the delay, in hours. The default value is `2` hours. Set the value to `0` to install updates as soon as they are published. This delay only applies when auto-update is `on`. To update an extension immediately, select the **Update** button for the extension, which bypasses the delay.
+
 If you don't want VS Code to even check for updates, you can set the `setting(extensions.autoCheckUpdates)` setting to false.
+
+> [!NOTE]
+> Administrators can centrally manage the `setting(extensions.autoUpdate)` and `setting(extensions.autoUpdateDelay)` settings with [enterprise policies](/docs/enterprise/policies.md).
 
 ### Update an extension manually
 
