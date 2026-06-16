@@ -1,6 +1,6 @@
 ---
 ContentId: 8d3f4a2e-9b1c-4f5e-a8d7-2c4b6e9f1a3d
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 MetaDescription: Learn how to review and manage AI-generated code edits in Visual Studio Code chat.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -56,7 +56,15 @@ In the Agents window, you review edits in the dedicated **Changes** panel instea
 
 1. Select a file in the **Changes** tab to open a diff view of the agent's edits.
 
-1. Select **Add Feedback** in the diff view to comment on a specific edit and signal the agent to make adjustments.
+    ![Screenshot showing the Changes panel in the Agents window, highlighting the list of edited files and the diff view.](images/review-code-edits/agents-window-diff-view.png)
+
+    By default, selecting a file opens a multi-file diff editor with all the changes. To open a focused single-file diff editor for the selected file instead, enable the `setting(sessions.changes.openSingleFileDiff)` setting.
+
+1. Select a range of code in a changed file, select **Add Feedback**, and enter a comment that describes the change you want. Add more comments on other selections or files, and then select **Submit Feedback** to send them to the agent.
+
+    ![Screenshot showing the Add Feedback button in the Changes diff view.](images/review-code-edits/agents-window-add-feedback.png)
+
+    The agent reads your comments, makes the requested edits, and resolves each comment. Resolved comments disappear from the diff view.
 
 1. Use the **Commit**, **Merge**, **Checkout**, or **Discard** actions to act on the edits.
 
@@ -69,6 +77,8 @@ To review the AI-generated code edits in a file:
 
 1. Open a file with pending edits by selecting it from the changed files list in the Chat view or from the Explorer view.
 
+    ![Screenshot showing the Editor with proposed changes, highlighting the review controls in the editor overlay controls.](images/review-code-edits/copilot-edits-file-review-controls.png)
+
 1. Use the `kbstyle(Up)` and `kbstyle(Down)` controls in the editor overlay to navigate between individual edits within the file.
 
 1. For each edit, choose one of the following actions:
@@ -77,8 +87,6 @@ To review the AI-generated code edits in a file:
     * Hover over an inline change to accept or reject that specific change without affecting other edits in the file.
 
 1. Alternatively, accept or reject all changes across all files at once from the Chat view.
-
-![Screenshot showing the Editor with proposed changes, highlighting the review controls in the editor overlay controls.](images/review-code-edits/copilot-edits-file-review-controls.png)
 
 The following keyboard shortcuts help you navigate and review edits:
 

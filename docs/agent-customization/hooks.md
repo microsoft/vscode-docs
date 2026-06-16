@@ -1,6 +1,6 @@
 ---
 ContentId: 9c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 MetaDescription: Learn how to use hooks in VS Code to execute custom shell commands at key lifecycle points during agent sessions for automation, validation, and policy enforcement.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -232,15 +232,16 @@ Hooks communicate with VS Code through stdin (input) and stdout (output) using J
 
 Every hook receives a JSON object via stdin with these common fields:
 
-```json
-{
-  "timestamp": "2026-02-09T10:30:00.000Z",
-  "cwd": "/path/to/workspace",
-  "sessionId": "session-identifier",
-  "hookEventName": "PreToolUse",
-  "transcript_path": "/path/to/transcript.json"
-}
-```
+| Field | Type | Description |
+|-------|------|-------------|
+| `timestamp` | string | ISO 8601 timestamp when the hook fired |
+| `cwd` | string | (Optional) Working directory for the agent session |
+| `session_id` | string | (Optional) Unique identifier for the current agent session |
+| `hook_event_name` | string | Name of the hook event (for example, `PreToolUse`) |
+| `transcript_path` | string | (Optional) Absolute path to a file containing the session conversation transcript |
+
+> [!NOTE]
+> `transcript_path` is provided for convenience — for example, logging, auditing, or lightweight checks such as whether a file was read during the session. The transcript file format is not a stable hook API and may change in future VS Code releases. Prefer the documented hook input fields (`tool_name`, `tool_input`, `prompt`, and so on) whenever possible.
 
 ### Common output format
 

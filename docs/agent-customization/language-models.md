@@ -1,6 +1,6 @@
 ---
 ContentId: 33e63aa1-1d8f-4d23-9733-1475f8c9f502
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 MetaDescription: Configure AI language models in VS Code, change chat and inline models, set thinking effort, and bring your own API key.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -110,22 +110,22 @@ To pin or unpin a model:
 
 ## Bring your own language model key
 
-If you want to use a model that is not available as a built-in model or want to control the model hosting, you can bring your own language model API key (BYOK) to use models from other providers or to run models locally. For background on why you might bring your own key and what to consider, see [Bring your own language model key](/docs/agents/concepts/language-models.md#bring-your-own-language-model-key).
+Bring Your Own Key (BYOK) lets you connect to any compatible model provider while still using the VS Code chat experience and tools. You can use BYOK to access models from other providers, to run models locally, or to use models that are not yet available as built-in options in VS Code.
 
-BYOK models work without signing into a GitHub account and without a Copilot plan. You can add models with the **Chat: Manage Language Models** command even when you are not signed in. This enables you to use AI chat features entirely with your own models, including fully offline scenarios with local models such as Ollama.
+BYOK models work without signing into a GitHub account and without a Copilot plan. This enables you to use AI chat features entirely with your own models, including fully offline scenarios with local models such as Ollama.
+
+You can also use these models to [override the models used for utility tasks in VS Code](#configure-models-for-other-features) (such as title generation and intent detection).
 
 > [!NOTE]
 > Some features still require a GitHub account: semantic search, inline suggestions (code completions), and features that rely on embeddings. BYOK applies to the chat experience and utility tasks only.
 
 VS Code provides different options to add more language models:
 
-| Option | When to use | Get started |
-|--------|-------------|-------------|
-| [Built-in providers](#add-a-model-from-a-built-in-provider) | The provider you want is already listed (Azure, Anthropic, Gemini, OpenAI, and others) | Enter your API key for a known provider |
-| [Custom endpoint](#add-a-custom-endpoint-model) _(Insiders)_ | You have a self-hosted, enterprise, or other endpoint that speaks Chat Completions, Responses, or Messages API | Point VS Code at any compatible URL |
-| [Extensions](#add-a-model-provider-extension) | A marketplace extension provides the model, for example AI Toolkit for local models | Install the extension and follow its setup |
+* [Built-in providers](#add-a-model-from-a-built-in-provider): The provider you want is already listed (Azure, Anthropic, Gemini, OpenAI, and others).
 
-You can also use these models to [override the models used for utility tasks in VS Code](#configure-models-for-other-features) (such as title generation and intent detection).
+* [Extensions](#add-a-model-provider-extension): A marketplace extension provides the model, for example AI Toolkit for local models.
+
+* [Custom endpoint](#add-a-custom-endpoint-model) _(Insiders)_: You have a self-hosted, enterprise, or other endpoint that speaks Chat Completions, Responses, or Messages API.
 
 > [!NOTE]
 > If you are a Copilot Business or Enterprise user, your administrator can disable the **Bring Your Own Language Model Key in VS Code** policy in the [Copilot policy settings](https://github.com/settings/copilot/features) on GitHub.com. For more details, see the [GitHub Copilot documentation](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/use-your-own-api-keys).
@@ -175,6 +175,24 @@ To configure a language model from a built-in provider:
 1. After configuring the model, you can now select it from the model picker in chat.
 
     For a model to be available when using agents in chat, it must support tool calling. If the model doesn't support tool calling, it won't be shown in the model picker.
+
+### Add a model provider extension
+
+You can install extensions from the Visual Studio Marketplace that add language model providers to VS Code. These extensions can provide access to additional cloud-hosted or locally running models. For example, the Foundry Toolkit for VS Code extension provides access to Foundry's local and cloud-hosted models.
+
+To add a model provider extension:
+
+1. Open the Language Models editor by selecting **Manage Language Models** (gear icon) from the language model picker or via the **Chat: Manage Language Models** command from the Command Palette.
+
+1. Select **Install Model Providers**.
+
+    VS Code opens the Extensions view, filtered to language model provider extensions. Alternatively, open the Extensions view and search for `@tag:language-models`.
+
+1. Select **Install** to install the extension, for example, [Foundry Toolkit for VS Code](https://aka.ms/AIToolkit).
+
+1. Follow the extension's setup instructions to configure model access.
+
+1. The extension's models appear in the model picker in chat and in the Language Model editor. If the models don't appear, reload VS Code.
 
 ### Add a custom endpoint model
 
@@ -227,20 +245,6 @@ To add a model with the Custom Endpoint provider:
 
     > [!TIP]
     > If the model you added does not immediately appear in the model picker, restart VS Code.
-
-### Add a model provider extension
-
-You can install extensions from the Visual Studio Marketplace that add language model providers to VS Code. These extensions can provide access to additional cloud-hosted or locally running models. For example, the Foundry Toolkit for VS Code extension provides access to Foundry's local and cloud-hosted models.
-
-To add a model provider extension:
-
-1. Open the Extensions view and search for `@tag:language-models`.
-
-1. Select **Install** to install the extension, for example, [Foundry Toolkit for VS Code](https://aka.ms/AIToolkit).
-
-1. Follow the extension's setup instructions to configure model access.
-
-1. The extension's models appear in the model picker in chat and in the Language Model editor. If the models don't appear, reload VS Code.
 
 ## Update model provider details
 

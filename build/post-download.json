@@ -1,9 +1,9 @@
 {
   "featured": {
-    "title": "Session sync, deep research, and more",
-    "description": "Sync your chat sessions across machines, run deep research on any topic, work with multiple agent sessions side by side.",
-    "link": "/updates/v1_123",
-    "image": "/assets/updates/1_123/release-highlights.webp"
+    "title": "Smarter browsing and enterprise-ready Copilot",
+    "description": "Search the web from the integrated browser, fine-tune when extensions update, and deliver managed Copilot settings through native MDM.",
+    "link": "/updates/v1_125",
+    "image": "/assets/updates/1_125/release-highlights.webp"
   },
   "highlights": [
     {

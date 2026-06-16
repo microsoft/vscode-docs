@@ -1,6 +1,6 @@
 ---
 ContentId: b3e7a1d4-5f2c-4e9a-8b6d-1c0f3a2e5d47
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 MetaDescription: Use the Agents window in VS Code for an agent-first coding experience where agents and chat are the primary interface to build with AI.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -95,6 +95,9 @@ To start a new agent session in the Agents window:
 
 The agent now starts working on your request. Learn more about [interacting in chat](/docs/chat/chat-overview.md).
 
+> [!TIP]
+> To start a session in the background without leaving the current session, press `kbstyle(Alt+Enter)` or hold `kbstyle(Alt)` and select **Send**. The newly started session appears in the sessions list once it commits.
+
 ## Manage your sessions
 
 The session list in the sidebar shows all your ongoing sessions across your workspaces. Each session item surfaces the key information such as session name, workspace, agent type, and file change stats.
@@ -116,11 +119,24 @@ To review changes made by the agent, select a file in the **Changes** tab to ope
 
 ![Screenshot showing the diff view in a modal window in the Agents window, with the layout controls in the diff view toolbar visible.](images/agents-window/agents-window-diff-view.png)
 
+> [!TIP]
+> By default, selecting a file opens a multi-file diff editor with all the changes in the session. To open a focused single-file diff editor for the selected file instead, enable the `setting(sessions.changes.openSingleFileDiff)` setting.
+
 You can open the diff view side-by-side with the Chat view inside the Agents window or open it in a modal window to focus on the changes. Use the layout controls in the diff view toolbar to toggle between different display modes.
 
-While reviewing the changes in the diff view, click inside an edit and then select **Add Feedback** to enter a feedback comment directly in the file and signal the agent to make adjustments.
+While reviewing the changes in the diff view, you can leave feedback comments to signal the agent to make adjustments. This works for agents that run through an agent host provider.
 
-![Screenshot showing how to add feedback from the diff view in the Agents window, with the Add Feedback button visible in the toolbar.](images/agents-window/agents-window-add-feedback.png)
+1. Select a range of code in a changed file, and then select **Add Feedback**.
+
+1. Enter a comment that describes the change you want. The comment is anchored to the selected range.
+
+    ![Screenshot showing how to add feedback from the diff view in the Agents window, with the Add Feedback button visible in the toolbar.](images/agents-window/agents-window-add-feedback.png)
+
+1. Add more comments on other selections or files to group related requests together.
+
+1. Select **Submit Feedback** to send all your comments to the agent.
+
+The agent reads your comments, makes the requested edits, and resolves each comment. Resolved comments disappear from the diff view.
 
 After reviewing the changes, the Changes panel provides the following options to act on the edits made by the agent:
 
@@ -207,6 +223,13 @@ You can have more than one session open at the same time in the Agents window to
 
 Only one session view is *active* at any time. The **Terminal**, **Files**, and **Changes** views always reflect the active session. By default, selecting a session in the sessions list replaces the active view. Pin a session view (top-right toolbar) to prevent it from being replaced.
 
+When you have multiple sessions open, you can use keyboard shortcuts to move between them and manage them, similar to working with editors:
+
+* Press `kb(sessions.focusSessionInGrid1)` through `kb(sessions.focusSessionInGrid9)` to focus a session by its position in the grid, from left to right.
+* Press `kb(sessions.closeAllSessions)` to close all open sessions and return to the new-session view. This shortcut applies when a session has focus.
+
+These commands are also available in the Command Palette (`kb(workbench.action.showCommands)`).
+
 ## Customize agents for your project and workflow
 
 The **Customizations** panel gives you direct access to all AI customization options:
@@ -223,7 +246,7 @@ The **Customizations** panel gives you direct access to all AI customization opt
 The Agent Customizations panel enables you to easily manage all your customizations in one place:
 
 * View and edit existing customizations for the project (workspace), or across all your projects (user).
-* Add new customzations by using the built-in editor or by generating them from a prompt.
+* Add new customizations by using the built-in editor or by generating them from a prompt.
 * Install plugins or MCP servers from the marketplace.
 * Enable or disable customizations without removing them.
 

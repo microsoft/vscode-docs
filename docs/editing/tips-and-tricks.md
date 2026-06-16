@@ -1,6 +1,6 @@
 ---
 ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 MetaDescription: Visual Studio Code Tips and Tricks for power users.
 ---
 # Visual Studio Code tips and tricks
@@ -464,6 +464,8 @@ Setting: `setting(files.simpleDialog)`
 
 > [!TIP]
 > Use the eye icon in the top right corner to show or hide files and folders starting with a dot.
+
+When you open a folder and enter a path that doesn't exist, the simple file dialog prompts you to create the folder.
 
 ### Show Explorer view
 

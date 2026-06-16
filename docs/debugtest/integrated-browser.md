@@ -1,6 +1,6 @@
 ---
 ContentId: f8e2a7c1-9d3b-4e5f-a6c8-1b2d3e4f5a6b
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 MetaDescription: Use the integrated browser in VS Code to preview and debug web apps, navigate to URLs, and add page elements, screenshots, or console logs as context to AI chat.
 MetaSocialImage: images/debugging/debugging-social.png
 ---
@@ -47,6 +47,12 @@ You can control the picker with the keyboard:
 * Press `kbstyle(Esc)` to close the picker and switch to a plain input. Type to reopen the picker, press `kbstyle(Enter)` to navigate, or press `kbstyle(Esc)` again to focus the loaded page.
 * Press `kbstyle(Tab)` to move focus along the browser toolbar.
 
+### Search the web
+
+You can search the web from the address bar, just like in a regular browser. Use the `setting(workbench.browser.searchEngine)` setting to choose a search engine: Bing, Google, Yahoo, or DuckDuckGo. The default value `none` disables web search and treats your input as a URL only.
+
+When web search is enabled, the picker offers a search option based on what you type. Text that is clearly not a URL, such as a phrase with spaces, shows only a search option. A clear URL offers navigation first, then search. Ambiguous input that could be either offers search first, then navigation.
+
 ### Favorites
 
 To favorite the current page, open the address bar and select the star icon. The star icon stays visible in the address bar to indicate that the page is favorited. Favorited pages appear in the suggestions picker and filter as you type. Select a favorite to navigate to it.
@@ -56,6 +62,34 @@ To favorite the current page, open the address bar and select the star icon. The
 ### Open tabs
 
 On a new browser tab that hasn't navigated to a page, the suggestions picker also lists your other open browser tabs. Select a tab to switch to it. VS Code closes the new tab and activates the one you selected.
+
+### Recents and history
+
+When you open a new browser tab, the suggestions picker shows a **Recents** group with the three most recent pages that you navigated to explicitly, such as by typing a URL. Pages that you reached by following a link don't appear in Recents.
+
+As you type in the address bar, a **History** group shows up to six matching pages from your browser history. Select the remove icon on a suggestion to delete that page from your history.
+
+To browse or search your full history, see [Browser history](#browser-history).
+
+## Browser history
+
+The integrated browser keeps a history of the pages you visit so you can revisit them later. History is available in all [session storage](#session-storage) modes except ephemeral.
+
+To open the history view, press `kb(workbench.action.browser.showHistory)` or run the **Browser: History** command from the Command Palette. You can also add a **History** button to the browser toolbar from the toolbar overflow menu.
+
+The history view lists visited pages grouped by day, with the most recent pages first. Type in the input to filter the list by page title or URL, then select a page to navigate to it.
+
+To remove pages from your history:
+
+* Select the **Remove from History** button on an individual entry.
+* Select the **Clear Entries for This Day** button on a day heading to remove all pages from that day.
+* Select the **Clear All History** button at the top of the view to remove your entire history.
+
+Clearing browser storage also clears the history for that storage scope.
+
+History is tracked separately for each storage scope. Global sessions share history across workspaces, while each workspace session keeps its own history.
+
+By default, the browser keeps up to 200 history items per storage scope and removes the oldest entries when the limit is reached. Use the `setting(workbench.browser.maxHistoryEntries)` setting to change the limit. Set it to `0` to disable history.
 
 ## Tab management
 
@@ -216,6 +250,25 @@ To clear stored data, select the menu in the browser toolbar and choose **Clear 
 
 > [!NOTE]
 > In untrusted workspaces, the browser always uses ephemeral mode regardless of the setting, to protect your data.
+
+## Browse over remote connections (Preview)
+
+> [!NOTE]
+> This is a preview feature and might change in future releases.
+
+When you work in a [remote workspace](/docs/remote/remote-overview.md), such as a Dev Container, SSH host, WSL, or GitHub Codespace, the integrated browser can proxy its `http` and `https` traffic over the remote connection. This lets you securely reach ports and services that are only accessible from the remote machine, without forwarding a port to your local machine first.
+
+To enable remote proxying, enable the `setting(workbench.browser.enableRemoteProxy)` setting. The `setting(workbench.browser.dataStorage)` setting must not be set to `global`, because globally scoped sessions are shared across workspaces and are never proxied.
+
+When proxying is active, a remote indicator appears in the browser address bar.
+
+Remote proxying affects the browser in the following ways:
+
+* **Localhost links**: With remote proxying enabled, selecting a `localhost` link opens the original remote URL. With the setting disabled, the link opens the forwarded local URL instead.
+
+* **`file://` URLs**: File URLs are not proxied. When you open a `file://` URL in a proxied tab, the indicator changes to a warning.
+
+* **Agent-opened tabs**: Browser tabs that an agent opens are also proxied and open at the correct remote URL.
 
 ## Use with the Live Preview extension
 
