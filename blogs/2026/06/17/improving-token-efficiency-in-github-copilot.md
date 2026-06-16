@@ -1,5 +1,5 @@
 ---
-Order: 140
+Order: 131
 TOCTitle: Improving Token Efficiency
 PageTitle: "Improving token efficiency in GitHub Copilot"
 MetaDescription: Learn how we're improving token efficiency in GitHub Copilot to reduce costs and latency for users.
