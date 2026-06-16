@@ -65,15 +65,15 @@ To establish a baseline, we filtered for passing runs that used this one-tool-ca
 
 ![Chart showing the percentage of passing runs where the model achieves the one-tool-call direct path.](passing-rate.png)
 
-No model takes the direct path every time. The broader trend is what stands out: a few models often take the direct path, most do so only occasionally, and several never do.
+One model takes the direct path every time. The broader trend is what stands out: a few models often take the direct path, most do so only occasionally, and five never do.
 
-At the top, Model-A stands alone. It goes straight to file creation in 71% of passing runs, far ahead of any other model. For this simple request, Model-A usually creates the file directly without planning or exploring first.
+At the top, Model-A stands alone. It goes straight to file creation in 100% of passing runs, using a single tool call every time. For this simple request, Model-A always creates the file directly without planning or exploring first. Model-B and Model-C follow at 73% and 71%, respectively.
 
-The large middle cluster, Model-B through Model-I, takes the direct path somewhere between roughly 19% and 35% of the time. These models can recognize a simple task, but not consistently. More often than not, they add a small step first, such as reading internal state or doing light workspace exploration, before creating the file.
+The large middle cluster, Model-D through Model-P, takes the direct path somewhere between 19% and 52% of the time. These models can recognize a simple task, but not consistently. More often than not, they add a small step first, such as reading internal state or doing light workspace exploration, before creating the file.
 
-Below them, Model-J through Model-M rarely take the direct path, doing so in at most 6% of passing runs, with two models falling below 1%. For these models, extra work is the default. They almost always plan, explore, or search before producing the same five-character file.
+Below them, Model-Q through Model-X rarely take the direct path, doing so in 0.2% to 6% of passing runs, with five models falling below 1%. For these models, extra work is the default. They almost always plan, explore, or search before producing the same five-character file.
 
-At the bottom, four models never take the direct path across thousands of passing runs. They always do something else first: plan, reach for a patch tool instead of simple file creation, search and plan, or narrate at length before creating the file. For them, even the simplest request triggers the full machinery of a complex one.
+At the bottom, five models, Model-Y through Model-AC, never take the direct path across thousands of passing runs. They always do something else first: plan, reach for a patch tool instead of simple file creation, search and plan, or narrate at length before creating the file. For them, even the simplest request triggers the full machinery of a complex one.
 
 All models create the file with the right content, but they reach the same outcome with very different amounts of work. Even on a task with almost no ambiguity, some models still plan, search, or choose a more complex editing tool. They all pass the eval, but they do not use the same amount of effort to pass it.
 
@@ -83,10 +83,11 @@ Because our offline eval harness captures the complete tool-call sequence, we ca
 
 | Overhead pattern | Frequency | Representative models | What happens |
 | --- | ---: | --- | --- |
-| Planning before acting | 84-99% | Model-H, Model-J, Model-G | Drafts a checklist or reads internal state before creating a 5-character file. Model-H does this in 99% of runs. On one occasion, four planning steps in a single run for a one-step task. |
-| Exploring an empty workspace | 56-96% | Model-K, Model-F, Model-I | Lists directories or searches for files in an empty workspace. Model-I does both in 56% of runs, looking for clues in an empty room. |
-| Using the wrong tool for the job | About 95% | Model-I | Uses a complex patch/edit tool (designed for modifying existing files) instead of simple file creation. Like using a CNC machine to cut a piece of paper. |
-| Running a terminal command | 3-14% | Model-L, Model-J, Model-M | Runs a terminal command (echo HELLO > HELLO.txt) when a simpler file-creation API is available. |
+| Planning before acting | 52-99% | Model-AC, Model-Z, Model-S, 13 other models | Drafts a checklist or reads internal state before creating a 5-character file. Every one of the 16 models we could measure does this in at least half of its runs; Model-AC reaches 99% and Model-Z 96%. On one occasion, four planning steps in a single run for a one-step task. |
+| Exploring an empty workspace | 56-96% | Model-T, Model-Q, Model-AA | Lists directories or searches for files in an empty workspace. Model-T lists the directory in 96% of runs; Model-AA both lists and searches in 56%, looking for clues in an empty room. |
+| Narrating the reasoning | 1,441-3,676 tokens | Model-AB, Model-M, Model-U | Emits far more text than any tool call needs, walking through its reasoning and reconfirming the task. These three top the output-token chart at 29-74 times the realistic floor, even though the file itself is five characters. |
+| Using the wrong tool for the job | About 95% | Model-AA | Uses a complex patch/edit tool (designed for modifying existing files) instead of simple file creation. Like using a CNC machine to cut a piece of paper. |
+| Running a terminal command | 3-14% | Model-W, Model-Z, Model-V | Runs a terminal command (`echo HELLO > HELLO.txt`) when a simpler file-creation API is available. |
 
 These are not correctness failures. They are signs that the model does not consistently recognize when the shortest path is enough. On longer tasks, planning and exploration can be valuable. On a one-step task, they add latency and cost without improving the result.
 
@@ -98,9 +99,9 @@ For this simple task, about 50 output tokens is a realistic minimum. The followi
 
 ![Chart that shows average output tokens per run vary from near the ideal floor to thousands of tokens for the same HELLO.txt task.](token-consumption.png)
 
-The chart falls into four clear bands. The extreme group is a single outlier: Model-Q averages 3,676 output tokens, or 74 times more than the realistic minimum, for the same five-character result. The high-overhead group, from 400 to 1,000 tokens, includes Model-O, Model-H, Model-E, Model-M, Model-B, and Model-K. These models are not in the thousands, but they still spend roughly 9x to 12x the realistic minimum.
+The chart falls into four clear bands. The extreme group includes Model-AB, Model-M, and Model-U, which average 3,676, 2,120, and 1,441 output tokens, respectively. That is 29 to 74 times more than the realistic minimum for the same five-character result. The high-overhead group, from 400 to 1,000 tokens, includes Model-AA, Model-B, Model-N, Model-H, Model-V, Model-E, Model-S, and Model-K. These models are not in the thousands, but they still spend roughly 8x to 12x the realistic minimum.
 
-The moderate group, from 150 to 400 tokens, includes Model-L, Model-D, Model-P, Model-N, Model-C, Model-F, and Model-J. They add overhead, but stay far closer to the task's natural size. The efficient group is below 150 tokens: Model-I, Model-A, and Model-G. Model-G comes closest to our realistic minimum at 55 tokens, showing that a model can complete the task with very little extra narration even when it does not always take the direct tool path.
+The moderate group, from 150 to 400 tokens, includes Model-P, Model-D, Model-X, Model-T, Model-G, Model-Z, Model-I, Model-AC, Model-F, Model-J, and Model-Q. They add overhead, but stay far closer to the task's natural size. The efficient group is below 150 tokens: Model-R, Model-A, Model-Y, Model-W, Model-O, Model-C, and Model-L. Model-L comes closest to our realistic minimum at 55 tokens, showing that a model can complete the task with very little extra narration even when it does not always take the direct tool path.
 
 Choosing a model that overthinks less saves both time and money, but knowing which one is most efficient for a task usually means running your own benchmark. To take that burden off you, the VS Code and GitHub Copilot teams keep investing in optimizations and model routing. For example, [automatic model selection](/docs/agents/concepts/language-models.md#auto-model-selection) lets VS Code pick the best model for your task.
 
@@ -108,11 +109,11 @@ Choosing a model that overthinks less saves both time and money, but knowing whi
 
 Our first hypothesis was that larger models overthink more, but our data contradicts this:
 
-* Model-C (a larger model) uses 160 output tokens on average and 2.1 tool calls. The most disciplined model in its family.
+* Model-F (a larger model) uses 160 output tokens on average and 2.1 tool calls. The most disciplined model in its family.
 
-* Model-E (a smaller model from the same family) uses 476 output tokens on average and 3.7 tool calls. More overhead than its larger sibling.
+* Model-H (a smaller model from the same family) uses 485 output tokens on average and 3.7 tool calls. More overhead than its larger sibling.
 
-* Model-N (a "mini" model) is the single highest-overhead model at 3,676 output tokens on average. The smallest model in this sample does the most work.
+* Model-AB (a "mini" model) is the single highest-overhead model at 3,676 output tokens on average. The smallest model in this sample does the most work.
 
 Our read is that newer generations within each model family trend more disciplined, regardless of parameter count. This points to training maturity: how well a model scales its effort to the task in front of it. And that calibration isn't an academic curiosity. It shows up directly on the bill.
 
