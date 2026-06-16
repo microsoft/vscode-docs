@@ -245,6 +245,25 @@ To clear stored data, select the menu in the browser toolbar and choose **Clear 
 > [!NOTE]
 > In untrusted workspaces, the browser always uses ephemeral mode regardless of the setting, to protect your data.
 
+## Browse over remote connections (Preview)
+
+> [!NOTE]
+> This is a preview feature and might change in future releases.
+
+When you work in a [remote workspace](/docs/remote/remote-overview.md), such as a Dev Container, SSH host, WSL, or GitHub Codespace, the integrated browser can proxy its `http` and `https` traffic over the remote connection. This lets you securely reach ports and services that are only accessible from the remote machine, without forwarding a port to your local machine first.
+
+To enable remote proxying, enable the `setting(workbench.browser.enableRemoteProxy)` setting. The `setting(workbench.browser.dataStorage)` setting must not be set to `global`, because globally scoped sessions are shared across workspaces and are never proxied.
+
+When proxying is active, a remote indicator appears in the browser address bar.
+
+Remote proxying affects the browser in the following ways:
+
+* **Localhost links**: With remote proxying enabled, selecting a `localhost` link opens the original remote URL. With the setting disabled, the link opens the forwarded local URL instead.
+
+* **`file://` URLs**: File URLs are not proxied. When you open a `file://` URL in a proxied tab, the indicator changes to a warning.
+
+* **Agent-opened tabs**: Browser tabs that an agent opens are also proxied and open at the correct remote URL.
+
 ## Use with the Live Preview extension
 
 The Live Preview extension can use the integrated browser for previewing web pages. Enable the `setting(livePreview.useIntegratedBrowser)` setting to use it as the default preview browser.

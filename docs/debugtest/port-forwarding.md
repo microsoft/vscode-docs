@@ -35,6 +35,10 @@ Port forwarding currently exposes only locally-running services. Remote connecti
 
 Depending on your scenario, you may want to use the VS Code [Remote - Tunnels](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-server) extension to tunnel into a remote machine. You can learn more in the [Remote - Tunnels documentation](/docs/remote/tunnels.md).
 
+### How do I access a service that only runs on a remote machine?
+
+If you're connected to a remote workspace, the [integrated browser](/docs/debugtest/integrated-browser.md#browse-over-remote-connections-preview) can proxy its web traffic over the remote connection. This lets you reach ports and services that are only accessible from the remote machine, without forwarding a port to your local machine.
+
 ### How are forwarded ports secured?
 
 By default, both hosting and connecting to a tunnel require authentication with the same GitHub or Microsoft account on each end. In both cases, VS Code makes outbound connections to a service hosted in Azure; no firewall changes are generally necessary, and VS Code doesn't set up any network listeners.
