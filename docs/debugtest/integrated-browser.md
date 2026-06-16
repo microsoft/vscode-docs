@@ -47,6 +47,12 @@ You can control the picker with the keyboard:
 * Press `kbstyle(Esc)` to close the picker and switch to a plain input. Type to reopen the picker, press `kbstyle(Enter)` to navigate, or press `kbstyle(Esc)` again to focus the loaded page.
 * Press `kbstyle(Tab)` to move focus along the browser toolbar.
 
+### Search the web
+
+You can search the web from the address bar, just like in a regular browser. Use the `setting(workbench.browser.searchEngine)` setting to choose a search engine: Bing, Google, Yahoo, or DuckDuckGo. The default value `none` disables web search and treats your input as a URL only.
+
+When web search is enabled, the picker offers a search option based on what you type. Text that is clearly not a URL, such as a phrase with spaces, shows only a search option. A clear URL offers navigation first, then search. Ambiguous input that could be either offers search first, then navigation.
+
 ### Favorites
 
 To favorite the current page, open the address bar and select the star icon. The star icon stays visible in the address bar to indicate that the page is favorited. Favorited pages appear in the suggestions picker and filter as you type. Select a favorite to navigate to it.
@@ -244,6 +250,25 @@ To clear stored data, select the menu in the browser toolbar and choose **Clear 
 
 > [!NOTE]
 > In untrusted workspaces, the browser always uses ephemeral mode regardless of the setting, to protect your data.
+
+## Browse over remote connections (Preview)
+
+> [!NOTE]
+> This is a preview feature and might change in future releases.
+
+When you work in a [remote workspace](/docs/remote/remote-overview.md), such as a Dev Container, SSH host, WSL, or GitHub Codespace, the integrated browser can proxy its `http` and `https` traffic over the remote connection. This lets you securely reach ports and services that are only accessible from the remote machine, without forwarding a port to your local machine first.
+
+To enable remote proxying, enable the `setting(workbench.browser.enableRemoteProxy)` setting. The `setting(workbench.browser.dataStorage)` setting must not be set to `global`, because globally scoped sessions are shared across workspaces and are never proxied.
+
+When proxying is active, a remote indicator appears in the browser address bar.
+
+Remote proxying affects the browser in the following ways:
+
+* **Localhost links**: With remote proxying enabled, selecting a `localhost` link opens the original remote URL. With the setting disabled, the link opens the forwarded local URL instead.
+
+* **`file://` URLs**: File URLs are not proxied. When you open a `file://` URL in a proxied tab, the indicator changes to a warning.
+
+* **Agent-opened tabs**: Browser tabs that an agent opens are also proxied and open at the correct remote URL.
 
 ## Use with the Live Preview extension
 

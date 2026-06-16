@@ -236,9 +236,9 @@ The [Agents view](/docs/agents/overview.md) provides a centralized location for 
 
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(chat.plugins.enabled)` _(Preview)_<br/>Enable or disable support for [agent plugins](/docs/agent-customization/agent-plugins.md). | `false` |
+| `setting(chat.plugins.enabled)`<br/>Enable or disable support for [agent plugins](/docs/agent-customization/agent-plugins.md). | `false` |
 | `setting(chat.plugins.marketplaces)` _(Experimental)_<br/>Configure additional plugin marketplace Git repositories for discovering agent plugins. | `["github/copilot-plugins", "github/awesome-copilot"]` |
-| `setting(chat.plugins.enabledPlugins)` _(Experimental)_<br/>Allowlist of plugin IDs to enable or disable. Can be [centrally managed through enterprise policy](/docs/enterprise/ai-settings.md#manage-agent-plugins-and-marketplaces). | `{}` |
+| `setting(chat.plugins.enabledPlugins)`<br/>Allowlist of plugin IDs to enable or disable. Can be [centrally managed through enterprise policy](/docs/enterprise/ai-settings.md#manage-agent-plugins-and-marketplaces). | `{}` |
 | `setting(chat.plugins.strictMarketplaces)` _(Experimental)_<br/>Trust only marketplaces supplied by [enterprise policy](/docs/enterprise/ai-settings.md#manage-agent-plugins-and-marketplaces). | `false` |
 | `setting(chat.pluginLocations)` _(Experimental)_<br/>Register locally cloned or downloaded agent plugins by mapping directory paths to an enabled or disabled state. | `{}` |
 

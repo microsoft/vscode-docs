@@ -124,9 +124,19 @@ To review changes made by the agent, select a file in the **Changes** tab to ope
 
 You can open the diff view side-by-side with the Chat view inside the Agents window or open it in a modal window to focus on the changes. Use the layout controls in the diff view toolbar to toggle between different display modes.
 
-While reviewing the changes in the diff view, click inside an edit and then select **Add Feedback** to enter a feedback comment directly in the file and signal the agent to make adjustments.
+While reviewing the changes in the diff view, you can leave feedback comments to signal the agent to make adjustments. This works for agents that run through an agent host provider.
 
-![Screenshot showing how to add feedback from the diff view in the Agents window, with the Add Feedback button visible in the toolbar.](images/agents-window/agents-window-add-feedback.png)
+1. Select a range of code in a changed file, and then select **Add Feedback**.
+
+1. Enter a comment that describes the change you want. The comment is anchored to the selected range.
+
+    ![Screenshot showing how to add feedback from the diff view in the Agents window, with the Add Feedback button visible in the toolbar.](images/agents-window/agents-window-add-feedback.png)
+
+1. Add more comments on other selections or files to group related requests together.
+
+1. Select **Submit Feedback** to send all your comments to the agent.
+
+The agent reads your comments, makes the requested edits, and resolves each comment. Resolved comments disappear from the diff view.
 
 After reviewing the changes, the Changes panel provides the following options to act on the edits made by the agent:
 

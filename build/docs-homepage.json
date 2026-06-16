@@ -46,10 +46,10 @@
   "latest": [
     {
       "type": "release",
-      "title": "VS Code 1.124 release",
-      "description": "Autopilot enabled by default and faster agent session navigation.",
-      "link": "/updates/v1_124",
-      "image": "/assets/updates/1_124/release-highlights.webp"
+      "title": "VS Code 1.125 release",
+      "description": "Web search in the integrated browser, configurable extension updates, and native MDM for Copilot policies.",
+      "link": "/updates/v1_125",
+      "image": "/assets/updates/1_125/release-highlights.webp"
     },
     {
       "type": "documentation",

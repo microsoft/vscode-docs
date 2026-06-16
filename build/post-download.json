@@ -1,9 +1,9 @@
 {
   "featured": {
-    "title": "Smarter Autopilot and faster agent sessions",
-    "description": "Autopilot is enabled by default and decides when a task is truly done, navigate agent sessions with the keyboard, and restore your layout on reload.",
-    "link": "/updates/v1_124",
-    "image": "/assets/updates/1_124/release-highlights.webp"
+    "title": "Smarter browsing and enterprise-ready Copilot",
+    "description": "Search the web from the integrated browser, fine-tune when extensions update, and deliver managed Copilot settings through native MDM.",
+    "link": "/updates/v1_125",
+    "image": "/assets/updates/1_125/release-highlights.webp"
   },
   "highlights": [
     {

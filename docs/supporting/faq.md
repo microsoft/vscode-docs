@@ -330,13 +330,13 @@ You can install a previous release of VS Code by uninstalling your current versi
 
 #### Opt out of extension updates
 
-By default, VS Code will also auto-update extensions as new versions become available. If you do not want extensions to automatically update, you can clear the **Extensions: Auto Update** setting (`setting(extensions.autoUpdate)`) in the Settings editor (`kb(workbench.action.openSettings)`).
+By default, VS Code automatically updates extensions as new versions become available. If you do not want extensions to automatically update, you can set the **Extensions: Auto Update** setting (`setting(extensions.autoUpdate)`) to `off` in the Settings editor (`kb(workbench.action.openSettings)`).
 
 If you use the JSON editor to modify your settings, add the following line:
 
 ```json
 {
-    "extensions.autoUpdate": false
+    "extensions.autoUpdate": "off"
 }
 ```
 
