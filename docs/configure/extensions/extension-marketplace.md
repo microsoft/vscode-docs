@@ -154,6 +154,8 @@ VS Code checks for extension updates and installs them automatically. After an u
 
 If you'd rather update your extensions manually, you can disable auto-update with the **Disable Auto Update for Extensions** command or the corresponding action in the Extensions view. You can also configure the `setting(extensions.autoUpdate)` setting. Use the **Enable Auto Update for Extensions** command to re-enable auto update.
 
+When auto-update is enabled, VS Code updates only enabled extensions. Disabled extensions are not updated automatically and update the next time you enable them.
+
 ![Screenshot of the Extensions context menu with the Disable Auto Update for Extensions action.](images/extension-marketplace/disable-auto-update-all-extensions-v2.png)
 
 You can also configure auto update for individual extensions by right-clicking on an extension and toggling the **Auto Update** item.
