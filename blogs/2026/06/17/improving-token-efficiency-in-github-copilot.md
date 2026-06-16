@@ -152,6 +152,8 @@ In both variants, deferred tools sit outside the cached prompt prefix, so the pr
 
 ## What's next
 
-<!-- TODO: section content to be written. -->
+The work above all optimizes a single agent's requests - reusing cached model state across turns, sending fewer tool definitions, and cutting transport overhead. The next step is to move whole classes of work off the main agent entirely. We're building specialized subagents - and exploring custom-trained ones - for narrow tasks like searching the workspace, running commands, and summarizing results. Each runs on the smallest, cheapest model that can do the job instead of the main model paying for that work in its own context, bringing the overall cost of a task down.
+
+We're also improving built-in support for multi-model workflows, where different models handle different phases of the same task: plan with a stronger reasoning model like Claude Opus, then implement with a faster, cheaper one like Claude Sonnet. Routing each phase to the model that fits it keeps cost down while playing to each model's strengths. Making the harness more token-efficient is ongoing work, and we'll keep investing here - one small win at a time.
 
 Happy coding! 💙
