@@ -22,6 +22,18 @@ To successfully complete this tutorial, you need to first set up your Python dev
 - [VS Code](https://code.visualstudio.com/)
 - [VS Code Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) (For additional details on installing extensions, see [Extension Marketplace](/docs/configure/extensions/extension-marketplace.md))
 
+## Understand the Python setup
+
+If you're new to programming tools, it helps to know that three separate pieces work together to run Python in VS Code:
+
+* **VS Code**: the editor where you write and organize your code.
+
+* **Python extension**: adds Python language support to VS Code, such as IntelliSense, running, and debugging. The extension doesn't include Python itself.
+
+* **Python interpreter**: the program that actually runs your Python code. You install it separately from VS Code.
+
+You install all three in this tutorial. VS Code is the workspace, the Python extension connects VS Code to Python, and the interpreter does the work of running your script.
+
 ## Install a Python interpreter
 
 Along with the Python extension, you need to install a Python interpreter. Which interpreter you use is dependent on your specific needs, but some guidance is provided below.
@@ -62,6 +74,9 @@ The built-in Python 3 installation on Linux works well, but to install other Pyt
 >```
 >If the installation was successful, the output window should show the version of Python that you installed.
 >Alternatively, you can use the `py -0` command in the VS Code integrated terminal to view the versions of python installed on your machine. The default interpreter is identified by an asterisk (*).
+
+> [!NOTE]
+> You run these commands in a terminal, also called a shell, which is the panel that lets you type and run commands. If you install Python while VS Code or a terminal is already open, close and reopen the terminal (or restart VS Code) so it detects the newly installed interpreter. A terminal reads your system configuration when it starts, so a fresh terminal is needed to find Python on your `PATH`.
 
 ## Start VS Code in a workspace folder
 
