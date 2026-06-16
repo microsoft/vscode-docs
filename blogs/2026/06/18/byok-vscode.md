@@ -1,5 +1,5 @@
 ---
-Order: 132
+Order: 131
 TOCTitle: Bring Your Own Key
 PageTitle: "Use your own language model key or local model in VS Code"
 MetaDescription: Learn how to use bring your own key (BYOK) in VS Code to add models from providers like Azure, Anthropic, Gemini, OpenAI, Huggingface, OpenRouter, or use a local model with Ollama, Foundry Local, and more.
@@ -18,7 +18,7 @@ Using local models gives you even greater flexibility when working with agents. 
 
 With BYOK in VS Code, you can add models from providers like Azure, Anthropic, Huggingface, Gemini, OpenAI, OpenRouter, or you can run a model locally with Ollama, Foundry Local, and more, then use them directly from the Chat model picker.
 
-![The VS Code Chat model picker showing available language models.](model-dropdown-change-model-v2.png)
+![Screenshot of the VS Code Chat model picker showing available language models.](model-dropdown-change-model-v2.png)
 
 ## What is BYOK?
 
@@ -53,7 +53,7 @@ The easiest way to get started is through the **Language Models** editor.
 
 You can open it from the Chat model picker by selecting the **Manage Language Models** gear icon, or you can run **Chat: Manage Language Models** from the Command Palette.
 
-![The Language Models editor in VS Code.](language-models-editor.png)
+![Screenshot of the Language Models editor in VS Code.](language-models-editor.png)
 
 The Language Models editor shows the models available to you, grouped by provider. It also shows useful details like model capabilities, context size, billing information, and whether a model is visible in the picker.
 
@@ -70,7 +70,7 @@ If the provider you want is built into VS Code, setup is a few clicks.
 5. Enter the provider details, such as an API key, endpoint, deployment name, or other required configuration.
 6. Select the model from the Chat model picker.
 
-![The model provider picker in VS Code.](model-provider-quick-pick-v2.png)
+![Screenshot of the model provider picker in VS Code.](model-provider-quick-pick-v2.png)
 
 Depending on the provider, VS Code might open a `chatLanguageModels.json` file so you can finish configuring model details.
 
@@ -98,7 +98,7 @@ For example, a Mistral configuration specifies the endpoint URL, API type, and m
 ]
 ```
 
-The exact fields depend on the provider and model. The important part is that after the provider is configured, the model becomes available from the same picker you use for the rest of Chat. For more information, check out the [docs](https://code.visualstudio.com/docs/agent-customization/language-models#_add-a-model-from-a-built-in-provider).
+The exact fields depend on the provider and model. The important part is that after the provider is configured, the model becomes available from the same picker you use for the rest of Chat. For more information, check out the [Language Model docs](https://code.visualstudio.com/docs/agent-customization/language-models#_add-a-model-from-a-built-in-provider).
 
 ## Adding models from extensions
 
@@ -112,7 +112,7 @@ To find provider extensions:
 4. Follow the extension's setup instructions.
 5. Select the model from the Chat model picker.
 
-![Extensions with language models](language-models-extensions.png)
+![Screenshot of the Extensions view listing extensions that provide language models.](language-models-extensions.png)
 
 This extensibility is a big part of the BYOK story. Instead of every provider needing to be hard-coded into VS Code, extensions can bring new model providers into the editor as the ecosystem evolves.
 
@@ -120,7 +120,7 @@ This extensibility is a big part of the BYOK story. Instead of every provider ne
 
 VS Code also uses lightweight models in the background for small tasks like generating chat titles, commit messages, and rename suggestions. These default to built-in Copilot models and most users won't need to touch them. But if you're using BYOK without signing into a GitHub account, those defaults aren't available. VS Code will show a notification in the Chat view prompting you to configure them. Set `setting(chat.utilityModel)` and `setting(chat.utilitySmallModel)` to one of your BYOK models to keep those features working. A fast, inexpensive model works well here.
 
-![Settings for Chat Utility Model](chat-utility-model.png)
+![Screenshot of the setting for configuring the Chat Utility Model.](chat-utility-model.png)
 
 ## Choosing the right model
 
@@ -134,7 +134,8 @@ For everyday work, you might choose:
 - A provider-specific model when your team already has workflows around that provider.
 
 Simply choose which model you want to use in the model picker below the Chat box.
-![The VS Code Chat model picker showing available language models.](model-dropdown-change-model-v2.png)
+
+![Screenshot of the VS Code Chat model picker showing available language models.](model-dropdown-change-model-v2.png)
 
 ## Try it out
 
@@ -144,7 +145,7 @@ To learn more, check out the VS Code docs on [AI language models](https://code.v
 
 We also have a video for how to [Bring Your Own AI... No Sign-In Required!](https://www.youtube.com/watch?v=EB7dQv1ALCU).
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/EB7dQv1ALCU?si=mDo0BJiZ5FLJBPwJ" title="Bring Your Own AI... No Sign-In Required!" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/EB7dQv1ALCU?si=mDo0BJiZ5FLJBPwJ" title="Bring Your Own AI... No Sign-In Required!" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 We are continuing to improve model choice in VS Code, and your feedback helps shape what comes next. Try BYOK with your workflow and let us know what you think in the [VS Code repository](https://github.com/microsoft/vscode).
 
