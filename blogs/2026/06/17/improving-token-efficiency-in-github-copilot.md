@@ -16,8 +16,6 @@ With the recent move to usage-based billing for GitHub Copilot, every token in a
 
 ![Chart showing tokens per turn increasing across successive model generations](token-usage-trend.png)
 
-<!-- Image TODO: each green line should say "Generation n", purple "n+1", pink "n+2", and the Y axis should say "tokens per turn". -->
-
 Making the GitHub Copilot agentic harness more token-efficient is continuous work. We run A/B experiments in production and offline evaluations against task suites for most changes in the harness, checking that task success rate holds (or improves) while token usage drops. It is rarely one big win - usually a steady stream of small ones. Below, we walk through recent gains, first for OpenAI models and then for Anthropic models.
 
 ## Efficiency wins for OpenAI models
