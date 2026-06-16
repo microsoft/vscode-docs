@@ -14,6 +14,9 @@ Get started by installing:
 - [A Python Interpreter](/docs/python/python-tutorial.md#install-a-python-interpreter) (any [actively supported Python version](https://devguide.python.org/versions/))
 - [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) from the VS Code Marketplace
 
+> [!TIP]
+> These are three separate pieces that work together: VS Code is the editor, the Python extension adds Python support to VS Code, and the Python interpreter runs your code. For a plain-language explanation, see [Understand the Python setup](/docs/python/python-tutorial.md#understand-the-python-setup).
+
 ![Gif installing the Python extension in a fresh install of VS Code](images/quick-start/qs-python-ext-install.gif)
 
 To further customize VS Code for Python, you can leverage the [Python profile template](/docs/configure/profiles.md#python-profile-template), automatically installing recommended extensions and settings. For Data Science projects, consider using the [Data Science profile template](/docs/configure/profiles.md#data-science-profile-template).
