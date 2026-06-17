@@ -22,7 +22,8 @@ Making the GitHub Copilot agentic harness more token-efficient is continuous wor
 
 Two costs sit at the heart of every agentic request, and two ideas help us reduce them. Both apply across OpenAI and Anthropic models, even though each provider exposes them differently.
 
-<!-- TODO: add images/graphics -->
+![Screenshot of the Cache Explorer showing parts of the prompt in a horizontal stacked bar chart.](prompt-signature.png)
+_Graphical overview of the prompt signature highlighting the different parts of the prompt._
 
 **The prompt prefix and caching.** In an agentic coding session, a large share of every request repeats across turns: system instructions, tool definitions, repository context, and conversation history. This repeated beginning is the **prompt prefix**. When requests share the exact same prefix, the inference provider can reuse cached model state instead of recomputing it from scratch on each request. Despite the name, the cached artifact is not a human-readable copy of the prompt. It is the model state computed while processing that prefix, represented internally as key/value tensors. Reusing the prefix cuts both cost (cached tokens can be **up to 10 times cheaper**) and latency, which is why we work to keep the prompt cache hit-rate high.
 
