@@ -142,7 +142,7 @@ Moving the search client-side gave us three benefits beyond the original token s
 
 * **Dynamic MCP tool discovery:** because we own the candidate set, tools that connected MCP servers add or remove mid-session are reflected immediately, without waiting on a fixed server-side catalog.
 
-That responsiveness showed up directly in the numbers. In a two-week VS Code Stable rollout, the client-side tool search reduced latency on top of the token savings already gained from deferral:
+That responsiveness showed up directly in the numbers. In a two-week VS Code Stable rollout, the client-side tool search reduced latency on top of the token savings already gained from deferral. In addition, we noticed that client-side tool search also has positive impact on quality, demonstrated by a 4% drop in user error rate.
 
 | Metric | Model | Delta |
 | --- | --- | --- |
