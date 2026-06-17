@@ -71,7 +71,7 @@ During a four-day VS Code experiment with GPT-5.4 and GPT-5.5, tool search reduc
 | P50 Time to complete (TTC) | GPT-5.4 | -5.31% |
 | P50 Time to complete (TTC) | GPT-5.5 | -5.42% |
 
-For the median Copilot user, this means that overall token usage fell by roughly 9% with GPT-5.4 and 11% with GPT-5.5.
+Aggregated across an entire session, total token usage for the median Copilot user decreased by 8.97% with GPT-5.4 and 10.92% with GPT-5.5.
 
 ### WebSockets
 
