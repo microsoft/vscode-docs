@@ -80,13 +80,13 @@ After a Foundry Toolkit update, you might see a **Need Update** notification for
 
 ![Screenshot showing that a model needs an update](./images/modelconversion/need-update.png)
 
-It means some of the workflows are updated, and you could either:
+It means some of the workflows are updated, and you can either:
 
 - Select **Update** if you haven't manually modified the workflows.
 - Create a new model project and migrate your changes from the old model project into it or vice versa.
-- Restore Foundry Toolkit to the previous version so you could continue to use the workflows from that version.
+- Restore Foundry Toolkit to the previous version so you can continue to use the workflows from that version.
 
-For the converted models, if they are running well, you could still use them. Or you could re-run the workflow to generate a new one. If the workflows are not changed much, it will be fast because previous results are cached.
+For the converted models, if they are running well, you can still use them. Or you can re-run the workflow to generate a new one. If the workflows are not changed much, it will be fast because previous results are cached.
 
 Learn more in [How to update a model project](/docs/intelligentapps/reference/UpdateModelProject.md).
 
@@ -133,12 +133,12 @@ Running a workflow in model conversion is the core step that transform the pre-b
 
           ![Screenshot that shows input token step 3: input token on dropdown textbox.](./images/modelconversion/run-token-3.png)
 
-    - **Quantization Dataset Split**: dataset could have different splits like validation, train and test.
+    - **Quantization Dataset Split**: dataset can have different splits like validation, train and test.
     - **Quantization Dataset Size**: the number of data used to quantize the model.
 
     For more information about activation and weight type, see [Data type selection](https://onnxruntime.ai/docs/performance/model-optimizations/quantization.html#data-type-selection).
 
-    You could also disable this section. In this case, the workflow will only convert the model to ONNX format but do not quantize the model.
+    You can also disable this section. In this case, the workflow will only convert the model to ONNX format but do not quantize the model.
 
     **Evaluation**
 
@@ -149,12 +149,12 @@ Running a workflow in model conversion is the core step that transform the pre-b
       - **Intel CPU/GPU/NPU**: to use this, you need a device with a supported Intel CPU/GPU/NPU.
       - **NVIDIA TRT for RTX**: to use this, you need a device with a Nvidia GPU that supports TensorRT for RTX.
       - **DirectML**: to use this, you need a device with a GPU that supports DirectML.
-      - **CPU**: any CPU could work.
+      - **CPU**: any CPU can work.
     - **Evaluation Dataset**: dataset used for evaluation.
-    - **Evaluation Dataset Split**: dataset could have different splits like validation, train and test.
+    - **Evaluation Dataset Split**: dataset can have different splits like validation, train and test.
     - **Evaluation Dataset Size**: the number of data used to evaluate the model.
 
-    You could also disable this section. In this case, the workflow will only convert the model to ONNX format but do not evaluate the model.
+    You can also disable this section. In this case, the workflow will only convert the model to ONNX format but do not evaluate the model.
 
 3. Run the workflow by selecting **Run**
 
@@ -203,7 +203,7 @@ Running a workflow in model conversion is the core step that transform the pre-b
 
 ### Tips for re-evaluation
 
-After a model has been successfully converted, you could use the re-evaluate function to perform evaluation again without the model conversion.
+After a model has been successfully converted, you can use the re-evaluate function to perform evaluation again without the model conversion.
 
 Go to the History board and find the model run job. Select the three-dot menu under **Action** to **Re-evaluate** the model.
 
@@ -221,6 +221,22 @@ If your job is canceled or failed, you can select job name to adjust the workflo
 > If your re-evaluation has failed with output warning like `Microsoft Visual C++ Redistributable is not installed`, you need to manually install the following packages:
 > 1. [Microsoft Visual C++ Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170#latest-microsoft-visual-c-redistributable-version)
 > 2. (Optional for ARM64) Download from [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/). Also check `Desktop development with C++` workload during installation.
+
+### (Optional) Add a workflow
+
+You can add a local Olive JSON config to the current model project by selecting **Add Workflow**.
+
+![Screenshot showing the Add Workflow button.](./images/modelconversion/add-workflow.png)
+
+Along with the Olive JSON file, the toolkit automatically generates a `*.custom.json` file that lets you control how the workflow appears in the UI and how it is converted. To simplify customization, you can instead start from an existing workflow (see [Duplicate a workflow](#optional-duplicate-a-workflow)).
+
+### (Optional) Duplicate a workflow
+
+You can duplicate an existing workflow to customize it by selecting **Duplicate Workflow** from **Actions**.
+
+![Screenshot showing the Duplicate Workflow button.](./images/modelconversion/duplicate-workflow.png)
+
+Along with the duplicated Olive JSON file, the toolkit automatically generates a `*.custom.json` file that exposes all of the workflow's built-in parameters. If your Olive JSON is similar to an existing workflow, duplicating that workflow is a convenient way to add your own. You start from a working customization file instead of writing one from scratch.
 
 ## View results
 
