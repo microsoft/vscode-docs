@@ -134,15 +134,15 @@ The local search is also smarter. Rather than lexical matching over tool names a
 
 For a deeper look at the grouping and embedding-guided routing behind this, see [How we're making GitHub Copilot smarter with fewer tools](https://github.blog/ai-and-ml/github-copilot/how-were-making-github-copilot-smarter-with-fewer-tools/).
 
-Moving the search client-side gave us three benefits beyond the original token savings:
+Moving the search client-side gave us some extra benefits beyond the original token savings:
 
 * **Responsiveness:** the search runs locally against cached embeddings, so discovering a tool no longer depends on a server-side search round trip.
 
-* **ZDR compliance:** keeping the search in our own harness fits cleanly with Zero Data Retention requirements, since the catalog and query never depend on a server-side search step.
-
 * **Dynamic MCP tool discovery:** because we own the candidate set, tools that connected MCP servers add or remove mid-session are reflected immediately, without waiting on a fixed server-side catalog.
 
-That responsiveness showed up directly in the numbers. In a two-week VS Code Stable rollout, the client-side tool search reduced latency on top of the token savings already gained from deferral. In addition, we noticed that client-side tool search also has positive impact on quality, demonstrated by a 4% drop in user error rate.
+* **Better quality:** the embedding-guided search is more likely to surface the right tool for a given query, which reduces user error and improves task success, as shown in the metrics below.
+
+That responsiveness showed up directly in the numbers. In a two-week VS Code Stable rollout, the client-side tool search reduced latency on top of the token savings already gained from deferral.
 
 | Metric | Model | Delta |
 | --- | --- | --- |
