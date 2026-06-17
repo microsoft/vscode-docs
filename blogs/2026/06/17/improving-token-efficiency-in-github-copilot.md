@@ -1,14 +1,14 @@
 ---
 Order: 131
 TOCTitle: Improving Token Efficiency
-PageTitle: "Improving token efficiency in GitHub Copilot"
-MetaDescription: Learn how we're improving token efficiency in GitHub Copilot to reduce costs and latency for users.
+PageTitle: "Improving token efficiency for GitHub Copilot in VS Code"
+MetaDescription: Learn how we're improving token efficiency for GitHub Copilot to reduce costs and latency for VS Code users.
 MetaSocialImage: cache-explorer.webp
 Date: 2026-06-17
 Author: Ryan Caldwell, Bhavya U
 ---
 
-# Improving token efficiency in GitHub Copilot
+# Improving token efficiency for GitHub Copilot in VS Code
 
 June 17, 2026 by [Ryan Caldwell](https://github.com/RyanJamesCaldwell) and [Bhavya U](https://github.com/bhavyaus)
 
@@ -16,7 +16,7 @@ With the recent move to usage-based billing for GitHub Copilot, every token in a
 
 ![Chart showing tokens per turn increasing across successive model generations](token-usage-trend.png)
 
-Making the GitHub Copilot agentic harness more token-efficient is continuous work, and it's the best way to counter this trend. For most changes, we run [A/B experiments in production and offline evaluations](https://code.visualstudio.com/blogs/2026/05/15/agent-harnesses-github-copilot-vscode) against task suites, confirming that task success rate holds or improves while token usage drops. It's rarely one big win, usually a steady stream of small ones. Below, we walk through recent gains, first for OpenAI models and then for Anthropic models.
+Making the GitHub Copilot agentic harness in VS Code more token-efficient is continuous work, and it's the best way to counter this trend. For most changes, we run [A/B experiments in production and offline evaluations](https://code.visualstudio.com/blogs/2026/05/15/agent-harnesses-github-copilot-vscode) against task suites, confirming that task success rate holds or improves while token usage drops. It's rarely one big win, usually a steady stream of small ones. Below, we walk through recent gains, first for OpenAI models and then for Anthropic models.
 
 ## How agentic requests spend tokens
 
