@@ -60,7 +60,7 @@ To avoid sending all tool definitions on every request, tool search makes this o
 
 Upfront, the model only sees lightweight metadata: the name and description of each deferred function or, when deferred functions are grouped into a namespace, only the namespace's name and description.
 
-During a four-day VS Code experiment with GPT-5.4 and GPT-5.5, tool search reduced total tokens, time to first token, and time to complete:
+During a four-day VS Code experiment with GPT-5.4 and GPT-5.5, tool search reduced per-turn token utilization, time to first token, and time to complete:
 
 | Metric | Model | Delta |
 | --- | --- | --- |
