@@ -50,12 +50,7 @@ args : {
 ```
 
 > [!NOTE]
-> Our VS Code eval harness includes the workspace state in the initial prompt context.
-> For example, if the workspace contains a `HELLO.txt` file, it appends: `I am working in a workspace that has the following structure: HELLO.txt`
->
-> If the workspace is empty (as in the `say_hello` task), it instead appends: `I am working in a workspace that has the following structure:`
->
-> In that case, we assume the model is already aware of the workspace context and should not perform redundant existence checks.
+> The VS Code eval harness includes the workspace state in the initial prompt context. We assume that the model should not perform redundant existence checks.
 
 ## How models solve `say_hello`
 
