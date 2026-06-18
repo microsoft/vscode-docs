@@ -2,8 +2,8 @@
 Order: 133
 TOCTitle: 50,000 Runs, One Eval
 PageTitle: "What 50,000 Runs of a 5-Line Eval Taught Us"
-MetaDescription: See how one small VSC-Bench task detects infrastructure incidents and reveals how coding models calibrate their effort.
-MetaSocialImage: 50000-runs-social.png
+MetaDescription: How AI coding models calibrate effort, token cost, and tool use on even the simplest task, and what that means for model selection and cost.
+MetaSocialImage: 5000-runs-social.png
 Date: 2026-06-19
 Author: Julia Kasper
 Keywords:
