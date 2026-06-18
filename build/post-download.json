@@ -21,10 +21,10 @@
     },
     {
       "type": "tutorial",
-      "title": "Build and test with browser agent tools",
+      "title": "Get started with AI agents",
       "description": "Let AI build web apps and automatically verify them in the integrated browser, catching and fixing bugs on its own.",
-      "link": "/docs/agents/guides/browser-agent-testing-guide",
-      "image": "/assets/docs/agents/browser-agent-testing-guide/browser-testing-hero.png"
+      "link": "/docs/getstarted/getting-started",
+      "image": "/assets/docs/getstarted/getting-started/open-in-agents-button.png"
     }
   ]
 }

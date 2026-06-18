@@ -77,6 +77,23 @@ Agents search through the same sources a developer would use when navigating a c
 > [!IMPORTANT]
 > `.gitignore` is bypassed if you have a file open or have text selected within an ignored file.
 
+### Improve agent search with exclusion settings
+
+When an agent searches your workspace with text search or grep, every match returned becomes part of the conversation context, even if the agent never opens the file. Generated files, build artifacts, logs, and large datasets can produce many irrelevant matches that fill the context window with noise.
+
+Configure exclusion settings to keep agent searches focused on source code you care about:
+
+* **`.gitignore`**: excludes files from text search, grep, and the [semantic index](#what-content-is-included-in-the-semantic-index).
+* **`setting(files.exclude)`**: hides files from the Explorer and excludes them from text search, grep, and the semantic index.
+* **`setting(search.exclude)`**: excludes files from text search and grep while keeping them visible in the Explorer.
+
+Strict exclusions improve search relevance, speed up searches over large workspaces, and reduce the tokens consumed by search results. This also helps [manage AI credit usage](/docs/agents/guides/optimize-usage.md#exclude-files-from-copilot-context).
+
+Add exclusion patterns to your [workspace settings](/docs/configure/settings.md). Patterns use [glob syntax](/docs/editor/glob-patterns.md).
+
+> [!TIP]
+> When a text search returns no results, the agent receives a hint that the pattern may be excluded, for example when investigating a dependency in `node_modules`.
+
 ## Semantic search
 
 The semantic search tool (`#codebase`) finds code by meaning rather than exact keywords.

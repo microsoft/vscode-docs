@@ -33,6 +33,7 @@ Tips for effective project configuration:
 * **Keep instruction files concise.** They load on every chat interaction. Focus on information the AI can't infer from code, such as non-default conventions, architectural decisions, or environment setup.
 * **Scope instructions with `applyTo` patterns.** Enter `/instructions` to create language-specific or folder-specific instruction files instead of putting everything in one file.
 * **Limit enabled tools.** Fewer active tools means faster, more relevant responses. Enable tools only when the task needs them.
+* **Exclude generated and noisy files from search.** Configure `setting(search.exclude)` and `setting(files.exclude)` so agent text search and grep stay focused on source code. See [improve agent search with exclusion settings](/docs/agents/reference/workspace-context.md#improve-agent-search-with-exclusion-settings).
 
 For full setup details, see the [customization overview](/docs/agent-customization/overview.md).
 
