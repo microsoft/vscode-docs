@@ -115,6 +115,12 @@ In contrast to the Command Palette's consistent location, [Context Menus](/api/u
 
 ![Overview of the Walkthrough API](images/examples/walkthrough.png)
 
+### Hovers
+
+[Hovers](/api/ux-guidelines/hover) display rich, contextual information when a user moves their cursor over a UI element.
+
+![Overview of Hovers](images/examples/hover-example.png)
+
 ### Settings
 
 [Settings](/api/ux-guidelines/settings) enable users to configure options relevant to the extension.

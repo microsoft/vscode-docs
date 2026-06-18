@@ -76,6 +76,7 @@
       ["Webviews", "/api/ux-guidelines/webviews"],
       ["Context Menus", "/api/ux-guidelines/context-menus"],
       ["Walkthroughs", "/api/ux-guidelines/walkthroughs"],
+      ["Hovers", "/api/ux-guidelines/hover"],
       ["Settings", "/api/ux-guidelines/settings"]
     ]
   },
