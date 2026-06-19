@@ -1,5 +1,5 @@
 ---
-Order: 131
+Order: 132
 TOCTitle: Bring Your Own Key
 PageTitle: "Use your own language model key or local model in VS Code"
 MetaDescription: Learn how to use bring your own key (BYOK) in VS Code to add models from providers like Azure, Anthropic, Gemini, OpenAI, Huggingface, OpenRouter, or use a local model with Ollama, Foundry Local, and more.
