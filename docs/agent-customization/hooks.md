@@ -18,6 +18,8 @@ Keywords:
 
 Hooks enable you to execute custom shell commands at key lifecycle points during agent sessions. Use hooks to automate workflows, enforce security policies, validate operations, and integrate with external tools.
 
+Hooks are designed to work across agent types, including local agents, background agents, and cloud agents. Each hook receives structured JSON input and can return JSON output to influence agent behavior.
+
 For background on how hooks fit into the AI customization framework, see [Customization concepts](/docs/agents/concepts/customization.md).
 
 This article explains how to configure and use hooks in VS Code.
@@ -28,14 +30,9 @@ This article explains how to configure and use hooks in VS Code.
 > [!IMPORTANT]
 > Your organization might have disabled the use of hooks in VS Code. Contact your admin for more information. See [enterprise policies](/docs/enterprise/policies.md) for details.
 
-> [!TIP]
-> Use the [Agent Customizations editor](/docs/agent-customization/overview.md#manage-customizations-in-the-editor) (Preview) to discover, create, and manage all your agent customizations in one place. Run **Chat: Open Customizations** from the Command Palette.
-
-Hooks are designed to work across agent types, including local agents, background agents, and cloud agents. Each hook receives structured JSON input and can return JSON output to influence agent behavior.
-
 ## Why use hooks?
 
-Hooks provide deterministic, code-driven automation. Unlike instructions or custom prompts that guide agent behavior, hooks execute your code at specific lifecycle points with guaranteed outcomes:
+Hooks provide deterministic, code-driven automation. Unlike instructions or custom prompts that guide agent behavior, hooks execute your code at specific lifecycle points with guaranteed outcomes. Some common use cases for hooks include:
 
 * **Enforce security policies**: Block dangerous commands like `rm -rf` or `DROP TABLE` before they execute, regardless of how the agent was prompted.
 
@@ -49,7 +46,7 @@ Hooks provide deterministic, code-driven automation. Unlike instructions or cust
 
 ## Quick start: your first hook
 
-The following example creates a hook that runs Prettier after every file edit. Create a `.github/hooks/format.json` file in your workspace:
+The following example creates a hook that runs Prettier after the agent uses a tool, such as editing a file. Create a `.github/hooks/format.json` file in your workspace:
 
 ```json
 {
@@ -57,16 +54,28 @@ The following example creates a hook that runs Prettier after every file edit. C
     "PostToolUse": [
       {
         "type": "command",
-        "command": "npx prettier --write \"$TOOL_INPUT_FILE_PATH\""
+        "command": "npx prettier --write ."
       }
     ]
   }
 }
 ```
 
-After you save this file, VS Code automatically loads the hook. The next time the agent edits a file, Prettier runs on the changed file. Check the  **GitHub Copilot Chat Hooks** output channel to verify the hook executed.
+After you save this file, VS Code automatically loads the hook. The next time the agent edits a file, Prettier formats your workspace. You can check that the hook executed by looking at the agent debug logs (run the **Developer: Show Agent Debug Logs** command).
 
-For more complex hooks that use custom scripts, see [Usage scenarios](#usage-scenarios).
+This hook runs a single command and ignores its input. To build hooks that react to _what_ the agent did, such as formatting only the file that changed, see [How hooks work](#how-hooks-work) and [Usage scenarios](#usage-scenarios).
+
+## How hooks work
+
+When a hook event fires, VS Code runs your command and passes information about the event as a JSON object on standard input (stdin). Your command can write a JSON object to standard output (stdout) to pass context back to the agent or to control what happens next, such as blocking a tool call.
+
+A hook has three parts:
+
+* **An event** that determines when the hook runs (see [Hook lifecycle events](#hook-lifecycle-events)).
+* **A command** that VS Code runs when the event fires.
+* **Optional JSON input and output** that lets the command read event details and influence the agent.
+
+Basic hooks, like the quick start example, ignore the input and just run a command. More advanced hooks read the JSON from stdin to make decisions. For the full set of input and output fields, see [Hook input and output](#hook-input-and-output).
 
 ## Hook lifecycle events
 
@@ -74,14 +83,16 @@ VS Code supports eight hook events that fire at specific points during an agent 
 
 | Hook Event | When It Fires | Common Use Cases |
 |------------|---------------|------------------|
-| `SessionStart` | User submits the first prompt of a new session | Initialize resources, log session start, validate project state |
-| `UserPromptSubmit` | User submits a prompt | Audit user requests, inject system context |
-| `PreToolUse` | Before agent invokes any tool | Block dangerous operations, require approval, modify tool input |
-| `PostToolUse` | After tool completes successfully | Run formatters, log results, trigger follow-up actions |
-| `PreCompact` | Before conversation context is compacted | Export important context, save state before truncation |
-| `SubagentStart` | Subagent is spawned | Track nested agent usage, initialize subagent resources |
-| `SubagentStop` | Subagent completes | Aggregate results, cleanup subagent resources |
-| `Stop` | Agent session ends | Generate reports, cleanup resources, send notifications |
+| [`SessionStart`](/docs/agents/reference/hooks-reference.md#sessionstart) | User submits the first prompt of a new session | Initialize resources, log session start, validate project state |
+| [`UserPromptSubmit`](/docs/agents/reference/hooks-reference.md#userpromptsubmit) | User submits a prompt | Audit user requests, inject system context |
+| [`PreToolUse`](/docs/agents/reference/hooks-reference.md#pretooluse) | Before agent invokes any tool | Block dangerous operations, require approval, modify tool input |
+| [`PostToolUse`](/docs/agents/reference/hooks-reference.md#posttooluse) | After tool completes successfully | Run formatters, log results, trigger follow-up actions |
+| [`PreCompact`](/docs/agents/reference/hooks-reference.md#precompact) | Before conversation context is compacted | Export important context, save state before truncation |
+| [`SubagentStart`](/docs/agents/reference/hooks-reference.md#subagentstart) | Subagent is spawned | Track nested agent usage, initialize subagent resources |
+| [`SubagentStop`](/docs/agents/reference/hooks-reference.md#subagentstop) | Subagent completes | Aggregate results, cleanup subagent resources |
+| [`Stop`](/docs/agents/reference/hooks-reference.md#stop) | Agent session ends | Generate reports, cleanup resources, send notifications |
+
+For the full input and output schema of each event, see the [Hooks reference](/docs/agents/reference/hooks-reference.md).
 
 ## Configure hooks
 
@@ -99,14 +110,12 @@ VS Code searches for hook configuration files in these locations:
 | Workspace | `.github/hooks/*.json` |
 | Workspace (Claude format) | `.claude/settings.json`, `.claude/settings.local.json` |
 | User | `~/.copilot/hooks`, `~/.claude/settings.json` |
-| Custom agent | `hooks` field in `.agent.md` frontmatter (see [Agent-scoped hooks](#agentscoped-hooks)) |
+| Custom agent | `hooks` field in `.agent.md` frontmatter (see [Agent-scoped hooks](#agent-scoped-hooks)) |
 | Plugin | `hooks.json` or `hooks/hooks.json`, depending on the plugin format (see [Hooks in plugins](/docs/agent-customization/agent-plugins.md#hooks-in-plugins)) |
 
 Workspace hooks take precedence over user hooks for the same event type.
 
-Use the `setting(chat.hookFilesLocations)` setting to customize which hook files are loaded. You can specify paths to folders (VS Code loads all `*.json` files in the folder) or direct paths to individual `.json` files. Only relative paths and tilde (`~`) paths are supported.
-
-The default value includes these locations:
+Use the `setting(chat.hookFilesLocations)` setting to customize which files are loaded. Specify folders (all `*.json` files in the folder are loaded) or individual `.json` files, using relative or tilde (`~`) paths. The default value includes these locations:
 
 ```json
 "chat.hookFilesLocations": {
@@ -117,47 +126,14 @@ The default value includes these locations:
 }
 ```
 
-To add custom locations, add entries to this setting:
+To customize, add an entry for a new location, or set a path to `false` to disable a location (including the defaults):
 
-```json
+```jsonc
 "chat.hookFilesLocations": {
-  "custom/hooks": true,
-  "~/my-hooks/security.json": true
+  "custom/hooks": true,              // load all *.json files in a folder
+  "~/my-hooks/security.json": true,  // load a specific file
+  ".claude/settings.json": false     // stop loading Claude Code hooks
 }
-```
-
-Set a path to `false` to disable loading hooks from that location, including the default locations. For example, to stop loading hooks from Claude Code configuration files:
-
-```json
-"chat.hookFilesLocations": {
-  ".claude/settings.json": false,
-  ".claude/settings.local.json": false,
-  "~/.claude/settings.json": false
-}
-```
-
-### Agent-scoped hooks
-
-> [!NOTE]
-> Agent-scoped hooks are currently in preview.
-
-You can define hooks directly in a [custom agent's](/docs/agent-customization/custom-agents.md) YAML frontmatter. Agent-scoped hooks only run when that custom agent is active, either selected by the user or invoked as a subagent. Agent-scoped hooks run in addition to any workspace or user-level hooks configured for the same event.
-
-To enable agent-scoped hooks, set `setting(chat.useCustomAgentHooks)` to `true`.
-
-Add a `hooks` field to the agent frontmatter with the same structure as hook configuration files: event names mapped to arrays of hook command objects.
-
-```markdown
----
-name: "Strict Formatter"
-description: "Agent that auto-formats code after every edit"
-hooks:
-  PostToolUse:
-    - type: command
-      command: "./scripts/format-changed-files.sh"
----
-
-You are a code editing agent. After making changes, files are automatically formatted.
 ```
 
 ### Hook configuration format
@@ -177,7 +153,7 @@ Create a JSON file with a `hooks` object containing arrays of hook commands for 
     "PostToolUse": [
       {
         "type": "command",
-        "command": "npx prettier --write \"$TOOL_INPUT_FILE_PATH\""
+        "command": "npx prettier --write ."
       }
     ]
   }
@@ -186,18 +162,7 @@ Create a JSON file with a `hooks` object containing arrays of hook commands for 
 
 ### Hook command properties
 
-Each hook entry must have `type: "command"` and at least one command property:
-
-| Property | Type | Description |
-|----------|------|-------------|
-| `type` | string | Must be `"command"` |
-| `command` | string | Default command to run (cross-platform) |
-| `windows` | string | Windows-specific command override |
-| `linux` | string | Linux-specific command override |
-| `osx` | string | macOS-specific command override |
-| `cwd` | string | Working directory (relative to repository root) |
-| `env` | object | Additional environment variables |
-| `timeout` | number | Timeout in seconds (default: 30) |
+Each hook entry must specify `type: "command"` and a command to run. You can also configure a working directory (`cwd`), environment variables (`env`), a `timeout`, and OS-specific overrides (`windows`, `linux`, `osx`). For the full list of properties, see the [Hook command properties reference](/docs/agents/reference/hooks-reference.md#hook-command-properties).
 
 > [!NOTE]
 > OS-specific commands are selected based on the extension host platform. In remote development scenarios (SSH, Containers, WSL), this might differ from your local operating system.
@@ -223,6 +188,71 @@ Specify different commands for each operating system:
 ```
 
 The execution service selects the appropriate command based on your OS. If no OS-specific command is defined, it falls back to the `command` property.
+
+### Agent-scoped hooks
+
+> [!NOTE]
+> Agent-scoped hooks are currently in preview.
+
+You can define hooks directly in a [custom agent's](/docs/agent-customization/custom-agents.md) YAML frontmatter. Agent-scoped hooks only run when that custom agent is active, either selected by the user or invoked as a subagent. Agent-scoped hooks run in addition to any workspace or user-level hooks configured for the same event.
+
+To enable agent-scoped hooks, set `setting(chat.useCustomAgentHooks)` to `true`.
+
+Add a `hooks` field to the agent frontmatter with the same structure as hook configuration files: event names mapped to arrays of hook command objects.
+
+```markdown
+---
+name: "Strict Formatter"
+description: "Agent that auto-formats code after every edit"
+hooks:
+  PostToolUse:
+    - type: command
+      command: "./scripts/format-changed-files.sh"
+---
+
+You are a code editing agent. After making changes, files are automatically formatted.
+```
+
+### Create and edit hooks
+
+You have multiple options for creating and editing hooks. You can create hook configuration files manually in one of the [supported locations](#hook-file-locations), use commands to create a new hook, or generate a hook with AI.
+
+* **Manually manage hook files**:
+
+    1. Create or edit a `.json` file in a supported location (for example, `.github/hooks/security.json`) and add your hook configuration.
+    1. Save the file and it is automatically loaded by VS Code.
+
+* **Use commands to manage hooks**
+
+    1. Run the **Chat: Configure Hooks** command from the Command Palette (`kb(workbench.action.showCommands)`).
+
+        You can also type `/hooks` in the chat input and press `kbstyle(Enter)` to open the configure hooks menu.
+
+    1. Follow the prompts to select an event type, choose a file location, and configure the command.
+
+    1. The command creates a new hook file and opens it in the editor for you to customize. Save the file to load the hook.
+
+* **Use the Agent Customizations editor**:
+
+    1. Open the Agent Customizations editor by running the **Chat: Open Customizations** command.
+
+        Alternatively, select **Open Customizations** (gear icon) at the top of the Chat view.
+
+    1. Select the **Hooks** tab to view and manage your hooks.
+
+    1. Select **Configure Hooks** from the dropdown button.
+
+    1. Follow the prompts to select an event type, choose a file location, and configure the command.
+
+    1. The command creates a new hook file and opens it in the editor for you to customize. Save the file to load the hook.
+
+* **Generate a hook with AI**:
+
+    1. Type `/create-hook` in chat and describe the automation you want (for example, `/create-hook run ESLint after every file edit`).
+
+        Alternatively, run the **Chat: Generate Hook** command from the Command Palette (`kb(workbench.action.showCommands)`) or select **Generate Hook** in the Agent Customizations editor.
+
+    1. The agent asks clarifying questions and generates a hook configuration file with the appropriate event type, command, and settings.
 
 ## Hook input and output
 
@@ -282,292 +312,9 @@ Hooks have several ways to control agent behavior: exit codes, top-level output 
 
 When multiple control mechanisms are used together, the most restrictive wins. For example, if a hook returns `continue: false` and `permissionDecision: "allow"`, the session still stops.
 
-## PreToolUse
+### Per-event input and output
 
-The `PreToolUse` hook fires before the agent invokes a tool.
-
-### PreToolUse input
-
-In addition to the common fields, `PreToolUse` hooks receive:
-
-```json
-{
-  "tool_name": "editFiles",
-  "tool_input": { "files": ["src/main.ts"] },
-  "tool_use_id": "tool-123"
-}
-```
-
-### PreToolUse output
-
-The `PreToolUse` hook can control tool execution through a `hookSpecificOutput` object:
-
-```json
-{
-  "hookSpecificOutput": {
-    "hookEventName": "PreToolUse",
-    "permissionDecision": "deny",
-    "permissionDecisionReason": "Destructive command blocked by policy",
-    "updatedInput": { "files": ["src/safe.ts"] },
-    "additionalContext": "User has read-only access to production files"
-  }
-}
-```
-
-| Field | Values | Description |
-|-------|--------|-------------|
-| `permissionDecision` | `"allow"`, `"deny"`, `"ask"` | Controls tool approval |
-| `permissionDecisionReason` | string | Reason shown to user |
-| `updatedInput` | object | Modified tool input (optional) |
-| `additionalContext` | string | Extra context for the model |
-
-**Permission decision priority**: When multiple hooks run for the same tool invocation, the most restrictive decision wins:
-
-1. `deny` (most restrictive): blocks tool execution
-2. `ask`: requires user confirmation
-3. `allow` (least restrictive): auto-approves execution
-
-**`updatedInput` format**: To determine the format of `updatedInput`, open the [agent logs](/docs/agents/agent-troubleshooting/chat-debug-view.md#agent-debug-log-panel) and find the logged tool schema. If `updatedInput` doesn't match the expected schema, it will be ignored.
-
-## PostToolUse
-
-The `PostToolUse` hook fires after a tool completes successfully.
-
-### PostToolUse input
-
-In addition to the common fields, `PostToolUse` hooks receive:
-
-```json
-{
-  "tool_name": "editFiles",
-  "tool_input": { "files": ["src/main.ts"] },
-  "tool_use_id": "tool-123",
-  "tool_response": "File edited successfully"
-}
-```
-
-### PostToolUse output
-
-The `PostToolUse` hook can provide additional context to the model, or block further processing:
-
-```json
-{
-  "decision": "block",
-  "reason": "Post-processing validation failed",
-  "hookSpecificOutput": {
-    "hookEventName": "PostToolUse",
-    "additionalContext": "The edited file has lint errors that need to be fixed"
-  }
-}
-```
-
-| Field | Values | Description |
-|-------|--------|-------------|
-| `decision` | `"block"` | Block further processing (optional) |
-| `reason` | string | Reason for blocking (shown to the model) |
-| `hookSpecificOutput.additionalContext` | string | Extra context injected into the conversation |
-
-## UserPromptSubmit
-
-The `UserPromptSubmit` hook fires when the user submits a prompt.
-
-### UserPromptSubmit input
-
-In addition to the common fields, `UserPromptSubmit` hooks receive a `prompt` field with the text the user submitted.
-
-The `UserPromptSubmit` hook uses the common output format only.
-
-## SessionStart
-
-The `SessionStart` hook fires when a new agent session begins.
-
-### SessionStart input
-
-In addition to the common fields, `SessionStart` hooks receive:
-
-```json
-{
-  "source": "new"
-}
-```
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `source` | string | How the session was started. Currently always `"new"`. |
-
-### SessionStart output
-
-The `SessionStart` hook can inject additional context into the agent's conversation:
-
-```json
-{
-  "hookSpecificOutput": {
-    "hookEventName": "SessionStart",
-    "additionalContext": "Project: my-app v2.1.0 | Branch: main | Node: v20.11.0"
-  }
-}
-```
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `additionalContext` | string | Context added to the agent's conversation |
-
-## Stop
-
-The `Stop` hook fires when the agent session ends. When scoped to a custom agent, the `Stop` hook is also treated as `SubagentStop`.
-
-### Stop input
-
-In addition to the common fields, `Stop` hooks receive:
-
-```json
-{
-  "stop_hook_active": false
-}
-```
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `stop_hook_active` | boolean | `true` when the agent is already continuing as a result of a previous stop hook. Check this value to prevent the agent from running indefinitely. |
-
-### Stop output
-
-The `Stop` hook can prevent the agent from stopping:
-
-```json
-{
-  "hookSpecificOutput": {
-    "hookEventName": "Stop",
-    "decision": "block",
-    "reason": "Run the test suite before finishing"
-  }
-}
-```
-
-| Field | Values | Description |
-|-------|--------|-------------|
-| `decision` | `"block"` | Prevent the agent from stopping |
-| `reason` | string | Required when decision is `"block"`. Tells the agent why it should continue. |
-
-> [!IMPORTANT]
-> When a `Stop` hook blocks the agent from stopping, the agent continues running and the additional turns consume [AI credits](https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-individuals). Always check the `stop_hook_active` field to prevent the agent from running indefinitely.
-
-## SubagentStart
-
-The `SubagentStart` hook fires when a subagent is spawned.
-
-### SubagentStart input
-
-In addition to the common fields, `SubagentStart` hooks receive:
-
-```json
-{
-  "agent_id": "subagent-456",
-  "agent_type": "Plan"
-}
-```
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `agent_id` | string | Unique identifier for the subagent |
-| `agent_type` | string | The agent name (for example, `"Plan"` for built-in agents or custom agent names) |
-
-### SubagentStart output
-
-The `SubagentStart` hook can inject additional context into the subagent's conversation:
-
-```json
-{
-  "hookSpecificOutput": {
-    "hookEventName": "SubagentStart",
-    "additionalContext": "This subagent should follow the project coding guidelines"
-  }
-}
-```
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `additionalContext` | string | Context added to the subagent's conversation |
-
-## SubagentStop
-
-The `SubagentStop` hook fires when a subagent completes.
-
-### SubagentStop input
-
-In addition to the common fields, `SubagentStop` hooks receive:
-
-```json
-{
-  "agent_id": "subagent-456",
-  "agent_type": "Plan",
-  "stop_hook_active": false
-}
-```
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `agent_id` | string | Unique identifier for the subagent |
-| `agent_type` | string | The agent name (for example, `"Plan"` for built-in agents or custom agent names) |
-| `stop_hook_active` | boolean | `true` when the subagent is already continuing as a result of a previous stop hook. Check this value to prevent the subagent from running indefinitely. |
-
-### SubagentStop output
-
-The `SubagentStop` hook can prevent the subagent from stopping:
-
-```json
-{
-  "decision": "block",
-  "reason": "Verify subagent results before completing"
-}
-```
-
-| Field | Values | Description |
-|-------|--------|-------------|
-| `decision` | `"block"` | Prevent the subagent from stopping |
-| `reason` | string | Required when decision is `"block"`. Tells the subagent why it should continue. |
-
-## PreCompact
-
-The `PreCompact` hook fires before conversation context is compacted.
-
-### PreCompact input
-
-In addition to the common fields, `PreCompact` hooks receive:
-
-```json
-{
-  "trigger": "auto"
-}
-```
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `trigger` | string | How the compaction was triggered. `"auto"` when the conversation is too long for the prompt budget. |
-
-The `PreCompact` hook uses the common output format only.
-
-## Configure hooks with the UI
-
-You can configure hooks through an interactive UI in several ways:
-
-* Type `/hooks` in the chat input and press `kbstyle(Enter)`.
-* Open the Command Palette (`kb(workbench.action.showCommands)`) and run **Chat: Configure Hooks**.
-* Select the **Settings** icon (<i class="codicon codicon-gear"></i>) at the top of the Chat view, then select **Hooks**.
-
-In the configure hooks menu:
-
-1. Select a hook event type from the list.
-
-1. Choose an existing hook to edit or select **Add new hook** to create one.
-
-1. Select or create a hook configuration file.
-
-The command opens the hook file in the editor with your cursor positioned at the command field, ready for editing.
-
-### Generate a hook with AI
-
-You can use AI to generate a hook configuration. Type `/create-hook` in chat and describe the automation you want (for example, "run ESLint after every file edit"). The agent asks clarifying questions and generates a hook configuration file with the appropriate event type, command, and settings.
+Each hook event provides its own input fields and supports event-specific output. For the full input and output schema of every event, including `PreToolUse`, `PostToolUse`, `SessionStart`, `Stop`, and more, see the [Hooks reference](/docs/agents/reference/hooks-reference.md).
 
 ## Usage scenarios
 
@@ -787,6 +534,9 @@ To review hook output and errors:
 1. Open the **Output** panel.
 
 1. Select **GitHub Copilot Chat Hooks** from the channel list.
+
+> [!TIP]
+> You can also run the **Developer: Show Agent Debug Logs** command to view hook input and output in the agent debug logs.
 
 ### Common issues
 

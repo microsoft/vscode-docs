@@ -120,6 +120,7 @@
             ["Cheat Sheet", "/docs/agents/reference/ai-features-cheat-sheet"],
             ["Settings Reference", "/docs/agents/reference/ai-settings"],
             ["MCP Configuration", "/docs/agents/reference/mcp-configuration"],
+            ["Hooks Reference", "/docs/agents/reference/hooks-reference"],
             ["Workspace Context", "/docs/agents/reference/workspace-context"]
         ]
     }
