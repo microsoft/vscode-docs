@@ -1,6 +1,6 @@
 ---
 name: release-note-writer
-description: Guidelines for writing and reviewing Insiders and Stable release notes for Visual Studio Code.
+description: Guidelines for writing and reviewing Insiders and Stable release notes for Visual Studio Code. This also includes instructions for updating release notes for recovery releases.
 ---
 # Visual Studio Code Release Note Writer Guidelines
 
@@ -114,6 +114,23 @@ After a first pass of all feature sections, review the draft for gaps you cannot
 For each gap, include your best-guess draft so the user can confirm or correct rather than write from scratch.
 
 Before asking, search the `docs/` folder for any referenced concepts. If docs coverage is thorough, link to the page and skip the question. Only flag concepts where coverage is thin or absent.
+
+## Recovery release notes
+
+When a recovery release is needed, a note is added to the top of the release notes that links to the issues resolved in the recovery release. In addition, the download version is updated to the recovery release version. The rest of the release notes remain unchanged.
+
+Perform these steps to update the release notes for a recovery release:
+
+1. Update the `DownloadVersion` in the frontmatter to the recovery release version.
+
+1. Add a note at the top of the release notes, right after the release date, that links to the issues resolved in the recovery release:
+
+    ```markdown
+    **Update <recovery version>**: The update addresses these [issues](https://github.com/microsoft/vscode/issues?q=is%3Aissue+is%3Aclosed+milestone%3A<recovery version>).
+    ```
+
+    When multiple recovery releases are needed, add the note for each recovery release in chronological order.
+
 
 ## Review Procedure
 
