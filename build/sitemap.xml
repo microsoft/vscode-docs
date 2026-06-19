@@ -496,6 +496,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/agents/reference/hooks-reference</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/agent-customization/language-models</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
