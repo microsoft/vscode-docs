@@ -13,9 +13,6 @@ The team is continuously working on improving the AI features in VS Code and add
 > [!TIP]
 > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly allowance of inline suggestions and AI credits.
 
-> [!IMPORTANT]
-> **Starting April 20, 2026**, new sign-ups for Copilot Pro, Copilot Pro+, Max, and Student plans are temporarily paused.
-
 ## General settings
 
 | Setting and Description | Default |
