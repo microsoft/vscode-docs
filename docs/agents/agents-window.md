@@ -172,7 +172,9 @@ To configure tasks in the Agents window:
 
 Once the task is configured, it will appear in the **Tasks** dropdown, and you can run it in the context of the current session to validate the changes made by the agent.
 
-If your application involves browser-based behavior, you can use the [integrated browser](/docs/debugtest/integrated-browser.md) in the Agents window. Select a `localhost` link from the chat session to open it in the integrated browser inside the Agents window. The browser tab will persist across session switches, so if you open another session, the browser tab will open to the same page you had open previously and preserve the state of that page.
+If your application involves browser-based behavior, you can use the [integrated browser](/docs/debugtest/integrated-browser.md) in the Agents window. Select a `localhost` link from the chat session to open it in the integrated browser inside the Agents window.
+
+Browser tabs are scoped to the session in which they were opened. Each session keeps its own set of browser tabs, isolated from other sessions, and those tabs persist across session switches, preserving the state of each page. When you switch sessions, you see the browser tabs that belong to the active session. If an agent opens a tab while its session isn't active, the tab isn't opened in the editor, but it remains usable and you can open it by selecting its label in the tool call in the chat session.
 
 ![Screenshot showing the integrated browser open in the Agents window, displaying a localhost page that was opened from a link in the chat session.](images/agents-window/agents-window-integrated-browser.png)
 
