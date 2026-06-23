@@ -1,6 +1,6 @@
 ---
 ContentId: 8f2c9a1b-3d4e-5f6a-7b8c-9d0e1f2a3b4c
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 MetaDescription: Get started with different types of agents in VS Code to run tasks locally, in the background, or in the cloud. Hand off work across agents to use what works best for your workflow.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -20,9 +20,6 @@ This tutorial walks you through using different types of agents in Visual Studio
 > [!TIP]
 > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly allowance of inline suggestions and AI credits.
 
-> [!IMPORTANT]
-> **Starting April 20, 2026**, new sign-ups for Copilot Pro, Copilot Pro+, Max, and Student plans are temporarily paused.
-
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Test web apps with browser agent tools">
 Use browser agent tools to build and automatically test web applications.
 
@@ -35,9 +32,10 @@ Use browser agent tools to build and automatically test web applications.
 To complete this tutorial, you need:
 
 * [Visual Studio Code installed on your computer](/download)
-* [Live Preview](https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server) extension installed in VS Code (for previewing the todo app)
+
+* [AI features enabled in VS Code](/docs/getstarted/overview.md#enable-ai-features)
+
 * [A GitHub account](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github) (for cloud agent workflow)
-* [A GitHub Copilot subscription](/docs/setup/copilot.md)
 
 ## Step 1: Use a local agent to scaffold an app
 
@@ -70,16 +68,9 @@ In this step, you use a local agent to create the initial todo app structure. Lo
 
 1. Review as the agent generates the different files for the app. Use **Keep** or **Undo** to accept or reject changes as needed.
 
-1. You can preview the changes in the integrated browser.
+1. Open the `index.html` file and select the **Preview** button to see the app in the integrated browser.
 
-    * Enable the integrated browser for `localhost` URLs by configuring `setting(workbench.browser.openLocalhostLinks)`
-
-    * Open the `index.html` file and select the **Preview** button.
-
-        ![Screenshot showing the Preview button in the top right corner of the editor when an HTML file is open.](images/agents-tutorial/preview-button.png)
-
-        > [!NOTE]
-        > If you don't see the preview button, make sure you have the [Live Preview](https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server) extension installed.
+    ![Screenshot showing the Preview button in the top right corner of the editor when an HTML file is open.](images/agents-tutorial/preview-button.png)
 
 1. Send additional prompts to enhance the app further. Notice that the preview updates live as you make changes.
 

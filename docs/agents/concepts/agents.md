@@ -1,6 +1,6 @@
 ---
 ContentId: e5f6a7b8-9c0d-1e2f-3a4b-5c6d7e8f9a0b
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 MetaDescription: Learn about agents in VS Code, including the agent loop, agent types, subagents, memory, and planning.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -23,10 +23,7 @@ Keywords:
 
 An agent is an AI system that autonomously plans and executes coding tasks. You give the agent a high-level goal, and it breaks the goal down into steps, executes those steps with [tools](/docs/agents/concepts/tools.md), and self-corrects when it hits errors. This article explains the core architecture of agents: the agent loop, agent types, subagents, memory, and planning.
 
-VS Code lets you work with agents the way that fits your workflow, with two surfaces you can pick from and move freely between:
-
-* **[Chat view](/docs/agents/chat-view.md)**: stay in the main VS Code window when you're writing code and want AI to assist alongside the editor, debugger, and extensions.
-* **[Agents window](/docs/agents/agents-window.md) (Preview)**: switch to an agent-first surface when you want to think in prompts and orchestrate agent sessions across multiple projects.
+For an overview of what you can do with agents in VS Code and where to work with them, see [Build with agents in VS Code](/docs/agents/overview.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
 Follow a hands-on tutorial to experience local, background, and cloud agents in VS Code.
@@ -73,7 +70,7 @@ Agents run in different environments depending on when you need results and how 
 
 ![Diagram showing the different agent types: Local agents (interactive in VS Code), Background agents (autonomous on your machine), Cloud agents (run on GitHub's infrastructure), and Third-party agents (connect external AI providers).](../images/agents-overview/agent-types-diagram-v3.png)
 
-Learn more about [using agents in VS Code](/docs/agents/overview.md), including a decision table to help you choose the right agent type for your task.
+For a description of each agent type, see the individual articles under [Agent types](/docs/agents/agent-types/local-agents.md). For guidance on choosing where to work with agents, see [Build with agents in VS Code](/docs/agents/overview.md#configure-your-agent-session).
 
 ## Subagents
 
@@ -92,25 +89,13 @@ For example, the built-in [Plan agent](#planning) uses subagents to perform rese
 
 Learn more about [using subagents](/docs/agents/subagents.md).
 
-## Code-first vs. agent-first
-
-There are different ways to work with AI in your development process, and the right approach depends on your preferences and the task at hand. There are two primary ways to work with AI in VS Code to support different workflows:
-
-* **Code-first**: you write code in the editor and use AI as a coding assistant to help you implement features, fix bugs, and refactor code. Your primary interface is the editor for reviewing and editing code, testing, and debugging. You use AI to **enhance your existing coding workflow**.
-
-* **Agent-first** or **Task-first**: you describe (high-level) tasks and requirements in chat and hand them to an AI agent. The agent plans, implements, and verifies the result. Your primary interface is chat and the sessions list for organizing work, while the editor is a secondary interface for reviewing and tweaking the AI's implementation when necessary. You use AI to shift how you work and **focus on defining the problem and reviewing solutions**.
-
-The [Agents window](/docs/agents/agents-window.md) is built for the agent-first approach, natively in VS Code. It provides a focused environment for managing agent sessions across all your projects, with chat as the central interface for interacting with your agents. The Agents window complements the [Chat view](/docs/agents/chat-view.md) in the main VS Code window, which is optimized for the code-first approach.
-
-Both surfaces share sessions and VS Code configuration like settings and keybindings, so you don't have to commit to only one or the other. Use the [Chat view](/docs/agents/chat-view.md) when you want full-featured editing, debugging, notebooks, the extension ecosystem, and remote development, with AI assisting your coding. Use the Agents window when you want to think in prompts, orchestrate work across multiple projects, and keep AI customizations (like plugins, skills, and MCP) front and center.
-
 ## Chat sessions
 
 A chat session is a single conversation with an agent, including all prompts, responses, and the context accumulated along the way. Each session is independent and has its own context window, so work in one session doesn't leak into another. Sessions are the unit of organization for agent work: you can run several in parallel, switch between them, fork a session to explore an alternative direction, and roll back to a previous checkpoint.
 
 Because the [Chat view](/docs/agents/chat-view.md) and the [Agents window](/docs/agents/agents-window.md) share the same sessions, you can start a task in one surface and continue it in the other. The sessions list gives you a unified view of all your sessions, regardless of where they run.
 
-Learn more about [managing chat sessions](/docs/agents/sessions/chat-sessions.md).
+Learn more about [managing chat sessions](/docs/chat/chat-sessions.md).
 
 ## Remote agent sessions
 
@@ -120,7 +105,7 @@ VS Code supports two ways to work with remote agent sessions:
 
 | Method | How it works |
 |---|---|
-| Agents window<br>with remote connections | Connect the Agents window to a remote machine over SSH or a dev tunnel. The Agents window automatically installs and starts the VS Code CLI on the remote, which runs an agent host process that manages sessions.<br><br>Multiple clients can connect to the same agent host simultaneously and see a synchronized view of all sessions, using the open [Agent Host Protocol (AHP)](https://microsoft.github.io/agent-host-protocol/). Sessions continue running on the remote even if all clients disconnect.<br><br>Learn more about [connecting to a remote machine](/docs/agents/agents-window.md#open-a-session-on-a-remote-machine). |
+| Agents window<br>with remote connections | Connect the Agents window to a remote machine over SSH or a dev tunnel. The Agents window automatically installs and starts the VS Code CLI on the remote, which runs an agent host process that manages sessions.<br><br>Multiple clients can connect to the same agent host simultaneously and see a synchronized view of all sessions, using the open [Agent Host Protocol (AHP)](https://microsoft.github.io/agent-host-protocol/). Sessions continue running on the remote even if all clients disconnect.<br><br>Learn more about [connecting to a remote machine](/docs/agents/remote-agent-sessions.md). |
 | Copilot CLI<br>remote control | Use the `/remote on` command in a [Copilot CLI session](/docs/agents/agent-types/copilot-cli.md) to mirror the session to GitHub. You can then monitor and steer the session from github.com or the GitHub Mobile app while it continues running on your machine.<br><br>Learn more about [remote control for Copilot CLI sessions](/docs/agents/agent-types/copilot-cli.md#remote-control-copilot-cli-sessions-experimental). |
 
 ## Memory

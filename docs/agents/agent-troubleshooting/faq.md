@@ -1,6 +1,6 @@
 ---
 ContentId: e02ded07-6e5a-4f94-b618-434a2c3e8f09
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 MetaDescription: Frequently asked questions for using GitHub Copilot in Visual Studio Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -40,7 +40,7 @@ You can view the current Copilot usage in the Copilot status dashboard, availabl
 * **Inline suggestions**: The percentage of inline suggestions quota you have used in the current month. Paid plans have an unlimited quota for inline suggestions.
 * **AI credits**: The percentage of your monthly AI credits allowance you have used in the current month.
 
-Visit the GitHub Copilot documentation for more information about [monitoring usage and entitlements](https://docs.github.com/en/copilot/managing-copilot/monitoring-usage-and-entitlements/monitoring-your-copilot-usage-and-entitlements). For tips on reducing credit consumption, see [optimize AI credit usage](/docs/copilot/guides/optimize-usage.md).
+Visit the GitHub Copilot documentation for more information about [monitoring usage and entitlements](https://docs.github.com/en/copilot/managing-copilot/monitoring-usage-and-entitlements/monitoring-your-copilot-usage-and-entitlements). For tips on reducing credit consumption, see [optimize AI credit usage](/docs/agents/guides/optimize-usage.md).
 
 ### I reached my inline suggestions or AI credits limit
 

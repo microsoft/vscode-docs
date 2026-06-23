@@ -13,13 +13,13 @@ If you don't see an answer to your question here, check our previously [reported
 
 ## Open sourcing AI in VS Code
 
-We've open sourced the GitHub Copilot Chat extension under the MIT license and are bringing relevant components into VS Code core. Read all details in our [announcement blog post](https://aka.ms/vscode-copilot-oss-blog) and [first milestone update](https://code.visualstudio.com/blogs/2025/06/30/openSourceAIEditorFirstMilestone).
+We've open sourced the GitHub Copilot Chat extension under the MIT license and are bringing relevant components into VS Code core. Read all details in our [announcement blog post](https://aka.ms/vscode-copilot-oss-blog) and [first milestone update](/blogs/2025/06/30/openSourceAIEditorFirstMilestone.md).
 
 ### Does this affect my current GitHub Copilot subscription? Is GitHub Copilot free now?
 
 This change does not affect current GitHub Copilot subscriptions. To use GitHub Copilot, you'll continue to need both a GitHub account, and access to a GitHub Copilot subscription.
 
-Individual developers who don't have access to Copilot through an organization or enterprise have access to the [GitHub Copilot free plan](https://aka.ms/github-docs-copilot-free) ([restrictions may apply](https://docs.github.com/en/site-policy/other-site-policies/github-and-trade-controls#github-copilot)). If that plan doesn't meet your needs, you can sign up for a Copilot paid plan or [bring your own model keys](https://code.visualstudio.com/docs/agent-customization/language-models#_bring-your-own-language-model-key).
+Individual developers who don't have access to Copilot through an organization or enterprise have access to the [GitHub Copilot free plan](https://aka.ms/github-docs-copilot-free) ([restrictions may apply](https://docs.github.com/en/site-policy/other-site-policies/github-and-trade-controls#github-copilot)). If that plan doesn't meet your needs, you can sign up for a Copilot paid plan or [bring your own model keys](/docs/agent-customization/language-models.md#bring-your-own-language-model-key).
 
 ### Will the GitHub Copilot backend services also be open sourced?
 
@@ -330,13 +330,13 @@ You can install a previous release of VS Code by uninstalling your current versi
 
 #### Opt out of extension updates
 
-By default, VS Code will also auto-update extensions as new versions become available. If you do not want extensions to automatically update, you can clear the **Extensions: Auto Update** setting (`setting(extensions.autoUpdate)`) in the Settings editor (`kb(workbench.action.openSettings)`).
+By default, VS Code automatically updates extensions as new versions become available. If you do not want extensions to automatically update, you can set the **Extensions: Auto Update** setting (`setting(extensions.autoUpdate)`) to `off` in the Settings editor (`kb(workbench.action.openSettings)`).
 
 If you use the JSON editor to modify your settings, add the following line:
 
 ```json
 {
-    "extensions.autoUpdate": false
+    "extensions.autoUpdate": "off"
 }
 ```
 
@@ -366,7 +366,7 @@ When VS Code is launched from a terminal (for example, via `code .`), it has acc
 
 However, when launching from your platform's user interface (for example, the VS Code icon in the macOS dock), you normally are not running in the context of a shell and you don't have access to those environment settings. This means that depending on how you launch VS Code, you may not have the same environment.
 
-To work around this, when launched via a UI gesture, VS Code will start a small process to run (or "resolve") the shell environment defined in your, `.bashrc`, `.zshrc`, or PowerShell profile files. If, after a configurable timeout (via `application.shellEnvironmentResolutionTimeout`, defaults to 10 seconds), the shell environment has still not been resolved or resolving failed for any other reason, VS Code will abort the "resolve" process, launch without your shell's environment settings, and you will see an error like the following:
+To work around this, when launched via a UI gesture, VS Code will start a small process to run (or "resolve") the shell environment defined in your `.bashrc`, `.zshrc`, or PowerShell profile files. If, after a configurable timeout (via `application.shellEnvironmentResolutionTimeout`, defaults to 10 seconds), the shell environment has still not been resolved or resolving failed for any other reason, VS Code will abort the "resolve" process, launch without your shell's environment settings, and you will see an error like the following:
 
 ![Shell environment startup error](images/faq/shell-env-error.png)
 

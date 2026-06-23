@@ -1,6 +1,6 @@
 ---
 ContentId: 8b3c9f5e-4d2a-6f9b-3e1c-7a8d5f2e9b0c
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 MetaDescription: Learn how to use context-isolated subagents in VS Code to delegate complex tasks to autonomous agents within your chat session.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -24,18 +24,7 @@ For background on subagent concepts (context isolation, synchronous and parallel
 
 This article explains how to use subagents in VS Code, including usage scenarios, invocation patterns, and how to run custom agents as subagents.
 
-## What the user sees
-
-When a subagent runs, it appears in the chat as a collapsible tool call. By default, the subagent is collapsed and shows:
-
-* The name of the custom agent (if you specify one)
-* The currently running tool (for example, "Reading file..." or "Searching codebase...")
-
-Select the subagent tool call to expand it and view the full details, including all tool calls the subagent made, the prompt passed to the subagent, and the returned result.
-
-This visibility gives you control over how much detail you see without cluttering your main conversation with intermediate steps.
-
-## Usage scenarios
+## When to use subagents
 
 The following scenarios illustrate when subagents can improve your AI-assisted development workflow.
 
@@ -122,9 +111,9 @@ The main agent collects both results and synthesizes a combined analysis.
 
 ## Invoke a subagent
 
-### Agent-initiated vs. user-invoked
+### How subagents are invoked
 
-Subagents are typically **agent-initiated**, not directly invoked by users in chat. To allow the main agent to invoke subagents, make sure the `runSubagent` tool is enabled.
+Subagents are typically **agent-initiated**, not directly invoked by users in chat. To allow the main agent to invoke subagents, make sure the `agent/runSubagent` tool is enabled.
 
 By default, subagents themselves cannot invoke further subagents. To enable recursive nesting, enable the `setting(chat.subagents.allowInvocationsFromSubagents)` setting. Learn more in [Nested subagents](#nested-subagents).
 
@@ -143,7 +132,7 @@ You can hint that you want subagent delegation by phrasing your prompt to sugges
 
 To optimize subagent performance, clearly define the task and expected output. This helps the subagent focus on the specific goal without passing unnecessary context back to the main agent.
 
-See the [usage scenarios](#usage-scenarios) section for examples of how to structure prompts that invoke subagents.
+See the [usage scenarios](#when-to-use-subagents) section for examples of how to structure prompts that invoke subagents.
 
 ### Invoke a subagent in a prompt file
 
@@ -160,13 +149,24 @@ Then update the docs/ folder with the new documentation.
 
 In the prompt instructions, you can then hint the agent to use subagents by suggesting isolated research or parallel analysis for specific subtasks.
 
+### What you see in chat
+
+When a subagent runs, it appears in the chat as a collapsible tool call. By default, the subagent is collapsed and shows:
+
+* The name of the custom agent (if you specify one)
+* The currently running tool (for example, "Reading file..." or "Searching codebase...")
+
+Select the subagent tool call to expand it and view the full details, including all tool calls the subagent made, the prompt passed to the subagent, and the returned result.
+
+You control how much detail to reveal without cluttering your main conversation with intermediate steps.
+
 ## Run a custom agent as a subagent
 
 By default, a subagent inherits the agent from the main chat session and uses the same model and tools. To define specific behavior for a subagent, use a [custom agent](/docs/agent-customization/custom-agents.md). Custom agents can specify their own model, tools, and instructions. When used as a subagent, these settings override the defaults inherited from the main session.
 
-The main agent can also request a specific model when invoking a subagent. Learn more in the [Model selection for subagents](#model-selection-for-subagents) section.
+The main agent can also request a specific model when invoking a subagent. Learn more in the [Select the model for a subagent](#select-the-model-for-a-subagent) section.
 
-### Control subagent invocation
+### Control how a custom agent is invoked
 
 You can control how a custom agent can be invoked by using two frontmatter properties:
 
@@ -192,25 +192,7 @@ To run a custom agent as a subagent, prompt the AI to use a custom or built-in a
 * `Run the Research agent as a subagent to research the best auth methods for this project.`
 * `Use the Plan agent in a subagent to create an implementation plan for myfeature. Then save the plan in plans/myfeature.plan.md`
 
-### Model selection for subagents
-
-When a subagent runs, the model is determined by the following priority order:
-
-1. **Explicit model parameter**: the main agent specifies a model directly when invoking the `runSubagent` tool.
-1. **Agent-configured model**: the [`model`](/docs/agent-customization/custom-agents.md#header-optional) property in the custom agent's `.agent.md` frontmatter.
-1. **Main model**: the model running the parent conversation.
-
-To request a specific model for a subagent, include a model preference in your prompt:
-
-* `Run a subagent with Claude Sonnet 4.6 to research authentication patterns in this codebase.`
-* `Use GPT-4o in a subagent to analyze the performance of this module.`
-
-You can also define the model preference in your custom agent's instructions to consistently route subagent tasks to a specific model.
-
-> [!NOTE]
-> The requested model cannot exceed the cost tier of the main model. If you request a more expensive model, the subagent falls back to the main model.
-
-### Restrict which subagents can be used (Experimental)
+### Restrict which subagents an agent can use (Experimental)
 
 By default, all custom agents that don't have `disable-model-invocation: true` are available to be used as subagents. If two or more agents have similar names or descriptions, the AI might select an unintended agent.
 
@@ -238,6 +220,24 @@ Implement the following feature using test-driven development. Use subagents to 
 2. Use the Green agent to implement code to pass the tests
 3. Use the Refactor agent to improve the code quality
 ```
+
+## Select the model for a subagent
+
+When a subagent runs, the model is determined by the following priority order:
+
+1. **Explicit model parameter**: the main agent specifies a model directly when invoking the `runSubagent` tool.
+1. **Agent-configured model**: the [`model`](/docs/agent-customization/custom-agents.md#header-optional) property in the custom agent's `.agent.md` frontmatter. This can be a single model name or a prioritized list of models.
+1. **Main model**: the model running the parent conversation.
+
+To request a specific model for a subagent, include a model preference in your prompt:
+
+* `Run a subagent with Claude Sonnet 4.6 to research authentication patterns in this codebase.`
+* `Use GPT-4o in a subagent to analyze the performance of this module.`
+
+You can also define the model preference in your custom agent's instructions to consistently route subagent tasks to a specific model.
+
+> [!NOTE]
+> The requested model cannot exceed the cost tier of the main model. If you request a more expensive model, the subagent falls back to the main model.
 
 ## Nested subagents
 
@@ -349,4 +349,4 @@ This pattern works because each subagent approaches the code fresh, without bein
 
 * [Agents overview](/docs/agents/overview.md) - Learn about the different types of agents in VS Code
 * [Custom agents](/docs/agent-customization/custom-agents.md) - Create your own AI agents
-* [Chat sessions](/docs/agents/sessions/chat-sessions.md) - Manage chat sessions in VS Code
+* [Chat sessions](/docs/chat/chat-sessions.md) - Manage chat sessions in VS Code

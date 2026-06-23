@@ -1,6 +1,6 @@
 ---
 ContentId: d7a80c88-c091-4d13-9240-d432c12407a7
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 MetaDescription: Make your local web services accessible over the internet with Visual Studio Code
 ---
 # Port Forwarding
@@ -35,14 +35,16 @@ Port forwarding currently exposes only locally-running services. Remote connecti
 
 Depending on your scenario, you may want to use the VS Code [Remote - Tunnels](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-server) extension to tunnel into a remote machine. You can learn more in the [Remote - Tunnels documentation](/docs/remote/tunnels.md).
 
+### How do I access a service that only runs on a remote machine?
+
+If you're connected to a remote workspace, the [integrated browser](/docs/debugtest/integrated-browser.md#browse-over-remote-connections-preview) can proxy its web traffic over the remote connection. This lets you reach ports and services that are only accessible from the remote machine, without forwarding a port to your local machine.
+
 ### How are forwarded ports secured?
 
 By default, both hosting and connecting to a tunnel require authentication with the same GitHub or Microsoft account on each end. In both cases, VS Code makes outbound connections to a service hosted in Azure; no firewall changes are generally necessary, and VS Code doesn't set up any network listeners.
 
 > [!CAUTION]
 > If you've opened a **Public** port, any user with your link can access the forwarded service. Avoid hosting confidential information or insecure services on public ports.
->
-> This is especially dangerous when AI agents are configured with auto-approval modes such as **Bypass Approvals**, **Autopilot**, or `/yolo`. Anyone with access to the public URL can interact with services that have AI command execution capabilities, potentially running commands with your credentials. For more information, see [Security](/docs/agents/security.md).
 
 Learn more about the [security of the underlying dev tunnels service](https://learn.microsoft.com/azure/developer/dev-tunnels/security).
 

@@ -1,6 +1,6 @@
 ---
 ContentId: 276ecd8f-2a76-467e-bf82-846d49c13ab5
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 MetaDescription: Learn how to create custom agents (formerly custom chat modes) to tailor AI chat behavior in VS Code for your specific workflows and development scenarios.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -26,7 +26,7 @@ This article describes how to create and manage custom agents in VS Code.
 > **Agents, prompt files, or skills?** Use custom agents when you need a persistent persona with specific tool restrictions, model preferences, or handoffs between roles. For one-off tasks that don't need tool restrictions, use [prompt files](/docs/agent-customization/prompt-files.md). For portable, reusable capabilities with scripts and resources, use [agent skills](/docs/agent-customization/agent-skills.md).
 
 > [!TIP]
-> Use the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) (Preview) to discover, create, and manage all your agent customizations in one place. Run **Chat: Open Customizations** from the Command Palette.
+> Use the [Agent Customizations editor](/docs/agent-customization/overview.md#manage-customizations-in-the-editor) (Preview) to discover, create, and manage all your agent customizations in one place. Run **Chat: Open Customizations** from the Command Palette.
 
 ## What are custom agents?
 
@@ -87,7 +87,7 @@ You can define custom agents for a specific workspace or at the user level, wher
 To create a custom agent in user data, use the Agent Customizations editor or use the **Chat: New Custom Agent** command.
 
 > [!TIP]
-> In a monorepo, enable `setting(chat.useCustomizationsInParentRepositories)` to discover custom agents from the parent repository root. Learn more about [parent repository discovery](/docs/agent-customization/overview.md#parent-repository-discovery).
+> In a monorepo, enable `setting(chat.useCustomizationsInParentRepositories)` to discover custom agents from the parent repository root. Learn more about [parent repository discovery](/docs/agent-customization/overview.md#use-customizations-in-a-monorepo).
 
 ## Custom agent file structure
 
@@ -105,7 +105,7 @@ The header is formatted as YAML frontmatter with the following fields:
 | `description`     | A brief description of the custom agent, shown as placeholder text in the chat input field. |
 | `name`            | The name of the custom agent. If not specified, the file name is used. |
 | `argument-hint`   | Optional hint text shown in the chat input field to guide users on how to interact with the custom agent. |
-| `tools`           | A list of tool or tool set names that are available for this custom agent. Can include built-in tools, tool sets, MCP tools, or tools contributed by extensions. To include all tools of an MCP server, use the `<server name>/*` format.<br/>Learn more about [tools in chat](/docs/agents/agent-tools.md). |
+| `tools`           | A list of tool or tool set names that are available for this custom agent. Can include built-in tools, tool sets, MCP tools, or tools contributed by extensions. To include all tools of an MCP server, use the `<server name>/*` format.<br/>Learn more about [tools in chat](/docs/chat/chat-tools.md). |
 | `agents`          | A list of agent names that are available as [subagents](/docs/agents/subagents.md) in this agent. Use `*` to allow all agents, or an empty array `[]` to prevent any subagent use. If you specify `agents`, ensure the `agent` tool is included in the `tools` property. To create a self-referential agent that lists itself in `agents`, enable `setting(chat.subagents.allowInvocationsFromSubagents)`. Learn more about [nested subagents](/docs/agents/subagents.md#nested-subagents). |
 | `model`           | The AI model to use when running the prompt. Specify a single model name (string) or a prioritized list of models (array). When you specify an array, the system tries each model in order until an available one is found. If not specified, the currently selected model in model picker is used. |
 | `user-invocable`  | Optional boolean flag to control whether the agent appears in the agents dropdown in chat (default is `true`). Set to `false` to create agents that are only accessible as [subagents](/docs/agents/subagents.md) or programmatically. |
@@ -343,4 +343,4 @@ Custom agents can restrict which tools are available, which gives you control ov
 * [Planning with agents](/docs/agents/planning.md)
 * [Customize AI with custom instructions](/docs/agent-customization/custom-instructions.md)
 * [Create reusable prompt files](/docs/agent-customization/prompt-files.md)
-* [Use tools in chat](/docs/agents/agent-tools.md)
+* [Use tools in chat](/docs/chat/chat-tools.md)

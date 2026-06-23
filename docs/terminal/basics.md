@@ -1,6 +1,6 @@
 ---
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 MetaDescription: Visual Studio Code has an integrated terminal to enable working in your shell of choice without leaving the editor.
 ---
 # Terminal Basics
@@ -351,7 +351,7 @@ For more information about using GitHub Copilot with the terminal, see [Use term
 
 ### Terminal chat participant
 
-Use the dedicated `@terminal` chat participant in ask mode in the Chat view:
+Use the dedicated `@terminal` chat participant in chat to ask questions about terminal commands, shell scripting, or explaining terminal output:
 
 1. Open the Chat view (`kb(workbench.action.chat.open)`)
 2. Start your question with `@terminal` to direct it to the terminal participant

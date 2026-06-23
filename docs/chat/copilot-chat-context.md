@@ -1,12 +1,15 @@
 ---
 ContentId: 5d8a707d-a239-4cc7-92ee-ccc763e8eb9c
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 MetaDescription: Learn how to manage context when using AI in VS Code, including workspace indexing, #-mentions for files and symbols, web content references, and custom instructions.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Manage context for AI
 
 By providing the right context, you can get more relevant and accurate responses from the AI in VS Code. In this article, you learn how to manage context in chat, including how to use #-mentions to reference files, folders, and symbols, how to reference web content, or how you can use custom instructions to guide the AI's responses.
+
+> [!NOTE]
+> The features on this page work in both the [Chat view](/docs/agents/chat-view.md) and the [Agents window](/docs/agents/agents-window.md).
 
 For background on what context is and how VS Code assembles it, see [Context concepts](/docs/agents/concepts/context.md).
 
@@ -18,7 +21,7 @@ Type the `#` symbol in the chat input field to see a list of available context i
 
 ![Screenshot of VS Code Chat view, showing the chat variable picker.](./images/copilot-chat/copilot-chat-view-chat-variables.png)
 
-View the full list of [supported context items](/docs/agents/reference/copilot-vscode-features.md#chat-tools).
+View the full list of [supported context items](/docs/agents/reference/ai-features-cheat-sheet.md#chat-tools).
 
 ### Add files as context
 
@@ -46,17 +49,13 @@ You can directly include a URL in your prompt to get information from that webpa
 
 VS Code caches the content of the web page for a limited time to improve performance. If the content of the page changes, you can force a refresh by restarting VS Code. If the page cannot be reached, the cache will expire after a short time (approximately five minutes).
 
-VS Code prompts for confirmation before accessing external URLs to protect your privacy and security. Learn more about [configuring URL auto-approval](/docs/agents/agent-tools.md#url-approval).
+VS Code prompts for confirmation before accessing external URLs to protect your privacy and security. Learn more about [configuring URL auto-approval](/docs/agents/approvals.md#url-approval).
 
-Learn more about [adding and using tools in chat](/docs/agents/agent-tools.md).
+Learn more about [adding and using tools in chat](/docs/chat/chat-tools.md).
 
 ## @-mentions
 
-Chat participants are specialized assistants that enable you to ask domain-specific questions in chat. Imagine a chat participant as a domain expert to whom you hand off your chat request and it takes care of the rest.
-
-Chat participants are different from tools that are invoked as part of an agent flow to contribute and perform specific tasks.
-
-You can invoke a chat participant by @-mentioning it: type `@` followed by the participant name. VS Code has built-in chat participants like `@vscode` or `@terminal`. They are optimized to answer questions about their respective domains.
+Chat participants are specialized assistants that let you ask domain-specific questions in chat. You can invoke a chat participant by @-mentioning it: type `@` followed by the participant name. VS Code has built-in chat participants like `@vscode` or `@terminal`. They are optimized to answer questions about their respective domains.
 
 The following examples show how to use @-mentions in your chat prompts:
 
@@ -151,7 +150,7 @@ To manually compact the conversation, use one of the following methods:
 
 * Select the context window control in the chat input box, and then select **Compact Conversation**.
 
-If you want to reset the context entirely, start a [new chat session](/docs/agents/sessions/chat-sessions.md).
+If you want to reset the context entirely, start a [new chat session](/docs/chat/chat-sessions.md).
 
 ## Related resources
 

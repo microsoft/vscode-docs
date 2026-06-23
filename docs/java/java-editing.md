@@ -78,7 +78,7 @@ Folding regions allows you to fold or unfold code snippet to better view the sou
 
 ## Smart Selection
 
-With [Smart Selection](https://code.visualstudio.com/updates/v1_33#_smart-select-api) (semantic selection), you can expand or shrink the selection range based on the semantic information of the caret position in your source code.
+With [Smart Selection](/updates/v1_33.md#smart-select-api) (semantic selection), you can expand or shrink the selection range based on the semantic information of the caret position in your source code.
 
 * To expand the selection, use `kb(editor.action.smartSelect.expand)`.
 * To shrink the selection, use `kb(editor.action.smartSelect.shrink)`.

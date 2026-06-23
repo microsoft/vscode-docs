@@ -1,6 +1,6 @@
 ---
 ContentId: FC5262F3-D91D-4665-A5D2-BCBCCF66E53A
-DateApproved: 5/28/2026
+DateApproved: 6/10/2026
 MetaDescription: Get started with Visual Studio Code, the open platform for AI agents. Install on Windows, macOS, or Linux and start building with agentic coding, extensions, and a powerful editor.
 MetaSocialImage: images/quicksetup/quick-setup-social.png
 ---
@@ -10,6 +10,8 @@ Visual Studio Code is a free, open-source code editor for Windows, macOS, and Li
 
 You can [download](https://code.visualstudio.com/download) and install VS Code on your desktop, or open it instantly in the browser at [vscode.dev](https://vscode.dev) with zero setup (learn more about [VS Code for the Web](/docs/remote/vscode-web.md)).
 
+![Screenshot of VS Code with a travel blog project open, showing an agent session in the Chat view and previewing the site in the integrated browser.](images/overview/vscode-overview.png)
+
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with VS Code">
 Follow a hands-on tutorial to build your first app with AI in VS Code.
 
@@ -17,19 +19,82 @@ Follow a hands-on tutorial to build your first app with AI in VS Code.
 
 </div>
 
+## Install VS Code
+
+[Download the installer](https://code.visualstudio.com/download) for your platform and follow the steps below. VS Code is lightweight and runs on most available hardware. Review the [system requirements](/docs/supporting/requirements.md) for details.
+
+VS Code ships weekly [Stable](/updates) releases with auto-update. To preview upcoming features, install the [Insiders](/insiders) build, which ships nightly and runs side by side with Stable.
+
+{% tabs id="os" %}
+{% tab label="Windows" %}
+
+1. Download the [User Setup installer](https://code.visualstudio.com/download) (`.exe`).
+1. Run the installer and follow the prompts.
+1. VS Code is ready to use. The installer adds `code` to your PATH so you can open a folder from the terminal with `code .`.
+
+For System Setup, ZIP archive, or other options, see the [full Windows setup guide](/docs/setup/windows.md).
+
+{% /tab %}
+{% tab label="macOS" %}
+
+1. Download the [`.dmg` installer](https://code.visualstudio.com/download).
+1. Open the `.dmg` file and drag **Visual Studio Code.app** to the **Applications** folder.
+1. Open VS Code from the Applications folder or Spotlight.
+
+To use the `code` command in the terminal, open the Command Palette (`kb(workbench.action.showCommands)`) and run **Shell Command: Install 'code' command in PATH**. For more options, see the [full macOS setup guide](/docs/setup/mac.md).
+
+{% /tab %}
+{% tab label="Linux" %}
+
+Choose your distribution below for installation instructions. Installing the package sets up the apt or dnf repository for automatic updates. For Snap, Arch, Nix, and other options, see the [full Linux setup guide](/docs/setup/linux.md).
+
+* **Debian / Ubuntu**
+     1. Download the `.deb` package from the [VS Code download page](/download)
+     1. Install it with `sudo apt install ./<file>.deb`
+
+* **Fedora / RHEL**
+     1. Download the `.rpm` package from the [VS Code download page](/download)
+     1. Install it with `sudo dnf install ./<file>.rpm`
+
+{% /tab %}
+{% /tabs %}
+
+## Enable AI features
+
+VS Code has built-in support for AI features like inline suggestions and AI agents that help you with coding tasks. You can get started with AI features by signing in to GitHub and use your GitHub Copilot subscription to get access to a variety of large language models and other AI features in VS Code.
+
+Follow these steps to get started with Copilot in VS Code:
+
+1. Select **Sign In** from the VS Code title bar or hover over the Copilot icon in the Status Bar and select **Enable AI features**.
+
+    ![Screenshot showing a new VS Code window, highlighting the Copilot icon in the Status Bar and the Sign In button in the VS Code title bar.](images/overview/vscode-enable-ai-features.png)
+
+1. Choose a sign-in method and follow the prompts.
+
+    * If you already have a Copilot subscription for your account, VS Code will use that subscription.
+
+    * If you don't have a Copilot subscription yet, you'll be signed up for the [Copilot Free plan](https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-free/about-github-copilot-free) and get a monthly allowance of inline suggestions and AI credits.
+
+1. Start using Copilot in VS Code!
+
+> [!TIP]
+> You can also use AI features in VS Code without using a Copilot subscription by bringing your own language model API key. Learn more about [using language models in VS Code](/docs/agent-customization/language-models.md#bring-your-own-language-model-key).
+
+## Next steps
+
 <div class="card-grid">
-    <a class="card" href="/docs/agents/overview">
+    <a class="card" href="/docs/getstarted/getting-started">
         <i class="codicon codicon-hubot" aria-hidden="true"></i>
         <div>
             <p><strong>AI agents</strong></p>
-            <p>Run any agent with any model across your full project.</p>
+            <p>Learn about AI agents in our hands-on guide.</p>
         </div>
     </a>
-    <a class="card" href="/docs/core-editor/overview">
+    <a class="card" href="/docs/editing/getting-started">
         <i class="codicon codicon-tools" aria-hidden="true"></i>
         <div>
             <p><strong>Powerful editor</strong></p>
-            <p>Debugging, Git, IntelliSense, and every major language.</p>
+            <p>Learn the basics of editing, debugging, and language support in VS Code.</p>
         </div>
     </a>
     <a class="card" href="/docs/configure/extensions/extensions">
@@ -40,62 +105,6 @@ Follow a hands-on tutorial to build your first app with AI in VS Code.
         </div>
     </a>
 </div>
-
-## Install VS Code
-
-[Download the installer](https://code.visualstudio.com/download) for your platform and follow the steps below. VS Code is lightweight and runs on most available hardware. Review the [system requirements](/docs/supporting/requirements.md) for details.
-
-VS Code ships weekly [Stable](/updates) releases with auto-update. To preview upcoming features, install the [Insiders](/insiders) build, which ships nightly and runs side by side with Stable.
-
-<details>
-<summary>Windows</summary>
-
-1. Download the [User Setup installer](https://code.visualstudio.com/download) (`.exe`).
-1. Run the installer and follow the prompts.
-1. VS Code is ready to use. The installer adds `code` to your PATH so you can open a folder from the terminal with `code .`.
-
-For System Setup, ZIP archive, or other options, see the [full Windows setup guide](/docs/setup/windows.md).
-
-</details>
-
-<details>
-<summary>macOS</summary>
-
-1. Download the [`.dmg` installer](https://code.visualstudio.com/download).
-1. Open the `.dmg` file and drag **Visual Studio Code.app** to the **Applications** folder.
-1. Open VS Code from the Applications folder or Spotlight.
-
-To use the `code` command in the terminal, open the Command Palette (`kb(workbench.action.showCommands)`) and run **Shell Command: Install 'code' command in PATH**. For more options, see the [full macOS setup guide](/docs/setup/mac.md).
-
-</details>
-
-<details>
-<summary>Linux</summary>
-
-Download the package for your distribution from the [download page](https://code.visualstudio.com/download):
-
-* **Debian / Ubuntu** - Download the `.deb` package and install it with `sudo apt install ./<file>.deb`.
-* **Fedora / RHEL** - Download the `.rpm` package and install it with `sudo dnf install ./<file>.rpm`.
-
-Installing the package sets up the apt or dnf repository for automatic updates. For Snap, Arch, Nix, and other options, see the [full Linux setup guide](/docs/setup/linux.md).
-
-</details>
-
-## Next steps
-
-<div class="card-grid">
-    <a class="card" href="/docs/getstarted/getting-started">
-        <i class="codicon codicon-mortar-board" aria-hidden="true"></i>
-        <p>Discover VS Code</p>
-    </a>
-    <a class="card" href="/docs/agents/agents-tutorial">
-        <i class="codicon codicon-lightbulb" aria-hidden="true"></i>
-        <p>Build with agents</p>
-    </a>
-    <a class="card" href="/docs/agent-customization/overview">
-        <i class="codicon codicon-settings-gear" aria-hidden="true"></i>
-        <p>Customize agents</p>
-    </a></div>
 
 ## Common questions
 

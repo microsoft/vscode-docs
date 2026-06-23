@@ -1,6 +1,6 @@
 ---
 ContentId: 58ea6755-9bfa-42c2-a4c8-ff0510f9c031
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 MetaDescription: Best practices for getting the most out of GitHub Copilot in VS Code, from writing prompts to configuring your project for AI.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -26,13 +26,14 @@ VS Code supports several mechanisms to configure AI behavior for your project. E
 | [Custom instructions](/docs/agent-customization/custom-instructions.md) | Project-wide coding standards and architectural context | Type `/init` to generate always-on instructions for your project |
 | [Custom agents](/docs/agent-customization/custom-agents.md) | Specialized workflows or personas (TDD, security audit) | Type `/create-agent <description>` to generate a custom agent |
 | [Skills](/docs/agent-customization/agent-skills.md) | Domain-specific capabilities (testing, deployment) | Type `/create-skill <description>` to generate a skill |
-| [Tools and MCP servers](/docs/agents/agent-tools.md) | Connecting to external systems (databases, APIs, CLIs) | Configure in `mcp.json` |
+| [Tools and MCP servers](/docs/chat/chat-tools.md) | Connecting to external systems (databases, APIs, CLIs) | Configure in `mcp.json` |
 
 Tips for effective project configuration:
 
 * **Keep instruction files concise.** They load on every chat interaction. Focus on information the AI can't infer from code, such as non-default conventions, architectural decisions, or environment setup.
 * **Scope instructions with `applyTo` patterns.** Enter `/instructions` to create language-specific or folder-specific instruction files instead of putting everything in one file.
 * **Limit enabled tools.** Fewer active tools means faster, more relevant responses. Enable tools only when the task needs them.
+* **Exclude generated and noisy files from search.** Configure `setting(search.exclude)` and `setting(files.exclude)` so agent text search and grep stay focused on source code. See [improve agent search with exclusion settings](/docs/agents/reference/workspace-context.md#improve-agent-search-with-exclusion-settings).
 
 For full setup details, see the [customization overview](/docs/agent-customization/overview.md).
 
@@ -43,7 +44,7 @@ AI in VS Code offers several interaction modes. Choosing the right one for the t
 | Tool | Best for | Example |
 |------|----------|---------|
 | [Inline suggestions](/docs/editing/ai-powered-suggestions.md) | Staying in the flow while writing code | Inline suggestions, variable names, boilerplate |
-| [Ask (chat)](/docs/chat/copilot-chat.md) | Questions, brainstorming, exploring ideas | "How does authentication work in this project?" |
+| [Ask (chat)](/docs/chat/chat-overview.md) | Questions, brainstorming, exploring ideas | "How does authentication work in this project?" |
 | [Inline chat](/docs/chat/inline-chat.md) | Targeted, in-place edits without switching context | Refactoring a function, adding error handling |
 | [Agents](/docs/agents/overview.md) | Multi-file changes that require autonomous planning and tool use | Implementing a feature end-to-end |
 | [Plan](/docs/agents/planning.md) | Structured planning before implementation | Designing an architecture or migration strategy |
@@ -59,7 +60,7 @@ When working with agents, pick the agent type that matches your task and workflo
 
 * **Use cloud agents for team collaboration.** [Cloud agents](/docs/agents/agent-types/cloud-agents.md) run remotely and create pull requests, making them ideal for tasks that benefit from team review or when you want to assign a GitHub issue directly to an agent.
 
-* **Run parallel sessions for independent tasks.** Spin up multiple agent sessions, across local, background, and cloud environments, to work on unrelated tasks simultaneously. Monitor them from the [sessions list](/docs/agents/sessions/chat-sessions.md#sessions-list).
+* **Run parallel sessions for independent tasks.** Spin up multiple agent sessions, across local, background, and cloud environments, to work on unrelated tasks simultaneously. Monitor them from the [sessions list](/docs/chat/chat-sessions.md#sessions-list).
 
 * **Hand off between agent types.** Start interactively with a local agent to explore and plan, then [hand off](/docs/agents/overview.md#hand-off-a-session-to-another-agent) to a background or cloud agent for implementation. The conversation history carries over.
 
@@ -93,7 +94,7 @@ The quality of AI responses depends on the clarity and specificity of your promp
 
 * **Iterate with follow-up prompts.** Refine responses by adding constraints or corrections in follow-up messages rather than rewriting the entire prompt.
 
-* **Course-correct early.** If the AI is heading in the wrong direction, [steer it](/docs/agents/sessions/chat-sessions.md#send-messages-while-a-request-is-running) with a follow-up message to redirect the current request, queue a follow-up request, or stop and send a new prompt.
+* **Course-correct early.** If the AI is heading in the wrong direction, [steer it](/docs/chat/chat-overview.md#send-messages-while-a-request-is-running) with a follow-up message to redirect the current request, queue a follow-up request, or stop and send a new prompt.
 
 * **Tell the AI to ask clarifying questions.** If a task is ambiguous, instruct the AI to ask you questions before proceeding. This leads to more accurate results than guessing at requirements.
 
@@ -115,7 +116,7 @@ The AI responds more accurately when it has relevant context. Use these techniqu
 
 * Use the [integrated browser](/docs/debugtest/integrated-browser.md) to preview your app and select page elements to use as context.
 
-For more information, see [adding context to chat prompts](/docs/chat/copilot-chat-context.md) and [configuring tools](/docs/agents/agent-tools.md).
+For more information, see [adding context to chat prompts](/docs/chat/copilot-chat-context.md) and [configuring tools](/docs/chat/chat-tools.md).
 
 ## Choose the right model
 
@@ -176,11 +177,23 @@ AI responses might degrade as the conversation fills with irrelevant context. Ma
 
 * **Choose the right session type.** Use local sessions for quick tasks on your current code that need your immediate attention, background tasks for tasks that can run locally and isolated from your main context, or cloud sessions that can benefit from team-collaboration.
 
-* **Scale with parallel sessions.** Run multiple sessions in parallel for independent tasks to save time and keep contexts separate. You can have multiple sessions running at once, across local, background, and cloud environments, and switch between them via the [sessions list](/docs/agents/sessions/chat-sessions.md#sessions-list) in VS Code.
+* **Scale with parallel sessions.** Run multiple sessions in parallel for independent tasks to save time and keep contexts separate. You can have multiple sessions running at once, across local, background, and cloud environments, and switch between them via the [sessions list](/docs/chat/chat-sessions.md#sessions-list) in VS Code.
 
-* **Fork instead of re-prompting.** Use [`/fork`](/docs/agents/sessions/chat-sessions.md#fork-a-chat-session) to explore alternatives without losing context, instead of starting over and re-establishing context from scratch.
+* **Fork instead of re-prompting.** Use [`/fork`](/docs/chat/chat-sessions.md#fork-a-chat-session) to explore alternatives without losing context, instead of starting over and re-establishing context from scratch.
 
-For more information, see [session management](/docs/agents/sessions/chat-sessions.md), [workspace indexing](/docs/agents/reference/workspace-context.md), and [optimize AI credit usage](/docs/agents/guides/optimize-usage.md).
+For more information, see [session management](/docs/chat/chat-sessions.md), [workspace indexing](/docs/agents/reference/workspace-context.md), and [optimize AI credit usage](/docs/agents/guides/optimize-usage.md).
+
+## Optimize AI credit usage
+
+Many of the practices in this article also help you control cost. More capable models, large contexts, and throwaway work all consume [AI credits](/docs/agents/concepts/language-models.md#ai-credits-and-model-costs). A few levers have the biggest impact:
+
+* **Match the model to the task.** Use faster, cheaper models for simple work and reserve premium models for planning, debugging, and architectural decisions. Auto model selection balances quality and cost for you.
+
+* **Keep context lean.** Send only relevant context, [compact](/docs/chat/copilot-chat-context.md#context-compaction) long conversations, and start fresh sessions for unrelated tasks to avoid paying for irrelevant history on every request.
+
+* **Plan before you implement.** Separating planning from implementation avoids spending credits on code you throw away.
+
+For a complete set of techniques, see [optimize AI credit usage](/docs/agents/guides/optimize-usage.md).
 
 ## Work with large codebases
 
@@ -192,7 +205,7 @@ Copilot is designed to work effectively with large, complex, and multi-root work
 
 * **Provide project-level instructions.** Use [custom instructions](/docs/agent-customization/custom-instructions.md) to describe your project's architecture, module boundaries, and conventions that the AI can't infer from code alone. This gives the AI the context it needs for architecture-level changes.
 
-* **Run parallel sessions for independent changes.** Break large tasks into independent subtasks and run them in [parallel sessions](/docs/agents/sessions/chat-sessions.md#sessions-list), each focused on a different area of the codebase.
+* **Run parallel sessions for independent changes.** Break large tasks into independent subtasks and run them in [parallel sessions](/docs/chat/chat-sessions.md#sessions-list), each focused on a different area of the codebase.
 
 * **Use the Plan agent for cross-cutting changes.** For changes that span many files or modules, start with the [Plan agent](/docs/agents/planning.md) to create a structured implementation plan before executing.
 
@@ -201,7 +214,8 @@ For more information, see [workspace context](/docs/agents/reference/workspace-c
 ## Related resources
 
 * [Context engineering guide](/docs/agents/guides/context-engineering-guide.md)
+* [Optimize AI credit usage](/docs/agents/guides/optimize-usage.md)
 * [Customization overview](/docs/agent-customization/overview.md)
-* [Cheat sheet](/docs/agents/reference/copilot-vscode-features.md)
+* [Cheat sheet](/docs/agents/reference/ai-features-cheat-sheet.md)
 * [GitHub Copilot security](/docs/agents/security.md)
 * [Best Practices for using GitHub Copilot](https://docs.github.com/en/copilot/using-github-copilot/best-practices-for-using-github-copilot) in the GitHub Copilot documentation

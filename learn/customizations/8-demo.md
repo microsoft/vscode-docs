@@ -20,7 +20,7 @@ In this guide, we’ll build an app from scratch and use multiple customization 
 Before you start: you'll need VS Code Insiders installed and the GitHub Copilot and GitHub Copilot Chat extensions set up and signed in.
 
 - [Download VS Code](https://code.visualstudio.com/)
-- [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/overview#_step-1-set-up-copilot)
+- [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/agent-native/overview#_step-1-set-up-copilot)
 
 ## The project: Repo Analyzer
 

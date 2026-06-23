@@ -141,5 +141,5 @@ In the [next guide](/learn/foundations/approvals-autonomy-and-context-budget.md)
 
 * [Download VS Code](https://code.visualstudio.com)
 * [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/setup/copilot)
-* [Copilot Chat panel docs](https://code.visualstudio.com/docs/chat/copilot-chat)
+* [Copilot Chat panel docs](https://code.visualstudio.com/docs/chat/chat-overview)
 * [Choosing an AI model for Copilot Chat](https://docs.github.com/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat)

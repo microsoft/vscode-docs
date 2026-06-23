@@ -102,7 +102,7 @@ The `endpoint` field describes what data handler the data is sent to. This is no
 
 ## OpenTelemetry support for agent interactions
 
-[Copilot Chat](/docs/copilot/overview.md) in VS Code can export traces, metrics, and events via [OpenTelemetry](https://opentelemetry.io/) (OTel) to give you real-time visibility into agent interactions, LLM calls, tool execution, and token usage. You can use this telemetry data with any OTel-compatible backend.
+[Copilot Chat](/docs/agent-native/overview.md) in VS Code can export traces, metrics, and events via [OpenTelemetry](https://opentelemetry.io/) (OTel) to give you real-time visibility into agent interactions, LLM calls, tool execution, and token usage. You can use this telemetry data with any OTel-compatible backend.
 
 Learn more about how to [Monitor agent interactions with OpenTelemetry](https://github.com/microsoft/vscode-copilot-chat/blob/main/docs/monitoring/agent_monitoring.md).
 

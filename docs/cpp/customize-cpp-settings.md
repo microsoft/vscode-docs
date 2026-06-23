@@ -70,7 +70,7 @@ The following JSON snippet is an example configuration for `c_cpp_properties.jso
   We recommend that you don't edit this field. It tracks the current version of the `c_cpp_properties.json` file, so that the extension knows what properties and settings should be present and how to upgrade this file to the latest version.
 
 - `enableConfigurationSquiggles`:
-  Set to `true` to report errors detected in `c_cpp_properties.json` file to the C++ extension.
+  Set to `true` to report errors detected in the `c_cpp_properties.json` file to the C++ extension.
 
 ## Configuration properties
 
@@ -143,7 +143,7 @@ The following JSON snippet is an example configuration for `c_cpp_properties.jso
 ### Browse properties
 
 - `path`:
-  A list of paths who's source files are parsed to be used in global symbol searches. If omitted, `includePath` is used as the `path`. Searching on these paths is recursive by default. Specify `*` to indicate nonrecursive search. For example, `${workspaceFolder}` searches through all subdirectories while `${workspaceFolder}/*` does not.
+  A list of paths whose source files are parsed to be used in global symbol searches. If omitted, `includePath` is used as the `path`. Searching on these paths is recursive by default. Specify `*` to indicate nonrecursive search. For example, `${workspaceFolder}` searches through all subdirectories while `${workspaceFolder}/*` does not.
 
 - `limitSymbolsToIncludedHeaders`:
   When `true`, the Tag Parser only parses header files that are directly or indirectly included by a source file in `${workspaceFolder}`. When `false`, the Tag Parser parses all code files found in the paths specified in the `browse.path` list.

@@ -1,6 +1,6 @@
 ---
 ContentId: a7b8c9d0-1e2f-3a4b-5c6d-7e8f9a0b1c2d
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 MetaDescription: Learn about AI safety controls in VS Code, including agent sandboxing, tool approval, and security considerations for AI-assisted development.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -31,17 +31,15 @@ Understand the control mechanisms and safety considerations for using AI in VS C
 
 ## Stay in control
 
-Agents can read files, edit code, run terminal commands, and call external services. VS Code provides several mechanisms to ensure you remain in charge of what happens in your workspace:
+Agents can read files, edit code, run terminal commands, and call external services. VS Code's trust model layers several control mechanisms so you remain in charge of what reaches your codebase:
 
-* **Review edits before applying.** Agents show file changes in a diff view. You can review each change, accept or reject individual edits, and modify the code before saving. Learn more about [reviewing code edits](/docs/chat/review-code-edits.md).
+* **Review before applying.** All file changes surface in a diff view for keep/undo decisions, and [checkpoints](/docs/chat/chat-checkpoints.md) let you roll back a session.
+* **Approve before acting.** Tools with side effects and terminal commands prompt for approval, with per-session, per-workspace, or per-user scoping.
+* **Constrain autonomy.** [Permission levels](/docs/agents/approvals.md#permission-levels) decide how much the agent runs on its own, from per-call approvals to fully autonomous Autopilot.
+* **Enforce boundaries at the OS level.** [Agent sandboxing](#agent-sandboxing) restricts file system and network access for terminal commands so auto-approved actions cannot escape a defined scope.
+* **Trust boundaries.** VS Code prompts you before granting trust to workspaces, extensions, MCP servers, and network domains.
 
-* **Use checkpoints to revert.** Agent sessions create checkpoints as work progresses. If the agent takes a wrong turn, return to a previous checkpoint and try a different approach. Learn more about [checkpoints](/docs/chat/chat-checkpoints.md).
-
-* **Approve tool calls.** VS Code asks for your approval before running terminal commands or using tools with side effects. You control which tools can run automatically and which require confirmation. Use the **Chat: Manage Tool Approval** command to centrally [manage approvals](/docs/agents/agent-tools.md#manage-tool-approvals) for all tools.
-
-* **Choose a permission level.** Control how much autonomy the agent has: **Default Approvals** requires confirmation for sensitive tools, **Bypass Approvals** auto-approves all tool calls, and **Autopilot** (Preview) also auto-responds to questions and continues autonomously. For higher autonomy levels, pair with [agent sandboxing](#agent-sandboxing) or a container.
-
-* **Trust boundaries.** VS Code enforces security boundaries around file access, URL access, [agent sandboxing](#agent-sandboxing), and MCP server interactions. Learn more about [AI security](/docs/agents/security.md).
+For step-by-step configuration of these controls — approval rules, sensitive-file protection, sandboxing setup, organization policies — see [AI security in VS Code](/docs/agents/security.md).
 
 Always review AI-generated code before committing. Verify that it handles edge cases, follows your project's conventions, and doesn't introduce security issues.
 
@@ -52,7 +50,7 @@ Always review AI-generated code before committing. Verify that it handles edge c
 
 Agent sandboxing uses operating system-level isolation to restrict what agents can access on your machine. Instead of relying solely on approval prompts before each action, sandboxing defines strict boundaries for file system and network access that are enforced by the OS itself.
 
-VS Code currently applies sandboxing to terminal commands (`runInTerminal` agent tool) that are executed during an agent session. Learn how to [configure agent sandboxing](/docs/agents/agent-tools.md#sandbox-agent-commands).
+VS Code currently applies sandboxing to terminal commands (`runInTerminal` agent tool) that are executed during an agent session. Learn how to [configure agent sandboxing](/docs/agents/approvals.md#sandbox-agent-commands).
 
 When sandboxing is enabled, VS Code automatically approves commands and tool calls without a confirmation prompt because they already run in a controlled environment.
 
@@ -94,7 +92,7 @@ Without network isolation, a compromised command could exfiltrate sensitive data
 
 When `setting(chat.agent.sandbox.enabled)` is set to `on`, all outbound network access is blocked unless you explicitly allow specific domains. If you want file system isolation but need unrestricted network access, set `setting(chat.agent.sandbox.enabled)` to `allowNetwork`. In this mode, commands can reach external services freely while file system restrictions still apply.
 
-VS Code provides network domain filtering that applies to both agent tools (fetch tool, integrated browser) and sandboxed terminal commands. Enable `setting(chat.agent.networkFilter)` to activate network filtering. Use `setting(chat.agent.allowedNetworkDomains)` and `setting(chat.agent.deniedNetworkDomains)` to control which domains the agent can access. Learn how to [configure network access](/docs/agents/agent-tools.md#configure-network-access).
+VS Code provides network domain filtering that applies to both agent tools (fetch tool, integrated browser) and sandboxed terminal commands. Enable `setting(chat.agent.networkFilter)` to activate network filtering. Use `setting(chat.agent.allowedNetworkDomains)` and `setting(chat.agent.deniedNetworkDomains)` to control which domains the agent can access. Learn how to [configure network access](/docs/agents/approvals.md#configure-network-access).
 
 * **Retry with network access.** When a sandboxed command is blocked by network restrictions, the agent first asks for confirmation to retry inside the sandbox with unrestricted network access before falling back to running the command outside the sandbox.
 
@@ -143,7 +141,7 @@ Treat AI-generated output as a first draft: useful as a starting point, but alwa
 ## Related resources
 
 * [AI security considerations](/docs/agents/security.md)
-* [Terminal sandbox configuration](/docs/agents/agent-tools.md#sandbox-terminal-commands)
+* [Terminal sandbox configuration](/docs/agents/approvals.md#sandbox-agent-commands)
 * [Reviewing code edits](/docs/chat/review-code-edits.md)
 * [Checkpoints](/docs/chat/chat-checkpoints.md)
-* [Tool approval](/docs/agents/agent-tools.md#tool-approval)
+* [Tool approval](/docs/agents/approvals.md#tool-approval)

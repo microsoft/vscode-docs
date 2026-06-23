@@ -18,6 +18,8 @@ TOCTitle: <string>           # Required. Title for the table of contents. Keep u
 PageTitle: <string>          # Required. Title shown in the browser tab.
 MetaDescription: <string>    # Required. SEO description. Keep under 160 chars.
 MetaSocialImage: <filename>  # Required. Image filename for social sharing (relative path).
+MetaSocialImageLight: <filename>  # Optional. Light-theme screenshot for the blog home page.
+MetaSocialImageDark: <filename>   # Optional. Dark-theme screenshot for the blog home page.
 Date: <YYYY-MM-DD>           # Required. Publication date in ISO format.
 Author: <string>             # Required. Full name(s) of author(s). Separate multiple with comma.
 Keywords: [<string>, ...]    # Optional. Array of keywords for SEO/search purposes.
@@ -33,9 +35,13 @@ Keywords: [<string>, ...]    # Optional. Array of keywords for SEO/search purpos
 | `PageTitle` | Yes | Full blog post title displayed in the browser tab. Can include quotes if needed. |
 | `MetaDescription` | Yes | Short description for SEO and social previews. Keep under 160 characters. |
 | `MetaSocialImage` | Yes | Filename of the hero/social image, stored in the same folder as the post. Use relative path (e.g., `hero-image.png`). |
+| `MetaSocialImageLight` | No | Screenshot shown on the `/blogs/` home page when the website is in **light** theme. Filename in the post folder. Only used when `MetaSocialImageDark` is also set. |
+| `MetaSocialImageDark` | No | Screenshot shown on the `/blogs/` home page when the website is in **dark** theme. Filename in the post folder. Only used when `MetaSocialImageLight` is also set. |
 | `Date` | Yes | Publication date in `YYYY-MM-DD` format (e.g., `2025-06-30`). |
 | `Author` | Yes | Author's full name. For multiple authors, separate with comma (e.g., `Jane Doe, John Smith`). |
 | `Keywords` | No | Array of keywords for search optimization (e.g., `[copilot, ai, productivity]`). |
+
+> **Theme-aware home page images:** If you provide **both** `MetaSocialImageLight` and `MetaSocialImageDark`, the blog home page shows the matching screenshot for the visitor's active website theme. If you provide only `MetaSocialImage`, that single image is used in both themes (existing behavior).
 
 ### Example frontmatter
 

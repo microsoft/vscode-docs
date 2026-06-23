@@ -1,6 +1,6 @@
 ---
 ContentId: a7d3e5f8-2c4b-4d9a-b8e1-3f6c9a2d7e41
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 MetaDescription: Learn how to use Agent Skills in VS Code to teach GitHub Copilot specialized capabilities that work across VS Code, GitHub Copilot CLI, and GitHub Copilot cloud agent.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -26,7 +26,7 @@ Key benefits of Agent Skills:
 * **Efficient loading**: Only relevant content loads into context when needed
 
 > [!TIP]
-> Use the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) (Preview) to discover, create, and manage all your agent customizations in one place. Run **Chat: Open Customizations** from the Command Palette.
+> Use the [Agent Customizations editor](/docs/agent-customization/overview.md#manage-customizations-in-the-editor) (Preview) to discover, create, and manage all your agent customizations in one place. Run **Chat: Open Customizations** from the Command Palette.
 
 ## Agent Skills vs custom instructions
 
@@ -69,7 +69,7 @@ Skills are stored in directories with a `SKILL.md` file that defines the skill's
 You can configure additional file locations for project skills with the `setting(chat.agentSkillsLocations)` setting. This is useful if you want to organize skills in a different folder structure or have multiple skill directories.
 
 > [!TIP]
-> In a monorepo, enable `setting(chat.useCustomizationsInParentRepositories)` to discover skills from the parent repository root. Learn more about [parent repository discovery](/docs/agent-customization/overview.md#parent-repository-discovery).
+> In a monorepo, enable `setting(chat.useCustomizationsInParentRepositories)` to discover skills from the parent repository root. Learn more about [parent repository discovery](/docs/agent-customization/overview.md#use-customizations-in-a-monorepo).
 
 To create a skill:
 
@@ -77,7 +77,7 @@ To create a skill:
 
 1. Select **New Skill (Workspace)** or **New Skill (User)** from the dropdown, depending on where you want to store the skill.
 
-    ![Screenshot of the Agent Customizations editor, showing the Skills tab and the dropdown to create a new skill.](images/customization/create-skill.png)
+    ![Screenshot of the Agent Customizations editor, showing the Skills tab and the dropdown to create a new skill.](images/customization/create-skill-v2.png)
 
 1. Select the location and enter a name for the skill.
 
@@ -300,7 +300,7 @@ To use a shared skill:
 1. Optionally, modify or add resources as needed
 
 > [!TIP]
-> Always review shared skills before using them to ensure they meet your requirements and security standards. VS Code's [terminal tool](/docs/agents/agent-tools.md#terminal-commands) provides controls for script execution, including [auto-approve options](/docs/agents/agent-tools.md#automatically-approve-terminal-commands) with configurable allow-lists and tight controls over which code runs. Learn more about [security considerations](/docs/agents/security.md#approvals-and-review) for auto-approval features.
+> Always review shared skills before using them to ensure they meet your requirements and security standards. VS Code's [terminal tool](/docs/chat/chat-tools.md#run-terminal-commands) provides controls for script execution, including [auto-approve options](/docs/agents/approvals.md#automatically-approve-terminal-commands) with configurable allow-lists and tight controls over which code runs. Learn more about [security considerations](/docs/agents/security.md#approvals-and-review) for auto-approval features.
 
 ## Contribute skills from extensions
 

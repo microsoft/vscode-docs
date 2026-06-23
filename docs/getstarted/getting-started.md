@@ -1,6 +1,6 @@
 ---
 ContentId: 72ad9b70-5227-4032-81d7-6aec00a1e8f8
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 MetaDescription: Get started with agentic coding in Visual Studio Code. Build an app from a prompt with the Agents window and the Chat view, and learn the VS Code basics.
 ---
 # Tutorial: Agentic coding in VS Code
@@ -11,14 +11,20 @@ You start in the Agents window, a dedicated surface for an agent-first workflow.
 
 You build a simple personal portfolio page with HTML, CSS, and JavaScript. The page is fully static, so you don't need to install any runtimes or build tools to follow along.
 
-> [!TIP]
-> If you prefer a video to learn about Visual Studio Code, you can watch the [Getting Started video](https://www.youtube.com/watch?v=f8_uF_IDV50) on our YouTube channel.
+<div class="docs-action" data-show-in-doc="true" data-show-in-sidebar="true" title="Learn VS Code editor features">
+Get familiar with the VS Code user interface, editing features, and key productivity tools.
+
+* [Start the VS Code editing tutorial](/docs/editing/getting-started.md)
+
+</div>
 
 ## Prerequisites
 
-* [Download and install Visual Studio Code on your computer](https://code.visualstudio.com/download)
-* [Set up GitHub Copilot in VS Code](/docs/setup/copilot.md)
-* [Install Git](https://git-scm.com/) on your computer
+* [Download and install Visual Studio Code](/download)
+
+* [Enable AI features in VS Code](/docs/getstarted/overview.md#enable-ai-features)
+
+* [Install Git](https://git-scm.com/)
 
 > [!TIP]
 > If you don't have a Copilot subscription yet, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly allowance of inline suggestions and AI credits.
@@ -27,20 +33,19 @@ You build a simple personal portfolio page with HTML, CSS, and JavaScript. The p
 
 Agents work in the context of a folder, also known as a *workspace*. You start by creating a folder for your project. You don't need to open the folder in VS Code yet. In the next step, you open it in the Agents window, which lets you work across multiple workspaces without opening a separate window for each one.
 
-1. On your computer, create a new empty folder named `myportfolio`.
+1. On your computer, create a new folder named `myportfolio`.
 
-1. Put the folder under Git version control so you can track changes and choose how the agent applies its edits.
-
-    Open a terminal in the `myportfolio` folder, and then run the following command:
+1. Put the folder under Git version control to track changes. Open a terminal and run the following commands:
 
     ```bash
+    cd myportfolio
     git init
     ```
 
     > [!TIP]
-    > You can also initialize a repository later from the **Source Control** view in VS Code. You use source control near the end of this tutorial to commit your changes.
+    > You can also initialize a repository from the **Source Control** view in VS Code.
 
-## Build with the Agents window
+## Build features with the Agents window
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Explore the Agents window">
 Use the Agents window to run and monitor agent sessions across your projects from a single place in VS Code.
@@ -49,16 +54,13 @@ Use the Agents window to run and monitor agent sessions across your projects fro
 
 </div>
 
-The Agents window is a dedicated window in VS Code, built for an agent-first workflow. It's optimized for orchestrating tasks across projects, so you can start agent sessions, watch them work, and switch between workspaces without opening a separate window for each one. This is different from the editor window and the Chat view, which are centered on coding within a single workspace.
+The Agents window (preview) is a dedicated window in VS Code that is optimized for working with agents across all your projects without needing to open a separate VS Code window for each one.
 
-In this part, you open your folder in the Agents window and build your portfolio page from a single prompt.
-
-> [!NOTE]
-> The Agents window is currently in preview. Get more info about the [Agents window](/docs/agents/agents-window.md).
+In this part, you open your folder in the Agents window and task an agent to build your portfolio page.
 
 ### Open the Agents window
 
-1. In VS Code, select the **Open in Agents** button in the title bar.
+1. In VS Code, select the **Open in Agents** button in the VS Code title bar.
 
     You can also open the Agents window from the VS Code welcome page, or run the **Chat: Open Agents Window** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
@@ -72,7 +74,9 @@ In this part, you open your folder in the Agents window and build your portfolio
 
 1. Select **New** at the top of the left sidebar to start a new session.
 
-    The sidebar shows your list of active agent sessions, grouped by workspace. In the bottom left, you can access your agent customization to modify the agent's behavior to match your coding practices.
+    ![Screenshot of the New button in the Agents window sidebar.](images/getting-started/agents-new-session.png)
+
+    The sidebar shows your list of active agent sessions, grouped by workspace. You can use the sessions list to switch between sessions. In the bottom left, you can configure customizations to modify the agent's behavior to match your coding practices.
 
 1. In the workspace dropdown, select the `myportfolio` folder on your machine.
 
@@ -83,13 +87,16 @@ In this part, you open your folder in the Agents window and build your portfolio
     > [!IMPORTANT]
     > Workspace Trust lets you decide whether code in your project folder can be executed. When you download code from the internet, you should first review it to make sure it's safe to run. Get more info about [Workspace Trust](/docs/editing/workspaces/workspace-trust.md).
 
-1. Select **Copilot CLI** as the agent for the session.
+1. Make sure the **Copilot CLI** agent type is selected. This indicates that Copilot CLI runs the agent session on your local machine.
 
-    Copilot CLI runs the agent on your local machine. VS Code installs and configures Copilot CLI for you, so there's nothing extra to set up.
+    VS Code installs and configures Copilot CLI for you, so there's nothing extra to set up.
 
-1. Notice that the isolation is initialized to **Folder** to let the agent apply changes directly to your workspace.
+1. Keep the other default configuration options:
 
-    If you have an existing Git repo with commits, you can also choose to let the agent work in a separate Git worktree and merge the changes later.
+    * **Agent**: the generic agent for performing the task. For specialized tasks, you could create custom agents, like a code review or testing agent.
+    * **Language model**: depending on your setup, you can choose from multiple language models and configure additional settings.
+    * **Default Approvals**: the agent will automatically approve safe actions but will ask for your approval for potentially risky actions.
+    * **Folder & branch**: the agent works directly on the files in your folder and commits to the current branch.
 
 1. Enter the following prompt in the chat input and press `kbstyle(Enter)`:
 
@@ -97,62 +104,65 @@ In this part, you open your folder in the Agents window and build your portfolio
     Create a personal portfolio page with HTML, CSS, and JavaScript in separate files. Include a header with my name and a short bio, a section for projects with cards, and a contact section. Use modern styling and add some sample content.
     ```
 
-    The agent plans the work, creates the files, and self-corrects if something goes wrong. It might ask for approval before it runs a command. Review the request and approve it to continue.
+1. The agent analyzes your request, plans the work, and then starts creating and editing files. If it encounters errors, it self-corrects or asks for clarification and approval.
 
     ![Screenshot of the agent generating the portfolio page files in the Agents window.](images/getting-started/agent-generating-files.png)
 
-### Preview your page
+### Preview and iterate on the design
 
-When you work in an agent-first workflow, your focus might be first on the outcome of the task rather than the code. You can preview the result of your agent's work in the integrated browser without leaving VS Code or setting up a separate development server.
+The Agents window is great for workflows where you hand off tasks to the agent and then validate the outcome, rather than the specific code. For web-based applications, you can preview the agent's work in the integrated browser without having to leave VS Code.
 
-1. Preview the page in the integrated browser.
+To preview the generated portfolio in the integrated browser:
 
-    In the **Changes** panel, select the **Files** tab to see a file explorer of your workspace. Right-click the `index.html` file and select **Open in Integrated Browser**.
+1. The **Files** panel shows the files the agent created. Right-click the `index.html` file and select **Open in Integrated Browser**.
 
-    The integrated browser opens your portfolio page inside VS Code, so you don't need an external browser or a separate development server. Get more info about the [integrated browser](/docs/debugtest/integrated-browser.md).
+    If you don't see the option to open in the integrated browser, make sure you are in the **Files** panel.
 
-    <!-- TODO screenshot: portfolio page open in the integrated browser in the Agents window. -->
+    ![Screenshot of the portfolio page open in the integrated browser in the Agents window.](images/getting-started/portfolio-integrated-browser.png)
 
-### Iterate on the design
+    > [!TIP]
+    > Select the **Open in Editor Area** button in the modal window title bar to view the browser alongside the chat conversation.
 
-To iterate on the design, it's often easier to point at an element on the page instead of describing it in words. The integrated browser has a built-in tool that lets you select an element on the page and add it to your prompt as context for the agent.
+1. Let's make a design change to the page. In the integrated browser, select the **Add Element to Chat** button to enter selection mode.
 
-1. In the integrated browser toolbar, select the **Add Element to Chat** button to enter selection mode.
+    ![Screenshot of the integrated browser toolbar, highlighting the Add Element to Chat button.](images/getting-started/add-element-to-chat-button.png)
 
-    <!-- TODO screenshot: Add Element to Chat button in the integrated browser toolbar. -->
+1. Hover over the page and select an element you want to change, for example select the main title.
 
-1. Select an element on your page, for example the heading with your name or a button.
+    The agent adds the selected element to your prompt as context, including its HTML, CSS, and a screenshot.
 
-    The agent adds the selected element to your prompt as context, including its HTML and CSS.
-
-1. Close the browser and enter a prompt that describes the change you want, and press `kbstyle(Enter)`. For example:
+1. In the chat input, enter a prompt that describes the change you want, and press `kbstyle(Enter)`. For example:
 
     ```prompt
-    Make this heading larger and use a gradient color for the text.
+    Use a gradient color for the text and use cursive.
     ```
 
-    The agent updates the files to apply your change. Open the integrated browser to see the updated page.
+1. The agent applies the change to the element you selected. Refresh the page in the integrated browser to see the updates.
+
+> The integrated browser lets you view and iterate on the agent's work without switching context.
 
 ### Review and commit the changes
 
-Before you commit the agent's work, review what changed. The **Changes** panel lists every file the agent created or modified, so you can confirm the result matches your intent.
+Before you commit the agent's work, you might want to review the actual code changes that the agent applied. The **Changes** panel lists every file the agent created or modified during its session. To review and commit the file changes:
 
-1. In the **Changes** panel, select the **Changes** tab to see the list of files the agent added or modified.
+1. Select the **Changes** panel to see the list of files the agent added or modified. Each item also shows change stats and an add/delete/update indicator.
 
-    <!-- TODO screenshot: Changes tab listing the modified files in the Agents window. -->
+    ![Screenshot of the Changes panel in the Agents window, showing the list of files changed by the agent.](images/getting-started/changes-panel.png)
 
-1. Select a file to open the diff view and review the agent's edits. You can move between the different files with the navigation controls.
+    Notice that the summary change stats are also shown in sessions list.
 
-    The diff view shows the changes side by side and highlights the added and removed lines. In this case, there are only new files added.
+1. Select a file to open the diff view and review the agent's edits. You can move between the different files with the navigation controls in the title bar.
 
-    <!-- TODO screenshot: file diff open from the Changes panel in the Agents window. -->
+    ![Screenshot of the diff view showing the changes made by the agent to a file.](images/getting-started/diff-view.png)
 
-> [!TIP]
-> When you select a block of text in the diff view, you can provide feedback to the agent about that specific part of the code.
+    In this case, all files were newly created, so the diff view shows all lines as additions. For modified files, you'll see both additions and deletions.
 
-1. Select **Commit Changes** in the **Changes** panel to save the agent's changes to your Git repository. The agent generates a commit message based on the changes.
+    > [!TIP]
+    > When you select a block of text in the diff view, you can submit inline feedback to the agent about that specific part of the code.
 
-    <!-- TODO screenshot: Commit button in the Agents window Changes panel. -->
+1. Close the diff view and select **Commit Changes** in the **Changes** panel to save the agent's changes to your Git repository.
+
+    After committing the changes, the **Changes** panel is back empty because there are no pending changes. The change stats are also cleared from the entry in the session list.
 
 ## Write code with agents in the editor
 
@@ -169,25 +179,29 @@ For some changes, you might prefer a code-first approach, where your focus is on
 
 1. In the Agents window, select the **Open in Editor** button in the title bar to open the active workspace in the editor.
 
-1. Notice that the left sidebar shows the **Explorer** view, which displays the files in your workspace. Select a file to open it in an **Editor** tab in the main area.
+    ![Screenshot of the Open in Editor button in the Agents window title bar.](images/getting-started/open-in-editor-button.png)
 
-    You use the Explorer view to view and manage the files and folders in your workspace. You can open as many editors as you like and view them side by side.
+    This opens a new VS Code window with your workspace. The Chat view is still open in the right sidebar, so you can interact with agents while you work in the editor.
 
-    <!-- TODO screenshot: Explorer view showing the generated portfolio files. -->
+1. Notice that the left sidebar shows the **Explorer** view, which displays the files in your workspace. Select a file to open it in an editor tab in the main area.
 
-1. The right sidebar shows the **Chat** view, which shows your session list and lets you start or continue a conversation.
+    ![Screenshot of the editor showing the Explorer view with the portfolio files and the Chat view with the active agent session.](images/getting-started/explorer-and-chat-view.png)
 
-    <!-- TODO screenshot: Chat view showing the session list and input field. -->
+    The Chat view in the right sidebar shows the ongoing agent session you created previously in the Agents window.
 
-### Add a feature from the Chat view
+### Start a new session from the Chat view
+
+The Chat view is located in the right sidebar of the editor, alongside your editor tabs, and is optimized for letting agents assist you while you're writing code.
+
+In this step, you start a new session to run an agent to add a theme switcher to your portfolio page. The agent applies the changes directly to your files, and you can review them as inline diffs in the editor.
 
 1. Select **New Chat** (`+`) to start a new session.
 
-1. Select **Local** from the **Agent Target** dropdown to run the agent in the context of the editor. It operates directly on your workspace files.
+    ![Screenshot of the New Chat button in the Chat view title bar.](images/getting-started/new-chat-button.png)
 
-    The local agent runs in VS Code and has access to additional tools that integrate with the editor. For example, it can read linting and compiler errors from your files to fix problems, or launch the integrated browser directly to preview your page.
+1. Make sure **Local** is selected from the **Session Target** dropdown to run the agent in the context of the editor, with access to your files, tools, and the integrated browser.
 
-    <!-- TODO screenshot: Agent Target dropdown with Local selected in the Chat view. -->
+    ![Screenshot of the Session Target dropdown in the Chat view, showing the Local option selected.](images/getting-started/session-target-dropdown.png)
 
 1. Enter the following prompt in the chat input and press `kbstyle(Enter)`:
 
@@ -195,26 +209,31 @@ For some changes, you might prefer a code-first approach, where your focus is on
     Add a theme switcher button that toggles between a light and dark color theme for the page.
     ```
 
-    The agent applies the changes to your files.
+    The agent applies the changes to your files. You can see the changes stream into the editor in real time as inline diffs.
 
-1. Review the changes directly in the editor.
+1. The Chat view shows the list of changed files. Open a file to review the changes directly in the editor, where you can use the overlay controls to **Keep** or **Undo** individual edits.
 
-    Open a changed file to see the agent's edits as inline diffs. Use the overlay controls to **Keep** or **Undo** individual edits.
+    ![Screenshot of the inline diff view in the editor, showing the changes made by the agent and the Keep and Undo controls.](images/getting-started/inline-diff-editor.png)
 
-    <!-- TODO screenshot: inline diff with Keep and Undo controls in the editor. -->
+    Select **Keep** to accept the changes.
 
-1. Ask the agent to preview your page in the integrated browser to see the new feature in action. Enter the following prompt to preview the page:
+1. Select the `index.html` file and select the **Open in Integrated Browser** (globe) button in the title bar to preview the page with the new theme switcher in the integrated browser.
+
+1. Ask the agent to preview the page and validate the new feature itself in the browser. This way, the agent can iterate on its changes based on what it sees in the browser. Enter the following prompt and press `kbstyle(Enter)`:
 
     ```prompt
-    Preview the page in the integrated browser.
+    Verify that the theme switcher works correctly and review the design aligns with the rest of the page. If there are any issues, fix them.
     ```
 
-> [!TIP]
-> When you use a local agent, it can use the agent browser tools to interact with the integrated browser. This can be useful for tasks like previewing a page, but also to enable the agent to validate and iterate on its changes in the browser.
+    ![Screenshot of the agent opening the integrated browser for previewing and validating its changes.](images/getting-started/agent-validate-changes.png)
+
+    The agent asks to approve opening the integrated browser. Select **Allow in this session** to let the agent access the browser for previewing and validating its changes.
+
+Congratulations! You built a portfolio page by using AI agents, where you used both an agent-first and code-first approach. You used the integrated browser to let the agent preview and validate its own changes.
 
 ## Next steps
 
-Congratulations! You built a portfolio page with agents, working in both the Agents window and the Chat view. To go deeper with agentic coding in Visual Studio Code, get more info about how to:
+To go deeper with agentic coding in Visual Studio Code, get more info about how to:
 
 * [Explore different agent types and hand off tasks](/docs/agents/agents-tutorial.md)
 

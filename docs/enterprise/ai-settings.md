@@ -1,6 +1,6 @@
 ---
 ContentId: f8a9c3d2-4e7b-5f1a-b6c8-9d0e2f3a7b4c
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 MetaDescription: Learn how to centrally manage AI settings in VS Code for enterprise environments, including agent mode, MCP servers, and tool approvals.
 ---
 
@@ -37,7 +37,7 @@ IT admins can verify the gate state at any time with the **Developer: Policy Dia
 
 To disable agents entirely, set the `ChatAgentMode` policy to `false`. This configures the `setting(chat.agent.enabled)` setting in VS Code.
 
-The **Agent** option will not be available in the agents dropdown in the Chat view when this policy is applied. Developers can still use [ask or edit](/docs/chat/copilot-chat.md) for code explanations and file edits, but autonomous code generation and task execution are not available.
+The **Agent** option will not be available in the agents dropdown in the Chat view when this policy is applied. Developers can still use [ask or edit](/docs/chat/chat-overview.md) for code explanations and file edits, but autonomous code generation and task execution are not available.
 
 ## Enable or disable hooks
 
@@ -49,7 +49,7 @@ When this policy is applied, hook configurations are ignored and no hook command
 
 ## Enable or disable extension language tools
 
-[Tools in chat](/docs/agents/agent-tools.md) extend the AI assistant's capabilities with specialized functions. These tools can come from built-in features, Model Context Protocol (MCP) servers, or third-party extensions.
+[Tools in chat](/docs/chat/chat-tools.md) extend the AI assistant's capabilities with specialized functions. These tools can come from built-in features, Model Context Protocol (MCP) servers, or third-party extensions.
 
 Third-party extensions can contribute tools that integrate with chat by using the [Language Model Tools API](/api/extension-guides/ai/tools).
 
@@ -58,6 +58,25 @@ To prevent developers from using extension-contributed tools while still allowin
 Chat agents can also use browser tools to open and interact with web pages in the Integrated Browser. To disable browser tools for chat agents, set the `BrowserChatTools` policy to `false`. This configures the `setting(workbench.browser.enableChatTools)` setting in VS Code.
 
 To disable agent plugin integration in chat, set the `ChatPluginsEnabled` policy to `false`. This configures the `setting(chat.plugins.enabled)` setting in VS Code.
+
+## Manage agent plugins and marketplaces
+
+[Agent plugins](/docs/agent-customization/agent-plugins.md) are prepackaged bundles of agent customizations that developers discover and install from plugin marketplaces. Organizations can centrally control which plugins and marketplaces are available, instead of having each developer configure them locally.
+
+VS Code reads these policies from the same Copilot enterprise settings file that drives [enterprise plugin standards for Copilot CLI](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-plugin-standards), so a single policy definition applies to both clients. You can also configure them through your existing device management solution.
+
+> [!NOTE]
+> These plugin policies are experimental.
+
+The following policies are available:
+
+* To allowlist the plugin IDs that developers can use, set the `ChatEnabledPlugins` policy. This configures the `setting(chat.plugins.enabledPlugins)` setting in VS Code. The organization explicitly enables or disables each plugin in the list.
+* To make additional plugin marketplaces available, set the `ChatExtraMarketplaces` policy. This configures the `setting(chat.plugins.extraMarketplaces)` setting in VS Code. This policy has no user-facing setting and can only be configured through policy.
+* To trust only the marketplaces supplied by policy, set the `ChatStrictMarketplaces` policy to `true`. This configures the `setting(chat.plugins.strictMarketplaces)` setting in VS Code. When this policy is enabled, marketplaces that developers add through `setting(chat.plugins.marketplaces)` are not trusted.
+
+Plugins that are blocked by policy remain visible in the Extensions view but appear disabled. Marketplaces that are managed by policy are tagged as such in the marketplace picker.
+
+IT admins can verify the applied plugin policies with the **Developer: Policy Diagnostics** command, which includes a **Managed Settings** section. For more information, see [Verify policy enforcement](/docs/enterprise/policies.md#verify-policy-enforcement).
 
 ## Configure MCP server access
 
@@ -91,18 +110,16 @@ Organizations with GitHub Copilot Enterprise or Business can also configure MCP 
 
 Agent tools can perform actions that modify files, run commands, or access external services. VS Code includes approval prompts for potentially risky operations. Organizations can enforce stricter approval requirements or disable auto-approval entirely.
 
-Learn more about [tool approval](/docs/agents/agent-tools.md#tool-approval) in VS Code.
+Learn more about [tool approval](/docs/agents/approvals.md#tool-approval) in VS Code.
 
 ### Disable global auto-approval
 
 The `ChatToolsAutoApprove` policy controls the global auto-approval setting. When enabled, the AI assistant can execute all tools without manual approval. This is not recommended for security reasons.
 
-To prevent developers from enabling global auto-approval, set the `ChatToolsAutoApprove` policy to `false`. This configures the `setting(chat.tools.global.autoApprove)` setting in VS Code and also hides the **Bypass Approvals** and **Autopilot** options from the [permissions picker](/docs/agents/agent-tools.md#permission-levels) in the Chat view.
+To prevent developers from enabling global auto-approval, set the `ChatToolsAutoApprove` policy to `false`. This configures the `setting(chat.tools.global.autoApprove)` setting in VS Code and also hides the **Bypass Approvals** and **Autopilot** options from the [permissions picker](/docs/agents/approvals.md#permission-levels) in the Chat view.
 
 > [!CAUTION]
 > Global auto-approval bypasses all security prompts for tool invocations. Disabling this feature is strongly recommended for enterprise environments.
->
-> If developers use [dev tunnels](/docs/remote/tunnels.md) or [port forwarding](/docs/debugtest/port-forwarding.md) with anonymous or public access, disabling auto-approval alone is not sufficient. Anyone who discovers a tunnel URL can reach the machine, and the combination with auto-approval creates a remote code execution risk. Deploy the **Disable anonymous tunnel access** [Dev Tunnels group policy](https://learn.microsoft.com/azure/developer/dev-tunnels/policies) alongside the `ChatToolsAutoApprove` policy to prevent this attack vector.
 
 ### Require manual approval for specific tools
 
@@ -243,7 +260,7 @@ For GitHub Copilot's security, privacy, compliance, and transparency information
 ## Related resources
 
 * [Enterprise policies reference](/docs/enterprise/policies.md) - Complete list of enterprise policies
-* [Use tools in chat](/docs/agents/agent-tools.md) - Learn how tools work in VS Code chat
+* [Use tools in chat](/docs/chat/chat-tools.md) - Learn how tools work in VS Code chat
 * [MCP servers in VS Code](/docs/agent-customization/mcp-servers.md) - Configure and use MCP servers
 * [Custom instructions](/docs/agent-customization/custom-instructions.md) - Define custom instructions for AI responses
 * [Custom agents](/docs/agent-customization/custom-agents.md) - Create custom AI personas and workflows

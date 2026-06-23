@@ -15,7 +15,7 @@ _Special thanks to Rob Lourens, Bhavya U, Matt Bierner, Peng Lyu, Osvaldo Ortega
 
 If we had to pick one word to describe the past year, it would probably be "Agent".
 
-Agents took over VS Code in 2025. We released [agent mode](https://code.visualstudio.com/blogs/2025/02/24/introducing-copilot-agent-mode) for VS Code, integration for the [Copilot coding agent (cloud)](https://code.visualstudio.com/docs/copilot/copilot-cloud-agent), and the new [GitHub Copilot CLI](https://github.com/features/copilot/cli/). But Copilot is not the only agent game in town. There are now more coding agents than ever - including options from OpenAI and Anthropic.
+Agents took over VS Code in 2025. We released [agent mode](https://code.visualstudio.com/blogs/2025/02/24/introducing-copilot-agent-mode) for VS Code, integration for the [Copilot coding agent (cloud)](https://code.visualstudio.com/docs/agents/agent-types/cloud-agents), and the new [GitHub Copilot CLI](https://github.com/features/copilot/cli/). But Copilot is not the only agent game in town. There are now more coding agents than ever - including options from OpenAI and Anthropic.
 
 With all these choices, things got better for developers but the agent ecosystem got a little more fragmented. Subscription hopping, tool juggling, and the constant FOMO on the latest agent trend is now the norm. This year at GitHub Universe, we set out to fix that with a unified agent experience in VS Code. The first big step towards making that a reality was offering more agents in your Copilot subscription. And not just those with "Copilot" in their name.
 

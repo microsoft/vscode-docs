@@ -1,6 +1,6 @@
 ---
 ContentId: d44f1a5c-5454-4037-92d5-c2bf5d4cffed
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 MetaDescription: One of the great things in Visual Studio Code is testing support. Automatically discover tests in your project, run and debug your tests, and get test coverage results.
 ---
 # Testing
@@ -107,7 +107,7 @@ Copilot will generate test cases code for your application code. If you already 
 > [!TIP]
 > You can give Copilot your own [special instructions for generating code](/docs/agent-customization/overview.md). For example, you can tell Copilot to use a certain testing framework, naming convention, or code structure.
 
-Learn more about [using Copilot in VS Code](/docs/copilot/overview.md).
+Learn more about [using Copilot in VS Code](/docs/agent-native/overview.md).
 
 ## Run and debug tests
 
@@ -230,6 +230,6 @@ You can find all testing-related settings in the Settings editor (`kb(workbench.
 
 * Get started with testing in [Python](/docs/python/testing.md), [Java](/docs/java/java-testing.md), or [C#](/docs/csharp/testing.md)
 
-* Learn more about [Copilot and AI-assisted testing in VS Code](/docs/copilot/overview.md)
+* Learn more about [Copilot and AI-assisted testing in VS Code](/docs/agent-native/overview.md)
 
 * Learn more about [using and configuring Tasks](/docs/debugtest/tasks.md)
