@@ -116,7 +116,7 @@ Learn more about [browser tools for agents](/docs/debugtest/integrated-browser.m
 
 ## Monitor context window usage
 
-The chat input box displays a context window control that shows how much of the model's context window is being used. This visual indicator helps you understand when chat summarization might occur or when you should start a new session.
+The chat input displays a context window control that shows how much of the model's context window is being used. This visual indicator helps you understand when chat summarization might occur or when you should start a new session.
 
 ![Screenshot of VS Code Chat view, showing the context window usage control in the chat input box.](./images/copilot-chat/chat-context-window-control.png)
 
@@ -124,6 +124,7 @@ The context window control provides the following information:
 
 * **Visual fill indicator**: a shaded bar shows the proportion of the context window currently in use
 * **Total usage and breakdown on hover**: hover over the control to see the exact token count as a fraction of the total available context (for example, 15K/128K) and a breakdown of usage by category
+* **Session cost in credits**: the total number of AI credits consumed for the entire session
 
 As you send more requests in a conversation, the control updates to reflect the increasing context usage. The total available context (denominator) changes based on the AI model you select, since different models have different context window sizes.
 

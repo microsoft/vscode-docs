@@ -83,9 +83,17 @@ For more information, see [context compaction](/docs/chat/copilot-chat-context.m
 
 ## Monitor your usage
 
-You can view your current Copilot usage in the Copilot status dashboard, available through the VS Code Status Bar. The dashboard shows the percentage of your monthly allowance you have used for AI credits (and inline suggestions for the Copilot Free plan).
+You can monitor your AI credit usage in VS Code for a specific chat request, the cumulative usage for a session, and your overall monthly consumption. This helps you understand which requests are more expensive, spot expensive conversations, and manage your usage over time.
 
-<!-- TODO: add screenshot of Copilot status dashboard -->
+To view the cost for a single request, hover over the chat response to see the credit consumption for that turn. This helps you understand which requests are more expensive and adjust your prompts or model selection accordingly.
+
+To view the cumulative cost and token breakdown for the entire session, hover over or select the context window control in the chat input. The session info popover shows the total cost in credits and the cumulative context window token usage for the whole session, complementing the per-turn credit consumption already shown for individual requests.
+
+![Screenshot of VS Code Chat view, showing the context window usage control in the chat input box.](../../chat/images/copilot-chat/chat-context-window-control.png)
+
+To view your overall monthly consumption, open the Copilot status dashboard from the VS Code Status Bar. The dashboard shows the percentage of your monthly allowance you have used for AI credits (and inline suggestions for the Copilot Free plan).
+
+![Screenshot of the Copilot status dashboard, showing the percentage of monthly AI credits used and a link to view usage details on GitHub.](../images/optimize-usage-guide/copilot-status-dashboard.png)
 
 Visit the GitHub Copilot documentation for more information about [monitoring usage and entitlements](https://docs.github.com/en/copilot/managing-copilot/monitoring-usage-and-entitlements/monitoring-your-copilot-usage-and-entitlements).
 
