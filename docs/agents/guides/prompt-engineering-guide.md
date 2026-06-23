@@ -1,6 +1,6 @@
 ---
 ContentId: 5dfd207f-fcee-42c3-b7fe-622b42b3397c
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 MetaDescription: Optimize your development experience with chat in VS Code with best practices for crafting chat prompts and providing context.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -10,7 +10,7 @@ This article covers tips to write prompts to get better and more relevant respon
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/hh1nOX14TyY" title="Core principles of prompt engineering with GitHub Copilot" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-If you are new to VS Code or AI, you might want to review the [AI in VS Code Overview](/docs/copilot/overview.md) article first or dive straight into the [Getting started](/docs/copilot/getting-started.md) tutorial.
+If you are new to VS Code or AI, you might want to review the [AI in VS Code Overview](/docs/agent-native/overview.md) article first or dive straight into the [Getting started](/docs/getstarted/getting-started.md) tutorial.
 
 ## Getting the most out of inline suggestions
 

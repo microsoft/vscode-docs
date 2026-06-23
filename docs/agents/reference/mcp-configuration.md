@@ -1,6 +1,6 @@
 ---
 ContentId: a3e1f7c2-8d4b-4f9a-b6e5-2c8d3f1a9b7e
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 MetaDescription: Reference for MCP server configuration format, commands, and settings in Visual Studio Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -298,7 +298,7 @@ The following table lists the MCP-related commands available in the Command Pale
 
 ## Settings
 
-For a full list of VS Code AI settings, see the [AI Settings Reference](/docs/agents/reference/copilot-settings.md). The following settings are specific to MCP servers.
+For a full list of VS Code AI settings, see the [AI Settings Reference](/docs/agents/reference/ai-settings.md). The following settings are specific to MCP servers.
 
 | Setting | Description |
 |---------|-------------|

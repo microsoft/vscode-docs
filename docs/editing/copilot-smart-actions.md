@@ -1,6 +1,6 @@
 ---
 ContentId: f0f31de2-a344-4ee6-8d5b-d3ac4e11e149
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 MetaDescription: Use smart actions in VS Code to get help from AI for common development tasks, such as generating commit messages, renaming symbols, or fixing coding errors.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -11,7 +11,7 @@ For several common scenarios, you can use _smart actions_ to get help from AI wi
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
 Follow a hands-on tutorial to build your first app with AI in VS Code.
 
-* [Start tutorial](/docs/copilot/getting-started.md)
+* [Start tutorial](/docs/getstarted/getting-started.md)
 
 </div>
 
@@ -169,4 +169,4 @@ Enable this functionality with the `setting(workbench.settings.showAISearchToggl
 
 ## Related resources
 
-* [Get started with the Copilot Quickstart](/docs/copilot/getting-started.md).
+* [Get started with the Copilot Quickstart](/docs/getstarted/getting-started.md).

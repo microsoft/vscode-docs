@@ -26,5 +26,16 @@
       ["Customization Features Explained", "/learn/customizations/7-customization-features-explained"],
       ["Customization Features In Practice", "/learn/customizations/8-demo"]
     ]
+  },
+  {
+    "name": "Agents",
+    "area": "agents",
+    "description": "Learn how to use tools, MCP servers, plugins, and third-party agents to extend agent workflows in VS Code.",
+    "topics": [
+      ["Using tools with agents", "/learn/agents/1-using-tools-with-agents"],
+      ["Extending agents with MCP servers", "/learn/agents/2-extending-agents-with-mcp-servers"],
+      ["Agent plugins", "/learn/agents/3-agent-plugins"],
+      ["Using third-party agents in VS Code", "/learn/agents/4-using-third-party-agents-in-vs-code"]
+    ]
   }
 ]

@@ -1,6 +1,6 @@
 ---
 ContentId: 2f21c45a-8931-4da2-a921-af23a3b92949
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 MetaDescription: Learn how to use GitHub Copilot in Visual Studio Code to set up debugging configurations and fix issues during debugging.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -16,9 +16,6 @@ Copilot can help with the following debugging tasks:
 
 > [!TIP]
 > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly allowance of inline suggestions and AI credits.
-
-> [!IMPORTANT]
-> **Starting April 20, 2026**, new sign-ups for Copilot Pro, Copilot Pro+, Max, and Student plans are temporarily paused.
 
 ## Set up debug configuration with Copilot
 
@@ -75,7 +72,7 @@ You can use Copilot Chat to help you fix coding issues or improve your code.
     * "Refactor this code"
     * "Improve the performance of this code"
 
-Learn more about using [Copilot Chat](/docs/chat/copilot-chat.md) in VS Code.
+Learn more about using [Copilot Chat](/docs/chat/chat-overview.md) in VS Code.
 
 ### Use editor smart actions
 
@@ -92,4 +89,4 @@ To fix coding issues for your application code without writing a prompt, you can
 ## Next steps
 
 * Explore [general debugging features in VS Code](/docs/debugtest/debugging.md).
-* Learn more about [Copilot in VS Code](/docs/copilot/overview.md).
+* Learn more about [Copilot in VS Code](/docs/agent-native/overview.md).

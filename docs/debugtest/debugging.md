@@ -1,6 +1,6 @@
 ---
 ContentId: 4E9A74AA-D778-4D1C-B369-83763B3C340F
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 MetaDescription: One of the great things in Visual Studio Code is debugging support.  Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: images/debugging/debugging-social.png
 ---
@@ -264,7 +264,7 @@ To see a tutorial on the basics of debugging, check out this video:
 To learn more about Copilot and AI-assisted debugging in VS Code:
 
 * [Debugging and fixing issues with Copilot](/docs/copilot/overview.md#fix-issues)
-* [Copilot cheat sheet for debugging and fixing issues](/docs/agents/reference/copilot-vscode-features.md#debug-and-fix-problems)
+* [AI cheat sheet for debugging and fixing issues](/docs/agents/reference/ai-features-cheat-sheet.md#debug-and-fix-problems)
 
 To learn about debugging support for other programming languages via VS Code extensions:
 

@@ -1,6 +1,6 @@
 ---
 ContentId: 101027aa-e73c-4d1b-a93f-b8ce10e1f946
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 MetaDescription: Learn how to use GitHub Copilot in Visual Studio Code to edit Jupyter notebooks with AI.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -18,7 +18,7 @@ To create a new notebook with AI, choose either of these options:
 
 * Choose [Agent](vscode://GitHub.Copilot-Chat/chat?mode=agent) and type a natural language prompt asking to create a new notebook.
 
-See the [Prompt examples](/docs/chat/prompt-examples.md#working-with-jupyter-notebooks) article for effective notebook prompts.
+See the [Prompt examples](/docs/agents/guides/prompt-examples.md#working-with-jupyter-notebooks) article for effective notebook prompts.
 
 The following screenshot shows how the output from the agent to the prompt *Create a Jupyter notebook to read data from #housing.csv* (you can get this dataset from [Kaggle](https://www.kaggle.com/search?q=housing+dataset+in%3Adatasets)):
 
@@ -88,4 +88,4 @@ You can now further edit the notebook manually, or use AI to make inline edits o
 
 * [Learn more about Jupyter notebooks in VS Code](/docs/datascience/jupyter-notebooks.md)
 * [Learn more about the AI features in VS Code](/docs/copilot/overview.md)
-* [Learn more about chat in VS Code](/docs/chat/copilot-chat.md)
+* [Learn more about chat in VS Code](/docs/chat/chat-overview.md)

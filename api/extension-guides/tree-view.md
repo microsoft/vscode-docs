@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 9b10cda2-4eb0-4989-8f82-23a46b96c1bb
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to using Tree View in Visual Studio Code extension (plug-in).
@@ -9,7 +9,7 @@ MetaDescription: A guide to using Tree View in Visual Studio Code extension (plu
 
 # Tree View API
 
-The Tree View API allows extensions to show content in the sidebar in Visual Studio Code. This content is structured as a tree and conforms to the style of the [built-in views](/docs/editing/userinterface#_views) of VS Code.
+The Tree View API allows extensions to show content in the sidebar in Visual Studio Code. This content is structured as a tree and conforms to the style of the [built-in views](/docs/editing/userinterface.md#views) of VS Code.
 
 For example, the built-in References Search View extension shows reference search results as a separate view.
 

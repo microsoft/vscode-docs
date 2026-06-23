@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various Contribution Points it is using in its package.json Extension Manifest file.
@@ -1159,7 +1159,7 @@ This problem matcher can now be used in a `tasks.json` file via a name reference
 }
 ```
 
-Also see: [Defining a Problem Matcher](/docs/debugtest/tasks#_defining-a-problem-matcher)
+Also see: [Defining a Problem Matcher](/docs/debugtest/tasks.md#defining-a-problem-matcher)
 
 ## contributes.problemPatterns
 
@@ -1276,7 +1276,7 @@ See the [Semantic Highlighting Guide](/api/language-extensions/semantic-highligh
 
 ## contributes.snippets
 
-Contribute snippets for a specific language. The `language` attribute is the [language identifier](/docs/languages/identifiers) and the `path` is the relative path to the snippet file, which defines snippets in the [VS Code snippet format](/docs/editing/userdefinedsnippets#_snippet-syntax).
+Contribute snippets for a specific language. The `language` attribute is the [language identifier](/docs/languages/identifiers) and the `path` is the relative path to the snippet file, which defines snippets in the [VS Code snippet format](/docs/editing/userdefinedsnippets.md#snippet-syntax).
 
 The example below shows adding snippets for the Go language.
 

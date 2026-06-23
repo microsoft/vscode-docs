@@ -1,6 +1,6 @@
 ---
 ContentId: b2c3d4e5-6f7a-8b9c-0d1e-2f3a4b5c6d7e
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 MetaDescription: Understand how large language models power AI features in VS Code, including model characteristics, context windows, and model selection.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -80,7 +80,7 @@ For more details, see [About Copilot auto model selection](https://docs.github.c
 
 Each Copilot plan includes a monthly allowance of [AI credits](https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-individuals). Different models consume AI credits at different rates, based on the model and the number of tokens processed. More capable models cost more per token, while lighter models extend your usage further. When you use auto model selection, VS Code routes each request to an efficient model that balances quality and cost.
 
-Other factors also affect credit consumption, such as [thinking effort](/docs/copilot/customization/language-models.md#configure-thinking-effort) (higher effort produces more thinking tokens), context window size, and tool usage. For practical tips on reducing credit consumption, see [optimize AI credit usage](/docs/copilot/guides/optimize-usage.md).
+Other factors also affect credit consumption, such as [thinking effort](/docs/agent-customization/language-models.md#configure-thinking-effort) (higher effort produces more thinking tokens), context window size, and tool usage. For practical tips on reducing credit consumption, see [optimize AI credit usage](/docs/agents/guides/optimize-usage.md).
 
 Learn how to [choose and configure language models](/docs/agent-customization/language-models.md) in VS Code.
 

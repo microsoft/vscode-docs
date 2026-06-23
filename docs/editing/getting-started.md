@@ -1,6 +1,6 @@
 ---
 ContentId: 72ad9b70-5227-4032-81d7-6aec00a1e8f8
-DateApproved: 5/13/2026
+DateApproved: 6/10/2026
 MetaDescription: This tutorial gives you an overview of the key features of Visual Studio Code to help you get started quickly.
 ---
 # Tutorial: Get started with Visual Studio Code
@@ -13,7 +13,7 @@ In this tutorial, you learn about the key features of Visual Studio Code to help
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
 Follow a hands-on tutorial to build your first app with AI in VS Code.
 
-* [Start tutorial](/docs/copilot/getting-started.md)
+* [Start tutorial](/docs/getstarted/getting-started.md)
 
 </div>
 
@@ -214,7 +214,7 @@ Let's install an extension that helps with the recipe list app you just built.
 
     The agent modifies the existing files to add the new feature. This shows how you can iteratively build on your app with follow-up prompts.
 
-Explore more AI features in VS Code with the [Copilot Quickstart](/docs/copilot/getting-started.md).
+Explore more AI features in VS Code with the [Copilot Quickstart](/docs/getstarted/getting-started.md).
 
 ## Configure VS Code settings
 
@@ -316,7 +316,7 @@ There are many more debugging features in VS Code, such as watch variables, cond
 
 Congratulations! You've completed the tutorial and explored some of the key features of Visual Studio Code. Now that you've learned the basics of Visual Studio Code, get more info about how to:
 
-* [Build your first app with AI](/docs/copilot/getting-started.md)
+* [Build your first app with AI](/docs/getstarted/getting-started.md)
 
 * [Explore different agent types](/docs/agents/agents-tutorial.md)
 

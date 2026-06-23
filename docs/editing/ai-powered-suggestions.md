@@ -1,13 +1,13 @@
 ---
 ContentId: 7ab2cd6c-45fd-4278-a6e8-1c9e060593ea
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 MetaDescription: Get AI-powered inline suggestions from GitHub Copilot in VS Code, including ghost text completions and next edit suggestions.
 MetaSocialImage: images/shared/github-copilot-social.png
 Keywords: [nes, suggestions, inline completions, ghost text, next edit suggestions]
 ---
 # Inline suggestions from GitHub Copilot in VS Code
 
-GitHub Copilot in VS Code provides AI-powered inline suggestions that complete your code, comments, tests, and more as you type. Inline suggestions work with a broad range of programming languages and frameworks. They are one of several AI surfaces in VS Code, alongside [agents](/docs/agents/overview.md) for autonomous multi-file tasks, [chat](/docs/chat/copilot-chat.md), and [smart actions](/docs/editing/copilot-smart-actions.md).
+GitHub Copilot in VS Code provides AI-powered inline suggestions that complete your code, comments, tests, and more as you type. Inline suggestions work with a broad range of programming languages and frameworks. They are one of several AI surfaces in VS Code, alongside [agents](/docs/agents/overview.md) for autonomous multi-file tasks, [chat](/docs/chat/chat-overview.md), and [smart actions](/docs/editing/copilot-smart-actions.md).
 
 You might experience two kinds of inline suggestions from Copilot, both of which match your coding style and take your existing code into account:
 
@@ -18,14 +18,14 @@ You might experience two kinds of inline suggestions from Copilot, both of which
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
 Follow a hands-on tutorial to build your first app with AI in VS Code.
 
-* [Start tutorial](/docs/copilot/getting-started.md)
+* [Start tutorial](/docs/getstarted/getting-started.md)
 
 </div>
 
 ## Prerequisites
 
 * Visual Studio Code installed on your machine. Follow these steps to [set up VS Code](/docs/getstarted/overview.md).
-* Access to a GitHub Copilot subscription. Follow these steps to [set up GitHub Copilot](/docs/agent-native/overview.md#get-started). You can set up Copilot Free to get a monthly allowance of inline suggestions and AI credits.
+* Access to a GitHub Copilot subscription. Follow these steps to [set up GitHub Copilot](/docs/agents/overview.md#get-started). You can set up Copilot Free to get a monthly allowance of inline suggestions and AI credits.
 
 ## Ghost text suggestions
 
@@ -176,8 +176,8 @@ To give you relevant inline suggestions, Copilot looks at the current and open f
 
 ## Next steps
 
-* Discover the key features in the [Quickstart](/docs/copilot/getting-started.md).
+* Discover the key features in the [Quickstart](/docs/getstarted/getting-started.md).
 
-* Use AI chat conversations with [chat in VS Code](/docs/chat/copilot-chat.md).
+* Use AI chat conversations with [chat in VS Code](/docs/chat/chat-overview.md).
 
 * Watch the videos in our [VS Code Copilot Series](https://www.youtube.com/playlist?list=PLj6YeMhvp2S5_hvBl2SE-7YCHYlLQ0bPt) on YouTube.

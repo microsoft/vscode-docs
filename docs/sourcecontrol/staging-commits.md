@@ -1,6 +1,6 @@
 ---
 ContentId: 344271ac-56df-4cea-b0a9-2c135f7f3dec
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 MetaDescription: Master Git staging and commits in VS Code with granular file control, AI-powered commit messages, visual diff reviews, and comprehensive change tracking tools.
 Keywords:
 - source control
@@ -282,4 +282,4 @@ Learn more about the [Timeline view](/docs/editing/userinterface.md#timeline-vie
 * [Repositories and Remotes](/docs/sourcecontrol/repos-remotes.md) - Learn about cloning, publishing, and syncing with remote repositories
 * [Merge Conflicts](/docs/sourcecontrol/merge-conflicts.md) - Handle conflicts when merging branches
 * [Working with GitHub](/docs/sourcecontrol/github.md) - Learn how to work with pull requests and issues
-* [Copilot in VS Code](/docs/copilot/overview.md) - Discover more AI-powered development features
+* [Copilot in VS Code](/docs/agent-native/overview.md) - Discover more AI-powered development features

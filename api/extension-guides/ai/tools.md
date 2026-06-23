@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: aa6d312f-cbac-4633-8579-64d3cb4d17be
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to creating a language model tool and how to implement tool calling in a chat extension
@@ -9,16 +9,16 @@ MetaDescription: A guide to creating a language model tool and how to implement 
 
 # Language Model Tool API
 
-Language model tools enable you to extend the functionality of a large language model (LLM) in chat with domain-specific capabilities. To process a user's chat prompt, [agents](/docs/chat/copilot-chat.md) in VS Code can automatically invoke these tools to perform specialized tasks as part of the conversation.
+Language model tools enable you to extend the functionality of a large language model (LLM) in chat with domain-specific capabilities. To process a user's chat prompt, [agents](/docs/chat/chat-overview.md) in VS Code can automatically invoke these tools to perform specialized tasks as part of the conversation.
 
-By contributing a language model tool in your VS Code extension, you can extend the agentic coding workflow while also providing deep integration with the editor. Extension tools are one of three types of tools available in VS Code, alongside [built-in tools and MCP tools](/docs/agents/agent-tools.md#types-of-tools).
+By contributing a language model tool in your VS Code extension, you can extend the agentic coding workflow while also providing deep integration with the editor. Extension tools are one of three types of tools available in VS Code, alongside [built-in tools and MCP tools](/docs/agents/concepts/tools.md#types-of-tools).
 
 In this extension guide, you learn how to create a language model tool by using the Language Model Tools API and how to implement tool calling in a chat extension.
 
 You can also extend the chat experience with specialized tools by contributing an [MCP server](/api/extension-guides/ai/mcp). See the [AI Extensibility Overview](/api/extension-guides/ai/ai-extensibility-overview) for details on the different options and how to decide which approach to use.
 
 > [!TIP]
-> For information about using tools as an end user, see [Use tools in chat](/docs/agents/agent-tools.md).
+> For information about using tools as an end user, see [Use tools in chat](/docs/chat/chat-tools.md).
 
 ## What is tool calling in an LLM?
 
@@ -47,7 +47,7 @@ You might consider implementing a language model tool with an [MCP server](/api/
 - Your tool is hosted remotely as a service.
 - You don't need access to VS Code APIs.
 
-Learn more about the [differences between tool types](/docs/agents/agent-tools.md#types-of-tools).
+Learn more about the [differences between tool types](/docs/agents/concepts/tools.md#types-of-tools).
 
 ## Create a language model tool
 

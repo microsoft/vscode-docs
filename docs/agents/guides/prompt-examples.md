@@ -1,6 +1,6 @@
 ---
 ContentId: 9d8f3a2b-5c6e-4f7a-8b9c-1d2e3f4a5b6c
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 MetaDescription: Discover effective prompt examples for chat in VS Code across different scenarios including code generation, debugging, testing, and working with notebooks.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -8,7 +8,7 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 
 This article provides example prompts for chat in Visual Studio Code across different scenarios and agents. Use these examples as inspiration to craft effective prompts for your own development tasks.
 
-If you are new to using chat in VS Code, learn more about [getting started with chat](/docs/chat/copilot-chat.md) or review [best practices for prompt crafting](/docs/agents/best-practices.md).
+If you are new to using chat in VS Code, learn more about [getting started with chat](/docs/chat/chat-overview.md) or review [best practices for prompt crafting](/docs/agents/best-practices.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
 Follow a hands-on tutorial to experience local, background, and cloud agents in VS Code.
@@ -190,7 +190,7 @@ Learn more about [best practices for crafting prompts](/docs/agents/best-practic
 
 ## Related resources
 
-* [Chat overview](/docs/chat/copilot-chat.md)
+* [Chat overview](/docs/chat/chat-overview.md)
 * [Add context to your chat prompt](/docs/chat/copilot-chat-context.md)
 * [Inline chat](/docs/chat/inline-chat.md)
 * [Copilot Chat Cookbook](https://docs.github.com/en/copilot/example-prompts-for-github-copilot-chat) in the GitHub documentation

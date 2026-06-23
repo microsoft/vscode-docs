@@ -1,6 +1,6 @@
 ---
 ContentId: 9b3e5c2d-1a4f-6e8b-c7d9-0f2a3b4c5d6e
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 MetaDescription: Learn how to centrally manage VS Code telemetry settings for enterprise environments, including telemetry levels and feedback options.
 ---
 
@@ -86,7 +86,7 @@ Review the documentation of extensions used in your organization to understand t
 
 ## OpenTelemetry support for agent interactions
 
-[Copilot Chat](/docs/copilot/overview.md) in VS Code can export traces, metrics, and events via [OpenTelemetry](https://opentelemetry.io/) (OTel) to give you real-time visibility into agent interactions, LLM calls, tool execution, and token usage. You can use this telemetry data with any OTel-compatible backend.
+[Copilot Chat](/docs/agent-native/overview.md) in VS Code can export traces, metrics, and events via [OpenTelemetry](https://opentelemetry.io/) (OTel) to give you real-time visibility into agent interactions, LLM calls, tool execution, and token usage. You can use this telemetry data with any OTel-compatible backend.
 
 Learn more about how to [Monitor agent interactions with OpenTelemetry](https://github.com/microsoft/vscode-copilot-chat/blob/main/docs/monitoring/agent_monitoring.md).
 

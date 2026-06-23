@@ -1,6 +1,6 @@
 ---
 ContentId: 2f4a8e9d-3c5b-4f6e-a7d8-1c2b3e4f5a6b
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 MetaDescription: Use Agent Logs and the Chat Debug view to inspect AI requests, tool invocations, and agent interactions in Visual Studio Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -198,7 +198,7 @@ If the AI doesn't call an expected tool:
 If the response appears truncated:
 
 1. Check Agent Logs for **LLM requests** events to review token usage.
-1. A full context window might cause the model to truncate its response. Start a [new chat session](/docs/agents/sessions/chat-sessions.md) to reset the context.
+1. A full context window might cause the model to truncate its response. Start a [new chat session](/docs/chat/chat-sessions.md) to reset the context.
 
 ### A prompt file is not being applied
 
@@ -210,7 +210,7 @@ If a custom instruction or prompt file doesn't seem to take effect:
 
 ## Related resources
 
-* [Chat overview](/docs/chat/copilot-chat.md)
+* [Chat overview](/docs/chat/chat-overview.md)
 * [Manage context for AI](/docs/chat/copilot-chat-context.md)
 * [Troubleshoot AI in VS Code](/docs/agents/agent-troubleshooting/troubleshooting.md)
 * [Security considerations for using AI in VS Code](/docs/agents/security.md)

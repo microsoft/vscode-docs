@@ -1,6 +1,6 @@
 ---
 ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 MetaDescription: Visual Studio Code Tips and Tricks for power users.
 ---
 # Visual Studio Code tips and tricks
@@ -16,7 +16,7 @@ Prefer a video? You can watch the VS Code Day talks [Visual Studio Code tips and
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
 Follow a hands-on tutorial to build your first app with AI in VS Code.
 
-* [Start tutorial](/docs/copilot/getting-started.md)
+* [Start tutorial](/docs/getstarted/getting-started.md)
 
 </div>
 
@@ -465,6 +465,8 @@ Setting: `setting(files.simpleDialog)`
 > [!TIP]
 > Use the eye icon in the top right corner to show or hide files and folders starting with a dot.
 
+When you open a folder and enter a path that doesn't exist, the simple file dialog prompts you to create the folder.
+
 ### Show Explorer view
 
 Keyboard Shortcut: `kb(workbench.view.explorer)`
@@ -873,7 +875,7 @@ To enable or disable git blame information, use the **Git: Toggle Git Blame Edit
 * `setting(git.blame.statusBarItem.enabled)` (enabled by default)
 * `setting(git.blame.editorDecoration.enabled)`
 
-Learn more about [git blame support in VS Code](/docs/sourcecontrol/overview.md#git-blame-information) and how to customize the layout.
+Learn more about [git blame support in VS Code](/docs/sourcecontrol/staging-commits.md#git-blame-information) and how to customize the layout.
 
 ### Diffs
 
@@ -935,7 +937,7 @@ To view the Git output, select the (...) button in the Source Control view, and 
 
 ### Gutter indicators
 
-The editor provides visual cues in the gutter about where and which changes (added, changed, or remove lines) were made. See [the source control documentation](/docs/sourcecontrol/overview.md#gutter-indicators) for more details.
+The editor provides visual cues in the gutter about where and which changes (added, changed, or remove lines) were made. See [the source control documentation](/docs/sourcecontrol/overview.md) for more details.
 
 ![git gutter indicators](images/tips-and-tricks/mgutter_icons.gif)
 
@@ -947,7 +949,7 @@ You can resolve merge conflicts with the inline CodeLens which lets you **Accept
 
 ![Git merge](images/tips-and-tricks/merge-conflict.png)
 
-Learn more about [resolving merge conflicts](/docs/sourcecontrol/overview.md#merge-conflicts) in the source control documentation.
+Learn more about [resolving merge conflicts](/docs/sourcecontrol/merge-conflicts.md) in the source control documentation.
 
 ### Set VS Code as default merge tool
 
@@ -1007,7 +1009,7 @@ A triggered breakpoint is a breakpoint that is automatically enabled once anothe
 
 Triggered breakpoints can be set by right-clicking on the glyph margin, selecting **Add Triggered Breakpoint**, and then choosing which other breakpoint enables the breakpoint.
 
-<video src="../editor/images/debugging/debug-triggered-breakpoint.mp4" autoplay loop controls muted></video>
+<video src="../debugtest/images/debugging/debug-triggered-breakpoint.mp4" autoplay loop controls muted></video>
 
 ## Task runner
 

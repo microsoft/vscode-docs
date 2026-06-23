@@ -1,6 +1,6 @@
 ---
 ContentId: f9b2c4e3-8a7d-4e1f-b5c3-2d9a6f8e4b71
-DateApproved: 6/3/2026
+DateApproved: 6/10/2026
 MetaDescription: Learn how to discover, install, and manage agent plugins in VS Code to extend GitHub Copilot with pre-packaged commands, skills, agents, hooks, and MCP servers.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -21,7 +21,7 @@ Agent plugins are prepackaged bundles of agent customizations that you can disco
 Plugins work alongside your locally defined customizations. When you install a plugin, its commands, skills, agents, hooks, and MCP servers appear in chat.
 
 > [!NOTE]
-> Agent plugins are currently in preview. Enable or disable support for agent plugins with the `setting(chat.plugins.enabled)` setting.
+> Enable or disable support for agent plugins with the `setting(chat.plugins.enabled)` setting.
 
 ## What plugins provide
 
@@ -321,7 +321,7 @@ You can also manage installed plugins from the Chat view by selecting the **gear
 You can enable or disable a plugin globally or for a specific workspace:
 
 * Use the context menu on a plugin in the **Agent Plugins - Installed** section of the Extensions view.
-* Use the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) to toggle a plugin's enabled state.
+* Use the [Agent Customizations editor](/docs/agent-customization/overview.md#manage-customizations-in-the-editor) to toggle a plugin's enabled state.
 
 The enable/disable state is stored separately from the plugin configuration, so it does not affect shared workspace settings.
 
@@ -352,6 +352,9 @@ Marketplace plugins can also reference external package sources such as npm or P
     "anthropics/claude-code"
 ]
 ```
+
+> [!NOTE]
+> Enterprise admins can centrally control which plugins and marketplaces are available to developers. For more information, see [Manage agent plugins and marketplaces](/docs/enterprise/ai-settings.md#manage-agent-plugins-and-marketplaces).
 
 ## Use local plugins
 
