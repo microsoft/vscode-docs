@@ -58,7 +58,7 @@ To configure the thinking effort:
 
     ![Screenshot showing the Thinking Effort submenu in the model picker, with different effort levels such as None, Low, Medium, and High.](images/language-models/thinking-effort-submenu.png)
 
-The model picker label updates to show the selected effort level, for example "Claude Sonnet 4.6 · High". The effort level persists across conversations for the same model.
+The model picker label updates to show the selected effort level, for example "Claude Sonnet 4.6 · High". The effort level is remembered per session, so revisiting an earlier session keeps the effort level it was using. New conversations start from the effort level you last set for that model.
 
 > [!NOTE]
 > The `setting(github.copilot.chat.anthropic.thinking.effort)` and `setting(github.copilot.chat.responsesApiReasoningEffort)` settings are deprecated. Configure thinking effort directly from the language model picker.
