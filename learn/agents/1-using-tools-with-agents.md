@@ -14,6 +14,9 @@ Keywords:
 
 # Using tools with agents
 
+<!-- IMAGE PLACEHOLDER - YouTube thumbnail embed showing the Customization UI -->
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=wZrQ0TAfpFg" title="Using Tools with Agents" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 Tools are how agents act on your request. They search your workspace, read files, edit code, run terminal commands, fetch web content, and call external services. In this guide, you will start with a small task, choose only the tools the task needs, and decide when to use a tool set, approvals, or sandboxing.
 
 ## Prerequisites
