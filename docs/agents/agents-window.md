@@ -192,21 +192,36 @@ The Agents window lets you work with agents on remote machines and from any devi
 
 Learn more about setting up and using remote connections in [remote agent sessions](/docs/agents/remote-agent-sessions.md).
 
-## Create a sub-session
+## Run multiple chats in a session
 
-When you have an active session, you can start a sub-session to give the agent a separate, parallel task within the same workspace. A sub-session shares the same workspace and worktree as the parent session, but starts with a blank chat. The sub-session doesn't carry over the parent's conversation history.
+In a Copilot CLI session, you can run multiple chats side by side, each as a separate tab in the chat area. Every chat has its own conversation, title, and status, but all chats share the session's workspace and worktree. Each new chat starts blank and doesn't carry over the conversation history of the other chats.
 
-This is useful when you want to work on an independent task in the same project without interrupting the ongoing session or starting a completely new one from scratch.
+This is useful when you want to work on an independent task in the same project without interrupting an ongoing chat or starting a completely new session from scratch.
 
-To create a sub-session:
+The first chat is the default chat for the session. The chats you add next to it are independent of the session, so you can rename or delete them without affecting the session itself.
 
-1. In an active session, select **New Sub-Session** (`+`) in the window title bar.
+> [!NOTE]
+> Running multiple chats is available for Copilot CLI sessions. Other session types show a single chat.
 
-    Notice that a new tab appears in the chat area for the sub-session, alongside the tab for the parent session. The sub-session does not appear as a separate item in the sessions list.
+To create an additional chat:
 
-    ![Screenshot showing how a new sub-session tab appears in the chat area alongside the parent session tab in the Agents window.](images/agents-window/agents-window-new-subsession.png)
+1. In an active session, select **New Chat** (`+`) in the session toolbar.
 
-1. Type a prompt and press `kbstyle(Enter)` to start the sub-session.
+    A new chat tab appears in the chat area, alongside the existing chat, and becomes active with an empty input. The chat doesn't appear as a separate item in the sessions list.
+
+    ![Screenshot showing how a new chat tab appears in the chat area alongside the existing chat tab in the Agents window.](images/agents-window/agents-window-new-subsession.png)
+
+    <!-- TODO: replace screenshot with an updated capture that shows multiple chat tabs with the New Chat (+) button in the session toolbar. -->
+
+1. Type a prompt and press `kbstyle(Enter)` to start the chat.
+
+To work with the chats in a session:
+
+* **Switch between chats**: select a chat tab to show that chat's own conversation history. The in-progress spinner and unread indicator on a tab reflect the state of that chat only.
+* **Rename a chat**: double-click a chat tab, or right-click the tab and select **Rename**, then enter a new name. The chat title is independent of the session title, so renaming the session doesn't rename the chats.
+* **Delete a chat**: hover over a chat tab and select the close (`x`) button. You're asked to confirm because this action can't be undone. The default chat has no close button and is removed when you delete the session.
+
+Your chats are persisted and restored when you reload the window and reopen the session, including each chat's conversation history.
 
 > [!TIP]
 > To explore an alternative direction from a specific point in a session's conversation, [fork the session](/docs/chat/chat-sessions.md#fork-a-chat-session). Forking a session creates a new independent session with a copy of the conversation history up to a specific point.
@@ -305,7 +320,7 @@ If you're an extension author, we'd love to collaborate on what extension enable
 
 * The agents dropdown currently doesn't have the plan agent. You can still use the `/plan` command in a Copilot CLI or Claude agent session. In Copilot CLI sessions, the plan agent is also automatically invoked when you refer ask for creating a plan in your prompt.
 
-* Sub-sessions are currently not yet supported for Claude agent sessions.
+* Running multiple chats in a single session is currently supported for Copilot CLI sessions only.
 
 * Multi-root sessions are not yet supported in the Agents window. You can ask the agent to work across projects in a single session.
 
