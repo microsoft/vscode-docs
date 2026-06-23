@@ -22,9 +22,9 @@ Workspace Trust provides an extra layer of security when working with unfamiliar
 
 ## Restricted Mode
 
-When prompted by the Workspace Trust dialog, if you choose **No, I don't trust the authors**, VS Code goes into Restricted Mode to prevent code execution.
+When you open a new, unfamiliar folder, VS Code opens it in Restricted Mode to prevent automatic code execution while you review the contents. VS Code also enters Restricted Mode if you choose **No, I don't trust the authors** when prompted by the Workspace Trust dialog.
 
-The workbench displays a banner at the top with a link to **Manage** your folder via the Workspace Trust editor. In the Status Bar, you can also see a badge that indicates that the workspace is in Restricted Mode.
+The workbench displays a banner at the top with a link to **Manage** your folder via the Workspace Trust editor. In the Status Bar, you can also see a badge that indicates that the workspace is in Restricted Mode. When you're ready, you can trust the folder from the banner or the Workspace Trust editor.
 
 ![Workspace Trust Restricted Mode banner](images/workspace-trust/restricted-mode-banner.png)
 
@@ -118,13 +118,13 @@ If you try to install an extension in Restricted Mode, you are prompted to eithe
 
 If you trust the authors and maintainers of a project, you can trust the project's folder on your local machine. For example, it is usually safe to trust repositories from well-known GitHub organizations such as github.com/microsoft or github.com/docker.
 
-When you open a new folder, the initial Workspace Trust prompt enables you to trust that folder and its subfolders.
+When you open a new folder, it opens in [Restricted Mode](#restricted-mode) with a trust banner. Use the banner or the Workspace Trust editor to trust the folder and its subfolders when you're ready.
 
-![Trust this folder dialog](images/workspace-trust/workspace-trust-dialog.png)
+![Workspace Trust Restricted Mode banner](images/workspace-trust/restricted-mode-banner.png)
 
-You can also bring up the Workspace Editor and quickly toggle a folder's trusted state by selecting the **Trust** or **Trust Parent** button.
+You can also bring up the Workspace Trust editor and quickly toggle a folder's trusted state by selecting the **Trust** button.
 
-![Workspace Trust editor Trust buttons](images/workspace-trust/workspace-trust-buttons.png)
+![Workspace Trust editor Trust button](images/workspace-trust/workspace-trust-buttons-v2.png)
 
 There are several ways to bring up the Workspace Trust editor dialog.
 
@@ -150,15 +150,11 @@ You can manually add, edit, and remove folders from this list to enable or disab
 
 ### Selecting a parent folder
 
-When you trust a folder via the Workspace Trust editor, you have the option to also trust the parent folder. This applies trust to the parent folder and all its subfolders.
-
-![Workspace Trust editor showing the Trust Parent button](images/workspace-trust/trust-parent-folder.png)
+You can also trust a parent folder, which applies trust to the parent folder and all its subfolders. To trust a parent folder, add its path to the **Trusted Folders & Workspaces** list in the Workspace Trust editor.
 
 Trusting the parent folder can be helpful if you have many folders with trusted content co-located under one folder.
 
 When you open a subfolder under a trusted parent, you won't see the usual **Don't Trust** button to put you back in Restricted Mode. Instead, there is text mentioning that your folder is trusted due to another folder.
-
-You can add, modify, and remove a parent folder entry from the **Trusted Folders & Workspaces** list.
 
 ### Folder configurations
 
@@ -236,7 +232,7 @@ If you want all empty windows to be in Restricted Mode, you can set `setting(sec
 Below are the available Workspace Trust settings:
 
 * `setting(security.workspace.trust.enabled)` - Enable Workspace Trust feature. Default is true.
-* `setting(security.workspace.trust.startupPrompt)` - Whether to show the Workspace Trust dialog on startup. Default is to only show once per distinct folder or workspace.
+* `setting(security.workspace.trust.startupPrompt)` - Whether to show the Workspace Trust dialog on startup. Default is `never`, so new folders open in [Restricted Mode](#restricted-mode) with a trust banner instead of an upfront dialog. Set it to `once` to be prompted the first time you open a distinct folder or workspace.
 * `setting(security.workspace.trust.emptyWindow)` - Whether to always trust an empty window (no open folder). Default is true.
 * `setting(security.workspace.trust.untrustedFiles)` - Controls how to handle loose files in a workspace. Default is to prompt.
 * `setting(extensions.supportUntrustedWorkspaces)` - Override extension Workspace Trust declarations. Either true or false.
