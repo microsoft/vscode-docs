@@ -26,7 +26,7 @@ Use the following checklist to set up a secure starting point for AI-assisted de
 
 1. **Open untrusted projects in restricted mode.** Until you've reviewed a project for malicious content, rely on the [Workspace Trust](#trust-boundaries) boundary. Restricted mode disables agents in that workspace.
 
-1. **Enable agent sandboxing.** On macOS and Linux (WSL2 on Windows), enable `setting(chat.tools.terminal.sandbox.enabled)` to restrict file system and network access for agent-executed commands. Learn more about [agent sandboxing](#agent-sandboxing-preview).
+1. **Enable agent sandboxing.** On macOS and Linux (WSL2 on Windows), enable `setting(chat.agent.sandbox.enabled)` to restrict file system and network access for agent-executed commands. Learn more about [agent sandboxing](#agent-sandboxing-preview).
 
 1. **Review all file edits before accepting.** Use the [diff editor](/docs/chat/review-code-edits.md) to inspect proposed changes. Keep or undo individual changes before they are applied.
 
