@@ -42,6 +42,7 @@ To try new features as soon as possible, [**download the nightly Insiders build*
   <nav id="toc-nav">
     <div>In this update</div>
     <ul>
+      <li><a href="#changes-in-settings">Changes in settings</a></li>
       <li><a href="#agents">Agents</a></li>
       <li><a href="#chat">Chat</a></li>
       <li><a href="#mcp">MCP</a></li>
@@ -67,6 +68,15 @@ To try new features as soon as possible, [**download the nightly Insiders build*
   </nav>
   <div class="notes-main">
 Navigation End -->
+
+## Changes in settings
+
+This table summarizes the settings that were added, changed, or deprecated in this release, so you can quickly spot behavioral changes. For details, follow the link to the relevant section or see [Deprecated features and settings](#deprecated-features-and-settings).
+
+| Setting | Change | Description |
+| --- | --- | --- |
+| `setting(example.setting)` | New / Change / Deprecated | TODO: @ntrogh describe the behavioral change and the reasoning behind it. |
+
 
 ## Agents
 
