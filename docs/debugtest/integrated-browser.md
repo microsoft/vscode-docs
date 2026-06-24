@@ -1,6 +1,6 @@
 ---
 ContentId: f8e2a7c1-9d3b-4e5f-a6c8-1b2d3e4f5a6b
-DateApproved: 6/10/2026
+DateApproved: 6/24/2026
 MetaDescription: Use the integrated browser in VS Code to preview and debug web apps, navigate to URLs, and add page elements, screenshots, or console logs as context to AI chat.
 MetaSocialImage: images/debugging/debugging-social.png
 ---
@@ -285,6 +285,7 @@ Browser tools are different from [adding context to AI chat](#add-context-to-ai-
 
 To enable browser tools, set the `setting(workbench.browser.enableChatTools)` setting to `true`. The tools are then available to the agent automatically.
 
+In the [Agents window](/docs/agents/agents-window.md), browser tabs are isolated per session. Each session has its own set of browser tabs, and an agent can only read and interact with the tabs that belong to its own session.
 
 ### Share a browser page with agents
 
