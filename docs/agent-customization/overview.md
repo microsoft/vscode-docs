@@ -1,6 +1,6 @@
 ---
 ContentId: 16c73175-a606-4aab-8ae5-a5071d3b9e24
-DateApproved: 6/10/2026
+DateApproved: 6/24/2026
 MetaDescription: Get started customizing AI in VS Code with custom instructions, prompt files, custom agents, MCP servers, and more to align AI responses with your coding practices.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -97,6 +97,32 @@ In the Chat view, select the **Configure Chat (gear icon)** or run **Chat: Open 
 {% /tabs %}
 
 You can configure customization for different [agent types](/docs/agents/overview.md#configure-your-agent-session): local agents, Copilot CLI, and the Claude agent. Select the agent type from the dropdown at the top of the editor to view and manage customizations for that agent type.
+
+## Evaluate and improve customization files (Preview)
+
+As your collection of customization files grows, it can be hard to tell whether they actually guide the AI the way you intend. Vague wording, contradictory rules, or overly complex instructions can degrade results. The [Chat Customizations Evaluations](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-chat-customizations-evaluations) extension helps you catch these problems before you rely on a customization, by analyzing your files and suggesting concrete improvements.
+
+> [!NOTE]
+> The Chat Customizations Evaluations extension is currently in preview and is published separately from VS Code. Install it from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-chat-customizations-evaluations).
+
+The extension works with skill files (`SKILL.md`), custom agent files (`*.agent.md`), instructions files (`*.instructions.md`), and prompt files (`*.prompt.md`).
+
+Open an customization file and run the **Chat Customizations Evaluations: Analyze** command from the Command Palette (`kb(workbench.action.showCommands)`).
+The extension uses GitHub Copilot to detect issues such as:
+
+* Logical, behavioral, and format contradictions
+* Ambiguous wording, with suggested rewrites
+* Conflicting persona traits and tone drift
+* Excessive cognitive load from deeply nested conditions
+* Gaps in intent handling and missing error paths
+* Conflicts between a file and other customization files it links to
+
+Diagnostics appear in the **Problems** panel (`kb(workbench.actions.view.problems)`) with line and column locations. After the analysis completes, select **Implement Suggestions** to apply the suggested improvements.
+
+> [!TIP]
+> You can also start an analysis from chat with the `/analyze-prompt` slash command, which summarizes the diagnostics for the active customization file directly in the Chat view.
+
+For skill files, the extension integrates with the [Waza](https://github.com/microsoft/waza) evaluation framework so you can measure how well a skill performs against a set of test cases. Run **Chat Customizations Evaluations: Download Waza Binary** to install Waza, **Chat Customizations Evaluations: Create Waza Eval Scaffold** to generate evaluation files for the active skill, and **Chat Customizations Evaluations: Run Waza Evaluation** to run the suite. For step-by-step guidance, run **Chat Customizations Evaluations: Open Analysis and Fix User Guide**.
 
 ## Use customizations in a monorepo
 
