@@ -6,11 +6,11 @@ MetaSocialImage: images/quicksetup/quick-setup-social.png
 ---
 # Get started with Visual Studio Code
 
-Visual Studio Code is a free, open-source code editor for Windows, macOS, and Linux. It is the open platform for AI agents, built to be extended, and backed by a powerful editor with built-in debugging, Git, and IntelliSense.
+Visual Studio Code is a free, open-source code editor for Windows, macOS, and Linux. It brings together multiple ways of working in one tool. Describe a task in natural language and an AI agent plans, edits, and verifies the work. Write code yourself with a powerful editor that has built-in Git, IntelliSense, debugging, and testing tools. Or combine both approaches to get the best of both worlds.
 
-You can [download](https://code.visualstudio.com/download) and install VS Code on your desktop, or open it instantly in the browser at [vscode.dev](https://vscode.dev) with zero setup (learn more about [VS Code for the Web](/docs/remote/vscode-web.md)).
+VS Code runs on your desktop or a [remote machine](/docs/remote/remote-overview.md), or access it instantly from your browser with [VS Code for the Web](/docs/remote/vscode-web.md)).
 
-![Screenshot of VS Code with a travel blog project open, showing an agent session in the Chat view and previewing the site in the integrated browser.](images/overview/vscode-overview.png)
+VS Code puts you in control. Choose your [language model](/docs/agent-customization/language-models.md), whether from your GitHub Copilot subscription or your own API key, and pick the [agent](/docs/agents/overview.md) that fits the task. Customize VS Code for your technology stack with [extensions](/docs/configure/extensions/extensions.md) from the Marketplace, and shape the editor to your workflow with [settings, keybindings, and themes](/docs/configure/themes.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with VS Code">
 Follow a hands-on tutorial to build your first app with AI in VS Code.
@@ -18,6 +18,32 @@ Follow a hands-on tutorial to build your first app with AI in VS Code.
 * [Start tutorial](/docs/getstarted/getting-started.md)
 
 </div>
+
+## What you can do with VS Code
+
+VS Code adapts to how you want to work, whether you write every line yourself or hand off tasks to an AI agent. Most workflows combine both.
+
+* **Build with AI agents.** Describe what you want in natural language, and an agent plans a solution, edits files across your project, runs commands, and fixes its own errors. Run agents in the [Agents window](/docs/agents/agents-window.md) for an agent-first workflow, or in the [Chat view](/docs/agents/chat-view.md) while you write code in the editor. Learn more about [AI agents in VS Code](/docs/agents/overview.md).
+
+    ![Screenshot of the Agents window with the integrated browser showing a development website and the changes panel showing a list of changes.](images/overview/agents-window-integrated-browser.png)
+
+* **Write, test, and debug code.** Edit with IntelliSense, refactoring, and multi-cursor support, then find and fix problems with the built-in [debugger](/docs/debugtest/debugging.md) and [testing](/docs/debugtest/testing.md) tools. Track your work with integrated [source control](/docs/sourcecontrol/overview.md), and add [language support](/docs/languages/overview.md) for the stack you use.
+
+    ![Screenshot of VS Code with the Debugger quick pick to select the target environment.](images/overview/debugger-nodejs.png)
+
+* **Extend and customize.** Install [extensions](/docs/configure/extensions/extensions.md) and [MCP servers](/docs/agent-customization/mcp-servers.md) to add languages, tools, and data sources. Tailor the agent experience to your specific project needs with [custom instructions, custom agents, and your choice of language model](/docs/agent-customization/overview.md).
+
+    ![Screenshot of the Extensions view with the search bar and a list of extensions.](images/overview/extensions-search-python.png)
+
+## Get started in three steps
+
+New to VS Code? These three steps take you from a fresh install to building your first app with an AI agent.
+
+1. **Install VS Code.** Download the installer for your platform and follow the [install steps](#install-vs-code) below.
+
+1. **Enable AI features.** Sign in to unlock inline suggestions and AI agents. See [Enable AI features](#enable-ai-features).
+
+1. **Take the tutorial.** Build an app with the [agentic coding tutorial](/docs/getstarted/getting-started.md) or [learn the basics of writing code](/docs/editing/getting-started.md) in VS Code.
 
 ## Install VS Code
 
@@ -80,28 +106,58 @@ Follow these steps to get started with Copilot in VS Code:
 > [!TIP]
 > You can also use AI features in VS Code without using a Copilot subscription by bringing your own language model API key. Learn more about [using language models in VS Code](/docs/agent-customization/language-models.md#bring-your-own-language-model-key).
 
-## Next steps
+## Explore VS Code
+
+Pick a path based on what you want to do next.
 
 <div class="card-grid">
     <a class="card" href="/docs/getstarted/getting-started">
         <i class="codicon codicon-hubot" aria-hidden="true"></i>
         <div>
-            <p><strong>AI agents</strong></p>
-            <p>Learn about AI agents in our hands-on guide.</p>
+            <p><strong>Agentic coding</strong></p>
+            <p>Build an app from a prompt in our hands-on tutorial.</p>
         </div>
     </a>
     <a class="card" href="/docs/editing/getting-started">
         <i class="codicon codicon-tools" aria-hidden="true"></i>
         <div>
-            <p><strong>Powerful editor</strong></p>
-            <p>Learn the basics of editing, debugging, and language support in VS Code.</p>
+            <p><strong>Editing and debugging</strong></p>
+            <p>Learn the editor, debugging, and productivity basics.</p>
+        </div>
+    </a>
+    <a class="card" href="/docs/languages/overview">
+        <i class="codicon codicon-code" aria-hidden="true"></i>
+        <div>
+            <p><strong>Languages</strong></p>
+            <p>Set up support for Python, JavaScript, C++, and more.</p>
         </div>
     </a>
     <a class="card" href="/docs/configure/extensions/extensions">
         <i class="codicon codicon-extensions" aria-hidden="true"></i>
         <div>
-            <p><strong>Extensible platform</strong></p>
-            <p>Extensions, MCP servers, custom instructions, and an open API.</p>
+            <p><strong>Extensions and MCP</strong></p>
+            <p>Add tools, languages, and data sources to VS Code.</p>
+        </div>
+    </a>
+    <a class="card" href="/docs/agent-customization/overview">
+        <i class="codicon codicon-settings-gear" aria-hidden="true"></i>
+        <div>
+            <p><strong>Customize AI</strong></p>
+            <p>Custom instructions, custom agents, and language models.</p>
+        </div>
+    </a>
+    <a class="card" href="/docs/sourcecontrol/overview">
+        <i class="codicon codicon-source-control" aria-hidden="true"></i>
+        <div>
+            <p><strong>Source control</strong></p>
+            <p>Track changes and collaborate with built-in Git support.</p>
+        </div>
+    </a>
+    <a class="card" href="/docs/remote/remote-overview">
+        <i class="codicon codicon-remote" aria-hidden="true"></i>
+        <div>
+            <p><strong>Remote and web</strong></p>
+            <p>Work in containers, WSL, SSH, or the browser.</p>
         </div>
     </a>
 </div>
