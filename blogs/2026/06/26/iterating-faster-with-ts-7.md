@@ -1,22 +1,25 @@
 ---
-Order:
+Order: 134
 TOCTitle: Iterating faster with TypeScript 7
 PageTitle: Iterating faster with TypeScript 7
 MetaDescription: How the VS Code and TypeScript teams collaborated to adopt TypeScript 7 and speed up VS Code development
-MetaSocialImage: TODO
-Date: 2025-06-19
-Author: Matt Bierner
-Keywords: [TypeScript]
+MetaSocialImage: ts-7.png
+Date: 2026-06-26
+Author: VS Code Team
 ---
+
+# Iterating faster with TypeScript 7
+
+June 26, 2026 by VS Code Team, [@code](https://x.com/code)
 
 VS Code and TypeScript practically grew up together. We made a bet early on to write VS Code in TypeScript, and we have always worked closely with the TypeScript team to provide great built-in TypeScript and JavaScript language support in VS Code. This post is about the next step of that journey: TypeScript 7, and how collaborating on adopting TypeScript 7 sped up our builds, improved the day-to-day editing loop for both developers and agents, and helped the TypeScript team ship a more tested release.
 
-TypeScript 7 is a [ground-up rewrite of the TypeScript compiler and language tooling in Go](https://devblogs.microsoft.com/typescript/typescript-native-port/). That means it's fast, more than 10x faster in many cases. VS Code had a lot to gain from those speedups, so we were naturally eager to adopt TypeScript 7 as soon as we could.
+TypeScript 7 is a [complete port of the TypeScript compiler and language tooling in Go](https://devblogs.microsoft.com/typescript/typescript-native-port/). That means it's fast, more than 10x faster in many cases. VS Code had a lot to gain from those speedups, so we were naturally eager to adopt TypeScript 7 as soon as we could.
 
 However, we also knew that this would take time. When we started this process in the summer of 2025, TypeScript 7 was actually already shockingly far along for a complete rewrite, but it still had type checking inconsistencies and lacked many features we needed. Even so, we wanted to start testing and providing feedback right away. Adopting TypeScript 7 while it was still being built may sound a little crazy, but it turned out to be a great decision for both VS Code and TypeScript.
 
-
 ## An incremental migration
+
 The VS Code team has never been afraid to take on large engineering efforts, whether that's enabling [strict null checking in our codebase](https://code.visualstudio.com/blogs/2019/05/23/strict-null), adding [remote development support](https://code.visualstudio.com/blogs/2019/05/02/remote-development), or addressing and preventing dangerous code patterns across thousands of files. A common theme across these efforts is that we try to take an incremental approach. This means breaking big, complex problems down into small steps. Those steps happen in the main codebase (no forks or long-lived branches), and each one usually brings a small improvement as it lands. Take enough little steps, and eventually you can look back and realize that you've quietly conquered that once seemingly insurmountable challenge.
 
 We wanted to take the same approach to adopting TypeScript 7. For us, that meant gradually introducing TypeScript 7 into different parts of our workflows and codebases, starting with lower-impact, lower-risk areas before eventually moving on to the main areas of VS Code. There are many benefits to working incrementally, but two were especially important for this effort:
@@ -27,7 +30,7 @@ We wanted to take the same approach to adopting TypeScript 7. For us, that meant
 
     This testing helped us find bugs and limitations that they could then prioritize fixing. And as we adopted TS 7 in more parts of our codebase, those areas also became informal regression tests for each new TypeScript 7 nightly release.
 
-In practice, that incremental philosophy unfolded as a series of phases over around 6 months. Each phase increased our use and testing of TypeScript 7 a little more, moving in step with TypeScript 7's own progress and helping shape it along the way. Here's how it played out:
+In practice, that incremental philosophy unfolded as a series of phases over about six months. Each phase increased our use and testing of TypeScript 7 a little more, moving in step with TypeScript 7's own progress and helping shape it along the way. Here's how it played out:
 
 **Exploration (summer and early fall 2025)**
 
@@ -47,12 +50,11 @@ Meanwhile the TypeScript team was thinking through how to ease the transition to
 
 > TypeScript 6.0 acts as the bridge between TypeScript 5.9 and 7. As such, most changes in TypeScript 6.0 are meant to help align and prepare for adopting TypeScript 7
 >
-> — https://devblogs.microsoft.com/typescript/announcing-typescript-6-0/
+> — <https://devblogs.microsoft.com/typescript/announcing-typescript-6-0/>
 
 Such a bridge was necessary because TypeScript 7 gave the team a chance to fix and modernize certain long-standing annoyances in TypeScript tooling. For example, older TypeScript releases defaulted to targeting ES5. That made sense in 2014, when ES6 (aka ECMAScript 2015) had not been finalized yet, but it felt wildly anachronistic in 2025. It was also a footgun for new developers who would end up accidentally generating larger, less efficient JavaScript files simply because they forgot to set `target`. Similarly, TypeScript 5 did not enable strict null checks by default, so many users were missing out on this truly game-changing feature just because they did not know they needed to enable it.
 
 For us on the VS Code team, switching to TypeScript 6 was a small, low-risk step compared to the prospect of adopting an entirely rewritten TypeScript 7. It required only a few minor code changes. Still, this small step made us more confident that our codebase was in a good state and that once TypeScript 7 was ready, we'd be able to switch to it without many issues.
-
 
 **TS 6 and 7 in parallel (fall 2025)**
 
@@ -88,8 +90,8 @@ The final move was to switch to TypeScript 7 for our normal development. By then
 
 We also made TypeScript 7 the default version used in the editor for the VS Code repo. We still support switching back to the older TypeScript as an escape hatch, but it has rarely been needed in practice. Most developers are happy to stay on TypeScript 7 because of its significantly better performance.
 
-
 ## The numbers
+
 So, was it all worth it? The answer is a clear and resounding yes.
 
 Here's a before-and-after comparison for type checking the main VS Code source code:
@@ -116,8 +118,8 @@ Those improvements also translate into better language tooling performance in th
 
 Seeing these numbers really puts the scale of the improvements in perspective. It was easy to lose track of the total impact because our incremental approach meant that many improvements arrived gradually instead of in one big PR. Early steps might only have saved a second here or a few hundred milliseconds there. By the end, however, those small wins had added up into something significant. It's amazing to see how the TypeScript team delivered on their initial promise too: it's full TypeScript, just way faster.
 
-
 ## Better through collaboration
+
 Adopting TypeScript 7 has been a big win for developers working on VS Code, but there's another result of this effort that is less tangible and perhaps even more impactful. VS Code's large, complex codebase turned out to be an excellent way to find real-world bugs in TypeScript 7 and polish its editor tooling.
 
 The developers on the VS Code team also were not afraid to provide feedback about missing features or when something just did not feel right. Every time a developer hit a rough edge and switched back to TypeScript 6, it was a signal for the TypeScript team to decide what to fix next. The result is a more tested and polished version of TypeScript 7, one that we know works well beyond the VS Code codebase.
@@ -127,3 +129,5 @@ Although we've focused on the VS Code side of the story in this post, the TypeSc
 TypeScript 7 is an exciting step forward for the language. Whether you're editing code in VS Code, kicking off compiles on the command line, or asking an agent to iterate on a project, the performance improvements are significant and noticeable. Thanks to the work of the TypeScript team and the testing and feedback process outlined here, switching to TypeScript 7 should be a relatively smooth process and an easy win for many codebases.
 
 More than anything though, I hope this post shows the value of working incrementally, testing early and often, and building tight feedback loops for close collaboration. These are values VS Code has always held, and they continued to serve us well again on this effort. I hope that this story motivates you to think differently about how you can tackle large engineering efforts in your own projects and ultimately ship better code.
+
+Happy coding! 💙
