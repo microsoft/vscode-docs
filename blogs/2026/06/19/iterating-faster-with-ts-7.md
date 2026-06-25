@@ -106,7 +106,7 @@ tsgo --noEmit -p src/tsconfig.json
 
 TypeScript 7 is more than seven times faster! That's especially impressive when you consider that these two tasks are doing the same work: they type check the same files with the same level of thoroughness and report the same errors. Just by switching from TypeScript 6 to TypeScript 7, we sped up our type checking by 7x.
 
-With TypeScript 7, we can also now type check all of our built-in extensions (except Copilot) in well under a second (and even the large Copilot extension still only takes 2.5 seconds).
+With TypeScript 7, we can also now type check almost all of our built-in extensions in well under a second. The only exception is our larger Copilot extension, and that still only takes 2.5 seconds.
 
 The results get even more impressive when we look at compiling and type checking all of VS Code, i.e. both our main source code and our roughly fifty built-in extension `tsconfig` projects. This is what the `npm run watch` command does, and it is also the command that developers working on VS Code typically run.
 
