@@ -28,7 +28,7 @@ Key benefits of Agent Skills:
 * **Efficient loading**: Only relevant content loads into context when needed
 
 > [!TIP]
-> Use the [Agent Customizations editor](/docs/agent-customization/overview.md#manage-customizations-in-the-editor) (Preview) to discover, create, and manage all your agent customizations in one place. Run **Chat: Open Customizations** from the Command Palette.
+> Use the [Agent Customizations editor](/docs/agent-customization/overview.md#use-the-agent-customizations-editor) (Preview) to discover, create, and manage all your agent customizations in one place. Run **Chat: Open Customizations** from the Command Palette.
 
 ## Agent Skills vs custom instructions
 
