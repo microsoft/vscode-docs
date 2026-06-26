@@ -110,6 +110,7 @@ Each entry requires a `path` to a `.agent.md` file relative to the extension roo
 | -------- | ---- | -------- | ----------- |
 | `path` | `string` | Yes | Path to the `.agent.md` file relative to the extension root. The path must resolve to a location inside the extension. |
 | `when` | `string` | No | A [when clause](/api/references/when-clause-contexts) condition that must be true for this entry to be enabled. |
+| `sessionTypes` | `string[]` | No | The chat session types where this agent should be offered. |
 
 See [Custom agents in VS Code](/docs/agent-customization/custom-agents.md) for the required `.agent.md` file format, including the `name`, `description`, `tools`, and `model` frontmatter fields.
 
@@ -936,27 +937,8 @@ Register one entry per provider, giving it a unique `vendor` ID. Then use `vscod
 }
 ```
 
-You can add an optional `managementCommand` to let users configure the provider (for example, to enter API keys). The value must be a command declared in `contributes.commands`:
+To let users configure the provider (for example, to enter API keys), add a `configuration` schema. Mark sensitive fields with `"secret": true` so they are stored securely:
 
-```json
-{
-  "contributes": {
-    "languageModelChatProviders": [
-      {
-        "vendor": "my-provider",
-        "displayName": "My Provider",
-        "managementCommand": "my-provider.manage"
-      }
-    ],
-    "commands": [
-      {
-        "command": "my-provider.manage",
-        "title": "Manage My Provider"
-      }
-    ]
-  }
-}
-```
 
 ### languageModelChatProviders properties
 
@@ -964,7 +946,9 @@ You can add an optional `managementCommand` to let users configure the provider 
 | -------- | ---- | -------- | ----------- |
 | `vendor` | `string` | Yes | Unique identifier for the provider, used as the first argument to `vscode.lm.registerLanguageModelChatProvider`. |
 | `displayName` | `string` | Yes | Human-readable name shown in the model picker UI. |
-| `managementCommand` | `string` | No | Command ID that opens a UI for managing this provider (for example, configuring API keys). Must be declared in `contributes.commands`. |
+| `configuration` | `object` | No | A JSON schema describing configuration options for the provider (for example, API keys). Properties can be marked `"secret": true` to store them securely. This is the recommended way to let users configure a provider. |
+| `managementCommand` | `string` | No | _Deprecated. Use `configuration` instead._ Command ID that opens a UI for managing this provider. Must be declared in `contributes.commands`. |
+| `when` | `string` | No | A [when clause](/api/references/when-clause-contexts) that controls whether this provider appears in the Manage Models list. |
 
 See the [Language Model Chat Provider API guide](/api/extension-guides/ai/language-model-chat-provider) for full implementation details.
 
@@ -1006,7 +990,7 @@ Define each tool in the `contributes.languageModelTools` section, then register 
 | Property | Type | Required | Description |
 | -------- | ---- | -------- | ----------- |
 | `name` | `string` | Yes | Unique name of the tool used in the extension implementation. Use the `{verb}_{noun}` format and prefix with your extension name to avoid collisions. |
-| `displayName` | `string` | No | User-friendly name displayed in the UI. |
+| `displayName` | `string` | Yes | User-friendly name displayed in the UI. |
 | `modelDescription` | `string` | Yes | Description used by the language model to decide when and how to invoke the tool. Be precise: explain what the tool does, what it returns, and when it should or should not be used. |
 | `userDescription` | `string` | No | User-facing description displayed in the UI alongside the tool name. |
 | `canBeReferencedInPrompt` | `boolean` | No | Set to `true` to allow the tool to be used by agents or referenced via `#` in a chat prompt. When `true`, users can enable or disable the tool in the Chat view. |
