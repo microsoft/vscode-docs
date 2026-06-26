@@ -49,20 +49,14 @@ jobs:
   - script: npm config list
     displayName: List npm properties
 
-  - powershell: |
-      if (Test-Path "$(Pipeline.Workspace)/vscode-website/server/.npmrc.optional") {
-        mv "$(Pipeline.Workspace)/vscode-website/server/.npmrc.optional" "$(Pipeline.Workspace)/vscode-website/server/.npmrc"
-      }
-    displayName: Enforce .npmrc
+  - powershell: $(Pipeline.Workspace)/vscode-website/scripts/ci-auth-setup.ps1
+    displayName: Auth Setup
+    workingDirectory: $(Pipeline.Workspace)/vscode-website
 
   - task: npmAuthenticate@0
     displayName: Setup NPM Authentication
     inputs:
       workingFile: $(Pipeline.Workspace)/vscode-website/server/.npmrc
-
-  - powershell: $(Pipeline.Workspace)/vscode-website/scripts/ci-auth-setup.ps1
-    displayName: Build Dist Setup
-    workingDirectory: $(Pipeline.Workspace)/vscode-website
 
   - script: npm ci
     displayName: Install dependencies
