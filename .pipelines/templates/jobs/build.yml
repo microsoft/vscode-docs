@@ -64,7 +64,7 @@ jobs:
       workingFile: $(Pipeline.Workspace)/vscode-website/server/.npmrc
       customEndpoint: website npm feed
 
-  - script: npm ci
+  - script: npm ci --verbose
     displayName: Install dependencies
     workingDirectory: $(Pipeline.Workspace)/vscode-website
 
