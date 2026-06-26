@@ -59,10 +59,10 @@
     },
     {
       "type": "blog",
-      "title": "GitHub Copilot token optimizations",
-      "description": "How we optimized the agent harness to cut your token usage and reduce latency.",
-      "link": "/blogs/2026/06/17/improving-token-efficiency-in-github-copilot",
-      "image": "/assets/blogs/2026/06/17/cache-explorer.webp"
+      "title": "What 50,000 runs of a 5-line eval taught us",
+      "description": "How AI coding models calibrate effort, token cost, and tool use on even the simplest task, and what that means for model selection.",
+      "link": "/blogs/2026/06/19/what-50000-runs-taught-us",
+      "image": "/assets/blogs/2026/06/19/5000-runs-social.png"
     }
   ]
 }

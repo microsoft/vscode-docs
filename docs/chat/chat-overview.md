@@ -133,7 +133,7 @@ Chat provides several ways to improve the quality and relevance of AI responses:
 
 * **Extend with tools**: connect [MCP servers](/docs/agent-customization/mcp-servers.md) or install extensions that contribute tools to give the agent access to external services, databases, or APIs.
 
-For more information, see [customizing AI in VS Code](/docs/agent-customization/overview.md).
+For more information, see [Customize agent behavior in VS Code](/docs/agent-customization/overview.md).
 
 ## Troubleshoot chat interactions
 

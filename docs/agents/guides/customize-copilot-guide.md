@@ -176,4 +176,4 @@ your-project/
 * Set up [hooks](/docs/agent-customization/hooks.md) to automate tasks at agent lifecycle points, such as running a formatter after every file edit
 * Browse [agent plugins](/docs/agent-customization/agent-plugins.md) to install pre-packaged customizations from community marketplaces
 * Share customizations with your team by committing the `.github/` directory to your repository
-* See all your customizations in one place with the [Agent Customizations editor](/docs/agent-customization/overview.md#manage-customizations-in-the-editor)
+* See all your customizations in one place with the [Agent Customizations editor](/docs/agent-customization/overview.md#use-the-agent-customizations-editor)
