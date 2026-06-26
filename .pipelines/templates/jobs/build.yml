@@ -58,6 +58,12 @@ jobs:
     inputs:
       workingFile: $(Pipeline.Workspace)/vscode-website/server/.npmrc
 
+  - task: npmAuthenticate@0
+    displayName: Setup NPM Authentication
+    inputs:
+      workingFile: $(Pipeline.Workspace)/vscode-website/server/.npmrc
+      customEndpoint: website npm feed
+
   - script: npm ci
     displayName: Install dependencies
     workingDirectory: $(Pipeline.Workspace)/vscode-website
