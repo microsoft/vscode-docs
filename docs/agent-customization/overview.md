@@ -16,9 +16,11 @@ Keywords:
 - agent skills
 - mcp
 ---
-# Customize AI in Visual Studio Code
+# Customize agent behavior in Visual Studio Code
 
-Visual Studio Code gives you several ways to teach the AI about your codebase, coding standards, and workflows. This article introduces the customization options and helps you get started. You can manage customizations from both the [Chat view](/docs/agents/chat-view.md) and the [Agents window](/docs/agents/agents-window.md).
+AI agents write great code but don't know your codebase, team conventions, or the workflows you repeat every day. By adding agent customizations, you share that context to make the AI's responses match your coding standards, project structure, and common tasks.
+
+Visual Studio Code gives you several ways to provide this context, from project-wide instructions to specialized agent personas and access to external tools. This article introduces the customization options and helps you get started. You can manage customizations from both the [Chat view](/docs/agents/chat-view.md) and the [Agents window](/docs/agents/agents-window.md).
 
 <div class="docs-action" data-show-in-doc="true" data-show-in-sidebar="true" title="Core concepts">
 Learn about the different customization types and when to use each one.
@@ -34,18 +36,31 @@ Follow a hands-on walkthrough to customize AI for your project.
 
 </div>
 
+## Benefits of agent customization
+
+Investing in agent customization pays off in a few concrete ways:
+
+* **Stop repeating context.** Capture your conventions, architecture, and preferred libraries once, instead of restating them in every prompt.
+
+* **Get consistent, on-standard output.** The AI follows your team's lint rules, naming conventions, and architectural and coding patterns by default, reducing the time you spend correcting results.
+
+* **Turn chores into one step.** Package multi-step tasks, such as scaffolding a component or running a test-and-deploy flow, into a reusable command.
+
+* **Reach your own tools and data.** Connect the agent to your databases, APIs, and services to work with real project context.
+
+* **Share it with your team.** Customizations live in your repository, giving everyone the same setup and consistent results.
+
 ## Customization types
 
 VS Code offers several customization types, each suited to a different goal. The following list gives a quick description of each type and links to its setup article:
 
 * [Instructions](/docs/agent-customization/custom-instructions.md): describe your coding standards, conventions, and project structure, applied to every request or scoped to specific files.
-* [Prompt files](/docs/agent-customization/prompt-files.md): save reusable prompts that you invoke as slash commands in chat.
 * [Agent skills](/docs/agent-customization/agent-skills.md): package multi-step workflows, scripts, and resources that the agent loads when a task matches.
 * [Custom agents](/docs/agent-customization/custom-agents.md): define a specialized persona with its own instructions, tool access, and model.
-* [Language models](/docs/agent-customization/language-models.md): choose which model handles your requests, or bring your own model and API key.
 * [MCP servers](/docs/agent-customization/mcp-servers.md): connect the agent to external tools, services, and data through the Model Context Protocol.
 * [Hooks](/docs/agent-customization/hooks.md): run deterministic actions at specific points in the agent loop to enforce policies and guardrails.
 * [Agent plugins](/docs/agent-customization/agent-plugins.md) (preview): bundle the other customization types into a single installable package.
+* [Prompt files](/docs/agent-customization/prompt-files.md): save reusable prompts that you invoke as slash commands in chat.
 
 To compare the options and decide which one fits your goal, see [Customization concepts](/docs/agents/concepts/customization.md). The rest of this article focuses on how to set up and manage customizations.
 
@@ -122,7 +137,7 @@ Diagnostics appear in the **Problems** panel (`kb(workbench.actions.view.problem
 > [!TIP]
 > You can also start an analysis from chat with the `/analyze-prompt` slash command, which summarizes the diagnostics for the active customization file directly in the Chat view.
 
-For skill files, the extension integrates with the [Waza](https://github.com/microsoft/waza) evaluation framework so you can measure how well a skill performs against a set of test cases. Run **Chat Customizations Evaluations: Download Waza Binary** to install Waza, **Chat Customizations Evaluations: Create Waza Eval Scaffold** to generate evaluation files for the active skill, and **Chat Customizations Evaluations: Run Waza Evaluation** to run the suite. For step-by-step guidance, run **Chat Customizations Evaluations: Open Analysis and Fix User Guide**.
+For skill files, the extension integrates with the [Waza](https://github.com/microsoft/waza) evaluation framework to measure how well a skill performs against a set of test cases. Run **Chat Customizations Evaluations: Download Waza Binary** to install Waza, **Chat Customizations Evaluations: Create Waza Eval Scaffold** to generate evaluation files for the active skill, and **Chat Customizations Evaluations: Run Waza Evaluation** to run the suite. For step-by-step guidance, run **Chat Customizations Evaluations: Open Analysis and Fix User Guide**.
 
 ## Use customizations in a monorepo
 

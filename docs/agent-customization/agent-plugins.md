@@ -20,6 +20,8 @@ Agent plugins are prepackaged bundles of agent customizations that you can disco
 
 Plugins work alongside your locally defined customizations. When you install a plugin, its commands, skills, agents, hooks, and MCP servers appear in chat.
 
+For how plugins fit into the broader set of customization options, see [Customization concepts](/docs/agents/concepts/customization.md).
+
 > [!NOTE]
 > Enable or disable support for agent plugins with the `setting(chat.plugins.enabled)` setting.
 

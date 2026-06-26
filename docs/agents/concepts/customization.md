@@ -1,7 +1,7 @@
 ---
 ContentId: f6a7b8c9-0d1e-2f3a-4b5c-6d7e8f9a0b1c
 DateApproved: 6/24/2026
-MetaDescription: Learn about the AI customization options in VS Code, including instructions, prompt files, custom agents, skills, hooks, and plugins.
+MetaDescription: Learn about the AI agent customization options in VS Code, including instructions, prompt files, custom agents, skills, hooks, and plugins.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - copilot
@@ -16,11 +16,11 @@ Keywords:
 - MCP
 ---
 
-# Customization
+# Agent customization
 
-AI models have broad general knowledge but don't know your codebase or team practices. Think of the AI as a skilled new team member: it writes great code, but doesn't know your conventions, architecture decisions, or preferred libraries. Customization is how you share that context, so responses match your coding standards, project structure, and workflows.
+AI models contain broad general knowledge but don't know your specific codebase or team practices. Agent customization is how you share that context to make responses match your coding standards, project structure, and workflows.
 
-This article is the decision matrix for customization: it explains the different options and helps you choose which one fits your goal. For setup steps and examples, see [Customize AI in Visual Studio Code](/docs/agent-customization/overview.md) and the individual guides linked from each option.
+This article is the decision matrix for customization: it explains the different options and helps you choose which one fits your goal. To learn what each option is and how to get started, see [Customize AI in Visual Studio Code](/docs/agent-customization/overview.md) and the individual guides linked from each option.
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with customizations">
 Follow a hands-on tutorial to discover the customization options and configure them for your project.

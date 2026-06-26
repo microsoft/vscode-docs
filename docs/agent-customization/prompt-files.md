@@ -23,7 +23,7 @@ Use prompt files to:
 * Override default behavior of a custom agent, such as creating a minimal implementation plan or generating mockups for API calls
 
 > [!TIP]
-> **Prompt files, agents, or skills?** Use prompt files for lightweight, single-task prompts. Use [custom agents](/docs/agent-customization/custom-agents.md) when you need a persistent persona with its own tool restrictions and handoffs. Use [agent skills](/docs/agent-customization/agent-skills.md) when you need a portable, multi-file capability with scripts and resources.
+> **Not sure which customization to use?** See the [decision matrix](/docs/agents/concepts/customization.md#customization-options-at-a-glance) to compare prompt files with custom agents, agent skills, and the other options.
 
 > [!TIP]
 > Use the [Agent Customizations editor](/docs/agent-customization/overview.md#manage-customizations-in-the-editor) (Preview) to discover, create, and manage all your agent customizations in one place. Run **Chat: Open Customizations** from the Command Palette.

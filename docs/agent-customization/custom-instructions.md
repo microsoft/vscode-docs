@@ -20,6 +20,8 @@ Custom instructions enable you to define common guidelines and rules that automa
 
 You can configure custom instructions to apply automatically to all chat requests or to specific files only. Alternatively, you can manually attach custom instructions to a specific chat prompt.
 
+For how instructions compare with the other customization options, see [Customization concepts](/docs/agents/concepts/customization.md).
+
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Generate instructions">
 Set up your project for AI with `/init` to generate custom instructions tailored to your project.
 

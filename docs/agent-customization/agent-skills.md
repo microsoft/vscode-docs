@@ -18,6 +18,8 @@ Agent Skills are folders of instructions, scripts, and resources that GitHub Cop
 
 Unlike [custom instructions](/docs/agent-customization/custom-instructions.md) that primarily define coding guidelines, skills enable specialized capabilities and workflows that can include scripts, examples, and other resources. Skills you create are portable and work across any skills-compatible agent.
 
+For how skills compare with the other customization options, see [Customization concepts](/docs/agents/concepts/customization.md).
+
 Key benefits of Agent Skills:
 
 * **Specialize Copilot**: Tailor capabilities for domain-specific tasks without repeating context
