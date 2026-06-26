@@ -16,9 +16,11 @@ Keywords:
 - agent skills
 - mcp
 ---
-# Customize AI in Visual Studio Code
+# Customize agent behavior in Visual Studio Code
 
-Visual Studio Code gives you several ways to teach the AI about your codebase, coding standards, and workflows. This article introduces the customization options and helps you get started. You can manage customizations from both the [Chat view](/docs/agents/chat-view.md) and the [Agents window](/docs/agents/agents-window.md).
+AI agents write great code but don't know your codebase, team conventions, or the workflows you repeat every day. By adding agent customizations, you share that context to make the AI's responses match your coding standards, project structure, and common tasks.
+
+Visual Studio Code gives you several ways to provide this context, from project-wide instructions to specialized agent personas and access to external tools. This article introduces the customization options and helps you get started. You can manage customizations from both the [Chat view](/docs/agents/chat-view.md) and the [Agents window](/docs/agents/agents-window.md).
 
 <div class="docs-action" data-show-in-doc="true" data-show-in-sidebar="true" title="Core concepts">
 Learn about the different customization types and when to use each one.
@@ -34,20 +36,19 @@ Follow a hands-on walkthrough to customize AI for your project.
 
 </div>
 
-## Customization types
+## What each customization gives you
 
-VS Code offers several customization types, each suited to a different goal. The following list gives a quick description of each type and links to its setup article:
+Customization pays off in concrete ways: you stop repeating context, get consistent on-standard output, and turn multi-step chores into a single command. You can also connect the AI to your own tools and data, and share one setup across your team. Each customization type targets a different one of these needs:
 
-* [Instructions](/docs/agent-customization/custom-instructions.md): describe your coding standards, conventions, and project structure, applied to every request or scoped to specific files.
-* [Prompt files](/docs/agent-customization/prompt-files.md): save reusable prompts that you invoke as slash commands in chat.
-* [Agent skills](/docs/agent-customization/agent-skills.md): package multi-step workflows, scripts, and resources that the agent loads when a task matches.
-* [Custom agents](/docs/agent-customization/custom-agents.md): define a specialized persona with its own instructions, tool access, and model.
-* [Language models](/docs/agent-customization/language-models.md): choose which model handles your requests, or bring your own model and API key.
-* [MCP servers](/docs/agent-customization/mcp-servers.md): connect the agent to external tools, services, and data through the Model Context Protocol.
-* [Hooks](/docs/agent-customization/hooks.md): run deterministic actions at specific points in the agent loop to enforce policies and guardrails.
-* [Agent plugins](/docs/agent-customization/agent-plugins.md) (preview): bundle the other customization types into a single installable package.
+* **[Instructions](/docs/agent-customization/custom-instructions.md)**: Write your coding standards and conventions once, and the AI applies them automatically to every request. No more repeating "use our logger" or "follow our ESLint config" in each prompt.
+* **[Agent skills](/docs/agent-customization/agent-skills.md)**: Teach the AI a repeatable capability, bundled with scripts, examples, and resources, that it loads on its own when a task matches. For example, a full test, lint, and deploy routine.
+* **[Custom agents](/docs/agent-customization/custom-agents.md)**: Give the AI a focused role with its own instructions, allowed tools, and model, such as a read-only planner or a security reviewer. Switch roles in one step instead of re-explaining them each time.
+* **[MCP servers](/docs/agent-customization/mcp-servers.md)**: Connect the AI to your own tools, databases, and services to work with real project data, not just code. For example, query your database or file an issue.
+* **[Hooks](/docs/agent-customization/hooks.md)**: Run your own commands automatically at key points in the agent's loop, such as formatting after every edit or blocking risky commands. You get deterministic guardrails that don't rely on the model remembering.
+* **[Agent plugins](/docs/agent-customization/agent-plugins.md)** (preview): Install a ready-made bundle of the customizations above from a marketplace, and adopt a proven workflow without building it yourself.
+* **[Prompt files](/docs/agent-customization/prompt-files.md)**: Save a reusable prompt that you invoke as a slash command, such as `/scaffold-component` or `/prep-pr`. Turn a paragraph of instructions into one command.
 
-To compare the options and decide which one fits your goal, see [Customization concepts](/docs/agents/concepts/customization.md). The rest of this article focuses on how to set up and manage customizations.
+To compare these options and decide which one fits a given goal, see [Customization concepts](/docs/agents/concepts/customization.md). The rest of this article focuses on how to set up and manage customizations.
 
 ## Get started incrementally
 
@@ -57,16 +58,16 @@ Adopt customizations gradually rather than all at once. Start with project-wide 
 
 1. **Add targeted instructions**: create `*.instructions.md` files that apply to specific languages, frameworks, or folders in your codebase.
 
-1. **Automate repetitive tasks**: create prompt files for common workflows, such as generating tests or scaffolding components.
+1. **Automate repetitive tasks**: package multi-step workflows, scripts, and template files as agent skills that the AI loads when a task matches.
 
-1. **Specialize the AI for specific roles**: create custom agents, and package reusable capabilities as agent skills to share across projects and tools.
+1. **Specialize the AI for specific roles**: create custom agents with their own instructions and tools for roles like a code reviewer or planner.
 
 1. **Connect external tools and data**: add MCP servers and hooks to extend the AI with external services and custom actions.
 
 > [!TIP]
 > You can generate customization files with AI. Type `/create-instruction`, `/create-prompt`, `/create-skill`, `/create-agent`, or `/create-hook` in chat to scaffold a new customization with AI assistance.
 
-## Manage customizations in the editor
+## Use the Agent Customizations editor
 
 > [!NOTE]
 > The Agent Customizations editor is currently in preview.
@@ -122,7 +123,7 @@ Diagnostics appear in the **Problems** panel (`kb(workbench.actions.view.problem
 > [!TIP]
 > You can also start an analysis from chat with the `/analyze-prompt` slash command, which summarizes the diagnostics for the active customization file directly in the Chat view.
 
-For skill files, the extension integrates with the [Waza](https://github.com/microsoft/waza) evaluation framework so you can measure how well a skill performs against a set of test cases. Run **Chat Customizations Evaluations: Download Waza Binary** to install Waza, **Chat Customizations Evaluations: Create Waza Eval Scaffold** to generate evaluation files for the active skill, and **Chat Customizations Evaluations: Run Waza Evaluation** to run the suite. For step-by-step guidance, run **Chat Customizations Evaluations: Open Analysis and Fix User Guide**.
+For skill files, the extension integrates with the [Waza](https://github.com/microsoft/waza) evaluation framework to measure how well a skill performs against a set of test cases. Run **Chat Customizations Evaluations: Download Waza Binary** to install Waza, **Chat Customizations Evaluations: Create Waza Eval Scaffold** to generate evaluation files for the active skill, and **Chat Customizations Evaluations: Run Waza Evaluation** to run the suite. For step-by-step guidance, run **Chat Customizations Evaluations: Open Analysis and Fix User Guide**.
 
 ## Use customizations in a monorepo
 

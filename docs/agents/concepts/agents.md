@@ -62,7 +62,7 @@ The agent loop is not one-size-fits-all and might differ for each project. There
 * With [**agent skills**](/docs/agent-customization/agent-skills.md), you can teach the agent new capabilities for a specific domain or task.
 * [**Hooks**](/docs/agent-customization/hooks.md) run custom commands at specific lifecycle points in the agent loop.
 
-Learn more about [customization concepts](/docs/agents/concepts/customization.md).
+Learn more about [Customization concepts](/docs/agents/concepts/customization.md).
 
 ## Agent types
 

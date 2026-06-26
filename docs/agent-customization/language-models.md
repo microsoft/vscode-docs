@@ -125,7 +125,7 @@ VS Code provides different options to add more language models:
 
 * [Extensions](#add-a-model-provider-extension): A marketplace extension provides the model, for example AI Toolkit for local models.
 
-* [Custom endpoint](#add-a-custom-endpoint-model) _(Insiders)_: You have a self-hosted, enterprise, or other endpoint that speaks Chat Completions, Responses, or Messages API.
+* [Custom endpoint](#add-a-custom-endpoint-model): You have a self-hosted, enterprise, or other endpoint that speaks Chat Completions, Responses, or Messages API.
 
 > [!NOTE]
 > If you are a Copilot Business or Enterprise user, your administrator can disable the **Bring Your Own Language Model Key in VS Code** policy in the [Copilot policy settings](https://github.com/settings/copilot/features) on GitHub.com. For more details, see the [GitHub Copilot documentation](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/use-your-own-api-keys).
