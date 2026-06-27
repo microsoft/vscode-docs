@@ -11,6 +11,15 @@ body {
 	overscroll-behavior: none;
 }
 
+body.vscode-dark,
+body.vscode-high-contrast {
+  color-scheme: dark;
+}
+
+body.vscode-light {
+  color-scheme: light;
+}
+
 #scroll-to-top {
 	position: fixed;
 	width: 40px;
