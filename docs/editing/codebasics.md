@@ -224,6 +224,35 @@ In the **files to include** box, you can use the **Search only in changed files*
 > [!TIP]
 > From the Explorer, you can right-click on a folder and select **Find in Folder** to search inside a folder only.
 
+### Search performance
+
+If VS Code search is slow or you notice many background `rg` processes in your system's process monitor, the most common cause is misconfigured exclude settings that allow search to scan large directories such as `node_modules`.
+
+Use the following steps to resolve the issue:
+
+1. **Check the "Use Exclude Settings and Ignore Files" toggle**: In the Search view, ensure the **Use Exclude Settings and Ignore Files** button in the **files to exclude** box is enabled (the default). When this toggle is disabled, VS Code searches all files without respecting `.gitignore` or your `setting(search.exclude)` settings, which can dramatically slow down search in large workspaces.
+
+1. **Verify `search.useIgnoreFiles`**: Confirm that `setting(search.useIgnoreFiles)` is set to `true` in your [settings](/docs/configure/settings.md). This ensures `.gitignore` and `.ignore` files are respected during search.
+
+1. **Add explicit `search.exclude` patterns**: For directories not covered by `.gitignore`, add exclusion patterns to `setting(search.exclude)` in your `settings.json`:
+
+    ```json
+    {
+      "search.exclude": {
+        "**/node_modules/**": true,
+        "**/.git/**": true
+      }
+    }
+    ```
+
+1. **Disable symlink following**: If the issue persists, especially in workspaces with git worktrees or many symbolic links, set `setting(search.followSymlinks)` to `false`.
+
+    ```json
+    {
+      "search.followSymlinks": false
+    }
+    ```
+
 ### Search and replace
 
 You can also Search and Replace across files. Expand the Search widget to display the Replace text box.
@@ -483,6 +512,10 @@ You've covered the basic user interface - there is a lot more to VS Code.  Read 
 * [Debugging](/docs/debugtest/debugging.md) - This is where VS Code really shines.
 
 ## Common questions
+
+### Why is VS Code search slow or spawning many background processes?
+
+If search is slow or you notice many `rg` processes running in the background, misconfigured exclude settings are the most common cause. See [Search performance](#search-performance) for steps to fix the issue.
 
 ### Is it possible to globally search and replace?
 
