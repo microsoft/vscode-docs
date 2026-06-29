@@ -20,9 +20,6 @@ Browser agent tools enable AI to autonomously build and verify web applications 
 
 This guide walks you through using browser agent tools to build a calculator app and watch as the agent discovers and fixes bugs through automated testing.
 
-> [!NOTE]
-> Browser agent tools are currently experimental and may change in future releases.
-
 ## Prerequisites
 
 To complete this guide, you need:
@@ -43,6 +40,9 @@ When you enable browser agent tools, agents gain access to tools that let them r
 By default, pages opened by the agent run in private, in-memory sessions that don't share cookies or storage with your other browser tabs. This gives you control over what browsing data the agent can access.
 
 Learn more about the [integrated browser in VS Code](/docs/debugtest/integrated-browser.md).
+
+> [!NOTE]
+> Administrators can disable browser tools or restrict which domains agent tools can reach with [enterprise policies](/docs/enterprise/ai-settings.md#configure-agent-network-filtering).
 
 ## Step 1: Enable browser tools for the agent
 

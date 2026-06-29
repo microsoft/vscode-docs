@@ -10,9 +10,6 @@ The integrated browser enables you to open and interact with web pages directly 
 
 ![Screenshot of the integrated browser in VS Code displaying a web page.](images/integrated-browser/integrated-browser.png)
 
->[!NOTE]
-> The integrated browser is currently an experimental feature and may change in future releases.
-
 ## Open the browser
 
 There are several ways to open the integrated browser:
@@ -276,9 +273,6 @@ The Live Preview extension can use the integrated browser for previewing web pag
 
 ## Browser tools for agents
 
-> [!NOTE]
-> Browser tools for agents are currently experimental.
-
 Agents can read and interact with pages in the integrated browser by using built-in browser tools. When enabled, agents can open browser pages, navigate to URLs, read page content and console errors, take screenshots, click elements, type text, hover over elements, drag elements, handle dialogs, and run Playwright code, all without requiring an external MCP server.
 
 Browser tools are different from [adding context to AI chat](#add-context-to-ai-chat). The Add to Chat actions let you manually pick page elements, capture screenshots, or attach console logs as context for a chat prompt. Browser tools let agents autonomously interact with web pages to complete tasks.
@@ -306,6 +300,13 @@ When you have open browser tabs that are not shared, the agent can detect that u
 When the agent tries to open a new page and you already have open tabs on the same domain, you are prompted to share an existing tab instead of opening a new one. Only tabs with a matching domain and port are listed. If you select **No**, the agent opens a new tab and only the new tab is shared.
 
 In autopilot mode, share requests are automatically declined to preserve your privacy.
+
+### Enterprise policies for browser tools
+
+Organizations can centrally control browser tools through [enterprise policies](/docs/enterprise/ai-settings.md):
+
+* To disable browser tools for chat agents, set the `BrowserChatTools` policy to `false`. This configures the `setting(workbench.browser.enableChatTools)` setting in VS Code. See [Enable or disable extension language tools](/docs/enterprise/ai-settings.md#enable-or-disable-extension-language-tools).
+* To restrict which domains agent tools (including the integrated browser) can reach, configure [agent network filtering](/docs/enterprise/ai-settings.md#configure-agent-network-filtering) with the `ChatAgentNetworkFilter`, `ChatAgentAllowedNetworkDomains`, and `ChatAgentDeniedNetworkDomains` policies. Denied domains take precedence over allowed domains, and both support wildcards like `*.example.com`.
 
 ## Related
 

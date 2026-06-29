@@ -75,7 +75,7 @@ Providing the right context helps the AI generate more relevant and accurate res
 
 * **Vision**: attach images, such as screenshots or UI mockups, as context for your prompt.
 
-* **Browser elements** (Experimental): select elements from the [integrated browser](/docs/debugtest/integrated-browser.md) to add HTML, CSS, and screenshot context to your prompt.
+* **Browser elements**: select elements from the [integrated browser](/docs/debugtest/integrated-browser.md) to add HTML, CSS, and screenshot context to your prompt.
 
 Learn more about [managing context for AI](/docs/chat/copilot-chat-context.md).
 

@@ -101,9 +101,6 @@ Learn more about [browser-to-chat actions](/docs/debugtest/integrated-browser.md
 
 ## Interact with browser pages
 
-> [!NOTE]
-> Browser tools for agents are currently experimental.
-
 Agents can directly read and interact with pages in the [integrated browser](/docs/debugtest/integrated-browser.md) by using built-in browser tools. This enables agents to navigate to URLs, read page content and console errors, take screenshots, click elements, type text, and more, without requiring an external MCP server.
 
 To enable browser tools, set the `setting(workbench.browser.enableChatTools)` setting to `true`.
