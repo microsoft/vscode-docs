@@ -306,7 +306,7 @@ In autopilot mode, share requests are automatically declined to preserve your pr
 Organizations can centrally control browser tools through [enterprise policies](/docs/enterprise/ai-settings.md):
 
 * To disable browser tools for chat agents, set the `BrowserChatTools` policy to `false`. This configures the `setting(workbench.browser.enableChatTools)` setting in VS Code. See [Enable or disable extension language tools](/docs/enterprise/ai-settings.md#enable-or-disable-extension-language-tools).
-* To restrict which domains agent tools (including the integrated browser) can reach, configure [agent network filtering](/docs/enterprise/ai-settings.md#configure-agent-network-filtering) with the `ChatAgentNetworkFilter`, `ChatAgentAllowedNetworkDomains`, and `ChatAgentDeniedNetworkDomains` policies. Denied domains take precedence over allowed domains, and both support wildcards like `*.example.com`.
+* To restrict which domains agent tools (including the integrated browser) can reach, configure [agent network filtering](/docs/enterprise/ai-settings.md#configure-agent-network-filtering) with the `ChatAgentNetworkFilter`, `ChatAgentAllowedNetworkDomains`, and `ChatAgentDeniedNetworkDomains` policies, which configure the `setting(chat.agent.networkFilter)`, `setting(chat.agent.allowedNetworkDomains)`, and `setting(chat.agent.deniedNetworkDomains)` settings. Denied domains take precedence over allowed domains, and both support wildcards like `*.example.com`. When the filter is enabled and both domain lists are empty, all network access by agent tools is blocked.
 
 ## Related
 
