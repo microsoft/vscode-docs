@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
-DateApproved: 6/10/2026
+DateApproved: 6/24/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various Contribution Points it is using in its package.json Extension Manifest file.
@@ -13,6 +13,7 @@ MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares
 
 - [`authentication`](/api/references/contribution-points#contributes.authentication)
 - [`breakpoints`](/api/references/contribution-points#contributes.breakpoints)
+- [`chatAgents`](/api/references/contribution-points#contributes.chatAgents)
 - [`chatInstructions`](/api/references/contribution-points#contributes.chatInstructions)
 - [`chatPromptFiles`](/api/references/contribution-points#contributes.chatPromptFiles)
 - [`chatSkills`](/api/references/contribution-points#contributes.chatSkills)
@@ -28,6 +29,8 @@ MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares
 - [`jsonValidation`](/api/references/contribution-points#contributes.jsonValidation)
 - [`keybindings`](/api/references/contribution-points#contributes.keybindings)
 - [`languages`](/api/references/contribution-points#contributes.languages)
+- [`languageModelChatProviders`](/api/references/contribution-points#contributes.languageModelChatProviders)
+- [`languageModelTools`](/api/references/contribution-points#contributes.languageModelTools)
 - [`menus`](/api/references/contribution-points#contributes.menus)
 - [`problemMatchers`](/api/references/contribution-points#contributes.problemMatchers)
 - [`problemPatterns`](/api/references/contribution-points#contributes.problemPatterns)
@@ -82,6 +85,34 @@ Usually a debugger extension will also have a `contributes.breakpoints` entry wh
   }
 }
 ```
+
+## contributes.chatAgents
+
+Contributes [custom agents](/docs/agent-customization/custom-agents.md) for Copilot Chat. Custom agents are pre-configured AI personas with specific instructions and tool restrictions. Use this contribution point to bundle reusable custom agents with your extension so they appear alongside user-defined agents in the agents dropdown.
+
+Each entry requires a `path` to a `.agent.md` file relative to the extension root. You can optionally specify a `when` clause to conditionally enable the agent. Specify the agent's `name`, `description`, and other metadata inside the `.agent.md` frontmatter rather than in the contribution point.
+
+```json
+{
+  "contributes": {
+    "chatAgents": [
+      {
+        "path": "./agents/planner.agent.md"
+      }
+    ]
+  }
+}
+```
+
+### chatAgents properties
+
+| Property | Type | Required | Description |
+| -------- | ---- | -------- | ----------- |
+| `path` | `string` | Yes | Path to the `.agent.md` file relative to the extension root. The path must resolve to a location inside the extension. |
+| `when` | `string` | No | A [when clause](/api/references/when-clause-contexts) condition that must be true for this entry to be enabled. |
+| `sessionTypes` | `string[]` | No | The chat session types where this agent should be offered. |
+
+See [Custom agents in VS Code](/docs/agent-customization/custom-agents.md) for the required `.agent.md` file format, including the `name`, `description`, `tools`, and `model` frontmatter fields.
 
 ## contributes.chatInstructions
 
@@ -886,6 +917,90 @@ The main effects of `contributes.languages` are:
   }
 }
 ```
+
+## contributes.languageModelChatProviders
+
+Contributes a language model chat provider to VS Code, enabling extensions to supply custom language models that users can select in the model picker. Each provider manages its own set of models and handles chat requests on their behalf.
+
+Register one entry per provider, giving it a unique `vendor` ID. Then use `vscode.lm.registerLanguageModelChatProvider` in your extension activation to wire up the implementation.
+
+```json
+{
+  "contributes": {
+    "languageModelChatProviders": [
+      {
+        "vendor": "my-provider",
+        "displayName": "My Provider"
+      }
+    ]
+  }
+}
+```
+
+To let users configure the provider (for example, to enter API keys), add a `configuration` schema. Mark sensitive fields with `"secret": true` so they are stored securely:
+
+
+### languageModelChatProviders properties
+
+| Property | Type | Required | Description |
+| -------- | ---- | -------- | ----------- |
+| `vendor` | `string` | Yes | Unique identifier for the provider, used as the first argument to `vscode.lm.registerLanguageModelChatProvider`. |
+| `displayName` | `string` | Yes | Human-readable name shown in the model picker UI. |
+| `configuration` | `object` | No | A JSON schema describing configuration options for the provider (for example, API keys). Properties can be marked `"secret": true` to store them securely. This is the recommended way to let users configure a provider. |
+| `managementCommand` | `string` | No | _Deprecated. Use `configuration` instead._ Command ID that opens a UI for managing this provider. Must be declared in `contributes.commands`. |
+| `when` | `string` | No | A [when clause](/api/references/when-clause-contexts) that controls whether this provider appears in the Manage Models list. |
+
+See the [Language Model Chat Provider API guide](/api/extension-guides/ai/language-model-chat-provider) for full implementation details.
+
+## contributes.languageModelTools
+
+Contributes [language model tools](/api/extension-guides/ai/tools) that the language model can invoke automatically as part of an agentic coding workflow. Tools extend agent mode with domain-specific capabilities such as querying databases, calling external APIs, or interacting with the editor.
+
+Define each tool in the `contributes.languageModelTools` section, then register the implementation with `vscode.lm.registerTool` in your extension activation.
+
+```json
+{
+  "contributes": {
+    "languageModelTools": [
+      {
+        "name": "my-extension_queryDatabase",
+        "displayName": "Query Database",
+        "modelDescription": "Executes a read-only SQL query against the project database and returns the results as JSON. Use this tool when the user asks about data stored in the database.",
+        "canBeReferencedInPrompt": true,
+        "toolReferenceName": "queryDatabase",
+        "icon": "$(database)",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "The SQL SELECT statement to execute."
+            }
+          },
+          "required": ["query"]
+        }
+      }
+    ]
+  }
+}
+```
+
+### languageModelTools properties
+
+| Property | Type | Required | Description |
+| -------- | ---- | -------- | ----------- |
+| `name` | `string` | Yes | Unique name of the tool used in the extension implementation. Use the `{verb}_{noun}` format and prefix with your extension name to avoid collisions. |
+| `displayName` | `string` | Yes | User-friendly name displayed in the UI. |
+| `modelDescription` | `string` | Yes | Description used by the language model to decide when and how to invoke the tool. Be precise: explain what the tool does, what it returns, and when it should or should not be used. |
+| `userDescription` | `string` | No | User-facing description displayed in the UI alongside the tool name. |
+| `canBeReferencedInPrompt` | `boolean` | No | Set to `true` to allow the tool to be used by agents or referenced via `#` in a chat prompt. When `true`, users can enable or disable the tool in the Chat view. |
+| `toolReferenceName` | `string` | No | The name users type after `#` to reference this tool in a chat prompt (for example, `#queryDatabase`). Required when `canBeReferencedInPrompt` is `true`. |
+| `icon` | `string` | No | Icon shown in the UI, using the [icon ID](/api/references/icons-in-labels) format (for example, `$(database)`). |
+| `inputSchema` | `object` | No | JSON Schema that describes the tool's input parameters. The schema must describe an `object` with typed properties. |
+| `when` | `string` | No | A [when clause](/api/references/when-clause-contexts) that controls when the tool is available. For example, restrict a debugging tool with `"debugState == 'running'"`. |
+| `tags` | `string[]` | No | Tags used to categorize or group the tool. |
+
+See the [Language Model Tool API guide](/api/extension-guides/ai/tools) for implementation details, including how to handle confirmations, stream results, and define typed input parameters.
 
 ## contributes.menus
 

@@ -1,9 +1,9 @@
 {
   "featured": {
-    "title": "Smarter browsing and enterprise-ready Copilot",
-    "description": "Search the web from the integrated browser, fine-tune when extensions update, and deliver managed Copilot settings through native MDM.",
-    "link": "/updates/v1_125",
-    "image": "/assets/updates/1_125/release-highlights.webp"
+    "title": "Clearer costs and safer code browsing",
+    "description": "See the cost of a whole chat session, tune models from a single picker, and browse new folders safely in Restricted Mode.",
+    "link": "/updates/v1_126",
+    "image": "/assets/updates/1_126/release-highlights.webp"
   },
   "highlights": [
     {

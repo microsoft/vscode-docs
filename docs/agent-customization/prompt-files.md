@@ -1,6 +1,6 @@
 ---
 ContentId: 5c8e7d42-9b1a-4f85-a3e2-6d5b8a9c1e43
-DateApproved: 6/10/2026
+DateApproved: 6/24/2026
 MetaDescription: Learn how to create reusable prompt files for GitHub Copilot Chat in VS Code to standardize common development tasks and improve your coding workflow efficiency.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -23,10 +23,10 @@ Use prompt files to:
 * Override default behavior of a custom agent, such as creating a minimal implementation plan or generating mockups for API calls
 
 > [!TIP]
-> **Prompt files, agents, or skills?** Use prompt files for lightweight, single-task prompts. Use [custom agents](/docs/agent-customization/custom-agents.md) when you need a persistent persona with its own tool restrictions and handoffs. Use [agent skills](/docs/agent-customization/agent-skills.md) when you need a portable, multi-file capability with scripts and resources.
+> **Not sure which customization to use?** See the [decision matrix](/docs/agents/concepts/customization.md#customization-options-at-a-glance) to compare prompt files with custom agents, agent skills, and the other options.
 
 > [!TIP]
-> Use the [Agent Customizations editor](/docs/agent-customization/overview.md#manage-customizations-in-the-editor) (Preview) to discover, create, and manage all your agent customizations in one place. Run **Chat: Open Customizations** from the Command Palette.
+> Use the [Agent Customizations editor](/docs/agent-customization/overview.md#use-the-agent-customizations-editor) (Preview) to discover, create, and manage all your agent customizations in one place. Run **Chat: Open Customizations** from the Command Palette.
 
 ## Prompt file locations
 

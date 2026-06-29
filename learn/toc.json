@@ -13,7 +13,7 @@
     ]
   },
   {
-    "name": "Customizations",
+    "name": "Agent Customizations",
     "area": "customizations",
     "description": "Learn how to shape AI in VS Code around your workflow using custom agents, instructions, skills, prompt files, and hooks.",
     "topics": [
@@ -28,7 +28,7 @@
     ]
   },
   {
-    "name": "Agents",
+    "name": "Agent Extensions",
     "area": "agents",
     "description": "Learn how to use tools, MCP servers, plugins, and third-party agents to extend agent workflows in VS Code.",
     "topics": [

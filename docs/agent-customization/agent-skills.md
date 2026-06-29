@@ -1,6 +1,6 @@
 ---
 ContentId: a7d3e5f8-2c4b-4d9a-b8e1-3f6c9a2d7e41
-DateApproved: 6/10/2026
+DateApproved: 6/24/2026
 MetaDescription: Learn how to use Agent Skills in VS Code to teach GitHub Copilot specialized capabilities that work across VS Code, GitHub Copilot CLI, and GitHub Copilot cloud agent.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -18,6 +18,8 @@ Agent Skills are folders of instructions, scripts, and resources that GitHub Cop
 
 Unlike [custom instructions](/docs/agent-customization/custom-instructions.md) that primarily define coding guidelines, skills enable specialized capabilities and workflows that can include scripts, examples, and other resources. Skills you create are portable and work across any skills-compatible agent.
 
+For how skills compare with the other customization options, see [Customization concepts](/docs/agents/concepts/customization.md).
+
 Key benefits of Agent Skills:
 
 * **Specialize Copilot**: Tailor capabilities for domain-specific tasks without repeating context
@@ -26,7 +28,7 @@ Key benefits of Agent Skills:
 * **Efficient loading**: Only relevant content loads into context when needed
 
 > [!TIP]
-> Use the [Agent Customizations editor](/docs/agent-customization/overview.md#manage-customizations-in-the-editor) (Preview) to discover, create, and manage all your agent customizations in one place. Run **Chat: Open Customizations** from the Command Palette.
+> Use the [Agent Customizations editor](/docs/agent-customization/overview.md#use-the-agent-customizations-editor) (Preview) to discover, create, and manage all your agent customizations in one place. Run **Chat: Open Customizations** from the Command Palette.
 
 ## Agent Skills vs custom instructions
 

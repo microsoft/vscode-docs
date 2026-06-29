@@ -1,6 +1,6 @@
 ---
 ContentId: de6f9f68-7dd5-4de3-a210-3db57882384b
-DateApproved: 6/10/2026
+DateApproved: 6/24/2026
 MetaDescription: Quick reference for AI features in VS Code, including autonomous agents, multi-file editing, inline suggestions, and enterprise controls.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -222,7 +222,7 @@ Customize your chat experience to generate responses that match your coding styl
 
 * [Custom agents](/docs/agent-customization/custom-agents.md): Define how chat operates, which tools it can use, and how it interacts with the codebase. Each chat prompt is run within the boundaries of the agent, without having to configure tools and instructions for every request.
 
-Use the [Agent Customizations editor](/docs/agent-customization/overview.md#manage-customizations-in-the-editor) (Preview) to discover, create, and manage all your customizations in one place. Select **Configure Chat** (gear icon) in the Chat view, or run **Chat: Open Customizations** from the Command Palette.
+Use the [Agent Customizations editor](/docs/agent-customization/overview.md#use-the-agent-customizations-editor) (Preview) to discover, create, and manage all your customizations in one place. Select **Configure Chat** (gear icon) in the Chat view, or run **Chat: Open Customizations** from the Command Palette.
 
 > **Tips**
 >
