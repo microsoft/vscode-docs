@@ -1,7 +1,7 @@
 ---
 ContentId: f6a7b8c9-0d1e-2f3a-4b5c-6d7e8f9a0b1c
 DateApproved: 6/24/2026
-MetaDescription: Learn about the AI customization options in VS Code, including instructions, prompt files, custom agents, skills, hooks, and plugins.
+MetaDescription: Learn about the AI agent customization options in VS Code, including instructions, prompt files, custom agents, skills, hooks, and plugins.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - copilot
@@ -16,11 +16,11 @@ Keywords:
 - MCP
 ---
 
-# Customization
+# Agent customization
 
-AI models have broad general knowledge but don't know your codebase or team practices. Think of the AI as a skilled new team member: it writes great code, but doesn't know your conventions, architecture decisions, or preferred libraries. Customization is how you share that context, so responses match your coding standards, project structure, and workflows.
+AI models contain broad general knowledge but don't know your specific codebase or team practices. Agent customization is how you share that context to make responses match your coding standards, project structure, and workflows.
 
-This article is the decision matrix for customization: it explains the different options and helps you choose which one fits your goal. For setup steps and examples, see [Customize AI in Visual Studio Code](/docs/agent-customization/overview.md) and the individual guides linked from each option.
+This article is the decision matrix for customization: it explains the different options and helps you choose which one fits your goal. To learn what each option is and how to get started, see [Customize agent behavior in Visual Studio Code](/docs/agent-customization/overview.md) and the individual guides linked from each option.
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with customizations">
 Follow a hands-on tutorial to discover the customization options and configure them for your project.
@@ -31,18 +31,21 @@ Follow a hands-on tutorial to discover the customization options and configure t
 
 ## Customization options at a glance
 
+Each option shapes a different part of how the agent works. Find the goal that matches your need, then follow the link to set it up.
+
 | Goal | Use | Example | When it activates |
 |------|-----|---------|-------------------|
-| Apply coding standards everywhere | [Always-on instructions](/docs/agent-customization/custom-instructions.md) | Enforce ESLint rules, require JSDoc comments | Automatically included in every request |
-| Different rules for different file types | [File-based instructions](/docs/agent-customization/custom-instructions.md) | React patterns for `.tsx` files | When files match a pattern or description |
-| Reusable task I run repeatedly | [Prompt files](/docs/agent-customization/prompt-files.md) | Scaffold a React component | When you invoke a slash command |
-| Package multi-step workflow with scripts | [Agent skills](/docs/agent-customization/agent-skills.md) | Test, lint, and deploy pipeline | When the task matches the skill description |
-| Specialized AI persona with tool restrictions | [Custom agents](/docs/agent-customization/custom-agents.md) | Security reviewer, database admin | When you select it or another agent delegates to it |
-| Connect to external APIs or databases | [MCP](/docs/agent-customization/mcp-servers.md) | Query a PostgreSQL database | When the task matches a tool description |
-| Automate tasks at agent lifecycle points | [Hooks](/docs/agent-customization/hooks.md) | Run formatter after every file edit | When the agent reaches a matching lifecycle event |
-| Install pre-packaged customizations | [Agent plugins](/docs/agent-customization/agent-plugins.md) | Install a community testing plugin | When you install a plugin |
+| Apply the same coding standards to all code | [Always-on instructions](/docs/agent-customization/custom-instructions.md) | Enforce ESLint rules, require JSDoc comments | Automatically included in every request |
+| Apply different rules to different file types | [File-based instructions](/docs/agent-customization/custom-instructions.md) | React patterns for `.tsx` files | When files match a pattern or description |
+| Automate a multi-step workflow that needs scripts | [Agent skills](/docs/agent-customization/agent-skills.md) | Scaffold a service from bundled template files and a setup script | When the task matches the skill description |
+| Give the AI a focused role with limited tools | [Custom agents](/docs/agent-customization/custom-agents.md) | Security reviewer, database admin | When you select it or another agent delegates to it |
+| Connect the AI to external APIs or databases | [MCP](/docs/agent-customization/mcp-servers.md) | Query a PostgreSQL database | When the task matches a tool description |
+| Run a command automatically during the agent's work | [Hooks](/docs/agent-customization/hooks.md) | Run a formatter after every file edit | When the agent reaches a matching lifecycle event |
+| Run a repeatable task on demand | [Prompt files](/docs/agent-customization/prompt-files.md) | Scaffold a React component | When you invoke a slash command |
 
-Start with custom instructions for project-wide standards. Add prompt files when you have repeatable tasks. Use MCP when you need external data. Create custom agents for specialized personas. You can combine multiple customization types as your needs grow.
+Start with custom instructions for project-wide standards. Add agent skills to automate repeatable, multi-step tasks. Use MCP when you need external data. Create custom agents for specialized roles. You can combine multiple customization types as your needs grow.
+
+[Agent plugins](/docs/agent-customization/agent-plugins.md) bundle several of these options into a single installable package, letting you adopt a ready-made workflow without building it yourself.
 
 ## How customizations combine
 
@@ -55,10 +58,10 @@ The customization options are designed to layer:
 * **Hooks** enforce *deterministic actions* at specific lifecycle points in the agent loop, regardless of what the model decides to do.
 * **Agent plugins** are pre-packaged bundles of the above, distributed through plugin marketplaces.
 
-For configuration steps and examples, see [Customize AI in Visual Studio Code](/docs/agent-customization/overview.md) and the individual articles linked from the table above.
+For configuration steps and examples, see [Customize agent behavior in VS Code](/docs/agent-customization/overview.md) and the individual articles linked from the table above.
 
 ## Related resources
 
-* [Customize AI in Visual Studio Code](/docs/agent-customization/overview.md)
+* [Customize agent behavior in VS Code](/docs/agent-customization/overview.md)
 * [Agents](/docs/agents/concepts/agents.md)
 * [Tools](/docs/agents/concepts/tools.md)

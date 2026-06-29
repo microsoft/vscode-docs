@@ -237,6 +237,8 @@ To go deeper with agentic coding in Visual Studio Code, get more info about how 
 
 * [Explore different agent types and hand off tasks](/docs/agents/agents-tutorial.md)
 
+* [Customize the agent to follow your coding standards and automate repeat tasks](/docs/agent-customization/overview.md)
+
 * [Learn more about the Agents window](/docs/agents/agents-window.md)
 
 * [Learn more about the Chat view](/docs/agents/chat-view.md)

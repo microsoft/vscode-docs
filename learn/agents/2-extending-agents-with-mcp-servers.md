@@ -14,6 +14,8 @@ Keywords:
 
 # Extending agents with MCP servers
 
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Sf4qD7SS2NA" title="Extending Agents With MCP Servers" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 MCP servers connect agents to external tools and data sources. In this guide, you will install an MCP server, use one of its tools in chat, choose the right configuration scope, and decide when to sandbox the server.
 
 ## Prerequisites
