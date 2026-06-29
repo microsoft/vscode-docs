@@ -1,7 +1,7 @@
 ---
 ContentId: 4f0942be-6808-4252-8940-b9e9688792af
 MetaDescription: Developing inside a Container using Visual Studio Code Remote Development
-DateApproved: 6/10/2026
+DateApproved: 6/24/2026
 ---
 # Dev Containers
 

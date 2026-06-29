@@ -1,6 +1,6 @@
 ---
 ContentId: 7c4b8b5e-2d3f-4e8a-9b2c-1a5d6f8e9c0b
-DateApproved: 6/10/2026
+DateApproved: 6/24/2026
 MetaDescription: Build with AI agents in Visual Studio Code. Learn what agents can do, configure agent sessions, and customize agents for your project.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -107,13 +107,13 @@ Agents work best when they understand your project's conventions and have the ri
 
 * **Set coding standards**: define project-wide rules and conventions with [custom instructions](/docs/agent-customization/custom-instructions.md) so agents generate code in your style.
 
-* **Automate repeatable tasks**: capture common prompts in [prompt files](/docs/agent-customization/prompt-files.md), or package multi-step workflows with scripts as [agent skills](/docs/agent-customization/agent-skills.md).
+* **Automate repeatable tasks**: package multi-step workflows, scripts, and template files as [agent skills](/docs/agent-customization/agent-skills.md), or capture a single reusable prompt in a [prompt file](/docs/agent-customization/prompt-files.md).
 
 * **Specialize the agent**: create [custom agents](/docs/agent-customization/custom-agents.md) for personas or roles like code reviewer, security expert, or tester.
 
 * **Connect external tools and data**: add [MCP servers](/docs/agent-customization/mcp-servers.md) to reach databases and APIs, and use [hooks](/docs/agent-customization/hooks.md) to run scripts at key points in an agent session.
 
-To decide which option fits your goal, see [customization concepts](/docs/agents/concepts/customization.md). For setup steps and examples, see [customizing agents](/docs/agent-customization/overview.md). You can also install [plugins](/docs/agent-customization/agent-plugins.md) to add pre-packaged bundles of these customizations from the Marketplace.
+To decide which option fits your goal, see [Customization concepts](/docs/agents/concepts/customization.md). For setup steps and examples, see [Customize agent behavior in VS Code](/docs/agent-customization/overview.md). You can also install [plugins](/docs/agent-customization/agent-plugins.md) to add pre-packaged bundles of these customizations from the Marketplace.
 
 ## Trust and control
 

@@ -55,36 +55,20 @@
   },
 
   {
-    "name": "Debugging",
-    "area": "debug",
+    "name": "Debugging & Testing",
+    "area": "debugtest",
     "topics": [
       ["Debugging", "/docs/debugtest/debugging"],
       ["Debug Configuration", "/docs/debugtest/debugging-configuration"],
       ["Tasks", "/docs/debugtest/tasks"],
-      ["", "", {
-        "name": "Guides & Tutorials",
-        "area": "debugging/guides",
-        "topics": [
-          ["Debug with AI", "/docs/agents/guides/debug-with-copilot"],
-        ]
-        }
-      ]
-    ]
-  },
-
-  {
-    "name": "Testing",
-    "area": "test",
-    "topics": [
       ["Testing", "/docs/debugtest/testing"],
       ["Integrated Browser", "/docs/debugtest/integrated-browser"],
       ["Port Forwarding", "/docs/debugtest/port-forwarding"],
       ["", "", {
         "name": "Guides & Tutorials",
-        "area": "testing/guides",
+        "area": "debugging/guides",
         "topics": [
           ["Test-Driven Development", "/docs/agents/guides/test-driven-development-guide"],
-          ["Test with AI", "/docs/agents/guides/test-with-copilot"],
           ["Test Web Apps with Browser Tools", "/docs/agents/guides/browser-agent-testing-guide"],
         ]
         }

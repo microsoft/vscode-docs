@@ -14,6 +14,9 @@ Keywords:
 
 # Using third-party agents in VS Code
 
+<!-- IMAGE PLACEHOLDER - YouTube thumbnail embed showing the Customization UI -->
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/OWYQ8Mn7KqE" title="Third Party Agents" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 Third-party agents let you use provider-specific agent experiences inside VS Code. In this guide, you will choose between local and cloud sessions, start a Claude or Codex session, and pick a permission mode that matches the task.
 
 ## Prerequisites
