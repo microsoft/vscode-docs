@@ -1,6 +1,6 @@
 ---
 ContentId: 435486d3-ad55-4a31-a087-d108f75ba669
-DateApproved: 6/10/2026
+DateApproved: 6/24/2026
 MetaDescription: Uninstall Visual Studio Code and clean up.
 ---
 # Uninstall Visual Studio Code

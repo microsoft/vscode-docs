@@ -14,6 +14,9 @@ Keywords:
 
 # Agent plugins
 
+<!-- IMAGE PLACEHOLDER - YouTube thumbnail embed showing the Customization UI -->
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/9lonfxt7dqU" title="Agent Plugins" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 Agent plugins bundle multiple customizations into one installable package. In this guide, you will inspect a plugin before installing it, use a plugin-provided command, and decide when a plugin is a better fit than separate local customizations.
 
 ## Prerequisites
@@ -51,7 +54,7 @@ Use plugins when the value comes from the pieces working together. Use individua
 
 ## Browse and inspect a plugin
 
-Agent plugins are currently in preview. After you enable `setting(chat.plugins.enabled)`, VS Code discovers plugins from the [copilot-plugins](https://github.com/github/copilot-plugins) and [awesome-copilot](https://github.com/github/awesome-copilot/) marketplaces by default. You can add more with `setting(chat.plugins.marketplaces)`.
+After you enable `setting(chat.plugins.enabled)`, VS Code discovers plugins from the [copilot-plugins](https://github.com/github/copilot-plugins) and [awesome-copilot](https://github.com/github/awesome-copilot/) marketplaces by default. You can add more with `setting(chat.plugins.marketplaces)`.
 
 1. Open the Chat view.
 

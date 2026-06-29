@@ -46,23 +46,23 @@
   "latest": [
     {
       "type": "release",
-      "title": "VS Code 1.124 release",
-      "description": "Autopilot enabled by default and faster agent session navigation.",
-      "link": "/updates/v1_124",
-      "image": "/assets/updates/1_124/release-highlights.webp"
+      "title": "VS Code 1.126 release",
+      "description": "Session-level cost transparency, a unified model customization picker, and Restricted Mode for new folders.",
+      "link": "/updates/v1_126",
+      "image": "/assets/updates/1_126/release-highlights.webp"
     },
     {
       "type": "documentation",
-      "title": "Remote control Copilot CLI",
-      "description": "Monitor and steer ongoing Copilot CLI sessions from github.com or GitHub Mobile.",
-      "link": "/docs/agents/agent-types/copilot-cli#_remote-control-copilot-cli-sessions-experimental"
+      "title": "Approvals and permissions",
+      "description": "Configure agent approvals and permissions to work efficiently but safely.",
+      "link": "/docs/agents/approvals"
     },
     {
       "type": "blog",
-      "title": "VS Code coding harness",
-      "description": "Learn about the coding harness, model evaluations, and the agent processing workflow.",
-      "link": "/blogs/2026/05/15/agent-harnesses-github-copilot-vscode",
-      "image": "/assets/blogs/2026/05/15/agent.png"
+      "title": "What 50,000 runs of a 5-line eval taught us",
+      "description": "How AI coding models calibrate effort, token cost, and tool use on even the simplest task, and what that means for model selection.",
+      "link": "/blogs/2026/06/19/what-50000-runs-taught-us",
+      "image": "/assets/blogs/2026/06/19/5000-runs-social.png"
     }
   ]
 }

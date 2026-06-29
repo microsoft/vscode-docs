@@ -1,6 +1,6 @@
 ---
 ContentId: 3b7e6d52-0c41-4f8a-9d2e-1a5c7b9e4f60
-DateApproved: 6/10/2026
+DateApproved: 6/24/2026
 MetaDescription: Learn how to manage tool approvals, configure auto-approval, set permission levels, and sandbox agent commands to control agent autonomy in VS Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 keywords:
@@ -227,7 +227,7 @@ When network access is restricted, the following rules apply to agent commands:
 
 ### Configure file system access
 
-Use the `setting(chat.agent.sandbox.FileSystem.linux)` or `setting(chat.agent.sandbox.FileSystem.mac)` setting to control file system access.
+Use the `setting(chat.agent.sandbox.fileSystem.linux)` or `setting(chat.agent.sandbox.fileSystem.mac)` setting to control file system access.
 
 You can specify allow rules for read and write access, and deny rules for both read and write access. These rules don't support glob patterns. The `denyWrite` and `denyRead` rules take precedence over `allowWrite` and `allowRead` rules.
 
@@ -235,7 +235,7 @@ Workspace folders, the sandbox runtime temp folder, and per-command read paths a
 
 ```jsonc
 {
-  "chat.agent.sandbox.FileSystem.mac": {
+  "chat.agent.sandbox.fileSystem.mac": {
     // Allow writes to the working directory
     "allowWrite": ["."],
     // Allow reads from an additional path outside the workspace

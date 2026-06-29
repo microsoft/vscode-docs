@@ -1,6 +1,6 @@
 ---
 ContentId: f29747b9-0f4f-4f62-b0a7-037ffc49d972
-DateApproved: 6/10/2026
+DateApproved: 6/24/2026
 MetaDescription: Watch introductory videos for Visual Studio Code on the official VS Code YouTube channel.
 MetaSocialImage: ../introvideos/images/opengraph/introvideos-social.png
 ---

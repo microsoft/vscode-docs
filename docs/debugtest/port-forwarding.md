@@ -1,6 +1,6 @@
 ---
 ContentId: d7a80c88-c091-4d13-9240-d432c12407a7
-DateApproved: 6/10/2026
+DateApproved: 6/24/2026
 MetaDescription: Make your local web services accessible over the internet with Visual Studio Code
 ---
 # Port Forwarding
@@ -34,6 +34,10 @@ By default, the forwarded port is **Private**. When you navigate to the URL, you
 Port forwarding currently exposes only locally-running services. Remote connections aren't supported yet, but we plan to add this capability in the future.
 
 Depending on your scenario, you may want to use the VS Code [Remote - Tunnels](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-server) extension to tunnel into a remote machine. You can learn more in the [Remote - Tunnels documentation](/docs/remote/tunnels.md).
+
+### How do I access a service that only runs on a remote machine?
+
+If you're connected to a remote workspace, the [integrated browser](/docs/debugtest/integrated-browser.md#browse-over-remote-connections-preview) can proxy its web traffic over the remote connection. This lets you reach ports and services that are only accessible from the remote machine, without forwarding a port to your local machine.
 
 ### How are forwarded ports secured?
 

@@ -1,6 +1,6 @@
 ---
 ContentId: d4e5f6a7-8b9c-0d1e-2f3a-4b5c6d7e8f9a
-DateApproved: 6/10/2026
+DateApproved: 6/24/2026
 MetaDescription: Tips to optimize your AI credit usage in VS Code by choosing efficient models, managing context, and monitoring consumption.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -65,12 +65,15 @@ For more information, see [Use tools in chat](/docs/chat/chat-tools.md).
 
 ## Exclude files from Copilot context
 
-Large generated files, build outputs, or irrelevant directories can be included in the AI context, increasing token usage without adding value. Exclude these files to reduce unnecessary context:
+Large generated files, build outputs, or irrelevant directories can increase token usage without adding value. Exclude these files to keep agent context focused:
 
-* Use a `.gitignore` file to exclude files from the [workspace index](/docs/agents/reference/workspace-context.md#what-content-is-included-in-the-semantic-index). The workspace index respects `.gitignore` rules.
-* Use the `setting(files.exclude)` setting to hide files from VS Code entirely, which also excludes them from the index.
+* Use a `.gitignore` file to exclude files from the [workspace index](/docs/agents/reference/workspace-context.md#what-content-is-included-in-the-semantic-index) and from agent text search and grep.
+* Use the `setting(files.exclude)` setting to hide files from VS Code entirely, which also excludes them from the index and agent search tools.
+* Use the `setting(search.exclude)` setting to exclude files from agent text search and grep while keeping them visible in the Explorer, for example log files you want to open manually but not include in search results.
 
-For more information, see [workspace context](/docs/agents/reference/workspace-context.md).
+Search match snippets count toward the context window even when the agent doesn't open the matched file. Excluding noisy paths reduces irrelevant tokens in search results.
+
+For more information and example configurations, see [improve agent search with exclusion settings](/docs/agents/reference/workspace-context.md#improve-agent-search-with-exclusion-settings).
 
 ## Manage context with compaction
 
@@ -80,9 +83,17 @@ For more information, see [context compaction](/docs/chat/copilot-chat-context.m
 
 ## Monitor your usage
 
-You can view your current Copilot usage in the Copilot status dashboard, available through the VS Code Status Bar. The dashboard shows the percentage of your monthly allowance you have used for AI credits (and inline suggestions for the Copilot Free plan).
+You can monitor your AI credit usage in VS Code for a specific chat request, the cumulative usage for a session, and your overall monthly consumption. This helps you understand which requests are more expensive, spot expensive conversations, and manage your usage over time.
 
-<!-- TODO: add screenshot of Copilot status dashboard -->
+To view the cost for a single request, hover over the chat response to see the credit consumption for that turn. This helps you understand which requests are more expensive and adjust your prompts or model selection accordingly.
+
+To view the cumulative cost and token breakdown for the entire session, hover over or select the context window control in the chat input. The session info popover shows the total cost in credits and the cumulative context window token usage for the whole session, complementing the per-turn credit consumption already shown for individual requests.
+
+![Screenshot of VS Code Chat view, showing the context window usage control in the chat input box.](../../chat/images/copilot-chat/chat-context-window-control.png)
+
+To view your overall monthly consumption, open the Copilot status dashboard from the VS Code Status Bar. The dashboard shows the percentage of your monthly allowance you have used for AI credits (and inline suggestions for the Copilot Free plan).
+
+![Screenshot of the Copilot status dashboard, showing the percentage of monthly AI credits used and a link to view usage details on GitHub.](../images/optimize-usage-guide/copilot-status-dashboard.png)
 
 Visit the GitHub Copilot documentation for more information about [monitoring usage and entitlements](https://docs.github.com/en/copilot/managing-copilot/monitoring-usage-and-entitlements/monitoring-your-copilot-usage-and-entitlements).
 

@@ -1,6 +1,6 @@
 ---
 ContentId: EEADB50A-F5E3-41E9-89DA-35F165196691
-DateApproved: 6/10/2026
+DateApproved: 6/24/2026
 MetaDescription: Install Visual Studio Code on macOS, add the code command to your path, and resolve common setup issues.
 MetaSocialImage: images/quicksetup/quick-setup-social.png
 ---

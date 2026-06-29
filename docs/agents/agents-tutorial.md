@@ -1,6 +1,6 @@
 ---
 ContentId: 8f2c9a1b-3d4e-5f6a-7b8c-9d0e1f2a3b4c
-DateApproved: 6/10/2026
+DateApproved: 6/24/2026
 MetaDescription: Get started with different types of agents in VS Code to run tasks locally, in the background, or in the cloud. Hand off work across agents to use what works best for your workflow.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -19,9 +19,6 @@ This tutorial walks you through using different types of agents in Visual Studio
 
 > [!TIP]
 > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly allowance of inline suggestions and AI credits.
-
-> [!IMPORTANT]
-> **Starting April 20, 2026**, new sign-ups for Copilot Pro, Copilot Pro+, Max, and Student plans are temporarily paused.
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Test web apps with browser agent tools">
 Use browser agent tools to build and automatically test web applications.

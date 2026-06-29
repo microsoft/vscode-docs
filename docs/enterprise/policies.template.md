@@ -1,10 +1,10 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 200bf922-3684-45ee-a8dd-43191d6b3f8b
-DateApproved: 6/10/2026
+DateApproved: 6/24/2026
 
-VSCodeCommitHash: 77dfb21e210c8be0d72ab995889cbc7e4a9ae468
-VSCodeVersion: 1.124.0
+VSCodeCommitHash: e6f4d6c6f2977850cdae6b9e53f706f3c5faa63b
+VSCodeVersion: 1.126.0
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Enterprise policies in Visual Studio Code enable organizations to centrally manage settings for their development teams. This reference details the available policies and how to implement them.
@@ -38,42 +38,14 @@ You can get the ADMX and ADML files from either an existing installation or by d
 
 ### Step 2: Configure policy values
 
-Edit the policy values according to your requirements:
+After installing the ADMX and ADML files, configure policy values through your management tool:
 
-**String policies** - policies that accept text values or JSON strings:
+- For Active Directory environments, use the Group Policy Editor (`gpedit.msc`) and navigate to **Computer Configuration** > **Administrative Templates** > **Visual Studio Code**.
+- For cloud-managed devices, use your MDM solution (for example, Microsoft Intune) to configure the imported VS Code administrative template policies.
+- Open each policy, set it to **Enabled** or **Disabled**, and provide any required value in the policy UI.
+- Leave policies in the **Not Configured** state if you don't want to enforce them.
 
-```xml
-<!-- Example: Allow extensions from specific publishers -->
-<key>AllowedExtensions</key>
-<string>{"microsoft": true, "github": true}</string>
-
-<!-- Example: Set update mode to a specific value -->
-<key>UpdateMode</key>
-<string>start</string>
-```
-
-> [!IMPORTANT]
-> If there's a syntax error in the policy value, the setting will not be applied. You can check the Window log in VS Code for errors (press `kb(workbench.action.showCommands)` and enter **Show Window Log**).
-
-**Boolean policies** - policies that accept true/false values:
-
-```xml
-<!-- Example: Enable user feedback -->
-<key>EnableFeedback</key>
-<true/>
-
-<!-- Example: Disable telemetry -->
-<key>EnableTelemetry</key>
-<false/>
-```
-
-**Remove unwanted policies** - delete both the key and value for any policy you don't want to enforce:
-
-```xml
-<!-- To not enforce an update mode policy, remove these lines: -->
-<key>UpdateMode</key>
-<string>start</string>
-```
+Configured policy values are written to the registry under `Software\Policies\Microsoft\VSCode`.
 
 Refer to the [policy reference](#vs-code-enterprise-policy-reference) below for details on each policy's accepted values and behavior.
 
@@ -156,40 +128,21 @@ Starting from VS Code version 1.99, each release ships with a sample `.mobilecon
 1. Open the copied file in a text editor (for example, TextEdit, VS Code, or any XML editor).
 1. Edit the policy values according to your requirements:
 
-    **String policies** - policies that accept text values or JSON strings:
+    Example `policy.json` configuration:
 
-    ```xml
-    <!-- Example: Allow extensions from specific publishers -->
-    <key>AllowedExtensions</key>
-    <string>{"microsoft": true, "github": true}</string>
-
-    <!-- Example: Set update mode to a specific value -->
-    <key>UpdateMode</key>
-    <string>start</string>
+    ```json
+    {
+      "AllowedExtensions": {"microsoft": true, "github": true},
+      "UpdateMode": "start",
+      "EnableFeedback": true,
+      "EnableTelemetry": false
+    }
     ```
 
     > [!IMPORTANT]
     > If there's a syntax error in the policy value, the setting will not be applied. You can check the Window log in VS Code for errors (press `kb(workbench.action.showCommands)` and enter **Show Window Log**).
 
-    **Boolean policies** - policies that accept true/false values:
-
-    ```xml
-    <!-- Example: Enable user feedback -->
-    <key>EnableFeedback</key>
-    <true/>
-
-    <!-- Example: Disable telemetry -->
-    <key>EnableTelemetry</key>
-    <false/>
-    ```
-
-    **Remove unwanted policies** - delete both the key and value for any policy you don't want to enforce:
-
-    ```xml
-    <!-- To not enforce an update mode policy, remove these lines: -->
-    <key>UpdateMode</key>
-    <string>start</string>
-    ```
+    **Remove unwanted policies** - remove the corresponding JSON property for any policy you don't want to enforce.
 
 Refer to the [policy reference](#vs-code-enterprise-policy-reference) for details on each policy's accepted values and behavior.
 
@@ -276,40 +229,21 @@ Starting from VS Code version 1.106, each release ships with a sample `.policy.j
 
 1. Edit the policy values according to your requirements:
 
-    **String policies** - policies that accept text values or JSON strings:
+    Example `policy.json` configuration:
 
-    ```xml
-    <!-- Example: Allow extensions from specific publishers -->
-    <key>AllowedExtensions</key>
-    <string>{"microsoft": true, "github": true}</string>
-
-    <!-- Example: Set update mode to a specific value -->
-    <key>UpdateMode</key>
-    <string>start</string>
+    ```json
+    {
+      "AllowedExtensions": {"microsoft": true, "github": true},
+      "UpdateMode": "start",
+      "EnableFeedback": true,
+      "EnableTelemetry": false
+    }
     ```
 
     > [!IMPORTANT]
     > If there's a syntax error in the policy value, the setting will not be applied. You can check the Window log in VS Code for errors (press `kb(workbench.action.showCommands)` and enter **Show Window Log**).
 
-    **Boolean policies** - policies that accept true/false values:
-
-    ```xml
-    <!-- Example: Enable user feedback -->
-    <key>EnableFeedback</key>
-    <true/>
-
-    <!-- Example: Disable telemetry -->
-    <key>EnableTelemetry</key>
-    <false/>
-    ```
-
-    **Remove unwanted policies** - delete both the key and value for any policy you don't want to enforce:
-
-    ```xml
-    <!-- To not enforce an update mode policy, remove these lines: -->
-    <key>UpdateMode</key>
-    <string>start</string>
-    ```
+    **Remove unwanted policies** - remove the corresponding JSON property for any policy you don't want to enforce.
 
 Refer to the [policy reference](#vs-code-enterprise-policy-reference) for details on each policy's accepted values and behavior.
 

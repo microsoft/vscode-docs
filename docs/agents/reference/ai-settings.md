@@ -1,6 +1,6 @@
 ---
 ContentId: 7b232695-cbbe-4f3f-a625-abc7a5e6496c
-DateApproved: 6/10/2026
+DateApproved: 6/24/2026
 MetaDescription: Overview of the configuration settings for AI features and agents in Visual Studio Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -12,9 +12,6 @@ The team is continuously working on improving the AI features in VS Code and add
 
 > [!TIP]
 > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly allowance of inline suggestions and AI credits.
-
-> [!IMPORTANT]
-> **Starting April 20, 2026**, new sign-ups for Copilot Pro, Copilot Pro+, Max, and Student plans are temporarily paused.
 
 ## General settings
 
@@ -126,8 +123,8 @@ The team is continuously working on improving the AI features in VS Code and add
 | `setting(chat.tools.eligibleForAutoApproval)` _(Experimental)_<br/>Configure which tools require manual approval before they can be used by agents. | `[]` |
 | `setting(chat.tools.terminal.blockDetectedFileWrites)` _(Experimental)_<br/>Require user approval for terminal commands that perform file writes outside the workspace. Writes to the OS temporary folder (`/tmp` on macOS and Linux, `%TEMP%` on Windows) are exempt when session-level command approval is active. | `outsideWorkspace` |
 | `setting(chat.agent.sandbox.enabled)` _(Preview)_<br/>Enable [sandboxing for agent commands](/docs/agents/approvals.md#sandbox-agent-commands) executed by the agent (macOS and Linux only). Possible values: `off` (disabled), `on` (full file system and network isolation), `allowNetwork` (file system isolation only, all outbound network traffic is allowed). When enabled, commands are auto-approved and have restricted access. | `off` |
-| `setting(chat.agent.sandbox.FileSystem.linux)` _(Preview)_<br/>Configure file system access rules for sandboxed agent commands on Linux. Supports `allowRead`, `allowWrite`, `denyRead`, and `denyWrite` properties. | `{}` |
-| `setting(chat.agent.sandbox.FileSystem.mac)` _(Preview)_<br/>Configure file system access rules for sandboxed agent commands on macOS. Supports `allowRead`, `allowWrite`, `denyRead`, and `denyWrite` properties. | `{}` |
+| `setting(chat.agent.sandbox.fileSystem.linux)` _(Preview)_<br/>Configure file system access rules for sandboxed agent commands on Linux. Supports `allowRead`, `allowWrite`, `denyRead`, and `denyWrite` properties. | `{}` |
+| `setting(chat.agent.sandbox.fileSystem.mac)` _(Preview)_<br/>Configure file system access rules for sandboxed agent commands on macOS. Supports `allowRead`, `allowWrite`, `denyRead`, and `denyWrite` properties. | `{}` |
 | `setting(chat.agent.networkFilter)`<br/>Enable network domain filtering for agent tools (fetch tool, integrated browser). When enabled, network access is restricted according to `setting(chat.agent.allowedNetworkDomains)` and `setting(chat.agent.deniedNetworkDomains)`. When disabled, no filtering is applied. | `false` |
 | `setting(chat.agent.allowedNetworkDomains)`<br/>Configure allowed domains for network access by agent tools. Only takes effect when `setting(chat.agent.networkFilter)` is enabled. When sandboxing is also enabled, these rules additionally apply to terminal commands. When both allowed and denied lists are empty, all domains are blocked. Supports wildcards like `*.example.com`. | `[]` |
 | `setting(chat.agent.deniedNetworkDomains)`<br/>Configure denied domains for network access by agent tools. Only takes effect when `setting(chat.agent.networkFilter)` is enabled. Denied domains take precedence over allowed domains. Supports wildcards like `*.example.com`. | `[]` |
@@ -236,9 +233,9 @@ The [Agents view](/docs/agents/overview.md) provides a centralized location for 
 
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(chat.plugins.enabled)` _(Preview)_<br/>Enable or disable support for [agent plugins](/docs/agent-customization/agent-plugins.md). | `false` |
+| `setting(chat.plugins.enabled)`<br/>Enable or disable support for [agent plugins](/docs/agent-customization/agent-plugins.md). | `false` |
 | `setting(chat.plugins.marketplaces)` _(Experimental)_<br/>Configure additional plugin marketplace Git repositories for discovering agent plugins. | `["github/copilot-plugins", "github/awesome-copilot"]` |
-| `setting(chat.plugins.enabledPlugins)` _(Experimental)_<br/>Allowlist of plugin IDs to enable or disable. Can be [centrally managed through enterprise policy](/docs/enterprise/ai-settings.md#manage-agent-plugins-and-marketplaces). | `{}` |
+| `setting(chat.plugins.enabledPlugins)`<br/>Allowlist of plugin IDs to enable or disable. Can be [centrally managed through enterprise policy](/docs/enterprise/ai-settings.md#manage-agent-plugins-and-marketplaces). | `{}` |
 | `setting(chat.plugins.strictMarketplaces)` _(Experimental)_<br/>Trust only marketplaces supplied by [enterprise policy](/docs/enterprise/ai-settings.md#manage-agent-plugins-and-marketplaces). | `false` |
 | `setting(chat.pluginLocations)` _(Experimental)_<br/>Register locally cloned or downloaded agent plugins by mapping directory paths to an enabled or disabled state. | `{}` |
 

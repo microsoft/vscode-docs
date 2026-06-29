@@ -1,6 +1,6 @@
 ---
 ContentId: 58ea6755-9bfa-42c2-a4c8-ff0510f9c031
-DateApproved: 6/10/2026
+DateApproved: 6/24/2026
 MetaDescription: Best practices for getting the most out of GitHub Copilot in VS Code, from writing prompts to configuring your project for AI.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -33,8 +33,9 @@ Tips for effective project configuration:
 * **Keep instruction files concise.** They load on every chat interaction. Focus on information the AI can't infer from code, such as non-default conventions, architectural decisions, or environment setup.
 * **Scope instructions with `applyTo` patterns.** Enter `/instructions` to create language-specific or folder-specific instruction files instead of putting everything in one file.
 * **Limit enabled tools.** Fewer active tools means faster, more relevant responses. Enable tools only when the task needs them.
+* **Exclude generated and noisy files from search.** Configure `setting(search.exclude)` and `setting(files.exclude)` so agent text search and grep stay focused on source code. See [improve agent search with exclusion settings](/docs/agents/reference/workspace-context.md#improve-agent-search-with-exclusion-settings).
 
-For full setup details, see the [customization overview](/docs/agent-customization/overview.md).
+For full setup details, see [Customize agent behavior in VS Code](/docs/agent-customization/overview.md).
 
 ## Pick the right tool for the task
 
@@ -214,7 +215,7 @@ For more information, see [workspace context](/docs/agents/reference/workspace-c
 
 * [Context engineering guide](/docs/agents/guides/context-engineering-guide.md)
 * [Optimize AI credit usage](/docs/agents/guides/optimize-usage.md)
-* [Customization overview](/docs/agent-customization/overview.md)
+* [Customize agent behavior in VS Code](/docs/agent-customization/overview.md)
 * [Cheat sheet](/docs/agents/reference/ai-features-cheat-sheet.md)
 * [GitHub Copilot security](/docs/agents/security.md)
 * [Best Practices for using GitHub Copilot](https://docs.github.com/en/copilot/using-github-copilot/best-practices-for-using-github-copilot) in the GitHub Copilot documentation

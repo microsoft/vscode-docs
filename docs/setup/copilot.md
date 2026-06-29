@@ -1,6 +1,6 @@
 ---
 ContentId: 37fd3bd2-4209-49f6-bec5-c544d6b1b289
-DateApproved: 6/10/2026
+DateApproved: 6/24/2026
 MetaDescription: Access your GitHub Copilot subscription and set up GitHub Copilot in Visual Studio.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -24,9 +24,6 @@ Follow these steps to get started with Copilot in VS Code:
     * If you already have a Copilot subscription for your account, VS Code will use that subscription.
 
     * If you don't have a Copilot subscription yet, you'll be signed up for the [Copilot Free plan](https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-free/about-github-copilot-free) and get a monthly allowance of inline suggestions and AI credits. Learn more about the different [GitHub Copilot plans](https://docs.github.com/en/copilot/get-started/plans).
-
-    > [!IMPORTANT]
-    > **Starting April 20, 2026**, new sign-ups for Copilot Pro, Copilot Pro+, Max, and Student plans are temporarily paused.
 
 1. Start using Copilot in VS Code!
 

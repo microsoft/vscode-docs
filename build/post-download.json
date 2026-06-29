@@ -1,9 +1,9 @@
 {
   "featured": {
-    "title": "Smarter Autopilot and faster agent sessions",
-    "description": "Autopilot is enabled by default and decides when a task is truly done, navigate agent sessions with the keyboard, and restore your layout on reload.",
-    "link": "/updates/v1_124",
-    "image": "/assets/updates/1_124/release-highlights.webp"
+    "title": "Clearer costs and safer code browsing",
+    "description": "See the cost of a whole chat session, tune models from a single picker, and browse new folders safely in Restricted Mode.",
+    "link": "/updates/v1_126",
+    "image": "/assets/updates/1_126/release-highlights.webp"
   },
   "highlights": [
     {
@@ -21,10 +21,10 @@
     },
     {
       "type": "tutorial",
-      "title": "Build and test with browser agent tools",
+      "title": "Get started with AI agents",
       "description": "Let AI build web apps and automatically verify them in the integrated browser, catching and fixing bugs on its own.",
-      "link": "/docs/agents/guides/browser-agent-testing-guide",
-      "image": "/assets/docs/agents/browser-agent-testing-guide/browser-testing-hero.png"
+      "link": "/docs/getstarted/getting-started",
+      "image": "/assets/docs/getstarted/getting-started/open-in-agents-button.png"
     }
   ]
 }
