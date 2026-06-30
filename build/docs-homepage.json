@@ -47,7 +47,7 @@
     {
       "type": "release",
       "title": "VS Code 1.127 release",
-      "description": "Browser tools for agents reach general availability, per-site browser permissions, and session grouping and drag-and-drop in the Agents window.",
+      "description": "Browser tools reach general availability, plus per-site permissions and session grouping in the Agents window.",
       "link": "/updates/v1_127",
       "image": "/assets/updates/1_127/release-highlights.webp"
     },
