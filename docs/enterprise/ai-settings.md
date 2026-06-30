@@ -30,6 +30,9 @@ All three channels use the same managed setting keys and values. For the list of
 
 ### Precedence across channels
 
+> [!NOTE]
+> Precedence is enforced starting in VS Code version 1.128.
+
 When the same setting is available from more than one channel, VS Code uses a single authoritative channel rather than merging the channels. The channel with the highest precedence that provides any managed settings wins outright, and the other channels are ignored.
 
 The precedence order is:
