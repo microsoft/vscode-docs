@@ -46,10 +46,10 @@
   "latest": [
     {
       "type": "release",
-      "title": "VS Code 1.126 release",
-      "description": "Session-level cost transparency, a unified model customization picker, and Restricted Mode for new folders.",
-      "link": "/updates/v1_126",
-      "image": "/assets/updates/1_126/release-highlights.webp"
+      "title": "VS Code 1.127 release",
+      "description": "Browser tools reach general availability, plus per-site permissions and session grouping in the Agents window.",
+      "link": "/updates/v1_127",
+      "image": "/assets/updates/1_127/release-highlights.webp"
     },
     {
       "type": "documentation",

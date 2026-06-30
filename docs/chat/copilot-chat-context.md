@@ -1,6 +1,6 @@
 ---
 ContentId: 5d8a707d-a239-4cc7-92ee-ccc763e8eb9c
-DateApproved: 6/24/2026
+DateApproved: 7/1/2026
 MetaDescription: Learn how to manage context when using AI in VS Code, including workspace indexing, #-mentions for files and symbols, web content references, and custom instructions.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -100,9 +100,6 @@ You can configure which information is included when adding elements:
 Learn more about [browser-to-chat actions](/docs/debugtest/integrated-browser.md#add-context-to-ai-chat).
 
 ## Interact with browser pages
-
-> [!NOTE]
-> Browser tools for agents are currently experimental.
 
 Agents can directly read and interact with pages in the [integrated browser](/docs/debugtest/integrated-browser.md) by using built-in browser tools. This enables agents to navigate to URLs, read page content and console errors, take screenshots, click elements, type text, and more, without requiring an external MCP server.
 

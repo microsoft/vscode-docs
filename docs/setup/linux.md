@@ -1,6 +1,6 @@
 ---
 ContentId: 7FDF94DB-3527-4296-BE1C-493495B89408
-DateApproved: 6/24/2026
+DateApproved: 7/1/2026
 MetaDescription: Install Visual Studio Code on Linux with Debian, RPM, Snap, Arch, or Nix package options.
 MetaSocialImage: images/quicksetup/quick-setup-social.png
 ---

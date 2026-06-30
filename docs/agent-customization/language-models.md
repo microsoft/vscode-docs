@@ -1,6 +1,6 @@
 ---
 ContentId: 33e63aa1-1d8f-4d23-9733-1475f8c9f502
-DateApproved: 6/24/2026
+DateApproved: 7/1/2026
 MetaDescription: Configure AI language models in VS Code, change chat and inline models, set thinking effort, and bring your own API key.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -27,6 +27,9 @@ Use the language model picker in the chat input field to change the model for ch
 Different models have different strengths. Use a fast model for quick edits and simple questions, and a reasoning model for complex refactoring, architectural decisions, or multi-step tasks. Depending on the [type of agent](/docs/agents/overview.md#configure-your-agent-session) you are using, the list of available models might differ.
 
 You can further extend the list of available models by [using your own language model API key](#bring-your-own-language-model-key).
+
+> [!NOTE]
+> In an untrusted workspace in [Restricted Mode](/docs/editing/workspaces/workspace-trust.md#restricted-mode), the chat model picker only shows **Auto**. Trust the workspace to restore the full model list.
 
 > [!TIP]
 > Install the AI Toolkit extension to add more language models to enhance GitHub Copilot capabilities.
@@ -133,6 +136,9 @@ VS Code provides different options to add more language models:
 ### Add a model from a built in provider
 
 Pick from a set of common providers that are ready to use in VS Code. Depending on the provider, you need an API key and other configuration details like the endpoint URL.
+
+> [!IMPORTANT]
+> The built-in Ollama provider is deprecated. For local Ollama models, install the official Ollama extension from the [Ollama publisher on the Visual Studio Marketplace](https://marketplace.visualstudio.com/publishers/Ollama) instead. The extension is maintained by the Ollama team, so it can support new Ollama models and capabilities faster than the built-in provider. If you use the built-in Ollama provider for BYOK local models, install the extension and remove the built-in provider configuration to keep using Ollama models without interruption.
 
 To configure a language model from a built-in provider:
 

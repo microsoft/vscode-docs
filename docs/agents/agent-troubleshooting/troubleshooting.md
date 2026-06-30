@@ -1,6 +1,6 @@
 ---
 ContentId: f8e4b2c1-9d3a-4e5f-b6c7-8a9d0e1f2b3c
-DateApproved: 6/24/2026
+DateApproved: 7/1/2026
 MetaDescription: Troubleshoot GitHub Copilot issues in Visual Studio Code with logs, diagnostics, and debugging tools.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -44,7 +44,14 @@ VS Code provides different tools to inspect what happens when you send a prompt 
 
 * **`/troubleshoot` slash command:**
 
-    Ask the AI to analyze the debug logs for a chat session. Optionally, include `#session` to select and diagnose a previous chat session.  Type `/troubleshoot` followed by your question, such as `/troubleshoot how many tokens did I use?` or `/troubleshoot list all paths you tried to load customizations in #session`. Requires `setting(github.copilot.chat.agentDebugLog.enabled)` to be enabled.
+    Ask the AI to analyze debug logs for chat sessions and agent host sessions. Use it to understand agent behavior, such as why custom instructions were ignored or why responses are slow. Type `/troubleshoot` followed by your question, such as `/troubleshoot how many tokens did I use?` or `/troubleshoot list all paths you tried to load customizations in #session`. Requires `setting(github.copilot.chat.agentDebugLog.enabled)` to be enabled.
+
+    To diagnose an agent host session:
+
+    1. Open the Agents window.
+    1. In the chat input, type `/troubleshoot #session`.
+    1. Select the local or remote session that you want to troubleshoot.
+    1. Add a question or description of the issue, and then send the request.
 
 * **Agent Debug Log panel (Preview):**
 
