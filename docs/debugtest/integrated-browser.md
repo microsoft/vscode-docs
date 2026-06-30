@@ -1,6 +1,6 @@
 ---
 ContentId: f8e2a7c1-9d3b-4e5f-a6c8-1b2d3e4f5a6b
-DateApproved: 6/24/2026
+DateApproved: 7/1/2026
 MetaDescription: Use the integrated browser in VS Code to preview and debug web apps, navigate to URLs, and add page elements, screenshots, or console logs as context to AI chat.
 MetaSocialImage: images/debugging/debugging-social.png
 ---
@@ -9,9 +9,6 @@ MetaSocialImage: images/debugging/debugging-social.png
 The integrated browser enables you to open and interact with web pages directly inside VS Code. Use it to preview web applications, test authentication flows, and select page elements to add as context to your AI chat prompts.
 
 ![Screenshot of the integrated browser in VS Code displaying a web page.](images/integrated-browser/integrated-browser.png)
-
->[!NOTE]
-> The integrated browser is currently an experimental feature and may change in future releases.
 
 ## Open the browser
 
@@ -234,7 +231,17 @@ Learn more about [adding context to chat](/docs/chat/copilot-chat-context.md).
 
 ## Permissions
 
-The browser automatically denies most permission requests (camera, microphone, geolocation) for security. Notifications, clipboard access, and file selection are allowed.
+The integrated browser supports per-site permissions, similar to a traditional browser. When a page requests a permission, VS Code prompts you to allow or deny the request for the current site.
+
+Pages can request access to web APIs such as:
+
+* Geolocation.
+* Camera and microphone.
+* Sensors, such as the accelerometer.
+* Clipboard.
+* Devices, such as Bluetooth, USB, Serial, and HID devices.
+
+To manage permissions for the current site, select the browser toolbar menu, and then select **Site Permissions**.
 
 ## Session storage
 
@@ -276,14 +283,11 @@ The Live Preview extension can use the integrated browser for previewing web pag
 
 ## Browser tools for agents
 
-> [!NOTE]
-> Browser tools for agents are currently experimental.
-
-Agents can read and interact with pages in the integrated browser by using built-in browser tools. When enabled, agents can open browser pages, navigate to URLs, read page content and console errors, take screenshots, click elements, type text, hover over elements, drag elements, handle dialogs, and run Playwright code, all without requiring an external MCP server.
+Browser tools for agents are generally available and enabled by default with the `setting(workbench.browser.enableChatTools)` setting. Agents can read and interact with pages in the integrated browser by using built-in browser tools. Agents can open browser pages, navigate to URLs, read page content and console errors, take screenshots, select elements, type text, hover over elements, drag elements, handle dialogs, and run Playwright code, all without an external MCP server.
 
 Browser tools are different from [adding context to AI chat](#add-context-to-ai-chat). The Add to Chat actions let you manually pick page elements, capture screenshots, or attach console logs as context for a chat prompt. Browser tools let agents autonomously interact with web pages to complete tasks.
 
-To enable browser tools, set the `setting(workbench.browser.enableChatTools)` setting to `true`. The tools are then available to the agent automatically.
+When the `setting(workbench.browser.enableChatTools)` setting is enabled, browser tools are available to the agent automatically. To turn off browser tools, set this setting to `false`.
 
 In the [Agents window](/docs/agents/agents-window.md), browser tabs are isolated per session. Each session has its own set of browser tabs, and an agent can only read and interact with the tabs that belong to its own session.
 
@@ -295,7 +299,7 @@ To let an agent read and interact with a page you opened, select the **Share wit
 
 A visual indicator on the browser tab shows that a page is currently being shared. To stop sharing, select the **Share with Agent** button again. This immediately revokes the agent's access to that page.
 
-You can now ask the agent to read content from the page or interact with it. For example, you could ask "What is the title of the page?" or "Click the login button and tell me if it works."
+You can now ask the agent to read content from the page or interact with it. For example, you could ask "What is the title of the page?" or "Select the login button and tell me if it works."
 
 Shared pages use your existing browser session, including cookies and login state. Pages opened by the agent use isolated ephemeral sessions, so they don't share cookies or storage with your other browser tabs.
 
@@ -306,6 +310,13 @@ When you have open browser tabs that are not shared, the agent can detect that u
 When the agent tries to open a new page and you already have open tabs on the same domain, you are prompted to share an existing tab instead of opening a new one. Only tabs with a matching domain and port are listed. If you select **No**, the agent opens a new tab and only the new tab is shared.
 
 In autopilot mode, share requests are automatically declined to preserve your privacy.
+
+### Enterprise policies for browser tools
+
+Organizations can centrally control browser tools through [enterprise policies](/docs/enterprise/ai-settings.md):
+
+* To disable browser tools for chat agents, set the `BrowserChatTools` policy to `false`. This configures the `setting(workbench.browser.enableChatTools)` setting in VS Code. See [Enable or disable extension language tools](/docs/enterprise/ai-settings.md#enable-or-disable-extension-language-tools).
+* To restrict which domains agent tools (including the integrated browser) can reach, configure [agent network filtering](/docs/enterprise/ai-settings.md#configure-agent-network-filtering) with the `ChatAgentNetworkFilter`, `ChatAgentAllowedNetworkDomains`, and `ChatAgentDeniedNetworkDomains` policies, which configure the `setting(chat.agent.networkFilter)`, `setting(chat.agent.allowedNetworkDomains)`, and `setting(chat.agent.deniedNetworkDomains)` settings. Denied domains take precedence over allowed domains, and both support wildcards like `*.example.com`. When the filter is enabled and both domain lists are empty, all network access by agent tools is blocked.
 
 ## Related
 

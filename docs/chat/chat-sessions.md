@@ -1,6 +1,6 @@
 ---
 ContentId: 7a2e5f8d-4c9b-41e6-b3a8-9d7f2e4c1b8a
-DateApproved: 6/24/2026
+DateApproved: 7/1/2026
 MetaDescription: Learn how to create and manage chat sessions in Visual Studio Code, including the sessions list, opening chat in editor tabs, separate windows, and using chat session history.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -104,7 +104,19 @@ In the **Agents window**, the sessions list is located in the left sidebar. It s
 
 By default, the list is filtered to only show active sessions. You can change the filter to show sessions of different states, such as completed or archived.
 
-Sessions are grouped by workspace by default, and you can switch the grouping to organize by timeframe instead.
+Sessions are grouped by workspace by default, and you can switch the grouping to organize by timeframe instead. In the Agents window, you can also create custom groups to keep related sessions together. Collapse a group header when you want to reduce the sessions list.
+
+To organize the sessions list in the Agents window:
+
+1. Create a custom group from the sessions list controls.
+
+1. Drag one or more sessions onto the group. An insertion line shows where the sessions land.
+
+1. Hover over a group header to start a new session in that group, or mark all sessions in the group as done.
+
+You can also drag sessions up or down to reorder them, drag group and workspace headers to rearrange sections, or drop a session on the **Pinned** section to pin it. Select multiple sessions to move them together.
+
+<!-- TODO: add screenshot of custom session groups and drag-and-drop reordering in the Agents window sessions list. -->
 
 You can hide the left sidebar by selecting the **Toggle Sidebar** button in the top-left corner of the Agents window or by using the `kb(workbench.action.toggleSidebarVisibility)` keyboard shortcut.
 
@@ -152,17 +164,19 @@ If multiple Copilot CLI sessions share the same worktree, such as after you fork
 
 ## Fork a chat session
 
-Forking a chat session creates a new, independent session that inherits the conversation history from the original session. The forked session is fully separate from the original, so changes in one session do not affect the other. The new session title is prefixed with "Forked:" to help you identify it.
+Forking a chat session creates a branch of a conversation that inherits conversation history from the original session. In single-chat sessions and sessions that don't use an agent host, the fork opens as a new independent session. The forked session is fully separate from the original, so changes in one session do not affect the other. The new session title is prefixed with "Forked:" to help you identify it.
 
-For [Copilot CLI](/docs/agents/agent-types/copilot-cli.md) sessions that use worktree isolation, the forked session continues to use the same worktree as the original session.
+For multi-chat [Copilot CLI](/docs/agents/agent-types/copilot-cli.md) sessions in the Agents window, the fork opens as a peer chat in the same session. The peer chat gets an automatically generated title and runs independently from sibling chats.
+
+For Copilot CLI sessions that use worktree isolation, the fork continues to use the same worktree as the original session.
 
 Forking is useful when you want to explore an alternative approach, ask a side question, or branch a long conversation in a different direction without losing the original context.
 
 There are two ways to fork a chat session:
 
-* **Fork the entire session**: type `/fork` in the chat input box and press `kbstyle(Enter)`. A new session opens with the full conversation history copied from the current session.
+* **Fork the entire session**: type `/fork` in the chat input box and press `kbstyle(Enter)`. The fork opens with the full conversation history copied from the current session.
 
-* **Fork from a checkpoint**: hover over a chat request in the conversation and select the **Fork Conversation** button. A new session opens that includes only the requests up to and including that checkpoint.
+* **Fork from a checkpoint**: hover over a chat request in the conversation and select the **Fork Conversation** button. The fork includes only the requests up to and including that checkpoint.
 
     ![Screenshot of the Fork Conversation button in the checkpoint toolbar in the Chat view.](images/chat-checkpoints/chat-fork-conversation.png)
 

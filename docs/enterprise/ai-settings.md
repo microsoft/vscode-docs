@@ -1,6 +1,6 @@
 ---
 ContentId: f8a9c3d2-4e7b-5f1a-b6c8-9d0e2f3a7b4c
-DateApproved: 6/24/2026
+DateApproved: 7/1/2026
 MetaDescription: Learn how to centrally manage AI settings in VS Code for enterprise environments, including agent mode, MCP servers, and tool approvals.
 ---
 
@@ -13,6 +13,94 @@ This article covers the AI-related settings that IT admins can manage through [e
 Users can control the functionality and behavior of AI features through VS Code settings. Organizations can enforce specific configurations by deploying enterprise policies via device management solutions. These policies override user-configured settings on managed devices.
 
 Learn how to [deploy policies for VS Code](/docs/enterprise/policies.md) to your organization's devices.
+
+## Deploy Copilot managed settings
+
+Copilot managed settings are a centrally-managed governance layer that applies the same configuration across VS Code and GitHub Copilot CLI. When you set a managed setting, it maps to a VS Code enterprise policy and overrides the corresponding user setting on managed devices.
+
+Managed settings differ from the [VS Code enterprise policies](/docs/enterprise/policies.md) that you deploy with ADMX templates or configuration profiles. Managed settings use Copilot-specific delivery channels and a Copilot-specific configuration shape, so a single definition governs both VS Code and Copilot CLI.
+
+VS Code reads managed settings from three delivery channels. Choose the channel that fits how you manage devices:
+
+* **Native MDM** - deliver settings through the Windows Registry or macOS managed preferences with an MDM solution such as Microsoft Intune.
+* **Server-managed** - resolve settings from the developer's signed-in GitHub account, configured by your GitHub enterprise or organization admin.
+* **File-based** - place a `managed-settings.json` file on disk, for use with configuration-management tools such as Chef, Puppet, or Ansible.
+
+All three channels use the same managed setting keys and values. For the list of available keys and the VS Code settings they map to, see [Available managed settings](#available-managed-settings).
+
+### Precedence across channels
+
+> [!NOTE]
+> Precedence is enforced starting in VS Code version 1.128.
+
+When the same setting is available from more than one channel, VS Code uses a single authoritative channel rather than merging the channels. The channel with the highest precedence that provides any managed settings wins outright, and the other channels are ignored.
+
+The precedence order is:
+
+1. Native MDM
+1. Server-managed
+1. File-based
+
+For example, if native MDM delivers any managed settings, VS Code uses the native MDM channel and ignores the server-managed and file-based channels entirely.
+
+### Deliver managed settings through native MDM
+
+On Windows and macOS, VS Code reads Copilot managed settings from OS-level managed preferences. Deliver them through your MDM solution, the same way you deliver other device policies.
+
+| Operating system | Location |
+|------------------|----------|
+| Windows | Registry key `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\GitHubCopilot` |
+| macOS | Managed preferences for the `com.github.copilot` preference domain |
+
+> [!IMPORTANT]
+> These keys are specific to Copilot managed settings and are separate from the VS Code enterprise policy keys under `Software\Policies\Microsoft\VSCode`. Native MDM delivery of Copilot managed settings is available on Windows and macOS only. On Linux, use the file-based channel.
+
+Scalar settings use their dot-separated key directly (for example, `permissions.disableBypassPermissionsMode`). Structured settings (for example, `enabledPlugins`) are provided as a JSON string value.
+
+### Deliver managed settings from a file
+
+VS Code can read Copilot managed settings from a `managed-settings.json` file on disk. Use this option when your organization manages devices with configuration-management tools, such as Chef, Puppet, or Ansible, and does not use Mobile Device Management (MDM).
+
+Place `managed-settings.json` in the well-known location for each operating system:
+
+| Operating system | Path |
+|------------------|------|
+| macOS | `/Library/Application Support/GitHubCopilot/managed-settings.json` |
+| Windows | `%ProgramFiles%\GitHubCopilot\managed-settings.json` |
+| Linux | `/etc/github-copilot/managed-settings.json` |
+
+The file uses the Copilot managed settings shape. The following example disables bypass permissions mode:
+
+```json
+{
+    "permissions": {
+        "disableBypassPermissionsMode": "disable"
+    }
+}
+```
+
+### Deliver managed settings from the server
+
+When developers sign in with a GitHub account, VS Code resolves managed settings that your GitHub enterprise or organization admin configures in `copilot/managed-settings.json`. Because these settings travel with the account, they apply across the developer's devices without local device management.
+
+Server-managed settings are configured on the GitHub side. For more information, see [Manage Copilot for your enterprise](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise) in the GitHub documentation.
+
+### Available managed settings
+
+The following managed settings are available. Each key maps to a VS Code policy and the setting it controls. For full details on each policy's accepted values and behavior, see the [enterprise policy reference](/docs/enterprise/policies.md#vs-code-enterprise-policy-reference).
+
+| Managed setting key | VS Code policy | Setting | Description |
+|---------------------|----------------|---------|-------------|
+| `permissions.disableBypassPermissionsMode` | `ChatToolsAutoApprove` | `setting(chat.tools.global.autoApprove)` | Set to `disable` to turn off global auto-approval ("YOLO mode") and hide the bypass and Autopilot options. |
+| `model` | `ChatDefaultModel` | `setting(chat.defaultModel)` | Default chat model for new conversations. See [Set a default chat model](#set-a-default-chat-model). |
+| `enabledPlugins` | `ChatEnabledPlugins` | `setting(chat.plugins.enabledPlugins)` | Allowlist of plugin IDs, with each plugin explicitly enabled or disabled. |
+| `extraKnownMarketplaces` | `ChatExtraMarketplaces` | `setting(chat.plugins.extraMarketplaces)` | Additional plugin marketplaces to make available. |
+| `strictKnownMarketplaces` | `ChatStrictMarketplaces` | `setting(chat.plugins.strictMarketplaces)` | Trust only the marketplaces supplied through managed settings. |
+| `telemetry.*` | `CopilotOtel*` | `setting(chat.agentHost.otel.*)` | OpenTelemetry export configuration. See [Configure telemetry export with OpenTelemetry](#configure-telemetry-export-with-opentelemetry). |
+
+### Verify applied managed settings
+
+You can verify the applied values with the **Developer: Policy Diagnostics** command, which reports the policy state currently enforced on the device, including which managed settings channel is active. For more information, see [Verify policy enforcement](/docs/enterprise/policies.md#verify-policy-enforcement).
 
 ## Restrict AI features to approved GitHub organizations
 
@@ -30,6 +118,20 @@ When the policy is not set, AI features are not restricted by this gate.
 This policy is fail-closed: if the user is not signed in, is signed in with a non-GitHub account, or is signed in to a GitHub account that does not belong to an approved organization, AI features remain disabled.
 
 IT admins can verify the gate state at any time with the **Developer: Policy Diagnostics** command, which includes an **Account Policy Gate** section. For more information, see [Verify policy enforcement](/docs/enterprise/policies.md#verify-policy-enforcement).
+
+## Set a default chat model
+
+Organizations can set a default model that applies to every new conversation, so developers start from an approved model without configuring it themselves.
+
+To set the default model, set the `ChatDefaultModel` policy. This configures the `setting(chat.defaultModel)` setting in VS Code. You can also deliver it through Copilot managed settings with the `model` key.
+
+The value accepts one of the following:
+
+* `auto` - let Copilot pick the model.
+* A model family name, such as `opus` or `gemini` - resolves to the latest available version in that family.
+* A full model ID.
+
+New conversations start at the configured model across the chat panel and the Agents window, including Copilot CLI sessions. Developers can still switch models within a conversation, and an explicit choice is never overridden by the configured default. Reopened conversations keep their own saved model. When the setting is not configured, model selection behavior is unchanged.
 
 ## Enable or disable the use of agents
 
@@ -63,10 +165,7 @@ To disable agent plugin integration in chat, set the `ChatPluginsEnabled` policy
 
 [Agent plugins](/docs/agent-customization/agent-plugins.md) are prepackaged bundles of agent customizations that developers discover and install from plugin marketplaces. Organizations can centrally control which plugins and marketplaces are available, instead of having each developer configure them locally.
 
-VS Code reads these policies from the same Copilot enterprise settings file that drives [enterprise plugin standards for Copilot CLI](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-plugin-standards), so a single policy definition applies to both clients. You can also configure them through your existing device management solution.
-
-> [!NOTE]
-> These plugin policies are experimental.
+VS Code reads these policies from the same Copilot managed settings that drive [enterprise plugin standards for Copilot CLI](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-plugin-standards), so a single definition applies to both clients. You can deliver them through any of the [Copilot managed settings channels](#deploy-copilot-managed-settings).
 
 The following policies are available:
 
@@ -175,30 +274,6 @@ The `ChatAgentDeniedNetworkDomains` policy controls which domains agent tools ar
 
 Denied domains always take precedence over allowed domains. Wildcards are supported, for example `*.example.com`.
 
-## Configure agent network filtering
-
-Network filtering restricts which domains agent tools (fetch tool, integrated browser) can access during chat sessions. When enabled, agents can only reach domains that are explicitly allowed by the configured domain lists.
-
-### Enable network filtering
-
-The `ChatAgentNetworkFilter` policy enables network domain filtering for agent tools. This configures the `setting(chat.agent.networkFilter)` setting in VS Code.
-
-When the policy is set to `true`, network access by agent tools is restricted according to the allowed and denied domain lists. When set to `false` (the default), no network filtering is applied.
-
-When both domain lists are empty and the filter is enabled, all network access by agent tools is blocked.
-
-### Configure allowed domains
-
-The `ChatAgentAllowedNetworkDomains` policy controls which domains agent tools are permitted to access. This configures the `setting(chat.agent.allowedNetworkDomains)` setting in VS Code.
-
-Provide a list of domain patterns. Wildcards are supported, for example `*.example.com`. When [agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing) is also enabled, these domain rules additionally apply to terminal commands executed by the agent.
-
-### Configure denied domains
-
-The `ChatAgentDeniedNetworkDomains` policy controls which domains agent tools are blocked from accessing. This configures the `setting(chat.agent.deniedNetworkDomains)` setting in VS Code.
-
-Denied domains always take precedence over allowed domains. Wildcards are supported, for example `*.example.com`.
-
 ## Configure Copilot code review
 
 Copilot code review enables AI-powered review of code changes. Organizations can control access to these features.
@@ -241,6 +316,30 @@ Learn how to [create custom agents for your organization](https://docs.github.co
 
 > [!NOTE]
 > Organization-level customizations are managed through GitHub organization settings, not VS Code enterprise policies. Individual developers control whether to use these customizations through their VS Code settings.
+
+## Configure telemetry export with OpenTelemetry
+
+Organizations can mandate where Copilot sends [OpenTelemetry](https://opentelemetry.io/) (OTel) data, so that telemetry flows to an approved collector without each developer setting `OTEL_*` environment variables. Managed telemetry configuration applies to both the Copilot Chat extension and the agent host process.
+
+Deliver these settings through the `telemetry` block in [Copilot managed settings](#deploy-copilot-managed-settings). Each field maps to a VS Code policy and a `chat.agentHost.otel.*` setting:
+
+| Managed setting key | Setting | Description |
+|---------------------|---------|-------------|
+| `telemetry.enabled` | `setting(chat.agentHost.otel.enabled)` | Enable or disable Copilot OpenTelemetry export. When managed, users cannot override the value. |
+| `telemetry.endpoint` | `setting(chat.agentHost.otel.otlpEndpoint)` | OTLP collector endpoint that receives the telemetry. |
+| `telemetry.protocol` | `setting(chat.agentHost.otel.exporterType)` | OTLP transport, such as `otlp-http` or `otlp-grpc`. The managed wire protocol (protobuf or JSON) is applied to both surfaces. |
+| `telemetry.captureContent` | `setting(chat.agentHost.otel.captureContent)` | Whether export captures prompt, response, and tool content. |
+| `telemetry.lockCaptureContent` | — | Prevents developers from overriding the managed `captureContent` value. |
+| `telemetry.serviceName` | `setting(chat.agentHost.otel.serviceName)` | The OTel `service.name` resource attribute. |
+| `telemetry.resourceAttributes` | `setting(chat.agentHost.otel.resourceAttributes)` | Additional OTel resource attributes, provided as a JSON object. |
+| `telemetry.headers` | `setting(chat.agentHost.otel.headers)` | OTLP exporter headers, such as an authentication token, provided as a JSON object. |
+
+For each field, the resolved value is determined by the precedence order: policy, then environment variable, then user setting, then default. A managed value always wins.
+
+> [!NOTE]
+> Managed `telemetry.headers` are applied only to the Copilot Chat extension's OTLP exporter and are never passed through environment variables, so that a header value such as an authentication token can't leak into the tool subprocesses that the agent host spawns. As a result, managed headers are not delivered to the agent host process in this release.
+
+The agent host computes its telemetry configuration when it starts. If a managed telemetry value changes after the agent host has started, reload VS Code to apply it.
 
 ## Security considerations
 
