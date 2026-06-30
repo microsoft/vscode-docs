@@ -14,11 +14,51 @@ Users can control the functionality and behavior of AI features through VS Code 
 
 Learn how to [deploy policies for VS Code](/docs/enterprise/policies.md) to your organization's devices.
 
-## Deploy managed settings from a file
+## Deploy Copilot managed settings
 
-VS Code can read Copilot managed settings from a `managed-settings.json` file on disk. Use this option when your organization manages devices with configuration-management tools, such as Chef, Puppet, or Ansible, and does not use Mobile Device Management (MDM). VS Code applies these file-based managed settings the same way as MDM-delivered managed settings, and they override user settings on managed devices.
+Copilot managed settings are a centrally-managed governance layer that applies the same configuration across VS Code and GitHub Copilot CLI. When you set a managed setting, it maps to a VS Code enterprise policy and overrides the corresponding user setting on managed devices.
 
-Place `managed-settings.json` in the well-known VS Code managed settings location for each operating system:
+Managed settings differ from the [VS Code enterprise policies](/docs/enterprise/policies.md) that you deploy with ADMX templates or configuration profiles. Managed settings use Copilot-specific delivery channels and a Copilot-specific configuration shape, so a single definition governs both VS Code and Copilot CLI.
+
+VS Code reads managed settings from three delivery channels. Choose the channel that fits how you manage devices:
+
+* **Native MDM** - deliver settings through the Windows Registry or macOS managed preferences with an MDM solution such as Microsoft Intune.
+* **Server-managed** - resolve settings from the developer's signed-in GitHub account, configured by your GitHub enterprise or organization admin.
+* **File-based** - place a `managed-settings.json` file on disk, for use with configuration-management tools such as Chef, Puppet, or Ansible.
+
+All three channels use the same managed setting keys and values. For the list of available keys and the VS Code settings they map to, see [Available managed settings](#available-managed-settings).
+
+### Precedence across channels
+
+When the same setting is available from more than one channel, VS Code uses a single authoritative channel rather than merging the channels. The channel with the highest precedence that provides any managed settings wins outright, and the other channels are ignored.
+
+The precedence order is:
+
+1. Native MDM
+1. Server-managed
+1. File-based
+
+For example, if native MDM delivers any managed settings, VS Code uses the native MDM channel and ignores the server-managed and file-based channels entirely.
+
+### Deliver managed settings through native MDM
+
+On Windows and macOS, VS Code reads Copilot managed settings from OS-level managed preferences. Deliver them through your MDM solution, the same way you deliver other device policies.
+
+| Operating system | Location |
+|------------------|----------|
+| Windows | Registry key `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\GitHubCopilot` |
+| macOS | Managed preferences for the `com.github.copilot` preference domain |
+
+> [!IMPORTANT]
+> These keys are specific to Copilot managed settings and are separate from the VS Code enterprise policy keys under `Software\Policies\Microsoft\VSCode`. Native MDM delivery of Copilot managed settings is available on Windows and macOS only. On Linux, use the file-based channel.
+
+Scalar settings use their dot-separated key directly (for example, `permissions.disableBypassPermissionsMode`). Structured settings (for example, `enabledPlugins`) are provided as a JSON string value.
+
+### Deliver managed settings from a file
+
+VS Code can read Copilot managed settings from a `managed-settings.json` file on disk. Use this option when your organization manages devices with configuration-management tools, such as Chef, Puppet, or Ansible, and does not use Mobile Device Management (MDM).
+
+Place `managed-settings.json` in the well-known location for each operating system:
 
 | Operating system | Path |
 |------------------|------|
@@ -26,9 +66,36 @@ Place `managed-settings.json` in the well-known VS Code managed settings locatio
 | Windows | `%ProgramFiles%\GitHubCopilot\managed-settings.json` |
 | Linux | `/etc/github-copilot/managed-settings.json` |
 
-When the same setting is delivered through multiple channels, a server-provided value takes precedence over a native MDM value, which takes precedence over the file. The channels are not merged.
+The file uses the Copilot managed settings shape. The following example disables bypass permissions mode:
 
-Use the same managed setting names and JSON values that you use for MDM-delivered managed settings. You can verify the applied values with the **Developer: Policy Diagnostics** command, which reports the policy state currently enforced on the device. For more information, see [Verify policy enforcement](/docs/enterprise/policies.md#verify-policy-enforcement).
+```json
+{
+    "permissions": {
+        "disableBypassPermissionsMode": "disable"
+    }
+}
+```
+
+### Deliver managed settings from the server
+
+When developers sign in with a GitHub account, VS Code resolves managed settings that your GitHub enterprise or organization admin configures in `copilot/managed-settings.json`. Because these settings travel with the account, they apply across the developer's devices without local device management.
+
+Server-managed settings are configured on the GitHub side. For more information, see [Manage Copilot for your enterprise](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise) in the GitHub documentation.
+
+### Available managed settings
+
+The following managed settings are available. Each key maps to a VS Code policy and the setting it controls. For full details on each policy's accepted values and behavior, see the [enterprise policy reference](/docs/enterprise/policies.md#vs-code-enterprise-policy-reference).
+
+| Managed setting key | VS Code policy | Setting | Description |
+|---------------------|----------------|---------|-------------|
+| `permissions.disableBypassPermissionsMode` | `ChatToolsAutoApprove` | `setting(chat.tools.global.autoApprove)` | Set to `disable` to turn off global auto-approval ("YOLO mode") and hide the bypass and Autopilot options. |
+| `enabledPlugins` | `ChatEnabledPlugins` | `setting(chat.plugins.enabledPlugins)` | Allowlist of plugin IDs, with each plugin explicitly enabled or disabled. |
+| `extraKnownMarketplaces` | `ChatExtraMarketplaces` | `setting(chat.plugins.extraMarketplaces)` | Additional plugin marketplaces to make available. |
+| `strictKnownMarketplaces` | `ChatStrictMarketplaces` | `setting(chat.plugins.strictMarketplaces)` | Trust only the marketplaces supplied through managed settings. |
+
+### Verify applied managed settings
+
+You can verify the applied values with the **Developer: Policy Diagnostics** command, which reports the policy state currently enforced on the device, including which managed settings channel is active. For more information, see [Verify policy enforcement](/docs/enterprise/policies.md#verify-policy-enforcement).
 
 ## Restrict AI features to approved GitHub organizations
 
@@ -79,10 +146,7 @@ To disable agent plugin integration in chat, set the `ChatPluginsEnabled` policy
 
 [Agent plugins](/docs/agent-customization/agent-plugins.md) are prepackaged bundles of agent customizations that developers discover and install from plugin marketplaces. Organizations can centrally control which plugins and marketplaces are available, instead of having each developer configure them locally.
 
-VS Code reads these policies from the same Copilot enterprise settings file that drives [enterprise plugin standards for Copilot CLI](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-plugin-standards), so a single policy definition applies to both clients. You can also configure them through your existing device management solution.
-
-> [!NOTE]
-> These plugin policies are experimental.
+VS Code reads these policies from the same Copilot managed settings that drive [enterprise plugin standards for Copilot CLI](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-plugin-standards), so a single definition applies to both clients. You can deliver them through any of the [Copilot managed settings channels](#deploy-copilot-managed-settings).
 
 The following policies are available:
 
