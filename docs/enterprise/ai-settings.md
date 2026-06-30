@@ -89,9 +89,11 @@ The following managed settings are available. Each key maps to a VS Code policy 
 | Managed setting key | VS Code policy | Setting | Description |
 |---------------------|----------------|---------|-------------|
 | `permissions.disableBypassPermissionsMode` | `ChatToolsAutoApprove` | `setting(chat.tools.global.autoApprove)` | Set to `disable` to turn off global auto-approval ("YOLO mode") and hide the bypass and Autopilot options. |
+| `model` | `ChatDefaultModel` | `setting(chat.defaultModel)` | Default chat model for new conversations. See [Set a default chat model](#set-a-default-chat-model). |
 | `enabledPlugins` | `ChatEnabledPlugins` | `setting(chat.plugins.enabledPlugins)` | Allowlist of plugin IDs, with each plugin explicitly enabled or disabled. |
 | `extraKnownMarketplaces` | `ChatExtraMarketplaces` | `setting(chat.plugins.extraMarketplaces)` | Additional plugin marketplaces to make available. |
 | `strictKnownMarketplaces` | `ChatStrictMarketplaces` | `setting(chat.plugins.strictMarketplaces)` | Trust only the marketplaces supplied through managed settings. |
+| `telemetry.*` | `CopilotOtel*` | `setting(chat.agentHost.otel.*)` | OpenTelemetry export configuration. See [Configure telemetry export with OpenTelemetry](#configure-telemetry-export-with-opentelemetry). |
 
 ### Verify applied managed settings
 
@@ -113,6 +115,20 @@ When the policy is not set, AI features are not restricted by this gate.
 This policy is fail-closed: if the user is not signed in, is signed in with a non-GitHub account, or is signed in to a GitHub account that does not belong to an approved organization, AI features remain disabled.
 
 IT admins can verify the gate state at any time with the **Developer: Policy Diagnostics** command, which includes an **Account Policy Gate** section. For more information, see [Verify policy enforcement](/docs/enterprise/policies.md#verify-policy-enforcement).
+
+## Set a default chat model
+
+Organizations can set a default model that applies to every new conversation, so developers start from an approved model without configuring it themselves.
+
+To set the default model, set the `ChatDefaultModel` policy. This configures the `setting(chat.defaultModel)` setting in VS Code. You can also deliver it through Copilot managed settings with the `model` key.
+
+The value accepts one of the following:
+
+* `auto` - let Copilot pick the model.
+* A model family name, such as `opus` or `gemini` - resolves to the latest available version in that family.
+* A full model ID.
+
+New conversations start at the configured model across the chat panel and the Agents window, including Copilot CLI sessions. Developers can still switch models within a conversation, and an explicit choice is never overridden by the configured default. Reopened conversations keep their own saved model. When the setting is not configured, model selection behavior is unchanged.
 
 ## Enable or disable the use of agents
 
@@ -297,6 +313,30 @@ Learn how to [create custom agents for your organization](https://docs.github.co
 
 > [!NOTE]
 > Organization-level customizations are managed through GitHub organization settings, not VS Code enterprise policies. Individual developers control whether to use these customizations through their VS Code settings.
+
+## Configure telemetry export with OpenTelemetry
+
+Organizations can mandate where Copilot sends [OpenTelemetry](https://opentelemetry.io/) (OTel) data, so that telemetry flows to an approved collector without each developer setting `OTEL_*` environment variables. Managed telemetry configuration applies to both the Copilot Chat extension and the agent host process.
+
+Deliver these settings through the `telemetry` block in [Copilot managed settings](#deploy-copilot-managed-settings). Each field maps to a VS Code policy and a `chat.agentHost.otel.*` setting:
+
+| Managed setting key | Setting | Description |
+|---------------------|---------|-------------|
+| `telemetry.enabled` | `setting(chat.agentHost.otel.enabled)` | Enable or disable Copilot OpenTelemetry export. When managed, users cannot override the value. |
+| `telemetry.endpoint` | `setting(chat.agentHost.otel.otlpEndpoint)` | OTLP collector endpoint that receives the telemetry. |
+| `telemetry.protocol` | `setting(chat.agentHost.otel.exporterType)` | OTLP transport, such as `otlp-http` or `otlp-grpc`. The managed wire protocol (protobuf or JSON) is applied to both surfaces. |
+| `telemetry.captureContent` | `setting(chat.agentHost.otel.captureContent)` | Whether export captures prompt, response, and tool content. |
+| `telemetry.lockCaptureContent` | — | Prevents developers from overriding the managed `captureContent` value. |
+| `telemetry.serviceName` | `setting(chat.agentHost.otel.serviceName)` | The OTel `service.name` resource attribute. |
+| `telemetry.resourceAttributes` | `setting(chat.agentHost.otel.resourceAttributes)` | Additional OTel resource attributes, provided as a JSON object. |
+| `telemetry.headers` | `setting(chat.agentHost.otel.headers)` | OTLP exporter headers, such as an authentication token, provided as a JSON object. |
+
+For each field, the resolved value is determined by the precedence order: policy, then environment variable, then user setting, then default. A managed value always wins.
+
+> [!NOTE]
+> Managed `telemetry.headers` are applied only to the Copilot Chat extension's OTLP exporter and are never passed through environment variables, so that a header value such as an authentication token can't leak into the tool subprocesses that the agent host spawns. As a result, managed headers are not delivered to the agent host process in this release.
+
+The agent host computes its telemetry configuration when it starts. If a managed telemetry value changes after the agent host has started, reload VS Code to apply it.
 
 ## Security considerations
 
