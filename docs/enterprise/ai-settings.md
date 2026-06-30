@@ -14,6 +14,22 @@ Users can control the functionality and behavior of AI features through VS Code 
 
 Learn how to [deploy policies for VS Code](/docs/enterprise/policies.md) to your organization's devices.
 
+## Deploy managed settings from a file
+
+VS Code can read Copilot managed settings from a `managed-settings.json` file on disk. Use this option when your organization manages devices with configuration-management tools, such as Chef, Puppet, or Ansible, and does not use Mobile Device Management (MDM). VS Code applies these file-based managed settings the same way as MDM-delivered managed settings, and they override user settings on managed devices.
+
+Place `managed-settings.json` in the well-known VS Code managed settings location for each operating system:
+
+| Operating system | Path |
+|------------------|------|
+| macOS | `/Library/Application Support/GitHubCopilot/managed-settings.json` |
+| Windows | `%ProgramFiles%\GitHubCopilot\managed-settings.json` |
+| Linux | `/etc/github-copilot/managed-settings.json` |
+
+When the same setting is delivered through multiple channels, a server-provided value takes precedence over a native MDM value, which takes precedence over the file. The channels are not merged.
+
+Use the same managed setting names and JSON values that you use for MDM-delivered managed settings. You can verify the applied values with the **Developer: Policy Diagnostics** command, which reports the policy state currently enforced on the device. For more information, see [Verify policy enforcement](/docs/enterprise/policies.md#verify-policy-enforcement).
+
 ## Restrict AI features to approved GitHub organizations
 
 Organizations can require developers to be signed in to a GitHub account that belongs to an approved organization before AI features in VS Code are activated. This enables enterprises to ensure that account-level policies set by their GitHub organization (for example, Copilot content exclusions or model availability) are in effect before chat, agents, or inline suggestions become available.

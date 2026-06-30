@@ -158,6 +158,9 @@ When a subagent runs, it appears in the chat as a collapsible tool call. By defa
 
 Select the subagent tool call to expand it and view the full details, including all tool calls the subagent made, the prompt passed to the subagent, and the returned result.
 
+> [!NOTE]
+> Hover over a subagent section in the chat response to see the [AI credits](/docs/agents/concepts/language-models.md#ai-credits-and-model-costs) used by that subagent. This gives you more transparency into the cost of delegated work.
+
 You control how much detail to reveal without cluttering your main conversation with intermediate steps.
 
 ## Run a custom agent as a subagent

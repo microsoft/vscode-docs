@@ -1,9 +1,9 @@
 {
   "featured": {
-    "title": "Clearer costs and safer code browsing",
-    "description": "See the cost of a whole chat session, tune models from a single picker, and browse new folders safely in Restricted Mode.",
-    "link": "/updates/v1_126",
-    "image": "/assets/updates/1_126/release-highlights.webp"
+    "title": "Browser-ready agents and organized sessions",
+    "description": "Browser tools for agents reach general availability, the integrated browser adds per-site permissions, and you can group and reorder sessions in the Agents window.",
+    "link": "/updates/v1_127",
+    "image": "/assets/updates/1_127/release-highlights.webp"
   },
   "highlights": [
     {

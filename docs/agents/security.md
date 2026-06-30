@@ -26,7 +26,7 @@ Use the following checklist to set up a secure starting point for AI-assisted de
 
 1. **Open untrusted projects in restricted mode.** Until you've reviewed a project for malicious content, rely on the [Workspace Trust](#trust-boundaries) boundary. Restricted mode disables agents in that workspace.
 
-1. **Enable agent sandboxing.** On macOS and Linux (WSL2 on Windows), enable `setting(chat.agent.sandbox.enabled)` to restrict file system and network access for agent-executed commands. Learn more about [agent sandboxing](#agent-sandboxing-preview).
+1. **Enable agent sandboxing.** On macOS, Linux, and Windows, enable agent sandboxing to restrict file system and network access for agent-executed commands. Use `setting(chat.agent.sandbox.enabled)` on macOS and Linux, and `setting(chat.agent.sandbox.enabledWindows)` on Windows. Learn more about [agent sandboxing](#agent-sandboxing-preview).
 
 1. **Review all file edits before accepting.** Use the [diff editor](/docs/chat/review-code-edits.md) to inspect proposed changes. Keep or undo individual changes before they are applied.
 
@@ -93,8 +93,10 @@ Learn more about [tool and command approval](/docs/agents/approvals.md#tool-appr
 
 Agent sandboxing uses OS-level isolation to restrict what agent-executed processes can access on your machine. Rather than relying solely on approval prompts, sandboxing enforces strict file system and network boundaries at the kernel level, so commands cannot access resources outside the permitted scope, even if they are approved. For a deeper look at how sandboxing works and the OS-level enforcement details, see [Agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing).
 
+Agent terminal sandboxing is available on macOS, Linux, and Windows. On Windows, VS Code uses the MXC runtime (`wxc-exec.exe`). The same sandboxing applies to Copilot CLI agent-host sessions that run commands through the VS Code agent terminal integration.
+
 > [!IMPORTANT]
-> Agent sandboxing is the strongest protection against malicious terminal commands. If prompt injection is a concern, use agent sandboxing or run VS Code in a [dev container](https://code.visualstudio.com/docs/devcontainers/containers) instead of relying on auto-approval rules alone. Auto-approval rules use best-effort command parsing and have known limitations with shell aliases, quote concatenation, and complex shell syntax.
+> Agent sandboxing is the strongest protection against malicious terminal commands. If prompt injection is a concern, use agent sandboxing or run VS Code in a [dev container](/docs/devcontainers/containers.md) instead of relying on auto-approval rules alone. Auto-approval rules use best-effort command parsing and have known limitations with shell aliases, quote concatenation, and complex shell syntax.
 
 ### MCP server sandboxing
 

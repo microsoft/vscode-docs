@@ -231,7 +231,17 @@ Learn more about [adding context to chat](/docs/chat/copilot-chat-context.md).
 
 ## Permissions
 
-The browser automatically denies most permission requests (camera, microphone, geolocation) for security. Notifications, clipboard access, and file selection are allowed.
+The integrated browser supports per-site permissions, similar to a traditional browser. When a page requests a permission, VS Code prompts you to allow or deny the request for the current site.
+
+Pages can request access to web APIs such as:
+
+* Geolocation.
+* Camera and microphone.
+* Sensors, such as the accelerometer.
+* Clipboard.
+* Devices, such as Bluetooth, USB, Serial, and HID devices.
+
+To manage permissions for the current site, select the browser toolbar menu, and then select **Site Permissions**.
 
 ## Session storage
 
@@ -273,11 +283,11 @@ The Live Preview extension can use the integrated browser for previewing web pag
 
 ## Browser tools for agents
 
-Agents can read and interact with pages in the integrated browser by using built-in browser tools. When enabled, agents can open browser pages, navigate to URLs, read page content and console errors, take screenshots, click elements, type text, hover over elements, drag elements, handle dialogs, and run Playwright code, all without requiring an external MCP server.
+Browser tools for agents are generally available and enabled by default with the `setting(workbench.browser.enableChatTools)` setting. Agents can read and interact with pages in the integrated browser by using built-in browser tools. Agents can open browser pages, navigate to URLs, read page content and console errors, take screenshots, select elements, type text, hover over elements, drag elements, handle dialogs, and run Playwright code, all without an external MCP server.
 
 Browser tools are different from [adding context to AI chat](#add-context-to-ai-chat). The Add to Chat actions let you manually pick page elements, capture screenshots, or attach console logs as context for a chat prompt. Browser tools let agents autonomously interact with web pages to complete tasks.
 
-To enable browser tools, set the `setting(workbench.browser.enableChatTools)` setting to `true`. The tools are then available to the agent automatically.
+When the `setting(workbench.browser.enableChatTools)` setting is enabled, browser tools are available to the agent automatically. To turn off browser tools, set this setting to `false`.
 
 In the [Agents window](/docs/agents/agents-window.md), browser tabs are isolated per session. Each session has its own set of browser tabs, and an agent can only read and interact with the tabs that belong to its own session.
 
@@ -289,7 +299,7 @@ To let an agent read and interact with a page you opened, select the **Share wit
 
 A visual indicator on the browser tab shows that a page is currently being shared. To stop sharing, select the **Share with Agent** button again. This immediately revokes the agent's access to that page.
 
-You can now ask the agent to read content from the page or interact with it. For example, you could ask "What is the title of the page?" or "Click the login button and tell me if it works."
+You can now ask the agent to read content from the page or interact with it. For example, you could ask "What is the title of the page?" or "Select the login button and tell me if it works."
 
 Shared pages use your existing browser session, including cookies and login state. Pages opened by the agent use isolated ephemeral sessions, so they don't share cookies or storage with your other browser tabs.
 

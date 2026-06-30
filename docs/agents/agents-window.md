@@ -102,7 +102,7 @@ The agent now starts working on your request. Learn more about [interacting in c
 
 The session list in the sidebar shows all your ongoing sessions across your workspaces. Each session item surfaces the key information such as session name, workspace, agent type, and file change stats.
 
-By default, sessions are grouped by workspace and you can also group on timeframe. See [Manage Sessions](/docs/chat/chat-sessions.md) for more details on working with the session list.
+By default, sessions are grouped by workspace, and you can also group them by timeframe. You can create custom groups, collapse group headers, and rearrange sessions or groups with drag and drop. See [Manage chat sessions](/docs/chat/chat-sessions.md#sessions-list) for more details on working with the sessions list.
 
 When you select a session in the list, the chat panel shows the complete history of that session. This session then becomes the active session and the **Changes** panel surfaces the latest file updates from the agent in that session and the files in the associated workspace.
 
@@ -196,37 +196,42 @@ Learn more about setting up and using remote connections in [remote agent sessio
 
 ## Run multiple chats in a session
 
-In a Copilot CLI session, you can run multiple chats side by side, each as a separate tab in the chat area. Every chat has its own conversation, title, and status, but all chats share the session's workspace and worktree. Each new chat starts blank and doesn't carry over the conversation history of the other chats.
+In a Copilot CLI session, you can run multiple chats side by side, each as a separate tab in the chat area. Each chat has its own conversation, title, status, and agent or language model selection, but all chats share the session's workspace and worktree. Each new chat starts blank and doesn't carry over the conversation history of the other chats.
 
-This is useful when you want to work on an independent task in the same project without interrupting an ongoing chat or starting a completely new session from scratch.
+This is useful when you want to work on an independent task in the same project without interrupting an ongoing chat or starting a new session.
 
-The first chat is the default chat for the session. The chats you add next to it are independent of the session, so you can rename or delete them without affecting the session itself.
+The first chat is the default chat for the session. The chats you add next to it are independent of each other, so you can rename, hide, or delete them without affecting the session itself.
 
 > [!NOTE]
 > Running multiple chats is available for Copilot CLI sessions. Other session types show a single chat.
 
 To create an additional chat:
 
-1. In an active session, select **New Chat** (`+`) in the session toolbar.
+1. In an active session, select **+ New Chat** in the session header.
 
-    A new chat tab appears in the chat area, alongside the existing chat, and becomes active with an empty input. The chat doesn't appear as a separate item in the sessions list.
+    A new chat opens with an empty input. When the session has more than one chat, a tab strip appears in the chat area. The chat doesn't appear as a separate item in the sessions list.
 
     ![Screenshot showing how a new chat tab appears in the chat area alongside the existing chat tab in the Agents window.](images/agents-window/agents-window-new-subsession.png)
 
-    <!-- TODO: replace screenshot with an updated capture that shows multiple chat tabs with the New Chat (+) button in the session toolbar. -->
+    <!-- TODO: replace screenshot with an updated capture that shows the + New Chat button, the chat tab strip with the trailing +, and the Conversations dropdown. -->
+
+1. To add more chats, select the trailing **+** in the tab strip.
 
 1. Type a prompt and press `kbstyle(Enter)` to start the chat.
 
 To work with the chats in a session:
 
 * **Switch between chats**: select a chat tab to show that chat's own conversation history. The in-progress spinner and unread indicator on a tab reflect the state of that chat only.
-* **Rename a chat**: double-click a chat tab, or right-click the tab and select **Rename**, then enter a new name. The chat title is independent of the session title, so renaming the session doesn't rename the chats.
-* **Delete a chat**: hover over a chat tab and select the close (`x`) button. You're asked to confirm because this action can't be undone. The default chat has no close button and is removed when you delete the session.
+* **Choose an agent or model**: use the agent and language model controls in a chat to pick different options for that chat. Sibling chats can use different agents or models.
+* **Track progress and changes**: the session status shows as in progress while any chat is working. Each chat tab shows its own progress. The session header **Changes** pill aggregates edits from all chats in the session, and opening it shows the combined changes.
+* **Rename a chat**: open a chat tab's context menu and select **Rename**, then enter a new name. The chat title is independent of the session title, so renaming the session doesn't rename the chats.
+* **Close or reopen a chat**: select the close (`x`) button on a chat tab to hide that chat without deleting it. Open the **Conversations** dropdown and use the chat's checkbox to show or hide it.
+* **Delete a chat**: open a chat tab's context menu and select **Delete Chat**. Deleting a chat permanently removes it and can't be undone. Use the tab close button when you want to hide the chat instead.
 
-Your chats are persisted and restored when you reload the window and reopen the session, including each chat's conversation history.
+Your visible and hidden chats are persisted and restored when you reload the window and reopen the session, including each chat's conversation history.
 
 > [!TIP]
-> To explore an alternative direction from a specific point in a session's conversation, [fork the session](/docs/chat/chat-sessions.md#fork-a-chat-session). Forking a session creates a new independent session with a copy of the conversation history up to a specific point.
+> To explore an alternative direction from a specific point in a multi-chat Copilot CLI session, [fork the conversation](/docs/chat/chat-sessions.md#fork-a-chat-session). The fork opens as a peer chat in the same session, inherits the conversation up to the fork point, gets an automatically generated title, and then runs independently from sibling chats. In single-chat sessions and sessions that don't use an agent host, forking creates a new independent session.
 
 ## Open multiple sessions side by side
 
@@ -246,6 +251,9 @@ When you have multiple sessions open, you can use keyboard shortcuts to move bet
 * Press `kb(sessions.closeAllSessions)` to close all open sessions and return to the new-session view. This shortcut applies when a session has focus.
 
 These commands are also available in the Command Palette (`kb(workbench.action.showCommands)`).
+
+> [!NOTE]
+> **Experimental**: when you enable `setting(sessions.layout.autoCollapseSessionsSidebar)`, the Agents window hides the sessions sidebar on narrow windows when both the editor area and side panel are open. The sidebar appears again when there is room. The Agents window preserves a sidebar that you closed manually, and suspends auto-collapse while multiple sessions are open side by side.
 
 ## Customize agents for your project and workflow
 
