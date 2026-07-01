@@ -65,6 +65,12 @@ VS Code provides different tools to inspect what happens when you send a prompt 
 
     Learn more about the [Agent Debug Log panel](/docs/agents/agent-troubleshooting/chat-debug-view.md#agent-debug-log-panel).
 
+* **Cache Explorer:**
+
+    Compares consecutive model requests to show where the prompt cache breaks. Use it when responses are slow or a session consumes more tokens than expected to check whether a low cache hit rate is the cause.
+
+    Learn more about the [Cache Explorer](/docs/agents/agent-troubleshooting/cache-explorer.md).
+
 * **Chat Debug view:**
 
     Shows the raw details of each LLM request and response, including the full system prompt, user prompt, context, and tool invocation payloads. Use this view to inspect the exact data sent to and received from the language model for each interaction.
@@ -102,6 +108,7 @@ When reporting issues, include relevant information from the [Copilot logs](#vie
 ## Related resources
 
 * [Debug chat interactions](/docs/agents/agent-troubleshooting/chat-debug-view.md)
+* [Diagnose prompt caching with the Cache Explorer](/docs/agents/agent-troubleshooting/cache-explorer.md)
 * [Custom instructions](/docs/agent-customization/custom-instructions.md)
 * [MCP servers](/docs/agent-customization/mcp-servers.md)
 * [GitHub Copilot FAQ](/docs/agents/agent-troubleshooting/faq.md)

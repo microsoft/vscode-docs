@@ -54,6 +54,7 @@ Situations where reindexing helps:
 
 ## Related content
 
+* [Diagnose prompt caching with the Cache Explorer](/docs/agents/agent-troubleshooting/cache-explorer.md) - Visualize cache hit rates to find where sessions waste tokens
 * [Session sync](/docs/agents/sessions/session-sync.md) - Sync sessions to your GitHub account for cross-device access
 * [Manage chat sessions](/docs/chat/chat-sessions.md) - Create and organize chat sessions
 * [Settings reference](/docs/agents/reference/ai-settings.md) - All AI and agent settings

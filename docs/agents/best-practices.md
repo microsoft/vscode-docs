@@ -173,6 +173,8 @@ AI responses might degrade as the conversation fills with irrelevant context. Ma
 
 * **Compact context.** Use [/compact](/docs/chat/copilot-chat-context.md#context-compaction) and provide instructions to selectively compact the context and retain only the most relevant information. Compacting reduces the tokens sent with each subsequent request, which helps [manage AI credit usage](/docs/agents/guides/optimize-usage.md).
 
+* **Verify cache performance.** Keep the early parts of your prompt stable across turns to reuse the prompt cache and reduce cost and latency. Use the [Cache Explorer](/docs/agents/agent-troubleshooting/cache-explorer.md) to check cache hit rates and find where the cache breaks.
+
 * **Use subagents for investigation.** Hint the AI to perform research and exploration in isolation by using [subagents](/docs/agents/subagents.md) so the findings don't clutter your main context.
 
 * **Choose the right session type.** Use local sessions for quick tasks on your current code that need your immediate attention, background tasks for tasks that can run locally and isolated from your main context, or cloud sessions that can benefit from team-collaboration.
