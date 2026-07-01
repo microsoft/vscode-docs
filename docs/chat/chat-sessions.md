@@ -180,6 +180,9 @@ There are two ways to fork a chat session:
 
     ![Screenshot of the Fork Conversation button in the checkpoint toolbar in the Chat view.](images/chat-checkpoints/chat-fork-conversation.png)
 
+> [!TIP]
+> A forked session inherits the conversation history of the original, which preserves the prompt cache and reduces cost on the next request. Use the [Cache Explorer](/docs/agents/agent-troubleshooting/cache-explorer.md) to compare cache hit rates across sessions.
+
 ## Save and export chat sessions
 
 You can save chat sessions to preserve important conversations or reuse them later for similar tasks.

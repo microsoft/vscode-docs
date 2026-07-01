@@ -108,6 +108,7 @@
         "area": "agents/agent-troubleshooting",
         "topics": [
             ["Debug Chat Interactions", "/docs/agents/agent-troubleshooting/chat-debug-view"],
+            ["Diagnose Prompt Caching", "/docs/agents/agent-troubleshooting/cache-explorer"],
             ["Troubleshooting", "/docs/agents/agent-troubleshooting/troubleshooting"],
             ["FAQ", "/docs/agents/agent-troubleshooting/faq"],
         ]

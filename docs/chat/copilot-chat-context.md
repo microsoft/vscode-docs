@@ -128,6 +128,8 @@ As you send more requests in a conversation, the control updates to reflect the 
 > [!TIP]
 > When the context window fills up, VS Code automatically compacts the conversation history to free up space.
 
+How you structure and change context across turns also affects prompt caching. Stable context lets the model provider reuse tokens from a previous request, which lowers cost and latency. Use the [Cache Explorer](/docs/agents/agent-troubleshooting/cache-explorer.md) to check your cache hit rate.
+
 ## Context compaction
 
 As a conversation grows, the accumulated messages and context can fill up the model's context window. Context compaction summarizes the conversation history to free up space, so you can continue working in the same session without losing important details. Compacting also reduces the number of tokens sent with each subsequent request, which helps manage [AI credit consumption](/docs/agents/guides/optimize-usage.md).
@@ -156,3 +158,4 @@ If you want to reset the context entirely, start a [new chat session](/docs/chat
 * [Prompt examples](/docs/agents/guides/prompt-examples.md)
 * [Prompt engineering guide](/docs/agents/best-practices.md)
 * [Debug chat interactions](/docs/agents/agent-troubleshooting/chat-debug-view.md)
+* [Diagnose prompt caching with the Cache Explorer](/docs/agents/agent-troubleshooting/cache-explorer.md)
