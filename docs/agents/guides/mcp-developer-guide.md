@@ -7,4 +7,6 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 
 # MCP developer guide
 
-This page is redirected to /api/extension-guides/ai/mcp and only exists to keep the "MCP Developer Guide" TOC item.
+The content has moved to [MCP developer guide](/api/extension-guides/ai/mcp.md).
+
+This page only exists to keep the "MCP Developer Guide" TOC item.
