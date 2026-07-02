@@ -86,6 +86,8 @@ To open the flowchart view, select **Agent Flow Chart** from the [Summary view](
 
 The Cache Explorer view helps you diagnose prompt-cache misses by comparing consecutive model-turn requests in a session. Prompt caching lets language model providers reuse the prefix of a request that matches a previous one, which reduces latency and token costs. When the cache hit rate is low, the Cache Explorer pinpoints exactly where the prompt prefix diverges.
 
+![Screenshot showing the Cache Explorer view in Agent Logs, with a side-by-side diff of two model requests.](../images/cache-explorer/cache-explorer.png)
+
 To learn how to open and read the Cache Explorer and how to improve your cache hit rate, see [Diagnose prompt caching with the Cache Explorer](/docs/agents/agent-troubleshooting/cache-explorer.md).
 
 ### Attach debug events to chat

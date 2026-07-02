@@ -56,7 +56,7 @@
       "title": "Diagnose prompt caching",
       "description": "Use the Cache Explorer to compare model requests, pinpoint where the prompt prefix diverges, and improve your cache hit rate to reduce token cost and latency.",
       "link": "/docs/agents/agent-troubleshooting/cache-explorer",
-      "image": "/assets/docs/agents/agent-troubleshooting/cache-explorer.png"
+      "image": "/assets/docs/agents/cache-explorer/cache-explorer.png"
     },
     {
       "type": "blog",

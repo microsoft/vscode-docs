@@ -30,7 +30,7 @@ The cache only applies to the matching prefix of a request. As soon as the conte
 
 1. Select **Cache Explorer** to open the Cache Explorer view for the selected session.
 
-![Screenshot showing the Cache Explorer view in Agent Logs, with a side-by-side diff of two model requests.](../images/chat-debug-view/cache-explorer.png)
+![Screenshot showing the Cache Explorer view in Agent Logs, with a side-by-side diff of two model requests.](../images/cache-explorer/cache-explorer.png)
 
 ## Read the Cache Explorer
 
