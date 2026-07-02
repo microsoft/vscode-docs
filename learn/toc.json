@@ -17,7 +17,7 @@
     "name": "Agent Customizations",
     "area": "customizations",
     "description": "Learn how to shape AI in VS Code around your workflow using custom agents, instructions, skills, prompt files, and hooks.",
-    "image": "/assets/learn/images/customizations/agent-customizations-card.png",
+    "image": "/assets/learn/images/customizations/agent-customization-card.png",
     "topics": [
       ["Why customization matters", "/learn/customizations/1-why-customization-matter"],
       ["Instructions", "/learn/customizations/2-instructions"],
@@ -33,7 +33,7 @@
     "name": "Agent Extensions",
     "area": "agents",
     "description": "Learn how to use tools, MCP servers, plugins, and third-party agents to extend agent workflows in VS Code.",
-    "image": "/assets/learn/images/agents/agent-extensions-card.png",
+    "image": "/assets/learn/images/agents/agent-extension-card.png",
     "topics": [
       ["Using tools with agents", "/learn/agents/1-using-tools-with-agents"],
       ["Extending agents with MCP servers", "/learn/agents/2-extending-agents-with-mcp-servers"],
