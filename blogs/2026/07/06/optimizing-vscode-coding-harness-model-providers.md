@@ -1,8 +1,8 @@
 ---
-Order: 134
+Order: 135
 TOCTitle: GPT-5.5 Prompt Tuning
 PageTitle: "How Prompt Tuning Improved GPT-5.5 in VS Code"
-MetaDescription: Learn how VS Code works with model providers to tune agent prompts, improve token efficiency, and validate changes with experiments.
+MetaDescription: See how VS Code and OpenAI tested GPT-5.5 system prompt changes in a two-week experiment, cutting tool calls and tail-end token usage while speeding up edits.
 MetaSocialImage: gpt55-prompt-recommendations-social.png
 Date: 2026-07-06
 Author: VS Code Team
@@ -12,31 +12,30 @@ Keywords:
   - model providers
   - prompt engineering
   - evaluations
+  - gpt-5.5
 ---
 
 # How Prompt Tuning Improved GPT-5.5 in VS Code
 
 July 6, 2026 by VS Code Team, [@code](https://x.com/code)
 
-In our [previous post](https://code.visualstudio.com/blogs/2026/05/15/agent-harnesses-github-copilot-vscode), we introduced the VS Code coding harness: the system around the model that gives it tools, context, instructions, validation loops, and the ability to make changes in a real developer workspace.
+In our [previous post](https://code.visualstudio.com/blogs/2026/05/15/agent-harnesses-github-copilot-vscode), we introduced the VS Code coding harness, the layer that connects the model to tools, context, instructions, and validation loops, giving the model the ability to perform coding tasks.
 
-This post looks at how we improve that harness with model providers. We work closely with providers to understand how their models respond to our tools and instructions, turn insights from their research teams into concrete changes, and validate those changes before rolling them out broadly.
-
-A recent collaboration with OpenAI for `GPT-5.5` shows what that looks like in practice. Based on their model research and our harness data, we tested small prompt changes that helped the agent explore less, validate sooner, use fewer tokens, and respond faster.
+Each model responds to tool calls and instructions differently, and the harness can adapt to improve results. In this post, we look at a recent collaboration with OpenAI on the `GPT-5.5` system prompt in VS Code. Based on their model research and our harness data, we tested small prompt changes to instruct the agent to explore less and validate sooner, resulting in using fewer tokens and responding faster.
 
 ## From prompt changes to experiment setup
 
-After the launch of `GPT-5.5`, we felt the model's token efficiency inside the VS Code agent harness could be improved further, in line with our broader efforts described in [Improving token efficiency in GitHub Copilot](https://code.visualstudio.com/blogs/2026/06/17/improving-token-efficiency-in-github-copilot/). We dug into the harness to understand where the model was spending tokens and where it was over-exploring before acting.
+Following the launch of `GPT-5.5`, we investigated the model's token efficiency inside the VS Code agent harness as part of our broader efforts described in [Improving token efficiency in GitHub Copilot](https://code.visualstudio.com/blogs/2026/06/17/improving-token-efficiency-in-github-copilot/). We examined the harness and found two areas worth improving: where the model was spending tokens, and where it was over-exploring before acting.
 
-After testing different hypotheses and running offline evaluations, we identified two system-prompt updates worth testing with live data. Both changes looked like they could improve token efficiency without disrupting model quality. On that basis, we introduced two variants of the `GPT-5.5` system prompt.
-
-In the following sections, we explain the control group and the two prompt treatment groups we tested with live `GPT-5.5` traffic.
+After testing different hypotheses and running offline evaluations, we narrowed this down to two system-prompt updates that looked promising, improving token efficiency without disrupting model quality. We introduced both as variants of the `GPT-5.5` system prompt to test with live traffic.
 
 ### Treatment A: economical search and edit
 
-Treatment A tested whether a small, targeted prompt reminder could reduce unnecessary exploration. The problem we wanted to solve was simple: agents can spend too much time searching, rereading, or comparing nearby paths before making a useful edit. The `<economical_search_and_edit>` section told the agent to **start from a concrete anchor, gather only enough local context, avoid broad exploration, act once there is a cheap discriminating check, and avoid rereading unchanged context.**
+In the first treatment, we tested a small, targeted prompt update to remind the model to reduce unnecessary exploration. The problem we wanted to solve was simple: agents can spend too much time searching, rereading, or comparing nearby paths before making a useful edit.
 
-Complete implementation details are in [`gpt55BasePrompt.tsx`](https://github.com/microsoft/vscode/blob/56d74126ee02bf1104e813bf4a41f10e90b2119c/extensions/copilot/src/extension/prompts/node/agent/openai/gpt55BasePrompt.tsx#L172-L178):
+The `<economical_search_and_edit>` section in the prompt instructs the agent to **start from a concrete anchor, gather only enough local context, avoid broad exploration, act once there is a cheap discriminating check, and avoid rereading unchanged context.**
+
+You can find the complete implementation details in [`gpt55BasePrompt.tsx`](https://github.com/microsoft/vscode/blob/56d74126ee02bf1104e813bf4a41f10e90b2119c/extensions/copilot/src/extension/prompts/node/agent/openai/gpt55BasePrompt.tsx#L172-L178):
 
 ```tsx
 {economicalSearchAndEditEnabled && <Tag name='economical_search_and_edit'>
@@ -50,9 +49,11 @@ Complete implementation details are in [`gpt55BasePrompt.tsx`](https://github.co
 
 ### Treatment B: large prompt sections
 
-Treatment B tested a broader version of the same idea. Instead of adding one compact reminder about economical search, it reorganized the agent workflow into explicit `<Before_the_first_edit>` and `<After_the_first_edit>` sections. The goal was to solve the full loop, not just the search step: **form a local hypothesis before editing**, **avoid broad exploration**, **make a grounded first edit**, and **validate immediately after the first substantive edit**.
+Treatment B tested a broader version of the same idea of limiting exploration. Instead of adding a single, compact reminder about economical search, it reorganizes the agent workflow into explicit `<Before_the_first_edit>` and `<After_the_first_edit>` sections.
 
-Complete implementation details are in [`gpt55BasePrompt.tsx`](https://github.com/microsoft/vscode/blob/56d74126ee02bf1104e813bf4a41f10e90b2119c/extensions/copilot/src/extension/prompts/node/agent/openai/gpt55BasePrompt.tsx#L33-L62):
+The goal was to solve the full loop and not only the search step: **form a local hypothesis before editing**, **avoid broad exploration**, **make a grounded first edit**, and **validate immediately after the first substantive edit**.
+
+You can find the complete implementation details in [`gpt55BasePrompt.tsx`](https://github.com/microsoft/vscode/blob/56d74126ee02bf1104e813bf4a41f10e90b2119c/extensions/copilot/src/extension/prompts/node/agent/openai/gpt55BasePrompt.tsx#L33-L62):
 
 ```tsx
 {largePromptSectionsEnabled && <>
@@ -61,23 +62,25 @@ Complete implementation details are in [`gpt55BasePrompt.tsx`](https://github.co
         - Before the first edit, gather only enough nearby evidence to state one falsifiable local hypothesis about how the requested behavior should work or why it is failing, and one cheap check that could disconfirm it.<br />
         [...]
         - Once you can state one falsifiable local hypothesis, the nearby code path it depends on, one cheap check that could disconfirm it, and one small edit that would test it, the next action must be a grounded edit.<br />
-		- If confidence is incomplete, the first edit may be a small reversible probe that exposes missing types, behavior mismatches, control-flow gaps, or validation failures.<br />
+        - If confidence is incomplete, the first edit may be a small reversible probe that exposes missing types, behavior mismatches, control-flow gaps, or validation failures.<br />
         - If you find yourself still searching after that local-routing budget, treat that as drift. Recover by choosing the best current hypothesis and the best available nearby check, then make the smallest plausible edit that will let that check discriminate.<br />
     </Tag>
     <Tag name='After_the_first_edit'>
         - Prefer this order for that first validation action:<br />
-		- the cheapest behavior-scoped or failing check that can falsify the current hypothesis<br />
-		- a narrow test for the touched slice<br />
-		- a narrow compile, lint, or typecheck command for the touched slice<br />
+        - the cheapest behavior-scoped or failing check that can falsify the current hypothesis<br />
+        - a narrow test for the touched slice<br />
+        - a narrow compile, lint, or typecheck command for the touched slice<br />
         [...]
         - Finish with at least one post-edit executable validation step whenever the environment provides one. Only fall back to diff-only validation when no focused command exists or commands are unavailable.<br />
     </Tag>
 </>}
 ```
 
-Both treatments came from the same idea: the model should spend less effort wandering and more effort moving through a deliberate loop of evidence, action, and validation. We ran the experiment in VS Code over a two-week window and split `GPT-5.5` agent traffic across two treatment groups and one control group with a 25/25/25 split.
-
 ### Experiment setup
+
+Both treatments came from the same idea: the model should spend less effort wandering and more effort moving through a deliberate loop of evidence, action, and validation.
+
+We ran the experiment in VS Code over a two-week window and split `GPT-5.5` agent traffic across two treatment groups and one control group with a 25/25/25 split.
 
 | Group | Variant name | Description | Traffic allocation |
 | --- | --- | --- | ---: |
@@ -89,7 +92,7 @@ Both treatments came from the same idea: the model should spend less effort wand
 
 ## What the two-week scorecard showed
 
-The two-week scorecard showed that LargePromptSections was the stronger treatment. It did make the system prompt larger, but the right instructions helped the agent save more tokens elsewhere: it improved latency, reduced upper-tail token usage, and reduced tool-call volume while quality, engagement, and reliability guardrails stayed healthy.
+The two-week scorecard showed that treatment B was the stronger treatment. Although this approach made the system prompt larger, the more specific instructions helped the agent save more tokens elsewhere. This then improved latency, reduced upper-tail token usage, and reduced tool-call volume while quality, engagement, and reliability guardrails stayed healthy.
 
 <!-- TODO: Add screenshot of the two-week GPT-5.5 agent scorecard here. Suggested filename: gpt55_prompt_recommendations_latency_2week.png. -->
 
@@ -108,10 +111,16 @@ Signal legend: <span style="color: #107c10;">●</span> favorable and highly sig
 In this table, p95 means the 95th percentile: 95% of measured turns were at or below that value, and 5% were above it.
 
 * **Quality**: the guardrail metrics stayed mostly healthy. Commit survival rate moved slightly up for LargePromptSections (+0.68%) and slightly down for EconomicalSearchAndEdit (-0.48%), **neither statistically significant**. The 10-minute survival rate moved slightly down for both treatments: -0.44% for LargePromptSections and -0.40% for EconomicalSearchAndEdit. Only the LargePromptSections movement crossed the statistical significance threshold, and just barely (p=0.0493), unlike the highly significant efficiency wins. We treated that as a real tradeoff to weigh, but the movement was small and the other quality guardrail did not regress.
+
 * **Latency**: LargePromptSections delivered the strongest edit-latency wins, and both were **highly statistically significant**: p50 Time to First Edit improved -5.68% (p=2e-5), and p95 Time to First Edit improved -9.30% (p=1e-10). EconomicalSearchAndEdit moved in the right direction, but the edit-latency effects were weaker: p50 Time to First Edit -2.88% (p=0.0271), and p95 Time to First Edit -1.93% (not significant).
+
 * **Token efficiency**: both treatments reduced median total tokens per user, but those p50 movements were **not statistically significant**: -3.25% for LargePromptSections and -2.54% for EconomicalSearchAndEdit. At the upper tail, LargePromptSections reduced p95 total tokens by -7.64%, **highly statistically significant** (p=0.0003). EconomicalSearchAndEdit also reduced p95 total tokens by -5.19%, **statistically significant** (p=0.0157). Both variants reduced average tool calls per turn: -8.54% for LargePromptSections, **highly statistically significant** (p=1e-12), and -3.19% for EconomicalSearchAndEdit, **statistically significant** (p=0.0091).
 
-Based on these findings, we chose Treatment B, LargePromptSections, as the update to the default `GPT-5.5` system prompt. It had the strongest overall profile: clear latency improvements, significant upper-tail token reductions, fewer tool calls, and mostly stable quality guardrails. The small drop in 10-minute survival was worth watching, but it was only lightly significant, while the latency, token, and tool-call gains were larger and more statistically robust. We expected the overall experience to remain strong while becoming faster and more token efficient. Treatment A moved several metrics in the right direction, but Treatment B gave us the more consistent result across the measures that matter most for VS Code.
+Treatment A moved several metrics in the right direction, but Treatment B gave us the more consistent result across the measures that matter most for VS Code.
+
+Treatment B had the strongest overall profile: clear latency improvements, significant upper-tail token reductions, fewer tool calls, and mostly stable quality guardrails. The small drop in 10-minute survival was worth watching, but it was only lightly significant, while the latency, token, and tool-call gains were larger and more statistically robust. We expected the overall experience to remain strong while becoming faster and more token efficient.
+
+Based on these findings, we chose Treatment B, LargePromptSections, as the update to the default `GPT-5.5` system prompt.
 
 The important part is not only that the numbers moved. The movement was tied to a specific, testable harness hypothesis from provider feedback, validated offline first, and then confirmed online over a two-week production window. One change made the agent reason more economically about search and edit flow. The other gave it clearer structure for reasoning, editing, and validating. Both produced useful efficiency signals, and LargePromptSections held up as the most durable.
 
@@ -121,6 +130,6 @@ This experiment is one example of how we work with model providers beyond launch
 
 That work matters even more with usage-based billing in place. Token efficiency is not only an infrastructure metric. It is part of the value customers feel when an agent responds faster, explores less unnecessarily, and spends more of its budget on the work that matters. We will keep looking for those improvements across models, prompts, tools, and the VS Code coding harness.
 
-Try agent mode in VS Code, switch between models, and compare how different models approach the same task. Share your feedback in [our GitHub repo](https://github.com/microsoft/vscode). It helps us keep improving the experience.
+Try [agents in VS Code](/docs/getstarted/getting-started.md), switch between models, and compare how different models approach the same task. Share your feedback in [our GitHub repo](https://github.com/microsoft/vscode). It helps us keep improving the experience.
 
 Happy coding! 💙
