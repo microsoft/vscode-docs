@@ -3,7 +3,7 @@
     "name": "Agent Foundations",
     "area": "foundations",
     "description": "Learn the fundamentals of building with AI agents in VS Code, from introducing agent-first development concepts to creating your first application using agent mode.",
-    "image": "/assets/learn/images/foundations/agent-foundations-card.png",
+    "image": "/assets/learn/foundations/agent-foundations-card.png",
     "topics": [
       ["Introduction to agent-first development", "/learn/foundations/introduction-to-agent-first-development"],
       ["Your first agent session", "/learn/foundations/approvals-autonomy-and-context-budget"],
@@ -17,7 +17,7 @@
     "name": "Agent Customizations",
     "area": "customizations",
     "description": "Learn how to shape AI in VS Code around your workflow using custom agents, instructions, skills, prompt files, and hooks.",
-    "image": "/assets/learn/images/customizations/agent-customization-card.png",
+    "image": "/assets/learn/customizations/agent-customization-card.png",
     "topics": [
       ["Why customization matters", "/learn/customizations/1-why-customization-matter"],
       ["Instructions", "/learn/customizations/2-instructions"],
@@ -33,7 +33,7 @@
     "name": "Agent Extensions",
     "area": "agents",
     "description": "Learn how to use tools, MCP servers, plugins, and third-party agents to extend agent workflows in VS Code.",
-    "image": "/assets/learn/images/agents/agent-extension-card.png",
+    "image": "/assets/learn/agents/agent-extension-card.png",
     "topics": [
       ["Using tools with agents", "/learn/agents/1-using-tools-with-agents"],
       ["Extending agents with MCP servers", "/learn/agents/2-extending-agents-with-mcp-servers"],
