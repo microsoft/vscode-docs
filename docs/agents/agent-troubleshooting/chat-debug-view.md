@@ -187,7 +187,7 @@ If a custom instruction or prompt file doesn't seem to take effect:
 
 1. Open Agent Logs and check the **Discovery** events to see if the file was loaded, skipped, or failed validation.
 1. Verify the file location and `applyTo` pattern match the current context.
-1. Check the [chat customization diagnostics](/docs/agents/agent-troubleshooting/troubleshooting.md#debug-chat-interactions) for error details.
+1. See [Debug chat interactions](/docs/agents/agent-troubleshooting/troubleshooting.md#debug-chat-interactions) for more troubleshooting options.
 
 ## Related resources
 
