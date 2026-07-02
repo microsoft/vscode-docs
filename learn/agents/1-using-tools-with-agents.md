@@ -11,7 +11,7 @@ Keywords:
   - approvals
   - sandboxing
 ---
- 
+
 # Using tools with agents
 
 <!-- IMAGE PLACEHOLDER - YouTube thumbnail embed showing the Customization UI -->
