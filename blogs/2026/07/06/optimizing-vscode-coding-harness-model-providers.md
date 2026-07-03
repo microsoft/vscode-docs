@@ -106,6 +106,8 @@ Signal legend: <span style="color: #107c10;">●</span> favorable and highly sig
 | p95 total tokens (by turn) | -5.19% (0.3M fewer tokens) | 0.0157 | <span style="color: #107c10;">○</span> | -7.64% (0.5M fewer tokens) | 0.0003 | <span style="color: #107c10;">●</span> |
 | Average tool calls (by turn) | -3.19% (0.77 fewer tool calls) | 0.0091 | <span style="color: #107c10;">○</span> | -8.54% (2.04 fewer tool calls) | 1e-12 | <span style="color: #107c10;">●</span> |
 
+![Grouped bar chart comparing the percentage impact of Treatment A and Treatment B against the control baseline across seven metrics, showing that Treatment B produces the largest reductions in latency, token usage, and tool calls.](gpt55-metrics-comparison.svg)
+
 
 <details>
 <summary>How to read these metrics</summary>
