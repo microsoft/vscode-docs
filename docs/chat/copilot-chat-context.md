@@ -73,7 +73,7 @@ Chat supports vision capabilities, which means you can attach an image as contex
 > [!TIP]
 > You can drag and drop an image from a web browser onto the Chat view to add it as context.
 
-## Add browser context (Experimental)
+## Add browser context
 
 VS Code has a built-in [integrated browser](/docs/debugtest/integrated-browser.md) that you can use to preview and interact with web pages inside VS Code, for example to do quick testing and debugging of your web application.
 
