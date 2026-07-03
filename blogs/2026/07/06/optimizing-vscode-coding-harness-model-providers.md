@@ -3,7 +3,7 @@ Order: 135
 TOCTitle: GPT-5.5 Prompt Tuning
 PageTitle: "How Prompt Tuning Improved GPT-5.5 in VS Code"
 MetaDescription: See how VS Code and OpenAI tested GPT-5.5 system prompt changes in a two-week experiment, cutting tool calls and tail-end token usage while speeding up edits.
-MetaSocialImage: gpt55-prompt-recommendations-social.png
+MetaSocialImage: gpt55-prompt-tuning-social.png
 Date: 2026-07-06
 Author: VS Code Team
 Keywords:
@@ -94,35 +94,47 @@ We ran the experiment in VS Code over a two-week window and split `GPT-5.5` agen
 
 The two-week scorecard showed that treatment B was the stronger treatment. Although this approach made the system prompt larger, the more specific instructions helped the agent save more tokens elsewhere. This then improved latency, reduced upper-tail token usage, and reduced tool-call volume while quality, engagement, and reliability guardrails stayed healthy.
 
-<!-- TODO: Add screenshot of the two-week GPT-5.5 agent scorecard here. Suggested filename: gpt55_prompt_recommendations_latency_2week.png. -->
-
 Signal legend: <span style="color: #107c10;">●</span> favorable and highly significant (p < 0.001), <span style="color: #107c10;">○</span> favorable and statistically significant (p < 0.05), <span style="color: #d13438;">●</span> unfavorable and highly significant, <span style="color: #d13438;">○</span> unfavorable and statistically significant, `-` not statistically significant.
 
-| Metric | Control (`PRPT_CTRL`) | Treatment A (`PRPT_SRCH`) | Delta % | P-value | Signal | Treatment B (`PRPT_LRG`) | Delta % | P-value | Signal |
-| --- | ---: | ---: | ---: | ---: | :---: | ---: | ---: | ---: | :---: |
-| 10-minute survival rate (by user) | 91.54% | 91.17% | -0.40% | 0.0707 | - | 91.13% | -0.44% | 0.0493 | <span style="color: #d13438;">○</span> |
-| Commit survival rate (by user) | 83.36% | 82.95% | -0.48% | 0.3200 | - | 83.93% | +0.68% | 0.1533 | - |
-| p50 Time to First Edit (by turn) | 70.1s | 68.1s | -2.88% | 0.0271 | <span style="color: #107c10;">○</span> | 66.2s | -5.68% | 2e-5 | <span style="color: #107c10;">●</span> |
-| p95 Time to First Edit (by turn) | 417.1s | 409.1s | -1.93% | 0.1928 | - | 378.3s | -9.30% | 1e-10 | <span style="color: #107c10;">●</span> |
-| p50 total tokens (by user) | 10.6M | 10.4M | -2.54% | 0.3429 | - | 10.3M | -3.25% | 0.2094 | - |
-| p95 total tokens (by turn) | 6.1M | 5.8M | -5.19% | 0.0157 | <span style="color: #107c10;">○</span> | 5.6M | -7.64% | 0.0003 | <span style="color: #107c10;">●</span> |
-| Average tool calls (by turn) | 23.86 | 23.09 | -3.19% | 0.0091 | <span style="color: #107c10;">○</span> | 21.82 | -8.54% | 1e-12 | <span style="color: #107c10;">●</span> |
+| Metric | Treatment A (`PRPT_SRCH`) impact | P-value | Signal | Treatment B (`PRPT_LRG`) impact | P-value | Signal |
+| --- | ---: | ---: | :---: | ---: | ---: | :---: |
+| 10-minute survival rate (by user) | -0.40% (-0.37 pp) | 0.0707 | - | -0.44% (-0.41 pp) | 0.0493 | <span style="color: #d13438;">○</span> |
+| Commit survival rate (by user) | -0.48% (-0.41 pp) | 0.3200 | - | +0.68% (+0.57 pp) | 0.1533 | - |
+| p50 Time to First Edit (by turn) | -2.88% (2.0s faster) | 0.0271 | <span style="color: #107c10;">○</span> | -5.68% (3.9s faster) | 2e-5 | <span style="color: #107c10;">●</span> |
+| p95 Time to First Edit (by turn) | -1.93% (8.0s faster) | 0.1928 | - | -9.30% (38.8s faster) | 1e-10 | <span style="color: #107c10;">●</span> |
+| p50 total tokens (by user) | -2.54% (0.2M fewer tokens) | 0.3429 | - | -3.25% (0.3M fewer tokens) | 0.2094 | - |
+| p95 total tokens (by turn) | -5.19% (0.3M fewer tokens) | 0.0157 | <span style="color: #107c10;">○</span> | -7.64% (0.5M fewer tokens) | 0.0003 | <span style="color: #107c10;">●</span> |
+| Average tool calls (by turn) | -3.19% (0.77 fewer tool calls) | 0.0091 | <span style="color: #107c10;">○</span> | -8.54% (2.04 fewer tool calls) | 1e-12 | <span style="color: #107c10;">●</span> |
 
-In this table, p95 means the 95th percentile: 95% of measured turns were at or below that value, and 5% were above it.
 
-* **Quality**: the guardrail metrics stayed mostly healthy. Commit survival rate moved slightly up for LargePromptSections (+0.68%) and slightly down for EconomicalSearchAndEdit (-0.48%), **neither statistically significant**. The 10-minute survival rate moved slightly down for both treatments: -0.44% for LargePromptSections and -0.40% for EconomicalSearchAndEdit. Only the LargePromptSections movement crossed the statistical significance threshold, and just barely (p=0.0493), unlike the highly significant efficiency wins. We treated that as a real tradeoff to weigh, but the movement was small and the other quality guardrail did not regress.
+<details>
+<summary>How to read these metrics</summary>
 
-* **Latency**: LargePromptSections delivered the strongest edit-latency wins, and both were **highly statistically significant**: p50 Time to First Edit improved -5.68% (p=2e-5), and p95 Time to First Edit improved -9.30% (p=1e-10). EconomicalSearchAndEdit moved in the right direction, but the edit-latency effects were weaker: p50 Time to First Edit -2.88% (p=0.0271), and p95 Time to First Edit -1.93% (not significant).
+* **10-minute survival rate (by user):** Of the code the model wrote, how much is *still in the file 10 minutes later* (not deleted or rewritten). It's our proxy for "did the AI's code actually stick." Measured as surviving characters ÷ total characters written, as a %. *E.g. ~94% — roughly 9 of every 10 characters the model added are kept.*
+* **Commit survival rate (by user):** Narrower and stricter: of the AI-written code, how much survives all the way into a *git commit*. This is "did it make it into real, saved work." Same character-ratio calculation, but only counting code present at commit time. *E.g. ~87%.*
+* **p50 Time to First Edit (by turn):** For a typical request, how long from hitting enter until the *first actual change lands in your code* — not just the model talking, but real work appearing. Measured in seconds. *E.g. ~74s for the median turn.*
+* **p95 Time to First Edit (by turn):** The same clock, but for the *worst 5% of requests* — the "why is this taking so long?" cases. A key tail-latency guardrail. *E.g. ~6.4 min (383K ms), where hard tasks or lots of exploration delay the first edit.*
+* **p50 total tokens (by user):** How much the model reads + writes for a typical user across their day — a proxy for cost and context load per person. Sum of tokens per user, median across users. *E.g. ~12.9M tokens/user/day.*
+* **p95 total tokens (by turn):** The token weight of the *heaviest 5% of individual turns* — the big, sprawling requests that drive cost spikes and hit context limits. *E.g. a single turn running into the millions of tokens, vs a ~500K–900K median.*
+* **Average tool calls (by turn):** How many actions (read file, search, run terminal, edit…) the agent takes per request to get the job done. Lower can mean more efficient; too low can mean less thorough. Mean tool calls per turn. *E.g. ~24 per turn.*
 
-* **Token efficiency**: both treatments reduced median total tokens per user, but those p50 movements were **not statistically significant**: -3.25% for LargePromptSections and -2.54% for EconomicalSearchAndEdit. At the upper tail, LargePromptSections reduced p95 total tokens by -7.64%, **highly statistically significant** (p=0.0003). EconomicalSearchAndEdit also reduced p95 total tokens by -5.19%, **statistically significant** (p=0.0157). Both variants reduced average tool calls per turn: -8.54% for LargePromptSections, **highly statistically significant** (p=1e-12), and -3.19% for EconomicalSearchAndEdit, **statistically significant** (p=0.0091).
+</details>
+
+In this table, each treatment is compared with the control group. For metric definitions, expand How to read these metrics.
+
+* **Quality**: the guardrail metrics stayed mostly healthy. Commit survival rate moved slightly up for Treatment B (+0.68%) and slightly down for Treatment A (-0.48%), **neither statistically significant**. The 10-minute survival rate moved slightly down for both treatments: -0.44% for Treatment B and -0.40% for Treatment A. Only the Treatment B movement crossed the statistical significance threshold, and just barely (p=0.0493), unlike the highly significant efficiency wins. We treated that as a real tradeoff to weigh, but the movement was small and the other quality guardrail did not regress.
+
+* **Latency**: Treatment B delivered the strongest edit-latency wins, and both were **highly statistically significant**: p50 Time to First Edit improved -5.68% (3.9s faster, p=2e-5), and p95 Time to First Edit improved -9.30% (38.8s faster, p=1e-10). Treatment A moved in the right direction, but the edit-latency effects were weaker: p50 Time to First Edit -2.88% (2.0s faster, p=0.0271), and p95 Time to First Edit -1.93% (not significant).
+
+* **Token efficiency**: both treatments reduced median total tokens per user, but those p50 movements were **not statistically significant**: -3.25% for Treatment B and -2.54% for Treatment A. At the upper tail, Treatment B reduced p95 total tokens by -7.64%, **highly statistically significant** (p=0.0003). Treatment A also reduced p95 total tokens by -5.19%, **statistically significant** (p=0.0157). Both variants reduced average tool calls per turn: -8.54% (2.04 fewer tool calls) for Treatment B, **highly statistically significant** (p=1e-12), and -3.19% (0.77 fewer tool calls) for Treatment A, **statistically significant** (p=0.0091).
 
 Treatment A moved several metrics in the right direction, but Treatment B gave us the more consistent result across the measures that matter most for VS Code.
 
 Treatment B had the strongest overall profile: clear latency improvements, significant upper-tail token reductions, fewer tool calls, and mostly stable quality guardrails. The small drop in 10-minute survival was worth watching, but it was only lightly significant, while the latency, token, and tool-call gains were larger and more statistically robust. We expected the overall experience to remain strong while becoming faster and more token efficient.
 
-Based on these findings, we chose Treatment B, LargePromptSections, as the update to the default `GPT-5.5` system prompt.
+Based on these findings, we chose Treatment B, `LargePromptSections`, as the update to the default `GPT-5.5` system prompt.
 
-The important part is not only that the numbers moved. The movement was tied to a specific, testable harness hypothesis from provider feedback, validated offline first, and then confirmed online over a two-week production window. One change made the agent reason more economically about search and edit flow. The other gave it clearer structure for reasoning, editing, and validating. Both produced useful efficiency signals, and LargePromptSections held up as the most durable.
+The important part is not only that the numbers moved. The movement was tied to a specific, testable harness hypothesis from provider feedback, validated offline first, and then confirmed online over a two-week production window. One change made the agent reason more economically about search and edit flow. The other gave it clearer structure for reasoning, editing, and validating. Both produced useful efficiency signals, and Treatment B held up as the most durable.
 
 ## Continuous optimization
 
