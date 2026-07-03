@@ -1,6 +1,6 @@
 ---
 ContentId: 2e8a4b9c-3d1f-5e7a-9c2b-4f6d8e1a3b5c
-DateApproved: 6/10/2026
+DateApproved: 6/24/2026
 MetaDescription: Step-by-step guide to customizing AI in VS Code with instructions, prompt files, custom agents, and skills.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -176,4 +176,4 @@ your-project/
 * Set up [hooks](/docs/agent-customization/hooks.md) to automate tasks at agent lifecycle points, such as running a formatter after every file edit
 * Browse [agent plugins](/docs/agent-customization/agent-plugins.md) to install pre-packaged customizations from community marketplaces
 * Share customizations with your team by committing the `.github/` directory to your repository
-* See all your customizations in one place with the [Agent Customizations editor](/docs/agent-customization/overview.md#manage-customizations-in-the-editor)
+* See all your customizations in one place with the [Agent Customizations editor](/docs/agent-customization/overview.md#use-the-agent-customizations-editor)

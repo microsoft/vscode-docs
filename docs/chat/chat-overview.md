@@ -1,6 +1,6 @@
 ---
 ContentId: 557a7e74-f77e-488d-90ea-fd2cfecfffda
-DateApproved: 6/10/2026
+DateApproved: 6/24/2026
 MetaDescription: Learn how to use chat in VS Code. Access different chat surfaces, send a request, add context, write effective prompts, and review AI-generated changes.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -133,7 +133,7 @@ Chat provides several ways to improve the quality and relevance of AI responses:
 
 * **Extend with tools**: connect [MCP servers](/docs/agent-customization/mcp-servers.md) or install extensions that contribute tools to give the agent access to external services, databases, or APIs.
 
-For more information, see [customizing AI in VS Code](/docs/agent-customization/overview.md).
+For more information, see [Customize agent behavior in VS Code](/docs/agent-customization/overview.md).
 
 ## Troubleshoot chat interactions
 

@@ -1,6 +1,6 @@
 ---
 ContentId: 33e63aa1-1d8f-4d23-9733-1475f8c9f502
-DateApproved: 6/10/2026
+DateApproved: 6/24/2026
 MetaDescription: Configure AI language models in VS Code, change chat and inline models, set thinking effort, and bring your own API key.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -58,7 +58,7 @@ To configure the thinking effort:
 
     ![Screenshot showing the Thinking Effort submenu in the model picker, with different effort levels such as None, Low, Medium, and High.](images/language-models/thinking-effort-submenu.png)
 
-The model picker label updates to show the selected effort level, for example "Claude Sonnet 4.6 · High". The effort level persists across conversations for the same model.
+The model picker label updates to show the selected effort level, for example "Claude Sonnet 4.6 · High". The effort level is remembered per session, so revisiting an earlier session keeps the effort level it was using. New conversations start from the effort level you last set for that model.
 
 > [!NOTE]
 > The `setting(github.copilot.chat.anthropic.thinking.effort)` and `setting(github.copilot.chat.responsesApiReasoningEffort)` settings are deprecated. Configure thinking effort directly from the language model picker.
@@ -125,7 +125,7 @@ VS Code provides different options to add more language models:
 
 * [Extensions](#add-a-model-provider-extension): A marketplace extension provides the model, for example AI Toolkit for local models.
 
-* [Custom endpoint](#add-a-custom-endpoint-model) _(Insiders)_: You have a self-hosted, enterprise, or other endpoint that speaks Chat Completions, Responses, or Messages API.
+* [Custom endpoint](#add-a-custom-endpoint-model): You have a self-hosted, enterprise, or other endpoint that speaks Chat Completions, Responses, or Messages API.
 
 > [!NOTE]
 > If you are a Copilot Business or Enterprise user, your administrator can disable the **Bring Your Own Language Model Key in VS Code** policy in the [Copilot policy settings](https://github.com/settings/copilot/features) on GitHub.com. For more details, see the [GitHub Copilot documentation](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/use-your-own-api-keys).
