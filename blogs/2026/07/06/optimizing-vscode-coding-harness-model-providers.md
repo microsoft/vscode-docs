@@ -21,17 +21,35 @@ July 6, 2026 by VS Code Team, [@code](https://x.com/code)
 
 In our [previous post](https://code.visualstudio.com/blogs/2026/05/15/agent-harnesses-github-copilot-vscode), we introduced the VS Code coding harness, the layer that connects the model to tools, context, instructions, and validation loops, giving the model the ability to perform coding tasks.
 
-Each model responds to tool calls and instructions differently, and the harness can adapt to improve results. In this post, we look at a recent collaboration with OpenAI on the `GPT-5.5` system prompt in VS Code. Based on their model research and our harness data, we tested small prompt changes to instruct the agent to explore less and validate sooner, resulting in using fewer tokens and responding faster.
+Each model responds to tool calls and instructions differently, and the harness can adapt to improve results. This post walks through a two-week experiment we ran with OpenAI on the `GPT-5.5` system prompt in VS Code. The question was simple: if we nudge the agent to explore less and validate sooner, can it get faster and cheaper without getting worse? Based on OpenAI's model research and our harness data, we tested two small prompt changes, measured them against a control on live traffic, and shipped the winner.
 
-## From prompt changes to experiment setup
+This matters more with usage-based billing in place. Token efficiency isn't only an infrastructure metric: every token the agent spends wandering is a token you pay for and wait on. An agent that reaches a grounded edit sooner is both a better experience and a smaller bill.
 
-Following the launch of `GPT-5.5`, we investigated the model's token efficiency inside the VS Code agent harness as part of our broader efforts described in [Improving token efficiency in GitHub Copilot](https://code.visualstudio.com/blogs/2026/06/17/improving-token-efficiency-in-github-copilot/). We examined the harness and found two areas worth improving: where the model was spending tokens, and where it was over-exploring before acting.
+## The hypothesis: explore less, validate sooner
 
-After testing different hypotheses and running offline evaluations, we narrowed this down to two system-prompt updates that looked promising, improving token efficiency without disrupting model quality. We introduced both as variants of the `GPT-5.5` system prompt to test with live traffic.
+Following the launch of `GPT-5.5`, we looked at how the model spent tokens inside the VS Code agent harness, as part of the work described in [Improving token efficiency in GitHub Copilot](https://code.visualstudio.com/blogs/2026/06/17/improving-token-efficiency-in-github-copilot/). Two patterns stood out: where the model spent tokens, and where it over-explored before acting. Agents can spend a lot of effort searching, rereading, and comparing nearby paths before making a useful edit.
+
+That pointed to a single, testable idea: the agent should spend less effort wandering and more effort moving through a deliberate loop of evidence, action, and validation.
+
+![Diagram contrasting an agent that over-explores with many scattered search and read steps before its first edit, versus a Treatment B agent that moves through a deliberate anchor, gather minimal context, edit, and validate loop.](gpt55-agent-loop.svg)
+
+After testing different hypotheses and running offline evaluations, we turned that idea into two variants of the `GPT-5.5` system prompt, both were promising in offline evals, and we tested them against the current default on live traffic.
+
+## Inside the experiment
+
+We ran the experiment in VS Code over a two-week window, splitting `GPT-5.5` agent traffic across two treatment groups and one control group with a 25/25/25 split. Both treatments encode the same hypothesis but differ in how much structure they add to the prompt.
+
+| Group | Variant name | Description | Traffic allocation |
+| --- | --- | --- | ---: |
+| Control | `PRPT_CTRL` | Current default prompt | 25% |
+| Treatment A | `PRPT_SRCH` | EconomicalSearchAndEdit: more economical search and edit prompting | 25% |
+| Treatment B | `PRPT_LRG` | LargePromptSections: larger, restructured prompt sections | 25% |
+
+> **Note:** The allocations add up to 75% because the experiment scorecard compares evenly sized groups. The remaining `GPT-5.5` traffic continued to use the default prompt outside this scorecard slice, so we could compare the treatments and control across the same kind of user traffic.
 
 ### Treatment A: economical search and edit
 
-In the first treatment, we tested a small, targeted prompt update to remind the model to reduce unnecessary exploration. The problem we wanted to solve was simple: agents can spend too much time searching, rereading, or comparing nearby paths before making a useful edit.
+Treatment A is the lighter touch: a single, compact reminder that nudges the model to reduce unnecessary exploration.
 
 The `<economical_search_and_edit>` section in the prompt instructs the agent to **start from a concrete anchor, gather only enough local context, avoid broad exploration, act once there is a cheap discriminating check, and avoid rereading unchanged context.**
 
@@ -76,23 +94,9 @@ You can find the complete implementation details in [`gpt55BasePrompt.tsx`](http
 </>}
 ```
 
-### Experiment setup
-
-Both treatments came from the same idea: the model should spend less effort wandering and more effort moving through a deliberate loop of evidence, action, and validation.
-
-We ran the experiment in VS Code over a two-week window and split `GPT-5.5` agent traffic across two treatment groups and one control group with a 25/25/25 split.
-
-| Group | Variant name | Description | Traffic allocation |
-| --- | --- | --- | ---: |
-| Control | `PRPT_CTRL` | Current default prompt | 25% |
-| Treatment A | `PRPT_SRCH` | EconomicalSearchAndEdit: more economical search and edit prompting | 25% |
-| Treatment B | `PRPT_LRG` | LargePromptSections: larger, restructured prompt sections | 25% |
-
-> **Note:** The allocations add up to 75% because the experiment scorecard compares evenly sized groups. The remaining `GPT-5.5` traffic continued to use the default prompt outside this scorecard slice, so we could compare the treatments and control across the same kind of user traffic.
-
 ## What the two-week scorecard showed
 
-The two-week scorecard showed that treatment B was the stronger treatment. Although this approach made the system prompt larger, the more specific instructions helped the agent save more tokens elsewhere. This then improved latency, reduced upper-tail token usage, and reduced tool-call volume while quality, engagement, and reliability guardrails stayed healthy.
+We tracked the treatments across three dimensions: quality (does the code stick), latency (how fast the first edit lands), and efficiency (tokens and tool calls). Each treatment is compared with the control group in the table below.
 
 Signal legend: <span style="color: #107c10;">●</span> favorable and highly significant (p < 0.001), <span style="color: #107c10;">○</span> favorable and statistically significant (p < 0.05), <span style="color: #d13438;">●</span> unfavorable and highly significant, <span style="color: #d13438;">○</span> unfavorable and statistically significant, `-` not statistically significant.
 
@@ -122,27 +126,23 @@ Signal legend: <span style="color: #107c10;">●</span> favorable and highly sig
 
 </details>
 
-In this table, each treatment is compared with the control group. For metric definitions, expand How to read these metrics.
-
 * **Quality**: the guardrail metrics stayed mostly healthy. Commit survival rate moved slightly up for Treatment B (+0.68%) and slightly down for Treatment A (-0.48%), **neither statistically significant**. The 10-minute survival rate moved slightly down for both treatments: -0.44% for Treatment B and -0.40% for Treatment A. Only the Treatment B movement crossed the statistical significance threshold, and just barely (p=0.0493), unlike the highly significant efficiency wins. We treated that as a real tradeoff to weigh, but the movement was small and the other quality guardrail did not regress.
 
 * **Latency**: Treatment B delivered the strongest edit-latency wins, and both were **highly statistically significant**: p50 Time to First Edit improved -5.68% (3.9s faster, p=2e-5), and p95 Time to First Edit improved -9.30% (38.8s faster, p=1e-10). Treatment A moved in the right direction, but the edit-latency effects were weaker: p50 Time to First Edit -2.88% (2.0s faster, p=0.0271), and p95 Time to First Edit -1.93% (not significant).
 
 * **Token efficiency**: both treatments reduced median total tokens per user, but those p50 movements were **not statistically significant**: -3.25% for Treatment B and -2.54% for Treatment A. At the upper tail, Treatment B reduced p95 total tokens by -7.64%, **highly statistically significant** (p=0.0003). Treatment A also reduced p95 total tokens by -5.19%, **statistically significant** (p=0.0157). Both variants reduced average tool calls per turn: -8.54% (2.04 fewer tool calls) for Treatment B, **highly statistically significant** (p=1e-12), and -3.19% (0.77 fewer tool calls) for Treatment A, **statistically significant** (p=0.0091).
 
-Treatment A moved several metrics in the right direction, but Treatment B gave us the more consistent result across the measures that matter most for VS Code.
+Treatment B had the strongest overall profile: clear latency wins, significant upper-tail token reductions, fewer tool calls, and mostly stable quality guardrails. The one movement worth watching, the small drop in 10-minute survival, was only lightly significant (p=0.0493), while the latency, token, and tool-call gains were larger and far more robust. Treatment A moved several metrics in the right direction, but Treatment B was more consistent across the measures that matter most for VS Code.
 
-Treatment B had the strongest overall profile: clear latency improvements, significant upper-tail token reductions, fewer tool calls, and mostly stable quality guardrails. The small drop in 10-minute survival was worth watching, but it was only lightly significant, while the latency, token, and tool-call gains were larger and more statistically robust. We expected the overall experience to remain strong while becoming faster and more token efficient.
+So we shipped it: Treatment B, `LargePromptSections`, is now the default `GPT-5.5` system prompt.
 
-Based on these findings, we chose Treatment B, `LargePromptSections`, as the update to the default `GPT-5.5` system prompt.
-
-The important part is not only that the numbers moved. The movement was tied to a specific, testable harness hypothesis from provider feedback, validated offline first, and then confirmed online over a two-week production window. One change made the agent reason more economically about search and edit flow. The other gave it clearer structure for reasoning, editing, and validating. Both produced useful efficiency signals, and Treatment B held up as the most durable.
+The takeaway isn't only that the numbers moved. The movement was tied to a specific, testable harness hypothesis from provider feedback, validated offline first and then confirmed online over a two-week production window. That's the loop we want to keep running.
 
 ## Continuous optimization
 
 This experiment is one example of how we work with model providers beyond launch day. A model release is not the end of the tuning loop. It is another chance to look at real VS Code behavior, test focused improvements, and find new ways to make the experience faster, more reliable, and more efficient.
 
-That work matters even more with usage-based billing in place. Token efficiency is not only an infrastructure metric. It is part of the value customers feel when an agent responds faster, explores less unnecessarily, and spends more of its budget on the work that matters. We will keep looking for those improvements across models, prompts, tools, and the VS Code coding harness.
+We'll keep looking for those improvements across models, prompts, tools, and the VS Code coding harness, so more of each agent's budget goes to the work that matters instead of unnecessary exploration.
 
 Try [agents in VS Code](/docs/getstarted/getting-started.md), switch between models, and compare how different models approach the same task. Share your feedback in [our GitHub repo](https://github.com/microsoft/vscode). It helps us keep improving the experience.
 
