@@ -3,7 +3,7 @@ Order: 135
 TOCTitle: GPT-5.5 Prompt Tuning
 PageTitle: "How Prompt Tuning Improved GPT-5.5 in VS Code"
 MetaDescription: See how VS Code and OpenAI tested GPT-5.5 system prompt changes in a two-week experiment, cutting tool calls and tail-end token usage while speeding up edits.
-MetaSocialImage: gpt55-prompt-tuning-social.png
+MetaSocialImage: gpt55-metrics-comparison.png
 Date: 2026-07-06
 Author: VS Code Team
 Keywords:
