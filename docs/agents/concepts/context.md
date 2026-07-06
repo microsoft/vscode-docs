@@ -100,4 +100,5 @@ Learn more about [adding context to chat](/docs/chat/copilot-chat-context.md).
 * [Language models](/docs/agents/concepts/language-models.md)
 * [Manage context for AI](/docs/chat/copilot-chat-context.md)
 * [Context engineering guide](/docs/agents/guides/context-engineering-guide.md)
+* [Diagnose prompt caching with the Cache Explorer](/docs/agents/agent-troubleshooting/cache-explorer.md)
 * [Workspace indexing](/docs/agents/reference/workspace-context.md)

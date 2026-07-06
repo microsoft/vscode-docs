@@ -76,7 +76,7 @@
     { "from": "/docs/copilot/guides/browser-agent-testing-guide", "to": "/docs/agents/guides/browser-agent-testing-guide", "status": 301 },
     { "from": "/docs/copilot/guides/debug-with-copilot", "to": "/docs/agents/guides/debug-with-copilot", "status": 301 },
     { "from": "/docs/copilot/guides/mcp-developer-guide", "to": "/api/extension-guides/ai/ai-extensibility-overview", "status": 301 },
-    { "from": "/docs/copilot/guides/mcp-developer-guide", "to": "/api/extension-guides/ai/ai-extensibility-overview", "status": 301 },
+    { "from": "/docs/agents/guides/mcp-developer-guide", "to": "/api/extension-guides/ai/ai-extensibility-overview", "status": 301 },
     { "from": "/docs/copilot/guides/monitoring-agents", "to": "/docs/agents/guides/monitoring-agents", "status": 301 },
     { "from": "/docs/copilot/reference/copilot-vscode-features", "to": "/docs/agents/reference/ai-features-cheat-sheet", "status": 301 },
     { "from": "/docs/agents/reference/copilot-vscode-features", "to": "/docs/agents/reference/ai-features-cheat-sheet", "status": 301 },

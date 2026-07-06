@@ -53,16 +53,17 @@
     },
     {
       "type": "documentation",
-      "title": "Approvals and permissions",
-      "description": "Configure agent approvals and permissions to work efficiently but safely.",
-      "link": "/docs/agents/approvals"
+      "title": "Diagnose prompt caching",
+      "description": "Use the Cache Explorer to compare model requests, pinpoint where the prompt prefix diverges, and improve your cache hit rate to reduce token cost and latency.",
+      "link": "/docs/agents/agent-troubleshooting/cache-explorer",
+      "image": "/assets/docs/agents/cache-explorer/cache-explorer.png"
     },
     {
       "type": "blog",
-      "title": "What 50,000 runs of a 5-line eval taught us",
-      "description": "How AI coding models calibrate effort, token cost, and tool use on even the simplest task, and what that means for model selection.",
-      "link": "/blogs/2026/06/19/what-50000-runs-taught-us",
-      "image": "/assets/blogs/2026/06/19/5000-runs-social.png"
+      "title": "Iterating faster with TypeScript 7",
+      "description": "How the VS Code and TypeScript teams collaborated to adopt TypeScript 7, speeding up builds and improving the day-to-day editing loop for both developers and agents.",
+      "link": "/blogs/2026/06/26/iterating-faster-with-ts-7",
+      "image": "/assets/blogs/2026/06/26/ts-7.png"
     }
   ]
 }

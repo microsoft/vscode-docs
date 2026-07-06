@@ -104,7 +104,7 @@ You can also run the `/chronicle:cost-tips` command in any chat session to get p
 Use the [Agent Debug Logs](/docs/agents/agent-troubleshooting/chat-debug-view.md) to understand what is consuming credits in a session:
 
 * The **Summary view** shows aggregate token usage for the session, including total tool calls and overall duration.
-* The **Cache Explorer view** shows prompt cache hit rates and how many input tokens were reused. Prompt caching lets model providers reuse the prefix of a request that matches a previous one, which reduces latency and token costs.
+* The **[Cache Explorer view](/docs/agents/agent-troubleshooting/cache-explorer.md)** shows prompt cache hit rates and how many input tokens were reused. Prompt caching lets model providers reuse the prefix of a request that matches a previous one, which reduces latency and token costs.
 
 Reviewing these logs helps you identify sessions or workflows that consume more tokens than expected, so you can adjust your approach.
 

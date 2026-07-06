@@ -19,6 +19,9 @@ This article describes how to enable and configure OpenTelemetry monitoring for 
 
 Copilot Chat can export traces, metrics, and events via [OpenTelemetry](https://opentelemetry.io/) (OTel), giving you visibility into agent interactions, LLM calls, tool executions, and token usage. All signal names and attributes follow the [OTel GenAI Semantic Conventions](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/gen-ai/), so the data works with any OTel-compatible backend.
 
+> [!TIP]
+> For an interactive view of the cache metrics without setting up an OTel backend, use the [Cache Explorer](/docs/agents/agent-troubleshooting/cache-explorer.md) to inspect prompt cache hit rates directly in VS Code.
+
 ## What gets collected
 
 Copilot Chat emits three types of OTel signals: traces, metrics, and events.
@@ -442,6 +445,7 @@ OTel monitoring is off by default and emits no data until you explicitly enable 
 
 * [AI settings reference](/docs/agents/reference/ai-settings.md)
 * [Troubleshoot AI in VS Code](/docs/agents/agent-troubleshooting/troubleshooting.md)
+* [Diagnose prompt caching with the Cache Explorer](/docs/agents/agent-troubleshooting/cache-explorer.md)
 * [OTel GenAI Semantic Conventions](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/gen-ai/)
 * [Inside the LLM Call: GenAI Observability with OpenTelemetry](https://opentelemetry.io/blog/2026/genai-observability/)
 * [Aspire Dashboard standalone docs](https://aspire.dev/dashboard/standalone/)
