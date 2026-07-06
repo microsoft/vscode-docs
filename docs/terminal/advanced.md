@@ -1,6 +1,6 @@
 ---
 ContentId: D458AFDC-C001-43FD-A4BB-9474767B2C04
-DateApproved: 7/1/2026
+DateApproved: 7/8/2026
 MetaDescription: Visual Studio Code's integrated terminal has several advanced features.
 ---
 # Terminal Advanced
