@@ -1,6 +1,6 @@
 ---
 ContentId: 4e7a2c91-b8d3-4f6e-a1c5-9d0e3f7b2a84
-DateApproved: 7/1/2026
+DateApproved: 7/8/2026
 MetaDescription: Learn how to monitor GitHub Copilot agent interactions in VS Code with OpenTelemetry traces, metrics, and events.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -11,6 +11,8 @@ Keywords:
 - traces
 - metrics
 - agents
+- enterprise
+- managed settings
 ---
 
 # Monitor agent usage with OpenTelemetry
@@ -248,7 +250,7 @@ Open **Settings** (`kb(workbench.action.openSettings)`) and search for `copilot 
 
 ### Environment variables
 
-Environment variables always take precedence over VS Code settings.
+Environment variables always take precedence over VS Code settings. When your organization mandates OTel configuration through [Copilot managed settings](#manage-otel-configuration-for-your-organization), those managed values take precedence over both environment variables and user settings.
 
 | Variable | Default | Description |
 |---|---|---|
@@ -273,6 +275,15 @@ When `setting(github.copilot.chat.otel.dbSpanExporter.enabled)` is `true`, Copil
 | Command | Description |
 |---|---|
 | **Chat: Export Agent Traces DB** (`github.copilot.chat.otel.exportAgentTracesDB`) | Export the local SQLite span database to a `.db` file. Only available when the `dbSpanExporter.enabled` setting is `true`. |
+
+## Manage OTel configuration for your organization
+
+Enterprises can mandate OTel export configuration centrally through Copilot managed settings, so that telemetry flows to an approved collector without each developer setting `OTEL_*` environment variables. Managed telemetry configuration applies to both the Copilot Chat extension and the agent host process.
+
+Administrators deliver these settings through the `telemetry` block in Copilot managed settings, using native MDM, a server-managed GitHub account policy, or a `managed-settings.json` file on disk. For the full list of managed telemetry keys, the delivery channels, and important caveats such as secure header handling and reload-to-apply behavior, see [Configure telemetry export with OpenTelemetry](/docs/enterprise/ai-settings.md#configure-telemetry-export-with-opentelemetry).
+
+> [!NOTE]
+> When a managed telemetry value is configured, it takes precedence over both environment variables and user settings. The resolved value follows the order: policy, then environment variable, then user setting, then default.
 
 ## Trace structure for background and Claude agents
 
@@ -444,6 +455,7 @@ OTel monitoring is off by default and emits no data until you explicitly enable 
 ## Related content
 
 * [AI settings reference](/docs/agents/reference/ai-settings.md)
+* [Manage AI settings in enterprise environments](/docs/enterprise/ai-settings.md)
 * [Troubleshoot AI in VS Code](/docs/agents/agent-troubleshooting/troubleshooting.md)
 * [Diagnose prompt caching with the Cache Explorer](/docs/agents/agent-troubleshooting/cache-explorer.md)
 * [OTel GenAI Semantic Conventions](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/gen-ai/)
