@@ -1,9 +1,9 @@
 {
   "featured": {
-    "title": "Browser-ready agents and organized sessions",
-    "description": "Browser tools for agents reach general availability, the integrated browser adds per-site permissions, and you can group and reorder sessions in the Agents window.",
-    "link": "/updates/v1_127",
-    "image": "/assets/updates/1_127/release-highlights.webp"
+    "title": "Multi-chat agent sessions and Copilot Vision",
+    "description": "Run several related chats in one Claude Code session, attach images and PDFs to Chat with generally available Copilot Vision, and trigger commands with OS-level keyboard shortcuts.",
+    "link": "/updates/v1_128",
+    "image": "/assets/updates/1_128/release-highlights.webp"
   },
   "highlights": [
     {
