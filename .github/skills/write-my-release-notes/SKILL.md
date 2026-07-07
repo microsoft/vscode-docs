@@ -64,6 +64,25 @@ Each test plan item is also a release feature to document. List the test plan it
 
 * **Set-aside `on-testplan` issues from Step 1** whose issue number appears in the test plan item's body — attach these as related issues too.
 
+### Step 2.5 — Reconcile against all your milestone work (catch mislabeled features)
+
+The label queries in Steps 1 and 2 only find issues labeled `feature-request` or `testplan-item`. Real features are often tracked under other labels during the endgame — for example a feature that shipped a fix may carry `bug`, `verification-needed`, or `polish` instead. **Do not trust the label queries to be exhaustive.** Run these broader queries and reconcile the results against what Steps 1 and 2 already surfaced:
+
+```bash
+gh search issues --owner microsoft --assignee @me --milestone "<milestone>" \
+  --limit 100 --json number,title,url,labels,state
+gh search issues --owner microsoft --author @me --milestone "<milestone>" \
+  --limit 100 --json number,title,url,labels,state
+```
+
+For every issue these return that is **not** already covered by Steps 1 and 2, judge it on its content, not its label:
+
+* If it describes a **user-facing capability** (a new command, setting, UI, deep link, workflow), document it as a feature — regardless of whether it is labeled `bug`, `verification-needed`, `polish`, or something else. A "bug" that adds or restores a capability users will notice is a release feature.
+* If it is a **pure defect fix, internal cleanup, or minor polish** with no user-facing capability, leave it out of the feature sections (it belongs in "Notable fixes" at most).
+* When in doubt, read the body and comments (Step 3) before deciding, and ask the user whether to include it.
+
+If you have persistent memory or prior context about this milestone (Step 0), cross-check each remembered feature you own against the combined results here — a feature noted in memory but missing from the query output is exactly the kind of item that slips through mislabeling.
+
 ### Step 3 — Fetch comments for each issue
 
 The search queries above may not return comments (the `gh search issues` `--json` output does not include them). For every feature and related issue you plan to use, read the full body and comments for context — use the GitHub MCP server's issue read capability if available, otherwise the `gh` CLI:
@@ -72,10 +91,12 @@ The search queries above may not return comments (the `gh search issues` `--json
 gh issue view <number> --repo <owner/repo> --json number,title,body,url,labels,comments
 ```
 
-Document **every** feature gathered from Steps 1 and 2 — none should be skipped. Each feature is identified by one of these labels:
+Document **every** feature gathered from Steps 1, 2, and 2.5 — none should be skipped. Most features are identified by one of these labels:
 
 * `feature-request` — a standard feature request issue. Its description and comments contain the feature details.
 * `testplan-item` — a structured test plan for the feature. Its description contains in-depth details plus setup and test steps.
+
+Some features surface only through Step 2.5 under other labels (for example `bug`, `verification-needed`, or `polish`). Treat those as features too when they describe a user-facing capability — the label does not disqualify them.
 
 Use the related issues (from Step 2) to pull in additional context (their summary, description, and comments).
 
