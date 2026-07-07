@@ -1,5 +1,5 @@
 ---
-name: release-features-writer
+name: write-my-release-notes
 description: 'Generate VS Code release notes for the features you worked on in a milestone. ALWAYS use this skill when the user asks to "write release notes for my features", "document my milestone features", or "generate release notes from my issues". It gathers the milestone features you own from GitHub, analyzes each feature and its related issues, and writes user-focused feature sections into the milestone release notes file.'
 argument-hint: '<milestone name>'
 ---
