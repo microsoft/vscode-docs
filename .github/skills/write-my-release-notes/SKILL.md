@@ -30,6 +30,9 @@ Use this skill when the user wants to draft or update the feature sections of a 
 
 Gather the features the user owns by running the following GitHub search queries. Use the **GitHub MCP server** if available; otherwise use the **`gh` CLI** commands shown below. Substitute `<milestone>` with the milestone name (keep the surrounding quotes). Collect each issue's `number`, `title`, `body`, `url`, `labels`, and comments.
 
+### Step 0 — Consult prior context (optional).
+If you have persistent memory, notes, or prior context about this milestone (coverage decisions, features you own that the label queries won't surface, work intentionally excluded), review it before the GitHub queries and reconcile against the results. Skip if you have none.
+
 ### Step 1 — Feature-request issues assigned to you
 
 ```bash
