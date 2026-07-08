@@ -4,12 +4,12 @@ DateApproved: 07/08/2026
 MetaDescription: Build a social media content agent with Agent Builder, connect MCP tools, and improve quality with structured evaluations.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 Keywords:
-	- agent builder
-	- prompt agent
-	- mcp tools
-	- evaluations
-	- grounded responses
-	- social media agent
+  - agent builder
+  - prompt agent
+  - mcp tools
+  - evaluations
+  - grounded responses
+  - social media agent
 ---
 
 # Building a Social Media Content Agent with Agent Builder

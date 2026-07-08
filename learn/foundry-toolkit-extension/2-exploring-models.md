@@ -4,12 +4,12 @@ DateApproved: 07/08/2026
 MetaDescription: Learn how to shortlist, filter, deploy, and compare models in Model Catalog using Foundry Toolkit and GitHub Copilot.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 Keywords:
-	- model catalog
-	- model selection
-	- foundry toolkit
-	- github copilot
-	- azure ai foundry
-	- playground comparison
+  - model catalog
+  - model selection
+  - foundry toolkit
+  - github copilot
+  - azure ai foundry
+  - playground comparison
 ---
 
 # Exploring Models with Model Catalog

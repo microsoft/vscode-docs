@@ -4,12 +4,12 @@ DateApproved: 07/08/2026
 MetaDescription: Get started with Foundry Toolkit in Visual Studio Code, connect your project resources, and prepare for model and agent workflows.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 Keywords:
-	- foundry toolkit
-	- visual studio code
-	- onboarding
-	- setup
-	- ai foundry
-	- github copilot
+  - foundry toolkit
+  - visual studio code
+  - onboarding
+  - setup
+  - ai foundry
+  - github copilot
 ---
 
 # Getting Started with Foundry Toolkit in Visual Studio Code

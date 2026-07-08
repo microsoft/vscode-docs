@@ -4,12 +4,12 @@ DateApproved: 07/08/2026
 MetaDescription: Scaffold, debug, and deploy a hosted agent with GitHub Copilot CLI, Agent Inspector, and Microsoft Foundry.
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 Keywords:
-	- hosted agent
-	- github copilot cli
-	- agent inspector
-	- azure developer cli
-	- microsoft foundry
-	- agent deployment
+  - hosted agent
+  - github copilot cli
+  - agent inspector
+  - azure developer cli
+  - microsoft foundry
+  - agent deployment
 ---
 
 # Building a Hosted Agent with GitHub Copilot and Microsoft Foundry
