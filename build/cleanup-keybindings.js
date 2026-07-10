@@ -22,6 +22,7 @@ for (const file of files) {
 
 	// Step 2-4: Group lines into entries and filter
 	const entries = [];
+	/** @type {string[]} */
 	let current = [];
 
 	for (const line of noComments) {
@@ -67,34 +68,37 @@ for (const file of files) {
 		return true;
 	});
 
-	// Step 4.5: Remove duplicate entries, keeping the first occurrence
-	const seenEntries = new Set();
-	const deduped = filtered.filter(entry => {
+	// Step 5: Remove all when clauses and args fields from remaining entries
+	const cleaned = filtered.map(entry => {
+		return entry.filter(line => !line.match(/^\s+"when":/) && !line.match(/^\s+"args":/));
+	});
+
+	// Step 6: Remove later entries with the same key and command as previous entries
+	const seenKeyCommandPairs = new Set();
+	const deduped = cleaned.filter(entry => {
 		if (!entry[0] || !entry[0].trimStart().startsWith('{ "key":')) {
 			return true;
 		}
 
 		const keyMatch = entry[0].match(/"key":\s*"([^"]+)"/);
-		if (!keyMatch) {
+		const commandLine = entry.find(line => line.includes('"command":'));
+		const commandMatch = commandLine?.match(/"command":\s*"([^"]+)"/);
+
+		if (!keyMatch || !commandMatch) {
 			return true;
 		}
 
-		const signature = keyMatch[1];
-		if (seenEntries.has(signature)) {
+		const signature = `${keyMatch[1]}||||${commandMatch[1]}`;
+		if (seenKeyCommandPairs.has(signature)) {
 			return false;
 		}
 
-		seenEntries.add(signature);
+		seenKeyCommandPairs.add(signature);
 		return true;
 	});
 
-	// Step 5: Remove all when clauses and args fields from remaining entries
-	const cleaned = deduped.map(entry => {
-		return entry.filter(line => !line.match(/^\s+"when":/) && !line.match(/^\s+"args":/));
-	});
-
 	// Fix trailing commas on command lines where when was removed
-	const result = cleaned.map(entry => {
+	const result = deduped.map(entry => {
 		return entry.map(line => {
 			// A command line ending with `,` followed by no `"when":` line needs the comma replaced with ` }`
 			return line;
