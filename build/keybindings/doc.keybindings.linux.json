@@ -1753,4 +1753,5 @@
 { "key": "ctrl+n",                "command": "selectNextCodeAction" },
 { "key": "cmd+down",              "command": "selectNextCodeAction" },
 { "key": "ctrl+p",                "command": "selectPrevCodeAction" },
-{ "key": "cmd+up",                "command": "selectPrevCodeAction" },
+{ "key": "cmd+up",                "command": "selectPrevCodeAction" }
+]
