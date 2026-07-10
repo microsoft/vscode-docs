@@ -67,8 +67,29 @@ for (const file of files) {
 		return true;
 	});
 
+	// Step 4.5: Remove duplicate entries, keeping the first occurrence
+	const seenEntries = new Set();
+	const deduped = filtered.filter(entry => {
+		if (!entry[0] || !entry[0].trimStart().startsWith('{ "key":')) {
+			return true;
+		}
+
+		const keyMatch = entry[0].match(/"key":\s*"([^"]+)"/);
+		if (!keyMatch) {
+			return true;
+		}
+
+		const signature = keyMatch[1];
+		if (seenEntries.has(signature)) {
+			return false;
+		}
+
+		seenEntries.add(signature);
+		return true;
+	});
+
 	// Step 5: Remove all when clauses and args fields from remaining entries
-	const cleaned = filtered.map(entry => {
+	const cleaned = deduped.map(entry => {
 		return entry.filter(line => !line.match(/^\s+"when":/) && !line.match(/^\s+"args":/));
 	});
 
