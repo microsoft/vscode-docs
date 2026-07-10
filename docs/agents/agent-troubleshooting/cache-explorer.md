@@ -1,6 +1,6 @@
 ---
 ContentId: 8b3d1c2f-6a94-4e7b-9f21-5c8d0a1e2b34
-DateApproved: 7/8/2026
+DateApproved: 7/15/2026
 MetaDescription: Use the Cache Explorer view in Visual Studio Code to diagnose prompt cache misses and reduce token cost and latency in AI chat sessions.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:

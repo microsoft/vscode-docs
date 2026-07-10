@@ -1,6 +1,6 @@
 ---
 ContentId: 3b7e6d52-0c41-4f8a-9d2e-1a5c7b9e4f60
-DateApproved: 7/8/2026
+DateApproved: 7/15/2026
 MetaDescription: Learn how to manage tool approvals, configure auto-approval, set permission levels, and sandbox agent commands to control agent autonomy in VS Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 keywords:
