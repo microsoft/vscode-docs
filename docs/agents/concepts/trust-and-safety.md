@@ -50,9 +50,9 @@ Always review AI-generated code before committing. Verify that it handles edge c
 
 Agent sandboxing uses operating system-level isolation to restrict what agents can access on your machine. Instead of relying solely on approval prompts before each action, sandboxing defines strict boundaries for file system and network access that are enforced by the OS itself.
 
-VS Code applies sandboxing to terminal commands (`runInTerminal` agent tool) that are executed during an agent session, including Copilot CLI agent-host sessions that use the VS Code agent terminal integration. Learn how to [configure agent sandboxing](/docs/agents/approvals.md#sandbox-agent-commands).
+VS Code currently applies sandboxing to terminal commands (`runInTerminal` agent tool) that are executed during an agent session. Learn how to [configure agent sandboxing](/docs/agents/approvals.md#sandbox-agent-commands).
 
-When sandboxing is enabled, VS Code automatically approves terminal commands that run in the sandbox without a confirmation prompt because they already run in a controlled environment.
+When sandboxing is enabled, VS Code automatically approves commands and tool calls without a confirmation prompt because they already run in a controlled environment.
 
 ### Why sandboxing matters
 
@@ -66,7 +66,7 @@ Approval-based security requires you to confirm each terminal command or tool ca
 
 * **Unintended actions on external services.** Even without malicious intent, an agent with network access can perform actions on your behalf that are difficult to reverse. For example, the agent might provision cloud resources, modify infrastructure settings, push code to a remote repository, or call an API that triggers a deployment or a financial transaction. Network isolation ensures the agent can only reach domains you explicitly permit, reducing the risk of unintended side effects on external services.
 
-Sandboxing addresses these challenges by enforcing boundaries at the OS level. The sandbox prevents auto-approved commands from accessing files or network resources outside the permitted scope. If additional permissions are required, VS Code prompts you to run the command outside the sandbox. You can configure VS Code to try the command inside the sandbox before showing that elevation prompt.
+Sandboxing addresses these challenges by enforcing boundaries at the OS level. The sandbox prevents auto-approved commands from accessing files or network resources outside the permitted scope. If additional permissions are required, VS Code prompts you to run the command outside the sandbox.
 
 ### How sandboxing works
 
@@ -90,7 +90,7 @@ Without file system isolation, a compromised command could modify files anywhere
 
 Without network isolation, a compromised command could exfiltrate sensitive data or could perform unintended actions on external services. Network isolation prevents this by blocking all outbound connections by default.
 
-Sandbox enablement and unrestricted network access are separate controls. When sandboxing is enabled and `setting(chat.agent.sandbox.allowNetwork)` is off, all outbound network access is blocked unless you explicitly allow specific domains. When `setting(chat.agent.sandbox.allowNetwork)` is on, commands can reach external services freely while file system restrictions still apply. Sandbox enablement uses `setting(chat.agent.sandbox.enabled)` on macOS and Linux, and `setting(chat.agent.sandbox.enabledWindows)` on Windows; both accept `off` (default) or `on`.
+When `setting(chat.agent.sandbox.enabled)` is set to `on`, all outbound network access is blocked unless you explicitly allow specific domains. If you want file system isolation but need unrestricted network access, set `setting(chat.agent.sandbox.enabled)` to `allowNetwork`. In this mode, commands can reach external services freely while file system restrictions still apply.
 
 VS Code provides network domain filtering that applies to both agent tools (fetch tool, integrated browser) and sandboxed terminal commands. Enable `setting(chat.agent.networkFilter)` to activate network filtering. Use `setting(chat.agent.allowedNetworkDomains)` and `setting(chat.agent.deniedNetworkDomains)` to control which domains the agent can access. Learn how to [configure network access](/docs/agents/approvals.md#configure-network-access).
 
@@ -111,13 +111,15 @@ Agent sandboxing relies on OS-level security primitives to enforce file system a
 |----------|-----------|---------------|
 | macOS | Apple's sandboxing framework ("Seatbelt"), built into the operating system. Enforces fine-grained file system and network restrictions at the kernel level. | None. Works out of the box. |
 | Linux and WSL2 | [bubblewrap](https://github.com/containers/bubblewrap) for file system isolation and `socat` for network proxying. | Install required packages: `sudo apt-get install bubblewrap socat` (Debian and Ubuntu) or `sudo dnf install bubblewrap socat` (Fedora). |
-| Windows | MXC runtime (`wxc-exec.exe`) for sandboxed agent terminal commands. | The MXC runtime must be available. |
 
 WSL version 1 is not supported because bubblewrap requires Linux kernel features (user namespaces) that are only available in WSL2.
 
+> [!NOTE]
+> Agent sandboxing support on Windows currently uses WSL2 as the underlying platform.
+
 ### What sandboxing does not cover
 
-Agent sandboxing applies to shell subprocesses, including terminal commands from VS Code agent sessions and Copilot CLI agent-host sessions. It does not cover built-in file tools. The agent's read, edit, and write tools use VS Code's permission system directly, rather than running through the sandbox.
+Agent sandboxing applies only to shell subprocesses (terminal commands). It does not cover built-in file tools. The agent's read, edit, and write tools use VS Code's permission system directly, rather than running through the sandbox.
 
 > [!TIP]
 > The `setting(chat.agent.networkFilter)` setting provides network domain filtering for agent tools like the fetch tool and integrated browser, independently of sandboxing. When both sandboxing and network filtering are enabled, network rules apply to all agent tools and terminal commands.
