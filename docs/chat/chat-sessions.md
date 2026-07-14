@@ -185,6 +185,26 @@ There are two ways to fork a chat session:
 > [!TIP]
 > A forked session inherits the conversation history of the original, which preserves the prompt cache and reduces cost on the next request. Use the [Cache Explorer](/docs/agents/agent-troubleshooting/cache-explorer.md) to compare cache hit rates across sessions.
 
+## Orchestrate sessions from agent host sessions
+
+In agent host sessions, such as [Copilot CLI](/docs/agents/agent-types/copilot-cli.md), Claude, and Codex, agents can use built-in session-management tools to coordinate work across multiple sessions and chats.
+
+With these tools, an agent can:
+
+* List your sessions and inspect metadata like status, workspace, and file changes.
+* Create a new session for a sub-task, or create a new chat in an existing session.
+* Read recent conversation context from another session before continuing work.
+* Send a message to another session or chat to start or steer a follow-up task.
+
+When a tool creates or targets a session, VS Code shows an **Open Session** pill in chat so you can jump directly to it.
+
+To keep this workflow safe and predictable:
+
+* Sending a message to another session always requires your confirmation.
+* Agents cannot send messages to the same chat they are currently running in.
+* Burst sends are capped to avoid unbounded fan-out.
+* Archived sessions are excluded from listings unless explicitly requested.
+
 ## Save and export chat sessions
 
 You can save chat sessions to preserve important conversations or reuse them later for similar tasks.
