@@ -1,9 +1,9 @@
 {
   "featured": {
-    "title": "Multi-chat agent sessions and Copilot Vision",
-    "description": "Run several related chats in one Claude Code session, attach images and PDFs to Chat with generally available Copilot Vision, and trigger commands with OS-level keyboard shortcuts.",
-    "link": "/updates/v1_128",
-    "image": "/assets/updates/1_128/release-highlights.webp"
+    "title": "Agent host and Copilot Enterprise sign-in",
+    "description": "Run agent sessions in a dedicated process, review files and diffs in the new Agents window editor panel, and sign in to Copilot with GitHub Enterprise.",
+    "link": "/updates/v1_129",
+    "image": "/assets/updates/1_129/release-highlights.webp"
   },
   "highlights": [
     {

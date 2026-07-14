@@ -46,10 +46,10 @@
   "latest": [
     {
       "type": "release",
-      "title": "VS Code 1.128 release",
-      "description": "Run multiple chats in one agent session, attach images and PDFs to Chat with generally available Copilot Vision, and trigger commands with OS-level keyboard shortcuts.",
-      "link": "/updates/v1_128",
-      "image": "/assets/updates/1_128/release-highlights.webp"
+      "title": "VS Code 1.129 release",
+      "description": "Run agent sessions in a dedicated process, review files and diffs in the new Agents window editor panel, migrate prompt files to skills, and sign in to Copilot with GitHub Enterprise.",
+      "link": "/updates/v1_129",
+      "image": "/assets/updates/1_129/release-highlights.webp"
     },
     {
       "type": "documentation",
