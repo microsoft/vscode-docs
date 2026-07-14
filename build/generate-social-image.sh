@@ -14,8 +14,9 @@ VERSION_FOLDER="1_${VERSION#1.}"
 OUTPUT_DIR="${REPO_ROOT}/release-notes/images/${VERSION_FOLDER}"
 
 mkdir -p "${OUTPUT_DIR}"
-
-magick -background none -fill white -font NimbusSans-Bold -pointsize 75 label:"v${VERSION}" PNG32:text.png
+FONT_NIMBUS="$(brew --prefix ghostscript)/share/ghostscript/Resource/Font/NimbusSans-Bold"
+magick -background none -fill white -font "$FONT_NIMBUS" -pointsize 75 \
+  label:"v${VERSION}" -trim +repage PNG32:text.png
 
 magick "${TEMPLATES}/gradient.png" PNG32:text.png -compose DstIn -composite PNG32:text_masked.png
 
