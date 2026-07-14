@@ -1,6 +1,6 @@
 ---
 ContentId: 7c4b8b5e-2d3f-4e8a-9b2c-1a5d6f8e9c0b
-DateApproved: 7/8/2026
+DateApproved: 7/15/2026
 MetaDescription: Build with AI agents in Visual Studio Code. Learn what agents can do, configure agent sessions, and customize agents for your project.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
