@@ -62,7 +62,7 @@ You can also explicitly reference tools in your prompts by typing `#` followed b
 * `"Explain the authentication flow #codebase"`
 
 > [!TIP]
-> By default, tool call details are collapsed in the chat conversation. You can uncollapse them by selecting the tool summary line in chat, or change the default behavior with the `setting(chat.agent.thinking.collapsedTools)` setting (experimental).
+> By default, tool call details are collapsed in the chat conversation. You can expand them by selecting the tool summary line in chat, or change grouping behavior with `setting(chat.agent.thinking.collapsedTools)` (experimental): use `off` to keep tool calls separate, `withThinking` to group with thinking when available, or `always` to always group. When `setting(chat.agent.thinkingStyle)` is `collapsed`, reasoning and grouped tool calls can appear in separate collapsible sections.
 
 ## Edit tool parameters
 
