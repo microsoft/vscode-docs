@@ -89,6 +89,13 @@ To start a new agent session in the Agents window:
 
 1. Optionally, select extra configuration options for the session like a custom agent, language model, permission level, and more.
 
+    For Copilot sessions, use **New Worktree** to control isolation:
+
+    * Checked: creates a new Git worktree and runs the session in worktree isolation.
+    * Unchecked: runs the session in folder isolation.
+
+    In the Agents window, the new-session picker remembers the last **Agent** and **Permission level** values you selected and uses them as defaults for your next new session.
+
     You can change these at any point during the session. Learn more about [configuring your agent session](/docs/agents/overview.md).
 
 1. Type a prompt that describes what you want to accomplish, and press `kbstyle(Enter)`.

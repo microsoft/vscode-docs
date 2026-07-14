@@ -51,6 +51,8 @@ To start a new chat session in the Agents window:
 
     * **Language model**: determines which AI model powers the conversation. Learn more about [language models in VS Code](/docs/agent-customization/language-models.md).
 
+    In the Agents window, when you create another new session, the picker remembers the last **Agent** and **Permission level** values you selected and uses them as defaults.
+
 1. Type your prompt and press `kb(workbench.action.chat.submit)` to submit it. The agent's response appears in the chat area, and the agent may take actions such as editing files, running commands, or asking follow-up questions.
 
 {% /tab %}
