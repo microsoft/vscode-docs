@@ -90,7 +90,7 @@ Without file system isolation, a compromised command could modify files anywhere
 
 Without network isolation, a compromised command could exfiltrate sensitive data or could perform unintended actions on external services. Network isolation prevents this by blocking all outbound connections by default.
 
-Sandbox enablement and unrestricted network access are separate controls. When sandboxing is enabled and `setting(chat.agent.sandbox.allowNetwork)` is off, all outbound network access is blocked unless you explicitly allow specific domains. When `setting(chat.agent.sandbox.allowNetwork)` is on, commands can reach external services freely while file system restrictions still apply. Sandbox enablement uses `setting(chat.agent.sandbox.enabled)` on macOS and Linux, and `setting(chat.agent.sandbox.enabledWindows)` on Windows; both accept `off` (default) or `on`.
+Sandbox enablement and unrestricted network access are separate controls. When sandboxing is enabled and `setting(chat.agent.sandbox.allowNetwork)` is off, all outbound network access is blocked unless you explicitly allow specific domains. When `setting(chat.agent.sandbox.allowNetwork)` is on, commands can reach external services freely while file system restrictions still apply. On macOS and Linux, `setting(chat.agent.sandbox.enabled)` controls sandbox enablement and accepts `off` (default) or `on`.
 
 VS Code provides network domain filtering that applies to both agent tools (fetch tool, integrated browser) and sandboxed terminal commands. Enable `setting(chat.agent.networkFilter)` to activate network filtering. Use `setting(chat.agent.allowedNetworkDomains)` and `setting(chat.agent.deniedNetworkDomains)` to control which domains the agent can access. Learn how to [configure network access](/docs/agents/approvals.md#configure-network-access).
 
@@ -111,7 +111,6 @@ Agent sandboxing relies on OS-level security primitives to enforce file system a
 |----------|-----------|---------------|
 | macOS | Apple's sandboxing framework ("Seatbelt"), built into the operating system. Enforces fine-grained file system and network restrictions at the kernel level. | None. Works out of the box. |
 | Linux and WSL2 | [bubblewrap](https://github.com/containers/bubblewrap) for file system isolation and `socat` for network proxying. | Install required packages: `sudo apt-get install bubblewrap socat` (Debian and Ubuntu) or `sudo dnf install bubblewrap socat` (Fedora). |
-| Windows | MXC runtime (`wxc-exec.exe`) for sandboxed agent terminal commands. | The MXC runtime must be available. |
 
 WSL version 1 is not supported because bubblewrap requires Linux kernel features (user namespaces) that are only available in WSL2.
 
