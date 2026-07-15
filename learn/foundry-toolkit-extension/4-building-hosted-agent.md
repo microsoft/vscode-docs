@@ -14,39 +14,61 @@ Keywords:
 
 # Building a Hosted Agent with GitHub Copilot and Microsoft Foundry
 
-<!-- TODO: Replace VIDEO_ID with the actual chapter video ID when available. -->
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/VIDEO_ID" title="Chapter 4 Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/pxG-9Lh_a44" title="Chapter 2 Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-Low-code agents are great for proving behavior quickly, but most teams eventually need stronger control over code, deployment, and integration. In this chapter, we move into a code-first workflow and build a hosted agent that can be developed locally, debugged with tooling, and deployed into Microsoft Foundry. By the end, you will have a practical blueprint for going from prompt idea to production-oriented hosted execution.
+https://youtu.be/pxG-9Lh_a44
+
+Low-code agents are great for proving behavior quickly, but most teams eventually need stronger control over code, deployment, and integration. In this chapter, we move into a code-first workflow and build a hosted agent that can be developed locally, debugged with tooling, and deployed into Microsoft Foundry.
+
+By the end, you will have a practical blueprint for going from prompt idea to production-oriented hosted execution.
+
+This is where agent development starts to feel like real engineering.
+
+Every part of this flow is useful on its own.
+The real magic happens when scaffold, debug, tools, and deploy all connect into one repeatable system.
+
+## Problem Framing: Code-First Agents Improve Operational Reliability
+
+The biggest shift in this chapter is not just writing code instead of prompts, it is moving to an operationally reliable lifecycle. In low-code mode, behavior can be validated quickly, but deployment shape, tooling integration, and debugging depth are often constrained.
+
+In code-first mode, you gain repeatability: the same repo defines runtime behavior, tool wiring, and deployment flow.
+
+One repo. One source of truth. Fewer surprises.
+
+An easy way to see the value is to compare how issues are diagnosed. In a code-first workflow, traces, config, and source changes can be reviewed together, which usually shortens time-to-fix when behavior drifts in hosted environments.
 
 ## Prerequisites
 
-Before we start, make sure your environment can support both local debugging and hosted deployment. This chapter combines GitHub Copilot CLI, Foundry Toolkit, and Azure deployment assets, so missing setup usually slows things down in the middle of the workflow. If you validate these prerequisites first, the rest of the chapter stays focused on agent engineering, not environment troubleshooting.
+Before we start, make sure your environment can support both local debugging and hosted deployment. This chapter combines GitHub Copilot CLI, Foundry Toolkit, and Azure deployment assets, so missing setup usually slows things down in the middle.
+
+If you validate these prerequisites first, the rest of the chapter stays focused on agent engineering, not environment troubleshooting.
 
 - **Editor and extension**: Visual Studio Code with Foundry Toolkit installed.
 - **GitHub Copilot access**: GitHub Copilot available in Visual Studio Code and terminal workflows.
 - **Cloud context**: An Azure subscription and Microsoft Foundry project.
 - **Model deployment**: A GPT-5 model instance already deployed in your project.
-- **CLI readiness**: Azure Developer CLI and ability to sign in to Azure.
+- **CLI readiness**: [Azure Developer CLI](https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows) and ability to sign in to Azure.
 
-With the environment ready, we can define what this agent actually does and why the code-first path changes your delivery options.
+## What You Will Learn
 
-## What You Will Build
+In this chapter, you create a code-based social campaign assistant for developer-focused content creation. Unlike a prompt-only prototype, this version is source-controlled, inspectable, and deployable as a hosted agent.
 
-In this chapter, you create a code-based social campaign assistant for developer-focused content creation. Unlike a prompt-only prototype, this version is source-controlled, inspectable, and deployable as a hosted agent. Think of it as the bridge between experimentation and production-ready team workflows.
+Think of it as the bridge between experimentation and production-ready team workflows.
 
-For example, if your team wants custom business logic, repeatable deployment, and integration with app code, this architecture gives you a direct path without rebuilding everything from scratch.
+You will learn how to:
 
-- **Agent scaffold**: A coded project generated with GitHub Copilot CLI prompts.
-- **Reusable tools**: A Foundry toolbox with Microsoft Learn MCP and web search.
-- **Local runtime**: HTTP-based local agent service for invoke and debug loops.
-- **Hosted target**: Deployment path to a managed hosted agent in Foundry.
+- **Scaffold an agent project**: Generate a coded project with GitHub Copilot CLI prompts.
+- **Attach reusable tools**: Configure a Foundry toolbox with Microsoft Learn MCP and web search.
+- **Run a local runtime loop**: Use an HTTP-based local agent service for invoke and debug cycles.
+- **Deploy to a hosted target**: Publish to a managed hosted agent in Foundry.
 
 Before we get hands-on, it helps to anchor the practical reason teams choose this model.
 
 ## Why Move to a Code-Based Agent
 
-Teams choose coded agents when they need deeper control than a low-code builder can provide. That usually includes business-specific logic, deterministic configuration files, repeatable deployment, and direct integration with application code. In other words, code-based agents are not about complexity for its own sake, they are about control, reliability, and team-scale maintainability.
+Teams choose coded agents when they need deeper control than a low-code builder can provide. That usually includes business-specific logic, deterministic configuration files, repeatable deployment, and direct integration with application code.
+
+In other words, code-based agents are not about complexity for its own sake. They are about control, reliability, and team-scale maintainability.
 
 If you have ever asked, "How do we make this agent predictable across environments?" this is the workflow that answers that question.
 
@@ -55,51 +77,33 @@ If you have ever asked, "How do we make this agent predictable across environmen
 - **Repeatability**: Reproduce environments through config and infrastructure files.
 - **Production fit**: Deploy and operate through a hosted agent lifecycle.
 
-The rest of the chapter follows the real delivery order most teams use, from scaffold to hosted deployment.
-
 ## Step 1: Scaffold the Solution with GitHub Copilot CLI
 
-Start by launching GitHub Copilot CLI in the terminal and describing the target solution in natural language. For this chapter, the scaffold prompt includes campaign-assistant behavior, clarifying-question behavior, retrieval tools, GPT-5 model usage, and hosted deployability. The key is to be explicit in one prompt so generation stays aligned with your intended architecture.
+Start by launching GitHub Copilot CLI in the terminal and describing the target solution in natural language. For this chapter, the scaffold prompt includes campaign-assistant behavior, clarifying-question behavior, retrieval tools, GPT-5 model usage, and hosted deployability.
+
+Here's what we need to think about first.
+
+- **The prompt**: Describe behavior, tools, model, and deployment intent.
+- **GitHub Copilot CLI**: Allow GitHub Copilot to execute multi-step setup with fewer interruptions. To do this, use Autopilot mode.
+
+Let's walk through the steps to scaffold a new agent project:
 
 1. Open a terminal in your working folder.
 2. Start GitHub Copilot CLI in that folder.
-3. Confirm generated files are created in the intended project location.
+3. Enter a natural language prompt that describes the agent behavior, tools, and deployment intent.
+4. Confirm generated files are created in the intended project location.
 
-A practical pattern is to include both functionality and operational constraints in the same request, for example, "configure toolbox tools and open the project folder when done."
+See the example prompt below:
 
-- **Natural language spec**: Describe behavior, tools, model, and deployment intent.
-- **Autopilot mode**: Allow GitHub Copilot to execute multi-step setup with fewer interruptions.
-- **Expected output**: A generated project folder and initial implementation artifacts.
+![GitHub Copilot CLI scaffold prompt and generated project output](../images/ch4-agent-creation.png)
 
-At this point, you should already have a project skeleton on disk. The immediate check is whether tool strategy was scaffolded for reuse instead of hard-coded inside one file.
+**Fig 01: GitHub Copilot CLI scaffold prompt and generated project output.**
 
-## Step 2: Create and Attach a Foundry Toolbox
+At this point, you should already have a project skeleton on disk. Next, let's take a look at what was generated and confirm that it matches your intent.
 
-The scaffold includes a toolbox so tools can be reused across agents instead of being embedded ad hoc. In this workflow, the toolbox includes Microsoft Learn MCP for official documentation and web search for fresh external context. This matters because it centralizes retrieval behavior and reduces copy-paste tool wiring across projects.
+## Step 2: Review What GitHub Copilot Generated
 
-1. Open your project in Foundry Toolkit.
-2. Navigate to the tool configuration area.
-3. Add Microsoft Learn MCP and web search.
-
-For this scenario, one tool covers trusted product facts and one tool covers current web context, which is a practical retrieval split for campaign generation.
-
-- **Microsoft grounding**: Use Learn MCP for validated product and docs context.
-- **Freshness path**: Use web search for recent or time-sensitive information.
-- **Reuse model**: Keep tool definitions portable across multiple agents.
-
-With tools attached, spend a minute reading the generated assets so you can predict behavior before you execute anything.
-
-## Step 3: Review What GitHub Copilot Generated
-
-After generation, inspect the project artifacts to understand runtime behavior and deployment shape. This review step is important because it lets you verify that generation used Foundry-specific context, not generic app scaffolding patterns. You should be able to explain what each core file controls before running anything.
-
-1. Open the generated folder in Visual Studio Code.
-2. Inspect main.py.
-3. Inspect agent.yaml.
-4. Inspect toolbox.yaml.
-5. Inspect azure.yaml.
-
-Use this quick map as you scan the folder: one file controls runtime behavior, one defines agent metadata, one configures tools, and one drives infrastructure.
+Let's see what was generated. Here's what you should expect to see in the project folder:
 
 - **Main runtime**: `main.py` contains the core assistant logic and runtime wiring.
 - **Agent config**: `agent.yaml` defines behavior, hosting, protocol, and runtime settings.
@@ -108,46 +112,71 @@ Use this quick map as you scan the folder: one file controls runtime behavior, o
 
 If any file role looks unclear here, stop and resolve it before deployment. Ambiguity at this step usually becomes expensive once cloud resources are involved.
 
+## Step 3: Verify Creation and Setup of Tools
+
+Now that you saw what was scaffolded at high level, let's dive into the tools that were setup as part of the scaffold.
+
+In your open project, open the `toolbox.yaml` file and confirm that at least two tools were created: one for Microsoft Learn MCP and one for web search.
+
+Here's what they will do for us:
+
+- **Web Search**: Retrieve current web context for time-sensitive or trending information.
+- **Microsoft Learn MCP**: Retrieve trusted product facts and documentation context.
+
+See below how these tools are configured:
+
+![Foundry Toolbox configuration](../images/ch4-toolbox-configuration.png)
+
+**Fig 02: Foundry Toolbox configuration.**
+
+With tools attached, spend a minute reading the generated assets so you can predict behavior before you execute anything.
+
 ## Step 4: Run and Invoke the Agent Locally
 
-Before deploying, validate local behavior from terminal-based commands. This gives you a fast feedback loop and catches instruction or runtime issues before cloud resources are involved. In the chapter flow, local invoke confirms the expected clarifying-question behavior.
+Before deploying, validate local behavior from terminal-based commands. This gives you a fast feedback loop and catches instruction or runtime issues before cloud resources are involved.
+
+In the chapter flow, local invoke confirms expected clarifying-question behavior.
 
 1. Run `azd ai agent run` from the project root.
-2. Wait until the local runtime reports it is ready.
-3. Invoke prompts only after the runtime is ready.
 
-For example, after invoking with a campaign prompt, you should see targeted follow-up questions about audience, goals, and call-to-action details.
+   This command installs needed dependencies, starts the local runtime, and serves the agent as an HTTP service.
 
-- **Local run**: Start the agent runtime with `azd ai agent run`.
-- **Prompt test**: Invoke with `azd ai agent invoke` and a realistic campaign request.
-- **Behavior check**: Confirm clarifying questions, tone control, and campaign framing.
+2. Wait until the local runtime reports it is ready and then open a new terminal to invoke the agent.
+3. Run the agent in a separate terminal with `azd ai agent invoke` and a realistic campaign prompt.
 
-A clean local run proves basic behavior, but it does not prove observability. The next step adds that missing visibility.
+   You should see a result similar to:
+
+   ![Local agent run](../images/ch4-local-invoke.png)
+
+   **Fig 03: Local agent run and prompt invocation.**
 
 ## Step 5: Configure Agent Inspector Integration
 
-To inspect and troubleshoot deeply, configure the project for Agent Inspector. The chapter flow uses GitHub Copilot to verify HTTP serving requirements, install dependencies, and prepare Visual Studio Code debug configuration. This is where your project becomes easy to debug repeatedly, not just runnable once.
+To inspect and troubleshoot deeply, configure the project for Agent Inspector. The chapter flow uses GitHub Copilot to verify HTTP serving requirements, install dependencies, and prepare Visual Studio Code debug configuration.
 
-1. Open the Run and Debug panel in Visual Studio Code.
-2. Confirm there is a valid launch configuration.
-3. Press F5.
+This is where your project becomes easy to debug repeatedly, not just runnable once.
 
-A practical success signal is that pressing F5 launches the local agent plus inspector workflow without manual setup steps. If F5 fails, fix launch and environment wiring now rather than diagnosing inside hosted runs later.
+1. Set up the inspector by running a prompt in GitHub Copilot Chat that describes how to wire the local agent to the inspector.
 
-- **HTTP readiness**: Ensure the agent is served as an HTTP service.
-- **Dependencies**: Install or reconcile required packages in the environment.
-- **Debug config**: Add `.vscode/tasks.json` and `.vscode/launch.json`.
-- **Runtime prep**: Select interpreter, activate virtual environment, and authenticate Azure.
+   See below image, but in short, you need to tell it to install a tool and configure tasks.json and launch.json for Visual Studio Code.
+
+   ![Setup Agent Inspector](../images/ch4-setup-inspector.png)
 
 Once inspector wiring is in place, you can evaluate cause and effect directly instead of guessing from final output text.
 
 ## Step 6: Debug with Agent Inspector
 
-Start debugging and open Agent Inspector to observe live runtime behavior. This gives you direct visibility into events, streaming deltas, metadata, traces, and tool calls. In practice, this is where agent development shifts from black-box guessing to inspectable engineering.
+Now it's time to run the inspector:
 
-1. Launch the debug session.
-2. Submit one simple prompt.
-3. Confirm a trace appears in the inspector timeline.
+Start debugging and open Agent Inspector to observe live runtime behavior. This gives you direct visibility into events, streaming deltas, metadata, traces, and tool calls.
+
+You should see a playground you can interact with and traces on the right side. What you see should look similar to the image below.
+
+![Agent Inspector debug session](../images/ch4-inspector-debug.png)
+
+**Fig 04: Agent Inspector debug session with event timeline and trace views.**
+
+This is where agent development shifts from black-box guessing to inspectable engineering.
 
 As you test prompts, watch the event timeline and trace views to confirm that responses are progressing as expected and not silently skipping retrieval logic.
 
@@ -156,69 +185,72 @@ As you test prompts, watch the event timeline and trace views to confirm that re
 - **Trace analysis**: Use tracing views to diagnose behavior divergence quickly.
 - **Iteration loop**: Prompt, inspect, refine instructions, and retest.
 
-After one clean trace, force a prompt that cannot be answered well without retrieval so tool wiring gets a real stress test.
+> TIP: After one clean trace, force a prompt that cannot be answered well without retrieval so tool wiring gets a real stress test.
 
-## Step 7: Validate Tool Usage in Real Prompts
+## Step 7: Follow up prompt to confirm retrieval behavior
 
-Use follow-up prompts that force retrieval behavior so integrations are actually exercised. In the chapter flow, the agent invokes web search and returns multiple structured content options with call-to-action guidance. This step confirms that tool calls are not only configured but operationally useful.
+At this point, the Agent is started and it's asking you follow up questions. Now we want to answer something back while also ensuring the agent is actually using the retrieval tools we configured.
 
-1. Submit a Microsoft product question that requires current facts.
-2. Verify a tool call appears before the final response.
+Type a prompt like so:
 
-For validation, do not stop at final output text. Inspect tool call inputs and outputs so you can verify retrieval quality, not just generation style.
+```text
+Highlight the mobile chat feature, drive installs, general dev audience, technical tone, #github copilot
+```
 
-- **Tool invocation proof**: Confirm web search calls appear in inspector tooling views.
-- **Output quality**: Check that response options remain technical and audience-specific.
-- **Auditability**: Inspect each retrieval call and response shaping path.
+Now you should see tools being invoked and a response being produced like so:
 
-When retrieval behavior is stable and traceable, you are ready to spend cloud deployment effort.
+![Follow-up prompt response](../images/ch4-follow-up.png)
+
+**Fig 05: Follow-up prompt response with tool invocation and structured output.**
 
 ## Step 8: Deploy as a Hosted Agent
 
-Deploy the agent through the Foundry deployment experience after local validation is complete. The flow uses a Docker image path and Azure Container Registry, then publishes as a new hosted agent. This is the handoff from local development to cloud-hosted execution.
+Next, deploy the agent to a hosted environment. This step uses the same project assets you just debugged locally, so you can be confident that behavior will be consistent.
 
-1. Open the deployment flow from your project context.
-2. Choose the Docker-based path.
-3. Confirm the target Foundry project before publishing.
+1. Click Deploy button in the Agent Inspector in top right corner.
 
-Keep deployment settings explicit so runtime sizing and image source are traceable when debugging production behavior later.
+   You should see the following screen:
 
-- **Deployment method**: Build and deploy from Docker configuration.
-- **Hosting target**: Use Foundry-managed container registry defaults when appropriate.
-- **Runtime sizing**: Set CPU and memory profile for the hosted agent.
-- **Publish outcome**: Create the hosted agent resource in your Foundry project.
+   ![Deploy via Agent Inspector](../images/ch4-deploy.png)
 
-After publish completes, run the same scenario in the cloud playground and compare behavior against your local baseline.
+   **Fig 06: Deploy via Agent Inspector.**
 
-## Step 9: Test the Cloud-Hosted Agent
+2. Click Next.
+3. In Review and Deploy, choose Select Existing Dockerfile and locate it in your computer. Finally click Deploy to start the deployment process.
 
-Open the hosted agent in Foundry project resources and test from the cloud playground. This mirrors local testing while validating the production-like hosted path. The objective is to confirm that behavior remains consistent after deployment.
+## Quick Question
 
-1. Run the same prompt used in local testing.
-2. Compare follow-up questions between local and hosted runs.
-3. Compare tool usage between local and hosted traces.
+If local runs look correct but hosted responses drift, what should you check first: prompt wording, tool calls, or runtime/deployment configuration?
 
-A useful check here is to run the same prompt you used locally and compare follow-up question quality, tool usage, and output structure.
+## Answer
 
-- **Resource checks**: Verify status, details, and runtime health.
-- **Cloud interaction**: Run campaign prompts against hosted endpoints.
-- **Operational insight**: Review traces and behavior under hosted execution.
-
-At this point, you have executed the full lifecycle from scaffold to hosted runtime, so we can summarize why this flow holds up in team settings.
-
-## Why This Workflow Works
-
-This chapter demonstrates how GitHub Copilot CLI, Foundry skills, Agent Framework, Agent Inspector, and hosted deployment connect into one coherent engineering loop. Instead of treating the agent as a black box, this workflow makes behavior observable, testable, and repeatable. That combination is what turns prototypes into maintainable systems.
-
-In practical terms, each stage removes a specific risk before the next stage adds cost.
-
-- **Engineering transparency**: Inspect tool calls, events, and traces end to end.
-- **Quality control**: Catch behavioral drift before shipping to stakeholders.
-- **Scalable delivery**: Move from prototype to hosted deployment with fewer manual steps.
-- **Team readiness**: Produce a source-controlled agent that can be evolved safely.
-
-From here, the next move is release hardening so future updates stay predictable.
+Start with runtime and deployment configuration plus tool-call traces, then revisit prompt wording. Hosted drift often comes from environment or integration differences that are invisible in prompt text alone. Once runtime parity is confirmed, prompt refinements become much more reliable.
 
 ## What's Next
 
-After shipping a hosted code-based agent, the next step is hardening the lifecycle for ongoing releases. Focus on stronger evaluation pipelines, tracing-driven debugging practices, and automation for deployment and regression checks as agent scope grows. The next chapter should feel like an extension of this workflow, not a reset.
+After shipping a hosted code-based agent, the next step is hardening the lifecycle for ongoing releases. Focus on stronger evaluation pipelines, tracing-driven debugging practices, and automation for deployment and regression checks as agent scope grows.
+
+The next chapter should feel like an extension of this workflow, not a reset.
+
+## Your Challenge
+
+Now that you have seen the full hosted flow, try a small production-style exercise on your own. The goal is to prove that you can move from scaffold to repeatable validation without guessing.
+Use this checklist as your action plan.
+
+1. Scaffold a new hosted agent for a different scenario using GitHub Copilot CLI.
+2. Add at least one grounding tool and one instruction rule for when it must be used.
+3. Validate behavior locally with at least two prompts that force tool usage.
+4. Deploy the agent and compare one local trace to one hosted trace.
+5. Document one behavior difference and the fix you applied.
+
+Success target: you can explain the full path from prompt input to hosted output and show evidence for each stage.
+
+## Learn more
+
+If you want to go deeper after this chapter, the best path is to pair platform guidance with hosted-agent deployment references. This gives you production context and practical next steps for what to do next.
+Use the links below as a practical continuation path.
+
+- **GitHub Copilot in Visual Studio Code**: [Review Copilot workflows in Visual Studio Code docs](https://code.visualstudio.com/docs/copilot/overview).
+- **Azure AI Foundry overview**: [Understand the broader Azure AI Foundry platform and workflows](https://learn.microsoft.com/azure/ai-foundry/).
+- **Azure AI Agents overview**: [Review hosted-agent concepts and lifecycle guidance](https://learn.microsoft.com/azure/ai-services/agents/overview).
+- **Azure Developer CLI documentation**: [Use azd for repeatable setup and deployment workflows](https://learn.microsoft.com/azure/developer/azure-developer-cli/).
