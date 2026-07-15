@@ -110,13 +110,13 @@ Next, let's use this prompt:
     Recommend two models for a marketing scenario that require image input support and are deployable in my subscription and region.
     ```
 
-   ![Example prompt asking Copilot for recommendations](../images/ch2-prompt-recommendation.png)
+   ![Example prompt asking Copilot for recommendations](../images/foundry-toolkit/ch2-prompt-recommendation.png)
 
    **Fig 1: Example prompt asking GitHub Copilot for model recommendations.**
 
 4. Review the response and note the recommended models.
 
-   ![Example result from Copilot recommendations](../images/ch2-example-result.png)
+   ![Example result from Copilot recommendations](../images/foundry-toolkit/ch2-example-result.png)
 
    **Fig 2: Example result from GitHub Copilot recommendations.**
 
@@ -136,7 +136,7 @@ Next, let's open the catalog and see how we can reduce the candidate set to a ma
 
 Now you should see a list of models that includes multiple providers and hosting paths, something like the below image:
 
-![Model Catalog in Foundry Toolkit](../images/ch2-model-catalog.png)
+![Model Catalog in Foundry Toolkit](../images/foundry-toolkit/ch2-model-catalog.png)
 
 **Fig 3: Model Catalog in Foundry Toolkit.**
 
@@ -164,7 +164,7 @@ Next, let's go from "interesting list" to "actual candidates."
 
    You should see a reduced candidate list similar to below.
 
-   ![Model filter panel in Foundry Toolkit](../images/ch2-model-filter.png)
+   ![Model filter panel in Foundry Toolkit](../images/foundry-toolkit/ch2-model-filter.png)
 
    **Fig 4: Model filter panel in Foundry Toolkit. Here we select Hosted By: Foundry, Publisher: OpenAI**
 
@@ -191,7 +191,7 @@ To review a model card:
 2. Open its model card page.
 3. Check capabilities and pricing before moving to deployment.
 
-![Model card review details](../images/ch2-model-card.png)
+![Model card review details](../images/foundry-toolkit/ch2-model-card.png)
 
 After you're satisfied with the model card review, you are ready to deploy the candidates into your Foundry project for side-by-side comparison.
 
@@ -204,7 +204,7 @@ Great, let's kick off a deployment.
 1. Choose Deploy from the model card.
 2. Select your connected Foundry project as the deployment target.
 
-![Deployment in Foundry Playground](../images/ch2-deploy.png)
+![Deployment in Foundry Playground](../images/foundry-toolkit/ch2-deploy.png)
 
 This should kick off a deployment process that takes a few minutes. Once complete, you will see the deployed model in your Foundry project.
 

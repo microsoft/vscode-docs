@@ -77,7 +77,7 @@ Follow these steps to create the agent:
 
 Here's what you should see once you kick off a create-agent flow in Agent Builder.
 
-![Placeholder image: Agent creation in Agent Builder](../images/ch3-create-agent.png)
+![Placeholder image: Agent creation in Agent Builder](../images/foundry-toolkit/ch3-create-agent.png)
 
 **Fig 01: Create a new agent in Agent Builder.**
 
@@ -96,7 +96,7 @@ Here's what to consider when crafting instructions for a social content agent:
 
 Below is an example of a system prompt that captures these requirements. You can adapt it to your own style and team needs.
 
-![System prompt configuration](../images/ch3-system-prompt.png)
+![System prompt configuration](../images/foundry-toolkit/ch3-system-prompt.png)
 
 **Fig 02: Define system prompt instructions for the social content agent.**
 
@@ -110,7 +110,7 @@ It also gives you a clean base version before adding tools.
 
 Select the Save button, it should given you two options: Save to Foundry or Save to local file. Choose **Save to Foundry**.
 
-![Save to Microsoft Foundry](../images/ch3-save.png)
+![Save to Microsoft Foundry](../images/foundry-toolkit/ch3-save.png)
 
 **Fig 03: Save the agent to project resources for reuse and versioning.**
 
@@ -124,7 +124,7 @@ For this scenario, grounding matters whenever campaign text references product c
 
 1. In the Tool section, click "+" and select MCP Server
 
-   ![Add MCP Server](../images/ch3-mcp-server.png)
+   ![Add MCP Server](../images/foundry-toolkit/ch3-mcp-server.png)
 
    **Fig 04: Select MCP Server in Tools**
 
@@ -132,7 +132,7 @@ For this scenario, grounding matters whenever campaign text references product c
 
 2. Select the Microsoft Learn MCP server from the list of available servers.
 
-   ![MCP tool setup](../images/ch3-mcp.png)
+   ![MCP tool setup](../images/foundry-toolkit/ch3-mcp.png)
 
    **Fig 05: Add MCP server tools to the agent for grounded responses.**
 
@@ -153,7 +153,7 @@ In practice, you want explicit trigger logic such as: if the prompt asks about M
 
 Here's an example of how to phrase this in the system prompt so the agent knows when to call tools and how to use retrieved context. You're asking the agent to think in steps, analyze intent, and then decide what tool to call and possible additional tool calls. Finally, add guidance to constrain what the agent can and can't do with the retrieved context.
 
-![Tool instructions](../images/ch3-tool-guidance.png)
+![Tool instructions](../images/foundry-toolkit/ch3-tool-guidance.png)
 
 **Fig 05: Add tool-use guidance to the agent instructions.**
 
@@ -178,7 +178,7 @@ Here's what to look for when testing:
 
 See below image that shows a typed prompt, which tools are invoked and the final output from the agent.
 
-![Testing in Playground](../images/ch3-testing.png)
+![Testing in Playground](../images/foundry-toolkit/ch3-testing.png)
 
 **Fig 05: Test the agent in the playground with realistic prompts.**
 
@@ -205,7 +205,7 @@ Let's say you have an Agent like this, then here's how you set up evaluation.
 
    See "Evaluation" tab" in below image. Select that.
 
-   ![Evaluation area from Agent creation](../images/ch3-evaluation-area.png)
+   ![Evaluation area from Agent creation](../images/foundry-toolkit/ch3-evaluation-area.png)
 
 2. Select to generate a dataset by clicking the top left button.
 
@@ -213,14 +213,14 @@ Let's say you have an Agent like this, then here's how you set up evaluation.
 
    Here's a set of generated prompts it can run against your model.
 
-   ![Generate dataset modal](../images/ch3-dataset.png)
+   ![Generate dataset modal](../images/foundry-toolkit/ch3-dataset.png)
 
 
 3. Test your Agent by running an evaluation (select Play icon)
 
    You should see how each prompt is run agains your Agent and you can provide a thumbs up/thumbs down on the result.
 
-   ![Evaluation result](../images/ch3-evaluation-result.png)
+   ![Evaluation result](../images/foundry-toolkit/ch3-evaluation-result.png)
 
    **Fig 06: Configure evaluation settings for the agent.**
 

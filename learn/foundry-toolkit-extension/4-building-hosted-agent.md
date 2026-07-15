@@ -95,7 +95,7 @@ Let's walk through the steps to scaffold a new agent project:
 
 See the example prompt below:
 
-![GitHub Copilot CLI scaffold prompt and generated project output](../images/ch4-agent-creation.png)
+![GitHub Copilot CLI scaffold prompt and generated project output](../images/foundry-toolkit/ch4-agent-creation.png)
 
 **Fig 01: GitHub Copilot CLI scaffold prompt and generated project output.**
 
@@ -125,7 +125,7 @@ Here's what they will do for us:
 
 See below how these tools are configured:
 
-![Foundry Toolbox configuration](../images/ch4-toolbox-configuration.png)
+![Foundry Toolbox configuration](../images/foundry-toolkit/ch4-toolbox-configuration.png)
 
 **Fig 02: Foundry Toolbox configuration.**
 
@@ -146,7 +146,7 @@ In the chapter flow, local invoke confirms expected clarifying-question behavior
 
    You should see a result similar to:
 
-   ![Local agent run](../images/ch4-local-invoke.png)
+   ![Local agent run](../images/foundry-toolkit/ch4-local-invoke.png)
 
    **Fig 03: Local agent run and prompt invocation.**
 
@@ -160,7 +160,7 @@ This is where your project becomes easy to debug repeatedly, not just runnable o
 
    See below image, but in short, you need to tell it to install a tool and configure tasks.json and launch.json for Visual Studio Code.
 
-   ![Setup Agent Inspector](../images/ch4-setup-inspector.png)
+   ![Setup Agent Inspector](../images/foundry-toolkit/ch4-setup-inspector.png)
 
 Once inspector wiring is in place, you can evaluate cause and effect directly instead of guessing from final output text.
 
@@ -172,7 +172,7 @@ Start debugging and open Agent Inspector to observe live runtime behavior. This 
 
 You should see a playground you can interact with and traces on the right side. What you see should look similar to the image below.
 
-![Agent Inspector debug session](../images/ch4-inspector-debug.png)
+![Agent Inspector debug session](../images/foundry-toolkit/ch4-inspector-debug.png)
 
 **Fig 04: Agent Inspector debug session with event timeline and trace views.**
 
@@ -199,7 +199,7 @@ Highlight the mobile chat feature, drive installs, general dev audience, technic
 
 Now you should see tools being invoked and a response being produced like so:
 
-![Follow-up prompt response](../images/ch4-follow-up.png)
+![Follow-up prompt response](../images/foundry-toolkit/ch4-follow-up.png)
 
 **Fig 05: Follow-up prompt response with tool invocation and structured output.**
 
@@ -211,7 +211,7 @@ Next, deploy the agent to a hosted environment. This step uses the same project 
 
    You should see the following screen:
 
-   ![Deploy via Agent Inspector](../images/ch4-deploy.png)
+   ![Deploy via Agent Inspector](../images/foundry-toolkit/ch4-deploy.png)
 
    **Fig 06: Deploy via Agent Inspector.**
 

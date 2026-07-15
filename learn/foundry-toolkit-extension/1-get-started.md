@@ -43,7 +43,7 @@ Now that the destination is clear, here is the one idea that makes everything el
 
 A quick map helps you see the chapter flow before we zoom in. Think of it as your "you are here" sign while you move through setup.
 
-![Chapter 1 journey diagram](../images/ch01-fig01-journey.png)
+![Chapter 1 journey diagram](../images/foundry-toolkit/ch1-fig01-journey.png)
 
 **Fig 01: Chapter 1 journey from first install to model-ready workspace.**
 
@@ -87,7 +87,7 @@ To get you excited, here is a quick list of the core capabilities you will use i
 
 Here's the extension you're about to install. It is the one surface you will keep coming back to for most of the series.
 
-![Foundry Toolkit](../images/foundry-toolkit.png)
+![Foundry Toolkit](../images/foundry-toolkit/ch1-foundry-toolkit.png)
 
 **Fig 1: Foundry Toolkit Extension in Visual Studio Code**
 
@@ -110,7 +110,7 @@ Once Foundry Toolkit is installed, the UI is organized into sections that mirror
 
 Here's a diagram showing the three main sections and how they relate to each other.
 
-![Foundry Toolkit architecture diagram](../images/ch01-fig03-toolkit-architecture.png)
+![Foundry Toolkit architecture diagram](../images/foundry-toolkit/ch1-fig03-toolkit-architecture.png)
 
 **Fig 02: Foundry Toolkit information architecture and core working areas.**
 
@@ -131,7 +131,7 @@ If this section looks right, you are in great shape.
 
 Once resources are visible, we can move to the section where you actively build.
 
-![Foundry Toolkit resources](../images/foundry-toolkit-resources.png)
+![Foundry Toolkit resources](../images/foundry-toolkit/ch1-foundry-toolkit-resources.png)
 
 **Fig 03: Foundry Toolkit My Resources section showing local and cloud assets.**
 
@@ -151,7 +151,7 @@ For example, a common loop is: open Model Catalog, test a prompt in Playground, 
 
 After building and monitoring, you still need support and feedback channels to keep improving.
 
-![Foundry Toolkit developer tools](../images/foundry-toolkit-developer-tools.png)
+![Foundry Toolkit developer tools](../images/foundry-toolkit/ch1-foundry-toolkit-developer-tools.png)
 
 **Fig 04: Foundry Toolkit Developer Tools section showing Discover, Build, and Monitor areas.**
 
