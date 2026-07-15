@@ -35,6 +35,8 @@ VS Code is moving agent session orchestration into the Agent Host, which provide
 
 VS Code extensions can still contribute chat customizations such as tools, MCP servers, and custom agents, but the agent runtime itself runs in the Agent Host process.
 
+To use editor-only tools and customizations contributed by extensions, chat with the session from an editor window where those extensions are running.
+
 ![Screenshot showing VS Code communicating with extension-host customizations and the Agent Host, which contains adapters for Copilot, Claude, and Codex.](../images/concepts/agent-host-transition.svg)
 
 ## Process architecture
@@ -55,15 +57,19 @@ The host is the source of truth. Each client subscribes to URI-addressed channel
 
 The defining Agent Host principle is that the agent can run without a client. A client is a viewer and controller that can come and go. The host therefore includes the baseline capabilities needed to manage sessions and work with the workspace.
 
+Agent sessions are not tied to the lifetime of the window for their workspace. You can close the window and reopen the session later from another window. While the Agent Host remains running, an active turn can continue without a connected client.
+
 Connected clients can also contribute tools. For example, VS Code can advertise tools that are provided by the client (like the browser tools) or by installed extensions. The Agent Host adds those definitions to the active session and routes a tool call back to the client that contributed it.
 
 ## Local and remote hosts
 
-For remote sessions, the Agent Host runs as a standalone process and exposes AHP over WebSocket. The Agents window reaches it through SSH or a secure tunnel.
+For remote sessions, the Agent Host runs as a standalone process and exposes AHP over WebSocket. The Agents window reaches it through SSH or a dev tunnel.
 
 ![Screenshot showing a VS Code client connected to a local Agent Host and multiple remote Agent Hosts over dev tunnels and SSH.](../images/concepts/agent-host-deployment.svg)
 
 Like [VS Code Remote Development](/docs/remote/remote-overview.md), the user interface stays on the client while workspace operations run close to the source code and development tools.
+
+To run your own standalone Agent Host, use `code agent host`. By default, the command starts a server on localhost and protects it with a connection token. Use the `--tunnel` option to expose it through a dev tunnel.
 
 ## Related resources
 
