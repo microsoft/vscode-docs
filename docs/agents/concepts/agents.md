@@ -140,6 +140,7 @@ Learn more about [planning with agents](/docs/agents/planning.md).
 ## Related resources
 
 * [Using agents in VS Code](/docs/agents/overview.md)
+* [VS Code Agent Host architecture](/docs/agents/concepts/agent-host.md)
 * [Tools](/docs/agents/concepts/tools.md)
 * [Context](/docs/agents/concepts/context.md)
 * [Trust and safety](/docs/agents/concepts/trust-and-safety.md)
