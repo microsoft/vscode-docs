@@ -33,9 +33,7 @@ VS Code is moving agent session orchestration into the Agent Host, which provide
 * **Multiple agent implementations**: different agent runtimes plug into one host-facing interface and present common session concepts to clients.
 * **Dedicated process**: agents run in their own process, where they won't be blocked by busy extensions.
 
-VS Code extensions can still contribute chat customizations such as tools, MCP servers, and custom agents, but the agent runtime itself runs in the Agent Host process.
-
-To use editor-only tools and customizations contributed by extensions, chat with the session from an editor window where those extensions are running.
+VS Code extensions can still contribute chat customizations such as tools, MCP servers, and custom agents, but the agent runtime itself runs in the Agent Host process. By default, tools from extensions are only available in chats in an editor window where the extension is running.
 
 ![Screenshot showing VS Code communicating with extension-host customizations and the Agent Host, which contains adapters for Copilot, Claude, and Codex.](../images/concepts/agent-host-transition.svg)
 
