@@ -45,6 +45,7 @@ The following articles explain the architecture and building blocks that power t
 * [Context](/docs/agents/concepts/context.md): how VS Code assembles information for the model, from your files to conversation history.
 * [Tools](/docs/agents/concepts/tools.md): mechanisms that let agents act on your development environment and connect to external services.
 * [Agents](/docs/agents/concepts/agents.md): the agent loop, agent types, subagents, memory, and planning.
+* [Agent Host architecture](/docs/agents/concepts/agent-host.md): how VS Code runs and coordinates local and remote agent sessions through the Agent Host Protocol.
 * [Customization](/docs/agents/concepts/customization.md): how to tailor AI behavior with instructions, prompt files, custom agents, skills, hooks, and plugins.
 * [Trust and safety](/docs/agents/concepts/trust-and-safety.md): control mechanisms, AI limitations, and security considerations.
 
