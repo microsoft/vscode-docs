@@ -159,7 +159,7 @@ Next, let's go from "interesting list" to "actual candidates."
 1. Open the filter panel in Model Catalog.
 2. Set the filter like so:
 
-   Hosted BY: **Foundry**
+   Hosted By: **Foundry**
    Publisher: **OpenAI**
 
    You should see a reduced candidate list similar to below.

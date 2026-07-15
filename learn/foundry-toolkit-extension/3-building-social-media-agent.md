@@ -14,7 +14,7 @@ Keywords:
 
 # Building a Social Media Content Agent with Agent Builder
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/NPGMgljY2Gs" title="Chapter 2 Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/NPGMgljY2Gs" title="Chapter 3 Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 This chapter walks through building a practical social media content agent using Agent Builder in Foundry Toolkit. The goal is not just to generate text, but to create an assistant that asks the right follow-up questions, uses trusted context, and returns output a team can actually review and ship.
 
@@ -108,7 +108,7 @@ After defining instructions, save the agent to your Foundry project so it appear
 
 It also gives you a clean base version before adding tools.
 
-Select the Save button, it should given you two options: Save to Foundry or Save to local file. Choose **Save to Foundry**.
+Select the Save button. It should give you two options: Save to Foundry or Save to local file. Choose **Save to Foundry**.
 
 ![Save to Microsoft Foundry](../images/foundry-toolkit/ch3-save.png)
 
@@ -155,7 +155,7 @@ Here's an example of how to phrase this in the system prompt so the agent knows 
 
 ![Tool instructions](../images/foundry-toolkit/ch3-tool-guidance.png)
 
-**Fig 05: Add tool-use guidance to the agent instructions.**
+**Fig 06: Add tool-use guidance to the agent instructions.**
 
 At this stage, run realistic tests in the playground.
 
@@ -180,7 +180,7 @@ See below image that shows a typed prompt, which tools are invoked and the final
 
 ![Testing in Playground](../images/foundry-toolkit/ch3-testing.png)
 
-**Fig 05: Test the agent in the playground with realistic prompts.**
+**Fig 07: Test the agent in the playground with realistic prompts.**
 
 Manual testing is useful, but the next step is where quality becomes measurable.
 
@@ -203,7 +203,7 @@ Let's say you have an Agent like this, then here's how you set up evaluation.
 
 1. Select evaluation area and select to generate a dataset (top left button)
 
-   See "Evaluation" tab" in below image. Select that.
+   See the "Evaluation" tab in the image below. Select that.
 
    ![Evaluation area from Agent creation](../images/foundry-toolkit/ch3-evaluation-area.png)
 
@@ -218,11 +218,11 @@ Let's say you have an Agent like this, then here's how you set up evaluation.
 
 3. Test your Agent by running an evaluation (select Play icon)
 
-   You should see how each prompt is run agains your Agent and you can provide a thumbs up/thumbs down on the result.
+   You should see how each prompt is run against your Agent and you can provide a thumbs up/thumbs down on the result.
 
    ![Evaluation result](../images/foundry-toolkit/ch3-evaluation-result.png)
 
-   **Fig 06: Configure evaluation settings for the agent.**
+   **Fig 08: Configure evaluation settings for the agent.**
 
 This is a great way to get a quick sense of how your Agent is performing against the generated dataset. You can adjust the Agent's instructions, tools, or other settings and re-run the evaluation to see if performance improves.
 

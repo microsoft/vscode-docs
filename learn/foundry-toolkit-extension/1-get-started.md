@@ -20,7 +20,7 @@ You know that moment when a prototype looks great, but the team still feels slow
 
 In this chapter, we'll make that into one flow inside Visual Studio Code so day-to-day work feels clear, fast, and honestly more fun.
 
-No more tab Olympics, I promise.
+No more jumping between disconnected tools.
 
 By the end, you will have Foundry Toolkit installed, connected, and ready for real model and agent work. You will not just know where to click, you will understand why this setup order works and why the next chapters feel lighter because of it.
 

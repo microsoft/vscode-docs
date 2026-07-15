@@ -14,9 +14,7 @@ Keywords:
 
 # Building a Hosted Agent with GitHub Copilot and Microsoft Foundry
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/pxG-9Lh_a44" title="Chapter 2 Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-https://youtu.be/pxG-9Lh_a44
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/pxG-9Lh_a44" title="Chapter 4 Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 Low-code agents are great for proving behavior quickly, but most teams eventually need stronger control over code, deployment, and integration. In this chapter, we move into a code-first workflow and build a hosted agent that can be developed locally, debugged with tooling, and deployed into Microsoft Foundry.
 
@@ -89,9 +87,18 @@ Here's what we need to think about first.
 Let's walk through the steps to scaffold a new agent project:
 
 1. Open a terminal in your working folder.
-2. Start GitHub Copilot CLI in that folder.
-3. Enter a natural language prompt that describes the agent behavior, tools, and deployment intent.
-4. Confirm generated files are created in the intended project location.
+2. Start GitHub Copilot CLI in that folder. Run `copilot`.
+3. Enable Autopilot mode (/autopilot on) so setup can run with fewer interruptions.
+4. Confirm you see the message **Autopilot mode enabled with all permissions.**
+5. Enter a natural language prompt that describes the agent behavior, tools, and deployment intent.
+
+   Use this prompt from the example image:
+
+   ```text
+   Create a Foundry agent solution for a developer social media campaign assistant promoting developer productivity tools. The agent should ask clarifying questions, use data retrieval tools to extract the right context for the campaign and generate social post options. The agent should be configured to use a Foundry toolbox, including the MS MCP Learn server to retrieve Microsoft official documentation and the web search tool to access fresh data. It should be deployable as a hosted agent. Use a gpt-5 model instance. Open project folder when done.
+   ```
+
+6. Confirm generated files are created in the intended project location.
 
 See the example prompt below:
 
