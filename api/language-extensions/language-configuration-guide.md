@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: cd928e7f-bb5a-43b0-8e15-d398e416386d
-DateApproved: 6/24/2026
+DateApproved: 7/15/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to configure language support for any language in Visual Studio Code.

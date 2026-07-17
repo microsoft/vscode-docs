@@ -1,6 +1,6 @@
 ---
 ContentId: 3a33f35b-cded-4f7f-8674-6f2ba5fca023
-DateApproved: 6/24/2026
+DateApproved: 7/15/2026
 MetaDescription: A quick overview of the Visual Studio Code user interface. Learn about the editor, window management, and special UI to handle source control, extension management, full text search and more.
 ---
 # User interface
@@ -31,7 +31,7 @@ VS Code comes with a simple and intuitive layout that maximizes the space provid
 * **Primary Side Bar** - Contains different views like the Explorer to assist you while working on your project.
 * **Secondary Side Bar** - Opposite the Primary Side Bar. By default, contains the Chat view. Drag and drop views from the Primary Side Bar to the Secondary Side Bar to move them.
 * **Status Bar** - Information about the opened project and the files you edit.
-* **Activity Bar** -  Located on the far left-hand side. Lets you switch between views and gives you additional context-specific indicators, like the number of outgoing changes when Git is enabled. You can change the position of the Activity Bar.
+* **Activity Bar** -  Located on the far left-hand side. Lets you switch between views and gives you additional context-specific indicators, like the number of outgoing changes when Git is enabled. You can change the position of the Activity Bar by right-clicking it to open a context menu.
 * **Panel** - An additional space for views below the editor region. By default, it contains output, debug information, errors and warnings, and an integrated terminal. The Panel can also be moved to the left or right for more vertical space.
 
 ![Screenshot of the VS Code user interface, highlighting the main areas.](images/userinterface/hero.png)

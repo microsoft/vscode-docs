@@ -1,6 +1,6 @@
 ---
 ContentId: a3f7d8e2-5c4b-49a1-b6d3-7e8f9a2c1d4b
-DateApproved: 6/24/2026
+DateApproved: 7/15/2026
 MetaDescription: Use chronicle commands in VS Code to generate standup reports, get personalized tips, and query your Copilot session history with natural language.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 ---
@@ -54,6 +54,7 @@ Situations where reindexing helps:
 
 ## Related content
 
+* [Diagnose prompt caching with the Cache Explorer](/docs/agents/agent-troubleshooting/cache-explorer.md) - Visualize cache hit rates to find where sessions waste tokens
 * [Session sync](/docs/agents/sessions/session-sync.md) - Sync sessions to your GitHub account for cross-device access
 * [Manage chat sessions](/docs/chat/chat-sessions.md) - Create and organize chat sessions
 * [Settings reference](/docs/agents/reference/ai-settings.md) - All AI and agent settings

@@ -1,6 +1,6 @@
 ---
 ContentId: D06C8C5C-2D3A-4B2E-B31F-12F1907E6402
-DateApproved: 6/24/2026
+DateApproved: 7/15/2026
 MetaDescription: Find out how to get the best out of Visual Studio Code and C++.
 MetaSocialImage: images/cpp/languages-cpp-social.png
 ---

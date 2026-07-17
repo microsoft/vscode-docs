@@ -1,6 +1,6 @@
 ---
 ContentId: 8b3c9f5e-4d2a-6f9b-3e1c-7a8d5f2e9b0c
-DateApproved: 6/24/2026
+DateApproved: 7/15/2026
 MetaDescription: Learn how to use context-isolated subagents in VS Code to delegate complex tasks to autonomous agents within your chat session.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -157,6 +157,9 @@ When a subagent runs, it appears in the chat as a collapsible tool call. By defa
 * The currently running tool (for example, "Reading file..." or "Searching codebase...")
 
 Select the subagent tool call to expand it and view the full details, including all tool calls the subagent made, the prompt passed to the subagent, and the returned result.
+
+> [!NOTE]
+> Hover over a subagent section in the chat response to see the [AI credits](/docs/agents/concepts/language-models.md#ai-credits-and-model-costs) used by that subagent. This gives you more transparency into the cost of delegated work.
 
 You control how much detail to reveal without cluttering your main conversation with intermediate steps.
 
@@ -350,3 +353,4 @@ This pattern works because each subagent approaches the code fresh, without bein
 * [Agents overview](/docs/agents/overview.md) - Learn about the different types of agents in VS Code
 * [Custom agents](/docs/agent-customization/custom-agents.md) - Create your own AI agents
 * [Chat sessions](/docs/chat/chat-sessions.md) - Manage chat sessions in VS Code
+* [Cache Explorer](/docs/agents/agent-troubleshooting/cache-explorer.md) - See how context isolation affects prompt cache hit rates

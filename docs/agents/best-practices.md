@@ -1,6 +1,6 @@
 ---
 ContentId: 58ea6755-9bfa-42c2-a4c8-ff0510f9c031
-DateApproved: 6/24/2026
+DateApproved: 7/15/2026
 MetaDescription: Best practices for getting the most out of GitHub Copilot in VS Code, from writing prompts to configuring your project for AI.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -172,6 +172,8 @@ AI responses might degrade as the conversation fills with irrelevant context. Ma
 * **Remove irrelevant history.** Delete past questions and responses that are no longer relevant, or start a fresh session.
 
 * **Compact context.** Use [/compact](/docs/chat/copilot-chat-context.md#context-compaction) and provide instructions to selectively compact the context and retain only the most relevant information. Compacting reduces the tokens sent with each subsequent request, which helps [manage AI credit usage](/docs/agents/guides/optimize-usage.md).
+
+* **Verify cache performance.** Keep the early parts of your prompt stable across turns to reuse the prompt cache and reduce cost and latency. Use the [Cache Explorer](/docs/agents/agent-troubleshooting/cache-explorer.md) to check cache hit rates and find where the cache breaks.
 
 * **Use subagents for investigation.** Hint the AI to perform research and exploration in isolation by using [subagents](/docs/agents/subagents.md) so the findings don't clutter your main context.
 

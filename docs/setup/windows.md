@@ -1,6 +1,6 @@
 ---
 ContentId: 4670C281-5761-46E6-8C46-10D523946FFB
-DateApproved: 6/24/2026
+DateApproved: 7/15/2026
 MetaDescription: Install Visual Studio Code on Windows, choose User or System setup, and configure Windows developer tools.
 MetaSocialImage: images/quicksetup/quick-setup-social.png
 ---

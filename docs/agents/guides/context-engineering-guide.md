@@ -1,6 +1,6 @@
 ---
 ContentId: f8820661-7772-47e6-b63e-ac59f6752d9c
-DateApproved: 6/24/2026
+DateApproved: 7/15/2026
 MetaDescription: Learn how to implement context engineering using VS Code's built-in AI features.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -271,7 +271,7 @@ Following these best practices helps you establish a sustainable and effective c
 
 **Version your context**: Use git to track changes to your context engineering setup, allowing you to revert problematic changes and understand what works best.
 
-**Verify cache performance**: Use the [Agent Debug Logs](/docs/agents/agent-troubleshooting/chat-debug-view.md) to check prompt cache hit rates and token usage. Good cache performance means your context setup is structured in a way that the model provider can reuse previous request prefixes, reducing latency and token costs.
+**Verify cache performance**: Use the [Cache Explorer](/docs/agents/agent-troubleshooting/cache-explorer.md) to check prompt cache hit rates and token usage. Good cache performance means your context setup is structured in a way that the model provider can reuse previous request prefixes, reducing latency and token costs.
 
 ### Anti-patterns to avoid
 

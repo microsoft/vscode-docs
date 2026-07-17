@@ -1,6 +1,6 @@
 ---
 ContentId: 557a7e74-f77e-488d-90ea-fd2cfecfffda
-DateApproved: 6/24/2026
+DateApproved: 7/15/2026
 MetaDescription: Learn how to use chat in VS Code. Access different chat surfaces, send a request, add context, write effective prompts, and review AI-generated changes.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -75,7 +75,7 @@ Providing the right context helps the AI generate more relevant and accurate res
 
 * **Vision**: attach images, such as screenshots or UI mockups, as context for your prompt.
 
-* **Browser elements** (Experimental): select elements from the [integrated browser](/docs/debugtest/integrated-browser.md) to add HTML, CSS, and screenshot context to your prompt.
+* **Browser elements**: select elements from the [integrated browser](/docs/debugtest/integrated-browser.md) to add HTML, CSS, and screenshot context to your prompt.
 
 Learn more about [managing context for AI](/docs/chat/copilot-chat-context.md).
 

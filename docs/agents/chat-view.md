@@ -1,6 +1,6 @@
 ---
 ContentId: d5f8a2c1-3e7b-4a9d-b6c4-8f2e1a3d5c7b
-DateApproved: 6/24/2026
+DateApproved: 7/15/2026
 MetaDescription: Use the Chat view in VS Code for a code-first experience where agents assist you while you write and edit code in a single workspace.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---

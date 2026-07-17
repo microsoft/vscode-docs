@@ -1,6 +1,6 @@
 ---
 ContentId: FC5262F3-D91D-4665-A5D2-BCBCCF66E53A
-DateApproved: 6/24/2026
+DateApproved: 7/15/2026
 MetaDescription: Get started with Visual Studio Code, the open platform for AI agents. Install on Windows, macOS, or Linux and start building with agentic coding, extensions, and a powerful editor.
 MetaSocialImage: images/quicksetup/quick-setup-social.png
 ---

@@ -1,6 +1,6 @@
 ---
 ContentId: 5d8a707d-a239-4cc7-92ee-ccc763e8eb9c
-DateApproved: 6/24/2026
+DateApproved: 7/15/2026
 MetaDescription: Learn how to manage context when using AI in VS Code, including workspace indexing, #-mentions for files and symbols, web content references, and custom instructions.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -66,14 +66,14 @@ Type `@` in the chat input field to see a list of available chat participants.
 
 Extensions can also contribute their own [chat participants](/api/extension-guides/ai/chat.md).
 
-## Vision (Preview)
+## Vision
 
 Chat supports vision capabilities, which means you can attach an image as context to your chat prompt and ask questions about it. For example, attach a screenshot of a block of code and ask to explain it, or attach a sketch of a UI and ask the agent to implement it.
 
 > [!TIP]
 > You can drag and drop an image from a web browser onto the Chat view to add it as context.
 
-## Add browser context (Experimental)
+## Add browser context
 
 VS Code has a built-in [integrated browser](/docs/debugtest/integrated-browser.md) that you can use to preview and interact with web pages inside VS Code, for example to do quick testing and debugging of your web application.
 
@@ -101,9 +101,6 @@ Learn more about [browser-to-chat actions](/docs/debugtest/integrated-browser.md
 
 ## Interact with browser pages
 
-> [!NOTE]
-> Browser tools for agents are currently experimental.
-
 Agents can directly read and interact with pages in the [integrated browser](/docs/debugtest/integrated-browser.md) by using built-in browser tools. This enables agents to navigate to URLs, read page content and console errors, take screenshots, click elements, type text, and more, without requiring an external MCP server.
 
 To enable browser tools, set the `setting(workbench.browser.enableChatTools)` setting to `true`.
@@ -130,6 +127,8 @@ As you send more requests in a conversation, the control updates to reflect the 
 
 > [!TIP]
 > When the context window fills up, VS Code automatically compacts the conversation history to free up space.
+
+How you structure and change context across turns also affects prompt caching. Stable context lets the model provider reuse tokens from a previous request, which lowers cost and latency. Use the [Cache Explorer](/docs/agents/agent-troubleshooting/cache-explorer.md) to check your cache hit rate.
 
 ## Context compaction
 
@@ -159,3 +158,4 @@ If you want to reset the context entirely, start a [new chat session](/docs/chat
 * [Prompt examples](/docs/agents/guides/prompt-examples.md)
 * [Prompt engineering guide](/docs/agents/best-practices.md)
 * [Debug chat interactions](/docs/agents/agent-troubleshooting/chat-debug-view.md)
+* [Diagnose prompt caching with the Cache Explorer](/docs/agents/agent-troubleshooting/cache-explorer.md)

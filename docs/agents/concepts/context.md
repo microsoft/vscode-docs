@@ -1,6 +1,6 @@
 ---
 ContentId: c3d4e5f6-7a8b-9c0d-1e2f-3a4b5c6d7e8f
-DateApproved: 6/24/2026
+DateApproved: 7/15/2026
 MetaDescription: Learn how VS Code assembles context for AI prompts, including workspace indexing, implicit context, explicit references, and context window management.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -100,4 +100,5 @@ Learn more about [adding context to chat](/docs/chat/copilot-chat-context.md).
 * [Language models](/docs/agents/concepts/language-models.md)
 * [Manage context for AI](/docs/chat/copilot-chat-context.md)
 * [Context engineering guide](/docs/agents/guides/context-engineering-guide.md)
+* [Diagnose prompt caching with the Cache Explorer](/docs/agents/agent-troubleshooting/cache-explorer.md)
 * [Workspace indexing](/docs/agents/reference/workspace-context.md)

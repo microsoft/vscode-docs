@@ -1,6 +1,6 @@
 ---
 ContentId: 5c8e7d42-9b1a-4f85-a3e2-6d5b8a9c1e43
-DateApproved: 6/24/2026
+DateApproved: 7/15/2026
 MetaDescription: Learn how to create reusable prompt files for GitHub Copilot Chat in VS Code to standardize common development tasks and improve your coding workflow efficiency.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -212,7 +212,7 @@ To identify the source of a prompt file:
 1. Hover over the prompt file in the list. The source location is displayed in a tooltip.
 
 > [!TIP]
-> Use the chat customization diagnostics view to see all loaded prompt files and any errors. Right-click in the Chat view and select **Diagnostics**. Learn more about [troubleshooting AI in VS Code](/docs/agents/agent-troubleshooting/troubleshooting.md).
+> Use the Agent Debug Log panel to inspect prompt file discovery and related errors. In the Chat view, select the ellipsis (**...**) menu, then select **Show Agent Debug Logs**. Learn more about [troubleshooting AI in VS Code](/docs/agents/agent-troubleshooting/troubleshooting.md).
 
 ## Related resources
 

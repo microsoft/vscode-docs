@@ -1,6 +1,6 @@
 ---
 ContentId: 3f9e2b7d-6a8c-4d1e-9f2a-8c4b5d7e9f1a
-DateApproved: 6/24/2026
+DateApproved: 7/15/2026
 MetaDescription: Learn how to use browser agent tools in VS Code to build and automatically test web applications with AI.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -19,9 +19,6 @@ Keywords:
 Browser agent tools enable AI to autonomously build and verify web applications in a closed development loop. The agent can create HTML, CSS, and JavaScript, open the app in the integrated browser, interact with it to validate functionality, identify issues through console errors and visual inspection, and fix problems without manual intervention.
 
 This guide walks you through using browser agent tools to build a calculator app and watch as the agent discovers and fixes bugs through automated testing.
-
-> [!NOTE]
-> Browser agent tools are currently experimental and may change in future releases.
 
 ## Prerequisites
 
@@ -43,6 +40,9 @@ When you enable browser agent tools, agents gain access to tools that let them r
 By default, pages opened by the agent run in private, in-memory sessions that don't share cookies or storage with your other browser tabs. This gives you control over what browsing data the agent can access.
 
 Learn more about the [integrated browser in VS Code](/docs/debugtest/integrated-browser.md).
+
+> [!NOTE]
+> Administrators can disable browser tools or restrict which domains agent tools can reach with [enterprise policies](/docs/enterprise/ai-settings.md#configure-agent-network-filtering).
 
 ## Step 1: Enable browser tools for the agent
 

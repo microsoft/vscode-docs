@@ -1,6 +1,6 @@
 ---
 ContentId: b3e7a1d4-5f2c-4e9a-8b6d-1c0f3a2e5d47
-DateApproved: 6/24/2026
+DateApproved: 7/15/2026
 MetaDescription: Use the Agents window in VS Code for an agent-first coding experience where agents and chat are the primary interface to build with AI.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -89,6 +89,15 @@ To start a new agent session in the Agents window:
 
 1. Optionally, select extra configuration options for the session like a custom agent, language model, permission level, and more.
 
+    For Copilot sessions, use **New Worktree** to control isolation:
+
+    * Checked: creates a new Git worktree and runs the session in worktree isolation.
+    * Unchecked: runs the session in folder isolation.
+
+    When you use worktree isolation, VS Code also applies `setting(git.worktreeIncludeFiles)`. Use this setting to copy selected git-ignored files, such as local config files or dependencies, into the new session worktree. Learn more in [Git branches and worktrees](/docs/sourcecontrol/branches-worktrees.md#include-files-when-creating-a-worktree).
+
+    In the Agents window, the new-session picker remembers the last **Agent** and **Permission level** values you selected and uses them as defaults for your next new session.
+
     You can change these at any point during the session. Learn more about [configuring your agent session](/docs/agents/overview.md).
 
 1. Type a prompt that describes what you want to accomplish, and press `kbstyle(Enter)`.
@@ -102,11 +111,26 @@ The agent now starts working on your request. Learn more about [interacting in c
 
 The session list in the sidebar shows all your ongoing sessions across your workspaces. Each session item surfaces the key information such as session name, workspace, agent type, and file change stats.
 
-By default, sessions are grouped by workspace and you can also group on timeframe. See [Manage Sessions](/docs/chat/chat-sessions.md) for more details on working with the session list.
+By default, sessions are grouped by workspace, and you can also group them by timeframe. You can create custom groups, collapse group headers, and rearrange sessions or groups with drag and drop. See [Manage chat sessions](/docs/chat/chat-sessions.md#sessions-list) for more details on working with the sessions list.
 
 When you select a session in the list, the chat panel shows the complete history of that session. This session then becomes the active session and the **Changes** panel surfaces the latest file updates from the agent in that session and the files in the associated workspace.
 
 ![Screenshot showing the sessions list in the sidebar in the Agents window.](images/agents-window/agents-window-session-list.png)
+
+## Quick chats
+
+Quick chats are lightweight chats that aren't scoped to a workspace. Use a quick chat when you want to ask a question or start a task that doesn't belong to a specific project, without setting up a workspace session.
+
+Quick chats appear in the always-visible **Chats** section at the top of the sessions list, separate from your workspace-scoped sessions.
+
+To start a quick chat, use one of the following methods:
+
+* Select **+** on the **Chats** section header in the sessions list.
+* Run **New Quick Chat** from the Command Palette (`kb(workbench.action.showCommands)`), or press `kb(sessionsView.newQuickChat)`.
+
+Use the session-type picker in the composer to choose which agent runs the quick chat, for example Copilot CLI or Claude. The quick chat then opens ready for your prompt. Because a quick chat has no workspace, the workspace picker doesn't apply.
+
+![Screenshot showing the quick chats group in the Agents window, with + button to start a new quick chat highlighted.](images/agents-window/agents-window-quick-chat.png)
 
 ## Manage and review file changes
 
@@ -114,6 +138,10 @@ The Changes panel in the Agents window provides a dedicated view with detailed i
 
 * **Files tab**: a file explorer view of all files in the workspace.
 * **Changes tab**: a list of files that have been changed, added, or deleted by the agent. Select the **Branch Changes** dropdown to choose which changes to view.
+
+The **Changes** tab groups edits that fall outside your workspace folders into a separate **Other Files** section, shown below the file changes tree. This section lists files that the agent created, edited, or deleted outside the session's workspace folders, for example a plan file that the agent writes to its session-state folder. These files aren't part of the workspace, so they aren't committed with your changes.
+
+Each row in the **Other Files** section shows the file icon, name, and a change badge: **A** for added, **M** for modified, and **D** for deleted. Deleted files appear with strikethrough. Only files that the agent changes through its file edit tools appear in this section. Files that the agent only reads, or changes that result from terminal commands, aren't listed.
 
 To review changes made by the agent, select a file in the **Changes** tab to open a diff view that shows the edits the agent has made compared to the current state of the workspace.
 
@@ -137,6 +165,8 @@ While reviewing the changes in the diff view, you can leave feedback comments to
 1. Select **Submit Feedback** to send all your comments to the agent.
 
 The agent reads your comments, makes the requested edits, and resolves each comment. Resolved comments disappear from the diff view.
+
+While you review the **Branch Changes** changeset in the multi-file diff editor, select **Mark as Reviewed** in a file's toolbar to track the changes you've already reviewed. The file collapses and the action shows as toggled. If you edit the file again, or a later agent turn changes it, the reviewed state clears.
 
 After reviewing the changes, the Changes panel provides the following options to act on the edits made by the agent:
 
@@ -196,37 +226,58 @@ Learn more about setting up and using remote connections in [remote agent sessio
 
 ## Run multiple chats in a session
 
-In a Copilot CLI session, you can run multiple chats side by side, each as a separate tab in the chat area. Every chat has its own conversation, title, and status, but all chats share the session's workspace and worktree. Each new chat starts blank and doesn't carry over the conversation history of the other chats.
+In an agent host session, you can run multiple chats side by side, each as a separate tab in the chat area. Each chat has its own conversation, title, status, and agent or language model selection, but all chats share the session's workspace and worktree. Each new chat starts blank and doesn't carry over the conversation history of the other chats.
 
-This is useful when you want to work on an independent task in the same project without interrupting an ongoing chat or starting a completely new session from scratch.
+This is useful when you want to work on an independent task in the same project without interrupting an ongoing chat or starting a new session.
 
-The first chat is the default chat for the session. The chats you add next to it are independent of the session, so you can rename or delete them without affecting the session itself.
+The first chat is the default chat for the session. The chats you add next to it are independent of each other, so you can rename, hide, or delete them without affecting the session itself.
 
 > [!NOTE]
-> Running multiple chats is available for Copilot CLI sessions. Other session types show a single chat.
+> Running multiple chats is available for agent host sessions that support it, such as Copilot CLI and Claude sessions. Other session types show a single chat.
 
 To create an additional chat:
 
-1. In an active session, select **New Chat** (`+`) in the session toolbar.
+1. In an active session, select **+ New Chat** in the session header, or press `kb(sessions.chatCompositeBar.addChat)`.
 
-    A new chat tab appears in the chat area, alongside the existing chat, and becomes active with an empty input. The chat doesn't appear as a separate item in the sessions list.
+    A new chat opens with an empty input. When the session has more than one chat, a tab strip appears in the chat area. The chat doesn't appear as a separate item in the sessions list.
 
     ![Screenshot showing how a new chat tab appears in the chat area alongside the existing chat tab in the Agents window.](images/agents-window/agents-window-new-subsession.png)
 
-    <!-- TODO: replace screenshot with an updated capture that shows multiple chat tabs with the New Chat (+) button in the session toolbar. -->
+    <!-- TODO: replace screenshot with an updated capture that shows the + New Chat button, the chat tab strip with the trailing +, and the Conversations dropdown. -->
+
+1. To add more chats, select the trailing **+** in the tab strip.
 
 1. Type a prompt and press `kbstyle(Enter)` to start the chat.
 
 To work with the chats in a session:
 
 * **Switch between chats**: select a chat tab to show that chat's own conversation history. The in-progress spinner and unread indicator on a tab reflect the state of that chat only.
-* **Rename a chat**: double-click a chat tab, or right-click the tab and select **Rename**, then enter a new name. The chat title is independent of the session title, so renaming the session doesn't rename the chats.
-* **Delete a chat**: hover over a chat tab and select the close (`x`) button. You're asked to confirm because this action can't be undone. The default chat has no close button and is removed when you delete the session.
+* **Choose an agent or model**: use the agent and language model controls in a chat to pick different options for that chat. Sibling chats can use different agents or models.
+* **Track progress and changes**: the session status shows as in progress while any chat is working. Each chat tab shows its own progress. The session header **Changes** pill aggregates edits from all chats in the session, and opening it shows the combined changes.
+* **Rename a chat**: open a chat tab's context menu and select **Rename**, then enter a new name. The chat title is independent of the session title, so renaming the session doesn't rename the chats.
+* **Close or reopen a chat**: select the close (`x`) button on a chat tab to hide that chat without deleting it. Open the **Conversations** dropdown and use the chat's checkbox to show or hide it. To reopen the most recently closed chat, press `kb(sessions.chatCompositeBar.reopenLastClosedChat)`.
+* **Delete a chat**: open a chat tab's context menu and select **Delete Chat**, or press `kb(sessions.chatCompositeBar.deleteChat)` while the chat has focus. Deleting a chat permanently removes it and can't be undone. Use the tab close button when you want to hide the chat instead.
 
-Your chats are persisted and restored when you reload the window and reopen the session, including each chat's conversation history.
+Your visible and hidden chats are persisted and restored when you reload the window and reopen the session, including each chat's conversation history.
 
 > [!TIP]
-> To explore an alternative direction from a specific point in a session's conversation, [fork the session](/docs/chat/chat-sessions.md#fork-a-chat-session). Forking a session creates a new independent session with a copy of the conversation history up to a specific point.
+> To explore an alternative direction from a specific point in a multi-chat agent host session, [fork the conversation](/docs/chat/chat-sessions.md#fork-a-chat-session). The fork opens as a peer chat in the same session, inherits the conversation up to the fork point, gets an automatically generated title, and then runs independently from sibling chats. In single-chat sessions and sessions that don't use an agent host, forking creates a new independent session.
+
+### Follow subagents
+
+When an agent delegates work to subagents, each subagent appears as a read-only peer chat in the session, so you can follow its progress without steering it directly. Read-only chats show a lock icon and don't accept input.
+
+Subagent chats are hidden from the tab strip by default. To open a subagent chat, use one of the following methods:
+
+* Open the **Conversations** dropdown and select the subagent chat.
+* Select the running-subagents indicator that appears while subagents are active.
+* Select the **Open Subagent** link in the chat where the delegation happened.
+
+Subagent chats persist across window reloads, together with your other chats.
+
+![Screenshot showing the button to open a subagent's chat.](images/agents-window/agents-window-follow-subagents-open-subagent.png)
+
+![Screenshot showing a read-only subagent chat.](images/agents-window/agents-window-follow-subagents-read-only-chat.png)
 
 ## Open multiple sessions side by side
 
@@ -246,6 +297,9 @@ When you have multiple sessions open, you can use keyboard shortcuts to move bet
 * Press `kb(sessions.closeAllSessions)` to close all open sessions and return to the new-session view. This shortcut applies when a session has focus.
 
 These commands are also available in the Command Palette (`kb(workbench.action.showCommands)`).
+
+> [!NOTE]
+> **Experimental**: when you enable `setting(sessions.layout.autoCollapseSessionsSidebar)`, the Agents window hides the sessions sidebar on narrow windows when both the editor area and side panel are open. The sidebar appears again when there is room. The Agents window preserves a sidebar that you closed manually, and suspends auto-collapse while multiple sessions are open side by side.
 
 ## Customize agents for your project and workflow
 
@@ -322,7 +376,7 @@ If you're an extension author, we'd love to collaborate on what extension enable
 
 * The agents dropdown currently doesn't have the plan agent. You can still use the `/plan` command in a Copilot CLI or Claude agent session. In Copilot CLI sessions, the plan agent is also automatically invoked when you refer ask for creating a plan in your prompt.
 
-* Running multiple chats in a single session is currently supported for Copilot CLI sessions only.
+* Running multiple chats in a single session is currently supported for Copilot CLI and Claude sessions.
 
 * Multi-root sessions are not yet supported in the Agents window. You can ask the agent to work across projects in a single session.
 

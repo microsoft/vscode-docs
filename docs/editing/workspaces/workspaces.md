@@ -1,6 +1,6 @@
 ---
 ContentId: 0144ad9a-14df-41b5-9629-cbba7dbfc396
-DateApproved: 6/24/2026
+DateApproved: 7/15/2026
 MetaDescription: Learn about Visual Studio Code workspaces
 ---
 # What is a VS Code workspace?

@@ -1,6 +1,6 @@
 ---
 ContentId: 72ad9b70-5227-4032-81d7-6aec00a1e8f8
-DateApproved: 6/24/2026
+DateApproved: 7/15/2026
 MetaDescription: Get started with agentic coding in Visual Studio Code. Build an app from a prompt with the Agents window and the Chat view, and learn the VS Code basics.
 ---
 # Tutorial: Agentic coding in VS Code

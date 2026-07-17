@@ -1,9 +1,9 @@
 {
   "featured": {
-    "title": "Clearer costs and safer code browsing",
-    "description": "See the cost of a whole chat session, tune models from a single picker, and browse new folders safely in Restricted Mode.",
-    "link": "/updates/v1_126",
-    "image": "/assets/updates/1_126/release-highlights.webp"
+    "title": "Agent host and Copilot Enterprise sign-in",
+    "description": "Run agent sessions in a dedicated process, review files and diffs in the new Agents window editor panel, and sign in to Copilot with GitHub Enterprise.",
+    "link": "/updates/v1_129",
+    "image": "/assets/updates/1_129/release-highlights.webp"
   },
   "highlights": [
     {
@@ -20,11 +20,11 @@
       "image": "/assets/docs/agents/optimize-usage-guide/copilot-status-dashboard.png"
     },
     {
-      "type": "tutorial",
-      "title": "Get started with AI agents",
-      "description": "Let AI build web apps and automatically verify them in the integrated browser, catching and fixing bugs on its own.",
-      "link": "/docs/getstarted/getting-started",
-      "image": "/assets/docs/getstarted/getting-started/open-in-agents-button.png"
+      "type": "blog",
+      "title": "Iterating faster with TypeScript 7",
+      "description": "How the VS Code and TypeScript teams collaborated to adopt TypeScript 7, speeding up builds and improving the day-to-day editing loop for both developers and agents.",
+      "link": "/blogs/2026/06/26/iterating-faster-with-ts-7",
+      "image": "/assets/blogs/2026/06/26/ts-7.png"
     }
   ]
 }

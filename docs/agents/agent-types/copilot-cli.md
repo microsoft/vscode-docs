@@ -1,6 +1,6 @@
 ---
 ContentId: 9f1a2b3c-4e5f-6d7c-8a9b-1c2d3e4f5a6b
-DateApproved: 6/24/2026
+DateApproved: 7/15/2026
 MetaDescription: Learn how to use Copilot CLI within VS Code for autonomous coding tasks, terminal integration, and isolated development workflows in VS Code.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 Keywords:
@@ -71,6 +71,14 @@ Copilot CLI sessions support the same [permission levels](/docs/agents/approvals
 * **Folder isolation**: all three permission levels are available (**Default Approvals**, **Bypass Approvals**, and **Autopilot**), just like local agent sessions. Select a level from the permissions picker in the chat input area.
 
 ## Create a Copilot CLI session
+
+### Authenticate with GitHub Enterprise
+
+Copilot CLI sessions use the same GitHub authentication context as chat in VS Code. If you are signed in with a GitHub Enterprise account for Copilot, Copilot CLI sessions use that account as well.
+
+For managed user accounts on GHE.com, complete the required account setup before you sign in. See [Using GitHub Copilot with an account on GHE.com](https://docs.github.com/en/copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom).
+
+If Copilot CLI sessions can start but requests fail, verify that your Copilot subscription is active for the signed-in account and then sign out and sign in again in VS Code.
 
 To create a new Copilot CLI session in VS Code:
 
@@ -175,7 +183,7 @@ When you start a new session from the Copilot CLI terminal, VS Code automaticall
 
 To resume an existing Copilot CLI session in the terminal, right-click the session in the sessions list and select **Resume in Terminal**.
 
-VS Code automatically handles authentication for the Copilot CLI terminal, so you don't need to sign in separately.
+VS Code automatically handles authentication for the Copilot CLI terminal, so you don't need to sign in separately, including when you use GitHub Enterprise authentication in VS Code.
 
 ## Multi-repository workspaces
 

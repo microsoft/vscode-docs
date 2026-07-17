@@ -1,6 +1,6 @@
 ---
 ContentId: 7b232695-cbbe-4f3f-a625-abc7a5e6496c
-DateApproved: 6/24/2026
+DateApproved: 7/15/2026
 MetaDescription: Overview of the configuration settings for AI features and agents in Visual Studio Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -80,10 +80,10 @@ The team is continuously working on improving the AI features in VS Code and add
 | `setting(github.copilot.chat.codesearch.enabled)` _(Preview)_<br/>When using `#codebase` in the prompt, the agent automatically discovers relevant files to be edited. | `false` |
 | `setting(chat.emptyState.history.enabled)` _(Experimental)_<br/>Show recent chat history in the empty state of the Chat view. | `false` |
 | `setting(imageCarousel.chat.enabled)` _(Experimental)_<br/>Enable the image carousel for browsing images from chat responses. Select image pills in tool results or assistant messages to open a carousel view. | `false` |
-| `setting(chat.sendElementsToChat.enabled)` _(Experimental)_<br/>Enable sending elements from the [integrated browser](/docs/debugtest/integrated-browser.md) to the chat view as context. | `true` |
-| `setting(chat.sendElementsToChat.attachCSS)` _(Experimental)_<br/>Include CSS styles when adding elements from the integrated browser to chat context. | `true` |
-| `setting(chat.sendElementsToChat.attachImages)` _(Experimental)_<br/>Include images when adding elements from the integrated browser to chat context. | `true` |
-| `setting(workbench.browser.enableChatTools)` _(Experimental)_<br/>Enable [browser tools](/docs/debugtest/integrated-browser.md#browser-tools-for-agents) that let agents interact with pages in the integrated browser. | `true` |
+| `setting(chat.sendElementsToChat.enabled)`<br/>Enable sending elements from the [integrated browser](/docs/debugtest/integrated-browser.md) to the chat view as context. | `true` |
+| `setting(chat.sendElementsToChat.attachCSS)`<br/>Include CSS styles when adding elements from the integrated browser to chat context. | `true` |
+| `setting(chat.sendElementsToChat.attachImages)`<br/>Include images when adding elements from the integrated browser to chat context. | `true` |
+| `setting(workbench.browser.enableChatTools)`<br/>Enable [browser tools](/docs/debugtest/integrated-browser.md#browser-tools-for-agents) that let agents interact with pages in the integrated browser. | `true` |
 | `setting(chat.useClaudeMdFile)`<br/>Enable or disable using `CLAUDE.md` files as always-on custom instructions. | `true` |
 | `setting(chat.useNestedAgentsMdFiles)` _(Experimental)_<br/>Enable or disable using `AGENTS.md` files in subfolders of your workspace as context for chat requests. | `false` |
 | `setting(github.copilot.chat.customOAIModels)` _(Deprecated)_<br/>Configure custom OpenAI-compatible models for chat. Deprecated in favor of the [Custom Endpoint](/docs/agent-customization/language-models.md#add-a-custom-endpoint-model) provider, which supports Chat Completions, Responses, and Messages APIs. | `[]` |
@@ -117,8 +117,8 @@ The team is continuously working on improving the AI features in VS Code and add
 | `setting(chat.permissions.default)` _(Experimental)_<br/>Set the default [permission level](/docs/agents/approvals.md#permission-levels) for new chat sessions. Options: `default` (Default Approvals), `autoApprove` (Bypass Approvals), `autopilot` (Autopilot). You can still change the permission level per session. If enterprise policy disables auto-approval, new sessions use Default Approvals. | `"default"` |
 | `setting(chat.autopilot.advanced.enabled)` _(Experimental)_<br/>Enable [Advanced Autopilot](/docs/agents/approvals.md#advanced-autopilot), where a separate model evaluates whether your request is complete after each Autopilot turn and guides the next turn, instead of relying on the agent to signal completion. | `false` |
 | `setting(chat.tools.urls.autoApprove)` <br/>Control which [URL requests and responses are auto-approved](/docs/agents/approvals.md#url-approval). | `[]` |
-| `setting(chat.agent.thinking.collapsedTools)` _(Experimental)_<br/>Configure whether tool call details are collapsed or expanded by default in the chat conversation. | `always` |
-| `setting(chat.agent.thinkingStyle)` _(Experimental)_<br/>Configure how thinking tokens are presented in chat. | `fixedScrolling` |
+| `setting(chat.agent.thinking.collapsedTools)` _(Experimental)_<br/>Configure how tool calls are grouped with thinking content: `off` keeps tool calls separate, `withThinking` groups them only when thinking is present, and `always` always groups tool calls in collapsible sections. | `always` |
+| `setting(chat.agent.thinkingStyle)` _(Experimental)_<br/>Configure how thinking is rendered in chat: `collapsed` collapses thinking by default and can separate reasoning from grouped tool calls, `collapsedPreview` starts expanded and collapses after non-thinking content appears, and `fixedScrolling` shows thinking in a fixed-height auto-scrolling panel that you can expand. | `fixedScrolling` |
 | `setting(chat.mcp.autoStart)` _(Experimental)_<br/>Automatically start MCP servers when MCP configuration changes are detected. | `newAndOutdated` |
 | `setting(chat.tools.eligibleForAutoApproval)` _(Experimental)_<br/>Configure which tools require manual approval before they can be used by agents. | `[]` |
 | `setting(chat.tools.terminal.blockDetectedFileWrites)` _(Experimental)_<br/>Require user approval for terminal commands that perform file writes outside the workspace. Writes to the OS temporary folder (`/tmp` on macOS and Linux, `%TEMP%` on Windows) are exempt when session-level command approval is active. | `outsideWorkspace` |
