@@ -1,6 +1,6 @@
 ---
 ContentId: f8a9c3d2-4e7b-5f1a-b6c8-9d0e2f3a7b4c
-DateApproved: 7/8/2026
+DateApproved: 7/15/2026
 MetaDescription: Learn how to centrally manage AI settings in VS Code for enterprise environments, including agent mode, MCP servers, and tool approvals.
 ---
 
@@ -248,11 +248,16 @@ Organizations should recommend that developers enable [agent sandboxing](/docs/a
 
 The `ChatAgentSandboxEnabled` policy controls whether agent sandboxing is enabled or disabled. This configures the `setting(chat.agent.sandbox.enabled)` setting in VS Code.
 
-When set to `true`, agent-executed terminal commands run inside a sandbox environment with restricted permissions. When set to `false`, no sandbox is applied.
+Set the policy to `on` to run agent-executed terminal commands inside a sandbox environment with restricted permissions. Set the policy to `off` to disable the sandbox.
+
+The following policies control whether a sandboxed command can relax these restrictions:
+
+* Set `ChatAgentSandboxAllowNetwork` to `false` to apply the configured network domain rules to sandboxed commands.
+* Set `ChatAgentSandboxAllowUnsandboxedCommands` to `false` to prevent commands from running outside the sandbox after user confirmation.
 
 ## Configure agent network filtering
 
-Network filtering restricts which domains agent tools (fetch tool, integrated browser) can access during chat sessions. When enabled, agents can only reach domains that are explicitly allowed by the configured domain lists.
+Network filtering restricts which domains the fetch tool and integrated browser can access during chat sessions. When agent sandboxing is enabled, the same domain rules also apply to agent-executed terminal commands.
 
 ### Enable network filtering
 
@@ -262,17 +267,30 @@ When the policy is set to `true`, network access by agent tools is restricted ac
 
 When both domain lists are empty and the filter is enabled, all network access by agent tools is blocked.
 
+To deny network access by default for the fetch tool, integrated browser, and sandboxed terminal commands, configure these policies:
+
+| Policy | Value |
+|--------|-------|
+| `ChatAgentNetworkFilter` | `true` |
+| `ChatAgentSandboxEnabled` | `on` |
+| `ChatAgentAllowedNetworkDomains` | Empty list |
+| `ChatAgentSandboxAllowNetwork` | `false` |
+| `ChatAgentSandboxAllowUnsandboxedCommands` | `false` |
+
+> [!IMPORTANT]
+> The `setting(chat.agent.sandbox.retryWithAllowNetworkRequests)` setting defaults to `true`. It enables a sandboxed terminal command to retry with unrestricted network access after user confirmation. This setting does not currently have an enterprise policy, so administrators cannot enforce its value through VS Code policy.
+
 ### Configure allowed domains
 
 The `ChatAgentAllowedNetworkDomains` policy controls which domains agent tools are permitted to access. This configures the `setting(chat.agent.allowedNetworkDomains)` setting in VS Code.
 
-Provide a list of domain patterns. Wildcards are supported, for example `*.example.com`. When [agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing) is also enabled, these domain rules additionally apply to terminal commands executed by the agent.
+Provide a list of domain patterns. Wildcards are supported, for example `*.example.com`. An empty list blocks all domains when network filtering or agent sandboxing is enabled.
 
 ### Configure denied domains
 
 The `ChatAgentDeniedNetworkDomains` policy controls which domains agent tools are blocked from accessing. This configures the `setting(chat.agent.deniedNetworkDomains)` setting in VS Code.
 
-Denied domains always take precedence over allowed domains. Wildcards are supported, for example `*.example.com`.
+Use this policy to block exceptions to the allowed domain list. Denied domains always take precedence over allowed domains. Wildcards are supported, for example `*.example.com`. You do not need to specify denied domains when the allowed domain list is empty because all domains are already blocked.
 
 ## Configure Copilot code review
 

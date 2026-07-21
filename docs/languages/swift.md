@@ -1,5 +1,5 @@
 ---
-DateApproved: 7/8/2026
+DateApproved: 7/15/2026
 MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, testing) for Swift.
 ---
 # Swift in Visual Studio Code

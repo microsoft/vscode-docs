@@ -1,6 +1,6 @@
 ---
 ContentId: 7a2e5f8d-4c9b-41e6-b3a8-9d7f2e4c1b8a
-DateApproved: 7/8/2026
+DateApproved: 7/15/2026
 MetaDescription: Learn how to create and manage chat sessions in Visual Studio Code, including the sessions list, opening chat in editor tabs, separate windows, and using chat session history.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -50,6 +50,8 @@ To start a new chat session in the Agents window:
     * **Permission level**: controls how much autonomy the agent has over tool approvals. Learn more about [permission levels](/docs/agents/approvals.md#permission-levels).
 
     * **Language model**: determines which AI model powers the conversation. Learn more about [language models in VS Code](/docs/agent-customization/language-models.md).
+
+    In the Agents window, when you create another new session, the picker remembers the last **Agent** and **Permission level** values you selected and uses them as defaults.
 
 1. Type your prompt and press `kb(workbench.action.chat.submit)` to submit it. The agent's response appears in the chat area, and the agent may take actions such as editing files, running commands, or asking follow-up questions.
 

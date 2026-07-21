@@ -1,6 +1,6 @@
 ---
 ContentId: 3b7e6d52-0c41-4f8a-9d2e-1a5c7b9e4f60
-DateApproved: 7/8/2026
+DateApproved: 7/15/2026
 MetaDescription: Learn how to manage tool approvals, configure auto-approval, set permission levels, and sandbox agent commands to control agent autonomy in VS Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 keywords:
@@ -198,18 +198,18 @@ For an overview of how sandboxing works, what it protects against, and OS-level 
 
 Agent sandboxing restricts file system and network access for commands executed by the agent, including Copilot CLI agent-host sessions that use the VS Code agent terminal integration. When sandboxing is enabled, terminal commands that run inside the sandbox are auto-approved without requiring user confirmation, because they run in a controlled environment.
 
-Agent terminal sandboxing is available on macOS, Linux, and Windows. On Windows, VS Code uses the MXC runtime (`wxc-exec.exe`).
+Agent terminal sandboxing is available on macOS and Linux, including WSL2 environments.
 
 Sandbox enablement and unrestricted network access are configured independently:
 
-* **Sandbox enablement** controls whether agent terminal commands run in the sandbox. On macOS and Linux, use `setting(chat.agent.sandbox.enabled)`. On Windows, use `setting(chat.agent.sandbox.enabledWindows)`. Both settings accept the following values:
+* **Sandbox enablement** controls whether agent terminal commands run in the sandbox. On macOS and Linux, use `setting(chat.agent.sandbox.enabled)`, which accepts the following values:
 
     | Value | Description |
     |-------|-------------|
     | `off` (default) | Sandboxing is disabled. |
     | `on` | Sandboxing is enabled with file system and network isolation. All outbound network access is blocked unless domains are explicitly allowed. |
 
-    The **Sandboxing for terminal** checkbox in the permission picker maps its checked state to these values and updates the setting that applies to your operating system.
+    The **Sandboxing for terminal** checkbox in the permission picker maps its checked state to these values and updates the setting.
 
 * **Unrestricted network access** controls whether sandboxed commands can reach any network domain. Set `setting(chat.agent.sandbox.allowNetwork)` to `true` to permit all outbound network traffic while keeping file system restrictions in effect. This setting applies only when sandboxing is enabled and defaults to `false`.
 
@@ -236,7 +236,7 @@ Because the agent attempts the command inside the sandbox first and only surface
 
 ### Configure file system access
 
-Use the platform-specific file system sandbox setting to control file system access: `setting(chat.agent.sandbox.fileSystem.mac)` on macOS, `setting(chat.agent.sandbox.fileSystem.linux)` on Linux, and `setting(chat.agent.sandbox.fileSystem.windows)` on Windows.
+Use the platform-specific file system sandbox setting to control file system access: `setting(chat.agent.sandbox.fileSystem.mac)` on macOS and `setting(chat.agent.sandbox.fileSystem.linux)` on Linux and WSL2.
 
 You can specify allow rules for read and write access, and deny rules for both read and write access. These rules don't support glob patterns. The `denyWrite` and `denyRead` rules take precedence over `allowWrite` and `allowRead` rules.
 
