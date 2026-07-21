@@ -104,9 +104,7 @@ That's it, you now have the extension installed and ready to use. Next, we will 
 
 ## Extension Layout: What You Will See
 
-Once you've installed Foundry Toolkit, you should know the layout and where to find the tools you need. The extension is organized into three main sections: My Resources, Developer Tools, and Feedback.
-
-Once Foundry Toolkit is installed, the UI is organized into sections that mirror how teams actually build. Learning this layout early saves discovery time and helps new teammates get oriented much faster.
+Once you've installed Foundry Toolkit, you should know the layout and where to find the tools you need. The extension is organized into three main sections: My Resources, Developer Tools, and Feedback. These sections mirror how teams actually build. Learning this layout early saves discovery time and helps new teammates get oriented much faster.
 
 Here's a diagram showing the three main sections and how they relate to each other.
 
@@ -143,13 +141,11 @@ As your project grows, this becomes your day-to-day control center.
 
 Think of this as your execution lane. Most of your chapter-to-chapter work starts here, so getting comfortable with it early pays off quickly.
 
-For example, a common loop is: open Model Catalog, test a prompt in Playground, then inspect behavior in Agent Inspector without leaving the same extension area.
-
 - **Discover**: Model catalog and tool catalog, including MCP-based tool collections.
 - **Build**: Agent creation, Agent Inspector, hosted agent management, and playground workflows.
 - **Monitor**: Tracing, evaluations against expected behavior, and model profiling.
 
-After building and monitoring, you still need support and feedback channels to keep improving.
+As you build and test your solution, you might need support. and feedback channels to keep improving.
 
 ![Foundry Toolkit developer tools](../images/foundry-toolkit/ch1-foundry-toolkit-developer-tools.png)
 
@@ -167,15 +163,6 @@ It is easy to ignore this section when everything works. Keep it in your routine
 
 Let's run through the initial setup steps together.
 
-### Try This Now (60 Seconds): Prove Your Setup Is Real
-
-Before you move on, give yourself a fast win. This tiny check removes the "I think it is installed" uncertainty that slows people down later. You are looking for visible proof, not assumptions.
-
-1. Open Foundry Toolkit and click into My Resources.
-2. Expand one available section, even if it is currently sparse.
-3. Say out loud what you can see now that you could not see five minutes ago.
-
-If you can point to those sections confidently, you are out of setup limbo. You are in active workspace mode now.
 
 ## Quick Question
 

@@ -57,7 +57,6 @@ If these prerequisites are in place, every step in this chapter should map clean
 
 - **Visual Studio Code**: Installed and updated so extension workflows and command surfaces are available.
 - **Foundry Toolkit extension**: Installed and visible in the activity bar.
-- **GitHub Copilot**: Enabled for recommendation-driven model shortlisting.
 - **Azure subscription and region**: Selected for deployment checks and quota-aware filtering.
 - **Connected Foundry project**: Available in Foundry Toolkit under your resources.
 

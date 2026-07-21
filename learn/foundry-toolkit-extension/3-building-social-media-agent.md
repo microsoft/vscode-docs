@@ -209,7 +209,7 @@ Let's say you have an Agent like this, then here's how you set up evaluation.
 
 2. Select to generate a dataset by clicking the top left button.
 
-   You should first be met with a modal that shows you a prompt template for generating a dataset. Confirm the prompt and select to generate a dataset. This will create a JSONL file with test rows that you can use for evaluation.
+   You should first be met with a model that shows you a prompt template for generating a dataset. Confirm the prompt and select to generate a dataset. This will create a JSONL file with test rows that you can use for evaluation.
 
    Here's a set of generated prompts it can run against your model.
 
