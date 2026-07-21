@@ -345,6 +345,12 @@ The Agents window shares all of your VS Code settings, so the configuration you'
 
 To override a setting for the Agents window only, edit your settings file and scope the value under the Agents window section. Open the Settings editor (`kb(workbench.action.openSettings)`) from the Agents window to see which scope a setting applies to.
 
+### Control Markdown editing behavior
+
+By default, Markdown files open with the Markdown editor in the Agents window. This editor supports rendered Markdown with direct editing support, including **Editing** and **Locked** modes.
+
+If you prefer the previous behavior, where Markdown files open in the preview editor, disable `setting(workbench.editor.markdownDefaultEditorInAgentsWindow)`.
+
 ## Use VS Code extensions in the Agents window
 
 The Agents window can run your VS Code extensions, so you can bring the tools you rely on into your agent-first workflow.
