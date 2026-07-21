@@ -211,10 +211,9 @@ Let's say you have an Agent like this, then here's how you set up evaluation.
 
    You should first be met with a model that shows you a prompt template for generating a dataset. Confirm the prompt and select to generate a dataset. This will create a JSONL file with test rows that you can use for evaluation.
 
-   Here's a set of generated prompts it can run against your model.
+   Here's what a set of generated prompts can look like that you can run against your model.
 
    ![Generate dataset modal](../images/foundry-toolkit/ch3-dataset.png)
-
 
 3. Test your Agent by running an evaluation (select Play icon)
 
