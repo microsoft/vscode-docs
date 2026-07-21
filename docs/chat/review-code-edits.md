@@ -64,6 +64,8 @@ In the Agents window, you review edits in the dedicated **Changes** panel instea
 
     ![Screenshot showing the Add Feedback button in the Changes diff view.](images/review-code-edits/agents-window-add-feedback.png)
 
+    Markdown files follow the same feedback flow. Open the file from the **Changes** tab and use **Locked** mode in the Markdown editor to add range-based feedback.
+
     The agent reads your comments, makes the requested edits, and resolves each comment. Resolved comments disappear from the diff view.
 
 1. Use the **Commit**, **Merge**, **Checkout**, or **Discard** actions to act on the edits.
