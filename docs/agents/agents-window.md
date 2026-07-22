@@ -164,6 +164,22 @@ While reviewing the changes in the diff view, you can leave feedback comments to
 
 1. Select **Submit Feedback** to send all your comments to the agent.
 
+### Leave feedback on Markdown files
+
+Markdown files that an agent creates or changes also support range-based feedback in the Agents window.
+
+* Open the Markdown file from the **Changes** tab.
+* Make sure the file is inside your workspace.
+* In the Markdown editor, switch to **Locked** mode to enable feedback input.
+* Select text, add feedback comments, and submit them to the agent.
+
+If you reopen the same file in the text editor, the feedback stays in sync between both editors.
+
+> [!NOTE]
+> The Markdown editor is the default for Markdown files in the Agents window when `setting(workbench.editor.markdownDefaultEditorInAgentsWindow)` is enabled, which is the default behavior.
+
+<!-- TODO: Add screenshot showing feedback comments in a Markdown file in Locked mode in the Agents window. -->
+
 The agent reads your comments, makes the requested edits, and resolves each comment. Resolved comments disappear from the diff view.
 
 While you review the **Branch Changes** changeset in the multi-file diff editor, select **Mark as Reviewed** in a file's toolbar to track the changes you've already reviewed. The file collapses and the action shows as toggled. If you edit the file again, or a later agent turn changes it, the reviewed state clears.
@@ -178,6 +194,23 @@ After reviewing the changes, the Changes panel provides the following options to
 ![Screenshot showing the Changes panel in the Agents window, with the Files and Changes views visible.](images/agents-window/agents-window-changes.png)
 
 When you create a new session, the **Files** panel includes a sync button that lets you pull in upstream changes from the base branch before the agent gets to work. This helps the agent start from the latest state of your branch and reduces the chance of merge conflicts when you bring its changes back.
+
+## View and edit Markdown files in the Agents window
+
+The Agents window supports both rendered Markdown preview and an experimental Markdown editor for `.md` files. Which editor opens by default depends on `setting(workbench.editor.markdownDefaultEditorInAgentsWindow)`.
+
+* When enabled, `.md` files open with **Markdown Editor (Experimental)**.
+* When disabled, `.md` files open with **Markdown Preview**.
+
+In **Markdown Editor (Experimental)**, you can switch between **Editing** and **Locked** modes while keeping rendered Markdown context. In **Editing** mode, you can edit content directly. In **Locked** mode, the document remains rendered and read-only.
+
+When you edit a Markdown file in **Markdown Editor (Experimental)**, the editor shows Git change markers in the margin:
+
+* Green marker for added content.
+* Blue marker for modified content.
+* Red marker for deleted content.
+
+These markers reflect your current Git changes in the file, persist after you save and reopen the file, and disappear when you undo or revert the corresponding changes.
 
 ## Validate agent changes locally
 

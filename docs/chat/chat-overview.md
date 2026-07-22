@@ -114,6 +114,12 @@ Both settings have three possible values:
 > [!TIP]
 > Set the value to `always` if you want to stay aware of chat activity while working in other parts of VS Code, such as when running long agent tasks in the background.
 
+## Show request and completion timestamps
+
+Chat can show timestamps for when you send a request and when a response completes. Hover over a completion timestamp to see elapsed response time.
+
+Use `setting(chat.verbose)` to enable or disable these timestamps.
+
 ## Navigate between prompts in a chat session
 
 Use the following keyboard shortcuts to navigate between prompts in a chat session:

@@ -133,6 +133,8 @@ The following table lists the VS Code built-in tools:
 | `#web` (tool set) | Access web content. |
 | `#web/fetch` | Fetch the content from a given web page. For example, "Summarize #web/fetch code.visualstudio.com/updates." |
 
+In agent host sessions, additional session-management tools are available for cross-session orchestration: `list_sessions`, `get_current_session`, `create_session`, `create_chat`, `get_session_context`, `send_message`, and `delete_session`. Learn more about [managing chat sessions](/docs/chat/chat-sessions.md#orchestrate-sessions-from-agent-host-sessions).
+
 ## Slash commands
 
 Slash commands are shortcuts to specific functionality within the chat. You can use them to quickly perform actions, like fixing issues, generating tests, or explaining code.
