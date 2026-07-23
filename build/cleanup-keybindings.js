@@ -22,7 +22,6 @@ for (const file of files) {
 
 	// Step 2-4: Group lines into entries and filter
 	const entries = [];
-	/** @type {string[]} */
 	let current = [];
 
 	for (const line of noComments) {
@@ -73,32 +72,8 @@ for (const file of files) {
 		return entry.filter(line => !line.match(/^\s+"when":/) && !line.match(/^\s+"args":/));
 	});
 
-	// Step 6: Remove later entries with the same key and command as previous entries
-	const seenKeyCommandPairs = new Set();
-	const deduped = cleaned.filter(entry => {
-		if (!entry[0] || !entry[0].trimStart().startsWith('{ "key":')) {
-			return true;
-		}
-
-		const keyMatch = entry[0].match(/"key":\s*"([^"]+)"/);
-		const commandLine = entry.find(line => line.includes('"command":'));
-		const commandMatch = commandLine?.match(/"command":\s*"([^"]+)"/);
-
-		if (!keyMatch || !commandMatch) {
-			return true;
-		}
-
-		const signature = `${keyMatch[1]}||||${commandMatch[1]}`;
-		if (seenKeyCommandPairs.has(signature)) {
-			return false;
-		}
-
-		seenKeyCommandPairs.add(signature);
-		return true;
-	});
-
 	// Fix trailing commas on command lines where when was removed
-	const result = deduped.map(entry => {
+	const result = cleaned.map(entry => {
 		return entry.map(line => {
 			// A command line ending with `,` followed by no `"when":` line needs the comma replaced with ` }`
 			return line;

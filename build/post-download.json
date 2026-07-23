@@ -1,9 +1,9 @@
 {
   "featured": {
-    "title": "Agent host and Copilot Enterprise sign-in",
-    "description": "Run agent sessions in a dedicated process, review files and diffs in the new Agents window editor panel, and sign in to Copilot with GitHub Enterprise.",
-    "link": "/updates/v1_129",
-    "image": "/assets/updates/1_129/release-highlights.webp"
+    "title": "Agent host improvements and faster reviews",
+    "description": "Run sessions in a dedicated process, reduce approval interruptions with assisted tool approvals, and open files directly from Git diffs in the terminal.",
+    "link": "/updates/v1_130",
+    "image": "/assets/updates/1_130/release-highlights.webp"
   },
   "highlights": [
     {

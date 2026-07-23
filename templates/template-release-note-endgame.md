@@ -1,6 +1,6 @@
 ---
 Order: <sequence number>
-TOCTitle: 1.<release number>
+TOCTitle: "1.<release number>"
 PageTitle: Visual Studio Code 1.<release number>
 MetaDescription: Learn what's new in Visual Studio Code 1.<release number>
 MetaSocialImage: 1_<release number>/release-highlights.webp

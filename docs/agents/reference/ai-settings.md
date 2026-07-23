@@ -67,6 +67,7 @@ The team is continuously working on improving the AI features in VS Code and add
 | `setting(chat.editing.revealNextChangeOnResolve)`<br/>Controls whether the editor automatically reveals the next change after keeping or undoing a chat edit. | `true` |
 | `setting(chat.fontFamily)`<br/>Font family for Markdown content in chat. | `"default"` |
 | `setting(chat.fontSize)`<br/>Font size in pixels for Markdown content in chat. | `13` |
+| `setting(chat.verbose)`<br/>Show request and completion timestamps in chat. Hover over a completion timestamp to show elapsed response time. | `true` |
 | `setting(chat.notifyWindowOnConfirmation)`<br/>Configure when to show an OS notification when user input is needed in a chat session: `off` to never show notifications, `windowNotFocused` (default) to show notifications only when the VS Code window is not focused, `always` to always show notifications. | `"windowNotFocused"` |
 | `setting(chat.notifyWindowOnResponseReceived)`<br/>Configure when to show an OS notification when a chat response is received: `off` to never show notifications, `windowNotFocused` (default) to show notifications only when the VS Code window is not focused, `always` to always show notifications. | `"windowNotFocused"` |
 | `setting(chat.requestQueuing.defaultAction)`<br/>Configure the default action for the **Send** button while a request is in progress: `queue` adds the message to the queue, `steer` signals the current request to yield. | `"queue"` |
