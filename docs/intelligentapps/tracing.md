@@ -1,7 +1,7 @@
 ---
 ContentId: e1e49b32-272f-4aef-a73b-56920112057d
 DateApproved: 10/03/2025
-MetaDescription: Foundry Toolkit hosts a local  server to collect trace data. The collector server is OLTP-compatible and most language model SDKs either directly support OTLP or have third-party instrumentation libraries to support it.
+MetaDescription: Foundry Toolkit hosts a local HTTP and gRPC server to collect trace data. The collector server is OTLP-compatible and most language model SDKs either directly support OTLP or have third-party instrumentation libraries to support it.
 ---
 
 # Tracing in Foundry Toolkit
