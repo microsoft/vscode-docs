@@ -68,7 +68,7 @@ If you want the changes from the Copilot CLI session to be applied directly to y
 Copilot CLI sessions support the same [permission levels](/docs/agents/approvals.md#permission-levels) as local agents. The available permission levels depend on the isolation mode you choose:
 
 * **Worktree isolation**: the permission level is automatically set to **Bypass Approvals** and can't be changed. Because the agent operates on an isolated copy of your codebase (Git worktree), all tool calls are auto-approved without confirmation dialogs.
-* **Folder isolation**: all three permission levels are available (**Default Approvals**, **Bypass Approvals**, and **Autopilot**), just like local agent sessions. Select a level from the permissions picker in the chat input area.
+* **Folder isolation**: you can select the permission level from the permissions picker in the chat input area. **Default Approvals** and **Bypass Approvals** are always available, and **Assisted permissions** is available when you enable `setting(chat.assistedPermissions.enabled)`.
 
 ## Create a Copilot CLI session
 

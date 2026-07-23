@@ -39,10 +39,13 @@ The permission level applies to the current chat session, and can be changed at 
 | Permission level | Description |
 |---|---|
 | **Default Approvals** (default) | Uses your configured approval settings. Tools that require approval show a confirmation dialog before they run. When in doubt, the agent asks clarifying questions. |
+| **Assisted permissions** | Uses an LLM judge to evaluate each tool call. Tool calls the judge does not approve still require your approval. |
 | **Bypass Approvals** | Auto-approves all tool calls without showing confirmation dialogs. When in doubt, the agent asks clarifying questions. |
 | **Autopilot** | Auto-approves all tool calls without showing confirmation dialogs. When questions arise, the agent automatically responds to clarifying questions. |
 
 The permission level determines whether your finer-grained settings apply. **Default Approvals** respects the per-tool, URL, terminal, and sandbox settings you configure in the following sections. **Bypass Approvals** and **Autopilot** override those settings and approve everything automatically.
+
+Some agent-host sessions, such as Copilot CLI sessions, can show **Assisted permissions** in the permissions picker. To show this option, enable `setting(chat.assistedPermissions.enabled)`.
 
 > [!CAUTION]
 > **Bypass Approvals** and **Autopilot** bypass manual approval prompts, including for potentially destructive actions like file edits, terminal commands, and external tool calls. The first time you enable either level, a warning dialog asks you to confirm. Only use these levels if you understand the security implications. See the [Security considerations](/docs/agents/security.md) for more details.
