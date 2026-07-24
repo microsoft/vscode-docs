@@ -3,7 +3,7 @@
     "name": "Foundry Toolkit extension for Visual Studio Code",
     "area": "foundry-toolkit-extension",
     "description": "Learn how to use Foundry Toolkit in VS Code to get started, explore models, build agents, and deploy hosted agent workflows.",
-    "image": "/assets/learn/foundry-toolkit/foundry-toolkit-card.png" 
+    "image": "/assets/learn/foundry-toolkit/foundry-toolkit-card.png",
     "topics": [
       ["Getting started with Foundry Toolkit in Visual Studio Code", "/learn/foundry-toolkit-extension/1-get-started"],
       ["Exploring models with Model Catalog", "/learn/foundry-toolkit-extension/2-exploring-models"],
