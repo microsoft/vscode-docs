@@ -205,7 +205,7 @@ To add a model provider extension:
 > [!NOTE]
 > It replaces the deprecated OpenAI Compatible provider and supports additional API types. The `setting(github.copilot.chat.customOAIModels)` setting is deprecated.
 
-The Custom Endpoint provider lets you connect any compatible API endpoint to chat in VS Code. It supports three API types, which you can select per model: Chat Completions, Responses, and Messages.
+The Custom Endpoint provider lets you connect any compatible API endpoint to chat in VS Code. It supports three API types, which you can select per provider or per model: Chat Completions, Responses, and Messages. This makes it a good fit for self-hosted models, enterprise gateways, and providers that aren't available as a built-in provider.
 
 To add a model with the Custom Endpoint provider:
 
@@ -221,7 +221,7 @@ To add a model with the Custom Endpoint provider:
 
 1. Select the API type: **Chat Completions**, **Responses**, or **Messages**. Make sure the model supports this API type.
 
-1. VS Code opens a `chatLanguageModels.json` file where you can configure the model details. Update the model properties and save the file. See the [Model configuration reference](#model-configuration-reference) for details on the configuration properties.
+1. VS Code opens a `chatLanguageModels.json` file where you can configure the model details. Update the model properties and save the file. See the [Custom Endpoint configuration reference](#custom-endpoint-configuration-reference) for details on the configuration properties.
 
     The following example shows a Messages API configuration for an Anthropic endpoint:
 
@@ -251,6 +251,77 @@ To add a model with the Custom Endpoint provider:
 
     > [!TIP]
     > If the model you added does not immediately appear in the model picker, restart VS Code.
+
+#### Custom Endpoint configuration reference
+
+The Custom Endpoint provider supports all of the [common model configuration properties](#model-configuration-reference), plus additional provider-level and model-level properties described in this section. The provider-level properties are set on the provider object, and the model-level properties are set on each entry of the `models` array. When a property is set on both levels, the model-level value takes precedence.
+
+Provider-level properties (in addition to the [common provider properties](#model-configuration-reference)):
+
+| Property | Description |
+|----------|-------------|
+| `vendor` | Must be `customendpoint` to use the Custom Endpoint provider. |
+| `apiKey` | The API key used to authenticate requests. Store the key securely by using an input variable, for example `"apiKey": "${input:myApiKey}"`, instead of committing a raw key. |
+| `apiType` | _(Optional)_ Default API type for all models in the provider: `chat-completions` (default), `responses`, or `messages`. Override it per model with the model-level `apiType`. |
+| `url` | _(Optional)_ Base URL used to discover models automatically. When set, VS Code queries the endpoint for the list of available models instead of using the `models` array. Omit it to configure models explicitly with the `models` array. |
+
+In addition to the [common model properties](#model-configuration-reference) the Custom Endpoint provider supports the following model-level properties:
+
+| Property | Description |
+|----------|-------------|
+| `apiType` | _(Optional)_ Override the API type for this model (`chat-completions`, `responses`, or `messages`). Defaults to the provider-level `apiType`, or is inferred from the `url` when neither is set. |
+| `contextWindow` | _(Optional)_ The model's full context window (input + output) in tokens, for example `1000000` for a 1M-token model. When set, you can omit `maxInputTokens` and VS Code derives it as `contextWindow - maxOutputTokens`. |
+| `modelOptions` | _(Optional)_ An object of request parameters sent with every request to the model, such as `temperature` and `top_p`. For example, `"modelOptions": { "temperature": 0.2 }`. |
+| `requestHeaders` | _(Optional)_ An object of additional HTTP headers to include with requests to this model, for example to authenticate through a gateway or vanity domain. See [Custom authentication headers](#custom-authentication-headers). |
+
+##### Endpoint URL resolution
+
+The `url` you provide for a model is resolved based on its API type:
+
+* If the URL already contains an explicit API path (`/chat/completions`, `/responses`, or `/messages`), it is used as-is.
+* Otherwise, VS Code appends the path for the model's API type. If the URL doesn't already end in a version segment such as `/v1`, VS Code inserts `/v1` first. For example, with the Responses API type, `https://my-host.example.com` resolves to `https://my-host.example.com/v1/responses`.
+
+To avoid ambiguity, provide the full endpoint URL including the API path, as shown in the examples.
+
+##### Custom authentication headers
+
+By default, the Custom Endpoint provider infers the authentication header from the API type and URL: it sends `x-api-key` for the Messages API, `api-key` for Azure OpenAI URLs, and `Authorization: Bearer <apiKey>` otherwise.
+
+You can override the authentication header with `requestHeaders`. When you supply a well-known auth header (such as `Authorization`, `api-key`, `x-api-key`, `x-goog-api-key`, or `apikey`), VS Code does not also send the default inferred auth header, so the endpoint doesn't receive conflicting credentials.
+
+To keep your API key in secret storage while still using it in a custom header, use the `${apiKey}` token in the header value. VS Code replaces it with the configured `apiKey` at request time:
+
+```json
+[
+  {
+    "name": "Gateway",
+    "vendor": "customendpoint",
+    "apiKey": "${input:myApiKey}",
+    "models": [
+      {
+        "id": "my-model",
+        "name": "My Model",
+        "url": "https://gateway.example.com/v1/chat/completions",
+        "toolCalling": true,
+        "vision": false,
+        "maxInputTokens": 128000,
+        "maxOutputTokens": 16000,
+        "thinking": true,
+        "supportsReasoningEffort": ["low", "medium", "high"],
+        "reasoningEffortFormat": "chat-completions",
+        "modelOptions": {
+          "temperature": 0.2,
+          "top_p": 0.9
+        },
+        "requestHeaders": {
+          "Authorization": "Bearer ${apiKey}",
+          "Ocp-Apim-Subscription-Key": "my-subscription-key"
+        }
+      }
+    ]
+  }
+]
+```
 
 ## Update model provider details
 
