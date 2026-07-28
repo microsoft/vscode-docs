@@ -317,6 +317,10 @@ Each question creates a new side chat. The side chat inherits the agent and lang
 
 When an agent delegates work to subagents, each subagent appears as a read-only peer chat in the session, so you can follow its progress without steering it directly. Read-only chats show a lock icon and don't accept input.
 
+While a subagent is running, an indicator in the parent chat shows the model, elapsed time, and active tool call. Select the indicator to open the subagent as a read-only peer chat. The parent chat remains open, which lets you follow both conversations.
+
+![Screenshot showing the details of a subagent in the main chat.](images/agents-window/agents-window-follow-subagents-open-subagent.png)
+
 Subagent chats are hidden from the tab strip by default. To open a subagent chat, use one of the following methods:
 
 * Open the **Conversations** dropdown and select the subagent chat.
@@ -324,8 +328,6 @@ Subagent chats are hidden from the tab strip by default. To open a subagent chat
 * Select the **Open Subagent** link in the chat where the delegation happened.
 
 Subagent chats persist across window reloads, together with your other chats.
-
-![Screenshot showing the button to open a subagent's chat.](images/agents-window/agents-window-follow-subagents-open-subagent.png)
 
 ![Screenshot showing a read-only subagent chat.](images/agents-window/agents-window-follow-subagents-read-only-chat.png)
 

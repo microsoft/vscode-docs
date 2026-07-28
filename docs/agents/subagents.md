@@ -151,12 +151,14 @@ In the prompt instructions, you can then hint the agent to use subagents by sugg
 
 ### What you see in chat
 
-When a subagent runs, it appears in the chat as a collapsible tool call. By default, the subagent is collapsed and shows:
+In the Chat view, a running subagent appears as a collapsible tool call. By default, the subagent is collapsed and shows:
 
 * The name of the custom agent (if you specify one)
 * The currently running tool (for example, "Reading file..." or "Searching codebase...")
 
 Select the subagent tool call to expand it and view the full details, including all tool calls the subagent made, the prompt passed to the subagent, and the returned result.
+
+In the Agents window, the parent chat shows an indicator with the subagent's model, elapsed time, and active tool call. Select the indicator to open the subagent as a read-only peer chat while keeping the parent chat open. Learn more about [following subagents in the Agents window](/docs/agents/agents-window.md#follow-subagents).
 
 > [!NOTE]
 > Hover over a subagent section in the chat response to see the [AI credits](/docs/agents/concepts/language-models.md#ai-credits-and-model-costs) used by that subagent. This gives you more transparency into the cost of delegated work.
