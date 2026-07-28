@@ -45,7 +45,7 @@ extends:
       tsa:
         enabled: true
     settings:
-      networkIsolationPolicy: Permissive,CFSClean2,CFSClean3
+      networkIsolationPolicy: Permissive,CFSClean,CFSClean2,CFSClean3
 
     stages:
     - template: templates/stages/build-main.yml@self
