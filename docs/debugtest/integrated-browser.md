@@ -108,6 +108,18 @@ You can also close browser tabs with the following commands:
 
 The **Close All Browser Tabs** option is also available in the right-click context menu on browser editor tabs.
 
+## Tab placement
+
+Use the `setting(workbench.browser.newTabPlacement)` setting to control where new browser tabs open, so you can keep browser tabs separate from your code editors. The setting supports the following values:
+
+| Value | Description |
+|-------|-------------|
+| `activeGroup` | Browser tabs open in the active editor group. This is the default. |
+| `sideGroup` | Browser tabs open in a dedicated group to the side. This group is locked so that only browser tabs open there. |
+| `window` | Browser tabs open in a dedicated auxiliary window. This window group is also locked to only browser tabs. |
+
+You can still reorganize tabs as needed. Pages opened from an existing tab, for example by selecting a link with `kbstyle(Ctrl+click)`, open in the same group as the parent tab.
+
 ## Developer Tools
 
 Toggle the browser's Developer Tools from the browser toolbar to inspect elements, view console output, and debug page issues.
