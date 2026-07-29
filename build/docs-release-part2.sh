@@ -124,9 +124,12 @@ echo ""
 echo "--- Step 4: Generate social media image ---"
 if command -v magick &> /dev/null; then
     bash "$SCRIPT_DIR/generate-social-image.sh" "1.$NEXT_RELEASE_NUMBER"
+elif command -v convert &> /dev/null; then
+    bash "$SCRIPT_DIR/generate-social-image-im6.sh" "1.$NEXT_RELEASE_NUMBER"
 else
-    echo "Skipping: ImageMagick ('magick') not found."
-    echo "  Install it to generate the social image: brew install imagemagick"
+    echo "Skipping: ImageMagick not found ('magick' or 'convert')."
+    echo "  macOS:  brew install imagemagick"
+    echo "  Ubuntu: sudo apt install imagemagick"
 fi
 echo ""
 

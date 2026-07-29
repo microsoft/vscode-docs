@@ -1,9 +1,9 @@
 {
   "featured": {
-    "title": "Multi-chat agent sessions and Copilot Vision",
-    "description": "Run several related chats in one Claude Code session, attach images and PDFs to Chat with generally available Copilot Vision, and trigger commands with OS-level keyboard shortcuts.",
-    "link": "/updates/v1_128",
-    "image": "/assets/updates/1_128/release-highlights.webp"
+    "title": "Subagent visibility, dictation, and Markdown editing",
+    "description": "Track running subagents at a glance, dictate across VS Code, and edit Markdown with agent-actionable comments.",
+    "link": "/updates/v1_131",
+    "image": "/assets/updates/1_131/release-highlights.webp"
   },
   "highlights": [
     {

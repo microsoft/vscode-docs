@@ -1,6 +1,6 @@
 ---
 ContentId: de6f9f68-7dd5-4de3-a210-3db57882384b
-DateApproved: 7/8/2026
+DateApproved: 7/29/2026
 MetaDescription: Quick reference for AI features in VS Code, including autonomous agents, multi-file editing, inline suggestions, and enterprise controls.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -132,6 +132,8 @@ The following table lists the VS Code built-in tools:
 | `#vscode/VSCodeAPI` | Ask about VS Code functionality and extension development. |
 | `#web` (tool set) | Access web content. |
 | `#web/fetch` | Fetch the content from a given web page. For example, "Summarize #web/fetch code.visualstudio.com/updates." |
+
+In agent host sessions, additional session-management tools are available for cross-session orchestration: `list_sessions`, `get_current_session`, `create_session`, `create_chat`, `get_session_context`, `send_message`, and `delete_session`. Learn more about [managing chat sessions](/docs/chat/chat-sessions.md#orchestrate-sessions-from-agent-host-sessions).
 
 ## Slash commands
 

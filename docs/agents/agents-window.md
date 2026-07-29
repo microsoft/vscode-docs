@@ -1,6 +1,6 @@
 ---
 ContentId: b3e7a1d4-5f2c-4e9a-8b6d-1c0f3a2e5d47
-DateApproved: 7/8/2026
+DateApproved: 7/29/2026
 MetaDescription: Use the Agents window in VS Code for an agent-first coding experience where agents and chat are the primary interface to build with AI.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -89,6 +89,15 @@ To start a new agent session in the Agents window:
 
 1. Optionally, select extra configuration options for the session like a custom agent, language model, permission level, and more.
 
+    For Copilot sessions, use **New Worktree** to control isolation:
+
+    * Checked: creates a new Git worktree and runs the session in worktree isolation.
+    * Unchecked: runs the session in folder isolation.
+
+    When you use worktree isolation, VS Code also applies `setting(git.worktreeIncludeFiles)`. Use this setting to copy selected git-ignored files, such as local config files or dependencies, into the new session worktree. Learn more in [Git branches and worktrees](/docs/sourcecontrol/branches-worktrees.md#include-files-when-creating-a-worktree).
+
+    In the Agents window, the new-session picker remembers the last **Agent** and **Permission level** values you selected and uses them as defaults for your next new session.
+
     You can change these at any point during the session. Learn more about [configuring your agent session](/docs/agents/overview.md).
 
 1. Type a prompt that describes what you want to accomplish, and press `kbstyle(Enter)`.
@@ -155,6 +164,22 @@ While reviewing the changes in the diff view, you can leave feedback comments to
 
 1. Select **Submit Feedback** to send all your comments to the agent.
 
+### Leave feedback on Markdown files
+
+Markdown files that an agent creates or changes also support range-based feedback in the Agents window.
+
+* Open the Markdown file from the **Changes** tab.
+* Make sure the file is inside your workspace.
+* In the Markdown editor, switch to **Locked** mode to enable feedback input.
+* Select text, add feedback comments, and submit them to the agent.
+
+If you reopen the same file in the text editor, the feedback stays in sync between both editors.
+
+> [!NOTE]
+> The Markdown editor is the default for Markdown files in the Agents window when `setting(workbench.editor.markdownDefaultEditorInAgentsWindow)` is enabled, which is the default behavior.
+
+<!-- TODO: Add screenshot showing feedback comments in a Markdown file in Locked mode in the Agents window. -->
+
 The agent reads your comments, makes the requested edits, and resolves each comment. Resolved comments disappear from the diff view.
 
 While you review the **Branch Changes** changeset in the multi-file diff editor, select **Mark as Reviewed** in a file's toolbar to track the changes you've already reviewed. The file collapses and the action shows as toggled. If you edit the file again, or a later agent turn changes it, the reviewed state clears.
@@ -169,6 +194,23 @@ After reviewing the changes, the Changes panel provides the following options to
 ![Screenshot showing the Changes panel in the Agents window, with the Files and Changes views visible.](images/agents-window/agents-window-changes.png)
 
 When you create a new session, the **Files** panel includes a sync button that lets you pull in upstream changes from the base branch before the agent gets to work. This helps the agent start from the latest state of your branch and reduces the chance of merge conflicts when you bring its changes back.
+
+## View and edit Markdown files in the Agents window
+
+The Agents window supports both rendered Markdown preview and an experimental Markdown editor for `.md` files. Which editor opens by default depends on `setting(workbench.editor.markdownDefaultEditorInAgentsWindow)`.
+
+* When enabled, `.md` files open with **Markdown Editor (Experimental)**.
+* When disabled, `.md` files open with **Markdown Preview**.
+
+In **Markdown Editor (Experimental)**, you can switch between **Editing** and **Locked** modes while keeping rendered Markdown context. In **Editing** mode, you can edit content directly. In **Locked** mode, the document remains rendered and read-only.
+
+When you edit a Markdown file in **Markdown Editor (Experimental)**, the editor shows Git change markers in the margin:
+
+* Green marker for added content.
+* Blue marker for modified content.
+* Red marker for deleted content.
+
+These markers reflect your current Git changes in the file, persist after you save and reopen the file, and disappear when you undo or revert the corresponding changes.
 
 ## Validate agent changes locally
 
@@ -254,9 +296,30 @@ Your visible and hidden chats are persisted and restored when you reload the win
 > [!TIP]
 > To explore an alternative direction from a specific point in a multi-chat agent host session, [fork the conversation](/docs/chat/chat-sessions.md#fork-a-chat-session). The fork opens as a peer chat in the same session, inherits the conversation up to the fork point, gets an automatically generated title, and then runs independently from sibling chats. In single-chat sessions and sessions that don't use an agent host, forking creates a new independent session.
 
+### Ask side questions
+
+Use a side chat to ask a question about the current conversation without adding the question or response to the main chat. A side chat opens as a peer chat tab and privately inherits the source conversation as context. Side chats favor explanation over action, unless you explicitly ask the agent to make changes or perform a task.
+
+You can start a side chat in the following ways:
+
+* Type `/btw <question>` in the chat input. The side chat branches from the latest turn, including a response that is still in progress.
+
+* Select text in a chat response, enter your question in the **Ask Question** input, and press `kbstyle(Enter)`. The selected text and its response are included as context, including text from a response that is still in progress.
+
+Each question creates a new side chat. The side chat inherits the agent and language model from the source chat, but the inherited messages remain hidden from the side chat transcript.
+
+![Screenshot showing how to start a side chat in the Agents window by selecting text in a response and entering a question in the Ask Question input.](images/agents-window/agents-window-side-chat.png)
+
+> [!NOTE]
+> Side chats are available only in the Agents window for Copilot CLI and Claude sessions. They aren't available for Codex sessions or in the Chat view in the editor window.
+
 ### Follow subagents
 
 When an agent delegates work to subagents, each subagent appears as a read-only peer chat in the session, so you can follow its progress without steering it directly. Read-only chats show a lock icon and don't accept input.
+
+While a subagent is running, an indicator in the parent chat shows the model, elapsed time, and active tool call. Select the indicator to open the subagent as a read-only peer chat. The parent chat remains open, which lets you follow both conversations.
+
+![Screenshot showing the details of a subagent in the main chat.](images/agents-window/agents-window-follow-subagents-open-subagent.png)
 
 Subagent chats are hidden from the tab strip by default. To open a subagent chat, use one of the following methods:
 
@@ -265,8 +328,6 @@ Subagent chats are hidden from the tab strip by default. To open a subagent chat
 * Select the **Open Subagent** link in the chat where the delegation happened.
 
 Subagent chats persist across window reloads, together with your other chats.
-
-![Screenshot showing the button to open a subagent's chat.](images/agents-window/agents-window-follow-subagents-open-subagent.png)
 
 ![Screenshot showing a read-only subagent chat.](images/agents-window/agents-window-follow-subagents-read-only-chat.png)
 

@@ -12,3 +12,4 @@ docs/** -linguist-documentation
 release-notes/images/1_120/model-picker-demo.mp4 filter=lfs diff=lfs merge=lfs -text
 release-notes/images/1_125/install_model_providers.mp4 filter=lfs diff=lfs merge=lfs -text
 release-notes/images/1_127/ollama-deprecation.mp4 filter=lfs diff=lfs merge=lfs -text
+release-notes/images/1_129/byok-agents-window.mp4 filter=lfs diff=lfs merge=lfs -text

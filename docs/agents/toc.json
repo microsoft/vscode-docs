@@ -80,6 +80,7 @@
             ["Context", "/docs/agents/concepts/context"],
             ["Tools", "/docs/agents/concepts/tools"],
             ["Agents", "/docs/agents/concepts/agents"],
+            ["Agent Host Architecture", "/docs/agents/concepts/agent-host"],
             ["Customization", "/docs/agents/concepts/customization"],
             ["Trust & Safety", "/docs/agents/concepts/trust-and-safety"]
         ]
