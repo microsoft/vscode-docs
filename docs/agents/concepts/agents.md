@@ -1,6 +1,6 @@
 ---
 ContentId: e5f6a7b8-9c0d-1e2f-3a4b-5c6d7e8f9a0b
-DateApproved: 6/24/2026
+DateApproved: 7/29/2026
 MetaDescription: Learn about agents in VS Code, including the agent loop, agent types, subagents, memory, and planning.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -95,6 +95,8 @@ A chat session is a single conversation with an agent, including all prompts, re
 
 Because the [Chat view](/docs/agents/chat-view.md) and the [Agents window](/docs/agents/agents-window.md) share the same sessions, you can start a task in one surface and continue it in the other. The sessions list gives you a unified view of all your sessions, regardless of where they run.
 
+For agent host sessions, an agent can also orchestrate work across sessions by listing sessions, creating sessions or chats, reading another session's recent context, and sending follow-up messages between sessions.
+
 Learn more about [managing chat sessions](/docs/chat/chat-sessions.md).
 
 ## Remote agent sessions
@@ -140,6 +142,7 @@ Learn more about [planning with agents](/docs/agents/planning.md).
 ## Related resources
 
 * [Using agents in VS Code](/docs/agents/overview.md)
+* [VS Code Agent Host architecture](/docs/agents/concepts/agent-host.md)
 * [Tools](/docs/agents/concepts/tools.md)
 * [Context](/docs/agents/concepts/context.md)
 * [Trust and safety](/docs/agents/concepts/trust-and-safety.md)

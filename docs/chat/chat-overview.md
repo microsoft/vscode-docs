@@ -1,6 +1,6 @@
 ---
 ContentId: 557a7e74-f77e-488d-90ea-fd2cfecfffda
-DateApproved: 6/24/2026
+DateApproved: 7/29/2026
 MetaDescription: Learn how to use chat in VS Code. Access different chat surfaces, send a request, add context, write effective prompts, and review AI-generated changes.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -75,7 +75,7 @@ Providing the right context helps the AI generate more relevant and accurate res
 
 * **Vision**: attach images, such as screenshots or UI mockups, as context for your prompt.
 
-* **Browser elements** (Experimental): select elements from the [integrated browser](/docs/debugtest/integrated-browser.md) to add HTML, CSS, and screenshot context to your prompt.
+* **Browser elements**: select elements from the [integrated browser](/docs/debugtest/integrated-browser.md) to add HTML, CSS, and screenshot context to your prompt.
 
 Learn more about [managing context for AI](/docs/chat/copilot-chat-context.md).
 
@@ -113,6 +113,12 @@ Both settings have three possible values:
 
 > [!TIP]
 > Set the value to `always` if you want to stay aware of chat activity while working in other parts of VS Code, such as when running long agent tasks in the background.
+
+## Show request and completion timestamps
+
+Chat can show timestamps for when you send a request and when a response completes. Hover over a completion timestamp to see elapsed response time.
+
+Use `setting(chat.verbose)` to enable or disable these timestamps.
 
 ## Navigate between prompts in a chat session
 

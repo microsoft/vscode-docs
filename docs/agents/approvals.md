@@ -1,6 +1,6 @@
 ---
 ContentId: 3b7e6d52-0c41-4f8a-9d2e-1a5c7b9e4f60
-DateApproved: 6/24/2026
+DateApproved: 7/29/2026
 MetaDescription: Learn how to manage tool approvals, configure auto-approval, set permission levels, and sandbox agent commands to control agent autonomy in VS Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 keywords:
@@ -36,13 +36,19 @@ Select a permission level from the permissions dropdown in the chat input area t
 
 The permission level applies to the current chat session, and can be changed at any time. New sessions start with the default permission level, which you can configure with the `setting(chat.permissions.default)` setting.
 
+**Assisted permissions** is experimental and is only available for agents that run on the [Agent Host](/docs/agents/concepts/agent-host.md). To show this option in the permissions picker, enable `setting(chat.assistedPermissions.enabled)`.
+
 | Permission level | Description |
 |---|---|
 | **Default Approvals** (default) | Uses your configured approval settings. Tools that require approval show a confirmation dialog before they run. When in doubt, the agent asks clarifying questions. |
+| **Assisted permissions** (Experimental) | Uses an LLM judge to evaluate the risk of each tool call. Calls that the judge approves run automatically. Other calls show a confirmation dialog for you to review. |
 | **Bypass Approvals** | Auto-approves all tool calls without showing confirmation dialogs. When in doubt, the agent asks clarifying questions. |
 | **Autopilot** | Auto-approves all tool calls without showing confirmation dialogs. When questions arise, the agent automatically responds to clarifying questions. |
 
-The permission level determines whether your finer-grained settings apply. **Default Approvals** respects the per-tool, URL, terminal, and sandbox settings you configure in the following sections. **Bypass Approvals** and **Autopilot** override those settings and approve everything automatically.
+The permission level determines whether your finer-grained settings apply. **Default Approvals** respects the per-tool, URL, terminal, and sandbox settings you configure in the following sections. **Assisted permissions** delegates individual approval decisions to an LLM judge. **Bypass Approvals** and **Autopilot** override those settings and approve everything automatically.
+
+> [!IMPORTANT]
+> The **Assisted permissions** level reduces approval interruptions but does not replace your judgment. A model-based risk assessment can make mistakes. The first time you select this level, a warning dialog asks you to confirm. Use [agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing) to limit file system and network access, and review any tool calls that still require your approval.
 
 > [!CAUTION]
 > **Bypass Approvals** and **Autopilot** bypass manual approval prompts, including for potentially destructive actions like file edits, terminal commands, and external tool calls. The first time you enable either level, a warning dialog asks you to confirm. Only use these levels if you understand the security implications. See the [Security considerations](/docs/agents/security.md) for more details.
@@ -196,19 +202,22 @@ Related settings:
 
 For an overview of how sandboxing works, what it protects against, and OS-level implementation details, see [Agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing).
 
-Agent sandboxing restricts file system and network access for commands executed by the agent. When sandboxing is enabled, terminal commands are auto-approved without requiring user confirmation, because they run in a controlled environment.
+Agent sandboxing restricts file system and network access for commands executed by the agent, including Copilot CLI agent-host sessions that use the VS Code agent terminal integration. When sandboxing is enabled, terminal commands that run inside the sandbox are auto-approved without requiring user confirmation, because they run in a controlled environment.
 
-You can choose between full isolation, which restricts both file system and network access, or file-system-only isolation, which allows unrestricted outbound network traffic.
+Agent terminal sandboxing is available on macOS and Linux, including WSL2 environments.
 
-To configure agent sandboxing, set the `setting(chat.agent.sandbox.enabled)` setting:
+Sandbox enablement and unrestricted network access are configured independently:
 
-| Value | Description |
-|-------|-------------|
-| `off` (default) | Sandboxing is disabled. |
-| `on` | Full sandboxing with file system and network isolation. All outbound network access is blocked unless domains are explicitly allowed. |
-| `allowNetwork` | Sandboxing with file system isolation only. Outbound network traffic is allowed without requiring domain configuration, while file system restrictions still apply. |
+* **Sandbox enablement** controls whether agent terminal commands run in the sandbox. On macOS and Linux, use `setting(chat.agent.sandbox.enabled)`, which accepts the following values:
 
-When sandboxing is enabled (`on` or `allowNetwork`):
+    | Value | Description |
+    |-------|-------------|
+    | `off` (default) | Sandboxing is disabled. |
+    | `on` | Sandboxing is enabled with file system and network isolation. All outbound network access is blocked unless domains are explicitly allowed. |
+
+    The **Sandboxing for terminal** checkbox in the permission picker maps its checked state to these values and updates the setting.
+
+* **Unrestricted network access** controls whether sandboxed commands can reach any network domain. Set `setting(chat.agent.sandbox.allowNetwork)` to `true` to permit all outbound network traffic while keeping file system restrictions in effect. This setting applies only when sandboxing is enabled and defaults to `false`.
 
 When file system access is restricted, the following rules apply to agent commands:
 
@@ -220,14 +229,20 @@ When network access is restricted, the following rules apply to agent commands:
 
 * All outbound network access is blocked unless domains are explicitly allowed.
 * You can configure domain-level exceptions with `setting(chat.agent.allowedNetworkDomains)` and `setting(chat.agent.deniedNetworkDomains)`. Denied domains take precedence over allowed domains.
-* When set to `allowNetwork`, all outbound network traffic is permitted and domain settings are ignored.
+* When `setting(chat.agent.sandbox.allowNetwork)` is enabled, all outbound network traffic is permitted and domain settings are ignored.
 
 > [!IMPORTANT]
 > If the required OS dependencies for sandboxing are not installed, VS Code offers to install the necessary components. If you choose not to install them, sandboxing is not enabled.
 
+### Try commands in the sandbox before elevation
+
+By default, when a sandboxed command fails or sandbox restrictions would block it, the agent asks for confirmation to run the command outside the sandbox. This behavior is controlled by the `setting(chat.agent.sandbox.allowUnsandboxedCommands)` setting, which applies only when sandboxing is enabled.
+
+Because the agent attempts the command inside the sandbox first and only surfaces the confirmation to run outside the sandbox when the sandboxed attempt fails, you avoid an elevation prompt for commands that succeed within the sandbox. If you disable this setting, commands that the sandbox blocks are not offered for elevation.
+
 ### Configure file system access
 
-Use the `setting(chat.agent.sandbox.fileSystem.linux)` or `setting(chat.agent.sandbox.fileSystem.mac)` setting to control file system access.
+Use the platform-specific file system sandbox setting to control file system access: `setting(chat.agent.sandbox.fileSystem.mac)` on macOS and `setting(chat.agent.sandbox.fileSystem.linux)` on Linux and WSL2.
 
 You can specify allow rules for read and write access, and deny rules for both read and write access. These rules don't support glob patterns. The `denyWrite` and `denyRead` rules take precedence over `allowWrite` and `allowRead` rules.
 
@@ -252,7 +267,7 @@ Workspace folders, the sandbox runtime temp folder, and per-command read paths a
 
 You can restrict which domains agent tools (fetch tool, integrated browser) can access by enabling the `setting(chat.agent.networkFilter)` setting. When enabled, network access is controlled by the `setting(chat.agent.allowedNetworkDomains)` and `setting(chat.agent.deniedNetworkDomains)` settings. When both lists are empty, all domains are blocked.
 
-When sandboxing is also enabled, these network rules additionally apply to terminal commands executed by the agent.
+When sandboxing is enabled and `setting(chat.agent.sandbox.allowNetwork)` is off, these network rules additionally apply to terminal commands executed by the agent. When `setting(chat.agent.sandbox.allowNetwork)` is on, sandboxed terminal commands can reach any domain while file system restrictions remain in effect.
 
 Denied domains always take precedence over allowed domains. Both settings support wildcards like `*.example.com`.
 

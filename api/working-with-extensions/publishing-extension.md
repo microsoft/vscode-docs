@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 7EA90618-43A3-4873-A9B5-61CC131CE4EE
-DateApproved: 6/24/2026
+DateApproved: 7/29/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to publish Visual Studio Code extensions to the public Marketplace and share them with other developers.
@@ -401,6 +401,8 @@ When authoring an extension, you must specify the versions of VS Code your exten
 You can use the `engines.vscode` property to ensure the extension only gets installed for clients that contain the API you depend on. This mechanism plays well both with Stable and Insiders releases.
 
 For example, imagine that the latest Stable version of VS Code is `1.8.0`. During the development of version `1.9.0`, a new API was introduced and made available in the Insider release through the version `1.9.0-insider`. If you want to publish an extension version that benefits from this API, you should indicate a version dependency of `^1.9.0`. In this way, your new extension version will only be available on VS Code `>=1.9.0` (in other words, users with the current Insiders release). Users with the VS Code Stable will only get the update when the Stable release reaches version `1.9.0`.
+
+To target an Insiders build by date, append a date tag in `YYYYMMDD` format to the version. VS Code 1.57 and later enforce the date tag. Earlier versions evaluate only the numeric portion of the version. For example, `^1.56.0-20210428` targets VS Code 1.56 or later builds created on or after 0:00 UTC on April 28, 2021.
 
 ## Advanced usage
 

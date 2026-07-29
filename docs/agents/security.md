@@ -1,6 +1,6 @@
 ---
 ContentId: c99a8442-e202-4427-b7c3-695469a00f92
-DateApproved: 6/24/2026
+DateApproved: 7/29/2026
 MetaDescription: Understand security considerations, built-in protections, and best practices when using AI-powered development features like agents and MCP servers in VS Code.
 MetaSocialImage: images/shared/github-copilot-social.png
 Keywords:
@@ -26,7 +26,7 @@ Use the following checklist to set up a secure starting point for AI-assisted de
 
 1. **Open untrusted projects in restricted mode.** Until you've reviewed a project for malicious content, rely on the [Workspace Trust](#trust-boundaries) boundary. Restricted mode disables agents in that workspace.
 
-1. **Enable agent sandboxing.** On macOS and Linux (WSL2 on Windows), enable `setting(chat.agent.sandbox.enabled)` to restrict file system and network access for agent-executed commands. Learn more about [agent sandboxing](#agent-sandboxing-preview).
+1. **Enable agent sandboxing.** On macOS and Linux, including WSL2 environments, enable `setting(chat.agent.sandbox.enabled)` to restrict file system and network access for agent-executed commands. Learn more about [agent sandboxing](#agent-sandboxing-preview).
 
 1. **Review all file edits before accepting.** Use the [diff editor](/docs/chat/review-code-edits.md) to inspect proposed changes. Keep or undo individual changes before they are applied.
 
@@ -73,7 +73,7 @@ VS Code limits the potential impact of agent actions by controlling their scope 
 
 VS Code uses a permission-based security model where you maintain control over potentially risky operations.
 
-* **Permission levels**: The [permissions picker](/docs/agents/approvals.md#permission-levels) in the Chat view lets you choose a permission level for the current session. **Default Approvals** uses your configured approval settings. **Bypass Approvals** auto-approves all tool calls. **Autopilot** auto-approves all tools and drives the agent to continue working until the task is complete.
+* **Permission levels**: The [permissions picker](/docs/agents/approvals.md#permission-levels) in the Chat view lets you choose a permission level for the current session. **Default Approvals** uses your configured approval settings. For agents that run on the Agent Host, **Assisted permissions** uses an LLM judge to evaluate each tool call and asks for your approval when the judge does not approve it. **Bypass Approvals** auto-approves all tool calls. **Autopilot** auto-approves all tools and drives the agent to continue working until the task is complete.
 
 * **Terminal approval**: Before executing terminal commands, the agent requests explicit user approval. When terminal auto-approval is enabled, configurable per-command rules (including regex patterns) auto-approve safe commands while prompting for potentially dangerous ones. All subcommands in a compound command must match an approved rule.
 
@@ -93,8 +93,10 @@ Learn more about [tool and command approval](/docs/agents/approvals.md#tool-appr
 
 Agent sandboxing uses OS-level isolation to restrict what agent-executed processes can access on your machine. Rather than relying solely on approval prompts, sandboxing enforces strict file system and network boundaries at the kernel level, so commands cannot access resources outside the permitted scope, even if they are approved. For a deeper look at how sandboxing works and the OS-level enforcement details, see [Agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing).
 
+Agent terminal sandboxing is available on macOS and Linux, including WSL2 environments. The same sandboxing applies to Copilot CLI agent-host sessions that run commands through the VS Code agent terminal integration.
+
 > [!IMPORTANT]
-> Agent sandboxing is the strongest protection against malicious terminal commands. If prompt injection is a concern, use agent sandboxing or run VS Code in a [dev container](https://code.visualstudio.com/docs/devcontainers/containers) instead of relying on auto-approval rules alone. Auto-approval rules use best-effort command parsing and have known limitations with shell aliases, quote concatenation, and complex shell syntax.
+> Agent sandboxing is the strongest protection against malicious terminal commands. If prompt injection is a concern, use agent sandboxing or run VS Code in a [dev container](/docs/devcontainers/containers.md) instead of relying on auto-approval rules alone. Auto-approval rules use best-effort command parsing and have known limitations with shell aliases, quote concatenation, and complex shell syntax.
 
 ### MCP server sandboxing
 
@@ -146,6 +148,8 @@ Auto-approval features reduce friction but come with security tradeoffs.
 * **Edit auto-approval**: Bypasses the review process for file changes, reducing visibility and potentially including modifications to sensitive workspace files like configuration files.
 
 * **Terminal auto-approval**: Potentially destructive commands run without user control. The rule-based auto-approval system uses best-effort command parsing that has known limitations. For example, quote concatenation or shell aliases might bypass the rules.
+
+* **Assisted permissions**: Model-based risk assessments can make mistakes and approve potentially risky tool calls. This permission level reduces approval interruptions but is not a security boundary.
 
 * **Overall tool auto-approval**: Bypasses all user approvals, potentially leading to destructive actions, updating sensitive workspace files, or executing arbitrary code. This applies to both the `setting(chat.tools.global.autoApprove)` setting and the **Bypass Approvals** and **Autopilot** [permission levels](/docs/agents/approvals.md#permission-levels).
 
@@ -207,7 +211,7 @@ Organizations can implement [centralized security controls](/docs/enterprise/ai-
 * **Disable agents**: Prevent the use of agent mode entirely with the `ChatAgentMode` policy.
 * **Restrict extension tools**: Block extension-contributed tools while keeping built-in and MCP tools with the `ChatAgentExtensionTools` policy.
 * **Control MCP server sources**: Restrict MCP servers to a curated registry (`registryOnly`) or disable MCP support completely (`off`) with the `ChatMCP` policy. Organizations can also host a private MCP registry with the `McpGalleryServiceUrl` policy.
-* **Disable global auto-approval**: Prevent developers from enabling global auto-approval and hide the **Bypass Approvals** and **Autopilot** [permission levels](/docs/agents/approvals.md#permission-levels) with the `ChatToolsAutoApprove` policy.
+* **Disable global auto-approval**: Prevent developers from enabling global auto-approval and hide the **Assisted permissions**, **Bypass Approvals**, and **Autopilot** [permission levels](/docs/agents/approvals.md#permission-levels) with the `ChatToolsAutoApprove` policy.
 * **Require manual approval for specific tools**: Force manual approval for individual tools (for example, `execute/runInTerminal` or `web/fetch`) with the `ChatToolsEligibleForAutoApproval` policy.
 * **Disable terminal auto-approval**: Turn off the rule-based terminal auto-approval system with the `ChatToolsTerminalEnableAutoApprove` policy.
 

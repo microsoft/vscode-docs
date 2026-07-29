@@ -80,6 +80,7 @@
             ["Context", "/docs/agents/concepts/context"],
             ["Tools", "/docs/agents/concepts/tools"],
             ["Agents", "/docs/agents/concepts/agents"],
+            ["Agent Host Architecture", "/docs/agents/concepts/agent-host"],
             ["Customization", "/docs/agents/concepts/customization"],
             ["Trust & Safety", "/docs/agents/concepts/trust-and-safety"]
         ]
@@ -108,6 +109,7 @@
         "area": "agents/agent-troubleshooting",
         "topics": [
             ["Debug Chat Interactions", "/docs/agents/agent-troubleshooting/chat-debug-view"],
+            ["Diagnose Prompt Caching", "/docs/agents/agent-troubleshooting/cache-explorer"],
             ["Troubleshooting", "/docs/agents/agent-troubleshooting/troubleshooting"],
             ["FAQ", "/docs/agents/agent-troubleshooting/faq"],
         ]

@@ -1,6 +1,6 @@
 ---
 ContentId: 7a2e5f8d-4c9b-41e6-b3a8-9d7f2e4c1b8a
-DateApproved: 6/24/2026
+DateApproved: 7/29/2026
 MetaDescription: Learn how to create and manage chat sessions in Visual Studio Code, including the sessions list, opening chat in editor tabs, separate windows, and using chat session history.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -41,7 +41,7 @@ To start a new chat session in the Agents window:
 
 1. Choose an agent type from the dropdown to indicate where the agent session runs and how it operates.
 
-    You can choose from local, Copilot CLI, Cloud, or third-party. Learn more about [agent types](/docs/agents/overview.md#configure-your-agent-session).
+    You can choose from local, Copilot, Cloud, or third-party. Learn more about [agent types](/docs/agents/overview.md#configure-your-agent-session).
 
 1. Optionally, select additional configuration options for the session:
 
@@ -50,6 +50,8 @@ To start a new chat session in the Agents window:
     * **Permission level**: controls how much autonomy the agent has over tool approvals. Learn more about [permission levels](/docs/agents/approvals.md#permission-levels).
 
     * **Language model**: determines which AI model powers the conversation. Learn more about [language models in VS Code](/docs/agent-customization/language-models.md).
+
+    In the Agents window, when you create another new session, the picker remembers the last **Agent** and **Permission level** values you selected and uses them as defaults.
 
 1. Type your prompt and press `kb(workbench.action.chat.submit)` to submit it. The agent's response appears in the chat area, and the agent may take actions such as editing files, running commands, or asking follow-up questions.
 
@@ -70,7 +72,7 @@ To start a new chat session in the Chat view:
 
 1. Choose an agent type to determine where the agent session runs and what capabilities it has access to.
 
-    You can choose from local, Copilot CLI, Cloud, or third-party. Learn more about [agent types](/docs/agents/overview.md#configure-your-agent-session).
+    You can choose from local, Copilot, Cloud, or third-party. Learn more about [agent types](/docs/agents/overview.md#configure-your-agent-session).
 
 1. Optionally, select additional configuration options for the session:
 
@@ -104,7 +106,19 @@ In the **Agents window**, the sessions list is located in the left sidebar. It s
 
 By default, the list is filtered to only show active sessions. You can change the filter to show sessions of different states, such as completed or archived.
 
-Sessions are grouped by workspace by default, and you can switch the grouping to organize by timeframe instead.
+Sessions are grouped by workspace by default, and you can switch the grouping to organize by timeframe instead. In the Agents window, you can also create custom groups to keep related sessions together. Collapse a group header when you want to reduce the sessions list.
+
+To organize the sessions list in the Agents window:
+
+1. Create a custom group from the sessions list controls.
+
+1. Drag one or more sessions onto the group. An insertion line shows where the sessions land.
+
+1. Hover over a group header to start a new session in that group, or mark all sessions in the group as done.
+
+You can also drag sessions up or down to reorder them, drag group and workspace headers to rearrange sections, or drop a session on the **Pinned** section to pin it. Select multiple sessions to move them together.
+
+<!-- TODO: add screenshot of custom session groups and drag-and-drop reordering in the Agents window sessions list. -->
 
 You can hide the left sidebar by selecting the **Toggle Sidebar** button in the top-left corner of the Agents window or by using the `kb(workbench.action.toggleSidebarVisibility)` keyboard shortcut.
 
@@ -133,7 +147,7 @@ The Chat view operates in two modes: compact and side-by-side. You can manually 
 
 To keep the sessions list organized, archive or mark sessions as done when they're completed or you no longer need them. Archiving a session does not delete it. At any time, you can unarchive a session to restore it to the active sessions list.
 
-When you archive (or mark as done) a session, its status changes so it moves out of the active sessions list. If the session uses a worktree, such as a Copilot CLI session, the worktree is removed from the file system, provided its working tree is clean. The branch and any commits are preserved, so restoring the session re-creates the worktree from that branch and no work is lost.
+When you archive (or mark as done) a session, its status changes so it moves out of the active sessions list. If the session uses a worktree, such as a Copilot session, the worktree is removed from the file system, provided its working tree is clean. The branch and any commits are preserved, so restoring the session re-creates the worktree from that branch and no work is lost.
 
 To archive a session, hover over the session in the sessions list and select the **Archive** (Chat view) or **Mark as Done** (Agents Window) option.
 
@@ -143,28 +157,53 @@ To view your archived sessions, use the filter options in the sessions list and 
 
 ## Delete sessions
 
-To permanently delete a session, right-click the session in the sessions list and select **Delete**. Deleting a session removes it permanently and can't be undone. For [Copilot CLI sessions](/docs/agents/agent-types/copilot-cli.md), deleting the session also removes any associated worktrees created for that session.
+To permanently delete a session, right-click the session in the sessions list and select **Delete**. Deleting a session removes it permanently and can't be undone. For [Copilot sessions](/docs/agents/agent-types/copilot-cli.md), deleting the session also removes any associated worktrees created for that session.
 
-If multiple Copilot CLI sessions share the same worktree, such as after you fork a session, deleting one session does not remove the shared worktree while another session still uses it. The worktree is removed only after the last linked session is deleted or archived.
+If multiple Copilot sessions share the same worktree, such as after you fork a session, deleting one session does not remove the shared worktree while another session still uses it. The worktree is removed only after the last linked session is deleted or archived.
 
 > [!CAUTION]
 > Deleting a session is irreversible. If you just want to hide a session, consider [archiving](#archive-sessions) it instead.
 
 ## Fork a chat session
 
-Forking a chat session creates a new, independent session that inherits the conversation history from the original session. The forked session is fully separate from the original, so changes in one session do not affect the other. The new session title is prefixed with "Forked:" to help you identify it.
+Forking a chat session creates a branch of a conversation that inherits conversation history from the original session. In single-chat sessions and sessions that don't use an agent host, the fork opens as a new independent session. The forked session is fully separate from the original, so changes in one session do not affect the other. The new session title is prefixed with "Forked:" to help you identify it.
 
-For [Copilot CLI](/docs/agents/agent-types/copilot-cli.md) sessions that use worktree isolation, the forked session continues to use the same worktree as the original session.
+For multi-chat [Copilot](/docs/agents/agent-types/copilot-cli.md) sessions in the Agents window, the fork opens as a peer chat in the same session. The peer chat gets an automatically generated title and runs independently from sibling chats.
+
+For Copilot sessions that use worktree isolation, the fork continues to use the same worktree as the original session.
 
 Forking is useful when you want to explore an alternative approach, ask a side question, or branch a long conversation in a different direction without losing the original context.
 
 There are two ways to fork a chat session:
 
-* **Fork the entire session**: type `/fork` in the chat input box and press `kbstyle(Enter)`. A new session opens with the full conversation history copied from the current session.
+* **Fork the entire session**: type `/fork` in the chat input box and press `kbstyle(Enter)`. The fork opens with the full conversation history copied from the current session.
 
-* **Fork from a checkpoint**: hover over a chat request in the conversation and select the **Fork Conversation** button. A new session opens that includes only the requests up to and including that checkpoint.
+* **Fork from a checkpoint**: hover over a chat request in the conversation and select the **Fork Conversation** button. The fork includes only the requests up to and including that checkpoint.
 
     ![Screenshot of the Fork Conversation button in the checkpoint toolbar in the Chat view.](images/chat-checkpoints/chat-fork-conversation.png)
+
+> [!TIP]
+> A forked session inherits the conversation history of the original, which preserves the prompt cache and reduces cost on the next request. Use the [Cache Explorer](/docs/agents/agent-troubleshooting/cache-explorer.md) to compare cache hit rates across sessions.
+
+## Orchestrate sessions from agent host sessions
+
+In agent host sessions, such as [Copilot](/docs/agents/agent-types/copilot-cli.md), Claude, and Codex, agents can use built-in session-management tools to coordinate work across multiple sessions and chats.
+
+With these tools, an agent can:
+
+* List your sessions and inspect metadata like status, workspace, and file changes.
+* Create a new session for a sub-task, or create a new chat in an existing session.
+* Read recent conversation context from another session before continuing work.
+* Send a message to another session or chat to start or steer a follow-up task.
+
+When a tool creates or targets a session, VS Code shows an **Open Session** pill in chat so you can jump directly to it.
+
+To keep this workflow safe and predictable:
+
+* Sending a message to another session always requires your confirmation.
+* Agents cannot send messages to the same chat they are currently running in.
+* Burst sends are capped to avoid unbounded fan-out.
+* Archived sessions are excluded from listings unless explicitly requested.
 
 ## Save and export chat sessions
 

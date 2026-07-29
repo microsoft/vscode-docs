@@ -1,6 +1,6 @@
 ---
 ContentId: de6f9f68-7dd5-4de3-a210-3db57882384b
-DateApproved: 6/24/2026
+DateApproved: 7/29/2026
 MetaDescription: Quick reference for AI features in VS Code, including autonomous agents, multi-file editing, inline suggestions, and enterprise controls.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -93,7 +93,7 @@ The following table lists the VS Code built-in tools:
 |--------|-------------|
 | `#agent` (tool set) | Delegate tasks to other [agents](/docs/agents/subagents.md). |
 | `#agent/runSubagent` | Run a task in an isolated [subagent context](/docs/agents/subagents.md). Helps to improve the context management of the main agent thread. |
-| `#browser` (tool set) | _(Experimental)_ Interact with pages in the [integrated browser](/docs/debugtest/integrated-browser.md): navigate, read page content, take screenshots, click, type, hover, drag, and handle dialogs. Enable with `setting(workbench.browser.enableChatTools)`. |
+| `#browser` (tool set) | Interact with pages in the [integrated browser](/docs/debugtest/integrated-browser.md): navigate, read page content, take screenshots, click, type, hover, drag, and handle dialogs. Enable with `setting(workbench.browser.enableChatTools)`. |
 | `#edit` (tool set) | Enable modifications in the workspace. |
 | `#edit/createDirectory` | Create a new directory in the workspace. |
 | `#edit/createFile` | Create a new file in the workspace. |
@@ -132,6 +132,8 @@ The following table lists the VS Code built-in tools:
 | `#vscode/VSCodeAPI` | Ask about VS Code functionality and extension development. |
 | `#web` (tool set) | Access web content. |
 | `#web/fetch` | Fetch the content from a given web page. For example, "Summarize #web/fetch code.visualstudio.com/updates." |
+
+In agent host sessions, additional session-management tools are available for cross-session orchestration: `list_sessions`, `get_current_session`, `create_session`, `create_chat`, `get_session_context`, `send_message`, and `delete_session`. Learn more about [managing chat sessions](/docs/chat/chat-sessions.md#orchestrate-sessions-from-agent-host-sessions).
 
 ## Slash commands
 
@@ -188,7 +190,7 @@ When using [agents](/docs/agents/agent-types/local-agents.md), you can use natur
 |--------|-------------|
 | `kb(workbench.action.chat.openAgent)` | Switch to using agents in the Chat view |
 | Tools (<i class="codicon codicon-tools"></i>) | Configure which tools are available when using agents. Select from built-in tools, MCP servers, and extension-provided tools. |
-| Permission levels | Choose a [permission level](/docs/agents/approvals.md#permission-levels) for the current session: **Default Approvals**, **Bypass Approvals**, or **Autopilot**. Controls how tool approvals are handled. |
+| Permission levels | Choose a [permission level](/docs/agents/approvals.md#permission-levels) for the current session: **Default Approvals**, **Bypass Approvals**, or **Autopilot**. For agents that run on the Agent Host, you can also enable experimental **Assisted permissions**. Controls how tool approvals are handled. |
 | Auto-approve tools | Enable [auto-approval of all tools](/docs/agents/approvals.md#tool-approval) when using agents (`setting(chat.tools.autoApprove)`). |
 | Auto-approve terminal commands | Enable [auto-approval of terminal commands](/docs/agents/approvals.md#automatically-approve-terminal-commands) when using agents (`setting(chat.tools.terminal.autoApprove)`). |
 | MCP | Configure [MCP servers](/docs/agent-customization/mcp-servers.md) to extend agent capabilities and tools. |

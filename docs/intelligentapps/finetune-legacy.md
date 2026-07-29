@@ -15,7 +15,10 @@ Foundry Toolkit for VS Code now supports provisioning an Azure Container App to 
 
 ### Set up your cloud environment
 
-1. To run the model fine-tuning and inference in your remote Azure Container Apps Environment, make sure your subscription has enough GPU capacity. Submit a [support ticket](https://azure.microsoft.com/support/create-ticket/) to request the required capacity for your application. [Get More Info about GPU capacity](https://learn.microsoft.com/en-us/azure/container-apps/workload-profiles-overview)
+1. To run the model fine-tuning and inference in your remote Azure Container Apps environment, make sure your subscription has enough GPU capacity. Fine-tuning runs on the NC24-A100 GPU workload profile in Azure Container Apps. Submit a [support ticket](https://azure.microsoft.com/support/create-ticket/) to request quota for the `SubscriptionNCA100Gpus` SKU in your target region. For more information, see [Azure Container Apps workload profiles](https://learn.microsoft.com/en-us/azure/container-apps/workload-profiles-overview).
+
+    > [!IMPORTANT]
+    > Some models need more than one GPU for a single fine-tuning job. If your quota is too low, provisioning fails with a `MaxRegionalQuotaExceeded` error. Request enough quota for the `SubscriptionNCA100Gpus` SKU to cover the number of GPUs that your model requires.
 
 1. Make sure you have a [HuggingFace account](https://huggingface.co/) and [generate an access token](https://huggingface.co/docs/hub/security-tokens) if you are using private dataset on HuggingFace or your base model needs access control.
 
@@ -175,7 +178,7 @@ Azure Container App Secrets provide a secure way to store and manage sensitive d
 
     ![Input secret](./images/finetune/input-secret.png)
 
-    For example, if you're using private HuggingFace dataset or models that need Hugging Face access control, set your HuggingFace token as an environment variable [`HF_TOKEN`](https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables#hftoken) to avoid the need for manual login on the Hugging Face Hub.
+    For example, if you're using a private Hugging Face dataset or models that need Hugging Face access control, add a secret so the fine-tuning job can authenticate without a manual login. Enter `HF_TOKEN` as the secret name and your Hugging Face token as the value. The toolkit uses the secret name you enter as the environment variable name, so enter it exactly as [`HF_TOKEN`](https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables#hftoken), the variable that Hugging Face tools read. Azure Container Apps stores the underlying secret resource in lowercase as `hf-token`, but the environment variable passed to the job is still `HF_TOKEN`.
 
 After you've set up the secret, you can now use it in your Azure Container App. The secret will be set in the environment variables of your container app.
 

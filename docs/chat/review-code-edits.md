@@ -1,6 +1,6 @@
 ---
 ContentId: 8d3f4a2e-9b1c-4f5e-a8d7-2c4b6e9f1a3d
-DateApproved: 6/24/2026
+DateApproved: 7/29/2026
 MetaDescription: Learn how to review and manage AI-generated code edits in Visual Studio Code chat.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -63,6 +63,8 @@ In the Agents window, you review edits in the dedicated **Changes** panel instea
 1. Select a range of code in a changed file, select **Add Feedback**, and enter a comment that describes the change you want. Add more comments on other selections or files, and then select **Submit Feedback** to send them to the agent.
 
     ![Screenshot showing the Add Feedback button in the Changes diff view.](images/review-code-edits/agents-window-add-feedback.png)
+
+    Markdown files follow the same feedback flow. Open the file from the **Changes** tab and use **Locked** mode in the Markdown editor to add range-based feedback.
 
     The agent reads your comments, makes the requested edits, and resolves each comment. Resolved comments disappear from the diff view.
 

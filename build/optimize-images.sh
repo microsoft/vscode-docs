@@ -45,10 +45,20 @@ if [ ! -d "$MEDIA_FOLDER" ]; then
     exit 1
 fi
 
-# Check if ffmpeg is available
-if ! command -v ffmpeg &> /dev/null; then
-    echo "Error: ffmpeg is not installed or not in PATH."
-    echo "Please install ffmpeg to use this script."
+# Determine which WebP encoder to use.
+# Prefer ffmpeg, but only if it actually has a working WebP encoder.
+# Some ffmpeg builds (e.g. certain Homebrew bottles) ship without libwebp,
+# in which case we fall back to the standalone `cwebp` tool.
+WEBP_TOOL=""
+if command -v ffmpeg &> /dev/null && ffmpeg -hide_banner -encoders 2>/dev/null | grep -qi 'webp'; then
+    WEBP_TOOL="ffmpeg"
+elif command -v cwebp &> /dev/null; then
+    WEBP_TOOL="cwebp"
+    echo "Note: ffmpeg has no WebP encoder; using 'cwebp' instead."
+else
+    echo "Error: No WebP encoder found."
+    echo "Install ffmpeg with libwebp support, or install the 'webp' package (provides cwebp)."
+    echo "  macOS:  brew install webp"
     exit 1
 fi
 
@@ -80,7 +90,13 @@ for file in "$MEDIA_FOLDER"/*.png; do
 
     echo "Processing: $filename"
 
-    if ffmpeg -hide_banner -loglevel error -i "$file" "$webp_file" -y; then
+    if [ "$WEBP_TOOL" = "ffmpeg" ]; then
+        convert_ok=$(ffmpeg -hide_banner -loglevel error -i "$file" "$webp_file" -y && echo ok)
+    else
+        convert_ok=$(cwebp -quiet "$file" -o "$webp_file" && echo ok)
+    fi
+
+    if [ "$convert_ok" = "ok" ]; then
         rm "$file"
         echo "  ✓ Converted: $filename → ${filename%.png}.webp"
         converted_files+=("$filename")
@@ -108,7 +124,9 @@ if [ "${#converted_files[@]}" -gt 0 ]; then
         webp_name="${png_name%.png}.webp"
         # Find and update markdown files referencing this PNG
         grep -rl "$png_name" "$md_folder" --include="*.md" 2>/dev/null | while read -r md_file; do
-            sed -i "s|$png_name|$webp_name|g" "$md_file"
+            # Use a backup suffix so this works with both GNU and BSD (macOS) sed,
+            # then remove the backup file.
+            sed -i.bak "s|$png_name|$webp_name|g" "$md_file" && rm -f "$md_file.bak"
             echo "  ✓ Updated reference in $md_file: $png_name → $webp_name"
             md_updated=$((md_updated + 1))
         done

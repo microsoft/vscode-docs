@@ -1,6 +1,6 @@
 ---
 ContentId: 72ad9b70-5227-4032-81d7-6aec00a1e8f8
-DateApproved: 6/24/2026
+DateApproved: 7/29/2026
 MetaDescription: Get started with agentic coding in Visual Studio Code. Build an app from a prompt with the Agents window and the Chat view, and learn the VS Code basics.
 ---
 # Tutorial: Agentic coding in VS Code
@@ -158,7 +158,7 @@ Before you commit the agent's work, you might want to review the actual code cha
     In this case, all files were newly created, so the diff view shows all lines as additions. For modified files, you'll see both additions and deletions.
 
     > [!TIP]
-    > When you select a block of text in the diff view, you can submit inline feedback to the agent about that specific part of the code.
+    > When you select a block of text in the diff view, you can submit inline feedback to the agent about that specific part of the code. Markdown files support the same feedback flow when you open them from **Changes** and switch the Markdown editor to **Locked** mode.
 
 1. Close the diff view and select **Commit Changes** in the **Changes** panel to save the agent's changes to your Git repository.
 

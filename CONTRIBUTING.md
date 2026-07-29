@@ -16,6 +16,7 @@ Thank you for your interest in VS Code documentation!
 * [Authoring Tools](#authoring-tools)
 * [How to use Markdown to format your topic](#how-to-use-markdown-to-format-your-topic)
 * [Topic Metadata](#topic-metadata)
+* [Learn courses](#learn-courses)
 * [Formatting](#formatting)
 
 > [!IMPORTANT]
@@ -187,7 +188,7 @@ This repository contains the following top-level folders:
 * \build - content for the documentation build process, such as the keybinding mappings and sitemap
 * \docs - content for the documentation at <https://code.visualstudio.com/docs> - the content in this folder follows the organization of the documentation table of contents
 * \images - images used in the documentation
-* \learn - (deprecated) content for the education content at <https://code.visualstudio.com/learn>
+* \learn - content for the training courses at <https://code.visualstudio.com/learn>
 * \release-notes - content for the release notes at <https://code.visualstudio.com/updates>
 * \remote - content for the remote development tools documentation at <https://code.visualstudio.com/docs/remote>
 * \remote-release-notes - content for the remote development tools release notes
@@ -288,6 +289,94 @@ The following example shows a `Guides` subsection with two topics, within the `G
       ]
     },
 ```
+
+## Learn courses
+
+The [Learn](https://code.visualstudio.com/learn) area hosts structured training courses. A **course** is a group of related articles that appears as a card on the Learn home page and as an expandable section in the Learn navigation.
+
+Learn content lives in the `/learn` folder, separate from `/docs`, and has its own table of contents at `/learn/toc.json`:
+
+```
+/learn
+├── toc.json                 # Defines the courses, their home page cards, and navigation
+├── images/
+│   └── shared/              # Images shared across courses (for example, social images)
+└── <course-area>/           # One folder per course
+    ├── <article>.md         # One Markdown file per topic
+    └── images/              # Images for this course's articles
+```
+
+To add a new course, follow these steps.
+
+### Step 1: Create the course folder and articles
+
+1. Create a folder for the course under `/learn`, using a lowercase, dash-separated name for the `area` (for example, `/learn/testing`).
+2. Add a Markdown file for each topic. Learn articles follow the same [Formatting](#formatting) and [Topic Metadata](#topic-metadata) conventions as the rest of the documentation, and the page title comes from the first H1 heading.
+
+   ```markdown
+   ---
+   ContentId: <GUID>
+   DateApproved: 03/30/2026
+   MetaDescription: A one-sentence description of the article, used for search.
+   MetaSocialImage: ../images/shared/testing-social.png
+   ---
+   # Introduction to testing with agents
+
+   Article content...
+   ```
+
+### Step 2: Add images
+
+Store article images in an `images` subfolder inside the course folder (for example, `/learn/testing/images/`) and reference them with relative paths:
+
+```markdown
+![Test Explorer showing passing tests](../images/testing/test-explorer.png)
+```
+
+During the build, these images are published under `/assets/learn/<course-area>/` with the `images/` segment removed. For example, `/learn/testing/images/test-explorer.png` is served at `/assets/learn/testing/test-explorer.png`.
+
+> [!IMPORTANT]
+> Make sure you have Git LFS enabled before committing images! See the [Git LFS setup](#git-lfs-setup) section.
+
+### Step 3: Register the course in `toc.json`
+
+Add an entry to `/learn/toc.json` to make the course appear on the Learn home page and in the navigation. Each course entry has the following attributes:
+
+* `name` - the course title shown on the home page card and in the navigation.
+* `area` - the course folder name. This must match the folder you created in Step 1.
+* `description` - a short summary shown on the home page card.
+* `topics` - an ordered list of `[title, link]` pairs, one per article. The `link` is the site-relative path to the article without the `.md` extension. The order sets the navigation order, and the first topic is used as the card's link.
+
+```json
+{
+  "name": "Testing with agents",
+  "area": "testing",
+  "description": "Learn how to write, run, and debug tests with AI agents in VS Code.",
+  "topics": [
+    ["Introduction to testing with agents", "/learn/testing/introduction"],
+    ["Generate tests with agent mode", "/learn/testing/generate-tests"]
+  ]
+}
+```
+
+### Step 4 (optional): Add a home page card image
+
+To show an image on the course's home page card, add the image to the course's `images` folder (see Step 2) and reference its published path from the course entry in `toc.json`:
+
+* `image` - a single card image used for all color themes.
+* `imageLight` and `imageDark` - theme-specific images. When only these are set, the dark image is used as the default.
+
+```json
+{
+  "name": "Testing with agents",
+  "area": "testing",
+  "description": "Learn how to write, run, and debug tests with AI agents in VS Code.",
+  "image": "/assets/learn/testing/testing-card.png",
+  "topics": [ ... ]
+}
+```
+
+Card images are decorative and don't need alt text.
 
 ## Product name
 

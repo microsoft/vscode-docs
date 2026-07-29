@@ -1,6 +1,6 @@
 ---
 ContentId: 8b3c9f5e-4d2a-6f9b-3e1c-7a8d5f2e9b0c
-DateApproved: 6/24/2026
+DateApproved: 7/29/2026
 MetaDescription: Learn how to use context-isolated subagents in VS Code to delegate complex tasks to autonomous agents within your chat session.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -151,12 +151,17 @@ In the prompt instructions, you can then hint the agent to use subagents by sugg
 
 ### What you see in chat
 
-When a subagent runs, it appears in the chat as a collapsible tool call. By default, the subagent is collapsed and shows:
+In the Chat view, a running subagent appears as a collapsible tool call. By default, the subagent is collapsed and shows:
 
 * The name of the custom agent (if you specify one)
 * The currently running tool (for example, "Reading file..." or "Searching codebase...")
 
 Select the subagent tool call to expand it and view the full details, including all tool calls the subagent made, the prompt passed to the subagent, and the returned result.
+
+In the Agents window, the parent chat shows an indicator with the subagent's model, elapsed time, and active tool call. Select the indicator to open the subagent as a read-only peer chat while keeping the parent chat open. Learn more about [following subagents in the Agents window](/docs/agents/agents-window.md#follow-subagents).
+
+> [!NOTE]
+> Hover over a subagent section in the chat response to see the [AI credits](/docs/agents/concepts/language-models.md#ai-credits-and-model-costs) used by that subagent. This gives you more transparency into the cost of delegated work.
 
 You control how much detail to reveal without cluttering your main conversation with intermediate steps.
 
@@ -350,3 +355,4 @@ This pattern works because each subagent approaches the code fresh, without bein
 * [Agents overview](/docs/agents/overview.md) - Learn about the different types of agents in VS Code
 * [Custom agents](/docs/agent-customization/custom-agents.md) - Create your own AI agents
 * [Chat sessions](/docs/chat/chat-sessions.md) - Manage chat sessions in VS Code
+* [Cache Explorer](/docs/agents/agent-troubleshooting/cache-explorer.md) - See how context isolation affects prompt cache hit rates

@@ -1,6 +1,6 @@
 ---
 ContentId: 33e63aa1-1d8f-4d23-9733-1475f8c9f502
-DateApproved: 6/24/2026
+DateApproved: 7/29/2026
 MetaDescription: Configure AI language models in VS Code, change chat and inline models, set thinking effort, and bring your own API key.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -27,6 +27,9 @@ Use the language model picker in the chat input field to change the model for ch
 Different models have different strengths. Use a fast model for quick edits and simple questions, and a reasoning model for complex refactoring, architectural decisions, or multi-step tasks. Depending on the [type of agent](/docs/agents/overview.md#configure-your-agent-session) you are using, the list of available models might differ.
 
 You can further extend the list of available models by [using your own language model API key](#bring-your-own-language-model-key).
+
+> [!NOTE]
+> In an untrusted workspace in [Restricted Mode](/docs/editing/workspaces/workspace-trust.md#restricted-mode), the chat model picker only shows **Auto**. Trust the workspace to restore the full model list.
 
 > [!TIP]
 > Install the AI Toolkit extension to add more language models to enhance GitHub Copilot capabilities.
@@ -114,6 +117,9 @@ Bring Your Own Key (BYOK) lets you connect to any compatible model provider whil
 
 BYOK models work without signing into a GitHub account and without a Copilot plan. This enables you to use AI chat features entirely with your own models, including fully offline scenarios with local models such as Ollama.
 
+> [!NOTE]
+> If you run sessions on an agent host (`setting(chat.agentHost.enabled)` is enabled), such as Copilot sessions in the [Agents window](/docs/agents/agents-window.md), enable `setting(chat.agentHost.byokModels.enabled)` to use BYOK models in those sessions. This setting is experimental and takes effect only after the agent host process is restarted.
+
 You can also use these models to [override the models used for utility tasks in VS Code](#configure-models-for-other-features) (such as title generation and intent detection).
 
 > [!NOTE]
@@ -133,6 +139,9 @@ VS Code provides different options to add more language models:
 ### Add a model from a built in provider
 
 Pick from a set of common providers that are ready to use in VS Code. Depending on the provider, you need an API key and other configuration details like the endpoint URL.
+
+> [!IMPORTANT]
+> The built-in Ollama provider is deprecated. For local Ollama models, install the official Ollama extension from the [Ollama publisher on the Visual Studio Marketplace](https://marketplace.visualstudio.com/publishers/Ollama) instead. The extension is maintained by the Ollama team, so it can support new Ollama models and capabilities faster than the built-in provider. If you use the built-in Ollama provider for BYOK local models, install the extension and remove the built-in provider configuration to keep using Ollama models without interruption.
 
 To configure a language model from a built-in provider:
 
@@ -199,7 +208,7 @@ To add a model provider extension:
 > [!NOTE]
 > It replaces the deprecated OpenAI Compatible provider and supports additional API types. The `setting(github.copilot.chat.customOAIModels)` setting is deprecated.
 
-The Custom Endpoint provider lets you connect any compatible API endpoint to chat in VS Code. It supports three API types, which you can select per model: Chat Completions, Responses, and Messages.
+The Custom Endpoint provider lets you connect any compatible API endpoint to chat in VS Code. It supports three API types, which you can select per provider or per model: Chat Completions, Responses, and the Anthropic Messages API. This makes it a good fit for self-hosted models, enterprise gateways, and providers that aren't available as a built-in provider.
 
 To add a model with the Custom Endpoint provider:
 
@@ -215,7 +224,7 @@ To add a model with the Custom Endpoint provider:
 
 1. Select the API type: **Chat Completions**, **Responses**, or **Messages**. Make sure the model supports this API type.
 
-1. VS Code opens a `chatLanguageModels.json` file where you can configure the model details. Update the model properties and save the file. See the [Model configuration reference](#model-configuration-reference) for details on the configuration properties.
+1. VS Code opens a `chatLanguageModels.json` file where you can configure the model details. Update the model properties and save the file. See the [Custom Endpoint configuration reference](#custom-endpoint-configuration-reference) for details on the configuration properties.
 
     The following example shows a Messages API configuration for an Anthropic endpoint:
 
@@ -224,7 +233,7 @@ To add a model with the Custom Endpoint provider:
       {
         "name": "Anthropic",
         "vendor": "customendpoint",
-        "apiKey": "YOUR_API_KEY",
+        "apiKey": "${input:anthropicApiKey}",
         "apiType": "messages",
         "models": [
           {
@@ -245,6 +254,77 @@ To add a model with the Custom Endpoint provider:
 
     > [!TIP]
     > If the model you added does not immediately appear in the model picker, restart VS Code.
+
+#### Custom Endpoint configuration reference
+
+The Custom Endpoint provider supports all of the [common model configuration properties](#model-configuration-reference), plus additional provider-level and model-level properties described in this section. The provider-level properties are set on the provider object, and the model-level properties are set on each entry of the `models` array. When a property is set on both levels, the model-level value takes precedence.
+
+Provider-level properties (in addition to the [common provider properties](#model-configuration-reference)):
+
+| Property | Description |
+|----------|-------------|
+| `vendor` | Must be `customendpoint` to use the Custom Endpoint provider. |
+| `apiKey` | The API key used to authenticate requests. Store the key securely by using an input variable, for example `"apiKey": "${input:myApiKey}"`, instead of committing a raw key. |
+| `apiType` | _(Optional)_ Default API type for all models in the provider: `chat-completions` (default), `responses`, or `messages`. Override it per model with the model-level `apiType`. |
+| `url` | _(Optional)_ Base URL used to discover models automatically. When set, VS Code queries the endpoint for the list of available models instead of using the `models` array. Omit it to configure models explicitly with the `models` array. |
+
+In addition to the [common model properties](#model-configuration-reference) the Custom Endpoint provider supports the following model-level properties:
+
+| Property | Description |
+|----------|-------------|
+| `apiType` | _(Optional)_ Override the API type for this model (`chat-completions`, `responses`, or `messages`). Defaults to the provider-level `apiType`, or is inferred from the `url` when neither is set. |
+| `contextWindow` | _(Optional)_ The model's full context window (input + output) in tokens, for example `1000000` for a 1M-token model. When set, you can omit `maxInputTokens` and VS Code derives it as `contextWindow - maxOutputTokens`. |
+| `modelOptions` | _(Optional)_ An object of request parameters sent with every request to the model, such as `temperature` and `top_p`. For example, `"modelOptions": { "temperature": 0.2 }`. |
+| `requestHeaders` | _(Optional)_ An object of additional HTTP headers to include with requests to this model, for example to authenticate through a gateway or vanity domain. See [Custom authentication headers](#custom-authentication-headers). |
+
+##### Endpoint URL resolution
+
+The `url` you provide for a model is resolved based on its API type:
+
+* If the URL already contains an explicit API path (`/chat/completions`, `/responses`, or `/messages`), it is used as-is.
+* Otherwise, VS Code appends the path for the model's API type. If the URL doesn't already end in a version segment such as `/v1`, VS Code inserts `/v1` first. For example, with the Responses API type, `https://my-host.example.com` resolves to `https://my-host.example.com/v1/responses`.
+
+To avoid ambiguity, provide the full endpoint URL including the API path, as shown in the examples.
+
+##### Custom authentication headers
+
+By default, the Custom Endpoint provider infers the authentication header from the API type and URL. For the Messages API, it sends `x-api-key`. For Azure OpenAI URLs, it sends `api-key`. Otherwise, it sends `Authorization: Bearer <apiKey>`.
+
+You can override the authentication header with `requestHeaders`. When you supply a well-known auth header (such as `Authorization`, `api-key`, `x-api-key`, `x-goog-api-key`, or `apikey`), VS Code does not also send the default inferred auth header, so the endpoint doesn't receive conflicting credentials.
+
+To keep your API key in secret storage while still using it in a custom header, use the `${apiKey}` token in the header value. VS Code replaces it with the configured `apiKey` at request time:
+
+```json
+[
+  {
+    "name": "Gateway",
+    "vendor": "customendpoint",
+    "apiKey": "${input:myApiKey}",
+    "models": [
+      {
+        "id": "my-model",
+        "name": "My Model",
+        "url": "https://gateway.example.com/v1/chat/completions",
+        "toolCalling": true,
+        "vision": false,
+        "maxInputTokens": 128000,
+        "maxOutputTokens": 16000,
+        "thinking": true,
+        "supportsReasoningEffort": ["low", "medium", "high"],
+        "reasoningEffortFormat": "chat-completions",
+        "modelOptions": {
+          "temperature": 0.2,
+          "top_p": 0.9
+        },
+        "requestHeaders": {
+          "Authorization": "Bearer ${apiKey}",
+          "Ocp-Apim-Subscription-Key": "my-subscription-key"
+        }
+      }
+    ]
+  }
+]
+```
 
 ## Update model provider details
 
@@ -296,6 +376,19 @@ Both settings default to **Default**, which uses the built-in utility model from
 
 If you use BYOK models without signing into a GitHub account, the built-in utility models are not available. VS Code shows a notification in the Chat view that prompts you to configure utility models. Set `setting(chat.utilityModel)` and `setting(chat.utilitySmallModel)` to a BYOK model to enable utility features like title generation and commit message creation.
 
+#### Configure the default utility model for BYOK models
+
+When you select a [BYOK](#bring-your-own-language-model-key) model as the main agent model, use the `setting(chat.byokUtilityModelDefault)` setting to control which model built-in utility flows use by default. This setting accepts the following values:
+
+* **None**: Do not use a default utility model.
+* **Main Agent Model**: Use the selected BYOK main agent model for utility flows.
+* **GitHub Copilot**: Use the default GitHub Copilot utility models.
+
+> [!NOTE]
+> By default, no utility models are used when a BYOK model is the main agent. Background tasks such as chat title generation and commit message generation don't run until you set this option or configure a specific utility model.
+
+This setting has no effect when the main agent model is provided by GitHub Copilot. A specific model configured in `setting(chat.utilityModel)` or `setting(chat.utilitySmallModel)` takes precedence over this default.
+
 ## Model configuration reference
 
 When you add BYOK model, you can configure the model properties in the `chatLanguageModels.json` file. The configuration has two levels: provider-level and model-level.
@@ -327,7 +420,7 @@ Each model in the `models` array supports the following properties:
 | `streaming` | _(Optional)_ Set to `true` if the model supports streaming responses. Defaults to `true`. |
 | `zeroDataRetentionEnabled` | _(Optional)_ Set to `true` if Zero Data Retention (ZDR) is enabled for this endpoint. When enabled, `previous_response_id` is not sent in requests via the Responses API. Defaults to `false`. |
 | `supportsReasoningEffort` | _(Optional)_ An array of reasoning effort levels the model accepts (for example, `["low", "medium", "high"]`). When set, a **Thinking Effort** picker is shown in the model picker. Common levels are `minimal`, `low`, `medium`, `high`. |
-| `reasoningEffortFormat` | _(Optional)_ Body shape used to forward reasoning effort to the model. `chat-completions` sends a top-level `reasoning_effort` string. `responses` sends a nested `reasoning.effort` object. When unset, the format follows the URL. |
+| `reasoningEffortFormat` | _(Optional)_ Body shape used to forward reasoning effort to the model. `chat-completions` sends a top-level `reasoning_effort` string, `responses` sends a nested `reasoning.effort` object, and `messages` sends `output_config.effort`. When unset, the format follows the URL. |
 | `requestHeaders` | _(Optional)_ An object of additional HTTP headers to include with requests to this model. Certain reserved headers (forbidden, forwarding, and internal headers) are not allowed and are ignored if present. |
 
 > [!NOTE]
