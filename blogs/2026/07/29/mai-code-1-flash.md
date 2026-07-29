@@ -1,5 +1,5 @@
 ---
-Order: 140
+Order: 136
 TOCTitle: MAI-Code-1-Flash
 PageTitle: "More with less: MAI-Code-1-Flash in real developer workflows"
 MetaDescription: MAI-Code-1-Flash is a lightweight coding model purpose built for the fast, iterative work developers do every day in GitHub. In this post, we share what the data is telling us about how it performs in real developer workflows.
