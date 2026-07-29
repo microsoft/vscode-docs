@@ -117,6 +117,9 @@ Bring Your Own Key (BYOK) lets you connect to any compatible model provider whil
 
 BYOK models work without signing into a GitHub account and without a Copilot plan. This enables you to use AI chat features entirely with your own models, including fully offline scenarios with local models such as Ollama.
 
+> [!NOTE]
+> If you run sessions on an agent host (`setting(chat.agentHost.enabled)` is enabled), such as Copilot sessions in the [Agents window](/docs/agents/agents-window.md), enable `setting(chat.agentHost.byokModels.enabled)` to use BYOK models in those sessions. This setting is experimental and takes effect only after the agent host process is restarted.
+
 You can also use these models to [override the models used for utility tasks in VS Code](#configure-models-for-other-features) (such as title generation and intent detection).
 
 > [!NOTE]
@@ -372,6 +375,19 @@ There are two settings for utility models, depending on the type of task:
 Both settings default to **Default**, which uses the built-in utility model from GitHub Copilot.
 
 If you use BYOK models without signing into a GitHub account, the built-in utility models are not available. VS Code shows a notification in the Chat view that prompts you to configure utility models. Set `setting(chat.utilityModel)` and `setting(chat.utilitySmallModel)` to a BYOK model to enable utility features like title generation and commit message creation.
+
+#### Configure the default utility model for BYOK models
+
+When you select a [BYOK](#bring-your-own-language-model-key) model as the main agent model, use the `setting(chat.byokUtilityModelDefault)` setting to control which model built-in utility flows use by default. This setting accepts the following values:
+
+* **None**: Do not use a default utility model.
+* **Main Agent Model**: Use the selected BYOK main agent model for utility flows.
+* **GitHub Copilot**: Use the default GitHub Copilot utility models.
+
+> [!NOTE]
+> By default, no utility models are used when a BYOK model is the main agent. Background tasks such as chat title generation and commit message generation don't run until you set this option or configure a specific utility model.
+
+This setting has no effect when the main agent model is provided by GitHub Copilot. A specific model configured in `setting(chat.utilityModel)` or `setting(chat.utilitySmallModel)` takes precedence over this default.
 
 ## Model configuration reference
 
