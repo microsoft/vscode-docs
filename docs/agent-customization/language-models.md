@@ -205,7 +205,7 @@ To add a model provider extension:
 > [!NOTE]
 > It replaces the deprecated OpenAI Compatible provider and supports additional API types. The `setting(github.copilot.chat.customOAIModels)` setting is deprecated.
 
-The Custom Endpoint provider lets you connect any compatible API endpoint to chat in VS Code. It supports three API types, which you can select per provider or per model: Chat Completions, Responses, and Messages. This makes it a good fit for self-hosted models, enterprise gateways, and providers that aren't available as a built-in provider.
+The Custom Endpoint provider lets you connect any compatible API endpoint to chat in VS Code. It supports three API types, which you can select per provider or per model: Chat Completions, Responses, and the Anthropic Messages API. This makes it a good fit for self-hosted models, enterprise gateways, and providers that aren't available as a built-in provider.
 
 To add a model with the Custom Endpoint provider:
 
@@ -230,7 +230,7 @@ To add a model with the Custom Endpoint provider:
       {
         "name": "Anthropic",
         "vendor": "customendpoint",
-        "apiKey": "YOUR_API_KEY",
+        "apiKey": "${input:anthropicApiKey}",
         "apiType": "messages",
         "models": [
           {
@@ -285,7 +285,7 @@ To avoid ambiguity, provide the full endpoint URL including the API path, as sho
 
 ##### Custom authentication headers
 
-By default, the Custom Endpoint provider infers the authentication header from the API type and URL: it sends `x-api-key` for the Messages API, `api-key` for Azure OpenAI URLs, and `Authorization: Bearer <apiKey>` otherwise.
+By default, the Custom Endpoint provider infers the authentication header from the API type and URL. For the Messages API, it sends `x-api-key`. For Azure OpenAI URLs, it sends `api-key`. Otherwise, it sends `Authorization: Bearer <apiKey>`.
 
 You can override the authentication header with `requestHeaders`. When you supply a well-known auth header (such as `Authorization`, `api-key`, `x-api-key`, `x-goog-api-key`, or `apikey`), VS Code does not also send the default inferred auth header, so the endpoint doesn't receive conflicting credentials.
 
@@ -404,7 +404,7 @@ Each model in the `models` array supports the following properties:
 | `streaming` | _(Optional)_ Set to `true` if the model supports streaming responses. Defaults to `true`. |
 | `zeroDataRetentionEnabled` | _(Optional)_ Set to `true` if Zero Data Retention (ZDR) is enabled for this endpoint. When enabled, `previous_response_id` is not sent in requests via the Responses API. Defaults to `false`. |
 | `supportsReasoningEffort` | _(Optional)_ An array of reasoning effort levels the model accepts (for example, `["low", "medium", "high"]`). When set, a **Thinking Effort** picker is shown in the model picker. Common levels are `minimal`, `low`, `medium`, `high`. |
-| `reasoningEffortFormat` | _(Optional)_ Body shape used to forward reasoning effort to the model. `chat-completions` sends a top-level `reasoning_effort` string. `responses` sends a nested `reasoning.effort` object. When unset, the format follows the URL. |
+| `reasoningEffortFormat` | _(Optional)_ Body shape used to forward reasoning effort to the model. `chat-completions` sends a top-level `reasoning_effort` string, `responses` sends a nested `reasoning.effort` object, and `messages` sends `output_config.effort`. When unset, the format follows the URL. |
 | `requestHeaders` | _(Optional)_ An object of additional HTTP headers to include with requests to this model. Certain reserved headers (forbidden, forwarding, and internal headers) are not allowed and are ignored if present. |
 
 > [!NOTE]
