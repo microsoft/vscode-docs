@@ -156,6 +156,7 @@ The [Agents view](/docs/agents/overview.md) provides a centralized location for 
 | `setting(chat.agentsControl.clickBehavior)` _(Experimental)_<br/>Configure the behavior when selecting the chat icon in the agent status indicator. | `"cycle"` (Insiders)<br/>`"default"` (Stable) |
 | `setting(chat.unifiedAgentsBar.enabled)` _(Experimental)_<br/>Replace the command center search box with a unified chat and search control. | `false` |
 | `setting(github.copilot.chat.cli.remote.enabled)` <br/>Enable remote control support for Copilot CLI sessions from github.com or the GitHub Mobile app. | `true` |
+| `setting(chat.agentHost.byokModels.enabled)` _(Experimental)_<br/>Wire up the [BYOK](/docs/agent-customization/language-models.md#bring-your-own-language-model-key) language model bridge so extension-provided BYOK models can run in agent host sessions. Requires `setting(chat.agentHost.enabled)`, and the agent host process must be restarted to take effect. | `false` |
 
 ## Inline chat settings
 

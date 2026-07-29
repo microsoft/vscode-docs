@@ -117,6 +117,9 @@ Bring Your Own Key (BYOK) lets you connect to any compatible model provider whil
 
 BYOK models work without signing into a GitHub account and without a Copilot plan. This enables you to use AI chat features entirely with your own models, including fully offline scenarios with local models such as Ollama.
 
+> [!NOTE]
+> If you run sessions on an agent host (`setting(chat.agentHost.enabled)` is enabled), such as Copilot sessions in the [Agents window](/docs/agents/agents-window.md), enable `setting(chat.agentHost.byokModels.enabled)` to use BYOK models in those sessions. This setting is experimental and takes effect only after the agent host process is restarted.
+
 You can also use these models to [override the models used for utility tasks in VS Code](#configure-models-for-other-features) (such as title generation and intent detection).
 
 > [!NOTE]
