@@ -43,7 +43,9 @@ The permission level applies to the current chat session, and can be changed at 
 | **Default Approvals** (default) | Uses your configured approval settings. Tools that require approval show a confirmation dialog before they run. When in doubt, the agent asks clarifying questions. |
 | **Assisted permissions** (Experimental) | Uses an LLM judge to evaluate the risk of each tool call. Calls that the judge approves run automatically. Other calls show a confirmation dialog for you to review. |
 | **Bypass Approvals** | Auto-approves all tool calls without showing confirmation dialogs. When in doubt, the agent asks clarifying questions. |
-| **Autopilot** | Auto-approves all tool calls without showing confirmation dialogs. When questions arise, the agent automatically responds to clarifying questions. |
+
+> [!NOTE]
+> On the [Agent Host](/docs/agents/concepts/agent-host.md) (the default), **Autopilot** is selected as an agent mode rather than a permission level. Choose it from the agent mode picker in the chat input to auto-approve all tools and let the agent iterate autonomously until the task is complete. See [How Autopilot works](#how-autopilot-works). On agents that run on the extension host, Autopilot remains available as a permission level in the permissions dropdown. Learn more about [behavior on the extension host](/docs/agents/concepts/agent-host.md#behavior-on-the-extension-host).
 
 The permission level determines whether your finer-grained settings apply. **Default Approvals** respects the per-tool, URL, terminal, and sandbox settings you configure in the following sections. **Assisted permissions** delegates individual approval decisions to an LLM judge. **Bypass Approvals** and **Autopilot** override those settings and approve everything automatically.
 
@@ -55,12 +57,14 @@ The permission level determines whether your finer-grained settings apply. **Def
 
 ### How Autopilot works
 
-When you select the **Autopilot** permission level, the agent behaves differently from a standard agent session:
+On the [Agent Host](/docs/agents/concepts/agent-host.md), select **Autopilot** from the agent mode picker in the chat input. On the extension host, select the **Autopilot** permission level. In either case, the agent behaves differently from a standard agent session:
 
 * **Continuous iteration**: the agent keeps working autonomously until it determines the task is complete.
 * **Auto-approve all tools**: all tool calls are approved automatically, similar to the **Bypass Approvals** level.
 * **Auto-retry on errors**: the agent automatically retries when it encounters errors.
 * **Auto-respond to questions**: tools that normally block and ask your input, such as clarifying questions, auto-respond so the agent does not stall waiting for a reply. This behavior is specific to **Autopilot** and does not apply to **Bypass Approvals**.
+
+### Advanced autopilot (Preview)
 
 With autopilot, the agent keeps iterating until it considers the task is complete. You can enable advanced autopilot (preview), which delegates this decision to a separate model instead. After each autopilot turn, a small, fast model evaluates whether your original request is complete. If it isn't, autopilot keeps working and uses that evaluation as guidance for the next turn.
 
@@ -202,7 +206,7 @@ Related settings:
 
 For an overview of how sandboxing works, what it protects against, and OS-level implementation details, see [Agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing).
 
-Agent sandboxing restricts file system and network access for commands executed by the agent, including Copilot CLI agent-host sessions that use the VS Code agent terminal integration. When sandboxing is enabled, terminal commands that run inside the sandbox are auto-approved without requiring user confirmation, because they run in a controlled environment.
+Agent sandboxing restricts file system and network access for commands executed by the agent, including Copilot agent-host sessions that use the VS Code agent terminal integration. When sandboxing is enabled, terminal commands that run inside the sandbox are auto-approved without requiring user confirmation, because they run in a controlled environment.
 
 Agent terminal sandboxing is available on macOS and Linux, including WSL2 environments.
 
@@ -292,7 +296,7 @@ When a sandboxed command is blocked by network restrictions and `setting(chat.ag
 
 You have several options for auto-approving tool calls:
 
-* **Permission level**: select the **Bypass Approvals** or **Autopilot** permission level from the [permissions picker](#permission-levels) to auto-approve all tools for the current session.
+* **Permission level or agent mode**: select **Bypass Approvals** from the [permissions picker](#permission-levels), or select **Autopilot** (available as an agent mode on the Agent Host), to auto-approve all tools for the current session.
 * **Global setting**: enable the `setting(chat.tools.global.autoApprove)` setting to auto-approve all tools across all your workspaces. You can also toggle this directly from chat by using the `/yolo` or `/autoApprove` slash command to enable it, or `/disableYolo` or `/disableAutoApprove` to disable it. The first time you enable global auto-approval, a warning dialog asks you to confirm.
 
 > [!CAUTION]

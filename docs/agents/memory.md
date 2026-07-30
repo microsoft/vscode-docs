@@ -18,7 +18,9 @@ This article explains how to use the memory tool in VS Code, how to manage memor
 > [!NOTE]
 > The memory tool is currently in preview.
 
-The memory tool is a built-in agent tool that allows agents to save and recall notes as they work. You can also explicitly ask the agent to remember something. All data is stored locally on your machine.
+The memory tool is a built-in agent tool that allows agents to save and recall notes as they work. You can also explicitly ask the agent to remember something. User and session memory is stored locally on your machine. Repository memory is also stored locally by default, but can be backed by [Copilot Memory](#copilot-memory) when you enable it (see [Store repository memory in Copilot Memory](#store-repository-memory-in-copilot-memory)).
+
+You can turn the memory tool on or off with the `setting(chat.tools.memory.enabled)` setting.
 
 ### Memory scopes
 
@@ -52,6 +54,8 @@ For example:
 Remember that this project uses the repository pattern for data access and all API endpoints require authentication
 ```
 
+Repository memory is stored locally by default. When you enable Copilot Memory, repository memory is stored in [Copilot Memory](#copilot-memory) instead, so it's shared across Copilot surfaces. Learn more about [storing repository memory in Copilot Memory](#store-repository-memory-in-copilot-memory).
+
 #### Session memory
 
 Session memory is scoped to the current conversation and cleared when the conversation ends. Use session memory for temporary working notes or task-specific context that the agent tracks while working through a multi-step task.
@@ -84,12 +88,23 @@ VS Code provides commands to view and manage your memory files:
 > [!NOTE]
 > Deleting individual memory files is not yet supported. Use **Chat: Clear All Memory Files** to remove all memories, or ask the agent to update a specific memory file to remove outdated information.
 
+### Store repository memory in Copilot Memory
+
+By default, repository memory is stored locally. You can instead store it in [Copilot Memory](#copilot-memory), the GitHub-hosted memory system that shares repository insights across Copilot surfaces. When enabled, the memory tool writes and reads `/memories/repo/` entries through Copilot Memory instead of local files. User and session memory always remain local.
+
+To store repository memory in Copilot Memory, both of the following must be true:
+
+* Enable the `setting(chat.copilotMemory.enabled)` setting in VS Code (experimental, disabled by default).
+* [Copilot Memory](#enable-copilot-memory) must be enabled for the repository in your GitHub settings.
+
+If either condition isn't met, repository memory falls back to local file storage.
+
 ## Copilot Memory
 
 > [!NOTE]
 > Copilot Memory is in preview and is separate from the local memory tool described above.
 
-[Copilot Memory](https://docs.github.com/copilot/how-tos/use-copilot-agents/copilot-memory) is a GitHub-hosted memory system that lets Copilot learn and retain repository-specific insights as it works. Unlike the local memory tool, Copilot Memory is shared across multiple GitHub Copilot surfaces, including Copilot cloud agent, Copilot code review, and Copilot CLI.
+[Copilot Memory](https://docs.github.com/copilot/how-tos/use-copilot-agents/copilot-memory) is a GitHub-hosted memory system that lets Copilot learn and retain repository-specific insights as it works. Copilot Memory is shared across multiple GitHub Copilot surfaces, including Copilot cloud agent, Copilot code review, and Copilot CLI. The Copilot agent that runs on the [Agent Host](/docs/agents/concepts/agent-host.md) uses Copilot Memory as part of this same Copilot ecosystem.
 
 ### How Copilot Memory works
 
@@ -115,11 +130,11 @@ For detailed setup instructions, see [Enabling and curating Copilot Memory](http
 
 | | Memory tool | Copilot Memory |
 |---|---|---|
-| **Storage** | Local (on your machine) | GitHub-hosted (remote) |
+| **Storage** | Local (user and session); repository memory is local by default, or in Copilot Memory when enabled | GitHub-hosted (remote) |
 | **Scopes** | User, repository, session | Repository only |
-| **Shared across Copilot surfaces** | No (VS Code only) | Yes (coding agent, code review, CLI) |
+| **Shared across Copilot surfaces** | User and session are VS Code only; repository memory is shared when backed by Copilot Memory | Yes (coding agent, code review, CLI) |
 | **Created by** | You or the agent during chat | Copilot agents automatically |
-| **Enabled by default** | Yes | No (opt-in) |
+| **Enabled by default** | Yes (repository sync to Copilot Memory is opt-in) | No (opt-in) |
 | **Expiration** | Manual management | Automatic (28 days) |
 
 The two systems are complementary. Use the local memory tool for personal preferences and session-specific context in VS Code. Use Copilot Memory for repository knowledge that benefits all Copilot agents across your development workflow.

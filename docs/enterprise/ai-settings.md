@@ -131,7 +131,7 @@ The value accepts one of the following:
 * A model family name, such as `opus` or `gemini` - resolves to the latest available version in that family.
 * A full model ID.
 
-New conversations start at the configured model across the chat panel and the Agents window, including Copilot CLI sessions. Developers can still switch models within a conversation, and an explicit choice is never overridden by the configured default. Reopened conversations keep their own saved model. When the setting is not configured, model selection behavior is unchanged.
+New conversations start at the configured model across the chat panel and the Agents window. Developers can still switch models within a conversation, and an explicit choice is never overridden by the configured default. Reopened conversations keep their own saved model. When the setting is not configured, model selection behavior is unchanged.
 
 ## Enable or disable the use of agents
 
@@ -215,7 +215,7 @@ Learn more about [tool approval](/docs/agents/approvals.md#tool-approval) in VS 
 
 The `ChatToolsAutoApprove` policy controls the global auto-approval setting. When enabled, the AI assistant can execute all tools without manual approval. This is not recommended for security reasons.
 
-To prevent developers from enabling global auto-approval, set the `ChatToolsAutoApprove` policy to `false`. This configures the `setting(chat.tools.global.autoApprove)` setting in VS Code and also hides the **Assisted permissions**, **Bypass Approvals**, and **Autopilot** options from the [permissions picker](/docs/agents/approvals.md#permission-levels) in the Chat view.
+To prevent developers from enabling global auto-approval, set the `ChatToolsAutoApprove` policy to `false`. This configures the `setting(chat.tools.global.autoApprove)` setting in VS Code and also hides the **Assisted permissions** and **Bypass Approvals** options from the [permissions picker](/docs/agents/approvals.md#permission-levels), and the **Autopilot** mode, in the Chat view.
 
 > [!CAUTION]
 > Global auto-approval bypasses all security prompts for tool invocations. Disabling this feature is strongly recommended for enterprise environments.
@@ -369,8 +369,11 @@ For environments where agents operate with elevated autonomy (auto-approval or A
 
 Agents can run on different infrastructure depending on the agent type, and each option has different data residency and access control characteristics:
 
-* **Local agents and Copilot CLI** run on the developer's machine and process data locally.
+* **Local agents and the Copilot agent** run on the developer's machine and process data locally.
 * **Cloud agents** run on GitHub's infrastructure. Code and conversation data are subject to the GitHub Copilot data handling policies.
+
+> [!NOTE]
+> [Copilot Memory](/docs/agents/memory.md#copilot-memory) stores repository insights on GitHub's infrastructure and is governed by your organization or enterprise Copilot Memory settings on GitHub, not by a VS Code policy. Developers opt in per repository, and in VS Code the memory tool syncs repository memory to Copilot Memory only when `setting(chat.copilotMemory.enabled)` is also enabled. The local memory tool's user and session memory always stays on the developer's machine.
 
 For GitHub Copilot's security, privacy, compliance, and transparency information, see the [GitHub Copilot Trust Center FAQ](https://copilot.github.trust.page/faq).
 

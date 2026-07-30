@@ -36,7 +36,7 @@ Custom agents consist of a set of instructions and tools that are applied when y
 
 Custom agents are defined in a `.agent.md` Markdown file, and can be stored in your workspace for others to use, or in your user profile, where you can reuse them across different workspaces.
 
-You can reuse your custom agents in [background agents](/docs/agents/agent-types/copilot-cli.md) and [cloud agents](/docs/agents/agent-types/cloud-agents.md), enabling you to run autonomous tasks with the same specialized configurations.
+You can reuse your custom agents in [background agents](/docs/agents/agent-types/copilot.md) and [cloud agents](/docs/agents/agent-types/cloud-agents.md), enabling you to run autonomous tasks with the same specialized configurations.
 
 ## Why use custom agents?
 
@@ -82,9 +82,12 @@ You can define custom agents for a specific workspace or at the user level, wher
 |-------|-----------------------|
 | Workspace | `.github/agents` folder |
 | Workspace (Claude format) | `.claude/agents` folder |
-| User profile | `~/.copilot/agents` or your user data (specific to your VS Code profile) |
+| User profile | `~/.copilot/agents` |
 
-To create a custom agent in user data, use the Agent Customizations editor or use the **Chat: New Custom Agent** command.
+To create a user-level custom agent, use the Agent Customizations editor or the **Chat: New Custom Agent** command.
+
+> [!IMPORTANT]
+> The default [Agent Host](/docs/agents/concepts/agent-host.md) reads user-level custom agents from `~/.copilot/agents`. Custom agents stored only in your VS Code profile user data are a legacy location that the Copilot agent doesn't read. To use existing user-level custom agents with the Copilot agent, store them in `~/.copilot/agents`.
 
 > [!TIP]
 > In a monorepo, enable `setting(chat.useCustomizationsInParentRepositories)` to discover custom agents from the parent repository root. Learn more about [parent repository discovery](/docs/agent-customization/overview.md#use-customizations-in-a-monorepo).

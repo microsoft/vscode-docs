@@ -45,7 +45,7 @@ If you prefer to stay in the editor window full-time, you can hide the **Open in
 
 ## Interface overview
 
-The Agents window picks up your existing Copilot CLI, Cloud, and Claude agent sessions across your workspaces. You can switch between agent sessions across the different workspaces without needing to open each workspace in a separate window.
+The Agents window picks up your existing Copilot, Cloud, and Claude agent sessions across your workspaces. You can switch between agent sessions across the different workspaces without needing to open each workspace in a separate window.
 
 The Agents window has the following main areas:
 
@@ -61,7 +61,7 @@ The Agents window has the following main areas:
 
 ## Start an agent session
 
-The Agents window and the main VS Code window share the same underlying agent sessions (Copilot CLI, Copilot cloud, and Claude agent). This means that any session you start in the Agents window is immediately available in the main VS Code window.
+The Agents window and the main VS Code window share the same underlying agent sessions (Copilot, Copilot cloud, and Claude agent). This means that any session you start in the Agents window is immediately available in the main VS Code window.
 
 Unlike the Chat view, where sessions are scoped to the open workspace, the Agents window lets you choose which workspace or repository to target when you start a session.
 
@@ -84,7 +84,7 @@ To start a new agent session in the Agents window:
 
     The available agent types might vary depending on the location of the workspace:
 
-    * **Folder**: choose between the Copilot CLI or Claude agent. You can select **Continue In** to hand off the session to a Copilot Cloud agent at any time.
+    * **Folder**: choose between the Copilot or Claude agent. You can select **Continue In** to hand off the session to a Copilot Cloud agent at any time.
     * **Repository**: sessions started in a GitHub repository use the Copilot cloud agent.
 
 1. Optionally, select extra configuration options for the session like a custom agent, language model, permission level, and more.
@@ -128,7 +128,7 @@ To start a quick chat, use one of the following methods:
 * Select **+** on the **Chats** section header in the sessions list.
 * Run **New Quick Chat** from the Command Palette (`kb(workbench.action.showCommands)`), or press `kb(sessionsView.newQuickChat)`.
 
-Use the session-type picker in the composer to choose which agent runs the quick chat, for example Copilot CLI or Claude. The quick chat then opens ready for your prompt. Because a quick chat has no workspace, the workspace picker doesn't apply, and the workspace-specific **Changes** and **Files** panes aren't shown.
+Use the session-type picker in the composer to choose which agent runs the quick chat, for example Copilot or Claude. The quick chat then opens ready for your prompt. Because a quick chat has no workspace, the workspace picker doesn't apply, and the workspace-specific **Changes** and **Files** panes aren't shown.
 
 Quick chats are served by the local agent host, so this experience is available when the agent host is enabled with `setting(chat.agentHost.enabled)`.
 
@@ -272,7 +272,7 @@ This is useful when you want to work on an independent task in the same project 
 The first chat is the default chat for the session. The chats you add next to it are independent of each other, so you can rename, hide, or delete them without affecting the session itself.
 
 > [!NOTE]
-> Running multiple chats is available for agent host sessions that support it, such as Copilot CLI and Claude sessions. Other session types show a single chat.
+> Running multiple chats is available for agent host sessions that support it, such as Copilot and Claude sessions. Other session types show a single chat.
 
 To create an additional chat:
 
@@ -317,7 +317,7 @@ Each question creates a new side chat. The side chat inherits the agent and lang
 ![Screenshot showing how to start a side chat in the Agents window by selecting text in a response and entering a question in the Ask Question input.](images/agents-window/agents-window-side-chat.png)
 
 > [!NOTE]
-> Side chats are available only in the Agents window for Copilot CLI and Claude sessions. They aren't available for Codex sessions or in the Chat view in the editor window.
+> Side chats are available only in the Agents window for Copilot and Claude sessions. They aren't available for Codex sessions or in the Chat view in the editor window.
 
 ### Follow subagents
 
@@ -428,13 +428,13 @@ If you're an extension author, we'd love to collaborate on what extension enable
 
 * The agent can't directly open the integrated browser for you for now. You can start the integrated browser from the Command Palette (**Browser: Open Integrated Browser**) or by selecting a `localhost` link in the Agents window.
 
-* The Agents window currently only supports the following agent types: Copilot CLI, Copilot Cloud, and Claude agent. To use local or other third-party agents, manage your sessions from the main VS Code window.
+* The Agents window currently only supports the following agent types: Copilot, Copilot Cloud, and Claude agent. To use local or other third-party agents, manage your sessions from the main VS Code window.
 
-* Copilot Cloud sessions are only supported for GitHub-backed repositories. For non-GitHub projects, you can still use Copilot CLI in the Agents window.
+* Copilot Cloud sessions are only supported for GitHub-backed repositories. For non-GitHub projects, you can still use Copilot in the Agents window.
 
-* The agents dropdown currently doesn't have the plan agent. You can still use the `/plan` command in a Copilot CLI or Claude agent session. In Copilot CLI sessions, the plan agent is also automatically invoked when you refer ask for creating a plan in your prompt.
+* The agents dropdown currently doesn't have the plan agent. You can still use the `/plan` command in a Copilot or Claude agent session. In Copilot sessions, the plan agent is also automatically invoked when you refer ask for creating a plan in your prompt.
 
-* Running multiple chats in a single session is currently supported for Copilot CLI and Claude sessions.
+* Running multiple chats in a single session is currently supported for Copilot and Claude sessions.
 
 * Multi-root sessions are not yet supported in the Agents window. You can ask the agent to work across projects in a single session.
 
@@ -454,21 +454,21 @@ Both surfaces support agentic development: the Agents window is purpose-built fo
 <details>
 <summary>Can I continue sessions started in the main VS Code window in the Agents window?</summary>
 
-Yes, sessions started in the main VS Code window with supported agent types (Copilot CLI, Copilot Cloud, and Claude agent) automatically appear in the Agents window. You can switch between the two surfaces without losing any session history or context.
+Yes, sessions started in the main VS Code window with supported agent types (Copilot, Copilot Cloud, and Claude agent) automatically appear in the Agents window. You can switch between the two surfaces without losing any session history or context.
 
 </details>
 
 <details>
 <summary>Can I use the Agents window with local or third-party CLI agents?</summary>
 
-The Agents window currently only supports sessions with Copilot CLI, Copilot Cloud, and Claude agent. If you use local or third-party CLI agents, you can still manage those sessions from the main VS Code window, but they won't yet appear in the Agents window.
+The Agents window currently only supports sessions with Copilot, Copilot Cloud, and Claude agent. If you use local or third-party CLI agents, you can still manage those sessions from the main VS Code window, but they won't yet appear in the Agents window.
 
 </details>
 
 <details>
-<summary>Why are changes from a Copilot CLI session not applied in my main workspace?</summary>
+<summary>Why are changes from a Copilot session not applied in my main workspace?</summary>
 
-By default, Copilot CLI sessions from the Agents window are created with Git worktree isolation. This means that the agent operates in a separate folder created by Git worktree, which keeps changes isolated from your main workspace until you're ready to merge them. This allows you to review and test the agent's changes before integrating them into your main codebase.
+By default, Copilot sessions from the Agents window are created with Git worktree isolation. This means that the agent operates in a separate folder created by Git worktree, which keeps changes isolated from your main workspace until you're ready to merge them. This allows you to review and test the agent's changes before integrating them into your main codebase.
 
 You can merge the worktree from the Agents window back into your main workspace or create a pull request to review the changes.
 

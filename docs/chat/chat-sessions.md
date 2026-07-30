@@ -157,7 +157,7 @@ To view your archived sessions, use the filter options in the sessions list and 
 
 ## Delete sessions
 
-To permanently delete a session, right-click the session in the sessions list and select **Delete**. Deleting a session removes it permanently and can't be undone. For [Copilot sessions](/docs/agents/agent-types/copilot-cli.md), deleting the session also removes any associated worktrees created for that session.
+To permanently delete a session, right-click the session in the sessions list and select **Delete**. Deleting a session removes it permanently and can't be undone. For [Copilot sessions](/docs/agents/agent-types/copilot.md), deleting the session also removes any associated worktrees created for that session.
 
 If multiple Copilot sessions share the same worktree, such as after you fork a session, deleting one session does not remove the shared worktree while another session still uses it. The worktree is removed only after the last linked session is deleted or archived.
 
@@ -168,7 +168,7 @@ If multiple Copilot sessions share the same worktree, such as after you fork a s
 
 Forking a chat session creates a branch of a conversation that inherits conversation history from the original session. In single-chat sessions and sessions that don't use an agent host, the fork opens as a new independent session. The forked session is fully separate from the original, so changes in one session do not affect the other. The new session title is prefixed with "Forked:" to help you identify it.
 
-For multi-chat [Copilot](/docs/agents/agent-types/copilot-cli.md) sessions in the Agents window, the fork opens as a peer chat in the same session. The peer chat gets an automatically generated title and runs independently from sibling chats.
+For multi-chat [Copilot](/docs/agents/agent-types/copilot.md) sessions in the Agents window, the fork opens as a peer chat in the same session. The peer chat gets an automatically generated title and runs independently from sibling chats.
 
 For Copilot sessions that use worktree isolation, the fork continues to use the same worktree as the original session.
 
@@ -187,7 +187,7 @@ There are two ways to fork a chat session:
 
 ## Orchestrate sessions from agent host sessions
 
-In agent host sessions, such as [Copilot](/docs/agents/agent-types/copilot-cli.md), Claude, and Codex, agents can use built-in session-management tools to coordinate work across multiple sessions and chats.
+In agent host sessions, such as [Copilot](/docs/agents/agent-types/copilot.md) and Claude, agents can use built-in session-management tools to coordinate work across multiple sessions and chats. These tools are also available for Codex sessions when Codex [runs on the Agent Host](/docs/agents/concepts/agent-host.md#agents-on-the-agent-host).
 
 With these tools, an agent can:
 

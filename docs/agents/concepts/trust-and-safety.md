@@ -35,7 +35,7 @@ Agents can read files, edit code, run terminal commands, and call external servi
 
 * **Review before applying.** All file changes surface in a diff view for keep/undo decisions, and [checkpoints](/docs/chat/chat-checkpoints.md) let you roll back a session.
 * **Approve before acting.** Tools with side effects and terminal commands prompt for approval, with per-session, per-workspace, or per-user scoping.
-* **Constrain autonomy.** [Permission levels](/docs/agents/approvals.md#permission-levels) decide how much the agent runs on its own, from per-call approvals to fully autonomous Autopilot.
+* **Constrain autonomy.** [Permission levels](/docs/agents/approvals.md#permission-levels) decide how much the agent runs on its own, from per-call approvals to broad auto-approval, up to fully autonomous operation with Autopilot.
 * **Enforce boundaries at the OS level.** [Agent sandboxing](#agent-sandboxing) restricts file system and network access for terminal commands so auto-approved actions cannot escape a defined scope.
 * **Trust boundaries.** VS Code prompts you before granting trust to workspaces, extensions, MCP servers, and network domains.
 
@@ -50,7 +50,7 @@ Always review AI-generated code before committing. Verify that it handles edge c
 
 Agent sandboxing uses operating system-level isolation to restrict what agents can access on your machine. Instead of relying solely on approval prompts before each action, sandboxing defines strict boundaries for file system and network access that are enforced by the OS itself.
 
-VS Code applies sandboxing to terminal commands (`runInTerminal` agent tool) that are executed during an agent session, including Copilot CLI agent-host sessions that use the VS Code agent terminal integration. Learn how to [configure agent sandboxing](/docs/agents/approvals.md#sandbox-agent-commands).
+VS Code applies sandboxing to terminal commands (`runInTerminal` agent tool) that are executed during an agent session, including Copilot agent-host sessions that use the VS Code agent terminal integration. Learn how to [configure agent sandboxing](/docs/agents/approvals.md#sandbox-agent-commands).
 
 When sandboxing is enabled, VS Code automatically approves terminal commands that run in the sandbox without a confirmation prompt because they already run in a controlled environment.
 
@@ -116,7 +116,7 @@ WSL version 1 is not supported because bubblewrap requires Linux kernel features
 
 ### What sandboxing does not cover
 
-Agent sandboxing applies to shell subprocesses, including terminal commands from VS Code agent sessions and Copilot CLI agent-host sessions. It does not cover built-in file tools. The agent's read, edit, and write tools use VS Code's permission system directly, rather than running through the sandbox.
+Agent sandboxing applies to shell subprocesses, including terminal commands from VS Code agent sessions and Copilot agent-host sessions. It does not cover built-in file tools. The agent's read, edit, and write tools use VS Code's permission system directly, rather than running through the sandbox.
 
 > [!TIP]
 > The `setting(chat.agent.networkFilter)` setting provides network domain filtering for agent tools like the fetch tool and integrated browser, independently of sandboxing. When both sandboxing and network filtering are enabled, network rules apply to all agent tools and terminal commands.

@@ -44,6 +44,9 @@ Claude agent sessions provide agentic coding capabilities powered by Anthropic's
 
 Enable or disable support for Claude agent sessions with the `setting(github.copilot.chat.claudeAgent.enabled)` setting.
 
+> [!NOTE]
+> Claude agent sessions run on the [Agent Host](/docs/agents/concepts/agent-host.md) by default, so they gain Agent Host capabilities such as shared multi-window sessions and multiple chats per session.
+
 ### Start a Claude agent session
 
 To start a new Claude agent session:
@@ -98,6 +101,9 @@ You can choose how the agent applies changes to your workspace:
 The OpenAI Codex agent uses OpenAI's Codex to perform coding tasks autonomously. Codex runs can run interactively in VS Code or unattended in the background.
 
 To disable the OpenAI Codex agent, disable or uninstall the [OpenAI Codex](https://marketplace.visualstudio.com/items?itemName=openai.chatgpt) extension in VS Code.
+
+> [!NOTE]
+> Codex agent sessions run through the OpenAI Codex extension by default. Running Codex on the [Agent Host](/docs/agents/concepts/agent-host.md) is experimental and requires enabling `setting(chat.agentHost.codexAgent.enabled)` and `setting(chat.editor.codex.preferAgentHost)`.
 
 ### Prerequisites
 

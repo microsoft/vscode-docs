@@ -80,6 +80,7 @@ In this part, you open your folder in the Agents window and task an agent to bui
 
 1. In the workspace dropdown, select the `myportfolio` folder on your machine.
 
+    <!-- TODO: Update screenshot to show the renamed "Copilot" agent type in the Agents window picker (previously "Copilot CLI"). -->
     ![Screenshot of the workspace dropdown and Agent selection in the Agents window.](images/getting-started/workspace-dropdown.png)
 
     If you're prompted to trust the folder, select **Yes, I trust the authors**.
@@ -87,9 +88,9 @@ In this part, you open your folder in the Agents window and task an agent to bui
     > [!IMPORTANT]
     > Workspace Trust lets you decide whether code in your project folder can be executed. When you download code from the internet, you should first review it to make sure it's safe to run. Get more info about [Workspace Trust](/docs/editing/workspaces/workspace-trust.md).
 
-1. Make sure the **Copilot CLI** agent type is selected. This indicates that Copilot CLI runs the agent session on your local machine.
+1. Make sure the **Copilot** agent type is selected. This indicates that the Copilot agent runs the session on your local machine.
 
-    VS Code installs and configures Copilot CLI for you, so there's nothing extra to set up.
+    VS Code installs and configures the required components for you, so there's nothing extra to set up.
 
 1. Keep the other default configuration options:
 
