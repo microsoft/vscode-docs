@@ -82,12 +82,15 @@ To run your own standalone Agent Host, use `code agent host`. By default, the co
 The Agent Host is the default. Some behavior differs for agents that run on the extension host, such as sessions that were created before the Agent Host was enabled:
 
 * **Session continuity**: sessions that were already created on the extension host continue to run there. New Copilot sessions use the Agent Host.
+* **Reviewing changes**: Agent Host sessions apply edits directly to the session folder or worktree. Review the resulting diffs and then commit, merge, or discard the changes. Extension-host sessions track edits as pending until you keep or undo them. Learn more about [reviewing AI-generated code edits](/docs/chat/review-code-edits.md).
 * **Customizations**: the Agent Host reads user-level customizations from harness-agnostic folders like `~/.copilot` and `~/.claude`. Customizations stored only in your VS Code profile user data are a legacy location that the Copilot agent doesn't read. Learn more about [customizing agent behavior](/docs/agent-customization/overview.md).
 * **Autopilot**: on the Agent Host, [Autopilot](/docs/agents/approvals.md#how-autopilot-works) is an agent mode; on the extension host, it's a permission level.
 * **Assisted permissions**: the experimental [Assisted permissions](/docs/agents/approvals.md#permission-levels) level is available only on the Agent Host.
 * **Session capabilities**: shared multi-window sessions, multiple chats per session, quick chats, and remote hosting are available only on the Agent Host.
 * **Extension-provided tools**: tools from extensions are only available in chats in an editor window where the extension is running.
 * **MCP configuration**: the Agent Host reads harness-agnostic MCP config from `.mcp.json` (workspace) and `~/.copilot/mcp-config.json` (user). It doesn't read `.vscode/mcp.json` directly, but VS Code forwards servers you configure in VS Code to the Agent Host, except servers that require interactive input (for example, `${input:...}` variables). Learn more about [configuring MCP servers](/docs/agent-customization/mcp-servers.md).
+
+To turn off the Agent Host for new sessions, set `setting(chat.agentHost.enabled)` to `false` and restart VS Code. Existing sessions remain on the host where they were created.
 
 ## Related resources
 

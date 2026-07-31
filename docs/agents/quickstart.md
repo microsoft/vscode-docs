@@ -61,11 +61,13 @@ Both surfaces work the same way for this quickstart, so either is a good startin
 {% /tab %}
 {% /tabs %}
 
-The agent analyzes your workspace, plans the work, edits files, and runs commands to complete the task. You can send follow-up messages at any time to steer it.
+The agent analyzes your workspace, plans the work, edits files, and runs commands to complete the task. Depending on your permission level, you might need to approve a tool or terminal command before it runs. You can send follow-up messages at any time to steer the agent.
 
 ## Step 3: Review the changes
 
-As the agent works, review its proposed edits in the diff view. Keep or undo individual changes before you apply them. Approve any tool or terminal commands the agent needs to run. Learn more about [reviewing code changes](/docs/chat/review-code-edits.md).
+Select a changed file in the agent's response to open its diff. Inspect the code and run relevant tests. If you want adjustments, send a follow-up prompt or restore a checkpoint. When you're satisfied, commit folder changes with Source Control, or apply or merge changes from an isolated worktree.
+
+Learn more about [reviewing code changes](/docs/chat/review-code-edits.md).
 
 ## Next steps
 

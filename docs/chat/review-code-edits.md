@@ -1,15 +1,15 @@
 ---
 ContentId: 8d3f4a2e-9b1c-4f5e-a8d7-2c4b6e9f1a3d
 DateApproved: 7/29/2026
-MetaDescription: Learn how to review and manage AI-generated code edits in Visual Studio Code chat.
+MetaDescription: Review AI-generated code changes in VS Code with Agent Host diffs, checkpoints, Source Control, and legacy extension-host edit controls.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Review AI-generated code edits
 
-When you interact with chat in Visual Studio Code, the agent can generate code edits across multiple files in your project. This article explains how to review, accept, or discard these AI-generated code edits.
+When you interact with chat in Visual Studio Code, the agent can change multiple files in your project. This article explains how to inspect, revise, integrate, or discard these AI-generated changes.
 
 > [!NOTE]
-> You can review AI-generated edits in both the [Chat view](/docs/agents/chat-view.md) and the [Agents window](/docs/agents/agents-window.md). The review experience follows the same concepts but the user interface might differ between the two surfaces.
+> You can review AI-generated changes in both the [Chat view](/docs/agents/chat-view.md) and the [Agents window](/docs/agents/agents-window.md). The review experience follows the same concepts, but the user interface differs between the two surfaces.
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
 Follow a hands-on tutorial to experience local, background, and cloud agents in VS Code.
@@ -18,41 +18,35 @@ Follow a hands-on tutorial to experience local, background, and cloud agents in 
 
 </div>
 
-## Pending changes
+## Review agent changes
 
-After the agent updates your files, VS Code applies and saves the edits to disk. VS Code keeps track of which files have pending edits and lets you review them individually or all at once.
+The agent applies and saves edits directly in the session's folder or isolated Git worktree. These edits don't have a pending approval state, so you don't need to keep or undo each edit before you continue.
+
+Review the changes as you would other workspace or branch changes through the diff view, Source Control, or pull request workflow.
 
 {% tabs id="chat-surface" %}
-{% tab label="Agents window" %}
-
-In the Agents window, the dedicated **Changes** panel lists the edited files and shows their diff stats. Select a file to open its diff view.
-
-![Screenshot showing the Changes panel in the Agents window, highlighting the Changes and Files tabs and the list of edited files.](images/agents-window/agents-window-changes.png)
-
-For more information about the Changes panel, see [Manage and review file changes](/docs/agents/agents-window.md#manage-and-review-file-changes).
-
-{% /tab %}
 {% tab label="Chat view" %}
 
-The Chat view shows the list of files that were edited and are pending your review. Files with pending edits also have a squared-dot icon indicator in the Explorer view and editor tabs.
+1. Select a changed file in the agent's response to open its diff or select it from the Source Control view.
 
-![Screenshot that shows the Chat view, highlighting the changed files list and the indicator in the Explorer view and editor tabs.](images/review-code-edits/copilot-edits-changed-files-full.png)
+1. To see a summary after each completed request, set `setting(chat.checkpoints.showFileChanges)` to `true`. Expand the changed-files summary to see the files and diff statistics, or select **View All File Changes** to open a multi-file diff.
 
-When you open a file that was changed, the editor shows an inline diff of the applied changes.
+    <!-- TODO: Add a screenshot showing the Agent Host changed-files summary and View All File Changes action in the Chat view. -->
+
+1. If you want to make further changes, send a follow-up prompt or edit the files directly. To revert a request and all later changes, [restore a checkpoint](/docs/chat/chat-checkpoints.md#restore-a-checkpoint).
+
+1. Run tests and use the debugger or other editor tools to validate the result.
+
+1. When you're satisfied with the changes:
+
+    * For folder-isolated sessions, stage and commit the changes with Source Control.
+
+    * For worktree-isolated sessions, apply or merge the worktree changes into your main workspace.
+
+    * For cloud sessions, review the pull request or check out its branch locally.
 
 {% /tab %}
-{% /tabs %}
-
-When you close VS Code, the status of the pending edits is remembered and restored when you reopen VS Code.
-
-## Review changes
-
-How you review AI-generated edits depends on which surface you use. In the Chat view, you review edits directly in the editor. In the Agents window, you review edits in the dedicated Changes panel.
-
-{% tabs id="chat-surface" %}
 {% tab label="Agents window" %}
-
-In the Agents window, you review edits in the dedicated **Changes** panel instead of the editor overlay:
 
 1. Select a file in the **Changes** tab to open a diff view of the agent's edits.
 
@@ -73,49 +67,49 @@ In the Agents window, you review edits in the dedicated **Changes** panel instea
 For more information, see [Manage and review file changes](/docs/agents/agents-window.md#manage-and-review-file-changes).
 
 {% /tab %}
-{% tab label="Chat view" %}
+{% /tabs %}
 
-To review the AI-generated code edits in a file:
+<details>
+<summary>Review extension-host changes</summary>
 
-1. Open a file with pending edits by selecting it from the changed files list in the Chat view or from the Explorer view.
+If you don't have the agent host enabled (`setting(chat.agentHost.enabled)` is `false`) or are working with an older session, the agent uses the extension host to make edits, which has a different workflow for reviewing changes.
+
+After the agent edits and saves a file, VS Code marks the edits as pending. Files with pending edits have a squared-dot indicator in the Explorer view and editor tabs. The pending state is restored when you reopen VS Code.
+
+![Screenshot that shows the Chat view, highlighting the changed files list and the indicator in the Explorer view and editor tabs.](images/review-code-edits/copilot-edits-changed-files-full.png)
+
+To review pending edits:
+
+1. Open a file from the changed-files list in the Chat view or from the Explorer view.
 
     ![Screenshot showing the Editor with proposed changes, highlighting the review controls in the editor overlay controls.](images/review-code-edits/copilot-edits-file-review-controls.png)
 
-1. Use the `kbstyle(Up)` and `kbstyle(Down)` controls in the editor overlay to navigate between individual edits within the file.
+1. Use the `kbstyle(Up)` and `kbstyle(Down)` controls in the editor overlay to navigate between edits.
 
 1. For each edit, choose one of the following actions:
+
     * Select **Keep** to accept the edit.
     * Select **Undo** to reject the edit and revert the change.
     * Hover over an inline change to accept or reject that specific change without affecting other edits in the file.
 
-1. Alternatively, accept or reject all changes across all files at once from the Chat view.
+You can also accept or reject all pending edits from the Chat view. When you resolve an edit, the editor automatically opens the next file with pending edits. To stay in the current file, set `setting(chat.editing.revealNextChangeOnResolve)` to `false`.
 
-The following keyboard shortcuts help you navigate and review edits:
-
-| Action | Shortcut |
-|---|---|
-| Navigate to next edit | `kbstyle(Down)` in the editor overlay |
-| Navigate to previous edit | `kbstyle(Up)` in the editor overlay |
-
-When you keep or undo an edit in a file, the editor automatically navigates to the next edit with pending changes, which might be in a different file. To disable this auto-navigation and stay in the current file, set `setting(chat.editing.revealNextChangeOnResolve)` to `false`.
-
-{% /tab %}
-{% /tabs %}
-
-## Source Control integration
+### Source Control integration
 
 If you stage your changes in the Source Control view, any pending edits are automatically accepted. If you discard your changes, any pending edits are also discarded.
 
-## Auto-accept edits
+### Auto-accept edits
 
-You can configure VS Code to automatically accept AI-generated code edits after a configurable delay with the `setting(chat.editing.autoAccept)` setting. Hover over the editor overlay controls to stop the auto-accept countdown.
+Use `setting(chat.editing.autoAcceptDelay)` to automatically accept pending edits after a configurable delay. Hover over the editor overlay controls to stop the countdown.
 
 > [!IMPORTANT]
 > If you automatically accept all edits, review the changes before you commit them in source control. Learn more about the [security considerations of using AI in VS Code](/docs/agents/security.md).
 
+</details>
+
 ## Edit sensitive files
 
-To prevent inadvertent edits to sensitive files, such as workspace configuration settings or environment settings, VS Code prompts you to approve edits before they are applied. In chat, you can see a diff view of the proposed changes and choose to approve or reject them.
+Sensitive-file approval is separate from reviewing changes after the agent makes them. To prevent inadvertent edits to files such as workspace configuration or environment settings, VS Code can show a diff and ask you to approve or reject the edit before it is applied.
 
 Use the `setting(chat.tools.edits.autoApprove)` setting to configure which files require approval. The setting uses glob patterns to match file paths in your workspace.
 
@@ -129,13 +123,13 @@ The following example configuration automatically allows edits to all files exce
 }
 ```
 
-## Review file changes from the sessions list
+## Review changes from the sessions list
 
 When a session completes and makes code changes to your project, the [sessions list](/docs/chat/chat-sessions.md#sessions-list) shows the file change statistics for that session. To review the changes, select the session from the list to open the session details.
 
 ![Screenshot of the file changes diff editor in an agent session.](images/agents-overview/agent-file-changes-v2.png)
 
-Depending on the agent harness, you can apply changes to your local workspace or check out the branch from a cloud session.
+Depending on the agent harness and isolation mode, you can apply or merge changes into your local workspace, or check out the branch from a cloud session.
 
 ## Related resources
 

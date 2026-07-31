@@ -153,7 +153,7 @@ For more information, see the [context engineering workflow](/docs/agents/guides
 
 AI-generated code can contain bugs, security issues, or subtle logic errors. Always treat AI output as a starting point that needs review.
 
-* **Review before accepting.** Read through generated code before accepting changes. Pay attention to edge cases, error handling, and assumptions the AI might have made.
+* **Review before integrating.** Read through generated code before you commit or merge the changes. Pay attention to edge cases, error handling, and assumptions the AI might have made.
 
 * **Run tests after AI changes.** Include test cases in your prompt so the AI can verify its own work. If the AI doesn't run tests automatically, run them yourself before moving on.
 

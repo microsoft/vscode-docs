@@ -87,15 +87,14 @@ When `setting(imageCarousel.chat.enabled)` is enabled, you can select images or 
 
 ## Review and manage changes
 
-After the AI makes changes to your files, review and accept or discard them.
+After the AI changes your files, review and validate the result before you commit or integrate it.
 
-* **Review inline diffs**: open a changed file to see inline diffs of the applied changes. Use the editor overlay controls to navigate between edits and **Keep** or **Undo** individual changes. For more information, see [reviewing AI-generated code edits](/docs/chat/review-code-edits.md).
+* **Review diffs**: select a changed file in the agent's response or use the **Changes** panel in the Agents window. To show a changed-files summary after each request in the Chat view, set `setting(chat.checkpoints.showFileChanges)` to `true`.
+* **Request revisions**: send a follow-up prompt, leave feedback in the Agents window diff editor, or edit the files directly.
+* **Use checkpoints**: restore an earlier snapshot to revert a request and all later file changes. For more information, see [checkpoints and editing requests](/docs/chat/chat-checkpoints.md).
+* **Integrate the result**: commit folder changes with Source Control, or apply or merge changes from an isolated worktree.
 
-* **Use checkpoints**: VS Code can automatically create snapshots of your files at key points during chat interactions, enabling you to roll back to a previous state. For more information, see [checkpoints and editing requests](/docs/chat/chat-checkpoints.md).
-
-* **Stage to accept**: staging your changes in the Source Control view automatically accepts any pending edits. Discarding changes also discards pending edits.
-
-![Screenshot showing the Editor with proposed changes, highlighting the review controls in the editor overlay controls.](images/review-code-edits/copilot-edits-file-review-controls.png)
+For more information, see [reviewing AI-generated code edits](/docs/chat/review-code-edits.md).
 
 ## Get notified about chat responses
 
