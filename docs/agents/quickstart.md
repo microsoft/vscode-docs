@@ -71,6 +71,6 @@ Learn more about [reviewing code changes](/docs/agents/review-code-edits.md).
 
 ## Next steps
 
-* [Manage chat sessions](/docs/chat/chat-sessions.md): create, organize, and configure your sessions.
+* [Manage agent sessions](/docs/agents/sessions/manage-sessions.md): create, organize, and configure your sessions.
 * [Build with agents in VS Code](/docs/agents/overview.md): see what else agents can do.
 * [Best practices for using AI in VS Code](/docs/agents/best-practices.md): get better results.

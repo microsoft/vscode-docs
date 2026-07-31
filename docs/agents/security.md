@@ -50,7 +50,7 @@ VS Code limits the potential impact of agent actions by controlling their scope 
 
 * **Workspace-limited file access**: Built-in agent tools can only read and write files within the current workspace folder. You can optionally grant read-only access to additional folders with the `setting(chat.additionalReadAccessFolders)` setting.
 
-* **Tools picker**: You can selectively [enable or disable specific tools](/docs/chat/chat-tools.md) using the tools picker, giving you precise control over what capabilities are available to the AI agent.
+* **Tools picker**: You can selectively [enable or disable specific tools](/docs/agents/tools.md) using the tools picker, giving you precise control over what capabilities are available to the AI agent.
 
 * **Session isolation**: You can grant permissions that are temporary and don't persist beyond the current session. This enables you to experiment with AI capabilities while maintaining long-term security boundaries.
 

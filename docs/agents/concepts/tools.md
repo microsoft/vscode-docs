@@ -59,6 +59,6 @@ Learn more about [trust and safety](/docs/agents/concepts/trust-and-safety.md).
 
 ## Related resources
 
-* [Use tools in chat](/docs/chat/chat-tools.md)
+* [Use tools with agents](/docs/agents/tools.md)
 * [Add and manage MCP servers](/docs/agent-customization/mcp-servers.md)
 * [Agents](/docs/agents/concepts/agents.md)

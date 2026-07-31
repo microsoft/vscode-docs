@@ -118,7 +118,7 @@ VS Code gives you flexibility instead of locking you into one agent or model. Yo
 * **Your agent harness**: run [Copilot, Claude, or Codex](/docs/agents/agent-harnesses.md) on your machine, use the Local harness for the full VS Code tool and model ecosystem, or hand work to a cloud harness that runs remotely and opens a pull request.
 * **Your model**: use a model hosted and provided by GitHub Copilot, or bring your own key to use a model from the provider or host of your choice, including a local model that runs offline.
 
-Learn more about [agent harnesses](/docs/agents/concepts/agent-harnesses.md) and [language models](/docs/agent-customization/language-models.md). You set these choices, along with the permission level, when you start a session and can change them at any time. See how to [start a session](/docs/chat/chat-sessions.md).
+Learn more about [agent harnesses](/docs/agents/concepts/agent-harnesses.md) and [language models](/docs/agent-customization/language-models.md). You set these choices, along with the permission level, when you start a session and can change them at any time. See how to [start a session](/docs/agents/sessions/manage-sessions.md).
 
 ## Tailor agents to your codebase
 

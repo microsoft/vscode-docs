@@ -40,7 +40,7 @@ To give extra project-specific context, you can [add context to your prompt](#ad
 
 For common tasks, you can use slash commands as shortcuts for frequently used prompts or to invoke [agent skills](/docs/agent-customization/agent-skills.md). Type `/` in the chat input to see all available commands.
 
-You can run multiple sessions in parallel to work on different tasks simultaneously. When you start a new session, the previous session remains active in the background, allowing you to switch back to it at any time without losing context. Learn more in [Manage chat sessions](/docs/chat/chat-sessions.md).
+You can run multiple sessions in parallel and switch between them without losing context. Learn more in [Manage agent sessions](/docs/agents/sessions/manage-sessions.md).
 
 Each session has configuration options that shape how the agent responds, such as the agent harness, agent role, permission level, and language model. Learn how to [choose an agent harness](/docs/agents/agent-harnesses.md).
 
@@ -91,7 +91,7 @@ After the AI changes your files, review and validate the result before you commi
 
 * **Review diffs**: select a changed file in the agent's response or use the **Changes** panel in the Agents window. To show a changed-files summary after each request in the Chat view, set `setting(chat.checkpoints.showFileChanges)` to `true`.
 * **Request revisions**: send a follow-up prompt, leave feedback in the Agents window diff editor, or edit the files directly.
-* **Use checkpoints**: restore an earlier snapshot to revert a request and all later file changes. For more information, see [checkpoints and editing requests](/docs/chat/chat-checkpoints.md).
+* **Use checkpoints**: restore an earlier snapshot to revert a request and all later file changes. For more information, see [checkpoints and editing requests](/docs/agents/checkpoints.md).
 * **Integrate the result**: commit folder changes with Source Control, or apply or merge changes from an isolated worktree.
 
 For more information, see [reviewing AI-generated code edits](/docs/agents/review-code-edits.md).
@@ -152,7 +152,7 @@ To learn more about Copilot's security, privacy, compliance, and transparency, s
 
 ## Related resources
 
-* [Create and manage chat sessions](/docs/chat/chat-sessions.md)
+* [Create and manage agent sessions](/docs/agents/sessions/manage-sessions.md)
 
 * [Choose agents and configure permissions](/docs/agents/overview.md)
 

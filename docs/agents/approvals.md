@@ -16,7 +16,7 @@ keywords:
 
 Agents in Visual Studio Code can run tools and terminal commands to complete tasks. To keep you in control, VS Code asks for your approval before the agent runs actions that modify files, run commands, or access external resources.
 
-This article describes how to set the agent's permission level, manage tool and URL approvals, automatically approve terminal commands, and sandbox agent commands. For information about using tools in chat, see [Use tools in chat](/docs/chat/chat-tools.md). For background on why these controls exist, see [Trust and safety](/docs/agents/concepts/trust-and-safety.md).
+This article describes how to set the agent's permission level, manage tool and URL approvals, automatically approve terminal commands, and sandbox agent commands. For information about agent tools, see [Use tools with agents](/docs/agents/tools.md). For background on why these controls exist, see [Trust and safety](/docs/agents/concepts/trust-and-safety.md).
 
 VS Code provides several controls to govern what the agent can do. Permission levels are the high-level dial for the session, while the other mechanisms give you fine-grained control over specific actions.
 
@@ -155,7 +155,7 @@ URL auto-approval examples:
 
 ## Automatically approve terminal commands
 
-The agent uses a single terminal tool to run [terminal commands](/docs/chat/chat-tools.md#run-terminal-commands), but that tool can run any command. Approving the terminal tool once would be too broad, so terminal commands are approved per command rather than per tool.
+The agent uses a single terminal tool to run [terminal commands](/docs/agents/tools.md#run-terminal-commands), but that tool can run any command. Approving the terminal tool once would be too broad, so terminal commands are approved per command rather than per tool.
 
 By default, VS Code already auto-approves a set of safe commands and blocks risky ones, such as `rm` and `del`, that always require manual approval. Use the `setting(chat.tools.terminal.autoApprove)` setting to extend or override these defaults with your own allow and deny list:
 
@@ -308,6 +308,6 @@ You have several options for auto-approving tool calls:
 
 ## Related resources
 
-* [Use tools in chat](/docs/chat/chat-tools.md)
+* [Use tools with agents](/docs/agents/tools.md)
 * [Security considerations for using AI in VS Code](/docs/agents/security.md)
 * [Trust and safety concepts](/docs/agents/concepts/trust-and-safety.md)

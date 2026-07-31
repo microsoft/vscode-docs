@@ -51,11 +51,11 @@ The implementation agent receives the plan and conversation context and starts i
 | Action | What it does |
 |---|---|
 | **Hand off** | Changes the session target and carries the conversation history and context to the new target. |
-| **Fork a session** | Creates an independent session from a point in the conversation so you can explore another direction without changing the original. Learn more about [forking sessions](/docs/chat/chat-sessions.md#fork-a-chat-session). |
+| **Fork a session** | Creates an independent session from a point in the conversation so you can explore another direction without changing the original. Learn more about [forking sessions](/docs/agents/sessions/manage-sessions.md#fork-a-chat-session). |
 | **Switch surfaces** | Opens the same session in the [Chat view](/docs/agents/chat-view.md) or [Agents window](/docs/agents/agents-window.md) without changing its target or context. You can switch between views and pick up where you left off. |
 
 ## Next steps
 
 * [Sessions and handoff](/docs/agents/concepts/sessions.md): understand sessions as the unit of work.
-* [Manage chat sessions](/docs/chat/chat-sessions.md): create, organize, and configure your sessions.
+* [Manage agent sessions](/docs/agents/sessions/manage-sessions.md): create, organize, and configure your sessions.
 * [Agent harnesses](/docs/agents/concepts/agent-harnesses.md): choose the agent that best fits your task.

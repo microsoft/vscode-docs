@@ -41,7 +41,7 @@ The context window is the total amount of information a model can process in a s
 
 When the context window fills up, VS Code automatically summarizes older parts of the conversation to make room. This means important details from early in a long conversation might be compressed or lost. You can also type `/compact` in the chat input to manually trigger compaction at any time. Optionally, add custom instructions after the command to guide the summary, for example `/compact focus on the API design decisions`.
 
-Learn more about [how VS Code assembles context](/docs/agents/concepts/context.md) and [context compaction](/docs/chat/copilot-chat-context.md#context-compaction).
+Learn more about [how VS Code assembles context](/docs/agents/concepts/context.md) and [context compaction](/docs/agents/sessions/manage-sessions.md#compact-conversation-context).
 
 ## Thinking and reasoning
 

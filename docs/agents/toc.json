@@ -33,8 +33,12 @@
         "topics": [
             ["Agents Window", "/docs/agents/agents-window"],
             ["Chat View", "/docs/agents/chat-view"],
-            ["Review Edits", "/docs/agents/review-code-edits"],
             ["Choose an Agent Harness", "/docs/agents/agent-harnesses"],
+            ["Use Tools", "/docs/agents/tools"],
+            ["Approvals & Permissions", "/docs/agents/approvals"],
+            ["Review Edits", "/docs/agents/review-code-edits"],
+            ["Checkpoints", "/docs/agents/checkpoints"],
+            ["Artifacts", "/docs/agents/artifacts"],
             ["Remote Agent Sessions", "/docs/agents/remote-agent-sessions"],
             ["Hand Off a Session", "/docs/agents/handoff"],
             ["Plan Work", "/docs/agents/planning"],
@@ -45,12 +49,12 @@
                 "name": "Sessions",
                 "area": "agents/sessions",
                 "topics": [
+                    ["Manage Sessions", "/docs/agents/sessions/manage-sessions"],
                     ["Session Insights", "/docs/agents/sessions/session-insights"],
                     ["Sync Sessions", "/docs/agents/sessions/session-sync"]
                 ]
             }],
 
-            ["Approvals & Permissions", "/docs/agents/approvals"],
             ["AI Security", "/docs/agents/security"]
         ]
     },
@@ -66,6 +70,7 @@
             ["Custom Agents", "/docs/agent-customization/custom-agents"],
             ["Language Models", "/docs/agent-customization/language-models"],
             ["MCP", "/docs/agent-customization/mcp-servers"],
+            ["Tool Sets", "/docs/agent-customization/tool-sets"],
             ["Hooks", "/docs/agent-customization/hooks"],
             ["Plugins", "/docs/agent-customization/agent-plugins"],
             ["Prompt Files", "/docs/agent-customization/prompt-files"]
@@ -76,13 +81,9 @@
         "name": "Use chat",
         "area": "chat",
         "topics": [
-            ["Use Chat", "/docs/chat/chat-overview"],
-            ["Inline Chat", "/docs/chat/inline-chat"],
-            ["Add Context", "/docs/chat/copilot-chat-context"],
-            ["Use Tools", "/docs/chat/chat-tools"],
-            ["Checkpoints", "/docs/chat/chat-checkpoints"],
-            ["Artifacts Panel", "/docs/chat/chat-artifacts"],
-            ["Manage Sessions", "/docs/chat/chat-sessions"]
+            ["Chat Basics", "/docs/chat/chat-overview"],
+            ["Inline & Quick Chat", "/docs/chat/inline-chat"],
+            ["Add Prompt Context", "/docs/chat/copilot-chat-context"]
         ]
     },
 

@@ -51,11 +51,11 @@ Start a natural language chat conversation to get help with coding tasks. For ex
 | `kb(workbench.action.chat.newChat)` | Start a new chat session in the Chat view. |
 | `kb(workbench.action.chat.toggleAgentMode)` | Toggle between different [agents](/docs/agent-customization/custom-agents.md) in the Chat view. |
 | `kb(workbench.action.chat.openModelPicker)` | Show the model picker to [select a different AI model](/docs/agent-customization/language-models.md) for chat. |
-| Context window control | Visual indicator in the chat input box showing [context window usage](/docs/chat/copilot-chat-context.md#monitor-context-window-usage). Hover for total token count and a breakdown by category. |
+| Context window control | Visual indicator in the chat input box showing [context window usage](/docs/agents/sessions/manage-sessions.md#manage-session-context). Hover for total token count and a breakdown by category. |
 | `Add Context...` | Attach different types of [context to your chat prompt](/docs/chat/copilot-chat-context.md). |
 | `/`-command | Use [slash commands](#slash-commands) for common tasks or invoke a [reusable chat prompt](/docs/agent-customization/overview.md). |
 | `#`-mention | Reference common tools or chat variables to [provide context](/docs/chat/copilot-chat-context.md) within your prompt. |
-| Edit (<i class="codicon codicon-pencil"></i>) | [Edit a previous chat prompt](/docs/chat/chat-checkpoints.md#edit-a-previous-chat-request) and revert changes. |
+| Edit (<i class="codicon codicon-pencil"></i>) | [Edit a previous chat prompt](/docs/agents/checkpoints.md#edit-a-previous-chat-request) and revert changes. |
 | History (<i class="codicon codicon-history"></i>) | Access your history of chat sessions. |
 | Queue or steer | [Send a follow-up message](/docs/chat/chat-overview.md#send-messages-while-a-request-is-running) while a request is running. Choose to queue the message, steer the current request, or stop and send immediately. |
 | Voice (<i class="codicon codicon-mic"></i>) | Enter a chat prompt by using speech (voice chat). The chat response is read out aloud. |
@@ -83,9 +83,9 @@ Get more relevant responses by providing [context to your chat prompt](/docs/cha
 
 ## Chat tools
 
-Use [tools](/docs/chat/chat-tools.md) in chat to accomplish specialized tasks while processing a user request. Examples of such tasks are listing the files in a directory, editing a file in your workspace, running a terminal command, getting the output from the terminal, and more.
+Use [tools](/docs/agents/tools.md) in chat to accomplish specialized tasks while processing a user request. Examples of such tasks are listing the files in a directory, editing a file in your workspace, running a terminal command, getting the output from the terminal, and more.
 
-VS Code provides built-in tools, and you can extend chat with tools from [MCP servers](/docs/agent-customization/mcp-servers.md) and [extensions](/api/extension-guides/ai/tools.md). Learn more about [types of tools](/docs/agents/concepts/tools.md#types-of-tools).
+VS Code provides built-in tools, and you can extend chat with tools from [MCP servers](/docs/agent-customization/mcp-servers.md) and [extensions](/api/extension-guides/ai/tools.md). Group related tools into reusable [tool sets](/docs/agent-customization/tool-sets.md). Learn more about [types of tools](/docs/agents/concepts/tools.md#types-of-tools).
 
 The following table lists the VS Code built-in tools:
 
@@ -133,7 +133,7 @@ The following table lists the VS Code built-in tools:
 | `#web` (tool set) | Access web content. |
 | `#web/fetch` | Fetch the content from a given web page. For example, "Summarize #web/fetch code.visualstudio.com/updates." |
 
-In agent host sessions, additional session-management tools are available for cross-session orchestration: `list_sessions`, `get_current_session`, `create_session`, `create_chat`, `get_session_context`, `send_message`, and `delete_session`. Learn more about [managing chat sessions](/docs/chat/chat-sessions.md#orchestrate-sessions-from-agent-host-sessions).
+In agent host sessions, additional session-management tools are available for cross-session orchestration: `list_sessions`, `get_current_session`, `create_session`, `create_chat`, `get_session_context`, `send_message`, and `delete_session`. Learn more about [managing agent sessions](/docs/agents/sessions/manage-sessions.md#orchestrate-sessions-from-agent-host-sessions).
 
 ## Slash commands
 
@@ -148,7 +148,7 @@ Slash commands are shortcuts to specific functionality within the chat. You can 
 | `/setupTests` | Get help setting up a testing framework for your code. Get recommendation for a relevant testing framework, steps to set up and configure it, and suggestions for VS Code testing extensions. |
 | `/clear` | Start a new chat session in the Chat view. |
 | `/compact` | Compact the conversation context by summarizing it. Useful when a conversation grows too long for the model's context window. |
-| `/fork` | Fork the current chat session into a new independent session that inherits the full conversation history. Learn more about [forking chat sessions](/docs/chat/chat-sessions.md#fork-a-chat-session). |
+| `/fork` | Fork the current chat session into a new independent session that inherits the full conversation history. Learn more about [forking agent sessions](/docs/agents/sessions/manage-sessions.md#fork-a-chat-session). |
 | `/debug` | Show the Chat Debug view to [inspect the chat logs for troubleshooting](/docs/agents/agent-troubleshooting/troubleshooting.md). |
 | `/troubleshoot` | Ask the AI to analyze the [agent debug logs](/docs/agents/agent-troubleshooting/chat-debug-view.md) for the current chat session. Optionally, include `#session` to select and diagnose a previous chat session. For example, `/troubleshoot how many tokens did I use?` or `/troubleshoot list all paths you tried to load customizations in #session`. Requires `setting(github.copilot.chat.agentDebugLog.enabled)`. |
 | `/new` | Scaffold a new VS Code workspace or file. Use natural language to describe the type of project/file you need, and preview the scaffolded content before creating it. |

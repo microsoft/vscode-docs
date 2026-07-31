@@ -151,7 +151,7 @@ When this policy is applied, hook configurations are ignored and no hook command
 
 ## Enable or disable extension language tools
 
-[Tools in chat](/docs/chat/chat-tools.md) extend the AI assistant's capabilities with specialized functions. These tools can come from built-in features, Model Context Protocol (MCP) servers, or third-party extensions.
+[Agent tools](/docs/agents/tools.md) extend the AI assistant's capabilities with specialized functions. These tools can come from built-in features, Model Context Protocol (MCP) servers, or third-party extensions.
 
 Third-party extensions can contribute tools that integrate with chat by using the [Language Model Tools API](/api/extension-guides/ai/tools).
 
@@ -380,7 +380,7 @@ For GitHub Copilot's security, privacy, compliance, and transparency information
 ## Related resources
 
 * [Enterprise policies reference](/docs/enterprise/policies.md) - Complete list of enterprise policies
-* [Use tools in chat](/docs/chat/chat-tools.md) - Learn how tools work in VS Code chat
+* [Use tools with agents](/docs/agents/tools.md) - Learn how tools work in VS Code chat
 * [MCP servers in VS Code](/docs/agent-customization/mcp-servers.md) - Configure and use MCP servers
 * [Custom instructions](/docs/agent-customization/custom-instructions.md) - Define custom instructions for AI responses
 * [Custom agents](/docs/agent-customization/custom-agents.md) - Create custom AI personas and workflows

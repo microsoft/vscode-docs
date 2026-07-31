@@ -1,7 +1,7 @@
 ---
 ContentId: 8f2c4a1d-9e3b-4c5f-a7d8-6b9c2e4f1a3d
 DateApproved: 7/29/2026
-MetaDescription: Learn how to use built-in tools, MCP tools, and extension tools to extend chat in VS Code with specialized functionality.
+MetaDescription: Use built-in, MCP, and extension tools with AI agents in VS Code, including tool selection, parameters, terminal commands, and approvals.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 keywords:
 - copilot
@@ -12,13 +12,13 @@ keywords:
 - terminal
 - customization
 ---
-# Use tools in chat
+# Use tools with agents
 
 Tools extend agents in Visual Studio Code with specialized functionality for accomplishing specific tasks like searching code, running commands, fetching web content, or invoking APIs. VS Code supports three types of tools: built-in tools, Model Context Protocol (MCP) tools, and extension tools.
 
 For background on tool types and how tools work in the agent loop, see [Tools concepts](/docs/agents/concepts/tools.md).
 
-This article describes how to use tools in your chat prompts and how to manage tool invocations. To control how the agent requests approval for tool calls and how much autonomy it has, see [Manage approvals and permissions](/docs/agents/approvals.md).
+This article describes how to use tools in your prompts and manage tool invocations. To control how the agent requests approval for tool calls and how much autonomy it has, see [Manage approvals and permissions](/docs/agents/approvals.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Try tools in action">
 Launch a chat prompt that uses the web tool to summarize the latest VS Code updates.
@@ -27,9 +27,9 @@ Launch a chat prompt that uses the web tool to summarize the latest VS Code upda
 
 </div>
 
-## Enable tools for chat
+## Select tools for a request
 
-Before you can use tools in chat, you need to enable them in the Chat view. You can enable or disable tools on a per-request basis by using the tools picker. You can add more tools by [installing MCP servers](/docs/agent-customization/mcp-servers.md) or [extensions](/docs/configure/extensions/extensions.md) that contribute tools.
+Use the tools picker in the Chat view to select which tools are available for a request. Add more tools by [installing MCP servers](/docs/agent-customization/mcp-servers.md) or [extensions](/docs/configure/extensions/extensions.md) that contribute tools.
 
 > [!TIP]
 > Select only the tools that are relevant for your prompt to improve your results.
@@ -64,6 +64,8 @@ You can also explicitly reference tools in your prompts by typing `#` followed b
 > [!TIP]
 > By default, tool call details are collapsed in the chat conversation. You can expand them by selecting the tool summary line in chat, or change grouping behavior with `setting(chat.agent.thinking.collapsedTools)` (experimental): use `off` to keep tool calls separate, `withThinking` to group with thinking when available, or `always` to always group. When `setting(chat.agent.thinkingStyle)` is `collapsed`, reasoning and grouped tool calls can appear in separate collapsible sections.
 
+To group related tools and reuse them across prompts, prompt files, and custom agents, [create a tool set](/docs/agent-customization/tool-sets.md).
+
 ## Edit tool parameters
 
 You can review and edit the input parameters before a tool runs:
@@ -73,52 +75,6 @@ You can review and edit the input parameters before a tool runs:
 1. Edit any tool input parameters as needed.
 
 1. Select **Allow** to run the tool with the modified parameters.
-
-## Group tools with tool sets
-
-A tool set is a collection of tools that you can reference as a single entity in your prompts. Tool sets help you organize related tools and make them easier to use in a chat prompt, [prompt files](/docs/agent-customization/prompt-files.md), and [custom chat agents](/docs/agent-customization/custom-agents.md). Some of the built-in tools are part of predefined tool sets, such as `#edit` and `#search`.
-
-### Create a tool set
-
-To create a tool set:
-
-1. Run the **Chat: Configure Tool Sets** command from the Command Palette and select **Create new tool sets file**.
-
-    Alternatively, select the ellipsis (**...**) menu in the Chat view, select **Tool Sets**, and then select **Create new tool sets file**.
-
-1. Define your tool set in the `.jsonc` file that opens.
-
-    A tool set has the following structure:
-
-    ```json
-    {
-        "reader": {
-            "tools": [
-                "search/changes",
-                "search/codebase",
-                "read/problems",
-                "search/usages"
-            ],
-            "description": "Tools for reading and gathering context",
-            "icon": "book"
-        }
-    }
-    ```
-
-    Tool set properties:
-
-    * `tools`: Array of tool names (built-in tools, MCP tools, or extension tools)
-    * `description`: Brief description displayed in the tools picker
-    * `icon`: Icon for the tool set (see [Product Icon Reference](/api/references/icons-in-labels.md))
-
-### Use a tool set
-
-Reference a tool set in your prompts by typing `#` followed by the tool set name:
-
-* `"Analyze the codebase for security issues #reader"`
-* `"Where is the DB connection string defined? #search"`
-
-In the tools picker, tool sets are available as collapsible groups of related tools. You can select or deselect entire tool sets to quickly enable or disable multiple related tools at once.
 
 ## Run terminal commands
 
@@ -191,5 +147,6 @@ Yes. You can create tools in two ways:
 ## Related resources
 
 * [Chat tools reference](/docs/agents/reference/ai-features-cheat-sheet.md#chat-tools)
+* [Create and use tool sets](/docs/agent-customization/tool-sets.md)
 * [Agent hooks](/docs/agent-customization/hooks.md) - Execute custom commands at tool lifecycle events
 * [Security considerations for using AI in VS Code](/docs/agents/security.md)

@@ -52,7 +52,7 @@ To start a session in the Chat view:
 
 Sessions that you start in the Chat view use your current workspace. To choose a different workspace or use worktree isolation with Copilot, Claude, or Codex, [start the session in the Agents window](/docs/agents/agents-window.md#start-an-agent-session).
 
-Learn more about [creating and managing sessions](/docs/chat/chat-sessions.md).
+Learn more about [creating and managing sessions](/docs/agents/sessions/manage-sessions.md).
 
 ## Choose code isolation
 
@@ -225,7 +225,7 @@ Cloud sessions use the tools, MCP servers, and models configured by the cloud se
 ## Related resources
 
 * [Agent harness concepts](/docs/agents/concepts/agent-harnesses.md)
-* [Manage chat sessions](/docs/chat/chat-sessions.md)
+* [Manage agent sessions](/docs/agents/sessions/manage-sessions.md)
 * [Hand off a session](/docs/agents/handoff.md)
 * [Approvals and permissions](/docs/agents/approvals.md)
 * [Agent Host architecture](/docs/agents/concepts/agent-host.md)

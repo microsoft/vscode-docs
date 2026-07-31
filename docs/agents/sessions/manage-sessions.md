@@ -1,12 +1,12 @@
 ---
 ContentId: 7a2e5f8d-4c9b-41e6-b3a8-9d7f2e4c1b8a
 DateApproved: 7/29/2026
-MetaDescription: Create and manage chat sessions in Visual Studio Code, including multiple chats, session lists, organization, archiving, and forking.
-MetaSocialImage: ../images/shared/github-copilot-social.png
+MetaDescription: Create and manage agent sessions in Visual Studio Code, including multiple chats, context compaction, organization, archiving, and forking.
+MetaSocialImage: ../../images/shared/github-copilot-social.png
 ---
-# Work with chat sessions in VS Code
+# Manage agent sessions in VS Code
 
-Use chat in Visual Studio Code to have conversation-based AI interactions. A [session](/docs/agents/concepts/sessions.md) consists of the sequence of prompts and responses between you and the AI, along with any relevant context from your code or files. This article describes how to create and manage chat sessions, use the sessions list, and organize your sessions. These features work in both the [Chat view](/docs/agents/chat-view.md) and the [Agents window](/docs/agents/agents-window.md).
+A [session](/docs/agents/concepts/sessions.md) is the unit of work with an agent in Visual Studio Code. It includes the sequence of prompts and responses, relevant context, and any files or resources associated with the task. This article describes how to create, organize, and manage sessions in both the [Chat view](/docs/agents/chat-view.md) and the [Agents window](/docs/agents/agents-window.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
 Follow a hands-on tutorial to experience local, background, and cloud agents in VS Code.
@@ -15,12 +15,12 @@ Follow a hands-on tutorial to experience local, background, and cloud agents in 
 
 </div>
 
-## Start a new chat session
+## Start an agent session
 
-When you start a new chat session, you begin a new conversation with the AI. Each session has its own context window and can run with a different agent harness. You can run multiple sessions in parallel, each focused on a different task or topic. Use the [sessions list](#sessions-list) to monitor and switch between different sessions.
+When you start an agent session, you begin a new conversation with the AI. Each session has its own context window and can run with a different agent harness. You can run multiple sessions in parallel, each focused on a different task or topic. Use the [sessions list](#sessions-list) to monitor and switch between sessions.
 
 > [!TIP]
-> Start a new chat session when you want to change topics to help the AI provide more relevant responses.
+> Start a new session when you change topics to help the AI provide more relevant responses.
 
 Depending on how you prefer to work or the task you want to accomplish, you can choose between different chat experiences in VS Code. Each experience is optimized for different workflows, but they share the same underlying sessions to enable you to switch between them at any time.
 
@@ -29,7 +29,7 @@ Depending on how you prefer to work or the task you want to accomplish, you can 
 
 The [Agents window](/docs/agents/agents-window.md) is a dedicated window for orchestrating agents across multiple projects from a single place. Chat is your primary interface where you assign high-level tasks to agents. The Agents window is optimized for **agents-first workflows**.
 
-![Screenshot of the Agents window showing the sessions list, workspace picker, and chat input.](images/chat-sessions/agents-window-new-session.png)
+![Screenshot of the Agents window showing the sessions list, workspace picker, and chat input.](../images/chat-sessions/agents-window-new-session.png)
 
 To start a new chat session in the Agents window:
 
@@ -60,7 +60,7 @@ To start a new chat session in the Agents window:
 
 The [Chat view](/docs/agents/chat-view.md) is a chat panel that sits in the sidebar alongside your workspace editor tabs. Agents assist you with coding tasks, while you have full access to VS Code's rich coding experience. The Chat view is optimized for **code-first workflows**.
 
-![Screenshot of opening a new chat session in the Chat view in VS Code.](images/chat-sessions/new-chat-session-chat-view.png)
+![Screenshot of opening a new chat session in the Chat view in VS Code.](../images/chat-sessions/new-chat-session-chat-view.png)
 
 To start a new chat session in the Chat view:
 
@@ -87,6 +87,31 @@ To start a new chat session in the Chat view:
 {% /tab %}
 {% /tabs %}
 
+## Manage session context
+
+The context window control in the chat input shows how much of the model's context window the session is using. Hover over the control to see the token count, a usage breakdown by category, and the total AI credits consumed by the session.
+
+![Screenshot of VS Code Chat view, showing the context window usage control in the chat input box.](../../chat/images/copilot-chat/chat-context-window-control.png)
+
+As the conversation grows, the control updates to reflect increasing context usage. The available context depends on the selected model.
+
+How context changes across turns also affects prompt caching. Stable context lets the model provider reuse tokens from earlier requests, which lowers cost and latency. Use the [Cache Explorer](/docs/agents/agent-troubleshooting/cache-explorer.md) to check your cache hit rate.
+
+### Compact conversation context
+
+Context compaction summarizes earlier conversation history to free space in the context window. Compaction lets you continue the same session with less irrelevant history and reduces the tokens sent with subsequent requests.
+
+VS Code automatically compacts the conversation when the context window fills. To turn off automatic compaction, set `setting(github.copilot.chat.summarizeAgentConversationHistory.enabled)` to `false`.
+
+To compact the conversation manually:
+
+* Type `/compact` in the chat input. Optionally, add instructions for what the summary should retain, for example `/compact focus on the database schema decisions`.
+* Select the context window control, and then select **Compact Conversation**.
+
+Manual compaction is available for local, background, and Claude agent sessions. To reset the context entirely, [start a new session](#start-an-agent-session).
+
+Learn more about [AI credit consumption](/docs/agents/guides/optimize-usage.md).
+
 ## Run multiple chats in a session
 
 In an agent host session, you can run multiple chats as tabs in the chat area. Each chat has its own conversation, title, status, and agent or language model selection, but all chats share the session's workspace and worktree. A new chat starts blank and doesn't inherit the history of the other chats.
@@ -102,7 +127,7 @@ To create and manage chats in a session:
 
     A blank chat opens. When the session has more than one chat, a tab strip appears in the chat area. Chats don't appear as separate items in the sessions list.
 
-    ![Screenshot showing a new chat tab alongside an existing chat in the Agents window.](../agents/images/agents-window/agents-window-new-subsession.png)
+    ![Screenshot showing a new chat tab alongside an existing chat in the Agents window.](../images/agents-window/agents-window-new-subsession.png)
 
     <!-- TODO: Replace the screenshot with an updated capture that shows the + New Chat button, the chat tab strip with the trailing +, and the Conversations dropdown. -->
 
@@ -132,7 +157,7 @@ Start a side chat in one of these ways:
 
 Each question creates a new side chat. The side chat inherits the agent and language model from the source chat, but inherited messages remain hidden from its transcript.
 
-![Screenshot showing how to start a side chat in the Agents window from selected response text.](../agents/images/agents-window/agents-window-side-chat.png)
+![Screenshot showing how to start a side chat in the Agents window from selected response text.](../images/agents-window/agents-window-side-chat.png)
 
 > [!NOTE]
 > Side chats are available only in the Agents window for Copilot and Claude sessions. They aren't available for Codex sessions or in the Chat view.
@@ -141,7 +166,7 @@ Each question creates a new side chat. The side chat inherits the agent and lang
 
 The sessions list is your central hub for managing all your chat sessions, regardless of where you started them or where they are running. The sessions list shows your sessions with information about their status, type, and file changes.
 
-![Screenshot of the sessions list showing multiple sessions with different statuses, types, and file change stats.](images/chat-sessions/chat-view-sessions-list.png)
+![Screenshot of the sessions list showing multiple sessions with different statuses, types, and file change stats.](../images/chat-sessions/chat-view-sessions-list.png)
 
 Hover over a session to see actions for pinning or [archiving](#archive-sessions) it. Right-click a session in the list to see additional actions like deleting or changing the session's state. Some actions are specific to the session's harness and state. For example, you can check out a pull request for a cloud session.
 
@@ -152,7 +177,7 @@ Use the pinning action to keep important sessions easily accessible at the top o
 
 In the **Agents window**, the sessions list is located in the left sidebar. It shows sessions from all your workspaces, so you can monitor work across projects from a single place. Each session item surfaces key information such as session name, workspace, harness, and file change stats.
 
-![Screenshot of the sessions list in the Agents window, showing multiple sessions with different harnesses and file change stats.](images/chat-sessions/agents-window-sessions-list.png)
+![Screenshot of the sessions list in the Agents window, showing multiple sessions with different harnesses and file change stats.](../images/chat-sessions/agents-window-sessions-list.png)
 
 By default, the list is filtered to only show active sessions. You can change the filter to show sessions of different states, such as completed or archived.
 
@@ -201,7 +226,7 @@ When you archive (or mark as done) a session, its status changes so it moves out
 
 To archive a session, hover over the session in the sessions list and select the **Archive** (Chat view) or **Mark as Done** (Agents Window) option.
 
-![Screenshot of archiving an agent session in the sessions view.](../agents/images/agents-overview/agent-sessions-archive-v2.png)
+![Screenshot of archiving an agent session in the sessions view.](../images/agents-overview/agent-sessions-archive-v2.png)
 
 To view your archived sessions, use the filter options in the sessions list and select the **Archived** (Chat view) or **Done** (Agents Window) filter.
 
@@ -230,7 +255,7 @@ There are two ways to fork a chat session:
 
 * **Fork from a checkpoint**: hover over a chat request in the conversation and select the **Fork Conversation** button. The fork includes only the requests up to and including that checkpoint.
 
-    ![Screenshot of the Fork Conversation button in the checkpoint toolbar in the Chat view.](images/chat-checkpoints/chat-fork-conversation.png)
+    ![Screenshot of the Fork Conversation button in the checkpoint toolbar in the Chat view.](../images/chat-checkpoints/chat-fork-conversation.png)
 
 > [!TIP]
 > A forked session inherits the conversation history of the original, which preserves the prompt cache and reduces cost on the next request. Use the [Cache Explorer](/docs/agents/agent-troubleshooting/cache-explorer.md) to compare cache hit rates across sessions.
@@ -285,7 +310,7 @@ The Chat view supports different options for copying chat messages as Markdown t
 
 The session status indicator provides quick access to your sessions directly from the command center in the title bar. The indicator displays visual badges for unread messages and in-progress sessions, so you can stay informed about AI activity without switching views.
 
-![Screenshot showing the session status indicator in the command center with unread and in-progress badges.](../agents/images/agents-overview/agent-status-indicator-v2.png)
+![Screenshot showing the session status indicator in the command center with unread and in-progress badges.](../images/agents-overview/agent-status-indicator-v2.png)
 
 The indicator shows:
 
@@ -305,5 +330,5 @@ To configure the VS Code welcome page as your startup experience, set `setting(w
 
 * [Use chat in VS Code](/docs/chat/chat-overview.md)
 * [Agents overview](/docs/agents/overview.md)
-* [Manage context for AI](/docs/chat/copilot-chat-context.md)
+* [Add context to chat](/docs/chat/copilot-chat-context.md)
 * [Best practices for using AI](/docs/agents/best-practices.md)

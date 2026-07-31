@@ -82,14 +82,14 @@ To start a new agent session in the Agents window:
 
 1. Type a prompt that describes what you want to accomplish, and press `kbstyle(Enter)`.
 
-The session is also available in the main VS Code window. Learn more about [creating and managing sessions](/docs/chat/chat-sessions.md).
+The session is also available in the main VS Code window. Learn more about [creating and managing sessions](/docs/agents/sessions/manage-sessions.md).
 
 > [!TIP]
 > To start a session in the background without leaving the current session, press `kbstyle(Alt+Enter)` or hold `kbstyle(Alt)` and select **Send**. The newly started session appears in the sessions list once it commits.
 
 ## Manage your sessions
 
-The sessions list shows your sessions across all workspaces. Select a session to show its conversation and make its workspace files and changes active. You can group sessions by workspace or time, create custom groups, pin sessions, and rearrange items with drag and drop. Learn how to [organize and manage sessions](/docs/chat/chat-sessions.md#sessions-list).
+The sessions list shows your sessions across all workspaces. Select a session to show its conversation and make its workspace files and changes active. You can group sessions by workspace or time, create custom groups, pin sessions, and rearrange items with drag and drop. Learn how to [organize and manage sessions](/docs/agents/sessions/manage-sessions.md#sessions-list).
 
 ## Quick chats
 
@@ -174,7 +174,7 @@ Connect the Agents window to a machine over SSH or a dev tunnel, or open <https:
 
 ## Work with chats in a session
 
-Supported agent host sessions can contain multiple independent chats that share the same workspace and worktree. Use peer chats for parallel tasks or side questions, and open delegated subagents as read-only chats. Learn how to [run multiple chats and ask side questions](/docs/chat/chat-sessions.md#run-multiple-chats-in-a-session) and [follow subagents](/docs/agents/subagents.md#what-you-see-in-chat).
+Supported agent host sessions can contain multiple independent chats that share the same workspace and worktree. Use peer chats for parallel tasks or side questions, and open delegated subagents as read-only chats. Learn how to [run multiple chats and ask side questions](/docs/agents/sessions/manage-sessions.md#run-multiple-chats-in-a-session) and [follow subagents](/docs/agents/subagents.md#what-you-see-in-chat).
 
 ## Open multiple sessions side by side
 
@@ -254,6 +254,6 @@ If you're an extension author, we'd love to collaborate on what extension enable
 ## Next steps
 
 * [Chat overview](/docs/chat/chat-overview.md) - add context, write effective prompts, and review changes.
-* [Manage chat sessions](/docs/chat/chat-sessions.md) - checkpoints, forking, archiving, and exporting sessions.
+* [Manage agent sessions](/docs/agents/sessions/manage-sessions.md) - organize, fork, archive, and export sessions.
 * [Review AI-generated code edits](/docs/agents/review-code-edits.md) - inspect, revise, and integrate agent changes.
 * [Remote agent sessions](/docs/agents/remote-agent-sessions.md) - SSH, dev tunnels, and browser-based access.

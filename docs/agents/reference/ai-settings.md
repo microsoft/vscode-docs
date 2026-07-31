@@ -49,13 +49,13 @@ The team is continuously working on improving the AI features in VS Code and add
 | `setting(github.copilot.chat.scopeSelection)`<br/>Whether to prompt for a specific symbol scope if you use `/explain` and the active editor has no selection. | `false` |
 | `setting(github.copilot.chat.terminalChatLocation)`<br/>Controls where chat queries from the terminal should be opened. | `"chatView"` |
 | `setting(chat.detectParticipant.enabled)`<br/>Enable chat participant detection in the Chat view. | `true` |
-| `setting(chat.artifacts.enabled)` _(Experimental)_<br/>Enable or disable the [artifacts panel](/docs/chat/chat-artifacts.md) in the chat (preview). | `false` |
+| `setting(chat.artifacts.enabled)` _(Experimental)_<br/>Enable or disable the [artifacts panel](/docs/agents/artifacts.md) in the chat (preview). | `false` |
 | `setting(chat.artifacts.rules.byMimeType)` _(Experimental)_<br/>Rules for extracting artifacts from tool results by MIME type pattern. Maps MIME type patterns (such as `"image/*"`) to a group configuration. | `{ "image/*": { "groupName": "Screenshots", "onlyShowGroup": true } }` |
 | `setting(chat.artifacts.rules.byFilePath)` _(Experimental)_<br/>Rules for extracting artifacts from written files by file path glob pattern. Maps glob patterns (such as `"**/*plan*.md"`) to a group configuration. | `{ "**/*plan*.md": { "groupName": "Plans" } }` |
 | `setting(chat.artifacts.rules.byMemoryFilePath)` _(Experimental)_<br/>Rules for extracting artifacts from memory tool writes by memory file path glob pattern. Maps glob patterns to a group configuration. | `{ "**/*plan*.md": { "groupName": "Plans" } }` |
-| `setting(chat.checkpoints.enabled)` <br/>Enable or disable [checkpoints](/docs/chat/chat-checkpoints.md) in the chat. | `true` |
+| `setting(chat.checkpoints.enabled)` <br/>Enable or disable [checkpoints](/docs/agents/checkpoints.md) in the chat. | `true` |
 | `setting(chat.checkpoints.showFileChanges)` <br/>Show a summary of file changes at the end of each chat request. | `false` |
-| `setting(chat.editRequests)`<br/>Enable or disable [editing previous chat requests](/docs/chat/chat-checkpoints.md#edit-a-previous-chat-request). | `"inline"` |
+| `setting(chat.editRequests)`<br/>Enable or disable [editing previous chat requests](/docs/agents/checkpoints.md#edit-a-previous-chat-request). | `"inline"` |
 | `setting(chat.editor.fontFamily)`<br/>Font family in chat codeblocks. | `"default"` |
 | `setting(chat.editor.fontSize)`<br/>Font size in pixels in chat codeblocks. | `14` |
 | `setting(chat.editor.fontWeight)`<br/>Font weight in chat codeblocks. | `"default"` |
@@ -156,11 +156,11 @@ The [Agents view](/docs/agents/overview.md) provides a centralized location for 
 
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(workbench.startupEditor)` <br/>Configure the VS Code welcome page to act as your agent sessions entry point. Set to `agentSessionsWelcomePage` to show the [VS Code welcome page](/docs/chat/chat-sessions.md#vs-code-welcome-page) with recent sessions, embedded chat, and quick actions. | N/A |
+| `setting(workbench.startupEditor)` <br/>Configure the VS Code welcome page to act as your agent sessions entry point. Set to `agentSessionsWelcomePage` to show the [VS Code welcome page](/docs/agents/sessions/manage-sessions.md#view-sessions-on-the-vs-code-welcome-page) with recent sessions, embedded chat, and quick actions. | N/A |
 | `setting(chat.viewSessions.enabled)` <br/>Show the agent sessions list in the Chat view. | `true` |
 | `setting(chat.viewSessions.orientation)` <br/>Control the layout orientation of the sessions list in the Chat view. | `"sideBySide"` |
 | `setting(chat.editMode.hidden)` <br/>Restore the deprecated Edit mode for multi-file code edits. | `true` |
-| `setting(chat.agentsControl.enabled)` _(Experimental)_<br/>Enable the [session status indicator](/docs/chat/chat-sessions.md#session-status-indicator-experimental) in the command center. Shows unread and in-progress session badges. | `true` |
+| `setting(chat.agentsControl.enabled)` _(Experimental)_<br/>Enable the [session status indicator](/docs/agents/sessions/manage-sessions.md#session-status-indicator-experimental) in the command center. Shows unread and in-progress session badges. | `true` |
 | `setting(chat.agentsControl.clickBehavior)` _(Experimental)_<br/>Configure the behavior when selecting the chat icon in the agent status indicator. | `"cycle"` (Insiders)<br/>`"default"` (Stable) |
 | `setting(chat.unifiedAgentsBar.enabled)` _(Experimental)_<br/>Replace the command center search box with a unified chat and search control. | `false` |
 | `setting(github.copilot.chat.cli.remote.enabled)` <br/>Enable remote control support for Copilot sessions from github.com or the GitHub Mobile app. | `true` |

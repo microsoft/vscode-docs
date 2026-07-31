@@ -18,7 +18,7 @@ Keywords:
 
 A session is the unit of work with an agent in Visual Studio Code: a single conversation with an agent, along with all the context that builds up as it works. This article explains what a session is, how sessions behave, how they are shared across surfaces, and how you hand off a session from one agent to another.
 
-To create and organize sessions, see [Manage chat sessions](/docs/chat/chat-sessions.md).
+To create and organize sessions, see [Manage agent sessions](/docs/agents/sessions/manage-sessions.md).
 
 ## What a session is
 
@@ -30,7 +30,7 @@ The session is the main way you organize agent work. You give a session a task, 
 
 A session can contain more than one chat. Each chat is an independent conversation with its own history, title, status, and agent or model selection, but all chats in a session share the same workspace and code isolation. A new chat starts blank and doesn't inherit the conversation history of the other chats in the session.
 
-Running several chats in one session lets you work on related tasks against the same codebase at the same time without switching sessions. This capability runs on the [Agent Host](/docs/agents/concepts/agent-host.md) and is available for harnesses that support it, such as Copilot and Claude. Learn how to [run multiple chats in a session](/docs/chat/chat-sessions.md#run-multiple-chats-in-a-session).
+Running several chats in one session lets you work on related tasks against the same codebase at the same time without switching sessions. This capability runs on the [Agent Host](/docs/agents/concepts/agent-host.md) and is available for harnesses that support it, such as Copilot and Claude. Learn how to [run multiple chats in a session](/docs/agents/sessions/manage-sessions.md#run-multiple-chats-in-a-session).
 
 ## Work with multiple sessions
 
@@ -38,7 +38,7 @@ Because each session is independent, you can run several at once and move betwee
 
 * **Run in parallel**: start multiple sessions to work on independent tasks at the same time. A session keeps running when you switch away from it.
 * **Fork**: branch a session to explore an alternative direction without losing the original.
-* **Checkpoint and roll back**: return a session to an earlier point to undo a set of changes. Learn more about [checkpoints](/docs/chat/chat-checkpoints.md).
+* **Checkpoint and roll back**: return a session to an earlier point to undo a set of changes. Learn more about [checkpoints](/docs/agents/checkpoints.md).
 
 ## Sessions across surfaces
 
@@ -68,7 +68,7 @@ A session doesn't have to run on your local machine, and it doesn't have to stay
 
 ## Related resources
 
-* [Manage chat sessions](/docs/chat/chat-sessions.md)
+* [Manage agent sessions](/docs/agents/sessions/manage-sessions.md)
 * [Agent harnesses](/docs/agents/concepts/agent-harnesses.md)
 * [Agents](/docs/agents/concepts/agents.md)
 * [VS Code Agent Host architecture](/docs/agents/concepts/agent-host.md)

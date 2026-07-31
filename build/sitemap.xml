@@ -401,7 +401,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/chat/chat-checkpoints</loc>
+        <loc>https://code.visualstudio.com/docs/agents/checkpoints</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -421,7 +421,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/chat/chat-tools</loc>
+        <loc>https://code.visualstudio.com/docs/agents/tools</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -487,6 +487,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/agent-customization/mcp-servers</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/agent-customization/tool-sets</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -2201,7 +2206,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/chat/chat-sessions</loc>
+        <loc>https://code.visualstudio.com/docs/agents/sessions/manage-sessions</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -2221,7 +2226,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/chat/chat-artifacts</loc>
+        <loc>https://code.visualstudio.com/docs/agents/artifacts</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

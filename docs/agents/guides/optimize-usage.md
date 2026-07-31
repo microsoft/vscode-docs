@@ -45,11 +45,11 @@ For more information, see [configure thinking effort](/docs/agent-customization/
 
 As a conversation grows, it accumulates context from previous messages, tool outputs, and file contents. When you switch to an unrelated task in the same session, the model still processes all that irrelevant history, which consumes tokens without improving results.
 
-Start a [new chat session](/docs/agents/sessions/chat-sessions.md) (`kb(workbench.action.chat.newChat)`) when you change topics. This gives the model a clean context window focused on the current task.
+Start a [new agent session](/docs/agents/sessions/manage-sessions.md) (`kb(workbench.action.chat.newChat)`) when you change topics. This gives the model a clean context window focused on the current task.
 
 ## Leverage forking
 
-When you want to explore an alternative approach or ask a side question, [fork the conversation](/docs/agents/sessions/chat-sessions.md#fork-a-chat-session) instead of re-prompting from scratch. Forking creates a new session that inherits the existing conversation history, so you don't need to re-establish context.
+When you want to explore an alternative approach or ask a side question, [fork the conversation](/docs/agents/sessions/manage-sessions.md#fork-a-chat-session) instead of re-prompting from scratch. Forking creates a new session that inherits the existing conversation history, so you don't need to re-establish context.
 
 * Type `/fork` in the chat input to fork the entire session up to the current message.
 * Hover over a previous message and select **Fork Conversation** to fork from a specific checkpoint.
@@ -61,7 +61,7 @@ Every tool call produces output that consumes space in the [context window](/doc
 * Use the **Configure Tools** button in the chat input field to enable or disable individual tools or entire MCP servers for the current request.
 * In [custom agents](/docs/agent-customization/custom-agents.md), specify only the tools the agent needs via the `tools` property. This prevents the agent from calling tools that aren't relevant to its workflow.
 
-For more information, see [Use tools in chat](/docs/chat/chat-tools.md).
+For more information, see [Use tools with agents](/docs/agents/tools.md).
 
 ## Exclude files from Copilot context
 
@@ -79,7 +79,7 @@ For more information and example configurations, see [improve agent search with 
 
 When a conversation grows long, use `/compact` to summarize older parts of the conversation and reclaim context window space. You can optionally add instructions to guide the summary, for example `/compact focus on the API design decisions`.
 
-For more information, see [context compaction](/docs/chat/copilot-chat-context.md#context-compaction).
+For more information, see [context compaction](/docs/agents/sessions/manage-sessions.md#compact-conversation-context).
 
 ## Monitor your usage
 

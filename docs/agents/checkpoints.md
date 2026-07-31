@@ -1,10 +1,10 @@
 ---
 ContentId: 8f4d3e2a-9b7c-4e1d-a6f5-3c2b1d8e9f0a
 DateApproved: 7/29/2026
-MetaDescription: Learn how to edit previous chat requests, restore your workspace to earlier states using checkpoints, and undo changes made by chat in Visual Studio Code.
+MetaDescription: Edit earlier agent requests and restore workspace checkpoints in Visual Studio Code to revise or undo changes across a session.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
-# Revert changes with checkpoints and editing requests
+# Revert agent changes with checkpoints
 
 A chat session in Visual Studio Code might result in changes to one or more files in your workspace. VS Code provides two ways to undo or revise these changes:
 
@@ -66,7 +66,7 @@ To help you understand the effect of each chat request and make it easier to dec
 
 You can fork a conversation from a checkpoint to create a new, independent session that includes the conversation up to that point. This is useful when you want to branch off and explore an alternative approach while preserving the original conversation.
 
-To fork from a checkpoint, hover over a chat request and select the **Fork Conversation** button. Learn more about [forking chat sessions](/docs/chat/chat-sessions.md#fork-a-chat-session).
+To fork from a checkpoint, hover over a chat request and select the **Fork Conversation** button. Learn more about [forking agent sessions](/docs/agents/sessions/manage-sessions.md#fork-a-chat-session).
 
 ## Frequently asked questions
 
@@ -77,5 +77,5 @@ No. Checkpoints are designed for quick iteration within a chat session and are t
 ## Related resources
 
 * [Review AI-generated code edits](/docs/agents/review-code-edits.md)
-* [Chat sessions](/docs/chat/chat-sessions.md)
+* [Manage agent sessions](/docs/agents/sessions/manage-sessions.md)
 * [Chat overview](/docs/chat/chat-overview.md)

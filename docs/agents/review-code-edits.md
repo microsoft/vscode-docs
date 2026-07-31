@@ -33,7 +33,7 @@ Review the changes as you would other workspace or branch changes through the di
 
     <!-- TODO: Add a screenshot showing the Agent Host changed-files summary and View All File Changes action in the Chat view. -->
 
-1. If you want to make further changes, send a follow-up prompt or edit the files directly. To revert a request and all later changes, [restore a checkpoint](/docs/chat/chat-checkpoints.md#restore-a-checkpoint).
+1. If you want to make further changes, send a follow-up prompt or edit the files directly. To revert a request and all later changes, [restore a checkpoint](/docs/agents/checkpoints.md#restore-a-checkpoint).
 
 1. Run tests and use the debugger or other editor tools to validate the result.
 
@@ -140,7 +140,7 @@ The following example configuration automatically allows edits to all files exce
 
 ## Review changes from the sessions list
 
-When a session completes and makes code changes to your project, the [sessions list](/docs/chat/chat-sessions.md#sessions-list) shows the file change statistics for that session. To review the changes, select the session from the list to open the session details.
+When a session completes and makes code changes to your project, the [sessions list](/docs/agents/sessions/manage-sessions.md#sessions-list) shows the file change statistics for that session. To review the changes, select the session from the list to open the session details.
 
 ![Screenshot of the file changes diff editor in an agent session.](images/agents-overview/agent-file-changes-v2.png)
 
@@ -148,7 +148,7 @@ Depending on the agent harness and isolation mode, you can apply or merge change
 
 ## Related resources
 
-* [Revert changes with checkpoints](/docs/chat/chat-checkpoints.md)
+* [Revert changes with checkpoints](/docs/agents/checkpoints.md)
 * [Use chat in VS Code](/docs/chat/chat-overview.md)
-* [Chat sessions](/docs/chat/chat-sessions.md)
+* [Agent sessions](/docs/agents/sessions/manage-sessions.md)
 * [Security considerations for using AI in VS Code](/docs/agents/security.md)
