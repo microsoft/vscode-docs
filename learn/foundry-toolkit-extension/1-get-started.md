@@ -183,6 +183,8 @@ In the next chapter, we'll go deeper into model catalog and playground workflows
 If you want to continue learning after this chapter, the best next step is to follow the workflow in the same order you will use in real projects. Start with setup and model exploration, then move into agent building and hosted deployment.
 The references below are organized to support that progression.
 
+
+- **Foundry Toolkit for VS Code - Visual Studio Marketplace**: [Foundry Toolkit for VS Code - Visual Studio Marketplace](https://aka.ms/ftk_install)
 - **Visual Studio Code AI app overview**: [Review the Intelligent Apps overview in Visual Studio Code docs](https://code.visualstudio.com/docs/intelligentapps/overview) for product-level context and capabilities.
 - **Foundry Toolkit quick start**: [Review the Azure AI Foundry overview and onboarding guidance](https://learn.microsoft.com/azure/ai-foundry/) for first-run setup context.
 - **Model catalog and playground**: [Explore the Model Catalog overview](https://learn.microsoft.com/azure/ai-foundry/how-to/model-catalog-overview) to compare and select models.
