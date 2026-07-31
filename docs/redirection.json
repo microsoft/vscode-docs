@@ -21,7 +21,7 @@
     { "from": "/docs/setup/setup-overview", "to": "/docs/getstarted/overview", "status": 301 },
     { "from": "/docs/getstarted/setup-overview", "to": "/docs/getstarted/overview", "status": 301 },
     { "from": "/docs/copilot/agents/overview", "to": "/docs/agents/overview", "status": 301 },
-    { "from": "/docs/copilot/agents/agents-tutorial", "to": "/docs/agents/agents-tutorial", "status": 301 },
+    { "from": "/docs/copilot/agents/agents-tutorial", "to": "/docs/agents/agents-handoff-tutorial", "status": 301 },
     { "from": "/docs/copilot/agents/agents-window", "to": "/docs/agents/agents-window", "status": 301 },
     { "from": "/docs/copilot/agents/agent-tools", "to": "/docs/agents/tools", "status": 301 },
     { "from": "/docs/agents/agent-tools", "to": "/docs/agents/tools", "status": 301 },
@@ -103,5 +103,7 @@
     { "from": "/docs/setup/vscode-web", "to": "/docs/remote/vscode-web", "status": 301 },
     { "from": "/docs/copilot/chat/session-insights", "to": "/docs/agents/sessions/session-history", "status": 301 },
     { "from": "/docs/copilot/guides/optimize-usage", "to": "/docs/agents/guides/optimize-usage", "status": 301 },
-    { "from": "/docs/copilot/overview", "to": "/docs/agents/overview", "status": 301 }
+    { "from": "/docs/copilot/overview", "to": "/docs/agents/overview", "status": 301 },
+    { "from": "/docs/agents/quickstart", "to": "/docs/agents/agents-tutorial", "status": 301 },
+    { "from": "/docs/getstarted/getting-started", "to": "/docs/agents/agents-tutorial", "status": 301 }
 ]

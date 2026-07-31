@@ -143,6 +143,6 @@ This experiment is one example of how we work with model providers beyond launch
 
 We'll keep looking for those improvements across models, prompts, tools, and the VS Code coding harness, so more of each agent's budget goes to the work that matters instead of unnecessary exploration.
 
-Try [agents in VS Code](/docs/getstarted/getting-started.md), switch between models, and compare how different models approach the same task. Share your feedback in [our GitHub repo](https://github.com/microsoft/vscode). It helps us keep improving the experience.
+Try [agents in VS Code](https://code.visualstudio.com/docs/agents/agents-tutorial), switch between models, and compare how different models approach the same task. Share your feedback in [our GitHub repo](https://github.com/microsoft/vscode). It helps us keep improving the experience.
 
 Happy coding! 💙

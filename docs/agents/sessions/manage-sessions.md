@@ -11,7 +11,7 @@ A [session](/docs/agents/concepts/sessions.md) is the unit of work with an agent
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
 Follow a hands-on tutorial to experience local, background, and cloud agents in VS Code.
 
-* [Start tutorial](/docs/agents/agents-tutorial.md)
+* [Start agent handoff tutorial](/docs/agents/agents-handoff-tutorial.md)
 
 </div>
 

@@ -15,7 +15,7 @@ VS Code puts you in control. Choose your [language model](/docs/agent-customizat
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with VS Code">
 Follow a hands-on tutorial to build your first app with AI in VS Code.
 
-* [Start tutorial](/docs/getstarted/getting-started.md)
+* [Start tutorial](/docs/agents/agents-tutorial.md)
 
 </div>
 
@@ -43,7 +43,7 @@ New to VS Code? These three steps take you from a fresh install to building your
 
 1. **Enable AI features.** Sign in to unlock inline suggestions and AI agents. See [Enable AI features](#enable-ai-features).
 
-1. **Take the tutorial.** Build an app with the [agentic coding tutorial](/docs/getstarted/getting-started.md) or [learn the basics of writing code](/docs/editing/getting-started.md) in VS Code.
+1. **Take the tutorial.** Build an app with the [agentic coding tutorial](/docs/agents/agents-tutorial.md) or [learn the basics of writing code](/docs/editing/getting-started.md) in VS Code.
 
 ## Install VS Code
 
@@ -111,7 +111,7 @@ Follow these steps to get started with Copilot in VS Code:
 Pick a path based on what you want to do next.
 
 <div class="card-grid">
-    <a class="card" href="/docs/getstarted/getting-started">
+    <a class="card" href="/docs/agents/agents-tutorial">
         <i class="codicon codicon-hubot" aria-hidden="true"></i>
         <div>
             <p><strong>Agentic coding</strong></p>

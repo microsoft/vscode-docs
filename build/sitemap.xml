@@ -176,7 +176,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/getstarted/getting-started</loc>
+        <loc>https://code.visualstudio.com/docs/agents/agents-tutorial</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -556,7 +556,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/agents/agents-tutorial</loc>
+        <loc>https://code.visualstudio.com/docs/agents/agents-handoff-tutorial</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -2137,11 +2137,6 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/agents/concepts/sessions</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/docs/agents/quickstart</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

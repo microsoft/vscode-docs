@@ -39,7 +39,7 @@ Agents are free to start and built into VS Code: sign in with a GitHub account t
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
 Follow a hands-on tutorial to build your first app with AI in VS Code.
 
-* [Start tutorial](/docs/getstarted/getting-started.md)
+* [Start tutorial](/docs/agents/agents-tutorial.md)
 
 </div>
 
@@ -58,7 +58,7 @@ Agents are the most autonomous of several AI surfaces in VS Code. For lighter-we
 
 ## Get started
 
-AI features are built into VS Code. Sign in with your GitHub account to enable them, then follow the [Run your first agent](/docs/agents/quickstart.md) quickstart. If you don't have a subscription, you're signed up for the free plan with monthly limits.
+AI features are built into VS Code. Sign in with your GitHub account to enable them, then follow the [agents tutorial](/docs/agents/agents-tutorial.md). If you don't have a subscription, you're signed up for the free plan with monthly limits.
 
 > [!NOTE]
 > Make sure agents are enabled in VS Code settings (`setting(chat.agent.enabled)`). If your organization has disabled agents, contact your GitHub organization admin.
@@ -143,13 +143,9 @@ Organizations can centrally manage which AI features, models, and tools are avai
 ## Next steps
 
 <div class="card-grid">
-    <a class="card" href="/docs/agents/quickstart">
-        <i class="codicon codicon-rocket" aria-hidden="true"></i>
-        <p>Run your first agent</p>
-    </a>
-    <a class="card" href="/docs/agents/agents-tutorial">
+    <a class="card" href="/docs/agents/agents-handoff-tutorial">
         <i class="codicon codicon-mortar-board" aria-hidden="true"></i>
-        <p>Follow the agents tutorial</p>
+        <p>Explore agent handoffs</p>
     </a>
     <a class="card" href="/docs/agents/best-practices">
         <i class="codicon codicon-checklist" aria-hidden="true"></i>

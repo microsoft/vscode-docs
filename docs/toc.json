@@ -4,7 +4,8 @@
         "area": "getstarted",
         "topics": [
         ["Overview", "/docs/getstarted/overview"],
-        ["Tutorial", "/docs/getstarted/getting-started"],
+        ["Agents Tutorial", "/docs/agents/agents-tutorial"],
+        ["Coding Tutorial", "/docs/editing/getting-started"],
         ["Intro Videos", "/docs/getstarted/introvideos"]
         ]
     },

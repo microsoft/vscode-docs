@@ -347,4 +347,4 @@ You can use chat to help you with Python programming tasks in the Native Python 
 
 ## Next steps
 
-* [Tutorial: Get started with AI features in VS Code](/docs/getstarted/getting-started.md)
+* [Tutorial: Get started with AI features in VS Code](/docs/agents/agents-tutorial.md)
