@@ -18,7 +18,7 @@ Keywords:
 
 An agent harness is the runtime that runs the [agent loop](/docs/agents/concepts/agents.md#agent-loop). It manages the session, calls [tools](/docs/agents/concepts/tools.md), and applies changes to your code. This article explains how agent harnesses relate to session targets, agent roles, language models, execution environments, and code isolation.
 
-To select and configure a harness, see [Choose and use an agent harness](/docs/agents/agent-harnesses.md).
+To select and configure a harness, see [Choose and use an agent harness](/docs/agents/run/agent-harnesses.md).
 
 ## Agent harnesses and session targets
 
@@ -54,9 +54,9 @@ An agent harness can run in these environments:
 
 * **Your machine**: the harness works with a local folder or Git worktree and can access local runtime context, such as test results and terminal output.
 * **Cloud infrastructure**: the harness works with a GitHub repository and creates a pull request. It uses the tools and models configured in the cloud service instead of your local VS Code environment.
-* **A remote machine**: the harness runs next to the source code on a remote host. You connect to it over SSH or a dev tunnel. Learn more about [remote agent sessions](/docs/agents/remote-agent-sessions.md).
+* **A remote machine**: the harness runs next to the source code on a remote host. You connect to it over SSH or a dev tunnel. Learn more about [remote agent sessions](/docs/agents/run/remote-agent-sessions.md).
 
-You can [hand off a session](/docs/agents/agent-harnesses.md#hand-off-a-session) when another harness or execution environment is a better fit for the next part of a task.
+You can [hand off a session](/docs/agents/run/agent-harnesses.md#hand-off-a-session) when another harness or execution environment is a better fit for the next part of a task.
 
 ## Code isolation
 
@@ -65,7 +65,7 @@ When a harness runs on your machine, code isolation determines where it applies 
 * **Worktree isolation**: VS Code creates a separate [Git worktree](/docs/sourcecontrol/branches-worktrees.md#understanding-worktrees) for the session. The harness applies changes there until you review and integrate them.
 * **Folder isolation**: the harness works directly in your current workspace and applies changes in place.
 
-Worktree isolation requires a Git repository. Isolation also affects [permissions and approvals](/docs/agents/approvals.md) because a worktree keeps agent changes separate from your active workspace.
+Worktree isolation requires a Git repository. Isolation also affects [permissions and approvals](/docs/agents/run/approvals.md) because a worktree keeps agent changes separate from your active workspace.
 
 ## Agent harnesses and the Agent Host
 
@@ -73,7 +73,7 @@ The [Agent Host](/docs/agents/concepts/agent-host.md) is a dedicated process for
 
 ## Related resources
 
-* [Choose and use an agent harness](/docs/agents/agent-harnesses.md)
+* [Choose and use an agent harness](/docs/agents/run/agent-harnesses.md)
 * [How agents work](/docs/agents/concepts/agents.md)
 * [Sessions and handoff](/docs/agents/concepts/sessions.md)
 * [Language models](/docs/agents/concepts/language-models.md)

@@ -20,7 +20,7 @@ Keywords:
 
 AI agents write great code but don't know your codebase, team conventions, or the workflows you repeat every day. By adding agent customizations, you share that context to make the AI's responses match your coding standards, project structure, and common tasks.
 
-Visual Studio Code gives you several ways to provide this context, from project-wide instructions to specialized agent personas and access to external tools. This article introduces the customization options and helps you get started. You can manage customizations from both the [Chat view](/docs/agents/chat-view.md) and the [Agents window](/docs/agents/agents-window.md).
+Visual Studio Code gives you several ways to provide this context, from project-wide instructions to specialized agent personas and access to external tools. This article introduces the customization options and helps you get started. You can manage customizations from both the [Chat view](/docs/agents/run/chat-view.md) and the [Agents window](/docs/agents/run/agents-window.md).
 
 <div class="docs-action" data-show-in-doc="true" data-show-in-sidebar="true" title="Core concepts">
 Learn about the different customization types and when to use each one.

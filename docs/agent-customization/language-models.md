@@ -118,7 +118,7 @@ Bring Your Own Key (BYOK) lets you connect to any compatible model provider whil
 BYOK models work without signing into a GitHub account and without a Copilot plan. This enables you to use AI chat features entirely with your own models, including fully offline scenarios with local models such as Ollama.
 
 > [!NOTE]
-> For Agent Host sessions, such as Copilot sessions in the [Agents window](/docs/agents/agents-window.md), enable `setting(chat.agentHost.byokModels.enabled)` to use BYOK models in those sessions. This setting is experimental and takes effect only after the agent host process is restarted.
+> For Agent Host sessions, such as Copilot sessions in the [Agents window](/docs/agents/run/agents-window.md), enable `setting(chat.agentHost.byokModels.enabled)` to use BYOK models in those sessions. This setting is experimental and takes effect only after the agent host process is restarted.
 
 You can also use these models to [override the models used for utility tasks in VS Code](#configure-models-for-other-features) (such as title generation and intent detection).
 
@@ -459,4 +459,4 @@ Yes, you can use BYOK models, including local models, without a Copilot plan and
 * [Language models concepts](/docs/agents/concepts/language-models.md)
 * [Available language models in GitHub Copilot](https://docs.github.com/en/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat?tool=vscode)
 * [Choosing the right AI model for your task](https://docs.github.com/en/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task)
-* [Security considerations for AI in VS Code](/docs/agents/security.md)
+* [Security considerations for AI in VS Code](/docs/agents/run/security.md)

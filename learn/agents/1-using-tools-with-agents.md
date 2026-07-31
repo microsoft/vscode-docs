@@ -181,7 +181,7 @@ Now that you know how to use tools, the next course shows how MCP servers add ex
 
 ## Learn more
 
-* [Use tools with agents](https://code.visualstudio.com/docs/agents/tools)
+* [Use tools with agents](https://code.visualstudio.com/docs/agents/run/tools)
 * [Tools concepts](https://code.visualstudio.com/docs/copilot/concepts/tools)
 * [Agent sandboxing](https://code.visualstudio.com/docs/copilot/concepts/trust-and-safety#agent-sandboxing)
-* [Agent approvals and permissions](https://code.visualstudio.com/docs/agents/approvals#permission-levels)
+* [Agent approvals and permissions](https://code.visualstudio.com/docs/agents/run/approvals#permission-levels)

@@ -30,28 +30,28 @@
         "name": "Run agents",
         "area": "agents/run",
         "topics": [
-            ["Agents Window", "/docs/agents/agents-window"],
-            ["Chat View", "/docs/agents/chat-view"],
-            ["Choose an Agent Harness", "/docs/agents/agent-harnesses"],
-            ["Use Tools", "/docs/agents/tools"],
-            ["Approvals & Permissions", "/docs/agents/approvals"],
-            ["Review & Revert Changes", "/docs/agents/review-code-edits"],
-            ["Artifacts", "/docs/agents/artifacts"],
-            ["Remote Agent Sessions", "/docs/agents/remote-agent-sessions"],
-            ["Plan Work", "/docs/agents/planning"],
-            ["Memory", "/docs/agents/memory"],
-            ["Subagents", "/docs/agents/subagents"],
+            ["Agents Window", "/docs/agents/run/agents-window"],
+            ["Chat View", "/docs/agents/run/chat-view"],
+            ["Choose an Agent Harness", "/docs/agents/run/agent-harnesses"],
+            ["Use Tools", "/docs/agents/run/tools"],
+            ["Approvals & Permissions", "/docs/agents/run/approvals"],
+            ["Review & Revert Changes", "/docs/agents/run/review-code-edits"],
+            ["Artifacts", "/docs/agents/run/artifacts"],
+            ["Remote Agent Sessions", "/docs/agents/run/remote-agent-sessions"],
+            ["Plan Work", "/docs/agents/run/planning"],
+            ["Memory", "/docs/agents/run/memory"],
+            ["Subagents", "/docs/agents/run/subagents"],
 
             ["", "", {
                 "name": "Sessions",
-                "area": "agents/sessions",
+                "area": "agents/run/sessions",
                 "topics": [
-                    ["Manage Sessions", "/docs/agents/sessions/manage-sessions"],
-                    ["Session History", "/docs/agents/sessions/session-history"]
+                    ["Manage Sessions", "/docs/agents/run/sessions/manage-sessions"],
+                    ["Session History", "/docs/agents/run/sessions/session-history"]
                 ]
             }],
 
-            ["AI Security", "/docs/agents/security"]
+            ["AI Security", "/docs/agents/run/security"]
         ]
     },
 

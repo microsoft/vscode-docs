@@ -23,8 +23,8 @@ VS Code gives you two main surfaces for working with agents, plus lightweight op
 
 | Name | Description | How to open |
 |------|-------------|-------------|
-| [Agents window](/docs/agents/agents-window.md) | A dedicated, agent-first window for orchestrating tasks across multiple projects. Focus on high-level tasks and outcomes. | <ul><li>Select **Open in Agents** in the VS Code title bar</li><li>Use the **Chat: Open Agents Window** command</li><li>Run `code --agents`</li></ul> |
-| [Chat view](/docs/agents/chat-view.md) | A code-first experience running in the editor sidebar, to assist you with coding tasks in your workspace. | <ul><li>Select the chat icon in the VS Code title bar</li><li>Use the **Chat: Open Chat** command</li><li>Press `kb(workbench.action.chat.open)`</li></ul> |
+| [Agents window](/docs/agents/run/agents-window.md) | A dedicated, agent-first window for orchestrating tasks across multiple projects. Focus on high-level tasks and outcomes. | <ul><li>Select **Open in Agents** in the VS Code title bar</li><li>Use the **Chat: Open Agents Window** command</li><li>Run `code --agents`</li></ul> |
+| [Chat view](/docs/agents/run/chat-view.md) | A code-first experience running in the editor sidebar, to assist you with coding tasks in your workspace. | <ul><li>Select the chat icon in the VS Code title bar</li><li>Use the **Chat: Open Chat** command</li><li>Press `kb(workbench.action.chat.open)`</li></ul> |
 | [Inline chat](/docs/chat/inline-chat.md) | Quick, in-place code edits or terminal suggestions. | <ul><li>Press `kb(inlineChat.start)`</li></ul> |
 | [Quick Chat](/docs/chat/inline-chat.md#use-quick-chat) | A lightweight chat panel at the top of the editor. | <ul><li>Press `kb(workbench.action.quickchat.toggle)`</li></ul> |
 
@@ -40,9 +40,9 @@ To give extra project-specific context, you can [add context to your prompt](#ad
 
 For common tasks, you can use slash commands as shortcuts for frequently used prompts or to invoke [agent skills](/docs/agent-customization/agent-skills.md). Type `/` in the chat input to see all available commands.
 
-You can run multiple sessions in parallel and switch between them without losing context. Learn more in [Manage agent sessions](/docs/agents/sessions/manage-sessions.md).
+You can run multiple sessions in parallel and switch between them without losing context. Learn more in [Manage agent sessions](/docs/agents/run/sessions/manage-sessions.md).
 
-Each session has configuration options that shape how the agent responds, such as the agent harness, agent role, permission level, and language model. Learn how to [choose an agent harness](/docs/agents/agent-harnesses.md).
+Each session has configuration options that shape how the agent responds, such as the agent harness, agent role, permission level, and language model. Learn how to [choose an agent harness](/docs/agents/run/agent-harnesses.md).
 
 > [!TIP]
 > To get the best results, be specific about what you want, provide relevant context, and write clear instructions. For more information, see [Get better responses](#get-better-responses).
@@ -91,10 +91,10 @@ After the AI changes your files, review and validate the result before you commi
 
 * **Review diffs**: select a changed file in the agent's response or use the **Changes** panel in the Agents window. To show a changed-files summary after each request in the Chat view, set `setting(chat.checkpoints.showFileChanges)` to `true`.
 * **Request revisions**: send a follow-up prompt, leave feedback in the Agents window diff editor, or edit the files directly.
-* **Use checkpoints**: restore an earlier snapshot to revert a request and all later file changes. For more information, see [checkpoints and editing requests](/docs/agents/review-code-edits.md#edit-requests-and-restore-checkpoints).
+* **Use checkpoints**: restore an earlier snapshot to revert a request and all later file changes. For more information, see [checkpoints and editing requests](/docs/agents/run/review-code-edits.md#edit-requests-and-restore-checkpoints).
 * **Integrate the result**: commit folder changes with Source Control, or apply or merge changes from an isolated worktree.
 
-For more information, see [reviewing AI-generated code edits](/docs/agents/review-code-edits.md).
+For more information, see [reviewing AI-generated code edits](/docs/agents/run/review-code-edits.md).
 
 ## Get notified about chat responses
 
@@ -152,7 +152,7 @@ To learn more about Copilot's security, privacy, compliance, and transparency, s
 
 ## Related resources
 
-* [Create and manage agent sessions](/docs/agents/sessions/manage-sessions.md)
+* [Create and manage agent sessions](/docs/agents/run/sessions/manage-sessions.md)
 
 * [Choose agents and configure permissions](/docs/agents/overview.md)
 

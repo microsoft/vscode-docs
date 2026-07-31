@@ -29,7 +29,7 @@ Use AI to help you resolve Git merge conflicts. Select the **Resolve Merge Confl
 
 ## Implement todo comments
 
-If you have the [GitHub Pull Requests](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension installed, you can use AI to implement `TODO` comments in your code with the [Copilot cloud agent](/docs/agents/agent-harnesses.md#start-a-cloud-session).
+If you have the [GitHub Pull Requests](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension installed, you can use AI to implement `TODO` comments in your code with the [Copilot cloud agent](/docs/agents/run/agent-harnesses.md#start-a-cloud-session).
 
 1. Make sure you have the [GitHub Pull Requests](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension installed.
 1. Add a `TODO` comment in your code. A code action (lightbulb) appears next to the comment.

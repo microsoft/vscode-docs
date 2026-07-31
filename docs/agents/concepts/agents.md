@@ -89,11 +89,11 @@ Key characteristics of subagents:
 
 For example, the built-in [Plan agent](#planning) uses subagents to perform research and analysis before creating an implementation plan. Each subagent works autonomously and returns only its findings.
 
-Learn more about [using subagents](/docs/agents/subagents.md).
+Learn more about [using subagents](/docs/agents/run/subagents.md).
 
 ## Sessions
 
-A session is the unit of work with an agent: one conversation, along with the context it accumulates. Sessions are independent, can run in parallel, and are shared across the [Chat view](/docs/agents/chat-view.md) and the [Agents window](/docs/agents/agents-window.md). They can run on your machine or on a remote host, and you can hand off a session from one agent to another. Learn more about [sessions and handoff](/docs/agents/concepts/sessions.md).
+A session is the unit of work with an agent: one conversation, along with the context it accumulates. Sessions are independent, can run in parallel, and are shared across the [Chat view](/docs/agents/run/chat-view.md) and the [Agents window](/docs/agents/run/agents-window.md). They can run on your machine or on a remote host, and you can hand off a session from one agent to another. Learn more about [sessions and handoff](/docs/agents/concepts/sessions.md).
 
 ## Memory
 
@@ -107,7 +107,7 @@ VS Code supports two complementary memory systems:
     * **Session memory** (`/memories/session/`): scoped to the current conversation, cleared when it ends.
 * **Copilot Memory**: a GitHub-hosted memory system that captures repository-specific insights across Copilot surfaces (coding agent, code review, CLI). Shared across GitHub Copilot beyond VS Code.
 
-Learn more about [memory in VS Code agents](/docs/agents/memory.md).
+Learn more about [memory in VS Code agents](/docs/agents/run/memory.md).
 
 ## Planning
 
@@ -122,7 +122,7 @@ The plan agent uses a 4-phase iterative workflow:
 
 The Plan agent does not make code changes until the plan is reviewed and approved. Once approved, you can hand off the plan to the default agent or save it for further refinement.
 
-Learn more about [planning with agents](/docs/agents/planning.md).
+Learn more about [planning with agents](/docs/agents/run/planning.md).
 
 ## Related resources
 

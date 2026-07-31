@@ -2,7 +2,7 @@
 ContentId: b4e8c9f3-6d5a-4b2e-c7a4-8f9e1b3d2c5a
 DateApproved: 7/29/2026
 MetaDescription: Sync, share, and query Copilot session history in Visual Studio Code with GitHub sync, privacy controls, Chronicle reports, and natural-language search.
-MetaSocialImage: ../../images/shared/github-copilot-social.png
+MetaSocialImage: ../../../images/shared/github-copilot-social.png
 ---
 # Sync and query session history
 
@@ -130,6 +130,6 @@ Reindex after restoring session files from a backup, an unexpected crash, manual
 
 ## Related content
 
-* [Manage agent sessions](/docs/agents/sessions/manage-sessions.md) - Create and organize agent sessions
-* [Security](/docs/agents/security.md) - Copilot security and privacy
+* [Manage agent sessions](/docs/agents/run/sessions/manage-sessions.md) - Create and organize agent sessions
+* [Security](/docs/agents/run/security.md) - Copilot security and privacy
 * [Diagnose prompt caching with the Cache Explorer](/docs/agents/agent-troubleshooting/cache-explorer.md) - Find where sessions waste tokens

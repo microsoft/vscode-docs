@@ -16,11 +16,11 @@ Keywords:
 ---
 # Add and manage MCP servers in VS Code
 
-[Model Context Protocol (MCP)](https://modelcontextprotocol.io/) is an open standard for connecting AI models to external tools and services. In Visual Studio Code, MCP servers provide [tools](/docs/agents/tools.md) for tasks like file operations, databases, or external APIs. MCP servers can also provide [resources, prompts, and interactive apps](#other-mcp-capabilities).
+[Model Context Protocol (MCP)](https://modelcontextprotocol.io/) is an open standard for connecting AI models to external tools and services. In Visual Studio Code, MCP servers provide [tools](/docs/agents/run/tools.md) for tasks like file operations, databases, or external APIs. MCP servers can also provide [resources, prompts, and interactive apps](#other-mcp-capabilities).
 
 For background on how MCP fits into the AI customization framework, see [Customization concepts](/docs/agents/concepts/customization.md) and [Tools concepts](/docs/agents/concepts/tools.md).
 
-This article covers how to add, configure, and manage MCP servers. To learn how agents invoke tools, see [Use tools with agents](/docs/agents/tools.md).
+This article covers how to add, configure, and manage MCP servers. To learn how agents invoke tools, see [Use tools with agents](/docs/agents/run/tools.md).
 
 > [!TIP]
 > Use the [Agent Customizations editor](/docs/agent-customization/overview.md#use-the-agent-customizations-editor) (Preview) to discover, create, and manage all your agent customizations in one place. Run **Chat: Open Customizations** from the Command Palette.
@@ -61,7 +61,7 @@ To install an MCP server from the MCP server gallery:
 1. To view the MCP server details, select the MCP server in the list to open the details page.
 
 > [!CAUTION]
-> Local MCP servers can run arbitrary code on your machine. Only add servers from [trusted sources](#mcp-server-trust), and review the publisher and server configuration before starting it. Read the [Security documentation](/docs/agents/security.md) for using AI in VS Code to understand the implications.
+> Local MCP servers can run arbitrary code on your machine. Only add servers from [trusted sources](#mcp-server-trust), and review the publisher and server configuration before starting it. Read the [Security documentation](/docs/agents/run/security.md) for using AI in VS Code to understand the implications.
 
 ### Configure the `mcp.json` file
 
@@ -278,7 +278,7 @@ Verify that the command arguments are correct and that the container is not runn
 ## Related resources
 
 * [MCP configuration reference](/docs/agents/reference/mcp-configuration.md)
-* [Use tools with agents](/docs/agents/tools.md)
+* [Use tools with agents](/docs/agents/run/tools.md)
 * [Model Context Protocol Documentation](https://modelcontextprotocol.io/)
 * [MCP Apps support in VS Code](https://code.visualstudio.com/blogs/2026/01/26/mcp-apps-support)
 * [Discover and manage agent plugins](/docs/agent-customization/agent-plugins.md), including [MCP servers in plugins](/docs/agent-customization/agent-plugins.md#mcp-servers-in-plugins)

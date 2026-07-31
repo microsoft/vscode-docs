@@ -2,11 +2,11 @@
 ContentId: 7a2e5f8d-4c9b-41e6-b3a8-9d7f2e4c1b8a
 DateApproved: 7/29/2026
 MetaDescription: Create and manage agent sessions in Visual Studio Code, including multiple chats, context compaction, organization, archiving, and forking.
-MetaSocialImage: ../../images/shared/github-copilot-social.png
+MetaSocialImage: ../../../images/shared/github-copilot-social.png
 ---
 # Manage agent sessions in VS Code
 
-A [session](/docs/agents/concepts/sessions.md) is the unit of work with an agent in Visual Studio Code. It includes the sequence of prompts and responses, relevant context, and any files or resources associated with the task. This article describes how to create, organize, and manage sessions in both the [Chat view](/docs/agents/chat-view.md) and the [Agents window](/docs/agents/agents-window.md).
+A [session](/docs/agents/concepts/sessions.md) is the unit of work with an agent in Visual Studio Code. It includes the sequence of prompts and responses, relevant context, and any files or resources associated with the task. This article describes how to create, organize, and manage sessions in both the [Chat view](/docs/agents/run/chat-view.md) and the [Agents window](/docs/agents/run/agents-window.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
 Follow a hands-on tutorial to experience local, background, and cloud agents in VS Code.
@@ -27,9 +27,9 @@ Depending on how you prefer to work or the task you want to accomplish, you can 
 {% tabs id="chat-surface" %}
 {% tab label="Agents window" %}
 
-The [Agents window](/docs/agents/agents-window.md) is a dedicated window for orchestrating agents across multiple projects from a single place. Chat is your primary interface where you assign high-level tasks to agents. The Agents window is optimized for **agents-first workflows**.
+The [Agents window](/docs/agents/run/agents-window.md) is a dedicated window for orchestrating agents across multiple projects from a single place. Chat is your primary interface where you assign high-level tasks to agents. The Agents window is optimized for **agents-first workflows**.
 
-![Screenshot of the Agents window showing the sessions list, workspace picker, and chat input.](../images/chat-sessions/agents-window-new-session.png)
+![Screenshot of the Agents window showing the sessions list, workspace picker, and chat input.](../../images/chat-sessions/agents-window-new-session.png)
 
 To start a new chat session in the Agents window:
 
@@ -41,13 +41,13 @@ To start a new chat session in the Agents window:
 
 1. Choose an agent harness from the **Session Target** control to indicate where the agent session runs and how it operates.
 
-    The available harnesses depend on the workspace location. Learn how to [choose an agent harness](/docs/agents/agent-harnesses.md).
+    The available harnesses depend on the workspace location. Learn how to [choose an agent harness](/docs/agents/run/agent-harnesses.md).
 
 1. Optionally, select additional configuration options for the session:
 
-    * **Agent**: determines the role or persona of the AI, such as Agent, Plan, or Ask. Learn more about [choosing an agent role](/docs/agents/agent-harnesses.md#choose-a-built-in-agent-role).
+    * **Agent**: determines the role or persona of the AI, such as Agent, Plan, or Ask. Learn more about [choosing an agent role](/docs/agents/run/agent-harnesses.md#choose-a-built-in-agent-role).
 
-    * **Permission level**: controls how much autonomy the agent has over tool approvals. Learn more about [permission levels](/docs/agents/approvals.md#permission-levels).
+    * **Permission level**: controls how much autonomy the agent has over tool approvals. Learn more about [permission levels](/docs/agents/run/approvals.md#permission-levels).
 
     * **Language model**: determines which AI model powers the conversation. Learn more about [language models in VS Code](/docs/agent-customization/language-models.md).
 
@@ -58,9 +58,9 @@ To start a new chat session in the Agents window:
 {% /tab %}
 {% tab label="Chat view" %}
 
-The [Chat view](/docs/agents/chat-view.md) is a chat panel that sits in the sidebar alongside your workspace editor tabs. Agents assist you with coding tasks, while you have full access to VS Code's rich coding experience. The Chat view is optimized for **code-first workflows**.
+The [Chat view](/docs/agents/run/chat-view.md) is a chat panel that sits in the sidebar alongside your workspace editor tabs. Agents assist you with coding tasks, while you have full access to VS Code's rich coding experience. The Chat view is optimized for **code-first workflows**.
 
-![Screenshot of opening a new chat session in the Chat view in VS Code.](../images/chat-sessions/new-chat-session-chat-view.png)
+![Screenshot of opening a new chat session in the Chat view in VS Code.](../../images/chat-sessions/new-chat-session-chat-view.png)
 
 To start a new chat session in the Chat view:
 
@@ -72,13 +72,13 @@ To start a new chat session in the Chat view:
 
 1. Choose an agent harness from the **Session Target** control to determine where the agent session runs and what capabilities it can access.
 
-    Choose Local, Copilot, Claude, Codex, or Cloud. Learn how to [choose an agent harness](/docs/agents/agent-harnesses.md).
+    Choose Local, Copilot, Claude, Codex, or Cloud. Learn how to [choose an agent harness](/docs/agents/run/agent-harnesses.md).
 
 1. Optionally, select additional configuration options for the session:
 
-    * **Agent**: determines the role or persona of the AI, such as Agent, Plan, or Ask. Learn more about [choosing an agent role](/docs/agents/agent-harnesses.md#choose-a-built-in-agent-role).
+    * **Agent**: determines the role or persona of the AI, such as Agent, Plan, or Ask. Learn more about [choosing an agent role](/docs/agents/run/agent-harnesses.md#choose-a-built-in-agent-role).
 
-    * **Permission level**: controls how much autonomy the agent has over tool approvals. Learn more about [permission levels](/docs/agents/approvals.md#permission-levels).
+    * **Permission level**: controls how much autonomy the agent has over tool approvals. Learn more about [permission levels](/docs/agents/run/approvals.md#permission-levels).
 
     * **Language model**: determines which AI model powers the conversation. Learn more about [language models in VS Code](/docs/agent-customization/language-models.md).
 
@@ -91,7 +91,7 @@ To start a new chat session in the Chat view:
 
 The context window control in the chat input shows how much of the model's context window the session is using. Hover over the control to see the token count, a usage breakdown by category, and the total AI credits consumed by the session.
 
-![Screenshot of VS Code Chat view, showing the context window usage control in the chat input box.](../../chat/images/copilot-chat/chat-context-window-control.png)
+![Screenshot of VS Code Chat view, showing the context window usage control in the chat input box.](../../../chat/images/copilot-chat/chat-context-window-control.png)
 
 As the conversation grows, the control updates to reflect increasing context usage. The available context depends on the selected model.
 
@@ -127,7 +127,7 @@ To create and manage chats in a session:
 
     A blank chat opens. When the session has more than one chat, a tab strip appears in the chat area. Chats don't appear as separate items in the sessions list.
 
-    ![Screenshot showing a new chat tab alongside an existing chat in the Agents window.](../images/agents-window/agents-window-new-subsession.png)
+    ![Screenshot showing a new chat tab alongside an existing chat in the Agents window.](../../images/agents-window/agents-window-new-subsession.png)
 
     <!-- TODO: Replace the screenshot with an updated capture that shows the + New Chat button, the chat tab strip with the trailing +, and the Conversations dropdown. -->
 
@@ -157,7 +157,7 @@ Start a side chat in one of these ways:
 
 Each question creates a new side chat. The side chat inherits the agent and language model from the source chat, but inherited messages remain hidden from its transcript.
 
-![Screenshot showing how to start a side chat in the Agents window from selected response text.](../images/agents-window/agents-window-side-chat.png)
+![Screenshot showing how to start a side chat in the Agents window from selected response text.](../../images/agents-window/agents-window-side-chat.png)
 
 > [!NOTE]
 > Side chats are available only in the Agents window for Copilot and Claude sessions. They aren't available for Codex sessions or in the Chat view.
@@ -166,7 +166,7 @@ Each question creates a new side chat. The side chat inherits the agent and lang
 
 The sessions list is your central hub for managing all your chat sessions, regardless of where you started them or where they are running. The sessions list shows your sessions with information about their status, type, and file changes.
 
-![Screenshot of the sessions list showing multiple sessions with different statuses, types, and file change stats.](../images/chat-sessions/chat-view-sessions-list.png)
+![Screenshot of the sessions list showing multiple sessions with different statuses, types, and file change stats.](../../images/chat-sessions/chat-view-sessions-list.png)
 
 Hover over a session to see actions for pinning or [archiving](#archive-sessions) it. Right-click a session in the list to see additional actions like deleting or changing the session's state. Some actions are specific to the session's harness and state. For example, you can check out a pull request for a cloud session.
 
@@ -177,7 +177,7 @@ Use the pinning action to keep important sessions easily accessible at the top o
 
 In the **Agents window**, the sessions list is located in the left sidebar. It shows sessions from all your workspaces, so you can monitor work across projects from a single place. Each session item surfaces key information such as session name, workspace, harness, and file change stats.
 
-![Screenshot of the sessions list in the Agents window, showing multiple sessions with different harnesses and file change stats.](../images/chat-sessions/agents-window-sessions-list.png)
+![Screenshot of the sessions list in the Agents window, showing multiple sessions with different harnesses and file change stats.](../../images/chat-sessions/agents-window-sessions-list.png)
 
 By default, the list is filtered to only show active sessions. You can change the filter to show sessions of different states, such as completed or archived.
 
@@ -226,13 +226,13 @@ When you archive (or mark as done) a session, its status changes so it moves out
 
 To archive a session, hover over the session in the sessions list and select the **Archive** (Chat view) or **Mark as Done** (Agents Window) option.
 
-![Screenshot of archiving an agent session in the sessions view.](../images/agents-overview/agent-sessions-archive-v2.png)
+![Screenshot of archiving an agent session in the sessions view.](../../images/agents-overview/agent-sessions-archive-v2.png)
 
 To view your archived sessions, use the filter options in the sessions list and select the **Archived** (Chat view) or **Done** (Agents Window) filter.
 
 ## Delete sessions
 
-To permanently delete a session, right-click the session in the sessions list and select **Delete**. Deleting a session removes it permanently and can't be undone. For [Copilot sessions](/docs/agents/agent-harnesses.md#copilot), deleting the session also removes any associated worktrees created for that session.
+To permanently delete a session, right-click the session in the sessions list and select **Delete**. Deleting a session removes it permanently and can't be undone. For [Copilot sessions](/docs/agents/run/agent-harnesses.md#copilot), deleting the session also removes any associated worktrees created for that session.
 
 If multiple Copilot sessions share the same worktree, such as after you fork a session, deleting one session does not remove the shared worktree while another session still uses it. The worktree is removed only after the last linked session is deleted or archived.
 
@@ -243,7 +243,7 @@ If multiple Copilot sessions share the same worktree, such as after you fork a s
 
 Forking a chat session creates a branch of a conversation that inherits conversation history from the original session. In single-chat sessions and sessions that don't use an agent host, the fork opens as a new independent session. The forked session is fully separate from the original, so changes in one session do not affect the other. The new session title is prefixed with "Forked:" to help you identify it.
 
-For multi-chat [Copilot](/docs/agents/agent-harnesses.md#use-the-copilot-harness) sessions in the Agents window, the fork opens as a peer chat in the same session. The peer chat gets an automatically generated title and runs independently from sibling chats.
+For multi-chat [Copilot](/docs/agents/run/agent-harnesses.md#use-the-copilot-harness) sessions in the Agents window, the fork opens as a peer chat in the same session. The peer chat gets an automatically generated title and runs independently from sibling chats.
 
 For Copilot sessions that use worktree isolation, the fork continues to use the same worktree as the original session.
 
@@ -255,14 +255,14 @@ There are two ways to fork a chat session:
 
 * **Fork from a checkpoint**: hover over a chat request in the conversation and select the **Fork Conversation** button. The fork includes only the requests up to and including that checkpoint.
 
-    ![Screenshot of the Fork Conversation button in the checkpoint toolbar in the Chat view.](../images/chat-checkpoints/chat-fork-conversation.png)
+    ![Screenshot of the Fork Conversation button in the checkpoint toolbar in the Chat view.](../../images/chat-checkpoints/chat-fork-conversation.png)
 
 > [!TIP]
 > A forked session inherits the conversation history of the original, which preserves the prompt cache and reduces cost on the next request. Use the [Cache Explorer](/docs/agents/agent-troubleshooting/cache-explorer.md) to compare cache hit rates across sessions.
 
 ## Orchestrate sessions from agent host sessions
 
-In agent host sessions, such as [Copilot](/docs/agents/agent-harnesses.md#use-the-copilot-harness) and Claude, agents can use built-in session-management tools to coordinate work across multiple sessions and chats. These tools are also available for Codex sessions when Codex [runs on the Agent Host](/docs/agents/concepts/agent-host.md#agents-on-the-agent-host).
+In agent host sessions, such as [Copilot](/docs/agents/run/agent-harnesses.md#use-the-copilot-harness) and Claude, agents can use built-in session-management tools to coordinate work across multiple sessions and chats. These tools are also available for Codex sessions when Codex [runs on the Agent Host](/docs/agents/concepts/agent-host.md#agents-on-the-agent-host).
 
 With these tools, an agent can:
 
@@ -310,7 +310,7 @@ The Chat view supports different options for copying chat messages as Markdown t
 
 The session status indicator provides quick access to your sessions directly from the command center in the title bar. The indicator displays visual badges for unread messages and in-progress sessions, so you can stay informed about AI activity without switching views.
 
-![Screenshot showing the session status indicator in the command center with unread and in-progress badges.](../images/agents-overview/agent-status-indicator-v2.png)
+![Screenshot showing the session status indicator in the command center with unread and in-progress badges.](../../images/agents-overview/agent-status-indicator-v2.png)
 
 The indicator shows:
 

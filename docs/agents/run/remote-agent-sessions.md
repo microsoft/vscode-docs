@@ -2,11 +2,11 @@
 ContentId: c7e2f4a1-8d3b-4a6e-9c5d-2f1b3e8a7d4c
 DateApproved: 7/29/2026
 MetaDescription: Connect to remote machines via SSH or dev tunnels to run agent sessions, or use the browser-based Agents window to manage sessions from any device.
-MetaSocialImage: images/shared/github-copilot-social.png
+MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Remote agent sessions
 
-The [Agents window](/docs/agents/agents-window.md) lets you connect to remote machines to start agent sessions or check in on existing ones. You can connect over SSH, through a dev tunnel, or use the Agents window directly in a browser from any device.
+The [Agents window](/docs/agents/run/agents-window.md) lets you connect to remote machines to start agent sessions or check in on existing ones. You can connect over SSH, through a dev tunnel, or use the Agents window directly in a browser from any device.
 
 This is useful when you want to take advantage of a remote machine's resources, work from a mobile device, or check in on your agent's progress when you're away from your main development machine.
 
@@ -22,7 +22,7 @@ To start a session on a remote machine via SSH:
 
 1. In the workspace dropdown, select the **Remote** tab, and then select **SSH**. If you've already set up SSH connections, they appear as options in the dropdown.
 
-    ![Screenshot showing how to select SSH in the workspace dropdown when starting a new agent session in the Agents window.](images/agents-window/agents-window-remote.png)
+    ![Screenshot showing how to select SSH in the workspace dropdown when starting a new agent session in the Agents window.](../images/agents-window/agents-window-remote.png)
 
 1. Enter the SSH connection string for the remote machine (for example, `user@hostname`).
 
@@ -40,7 +40,7 @@ To start a session on a remote machine via dev tunnel:
 
 1. In the workspace dropdown, select the **Remote** tab, and then select **Tunnels** and choose your account type.
 
-    ![Screenshot showing how to select Tunnels in the workspace dropdown when starting a new agent session in the Agents window.](images/agents-window/agents-window-remote.png)
+    ![Screenshot showing how to select Tunnels in the workspace dropdown when starting a new agent session in the Agents window.](../images/agents-window/agents-window-remote.png)
 
 1. Choose the active dev tunnel from the list.
 
@@ -49,7 +49,7 @@ To start a session on a remote machine via dev tunnel:
 1. Type a prompt and press `kbstyle(Enter)` to start the session.
 
 > [!IMPORTANT]
-> Ensure your dev tunnel requires authentication (GitHub or Microsoft account). If the tunnel allows anonymous access, anyone who discovers the URL can reach your machine and start agent sessions. This is especially dangerous when auto-approval modes are active, because unauthorized users can trigger AI-assisted command execution with your credentials. For more information, see [Security](/docs/agents/security.md).
+> Ensure your dev tunnel requires authentication (GitHub or Microsoft account). If the tunnel allows anonymous access, anyone who discovers the URL can reach your machine and start agent sessions. This is especially dangerous when auto-approval modes are active, because unauthorized users can trigger AI-assisted command execution with your credentials. For more information, see [Security](/docs/agents/run/security.md).
 
 ## Use the Agents window in the browser
 
@@ -90,7 +90,7 @@ You can connect and disconnect from hosts directly through the hosts bar. If a h
 
 ## Related resources
 
-* [Use the Agents window](/docs/agents/agents-window.md) - agent-first workflows across multiple projects.
-* [Choose an agent harness](/docs/agents/agent-harnesses.md) - compare harnesses, execution environments, and isolation options.
+* [Use the Agents window](/docs/agents/run/agents-window.md) - agent-first workflows across multiple projects.
+* [Choose an agent harness](/docs/agents/run/agent-harnesses.md) - compare harnesses, execution environments, and isolation options.
 * [Developing with Remote Tunnels](/docs/remote/tunnels.md) - set up and manage dev tunnels.
-* [Security](/docs/agents/security.md) - trust boundaries and security considerations.
+* [Security](/docs/agents/run/security.md) - trust boundaries and security considerations.

@@ -84,7 +84,7 @@ To make this experience easier, you can now fork a chat session. This creates a 
 
 You can either type `/fork` and it will copy over the full conversation, or you can use the fork button at a specific checkpoint to _fork_ the conversation up until that point.
 
-In the demo below, [`/fork`](https://code.visualstudio.com/docs/agents/sessions/manage-sessions#_fork-a-chat-session) creates a parallel thread where a more minimal design direction is explored without affecting the original discussion.
+In the demo below, [`/fork`](https://code.visualstudio.com/docs/agents/run/sessions/manage-sessions#_fork-a-chat-session) creates a parallel thread where a more minimal design direction is explored without affecting the original discussion.
 
 <video src="fork-a-conversation.mp4" title="Video demonstrating forking a conversation into parallel threads in VS Code." autoplay muted controls></video>
 

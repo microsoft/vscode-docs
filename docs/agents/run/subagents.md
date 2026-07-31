@@ -2,7 +2,7 @@
 ContentId: 8b3c9f5e-4d2a-6f9b-3e1c-7a8d5f2e9b0c
 DateApproved: 7/29/2026
 MetaDescription: Learn how to use context-isolated subagents in VS Code to delegate complex tasks to autonomous agents within your chat session.
-MetaSocialImage: ../images/shared/github-copilot-social.png
+MetaSocialImage: ../../images/shared/github-copilot-social.png
 Keywords:
 - subagents
 - agents
@@ -18,7 +18,7 @@ Keywords:
 When working on complex tasks, you can delegate subtasks to subagents. A subagent is an independent AI agent that performs focused work, such as researching a topic, analyzing code, or reviewing changes, and reports the results back to the main agent.
 
 > [!TIP]
-> To run deep research that produces a standalone, shareable report rather than feeding results back into your main conversation, use the built-in [research agent](/docs/agents/agent-harnesses.md#run-deep-research-with-the-research-agent) in Copilot sessions.
+> To run deep research that produces a standalone, shareable report rather than feeding results back into your main conversation, use the built-in [research agent](/docs/agents/run/agent-harnesses.md#run-deep-research-with-the-research-agent) in Copilot sessions.
 
 For background on subagent concepts (context isolation, synchronous and parallel execution), see [Agents concepts](/docs/agents/concepts/agents.md#subagents).
 
@@ -168,7 +168,7 @@ Subagent chats are hidden from the tab strip by default. Open one in any of thes
 
 Read-only subagent chats show a lock icon and don't accept input. They persist across window reloads with your other chats.
 
-![Screenshot showing a read-only subagent chat in the Agents window.](images/agents-window/agents-window-follow-subagents-read-only-chat.png)
+![Screenshot showing a read-only subagent chat in the Agents window.](../images/agents-window/agents-window-follow-subagents-read-only-chat.png)
 
 > [!NOTE]
 > Hover over a subagent section in the chat response to see the [AI credits](/docs/agents/concepts/language-models.md#ai-credits-and-model-costs) used by that subagent. This gives you more transparency into the cost of delegated work.
@@ -364,5 +364,5 @@ This pattern works because each subagent approaches the code fresh, without bein
 
 * [Agents overview](/docs/agents/overview.md) - Learn about the different types of agents in VS Code
 * [Custom agents](/docs/agent-customization/custom-agents.md) - Create your own AI agents
-* [Agent sessions](/docs/agents/sessions/manage-sessions.md) - Create and organize agent sessions
+* [Agent sessions](/docs/agents/run/sessions/manage-sessions.md) - Create and organize agent sessions
 * [Cache Explorer](/docs/agents/agent-troubleshooting/cache-explorer.md) - See how context isolation affects prompt cache hit rates

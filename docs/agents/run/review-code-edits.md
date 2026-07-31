@@ -2,14 +2,14 @@
 ContentId: 8d3f4a2e-9b1c-4f5e-a8d7-2c4b6e9f1a3d
 DateApproved: 7/29/2026
 MetaDescription: Review, revise, revert, and integrate AI-generated code changes in Visual Studio Code with diffs, feedback, checkpoints, and Source Control.
-MetaSocialImage: ../images/shared/github-copilot-social.png
+MetaSocialImage: ../../images/shared/github-copilot-social.png
 ---
 # Review and revert agent changes
 
 When you work with an agent in Visual Studio Code, it can change multiple files in your project. This article explains how to inspect, revise, integrate, or discard these AI-generated changes.
 
 > [!NOTE]
-> You can review AI-generated changes in both the [Chat view](/docs/agents/chat-view.md) and the [Agents window](/docs/agents/agents-window.md). The review experience follows the same concepts, but the user interface differs between the two surfaces.
+> You can review AI-generated changes in both the [Chat view](/docs/agents/run/chat-view.md) and the [Agents window](/docs/agents/run/agents-window.md). The review experience follows the same concepts, but the user interface differs between the two surfaces.
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
 Follow a hands-on tutorial to experience local, background, and cloud agents in VS Code.
@@ -59,7 +59,7 @@ To review and integrate the changes:
 
 1. Select a file in the **Changes** tab to open a diff view of the agent's edits.
 
-    ![Screenshot showing the Changes panel in the Agents window, highlighting the list of edited files and the diff view.](images/review-code-edits/agents-window-diff-view.png)
+    ![Screenshot showing the Changes panel in the Agents window, highlighting the list of edited files and the diff view.](../images/review-code-edits/agents-window-diff-view.png)
 
     By default, selecting a file opens a multi-file diff editor with all the session changes. To open a focused single-file diff, enable `setting(sessions.changes.openSingleFileDiff)`.
 
@@ -67,7 +67,7 @@ To review and integrate the changes:
 
 1. Select a range of code in a changed file, select **Add Feedback**, and enter a comment that describes the change you want. Add more comments on other selections or files, and then select **Submit Feedback** to send them to the agent.
 
-    ![Screenshot showing the Add Feedback button in the Changes diff view.](images/review-code-edits/agents-window-add-feedback.png)
+    ![Screenshot showing the Add Feedback button in the Changes diff view.](../images/review-code-edits/agents-window-add-feedback.png)
 
     Markdown files follow the same feedback flow. Open a workspace file from the **Changes** tab and use **Locked** mode in the Markdown editor to add range-based feedback. Feedback stays in sync if you reopen the file in the text editor.
 
@@ -97,7 +97,7 @@ Each request in your conversation history is editable. When you edit a previous 
 
 Select the request in the conversation, modify it, and resend it. Configure or turn off request editing with `setting(chat.editRequests)`.
 
-<video src="images/chat-checkpoints/chat-edit-request.mp4" title="Video showing the editing of a previous chat request in the Chat view." loop controls muted></video>
+<video src="../images/chat-checkpoints/chat-edit-request.mp4" title="Video showing the editing of a previous chat request in the Chat view." loop controls muted></video>
 
 ### Restore a checkpoint
 
@@ -109,7 +109,7 @@ To restore your workspace to an earlier checkpoint:
 
 1. Hover over the request and select **Restore Checkpoint**.
 
-    ![Screenshot showing the Restore Checkpoint action in the Chat view.](images/chat-checkpoints/chat-restore-checkpoint.png)
+    ![Screenshot showing the Restore Checkpoint action in the Chat view.](../images/chat-checkpoints/chat-restore-checkpoint.png)
 
 1. Confirm that you want to restore the checkpoint.
 
@@ -119,17 +119,17 @@ VS Code removes subsequent requests from the conversation history and restores t
 
 After restoring a checkpoint, select **Redo** to recover the changes that were undone.
 
-![Screenshot showing the Redo button after restoring a checkpoint.](images/chat-checkpoints/chat-redo-checkpoint.png)
+![Screenshot showing the Redo button after restoring a checkpoint.](../images/chat-checkpoints/chat-redo-checkpoint.png)
 
 #### View file changes in checkpoints
 
 Set `setting(chat.checkpoints.showFileChanges)` to show the files changed by each request and the number of lines added or removed. Use this summary to understand the effect of a request before restoring its checkpoint.
 
-![Screenshot showing file changes associated with a chat checkpoint.](images/chat-checkpoints/chat-checkpoint-changed-files.png)
+![Screenshot showing file changes associated with a chat checkpoint.](../images/chat-checkpoints/chat-checkpoint-changed-files.png)
 
 #### Fork from a checkpoint
 
-Hover over a request and select **Fork Conversation** to create an independent session that includes the conversation up to that checkpoint. Learn more about [forking agent sessions](/docs/agents/sessions/manage-sessions.md#fork-a-chat-session).
+Hover over a request and select **Fork Conversation** to create an independent session that includes the conversation up to that checkpoint. Learn more about [forking agent sessions](/docs/agents/run/sessions/manage-sessions.md#fork-a-chat-session).
 
 > [!NOTE]
 > Checkpoints are temporary and don't replace Git version control. Use Git for permanent version history and collaboration.
@@ -141,13 +141,13 @@ If you don't have the agent host enabled (`setting(chat.agentHost.enabled)` is `
 
 After the agent edits and saves a file, VS Code marks the edits as pending. Files with pending edits have a squared-dot indicator in the Explorer view and editor tabs. The pending state is restored when you reopen VS Code.
 
-![Screenshot showing the Chat view, highlighting the changed files list and the indicator in the Explorer view and editor tabs.](images/review-code-edits/copilot-edits-changed-files-full.png)
+![Screenshot showing the Chat view, highlighting the changed files list and the indicator in the Explorer view and editor tabs.](../images/review-code-edits/copilot-edits-changed-files-full.png)
 
 To review pending edits:
 
 1. Open a file from the changed-files list in the Chat view or from the Explorer view.
 
-    ![Screenshot showing the Editor with proposed changes, highlighting the review controls in the editor overlay controls.](images/review-code-edits/copilot-edits-file-review-controls.png)
+    ![Screenshot showing the Editor with proposed changes, highlighting the review controls in the editor overlay controls.](../images/review-code-edits/copilot-edits-file-review-controls.png)
 
 1. Use the `kbstyle(Up)` and `kbstyle(Down)` controls in the editor overlay to navigate between edits.
 
@@ -168,7 +168,7 @@ If you stage your changes in the Source Control view, any pending edits are auto
 Use `setting(chat.editing.autoAcceptDelay)` to automatically accept pending edits after a configurable delay. Hover over the editor overlay controls to stop the countdown.
 
 > [!IMPORTANT]
-> If you automatically accept all edits, review the changes before you commit them in source control. Learn more about the [security considerations of using AI in VS Code](/docs/agents/security.md).
+> If you automatically accept all edits, review the changes before you commit them in source control. Learn more about the [security considerations of using AI in VS Code](/docs/agents/run/security.md).
 
 </details>
 
@@ -190,14 +190,14 @@ The following example configuration automatically allows edits to all files exce
 
 ## Review changes from the sessions list
 
-When a session completes and makes code changes to your project, the [sessions list](/docs/agents/sessions/manage-sessions.md#sessions-list) shows the file change statistics for that session. To review the changes, select the session from the list to open the session details.
+When a session completes and makes code changes to your project, the [sessions list](/docs/agents/run/sessions/manage-sessions.md#sessions-list) shows the file change statistics for that session. To review the changes, select the session from the list to open the session details.
 
-![Screenshot of the file changes diff editor in an agent session.](images/agents-overview/agent-file-changes-v2.png)
+![Screenshot of the file changes diff editor in an agent session.](../images/agents-overview/agent-file-changes-v2.png)
 
 Depending on the agent harness and isolation mode, you can apply or merge changes into your local workspace, or check out the branch from a cloud session.
 
 ## Related resources
 
 * [Use chat in VS Code](/docs/chat/chat-overview.md)
-* [Agent sessions](/docs/agents/sessions/manage-sessions.md)
-* [Security considerations for using AI in VS Code](/docs/agents/security.md)
+* [Agent sessions](/docs/agents/run/sessions/manage-sessions.md)
+* [Security considerations for using AI in VS Code](/docs/agents/run/security.md)

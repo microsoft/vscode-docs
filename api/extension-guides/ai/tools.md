@@ -18,7 +18,7 @@ In this extension guide, you learn how to create a language model tool by using 
 You can also extend the chat experience with specialized tools by contributing an [MCP server](/api/extension-guides/ai/mcp). See the [AI Extensibility Overview](/api/extension-guides/ai/ai-extensibility-overview) for details on the different options and how to decide which approach to use.
 
 > [!TIP]
-> For information about using tools as an end user, see [Use tools with agents](/docs/agents/tools.md).
+> For information about using tools as an end user, see [Use tools with agents](/docs/agents/run/tools.md).
 
 ## What is tool calling in an LLM?
 

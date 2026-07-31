@@ -51,7 +51,7 @@ Agents work in the context of a folder, also known as a *workspace*. You start b
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Explore the Agents window">
 Use the Agents window to run and monitor agent sessions across your projects from a single place in VS Code.
 
-* [Learn about the Agents window](/docs/agents/agents-window.md)
+* [Learn about the Agents window](/docs/agents/run/agents-window.md)
 
 </div>
 
@@ -171,7 +171,7 @@ Before you commit the agent's work, you might want to review the actual code cha
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Explore the Chat view">
 Use the Chat view alongside your editor to let agents assist you with coding tasks in your active workspace.
 
-* [Learn about the Chat view](/docs/agents/chat-view.md)
+* [Learn about the Chat view](/docs/agents/run/chat-view.md)
 
 </div>
 
@@ -241,6 +241,6 @@ To go deeper with agentic coding in Visual Studio Code, get more info about how 
 
 * [Customize the agent to follow your coding standards and automate repeat tasks](/docs/agent-customization/overview.md)
 
-* [Learn more about the Agents window](/docs/agents/agents-window.md)
+* [Learn more about the Agents window](/docs/agents/run/agents-window.md)
 
-* [Learn more about the Chat view](/docs/agents/chat-view.md)
+* [Learn more about the Chat view](/docs/agents/run/chat-view.md)

@@ -64,6 +64,6 @@ You can also reference tool sets in [prompt files](/docs/agent-customization/pro
 
 ## Related resources
 
-* [Use tools with agents](/docs/agents/tools.md)
+* [Use tools with agents](/docs/agents/run/tools.md)
 * [Add and manage MCP servers](/docs/agent-customization/mcp-servers.md)
 * [Create custom agents](/docs/agent-customization/custom-agents.md)

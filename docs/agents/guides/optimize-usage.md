@@ -25,7 +25,7 @@ For more information, see [choosing and configuring language models](/docs/agent
 
 Jumping straight into code generation can lead to wasted effort if the approach is wrong. It also requires a model with enough reasoning capability throughout the process, which can consume more credits. Instead, separate the planning and implementation phases. This allows you to use a reasoning model for planning, and then switch to a faster, more efficient model for implementation once the plan is solidified.
 
-1. Use the [Plan agent](/docs/agents/planning.md) to research the task and create a structured implementation plan.
+1. Use the [Plan agent](/docs/agents/run/planning.md) to research the task and create a structured implementation plan.
 1. Review and refine the plan before the agent writes any code.
 1. Hand off the approved plan to an implementation agent using a faster model to execute the plan.
 
@@ -45,11 +45,11 @@ For more information, see [configure thinking effort](/docs/agent-customization/
 
 As a conversation grows, it accumulates context from previous messages, tool outputs, and file contents. When you switch to an unrelated task in the same session, the model still processes all that irrelevant history, which consumes tokens without improving results.
 
-Start a [new agent session](/docs/agents/sessions/manage-sessions.md) (`kb(workbench.action.chat.newChat)`) when you change topics. This gives the model a clean context window focused on the current task.
+Start a [new agent session](/docs/agents/run/sessions/manage-sessions.md) (`kb(workbench.action.chat.newChat)`) when you change topics. This gives the model a clean context window focused on the current task.
 
 ## Leverage forking
 
-When you want to explore an alternative approach or ask a side question, [fork the conversation](/docs/agents/sessions/manage-sessions.md#fork-a-chat-session) instead of re-prompting from scratch. Forking creates a new session that inherits the existing conversation history, so you don't need to re-establish context.
+When you want to explore an alternative approach or ask a side question, [fork the conversation](/docs/agents/run/sessions/manage-sessions.md#fork-a-chat-session) instead of re-prompting from scratch. Forking creates a new session that inherits the existing conversation history, so you don't need to re-establish context.
 
 * Type `/fork` in the chat input to fork the entire session up to the current message.
 * Hover over a previous message and select **Fork Conversation** to fork from a specific checkpoint.
@@ -61,7 +61,7 @@ Every tool call produces output that consumes space in the [context window](/doc
 * Use the **Configure Tools** button in the chat input field to enable or disable individual tools or entire MCP servers for the current request.
 * In [custom agents](/docs/agent-customization/custom-agents.md), specify only the tools the agent needs via the `tools` property. This prevents the agent from calling tools that aren't relevant to its workflow.
 
-For more information, see [Use tools with agents](/docs/agents/tools.md).
+For more information, see [Use tools with agents](/docs/agents/run/tools.md).
 
 ## Exclude files from Copilot context
 
@@ -79,7 +79,7 @@ For more information and example configurations, see [improve agent search with 
 
 When a conversation grows long, use `/compact` to summarize older parts of the conversation and reclaim context window space. You can optionally add instructions to guide the summary, for example `/compact focus on the API design decisions`.
 
-For more information, see [context compaction](/docs/agents/sessions/manage-sessions.md#compact-conversation-context).
+For more information, see [context compaction](/docs/agents/run/sessions/manage-sessions.md#compact-conversation-context).
 
 ## Monitor your usage
 
@@ -97,7 +97,7 @@ To view your overall monthly consumption, open the Copilot status dashboard from
 
 Visit the GitHub Copilot documentation for more information about [monitoring usage and entitlements](https://docs.github.com/en/copilot/managing-copilot/monitoring-usage-and-entitlements/monitoring-your-copilot-usage-and-entitlements).
 
-You can also run the `/chronicle:cost-tips` command in any chat session to get personalized recommendations for optimizing your AI credit usage based on your recent activity. Learn more about [session insights and the chronicle command](/docs/agents/sessions/session-history.md#query-session-history-with-chronicle).
+You can also run the `/chronicle:cost-tips` command in any chat session to get personalized recommendations for optimizing your AI credit usage based on your recent activity. Learn more about [session insights and the chronicle command](/docs/agents/run/sessions/session-history.md#query-session-history-with-chronicle).
 
 ## Inspect token usage and caching
 

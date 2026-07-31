@@ -2,7 +2,7 @@
 ContentId: 3b7e6d52-0c41-4f8a-9d2e-1a5c7b9e4f60
 DateApproved: 7/29/2026
 MetaDescription: Learn how to manage tool approvals, configure auto-approval, set permission levels, and sandbox agent commands to control agent autonomy in VS Code.
-MetaSocialImage: ../images/shared/github-copilot-social.png
+MetaSocialImage: ../../images/shared/github-copilot-social.png
 keywords:
 - copilot
 - ai
@@ -16,7 +16,7 @@ keywords:
 
 Agents in Visual Studio Code can run tools and terminal commands to complete tasks. To keep you in control, VS Code asks for your approval before the agent runs actions that modify files, run commands, or access external resources.
 
-This article describes how to set the agent's permission level, manage tool and URL approvals, automatically approve terminal commands, and sandbox agent commands. For information about agent tools, see [Use tools with agents](/docs/agents/tools.md). For background on why these controls exist, see [Trust and safety](/docs/agents/concepts/trust-and-safety.md).
+This article describes how to set the agent's permission level, manage tool and URL approvals, automatically approve terminal commands, and sandbox agent commands. For information about agent tools, see [Use tools with agents](/docs/agents/run/tools.md). For background on why these controls exist, see [Trust and safety](/docs/agents/concepts/trust-and-safety.md).
 
 VS Code provides several controls to govern what the agent can do. Permission levels are the high-level dial for the session, while the other mechanisms give you fine-grained control over specific actions.
 
@@ -53,7 +53,7 @@ The permission level determines whether your finer-grained settings apply. **Def
 > The **Assisted permissions** level reduces approval interruptions but does not replace your judgment. A model-based risk assessment can make mistakes. The first time you select this level, a warning dialog asks you to confirm. Use [agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing) to limit file system and network access, and review any tool calls that still require your approval.
 
 > [!CAUTION]
-> **Bypass Approvals** and **Autopilot** bypass manual approval prompts, including for potentially destructive actions like file edits, terminal commands, and external tool calls. The first time you enable either level, a warning dialog asks you to confirm. Only use these levels if you understand the security implications. See the [Security considerations](/docs/agents/security.md) for more details.
+> **Bypass Approvals** and **Autopilot** bypass manual approval prompts, including for potentially destructive actions like file edits, terminal commands, and external tool calls. The first time you enable either level, a warning dialog asks you to confirm. Only use these levels if you understand the security implications. See the [Security considerations](/docs/agents/run/security.md) for more details.
 
 ### How Autopilot works
 
@@ -79,12 +79,12 @@ Some tools require your approval before they can run. This is a security measure
 
 When a tool requires approval, a confirmation dialog appears with the tool name and its input parameters. Review this information carefully, then choose the scope of your approval: a single use, the current session, the current workspace, or all future invocations.
 
-![Screenshot of a tool confirmation dialog showing tool details and approval options.](images/approvals/chat-approve-tool.png)
+![Screenshot of a tool confirmation dialog showing tool details and approval options.](../images/approvals/chat-approve-tool.png)
 
-Some files in your workspace, such as `.env` files or configuration files, can hold secrets or sensitive settings. Learn how to require explicit approval for [edits to sensitive files](/docs/agents/review-code-edits.md#edit-sensitive-files).
+Some files in your workspace, such as `.env` files or configuration files, can hold secrets or sensitive settings. Learn how to require explicit approval for [edits to sensitive files](/docs/agents/run/review-code-edits.md#edit-sensitive-files).
 
 > [!IMPORTANT]
-> Always review tool parameters carefully before approving, especially for tools that modify files, run commands, or access external services. See the [Security considerations](/docs/agents/security.md) for using AI in VS Code.
+> Always review tool parameters carefully before approving, especially for tools that modify files, run commands, or access external services. See the [Security considerations](/docs/agents/run/security.md) for using AI in VS Code.
 
 ### Manage tool approvals
 
@@ -119,7 +119,7 @@ When a tool attempts to access a URL, for example the `#web/fetch` tool, VS Code
 
     This step confirms that you trust the domain being contacted, and prevents sensitive data from being sent to untrusted sites.
 
-    ![Screenshot of a URL approval dialog showing URL details and approval options.](images/approvals/chat-approve-url.png)
+    ![Screenshot of a URL approval dialog showing URL details and approval options.](../images/approvals/chat-approve-url.png)
 
     You can approve the request once, or automatically approve future requests to the specific URL or domain. Approving a request does not approve the response: you still review the fetched content in the next step. To configure both the request and response approvals at the same time, select **Allow requests to**.
 
@@ -155,7 +155,7 @@ URL auto-approval examples:
 
 ## Automatically approve terminal commands
 
-The agent uses a single terminal tool to run [terminal commands](/docs/agents/tools.md#run-terminal-commands), but that tool can run any command. Approving the terminal tool once would be too broad, so terminal commands are approved per command rather than per tool.
+The agent uses a single terminal tool to run [terminal commands](/docs/agents/run/tools.md#run-terminal-commands), but that tool can run any command. Approving the terminal tool once would be too broad, so terminal commands are approved per command rather than per tool.
 
 By default, VS Code already auto-approves a set of safe commands and blocks risky ones, such as `rm` and `del`, that always require manual approval. Use the `setting(chat.tools.terminal.autoApprove)` setting to extend or override these defaults with your own allow and deny list:
 
@@ -300,7 +300,7 @@ You have several options for auto-approving tool calls:
 * **Global setting**: enable the `setting(chat.tools.global.autoApprove)` setting to auto-approve all tools across all your workspaces. You can also toggle this directly from chat by using the `/yolo` or `/autoApprove` slash command to enable it, or `/disableYolo` or `/disableAutoApprove` to disable it. The first time you enable global auto-approval, a warning dialog asks you to confirm.
 
 > [!CAUTION]
-> Both approaches disable manual approval prompts, including for potentially destructive actions. They remove critical security protections and make it easier for an attacker to compromise the machine. Only use these options if you understand the implications. See the [Security documentation](/docs/agents/security.md) for more details.
+> Both approaches disable manual approval prompts, including for potentially destructive actions. They remove critical security protections and make it easier for an attacker to compromise the machine. Only use these options if you understand the implications. See the [Security documentation](/docs/agents/run/security.md) for more details.
 >
 > The `setting(chat.tools.global.autoApprove)` setting applies globally across all your workspaces. Use a session-scoped [permission level](#permission-levels) if you prefer to limit auto-approval to the current session.
 
@@ -308,6 +308,6 @@ You have several options for auto-approving tool calls:
 
 ## Related resources
 
-* [Use tools with agents](/docs/agents/tools.md)
-* [Security considerations for using AI in VS Code](/docs/agents/security.md)
+* [Use tools with agents](/docs/agents/run/tools.md)
+* [Security considerations for using AI in VS Code](/docs/agents/run/security.md)
 * [Trust and safety concepts](/docs/agents/concepts/trust-and-safety.md)

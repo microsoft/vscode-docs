@@ -8,7 +8,7 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 
 Inline chat and Quick Chat provide lightweight ways to interact with AI without opening the full Chat view. Use inline chat to generate code or make edits directly in the editor, or to get help with shell commands in the integrated terminal. Use Quick Chat for short questions and interactions.
 
-Use inline chat when you want to make quick, targeted edits within the visible code context. For multi-step tasks, multi-file changes, or broader codebase exploration, use the [Chat view](/docs/agents/chat-view.md) instead.
+Use inline chat when you want to make quick, targeted edits within the visible code context. For multi-step tasks, multi-file changes, or broader codebase exploration, use the [Chat view](/docs/agents/run/chat-view.md) instead.
 
 ## Use editor inline chat
 
@@ -85,7 +85,7 @@ Learn more about [choosing the right model for your task](/docs/agents/concepts/
 Quick Chat provides a lightweight chat panel that opens at the top of the editor. Use it for quick questions and short interactions without opening the full Chat view or leaving your current workflow.
 
 > [!NOTE]
-> Quick Chat in the editor window differs from [quick chats in the Agents window](/docs/agents/agents-window.md#quick-chats), which are workspace-free conversations that appear in the sessions list.
+> Quick Chat in the editor window differs from [quick chats in the Agents window](/docs/agents/run/agents-window.md#quick-chats), which are workspace-free conversations that appear in the sessions list.
 
 To open Quick Chat, press `kb(workbench.action.quickchat.toggle)` or select **Quick Chat** from the **Chat** menu in the title bar.
 
@@ -95,5 +95,5 @@ Type your prompt and press `kbstyle(Enter)` to get a response. Quick Chat suppor
 
 * [Use chat in VS Code](/docs/chat/chat-overview.md)
 * [Add context to your chat prompt](/docs/chat/copilot-chat-context.md)
-* [Review AI-generated code edits](/docs/agents/review-code-edits.md)
+* [Review AI-generated code edits](/docs/agents/run/review-code-edits.md)
 * [AI language models in VS Code](/docs/agent-customization/language-models.md)

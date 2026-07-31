@@ -2,7 +2,7 @@
 ContentId: 3a7e9c4f-5d1b-4e8f-a2c6-8b0d3f5e7a9c
 DateApproved: 7/29/2026
 MetaDescription: Learn how agents in VS Code use the memory tool and Copilot Memory to retain context, learn preferences, and improve over time across conversations.
-MetaSocialImage: ../images/shared/github-copilot-social.png
+MetaSocialImage: ../../images/shared/github-copilot-social.png
 ---
 
 # Memory in VS Code agents
@@ -60,7 +60,7 @@ Repository memory is stored locally by default. When you enable Copilot Memory, 
 
 Session memory is scoped to the current conversation and cleared when the conversation ends. Use session memory for temporary working notes or task-specific context that the agent tracks while working through a multi-step task.
 
-The Plan agent uses session memory to persist its implementation plans in a `plan.md` file. This plan is available during the session and can be viewed with the **Chat: Show Memory Files** command, but is not available in subsequent sessions. Learn more about [planning with agents](/docs/agents/planning.md).
+The Plan agent uses session memory to persist its implementation plans in a `plan.md` file. This plan is available during the session and can be viewed with the **Chat: Show Memory Files** command, but is not available in subsequent sessions. Learn more about [planning with agents](/docs/agents/run/planning.md).
 
 ### Store and retrieve memories
 
@@ -141,7 +141,7 @@ The two systems are complementary. Use the local memory tool for personal prefer
 
 ## Related resources
 
-* [Planning with agents](/docs/agents/planning.md)
-* [Agent tools](/docs/agents/tools.md)
+* [Planning with agents](/docs/agents/run/planning.md)
+* [Agent tools](/docs/agents/run/tools.md)
 * [Enabling and curating Copilot Memory](https://docs.github.com/copilot/how-tos/use-copilot-agents/copilot-memory) (GitHub documentation)
 * [Building an agentic memory system for GitHub Copilot](https://github.blog/ai-and-ml/github-copilot/building-an-agentic-memory-system-for-github-copilot/) (GitHub blog)

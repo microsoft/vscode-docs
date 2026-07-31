@@ -2,7 +2,7 @@
 ContentId: 8f2c4a1d-9e3b-4c5f-a7d8-6b9c2e4f1a3d
 DateApproved: 7/29/2026
 MetaDescription: Use built-in, MCP, and extension tools with AI agents in VS Code, including tool selection, parameters, terminal commands, and approvals.
-MetaSocialImage: ../images/shared/github-copilot-social.png
+MetaSocialImage: ../../images/shared/github-copilot-social.png
 keywords:
 - copilot
 - ai
@@ -18,7 +18,7 @@ Tools extend agents in Visual Studio Code with specialized functionality for acc
 
 For background on tool types and how tools work in the agent loop, see [Tools concepts](/docs/agents/concepts/tools.md).
 
-This article describes how to use tools in your prompts and manage tool invocations. To control how the agent requests approval for tool calls and how much autonomy it has, see [Manage approvals and permissions](/docs/agents/approvals.md).
+This article describes how to use tools in your prompts and manage tool invocations. To control how the agent requests approval for tool calls and how much autonomy it has, see [Manage approvals and permissions](/docs/agents/run/approvals.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Try tools in action">
 Launch a chat prompt that uses the web tool to summarize the latest VS Code updates.
@@ -40,7 +40,7 @@ To access the tools picker:
 
 1. Select the **Configure Tools** button in the chat input field.
 
-    ![Screenshot showing the Chat view, highlighting the Configure Tools button in the chat input.](images/chat-tools/agent-mode-select-tools.png)
+    ![Screenshot showing the Chat view, highlighting the Configure Tools button in the chat input.](../images/chat-tools/agent-mode-select-tools.png)
 
 1. Select or deselect tools to control which ones are available for the current request.
 
@@ -78,13 +78,13 @@ You can review and edit the input parameters before a tool runs:
 
 ## Run terminal commands
 
-Of all the built-in tools, the terminal tool is one of the most frequently used. The agent uses it to run commands as part of its workflow, for example to install dependencies, run a build, or execute tests. Because terminal commands can change your environment, VS Code provides additional controls for reviewing, running, and monitoring them, building on the [approval](/docs/agents/approvals.md) behavior described earlier.
+Of all the built-in tools, the terminal tool is one of the most frequently used. The agent uses it to run commands as part of its workflow, for example to install dependencies, run a build, or execute tests. Because terminal commands can change your environment, VS Code provides additional controls for reviewing, running, and monitoring them, building on the [approval](/docs/agents/run/approvals.md) behavior described earlier.
 
 When the agent decides to run a command, it uses the built-in terminal tool to execute it in an integrated terminal within VS Code.
 
 In the chat conversation, the agent displays the commands it ran. You can view the output of the command inline in chat by selecting **Show Output** (`>`) next to the command. You can also view the full output in the integrated terminal by selecting **Show Terminal**.
 
-![Screenshot showing terminal command output in chat.](images/chat-tools/terminal-command-output.png)
+![Screenshot showing terminal command output in chat.](../images/chat-tools/terminal-command-output.png)
 
 Use the experimental `setting(chat.tools.terminal.outputLocation)` setting to configure where terminal command output appears: inline in chat, or directly in the integrated terminal.
 
@@ -99,7 +99,7 @@ The agent can also specify a timeout when running terminal commands. When the ti
 The agent can also choose to run commands directly in the background, without user interaction. Background terminals that you have not revealed are automatically cleaned up when their command finishes, which prevents stale terminals from accumulating over a long session. To reveal a background terminal and keep it open after the command completes, select the **Show** link in the chat tool invocation header. The terminal output remains visible in the chat conversation even after a terminal is cleaned up.
 
 > [!TIP]
-> To automatically approve terminal commands or restrict file system and network access for agent commands, see [Manage approvals and permissions](/docs/agents/approvals.md).
+> To automatically approve terminal commands or restrict file system and network access for agent commands, see [Manage approvals and permissions](/docs/agents/run/approvals.md).
 
 ## Frequently asked questions
 
@@ -149,4 +149,4 @@ Yes. You can create tools in two ways:
 * [Chat tools reference](/docs/agents/reference/ai-features-cheat-sheet.md#chat-tools)
 * [Create and use tool sets](/docs/agent-customization/tool-sets.md)
 * [Agent hooks](/docs/agent-customization/hooks.md) - Execute custom commands at tool lifecycle events
-* [Security considerations for using AI in VS Code](/docs/agents/security.md)
+* [Security considerations for using AI in VS Code](/docs/agents/run/security.md)

@@ -30,13 +30,13 @@ This article describes how to create and manage custom agents in VS Code.
 
 ## What are custom agents?
 
-The [built-in agent roles](/docs/agents/agent-harnesses.md#choose-a-built-in-agent-role) provide general-purpose configurations for chat in VS Code. For a more tailored chat experience, you can create your own custom agents.
+The [built-in agent roles](/docs/agents/run/agent-harnesses.md#choose-a-built-in-agent-role) provide general-purpose configurations for chat in VS Code. For a more tailored chat experience, you can create your own custom agents.
 
 Custom agents consist of a set of instructions and tools that are applied when you switch to that agent. For example, a "Plan" agent could include instructions for generating an implementation plan and only use read-only tools. By creating a custom agent, you can quickly switch to that specific configuration without having to manually select relevant tools and instructions each time.
 
 Custom agents are defined in a `.agent.md` Markdown file, and can be stored in your workspace for others to use, or in your user profile, where you can reuse them across different workspaces.
 
-You can reuse your custom agents with [Copilot and cloud harnesses](/docs/agents/agent-harnesses.md), enabling you to run autonomous tasks with the same specialized configurations.
+You can reuse your custom agents with [Copilot and cloud harnesses](/docs/agents/run/agent-harnesses.md), enabling you to run autonomous tasks with the same specialized configurations.
 
 ## Why use custom agents?
 
@@ -45,7 +45,7 @@ Different tasks require different capabilities. A planning agent might only need
 Custom agents also let you provide specialized instructions that define how the AI should operate. For instance, a planning agent could instruct the AI to collect project context and generate a detailed implementation plan, while a code review agent might focus on identifying security vulnerabilities and suggesting improvements. These specialized instructions ensure consistent, task-appropriate responses every time you switch to that agent.
 
 > [!NOTE]
-> Subagents can run with a custom agent. Learn more about running [subagents with custom agents](/docs/agents/subagents.md#run-a-custom-agent-as-a-subagent) (experimental).
+> Subagents can run with a custom agent. Learn more about running [subagents with custom agents](/docs/agents/run/subagents.md#run-a-custom-agent-as-a-subagent) (experimental).
 
 ## Handoffs
 
@@ -108,10 +108,10 @@ The header is formatted as YAML frontmatter with the following fields:
 | `description`     | A brief description of the custom agent, shown as placeholder text in the chat input field. |
 | `name`            | The name of the custom agent. If not specified, the file name is used. |
 | `argument-hint`   | Optional hint text shown in the chat input field to guide users on how to interact with the custom agent. |
-| `tools`           | A list of tool or [tool set](/docs/agent-customization/tool-sets.md) names that are available for this custom agent. Can include built-in tools, tool sets, MCP tools, or tools contributed by extensions. To include all tools of an MCP server, use the `<server name>/*` format.<br/>Learn more about [tools with agents](/docs/agents/tools.md). |
-| `agents`          | A list of agent names that are available as [subagents](/docs/agents/subagents.md) in this agent. Use `*` to allow all agents, or an empty array `[]` to prevent any subagent use. If you specify `agents`, ensure the `agent` tool is included in the `tools` property. To create a self-referential agent that lists itself in `agents`, enable `setting(chat.subagents.allowInvocationsFromSubagents)`. Learn more about [nested subagents](/docs/agents/subagents.md#nested-subagents). |
+| `tools`           | A list of tool or [tool set](/docs/agent-customization/tool-sets.md) names that are available for this custom agent. Can include built-in tools, tool sets, MCP tools, or tools contributed by extensions. To include all tools of an MCP server, use the `<server name>/*` format.<br/>Learn more about [tools with agents](/docs/agents/run/tools.md). |
+| `agents`          | A list of agent names that are available as [subagents](/docs/agents/run/subagents.md) in this agent. Use `*` to allow all agents, or an empty array `[]` to prevent any subagent use. If you specify `agents`, ensure the `agent` tool is included in the `tools` property. To create a self-referential agent that lists itself in `agents`, enable `setting(chat.subagents.allowInvocationsFromSubagents)`. Learn more about [nested subagents](/docs/agents/run/subagents.md#nested-subagents). |
 | `model`           | The AI model to use when running the prompt. Specify a single model name (string) or a prioritized list of models (array). When you specify an array, the system tries each model in order until an available one is found. If not specified, the currently selected model in model picker is used. |
-| `user-invocable`  | Optional boolean flag to control whether the agent appears in the agents dropdown in chat (default is `true`). Set to `false` to create agents that are only accessible as [subagents](/docs/agents/subagents.md) or programmatically. |
+| `user-invocable`  | Optional boolean flag to control whether the agent appears in the agents dropdown in chat (default is `true`). Set to `false` to create agents that are only accessible as [subagents](/docs/agents/run/subagents.md) or programmatically. |
 | `disable-model-invocation` | Optional boolean flag to prevent the agent from being invoked as a subagent by other agents (default is `false`). |
 | `infer`           | **Deprecated.** Use `user-invocable` and `disable-model-invocation` instead. Previously, `infer: true` (the default) made the agent both visible in the picker and available as a subagent. `infer: false` hid it from both. The new fields give you independent control: use `user-invocable: false` to hide from the picker while still allowing subagent invocation, or `disable-model-invocation: true` to prevent subagent invocation while keeping it in the picker. |
 | `target`          | The target environment or context for the custom agent (`vscode` or `github-copilot`). |
@@ -343,7 +343,7 @@ Custom agents can restrict which tools are available, which gives you control ov
 
 ## Related resources
 
-* [Planning with agents](/docs/agents/planning.md)
+* [Planning with agents](/docs/agents/run/planning.md)
 * [Customize AI with custom instructions](/docs/agent-customization/custom-instructions.md)
 * [Create reusable prompt files](/docs/agent-customization/prompt-files.md)
-* [Use tools with agents](/docs/agents/tools.md)
+* [Use tools with agents](/docs/agents/run/tools.md)

@@ -47,7 +47,7 @@ Follow a hands-on tutorial to build your first app with AI in VS Code.
 
 Agents handle real coding tasks end-to-end. A few common ones:
 
-* **Plan before you code**: use the [Plan agent](/docs/agents/planning.md) to produce a step-by-step implementation plan you can review and refine before any file changes.
+* **Plan before you code**: use the [Plan agent](/docs/agents/run/planning.md) to produce a step-by-step implementation plan you can review and refine before any file changes.
 * **Build new features**: describe what functionality you want and let the agent scaffold UI, wire up state, and update tests.
 * **Prototype and explore variants**: spin up quick proofs of concept or generate multiple design variants of the same feature in parallel, then keep the one that works best.
 * **Refactor at scale**: rename, restructure, or migrate code across the workspace, with the agent tracking what still needs to change.
@@ -74,14 +74,14 @@ Choose the experience that fits your current task and where you want to work. Yo
 {% tabs id="agent-surface" %}
 {% tab label="Agents window" %}
 
-The [Agents window](/docs/agents/agents-window.md) (Preview) is a dedicated window focused on chat as the primary interface. It works across all your workspaces from one window, so you can assign high-level tasks, evaluate the outcomes, and run and track multiple agents in parallel. The Agents window is optimized for **agent-first workflows**.
+The [Agents window](/docs/agents/run/agents-window.md) (Preview) is a dedicated window focused on chat as the primary interface. It works across all your workspaces from one window, so you can assign high-level tasks, evaluate the outcomes, and run and track multiple agents in parallel. The Agents window is optimized for **agent-first workflows**.
 
 ![Screenshot showing how to start a new agent session by selecting New at the top of the sidebar in the Agents window.](images/agents-overview/agents-window-hero.png)
 
 {% /tab %}
 {% tab label="Chat view" %}
 
-The [Chat view](/docs/agents/chat-view.md) is a chat panel in the sidebar, next to your workspace editor tabs. It's scoped to the workspace you have open in VS Code, so you can give the agent coding tasks, review the code it produces, and keep an agent focused on the code you're actively working on. The Chat view is optimized for **code-first workflows**.
+The [Chat view](/docs/agents/run/chat-view.md) is a chat panel in the sidebar, next to your workspace editor tabs. It's scoped to the workspace you have open in VS Code, so you can give the agent coding tasks, review the code it produces, and keep an agent focused on the code you're actively working on. The Chat view is optimized for **code-first workflows**.
 
 ![Screenshot showing the Chat view with the sessions list, conversation, and chat input.](images/agents-overview/chat-view-expanded.png)
 
@@ -97,7 +97,7 @@ Need your own environment? [vscode.dev/agents](https://vscode.dev/agents) opens 
 {% /tab %}
 {% tab label="Copilot CLI" %}
 
-Use [GitHub Copilot CLI](/docs/agents/agent-harnesses.md#use-copilot-cli-from-the-terminal) to work with an agent from the command line, either in the VS Code integrated terminal or an external terminal.
+Use [GitHub Copilot CLI](/docs/agents/run/agent-harnesses.md#use-copilot-cli-from-the-terminal) to work with an agent from the command line, either in the VS Code integrated terminal or an external terminal.
 
 ![Screenshot showing the Copilot CLI running in the VS Code integrated terminal.](images/agents-overview/hero-copilot-cli-dark.png)
 
@@ -115,10 +115,10 @@ Use the [GitHub Copilot app](https://github.com/features/copilot) to manage AI c
 
 VS Code gives you flexibility instead of locking you into one agent or model. You choose:
 
-* **Your agent harness**: run [Copilot, Claude, or Codex](/docs/agents/agent-harnesses.md) on your machine, use the Local harness for the full VS Code tool and model ecosystem, or hand work to a cloud harness that runs remotely and opens a pull request.
+* **Your agent harness**: run [Copilot, Claude, or Codex](/docs/agents/run/agent-harnesses.md) on your machine, use the Local harness for the full VS Code tool and model ecosystem, or hand work to a cloud harness that runs remotely and opens a pull request.
 * **Your model**: use a model hosted and provided by GitHub Copilot, or bring your own key to use a model from the provider or host of your choice, including a local model that runs offline.
 
-Learn more about [agent harnesses](/docs/agents/concepts/agent-harnesses.md) and [language models](/docs/agent-customization/language-models.md). You set these choices, along with the permission level, when you start a session and can change them at any time. See how to [start a session](/docs/agents/sessions/manage-sessions.md).
+Learn more about [agent harnesses](/docs/agents/concepts/agent-harnesses.md) and [language models](/docs/agent-customization/language-models.md). You set these choices, along with the permission level, when you start a session and can change them at any time. See how to [start a session](/docs/agents/run/sessions/manage-sessions.md).
 
 ## Tailor agents to your codebase
 
@@ -136,7 +136,7 @@ To decide which option fits your goal, see [Customization concepts](/docs/agents
 
 ## Trust and control
 
-Agents can read and edit files, run terminal commands, and call external services. VS Code keeps you in control: approve or deny tool calls before they run, set a permission level that matches the autonomy you are comfortable with, and enable agent sandboxing to restrict file system and network access at the OS level. Learn more about [trust and safety](/docs/agents/concepts/trust-and-safety.md) and [AI security](/docs/agents/security.md).
+Agents can read and edit files, run terminal commands, and call external services. VS Code keeps you in control: approve or deny tool calls before they run, set a permission level that matches the autonomy you are comfortable with, and enable agent sandboxing to restrict file system and network access at the OS level. Learn more about [trust and safety](/docs/agents/concepts/trust-and-safety.md) and [AI security](/docs/agents/run/security.md).
 
 Organizations can centrally manage which AI features, models, and tools are available across their teams. Admins define policies that control agent capabilities, restrict MCP servers or extensions, and enforce compliance requirements, so developers get a consistent, governed experience out of the box. Learn more about [enterprise AI policies](/docs/enterprise/ai-settings.md).
 

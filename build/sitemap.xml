@@ -411,17 +411,17 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/agents/approvals</loc>
+        <loc>https://code.visualstudio.com/docs/agents/run/approvals</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/agents/tools</loc>
+        <loc>https://code.visualstudio.com/docs/agents/run/tools</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/agents/review-code-edits</loc>
+        <loc>https://code.visualstudio.com/docs/agents/run/review-code-edits</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -436,12 +436,12 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/agents/planning</loc>
+        <loc>https://code.visualstudio.com/docs/agents/run/planning</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/agents/memory</loc>
+        <loc>https://code.visualstudio.com/docs/agents/run/memory</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -456,12 +456,12 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/agents/agents-window</loc>
+        <loc>https://code.visualstudio.com/docs/agents/run/agents-window</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/agents/remote-agent-sessions</loc>
+        <loc>https://code.visualstudio.com/docs/agents/run/remote-agent-sessions</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -531,7 +531,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/agents/security</loc>
+        <loc>https://code.visualstudio.com/docs/agents/run/security</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -561,12 +561,12 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/agents/subagents</loc>
+        <loc>https://code.visualstudio.com/docs/agents/run/subagents</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/agents/agent-harnesses</loc>
+        <loc>https://code.visualstudio.com/docs/agents/run/agent-harnesses</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -2116,7 +2116,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/agents/chat-view</loc>
+        <loc>https://code.visualstudio.com/docs/agents/run/chat-view</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -2191,12 +2191,12 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/agents/sessions/manage-sessions</loc>
+        <loc>https://code.visualstudio.com/docs/agents/run/sessions/manage-sessions</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/agents/sessions/session-history</loc>
+        <loc>https://code.visualstudio.com/docs/agents/run/sessions/session-history</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -2206,7 +2206,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/agents/artifacts</loc>
+        <loc>https://code.visualstudio.com/docs/agents/run/artifacts</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

@@ -25,7 +25,7 @@ AI-generated output requires review. Visual Studio Code includes multiple mechan
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Learn more about AI safety">
 Understand the control mechanisms and safety considerations for using AI in VS Code.
 
-* [Learn about AI safety](/docs/agents/security.md)
+* [Learn about AI safety](/docs/agents/run/security.md)
 
 </div>
 
@@ -33,13 +33,13 @@ Understand the control mechanisms and safety considerations for using AI in VS C
 
 Agents can read files, edit code, run terminal commands, and call external services. VS Code's trust model layers several control mechanisms so you remain in charge of what reaches your codebase:
 
-* **Review before applying.** All file changes surface in a diff view for keep/undo decisions, and [checkpoints](/docs/agents/review-code-edits.md#edit-requests-and-restore-checkpoints) let you roll back a session.
+* **Review before applying.** All file changes surface in a diff view for keep/undo decisions, and [checkpoints](/docs/agents/run/review-code-edits.md#edit-requests-and-restore-checkpoints) let you roll back a session.
 * **Approve before acting.** Tools with side effects and terminal commands prompt for approval, with per-session, per-workspace, or per-user scoping.
-* **Constrain autonomy.** [Permission levels](/docs/agents/approvals.md#permission-levels) decide how much the agent runs on its own, from per-call approvals to broad auto-approval, up to fully autonomous operation with Autopilot.
+* **Constrain autonomy.** [Permission levels](/docs/agents/run/approvals.md#permission-levels) decide how much the agent runs on its own, from per-call approvals to broad auto-approval, up to fully autonomous operation with Autopilot.
 * **Enforce boundaries at the OS level.** [Agent sandboxing](#agent-sandboxing) restricts file system and network access for terminal commands so auto-approved actions cannot escape a defined scope.
 * **Trust boundaries.** VS Code prompts you before granting trust to workspaces, extensions, MCP servers, and network domains.
 
-For step-by-step configuration of these controls — approval rules, sensitive-file protection, sandboxing setup, organization policies — see [AI security in VS Code](/docs/agents/security.md).
+For step-by-step configuration of these controls — approval rules, sensitive-file protection, sandboxing setup, organization policies — see [AI security in VS Code](/docs/agents/run/security.md).
 
 Always review AI-generated code before committing. Verify that it handles edge cases, follows your project's conventions, and doesn't introduce security issues.
 
@@ -52,7 +52,7 @@ VS Code's security model uses trust boundaries to limit the potential impact of 
 * **MCP server**: controls whether an MCP server can start and provide tools. VS Code prompts you to [trust each MCP server](/docs/agent-customization/mcp-servers.md#mcp-server-trust) before it runs, and re-prompts after configuration changes.
 * **Network domain**: controls whether the agent can fetch content from a URL. VS Code prompts you to trust a domain before making requests to it, integrated with the [Trusted Domains](/docs/editing/editingevolved.md#outgoing-link-protection) list. You can also enable `setting(chat.agent.networkFilter)` to restrict which domains agent tools and sandboxed terminal commands can access.
 
-You can revoke trust at any time through dedicated commands in the Command Palette. For steps to configure these controls, see [AI security in VS Code](/docs/agents/security.md).
+You can revoke trust at any time through dedicated commands in the Command Palette. For steps to configure these controls, see [AI security in VS Code](/docs/agents/run/security.md).
 
 ## Agent sandboxing
 
@@ -61,7 +61,7 @@ You can revoke trust at any time through dedicated commands in the Command Palet
 
 Agent sandboxing uses operating system-level isolation to restrict what agents can access on your machine. Instead of relying solely on approval prompts before each action, sandboxing defines strict boundaries for file system and network access that are enforced by the OS itself.
 
-VS Code applies sandboxing to terminal commands (`runInTerminal` agent tool) that are executed during an agent session, including Copilot agent-host sessions that use the VS Code agent terminal integration. Learn how to [configure agent sandboxing](/docs/agents/approvals.md#sandbox-agent-commands).
+VS Code applies sandboxing to terminal commands (`runInTerminal` agent tool) that are executed during an agent session, including Copilot agent-host sessions that use the VS Code agent terminal integration. Learn how to [configure agent sandboxing](/docs/agents/run/approvals.md#sandbox-agent-commands).
 
 When sandboxing is enabled, VS Code automatically approves terminal commands that run in the sandbox without a confirmation prompt because they already run in a controlled environment.
 
@@ -103,7 +103,7 @@ Without network isolation, a compromised command could exfiltrate sensitive data
 
 Sandbox enablement and unrestricted network access are separate controls. When sandboxing is enabled and `setting(chat.agent.sandbox.allowNetwork)` is off, all outbound network access is blocked unless you explicitly allow specific domains. When `setting(chat.agent.sandbox.allowNetwork)` is on, commands can reach external services freely while file system restrictions still apply. On macOS and Linux, `setting(chat.agent.sandbox.enabled)` controls sandbox enablement and accepts `off` (default) or `on`.
 
-VS Code provides network domain filtering that applies to both agent tools (fetch tool, integrated browser) and sandboxed terminal commands. Enable `setting(chat.agent.networkFilter)` to activate network filtering. Use `setting(chat.agent.allowedNetworkDomains)` and `setting(chat.agent.deniedNetworkDomains)` to control which domains the agent can access. Learn how to [configure network access](/docs/agents/approvals.md#configure-network-access).
+VS Code provides network domain filtering that applies to both agent tools (fetch tool, integrated browser) and sandboxed terminal commands. Enable `setting(chat.agent.networkFilter)` to activate network filtering. Use `setting(chat.agent.allowedNetworkDomains)` and `setting(chat.agent.deniedNetworkDomains)` to control which domains the agent can access. Learn how to [configure network access](/docs/agents/run/approvals.md#configure-network-access).
 
 * **Retry with network access.** When a sandboxed command is blocked by network restrictions, the agent first asks for confirmation to retry inside the sandbox with unrestricted network access before falling back to running the command outside the sandbox.
 
@@ -132,7 +132,7 @@ Agent sandboxing applies to shell subprocesses, including terminal commands from
 > [!TIP]
 > The `setting(chat.agent.networkFilter)` setting provides network domain filtering for agent tools like the fetch tool and integrated browser, independently of sandboxing. When both sandboxing and network filtering are enabled, network rules apply to all agent tools and terminal commands.
 
-Use the [review flow](/docs/agents/review-code-edits.md) and [sensitive file protection](/docs/agents/review-code-edits.md#edit-sensitive-files) to control these operations.
+Use the [review flow](/docs/agents/run/review-code-edits.md) and [sensitive file protection](/docs/agents/run/review-code-edits.md#edit-sensitive-files) to control these operations.
 
 For full environment isolation, pair sandboxing with a [dev container](/docs/devcontainers/containers.md). Dev containers provide a complete boundary around the entire development environment, including all tools, file access, and network access.
 
@@ -142,14 +142,14 @@ Agent sandboxing is currently in preview and continues to evolve to cover more t
 
 **Incorrect output.** Models can generate code that looks correct but contains bugs, uses deprecated APIs, or doesn't handle edge cases. Always test AI-generated code, especially for logic that affects security, data integrity, or critical flows.
 
-**Prompt injection.** Malicious content in files, tool outputs, or web pages can attempt to redirect the agent's behavior. This is why VS Code includes tool approval gates and trust boundaries. Learn more about [AI security](/docs/agents/security.md).
+**Prompt injection.** Malicious content in files, tool outputs, or web pages can attempt to redirect the agent's behavior. This is why VS Code includes tool approval gates and trust boundaries. Learn more about [AI security](/docs/agents/run/security.md).
 
 Treat AI-generated output as a first draft: useful as a starting point, but always requiring your review and judgment. For more on how models work, including nondeterminism, knowledge boundaries, and context limits, see [Language models](/docs/agents/concepts/language-models.md).
 
 ## Related resources
 
-* [AI security considerations](/docs/agents/security.md)
-* [Terminal sandbox configuration](/docs/agents/approvals.md#sandbox-agent-commands)
-* [Reviewing code edits](/docs/agents/review-code-edits.md)
-* [Checkpoints](/docs/agents/review-code-edits.md#edit-requests-and-restore-checkpoints)
-* [Tool approval](/docs/agents/approvals.md#tool-approval)
+* [AI security considerations](/docs/agents/run/security.md)
+* [Terminal sandbox configuration](/docs/agents/run/approvals.md#sandbox-agent-commands)
+* [Reviewing code edits](/docs/agents/run/review-code-edits.md)
+* [Checkpoints](/docs/agents/run/review-code-edits.md#edit-requests-and-restore-checkpoints)
+* [Tool approval](/docs/agents/run/approvals.md#tool-approval)

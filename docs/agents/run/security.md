@@ -2,7 +2,7 @@
 ContentId: c99a8442-e202-4427-b7c3-695469a00f92
 DateApproved: 7/29/2026
 MetaDescription: Understand security considerations, built-in protections, and best practices when using AI-powered development features like agents and MCP servers in VS Code.
-MetaSocialImage: images/shared/github-copilot-social.png
+MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - security
 - trust
@@ -28,9 +28,9 @@ Use the following checklist to set up a secure starting point for AI-assisted de
 
 1. **Enable agent sandboxing.** On macOS and Linux, including WSL2 environments, enable `setting(chat.agent.sandbox.enabled)` to restrict file system and network access for agent-executed commands. Learn more about [agent sandboxing](#agent-sandboxing-preview).
 
-1. **Review all file edits before integrating them.** Use the [diff editor](/docs/agents/review-code-edits.md) to inspect changes before you commit, merge, or create a pull request.
+1. **Review all file edits before integrating them.** Use the [diff editor](/docs/agents/run/review-code-edits.md) to inspect changes before you commit, merge, or create a pull request.
 
-1. **Protect sensitive files.** Configure `setting(chat.tools.edits.autoApprove)` with glob patterns (for example, `"**/.env": false`) to require manual approval for edits to sensitive files. Learn more about [protecting sensitive files](/docs/agents/review-code-edits.md#edit-sensitive-files).
+1. **Protect sensitive files.** Configure `setting(chat.tools.edits.autoApprove)` with glob patterns (for example, `"**/.env": false`) to require manual approval for edits to sensitive files. Learn more about [protecting sensitive files](/docs/agents/run/review-code-edits.md#edit-sensitive-files).
 
 1. **Keep auto-approval scoped to the session.** Grant tool and terminal permissions at the session level rather than workspace or user level. This limits the duration of elevated trust.
 
@@ -50,13 +50,13 @@ VS Code limits the potential impact of agent actions by controlling their scope 
 
 * **Workspace-limited file access**: Built-in agent tools can only read and write files within the current workspace folder. You can optionally grant read-only access to additional folders with the `setting(chat.additionalReadAccessFolders)` setting.
 
-* **Tools picker**: You can selectively [enable or disable specific tools](/docs/agents/tools.md) using the tools picker, giving you precise control over what capabilities are available to the AI agent.
+* **Tools picker**: You can selectively [enable or disable specific tools](/docs/agents/run/tools.md) using the tools picker, giving you precise control over what capabilities are available to the AI agent.
 
 * **Session isolation**: You can grant permissions that are temporary and don't persist beyond the current session. This enables you to experiment with AI capabilities while maintaining long-term security boundaries.
 
 * **Request limits**: Built-in safeguards [prevent runaway operations](/docs/agents/reference/ai-settings.md#agent-settings) that consume excessive resources or perform unintended bulk actions on your codebase.
 
-* **Agent isolation**: Copilot, Claude, and Codex sessions can work in a separate Git worktree, preventing conflicts with your active workspace. [Cloud harnesses](/docs/agents/agent-harnesses.md#start-a-cloud-session) run on remote infrastructure, which provides inherent isolation from your local machine and local resources.
+* **Agent isolation**: Copilot, Claude, and Codex sessions can work in a separate Git worktree, preventing conflicts with your active workspace. [Cloud harnesses](/docs/agents/run/agent-harnesses.md#start-a-cloud-session) run on remote infrastructure, which provides inherent isolation from your local machine and local resources.
 
 * **Secure secrets store**: Sensitive input parameters for MCP servers are stored using VS Code's secure credentials store to protect authentication tokens and other sensitive data.
 
@@ -66,7 +66,7 @@ VS Code limits the potential impact of agent actions by controlling their scope 
 
 VS Code uses a permission-based security model where you maintain control over potentially risky operations.
 
-* **Permission levels**: The [permissions picker](/docs/agents/approvals.md#permission-levels) in the Chat view lets you choose a permission level for the current session. **Default Approvals** uses your configured approval settings. For agents that run on the Agent Host, **Assisted permissions** uses an LLM judge to evaluate each tool call and asks for your approval when the judge does not approve it. **Bypass Approvals** auto-approves all tool calls. On the Agent Host, **Autopilot** is available as an agent mode that auto-approves all tools and drives the agent to continue working until the task is complete.
+* **Permission levels**: The [permissions picker](/docs/agents/run/approvals.md#permission-levels) in the Chat view lets you choose a permission level for the current session. **Default Approvals** uses your configured approval settings. For agents that run on the Agent Host, **Assisted permissions** uses an LLM judge to evaluate each tool call and asks for your approval when the judge does not approve it. **Bypass Approvals** auto-approves all tool calls. On the Agent Host, **Autopilot** is available as an agent mode that auto-approves all tools and drives the agent to continue working until the task is complete.
 
 * **Terminal approval**: Before executing terminal commands, the agent requests explicit user approval. When terminal auto-approval is enabled, configurable per-command rules (including regex patterns) auto-approve safe commands while prompting for potentially dangerous ones. All subcommands in a compound command must match an approved rule.
 
@@ -74,13 +74,13 @@ VS Code uses a permission-based security model where you maintain control over p
 
 * **URL and domain approval**: When the agent fetches content from a URL, VS Code uses a two-step approval flow. First, it asks you to trust the domain (integrated with the Trusted Domains list). Then, after the content is fetched, it presents the content for review before it is passed to the model.
 
-* **Review flow for file changes**: You can [review all suggested changes](/docs/agents/review-code-edits.md) in a diff editor before you commit, merge, or create a pull request. Extension-host sessions also provide controls for keeping or undoing pending edits.
+* **Review flow for file changes**: You can [review all suggested changes](/docs/agents/run/review-code-edits.md) in a diff editor before you commit, merge, or create a pull request. Extension-host sessions also provide controls for keeping or undoing pending edits.
 
-* **Auto-approval notifications**: When a [tool or terminal command is automatically approved](/docs/agents/approvals.md#tool-approval), VS Code shows an information message and a link to the configuration setting that enabled it.
+* **Auto-approval notifications**: When a [tool or terminal command is automatically approved](/docs/agents/run/approvals.md#tool-approval), VS Code shows an information message and a link to the configuration setting that enabled it.
 
 * **Warning banners**: When advanced modes bypass normal safety checks, VS Code displays clear warning banners and requires explicit consent.
 
-Learn more about [tool and command approval](/docs/agents/approvals.md#tool-approval).
+Learn more about [tool and command approval](/docs/agents/run/approvals.md#tool-approval).
 
 ### Agent sandboxing (Preview)
 
@@ -144,15 +144,15 @@ Auto-approval features reduce friction but come with security tradeoffs.
 
 * **Assisted permissions**: Model-based risk assessments can make mistakes and approve potentially risky tool calls. This permission level reduces approval interruptions but is not a security boundary.
 
-* **Overall tool auto-approval**: Bypasses all user approvals, potentially leading to destructive actions, updating sensitive workspace files, or executing arbitrary code. This applies to the `setting(chat.tools.global.autoApprove)` setting, the **Bypass Approvals** [permission level](/docs/agents/approvals.md#permission-levels), and the **Autopilot** agent mode.
+* **Overall tool auto-approval**: Bypasses all user approvals, potentially leading to destructive actions, updating sensitive workspace files, or executing arbitrary code. This applies to the `setting(chat.tools.global.autoApprove)` setting, the **Bypass Approvals** [permission level](/docs/agents/run/approvals.md#permission-levels), and the **Autopilot** agent mode.
 
 * **Autopilot mode**: **Autopilot** combines auto-approval with autonomous iteration. The agent continues working without user intervention until it marks the task as complete. This reduces your ability to review intermediate steps.
 
-* **Third-party harness permissions**: Some provider harnesses offer settings that bypass all permission checks, such as `allowDangerouslySkipPermissions` for the [Claude harness](/docs/agents/agent-harnesses.md#claude-preview). Turning on these settings removes the safety net of approval prompts and is only recommended in sandboxed or containerized environments.
+* **Third-party harness permissions**: Some provider harnesses offer settings that bypass all permission checks, such as `allowDangerouslySkipPermissions` for the [Claude harness](/docs/agents/run/agent-harnesses.md#claude-preview). Turning on these settings removes the safety net of approval prompts and is only recommended in sandboxed or containerized environments.
 
 VS Code addresses these risks through [configurable approval scopes](#approvals-and-review), [agent sandboxing](#agent-sandboxing-preview), [enterprise policies](#enterprise-policies), and [warning banners](#approvals-and-review) for dangerous modes.
 
-Learn more about [managing auto approvals](/docs/agents/approvals.md#tool-approval).
+Learn more about [managing auto approvals](/docs/agents/run/approvals.md#tool-approval).
 
 </details>
 
@@ -169,7 +169,7 @@ Your workspace data and development environment information can be exposed throu
 
 * **Custom model output**: When using [bring-your-own-key models](/docs/agent-customization/language-models.md), there is no guarantee that responsible AI filtering is applied to the model's output. Review custom model responses carefully.
 
-VS Code addresses these risks through [workspace-limited file access](#scope-and-isolation), [the tools picker](#scope-and-isolation), [the secure secrets store](#scope-and-isolation), and [sensitive file protection](/docs/agents/review-code-edits.md#edit-sensitive-files).
+VS Code addresses these risks through [workspace-limited file access](#scope-and-isolation), [the tools picker](#scope-and-isolation), [the secure secrets store](#scope-and-isolation), and [sensitive file protection](/docs/agents/run/review-code-edits.md#edit-sensitive-files).
 
 </details>
 
@@ -204,7 +204,7 @@ Organizations can implement [centralized security controls](/docs/enterprise/ai-
 * **Disable agents**: Prevent the use of agent mode entirely with the `ChatAgentMode` policy.
 * **Restrict extension tools**: Block extension-contributed tools while keeping built-in and MCP tools with the `ChatAgentExtensionTools` policy.
 * **Control MCP server sources**: Restrict MCP servers to a curated registry (`registryOnly`) or disable MCP support completely (`off`) with the `ChatMCP` policy. Organizations can also host a private MCP registry with the `McpGalleryServiceUrl` policy.
-* **Disable global auto-approval**: Prevent developers from enabling global auto-approval and hide the **Assisted permissions** and **Bypass Approvals** [permission levels](/docs/agents/approvals.md#permission-levels), and the **Autopilot** agent mode, with the `ChatToolsAutoApprove` policy.
+* **Disable global auto-approval**: Prevent developers from enabling global auto-approval and hide the **Assisted permissions** and **Bypass Approvals** [permission levels](/docs/agents/run/approvals.md#permission-levels), and the **Autopilot** agent mode, with the `ChatToolsAutoApprove` policy.
 * **Require manual approval for specific tools**: Force manual approval for individual tools (for example, `execute/runInTerminal` or `web/fetch`) with the `ChatToolsEligibleForAutoApproval` policy.
 * **Disable terminal auto-approval**: Turn off the rule-based terminal auto-approval system with the `ChatToolsTerminalEnableAutoApprove` policy.
 

@@ -159,6 +159,6 @@ You've successfully used a cloud agent to collaborate on a feature using GitHub.
 
 You've successfully used different types of agents to build, enhance, and redesign a todo app. Continue exploring agents:
 
-* Learn how to [choose an agent harness](/docs/agents/agent-harnesses.md)
-* [Plan and research tasks with the Plan agent](/docs/agents/planning.md)
+* Learn how to [choose an agent harness](/docs/agents/run/agent-harnesses.md)
+* [Plan and research tasks with the Plan agent](/docs/agents/run/planning.md)
 * Explore [creating custom agents](/docs/agent-customization/custom-agents.md)

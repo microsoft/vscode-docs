@@ -9,7 +9,7 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 Providing relevant context helps the AI give more accurate responses. Add files, folders, symbols, images, web content, and other information directly to your prompt when you want the AI to consider specific details.
 
 > [!NOTE]
-> The features on this page work in both the [Chat view](/docs/agents/chat-view.md) and the [Agents window](/docs/agents/agents-window.md).
+> The features on this page work in both the [Chat view](/docs/agents/run/chat-view.md) and the [Agents window](/docs/agents/run/agents-window.md).
 
 For background on what context is and how VS Code assembles it, see [Context concepts](/docs/agents/concepts/context.md).
 
@@ -49,9 +49,9 @@ You can directly include a URL in your prompt to get information from that webpa
 
 VS Code caches the content of the web page for a limited time to improve performance. If the content of the page changes, you can force a refresh by restarting VS Code. If the page cannot be reached, the cache will expire after a short time (approximately five minutes).
 
-VS Code prompts for confirmation before accessing external URLs to protect your privacy and security. Learn more about [configuring URL auto-approval](/docs/agents/approvals.md#url-approval).
+VS Code prompts for confirmation before accessing external URLs to protect your privacy and security. Learn more about [configuring URL auto-approval](/docs/agents/run/approvals.md#url-approval).
 
-Learn more about [using tools with agents](/docs/agents/tools.md).
+Learn more about [using tools with agents](/docs/agents/run/tools.md).
 
 ## @-mentions
 
@@ -87,8 +87,8 @@ Learn how to [add browser context to chat](/docs/debugtest/integrated-browser.md
 
 ## Related resources
 
-* [Use the Chat view](/docs/agents/chat-view.md)
-* [Manage agent sessions](/docs/agents/sessions/manage-sessions.md)
+* [Use the Chat view](/docs/agents/run/chat-view.md)
+* [Manage agent sessions](/docs/agents/run/sessions/manage-sessions.md)
 * [Prompt examples](/docs/agents/guides/prompt-examples.md)
 * [Prompt engineering guide](/docs/agents/best-practices.md)
 * [Debug chat interactions](/docs/agents/agent-troubleshooting/chat-debug-view.md)

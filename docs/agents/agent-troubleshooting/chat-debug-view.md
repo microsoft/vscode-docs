@@ -181,7 +181,7 @@ If the AI doesn't call an expected tool:
 If the response appears truncated:
 
 1. Check Agent Logs for **LLM requests** events to review token usage.
-1. A full context window might cause the model to truncate its response. Start a [new chat session](/docs/agents/sessions/manage-sessions.md) to reset the context.
+1. A full context window might cause the model to truncate its response. Start a [new chat session](/docs/agents/run/sessions/manage-sessions.md) to reset the context.
 
 ### A prompt file is not being applied
 
@@ -196,4 +196,4 @@ If a custom instruction or prompt file doesn't seem to take effect:
 * [Chat overview](/docs/chat/chat-overview.md)
 * [Add context to chat](/docs/chat/copilot-chat-context.md)
 * [Troubleshoot AI in VS Code](/docs/agents/agent-troubleshooting/troubleshooting.md)
-* [Security considerations for using AI in VS Code](/docs/agents/security.md)
+* [Security considerations for using AI in VS Code](/docs/agents/run/security.md)

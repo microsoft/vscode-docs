@@ -29,7 +29,7 @@ Signing in with a GitHub account that has access to GitHub Copilot has the follo
 * [Remote repository indexing and semantic code search](/docs/agents/reference/workspace-context.md#remote-index)
 * [Copilot code review](https://docs.github.com/en/copilot/concepts/agents/code-review)
 * [Copilot content exclusions](https://docs.github.com/en/copilot/how-tos/configure-content-exclusion/exclude-content-from-copilot)
-* [Delegate tasks to the Copilot cloud agent](/docs/agents/agent-harnesses.md#cloud) for remote execution.
+* [Delegate tasks to the Copilot cloud agent](/docs/agents/run/agent-harnesses.md#cloud) for remote execution.
 
 Depending on your Copilot plan, you might have different levels of access and limits. See [GitHub Copilot plans](https://docs.github.com/en/copilot/get-started/plans) for more information.
 
@@ -200,5 +200,5 @@ It can be helpful to include information from the Copilot logs if you're reporti
 ## Additional resources
 
 - [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/)
-- [Security considerations for AI in VS Code](/docs/agents/security.md)
+- [Security considerations for AI in VS Code](/docs/agents/run/security.md)
 - [GitHub Copilot FAQ](https://github.com/features/copilot#faq) in the GitHub documentation

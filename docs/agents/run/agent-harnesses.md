@@ -2,7 +2,7 @@
 ContentId: 5b1e6f94-2c73-4a80-9d15-7f3c8e2a6b41
 DateApproved: 7/31/2026
 MetaDescription: Choose, use, and hand off between Local, Copilot, Claude, Codex, and cloud agent harnesses in VS Code, including isolation and permissions.
-MetaSocialImage: ../images/shared/github-copilot-social.png
+MetaSocialImage: ../../images/shared/github-copilot-social.png
 Keywords:
 - copilot
 - ai
@@ -50,9 +50,9 @@ To start a session in the Chat view:
 
 1. Enter a prompt and select **Send** or press `kb(workbench.action.chat.submit)`.
 
-Sessions that you start in the Chat view use your current workspace. To choose a different workspace or use worktree isolation with Copilot, Claude, or Codex, [start the session in the Agents window](/docs/agents/agents-window.md#start-an-agent-session).
+Sessions that you start in the Chat view use your current workspace. To choose a different workspace or use worktree isolation with Copilot, Claude, or Codex, [start the session in the Agents window](/docs/agents/run/agents-window.md#start-an-agent-session).
 
-Learn more about [creating and managing sessions](/docs/agents/sessions/manage-sessions.md).
+Learn more about [creating and managing sessions](/docs/agents/run/sessions/manage-sessions.md).
 
 ## Choose code isolation
 
@@ -61,9 +61,9 @@ Copilot, Claude, and Codex sessions support two isolation modes:
 * **Worktree**: VS Code creates a separate [Git worktree](/docs/sourcecontrol/branches-worktrees.md#understanding-worktrees) and applies the agent's changes there. Use this mode to keep parallel agent work separate from your active workspace.
 * **Folder**: the agent works directly in your current workspace and applies changes in place.
 
-Choose the isolation mode when you [start a session in the Agents window](/docs/agents/agents-window.md#start-an-agent-session). Sessions that you start in the Chat view use folder isolation. Worktree isolation requires a Git repository.
+Choose the isolation mode when you [start a session in the Agents window](/docs/agents/run/agents-window.md#start-an-agent-session). Sessions that you start in the Chat view use folder isolation. Worktree isolation requires a Git repository.
 
-The isolation mode also affects [permissions and approvals](/docs/agents/approvals.md). Worktree sessions use **Bypass Approvals** because the changes are isolated. Folder sessions offer the permission levels supported by the selected harness.
+The isolation mode also affects [permissions and approvals](/docs/agents/run/approvals.md). Worktree sessions use **Bypass Approvals** because the changes are isolated. Folder sessions offer the permission levels supported by the selected harness.
 
 <a name="local"></a>
 
@@ -78,7 +78,7 @@ Choose Local for interactive tasks that need immediate feedback or access to edi
 Local sessions provide these built-in agent roles:
 
 * **Agent**: autonomously plans and performs complex coding tasks, edits files, runs commands, and iterates on results.
-* **Plan**: researches a task and creates a structured implementation plan before code changes. Learn more about [planning with agents](/docs/agents/planning.md).
+* **Plan**: researches a task and creates a structured implementation plan before code changes. Learn more about [planning with agents](/docs/agents/run/planning.md).
 
 You can switch roles during a session from the agent picker. For specialized workflows, [create a custom agent](/docs/agent-customization/custom-agents.md).
 
@@ -90,16 +90,16 @@ The Copilot harness is powered by the [Copilot SDK](https://www.npmjs.com/packag
 
 Copilot sessions use the same GitHub authentication context as chat in VS Code. If you use a GitHub Enterprise account for Copilot, the session uses that account. For managed user accounts on GHE.com, complete the setup in [Using GitHub Copilot with an account on GHE.com](https://docs.github.com/en/copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom).
 
-Copilot supports slash commands for common session operations. Enter `/` in the chat input to view available commands. For example, use `/compact` to reduce conversation context, `/research` to start deep research, or `/yolo` and `/autoApprove` to control [automatic tool approval](/docs/agents/approvals.md#frequently-asked-questions).
+Copilot supports slash commands for common session operations. Enter `/` in the chat input to view available commands. For example, use `/compact` to reduce conversation context, `/research` to start deep research, or `/yolo` and `/autoApprove` to control [automatic tool approval](/docs/agents/run/approvals.md#frequently-asked-questions).
 
 ### Permissions and approvals
 
-The available [permission levels](/docs/agents/approvals.md#permission-levels) depend on the isolation mode:
+The available [permission levels](/docs/agents/run/approvals.md#permission-levels) depend on the isolation mode:
 
 * **Worktree**: the permission level is **Bypass Approvals** and can't be changed.
 * **Folder**: select **Default Approvals** or **Bypass Approvals** from the permissions picker. To also use experimental **Assisted permissions**, turn on `setting(chat.assistedPermissions.enabled)`.
 
-Because Copilot sessions run on the Agent Host, **Autopilot** is an [agent mode](/docs/agents/approvals.md#how-autopilot-works) rather than a permission level.
+Because Copilot sessions run on the Agent Host, **Autopilot** is an [agent mode](/docs/agents/run/approvals.md#how-autopilot-works) rather than a permission level.
 
 ### Remote control Copilot sessions
 
@@ -146,7 +146,7 @@ Enter `/research` followed by a topic:
 /research How does the authentication flow work in this codebase?
 ```
 
-For research that feeds into an implementation plan, use the [Plan agent](/docs/agents/planning.md). For focused research that returns results to the current conversation, use [subagents](/docs/agents/subagents.md).
+For research that feeds into an implementation plan, use the [Plan agent](/docs/agents/run/planning.md). For focused research that returns results to the current conversation, use [subagents](/docs/agents/run/subagents.md).
 
 Learn more about [researching with GitHub Copilot CLI](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/research).
 
@@ -218,7 +218,7 @@ To use Claude or Codex in the cloud, turn on support in your Copilot account set
 
 The session runs remotely and appears in the sessions list. Sessions that you create by assigning an issue or pull request to a cloud agent on GitHub.com also appear in VS Code.
 
-You can also select a GitHub repository when you [start a session in the Agents window](/docs/agents/agents-window.md#start-an-agent-session), or [hand off an existing session](#hand-off-a-session) to a cloud harness. In a Copilot session, enter `/delegate` to continue the task in the cloud.
+You can also select a GitHub repository when you [start a session in the Agents window](/docs/agents/run/agents-window.md#start-an-agent-session), or [hand off an existing session](#hand-off-a-session) to a cloud harness. In a Copilot session, enter `/delegate` to continue the task in the cloud.
 
 Cloud sessions use the tools, MCP servers, and models configured by the cloud service. They can't access VS Code built-in tools or local runtime context.
 
@@ -243,7 +243,7 @@ VS Code carries the conversation history and context to the selected target. The
 
 ### Hand off a plan to implementation
 
-The [Plan agent](/docs/agents/planning.md) focuses on researching a task and creating a plan without changing code. After you review the plan:
+The [Plan agent](/docs/agents/run/planning.md) focuses on researching a task and creating a plan without changing code. After you review the plan:
 
 1. Select **Start Implementation**.
 
@@ -256,14 +256,14 @@ The implementation agent receives the plan and conversation context and starts i
 | Action | What it does |
 |---|---|
 | **Hand off** | Changes the session target and carries the conversation history and context to the new target. |
-| **Fork a session** | Creates an independent session from a point in the conversation. Learn more about [forking sessions](/docs/agents/sessions/manage-sessions.md#fork-a-chat-session). |
-| **Switch surfaces** | Opens the same session in the [Chat view](/docs/agents/chat-view.md) or [Agents window](/docs/agents/agents-window.md) without changing its target or context. |
+| **Fork a session** | Creates an independent session from a point in the conversation. Learn more about [forking sessions](/docs/agents/run/sessions/manage-sessions.md#fork-a-chat-session). |
+| **Switch surfaces** | Opens the same session in the [Chat view](/docs/agents/run/chat-view.md) or [Agents window](/docs/agents/run/agents-window.md) without changing its target or context. |
 
 For background on how handoff works, see [Sessions and handoff](/docs/agents/concepts/sessions.md#hand-off-a-session).
 
 ## Related resources
 
 * [Agent harness concepts](/docs/agents/concepts/agent-harnesses.md)
-* [Manage agent sessions](/docs/agents/sessions/manage-sessions.md)
-* [Approvals and permissions](/docs/agents/approvals.md)
+* [Manage agent sessions](/docs/agents/run/sessions/manage-sessions.md)
+* [Approvals and permissions](/docs/agents/run/approvals.md)
 * [Agent Host architecture](/docs/agents/concepts/agent-host.md)
