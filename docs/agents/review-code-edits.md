@@ -1,10 +1,10 @@
 ---
 ContentId: 8d3f4a2e-9b1c-4f5e-a8d7-2c4b6e9f1a3d
 DateApproved: 7/29/2026
-MetaDescription: Review AI-generated code changes in VS Code with diffs, feedback, checkpoints, Source Control, and sensitive-file protection.
+MetaDescription: Review, revise, revert, and integrate AI-generated code changes in Visual Studio Code with diffs, feedback, checkpoints, and Source Control.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
-# Review AI-generated code edits
+# Review and revert agent changes
 
 When you work with an agent in Visual Studio Code, it can change multiple files in your project. This article explains how to inspect, revise, integrate, or discard these AI-generated changes.
 
@@ -33,7 +33,7 @@ Review the changes as you would other workspace or branch changes through the di
 
     <!-- TODO: Add a screenshot showing the Agent Host changed-files summary and View All File Changes action in the Chat view. -->
 
-1. If you want to make further changes, send a follow-up prompt or edit the files directly. To revert a request and all later changes, [restore a checkpoint](/docs/agents/checkpoints.md#restore-a-checkpoint).
+1. If you want to make further changes, send a follow-up prompt or edit the files directly. To revert a request and all later changes, [restore a checkpoint](#restore-a-checkpoint).
 
 1. Run tests and use the debugger or other editor tools to validate the result.
 
@@ -83,6 +83,56 @@ When you create a session, use the sync button in the **Files** panel to pull up
 
 {% /tab %}
 {% /tabs %}
+
+## Edit requests and restore checkpoints
+
+Use request editing and checkpoints to revise or undo a batch of changes:
+
+* **Edit a previous request**: modify a prompt you already sent. VS Code reverts changes made by that request and all subsequent requests, then resends the edited prompt.
+* **Restore a checkpoint**: roll back all file changes to a specific point in the conversation without changing the prompt.
+
+### Edit a previous chat request
+
+Each request in your conversation history is editable. When you edit a previous request, VS Code reverts file changes made by the original request and subsequent requests, and then sends the updated request to the language model.
+
+Select the request in the conversation, modify it, and resend it. Configure or turn off request editing with `setting(chat.editRequests)`.
+
+<video src="images/chat-checkpoints/chat-edit-request.mp4" title="Video showing the editing of a previous chat request in the Chat view." loop controls muted></video>
+
+### Restore a checkpoint
+
+When checkpoints are enabled, VS Code creates a snapshot of affected files before processing each request. Set `setting(chat.checkpoints.enabled)` to control checkpoints.
+
+To restore your workspace to an earlier checkpoint:
+
+1. Navigate to a previous request in the conversation.
+
+1. Hover over the request and select **Restore Checkpoint**.
+
+    ![Screenshot showing the Restore Checkpoint action in the Chat view.](images/chat-checkpoints/chat-restore-checkpoint.png)
+
+1. Confirm that you want to restore the checkpoint.
+
+VS Code removes subsequent requests from the conversation history and restores the workspace files to their state at the checkpoint.
+
+#### Redo after restoring
+
+After restoring a checkpoint, select **Redo** to recover the changes that were undone.
+
+![Screenshot showing the Redo button after restoring a checkpoint.](images/chat-checkpoints/chat-redo-checkpoint.png)
+
+#### View file changes in checkpoints
+
+Set `setting(chat.checkpoints.showFileChanges)` to show the files changed by each request and the number of lines added or removed. Use this summary to understand the effect of a request before restoring its checkpoint.
+
+![Screenshot showing file changes associated with a chat checkpoint.](images/chat-checkpoints/chat-checkpoint-changed-files.png)
+
+#### Fork from a checkpoint
+
+Hover over a request and select **Fork Conversation** to create an independent session that includes the conversation up to that checkpoint. Learn more about [forking agent sessions](/docs/agents/sessions/manage-sessions.md#fork-a-chat-session).
+
+> [!NOTE]
+> Checkpoints are temporary and don't replace Git version control. Use Git for permanent version history and collaboration.
 
 <details>
 <summary>Review extension-host changes</summary>
@@ -148,7 +198,6 @@ Depending on the agent harness and isolation mode, you can apply or merge change
 
 ## Related resources
 
-* [Revert changes with checkpoints](/docs/agents/checkpoints.md)
 * [Use chat in VS Code](/docs/chat/chat-overview.md)
 * [Agent sessions](/docs/agents/sessions/manage-sessions.md)
 * [Security considerations for using AI in VS Code](/docs/agents/security.md)

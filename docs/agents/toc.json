@@ -36,11 +36,9 @@
             ["Choose an Agent Harness", "/docs/agents/agent-harnesses"],
             ["Use Tools", "/docs/agents/tools"],
             ["Approvals & Permissions", "/docs/agents/approvals"],
-            ["Review Edits", "/docs/agents/review-code-edits"],
-            ["Checkpoints", "/docs/agents/checkpoints"],
+            ["Review & Revert Changes", "/docs/agents/review-code-edits"],
             ["Artifacts", "/docs/agents/artifacts"],
             ["Remote Agent Sessions", "/docs/agents/remote-agent-sessions"],
-            ["Hand Off a Session", "/docs/agents/handoff"],
             ["Plan Work", "/docs/agents/planning"],
             ["Memory", "/docs/agents/memory"],
             ["Subagents", "/docs/agents/subagents"],
@@ -50,8 +48,7 @@
                 "area": "agents/sessions",
                 "topics": [
                     ["Manage Sessions", "/docs/agents/sessions/manage-sessions"],
-                    ["Session Insights", "/docs/agents/sessions/session-insights"],
-                    ["Sync Sessions", "/docs/agents/sessions/session-sync"]
+                    ["Session History", "/docs/agents/sessions/session-history"]
                 ]
             }],
 

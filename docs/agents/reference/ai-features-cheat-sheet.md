@@ -55,7 +55,7 @@ Start a natural language chat conversation to get help with coding tasks. For ex
 | `Add Context...` | Attach different types of [context to your chat prompt](/docs/chat/copilot-chat-context.md). |
 | `/`-command | Use [slash commands](#slash-commands) for common tasks or invoke a [reusable chat prompt](/docs/agent-customization/overview.md). |
 | `#`-mention | Reference common tools or chat variables to [provide context](/docs/chat/copilot-chat-context.md) within your prompt. |
-| Edit (<i class="codicon codicon-pencil"></i>) | [Edit a previous chat prompt](/docs/agents/checkpoints.md#edit-a-previous-chat-request) and revert changes. |
+| Edit (<i class="codicon codicon-pencil"></i>) | [Edit a previous chat prompt](/docs/agents/review-code-edits.md#edit-a-previous-chat-request) and revert changes. |
 | History (<i class="codicon codicon-history"></i>) | Access your history of chat sessions. |
 | Queue or steer | [Send a follow-up message](/docs/chat/chat-overview.md#send-messages-while-a-request-is-running) while a request is running. Choose to queue the message, steer the current request, or stop and send immediately. |
 | Voice (<i class="codicon codicon-mic"></i>) | Enter a chat prompt by using speech (voice chat). The chat response is read out aloud. |

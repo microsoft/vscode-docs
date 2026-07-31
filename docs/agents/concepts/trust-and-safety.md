@@ -33,7 +33,7 @@ Understand the control mechanisms and safety considerations for using AI in VS C
 
 Agents can read files, edit code, run terminal commands, and call external services. VS Code's trust model layers several control mechanisms so you remain in charge of what reaches your codebase:
 
-* **Review before applying.** All file changes surface in a diff view for keep/undo decisions, and [checkpoints](/docs/agents/checkpoints.md) let you roll back a session.
+* **Review before applying.** All file changes surface in a diff view for keep/undo decisions, and [checkpoints](/docs/agents/review-code-edits.md#edit-requests-and-restore-checkpoints) let you roll back a session.
 * **Approve before acting.** Tools with side effects and terminal commands prompt for approval, with per-session, per-workspace, or per-user scoping.
 * **Constrain autonomy.** [Permission levels](/docs/agents/approvals.md#permission-levels) decide how much the agent runs on its own, from per-call approvals to broad auto-approval, up to fully autonomous operation with Autopilot.
 * **Enforce boundaries at the OS level.** [Agent sandboxing](#agent-sandboxing) restricts file system and network access for terminal commands so auto-approved actions cannot escape a defined scope.
@@ -151,5 +151,5 @@ Treat AI-generated output as a first draft: useful as a starting point, but alwa
 * [AI security considerations](/docs/agents/security.md)
 * [Terminal sandbox configuration](/docs/agents/approvals.md#sandbox-agent-commands)
 * [Reviewing code edits](/docs/agents/review-code-edits.md)
-* [Checkpoints](/docs/agents/checkpoints.md)
+* [Checkpoints](/docs/agents/review-code-edits.md#edit-requests-and-restore-checkpoints)
 * [Tool approval](/docs/agents/approvals.md#tool-approval)

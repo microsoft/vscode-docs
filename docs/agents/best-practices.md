@@ -62,7 +62,7 @@ When working with agents, choose the harness that matches your task and workflow
 
 * **Run parallel sessions for independent tasks.** Start multiple Copilot, Claude, Codex, or cloud sessions to work on unrelated tasks simultaneously. Monitor them from the [sessions list](/docs/agents/sessions/manage-sessions.md#sessions-list).
 
-* **Hand off when another target better fits the next step.** Change the session target to [hand off](/docs/agents/handoff.md) while preserving the conversation history and context.
+* **Hand off when another target better fits the next step.** Change the session target to [hand off](/docs/agents/agent-harnesses.md#hand-off-a-session) while preserving the conversation history and context.
 
 For more information, see [choosing an agent harness](/docs/agents/agent-harnesses.md) and the [agents tutorial](/docs/agents/agents-tutorial.md).
 
@@ -145,7 +145,7 @@ For complex changes that span multiple files, separate planning from implementat
 1. **Explore.** Use ask mode or a subagent to read the relevant code and understand how it works before making changes.
 1. **Plan.** Use the [Plan agent](/docs/agents/planning.md) to create a structured implementation plan. Review and refine the plan before executing.
 1. **Implement.** Switch to agent mode and implement from the plan. Include tests or expected outputs so the agent can verify its own work. Run independent Copilot, Claude, or Codex sessions in parallel, or hand off to a [cloud harness](/docs/agents/agent-harnesses.md#start-a-cloud-session) for remote execution.
-1. **Review.** Use [checkpoints](/docs/agents/checkpoints.md) to review progress, rewind if the agent goes off track, or [request a Copilot code review](https://docs.github.com/en/copilot/concepts/agents/code-review) on the resulting pull request.
+1. **Review.** Use [checkpoints](/docs/agents/review-code-edits.md#edit-requests-and-restore-checkpoints) to review progress, rewind if the agent goes off track, or [request a Copilot code review](https://docs.github.com/en/copilot/concepts/agents/code-review) on the resulting pull request.
 
 For more information, see the [context engineering workflow](/docs/agents/guides/context-engineering-guide.md).
 
@@ -157,7 +157,7 @@ AI-generated code can contain bugs, security issues, or subtle logic errors. Alw
 
 * **Run tests after AI changes.** Include test cases in your prompt so the AI can verify its own work. If the AI doesn't run tests automatically, run them yourself before moving on.
 
-* **Use checkpoints to rewind.** If the agent goes off track, use [checkpoints](/docs/agents/checkpoints.md) to roll back to a known good state instead of trying to fix cascading errors.
+* **Use checkpoints to rewind.** If the agent goes off track, use [checkpoints](/docs/agents/review-code-edits.md#edit-requests-and-restore-checkpoints) to roll back to a known good state instead of trying to fix cascading errors.
 
 * **Check for security issues.** Review AI-generated code for common vulnerabilities such as injection flaws, hardcoded secrets, or missing input validation. Avoid pasting credentials or sensitive data into prompts.
 

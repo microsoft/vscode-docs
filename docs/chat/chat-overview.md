@@ -91,7 +91,7 @@ After the AI changes your files, review and validate the result before you commi
 
 * **Review diffs**: select a changed file in the agent's response or use the **Changes** panel in the Agents window. To show a changed-files summary after each request in the Chat view, set `setting(chat.checkpoints.showFileChanges)` to `true`.
 * **Request revisions**: send a follow-up prompt, leave feedback in the Agents window diff editor, or edit the files directly.
-* **Use checkpoints**: restore an earlier snapshot to revert a request and all later file changes. For more information, see [checkpoints and editing requests](/docs/agents/checkpoints.md).
+* **Use checkpoints**: restore an earlier snapshot to revert a request and all later file changes. For more information, see [checkpoints and editing requests](/docs/agents/review-code-edits.md#edit-requests-and-restore-checkpoints).
 * **Integrate the result**: commit folder changes with Source Control, or apply or merge changes from an isolated worktree.
 
 For more information, see [reviewing AI-generated code edits](/docs/agents/review-code-edits.md).

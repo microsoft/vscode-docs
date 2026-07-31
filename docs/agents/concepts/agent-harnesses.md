@@ -56,7 +56,7 @@ An agent harness can run in these environments:
 * **Cloud infrastructure**: the harness works with a GitHub repository and creates a pull request. It uses the tools and models configured in the cloud service instead of your local VS Code environment.
 * **A remote machine**: the harness runs next to the source code on a remote host. You connect to it over SSH or a dev tunnel. Learn more about [remote agent sessions](/docs/agents/remote-agent-sessions.md).
 
-You can [hand off a session](/docs/agents/handoff.md) when another harness or execution environment is a better fit for the next part of a task.
+You can [hand off a session](/docs/agents/agent-harnesses.md#hand-off-a-session) when another harness or execution environment is a better fit for the next part of a task.
 
 ## Code isolation
 

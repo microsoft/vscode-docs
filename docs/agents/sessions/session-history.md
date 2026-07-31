@@ -1,12 +1,14 @@
 ---
 ContentId: b4e8c9f3-6d5a-4b2e-c7a4-8f9e1b3d2c5a
 DateApproved: 7/29/2026
-MetaDescription: Sync your Copilot chat sessions to GitHub for cross-device access, enterprise policy controls, and sharing with teammates.
-MetaSocialImage: ../images/shared/github-copilot-social.png
+MetaDescription: Sync, share, and query Copilot session history in Visual Studio Code with GitHub sync, privacy controls, Chronicle reports, and natural-language search.
+MetaSocialImage: ../../images/shared/github-copilot-social.png
 ---
-# Sync Copilot sessions to GitHub
+# Sync and query session history
 
-By default, VS Code syncs your chat sessions to your GitHub account, including all local agent sessions. Synced sessions are private to you and are not visible to anyone else unless you explicitly share them. They appear on GitHub.com in the **Agents** tab of your repository, enabling [session insights](/docs/agents/sessions/session-insights.md) to query across all your sessions, including those from Copilot CLI, coding agent, code review, and the GitHub Copilot Desktop app.
+VS Code maintains a searchable history of your Copilot sessions. By default, it syncs local agent sessions to your GitHub account so you can access them across devices, share selected sessions, and query work from VS Code, Copilot CLI, coding agent, code review, and the GitHub Copilot Desktop app.
+
+Synced sessions are private unless you explicitly share them.
 
 ## Opt out of session sync
 
@@ -42,8 +44,8 @@ When disabled by policy, the session sync status shows **Disabled by policy** an
 Sessions are not shared by default. On GitHub.com, you can share a synced session for view-only access to anyone who has access to the repository:
 
 1. Open the **Agents** tab on GitHub.com.
-2. Select a session and open **Sharing settings** from the `...` menu.
-3. Enable sharing to give repository collaborators view-only access.
+1. Select a session and open **Sharing settings** from the `...` menu.
+1. Enable sharing to give repository collaborators view-only access.
 
 Recipients can view the session's prompts, responses, and file changes, but cannot steer or modify the session. Shared sessions are not indexed for other users' session queries.
 
@@ -75,6 +77,49 @@ To delete synced session data, run the **Delete Session Sync Data** command (`gi
 
 You can also hide or delete individual synced sessions from the **Agents** tab on GitHub.com. Hiding a session removes it from your session index so it no longer appears in query results.
 
+## Query session history with Chronicle
+
+Use Chronicle commands or natural-language questions to search past sessions, generate standup reports, and get personalized usage tips.
+
+### Chronicle commands
+
+Enter these commands in the chat input:
+
+| Command | Description |
+|---------|-------------|
+| `/chronicle:standup` | Summarize recent coding sessions into a standup report, grouped by branch and repository. Covers the last 24 hours by default. |
+| `/chronicle:tips` | Analyze recent session history and suggest ways to use Copilot more effectively. |
+| `/chronicle:cost-tips` | Identify opportunities to reduce token usage and Copilot cost. |
+| `/chronicle:search <query>` | Search sessions by keyword, file path, or pull request or issue reference. |
+| `/chronicle:reindex` | Rebuild the local session index and sync session data to your account. |
+
+### Ask questions about session history
+
+Ask free-form questions such as "What files did I edit yesterday?" or "Have I worked on anything related to the payments API?" Copilot uses semantic understanding to find relevant sessions. Use `/chronicle:search` when you want a direct content search.
+
+### What gets tracked
+
+The local session store records:
+
+* **Session metadata**: repository, branch, working directory, timestamps, and the agent or participant.
+* **Conversation turns**: user messages and assistant responses.
+* **Files touched**: file paths from tool calls.
+* **External references**: pull request numbers, issue numbers, and commit SHAs.
+
+Data is stored in a local SQLite database. Secrets such as tokens, API keys, passwords, and connection strings are filtered before data is synced.
+
+### Reindex the session store
+
+If sessions are missing or the database becomes corrupted, rebuild the index:
+
+```prompt
+/chronicle:reindex
+```
+
+You can also run **Reindex Sessions** (`github.copilot.chronicle.reindex`) from the Command Palette.
+
+Reindex after restoring session files from a backup, an unexpected crash, manually deleting session directories, or opting back into session sync.
+
 ## Settings reference
 
 | Setting | Default | Description |
@@ -85,6 +130,6 @@ You can also hide or delete individual synced sessions from the **Agents** tab o
 
 ## Related content
 
-* [Session insights](/docs/agents/sessions/session-insights.md) - Query your session history for standup reports, tips, and search
 * [Manage agent sessions](/docs/agents/sessions/manage-sessions.md) - Create and organize agent sessions
 * [Security](/docs/agents/security.md) - Copilot security and privacy
+* [Diagnose prompt caching with the Cache Explorer](/docs/agents/agent-troubleshooting/cache-explorer.md) - Find where sessions waste tokens

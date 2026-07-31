@@ -97,7 +97,7 @@ To view your overall monthly consumption, open the Copilot status dashboard from
 
 Visit the GitHub Copilot documentation for more information about [monitoring usage and entitlements](https://docs.github.com/en/copilot/managing-copilot/monitoring-usage-and-entitlements/monitoring-your-copilot-usage-and-entitlements).
 
-You can also run the `/chronicle:cost-tips` command in any chat session to get personalized recommendations for optimizing your AI credit usage based on your recent activity. Learn more about [session insights and the chronicle command](/docs/agents/sessions/session-insights.md).
+You can also run the `/chronicle:cost-tips` command in any chat session to get personalized recommendations for optimizing your AI credit usage based on your recent activity. Learn more about [session insights and the chronicle command](/docs/agents/sessions/session-history.md#query-session-history-with-chronicle).
 
 ## Inspect token usage and caching
 

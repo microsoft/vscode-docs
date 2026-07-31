@@ -38,7 +38,7 @@ Because each session is independent, you can run several at once and move betwee
 
 * **Run in parallel**: start multiple sessions to work on independent tasks at the same time. A session keeps running when you switch away from it.
 * **Fork**: branch a session to explore an alternative direction without losing the original.
-* **Checkpoint and roll back**: return a session to an earlier point to undo a set of changes. Learn more about [checkpoints](/docs/agents/checkpoints.md).
+* **Checkpoint and roll back**: return a session to an earlier point to undo a set of changes. Learn more about [checkpoints](/docs/agents/review-code-edits.md#edit-requests-and-restore-checkpoints).
 
 ## Sessions across surfaces
 
@@ -56,15 +56,15 @@ Common handoffs include:
 * **Plan to implementation**: use the [Plan agent](/docs/agents/planning.md) to produce a reviewed plan, then hand off to an implementation agent.
 * **Continue in the cloud**: hand off a well-scoped task to a [cloud harness](/docs/agents/agent-harnesses.md#start-a-cloud-session) for remote execution and a pull request workflow.
 
-Learn how to [hand off an ongoing session](/docs/agents/handoff.md).
+Learn how to [hand off an ongoing session](/docs/agents/agent-harnesses.md#hand-off-a-session).
 
 ## Remote and synced sessions
 
 A session doesn't have to run on your local machine, and it doesn't have to stay on one device:
 
 * **Remote sessions** run on a machine other than the one you work from. You can connect the Agents window to a remote host over SSH or a dev tunnel, or use Copilot remote control (`/remote on`) to monitor and steer a running Copilot session from GitHub. Learn more about [connecting to a remote machine](/docs/agents/remote-agent-sessions.md) and [remote control for Copilot sessions](/docs/agents/agent-harnesses.md#remote-control-copilot-sessions).
-* **Synced sessions** are backed up to your GitHub account so you can access them across devices. Learn more about [syncing sessions](/docs/agents/sessions/session-sync.md).
-* **Session insights** let you query your session history to review what you worked on. Learn more about [session insights](/docs/agents/sessions/session-insights.md).
+* **Synced sessions** are backed up to your GitHub account so you can access them across devices. Learn more about [syncing sessions](/docs/agents/sessions/session-history.md).
+* **Session insights** let you query your session history to review what you worked on. Learn more about [session insights](/docs/agents/sessions/session-history.md#query-session-history-with-chronicle).
 
 ## Related resources
 

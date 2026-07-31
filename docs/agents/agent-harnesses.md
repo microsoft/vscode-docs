@@ -1,7 +1,7 @@
 ---
 ContentId: 5b1e6f94-2c73-4a80-9d15-7f3c8e2a6b41
 DateApproved: 7/31/2026
-MetaDescription: Choose and use Local, Copilot, Claude, Codex, and cloud agent harnesses in VS Code, including isolation, permissions, and provider features.
+MetaDescription: Choose, use, and hand off between Local, Copilot, Claude, Codex, and cloud agent harnesses in VS Code, including isolation and permissions.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - copilot
@@ -218,14 +218,52 @@ To use Claude or Codex in the cloud, turn on support in your Copilot account set
 
 The session runs remotely and appears in the sessions list. Sessions that you create by assigning an issue or pull request to a cloud agent on GitHub.com also appear in VS Code.
 
-You can also select a GitHub repository when you [start a session in the Agents window](/docs/agents/agents-window.md#start-an-agent-session), or [hand off an existing session](/docs/agents/handoff.md) to a cloud harness. In a Copilot session, enter `/delegate` to continue the task in the cloud.
+You can also select a GitHub repository when you [start a session in the Agents window](/docs/agents/agents-window.md#start-an-agent-session), or [hand off an existing session](#hand-off-a-session) to a cloud harness. In a Copilot session, enter `/delegate` to continue the task in the cloud.
 
 Cloud sessions use the tools, MCP servers, and models configured by the cloud service. They can't access VS Code built-in tools or local runtime context.
+
+## Hand off a session
+
+Handoff changes the target for an ongoing session and carries the conversation history and context to the new target. Use handoff when another harness or execution environment is a better fit for the next part of the task.
+
+For example, continue a Copilot session with Claude or Codex to use provider-specific capabilities, send a well-scoped task to a cloud harness for a pull request workflow, or move from the Plan agent to an implementation agent.
+
+To hand off an ongoing session:
+
+1. Open the session.
+
+1. In the chat input, open the **Session Target** dropdown.
+
+1. Select the target that should continue the work, such as Copilot, Claude, Codex, or Cloud.
+
+VS Code carries the conversation history and context to the selected target. The tools, permissions, and models might change because each target provides different capabilities.
+
+> [!TIP]
+> In Copilot CLI, enter `/delegate` to continue the work with a cloud agent.
+
+### Hand off a plan to implementation
+
+The [Plan agent](/docs/agents/planning.md) focuses on researching a task and creating a plan without changing code. After you review the plan:
+
+1. Select **Start Implementation**.
+
+1. Choose an available implementation agent.
+
+The implementation agent receives the plan and conversation context and starts implementing it.
+
+### Handoff compared to related actions
+
+| Action | What it does |
+|---|---|
+| **Hand off** | Changes the session target and carries the conversation history and context to the new target. |
+| **Fork a session** | Creates an independent session from a point in the conversation. Learn more about [forking sessions](/docs/agents/sessions/manage-sessions.md#fork-a-chat-session). |
+| **Switch surfaces** | Opens the same session in the [Chat view](/docs/agents/chat-view.md) or [Agents window](/docs/agents/agents-window.md) without changing its target or context. |
+
+For background on how handoff works, see [Sessions and handoff](/docs/agents/concepts/sessions.md#hand-off-a-session).
 
 ## Related resources
 
 * [Agent harness concepts](/docs/agents/concepts/agent-harnesses.md)
 * [Manage agent sessions](/docs/agents/sessions/manage-sessions.md)
-* [Hand off a session](/docs/agents/handoff.md)
 * [Approvals and permissions](/docs/agents/approvals.md)
 * [Agent Host architecture](/docs/agents/concepts/agent-host.md)

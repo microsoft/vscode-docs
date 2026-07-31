@@ -401,11 +401,6 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/agents/checkpoints</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
         <loc>https://code.visualstudio.com/docs/agents/agent-troubleshooting/chat-debug-view</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -2151,11 +2146,6 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/agents/handoff</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
         <loc>https://code.visualstudio.com/docs/agents/concepts/context</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -2211,12 +2201,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/agents/sessions/session-insights</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/docs/agents/sessions/session-sync</loc>
+        <loc>https://code.visualstudio.com/docs/agents/sessions/session-history</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
