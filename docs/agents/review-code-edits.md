@@ -1,12 +1,12 @@
 ---
 ContentId: 8d3f4a2e-9b1c-4f5e-a8d7-2c4b6e9f1a3d
 DateApproved: 7/29/2026
-MetaDescription: Review AI-generated code changes in VS Code with Agent Host diffs, checkpoints, Source Control, and legacy extension-host edit controls.
+MetaDescription: Review AI-generated code changes in VS Code with diffs, feedback, checkpoints, Source Control, and sensitive-file protection.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Review AI-generated code edits
 
-When you interact with chat in Visual Studio Code, the agent can change multiple files in your project. This article explains how to inspect, revise, integrate, or discard these AI-generated changes.
+When you work with an agent in Visual Studio Code, it can change multiple files in your project. This article explains how to inspect, revise, integrate, or discard these AI-generated changes.
 
 > [!NOTE]
 > You can review AI-generated changes in both the [Chat view](/docs/agents/chat-view.md) and the [Agents window](/docs/agents/agents-window.md). The review experience follows the same concepts, but the user interface differs between the two surfaces.
@@ -48,23 +48,38 @@ Review the changes as you would other workspace or branch changes through the di
 {% /tab %}
 {% tab label="Agents window" %}
 
+The **Changes** panel contains two tabs:
+
+* **Files**: a file explorer for the session workspace.
+* **Changes**: files that the agent changed, added, or deleted. Use the **Branch Changes** dropdown to choose which changeset to review.
+
+The **Changes** tab groups edits outside the workspace under **Other Files**. These files, such as plans in the session-state folder, aren't committed with workspace changes. The list includes files changed through file-edit tools, but not files that the agent only reads or changes through terminal commands.
+
+To review and integrate the changes:
+
 1. Select a file in the **Changes** tab to open a diff view of the agent's edits.
 
     ![Screenshot showing the Changes panel in the Agents window, highlighting the list of edited files and the diff view.](images/review-code-edits/agents-window-diff-view.png)
 
-    By default, selecting a file opens a multi-file diff editor with all the changes. To open a focused single-file diff editor for the selected file instead, enable the `setting(sessions.changes.openSingleFileDiff)` setting.
+    By default, selecting a file opens a multi-file diff editor with all the session changes. To open a focused single-file diff, enable `setting(sessions.changes.openSingleFileDiff)`.
+
+    Use the diff toolbar to show the editor side by side with chat or in a modal window.
 
 1. Select a range of code in a changed file, select **Add Feedback**, and enter a comment that describes the change you want. Add more comments on other selections or files, and then select **Submit Feedback** to send them to the agent.
 
     ![Screenshot showing the Add Feedback button in the Changes diff view.](images/review-code-edits/agents-window-add-feedback.png)
 
-    Markdown files follow the same feedback flow. Open the file from the **Changes** tab and use **Locked** mode in the Markdown editor to add range-based feedback.
+    Markdown files follow the same feedback flow. Open a workspace file from the **Changes** tab and use **Locked** mode in the Markdown editor to add range-based feedback. Feedback stays in sync if you reopen the file in the text editor.
+
+    <!-- TODO: Add a screenshot showing feedback comments in a Markdown file in Locked mode in the Agents window. -->
 
     The agent reads your comments, makes the requested edits, and resolves each comment. Resolved comments disappear from the diff view.
 
+1. Select **Mark as Reviewed** in a file's toolbar to track files you've reviewed in the **Branch Changes** changeset. The reviewed state clears if you or the agent changes the file again.
+
 1. Use the **Commit**, **Merge**, **Checkout**, or **Discard** actions to act on the edits.
 
-For more information, see [Manage and review file changes](/docs/agents/agents-window.md#manage-and-review-file-changes).
+When you create a session, use the sync button in the **Files** panel to pull upstream changes from the base branch before the agent starts. Starting from the latest branch state reduces merge conflicts when you integrate the result.
 
 {% /tab %}
 {% /tabs %}
@@ -76,7 +91,7 @@ If you don't have the agent host enabled (`setting(chat.agentHost.enabled)` is `
 
 After the agent edits and saves a file, VS Code marks the edits as pending. Files with pending edits have a squared-dot indicator in the Explorer view and editor tabs. The pending state is restored when you reopen VS Code.
 
-![Screenshot that shows the Chat view, highlighting the changed files list and the indicator in the Explorer view and editor tabs.](images/review-code-edits/copilot-edits-changed-files-full.png)
+![Screenshot showing the Chat view, highlighting the changed files list and the indicator in the Explorer view and editor tabs.](images/review-code-edits/copilot-edits-changed-files-full.png)
 
 To review pending edits:
 

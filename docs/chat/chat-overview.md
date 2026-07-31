@@ -94,7 +94,7 @@ After the AI changes your files, review and validate the result before you commi
 * **Use checkpoints**: restore an earlier snapshot to revert a request and all later file changes. For more information, see [checkpoints and editing requests](/docs/chat/chat-checkpoints.md).
 * **Integrate the result**: commit folder changes with Source Control, or apply or merge changes from an isolated worktree.
 
-For more information, see [reviewing AI-generated code edits](/docs/chat/review-code-edits.md).
+For more information, see [reviewing AI-generated code edits](/docs/agents/review-code-edits.md).
 
 ## Get notified about chat responses
 

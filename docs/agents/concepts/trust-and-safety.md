@@ -132,7 +132,7 @@ Agent sandboxing applies to shell subprocesses, including terminal commands from
 > [!TIP]
 > The `setting(chat.agent.networkFilter)` setting provides network domain filtering for agent tools like the fetch tool and integrated browser, independently of sandboxing. When both sandboxing and network filtering are enabled, network rules apply to all agent tools and terminal commands.
 
-Use the [review flow](/docs/chat/review-code-edits.md) and [sensitive file protection](/docs/chat/review-code-edits.md#edit-sensitive-files) to control these operations.
+Use the [review flow](/docs/agents/review-code-edits.md) and [sensitive file protection](/docs/agents/review-code-edits.md#edit-sensitive-files) to control these operations.
 
 For full environment isolation, pair sandboxing with a [dev container](/docs/devcontainers/containers.md). Dev containers provide a complete boundary around the entire development environment, including all tools, file access, and network access.
 
@@ -150,6 +150,6 @@ Treat AI-generated output as a first draft: useful as a starting point, but alwa
 
 * [AI security considerations](/docs/agents/security.md)
 * [Terminal sandbox configuration](/docs/agents/approvals.md#sandbox-agent-commands)
-* [Reviewing code edits](/docs/chat/review-code-edits.md)
+* [Reviewing code edits](/docs/agents/review-code-edits.md)
 * [Checkpoints](/docs/chat/chat-checkpoints.md)
 * [Tool approval](/docs/agents/approvals.md#tool-approval)

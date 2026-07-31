@@ -28,9 +28,9 @@ Use the following checklist to set up a secure starting point for AI-assisted de
 
 1. **Enable agent sandboxing.** On macOS and Linux, including WSL2 environments, enable `setting(chat.agent.sandbox.enabled)` to restrict file system and network access for agent-executed commands. Learn more about [agent sandboxing](#agent-sandboxing-preview).
 
-1. **Review all file edits before accepting.** Use the [diff editor](/docs/chat/review-code-edits.md) to inspect proposed changes. Keep or undo individual changes before they are applied.
+1. **Review all file edits before integrating them.** Use the [diff editor](/docs/agents/review-code-edits.md) to inspect changes before you commit, merge, or create a pull request.
 
-1. **Protect sensitive files.** Configure `setting(chat.tools.edits.autoApprove)` with glob patterns (for example, `"**/.env": false`) to require manual approval for edits to sensitive files. Learn more about [protecting sensitive files](/docs/chat/review-code-edits.md#edit-sensitive-files).
+1. **Protect sensitive files.** Configure `setting(chat.tools.edits.autoApprove)` with glob patterns (for example, `"**/.env": false`) to require manual approval for edits to sensitive files. Learn more about [protecting sensitive files](/docs/agents/review-code-edits.md#edit-sensitive-files).
 
 1. **Keep auto-approval scoped to the session.** Grant tool and terminal permissions at the session level rather than workspace or user level. This limits the duration of elevated trust.
 
@@ -74,7 +74,7 @@ VS Code uses a permission-based security model where you maintain control over p
 
 * **URL and domain approval**: When the agent fetches content from a URL, VS Code uses a two-step approval flow. First, it asks you to trust the domain (integrated with the Trusted Domains list). Then, after the content is fetched, it presents the content for review before it is passed to the model.
 
-* **Review flow for file changes**: You can [review all suggested changes](/docs/chat/review-code-edits.md) in a diff editor before they are applied. Keep or undo individual changes for granular control over what modifications are made to your codebase.
+* **Review flow for file changes**: You can [review all suggested changes](/docs/agents/review-code-edits.md) in a diff editor before you commit, merge, or create a pull request. Extension-host sessions also provide controls for keeping or undoing pending edits.
 
 * **Auto-approval notifications**: When a [tool or terminal command is automatically approved](/docs/agents/approvals.md#tool-approval), VS Code shows an information message and a link to the configuration setting that enabled it.
 
@@ -169,7 +169,7 @@ Your workspace data and development environment information can be exposed throu
 
 * **Custom model output**: When using [bring-your-own-key models](/docs/agent-customization/language-models.md), there is no guarantee that responsible AI filtering is applied to the model's output. Review custom model responses carefully.
 
-VS Code addresses these risks through [workspace-limited file access](#scope-and-isolation), [the tools picker](#scope-and-isolation), [the secure secrets store](#scope-and-isolation), and [sensitive file protection](/docs/chat/review-code-edits.md#edit-sensitive-files).
+VS Code addresses these risks through [workspace-limited file access](#scope-and-isolation), [the tools picker](#scope-and-isolation), [the secure secrets store](#scope-and-isolation), and [sensitive file protection](/docs/agents/review-code-edits.md#edit-sensitive-files).
 
 </details>
 

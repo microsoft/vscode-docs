@@ -92,5 +92,5 @@ Type your prompt and press `kbstyle(Enter)` to get a response. Quick Chat suppor
 
 * [Use chat in VS Code](/docs/chat/chat-overview.md)
 * [Add context to your chat prompt](/docs/chat/copilot-chat-context.md)
-* [Review AI-generated code edits](/docs/chat/review-code-edits.md)
+* [Review AI-generated code edits](/docs/agents/review-code-edits.md)
 * [AI language models in VS Code](/docs/agent-customization/language-models.md)

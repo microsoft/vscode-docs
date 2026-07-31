@@ -29,10 +29,11 @@
 
     {
         "name": "Run agents",
-        "area": "agents",
+        "area": "agents/run",
         "topics": [
             ["Agents Window", "/docs/agents/agents-window"],
             ["Chat View", "/docs/agents/chat-view"],
+            ["Review Edits", "/docs/agents/review-code-edits"],
             ["Choose an Agent Harness", "/docs/agents/agent-harnesses"],
             ["Remote Agent Sessions", "/docs/agents/remote-agent-sessions"],
             ["Hand Off a Session", "/docs/agents/handoff"],
@@ -79,7 +80,6 @@
             ["Inline Chat", "/docs/chat/inline-chat"],
             ["Add Context", "/docs/chat/copilot-chat-context"],
             ["Use Tools", "/docs/chat/chat-tools"],
-            ["Review Edits", "/docs/chat/review-code-edits"],
             ["Checkpoints", "/docs/chat/chat-checkpoints"],
             ["Artifacts Panel", "/docs/chat/chat-artifacts"],
             ["Manage Sessions", "/docs/chat/chat-sessions"]

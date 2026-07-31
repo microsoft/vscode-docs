@@ -158,7 +158,17 @@ In the Chat view, a running subagent appears as a collapsible tool call. By defa
 
 Select the subagent tool call to expand it and view the full details, including all tool calls the subagent made, the prompt passed to the subagent, and the returned result.
 
-In the Agents window, the parent chat shows an indicator with the subagent's model, elapsed time, and active tool call. Select the indicator to open the subagent as a read-only peer chat while keeping the parent chat open. Learn more about [following subagents in the Agents window](/docs/agents/agents-window.md#follow-subagents).
+In the Agents window, each subagent is available as a read-only peer chat. The parent chat shows an indicator with the subagent's model, elapsed time, and active tool call. Select the indicator to open the subagent while keeping the parent chat open.
+
+Subagent chats are hidden from the tab strip by default. Open one in any of these ways:
+
+* Select it from the **Conversations** dropdown.
+* Select the running-subagents indicator while subagents are active.
+* Select **Open Subagent** in the chat where the delegation occurred.
+
+Read-only subagent chats show a lock icon and don't accept input. They persist across window reloads with your other chats.
+
+![Screenshot showing a read-only subagent chat in the Agents window.](images/agents-window/agents-window-follow-subagents-read-only-chat.png)
 
 > [!NOTE]
 > Hover over a subagent section in the chat response to see the [AI credits](/docs/agents/concepts/language-models.md#ai-credits-and-model-costs) used by that subagent. This gives you more transparency into the cost of delegated work.

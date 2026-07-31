@@ -1,7 +1,7 @@
 ---
 ContentId: 7a2e5f8d-4c9b-41e6-b3a8-9d7f2e4c1b8a
 DateApproved: 7/29/2026
-MetaDescription: Learn how to create and manage chat sessions in Visual Studio Code, including the sessions list, opening chat in editor tabs, separate windows, and using chat session history.
+MetaDescription: Create and manage chat sessions in Visual Studio Code, including multiple chats, session lists, organization, archiving, and forking.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Work with chat sessions in VS Code
@@ -41,7 +41,7 @@ To start a new chat session in the Agents window:
 
 1. Choose an agent harness from the **Session Target** control to indicate where the agent session runs and how it operates.
 
-    Choose Local, Copilot, Claude, Codex, or Cloud. Learn how to [choose an agent harness](/docs/agents/agent-harnesses.md).
+    The available harnesses depend on the workspace location. Learn how to [choose an agent harness](/docs/agents/agent-harnesses.md).
 
 1. Optionally, select additional configuration options for the session:
 
@@ -86,6 +86,56 @@ To start a new chat session in the Chat view:
 
 {% /tab %}
 {% /tabs %}
+
+## Run multiple chats in a session
+
+In an agent host session, you can run multiple chats as tabs in the chat area. Each chat has its own conversation, title, status, and agent or language model selection, but all chats share the session's workspace and worktree. A new chat starts blank and doesn't inherit the history of the other chats.
+
+This is useful when you want to work on independent tasks in the same project without interrupting an ongoing chat or creating another session.
+
+> [!NOTE]
+> Multiple chats are available in the Agents window for agent host sessions that support them, such as Copilot and Claude sessions.
+
+To create and manage chats in a session:
+
+1. In an active session, select **+ New Chat** in the session header, or press `kb(sessions.chatCompositeBar.addChat)`.
+
+    A blank chat opens. When the session has more than one chat, a tab strip appears in the chat area. Chats don't appear as separate items in the sessions list.
+
+    ![Screenshot showing a new chat tab alongside an existing chat in the Agents window.](../agents/images/agents-window/agents-window-new-subsession.png)
+
+    <!-- TODO: Replace the screenshot with an updated capture that shows the + New Chat button, the chat tab strip with the trailing +, and the Conversations dropdown. -->
+
+1. To add more chats, select the trailing **+** in the tab strip.
+
+1. Type a prompt and press `kbstyle(Enter)` to start the chat.
+
+Use the chat tabs and their context menus to:
+
+* **Switch chats**: select a tab to show its conversation. Progress and unread indicators apply to that chat.
+* **Choose an agent or model**: use the controls in each chat. Sibling chats can use different agents or models.
+* **Track changes**: the session remains in progress while any chat is working. The session header **Changes** pill combines edits from all chats.
+* **Rename a chat**: select **Rename** from the tab's context menu. Chat titles are independent of the session title.
+* **Close or reopen a chat**: close a tab to hide it without deleting it. Use the **Conversations** dropdown to show or hide chats, or press `kb(sessions.chatCompositeBar.reopenLastClosedChat)` to reopen the most recently closed chat.
+* **Delete a chat**: select **Delete Chat** from the tab's context menu, or press `kb(sessions.chatCompositeBar.deleteChat)` while the chat has focus. Deletion is permanent.
+
+Visible and hidden chats, including their conversation history, are restored when you reload the window and reopen the session.
+
+### Ask side questions
+
+Use a side chat to ask a question about the current conversation without adding the question or response to the main chat. A side chat opens as a peer chat tab and privately inherits the source conversation as context. Side chats favor explanation over action unless you ask the agent to make changes or perform a task.
+
+Start a side chat in one of these ways:
+
+* Type `/btw <question>` in the chat input. The side chat branches from the latest turn, including a response that is still in progress.
+* Select text in a chat response, enter a question in the **Ask Question** input, and press `kbstyle(Enter)`. The selected text and its response become context for the side chat.
+
+Each question creates a new side chat. The side chat inherits the agent and language model from the source chat, but inherited messages remain hidden from its transcript.
+
+![Screenshot showing how to start a side chat in the Agents window from selected response text.](../agents/images/agents-window/agents-window-side-chat.png)
+
+> [!NOTE]
+> Side chats are available only in the Agents window for Copilot and Claude sessions. They aren't available for Codex sessions or in the Chat view.
 
 ## Sessions list
 

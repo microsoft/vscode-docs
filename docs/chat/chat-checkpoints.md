@@ -14,7 +14,7 @@ A chat session in Visual Studio Code might result in changes to one or more file
 > [!NOTE]
 > The features on this page work in both the [Chat view](/docs/agents/chat-view.md) and the [Agents window](/docs/agents/agents-window.md).
 
-Both features complement the [review workflow](/docs/chat/review-code-edits.md). Use checkpoints and editing when you want to undo an entire batch of changes at once.
+Both features complement the [review workflow](/docs/agents/review-code-edits.md). Use checkpoints and editing when you want to undo an entire batch of changes at once.
 
 ## Edit a previous chat request
 
@@ -76,6 +76,6 @@ No. Checkpoints are designed for quick iteration within a chat session and are t
 
 ## Related resources
 
-* [Review AI-generated code edits](/docs/chat/review-code-edits.md)
+* [Review AI-generated code edits](/docs/agents/review-code-edits.md)
 * [Chat sessions](/docs/chat/chat-sessions.md)
 * [Chat overview](/docs/chat/chat-overview.md)

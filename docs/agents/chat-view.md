@@ -10,7 +10,7 @@ The Chat view is where you work with agents in Visual Studio Code while staying 
 
 Use the Chat view when your work centers on a single project and you want to:
 
-* **Edit and review in the editor**: select changed files in the agent's response to inspect diffs, request revisions, and validate the result before you commit or integrate it. Learn more about [reviewing AI-generated code edits](/docs/chat/review-code-edits.md).
+* **Edit and review in the editor**: select changed files in the agent's response to inspect diffs, request revisions, and validate the result before you commit or integrate it. Learn more about [reviewing AI-generated code edits](/docs/agents/review-code-edits.md).
 * **Debug and test**: use the debugger, run tasks, and execute tests to validate the agent's changes before you commit them.
 * **Use extensions and notebooks**: the agent has access to your installed extensions and can [edit notebooks](/docs/agents/guides/notebooks-with-ai.md) directly in the editor.
 * **Work remotely**: if you're connected to a [remote workspace](/docs/remote/remote-overview.md), agents in the Chat view work there too, with access to the same context and tools as you have.
@@ -81,7 +81,7 @@ Type a prompt and press `kb(workbench.action.chat.submit)` to start. The agent b
 
 After you send a prompt, the agent works through the task step by step. Because the Chat view lives inside the main VS Code window, you can interact with the agent's changes using the full editor experience.
 
-* **Review edits in the editor**: the agent edits files directly in the session folder or isolated worktree. Select a changed file in the response to inspect its diff, or show a per-request summary with `setting(chat.checkpoints.showFileChanges)`. Learn more about [reviewing AI-generated code edits](/docs/chat/review-code-edits.md).
+* **Review edits in the editor**: the agent edits files directly in the session folder or isolated worktree. Select a changed file in the response to inspect its diff, or show a per-request summary with `setting(chat.checkpoints.showFileChanges)`. Learn more about [reviewing AI-generated code edits](/docs/agents/review-code-edits.md).
 
 * **Follow terminal activity**: when the agent runs shell commands, such as installing dependencies or running a build, the commands execute in the integrated terminal. You can see the output in real time and intervene if needed.
 

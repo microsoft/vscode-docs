@@ -67,7 +67,7 @@ The agent analyzes your workspace, plans the work, edits files, and runs command
 
 Select a changed file in the agent's response to open its diff. Inspect the code and run relevant tests. If you want adjustments, send a follow-up prompt or restore a checkpoint. When you're satisfied, commit folder changes with Source Control, or apply or merge changes from an isolated worktree.
 
-Learn more about [reviewing code changes](/docs/chat/review-code-edits.md).
+Learn more about [reviewing code changes](/docs/agents/review-code-edits.md).
 
 ## Next steps
 

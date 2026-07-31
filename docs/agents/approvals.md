@@ -81,7 +81,7 @@ When a tool requires approval, a confirmation dialog appears with the tool name 
 
 ![Screenshot of a tool confirmation dialog showing tool details and approval options.](images/approvals/chat-approve-tool.png)
 
-Some files in your workspace, such as `.env` files or configuration files, can hold secrets or sensitive settings. Learn how to require explicit approval for [edits to sensitive files](/docs/chat/review-code-edits.md#edit-sensitive-files).
+Some files in your workspace, such as `.env` files or configuration files, can hold secrets or sensitive settings. Learn how to require explicit approval for [edits to sensitive files](/docs/agents/review-code-edits.md#edit-sensitive-files).
 
 > [!IMPORTANT]
 > Always review tool parameters carefully before approving, especially for tools that modify files, run commands, or access external services. See the [Security considerations](/docs/agents/security.md) for using AI in VS Code.
