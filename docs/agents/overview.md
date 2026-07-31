@@ -65,9 +65,11 @@ AI features are built into VS Code. Sign in with your GitHub account to enable t
 
 ## Choose how you work with agents
 
-VS Code gives you two main surfaces for working with agents: the **Agents window** and the **Chat view**. Pick the one that fits your current task and switch freely between them. Both share the same agent sessions, letting you start a session in one and continue it in the other without losing context.
+In VS Code, the choice comes down to your approach and your scope. The Agents window is **agent-first** and works across **all your workspaces** from a single window, so it's ideal when you assign high-level tasks and orchestrate multiple agents in parallel across projects. The Chat view is **code-first** and is **scoped to the workspace** you have open, so it's ideal when you give the agent coding tasks and stay close to the code it produces.
 
-The choice comes down to your approach and your scope. The Agents window is **agent-first** and works across **all your workspaces** from a single window, so it's ideal when you assign high-level tasks and orchestrate multiple agents in parallel across projects. The Chat view is **code-first** and is **scoped to the workspace** you have open, so it's ideal when you give the agent coding tasks and stay close to the code it produces.
+If you want to work outside VS Code, you can also manage your agents from the terminal with the Copilot CLI, from the GitHub Copilot app, or directly in your browser.
+
+Choose the experience that fits your current task and where you want to work. You can start a session in one and continue it in the other without losing context.
 
 {% tabs id="agent-surface" %}
 {% tab label="Agents window" %}
@@ -84,6 +86,29 @@ The [Chat view](/docs/agents/chat-view.md) is a chat panel in the sidebar, next 
 ![Screenshot showing the Chat view with the sessions list, conversation, and chat input.](images/agents-overview/chat-view-expanded.png)
 
 {% /tab %}
+{% tab label="Browser" %}
+
+Stay on top of your agents from any browser, no setup required. On [github.com](https://github.com/copilot), assign issues to Copilot, review agent pull requests, and track progress, then pull a branch into VS Code when you want to take over.
+
+Need your own environment? [vscode.dev/agents](https://vscode.dev/agents) opens a secure tunnel to your development machine, letting you track and manage your running agent sessions in the browser with your local code and tools within reach.
+
+![Screenshot showing the GitHub website with the Copilot tab open, displaying a list of issues assigned to Copilot.](images/agents-overview/hero-vscode-dev-agents-dark.png)
+
+{% /tab %}
+{% tab label="Copilot CLI" %}
+
+Use [GitHub Copilot CLI](/docs/agents/agent-harnesses.md#use-copilot-cli-from-the-terminal) to work with an agent from the command line, either in the VS Code integrated terminal or an external terminal.
+
+![Screenshot showing the Copilot CLI running in the VS Code integrated terminal.](images/agents-overview/hero-copilot-cli-dark.png)
+
+{% /tab %}
+{% tab label="GitHub Copilot App" %}
+
+Use the [GitHub Copilot app](https://github.com/features/copilot) to manage AI coding tasks in a dedicated desktop experience outside VS Code.
+
+![Screenshot showing the GitHub Copilot app with the sessions list, conversation, and chat input.](images/agents-overview/hero-copilot-app-dark.png)
+
+{% /tab %}
 {% /tabs %}
 
 ## Choose your agent and model
@@ -94,16 +119,6 @@ VS Code gives you flexibility instead of locking you into one agent or model. Yo
 * **Your model**: use a model hosted and provided by GitHub Copilot, or bring your own key to use a model from the provider or host of your choice, including a local model that runs offline.
 
 Learn more about [agent harnesses](/docs/agents/concepts/agent-harnesses.md) and [language models](/docs/agent-customization/language-models.md). You set these choices, along with the permission level, when you start a session and can change them at any time. See how to [start a session](/docs/chat/chat-sessions.md).
-
-## Use Copilot beyond VS Code
-
-Your GitHub Copilot plan gives you access to hosted models and AI capabilities in VS Code, but your access is not limited to the editor. Use Copilot across different surfaces based on how and where you want to work:
-
-* **GitHub Copilot CLI**: work with an agent from your terminal. [Start a Copilot CLI session in VS Code](/docs/agents/agent-harnesses.md#use-copilot-cli-from-the-terminal).
-
-* **GitHub Copilot Desktop app**: manage AI coding tasks in a dedicated desktop experience. [Explore GitHub Copilot](https://github.com/features/copilot).
-
-* **GitHub.com**: assign issues to Copilot, track agent progress, review pull requests, and use other Copilot features in your browser. Learn how to [manage agent work from the browser](https://code.visualstudio.com/features/agents) and review the [GitHub Copilot capabilities](https://docs.github.com/en/copilot/get-started/what-is-github-copilot).
 
 ## Tailor agents to your codebase
 
