@@ -95,6 +95,16 @@ VS Code gives you flexibility instead of locking you into one agent or model. Yo
 
 Learn more about [agent harnesses](/docs/agents/concepts/agent-harnesses.md) and [language models](/docs/agent-customization/language-models.md). You set these choices, along with the permission level, when you start a session and can change them at any time. See how to [start a session](/docs/chat/chat-sessions.md).
 
+## Use Copilot beyond VS Code
+
+Your GitHub Copilot plan gives you access to hosted models and AI capabilities in VS Code, but your access is not limited to the editor. Use Copilot across different surfaces based on how and where you want to work:
+
+* **GitHub Copilot CLI**: work with an agent from your terminal. [Start a Copilot CLI session in VS Code](/docs/agents/agent-harnesses.md#use-copilot-cli-from-the-terminal).
+
+* **GitHub Copilot Desktop app**: manage AI coding tasks in a dedicated desktop experience. [Explore GitHub Copilot](https://github.com/features/copilot).
+
+* **GitHub.com**: assign issues to Copilot, track agent progress, review pull requests, and use other Copilot features in your browser. Learn how to [manage agent work from the browser](https://code.visualstudio.com/features/agents) and review the [GitHub Copilot capabilities](https://docs.github.com/en/copilot/get-started/what-is-github-copilot).
+
 ## Tailor agents to your codebase
 
 Agents work best when they understand your project's conventions and have the right tools. VS Code gives you several ways to tailor agents so they produce code that fits your codebase and team practices from the start:
