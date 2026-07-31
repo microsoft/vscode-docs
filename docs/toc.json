@@ -5,7 +5,7 @@
         "topics": [
         ["Overview", "/docs/getstarted/overview"],
         ["Agents Tutorial", "/docs/agents/agents-tutorial"],
-        ["Coding Tutorial", "/docs/editing/getting-started"],
+        ["Editor Tutorial", "/docs/editing/getting-started"],
         ["Intro Videos", "/docs/getstarted/introvideos"]
         ]
     },
