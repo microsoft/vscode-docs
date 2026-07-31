@@ -289,7 +289,7 @@ Administrators deliver these settings through the `telemetry` block in Copilot m
 
 When OTel is enabled, all agent types are automatically instrumented. The same settings that enable foreground agent traces also enable Copilot CLI and Claude agent traces.
 
-### Copilot CLI (background agent)
+### Copilot
 
 The Copilot CLI SDK runs in the same VS Code process as the chat extension and produces a rich trace hierarchy that includes subagents, permissions, hooks, and tool calls. The extension wrapper span (`invoke_agent copilotcli`, service `copilot-chat`) parents the SDK's native spans (service `github-copilot`). Both appear in the same trace in your collector.
 

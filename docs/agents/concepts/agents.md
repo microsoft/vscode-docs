@@ -21,7 +21,7 @@ Keywords:
 
 # Agents
 
-An agent is an AI system that autonomously plans and executes coding tasks. You give the agent a high-level goal, and it breaks the goal down into steps, executes those steps with [tools](/docs/agents/concepts/tools.md), and self-corrects when it hits errors. This article explains the core architecture of agents: the agent loop, agent types, subagents, memory, and planning.
+An agent is an AI system that autonomously plans and executes coding tasks. You give the agent a high-level goal, and it breaks the goal down into steps, executes those steps with [tools](/docs/agents/concepts/tools.md), and self-corrects when it hits errors. This article explains the core architecture of agents: the agent loop, subagents, memory, and planning. To learn where agents run and which harness powers them, see [agent harnesses](/docs/agents/concepts/agent-harnesses.md).
 
 For an overview of what you can do with agents in VS Code and where to work with them, see [Build with agents in VS Code](/docs/agents/overview.md).
 
@@ -31,6 +31,12 @@ Follow a hands-on tutorial to experience local, background, and cloud agents in 
 * [Start agents tutorial](/docs/agents/agents-tutorial.md)
 
 </div>
+
+## How the concepts fit together
+
+The core concepts combine each time you send a request. A [language model](/docs/agents/concepts/language-models.md) does the reasoning. To respond usefully, it needs [context](/docs/agents/concepts/context.md): VS Code assembles the relevant files, conversation history, and other information and sends it to the model. To act on your environment instead of only answering, the model calls [tools](/docs/agents/concepts/tools.md) to read and edit files, run commands, or reach external services. The agent ties these together in the agent loop, calling tools and feeding the results back to the model until the task is complete.
+
+[Customization](/docs/agents/concepts/customization.md) shapes how the agent behaves, and [trust and safety](/docs/agents/concepts/trust-and-safety.md) controls keep you in command of what it can do. The agent runs on a [harness](/docs/agents/concepts/agent-harnesses.md) that determines where it runs, and each conversation is a [session](/docs/agents/concepts/sessions.md) that you can manage and hand off.
 
 ## Agent loop
 
@@ -64,13 +70,9 @@ The agent loop is not one-size-fits-all and might differ for each project. There
 
 Learn more about [Customization concepts](/docs/agents/concepts/customization.md).
 
-## Agent types
+## Agent harnesses
 
-Agents run in different environments depending on when you need results and how much oversight you want. The two key dimensions are *where* the agent runs (your machine or the cloud) and *how* you interact with it (interactively or autonomously in the background).
-
-![Diagram showing the different agent types: Local agents (interactive in VS Code), Background agents (autonomous on your machine), Cloud agents (run on GitHub's infrastructure), and Third-party agents (connect external AI providers).](../images/agents-overview/agent-types-diagram-v3.png)
-
-For a description of each agent type, see the individual articles under [Agent types](/docs/agents/agent-types/local-agents.md). For guidance on choosing where to work with agents, see [Build with agents in VS Code](/docs/agents/overview.md#configure-your-agent-session).
+Agents run in different environments depending on when you need results and how much oversight you want. The two key dimensions are where the agent runs, such as your machine or the cloud, and which harness powers it. VS Code supports running agents using different harnesses, such as Copilot, Claude, or Codex. Learn more about [agent harnesses](/docs/agents/concepts/agent-harnesses.md).
 
 ## Subagents
 
@@ -89,26 +91,9 @@ For example, the built-in [Plan agent](#planning) uses subagents to perform rese
 
 Learn more about [using subagents](/docs/agents/subagents.md).
 
-## Chat sessions
+## Sessions
 
-A chat session is a single conversation with an agent, including all prompts, responses, and the context accumulated along the way. Each session is independent and has its own context window, so work in one session doesn't leak into another. Sessions are the unit of organization for agent work: you can run several in parallel, switch between them, fork a session to explore an alternative direction, and roll back to a previous checkpoint.
-
-Because the [Chat view](/docs/agents/chat-view.md) and the [Agents window](/docs/agents/agents-window.md) share the same sessions, you can start a task in one surface and continue it in the other. The sessions list gives you a unified view of all your sessions, regardless of where they run.
-
-For agent host sessions, an agent can also orchestrate work across sessions by listing sessions, creating sessions or chats, reading another session's recent context, and sending follow-up messages between sessions.
-
-Learn more about [managing chat sessions](/docs/chat/chat-sessions.md).
-
-## Remote agent sessions
-
-Agent sessions don't have to run on your local machine. You can run sessions on a remote host and connect to them from the [Agents window](/docs/agents/agents-window.md), a browser, or other clients. This is useful when you want to take advantage of a remote machine's resources, keep sessions running while you're away, or monitor progress from a different device. The remote machine must be powered on and accessible over the network.
-
-VS Code supports two ways to work with remote agent sessions:
-
-| Method | How it works |
-|---|---|
-| Agents window<br>with remote connections | Connect the Agents window to a remote machine over SSH or a dev tunnel. The Agents window automatically installs and starts the VS Code CLI on the remote, which runs an agent host process that manages sessions.<br><br>Multiple clients can connect to the same agent host simultaneously and see a synchronized view of all sessions, using the open [Agent Host Protocol (AHP)](https://microsoft.github.io/agent-host-protocol/). Sessions continue running on the remote even if all clients disconnect.<br><br>Learn more about [connecting to a remote machine](/docs/agents/remote-agent-sessions.md). |
-| Copilot<br>remote control | Use the `/remote on` command in a [Copilot session](/docs/agents/agent-types/copilot.md) to mirror the session to GitHub. You can then monitor and steer the session from github.com or the GitHub Mobile app while it continues running on your machine.<br><br>Learn more about [remote control for Copilot sessions](/docs/agents/agent-types/copilot.md#remote-control-copilot-sessions). |
+A session is the unit of work with an agent: one conversation, along with the context it accumulates. Sessions are independent, can run in parallel, and are shared across the [Chat view](/docs/agents/chat-view.md) and the [Agents window](/docs/agents/agents-window.md). They can run on your machine or on a remote host, and you can hand off a session from one agent to another. Learn more about [sessions and handoff](/docs/agents/concepts/sessions.md).
 
 ## Memory
 
@@ -142,6 +127,8 @@ Learn more about [planning with agents](/docs/agents/planning.md).
 ## Related resources
 
 * [Using agents in VS Code](/docs/agents/overview.md)
+* [Agent harnesses](/docs/agents/concepts/agent-harnesses.md)
+* [Sessions and handoff](/docs/agents/concepts/sessions.md)
 * [VS Code Agent Host architecture](/docs/agents/concepts/agent-host.md)
 * [Tools](/docs/agents/concepts/tools.md)
 * [Context](/docs/agents/concepts/context.md)

@@ -16,7 +16,12 @@ Keywords:
 
 # Language models
 
-Visual Studio Code uses large language models (LLMs) to power its AI features. You can choose from multiple models through your GitHub Copilot plan or bring your own models. This article explains how language models work, their characteristics, and how to think about model selection.
+Visual Studio Code uses large language models (LLMs) to power its AI features. You have flexibility in which models you use and how you access them:
+
+* **Models from your GitHub Copilot plan**: choose from multiple models by different providers, such as Anthropic, Google, and OpenAI, included with your plan.
+* **Bring your own key (BYOK)**: add models from other providers with your own API key, or host your own models, including local models that run offline. With BYOK, you can use agents in VS Code without a GitHub Copilot plan.
+
+This article explains how language models work, their characteristics, and how to think about model selection.
 
 ## How language models work
 
@@ -24,10 +29,10 @@ A language model processes text input (a "prompt") and generates text output. In
 
 Language models don't execute code or access files directly. Instead, they generate text that the [agent loop](/docs/agents/concepts/agents.md#agent-loop) interprets as actions. When a model requests a tool call, VS Code executes the tool and feeds the result back to the model for the next iteration.
 
-## Key characteristics
+Some key characteristics of language models include:
 
 * **Nondeterministic**: the same prompt can produce different results each time. This is by design and reflects how the model samples from probability distributions.
-* **Context-dependent**: the quality of the response depends on the quality and relevance of the context provided in the prompt.
+* **Context-dependent**: the quality of the response depends on the quality and relevance of the [context](/docs/agents/concepts/context.md) provided in the prompt.
 * **Knowledge boundaries**: models are trained on data up to a certain date and might produce outdated or incorrect information for topics beyond their training data. VS Code mitigates this with tools and workspace indexing.
 
 ## Context window
@@ -70,7 +75,7 @@ You can switch models at any time, based on your needs for a particular task. Fo
 
 ### Auto model selection
 
-Auto model selection combines two systems to route each request to the optimal model. One system tracks real-time model health and availability, while the other evaluates task complexity. Together, they match each task to the model that can solve it most efficiently, reserving higher-cost reasoning models for problems that need them and routing simpler tasks to faster models.
+Auto model selection in GitHub Copilot combines two systems to route each request to the optimal model. One system tracks real-time model health and availability, while the other evaluates task complexity. Together, they match each task to the model that can solve it most efficiently, reserving higher-cost reasoning models for problems that need them and routing simpler tasks to faster models.
 
 Auto selects from multiple models and respects your organization's [model access settings](https://docs.github.com/en/copilot/how-tos/use-ai-models/configure-access-to-ai-models). Auto won't select models excluded by administrator policies or models restricted by data-residency policies.
 
@@ -86,7 +91,9 @@ Learn how to [choose and configure language models](/docs/agent-customization/la
 
 ## Bring your own language model key
 
-If the built-in models don't meet your needs, you can bring your own language model API key (BYOK) to use models from other providers or to run models locally. BYOK lets you connect to any compatible model provider while still using the VS Code chat experience and tools.
+If the built-in models don't meet your needs, you can bring your own language model API key (BYOK) to use models from other providers or to run models locally. BYOK lets you connect to any compatible model provider while still using the VS Code chat and agentic coding features. VS Code has a built-in list of supported providers or you can add more providers from the Visual Studio Marketplace.
+
+You can use BYOK for both the agent experience and utility tasks, such as commit message generation.
 
 ### Why bring your own key
 
@@ -98,7 +105,7 @@ If the built-in models don't meet your needs, you can bring your own language mo
 
 ### Considerations
 
-* BYOK only applies to the chat experience and utility tasks. Inline suggestions (code completions) and features that rely on embeddings, such as semantic search, still require a GitHub account.
+* BYOK only applies to the chat experience and utility tasks. Inline suggestions (code completions) and features that rely on embeddings, such as semantic search, still require a GitHub Copilot plan.
 * Capabilities are model-dependent and might differ from the built-in models, for example, support for tool calling, vision, or thinking.
 * There is no guarantee that responsible AI filtering is applied to the model's output when using BYOK.
 

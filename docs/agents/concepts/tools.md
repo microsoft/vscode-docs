@@ -45,11 +45,11 @@ Every tool the agent can call adds to the decision space the model has to reason
 * **Get more relevant results**: the agent focuses on the most appropriate tools rather than choosing from a large set.
 * **Improve performance**: a smaller tool set reduces the decision space for the model.
 
-Tool availability can be scoped per request, or fixed for specific workflows through [prompt files](/docs/agent-customization/prompt-files.md) and [custom agents](/docs/agent-customization/custom-agents.md). For configuration steps, see [Use tools in chat](/docs/chat/chat-tools.md).
+Tool availability can be scoped per chat request or fixed for specific workflows in [custom agent configuration](/docs/agent-customization/custom-agents.md).
 
 ## Tool approval and trust
 
-Tools can perform actions that modify files, your environment, or access external services. VS Code includes security controls to keep you in charge:
+Tools can perform actions that edit files, modify your environment, or access external services. VS Code includes security controls to keep you in charge:
 
 * **Approval prompts**: tools with side effects show a confirmation dialog before running. You can approve for a single use, the current session, or all future invocations.
 * **URL approval**: when a tool accesses a URL, a two-step process verifies both the request and the response content.

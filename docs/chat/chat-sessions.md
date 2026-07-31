@@ -6,7 +6,7 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Work with chat sessions in VS Code
 
-Use chat in Visual Studio Code to have conversation-based AI interactions. A [chat session](/docs/agents/concepts/agents.md#chat-sessions) consists of the sequence of prompts and responses between you and the AI, along with any relevant context from your code or files. This article describes how to create and manage chat sessions, use the sessions list, and organize your sessions. These features work in both the [Chat view](/docs/agents/chat-view.md) and the [Agents window](/docs/agents/agents-window.md).
+Use chat in Visual Studio Code to have conversation-based AI interactions. A [session](/docs/agents/concepts/sessions.md) consists of the sequence of prompts and responses between you and the AI, along with any relevant context from your code or files. This article describes how to create and manage chat sessions, use the sessions list, and organize your sessions. These features work in both the [Chat view](/docs/agents/chat-view.md) and the [Agents window](/docs/agents/agents-window.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
 Follow a hands-on tutorial to experience local, background, and cloud agents in VS Code.
@@ -17,7 +17,7 @@ Follow a hands-on tutorial to experience local, background, and cloud agents in 
 
 ## Start a new chat session
 
-When you start a new chat session, you begin a new conversation with the AI. Each session has its own context window and can run with a different agent type. You can run multiple sessions in parallel, each focused on a different task or topic. Use the [sessions list](#sessions-list) to monitor and switch between different sessions.
+When you start a new chat session, you begin a new conversation with the AI. Each session has its own context window and can run with a different agent harness. You can run multiple sessions in parallel, each focused on a different task or topic. Use the [sessions list](#sessions-list) to monitor and switch between different sessions.
 
 > [!TIP]
 > Start a new chat session when you want to change topics to help the AI provide more relevant responses.
@@ -39,13 +39,13 @@ To start a new chat session in the Agents window:
 
 1. Choose the workspace or repository for the session, as the Agents window can target any of your projects.
 
-1. Choose an agent type from the dropdown to indicate where the agent session runs and how it operates.
+1. Choose an agent harness from the **Session Target** control to indicate where the agent session runs and how it operates.
 
-    You can choose from local, Copilot, Cloud, or third-party. Learn more about [agent types](/docs/agents/overview.md#configure-your-agent-session).
+    Choose Local, Copilot, Claude, Codex, or Cloud. Learn how to [choose an agent harness](/docs/agents/agent-harnesses.md).
 
 1. Optionally, select additional configuration options for the session:
 
-    * **Agent**: determines the role or persona of the AI, such as Agent, Plan, or Ask. Learn more about [choosing an agent](/docs/agents/overview.md#configure-your-agent-session).
+    * **Agent**: determines the role or persona of the AI, such as Agent, Plan, or Ask. Learn more about [choosing an agent role](/docs/agents/agent-harnesses.md#choose-a-built-in-agent-role).
 
     * **Permission level**: controls how much autonomy the agent has over tool approvals. Learn more about [permission levels](/docs/agents/approvals.md#permission-levels).
 
@@ -70,13 +70,13 @@ To start a new chat session in the Chat view:
 
     The session is scoped to the current workspace, so if you have a workspace open, the session is automatically linked to that workspace.
 
-1. Choose an agent type to determine where the agent session runs and what capabilities it has access to.
+1. Choose an agent harness from the **Session Target** control to determine where the agent session runs and what capabilities it can access.
 
-    You can choose from local, Copilot, Cloud, or third-party. Learn more about [agent types](/docs/agents/overview.md#configure-your-agent-session).
+    Choose Local, Copilot, Claude, Codex, or Cloud. Learn how to [choose an agent harness](/docs/agents/agent-harnesses.md).
 
 1. Optionally, select additional configuration options for the session:
 
-    * **Agent**: determines the role or persona of the AI, such as Agent, Plan, or Ask. Learn more about [choosing an agent](/docs/agents/overview.md#configure-your-agent-session).
+    * **Agent**: determines the role or persona of the AI, such as Agent, Plan, or Ask. Learn more about [choosing an agent role](/docs/agents/agent-harnesses.md#choose-a-built-in-agent-role).
 
     * **Permission level**: controls how much autonomy the agent has over tool approvals. Learn more about [permission levels](/docs/agents/approvals.md#permission-levels).
 
@@ -93,16 +93,16 @@ The sessions list is your central hub for managing all your chat sessions, regar
 
 ![Screenshot of the sessions list showing multiple sessions with different statuses, types, and file change stats.](images/chat-sessions/chat-view-sessions-list.png)
 
-Hover over a session to see actions for pinning or [archiving](#archive-sessions) it.  Right-click a session in the list to see additional actions like deleting or changing the session's state. Some actions are specific for the session's agent type and state. For example, checking out a pull request for a cloud agent session.
+Hover over a session to see actions for pinning or [archiving](#archive-sessions) it. Right-click a session in the list to see additional actions like deleting or changing the session's state. Some actions are specific to the session's harness and state. For example, you can check out a pull request for a cloud session.
 
 Use the pinning action to keep important sessions easily accessible at the top of your list. Pinned sessions stay at the top of the list regardless of their activity or state, so you can quickly find and return to them.
 
 {% tabs id="chat-surface" %}
 {% tab label="Agents window" %}
 
-In the **Agents window**, the sessions list is located in the left sidebar. It shows sessions from all your workspaces, so you can monitor work across projects from a single place. Each session item surfaces key information such as session name, workspace, agent type, and file change stats.
+In the **Agents window**, the sessions list is located in the left sidebar. It shows sessions from all your workspaces, so you can monitor work across projects from a single place. Each session item surfaces key information such as session name, workspace, harness, and file change stats.
 
-![Screenshot of the sessions list in the Agents window, showing multiple sessions with different agent types and file change stats.](images/chat-sessions/agents-window-sessions-list.png)
+![Screenshot of the sessions list in the Agents window, showing multiple sessions with different harnesses and file change stats.](images/chat-sessions/agents-window-sessions-list.png)
 
 By default, the list is filtered to only show active sessions. You can change the filter to show sessions of different states, such as completed or archived.
 
@@ -157,7 +157,7 @@ To view your archived sessions, use the filter options in the sessions list and 
 
 ## Delete sessions
 
-To permanently delete a session, right-click the session in the sessions list and select **Delete**. Deleting a session removes it permanently and can't be undone. For [Copilot sessions](/docs/agents/agent-types/copilot.md), deleting the session also removes any associated worktrees created for that session.
+To permanently delete a session, right-click the session in the sessions list and select **Delete**. Deleting a session removes it permanently and can't be undone. For [Copilot sessions](/docs/agents/agent-harnesses.md#copilot), deleting the session also removes any associated worktrees created for that session.
 
 If multiple Copilot sessions share the same worktree, such as after you fork a session, deleting one session does not remove the shared worktree while another session still uses it. The worktree is removed only after the last linked session is deleted or archived.
 
@@ -168,7 +168,7 @@ If multiple Copilot sessions share the same worktree, such as after you fork a s
 
 Forking a chat session creates a branch of a conversation that inherits conversation history from the original session. In single-chat sessions and sessions that don't use an agent host, the fork opens as a new independent session. The forked session is fully separate from the original, so changes in one session do not affect the other. The new session title is prefixed with "Forked:" to help you identify it.
 
-For multi-chat [Copilot](/docs/agents/agent-types/copilot.md) sessions in the Agents window, the fork opens as a peer chat in the same session. The peer chat gets an automatically generated title and runs independently from sibling chats.
+For multi-chat [Copilot](/docs/agents/agent-harnesses.md#use-the-copilot-harness) sessions in the Agents window, the fork opens as a peer chat in the same session. The peer chat gets an automatically generated title and runs independently from sibling chats.
 
 For Copilot sessions that use worktree isolation, the fork continues to use the same worktree as the original session.
 
@@ -187,7 +187,7 @@ There are two ways to fork a chat session:
 
 ## Orchestrate sessions from agent host sessions
 
-In agent host sessions, such as [Copilot](/docs/agents/agent-types/copilot.md) and Claude, agents can use built-in session-management tools to coordinate work across multiple sessions and chats. These tools are also available for Codex sessions when Codex [runs on the Agent Host](/docs/agents/concepts/agent-host.md#agents-on-the-agent-host).
+In agent host sessions, such as [Copilot](/docs/agents/agent-harnesses.md#use-the-copilot-harness) and Claude, agents can use built-in session-management tools to coordinate work across multiple sessions and chats. These tools are also available for Codex sessions when Codex [runs on the Agent Host](/docs/agents/concepts/agent-host.md#agents-on-the-agent-host).
 
 With these tools, an agent can:
 

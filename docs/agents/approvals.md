@@ -45,7 +45,7 @@ The permission level applies to the current chat session, and can be changed at 
 | **Bypass Approvals** | Auto-approves all tool calls without showing confirmation dialogs. When in doubt, the agent asks clarifying questions. |
 
 > [!NOTE]
-> On the [Agent Host](/docs/agents/concepts/agent-host.md) (the default), **Autopilot** is selected as an agent mode rather than a permission level. Choose it from the agent mode picker in the chat input to auto-approve all tools and let the agent iterate autonomously until the task is complete. See [How Autopilot works](#how-autopilot-works). On agents that run on the extension host, Autopilot remains available as a permission level in the permissions dropdown. Learn more about [behavior on the extension host](/docs/agents/concepts/agent-host.md#behavior-on-the-extension-host).
+> **Autopilot** is an agent mode rather than a permission level. Choose it from the agent mode picker in the chat input to auto-approve all tools and let the agent iterate autonomously until the task is complete. See [How Autopilot works](#how-autopilot-works). For how Autopilot behaves on the extension host, see [behavior on the extension host](/docs/agents/concepts/agent-host.md#behavior-on-the-extension-host).
 
 The permission level determines whether your finer-grained settings apply. **Default Approvals** respects the per-tool, URL, terminal, and sandbox settings you configure in the following sections. **Assisted permissions** delegates individual approval decisions to an LLM judge. **Bypass Approvals** and **Autopilot** override those settings and approve everything automatically.
 
@@ -57,7 +57,7 @@ The permission level determines whether your finer-grained settings apply. **Def
 
 ### How Autopilot works
 
-On the [Agent Host](/docs/agents/concepts/agent-host.md), select **Autopilot** from the agent mode picker in the chat input. On the extension host, select the **Autopilot** permission level. In either case, the agent behaves differently from a standard agent session:
+Select **Autopilot** from the mode picker in the chat input. Autopilot makes the agent behave differently from a standard agent session:
 
 * **Continuous iteration**: the agent keeps working autonomously until it determines the task is complete.
 * **Auto-approve all tools**: all tool calls are approved automatically, similar to the **Bypass Approvals** level.

@@ -15,7 +15,7 @@ Keywords:
 
 # Tutorial: Work with agents in VS Code
 
-This tutorial walks you through using different types of agents in Visual Studio Code. You build a todo app from scratch, add a theme toggle, and redesign the layout by delegating work across local, plan, background, and cloud agents.
+This tutorial walks you through using different agent harnesses in Visual Studio Code. You build a todo app from scratch, add a theme toggle, and redesign the layout by delegating work across Local, Plan, Copilot, and Cloud sessions.
 
 > [!TIP]
 > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly allowance of inline suggestions and AI credits.
@@ -84,7 +84,7 @@ You now have a working todo app that you can extend with additional features. By
 
 ## Step 2: Use Copilot to implement a feature plan
 
-In this step, you use the plan agent to create an implementation plan for a theme toggle and then hand off the implementation to the Copilot agent in the background. The Copilot agent is ideal for delegating tasks that don't require immediate interaction. It can use Git worktrees to isolate file changes from your main workspace and prevent conflicts.
+In this step, you use the Plan agent to create an implementation plan for a theme toggle and then hand off the implementation to the Copilot agent. The Copilot session can continue while you work in other sessions. It can use Git worktrees to isolate file changes from your main workspace and prevent conflicts.
 
 1. First, commit your current changes in the Source Control view to have a clean state.
 
@@ -159,6 +159,6 @@ You've successfully used a cloud agent to collaborate on a feature using GitHub.
 
 You've successfully used different types of agents to build, enhance, and redesign a todo app. Continue exploring agents:
 
-* Learn about [agent types and when to use them](/docs/agents/overview.md)
+* Learn how to [choose an agent harness](/docs/agents/agent-harnesses.md)
 * [Plan and research tasks with the Plan agent](/docs/agents/planning.md)
 * Explore [creating custom agents](/docs/agent-customization/custom-agents.md)

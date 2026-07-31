@@ -61,7 +61,7 @@ The Agents window has the following main areas:
 
 ## Start an agent session
 
-The Agents window and the main VS Code window share the same underlying agent sessions (Copilot, Copilot cloud, and Claude agent). This means that any session you start in the Agents window is immediately available in the main VS Code window.
+The Agents window and the main VS Code window share the same underlying agent sessions. This means that any supported session you start in the Agents window is immediately available in the main VS Code window.
 
 Unlike the Chat view, where sessions are scoped to the open workspace, the Agents window lets you choose which workspace or repository to target when you start a session.
 
@@ -80,16 +80,16 @@ To start a new agent session in the Agents window:
     > [!TIP]
     > You can track and create sessions that run on a remote machine via SSH or a dev tunnel. See [remote agent sessions](/docs/agents/remote-agent-sessions.md) for more information.
 
-1. After selecting the workspace, choose the agent type for the session from the dropdown.
+1. After selecting the workspace, choose the agent harness from the **Session Target** control.
 
-    The available agent types might vary depending on the location of the workspace:
+    The available harnesses depend on the workspace location:
 
-    * **Folder**: choose between the Copilot or Claude agent. You can select **Continue In** to hand off the session to a Copilot Cloud agent at any time.
-    * **Repository**: sessions started in a GitHub repository use the Copilot cloud agent.
+    * **Folder**: choose Copilot, Claude, or Codex when available. You can select **Continue In** to hand off the session to a cloud harness at any time.
+    * **Repository**: choose an available cloud harness.
 
 1. Optionally, select extra configuration options for the session like a custom agent, language model, permission level, and more.
 
-    For Copilot sessions, use **New Worktree** to control isolation:
+    For Copilot, Claude, and Codex sessions, use **New Worktree** to control isolation:
 
     * Checked: creates a new Git worktree and runs the session in worktree isolation.
     * Unchecked: runs the session in folder isolation.
@@ -109,7 +109,7 @@ The agent now starts working on your request. Learn more about [interacting in c
 
 ## Manage your sessions
 
-The session list in the sidebar shows all your ongoing sessions across your workspaces. Each session item surfaces the key information such as session name, workspace, agent type, and file change stats.
+The session list in the sidebar shows all your ongoing sessions across your workspaces. Each session item surfaces key information such as session name, workspace, harness, and file change stats.
 
 By default, sessions are grouped by workspace, and you can also group them by timeframe. You can create custom groups, collapse group headers, and rearrange sessions or groups with drag and drop. See [Manage chat sessions](/docs/chat/chat-sessions.md#sessions-list) for more details on working with the sessions list.
 
@@ -130,7 +130,7 @@ To start a quick chat, use one of the following methods:
 
 Use the session-type picker in the composer to choose which agent runs the quick chat, for example Copilot or Claude. The quick chat then opens ready for your prompt. Because a quick chat has no workspace, the workspace picker doesn't apply, and the workspace-specific **Changes** and **Files** panes aren't shown.
 
-Quick chats are served by the local agent host, so this experience is available when the agent host is enabled with `setting(chat.agentHost.enabled)`.
+Quick chats are served by the local Agent Host, which is enabled by default (`setting(chat.agentHost.enabled)`).
 
 Quick chats are restored with your other sessions after a window reload.
 
@@ -428,7 +428,7 @@ If you're an extension author, we'd love to collaborate on what extension enable
 
 * The agent can't directly open the integrated browser for you for now. You can start the integrated browser from the Command Palette (**Browser: Open Integrated Browser**) or by selecting a `localhost` link in the Agents window.
 
-* The Agents window currently only supports the following agent types: Copilot, Copilot Cloud, and Claude agent. To use local or other third-party agents, manage your sessions from the main VS Code window.
+* The Agents window supports Copilot, cloud, Claude, and Codex sessions that run on the Agent Host. Use the Local harness and Codex sessions that run through the OpenAI extension from the main VS Code window.
 
 * Copilot Cloud sessions are only supported for GitHub-backed repositories. For non-GitHub projects, you can still use Copilot in the Agents window.
 
@@ -454,21 +454,21 @@ Both surfaces support agentic development: the Agents window is purpose-built fo
 <details>
 <summary>Can I continue sessions started in the main VS Code window in the Agents window?</summary>
 
-Yes, sessions started in the main VS Code window with supported agent types (Copilot, Copilot Cloud, and Claude agent) automatically appear in the Agents window. You can switch between the two surfaces without losing any session history or context.
+Yes, sessions started in the main VS Code window with a supported harness automatically appear in the Agents window. You can switch between the two surfaces without losing any session history or context.
 
 </details>
 
 <details>
-<summary>Can I use the Agents window with local or third-party CLI agents?</summary>
+<summary>Can I use every agent harness in the Agents window?</summary>
 
-The Agents window currently only supports sessions with Copilot, Copilot Cloud, and Claude agent. If you use local or third-party CLI agents, you can still manage those sessions from the main VS Code window, but they won't yet appear in the Agents window.
+No. Use the Local harness and Codex sessions that run through the OpenAI extension from the main VS Code window. Copilot, cloud, Claude, and Codex sessions that run on the Agent Host are available in the Agents window.
 
 </details>
 
 <details>
-<summary>Why are changes from a Copilot session not applied in my main workspace?</summary>
+<summary>Why are changes from an agent session not applied in my main workspace?</summary>
 
-By default, Copilot sessions from the Agents window are created with Git worktree isolation. This means that the agent operates in a separate folder created by Git worktree, which keeps changes isolated from your main workspace until you're ready to merge them. This allows you to review and test the agent's changes before integrating them into your main codebase.
+By default, Copilot, Claude, and Codex sessions from the Agents window are created with Git worktree isolation. This means that the agent operates in a separate folder created by Git worktree, which keeps changes isolated from your main workspace until you're ready to merge them. This allows you to review and test the agent's changes before integrating them into your main codebase.
 
 You can merge the worktree from the Agents window back into your main workspace or create a pull request to review the changes.
 

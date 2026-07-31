@@ -11,7 +11,7 @@ This article covers proven practices for getting the most out of using AI in Vis
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="How AI works in VS Code">
 Learn about the agent loop, context window, tools, and other core concepts.
 
-* [Read about core concepts](/docs/agents/concepts/overview.md)
+* [Read about core concepts](/docs/agents/concepts/agents.md)
 
 </div>
 
@@ -50,21 +50,21 @@ AI in VS Code offers several interaction modes. Choosing the right one for the t
 | [Plan](/docs/agents/planning.md) | Structured planning before implementation | Designing an architecture or migration strategy |
 | [Smart actions](/docs/editing/copilot-smart-actions.md) | Built-in, specialized one-step tasks | Generating commit messages, fixing errors, renaming symbols |
 
-## Choose the right agent type
+## Choose the right agent harness
 
-When working with agents, pick the agent type that matches your task and workflow. Each type trades off interactivity, speed, and isolation differently.
+When working with agents, choose the harness that matches your task and workflow. Each harness offers different provider capabilities, tools, and execution environments.
 
-* **Use local agents for interactive work.** Local agents run in your editor with full access to your workspace, tools, and extensions. Choose them when you need to iterate quickly, review changes as they happen, or use VS Code-specific tools like the [integrated browser](/docs/debugtest/integrated-browser.md) or MCP servers.
+* **Use Copilot for day-to-day coding.** Copilot runs on your machine with access to your workspace, tools, and run-time context. It is a good default for most coding tasks.
 
-* **Offload well-defined tasks to background agents.** Use [Copilot](/docs/agents/agent-types/copilot.md) or [cloud agents](/docs/agents/agent-types/cloud-agents.md) when the task is clear enough that you don't need to watch every step.
+* **Use Claude or Codex for provider-specific capabilities.** These harnesses also run on your machine and provide their own SDK capabilities through the same VS Code session experience.
 
-* **Use cloud agents for team collaboration.** [Cloud agents](/docs/agents/agent-types/cloud-agents.md) run remotely and create pull requests, making them ideal for tasks that benefit from team review or when you want to assign a GitHub issue directly to an agent.
+* **Use cloud harnesses for team collaboration.** [Cloud harnesses](/docs/agents/agent-harnesses.md#start-a-cloud-session) run remotely and create pull requests, making them well suited to tasks that benefit from team review or when you want to assign a GitHub issue directly to an agent.
 
-* **Run parallel sessions for independent tasks.** Spin up multiple agent sessions, across local, background, and cloud environments, to work on unrelated tasks simultaneously. Monitor them from the [sessions list](/docs/chat/chat-sessions.md#sessions-list).
+* **Run parallel sessions for independent tasks.** Start multiple Copilot, Claude, Codex, or cloud sessions to work on unrelated tasks simultaneously. Monitor them from the [sessions list](/docs/chat/chat-sessions.md#sessions-list).
 
-* **Hand off between agent types.** Start interactively with a local agent to explore and plan, then [hand off](/docs/agents/overview.md#hand-off-a-session-to-another-agent) to a background or cloud agent for implementation. The conversation history carries over.
+* **Hand off when another target better fits the next step.** Change the session target to [hand off](/docs/agents/handoff.md) while preserving the conversation history and context.
 
-For more information, see [using agents](/docs/agents/overview.md) and the [agents tutorial](/docs/agents/agents-tutorial.md).
+For more information, see [choosing an agent harness](/docs/agents/agent-harnesses.md) and the [agents tutorial](/docs/agents/agents-tutorial.md).
 
 ## Write effective prompts
 
@@ -144,7 +144,7 @@ For complex changes that span multiple files, separate planning from implementat
 
 1. **Explore.** Use ask mode or a subagent to read the relevant code and understand how it works before making changes.
 1. **Plan.** Use the [Plan agent](/docs/agents/planning.md) to create a structured implementation plan. Review and refine the plan before executing.
-1. **Implement.** Switch to agent mode and implement from the plan. Include tests or expected outputs so the agent can verify its own work. Hand off to a [background agent](/docs/agents/agent-types/copilot.md) or [cloud agent](/docs/agents/agent-types/cloud-agents.md) for longer tasks.
+1. **Implement.** Switch to agent mode and implement from the plan. Include tests or expected outputs so the agent can verify its own work. Run independent Copilot, Claude, or Codex sessions in parallel, or hand off to a [cloud harness](/docs/agents/agent-harnesses.md#start-a-cloud-session) for remote execution.
 1. **Review.** Use [checkpoints](/docs/chat/chat-checkpoints.md) to review progress, rewind if the agent goes off track, or [request a Copilot code review](https://docs.github.com/en/copilot/concepts/agents/code-review) on the resulting pull request.
 
 For more information, see the [context engineering workflow](/docs/agents/guides/context-engineering-guide.md).

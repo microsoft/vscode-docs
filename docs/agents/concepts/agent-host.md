@@ -21,11 +21,9 @@ VS Code runs AI coding agents in a dedicated process called the Agent Host, whic
 > [!NOTE]
 > The Agent Host and AHP are under active development, and new capabilities continue to roll out.
 
-## From extension host to Agent Host
+## Why a dedicated Agent Host
 
-The Copilot Chat extension has traditionally provided many of VS Code's AI experiences, with agent logic running in the extension host. The extension host remains important for extensibility, but is designed around the lifecycle and APIs of extensions. Long-running autonomous work has different needs.
-
-VS Code has moved agent session orchestration into the Agent Host, which provides:
+VS Code runs agent sessions in the Agent Host by default. A dedicated process for agents provides:
 
 * **Shared sessions**: multiple clients can observe and control the same session, staying in sync.
 * **Remote execution**: the host can run next to the workspace on another machine while clients connect from elsewhere.
@@ -33,7 +31,7 @@ VS Code has moved agent session orchestration into the Agent Host, which provide
 * **Multiple agent implementations**: different agent runtimes plug into one host-facing interface and present common session concepts to clients.
 * **Dedicated process**: agents run in their own process, where they won't be blocked by busy extensions.
 
-VS Code extensions can still contribute chat customizations such as tools, MCP servers, and custom agents, but the agent runtime itself runs in the Agent Host process. By default, tools from extensions are only available in chats in an editor window where the extension is running.
+Earlier versions ran agent logic in the extension host, alongside the Copilot Chat extension. The extension host remains important for extensibility, but it is designed around the lifecycle and APIs of extensions, and long-running autonomous work has different needs. Extensions can still contribute chat customizations such as tools, MCP servers, and custom agents, but the agent runtime itself runs in the Agent Host process. By default, tools from extensions are only available in chats in an editor window where the extension is running.
 
 ![Screenshot showing VS Code communicating with extension-host customizations and the Agent Host, which contains adapters for Copilot, Claude, and Codex.](../images/concepts/agent-host-transition.svg)
 
@@ -45,7 +43,7 @@ Different agents use the Agent Host by default:
 * **Claude**: runs on the Agent Host by default (subject to the Claude Agent SDK being reachable).
 * **Codex**: runs through the OpenAI Codex extension by default. Running Codex on the Agent Host is experimental and requires enabling `setting(chat.agentHost.codexAgent.enabled)` and `setting(chat.editor.codex.preferAgentHost)`.
 
-Learn more about the [Claude and Codex agents](/docs/agents/agent-types/third-party-agents.md).
+Learn more about the [Claude and Codex harnesses](/docs/agents/concepts/agent-harnesses.md).
 
 ## Process architecture
 

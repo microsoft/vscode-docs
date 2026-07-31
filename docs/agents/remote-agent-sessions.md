@@ -91,6 +91,6 @@ You can connect and disconnect from hosts directly through the hosts bar. If a h
 ## Related resources
 
 * [Use the Agents window](/docs/agents/agents-window.md) - agent-first workflows across multiple projects.
-* [Using agents](/docs/agents/overview.md) - agent types, where to work, and permission levels.
+* [Choose an agent harness](/docs/agents/agent-harnesses.md) - compare harnesses, execution environments, and isolation options.
 * [Developing with Remote Tunnels](/docs/remote/tunnels.md) - set up and manage dev tunnels.
 * [Security](/docs/agents/security.md) - trust boundaries and security considerations.

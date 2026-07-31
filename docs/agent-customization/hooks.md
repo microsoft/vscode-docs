@@ -18,7 +18,7 @@ Keywords:
 
 Hooks enable you to execute custom shell commands at key lifecycle points during agent sessions. Use hooks to automate workflows, enforce security policies, validate operations, and integrate with external tools.
 
-Hooks are designed to work across agent types, including local agents, background agents, and cloud agents. Each hook receives structured JSON input and can return JSON output to influence agent behavior.
+Hooks work across agent harnesses and execution environments. Each hook receives structured JSON input and can return JSON output to influence agent behavior.
 
 For background on how hooks fit into the AI customization framework, see [Customization concepts](/docs/agents/concepts/customization.md).
 

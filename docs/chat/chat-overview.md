@@ -42,7 +42,7 @@ For common tasks, you can use slash commands as shortcuts for frequently used pr
 
 You can run multiple sessions in parallel to work on different tasks simultaneously. When you start a new session, the previous session remains active in the background, allowing you to switch back to it at any time without losing context. Learn more in [Manage chat sessions](/docs/chat/chat-sessions.md).
 
-Each session has configuration options that shape how the agent responds, such as the agent type, agent, permission level, and language model. Learn how to [configure your agent session](/docs/agents/overview.md).
+Each session has configuration options that shape how the agent responds, such as the agent harness, agent role, permission level, and language model. Learn how to [choose an agent harness](/docs/agents/agent-harnesses.md).
 
 > [!TIP]
 > To get the best results, be specific about what you want, provide relevant context, and write clear instructions. For more information, see [Get better responses](#get-better-responses).

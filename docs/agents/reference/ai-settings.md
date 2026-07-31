@@ -224,7 +224,7 @@ The [Agents view](/docs/agents/overview.md) provides a centralized location for 
 | Setting and Description | Default |
 |------------------------|---------------|
 | `setting(chat.agentFilesLocations)` <br/>Locations to search for custom agent files. Relative paths are resolved from the root folder(s) of your workspace. Supports home directory expansion (`~`) for user-specific paths. | `{ ".github/agents": true }` |
-| `setting(github.copilot.chat.cli.customAgents.enabled)` <br/>Enable using custom agents from GitHub background agent sessions. | `false` |
+| `setting(github.copilot.chat.cli.customAgents.enabled)` <br/>Enable using custom agents in Copilot sessions. | `false` |
 | `setting(github.copilot.chat.organizationCustomAgents.enabled)` <br/>Enable discovery of custom agents defined at the GitHub organization level. | `true` |
 
 ## Agent skills settings

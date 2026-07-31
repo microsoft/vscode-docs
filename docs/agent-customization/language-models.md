@@ -24,7 +24,7 @@ Use the language model picker in the chat input field to change the model for ch
 
 ![Screenshot that shows the model picker in the Chat view.](images/language-models/model-dropdown-change-model-v2.png)
 
-Different models have different strengths. Use a fast model for quick edits and simple questions, and a reasoning model for complex refactoring, architectural decisions, or multi-step tasks. Depending on the [type of agent](/docs/agents/overview.md#configure-your-agent-session) you are using, the list of available models might differ.
+Different models have different strengths. Use a fast model for quick edits and simple questions, and a reasoning model for complex refactoring, architectural decisions, or multi-step tasks. Depending on the [harness](/docs/agents/concepts/agent-harnesses.md) you are using, the list of available models might differ.
 
 You can further extend the list of available models by [using your own language model API key](#bring-your-own-language-model-key).
 
@@ -118,7 +118,7 @@ Bring Your Own Key (BYOK) lets you connect to any compatible model provider whil
 BYOK models work without signing into a GitHub account and without a Copilot plan. This enables you to use AI chat features entirely with your own models, including fully offline scenarios with local models such as Ollama.
 
 > [!NOTE]
-> If you run sessions on an agent host (`setting(chat.agentHost.enabled)` is enabled), such as Copilot sessions in the [Agents window](/docs/agents/agents-window.md), enable `setting(chat.agentHost.byokModels.enabled)` to use BYOK models in those sessions. This setting is experimental and takes effect only after the agent host process is restarted.
+> For Agent Host sessions, such as Copilot sessions in the [Agents window](/docs/agents/agents-window.md), enable `setting(chat.agentHost.byokModels.enabled)` to use BYOK models in those sessions. This setting is experimental and takes effect only after the agent host process is restarted.
 
 You can also use these models to [override the models used for utility tasks in VS Code](#configure-models-for-other-features) (such as title generation and intent detection).
 

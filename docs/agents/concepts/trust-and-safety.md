@@ -43,6 +43,17 @@ For step-by-step configuration of these controls — approval rules, sensitive-f
 
 Always review AI-generated code before committing. Verify that it handles edge cases, follows your project's conventions, and doesn't introduce security issues.
 
+## Trust boundaries
+
+VS Code's security model uses trust boundaries to limit the potential impact of untrusted code. Each trust boundary requires explicit consent before it is considered trusted:
+
+* **Workspace**: controls whether VS Code enables features like tasks, debugging, and workspace settings that can execute code from the project. An untrusted workspace runs in [restricted mode](/docs/editing/workspaces/workspace-trust.md), which also disables agents.
+* **Extension publisher**: controls whether extensions from a given publisher can be installed and run. VS Code prompts you to [trust the publisher](/docs/configure/extensions/extension-runtime-security.md) before activating their extensions.
+* **MCP server**: controls whether an MCP server can start and provide tools. VS Code prompts you to [trust each MCP server](/docs/agent-customization/mcp-servers.md#mcp-server-trust) before it runs, and re-prompts after configuration changes.
+* **Network domain**: controls whether the agent can fetch content from a URL. VS Code prompts you to trust a domain before making requests to it, integrated with the [Trusted Domains](/docs/editing/editingevolved.md#outgoing-link-protection) list. You can also enable `setting(chat.agent.networkFilter)` to restrict which domains agent tools and sandboxed terminal commands can access.
+
+You can revoke trust at any time through dedicated commands in the Command Palette. For steps to configure these controls, see [AI security in VS Code](/docs/agents/security.md).
+
 ## Agent sandboxing
 
 > [!NOTE]

@@ -13,9 +13,9 @@ Keywords:
 - enterprise
 - sandbox
 ---
-# Security
+# AI security in VS Code
 
-AI-powered development capabilities can autonomously perform different development tasks, which might have significant security implications. In this article, you'll learn about VS Code's built-in security protections, the risks to be aware of, and how to configure your environment for safe AI-assisted development.
+AI-powered development capabilities can autonomously perform different development tasks, which might have significant security implications. This article covers VS Code's built-in security protections, the risks to be aware of, and how to configure your environment for safe AI-assisted development. For the concepts behind these controls, see [Trust and safety](/docs/agents/concepts/trust-and-safety.md).
 
 > [!NOTE]
 > This article covers security controls in the VS Code editor for AI-powered development features. For information about how GitHub Copilot handles your data, privacy, and compliance, see the [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/). For organization-wide AI policies and controls, see [AI settings for your organization](/docs/enterprise/ai-settings.md) and [enterprise policies](/docs/enterprise/policies.md).
@@ -38,14 +38,7 @@ Use the following checklist to set up a secure starting point for AI-assisted de
 
 ## Trust boundaries
 
-VS Code's security model uses trust boundaries to limit the potential impact of untrusted code. Each trust boundary requires explicit consent before it is considered trusted:
-
-* **Workspace**: controls whether VS Code enables features like tasks, debugging, and workspace settings that can execute code from the project. An untrusted workspace runs in [restricted mode](/docs/editing/workspaces/workspace-trust.md), which also disables agents.
-* **Extension publisher**: controls whether extensions from a given publisher can be installed and run. VS Code prompts you to [trust the publisher](/docs/configure/extensions/extension-runtime-security.md) before activating their extensions.
-* **MCP server**: controls whether an MCP server can start and provide tools. VS Code prompts you to [trust each MCP server](/docs/agent-customization/mcp-servers.md#mcp-server-trust) before it runs, and re-prompts after configuration changes.
-* **Network domain**: controls whether the agent can fetch content from a URL. VS Code prompts you to trust a domain before making requests to it, integrated with the [Trusted Domains](/docs/editing/editingevolved.md#outgoing-link-protection) list. You can also enable `setting(chat.agent.networkFilter)` to restrict which domains agent tools (fetch tool, integrated browser) and sandboxed terminal commands can access. Learn more about [network filtering](/docs/agents/approvals.md#configure-network-access).
-
-You can revoke trust at any time through dedicated commands in the Command Palette.
+VS Code's security model uses trust boundaries to limit the potential impact of untrusted code. Each boundary, for the workspace, extension publisher, MCP server, and network domain, requires your explicit consent before it is trusted, and you can revoke trust at any time. For a description of each boundary, see [trust boundaries](/docs/agents/concepts/trust-and-safety.md#trust-boundaries).
 
 ## How VS Code protects your environment
 
@@ -63,7 +56,7 @@ VS Code limits the potential impact of agent actions by controlling their scope 
 
 * **Request limits**: Built-in safeguards [prevent runaway operations](/docs/agents/reference/ai-settings.md#agent-settings) that consume excessive resources or perform unintended bulk actions on your codebase.
 
-* **Agent isolation**: [Background agents](/docs/agents/agent-types/copilot.md) work in a separate Git worktree, preventing conflicts with your active workspace. They have limited tool access and can only use local MCP servers that don't require authentication. [Cloud agents](/docs/agents/agent-types/cloud-agents.md) run on remote infrastructure, which provides inherent isolation from your local machine and local resources.
+* **Agent isolation**: Copilot, Claude, and Codex sessions can work in a separate Git worktree, preventing conflicts with your active workspace. [Cloud harnesses](/docs/agents/agent-harnesses.md#start-a-cloud-session) run on remote infrastructure, which provides inherent isolation from your local machine and local resources.
 
 * **Secure secrets store**: Sensitive input parameters for MCP servers are stored using VS Code's secure credentials store to protect authentication tokens and other sensitive data.
 
@@ -155,7 +148,7 @@ Auto-approval features reduce friction but come with security tradeoffs.
 
 * **Autopilot mode**: **Autopilot** combines auto-approval with autonomous iteration. The agent continues working without user intervention until it marks the task as complete. This reduces your ability to review intermediate steps.
 
-* **Third-party agent permissions**: Some third-party agents offer settings that bypass all permission checks (for example, `allowDangerouslySkipPermissions` in the [Claude agent](/docs/agents/agent-types/third-party-agents.md)). Enabling these settings removes the safety net of approval prompts and is only recommended in sandboxed or containerized environments.
+* **Third-party harness permissions**: Some provider harnesses offer settings that bypass all permission checks, such as `allowDangerouslySkipPermissions` for the [Claude harness](/docs/agents/agent-harnesses.md#claude-preview). Turning on these settings removes the safety net of approval prompts and is only recommended in sandboxed or containerized environments.
 
 VS Code addresses these risks through [configurable approval scopes](#approvals-and-review), [agent sandboxing](#agent-sandboxing-preview), [enterprise policies](#enterprise-policies), and [warning banners](#approvals-and-review) for dangerous modes.
 

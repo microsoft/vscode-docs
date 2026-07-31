@@ -135,7 +135,7 @@ When a session completes and makes code changes to your project, the [sessions l
 
 ![Screenshot of the file changes diff editor in an agent session.](images/agents-overview/agent-file-changes-v2.png)
 
-Depending on the agent type, you have options to apply the changes to your local workspace, or to check out the branch from the session (for cloud agents).
+Depending on the agent harness, you can apply changes to your local workspace or check out the branch from a cloud session.
 
 ## Related resources
 
