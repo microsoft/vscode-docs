@@ -71,7 +71,7 @@ To start a new agent session in the Agents window:
 
     To start a session for a specific workspace, hover over that workspace in the sessions list and select **+** (New Session).
 
-    If the folder or repository isn't trusted, VS Code prompts you to [trust it](#trust-a-folder) before starting the session.
+    If the folder or repository isn't trusted, VS Code prompts you to trust it before starting the session. The Agents window and main VS Code window share the same trust state. Learn more about [Workspace Trust](/docs/editing/workspaces/workspace-trust.md).
 
     > [!TIP]
     > You can track and create sessions that run on a remote machine via SSH or a dev tunnel. See [remote agent sessions](/docs/agents/remote-agent-sessions.md) for more information.
@@ -87,11 +87,15 @@ The session is also available in the main VS Code window. Learn more about [crea
 > [!TIP]
 > To start a session in the background without leaving the current session, press `kbstyle(Alt+Enter)` or hold `kbstyle(Alt)` and select **Send**. The newly started session appears in the sessions list once it commits.
 
-## Manage your sessions
+## Work with the agent
+
+After you start a session, use the Agents window to track work across projects, review changes, run parallel chats, and tailor the agent to your workflow.
+
+### Manage your sessions
 
 The sessions list shows your sessions across all workspaces. Select a session to show its conversation and make its workspace files and changes active. You can group sessions by workspace or time, create custom groups, pin sessions, and rearrange items with drag and drop. Learn how to [organize and manage sessions](/docs/agents/sessions/manage-sessions.md#sessions-list).
 
-## Quick chats
+### Quick chats
 
 Quick chats are lightweight chats that aren't scoped to a workspace. Use a quick chat when you want to ask a question or start a task that doesn't belong to a specific project, without setting up a workspace session.
 
@@ -112,13 +116,13 @@ Quick chats are restored with your other sessions after a window reload.
 
 By default, the **Chats** group stays visible in the sessions list even when it's empty. To hide the default groups until they contain sessions, set `setting(sessions.list.showEmptyDefaultGroups)` to `false`.
 
-## Review file changes
+### Review file changes
 
 ![Screenshot showing the Changes panel in the Agents window, with the Files and Changes views visible.](images/agents-window/agents-window-changes.png)
 
 Use the **Files** tab to browse the session workspace and the **Changes** tab to inspect files that the agent changed. Select a changed file to open a diff, leave range-based feedback, track reviewed files, and then commit, merge, check out, or discard the result. Learn how to [review AI-generated code edits](/docs/agents/review-code-edits.md).
 
-## View and edit Markdown files in the Agents window
+### View and edit Markdown files in the Agents window
 
 The Agents window supports both rendered Markdown preview and an experimental Markdown editor for `.md` files. Which editor opens by default depends on `setting(workbench.editor.markdownDefaultEditorInAgentsWindow)`.
 
@@ -134,6 +138,18 @@ When you edit a Markdown file in **Markdown Editor (Experimental)**, the editor 
 * Red marker for deleted content.
 
 These markers reflect your current Git changes in the file, persist after you save and reopen the file, and disappear when you undo or revert the corresponding changes.
+
+### Work with agents remotely
+
+Connect the Agents window to a machine over SSH or a dev tunnel, or open <https://insiders.vscode.dev/agents> to manage sessions from a browser. Learn how to [set up remote agent sessions](/docs/agents/remote-agent-sessions.md).
+
+### Work with chats in a session
+
+Supported agent host sessions can contain multiple independent chats that share the same workspace and worktree. Use peer chats for parallel tasks or side questions, and open delegated subagents as read-only chats. Learn how to [run multiple chats and ask side questions](/docs/agents/sessions/manage-sessions.md#run-multiple-chats-in-a-session) and [follow subagents](/docs/agents/subagents.md#what-you-see-in-chat).
+
+### Customize agents for your project and workflow
+
+Select a customization type in the **Customizations** panel below the sessions list to open the Agent Customizations editor. From there, manage agents, skills, instructions, hooks, MCP servers, and plugins for your workspace or user profile. Learn how to [customize agents in VS Code](/docs/agent-customization/overview.md#use-the-agent-customizations-editor).
 
 ## Validate agent changes locally
 
@@ -168,14 +184,6 @@ Alternatively, you can also select a `localhost` link from the integrated termin
 
 If you want to run terminal commands in the context of the current session, select the **Open Terminal** icon in the title bar to open an integrated terminal with its current working directory set to the session's folder or worktree.
 
-## Work with agents remotely
-
-Connect the Agents window to a machine over SSH or a dev tunnel, or open <https://insiders.vscode.dev/agents> to manage sessions from a browser. Learn how to [set up remote agent sessions](/docs/agents/remote-agent-sessions.md).
-
-## Work with chats in a session
-
-Supported agent host sessions can contain multiple independent chats that share the same workspace and worktree. Use peer chats for parallel tasks or side questions, and open delegated subagents as read-only chats. Learn how to [run multiple chats and ask side questions](/docs/agents/sessions/manage-sessions.md#run-multiple-chats-in-a-session) and [follow subagents](/docs/agents/subagents.md#what-you-see-in-chat).
-
 ## Open multiple sessions side by side
 
 You can have more than one session open at the same time in the Agents window to compare results or review work in parallel. Open a session next to the active one by using any of the following methods:
@@ -198,25 +206,21 @@ These commands are also available in the Command Palette (`kb(workbench.action.s
 > [!NOTE]
 > **Experimental**: when you enable `setting(sessions.layout.autoCollapseSessionsSidebar)`, the Agents window hides the sessions sidebar on narrow windows when both the editor area and side panel are open. The sidebar appears again when there is room. The Agents window preserves a sidebar that you closed manually, and suspends auto-collapse while multiple sessions are open side by side.
 
-## Customize agents for your project and workflow
+## Configure the Agents window
 
-Select a customization type in the **Customizations** panel below the sessions list to open the Agent Customizations editor. From there, manage agents, skills, instructions, hooks, MCP servers, and plugins for your workspace or user profile. Learn how to [customize agents in VS Code](/docs/agent-customization/overview.md#use-the-agent-customizations-editor).
+The Agents window shares your GitHub account, VS Code settings, and default profile with the main VS Code window. Configure the following options when you want to adjust the agent-first experience.
 
-## Trust a folder
-
-You must trust a folder or repository before starting or continuing an agent session for it. The Agents window and main VS Code window share the same trust state. Learn more about [Workspace Trust](/docs/editing/workspaces/workspace-trust.md).
-
-## Switch to another GitHub account
+### Switch to another GitHub account
 
 To use a different GitHub account in the Agents window, select the account icon in the top right corner of the window and choose **Sign out**. After signing out, select **Sign in** to authenticate with a different GitHub account.
 
-## Configure settings for the Agents window
+### Configure settings for the Agents window
 
 The Agents window shares all of your VS Code settings, so the configuration you've already invested in carries over automatically. When you want different behavior in the Agents window than in the editor window, you can override specific settings just for the Agents window without affecting your main VS Code setup.
 
 To override a setting for the Agents window only, edit your settings file and scope the value under the Agents window section. Open the Settings editor (`kb(workbench.action.openSettings)`) from the Agents window to see which scope a setting applies to.
 
-## Use VS Code extensions in the Agents window
+### Use VS Code extensions in the Agents window
 
 The Agents window can run your VS Code extensions, so you can bring the tools you rely on into your agent-first workflow.
 
