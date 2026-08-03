@@ -190,7 +190,7 @@ When using [agents](/docs/agents/agent-types/local-agents.md), you can use natur
 |--------|-------------|
 | `kb(workbench.action.chat.openAgent)` | Switch to using agents in the Chat view |
 | Tools (<i class="codicon codicon-tools"></i>) | Configure which tools are available when using agents. Select from built-in tools, MCP servers, and extension-provided tools. |
-| Permission levels | Choose a [permission level](/docs/agents/approvals.md#permission-levels) for the current session: **Default Approvals**, **Bypass Approvals**, or **Autopilot**. Controls how tool approvals are handled. |
+| Permission levels | Choose a [permission level](/docs/agents/approvals.md#permission-levels) for the current session: **Default Approvals**, **Bypass Approvals**, or **Autopilot**. For agents that run on the Agent Host, you can also enable experimental **Assisted permissions**. Controls how tool approvals are handled. |
 | Auto-approve tools | Enable [auto-approval of all tools](/docs/agents/approvals.md#tool-approval) when using agents (`setting(chat.tools.autoApprove)`). |
 | Auto-approve terminal commands | Enable [auto-approval of terminal commands](/docs/agents/approvals.md#automatically-approve-terminal-commands) when using agents (`setting(chat.tools.terminal.autoApprove)`). |
 | MCP | Configure [MCP servers](/docs/agent-customization/mcp-servers.md) to extend agent capabilities and tools. |

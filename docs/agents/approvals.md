@@ -36,13 +36,19 @@ Select a permission level from the permissions dropdown in the chat input area t
 
 The permission level applies to the current chat session, and can be changed at any time. New sessions start with the default permission level, which you can configure with the `setting(chat.permissions.default)` setting.
 
+**Assisted permissions** is experimental and is only available for agents that run on the [Agent Host](/docs/agents/concepts/agent-host.md). To show this option in the permissions picker, enable `setting(chat.assistedPermissions.enabled)`.
+
 | Permission level | Description |
 |---|---|
 | **Default Approvals** (default) | Uses your configured approval settings. Tools that require approval show a confirmation dialog before they run. When in doubt, the agent asks clarifying questions. |
+| **Assisted permissions** (Experimental) | Uses an LLM judge to evaluate the risk of each tool call. Calls that the judge approves run automatically. Other calls show a confirmation dialog for you to review. |
 | **Bypass Approvals** | Auto-approves all tool calls without showing confirmation dialogs. When in doubt, the agent asks clarifying questions. |
 | **Autopilot** | Auto-approves all tool calls without showing confirmation dialogs. When questions arise, the agent automatically responds to clarifying questions. |
 
-The permission level determines whether your finer-grained settings apply. **Default Approvals** respects the per-tool, URL, terminal, and sandbox settings you configure in the following sections. **Bypass Approvals** and **Autopilot** override those settings and approve everything automatically.
+The permission level determines whether your finer-grained settings apply. **Default Approvals** respects the per-tool, URL, terminal, and sandbox settings you configure in the following sections. **Assisted permissions** delegates individual approval decisions to an LLM judge. **Bypass Approvals** and **Autopilot** override those settings and approve everything automatically.
+
+> [!IMPORTANT]
+> The **Assisted permissions** level reduces approval interruptions but does not replace your judgment. A model-based risk assessment can make mistakes. The first time you select this level, a warning dialog asks you to confirm. Use [agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing) to limit file system and network access, and review any tool calls that still require your approval.
 
 > [!CAUTION]
 > **Bypass Approvals** and **Autopilot** bypass manual approval prompts, including for potentially destructive actions like file edits, terminal commands, and external tool calls. The first time you enable either level, a warning dialog asks you to confirm. Only use these levels if you understand the security implications. See the [Security considerations](/docs/agents/security.md) for more details.

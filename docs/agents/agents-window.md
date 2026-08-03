@@ -128,9 +128,15 @@ To start a quick chat, use one of the following methods:
 * Select **+** on the **Chats** section header in the sessions list.
 * Run **New Quick Chat** from the Command Palette (`kb(workbench.action.showCommands)`), or press `kb(sessionsView.newQuickChat)`.
 
-Use the session-type picker in the composer to choose which agent runs the quick chat, for example Copilot CLI or Claude. The quick chat then opens ready for your prompt. Because a quick chat has no workspace, the workspace picker doesn't apply.
+Use the session-type picker in the composer to choose which agent runs the quick chat, for example Copilot CLI or Claude. The quick chat then opens ready for your prompt. Because a quick chat has no workspace, the workspace picker doesn't apply, and the workspace-specific **Changes** and **Files** panes aren't shown.
+
+Quick chats are served by the local agent host, so this experience is available when the agent host is enabled with `setting(chat.agentHost.enabled)`.
+
+Quick chats are restored with your other sessions after a window reload.
 
 ![Screenshot showing the quick chats group in the Agents window, with + button to start a new quick chat highlighted.](images/agents-window/agents-window-quick-chat.png)
+
+By default, the **Chats** group stays visible in the sessions list even when it's empty. To hide the default groups until they contain sessions, set `setting(sessions.list.showEmptyDefaultGroups)` to `false`.
 
 ## Manage and review file changes
 
