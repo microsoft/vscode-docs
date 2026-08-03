@@ -1,7 +1,0 @@
-stages:
-- stage: Build
-  jobs:
-  - template: ../jobs/build.yml@self
-    parameters:
-      jobDisplayName: vscode-site-vnext
-      artifactName: vscode-website-main
