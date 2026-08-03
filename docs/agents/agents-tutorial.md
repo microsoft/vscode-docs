@@ -8,7 +8,7 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 
 In this tutorial, you learn how to build with AI agents in Visual Studio Code. Agents can plan a solution, create and edit multiple files, run commands, and fix their own errors, all from a single natural-language prompt. You describe what you want, and the agent does the work.
 
-You start in the Agents window, a dedicated surface for an agent-first workflow. Then you switch to the Chat view, where an agent assists you while you work in the editor. Along the way, you pick up the VS Code basics you need, like opening a workspace, using the integrated browser, and committing your changes with source control.
+You start in the **Agents window**, a dedicated surface for an agent-first workflow. Then you switch to the **Chat view**, where an agent assists you while you work in the editor. Along the way, you pick up the VS Code basics you need, like opening a workspace, using the integrated browser, and committing your changes with source control.
 
 You build a simple personal portfolio page with HTML, CSS, and JavaScript. The page is fully static, so you don't need to install any runtimes or build tools to follow along.
 
@@ -81,24 +81,26 @@ In this part, you open your folder in the Agents window and task an agent to bui
 
 1. In the workspace dropdown, select the `myportfolio` folder on your machine.
 
-    <!-- TODO: Update screenshot to show the renamed "Copilot" agent type in the Agents window picker (previously "Copilot CLI"). -->
-    ![Screenshot of the workspace dropdown and Agent selection in the Agents window.](images/getting-started/workspace-dropdown.png)
+    <!-- TODO: Update screenshot to show the Copilot session target and the current New Worktree isolation control. -->
+    ![Screenshot of the workspace dropdown and session configuration in the Agents window.](images/getting-started/workspace-dropdown.png)
 
     If you're prompted to trust the folder, select **Yes, I trust the authors**.
 
     > [!IMPORTANT]
     > Workspace Trust lets you decide whether code in your project folder can be executed. When you download code from the internet, you should first review it to make sure it's safe to run. Get more info about [Workspace Trust](/docs/editing/workspaces/workspace-trust.md).
 
-1. Make sure the **Copilot** agent type is selected. This indicates that the Copilot agent runs the session on your local machine.
+1. From the **Session Target** control, select **Copilot**. The Copilot harness runs the session on your local machine with the GitHub Copilot SDK.
 
     VS Code installs and configures the required components for you, so there's nothing extra to set up.
 
-1. Keep the other default configuration options:
+1. Review the other session configuration options:
 
-    * **Agent**: the generic agent for performing the task. For specialized tasks, you could create custom agents, like a code review or testing agent.
+    * **Agent**: the generic agent role for performing the task. For specialized tasks, you can create a custom agent, such as a code review or testing agent.
     * **Language model**: depending on your setup, you can choose from multiple language models and configure additional settings.
-    * **Default Approvals**: the agent will automatically approve safe actions but will ask for your approval for potentially risky actions.
-    * **Folder & branch**: the agent works directly on the files in your folder and commits to the current branch.
+    * **Default Approvals**: the permission level that uses the default approval rules for tools, terminal commands, and more. VS Code prompts you when an action requires approval.
+    * **New Worktree**: lets you isolate changes in a separate Git worktree folder. Because your repository doesn't have any commits yet, this option is unavailable and Copilot works directly in the `myportfolio` folder.
+
+    For this tutorial, Copilot edits the project files directly. You review and commit the changes later.
 
 1. Enter the following prompt in the chat input and press `kbstyle(Enter)`:
 
@@ -166,16 +168,16 @@ Before you commit the agent's work, you might want to review the actual code cha
 
     After committing the changes, the **Changes** panel is back empty because there are no pending changes. The change stats are also cleared from the entry in the session list.
 
-## Write code with agents in the editor
+## Continue working with agents in the editor
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Explore the Chat view">
-Use the Chat view alongside your editor to let agents assist you with coding tasks in your active workspace.
+You can use the Chat view alongside your editor to let agents assist you with coding tasks in your active workspace.
 
 * [Learn about the Chat view](/docs/agents/run/chat-view.md)
 
 </div>
 
-For some changes, you might prefer a code-first approach, where your focus is on writing code and agents help you in the process. For example, you might want to add a theme switcher and fine-tune the styles as you go. For this approach, you switch to the editor and use the Chat view.
+For some changes, you might prefer a code-first approach, where your focus is on writing code and Copilot assists you in the process. For example, you might want to add a theme switcher and fine-tune the styles as you go. For this approach, continue the same Copilot session in the Chat view.
 
 ### Open the editor for your workspace
 
@@ -191,47 +193,39 @@ For some changes, you might prefer a code-first approach, where your focus is on
 
     The Chat view in the right sidebar shows the ongoing agent session you created previously in the Agents window.
 
-### Start a new session from the Chat view
+### Continue the session from the Chat view
 
-The Chat view is located in the right sidebar of the editor, alongside your editor tabs, and is optimized for letting agents assist you while you're writing code.
-
-In this step, you start a new session to run an agent to add a theme switcher to your portfolio page. The agent applies the changes directly to your files, and you can review them as inline diffs in the editor.
-
-1. Select **New Chat** (`+`) to start a new session.
-
-    ![Screenshot of the New Chat button in the Chat view title bar.](images/getting-started/new-chat-button.png)
-
-1. Make sure **Local** is selected from the **Session Target** dropdown to run the agent in the context of the editor, with access to your files, tools, and the integrated browser.
-
-    ![Screenshot of the Session Target dropdown in the Chat view, showing the Local option selected.](images/getting-started/session-target-dropdown.png)
+The Chat view is located in the Secondary Side Bar, alongside your editor tabs. The same Copilot session remains active when you move between the Agents window and the editor.
 
 1. Enter the following prompt in the chat input and press `kbstyle(Enter)`:
 
     ```prompt
-    Add a theme switcher button that toggles between a light and dark color theme for the page.
+    Add an accessible theme switcher button that toggles between light and dark color themes. Persist the selected theme across page reloads, update the button label to describe the theme it applies, and keep the layout responsive on narrow screens.
     ```
 
-    The agent applies the changes to your files. You can see the changes stream into the editor in real time as inline diffs.
+    Copilot applies and saves the changes directly to your project files.
 
-1. The Chat view shows the list of changed files. Open a file to review the changes directly in the editor, where you can use the overlay controls to **Keep** or **Undo** individual edits.
+1. Open the **Source Control** view to review the files that Copilot changed. Select a file to inspect its diff.
 
-    ![Screenshot of the inline diff view in the editor, showing the changes made by the agent and the Keep and Undo controls.](images/getting-started/inline-diff-editor.png)
+    You can also select a changed file in the Chat view to open its diff.
 
-    Select **Keep** to accept the changes.
+1. Select the `index.html` file and select the **Open in Integrated Browser** (globe) button in the title bar.
 
-1. Select the `index.html` file and select the **Open in Integrated Browser** (globe) button in the title bar to preview the page with the new theme switcher in the integrated browser.
+1. In the integrated browser, validate the changes:
 
-1. Ask the agent to preview the page and validate the new feature itself in the browser. This way, the agent can iterate on its changes based on what it sees in the browser. Enter the following prompt and press `kbstyle(Enter)`:
+    * Select the theme switcher and verify that the page colors and button label change.
+    * Resize the browser to a narrow width and verify that the content remains readable and the project cards adapt to the available space.
+    * Use `kbstyle(Tab)` to focus the theme switcher, and then use `kbstyle(Enter)` or `kbstyle(Space)` to toggle the theme.
+
+1. If a check fails, describe what you observed to Copilot in the Chat view. For example:
 
     ```prompt
-    Verify that the theme switcher works correctly and review the design aligns with the rest of the page. If there are any issues, fix them.
+    The selected theme resets after I refresh the page. Persist the theme selection and verify that it is restored when the page loads.
     ```
 
-    ![Screenshot of the agent opening the integrated browser for previewing and validating its changes.](images/getting-started/agent-validate-changes.png)
+1. Review the final changes in the **Source Control** view and commit them to your Git repository.
 
-    The agent asks to approve opening the integrated browser. Select **Allow in this session** to let the agent access the browser for previewing and validating its changes.
-
-Congratulations! You built a portfolio page by using AI agents, where you used both an agent-first and code-first approach. You used the integrated browser to let the agent preview and validate its own changes.
+Congratulations! You built a portfolio page with Copilot by using both an agent-first and code-first approach. You continued the same session across the Agents window and the Chat view, and used the integrated browser to preview and validate the result.
 
 ## Next steps
 
