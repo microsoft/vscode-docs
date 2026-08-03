@@ -108,8 +108,6 @@ To start a quick chat, use one of the following methods:
 
 Use the session-type picker in the composer to choose which agent runs the quick chat, for example Copilot or Claude. The quick chat then opens ready for your prompt. Because a quick chat has no workspace, the workspace picker doesn't apply, and the workspace-specific **Changes** and **Files** panes aren't shown.
 
-Quick chats are served by the local Agent Host, which is enabled by default (`setting(chat.agentHost.enabled)`).
-
 Quick chats are restored with your other sessions after a window reload.
 
 ![Screenshot showing the quick chats group in the Agents window, with + button to start a new quick chat highlighted.](../images/agents-window/agents-window-quick-chat.png)

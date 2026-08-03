@@ -15,18 +15,17 @@ Keywords:
 
 Prompt files, also known as slash commands, let you simplify prompting for common tasks by encoding them as standalone Markdown files that you can invoke directly in chat. Each prompt file includes task-specific context and guidelines about how the task should be performed.
 
-Unlike [custom instructions](/docs/agent-customization/custom-instructions.md) that are applied automatically, you invoke prompt files manually in chat.
+Unlike [custom instructions](/docs/agent-customization/custom-instructions.md) that are applied automatically, you invoke prompt files manually in chat. See the [decision matrix](/docs/agents/concepts/customization.md#customization-options-at-a-glance) to compare prompt files with custom agents, agent skills, and the other options.
 
 Use prompt files to:
 
 * Simplify prompting for common tasks, such as scaffolding a new component, running and fixing tests, or preparing a pull request
 * Override default behavior of a custom agent, such as creating a minimal implementation plan or generating mockups for API calls
 
-> [!TIP]
-> **Not sure which customization to use?** See the [decision matrix](/docs/agents/concepts/customization.md#customization-options-at-a-glance) to compare prompt files with custom agents, agent skills, and the other options.
+You can use the [Agent Customizations editor](/docs/agent-customization/overview.md#use-the-agent-customizations-editor) (Preview) to discover, create, and manage all your agent customizations in one place. Run **Chat: Open Customizations** from the Command Palette.
 
-> [!TIP]
-> Use the [Agent Customizations editor](/docs/agent-customization/overview.md#use-the-agent-customizations-editor) (Preview) to discover, create, and manage all your agent customizations in one place. Run **Chat: Open Customizations** from the Command Palette.
+> [!IMPORTANT]
+> Agents running on the [Agent Host](/docs/agents/concepts/agent-host.md) don't use prompt files. To use an existing prompt with the Copilot agent, convert it to an [agent skill](/docs/agent-customization/agent-skills.md). The Agent Customizations editor offers a one-time migration that converts your prompt files to skills (experimental, enable `setting(chat.customizations.promptMigration.enabled)`). Prompt files continue to work with local agents that run in the VS Code extension host.
 
 ## Prompt file locations
 
@@ -38,9 +37,6 @@ You can define prompt files for a specific workspace or at the user level, where
 | User profile | Your user data (specific to your VS Code profile) |
 
 To create a user-level prompt file, use the Agent Customizations editor or the **Chat: New Prompt File** command.
-
-> [!IMPORTANT]
-> Agents running on the [Agent Host](/docs/agents/concepts/agent-host.md) don't use prompt files. To use an existing prompt with the Copilot agent, convert it to an [agent skill](/docs/agent-customization/agent-skills.md). The Agent Customizations editor offers a one-time migration that converts your prompt files to skills (experimental, enable `setting(chat.customizations.promptMigration.enabled)`). Prompt files continue to work with local agents that run in the VS Code extension host.
 
 > [!TIP]
 > In a monorepo, enable `setting(chat.useCustomizationsInParentRepositories)` to discover prompt files from the parent repository root. Learn more about [parent repository discovery](/docs/agent-customization/overview.md#use-customizations-in-a-monorepo).

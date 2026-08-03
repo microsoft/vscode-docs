@@ -100,7 +100,7 @@ In the Chat view, select the **Configure Chat (gear icon)** or run **Chat: Open 
 You can configure customizations for the different [agent harnesses](/docs/agents/concepts/agent-harnesses.md). Select the harness from the dropdown in the chat input and then select open the **Agent Customizations** editor.
 
 > [!NOTE]
-> The default [Agent Host](/docs/agents/concepts/agent-host.md) reads user-level customizations from harness-agnostic folders like `~/.copilot` (Copilot) and `~/.claude` (Claude), rather than from your VS Code profile user data. Customizations stored only in the VS Code user data location are a legacy format that the Copilot agent doesn't read. See [instructions](/docs/agent-customization/custom-instructions.md#instructions-file-locations), [custom agents](/docs/agent-customization/custom-agents.md), and [prompt files](/docs/agent-customization/prompt-files.md#prompt-file-locations) for the recommended user-level locations, and [behavior on the extension host](/docs/agents/concepts/agent-host.md#behavior-on-the-extension-host) for other differences.
+> When [Agent Host](/docs/agents/concepts/agent-host.md) is enabled, the agent reads user-level customizations from harness-agnostic folders like `~/.copilot` (Copilot) and `~/.claude` (Claude), rather than from your VS Code profile user data. See [instructions](/docs/agent-customization/custom-instructions.md#instructions-file-locations), [custom agents](/docs/agent-customization/custom-agents.md), and [prompt files](/docs/agent-customization/prompt-files.md#prompt-file-locations) for the recommended user-level locations.
 
 ## Evaluate and improve customization files (Preview)
 

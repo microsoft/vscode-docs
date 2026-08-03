@@ -20,7 +20,7 @@ A session is the unit of work with an agent in Visual Studio Code: a single conv
 
 To create and organize sessions, see [Manage agent sessions](/docs/agents/run/sessions/manage-sessions.md).
 
-## What a session is
+## What is a session?
 
 A session holds one conversation with an agent, including your prompts, the agent's responses, the tool calls it makes, and the [context](/docs/agents/concepts/context.md) it accumulates along the way. Each session is independent and has its own [context window](/docs/agents/concepts/language-models.md#context-window), so work in one session doesn't leak into another.
 

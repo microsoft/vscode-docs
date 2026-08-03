@@ -66,7 +66,6 @@
             ["Custom Agents", "/docs/agent-customization/custom-agents"],
             ["Language Models", "/docs/agent-customization/language-models"],
             ["MCP", "/docs/agent-customization/mcp-servers"],
-            ["Tool Sets", "/docs/agent-customization/tool-sets"],
             ["Hooks", "/docs/agent-customization/hooks"],
             ["Plugins", "/docs/agent-customization/agent-plugins"],
             ["Prompt Files", "/docs/agent-customization/prompt-files"]

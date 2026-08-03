@@ -137,7 +137,7 @@ Hover over a request and select **Fork Conversation** to create an independent s
 <details>
 <summary>Review extension-host changes</summary>
 
-If you don't have the agent host enabled (`setting(chat.agentHost.enabled)` is `false`) or are working with an older session, the agent uses the extension host to make edits, which has a different workflow for reviewing changes.
+If [agent host](/docs/agents/concepts/agent-host.md) is not enabled or you are working with an older session, the agent uses the extension host to make edits, which has a different workflow for reviewing changes.
 
 After the agent edits and saves a file, VS Code marks the edits as pending. Files with pending edits have a squared-dot indicator in the Explorer view and editor tabs. The pending state is restored when you reopen VS Code.
 

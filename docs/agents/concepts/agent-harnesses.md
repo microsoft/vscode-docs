@@ -42,7 +42,7 @@ The harness passes your prompt and context to the model, executes the model's re
 VS Code supports multiple harnesses through a shared session experience:
 
 * **Local**: the built-in VS Code harness runs in the extension host and can use VS Code tools, extension-provided tools, MCP servers, and models configured in VS Code.
-* **Copilot**: uses the Copilot SDK and runs on the Agent Host.
+* **Copilot**: uses the Copilot SDK and runs on the [Agent Host](#agent-harnesses-and-the-agent-host).
 * **Claude**: uses Anthropic's Claude Agent SDK for local sessions and is also available as a cloud agent.
 * **Codex**: uses OpenAI Codex for local sessions and is also available as a cloud agent.
 

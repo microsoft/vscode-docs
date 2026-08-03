@@ -20,13 +20,12 @@ Custom agents enable you to configure the AI to adopt different personas tailore
 
 You can also use handoffs to create guided workflows between agents. Transition seamlessly from one specialized agent to another with a single select. For example, move from a planning agent directly into an implementation agent, or hand off to a code reviewer with the relevant context.
 
+You can use the [Agent Customizations editor](/docs/agent-customization/overview.md#use-the-agent-customizations-editor) (Preview) to discover, create, and manage all your agent customizations in one place. Run **Chat: Open Customizations** from the Command Palette.
+
 This article describes how to create and manage custom agents in VS Code.
 
 > [!TIP]
 > **Not sure which customization to use?** See the [decision matrix](/docs/agents/concepts/customization.md#customization-options-at-a-glance) to compare custom agents with prompt files, agent skills, and the other options.
-
-> [!TIP]
-> Use the [Agent Customizations editor](/docs/agent-customization/overview.md#use-the-agent-customizations-editor) (Preview) to discover, create, and manage all your agent customizations in one place. Run **Chat: Open Customizations** from the Command Palette.
 
 ## What are custom agents?
 
@@ -87,7 +86,7 @@ You can define custom agents for a specific workspace or at the user level, wher
 To create a user-level custom agent, use the Agent Customizations editor or the **Chat: New Custom Agent** command.
 
 > [!IMPORTANT]
-> The default [Agent Host](/docs/agents/concepts/agent-host.md) reads user-level custom agents from `~/.copilot/agents`. Custom agents stored only in your VS Code profile user data are a legacy location that the Copilot agent doesn't read. To use existing user-level custom agents with the Copilot agent, store them in `~/.copilot/agents`.
+> When [Agent Host](/docs/agents/concepts/agent-host.md) is enabled, the agent reads user-level custom agents from `~/.copilot/agents` and not from VS Code profile user data. To use existing user-level custom agents with the Copilot agent, store them in `~/.copilot/agents`.
 
 > [!TIP]
 > In a monorepo, enable `setting(chat.useCustomizationsInParentRepositories)` to discover custom agents from the parent repository root. Learn more about [parent repository discovery](/docs/agent-customization/overview.md#use-customizations-in-a-monorepo).
