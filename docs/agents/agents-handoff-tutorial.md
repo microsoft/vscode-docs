@@ -102,7 +102,9 @@ In this step, you use the Plan agent to create an implementation plan for a them
 
     ![Screenshot showing the Start Implementation button in the Chat view.](images/agents-tutorial/plan-agent-start-implementation-cli.png)
 
-1. Copilot creates a Git worktree where it starts implementing the feature. When asked, select **Copy Changes** to make sure all current changes are available to Copilot.
+1. Copilot creates a Git worktree from the committed state of the base branch and starts implementing the feature there. Because you committed the todo app before the handoff, Copilot can access those files.
+
+    Uncommitted changes and untracked files from your primary worktree are not copied into the new worktree. Git-ignored files are included only when they match the `setting(git.worktreeIncludeFiles)` setting. Learn more about [including files in a worktree](/docs/sourcecontrol/branches-worktrees.md#include-files-when-creating-a-worktree).
 
 1. You can track the Copilot session in the **Sessions** view. Select the session to see details about its progress.
 

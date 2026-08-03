@@ -56,14 +56,22 @@ Learn more about [creating and managing sessions](/docs/agents/run/sessions/mana
 
 ## Choose code isolation
 
-Copilot, Claude, and Codex sessions support two isolation modes:
+Copilot, Claude, and Codex sessions that run on your machine can work in your current folder or a new Git worktree.
 
-* **Worktree**: VS Code creates a separate [Git worktree](/docs/sourcecontrol/branches-worktrees.md#understanding-worktrees) and applies the agent's changes there. Use this mode to keep parallel agent work separate from your active workspace.
-* **Folder**: the agent works directly in your current workspace and applies changes in place.
+| Choice | Where changes go | Choose it for | Considerations |
+|--------|------------------|---------------|----------------|
+| **New Worktree** | A new branch and [worktree](/docs/sourcecontrol/branches-worktrees.md#understanding-worktrees) | Parallel tasks that should not modify your active workspace | Starts from committed Git state and requires you to integrate the result |
+| **Folder** | Your current folder | Small, interactive tasks that should use your current files and uncommitted changes | Agent edits appear immediately in your active workspace |
 
-Choose the isolation mode when you [start a session in the Agents window](/docs/agents/run/agents-window.md#start-an-agent-session). Sessions that you start in the Chat view use folder isolation. Worktree isolation requires a Git repository.
+When you [start a session in the Agents window](/docs/agents/run/agents-window.md#start-an-agent-session), select **New Worktree** and choose the base branch to isolate the session. If you leave **New Worktree** unselected, the agent works in the selected folder. Sessions that you start directly in the Chat view use the current workspace.
 
-The isolation mode also affects [permissions and approvals](/docs/agents/run/approvals.md). Worktree sessions use **Bypass Approvals** because the changes are isolated. Folder sessions offer the permission levels supported by the selected harness.
+<!-- TODO: Add a screenshot showing the New Worktree checkbox and base branch control in the Agents window. -->
+
+Worktree isolation requires a Git repository with at least one commit. A new worktree contains the committed files from the selected base branch. It does not automatically contain uncommitted tracked changes or untracked files from your primary worktree. Commit changes that the agent needs, or use folder isolation when the task depends on your current uncommitted state.
+
+Git-ignored files, such as `.env` files and installed dependencies, are also absent by default. Use `setting(git.worktreeIncludeFiles)` to specify ignored files and folders that VS Code should copy into new worktrees. Learn more about [including files in a worktree](/docs/sourcecontrol/branches-worktrees.md#include-files-when-creating-a-worktree).
+
+Worktree sessions use **Bypass Approvals** because their code changes are separate from your active workspace. Folder sessions offer the [permission levels](/docs/agents/run/approvals.md#permission-levels) supported by the selected harness. Worktree isolation does not restrict commands, network access, or access outside the worktree. For those protections, configure [agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing).
 
 <a name="local"></a>
 

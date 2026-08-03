@@ -60,12 +60,19 @@ You can [hand off a session](/docs/agents/run/agent-harnesses.md#hand-off-a-sess
 
 ## Code isolation
 
-When a harness runs on your machine, code isolation determines where it applies changes:
+When an agent runs on your machine, code isolation determines which working directory receives its changes:
 
-* **Worktree isolation**: VS Code creates a separate [Git worktree](/docs/sourcecontrol/branches-worktrees.md#understanding-worktrees) for the session. The harness applies changes there until you review and integrate them.
-* **Folder isolation**: the harness works directly in your current workspace and applies changes in place.
+* **Folder isolation**: the agent works directly in your current workspace. The agent sees any uncommitted changes and applies edits in place.
+* **Worktree isolation**: VS Code creates a separate [Git worktree](/docs/sourcecontrol/branches-worktrees.md#understanding-worktrees) for the session. The agent runs in the worktree folder and starts from the committed state of the selected base branch. It keeps its changes out of your primary branch until you integrate them.
 
-Worktree isolation requires a Git repository. Isolation also affects [permissions and approvals](/docs/agents/run/approvals.md) because a worktree keeps agent changes separate from your active workspace.
+Worktree isolation requires a Git repository with at least one commit. It is useful for parallel tasks because each worktree has its own checked-out files and uncommitted changes.
+
+All chats in an agent host session share the same folder or worktree. Some fork operations also create a peer chat that shares the worktree. Start separate worktree sessions when parallel tasks must not change the same files.
+
+> [!IMPORTANT]
+> A worktree is a Git code-isolation boundary, not a security boundary. It does not restrict commands, network access, or access to files outside the worktree. Use [agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing) when you need operating system-level file system and network restrictions.
+
+Code isolation also affects [permissions and approvals](/docs/agents/run/approvals.md). Learn how to [choose folder or worktree isolation](/docs/agents/run/agent-harnesses.md#choose-code-isolation).
 
 ## Agent harnesses and the Agent Host
 

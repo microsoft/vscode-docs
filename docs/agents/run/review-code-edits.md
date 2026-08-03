@@ -84,6 +84,25 @@ When you create a session, use the sync button in the **Files** panel to pull up
 {% /tab %}
 {% /tabs %}
 
+## Integrate worktree changes
+
+A worktree session keeps the agent's branch and working files separate from your primary worktree. After you review and validate the result, choose how to continue:
+
+* **Apply or migrate the changes**: transfer the worktree changes into your current workspace for further editing and commit them with your existing work.
+* **Commit or merge the branch**: preserve the work on the session branch and merge it into the destination branch.
+* **Check out the branch**: open the session branch in an editor window to continue working on it manually.
+* **Discard the changes**: remove changes that you don't want to keep.
+
+Before you apply or merge changes:
+
+1. Confirm the session's base branch and the destination branch in your primary workspace.
+1. Commit or stash unrelated changes in the destination workspace.
+1. Review all changed files, including untracked files, and run the relevant tests.
+1. Select the integration action and resolve any merge conflicts.
+1. Test the integrated result before you archive or delete the session.
+
+The available actions and labels depend on the session harness and whether you use the Chat view or Agents window. Keep the session until you verify that the changes are present on the intended destination branch.
+
 ## Edit requests and restore checkpoints
 
 Use request editing and checkpoints to revise or undo a batch of changes:

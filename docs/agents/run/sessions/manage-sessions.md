@@ -119,6 +119,9 @@ In an agent host session, you can run multiple chats as tabs in the chat area. E
 This is useful when you want to work on independent tasks in the same project without interrupting an ongoing chat or creating another session.
 
 > [!NOTE]
+> Changes from all chats in a session go to the same folder or worktree and appear together in the session changes. Start separate [worktree-isolated sessions](/docs/agents/run/agent-harnesses.md#choose-code-isolation) when tasks must not modify the same files.
+
+> [!NOTE]
 > Multiple chats are available in the Agents window for agent host sessions that support them, such as Copilot and Claude sessions.
 
 To create and manage chats in a session:
@@ -222,7 +225,7 @@ The Chat view operates in two modes: compact and side-by-side. You can manually 
 
 To keep the sessions list organized, archive or mark sessions as done when they're completed or you no longer need them. Archiving a session does not delete it. At any time, you can unarchive a session to restore it to the active sessions list.
 
-When you archive (or mark as done) a session, its status changes so it moves out of the active sessions list. If the session uses a worktree, such as a Copilot session, the worktree is removed from the file system, provided its working tree is clean. The branch and any commits are preserved, so restoring the session re-creates the worktree from that branch and no work is lost.
+When you archive (or mark as done) a session, its status changes so it moves out of the active sessions list. For a worktree session, VS Code commits uncommitted changes to the session branch before it removes the worktree folder. If VS Code can't preserve the changes or remove the worktree, the worktree remains. The branch and its commits are preserved, so restoring the session re-creates the worktree from that branch.
 
 To archive a session, hover over the session in the sessions list and select the **Archive** (Chat view) or **Mark as Done** (Agents Window) option.
 
@@ -237,11 +240,11 @@ To permanently delete a session, right-click the session in the sessions list an
 If multiple Copilot sessions share the same worktree, such as after you fork a session, deleting one session does not remove the shared worktree while another session still uses it. The worktree is removed only after the last linked session is deleted or archived.
 
 > [!CAUTION]
-> Deleting a session is irreversible. If you just want to hide a session, consider [archiving](#archive-sessions) it instead.
+> Deleting a session is irreversible. Integrate or commit worktree changes before you delete the session because uncommitted files that exist only in a removed worktree can be lost. If you only want to hide a session, [archive](#archive-sessions) it instead.
 
 ## Fork a chat session
 
-Forking a chat session creates a branch of a conversation that inherits conversation history from the original session. In single-chat sessions and sessions that don't use an agent host, the fork opens as a new independent session. The forked session is fully separate from the original, so changes in one session do not affect the other. The new session title is prefixed with "Forked:" to help you identify it.
+Forking a chat session branches off the conversation and inherits the conversation history from the original session. In single-chat sessions and sessions that don't use an agent host, the fork opens as a new independent session. The conversation is separate, but its code changes are isolated only if the fork uses a different folder or worktree. The new session title is prefixed with "Forked:" to help you identify it.
 
 For multi-chat [Copilot](/docs/agents/run/agent-harnesses.md#use-the-copilot-harness) sessions in the Agents window, the fork opens as a peer chat in the same session. The peer chat gets an automatically generated title and runs independently from sibling chats.
 
