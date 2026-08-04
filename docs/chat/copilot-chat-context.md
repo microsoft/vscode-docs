@@ -1,15 +1,15 @@
 ---
 ContentId: 5d8a707d-a239-4cc7-92ee-ccc763e8eb9c
 DateApproved: 8/5/2026
-MetaDescription: Learn how to manage context when using AI in VS Code, including workspace indexing, #-mentions for files and symbols, web content references, and custom instructions.
+MetaDescription: Add files, symbols, images, browser content, and other context to AI prompts in Visual Studio Code for more relevant responses.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
-# Manage context for AI
+# Add context to chat
 
-By providing the right context, you can get more relevant and accurate responses from the AI in VS Code. In this article, you learn how to manage context in chat, including how to use #-mentions to reference files, folders, and symbols, how to reference web content, or how you can use custom instructions to guide the AI's responses.
+Providing relevant context helps the AI give more accurate responses. Add files, folders, symbols, images, web content, and other information directly to your prompt when you want the AI to consider specific details.
 
 > [!NOTE]
-> The features on this page work in both the [Chat view](/docs/agents/chat-view.md) and the [Agents window](/docs/agents/agents-window.md).
+> The features on this page work in both the [Chat view](/docs/agents/run/chat-view.md) and the [Agents window](/docs/agents/run/agents-window.md).
 
 For background on what context is and how VS Code assembles it, see [Context concepts](/docs/agents/concepts/context.md).
 
@@ -25,7 +25,7 @@ View the full list of [supported context items](/docs/agents/reference/ai-featur
 
 ### Add files as context
 
-By default, VS Code performs uses workspace indexing to automatically include relevant files as context based on the conversation. However, you can also explicitly add specific files, folders, or symbols as context using #-mentions or the context picker. This can be useful when the question is ambiguous and could also be considered a general question about coding practices, and you want to make sure the AI considers specific parts of your codebase in its response.
+By default, VS Code uses workspace indexing to automatically include relevant files as context based on the conversation. You can also explicitly add specific files, folders, or symbols by using #-mentions or the context picker. Explicit context is useful when you want to make sure the AI considers specific parts of your codebase.
 
 To provide specific files, folders, or symbols as context, add them to the chat using the following methods:
 
@@ -49,9 +49,9 @@ You can directly include a URL in your prompt to get information from that webpa
 
 VS Code caches the content of the web page for a limited time to improve performance. If the content of the page changes, you can force a refresh by restarting VS Code. If the page cannot be reached, the cache will expire after a short time (approximately five minutes).
 
-VS Code prompts for confirmation before accessing external URLs to protect your privacy and security. Learn more about [configuring URL auto-approval](/docs/agents/approvals.md#url-approval).
+VS Code prompts for confirmation before accessing external URLs to protect your privacy and security. Learn more about [configuring URL auto-approval](/docs/agents/run/approvals.md#url-approval).
 
-Learn more about [adding and using tools in chat](/docs/chat/chat-tools.md).
+Learn more about [using tools with agents](/docs/agents/run/tools.md).
 
 ## @-mentions
 
@@ -75,86 +75,20 @@ Chat supports vision capabilities, which means you can attach an image as contex
 
 ## Add browser context
 
-VS Code has a built-in [integrated browser](/docs/debugtest/integrated-browser.md) that you can use to preview and interact with web pages inside VS Code, for example to do quick testing and debugging of your web application.
+Use the [integrated browser](/docs/debugtest/integrated-browser.md) to preview web pages and attach information from the current page to a prompt.
 
 The browser toolbar has an **Add to Chat** split button with actions that let you attach different types of context from the current page to your chat prompt:
 
 * **Add Element to Chat**: select HTML elements from the page to add as context, including their CSS styles and screenshots.
 * **Add Screenshot to Chat**: capture a screenshot of the current browser viewport and attach it as an image.
-* **Add Console Logs to Chat**: capture the console output from the page and attach it as context, useful for debugging runtime errors.
+* **Add Console Logs to Chat**: capture console output from the page and attach it as context for debugging runtime errors.
 
-To add elements from the integrated browser to your chat prompt:
-
-1. Start your web application.
-1. Open the integrated browser by running the **Browser: Open Integrated Browser** command from the Command Palette.
-1. Enter the URL of the web page you want to interact with.
-1. Select the **Add Element to Chat** button. You can now hover over the elements of the web page and select them to add them as context to your chat prompt.
-
-    <video src="images/copilot-chat/integrated-browser-select-element.mp4" title="Video showing how to select and add elements from the integrated browser to the chat prompt." loop controls muted></video>
-
-You can configure which information is included when adding elements:
-
-* Attach CSS: `setting(chat.sendElementsToChat.attachCSS)` setting
-* Attach images: `setting(chat.sendElementsToChat.attachImages)` setting
-
-Learn more about [browser-to-chat actions](/docs/debugtest/integrated-browser.md#add-context-to-ai-chat).
-
-## Interact with browser pages
-
-Agents can directly read and interact with pages in the [integrated browser](/docs/debugtest/integrated-browser.md) by using built-in browser tools. This enables agents to navigate to URLs, read page content and console errors, take screenshots, click elements, type text, and more, without requiring an external MCP server.
-
-To enable browser tools, set the `setting(workbench.browser.enableChatTools)` setting to `true`.
-
-You can also share a browser page you already have open with the agent. Select the **Share with Agent** button in the browser toolbar to give the agent access to your page, including your existing session and login state. Agents can also detect unshared tabs and prompt you to share one when needed, for example when you refer to a page the agent can't see.
-
-For example, you can ask an agent to open your web app, check for layout issues, or verify that a feature works correctly. The agent opens the browser, interacts with the page, and reports back with its findings.
-
-Learn more about [browser tools for agents](/docs/debugtest/integrated-browser.md#browser-tools-for-agents).
-
-## Monitor context window usage
-
-The chat input displays a context window control that shows how much of the model's context window is being used. This visual indicator helps you understand when chat summarization might occur or when you should start a new session.
-
-![Screenshot of VS Code Chat view, showing the context window usage control in the chat input box.](./images/copilot-chat/chat-context-window-control.png)
-
-The context window control provides the following information:
-
-* **Visual fill indicator**: a shaded bar shows the proportion of the context window currently in use
-* **Total usage and breakdown on hover**: hover over the control to see the exact token count as a fraction of the total available context (for example, 15K/128K) and a breakdown of usage by category
-* **Session cost in credits**: the total number of AI credits consumed for the entire session
-
-As you send more requests in a conversation, the control updates to reflect the increasing context usage. The total available context (denominator) changes based on the AI model you select, since different models have different context window sizes.
-
-> [!TIP]
-> When the context window fills up, VS Code automatically compacts the conversation history to free up space.
-
-How you structure and change context across turns also affects prompt caching. Stable context lets the model provider reuse tokens from a previous request, which lowers cost and latency. Use the [Cache Explorer](/docs/agents/agent-troubleshooting/cache-explorer.md) to check your cache hit rate.
-
-## Context compaction
-
-As a conversation grows, the accumulated messages and context can fill up the model's context window. Context compaction summarizes the conversation history to free up space, so you can continue working in the same session without losing important details. Compacting also reduces the number of tokens sent with each subsequent request, which helps manage [AI credit consumption](/docs/agents/guides/optimize-usage.md).
-
-### Automatic compaction
-
-When the context window fills up, VS Code automatically compacts the conversation by summarizing earlier messages. This happens transparently in the background, so you can keep chatting without interruption.
-
-To disable automatic compaction, set `setting(github.copilot.chat.summarizeAgentConversationHistory.enabled)` to `false`.
-
-### Manual compaction
-
-You can also manually trigger compaction at any time, for example to refocus the conversation or reduce noise from earlier exchanges. Manual compaction is available for local, background, and Claude agent sessions.
-
-To manually compact the conversation, use one of the following methods:
-
-* Type `/compact` in the chat input field. Optionally, add custom instructions after the command to guide how the summary is generated, for example `/compact focus on the database schema decisions`.
-
-* Select the context window control in the chat input box, and then select **Compact Conversation**.
-
-If you want to reset the context entirely, start a [new chat session](/docs/chat/chat-sessions.md).
+Learn how to [add browser context to chat](/docs/debugtest/integrated-browser.md#add-context-to-ai-chat). To let an agent interact with a page instead of attaching it as prompt context, see [browser tools for agents](/docs/debugtest/integrated-browser.md#browser-tools-for-agents).
 
 ## Related resources
 
-* [Chat overview](/docs/agents/chat-view.md)
+* [Use the Chat view](/docs/agents/run/chat-view.md)
+* [Manage agent sessions](/docs/agents/run/sessions/manage-sessions.md)
 * [Prompt examples](/docs/agents/guides/prompt-examples.md)
 * [Prompt engineering guide](/docs/agents/best-practices.md)
 * [Debug chat interactions](/docs/agents/agent-troubleshooting/chat-debug-view.md)

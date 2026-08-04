@@ -301,7 +301,7 @@ Browser tools are different from [adding context to AI chat](#add-context-to-ai-
 
 When the `setting(workbench.browser.enableChatTools)` setting is enabled, browser tools are available to the agent automatically. To turn off browser tools, set this setting to `false`.
 
-In the [Agents window](/docs/agents/agents-window.md), browser tabs are isolated per session. Each session has its own set of browser tabs, and an agent can only read and interact with the tabs that belong to its own session.
+In the [Agents window](/docs/agents/run/agents-window.md), browser tabs are isolated per session. Each session has its own set of browser tabs, and an agent can only read and interact with the tabs that belong to its own session.
 
 ### Share a browser page with agents
 

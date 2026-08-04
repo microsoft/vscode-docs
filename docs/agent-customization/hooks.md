@@ -18,7 +18,7 @@ Keywords:
 
 Hooks enable you to execute custom shell commands at key lifecycle points during agent sessions. Use hooks to automate workflows, enforce security policies, validate operations, and integrate with external tools.
 
-Hooks are designed to work across agent types, including local agents, background agents, and cloud agents. Each hook receives structured JSON input and can return JSON output to influence agent behavior.
+Hooks work across agent harnesses and execution environments. Each hook receives structured JSON input and can return JSON output to influence agent behavior.
 
 For background on how hooks fit into the AI customization framework, see [Customization concepts](/docs/agents/concepts/customization.md).
 
@@ -579,7 +579,7 @@ VS Code parses Copilot CLI hook configurations and converts the lowerCamelCase h
 
 ## Related resources
 
-* [Use tools in chat](/docs/chat/chat-tools.md) - Learn about tool approval and execution
+* [Use tools with agents](/docs/agents/run/tools.md) - Learn about tool approval and execution
 * [Custom agents](/docs/agent-customization/custom-agents.md) - Create specialized agent configurations
-* [Subagents](/docs/agents/subagents.md) - Delegate tasks to context-isolated subagents
-* [Security considerations](/docs/agents/security.md) - Best practices for AI security in VS Code
+* [Subagents](/docs/agents/run/subagents.md) - Delegate tasks to context-isolated subagents
+* [Security considerations](/docs/agents/run/security.md) - Best practices for AI security in VS Code

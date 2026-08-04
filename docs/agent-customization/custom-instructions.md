@@ -138,7 +138,10 @@ You can define instructions for a specific workspace or at the user level, where
 |-------|-----------------------|
 | Workspace | `.github/instructions` folder |
 | Workspace (Claude format) | `.claude/rules` folder |
-| User profile | `~/.copilot/instructions`, `~/.claude/rules`, or your user data (specific to your VS Code profile) |
+| User profile | `~/.copilot/instructions` or `~/.claude/rules` |
+
+> [!IMPORTANT]
+> When [Agent Host](/docs/agents/concepts/agent-host.md) is enabled, the agent reads user-level instructions from harness-agnostic folders like `~/.copilot/instructions` and `~/.claude/rules` and not from VS Code profile user data. To use existing user-level instructions with the Copilot agent, store them in `~/.copilot/instructions` (or `~/.claude/rules`).
 
 VS Code searches these folders recursively, to enable you to organize instructions files in subdirectories. For example, you can group instructions by team, language, or module:
 

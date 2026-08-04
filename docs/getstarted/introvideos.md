@@ -15,7 +15,7 @@ For the latest videos and tutorials, visit the official VS Code YouTube channel.
         <i class="codicon codicon-play-circle" aria-hidden="true"></i>
         <p>Visit the VS Code YouTube channel</p>
     </a>
-    <a class="card" href="/docs/getstarted/getting-started">
+    <a class="card" href="/docs/agents/agents-tutorial">
         <i class="codicon codicon-mortar-board" aria-hidden="true"></i>
         <p>Get started with agents in VS Code</p>
     </a>

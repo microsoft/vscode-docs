@@ -24,7 +24,7 @@ Use the language model picker in the chat input field to change the model for ch
 
 ![Screenshot that shows the model picker in the Chat view.](images/language-models/model-dropdown-change-model-v2.png)
 
-Different models have different strengths. Use a fast model for quick edits and simple questions, and a reasoning model for complex refactoring, architectural decisions, or multi-step tasks. Depending on the [type of agent](/docs/agents/overview.md#configure-your-agent-session) you are using, the list of available models might differ.
+Different models have different strengths. Use a fast model for quick edits and simple questions, and a reasoning model for complex refactoring, architectural decisions, or multi-step tasks. Depending on the [harness](/docs/agents/concepts/agent-harnesses.md) you are using, the list of available models might differ.
 
 You can further extend the list of available models by [using your own language model API key](#bring-your-own-language-model-key).
 
@@ -118,7 +118,7 @@ Bring Your Own Key (BYOK) lets you connect to any compatible model provider whil
 BYOK models work without signing into a GitHub account and without a Copilot plan. This enables you to use AI chat features entirely with your own models, including fully offline scenarios with local models such as Ollama.
 
 > [!NOTE]
-> If you run sessions on an agent host (`setting(chat.agentHost.enabled)` is enabled), such as Copilot sessions in the [Agents window](/docs/agents/agents-window.md), enable `setting(chat.agentHost.byokModels.enabled)` to use BYOK models in those sessions. This setting is experimental and takes effect only after the agent host process is restarted.
+> For Agent Host sessions, such as Copilot sessions in the [Agents window](/docs/agents/run/agents-window.md), enable `setting(chat.agentHost.byokModels.enabled)` to use BYOK models in those sessions. This setting is experimental and takes effect only after the agent host process is restarted.
 
 You can also use these models to [override the models used for utility tasks in VS Code](#configure-models-for-other-features) (such as title generation and intent detection).
 
@@ -385,7 +385,7 @@ When you select a [BYOK](#bring-your-own-language-model-key) model as the main a
 * **GitHub Copilot**: Use the default GitHub Copilot utility models.
 
 > [!NOTE]
-> By default, no utility models are used when a BYOK model is the main agent. Background tasks such as chat title generation and commit message generation don't run until you set this option or configure a specific utility model.
+> By default, utility flows use GitHub Copilot utility models when a Copilot token is available. If no Copilot token is available, configure `setting(chat.utilityModel)` and `setting(chat.utilitySmallModel)`, or select **Main Agent Model**, to enable utility features.
 
 This setting has no effect when the main agent model is provided by GitHub Copilot. A specific model configured in `setting(chat.utilityModel)` or `setting(chat.utilitySmallModel)` takes precedence over this default.
 
@@ -459,4 +459,4 @@ Yes, you can use BYOK models, including local models, without a Copilot plan and
 * [Language models concepts](/docs/agents/concepts/language-models.md)
 * [Available language models in GitHub Copilot](https://docs.github.com/en/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat?tool=vscode)
 * [Choosing the right AI model for your task](https://docs.github.com/en/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task)
-* [Security considerations for AI in VS Code](/docs/agents/security.md)
+* [Security considerations for AI in VS Code](/docs/agents/run/security.md)

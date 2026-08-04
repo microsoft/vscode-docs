@@ -162,10 +162,10 @@ Watch for future sections covering MCP, custom instructions and skills, and more
 
 ## Learn more
 
-* [Agents tutorial in VS Code](https://code.visualstudio.com/docs/agents/agents-tutorial)
-* [Planning with agents in VS Code](https://code.visualstudio.com/docs/agents/planning)
-* [Reviewing AI-generated code edits in VS Code](https://code.visualstudio.com/docs/chat/review-code-edits)
-* [Checkpoints and editing requests in VS Code](https://code.visualstudio.com/docs/chat/chat-checkpoints)
+* [Agent handoff tutorial in VS Code](https://code.visualstudio.com/docs/agents/agents-handoff-tutorial)
+* [Planning with agents in VS Code](https://code.visualstudio.com/docs/agents/run/planning)
+* [Reviewing AI-generated code edits in VS Code](https://code.visualstudio.com/docs/agents/run/review-code-edits)
+* [Checkpoints and editing requests in VS Code](https://code.visualstudio.com/docs/agents/run/review-code-edits#_edit-requests-and-restore-checkpoints)
 * [Agent Logs and Chat Debug view](https://code.visualstudio.com/docs/chat/chat-debug-view)
 * [FastAPI](https://fastapi.tiangolo.com/)
 * [Python sqlite3](https://docs.python.org/3/library/sqlite3.html)

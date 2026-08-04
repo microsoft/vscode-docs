@@ -22,6 +22,9 @@ This article provides a reference for the MCP server configuration file format, 
 
 MCP server configuration is stored in the `mcp.json` JSON file. This file can be in your workspace (`.vscode/mcp.json`) or in your [user profile](/docs/configure/profiles.md). VS Code provides IntelliSense for the configuration file.
 
+> [!NOTE]
+> VS Code forwards the servers you configure to the [Agent Host](/docs/agents/concepts/agent-host.md), except servers that require interactive input (for example, `${input:...}` variables). The Agent Host doesn't read `.vscode/mcp.json` directly; for portable configuration, use a workspace `.mcp.json` or user `~/.copilot/mcp-config.json` file, which the Agent Host reads natively. See [behavior on the extension host](/docs/agents/concepts/agent-host.md#behavior-on-the-extension-host).
+
 ### Configuration structure
 
 The configuration file has three main sections:
