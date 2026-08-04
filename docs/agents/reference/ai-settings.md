@@ -279,6 +279,16 @@ The [Agents view](/docs/agents/overview.md) provides a centralized location for 
 | `setting(github.copilot.chat.edits.newNotebook.enabled)` _(Experimental)_<br/>Enable the notebook tool in Edit mode (deprecated) to create a new notebook file. | `true` |
 | `setting(github.copilot.chat.notebook.followCellExecution.enabled)` _(Experimental)_<br/>Show the currently executing cell in the editor. | `false` |
 
+## Dictation settings
+
+| Setting and Description | Default |
+|------------------------|---------------|
+| `setting(dictation.enabled)` _(Experimental)_<br/>Controls whether built-in dictation is available in chat, the Agents window, editors, and terminals. | `true` |
+| `setting(dictation.model)` _(Experimental)_<br/>Selects the speech recognition model for dictation. | `"nemotron-3.5-asr-streaming-0.6b"` |
+| `setting(dictation.showTranscript)` _(Experimental)_<br/>Shows interim transcription while you speak. Final text is still inserted when this setting is off. | `true` |
+| `setting(dictation.experimental.llmCleanup)` _(Experimental)_<br/>Uses a language model to improve punctuation, capitalization, paragraphs, lists, and number formatting in the final transcript. | `true` |
+| `setting(agents.voice.language)`<br/>Provides a language hint for dictation and Voice Mode. Use `auto` to use the system language. | `"auto"` |
+
 ## Accessibility settings
 
 | Setting and Description | Default |
@@ -296,7 +306,7 @@ The [Agents view](/docs/agents/overview.md) provides a centralized location for 
 | `setting(accessibility.verbosity.panelChat)`<br/>Provide information about how to access the chat help menu when the chat input is focused. | `true` |
 | `setting(accessibility.voice.keywordActivation)`<br/>Controls whether the keyword phrase 'Hey Code' is recognized to start a voice chat session. | `"off"` |
 | `setting(accessibility.voice.autoSynthesize)`<br/>Controls whether a textual response should automatically be read out aloud when speech was used as input. | `"off"` |
-| `setting(accessibility.voice.speechTimeout)`<br/>The duration in milliseconds that voice speech recognition remains active after you stop speaking. | `1200` |
+| `setting(accessibility.voice.speechTimeout)`<br/>Stops terminal dictation after the specified number of milliseconds of silence. Set to `0` to keep listening. | `0` |
 
 ## Related resources
 
