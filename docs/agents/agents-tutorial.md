@@ -237,7 +237,7 @@ Configure custom agents, skills, and instructions to tailor the agent experience
 
 To go deeper with agentic coding in Visual Studio Code, get more info about how to:
 
-* [Customize the agent to follow your coding standards and automate repeat tasks](/docs/agent-customization/overview.md)
+* [Learn more about agents in VS Code](/docs/agents/concepts/agents.md)
 
 * [Learn more about the Agents window](/docs/agents/run/agents-window.md)
 
