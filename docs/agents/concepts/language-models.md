@@ -23,6 +23,8 @@ Visual Studio Code uses large language models (LLMs) to power its AI features. Y
 
 This article explains how language models work, their characteristics, and how to think about model selection.
 
+![Screenshot of the Language Models editor, showing the list of available models.](../images/language-models/language-models-editor.png)
+
 ## How language models work
 
 A language model processes text input (a "prompt") and generates text output. In VS Code, the prompt is assembled from multiple sources: your message, conversation history, file contents, tool outputs, and custom instructions. The model generates responses that can include explanations, code edits, or requests to call [tools](/docs/agents/concepts/tools.md).
