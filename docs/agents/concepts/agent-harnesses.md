@@ -20,6 +20,8 @@ An agent harness is the runtime that runs the [agent loop](/docs/agents/concepts
 
 To select and configure a harness, see [Choose and use an agent harness](/docs/agents/run/agent-harnesses.md).
 
+![Screenshot of the Agents window, showing the session target control with the list of available agent harnesses.](../images/agent-harnesses/agents-window-session-target.png)
+
 ## Agent harnesses and session targets
 
 **Agent harness** is the industry term for the software that coordinates an agent. **Session Target** is the VS Code control for choosing the harness and execution environment for a session.
