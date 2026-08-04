@@ -1,6 +1,6 @@
 ---
 ContentId: e3bf9098-7b2f-4b23-9e0f-3d2094bad80a
-DateApproved:
+DateApproved: 08/04/2026
 MetaDescription: Use built-in dictation and voice features in Visual Studio Code, including local speech recognition in chat, editors, and terminals.
 ---
 # Voice support
