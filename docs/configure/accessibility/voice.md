@@ -21,8 +21,6 @@ The on-device model is available on these desktop platforms:
 * Linux on x64 and Arm64 with glibc 2.34 or later.
 * Remote workspaces, because speech recognition runs on the local VS Code client.
 
-Built-in dictation is not available in VS Code for the Web, on Intel-based Mac computers, on 32-bit systems, on Arm32 systems, or on Linux distributions that use musl, such as Alpine Linux. On these platforms, install the [VS Code Speech extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-speech) to use editor and terminal dictation.
-
 VS Code asks for microphone access when you start dictation. Only one dictation session can be active at a time.
 
 <!-- TODO: Add a screenshot showing the built-in dictation introduction or active dictation UI. -->
@@ -86,7 +84,14 @@ When `setting(dictation.experimental.llmCleanup)` is enabled, VS Code sends the 
 
 ## VS Code Speech extension
 
-On platforms that do not support built-in dictation, install the [VS Code Speech extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-speech). The extension also provides voice chat, text-to-speech for chat responses, and the "Hey Code" keyword activation feature.
+Built-in dictation is not available on these platforms:
+
+* VS Code for the Web.
+* Intel-based Mac computers.
+* 32-bit and Arm32 systems.
+* Linux distributions that use musl, such as Alpine Linux.
+
+On these platforms, install the [VS Code Speech extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-speech). The extension also provides voice chat, text-to-speech for chat responses, and the "Hey Code" keyword activation feature.
 
 ## Next steps
 
