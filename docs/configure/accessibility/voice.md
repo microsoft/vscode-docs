@@ -23,11 +23,11 @@ The on-device model is available on these desktop platforms:
 
 VS Code asks for microphone access when you start dictation. Only one dictation session can be active at a time.
 
-<!-- TODO: Add a screenshot showing the built-in dictation introduction or active dictation UI. -->
-
 ### Dictate in chat or the Agents window
 
 To dictate a chat prompt, select the microphone button in the chat input or press `kb(workbench.action.chat.toggleSpeechToText)`. Select the button or press the keyboard shortcut again to stop dictation and keep the transcribed text. Dictation inserts text in the input but does not submit the request.
+
+<!-- TODO: Add a screenshot showing active voice dictation in the chat input. -->
 
 Press `kb(workbench.action.chat.cancelSpeechToText)` to cancel dictation and remove the text from the current dictation session.
 
