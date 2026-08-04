@@ -108,7 +108,7 @@ Copilot supports slash commands for common session operations. Enter `/` in the 
 The available [permission levels](/docs/agents/run/approvals.md#permission-levels) depend on the isolation mode:
 
 * **Worktree**: the permission level is **Bypass Approvals** and can't be changed.
-* **Folder**: select **Default Approvals** or **Bypass Approvals** from the permissions picker. To also use experimental **Assisted permissions**, turn on `setting(chat.assistedPermissions.enabled)`.
+* **Folder**: select **Default Approvals** or **Bypass Approvals** from the permissions picker. To also use **Assisted permissions**, turn on `setting(chat.assistedPermissions.enabled)`.
 
 Because Copilot sessions run on the Agent Host, **Autopilot** is an [agent mode](/docs/agents/run/approvals.md#how-autopilot-works) rather than a permission level.
 
