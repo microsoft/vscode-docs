@@ -83,7 +83,7 @@ After you send a prompt, the agent works through the task step by step. Because 
 
 * **Review edits in the editor**: the agent edits files directly in the session folder or isolated worktree. Select a changed file in the response to inspect its diff, or show a per-request summary with `setting(chat.checkpoints.showFileChanges)`. Learn more about [reviewing AI-generated code edits](/docs/agents/run/review-code-edits.md).
 
-* **Follow terminal activity**: when the agent runs shell commands, such as installing dependencies or running a build, the commands execute in the integrated terminal. You can see the output in real time and intervene if needed.
+* **Follow terminal activity**: when the agent runs shell commands, such as installing dependencies or running a build, you can see the output in real time.
 
 * **Debug and test**: use the VS Code debugger, run tasks, and execute tests to validate the agent's changes before you commit them. This is a key advantage of working in the Chat view, where the full editor tooling is always available.
 
