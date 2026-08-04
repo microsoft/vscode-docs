@@ -85,6 +85,19 @@ KEYBINDINGS_DIR="$SCRIPT_DIR/keybindings"
 code-insiders --disable-extensions --export-default-keybindings "$KEYBINDINGS_DIR"
 echo ""
 
+# Step 3b: Export default agent keybindings
+echo "--- Step 3b: Export default agent keybindings ---"
+AGENTS_KEYBINDINGS_DIR="$SCRIPT_DIR/keybindings/agents"
+code-insiders --agents --export-default-keybindings "$AGENTS_KEYBINDINGS_DIR"
+echo ""
+
+# Step 3c: Append keybindings files
+echo "--- Step 3c: Append keybindings files ---"
+KEYBINDINGS_DIR="$SCRIPT_DIR/keybindings"
+AGENTS_KEYBINDINGS_DIR="$SCRIPT_DIR/keybindings/agents"
+node "$SCRIPT_DIR/append-keybindings.js" "$KEYBINDINGS_DIR" "$AGENTS_KEYBINDINGS_DIR"
+echo ""
+
 # Step 4: Clean up keybindings
 echo "--- Step 4: Clean up keybindings ---"
 node "$SCRIPT_DIR/cleanup-keybindings.js"

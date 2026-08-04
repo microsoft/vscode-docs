@@ -120,4 +120,5 @@
     { "from": "/docs/agents/sessions/manage-sessions", "to": "/docs/agents/run/sessions/manage-sessions", "status": 301 },
     { "from": "/docs/agents/sessions/session-history", "to": "/docs/agents/run/sessions/session-history", "status": 301 },
     { "from": "/docs/agents/security", "to": "/docs/agents/run/security", "status": 301 }
+    { "from": "/docs/cpp/c-cpp-properties-schema-reference", "to": "/docs/cpp/customize-cpp-settings", "status": 301 }
 ]

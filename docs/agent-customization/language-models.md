@@ -385,7 +385,7 @@ When you select a [BYOK](#bring-your-own-language-model-key) model as the main a
 * **GitHub Copilot**: Use the default GitHub Copilot utility models.
 
 > [!NOTE]
-> By default, no utility models are used when a BYOK model is the main agent. Background tasks such as chat title generation and commit message generation don't run until you set this option or configure a specific utility model.
+> By default, utility flows use GitHub Copilot utility models when a Copilot token is available. If no Copilot token is available, configure `setting(chat.utilityModel)` and `setting(chat.utilitySmallModel)`, or select **Main Agent Model**, to enable utility features.
 
 This setting has no effect when the main agent model is provided by GitHub Copilot. A specific model configured in `setting(chat.utilityModel)` or `setting(chat.utilitySmallModel)` takes precedence over this default.
 
