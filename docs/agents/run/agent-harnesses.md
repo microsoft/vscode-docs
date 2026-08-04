@@ -160,7 +160,7 @@ Learn more about [researching with GitHub Copilot CLI](https://docs.github.com/e
 Copilot sessions don't have access to every VS Code built-in or extension-provided tool. They use the models available to the Copilot harness and can currently access only local MCP servers that don't require authentication.
 
 {% /tab %}
-{% tab label="Claude (Preview)" %}
+{% tab label="Claude" %}
 
 <a name="third-party-agents"></a>
 
