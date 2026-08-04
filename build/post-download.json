@@ -1,9 +1,9 @@
 {
   "featured": {
-    "title": "Subagent visibility, dictation, and Markdown editing",
-    "description": "Track running subagents at a glance, dictate across VS Code, and edit Markdown with agent-actionable comments.",
-    "link": "/updates/v1_131",
-    "image": "/assets/updates/1_131/release-highlights.webp"
+    "title": "Browser comments, multilingual dictation, and side chats",
+    "description": "Comment on browser elements, dictate in multiple languages, ask side questions with /btw, and review Markdown diffs.",
+    "link": "/updates/v1_132",
+    "image": "/assets/updates/1_132/release-highlights.webp"
   },
   "highlights": [
     {

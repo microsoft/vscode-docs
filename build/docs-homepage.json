@@ -46,10 +46,10 @@
   "latest": [
     {
       "type": "release",
-      "title": "VS Code 1.131 release",
-      "description": "Track running subagents at a glance, dictate across VS Code, and edit Markdown with agent-actionable comments.",
-      "link": "/updates/v1_131",
-      "image": "/assets/updates/1_131/release-highlights.webp"
+      "title": "VS Code 1.132 release",
+      "description": "Comment on browser elements, dictate in multiple languages, ask side questions with /btw, and review Markdown diffs.",
+      "link": "/updates/v1_132",
+      "image": "/assets/updates/1_132/release-highlights.webp"
     },
     {
       "type": "documentation",

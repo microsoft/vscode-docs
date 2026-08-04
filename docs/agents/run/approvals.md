@@ -1,6 +1,6 @@
 ---
 ContentId: 3b7e6d52-0c41-4f8a-9d2e-1a5c7b9e4f60
-DateApproved: 7/29/2026
+DateApproved: 8/5/2026
 MetaDescription: Learn how to manage tool approvals, configure auto-approval, set permission levels, and sandbox agent commands to control agent autonomy in VS Code.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 keywords:
@@ -36,12 +36,12 @@ Select a permission level from the permissions dropdown in the chat input area t
 
 The permission level applies to the current chat session, and can be changed at any time. New sessions start with the default permission level, which you can configure with the `setting(chat.permissions.default)` setting.
 
-**Assisted permissions** is experimental and is only available for agents that run on the [Agent Host](/docs/agents/concepts/agent-host.md). To show this option in the permissions picker, enable `setting(chat.assistedPermissions.enabled)`.
+**Assisted permissions** is only available for agents that run on the [Agent Host](/docs/agents/concepts/agent-host.md). To show this option in the permissions picker, enable `setting(chat.assistedPermissions.enabled)`.
 
 | Permission level | Description |
 |---|---|
 | **Default Approvals** (default) | Uses your configured approval settings. Tools that require approval show a confirmation dialog before they run. When in doubt, the agent asks clarifying questions. |
-| **Assisted permissions** (Experimental) | Uses an LLM judge to evaluate the risk of each tool call. Calls that the judge approves run automatically. Other calls show a confirmation dialog for you to review. |
+| **Assisted permissions** | Uses an LLM judge to evaluate the risk of each tool call. Calls that the judge approves run automatically. Other calls show a confirmation dialog for you to review. |
 | **Bypass Approvals** | Auto-approves all tool calls without showing confirmation dialogs. When in doubt, the agent asks clarifying questions. |
 
 > [!NOTE]
