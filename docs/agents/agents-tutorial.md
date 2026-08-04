@@ -79,9 +79,8 @@ In this part, you open your folder in the Agents window and task an agent to bui
 
     The sidebar shows your list of active agent sessions, grouped by workspace. You can use the sessions list to switch between sessions. In the bottom left, you can configure customizations to modify the agent's behavior to match your coding practices.
 
-1. In the workspace dropdown, select the `myportfolio` folder on your machine.
+1. In the workspace dropdown, make sure the `myportfolio` folder on your machine is selected.
 
-    <!-- TODO: Update screenshot to show the Copilot session target and the current New Worktree isolation control. -->
     ![Screenshot of the workspace dropdown and session configuration in the Agents window.](images/getting-started/workspace-dropdown.png)
 
     If you're prompted to trust the folder, select **Yes, I trust the authors**.
@@ -89,18 +88,15 @@ In this part, you open your folder in the Agents window and task an agent to bui
     > [!IMPORTANT]
     > Workspace Trust lets you decide whether code in your project folder can be executed. When you download code from the internet, you should first review it to make sure it's safe to run. Get more info about [Workspace Trust](/docs/editing/workspaces/workspace-trust.md).
 
-1. From the **Session Target** control, select **Copilot**. The Copilot harness runs the session on your local machine with the GitHub Copilot SDK.
+1. Select the **Copilot** agent harness to run your agent session locally on your machine using the GitHub Copilot SDK.
 
-    VS Code installs and configures the required components for you, so there's nothing extra to set up.
+    VS Code supports multiple agent harnesses, such as Claude and Codex. The agent harness is what connects the language model to the development environment.
 
 1. Review the other session configuration options:
 
     * **Agent**: the generic agent role for performing the task. For specialized tasks, you can create a custom agent, such as a code review or testing agent.
     * **Language model**: depending on your setup, you can choose from multiple language models and configure additional settings.
     * **Default Approvals**: the permission level that uses the default approval rules for tools, terminal commands, and more. VS Code prompts you when an action requires approval.
-    * **New Worktree**: lets you isolate changes in a separate Git worktree folder. Because your repository doesn't have any commits yet, this option is unavailable and Copilot works directly in the `myportfolio` folder.
-
-    For this tutorial, Copilot edits the project files directly. You review and commit the changes later.
 
 1. Enter the following prompt in the chat input and press `kbstyle(Enter)`:
 
@@ -114,18 +110,19 @@ In this part, you open your folder in the Agents window and task an agent to bui
 
 ### Preview and iterate on the design
 
-The Agents window is great for workflows where you hand off tasks to the agent and then validate the outcome, rather than the specific code. For web-based applications, you can preview the agent's work in the integrated browser without having to leave VS Code.
+The Agents window is great for workflows where you hand off tasks to the agent and then validate the outcome, rather than the specific code changes. With the integrated browser, you can preview the agent's work without having to leave VS Code.
 
 To preview the generated portfolio in the integrated browser:
 
-1. The **Files** panel shows the files the agent created. Right-click the `index.html` file and select **Open in Integrated Browser**.
+1. Select the **Files** tab in the left sidebar, right-click the `index.html` file and select **Open in Integrated Browser**.
 
-    If you don't see the option to open in the integrated browser, make sure you are in the **Files** panel.
+    The **Files** tab shows all files in the workspace, similar to the **Explorer** view in the editor.
+
+    ![Screenshot of the Files tab in the Agents window, showing the portfolio files and the Open in Integrated Browser option.](images/getting-started/open-in-integrated-browser.png)
+
+1. The integrated browser opens in a new tab in the Agents window, and you can interact with the page as you would in a normal browser.
 
     ![Screenshot of the portfolio page open in the integrated browser in the Agents window.](images/getting-started/portfolio-integrated-browser.png)
-
-    > [!TIP]
-    > Select the **Open in Editor Area** button in the modal window title bar to view the browser alongside the chat conversation.
 
 1. Let's make a design change to the page. In the integrated browser, select the **Add Element to Chat** button to enter selection mode.
 
@@ -143,30 +140,32 @@ To preview the generated portfolio in the integrated browser:
 
 1. The agent applies the change to the element you selected. Refresh the page in the integrated browser to see the updates.
 
-> The integrated browser lets you view and iterate on the agent's work without switching context.
-
 ### Review and commit the changes
 
-Before you commit the agent's work, you might want to review the actual code changes that the agent applied. The **Changes** panel lists every file the agent created or modified during its session. To review and commit the file changes:
+Before you commit the agent's work, you might want to review the code changes that the agent applied. The **Changes** panel shows diffs for every file the agent created or modified during its session. To review and commit the file changes:
 
-1. Select the **Changes** panel to see the list of files the agent added or modified. Each item also shows change stats and an add/delete/update indicator.
+1. Select the **Changes** panel to see the diffs of the files the agent added or modified. Each item also shows change stats and an add/delete/update indicator.
 
     ![Screenshot of the Changes panel in the Agents window, showing the list of files changed by the agent.](images/getting-started/changes-panel.png)
 
-    Notice that the summary change stats are also shown in sessions list.
 
-1. Select a file to open the diff view and review the agent's edits. You can move between the different files with the navigation controls in the title bar.
+1. Open the diff from the `index.html` file and select a block of text to open the inline feedback flow. Enter your feedback and then select **Submit**.
 
-    ![Screenshot of the diff view showing the changes made by the agent to a file.](images/getting-started/diff-view.png)
+    ![Screenshot of the inline feedback flow in the diff view, showing a block of text selected for feedback.](images/getting-started/inline-feedback.png)
 
-    In this case, all files were newly created, so the diff view shows all lines as additions. For modified files, you'll see both additions and deletions.
+    Notice that your feedback is added to the chat conversation, and the agent processes it and applies the change to the file. You can continue to provide feedback on other changes in the diff view.
 
-    > [!TIP]
-    > When you select a block of text in the diff view, you can submit inline feedback to the agent about that specific part of the code. Markdown files support the same feedback flow when you open them from **Changes** and switch the Markdown editor to **Locked** mode.
+1. From the changes dropdown, select **Uncommitted Changes** to see the changes that have not yet been committed to your Git repository.
 
-1. Close the diff view and select **Commit Changes** in the **Changes** panel to save the agent's changes to your Git repository.
+    Use the changes dropdown to switch between branch changes, uncommitted changes, all changes from the session, and changes made during the last agent turn.
 
-    After committing the changes, the **Changes** panel is back empty because there are no pending changes. The change stats are also cleared from the entry in the session list.
+    ![Screenshot of the Uncommitted Changes view in the Changes panel, showing the list of files with uncommitted changes.](images/getting-started/uncommitted-changes.png)
+
+1. Now select **Commit Changes** in the **Changes** panel to save the agent's changes to your Git repository.
+
+    VS Code automatically creates a commit message based on the agent's prompt and the changes it made.
+
+    After committing the changes, the branch changes and uncommitted changes are now empty because there are no pending changes. The change stats are also cleared from the session entry in the session list.
 
 ## Continue working with agents in the editor
 
