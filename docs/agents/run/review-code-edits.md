@@ -31,8 +31,6 @@ Review the changes as you would other workspace or branch changes through the di
 
 1. To see a summary after each completed request, set `setting(chat.checkpoints.showFileChanges)` to `true`. Expand the changed-files summary to see the files and diff statistics, or select **View All File Changes** to open a multi-file diff.
 
-    <!-- TODO: Add a screenshot showing the Agent Host changed-files summary and View All File Changes action in the Chat view. -->
-
 1. If you want to make further changes, send a follow-up prompt or edit the files directly. To revert a request and all later changes, [restore a checkpoint](#restore-a-checkpoint).
 
 1. Run tests and use the debugger or other editor tools to validate the result.
@@ -70,8 +68,6 @@ To review and integrate the changes:
     ![Screenshot showing the Add Feedback button in the Changes diff view.](../images/review-code-edits/agents-window-add-feedback.png)
 
     Markdown files follow the same feedback flow. Open a workspace file from the **Changes** tab and use **Locked** mode in the Markdown editor to add range-based feedback. Feedback stays in sync if you reopen the file in the text editor.
-
-    <!-- TODO: Add a screenshot showing feedback comments in a Markdown file in Locked mode in the Agents window. -->
 
     The agent reads your comments, makes the requested edits, and resolves each comment. Resolved comments disappear from the diff view.
 

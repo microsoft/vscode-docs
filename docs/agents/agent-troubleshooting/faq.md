@@ -48,8 +48,6 @@ Your inline suggestions allowance and AI credits allowance reset every month. If
 
 For users on Copilot Free, to access more inline suggestions and AI credits, you can sign up for a [paid plan](https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-individuals) directly from VS Code. Alternatively, you can wait until the next month to continue using Copilot for free.
 
-<!-- TODO: add screenshot -->
-
 If you're on a paid plan and exhaust your AI credits, you can set a budget for additional usage and keep working, or wait until the next monthly cycle when your allowance resets. Learn more about [what happens if you exceed your included AI credits](https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-individuals#what-happens-if-i-exceed-my-included-ai-credits) in the GitHub Copilot documentation.
 
 For tips on reducing credit consumption, see [optimize AI credit usage](/docs/agents/guides/optimize-usage.md).

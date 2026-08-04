@@ -114,25 +114,19 @@ Learn more about [AI credit consumption](/docs/agents/guides/optimize-usage.md).
 
 ## Run multiple chats in a session
 
-In an agent host session, you can run multiple chats as tabs in the chat area. Each chat has its own conversation, title, status, and agent or language model selection, but all chats share the session's workspace and worktree. A new chat starts blank and doesn't inherit the history of the other chats.
+In an agent host session, you can run multiple chats as tabs in the chat area. Each chat has its own conversation, title, status, and agent or language model selection, but all chats share the session's workspace and worktree.
 
-This is useful when you want to work on independent tasks in the same project without interrupting an ongoing chat or creating another session.
+A new chat starts blank and doesn't inherit the history of the other chats. This is useful when you want to work on independent tasks in the same project without interrupting an ongoing chat or creating another session.
 
-> [!NOTE]
-> Changes from all chats in a session go to the same folder or worktree and appear together in the session changes. Start separate [worktree-isolated sessions](/docs/agents/run/agent-harnesses.md#choose-code-isolation) when tasks must not modify the same files.
-
-> [!NOTE]
-> Multiple chats are available in the Agents window for agent host sessions that support them, such as Copilot and Claude sessions.
+If you want to move context from the main chat to a new chat, you might opt to [fork the session](#fork-a-chat-session) instead. Forking preserves the conversation history.
 
 To create and manage chats in a session:
 
 1. In an active session, select **+ New Chat** in the session header, or press `kb(sessions.chatCompositeBar.addChat)`.
 
-    A blank chat opens. When the session has more than one chat, a tab strip appears in the chat area. Chats don't appear as separate items in the sessions list.
-
     ![Screenshot showing a new chat tab alongside an existing chat in the Agents window.](../../images/agents-window/agents-window-new-subsession.png)
 
-    <!-- TODO: Replace the screenshot with an updated capture that shows the + New Chat button, the chat tab strip with the trailing +, and the Conversations dropdown. -->
+    A blank chat opens. When the session has more than one chat, a tab strip appears in the chat area. Chats don't appear as separate items in the sessions list.
 
 1. To add more chats, select the trailing **+** in the tab strip.
 
@@ -149,7 +143,10 @@ Use the chat tabs and their context menus to:
 
 Visible and hidden chats, including their conversation history, are restored when you reload the window and reopen the session.
 
-### Ask side questions
+> [!NOTE]
+> Changes from all chats in a session go to the same folder or worktree and appear together in the session changes. Start separate [worktree-isolated sessions](/docs/agents/run/agent-harnesses.md#choose-code-isolation) when tasks must not modify the same files.
+
+## Ask side questions
 
 Use a side chat to ask a question about the current conversation without adding the question or response to the main chat. A side chat opens as a peer chat tab and privately inherits the source conversation as context. Side chats favor explanation over action unless you ask the agent to make changes or perform a task.
 
@@ -195,8 +192,6 @@ To organize the sessions list in the Agents window:
 1. Hover over a group header to start a new session in that group, or mark all sessions in the group as done.
 
 You can also drag sessions up or down to reorder them, drag group and workspace headers to rearrange sections, or drop a session on the **Pinned** section to pin it. Select multiple sessions to move them together.
-
-<!-- TODO: add screenshot of custom session groups and drag-and-drop reordering in the Agents window sessions list. -->
 
 You can hide the left sidebar by selecting the **Toggle Sidebar** button in the top-left corner of the Agents window or by using the `kb(workbench.action.toggleSidebarVisibility)` keyboard shortcut.
 
