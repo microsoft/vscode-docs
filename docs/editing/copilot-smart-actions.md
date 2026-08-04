@@ -11,7 +11,7 @@ For several common scenarios, you can use _smart actions_ to get help from AI wi
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
 Follow a hands-on tutorial to build your first app with AI in VS Code.
 
-* [Start tutorial](/docs/getstarted/getting-started.md)
+* [Start tutorial](/docs/agents/agents-tutorial.md)
 
 </div>
 
@@ -29,7 +29,7 @@ Use AI to help you resolve Git merge conflicts. Select the **Resolve Merge Confl
 
 ## Implement todo comments
 
-If you have the [GitHub Pull Requests](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension installed, you can use AI to implement `TODO` comments in your code with [Copilot cloud agent](/docs/agents/agent-types/cloud-agents.md#github-copilot-cloud-agent).
+If you have the [GitHub Pull Requests](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension installed, you can use AI to implement `TODO` comments in your code with the [Copilot cloud agent](/docs/agents/run/agent-harnesses.md#start-a-cloud-session).
 
 1. Make sure you have the [GitHub Pull Requests](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension installed.
 1. Add a `TODO` comment in your code. A code action (lightbulb) appears next to the comment.
@@ -118,7 +118,7 @@ Alternatively, you can:
 1. Follow Copilot's suggestions to fix the test
 
 > [!TIP]
-> When using [agents](/docs/agents/agent-types/local-agents.md), the agent monitors the test output when running tests, and automatically attempts to fix and rerun failing tests.
+> When using [agents](/docs/agents/concepts/agents.md), the agent monitors the test output when running tests, and automatically attempts to fix and rerun failing tests.
 
 ## Fix terminal errors
 
@@ -169,4 +169,4 @@ Enable this functionality with the `setting(workbench.settings.showAISearchToggl
 
 ## Related resources
 
-* [Get started with the Copilot Quickstart](/docs/getstarted/getting-started.md).
+* [Get started with the Copilot Quickstart](/docs/agents/agents-tutorial.md).

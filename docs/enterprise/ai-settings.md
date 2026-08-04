@@ -131,7 +131,7 @@ The value accepts one of the following:
 * A model family name, such as `opus` or `gemini` - resolves to the latest available version in that family.
 * A full model ID.
 
-New conversations start at the configured model across the chat panel and the Agents window, including Copilot CLI sessions. Developers can still switch models within a conversation, and an explicit choice is never overridden by the configured default. Reopened conversations keep their own saved model. When the setting is not configured, model selection behavior is unchanged.
+New conversations start at the configured model across the chat panel and the Agents window. Developers can still switch models within a conversation, and an explicit choice is never overridden by the configured default. Reopened conversations keep their own saved model. When the setting is not configured, model selection behavior is unchanged.
 
 ## Enable or disable the use of agents
 
@@ -151,7 +151,7 @@ When this policy is applied, hook configurations are ignored and no hook command
 
 ## Enable or disable extension language tools
 
-[Tools in chat](/docs/chat/chat-tools.md) extend the AI assistant's capabilities with specialized functions. These tools can come from built-in features, Model Context Protocol (MCP) servers, or third-party extensions.
+[Agent tools](/docs/agents/run/tools.md) extend the AI assistant's capabilities with specialized functions. These tools can come from built-in features, Model Context Protocol (MCP) servers, or third-party extensions.
 
 Third-party extensions can contribute tools that integrate with chat by using the [Language Model Tools API](/api/extension-guides/ai/tools).
 
@@ -209,13 +209,13 @@ Organizations with GitHub Copilot Enterprise or Business can also configure MCP 
 
 Agent tools can perform actions that modify files, run commands, or access external services. VS Code includes approval prompts for potentially risky operations. Organizations can enforce stricter approval requirements or disable auto-approval entirely.
 
-Learn more about [tool approval](/docs/agents/approvals.md#tool-approval) in VS Code.
+Learn more about [tool approval](/docs/agents/run/approvals.md#tool-approval) in VS Code.
 
 ### Disable global auto-approval
 
 The `ChatToolsAutoApprove` policy controls the global auto-approval setting. When enabled, the AI assistant can execute all tools without manual approval. This is not recommended for security reasons.
 
-To prevent developers from enabling global auto-approval, set the `ChatToolsAutoApprove` policy to `false`. This configures the `setting(chat.tools.global.autoApprove)` setting in VS Code and also hides the **Assisted permissions**, **Bypass Approvals**, and **Autopilot** options from the [permissions picker](/docs/agents/approvals.md#permission-levels) in the Chat view.
+To prevent developers from enabling global auto-approval, set the `ChatToolsAutoApprove` policy to `false`. This configures the `setting(chat.tools.global.autoApprove)` setting in VS Code and also hides the **Assisted permissions** and **Bypass Approvals** options from the [permissions picker](/docs/agents/run/approvals.md#permission-levels), and the **Autopilot** mode, in the Chat view.
 
 > [!CAUTION]
 > Global auto-approval bypasses all security prompts for tool invocations. Disabling this feature is strongly recommended for enterprise environments.
@@ -361,7 +361,7 @@ The agent host computes its telemetry configuration when it starts. If a managed
 
 ## Security considerations
 
-AI-powered development features can autonomously perform actions with user-level permissions. Refer to the [security documentation](/docs/agents/security.md) for a comprehensive overview of AI security considerations and best practices.
+AI-powered development features can autonomously perform actions with user-level permissions. Refer to the [security documentation](/docs/agents/run/security.md) for a comprehensive overview of AI security considerations and best practices.
 
 For environments where agents operate with elevated autonomy (auto-approval or Autopilot mode), recommend that developers enable [agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing) or work inside a [dev container](/docs/devcontainers/containers.md) to limit the impact of unintended or malicious actions.
 
@@ -369,17 +369,20 @@ For environments where agents operate with elevated autonomy (auto-approval or A
 
 Agents can run on different infrastructure depending on the agent type, and each option has different data residency and access control characteristics:
 
-* **Local agents and Copilot CLI** run on the developer's machine and process data locally.
+* **Local agents and the Copilot agent** run on the developer's machine and process data locally.
 * **Cloud agents** run on GitHub's infrastructure. Code and conversation data are subject to the GitHub Copilot data handling policies.
+
+> [!NOTE]
+> [Copilot Memory](/docs/agents/run/memory.md#copilot-memory) stores repository insights on GitHub's infrastructure and is governed by your organization or enterprise Copilot Memory settings on GitHub, not by a VS Code policy. Developers opt in per repository, and in VS Code the memory tool syncs repository memory to Copilot Memory only when `setting(chat.copilotMemory.enabled)` is also enabled. The local memory tool's user and session memory always stays on the developer's machine.
 
 For GitHub Copilot's security, privacy, compliance, and transparency information, see the [GitHub Copilot Trust Center FAQ](https://copilot.github.trust.page/faq).
 
 ## Related resources
 
 * [Enterprise policies reference](/docs/enterprise/policies.md) - Complete list of enterprise policies
-* [Use tools in chat](/docs/chat/chat-tools.md) - Learn how tools work in VS Code chat
+* [Use tools with agents](/docs/agents/run/tools.md) - Learn how tools work in VS Code chat
 * [MCP servers in VS Code](/docs/agent-customization/mcp-servers.md) - Configure and use MCP servers
 * [Custom instructions](/docs/agent-customization/custom-instructions.md) - Define custom instructions for AI responses
 * [Custom agents](/docs/agent-customization/custom-agents.md) - Create custom AI personas and workflows
-* [AI security considerations](/docs/agents/security.md) - Security best practices for AI features
+* [AI security considerations](/docs/agents/run/security.md) - Security best practices for AI features
 * [GitHub Copilot Trust Center FAQ](https://copilot.github.trust.page/faq) - Security, privacy, and compliance information

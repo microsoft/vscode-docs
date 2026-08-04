@@ -20,7 +20,7 @@ Keywords:
 
 AI agents write great code but don't know your codebase, team conventions, or the workflows you repeat every day. By adding agent customizations, you share that context to make the AI's responses match your coding standards, project structure, and common tasks.
 
-Visual Studio Code gives you several ways to provide this context, from project-wide instructions to specialized agent personas and access to external tools. This article introduces the customization options and helps you get started. You can manage customizations from both the [Chat view](/docs/agents/chat-view.md) and the [Agents window](/docs/agents/agents-window.md).
+Visual Studio Code gives you several ways to provide this context, from project-wide instructions to specialized agent personas and access to external tools. This article introduces the customization options and helps you get started. You can manage customizations from both the [Chat view](/docs/agents/run/chat-view.md) and the [Agents window](/docs/agents/run/agents-window.md).
 
 <div class="docs-action" data-show-in-doc="true" data-show-in-sidebar="true" title="Core concepts">
 Learn about the different customization types and when to use each one.
@@ -97,7 +97,10 @@ In the Chat view, select the **Configure Chat (gear icon)** or run **Chat: Open 
 {% /tab %}
 {% /tabs %}
 
-You can configure customization for different [agent types](/docs/agents/overview.md#configure-your-agent-session): local agents, Copilot CLI, and the Claude agent. Select the agent type from the dropdown at the top of the editor to view and manage customizations for that agent type.
+You can configure customizations for the different [agent harnesses](/docs/agents/concepts/agent-harnesses.md). Select the harness from the dropdown in the chat input and then select open the **Agent Customizations** editor.
+
+> [!NOTE]
+> When [Agent Host](/docs/agents/concepts/agent-host.md) is enabled, the agent reads user-level customizations from harness-agnostic folders like `~/.copilot` (Copilot) and `~/.claude` (Claude), rather than from your VS Code profile user data. See [instructions](/docs/agent-customization/custom-instructions.md#instructions-file-locations), [custom agents](/docs/agent-customization/custom-agents.md), and [prompt files](/docs/agent-customization/prompt-files.md#prompt-file-locations) for the recommended user-level locations.
 
 ## Evaluate and improve customization files (Preview)
 

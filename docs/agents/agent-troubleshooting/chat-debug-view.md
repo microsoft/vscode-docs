@@ -18,7 +18,7 @@ VS Code offers two complementary debugging tools:
 > [!NOTE]
 > The Agent Debug Log panel is currently in preview.
 
-The Agent Debug Log panel is the primary tool for understanding what happens when you send a prompt. It shows a chronological event log of agent interactions during a chat session, making it especially useful when debugging [custom agents](/docs/agents/agent-types/local-agents.md) and orchestrated sub-agent workflows.
+The Agent Debug Log panel is the primary tool for understanding what happens when you send a prompt. It shows a chronological event log of agent interactions during a chat session, making it especially useful when debugging [custom agents](/docs/agent-customization/custom-agents.md) and orchestrated subagent workflows.
 
 To open the Agent Debug Logs panel:
 
@@ -155,7 +155,7 @@ Each interaction in the Chat Debug view contains expandable sections:
 | **Response** | The full text of the model's response, including reasoning. | Review the raw response to understand how the model interpreted your request. |
 | **Tool responses** | Inputs and outputs of tools invoked during the request. | Verify that tools received correct inputs and returned expected outputs. Useful for debugging MCP servers. |
 
-You can expand each section to see the full details. This is particularly useful when [using agents](/docs/agents/agent-types/local-agents.md) where multiple tools might be invoked as part of a single request.
+You can expand each section to see the full details. This is particularly useful when [using agents](/docs/agents/concepts/agents.md), where multiple tools might be invoked as part of a single request.
 
 ## Common troubleshooting scenarios
 
@@ -181,7 +181,7 @@ If the AI doesn't call an expected tool:
 If the response appears truncated:
 
 1. Check Agent Logs for **LLM requests** events to review token usage.
-1. A full context window might cause the model to truncate its response. Start a [new chat session](/docs/chat/chat-sessions.md) to reset the context.
+1. A full context window might cause the model to truncate its response. Start a [new chat session](/docs/agents/run/sessions/manage-sessions.md) to reset the context.
 
 ### A prompt file is not being applied
 
@@ -194,6 +194,6 @@ If a custom instruction or prompt file doesn't seem to take effect:
 ## Related resources
 
 * [Chat overview](/docs/chat/chat-overview.md)
-* [Manage context for AI](/docs/chat/copilot-chat-context.md)
+* [Add context to chat](/docs/chat/copilot-chat-context.md)
 * [Troubleshoot AI in VS Code](/docs/agents/agent-troubleshooting/troubleshooting.md)
-* [Security considerations for using AI in VS Code](/docs/agents/security.md)
+* [Security considerations for using AI in VS Code](/docs/agents/run/security.md)

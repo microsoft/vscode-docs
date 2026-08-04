@@ -54,7 +54,7 @@ Prompt caching works best when the early parts of your requests stay stable acro
 * **Lock in settings before you start**: Switching the model, reasoning effort, context size, or the enabled tools and MCP servers during a session rebuilds the cache. Choose them upfront, or use auto model selection, which switches models only at cache boundaries.
 * **Keep instructions stable**: Changing instructions files or custom agent definitions mid-session breaks the cache. For more information, see the [context engineering guide](/docs/agents/guides/context-engineering-guide.md).
 * **Add volatile context late**: Place content that changes often, such as file attachments or terminal output, later in the conversation.
-* **Isolate exploration in subagents**: Run research in a [subagent](/docs/agents/subagents.md) to keep the parent session prompt stable.
+* **Isolate exploration in subagents**: Run research in a [subagent](/docs/agents/run/subagents.md) to keep the parent session prompt stable.
 * **Start fresh after a break**: Caches expire after inactivity. Start a new session or run `/compact` to rebuild from a short summary instead of the full history.
 
 ## Related content

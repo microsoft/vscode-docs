@@ -305,4 +305,4 @@ The `PreCompact` hook uses the common output format only.
 
 * [Agent hooks](/docs/agent-customization/hooks.md) - Configure and use hooks in VS Code
 * [Custom agents](/docs/agent-customization/custom-agents.md) - Create specialized agent configurations
-* [Subagents](/docs/agents/subagents.md) - Delegate tasks to context-isolated subagents
+* [Subagents](/docs/agents/run/subagents.md) - Delegate tasks to context-isolated subagents
