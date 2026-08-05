@@ -4,6 +4,7 @@
         "area": "agents",
         "topics": [
             ["Build with Agents", "/docs/agents/overview"],
+            ["Agents Quickstart", "/docs/agents/quickstart"],
             ["Agents Tutorial", "/docs/agents/agents-tutorial"],
             ["Best Practices", "/docs/agents/best-practices"]
         ]

@@ -13,9 +13,9 @@ VS Code runs on your desktop or a [remote machine](/docs/remote/remote-overview.
 VS Code puts you in control. Choose your [language model](/docs/agent-customization/language-models.md), whether from your GitHub Copilot subscription or your own API key, and pick the [agent](/docs/agents/overview.md) that fits the task. Customize VS Code for your technology stack with [extensions](/docs/configure/extensions/extensions.md) from the Marketplace, and shape the editor to your workflow with [settings, keybindings, and themes](/docs/configure/themes.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with VS Code">
-Follow a hands-on tutorial to build your first app with AI in VS Code.
+Complete your first coding task with an AI agent in VS Code.
 
-* [Start tutorial](/docs/agents/agents-tutorial.md)
+* [Start quickstart](/docs/agents/quickstart.md)
 
 </div>
 
@@ -43,7 +43,7 @@ New to VS Code? These three steps take you from a fresh install to building your
 
 1. **Enable AI features.** Sign in to unlock inline suggestions and AI agents. See [Enable AI features](#enable-ai-features).
 
-1. **Take the tutorial.** Build an app with the [agentic coding tutorial](/docs/agents/agents-tutorial.md) or [learn the basics of writing code](/docs/editing/getting-started.md) in VS Code.
+1. **Choose a quickstart.** Complete a task with the [agents quickstart](/docs/agents/quickstart.md) or [learn the basics of writing code](/docs/editing/getting-started.md) in VS Code.
 
 ## Install VS Code
 
@@ -111,11 +111,11 @@ Follow these steps to get started with Copilot in VS Code:
 Pick a path based on what you want to do next.
 
 <div class="card-grid">
-    <a class="card" href="/docs/agents/agents-tutorial">
+    <a class="card" href="/docs/agents/quickstart">
         <i class="codicon codicon-hubot" aria-hidden="true"></i>
         <div>
             <p><strong>Agentic coding</strong></p>
-            <p>Build an app from a prompt in our hands-on tutorial.</p>
+            <p>Complete your first coding task with an AI agent.</p>
         </div>
     </a>
     <a class="card" href="/docs/editing/getting-started">

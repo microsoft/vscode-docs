@@ -214,7 +214,7 @@ Let's install an extension that helps with the recipe list app you just built.
 
     The agent modifies the existing files to add the new feature. This shows how you can iteratively build on your app with follow-up prompts.
 
-Explore more AI features in VS Code with the [Copilot Quickstart](/docs/agents/agents-tutorial.md).
+Explore more AI features in VS Code with the [Copilot Quickstart](/docs/agents/quickstart.md).
 
 ## Configure VS Code settings
 
