@@ -1,12 +1,12 @@
 ---
 ContentId: f8e2a7c1-9d3b-4e5f-a6c8-1b2d3e4f5a6b
 DateApproved: 8/5/2026
-MetaDescription: Use the integrated browser in VS Code to preview and debug web apps, navigate to URLs, and add page elements, screenshots, or console logs as context to AI chat.
+MetaDescription: Use the integrated browser in VS Code to preview and debug web apps, comment on page elements, and share screenshots or console logs with AI chat.
 MetaSocialImage: images/debugging/debugging-social.png
 ---
 # Integrated browser
 
-The integrated browser enables you to open and interact with web pages directly inside VS Code. Use it to preview web applications, test authentication flows, and select page elements to add as context to your AI chat prompts.
+The integrated browser enables you to open and interact with web pages directly inside VS Code. Use it to preview web applications, test authentication flows, and comment on page elements to give agents precise feedback.
 
 ![Screenshot of the integrated browser in VS Code displaying a web page.](images/integrated-browser/integrated-browser.png)
 
@@ -199,7 +199,7 @@ Move the browser to its own floating window by right-clicking the editor tab and
 
 The browser toolbar has an **Add to Chat** split button with actions that let you capture different types of context from the current page and attach them to your chat prompt. These actions are also available from the Command Palette.
 
-<!-- TODO: add screenshot of the "Add to Chat" split-button dropdown showing the three actions -->
+<!-- TODO: add screenshot of the "Add to Chat" split-button dropdown, including the "Comment on Elements" action -->
 
 ### Add elements
 
@@ -215,6 +215,17 @@ Configure what information is included:
 |--------------------------------------------------|-------------------------------------------|
 | `setting(chat.sendElementsToChat.attachCSS)`     | Include CSS styles for selected elements  |
 | `setting(chat.sendElementsToChat.attachImages)`  | Include screenshots of selected elements  |
+
+### Comment on elements
+
+Add comments to specific page elements to give an agent precise, element-level feedback. Unlike adding an element as context, a comment associates your instructions with the selected element. You can comment on multiple elements before you send the prompt.
+
+1. Open the integrated browser and navigate to your web app.
+1. Open the **Add to Chat** dropdown in the browser toolbar and select **Comment on Elements**, or press `kb(workbench.action.browser.addElementCommentToChat)`.
+1. Select an element on the page.
+1. Enter your feedback and press `kbstyle(Enter)`, or select **Add Comment**.
+1. Repeat the previous two steps to comment on more elements.
+1. In the chat input, add any overall instructions and send the prompt.
 
 ### Add a screenshot
 
