@@ -46,26 +46,22 @@ Review the changes as you would other workspace or branch changes through the di
 {% /tab %}
 {% tab label="Agents window" %}
 
-The **Changes** panel contains two tabs:
+By default, the Agents window shows these views in a side panel:
 
 * **Files**: a file explorer for the session workspace.
 * **Changes**: files that the agent changed, added, or deleted. Use the **Branch Changes** dropdown to choose which changeset to review.
 
-The **Changes** tab groups edits outside the workspace under **Other Files**. These files, such as plans in the session-state folder, aren't committed with workspace changes. The list includes files changed through file-edit tools, but not files that the agent only reads or changes through terminal commands.
+The **Changes** view groups edits outside the workspace under **Other Files**. These files, such as plans in the session-state folder, aren't committed with workspace changes. The list includes files changed through file-edit tools, but not files that the agent only reads or changes through terminal commands.
 
 To review and integrate the changes:
 
-1. Select a file in the **Changes** tab to open a diff view of the agent's edits.
+1. Select a file in the **Changes** view to open a diff view of the agent's edits.
 
     ![Screenshot showing the Changes panel in the Agents window, highlighting the list of edited files and the diff view.](../images/review-code-edits/agents-window-diff-view.png)
 
     By default, selecting a file opens a multi-file diff editor with all the session changes. To open a focused single-file diff, enable `setting(sessions.changes.openSingleFileDiff)`.
 
     Use the diff toolbar to show the editor side by side with chat or in a modal window.
-
-    With the [experimental single-pane editor panel](/docs/agents/run/agents-window.md#use-the-single-pane-editor-panel-experimental), use **Show Side by Side Diff** or **Show Inline Diff** to change the diff layout. Use **Expand All Diffs** or **Collapse All Diffs** to control all files at once. A keybinding for `kb(toggle.diff.renderSideBySide)` also works in the Agents window.
-
-    The Changes editor restores each file's expanded or collapsed state when you switch sessions or reload the window. The editor tab title shows the next integration action, such as **Create Pull Request**, and switches to an icon when space is limited.
 
 1. Select a range of code in a changed file, select **Add Feedback**, and enter a comment that describes the change you want. Add more comments on other selections or files, and then select **Submit Feedback** to send them to the agent.
 
@@ -80,6 +76,14 @@ To review and integrate the changes:
 1. Use the **Commit**, **Merge**, **Checkout**, or **Discard** actions to act on the edits.
 
 When you create a session, use the sync button in the **Files** panel to pull upstream changes from the base branch before the agent starts. Starting from the latest branch state reduces merge conflicts when you integrate the result.
+
+### Review changes in the single-pane layout (Experimental)
+
+When you enable the [experimental single-pane editor panel](/docs/agents/run/agents-window.md#use-the-single-pane-editor-panel-experimental), the **Changes** view and diff editor share one docked pane.
+
+Use **Show Side by Side Diff** or **Show Inline Diff** to change the diff layout. Use **Expand All Diffs** or **Collapse All Diffs** to control all files at once. A keybinding for `kb(toggle.diff.renderSideBySide)` also works in the Agents window.
+
+The Changes editor restores each file's expanded or collapsed state when you switch sessions or reload the window. The editor tab title shows the next integration action, such as **Create Pull Request**, and switches to an icon when space is limited.
 
 {% /tab %}
 {% /tabs %}
