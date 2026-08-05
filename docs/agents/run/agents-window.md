@@ -61,6 +61,20 @@ The Agents window has the following main areas:
 
 ![Screenshot of the Agents window interface, showing the sessions list, customizations panel, chat area, changes panel, and files panel.](../images/agents-window/agents-window-ui-annotated.png)
 
+By default, the **Changes** and **Files** views appear in a separate side panel. Files and diffs open in an editor beside the chat or in a modal window.
+
+### Use the single-pane editor panel (Experimental)
+
+The experimental single-pane layout replaces the separate editor and side panel with one docked pane. A shared tab bar spans the editor and the **Changes** or **Files** detail view. Files and diffs open in the docked editor next to the chat instead of in a modal window.
+
+To use the single-pane layout, enable `setting(sessions.layout.singlePaneDetailPanel)` and reload the window. The setting is read when the Agents window starts.
+
+<!-- TODO: Add a screenshot of the single-pane editor panel showing the shared tab bar, editor, and detail panel. -->
+
+In the shared tab bar, select **New Tab** (`+`) to open **Changes**, **Files**, **Browser**, or **Search**. Use **Hide Editor**, **Toggle Details**, and **Maximize Editor Area** or **Restore Editor Area** to adjust the layout. **Toggle Details** is available only for tabs that support a detail panel.
+
+Each session restores its side-pane width, open editors, active editor, and per-file collapsed state when you switch sessions or reload the window.
+
 ## Start an agent session
 
 To start a new agent session in the Agents window:
@@ -118,7 +132,7 @@ By default, the **Chats** group stays visible in the sessions list even when it'
 
 ### Review file changes
 
-Use the **Changes** tab to view the diffs of the changes made by the agent in the active session. Use the dropdown to choose between the branch changes, uncommitted changes, all changes, and the changes from the last agent turn.
+In the default layout, use the **Changes** view in the side panel to review edits made by the agent in the active session. Use the dropdown to choose between the branch changes, uncommitted changes, all changes, and the changes from the last agent turn.
 
 You can select a block of text in a change diff and leave range-based feedback for the agent to process. Learn how to [review AI-generated code edits](/docs/agents/run/review-code-edits.md).
 
