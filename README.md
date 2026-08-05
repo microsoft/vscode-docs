@@ -1,100 +1,219 @@
-<p align="center">
-  <img alt="vscode logo" src="images/logo-stable.png" width="100px" />
-  <h1 align="center">Visual Studio Code Documentation</h1>
-</p>
+#!/bin/bash
 
-You've found the Visual Studio Code documentation GitHub repository, which contains the content for the [Visual Studio Code documentation](https://code.visualstudio.com/docs).
+# ============================================
+# VS Code Docs Repository Cloner with LFS Support
+# ============================================
 
-Topics submitted here will be published to the [Visual Studio Code](https://code.visualstudio.com) portal.
+set -e
 
-If you are looking for the VS Code product GitHub repository, you can find it [here](https://github.com/microsoft/vscode).
+REPO_URL="https://github.com/microsoft/vscode-docs.git"
+CLONE_DIR="vscode-docs"
+LFS_FILES=("*.png" "*.jpg" "*.jpeg" "*.gif" "*.svg" "*.pdf" "*.psd" "*.webp" "*.mp4" "*.mov")
 
-> [!IMPORTANT]
-> The vscode-docs repository uses [**Git LFS**](https://git-lfs.github.com/) (Large File Storage) for storing binary files such as images and `.gif`s. If you are contributing or updating images, please enable Git LFS per the instructions in the [Contributing](#cloning) section below.
+# Colors
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+NC='\033[0m'
 
-## Index
+# ==================== Functions ====================
 
-- [Index](#index)
-- [Visual Studio Code](#visual-studio-code)
-- [Feedback](#feedback)
-- [Documentation Issues](#documentation-issues)
-- [Contributing](#contributing)
-  - [Workflow](#workflow)
-  - [Cloning](#cloning)
-    - [Cloning without binary files](#cloning-without-binary-files)
-- [Publishing](#publishing)
+print_step() {
+    echo -e "${BLUE}▶ $1${NC}"
+}
 
-## Visual Studio Code
+print_success() {
+    echo -e "${GREEN}✔ $1${NC}"
+}
 
-[VS Code](https://code.visualstudio.com/) is a lightweight AI code editor for multi-agent development and a powerful development environment for building modern web, mobile, and cloud applications. It is free and available on your favorite platform - Linux, macOS, and Windows.
+print_error() {
+    echo -e "${RED}✖ $1${NC}"
+}
 
-If you landed here looking for other information about VS Code, head over to [our website](https://code.visualstudio.com) for additional information.
+print_warning() {
+    echo -e "${YELLOW}⚠ $1${NC}"
+}
 
-## Feedback
+check_dependencies() {
+    print_step "Checking dependencies..."
+    
+    if ! command -v git &> /dev/null; then
+        print_error "Git is not installed! Please install Git first."
+        exit 1
+    fi
+    
+    if ! command -v git-lfs &> /dev/null; then
+        print_warning "Git LFS is not installed! Attempting automatic installation..."
+        if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+            sudo apt-get update -qq && sudo apt-get install git-lfs -y || {
+                print_error "Failed to install Git LFS. Please install manually: https://git-lfs.com"
+                exit 1
+            }
+        elif [[ "$OSTYPE" == "darwin"* ]]; then
+            brew install git-lfs || {
+                print_error "Failed to install Git LFS. Please install manually: https://git-lfs.com"
+                exit 1
+            }
+        else
+            print_error "Unsupported OS. Please install Git LFS manually: https://git-lfs.com"
+            exit 1
+        fi
+        git lfs install
+        print_success "Git LFS installed and initialized."
+    else
+        print_success "Git LFS is available."
+    fi
+}
 
-If you want to give documentation feedback, please use the feedback control located at the bottom of each documentation page.
+clone_repo() {
+    print_step "Cloning repository (with LFS support)..."
+    
+    if [ -d "$CLONE_DIR" ]; then
+        print_warning "Directory $CLONE_DIR already exists. Remove it? (y/n)"
+        read -r response
+        if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
+            rm -rf "$CLONE_DIR"
+            print_success "Old directory removed."
+        else
+            print_warning "Using existing directory... (may cause conflicts)"
+        fi
+    fi
+    
+    GIT_LFS_SKIP_SMUDGE=0 git clone "$REPO_URL" "$CLONE_DIR" 2>&1 | while read line; do
+        echo -e "${YELLOW}  $line${NC}"
+    done
+    
+    if [ $? -eq 0 ]; then
+        print_success "Repository cloned successfully!"
+    else
+        print_error "Failed to clone repository!"
+        exit 1
+    fi
+}
 
-## Documentation Issues
+setup_lfs_tracking() {
+    print_step "Configuring LFS tracking..."
+    cd "$CLONE_DIR"
+    
+    for pattern in "${LFS_FILES[@]}"; do
+        git lfs track "$pattern" 2>/dev/null
+    done
+    
+    git add .gitattributes 2>/dev/null || true
+    print_success "Binary files are now tracked by LFS."
+    cd ..
+}
 
-To enter documentation bugs, please create a [new GitHub issue](https://github.com/microsoft/vscode-docs/issues). Please check if there is an existing issue first.
+pull_lfs_files() {
+    print_step "Pulling LFS files (may take a while)..."
+    cd "$CLONE_DIR"
+    
+    if git lfs pull 2>&1 | while read line; do
+        echo -e "${YELLOW}  $line${NC}"
+    done; then
+        print_success "All LFS files pulled successfully."
+    else
+        print_warning "Some LFS files failed to pull. You can retry with 'git lfs pull' later."
+    fi
+    cd ..
+}
 
-If you think the issue is with the VS Code product itself, please enter issues in the [VS Code product repo](https://github.com/microsoft/vscode/issues).
+show_stats() {
+    print_step "Repository statistics:"
+    cd "$CLONE_DIR"
+    
+    echo -e "${GREEN}Total commits:${NC} $(git rev-list --all --count 2>/dev/null || echo 'N/A')"
+    echo -e "${GREEN}Current branch:${NC} $(git branch --show-current 2>/dev/null || echo 'N/A')"
+    echo -e "${GREEN}LFS objects size:${NC} $(du -sh .git/lfs/objects 2>/dev/null | cut -f1 || echo 'N/A')"
+    echo -e "${GREEN}Total files:${NC} $(find . -type f -not -path './.git/*' | wc -l | tr -d ' ')"
+    
+    cd ..
+}
 
-## Contributing
+create_readme() {
+    cat > "$CLONE_DIR/README.local.md" << 'EOF'
+# VS Code Docs - Local Clone
 
-To contribute new topics/information or make changes to existing documentation, please read the [Contributing Guideline](./CONTRIBUTING.md).
+This repository was cloned using an automated script with full LFS support.
 
-### Workflow
+## Useful Commands:
+- Update: `git pull`
+- Pull LFS files: `git lfs pull`
+- Official docs: https://code.visualstudio.com/docs
 
-The two suggested workflows are:
+## How to Contribute:
+1. Create a branch: `git checkout -b your-fix`
+2. Make your changes
+3. Commit: `git commit -m "Describe your changes"`
+4. Push: `git push origin your-fix`
+5. Open a Pull Request
 
-- For small changes, use the **Edit** button on each page to edit the Markdown file directly on GitHub.
+## Troubleshooting:
+- If LFS files are missing: `git lfs pull`
+- If you get permission errors: Check your SSH/GitHub credentials
+- For large downloads: Make sure you have enough disk space
 
-- If you plan to make significant changes or preview the Markdown files in VS Code, [clone](#cloning) the repo to [edit and preview](https://code.visualstudio.com/docs/languages/markdown) the files directly in VS Code.
+Happy coding! 🚀
+EOF
+    print_success "README.local.md created."
+}
 
-![Markdown Preview Button](images/MDPreviewButton.png)
+check_disk_space() {
+    print_step "Checking available disk space..."
+    AVAILABLE=$(df -h . | awk 'NR==2 {print $4}')
+    echo -e "${GREEN}Available space:${NC} $AVAILABLE"
+    
+    # Check if less than 2GB (warning)
+    AVAILABLE_GB=$(df . | awk 'NR==2 {print $4}')
+    if [ "$AVAILABLE_GB" -lt 2097152 ]; then
+        print_warning "Low disk space! Repository needs at least 2GB free."
+    fi
+}
 
-### Cloning
+cleanup() {
+    print_step "Cleaning up temporary files..."
+    cd "$CLONE_DIR"
+    git gc --auto 2>/dev/null || true
+    cd ..
+    print_success "Cleanup completed."
+}
 
-1. Install [Git LFS](https://git-lfs.github.com/).
-2. Run `git lfs install` to set up global Git hooks. You only need to run this once per machine.
-3. SSH auth: `git clone git@github.com:microsoft/vscode-docs.git`<br>HTTPS auth: `git clone https://github.com/microsoft/vscode-docs.git`
-4. Now you can `git add` binary files and commit them. They'll be tracked in LFS.
+# ==================== Main Execution ====================
 
-#### Cloning without binary files
+clear
+echo -e "${GREEN}============================================${NC}"
+echo -e "${GREEN}   VS Code Docs Cloner v2.0 (Production Ready)${NC}"
+echo -e "${GREEN}============================================${NC}"
+echo ""
 
-You might want to clone the repo without the 1.6GB images. Here are the steps:
+# Check disk space first
+check_disk_space
 
-1. Install [Git LFS](https://git-lfs.github.com/).
-2. Run `git lfs install` to set up global Git hooks. You only need to run this once per machine.
-3. Clone the repo without binary files.
-    - macOS / Linux:
-      - SSH auth: `GIT_LFS_SKIP_SMUDGE=1 git clone git@github.com:microsoft/vscode-docs.git`
-      - HTTPS auth: `GIT_LFS_SKIP_SMUDGE=1 git clone https://github.com/microsoft/vscode-docs.git`
-    - Windows:
-      - SSH auth: `$env:GIT_LFS_SKIP_SMUDGE="1"; git clone git@github.com:microsoft/vscode-docs.git`
-      - HTTPS auth: `$env:GIT_LFS_SKIP_SMUDGE="1"; git clone https://github.com/microsoft/vscode-docs.git`
-4. Now you can selectively check out some binary files to work with. For example:
-    - `git lfs pull -I "docs/nodejs"` to only download images in `docs/nodejs`
-    - `git lfs pull -I "release-notes/images/1_4*/*"` to only download images in `release-notes/images/1_4*`
-    - `git lfs pull -I "docs,api"` to download all images in `docs` and in `api`
-    - `git lfs pull -I <PATTERN>`, as long as `<PATTERN>` is a valid [Git LFS Include and Exclude pattern](https://github.com/git-lfs/git-lfs/blob/main/docs/man/git-lfs-fetch.adoc#include-and-exclude).
+# Step 1: Check dependencies
+check_dependencies
 
-The history of this repo before we adopted LFS can be found at [microsoft/vscode-docs-archive](https://github.com/microsoft/vscode-docs-archive).
+# Step 2: Clone repository
+clone_repo
 
-### Preview the website
+# Step 3: Setup LFS
+setup_lfs_tracking
 
-You can host a lightweight documentation website locally on your machine to preview your changes before pushing them to GitHub.
+# Step 4: Pull LFS files
+pull_lfs_files
 
-Run the following commands in the terminal from the root of the cloned `vscode-docs` repo:
+# Step 5: Show statistics
+show_stats
 
-```bash
-npm install
-npm run serve
-```
+# Step 6: Create helper README
+create_readme
 
-You can then navigate to `http://localhost:3000` in your browser to see the documentation website. Any changes you make to the Markdown files will automatically refresh the page so you can see your updates in real time.
+# Step 7: Cleanup
+cleanup
 
-## Publishing
-
-Publishing merged pull requests is not automatic and is initiated manually after changes have been reviewed on an internal staging server. There is no specific time guarantee for when PR updates will be available on <https://code.visualstudio.com> but the intent is that they will usually be live within 24 hours.
+echo ""
+print_success "✅ All steps completed successfully!"
+echo -e "${BLUE}Repository location: ${GREEN}$CLONE_DIR${NC}"
+echo -e "${BLUE}Enter directory: ${YELLOW}cd $CLONE_DIR${NC}"
+echo ""
+echo -e "${GREEN}Now you can make any changes you want! 🎉${NC}"
