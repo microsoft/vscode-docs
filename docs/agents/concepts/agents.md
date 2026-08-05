@@ -82,7 +82,7 @@ The primary benefit of subagents is context optimization. Without subagents, eve
 
 Key characteristics of subagents:
 
-* **Context isolation**: each subagent runs in its own context window. It doesn't inherit the main agent's conversation history or instructions. It receives only the task prompt.
+* **Context isolation**: each subagent runs in its own context window and doesn't inherit the main agent's conversation history. It receives the task prompt, applicable instruction files, and the current agent configuration.
 * **Synchronous execution**: the main agent waits for subagent results before continuing, because subagent findings typically inform the next step.
 * **Parallel execution**: VS Code can spawn multiple subagents in parallel for tasks like analyzing security, performance, and accessibility simultaneously.
 * **Focused results**: only the final result is returned to the main agent, keeping the main context focused and reducing token usage.

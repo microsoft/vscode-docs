@@ -127,6 +127,8 @@ The main agent decides when context isolation helps. You don't need to manually 
 
 You can hint that you want subagent delegation by phrasing your prompt to suggest isolated research or parallel analysis. The main agent will start a subagent, pass the task to it, and receive only the final result.
 
+Each subagent invocation is stateless. The main agent can't send follow-up messages to the same subagent, so include all relevant context and expected output in the task. The built-in tools for asking clarifying questions and managing todo items are unavailable to subagents.
+
 > [!TIP]
 > For consistent subagent behavior, define when to use subagents in your custom agent's instructions rather than prompting for them manually each time.
 
@@ -170,6 +172,8 @@ Read-only subagent chats show a lock icon and don't accept input. They persist a
 
 ![Screenshot showing a read-only subagent chat in the Agents window.](../images/agents-window/agents-window-follow-subagents-read-only-chat.png)
 
+By default, chat editors use a rich presentation that opens each subagent in its own editor instead of showing its full activity inline in the parent chat. Disable the `setting(chat.subagents.useRichRendering)` setting to show subagent activity inline.
+
 > [!NOTE]
 > Hover over a subagent section in the chat response to see the [AI credits](/docs/agents/concepts/language-models.md#ai-credits-and-model-costs) used by that subagent. This gives you more transparency into the cost of delegated work.
 
@@ -207,7 +211,9 @@ To run a custom agent as a subagent, prompt the AI to use a custom or built-in a
 * `Run the Research agent as a subagent to research the best auth methods for this project.`
 * `Use the Plan agent in a subagent to create an implementation plan for myfeature. Then save the plan in plans/myfeature.plan.md`
 
-### Restrict which subagents an agent can use (Experimental)
+Agent names are case-sensitive. Use the exact name from the custom agent definition.
+
+### Restrict which subagents an agent can use
 
 By default, all custom agents that don't have `disable-model-invocation: true` are available to be used as subagents. If two or more agents have similar names or descriptions, the AI might select an unintended agent.
 
@@ -252,7 +258,7 @@ To request a specific model for a subagent, include a model preference in your p
 You can also define the model preference in your custom agent's instructions to consistently route subagent tasks to a specific model.
 
 > [!NOTE]
-> The requested model cannot exceed the cost tier of the main model. If you request a more expensive model, the subagent falls back to the main model.
+> The requested model cannot exceed the cost tier of the main model. If you request a more expensive model, the subagent doesn't run and reports which models are available.
 
 ## Nested subagents
 
