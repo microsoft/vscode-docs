@@ -180,7 +180,7 @@ To get started:
 
 1. Install the [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot).
 
-1. Discover the key functionality with our [Copilot quickstart](/docs/agents/agents-tutorial.md).
+1. Discover the key functionality with our [Copilot quickstart](/docs/agents/quickstart.md).
 
 > [!TIP]
 > If you don't have a Copilot subscription yet, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly allowance of inline suggestions and AI credits.

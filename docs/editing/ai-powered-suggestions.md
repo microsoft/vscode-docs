@@ -176,7 +176,7 @@ To give you relevant inline suggestions, Copilot looks at the current and open f
 
 ## Next steps
 
-* Discover the key features in the [Quickstart](/docs/agents/agents-tutorial.md).
+* Discover the key features in the [Quickstart](/docs/agents/quickstart.md).
 
 * Use AI chat conversations with [chat in VS Code](/docs/chat/chat-overview.md).
 
