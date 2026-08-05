@@ -36,10 +36,10 @@ Agents are free to start and built into VS Code: sign in with a GitHub account t
 
 <video src="images/agents-overview/agents-intro.mp4" title="Video showing an agent session building a complete feature in VS Code." controls muted></video>
 
-<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
-Follow a hands-on tutorial to build your first app with AI in VS Code.
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
+Complete your first coding task with an agent in the Agents window or Chat view.
 
-* [Start tutorial](/docs/agents/agents-tutorial.md)
+* [Start quickstart](/docs/agents/quickstart.md)
 
 </div>
 
@@ -58,7 +58,7 @@ Agents are the most autonomous of several AI surfaces in VS Code. For lighter-we
 
 ## Get started
 
-AI features are built into VS Code. Sign in with your GitHub account to enable them, then follow the [agents tutorial](/docs/agents/agents-tutorial.md). If you don't have a subscription, you're signed up for the free plan with monthly limits.
+AI features are built into VS Code. Sign in with your GitHub account to enable them, then complete the [agents quickstart](/docs/agents/quickstart.md). If you don't have a subscription, you're signed up for the free plan with monthly limits. To explore a longer scenario, follow the [agents tutorial](/docs/agents/agents-tutorial.md).
 
 > [!NOTE]
 > Make sure agents are enabled in VS Code settings (`setting(chat.agent.enabled)`). If your organization has disabled agents, contact your GitHub organization admin.
