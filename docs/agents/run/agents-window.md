@@ -61,6 +61,18 @@ The Agents window has the following main areas:
 
 ![Screenshot of the Agents window interface, showing the sessions list, customizations panel, chat area, changes panel, and files panel.](../images/agents-window/agents-window-ui-annotated.png)
 
+### Use the single-pane editor panel (Experimental)
+
+The experimental single-pane layout combines the editor and detail panel in one docked pane with a shared tab bar. Files and diffs open in the editor next to the chat instead of in a modal window.
+
+To use the single-pane layout, enable `setting(sessions.layout.singlePaneDetailPanel)` and reload the window. The setting is read when the Agents window starts.
+
+<!-- TODO: Add a screenshot of the single-pane editor panel showing the shared tab bar, editor, and detail panel. -->
+
+In the shared tab bar, select **New Tab** (`+`) to open **Changes**, **Files**, **Browser**, or **Search**. Use **Hide Editor**, **Toggle Details**, and **Maximize Editor Area** or **Restore Editor Area** to adjust the layout. **Toggle Details** is available only for tabs that support a detail panel.
+
+Each session restores its side-pane width, open editors, active editor, and per-file collapsed state when you switch sessions or reload the window.
+
 ## Start an agent session
 
 To start a new agent session in the Agents window:

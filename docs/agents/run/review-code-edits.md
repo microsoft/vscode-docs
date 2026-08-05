@@ -63,6 +63,10 @@ To review and integrate the changes:
 
     Use the diff toolbar to show the editor side by side with chat or in a modal window.
 
+    With the [experimental single-pane editor panel](/docs/agents/run/agents-window.md#use-the-single-pane-editor-panel-experimental), use **Show Side by Side Diff** or **Show Inline Diff** to change the diff layout. Use **Expand All Diffs** or **Collapse All Diffs** to control all files at once. A keybinding for `kb(toggle.diff.renderSideBySide)` also works in the Agents window.
+
+    The Changes editor restores each file's expanded or collapsed state when you switch sessions or reload the window. The editor tab title shows the next integration action, such as **Create Pull Request**, and switches to an icon when space is limited.
+
 1. Select a range of code in a changed file, select **Add Feedback**, and enter a comment that describes the change you want. Add more comments on other selections or files, and then select **Submit Feedback** to send them to the agent.
 
     ![Screenshot showing the Add Feedback button in the Changes diff view.](../images/review-code-edits/agents-window-add-feedback.png)
