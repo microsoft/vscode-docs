@@ -16,9 +16,10 @@ Keywords:
 ---
 # Agent plugins in VS Code
 
-Agent plugins are prepackaged bundles of agent customizations that you can discover and install from plugin marketplaces in Visual Studio Code. Agent Plugins is an [open standard](https://agent-plugins.org/) for packaging [agent skills](/docs/agent-customization/agent-skills.md) and [MCP servers](/docs/agent-customization/mcp-servers.md) that works across multiple AI agents, including GitHub Copilot in VS Code, GitHub Copilot CLI, and the GitHub Copilot app.
+Agent plugins are prepackaged bundles of agent customizations that you can discover and install from plugin marketplaces in Visual Studio Code. Plugins work alongside your locally defined customizations. When you install a plugin, its supported customizations appear in chat.
 
-Through its existing Copilot and Claude plugin formats, VS Code also supports client-specific plugin capabilities, including slash commands, [custom agents](/docs/agent-customization/custom-agents.md), and [hooks](/docs/agent-customization/hooks.md). Plugins work alongside your locally defined customizations. When you install a plugin, its supported commands, skills, agents, hooks, and MCP servers appear in chat.
+Agent Plugins is an [open standard](https://agent-plugins.org/) for packaging [agent skills](/docs/agent-customization/agent-skills.md) and [MCP servers](/docs/agent-customization/mcp-servers.md) that works across multiple AI agents, including GitHub Copilot in VS Code, GitHub Copilot CLI, and the GitHub Copilot app.
+Through its existing Copilot and Claude plugin formats, VS Code also supports client-specific plugin capabilities, including slash commands, [custom agents](/docs/agent-customization/custom-agents.md), and [hooks](/docs/agent-customization/hooks.md).
 
 For how plugins fit into the broader set of customization options, see [Customization concepts](/docs/agents/concepts/customization.md).
 
@@ -27,15 +28,15 @@ For how plugins fit into the broader set of customization options, see [Customiz
 
 ## What plugins provide
 
-An agent plugin can bundle one or more of the following customization types:
-
-* **Slash commands**: additional commands you can invoke with `/` in chat
-* **Skills**: [agent skills](/docs/agent-customization/agent-skills.md) with instructions, scripts, and resources that load on-demand
-* **Agents**: [custom agents](/docs/agent-customization/custom-agents.md) with specialized personas and tool configurations
-* **Hooks**: [hooks](/docs/agent-customization/hooks.md) that execute shell commands at agent lifecycle points
-* **MCP servers**: [MCP servers](/docs/agent-customization/mcp-servers.md) for external tool integrations
-
 Agent Plugins 1.0 defines skills and MCP servers as portable component types. Other capabilities are client-specific and can use the standard's reverse-domain [client extension namespaces](https://agent-plugins.org/plugin-authors/client-extensions). VS Code currently ignores client extension data and directories in Agent Plugins 1.0 packages.
+
+| Capability | Description | Client-specific | Standard |
+|------------|-------------|:--------------:|:--------:|
+| [MCP servers](/docs/agent-customization/mcp-servers.md) | External tool integrations | | ✓ |
+| [Skills](/docs/agent-customization/agent-skills.md) | Instructions, scripts, and resources that load on-demand | | ✓ |
+| [Agents](/docs/agent-customization/custom-agents.md) | Specialized personas and tool configurations | ✓ | |
+| [Hooks](/docs/agent-customization/hooks.md) | Shell commands that execute at agent lifecycle points | ✓ | |
+| Slash commands | Commands you can invoke with `/` in chat | ✓ | |
 
 For example, a Copilot-format testing plugin might include a `test-runner` skill with scripts, a `test-reviewer` agent with read-only tools, and an MCP server for a test reporting dashboard. The plugin directory structure looks like this:
 
@@ -86,7 +87,7 @@ An Agent Plugins 1.0 package has a `plugin.json` file at its root that declares 
 | `keywords` | string[] | No | Search and discovery terms. |
 | `extensions` | object | No | Client-specific data keyed by reverse-domain namespace. |
 
-Skills are discovered from `skills/`, and MCP server configuration is discovered from `mcp.json`. You don't list these component paths in the manifest. Agents, hooks, commands, and MCP server definitions are not portable top-level manifest fields.
+Skills are discovered from the `skills/` folder, and MCP server configuration is discovered from the `mcp.json` file. You don't list these component paths in the manifest. Custom agents, hooks, commands, and MCP server definitions are not portable top-level manifest fields.
 
 For the full field constraints and validation rules, see the [Agent Plugins manifest documentation](https://agent-plugins.org/plugin-authors/manifest).
 
@@ -110,17 +111,107 @@ Some plugin formats provide a root token that you can use in hook commands and M
 
 | Plugin format | Plugin root |
 |---------------|------------------|
+| Agent Plugins 1.0 | `${PLUGIN_ROOT}` |
 | Claude | `${CLAUDE_PLUGIN_ROOT}` |
 | Copilot | `${PLUGIN_ROOT}` or `${CLAUDE_PLUGIN_ROOT}` |
 | Legacy OpenPlugin | `${PLUGIN_ROOT}` |
 
-Agent Plugins 1.0 defines `${PLUGIN_ROOT}` for packaged files and `${PLUGIN_DATA}` for writable state that persists across plugin updates. VS Code preserves these placeholders for the plugin runtime to expand. For details about where placeholders are supported, see the [Agent Plugins specification](https://github.com/agentplugins/agent-plugins-spec/blob/main/spec/1.0.0.md#9-environment-variables-and-placeholder-expansion).
+Agent Plugins 1.0 also defines `${PLUGIN_ROOT}` for packaged files and `${PLUGIN_DATA}` for writable state that persists across plugin updates. VS Code preserves these placeholders for the plugin runtime to expand. For details about where placeholders are supported, see the [Agent Plugins specification](https://github.com/agentplugins/agent-plugins-spec/blob/main/spec/1.0.0.md#9-environment-variables-and-placeholder-expansion).
+
+## MCP servers in plugins
+
+Plugins can bundle [MCP servers](/docs/agent-customization/mcp-servers.md) to provide agents with additional tools and data sources. Plugin MCP servers start automatically when the plugin is enabled and stop when the plugin is disabled.
+
+### MCP configuration file
+
+{% tabs id="mcp-configuration" %}
+{% tab label="Agent Plugins 1.0" %}
+
+Place MCP server definitions in the `mcp.json` file at the plugin root and follow the [portable MCP configuration format](https://agent-plugins.org/plugin-authors/mcp-servers).
+
+```text
+my-plugin/
+  plugin.json             # Plugin metadata and configuration
+  skills/
+  mcp.json              # MCP server definitions
+  servers/
+    db-server             # Server executable
+  config.json             # Server configuration
+```
+
+{% /tab %}
+
+{% tab label="Copilot and Claude" %}
+
+Place MCP server definitions in the `.mcp.json` file at the plugin root. VS Code discovers this file automatically when it loads the plugin.
+
+```text
+my-plugin/
+  plugin.json             # Plugin metadata and configuration
+  skills/
+  .mcp.json              # MCP server definitions
+  servers/
+    db-server             # Server executable
+  config.json             # Server configuration
+```
+
+In the `.mcp.json` file, MCP servers are defined in a top-level `mcpServers` object. Each server entry specifies a command, arguments, and optional environment variables:
+
+```json
+{
+  "mcpServers": {
+    "plugin-database": {
+      "command": "${CLAUDE_PLUGIN_ROOT}/servers/db-server",
+      "args": ["--config", "${CLAUDE_PLUGIN_ROOT}/config.json"],
+      "env": {
+        "DB_PATH": "${CLAUDE_PLUGIN_ROOT}/data"
+      }
+    },
+    "plugin-api": {
+      "command": "npx",
+      "args": ["@company/mcp-server", "--plugin-mode"],
+      "cwd": "${CLAUDE_PLUGIN_ROOT}"
+    }
+  }
+}
+```
+
+### Reference plugin paths in server configuration
+
+For Claude-format plugins, use the `${CLAUDE_PLUGIN_ROOT}` token in MCP server fields to reference executables and files within the plugin directory. VS Code expands this token in the following fields:
+
+* `command`: the executable path
+* `args`: command-line arguments
+* `cwd`: working directory
+* `env`: environment variable values
+* `envFile`: path to an environment file
+* `url`: for HTTP-based MCP servers
+* `headers`: HTTP header values
+
+VS Code also injects a `CLAUDE_PLUGIN_ROOT` environment variable into the server process, so server code can access the plugin path at runtime.
+
+{% /tab %}
+
+{% /tabs %}
+
+### How plugin MCP servers interact with other servers
+
+Plugin MCP servers appear alongside workspace and user-level MCP servers. You can manage them through the same tools:
+
+* Select **Configure Tools** in the Chat view to see tools from all MCP servers, including plugin servers.
+
+* Run **MCP: List Servers** from the Command Palette to view plugin servers alongside other servers.
+
+Plugin MCP servers are implicitly trusted when you install the plugin. Unlike workspace MCP servers, they do not show a separate trust prompt at startup.
+
+Disabling a plugin stops its MCP servers. Tools provided by the stopped servers are no longer available in chat.
 
 ## Hooks in plugins
 
 Plugins can include [hooks](/docs/agent-customization/hooks.md) that run shell commands at agent lifecycle points. Plugin hooks work alongside your workspace and user-level hooks. When a plugin is enabled, its hooks fire in addition to any other hooks configured for the same event.
 
-Hooks are client-specific and are not a portable Agent Plugins 1.0 component type.
+> [!NOTE]
+> Hooks are client-specific and are not a portable Agent Plugins 1.0 component type.
 
 ### Hook file location
 
@@ -211,99 +302,49 @@ Plugin hooks run alongside workspace-level and user-level hooks. When multiple h
 
 Disabling a plugin also disables its hooks. You can enable or disable plugins globally or for a specific workspace from the Extensions view.
 
-## MCP servers in plugins
-
-Plugins can bundle [MCP servers](/docs/agent-customization/mcp-servers.md) to provide agents with additional tools and data sources. Plugin MCP servers start automatically when the plugin is enabled and stop when the plugin is disabled.
-
-### MCP configuration file
-
-For Agent Plugins 1.0, place MCP server definitions in `mcp.json` at the plugin root and follow the [portable MCP configuration format](https://agent-plugins.org/plugin-authors/mcp-servers).
-
-For Copilot and Claude plugin formats, place MCP server definitions in `.mcp.json` at the plugin root. VS Code discovers this file automatically when it loads the plugin.
-
-```text
-my-plugin/
-  .mcp.json              # MCP server definitions
-  servers/
-    db-server             # Server executable
-  config.json             # Server configuration
-```
-
-### Copilot and Claude MCP configuration format
-
-For Copilot and Claude plugin formats, MCP servers are defined in a top-level `mcpServers` object. Each server entry specifies a command, arguments, and optional environment variables:
-
-```json
-{
-  "mcpServers": {
-    "plugin-database": {
-      "command": "${CLAUDE_PLUGIN_ROOT}/servers/db-server",
-      "args": ["--config", "${CLAUDE_PLUGIN_ROOT}/config.json"],
-      "env": {
-        "DB_PATH": "${CLAUDE_PLUGIN_ROOT}/data"
-      }
-    },
-    "plugin-api": {
-      "command": "npx",
-      "args": ["@company/mcp-server", "--plugin-mode"],
-      "cwd": "${CLAUDE_PLUGIN_ROOT}"
-    }
-  }
-}
-```
-
-> [!NOTE]
-> This example is not the Agent Plugins 1.0 `mcp.json` format. For the portable format, see [MCP servers in Agent Plugins](https://agent-plugins.org/plugin-authors/mcp-servers).
-
-### Reference plugin paths in server configuration
-
-For Claude-format plugins, use the `${CLAUDE_PLUGIN_ROOT}` token in MCP server fields to reference executables and files within the plugin directory. VS Code expands this token in the following fields:
-
-* `command`: the executable path
-* `args`: command-line arguments
-* `cwd`: working directory
-* `env`: environment variable values
-* `envFile`: path to an environment file
-* `url`: for HTTP-based MCP servers
-* `headers`: HTTP header values
-
-VS Code also injects a `CLAUDE_PLUGIN_ROOT` environment variable into the server process, so server code can access the plugin path at runtime.
-
-### How plugin MCP servers interact with other servers
-
-Plugin MCP servers appear alongside workspace and user-level MCP servers. You can manage them through the same tools:
-
-* Select **Configure Tools** in the Chat view to see tools from all MCP servers, including plugin servers.
-* Run **MCP: List Servers** from the Command Palette to view plugin servers alongside other servers.
-
-Plugin MCP servers are implicitly trusted when you install the plugin. Unlike workspace MCP servers, they do not show a separate trust prompt at startup.
-
-Disabling a plugin stops its MCP servers. Tools provided by the stopped servers are no longer available in chat.
-
 ## Discover and install plugins
 
-VS Code provides a dedicated view in the Extensions sidebar to browse and manage agent plugins.
+You can browse and install plugins from marketplaces or directly from a Git repository.
 
-### Browse available plugins
+### Install a plugin from a marketplace
+
+{% tabs id="plugin-marketplace" %}
+{% tab label="Extensions view" %}
 
 1. Open the Extensions view (`kb(workbench.view.extensions)`) and enter `@agentPlugins` in the search field.
 
     Alternatively, select the **More Actions** (three dots) icon in the Extensions sidebar and choose **Views** > **Agent Plugins**.
 
-1. Browse the list of available plugins from your configured marketplaces.
+1. Browse the list of available plugins from your [configured marketplaces](#configure-plugin-marketplaces).
 
     ![Screenshot of browsing agent plugins in the Extensions sidebar.](images/agent-plugins/extensions-view.png)
 
-1. Select **Install** to install a plugin in your user profile.
+1. Select **Install** to install a plugin.
 
     The first time you install a plugin from a new marketplace, VS Code shows a trust prompt. Review the marketplace source before confirming.
 
+{% /tab %}
+
+{% tab label="Agent Customizations" %}
+
+1. Open the Agent Customizations editor by running **Chat: Open Customizations** from the Command Palette, selecting the gear icon in the Chat view, or selecting **Plugins** in the Agents window.
+
+1. Select the **Plugins** tab and select **Browse Marketplace** to browse available plugins from your [configured marketplaces](#configure-plugin-marketplaces).
+
+1. Select **Install** to install a plugin.
+
+  The first time you install a plugin from a new marketplace, VS Code shows a trust prompt. Review the marketplace source before confirming.
+
+{% /tab %}
+{% /tabs %}
+
 ### Install a plugin from source
 
-You can install a plugin directly from a Git repository URL, without adding a full marketplace first.
+You can install a plugin directly from a Git repository URL without adding a full marketplace first.
 
 * Run **Chat: Install Plugin From Source** from the Command Palette.
-* Alternatively, select the **+** button on the **Plugins** page of the Agent Customizations editor.
+
+* Alternatively, select **Install Plugin from Source** on the **Plugins** page of the Agent Customizations editor.
 
 Enter a Git repository URL (for example, `https://github.com/rwoll/markdown-review`) and VS Code clones and installs the plugin.
 
@@ -326,6 +367,7 @@ You can also manage installed plugins from the Chat view by selecting the **gear
 You can enable or disable a plugin globally or for a specific workspace:
 
 * Use the context menu on a plugin in the **Agent Plugins - Installed** section of the Extensions view.
+
 * Use the [Agent Customizations editor](/docs/agent-customization/overview.md#use-the-agent-customizations-editor) to toggle a plugin's enabled state.
 
 The enable/disable state is stored separately from the plugin configuration, so it does not affect shared workspace settings.
@@ -363,7 +405,7 @@ Marketplace plugins can also reference external package sources such as npm or P
 
 ## Use local plugins
 
-If you manually clone or download a plugin, you can register it with the `setting(chat.pluginLocations)` setting. This setting maps local plugin directory paths to an enabled or disabled state.
+If you manually clone or download a plugin, you can register it with the `setting(chat.pluginLocations)` setting. This setting maps local plugin directory paths to an enabled or disabled state. Set the value to `true` to enable the plugin, or `false` to keep it registered but disabled.
 
 ```json
 // settings.json
@@ -372,8 +414,6 @@ If you manually clone or download a plugin, you can register it with the `settin
     "/path/to/another-plugin": false
 }
 ```
-
-Set the value to `true` to enable the plugin, or `false` to keep it registered but disabled.
 
 ## Update plugins
 
@@ -461,7 +501,3 @@ This can happen when a previous install left cached data. Delete the cached plug
 
 * [Finding and installing plugins for GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/plugins-finding-installing)
 * [GitHub Copilot CLI plugin reference](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-plugin-reference)
-* [Use Agent Skills](/docs/agent-customization/agent-skills.md)
-* [Add and manage MCP servers](/docs/agent-customization/mcp-servers.md)
-* [Use hooks for lifecycle automation](/docs/agent-customization/hooks.md)
-* [Create custom agents](/docs/agent-customization/custom-agents.md)
