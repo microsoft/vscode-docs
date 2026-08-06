@@ -436,10 +436,6 @@ pacman -S --needed base-devel mingw-w64-x86_64-toolchain
 
 When adding the MinGW-w64 destination folder to your list of environment variables, the default path will then be: `C:\msys64\mingw64\bin`.
 
-### MinGW 32-bit
-
-If you need a 32-bit version of the MinGW toolset, consult the [Downloading](https://www.msys2.org/wiki/MSYS2-installation/) section on the MSYS2 wiki. It includes links to both 32-bit and 64-bit installation options.
-
 ## Next steps
 
 - Explore the [VS Code User Guide](/docs/editing/codebasics.md).
