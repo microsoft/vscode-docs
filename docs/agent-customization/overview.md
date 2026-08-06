@@ -78,7 +78,7 @@ Code reviewer skill that checks for code style, best practices, and potential bu
 
 ### Create a customization manually
 
-You can manually create a customization file by using the **Chat: New <customization-type>** command from the Command Palette (`kb(workbench.action.showCommands)`). This creates the corresponding file in the appropriate location for the selected customization type. You can then edit the file in the inline editor or in a separate editor tab.
+You can manually create a customization file by using the **Chat: New \<customization-type\>** command from the Command Palette (`kb(workbench.action.showCommands)`). This creates the corresponding file in the appropriate location for the selected customization type. You can then edit the file in the inline editor or in a separate editor tab.
 
 Alternatively, you can use the Agent Customizations editor to create a customization file. Follow these steps:
 
