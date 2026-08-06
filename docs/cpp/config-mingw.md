@@ -33,7 +33,7 @@ To install the MinGW-w64 toolchain, check out this video or follow the steps bel
 
 1. You can download the latest installer from the MSYS2 page or use this [**direct link to the installer**](https://github.com/msys2/msys2-installer/releases/download/2025-08-30/msys2-x86_64-20250830.exe).
 
-1. Run the installer and follow the steps of the installation wizard. Note that MSYS2 requires 64 bit Windows 8.1 or newer.
+1. Run the installer and follow the steps of the installation wizard. Note that MSYS2 requires 64 bit Windows 10 (version 1809 or later).
 
 1. In the wizard, choose your desired Installation Folder. Record this directory for later. In most cases, the recommended directory is acceptable. The same applies when you get to setting the start menu shortcuts step. When complete, ensure the **Run MSYS2 now** box is checked and select **Finish**. This will open a MSYS2 terminal window for you.
 
@@ -398,7 +398,7 @@ Visual Studio Code places these settings in `.vscode\c_cpp_properties.json`. If 
                 "_UNICODE"
             ],
             "windowsSdkVersion": "10.0.22000.0",
-            "compilerPath": "C:/msys64/mingw64/bin/g++.exe",
+            "compilerPath": "C:/msys64/ucrt64/bin/g++.exe",
             "cStandard": "c17",
             "cppStandard": "c++17",
             "intelliSenseMode": "windows-gcc-x64"
@@ -428,13 +428,7 @@ You must follow the steps on the [MSYS2 website](https://www.msys2.org/) to use 
 
 ### As a Windows user, running the pacman command gives me an error
 
-UCRT on Windows machines is only included in Windows 10 or later. If you are using another version of Windows, run the following command that does not use UCRT:
-
-```bash
-pacman -S --needed base-devel mingw-w64-x86_64-toolchain
-```
-
-When adding the MinGW-w64 destination folder to your list of environment variables, the default path will then be: `C:\msys64\mingw64\bin`.
+When adding the MinGW-w64 destination folder to your list of environment variables, the default path will then be: `C:\msys64\ucrt64\bin`.
 
 ### MinGW 32-bit
 
