@@ -1,7 +1,7 @@
 ---
 ContentId: f9b2c4e3-8a7d-4e1f-b5c3-2d9a6f8e4b71
 DateApproved: 8/5/2026
-MetaDescription: Learn how to discover, install, and manage agent plugins in VS Code to extend GitHub Copilot with pre-packaged commands, skills, agents, hooks, and MCP servers.
+MetaDescription: Learn how to discover, install, and manage agent plugins in VS Code, including plugins that follow the open Agent Plugins standard.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - copilot
@@ -14,11 +14,11 @@ Keywords:
 - hooks
 - mcp
 ---
-# Agent plugins in VS Code (Preview)
+# Agent plugins in VS Code
 
-Agent plugins are prepackaged bundles of agent customizations that you can discover and install from plugin marketplaces in Visual Studio Code. A single plugin can provide any combination of slash commands, [agent skills](/docs/agent-customization/agent-skills.md), [custom agents](/docs/agent-customization/custom-agents.md), [hooks](/docs/agent-customization/hooks.md), and [MCP servers](/docs/agent-customization/mcp-servers.md).
+Agent plugins are prepackaged bundles of agent customizations that you can discover and install from plugin marketplaces in Visual Studio Code. Agent Plugins is an [open standard](https://agent-plugins.org/) for packaging [agent skills](/docs/agent-customization/agent-skills.md) and [MCP servers](/docs/agent-customization/mcp-servers.md) that works across multiple AI agents, including GitHub Copilot in VS Code, GitHub Copilot CLI, and the GitHub Copilot app.
 
-Plugins work alongside your locally defined customizations. When you install a plugin, its commands, skills, agents, hooks, and MCP servers appear in chat.
+VS Code also supports client-specific plugin capabilities, including slash commands, [custom agents](/docs/agent-customization/custom-agents.md), and [hooks](/docs/agent-customization/hooks.md). Plugins work alongside your locally defined customizations. When you install a plugin, its supported commands, skills, agents, hooks, and MCP servers appear in chat.
 
 For how plugins fit into the broader set of customization options, see [Customization concepts](/docs/agents/concepts/customization.md).
 
@@ -35,7 +35,9 @@ An agent plugin can bundle one or more of the following customization types:
 * **Hooks**: [hooks](/docs/agent-customization/hooks.md) that execute shell commands at agent lifecycle points
 * **MCP servers**: [MCP servers](/docs/agent-customization/mcp-servers.md) for external tool integrations
 
-For example, a testing plugin might include a `test-runner` skill with scripts, a `test-reviewer` agent with read-only tools, and an MCP server for a test reporting dashboard. The plugin directory structure looks like this:
+Agent Plugins 1.0 defines skills and MCP servers as portable component types. Other capabilities are client-specific and can use the standard's reverse-domain [client extension namespaces](https://agent-plugins.org/plugin-authors/client-extensions).
+
+For example, a Copilot-format testing plugin might include a `test-runner` skill with scripts, a `test-reviewer` agent with read-only tools, and an MCP server for a test reporting dashboard. The plugin directory structure looks like this:
 
 ```text
 my-testing-plugin/
@@ -58,54 +60,49 @@ Once installed, plugin-provided customizations appear alongside your locally def
 > [!CAUTION]
 > Plugins can include hooks and MCP servers that run code on your machine. Review the plugin contents and publisher before installing, especially for plugins from community marketplaces.
 
-## Plugin metadata (plugin.json)
+## Plugin manifest (plugin.json)
 
-Every plugin requires a `plugin.json` manifest file at its root. This file defines the plugin's identity and tells VS Code where to find its components.
-
-### Required field
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `name` | string | Kebab-case plugin name. Only lowercase letters, numbers, and hyphens are allowed. Maximum 64 characters. Do not use slashes, colons, or namespace prefixes (for example, `my-plugin` is valid but `myorg/my-plugin` is not). Invalid names cause the plugin to silently fail to load. |
-
-### Optional fields
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `description` | string | Brief description of the plugin. Maximum 1024 characters. |
-| `version` | string | Semantic version (for example, `1.0.0`). When a plugin is listed in a marketplace, version can appear in both `plugin.json` and the `marketplace.json` plugin entry. Bump the version in `plugin.json` when you publish changes. |
-| `author` | object | Author information with `name` (required), `email`, and `url` fields. |
-| `skills` | string or string[] | Path(s) to skill directories. Defaults to `skills/`. |
-| `agents` | string or string[] | Path(s) to agent directories. Defaults to `agents/`. |
-| `hooks` | string or object | Path to a hooks config file or an inline hooks object. |
-| `mcpServers` | string or object | Path to an MCP config file (for example, `.mcp.json`) or inline server definitions. |
-
-For the full field reference, see the [GitHub Copilot CLI plugin reference](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-plugin-reference#pluginjson).
-
-### Example plugin.json
+An Agent Plugins 1.0 package has a `plugin.json` file at its root that declares the standard's schema:
 
 ```json
 {
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "my-dev-tools",
   "description": "React development utilities",
-  "version": "1.2.0",
-  "author": {
-    "name": "Jane Doe"
-  },
-  "skills": "skills/",
-  "agents": "agents/",
-  "hooks": "hooks.json",
-  "mcpServers": ".mcp.json"
+  "version": "1.2.0"
 }
 ```
 
+| Field | Type | Required | Description |
+|-------|------|:--------:|-------------|
+| `$schema` | string | Yes | Canonical Agent Plugins schema identifier. |
+| `name` | string | Yes | Plugin name and package identifier. |
+| `version` | string | No | Plugin version. Semantic Versioning is recommended. |
+| `description` | string | No | Brief description of the plugin. |
+| `author` | object | No | Author information with optional `name`, `email`, and `url` fields. |
+| `homepage` | string | No | Documentation or homepage. |
+| `repository` | string | No | Source repository. |
+| `license` | string | No | License identifier. An SPDX identifier is recommended. |
+| `keywords` | string[] | No | Search and discovery terms. |
+| `extensions` | object | No | Client-specific data keyed by reverse-domain namespace. |
+
+Skills are discovered from `skills/`, and MCP server configuration is discovered from `mcp.json`. You don't list these component paths in the manifest. Agents, hooks, commands, and MCP server definitions are not portable top-level manifest fields.
+
+For the full field constraints and validation rules, see the [Agent Plugins manifest documentation](https://agent-plugins.org/plugin-authors/manifest).
+
+> [!NOTE]
+> Existing Copilot-format plugins that don't declare the Agent Plugins schema remain supported. For their manifest fields, see the [GitHub Copilot CLI plugin reference](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-plugin-reference#pluginjson).
+
 ## Plugin formats
 
-VS Code auto-detects the plugin format by checking for format-specific manifest paths. Copilot format is used as the default when no other format markers are found.
-| Plugin format | Plugin file path(s) |
-|---------------|------------------|
+VS Code auto-detects the plugin format by checking the root manifest and format-specific manifest paths. A root `plugin.json` that declares the canonical Agent Plugins `$schema` uses Agent Plugins semantics. The Copilot format is used as the default when no other format marker is found.
+
+| Plugin format | Plugin manifest |
+|---------------|-----------------|
+| Agent Plugins 1.0 | `plugin.json` with `$schema` set to `https://agent-plugins.org/schemas/1.0.0/plugin.schema.json` |
+| Copilot | `plugin.json` |
 | Claude | `.claude-plugin/plugin.json` |
-| OpenPlugin | `.plugin/plugin.json` |
+| Legacy OpenPlugin | `.plugin/plugin.json` |
 
 ### Plugin environment variables
 
@@ -114,12 +111,16 @@ Some plugin formats provide a root token that you can use in hook commands and M
 | Plugin format | Plugin root |
 |---------------|------------------|
 | Claude | `${CLAUDE_PLUGIN_ROOT}` |
-| Copilot | (Not defined) |
-| OpenPlugin | `${PLUGIN_ROOT}` |
+| Copilot | `${PLUGIN_ROOT}` or `${CLAUDE_PLUGIN_ROOT}` |
+| Legacy OpenPlugin | `${PLUGIN_ROOT}` |
+
+Agent Plugins 1.0 defines `${PLUGIN_ROOT}` for packaged files and `${PLUGIN_DATA}` for writable state that persists across plugin updates. VS Code preserves these placeholders for the plugin runtime to expand. For details about where placeholders are supported, see the [Agent Plugins specification](https://github.com/agentplugins/agent-plugins-spec/blob/main/spec/1.0.0.md#9-environment-variables-and-placeholder-expansion).
 
 ## Hooks in plugins
 
 Plugins can include [hooks](/docs/agent-customization/hooks.md) that run shell commands at agent lifecycle points. Plugin hooks work alongside your workspace and user-level hooks. When a plugin is enabled, its hooks fire in addition to any other hooks configured for the same event.
+
+Hooks are client-specific and are not a portable Agent Plugins 1.0 component type.
 
 ### Hook file location
 
@@ -216,7 +217,9 @@ Plugins can bundle [MCP servers](/docs/agent-customization/mcp-servers.md) to pr
 
 ### MCP configuration file
 
-Place MCP server definitions in `.mcp.json` at the plugin root. VS Code discovers this file automatically when it loads the plugin.
+For Agent Plugins 1.0, place MCP server definitions in `mcp.json` at the plugin root and follow the [portable MCP configuration format](https://agent-plugins.org/plugin-authors/mcp-servers).
+
+For Copilot and Claude plugin formats, place MCP server definitions in `.mcp.json` at the plugin root. VS Code discovers this file automatically when it loads the plugin.
 
 ```text
 my-plugin/
@@ -226,9 +229,9 @@ my-plugin/
   config.json             # Server configuration
 ```
 
-### MCP configuration format
+### Copilot and Claude MCP configuration format
 
-Plugin MCP servers are defined in a top-level `mcpServers` object. Each server entry specifies a command, arguments, and optional environment variables:
+For Copilot and Claude plugin formats, MCP servers are defined in a top-level `mcpServers` object. Each server entry specifies a command, arguments, and optional environment variables:
 
 ```json
 {
@@ -250,7 +253,7 @@ Plugin MCP servers are defined in a top-level `mcpServers` object. Each server e
 ```
 
 > [!NOTE]
-> The top-level key is `mcpServers` (not `servers` as in the workspace `mcp.json`).
+> This example is not the Agent Plugins 1.0 `mcp.json` format. For the portable format, see [MCP servers in Agent Plugins](https://agent-plugins.org/plugin-authors/mcp-servers).
 
 ### Reference plugin paths in server configuration
 
@@ -410,31 +413,30 @@ Specify the following fields in the settings file to configure workspace plugin 
 
 ## Cross-tool compatibility
 
-The plugin format is shared between VS Code, GitHub Copilot CLI, and Claude Code. A single plugin repository can work across all three tools.
+Agent Plugins 1.0 is an open standard designed for cross-tool compatibility. A conformant plugin uses a root `plugin.json`, puts skills in `skills/`, and puts MCP server configuration in `mcp.json`. Compatible clients can discover the portable component types they support from the same package.
 
-VS Code auto-detects the plugin format by looking for `plugin.json` in multiple locations, checked in this order:
+Agent Plugins can also include client-specific manifest data and files under a stable reverse-domain namespace. Clients ignore namespaces they don't implement, so client-specific capabilities don't prevent other clients from loading the portable components.
 
-1. `.plugin/plugin.json`
-1. `plugin.json` (at the plugin root)
-1. `.github/plugin/plugin.json`
-1. `.claude-plugin/plugin.json`
+For example:
 
-If you author plugins for multiple tools, you can place `plugin.json` at the root and use symlinks or copies in the format-specific directories. Keep the `name` field identical across all copies to avoid conflicts.
+```text
+my-plugin/
+  plugin.json
+  skills/
+  mcp.json
+  com.example.client/
+```
 
-Key differences to be aware of across tools:
+VS Code continues to support existing Copilot, Claude, and legacy OpenPlugin formats. Plugins that don't declare the Agent Plugins schema continue to use their existing format-specific discovery rules.
 
-* **Hook file location**: Claude-format plugins expect hooks in `hooks/hooks.json`, while Copilot-format plugins use `hooks.json` at the root. VS Code detects the format automatically.
-* **Plugin root token**: Claude-format plugins use `${CLAUDE_PLUGIN_ROOT}` to reference files within the plugin directory. This token is not available in Copilot-format plugins.
-* **Skill naming**: all tools require plain kebab-case names in `SKILL.md`. Namespace prefixes (like `myorg/skillname`) cause silent load failures.
-
-For tool-specific details, see the [GitHub Copilot CLI plugin reference](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-plugin-reference) and the [Claude Code plugin marketplace documentation](https://code.claude.com/docs/en/plugin-marketplaces).
+For details about the portable format, see the [Agent Plugins specification](https://github.com/agentplugins/agent-plugins-spec/blob/main/spec/1.0.0.md). For other formats, see the [GitHub Copilot CLI plugin reference](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-plugin-reference) and the [Claude Code plugin marketplace documentation](https://code.claude.com/docs/en/plugin-marketplaces).
 
 ## Troubleshooting
 
 ### Plugin does not appear after installation
 
 * Confirm that agent plugins are enabled: check that `setting(chat.plugins.enabled)` is set to `true`.
-* Verify the plugin's `name` field in `plugin.json` uses only lowercase letters, numbers, and hyphens. Slashes, colons, or other special characters cause the plugin to silently fail to load.
+* Verify the plugin's `name` field follows the naming rules for its format. Agent Plugins 1.0 names use lowercase letters, numbers, hyphens, and periods. Legacy Copilot plugin names use lowercase letters, numbers, and hyphens. Slashes and colons aren't supported.
 * Check that `plugin.json` is in a recognized location (see [Cross-tool compatibility](#cross-tool-compatibility)).
 
 ### Skills from a plugin do not load

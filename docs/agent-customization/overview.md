@@ -45,7 +45,7 @@ Customization pays off in concrete ways: you stop repeating context, get consist
 * **[Custom agents](/docs/agent-customization/custom-agents.md)**: Give the AI a focused role with its own instructions, allowed tools, and model, such as a read-only planner or a security reviewer. Switch roles in one step instead of re-explaining them each time.
 * **[MCP servers](/docs/agent-customization/mcp-servers.md)**: Connect the AI to your own tools, databases, and services to work with real project data, not just code. For example, query your database or file an issue.
 * **[Hooks](/docs/agent-customization/hooks.md)**: Run your own commands automatically at key points in the agent's loop, such as formatting after every edit or blocking risky commands. You get deterministic guardrails that don't rely on the model remembering.
-* **[Agent plugins](/docs/agent-customization/agent-plugins.md)** (preview): Install a ready-made bundle of the customizations above from a marketplace, and adopt a proven workflow without building it yourself.
+* **[Agent plugins](/docs/agent-customization/agent-plugins.md)**: Install a ready-made bundle of the customizations above from a marketplace, and adopt a proven workflow without building it yourself.
 * **[Prompt files](/docs/agent-customization/prompt-files.md)**: Save a reusable prompt that you invoke as a slash command, such as `/scaffold-component` or `/prep-pr`. Turn a paragraph of instructions into one command.
 
 To compare these options and decide which one fits a given goal, see [Customization concepts](/docs/agents/concepts/customization.md). The rest of this article focuses on how to set up and manage customizations.
