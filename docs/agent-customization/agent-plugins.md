@@ -18,7 +18,7 @@ Keywords:
 
 Agent plugins are prepackaged bundles of agent customizations that you can discover and install from plugin marketplaces in Visual Studio Code. Agent Plugins is an [open standard](https://agent-plugins.org/) for packaging [agent skills](/docs/agent-customization/agent-skills.md) and [MCP servers](/docs/agent-customization/mcp-servers.md) that works across multiple AI agents, including GitHub Copilot in VS Code, GitHub Copilot CLI, and the GitHub Copilot app.
 
-VS Code also supports client-specific plugin capabilities, including slash commands, [custom agents](/docs/agent-customization/custom-agents.md), and [hooks](/docs/agent-customization/hooks.md). Plugins work alongside your locally defined customizations. When you install a plugin, its supported commands, skills, agents, hooks, and MCP servers appear in chat.
+Through its existing Copilot and Claude plugin formats, VS Code also supports client-specific plugin capabilities, including slash commands, [custom agents](/docs/agent-customization/custom-agents.md), and [hooks](/docs/agent-customization/hooks.md). Plugins work alongside your locally defined customizations. When you install a plugin, its supported commands, skills, agents, hooks, and MCP servers appear in chat.
 
 For how plugins fit into the broader set of customization options, see [Customization concepts](/docs/agents/concepts/customization.md).
 
@@ -35,7 +35,7 @@ An agent plugin can bundle one or more of the following customization types:
 * **Hooks**: [hooks](/docs/agent-customization/hooks.md) that execute shell commands at agent lifecycle points
 * **MCP servers**: [MCP servers](/docs/agent-customization/mcp-servers.md) for external tool integrations
 
-Agent Plugins 1.0 defines skills and MCP servers as portable component types. Other capabilities are client-specific and can use the standard's reverse-domain [client extension namespaces](https://agent-plugins.org/plugin-authors/client-extensions).
+Agent Plugins 1.0 defines skills and MCP servers as portable component types. Other capabilities are client-specific and can use the standard's reverse-domain [client extension namespaces](https://agent-plugins.org/plugin-authors/client-extensions). VS Code currently ignores client extension data and directories in Agent Plugins 1.0 packages.
 
 For example, a Copilot-format testing plugin might include a `test-runner` skill with scripts, a `test-reviewer` agent with read-only tools, and an MCP server for a test reporting dashboard. The plugin directory structure looks like this:
 
@@ -415,7 +415,7 @@ Specify the following fields in the settings file to configure workspace plugin 
 
 Agent Plugins 1.0 is an open standard designed for cross-tool compatibility. A conformant plugin uses a root `plugin.json`, puts skills in `skills/`, and puts MCP server configuration in `mcp.json`. Compatible clients can discover the portable component types they support from the same package.
 
-Agent Plugins can also include client-specific manifest data and files under a stable reverse-domain namespace. Clients ignore namespaces they don't implement, so client-specific capabilities don't prevent other clients from loading the portable components.
+Agent Plugins can also include client-specific manifest data and files under a stable reverse-domain namespace. Clients ignore namespaces they don't implement, so client-specific capabilities don't prevent other clients from loading the portable components. VS Code currently ignores these namespaces and loads only the portable skills and MCP server configuration.
 
 For example:
 
