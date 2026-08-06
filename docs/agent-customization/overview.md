@@ -67,19 +67,20 @@ You can create customization files manually or use AI to generate them, after wh
 
 ### Create a customization with AI
 
-To create a customization with AI, you can use slash commands in the chat input. Type `/create-<customization-type>` followed by details about what you want to create. The agent asks for any missing details and generates the customization in the appropriate format.
+You can create a customization file with AI assistance. To do this, open the Agent Customizations editor and
+enter a prompt in the **Overview** tab that describes what you want to create. The agent asks for any missing details and generates the customization in the appropriate format.
 
-For example, to create a code reviewer skill, you can enter the following command in chat:
+For example, to create a code reviewer skill, you can enter the following prompt:
 
 ```text
-/create-skill Code Reviewer that checks for code style, best practices, and potential bugs in Python and JavaScript files.
+Code reviewer skill that checks for code style, best practices, and potential bugs in Python and JavaScript files.
 ```
-
-Alternatively, enter a prompt in the Overview tab of the Agent Customizations editor.
 
 ### Create a customization manually
 
-To create a customization from the Agent Customizations editor:
+You can manually create a customization file by using the **Chat: New <customization-type>** command from the Command Palette (`kb(workbench.action.showCommands)`). This creates the corresponding file in the appropriate location for the selected customization type. You can then edit the file in the inline editor or in a separate editor tab.
+
+Alternatively, you can use the Agent Customizations editor to create a customization file. Follow these steps:
 
 1. Open the Agent Customizations editor and select a customization type
 
