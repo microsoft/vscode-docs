@@ -18,9 +18,9 @@ Keywords:
 
 # Agent customization
 
-AI models contain broad general knowledge but don't know your specific codebase or team practices. Agent customization is how you share that context to make responses match your coding standards, project structure, and workflows.
+AI models have broad knowledge, but they don't know your codebase, team practices, or development systems. Agent customization adapts an agent to your environment by adding persistent context, repeatable workflows, specialized roles, external tools, and deterministic controls.
 
-This article is the decision matrix for customization: it explains the different options and helps you choose which one fits your goal. To learn what each option is and how to get started, see [Customize agent behavior in Visual Studio Code](/docs/agent-customization/overview.md) and the individual guides linked from each option.
+This article explains how customizations change an agent, how the customization types differ, and how you can combine them. To create and manage customizations, see [Customize agent behavior in Visual Studio Code](/docs/agent-customization/overview.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with customizations">
 Follow a hands-on tutorial to discover the customization options and configure them for your project.
@@ -29,39 +29,79 @@ Follow a hands-on tutorial to discover the customization options and configure t
 
 </div>
 
+## How customization changes an agent
+
+Without customization, the agent works from your prompt, the current conversation, and the context it gathers from your workspace. Customizations add information or capabilities that persist beyond a single prompt. They can change different parts of the agent's work:
+
+* **Provide context**: [instructions](/docs/agent-customization/custom-instructions.md) describe coding standards, architecture decisions, and other rules the agent should follow.
+* **Define repeatable work**: [agent skills](/docs/agent-customization/agent-skills.md) and [prompt files](/docs/agent-customization/prompt-files.md) package task-specific guidance so you don't have to describe the same process in every conversation.
+* **Configure a role**: [custom agents](/docs/agent-customization/custom-agents.md) combine instructions, tools, and a language model into a specialized agent persona.
+* **Add capabilities**: [MCP servers](/docs/agent-customization/mcp-servers.md) give the agent tools for interacting with external systems such as databases, browsers, and APIs.
+* **Enforce actions**: [hooks](/docs/agent-customization/hooks.md) run commands at specific points in the agent loop, independent of whether the model chooses to run them.
+* **Adopt a ready-made setup**: [agent plugins](/docs/agent-customization/agent-plugins.md) let you install multiple related customization types as one package.
+
+These mechanisms affect different layers of the agent. Instructions guide the model's decisions, tools expand the actions it can take, and hooks run outside the model's decision-making. As a result, adding a rule to an instructions file is not equivalent to enforcing that rule with a hook.
+
+Relevant customizations can reduce back-and-forth and rework by giving the agent project context from the start. Avoiding corrective turns and discarded implementations can help reduce [AI credit usage](/docs/agents/guides/optimize-usage.md). Keep customizations focused because their content also consumes space in the model's context window.
+
 ## Customization options at a glance
 
-Each option shapes a different part of how the agent works. Find the goal that matches your need, then follow the link to set it up.
+Ask the following questions when choosing a customization:
 
-| Goal | Use | Example | When it activates |
-|------|-----|---------|-------------------|
-| Apply the same coding standards to all code | [Always-on instructions](/docs/agent-customization/custom-instructions.md) | Enforce ESLint rules, require JSDoc comments | Automatically included in every request |
-| Apply different rules to different file types | [File-based instructions](/docs/agent-customization/custom-instructions.md) | React patterns for `.tsx` files | When files match a pattern or description |
-| Automate a multi-step workflow that needs scripts | [Agent skills](/docs/agent-customization/agent-skills.md) | Scaffold a service from bundled template files and a setup script | When the task matches the skill description |
-| Give the AI a focused role with limited tools | [Custom agents](/docs/agent-customization/custom-agents.md) | Security reviewer, database admin | When you select it or another agent delegates to it |
-| Connect the AI to external APIs or databases | [MCP](/docs/agent-customization/mcp-servers.md) | Query a PostgreSQL database | When the task matches a tool description |
-| Run a command automatically during the agent's work | [Hooks](/docs/agent-customization/hooks.md) | Run a formatter after every file edit | When the agent reaches a matching lifecycle event |
-| Run a repeatable task on demand | [Prompt files](/docs/agent-customization/prompt-files.md) | Scaffold a React component | When you invoke a slash command |
+* Should it apply automatically, or only when you request it?
+* Are you providing guidance, defining a workflow, adding a capability, or enforcing an action?
+* Should the model decide when to use it?
 
-Start with custom instructions for project-wide standards. Add agent skills to automate repeatable, multi-step tasks. Use MCP when you need external data. Create custom agents for specialized roles. You can combine multiple customization types as your needs grow.
+The following table compares the customization types by purpose and activation.
 
-[Agent plugins](/docs/agent-customization/agent-plugins.md) bundle several of these options into a single installable package, letting you adopt a ready-made workflow without building it yourself.
+| Need | Use | Example | Activation |
+|------|-----|---------|------------|
+| Apply standards across a project | [Always-on instructions](/docs/agent-customization/custom-instructions.md) | Require a specific logging library and error-handling pattern | Automatically included in each request |
+| Apply guidance to specific code or tasks | [File-based instructions](/docs/agent-customization/custom-instructions.md) | Apply React conventions when the agent works with `.tsx` files | Included when files match a pattern or the task matches the description |
+| Teach the agent a workflow with supporting resources | [Agent skills](/docs/agent-customization/agent-skills.md) | Create a service from instructions, template files, and a setup script | The agent loads the skill when the task matches, or you invoke it directly |
+| Run a saved task on demand | [Prompt files](/docs/agent-customization/prompt-files.md) | Scaffold a React component | You invoke the prompt as a slash command |
+| Use a specialized role and tool configuration | [Custom agents](/docs/agent-customization/custom-agents.md) | Review code with read-only tools | You select the agent, use it as a subagent, or another agent delegates to it |
+| Connect to an external system | [MCP](/docs/agent-customization/mcp-servers.md) | Query a database or update an issue | The agent calls an MCP tool when the task requires it |
+| Run code at a lifecycle event | [Hooks](/docs/agent-customization/hooks.md) | Run a formatter after a file edit or block a risky command | VS Code runs the hook when the configured event occurs |
+| Install a packaged customization setup | [Agent plugins](/docs/agent-customization/agent-plugins.md) | Add a testing workflow with a skill, agent, hooks, and MCP server | Each bundled customization follows its own activation rules |
+
+Start with instructions when your main goal is to stop repeating project context. Add other customization types when you identify a recurring task, specialized role, missing capability, or action that must always run.
+
+## Model-driven vs. deterministic behavior
+
+Most customizations guide the model or give it more options. The model interprets instructions, decides whether a skill is relevant, and chooses when to call an available tool. The result depends on the request, available context, and model reasoning.
+
+Hooks are deterministic. A hook runs when its configured lifecycle event occurs. Use a hook when an action must happen consistently, such as validating a command before it runs or starting a formatter after an edit. Use instructions when you want to guide how the agent reasons or writes code.
+
+For example, an instruction that says "run the formatter after editing a file" asks the model to remember and perform that action. A hook configured for the corresponding lifecycle event runs regardless of whether the model remembers the instruction.
 
 ## How customizations combine
 
-The customization options are designed to layer:
+Customization types are building blocks rather than mutually exclusive alternatives. Consider an agent that prepares a pull request for your project:
 
-* **Instructions** shape *how* the AI writes code (conventions, style, libraries).
-* **Prompt files** and **agent skills** encapsulate *what* the AI does for recurring tasks, from a single prompt up to a multi-step workflow with scripts.
-* **Custom agents** define *who* the AI acts as (persona, tools, model), and can delegate to other agents for multi-step workflows.
-* **MCP servers** extend *what the AI can reach* by adding [tools](/docs/agents/concepts/tools.md) that connect to external systems.
-* **Hooks** enforce *deterministic actions* at specific lifecycle points in the agent loop, regardless of what the model decides to do.
-* **Agent plugins** are pre-packaged bundles of the above, distributed through plugin marketplaces.
+1. **Instructions** provide the repository's coding standards and pull request conventions.
+1. A **custom agent** gives the agent a focused role and limits it to the tools needed for the task.
+1. An **agent skill** supplies the steps, scripts, and templates for preparing the pull request.
+1. An **MCP server** provides tools to retrieve the related issue from an external issue tracker.
+1. **Hooks** run required validation after the agent edits files and block disallowed commands.
 
-For configuration steps and examples, see [Customize agent behavior in VS Code](/docs/agent-customization/overview.md) and the individual articles linked from the table above.
+Each layer has a separate responsibility. You can update the coding standards without changing the workflow, or replace the external system without rewriting the agent's role.
+
+A plugin can distribute the complete configuration, for example within your organization, so that other developers can install the same skills and MCP servers.
+
+## Customization scope
+
+Where you define a customization determines who can use it and where it applies. Depending on the customization type, you can define it at one or more of these levels:
+
+* **User**: available to you across workspaces.
+* **Workspace or repository**: stored with the project and shared with contributors through source control.
+* **Organization**: managed centrally and shared across repositories, where supported.
+
+Choose the narrowest scope that matches the information. Personal preferences belong at the user level. Project architecture and team workflows belong in the repository. Organization-wide requirements belong at the organization level when the customization type supports it.
+
+Not every customization type supports every scope or agent harness. See the individual customization guide for supported locations and environments.
 
 ## Related resources
 
 * [Customize agent behavior in VS Code](/docs/agent-customization/overview.md)
-* [Agents](/docs/agents/concepts/agents.md)
-* [Tools](/docs/agents/concepts/tools.md)
+* [Customize AI for your project](/docs/agents/guides/customize-copilot-guide.md)

@@ -1,7 +1,7 @@
 ---
 ContentId: 16c73175-a606-4aab-8ae5-a5071d3b9e24
 DateApproved: 8/5/2026
-MetaDescription: Get started customizing AI in VS Code with custom instructions, prompt files, custom agents, MCP servers, and more to align AI responses with your coding practices.
+MetaDescription: Create, manage, evaluate, and troubleshoot agent customizations in VS Code for user profiles, workspaces, and monorepos.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - ai
@@ -16,13 +16,11 @@ Keywords:
 - agent skills
 - mcp
 ---
-# Customize agent behavior in Visual Studio Code
+# Create and manage agent customizations
 
-AI agents write great code but don't know your codebase, team conventions, or the workflows you repeat every day. By adding agent customizations, you share that context to make the AI's responses match your coding standards, project structure, and common tasks.
+Agent customizations adapt agents to your coding standards, workflows, and development systems. This article explains how to create, manage, evaluate, and troubleshoot customizations in Visual Studio Code. To compare the customization types and understand how they work together, see [Agent customization concepts](/docs/agents/concepts/customization.md).
 
-Visual Studio Code gives you several ways to provide this context, from project-wide instructions to specialized agent personas and access to external tools. This article introduces the customization options and helps you get started. You can manage customizations from both the [Chat view](/docs/agents/run/chat-view.md) and the [Agents window](/docs/agents/run/agents-window.md).
-
-<div class="docs-action" data-show-in-doc="true" data-show-in-sidebar="true" title="Core concepts">
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Core concepts">
 Learn about the different customization types and when to use each one.
 
 * [Customization concepts](/docs/agents/concepts/customization.md)
@@ -36,54 +34,20 @@ Follow a hands-on walkthrough to customize AI for your project.
 
 </div>
 
-## What each customization gives you
+## Agent Customizations editor
 
-Customization pays off in concrete ways: you stop repeating context, get consistent on-standard output, and turn multi-step chores into a single command. You can also connect the AI to your own tools and data, and share one setup across your team. Each customization type targets a different one of these needs:
+The Agent Customizations editor provides a central place to discover, create, and manage customizations. It organizes customization types into separate tabs and includes an editor with syntax highlighting and validation.
 
-* **[Instructions](/docs/agent-customization/custom-instructions.md)**: Write your coding standards and conventions once, and the AI applies them automatically to every request. No more repeating "use our logger" or "follow our ESLint config" in each prompt.
-* **[Agent skills](/docs/agent-customization/agent-skills.md)**: Teach the AI a repeatable capability, bundled with scripts, examples, and resources, that it loads on its own when a task matches. For example, a full test, lint, and deploy routine.
-* **[Custom agents](/docs/agent-customization/custom-agents.md)**: Give the AI a focused role with its own instructions, allowed tools, and model, such as a read-only planner or a security reviewer. Switch roles in one step instead of re-explaining them each time.
-* **[MCP servers](/docs/agent-customization/mcp-servers.md)**: Connect the AI to your own tools, databases, and services to work with real project data, not just code. For example, query your database or file an issue.
-* **[Hooks](/docs/agent-customization/hooks.md)**: Run your own commands automatically at key points in the agent's loop, such as formatting after every edit or blocking risky commands. You get deterministic guardrails that don't rely on the model remembering.
-* **[Agent plugins](/docs/agent-customization/agent-plugins.md)**: Install a ready-made bundle of the customizations above from a marketplace, and adopt a proven workflow without building it yourself.
-* **[Prompt files](/docs/agent-customization/prompt-files.md)**: Save a reusable prompt that you invoke as a slash command, such as `/scaffold-component` or `/prep-pr`. Turn a paragraph of instructions into one command.
+When you open the Customizations editor, the customizations are scoped to the selected [agent harness](/docs/agents/concepts/agent-harnesses.md). Select the harness from the dropdown in the chat input before you open the editor to ensure the customizations apply to the correct context.
 
-To compare these options and decide which one fits a given goal, see [Customization concepts](/docs/agents/concepts/customization.md). The rest of this article focuses on how to set up and manage customizations.
+![Screenshot showing the Agent Customizations panel in the Agents window, with the list of available customizations visible.](images/customization/agents-customizations.png)
 
-## Get started incrementally
-
-Adopt customizations gradually rather than all at once. Start with project-wide instructions, then add more specific customizations as you identify recurring needs. For a hands-on walkthrough, see the [Customize AI for your project](/docs/agents/guides/customize-copilot-guide.md) guide.
-
-1. **Set up project instructions**: type `/init` in chat to generate a `.github/copilot-instructions.md` file with coding standards tailored to your codebase.
-
-1. **Add targeted instructions**: create `*.instructions.md` files that apply to specific languages, frameworks, or folders in your codebase.
-
-1. **Automate repetitive tasks**: package multi-step workflows, scripts, and template files as agent skills that the AI loads when a task matches.
-
-1. **Specialize the AI for specific roles**: create custom agents with their own instructions and tools for roles like a code reviewer or planner.
-
-1. **Connect external tools and data**: add MCP servers and hooks to extend the AI with external services and custom actions.
-
-> [!TIP]
-> You can generate customization files with AI. Type `/create-instruction`, `/create-prompt`, `/create-skill`, `/create-agent`, or `/create-hook` in chat to scaffold a new customization with AI assistance.
-
-## Use the Agent Customizations editor
-
-> [!NOTE]
-> The Agent Customizations editor is currently in preview.
-
-The Agent Customizations editor provides a centralized UI for creating and managing all your agent customizations in one place. The editor organizes the different customization types into separate tabs and provides an embedded code editor for editing customization files with syntax highlighting and validation.
-
-You can create new customizations from scratch by editing the corresponding Markdown, or use AI to generate initial content based on your specific project.
-
-To add MCP servers and agent plugins, you can browse the corresponding marketplace directly from the editor, install new items, and manage existing ones.
-
-You can open the Agent Customizations editor from either chat surface:
+Follow these steps to open the Agent Customizations editor:
 
 {% tabs id="chat-surface" %}
 {% tab label="Agents window" %}
 
-In the Agents window, select a customization type in the **Customizations** panel below the sessions list.
+In the left sidebar, select a customization type in the **Customizations** panel.
 
 ![Screenshot showing the Agent Customizations panel in the Agents window, with the list of available customizations visible.](images/customization/agents-window-customizations.png)
 
@@ -92,12 +56,52 @@ In the Agents window, select a customization type in the **Customizations** pane
 
 In the Chat view, select the **Configure Chat (gear icon)** or run **Chat: Open Customizations** from the Command Palette (`kb(workbench.action.showCommands)`).
 
-![Screenshot of the Agent Customizations editor, showing the sidebar with customization categories and the main view listing custom agents.](images/customization/chat-customizations-editor.png)
+![Screenshot showing the Agent Customizations editor with customization categories in the sidebar and custom agents in the main view.](images/customization/chat-customizations-editor.png)
 
 {% /tab %}
 {% /tabs %}
 
-You can configure customizations for the different [agent harnesses](/docs/agents/concepts/agent-harnesses.md). Select the harness from the dropdown in the chat input and then select open the **Agent Customizations** editor.
+## Create a customization
+
+You can create customization files manually or use AI to generate them, after which you can further edit them.
+
+### Create a customization with AI
+
+You can create a customization file with AI assistance. To do this, open the Agent Customizations editor and
+enter a prompt in the **Overview** tab that describes what you want to create. The agent asks for any missing details and generates the customization in the appropriate format.
+
+For example, to create a code reviewer skill, you can enter the following prompt:
+
+```text
+Code reviewer skill that checks for code style, best practices, and potential bugs in Python and JavaScript files.
+```
+
+### Create a customization manually
+
+You can manually create a customization file by using the **Chat: New \<customization-type\>** command from the Command Palette (`kb(workbench.action.showCommands)`). This creates the corresponding file in the appropriate location for the selected customization type. You can then edit the file in the inline editor or in a separate editor tab.
+
+Alternatively, you can use the Agent Customizations editor to create a customization file. Follow these steps:
+
+1. Open the Agent Customizations editor and select a customization type
+
+1. Choose between creating a user or workspace customization from the **New** dropdown
+
+1. Enter a name and choose a storage location when prompted
+
+1. An inline editor opens where you can further edit the customization file. The editor provides syntax highlighting and validation for the customization type.
+
+For MCP servers and agent plugins, browse the corresponding marketplace from the editor, install an item, and manage the installation from the same tab.
+
+See the guide for each customization type for its file format and configuration options.
+
+### Choose a customization scope
+
+Store a customization at the narrowest scope that matches how you want to use and share it:
+
+* **User**: use the customization across your workspaces. User customizations are specific to you and are not committed to the project.
+* **Workspace**: share the customization with project contributors through source control.
+
+Some customization types support other scopes, such as organization-level instructions. Not every customization type supports every scope. See the individual guide for its supported locations.
 
 > [!NOTE]
 > When [Agent Host](/docs/agents/concepts/agent-host.md) is enabled, the agent reads user-level customizations from harness-agnostic folders like `~/.copilot` (Copilot) and `~/.claude` (Claude), rather than from your VS Code profile user data. See [instructions](/docs/agent-customization/custom-instructions.md#instructions-file-locations), [custom agents](/docs/agent-customization/custom-agents.md), and [prompt files](/docs/agent-customization/prompt-files.md#prompt-file-locations) for the recommended user-level locations.
@@ -111,7 +115,7 @@ As your collection of customization files grows, it can be hard to tell whether 
 
 The extension works with skill files (`SKILL.md`), custom agent files (`*.agent.md`), instructions files (`*.instructions.md`), and prompt files (`*.prompt.md`).
 
-Open an customization file and run the **Chat Customizations Evaluations: Analyze** command from the Command Palette (`kb(workbench.action.showCommands)`).
+Open a customization file and run the **Chat Customizations Evaluations: Analyze** command from the Command Palette (`kb(workbench.action.showCommands)`).
 The extension uses GitHub Copilot to detect issues such as:
 
 * Logical, behavioral, and format contradictions
@@ -130,7 +134,7 @@ For skill files, the extension integrates with the [Waza](https://github.com/mic
 
 ## Use customizations in a monorepo
 
-In monorepo setups, you might open a subfolder of a repository in VS Code rather than the repo root. By default, Visual Studio Code only discovers customization files within your open workspace folder(s). Enable the `setting(chat.useCustomizationsInParentRepositories)` setting to also discover customizations from the parent repository.
+In monorepo setups, you might open a subfolder of a repository in VS Code rather than the repo root. By default, VS Code only discovers customization files within your open workspace folder(s). Enable the `setting(chat.useCustomizationsInParentRepositories)` setting to also discover customizations from the parent repository.
 
 When this setting is enabled, VS Code walks up the folder hierarchy from each workspace folder until it finds a `.git` folder. If found, it collects customizations from all folders between the workspace folder and the repository root (inclusive). This applies to all customization types: always-on instructions (`copilot-instructions.md`, `AGENTS.md`, `CLAUDE.md`), file-based instructions, prompt files, custom agents, agent skills, and hooks.
 
