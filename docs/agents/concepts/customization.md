@@ -42,6 +42,8 @@ Without customization, the agent works from your prompt, the current conversatio
 
 These mechanisms affect different layers of the agent. Instructions guide the model's decisions, tools expand the actions it can take, and hooks run outside the model's decision-making. As a result, adding a rule to an instructions file is not equivalent to enforcing that rule with a hook.
 
+Relevant customizations can reduce back-and-forth and rework by giving the agent project context from the start. Avoiding corrective turns and discarded implementations can help reduce [AI credit usage](/docs/agents/guides/optimize-usage.md). Keep customizations focused because their content also consumes space in the model's context window.
+
 ## Customization options at a glance
 
 Ask the following questions when choosing a customization:
