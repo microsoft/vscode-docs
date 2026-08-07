@@ -27,7 +27,7 @@ VS Code supports multiple cursors for fast, simultaneous edits. You can add seco
 
 `kb(editor.action.addSelectionToNextFindMatch)` selects the word at the cursor, or the next occurrence of the current selection.
 
->[!TIP]
+> [!TIP]
 > You can skip the next matching occurrence while using multi-cursor find by running
 > `kb(editor.action.moveSelectionToNextFindMatch)`. This helps you avoid adding unwanted
 > selections when editing repeated text.
