@@ -224,6 +224,27 @@ In the **files to include** box, you can use the **Search only in changed files*
 > [!TIP]
 > From the Explorer, you can right-click on a folder and select **Find in Folder** to search inside a folder only.
 
+### Troubleshoot excessive search processes
+
+VS Code uses ripgrep (`rg`) for workspace searches. When the **Use Exclude Settings and Ignore Files** toggle is disabled, VS Code runs `rg` with the `--no-ignore` option. This can include large folders such as `node_modules` and increase search time and resource usage.
+
+If you see many `rg` processes or high CPU usage during search:
+
+1. Enable the **Use Exclude Settings and Ignore Files** toggle in the Search view.
+2. Verify that the `setting(search.useIgnoreFiles)` setting is set to `true`.
+3. Add large generated folders and worktrees to the `setting(search.exclude)` setting in `settings.json`:
+
+   ```json
+   {
+       "search.exclude": {
+           "**/node_modules/**": true,
+           ".claude/worktrees/**": true
+       }
+   }
+   ```
+
+4. If the issue persists, set the `setting(search.followSymlinks)` setting to `false` to prevent search from following symbolic links.
+
 ### Search and replace
 
 You can also Search and Replace across files. Expand the Search widget to display the Replace text box.
