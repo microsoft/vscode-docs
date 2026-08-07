@@ -1,7 +1,7 @@
 ---
 ContentId: 3f9e2b7d-6a8c-4d1e-9f2a-8c4b5d7e9f1a
 DateApproved: 8/5/2026
-MetaDescription: Learn how to use browser agent tools in VS Code to build and automatically test web applications with AI.
+MetaDescription: Build and validate web applications with AI agents and browser tools in VS Code through an interactive test and fix workflow.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - ai
@@ -14,11 +14,11 @@ Keywords:
 - guide
 - tutorial
 ---
-# Build and test web apps with browser agent tools
+# Build and validate a web app with browser tools
 
-Browser agent tools enable AI to autonomously build and verify web applications in a closed development loop. The agent can create HTML, CSS, and JavaScript, open the app in the integrated browser, interact with it to validate functionality, identify issues through console errors and visual inspection, and fix problems without manual intervention.
+Browser tools give agents a closed development loop for web applications. The agent can create an app, open it in the integrated browser, interact with it against acceptance criteria, identify issues, fix them, and repeat the checks.
 
-This guide walks you through using browser agent tools to build a calculator app and watch as the agent discovers and fixes bugs through automated testing.
+This guide walks you through that loop by building and validating a calculator app. For browser tool capabilities, session types, privacy controls, and prompting patterns, see [Use browser tools with agents](/docs/agents/run/browser-tools.md).
 
 ## Prerequisites
 
@@ -26,37 +26,28 @@ To complete this guide, you need:
 
 * [Visual Studio Code installed on your computer](/download)
 * [A GitHub Copilot subscription](/docs/setup/copilot.md)
-* Browser agent tools enabled with the `setting(workbench.browser.enableChatTools)` setting
+* The `setting(workbench.browser.enableChatTools)` setting turned on, which is the default
 
-## How browser agent tools work
+## What the agent validates
 
-When you enable browser agent tools, agents gain access to tools that let them read and interact with pages in the integrated browser. These tools include:
+Before you ask the agent to test the calculator, define observable acceptance criteria:
 
-* **Page navigation:** `openBrowserPage`, `navigatePage`
-* **Page content and appearance:** `readPage`, `screenshotPage`
-* **User interaction:** `clickElement`, `hoverElement`, `dragElement`, `typeInPage`, `handleDialog`
-* **Custom browser automation:** `runPlaywrightCode`
+* Each digit button enters the correct value.
+* Addition, subtraction, multiplication, and division return the expected result.
+* **Clear** resets the calculator.
+* Dividing by zero shows an error instead of an invalid numeric result.
 
-By default, pages opened by the agent run in private, in-memory sessions that don't share cookies or storage with your other browser tabs. This gives you control over what browsing data the agent can access.
+These criteria give the agent a clear definition of success and make its final verification report easier to review.
 
-Learn more about the [integrated browser in VS Code](/docs/debugtest/integrated-browser.md).
+## Step 1: Verify browser tools
 
-> [!NOTE]
-> Administrators can disable browser tools or restrict which domains agent tools can reach with [enterprise policies](/docs/enterprise/ai-settings.md#configure-agent-network-filtering).
-
-## Step 1: Enable browser tools for the agent
-
-Before an agent can use browser tools, you must explicitly enable them in the chat tools picker.
+Browser tools are generally available by default. Verify that they are selected for the request:
 
 1. Open the Chat view (`kb(workbench.action.chat.open)`) and select **Agent** from the Agents dropdown.
 
-1. Select the **Tools** button in the chat input area to open the tools picker.
+1. Select **Open Customizations** (gear icon) > **Tools** and verify that **Integrated Browser** is selected.
 
-1. Verify that all the browser tools are enabled (they are grouped under **Built-in** > **Browser**).
-
-    ![Screenshot showing the chat tools picker with browser tools enabled.](../images/browser-agent-testing-guide/enable-browser-tools.png)
-
-The agent can now use these tools to interact with web pages.
+The agent can now use these tools to interact with web pages. If the tools are missing, verify that `setting(workbench.browser.enableChatTools)` is turned on. An organization policy can also turn off browser tools.
 
 ## Step 2: Ask the agent to build a calculator
 
@@ -83,7 +74,12 @@ Now ask the agent to open the calculator in the integrated browser and verify it
 1. In the Chat view, enter the following prompt:
 
     ```prompt
-    Open the calculator in the browser and test if all the operations work correctly.
+    Open the calculator in the browser and validate it against these criteria:
+    each digit button enters the correct value; addition, subtraction,
+    multiplication, and division return the expected result; Clear resets
+    the calculator; and division by zero shows an error. Report the result
+    for each criterion. If any criterion fails, fix the issue and repeat
+    the complete validation.
     ```
 
 1. Watch as the agent opens `index.html` in the integrated browser, parses the page content to understand the structure, and systematically tests each button and operation by simulating clicks and checking the results.
@@ -114,15 +110,16 @@ If the agent discovers bugs during testing, it automatically analyzes the proble
     }
     ```
 
-1. Ask the agent to test the division operation and fix any issues it finds:
+1. Ask the agent to reproduce the issue, fix it, and verify the acceptance criterion again:
 
     ```prompt
-    Verify the division operation works correctly. If you find any issues, fix them.
+    Test division by zero. If it produces an invalid numeric result instead
+    of an error, fix the issue. Then repeat the test and report the result.
     ```
 
 1. Watch as the agent encounters an error when dividing by zero, then analyzes and fixes the code, and finally validates the bug fix.
 
-The agent has completed a full development cycle: build, test, debug, and fix by using browser automation.
+The agent has completed a full development cycle: build, validate, debug, fix, and revalidate by using browser tools.
 
 ## Step 5: Share a browser page with the agent (optional)
 
@@ -149,7 +146,7 @@ The agent can now access the shared page and perform interactions on your behalf
 
 ## Try these scenarios
 
-Now that you understand how browser agent tools work, try these scenarios to explore different use cases:
+Now that you understand how browser tools work, try these scenarios to explore different use cases:
 
 * **Form validation testing**: have the agent verify validation rules, error messages, and successful submission by building and testing a contact form
 
@@ -163,7 +160,6 @@ Now that you understand how browser agent tools work, try these scenarios to exp
 
 ## Related resources
 
+* [Use browser tools with agents](/docs/agents/run/browser-tools.md)
 * [Integrated browser](/docs/debugtest/integrated-browser.md)
 * [Core concepts of AI in VS Code](/docs/agents/concepts/agents.md)
-* [Agents overview](/docs/agents/overview.md)
-* [Test with Copilot](/docs/agents/guides/test-with-copilot.md)

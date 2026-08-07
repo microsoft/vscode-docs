@@ -51,7 +51,7 @@ Agents handle real coding tasks end-to-end. A few common ones:
 * **Build new features**: describe what functionality you want and let the agent scaffold UI, wire up state, and update tests.
 * **Prototype and explore variants**: spin up quick proofs of concept or generate multiple design variants of the same feature in parallel, then keep the one that works best.
 * **Refactor at scale**: rename, restructure, or migrate code across the workspace, with the agent tracking what still needs to change.
-* **Build and test web apps**: drive a running web app from chat to [verify behavior end-to-end in the integrated browser](/docs/agents/guides/browser-agent-testing-guide.md).
+* **Build and validate web apps**: give an agent a visual and interactive feedback loop with [browser tools](/docs/agents/run/browser-tools.md). The agent can run your app, exercise user flows in the integrated browser, inspect the result, fix problems, and verify its changes.
 * **Debug and fix failing tests**: point an agent at a stack trace or a red test and have it find the root cause and apply a fix.
 
 Agents are the most autonomous of several AI surfaces in VS Code. For lighter-weight help, you can also use [chat](/docs/chat/chat-overview.md), [inline chat](/docs/chat/inline-chat.md), [inline suggestions](/docs/editing/ai-powered-suggestions.md), and [smart actions](/docs/editing/copilot-smart-actions.md).
