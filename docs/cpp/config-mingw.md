@@ -426,10 +426,6 @@ If you have more than one compiler installed, you might need to change `compiler
 You must follow the steps on the [MSYS2 website](https://www.msys2.org/) to use the MSYS CLI to install the full MinGW-w64 toolchain(`pacman -S --needed base-devel mingw-w64-ucrt-x86_64-toolchain`), as well as all required prerequisites. The toolchain includes g++ and gdb.
 
 
-### As a Windows user, running the pacman command gives me an error
-
-When adding the MinGW-w64 destination folder to your list of environment variables, the default path will then be: `C:\msys64\ucrt64\bin`.
-
 ### MinGW 32-bit
 
 If you need a 32-bit version of the MinGW toolset, consult the [Downloading](https://www.msys2.org/wiki/MSYS2-installation/) section on the MSYS2 wiki. It includes links to both 32-bit and 64-bit installation options.
