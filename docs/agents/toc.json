@@ -35,6 +35,7 @@
             ["Chat View", "/docs/agents/run/chat-view"],
             ["Choose an Agent Harness", "/docs/agents/run/agent-harnesses"],
             ["Use Tools", "/docs/agents/run/tools"],
+            ["Browser Tools", "/docs/agents/run/browser-tools"],
             ["Approvals & Permissions", "/docs/agents/run/approvals"],
             ["Review & Revert Changes", "/docs/agents/run/review-code-edits"],
             ["Artifacts", "/docs/agents/run/artifacts"],

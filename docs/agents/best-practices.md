@@ -114,7 +114,9 @@ The AI responds more accurately when it has relevant context. Use these techniqu
 
 * Add images or screenshots to let the AI analyze visual content.
 
-* Use the [integrated browser](/docs/debugtest/integrated-browser.md) to preview your app and select page elements to use as context.
+* Use the [integrated browser](/docs/debugtest/integrated-browser.md) to preview your app and manually add page elements, screenshots, or console logs as context.
+
+* Give agents [browser tools](/docs/agents/run/browser-tools.md) to exercise user flows, inspect the result, fix problems, and verify their changes autonomously.
 
 For more information, see [adding context to chat prompts](/docs/chat/copilot-chat-context.md) and [configuring tools](/docs/agents/run/tools.md).
 
