@@ -1228,6 +1228,12 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `symbolIcon.typeParameterForeground`: The foreground color for type parameter symbols.
 - `symbolIcon.unitForeground`: The foreground color for unit symbols.
 - `symbolIcon.variableForeground`: The foreground color for variable symbols.
+- `symbolIcon.headerOneForeground`: The foreground color for first-level headers.
+- `symbolIcon.headerTwoForeground`: The foreground color for second-level headers.
+- `symbolIcon.headerThreeForeground`: The foreground color for third-level headers.
+- `symbolIcon.headerFourForeground`: The foreground color for fourth-level headers.
+- `symbolIcon.headerFiveForeground`: The foreground color for fifth-level headers.
+- `symbolIcon.headerSixForeground`: The foreground color for sixth-level headers.
 
 ## Debug Icons colors
 
