@@ -349,7 +349,7 @@ Visual Studio Code places these settings in `.vscode\c_cpp_properties.json`. If 
             "_UNICODE"
         ],
         "windowsSdkVersion": "10.0.18362.0",
-        "compilerPath": "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/VC/Tools/MSVC/14.24.28314/bin/Hostx64/x64/cl.exe",
+        "compilerPath": "C:/Program Files/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.40.33807/bin/Hostx64/x64/cl.exe",
         "cStandard": "c11",
         "cppStandard": "c++17",
         "intelliSenseMode": "msvc-x64"
@@ -373,7 +373,7 @@ The `compilerPath` search order is:
 - Then look for g++ on Windows Subsystem for Linux (WSL)
 - Then g++ for Mingw-w64.
 
-If you have g++ or WSL installed, you might need to change `compilerPath` to match the preferred compiler for your project. For Microsoft C++, the path should look something like this, depending on which specific version you have installed: "C:/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/VC/Tools/MSVC/14.16.27023/bin/Hostx64/x64/cl.exe".
+If you have g++ or WSL installed, you might need to change `compilerPath` to match the preferred compiler for your project. For Microsoft C++, the path should look something like this, depending on which specific version you have installed: "C:/Program Files/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.40.33807/bin/Hostx64/x64/cl.exe".
 
 ## Reusing your C++ configuration
 
@@ -393,7 +393,7 @@ In certain circumstances, it isn't possible to run VS Code from **Developer Comm
                 "args": [
                     "/C",
                     // The path to VsDevCmd.bat depends on the version of Visual Studio you have installed.
-                    "\"C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/Tools/VsDevCmd.bat\"",
+                    "\"C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/Tools/VsDevCmd.bat\"",
                     "&&"
                 ]
             }
