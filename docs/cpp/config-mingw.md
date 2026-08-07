@@ -144,7 +144,7 @@ hover over `vector` or `string` to see their type information. If you type  `msg
 
 You can press the `kbstyle(Tab)` key to insert a selected member. If you then add open parenthesis, IntelliSense will show information on which arguments are required.
 
-If IntelliSense is not already configured, open the Command Palette (`kb(workbench.action.showCommands)`) and enter **Select IntelliSense Configuration**. From the dropdown of compilers, select `Use gcc.exe` to configure. More information can be found in the [IntelliSense configuration documentation](/docs/languages/cpp.md#intellisense-configuration).
+If IntelliSense is not already configured, open the Command Palette (`kb(workbench.action.showCommands)`) and enter **Select IntelliSense Configuration**. From the dropdown of compilers, select `Use gcc.exe` to configure. More information can be found in the [IntelliSense configuration documentation](/docs/cpp/configure-intellisense.md).
 
 ## Run helloworld.cpp
 
@@ -426,9 +426,15 @@ If you have more than one compiler installed, you might need to change `compiler
 You must follow the steps on the [MSYS2 website](https://www.msys2.org/) to use the MSYS CLI to install the full MinGW-w64 toolchain(`pacman -S --needed base-devel mingw-w64-ucrt-x86_64-toolchain`), as well as all required prerequisites. The toolchain includes g++ and gdb.
 
 
-### MinGW 32-bit
+### As a Windows user, running the pacman command gives me an error
 
-If you need a 32-bit version of the MinGW toolset, consult the [Downloading](https://www.msys2.org/wiki/MSYS2-installation/) section on the MSYS2 wiki. It includes links to both 32-bit and 64-bit installation options.
+UCRT on Windows machines is only included in Windows 10 or later. If you are using another version of Windows, run the following command that does not use UCRT:
+
+```bash
+pacman -S --needed base-devel mingw-w64-x86_64-toolchain
+```
+
+When adding the MinGW-w64 destination folder to your list of environment variables, the default path will then be: `C:\msys64\mingw64\bin`.
 
 ## Next steps
 
