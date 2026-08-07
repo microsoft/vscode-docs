@@ -85,7 +85,7 @@ Learn more about [choosing the right model for your task](/docs/agents/concepts/
 Quick Chat provides a lightweight chat panel that opens at the top of the editor. Use it for quick questions and short interactions without opening the full Chat view or leaving your current workflow.
 
 > [!NOTE]
-> Quick Chat in the editor window differs from [quick chats in the Agents window](/docs/agents/run/agents-window.md#quick-chats), which are workspace-free conversations that appear in the sessions list.
+> Quick Chat in the editor window differs from [quick chats in the Agents window](/docs/agents/run/agents-window.md#start-a-quick-chat), which are workspace-free conversations that appear in the sessions list.
 
 To open Quick Chat, press `kb(workbench.action.quickchat.toggle)` or select **Quick Chat** from the **Chat** menu in the title bar.
 
