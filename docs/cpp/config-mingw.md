@@ -144,7 +144,7 @@ hover over `vector` or `string` to see their type information. If you type  `msg
 
 You can press the `kbstyle(Tab)` key to insert a selected member. If you then add open parenthesis, IntelliSense will show information on which arguments are required.
 
-If IntelliSense is not already configured, open the Command Palette (`kb(workbench.action.showCommands)`) and enter **Select IntelliSense Configuration**. From the dropdown of compilers, select `Use gcc.exe` to configure. More information can be found in the [IntelliSense configuration documentation](/docs/languages/cpp.md#intellisense-configuration).
+If IntelliSense is not already configured, open the Command Palette (`kb(workbench.action.showCommands)`) and enter **Select IntelliSense Configuration**. From the dropdown of compilers, select `Use gcc.exe` to configure. More information can be found in the [IntelliSense configuration documentation](/docs/cpp/configure-intellisense.md).
 
 ## Run helloworld.cpp
 
@@ -435,10 +435,6 @@ pacman -S --needed base-devel mingw-w64-x86_64-toolchain
 ```
 
 When adding the MinGW-w64 destination folder to your list of environment variables, the default path will then be: `C:\msys64\mingw64\bin`.
-
-### MinGW 32-bit
-
-If you need a 32-bit version of the MinGW toolset, consult the [Downloading](https://www.msys2.org/wiki/MSYS2-installation/) section on the MSYS2 wiki. It includes links to both 32-bit and 64-bit installation options.
 
 ## Next steps
 
