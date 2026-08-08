@@ -262,6 +262,12 @@ When the remote VSCode is started from a WSL terminal, the download is done usin
 
 Once the server is up and running the proxy settings on the *Remote* tab are used.
 
+### Extensions can't connect to the internet when installed remotely
+
+Local proxy settings are reused on the remote host by default, which can prevent extensions from working.
+
+**Resolution:** Ensure that WSL has connectivity to the internet and is configured with the appropriate proxy information (for example global `HTTP_PROXY` or `HTTPS_PROXY` environment variables with the appropriate proxy information). Disable **Http: Use Local Proxy Configuration** in your VS Code [settings](/docs/configure/settings.md).
+
 ### Can I force an extension to run locally / remotely ?
 
 Extensions are typically designed and tested to either run locally or remotely, not both. However, if an extension supports it, you can force it to run in a particular location in your `settings.json` file.
