@@ -64,7 +64,7 @@ When working with agents, choose the harness that matches your task and workflow
 
 * **Hand off when another target better fits the next step.** Change the session target to [hand off](/docs/agents/run/agent-harnesses.md#hand-off-a-session) while preserving the conversation history and context.
 
-For more information, see [choosing an agent harness](/docs/agents/run/agent-harnesses.md) and the [agent handoff tutorial](/docs/agents/agents-handoff-tutorial.md).
+For more information, see [choosing an agent harness](/docs/agents/run/agent-harnesses.md) and the [agentic coding tutorial](/docs/agents/agents-tutorial.md).
 
 ## Write effective prompts
 

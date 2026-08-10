@@ -318,8 +318,6 @@ Congratulations! You've completed the tutorial and explored some of the key feat
 
 * [Build your first app with AI](/docs/agents/agents-tutorial.md)
 
-* [Explore different agent types](/docs/agents/agents-handoff-tutorial.md)
-
 * [Discover and run unit tests for your code](/docs/debugtest/testing.md)
 
 * [Use the integrated terminal](/docs/terminal/getting-started.md)
