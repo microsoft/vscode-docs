@@ -1,6 +1,6 @@
 ---
 ContentId: 8d3f4a2e-9b1c-4f5e-a8d7-2c4b6e9f1a3d
-DateApproved: 7/29/2026
+DateApproved: 8/12/2026
 MetaDescription: Review, revise, revert, and integrate AI-generated code changes in Visual Studio Code with diffs, feedback, checkpoints, and Source Control.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 ---

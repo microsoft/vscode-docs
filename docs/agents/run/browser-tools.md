@@ -1,6 +1,6 @@
 ---
 ContentId: 21b8fb7a-a3e9-4cdf-9d88-ba7b9146dcc2
-DateApproved: 8/7/2026
+DateApproved: 8/12/2026
 MetaDescription: Use browser tools with AI agents in VS Code to interact with web apps, verify user flows, inspect results, and fix issues in a closed feedback loop.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 Keywords:

@@ -1,6 +1,6 @@
 ---
 ContentId: 7a2e5f8d-4c9b-41e6-b3a8-9d7f2e4c1b8a
-DateApproved: 8/5/2026
+DateApproved: 8/12/2026
 MetaDescription: Create and manage agent sessions in Visual Studio Code, including multiple chats, context compaction, organization, archiving, and forking.
 MetaSocialImage: ../../../images/shared/github-copilot-social.png
 ---
