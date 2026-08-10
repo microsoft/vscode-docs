@@ -18,6 +18,13 @@ Agents in Visual Studio Code can run tools and terminal commands to complete tas
 
 This article describes how to set the agent's permission level, manage tool and URL approvals, automatically approve terminal commands, and sandbox agent commands. For information about agent tools, see [Use tools with agents](/docs/agents/run/tools.md). For background on why these controls exist, see [Trust and safety](/docs/agents/concepts/trust-and-safety.md).
 
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Trust and safety concepts">
+Learn why VS Code uses permission levels, tool approval, and sandboxing to keep you in control.
+
+* [Read about trust and safety](/docs/agents/concepts/trust-and-safety.md)
+
+</div>
+
 VS Code provides several controls to govern what the agent can do. Permission levels are the high-level dial for the session, while the other mechanisms give you fine-grained control over specific actions.
 
 | Mechanism | What it controls | Key setting |
