@@ -64,7 +64,7 @@ Running multiple agents is one thing. Getting them to work together is another.
 
 Let's say you're adding a new feature and your agent needs to research authentication patterns, check how similar features are structured in your codebase, AND scan the relevant docs. Doing this sequentially eats up time and adds a lot of context that makes it hard for the agent to focus on what's important.
 
-[Subagents](https://code.visualstudio.com/docs/agents/subagents) solve this. They're context-isolated agents that run independently from your main session—your main agent delegates work and only the final result flows back. The intermediate exploration stays contained, keeping your primary context clean.
+[Subagents](https://code.visualstudio.com/docs/agents/run/subagents) solve this. They're context-isolated agents that run independently from your main session—your main agent delegates work and only the final result flows back. The intermediate exploration stays contained, keeping your primary context clean.
 
 What's new this release: VS Code can now run multiple subagents in parallel. Fire off multiple tasks at once, get results faster, and save premium requests in the process.
 

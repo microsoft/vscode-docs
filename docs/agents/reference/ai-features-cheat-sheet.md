@@ -1,6 +1,6 @@
 ---
 ContentId: de6f9f68-7dd5-4de3-a210-3db57882384b
-DateApproved: 7/29/2026
+DateApproved: 8/5/2026
 MetaDescription: Quick reference for AI features in VS Code, including autonomous agents, multi-file editing, inline suggestions, and enterprise controls.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -51,11 +51,11 @@ Start a natural language chat conversation to get help with coding tasks. For ex
 | `kb(workbench.action.chat.newChat)` | Start a new chat session in the Chat view. |
 | `kb(workbench.action.chat.toggleAgentMode)` | Toggle between different [agents](/docs/agent-customization/custom-agents.md) in the Chat view. |
 | `kb(workbench.action.chat.openModelPicker)` | Show the model picker to [select a different AI model](/docs/agent-customization/language-models.md) for chat. |
-| Context window control | Visual indicator in the chat input box showing [context window usage](/docs/chat/copilot-chat-context.md#monitor-context-window-usage). Hover for total token count and a breakdown by category. |
+| Context window control | Visual indicator in the chat input box showing [context window usage](/docs/agents/run/sessions/manage-sessions.md#manage-session-context). Hover for total token count and a breakdown by category. |
 | `Add Context...` | Attach different types of [context to your chat prompt](/docs/chat/copilot-chat-context.md). |
 | `/`-command | Use [slash commands](#slash-commands) for common tasks or invoke a [reusable chat prompt](/docs/agent-customization/overview.md). |
 | `#`-mention | Reference common tools or chat variables to [provide context](/docs/chat/copilot-chat-context.md) within your prompt. |
-| Edit (<i class="codicon codicon-pencil"></i>) | [Edit a previous chat prompt](/docs/chat/chat-checkpoints.md#edit-a-previous-chat-request) and revert changes. |
+| Edit (<i class="codicon codicon-pencil"></i>) | [Edit a previous chat prompt](/docs/agents/run/review-code-edits.md#edit-a-previous-chat-request) and revert changes. |
 | History (<i class="codicon codicon-history"></i>) | Access your history of chat sessions. |
 | Queue or steer | [Send a follow-up message](/docs/chat/chat-overview.md#send-messages-while-a-request-is-running) while a request is running. Choose to queue the message, steer the current request, or stop and send immediately. |
 | Voice (<i class="codicon codicon-mic"></i>) | Enter a chat prompt by using speech (voice chat). The chat response is read out aloud. |
@@ -83,16 +83,16 @@ Get more relevant responses by providing [context to your chat prompt](/docs/cha
 
 ## Chat tools
 
-Use [tools](/docs/chat/chat-tools.md) in chat to accomplish specialized tasks while processing a user request. Examples of such tasks are listing the files in a directory, editing a file in your workspace, running a terminal command, getting the output from the terminal, and more.
+Use [tools](/docs/agents/run/tools.md) in chat to accomplish specialized tasks while processing a user request. Examples of such tasks are listing the files in a directory, editing a file in your workspace, running a terminal command, getting the output from the terminal, and more.
 
-VS Code provides built-in tools, and you can extend chat with tools from [MCP servers](/docs/agent-customization/mcp-servers.md) and [extensions](/api/extension-guides/ai/tools.md). Learn more about [types of tools](/docs/agents/concepts/tools.md#types-of-tools).
+VS Code provides built-in tools, and you can extend chat with tools from [MCP servers](/docs/agent-customization/mcp-servers.md) and [extensions](/api/extension-guides/ai/tools.md). Group related tools into reusable [tool sets](/docs/agent-customization/tool-sets.md). Learn more about [types of tools](/docs/agents/concepts/tools.md#types-of-tools).
 
 The following table lists the VS Code built-in tools:
 
 | Chat variable/Tool | Description |
 |--------|-------------|
-| `#agent` (tool set) | Delegate tasks to other [agents](/docs/agents/subagents.md). |
-| `#agent/runSubagent` | Run a task in an isolated [subagent context](/docs/agents/subagents.md). Helps to improve the context management of the main agent thread. |
+| `#agent` (tool set) | Delegate tasks to other [agents](/docs/agents/run/subagents.md). |
+| `#agent/runSubagent` | Run a task in an isolated [subagent context](/docs/agents/run/subagents.md). Helps to improve the context management of the main agent thread. |
 | `#browser` (tool set) | Interact with pages in the [integrated browser](/docs/debugtest/integrated-browser.md): navigate, read page content, take screenshots, click, type, hover, drag, and handle dialogs. Enable with `setting(workbench.browser.enableChatTools)`. |
 | `#edit` (tool set) | Enable modifications in the workspace. |
 | `#edit/createDirectory` | Create a new directory in the workspace. |
@@ -133,7 +133,7 @@ The following table lists the VS Code built-in tools:
 | `#web` (tool set) | Access web content. |
 | `#web/fetch` | Fetch the content from a given web page. For example, "Summarize #web/fetch code.visualstudio.com/updates." |
 
-In agent host sessions, additional session-management tools are available for cross-session orchestration: `list_sessions`, `get_current_session`, `create_session`, `create_chat`, `get_session_context`, `send_message`, and `delete_session`. Learn more about [managing chat sessions](/docs/chat/chat-sessions.md#orchestrate-sessions-from-agent-host-sessions).
+In agent host sessions, additional session-management tools are available for cross-session orchestration: `list_sessions`, `get_current_session`, `create_session`, `create_chat`, `get_session_context`, `send_message`, and `delete_session`. Learn more about [managing agent sessions](/docs/agents/run/sessions/manage-sessions.md#orchestrate-sessions-from-agent-host-sessions).
 
 ## Slash commands
 
@@ -148,7 +148,7 @@ Slash commands are shortcuts to specific functionality within the chat. You can 
 | `/setupTests` | Get help setting up a testing framework for your code. Get recommendation for a relevant testing framework, steps to set up and configure it, and suggestions for VS Code testing extensions. |
 | `/clear` | Start a new chat session in the Chat view. |
 | `/compact` | Compact the conversation context by summarizing it. Useful when a conversation grows too long for the model's context window. |
-| `/fork` | Fork the current chat session into a new independent session that inherits the full conversation history. Learn more about [forking chat sessions](/docs/chat/chat-sessions.md#fork-a-chat-session). |
+| `/fork` | Fork the current chat session into a new independent session that inherits the full conversation history. Learn more about [forking agent sessions](/docs/agents/run/sessions/manage-sessions.md#fork-a-chat-session). |
 | `/debug` | Show the Chat Debug view to [inspect the chat logs for troubleshooting](/docs/agents/agent-troubleshooting/troubleshooting.md). |
 | `/troubleshoot` | Ask the AI to analyze the [agent debug logs](/docs/agents/agent-troubleshooting/chat-debug-view.md) for the current chat session. Optionally, include `#session` to select and diagnose a previous chat session. For example, `/troubleshoot how many tokens did I use?` or `/troubleshoot list all paths you tried to load customizations in #session`. Requires `setting(github.copilot.chat.agentDebugLog.enabled)`. |
 | `/new` | Scaffold a new VS Code workspace or file. Use natural language to describe the type of project/file you need, and preview the scaffolded content before creating it. |
@@ -167,8 +167,8 @@ Slash commands are shortcuts to specific functionality within the chat. You can 
 | `/create-skill` | Generate an [agent skill](/docs/agent-customization/agent-skills.md) with AI assistance in Agent mode. |
 | `/create-agent` | Generate a [custom agent](/docs/agent-customization/custom-agents.md) with AI assistance in Agent mode. |
 | `/create-hook` | Generate a [hook](/docs/agent-customization/hooks.md) configuration with AI assistance in Agent mode. |
-| `/yolo`<br/>`/autoApprove` | Enable [global auto-approval](/docs/agents/approvals.md) of all tool calls (`setting(chat.tools.global.autoApprove)`). Shows a warning dialog the first time. |
-| `/disableYolo`<br/>`/disableAutoApprove` | Disable [global auto-approval](/docs/agents/approvals.md) of all tool calls. |
+| `/yolo`<br/>`/autoApprove` | Enable [global auto-approval](/docs/agents/run/approvals.md) of all tool calls (`setting(chat.tools.global.autoApprove)`). Shows a warning dialog the first time. |
+| `/disableYolo`<br/>`/disableAutoApprove` | Disable [global auto-approval](/docs/agents/run/approvals.md) of all tool calls. |
 | `/<skill name>` | Run an [agent skill](/docs/agent-customization/agent-skills.md) in chat. For example, if you have a skill file named `webapp-testing.md`, you can run it by typing `/webapp-testing`. |
 | `/<prompt name>` | Run a [reusable prompt](/docs/agent-customization/prompt-files.md) in chat. |
 
@@ -184,17 +184,17 @@ Use chat participants to handle domain-specific requests in chat. Chat participa
 
 ## Use agents
 
-When using [agents](/docs/agents/agent-types/local-agents.md), you can use natural language to specify a high-level task, and let AI autonomously reason about the request, plan the work needed, and apply the changes to your codebase. Agents use a combination of code editing and tool invocation to accomplish the task you specified. As it processes your request, it monitors the outcome of edits and tools, and iterates to resolve any issues that arise.
+When using [agents](/docs/agents/concepts/agents.md), you can use natural language to specify a high-level task, and let AI autonomously reason about the request, plan the work needed, and apply the changes to your codebase. Agents use a combination of code editing and tool invocation to accomplish the task you specified. As it processes your request, it monitors the outcome of edits and tools, and iterates to resolve any issues that arise.
 
 | Action | Description |
 |--------|-------------|
 | `kb(workbench.action.chat.openAgent)` | Switch to using agents in the Chat view |
 | Tools (<i class="codicon codicon-tools"></i>) | Configure which tools are available when using agents. Select from built-in tools, MCP servers, and extension-provided tools. |
-| Permission levels | Choose a [permission level](/docs/agents/approvals.md#permission-levels) for the current session: **Default Approvals**, **Bypass Approvals**, or **Autopilot**. For agents that run on the Agent Host, you can also enable experimental **Assisted permissions**. Controls how tool approvals are handled. |
-| Auto-approve tools | Enable [auto-approval of all tools](/docs/agents/approvals.md#tool-approval) when using agents (`setting(chat.tools.autoApprove)`). |
-| Auto-approve terminal commands | Enable [auto-approval of terminal commands](/docs/agents/approvals.md#automatically-approve-terminal-commands) when using agents (`setting(chat.tools.terminal.autoApprove)`). |
+| Permission levels | Choose a [permission level](/docs/agents/run/approvals.md#permission-levels) for the current session: **Default Approvals**, **Bypass Approvals**, or **Assisted permissions** (Agent Host). Controls how tool approvals are handled. On the Agent Host, **Autopilot** is selected as an agent mode instead of a permission level. |
+| Auto-approve tools | Enable [auto-approval of all tools](/docs/agents/run/approvals.md#tool-approval) when using agents (`setting(chat.tools.autoApprove)`). |
+| Auto-approve terminal commands | Enable [auto-approval of terminal commands](/docs/agents/run/approvals.md#automatically-approve-terminal-commands) when using agents (`setting(chat.tools.terminal.autoApprove)`). |
 | MCP | Configure [MCP servers](/docs/agent-customization/mcp-servers.md) to extend agent capabilities and tools. |
-| [Third-party agents](/docs/agents/agent-types/third-party-agents.md) | Use agents from external providers like Claude Agent (Preview) and OpenAI Codex with your Copilot subscription. |
+| [Provider harnesses](/docs/agents/concepts/agent-harnesses.md) | Use Claude (Preview) or OpenAI Codex with your Copilot subscription. |
 | Claude Agent _(Preview)_ | Start a Claude Agent session powered by Anthropic's Claude Agent SDK. Use `/agents`, `/hooks`, and `/memory` slash commands for advanced workflows. |
 
 > **Tips**
@@ -206,13 +206,13 @@ When using [agents](/docs/agents/agent-types/local-agents.md), you can use natur
 
 ## Planning
 
-Use the [plan agent](/docs/agents/planning.md) in VS Code chat to create detailed implementation plans before starting complex coding tasks. Hand off the approved plan to an implementation agent to start coding.
+Use the [plan agent](/docs/agents/run/planning.md) in VS Code chat to create detailed implementation plans before starting complex coding tasks. Hand off the approved plan to an implementation agent to start coding.
 
 | Action | Description |
 |--------|-------------|
 | Plan agent | Select the **Plan** agent from the agents dropdown or use the `/plan` slash command to create a detailed implementation plan for complex coding tasks. |
 | Todo list | View a todo list to track progress on complex tasks. Enable this with the `setting(chat.tools.todos.showWidget` setting. |
-| [Memory](/docs/agents/memory.md) | Agents save and recall persistent notes across conversations. Use the **Chat: Show Memory Files** command to view stored memories. |
+| [Memory](/docs/agents/run/memory.md) | Agents save and recall persistent notes across conversations. Use the **Chat: Show Memory Files** command to view stored memories. |
 
 ## Customize your chat experience
 
@@ -319,7 +319,7 @@ AI can help you create a new project by generating a scaffold of the project str
 
 | Action | Description |
 |--------|-------------|
-| Agent | Use [agents](/docs/agents/agent-types/local-agents.md) and use a natural language prompt to create a new project or file. For example, `Create a svelte web application to track my tasks`. |
+| Agent | Use [agents](/docs/agents/concepts/agents.md) and a natural language prompt to create a new project or file. For example, `Create a svelte web application to track my tasks`. |
 | `/new` | Use the `/new` command in the Chat view to scaffold a new project or a new file. Use natural language to describe the type of project/file you need, and preview the scaffolded content before creating it.<br/>Example: `/new Express app using typescript and svelte` |
 | `/newNotebook` | Use the `/newNotebook` command in the Chat view to generate a new Jupyter notebook based on your requirements. Use natural language to describe what the notebook should contain.<br/>Example: `/newNotebook get census data and preview key insights with Seaborn`. |
 
@@ -347,4 +347,4 @@ You can use chat to help you with Python programming tasks in the Native Python 
 
 ## Next steps
 
-* [Tutorial: Get started with AI features in VS Code](/docs/getstarted/getting-started.md)
+* [Tutorial: Get started with AI features in VS Code](/docs/agents/agents-tutorial.md)

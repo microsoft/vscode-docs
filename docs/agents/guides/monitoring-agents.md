@@ -1,6 +1,6 @@
 ---
 ContentId: 4e7a2c91-b8d3-4f6e-a1c5-9d0e3f7b2a84
-DateApproved: 7/29/2026
+DateApproved: 8/5/2026
 MetaDescription: Learn how to monitor GitHub Copilot agent interactions in VS Code with OpenTelemetry traces, metrics, and events.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -166,7 +166,7 @@ Extension-specific metrics:
 | `copilot_chat.session.count` | Counter | Chat sessions started |
 | `copilot_chat.time_to_first_token` | Histogram | Time to first SSE token (seconds) |
 
-Agent activity and outcome metrics track agentic code changes across all surfaces (inline chat, local agents, Copilot CLI agents, Claude agents, and Copilot coding agents):
+Agent activity and outcome metrics track agentic code changes across all surfaces (inline chat, local agents, Copilot agents, Claude agents, and Copilot coding agents):
 
 | Metric | Type | Description |
 |---|---|---|
@@ -179,7 +179,7 @@ Agent activity and outcome metrics track agentic code changes across all surface
 | `copilot_chat.user.feedback.count` | Counter | Thumbs up and thumbs down votes on chat responses |
 | `copilot_chat.agent.edit_response.count` | Counter | Agent edit responses by success or error |
 | `copilot_chat.agent.summarization.count` | Counter | Context summarization outcomes (applied, failed) |
-| `copilot_chat.pull_request.count` | Counter | Pull requests created via the CLI agent |
+| `copilot_chat.pull_request.count` | Counter | Pull requests created via the Copilot agent |
 | `copilot_chat.cloud.session.count` | Counter | Cloud and remote agent sessions by partner agent |
 | `copilot_chat.cloud.pr_ready.count` | Counter | Remote agent job PR-ready notifications |
 
@@ -287,19 +287,19 @@ Administrators deliver these settings through the `telemetry` block in Copilot m
 
 ## Trace structure for background and Claude agents
 
-When OTel is enabled, all agent types are automatically instrumented. The same settings that enable foreground agent traces also enable Copilot CLI and Claude agent traces.
+When OTel is enabled, all agent types are automatically instrumented. The same settings that enable foreground agent traces also enable Copilot and Claude agent traces.
 
-### Copilot CLI (background agent)
+### Copilot
 
-The Copilot CLI SDK runs in the same VS Code process as the chat extension and produces a rich trace hierarchy that includes subagents, permissions, hooks, and tool calls. The extension wrapper span (`invoke_agent copilotcli`, service `copilot-chat`) parents the SDK's native spans (service `github-copilot`). Both appear in the same trace in your collector.
+The Copilot SDK runs in the same VS Code process as the chat extension and produces a rich trace hierarchy that includes subagents, permissions, hooks, and tool calls. The extension wrapper span (`invoke_agent copilotcli`, service `copilot-chat`) parents the SDK's native spans (service `github-copilot`). Both appear in the same trace in your collector.
 
-CLI sessions also show the full SDK hierarchy in the **Agent Debug Log** panel in VS Code, identical to what appears in your trace viewer. The debug panel works even when OTel export is disabled, because the SDK's internal tracing is always active for the panel.
+Copilot sessions also show the full SDK hierarchy in the **Agent Debug Log** panel in VS Code, identical to what appears in your trace viewer. The debug panel works even when OTel export is disabled, because the SDK's internal tracing is always active for the panel.
 
 When OTel export is disabled, the debug panel automatically captures full prompt and response content. When OTel export is enabled, the `setting(github.copilot.chat.otel.captureContent)` setting controls content capture for both the debug panel and OTLP export.
 
 ### Copilot CLI (terminal session)
 
-Terminal CLI sessions started with **New Copilot CLI Session** run in a separate process. When OTel is enabled, the extension forwards `COPILOT_OTEL_ENABLED` and `OTEL_EXPORTER_OTLP_ENDPOINT` to the terminal process. Terminal traces appear as independent root traces under service `github-copilot` and are not linked to extension traces.
+When you run a Copilot CLI session in the terminal (**New Copilot CLI Session**), it runs in a separate process. When OTel is enabled, the extension forwards `COPILOT_OTEL_ENABLED` and `OTEL_EXPORTER_OTLP_ENDPOINT` to the terminal process. Terminal traces appear as independent root traces under service `github-copilot` and are not linked to extension traces.
 
 The CLI runtime only supports `otlp-http`. When `otlp-grpc` is configured, the terminal CLI still uses HTTP. Backends that serve both protocols on the same port (such as the Aspire Dashboard) work transparently.
 
@@ -316,7 +316,7 @@ In your trace viewer, filter by `service.name` to see traces from specific agent
 | `service.name` | Source |
 |---|---|
 | `copilot-chat` | Foreground agent, CLI wrapper, and Claude agent spans (extension-emitted) |
-| `github-copilot` | CLI SDK native spans and CLI terminal sessions |
+| `github-copilot` | Copilot SDK native spans and CLI terminal sessions |
 | `claude-code` | Claude Code subprocess SDK telemetry (when `CLAUDE_CODE_ENABLE_TELEMETRY` is forwarded) |
 
 Within the `copilot-chat` service, distinguish agent types by `gen_ai.agent.name`:
@@ -324,7 +324,7 @@ Within the `copilot-chat` service, distinguish agent types by `gen_ai.agent.name
 | `gen_ai.agent.name` | Agent type |
 |---|---|
 | `GitHub Copilot Chat` | Foreground agent (agent mode) |
-| `copilotcli` | CLI wrapper span |
+| `copilotcli` | Copilot wrapper span |
 | `claude` | Claude agent |
 
 ## Use with observability backends

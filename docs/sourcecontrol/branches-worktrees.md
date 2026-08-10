@@ -1,7 +1,7 @@
 ---
 ContentId: a9b2c3d4-e5f6-7890-ab12-cd3456789012
-DateApproved: 7/29/2026
-MetaDescription: Learn how to work with Git branches and worktrees in VS Code. Create, switch between, and manage multiple branches, use Git worktrees for parallel development, and manage stashes for temporary changes.
+DateApproved: 8/5/2026
+MetaDescription: Manage Git branches and worktrees in Visual Studio Code to develop in parallel, compare changes, and move work between checkouts.
 Keywords:
 - source control
 - scm
@@ -107,11 +107,26 @@ VS Code has built-in support for [Git worktrees](https://git-scm.com/docs/git-wo
 
 ### Understanding worktrees
 
-A worktree is a separate checkout of a Git branch in its own directory. This allows you to have multiple working directories for the same repository, each on a different branch. Worktree functionality is especially useful for:
+A Git repository normally has one working directory, called the primary worktree. A linked worktree is another working directory for the same repository. Each worktree checks out a branch in its own folder, so you can work on multiple branches at the same time without switching the files in your primary worktree.
 
-* Work on multiple features simultaneously in separate folders
-* Run different versions of your application side by side
-* Compare implementations across branches
+The following table shows how the Git concepts relate:
+
+| Concept | What it represents |
+|---------|--------------------|
+| Repository | The shared Git history, branches, tags, and remotes. |
+| Branch | A movable pointer to a commit in the repository history. |
+| Worktree | A working directory with its own checked-out files, staging area, and uncommitted changes. |
+
+Worktrees share the repository history, but they don't share working files or uncommitted changes. Git also prevents the same local branch from being checked out in more than one worktree at a time.
+
+For example, your primary worktree might have `main` checked out while a linked worktree contains the `feature/theme-toggle` branch. Changes in the feature worktree don't appear in the primary worktree until you merge or migrate them.
+
+Worktrees are especially useful to:
+
+* Develop multiple features in separate folders.
+* Run different versions of an application side by side.
+* Compare implementations across branches.
+* Keep changes from parallel [agent sessions](/docs/agents/concepts/agent-harnesses.md#code-isolation) separate.
 
 ### Create a worktree
 
@@ -133,7 +148,7 @@ The new worktree appears as a separate entry in the **Source Control Repositorie
 
 ### Include files when creating a worktree
 
-When you create a worktree, Git doesn't copy files that are excluded by `.gitignore`, such as local configuration files, environment files, or installed dependencies. To work in the new worktree, you might need these files to be present.
+When you create a worktree, Git doesn't copy files that are excluded by `.gitignore`, such as local configuration files, environment files, or installed dependencies. This behavior also applies when VS Code creates a worktree for an agent session.
 
 Use the `setting(git.worktreeIncludeFiles)` setting to configure [glob patterns](https://aka.ms/vscode-glob-patterns) for files and folders to copy into a new worktree. A file is copied only when it matches one of the patterns and is also listed in `.gitignore`.
 
@@ -145,6 +160,8 @@ A common use is to copy the `node_modules` folder into each new worktree. This w
     "node_modules/**"
 ]
 ```
+
+For agent worktrees, only include files that the agent can safely access.
 
 ### Switch between worktrees
 

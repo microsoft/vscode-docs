@@ -1,7 +1,7 @@
 ---
 ContentId: 045980C1-62C7-4E8E-8CE4-BAD722FFE31E
-DateApproved: 02/04/2026
-MetaDescription: Here you will find the complete list of keyboard shortcuts for Visual Studio Code and how to change them.
+DateApproved: 08/05/2026
+MetaDescription: Customize keyboard shortcuts in Visual Studio Code, including keybinding rules, command arguments, chords, and system-wide shortcuts.
 MetaSocialImage: images/keybinding/customization-keybindings-social.png
 ---
 # Keyboard shortcuts for Visual Studio Code
@@ -92,6 +92,45 @@ To open the `keybindings.json` file:
 
 * Alternatively, use the **Open Default Keyboard Shortcuts (JSON)** command in the Command Palette (`kb(workbench.action.showCommands)`).
 
+### System-wide keyboard shortcuts
+
+To run a VS Code command even when VS Code is not in focus, add `"systemWide": true` to a user keyboard shortcut. For example, the following keyboard shortcut opens the Agents window from any application on macOS:
+
+```json
+{
+  "key": "cmd+shift+a",
+  "command": "workbench.action.openAgentsWindow",
+  "systemWide": true
+}
+```
+
+System-wide keyboard shortcuts have the following restrictions:
+
+* They are available only in the desktop version of VS Code.
+* They apply only to user-defined keyboard shortcuts, not default or extension-contributed shortcuts.
+* They support a single key combination, not chords.
+* For the system-wide trigger, they ignore the `when` clause and remain active while VS Code is running.
+* They might fail to register if the operating system or another application uses the same key combination. VS Code shows a notification when registration fails.
+
+> [!NOTE]
+> A system-wide keyboard shortcut captures its key combination from other applications while VS Code is running.
+
+The command determines whether to bring a VS Code window to the foreground. To reveal the current window before running a command, use `runCommands` with `workbench.action.focusWindow`. For example:
+
+```json
+{
+  "key": "ctrl+cmd+p",
+  "command": "runCommands",
+  "args": {
+    "commands": [
+      "workbench.action.focusWindow",
+      "workbench.action.quickOpen"
+    ]
+  },
+  "systemWide": true
+}
+```
+
 ## Keyboard rules
 
 A keyboard shortcut configuration in VS Code is also known as a _keyboard rule_. Each rule consists of the following attributes:
@@ -99,6 +138,7 @@ A keyboard shortcut configuration in VS Code is also known as a _keyboard rule_.
 * `key`: describes the pressed key(s), for example `kb(actions.find)`.
 * `command`: the identifier of the VS Code command to execute, for example `workbench.view.explorer` to open the Explorer view.
 * `when`: (optional) clause containing a boolean expression that is evaluated depending on the current [context](#when-clause-contexts).
+* `systemWide`: (optional) boolean that registers a [system-wide keyboard shortcut](#system-wide-keyboard-shortcuts).
 
 Chords (two separate keypress actions) are described by separating the two keypresses with a space. For example, `kbstyle(Ctrl+K Ctrl+C)`.
 

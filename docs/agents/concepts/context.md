@@ -1,6 +1,6 @@
 ---
 ContentId: c3d4e5f6-7a8b-9c0d-1e2f-3a4b5c6d7e8f
-DateApproved: 7/29/2026
+DateApproved: 8/5/2026
 MetaDescription: Learn how VS Code assembles context for AI prompts, including workspace indexing, implicit context, explicit references, and context window management.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -61,7 +61,7 @@ VS Code automatically provides context to the prompt based on your current activ
 
 ## Working effectively with context
 
-* **Start new sessions for new tasks.** A [session](/docs/chat/chat-sessions.md) is an independent conversation with its own context window and history. Each session starts fresh, so don't reuse a single conversation for unrelated tasks.
+* **Start new sessions for new tasks.** A [session](/docs/agents/run/sessions/manage-sessions.md) is an independent conversation with its own context window and history. Each session starts fresh, so don't reuse a single conversation for unrelated tasks.
 * **Be selective with context.** Adding your entire codebase isn't always helpful. Reference specific files that are relevant to the task.
 * **Use custom instructions for persistent rules.** Rules you add in [custom instructions](/docs/agent-customization/custom-instructions.md) are included in every request, so you don't lose them when the conversation is summarized.
 
@@ -98,7 +98,7 @@ Learn more about [adding context to chat](/docs/chat/copilot-chat-context.md).
 ## Related resources
 
 * [Language models](/docs/agents/concepts/language-models.md)
-* [Manage context for AI](/docs/chat/copilot-chat-context.md)
+* [Add context to chat](/docs/chat/copilot-chat-context.md)
 * [Context engineering guide](/docs/agents/guides/context-engineering-guide.md)
 * [Diagnose prompt caching with the Cache Explorer](/docs/agents/agent-troubleshooting/cache-explorer.md)
 * [Workspace indexing](/docs/agents/reference/workspace-context.md)

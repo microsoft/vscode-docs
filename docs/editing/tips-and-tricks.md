@@ -1,6 +1,6 @@
 ---
 ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
-DateApproved: 7/29/2026
+DateApproved: 8/5/2026
 MetaDescription: Visual Studio Code Tips and Tricks for power users.
 ---
 # Visual Studio Code tips and tricks
@@ -16,7 +16,7 @@ Prefer a video? You can watch the VS Code Day talks [Visual Studio Code tips and
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
 Follow a hands-on tutorial to build your first app with AI in VS Code.
 
-* [Start tutorial](/docs/getstarted/getting-started.md)
+* [Start tutorial](/docs/agents/agents-tutorial.md)
 
 </div>
 

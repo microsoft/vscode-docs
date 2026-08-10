@@ -1,6 +1,6 @@
 ---
 ContentId: d4e5f6a7-8b9c-0d1e-2f3a-4b5c6d7e8f9a
-DateApproved: 7/29/2026
+DateApproved: 8/5/2026
 MetaDescription: Learn about the different types of tools that extend AI agents in VS Code, including built-in tools, MCP servers, and extension tools.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -45,20 +45,20 @@ Every tool the agent can call adds to the decision space the model has to reason
 * **Get more relevant results**: the agent focuses on the most appropriate tools rather than choosing from a large set.
 * **Improve performance**: a smaller tool set reduces the decision space for the model.
 
-Tool availability can be scoped per request, or fixed for specific workflows through [prompt files](/docs/agent-customization/prompt-files.md) and [custom agents](/docs/agent-customization/custom-agents.md). For configuration steps, see [Use tools in chat](/docs/chat/chat-tools.md).
+Tool availability can be scoped per chat request or fixed for specific workflows in [custom agent configuration](/docs/agent-customization/custom-agents.md).
 
 ## Tool approval and trust
 
-Tools can perform actions that modify files, your environment, or access external services. VS Code includes security controls to keep you in charge:
+Tools can perform actions that edit files, modify your environment, or access external services. VS Code includes security controls to keep you in charge:
 
 * **Approval prompts**: tools with side effects show a confirmation dialog before running. You can approve for a single use, the current session, or all future invocations.
 * **URL approval**: when a tool accesses a URL, a two-step process verifies both the request and the response content.
-* **Permission levels**: the [permissions picker](/docs/agents/approvals.md#permission-levels) controls how much autonomy the agent has, from requiring manual approval to fully autonomous operation.
+* **Permission levels**: the [permissions picker](/docs/agents/run/approvals.md#permission-levels) controls how much autonomy the agent has, from requiring manual approval to fully autonomous operation.
 
 Learn more about [trust and safety](/docs/agents/concepts/trust-and-safety.md).
 
 ## Related resources
 
-* [Use tools in chat](/docs/chat/chat-tools.md)
+* [Use tools with agents](/docs/agents/run/tools.md)
 * [Add and manage MCP servers](/docs/agent-customization/mcp-servers.md)
 * [Agents](/docs/agents/concepts/agents.md)

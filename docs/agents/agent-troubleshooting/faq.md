@@ -1,6 +1,6 @@
 ---
 ContentId: e02ded07-6e5a-4f94-b618-434a2c3e8f09
-DateApproved: 7/29/2026
+DateApproved: 8/5/2026
 MetaDescription: Frequently asked questions for using GitHub Copilot in Visual Studio Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -29,7 +29,7 @@ Signing in with a GitHub account that has access to GitHub Copilot has the follo
 * [Remote repository indexing and semantic code search](/docs/agents/reference/workspace-context.md#remote-index)
 * [Copilot code review](https://docs.github.com/en/copilot/concepts/agents/code-review)
 * [Copilot content exclusions](https://docs.github.com/en/copilot/how-tos/configure-content-exclusion/exclude-content-from-copilot)
-* [Delegate tasks to Copilot cloud agent](/docs/agents/agent-types/cloud-agents.md#github-copilot-cloud-agent) for background execution
+* [Delegate tasks to the Copilot cloud agent](/docs/agents/run/agent-harnesses.md#cloud) for remote execution.
 
 Depending on your Copilot plan, you might have different levels of access and limits. See [GitHub Copilot plans](https://docs.github.com/en/copilot/get-started/plans) for more information.
 
@@ -47,8 +47,6 @@ Visit the GitHub Copilot documentation for more information about [monitoring us
 Your inline suggestions allowance and AI credits allowance reset every month. If you've only reached the AI credits limit, you can still use inline suggestions. Similarly, if you've reached the limit for inline suggestions, you can still use chat.
 
 For users on Copilot Free, to access more inline suggestions and AI credits, you can sign up for a [paid plan](https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-individuals) directly from VS Code. Alternatively, you can wait until the next month to continue using Copilot for free.
-
-<!-- TODO: add screenshot -->
 
 If you're on a paid plan and exhaust your AI credits, you can set a budget for additional usage and keep working, or wait until the next monthly cycle when your allowance resets. Learn more about [what happens if you exceed your included AI credits](https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-individuals#what-happens-if-i-exceed-my-included-ai-credits) in the GitHub Copilot documentation.
 
@@ -200,5 +198,5 @@ It can be helpful to include information from the Copilot logs if you're reporti
 ## Additional resources
 
 - [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/)
-- [Security considerations for AI in VS Code](/docs/agents/security.md)
+- [Security considerations for AI in VS Code](/docs/agents/run/security.md)
 - [GitHub Copilot FAQ](https://github.com/features/copilot#faq) in the GitHub documentation

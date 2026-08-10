@@ -1,6 +1,6 @@
 ---
 ContentId: 101027aa-e73c-4d1b-a93f-b8ce10e1f946
-DateApproved: 7/29/2026
+DateApproved: 8/5/2026
 MetaDescription: Learn how to use GitHub Copilot in Visual Studio Code to edit Jupyter notebooks with AI.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---

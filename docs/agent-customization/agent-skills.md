@@ -1,6 +1,6 @@
 ---
 ContentId: a7d3e5f8-2c4b-4d9a-b8e1-3f6c9a2d7e41
-DateApproved: 7/29/2026
+DateApproved: 8/5/2026
 MetaDescription: Learn how to use Agent Skills in VS Code to teach GitHub Copilot specialized capabilities that work across VS Code, GitHub Copilot CLI, and GitHub Copilot cloud agent.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -302,7 +302,7 @@ To use a shared skill:
 1. Optionally, modify or add resources as needed
 
 > [!TIP]
-> Always review shared skills before using them to ensure they meet your requirements and security standards. VS Code's [terminal tool](/docs/chat/chat-tools.md#run-terminal-commands) provides controls for script execution, including [auto-approve options](/docs/agents/approvals.md#automatically-approve-terminal-commands) with configurable allow-lists and tight controls over which code runs. Learn more about [security considerations](/docs/agents/security.md#approvals-and-review) for auto-approval features.
+> Always review shared skills before using them to ensure they meet your requirements and security standards. VS Code's [terminal tool](/docs/agents/run/tools.md#run-terminal-commands) provides controls for script execution, including [auto-approve options](/docs/agents/run/approvals.md#automatically-approve-terminal-commands) with configurable allow-lists and tight controls over which code runs. Learn more about [security considerations](/docs/agents/run/security.md#approvals-and-review) for auto-approval features.
 
 ## Contribute skills from extensions
 

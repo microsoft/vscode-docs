@@ -1,6 +1,6 @@
 ---
 ContentId: f8820661-7772-47e6-b63e-ac59f6752d9c
-DateApproved: 7/29/2026
+DateApproved: 8/5/2026
 MetaDescription: Learn how to implement context engineering using VS Code's built-in AI features.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -11,7 +11,7 @@ This guide shows you how to set up a context engineering workflow in VS Code usi
 Context engineering is a systematic approach to providing AI agents with targeted project information to improve the quality and accuracy of generated code. By curating essential project context through custom instructions, implementation plans, and coding guidelines, you enable AI to make better decisions, improve accuracy, and maintain persistent knowledge across interactions.
 
 > [!TIP]
-> VS Code chat provides a [built-in plan agent](/docs/agents/planning.md) to help you create detailed implementation plans before starting complex coding tasks. If you don't want to create a custom planning workflow, you can use the plan agent to generate implementation plans quickly.
+> VS Code chat provides a [built-in plan agent](/docs/agents/run/planning.md) to help you create detailed implementation plans before starting complex coding tasks. If you don't want to create a custom planning workflow, you can use the plan agent to generate implementation plans quickly.
 
 ## Context engineering workflow
 
@@ -92,7 +92,7 @@ To ground the AI agent in the specifics of the project, collect key project info
 
 Once you have the project-specific context in place, you can use AI to prompt the creation of an implementation plan for a new feature or bug fix. Generating an implementation plan is an iterative process that might require multiple rounds of refinement to ensure it's complete and accurate.
 
-With a [custom agent](/docs/agent-customization/custom-agents.md) for planning, you can create a dedicated persona with planning-specific guidelines and tools (for example, read-only access to the codebase). They can also capture specific workflows for brainstorming, researching, and collaborating for your project and team. For deep research that produces a thorough, well-cited report on a topic, use the built-in [research agent](/docs/agents/agent-types/copilot-cli.md#run-deep-research-with-the-research-agent) in Copilot CLI sessions.
+With a [custom agent](/docs/agent-customization/custom-agents.md) for planning, you can create a dedicated persona with planning-specific guidelines and tools (for example, read-only access to the codebase). They can also capture specific workflows for brainstorming, researching, and collaborating for your project and team. For deep research that produces a thorough, well-cited report on a topic, use the built-in [research agent](/docs/agents/run/agent-harnesses.md#run-deep-research-with-the-research-agent) in Copilot sessions.
 
 > [!TIP]
 > Once you create custom agents, treat them as living documents. Refine and improve them over time based on any mistakes or shortcomings you observe in the agent's behavior.

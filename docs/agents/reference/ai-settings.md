@@ -1,6 +1,6 @@
 ---
 ContentId: 7b232695-cbbe-4f3f-a625-abc7a5e6496c
-DateApproved: 7/29/2026
+DateApproved: 8/5/2026
 MetaDescription: Overview of the configuration settings for AI features and agents in Visual Studio Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -49,13 +49,13 @@ The team is continuously working on improving the AI features in VS Code and add
 | `setting(github.copilot.chat.scopeSelection)`<br/>Whether to prompt for a specific symbol scope if you use `/explain` and the active editor has no selection. | `false` |
 | `setting(github.copilot.chat.terminalChatLocation)`<br/>Controls where chat queries from the terminal should be opened. | `"chatView"` |
 | `setting(chat.detectParticipant.enabled)`<br/>Enable chat participant detection in the Chat view. | `true` |
-| `setting(chat.artifacts.enabled)` _(Experimental)_<br/>Enable or disable the [artifacts panel](/docs/chat/chat-artifacts.md) in the chat (preview). | `false` |
+| `setting(chat.artifacts.enabled)` _(Experimental)_<br/>Enable or disable the [artifacts panel](/docs/agents/run/artifacts.md) in the chat (preview). | `false` |
 | `setting(chat.artifacts.rules.byMimeType)` _(Experimental)_<br/>Rules for extracting artifacts from tool results by MIME type pattern. Maps MIME type patterns (such as `"image/*"`) to a group configuration. | `{ "image/*": { "groupName": "Screenshots", "onlyShowGroup": true } }` |
 | `setting(chat.artifacts.rules.byFilePath)` _(Experimental)_<br/>Rules for extracting artifacts from written files by file path glob pattern. Maps glob patterns (such as `"**/*plan*.md"`) to a group configuration. | `{ "**/*plan*.md": { "groupName": "Plans" } }` |
 | `setting(chat.artifacts.rules.byMemoryFilePath)` _(Experimental)_<br/>Rules for extracting artifacts from memory tool writes by memory file path glob pattern. Maps glob patterns to a group configuration. | `{ "**/*plan*.md": { "groupName": "Plans" } }` |
-| `setting(chat.checkpoints.enabled)` <br/>Enable or disable [checkpoints](/docs/chat/chat-checkpoints.md) in the chat. | `true` |
+| `setting(chat.checkpoints.enabled)` <br/>Enable or disable [checkpoints](/docs/agents/run/review-code-edits.md#edit-requests-and-restore-checkpoints) in the chat. | `true` |
 | `setting(chat.checkpoints.showFileChanges)` <br/>Show a summary of file changes at the end of each chat request. | `false` |
-| `setting(chat.editRequests)`<br/>Enable or disable [editing previous chat requests](/docs/chat/chat-checkpoints.md#edit-a-previous-chat-request). | `"inline"` |
+| `setting(chat.editRequests)`<br/>Enable or disable [editing previous chat requests](/docs/agents/run/review-code-edits.md#edit-a-previous-chat-request). | `"inline"` |
 | `setting(chat.editor.fontFamily)`<br/>Font family in chat codeblocks. | `"default"` |
 | `setting(chat.editor.fontSize)`<br/>Font size in pixels in chat codeblocks. | `14` |
 | `setting(chat.editor.fontWeight)`<br/>Font weight in chat codeblocks. | `"default"` |
@@ -77,6 +77,8 @@ The team is continuously working on improving the AI features in VS Code and add
 | `setting(chat.useCustomAgentHooks)` _(Preview)_ <br/>Enable [agent-scoped hooks](/docs/agent-customization/hooks.md#agentscoped-hooks) defined in custom agent frontmatter. When enabled, hooks in `.agent.md` files run only when that agent is active. | `false` |
 | `setting(chat.useAgentsMdFile)` <br/>Enable or disable using `AGENTS.md` files as context for chat requests. | `true` |
 | `setting(chat.math.enabled)` <br/>Enable or disable math rendering with [KaTeX](https://katex.org) in chat. | `false` |
+| `setting(chat.subagents.allowInvocationsFromSubagents)`<br/>Enable subagents to invoke other subagents, up to a maximum nesting depth of five. | `false` |
+| `setting(chat.subagents.useRichRendering)`<br/>Open each subagent in its own editor instead of showing its full activity inline in the parent chat. | `true` |
 | `setting(chat.viewTitle.enabled)` _(Preview)_<br/>Show the title of the current chat session in the chat header. | `true` |
 | `setting(github.copilot.chat.codesearch.enabled)` _(Preview)_<br/>When using `#codebase` in the prompt, the agent automatically discovers relevant files to be edited. | `false` |
 | `setting(chat.emptyState.history.enabled)` _(Experimental)_<br/>Show recent chat history in the empty state of the Chat view. | `false` |
@@ -92,9 +94,9 @@ The team is continuously working on improving the AI features in VS Code and add
 | `setting(chat.utilitySmallModel)`<br/>Override the language model used for fast, lightweight [utility flows](/docs/agent-customization/language-models.md#change-the-model-for-utility-tasks), such as commit messages, rename suggestions, and intent detection. A fast, inexpensive model is recommended. | `"Default"` |
 | `setting(chat.byokUtilityModelDefault)`<br/>Control which model built-in [utility flows](/docs/agent-customization/language-models.md#configure-the-default-utility-model-for-byok-models) use when the main agent model is a [BYOK](/docs/agent-customization/language-models.md#bring-your-own-language-model-key) model. Choose the main agent model, GitHub Copilot utility models, or no default utility model. Has no effect when the main agent model is provided by GitHub Copilot. | `"GitHub Copilot"` |
 | `setting(github.copilot.chat.edits.suggestRelatedFilesFromGitHistory)` _(Experimental)_<br/>Suggest related files from git history in chat context. | `true` |
-| `setting(github.copilot.chat.localIndex.enabled)`<br/>Enable local session tracking for [session insights](/docs/agents/sessions/session-insights.md) and `/chronicle` commands. | `true` |
-| `setting(chat.sessionSync.enabled)`<br/>Enable [session sync](/docs/agents/sessions/session-sync.md) to GitHub.com. When enabled, Copilot session data syncs to your GitHub account for cross-device access. Requires `setting(github.copilot.chat.localIndex.enabled)` to also be enabled. | `true` |
-| `setting(chat.sessionSync.excludeRepositories)`<br/>Repository patterns to exclude from [session sync](/docs/agents/sessions/session-sync.md). Use exact `owner/repo` names or glob patterns like `my-org/*`. Sessions from matching repositories are stored locally only. | `[]` |
+| `setting(github.copilot.chat.localIndex.enabled)`<br/>Enable local session tracking for [session insights](/docs/agents/run/sessions/session-history.md#query-session-history-with-chronicle) and `/chronicle` commands. | `true` |
+| `setting(chat.sessionSync.enabled)`<br/>Enable [session sync](/docs/agents/run/sessions/session-history.md) to GitHub.com. When enabled, Copilot session data syncs to your GitHub account for cross-device access. Requires `setting(github.copilot.chat.localIndex.enabled)` to also be enabled. | `true` |
+| `setting(chat.sessionSync.excludeRepositories)`<br/>Repository patterns to exclude from [session sync](/docs/agents/run/sessions/session-history.md). Use exact `owner/repo` names or glob patterns like `my-org/*`. Sessions from matching repositories are stored locally only. | `[]` |
 
 ## Agent settings
 
@@ -109,23 +111,23 @@ The team is continuously working on improving the AI features in VS Code and add
 | `setting(chat.mcp.apps.enabled)` _(Experimental)_<br/>Enable or disable MCP Apps, which are rich user interfaces provided by MCP servers. | `true` |
 | `setting(chat.tools.compressOutput.enabled)` _(Preview)_<br/>Compress large terminal output before sending it to the model to reduce context window usage. Collapses unchanged diff hunks, drops lockfile diffs, and strips install progress. | `false` |
 | `setting(chat.tools.riskAssessment.enabled)` _(Experimental)_<br/>Show an AI-generated risk badge on terminal command confirmations, indicating whether a command is safe, requires caution, or should be reviewed carefully. | `true` |
-| `setting(chat.tools.terminal.autoApprove)` <br/>Control which terminal commands are [auto-approved when using agents](/docs/agents/approvals.md#automatically-approve-terminal-commands). Commands can be set to `true` (auto-approve) or `false` (require approval). Regular expressions can be used by wrapping patterns in `/` characters. | `{ "rm": false, "rmdir": false, "del": false, "kill": false, "curl": false, "wget": false, "eval": false, "chmod": false, "chown": false, "/^Remove-Item\\b/i": false }` |
+| `setting(chat.tools.terminal.autoApprove)` <br/>Control which terminal commands are [auto-approved when using agents](/docs/agents/run/approvals.md#automatically-approve-terminal-commands). Commands can be set to `true` (auto-approve) or `false` (require approval). Regular expressions can be used by wrapping patterns in `/` characters. | `{ "rm": false, "rmdir": false, "del": false, "kill": false, "curl": false, "wget": false, "eval": false, "chmod": false, "chown": false, "/^Remove-Item\\b/i": false }` |
 | `setting(chat.tools.terminal.enableAutoApprove)` <br/>Enable or disable automatic approval of terminal commands. | `true` |
 | `setting(chat.tools.edits.autoApprove)` <br/>Configure which files require approval before edits are applied. Uses glob patterns to match file paths in your workspace. | `{}` |
 | `setting(chat.tools.terminal.outputLocation)` _(Experimental)_<br/>Configure where terminal command output appears: inline in chat or in the integrated terminal. | `"chat"` |
 | `setting(chat.tools.terminal.enforceTimeoutFromModel)` _(Experimental)_<br/>Control whether to enforce the timeout value that the agent specifies for terminal commands. When enabled, the agent stops tracking the command after the specified duration and returns the output collected so far. | `true` |
 | `setting(chat.tools.terminal.ignoreDefaultAutoApproveRules)` <br/>Ignore the default auto-approve rules for terminal commands. | `false` |
-| `setting(chat.tools.global.autoApprove)`<br/>Automatically approve all tools - this setting [disables critical security protections](/docs/agents/security.md). | `false` |
-| `setting(chat.assistedPermissions.enabled)` _(Experimental)_<br/>Show [Assisted permissions](/docs/agents/approvals.md#permission-levels) in the permissions picker for agents that run on the Agent Host. An LLM judge evaluates the risk of each tool call and asks for your approval when it does not approve a call. | `true` (Insiders)<br/>`false` (Stable) |
-| `setting(chat.permissions.default)` _(Experimental)_<br/>Set the default [permission level](/docs/agents/approvals.md#permission-levels) for new chat sessions. Options: `default` (Default Approvals), `autoApprove` (Bypass Approvals), `autopilot` (Autopilot). You can still change the permission level per session. If enterprise policy disables auto-approval, new sessions use Default Approvals. | `"default"` |
-| `setting(chat.autopilot.advanced.enabled)` _(Experimental)_<br/>Enable [Advanced Autopilot](/docs/agents/approvals.md#advanced-autopilot), where a separate model evaluates whether your request is complete after each Autopilot turn and guides the next turn, instead of relying on the agent to signal completion. | `false` |
-| `setting(chat.tools.urls.autoApprove)` <br/>Control which [URL requests and responses are auto-approved](/docs/agents/approvals.md#url-approval). | `[]` |
+| `setting(chat.tools.global.autoApprove)`<br/>Automatically approve all tools - this setting [disables critical security protections](/docs/agents/run/security.md). | `false` |
+| `setting(chat.assistedPermissions.enabled)` <br/>Show [Assisted permissions](/docs/agents/run/approvals.md#permission-levels) in the permissions picker for agents that run on the Agent Host. An LLM judge evaluates the risk of each tool call and asks for your approval when it does not approve a call. | `true` (Insiders)<br/>`false` (Stable) |
+| `setting(chat.permissions.default)` _(Experimental)_<br/>Set the default [permission level](/docs/agents/run/approvals.md#permission-levels) for new chat sessions. Options: `default` (Default Approvals), `autoApprove` (Bypass Approvals), `autopilot` (Autopilot). You can still change the permission level per session. On the Agent Host, Autopilot is selected as an agent mode instead. If enterprise policy disables auto-approval, new sessions use Default Approvals. | `"default"` |
+| `setting(chat.autopilot.advanced.enabled)` _(Experimental)_<br/>Enable [Advanced Autopilot](/docs/agents/run/approvals.md#advanced-autopilot-preview), where a separate model evaluates whether your request is complete after each Autopilot turn and guides the next turn, instead of relying on the agent to signal completion. | `false` |
+| `setting(chat.tools.urls.autoApprove)` <br/>Control which [URL requests and responses are auto-approved](/docs/agents/run/approvals.md#url-approval). | `[]` |
 | `setting(chat.agent.thinking.collapsedTools)` _(Experimental)_<br/>Configure how tool calls are grouped with thinking content: `off` keeps tool calls separate, `withThinking` groups them only when thinking is present, and `always` always groups tool calls in collapsible sections. | `always` |
 | `setting(chat.agent.thinkingStyle)` _(Experimental)_<br/>Configure how thinking is rendered in chat: `collapsed` collapses thinking by default and can separate reasoning from grouped tool calls, `collapsedPreview` starts expanded and collapses after non-thinking content appears, and `fixedScrolling` shows thinking in a fixed-height auto-scrolling panel that you can expand. | `fixedScrolling` |
 | `setting(chat.mcp.autoStart)` _(Experimental)_<br/>Automatically start MCP servers when MCP configuration changes are detected. | `newAndOutdated` |
 | `setting(chat.tools.eligibleForAutoApproval)` _(Experimental)_<br/>Configure which tools require manual approval before they can be used by agents. | `[]` |
 | `setting(chat.tools.terminal.blockDetectedFileWrites)` _(Experimental)_<br/>Require user approval for terminal commands that perform file writes outside the workspace. Writes to the OS temporary folder (`/tmp` on macOS and Linux, `%TEMP%` on Windows) are exempt when session-level command approval is active. | `outsideWorkspace` |
-| `setting(chat.agent.sandbox.enabled)` _(Preview)_<br/>Enable [sandboxing for agent commands](/docs/agents/approvals.md#sandbox-agent-commands) executed by the agent (macOS and Linux only). Possible values: `off` (disabled), `on` (full file system and network isolation), `allowNetwork` (file system isolation only, all outbound network traffic is allowed). When enabled, commands are auto-approved and have restricted access. | `off` |
+| `setting(chat.agent.sandbox.enabled)` _(Preview)_<br/>Enable [sandboxing for agent commands](/docs/agents/run/approvals.md#sandbox-agent-commands) executed by the agent (macOS and Linux only). Possible values: `off` (disabled), `on` (full file system and network isolation), `allowNetwork` (file system isolation only, all outbound network traffic is allowed). When enabled, commands are auto-approved and have restricted access. | `off` |
 | `setting(chat.agent.sandbox.fileSystem.linux)` _(Preview)_<br/>Configure file system access rules for sandboxed agent commands on Linux. Supports `allowRead`, `allowWrite`, `denyRead`, and `denyWrite` properties. | `{}` |
 | `setting(chat.agent.sandbox.fileSystem.mac)` _(Preview)_<br/>Configure file system access rules for sandboxed agent commands on macOS. Supports `allowRead`, `allowWrite`, `denyRead`, and `denyWrite` properties. | `{}` |
 | `setting(chat.agent.networkFilter)`<br/>Enable network domain filtering for agent tools (fetch tool, integrated browser). When enabled, network access is restricted according to `setting(chat.agent.allowedNetworkDomains)` and `setting(chat.agent.deniedNetworkDomains)`. When disabled, no filtering is applied. | `false` |
@@ -143,21 +145,33 @@ The team is continuously working on improving the AI features in VS Code and add
 | `setting(github.copilot.chat.summarizeAgentConversationHistory.enabled)` _(Experimental)_<br/>Automatically summarize the agent conversation history when the context window is full. | `true` |
 | `setting(github.copilot.chat.virtualTools.threshold)` _(Experimental)_<br/>Tool count over which virtual tools should be used. Virtual tools group similar sets of tools together and enable the model to activate them on-demand. Enables you to go beyond the limit of 128 tools for a chat request. | `128` |
 
+## Memory settings
+
+| Setting and Description | Default |
+|------------------------|---------------|
+| `setting(chat.tools.memory.enabled)` _(Experimental)_<br/>Enable the [memory tool](/docs/agents/run/memory.md#memory-tool) so agents can save and recall notes across conversations. | `true` |
+| `setting(chat.copilotMemory.enabled)` _(Experimental)_<br/>Store [repository memory](/docs/agents/run/memory.md#store-repository-memory-in-copilot-memory) in [Copilot Memory](/docs/agents/run/memory.md#copilot-memory) instead of local files, so it's shared across Copilot surfaces. Requires Copilot Memory to be enabled for the repository in your GitHub settings. User and session memory always remain local. | `false` |
+
 ## Agent sessions
 
 The [Agents view](/docs/agents/overview.md) provides a centralized location for managing both local chat conversations and remote coding agent sessions. This view enables you to work with multiple AI sessions simultaneously, track their progress, and manage long-running tasks efficiently.
 
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(workbench.startupEditor)` <br/>Configure the VS Code welcome page to act as your agent sessions entry point. Set to `agentSessionsWelcomePage` to show the [VS Code welcome page](/docs/chat/chat-sessions.md#vs-code-welcome-page) with recent sessions, embedded chat, and quick actions. | N/A |
+| `setting(workbench.startupEditor)` <br/>Configure the VS Code welcome page to act as your agent sessions entry point. Set to `agentSessionsWelcomePage` to show the [VS Code welcome page](/docs/agents/run/sessions/manage-sessions.md#view-sessions-on-the-vs-code-welcome-page) with recent sessions, embedded chat, and quick actions. | N/A |
 | `setting(chat.viewSessions.enabled)` <br/>Show the agent sessions list in the Chat view. | `true` |
 | `setting(chat.viewSessions.orientation)` <br/>Control the layout orientation of the sessions list in the Chat view. | `"sideBySide"` |
 | `setting(chat.editMode.hidden)` <br/>Restore the deprecated Edit mode for multi-file code edits. | `true` |
-| `setting(chat.agentsControl.enabled)` _(Experimental)_<br/>Enable the [session status indicator](/docs/chat/chat-sessions.md#session-status-indicator-experimental) in the command center. Shows unread and in-progress session badges. | `true` |
+| `setting(chat.agentsControl.enabled)` _(Experimental)_<br/>Enable the [session status indicator](/docs/agents/run/sessions/manage-sessions.md#session-status-indicator-experimental) in the command center. Shows unread and in-progress session badges. | `true` |
 | `setting(chat.agentsControl.clickBehavior)` _(Experimental)_<br/>Configure the behavior when selecting the chat icon in the agent status indicator. | `"cycle"` (Insiders)<br/>`"default"` (Stable) |
 | `setting(chat.unifiedAgentsBar.enabled)` _(Experimental)_<br/>Replace the command center search box with a unified chat and search control. | `false` |
-| `setting(github.copilot.chat.cli.remote.enabled)` <br/>Enable remote control support for Copilot CLI sessions from github.com or the GitHub Mobile app. | `true` |
+| `setting(sessions.layout.singlePaneDetailPanel)` _(Experimental)_<br/>Dock the Agents window detail panel inside the editor with a shared tab bar. Requires a window reload to take effect. | `false` |
+| `setting(github.copilot.chat.cli.remote.enabled)` <br/>Enable remote control support for Copilot sessions from github.com or the GitHub Mobile app. | `true` |
 | `setting(chat.agentHost.byokModels.enabled)` _(Experimental)_<br/>Wire up the [BYOK](/docs/agent-customization/language-models.md#bring-your-own-language-model-key) language model bridge so extension-provided BYOK models can run in agent host sessions. Requires `setting(chat.agentHost.enabled)`, and the agent host process must be restarted to take effect. | `false` |
+| `setting(chat.agentHost.claudeAgent.enabled)` _(Experimental)_<br/>Register the Claude provider in the [Agent Host](/docs/agents/concepts/agent-host.md) process, so Claude sessions run on the Agent Host. Requires `setting(chat.agentHost.enabled)`, and the agent host process must be restarted to take effect. | `true` |
+| `setting(chat.agentHost.codexAgent.enabled)` _(Experimental)_<br/>Register the Codex provider in the [Agent Host](/docs/agents/concepts/agent-host.md) process. Requires `setting(chat.agentHost.enabled)`, and the agent host process must be restarted to take effect. | `false` |
+| `setting(chat.agents.claude.preferAgentHost)` _(Experimental)_<br/>Run Claude sessions opened from the Agents window on the Agent Host instead of the GitHub Copilot Chat extension. Requires `setting(chat.agentHost.enabled)`. | `true` |
+| `setting(chat.editor.codex.preferAgentHost)` _(Experimental)_<br/>Run Codex sessions opened from the sidebar chat on the Agent Host instead of the OpenAI extension. Requires `setting(chat.agentHost.enabled)` and `setting(chat.agentHost.codexAgent.enabled)`. | `false` |
 
 ## Inline chat settings
 
@@ -206,13 +220,14 @@ The [Agents view](/docs/agents/overview.md) provides a centralized location for 
 |------------------------|---------------|
 | `setting(chat.promptFilesLocations)` <br/>Locations to search for prompt files. Relative paths are resolved from the root folder(s) of your workspace. Supports glob patterns for file paths. | `{ ".github/prompts": true }` |
 | `setting(chat.promptFilesRecommendations)` <br/>Enable or disable prompt file recommendations when opening a new chat session. List of key-value pairs of prompt file name and boolean or when clause. | `[]` |
+| `setting(chat.customizations.promptMigration.enabled)` _(Experimental)_<br/>Show the one-time affordance in the Agent Customizations editor to convert prompt files to [agent skills](/docs/agent-customization/agent-skills.md) for [Agent Host](/docs/agents/concepts/agent-host.md) harnesses, which don't use prompt files. | `false` |
 
 ## Custom agents settings
 
 | Setting and Description | Default |
 |------------------------|---------------|
 | `setting(chat.agentFilesLocations)` <br/>Locations to search for custom agent files. Relative paths are resolved from the root folder(s) of your workspace. Supports home directory expansion (`~`) for user-specific paths. | `{ ".github/agents": true }` |
-| `setting(github.copilot.chat.cli.customAgents.enabled)` <br/>Enable using custom agents from GitHub background agent sessions. | `false` |
+| `setting(github.copilot.chat.cli.customAgents.enabled)` <br/>Enable using custom agents in Copilot sessions. | `false` |
 | `setting(github.copilot.chat.organizationCustomAgents.enabled)` <br/>Enable discovery of custom agents defined at the GitHub organization level. | `true` |
 
 ## Agent skills settings
@@ -267,6 +282,16 @@ The [Agents view](/docs/agents/overview.md) provides a centralized location for 
 | `setting(github.copilot.chat.edits.newNotebook.enabled)` _(Experimental)_<br/>Enable the notebook tool in Edit mode (deprecated) to create a new notebook file. | `true` |
 | `setting(github.copilot.chat.notebook.followCellExecution.enabled)` _(Experimental)_<br/>Show the currently executing cell in the editor. | `false` |
 
+## Dictation settings
+
+| Setting and Description | Default |
+|------------------------|---------------|
+| `setting(dictation.enabled)` _(Experimental)_<br/>Controls whether built-in dictation is available in chat, the Agents window, editors, and terminals. | `true` |
+| `setting(dictation.model)` _(Experimental)_<br/>Selects the speech recognition model for dictation. | `"nemotron-3.5-asr-streaming-0.6b"` |
+| `setting(dictation.showTranscript)` _(Experimental)_<br/>Shows interim transcription while you speak. Final text is still inserted when this setting is off. | `true` |
+| `setting(dictation.experimental.llmCleanup)` _(Experimental)_<br/>Uses a language model to improve punctuation, capitalization, paragraphs, lists, and number formatting in the final transcript. | `true` |
+| `setting(agents.voice.language)`<br/>Provides a language hint for dictation and Voice Mode. Use `auto` to use the system language. | `"auto"` |
+
 ## Accessibility settings
 
 | Setting and Description | Default |
@@ -284,7 +309,7 @@ The [Agents view](/docs/agents/overview.md) provides a centralized location for 
 | `setting(accessibility.verbosity.panelChat)`<br/>Provide information about how to access the chat help menu when the chat input is focused. | `true` |
 | `setting(accessibility.voice.keywordActivation)`<br/>Controls whether the keyword phrase 'Hey Code' is recognized to start a voice chat session. | `"off"` |
 | `setting(accessibility.voice.autoSynthesize)`<br/>Controls whether a textual response should automatically be read out aloud when speech was used as input. | `"off"` |
-| `setting(accessibility.voice.speechTimeout)`<br/>The duration in milliseconds that voice speech recognition remains active after you stop speaking. | `1200` |
+| `setting(accessibility.voice.speechTimeout)`<br/>Stops terminal dictation after the specified number of milliseconds of silence. Set to `0` to keep listening. | `0` |
 
 ## Related resources
 

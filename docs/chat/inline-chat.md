@@ -1,14 +1,14 @@
 ---
 ContentId: e6b33fcb-8240-49dd-b6ca-5412d6fa669a
-DateApproved: 7/29/2026
-MetaDescription: Use Inline Chat in Visual Studio Code to make edits directly in the editor or get command suggestions in the terminal.
+DateApproved: 8/5/2026
+MetaDescription: Use inline chat and Quick Chat in Visual Studio Code for targeted editor changes, terminal command suggestions, and short AI interactions.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
-# Inline chat
+# Inline chat and Quick Chat
 
-With inline chat in Visual Studio Code, you can ask for generating code or making edits directly in the editor or get help with shell commands within the integrated terminal. Inline chat allows you to stay in the flow of your work without having to switch to a separate Chat view.
+Inline chat and Quick Chat provide lightweight ways to interact with AI without opening the full Chat view. Use inline chat to generate code or make edits directly in the editor, or to get help with shell commands in the integrated terminal. Use Quick Chat for short questions and interactions.
 
-Use inline chat when you want to make quick, targeted edits within the visible code context. For multi-step tasks, multi-file changes, or broader codebase exploration, use the [Chat view](/docs/chat/chat-overview.md) instead.
+Use inline chat when you want to make quick, targeted edits within the visible code context. For multi-step tasks, multi-file changes, or broader codebase exploration, use the [Chat view](/docs/agents/run/chat-view.md) instead.
 
 ## Use editor inline chat
 
@@ -84,6 +84,9 @@ Learn more about [choosing the right model for your task](/docs/agents/concepts/
 
 Quick Chat provides a lightweight chat panel that opens at the top of the editor. Use it for quick questions and short interactions without opening the full Chat view or leaving your current workflow.
 
+> [!NOTE]
+> Quick Chat in the editor window differs from [quick chats in the Agents window](/docs/agents/run/agents-window.md#start-a-quick-chat), which are workspace-free conversations that appear in the sessions list.
+
 To open Quick Chat, press `kb(workbench.action.quickchat.toggle)` or select **Quick Chat** from the **Chat** menu in the title bar.
 
 Type your prompt and press `kbstyle(Enter)` to get a response. Quick Chat supports the same `#`-mentions and `@`-mentions as the Chat view for adding context. Select the **Open in Chat View** button to continue the conversation in the full Chat view.
@@ -92,5 +95,5 @@ Type your prompt and press `kbstyle(Enter)` to get a response. Quick Chat suppor
 
 * [Use chat in VS Code](/docs/chat/chat-overview.md)
 * [Add context to your chat prompt](/docs/chat/copilot-chat-context.md)
-* [Review AI-generated code edits](/docs/chat/review-code-edits.md)
+* [Review AI-generated code edits](/docs/agents/run/review-code-edits.md)
 * [AI language models in VS Code](/docs/agent-customization/language-models.md)

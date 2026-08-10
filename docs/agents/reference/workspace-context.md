@@ -1,6 +1,6 @@
 ---
 ContentId: c77dcce9-4ba9-40ac-8ae5-2df855088090
-DateApproved: 7/29/2026
+DateApproved: 8/5/2026
 MetaDescription: Learn how Copilot agents understand your codebase with semantic search, text search, grep, and other tools to gather context for accurate answers.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -132,7 +132,7 @@ The way you phrase your prompt influences which tools the agent uses and the qua
 * **Use code terms**: use function names, class names, and concepts that appear in your code so the agent can find exact matches.
 * **Add context manually**: select code, reference files, or [#-mention context items](/docs/chat/copilot-chat-context.md) such as debug context, terminal output, and more.
 * **Scope your request**: responses can draw from multiple references, such as "find exceptions without a catch block". But don't expect a full codebase analysis, such as "how many times is this function invoked?".
-* **Use external tools for non-code questions**: for information like "who contributed to this file?", configure the relevant [tools or MCP servers](/docs/chat/chat-tools.md).
+* **Use external tools for non-code questions**: for information like "who contributed to this file?", configure the relevant [tools or MCP servers](/docs/agents/run/tools.md).
 
 ## Private repositories
 

@@ -1,6 +1,6 @@
 ---
 ContentId: f29747b9-0f4f-4f62-b0a7-037ffc49d972
-DateApproved: 7/29/2026
+DateApproved: 8/5/2026
 MetaDescription: Watch introductory videos for Visual Studio Code on the official VS Code YouTube channel.
 MetaSocialImage: ../introvideos/images/opengraph/introvideos-social.png
 ---
@@ -15,7 +15,7 @@ For the latest videos and tutorials, visit the official VS Code YouTube channel.
         <i class="codicon codicon-play-circle" aria-hidden="true"></i>
         <p>Visit the VS Code YouTube channel</p>
     </a>
-    <a class="card" href="/docs/getstarted/getting-started">
+    <a class="card" href="/docs/agents/agents-tutorial">
         <i class="codicon codicon-mortar-board" aria-hidden="true"></i>
         <p>Get started with agents in VS Code</p>
     </a>

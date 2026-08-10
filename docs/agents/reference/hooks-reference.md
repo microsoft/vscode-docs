@@ -1,6 +1,6 @@
 ---
 ContentId: 1f6b2d94-7c3a-4e85-9a1d-5b8c0e2f7a63
-DateApproved: 7/29/2026
+DateApproved: 8/5/2026
 MetaDescription: Reference for agent hook configuration properties and per-event input and output schemas in Visual Studio Code, including PreToolUse, PostToolUse, SessionStart, Stop, and more.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -166,7 +166,9 @@ The `SessionStart` hook can inject additional context into the agent's conversat
 
 ## Stop
 
-The `Stop` hook fires when the agent session ends. When scoped to a custom agent, the `Stop` hook is also treated as `SubagentStop`.
+The `Stop` hook fires when the current agent execution stops. When scoped to a custom agent, the `Stop` hook is also treated as `SubagentStop`.
+
+The hook firing does not indicate stopping of a session or that the session has become inactive.
 
 ### Stop input
 
@@ -303,4 +305,4 @@ The `PreCompact` hook uses the common output format only.
 
 * [Agent hooks](/docs/agent-customization/hooks.md) - Configure and use hooks in VS Code
 * [Custom agents](/docs/agent-customization/custom-agents.md) - Create specialized agent configurations
-* [Subagents](/docs/agents/subagents.md) - Delegate tasks to context-isolated subagents
+* [Subagents](/docs/agents/run/subagents.md) - Delegate tasks to context-isolated subagents

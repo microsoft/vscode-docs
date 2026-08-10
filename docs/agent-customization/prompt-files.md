@@ -1,6 +1,6 @@
 ---
 ContentId: 5c8e7d42-9b1a-4f85-a3e2-6d5b8a9c1e43
-DateApproved: 7/29/2026
+DateApproved: 8/5/2026
 MetaDescription: Learn how to create reusable prompt files for GitHub Copilot Chat in VS Code to standardize common development tasks and improve your coding workflow efficiency.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -15,18 +15,17 @@ Keywords:
 
 Prompt files, also known as slash commands, let you simplify prompting for common tasks by encoding them as standalone Markdown files that you can invoke directly in chat. Each prompt file includes task-specific context and guidelines about how the task should be performed.
 
-Unlike [custom instructions](/docs/agent-customization/custom-instructions.md) that are applied automatically, you invoke prompt files manually in chat.
+Unlike [custom instructions](/docs/agent-customization/custom-instructions.md) that are applied automatically, you invoke prompt files manually in chat. See the [decision matrix](/docs/agents/concepts/customization.md#customization-options-at-a-glance) to compare prompt files with custom agents, agent skills, and the other options.
 
 Use prompt files to:
 
 * Simplify prompting for common tasks, such as scaffolding a new component, running and fixing tests, or preparing a pull request
 * Override default behavior of a custom agent, such as creating a minimal implementation plan or generating mockups for API calls
 
-> [!TIP]
-> **Not sure which customization to use?** See the [decision matrix](/docs/agents/concepts/customization.md#customization-options-at-a-glance) to compare prompt files with custom agents, agent skills, and the other options.
+You can use the [Agent Customizations editor](/docs/agent-customization/overview.md#use-the-agent-customizations-editor) (Preview) to discover, create, and manage all your agent customizations in one place. Run **Chat: Open Customizations** from the Command Palette.
 
-> [!TIP]
-> Use the [Agent Customizations editor](/docs/agent-customization/overview.md#use-the-agent-customizations-editor) (Preview) to discover, create, and manage all your agent customizations in one place. Run **Chat: Open Customizations** from the Command Palette.
+> [!IMPORTANT]
+> Agents running on the [Agent Host](/docs/agents/concepts/agent-host.md) don't use prompt files. To use an existing prompt with the Copilot agent, convert it to an [agent skill](/docs/agent-customization/agent-skills.md). The Agent Customizations editor offers a one-time migration that converts your prompt files to skills (experimental, enable `setting(chat.customizations.promptMigration.enabled)`). Prompt files continue to work with local agents that run in the VS Code extension host.
 
 ## Prompt file locations
 
@@ -37,7 +36,7 @@ You can define prompt files for a specific workspace or at the user level, where
 | Workspace | `.github/prompts` folder |
 | User profile | Your user data (specific to your VS Code profile) |
 
-To create a prompt file in user data, use the Agent Customizations editor or use the **Chat: New Prompt File** command.
+To create a user-level prompt file, use the Agent Customizations editor or the **Chat: New Prompt File** command.
 
 > [!TIP]
 > In a monorepo, enable `setting(chat.useCustomizationsInParentRepositories)` to discover prompt files from the parent repository root. Learn more about [parent repository discovery](/docs/agent-customization/overview.md#use-customizations-in-a-monorepo).
@@ -53,7 +52,7 @@ Prompt files are Markdown files with the `.prompt.md` extension. The optional YA
 | `argument-hint` | No | Hint text shown in the chat input field to guide users on how to interact with the prompt. |
 | `agent` | No | The agent used for running the prompt: `ask`, `agent`, `plan`, or the name of a [custom agent](/docs/agent-customization/custom-agents.md). By default, the current agent is used. If tools are specified, the default agent is `agent`. |
 | `model` | No | The language model used when running the prompt. If not specified, the currently selected model in model picker is used. |
-| `tools` | No | A list of tool or tool set names that are available for this prompt. Can include built-in tools, tool sets, MCP tools, or tools contributed by extensions. To include all tools of an MCP server, use the `<server name>/*` format.<br/>Learn more about [tools in chat](/docs/chat/chat-tools.md). |
+| `tools` | No | A list of tool or [tool set](/docs/agent-customization/tool-sets.md) names that are available for this prompt. Can include built-in tools, tool sets, MCP tools, or tools contributed by extensions. To include all tools of an MCP server, use the `<server name>/*` format.<br/>Learn more about [tools with agents](/docs/agents/run/tools.md). |
 
 > [!NOTE]
 > If a given tool is not available when running the prompt, it is ignored.
@@ -217,5 +216,5 @@ To identify the source of a prompt file:
 ## Related resources
 
 * [Create custom instructions](/docs/agent-customization/custom-instructions.md)
-* [Configure tools in chat](/docs/chat/chat-tools.md)
+* [Configure agent tools](/docs/agents/run/tools.md)
 * [Community contributed instructions, prompts, and custom agents](https://github.com/github/awesome-copilot)

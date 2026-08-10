@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: aa6d312f-cbac-4633-8579-64d3cb4d17be
-DateApproved: 7/29/2026
+DateApproved: 8/5/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to creating a language model tool and how to implement tool calling in a chat extension
@@ -18,7 +18,7 @@ In this extension guide, you learn how to create a language model tool by using 
 You can also extend the chat experience with specialized tools by contributing an [MCP server](/api/extension-guides/ai/mcp). See the [AI Extensibility Overview](/api/extension-guides/ai/ai-extensibility-overview) for details on the different options and how to decide which approach to use.
 
 > [!TIP]
-> For information about using tools as an end user, see [Use tools in chat](/docs/chat/chat-tools.md).
+> For information about using tools as an end user, see [Use tools with agents](/docs/agents/run/tools.md).
 
 ## What is tool calling in an LLM?
 

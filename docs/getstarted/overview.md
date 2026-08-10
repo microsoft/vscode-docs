@@ -1,6 +1,6 @@
 ---
 ContentId: FC5262F3-D91D-4665-A5D2-BCBCCF66E53A
-DateApproved: 7/29/2026
+DateApproved: 8/5/2026
 MetaDescription: Get started with Visual Studio Code, the open platform for AI agents. Install on Windows, macOS, or Linux and start building with agentic coding, extensions, and a powerful editor.
 MetaSocialImage: images/quicksetup/quick-setup-social.png
 ---
@@ -13,9 +13,9 @@ VS Code runs on your desktop or a [remote machine](/docs/remote/remote-overview.
 VS Code puts you in control. Choose your [language model](/docs/agent-customization/language-models.md), whether from your GitHub Copilot subscription or your own API key, and pick the [agent](/docs/agents/overview.md) that fits the task. Customize VS Code for your technology stack with [extensions](/docs/configure/extensions/extensions.md) from the Marketplace, and shape the editor to your workflow with [settings, keybindings, and themes](/docs/configure/themes.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with VS Code">
-Follow a hands-on tutorial to build your first app with AI in VS Code.
+Complete your first coding task with an AI agent in VS Code.
 
-* [Start tutorial](/docs/getstarted/getting-started.md)
+* [Start quickstart](/docs/agents/quickstart.md)
 
 </div>
 
@@ -23,7 +23,7 @@ Follow a hands-on tutorial to build your first app with AI in VS Code.
 
 VS Code adapts to how you want to work, whether you write every line yourself or hand off tasks to an AI agent. Most workflows combine both.
 
-* **Build with AI agents.** Describe what you want in natural language, and an agent plans a solution, edits files across your project, runs commands, and fixes its own errors. Run agents in the [Agents window](/docs/agents/agents-window.md) for an agent-first workflow, or in the [Chat view](/docs/agents/chat-view.md) while you write code in the editor. Learn more about [AI agents in VS Code](/docs/agents/overview.md).
+* **Build with AI agents.** Describe what you want in natural language, and an agent plans a solution, edits files across your project, runs commands, and fixes its own errors. Run agents in the [Agents window](/docs/agents/run/agents-window.md) for an agent-first workflow, or in the [Chat view](/docs/agents/run/chat-view.md) while you write code in the editor. Learn more about [AI agents in VS Code](/docs/agents/overview.md).
 
     ![Screenshot of the Agents window with the integrated browser showing a development website and the changes panel showing a list of changes.](images/overview/agents-window-integrated-browser.png)
 
@@ -43,7 +43,7 @@ New to VS Code? These three steps take you from a fresh install to building your
 
 1. **Enable AI features.** Sign in to unlock inline suggestions and AI agents. See [Enable AI features](#enable-ai-features).
 
-1. **Take the tutorial.** Build an app with the [agentic coding tutorial](/docs/getstarted/getting-started.md) or [learn the basics of writing code](/docs/editing/getting-started.md) in VS Code.
+1. **Choose a quickstart.** Complete a task with the [agents quickstart](/docs/agents/quickstart.md) or [learn the basics of writing code](/docs/editing/getting-started.md) in VS Code.
 
 ## Install VS Code
 
@@ -111,11 +111,11 @@ Follow these steps to get started with Copilot in VS Code:
 Pick a path based on what you want to do next.
 
 <div class="card-grid">
-    <a class="card" href="/docs/getstarted/getting-started">
+    <a class="card" href="/docs/agents/quickstart">
         <i class="codicon codicon-hubot" aria-hidden="true"></i>
         <div>
             <p><strong>Agentic coding</strong></p>
-            <p>Build an app from a prompt in our hands-on tutorial.</p>
+            <p>Complete your first coding task with an AI agent.</p>
         </div>
     </a>
     <a class="card" href="/docs/editing/getting-started">

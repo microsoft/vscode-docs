@@ -1,6 +1,6 @@
 ---
 ContentId: 7ab2cd6c-45fd-4278-a6e8-1c9e060593ea
-DateApproved: 7/29/2026
+DateApproved: 8/5/2026
 MetaDescription: Get AI-powered inline suggestions from GitHub Copilot in VS Code, including ghost text completions and next edit suggestions.
 MetaSocialImage: images/shared/github-copilot-social.png
 Keywords: [nes, suggestions, inline completions, ghost text, next edit suggestions]
@@ -18,7 +18,7 @@ You might experience two kinds of inline suggestions from Copilot, both of which
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
 Follow a hands-on tutorial to build your first app with AI in VS Code.
 
-* [Start tutorial](/docs/getstarted/getting-started.md)
+* [Start tutorial](/docs/agents/agents-tutorial.md)
 
 </div>
 
@@ -176,7 +176,7 @@ To give you relevant inline suggestions, Copilot looks at the current and open f
 
 ## Next steps
 
-* Discover the key features in the [Quickstart](/docs/getstarted/getting-started.md).
+* Discover the key features in the [Quickstart](/docs/agents/quickstart.md).
 
 * Use AI chat conversations with [chat in VS Code](/docs/chat/chat-overview.md).
 
