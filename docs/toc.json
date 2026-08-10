@@ -13,9 +13,132 @@
     {
         "name": "Agents",
         "area": "agentic",
-        "link": "/docs/agents/overview",
-        "toc": "agents/toc.json",
-        "topics": []
+        "topics": [
+            ["Overview", "/docs/agents/overview"],
+            ["", "", {
+                "name": "Get started",
+                "area": "agents",
+                "topics": [
+                    ["Agents Quickstart", "/docs/agents/quickstart"],
+                    ["Agents Tutorial", "/docs/agents/agents-tutorial"],
+                    ["Best Practices", "/docs/agents/best-practices"]
+                ]
+            }],
+
+            ["", "", {
+                "name": "Concepts",
+                "area": "agents/concepts",
+                "topics": [
+                    ["Agents", "/docs/agents/concepts/agents"],
+                    ["Agent Harnesses", "/docs/agents/concepts/agent-harnesses"],
+                    ["Language Models", "/docs/agents/concepts/language-models"],
+                    ["Context", "/docs/agents/concepts/context"],
+                    ["Tools", "/docs/agents/concepts/tools"],
+                    ["Sessions & Handoff", "/docs/agents/concepts/sessions"],
+                    ["Agent Host Architecture", "/docs/agents/concepts/agent-host"],
+                    ["Customization", "/docs/agents/concepts/customization"],
+                    ["Workspace Context", "/docs/agents/reference/workspace-context"],
+                    ["Trust & Safety", "/docs/agents/concepts/trust-and-safety"]
+                ]
+            }],
+
+            ["", "", {
+                "name": "Run agents",
+                "area": "agents/run",
+                "topics": [
+                    ["Agents Window", "/docs/agents/run/agents-window"],
+                    ["Chat View", "/docs/agents/run/chat-view"],
+                    ["Choose an Agent Harness", "/docs/agents/run/agent-harnesses"],
+                    ["Use Tools", "/docs/agents/run/tools"],
+                    ["Browser Tools", "/docs/agents/run/browser-tools"],
+                    ["Approvals & Permissions", "/docs/agents/run/approvals"],
+                    ["Review & Revert Changes", "/docs/agents/run/review-code-edits"],
+                    ["Artifacts", "/docs/agents/run/artifacts"],
+                    ["Remote Agent Sessions", "/docs/agents/run/remote-agent-sessions"],
+                    ["Plan Work", "/docs/agents/run/planning"],
+                    ["Memory", "/docs/agents/run/memory"],
+                    ["Subagents", "/docs/agents/run/subagents"],
+
+                    ["", "", {
+                        "name": "Sessions",
+                        "area": "agents/run/sessions",
+                        "topics": [
+                            ["Manage Sessions", "/docs/agents/run/sessions/manage-sessions"],
+                            ["Session History", "/docs/agents/run/sessions/session-history"]
+                        ]
+                    }],
+
+                    ["AI Security", "/docs/agents/run/security"]
+                ]
+            }],
+
+            ["", "", {
+                "name": "Customize agents",
+                "area": "agent-customization",
+                "noCollapse": false,
+                "topics": [
+                    ["Create and Manage", "/docs/agent-customization/overview"],
+                    ["Instructions", "/docs/agent-customization/custom-instructions"],
+                    ["Agent Skills", "/docs/agent-customization/agent-skills"],
+                    ["Custom Agents", "/docs/agent-customization/custom-agents"],
+                    ["Language Models", "/docs/agent-customization/language-models"],
+                    ["MCP", "/docs/agent-customization/mcp-servers"],
+                    ["Hooks", "/docs/agent-customization/hooks"],
+                    ["Plugins", "/docs/agent-customization/agent-plugins"],
+                    ["Prompt Files", "/docs/agent-customization/prompt-files"]
+                ]
+            }],
+
+            ["", "", {
+                "name": "Use chat",
+                "area": "chat",
+                "topics": [
+                    ["Chat Basics", "/docs/chat/chat-overview"],
+                    ["Inline & Quick Chat", "/docs/chat/inline-chat"],
+                    ["Add Prompt Context", "/docs/chat/copilot-chat-context"]
+                ]
+            }],
+
+            ["", "", {
+                "name": "Tutorials & guides",
+                "area": "agents/guides",
+                "topics": [
+                    ["Customize AI", "/docs/agents/guides/customize-copilot-guide"],
+                    ["Context Engineering", "/docs/agents/guides/context-engineering-guide"],
+                    ["Test-Driven Development", "/docs/agents/guides/test-driven-development-guide"],
+                    ["Test with AI", "/docs/agents/guides/test-with-copilot"],
+                    ["Test Web Apps with Browser Tools", "/docs/agents/guides/browser-agent-testing-guide"],
+                    ["Debug with AI", "/docs/agents/guides/debug-with-copilot"],
+                    ["Edit Notebooks with AI", "/docs/agents/guides/notebooks-with-ai"],
+                    ["Optimize AI Credit Usage", "/docs/agents/guides/optimize-usage"],
+                    ["MCP Dev Guide", "/docs/agents/guides/mcp-developer-guide"],
+                    ["Prompt Examples", "/docs/agents/guides/prompt-examples"]
+                ]
+            }],
+
+            ["", "", {
+                "name": "Reference",
+                "area": "agents/reference",
+                "topics": [
+                    ["Cheat Sheet", "/docs/agents/reference/ai-features-cheat-sheet"],
+                    ["Settings Reference", "/docs/agents/reference/ai-settings"],
+                    ["MCP Configuration", "/docs/agents/reference/mcp-configuration"],
+                    ["Hooks Reference", "/docs/agents/reference/hooks-reference"],
+                    ["OpenTelemetry Monitoring", "/docs/agents/guides/monitoring-agents"]
+                ]
+            }],
+
+            ["", "", {
+                "name": "Troubleshooting",
+                "area": "agents/agent-troubleshooting",
+                "topics": [
+                    ["Troubleshooting", "/docs/agents/agent-troubleshooting/troubleshooting"],
+                    ["Debug Chat Interactions", "/docs/agents/agent-troubleshooting/chat-debug-view"],
+                    ["Diagnose Prompt Caching", "/docs/agents/agent-troubleshooting/cache-explorer"],
+                    ["FAQ", "/docs/agents/agent-troubleshooting/faq"]
+                ]
+            }]
+        ]
     },
 
     {
