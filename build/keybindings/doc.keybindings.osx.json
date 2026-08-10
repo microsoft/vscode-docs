@@ -1291,4 +1291,5 @@
 { "key": "ctrl+alt+r",            "command": "sessions.showSessionsPicker.navigateNext" },
 { "key": "ctrl+shift+alt+r",      "command": "sessions.showSessionsPicker.navigatePrevious" },
 { "key": "f5",                    "command": "workbench.action.agentSessions.runScriptPrimary" },
-{ "key": "escape",                "command": "sessions.blockedSessions.hide" },
+{ "key": "escape",                "command": "sessions.blockedSessions.hide" }
+]

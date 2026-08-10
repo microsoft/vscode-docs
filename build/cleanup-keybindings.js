@@ -6,151 +6,94 @@ const path = require('path');
 const keybindingsDir = path.join(__dirname, 'keybindings');
 const files = ['doc.keybindings.win.json', 'doc.keybindings.osx.json', 'doc.keybindings.linux.json'];
 
-for (const file of files) {
-	const filePath = path.join(keybindingsDir, file);
-	if (!fs.existsSync(filePath)) {
-		console.log(`Skipping ${file} (not found)`);
-		continue;
+/**
+ * @typedef {{ key: string, command: string, when?: unknown, args?: unknown, [property: string]: unknown }} Keybinding
+ */
+
+/**
+ * @param {string} content
+ * @returns {string}
+ */
+function cleanupKeybindings(content) {
+	let json = content
+		.split(/\r?\n/)
+		.filter(line => !line.trimStart().startsWith('//'))
+		.join('\n')
+		.trim();
+
+	// The generated keybindings can omit the closing array bracket while leaving
+	// a complete final entry with a trailing comma.
+	if (json.startsWith('[') && !json.endsWith(']') && /\},\s*$/.test(json)) {
+		json = `${json.replace(/,\s*$/, '')}\n]`;
 	}
 
-	console.log(`Processing ${file}...`);
-	const content = fs.readFileSync(filePath, 'utf8');
-	const lines = content.split('\n');
+	/** @type {unknown} */
+	const parsed = JSON.parse(json);
 
-	// Step 1: Remove comment lines
-	const noComments = lines.filter(line => !line.trimStart().startsWith('//'));
-
-	// Step 2-4: Group lines into entries and filter
-	const entries = [];
-	/** @type {string[]} */
-	let current = [];
-
-	for (const line of noComments) {
-		if (line.trimStart().startsWith('{ "key":')) {
-			if (current.length > 0) {
-				entries.push(current);
-			}
-			current = [line];
-		} else if (current.length > 0) {
-			current.push(line);
-		} else {
-			// Standalone lines like `[` or `]`
-			entries.push([line]);
-		}
-	}
-	if (current.length > 0) {
-		entries.push(current);
+	if (!Array.isArray(parsed)) {
+		throw new TypeError('Expected the keybindings file to contain an array');
 	}
 
-	const filtered = entries.filter(entry => {
-		const joined = entry.join('\n');
-
-		// Step 2: Remove entries containing isWeb
-		if (joined.includes('isWeb')) {
-			return false;
+	/** @type {Keybinding[]} */
+	const keybindings = parsed.map((entry, index) => {
+		if (typeof entry !== 'object' || entry === null ||
+			typeof entry.key !== 'string' || typeof entry.command !== 'string') {
+			throw new TypeError(`Expected keybinding ${index + 1} to have string key and command properties`);
 		}
-
-		// Step 3a: Remove entries containing action.terminal.sendSequence
-		if (joined.includes('action.terminal.sendSequence')) {
-			return false;
-		}
-
-		// Step 3b: Remove entries containing both action.terminal.openDetectedLink and shift+o
-		if (joined.includes('action.terminal.openDetectedLink') && /shift\+o/i.test(joined)) {
-			return false;
-		}
-
-		// Step 4: Remove entries containing [IntlBackslash]
-		if (joined.includes('[IntlBackslash]')) {
-			return false;
-		}
-
-		return true;
+		return entry;
 	});
 
-	// Step 5: Remove all when clauses and args fields from remaining entries
-	const cleaned = filtered.map(entry => {
-		return entry.filter(line => !line.match(/^\s+"when":/) && !line.match(/^\s+"args":/));
-	});
-
-	// Step 6: Remove later entries with the same key and command as previous entries
 	const seenKeyCommandPairs = new Set();
-	const deduped = cleaned.filter(entry => {
-		if (!entry[0] || !entry[0].trimStart().startsWith('{ "key":')) {
-			return true;
+	const cleaned = [];
+
+	for (const keybinding of keybindings) {
+		const serialized = JSON.stringify(keybinding);
+		if (serialized.includes('isWeb') ||
+			keybinding.command.includes('action.terminal.sendSequence') ||
+			(keybinding.command.includes('action.terminal.openDetectedLink') && /shift\+o/i.test(keybinding.key)) ||
+			keybinding.key.includes('[IntlBackslash]')) {
+			continue;
 		}
 
-		const keyMatch = entry[0].match(/"key":\s*"([^"]+)"/);
-		const commandLine = entry.find(line => line.includes('"command":'));
-		const commandMatch = commandLine?.match(/"command":\s*"([^"]+)"/);
-
-		if (!keyMatch || !commandMatch) {
-			return true;
-		}
-
-		const signature = `${keyMatch[1]}||||${commandMatch[1]}`;
+		const signature = JSON.stringify([keybinding.key, keybinding.command]);
 		if (seenKeyCommandPairs.has(signature)) {
-			return false;
+			continue;
 		}
-
 		seenKeyCommandPairs.add(signature);
-		return true;
-	});
 
-	// Fix trailing commas on command lines where when was removed
-	const result = deduped.map(entry => {
-		return entry.map(line => {
-			// A command line ending with `,` followed by no `"when":` line needs the comma replaced with ` }`
-			return line;
-		});
-	});
-
-	// Reassemble and fix up the JSON-like structure
-	let output = result.map(entry => entry.join('\n')).join('\n');
-
-	// When a "when" line is removed, the preceding line (command line) ends with `,`
-	// but now needs to end with ` }` or ` },` depending on context.
-	// Pattern: a line ending with `"command": "...",` that was followed by a removed when line
-	// now needs the trailing comma replaced to close the object.
-	// Also handle lines with `"command": "...",\n "args":` which should keep the comma.
-
-	// Rebuild by re-parsing entries from the cleaned output
-	const outputLines = output.split('\n');
-	const finalLines = [];
-
-	for (let i = 0; i < outputLines.length; i++) {
-		const line = outputLines[i];
-		const nextLine = outputLines[i + 1];
-
-		// Check if this is a command line that originally had a "when" after it
-		// A command line ends with `"command": "...",` and the next line should be a when or args line
-		// If the next line is another entry or `]`, we need to close this object
-		if (line.match(/"command":\s*"[^"]*",\s*$/) &&
-			(!nextLine || nextLine.trimStart().startsWith('{ "key":') || nextLine.trim() === ']')) {
-			// Remove trailing comma and close the object
-			finalLines.push(line.replace(/,\s*$/, ' },'));
-		} else if (line.match(/"command":\s*"[^"]*"\s*\},?\s*$/) ||
-			line.match(/"args":\s*\{.*\}\s*\},?\s*$/)) {
-			finalLines.push(line);
-		} else {
-			finalLines.push(line);
-		}
+		const { when, args, ...remaining } = keybinding;
+		cleaned.push(remaining);
 	}
 
-	// Fix the last entry: should not have a trailing comma before `]`
-	for (let i = finalLines.length - 1; i >= 0; i--) {
-		if (finalLines[i].trim() === ']') {
-			// Find the previous non-empty line and remove its trailing comma
-			for (let j = i - 1; j >= 0; j--) {
-				if (finalLines[j].trim()) {
-					finalLines[j] = finalLines[j].replace(/\},\s*$/, '}');
-					break;
-				}
-			}
-			break;
+	const lines = cleaned.map(keybinding => {
+		if (Object.keys(keybinding).length === 2) {
+			const keyProperty = `"key": ${JSON.stringify(keybinding.key)},`;
+			return `{ ${keyProperty.padEnd(31)} "command": ${JSON.stringify(keybinding.command)} }`;
 		}
-	}
 
-	fs.writeFileSync(filePath, finalLines.join('\n'), 'utf8');
-	console.log(`  Done: ${filePath}`);
+		const properties = Object.entries(keybinding)
+			.map(([property, value]) => `${JSON.stringify(property)}: ${JSON.stringify(value)}`)
+			.join(', ');
+		return `{ ${properties} }`;
+	});
+
+	return `[\n${lines.join(',\n')}\n]\n`;
 }
+
+if (require.main === module) {
+	for (const file of files) {
+		const filePath = path.join(keybindingsDir, file);
+		if (!fs.existsSync(filePath)) {
+			console.log(`Skipping ${file} (not found)`);
+			continue;
+		}
+
+		console.log(`Processing ${file}...`);
+		const content = fs.readFileSync(filePath, 'utf8');
+		const output = cleanupKeybindings(content);
+		fs.writeFileSync(filePath, output, 'utf8');
+		console.log(`  Done: ${filePath}`);
+	}
+}
+
+module.exports = { cleanupKeybindings };
