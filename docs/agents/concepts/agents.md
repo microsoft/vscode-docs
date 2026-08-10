@@ -26,9 +26,9 @@ An agent is an AI system that autonomously plans and executes coding tasks. You 
 For an overview of what you can do with agents in VS Code and where to work with them, see [Build with agents in VS Code](/docs/agents/overview.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
-Follow a hands-on tutorial to experience local, background, and cloud agents in VS Code.
+Follow a hands-on tutorial to build an app with AI agents in VS Code.
 
-* [Start agent handoff tutorial](/docs/agents/agents-handoff-tutorial.md)
+* [Start agentic coding tutorial](/docs/agents/agents-tutorial.md)
 
 </div>
 
