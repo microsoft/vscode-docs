@@ -10,6 +10,13 @@ VS Code maintains a searchable history of your Copilot sessions. By default, it 
 
 Synced sessions are private unless you explicitly share them.
 
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Try it">
+Launch a chat prompt that summarizes your recent coding sessions into a standup report.
+
+* [Open in VS Code](vscode://GitHub.Copilot-Chat/chat?agent=agent%26prompt=%2Fchronicle%3Astandup)
+
+</div>
+
 ## Opt out of session sync
 
 To keep session data local only, set `setting(chat.sessionSync.enabled)` to `false`. When you opt out, session data stays on your machine and you can only query it locally.
