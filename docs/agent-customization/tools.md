@@ -14,7 +14,7 @@ Keywords:
 ---
 # Manage tools for the Copilot harness
 
-The **Tools** section in the Agent Customizations editor controls which client-side tools Visual Studio Code makes available to sessions that use the [Copilot harness](/docs/agents/run/agent-harnesses.md#copilot). Use it to limit the tools that the agent can choose from across chats.
+The **Tools** section in the Agent Customizations editor controls which client-side tools Visual Studio Code makes available to sessions that use the [Copilot harness](/docs/agents/run/agent-harnesses.md). Use it to limit the tools that the agent can choose from across chats.
 
 Disabled tools aren't advertised to the agent. This reduces the set of tools that the agent has to consider and prevents it from requesting tools that you don't want it to use.
 
