@@ -169,4 +169,4 @@ Enable this functionality with the `setting(workbench.settings.showAISearchToggl
 
 ## Related resources
 
-* [Get started with the Copilot Quickstart](/docs/agents/agents-tutorial.md).
+* [Get started with the Copilot Quickstart](/docs/agents/quickstart.md).

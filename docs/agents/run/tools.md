@@ -66,6 +66,19 @@ You can also explicitly reference tools in your prompts by typing `#` followed b
 
 To group related tools and reuse them across prompts, prompt files, and custom agents, [create a tool set](/docs/agent-customization/tool-sets.md).
 
+## Use built-in browser tools
+
+Browser tools give agents an interactive way to validate web applications. Instead of inspecting only the source code, an agent can run your app, open it in the integrated browser, exercise a user flow, inspect page content and console errors, and fix problems it discovers.
+
+Browser tools are built into VS Code and don't require an external MCP server. Use them when a task has an observable result in a web interface, such as verifying a form, reproducing a visual bug, checking responsive behavior, or testing a complete user journey.
+
+```prompt
+Start the app, open it in the browser, and test the password reset flow.
+Fix any issues you find and repeat the flow to verify the fix.
+```
+
+Learn how to [use browser tools with agents](/docs/agents/run/browser-tools.md), including browser sessions, page sharing, privacy controls, and effective prompting patterns.
+
 ## Edit tool parameters
 
 You can review and edit the input parameters before a tool runs:

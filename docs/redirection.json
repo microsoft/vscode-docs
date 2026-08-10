@@ -104,7 +104,6 @@
     { "from": "/docs/copilot/chat/session-insights", "to": "/docs/agents/run/sessions/session-history", "status": 301 },
     { "from": "/docs/copilot/guides/optimize-usage", "to": "/docs/agents/guides/optimize-usage", "status": 301 },
     { "from": "/docs/copilot/overview", "to": "/docs/agents/overview", "status": 301 },
-    { "from": "/docs/agents/quickstart", "to": "/docs/agents/agents-tutorial", "status": 301 },
     { "from": "/docs/getstarted/getting-started", "to": "/docs/agents/agents-tutorial", "status": 301 },
     { "from": "/docs/agents/agents-window", "to": "/docs/agents/run/agents-window", "status": 301 },
     { "from": "/docs/agents/chat-view", "to": "/docs/agents/run/chat-view", "status": 301 },
@@ -119,6 +118,7 @@
     { "from": "/docs/agents/subagents", "to": "/docs/agents/run/subagents", "status": 301 },
     { "from": "/docs/agents/sessions/manage-sessions", "to": "/docs/agents/run/sessions/manage-sessions", "status": 301 },
     { "from": "/docs/agents/sessions/session-history", "to": "/docs/agents/run/sessions/session-history", "status": 301 },
-    { "from": "/docs/agents/security", "to": "/docs/agents/run/security", "status": 301 }
+    { "from": "/docs/agents/security", "to": "/docs/agents/run/security", "status": 301 },
+    { "from": "/docs/agents/subagents", "to": "/docs/agents/run/subagents", "status": 301 },
     { "from": "/docs/cpp/c-cpp-properties-schema-reference", "to": "/docs/cpp/customize-cpp-settings", "status": 301 }
 ]

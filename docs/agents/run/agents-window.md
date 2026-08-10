@@ -1,24 +1,27 @@
 ---
 ContentId: b3e7a1d4-5f2c-4e9a-8b6d-1c0f3a2e5d47
 DateApproved: 7/29/2026
-MetaDescription: Use the Agents window in VS Code for an agent-first coding experience where agents and chat are the primary interface to build with AI.
+MetaDescription: Operate the VS Code Agents window to select sessions, review workspace files and changes, validate results, and commit agent work.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Use the Agents window (Preview)
 
-The Agents window is a dedicated window in VS Code, built for an agent-first workflow. It's the natural complement to the VS Code editor window: the editor window is optimized for code-centric work in a single workspace, while the Agents window is optimized for orchestrating higher-level tasks across projects, with chat and the sessions list as the primary interface.
+The Agents window is a dedicated VS Code window focused on chat as the primary interface. It works across all your workspaces from one window, so you can assign high-level tasks, evaluate the outcomes, and run and track multiple agents in parallel. The Agents window is optimized for agent-first workflows.
 
-The Agents window gives you access to all your workspaces from one place and lets you run and track multiple sessions in parallel across your projects without opening each workspace in a separate window. It shares the same agent sessions, settings, and keybindings with the main VS Code window, so you can move freely between an editor-focused workflow and an agent-focused workflow at any time without losing context.
+In this article, you learn how to open the Agents window and start, monitor, and review agent sessions across your projects.
 
-In this article, you learn about the Agents window and how to start and manage agent sessions across your projects. For mechanics that apply to both the Agents window and the [Chat view](/docs/agents/run/chat-view.md), see [Use chat in VS Code](/docs/chat/chat-overview.md) and [Review AI-generated code edits](/docs/agents/run/review-code-edits.md).
-
-<video src="../images/agents-window/agents-demo-20260510.mp4" title="Video showing the Agents window experience in VS Code Insiders." controls></video>
-
-> [!TIP]
-> The Agents window (agent-first) and the [Chat view](/docs/agents/run/chat-view.md) (code-first) are the main surfaces for working with agents. They share the same sessions and settings, so you can move freely between them. For help choosing, see [Choose how you work with agents](/docs/agents/overview.md#choose-how-you-work-with-agents).
+<!-- <video src="../images/agents-window/agents-demo-20260510.mp4" title="Video showing the Agents window experience in VS Code Insiders." controls></video> -->
 
 > [!NOTE]
-> The Agents window is currently in preview. We're actively shaping it based on your feedback and are excited to learn alongside developers. Please share your experience by [filing issues on GitHub](https://github.com/microsoft/vscode/issues), or browse [existing issues](https://github.com/microsoft/vscode/issues?q=state%3Aopen%20label%3A%22agents-window%22).
+> The Agents window is currently in preview. Share feedback by [filing an issue on GitHub](https://github.com/microsoft/vscode/issues), or browse [existing Agents window issues](https://github.com/microsoft/vscode/issues?q=state%3Aopen%20label%3A%22agents-window%22).
+
+## Why use the Agents window?
+
+* **Orchestrate work across projects from one place**: manage sessions for all your workspaces without opening each one in a separate window, so you can assign and track work across projects at the same time.
+* **Work agent-first, not code-first**: describe the outcome you want in high-level requirements and let the agent figure out the implementation, rather than framing prompts around specific code changes.
+* **Switch freely between surfaces**: move to the [Chat view](/docs/agents/run/chat-view.md) whenever you want to get closer to the code. Both surfaces share the same sessions, settings, and keybindings, so you never lose context.
+
+For help choosing between the Agents window and the Chat view, see [Choose how you work with agents](/docs/agents/overview.md#choose-how-you-work-with-agents). For chat mechanics that apply to both surfaces, see [Use chat in VS Code](/docs/chat/chat-overview.md) and [Review AI-generated code edits](/docs/agents/run/review-code-edits.md).
 
 ## Prerequisites
 
@@ -29,11 +32,11 @@ In this article, you learn about the Agents window and how to start and manage a
 
 The Agents window opens as a dedicated VS Code window alongside your main editor window. To open the Agents window, use one of the following methods:
 
-* In VS Code, select the **Open in Agents** button in the title bar, or run **Chat: Open Agents Window** from the Command Palette (`kb(workbench.action.showCommands)`).
+* Select the **Open in Agents** button in the VS Code title bar
 
-    You can also open the Agents window directly from the VS Code welcome page.
+* Run the **Chat: Open Agents Window** command from the Command Palette (`kb(workbench.action.showCommands)`)
 
-    ![Screenshot showing how to open the Agents window from the Open in Agents button in the title bar and from the Welcome page.](../images/agents-window/vscode-open-in-agents.png)
+* Select **Try out the new Agents window** link from the VS Code welcome page
 
 * Run `code --agents` from the command line.
 
@@ -41,184 +44,218 @@ The Agents window opens as a dedicated VS Code window alongside your main editor
 
 The Agents window requires GitHub authentication to access your Copilot subscription and sessions. If you're already signed in to GitHub in VS Code, you'll also be signed in when the Agents window opens.
 
-If you prefer to stay in the editor window full-time, you can hide the **Open in Agents** button by right-clicking it in the title bar and selecting **Hide 'Open in Agents'**. You can still open the Agents window at any time from the Command Palette or command line.
+> [!NOTE]
+> You can hide the **Open in Agents** button by right-clicking it in the title bar and selecting **Hide 'Open in Agents'**. You can still open the Agents window at any time from the Command Palette or command line.
 
-## Interface overview
-
-The Agents window picks up your existing Copilot, Cloud, and Claude agent sessions across your workspaces. You can switch between agent sessions across the different workspaces without needing to open each workspace in a separate window.
+## Agents window interface overview
 
 The Agents window has the following main areas:
 
-1. **Sessions list**: in the sidebar, where you can view and manage all your sessions across workspaces. By default, sessions are grouped by workspace. Right-click a session to see more commands, such as renaming, marking as done, pinning, and more.
+1. **Sessions list**: view and manage sessions across workspaces. By default, sessions are grouped by workspace. Select a session to [make it active](#understand-the-active-session).
 
-1. **Customizations panel**: below the sessions list, where you can access your agent customizations to tailor the agent behavior to your workflow and preferences.
+1. **Customizations panel**: access agent customizations for your workflow and preferences
 
-1. **Chat area**: in the center, where you see the chat conversation history and where you can interact with the agent through prompts. You can [open multiple session views side by side](#open-multiple-sessions-side-by-side) to compare or review work in parallel.
+1. **Chat area**: view and interact with the active agent chat conversation
 
-1. **Changes panel**: on the right, where you can review file changes generated by your agent during a session.
+1. **Changes panel**: review changes for the active session
 
-1. **Files panel**: on the right, shows the file explorer of the workspace associated with the active session.
+1. **Files panel**: browse the workspace associated with the active session
 
 ![Screenshot of the Agents window interface, showing the sessions list, customizations panel, chat area, changes panel, and files panel.](../images/agents-window/agents-window-ui-annotated.png)
 
+By default, the **Changes** and **Files** views appear in a separate side panel. Files and diffs open in an editor beside the chat or in a modal window.
+
+## Understand the active session
+
+The Agents window picks up your agent sessions across your workspaces. The **active session** is the session that currently has focus. Its conversation and project context determine what you see and which workspace your actions apply to.
+
+Select a session in the sessions list to open it and make it active. When you [open multiple sessions side by side](#open-multiple-sessions-side-by-side), select anywhere in a session view to make that session active. The active session is highlighted in the sessions list.
+
+The following parts of the window update when the active session changes:
+
+| Area | What it shows for the active session |
+|------|--------------------------------------|
+| **Chat** | The conversation history and prompt input. |
+| **Files** | The files in the session's workspace folder or worktree. This view includes all workspace files, not only files changed by the agent. |
+| **Changes** | The changes and Git actions for the session. Use the dropdown to choose the branch changes, uncommitted changes, all changes, or changes from the last agent turn. |
+| **Terminal and Tasks** | Commands and tasks that run in the session's workspace folder or worktree. |
+| **Browser** | Browser tabs and page state that belong to the session. |
+
+[Quick chats](#start-a-quick-chat) aren't associated with a workspace. When a quick chat is active, the workspace-specific **Files** and **Changes** views aren't shown.
+
 ## Start an agent session
+
+The Agents window lets you start a new session for any of your workspaces, including local folders, GitHub repositories, and [remote workspaces](/docs/agents/run/remote-agent-sessions.md). You can also start a [quick chat](#start-a-quick-chat) that isn't associated with a workspace to ask a question or run a task that doesn't belong to a specific project.
 
 To start a new agent session in the Agents window:
 
 1. Select **New** at the top of the sidebar or press `kb(workbench.action.chat.newChat)`.
 
-    ![Screenshot showing how to start a new agent session by selecting New at the top of the sidebar in the Agents window.](../images/agents-window/agents-window-new-session.png)
+    To directly start a session for a specific workspace, hover over that workspace in the sessions list and select **+** (New Session).
 
-1. Use the workspace dropdown to select a local folder or GitHub repository.
-
-    To start a session for a specific workspace, hover over that workspace in the sessions list and select **+** (New Session).
+1. Use the workspace dropdown to select a local folder, GitHub repository, or remote workspace via SSH or a dev tunnel.
 
     If the folder or repository isn't trusted, VS Code prompts you to trust it before starting the session. The Agents window and main VS Code window share the same trust state. Learn more about [Workspace Trust](/docs/editing/workspaces/workspace-trust.md).
 
-    > [!TIP]
-    > You can track and create sessions that run on a remote machine via SSH or a dev tunnel. See [remote agent sessions](/docs/agents/run/remote-agent-sessions.md) for more information.
-
-1. Choose an available harness from the **Session Target** control, and optionally configure the agent, language model, permission level, and isolation mode.
+1. Choose an available [agent harness](/docs/agents/concepts/agent-harnesses.md) from the dropdown, such as Copilot, Claude, or Codex.
 
     The available harnesses depend on whether you selected a folder or repository. Learn how to [choose a harness and code isolation](/docs/agents/run/agent-harnesses.md).
 
-1. Type a prompt that describes what you want to accomplish, and press `kbstyle(Enter)`.
+1. Optionally, configure the agent, language model, permission level, and isolation mode.
+
+1. Type a prompt that describes what you want to accomplish, and press `kbstyle(Enter)` to submit it to the agent.
+
+    The agent starts working on your request and responds in the chat area. The **Files** and **Changes** views update as the agent makes changes in the session's workspace.
+
+    > [!TIP]
+    > To start a session in the background without leaving the current session, press `kbstyle(Alt+Enter)` or hold `kbstyle(Alt)` and select **Send**. The new session appears in the sessions list after you send the prompt.
+
+After you start a session, its row in the sessions list shows its status and change statistics. You can make another session active while the agent works, then select the session again to check its progress or respond to a request for input.
 
 The session is also available in the main VS Code window. Learn more about [creating and managing sessions](/docs/agents/run/sessions/manage-sessions.md).
 
-> [!TIP]
-> To start a session in the background without leaving the current session, press `kbstyle(Alt+Enter)` or hold `kbstyle(Alt)` and select **Send**. The newly started session appears in the sessions list once it commits.
+## Start a quick chat
 
-## Work with the agent
+Quick chats are lightweight chats that aren't scoped to a workspace. Use a quick chat to ask a question or start a task that doesn't belong to a specific project. Quick chats appear in the **Chats** section at the top of the sessions list, separate from your workspace-scoped sessions.
 
-After you start a session, use the Agents window to track work across projects, review changes, run parallel chats, and tailor the agent to your workflow.
+To start a new quick chat in the Agents window:
 
-### Manage your sessions
+1. Select **+** on the **Chats** section header (`kb(sessionsView.newQuickChat)`) or run **New Quick Chat** from the Command Palette (`kb(workbench.action.showCommands)`).
 
-The sessions list shows your sessions across all workspaces. Select a session to show its conversation and make its workspace files and changes active. You can group sessions by workspace or time, create custom groups, pin sessions, and rearrange items with drag and drop. Learn how to [organize and manage sessions](/docs/agents/run/sessions/manage-sessions.md#sessions-list).
+    ![Screenshot showing the quick chats group in the Agents window, with + button to start a new quick chat highlighted.](../images/agents-window/agents-window-quick-chat.png)
 
-### Quick chats
+1. Choose the agent harness from the dropdown.
 
-Quick chats are lightweight chats that aren't scoped to a workspace. Use a quick chat when you want to ask a question or start a task that doesn't belong to a specific project, without setting up a workspace session.
+1. Enter a prompt in the input box to submit it to the agent. The agent responds in the chat area.
 
-Quick chats appear in the always-visible **Chats** section at the top of the sessions list, separate from your workspace-scoped sessions.
+By default, the **Chats** group stays visible in the sessions list even when it's empty. To hide empty default groups, set `setting(sessions.list.showEmptyDefaultGroups)` to `false`.
 
-To start a quick chat, use one of the following methods:
+## Review and finish an agent session
 
-* Select **+** on the **Chats** section header in the sessions list.
-* Run **New Quick Chat** from the Command Palette (`kb(workbench.action.showCommands)`), or press `kb(sessionsView.newQuickChat)`.
+When the agent finishes a task, select the session active to inspect, validate, or commit its changes.
 
-Use the session-type picker in the composer to choose which agent runs the quick chat, for example Copilot or Claude. The quick chat then opens ready for your prompt. Because a quick chat has no workspace, the workspace picker doesn't apply, and the workspace-specific **Changes** and **Files** panes aren't shown.
+### Inspect workspace files and changes
 
-Quick chats are restored with your other sessions after a window reload.
+1. Select the session in the sessions list to make it active.
 
-![Screenshot showing the quick chats group in the Agents window, with + button to start a new quick chat highlighted.](../images/agents-window/agents-window-quick-chat.png)
+1. Select **Files** to browse the session's workspace folder or worktree and open a file.
 
-By default, the **Chats** group stays visible in the sessions list even when it's empty. To hide the default groups until they contain sessions, set `setting(sessions.list.showEmptyDefaultGroups)` to `false`.
+1. Select **Changes** to see the files that changed in the active session.
 
-### Review file changes
+1. Use the dropdown in the **Changes** view to choose the branch changes, uncommitted changes, all changes, or changes from the last agent turn.
 
-Use the **Changes** tab to view the diffs of the changes made by the agent in the active session. Use the dropdown to choose between the branch changes, uncommitted changes, all changes, and the changes from the last agent turn.
-
-You can select a block of text in a change diff and leave range-based feedback for the agent to process. Learn how to [review AI-generated code edits](/docs/agents/run/review-code-edits.md).
-
-If there are uncommitted changes, you can commit them to the Git repository. VS Code automatically generates a commit message based on the changes.
+1. Select a changed file to review its diff. Select a block of text in the diff to leave range-based feedback for the agent. Learn more about [reviewing AI-generated code edits](/docs/agents/run/review-code-edits.md).
 
 ![Screenshot showing the Changes panel in the Agents window, with the Files and Changes views visible.](../images/agents-window/agents-window-changes.png)
 
-### View and edit Markdown files in the Agents window
+### Validate changes locally
 
-The Agents window supports both rendered Markdown preview and an experimental Markdown editor for `.md` files. Which editor opens by default depends on `setting(workbench.editor.markdownDefaultEditorInAgentsWindow)`.
+In addition to reviewing individual code changes, validate the agent's work in the active session before you commit or merge it.
 
-* When enabled, `.md` files open with **Markdown Editor (Experimental)**.
-* When disabled, `.md` files open with **Markdown Preview**.
+#### Use the integrated browser
 
-In **Markdown Editor (Experimental)**, you can switch between **Editing** and **Locked** modes while keeping rendered Markdown context. In **Editing** mode, you can edit content directly. In **Locked** mode, the document remains rendered and read-only.
+If your application involves browser-based behavior, use the [integrated browser](/docs/debugtest/integrated-browser.md) in the Agents window. Select a `localhost` link from the chat or terminal to open it in the integrated browser. You can also right-click a file in the **Files** view and select **Open in Integrated Browser**.
 
-When you edit a Markdown file in **Markdown Editor (Experimental)**, the editor shows Git change markers in the margin:
+Browser tabs belong to the session in which you open them. Each session keeps its own tabs and page state when you switch sessions. If an agent opens a tab while its session isn't active, select the tab label in the chat tool call to open it.
 
-* Green marker for added content.
-* Blue marker for modified content.
-* Red marker for deleted content.
+![Screenshot showing the integrated browser open in the Agents window, displaying a localhost page that was opened from a link in the chat session.](../images/agents-window/agents-window-integrated-browser.png)
 
-These markers reflect your current Git changes in the file, persist after you save and reopen the file, and disappear when you undo or revert the corresponding changes.
+You can also run **Open Integrated Browser** from the Command Palette (`kb(workbench.action.showCommands)`). Use the browser layout controls to show it as a modal window or embed it alongside other views.
 
-### Work with agents remotely
+#### Create and run tasks
 
-Connect the Agents window to a machine over SSH or a dev tunnel, or open <https://insiders.vscode.dev/agents> to manage sessions from a browser. Learn how to [set up remote agent sessions](/docs/agents/run/remote-agent-sessions.md).
+The Agents window supports running tasks and commands in the context of the active session. For example, run a build or tests to ensure that the agent's changes don't break your project, or start a development server to verify the changes in a running application.
 
-### Work with chats in a session
+To configure a task in the Agents window:
 
-Supported agent host sessions can contain multiple independent chats that share the same workspace and worktree. Use peer chats for parallel tasks or side questions, and open delegated subagents as read-only chats. Learn how to [run multiple chats and ask side questions](/docs/agents/run/sessions/manage-sessions.md#run-multiple-chats-in-a-session) and [follow subagents](/docs/agents/run/subagents.md#what-you-see-in-chat).
+1. Select the session in the sessions list to make it active.
 
-### Customize agents for your project and workflow
-
-Select a customization type in the **Customizations** panel below the sessions list to open the Agent Customizations editor. From there, manage agents, skills, instructions, hooks, MCP servers, and plugins for your workspace or user profile. Learn how to [customize agents in VS Code](/docs/agent-customization/overview.md#use-the-agent-customizations-editor).
-
-## Validate agent changes locally
-
-In addition to reviewing the individual code changes, you can also validate the edits made by the agent locally before committing or merging them.
-
-### Create and run tasks in the Agents window
-
-The Agents window supports running tasks and commands in the context of the current session. For example, you can run a build or tests to ensure that the changes made by the agent do not break your project, or start a development server to verify that the edits behave as expected in a running environment.
-
-To configure tasks in the Agents window:
-
-1. Start or open a session.
-
-1. Select the **Tasks** dropdown in the title bar and select **Add Task**.
+1. Select the **Tasks** dropdown in the title bar, and then select **Add Task**.
 
     ![Screenshot showing the Add Task dialog in the Agents window, where you can configure a task to run in the context of the current session.](../images/agents-window/agents-window-add-task.png)
 
 1. Provide the task details:
 
     * **Name**: a descriptive name for the task.
-    * **Command**: the command to run when the task is executed (for example, `npm run build` or `pytest`).
+    * **Command**: the command to run when the task is executed, such as `npm run build` or `pytest`.
     * **Run Options**: automatically run the task when the session worktree is created.
-    * **Save In**: choose whether to save the task configuration in the workspace or your user profile for reuse across projects.
+    * **Save In**: save the task configuration in the workspace or your user profile.
 
-1. Select **Add Task** to save the task configuration.
+1. Select **Add Task**.
 
-Once the task is configured, it will appear in the **Tasks** dropdown, and you can run it in the context of the current session to validate the changes made by the agent.
+After you configure the task, select it from the **Tasks** dropdown to run it in the context of the active session.
 
-If you want to run terminal commands in the context of the current session, select the **Open Terminal** icon in the title bar to open an integrated terminal with its current working directory set to the session's folder or worktree.
+To run terminal commands, select the **Open Terminal** icon in the title bar. The terminal opens with its current working directory set to the active session's folder or worktree.
 
-### Use the integrated browser in the Agents window
+### Commit changes
 
-If your application involves browser-based behavior, you can use the [integrated browser](/docs/debugtest/integrated-browser.md) in the Agents window. Select a `localhost` link from the chat session to open it in the integrated browser inside the Agents window. Alternatively, right-click a file in the **Files** panel and select **Open in Integrated Browser** to open it in the integrated browser.
+If the active session has uncommitted changes, select **Commit Changes** in the **Changes** view. VS Code generates a commit message based on the changes and commits all current changes. Depending on the session type, you might also have a **Commit and Sync Changes** action.
 
-Browser tabs are scoped to the session in which they were opened. Each session keeps its own set of browser tabs, isolated from other sessions, and those tabs persist across session switches, preserving the state of each page. When you switch sessions, you see the browser tabs that belong to the active session. If an agent opens a tab while its session isn't active, the tab isn't opened in the editor, but it remains usable and you can open it by selecting its label in the tool call in the chat session.
+## Work with multiple sessions
 
-![Screenshot showing the integrated browser open in the Agents window, displaying a localhost page that was opened from a link in the chat session.](../images/agents-window/agents-window-integrated-browser.png)
+The sessions list shows sessions across all your workspaces. You can group sessions by workspace or time, create custom groups, pin sessions, and rearrange items with drag and drop. Learn how to [organize and manage sessions](/docs/agents/run/sessions/manage-sessions.md#sessions-list).
 
-Alternatively, you can also select a `localhost` link from the integrated terminal or open the integrated browser with the **Open Integrated Browser** command from the Command Palette (`kb(workbench.action.showCommands)`). You can use the layout controls in the integrated browser to show it as a modal window or embedded in the Agents window layout alongside other views.
+### Open multiple sessions side by side
 
-## Open multiple sessions side by side
-
-You can have more than one session open at the same time in the Agents window to compare results or review work in parallel. Open a session next to the active one by using any of the following methods:
+Open multiple sessions at the same time to compare results or review work in parallel. To open a session next to the active one:
 
 * Right-click a session in the sessions list and select **Open to the Side**.
-* Drag and drop a session from the sessions list into the view area.
+* Drag a session from the sessions list into the view area.
 * Hold `kbstyle(Alt)` and select a session in the sessions list.
 
 <video src="../images/agents-window/sessions-grid.mp4" title="Video showing multiple agent sessions open side by side in the Agents window." autoplay loop controls muted></video>
 
-Only one session view is *active* at any time. The **Terminal**, **Files**, and **Changes** views always reflect the active session. By default, selecting a session in the sessions list replaces the active view. Pin a session view (top-right toolbar) to prevent it from being replaced.
+Only one session view is active at a time. Select anywhere in a session view to make it active. The **Files**, **Changes**, **Terminal**, **Tasks**, and browser actions then apply to that session.
 
-When you have multiple sessions open, you can use keyboard shortcuts to move between them and manage them, similar to working with editors:
+By default, selecting a session in the sessions list replaces the active view. Pin a session view from its toolbar to prevent it from being replaced.
+
+When multiple sessions are open, use keyboard shortcuts to move between and manage them:
 
 * Press `kb(sessions.focusSessionInGrid1)` through `kb(sessions.focusSessionInGrid9)` to focus a session by its position in the grid, from left to right.
 * Press `kb(sessions.closeAllSessions)` to close all open sessions and return to the new-session view. This shortcut applies when a session has focus.
 
 These commands are also available in the Command Palette (`kb(workbench.action.showCommands)`).
 
-> [!NOTE]
-> **Experimental**: when you enable `setting(sessions.layout.autoCollapseSessionsSidebar)`, the Agents window hides the sessions sidebar on narrow windows when both the editor area and side panel are open. The sidebar appears again when there is room. The Agents window preserves a sidebar that you closed manually, and suspends auto-collapse while multiple sessions are open side by side.
+### Work with multiple chats in a session
 
-## Configure the Agents window
+Supported agent host sessions can contain multiple independent chats that share the same workspace and worktree. Use peer chats for parallel tasks or side questions, and open delegated subagents as read-only chats. Learn how to [run multiple chats and ask side questions](/docs/agents/run/sessions/manage-sessions.md#run-multiple-chats-in-a-session) and [follow subagents](/docs/agents/run/subagents.md#what-you-see-in-chat).
+
+## Customize and configure the Agents window
 
 The Agents window shares your GitHub account, VS Code settings, and default profile with the main VS Code window. Configure the following options when you want to adjust the agent-first experience.
+
+### Customize agents for your project and workflow
+
+Select a customization type in the **Customizations** panel below the sessions list to open the Agent Customizations editor. From there, manage agents, skills, instructions, hooks, MCP servers, and plugins for your workspace or user profile. Learn how to [customize agents in VS Code](/docs/agent-customization/overview.md#use-the-agent-customizations-editor).
+
+### Adjust the window layout
+
+#### Use the single-pane editor panel (Experimental)
+
+The experimental single-pane layout replaces the separate editor and side panel with one docked pane. A shared tab bar spans the editor and the **Changes** or **Files** detail view. Files and diffs open in the docked editor next to the chat instead of in a modal window.
+
+To use the single-pane layout, enable `setting(sessions.layout.singlePaneDetailPanel)` and reload the window. The setting is read when the Agents window starts.
+
+<!-- TODO: Add a screenshot of the single-pane editor panel showing the shared tab bar, editor, and detail panel. -->
+
+In the shared tab bar, select **New Tab** (`+`) to open **Changes**, **Files**, **Browser**, or **Search**. Use **Hide Editor**, **Toggle Details**, and **Maximize Editor Area** or **Restore Editor Area** to adjust the layout. **Toggle Details** is available only for tabs that support a detail panel.
+
+Each session restores its side-pane width, open editors, active editor, and per-file collapsed state when you switch sessions or reload the window.
+
+#### Automatically collapse the sessions sidebar (Experimental)
+
+When you enable `setting(sessions.layout.autoCollapseSessionsSidebar)`, the Agents window hides the sessions sidebar on narrow windows when both the editor area and side panel are open. The sidebar appears again when there is room. The Agents window preserves a sidebar that you closed manually and suspends auto-collapse while multiple sessions are open side by side.
+
+### View and edit Markdown files
+
+The Agents window supports rendered Markdown preview and an experimental Markdown editor for `.md` files. Which editor opens by default depends on `setting(workbench.editor.markdownDefaultEditorInAgentsWindow)`.
+
+* When enabled, `.md` files open with **Markdown Editor (Experimental)**.
+* When disabled, `.md` files open with **Markdown Preview**.
+
+In **Markdown Editor (Experimental)**, switch between **Editing** and **Locked** modes while keeping the rendered Markdown context. In **Editing** mode, edit content directly. In **Locked** mode, the document remains rendered and read-only.
+
+When you edit a Markdown file, the editor shows Git change markers in the margin. Green indicates added content, blue indicates modified content, and red indicates deleted content. The markers reflect the current Git changes and disappear when you undo or revert the corresponding changes.
 
 ### Switch to another GitHub account
 
@@ -234,9 +271,7 @@ To override a setting for the Agents window only, edit your settings file and sc
 
 ### Use VS Code extensions in the Agents window
 
-The Agents window can run your VS Code extensions, so you can bring the tools you rely on into your agent-first workflow.
-
-Extensions that contribute only static content, such as themes, grammars, languages, and keybindings, activate in the Agents window automatically. We also tested the top 100 Marketplace extensions, and some of those activate as well when installed in your default VS Code profile.
+The Agents window can run VS Code extensions. Extensions that contribute only static content, such as themes, grammars, languages, and keybindings, activate automatically.
 
 For other extensions, you can opt them in by ID with the `setting(extensions.supportAgentsWindow)` setting:
 
@@ -250,9 +285,7 @@ Keep the following in mind when enabling extensions:
 
 * Any extension you enable this way must be installed in your default VS Code profile.
 
-* Extension support is still evolving. If an extension doesn't behave as expected in the Agents window, please [file an issue](https://github.com/microsoft/vscode/issues) so we can discuss.
-
-If you're an extension author, we'd love to collaborate on what extension enablement in the Agents window unlocks. Whether you'd like to ideate on new scenarios that take advantage of running agents across projects, or share feedback on how your existing extension behaves in the Agents window, share feedback and ideas via [GitHub issues](https://github.com/microsoft/vscode/issues?q=state%3Aopen%20label%3A%22agents-window%22).
+* Extension support is still evolving. If an extension doesn't behave as expected, [file an issue](https://github.com/microsoft/vscode/issues).
 
 ## Limitations
 

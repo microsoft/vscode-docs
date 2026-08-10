@@ -36,10 +36,10 @@ Agents are free to start and built into VS Code: sign in with a GitHub account t
 
 <video src="images/agents-overview/agents-intro.mp4" title="Video showing an agent session building a complete feature in VS Code." controls muted></video>
 
-<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
-Follow a hands-on tutorial to build your first app with AI in VS Code.
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
+Complete your first coding task with an agent in the Agents window or Chat view.
 
-* [Start tutorial](/docs/agents/agents-tutorial.md)
+* [Start quickstart](/docs/agents/quickstart.md)
 
 </div>
 
@@ -51,14 +51,14 @@ Agents handle real coding tasks end-to-end. A few common ones:
 * **Build new features**: describe what functionality you want and let the agent scaffold UI, wire up state, and update tests.
 * **Prototype and explore variants**: spin up quick proofs of concept or generate multiple design variants of the same feature in parallel, then keep the one that works best.
 * **Refactor at scale**: rename, restructure, or migrate code across the workspace, with the agent tracking what still needs to change.
-* **Build and test web apps**: drive a running web app from chat to [verify behavior end-to-end in the integrated browser](/docs/agents/guides/browser-agent-testing-guide.md).
+* **Build and validate web apps**: give an agent a visual and interactive feedback loop with [browser tools](/docs/agents/run/browser-tools.md). The agent can run your app, exercise user flows in the integrated browser, inspect the result, fix problems, and verify its changes.
 * **Debug and fix failing tests**: point an agent at a stack trace or a red test and have it find the root cause and apply a fix.
 
 Agents are the most autonomous of several AI surfaces in VS Code. For lighter-weight help, you can also use [chat](/docs/chat/chat-overview.md), [inline chat](/docs/chat/inline-chat.md), [inline suggestions](/docs/editing/ai-powered-suggestions.md), and [smart actions](/docs/editing/copilot-smart-actions.md).
 
 ## Get started
 
-AI features are built into VS Code. Sign in with your GitHub account to enable them, then follow the [agents tutorial](/docs/agents/agents-tutorial.md). If you don't have a subscription, you're signed up for the free plan with monthly limits.
+AI features are built into VS Code. Sign in with your GitHub account to enable them, then complete the [agents quickstart](/docs/agents/quickstart.md). If you don't have a subscription, you're signed up for the free plan with monthly limits. To explore a longer scenario, follow the [agents tutorial](/docs/agents/agents-tutorial.md).
 
 > [!NOTE]
 > Make sure agents are enabled in VS Code settings (`setting(chat.agent.enabled)`). If your organization has disabled agents, contact your GitHub organization admin.

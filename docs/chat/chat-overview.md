@@ -47,6 +47,21 @@ Each session has configuration options that shape how the agent responds, such a
 > [!TIP]
 > To get the best results, be specific about what you want, provide relevant context, and write clear instructions. For more information, see [Get better responses](#get-better-responses).
 
+## Run terminal commands from chat
+
+Start a message with `!` to run a terminal command directly from the Chat view or Agents window. The `!` must be the first character and must be followed by a command.
+
+For example, enter the following message to run your tests:
+
+```shell
+!npm test
+```
+
+The command runs immediately in the session's default shell, without sending the message to the agent or asking for approval. It uses the session folder or worktree as the working directory. The command output and exit status appear in the chat transcript.
+
+> [!NOTE]
+> The `!` command is only available in [Agent Host](/docs/agents/concepts/agent-host.md) sessions.
+
 ## Send messages while a request is running
 
 You don't have to wait for a response to finish before sending your next message. While a request is in progress, the **Send** button changes to a dropdown that gives you three options for how to handle the new message.
