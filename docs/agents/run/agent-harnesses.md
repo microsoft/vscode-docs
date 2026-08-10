@@ -157,7 +157,7 @@ Learn more about [researching with GitHub Copilot CLI](https://docs.github.com/e
 
 ### Copilot harness limitations
 
-Copilot sessions don't have access to every VS Code built-in or extension-provided tool. They use the models available to the Copilot harness and can currently access only local MCP servers that don't require authentication.
+Copilot sessions don't have access to every VS Code built-in or extension-provided tool. Enabled client-side tools are available to the agent only while VS Code is connected to the session, and you manage which tools are enabled from [Manage tools for the Copilot harness](/docs/agent-customization/tools.md). Copilot sessions use the models available to the Copilot harness and can currently access only local MCP servers that don't require authentication.
 
 {% /tab %}
 {% tab label="Claude" %}
