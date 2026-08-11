@@ -15,6 +15,13 @@ In this article, you learn how to open the Agents window and start, monitor, and
 > [!NOTE]
 > The Agents window is currently in preview. Share feedback by [filing an issue on GitHub](https://github.com/microsoft/vscode/issues), or browse [existing Agents window issues](https://github.com/microsoft/vscode/issues?q=state%3Aopen%20label%3A%22agents-window%22).
 
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
+Follow a hands-on tutorial to build an app with AI agents in VS Code.
+
+* [Start agentic coding tutorial](/docs/agents/agents-tutorial.md)
+
+</div>
+
 ## Why use the Agents window?
 
 * **Orchestrate work across projects from one place**: manage sessions for all your workspaces without opening each one in a separate window, so you can assign and track work across projects at the same time.

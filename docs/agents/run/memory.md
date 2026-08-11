@@ -13,6 +13,13 @@ For background on how memory fits into the agent architecture, see [Agents conce
 
 This article explains how to use the memory tool in VS Code, how to manage memory files, and how Copilot Memory extends memory across your development workflow.
 
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Try memory in action">
+Launch a chat prompt that asks the agent to remember a coding preference.
+
+* [Open in VS Code](vscode://GitHub.Copilot-Chat/chat?agent=agent%26prompt=Remember%20that%20I%20prefer%20arrow%20functions%20over%20function%20declarations%20in%20JavaScript.)
+
+</div>
+
 ## Memory tool
 
 > [!NOTE]

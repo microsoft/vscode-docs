@@ -45,7 +45,7 @@ Every tool the agent can call adds to the decision space the model has to reason
 * **Get more relevant results**: the agent focuses on the most appropriate tools rather than choosing from a large set.
 * **Improve performance**: a smaller tool set reduces the decision space for the model.
 
-Tool availability can be scoped per chat request or fixed for specific workflows in [custom agent configuration](/docs/agent-customization/custom-agents.md).
+Tool availability can be scoped per chat request or fixed for specific workflows in [custom agent configuration](/docs/agent-customization/custom-agents.md). For the [Copilot harness](/docs/agents/run/agent-harnesses.md), tool availability is configured once per [user profile](/docs/configure/profiles.md) and applies across all sessions. See [Manage tools for the Copilot harness](/docs/agent-customization/tools.md).
 
 ## Tool approval and trust
 
@@ -60,5 +60,6 @@ Learn more about [trust and safety](/docs/agents/concepts/trust-and-safety.md).
 ## Related resources
 
 * [Use tools with agents](/docs/agents/run/tools.md)
+* [Manage tools for the Copilot harness](/docs/agent-customization/tools.md)
 * [Add and manage MCP servers](/docs/agent-customization/mcp-servers.md)
 * [Agents](/docs/agents/concepts/agents.md)
