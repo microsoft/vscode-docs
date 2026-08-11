@@ -96,10 +96,11 @@ Server-managed settings are configured on the GitHub side. For more information,
 
 ### Available managed settings
 
-The following managed settings are available. Each key maps to a VS Code policy and the setting it controls. For full details on each policy's accepted values and behavior, see the [enterprise policy reference](/docs/enterprise/policies.md#vs-code-enterprise-policy-reference).
+The following managed settings are available. Most keys map to a VS Code policy and the setting it controls. For full details on each policy's accepted values and behavior, see the [enterprise policy reference](/docs/enterprise/policies.md#vs-code-enterprise-policy-reference).
 
 | Managed setting key | VS Code policy | Setting | Description |
 |---------------------|----------------|---------|-------------|
+| `permissions.allow`, `permissions.ask`, `permissions.deny` | Not applicable | Not applicable | Fine-grained rules for shell commands, file operations, and domains. See [Enforce fine-grained permissions](#enforce-fine-grained-permissions). |
 | `permissions.disableBypassPermissionsMode` | `ChatToolsAutoApprove` | `setting(chat.tools.global.autoApprove)` | Set to `disable` to turn off global auto-approval ("YOLO mode") and hide the bypass and Autopilot options. |
 | `model` | `ChatDefaultModel` | `setting(chat.defaultModel)` | Default chat model for new conversations. See [Set a default chat model](#set-a-default-chat-model). |
 | `enabledPlugins` | `ChatEnabledPlugins` | `setting(chat.plugins.enabledPlugins)` | Allowlist of plugin IDs, with each plugin explicitly enabled or disabled. |
@@ -261,6 +262,63 @@ The following `managed-settings.json` example allows an internal server by name 
 Agent tools can perform actions that modify files, run commands, or access external services. VS Code includes approval prompts for potentially risky operations. Organizations can enforce stricter approval requirements or disable auto-approval entirely.
 
 Learn more about [tool approval](/docs/agents/run/approvals.md#tool-approval) in VS Code.
+
+### Enforce fine-grained permissions
+
+Use the `permissions` managed setting to control which shell commands, file operations, and domains an agent can access. The same rules apply in VS Code and GitHub Copilot CLI.
+
+Define rules in the `allow`, `ask`, and `deny` arrays. Each rule consists of a selector and a pattern:
+
+| Selector | Controls | Example |
+|----------|----------|---------|
+| `Shell` | Shell commands | `Shell(echo allowed *)` |
+| `Read` | File reads | `Read(~/.ssh/**)` |
+| `Edit` | File edits | `Edit(/generated/**)` |
+| `Domain` | Network domains | `Domain(api.github.com)` |
+
+The following `managed-settings.json` example allows selected operations, requires approval for others, and blocks access to sensitive resources:
+
+```json
+{
+    "permissions": {
+        "allow": [
+            "Shell(echo allowed *)",
+            "Read(/docs/**)",
+            "Edit(/generated/**)",
+            "Domain(api.github.com)"
+        ],
+        "ask": [
+            "Shell(git push *)",
+            "Edit(/src/**)",
+            "Domain(github.com)"
+        ],
+        "deny": [
+            "Shell(rm -rf *)",
+            "Read(~/.ssh/**)",
+            "Edit(//etc/**)",
+            "Domain(raw.githubusercontent.com)"
+        ]
+    }
+}
+```
+
+When multiple rules match, the Copilot runtime applies them in the following order:
+
+1. `deny`
+1. `ask`
+1. `allow`
+1. Default to `ask` when no rule matches.
+
+A `deny` rule blocks the operation without presenting an approval option. An `ask` rule requires a human decision for every invocation and presents only **Allow Once** and **Skip**. Developers can't override these rules by selecting **Bypass Approvals** or **Autopilot**. An `allow` rule permits the operation at the managed permissions layer, but does not override stricter client-side approval settings in VS Code.
+
+For `Read` and `Edit` rules, the path prefix determines how the pattern is resolved:
+
+| Prefix | Resolution | Example |
+|--------|------------|---------|
+| `/` | Workspace root | `Read(/src/**)` |
+| `./` | Current working directory | `Edit(./generated/**)` |
+| `~/` | Current user's home directory | `Read(~/.ssh/**)` |
+| `//` | File system root | `Edit(//etc/**)` |
 
 ### Disable global auto-approval
 
