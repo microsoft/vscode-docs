@@ -164,7 +164,30 @@ Copilot sessions don't have access to every VS Code built-in or extension-provid
 
 <a name="third-party-agents"></a>
 
-Claude sessions use Anthropic's Claude Agent SDK and can run autonomously on your workspace. VS Code integrates the harness through its SDK while keeping session management, chat, and code review in VS Code. Claude can use your GitHub Copilot subscription for authentication and billing. Turn support on or off with `setting(github.copilot.chat.claudeAgent.enabled)`.
+Claude sessions use Anthropic's Claude Agent SDK and can run autonomously on your workspace. VS Code integrates the harness through its SDK while keeping session management, chat, and code review in VS Code. Turn support on or off with `setting(github.copilot.chat.claudeAgent.enabled)`.
+
+Claude supports two authentication and billing options:
+
+* **GitHub Copilot subscription**: sign in to GitHub to use Copilot-routed models. Usage is billed through your Copilot subscription.
+* **Anthropic credentials**: use an existing Claude configuration with an Anthropic API key or Claude Code OAuth token. Usage is billed by Anthropic.
+
+<a name="use-claude-without-github-sign-in"></a>
+
+#### Use Claude without GitHub sign-in (Experimental)
+
+To use Claude without signing in to GitHub, configure your Anthropic credentials in the environment or in the `env` object in `~/.claude/settings.json`. For example:
+
+```json
+{
+  "env": {
+    "ANTHROPIC_API_KEY": "<your-key>"
+  }
+}
+```
+
+You can also use the `CLAUDE_CODE_OAUTH_TOKEN` environment variable with a token created by the `claude setup-token` command. Learn more about [Claude Code authentication](https://code.claude.com/docs/en/authentication).
+
+Enable `setting(chat.agentHost.allowSignedOutWhenUsable)` to open the Agents window while signed out of GitHub. The model picker only shows Anthropic-native models until you sign in. After you sign in to GitHub, the model picker shows both **Anthropic** and **Copilot** model groups. You can switch providers between turns.
 
 Claude provides provider-specific slash commands. Enter `/` in the chat input to view the commands available in your session.
 
