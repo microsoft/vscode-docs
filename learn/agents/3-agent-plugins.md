@@ -108,22 +108,21 @@ The goal is not to install everything. The goal is to see how a plugin can bring
 
 ## Read the manifest
 
-When you inspect a plugin repository, start with `plugin.json`. The manifest defines the plugin identity and points to the folders that contain skills, agents, hooks, and MCP server definitions.
+When you inspect a plugin repository, start with `plugin.json`. The manifest defines the plugin identity, and the folders beside it hold the skills, agents, hooks, and MCP server definitions.
 
-Look for fields like these:
+A plugin that follows the [Agent Plugins standard](https://agent-plugins.org/) declares the schema it targets:
 
 ```json
 {
+    "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
     "name": "team-review-tools",
-    "description": "Review workflow for the team repository",
-    "skills": "skills/",
-    "agents": "agents/",
-    "hooks": "hooks.json",
-    "mcpServers": ".mcp.json"
+    "description": "Review workflow for the team repository"
 }
 ```
 
-This step matters because plugins can run hooks and MCP servers on your machine. The manifest tells you where to inspect the behavior before you trust it.
+Components sit in fixed locations rather than manifest fields: skills in `skills/`, MCP servers in `mcp.json`, and Copilot-specific parts such as agents and hooks under `com.github.copilot/`. Older Copilot and Claude plugins instead list component paths in the manifest with fields like `skills`, `agents`, `hooks`, and `mcpServers`.
+
+This step matters because plugins can run hooks and MCP servers on your machine. The manifest and these folders tell you where to inspect the behavior before you trust it.
 
 ## Share recommended plugins
 
