@@ -8,7 +8,7 @@ Keywords:
 - version control
 - git
 ---
-# Source Control in VS Code
+# Source control in VS Code
 
 Visual Studio Code has integrated source control management (SCM) that lets you work with Git and other version control systems directly in your editor. Git support is built-in, and you can install extensions for other SCM providers from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=SCM%20Providers&sortBy=Installs).
 
@@ -73,7 +73,9 @@ VS Code provides Git functionality through several key interface elements. This 
 
 ### Review changes before committing
 
-Before committing changes, it's important to review them to ensure accuracy and quality. Use VS Code's AI features to perform a code review of your changes and get review comments and suggestions in the editor.
+Before committing changes, select a file in the Source Control view to review it in the diff editor. The diff editor shows the original file and your changes side by side, so you can verify exactly what the commit will contain.
+
+If you have a GitHub Copilot subscription, you can also select **Code Review** in the Source Control view to get review comments and suggestions in the editor. AI review complements, rather than replaces, reviewing the diff yourself.
 
 ![Screenshot of the code review results, showing as editor overlay comments.](images/overview/copilot-code-review-results.png)
 
@@ -135,7 +137,7 @@ It can be helpful to review the commit history to understand how your code has c
 
     ![Screenshot of the timeline view showing file commit history.](images/overview/timeline-view.png)
 
-Learn more about [using the Graph and Timeline view and reviewing changes](/docs/sourcecontrol/staging-commits.md#timeline-view-for-file-history).
+Learn more about [viewing source control history](/docs/sourcecontrol/history.md).
 
 ## Working with GitHub pull requests and issues
 
@@ -164,6 +166,7 @@ Browse available SCM provider extensions in the Extensions view (`kb(workbench.v
 
 * [Branches and Worktrees](/docs/sourcecontrol/branches-worktrees.md) - Learn about branch management, Git worktrees, and stash operations
 * [Repositories and Remotes](/docs/sourcecontrol/repos-remotes.md) - Learn about cloning, publishing, and syncing with remote repositories
+* [Source Control History](/docs/sourcecontrol/history.md) - Inspect commits, file history, and Git blame information
 * [Working with GitHub](/docs/sourcecontrol/github.md) - Learn how to work with pull requests and issues in VS Code
 * [Troubleshooting](/docs/sourcecontrol/troubleshooting.md) - Diagnose and resolve Git issues with output logs and trace logging
-* [Copilot in VS Code](/docs/agent-native/overview.md) - Discover more AI-powered features beyond Git workflows
+* [Copilot in VS Code](/docs/agents/overview.md) - Discover more AI-powered features beyond Git workflows
