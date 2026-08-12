@@ -1,6 +1,6 @@
 ---
 ContentId: a4e7b2c1-3d5f-4a8e-b9c6-1e2d3f4a5b6c
-DateApproved: 8/5/2026
+DateApproved: 8/12/2026
 MetaDescription: Use the artifacts panel in Visual Studio Code to view screenshots, plans, documents, and other resources produced during an agent session.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 ---

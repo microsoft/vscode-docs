@@ -1,7 +1,7 @@
 ---
 ContentId: 7b232695-cbbe-4f3f-a625-abc7a5e6496c
-DateApproved: 8/5/2026
-MetaDescription: Overview of the configuration settings for AI features and agents in Visual Studio Code.
+DateApproved: 8/12/2026
+MetaDescription: Configure AI features and agent behavior in Visual Studio Code with settings for chat, code editing, sessions, models, tools, and security.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # AI settings reference
@@ -49,6 +49,7 @@ The team is continuously working on improving the AI features in VS Code and add
 | `setting(github.copilot.chat.scopeSelection)`<br/>Whether to prompt for a specific symbol scope if you use `/explain` and the active editor has no selection. | `false` |
 | `setting(github.copilot.chat.terminalChatLocation)`<br/>Controls where chat queries from the terminal should be opened. | `"chatView"` |
 | `setting(chat.detectParticipant.enabled)`<br/>Enable chat participant detection in the Chat view. | `true` |
+| `setting(chat.stickyScroll.enabled)`<br/>Controls whether the current prompt is pinned to the top of the chat transcript while scrolling. | `true` |
 | `setting(chat.artifacts.enabled)` _(Experimental)_<br/>Enable or disable the [artifacts panel](/docs/agents/run/artifacts.md) in the chat (preview). | `false` |
 | `setting(chat.artifacts.rules.byMimeType)` _(Experimental)_<br/>Rules for extracting artifacts from tool results by MIME type pattern. Maps MIME type patterns (such as `"image/*"`) to a group configuration. | `{ "image/*": { "groupName": "Screenshots", "onlyShowGroup": true } }` |
 | `setting(chat.artifacts.rules.byFilePath)` _(Experimental)_<br/>Rules for extracting artifacts from written files by file path glob pattern. Maps glob patterns (such as `"**/*plan*.md"`) to a group configuration. | `{ "**/*plan*.md": { "groupName": "Plans" } }` |
@@ -167,6 +168,7 @@ The [Agents view](/docs/agents/overview.md) provides a centralized location for 
 | `setting(chat.unifiedAgentsBar.enabled)` _(Experimental)_<br/>Replace the command center search box with a unified chat and search control. | `false` |
 | `setting(sessions.layout.singlePaneDetailPanel)` _(Experimental)_<br/>Dock the Agents window detail panel inside the editor with a shared tab bar. Requires a window reload to take effect. | `false` |
 | `setting(github.copilot.chat.cli.remote.enabled)` <br/>Enable remote control support for Copilot sessions from github.com or the GitHub Mobile app. | `true` |
+| `setting(chat.agentHost.allowSignedOutWhenUsable)` _(Experimental)_<br/>Open the Agents window without GitHub authentication when at least one registered session type can run with its own provider credentials. Providers, models, and operations that require GitHub authentication prompt you to sign in when needed. | `false` |
 | `setting(chat.agentHost.byokModels.enabled)` _(Experimental)_<br/>Wire up the [BYOK](/docs/agent-customization/language-models.md#bring-your-own-language-model-key) language model bridge so extension-provided BYOK models can run in agent host sessions. Requires `setting(chat.agentHost.enabled)`, and the agent host process must be restarted to take effect. | `false` |
 | `setting(chat.agentHost.claudeAgent.enabled)` _(Experimental)_<br/>Register the Claude provider in the [Agent Host](/docs/agents/concepts/agent-host.md) process, so Claude sessions run on the Agent Host. Requires `setting(chat.agentHost.enabled)`, and the agent host process must be restarted to take effect. | `true` |
 | `setting(chat.agentHost.codexAgent.enabled)` _(Experimental)_<br/>Register the Codex provider in the [Agent Host](/docs/agents/concepts/agent-host.md) process. Requires `setting(chat.agentHost.enabled)`, and the agent host process must be restarted to take effect. | `false` |

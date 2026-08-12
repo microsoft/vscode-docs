@@ -1,6 +1,6 @@
 ---
 ContentId: b3e7a1d4-5f2c-4e9a-8b6d-1c0f3a2e5d47
-DateApproved: 7/29/2026
+DateApproved: 8/12/2026
 MetaDescription: Operate the VS Code Agents window to select sessions, review workspace files and changes, validate results, and commit agent work.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -33,7 +33,9 @@ For help choosing between the Agents window and the Chat view, see [Choose how y
 ## Prerequisites
 
 * Visual Studio Code installed. [Download VS Code](/download).
-* Access to GitHub Copilot. Follow the steps in [Set up GitHub Copilot in VS Code](/docs/setup/copilot.md) to sign in and activate your subscription.
+* One of the following authentication options:
+  * Access to GitHub Copilot. Follow the steps in [Set up GitHub Copilot in VS Code](/docs/setup/copilot.md) to sign in and activate your subscription.
+  * An [existing Claude configuration](/docs/agents/run/agent-harnesses.md#use-claude-without-github-sign-in-experimental) for the experimental signed-out experience.
 
 ## Open the Agents window
 
@@ -49,10 +51,20 @@ The Agents window opens as a dedicated VS Code window alongside your main editor
 
 * Open <https://insiders.vscode.dev/agents> in a browser to use the Agents window from any device. See [remote agent sessions](/docs/agents/run/remote-agent-sessions.md#use-the-agents-window-in-the-browser) for setup instructions.
 
-The Agents window requires GitHub authentication to access your Copilot subscription and sessions. If you're already signed in to GitHub in VS Code, you'll also be signed in when the Agents window opens.
+By default, the Agents window requires GitHub authentication to access your Copilot subscription and sessions. If you're already signed in to GitHub in VS Code, you'll also be signed in when the Agents window opens.
 
 > [!NOTE]
 > You can hide the **Open in Agents** button by right-clicking it in the title bar and selecting **Hide 'Open in Agents'**. You can still open the Agents window at any time from the Command Palette or command line.
+
+### Open without GitHub sign-in (Experimental)
+
+If Claude is configured with its own Anthropic credentials, you can open the Agents window without signing in to GitHub. Enable `setting(chat.agentHost.allowSignedOutWhenUsable)` before you open the window. This setting is off by default.
+
+When you open the Agents window while signed out, a notification indicates that VS Code discovered your existing Claude configuration. The model picker only shows models that use your Anthropic credentials. Select **Sign in to GitHub** in the notification to access models and features that use your Copilot subscription.
+
+Dismiss the notification with **X** to hide it for the current window. Select **Don't Show Again** to hide it for future windows on the same machine.
+
+This signed-out experience currently supports Claude. If VS Code doesn't find a provider that can run with its own credentials, the Agents window shows the existing GitHub sign-in experience. Providers, models, and operations that require GitHub authentication prompt you to sign in when you select them.
 
 ## Agents window interface overview
 

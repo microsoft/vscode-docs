@@ -1,6 +1,6 @@
 ---
 ContentId: 8f2c4a1d-9e3b-4c5f-a7d8-6b9c2e4f1a3d
-DateApproved: 8/5/2026
+DateApproved: 8/12/2026
 MetaDescription: Use built-in, MCP, and extension tools with AI agents in VS Code, including tool selection, parameters, terminal commands, and approvals.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 keywords:
