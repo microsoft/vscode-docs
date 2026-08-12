@@ -67,7 +67,7 @@ Let's make a simple code change and use the Source Control view and diff editor 
 
 1. Edit an existing file in your project, and save it.
 
-    If you've just initialized a new repository, you can move on to the next step.
+    If you initialized a new repository, move on to the next step.
 
 1. Open the Source Control view (`kb(workbench.view.scm)`).
 
@@ -152,6 +152,7 @@ Now that you know the basics, explore more features:
 
 * [Branches and Worktrees](/docs/sourcecontrol/branches-worktrees.md) - Learn about branch management and parallel development.
 * [Repositories and Remotes](/docs/sourcecontrol/repos-remotes.md) - Learn about cloning, publishing, and syncing with remote repositories.
+* [Source Control History](/docs/sourcecontrol/history.md) - Inspect commits, file history, and line authorship.
 * [Resolve Merge Conflicts](/docs/sourcecontrol/merge-conflicts.md) - Learn how to handle conflicts when merging branches.
 * [Working with GitHub](/docs/sourcecontrol/github.md) - Learn about Pull Requests and Issues.
 * [Troubleshooting](/docs/sourcecontrol/troubleshooting.md) - Diagnose and resolve Git issues.
