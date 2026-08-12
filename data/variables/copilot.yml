@@ -1,0 +1,50 @@
+# Variables used in the Copilot docs.
+# Note: variables for the product names 'GitHub Copilot' and 'Copilot' are defined in product.yml.
+
+## Copilot plans
+copilot_for_business: 'GitHub Copilot Business'
+copilot_for_individuals: 'GitHub Copilot Individual'
+copilot_pro: 'GitHub Copilot Pro'
+copilot_pro_short: 'Copilot Pro'
+copilot_pro_plus: 'GitHub Copilot Pro+'
+copilot_pro_plus_short: 'Copilot Pro+'
+copilot_business_short: 'Copilot Business'
+copilot_individuals_short: 'Copilot Individual'
+copilot_enterprise: 'GitHub Copilot Enterprise'
+copilot_enterprise_short: 'Copilot Enterprise'
+copilot_free: 'GitHub Copilot Free'
+copilot_free_short: 'Copilot Free'
+copilot_student: 'GitHub Copilot Student'
+copilot_student_short: 'Copilot Student'
+copilot_max: 'GitHub Copilot Max'
+copilot_max_short: 'Copilot Max'
+
+## Copilot cloud agent (previously coding agent)
+copilot_cloud_agent: 'Copilot cloud agent'
+copilot_cloud_agent_short: 'cloud agent'
+copilot_cloud_agent_short_cap_c: 'Cloud agent'
+copilot_cloud_agent_tmp: 'Copilot cloud agent (formerly Copilot coding agent)'
+
+## GitHub Copilot app
+github_copilot_app: 'GitHub Copilot app'
+github_copilot_app_short: 'Copilot app'
+
+## Copilot Chat
+copilot_chat_short: 'Copilot Chat'
+copilot_chat: 'GitHub Copilot Chat'
+
+## Copilot CLI
+copilot_cli_short: 'Copilot CLI'
+copilot_cli: 'GitHub Copilot CLI'
+
+## Copilot SDK
+copilot_sdk: 'GitHub Copilot SDK'
+copilot_sdk_short: 'Copilot SDK'
+
+## Various Copilot features
+copilot_memory: 'Copilot Memory'
+copilot_preview_features: 'Copilot preview features'
+
+## Next edit suggestions
+next_edit_suggestions: 'next edit suggestions'
+next_edit_suggestions_caps: 'Next edit suggestions'
