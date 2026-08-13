@@ -1,7 +1,7 @@
 ---
 ContentId: 8b3c9f5e-4d2a-6f9b-3e1c-7a8d5f2e9b0c
 DateApproved: 8/5/2026
-MetaDescription: Learn how to use context-isolated subagents in VS Code to delegate complex tasks to autonomous agents within your chat session.
+MetaDescription: Learn how to use context-isolated subagents in {% data variables.product.prodname_vscode_shortname %} to delegate complex tasks to autonomous agents within your chat session.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 Keywords:
 - subagents
@@ -13,7 +13,7 @@ Keywords:
 - parallel
 ---
 
-# Subagents in Visual Studio Code
+# Subagents in {% data variables.product.prodname_vscode %}
 
 When working on complex tasks, you can delegate subtasks to subagents. A subagent is an independent AI agent that performs focused work, such as researching a topic, analyzing code, or reviewing changes, and reports the results back to the main agent.
 
@@ -22,7 +22,7 @@ When working on complex tasks, you can delegate subtasks to subagents. A subagen
 
 For background on subagent concepts (context isolation, synchronous and parallel execution), see [Agents concepts](/docs/agents/concepts/agents.md#subagents).
 
-This article explains how to use subagents in VS Code, including usage scenarios, invocation patterns, and how to run custom agents as subagents.
+This article explains how to use subagents in {% data variables.product.prodname_vscode_shortname %}, including usage scenarios, invocation patterns, and how to run custom agents as subagents.
 
 ## When to use subagents
 
@@ -368,7 +368,7 @@ This pattern works because each subagent approaches the code fresh, without bein
 
 ## Related resources
 
-* [Agents overview](/docs/agents/overview.md) - Learn about the different types of agents in VS Code
+* [Agents overview](/docs/agents/overview.md) - Learn about the different types of agents in {% data variables.product.prodname_vscode_shortname %}
 * [Custom agents](/docs/agent-customization/custom-agents.md) - Create your own AI agents
 * [Agent sessions](/docs/agents/run/sessions/manage-sessions.md) - Create and organize agent sessions
 * [Cache Explorer](/docs/agents/agent-troubleshooting/cache-explorer.md) - See how context isolation affects prompt cache hit rates

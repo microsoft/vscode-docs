@@ -1,12 +1,12 @@
 ---
 ContentId: d4e5f6a7-8b9c-0d1e-2f3a-4b5c6d7e8f9a
 DateApproved: 8/5/2026
-MetaDescription: Tips to optimize your AI credit usage in VS Code by choosing efficient models, managing context, and monitoring consumption.
+MetaDescription: Tips to optimize your AI credit usage in {% data variables.product.prodname_vscode_shortname %} by choosing efficient models, managing context, and monitoring consumption.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
-# Optimize AI credit usage in VS Code
+# Optimize AI credit usage in {% data variables.product.prodname_vscode_shortname %}
 
-Each GitHub Copilot plan includes a monthly allowance of [AI credits](https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-individuals). Different actions consume credits at different rates, based on the model and the number of tokens processed. This guide covers practical ways to get the most out of your AI credits in Visual Studio Code.
+Each GitHub Copilot plan includes a monthly allowance of [AI credits](https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-individuals). Different actions consume credits at different rates, based on the model and the number of tokens processed. This guide covers practical ways to get the most out of your AI credits in {% data variables.product.prodname_vscode %}.
 
 ## Choose efficient models
 
@@ -14,7 +14,7 @@ More capable models cost more per token, while lighter models extend your usage 
 
 * Use **lighter models** for quick edits, boilerplate generation, and straightforward questions.
 * Use **reasoning models** for complex refactoring, architectural decisions, and multi-step debugging.
-* Use **auto model selection** to let VS Code route each request to an efficient model that balances quality and cost.
+* Use **auto model selection** to let {% data variables.product.prodname_vscode_shortname %} route each request to an efficient model that balances quality and cost.
 * Use [custom agents](/docs/agent-customization/custom-agents.md) with a preferred model to route specific subtasks to specialized, cost-effective models. When you invoke a custom agent as a subagent, it uses its own configured model instead of the chat session's model.
 
 The model picker in chat shows cost details in the hover menu, including cost per token type and a generic cost tier label (Low, Medium, High). Use this information to make informed choices.
@@ -35,7 +35,7 @@ For more information, see [plan first, then implement](/docs/agents/best-practic
 
 ## Use thinking effort defaults
 
-Thinking effort controls how much reasoning a model applies to each request. Higher effort levels produce more thinking tokens, which increases both latency and credit consumption. VS Code sets default effort levels based on evaluations and has adaptive reasoning enabled, where the model dynamically decides how much to think based on the complexity of each request.
+Thinking effort controls how much reasoning a model applies to each request. Higher effort levels produce more thinking tokens, which increases both latency and credit consumption. {% data variables.product.prodname_vscode_shortname %} sets default effort levels based on evaluations and has adaptive reasoning enabled, where the model dynamically decides how much to think based on the complexity of each request.
 
 For most tasks, the defaults are sufficient. Only increase thinking effort for genuinely complex problems like architectural planning or multi-step debugging.
 
@@ -68,7 +68,7 @@ For more information, see [Use tools with agents](/docs/agents/run/tools.md).
 Large generated files, build outputs, or irrelevant directories can increase token usage without adding value. Exclude these files to keep agent context focused:
 
 * Use a `.gitignore` file to exclude files from the [workspace index](/docs/agents/reference/workspace-context.md#what-content-is-included-in-the-semantic-index) and from agent text search and grep.
-* Use the `setting(files.exclude)` setting to hide files from VS Code entirely, which also excludes them from the index and agent search tools.
+* Use the `setting(files.exclude)` setting to hide files from {% data variables.product.prodname_vscode_shortname %} entirely, which also excludes them from the index and agent search tools.
 * Use the `setting(search.exclude)` setting to exclude files from agent text search and grep while keeping them visible in the Explorer, for example log files you want to open manually but not include in search results.
 
 Search match snippets count toward the context window even when the agent doesn't open the matched file. Excluding noisy paths reduces irrelevant tokens in search results.
@@ -83,15 +83,15 @@ For more information, see [context compaction](/docs/agents/run/sessions/manage-
 
 ## Monitor your usage
 
-You can monitor your AI credit usage in VS Code for a specific chat request, the cumulative usage for a session, and your overall monthly consumption. This helps you understand which requests are more expensive, spot expensive conversations, and manage your usage over time.
+You can monitor your AI credit usage in {% data variables.product.prodname_vscode_shortname %} for a specific chat request, the cumulative usage for a session, and your overall monthly consumption. This helps you understand which requests are more expensive, spot expensive conversations, and manage your usage over time.
 
 To view the cost for a single request, hover over the chat response to see the credit consumption for that turn. This helps you understand which requests are more expensive and adjust your prompts or model selection accordingly.
 
 To view the cumulative cost and token breakdown for the entire session, hover over or select the context window control in the chat input. The session info popover shows the total cost in credits and the cumulative context window token usage for the whole session, complementing the per-turn credit consumption already shown for individual requests.
 
-![Screenshot of VS Code Chat view, showing the context window usage control in the chat input box.](../../chat/images/copilot-chat/chat-context-window-control.png)
+![Screenshot of {% data variables.product.prodname_vscode_shortname %} Chat view, showing the context window usage control in the chat input box.](../../chat/images/copilot-chat/chat-context-window-control.png)
 
-To view your overall monthly consumption, open the Copilot status dashboard from the VS Code Status Bar. The dashboard shows the percentage of your monthly allowance you have used for AI credits (and inline suggestions for the Copilot Free plan).
+To view your overall monthly consumption, open the Copilot status dashboard from the {% data variables.product.prodname_vscode_shortname %} Status Bar. The dashboard shows the percentage of your monthly allowance you have used for AI credits (and inline suggestions for the Copilot Free plan).
 
 ![Screenshot of the Copilot status dashboard, showing the percentage of monthly AI credits used and a link to view usage details on GitHub.](../images/optimize-usage-guide/copilot-status-dashboard.png)
 

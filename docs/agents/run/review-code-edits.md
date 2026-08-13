@@ -1,18 +1,18 @@
 ---
 ContentId: 8d3f4a2e-9b1c-4f5e-a8d7-2c4b6e9f1a3d
 DateApproved: 7/29/2026
-MetaDescription: Review, revise, revert, and integrate AI-generated code changes in Visual Studio Code with diffs, feedback, checkpoints, and Source Control.
+MetaDescription: Review, revise, revert, and integrate AI-generated code changes in {% data variables.product.prodname_vscode %} with diffs, feedback, checkpoints, and Source Control.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 ---
 # Review and revert agent changes
 
-When you work with an agent in Visual Studio Code, it can change multiple files in your project. This article explains how to inspect, revise, integrate, or discard these AI-generated changes.
+When you work with an agent in {% data variables.product.prodname_vscode %}, it can change multiple files in your project. This article explains how to inspect, revise, integrate, or discard these AI-generated changes.
 
 > [!NOTE]
 > You can review AI-generated changes in both the [Chat view](/docs/agents/run/chat-view.md) and the [Agents window](/docs/agents/run/agents-window.md). The review experience follows the same concepts, but the user interface differs between the two surfaces.
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
-Follow a hands-on tutorial to experience local, background, and cloud agents in VS Code.
+Follow a hands-on tutorial to experience local, background, and cloud agents in {% data variables.product.prodname_vscode_shortname %}.
 
 * [Start agent handoff tutorial](/docs/agents/agents-handoff-tutorial.md)
 
@@ -111,12 +111,12 @@ The available actions and labels depend on the session harness and whether you u
 
 Use request editing and checkpoints to revise or undo a batch of changes:
 
-* **Edit a previous request**: modify a prompt you already sent. VS Code reverts changes made by that request and all subsequent requests, then resends the edited prompt.
+* **Edit a previous request**: modify a prompt you already sent. {% data variables.product.prodname_vscode_shortname %} reverts changes made by that request and all subsequent requests, then resends the edited prompt.
 * **Restore a checkpoint**: roll back all file changes to a specific point in the conversation without changing the prompt.
 
 ### Edit a previous chat request
 
-Each request in your conversation history is editable. When you edit a previous request, VS Code reverts file changes made by the original request and subsequent requests, and then sends the updated request to the language model.
+Each request in your conversation history is editable. When you edit a previous request, {% data variables.product.prodname_vscode_shortname %} reverts file changes made by the original request and subsequent requests, and then sends the updated request to the language model.
 
 Select the request in the conversation, modify it, and resend it. Configure or turn off request editing with `setting(chat.editRequests)`.
 
@@ -124,7 +124,7 @@ Select the request in the conversation, modify it, and resend it. Configure or t
 
 ### Restore a checkpoint
 
-When checkpoints are enabled, VS Code creates a snapshot of affected files before processing each request. Set `setting(chat.checkpoints.enabled)` to control checkpoints.
+When checkpoints are enabled, {% data variables.product.prodname_vscode_shortname %} creates a snapshot of affected files before processing each request. Set `setting(chat.checkpoints.enabled)` to control checkpoints.
 
 To restore your workspace to an earlier checkpoint:
 
@@ -136,7 +136,7 @@ To restore your workspace to an earlier checkpoint:
 
 1. Confirm that you want to restore the checkpoint.
 
-VS Code removes subsequent requests from the conversation history and restores the workspace files to their state at the checkpoint.
+{% data variables.product.prodname_vscode_shortname %} removes subsequent requests from the conversation history and restores the workspace files to their state at the checkpoint.
 
 #### Redo after restoring
 
@@ -162,7 +162,7 @@ Hover over a request and select **Fork Conversation** to create an independent s
 
 If [agent host](/docs/agents/concepts/agent-host.md) is not enabled or you are working with an older session, the agent uses the extension host to make edits, which has a different workflow for reviewing changes.
 
-After the agent edits and saves a file, VS Code marks the edits as pending. Files with pending edits have a squared-dot indicator in the Explorer view and editor tabs. The pending state is restored when you reopen VS Code.
+After the agent edits and saves a file, {% data variables.product.prodname_vscode_shortname %} marks the edits as pending. Files with pending edits have a squared-dot indicator in the Explorer view and editor tabs. The pending state is restored when you reopen {% data variables.product.prodname_vscode_shortname %}.
 
 ![Screenshot showing the Chat view, highlighting the changed files list and the indicator in the Explorer view and editor tabs.](../images/review-code-edits/copilot-edits-changed-files-full.png)
 
@@ -191,13 +191,13 @@ If you stage your changes in the Source Control view, any pending edits are auto
 Use `setting(chat.editing.autoAcceptDelay)` to automatically accept pending edits after a configurable delay. Hover over the editor overlay controls to stop the countdown.
 
 > [!IMPORTANT]
-> If you automatically accept all edits, review the changes before you commit them in source control. Learn more about the [security considerations of using AI in VS Code](/docs/agents/run/security.md).
+> If you automatically accept all edits, review the changes before you commit them in source control. Learn more about the [security considerations of using AI in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/run/security.md).
 
 </details>
 
 ## Edit sensitive files
 
-Sensitive-file approval is separate from reviewing changes after the agent makes them. To prevent inadvertent edits to files such as workspace configuration or environment settings, VS Code can show a diff and ask you to approve or reject the edit before it is applied.
+Sensitive-file approval is separate from reviewing changes after the agent makes them. To prevent inadvertent edits to files such as workspace configuration or environment settings, {% data variables.product.prodname_vscode_shortname %} can show a diff and ask you to approve or reject the edit before it is applied.
 
 Use the `setting(chat.tools.edits.autoApprove)` setting to configure which files require approval. The setting uses glob patterns to match file paths in your workspace.
 
@@ -221,6 +221,6 @@ Depending on the agent harness and isolation mode, you can apply or merge change
 
 ## Related resources
 
-* [Use chat in VS Code](/docs/chat/chat-overview.md)
+* [Use chat in {% data variables.product.prodname_vscode_shortname %}](/docs/chat/chat-overview.md)
 * [Agent sessions](/docs/agents/run/sessions/manage-sessions.md)
-* [Security considerations for using AI in VS Code](/docs/agents/run/security.md)
+* [Security considerations for using AI in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/run/security.md)

@@ -1,7 +1,7 @@
 ---
 ContentId: f8e4b2c1-9d3a-4e5f-b6c7-8a9d0e1f2b3c
 DateApproved: 8/5/2026
-MetaDescription: Troubleshoot GitHub Copilot issues in Visual Studio Code with logs, diagnostics, and debugging tools.
+MetaDescription: Troubleshoot GitHub Copilot issues in {% data variables.product.prodname_vscode %} with logs, diagnostics, and debugging tools.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - ai
@@ -11,13 +11,13 @@ Keywords:
 - logs
 - debugging
 ---
-# Troubleshoot AI in Visual Studio Code
+# Troubleshoot AI in {% data variables.product.prodname_vscode %}
 
-This article covers diagnostic tools and techniques for troubleshooting AI-related issues in VS Code. Use these tools to identify problems with network connectivity, customization files, and AI responses.
+This article covers diagnostic tools and techniques for troubleshooting AI-related issues in {% data variables.product.prodname_vscode_shortname %}. Use these tools to identify problems with network connectivity, customization files, and AI responses.
 
 ## View logs for GitHub Copilot
 
-The log files for the GitHub Copilot extension are stored in the standard log location for Visual Studio Code extensions. Use these logs to diagnose connection issues, extension errors, and unexpected behavior.
+The log files for the GitHub Copilot extension are stored in the standard log location for {% data variables.product.prodname_vscode %} extensions. Use these logs to diagnose connection issues, extension errors, and unexpected behavior.
 
 To view detailed logs:
 
@@ -40,7 +40,7 @@ For more information about network configuration, see [Network and firewall conf
 
 ## Debug chat interactions
 
-VS Code provides different tools to inspect what happens when you send a prompt to the AI.
+{% data variables.product.prodname_vscode_shortname %} provides different tools to inspect what happens when you send a prompt to the AI.
 
 * **`/troubleshoot` slash command:**
 
@@ -101,7 +101,7 @@ If you encounter issues that you can't resolve, report them to help improve GitH
 
 * **Ghost text suggestions**: Hover over a ghost text suggestion in the editor and select **Send Copilot Completion Feedback**.
 * **Next edit suggestions**: Select the **Feedback** action in the next edit suggestions menu in the editor gutter.
-* **General issues**: Open **Help** > **Report Issue**, select **VS Code Extension**, and choose **GitHub Copilot Chat**.
+* **General issues**: Open **Help** > **Report Issue**, select **{% data variables.product.prodname_vscode_shortname %} Extension**, and choose **GitHub Copilot Chat**.
 
 When reporting issues, include relevant information from the [Copilot logs](#view-logs-for-github-copilot) to help diagnose the problem.
 

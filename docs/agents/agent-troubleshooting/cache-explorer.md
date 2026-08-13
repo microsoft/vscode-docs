@@ -1,7 +1,7 @@
 ---
 ContentId: 8b3d1c2f-6a94-4e7b-9f21-5c8d0a1e2b34
 DateApproved: 8/5/2026
-MetaDescription: Use the Cache Explorer view in Visual Studio Code to diagnose prompt cache misses and reduce token cost and latency in AI chat sessions.
+MetaDescription: Use the Cache Explorer view in {% data variables.product.prodname_vscode %} to diagnose prompt cache misses and reduce token cost and latency in AI chat sessions.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - prompt caching
@@ -12,7 +12,7 @@ Keywords:
 ---
 # Diagnose prompt caching with the Cache Explorer
 
-When you send a prompt to the AI in Visual Studio Code, the language model provider can reuse the parts of your request that match a previous request. This is called prompt caching. The Cache Explorer view helps you diagnose prompt cache misses by comparing consecutive model requests in a chat session, which helps you reduce token cost and latency.
+When you send a prompt to the AI in {% data variables.product.prodname_vscode %}, the language model provider can reuse the parts of your request that match a previous request. This is called prompt caching. The Cache Explorer view helps you diagnose prompt cache misses by comparing consecutive model requests in a chat session, which helps you reduce token cost and latency.
 
 The Cache Explorer is one of the views in the [Agent Debug Logs panel](/docs/agents/agent-troubleshooting/chat-debug-view.md#agent-debug-log-panel).
 

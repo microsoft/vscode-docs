@@ -1,17 +1,17 @@
 ---
 ContentId: 3a7e9c4f-5d1b-4e8f-a2c6-8b0d3f5e7a9c
 DateApproved: 8/5/2026
-MetaDescription: Learn how agents in VS Code use the memory tool and Copilot Memory to retain context, learn preferences, and improve over time across conversations.
+MetaDescription: Learn how agents in {% data variables.product.prodname_vscode_shortname %} use the memory tool and Copilot Memory to retain context, learn preferences, and improve over time across conversations.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 ---
 
-# Memory in VS Code agents
+# Memory in {% data variables.product.prodname_vscode_shortname %} agents
 
-Agents in Visual Studio Code use memory to retain context across conversations. Rather than starting from scratch each session, agents recall your preferences, apply lessons from previous tasks, and build up knowledge about your codebase over time.
+Agents in {% data variables.product.prodname_vscode %} use memory to retain context across conversations. Rather than starting from scratch each session, agents recall your preferences, apply lessons from previous tasks, and build up knowledge about your codebase over time.
 
 For background on how memory fits into the agent architecture, see [Agents concepts](/docs/agents/concepts/agents.md#memory).
 
-This article explains how to use the memory tool in VS Code, how to manage memory files, and how Copilot Memory extends memory across your development workflow.
+This article explains how to use the memory tool in {% data variables.product.prodname_vscode_shortname %}, how to manage memory files, and how Copilot Memory extends memory across your development workflow.
 
 ## Memory tool
 
@@ -80,7 +80,7 @@ Memory file references in the agent's chat responses are clickable, so you can v
 
 ### Manage memory files
 
-VS Code provides commands to view and manage your memory files:
+{% data variables.product.prodname_vscode_shortname %} provides commands to view and manage your memory files:
 
 * **Chat: Show Memory Files**: opens a list of all memory files across scopes. Select a file to view its contents.
 * **Chat: Clear All Memory Files**: removes all memory files across all scopes.
@@ -94,7 +94,7 @@ By default, repository memory is stored locally. You can instead store it in [Co
 
 To store repository memory in Copilot Memory, both of the following must be true:
 
-* Enable the `setting(chat.copilotMemory.enabled)` setting in VS Code (experimental, disabled by default).
+* Enable the `setting(chat.copilotMemory.enabled)` setting in {% data variables.product.prodname_vscode_shortname %} (experimental, disabled by default).
 * [Copilot Memory](#enable-copilot-memory) must be enabled for the repository in your GitHub settings.
 
 If either condition isn't met, repository memory falls back to local file storage.
@@ -132,12 +132,12 @@ For detailed setup instructions, see [Enabling and curating Copilot Memory](http
 |---|---|---|
 | **Storage** | Local (user and session); repository memory is local by default, or in Copilot Memory when enabled | GitHub-hosted (remote) |
 | **Scopes** | User, repository, session | Repository only |
-| **Shared across Copilot surfaces** | User and session are VS Code only; repository memory is shared when backed by Copilot Memory | Yes (coding agent, code review, CLI) |
+| **Shared across Copilot surfaces** | User and session are {% data variables.product.prodname_vscode_shortname %} only; repository memory is shared when backed by Copilot Memory | Yes (coding agent, code review, CLI) |
 | **Created by** | You or the agent during chat | Copilot agents automatically |
 | **Enabled by default** | Yes (repository sync to Copilot Memory is opt-in) | No (opt-in) |
 | **Expiration** | Manual management | Automatic (28 days) |
 
-The two systems are complementary. Use the local memory tool for personal preferences and session-specific context in VS Code. Use Copilot Memory for repository knowledge that benefits all Copilot agents across your development workflow.
+The two systems are complementary. Use the local memory tool for personal preferences and session-specific context in {% data variables.product.prodname_vscode_shortname %}. Use Copilot Memory for repository knowledge that benefits all Copilot agents across your development workflow.
 
 ## Related resources
 

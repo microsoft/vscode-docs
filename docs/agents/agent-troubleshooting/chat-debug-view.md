@@ -1,14 +1,14 @@
 ---
 ContentId: 2f4a8e9d-3c5b-4f6e-a7d8-1c2b3e4f5a6b
 DateApproved: 8/5/2026
-MetaDescription: Use Agent Logs and the Chat Debug view to inspect AI requests, tool invocations, and agent interactions in Visual Studio Code.
+MetaDescription: Use Agent Logs and the Chat Debug view to inspect AI requests, tool invocations, and agent interactions in {% data variables.product.prodname_vscode %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Debug chat interactions
 
-Visual Studio Code provides tools to help you understand what happens when you send a prompt to the AI. Use these tools to inspect how agents discover prompt files, invoke tools, make language model requests, and generate responses.
+{% data variables.product.prodname_vscode %} provides tools to help you understand what happens when you send a prompt to the AI. Use these tools to inspect how agents discover prompt files, invoke tools, make language model requests, and generate responses.
 
-VS Code offers two complementary debugging tools:
+{% data variables.product.prodname_vscode_shortname %} offers two complementary debugging tools:
 
 * **Agent Debug Log panel** (Preview) shows a chronological event log of everything that happens during a chat session, including tool calls, LLM requests, prompt file discovery, and errors.
 * **Chat Debug view** shows the raw details of each LLM request and response, including the full system prompt, user prompt, context, and tool invocation payloads.
@@ -117,7 +117,7 @@ To export a session:
 
 1. Choose a location to save the JSON file.
 
-If no session is selected, VS Code shows a notification that there is no active debug session to export.
+If no session is selected, {% data variables.product.prodname_vscode_shortname %} shows a notification that there is no active debug session to export.
 
 To import a session:
 
@@ -195,5 +195,5 @@ If a custom instruction or prompt file doesn't seem to take effect:
 
 * [Chat overview](/docs/chat/chat-overview.md)
 * [Add context to chat](/docs/chat/copilot-chat-context.md)
-* [Troubleshoot AI in VS Code](/docs/agents/agent-troubleshooting/troubleshooting.md)
-* [Security considerations for using AI in VS Code](/docs/agents/run/security.md)
+* [Troubleshoot AI in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/agent-troubleshooting/troubleshooting.md)
+* [Security considerations for using AI in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/run/security.md)

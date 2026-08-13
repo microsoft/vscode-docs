@@ -1,29 +1,29 @@
 ---
 ContentId: 72ad9b70-5227-4032-81d7-6aec00a1e8f8
 DateApproved: 8/5/2026
-MetaDescription: Get started with agentic coding in Visual Studio Code. Build an app from a prompt with the Agents window and the Chat view, and learn the VS Code basics.
+MetaDescription: Get started with agentic coding in {% data variables.product.prodname_vscode %}. Build an app from a prompt with the Agents window and the Chat view, and learn the {% data variables.product.prodname_vscode_shortname %} basics.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
-# Tutorial: Agentic coding in VS Code
+# Tutorial: Agentic coding in {% data variables.product.prodname_vscode_shortname %}
 
-In this tutorial, you learn how to build with AI agents in Visual Studio Code. Agents can plan a solution, create and edit multiple files, run commands, and fix their own errors, all from a single natural-language prompt. You describe what you want, and the agent does the work.
+In this tutorial, you learn how to build with AI agents in {% data variables.product.prodname_vscode %}. Agents can plan a solution, create and edit multiple files, run commands, and fix their own errors, all from a single natural-language prompt. You describe what you want, and the agent does the work.
 
-You start in the **Agents window**, a dedicated surface for an agent-first workflow. Then you switch to the **Chat view**, where an agent assists you while you work in the editor. Along the way, you pick up the VS Code basics you need, like opening a workspace, using the integrated browser, and committing your changes with source control.
+You start in the **Agents window**, a dedicated surface for an agent-first workflow. Then you switch to the **Chat view**, where an agent assists you while you work in the editor. Along the way, you pick up the {% data variables.product.prodname_vscode_shortname %} basics you need, like opening a workspace, using the integrated browser, and committing your changes with source control.
 
 You build a simple personal portfolio page with HTML, CSS, and JavaScript. The page is fully static, so you don't need to install any runtimes or build tools to follow along.
 
-<div class="docs-action" data-show-in-doc="true" data-show-in-sidebar="false" title="Learn VS Code editor features">
-Get familiar with the VS Code user interface, editing features, and key productivity tools.
+<div class="docs-action" data-show-in-doc="true" data-show-in-sidebar="false" title="Learn {% data variables.product.prodname_vscode_shortname %} editor features">
+Get familiar with the {% data variables.product.prodname_vscode_shortname %} user interface, editing features, and key productivity tools.
 
-* [Start the VS Code editing tutorial](/docs/editing/getting-started.md)
+* [Start the {% data variables.product.prodname_vscode_shortname %} editing tutorial](/docs/editing/getting-started.md)
 
 </div>
 
 ## Prerequisites
 
-* [Download and install Visual Studio Code](/download)
+* [Download and install {% data variables.product.prodname_vscode %}](/download)
 
-* [Enable AI features in VS Code](/docs/getstarted/overview.md#enable-ai-features)
+* [Enable AI features in {% data variables.product.prodname_vscode_shortname %}](/docs/getstarted/overview.md#enable-ai-features)
 
 * [Install Git](https://git-scm.com/)
 
@@ -32,7 +32,7 @@ Get familiar with the VS Code user interface, editing features, and key producti
 
 ## Create a project folder
 
-Agents work in the context of a folder, also known as a *workspace*. You start by creating a folder for your project. You don't need to open the folder in VS Code yet. In the next step, you open it in the Agents window, which lets you work across multiple workspaces without opening a separate window for each one.
+Agents work in the context of a folder, also known as a *workspace*. You start by creating a folder for your project. You don't need to open the folder in {% data variables.product.prodname_vscode_shortname %} yet. In the next step, you open it in the Agents window, which lets you work across multiple workspaces without opening a separate window for each one.
 
 1. On your computer, create a new folder named `myportfolio`.
 
@@ -44,32 +44,32 @@ Agents work in the context of a folder, also known as a *workspace*. You start b
     ```
 
     > [!TIP]
-    > You can also initialize a repository from the **Source Control** view in VS Code.
+    > You can also initialize a repository from the **Source Control** view in {% data variables.product.prodname_vscode_shortname %}.
 
 ## Build features with the Agents window
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Explore the Agents window">
-Use the Agents window to run and monitor agent sessions across your projects from a single place in VS Code.
+Use the Agents window to run and monitor agent sessions across your projects from a single place in {% data variables.product.prodname_vscode_shortname %}.
 
 * [Learn about the Agents window](/docs/agents/run/agents-window.md)
 
 </div>
 
-The Agents window (preview) is a dedicated window in VS Code that is optimized for working with agents across all your projects without needing to open a separate VS Code window for each one.
+The Agents window (preview) is a dedicated window in {% data variables.product.prodname_vscode_shortname %} that is optimized for working with agents across all your projects without needing to open a separate {% data variables.product.prodname_vscode_shortname %} window for each one.
 
 In this part, you open your folder in the Agents window and task an agent to build your portfolio page.
 
 ### Open the Agents window
 
-1. In VS Code, select the **Open in Agents** button in the VS Code title bar.
+1. In {% data variables.product.prodname_vscode_shortname %}, select the **Open in Agents** button in the {% data variables.product.prodname_vscode_shortname %} title bar.
 
-    You can also open the Agents window from the VS Code welcome page, or run the **Chat: Open Agents Window** command from the Command Palette (`kb(workbench.action.showCommands)`).
+    You can also open the Agents window from the {% data variables.product.prodname_vscode_shortname %} welcome page, or run the **Chat: Open Agents Window** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
-    ![Screenshot of the Open in Agents button in the VS Code title bar.](images/getting-started/open-in-agents-button.png)
+    ![Screenshot of the Open in Agents button in the {% data variables.product.prodname_vscode_shortname %} title bar.](images/getting-started/open-in-agents-button.png)
 
 1. If you're prompted to sign in, select a sign-in method and continue.
 
-    The Agents window needs access to your GitHub Copilot subscription to run agent sessions. If you're already signed in to GitHub in VS Code, you're signed in here too.
+    The Agents window needs access to your GitHub Copilot subscription to run agent sessions. If you're already signed in to GitHub in {% data variables.product.prodname_vscode_shortname %}, you're signed in here too.
 
 ### Start an agent session
 
@@ -90,13 +90,13 @@ In this part, you open your folder in the Agents window and task an agent to bui
 
 1. Select the **Copilot** agent harness to run your agent session locally on your machine using the GitHub Copilot SDK.
 
-    VS Code supports multiple agent harnesses, such as Claude and Codex. The agent harness is what connects the language model to the development environment.
+    {% data variables.product.prodname_vscode_shortname %} supports multiple agent harnesses, such as Claude and Codex. The agent harness is what connects the language model to the development environment.
 
 1. Review the other session configuration options:
 
     * **Agent**: the generic agent role for performing the task. For specialized tasks, you can create a custom agent, such as a code review or testing agent.
     * **Language model**: depending on your setup, you can choose from multiple language models and configure additional settings.
-    * **Default Approvals**: the permission level that uses the default approval rules for tools, terminal commands, and more. VS Code prompts you when an action requires approval.
+    * **Default Approvals**: the permission level that uses the default approval rules for tools, terminal commands, and more. {% data variables.product.prodname_vscode_shortname %} prompts you when an action requires approval.
 
 1. Enter the following prompt in the chat input and press `kbstyle(Enter)`:
 
@@ -110,7 +110,7 @@ In this part, you open your folder in the Agents window and task an agent to bui
 
 ### Preview and iterate on the design
 
-The Agents window is great for workflows where you hand off tasks to the agent and then validate the outcome, rather than the specific code changes. With the integrated browser, you can preview the agent's work without having to leave VS Code.
+The Agents window is great for workflows where you hand off tasks to the agent and then validate the outcome, rather than the specific code changes. With the integrated browser, you can preview the agent's work without having to leave {% data variables.product.prodname_vscode_shortname %}.
 
 To preview the generated portfolio in the integrated browser:
 
@@ -163,7 +163,7 @@ Before you commit the agent's work, you might want to review the code changes th
 
 1. Now select **Commit Changes** in the **Changes** panel to save the agent's changes to your Git repository.
 
-    VS Code automatically creates a commit message based on the agent's prompt and the changes it made.
+    {% data variables.product.prodname_vscode_shortname %} automatically creates a commit message based on the agent's prompt and the changes it made.
 
     After committing the changes, the branch changes and uncommitted changes are now empty because there are no pending changes. The change stats are also cleared from the session entry in the session list.
 
@@ -184,7 +184,7 @@ For some changes, you might prefer a code-first approach, where your focus is on
 
     ![Screenshot of the Open in Editor button in the Agents window title bar.](images/getting-started/open-in-editor-button.png)
 
-    This opens a new VS Code window with your workspace. The Chat view is still open in the right sidebar, so you can interact with agents while you work in the editor.
+    This opens a new {% data variables.product.prodname_vscode_shortname %} window with your workspace. The Chat view is still open in the right sidebar, so you can interact with agents while you work in the editor.
 
 1. Notice that the left sidebar shows the **Explorer** view, which displays the files in your workspace. Select a file to open it in an editor tab in the main area.
 
@@ -235,9 +235,9 @@ Configure custom agents, skills, and instructions to tailor the agent experience
 
 </div>
 
-To go deeper with agentic coding in Visual Studio Code, get more info about how to:
+To go deeper with agentic coding in {% data variables.product.prodname_vscode %}, get more info about how to:
 
-* [Learn more about agents in VS Code](/docs/agents/concepts/agents.md)
+* [Learn more about agents in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/concepts/agents.md)
 
 * [Learn more about the Agents window](/docs/agents/run/agents-window.md)
 

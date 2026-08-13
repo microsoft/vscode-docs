@@ -1,12 +1,12 @@
 ---
 ContentId: a4e7b2c1-3d5f-4a8e-b9c6-1e2d3f4a5b6c
 DateApproved: 8/5/2026
-MetaDescription: Use the artifacts panel in Visual Studio Code to view screenshots, plans, documents, and other resources produced during an agent session.
+MetaDescription: Use the artifacts panel in {% data variables.product.prodname_vscode %} to view screenshots, plans, documents, and other resources produced during an agent session.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 ---
 # Agent artifacts (Preview)
 
-The artifacts panel in Visual Studio Code surfaces important resources, such as screenshots, plans, and documents, alongside the chat conversation. Artifacts can come from multiple sources simultaneously and are displayed in a collapsible tree control, grouped by origin.
+The artifacts panel in {% data variables.product.prodname_vscode %} surfaces important resources, such as screenshots, plans, and documents, alongside the chat conversation. Artifacts can come from multiple sources simultaneously and are displayed in a collapsible tree control, grouped by origin.
 
 > [!NOTE]
 > The features on this page work in both the [Chat view](/docs/agents/run/chat-view.md) and the [Agents window](/docs/agents/run/agents-window.md).
@@ -20,7 +20,7 @@ The artifacts panel in Visual Studio Code surfaces important resources, such as 
 
 Artifacts can appear in the panel from different sources, which are merged and grouped by origin:
 
-* **Rules-based extraction**: VS Code automatically extracts artifacts from conversation content based on configurable MIME type patterns, file path globs, or memory file paths. For example, the built-in rules surface screenshots and plan documents. See [Configure artifact extraction rules](#configure-artifact-extraction-rules) for details.
+* **Rules-based extraction**: {% data variables.product.prodname_vscode_shortname %} automatically extracts artifacts from conversation content based on configurable MIME type patterns, file path globs, or memory file paths. For example, the built-in rules surface screenshots and plan documents. See [Configure artifact extraction rules](#configure-artifact-extraction-rules) for details.
 * **Agent-set artifacts**: the agent explicitly sets artifacts by using the `#artifacts` tool. Each update replaces the previous agent artifact list.
 * **Subagent artifacts**: when the agent delegates work to subagents, each subagent can set its own artifacts, shown in separate groups labeled with the subagent's name.
 

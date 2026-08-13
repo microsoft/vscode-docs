@@ -1,7 +1,7 @@
 ---
 ContentId: 2e8a4b9c-3d1f-5e7a-9c2b-4f6d8e1a3b5c
 DateApproved: 8/5/2026
-MetaDescription: Configure AI for a codebase in VS Code with project instructions, targeted guidance, reusable workflows, and specialized agents.
+MetaDescription: Configure AI for a codebase in {% data variables.product.prodname_vscode_shortname %} with project instructions, targeted guidance, reusable workflows, and specialized agents.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - customization
@@ -23,13 +23,13 @@ To understand how the customization types differ and work together, see [Agent c
 
 ## Prerequisites
 
-* [Download and install Visual Studio Code](/download).
-* [Enable AI features in VS Code](/docs/getstarted/overview.md#enable-ai-features).
+* [Download and install {% data variables.product.prodname_vscode %}](/download).
+* [Enable AI features in {% data variables.product.prodname_vscode_shortname %}](/docs/getstarted/overview.md#enable-ai-features).
 * Open the repository that you want to configure.
 
 ## Step 1: Create project instructions
 
-Start with a `.github/copilot-instructions.md` file. VS Code automatically includes this file in every chat request for the workspace, so use it for information that applies across the codebase.
+Start with a `.github/copilot-instructions.md` file. {% data variables.product.prodname_vscode_shortname %} automatically includes this file in every chat request for the workspace, so use it for information that applies across the codebase.
 
 1. Run **Chat: Open Customizations** from the Command Palette (`kb(workbench.action.showCommands)`).
 

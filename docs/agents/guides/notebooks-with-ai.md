@@ -1,16 +1,16 @@
 ---
 ContentId: 101027aa-e73c-4d1b-a93f-b8ce10e1f946
 DateApproved: 8/5/2026
-MetaDescription: Learn how to use GitHub Copilot in Visual Studio Code to edit Jupyter notebooks with AI.
+MetaDescription: Learn how to use GitHub Copilot in {% data variables.product.prodname_vscode %} to edit Jupyter notebooks with AI.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
-# Edit Jupyter notebooks with AI in VS Code
+# Edit Jupyter notebooks with AI in {% data variables.product.prodname_vscode_shortname %}
 
-Visual Studio Code supports working with [Jupyter notebooks](/docs/datascience/jupyter-notebooks.md) natively, and through [Python code files](/docs/python/jupyter-support-py.md). The AI features in VS Code can help you in creating and editing notebooks, as well as analyzing and visualizing data. In this article, you learn how to use the AI features in VS Code to work with Jupyter notebooks.
+{% data variables.product.prodname_vscode %} supports working with [Jupyter notebooks](/docs/datascience/jupyter-notebooks.md) natively, and through [Python code files](/docs/python/jupyter-support-py.md). The AI features in {% data variables.product.prodname_vscode_shortname %} can help you in creating and editing notebooks, as well as analyzing and visualizing data. In this article, you learn how to use the AI features in {% data variables.product.prodname_vscode_shortname %} to work with Jupyter notebooks.
 
 ## Scaffold a new notebook
 
-To accelerate getting started with a new notebook, you can use the AI features in VS Code to scaffold a new notebook. Use natural language to provide details about what functionality you want to add and which libraries you want to use.
+To accelerate getting started with a new notebook, you can use the AI features in {% data variables.product.prodname_vscode_shortname %} to scaffold a new notebook. Use natural language to provide details about what functionality you want to add and which libraries you want to use.
 
 To create a new notebook with AI, choose either of these options:
 
@@ -86,6 +86,6 @@ You can now further edit the notebook manually, or use AI to make inline edits o
 
 ## Next steps
 
-* [Learn more about Jupyter notebooks in VS Code](/docs/datascience/jupyter-notebooks.md)
-* [Learn more about the AI features in VS Code](/docs/copilot/overview.md)
-* [Learn more about chat in VS Code](/docs/chat/chat-overview.md)
+* [Learn more about Jupyter notebooks in {% data variables.product.prodname_vscode_shortname %}](/docs/datascience/jupyter-notebooks.md)
+* [Learn more about the AI features in {% data variables.product.prodname_vscode_shortname %}](/docs/copilot/overview.md)
+* [Learn more about chat in {% data variables.product.prodname_vscode_shortname %}](/docs/chat/chat-overview.md)

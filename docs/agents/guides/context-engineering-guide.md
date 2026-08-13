@@ -1,21 +1,21 @@
 ---
 ContentId: f8820661-7772-47e6-b63e-ac59f6752d9c
 DateApproved: 8/5/2026
-MetaDescription: Learn how to implement context engineering using VS Code's built-in AI features.
+MetaDescription: Learn how to implement context engineering using {% data variables.product.prodname_vscode_shortname %}'s built-in AI features.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
-# Set up a context engineering flow in VS Code
+# Set up a context engineering flow in {% data variables.product.prodname_vscode_shortname %}
 
-This guide shows you how to set up a context engineering workflow in VS Code using custom instructions, custom agents, and prompt files.
+This guide shows you how to set up a context engineering workflow in {% data variables.product.prodname_vscode_shortname %} using custom instructions, custom agents, and prompt files.
 
 Context engineering is a systematic approach to providing AI agents with targeted project information to improve the quality and accuracy of generated code. By curating essential project context through custom instructions, implementation plans, and coding guidelines, you enable AI to make better decisions, improve accuracy, and maintain persistent knowledge across interactions.
 
 > [!TIP]
-> VS Code chat provides a [built-in plan agent](/docs/agents/run/planning.md) to help you create detailed implementation plans before starting complex coding tasks. If you don't want to create a custom planning workflow, you can use the plan agent to generate implementation plans quickly.
+> {% data variables.product.prodname_vscode_shortname %} chat provides a [built-in plan agent](/docs/agents/run/planning.md) to help you create detailed implementation plans before starting complex coding tasks. If you don't want to create a custom planning workflow, you can use the plan agent to generate implementation plans quickly.
 
 ## Context engineering workflow
 
-The high-level workflow for context engineering in VS Code consists of the following steps:
+The high-level workflow for context engineering in {% data variables.product.prodname_vscode_shortname %} consists of the following steps:
 
 1. Curate project-wide context: use custom instructions to include relevant documentation (for example, architecture, design, contributor guidelines) as context to all agent interactions.
 1. Generate implementation plan: create a planning persona by using a custom agent and a prompt to generate a detailed feature implementation plan.
@@ -23,9 +23,9 @@ The high-level workflow for context engineering in VS Code consists of the follo
 
 As you work through the steps, you can iterate and refine the output with follow-up prompts in the chat.
 
-The following diagram illustrates a context engineering workflow in VS Code:
+The following diagram illustrates a context engineering workflow in {% data variables.product.prodname_vscode_shortname %}:
 
-![Diagram that shows the context engineering workflow in VS Code consisting of three main steps.](../images/context-engineering-guide/context-engineering-workflow.png)
+![Diagram that shows the context engineering workflow in {% data variables.product.prodname_vscode_shortname %} consisting of three main steps.](../images/context-engineering-guide/context-engineering-workflow.png)
 
 <!--
 ```mermaid
@@ -308,7 +308,7 @@ By following these practices and continuously refining your approach, you'll dev
 
 ## Related resources
 
-Learn more about customizing AI in VS Code:
+Learn more about customizing AI in {% data variables.product.prodname_vscode_shortname %}:
 
 * [Instructions files](/docs/agent-customization/custom-instructions.md)
 * [Custom agents](/docs/agent-customization/custom-agents.md)

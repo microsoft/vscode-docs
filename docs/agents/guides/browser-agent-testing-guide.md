@@ -1,7 +1,7 @@
 ---
 ContentId: 3f9e2b7d-6a8c-4d1e-9f2a-8c4b5d7e9f1a
 DateApproved: 8/5/2026
-MetaDescription: Build and validate web applications with AI agents and browser tools in VS Code through an interactive test and fix workflow.
+MetaDescription: Build and validate web applications with AI agents and browser tools in {% data variables.product.prodname_vscode_shortname %} through an interactive test and fix workflow.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - ai
@@ -24,7 +24,7 @@ This guide walks you through that loop by building and validating a calculator a
 
 To complete this guide, you need:
 
-* [Visual Studio Code installed on your computer](/download)
+* [{% data variables.product.prodname_vscode %} installed on your computer](/download)
 * [A GitHub Copilot subscription](/docs/setup/copilot.md)
 * The `setting(workbench.browser.enableChatTools)` setting turned on, which is the default
 
@@ -53,7 +53,7 @@ The agent can now use these tools to interact with web pages. If the tools are m
 
 With browser tools enabled, ask the agent to create a simple calculator application.
 
-1. Create a new project folder and open it in VS Code.
+1. Create a new project folder and open it in {% data variables.product.prodname_vscode_shortname %}.
 
 1. In the Chat view, enter the following prompt:
 
@@ -162,4 +162,4 @@ Now that you understand how browser tools work, try these scenarios to explore d
 
 * [Use browser tools with agents](/docs/agents/run/browser-tools.md)
 * [Integrated browser](/docs/debugtest/integrated-browser.md)
-* [Core concepts of AI in VS Code](/docs/agents/concepts/agents.md)
+* [Core concepts of AI in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/concepts/agents.md)

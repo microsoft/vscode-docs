@@ -1,7 +1,7 @@
 ---
 ContentId: 8f2c9a1b-3d4e-5f6a-7b8c-9d0e1f2a3b4c
 DateApproved: 7/29/2026
-MetaDescription: Work with agent harnesses in VS Code to run tasks locally or in the cloud, and hand off work between agents.
+MetaDescription: Work with agent harnesses in {% data variables.product.prodname_vscode_shortname %} to run tasks locally or in the cloud, and hand off work between agents.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - ai
@@ -13,9 +13,9 @@ Keywords:
 - tutorial
 ---
 
-# Tutorial: Hand off work between agents in VS Code
+# Tutorial: Hand off work between agents in {% data variables.product.prodname_vscode_shortname %}
 
-This tutorial walks you through using different agent harnesses in Visual Studio Code. You build a todo app from scratch, add a theme toggle, and redesign the layout by delegating work across Local, Plan, Copilot, and Cloud sessions.
+This tutorial walks you through using different agent harnesses in {% data variables.product.prodname_vscode %}. You build a todo app from scratch, add a theme toggle, and redesign the layout by delegating work across Local, Plan, Copilot, and Cloud sessions.
 
 > [!TIP]
 > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly allowance of inline suggestions and AI credits.
@@ -31,9 +31,9 @@ Use browser agent tools to build and automatically test web applications.
 
 To complete this tutorial, you need:
 
-* [Visual Studio Code installed on your computer](/download)
+* [{% data variables.product.prodname_vscode %} installed on your computer](/download)
 
-* [AI features enabled in VS Code](/docs/getstarted/overview.md#enable-ai-features)
+* [AI features enabled in {% data variables.product.prodname_vscode_shortname %}](/docs/getstarted/overview.md#enable-ai-features)
 
 * [A GitHub account](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github) (for cloud agent workflow)
 
@@ -49,14 +49,14 @@ In this step, you use a local agent to create the initial todo app structure. Lo
     git init
     ```
 
-1. Open the project folder in VS Code.
+1. Open the project folder in {% data variables.product.prodname_vscode_shortname %}.
 
 1. Open the Chat view (`kb(workbench.action.chat.open)`) and select **Agent** from the Agents dropdown.
 
     Optionally, choose a specific language model if you have a preference.
 
     > [!IMPORTANT]
-    > If you don't see the agent option, make sure agents are enabled in your VS Code settings (`setting(chat.agent.enabled)`). Your organization might also have disabled agents - contact your admin to enable this functionality.
+    > If you don't see the agent option, make sure agents are enabled in your {% data variables.product.prodname_vscode_shortname %} settings (`setting(chat.agent.enabled)`). Your organization might also have disabled agents - contact your admin to enable this functionality.
 
 1. Enter the following prompt in the chat input field to scaffold the todo app and select **Send**.
 
@@ -64,7 +64,7 @@ In this step, you use a local agent to create the initial todo app structure. Lo
     Create a simple todo app with HTML, CSS, and JavaScript. Include an input field to add todos, a list to display them, and a delete button for each item.
     ```
 
-    <video src="images/agents-tutorial/local-agent-todo-app-scaffold-v2.mp4" alt="Video showing a local agent scaffolding a todo app in VS Code." muted loop controls></video>
+    <video src="images/agents-tutorial/local-agent-todo-app-scaffold-v2.mp4" alt="Video showing a local agent scaffolding a todo app in {% data variables.product.prodname_vscode_shortname %}." muted loop controls></video>
 
 1. Review as the agent generates the different files for the app. Use **Keep** or **Undo** to accept or reject changes as needed.
 
@@ -108,7 +108,7 @@ In this step, you use the Plan agent to create an implementation plan for a them
 
 1. You can track the Copilot session in the **Sessions** view. Select the session to see details about its progress.
 
-    <video src="images/agents-tutorial/background-agent-theme-switcher-v2.mp4" alt="Video showing Copilot implementing a theme switcher feature in VS Code." muted loop controls></video>
+    <video src="images/agents-tutorial/background-agent-theme-switcher-v2.mp4" alt="Video showing Copilot implementing a theme switcher feature in {% data variables.product.prodname_vscode_shortname %}." muted loop controls></video>
 
     > [!TIP]
     > While Copilot works in the background, you can continue editing your main workspace without conflicts.
@@ -142,7 +142,7 @@ In this step, you use a cloud agent (Copilot cloud agent) to redesign the app la
 
 1. The cloud agent starts a new session to work on your request. It creates a branch and pull request in your GitHub repository.
 
-    <video src="images/agents-tutorial/cloud-agent-redesign-todo-app-v2.mp4" alt="Video showing a cloud agent redesigning a todo app in VS Code." muted loop controls></video>
+    <video src="images/agents-tutorial/cloud-agent-redesign-todo-app-v2.mp4" alt="Video showing a cloud agent redesigning a todo app in {% data variables.product.prodname_vscode_shortname %}." muted loop controls></video>
 
 1. You can track the cloud agent in the **Sessions** view in the Chat view or select the link to view the pull request details.
 

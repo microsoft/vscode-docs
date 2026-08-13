@@ -1,15 +1,15 @@
 ---
 ContentId: 9f3c7e21-6b48-4d5a-a097-2e1c8f64b3d9
 DateApproved: 8/5/2026
-MetaDescription: Build a web app with an AI agent in VS Code, then review the code and use browser tools to validate the result.
+MetaDescription: Build a web app with an AI agent in {% data variables.product.prodname_vscode_shortname %}, then review the code and use browser tools to validate the result.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Quickstart: Complete your first task with an agent
 
-In this quickstart, you use an AI agent in Visual Studio Code to build a small web app from a natural-language prompt. You can work in the **Agents window** for an agent-first experience or use the **Chat view** alongside your code. You then review the generated code and use browser tools to let the agent validate the app.
+In this quickstart, you use an AI agent in {% data variables.product.prodname_vscode %} to build a small web app from a natural-language prompt. You can work in the **Agents window** for an agent-first experience or use the **Chat view** alongside your code. You then review the generated code and use browser tools to let the agent validate the app.
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Build a complete app with agents">
-Follow a hands-on tutorial to build and refine an app with agents in VS Code.
+Follow a hands-on tutorial to build and refine an app with agents in {% data variables.product.prodname_vscode_shortname %}.
 
 * [Start agents tutorial](/docs/agents/agents-tutorial.md)
 
@@ -17,8 +17,8 @@ Follow a hands-on tutorial to build and refine an app with agents in VS Code.
 
 ## Prerequisites
 
-* [Download and install Visual Studio Code](/download).
-* [Set up AI in VS Code](/docs/setup/copilot.md).
+* [Download and install {% data variables.product.prodname_vscode %}](/download).
+* [Set up AI in {% data variables.product.prodname_vscode_shortname %}](/docs/setup/copilot.md).
 
 ## Create a project folder
 
@@ -33,7 +33,7 @@ Choose where you want to work with the agent. Both options create the same app a
 
 The **Agents window** (Preview) is a dedicated window for assigning tasks and monitoring agents across your projects.
 
-1. In VS Code, select **Open in Agents** in the title bar.
+1. In {% data variables.product.prodname_vscode_shortname %}, select **Open in Agents** in the title bar.
 
     You can also run **Chat: Open Agents Window** from the Command Palette (`kb(workbench.action.showCommands)`).
 
@@ -41,9 +41,9 @@ The **Agents window** (Preview) is a dedicated window for assigning tasks and mo
 
 1. From the workspace dropdown, select the `agent-quickstart` folder.
 
-    If VS Code asks whether you trust the folder, select **Yes, I trust the authors**.
+    If {% data variables.product.prodname_vscode_shortname %} asks whether you trust the folder, select **Yes, I trust the authors**.
 
-1. Select the **Copilot** agent harness and the **Agent** role. Keep **Default Approvals** selected so that VS Code asks before the agent runs actions that require approval.
+1. Select the **Copilot** agent harness and the **Agent** role. Keep **Default Approvals** selected so that {% data variables.product.prodname_vscode_shortname %} asks before the agent runs actions that require approval.
 
 1. Enter the following prompt and press `kbstyle(Enter)`:
 
@@ -58,13 +58,13 @@ The **Agents window** (Preview) is a dedicated window for assigning tasks and mo
 
 The **Chat view** keeps the agent beside your editor, which is useful when you want to inspect and work with the generated code.
 
-1. In VS Code, select **File** > **Open Folder**, and then open the `agent-quickstart` folder.
+1. In {% data variables.product.prodname_vscode_shortname %}, select **File** > **Open Folder**, and then open the `agent-quickstart` folder.
 
-    If VS Code asks whether you trust the folder, select **Yes, I trust the authors**.
+    If {% data variables.product.prodname_vscode_shortname %} asks whether you trust the folder, select **Yes, I trust the authors**.
 
 1. Open the Chat view with `kb(workbench.action.chat.open)`, and then select **New Chat** (`+`).
 
-1. Select the **Copilot** agent harness and the **Agent** role. Keep **Default Approvals** selected so that VS Code asks before the agent runs actions that require approval.
+1. Select the **Copilot** agent harness and the **Agent** role. Keep **Default Approvals** selected so that {% data variables.product.prodname_vscode_shortname %} asks before the agent runs actions that require approval.
 
 1. Enter the following prompt and press `kbstyle(Enter)`:
 
@@ -132,7 +132,7 @@ You have completed your first task with an agent. The agent interpreted your goa
 
 The Agents window and Chat view share the same agent sessions, so you can switch between them without losing the conversation.
 
-* From the Agents window, select **Open in Editor** in the title bar. VS Code opens the project in an editor window with the session available in the Chat view.
+* From the Agents window, select **Open in Editor** in the title bar. {% data variables.product.prodname_vscode_shortname %} opens the project in an editor window with the session available in the Chat view.
 
 * From the Chat view, select **Open in Agents** in the title bar. The Agents window opens with the same session selected.
 
@@ -140,4 +140,4 @@ The Agents window and Chat view share the same agent sessions, so you can switch
 
 * [Build a complete app with agents](/docs/agents/agents-tutorial.md).
 * [Learn how agents use browser tools](/docs/agents/run/browser-tools.md).
-* [Learn more about agents in VS Code](/docs/agents/concepts/agents.md).
+* [Learn more about agents in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/concepts/agents.md).

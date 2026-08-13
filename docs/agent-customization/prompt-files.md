@@ -1,7 +1,7 @@
 ---
 ContentId: 5c8e7d42-9b1a-4f85-a3e2-6d5b8a9c1e43
 DateApproved: 8/5/2026
-MetaDescription: Learn how to create reusable prompt files for GitHub Copilot Chat in VS Code to standardize common development tasks and improve your coding workflow efficiency.
+MetaDescription: Learn how to create reusable prompt files for GitHub Copilot Chat in {% data variables.product.prodname_vscode_shortname %} to standardize common development tasks and improve your coding workflow efficiency.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - prompt files
@@ -11,7 +11,7 @@ Keywords:
 - ai
 - task automation
 ---
-# Use prompt files in VS Code
+# Use prompt files in {% data variables.product.prodname_vscode_shortname %}
 
 Prompt files, also known as slash commands, let you simplify prompting for common tasks by encoding them as standalone Markdown files that you can invoke directly in chat. Each prompt file includes task-specific context and guidelines about how the task should be performed.
 
@@ -25,7 +25,7 @@ Use prompt files to:
 You can use the [Agent Customizations editor](/docs/agent-customization/overview.md#use-the-agent-customizations-editor) (Preview) to discover, create, and manage all your agent customizations in one place. Run **Chat: Open Customizations** from the Command Palette.
 
 > [!IMPORTANT]
-> Agents running on the [Agent Host](/docs/agents/concepts/agent-host.md) don't use prompt files. To use an existing prompt with the Copilot agent, convert it to an [agent skill](/docs/agent-customization/agent-skills.md). The Agent Customizations editor offers a one-time migration that converts your prompt files to skills (experimental, enable `setting(chat.customizations.promptMigration.enabled)`). Prompt files continue to work with local agents that run in the VS Code extension host.
+> Agents running on the [Agent Host](/docs/agents/concepts/agent-host.md) don't use prompt files. To use an existing prompt with the Copilot agent, convert it to an [agent skill](/docs/agent-customization/agent-skills.md). The Agent Customizations editor offers a one-time migration that converts your prompt files to skills (experimental, enable `setting(chat.customizations.promptMigration.enabled)`). Prompt files continue to work with local agents that run in the {% data variables.product.prodname_vscode_shortname %} extension host.
 
 ## Prompt file locations
 
@@ -34,7 +34,7 @@ You can define prompt files for a specific workspace or at the user level, where
 | Scope | Default file location |
 |-------|-----------------------|
 | Workspace | `.github/prompts` folder |
-| User profile | Your user data (specific to your VS Code profile) |
+| User profile | Your user data (specific to your {% data variables.product.prodname_vscode_shortname %} profile) |
 
 To create a user-level prompt file, use the Agent Customizations editor or the **Chat: New Prompt File** command.
 
@@ -183,7 +183,7 @@ The list of available tools in chat is determined by the following priority orde
 
 ## Sync user prompt files across devices
 
-VS Code can sync your user prompt files across multiple devices by using [Settings Sync](/docs/configure/settings-sync.md).
+{% data variables.product.prodname_vscode_shortname %} can sync your user prompt files across multiple devices by using [Settings Sync](/docs/configure/settings-sync.md).
 
 To sync your user prompt files, enable Settings Sync and run **Settings Sync: Configure** from the Command Palette (`kb(workbench.action.showCommands)`). Select **Prompts and Instructions** from the list of settings to sync.
 
@@ -211,7 +211,7 @@ To identify the source of a prompt file:
 1. Hover over the prompt file in the list. The source location is displayed in a tooltip.
 
 > [!TIP]
-> Use the Agent Debug Log panel to inspect prompt file discovery and related errors. In the Chat view, select the ellipsis (**...**) menu, then select **Show Agent Debug Logs**. Learn more about [troubleshooting AI in VS Code](/docs/agents/agent-troubleshooting/troubleshooting.md).
+> Use the Agent Debug Log panel to inspect prompt file discovery and related errors. In the Chat view, select the ellipsis (**...**) menu, then select **Show Agent Debug Logs**. Learn more about [troubleshooting AI in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/agent-troubleshooting/troubleshooting.md).
 
 ## Related resources
 

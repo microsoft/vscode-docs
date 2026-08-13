@@ -1,7 +1,7 @@
 ---
 ContentId: c4a81e63-9d27-4b5f-8e10-2a7f6c9d3b04
 DateApproved: 7/29/2026
-MetaDescription: Understand agent sessions in VS Code, the unit of work with an agent, how sessions are shared across surfaces, and how to hand off a session between agents.
+MetaDescription: Understand agent sessions in {% data variables.product.prodname_vscode_shortname %}, the unit of work with an agent, how sessions are shared across surfaces, and how to hand off a session between agents.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - copilot
@@ -16,7 +16,7 @@ Keywords:
 
 # Sessions and handoff
 
-A session is the unit of work with an agent in Visual Studio Code: a single conversation with an agent, along with all the context that builds up as it works. This article explains what a session is, how sessions behave, how they are shared across surfaces, and how you hand off a session from one agent to another.
+A session is the unit of work with an agent in {% data variables.product.prodname_vscode %}: a single conversation with an agent, along with all the context that builds up as it works. This article explains what a session is, how sessions behave, how they are shared across surfaces, and how you hand off a session from one agent to another.
 
 To create and organize sessions, see [Manage agent sessions](/docs/agents/run/sessions/manage-sessions.md).
 
@@ -71,4 +71,4 @@ A session doesn't have to run on your local machine, and it doesn't have to stay
 * [Manage agent sessions](/docs/agents/run/sessions/manage-sessions.md)
 * [Agent harnesses](/docs/agents/concepts/agent-harnesses.md)
 * [Agents](/docs/agents/concepts/agents.md)
-* [VS Code Agent Host architecture](/docs/agents/concepts/agent-host.md)
+* [{% data variables.product.prodname_vscode_shortname %} Agent Host architecture](/docs/agents/concepts/agent-host.md)

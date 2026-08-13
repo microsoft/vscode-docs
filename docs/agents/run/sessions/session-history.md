@@ -1,12 +1,12 @@
 ---
 ContentId: b4e8c9f3-6d5a-4b2e-c7a4-8f9e1b3d2c5a
 DateApproved: 8/5/2026
-MetaDescription: Sync, share, and query Copilot session history in Visual Studio Code with GitHub sync, privacy controls, Chronicle reports, and natural-language search.
+MetaDescription: Sync, share, and query Copilot session history in {% data variables.product.prodname_vscode %} with GitHub sync, privacy controls, Chronicle reports, and natural-language search.
 MetaSocialImage: ../../../images/shared/github-copilot-social.png
 ---
 # Sync and query session history
 
-VS Code maintains a searchable history of your Copilot sessions. By default, it syncs local agent sessions to your GitHub account so you can access them across devices, share selected sessions, and query work from VS Code, Copilot CLI, coding agent, code review, and the GitHub Copilot Desktop app.
+{% data variables.product.prodname_vscode_shortname %} maintains a searchable history of your Copilot sessions. By default, it syncs local agent sessions to your GitHub account so you can access them across devices, share selected sessions, and query work from {% data variables.product.prodname_vscode_shortname %}, Copilot CLI, coding agent, code review, and the GitHub Copilot Desktop app.
 
 Synced sessions are private unless you explicitly share them.
 
@@ -32,7 +32,7 @@ Sessions from matching repositories are stored locally only.
 For Copilot Business and Copilot Enterprise users, two policies control session sync:
 
 * **GitHub.com enterprise policy** ("Store local sessions in the Cloud"): enterprise and organization owners configure this on GitHub.com to enable or disable cloud sync for their users.
-* **VS Code group policy** (`CopilotSessionSync`): when disabled, the `setting(chat.sessionSync.enabled)` setting is forced to `false` and sessions stay local only.
+* **{% data variables.product.prodname_vscode_shortname %} group policy** (`CopilotSessionSync`): when disabled, the `setting(chat.sessionSync.enabled)` setting is forced to `false` and sessions stay local only.
 
 > [!IMPORTANT]
 > Enabling the policy does not give administrators access to your session data. Synced sessions are tied to your personal account and are accessible only to you by default.

@@ -1,7 +1,7 @@
 ---
 ContentId: 8f2c4a1d-9e3b-4c5f-a7d8-6b9c2e4f1a3d
 DateApproved: 8/5/2026
-MetaDescription: Use built-in, MCP, and extension tools with AI agents in VS Code, including tool selection, parameters, terminal commands, and approvals.
+MetaDescription: Use built-in, MCP, and extension tools with AI agents in {% data variables.product.prodname_vscode_shortname %}, including tool selection, parameters, terminal commands, and approvals.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 keywords:
 - copilot
@@ -14,16 +14,16 @@ keywords:
 ---
 # Use tools with agents
 
-Tools extend agents in Visual Studio Code with specialized functionality for accomplishing specific tasks like searching code, running commands, fetching web content, or invoking APIs. VS Code supports three types of tools: built-in tools, Model Context Protocol (MCP) tools, and extension tools.
+Tools extend agents in {% data variables.product.prodname_vscode %} with specialized functionality for accomplishing specific tasks like searching code, running commands, fetching web content, or invoking APIs. {% data variables.product.prodname_vscode_shortname %} supports three types of tools: built-in tools, Model Context Protocol (MCP) tools, and extension tools.
 
 For background on tool types and how tools work in the agent loop, see [Tools concepts](/docs/agents/concepts/tools.md).
 
 This article describes how to use tools in your prompts and manage tool invocations. To control how the agent requests approval for tool calls and how much autonomy it has, see [Manage approvals and permissions](/docs/agents/run/approvals.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Try tools in action">
-Launch a chat prompt that uses the web tool to summarize the latest VS Code updates.
+Launch a chat prompt that uses the web tool to summarize the latest {% data variables.product.prodname_vscode_shortname %} updates.
 
-* [Open in VS Code](vscode://GitHub.Copilot-Chat/chat?agent=agent%26prompt=Summarize%20the%20latest%20VS%20Code%20updates%20%23web)
+* [Open in {% data variables.product.prodname_vscode_shortname %}](vscode://GitHub.Copilot-Chat/chat?agent=agent%26prompt=Summarize%20the%20latest%20VS%20Code%20updates%20%23web)
 
 </div>
 
@@ -70,7 +70,7 @@ To group related tools and reuse them across prompts, prompt files, and custom a
 
 Browser tools give agents an interactive way to validate web applications. Instead of inspecting only the source code, an agent can run your app, open it in the integrated browser, exercise a user flow, inspect page content and console errors, and fix problems it discovers.
 
-Browser tools are built into VS Code and don't require an external MCP server. Use them when a task has an observable result in a web interface, such as verifying a form, reproducing a visual bug, checking responsive behavior, or testing a complete user journey.
+Browser tools are built into {% data variables.product.prodname_vscode_shortname %} and don't require an external MCP server. Use them when a task has an observable result in a web interface, such as verifying a form, reproducing a visual bug, checking responsive behavior, or testing a complete user journey.
 
 ```prompt
 Start the app, open it in the browser, and test the password reset flow.
@@ -91,9 +91,9 @@ You can review and edit the input parameters before a tool runs:
 
 ## Run terminal commands
 
-Of all the built-in tools, the terminal tool is one of the most frequently used. The agent uses it to run commands as part of its workflow, for example to install dependencies, run a build, or execute tests. Because terminal commands can change your environment, VS Code provides additional controls for reviewing, running, and monitoring them, building on the [approval](/docs/agents/run/approvals.md) behavior described earlier.
+Of all the built-in tools, the terminal tool is one of the most frequently used. The agent uses it to run commands as part of its workflow, for example to install dependencies, run a build, or execute tests. Because terminal commands can change your environment, {% data variables.product.prodname_vscode_shortname %} provides additional controls for reviewing, running, and monitoring them, building on the [approval](/docs/agents/run/approvals.md) behavior described earlier.
 
-When the agent decides to run a command, it uses the built-in terminal tool to execute it in an integrated terminal within VS Code.
+When the agent decides to run a command, it uses the built-in terminal tool to execute it in an integrated terminal within {% data variables.product.prodname_vscode_shortname %}.
 
 In the chat conversation, the agent displays the commands it ran. You can view the output of the command inline in chat by selecting **Show Output** (`>`) next to the command. You can also view the full output in the integrated terminal by selecting **Show Terminal**.
 
@@ -152,7 +152,7 @@ You can still configure the agent to use these shells with the terminal profile 
 
 Yes. You can create tools in two ways:
 
-* **Develop a VS Code extension** that contributes tools using the [Language Model Tools API](/api/extension-guides/ai/tools.md)
+* **Develop a {% data variables.product.prodname_vscode_shortname %} extension** that contributes tools using the [Language Model Tools API](/api/extension-guides/ai/tools.md)
 * **Create an MCP server** that provides tools. See the [MCP developer guide](/docs/agents/guides/mcp-developer-guide.md)
 
 </details>
@@ -162,4 +162,4 @@ Yes. You can create tools in two ways:
 * [Chat tools reference](/docs/agents/reference/ai-features-cheat-sheet.md#chat-tools)
 * [Create and use tool sets](/docs/agent-customization/tool-sets.md)
 * [Agent hooks](/docs/agent-customization/hooks.md) - Execute custom commands at tool lifecycle events
-* [Security considerations for using AI in VS Code](/docs/agents/run/security.md)
+* [Security considerations for using AI in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/run/security.md)

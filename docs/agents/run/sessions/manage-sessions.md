@@ -1,15 +1,15 @@
 ---
 ContentId: 7a2e5f8d-4c9b-41e6-b3a8-9d7f2e4c1b8a
 DateApproved: 8/5/2026
-MetaDescription: Create and manage agent sessions in Visual Studio Code, including multiple chats, context compaction, organization, archiving, and forking.
+MetaDescription: Create and manage agent sessions in {% data variables.product.prodname_vscode %}, including multiple chats, context compaction, organization, archiving, and forking.
 MetaSocialImage: ../../../images/shared/github-copilot-social.png
 ---
-# Manage agent sessions in VS Code
+# Manage agent sessions in {% data variables.product.prodname_vscode_shortname %}
 
-A [session](/docs/agents/concepts/sessions.md) is the unit of work with an agent in Visual Studio Code. It includes the sequence of prompts and responses, relevant context, and any files or resources associated with the task. This article describes how to create, organize, and manage sessions in both the [Chat view](/docs/agents/run/chat-view.md) and the [Agents window](/docs/agents/run/agents-window.md).
+A [session](/docs/agents/concepts/sessions.md) is the unit of work with an agent in {% data variables.product.prodname_vscode %}. It includes the sequence of prompts and responses, relevant context, and any files or resources associated with the task. This article describes how to create, organize, and manage sessions in both the [Chat view](/docs/agents/run/chat-view.md) and the [Agents window](/docs/agents/run/agents-window.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
-Follow a hands-on tutorial to experience local, background, and cloud agents in VS Code.
+Follow a hands-on tutorial to experience local, background, and cloud agents in {% data variables.product.prodname_vscode_shortname %}.
 
 * [Start agent handoff tutorial](/docs/agents/agents-handoff-tutorial.md)
 
@@ -22,7 +22,7 @@ When you start an agent session, you begin a new conversation with the AI. Each 
 > [!TIP]
 > Start a new session when you change topics to help the AI provide more relevant responses.
 
-Depending on how you prefer to work or the task you want to accomplish, you can choose between different chat experiences in VS Code. Each experience is optimized for different workflows, but they share the same underlying sessions to enable you to switch between them at any time.
+Depending on how you prefer to work or the task you want to accomplish, you can choose between different chat experiences in {% data variables.product.prodname_vscode_shortname %}. Each experience is optimized for different workflows, but they share the same underlying sessions to enable you to switch between them at any time.
 
 {% tabs id="chat-surface" %}
 {% tab label="Agents window" %}
@@ -33,7 +33,7 @@ The [Agents window](/docs/agents/run/agents-window.md) is a dedicated window for
 
 To start a new chat session in the Agents window:
 
-1. Open the Agents window by selecting the **Open in Agents** button in the VS Code title bar.
+1. Open the Agents window by selecting the **Open in Agents** button in the {% data variables.product.prodname_vscode_shortname %} title bar.
 
 1. Select **New** in the sidebar to create a new session.
 
@@ -49,7 +49,7 @@ To start a new chat session in the Agents window:
 
     * **Permission level**: controls how much autonomy the agent has over tool approvals. Learn more about [permission levels](/docs/agents/run/approvals.md#permission-levels).
 
-    * **Language model**: determines which AI model powers the conversation. Learn more about [language models in VS Code](/docs/agent-customization/language-models.md).
+    * **Language model**: determines which AI model powers the conversation. Learn more about [language models in {% data variables.product.prodname_vscode_shortname %}](/docs/agent-customization/language-models.md).
 
     In the Agents window, when you create another new session, the picker remembers the last **Agent** and **Permission level** values you selected and uses them as defaults.
 
@@ -58,13 +58,13 @@ To start a new chat session in the Agents window:
 {% /tab %}
 {% tab label="Chat view" %}
 
-The [Chat view](/docs/agents/run/chat-view.md) is a chat panel that sits in the sidebar alongside your workspace editor tabs. Agents assist you with coding tasks, while you have full access to VS Code's rich coding experience. The Chat view is optimized for **code-first workflows**.
+The [Chat view](/docs/agents/run/chat-view.md) is a chat panel that sits in the sidebar alongside your workspace editor tabs. Agents assist you with coding tasks, while you have full access to {% data variables.product.prodname_vscode_shortname %}'s rich coding experience. The Chat view is optimized for **code-first workflows**.
 
-![Screenshot of opening a new chat session in the Chat view in VS Code.](../../images/chat-sessions/new-chat-session-chat-view.png)
+![Screenshot of opening a new chat session in the Chat view in {% data variables.product.prodname_vscode_shortname %}.](../../images/chat-sessions/new-chat-session-chat-view.png)
 
 To start a new chat session in the Chat view:
 
-1. Open the Chat view by selecting the **Chat** icon in the VS Code title bar.
+1. Open the Chat view by selecting the **Chat** icon in the {% data variables.product.prodname_vscode_shortname %} title bar.
 
 1. Create an empty session by selecting the **New Chat** (`+`) button.
 
@@ -80,7 +80,7 @@ To start a new chat session in the Chat view:
 
     * **Permission level**: controls how much autonomy the agent has over tool approvals. Learn more about [permission levels](/docs/agents/run/approvals.md#permission-levels).
 
-    * **Language model**: determines which AI model powers the conversation. Learn more about [language models in VS Code](/docs/agent-customization/language-models.md).
+    * **Language model**: determines which AI model powers the conversation. Learn more about [language models in {% data variables.product.prodname_vscode_shortname %}](/docs/agent-customization/language-models.md).
 
 1. Type your prompt and press `kb(workbench.action.chat.submit)` to submit it. The agent's response appears in the chat area, and the agent may take actions such as editing files, running commands, or asking follow-up questions.
 
@@ -91,7 +91,7 @@ To start a new chat session in the Chat view:
 
 The context window control in the chat input shows how much of the model's context window the session is using. Hover over the control to see the token count, a usage breakdown by category, and the total AI credits consumed by the session.
 
-![Screenshot of VS Code Chat view, showing the context window usage control in the chat input box.](../../../chat/images/copilot-chat/chat-context-window-control.png)
+![Screenshot of {% data variables.product.prodname_vscode_shortname %} Chat view, showing the context window usage control in the chat input box.](../../../chat/images/copilot-chat/chat-context-window-control.png)
 
 As the conversation grows, the control updates to reflect increasing context usage. The available context depends on the selected model.
 
@@ -101,7 +101,7 @@ How context changes across turns also affects prompt caching. Stable context let
 
 Context compaction summarizes earlier conversation history to free space in the context window. Compaction lets you continue the same session with less irrelevant history and reduces the tokens sent with subsequent requests.
 
-VS Code automatically compacts the conversation when the context window fills. To turn off automatic compaction, set `setting(github.copilot.chat.summarizeAgentConversationHistory.enabled)` to `false`.
+{% data variables.product.prodname_vscode_shortname %} automatically compacts the conversation when the context window fills. To turn off automatic compaction, set `setting(github.copilot.chat.summarizeAgentConversationHistory.enabled)` to `false`.
 
 To compact the conversation manually:
 
@@ -220,7 +220,7 @@ The Chat view operates in two modes: compact and side-by-side. You can manually 
 
 To keep the sessions list organized, archive or mark sessions as done when they're completed or you no longer need them. Archiving a session does not delete it. At any time, you can unarchive a session to restore it to the active sessions list.
 
-When you archive (or mark as done) a session, its status changes so it moves out of the active sessions list. For a worktree session, VS Code commits uncommitted changes to the session branch before it removes the worktree folder. If VS Code can't preserve the changes or remove the worktree, the worktree remains. The branch and its commits are preserved, so restoring the session re-creates the worktree from that branch.
+When you archive (or mark as done) a session, its status changes so it moves out of the active sessions list. For a worktree session, {% data variables.product.prodname_vscode_shortname %} commits uncommitted changes to the session branch before it removes the worktree folder. If {% data variables.product.prodname_vscode_shortname %} can't preserve the changes or remove the worktree, the worktree remains. The branch and its commits are preserved, so restoring the session re-creates the worktree from that branch.
 
 To archive a session, hover over the session in the sessions list and select the **Archive** (Chat view) or **Mark as Done** (Agents Window) option.
 
@@ -269,7 +269,7 @@ With these tools, an agent can:
 * Read recent conversation context from another session before continuing work.
 * Send a message to another session or chat to start or steer a follow-up task.
 
-When a tool creates or targets a session, VS Code shows an **Open Session** pill in chat so you can jump directly to it.
+When a tool creates or targets a session, {% data variables.product.prodname_vscode_shortname %} shows an **Open Session** pill in chat so you can jump directly to it.
 
 To keep this workflow safe and predictable:
 
@@ -318,15 +318,15 @@ The indicator shows:
 
 You can configure the status indicator's visibility by using the `setting(chat.agentsControl.enabled)` setting.
 
-## View sessions on the VS Code welcome page
+## View sessions on the {% data variables.product.prodname_vscode_shortname %} welcome page
 
-The VS Code welcome page can act as your startup experience for working with chat sessions. It provides quick access to your recent chat sessions, an embedded chat widget for starting new tasks, and quick actions for common tasks.
+The {% data variables.product.prodname_vscode_shortname %} welcome page can act as your startup experience for working with chat sessions. It provides quick access to your recent chat sessions, an embedded chat widget for starting new tasks, and quick actions for common tasks.
 
-To configure the VS Code welcome page as your startup experience, set `setting(workbench.startupEditor)` to `agentSessionsWelcomePage`.
+To configure the {% data variables.product.prodname_vscode_shortname %} welcome page as your startup experience, set `setting(workbench.startupEditor)` to `agentSessionsWelcomePage`.
 
 ## Related resources
 
-* [Use chat in VS Code](/docs/chat/chat-overview.md)
+* [Use chat in {% data variables.product.prodname_vscode_shortname %}](/docs/chat/chat-overview.md)
 * [Agents overview](/docs/agents/overview.md)
 * [Add context to chat](/docs/chat/copilot-chat-context.md)
 * [Best practices for using AI](/docs/agents/best-practices.md)

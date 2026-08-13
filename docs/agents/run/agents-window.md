@@ -1,16 +1,16 @@
 ---
 ContentId: b3e7a1d4-5f2c-4e9a-8b6d-1c0f3a2e5d47
 DateApproved: 7/29/2026
-MetaDescription: Operate the VS Code Agents window to select sessions, review workspace files and changes, validate results, and commit agent work.
+MetaDescription: Operate the {% data variables.product.prodname_vscode_shortname %} Agents window to select sessions, review workspace files and changes, validate results, and commit agent work.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Use the Agents window (Preview)
 
-The Agents window is a dedicated VS Code window focused on chat as the primary interface. It works across all your workspaces from one window, so you can assign high-level tasks, evaluate the outcomes, and run and track multiple agents in parallel. The Agents window is optimized for agent-first workflows.
+The Agents window is a dedicated {% data variables.product.prodname_vscode_shortname %} window focused on chat as the primary interface. It works across all your workspaces from one window, so you can assign high-level tasks, evaluate the outcomes, and run and track multiple agents in parallel. The Agents window is optimized for agent-first workflows.
 
 In this article, you learn how to open the Agents window and start, monitor, and review agent sessions across your projects.
 
-<!-- <video src="../images/agents-window/agents-demo-20260510.mp4" title="Video showing the Agents window experience in VS Code Insiders." controls></video> -->
+<!-- <video src="../images/agents-window/agents-demo-20260510.mp4" title="Video showing the Agents window experience in {% data variables.product.prodname_vscode_shortname %} Insiders." controls></video> -->
 
 > [!NOTE]
 > The Agents window is currently in preview. Share feedback by [filing an issue on GitHub](https://github.com/microsoft/vscode/issues), or browse [existing Agents window issues](https://github.com/microsoft/vscode/issues?q=state%3Aopen%20label%3A%22agents-window%22).
@@ -21,28 +21,28 @@ In this article, you learn how to open the Agents window and start, monitor, and
 * **Work agent-first, not code-first**: describe the outcome you want in high-level requirements and let the agent figure out the implementation, rather than framing prompts around specific code changes.
 * **Switch freely between surfaces**: move to the [Chat view](/docs/agents/run/chat-view.md) whenever you want to get closer to the code. Both surfaces share the same sessions, settings, and keybindings, so you never lose context.
 
-For help choosing between the Agents window and the Chat view, see [Choose how you work with agents](/docs/agents/overview.md#choose-how-you-work-with-agents). For chat mechanics that apply to both surfaces, see [Use chat in VS Code](/docs/chat/chat-overview.md) and [Review AI-generated code edits](/docs/agents/run/review-code-edits.md).
+For help choosing between the Agents window and the Chat view, see [Choose how you work with agents](/docs/agents/overview.md#choose-how-you-work-with-agents). For chat mechanics that apply to both surfaces, see [Use chat in {% data variables.product.prodname_vscode_shortname %}](/docs/chat/chat-overview.md) and [Review AI-generated code edits](/docs/agents/run/review-code-edits.md).
 
 ## Prerequisites
 
-* Visual Studio Code installed. [Download VS Code](/download).
-* Access to GitHub Copilot. Follow the steps in [Set up GitHub Copilot in VS Code](/docs/setup/copilot.md) to sign in and activate your subscription.
+* {% data variables.product.prodname_vscode %} installed. [Download {% data variables.product.prodname_vscode_shortname %}](/download).
+* Access to GitHub Copilot. Follow the steps in [Set up GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}](/docs/setup/copilot.md) to sign in and activate your subscription.
 
 ## Open the Agents window
 
-The Agents window opens as a dedicated VS Code window alongside your main editor window. To open the Agents window, use one of the following methods:
+The Agents window opens as a dedicated {% data variables.product.prodname_vscode_shortname %} window alongside your main editor window. To open the Agents window, use one of the following methods:
 
-* Select the **Open in Agents** button in the VS Code title bar
+* Select the **Open in Agents** button in the {% data variables.product.prodname_vscode_shortname %} title bar
 
 * Run the **Chat: Open Agents Window** command from the Command Palette (`kb(workbench.action.showCommands)`)
 
-* Select **Try out the new Agents window** link from the VS Code welcome page
+* Select **Try out the new Agents window** link from the {% data variables.product.prodname_vscode_shortname %} welcome page
 
 * Run `code --agents` from the command line.
 
 * Open <https://insiders.vscode.dev/agents> in a browser to use the Agents window from any device. See [remote agent sessions](/docs/agents/run/remote-agent-sessions.md#use-the-agents-window-in-the-browser) for setup instructions.
 
-The Agents window requires GitHub authentication to access your Copilot subscription and sessions. If you're already signed in to GitHub in VS Code, you'll also be signed in when the Agents window opens.
+The Agents window requires GitHub authentication to access your Copilot subscription and sessions. If you're already signed in to GitHub in {% data variables.product.prodname_vscode_shortname %}, you'll also be signed in when the Agents window opens.
 
 > [!NOTE]
 > You can hide the **Open in Agents** button by right-clicking it in the title bar and selecting **Hide 'Open in Agents'**. You can still open the Agents window at any time from the Command Palette or command line.
@@ -95,7 +95,7 @@ To start a new agent session in the Agents window:
 
 1. Use the workspace dropdown to select a local folder, GitHub repository, or remote workspace via SSH or a dev tunnel.
 
-    If the folder or repository isn't trusted, VS Code prompts you to trust it before starting the session. The Agents window and main VS Code window share the same trust state. Learn more about [Workspace Trust](/docs/editing/workspaces/workspace-trust.md).
+    If the folder or repository isn't trusted, {% data variables.product.prodname_vscode_shortname %} prompts you to trust it before starting the session. The Agents window and main {% data variables.product.prodname_vscode_shortname %} window share the same trust state. Learn more about [Workspace Trust](/docs/editing/workspaces/workspace-trust.md).
 
 1. Choose an available [agent harness](/docs/agents/concepts/agent-harnesses.md) from the dropdown, such as Copilot, Claude, or Codex.
 
@@ -112,7 +112,7 @@ To start a new agent session in the Agents window:
 
 After you start a session, its row in the sessions list shows its status and change statistics. You can make another session active while the agent works, then select the session again to check its progress or respond to a request for input.
 
-The session is also available in the main VS Code window. Learn more about [creating and managing sessions](/docs/agents/run/sessions/manage-sessions.md).
+The session is also available in the main {% data variables.product.prodname_vscode_shortname %} window. Learn more about [creating and managing sessions](/docs/agents/run/sessions/manage-sessions.md).
 
 ## Start a quick chat
 
@@ -189,7 +189,7 @@ To run terminal commands, select the **Open Terminal** icon in the title bar. Th
 
 ### Commit changes
 
-If the active session has uncommitted changes, select **Commit Changes** in the **Changes** view. VS Code generates a commit message based on the changes and commits all current changes. Depending on the session type, you might also have a **Commit and Sync Changes** action.
+If the active session has uncommitted changes, select **Commit Changes** in the **Changes** view. {% data variables.product.prodname_vscode_shortname %} generates a commit message based on the changes and commits all current changes. Depending on the session type, you might also have a **Commit and Sync Changes** action.
 
 ## Work with multiple sessions
 
@@ -222,11 +222,11 @@ Supported agent host sessions can contain multiple independent chats that share 
 
 ## Customize and configure the Agents window
 
-The Agents window shares your GitHub account, VS Code settings, and default profile with the main VS Code window. Configure the following options when you want to adjust the agent-first experience.
+The Agents window shares your GitHub account, {% data variables.product.prodname_vscode_shortname %} settings, and default profile with the main {% data variables.product.prodname_vscode_shortname %} window. Configure the following options when you want to adjust the agent-first experience.
 
 ### Customize agents for your project and workflow
 
-Select a customization type in the **Customizations** panel below the sessions list to open the Agent Customizations editor. From there, manage agents, skills, instructions, hooks, MCP servers, and plugins for your workspace or user profile. Learn how to [customize agents in VS Code](/docs/agent-customization/overview.md#use-the-agent-customizations-editor).
+Select a customization type in the **Customizations** panel below the sessions list to open the Agent Customizations editor. From there, manage agents, skills, instructions, hooks, MCP servers, and plugins for your workspace or user profile. Learn how to [customize agents in {% data variables.product.prodname_vscode_shortname %}](/docs/agent-customization/overview.md#use-the-agent-customizations-editor).
 
 ### Adjust the window layout
 
@@ -263,15 +263,15 @@ To use a different GitHub account in the Agents window, select the account icon 
 
 ### Configure settings for the Agents window
 
-The Agents window shares all of your VS Code settings, so the configuration you've already invested in carries over automatically. When you want different behavior in the Agents window than in the editor window, you can override specific settings just for the Agents window without affecting your main VS Code setup.
+The Agents window shares all of your {% data variables.product.prodname_vscode_shortname %} settings, so the configuration you've already invested in carries over automatically. When you want different behavior in the Agents window than in the editor window, you can override specific settings just for the Agents window without affecting your main {% data variables.product.prodname_vscode_shortname %} setup.
 
 To override a setting for the Agents window only, edit your settings file and scope the value under the Agents window section. Open the Settings editor (`kb(workbench.action.openSettings)`) from the Agents window to see which scope a setting applies to.
 
 ![Screenshot showing the Settings editor open in the Agents window, with the different scopes for settings highlighted.](../images/agents-window/agents-window-settings.png)
 
-### Use VS Code extensions in the Agents window
+### Use {% data variables.product.prodname_vscode_shortname %} extensions in the Agents window
 
-The Agents window can run VS Code extensions. Extensions that contribute only static content, such as themes, grammars, languages, and keybindings, activate automatically.
+The Agents window can run {% data variables.product.prodname_vscode_shortname %} extensions. Extensions that contribute only static content, such as themes, grammars, languages, and keybindings, activate automatically.
 
 For other extensions, you can opt them in by ID with the `setting(extensions.supportAgentsWindow)` setting:
 
@@ -283,13 +283,13 @@ For other extensions, you can opt them in by ID with the `setting(extensions.sup
 
 Keep the following in mind when enabling extensions:
 
-* Any extension you enable this way must be installed in your default VS Code profile.
+* Any extension you enable this way must be installed in your default {% data variables.product.prodname_vscode_shortname %} profile.
 
 * Extension support is still evolving. If an extension doesn't behave as expected, [file an issue](https://github.com/microsoft/vscode/issues).
 
 ## Limitations
 
-* The Agents window supports Copilot, cloud, Claude, and Codex sessions that run on the Agent Host. Use the Local harness and Codex sessions that run through the OpenAI extension from the main VS Code window.
+* The Agents window supports Copilot, cloud, Claude, and Codex sessions that run on the Agent Host. Use the Local harness and Codex sessions that run through the OpenAI extension from the main {% data variables.product.prodname_vscode_shortname %} window.
 
 * Copilot Cloud sessions are only supported for GitHub-backed repositories. For non-GitHub projects, you can still use Copilot in the Agents window.
 

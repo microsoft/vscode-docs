@@ -1,7 +1,7 @@
 ---
 ContentId: 364a2f92-20c6-4539-9657-4a147bc60f34
 DateApproved: 7/29/2026
-MetaDescription: Create reusable tool sets in Visual Studio Code to group agent tools for prompts, prompt files, and custom agents.
+MetaDescription: Create reusable tool sets in {% data variables.product.prodname_vscode %} to group agent tools for prompts, prompt files, and custom agents.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - copilot
@@ -15,7 +15,7 @@ Keywords:
 
 A tool set is a reusable collection of agent tools that you can reference as a single entity. Use tool sets to organize related tools and make them easier to select in prompts, [prompt files](/docs/agent-customization/prompt-files.md), and [custom agents](/docs/agent-customization/custom-agents.md).
 
-VS Code also provides predefined tool sets, such as `#edit` and `#search`.
+{% data variables.product.prodname_vscode_shortname %} also provides predefined tool sets, such as `#edit` and `#search`.
 
 ## Create a tool set
 

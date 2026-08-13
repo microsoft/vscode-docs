@@ -1,12 +1,12 @@
 ---
 ContentId: de6f9f68-7dd5-4de3-a210-3db57882384b
 DateApproved: 8/5/2026
-MetaDescription: Quick reference for AI features in VS Code, including autonomous agents, multi-file editing, inline suggestions, and enterprise controls.
+MetaDescription: Quick reference for AI features in {% data variables.product.prodname_vscode_shortname %}, including autonomous agents, multi-file editing, inline suggestions, and enterprise controls.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
-# AI features in VS Code cheat sheet
+# AI features in {% data variables.product.prodname_vscode_shortname %} cheat sheet
 
-Visual Studio Code provides AI-powered autonomous agents, inline suggestions, chat, and smart actions. Agents plan, implement, and verify changes across multiple files and run in parallel, locally, in the background, or in the cloud. Choose from multiple AI models, connect to external tools with MCP, and customize agents for your team's workflows. This cheat sheet gives you a quick overview of all features.
+{% data variables.product.prodname_vscode %} provides AI-powered autonomous agents, inline suggestions, chat, and smart actions. Agents plan, implement, and verify changes across multiple files and run in parallel, locally, in the background, or in the cloud. Choose from multiple AI models, connect to external tools with MCP, and customize agents for your team's workflows. This cheat sheet gives you a quick overview of all features.
 
 > [!TIP]
 > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly allowance of inline suggestions and AI credits.
@@ -22,7 +22,7 @@ Visual Studio Code provides AI-powered autonomous agents, inline suggestions, ch
 * `kb(editor.action.inlineSuggest.commit)` - Accept inline suggestion or navigate to the next edit suggestion
 * `kb(editor.action.inlineSuggest.hide)` - Dismiss inline suggestion
 
-## Access AI in VS Code
+## Access AI in {% data variables.product.prodname_vscode_shortname %}
 
 * Start a chat conversation using natural language
     * Chat view (`kb(workbench.action.chat.open)`): keep an ongoing chat conversation in the Secondary Side Bar
@@ -34,12 +34,12 @@ Visual Studio Code provides AI-powered autonomous agents, inline suggestions, ch
     * Edit context menu actions: access common AI actions like explaining or fixing code, generating tests, or reviewing a text selection
     * Code actions: get editor code actions (lightbulb) to fix linting and compiler errors
 
-* Task-specific [smart actions](/docs/editing/copilot-smart-actions.md) across VS Code
+* Task-specific [smart actions](/docs/editing/copilot-smart-actions.md) across {% data variables.product.prodname_vscode_shortname %}
     * Generate commit messages and pull request titles and descriptions
     * Fix testing errors
     * Semantic file search suggestions
 
-## Chat experience in VS Code
+## Chat experience in {% data variables.product.prodname_vscode_shortname %}
 
 Start a natural language chat conversation to get help with coding tasks. For example, ask to explain a block of code or a programming concept, refactor a piece of code, or implement a new feature. Get more information about [using chat](/docs/chat/chat-overview.md).
 
@@ -85,9 +85,9 @@ Get more relevant responses by providing [context to your chat prompt](/docs/cha
 
 Use [tools](/docs/agents/run/tools.md) in chat to accomplish specialized tasks while processing a user request. Examples of such tasks are listing the files in a directory, editing a file in your workspace, running a terminal command, getting the output from the terminal, and more.
 
-VS Code provides built-in tools, and you can extend chat with tools from [MCP servers](/docs/agent-customization/mcp-servers.md) and [extensions](/api/extension-guides/ai/tools.md). Group related tools into reusable [tool sets](/docs/agent-customization/tool-sets.md). Learn more about [types of tools](/docs/agents/concepts/tools.md#types-of-tools).
+{% data variables.product.prodname_vscode_shortname %} provides built-in tools, and you can extend chat with tools from [MCP servers](/docs/agent-customization/mcp-servers.md) and [extensions](/api/extension-guides/ai/tools.md). Group related tools into reusable [tool sets](/docs/agent-customization/tool-sets.md). Learn more about [types of tools](/docs/agents/concepts/tools.md#types-of-tools).
 
-The following table lists the VS Code built-in tools:
+The following table lists the {% data variables.product.prodname_vscode_shortname %} built-in tools:
 
 | Chat variable/Tool | Description |
 |--------|-------------|
@@ -125,11 +125,11 @@ The following table lists the VS Code built-in tools:
 | `#selection` | Get the current editor selection (only available when text is selected). |
 | `#todos` | Track implementation and progress of a chat request with a todo list. |
 | `#vscode/askQuestions` | Enables the agent to ask clarifying questions using the interactive questions carousel. |
-| `#vscode/extensions` | Search for and ask about VS Code extensions. For example, "how to get started with Python #extensions?" |
+| `#vscode/extensions` | Search for and ask about {% data variables.product.prodname_vscode_shortname %} extensions. For example, "how to get started with Python #extensions?" |
 | `#vscode/getProjectSetupInfo` | Provide instructions and configuration for scaffolding different types of projects. |
-| `#vscode/installExtension` | Install a VS Code extension. |
-| `#vscode/runCommand` | Run a VS Code command. For example, "Enable zen mode #runCommand." |
-| `#vscode/VSCodeAPI` | Ask about VS Code functionality and extension development. |
+| `#vscode/installExtension` | Install a {% data variables.product.prodname_vscode_shortname %} extension. |
+| `#vscode/runCommand` | Run a {% data variables.product.prodname_vscode_shortname %} command. For example, "Enable zen mode #runCommand." |
+| `#vscode/VSCodeAPI` | Ask about {% data variables.product.prodname_vscode_shortname %} functionality and extension development. |
 | `#web` (tool set) | Access web content. |
 | `#web/fetch` | Fetch the content from a given web page. For example, "Summarize #web/fetch code.visualstudio.com/updates." |
 
@@ -145,13 +145,13 @@ Slash commands are shortcuts to specific functionality within the chat. You can 
 | `/explain` | Explain a code block, file, or programming concept. |
 | `/fix` | Ask to fix a code block or resolve compiler or linting errors. |
 | `/tests` | Generate tests for all or only the selected methods and functions in the editor. |
-| `/setupTests` | Get help setting up a testing framework for your code. Get recommendation for a relevant testing framework, steps to set up and configure it, and suggestions for VS Code testing extensions. |
+| `/setupTests` | Get help setting up a testing framework for your code. Get recommendation for a relevant testing framework, steps to set up and configure it, and suggestions for {% data variables.product.prodname_vscode_shortname %} testing extensions. |
 | `/clear` | Start a new chat session in the Chat view. |
 | `/compact` | Compact the conversation context by summarizing it. Useful when a conversation grows too long for the model's context window. |
 | `/fork` | Fork the current chat session into a new independent session that inherits the full conversation history. Learn more about [forking agent sessions](/docs/agents/run/sessions/manage-sessions.md#fork-a-chat-session). |
 | `/debug` | Show the Chat Debug view to [inspect the chat logs for troubleshooting](/docs/agents/agent-troubleshooting/troubleshooting.md). |
 | `/troubleshoot` | Ask the AI to analyze the [agent debug logs](/docs/agents/agent-troubleshooting/chat-debug-view.md) for the current chat session. Optionally, include `#session` to select and diagnose a previous chat session. For example, `/troubleshoot how many tokens did I use?` or `/troubleshoot list all paths you tried to load customizations in #session`. Requires `setting(github.copilot.chat.agentDebugLog.enabled)`. |
-| `/new` | Scaffold a new VS Code workspace or file. Use natural language to describe the type of project/file you need, and preview the scaffolded content before creating it. |
+| `/new` | Scaffold a new {% data variables.product.prodname_vscode_shortname %} workspace or file. Use natural language to describe the type of project/file you need, and preview the scaffolded content before creating it. |
 | `/newNotebook` | Scaffold a new Jupyter notebook based on your requirements. Use natural language to describe what the notebook should contain. |
 | `/init` | Generate or update workspace instructions (`copilot-instructions.md` or `AGENTS.md`) based on your project structure and coding patterns. |
 | `/plan` | Create a detailed implementation plan for a complex coding task. Research requirements, ask clarifying questions, and generate a structured plan with steps, verification, and decisions. |
@@ -174,13 +174,13 @@ Slash commands are shortcuts to specific functionality within the chat. You can 
 
 ## Chat participants
 
-Use chat participants to handle domain-specific requests in chat. Chat participants are prefixed with `@` and can be used to ask questions about specific topics. VS Code provides built-in chat participants, such as `@github`, `@terminal`, and `@vscode`, and extensions can provide additional participants.
+Use chat participants to handle domain-specific requests in chat. Chat participants are prefixed with `@` and can be used to ask questions about specific topics. {% data variables.product.prodname_vscode_shortname %} provides built-in chat participants, such as `@github`, `@terminal`, and `@vscode`, and extensions can provide additional participants.
 
 | Chat participant | Description |
 |------------------|-------------|
 | `@github` | Use the `@github` participant to ask questions about GitHub repositories, issues, pull requests, and more. Get more information about the [available GitHub skills](https://docs.github.com/en/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide#currently-available-skills).<br/>Example: `@github What are all of the open PRs assigned to me?`, `@github Show me the recent merged PRs from @dancing-mona` |
 | `@terminal` | Use the `@terminal` participant to ask questions about the integrated terminal or shell commands.<br/>Example: `@terminal list the 5 largest files in this workspace` |
-| `@vscode` | Use the `@vscode` participant to ask questions about VS Code features, settings, and the VS Code extension APIs.<br/>Example: `@vscode how to enable  word wrapping?` |
+| `@vscode` | Use the `@vscode` participant to ask questions about {% data variables.product.prodname_vscode_shortname %} features, settings, and the {% data variables.product.prodname_vscode_shortname %} extension APIs.<br/>Example: `@vscode how to enable  word wrapping?` |
 
 ## Use agents
 
@@ -206,7 +206,7 @@ When using [agents](/docs/agents/concepts/agents.md), you can use natural langua
 
 ## Planning
 
-Use the [plan agent](/docs/agents/run/planning.md) in VS Code chat to create detailed implementation plans before starting complex coding tasks. Hand off the approved plan to an implementation agent to start coding.
+Use the [plan agent](/docs/agents/run/planning.md) in {% data variables.product.prodname_vscode_shortname %} chat to create detailed implementation plans before starting complex coding tasks. Hand off the approved plan to an implementation agent to start coding.
 
 | Action | Description |
 |--------|-------------|
@@ -216,7 +216,7 @@ Use the [plan agent](/docs/agents/run/planning.md) in VS Code chat to create det
 
 ## Customize your chat experience
 
-Customize your chat experience to generate responses that match your coding style, tools, and developer workflow. There are several ways to customize your chat experience in VS Code:
+Customize your chat experience to generate responses that match your coding style, tools, and developer workflow. There are several ways to customize your chat experience in {% data variables.product.prodname_vscode_shortname %}:
 
 * [Custom instructions](/docs/agent-customization/custom-instructions.md): Define common guidelines or rules for tasks like generating code, performing code reviews, or generating commit messages. Custom instructions describe the conditions in which the AI should operate (_how_ a task should be done).
 
@@ -284,12 +284,12 @@ Get semantically relevant search results in the Search view or help with searchi
 
 ## Generate tests
 
-VS Code can generate tests for functions and methods in your codebase by using slash commands in chat. Slash commands are a shorthand notation for common tasks that you can use in chat prompts. Type `/` followed by the command name to use a slash command.
+{% data variables.product.prodname_vscode_shortname %} can generate tests for functions and methods in your codebase by using slash commands in chat. Slash commands are a shorthand notation for common tasks that you can use in chat prompts. Type `/` followed by the command name to use a slash command.
 
 | Action | Description |
 |--------|-------------|
 | `/tests` | Generate tests for all or only the selected methods and functions in the editor. The generated tests are appended in an existing tests file or a new tests file is created.  |
-| `/setupTests` | Get help setting up a testing framework for your code. Get recommendation for a relevant testing framework, steps to set up and configure it, and suggestions for VS Code testing extensions.   |
+| `/setupTests` | Get help setting up a testing framework for your code. Get recommendation for a relevant testing framework, steps to set up and configure it, and suggestions for {% data variables.product.prodname_vscode_shortname %} testing extensions.   |
 | `/fixTestFailure` | Ask the AI for suggestions on how to fix failing tests. |
 | Test coverage _(Experimental)_ | Generate tests for functions and methods that are not yet covered by tests. [Get more information](/updates/v1_93.md#generate-tests-based-on-test-coverage-experimental). |
 
@@ -299,7 +299,7 @@ VS Code can generate tests for functions and methods in your codebase by using s
 
 ## Debug and fix problems
 
-Use AI to help fix coding problems and to get help with configuring and starting debugging sessions in VS Code.
+Use AI to help fix coding problems and to get help with configuring and starting debugging sessions in {% data variables.product.prodname_vscode_shortname %}.
 
 | Action | Description |
 |--------|-------------|
@@ -347,4 +347,4 @@ You can use chat to help you with Python programming tasks in the Native Python 
 
 ## Next steps
 
-* [Tutorial: Get started with AI features in VS Code](/docs/agents/agents-tutorial.md)
+* [Tutorial: Get started with AI features in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/agents-tutorial.md)

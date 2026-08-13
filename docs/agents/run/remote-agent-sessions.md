@@ -10,7 +10,7 @@ The [Agents window](/docs/agents/run/agents-window.md) lets you connect to remot
 
 This is useful when you want to take advantage of a remote machine's resources, work from a mobile device, or check in on your agent's progress when you're away from your main development machine.
 
-The Agents window connects to the remote machine by using the [Agent Host Protocol (AHP)](https://microsoft.github.io/agent-host-protocol/) over SSH or a dev tunnel. When you connect, the Agents window automatically installs and starts the VS Code CLI on the remote machine. The remote machine must be powered on and accessible over the network.
+The Agents window connects to the remote machine by using the [Agent Host Protocol (AHP)](https://microsoft.github.io/agent-host-protocol/) over SSH or a dev tunnel. When you connect, the Agents window automatically installs and starts the {% data variables.product.prodname_vscode_shortname %} CLI on the remote machine. The remote machine must be powered on and accessible over the network.
 
 ## Connect via SSH
 
@@ -53,7 +53,7 @@ To start a session on a remote machine via dev tunnel:
 
 ## Use the Agents window in the browser
 
-The Agents window is also available as a web client at <https://insiders.vscode.dev/agents>, so you can manage agent sessions from any device with a browser. This is useful when you're away from your main development machine, working from a mobile device, or want to check in on sessions running on a remote host without installing Visual Studio Code locally.
+The Agents window is also available as a web client at <https://insiders.vscode.dev/agents>, so you can manage agent sessions from any device with a browser. This is useful when you're away from your main development machine, working from a mobile device, or want to check in on sessions running on a remote host without installing {% data variables.product.prodname_vscode %} locally.
 
 The browser-based Agents window connects to your development machine through a [dev tunnel](/docs/remote/tunnels.md). Agent sessions run on the remote host, and the browser acts as a lightweight client for chatting, reviewing changes, and managing sessions.
 

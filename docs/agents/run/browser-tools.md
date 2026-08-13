@@ -1,7 +1,7 @@
 ---
 ContentId: 21b8fb7a-a3e9-4cdf-9d88-ba7b9146dcc2
 DateApproved: 8/7/2026
-MetaDescription: Use browser tools with AI agents in VS Code to interact with web apps, verify user flows, inspect results, and fix issues in a closed feedback loop.
+MetaDescription: Use browser tools with AI agents in {% data variables.product.prodname_vscode_shortname %} to interact with web apps, verify user flows, inspect results, and fix issues in a closed feedback loop.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 Keywords:
 - ai
@@ -16,7 +16,7 @@ Keywords:
 
 Browser tools give agents a visual and interactive feedback loop for web development. An agent can change your code, run the application, interact with it in the integrated browser, inspect the result, and fix problems it finds. This closed loop helps the agent verify actual behavior instead of reasoning only from source code.
 
-Browser tools are built into Visual Studio Code and don't require an external Model Context Protocol (MCP) server. For example, you can ask:
+Browser tools are built into {% data variables.product.prodname_vscode %} and don't require an external Model Context Protocol (MCP) server. For example, you can ask:
 
 ```prompt
 Start the application, open it in the browser, test the sign-up flow, and fix any issues you find. Verify the fix before finishing.
@@ -104,7 +104,7 @@ By default, an agent can't access browser pages that you opened. To grant access
 
 A visual indicator shows that the page is shared. Select **Share with Agent** again to revoke access immediately.
 
-If an agent needs access to an unshared tab, it can ask you to share one. In autopilot mode, VS Code declines these requests automatically to protect your privacy.
+If an agent needs access to an unshared tab, it can ask you to share one. In autopilot mode, {% data variables.product.prodname_vscode_shortname %} declines these requests automatically to protect your privacy.
 
 ## Give feedback from a web page
 
@@ -195,7 +195,7 @@ Browser tools provide interactive validation during an agent session. Keep repea
 
 ## Privacy and enterprise controls
 
-VS Code provides controls over browser access:
+{% data variables.product.prodname_vscode_shortname %} provides controls over browser access:
 
 * You explicitly approve sharing a browser tab that you opened.
 * Agent-opened tabs use isolated ephemeral storage.
@@ -224,7 +224,7 @@ Pages opened by an agent use an isolated session and don't inherit your sign-in 
 <details>
 <summary>Why did the agent open a separate browser tab?</summary>
 
-An agent opens its own isolated tab unless you share an existing tab. When an open tab matches the requested domain and port, VS Code can prompt you to share it instead.
+An agent opens its own isolated tab unless you share an existing tab. When an open tab matches the requested domain and port, {% data variables.product.prodname_vscode_shortname %} can prompt you to share it instead.
 
 </details>
 
