@@ -48,7 +48,7 @@ For more information about network configuration, see [Network and firewall conf
 
     To diagnose an agent host session:
 
-    1. Open the Agents window.
+    1. Open the {% data variables.copilot.agents_window %}.
     1. In the chat input, type `/troubleshoot #session`.
     1. Select the local or remote session that you want to troubleshoot.
     1. Add a question or description of the issue, and then send the request.
@@ -100,7 +100,7 @@ Learn more about [configuring and debugging MCP servers](/docs/agent-customizati
 If you encounter issues that you can't resolve, report them to help improve GitHub Copilot:
 
 * **Ghost text suggestions**: Hover over a ghost text suggestion in the editor and select **Send Copilot Completion Feedback**.
-* **Next edit suggestions**: Select the **Feedback** action in the next edit suggestions menu in the editor gutter.
+* **{% data variables.copilot.next_edit_suggestions_caps %}**: Select the **Feedback** action in the {% data variables.copilot.next edit suggestions %} menu in the editor gutter.
 * **General issues**: Open **Help** > **Report Issue**, select **{% data variables.product.prodname_vscode_shortname %} Extension**, and choose **GitHub Copilot Chat**.
 
 When reporting issues, include relevant information from the [Copilot logs](#view-logs-for-github-copilot) to help diagnose the problem.

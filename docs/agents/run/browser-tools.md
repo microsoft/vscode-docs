@@ -61,7 +61,7 @@ The agent chooses tools based on your prompt and the available context. You can 
 
 Browser tools are enabled by default with the `setting(workbench.browser.enableChatTools)` setting.
 
-1. Start a new agent session in the Chat view or the Agents window.
+1. Start a new agent session in the Chat view or the {% data variables.copilot.agents_window %}.
 
 1. Ask the agent to start or locate your web application, test a specific user flow, and report the result.
 
@@ -91,7 +91,7 @@ The agent can open a new page in an isolated session, or you can share a browser
 
 Ask the agent to open a URL or test a running application. Pages opened by the agent use isolated ephemeral sessions, which protects the data in your other browser tabs.
 
-In the [Agents window](/docs/agents/run/agents-window.md), browser tabs are isolated per session. An agent can only read and interact with tabs that belong to its session.
+In the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md), browser tabs are isolated per session. An agent can only read and interact with tabs that belong to its session.
 
 ### Share an existing page
 

@@ -6,7 +6,7 @@ MetaSocialImage: ../../../images/shared/github-copilot-social.png
 ---
 # Manage agent sessions in {% data variables.product.prodname_vscode_shortname %}
 
-A [session](/docs/agents/concepts/sessions.md) is the unit of work with an agent in {% data variables.product.prodname_vscode %}. It includes the sequence of prompts and responses, relevant context, and any files or resources associated with the task. This article describes how to create, organize, and manage sessions in both the [Chat view](/docs/agents/run/chat-view.md) and the [Agents window](/docs/agents/run/agents-window.md).
+A [session](/docs/agents/concepts/sessions.md) is the unit of work with an agent in {% data variables.product.prodname_vscode %}. It includes the sequence of prompts and responses, relevant context, and any files or resources associated with the task. This article describes how to create, organize, and manage sessions in both the [Chat view](/docs/agents/run/chat-view.md) and the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
 Follow a hands-on tutorial to experience local, background, and cloud agents in {% data variables.product.prodname_vscode_shortname %}.
@@ -25,19 +25,19 @@ When you start an agent session, you begin a new conversation with the AI. Each 
 Depending on how you prefer to work or the task you want to accomplish, you can choose between different chat experiences in {% data variables.product.prodname_vscode_shortname %}. Each experience is optimized for different workflows, but they share the same underlying sessions to enable you to switch between them at any time.
 
 {% tabs id="chat-surface" %}
-{% tab label="Agents window" %}
+{% tab label="{% data variables.copilot.agents_window %}" %}
 
-The [Agents window](/docs/agents/run/agents-window.md) is a dedicated window for orchestrating agents across multiple projects from a single place. Chat is your primary interface where you assign high-level tasks to agents. The Agents window is optimized for **agents-first workflows**.
+The [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) is a dedicated window for orchestrating agents across multiple projects from a single place. Chat is your primary interface where you assign high-level tasks to agents. The {% data variables.copilot.agents_window %} is optimized for **agents-first workflows**.
 
-![Screenshot of the Agents window showing the sessions list, workspace picker, and chat input.](../../images/chat-sessions/agents-window-new-session.png)
+![Screenshot of the {% data variables.copilot.agents_window %} showing the sessions list, workspace picker, and chat input.](../../images/chat-sessions/agents-window-new-session.png)
 
-To start a new chat session in the Agents window:
+To start a new chat session in the {% data variables.copilot.agents_window %}:
 
-1. Open the Agents window by selecting the **Open in Agents** button in the {% data variables.product.prodname_vscode_shortname %} title bar.
+1. Open the {% data variables.copilot.agents_window %} by selecting the **Open in Agents** button in the {% data variables.product.prodname_vscode_shortname %} title bar.
 
 1. Select **New** in the sidebar to create a new session.
 
-1. Choose the workspace or repository for the session, as the Agents window can target any of your projects.
+1. Choose the workspace or repository for the session, as the {% data variables.copilot.agents_window %} can target any of your projects.
 
 1. Choose an agent harness from the **Session Target** control to indicate where the agent session runs and how it operates.
 
@@ -51,7 +51,7 @@ To start a new chat session in the Agents window:
 
     * **Language model**: determines which AI model powers the conversation. Learn more about [language models in {% data variables.product.prodname_vscode_shortname %}](/docs/agent-customization/language-models.md).
 
-    In the Agents window, when you create another new session, the picker remembers the last **Agent** and **Permission level** values you selected and uses them as defaults.
+    In the {% data variables.copilot.agents_window %}, when you create another new session, the picker remembers the last **Agent** and **Permission level** values you selected and uses them as defaults.
 
 1. Type your prompt and press `kb(workbench.action.chat.submit)` to submit it. The agent's response appears in the chat area, and the agent may take actions such as editing files, running commands, or asking follow-up questions.
 
@@ -124,7 +124,7 @@ To create and manage chats in a session:
 
 1. In an active session, select **+ New Chat** in the session header, or press `kb(sessions.chatCompositeBar.addChat)`.
 
-    ![Screenshot showing a new chat tab alongside an existing chat in the Agents window.](../../images/agents-window/agents-window-new-subsession.png)
+    ![Screenshot showing a new chat tab alongside an existing chat in the {% data variables.copilot.agents_window %}.](../../images/agents-window/agents-window-new-subsession.png)
 
     A blank chat opens. When the session has more than one chat, a tab strip appears in the chat area. Chats don't appear as separate items in the sessions list.
 
@@ -157,10 +157,10 @@ Start a side chat in one of these ways:
 
 Each question creates a new side chat. The side chat inherits the agent and language model from the source chat, but inherited messages remain hidden from its transcript.
 
-![Screenshot showing how to start a side chat in the Agents window from selected response text.](../../images/agents-window/agents-window-side-chat.png)
+![Screenshot showing how to start a side chat in the {% data variables.copilot.agents_window %} from selected response text.](../../images/agents-window/agents-window-side-chat.png)
 
 > [!NOTE]
-> Side chats are available only in the Agents window for Copilot and Claude sessions. They aren't available for Codex sessions or in the Chat view.
+> Side chats are available only in the {% data variables.copilot.agents_window %} for Copilot and Claude sessions. They aren't available for Codex sessions or in the Chat view.
 
 ## Sessions list
 
@@ -173,17 +173,17 @@ Hover over a session to see actions for pinning or [archiving](#archive-sessions
 Use the pinning action to keep important sessions easily accessible at the top of your list. Pinned sessions stay at the top of the list regardless of their activity or state, so you can quickly find and return to them.
 
 {% tabs id="chat-surface" %}
-{% tab label="Agents window" %}
+{% tab label="{% data variables.copilot.agents_window %}" %}
 
-In the **Agents window**, the sessions list is located in the left sidebar. It shows sessions from all your workspaces, so you can monitor work across projects from a single place. Each session item surfaces key information such as session name, workspace, harness, and file change stats.
+In the **{% data variables.copilot.agents_window %}**, the sessions list is located in the left sidebar. It shows sessions from all your workspaces, so you can monitor work across projects from a single place. Each session item surfaces key information such as session name, workspace, harness, and file change stats.
 
-![Screenshot of the sessions list in the Agents window, showing multiple sessions with different harnesses and file change stats.](../../images/chat-sessions/agents-window-sessions-list.png)
+![Screenshot of the sessions list in the {% data variables.copilot.agents_window %}, showing multiple sessions with different harnesses and file change stats.](../../images/chat-sessions/agents-window-sessions-list.png)
 
 By default, the list is filtered to only show active sessions. You can change the filter to show sessions of different states, such as completed or archived.
 
-Sessions are grouped by workspace by default, and you can switch the grouping to organize by timeframe instead. In the Agents window, you can also create custom groups to keep related sessions together. Collapse a group header when you want to reduce the sessions list.
+Sessions are grouped by workspace by default, and you can switch the grouping to organize by timeframe instead. In the {% data variables.copilot.agents_window %}, you can also create custom groups to keep related sessions together. Collapse a group header when you want to reduce the sessions list.
 
-To organize the sessions list in the Agents window:
+To organize the sessions list in the {% data variables.copilot.agents_window %}:
 
 1. Create a custom group from the sessions list controls.
 
@@ -193,7 +193,7 @@ To organize the sessions list in the Agents window:
 
 You can also drag sessions up or down to reorder them, drag group and workspace headers to rearrange sections, or drop a session on the **Pinned** section to pin it. Select multiple sessions to move them together.
 
-You can hide the left sidebar by selecting the **Toggle Sidebar** button in the top-left corner of the Agents window or by using the `kb(workbench.action.toggleSidebarVisibility)` keyboard shortcut.
+You can hide the left sidebar by selecting the **Toggle Sidebar** button in the top-left corner of the {% data variables.copilot.agents_window %} or by using the `kb(workbench.action.toggleSidebarVisibility)` keyboard shortcut.
 
 {% /tab %}
 {% tab label="Chat view" %}
@@ -241,7 +241,7 @@ If multiple Copilot sessions share the same worktree, such as after you fork a s
 
 Forking a chat session branches off the conversation and inherits the conversation history from the original session. In single-chat sessions and sessions that don't use an agent host, the fork opens as a new independent session. The conversation is separate, but its code changes are isolated only if the fork uses a different folder or worktree. The new session title is prefixed with "Forked:" to help you identify it.
 
-For multi-chat [Copilot](/docs/agents/run/agent-harnesses.md#use-the-copilot-harness) sessions in the Agents window, the fork opens as a peer chat in the same session. The peer chat gets an automatically generated title and runs independently from sibling chats.
+For multi-chat [Copilot](/docs/agents/run/agent-harnesses.md#use-the-copilot-harness) sessions in the {% data variables.copilot.agents_window %}, the fork opens as a peer chat in the same session. The peer chat gets an automatically generated title and runs independently from sibling chats.
 
 For Copilot sessions that use worktree isolation, the fork continues to use the same worktree as the original session.
 

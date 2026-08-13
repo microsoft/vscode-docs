@@ -9,7 +9,7 @@ MetaSocialImage: ../../images/shared/github-copilot-social.png
 When you work with an agent in {% data variables.product.prodname_vscode %}, it can change multiple files in your project. This article explains how to inspect, revise, integrate, or discard these AI-generated changes.
 
 > [!NOTE]
-> You can review AI-generated changes in both the [Chat view](/docs/agents/run/chat-view.md) and the [Agents window](/docs/agents/run/agents-window.md). The review experience follows the same concepts, but the user interface differs between the two surfaces.
+> You can review AI-generated changes in both the [Chat view](/docs/agents/run/chat-view.md) and the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md). The review experience follows the same concepts, but the user interface differs between the two surfaces.
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
 Follow a hands-on tutorial to experience local, background, and cloud agents in {% data variables.product.prodname_vscode_shortname %}.
@@ -44,9 +44,9 @@ Review the changes as you would other workspace or branch changes through the di
     * For cloud sessions, review the pull request or check out its branch locally.
 
 {% /tab %}
-{% tab label="Agents window" %}
+{% tab label="{% data variables.copilot.agents_window %}" %}
 
-By default, the Agents window shows these views in a side panel:
+By default, the {% data variables.copilot.agents_window %} shows these views in a side panel:
 
 * **Files**: a file explorer for the session workspace.
 * **Changes**: files that the agent changed, added, or deleted. Use the **Branch Changes** dropdown to choose which changeset to review.
@@ -57,7 +57,7 @@ To review and integrate the changes:
 
 1. Select a file in the **Changes** view to open a diff view of the agent's edits.
 
-    ![Screenshot showing the Changes panel in the Agents window, highlighting the list of edited files and the diff view.](../images/review-code-edits/agents-window-diff-view.png)
+    ![Screenshot showing the Changes panel in the {% data variables.copilot.agents_window %}, highlighting the list of edited files and the diff view.](../images/review-code-edits/agents-window-diff-view.png)
 
     By default, selecting a file opens a multi-file diff editor with all the session changes. To open a focused single-file diff, enable `setting(sessions.changes.openSingleFileDiff)`.
 
@@ -81,7 +81,7 @@ When you create a session, use the sync button in the **Files** panel to pull up
 
 When you enable the [experimental single-pane editor panel](/docs/agents/run/agents-window.md#use-the-single-pane-editor-panel-experimental), the **Changes** view and diff editor share one docked pane.
 
-Use **Show Side by Side Diff** or **Show Inline Diff** to change the diff layout. Use **Expand All Diffs** or **Collapse All Diffs** to control all files at once. A keybinding for `kb(toggle.diff.renderSideBySide)` also works in the Agents window.
+Use **Show Side by Side Diff** or **Show Inline Diff** to change the diff layout. Use **Expand All Diffs** or **Collapse All Diffs** to control all files at once. A keybinding for `kb(toggle.diff.renderSideBySide)` also works in the {% data variables.copilot.agents_window %}.
 
 The Changes editor restores each file's expanded or collapsed state when you switch sessions or reload the window. The editor tab title shows the next integration action, such as **Create Pull Request**, and switches to an icon when space is limited.
 
@@ -105,7 +105,7 @@ Before you apply or merge changes:
 1. Select the integration action and resolve any merge conflicts.
 1. Test the integrated result before you archive or delete the session.
 
-The available actions and labels depend on the session harness and whether you use the Chat view or Agents window. Keep the session until you verify that the changes are present on the intended destination branch.
+The available actions and labels depend on the session harness and whether you use the Chat view or {% data variables.copilot.agents_window %}. Keep the session until you verify that the changes are present on the intended destination branch.
 
 ## Edit requests and restore checkpoints
 

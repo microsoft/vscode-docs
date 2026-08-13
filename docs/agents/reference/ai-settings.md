@@ -31,10 +31,10 @@ The team is continuously working on improving the AI features in {% data variabl
 | `setting(github.copilot.editor.enableCodeActions)`<br/>Controls if AI commands are shown as Code Actions when available. | `true` |
 | `setting(github.copilot.renameSuggestions.triggerAutomatically)`<br/>Generate symbol renaming suggestions. | `true` |
 | `setting(github.copilot.enable)`<br/>Enable or disable inline suggestions for specified [languages](/docs/languages/identifiers.md). | `{ "*": true, "plaintext": false, "markdown": false, "scminput": false }` |
-| `setting(github.copilot.nextEditSuggestions.enabled)`<br/>Enables [next edit suggestions](/docs/editing/ai-powered-suggestions.md#next-edit-suggestions) (NES). | `true` |
+| `setting(github.copilot.nextEditSuggestions.enabled)`<br/>Enables [{% data variables.copilot.next edit suggestions %}](/docs/editing/ai-powered-suggestions.md#next-edit-suggestions) (NES). | `true` |
 | `setting(editor.inlineSuggest.edits.allowCodeShifting)`<br/>Configure if NES is able to shift your code to show a suggestion. | `"always"` |
 | `setting(editor.inlineSuggest.edits.renderSideBySide)`<br/>Configure if NES can show larger suggestions side-by-side if possible, or if NES should always show larger suggestions below the relevant code. | `"auto"` |
-| `setting(github.copilot.nextEditSuggestions.fixes)`<br/>Enable next edit suggestions based on diagnostics (squiggles). For example, missing imports. | `true` |
+| `setting(github.copilot.nextEditSuggestions.fixes)`<br/>Enable {% data variables.copilot.next edit suggestions %} based on diagnostics (squiggles). For example, missing imports. | `true` |
 | `setting(editor.inlineSuggest.edits.showCollapsed)`<br/>Show NES code changes in the editor only when you press `kbstyle(Tab)` to navigate to the suggestion or hover over the gutter arrow. | `false` |
 | `setting(editor.inlineSuggest.fontFamily)`<br/>Configure the font family for inline completions. | `"default"` |
 | `setting(editor.inlineSuggest.showToolbar)`<br/>Enable or disable the toolbar that appears for inline completions. | `"onHover"` |
@@ -150,7 +150,7 @@ The team is continuously working on improving the AI features in {% data variabl
 | Setting and Description | Default |
 |------------------------|---------------|
 | `setting(chat.tools.memory.enabled)` _(Experimental)_<br/>Enable the [memory tool](/docs/agents/run/memory.md#memory-tool) so agents can save and recall notes across conversations. | `true` |
-| `setting(chat.copilotMemory.enabled)` _(Experimental)_<br/>Store [repository memory](/docs/agents/run/memory.md#store-repository-memory-in-copilot-memory) in [Copilot Memory](/docs/agents/run/memory.md#copilot-memory) instead of local files, so it's shared across Copilot surfaces. Requires Copilot Memory to be enabled for the repository in your GitHub settings. User and session memory always remain local. | `false` |
+| `setting(chat.copilotMemory.enabled)` _(Experimental)_<br/>Store [repository memory](/docs/agents/run/memory.md#store-repository-memory-in-copilot-memory) in [{% data variables.copilot.copilot_memory %}](/docs/agents/run/memory.md#copilot-memory) instead of local files, so it's shared across Copilot surfaces. Requires {% data variables.copilot.copilot_memory %} to be enabled for the repository in your GitHub settings. User and session memory always remain local. | `false` |
 
 ## Agent sessions
 
@@ -165,12 +165,12 @@ The [Agents view](/docs/agents/overview.md) provides a centralized location for 
 | `setting(chat.agentsControl.enabled)` _(Experimental)_<br/>Enable the [session status indicator](/docs/agents/run/sessions/manage-sessions.md#session-status-indicator-experimental) in the command center. Shows unread and in-progress session badges. | `true` |
 | `setting(chat.agentsControl.clickBehavior)` _(Experimental)_<br/>Configure the behavior when selecting the chat icon in the agent status indicator. | `"cycle"` (Insiders)<br/>`"default"` (Stable) |
 | `setting(chat.unifiedAgentsBar.enabled)` _(Experimental)_<br/>Replace the command center search box with a unified chat and search control. | `false` |
-| `setting(sessions.layout.singlePaneDetailPanel)` _(Experimental)_<br/>Dock the Agents window detail panel inside the editor with a shared tab bar. Requires a window reload to take effect. | `false` |
+| `setting(sessions.layout.singlePaneDetailPanel)` _(Experimental)_<br/>Dock the {% data variables.copilot.agents_window %} detail panel inside the editor with a shared tab bar. Requires a window reload to take effect. | `false` |
 | `setting(github.copilot.chat.cli.remote.enabled)` <br/>Enable remote control support for Copilot sessions from github.com or the GitHub Mobile app. | `true` |
 | `setting(chat.agentHost.byokModels.enabled)` _(Experimental)_<br/>Wire up the [BYOK](/docs/agent-customization/language-models.md#bring-your-own-language-model-key) language model bridge so extension-provided BYOK models can run in agent host sessions. Requires `setting(chat.agentHost.enabled)`, and the agent host process must be restarted to take effect. | `false` |
 | `setting(chat.agentHost.claudeAgent.enabled)` _(Experimental)_<br/>Register the Claude provider in the [Agent Host](/docs/agents/concepts/agent-host.md) process, so Claude sessions run on the Agent Host. Requires `setting(chat.agentHost.enabled)`, and the agent host process must be restarted to take effect. | `true` |
 | `setting(chat.agentHost.codexAgent.enabled)` _(Experimental)_<br/>Register the Codex provider in the [Agent Host](/docs/agents/concepts/agent-host.md) process. Requires `setting(chat.agentHost.enabled)`, and the agent host process must be restarted to take effect. | `false` |
-| `setting(chat.agents.claude.preferAgentHost)` _(Experimental)_<br/>Run Claude sessions opened from the Agents window on the Agent Host instead of the GitHub Copilot Chat extension. Requires `setting(chat.agentHost.enabled)`. | `true` |
+| `setting(chat.agents.claude.preferAgentHost)` _(Experimental)_<br/>Run Claude sessions opened from the {% data variables.copilot.agents_window %} on the Agent Host instead of the GitHub Copilot Chat extension. Requires `setting(chat.agentHost.enabled)`. | `true` |
 | `setting(chat.editor.codex.preferAgentHost)` _(Experimental)_<br/>Run Codex sessions opened from the sidebar chat on the Agent Host instead of the OpenAI extension. Requires `setting(chat.agentHost.enabled)` and `setting(chat.agentHost.codexAgent.enabled)`. | `false` |
 
 ## Inline chat settings
@@ -286,7 +286,7 @@ The [Agents view](/docs/agents/overview.md) provides a centralized location for 
 
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(dictation.enabled)` _(Experimental)_<br/>Controls whether built-in dictation is available in chat, the Agents window, editors, and terminals. | `true` |
+| `setting(dictation.enabled)` _(Experimental)_<br/>Controls whether built-in dictation is available in chat, the {% data variables.copilot.agents_window %}, editors, and terminals. | `true` |
 | `setting(dictation.model)` _(Experimental)_<br/>Selects the speech recognition model for dictation. | `"nemotron-3.5-asr-streaming-0.6b"` |
 | `setting(dictation.showTranscript)` _(Experimental)_<br/>Shows interim transcription while you speak. Final text is still inserted when this setting is off. | `true` |
 | `setting(dictation.experimental.llmCleanup)` _(Experimental)_<br/>Uses a language model to improve punctuation, capitalization, paragraphs, lists, and number formatting in the final transcript. | `true` |

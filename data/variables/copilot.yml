@@ -46,5 +46,8 @@ copilot_memory: 'Copilot Memory'
 copilot_preview_features: 'Copilot preview features'
 
 ## Next edit suggestions
-next_edit_suggestions: 'next edit suggestions'
+next edit suggestions: 'next edit suggestions'
 next_edit_suggestions_caps: 'Next edit suggestions'
+
+## Agents window
+agents_window: 'Agents window'

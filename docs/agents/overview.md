@@ -37,7 +37,7 @@ Agents are free to start and built into {% data variables.product.prodname_vscod
 <video src="images/agents-overview/agents-intro.mp4" title="Video showing an agent session building a complete feature in {% data variables.product.prodname_vscode_shortname %}." controls muted></video>
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
-Complete your first coding task with an agent in the Agents window or Chat view.
+Complete your first coding task with an agent in the {% data variables.copilot.agents_window %} or Chat view.
 
 * [Start quickstart](/docs/agents/quickstart.md)
 
@@ -65,18 +65,18 @@ AI features are built into {% data variables.product.prodname_vscode_shortname %
 
 ## Choose how you work with agents
 
-In {% data variables.product.prodname_vscode_shortname %}, the choice comes down to your approach and your scope. The Agents window is **agent-first** and works across **all your workspaces** from a single window, so it's ideal when you assign high-level tasks and orchestrate multiple agents in parallel across projects. The Chat view is **code-first** and is **scoped to the workspace** you have open, so it's ideal when you give the agent coding tasks and stay close to the code it produces.
+In {% data variables.product.prodname_vscode_shortname %}, the choice comes down to your approach and your scope. The {% data variables.copilot.agents_window %} is **agent-first** and works across **all your workspaces** from a single window, so it's ideal when you assign high-level tasks and orchestrate multiple agents in parallel across projects. The Chat view is **code-first** and is **scoped to the workspace** you have open, so it's ideal when you give the agent coding tasks and stay close to the code it produces.
 
-If you want to work outside {% data variables.product.prodname_vscode_shortname %}, you can also manage your agents from the terminal with the Copilot CLI, from the GitHub Copilot app, or directly in your browser.
+If you want to work outside {% data variables.product.prodname_vscode_shortname %}, you can also manage your agents from the terminal with the Copilot CLI, from the {% data variables.copilot.github_copilot_app %}, or directly in your browser.
 
 Choose the experience that fits your current task and where you want to work. You can start a session in one and continue it in the other without losing context.
 
 {% tabs id="agent-surface" %}
-{% tab label="Agents window" %}
+{% tab label="{% data variables.copilot.agents_window %}" %}
 
-The [Agents window](/docs/agents/run/agents-window.md) (Preview) is a dedicated window focused on chat as the primary interface. It works across all your workspaces from one window, so you can assign high-level tasks, evaluate the outcomes, and run and track multiple agents in parallel. The Agents window is optimized for **agent-first workflows**.
+The [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) (Preview) is a dedicated window focused on chat as the primary interface. It works across all your workspaces from one window, so you can assign high-level tasks, evaluate the outcomes, and run and track multiple agents in parallel. The {% data variables.copilot.agents_window %} is optimized for **agent-first workflows**.
 
-![Screenshot showing how to start a new agent session by selecting New at the top of the sidebar in the Agents window.](images/agents-overview/agents-window-hero.png)
+![Screenshot showing how to start a new agent session by selecting New at the top of the sidebar in the {% data variables.copilot.agents_window %}.](images/agents-overview/agents-window-hero.png)
 
 {% /tab %}
 {% tab label="Chat view" %}
@@ -104,9 +104,9 @@ Use [GitHub Copilot CLI](/docs/agents/run/agent-harnesses.md#use-copilot-cli-fro
 {% /tab %}
 {% tab label="GitHub Copilot App" %}
 
-Use the [GitHub Copilot app](https://github.com/features/copilot) to manage AI coding tasks in a dedicated desktop experience outside {% data variables.product.prodname_vscode_shortname %}.
+Use the [{% data variables.copilot.github_copilot_app %}](https://github.com/features/copilot) to manage AI coding tasks in a dedicated desktop experience outside {% data variables.product.prodname_vscode_shortname %}.
 
-![Screenshot showing the GitHub Copilot app with the sessions list, conversation, and chat input.](images/agents-overview/hero-copilot-app-dark.png)
+![Screenshot showing the {% data variables.copilot.github_copilot_app %} with the sessions list, conversation, and chat input.](images/agents-overview/hero-copilot-app-dark.png)
 
 {% /tab %}
 {% /tabs %}

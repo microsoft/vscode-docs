@@ -6,7 +6,7 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Quickstart: Complete your first task with an agent
 
-In this quickstart, you use an AI agent in {% data variables.product.prodname_vscode %} to build a small web app from a natural-language prompt. You can work in the **Agents window** for an agent-first experience or use the **Chat view** alongside your code. You then review the generated code and use browser tools to let the agent validate the app.
+In this quickstart, you use an AI agent in {% data variables.product.prodname_vscode %} to build a small web app from a natural-language prompt. You can work in the **{% data variables.copilot.agents_window %}** for an agent-first experience or use the **Chat view** alongside your code. You then review the generated code and use browser tools to let the agent validate the app.
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Build a complete app with agents">
 Follow a hands-on tutorial to build and refine an app with agents in {% data variables.product.prodname_vscode_shortname %}.
@@ -29,9 +29,9 @@ On your computer, create an empty folder named `agent-quickstart`. The agent cre
 Choose where you want to work with the agent. Both options create the same app and give you access to the same session.
 
 {% tabs id="agent-surface" %}
-{% tab label="Agents window" %}
+{% tab label="{% data variables.copilot.agents_window %}" %}
 
-The **Agents window** (Preview) is a dedicated window for assigning tasks and monitoring agents across your projects.
+The **{% data variables.copilot.agents_window %}** (Preview) is a dedicated window for assigning tasks and monitoring agents across your projects.
 
 1. In {% data variables.product.prodname_vscode_shortname %}, select **Open in Agents** in the title bar.
 
@@ -84,7 +84,7 @@ The agent creates `index.html` and reports when the task is complete.
 AI-generated code can contain mistakes. Review the code, ask the agent to validate the app in the integrated browser, and manually confirm the result before you keep it.
 
 {% tabs id="agent-surface" %}
-{% tab label="Agents window" %}
+{% tab label="{% data variables.copilot.agents_window %}" %}
 
 1. Open the **Changes** panel and select `index.html` to review the generated code.
 
@@ -130,11 +130,11 @@ You have completed your first task with an agent. The agent interpreted your goa
 
 ## Continue in the other surface
 
-The Agents window and Chat view share the same agent sessions, so you can switch between them without losing the conversation.
+The {% data variables.copilot.agents_window %} and Chat view share the same agent sessions, so you can switch between them without losing the conversation.
 
-* From the Agents window, select **Open in Editor** in the title bar. {% data variables.product.prodname_vscode_shortname %} opens the project in an editor window with the session available in the Chat view.
+* From the {% data variables.copilot.agents_window %}, select **Open in Editor** in the title bar. {% data variables.product.prodname_vscode_shortname %} opens the project in an editor window with the session available in the Chat view.
 
-* From the Chat view, select **Open in Agents** in the title bar. The Agents window opens with the same session selected.
+* From the Chat view, select **Open in Agents** in the title bar. The {% data variables.copilot.agents_window %} opens with the same session selected.
 
 ## Next steps
 

@@ -20,7 +20,7 @@ An agent harness is the runtime that runs the [agent loop](/docs/agents/concepts
 
 To select and configure a harness, see [Choose and use an agent harness](/docs/agents/run/agent-harnesses.md).
 
-![Screenshot of the Agents window, showing the session target control with the list of available agent harnesses.](../images/agent-harnesses/agents-window-session-target.png)
+![Screenshot of the {% data variables.copilot.agents_window %}, showing the session target control with the list of available agent harnesses.](../images/agent-harnesses/agents-window-session-target.png)
 
 ## Agent harnesses and session targets
 
@@ -44,7 +44,7 @@ The harness passes your prompt and context to the model, executes the model's re
 {% data variables.product.prodname_vscode_shortname %} supports multiple harnesses through a shared session experience:
 
 * **Local**: the built-in {% data variables.product.prodname_vscode_shortname %} harness runs in the extension host and can use {% data variables.product.prodname_vscode_shortname %} tools, extension-provided tools, MCP servers, and models configured in {% data variables.product.prodname_vscode_shortname %}.
-* **Copilot**: uses the Copilot SDK and runs on the [Agent Host](#agent-harnesses-and-the-agent-host).
+* **Copilot**: uses the {% data variables.copilot.copilot_sdk_short %} and runs on the [Agent Host](#agent-harnesses-and-the-agent-host).
 * **Claude**: uses Anthropic's Claude Agent SDK for local sessions and is also available as a cloud agent.
 * **Codex**: uses OpenAI Codex for local sessions and is also available as a cloud agent.
 

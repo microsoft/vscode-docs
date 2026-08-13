@@ -28,24 +28,24 @@ Most harnesses share the same chat and session-management experience in {% data 
 | Session target | Where it runs | Code access | Choose it for |
 |----------------|---------------|-------------|---------------|
 | **Local** | In the {% data variables.product.prodname_vscode_shortname %} extension host on your machine | Current workspace | Interactive work that needs {% data variables.product.prodname_vscode_shortname %} tools, extension tools, or any model configured in {% data variables.product.prodname_vscode_shortname %} |
-| **Copilot** | On the Agent Host on your machine | Current folder or an isolated Git worktree | General coding tasks with the Copilot SDK and Copilot-specific capabilities |
+| **Copilot** | On the Agent Host on your machine | Current folder or an isolated Git worktree | General coding tasks with the {% data variables.copilot.copilot_sdk_short %} and Copilot-specific capabilities |
 | **Claude** | On your machine | Current folder or an isolated Git worktree | Anthropic's agent capabilities, slash commands, and permission modes |
 | **Codex** | On your machine | Current folder or an isolated Git worktree | OpenAI's Codex capabilities for interactive or background work |
 | **Cloud** | On the provider's remote infrastructure | A GitHub repository and pull request | Well-scoped tasks that can run independently and benefit from team review |
 
 ## Select an agent harness
 
-You can select an agent harness when you start a new session in the Chat view or the Agents window. When you change the agent harness for an ongoing session, {% data variables.product.prodname_vscode_shortname %} considers this a [handoff](#hand-off-a-session) and carries the conversation history and context to the new harness.
+You can select an agent harness when you start a new session in the Chat view or the {% data variables.copilot.agents_window %}. When you change the agent harness for an ongoing session, {% data variables.product.prodname_vscode_shortname %} considers this a [handoff](#hand-off-a-session) and carries the conversation history and context to the new harness.
 
 To select an agent harness:
 
-1. Open the Chat view (`kb(workbench.action.chat.open)`) or Agents window
+1. Open the Chat view (`kb(workbench.action.chat.open)`) or {% data variables.copilot.agents_window %}
 
 1. Select **New Chat** (`+`)
 
 1. Open the **Session Target** control and choose from the available agent harnesses.
 
-    ![Screenshot of the Session Target control in the Agents window.](../images/agent-harnesses/agents-window-session-target.png)
+    ![Screenshot of the Session Target control in the {% data variables.copilot.agents_window %}.](../images/agent-harnesses/agents-window-session-target.png)
 
 1. Depending on the selected harness, other options for language model, isolation mode, or custom agents are available.
 
@@ -53,7 +53,7 @@ Learn more about [creating and managing sessions](/docs/agents/run/sessions/mana
 
 ## Choose code isolation
 
-Agent sessions that run on your machine (local, Copilot, Claude, and Codex) can make changes directly to your codebase or in an isolated Git worktree. You can choose the isolation mode when you start a new session in the Chat view or the Agents window.
+Agent sessions that run on your machine (local, Copilot, Claude, and Codex) can make changes directly to your codebase or in an isolated Git worktree. You can choose the isolation mode when you start a new session in the Chat view or the {% data variables.copilot.agents_window %}.
 
 Copilot, Claude, and Codex sessions that run on your machine can work in your current folder or a new Git worktree.
 
@@ -62,9 +62,9 @@ Copilot, Claude, and Codex sessions that run on your machine can work in your cu
 | **New Worktree** | A new branch and [worktree](/docs/sourcecontrol/branches-worktrees.md#understanding-worktrees) | Parallel tasks that should not modify your active workspace | Starts from committed Git state and requires you to integrate the result |
 | **Folder** | Your current folder | Small, interactive tasks that should use your current files and uncommitted changes | Agent edits appear immediately in your active workspace |
 
-When you [start a session in the Agents window](/docs/agents/run/agents-window.md#start-an-agent-session), select **New Worktree** and choose the base branch to isolate the session. If you leave **New Worktree** unselected, the agent works directly on the code in the workspace. Sessions that you start in the Chat view always use the current workspace.
+When you [start a session in the {% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md#start-an-agent-session), select **New Worktree** and choose the base branch to isolate the session. If you leave **New Worktree** unselected, the agent works directly on the code in the workspace. Sessions that you start in the Chat view always use the current workspace.
 
-![Screenshot of the New Worktree checkbox and base branch control in the Agents window.](../images/agent-harnesses/agents-window-new-worktree.png)
+![Screenshot of the New Worktree checkbox and base branch control in the {% data variables.copilot.agents_window %}.](../images/agent-harnesses/agents-window-new-worktree.png)
 
 Worktree isolation requires a Git repository with at least one commit. A new worktree contains the committed files from the selected base branch. It does not automatically contain uncommitted tracked changes or untracked files from your primary worktree. Commit changes that the agent needs, or use folder isolation when the task depends on your current uncommitted state.
 
@@ -97,7 +97,7 @@ You can switch roles during a session from the agent picker. For specialized wor
 
 <a name="copilot"></a>
 
-The Copilot harness is powered by the [Copilot SDK](https://www.npmjs.com/package/@github/copilot-sdk) and runs on the [Agent Host](/docs/agents/concepts/agent-host.md). The Agent Host owns the session independently of the windows that display it, so a session can continue in the background, appear in multiple windows, and contain multiple chats.
+The Copilot harness is powered by the [{% data variables.copilot.copilot_sdk_short %}](https://www.npmjs.com/package/@github/copilot-sdk) and runs on the [Agent Host](/docs/agents/concepts/agent-host.md). The Agent Host owns the session independently of the windows that display it, so a session can continue in the background, appear in multiple windows, and contain multiple chats.
 
 Copilot sessions use the same GitHub authentication context as chat in {% data variables.product.prodname_vscode_shortname %}. If you use a GitHub Enterprise account for Copilot, the session uses that account. For managed user accounts on GHE.com, complete the setup in [Using GitHub Copilot with an account on GHE.com](https://docs.github.com/en/copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom).
 
@@ -222,7 +222,7 @@ To use Claude or Codex in the cloud, turn on support in your Copilot account set
 
 The session runs remotely and appears in the sessions list. Sessions that you create by assigning an issue or pull request to a cloud agent on GitHub.com also appear in {% data variables.product.prodname_vscode_shortname %}.
 
-You can also select a GitHub repository when you [start a session in the Agents window](/docs/agents/run/agents-window.md#start-an-agent-session), or [hand off an existing session](#hand-off-a-session) to a cloud harness. In a Copilot session, enter `/delegate` to continue the task in the cloud.
+You can also select a GitHub repository when you [start a session in the {% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md#start-an-agent-session), or [hand off an existing session](#hand-off-a-session) to a cloud harness. In a Copilot session, enter `/delegate` to continue the task in the cloud.
 
 Cloud sessions use the tools, MCP servers, and models configured by the cloud service. They can't access {% data variables.product.prodname_vscode_shortname %} built-in tools or local runtime context.
 
@@ -270,7 +270,7 @@ The implementation agent receives the plan and conversation context and starts i
 |---|---|
 | **Hand off** | Changes the session target and carries the conversation history and context to the new target. |
 | **Fork a session** | Creates an independent session from a point in the conversation. Learn more about [forking sessions](/docs/agents/run/sessions/manage-sessions.md#fork-a-chat-session). |
-| **Switch surfaces** | Opens the same session in the [Chat view](/docs/agents/run/chat-view.md) or [Agents window](/docs/agents/run/agents-window.md) without changing its target or context. |
+| **Switch surfaces** | Opens the same session in the [Chat view](/docs/agents/run/chat-view.md) or [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) without changing its target or context. |
 
 For background on how handoff works, see [Sessions and handoff](/docs/agents/concepts/sessions.md#hand-off-a-session).
 

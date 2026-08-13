@@ -93,7 +93,7 @@ Learn more about [using subagents](/docs/agents/run/subagents.md).
 
 ## Sessions
 
-A session is the unit of work with an agent: one conversation, along with the context it accumulates. Sessions are independent, can run in parallel, and are shared across the [Chat view](/docs/agents/run/chat-view.md) and the [Agents window](/docs/agents/run/agents-window.md). They can run on your machine or on a remote host, and you can hand off a session from one agent to another. Learn more about [sessions and handoff](/docs/agents/concepts/sessions.md).
+A session is the unit of work with an agent: one conversation, along with the context it accumulates. Sessions are independent, can run in parallel, and are shared across the [Chat view](/docs/agents/run/chat-view.md) and the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md). They can run on your machine or on a remote host, and you can hand off a session from one agent to another. Learn more about [sessions and handoff](/docs/agents/concepts/sessions.md).
 
 ## Memory
 
@@ -105,7 +105,7 @@ Agents use memory to retain context across conversations. Rather than starting f
     * **User memory** (`/memories/`): persists across all workspaces and conversations. The first 200 lines are automatically loaded into every session.
     * **Repository memory** (`/memories/repo/`): scoped to the current workspace, persists across conversations.
     * **Session memory** (`/memories/session/`): scoped to the current conversation, cleared when it ends.
-* **Copilot Memory**: a GitHub-hosted memory system that captures repository-specific insights across Copilot surfaces (coding agent, code review, CLI). Shared across GitHub Copilot beyond {% data variables.product.prodname_vscode_shortname %}.
+* **{% data variables.copilot.copilot_memory %}**: a GitHub-hosted memory system that captures repository-specific insights across Copilot surfaces (coding agent, code review, CLI). Shared across GitHub Copilot beyond {% data variables.product.prodname_vscode_shortname %}.
 
 Learn more about [memory in {% data variables.product.prodname_vscode_shortname %} agents](/docs/agents/run/memory.md).
 

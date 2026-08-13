@@ -59,7 +59,7 @@ Connected clients can also contribute tools. For example, {% data variables.prod
 
 ## Local and remote hosts
 
-For remote sessions, the Agent Host runs as a standalone process and exposes AHP over WebSocket. The Agents window reaches it through SSH or a dev tunnel.
+For remote sessions, the Agent Host runs as a standalone process and exposes AHP over WebSocket. The {% data variables.copilot.agents_window %} reaches it through SSH or a dev tunnel.
 
 ![Screenshot showing a {% data variables.product.prodname_vscode_shortname %} client connected to a local Agent Host and multiple remote Agent Hosts over dev tunnels and SSH.](../images/concepts/agent-host-deployment.svg)
 

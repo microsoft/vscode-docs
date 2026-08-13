@@ -109,7 +109,7 @@ You can enable or disable inline suggestions in {% data variables.product.prodna
 
 ![Screenshot showing the {% data variables.product.prodname_vscode_shortname %} status bar, highlighting the Copilot icon that indicates Copilot is active.](../images/faq/copilot-disable-completions.png)
 
-Alternatively, use the `setting(github.copilot.enable)` and `setting(github.copilot.nextEditSuggestions.enabled)` settings to enable or disable inline suggestions and next edit suggestions, respectively. You can configure these settings at the workspace or user level.
+Alternatively, use the `setting(github.copilot.enable)` and `setting(github.copilot.nextEditSuggestions.enabled)` settings to enable or disable inline suggestions and {% data variables.copilot.next edit suggestions %}, respectively. You can configure these settings at the workspace or user level.
 
 ### Inline suggestions are not working in the editor
 
@@ -179,11 +179,11 @@ We track issues and feature requests for GitHub Copilot in {% data variables.pro
 
     ![Screenshot that shows sending Copilot Ghost Text Feedback action in the editor.](../images/faq/code-completions-feedback.png)
 
-- **Next edit suggestions**
+- **{% data variables.copilot.next_edit_suggestions_caps %}**
 
-    Select the **Feedback** action in the next edit suggestions menu in the editor gutter. In the Issue Reporter, provide a clear and detailed description of the issue, including steps to reproduce it.
+    Select the **Feedback** action in the {% data variables.copilot.next edit suggestions %} menu in the editor gutter. In the Issue Reporter, provide a clear and detailed description of the issue, including steps to reproduce it.
 
-    ![Screenshot that shows next edit suggestions menu in the editor gutter.](../images/faq/nes-feedback.png)
+    ![Screenshot that shows {% data variables.copilot.next edit suggestions %} menu in the editor gutter.](../images/faq/nes-feedback.png)
 
 - **General issues**
 
