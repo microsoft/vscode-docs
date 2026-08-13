@@ -35,10 +35,10 @@ For local GitHub repositories, install [Git version 2.0.0 or later](https://git-
 
 When you commit changes, Git uses your configured username and email. Set these values with:
 
-    ```bash
-    git config --global user.name "Your Name"
-    git config --global user.email "your.email@example.com"
-    ```
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "your.email@example.com"
+```
 
 ## Sign in to GitHub for Git operations
 
