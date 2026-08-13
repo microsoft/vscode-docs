@@ -12,7 +12,7 @@ Keywords:
 - multi-file editing
 - architecture
 - refactoring
-- {% data variables.copilot.copilot_cloud_agent_short %}
+- "{% data variables.copilot.copilot_cloud_agent_short %}"
 - copilot cli
 - third-party agents
 - MCP
