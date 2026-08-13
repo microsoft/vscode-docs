@@ -14,7 +14,7 @@ Keywords:
 - memory
 - planning
 - local agents
-- cloud agents
+- {% data variables.copilot.copilot_cloud_agent_short %}s
 - remote agent sessions
 - agent host protocol
 ---
@@ -26,7 +26,7 @@ An agent is an AI system that autonomously plans and executes coding tasks. You 
 For an overview of what you can do with agents in {% data variables.product.prodname_vscode_shortname %} and where to work with them, see [Build with agents in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/overview.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
-Follow a hands-on tutorial to experience local, background, and cloud agents in {% data variables.product.prodname_vscode_shortname %}.
+Follow a hands-on tutorial to experience local, background, and {% data variables.copilot.copilot_cloud_agent_short %}s in {% data variables.product.prodname_vscode_shortname %}.
 
 * [Start agent handoff tutorial](/docs/agents/agents-handoff-tutorial.md)
 
@@ -93,7 +93,7 @@ Learn more about [using subagents](/docs/agents/run/subagents.md).
 
 ## Sessions
 
-A session is the unit of work with an agent: one conversation, along with the context it accumulates. Sessions are independent, can run in parallel, and are shared across the [Chat view](/docs/agents/run/chat-view.md) and the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md). They can run on your machine or on a remote host, and you can hand off a session from one agent to another. Learn more about [sessions and handoff](/docs/agents/concepts/sessions.md).
+A session is the unit of work with an agent: one conversation, along with the context it accumulates. Sessions are independent, can run in parallel, and are shared across the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) and the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md). They can run on your machine or on a remote host, and you can hand off a session from one agent to another. Learn more about [sessions and handoff](/docs/agents/concepts/sessions.md).
 
 ## Memory
 
@@ -105,7 +105,7 @@ Agents use memory to retain context across conversations. Rather than starting f
     * **User memory** (`/memories/`): persists across all workspaces and conversations. The first 200 lines are automatically loaded into every session.
     * **Repository memory** (`/memories/repo/`): scoped to the current workspace, persists across conversations.
     * **Session memory** (`/memories/session/`): scoped to the current conversation, cleared when it ends.
-* **{% data variables.copilot.copilot_memory %}**: a GitHub-hosted memory system that captures repository-specific insights across Copilot surfaces (coding agent, code review, CLI). Shared across GitHub Copilot beyond {% data variables.product.prodname_vscode_shortname %}.
+* **{% data variables.copilot.copilot_memory %}**: a GitHub-hosted memory system that captures repository-specific insights across Copilot surfaces ({% data variables.copilot.copilot_cloud_agent_short %}, code review, CLI). Shared across GitHub Copilot beyond {% data variables.product.prodname_vscode_shortname %}.
 
 Learn more about [memory in {% data variables.product.prodname_vscode_shortname %} agents](/docs/agents/run/memory.md).
 

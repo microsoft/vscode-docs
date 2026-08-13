@@ -67,13 +67,13 @@ When you're using chat, there are several things you can do to optimize your exp
 
 You can explicitly add context to your prompt by typing `#` followed by the context item you want to mention. {% data variables.product.prodname_vscode_shortname %} supports different types of context items: files, folders, code symbols, tools, terminal output, source control changes, and more.
 
-Type the `#` symbol in the chat input field to see a list of available context items, or select **Add Context** in the Chat view to open the context picker.
+Type the `#` symbol in the chat input field to see a list of available context items, or select **Add Context** in the {% data variables.copilot.chat_view %} to open the context picker.
 
 For example, with `#<file name>` or `#<folder name>` you can reference specific files or folders from your workspace in your chat prompt. This helps make the answers from Copilot Chat more relevant to your code by providing context about the file you are working with. You can ask questions like "Can you suggest improvements to #package.json?" or "How do I add an extension in #devcontainer.json?".
 
 Instead of adding individual files manually, you can let {% data variables.product.prodname_vscode_shortname %} find the right files from your codebase automatically by using `#codebase`. This can be useful when you don't know which files are relevant to your question.
 
-![Screenshot of Chat view, showing the Attach context button and context Quick Pick.](../images/prompt-engineering-guide/copilot-chat-view-attach-context.png)
+![Screenshot of {% data variables.copilot.chat_view %}, showing the Attach context button and context Quick Pick.](../images/prompt-engineering-guide/copilot-chat-view-attach-context.png)
 
 Learn more about [using context in chat](/docs/chat/copilot-chat-context.md).
 

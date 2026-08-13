@@ -29,7 +29,7 @@ Signing in with a GitHub account that has access to GitHub Copilot has the follo
 * [Remote repository indexing and semantic code search](/docs/agents/reference/workspace-context.md#remote-index)
 * [Copilot code review](https://docs.github.com/en/copilot/concepts/agents/code-review)
 * [Copilot content exclusions](https://docs.github.com/en/copilot/how-tos/configure-content-exclusion/exclude-content-from-copilot)
-* [Delegate tasks to the Copilot cloud agent](/docs/agents/run/agent-harnesses.md#cloud) for remote execution.
+* [Delegate tasks to the {% data variables.copilot.copilot_cloud_agent %}](/docs/agents/run/agent-harnesses.md#cloud) for remote execution.
 
 Depending on your Copilot plan, you might have different levels of access and limits. See [GitHub Copilot plans](https://docs.github.com/en/copilot/get-started/plans) for more information.
 
@@ -125,7 +125,7 @@ Alternatively, use the `setting(github.copilot.enable)` and `setting(github.copi
 Verify the following requirements to ensure Chat features work in {% data variables.product.prodname_vscode %}:
 
 - Make sure you are on the latest version of {% data variables.product.prodname_vscode %} (run **Code: Check for Updates**).
-- Make sure you have the latest version of both the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) and [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extensions.
+- Make sure you have the latest version of both the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) and [{% data variables.copilot.copilot_chat %}](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extensions.
 - Your GitHub account that is signed into {% data variables.product.prodname_vscode_shortname %} must have an active Copilot subscription. Check your [Copilot subscription](https://github.com/settings/copilot).
 - Verify that you have not reached your AI credits limit for the month with the [Copilot Free plan](https://docs.github.com/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/about-github-copilot-free).
 
@@ -155,17 +155,17 @@ You can choose which models are available in the language model picker. Learn ho
 
 Organizations can restrict access to certain models. If you believe a model should be available, contact your organization administrator.
 
-### How do I prevent the Chat view from opening automatically?
+### How do I prevent the {% data variables.copilot.chat_view %} from opening automatically?
 
-By default, the Chat view opens in the Secondary Side Bar. When you close the Chat view for a workspace, {% data variables.product.prodname_vscode_shortname %} remembers this setting and does not open the Chat view automatically the next time you open that workspace.
+By default, the {% data variables.copilot.chat_view %} opens in the Secondary Side Bar. When you close the {% data variables.copilot.chat_view %} for a workspace, {% data variables.product.prodname_vscode_shortname %} remembers this setting and does not open the {% data variables.copilot.chat_view %} automatically the next time you open that workspace.
 
-You can change the default visibility directly from the Chat view:
+You can change the default visibility directly from the {% data variables.copilot.chat_view %}:
 
-1. Open the Chat view (`kb(workbench.action.chat.open)`).
-1. Select the `...` icon in the top-right corner of the Chat view.
-1. Select **Show View by Default** to enable or disable the automatic opening of the Chat view.
+1. Open the {% data variables.copilot.chat_view %} (`kb(workbench.action.chat.open)`).
+1. Select the `...` icon in the top-right corner of the {% data variables.copilot.chat_view %}.
+1. Select **Show View by Default** to enable or disable the automatic opening of the {% data variables.copilot.chat_view %}.
 
-You can also control the default visibility of the Secondary Side Bar with the `setting(workbench.secondarySideBar.defaultVisibility)` setting. Set it to `hidden` to prevent the Chat view from opening automatically.
+You can also control the default visibility of the Secondary Side Bar with the `setting(workbench.secondarySideBar.defaultVisibility)` setting. Set it to `hidden` to prevent the {% data variables.copilot.chat_view %} from opening automatically.
 
 ## Troubleshooting and feedback
 
@@ -187,9 +187,9 @@ We track issues and feature requests for GitHub Copilot in {% data variables.pro
 
 - **General issues**
 
-    Open the {% data variables.product.prodname_vscode_shortname %} Issue reporter (**Help menu** > **Report Issue**), select the **{% data variables.product.prodname_vscode_shortname %} Extension** source, and then select the **GitHub Copilot Chat** extension. Provide a clear and detailed description of the issue, including steps to reproduce it.
+    Open the {% data variables.product.prodname_vscode_shortname %} Issue reporter (**Help menu** > **Report Issue**), select the **{% data variables.product.prodname_vscode_shortname %} Extension** source, and then select the **{% data variables.copilot.copilot_chat %}** extension. Provide a clear and detailed description of the issue, including steps to reproduce it.
 
-    ![Screenshot that shows {% data variables.product.prodname_vscode_shortname %} Issue Reporter with GitHub Copilot Chat selected.](../images/faq/issue-reporter.png)
+    ![Screenshot that shows {% data variables.product.prodname_vscode_shortname %} Issue Reporter with {% data variables.copilot.copilot_chat %} selected.](../images/faq/issue-reporter.png)
 
 When you report an issue, follow the guidelines in our [wiki](https://github.com/microsoft/vscode/wiki/Copilot-Issues) to make sure your issue is actionable.
 

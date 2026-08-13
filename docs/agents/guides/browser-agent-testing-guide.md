@@ -43,7 +43,7 @@ These criteria give the agent a clear definition of success and make its final v
 
 Browser tools are generally available by default. Verify that they are selected for the request:
 
-1. Open the Chat view (`kb(workbench.action.chat.open)`) and select **Agent** from the Agents dropdown.
+1. Open the {% data variables.copilot.chat_view %} (`kb(workbench.action.chat.open)`) and select **Agent** from the Agents dropdown.
 
 1. Select **Open Customizations** (gear icon) > **Tools** and verify that **Integrated Browser** is selected.
 
@@ -55,7 +55,7 @@ With browser tools enabled, ask the agent to create a simple calculator applicat
 
 1. Create a new project folder and open it in {% data variables.product.prodname_vscode_shortname %}.
 
-1. In the Chat view, enter the following prompt:
+1. In the {% data variables.copilot.chat_view %}, enter the following prompt:
 
     ```prompt
     Create a calculator with buttons for digits 0-9, operations (add, subtract, multiply, divide), clear, and equals. Use HTML, CSS, and JavaScript. Style it with a clean, modern design.
@@ -71,7 +71,7 @@ The agent has built the basic structure of the calculator application.
 
 Now ask the agent to open the calculator in the integrated browser and verify it works correctly.
 
-1. In the Chat view, enter the following prompt:
+1. In the {% data variables.copilot.chat_view %}, enter the following prompt:
 
     ```prompt
     Open the calculator in the browser and validate it against these criteria:

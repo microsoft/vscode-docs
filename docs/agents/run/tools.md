@@ -29,18 +29,18 @@ Launch a chat prompt that uses the web tool to summarize the latest {% data vari
 
 ## Select tools for a request
 
-Use the tools picker in the Chat view to select which tools are available for a request. Add more tools by [installing MCP servers](/docs/agent-customization/mcp-servers.md) or [extensions](/docs/configure/extensions/extensions.md) that contribute tools.
+Use the tools picker in the {% data variables.copilot.chat_view %} to select which tools are available for a request. Add more tools by [installing MCP servers](/docs/agent-customization/mcp-servers.md) or [extensions](/docs/configure/extensions/extensions.md) that contribute tools.
 
 > [!TIP]
 > Select only the tools that are relevant for your prompt to improve your results.
 
 To access the tools picker:
 
-1. Open the Chat view and select **Agent** from the agent picker.
+1. Open the {% data variables.copilot.chat_view %} and select **Agent** from the agent picker.
 
 1. Select the **Configure Tools** button in the chat input field.
 
-    ![Screenshot showing the Chat view, highlighting the Configure Tools button in the chat input.](../images/chat-tools/agent-mode-select-tools.png)
+    ![Screenshot showing the {% data variables.copilot.chat_view %}, highlighting the Configure Tools button in the chat input.](../images/chat-tools/agent-mode-select-tools.png)
 
 1. Select or deselect tools to control which ones are available for the current request.
 
@@ -128,7 +128,7 @@ Type `#` in the chat input field to see a list of all available tools. You can a
 
 A chat request can have a maximum of 128 tools enabled at a time. If you see an error about exceeding 128 tools per request:
 
-* Open the tools picker in the Chat view and deselect some tools or entire MCP servers to reduce the count.
+* Open the tools picker in the {% data variables.copilot.chat_view %} and deselect some tools or entire MCP servers to reduce the count.
 
 * Alternatively, enable virtual tools with the `setting(github.copilot.chat.virtualTools.threshold)` setting to automatically manage large tool sets.
 

@@ -22,11 +22,11 @@ The log files for the GitHub Copilot extension are stored in the standard log lo
 To view detailed logs:
 
 1. Open the Command Palette (`kb(workbench.action.showCommands)`).
-1. Run **Developer: Set Log Level** and set the value to **Trace** for the GitHub Copilot and GitHub Copilot Chat extensions.
-1. Run **Output: Show Output Channels** and select either **GitHub Copilot** or **GitHub Copilot Chat** from the list.
+1. Run **Developer: Set Log Level** and set the value to **Trace** for the GitHub Copilot and {% data variables.copilot.copilot_chat %} extensions.
+1. Run **Output: Show Output Channels** and select either **GitHub Copilot** or **{% data variables.copilot.copilot_chat %}** from the list.
 1. In the Output panel, view the logs for the selected extension.
 
-To switch between output channels, select **GitHub Copilot** or **GitHub Copilot Chat** from the dropdown menu on the right side of the Output panel.
+To switch between output channels, select **GitHub Copilot** or **{% data variables.copilot.copilot_chat %}** from the dropdown menu on the right side of the Output panel.
 
 ## Collect network diagnostics
 
@@ -59,7 +59,7 @@ For more information about network configuration, see [Network and firewall conf
 
     To open the Agent Debug Log panel:
 
-    1. Select the ellipsis (**...**) menu in the Chat view and select **Show Agent Debug Logs**.
+    1. Select the ellipsis (**...**) menu in the {% data variables.copilot.chat_view %} and select **Show Agent Debug Logs**.
 
     From the Agent Debug Log panel, you can attach a snapshot of the agent debug events to a chat conversation to ask the AI questions about the session and troubleshoot a specific interaction.
 
@@ -77,7 +77,7 @@ For more information about network configuration, see [Network and firewall conf
 
     To open the Chat Debug view:
 
-    1. Select the overflow menu (`...`) in the Chat view.
+    1. Select the overflow menu (`...`) in the {% data variables.copilot.chat_view %}.
     1. Select **Show Chat Debug View**.
 
 Learn more about the [Chat Debug view](/docs/agents/agent-troubleshooting/chat-debug-view.md#chat-debug-view).
@@ -101,7 +101,7 @@ If you encounter issues that you can't resolve, report them to help improve GitH
 
 * **Ghost text suggestions**: Hover over a ghost text suggestion in the editor and select **Send Copilot Completion Feedback**.
 * **{% data variables.copilot.next_edit_suggestions_caps %}**: Select the **Feedback** action in the {% data variables.copilot.next edit suggestions %} menu in the editor gutter.
-* **General issues**: Open **Help** > **Report Issue**, select **{% data variables.product.prodname_vscode_shortname %} Extension**, and choose **GitHub Copilot Chat**.
+* **General issues**: Open **Help** > **Report Issue**, select **{% data variables.product.prodname_vscode_shortname %} Extension**, and choose **{% data variables.copilot.copilot_chat %}**.
 
 When reporting issues, include relevant information from the [Copilot logs](#view-logs-for-github-copilot) to help diagnose the problem.
 

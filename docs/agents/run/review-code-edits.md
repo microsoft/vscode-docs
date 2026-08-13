@@ -9,10 +9,10 @@ MetaSocialImage: ../../images/shared/github-copilot-social.png
 When you work with an agent in {% data variables.product.prodname_vscode %}, it can change multiple files in your project. This article explains how to inspect, revise, integrate, or discard these AI-generated changes.
 
 > [!NOTE]
-> You can review AI-generated changes in both the [Chat view](/docs/agents/run/chat-view.md) and the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md). The review experience follows the same concepts, but the user interface differs between the two surfaces.
+> You can review AI-generated changes in both the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) and the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md). The review experience follows the same concepts, but the user interface differs between the two surfaces.
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
-Follow a hands-on tutorial to experience local, background, and cloud agents in {% data variables.product.prodname_vscode_shortname %}.
+Follow a hands-on tutorial to experience local, background, and {% data variables.copilot.copilot_cloud_agent_short %}s in {% data variables.product.prodname_vscode_shortname %}.
 
 * [Start agent handoff tutorial](/docs/agents/agents-handoff-tutorial.md)
 
@@ -25,7 +25,7 @@ The agent applies and saves edits directly in the session's folder or isolated G
 Review the changes as you would other workspace or branch changes through the diff view, Source Control, or pull request workflow.
 
 {% tabs id="chat-surface" %}
-{% tab label="Chat view" %}
+{% tab label="{% data variables.copilot.chat_view %}" %}
 
 1. Select a changed file in the agent's response to open its diff or select it from the Source Control view.
 
@@ -105,7 +105,7 @@ Before you apply or merge changes:
 1. Select the integration action and resolve any merge conflicts.
 1. Test the integrated result before you archive or delete the session.
 
-The available actions and labels depend on the session harness and whether you use the Chat view or {% data variables.copilot.agents_window %}. Keep the session until you verify that the changes are present on the intended destination branch.
+The available actions and labels depend on the session harness and whether you use the {% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}. Keep the session until you verify that the changes are present on the intended destination branch.
 
 ## Edit requests and restore checkpoints
 
@@ -120,7 +120,7 @@ Each request in your conversation history is editable. When you edit a previous 
 
 Select the request in the conversation, modify it, and resend it. Configure or turn off request editing with `setting(chat.editRequests)`.
 
-<video src="../images/chat-checkpoints/chat-edit-request.mp4" title="Video showing the editing of a previous chat request in the Chat view." loop controls muted></video>
+<video src="../images/chat-checkpoints/chat-edit-request.mp4" title="Video showing the editing of a previous chat request in the {% data variables.copilot.chat_view %}." loop controls muted></video>
 
 ### Restore a checkpoint
 
@@ -132,7 +132,7 @@ To restore your workspace to an earlier checkpoint:
 
 1. Hover over the request and select **Restore Checkpoint**.
 
-    ![Screenshot showing the Restore Checkpoint action in the Chat view.](../images/chat-checkpoints/chat-restore-checkpoint.png)
+    ![Screenshot showing the Restore Checkpoint action in the {% data variables.copilot.chat_view %}.](../images/chat-checkpoints/chat-restore-checkpoint.png)
 
 1. Confirm that you want to restore the checkpoint.
 
@@ -164,11 +164,11 @@ If [agent host](/docs/agents/concepts/agent-host.md) is not enabled or you are w
 
 After the agent edits and saves a file, {% data variables.product.prodname_vscode_shortname %} marks the edits as pending. Files with pending edits have a squared-dot indicator in the Explorer view and editor tabs. The pending state is restored when you reopen {% data variables.product.prodname_vscode_shortname %}.
 
-![Screenshot showing the Chat view, highlighting the changed files list and the indicator in the Explorer view and editor tabs.](../images/review-code-edits/copilot-edits-changed-files-full.png)
+![Screenshot showing the {% data variables.copilot.chat_view %}, highlighting the changed files list and the indicator in the Explorer view and editor tabs.](../images/review-code-edits/copilot-edits-changed-files-full.png)
 
 To review pending edits:
 
-1. Open a file from the changed-files list in the Chat view or from the Explorer view.
+1. Open a file from the changed-files list in the {% data variables.copilot.chat_view %} or from the Explorer view.
 
     ![Screenshot showing the Editor with proposed changes, highlighting the review controls in the editor overlay controls.](../images/review-code-edits/copilot-edits-file-review-controls.png)
 
@@ -180,7 +180,7 @@ To review pending edits:
     * Select **Undo** to reject the edit and revert the change.
     * Hover over an inline change to accept or reject that specific change without affecting other edits in the file.
 
-You can also accept or reject all pending edits from the Chat view. When you resolve an edit, the editor automatically opens the next file with pending edits. To stay in the current file, set `setting(chat.editing.revealNextChangeOnResolve)` to `false`.
+You can also accept or reject all pending edits from the {% data variables.copilot.chat_view %}. When you resolve an edit, the editor automatically opens the next file with pending edits. To stay in the current file, set `setting(chat.editing.revealNextChangeOnResolve)` to `false`.
 
 ### Source Control integration
 

@@ -1,7 +1,7 @@
 ---
 ContentId: a7d3e5f8-2c4b-4d9a-b8e1-3f6c9a2d7e41
 DateApproved: 8/5/2026
-MetaDescription: Learn how to use Agent Skills in {% data variables.product.prodname_vscode_shortname %} to teach GitHub Copilot specialized capabilities that work across {% data variables.product.prodname_vscode_shortname %}, GitHub Copilot CLI, and GitHub Copilot cloud agent.
+MetaDescription: Learn how to use Agent Skills in {% data variables.product.prodname_vscode_shortname %} to teach GitHub Copilot specialized capabilities that work across {% data variables.product.prodname_vscode_shortname %}, {% data variables.copilot.copilot_cli %}, and {% data variables.copilot.copilot_cloud_agent %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - copilot
@@ -14,7 +14,7 @@ Keywords:
 ---
 # Use Agent Skills in {% data variables.product.prodname_vscode_shortname %}
 
-Agent Skills are folders of instructions, scripts, and resources that GitHub Copilot can load when relevant to perform specialized tasks. Agent Skills is an [open standard](https://agentskills.io) that works across multiple AI agents, including GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}, GitHub Copilot CLI, and GitHub Copilot cloud agent.
+Agent Skills are folders of instructions, scripts, and resources that GitHub Copilot can load when relevant to perform specialized tasks. Agent Skills is an [open standard](https://agentskills.io) that works across multiple AI agents, including GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}, {% data variables.copilot.copilot_cli %}, and {% data variables.copilot.copilot_cloud_agent %}.
 
 Unlike [custom instructions](/docs/agent-customization/custom-instructions.md) that primarily define coding guidelines, skills enable specialized capabilities and workflows that can include scripts, examples, and other resources. Skills you create are portable and work across any skills-compatible agent.
 
@@ -37,7 +37,7 @@ While both Agent Skills and custom instructions help customize Copilot's behavio
 | Feature | Agent Skills | Custom Instructions |
 | ------- | ------------ | ------------------- |
 | **Purpose** | Teach specialized capabilities and workflows | Define coding standards and guidelines |
-| **Portability** | Works across {% data variables.product.prodname_vscode_shortname %}, Copilot CLI, and Copilot cloud agent | {% data variables.product.prodname_vscode_shortname %} and GitHub.com only |
+| **Portability** | Works across {% data variables.product.prodname_vscode_shortname %}, {% data variables.copilot.copilot_cli_short %}, and {% data variables.copilot.copilot_cloud_agent %} | {% data variables.product.prodname_vscode_shortname %} and GitHub.com only |
 | **Content** | Instructions, scripts, examples, and resources | Instructions only |
 | **Scope** | Task-specific, loaded on-demand | Always applied (or via glob patterns) |
 | **Standard** | Open standard ([agentskills.io](https://agentskills.io)) | {% data variables.product.prodname_vscode_shortname %}-specific |
@@ -75,7 +75,7 @@ You can configure additional file locations for project skills with the `setting
 
 To create a skill:
 
-1. In the Chat view, select **Configure Chat** (gear icon) to open the Agent Customizations editor and then select the **Skills** tab.
+1. In the {% data variables.copilot.chat_view %}, select **Configure Chat** (gear icon) to open the Agent Customizations editor and then select the **Skills** tab.
 
 1. Select **New Skill (Workspace)** or **New Skill (User)** from the dropdown, depending on where you want to store the skill.
 
@@ -356,8 +356,8 @@ Detailed instructions for the skill...
 Agent Skills is an open standard that enables portability across different AI agents. Skills you create in {% data variables.product.prodname_vscode_shortname %} work with multiple agents, including:
 
 * **GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}**: Available in chat and agent mode
-* **GitHub Copilot CLI**: Accessible when working in the terminal
-* **GitHub Copilot cloud agent**: Used during automated coding tasks
+* **{% data variables.copilot.copilot_cli %}**: Accessible when working in the terminal
+* **{% data variables.copilot.copilot_cloud_agent %}**: Used during automated coding tasks
 
 Learn more about the Agent Skills standard at [agentskills.io](https://agentskills.io).
 

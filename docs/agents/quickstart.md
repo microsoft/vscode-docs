@@ -6,7 +6,7 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Quickstart: Complete your first task with an agent
 
-In this quickstart, you use an AI agent in {% data variables.product.prodname_vscode %} to build a small web app from a natural-language prompt. You can work in the **{% data variables.copilot.agents_window %}** for an agent-first experience or use the **Chat view** alongside your code. You then review the generated code and use browser tools to let the agent validate the app.
+In this quickstart, you use an AI agent in {% data variables.product.prodname_vscode %} to build a small web app from a natural-language prompt. You can work in the **{% data variables.copilot.agents_window %}** for an agent-first experience or use the **{% data variables.copilot.chat_view %}** alongside your code. You then review the generated code and use browser tools to let the agent validate the app.
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Build a complete app with agents">
 Follow a hands-on tutorial to build and refine an app with agents in {% data variables.product.prodname_vscode_shortname %}.
@@ -54,15 +54,15 @@ The **{% data variables.copilot.agents_window %}** (Preview) is a dedicated wind
 1. Follow the agent's progress and review any approval requests before you accept them.
 
 {% /tab %}
-{% tab label="Chat view" %}
+{% tab label="{% data variables.copilot.chat_view %}" %}
 
-The **Chat view** keeps the agent beside your editor, which is useful when you want to inspect and work with the generated code.
+The **{% data variables.copilot.chat_view %}** keeps the agent beside your editor, which is useful when you want to inspect and work with the generated code.
 
 1. In {% data variables.product.prodname_vscode_shortname %}, select **File** > **Open Folder**, and then open the `agent-quickstart` folder.
 
     If {% data variables.product.prodname_vscode_shortname %} asks whether you trust the folder, select **Yes, I trust the authors**.
 
-1. Open the Chat view with `kb(workbench.action.chat.open)`, and then select **New Chat** (`+`).
+1. Open the {% data variables.copilot.chat_view %} with `kb(workbench.action.chat.open)`, and then select **New Chat** (`+`).
 
 1. Select the **Copilot** agent harness and the **Agent** role. Keep **Default Approvals** selected so that {% data variables.product.prodname_vscode_shortname %} asks before the agent runs actions that require approval.
 
@@ -104,11 +104,11 @@ AI-generated code can contain mistakes. Review the code, ask the agent to valida
 1. In the **Files** panel, right-click `index.html`, and then select **Open in Integrated Browser**. Manually try the task flow to confirm the result.
 
 {% /tab %}
-{% tab label="Chat view" %}
+{% tab label="{% data variables.copilot.chat_view %}" %}
 
 1. Select `index.html` in the agent response to review the generated code and its diff.
 
-1. In the Chat view, select **Open Customizations** (gear icon) > **Tools** and verify that **Integrated Browser** is selected.
+1. In the {% data variables.copilot.chat_view %}, select **Open Customizations** (gear icon) > **Tools** and verify that **Integrated Browser** is selected.
 
 1. Enter the following prompt:
 
@@ -130,11 +130,11 @@ You have completed your first task with an agent. The agent interpreted your goa
 
 ## Continue in the other surface
 
-The {% data variables.copilot.agents_window %} and Chat view share the same agent sessions, so you can switch between them without losing the conversation.
+The {% data variables.copilot.agents_window %} and {% data variables.copilot.chat_view %} share the same agent sessions, so you can switch between them without losing the conversation.
 
-* From the {% data variables.copilot.agents_window %}, select **Open in Editor** in the title bar. {% data variables.product.prodname_vscode_shortname %} opens the project in an editor window with the session available in the Chat view.
+* From the {% data variables.copilot.agents_window %}, select **Open in Editor** in the title bar. {% data variables.product.prodname_vscode_shortname %} opens the project in an editor window with the session available in the {% data variables.copilot.chat_view %}.
 
-* From the Chat view, select **Open in Agents** in the title bar. The {% data variables.copilot.agents_window %} opens with the same session selected.
+* From the {% data variables.copilot.chat_view %}, select **Open in Agents** in the title bar. The {% data variables.copilot.agents_window %} opens with the same session selected.
 
 ## Next steps
 

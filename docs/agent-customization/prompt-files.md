@@ -1,7 +1,7 @@
 ---
 ContentId: 5c8e7d42-9b1a-4f85-a3e2-6d5b8a9c1e43
 DateApproved: 8/5/2026
-MetaDescription: Learn how to create reusable prompt files for GitHub Copilot Chat in {% data variables.product.prodname_vscode_shortname %} to standardize common development tasks and improve your coding workflow efficiency.
+MetaDescription: Learn how to create reusable prompt files for Copilot Chat in {% data variables.product.prodname_vscode_shortname %} to standardize common development tasks and improve your coding workflow efficiency.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - prompt files
@@ -127,7 +127,7 @@ To create a prompt file:
 > [!TIP]
 > Type `/prompts` in the chat input to quickly open the **Configure Prompt Files** menu.
 
-1. In the Chat view, select **Configure Chat** (gear icon) to open the Agent Customizations editor and then select the **Prompts** tab.
+1. In the {% data variables.copilot.chat_view %}, select **Configure Chat** (gear icon) to open the Agent Customizations editor and then select the **Prompts** tab.
 
 1. Select **New Prompt (Workspace)** or **New Prompt (User)** from the dropdown, depending on where you want to store the prompt file.
 
@@ -156,7 +156,7 @@ You can also generate a prompt file from the Agent Customizations editor by sele
 
 You have multiple options to run a prompt file:
 
-* In the Chat view, type `/` followed by the prompt name in the chat input field. [Agent skills](/docs/agent-customization/agent-skills.md) also appear as slash commands alongside prompt files.
+* In the {% data variables.copilot.chat_view %}, type `/` followed by the prompt name in the chat input field. [Agent skills](/docs/agent-customization/agent-skills.md) also appear as slash commands alongside prompt files.
 
     You can add extra information in the chat input field. For example, `/create-react-form formName=MyForm` or `/create-api for listing customers`.
 
@@ -169,7 +169,7 @@ You have multiple options to run a prompt file:
 > [!TIP]
 > Use the `setting(chat.promptFilesRecommendations)` setting to show prompts as recommended actions when starting a new chat session.
 >
-> ![Screenshot showing a "explain" prompt file recommendation in the Chat view.](images/customization/prompt-file-recommendations.png)
+> ![Screenshot showing a "explain" prompt file recommendation in the {% data variables.copilot.chat_view %}.](images/customization/prompt-file-recommendations.png)
 
 ## Tool list priority
 
@@ -211,7 +211,7 @@ To identify the source of a prompt file:
 1. Hover over the prompt file in the list. The source location is displayed in a tooltip.
 
 > [!TIP]
-> Use the Agent Debug Log panel to inspect prompt file discovery and related errors. In the Chat view, select the ellipsis (**...**) menu, then select **Show Agent Debug Logs**. Learn more about [troubleshooting AI in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/agent-troubleshooting/troubleshooting.md).
+> Use the Agent Debug Log panel to inspect prompt file discovery and related errors. In the {% data variables.copilot.chat_view %}, select the ellipsis (**...**) menu, then select **Show Agent Debug Logs**. Learn more about [troubleshooting AI in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/agent-troubleshooting/troubleshooting.md).
 
 ## Related resources
 

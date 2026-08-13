@@ -153,7 +153,7 @@ In the prompt instructions, you can then hint the agent to use subagents by sugg
 
 ### What you see in chat
 
-In the Chat view, a running subagent appears as a collapsible tool call. By default, the subagent is collapsed and shows:
+In the {% data variables.copilot.chat_view %}, a running subagent appears as a collapsible tool call. By default, the subagent is collapsed and shows:
 
 * The name of the custom agent (if you specify one)
 * The currently running tool (for example, "Reading file..." or "Searching codebase...")

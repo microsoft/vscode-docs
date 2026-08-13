@@ -22,7 +22,7 @@ For background on how language models work, their characteristics, and how to ch
 
 Use the language model picker in the chat input field to change the model for chat conversations and code editing.
 
-![Screenshot that shows the model picker in the Chat view.](images/language-models/model-dropdown-change-model-v2.png)
+![Screenshot that shows the model picker in the {% data variables.copilot.chat_view %}.](images/language-models/model-dropdown-change-model-v2.png)
 
 Different models have different strengths. Use a fast model for quick edits and simple questions, and a reasoning model for complex refactoring, architectural decisions, or multi-step tasks. Depending on the [harness](/docs/agents/concepts/agent-harnesses.md) you are using, the list of available models might differ.
 
@@ -78,7 +78,7 @@ To use auto model selection, select **Auto** from the model picker in chat. You 
 
 You can use the language models editor to view all available models, choose which models are shown in the model picker, and add more models by adding from built-in providers or from extension-provided model providers.
 
-To open the Language Models editor, open the model picker in the Chat view and select **Manage Language Models** (gear icon) or run the **Chat: Manage Language Models** command from the Command Palette. The Language Models editor opens by default in a [modal overlay](/docs/editing/userinterface.md#modal-editors) on top of the editor area.
+To open the Language Models editor, open the model picker in the {% data variables.copilot.chat_view %} and select **Manage Language Models** (gear icon) or run the **Chat: Manage Language Models** command from the Command Palette. The Language Models editor opens by default in a [modal overlay](/docs/editing/userinterface.md#modal-editors) on top of the editor area.
 
 ![Screenshot that shows the Language Models editor.](images/language-models/language-models-editor.png)
 
@@ -330,7 +330,7 @@ To keep your API key in secret storage while still using it in a custom header, 
 
 To update the details of a model provider you configured previously:
 
-1. Select **Manage Language Models** (gear icon) from the language model picker in the Chat view or run the **Chat: Manage Language Models** command from the Command Palette.
+1. Select **Manage Language Models** (gear icon) from the language model picker in the {% data variables.copilot.chat_view %} or run the **Chat: Manage Language Models** command from the Command Palette.
 
 1. In the Language Models editor, select the gear icon next to the model provider you want to update.
 
@@ -374,7 +374,7 @@ There are two settings for utility models, depending on the type of task:
 
 Both settings default to **Default**, which uses the built-in utility model from GitHub Copilot.
 
-If you use BYOK models without signing into a GitHub account, the built-in utility models are not available. {% data variables.product.prodname_vscode_shortname %} shows a notification in the Chat view that prompts you to configure utility models. Set `setting(chat.utilityModel)` and `setting(chat.utilitySmallModel)` to a BYOK model to enable utility features like title generation and commit message creation.
+If you use BYOK models without signing into a GitHub account, the built-in utility models are not available. {% data variables.product.prodname_vscode_shortname %} shows a notification in the {% data variables.copilot.chat_view %} that prompts you to configure utility models. Set `setting(chat.utilityModel)` and `setting(chat.utilitySmallModel)` to a BYOK model to enable utility features like title generation and commit message creation.
 
 #### Configure the default utility model for BYOK models
 
@@ -424,7 +424,7 @@ Each model in the `models` array supports the following properties:
 | `requestHeaders` | _(Optional)_ An object of additional HTTP headers to include with requests to this model. Certain reserved headers (forbidden, forwarding, and internal headers) are not allowed and are ignored if present. |
 
 > [!NOTE]
-> The sum of `maxInputTokens` and `maxOutputTokens` must not exceed the model's context window. {% data variables.product.prodname_vscode_shortname %} uses the sum of these two values as the model's total context window, for example to show context usage in the Chat view. Typically, you set `maxInputTokens` to the model's context window size minus `maxOutputTokens`. Check your provider's model documentation for the context window size.
+> The sum of `maxInputTokens` and `maxOutputTokens` must not exceed the model's context window. {% data variables.product.prodname_vscode_shortname %} uses the sum of these two values as the model's total context window, for example to show context usage in the {% data variables.copilot.chat_view %}. Typically, you set `maxInputTokens` to the model's context window size minus `maxOutputTokens`. Check your provider's model documentation for the context window size.
 
 ## Frequently asked questions
 

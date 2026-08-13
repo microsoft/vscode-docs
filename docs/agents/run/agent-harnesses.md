@@ -1,7 +1,7 @@
 ---
 ContentId: 5b1e6f94-2c73-4a80-9d15-7f3c8e2a6b41
 DateApproved: 7/31/2026
-MetaDescription: Choose, use, and hand off between Local, Copilot, Claude, Codex, and cloud agent harnesses in {% data variables.product.prodname_vscode_shortname %}, including isolation and permissions.
+MetaDescription: Choose, use, and hand off between Local, Copilot, Claude, Codex, and {% data variables.copilot.copilot_cloud_agent_short %} harnesses in {% data variables.product.prodname_vscode_shortname %}, including isolation and permissions.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 Keywords:
 - copilot
@@ -11,7 +11,7 @@ Keywords:
 - session target
 - claude
 - codex
-- cloud agent
+- {% data variables.copilot.copilot_cloud_agent_short %}
 - worktree
 ---
 
@@ -35,11 +35,11 @@ Most harnesses share the same chat and session-management experience in {% data 
 
 ## Select an agent harness
 
-You can select an agent harness when you start a new session in the Chat view or the {% data variables.copilot.agents_window %}. When you change the agent harness for an ongoing session, {% data variables.product.prodname_vscode_shortname %} considers this a [handoff](#hand-off-a-session) and carries the conversation history and context to the new harness.
+You can select an agent harness when you start a new session in the {% data variables.copilot.chat_view %} or the {% data variables.copilot.agents_window %}. When you change the agent harness for an ongoing session, {% data variables.product.prodname_vscode_shortname %} considers this a [handoff](#hand-off-a-session) and carries the conversation history and context to the new harness.
 
 To select an agent harness:
 
-1. Open the Chat view (`kb(workbench.action.chat.open)`) or {% data variables.copilot.agents_window %}
+1. Open the {% data variables.copilot.chat_view %} (`kb(workbench.action.chat.open)`) or {% data variables.copilot.agents_window %}
 
 1. Select **New Chat** (`+`)
 
@@ -53,7 +53,7 @@ Learn more about [creating and managing sessions](/docs/agents/run/sessions/mana
 
 ## Choose code isolation
 
-Agent sessions that run on your machine (local, Copilot, Claude, and Codex) can make changes directly to your codebase or in an isolated Git worktree. You can choose the isolation mode when you start a new session in the Chat view or the {% data variables.copilot.agents_window %}.
+Agent sessions that run on your machine (local, Copilot, Claude, and Codex) can make changes directly to your codebase or in an isolated Git worktree. You can choose the isolation mode when you start a new session in the {% data variables.copilot.chat_view %} or the {% data variables.copilot.agents_window %}.
 
 Copilot, Claude, and Codex sessions that run on your machine can work in your current folder or a new Git worktree.
 
@@ -62,7 +62,7 @@ Copilot, Claude, and Codex sessions that run on your machine can work in your cu
 | **New Worktree** | A new branch and [worktree](/docs/sourcecontrol/branches-worktrees.md#understanding-worktrees) | Parallel tasks that should not modify your active workspace | Starts from committed Git state and requires you to integrate the result |
 | **Folder** | Your current folder | Small, interactive tasks that should use your current files and uncommitted changes | Agent edits appear immediately in your active workspace |
 
-When you [start a session in the {% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md#start-an-agent-session), select **New Worktree** and choose the base branch to isolate the session. If you leave **New Worktree** unselected, the agent works directly on the code in the workspace. Sessions that you start in the Chat view always use the current workspace.
+When you [start a session in the {% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md#start-an-agent-session), select **New Worktree** and choose the base branch to isolate the session. If you leave **New Worktree** unselected, the agent works directly on the code in the workspace. Sessions that you start in the {% data variables.copilot.chat_view %} always use the current workspace.
 
 ![Screenshot of the New Worktree checkbox and base branch control in the {% data variables.copilot.agents_window %}.](../images/agent-harnesses/agents-window-new-worktree.png)
 
@@ -153,7 +153,7 @@ Enter `/research` followed by a topic:
 
 For research that feeds into an implementation plan, use the [Plan agent](/docs/agents/run/planning.md). For focused research that returns results to the current conversation, use [subagents](/docs/agents/run/subagents.md).
 
-Learn more about [researching with GitHub Copilot CLI](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/research).
+Learn more about [researching with {% data variables.copilot.copilot_cli %}](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/research).
 
 ### Copilot harness limitations
 
@@ -205,14 +205,14 @@ Cloud sessions run on remote infrastructure and work with a GitHub repository. T
 
 {% data variables.product.prodname_vscode_shortname %} supports:
 
-* **GitHub Copilot cloud agent** for implementing features, addressing review feedback, and creating pull requests.
-* **Claude and Codex cloud agents** for provider-specific capabilities. Third-party cloud agents are currently in preview.
+* **{% data variables.copilot.copilot_cloud_agent %}** for implementing features, addressing review feedback, and creating pull requests.
+* **Claude and Codex {% data variables.copilot.copilot_cloud_agent_short %}s** for provider-specific capabilities. Third-party {% data variables.copilot.copilot_cloud_agent_short %}s are currently in preview.
 
-To use Claude or Codex in the cloud, turn on support in your Copilot account settings. See [Managing policies for third-party coding agents](https://docs.github.com/en/copilot/how-tos/manage-your-account/manage-policies#enabling-or-disabling-third-party-coding-agents-in-your-repositories). You don't need the provider's {% data variables.product.prodname_vscode_shortname %} extension for a cloud session.
+To use Claude or Codex in the cloud, turn on support in your Copilot account settings. See [Managing policies for third-party {% data variables.copilot.copilot_cloud_agent_short %}s](https://docs.github.com/en/copilot/how-tos/manage-your-account/manage-policies#enabling-or-disabling-third-party-coding-agents-in-your-repositories). You don't need the provider's {% data variables.product.prodname_vscode_shortname %} extension for a cloud session.
 
 ### Start a cloud session
 
-1. Open the Chat view and select **New Chat**.
+1. Open the {% data variables.copilot.chat_view %} and select **New Chat**.
 
 1. Select **Cloud** from the **Session Target** control.
 
@@ -220,7 +220,7 @@ To use Claude or Codex in the cloud, turn on support in your Copilot account set
 
 1. Enter a prompt and submit it.
 
-The session runs remotely and appears in the sessions list. Sessions that you create by assigning an issue or pull request to a cloud agent on GitHub.com also appear in {% data variables.product.prodname_vscode_shortname %}.
+The session runs remotely and appears in the sessions list. Sessions that you create by assigning an issue or pull request to a {% data variables.copilot.copilot_cloud_agent_short %} on GitHub.com also appear in {% data variables.product.prodname_vscode_shortname %}.
 
 You can also select a GitHub repository when you [start a session in the {% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md#start-an-agent-session), or [hand off an existing session](#hand-off-a-session) to a cloud harness. In a Copilot session, enter `/delegate` to continue the task in the cloud.
 
@@ -229,11 +229,11 @@ Cloud sessions use the tools, MCP servers, and models configured by the cloud se
 {% /tab %}
 {% /tabs %}
 
-## Use Copilot CLI from the terminal
+## Use {% data variables.copilot.copilot_cli_short %} from the terminal
 
-{% data variables.product.prodname_vscode_shortname %} includes a **GitHub Copilot CLI** terminal profile. Open it from the Terminal profile dropdown, run **Chat: New Copilot CLI Session** from the Command Palette (`kb(workbench.action.showCommands)`), or enter `copilot` in an integrated terminal.
+{% data variables.product.prodname_vscode_shortname %} includes a **{% data variables.copilot.copilot_cli %}** terminal profile. Open it from the Terminal profile dropdown, run **Chat: New {% data variables.copilot.copilot_cli_short %} Session** from the Command Palette (`kb(workbench.action.showCommands)`), or enter `copilot` in an integrated terminal.
 
-When you start a Copilot CLI session in the terminal, {% data variables.product.prodname_vscode_shortname %} detects it and adds it to the sessions list. Right-click an existing Copilot session and select **Resume in Terminal** to continue it from the terminal.
+When you start a {% data variables.copilot.copilot_cli_short %} session in the terminal, {% data variables.product.prodname_vscode_shortname %} detects it and adds it to the sessions list. Right-click an existing Copilot session and select **Resume in Terminal** to continue it from the terminal.
 
 ## Hand off a session
 
@@ -252,7 +252,7 @@ To hand off an ongoing session:
 {% data variables.product.prodname_vscode_shortname %} carries the conversation history and context to the selected target. The tools, permissions, and models might change because each target provides different capabilities.
 
 > [!TIP]
-> In Copilot CLI, enter `/delegate` to continue the work with a cloud agent.
+> In {% data variables.copilot.copilot_cli_short %}, enter `/delegate` to continue the work with a {% data variables.copilot.copilot_cloud_agent_short %}.
 
 ### Hand off a plan to implementation
 
@@ -270,7 +270,7 @@ The implementation agent receives the plan and conversation context and starts i
 |---|---|
 | **Hand off** | Changes the session target and carries the conversation history and context to the new target. |
 | **Fork a session** | Creates an independent session from a point in the conversation. Learn more about [forking sessions](/docs/agents/run/sessions/manage-sessions.md#fork-a-chat-session). |
-| **Switch surfaces** | Opens the same session in the [Chat view](/docs/agents/run/chat-view.md) or [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) without changing its target or context. |
+| **Switch surfaces** | Opens the same session in the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) or [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) without changing its target or context. |
 
 For background on how handoff works, see [Sessions and handoff](/docs/agents/concepts/sessions.md#hand-off-a-session).
 

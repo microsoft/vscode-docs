@@ -24,7 +24,7 @@ The cache only applies to the matching prefix of a request. As soon as the conte
 
 ## Open the Cache Explorer
 
-1. Open the Agent Debug panel by selecting the ellipsis (**...**) menu in the Chat view and selecting **Show Agent Debug Logs**.
+1. Open the Agent Debug panel by selecting the ellipsis (**...**) menu in the {% data variables.copilot.chat_view %} and selecting **Show Agent Debug Logs**.
 
 1. Select the session description in the breadcrumb at the top to go to the Summary view.
 

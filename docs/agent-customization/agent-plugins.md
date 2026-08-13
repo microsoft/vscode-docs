@@ -18,7 +18,7 @@ Keywords:
 
 Agent plugins are prepackaged bundles of agent customizations that you can discover and install from plugin marketplaces in {% data variables.product.prodname_vscode %}. Plugins work alongside your locally defined customizations. When you install a plugin, its supported customizations appear in chat.
 
-Agent Plugins is an [open standard](https://agent-plugins.org/) for packaging [agent skills](/docs/agent-customization/agent-skills.md) and [MCP servers](/docs/agent-customization/mcp-servers.md) that works across multiple AI agents, including GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}, GitHub Copilot CLI, and the {% data variables.copilot.github_copilot_app %}.
+Agent Plugins is an [open standard](https://agent-plugins.org/) for packaging [agent skills](/docs/agent-customization/agent-skills.md) and [MCP servers](/docs/agent-customization/mcp-servers.md) that works across multiple AI agents, including GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}, {% data variables.copilot.copilot_cli %}, and the {% data variables.copilot.github_copilot_app %}.
 Through its existing Copilot and Claude plugin formats, {% data variables.product.prodname_vscode_shortname %} also supports client-specific plugin capabilities, including slash commands, [custom agents](/docs/agent-customization/custom-agents.md), and [hooks](/docs/agent-customization/hooks.md).
 
 For how plugins fit into the broader set of customization options, see [Customization concepts](/docs/agents/concepts/customization.md).
@@ -92,7 +92,7 @@ Skills are discovered from the `skills/` folder, and MCP server configuration is
 For the full field constraints and validation rules, see the [Agent Plugins manifest documentation](https://agent-plugins.org/plugin-authors/manifest).
 
 > [!NOTE]
-> Existing Copilot-format plugins that don't declare the Agent Plugins schema remain supported. For their manifest fields, see the [GitHub Copilot CLI plugin reference](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-plugin-reference#pluginjson).
+> Existing Copilot-format plugins that don't declare the Agent Plugins schema remain supported. For their manifest fields, see the [{% data variables.copilot.copilot_cli %} plugin reference](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-plugin-reference#pluginjson).
 
 ## Plugin formats
 
@@ -198,7 +198,7 @@ For Claude-format plugins, use the `${CLAUDE_PLUGIN_ROOT}` token in MCP server f
 
 Plugin MCP servers appear alongside workspace and user-level MCP servers. You can manage them through the same tools:
 
-* Select **Configure Tools** in the Chat view to see tools from all MCP servers, including plugin servers.
+* Select **Configure Tools** in the {% data variables.copilot.chat_view %} to see tools from all MCP servers, including plugin servers.
 
 * Run **MCP: List Servers** from the Command Palette to view plugin servers alongside other servers.
 
@@ -327,7 +327,7 @@ You can browse and install plugins from marketplaces or directly from a Git repo
 
 {% tab label="Agent Customizations" %}
 
-1. Open the Agent Customizations editor by running **Chat: Open Customizations** from the Command Palette, selecting the gear icon in the Chat view, or selecting **Plugins** in the {% data variables.copilot.agents_window %}.
+1. Open the Agent Customizations editor by running **Chat: Open Customizations** from the Command Palette, selecting the gear icon in the {% data variables.copilot.chat_view %}, or selecting **Plugins** in the {% data variables.copilot.agents_window %}.
 
 1. Select the **Plugins** tab and select **Browse Marketplace** to browse available plugins from your [configured marketplaces](#configure-plugin-marketplaces).
 
@@ -348,9 +348,9 @@ You can install a plugin directly from a Git repository URL without adding a ful
 
 Enter a Git repository URL (for example, `https://github.com/rwoll/markdown-review`) and {% data variables.product.prodname_vscode_shortname %} clones and installs the plugin.
 
-### Plugins installed by GitHub Copilot CLI
+### Plugins installed by {% data variables.copilot.copilot_cli %}
 
-{% data variables.product.prodname_vscode_shortname %} automatically discovers plugins that you install with the [GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/plugins-finding-installing) to enable you to use them also in {% data variables.product.prodname_vscode_shortname %}. Plugins from `~/.copilot/installed-plugins/` appear in the **Agent Plugins - Installed** view alongside plugins you installed from a marketplace or from source.
+{% data variables.product.prodname_vscode_shortname %} automatically discovers plugins that you install with the [{% data variables.copilot.copilot_cli %}](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/plugins-finding-installing) to enable you to use them also in {% data variables.product.prodname_vscode_shortname %}. Plugins from `~/.copilot/installed-plugins/` appear in the **Agent Plugins - Installed** view alongside plugins you installed from a marketplace or from source.
 
 The CLI stores plugins under `~/.copilot/installed-plugins/<marketplace>/<plugin>/`. Plugins installed directly from a Git URL (rather than from a marketplace) live under the `_direct` bucket, for example `~/.copilot/installed-plugins/_direct/github--moda-linter--copilot-plugin/`.
 
@@ -360,7 +360,7 @@ The **Agent Plugins - Installed** view in the Extensions view shows the plugins 
 
 ![Screenshot of the Agent Plugins - Installed view in the Extensions view.](images/agent-plugins/installed-plugins.png)
 
-You can also manage installed plugins from the Chat view by selecting the **gear icon** > **Plugins**.
+You can also manage installed plugins from the {% data variables.copilot.chat_view %} by selecting the **gear icon** > **Plugins**.
 
 ### Enable or disable plugins
 
@@ -469,7 +469,7 @@ my-plugin/
 
 {% data variables.product.prodname_vscode_shortname %} continues to support existing Copilot, Claude, and legacy OpenPlugin formats. Plugins that don't declare the Agent Plugins schema continue to use their existing format-specific discovery rules.
 
-For details about the portable format, see the [Agent Plugins specification](https://github.com/agentplugins/agent-plugins-spec/blob/main/spec/1.0.0.md). For other formats, see the [GitHub Copilot CLI plugin reference](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-plugin-reference) and the [Claude Code plugin marketplace documentation](https://code.claude.com/docs/en/plugin-marketplaces).
+For details about the portable format, see the [Agent Plugins specification](https://github.com/agentplugins/agent-plugins-spec/blob/main/spec/1.0.0.md). For other formats, see the [{% data variables.copilot.copilot_cli %} plugin reference](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-plugin-reference) and the [Claude Code plugin marketplace documentation](https://code.claude.com/docs/en/plugin-marketplaces).
 
 ## Troubleshooting
 
@@ -499,5 +499,5 @@ This can happen when a previous install left cached data. Delete the cached plug
 
 ## Related resources
 
-* [Finding and installing plugins for GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/plugins-finding-installing)
-* [GitHub Copilot CLI plugin reference](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-plugin-reference)
+* [Finding and installing plugins for {% data variables.copilot.copilot_cli %}](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/plugins-finding-installing)
+* [{% data variables.copilot.copilot_cli %} plugin reference](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-plugin-reference)

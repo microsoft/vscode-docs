@@ -6,7 +6,7 @@ MetaSocialImage: ../../../images/shared/github-copilot-social.png
 ---
 # Sync and query session history
 
-{% data variables.product.prodname_vscode_shortname %} maintains a searchable history of your Copilot sessions. By default, it syncs local agent sessions to your GitHub account so you can access them across devices, share selected sessions, and query work from {% data variables.product.prodname_vscode_shortname %}, Copilot CLI, coding agent, code review, and the GitHub Copilot Desktop app.
+{% data variables.product.prodname_vscode_shortname %} maintains a searchable history of your Copilot sessions. By default, it syncs local agent sessions to your GitHub account so you can access them across devices, share selected sessions, and query work from {% data variables.product.prodname_vscode_shortname %}, {% data variables.copilot.copilot_cli_short %}, {% data variables.copilot.copilot_cloud_agent_short %}, code review, and the GitHub Copilot Desktop app.
 
 Synced sessions are private unless you explicitly share them.
 
@@ -51,7 +51,7 @@ Recipients can view the session's prompts, responses, and file changes, but cann
 
 ## Session sync status
 
-The session sync status appears in the Copilot status bar in the Chat view. It shows the current state of cloud sync:
+The session sync status appears in the Copilot status bar in the {% data variables.copilot.chat_view %}. It shows the current state of cloud sync:
 
 | State | Description |
 |-------|-------------|

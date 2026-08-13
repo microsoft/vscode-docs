@@ -7,8 +7,7 @@ Keywords:
 - ai
 - agents
 - background
-- cloud agent
-- copilot coding agent
+- {% data variables.copilot.copilot_cloud_agent_short %}
 - Copilot
 - tutorial
 ---
@@ -35,7 +34,7 @@ To complete this tutorial, you need:
 
 * [AI features enabled in {% data variables.product.prodname_vscode_shortname %}](/docs/getstarted/overview.md#enable-ai-features)
 
-* [A GitHub account](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github) (for cloud agent workflow)
+* [A GitHub account](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github) (for {% data variables.copilot.copilot_cloud_agent_short %} workflow)
 
 ## Step 1: Use a local agent to scaffold an app
 
@@ -51,7 +50,7 @@ In this step, you use a local agent to create the initial todo app structure. Lo
 
 1. Open the project folder in {% data variables.product.prodname_vscode_shortname %}.
 
-1. Open the Chat view (`kb(workbench.action.chat.open)`) and select **Agent** from the Agents dropdown.
+1. Open the {% data variables.copilot.chat_view %} (`kb(workbench.action.chat.open)`) and select **Agent** from the Agents dropdown.
 
     Optionally, choose a specific language model if you have a preference.
 
@@ -88,7 +87,7 @@ In this step, you use the Plan agent to create an implementation plan for a them
 
 1. First, commit your current changes in the Source Control view to have a clean state.
 
-1. In the Chat view, select **New Chat (+)** > **New Chat** to start a new local agent session. Notice that your previous chat session is preserved in the sessions list.
+1. In the {% data variables.copilot.chat_view %}, select **New Chat (+)** > **New Chat** to start a new local agent session. Notice that your previous chat session is preserved in the sessions list.
 
 1. Select **Plan** from the Agents dropdown to switch to the plan agent and enter the following prompt:
 
@@ -100,7 +99,7 @@ In this step, you use the Plan agent to create an implementation plan for a them
 
 1. When you're ready, select **Start Implementation** > **Continue in Copilot** to hand off the plan to Copilot.
 
-    ![Screenshot showing the Start Implementation button in the Chat view.](images/agents-tutorial/plan-agent-start-implementation-cli.png)
+    ![Screenshot showing the Start Implementation button in the {% data variables.copilot.chat_view %}.](images/agents-tutorial/plan-agent-start-implementation-cli.png)
 
 1. Copilot creates a Git worktree from the committed state of the base branch and starts implementing the feature there. Because you committed the todo app before the handoff, Copilot can access those files.
 
@@ -118,44 +117,44 @@ In this step, you use the Plan agent to create an implementation plan for a them
     > [!TIP]
     > You can send follow-up prompts to Copilot to make adjustments or improvements to the feature.
 
-1. In the Chat view, select **Apply** to apply the changes to your main workspace.
+1. In the {% data variables.copilot.chat_view %}, select **Apply** to apply the changes to your main workspace.
 
 You've successfully used Copilot to perform a task autonomously in the background. You can start multiple Copilot sessions for different tasks without interrupting your main workflow.
 
-## Step 3: Use a cloud agent to collaborate on a feature
+## Step 3: Use a {% data variables.copilot.copilot_cloud_agent_short %} to collaborate on a feature
 
-In this step, you use a cloud agent (Copilot cloud agent) to redesign the app layout and use pull requests and collaboration features in GitHub. Copilot cloud agent runs on remote infrastructure and are ideal for tasks that don't require immediate feedback, don't need to run locally, or involve collaboration through GitHub.
+In this step, you use a {% data variables.copilot.copilot_cloud_agent_short %} ({% data variables.copilot.copilot_cloud_agent %}) to redesign the app layout and use pull requests and collaboration features in GitHub. {% data variables.copilot.copilot_cloud_agent %} runs on remote infrastructure and are ideal for tasks that don't require immediate feedback, don't need to run locally, or involve collaboration through GitHub.
 
-1. First, publish the project to a GitHub repository and add it as a remote to use Copilot cloud agent on your project.
+1. First, publish the project to a GitHub repository and add it as a remote to use {% data variables.copilot.copilot_cloud_agent %} on your project.
 
     1. Run the **Publish to GitHub** command from the Command Palette (`kb(workbench.action.showCommands)`) and follow the prompts to create a new repository.
 
     1. Run the **Git: Add Remote** command from the Command Palette and follow the prompts to add your GitHub repository as a remote.
 
-1. In the Chat view, select **New Chat (+)** > **New Chat**.
+1. In the {% data variables.copilot.chat_view %}, select **New Chat (+)** > **New Chat**.
 
-1. Select **Cloud** from the session type dropdown to switch to a cloud agent and enter the following prompt:
+1. Select **Cloud** from the session type dropdown to switch to a {% data variables.copilot.copilot_cloud_agent_short %} and enter the following prompt:
 
     ```text
     Redesign the todo app layout to improve user experience. Update colors, spacing, typography, and add animations to give it a modern look.
     ```
 
-1. The cloud agent starts a new session to work on your request. It creates a branch and pull request in your GitHub repository.
+1. The {% data variables.copilot.copilot_cloud_agent_short %} starts a new session to work on your request. It creates a branch and pull request in your GitHub repository.
 
-    <video src="images/agents-tutorial/cloud-agent-redesign-todo-app-v2.mp4" alt="Video showing a cloud agent redesigning a todo app in {% data variables.product.prodname_vscode_shortname %}." muted loop controls></video>
+    <video src="images/agents-tutorial/cloud-agent-redesign-todo-app-v2.mp4" alt="Video showing a {% data variables.copilot.copilot_cloud_agent_short %} redesigning a todo app in {% data variables.product.prodname_vscode_shortname %}." muted loop controls></video>
 
-1. You can track the cloud agent in the **Sessions** view in the Chat view or select the link to view the pull request details.
+1. You can track the {% data variables.copilot.copilot_cloud_agent_short %} in the **Sessions** view in the {% data variables.copilot.chat_view %} or select the link to view the pull request details.
 
     > [!TIP]
     > If you have the GitHub Pull Requests extension installed, you can also track the pull request progress in the **Copilot on my Behalf** view in the GitHub Pull Requests view.
 
-1. Once completed, the cloud agent assigns the pull request to you for review.
+1. Once completed, the {% data variables.copilot.copilot_cloud_agent_short %} assigns the pull request to you for review.
 
-    ![Screenshot showing the cloud agent session details, with the file change details.](images/agents-tutorial/cloud-agent-pull-request.png)
+    ![Screenshot showing the {% data variables.copilot.copilot_cloud_agent_short %} session details, with the file change details.](images/agents-tutorial/cloud-agent-pull-request.png)
 
-1. Right-click the cloud agent session in the **Sessions** view to view additional options or select the session and choose **Checkout** or **Apply**.
+1. Right-click the {% data variables.copilot.copilot_cloud_agent_short %} session in the **Sessions** view to view additional options or select the session and choose **Checkout** or **Apply**.
 
-You've successfully used a cloud agent to collaborate on a feature using GitHub. Cloud agents enable you to use remote resources and collaborate on changes through GitHub issues and pull requests.
+You've successfully used a {% data variables.copilot.copilot_cloud_agent_short %} to collaborate on a feature using GitHub. {% data variables.copilot.copilot_cloud_agent_short_cap_c %}s enable you to use remote resources and collaborate on changes through GitHub issues and pull requests.
 
 ## Next steps
 

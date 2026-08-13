@@ -6,10 +6,10 @@ MetaSocialImage: ../../../images/shared/github-copilot-social.png
 ---
 # Manage agent sessions in {% data variables.product.prodname_vscode_shortname %}
 
-A [session](/docs/agents/concepts/sessions.md) is the unit of work with an agent in {% data variables.product.prodname_vscode %}. It includes the sequence of prompts and responses, relevant context, and any files or resources associated with the task. This article describes how to create, organize, and manage sessions in both the [Chat view](/docs/agents/run/chat-view.md) and the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md).
+A [session](/docs/agents/concepts/sessions.md) is the unit of work with an agent in {% data variables.product.prodname_vscode %}. It includes the sequence of prompts and responses, relevant context, and any files or resources associated with the task. This article describes how to create, organize, and manage sessions in both the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) and the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
-Follow a hands-on tutorial to experience local, background, and cloud agents in {% data variables.product.prodname_vscode_shortname %}.
+Follow a hands-on tutorial to experience local, background, and {% data variables.copilot.copilot_cloud_agent_short %}s in {% data variables.product.prodname_vscode_shortname %}.
 
 * [Start agent handoff tutorial](/docs/agents/agents-handoff-tutorial.md)
 
@@ -56,15 +56,15 @@ To start a new chat session in the {% data variables.copilot.agents_window %}:
 1. Type your prompt and press `kb(workbench.action.chat.submit)` to submit it. The agent's response appears in the chat area, and the agent may take actions such as editing files, running commands, or asking follow-up questions.
 
 {% /tab %}
-{% tab label="Chat view" %}
+{% tab label="{% data variables.copilot.chat_view %}" %}
 
-The [Chat view](/docs/agents/run/chat-view.md) is a chat panel that sits in the sidebar alongside your workspace editor tabs. Agents assist you with coding tasks, while you have full access to {% data variables.product.prodname_vscode_shortname %}'s rich coding experience. The Chat view is optimized for **code-first workflows**.
+The [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) is a chat panel that sits in the sidebar alongside your workspace editor tabs. Agents assist you with coding tasks, while you have full access to {% data variables.product.prodname_vscode_shortname %}'s rich coding experience. The {% data variables.copilot.chat_view %} is optimized for **code-first workflows**.
 
-![Screenshot of opening a new chat session in the Chat view in {% data variables.product.prodname_vscode_shortname %}.](../../images/chat-sessions/new-chat-session-chat-view.png)
+![Screenshot of opening a new chat session in the {% data variables.copilot.chat_view %} in {% data variables.product.prodname_vscode_shortname %}.](../../images/chat-sessions/new-chat-session-chat-view.png)
 
-To start a new chat session in the Chat view:
+To start a new chat session in the {% data variables.copilot.chat_view %}:
 
-1. Open the Chat view by selecting the **Chat** icon in the {% data variables.product.prodname_vscode_shortname %} title bar.
+1. Open the {% data variables.copilot.chat_view %} by selecting the **Chat** icon in the {% data variables.product.prodname_vscode_shortname %} title bar.
 
 1. Create an empty session by selecting the **New Chat** (`+`) button.
 
@@ -91,7 +91,7 @@ To start a new chat session in the Chat view:
 
 The context window control in the chat input shows how much of the model's context window the session is using. Hover over the control to see the token count, a usage breakdown by category, and the total AI credits consumed by the session.
 
-![Screenshot of {% data variables.product.prodname_vscode_shortname %} Chat view, showing the context window usage control in the chat input box.](../../../chat/images/copilot-chat/chat-context-window-control.png)
+![Screenshot of {% data variables.product.prodname_vscode_shortname %} {% data variables.copilot.chat_view %}, showing the context window usage control in the chat input box.](../../../chat/images/copilot-chat/chat-context-window-control.png)
 
 As the conversation grows, the control updates to reflect increasing context usage. The available context depends on the selected model.
 
@@ -160,7 +160,7 @@ Each question creates a new side chat. The side chat inherits the agent and lang
 ![Screenshot showing how to start a side chat in the {% data variables.copilot.agents_window %} from selected response text.](../../images/agents-window/agents-window-side-chat.png)
 
 > [!NOTE]
-> Side chats are available only in the {% data variables.copilot.agents_window %} for Copilot and Claude sessions. They aren't available for Codex sessions or in the Chat view.
+> Side chats are available only in the {% data variables.copilot.agents_window %} for Copilot and Claude sessions. They aren't available for Codex sessions or in the {% data variables.copilot.chat_view %}.
 
 ## Sessions list
 
@@ -196,19 +196,19 @@ You can also drag sessions up or down to reorder them, drag group and workspace 
 You can hide the left sidebar by selecting the **Toggle Sidebar** button in the top-left corner of the {% data variables.copilot.agents_window %} or by using the `kb(workbench.action.toggleSidebarVisibility)` keyboard shortcut.
 
 {% /tab %}
-{% tab label="Chat view" %}
+{% tab label="{% data variables.copilot.chat_view %}" %}
 
-In the **Chat view**, the sessions list is scoped to your current workspace and groups sessions by time period, such as **Today** or **Last Week**. If you don't have a workspace open, the list shows all sessions across your workspaces.
+In the **{% data variables.copilot.chat_view %}**, the sessions list is scoped to your current workspace and groups sessions by time period, such as **Today** or **Last Week**. If you don't have a workspace open, the list shows all sessions across your workspaces.
 
 By default, the list is filtered to only show active sessions. You can change the filter to show sessions of different states, such as completed or archived.
 
-To hide the session list from the Chat view, right-click in an empty chat and unselect **Show Sessions** or use the `setting(chat.viewSessions.enabled)` setting.
+To hide the session list from the {% data variables.copilot.chat_view %}, right-click in an empty chat and unselect **Show Sessions** or use the `setting(chat.viewSessions.enabled)` setting.
 
-The Chat view operates in two modes: compact and side-by-side. You can manually switch between compact and side-by-side mode by using the toggle control in the top-right corner of the Chat view.
+The {% data variables.copilot.chat_view %} operates in two modes: compact and side-by-side. You can manually switch between compact and side-by-side mode by using the toggle control in the top-right corner of the {% data variables.copilot.chat_view %}.
 
-* **Compact**: The list of sessions is embedded in the Chat view. When you select a session from the list, the Chat view switches to that session. Use the back button to return to the sessions list.
+* **Compact**: The list of sessions is embedded in the {% data variables.copilot.chat_view %}. When you select a session from the list, the {% data variables.copilot.chat_view %} switches to that session. Use the back button to return to the sessions list.
 
-* **Side-by-side**: The list of sessions is shown side-by-side with the Chat view. Select a session from the list to view its details in the Chat view. You can further configure the orientations with the `setting(chat.viewSessions.orientation)` setting.
+* **Side-by-side**: The list of sessions is shown side-by-side with the {% data variables.copilot.chat_view %}. Select a session from the list to view its details in the {% data variables.copilot.chat_view %}. You can further configure the orientations with the `setting(chat.viewSessions.orientation)` setting.
 
 > [!NOTE]
 > Extension developers can learn how to integrate with the sessions view by using the proposed API [`chatSessionsProvider`](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.chatSessionsProvider.d.ts). The API is currently in a proposed state and subject to change.
@@ -222,11 +222,11 @@ To keep the sessions list organized, archive or mark sessions as done when they'
 
 When you archive (or mark as done) a session, its status changes so it moves out of the active sessions list. For a worktree session, {% data variables.product.prodname_vscode_shortname %} commits uncommitted changes to the session branch before it removes the worktree folder. If {% data variables.product.prodname_vscode_shortname %} can't preserve the changes or remove the worktree, the worktree remains. The branch and its commits are preserved, so restoring the session re-creates the worktree from that branch.
 
-To archive a session, hover over the session in the sessions list and select the **Archive** (Chat view) or **Mark as Done** (Agents Window) option.
+To archive a session, hover over the session in the sessions list and select the **Archive** ({% data variables.copilot.chat_view %}) or **Mark as Done** (Agents Window) option.
 
 ![Screenshot of archiving an agent session in the sessions view.](../../images/agents-overview/agent-sessions-archive-v2.png)
 
-To view your archived sessions, use the filter options in the sessions list and select the **Archived** (Chat view) or **Done** (Agents Window) filter.
+To view your archived sessions, use the filter options in the sessions list and select the **Archived** ({% data variables.copilot.chat_view %}) or **Done** (Agents Window) filter.
 
 ## Delete sessions
 
@@ -253,7 +253,7 @@ There are two ways to fork a chat session:
 
 * **Fork from a checkpoint**: hover over a chat request in the conversation and select the **Fork Conversation** button. The fork includes only the requests up to and including that checkpoint.
 
-    ![Screenshot of the Fork Conversation button in the checkpoint toolbar in the Chat view.](../../images/chat-checkpoints/chat-fork-conversation.png)
+    ![Screenshot of the Fork Conversation button in the checkpoint toolbar in the {% data variables.copilot.chat_view %}.](../../images/chat-checkpoints/chat-fork-conversation.png)
 
 > [!TIP]
 > A forked session inherits the conversation history of the original, which preserves the prompt cache and reduces cost on the next request. Use the [Cache Explorer](/docs/agents/agent-troubleshooting/cache-explorer.md) to compare cache hit rates across sessions.
@@ -288,7 +288,7 @@ You can export a chat session to save it for later reference or share it with ot
 
 To export a chat session:
 
-1. Open the chat session you want to export in the Chat view.
+1. Open the chat session you want to export in the {% data variables.copilot.chat_view %}.
 
 1. Run the **Chat: Export Chat...** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
@@ -296,7 +296,7 @@ To export a chat session:
 
 ### Copy chat messages as Markdown
 
-The Chat view supports different options for copying chat messages as Markdown to the clipboard, available through the context menu when you right-click a message or the chat background.
+The {% data variables.copilot.chat_view %} supports different options for copying chat messages as Markdown to the clipboard, available through the context menu when you right-click a message or the chat background.
 
 * **Copy**: Copy an individual prompt or response to the clipboard - the Markdown contains the response text, thinking steps, and tool calls.
 

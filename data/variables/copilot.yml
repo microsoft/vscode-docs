@@ -51,3 +51,6 @@ next_edit_suggestions_caps: 'Next edit suggestions'
 
 ## Agents window
 agents_window: 'Agents window'
+
+## Chat view
+chat_view: 'Chat view'

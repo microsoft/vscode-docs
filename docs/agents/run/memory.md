@@ -104,14 +104,14 @@ If either condition isn't met, repository memory falls back to local file storag
 > [!NOTE]
 > {% data variables.copilot.copilot_memory %} is in preview and is separate from the local memory tool described above.
 
-[{% data variables.copilot.copilot_memory %}](https://docs.github.com/copilot/how-tos/use-copilot-agents/copilot-memory) is a GitHub-hosted memory system that lets Copilot learn and retain repository-specific insights as it works. {% data variables.copilot.copilot_memory %} is shared across multiple GitHub Copilot surfaces, including Copilot cloud agent, Copilot code review, and Copilot CLI. The Copilot agent that runs on the [Agent Host](/docs/agents/concepts/agent-host.md) uses {% data variables.copilot.copilot_memory %} as part of this same Copilot ecosystem.
+[{% data variables.copilot.copilot_memory %}](https://docs.github.com/copilot/how-tos/use-copilot-agents/copilot-memory) is a GitHub-hosted memory system that lets Copilot learn and retain repository-specific insights as it works. {% data variables.copilot.copilot_memory %} is shared across multiple GitHub Copilot surfaces, including {% data variables.copilot.copilot_cloud_agent %}, Copilot code review, and {% data variables.copilot.copilot_cli_short %}. The Copilot agent that runs on the [Agent Host](/docs/agents/concepts/agent-host.md) uses {% data variables.copilot.copilot_memory %} as part of this same Copilot ecosystem.
 
 ### How {% data variables.copilot.copilot_memory %} works
 
 As Copilot agents work in your repositories, they automatically capture tightly scoped insights called "memories". These memories are:
 
 * **Repository-scoped**: memories are tied to a specific repository and can only be created by contributors with write access.
-* **Cross-agent**: what one Copilot agent learns is available to other agents. For example, a pattern discovered by Copilot code review can later guide Copilot cloud agent.
+* **Cross-agent**: what one Copilot agent learns is available to other agents. For example, a pattern discovered by Copilot code review can later guide {% data variables.copilot.copilot_cloud_agent %}.
 * **Verified before use**: agents validate memories against the current codebase before applying them, preventing stale or incorrect information from affecting results.
 * **Automatically expired**: memories are deleted after 28 days to avoid outdated information.
 
@@ -132,7 +132,7 @@ For detailed setup instructions, see [Enabling and curating {% data variables.co
 |---|---|---|
 | **Storage** | Local (user and session); repository memory is local by default, or in {% data variables.copilot.copilot_memory %} when enabled | GitHub-hosted (remote) |
 | **Scopes** | User, repository, session | Repository only |
-| **Shared across Copilot surfaces** | User and session are {% data variables.product.prodname_vscode_shortname %} only; repository memory is shared when backed by {% data variables.copilot.copilot_memory %} | Yes (coding agent, code review, CLI) |
+| **Shared across Copilot surfaces** | User and session are {% data variables.product.prodname_vscode_shortname %} only; repository memory is shared when backed by {% data variables.copilot.copilot_memory %} | Yes ({% data variables.copilot.copilot_cloud_agent_short %}, code review, CLI) |
 | **Created by** | You or the agent during chat | Copilot agents automatically |
 | **Enabled by default** | Yes (repository sync to {% data variables.copilot.copilot_memory %} is opt-in) | No (opt-in) |
 | **Expiration** | Manual management | Automatic (28 days) |

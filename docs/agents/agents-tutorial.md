@@ -1,14 +1,14 @@
 ---
 ContentId: 72ad9b70-5227-4032-81d7-6aec00a1e8f8
 DateApproved: 8/5/2026
-MetaDescription: Get started with agentic coding in {% data variables.product.prodname_vscode %}. Build an app from a prompt with the {% data variables.copilot.agents_window %} and the Chat view, and learn the {% data variables.product.prodname_vscode_shortname %} basics.
+MetaDescription: Get started with agentic coding in {% data variables.product.prodname_vscode %}. Build an app from a prompt with the {% data variables.copilot.agents_window %} and the {% data variables.copilot.chat_view %}, and learn the {% data variables.product.prodname_vscode_shortname %} basics.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Tutorial: Agentic coding in {% data variables.product.prodname_vscode_shortname %}
 
 In this tutorial, you learn how to build with AI agents in {% data variables.product.prodname_vscode %}. Agents can plan a solution, create and edit multiple files, run commands, and fix their own errors, all from a single natural-language prompt. You describe what you want, and the agent does the work.
 
-You start in the **{% data variables.copilot.agents_window %}**, a dedicated surface for an agent-first workflow. Then you switch to the **Chat view**, where an agent assists you while you work in the editor. Along the way, you pick up the {% data variables.product.prodname_vscode_shortname %} basics you need, like opening a workspace, using the integrated browser, and committing your changes with source control.
+You start in the **{% data variables.copilot.agents_window %}**, a dedicated surface for an agent-first workflow. Then you switch to the **{% data variables.copilot.chat_view %}**, where an agent assists you while you work in the editor. Along the way, you pick up the {% data variables.product.prodname_vscode_shortname %} basics you need, like opening a workspace, using the integrated browser, and committing your changes with source control.
 
 You build a simple personal portfolio page with HTML, CSS, and JavaScript. The page is fully static, so you don't need to install any runtimes or build tools to follow along.
 
@@ -169,14 +169,14 @@ Before you commit the agent's work, you might want to review the code changes th
 
 ## Continue working with agents in the editor
 
-<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Explore the Chat view">
-You can use the Chat view alongside your editor to let agents assist you with coding tasks in your active workspace.
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Explore the {% data variables.copilot.chat_view %}">
+You can use the {% data variables.copilot.chat_view %} alongside your editor to let agents assist you with coding tasks in your active workspace.
 
-* [Learn about the Chat view](/docs/agents/run/chat-view.md)
+* [Learn about the {% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md)
 
 </div>
 
-For some changes, you might prefer a code-first approach, where your focus is on writing code and Copilot assists you in the process. For example, you might want to add a theme switcher and fine-tune the styles as you go. For this approach, continue the same Copilot session in the Chat view.
+For some changes, you might prefer a code-first approach, where your focus is on writing code and Copilot assists you in the process. For example, you might want to add a theme switcher and fine-tune the styles as you go. For this approach, continue the same Copilot session in the {% data variables.copilot.chat_view %}.
 
 ### Open the editor for your workspace
 
@@ -184,17 +184,17 @@ For some changes, you might prefer a code-first approach, where your focus is on
 
     ![Screenshot of the Open in Editor button in the {% data variables.copilot.agents_window %} title bar.](images/getting-started/open-in-editor-button.png)
 
-    This opens a new {% data variables.product.prodname_vscode_shortname %} window with your workspace. The Chat view is still open in the right sidebar, so you can interact with agents while you work in the editor.
+    This opens a new {% data variables.product.prodname_vscode_shortname %} window with your workspace. The {% data variables.copilot.chat_view %} is still open in the right sidebar, so you can interact with agents while you work in the editor.
 
 1. Notice that the left sidebar shows the **Explorer** view, which displays the files in your workspace. Select a file to open it in an editor tab in the main area.
 
-    ![Screenshot of the editor showing the Explorer view with the portfolio files and the Chat view with the active agent session.](images/getting-started/explorer-and-chat-view.png)
+    ![Screenshot of the editor showing the Explorer view with the portfolio files and the {% data variables.copilot.chat_view %} with the active agent session.](images/getting-started/explorer-and-chat-view.png)
 
-    The Chat view in the right sidebar shows the ongoing agent session you created previously in the {% data variables.copilot.agents_window %}.
+    The {% data variables.copilot.chat_view %} in the right sidebar shows the ongoing agent session you created previously in the {% data variables.copilot.agents_window %}.
 
-### Continue the session from the Chat view
+### Continue the session from the {% data variables.copilot.chat_view %}
 
-The Chat view is located in the Secondary Side Bar, alongside your editor tabs. The same Copilot session remains active when you move between the {% data variables.copilot.agents_window %} and the editor.
+The {% data variables.copilot.chat_view %} is located in the Secondary Side Bar, alongside your editor tabs. The same Copilot session remains active when you move between the {% data variables.copilot.agents_window %} and the editor.
 
 1. Enter the following prompt in the chat input and press `kbstyle(Enter)`:
 
@@ -206,7 +206,7 @@ The Chat view is located in the Secondary Side Bar, alongside your editor tabs. 
 
 1. Open the **Source Control** view to review the files that Copilot changed. Select a file to inspect its diff.
 
-    You can also select a changed file in the Chat view to open its diff.
+    You can also select a changed file in the {% data variables.copilot.chat_view %} to open its diff.
 
 1. Select the `index.html` file and select the **Open in Integrated Browser** (globe) button in the title bar.
 
@@ -216,7 +216,7 @@ The Chat view is located in the Secondary Side Bar, alongside your editor tabs. 
     * Resize the browser to a narrow width and verify that the content remains readable and the project cards adapt to the available space.
     * Use `kbstyle(Tab)` to focus the theme switcher, and then use `kbstyle(Enter)` or `kbstyle(Space)` to toggle the theme.
 
-1. If a check fails, describe what you observed to Copilot in the Chat view. For example:
+1. If a check fails, describe what you observed to Copilot in the {% data variables.copilot.chat_view %}. For example:
 
     ```prompt
     The selected theme resets after I refresh the page. Persist the theme selection and verify that it is restored when the page loads.
@@ -224,7 +224,7 @@ The Chat view is located in the Secondary Side Bar, alongside your editor tabs. 
 
 1. Review the final changes in the **Source Control** view and commit them to your Git repository.
 
-Congratulations! You built a portfolio page with Copilot by using both an agent-first and code-first approach. You continued the same session across the {% data variables.copilot.agents_window %} and the Chat view, and used the integrated browser to preview and validate the result.
+Congratulations! You built a portfolio page with Copilot by using both an agent-first and code-first approach. You continued the same session across the {% data variables.copilot.agents_window %} and the {% data variables.copilot.chat_view %}, and used the integrated browser to preview and validate the result.
 
 ## Next steps
 
@@ -241,4 +241,4 @@ To go deeper with agentic coding in {% data variables.product.prodname_vscode %}
 
 * [Learn more about the {% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md)
 
-* [Learn more about the Chat view](/docs/agents/run/chat-view.md)
+* [Learn more about the {% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md)

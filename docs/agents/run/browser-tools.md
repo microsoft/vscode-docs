@@ -61,7 +61,7 @@ The agent chooses tools based on your prompt and the available context. You can 
 
 Browser tools are enabled by default with the `setting(workbench.browser.enableChatTools)` setting.
 
-1. Start a new agent session in the Chat view or the {% data variables.copilot.agents_window %}.
+1. Start a new agent session in the {% data variables.copilot.chat_view %} or the {% data variables.copilot.agents_window %}.
 
 1. Ask the agent to start or locate your web application, test a specific user flow, and report the result.
 

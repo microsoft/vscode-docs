@@ -134,7 +134,7 @@ You can reference other files by using Markdown links, for example to reuse inst
 
 To reference agent tools in the body text, use the `#tool:<tool-name>` syntax. For example, to reference the `fetch` tool, use `#tool:web/fetch`.
 
-When you select the custom agent in the Chat view, the guidelines in the custom agent file body are prepended to the user chat prompt.
+When you select the custom agent in the {% data variables.copilot.chat_view %}, the guidelines in the custom agent file body are prepended to the user chat prompt.
 
 ### Examples
 
@@ -257,7 +257,7 @@ You can create a custom agent file in your workspace or user profile.
 > [!TIP]
 > Type `/agents` in the chat input to quickly open the **Configure Custom Agents** menu.
 
-1. In the Chat view, select **Configure Chat** (gear icon) to open the Agent Customizations editor and then select the **Agents** tab.
+1. In the {% data variables.copilot.chat_view %}, select **Configure Chat** (gear icon) to open the Agent Customizations editor and then select the **Agents** tab.
 
 1. Select **New Agent (Workspace)** or **New Agent (User)** from the dropdown, depending on where you want to store the agent file.
 
@@ -334,7 +334,7 @@ To identify the source of a custom agent:
 1. Hover over the custom agent in the list. The source location is displayed in a tooltip.
 
 > [!TIP]
-> Use the chat customization diagnostics view to see all loaded custom agents, prompt files, instruction files, and skills along with any errors. Right-click in the Chat view and select **Diagnostics**. Learn more about [troubleshooting AI in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/agent-troubleshooting/troubleshooting.md).
+> Use the chat customization diagnostics view to see all loaded custom agents, prompt files, instruction files, and skills along with any errors. Right-click in the {% data variables.copilot.chat_view %} and select **Diagnostics**. Learn more about [troubleshooting AI in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/agent-troubleshooting/troubleshooting.md).
 
 ## Security considerations
 

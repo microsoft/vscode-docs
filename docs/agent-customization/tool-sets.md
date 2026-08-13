@@ -23,7 +23,7 @@ To create a tool set:
 
 1. Run **Chat: Configure Tool Sets** from the Command Palette and select **Create new tool sets file**.
 
-    Alternatively, select the ellipsis (**...**) menu in the Chat view, select **Tool Sets**, and then select **Create new tool sets file**.
+    Alternatively, select the ellipsis (**...**) menu in the {% data variables.copilot.chat_view %}, select **Tool Sets**, and then select **Create new tool sets file**.
 
 1. Define your tool set in the `.jsonc` file that opens.
 

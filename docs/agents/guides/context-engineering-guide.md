@@ -156,7 +156,7 @@ With a [custom agent](/docs/agent-customization/custom-agents.md) for planning, 
     3. Pause for review: Based on user feedback or questions, iterate and refine the plan as needed.
     ```
 
-1. You can now select the **plan** custom agent in the Chat view, and enter a task for implementing a new feature. It will generate a response that contains the implementation plan based on the provided template.
+1. You can now select the **plan** custom agent in the {% data variables.copilot.chat_view %}, and enter a task for implementing a new feature. It will generate a response that contains the implementation plan based on the provided template.
 
     For example, enter the following prompt to create an implementation plan for a new feature: `Add user authentication with email and password, including registration, login, logout, and password reset functionality`.
 
@@ -174,7 +174,7 @@ With a [custom agent](/docs/agent-customization/custom-agents.md) for planning, 
     Briefly analyze my feature request, then ask me 3 questions to clarify the requirements. Only then start the planning workflow.
     ```
 
-1. In the Chat view, enter the `/plan-qna` slash command to invoke the clarifying planning prompt and provide details about the feature you want to implement in your prompt.
+1. In the {% data variables.copilot.chat_view %}, enter the `/plan-qna` slash command to invoke the clarifying planning prompt and provide details about the feature you want to implement in your prompt.
 
     For example, enter the following prompt: `/plan-qna add a customer details page for displaying and editing customer information`
 

@@ -35,7 +35,7 @@ Follow these steps to install an MCP server and use its tools in chat. This exam
 
 1. When prompted, confirm that you trust the server to start it. {% data variables.product.prodname_vscode_shortname %} discovers the server's tools and makes them available in chat.
 
-1. Open the Chat view (`kb(workbench.action.chat.open)`) and enter a prompt that uses the Playwright tools. For example:
+1. Open the {% data variables.copilot.chat_view %} (`kb(workbench.action.chat.open)`) and enter a prompt that uses the Playwright tools. For example:
 
     ```prompt
     Go to code.visualstudio.com, decline the cookie banner, and give me a screenshot of the homepage.
@@ -158,7 +158,7 @@ Beyond tools, MCP servers can provide other capabilities:
 
 | Capability | Description | How to use |
 |------------|-------------|------------|
-| **Resources** | Access data from MCP servers as context in your prompts, such as files, database tables, or API responses. Resources provide read-only context that you attach to a chat request. | In the Chat view, select **Add Context** > **MCP Resources**. You can also use the **MCP: Browse Resources** command. |
+| **Resources** | Access data from MCP servers as context in your prompts, such as files, database tables, or API responses. Resources provide read-only context that you attach to a chat request. | In the {% data variables.copilot.chat_view %}, select **Add Context** > **MCP Resources**. You can also use the **MCP: Browse Resources** command. |
 | **Prompts** | Use preconfigured prompt templates from MCP servers to standardize common tasks. Each MCP server can expose its own set of prompts tailored to its capabilities. | Type `/<MCP server>.<prompt>` in the chat input. |
 | **MCP Apps** | Get interactive UI components like forms, visualizations, and drag-and-drop lists rendered directly in chat. MCP Apps enable richer interactions beyond text responses. Learn more in the [MCP Apps blog post](https://code.visualstudio.com/blogs/2026/01/26/mcp-apps-support). | MCP Apps appear inline when an MCP server supports them. |
 
@@ -257,11 +257,11 @@ To synchronize MCP server configuration with Settings Sync:
 
 ### MCP output log
 
-When {% data variables.product.prodname_vscode_shortname %} encounters an issue with an MCP server, it shows an error indicator in the Chat view.
+When {% data variables.product.prodname_vscode_shortname %} encounters an issue with an MCP server, it shows an error indicator in the {% data variables.copilot.chat_view %}.
 
 ![MCP Server Error](images/mcp-servers/mcp-error-loading-tool.png)
 
-Select the error notification in the Chat view, and then select the **Show Output** option to view the server logs. Alternatively, run **MCP: List Servers** from the Command Palette, select the server, and then choose **Show Output**.
+Select the error notification in the {% data variables.copilot.chat_view %}, and then select the **Show Output** option to view the server logs. Alternatively, run **MCP: List Servers** from the Command Palette, select the server, and then choose **Show Output**.
 
 ![MCP Server Error Output](images/mcp-servers/mcp-server-error-output.png)
 

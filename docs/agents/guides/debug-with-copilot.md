@@ -21,7 +21,7 @@ Copilot can help with the following debugging tasks:
 
 {% data variables.product.prodname_vscode_shortname %} uses the `launch.json` file to store [debug configuration](/docs/debugtest/debugging-configuration.md). Copilot can help you create and customize this file to set up debugging for your project.
 
-1. Open the Chat view (`kb(workbench.action.chat.open)`).
+1. Open the {% data variables.copilot.chat_view %} (`kb(workbench.action.chat.open)`).
 1. Enter the `/startDebugging` command.
 1. Follow Copilot's guidance to set up debugging for your project.
 
@@ -62,7 +62,7 @@ You can use Copilot Chat to help you fix coding issues or improve your code.
 1. Open your application code file.
 
 1. Open one of these views:
-    * Chat view (`kb(workbench.action.chat.open)`)
+    * {% data variables.copilot.chat_view %} (`kb(workbench.action.chat.open)`)
     * Inline Chat (`kb(inlineChat.start)`)
 
 1. Enter a prompt like:

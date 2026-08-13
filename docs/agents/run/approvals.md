@@ -113,7 +113,7 @@ To review and selectively change individual tool approvals instead of clearing a
 
 ## URL approval
 
-When a tool attempts to access a URL, for example the `#web/fetch` tool, {% data variables.product.prodname_vscode_shortname %} uses a two-step approval process to protect you from malicious or unexpected content. Each step shows a confirmation dialog in the Chat view for your review.
+When a tool attempts to access a URL, for example the `#web/fetch` tool, {% data variables.product.prodname_vscode_shortname %} uses a two-step approval process to protect you from malicious or unexpected content. Each step shows a confirmation dialog in the {% data variables.copilot.chat_view %} for your review.
 
 * **Pre-approval: approve the request to the URL**
 

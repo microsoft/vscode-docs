@@ -1,7 +1,7 @@
 ---
 ContentId: 8b4f3c21-4e02-4a89-9f15-7a8d6b5c2e91
 DateApproved: 8/5/2026
-MetaDescription: Learn how to create custom instructions for GitHub Copilot Chat in {% data variables.product.prodname_vscode_shortname %} to ensure AI responses match your coding practices, project requirements, and development standards.
+MetaDescription: Learn how to create custom instructions for {% data variables.copilot.copilot_chat %} in {% data variables.product.prodname_vscode_shortname %} to ensure AI responses match your coding practices, project requirements, and development standards.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - customize
@@ -177,7 +177,7 @@ Instructions files are Markdown files with the `.instructions.md` extension. The
 | Field | Required | Description |
 |-------|----------|-------------|
 | `name` | No | Display name shown in the UI. Defaults to the file name. |
-| `description` | No | Short description shown on hover in the Chat view. |
+| `description` | No | Short description shown on hover in the {% data variables.copilot.chat_view %}. |
 | `applyTo` | No | Glob pattern that defines which files the instructions apply to automatically, relative to the workspace root. Use `**` to apply to all files. If not specified, the instructions are not applied automatically, but you can still add them manually to a chat request. |
 
 The body contains the instructions in Markdown format. To reference agent tools, use the `#tool:<tool-name>` syntax (for example, `#tool:web/fetch`).
@@ -204,7 +204,7 @@ To create an instructions file:
 > [!TIP]
 > Type `/instructions` in the chat input to quickly open the **Configure Instructions and Rules** menu.
 
-1. In the Chat view, select **Configure Chat** (gear icon) to open the Agent Customizations editor and then select the **Instructions** tab.
+1. In the {% data variables.copilot.chat_view %}, select **Configure Chat** (gear icon) to open the Agent Customizations editor and then select the **Instructions** tab.
 
 1. Select **New Instructions (Workspace)** or **New Instructions (User)** from the dropdown, depending on where you want to store the instructions file.
 
@@ -411,7 +411,7 @@ When multiple types of custom instructions exist, they are all provided to the A
 ### Why is my instructions file not being applied?
 
 > [!TIP]
-> Use the chat customization diagnostics view to see all loaded instruction files and any errors. Right-click in the Chat view and select **Diagnostics**. Learn more about [troubleshooting AI in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/agent-troubleshooting/troubleshooting.md).
+> Use the chat customization diagnostics view to see all loaded instruction files and any errors. Right-click in the {% data variables.copilot.chat_view %} and select **Diagnostics**. Learn more about [troubleshooting AI in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/agent-troubleshooting/troubleshooting.md).
 
 If your instructions file is not being applied, check the following:
 
@@ -432,7 +432,7 @@ To identify the source of a custom instruction file:
 1. Select **Chat: Configure Instructions** from the Command Palette (`kb(workbench.action.showCommands)`).
 1. Hover over the instruction file in the list. The source location is displayed in a tooltip.
 
-Use the chat customization diagnostics view to see all loaded instruction files and any errors. Right-click in the Chat view and select **Diagnostics**. Learn more about [troubleshooting AI in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/agent-troubleshooting/troubleshooting.md).
+Use the chat customization diagnostics view to see all loaded instruction files and any errors. Right-click in the {% data variables.copilot.chat_view %} and select **Diagnostics**. Learn more about [troubleshooting AI in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/agent-troubleshooting/troubleshooting.md).
 
 ## Related resources
 

@@ -21,9 +21,9 @@ Use the Plan agent to create a structured implementation plan for a new feature.
 
 ## How to plan a task
 
-To plan a task, use the built-in **Plan** agent in the Chat view, describe your task, and iterate on the generated plan.
+To plan a task, use the built-in **Plan** agent in the {% data variables.copilot.chat_view %}, describe your task, and iterate on the generated plan.
 
-1. Open the Chat view by pressing `kb(workbench.action.chat.open)` and select **Plan** from the agents dropdown
+1. Open the {% data variables.copilot.chat_view %} by pressing `kb(workbench.action.chat.open)` and select **Plan** from the agents dropdown
 
     Alternatively, type `/plan` followed by your task description to switch to the Plan agent and start planning in one step.
 

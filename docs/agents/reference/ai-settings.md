@@ -48,7 +48,7 @@ The team is continuously working on improving the AI features in {% data variabl
 | `setting(github.copilot.chat.useProjectTemplates)`<br/>Use relevant GitHub projects as starter projects when using `/new`. | `true` |
 | `setting(github.copilot.chat.scopeSelection)`<br/>Whether to prompt for a specific symbol scope if you use `/explain` and the active editor has no selection. | `false` |
 | `setting(github.copilot.chat.terminalChatLocation)`<br/>Controls where chat queries from the terminal should be opened. | `"chatView"` |
-| `setting(chat.detectParticipant.enabled)`<br/>Enable chat participant detection in the Chat view. | `true` |
+| `setting(chat.detectParticipant.enabled)`<br/>Enable chat participant detection in the {% data variables.copilot.chat_view %}. | `true` |
 | `setting(chat.artifacts.enabled)` _(Experimental)_<br/>Enable or disable the [artifacts panel](/docs/agents/run/artifacts.md) in the chat (preview). | `false` |
 | `setting(chat.artifacts.rules.byMimeType)` _(Experimental)_<br/>Rules for extracting artifacts from tool results by MIME type pattern. Maps MIME type patterns (such as `"image/*"`) to a group configuration. | `{ "image/*": { "groupName": "Screenshots", "onlyShowGroup": true } }` |
 | `setting(chat.artifacts.rules.byFilePath)` _(Experimental)_<br/>Rules for extracting artifacts from written files by file path glob pattern. Maps glob patterns (such as `"**/*plan*.md"`) to a group configuration. | `{ "**/*plan*.md": { "groupName": "Plans" } }` |
@@ -81,7 +81,7 @@ The team is continuously working on improving the AI features in {% data variabl
 | `setting(chat.subagents.useRichRendering)`<br/>Open each subagent in its own editor instead of showing its full activity inline in the parent chat. | `true` |
 | `setting(chat.viewTitle.enabled)` _(Preview)_<br/>Show the title of the current chat session in the chat header. | `true` |
 | `setting(github.copilot.chat.codesearch.enabled)` _(Preview)_<br/>When using `#codebase` in the prompt, the agent automatically discovers relevant files to be edited. | `false` |
-| `setting(chat.emptyState.history.enabled)` _(Experimental)_<br/>Show recent chat history in the empty state of the Chat view. | `false` |
+| `setting(chat.emptyState.history.enabled)` _(Experimental)_<br/>Show recent chat history in the empty state of the {% data variables.copilot.chat_view %}. | `false` |
 | `setting(imageCarousel.chat.enabled)` _(Experimental)_<br/>Enable the image carousel for browsing images from chat responses. Select image pills in tool results or assistant messages to open a carousel view. | `false` |
 | `setting(chat.sendElementsToChat.enabled)`<br/>Enable sending elements from the [integrated browser](/docs/debugtest/integrated-browser.md) to the chat view as context. | `true` |
 | `setting(chat.sendElementsToChat.attachCSS)`<br/>Include CSS styles when adding elements from the integrated browser to chat context. | `true` |
@@ -159,8 +159,8 @@ The [Agents view](/docs/agents/overview.md) provides a centralized location for 
 | Setting and Description | Default |
 |------------------------|---------------|
 | `setting(workbench.startupEditor)` <br/>Configure the {% data variables.product.prodname_vscode_shortname %} welcome page to act as your agent sessions entry point. Set to `agentSessionsWelcomePage` to show the [{% data variables.product.prodname_vscode_shortname %} welcome page](/docs/agents/run/sessions/manage-sessions.md#view-sessions-on-the-vs-code-welcome-page) with recent sessions, embedded chat, and quick actions. | N/A |
-| `setting(chat.viewSessions.enabled)` <br/>Show the agent sessions list in the Chat view. | `true` |
-| `setting(chat.viewSessions.orientation)` <br/>Control the layout orientation of the sessions list in the Chat view. | `"sideBySide"` |
+| `setting(chat.viewSessions.enabled)` <br/>Show the agent sessions list in the {% data variables.copilot.chat_view %}. | `true` |
+| `setting(chat.viewSessions.orientation)` <br/>Control the layout orientation of the sessions list in the {% data variables.copilot.chat_view %}. | `"sideBySide"` |
 | `setting(chat.editMode.hidden)` <br/>Restore the deprecated Edit mode for multi-file code edits. | `true` |
 | `setting(chat.agentsControl.enabled)` _(Experimental)_<br/>Enable the [session status indicator](/docs/agents/run/sessions/manage-sessions.md#session-status-indicator-experimental) in the command center. Shows unread and in-progress session badges. | `true` |
 | `setting(chat.agentsControl.clickBehavior)` _(Experimental)_<br/>Configure the behavior when selecting the chat icon in the agent status indicator. | `"cycle"` (Insiders)<br/>`"default"` (Stable) |
@@ -170,7 +170,7 @@ The [Agents view](/docs/agents/overview.md) provides a centralized location for 
 | `setting(chat.agentHost.byokModels.enabled)` _(Experimental)_<br/>Wire up the [BYOK](/docs/agent-customization/language-models.md#bring-your-own-language-model-key) language model bridge so extension-provided BYOK models can run in agent host sessions. Requires `setting(chat.agentHost.enabled)`, and the agent host process must be restarted to take effect. | `false` |
 | `setting(chat.agentHost.claudeAgent.enabled)` _(Experimental)_<br/>Register the Claude provider in the [Agent Host](/docs/agents/concepts/agent-host.md) process, so Claude sessions run on the Agent Host. Requires `setting(chat.agentHost.enabled)`, and the agent host process must be restarted to take effect. | `true` |
 | `setting(chat.agentHost.codexAgent.enabled)` _(Experimental)_<br/>Register the Codex provider in the [Agent Host](/docs/agents/concepts/agent-host.md) process. Requires `setting(chat.agentHost.enabled)`, and the agent host process must be restarted to take effect. | `false` |
-| `setting(chat.agents.claude.preferAgentHost)` _(Experimental)_<br/>Run Claude sessions opened from the {% data variables.copilot.agents_window %} on the Agent Host instead of the GitHub Copilot Chat extension. Requires `setting(chat.agentHost.enabled)`. | `true` |
+| `setting(chat.agents.claude.preferAgentHost)` _(Experimental)_<br/>Run Claude sessions opened from the {% data variables.copilot.agents_window %} on the Agent Host instead of the {% data variables.copilot.copilot_chat %} extension. Requires `setting(chat.agentHost.enabled)`. | `true` |
 | `setting(chat.editor.codex.preferAgentHost)` _(Experimental)_<br/>Run Codex sessions opened from the sidebar chat on the Agent Host instead of the OpenAI extension. Requires `setting(chat.agentHost.enabled)` and `setting(chat.agentHost.codexAgent.enabled)`. | `false` |
 
 ## Inline chat settings
@@ -178,7 +178,7 @@ The [Agents view](/docs/agents/overview.md) provides a centralized location for 
 | Setting and Description | Default |
 |------------------------|---------------|
 | `setting(inlineChat.defaultModel)`<br/>Configure the default language model for editor inline chat. The model you select persists during the session, but resets to this configured default after {% data variables.product.prodname_vscode_shortname %} reloads. | N/A |
-| `setting(inlineChat.askInChat)`<br/>When a file belongs to an active chat editing session, use "Ask in Chat" in the Chat view instead of opening regular inline chat when you press `kb(inlineChat.start)`. When disabled, always opens regular inline chat. | `true` |
+| `setting(inlineChat.askInChat)`<br/>When a file belongs to an active chat editing session, use "Ask in Chat" in the {% data variables.copilot.chat_view %} instead of opening regular inline chat when you press `kb(inlineChat.start)`. When disabled, always opens regular inline chat. | `true` |
 | `setting(inlineChat.renderMode)` _(Experimental)_<br/>Configure how inline chat is displayed. `hover`: shows inline chat in a floating overlay, `zone`: shows inline chat in a dedicated zone in the editor. | `"hover"` |
 | `setting(inlineChat.finishOnType)`<br/>Finish an editor inline chat session when typing outside of changed regions. | `false` |
 | `setting(inlineChat.holdToSpeech)`<br/>Holding the editor inline chat keyboard shortcut (`kb(inlineChat.start)`) automatically enables speech recognition. | `true` |
@@ -264,7 +264,7 @@ The [Agents view](/docs/agents/overview.md) provides a centralized location for 
 |------------------------|---------------|
 | `setting(github.copilot.chat.agentDebugLog.enabled)`<br/>Enable the [agent debug logs](/docs/agents/agent-troubleshooting/chat-debug-view.md) and the [`/troubleshoot`](/docs/agents/agent-troubleshooting/chat-debug-view.md#attach-debug-events-to-chat) slash command for inspecting chat sessions. | `false` |
 | `setting(github.copilot.chat.agentDebugLog.fileLogging.enabled)`<br/>Enable file logging for agent debug logs, which writes debug events to a file on disk. | `false` |
-| `setting(github.copilot.chat.startDebugging.enabled)` _(Preview)_<br/>Enables the experimental `/startDebugging` intent in the Chat view to generate debugging configuration. | `true` |
+| `setting(github.copilot.chat.startDebugging.enabled)` _(Preview)_<br/>Enables the experimental `/startDebugging` intent in the {% data variables.copilot.chat_view %} to generate debugging configuration. | `true` |
 | `setting(github.copilot.chat.copilotDebugCommand.enabled)` _(Preview)_<br/>Enables the `copilot-debug` terminal command. | `true` |
 
 ## Testing settings

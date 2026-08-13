@@ -25,7 +25,7 @@ To open the Agent Debug Logs panel:
 * Enable the following setting:
    * `setting(github.copilot.chat.agentDebugLog.fileLogging.enabled)`
 
-* Select the ellipsis (**...**) menu in the Chat view and select **Show Agent Debug Logs**.
+* Select the ellipsis (**...**) menu in the {% data variables.copilot.chat_view %} and select **Show Agent Debug Logs**.
 
 * Run **Developer: Open Agent Debug Logs** from the Command Palette.
 
@@ -62,7 +62,7 @@ From the Summary view, you can select **View Logs**, **Agent Flow Chart**, or **
 
 To open the Summary view:
 
-1. Open the Agent Debug panel by selecting the ellipsis (**...**) menu in the Chat view and selecting **Show Agent Debug Logs**.
+1. Open the Agent Debug panel by selecting the ellipsis (**...**) menu in the {% data variables.copilot.chat_view %} and selecting **Show Agent Debug Logs**.
 
 1. Select the session description in the breadcrumb at the top of the panel.
 
@@ -76,7 +76,7 @@ You can pan and zoom the flow chart and select any node in the flow chart to see
 
 To open the flowchart view, select **Agent Flow Chart** from the [Summary view](#summary-view).
 
-1. Open the Agent Debug panel by selecting the ellipsis (**...**) menu in the Chat view and selecting **Show Agent Debug Logs**.
+1. Open the Agent Debug panel by selecting the ellipsis (**...**) menu in the {% data variables.copilot.chat_view %} and selecting **Show Agent Debug Logs**.
 
 1. Select the session description in the breadcrumb at the top of the panel.
 
@@ -98,7 +98,7 @@ To attach debug events to chat:
 
 1. Open the [Agent Logs view](#logs-view) for your chat session
 
-1. Select the sparkle icon in the top right of the Agent Debug panel. This opens the Chat view with the debug events snapshot attached as context.
+1. Select the sparkle icon in the top right of the Agent Debug panel. This opens the {% data variables.copilot.chat_view %} with the debug events snapshot attached as context.
 
 Alternatively, you can use the `/troubleshoot` slash command to ask questions about a chat session directly, without opening the Agent Debug panel first. For example, type `/troubleshoot list all paths you tried to load customizations` or `/troubleshoot how many tokens did you use in #session`.
 
@@ -138,7 +138,7 @@ The Chat Debug view shows the raw details of each AI request and response. Use i
 
 To open the Chat Debug view:
 
-* Select the overflow menu in the Chat view and select **Show Chat Debug View**.
+* Select the overflow menu in the {% data variables.copilot.chat_view %} and select **Show Chat Debug View**.
 * Run the **Developer: Show Chat Debug View** command from the Command Palette.
 
 ![Screenshot of the Chat Debug view, showing the details of a chat request and response.](../images/chat-debug-view/chat-debug-view.png)

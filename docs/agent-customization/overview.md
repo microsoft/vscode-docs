@@ -52,9 +52,9 @@ In the left sidebar, select a customization type in the **Customizations** panel
 ![Screenshot showing the Agent Customizations panel in the {% data variables.copilot.agents_window %}, with the list of available customizations visible.](images/customization/agents-window-customizations.png)
 
 {% /tab %}
-{% tab label="Chat view" %}
+{% tab label="{% data variables.copilot.chat_view %}" %}
 
-In the Chat view, select the **Configure Chat (gear icon)** or run **Chat: Open Customizations** from the Command Palette (`kb(workbench.action.showCommands)`).
+In the {% data variables.copilot.chat_view %}, select the **Configure Chat (gear icon)** or run **Chat: Open Customizations** from the Command Palette (`kb(workbench.action.showCommands)`).
 
 ![Screenshot showing the Agent Customizations editor with customization categories in the sidebar and custom agents in the main view.](images/customization/chat-customizations-editor.png)
 
@@ -128,7 +128,7 @@ The extension uses GitHub Copilot to detect issues such as:
 Diagnostics appear in the **Problems** panel (`kb(workbench.actions.view.problems)`) with line and column locations. After the analysis completes, select **Implement Suggestions** to apply the suggested improvements.
 
 > [!TIP]
-> You can also start an analysis from chat with the `/analyze-prompt` slash command, which summarizes the diagnostics for the active customization file directly in the Chat view.
+> You can also start an analysis from chat with the `/analyze-prompt` slash command, which summarizes the diagnostics for the active customization file directly in the {% data variables.copilot.chat_view %}.
 
 For skill files, the extension integrates with the [Waza](https://github.com/microsoft/waza) evaluation framework to measure how well a skill performs against a set of test cases. Run **Chat Customizations Evaluations: Download Waza Binary** to install Waza, **Chat Customizations Evaluations: Create Waza Eval Scaffold** to generate evaluation files for the active skill, and **Chat Customizations Evaluations: Run Waza Evaluation** to run the suite. For step-by-step guidance, run **Chat Customizations Evaluations: Open Analysis and Fix User Guide**.
 
@@ -168,7 +168,7 @@ Conditions for parent repository discovery:
 
 ## Troubleshoot customization issues
 
-If your customizations aren't being applied or cause unexpected behavior, open the **Agent Debug Logs** panel to [troubleshoot agent issues](/docs/agents/agent-troubleshooting/troubleshooting.md). Run **Developer: Open Agent Debug Panel** from the Command Palette (`kb(workbench.action.showCommands)`), or in the Chat view select the ellipsis (**...**) menu and select **Show Agent Debug Logs**.
+If your customizations aren't being applied or cause unexpected behavior, open the **Agent Debug Logs** panel to [troubleshoot agent issues](/docs/agents/agent-troubleshooting/troubleshooting.md). Run **Developer: Open Agent Debug Panel** from the Command Palette (`kb(workbench.action.showCommands)`), or in the {% data variables.copilot.chat_view %} select the ellipsis (**...**) menu and select **Show Agent Debug Logs**.
 
 ## Related resources
 

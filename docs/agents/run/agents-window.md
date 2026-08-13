@@ -19,9 +19,9 @@ In this article, you learn how to open the {% data variables.copilot.agents_wind
 
 * **Orchestrate work across projects from one place**: manage sessions for all your workspaces without opening each one in a separate window, so you can assign and track work across projects at the same time.
 * **Work agent-first, not code-first**: describe the outcome you want in high-level requirements and let the agent figure out the implementation, rather than framing prompts around specific code changes.
-* **Switch freely between surfaces**: move to the [Chat view](/docs/agents/run/chat-view.md) whenever you want to get closer to the code. Both surfaces share the same sessions, settings, and keybindings, so you never lose context.
+* **Switch freely between surfaces**: move to the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) whenever you want to get closer to the code. Both surfaces share the same sessions, settings, and keybindings, so you never lose context.
 
-For help choosing between the {% data variables.copilot.agents_window %} and the Chat view, see [Choose how you work with agents](/docs/agents/overview.md#choose-how-you-work-with-agents). For chat mechanics that apply to both surfaces, see [Use chat in {% data variables.product.prodname_vscode_shortname %}](/docs/chat/chat-overview.md) and [Review AI-generated code edits](/docs/agents/run/review-code-edits.md).
+For help choosing between the {% data variables.copilot.agents_window %} and the {% data variables.copilot.chat_view %}, see [Choose how you work with agents](/docs/agents/overview.md#choose-how-you-work-with-agents). For chat mechanics that apply to both surfaces, see [Use chat in {% data variables.product.prodname_vscode_shortname %}](/docs/chat/chat-overview.md) and [Review AI-generated code edits](/docs/agents/run/review-code-edits.md).
 
 ## Prerequisites
 

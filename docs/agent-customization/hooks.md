@@ -138,7 +138,7 @@ To customize, add an entry for a new location, or set a path to `false` to disab
 
 ### Hook configuration format
 
-Create a JSON file with a `hooks` object containing arrays of hook commands for each event type. {% data variables.product.prodname_vscode_shortname %} uses the same hook format as Claude Code and Copilot CLI for compatibility:
+Create a JSON file with a `hooks` object containing arrays of hook commands for each event type. {% data variables.product.prodname_vscode_shortname %} uses the same hook format as Claude Code and {% data variables.copilot.copilot_cli_short %} for compatibility:
 
 ```json
 {
@@ -236,7 +236,7 @@ You have multiple options for creating and editing hooks. You can create hook co
 
     1. Open the Agent Customizations editor by running the **Chat: Open Customizations** command.
 
-        Alternatively, select **Open Customizations** (gear icon) at the top of the Chat view.
+        Alternatively, select **Open Customizations** (gear icon) at the top of the {% data variables.copilot.chat_view %}.
 
     1. Select the **Hooks** tab to view and manage your hooks.
 
@@ -533,7 +533,7 @@ To review hook output and errors:
 
 1. Open the **Output** panel.
 
-1. Select **GitHub Copilot Chat Hooks** from the channel list.
+1. Select **{% data variables.copilot.copilot_chat %} Hooks** from the channel list.
 
 > [!TIP]
 > You can also run the **Developer: Show Agent Debug Logs** command to view hook input and output in the agent debug logs.
@@ -560,9 +560,9 @@ If you are adapting a Claude Code hook for {% data variables.product.prodname_vs
 * **Tool names**: Claude Code and {% data variables.product.prodname_vscode_shortname %} use different tool names. For example, Claude Code uses `Write` and `Edit` for file operations, while {% data variables.product.prodname_vscode_shortname %} uses tool names like `create_file` and `replace_string_in_file`. Check the tool name in the `tool_name` input field and update your hook logic accordingly.
 * **Matchers are ignored**: Hook matchers like `"Edit|Write"` are parsed but not applied. All hooks run on every matching event, regardless of the tool name in the matcher.
 
-### How does {% data variables.product.prodname_vscode_shortname %} handle Copilot CLI hook configurations?
+### How does {% data variables.product.prodname_vscode_shortname %} handle {% data variables.copilot.copilot_cli_short %} hook configurations?
 
-{% data variables.product.prodname_vscode_shortname %} parses Copilot CLI hook configurations and converts the lowerCamelCase hook event names (like `preToolUse`) to the PascalCase format used by {% data variables.product.prodname_vscode_shortname %} (`PreToolUse`). The `bash` and `powershell` command properties are mapped to OS-specific commands: `powershell` maps to `windows`, and `bash` maps to `osx` and `linux`.
+{% data variables.product.prodname_vscode_shortname %} parses {% data variables.copilot.copilot_cli_short %} hook configurations and converts the lowerCamelCase hook event names (like `preToolUse`) to the PascalCase format used by {% data variables.product.prodname_vscode_shortname %} (`PreToolUse`). The `bash` and `powershell` command properties are mapped to OS-specific commands: `powershell` maps to `windows`, and `bash` maps to `osx` and `linux`.
 
 ## Security considerations
 

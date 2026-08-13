@@ -45,7 +45,7 @@ To generate a new cell with AI, select the **Generate** button in the notebook v
 
 ## Make edits across multiple cells
 
-To make larger edits, across multiple cells, you can switch to use [agents](vscode://GitHub.Copilot-Chat/chat?mode=agent) in the Chat view. Provide a prompt to request changes to the notebook and the agent will iterate through the tasks to implement the changes.
+To make larger edits, across multiple cells, you can switch to use [agents](vscode://GitHub.Copilot-Chat/chat?mode=agent) in the {% data variables.copilot.chat_view %}. Provide a prompt to request changes to the notebook and the agent will iterate through the tasks to implement the changes.
 
 ![Screenshot that shows the response from chat to the prompt 'Plot a graph of the price distribution'.](../images/notebooks-with-ai/notebook-agent-mode-plot-prices.png)
 
@@ -73,7 +73,7 @@ You can do a full data analysis and visualization notebook of a dataset by using
 
 For example, to perform a data analysis of the housing dataset:
 
-1. Select [Agent](vscode://GitHub.Copilot-Chat/chat?mode=agent) from the agent picker in the Chat view.
+1. Select [Agent](vscode://GitHub.Copilot-Chat/chat?mode=agent) from the agent picker in the {% data variables.copilot.chat_view %}.
 
 1. Enter the following prompt in the chat input field: *Perform data analysis of the data in #housing.csv*.
 

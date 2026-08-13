@@ -12,8 +12,7 @@ Keywords:
 - multi-file editing
 - architecture
 - refactoring
-- cloud agent
-- copilot coding agent
+- {% data variables.copilot.copilot_cloud_agent_short %}
 - copilot cli
 - third-party agents
 - MCP
@@ -37,7 +36,7 @@ Agents are free to start and built into {% data variables.product.prodname_vscod
 <video src="images/agents-overview/agents-intro.mp4" title="Video showing an agent session building a complete feature in {% data variables.product.prodname_vscode_shortname %}." controls muted></video>
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
-Complete your first coding task with an agent in the {% data variables.copilot.agents_window %} or Chat view.
+Complete your first coding task with an agent in the {% data variables.copilot.agents_window %} or {% data variables.copilot.chat_view %}.
 
 * [Start quickstart](/docs/agents/quickstart.md)
 
@@ -65,9 +64,9 @@ AI features are built into {% data variables.product.prodname_vscode_shortname %
 
 ## Choose how you work with agents
 
-In {% data variables.product.prodname_vscode_shortname %}, the choice comes down to your approach and your scope. The {% data variables.copilot.agents_window %} is **agent-first** and works across **all your workspaces** from a single window, so it's ideal when you assign high-level tasks and orchestrate multiple agents in parallel across projects. The Chat view is **code-first** and is **scoped to the workspace** you have open, so it's ideal when you give the agent coding tasks and stay close to the code it produces.
+In {% data variables.product.prodname_vscode_shortname %}, the choice comes down to your approach and your scope. The {% data variables.copilot.agents_window %} is **agent-first** and works across **all your workspaces** from a single window, so it's ideal when you assign high-level tasks and orchestrate multiple agents in parallel across projects. The {% data variables.copilot.chat_view %} is **code-first** and is **scoped to the workspace** you have open, so it's ideal when you give the agent coding tasks and stay close to the code it produces.
 
-If you want to work outside {% data variables.product.prodname_vscode_shortname %}, you can also manage your agents from the terminal with the Copilot CLI, from the {% data variables.copilot.github_copilot_app %}, or directly in your browser.
+If you want to work outside {% data variables.product.prodname_vscode_shortname %}, you can also manage your agents from the terminal with the {% data variables.copilot.copilot_cli_short %}, from the {% data variables.copilot.github_copilot_app %}, or directly in your browser.
 
 Choose the experience that fits your current task and where you want to work. You can start a session in one and continue it in the other without losing context.
 
@@ -79,11 +78,11 @@ The [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.
 ![Screenshot showing how to start a new agent session by selecting New at the top of the sidebar in the {% data variables.copilot.agents_window %}.](images/agents-overview/agents-window-hero.png)
 
 {% /tab %}
-{% tab label="Chat view" %}
+{% tab label="{% data variables.copilot.chat_view %}" %}
 
-The [Chat view](/docs/agents/run/chat-view.md) is a chat panel in the sidebar, next to your workspace editor tabs. It's scoped to the workspace you have open in {% data variables.product.prodname_vscode_shortname %}, so you can give the agent coding tasks, review the code it produces, and keep an agent focused on the code you're actively working on. The Chat view is optimized for **code-first workflows**.
+The [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) is a chat panel in the sidebar, next to your workspace editor tabs. It's scoped to the workspace you have open in {% data variables.product.prodname_vscode_shortname %}, so you can give the agent coding tasks, review the code it produces, and keep an agent focused on the code you're actively working on. The {% data variables.copilot.chat_view %} is optimized for **code-first workflows**.
 
-![Screenshot showing the Chat view with the sessions list, conversation, and chat input.](images/agents-overview/chat-view-expanded.png)
+![Screenshot showing the {% data variables.copilot.chat_view %} with the sessions list, conversation, and chat input.](images/agents-overview/chat-view-expanded.png)
 
 {% /tab %}
 {% tab label="Browser" %}
@@ -95,11 +94,11 @@ Need your own environment? [vscode.dev/agents](https://vscode.dev/agents) opens 
 ![Screenshot showing the GitHub website with the Copilot tab open, displaying a list of issues assigned to Copilot.](images/agents-overview/hero-vscode-dev-agents-dark.png)
 
 {% /tab %}
-{% tab label="Copilot CLI" %}
+{% tab label="{% data variables.copilot.copilot_cli_short %}" %}
 
-Use [GitHub Copilot CLI](/docs/agents/run/agent-harnesses.md#use-copilot-cli-from-the-terminal) to work with an agent from the command line, either in the {% data variables.product.prodname_vscode_shortname %} integrated terminal or an external terminal.
+Use [{% data variables.copilot.copilot_cli %}](/docs/agents/run/agent-harnesses.md#use-copilot-cli-from-the-terminal) to work with an agent from the command line, either in the {% data variables.product.prodname_vscode_shortname %} integrated terminal or an external terminal.
 
-![Screenshot showing the Copilot CLI running in the {% data variables.product.prodname_vscode_shortname %} integrated terminal.](images/agents-overview/hero-copilot-cli-dark.png)
+![Screenshot showing the {% data variables.copilot.copilot_cli_short %} running in the {% data variables.product.prodname_vscode_shortname %} integrated terminal.](images/agents-overview/hero-copilot-cli-dark.png)
 
 {% /tab %}
 {% tab label="GitHub Copilot App" %}

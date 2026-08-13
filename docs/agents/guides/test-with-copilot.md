@@ -23,7 +23,7 @@ Copilot can help with the following testing tasks:
 
 To accelerate your testing workflow, Copilot can help set up the testing framework and {% data variables.product.prodname_vscode_shortname %} extensions for your project. Copilot suggests appropriate testing frameworks based on your project type.
 
-1. Open the Chat view (`kb(workbench.action.chat.open)`).
+1. Open the {% data variables.copilot.chat_view %} (`kb(workbench.action.chat.open)`).
 1. Enter the `/setupTests` command in the chat input field.
 1. Follow Copilot's guidance to configure your project.
 
@@ -36,7 +36,7 @@ Copilot can help you write tests for your application code by generating test co
 1. Open your application code file.
 
 1. Open one of these views:
-    * Chat view (`kb(workbench.action.chat.open)`)
+    * {% data variables.copilot.chat_view %} (`kb(workbench.action.chat.open)`)
     * Inline Chat (`kb(inlineChat.start)`)
 
 1. Enter a prompt like:
@@ -68,7 +68,7 @@ Copilot integrates with the Test Explorer in {% data variables.product.prodname_
 
 Alternatively, you can:
 
-1. Open the Chat view
+1. Open the {% data variables.copilot.chat_view %}
 1. Enter the `/fixTestFailure` command
 1. Follow Copilot's suggestions to fix the test
 

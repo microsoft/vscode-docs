@@ -208,7 +208,7 @@ To create the `.github/agents/TDD-refactor.agent.md` refactor phase [custom chat
 
 Now that the TDD custom agents are set up, you can use them to implement features in your project using the TDD workflow.
 
-1. Open the Chat view and select the **TDD Red** agent from the agent dropdown menu.
+1. Open the {% data variables.copilot.chat_view %} and select the **TDD Red** agent from the agent dropdown menu.
 
 1. Provide a prompt that describes the feature or behavior you want to test.
 
@@ -244,7 +244,7 @@ Now that the TDD custom agents are set up, you can use them to implement feature
 
 ### Best practices for TDD with AI
 
-**Choose the right model for the task**: Different language models have different strengths. Consider using reasoning models for complex test generation and edge case identification. Use the model picker in the Chat view to switch models during your TDD workflow or define the `model` in your custom agent properties.
+**Choose the right model for the task**: Different language models have different strengths. Consider using reasoning models for complex test generation and edge case identification. Use the model picker in the {% data variables.copilot.chat_view %} to switch models during your TDD workflow or define the `model` in your custom agent properties.
 
 **Validate test quality**: After AI generates a test, review it to ensure it fails for the right reason. Run the test before implementing to verify it catches the missing functionality.
 

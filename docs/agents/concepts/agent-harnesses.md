@@ -9,7 +9,7 @@ Keywords:
 - agents
 - agent harness
 - local agent
-- cloud agent
+- {% data variables.copilot.copilot_cloud_agent_short %}
 - worktree
 - code isolation
 ---
@@ -45,8 +45,8 @@ The harness passes your prompt and context to the model, executes the model's re
 
 * **Local**: the built-in {% data variables.product.prodname_vscode_shortname %} harness runs in the extension host and can use {% data variables.product.prodname_vscode_shortname %} tools, extension-provided tools, MCP servers, and models configured in {% data variables.product.prodname_vscode_shortname %}.
 * **Copilot**: uses the {% data variables.copilot.copilot_sdk_short %} and runs on the [Agent Host](#agent-harnesses-and-the-agent-host).
-* **Claude**: uses Anthropic's Claude Agent SDK for local sessions and is also available as a cloud agent.
-* **Codex**: uses OpenAI Codex for local sessions and is also available as a cloud agent.
+* **Claude**: uses Anthropic's Claude Agent SDK for local sessions and is also available as a {% data variables.copilot.copilot_cloud_agent_short %}.
+* **Codex**: uses OpenAI Codex for local sessions and is also available as a {% data variables.copilot.copilot_cloud_agent_short %}.
 
 Provider SDKs expose provider-specific capabilities while {% data variables.product.prodname_vscode_shortname %} supplies common session management, workspace selection, chat, change review, and handoff.
 

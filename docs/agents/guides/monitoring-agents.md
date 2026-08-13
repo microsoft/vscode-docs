@@ -35,7 +35,7 @@ Copilot Chat emits OTel attributes under three namespaces:
 | Namespace | Source | When to use |
 |---|---|---|
 | `gen_ai.*` | [OTel GenAI Semantic Conventions](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/gen-ai/) | Whenever a standard key exists |
-| `github.copilot.*` | Canonical Copilot-specific namespace, shared with the [GitHub Copilot CLI OpenTelemetry conventions](https://docs.github.com/copilot/reference/copilot-cli-reference/cli-command-reference#opentelemetry-monitoring) | Preferred for new dashboards, alerts, and queries |
+| `github.copilot.*` | Canonical Copilot-specific namespace, shared with the [{% data variables.copilot.copilot_cli %} OpenTelemetry conventions](https://docs.github.com/copilot/reference/copilot-cli-reference/cli-command-reference#opentelemetry-monitoring) | Preferred for new dashboards, alerts, and queries |
 | `copilot_chat.*` | Original {% data variables.product.prodname_vscode_shortname %} extension namespace | Legacy. Several keys are now dual-emitted alongside `github.copilot.*` equivalents |
 
 Legacy `copilot_chat.*` keys continue to emit indefinitely so existing collectors, dashboards, and downstream consumers keep working without changes. There is no sunset date. The tables in this section mark dual-emitted rows as **Legacy** with a pointer to the preferred key.
@@ -166,7 +166,7 @@ Extension-specific metrics:
 | `copilot_chat.session.count` | Counter | Chat sessions started |
 | `copilot_chat.time_to_first_token` | Histogram | Time to first SSE token (seconds) |
 
-Agent activity and outcome metrics track agentic code changes across all surfaces (inline chat, local agents, Copilot agents, Claude agents, and Copilot coding agents):
+Agent activity and outcome metrics track agentic code changes across all surfaces (inline chat, local agents, Copilot agents, Claude agents, and {% data variables.copilot.copilot_cloud_agent %}s):
 
 | Metric | Type | Description |
 |---|---|---|
@@ -297,9 +297,9 @@ Copilot sessions also show the full SDK hierarchy in the **Agent Debug Log** pan
 
 When OTel export is disabled, the debug panel automatically captures full prompt and response content. When OTel export is enabled, the `setting(github.copilot.chat.otel.captureContent)` setting controls content capture for both the debug panel and OTLP export.
 
-### Copilot CLI (terminal session)
+### {% data variables.copilot.copilot_cli_short %} (terminal session)
 
-When you run a Copilot CLI session in the terminal (**New Copilot CLI Session**), it runs in a separate process. When OTel is enabled, the extension forwards `COPILOT_OTEL_ENABLED` and `OTEL_EXPORTER_OTLP_ENDPOINT` to the terminal process. Terminal traces appear as independent root traces under service `github-copilot` and are not linked to extension traces.
+When you run a {% data variables.copilot.copilot_cli_short %} session in the terminal (**New {% data variables.copilot.copilot_cli_short %} Session**), it runs in a separate process. When OTel is enabled, the extension forwards `COPILOT_OTEL_ENABLED` and `OTEL_EXPORTER_OTLP_ENDPOINT` to the terminal process. Terminal traces appear as independent root traces under service `github-copilot` and are not linked to extension traces.
 
 The CLI runtime only supports `otlp-http`. When `otlp-grpc` is configured, the terminal CLI still uses HTTP. Backends that serve both protocols on the same port (such as the Aspire Dashboard) work transparently.
 
@@ -323,7 +323,7 @@ Within the `copilot-chat` service, distinguish agent types by `gen_ai.agent.name
 
 | `gen_ai.agent.name` | Agent type |
 |---|---|
-| `GitHub Copilot Chat` | Foreground agent (agent mode) |
+| `{% data variables.copilot.copilot_chat %}` | Foreground agent (agent mode) |
 | `copilotcli` | Copilot wrapper span |
 | `claude` | Claude agent |
 

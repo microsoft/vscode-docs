@@ -89,7 +89,7 @@ To view the cost for a single request, hover over the chat response to see the c
 
 To view the cumulative cost and token breakdown for the entire session, hover over or select the context window control in the chat input. The session info popover shows the total cost in credits and the cumulative context window token usage for the whole session, complementing the per-turn credit consumption already shown for individual requests.
 
-![Screenshot of {% data variables.product.prodname_vscode_shortname %} Chat view, showing the context window usage control in the chat input box.](../../chat/images/copilot-chat/chat-context-window-control.png)
+![Screenshot of {% data variables.product.prodname_vscode_shortname %} {% data variables.copilot.chat_view %}, showing the context window usage control in the chat input box.](../../chat/images/copilot-chat/chat-context-window-control.png)
 
 To view your overall monthly consumption, open the Copilot status dashboard from the {% data variables.product.prodname_vscode_shortname %} Status Bar. The dashboard shows the percentage of your monthly allowance you have used for AI credits (and inline suggestions for the Copilot Free plan).
 
