@@ -46,8 +46,8 @@
                 "name": "Run agents",
                 "area": "agents/run",
                 "topics": [
-                    ["Agents Window", "/docs/agents/run/agents-window"],
-                    ["Chat View", "/docs/agents/run/chat-view"],
+                    ["{% data variables.copilot.agents_window %}", "/docs/agents/run/agents-window"],
+                    ["{% data variables.copilot.chat_view %}", "/docs/agents/run/chat-view"],
                     ["Choose an Agent Harness", "/docs/agents/run/agent-harnesses"],
                     ["Use Tools", "/docs/agents/run/tools"],
                     ["Browser Tools", "/docs/agents/run/browser-tools"],
