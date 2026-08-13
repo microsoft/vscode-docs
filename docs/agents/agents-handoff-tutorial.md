@@ -7,7 +7,7 @@ Keywords:
 - ai
 - agents
 - background
-- {% data variables.copilot.copilot_cloud_agent_short %}
+- "{% data variables.copilot.copilot_cloud_agent_short %}
 - Copilot
 - tutorial
 ---
