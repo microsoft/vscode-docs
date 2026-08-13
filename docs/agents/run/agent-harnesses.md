@@ -11,7 +11,7 @@ Keywords:
 - session target
 - claude
 - codex
-- {% data variables.copilot.copilot_cloud_agent_short %}
+- "{% data variables.copilot.copilot_cloud_agent_short %}"
 - worktree
 ---
 

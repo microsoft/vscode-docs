@@ -14,7 +14,7 @@ Keywords:
 - memory
 - planning
 - local agents
-- {% data variables.copilot.copilot_cloud_agent_short %}s
+- "{% data variables.copilot.copilot_cloud_agent_short %}s"
 - remote agent sessions
 - agent host protocol
 ---

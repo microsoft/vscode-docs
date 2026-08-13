@@ -9,7 +9,7 @@ Keywords:
 - agents
 - agent harness
 - local agent
-- {% data variables.copilot.copilot_cloud_agent_short %}
+- "{% data variables.copilot.copilot_cloud_agent_short %}"
 - worktree
 - code isolation
 ---
