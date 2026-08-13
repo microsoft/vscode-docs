@@ -4,9 +4,7 @@
 prodname_vscode_shortname: 'VS Code'
 prodname_vscode: 'Visual Studio Code'
 
-prodname_vscode_command_palette_shortname: 'VS Code Command Palette'
-prodname_vscode_command_palette: 'Visual Studio Code Command Palette'
-prodname_vscode_marketplace: 'Visual Studio Marketplace'
+prodname_vs_marketplace: 'Visual Studio Marketplace'
 prodname_vs_marketplace_shortname: 'VS Marketplace'
 
 prodname_github_docs: 'GitHub Docs'
