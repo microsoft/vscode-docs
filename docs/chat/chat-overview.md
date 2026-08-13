@@ -1,6 +1,6 @@
 ---
 ContentId: 557a7e74-f77e-488d-90ea-fd2cfecfffda
-DateApproved: 8/5/2026
+DateApproved: 8/12/2026
 MetaDescription: Learn how to use chat in VS Code. Access different chat surfaces, send a request, add context, write effective prompts, and review AI-generated changes.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -11,9 +11,9 @@ Chat in Visual Studio Code lets you use natural language for interacting with AI
 This article describes the mechanics of how to interact with chat: how to send a request, add context, choose a language model, write effective prompts, and review AI-generated changes. These mechanics apply to all chat surfaces in VS Code. For an overview of what agents can do and how to configure a session, see [Build with agents in VS Code](/docs/agents/overview.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
-Follow a hands-on tutorial to experience local, background, and cloud agents in VS Code.
+Follow a hands-on tutorial to build an app with AI agents in VS Code.
 
-* [Start agent handoff tutorial](/docs/agents/agents-handoff-tutorial.md)
+* [Start agentic coding tutorial](/docs/agents/agents-tutorial.md)
 
 </div>
 

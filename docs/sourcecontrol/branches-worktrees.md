@@ -1,6 +1,6 @@
 ---
 ContentId: a9b2c3d4-e5f6-7890-ab12-cd3456789012
-DateApproved: 8/5/2026
+DateApproved: 8/12/2026
 MetaDescription: Manage Git branches and worktrees in Visual Studio Code to develop in parallel, compare changes, and move work between checkouts.
 Keywords:
 - source control
@@ -8,7 +8,7 @@ Keywords:
 - version control
 - git
 ---
-# Git Branches and Worktrees in VS Code
+# Git branches and worktrees in VS Code
 
 Git branches enable you to work on different features or experiments simultaneously without affecting your main codebase. VS Code provides tools for branch management, Git worktrees for parallel development, and stash management for temporary changes.
 
@@ -16,7 +16,7 @@ This article covers working with branches, worktrees, and stashes in VS Code to 
 
 ## Working with branches
 
-Branches are lightweight, movable pointers to specific commits in your Git history. They allow you to diverge from the main line of development and work on features independently.
+Branches are lightweight, movable pointers to specific commits in your Git history. They enable you to diverge from the main line of development and work on features independently.
 
 For example, suppose you're working on a web application and need to add user authentication while also fixing a bug in the payment system. You can create two branches:
 
@@ -29,7 +29,7 @@ Each branch maintains its own set of changes without affecting the other. You ca
 
 The current branch appears in several places in VS Code:
 
-* **Status Bar**: shows the current branch name and allows quick branch switching
+* **Status Bar**: shows the current branch name and provides quick branch switching
 * **Repositories view**: displays the current branch in the repository header
 * **Source Control Graph**: visually represents branch relationships and history
 
@@ -49,7 +49,7 @@ To switch to a different branch:
    * **Recent branches**: Recently used branches
 
 > [!TIP]
-> If you have uncommitted changes when switching branches, Git might prevent the switch to avoid losing work. Consider committing your changes or using a [stash](#stash-management) before switching.
+> If you have uncommitted changes when switching branches, Git might prevent the switch to avoid losing work. Consider committing your changes or using a [stash](#manage-stashes) before switching.
 
 ### Create new branches
 
@@ -100,6 +100,47 @@ When your feature is complete, merge it back into the main branch:
 To publish a branch to your remote repository, use the **Publish Branch** action.
 
 VS Code shows the merge result in the Source Control view. If there are conflicts, VS Code highlights them and provides tools to resolve them. Learn more about [resolving merge conflicts](/docs/sourcecontrol/merge-conflicts.md).
+
+## Manage stashes
+
+A Git stash temporarily stores uncommitted changes and returns your working directory to a clean state. Use a stash when you need to switch branches or handle another task without creating a commit for unfinished work.
+
+You can invoke stash commands from the Command Palette or from the **More Actions** (...) menu in the Source Control view.
+
+### Create a stash
+
+To stash your current changes:
+
+1. Open the Command Palette (`kb(workbench.action.showCommands)`).
+
+1. Run one of the following commands:
+
+    * **Git: Stash** to store tracked changes.
+    * **Git: Stash (Include Untracked)** to also store new, untracked files.
+    * **Git: Stash Staged** to store only the changes in the **Staged Changes** section. This command requires Git 2.35 or later.
+
+1. Enter an optional message that describes the stashed work.
+
+Git stores the changes and restores your working directory to the state of the current commit.
+
+### View and restore stashed changes
+
+Run **Git: View Stash** from the Command Palette to inspect the files in a stash before restoring it.
+
+To restore stashed changes, choose one of these commands from the Command Palette or the **More Actions** (...) menu:
+
+* **Git: Apply Stash...** restores a selected stash and keeps it in the stash list.
+* **Git: Pop Stash...** restores a selected stash and removes it from the stash list.
+* **Git: Apply Latest Stash** or **Git: Pop Latest Stash** performs the corresponding action on the most recent stash.
+
+If the stashed changes conflict with changes in your working directory, resolve the conflicts before continuing. Learn more about [resolving merge conflicts](/docs/sourcecontrol/merge-conflicts.md).
+
+### Delete stashes
+
+Run **Git: Drop Stash...** to permanently delete a selected stash, or run **Git: Drop All Stashes...** to delete every stash in the repository.
+
+> [!CAUTION]
+> Dropping a stash is difficult to undo. Verify that you no longer need the changes before you delete it.
 
 ## Working with Git worktrees
 
@@ -200,6 +241,7 @@ When you make changes in a worktree, you can compare those changes with your mai
 ## Next steps
 
 * [Staging and Committing](/docs/sourcecontrol/staging-commits.md) - Learn about committing changes within branches
+* [Source Control History](/docs/sourcecontrol/history.md) - Inspect branch and commit history
 * [Merge Conflicts](/docs/sourcecontrol/merge-conflicts.md) - Handle conflicts when merging branches
 * [Repositories and Remotes](/docs/sourcecontrol/repos-remotes.md) - Work with remote branches and collaboration
 * [Collaborate on GitHub](/docs/sourcecontrol/github.md) - Use GitHub pull requests with your branch workflow

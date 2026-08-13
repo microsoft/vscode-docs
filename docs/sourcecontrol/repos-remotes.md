@@ -1,7 +1,7 @@
 ---
 ContentId: 8f34d9b6-3185-426a-b6d9-7e5ac7138a31
-DateApproved: 8/5/2026
-MetaDescription: Master working with Git repositories and remotes in VS Code. Learn about cloning, publishing, push/pull/sync operations, upstream tracking, auto-fetch, and managing multiple repositories.
+DateApproved: 8/12/2026
+MetaDescription: Manage Git repositories and remotes in VS Code with cloning, publishing, synchronization, upstream tracking, and multiple-repository workflows.
 Keywords:
 - source control
 - scm
@@ -197,29 +197,11 @@ You can customize Status Bar behavior with these settings:
 * `setting(git.showPushSuccessNotification)`: show a notification after successful push
 * `setting(git.showCommitInput)`: show commit input in the Source Control view
 
-## Source Control Graph
+## Review incoming and outgoing history
 
-The Source Control Graph provides a visual representation of your commit history, branch relationships, and sync status with remotes. This makes it easy to understand incoming and outgoing changes.
+The Source Control Graph shows how your current branch differs from its upstream branch. Use it to inspect incoming commits before you pull and outgoing commits before you push.
 
-![Screenshot of the Source Control Graph showing commit history and incoming/outgoing commits.](images/staging-commits/source-control-graph.png)
-
-The graph displays:
-
-* **Current branch**: highlighted with a special indicator
-* **Upstream branch**: shows commits on the remote that you haven't pulled
-* **Incoming commits** (↓): commits on the remote that you can pull
-* **Outgoing commits** (↑): your local commits that can be pushed
-* **Other branches**: local and remote branches in your repository
-
-You can fetch, push, and pull directly from the graph toolbar. The graph view also shows incoming and outgoing changes, making it easy to see when you need to sync. Select an item in the graph to view the individual files changed in that commit.
-
-Customize the Source Control Graph with these settings:
-
-* `setting(scm.graph.showIncomingChanges)`: show or hide incoming commits
-* `setting(scm.graph.showOutgoingChanges)`: show or hide outgoing commits
-* `setting(scm.graph.pageSize)`: number of commits to load initially
-
-Learn more about [viewing commit history with the Source Control Graph](/docs/sourcecontrol/staging-commits.md#graph-view-for-commit-history).
+Learn more about [viewing commits and branch history in the Source Control Graph](/docs/sourcecontrol/history.md#view-branch-and-commit-history).
 
 ## Working with repositories
 
@@ -245,5 +227,6 @@ Credential helpers securely store your authentication credentials so you don't h
 
 * [Branches and Worktrees](/docs/sourcecontrol/branches-worktrees.md) - Learn about branch management and parallel development
 * [Staging and Committing](/docs/sourcecontrol/staging-commits.md) - Master the commit workflow
+* [Source Control History](/docs/sourcecontrol/history.md) - Inspect commits, file history, and Git blame information
 * [Merge Conflicts](/docs/sourcecontrol/merge-conflicts.md) - Handle conflicts when merging branches
 * [Working with GitHub](/docs/sourcecontrol/github.md) - Learn about pull requests and GitHub integration

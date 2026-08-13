@@ -12,9 +12,9 @@ When you work with an agent in {% data variables.product.prodname_vscode %}, it 
 > You can review AI-generated changes in both the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) and the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md). The review experience follows the same concepts, but the user interface differs between the two surfaces.
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
-Follow a hands-on tutorial to experience local, background, and {% data variables.copilot.copilot_cloud_agent_short %}s in {% data variables.product.prodname_vscode_shortname %}.
+Follow a hands-on tutorial to build an app with AI agents in {% data variables.product.prodname_vscode_shortname %}.
 
-* [Start agent handoff tutorial](/docs/agents/agents-handoff-tutorial.md)
+* [Start agentic coding tutorial](/docs/agents/agents-tutorial.md)
 
 </div>
 

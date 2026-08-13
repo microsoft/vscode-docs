@@ -22,6 +22,13 @@ Browser tools are built into {% data variables.product.prodname_vscode %} and do
 Start the application, open it in the browser, test the sign-up flow, and fix any issues you find. Verify the fix before finishing.
 ```
 
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Try browser tools in action">
+Launch a chat prompt that starts your app, opens it in the browser, and checks for visual issues.
+
+* [Open in VS Code](vscode://GitHub.Copilot-Chat/chat?agent=agent%26prompt=Start%20the%20app%2C%20open%20it%20in%20the%20browser%2C%20and%20take%20a%20screenshot%20of%20the%20homepage.)
+
+</div>
+
 ## How the browser feedback loop works
 
 When an agent uses browser tools, it can complete and verify a web development task in a continuous loop:

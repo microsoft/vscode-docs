@@ -9,9 +9,9 @@ MetaSocialImage: ../../../images/shared/github-copilot-social.png
 A [session](/docs/agents/concepts/sessions.md) is the unit of work with an agent in {% data variables.product.prodname_vscode %}. It includes the sequence of prompts and responses, relevant context, and any files or resources associated with the task. This article describes how to create, organize, and manage sessions in both the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) and the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
-Follow a hands-on tutorial to experience local, background, and {% data variables.copilot.copilot_cloud_agent_short %}s in {% data variables.product.prodname_vscode_shortname %}.
+Follow a hands-on tutorial to build an app with AI agents in {% data variables.product.prodname_vscode_shortname %}.
 
-* [Start agent handoff tutorial](/docs/agents/agents-handoff-tutorial.md)
+* [Start agentic coding tutorial](/docs/agents/agents-tutorial.md)
 
 </div>
 

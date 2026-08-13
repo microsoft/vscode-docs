@@ -157,14 +157,41 @@ Learn more about [researching with {% data variables.copilot.copilot_cli %}](htt
 
 ### Copilot harness limitations
 
-Copilot sessions don't have access to every {% data variables.product.prodname_vscode_shortname %} built-in or extension-provided tool. They use the models available to the Copilot harness and can currently access only local MCP servers that don't require authentication.
+Copilot sessions don't have access to every {% data variables.product.prodname_vscode_shortname %} built-in or extension-provided tool. Enabled client-side tools are available to the agent only while {% data variables.product.prodname_vscode_shortname %} is connected to the session, and you manage which tools are enabled from [Manage tools for the Copilot harness](/docs/agent-customization/tools.md). Copilot sessions use the models available to the Copilot harness and can currently access only local MCP servers that don't require authentication.
 
 {% /tab %}
 {% tab label="Claude" %}
 
 <a name="third-party-agents"></a>
 
-Claude sessions use Anthropic's Claude Agent SDK and can run autonomously on your workspace. {% data variables.product.prodname_vscode_shortname %} integrates the harness through its SDK while keeping session management, chat, and code review in {% data variables.product.prodname_vscode_shortname %}. Claude can use your GitHub Copilot subscription for authentication and billing. Turn support on or off with `setting(github.copilot.chat.claudeAgent.enabled)`.
+Claude sessions use Anthropic's Claude Agent SDK and can run autonomously on your workspace. {% data variables.product.prodname_vscode_shortname %} integrates the harness through its SDK while keeping session management, chat, and code review in {% data variables.product.prodname_vscode_shortname %}. Turn support on or off with `setting(github.copilot.chat.claudeAgent.enabled)`.
+
+Claude supports two authentication and billing options:
+
+* **GitHub Copilot subscription**: sign in to GitHub to use Copilot-routed models. Usage is billed through your Copilot subscription.
+* **Anthropic credentials**: use an existing Claude configuration with an Anthropic API key or Claude Code OAuth token. Usage is billed by Anthropic.
+
+#### Choose a model provider
+
+When both authentication methods are available, the model picker groups models by **Anthropic** and **Copilot**. The model you select determines the provider and billing method for the next turn. You can switch between Anthropic-native and Copilot-routed models in an existing Claude session.
+
+<a name="use-claude-without-github-sign-in"></a>
+
+#### Use Claude without GitHub sign-in (Experimental)
+
+To use Claude without signing in to GitHub, configure your Anthropic credentials in the environment or in the `env` object in `~/.claude/settings.json`. For example:
+
+```json
+{
+  "env": {
+    "ANTHROPIC_API_KEY": "<your-key>"
+  }
+}
+```
+
+You can also use the `CLAUDE_CODE_OAUTH_TOKEN` environment variable with a token created by the `claude setup-token` command. Learn more about [Claude Code authentication](https://code.claude.com/docs/en/authentication).
+
+Enable `setting(chat.agentHost.allowSignedOutWhenUsable)` to open the Agents window while signed out of GitHub. The model picker only shows Anthropic-native models until you sign in. After you sign in to GitHub, Copilot-routed models are also available.
 
 Claude provides provider-specific slash commands. Enter `/` in the chat input to view the commands available in your session.
 

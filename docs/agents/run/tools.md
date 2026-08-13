@@ -31,6 +31,9 @@ Launch a chat prompt that uses the web tool to summarize the latest {% data vari
 
 Use the tools picker in the {% data variables.copilot.chat_view %} to select which tools are available for a request. Add more tools by [installing MCP servers](/docs/agent-customization/mcp-servers.md) or [extensions](/docs/configure/extensions/extensions.md) that contribute tools.
 
+> [!NOTE]
+> The tools picker applies to the local agent. For the [Copilot harness](/docs/agents/run/agent-harnesses.md), manage tool availability with the profile-wide [Tools customization page](/docs/agent-customization/tools.md) instead.
+
 > [!TIP]
 > Select only the tools that are relevant for your prompt to improve your results.
 
@@ -161,5 +164,6 @@ Yes. You can create tools in two ways:
 
 * [Chat tools reference](/docs/agents/reference/ai-features-cheat-sheet.md#chat-tools)
 * [Create and use tool sets](/docs/agent-customization/tool-sets.md)
+* [Manage tools for the Copilot harness](/docs/agent-customization/tools.md)
 * [Agent hooks](/docs/agent-customization/hooks.md) - Execute custom commands at tool lifecycle events
 * [Security considerations for using AI in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/run/security.md)

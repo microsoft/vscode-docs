@@ -1,6 +1,6 @@
 ---
 PageTitle: Extension Docs
-DateApproved: 8/5/2026
+DateApproved: 8/12/2026
 MetaDescription: Overview of Visual Studio Code extension documentation for containers, data science, intelligent apps, Azure, remote development, and dev containers.
 ---
 # Extension Docs

@@ -14,6 +14,13 @@ The artifacts panel in {% data variables.product.prodname_vscode %} surfaces imp
 > [!NOTE]
 > The artifacts panel is currently in preview. To enable it, set `setting(chat.artifacts.enabled)` to `true`.
 
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Try artifacts in action">
+Launch a chat prompt that asks the agent to save a screenshot as an artifact.
+
+* [Open in {% data variables.product.prodname_vscode_shortname %}](vscode://GitHub.Copilot-Chat/chat?agent=agent%26prompt=Take%20a%20screenshot%20of%20my%20app%20and%20set%20it%20as%20an%20artifact.)
+
+</div>
+
 ![Screenshot of the artifacts panel in the {% data variables.copilot.chat_view %}, showing example artifacts such as links, images, and documents.](../images/chat-artifacts/chat-artifacts-list.png)
 
 ## Artifact sources

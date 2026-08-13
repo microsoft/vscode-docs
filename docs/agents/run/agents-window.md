@@ -15,6 +15,13 @@ In this article, you learn how to open the {% data variables.copilot.agents_wind
 > [!NOTE]
 > The {% data variables.copilot.agents_window %} is currently in preview. Share feedback by [filing an issue on GitHub](https://github.com/microsoft/vscode/issues), or browse [existing {% data variables.copilot.agents_window %} issues](https://github.com/microsoft/vscode/issues?q=state%3Aopen%20label%3A%22agents-window%22).
 
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
+Follow a hands-on tutorial to build an app with AI agents in {% data variables.product.prodname_vscode_shortname %}.
+
+* [Start agentic coding tutorial](/docs/agents/agents-tutorial.md)
+
+</div>
+
 ## Why use the {% data variables.copilot.agents_window %}?
 
 * **Orchestrate work across projects from one place**: manage sessions for all your workspaces without opening each one in a separate window, so you can assign and track work across projects at the same time.
@@ -26,7 +33,9 @@ For help choosing between the {% data variables.copilot.agents_window %} and the
 ## Prerequisites
 
 * {% data variables.product.prodname_vscode %} installed. [Download {% data variables.product.prodname_vscode_shortname %}](/download).
-* Access to GitHub Copilot. Follow the steps in [Set up GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}](/docs/setup/copilot.md) to sign in and activate your subscription.
+* One of the following authentication options:
+  * Access to GitHub Copilot. Follow the steps in [Set up GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}](/docs/setup/copilot.md) to sign in and activate your subscription.
+  * An [existing Claude configuration](/docs/agents/run/agent-harnesses.md#use-claude-without-github-sign-in-experimental) for the experimental signed-out experience.
 
 ## Open the {% data variables.copilot.agents_window %}
 
@@ -42,10 +51,20 @@ The {% data variables.copilot.agents_window %} opens as a dedicated {% data vari
 
 * Open <https://insiders.vscode.dev/agents> in a browser to use the {% data variables.copilot.agents_window %} from any device. See [remote agent sessions](/docs/agents/run/remote-agent-sessions.md#use-the-agents-window-in-the-browser) for setup instructions.
 
-The {% data variables.copilot.agents_window %} requires GitHub authentication to access your Copilot subscription and sessions. If you're already signed in to GitHub in {% data variables.product.prodname_vscode_shortname %}, you'll also be signed in when the {% data variables.copilot.agents_window %} opens.
+By default, the {% data variables.copilot.agents_window %} requires GitHub authentication to access your Copilot subscription and sessions. If you're already signed in to GitHub in {% data variables.product.prodname_vscode_shortname %}, you'll also be signed in when the {% data variables.copilot.agents_window %} opens.
 
 > [!NOTE]
 > You can hide the **Open in Agents** button by right-clicking it in the title bar and selecting **Hide 'Open in Agents'**. You can still open the {% data variables.copilot.agents_window %} at any time from the Command Palette or command line.
+
+### Open without GitHub sign-in (Experimental)
+
+If Claude is configured with its own Anthropic credentials, you can open the Agents window without signing in to GitHub. Enable `setting(chat.agentHost.allowSignedOutWhenUsable)` before you open the window. This setting is off by default.
+
+When you open the Agents window while signed out, a notification indicates that VS Code discovered your existing Claude configuration. The model picker only shows models that use your Anthropic credentials. Select **Sign in to GitHub** in the notification to access models and features that use your Copilot subscription.
+
+Dismiss the notification with **X** to hide it for the current window. Select **Don't Show Again** to hide it for future windows on the same machine.
+
+This signed-out experience currently supports Claude. If VS Code doesn't find a provider that can run with its own credentials, the Agents window shows the existing GitHub sign-in experience. Providers, models, and operations that require GitHub authentication prompt you to sign in when you select them.
 
 ## {% data variables.copilot.agents_window %} interface overview
 

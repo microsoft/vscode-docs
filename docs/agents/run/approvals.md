@@ -18,6 +18,13 @@ Agents in {% data variables.product.prodname_vscode %} can run tools and termina
 
 This article describes how to set the agent's permission level, manage tool and URL approvals, automatically approve terminal commands, and sandbox agent commands. For information about agent tools, see [Use tools with agents](/docs/agents/run/tools.md). For background on why these controls exist, see [Trust and safety](/docs/agents/concepts/trust-and-safety.md).
 
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Trust and safety concepts">
+Learn why {% data variables.product.prodname_vscode_shortname %} uses permission levels, tool approval, and sandboxing to keep you in control.
+
+* [Read about trust and safety](/docs/agents/concepts/trust-and-safety.md)
+
+</div>
+
 {% data variables.product.prodname_vscode_shortname %} provides several controls to govern what the agent can do. Permission levels are the high-level dial for the session, while the other mechanisms give you fine-grained control over specific actions.
 
 | Mechanism | What it controls | Key setting |
@@ -48,6 +55,8 @@ The permission level applies to the current chat session, and can be changed at 
 > **Autopilot** is an agent mode rather than a permission level. Choose it from the agent mode picker in the chat input to auto-approve all tools and let the agent iterate autonomously until the task is complete. See [How Autopilot works](#how-autopilot-works). For how Autopilot behaves on the extension host, see [behavior on the extension host](/docs/agents/concepts/agent-host.md#behavior-on-the-extension-host).
 
 The permission level determines whether your finer-grained settings apply. **Default Approvals** respects the per-tool, URL, terminal, and sandbox settings you configure in the following sections. **Assisted permissions** delegates individual approval decisions to an LLM judge. **Bypass Approvals** and **Autopilot** override those settings and approve everything automatically.
+
+Your organization can configure [fine-grained managed permissions](/docs/enterprise/ai-settings.md#enforce-fine-grained-permissions) for shell commands, file operations, and domains. Managed rules take precedence over the session permission level. A managed rule can still require approval or block an operation when you use **Bypass Approvals** or **Autopilot**.
 
 > [!IMPORTANT]
 > The **Assisted permissions** level reduces approval interruptions but does not replace your judgment. A model-based risk assessment can make mistakes. The first time you select this level, a warning dialog asks you to confirm. Use [agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing) to limit file system and network access, and review any tool calls that still require your approval.

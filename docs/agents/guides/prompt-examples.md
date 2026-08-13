@@ -11,9 +11,9 @@ This article provides example prompts for chat in {% data variables.product.prod
 If you are new to using chat in {% data variables.product.prodname_vscode_shortname %}, learn more about [getting started with chat](/docs/chat/chat-overview.md) or review [best practices for prompt crafting](/docs/agents/best-practices.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
-Follow a hands-on tutorial to experience local, background, and {% data variables.copilot.copilot_cloud_agent_short %}s in {% data variables.product.prodname_vscode_shortname %}.
+Follow a hands-on tutorial to build an app with AI agents in {% data variables.product.prodname_vscode_shortname %}.
 
-* [Start agent handoff tutorial](/docs/agents/agents-handoff-tutorial.md)
+* [Start agentic coding tutorial](/docs/agents/agents-tutorial.md)
 
 </div>
 

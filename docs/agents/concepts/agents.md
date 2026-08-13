@@ -28,7 +28,7 @@ For an overview of what you can do with agents in {% data variables.product.prod
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
 Follow a hands-on tutorial to experience local, background, and {% data variables.copilot.copilot_cloud_agent_short %}s in {% data variables.product.prodname_vscode_shortname %}.
 
-* [Start agent handoff tutorial](/docs/agents/agents-handoff-tutorial.md)
+* [Start agentic coding tutorial](/docs/agents/agents-tutorial.md)
 
 </div>
 
