@@ -51,13 +51,13 @@ where `code` is the name of the VS Code Debian package.
 
 ## Clean uninstall
 
-If you want to remove all user data after uninstalling VS Code, you can delete the user data folders `Code` and `.vscode`. This will return you to the state before you installed VS Code. This can also be used to reset all settings if you don't want to uninstall VS Code.
+If you want to remove all user data after uninstalling VS Code, you can delete the user data folders `Code`, `.vscode-shared`, and `.vscode`. This will return you to the state before you installed VS Code. This can also be used to reset all settings if you don't want to uninstall VS Code.
 
 The folder locations will vary depending on your platform:
 
-* **Windows** - Delete `%APPDATA%\Code` and `%USERPROFILE%\.vscode`.
-* **macOS** - Delete `$HOME/Library/Application Support/Code` and `~/.vscode`.
-* **Linux** - Delete `$HOME/.config/Code` and `~/.vscode`.
+* **Windows** - Delete `%APPDATA%\Code`, `%USERPROFILE%.vscode-shared`, and `%USERPROFILE%\.vscode`.
+* **macOS** - Delete `$HOME/Library/Application Support/Code`, `~/.vscode-shared`, and `~/.vscode`.
+* **Linux** - Delete `$HOME/.config/Code`, `~/.vscode-shared`, and `~/.vscode`.
 
 ## Next steps
 
