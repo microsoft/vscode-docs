@@ -1,6 +1,6 @@
 ---
 ContentId: 7f1d9a52-3c84-4e17-9a2b-6d5c8e4f0b19
-DateApproved: 8/12/2026
+DateApproved: 8/19/2026
 MetaDescription: Understand how agent harnesses coordinate sessions in VS Code and compare local, cloud, and remote execution with folder or worktree isolation.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:

@@ -1,6 +1,6 @@
 ---
 ContentId: 7b232695-cbbe-4f3f-a625-abc7a5e6496c
-DateApproved: 8/12/2026
+DateApproved: 8/19/2026
 MetaDescription: Configure AI features and agent behavior in Visual Studio Code with settings for chat, code editing, sessions, models, tools, and security.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---

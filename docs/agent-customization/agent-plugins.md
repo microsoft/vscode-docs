@@ -1,6 +1,6 @@
 ---
 ContentId: f9b2c4e3-8a7d-4e1f-b5c3-2d9a6f8e4b71
-DateApproved: 8/12/2026
+DateApproved: 8/19/2026
 MetaDescription: Learn how to discover, install, and manage agent plugins in VS Code, including plugins that follow the open Agent Plugins standard.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:

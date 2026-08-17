@@ -5,7 +5,7 @@ TOCTitle: Add local file mount
 PageTitle: Add local file mount to a container
 ContentId: 1a14ff36-13ea-40ec-acc9-16bd0d6725f6
 MetaDescription: Add local file mount to a container
-DateApproved: 8/12/2026
+DateApproved: 8/19/2026
 ---
 # Add another local file mount
 

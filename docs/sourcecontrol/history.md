@@ -1,6 +1,6 @@
 ---
 ContentId: 0d58c0c9-bb02-4c6a-af43-595a85e4aa5c
-DateApproved: 8/12/2026
+DateApproved: 8/19/2026
 MetaDescription: Inspect Git commits, branches, file history, and line authorship in Visual Studio Code with the Source Control Graph, Timeline view, and Git blame.
 MetaSocialImage: images/staging-commits/source-control-graph.png
 Keywords:

@@ -1,6 +1,6 @@
 ---
 ContentId: c4a81e63-9d27-4b5f-8e10-2a7f6c9d3b04
-DateApproved: 8/12/2026
+DateApproved: 8/19/2026
 MetaDescription: Understand agent sessions in VS Code, the unit of work with an agent, how sessions are shared across surfaces, and how to hand off a session between agents.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
