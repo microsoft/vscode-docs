@@ -46,10 +46,10 @@
   "latest": [
     {
       "type": "release",
-      "title": "VS Code 1.133 release",
-      "description": "Switch between Anthropic and Copilot models mid-session, keep track of prompts in long chats, and see local HTML changes refresh automatically.",
-      "link": "/updates/v1_133",
-      "image": "/assets/updates/1_133/release-highlights.webp"
+      "title": "VS Code 1.134 release",
+      "description": "Arrange related chats side by side, navigate long conversations, and preview HTML files in the integrated browser.",
+      "link": "/updates/v1_134",
+      "image": "/assets/updates/1_134/release-highlights.webp"
     },
     {
       "type": "documentation",
