@@ -1,7 +1,7 @@
 ---
 ContentId: 9c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f
-DateApproved: 8/19/2026
-MetaDescription: Learn how to use hooks in VS Code to execute custom shell commands at key lifecycle points during agent sessions for automation, validation, and policy enforcement.
+DateApproved: 8/12/2026
+MetaDescription: Learn how to use hooks in {% data variables.product.prodname_vscode_shortname %} to execute custom shell commands at key lifecycle points during agent sessions for automation, validation, and policy enforcement.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - copilot
@@ -14,7 +14,7 @@ Keywords:
 - postToolUse
 ---
 
-# Agent hooks in Visual Studio Code (Preview)
+# Agent hooks in {% data variables.product.prodname_vscode %} (Preview)
 
 Hooks enable you to execute custom shell commands at key lifecycle points during agent sessions. Use hooks to automate workflows, enforce security policies, validate operations, and integrate with external tools.
 
@@ -22,13 +22,13 @@ Hooks work across agent harnesses and execution environments. Each hook receives
 
 For background on how hooks fit into the AI customization framework, see [Customization concepts](/docs/agents/concepts/customization.md).
 
-This article explains how to configure and use hooks in VS Code.
+This article explains how to configure and use hooks in {% data variables.product.prodname_vscode_shortname %}.
 
 > [!NOTE]
 > Agent hooks are currently in Preview. The configuration format and behavior might change in future releases.
 
 > [!IMPORTANT]
-> Your organization might have disabled the use of hooks in VS Code. Contact your admin for more information. See [enterprise policies](/docs/enterprise/policies.md) for details.
+> Your organization might have disabled the use of hooks in {% data variables.product.prodname_vscode_shortname %}. Contact your admin for more information. See [enterprise policies](/docs/enterprise/policies.md) for details.
 
 ## Why use hooks?
 
@@ -61,25 +61,25 @@ The following example creates a hook that runs Prettier after the agent uses a t
 }
 ```
 
-After you save this file, VS Code automatically loads the hook. The next time the agent edits a file, Prettier formats your workspace. You can check that the hook executed by looking at the agent debug logs (run the **Developer: Show Agent Debug Logs** command).
+After you save this file, {% data variables.product.prodname_vscode_shortname %} automatically loads the hook. The next time the agent edits a file, Prettier formats your workspace. You can check that the hook executed by looking at the agent debug logs (run the **Developer: Show Agent Debug Logs** command).
 
 This hook runs a single command and ignores its input. To build hooks that react to _what_ the agent did, such as formatting only the file that changed, see [How hooks work](#how-hooks-work) and [Usage scenarios](#usage-scenarios).
 
 ## How hooks work
 
-When a hook event fires, VS Code runs your command and passes information about the event as a JSON object on standard input (stdin). Your command can write a JSON object to standard output (stdout) to pass context back to the agent or to control what happens next, such as blocking a tool call.
+When a hook event fires, {% data variables.product.prodname_vscode_shortname %} runs your command and passes information about the event as a JSON object on standard input (stdin). Your command can write a JSON object to standard output (stdout) to pass context back to the agent or to control what happens next, such as blocking a tool call.
 
 A hook has three parts:
 
 * **An event** that determines when the hook runs (see [Hook lifecycle events](#hook-lifecycle-events)).
-* **A command** that VS Code runs when the event fires.
+* **A command** that {% data variables.product.prodname_vscode_shortname %} runs when the event fires.
 * **Optional JSON input and output** that lets the command read event details and influence the agent.
 
 Basic hooks, like the quick start example, ignore the input and just run a command. More advanced hooks read the JSON from stdin to make decisions. For the full set of input and output fields, see [Hook input and output](#hook-input-and-output).
 
 ## Hook lifecycle events
 
-VS Code supports eight hook events that fire at specific points during an agent session:
+{% data variables.product.prodname_vscode_shortname %} supports eight hook events that fire at specific points during an agent session:
 
 | Hook Event | When It Fires | Common Use Cases |
 |------------|---------------|------------------|
@@ -100,7 +100,7 @@ Hooks are configured in JSON files stored in your workspace or user directory.
 
 ### Hook file locations
 
-VS Code searches for hook configuration files in these locations:
+{% data variables.product.prodname_vscode_shortname %} searches for hook configuration files in these locations:
 
 > [!TIP]
 > In a monorepo, enable `setting(chat.useCustomizationsInParentRepositories)` to discover hooks from the parent repository root. Learn more about [parent repository discovery](/docs/agent-customization/overview.md#use-customizations-in-a-monorepo).
@@ -138,7 +138,7 @@ To customize, add an entry for a new location, or set a path to `false` to disab
 
 ### Hook configuration format
 
-Create a JSON file with a `hooks` object containing arrays of hook commands for each event type. VS Code uses the same hook format as Claude Code and Copilot CLI for compatibility:
+Create a JSON file with a `hooks` object containing arrays of hook commands for each event type. {% data variables.product.prodname_vscode_shortname %} uses the same hook format as Claude Code and {% data variables.copilot.copilot_cli_short %} for compatibility:
 
 ```json
 {
@@ -220,7 +220,7 @@ You have multiple options for creating and editing hooks. You can create hook co
 * **Manually manage hook files**:
 
     1. Create or edit a `.json` file in a supported location (for example, `.github/hooks/security.json`) and add your hook configuration.
-    1. Save the file and it is automatically loaded by VS Code.
+    1. Save the file and it is automatically loaded by {% data variables.product.prodname_vscode_shortname %}.
 
 * **Use commands to manage hooks**
 
@@ -236,7 +236,7 @@ You have multiple options for creating and editing hooks. You can create hook co
 
     1. Open the Agent Customizations editor by running the **Chat: Open Customizations** command.
 
-        Alternatively, select **Open Customizations** (gear icon) at the top of the Chat view.
+        Alternatively, select **Open Customizations** (gear icon) at the top of the {% data variables.copilot.chat_view %}.
 
     1. Select the **Hooks** tab to view and manage your hooks.
 
@@ -256,7 +256,7 @@ You have multiple options for creating and editing hooks. You can create hook co
 
 ## Hook input and output
 
-Hooks communicate with VS Code through stdin (input) and stdout (output) using JSON.
+Hooks communicate with {% data variables.product.prodname_vscode_shortname %} through stdin (input) and stdout (output) using JSON.
 
 ### Common input fields
 
@@ -271,7 +271,7 @@ Every hook receives a JSON object via stdin with these common fields:
 | `transcript_path` | string | (Optional) Absolute path to a file containing the session conversation transcript |
 
 > [!NOTE]
-> `transcript_path` is provided for convenience — for example, logging, auditing, or lightweight checks such as whether a file was read during the session. The transcript file format is not a stable hook API and may change in future VS Code releases. Prefer the documented hook input fields (`tool_name`, `tool_input`, `prompt`, and so on) whenever possible.
+> `transcript_path` is provided for convenience — for example, logging, auditing, or lightweight checks such as whether a file was read during the session. The transcript file format is not a stable hook API and may change in future {% data variables.product.prodname_vscode_shortname %} releases. Prefer the documented hook input fields (`tool_name`, `tool_input`, `prompt`, and so on) whenever possible.
 
 ### Common output format
 
@@ -293,7 +293,7 @@ Hooks can return JSON via stdout to influence agent behavior. All hooks support 
 
 ### Exit codes
 
-The hook's exit code determines how VS Code handles the result:
+The hook's exit code determines how {% data variables.product.prodname_vscode_shortname %} handles the result:
 
 | Exit Code | Behavior |
 |-----------|----------|
@@ -533,7 +533,7 @@ To review hook output and errors:
 
 1. Open the **Output** panel.
 
-1. Select **GitHub Copilot Chat Hooks** from the channel list.
+1. Select **{% data variables.copilot.copilot_chat %} Hooks** from the channel list.
 
 > [!TIP]
 > You can also run the **Developer: Show Agent Debug Logs** command to view hook input and output in the agent debug logs.
@@ -550,24 +550,24 @@ To review hook output and errors:
 
 ## Frequently asked questions
 
-### How does VS Code handle Claude Code hook configurations?
+### How does {% data variables.product.prodname_vscode_shortname %} handle Claude Code hook configurations?
 
-VS Code reads hook configurations from `.claude/settings.json`, `.claude/settings.local.json`, and `~/.claude/settings.json` by default. VS Code parses Claude Code's hook configuration format, including matcher syntax. Currently, VS Code ignores matcher values, so hooks run on all tool invocations regardless of the matcher.
+{% data variables.product.prodname_vscode_shortname %} reads hook configurations from `.claude/settings.json`, `.claude/settings.local.json`, and `~/.claude/settings.json` by default. {% data variables.product.prodname_vscode_shortname %} parses Claude Code's hook configuration format, including matcher syntax. Currently, {% data variables.product.prodname_vscode_shortname %} ignores matcher values, so hooks run on all tool invocations regardless of the matcher.
 
-If you are adapting a Claude Code hook for VS Code, be aware of the following differences:
+If you are adapting a Claude Code hook for {% data variables.product.prodname_vscode_shortname %}, be aware of the following differences:
 
-* **Tool input property names**: Claude Code uses snake_case for tool input properties (for example, `tool_input.file_path`), while VS Code tools use camelCase (for example, `tool_input.filePath`). Update your hook scripts to read the correct property names.
-* **Tool names**: Claude Code and VS Code use different tool names. For example, Claude Code uses `Write` and `Edit` for file operations, while VS Code uses tool names like `create_file` and `replace_string_in_file`. Check the tool name in the `tool_name` input field and update your hook logic accordingly.
+* **Tool input property names**: Claude Code uses snake_case for tool input properties (for example, `tool_input.file_path`), while {% data variables.product.prodname_vscode_shortname %} tools use camelCase (for example, `tool_input.filePath`). Update your hook scripts to read the correct property names.
+* **Tool names**: Claude Code and {% data variables.product.prodname_vscode_shortname %} use different tool names. For example, Claude Code uses `Write` and `Edit` for file operations, while {% data variables.product.prodname_vscode_shortname %} uses tool names like `create_file` and `replace_string_in_file`. Check the tool name in the `tool_name` input field and update your hook logic accordingly.
 * **Matchers are ignored**: Hook matchers like `"Edit|Write"` are parsed but not applied. All hooks run on every matching event, regardless of the tool name in the matcher.
 
-### How does VS Code handle Copilot CLI hook configurations?
+### How does {% data variables.product.prodname_vscode_shortname %} handle {% data variables.copilot.copilot_cli_short %} hook configurations?
 
-VS Code parses Copilot CLI hook configurations and converts the lowerCamelCase hook event names (like `preToolUse`) to the PascalCase format used by VS Code (`PreToolUse`). The `bash` and `powershell` command properties are mapped to OS-specific commands: `powershell` maps to `windows`, and `bash` maps to `osx` and `linux`.
+{% data variables.product.prodname_vscode_shortname %} parses {% data variables.copilot.copilot_cli_short %} hook configurations and converts the lowerCamelCase hook event names (like `preToolUse`) to the PascalCase format used by {% data variables.product.prodname_vscode_shortname %} (`PreToolUse`). The `bash` and `powershell` command properties are mapped to OS-specific commands: `powershell` maps to `windows`, and `bash` maps to `osx` and `linux`.
 
 ## Security considerations
 
 > [!CAUTION]
-> Hooks execute shell commands with the same permissions as VS Code. Review hook configurations carefully, especially when using hooks from untrusted sources.
+> Hooks execute shell commands with the same permissions as {% data variables.product.prodname_vscode_shortname %}. Review hook configurations carefully, especially when using hooks from untrusted sources.
 
 * **Review hook scripts**: Inspect all hook scripts before enabling them, especially in shared repositories.
 
@@ -582,4 +582,4 @@ VS Code parses Copilot CLI hook configurations and converts the lowerCamelCase h
 * [Use tools with agents](/docs/agents/run/tools.md) - Learn about tool approval and execution
 * [Custom agents](/docs/agent-customization/custom-agents.md) - Create specialized agent configurations
 * [Subagents](/docs/agents/run/subagents.md) - Delegate tasks to context-isolated subagents
-* [Security considerations](/docs/agents/run/security.md) - Best practices for AI security in VS Code
+* [Security considerations](/docs/agents/run/security.md) - Best practices for AI security in {% data variables.product.prodname_vscode_shortname %}

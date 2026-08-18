@@ -1,7 +1,7 @@
 ---
 ContentId: 276ecd8f-2a76-467e-bf82-846d49c13ab5
-DateApproved: 8/19/2026
-MetaDescription: Create custom agents in VS Code to tailor AI behavior, tools, and instructions for specialized development roles and workflows.
+DateApproved: 8/12/2026
+MetaDescription: Learn how to create custom agents (formerly custom chat modes) to tailor AI chat behavior in {% data variables.product.prodname_vscode_shortname %} for your specific workflows and development scenarios.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - custom agents
@@ -14,22 +14,22 @@ Keywords:
 - customize
 - code review
 ---
-# Custom agents in VS Code
+# Custom agents in {% data variables.product.prodname_vscode_shortname %}
 
 Custom agents enable you to configure the AI to adopt different personas tailored to specific development roles and tasks. For example, you might create agents for a security reviewer, planner, solution architect, or other specialized roles. Each persona can have its own behavior, available tools, and instructions.
 
 You can also use handoffs to create guided workflows between agents. Transition seamlessly from one specialized agent to another with a single select. For example, move from a planning agent directly into an implementation agent, or hand off to a code reviewer with the relevant context.
 
-You can use the [Agent Customizations editor](/docs/agent-customization/overview.md#use-the-agent-customizations-editor) (Preview) to discover, create, and manage all your agent customizations in one place. Run **Chat: Open Customizations** from the Command Palette.
+You can use the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) (Preview) to discover, create, and manage all your agent customizations in one place. Run **Chat: Open Customizations** from the Command Palette.
 
-This article describes how to create and manage custom agents in VS Code.
+This article describes how to create and manage custom agents in {% data variables.product.prodname_vscode_shortname %}.
 
 > [!TIP]
 > **Not sure which customization to use?** See the [decision matrix](/docs/agents/concepts/customization.md#customization-options-at-a-glance) to compare custom agents with prompt files, agent skills, and the other options.
 
 ## What are custom agents?
 
-The [built-in agent roles](/docs/agents/run/agent-harnesses.md#choose-a-built-in-agent-role) provide general-purpose configurations for chat in VS Code. For a more tailored chat experience, you can create your own custom agents.
+The [built-in agent roles](/docs/agents/run/agent-harnesses.md#choose-a-built-in-agent-role) provide general-purpose configurations for chat in {% data variables.product.prodname_vscode_shortname %}. For a more tailored chat experience, you can create your own custom agents.
 
 Custom agents consist of a set of instructions and tools that are applied when you switch to that agent. For example, a "Plan" agent could include instructions for generating an implementation plan and only use read-only tools. By creating a custom agent, you can quickly switch to that specific configuration without having to manually select relevant tools and instructions each time.
 
@@ -96,7 +96,7 @@ To create a user-level custom agent, use the Agent Customizations editor or the 
 Custom agent files are Markdown files and use the `.agent.md` extension and have the following structure.
 
 > [!NOTE]
-> VS Code detects any `.md` files in the `.github/agents` folder of your workspace as custom agents.
+> {% data variables.product.prodname_vscode_shortname %} detects any `.md` files in the `.github/agents` folder of your workspace as custom agents.
 
 ### Header (optional)
 
@@ -134,7 +134,7 @@ You can reference other files by using Markdown links, for example to reuse inst
 
 To reference agent tools in the body text, use the `#tool:<tool-name>` syntax. For example, to reference the `fetch` tool, use `#tool:web/fetch`.
 
-When you select the custom agent in the Chat view, the guidelines in the custom agent file body are prepended to the user chat prompt.
+When you select the custom agent in the {% data variables.copilot.chat_view %}, the guidelines in the custom agent file body are prepended to the user chat prompt.
 
 ### Examples
 
@@ -245,10 +245,10 @@ Agent files in the `.claude/agents` folder use plain `.md` files and support Cla
 | `tools` | Comma-separated string of allowed tools (for example, `"Read, Grep, Glob, Bash"`) |
 | `disallowedTools` | Comma-separated string of tools to block |
 
-VS Code maps Claude-specific tool names to the corresponding VS Code tools. Both the VS Code `.agent.md` format (with YAML arrays for tools) and the Claude format (with comma-separated strings) are supported.
+{% data variables.product.prodname_vscode_shortname %} maps Claude-specific tool names to the corresponding {% data variables.product.prodname_vscode_shortname %} tools. Both the {% data variables.product.prodname_vscode_shortname %} `.agent.md` format (with YAML arrays for tools) and the Claude format (with comma-separated strings) are supported.
 
 > [!NOTE]
-> VS Code also detects `.md` files in the `.claude/agents` folder, following the [Claude sub-agents format](https://code.claude.com/docs/en/sub-agents). This enables you to use the same agent definitions across VS Code and Claude Code.
+> {% data variables.product.prodname_vscode_shortname %} also detects `.md` files in the `.claude/agents` folder, following the [Claude sub-agents format](https://code.claude.com/docs/en/sub-agents). This enables you to use the same agent definitions across {% data variables.product.prodname_vscode_shortname %} and Claude Code.
 
 ## Create a custom agent
 
@@ -257,7 +257,7 @@ You can create a custom agent file in your workspace or user profile.
 > [!TIP]
 > Type `/agents` in the chat input to quickly open the **Configure Custom Agents** menu.
 
-1. In the Chat view, select **Configure Chat** (gear icon) to open the Agent Customizations editor and then select the **Agents** tab.
+1. In the {% data variables.copilot.chat_view %}, select **Configure Chat** (gear icon) to open the Agent Customizations editor and then select the **Agents** tab.
 
 1. Select **New Agent (Workspace)** or **New Agent (User)** from the dropdown, depending on where you want to store the agent file.
 
@@ -266,7 +266,7 @@ You can create a custom agent file in your workspace or user profile.
     Alternatively, run the **Chat: New Custom Agent** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
     > [!TIP]
-    > You can configure additional locations where VS Code searches for custom agent files by using the `setting(chat.agentFilesLocations)` setting. This is useful for sharing agents across projects or keeping them in a central location outside your workspace.
+    > You can configure additional locations where {% data variables.product.prodname_vscode_shortname %} searches for custom agent files by using the `setting(chat.agentFilesLocations)` setting. This is useful for sharing agents across projects or keeping them in a central location outside your workspace.
 
 1. Select the location and enter a file name for the custom agent. This is the default name that appears in the agents dropdown.
 
@@ -301,7 +301,7 @@ When you use `tools` in both a custom agent and a prompt file, the prompt file's
 
 To share custom agents across your team, you can create a workspace-level custom agent (`.github/agents` folder). If you want to share custom agents across multiple workspaces within your organization, you can define them at the GitHub organization level.
 
-VS Code automatically detects custom agents defined at the organization level to which your account has access. These agents appear in the Agents dropdown in chat alongside the built-in agents, and your personal and workspace custom agents.
+{% data variables.product.prodname_vscode_shortname %} automatically detects custom agents defined at the organization level to which your account has access. These agents appear in the Agents dropdown in chat alongside the built-in agents, and your personal and workspace custom agents.
 
 To enable discovery of organization-level custom agents, set `setting(github.copilot.chat.organizationCustomAgents.enabled)` to `true`.
 
@@ -317,7 +317,7 @@ If you have existing `.chatmode.md` files, rename them to `.agent.md` to convert
 
 ### How do I remove a custom agent?
 
-To completely remove a custom agent from VS Code:
+To completely remove a custom agent from {% data variables.product.prodname_vscode_shortname %}:
 
 * Delete the corresponding `.agent.md` file from your workspace or user profile.
 * Select **Configure Custom Agents** from the agents dropdown, hover over the custom agent in the list, and select the trash icon.
@@ -334,7 +334,7 @@ To identify the source of a custom agent:
 1. Hover over the custom agent in the list. The source location is displayed in a tooltip.
 
 > [!TIP]
-> Use the chat customization diagnostics view to see all loaded custom agents, prompt files, instruction files, and skills along with any errors. Right-click in the Chat view and select **Diagnostics**. Learn more about [troubleshooting AI in VS Code](/docs/agents/agent-troubleshooting/troubleshooting.md).
+> Use the chat customization diagnostics view to see all loaded custom agents, prompt files, instruction files, and skills along with any errors. Right-click in the {% data variables.copilot.chat_view %} and select **Diagnostics**. Learn more about [troubleshooting AI in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/agent-troubleshooting/troubleshooting.md).
 
 ## Security considerations
 

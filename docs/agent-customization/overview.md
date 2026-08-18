@@ -1,7 +1,7 @@
 ---
 ContentId: 16c73175-a606-4aab-8ae5-a5071d3b9e24
-DateApproved: 8/19/2026
-MetaDescription: Create, manage, migrate, evaluate, and troubleshoot agent customizations in VS Code for user profiles, workspaces, and monorepos.
+DateApproved: 8/12/2026
+MetaDescription: Create, manage, evaluate, and troubleshoot agent customizations in {% data variables.product.prodname_vscode_shortname %} for user profiles, workspaces, and monorepos.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - ai
@@ -18,7 +18,7 @@ Keywords:
 ---
 # Create and manage agent customizations
 
-Agent customizations adapt agents to your coding standards, workflows, and development systems. This article explains how to create, manage, evaluate, and troubleshoot customizations in Visual Studio Code. To compare the customization types and understand how they work together, see [Agent customization concepts](/docs/agents/concepts/customization.md).
+Agent customizations adapt agents to your coding standards, workflows, and development systems. This article explains how to create, manage, evaluate, and troubleshoot customizations in {% data variables.product.prodname_vscode %}. To compare the customization types and understand how they work together, see [Agent customization concepts](/docs/agents/concepts/customization.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Core concepts">
 Learn about the different customization types and when to use each one.
@@ -40,21 +40,21 @@ The Agent Customizations editor provides a central place to discover, create, an
 
 When you open the Customizations editor, the customizations are scoped to the selected [agent harness](/docs/agents/concepts/agent-harnesses.md). Select the harness from the dropdown in the chat input before you open the editor to ensure the customizations apply to the correct context.
 
-![Screenshot showing the Agent Customizations panel in the Agents window, with the list of available customizations visible.](images/customization/agents-customizations.png)
+![Screenshot showing the Agent Customizations panel in the {% data variables.copilot.agents_window %}, with the list of available customizations visible.](images/customization/agents-customizations.png)
 
 Follow these steps to open the Agent Customizations editor:
 
 {% tabs id="chat-surface" %}
-{% tab label="Agents window" %}
+{% tab label="{% data variables.copilot.agents_window %}" %}
 
 In the left sidebar, select a customization type in the **Customizations** panel.
 
-![Screenshot showing the Agent Customizations panel in the Agents window, with the list of available customizations visible.](images/customization/agents-window-customizations.png)
+![Screenshot showing the Agent Customizations panel in the {% data variables.copilot.agents_window %}, with the list of available customizations visible.](images/customization/agents-window-customizations.png)
 
 {% /tab %}
-{% tab label="Chat view" %}
+{% tab label="{% data variables.copilot.chat_view %}" %}
 
-In the Chat view, select the **Configure Chat (gear icon)** or run **Chat: Open Customizations** from the Command Palette (`kb(workbench.action.showCommands)`).
+In the {% data variables.copilot.chat_view %}, select the **Configure Chat (gear icon)** or run **Chat: Open Customizations** from the Command Palette (`kb(workbench.action.showCommands)`).
 
 ![Screenshot showing the Agent Customizations editor with customization categories in the sidebar and custom agents in the main view.](images/customization/chat-customizations-editor.png)
 
@@ -135,7 +135,7 @@ The migration card appears only when an agent host is active, the experimental s
 As your collection of customization files grows, it can be hard to tell whether they actually guide the AI the way you intend. Vague wording, contradictory rules, or overly complex instructions can degrade results. The [Chat Customizations Evaluations](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-chat-customizations-evaluations) extension helps you catch these problems before you rely on a customization, by analyzing your files and suggesting concrete improvements.
 
 > [!NOTE]
-> The Chat Customizations Evaluations extension is currently in preview and is published separately from VS Code. Install it from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-chat-customizations-evaluations).
+> The Chat Customizations Evaluations extension is currently in preview and is published separately from {% data variables.product.prodname_vscode_shortname %}. Install it from the [{% data variables.product.prodname_vs_marketplace %}](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-chat-customizations-evaluations).
 
 The extension works with skill files (`SKILL.md`), custom agent files (`*.agent.md`), instructions files (`*.instructions.md`), and prompt files (`*.prompt.md`).
 
@@ -152,15 +152,15 @@ The extension uses GitHub Copilot to detect issues such as:
 Diagnostics appear in the **Problems** panel (`kb(workbench.actions.view.problems)`) with line and column locations. After the analysis completes, select **Implement Suggestions** to apply the suggested improvements.
 
 > [!TIP]
-> You can also start an analysis from chat with the `/analyze-prompt` slash command, which summarizes the diagnostics for the active customization file directly in the Chat view.
+> You can also start an analysis from chat with the `/analyze-prompt` slash command, which summarizes the diagnostics for the active customization file directly in the {% data variables.copilot.chat_view %}.
 
 For skill files, the extension integrates with the [Waza](https://github.com/microsoft/waza) evaluation framework to measure how well a skill performs against a set of test cases. Run **Chat Customizations Evaluations: Download Waza Binary** to install Waza, **Chat Customizations Evaluations: Create Waza Eval Scaffold** to generate evaluation files for the active skill, and **Chat Customizations Evaluations: Run Waza Evaluation** to run the suite. For step-by-step guidance, run **Chat Customizations Evaluations: Open Analysis and Fix User Guide**.
 
 ## Use customizations in a monorepo
 
-In monorepo setups, you might open a subfolder of a repository in VS Code rather than the repo root. By default, VS Code only discovers customization files within your open workspace folder(s). Enable the `setting(chat.useCustomizationsInParentRepositories)` setting to also discover customizations from the parent repository.
+In monorepo setups, you might open a subfolder of a repository in {% data variables.product.prodname_vscode_shortname %} rather than the repo root. By default, {% data variables.product.prodname_vscode_shortname %} only discovers customization files within your open workspace folder(s). Enable the `setting(chat.useCustomizationsInParentRepositories)` setting to also discover customizations from the parent repository.
 
-When this setting is enabled, VS Code walks up the folder hierarchy from each workspace folder until it finds a `.git` folder. If found, it collects customizations from all folders between the workspace folder and the repository root (inclusive). This applies to all customization types: always-on instructions (`copilot-instructions.md`, `AGENTS.md`, `CLAUDE.md`), file-based instructions, prompt files, custom agents, agent skills, and hooks.
+When this setting is enabled, {% data variables.product.prodname_vscode_shortname %} walks up the folder hierarchy from each workspace folder until it finds a `.git` folder. If found, it collects customizations from all folders between the workspace folder and the repository root (inclusive). This applies to all customization types: always-on instructions (`copilot-instructions.md`, `AGENTS.md`, `CLAUDE.md`), file-based instructions, prompt files, custom agents, agent skills, and hooks.
 
 For example, consider the following monorepo structure:
 
@@ -179,20 +179,20 @@ my-monorepo/              # repo root (has .git folder)
 │       └── src/
 ```
 
-If you open only `packages/frontend/` in VS Code and enable the setting, VS Code discovers the customization files at the repo root, such as `copilot-instructions.md`, `style.instructions.md`, `review.prompt.md`, and `reviewer.agent.md`.
+If you open only `packages/frontend/` in {% data variables.product.prodname_vscode_shortname %} and enable the setting, {% data variables.product.prodname_vscode_shortname %} discovers the customization files at the repo root, such as `copilot-instructions.md`, `style.instructions.md`, `review.prompt.md`, and `reviewer.agent.md`.
 
 Conditions for parent repository discovery:
 
 * The workspace folder does not contain a `.git` folder (it is not itself a repository root).
 * A parent folder contains a `.git` folder.
-* The parent repository folder is [trusted](/docs/editing/workspaces/workspace-trust.md). VS Code prompts you to trust the parent folder when the workspace is opened.
+* The parent repository folder is [trusted](/docs/editing/workspaces/workspace-trust.md). {% data variables.product.prodname_vscode_shortname %} prompts you to trust the parent folder when the workspace is opened.
 
 > [!NOTE]
 > The `setting(chat.useCustomizationsInParentRepositories)` setting is disabled by default.
 
 ## Troubleshoot customization issues
 
-If your customizations aren't being applied or cause unexpected behavior, open the **Agent Debug Logs** panel to [troubleshoot agent issues](/docs/agents/agent-troubleshooting/troubleshooting.md). Run **Developer: Open Agent Debug Panel** from the Command Palette (`kb(workbench.action.showCommands)`), or in the Chat view select the ellipsis (**...**) menu and select **Show Agent Debug Logs**.
+If your customizations aren't being applied or cause unexpected behavior, open the **Agent Debug Logs** panel to [troubleshoot agent issues](/docs/agents/agent-troubleshooting/troubleshooting.md). Run **Developer: Open Agent Debug Panel** from the Command Palette (`kb(workbench.action.showCommands)`), or in the {% data variables.copilot.chat_view %} select the ellipsis (**...**) menu and select **Show Agent Debug Logs**.
 
 ## Related resources
 

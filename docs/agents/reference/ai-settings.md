@@ -1,14 +1,14 @@
 ---
 ContentId: 7b232695-cbbe-4f3f-a625-abc7a5e6496c
 DateApproved: 8/19/2026
-MetaDescription: Configure AI features and agent behavior in Visual Studio Code with settings for chat, code editing, sessions, models, tools, and security.
+MetaDescription: Overview of the configuration settings for AI features and agents in {% data variables.product.prodname_vscode %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # AI settings reference
 
-This article lists the configuration settings for the AI features and agents in Visual Studio Code. For general information about working with settings in VS Code, refer to [User and workspace settings](/docs/configure/settings.md).
+This article lists the configuration settings for the AI features and agents in {% data variables.product.prodname_vscode %}. For general information about working with settings in {% data variables.product.prodname_vscode_shortname %}, refer to [User and workspace settings](/docs/configure/settings.md).
 
-The team is continuously working on improving the AI features in VS Code and adding new functionality. Some features are still experimental. Try them out and share your feedback in [our issues](https://github.com/microsoft/vscode/issues). Get more info about the [feature lifecycle in VS Code](/docs/configure/settings.md#feature-lifecycle).
+The team is continuously working on improving the AI features in {% data variables.product.prodname_vscode_shortname %} and adding new functionality. Some features are still experimental. Try them out and share your feedback in [our issues](https://github.com/microsoft/vscode/issues). Get more info about the [feature lifecycle in {% data variables.product.prodname_vscode_shortname %}](/docs/configure/settings.md#feature-lifecycle).
 
 > [!TIP]
 > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly allowance of inline suggestions and AI credits.
@@ -17,12 +17,12 @@ The team is continuously working on improving the AI features in VS Code and add
 
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(chat.commandCenter.enabled)`<br/>Controls whether to show the Chat menu in the VS Code title bar. | `true` |
+| `setting(chat.commandCenter.enabled)`<br/>Controls whether to show the Chat menu in the {% data variables.product.prodname_vscode_shortname %} title bar. | `true` |
 | `setting(workbench.settings.showAISearchToggle)`<br/>Enable searching settings with AI in the Settings editor. | `true` |
 | `setting(workbench.commandPalette.experimental.askChatLocation)` _(Experimental)_<br/>Controls where the Command Palette should ask chat questions. | `"chatView"` |
 | `setting(search.searchView.semanticSearchBehavior)` _(Preview)_<br/>Configure when to run semantic search in the Search view: manually (default), when no text search results are found, or always. | `"manual"` |
 | `setting(search.searchView.keywordSuggestions)` _(Preview)_<br/>Controls whether to show keyword suggestions in the Search view. | `false` |
-| `setting(chat.disableAIFeatures)`<br/>Disable and hide built-in AI features in VS Code, such as chat and inline suggestions, and disable the Copilot extensions. | `false` |
+| `setting(chat.disableAIFeatures)`<br/>Disable and hide built-in AI features in {% data variables.product.prodname_vscode_shortname %}, such as chat and inline suggestions, and disable the Copilot extensions. | `false` |
 
 ## Code editing settings
 
@@ -31,10 +31,10 @@ The team is continuously working on improving the AI features in VS Code and add
 | `setting(github.copilot.editor.enableCodeActions)`<br/>Controls if AI commands are shown as Code Actions when available. | `true` |
 | `setting(github.copilot.renameSuggestions.triggerAutomatically)`<br/>Generate symbol renaming suggestions. | `true` |
 | `setting(github.copilot.enable)`<br/>Enable or disable inline suggestions for specified [languages](/docs/languages/identifiers.md). | `{ "*": true, "plaintext": false, "markdown": false, "scminput": false }` |
-| `setting(github.copilot.nextEditSuggestions.enabled)`<br/>Enables [next edit suggestions](/docs/editing/ai-powered-suggestions.md#next-edit-suggestions) (NES). | `true` |
+| `setting(github.copilot.nextEditSuggestions.enabled)`<br/>Enables [{% data variables.copilot.next edit suggestions %}](/docs/editing/ai-powered-suggestions.md#next-edit-suggestions) (NES). | `true` |
 | `setting(editor.inlineSuggest.edits.allowCodeShifting)`<br/>Configure if NES is able to shift your code to show a suggestion. | `"always"` |
 | `setting(editor.inlineSuggest.edits.renderSideBySide)`<br/>Configure if NES can show larger suggestions side-by-side if possible, or if NES should always show larger suggestions below the relevant code. | `"auto"` |
-| `setting(github.copilot.nextEditSuggestions.fixes)`<br/>Enable next edit suggestions based on diagnostics (squiggles). For example, missing imports. | `true` |
+| `setting(github.copilot.nextEditSuggestions.fixes)`<br/>Enable {% data variables.copilot.next edit suggestions %} based on diagnostics (squiggles). For example, missing imports. | `true` |
 | `setting(editor.inlineSuggest.edits.showCollapsed)`<br/>Show NES code changes in the editor only when you press `kbstyle(Tab)` to navigate to the suggestion or hover over the gutter arrow. | `false` |
 | `setting(editor.inlineSuggest.fontFamily)`<br/>Configure the font family for inline completions. | `"default"` |
 | `setting(editor.inlineSuggest.showToolbar)`<br/>Enable or disable the toolbar that appears for inline completions. | `"onHover"` |
@@ -48,7 +48,7 @@ The team is continuously working on improving the AI features in VS Code and add
 | `setting(github.copilot.chat.useProjectTemplates)`<br/>Use relevant GitHub projects as starter projects when using `/new`. | `true` |
 | `setting(github.copilot.chat.scopeSelection)`<br/>Whether to prompt for a specific symbol scope if you use `/explain` and the active editor has no selection. | `false` |
 | `setting(github.copilot.chat.terminalChatLocation)`<br/>Controls where chat queries from the terminal should be opened. | `"chatView"` |
-| `setting(chat.detectParticipant.enabled)`<br/>Enable chat participant detection in the Chat view. | `true` |
+| `setting(chat.detectParticipant.enabled)`<br/>Enable chat participant detection in the {% data variables.copilot.chat_view %}. | `true` |
 | `setting(chat.stickyScroll.enabled)`<br/>Controls whether the current prompt is pinned to the top of the chat transcript while scrolling. | `true` |
 | `setting(chat.artifacts.enabled)` _(Experimental)_<br/>Enable or disable the [artifacts panel](/docs/agents/run/artifacts.md) in the chat (preview). | `false` |
 | `setting(chat.artifacts.rules.byMimeType)` _(Experimental)_<br/>Rules for extracting artifacts from tool results by MIME type pattern. Maps MIME type patterns (such as `"image/*"`) to a group configuration. | `{ "image/*": { "groupName": "Screenshots", "onlyShowGroup": true } }` |
@@ -69,8 +69,8 @@ The team is continuously working on improving the AI features in VS Code and add
 | `setting(chat.fontFamily)`<br/>Font family for Markdown content in chat. | `"default"` |
 | `setting(chat.fontSize)`<br/>Font size in pixels for Markdown content in chat. | `13` |
 | `setting(chat.verbose)`<br/>Show request and completion timestamps in chat. Hover over a completion timestamp to show elapsed response time. | `true` |
-| `setting(chat.notifyWindowOnConfirmation)`<br/>Configure when to show an OS notification when user input is needed in a chat session: `off` to never show notifications, `windowNotFocused` (default) to show notifications only when the VS Code window is not focused, `always` to always show notifications. | `"windowNotFocused"` |
-| `setting(chat.notifyWindowOnResponseReceived)`<br/>Configure when to show an OS notification when a chat response is received: `off` to never show notifications, `windowNotFocused` (default) to show notifications only when the VS Code window is not focused, `always` to always show notifications. | `"windowNotFocused"` |
+| `setting(chat.notifyWindowOnConfirmation)`<br/>Configure when to show an OS notification when user input is needed in a chat session: `off` to never show notifications, `windowNotFocused` (default) to show notifications only when the {% data variables.product.prodname_vscode_shortname %} window is not focused, `always` to always show notifications. | `"windowNotFocused"` |
+| `setting(chat.notifyWindowOnResponseReceived)`<br/>Configure when to show an OS notification when a chat response is received: `off` to never show notifications, `windowNotFocused` (default) to show notifications only when the {% data variables.product.prodname_vscode_shortname %} window is not focused, `always` to always show notifications. | `"windowNotFocused"` |
 | `setting(chat.requestQueuing.defaultAction)`<br/>Configure the default action for the **Send** button while a request is in progress: `queue` adds the message to the queue, `steer` signals the current request to yield. | `"queue"` |
 | `setting(chat.tools.terminal.autoReplyToPrompts)` <br/>Automatically reply to terminal prompts with a default answer. | `false` |
 | `setting(chat.tools.terminal.terminalProfile.<platform>)`<br/>Configure which terminal profile to use for chat terminal commands on each platform. | `""` |
@@ -82,7 +82,7 @@ The team is continuously working on improving the AI features in VS Code and add
 | `setting(chat.subagents.useRichRendering)`<br/>Open each subagent in its own editor instead of showing its full activity inline in the parent chat. | `true` |
 | `setting(chat.viewTitle.enabled)` _(Preview)_<br/>Show the title of the current chat session in the chat header. | `true` |
 | `setting(github.copilot.chat.codesearch.enabled)` _(Preview)_<br/>When using `#codebase` in the prompt, the agent automatically discovers relevant files to be edited. | `false` |
-| `setting(chat.emptyState.history.enabled)` _(Experimental)_<br/>Show recent chat history in the empty state of the Chat view. | `false` |
+| `setting(chat.emptyState.history.enabled)` _(Experimental)_<br/>Show recent chat history in the empty state of the {% data variables.copilot.chat_view %}. | `false` |
 | `setting(imageCarousel.chat.enabled)` _(Experimental)_<br/>Enable the image carousel for browsing images from chat responses. Select image pills in tool results or assistant messages to open a carousel view. | `false` |
 | `setting(chat.sendElementsToChat.enabled)`<br/>Enable sending elements from the [integrated browser](/docs/debugtest/integrated-browser.md) to the chat view as context. | `true` |
 | `setting(chat.sendElementsToChat.attachCSS)`<br/>Include CSS styles when adding elements from the integrated browser to chat context. | `true` |
@@ -103,10 +103,10 @@ The team is continuously working on improving the AI features in VS Code and add
 
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(chat.agent.enabled:true)`<br/>Enable or disable using agents (requires VS Code 1.99 or later). | `true` |
+| `setting(chat.agent.enabled:true)`<br/>Enable or disable using agents (requires {% data variables.product.prodname_vscode_shortname %} 1.99 or later). | `true` |
 | `setting(chat.agent.maxRequests)`<br/>Maximum number of requests that the agent can make. | `25` |
 | `setting(github.copilot.chat.agent.autoFix)`<br/>Automatically diagnose and fix issues in the generated code changes. | `true` |
-| `setting(chat.mcp.access)`<br/>Manage which Model Context Protocol (MCP) servers can be used in VS Code. | `true` |
+| `setting(chat.mcp.access)`<br/>Manage which Model Context Protocol (MCP) servers can be used in {% data variables.product.prodname_vscode_shortname %}. | `true` |
 | `setting(chat.mcp.discovery.enabled)`<br/>Configure automatic discovery of MCP server configuration from other applications. | `false` |
 | `setting(chat.mcp.serverSampling)`<br/>Configure which models are exposed to MCP servers for sampling. | `{}` |
 | `setting(chat.mcp.apps.enabled)` _(Experimental)_<br/>Enable or disable MCP Apps, which are rich user interfaces provided by MCP servers. | `true` |
@@ -151,7 +151,7 @@ The team is continuously working on improving the AI features in VS Code and add
 | Setting and Description | Default |
 |------------------------|---------------|
 | `setting(chat.tools.memory.enabled)` _(Experimental)_<br/>Enable the [memory tool](/docs/agents/run/memory.md#memory-tool) so agents can save and recall notes across conversations. | `true` |
-| `setting(chat.copilotMemory.enabled)` _(Experimental)_<br/>Store [repository memory](/docs/agents/run/memory.md#store-repository-memory-in-copilot-memory) in [Copilot Memory](/docs/agents/run/memory.md#copilot-memory) instead of local files, so it's shared across Copilot surfaces. Requires Copilot Memory to be enabled for the repository in your GitHub settings. User and session memory always remain local. | `false` |
+| `setting(chat.copilotMemory.enabled)` _(Experimental)_<br/>Store [repository memory](/docs/agents/run/memory.md#store-repository-memory-in-copilot-memory) in [{% data variables.copilot.copilot_memory %}](/docs/agents/run/memory.md#copilot-memory) instead of local files, so it's shared across Copilot surfaces. Requires {% data variables.copilot.copilot_memory %} to be enabled for the repository in your GitHub settings. User and session memory always remain local. | `false` |
 
 ## Agent sessions
 
@@ -167,7 +167,7 @@ The [Agents view](/docs/agents/overview.md) provides a centralized location for 
 | `setting(chat.agentsControl.enabled)` _(Experimental)_<br/>Enable the [session status indicator](/docs/agents/run/sessions/manage-sessions.md#session-status-indicator-experimental) in the command center. Shows unread and in-progress session badges. | `true` |
 | `setting(chat.agentsControl.clickBehavior)` _(Experimental)_<br/>Configure the behavior when selecting the chat icon in the agent status indicator. | `"cycle"` (Insiders)<br/>`"default"` (Stable) |
 | `setting(chat.unifiedAgentsBar.enabled)` _(Experimental)_<br/>Replace the command center search box with a unified chat and search control. | `false` |
-| `setting(sessions.layout.singlePaneDetailPanel)` _(Experimental)_<br/>Dock the Agents window detail panel inside the editor with a shared tab bar. Requires a window reload to take effect. | `false` |
+| `setting(sessions.layout.singlePaneDetailPanel)` _(Experimental)_<br/>Dock the {% data variables.copilot.agents_window %} detail panel inside the editor with a shared tab bar. Requires a window reload to take effect. | `false` |
 | `setting(github.copilot.chat.cli.remote.enabled)` <br/>Enable remote control support for Copilot sessions from github.com or the GitHub Mobile app. | `true` |
 | `setting(chat.agentHost.allowSignedOutWhenUsable)` _(Experimental)_<br/>Open the Agents window without GitHub authentication when at least one registered session type can run with its own provider credentials. Providers, models, and operations that require GitHub authentication prompt you to sign in when needed. | `false` |
 | `setting(chat.agentHost.byokModels.enabled)` _(Experimental)_<br/>Wire up the [BYOK](/docs/agent-customization/language-models.md#bring-your-own-language-model-key) language model bridge so extension-provided BYOK models can run in agent host sessions. The agent host process must be restarted to take effect. | `false` |
@@ -180,8 +180,8 @@ The [Agents view](/docs/agents/overview.md) provides a centralized location for 
 
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(inlineChat.defaultModel)`<br/>Configure the default language model for editor inline chat. The model you select persists during the session, but resets to this configured default after VS Code reloads. | N/A |
-| `setting(inlineChat.askInChat)`<br/>When a file belongs to an active chat editing session, use "Ask in Chat" in the Chat view instead of opening regular inline chat when you press `kb(inlineChat.start)`. When disabled, always opens regular inline chat. | `true` |
+| `setting(inlineChat.defaultModel)`<br/>Configure the default language model for editor inline chat. The model you select persists during the session, but resets to this configured default after {% data variables.product.prodname_vscode_shortname %} reloads. | N/A |
+| `setting(inlineChat.askInChat)`<br/>When a file belongs to an active chat editing session, use "Ask in Chat" in the {% data variables.copilot.chat_view %} instead of opening regular inline chat when you press `kb(inlineChat.start)`. When disabled, always opens regular inline chat. | `true` |
 | `setting(inlineChat.renderMode)` _(Experimental)_<br/>Configure how inline chat is displayed. `hover`: shows inline chat in a floating overlay, `zone`: shows inline chat in a dedicated zone in the editor. | `"hover"` |
 | `setting(inlineChat.finishOnType)`<br/>Finish an editor inline chat session when typing outside of changed regions. | `false` |
 | `setting(inlineChat.holdToSpeech)`<br/>Holding the editor inline chat keyboard shortcut (`kb(inlineChat.start)`) automatically enables speech recognition. | `true` |
@@ -237,7 +237,7 @@ The [Agents view](/docs/agents/overview.md) provides a centralized location for 
 
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(chat.useAgentSkills)` <br/>Enable support for [agent skills](/docs/agent-customization/agent-skills.md) in VS Code. | `true` |
+| `setting(chat.useAgentSkills)` <br/>Enable support for [agent skills](/docs/agent-customization/agent-skills.md) in {% data variables.product.prodname_vscode_shortname %}. | `true` |
 | `setting(chat.agentSkillsLocations)` <br/>Locations to search for agent skills. Relative paths are resolved from the root folder(s) of your workspace. Supports home directory expansion (`~`) for user-specific paths. | `"chat.agentSkillsLocations": { ".github/skills": true,".claude/skills": true,"~/.copilot/skills": true,"~/.claude/skills": true}` |
 | `setting(github.copilot.chat.skillTool.enabled)` _(Experimental)_<br/>Enable the dedicated skill tool for invoking [agent skills](/docs/agent-customization/agent-skills.md). Required to run skills with [`context: fork`](/docs/agent-customization/agent-skills.md#run-a-skill-in-a-forked-context-experimental) in a separate subagent context. | `false` |
 
@@ -267,7 +267,7 @@ The [Agents view](/docs/agents/overview.md) provides a centralized location for 
 |------------------------|---------------|
 | `setting(github.copilot.chat.agentDebugLog.enabled)`<br/>Enable the [agent debug logs](/docs/agents/agent-troubleshooting/chat-debug-view.md) and the [`/troubleshoot`](/docs/agents/agent-troubleshooting/chat-debug-view.md#attach-debug-events-to-chat) slash command for inspecting chat sessions. | `false` |
 | `setting(github.copilot.chat.agentDebugLog.fileLogging.enabled)`<br/>Enable file logging for agent debug logs, which writes debug events to a file on disk. | `false` |
-| `setting(github.copilot.chat.startDebugging.enabled)` _(Preview)_<br/>Enables the experimental `/startDebugging` intent in the Chat view to generate debugging configuration. | `true` |
+| `setting(github.copilot.chat.startDebugging.enabled)` _(Preview)_<br/>Enables the experimental `/startDebugging` intent in the {% data variables.copilot.chat_view %} to generate debugging configuration. | `true` |
 | `setting(github.copilot.chat.copilotDebugCommand.enabled)` _(Preview)_<br/>Enables the `copilot-debug` terminal command. | `true` |
 
 ## Testing settings
@@ -289,7 +289,7 @@ The [Agents view](/docs/agents/overview.md) provides a centralized location for 
 
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(dictation.enabled)` _(Experimental)_<br/>Controls whether built-in dictation is available in chat, the Agents window, editors, and terminals. | `true` |
+| `setting(dictation.enabled)` _(Experimental)_<br/>Controls whether built-in dictation is available in chat, the {% data variables.copilot.agents_window %}, editors, and terminals. | `true` |
 | `setting(dictation.model)` _(Experimental)_<br/>Selects the speech recognition model for dictation. | `"nemotron-3.5-asr-streaming-0.6b"` |
 | `setting(dictation.showTranscript)` _(Experimental)_<br/>Shows interim transcription while you speak. Final text is still inserted when this setting is off. | `true` |
 | `setting(dictation.experimental.llmCleanup)` _(Experimental)_<br/>Uses a language model to improve punctuation, capitalization, paragraphs, lists, and number formatting in the final transcript. | `true` |
@@ -316,4 +316,4 @@ The [Agents view](/docs/agents/overview.md) provides a centralized location for 
 
 ## Related resources
 
-* [Get a quick overview of the AI features in VS Code](/docs/agents/reference/ai-features-cheat-sheet.md)
+* [Get a quick overview of the AI features in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/reference/ai-features-cheat-sheet.md)

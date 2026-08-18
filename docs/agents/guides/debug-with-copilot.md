@@ -1,12 +1,12 @@
 ---
 ContentId: 2f21c45a-8931-4da2-a921-af23a3b92949
 DateApproved: 8/19/2026
-MetaDescription: Learn how to use GitHub Copilot in Visual Studio Code to set up debugging configurations and fix issues during debugging.
+MetaDescription: Learn how to use GitHub Copilot in {% data variables.product.prodname_vscode %} to set up debugging configurations and fix issues during debugging.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Debug with GitHub Copilot
 
-GitHub Copilot can help improve your debugging workflow in Visual Studio Code. Copilot can assist with the setup of the debug configuration for your project and provide suggestions for fixing issues discovered during debugging. This article gives an overview of how to use Copilot for debugging applications in VS Code.
+GitHub Copilot can help improve your debugging workflow in {% data variables.product.prodname_vscode %}. Copilot can assist with the setup of the debug configuration for your project and provide suggestions for fixing issues discovered during debugging. This article gives an overview of how to use Copilot for debugging applications in {% data variables.product.prodname_vscode_shortname %}.
 
 Copilot can help with the following debugging tasks:
 
@@ -19,9 +19,9 @@ Copilot can help with the following debugging tasks:
 
 ## Set up debug configuration with Copilot
 
-VS Code uses the `launch.json` file to store [debug configuration](/docs/debugtest/debugging-configuration.md). Copilot can help you create and customize this file to set up debugging for your project.
+{% data variables.product.prodname_vscode_shortname %} uses the `launch.json` file to store [debug configuration](/docs/debugtest/debugging-configuration.md). Copilot can help you create and customize this file to set up debugging for your project.
 
-1. Open the Chat view (`kb(workbench.action.chat.open)`).
+1. Open the {% data variables.copilot.chat_view %} (`kb(workbench.action.chat.open)`).
 1. Enter the `/startDebugging` command.
 1. Follow Copilot's guidance to set up debugging for your project.
 
@@ -49,9 +49,9 @@ The `copilot-debug` terminal command simplifies the process of configuring and s
     copilot-debug python manage.py
     ```
 
-1. Copilot launches a debugging session for your application. You can now use the built-in debugging features in VS Code.
+1. Copilot launches a debugging session for your application. You can now use the built-in debugging features in {% data variables.product.prodname_vscode_shortname %}.
 
-Learn more about [debugging in VS Code](/docs/debugtest/debugging.md).
+Learn more about [debugging in {% data variables.product.prodname_vscode_shortname %}](/docs/debugtest/debugging.md).
 
 ## Fix coding issues with Copilot
 
@@ -62,7 +62,7 @@ You can use Copilot Chat to help you fix coding issues or improve your code.
 1. Open your application code file.
 
 1. Open one of these views:
-    * Chat view (`kb(workbench.action.chat.open)`)
+    * {% data variables.copilot.chat_view %} (`kb(workbench.action.chat.open)`)
     * Inline Chat (`kb(inlineChat.start)`)
 
 1. Enter a prompt like:
@@ -72,7 +72,7 @@ You can use Copilot Chat to help you fix coding issues or improve your code.
     * "Refactor this code"
     * "Improve the performance of this code"
 
-Learn more about using [Copilot Chat](/docs/chat/chat-overview.md) in VS Code.
+Learn more about using [Copilot Chat](/docs/chat/chat-overview.md) in {% data variables.product.prodname_vscode_shortname %}.
 
 ### Use editor smart actions
 
@@ -82,11 +82,11 @@ To fix coding issues for your application code without writing a prompt, you can
 1. Select the code you want to fix.
 1. Right-click and select **Generate Code** > **Fix**.
 
-    VS Code provides a code suggestion to fix the code.
+    {% data variables.product.prodname_vscode_shortname %} provides a code suggestion to fix the code.
 
 1. Optionally, refine the generated code by providing additional context in the chat prompt.
 
 ## Next steps
 
-* Explore [general debugging features in VS Code](/docs/debugtest/debugging.md).
-* Learn more about [Copilot in VS Code](/docs/agent-native/overview.md).
+* Explore [general debugging features in {% data variables.product.prodname_vscode_shortname %}](/docs/debugtest/debugging.md).
+* Learn more about [Copilot in {% data variables.product.prodname_vscode_shortname %}](/docs/agent-native/overview.md).

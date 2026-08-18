@@ -24,7 +24,7 @@ This guide walks you through that loop by building and validating a calculator a
 
 To complete this guide, you need:
 
-* [Visual Studio Code installed on your computer](/download)
+* [{% data variables.product.prodname_vscode %} installed on your computer](/download)
 * [A GitHub Copilot subscription](/docs/setup/copilot.md)
 * The `setting(workbench.browser.enableChatTools)` setting turned on, which is the default
 
@@ -43,7 +43,7 @@ These criteria give the agent a clear definition of success and make its final v
 
 Browser tools are generally available by default. Verify that they are selected for the request:
 
-1. Open the Chat view (`kb(workbench.action.chat.open)`) and select **Agent** from the Agents dropdown.
+1. Open the {% data variables.copilot.chat_view %} (`kb(workbench.action.chat.open)`) and select **Agent** from the Agents dropdown.
 
 1. Select **Open Customizations** (gear icon) > **Tools** and verify that **Integrated Browser** is selected.
 
@@ -53,9 +53,9 @@ The agent can now use these tools to interact with web pages. If the tools are m
 
 With browser tools enabled, ask the agent to create a simple calculator application.
 
-1. Create a new project folder and open it in VS Code.
+1. Create a new project folder and open it in {% data variables.product.prodname_vscode_shortname %}.
 
-1. In the Chat view, enter the following prompt:
+1. In the {% data variables.copilot.chat_view %}, enter the following prompt:
 
     ```prompt
     Create a calculator with buttons for digits 0-9, operations (add, subtract, multiply, divide), clear, and equals. Use HTML, CSS, and JavaScript. Style it with a clean, modern design.
@@ -71,7 +71,7 @@ The agent has built the basic structure of the calculator application.
 
 Now ask the agent to open the calculator in the integrated browser and verify it works correctly.
 
-1. In the Chat view, enter the following prompt:
+1. In the {% data variables.copilot.chat_view %}, enter the following prompt:
 
     ```prompt
     Open the calculator in the browser and validate it against these criteria:
@@ -162,4 +162,4 @@ Now that you understand how browser tools work, try these scenarios to explore d
 
 * [Use browser tools with agents](/docs/agents/run/browser-tools.md)
 * [Integrated browser](/docs/debugtest/integrated-browser.md)
-* [Core concepts of AI in VS Code](/docs/agents/concepts/agents.md)
+* [Core concepts of AI in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/concepts/agents.md)
