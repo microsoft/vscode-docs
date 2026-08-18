@@ -1,7 +1,7 @@
 ---
 ContentId: 276ecd8f-2a76-467e-bf82-846d49c13ab5
 DateApproved: 8/19/2026
-MetaDescription: Learn how to create custom agents (formerly custom chat modes) to tailor AI chat behavior in VS Code for your specific workflows and development scenarios.
+MetaDescription: Create custom agents in VS Code to tailor AI behavior, tools, and instructions for specialized development roles and workflows.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - custom agents
@@ -86,7 +86,7 @@ You can define custom agents for a specific workspace or at the user level, wher
 To create a user-level custom agent, use the Agent Customizations editor or the **Chat: New Custom Agent** command.
 
 > [!IMPORTANT]
-> When [Agent Host](/docs/agents/concepts/agent-host.md) is enabled, the agent reads user-level custom agents from `~/.copilot/agents` and not from VS Code profile user data. To use existing user-level custom agents with the Copilot agent, store them in `~/.copilot/agents`.
+> When [Agent Host](/docs/agents/concepts/agent-host.md) is enabled, the agent reads user-level custom agents from `~/.copilot/agents` and not from VS Code profile user data. To move existing user-level custom agents to this location, use the [user customization migration](/docs/agent-customization/overview.md#migrate-user-customizations-experimental).
 
 > [!TIP]
 > In a monorepo, enable `setting(chat.useCustomizationsInParentRepositories)` to discover custom agents from the parent repository root. Learn more about [parent repository discovery](/docs/agent-customization/overview.md#use-customizations-in-a-monorepo).

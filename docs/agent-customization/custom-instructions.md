@@ -1,7 +1,7 @@
 ---
 ContentId: 8b4f3c21-4e02-4a89-9f15-7a8d6b5c2e91
 DateApproved: 8/19/2026
-MetaDescription: Learn how to create custom instructions for GitHub Copilot Chat in VS Code to ensure AI responses match your coding practices, project requirements, and development standards.
+MetaDescription: Create custom instructions for GitHub Copilot in VS Code to align AI responses with coding practices, project requirements, and development standards.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - customize
@@ -141,7 +141,7 @@ You can define instructions for a specific workspace or at the user level, where
 | User profile | `~/.copilot/instructions` or `~/.claude/rules` |
 
 > [!IMPORTANT]
-> When [Agent Host](/docs/agents/concepts/agent-host.md) is enabled, the agent reads user-level instructions from harness-agnostic folders like `~/.copilot/instructions` and `~/.claude/rules` and not from VS Code profile user data. To use existing user-level instructions with the Copilot agent, store them in `~/.copilot/instructions` (or `~/.claude/rules`).
+> When [Agent Host](/docs/agents/concepts/agent-host.md) is enabled, the agent reads user-level instructions from harness-agnostic folders like `~/.copilot/instructions` and `~/.claude/rules` and not from VS Code profile user data. To move existing user-level instructions to these locations, use the [user customization migration](/docs/agent-customization/overview.md#migrate-user-customizations-experimental).
 
 VS Code searches these folders recursively, to enable you to organize instructions files in subdirectories. For example, you can group instructions by team, language, or module:
 
