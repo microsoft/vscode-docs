@@ -1,6 +1,6 @@
 ---
 ContentId: 72ad9b70-5227-4032-81d7-6aec00a1e8f8
-DateApproved: 8/5/2026
+DateApproved: 8/12/2026
 MetaDescription: Get started with agentic coding in {% data variables.product.prodname_vscode %}. Build an app from a prompt with the {% data variables.copilot.agents_window %} and the {% data variables.copilot.chat_view %}, and learn the {% data variables.product.prodname_vscode_shortname %} basics.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -202,7 +202,7 @@ The {% data variables.copilot.chat_view %} is located in the Secondary Side Bar,
     Add an accessible theme switcher button that toggles between light and dark color themes. Persist the selected theme across page reloads, update the button label to describe the theme it applies, and keep the layout responsive on narrow screens.
     ```
 
-    {% data variables.copilot.github_copilot_app_short %}lies and saves the changes directly to your project files.
+    {% data variables.copilot.github_copilot_app_short %} applies and saves the changes directly to your project files.
 
 1. Open the **Source Control** view to review the files that Copilot changed. Select a file to inspect its diff.
 

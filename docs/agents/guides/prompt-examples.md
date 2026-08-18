@@ -1,6 +1,6 @@
 ---
 ContentId: 9d8f3a2b-5c6e-4f7a-8b9c-1d2e3f4a5b6c
-DateApproved: 8/5/2026
+DateApproved: 8/12/2026
 MetaDescription: Discover effective prompt examples for chat in {% data variables.product.prodname_vscode_shortname %} across different scenarios including code generation, debugging, testing, and working with notebooks.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---

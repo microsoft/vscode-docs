@@ -1,6 +1,6 @@
 ---
 ContentId: d4e5f6a7-8b9c-0d1e-2f3a-4b5c6d7e8f9a
-DateApproved: 8/5/2026
+DateApproved: 8/12/2026
 MetaDescription: Tips to optimize your AI credit usage in {% data variables.product.prodname_vscode_shortname %} by choosing efficient models, managing context, and monitoring consumption.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---

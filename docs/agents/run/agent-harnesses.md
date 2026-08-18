@@ -1,6 +1,6 @@
 ---
 ContentId: 5b1e6f94-2c73-4a80-9d15-7f3c8e2a6b41
-DateApproved: 7/31/2026
+DateApproved: 8/12/2026
 MetaDescription: Choose, use, and hand off between Local, Copilot, Claude, Codex, and {% data variables.copilot.copilot_cloud_agent_short %} harnesses in {% data variables.product.prodname_vscode_shortname %}, including isolation and permissions.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 Keywords:
