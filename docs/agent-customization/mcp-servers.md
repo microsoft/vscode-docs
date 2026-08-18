@@ -1,6 +1,6 @@
 ---
 ContentId: 7c550054-4ade-4665-b368-215798c48673
-DateApproved: 8/5/2026
+DateApproved: 8/12/2026
 MetaDescription: Learn how to add and manage Model Context Protocol (MCP) servers with GitHub Copilot in Visual Studio Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -228,7 +228,7 @@ Organizations can centrally manage access to MCP servers via GitHub policies. Le
 
 When you add an MCP server or change its configuration, VS Code needs to (re)start the server to discover the tools it provides.
 
-You can configure VS Code to automatically restart the MCP server when configuration changes are detected by using the `setting(chat.mcp.autoStart)` setting (Experimental).
+You can configure VS Code to automatically restart the MCP server when configuration changes are detected by using the `setting(chat.mcp.autostart)` setting (Experimental).
 
 ## MCP server trust
 

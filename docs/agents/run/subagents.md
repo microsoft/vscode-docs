@@ -1,6 +1,6 @@
 ---
 ContentId: 8b3c9f5e-4d2a-6f9b-3e1c-7a8d5f2e9b0c
-DateApproved: 8/5/2026
+DateApproved: 8/12/2026
 MetaDescription: Learn how to use context-isolated subagents in VS Code to delegate complex tasks to autonomous agents within your chat session.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 Keywords:
@@ -23,6 +23,13 @@ When working on complex tasks, you can delegate subtasks to subagents. A subagen
 For background on subagent concepts (context isolation, synchronous and parallel execution), see [Agents concepts](/docs/agents/concepts/agents.md#subagents).
 
 This article explains how to use subagents in VS Code, including usage scenarios, invocation patterns, and how to run custom agents as subagents.
+
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Try a subagent">
+Launch a chat prompt that delegates research to a subagent before implementation.
+
+* [Open in VS Code](vscode://GitHub.Copilot-Chat/chat?agent=agent%26prompt=Use%20a%20subagent%20to%20research%20authentication%20best%20practices%20for%20a%20Node.js%20app%20and%20report%20back%20a%20recommendation.)
+
+</div>
 
 ## When to use subagents
 

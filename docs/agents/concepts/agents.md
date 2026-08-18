@@ -1,6 +1,6 @@
 ---
 ContentId: e5f6a7b8-9c0d-1e2f-3a4b-5c6d7e8f9a0b
-DateApproved: 8/5/2026
+DateApproved: 8/12/2026
 MetaDescription: Learn about agents in VS Code, including the agent loop, agent types, subagents, memory, and planning.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -26,9 +26,9 @@ An agent is an AI system that autonomously plans and executes coding tasks. You 
 For an overview of what you can do with agents in VS Code and where to work with them, see [Build with agents in VS Code](/docs/agents/overview.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
-Follow a hands-on tutorial to experience local, background, and cloud agents in VS Code.
+Follow a hands-on tutorial to build an app with AI agents in VS Code.
 
-* [Start agent handoff tutorial](/docs/agents/agents-handoff-tutorial.md)
+* [Start agentic coding tutorial](/docs/agents/agents-tutorial.md)
 
 </div>
 

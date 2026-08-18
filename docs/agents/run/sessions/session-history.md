@@ -1,6 +1,6 @@
 ---
 ContentId: b4e8c9f3-6d5a-4b2e-c7a4-8f9e1b3d2c5a
-DateApproved: 8/5/2026
+DateApproved: 8/12/2026
 MetaDescription: Sync, share, and query Copilot session history in Visual Studio Code with GitHub sync, privacy controls, Chronicle reports, and natural-language search.
 MetaSocialImage: ../../../images/shared/github-copilot-social.png
 ---
@@ -9,6 +9,13 @@ MetaSocialImage: ../../../images/shared/github-copilot-social.png
 VS Code maintains a searchable history of your Copilot sessions. By default, it syncs local agent sessions to your GitHub account so you can access them across devices, share selected sessions, and query work from VS Code, Copilot CLI, coding agent, code review, and the GitHub Copilot Desktop app.
 
 Synced sessions are private unless you explicitly share them.
+
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Try it">
+Launch a chat prompt that summarizes your recent coding sessions into a standup report.
+
+* [Open in VS Code](vscode://GitHub.Copilot-Chat/chat?agent=agent%26prompt=%2Fchronicle%3Astandup)
+
+</div>
 
 ## Opt out of session sync
 

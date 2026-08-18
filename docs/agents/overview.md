@@ -1,6 +1,6 @@
 ---
 ContentId: 7c4b8b5e-2d3f-4e8a-9b2c-1a5d6f8e9c0b
-DateApproved: 8/5/2026
+DateApproved: 8/12/2026
 MetaDescription: Build with AI agents in Visual Studio Code. Free to start, with multiple models or your own API key. Learn what agents can do and how to run them.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:

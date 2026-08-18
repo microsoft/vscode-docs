@@ -1,6 +1,6 @@
 ---
 ContentId: a4e7b2c1-3d5f-4a8e-b9c6-1e2d3f4a5b6c
-DateApproved: 8/5/2026
+DateApproved: 8/12/2026
 MetaDescription: Use the artifacts panel in Visual Studio Code to view screenshots, plans, documents, and other resources produced during an agent session.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 ---
@@ -13,6 +13,13 @@ The artifacts panel in Visual Studio Code surfaces important resources, such as 
 
 > [!NOTE]
 > The artifacts panel is currently in preview. To enable it, set `setting(chat.artifacts.enabled)` to `true`.
+
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Try artifacts in action">
+Launch a chat prompt that asks the agent to save a screenshot as an artifact.
+
+* [Open in VS Code](vscode://GitHub.Copilot-Chat/chat?agent=agent%26prompt=Take%20a%20screenshot%20of%20my%20app%20and%20set%20it%20as%20an%20artifact.)
+
+</div>
 
 ![Screenshot of the artifacts panel in the Chat view, showing example artifacts such as links, images, and documents.](../images/chat-artifacts/chat-artifacts-list.png)
 

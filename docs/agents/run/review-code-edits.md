@@ -1,6 +1,6 @@
 ---
 ContentId: 8d3f4a2e-9b1c-4f5e-a8d7-2c4b6e9f1a3d
-DateApproved: 7/29/2026
+DateApproved: 8/12/2026
 MetaDescription: Review, revise, revert, and integrate AI-generated code changes in Visual Studio Code with diffs, feedback, checkpoints, and Source Control.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 ---
@@ -12,9 +12,9 @@ When you work with an agent in Visual Studio Code, it can change multiple files 
 > You can review AI-generated changes in both the [Chat view](/docs/agents/run/chat-view.md) and the [Agents window](/docs/agents/run/agents-window.md). The review experience follows the same concepts, but the user interface differs between the two surfaces.
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
-Follow a hands-on tutorial to experience local, background, and cloud agents in VS Code.
+Follow a hands-on tutorial to build an app with AI agents in VS Code.
 
-* [Start agent handoff tutorial](/docs/agents/agents-handoff-tutorial.md)
+* [Start agentic coding tutorial](/docs/agents/agents-tutorial.md)
 
 </div>
 

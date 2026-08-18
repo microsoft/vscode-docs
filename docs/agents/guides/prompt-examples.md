@@ -1,6 +1,6 @@
 ---
 ContentId: 9d8f3a2b-5c6e-4f7a-8b9c-1d2e3f4a5b6c
-DateApproved: 8/5/2026
+DateApproved: 8/12/2026
 MetaDescription: Discover effective prompt examples for chat in VS Code across different scenarios including code generation, debugging, testing, and working with notebooks.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -11,9 +11,9 @@ This article provides example prompts for chat in Visual Studio Code across diff
 If you are new to using chat in VS Code, learn more about [getting started with chat](/docs/chat/chat-overview.md) or review [best practices for prompt crafting](/docs/agents/best-practices.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
-Follow a hands-on tutorial to experience local, background, and cloud agents in VS Code.
+Follow a hands-on tutorial to build an app with AI agents in VS Code.
 
-* [Start agent handoff tutorial](/docs/agents/agents-handoff-tutorial.md)
+* [Start agentic coding tutorial](/docs/agents/agents-tutorial.md)
 
 </div>
 

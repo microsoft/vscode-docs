@@ -1,6 +1,6 @@
 ---
 ContentId: 3a7e9c4f-5d1b-4e8f-a2c6-8b0d3f5e7a9c
-DateApproved: 8/5/2026
+DateApproved: 8/12/2026
 MetaDescription: Learn how agents in VS Code use the memory tool and Copilot Memory to retain context, learn preferences, and improve over time across conversations.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 ---
@@ -12,6 +12,13 @@ Agents in Visual Studio Code use memory to retain context across conversations. 
 For background on how memory fits into the agent architecture, see [Agents concepts](/docs/agents/concepts/agents.md#memory).
 
 This article explains how to use the memory tool in VS Code, how to manage memory files, and how Copilot Memory extends memory across your development workflow.
+
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Try memory in action">
+Launch a chat prompt that asks the agent to remember a coding preference.
+
+* [Open in VS Code](vscode://GitHub.Copilot-Chat/chat?agent=agent%26prompt=Remember%20that%20I%20prefer%20arrow%20functions%20over%20function%20declarations%20in%20JavaScript.)
+
+</div>
 
 ## Memory tool
 

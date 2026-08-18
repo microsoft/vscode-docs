@@ -1,6 +1,6 @@
 ---
 ContentId: 9c358671-d18a-4c50-beab-e69beb997ea2
-DateApproved: 8/5/2026
+DateApproved: 8/12/2026
 MetaDescription: Understand the VS Code Agent Host architecture, AHP, multi-client sessions, agent runtimes, remote execution, and client-provided tools.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:

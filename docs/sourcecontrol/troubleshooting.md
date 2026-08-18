@@ -1,79 +1,104 @@
 ---
 ContentId: 8a7c3f4e-5b2d-4c9a-8e1f-6d3a2b1c0e9f
-MetaDescription: Diagnose Git issues using output logs, trace logging, and diagnostic tools in Visual Studio Code
-DateApproved: 8/5/2026
+MetaDescription: Diagnose Git authentication, repository detection, trust, and synchronization problems in Visual Studio Code with targeted fixes and Git logs.
+DateApproved: 8/12/2026
 Keywords:
 - source control
 - git
 - troubleshooting
-- debugging
+- authentication
 - logs
 ---
-# Troubleshooting source control
+# Troubleshoot source control
 
-This article helps you diagnose and resolve Git issues in Visual Studio Code using output logs and trace logging. Use these diagnostic tools when Git operations fail or behave unexpectedly.
+Use this article to resolve common Git problems in Visual Studio Code. Start with the symptom that matches your problem, then use the Git Output window to collect more information if the suggested fix doesn't resolve it.
 
-## Git Output window
+## Push, pull, or sync doesn't finish
 
-VS Code uses your machine's Git installation to perform source control operations. The Git Output window provides detailed logs of Git commands executed by VS Code. This information is useful for understanding what Git operations are being performed and for diagnosing issues.
+A Git operation that doesn't finish often indicates that Git is waiting for authentication but the credential prompt isn't visible.
 
-To open the Git Output window:
+1. Open the Git Output window and check the most recent command for an authentication error.
 
-* In the Source Control view, select the **...** menu and select **Show Git Output**
+1. Configure a [Git credential helper](https://docs.github.com/get-started/getting-started-with-git/caching-your-github-credentials-in-git) for your operating system.
 
-* Run the **Git: Show Git Output** command from the Command Palette (`kb(workbench.action.showCommands)`)
+1. Run the operation again and complete any sign-in prompt.
 
-* Open the **Output** panel (`kb(workbench.action.output.toggleOutput)`) and select **Git** from the dropdown menu
+[Git Credential Manager](https://github.com/GitCredentialManager/git-credential-manager) is the recommended credential helper for Windows, macOS, and Linux. Git for Windows includes Git Credential Manager.
 
-![Screenshot of the Output panel showing the Git output channel.](images/troubleshooting/git-output.png)
+## Git authentication prompts appear repeatedly
 
-The Git Output window displays:
+VS Code automatically fetches remote changes to show incoming commits. The authentication prompt comes from your Git credential helper, not from VS Code.
 
-* Current log level of the Git extension
-* Location of the Git executable being used
-* Git commands executed by VS Code
-* Command error messages
-* Timestamps and duration of each command
+Configure a [Git credential helper](https://docs.github.com/get-started/getting-started-with-git/caching-your-github-credentials-in-git) to store your credentials. If you don't want VS Code to fetch in the background, turn off the `setting(git.autofetch)` setting.
 
-Review this output when Git operations fail or behave unexpectedly. The information helps identify issues with Git configuration, authentication, or repository state.
+## Git actions are unavailable after initializing a repository
+
+Push, pull, and sync require a remote repository. If you initialized a local repository, [add a remote](/docs/sourcecontrol/repos-remotes.md#add-a-remote) or use **Publish to GitHub** in the Source Control view.
+
+After the branch has an upstream remote, VS Code makes the synchronization actions available.
+
+## VS Code reports that a repository is potentially unsafe
+
+Git blocks operations in a repository owned by a different operating-system user. This protects you from running Git configuration or hooks from an untrusted repository.
+
+Select **Manage Unsafe Repositories** in the Source Control view or notification. Review the repository location before you mark it as safe. Marking a repository as safe adds its location to Git's [`safe.directory` configuration](https://git-scm.com/docs/git-config#Documentation/git-config.txt-safedirectory).
+
+On Windows, this can happen when you clone a repository from an application running as administrator and later open it from an application that isn't running as administrator.
+
+## VS Code doesn't detect a repository in a parent folder
+
+VS Code doesn't automatically open Git repositories in parent folders because doing so can expose changes outside the folder you intended to work with.
+
+When VS Code detects a repository in a parent folder, use the notification or Source Control welcome view to open it. To always open repositories in parent folders, set the `setting(git.openRepositoryInParentFolders)` setting to `always`.
+
+## Open the Git Output window
+
+VS Code uses your machine's Git installation for source control operations. The Git Output window records the Git executable, commands, errors, timestamps, and command duration.
+
+Open the Git Output window in one of these ways:
+
+* In the Source Control view, select **More Actions** (**...**) > **Show Git Output**.
+* Run **Git: Show Git Output** from the Command Palette (`kb(workbench.action.showCommands)`).
+* Open the Output panel (`kb(workbench.action.output.toggleOutput)`) and select **Git** from the channel list.
+
+![Screenshot showing the Git output channel in the Output panel.](images/troubleshooting/git-output.png)
+
+Review the most recent command and error message. The first error after the command is usually more useful than later errors that result from it.
 
 > [!TIP]
-> By default, the Git Output window doesn't show stdout from Git commands unless an error occurs. With the `setting(git.commandsToLog)` setting, you can specify which Git commands should always log their stdout output for more detailed diagnostics.
+> By default, the Git Output window shows standard output only when a command fails. Use the `setting(git.commandsToLog)` setting to choose commands that should always log their standard output.
 
 ## Filter and search Git logs
 
-The Git Output window can generate a large amount of information. To find relevant entries efficiently, you can use the following techniques:
+Use the Output panel filters to reduce the amount of log information:
 
-* Filter the output by log level or log category using the dropdown menu in the Output panel
+* Select a log level such as `trace`, `debug`, `info`, `warning`, or `error`. The default level is `info`.
+* Select a category such as `git` or `repository`. Select `git` to focus on commands executed by Git.
 
-    ![Screenshot of the Output panel filter dropdown.](images/troubleshooting/git-output-filters.png)
+![Screenshot showing log level and category filters in the Git Output window.](images/troubleshooting/git-output-filters.png)
 
-    The log levels include: `trace`, `debug`, `info`, `warning`, `error`. By default, the Git Output window shows `info` level and above.
+Use the search box (`kb(actions.find)`) to find a command, repository path, or error. The search box supports regular expressions.
 
-    The log categories change based on the content being logged, such as `git` or `repository`. To view the Git commands being run, select the `git` category.
+![Screenshot showing search results in the Git Output window.](images/troubleshooting/git-output-search.png)
 
-* Search for specific terms using the search box in the Output panel (`kb(actions.find)`)
+## Collect trace logs
 
-    The Git Output window highlights the search terms and allows you to navigate between matches. The search box supports regular expressions for advanced searching.
+Enable trace logging when the regular Git output doesn't contain enough information:
 
-    ![Screenshot of the Output panel search box.](images/troubleshooting/git-output-search.png)
+1. Open the Git Output window.
 
-## Enable trace logging for the Git extension
+1. Select the gear icon in the Output panel header.
 
-For more detailed diagnostic information, you can enable trace logging for the Git extension. Trace logging provides verbose information about the extension's operation, including internal state and detailed command execution.
+1. Select **Trace**.
 
-To enable trace logging:
+    ![Screenshot showing the trace log level selected in the Git Output window.](images/troubleshooting/git-output-log-level.png)
 
-1. Open the Git Output window
+1. Reproduce the problem and review the new log entries.
 
-1. Select the gear icon in the Output panel header and select a log level, such as `trace`
-
-    ![Screenshot of the Output panel log level selection.](images/troubleshooting/git-output-log-level.png)
-
-    When you choose a log level, VS Code logs messages at that level and above. For example, selecting `trace` logs all messages, while selecting `error` only logs error messages.
+Trace logs can contain repository paths, remote URLs, branch names, and other development information. Review the output and remove sensitive information before you share it.
 
 ## Next steps
 
-* [Source Control FAQ](/docs/sourcecontrol/faq.md) - Answers to frequently asked questions about Git and source control
-* [Source Control Overview](/docs/sourcecontrol/overview.md) - Learn about VS Code's source control features
-* [Git Documentation](https://git-scm.com/doc) - Official Git documentation and resources
+* [Repositories and Remotes](/docs/sourcecontrol/repos-remotes.md) - Configure remotes and synchronization
+* [Source Control FAQ](/docs/sourcecontrol/faq.md) - Review product support and compatibility questions
+* [Git documentation](https://git-scm.com/doc) - Learn more about Git commands and configuration

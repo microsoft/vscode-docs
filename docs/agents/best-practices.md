@@ -1,6 +1,6 @@
 ---
 ContentId: 58ea6755-9bfa-42c2-a4c8-ff0510f9c031
-DateApproved: 8/5/2026
+DateApproved: 8/12/2026
 MetaDescription: Best practices for getting the most out of GitHub Copilot in VS Code, from writing prompts to configuring your project for AI.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -64,7 +64,7 @@ When working with agents, choose the harness that matches your task and workflow
 
 * **Hand off when another target better fits the next step.** Change the session target to [hand off](/docs/agents/run/agent-harnesses.md#hand-off-a-session) while preserving the conversation history and context.
 
-For more information, see [choosing an agent harness](/docs/agents/run/agent-harnesses.md) and the [agent handoff tutorial](/docs/agents/agents-handoff-tutorial.md).
+For more information, see [choosing an agent harness](/docs/agents/run/agent-harnesses.md) and the [agentic coding tutorial](/docs/agents/agents-tutorial.md).
 
 ## Write effective prompts
 

@@ -68,4 +68,4 @@ This brings up a list of sovereign clouds to choose from.
 
 ![Screenshot that shows where to connect to a sovereign cloud](images/extensions/cloudOptions.png)
 
-Once chosen, the `setting(Microsoft-sovereign-cloud.environment)` setting is automatically set. The Resources and Accounts & Tenants view also refreshes, allowing you to sign into your sovereign cloud account.
+Once chosen, the `setting(microsoft-sovereign-cloud.environment)` setting is automatically set. The Resources and Accounts & Tenants view also refreshes, allowing you to sign into your sovereign cloud account.

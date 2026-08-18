@@ -331,17 +331,22 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/sourcecontrol/repos-remotes</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/sourcecontrol/staging-commits</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/sourcecontrol/branches-worktrees</loc>
+        <loc>https://code.visualstudio.com/docs/sourcecontrol/history</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/sourcecontrol/repos-remotes</loc>
+        <loc>https://code.visualstudio.com/docs/sourcecontrol/branches-worktrees</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -537,6 +542,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/agent-customization/agent-plugins</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/agent-customization/tools</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
