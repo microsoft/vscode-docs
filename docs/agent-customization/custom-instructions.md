@@ -141,7 +141,7 @@ You can define instructions for a specific workspace or at the user level, where
 | User profile | `~/.copilot/instructions` or `~/.claude/rules` |
 
 > [!IMPORTANT]
-> When [Agent Host](/docs/agents/concepts/agent-host.md) is enabled, the agent reads user-level instructions from harness-agnostic folders like `~/.copilot/instructions` and `~/.claude/rules` and not from VS Code profile user data. To move existing user-level instructions to these locations, use the [user customization migration](/docs/agent-customization/overview.md#migrate-user-customizations-experimental).
+> For sessions that run on [Agent Host](/docs/agents/concepts/agent-host.md), the agent reads user-level instructions from harness-agnostic folders like `~/.copilot/instructions` and `~/.claude/rules` and not from VS Code profile user data. To move existing user-level instructions to these locations, use the [user customization migration](/docs/agent-customization/overview.md#migrate-user-customizations-experimental).
 
 VS Code searches these folders recursively, to enable you to organize instructions files in subdirectories. For example, you can group instructions by team, language, or module:
 

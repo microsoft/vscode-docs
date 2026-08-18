@@ -19,7 +19,7 @@ Keywords:
 VS Code runs AI coding agents in a dedicated process called the Agent Host, which it communicates with through the Agent Host Protocol (AHP). The host owns agent sessions independently of the clients that display and control them.
 
 > [!NOTE]
-> The Agent Host and AHP are under active development, and new capabilities continue to roll out. Verify that the Agent Host is enabled with `setting(chat.agentHost.enabled)`.
+> The Agent Host and AHP are under active development, and new capabilities continue to roll out.
 
 ## Why a dedicated Agent Host?
 
@@ -69,7 +69,7 @@ To run your own standalone Agent Host, use `code agent host`. By default, the co
 
 ## Behavior on the extension host
 
-When the Agent Host is not enabled, agent sessions run in the extension host. Sessions that were created before the Agent Host was enabled continue to run in the extension host.
+Agent sessions that don't run on the Agent Host run in the extension host. Existing extension-host sessions continue to run there.
 
 There are some differences in behavior for agent sessions that run on the extension host:
 
