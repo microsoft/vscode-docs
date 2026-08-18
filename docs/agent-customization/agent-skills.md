@@ -1,7 +1,7 @@
 ---
 ContentId: a7d3e5f8-2c4b-4d9a-b8e1-3f6c9a2d7e41
 DateApproved: 8/12/2026
-MetaDescription: Learn how to use Agent Skills in VS Code to teach GitHub Copilot specialized capabilities that work across VS Code, GitHub Copilot CLI, and GitHub Copilot cloud agent.
+MetaDescription: Learn how to use Agent Skills in {% data variables.product.prodname_vscode_shortname %} to teach GitHub Copilot specialized capabilities that work across {% data variables.product.prodname_vscode_shortname %}, {% data variables.copilot.copilot_cli %}, and {% data variables.copilot.copilot_cloud_agent %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - copilot
@@ -12,9 +12,9 @@ Keywords:
 - ai
 - claude
 ---
-# Use Agent Skills in VS Code
+# Use Agent Skills in {% data variables.product.prodname_vscode_shortname %}
 
-Agent Skills are folders of instructions, scripts, and resources that GitHub Copilot can load when relevant to perform specialized tasks. Agent Skills is an [open standard](https://agentskills.io) that works across multiple AI agents, including GitHub Copilot in VS Code, GitHub Copilot CLI, and GitHub Copilot cloud agent.
+Agent Skills are folders of instructions, scripts, and resources that GitHub Copilot can load when relevant to perform specialized tasks. Agent Skills is an [open standard](https://agentskills.io) that works across multiple AI agents, including GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}, {% data variables.copilot.copilot_cli %}, and {% data variables.copilot.copilot_cloud_agent %}.
 
 Unlike [custom instructions](/docs/agent-customization/custom-instructions.md) that primarily define coding guidelines, skills enable specialized capabilities and workflows that can include scripts, examples, and other resources. Skills you create are portable and work across any skills-compatible agent.
 
@@ -37,10 +37,10 @@ While both Agent Skills and custom instructions help customize Copilot's behavio
 | Feature | Agent Skills | Custom Instructions |
 | ------- | ------------ | ------------------- |
 | **Purpose** | Teach specialized capabilities and workflows | Define coding standards and guidelines |
-| **Portability** | Works across VS Code, Copilot CLI, and Copilot cloud agent | VS Code and GitHub.com only |
+| **Portability** | Works across {% data variables.product.prodname_vscode_shortname %}, {% data variables.copilot.copilot_cli_short %}, and {% data variables.copilot.copilot_cloud_agent %} | {% data variables.product.prodname_vscode_shortname %} and GitHub.com only |
 | **Content** | Instructions, scripts, examples, and resources | Instructions only |
 | **Scope** | Task-specific, loaded on-demand | Always applied (or via glob patterns) |
-| **Standard** | Open standard ([agentskills.io](https://agentskills.io)) | VS Code-specific |
+| **Standard** | Open standard ([agentskills.io](https://agentskills.io)) | {% data variables.product.prodname_vscode_shortname %}-specific |
 
 Use Agent Skills when you want to:
 
@@ -61,7 +61,7 @@ Use custom instructions when you want to:
 > [!TIP]
 > Type `/skills` in the chat input to quickly open the **Configure Skills** menu.
 
-Skills are stored in directories with a `SKILL.md` file that defines the skill's behavior. VS Code supports two types of skills:
+Skills are stored in directories with a `SKILL.md` file that defines the skill's behavior. {% data variables.product.prodname_vscode_shortname %} supports two types of skills:
 
 | Skill type | Location |
 | ---------- | -------- |
@@ -75,7 +75,7 @@ You can configure additional file locations for project skills with the `setting
 
 To create a skill:
 
-1. In the Chat view, select **Configure Chat** (gear icon) to open the Agent Customizations editor and then select the **Skills** tab.
+1. In the {% data variables.copilot.chat_view %}, select **Configure Chat** (gear icon) to open the Agent Customizations editor and then select the **Skills** tab.
 
 1. Select **New Skill (Workspace)** or **New Skill (User)** from the dropdown, depending on where you want to store the skill.
 
@@ -149,7 +149,7 @@ You can reference files within the skill directory using relative paths. For exa
 
 ### Run a skill in a forked context (experimental)
 
-By default, when VS Code loads a skill, the skill's instructions are added to the parent agent's context window. For large skills, or skills whose intermediate reasoning isn't relevant to the rest of your conversation, you can instead run the skill in a **forked context**. In a forked context, the skill executes in a dedicated subagent and only its final result is returned to the parent agent. This keeps your main conversation's context clean.
+By default, when {% data variables.product.prodname_vscode_shortname %} loads a skill, the skill's instructions are added to the parent agent's context window. For large skills, or skills whose intermediate reasoning isn't relevant to the rest of your conversation, you can instead run the skill in a **forked context**. In a forked context, the skill executes in a dedicated subagent and only its final result is returned to the parent agent. This keeps your main conversation's context clean.
 
 To run a skill in a forked context, set the `context` field in the `SKILL.md` frontmatter to `fork`:
 
@@ -172,7 +172,7 @@ Use `context: fork` for skills that:
 * Should not influence the parent agent's behavior beyond their final output
 
 > [!NOTE]
-> Running a skill in a forked context is an experimental feature. Enable the `setting(github.copilot.chat.skillTool.enabled)` setting in VS Code to use this feature.
+> Running a skill in a forked context is an experimental feature. Enable the `setting(github.copilot.chat.skillTool.enabled)` setting in {% data variables.product.prodname_vscode_shortname %} to use this feature.
 
 ## Example skills
 
@@ -302,7 +302,7 @@ To use a shared skill:
 1. Optionally, modify or add resources as needed
 
 > [!TIP]
-> Always review shared skills before using them to ensure they meet your requirements and security standards. VS Code's [terminal tool](/docs/agents/run/tools.md#run-terminal-commands) provides controls for script execution, including [auto-approve options](/docs/agents/run/approvals.md#automatically-approve-terminal-commands) with configurable allow-lists and tight controls over which code runs. Learn more about [security considerations](/docs/agents/run/security.md#approvals-and-review) for auto-approval features.
+> Always review shared skills before using them to ensure they meet your requirements and security standards. {% data variables.product.prodname_vscode_shortname %}'s [terminal tool](/docs/agents/run/tools.md#run-terminal-commands) provides controls for script execution, including [auto-approve options](/docs/agents/run/approvals.md#automatically-approve-terminal-commands) with configurable allow-lists and tight controls over which code runs. Learn more about [security considerations](/docs/agents/run/security.md#approvals-and-review) for auto-approval features.
 
 ## Contribute skills from extensions
 
@@ -353,11 +353,11 @@ Detailed instructions for the skill...
 
 ## Agent Skills standard
 
-Agent Skills is an open standard that enables portability across different AI agents. Skills you create in VS Code work with multiple agents, including:
+Agent Skills is an open standard that enables portability across different AI agents. Skills you create in {% data variables.product.prodname_vscode_shortname %} work with multiple agents, including:
 
-* **GitHub Copilot in VS Code**: Available in chat and agent mode
-* **GitHub Copilot CLI**: Accessible when working in the terminal
-* **GitHub Copilot cloud agent**: Used during automated coding tasks
+* **GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}**: Available in chat and agent mode
+* **{% data variables.copilot.copilot_cli %}**: Accessible when working in the terminal
+* **{% data variables.copilot.copilot_cloud_agent %}**: Used during automated coding tasks
 
 Learn more about the Agent Skills standard at [agentskills.io](https://agentskills.io).
 

@@ -1,7 +1,7 @@
 ---
 ContentId: 7c550054-4ade-4665-b368-215798c48673
 DateApproved: 8/12/2026
-MetaDescription: Learn how to add and manage Model Context Protocol (MCP) servers with GitHub Copilot in Visual Studio Code.
+MetaDescription: Learn how to add and manage Model Context Protocol (MCP) servers with GitHub Copilot in {% data variables.product.prodname_vscode %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - mcp
@@ -14,9 +14,9 @@ Keywords:
 - customization
 - api
 ---
-# Add and manage MCP servers in VS Code
+# Add and manage MCP servers in {% data variables.product.prodname_vscode_shortname %}
 
-[Model Context Protocol (MCP)](https://modelcontextprotocol.io/) is an open standard for connecting AI models to external tools and services. In Visual Studio Code, MCP servers provide [tools](/docs/agents/run/tools.md) for tasks like file operations, databases, or external APIs. MCP servers can also provide [resources, prompts, and interactive apps](#other-mcp-capabilities).
+[Model Context Protocol (MCP)](https://modelcontextprotocol.io/) is an open standard for connecting AI models to external tools and services. In {% data variables.product.prodname_vscode %}, MCP servers provide [tools](/docs/agents/run/tools.md) for tasks like file operations, databases, or external APIs. MCP servers can also provide [resources, prompts, and interactive apps](#other-mcp-capabilities).
 
 For background on how MCP fits into the AI customization framework, see [Customization concepts](/docs/agents/concepts/customization.md) and [Tools concepts](/docs/agents/concepts/tools.md).
 
@@ -33,15 +33,15 @@ Follow these steps to install an MCP server and use its tools in chat. This exam
 
 1. Select **Install** to install the Playwright MCP server in your user profile.
 
-1. When prompted, confirm that you trust the server to start it. VS Code discovers the server's tools and makes them available in chat.
+1. When prompted, confirm that you trust the server to start it. {% data variables.product.prodname_vscode_shortname %} discovers the server's tools and makes them available in chat.
 
-1. Open the Chat view (`kb(workbench.action.chat.open)`) and enter a prompt that uses the Playwright tools. For example:
+1. Open the {% data variables.copilot.chat_view %} (`kb(workbench.action.chat.open)`) and enter a prompt that uses the Playwright tools. For example:
 
     ```prompt
     Go to code.visualstudio.com, decline the cookie banner, and give me a screenshot of the homepage.
     ```
 
-    VS Code invokes the Playwright tools to open the page in a browser, and take a screenshot. You might be asked to confirm each tool invocation.
+    {% data variables.product.prodname_vscode_shortname %} invokes the Playwright tools to open the page in a browser, and take a screenshot. You might be asked to confirm each tool invocation.
 
 > [!TIP]
 > Select the **Configure Tools** button in the chat input to see all available tools for the Playwright MCP server and toggle specific tools on or off.
@@ -61,7 +61,7 @@ To install an MCP server from the MCP server gallery:
 1. To view the MCP server details, select the MCP server in the list to open the details page.
 
 > [!CAUTION]
-> Local MCP servers can run arbitrary code on your machine. Only add servers from [trusted sources](#mcp-server-trust), and review the publisher and server configuration before starting it. Read the [Security documentation](/docs/agents/run/security.md) for using AI in VS Code to understand the implications.
+> Local MCP servers can run arbitrary code on your machine. Only add servers from [trusted sources](#mcp-server-trust), and review the publisher and server configuration before starting it. Read the [Security documentation](/docs/agents/run/security.md) for using AI in {% data variables.product.prodname_vscode_shortname %} to understand the implications.
 
 ### Configure the `mcp.json` file
 
@@ -72,7 +72,7 @@ You can manually configure MCP servers by editing the `mcp.json` file. There are
 
 You can also run **MCP: Add Server** in the Command Palette (`kb(workbench.action.showCommands)`) to add a server through a guided flow, choosing either **Workspace** or **Global** as the target.
 
-When [Agent Host](/docs/agents/concepts/agent-host.md) is enabled, the Agent Host doesn't read `.vscode/mcp.json` directly. Instead, VS Code forwards your MCP server configuration to the Agent Host, except servers that require interactive input (for example, `${input:...}` variables). For MCP configuration that is portable across the Agent Host and other Copilot tools, use a workspace `.mcp.json` file or a user `~/.copilot/mcp-config.json` file, which the Agent Host reads natively. Learn more about [behavior on the extension host](/docs/agents/concepts/agent-host.md#behavior-on-the-extension-host).
+When [Agent Host](/docs/agents/concepts/agent-host.md) is enabled, the Agent Host doesn't read `.vscode/mcp.json` directly. Instead, {% data variables.product.prodname_vscode_shortname %} forwards your MCP server configuration to the Agent Host, except servers that require interactive input (for example, `${input:...}` variables). For MCP configuration that is portable across the Agent Host and other Copilot tools, use a workspace `.mcp.json` file or a user `~/.copilot/mcp-config.json` file, which the Agent Host reads natively. Learn more about [behavior on the extension host](/docs/agents/concepts/agent-host.md#behavior-on-the-extension-host).
 
 > [!IMPORTANT]
 > Avoid hardcoding sensitive information like API keys. Use [input variables](/docs/agents/reference/mcp-configuration.md#input-variables-for-sensitive-data) or environment files instead.
@@ -94,7 +94,7 @@ The following example shows an `mcp.json` file that configures a remote MCP serv
 }
 ```
 
-VS Code provides IntelliSense for the configuration file. For the full configuration schema and field reference, see the [MCP configuration reference](/docs/agents/reference/mcp-configuration.md).
+{% data variables.product.prodname_vscode_shortname %} provides IntelliSense for the configuration file. For the full configuration schema and field reference, see the [MCP configuration reference](/docs/agents/reference/mcp-configuration.md).
 
 > [!NOTE]
 > MCP servers run wherever they are configured. Servers in your user profile run locally. If you're connected to a [remote](/docs/remote/remote-overview.md) and want a server to run on the remote machine, define it in the workspace settings or remote user settings (**MCP: Open Remote User Configuration**).
@@ -126,14 +126,14 @@ To configure MCP servers in a Dev Container, add the server configuration to the
 }
 ```
 
-When the Dev Container is created, VS Code automatically writes the MCP server configurations to the remote `mcp.json` file, making them available in your containerized development environment.
+When the Dev Container is created, {% data variables.product.prodname_vscode_shortname %} automatically writes the MCP server configurations to the remote `mcp.json` file, making them available in your containerized development environment.
 
 </details>
 
 <details>
 <summary>Automatically discover MCP servers</summary>
 
-VS Code can automatically detect and reuse MCP server configurations from other applications, such as Claude Desktop.
+{% data variables.product.prodname_vscode_shortname %} can automatically detect and reuse MCP server configurations from other applications, such as Claude Desktop.
 
 With the `setting(chat.mcp.discovery.enabled)` setting, you can select one or more tools from which to discover their MCP server configuration.
 
@@ -142,9 +142,9 @@ With the `setting(chat.mcp.discovery.enabled)` setting, you can select one or mo
 <details>
 <summary>Install an MCP server from the command line</summary>
 
-You can also use the VS Code command-line interface to add an MCP server to your user profile or to a workspace.
+You can also use the {% data variables.product.prodname_vscode_shortname %} command-line interface to add an MCP server to your user profile or to a workspace.
 
-To add an MCP server to your user profile, use the `--add-mcp` VS Code command line option, and provide the JSON server configuration in the form `{\"name\":\"server-name\",\"command\":...}`.
+To add an MCP server to your user profile, use the `--add-mcp` {% data variables.product.prodname_vscode_shortname %} command line option, and provide the JSON server configuration in the form `{\"name\":\"server-name\",\"command\":...}`.
 
 ```bash
 code --add-mcp "{\"name\":\"my-server\",\"command\": \"uvx\",\"args\": [\"mcp-server-fetch\"]}"
@@ -158,7 +158,7 @@ Beyond tools, MCP servers can provide other capabilities:
 
 | Capability | Description | How to use |
 |------------|-------------|------------|
-| **Resources** | Access data from MCP servers as context in your prompts, such as files, database tables, or API responses. Resources provide read-only context that you attach to a chat request. | In the Chat view, select **Add Context** > **MCP Resources**. You can also use the **MCP: Browse Resources** command. |
+| **Resources** | Access data from MCP servers as context in your prompts, such as files, database tables, or API responses. Resources provide read-only context that you attach to a chat request. | In the {% data variables.copilot.chat_view %}, select **Add Context** > **MCP Resources**. You can also use the **MCP: Browse Resources** command. |
 | **Prompts** | Use preconfigured prompt templates from MCP servers to standardize common tasks. Each MCP server can expose its own set of prompts tailored to its capabilities. | Type `/<MCP server>.<prompt>` in the chat input. |
 | **MCP Apps** | Get interactive UI components like forms, visualizations, and drag-and-drop lists rendered directly in chat. MCP Apps enable richer interactions beyond text responses. Learn more in the [MCP Apps blog post](https://code.visualstudio.com/blogs/2026/01/26/mcp-apps-support). | MCP Apps appear inline when an MCP server supports them. |
 
@@ -200,7 +200,7 @@ For the full sandbox configuration schema, see the [Sandbox configuration](/docs
 
 ## Manage MCP servers
 
-VS Code provides several options to manage your MCP servers, such as starting or stopping a server, viewing logs, uninstalling, or clearing cached tools.
+{% data variables.product.prodname_vscode_shortname %} provides several options to manage your MCP servers, such as starting or stopping a server, viewing logs, uninstalling, or clearing cached tools.
 
 | Method | Description | |
 |--------|-------------|---|
@@ -220,19 +220,19 @@ To enable or disable an MCP server:
 
 The enable/disable state is stored separately from the server configuration in `mcp.json`, so it does not affect shared configuration files.
 
-## Centrally manage access to MCP servers in VS Code
+## Centrally manage access to MCP servers in {% data variables.product.prodname_vscode_shortname %}
 
 Organizations can centrally manage access to MCP servers via GitHub policies. Learn more about [enterprise management of MCP servers](/docs/enterprise/ai-settings.md#configure-mcp-server-access).
 
 ## Automatically start MCP servers
 
-When you add an MCP server or change its configuration, VS Code needs to (re)start the server to discover the tools it provides.
+When you add an MCP server or change its configuration, {% data variables.product.prodname_vscode_shortname %} needs to (re)start the server to discover the tools it provides.
 
-You can configure VS Code to automatically restart the MCP server when configuration changes are detected by using the `setting(chat.mcp.autostart)` setting (Experimental).
+You can configure {% data variables.product.prodname_vscode_shortname %} to automatically restart the MCP server when configuration changes are detected by using the `setting(chat.mcp.autostart)` setting (Experimental).
 
 ## MCP server trust
 
-When you add an MCP server to your workspace or change its configuration, you need to confirm that you trust the server and its capabilities before starting it. VS Code shows a dialog to confirm that you trust the server when you start a server for the first time. In the dialog, select the link to the MCP server to review its configuration.
+When you add an MCP server to your workspace or change its configuration, you need to confirm that you trust the server and its capabilities before starting it. {% data variables.product.prodname_vscode_shortname %} shows a dialog to confirm that you trust the server when you start a server for the first time. In the dialog, select the link to the MCP server to review its configuration.
 
 ![Screenshot showing the MCP server trust prompt.](images/mcp-servers/mcp-server-trust-dialog.png)
 
@@ -257,11 +257,11 @@ To synchronize MCP server configuration with Settings Sync:
 
 ### MCP output log
 
-When VS Code encounters an issue with an MCP server, it shows an error indicator in the Chat view.
+When {% data variables.product.prodname_vscode_shortname %} encounters an issue with an MCP server, it shows an error indicator in the {% data variables.copilot.chat_view %}.
 
 ![MCP Server Error](images/mcp-servers/mcp-error-loading-tool.png)
 
-Select the error notification in the Chat view, and then select the **Show Output** option to view the server logs. Alternatively, run **MCP: List Servers** from the Command Palette, select the server, and then choose **Show Output**.
+Select the error notification in the {% data variables.copilot.chat_view %}, and then select the **Show Output** option to view the server logs. Alternatively, run **MCP: List Servers** from the Command Palette, select the server, and then choose **Show Output**.
 
 ![MCP Server Error Output](images/mcp-servers/mcp-server-error-output.png)
 
@@ -279,5 +279,5 @@ Verify that the command arguments are correct and that the container is not runn
 * [MCP configuration reference](/docs/agents/reference/mcp-configuration.md)
 * [Use tools with agents](/docs/agents/run/tools.md)
 * [Model Context Protocol Documentation](https://modelcontextprotocol.io/)
-* [MCP Apps support in VS Code](https://code.visualstudio.com/blogs/2026/01/26/mcp-apps-support)
+* [MCP Apps support in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/blogs/2026/01/26/mcp-apps-support)
 * [Discover and manage agent plugins](/docs/agent-customization/agent-plugins.md), including [MCP servers in plugins](/docs/agent-customization/agent-plugins.md#mcp-servers-in-plugins)
