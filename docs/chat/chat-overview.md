@@ -134,6 +134,15 @@ Chat can show timestamps for when you send a request and when a response complet
 
 Use `setting(chat.verbose)` to enable or disable these timestamps.
 
+## Find text in a chat session
+
+Press `kb(workbench.action.chat.find)` to search the entire conversation. Find is available in the Chat view, chat editor tabs, and the Agents window. It searches prompts and responses, including off-screen content and code blocks.
+
+Use `kb(workbench.action.chat.findNext)` and `kb(workbench.action.chat.findPrevious)` to navigate between matches. When a match is inside a collapsed **Completed N steps** section, navigating to the match expands the section. Use the **Match Case**, **Whole Word**, and **Regular Expression** options to refine the results.
+
+> [!NOTE]
+> Find is not available in Quick Chat or inline chat. It does not search text inside tool pills or collapsed reasoning.
+
 ## Navigate between prompts in a chat session
 
 Use the following keyboard shortcuts to navigate between prompts in a chat session:
