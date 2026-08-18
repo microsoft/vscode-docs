@@ -36,6 +36,7 @@ For help choosing between the Agents window and the Chat view, see [Choose how y
 * One of the following authentication options:
   * Access to GitHub Copilot. Follow the steps in [Set up GitHub Copilot in VS Code](/docs/setup/copilot.md) to sign in and activate your subscription.
   * An [existing Claude configuration](/docs/agents/run/agent-harnesses.md#use-claude-without-github-sign-in-experimental) for the experimental signed-out experience.
+  * An [existing ChatGPT sign-in for Codex](/docs/agents/run/agent-harnesses.md#use-codex-without-github-sign-in-experimental) for the experimental signed-out experience.
 
 ## Open the Agents window
 
@@ -58,13 +59,15 @@ By default, the Agents window requires GitHub authentication to access your Copi
 
 ### Open without GitHub sign-in (Experimental)
 
-If Claude is configured with its own Anthropic credentials, you can open the Agents window without signing in to GitHub. Enable `setting(chat.agentHost.allowSignedOutWhenUsable)` before you open the window. This setting is off by default.
+On desktop, you can open the Agents window without signing in to GitHub if Claude is configured with Anthropic credentials or Codex is signed in to ChatGPT. Enable `setting(chat.agentHost.allowSignedOutWhenUsable)` before you open the window. This setting is off by default, but it might be enabled by an experiment.
 
-When you open the Agents window while signed out, a notification indicates that VS Code discovered your existing Claude configuration. The model picker only shows models that use your Anthropic credentials. Select **Sign in to GitHub** in the notification to access models and features that use your Copilot subscription.
+To use a ChatGPT subscription, enable `setting(chat.agentHost.codexAgent.enabled)`, open the account menu in the Agents window, and select **Sign in to ChatGPT**. After you sign in, you can sign out of GitHub and continue to use ChatGPT-backed Codex models.
 
-Dismiss the notification with **X** to hide it for the current window. Select **Don't Show Again** to hide it for future windows on the same machine.
+While you're signed out of GitHub, the model picker only shows models from providers with available credentials. Sign in to GitHub from the account menu to add Copilot-backed models. If both Copilot and ChatGPT provide a model with the same name, the model picker identifies the provider.
 
-This signed-out experience currently supports Claude. If VS Code doesn't find a provider that can run with its own credentials, the Agents window shows the existing GitHub sign-in experience. Providers, models, and operations that require GitHub authentication prompt you to sign in when you select them.
+When VS Code discovers an existing Claude configuration, a notification indicates that Claude is available without GitHub sign-in. Dismiss the notification with **X** to hide it for the current window. Select **Don't Show Again** to hide it for future windows on the same machine.
+
+If VS Code doesn't find a provider that can run with its own credentials, the Agents window shows the existing GitHub sign-in experience. Providers, models, and operations that require GitHub authentication prompt you to sign in when you select them. The browser-based Agents window always requires GitHub sign-in.
 
 ## Agents window interface overview
 
