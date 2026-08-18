@@ -114,7 +114,7 @@ Learn more about [AI credit consumption](/docs/agents/guides/optimize-usage.md).
 
 ## Run multiple chats in a session
 
-In an agent host session, you can run multiple chats as tabs in the chat area. Each chat has its own conversation, title, status, and agent or language model selection, but all chats share the session's workspace and worktree.
+In an agent host session, you can run multiple chats in the chat area. Each chat has its own conversation, title, status, and agent or language model selection, but all chats share the session's workspace and worktree. By default, chats open as tabs in one group. Arrange chats in multiple groups to view them side by side or stacked vertically.
 
 A new chat starts blank and doesn't inherit the history of the other chats. This is useful when you want to work on independent tasks in the same project without interrupting an ongoing chat or creating another session.
 
@@ -138,17 +138,26 @@ Use the chat tabs and their context menus to:
 * **Choose an agent or model**: use the controls in each chat. Sibling chats can use different agents or models.
 * **Track changes**: the session remains in progress while any chat is working. The session header **Changes** pill combines edits from all chats.
 * **Rename a chat**: select **Rename** from the tab's context menu. Chat titles are independent of the session title.
-* **Close or reopen a chat**: close a tab to hide it without deleting it. Use the **Conversations** dropdown to show or hide chats, or press `kb(sessions.chatCompositeBar.reopenLastClosedChat)` to reopen the most recently closed chat.
+* **Close or reopen a chat**: close a tab to hide it without deleting it. Use the **Chats** dropdown to show or hide chats, or press `kb(sessions.chatCompositeBar.reopenLastClosedChat)` to reopen the most recently closed chat.
 * **Delete a chat**: select **Delete Chat** from the tab's context menu, or press `kb(sessions.chatCompositeBar.deleteChat)` while the chat has focus. Deletion is permanent.
 
-Visible and hidden chats, including their conversation history, are restored when you reload the window and reopen the session.
+To arrange chats in multiple groups:
+
+* Drag a chat tab to the center of another group to move it into that group.
+* Drag a chat tab to the left, right, top, or bottom edge of a group to create a group in that direction.
+* Run **Sessions: Split Chat Group Right**, **Sessions: Split Chat Group Down**, **Sessions: Move Chat to Previous Group**, or **Sessions: Move Chat to Next Group** from the Command Palette (`kb(workbench.action.showCommands)`) to arrange chats with the keyboard.
+* Press `kb(sessions.focusPreviousChatGroup)` or `kb(sessions.focusNextChatGroup)` to move keyboard focus between groups.
+
+When you close or move the last chat in a group, the empty group closes and the remaining groups expand to fill the available space.
+
+Visible and hidden chats, including their conversation history, are restored when you reload the window and reopen the session. Chat group assignments, active chats, and split sizes are also restored when you switch sessions or reload the window.
 
 > [!NOTE]
 > Changes from all chats in a session go to the same folder or worktree and appear together in the session changes. Start separate [worktree-isolated sessions](/docs/agents/run/agent-harnesses.md#choose-code-isolation) when tasks must not modify the same files.
 
 ## Ask side questions
 
-Use a side chat to ask a question about the current conversation without adding the question or response to the main chat. A side chat opens as a peer chat tab and privately inherits the source conversation as context. Side chats favor explanation over action unless you ask the agent to make changes or perform a task.
+Use a side chat to ask a question about the current conversation without adding the question or response to the main chat. A side chat opens in a group beside the source chat, so both conversations remain visible. It privately inherits the source conversation as context. Side chats favor explanation over action unless you ask the agent to make changes or perform a task.
 
 Start a side chat in one of these ways:
 

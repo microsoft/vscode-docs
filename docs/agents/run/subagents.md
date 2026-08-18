@@ -167,13 +167,22 @@ In the Chat view, a running subagent appears as a collapsible tool call. By defa
 
 Select the subagent tool call to expand it and view the full details, including all tool calls the subagent made, the prompt passed to the subagent, and the returned result.
 
-In the Agents window, each subagent is available as a read-only peer chat. The parent chat shows an indicator with the subagent's model, elapsed time, and active tool call. Select the indicator to open the subagent while keeping the parent chat open.
+In the Agents window, each subagent is available as a read-only peer chat. The parent chat shows an in-transcript subagent pill with the subagent's model, elapsed time, and active tool call. Select the pill to open the subagent.
 
 Subagent chats are hidden from the tab strip by default. Open one in any of these ways:
 
-* Select it from the **Conversations** dropdown.
+* Select it from the **Chats** dropdown.
 * Select the running-subagents indicator while subagents are active.
 * Select **Open Subagent** in the chat where the delegation occurred.
+
+To keep the parent chat and subagent visible side by side:
+
+* Hold `kbstyle(Alt)` and select the in-transcript subagent pill.
+* Focus the in-transcript subagent pill and press `kbstyle(Alt+Enter)`.
+* Hold `kbstyle(Alt)` and select the subagent in the **Chats** dropdown.
+* Drag the in-transcript subagent pill to the center of an existing chat group or to an edge to create a group in that direction.
+
+The in-transcript subagent pill is part of the chat response. It differs from the background-activities pill above the chat input, which opens a picker for running activities and isn't draggable.
 
 Read-only subagent chats show a lock icon and don't accept input. They persist across window reloads with your other chats.
 

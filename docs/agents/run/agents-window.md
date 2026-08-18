@@ -237,7 +237,7 @@ These commands are also available in the Command Palette (`kb(workbench.action.s
 
 ### Work with multiple chats in a session
 
-Supported agent host sessions can contain multiple independent chats that share the same workspace and worktree. Use peer chats for parallel tasks or side questions, and open delegated subagents as read-only chats. Learn how to [run multiple chats and ask side questions](/docs/agents/run/sessions/manage-sessions.md#run-multiple-chats-in-a-session) and [follow subagents](/docs/agents/run/subagents.md#what-you-see-in-chat).
+Supported agent host sessions can contain multiple independent chats that share the same workspace and worktree. Arrange peer chats, side chats, and read-only subagent chats in horizontal or vertical groups to work with multiple conversations at the same time. Learn how to [run multiple chats and ask side questions](/docs/agents/run/sessions/manage-sessions.md#run-multiple-chats-in-a-session) and [follow subagents](/docs/agents/run/subagents.md#what-you-see-in-chat).
 
 ## Customize and configure the Agents window
 
