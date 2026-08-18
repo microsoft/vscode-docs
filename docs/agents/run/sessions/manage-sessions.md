@@ -1,7 +1,7 @@
 ---
 ContentId: 7a2e5f8d-4c9b-41e6-b3a8-9d7f2e4c1b8a
 DateApproved: 8/19/2026
-MetaDescription: Create and manage agent sessions in Visual Studio Code, including multiple chats, context compaction, organization, archiving, and forking.
+MetaDescription: Create and manage agent sessions in VS Code, including external session discovery, multiple chats, organization, archiving, and forking.
 MetaSocialImage: ../../../images/shared/github-copilot-social.png
 ---
 # Manage agent sessions in VS Code
@@ -215,6 +215,26 @@ The Chat view operates in two modes: compact and side-by-side. You can manually 
 
 {% /tab %}
 {% /tabs %}
+
+### View sessions from other applications
+
+VS Code can discover local agent sessions created by supported applications outside VS Code. You can open and continue sessions from Copilot CLI, the GitHub Copilot app, Claude Code, and Codex in the Chat view or Agents window.
+
+For Copilot sessions, discovery includes sessions that are associated with a repository and were updated within the last seven days.
+
+By default, sessions created in other applications are hidden. To control which sessions appear, open the sessions list filter, select **External**, and choose one of these options:
+
+* **None**: hide all external sessions.
+* **Recent**: show the two most recently updated external sessions from the last seven days.
+* **Last 24 Hours**: show external sessions updated within the last 24 hours.
+* **Last 7 Days**: show external sessions updated within the last seven days.
+* **All**: show all discovered external sessions.
+
+The filter applies to the sessions lists in both the Chat view and Agents window. You can also configure it with the `setting(chat.agentSessions.showExternal)` setting.
+
+When you open an external session in the Agents window, a one-time banner indicates that the session was created in another application. You can choose which external sessions to show from the banner. If your choice hides the open session, VS Code asks you to confirm the change.
+
+When you send a message in an external session, the Agent Host adopts it. The session is no longer external, so the **External** filter no longer affects its visibility.
 
 ## Archive sessions
 

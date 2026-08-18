@@ -69,6 +69,8 @@ In VS Code, the choice comes down to your approach and your scope. The Agents wi
 
 If you want to work outside VS Code, you can also manage your agents from the terminal with the Copilot CLI, from the GitHub Copilot app, or directly in your browser.
 
+VS Code can discover supported local sessions created by Copilot CLI, the GitHub Copilot app, Claude Code, and Codex. You can then continue these sessions in the Chat view or Agents window.
+
 Choose the experience that fits your current task and where you want to work. You can start a session in one and continue it in the other without losing context.
 
 {% tabs id="agent-surface" %}
