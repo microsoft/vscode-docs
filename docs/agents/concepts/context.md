@@ -1,7 +1,7 @@
 ---
 ContentId: c3d4e5f6-7a8b-9c0d-1e2f-3a4b5c6d7e8f
 DateApproved: 8/12/2026
-MetaDescription: Learn how VS Code assembles context for AI prompts, including workspace indexing, implicit context, explicit references, and context window management.
+MetaDescription: Learn how {% data variables.product.prodname_vscode_shortname %} assembles context for AI prompts, including workspace indexing, implicit context, explicit references, and context window management.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - copilot
@@ -18,15 +18,15 @@ Keywords:
 
 Context is everything the model can see when generating a response. It includes the conversation history, file contents from your workspace, tool outputs, custom instructions, and any references you add explicitly. The model can only reason about what it can see, so providing relevant context is one of the most effective ways to improve AI responses.
 
-This article explains how VS Code assembles context, what types of context are available, and how to work effectively with context window limits.
+This article explains how {% data variables.product.prodname_vscode_shortname %} assembles context, what types of context are available, and how to work effectively with context window limits.
 
 ## Why context matters
 
 A prompt with relevant files, clear instructions, and focused history produces better results than a vague prompt with no context. The model has no memory of previous sessions and no access to files it hasn't been given. Everything it knows about your task comes from the context assembled for the current request.
 
-## How VS Code assembles context
+## How {% data variables.product.prodname_vscode_shortname %} assembles context
 
-When you send a message, VS Code builds a language model prompt from multiple sources:
+When you send a message, {% data variables.product.prodname_vscode_shortname %} builds a language model prompt from multiple sources:
 
 ![Diagram showing the context window as a container with seven layers: system instructions, customizations, user message, conversation history, implicit context, explicit references, and tool outputs, with an arrow sending the assembled prompt to the language model.](../images/concepts/context-assembly.png)
 
@@ -42,7 +42,7 @@ This assembled prompt is what the model sees. Everything outside of it is invisi
 
 ## Workspace indexing
 
-VS Code uses an index to quickly and accurately search your codebase for relevant code snippets. This index can either be maintained by GitHub or stored locally on your machine.
+{% data variables.product.prodname_vscode_shortname %} uses an index to quickly and accurately search your codebase for relevant code snippets. This index can either be maintained by GitHub or stored locally on your machine.
 
 * **Remote index**: if your code is hosted in a GitHub repository, you can build a remote index to search your codebase quickly, even for large codebases.
 * **Local index**: use an advanced semantic index stored on your local machine for fast and accurate search results.
@@ -52,7 +52,7 @@ Learn more about [workspace indexing](/docs/agents/reference/workspace-context.m
 
 ## Implicit context
 
-VS Code automatically provides context to the prompt based on your current activity:
+{% data variables.product.prodname_vscode_shortname %} automatically provides context to the prompt based on your current activity:
 
 * The currently selected text in the active editor.
 * The file name or notebook name of the active editor.

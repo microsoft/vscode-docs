@@ -1,7 +1,7 @@
 ---
 ContentId: a9c5f4d2-8e91-4b3a-9d2c-7f1e3b8a6c4d
 DateApproved: 8/12/2026
-MetaDescription: Learn how to set up a test-driven development (TDD) workflow in VS Code with Copilot and custom agents and instructions.
+MetaDescription: Learn how to set up a test-driven development (TDD) workflow in {% data variables.product.prodname_vscode_shortname %} with Copilot and custom agents and instructions.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - ai
@@ -14,11 +14,11 @@ Keywords:
 - testing
 - TDD
 ---
-# Set up a test-driven development flow in VS Code
+# Set up a test-driven development flow in {% data variables.product.prodname_vscode_shortname %}
 
-Test-driven development (TDD) is a software development approach where you write tests before implementing functionality. This creates a tight feedback loop that improves code quality, catches bugs early, and ensures that the code meets your requirements. Visual Studio Code's AI capabilities can enhance your TDD workflow by guiding you through the different phases of writing tests, implementing code, running tests, and optimizing the code.
+Test-driven development (TDD) is a software development approach where you write tests before implementing functionality. This creates a tight feedback loop that improves code quality, catches bugs early, and ensures that the code meets your requirements. {% data variables.product.prodname_vscode %}'s AI capabilities can enhance your TDD workflow by guiding you through the different phases of writing tests, implementing code, running tests, and optimizing the code.
 
-This guide shows you how to set up an AI-assisted test-driven development workflow in VS Code by using custom agents, handoffs, and custom instructions.
+This guide shows you how to set up an AI-assisted test-driven development workflow in {% data variables.product.prodname_vscode_shortname %} by using custom agents, handoffs, and custom instructions.
 
 <details>
 <summary>TDD overview</summary>
@@ -39,7 +39,7 @@ The three phases are:
 
 ## Implementation overview
 
-You can implement an AI-assisted TDD workflow in VS Code by using custom agents. Each phase of the TDD process (red, green, refactor) has a specific goal and requires different AI behavior. You create a custom agent for each phase that defines the specific role and guidelines for that phase.
+You can implement an AI-assisted TDD workflow in {% data variables.product.prodname_vscode_shortname %} by using custom agents. Each phase of the TDD process (red, green, refactor) has a specific goal and requires different AI behavior. You create a custom agent for each phase that defines the specific role and guidelines for that phase.
 
 With custom agent handoffs, you can transition from one phase to the next once the AI completes its task. The custom agents are connected in a cycle that mirrors the TDD workflow:
 
@@ -51,7 +51,7 @@ If you have established test conventions, you can use [custom instructions](/doc
 
 The following diagram shows how custom agents work together to implement the TDD workflow, with handoffs enabling smooth transitions between phases.
 
-![Diagram that shows the TDD implementation diagram for VS Code with testing instructions, and custom agents for the red, green, and refactor phases.](../images/test-driven-development-guide/tdd-implementation-diagram.png)
+![Diagram that shows the TDD implementation diagram for {% data variables.product.prodname_vscode_shortname %} with testing instructions, and custom agents for the red, green, and refactor phases.](../images/test-driven-development-guide/tdd-implementation-diagram.png)
 
 > [!TIP]
 > You can further enhance the TDD workflow by adding a planning phase before starting the cycle. You can use the built-in plan agent or create a custom planning agent that helps clarify requirements and identify edge cases to cover with tests.
@@ -208,7 +208,7 @@ To create the `.github/agents/TDD-refactor.agent.md` refactor phase [custom chat
 
 Now that the TDD custom agents are set up, you can use them to implement features in your project using the TDD workflow.
 
-1. Open the Chat view and select the **TDD Red** agent from the agent dropdown menu.
+1. Open the {% data variables.copilot.chat_view %} and select the **TDD Red** agent from the agent dropdown menu.
 
 1. Provide a prompt that describes the feature or behavior you want to test.
 
@@ -244,7 +244,7 @@ Now that the TDD custom agents are set up, you can use them to implement feature
 
 ### Best practices for TDD with AI
 
-**Choose the right model for the task**: Different language models have different strengths. Consider using reasoning models for complex test generation and edge case identification. Use the model picker in the Chat view to switch models during your TDD workflow or define the `model` in your custom agent properties.
+**Choose the right model for the task**: Different language models have different strengths. Consider using reasoning models for complex test generation and edge case identification. Use the model picker in the {% data variables.copilot.chat_view %} to switch models during your TDD workflow or define the `model` in your custom agent properties.
 
 **Validate test quality**: After AI generates a test, review it to ensure it fails for the right reason. Run the test before implementing to verify it catches the missing functionality.
 
@@ -260,9 +260,9 @@ Now that the TDD custom agents are set up, you can use them to implement feature
 
 ## Related resources
 
-Learn more about testing and AI customization in VS Code:
+Learn more about testing and AI customization in {% data variables.product.prodname_vscode_shortname %}:
 
 * [Testing with AI](/docs/agents/guides/test-with-copilot.md)
 * [Custom agents](/docs/agent-customization/custom-agents.md)
 * [Custom instructions](/docs/agent-customization/custom-instructions.md)
-* [Running tests with VS Code](/docs/debugtest/testing.md)
+* [Running tests with {% data variables.product.prodname_vscode_shortname %}](/docs/debugtest/testing.md)

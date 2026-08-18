@@ -1,7 +1,7 @@
 ---
 ContentId: c99a8442-e202-4427-b7c3-695469a00f92
 DateApproved: 8/12/2026
-MetaDescription: Understand security considerations, built-in protections, and best practices when using AI-powered development features like agents and MCP servers in VS Code.
+MetaDescription: Understand security considerations, built-in protections, and best practices when using AI-powered development features like agents and MCP servers in {% data variables.product.prodname_vscode_shortname %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - security
@@ -13,12 +13,12 @@ Keywords:
 - enterprise
 - sandbox
 ---
-# AI security in VS Code
+# AI security in {% data variables.product.prodname_vscode_shortname %}
 
-AI-powered development capabilities can autonomously perform different development tasks, which might have significant security implications. This article covers VS Code's built-in security protections, the risks to be aware of, and how to configure your environment for safe AI-assisted development. For the concepts behind these controls, see [Trust and safety](/docs/agents/concepts/trust-and-safety.md).
+AI-powered development capabilities can autonomously perform different development tasks, which might have significant security implications. This article covers {% data variables.product.prodname_vscode_shortname %}'s built-in security protections, the risks to be aware of, and how to configure your environment for safe AI-assisted development. For the concepts behind these controls, see [Trust and safety](/docs/agents/concepts/trust-and-safety.md).
 
 > [!NOTE]
-> This article covers security controls in the VS Code editor for AI-powered development features. For information about how GitHub Copilot handles your data, privacy, and compliance, see the [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/). For organization-wide AI policies and controls, see [AI settings for your organization](/docs/enterprise/ai-settings.md) and [enterprise policies](/docs/enterprise/policies.md).
+> This article covers security controls in the {% data variables.product.prodname_vscode_shortname %} editor for AI-powered development features. For information about how GitHub Copilot handles your data, privacy, and compliance, see the [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/). For organization-wide AI policies and controls, see [AI settings for your organization](/docs/enterprise/ai-settings.md) and [enterprise policies](/docs/enterprise/policies.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Trust and safety concepts">
 Learn about trust boundaries, agent sandboxing, and the reasoning behind VS Code's security model.
@@ -45,15 +45,15 @@ Use the following checklist to set up a secure starting point for AI-assisted de
 
 ## Trust boundaries
 
-VS Code's security model uses trust boundaries to limit the potential impact of untrusted code. Each boundary, for the workspace, extension publisher, MCP server, and network domain, requires your explicit consent before it is trusted, and you can revoke trust at any time. For a description of each boundary, see [trust boundaries](/docs/agents/concepts/trust-and-safety.md#trust-boundaries).
+{% data variables.product.prodname_vscode_shortname %}'s security model uses trust boundaries to limit the potential impact of untrusted code. Each boundary, for the workspace, extension publisher, MCP server, and network domain, requires your explicit consent before it is trusted, and you can revoke trust at any time. For a description of each boundary, see [trust boundaries](/docs/agents/concepts/trust-and-safety.md#trust-boundaries).
 
-## How VS Code protects your environment
+## How {% data variables.product.prodname_vscode_shortname %} protects your environment
 
-VS Code includes several built-in security protections to provide visibility into sensitive operations, limit the scope of actions, and help prevent unintended consequences.
+{% data variables.product.prodname_vscode_shortname %} includes several built-in security protections to provide visibility into sensitive operations, limit the scope of actions, and help prevent unintended consequences.
 
 ### Scope and isolation
 
-VS Code limits the potential impact of agent actions by controlling their scope of operation.
+{% data variables.product.prodname_vscode_shortname %} limits the potential impact of agent actions by controlling their scope of operation.
 
 * **Workspace-limited file access**: Built-in agent tools can only read and write files within the current workspace folder. You can optionally grant read-only access to additional folders with the `setting(chat.additionalReadAccessFolders)` setting.
 
@@ -65,27 +65,27 @@ VS Code limits the potential impact of agent actions by controlling their scope 
 
 * **Agent isolation**: Copilot, Claude, and Codex sessions can work in a separate Git worktree, preventing conflicts with your active workspace. [Cloud harnesses](/docs/agents/run/agent-harnesses.md#start-a-cloud-session) run on remote infrastructure, which provides inherent isolation from your local machine and local resources.
 
-* **Secure secrets store**: Sensitive input parameters for MCP servers are stored using VS Code's secure credentials store to protect authentication tokens and other sensitive data.
+* **Secure secrets store**: Sensitive input parameters for MCP servers are stored using {% data variables.product.prodname_vscode_shortname %}'s secure credentials store to protect authentication tokens and other sensitive data.
 
-* **MCP authentication**: VS Code [implements the MCP authorization specification](/blogs/2025/06/12/full-mcp-spec-support.md#security-first-the-new-authorization-foundation) to enable OAuth authentication between VS Code and external tools and services.
+* **MCP authentication**: {% data variables.product.prodname_vscode_shortname %} [implements the MCP authorization specification](/blogs/2025/06/12/full-mcp-spec-support.md#security-first-the-new-authorization-foundation) to enable OAuth authentication between {% data variables.product.prodname_vscode_shortname %} and external tools and services.
 
 ### Approvals and review
 
-VS Code uses a permission-based security model where you maintain control over potentially risky operations.
+{% data variables.product.prodname_vscode_shortname %} uses a permission-based security model where you maintain control over potentially risky operations.
 
-* **Permission levels**: The [permissions picker](/docs/agents/run/approvals.md#permission-levels) in the Chat view lets you choose a permission level for the current session. **Default Approvals** uses your configured approval settings. For agents that run on the Agent Host, **Assisted permissions** uses an LLM judge to evaluate each tool call and asks for your approval when the judge does not approve it. **Bypass Approvals** auto-approves all tool calls. On the Agent Host, **Autopilot** is available as an agent mode that auto-approves all tools and drives the agent to continue working until the task is complete.
+* **Permission levels**: The [permissions picker](/docs/agents/run/approvals.md#permission-levels) in the {% data variables.copilot.chat_view %} lets you choose a permission level for the current session. **Default Approvals** uses your configured approval settings. For agents that run on the Agent Host, **Assisted permissions** uses an LLM judge to evaluate each tool call and asks for your approval when the judge does not approve it. **Bypass Approvals** auto-approves all tool calls. On the Agent Host, **Autopilot** is available as an agent mode that auto-approves all tools and drives the agent to continue working until the task is complete.
 
 * **Terminal approval**: Before executing terminal commands, the agent requests explicit user approval. When terminal auto-approval is enabled, configurable per-command rules (including regex patterns) auto-approve safe commands while prompting for potentially dangerous ones. All subcommands in a compound command must match an approved rule.
 
 * **Tool approval**: MCP tool invocations require explicit user approval, which you can grant at different scopes: session-level for temporary access, workspace-level for project-specific trust, or user-level for broader permissions.
 
-* **URL and domain approval**: When the agent fetches content from a URL, VS Code uses a two-step approval flow. First, it asks you to trust the domain (integrated with the Trusted Domains list). Then, after the content is fetched, it presents the content for review before it is passed to the model.
+* **URL and domain approval**: When the agent fetches content from a URL, {% data variables.product.prodname_vscode_shortname %} uses a two-step approval flow. First, it asks you to trust the domain (integrated with the Trusted Domains list). Then, after the content is fetched, it presents the content for review before it is passed to the model.
 
 * **Review flow for file changes**: You can [review all suggested changes](/docs/agents/run/review-code-edits.md) in a diff editor before you commit, merge, or create a pull request. Extension-host sessions also provide controls for keeping or undoing pending edits.
 
-* **Auto-approval notifications**: When a [tool or terminal command is automatically approved](/docs/agents/run/approvals.md#tool-approval), VS Code shows an information message and a link to the configuration setting that enabled it.
+* **Auto-approval notifications**: When a [tool or terminal command is automatically approved](/docs/agents/run/approvals.md#tool-approval), {% data variables.product.prodname_vscode_shortname %} shows an information message and a link to the configuration setting that enabled it.
 
-* **Warning banners**: When advanced modes bypass normal safety checks, VS Code displays clear warning banners and requires explicit consent.
+* **Warning banners**: When advanced modes bypass normal safety checks, {% data variables.product.prodname_vscode_shortname %} displays clear warning banners and requires explicit consent.
 
 Learn more about [tool and command approval](/docs/agents/run/approvals.md#tool-approval).
 
@@ -93,10 +93,10 @@ Learn more about [tool and command approval](/docs/agents/run/approvals.md#tool-
 
 Agent sandboxing uses OS-level isolation to restrict what agent-executed processes can access on your machine. Rather than relying solely on approval prompts, sandboxing enforces strict file system and network boundaries at the kernel level, so commands cannot access resources outside the permitted scope, even if they are approved. For a deeper look at how sandboxing works and the OS-level enforcement details, see [Agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing).
 
-Agent terminal sandboxing is available on macOS and Linux, including WSL2 environments. The same sandboxing applies to Copilot agent-host sessions that run commands through the VS Code agent terminal integration.
+Agent terminal sandboxing is available on macOS and Linux, including WSL2 environments. The same sandboxing applies to Copilot agent-host sessions that run commands through the {% data variables.product.prodname_vscode_shortname %} agent terminal integration.
 
 > [!IMPORTANT]
-> Agent sandboxing is the strongest protection against malicious terminal commands. If prompt injection is a concern, use agent sandboxing or run VS Code in a [dev container](/docs/devcontainers/containers.md) instead of relying on auto-approval rules alone. Auto-approval rules use best-effort command parsing and have known limitations with shell aliases, quote concatenation, and complex shell syntax.
+> Agent sandboxing is the strongest protection against malicious terminal commands. If prompt injection is a concern, use agent sandboxing or run {% data variables.product.prodname_vscode_shortname %} in a [dev container](/docs/devcontainers/containers.md) instead of relying on auto-approval rules alone. Auto-approval rules use best-effort command parsing and have known limitations with shell aliases, quote concatenation, and complex shell syntax.
 
 ### MCP server sandboxing
 
@@ -106,7 +106,7 @@ Learn more about [configuring MCP server sandboxing](/docs/agent-customization/m
 
 ## Security risks to be aware of
 
-AI-powered development introduces specific security risks. The sections below describe each risk category and how VS Code addresses it. Expand a section for details.
+AI-powered development introduces specific security risks. The sections below describe each risk category and how {% data variables.product.prodname_vscode_shortname %} addresses it. Expand a section for details.
 
 <details>
 <summary>Execution and access</summary>
@@ -121,7 +121,7 @@ All development tasks operate with the same permissions as the user.
 
 * **Extensions and MCP servers**: Extensions and MCP servers can operate on the user's machine with broad access to the system. They can access all files on the local machine, execute arbitrary code, and interact with system resources and external services.
 
-VS Code addresses these risks through [workspace-limited file access](#scope-and-isolation), [agent sandboxing](#agent-sandboxing-preview), and [trust boundaries](#trust-boundaries) for extensions and MCP servers.
+{% data variables.product.prodname_vscode_shortname %} addresses these risks through [workspace-limited file access](#scope-and-isolation), [agent sandboxing](#agent-sandboxing-preview), and [trust boundaries](#trust-boundaries) for extensions and MCP servers.
 
 </details>
 
@@ -136,7 +136,7 @@ Agentic coding flows rely on various external components that introduce trust an
 
 * **Update and distribution channels**: MCP servers might receive updates through various channels, potentially delivering malicious updates to previously trusted components.
 
-VS Code addresses these risks through [MCP Server Trust](#trust-boundaries), [enterprise MCP registry controls](#enterprise-policies), and [Extension Publisher Trust](#trust-boundaries).
+{% data variables.product.prodname_vscode_shortname %} addresses these risks through [MCP Server Trust](#trust-boundaries), [enterprise MCP registry controls](#enterprise-policies), and [Extension Publisher Trust](#trust-boundaries).
 
 </details>
 
@@ -157,7 +157,7 @@ Auto-approval features reduce friction but come with security tradeoffs.
 
 * **Third-party harness permissions**: Some provider harnesses offer settings that bypass all permission checks, such as `allowDangerouslySkipPermissions` for the [Claude harness](/docs/agents/run/agent-harnesses.md#claude-preview). Turning on these settings removes the safety net of approval prompts and is only recommended in sandboxed or containerized environments.
 
-VS Code addresses these risks through [configurable approval scopes](#approvals-and-review), [agent sandboxing](#agent-sandboxing-preview), [enterprise policies](#enterprise-policies), and [warning banners](#approvals-and-review) for dangerous modes.
+{% data variables.product.prodname_vscode_shortname %} addresses these risks through [configurable approval scopes](#approvals-and-review), [agent sandboxing](#agent-sandboxing-preview), [enterprise policies](#enterprise-policies), and [warning banners](#approvals-and-review) for dangerous modes.
 
 Learn more about [managing auto approvals](/docs/agents/run/approvals.md#tool-approval).
 
@@ -176,7 +176,7 @@ Your workspace data and development environment information can be exposed throu
 
 * **Custom model output**: When using [bring-your-own-key models](/docs/agent-customization/language-models.md), there is no guarantee that responsible AI filtering is applied to the model's output. Review custom model responses carefully.
 
-VS Code addresses these risks through [workspace-limited file access](#scope-and-isolation), [the tools picker](#scope-and-isolation), [the secure secrets store](#scope-and-isolation), and [sensitive file protection](/docs/agents/run/review-code-edits.md#edit-sensitive-files).
+{% data variables.product.prodname_vscode_shortname %} addresses these risks through [workspace-limited file access](#scope-and-isolation), [the tools picker](#scope-and-isolation), [the secure secrets store](#scope-and-isolation), and [sensitive file protection](/docs/agents/run/review-code-edits.md#edit-sensitive-files).
 
 </details>
 
@@ -192,7 +192,7 @@ For example, an MCP tool or the fetch tool might unsuspectingly retrieve data fr
 * **Tool output chaining**: Output from one tool becomes input for another, creating opportunities for malicious content to propagate through the system and influence subsequent operations.
 * **External data processing**: When the AI processes untrusted content from files, web requests, or external tools, malicious instructions embedded in that content can be interpreted as legitimate commands.
 
-VS Code addresses these risks through [URL two-step approval](#approvals-and-review), [edit review flow](#approvals-and-review), [agent sandboxing](#agent-sandboxing-preview), and [Workspace Trust](#trust-boundaries) (opening untrusted projects in restricted mode disables agents).
+{% data variables.product.prodname_vscode_shortname %} addresses these risks through [URL two-step approval](#approvals-and-review), [edit review flow](#approvals-and-review), [agent sandboxing](#agent-sandboxing-preview), and [Workspace Trust](#trust-boundaries) (opening untrusted projects in restricted mode disables agents).
 
 </details>
 
@@ -219,5 +219,5 @@ Learn more about [managing AI settings in enterprise environments](/docs/enterpr
 
 ## Related resources
 
-* [VS Code enterprise support](/docs/enterprise/overview.md)
+* [{% data variables.product.prodname_vscode_shortname %} enterprise support](/docs/enterprise/overview.md)
 * [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/)

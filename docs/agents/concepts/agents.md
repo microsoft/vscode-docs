@@ -1,7 +1,7 @@
 ---
 ContentId: e5f6a7b8-9c0d-1e2f-3a4b-5c6d7e8f9a0b
 DateApproved: 8/12/2026
-MetaDescription: Learn about agents in VS Code, including the agent loop, agent types, subagents, memory, and planning.
+MetaDescription: Learn about agents in {% data variables.product.prodname_vscode_shortname %}, including the agent loop, agent types, subagents, memory, and planning.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - copilot
@@ -14,7 +14,7 @@ Keywords:
 - memory
 - planning
 - local agents
-- cloud agents
+- "{% data variables.copilot.copilot_cloud_agent_short %}s"
 - remote agent sessions
 - agent host protocol
 ---
@@ -23,10 +23,10 @@ Keywords:
 
 An agent is an AI system that autonomously plans and executes coding tasks. You give the agent a high-level goal, and it breaks the goal down into steps, executes those steps with [tools](/docs/agents/concepts/tools.md), and self-corrects when it hits errors. This article explains the core architecture of agents: the agent loop, subagents, memory, and planning. To learn where agents run and which harness powers them, see [agent harnesses](/docs/agents/concepts/agent-harnesses.md).
 
-For an overview of what you can do with agents in VS Code and where to work with them, see [Build with agents in VS Code](/docs/agents/overview.md).
+For an overview of what you can do with agents in {% data variables.product.prodname_vscode_shortname %} and where to work with them, see [Build with agents in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/overview.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
-Follow a hands-on tutorial to build an app with AI agents in VS Code.
+Follow a hands-on tutorial to experience local, background, and {% data variables.copilot.copilot_cloud_agent_short %}s in {% data variables.product.prodname_vscode_shortname %}.
 
 * [Start agentic coding tutorial](/docs/agents/agents-tutorial.md)
 
@@ -34,13 +34,13 @@ Follow a hands-on tutorial to build an app with AI agents in VS Code.
 
 ## How the concepts fit together
 
-The core concepts combine each time you send a request. A [language model](/docs/agents/concepts/language-models.md) does the reasoning. To respond usefully, it needs [context](/docs/agents/concepts/context.md): VS Code assembles the relevant files, conversation history, and other information and sends it to the model. To act on your environment instead of only answering, the model calls [tools](/docs/agents/concepts/tools.md) to read and edit files, run commands, or reach external services. The agent ties these together in the agent loop, calling tools and feeding the results back to the model until the task is complete.
+The core concepts combine each time you send a request. A [language model](/docs/agents/concepts/language-models.md) does the reasoning. To respond usefully, it needs [context](/docs/agents/concepts/context.md): {% data variables.product.prodname_vscode_shortname %} assembles the relevant files, conversation history, and other information and sends it to the model. To act on your environment instead of only answering, the model calls [tools](/docs/agents/concepts/tools.md) to read and edit files, run commands, or reach external services. The agent ties these together in the agent loop, calling tools and feeding the results back to the model until the task is complete.
 
 [Customization](/docs/agents/concepts/customization.md) shapes how the agent behaves, and [trust and safety](/docs/agents/concepts/trust-and-safety.md) controls keep you in command of what it can do. The agent runs on a [harness](/docs/agents/concepts/agent-harnesses.md) that determines where it runs, and each conversation is a [session](/docs/agents/concepts/sessions.md) that you can manage and hand off.
 
 ## Agent loop
 
-When you give an agent a task, it follows an agentic loop. This pattern is common across modern AI assistants. Within VS Code, an agent is the system that plans and takes actions, and the [language model](/docs/agents/concepts/language-models.md) generates responses that inform those actions.
+When you give an agent a task, it follows an agentic loop. This pattern is common across modern AI assistants. Within {% data variables.product.prodname_vscode_shortname %}, an agent is the system that plans and takes actions, and the [language model](/docs/agents/concepts/language-models.md) generates responses that inform those actions.
 
 At each step, the agent evaluates its progress and picks the next action. It might open a file to understand an API, make an edit, then run a command to verify the change worked. The output of each action becomes input for the next decision.
 
@@ -56,7 +56,7 @@ The agent uses the language model to reason about the best course of action. How
 
 The agent chains these actions together as needed until it accomplishes the task. Answering a question about your codebase might involve only a few file reads. Implementing a new feature typically loops through editing, running tests, diagnosing failures, and editing again until the tests pass.
 
-Behind the scenes, [VS Code assembles the current context](/docs/agents/concepts/context.md#how-vs-code-assembles-context) into a prompt and sends it to the language model. The model responds with text, a code edit, or a tool request. When a tool runs, its output is added to the context for the next iteration, and this cycle repeats until the task is complete.
+Behind the scenes, [{% data variables.product.prodname_vscode_shortname %} assembles the current context](/docs/agents/concepts/context.md#how-vs-code-assembles-context) into a prompt and sends it to the language model. The model responds with text, a code edit, or a tool request. When a tool runs, its output is added to the context for the next iteration, and this cycle repeats until the task is complete.
 
 You stay in control throughout the process. Send a new message to redirect the agent, add context, or suggest a different approach. For more on reviewing changes and managing agent behavior, see [Trust and safety](/docs/agents/concepts/trust-and-safety.md).
 
@@ -72,7 +72,7 @@ Learn more about [Customization concepts](/docs/agents/concepts/customization.md
 
 ## Agent harnesses
 
-Agents run in different environments depending on when you need results and how much oversight you want. The two key dimensions are where the agent runs, such as your machine or the cloud, and which harness powers it. VS Code supports running agents using different harnesses, such as Copilot, Claude, or Codex. Learn more about [agent harnesses](/docs/agents/concepts/agent-harnesses.md).
+Agents run in different environments depending on when you need results and how much oversight you want. The two key dimensions are where the agent runs, such as your machine or the cloud, and which harness powers it. {% data variables.product.prodname_vscode_shortname %} supports running agents using different harnesses, such as Copilot, Claude, or Codex. Learn more about [agent harnesses](/docs/agents/concepts/agent-harnesses.md).
 
 ## Subagents
 
@@ -84,7 +84,7 @@ Key characteristics of subagents:
 
 * **Context isolation**: each subagent runs in its own context window and doesn't inherit the main agent's conversation history. It receives the task prompt, applicable instruction files, and the current agent configuration.
 * **Synchronous execution**: the main agent waits for subagent results before continuing, because subagent findings typically inform the next step.
-* **Parallel execution**: VS Code can spawn multiple subagents in parallel for tasks like analyzing security, performance, and accessibility simultaneously.
+* **Parallel execution**: {% data variables.product.prodname_vscode_shortname %} can spawn multiple subagents in parallel for tasks like analyzing security, performance, and accessibility simultaneously.
 * **Focused results**: only the final result is returned to the main agent, keeping the main context focused and reducing token usage.
 
 For example, the built-in [Plan agent](#planning) uses subagents to perform research and analysis before creating an implementation plan. Each subagent works autonomously and returns only its findings.
@@ -93,21 +93,21 @@ Learn more about [using subagents](/docs/agents/run/subagents.md).
 
 ## Sessions
 
-A session is the unit of work with an agent: one conversation, along with the context it accumulates. Sessions are independent, can run in parallel, and are shared across the [Chat view](/docs/agents/run/chat-view.md) and the [Agents window](/docs/agents/run/agents-window.md). They can run on your machine or on a remote host, and you can hand off a session from one agent to another. Learn more about [sessions and handoff](/docs/agents/concepts/sessions.md).
+A session is the unit of work with an agent: one conversation, along with the context it accumulates. Sessions are independent, can run in parallel, and are shared across the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) and the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md). They can run on your machine or on a remote host, and you can hand off a session from one agent to another. Learn more about [sessions and handoff](/docs/agents/concepts/sessions.md).
 
 ## Memory
 
 Agents use memory to retain context across conversations. Rather than starting from scratch each session, agents recall your preferences, apply lessons from previous tasks, and build up knowledge about your codebase over time.
 
-VS Code supports two complementary memory systems:
+{% data variables.product.prodname_vscode_shortname %} supports two complementary memory systems:
 
 * **Memory tool**: a built-in tool that stores notes locally on your machine, organized in three scopes:
     * **User memory** (`/memories/`): persists across all workspaces and conversations. The first 200 lines are automatically loaded into every session.
     * **Repository memory** (`/memories/repo/`): scoped to the current workspace, persists across conversations.
     * **Session memory** (`/memories/session/`): scoped to the current conversation, cleared when it ends.
-* **Copilot Memory**: a GitHub-hosted memory system that captures repository-specific insights across Copilot surfaces (coding agent, code review, CLI). Shared across GitHub Copilot beyond VS Code.
+* **{% data variables.copilot.copilot_memory %}**: a GitHub-hosted memory system that captures repository-specific insights across Copilot surfaces ({% data variables.copilot.copilot_cloud_agent_short %}, code review, CLI). Shared across GitHub Copilot beyond {% data variables.product.prodname_vscode_shortname %}.
 
-Learn more about [memory in VS Code agents](/docs/agents/run/memory.md).
+Learn more about [memory in {% data variables.product.prodname_vscode_shortname %} agents](/docs/agents/run/memory.md).
 
 ## Planning
 
@@ -126,10 +126,10 @@ Learn more about [planning with agents](/docs/agents/run/planning.md).
 
 ## Related resources
 
-* [Using agents in VS Code](/docs/agents/overview.md)
+* [Using agents in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/overview.md)
 * [Agent harnesses](/docs/agents/concepts/agent-harnesses.md)
 * [Sessions and handoff](/docs/agents/concepts/sessions.md)
-* [VS Code Agent Host architecture](/docs/agents/concepts/agent-host.md)
+* [{% data variables.product.prodname_vscode_shortname %} Agent Host architecture](/docs/agents/concepts/agent-host.md)
 * [Tools](/docs/agents/concepts/tools.md)
 * [Context](/docs/agents/concepts/context.md)
 * [Trust and safety](/docs/agents/concepts/trust-and-safety.md)
