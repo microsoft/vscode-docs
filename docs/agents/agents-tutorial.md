@@ -202,7 +202,7 @@ The {% data variables.copilot.chat_view %} is located in the Secondary Side Bar,
     Add an accessible theme switcher button that toggles between light and dark color themes. Persist the selected theme across page reloads, update the button label to describe the theme it applies, and keep the layout responsive on narrow screens.
     ```
 
-    {% data variables.copilot.github_copilot_app_short %} applies and saves the changes directly to your project files.
+    {% data variables.copilot.prodname_copilot_short %} applies and saves the changes directly to your project files.
 
 1. Open the **Source Control** view to review the files that Copilot changed. Select a file to inspect its diff.
 
