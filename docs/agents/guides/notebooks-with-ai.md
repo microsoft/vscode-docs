@@ -1,6 +1,6 @@
 ---
 ContentId: 101027aa-e73c-4d1b-a93f-b8ce10e1f946
-DateApproved: 8/12/2026
+DateApproved: 8/19/2026
 MetaDescription: Learn how to use GitHub Copilot in {% data variables.product.prodname_vscode %} to edit Jupyter notebooks with AI.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---

@@ -1,6 +1,6 @@
 ---
 ContentId: 8f34d9b6-3185-426a-b6d9-7e5ac7138a31
-DateApproved: 8/12/2026
+DateApproved: 8/19/2026
 MetaDescription: Manage Git repositories and remotes in VS Code with cloning, publishing, synchronization, upstream tracking, and multiple-repository workflows.
 Keywords:
 - source control

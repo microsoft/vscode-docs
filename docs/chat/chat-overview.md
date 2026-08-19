@@ -1,6 +1,6 @@
 ---
 ContentId: 557a7e74-f77e-488d-90ea-fd2cfecfffda
-DateApproved: 8/12/2026
+DateApproved: 8/19/2026
 MetaDescription: Learn how to use chat in VS Code. Access different chat surfaces, send a request, add context, write effective prompts, and review AI-generated changes.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -133,6 +133,15 @@ Both settings have three possible values:
 Chat can show timestamps for when you send a request and when a response completes. Hover over a completion timestamp to see elapsed response time.
 
 Use `setting(chat.verbose)` to enable or disable these timestamps.
+
+## Find text in a chat session
+
+Press `kb(workbench.action.chat.find)` to search the entire conversation. Find is available in the Chat view, chat editor tabs, and the Agents window. It searches prompts and responses, including off-screen content and code blocks.
+
+Use `kb(workbench.action.chat.findNext)` and `kb(workbench.action.chat.findPrevious)` to navigate between matches. When a match is inside a collapsed **Completed N steps** section, navigating to the match expands the section. Use the **Match Case**, **Whole Word**, and **Regular Expression** options to refine the results.
+
+> [!NOTE]
+> Find is not available in Quick Chat or inline chat. It does not search text inside tool pills or collapsed reasoning.
 
 ## Navigate between prompts in a chat session
 

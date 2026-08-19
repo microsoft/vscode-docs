@@ -1,6 +1,6 @@
 ---
 ContentId: 8b3c9f5e-4d2a-6f9b-3e1c-7a8d5f2e9b0c
-DateApproved: 8/12/2026
+DateApproved: 8/19/2026
 MetaDescription: Learn how to use context-isolated subagents in {% data variables.product.prodname_vscode_shortname %} to delegate complex tasks to autonomous agents within your chat session.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 Keywords:
@@ -171,9 +171,18 @@ In the {% data variables.copilot.agents_window %}, each subagent is available as
 
 Subagent chats are hidden from the tab strip by default. Open one in any of these ways:
 
-* Select it from the **Conversations** dropdown.
+* Select it from the **Chats** dropdown.
 * Select the running-subagents indicator while subagents are active.
 * Select **Open Subagent** in the chat where the delegation occurred.
+
+To keep the parent chat and subagent visible side by side:
+
+* Hold `kbstyle(Alt)` and select the in-transcript subagent pill.
+* Focus the in-transcript subagent pill and press `kbstyle(Alt+Enter)`.
+* Hold `kbstyle(Alt)` and select the subagent in the **Chats** dropdown.
+* Drag the in-transcript subagent pill to the center of an existing chat group or to an edge to create a group in that direction.
+
+The in-transcript subagent pill is part of the chat response. It differs from the background-activities pill above the chat input, which opens a picker for running activities and isn't draggable.
 
 Read-only subagent chats show a lock icon and don't accept input. They persist across window reloads with your other chats.
 

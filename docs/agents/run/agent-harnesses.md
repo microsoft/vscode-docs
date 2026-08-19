@@ -1,6 +1,6 @@
 ---
 ContentId: 5b1e6f94-2c73-4a80-9d15-7f3c8e2a6b41
-DateApproved: 8/12/2026
+DateApproved: 8/19/2026
 MetaDescription: Choose, use, and hand off between Local, Copilot, Claude, Codex, and {% data variables.copilot.copilot_cloud_agent_short %} harnesses in {% data variables.product.prodname_vscode_shortname %}, including isolation and permissions.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 Keywords:
@@ -221,7 +221,18 @@ Learn more about [Claude subagents](https://code.claude.com/docs/en/sub-agents) 
 
 The Codex harness uses OpenAI Codex for interactive and background coding tasks. {% data variables.product.prodname_vscode_shortname %} keeps session management, chat, and code review in {% data variables.product.prodname_vscode_shortname %}. Install the [OpenAI Codex extension](https://marketplace.visualstudio.com/items?itemName=openai.chatgpt) to use local Codex sessions. Authentication through a Copilot subscription requires Copilot Pro+.
 
-Codex sessions run through the OpenAI Codex extension by default. Running Codex on the Agent Host is experimental and requires `setting(chat.agentHost.codexAgent.enabled)` and `setting(chat.editor.codex.preferAgentHost)`.
+Codex sessions in the Chat view run through the [OpenAI Codex extension](https://marketplace.visualstudio.com/items?itemName=openai.chatgpt) by default. Running Codex on the Agent Host is experimental. Enable `setting(chat.agentHost.codexAgent.enabled)`. To also use the Agent Host implementation in the Chat view, enable `setting(chat.editor.codex.preferAgentHost)`.
+
+Codex on the Agent Host supports two authentication and subscription options:
+
+* **GitHub Copilot subscription**: sign in to GitHub to use Copilot-backed models. This option requires Copilot Pro+.
+* **ChatGPT subscription**: open the account menu and select **Sign in to ChatGPT**. A free ChatGPT account is sufficient.
+
+When both accounts are signed in, the model picker groups models by **Copilot** and **ChatGPT**. Models with the same name are identified by provider. The model you select determines which subscription is used, and VS Code saves that provider with the session. Signing in to or out of another account doesn't change the provider for an existing session.
+
+#### Use Codex without GitHub sign-in (Experimental)
+
+After you sign in to ChatGPT, enable `setting(chat.agentHost.allowSignedOutWhenUsable)` to use ChatGPT-backed Codex models in the desktop Agents window without signing in to GitHub. Copilot-backed models prompt you to sign in to GitHub when you select them. The browser-based Agents window still requires GitHub sign-in.
 
 {% /tab %}
 {% tab label="Cloud" %}

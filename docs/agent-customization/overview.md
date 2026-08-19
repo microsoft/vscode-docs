@@ -1,6 +1,6 @@
 ---
 ContentId: 16c73175-a606-4aab-8ae5-a5071d3b9e24
-DateApproved: 8/12/2026
+DateApproved: 8/19/2026
 MetaDescription: Create, manage, evaluate, and troubleshoot agent customizations in {% data variables.product.prodname_vscode_shortname %} for user profiles, workspaces, and monorepos.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -104,7 +104,31 @@ Store a customization at the narrowest scope that matches how you want to use an
 Some customization types support other scopes, such as organization-level instructions. Not every customization type supports every scope. See the individual guide for its supported locations.
 
 > [!NOTE]
-> When [Agent Host](/docs/agents/concepts/agent-host.md) is enabled, the agent reads user-level customizations from harness-agnostic folders like `~/.copilot` (Copilot) and `~/.claude` (Claude), rather than from your {% data variables.product.prodname_vscode_shortname %} profile user data. See [instructions](/docs/agent-customization/custom-instructions.md#instructions-file-locations), [custom agents](/docs/agent-customization/custom-agents.md), and [prompt files](/docs/agent-customization/prompt-files.md#prompt-file-locations) for the recommended user-level locations.
+> For sessions that run on [Agent Host](/docs/agents/concepts/agent-host.md), the agent reads user-level customizations from harness-agnostic folders like `~/.copilot` (Copilot) and `~/.claude` (Claude), rather than from your VS Code profile user data. See [instructions](/docs/agent-customization/custom-instructions.md#instructions-file-locations), [custom agents](/docs/agent-customization/custom-agents.md), and [prompt files](/docs/agent-customization/prompt-files.md#prompt-file-locations) for the recommended user-level locations.
+
+## Migrate user customizations (Experimental)
+
+Agents that run through an [agent host](/docs/agents/concepts/agent-host.md) don't read custom agents and instructions stored in your VS Code profile user data. The migration flow moves these customizations to the user folders for the active agent host without changing their names, types, or contents.
+
+The migrated files don't roam across devices through [Settings Sync](/docs/configure/settings-sync.md). If you keep the original files in your profile user data, the original and migrated copies don't stay synchronized.
+
+To migrate user customizations:
+
+1. Enable the `setting(chat.customizations.userDataMigration.enabled)` setting.
+
+1. In the Chat view, select the agent host that should use the customizations.
+
+1. Select **Configure Chat** (gear icon) to open the Agent Customizations editor.
+
+1. On the **Overview** tab, find **Migrate User Data Customizations** and select **Migrate...**.
+
+1. Select the agents and instructions to migrate. You can open a file to review it before migration.
+
+1. Select **Migrate**.
+
+1. In the confirmation dialog, choose whether to delete the original files from your profile user data, and then select **Migrate**.
+
+The migration card appears only when an agent host is active, the experimental setting is enabled, and VS Code finds user-profile agents or instructions to migrate.
 
 ## Evaluate and improve customization files (Preview)
 

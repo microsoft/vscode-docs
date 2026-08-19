@@ -1,6 +1,6 @@
 ---
 ContentId: 7c4b8b5e-2d3f-4e8a-9b2c-1a5d6f8e9c0b
-DateApproved: 8/12/2026
+DateApproved: 8/19/2026
 MetaDescription: Build with AI agents in {% data variables.product.prodname_vscode %}. Free to start, with multiple models or your own API key. Learn what agents can do and how to run them.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -67,6 +67,8 @@ AI features are built into {% data variables.product.prodname_vscode_shortname %
 In {% data variables.product.prodname_vscode_shortname %}, the choice comes down to your approach and your scope. The {% data variables.copilot.agents_window %} is **agent-first** and works across **all your workspaces** from a single window, so it's ideal when you assign high-level tasks and orchestrate multiple agents in parallel across projects. The {% data variables.copilot.chat_view %} is **code-first** and is **scoped to the workspace** you have open, so it's ideal when you give the agent coding tasks and stay close to the code it produces.
 
 If you want to work outside {% data variables.product.prodname_vscode_shortname %}, you can also manage your agents from the terminal with the {% data variables.copilot.copilot_cli_short %}, from the {% data variables.copilot.github_copilot_app %}, or directly in your browser.
+
+VS Code can discover supported local sessions created by Copilot CLI, the GitHub Copilot app, Claude Code, and Codex. You can then continue these sessions in the Chat view or Agents window.
 
 Choose the experience that fits your current task and where you want to work. You can start a session in one and continue it in the other without losing context.
 

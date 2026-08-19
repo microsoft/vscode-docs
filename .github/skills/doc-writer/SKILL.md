@@ -34,7 +34,8 @@ Do **not** use this skill for release notes, API reference docs, redirects, imag
 Do not modify any files in this phase.
 
 1. **Understand the feature.** Read the feature description, issue, or PR provided. If the description is ambiguous or lacks detail, ask clarifying questions before continuing.
-2. **Check the source if needed.** To understand the implementation, inspect the source code in the `microsoft/vscode` and `microsoft/vscode-copilot-chat` repos. Use the `gh` CLI for all GitHub interactions (issues, PRs, code). See user memory `gh-cli-powershell.md` for PowerShell-specific `gh` patterns.
+2. **User-facing features.** Check that the features are already available for users and not just for internal dogfooding only. Only document user-facing features.
+3. **Check the source if needed.** To understand the implementation, inspect the source code in the `microsoft/vscode` repo. Use the `gh` CLI for all GitHub interactions (issues, PRs, code). See user memory `gh-cli-powershell.md` for PowerShell-specific `gh` patterns.
 
    | Area being documented | Primary source repo |
    |----------------------|---------------------|
@@ -42,14 +43,14 @@ Do not modify any files in this phase.
    | Copilot Chat, inline chat, agent mode, chat tools, chat participants, MCP in chat | `microsoft/vscode-copilot-chat` |
    | Enterprise policies | `microsoft/vscode` (policy definitions) |
 
-3. **Identify affected docs.** Search the `docs/` folder for the pages that need to be created or updated. Map each change to a specific file and section.
-4. **Present the plan.** Summarize:
+4. **Identify affected docs.** Search the `docs/` folder for the pages that need to be created or updated. Map each change to a specific file and section.
+5. **Present the plan.** Summarize:
    * Which `docs/` files you propose to create or change, and a short description of each edit.
    * Any `TODO` screenshot placeholders that will be needed.
    * Open questions or assumptions.
 
    If you conclude that **no documentation update is needed**, say so and ask the user to confirm before closing out.
-5. **Stop and wait for approval.** Do not proceed to Phase 2 until the user explicitly approves the plan (or adjusts it).
+6. **Stop and wait for approval.** Do not proceed to Phase 2 until the user explicitly approves the plan (or adjusts it).
 
 ## Phase 2 — Implement (after approval)
 
