@@ -53,5 +53,17 @@
       ["Building a social media content agent with Agent Builder", "/learn/foundry-toolkit-extension/3-building-social-media-agent"],
       ["Building a hosted agent with GitHub Copilot and Microsoft Foundry", "/learn/foundry-toolkit-extension/4-building-hosted-agent"]
     ]
+  },
+  {
+    "name": "Java, Spring Boot, and GitHub Copilot",
+    "area": "java-spring-boot",
+    "description": "Learn how to build, debug, extend, and test a Spring Boot application with Java tools and GitHub Copilot in VS Code.",
+    "image": "/assets/learn/java-spring-boot/ch1-web-app.png",
+    "topics": [
+      ["Build and Run Your First Spring Boot App", "/learn/java-spring-boot/1-build-and-run"],
+      ["Debug and Inspect a Spring Boot Request", "/learn/java-spring-boot/2-debug-and-inspect"],
+      ["Expose Your Java Operations to GitHub Copilot with MCP", "/learn/java-spring-boot/3-expose-tools-with-mcp"],
+      ["Let GitHub Copilot Test Your Spring Boot App with Playwright", "/learn/java-spring-boot/4-test-with-playwright"]
+    ]
   }
 ]
