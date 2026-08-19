@@ -33,7 +33,7 @@ Agentic coding uses AI agents to complete software development tasks with varyin
 
 This article introduces the agentic coding capabilities in {% data variables.product.prodname_vscode %} and the key components that work together. Follow the links to explore each concept in depth, or get hands-on with the [agents quickstart](/docs/agents/quickstart.md) or [agents tutorial](/docs/agents/agents-tutorial.md).
 
-<video src="images/agents-overview/agents-intro.mp4" title="Video showing an agent session building a complete feature in {% data variables.product.prodname_vscode_shortname %}." controls muted></video>
+<!-- <video src="images/agents-overview/agents-intro.mp4" title="Video showing an agent session building a complete feature in {% data variables.product.prodname_vscode_shortname %}." controls muted></video> -->
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
 Choose a short quickstart or a guided tutorial to complete your first coding task with an agent.
