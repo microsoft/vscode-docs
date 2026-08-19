@@ -39,7 +39,23 @@ You can install an extension directly from the Extensions view in VS Code. Alter
 
 ## Manually install a VS Code extension
 
-You can manually install a VS Code extension by getting the source code, and putting it into your respective install directory in the naming format of "creator.extension-1.0". VS Code will automatically load the extension on launch.
+You can manually install a VS Code extension by getting the source code, and putting it into your respective install directory in the naming format of "creator.extension-1.0". 
+
+For example, you can run
+
+```gh repo clone antfu/starter-vscode```
+
+to clone the repository ```antfu/starter-vscode``` which is a starter template for VS Code extensions, then run
+
+```mv anfu-starter-vscode ~/.vscode/extensions```
+
+for Linux/MacOS or
+
+Use the Graphical file manager to move the directory to ```C:\Users\USER_NAME\.vscode\extensions``` for Windows 
+
+Then rename the directory to ```anfu.starter-vscode.1.0```
+
+VS Code will automatically load the extension on launch.
 
 ## Open extension settings
 
