@@ -5,7 +5,7 @@ MetaDescription: Use GitHub Copilot and Playwright MCP tools to test a Spring Bo
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 ---
 
-# Let GitHub Copilot Test Your Spring Boot App with Playwright
+# Let GitHub Copilot test your Spring Boot app with Playwright
 
 Your unit tests pass. Your integration tests pass. And you still open the browser
 afterwards to check that the page actually works, because a green build has never proved
@@ -18,7 +18,7 @@ In this chapter, we'll hand it to GitHub Copilot. Copilot gets browser-control t
 you describe the journey in one sentence, and a real Chrome window drives your running
 Spring Boot app while you watch.
 
-Then — and this is the part that matters — you read the assertions it actually ran.
+Then you read the assertions it actually ran, which is the part that matters.
 
 ## What You Will Learn
 
@@ -141,7 +141,7 @@ executable you choose to run.
 2. Open Copilot Chat, select **Agent** mode, select **Configure Tools...** in the chat input, confirm the Playwright tools are listed and enabled, and close the picker.
 3. Enter the following prompt and select **Send**:
 
-   ```text
+   ```prompt
    Use the Playwright tools to open http://localhost:8080 and verify the page title is 'Java TODO Demo'. Add a todo called 'Verify the browser flow', find that todo's row, complete it and verify it is checked, then delete it and verify it is gone.
    ```
 

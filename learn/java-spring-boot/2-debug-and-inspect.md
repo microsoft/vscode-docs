@@ -5,7 +5,7 @@ MetaDescription: Debug a Spring Boot request and inspect application health and 
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 ---
 
-# Debug and Inspect a Spring Boot Request in Visual Studio Code
+# Debug and inspect a Spring Boot request in Visual Studio Code
 
 A web app that works is not the same as a web app you understand. The page says the item
 was added. It does not say which method received the title, where the id came from, or
@@ -102,10 +102,10 @@ appear while a live process is attached, which is a useful signal in itself.
 
 Let's stop the application in the middle of an add.
 
-1. Open `TodoController.java`, find the `addForm` method, and click the gutter to set a breakpoint on its `service.add(title)` line.
+1. Open `TodoController.java`, find the `addForm` method, and select the gutter to set a breakpoint on its `service.add(title)` line.
 2. Select the **Spring Boot Dashboard** icon in the Activity Bar, select the app's **Debug** action, and wait for the debugger to connect.
 3. Confirm the running debug state in the Dashboard, and find the **Endpoint Mappings** and **Memory** sections listed below **Apps**.
-4. Return to the controller and click the root URL hint. In the page that opens, enter **`Trace this request`** and select **Add**.
+4. Return to the controller and select the root URL hint. In the page that opens, enter **`Trace this request`** and select **Add**.
 5. Wait for Visual Studio Code to stop at the breakpoint.
 
 The request is now frozen immediately before the controller calls the service, which

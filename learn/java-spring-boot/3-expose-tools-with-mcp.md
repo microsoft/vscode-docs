@@ -5,7 +5,7 @@ MetaDescription: Expose Spring Boot operations as MCP tools and call them from G
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 ---
 
-# Expose Your Java Operations to GitHub Copilot with MCP
+# Expose your Java operations to GitHub Copilot with MCP
 
 GitHub Copilot is very good at writing Java. It is far less good at knowing what is
 currently in *your* running application, because it cannot see it.
@@ -168,7 +168,7 @@ wait for **Running** rather than treating the count as proof of a live connectio
 2. Select **Configure Tools...** in the chat input, find `todo-mcp`, enable its five tools, and close the picker.
 3. Enter the following prompt and select **Send**:
 
-   ```text
+   ```prompt
    Use the todo-mcp tools to add a todo called 'Email the stakeholders', then list all todos.
    ```
 

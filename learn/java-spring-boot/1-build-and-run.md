@@ -5,7 +5,7 @@ MetaDescription: Build and run a Spring Boot application in Visual Studio Code w
 MetaSocialImage: ../images/shared/agent-first-development-social.png
 ---
 
-# Build and Run Your First Spring Boot App in Visual Studio Code
+# Build and run your first Spring Boot app in Visual Studio Code
 
 You know that moment when you clone a Java repository, open it, and nothing happens? No
 run button, no green ticks, no clue which of the two hundred files is the one that
