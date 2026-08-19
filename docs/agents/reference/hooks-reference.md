@@ -1,7 +1,7 @@
 ---
 ContentId: 1f6b2d94-7c3a-4e85-9a1d-5b8c0e2f7a63
-DateApproved: 8/5/2026
-MetaDescription: Reference for agent hook configuration properties and per-event input and output schemas in Visual Studio Code, including PreToolUse, PostToolUse, SessionStart, Stop, and more.
+DateApproved: 8/19/2026
+MetaDescription: Reference for agent hook configuration properties and per-event input and output schemas in {% data variables.product.prodname_vscode %}, including PreToolUse, PostToolUse, SessionStart, Stop, and more.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - copilot
@@ -15,7 +15,7 @@ Keywords:
 ---
 # Hooks reference
 
-This article provides a reference for agent hook configuration properties and the input and output schemas of each hook event in VS Code. For information about configuring and using hooks, see [Agent hooks](/docs/agent-customization/hooks.md).
+This article provides a reference for agent hook configuration properties and the input and output schemas of each hook event in {% data variables.product.prodname_vscode_shortname %}. For information about configuring and using hooks, see [Agent hooks](/docs/agent-customization/hooks.md).
 
 Every hook also receives a set of [common input fields](/docs/agent-customization/hooks.md#common-input-fields) and can return the [common output format](/docs/agent-customization/hooks.md#common-output-format). The fields documented in the event sections are in addition to those common fields.
 
@@ -303,6 +303,6 @@ The `PreCompact` hook uses the common output format only.
 
 ## Related resources
 
-* [Agent hooks](/docs/agent-customization/hooks.md) - Configure and use hooks in VS Code
+* [Agent hooks](/docs/agent-customization/hooks.md) - Configure and use hooks in {% data variables.product.prodname_vscode_shortname %}
 * [Custom agents](/docs/agent-customization/custom-agents.md) - Create specialized agent configurations
 * [Subagents](/docs/agents/run/subagents.md) - Delegate tasks to context-isolated subagents

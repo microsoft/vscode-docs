@@ -1,6 +1,6 @@
 ---
 ContentId: cb4f3742-733c-49d8-96db-d4bf8403bf64
-DateApproved: 8/5/2026
+DateApproved: 8/19/2026
 MetaDescription: TypeScript tutorial with Visual Studio Code.
 MetaSocialImage: ../languages/images/typescript/typescript-social.png
 ---
@@ -10,7 +10,7 @@ MetaSocialImage: ../languages/images/typescript/typescript-social.png
 
 ## Install the TypeScript compiler
 
-Visual Studio Code includes TypeScript language support but does not include the TypeScript compiler, `tsc`. You will need to install the TypeScript compiler either globally or in your workspace to transpile TypeScript source code to JavaScript (`tsc HelloWorld.ts`).
+Visual Studio Code includes TypeScript language support but does not include the TypeScript compiler, `tsc`. You will need to install the TypeScript compiler either globally or in your workspace to transpile TypeScript source code to JavaScript (`tsc helloworld.ts`).
 
 The easiest way to install TypeScript is through npm, the [Node.js Package Manager](https://www.npmjs.com/). If you have npm installed, you can install TypeScript globally (`-g`) on your computer by:
 

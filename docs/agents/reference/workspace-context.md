@@ -1,6 +1,6 @@
 ---
 ContentId: c77dcce9-4ba9-40ac-8ae5-2df855088090
-DateApproved: 8/5/2026
+DateApproved: 8/19/2026
 MetaDescription: Learn how Copilot agents understand your codebase with semantic search, text search, grep, and other tools to gather context for accurate answers.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -100,7 +100,7 @@ The semantic search tool (`#codebase`) finds code by meaning rather than exact k
 
 Semantic search requires building and maintaining an index so that it can run quickly, even on very large codebases. Copilot maintains this index for you automatically. Behind the scenes, parts of the index might be stored on your machine and parts might come from remote sources, but you don't need to manage this distinction.
 
-You can view the indexing status in the Copilot status dashboard in the VS Code Status Bar.
+You can view the indexing status in the Copilot status dashboard in the {% data variables.product.prodname_vscode_shortname %} Status Bar.
 
 ![Screenshot showing the workspace index status in the Copilot status menu.](../images/workspace-context/workspace-index-status.png)
 
@@ -110,7 +110,7 @@ Copilot builds and maintains a semantic index for any workspace automatically. T
 
 * **GitHub repositories**: GitHub indexes the GitHub repositories in your workspace. Sign in with your GitHub account to use them. This index only needs to be built once per repository, which means it is often instantly available. GitHub builds and updates this index when needed. This is fast for small and medium sized projects, but might take some time if your repository contains hundreds of thousands of files. Remote indexing works for repositories hosted on GitHub.com or GitHub Enterprise Cloud. It is not supported for GitHub Enterprise Server.
 
-* **Azure DevOps repositories**: Indexes are automatically built and maintained. Sign in with your Microsoft account in VS Code for Copilot to start using the index. Check the Copilot Status Bar item for the current index status.
+* **Azure DevOps repositories**: Indexes are automatically built and maintained. Sign in with your Microsoft account in {% data variables.product.prodname_vscode_shortname %} for Copilot to start using the index. Check the Copilot Status Bar item for the current index status.
 
 * **Other workspaces**: For any other workspace, including local folders not backed by a GitHub or Azure DevOps repository, Copilot builds the semantic index for you. The initial build can take a few minutes, after which the index is kept up to date in the background. This feature is currently enabled for personal accounts but off by default for organization and enterprise users. See the [GitHub docs](https://docs.github.com/en/copilot/concepts/context/repository-indexing#semantic-indexing-for-non-github-repositories) for more details about how to enable this feature using a policy.
 
@@ -118,9 +118,9 @@ To build or rebuild the index for the current workspace on demand, run the **Bui
 
 ### What content is included in the semantic index
 
-VS Code indexes relevant text files that are part of your current project. This is not limited to specific file types or programming languages. VS Code automatically skips some common file types that are typically not relevant, such as `.tmp` or `.out` files.
+{% data variables.product.prodname_vscode_shortname %} indexes relevant text files that are part of your current project. This is not limited to specific file types or programming languages. {% data variables.product.prodname_vscode_shortname %} automatically skips some common file types that are typically not relevant, such as `.tmp` or `.out` files.
 
-The workspace index also excludes files that are excluded from VS Code by the `setting(files.exclude)` setting or by a `.gitignore` file.
+The workspace index also excludes files that are excluded from {% data variables.product.prodname_vscode_shortname %} by the `setting(files.exclude)` setting or by a `.gitignore` file.
 
 Binary files, such as images or PDFs, are not indexed.
 
@@ -136,7 +136,7 @@ The way you phrase your prompt influences which tools the agent uses and the qua
 
 ## Private repositories
 
-To use semantic search for private repositories, Copilot may need additional permission. If these permissions are not already granted, VS Code asks for them at startup. Once granted, the session is securely stored for the future.
+To use semantic search for private repositories, Copilot may need additional permission. If these permissions are not already granted, {% data variables.product.prodname_vscode_shortname %} asks for them at startup. Once granted, the session is securely stored for the future.
 
 ![Modal window asking for additional authentication for a private repository.](../images/workspace-context/authentication.png)
 

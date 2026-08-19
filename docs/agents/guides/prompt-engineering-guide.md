@@ -1,16 +1,16 @@
 ---
 ContentId: 5dfd207f-fcee-42c3-b7fe-622b42b3397c
-DateApproved: 8/5/2026
-MetaDescription: Optimize your development experience with chat in VS Code with best practices for crafting chat prompts and providing context.
+DateApproved: 8/19/2026
+MetaDescription: Optimize your development experience with chat in {% data variables.product.prodname_vscode_shortname %} with best practices for crafting chat prompts and providing context.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
-# Prompt engineering in VS Code
+# Prompt engineering in {% data variables.product.prodname_vscode_shortname %}
 
-This article covers tips to write prompts to get better and more relevant responses from AI in Visual Studio Code. _Prompt engineering_ or _prompt crafting_ is a common phrase you'll hear when discussing AI and refers to how and what information is packaged and sent to an AI API endpoint.
+This article covers tips to write prompts to get better and more relevant responses from AI in {% data variables.product.prodname_vscode %}. _Prompt engineering_ or _prompt crafting_ is a common phrase you'll hear when discussing AI and refers to how and what information is packaged and sent to an AI API endpoint.
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/hh1nOX14TyY" title="Core principles of prompt engineering with GitHub Copilot" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-If you are new to VS Code or AI, you might want to review the [AI in VS Code Overview](/docs/agent-native/overview.md) article first or dive straight into the [Getting started](/docs/agents/agents-tutorial.md) tutorial.
+If you are new to {% data variables.product.prodname_vscode_shortname %} or AI, you might want to review the [AI in {% data variables.product.prodname_vscode_shortname %} Overview](/docs/agent-native/overview.md) article first or dive straight into the [Getting started](/docs/agents/agents-tutorial.md) tutorial.
 
 ## Getting the most out of inline suggestions
 
@@ -22,7 +22,7 @@ The AI works best when it has sufficient context to know what you're doing and w
 
 #### Open files
 
-For inline suggestions, VS Code looks at the current and open files in your editor to analyze the context and create appropriate suggestions. Having related files open in VS Code while using inline suggestions helps set this context and lets the AI see a bigger picture of your project.
+For inline suggestions, {% data variables.product.prodname_vscode_shortname %} looks at the current and open files in your editor to analyze the context and create appropriate suggestions. Having related files open in {% data variables.product.prodname_vscode_shortname %} while using inline suggestions helps set this context and lets the AI see a bigger picture of your project.
 
 #### Top level comment
 
@@ -65,15 +65,15 @@ When you're using chat, there are several things you can do to optimize your exp
 
 ### Add relevant context
 
-You can explicitly add context to your prompt by typing `#` followed by the context item you want to mention. VS Code supports different types of context items: files, folders, code symbols, tools, terminal output, source control changes, and more.
+You can explicitly add context to your prompt by typing `#` followed by the context item you want to mention. {% data variables.product.prodname_vscode_shortname %} supports different types of context items: files, folders, code symbols, tools, terminal output, source control changes, and more.
 
-Type the `#` symbol in the chat input field to see a list of available context items, or select **Add Context** in the Chat view to open the context picker.
+Type the `#` symbol in the chat input field to see a list of available context items, or select **Add Context** in the {% data variables.copilot.chat_view %} to open the context picker.
 
 For example, with `#<file name>` or `#<folder name>` you can reference specific files or folders from your workspace in your chat prompt. This helps make the answers from Copilot Chat more relevant to your code by providing context about the file you are working with. You can ask questions like "Can you suggest improvements to #package.json?" or "How do I add an extension in #devcontainer.json?".
 
-Instead of adding individual files manually, you can let VS Code find the right files from your codebase automatically by using `#codebase`. This can be useful when you don't know which files are relevant to your question.
+Instead of adding individual files manually, you can let {% data variables.product.prodname_vscode_shortname %} find the right files from your codebase automatically by using `#codebase`. This can be useful when you don't know which files are relevant to your question.
 
-![Screenshot of Chat view, showing the Attach context button and context Quick Pick.](../images/prompt-engineering-guide/copilot-chat-view-attach-context.png)
+![Screenshot of {% data variables.copilot.chat_view %}, showing the Attach context button and context Quick Pick.](../images/prompt-engineering-guide/copilot-chat-view-attach-context.png)
 
 Learn more about [using context in chat](/docs/chat/copilot-chat-context.md).
 
@@ -106,5 +106,5 @@ If you'd like to learn more about productively using GitHub Copilot, you can fol
 
 * [Effective Prompting for GitHub Copilot](https://www.youtube.com/watch?v=ImWfIDTxn7E)
 * [Pragmatic techniques to get the most out of GitHub Copilot](https://www.youtube.com/watch?v=CwAzIpc4AnA)
-* [Best practices for prompting GitHub Copilot in VS Code](https://www.linkedin.com/pulse/best-practices-prompting-github-copilot-vs-code-pamela-fox)
+* [Best practices for prompting GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}](https://www.linkedin.com/pulse/best-practices-prompting-github-copilot-vs-code-pamela-fox)
 * [How to use GitHub Copilot: Prompts, tips, and use cases](https://github.blog/2023-06-20-how-to-write-better-prompts-for-github-copilot/)

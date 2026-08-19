@@ -1,6 +1,6 @@
 ---
 ContentId: f6b7b0c2-ccbe-4e5f-8f2e-6c1ecea52f69
-DateApproved: 8/5/2026
+DateApproved: 8/19/2026
 MetaDescription: Angular TypeScript tutorial showing IntelliSense, debugging, and code navigation support in the Visual Studio Code editor.
 MetaSocialImage: images/angular/Welcome-to-app.png
 ---

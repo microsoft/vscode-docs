@@ -1,6 +1,6 @@
 ---
 ContentId: e6b33fcb-8240-49dd-b6ca-5412d6fa669a
-DateApproved: 8/5/2026
+DateApproved: 8/19/2026
 MetaDescription: Use inline chat and Quick Chat in Visual Studio Code for targeted editor changes, terminal command suggestions, and short AI interactions.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---

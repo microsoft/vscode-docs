@@ -1,29 +1,29 @@
 ---
 ContentId: 8f9a3e5c-2b4d-4a7f-9c8e-1d6f3a2b5c4e
-DateApproved: 8/5/2026
-MetaDescription: Learn how to use the plan agent for autonomous planning and task management with the todo list in VS Code chat.
+DateApproved: 8/19/2026
+MetaDescription: Learn how to use the plan agent for autonomous planning and task management with the todo list in {% data variables.product.prodname_vscode_shortname %} chat.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 ---
-# Planning with agents in VS Code
+# Planning with agents in {% data variables.product.prodname_vscode_shortname %}
 
 The plan agent enables you to create detailed implementation plans before starting the implementation to ensure all requirements are met. With todo lists, the agent can ensure it stays focused on the overall goals and tracks progress effectively.
 
 For background on how the plan agent fits into the agent architecture, see [Agents concepts](/docs/agents/concepts/agents.md#planning).
 
-This article explains how to use the plan agent and todo lists in VS Code.
+This article explains how to use the plan agent and todo lists in {% data variables.product.prodname_vscode_shortname %}.
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Plan a feature with agents">
 Use the Plan agent to create a structured implementation plan for a new feature.
 
-* [Open in VS Code](vscode://GitHub.Copilot-Chat/chat?agent=agent%26prompt=%2Fplan%20a%20terminal%20UI%20app%20to%20track%20my%20todo%20list.)
+* [Open in {% data variables.product.prodname_vscode_shortname %}](vscode://GitHub.Copilot-Chat/chat?agent=agent%26prompt=%2Fplan%20a%20terminal%20UI%20app%20to%20track%20my%20todo%20list.)
 
 </div>
 
 ## How to plan a task
 
-To plan a task, use the built-in **Plan** agent in the Chat view, describe your task, and iterate on the generated plan.
+To plan a task, use the built-in **Plan** agent in the {% data variables.copilot.chat_view %}, describe your task, and iterate on the generated plan.
 
-1. Open the Chat view by pressing `kb(workbench.action.chat.open)` and select **Plan** from the agents dropdown
+1. Open the {% data variables.copilot.chat_view %} by pressing `kb(workbench.action.chat.open)` and select **Plan** from the agents dropdown
 
     Alternatively, type `/plan` followed by your task description to switch to the Plan agent and start planning in one step.
 
@@ -63,6 +63,6 @@ You can tailor the planning process to fit your team's workflow:
 ## Related resources
 
 * [Run deep research with the research agent](/docs/agents/run/agent-harnesses.md#run-deep-research-with-the-research-agent)
-* [Memory in VS Code agents](/docs/agents/run/memory.md)
+* [Memory in {% data variables.product.prodname_vscode_shortname %} agents](/docs/agents/run/memory.md)
 * [Configure tools for agents](/docs/agents/run/tools.md)
 * [Context engineering user guide](/docs/agents/guides/context-engineering-guide.md)

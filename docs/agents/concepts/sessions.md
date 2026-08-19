@@ -1,7 +1,7 @@
 ---
 ContentId: c4a81e63-9d27-4b5f-8e10-2a7f6c9d3b04
-DateApproved: 7/29/2026
-MetaDescription: Understand agent sessions in VS Code, the unit of work with an agent, how sessions are shared across surfaces, and how to hand off a session between agents.
+DateApproved: 8/19/2026
+MetaDescription: Understand agent sessions in {% data variables.product.prodname_vscode_shortname %}, the unit of work with an agent, how sessions are shared across surfaces, and how to hand off a session between agents.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - copilot
@@ -16,7 +16,7 @@ Keywords:
 
 # Sessions and handoff
 
-A session is the unit of work with an agent in Visual Studio Code: a single conversation with an agent, along with all the context that builds up as it works. This article explains what a session is, how sessions behave, how they are shared across surfaces, and how you hand off a session from one agent to another.
+A session is the unit of work with an agent in {% data variables.product.prodname_vscode %}: a single conversation with an agent, along with all the context that builds up as it works. This article explains what a session is, how sessions behave, how they are shared across surfaces, and how you hand off a session from one agent to another.
 
 To create and organize sessions, see [Manage agent sessions](/docs/agents/run/sessions/manage-sessions.md).
 
@@ -42,7 +42,9 @@ Because each session is independent, you can run several at once and move betwee
 
 ## Sessions across surfaces
 
-The [Chat view](/docs/agents/run/chat-view.md) and the [Agents window](/docs/agents/run/agents-window.md) share the same sessions. You can start a task in one surface and continue it in the other, and the sessions list gives you a unified view of all your sessions regardless of where they run.
+The [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) and the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) share the same sessions. You can start a task in one surface and continue it in the other, and the sessions list gives you a unified view of all your sessions regardless of where they run.
+
+VS Code can also discover supported local sessions created in Copilot CLI, the GitHub Copilot app, Claude Code, and Codex. A discovered session is external until you send a message from VS Code. The Agent Host then adopts the session, and the external-session filter no longer controls whether it appears. Learn how to [view sessions from other applications](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications).
 
 On the [Agent Host](/docs/agents/concepts/agent-host.md), an agent can also coordinate work across sessions. It can list sessions, create new sessions or chats, read another session's recent context, and send follow-up messages between sessions.
 
@@ -62,7 +64,7 @@ Learn how to [hand off an ongoing session](/docs/agents/run/agent-harnesses.md#h
 
 A session doesn't have to run on your local machine, and it doesn't have to stay on one device:
 
-* **Remote sessions** run on a machine other than the one you work from. You can connect the Agents window to a remote host over SSH or a dev tunnel, or use Copilot remote control (`/remote on`) to monitor and steer a running Copilot session from GitHub. Learn more about [connecting to a remote machine](/docs/agents/run/remote-agent-sessions.md) and [remote control for Copilot sessions](/docs/agents/run/agent-harnesses.md#remote-control-copilot-sessions).
+* **Remote sessions** run on a machine other than the one you work from. You can connect the {% data variables.copilot.agents_window %} to a remote host over SSH or a dev tunnel, or use Copilot remote control (`/remote on`) to monitor and steer a running Copilot session from GitHub. Learn more about [connecting to a remote machine](/docs/agents/run/remote-agent-sessions.md) and [remote control for Copilot sessions](/docs/agents/run/agent-harnesses.md#remote-control-copilot-sessions).
 * **Synced sessions** are backed up to your GitHub account so you can access them across devices. Learn more about [syncing sessions](/docs/agents/run/sessions/session-history.md).
 * **Session insights** let you query your session history to review what you worked on. Learn more about [session insights](/docs/agents/run/sessions/session-history.md#query-session-history-with-chronicle).
 
@@ -71,4 +73,4 @@ A session doesn't have to run on your local machine, and it doesn't have to stay
 * [Manage agent sessions](/docs/agents/run/sessions/manage-sessions.md)
 * [Agent harnesses](/docs/agents/concepts/agent-harnesses.md)
 * [Agents](/docs/agents/concepts/agents.md)
-* [VS Code Agent Host architecture](/docs/agents/concepts/agent-host.md)
+* [{% data variables.product.prodname_vscode_shortname %} Agent Host architecture](/docs/agents/concepts/agent-host.md)

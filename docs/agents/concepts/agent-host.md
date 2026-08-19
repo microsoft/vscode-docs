@@ -1,7 +1,7 @@
 ---
 ContentId: 9c358671-d18a-4c50-beab-e69beb997ea2
-DateApproved: 8/5/2026
-MetaDescription: Understand the VS Code Agent Host architecture, AHP, multi-client sessions, agent runtimes, remote execution, and client-provided tools.
+DateApproved: 8/19/2026
+MetaDescription: Understand the {% data variables.product.prodname_vscode_shortname %} Agent Host architecture, AHP, multi-client sessions, agent runtimes, remote execution, and client-provided tools.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - agent host
@@ -14,12 +14,12 @@ Keywords:
 - multi-client
 ---
 
-# VS Code Agent Host architecture
+# {% data variables.product.prodname_vscode_shortname %} Agent Host architecture
 
-VS Code runs AI coding agents in a dedicated process called the Agent Host, which it communicates with through the Agent Host Protocol (AHP). The host owns agent sessions independently of the clients that display and control them.
+{% data variables.product.prodname_vscode_shortname %} runs AI coding agents in a dedicated process called the Agent Host, which it communicates with through the Agent Host Protocol (AHP). The host owns agent sessions independently of the clients that display and control them.
 
 > [!NOTE]
-> The Agent Host and AHP are under active development, and new capabilities continue to roll out. Verify that the Agent Host is enabled with `setting(chat.agentHost.enabled)`.
+> The Agent Host and AHP are under active development, and new capabilities continue to roll out.
 
 ## Why a dedicated Agent Host?
 
@@ -33,11 +33,11 @@ A dedicated Agent Host process for agents provides the following capabilities:
 
 Earlier versions ran agent logic in the extension host, alongside the Copilot Chat extension. The extension host remains important for extensibility, but it is designed around the lifecycle and APIs of extensions, and long-running autonomous work has different needs. Extensions can still contribute chat customizations such as tools, MCP servers, and custom agents, but the agent runtime itself runs in the Agent Host process. By default, tools from extensions are only available in chats in an editor window where the extension is running.
 
-![Screenshot showing VS Code communicating with extension-host customizations and the Agent Host, which contains adapters for Copilot, Claude, and Codex.](../images/concepts/agent-host-transition.svg)
+![Screenshot showing {% data variables.product.prodname_vscode_shortname %} communicating with extension-host customizations and the Agent Host, which contains adapters for Copilot, Claude, and Codex.](../images/concepts/agent-host-transition.svg)
 
 ## Process architecture
 
-The Agent Host can run as a local utility process or as a standalone server on a remote machine. VS Code uses a message port for local IPC and AHP JSON-RPC over WebSocket for remote connections.
+The Agent Host can run as a local utility process or as a standalone server on a remote machine. {% data variables.product.prodname_vscode_shortname %} uses a message port for local IPC and AHP JSON-RPC over WebSocket for remote connections.
 
 The first-party agent adapters run inside the Agent Host process. An adapter translates between its agent runtime and the common AHP session model.
 
@@ -55,38 +55,38 @@ The defining Agent Host principle is that the agent can run without a client. A 
 
 Agent sessions are not tied to the lifetime of the window for their workspace. You can close the window and reopen the session later from another window. While the Agent Host remains running, an active turn can continue without a connected client.
 
-Connected clients can also contribute tools. For example, VS Code can advertise tools that are provided by the client (like the browser tools) or by installed extensions. The Agent Host adds those definitions to the active session and routes a tool call back to the client that contributed it.
+Connected clients can also contribute tools. For example, {% data variables.product.prodname_vscode_shortname %} can advertise tools that are provided by the client (like the browser tools) or by installed extensions. The Agent Host adds those definitions to the active session and routes a tool call back to the client that contributed it.
 
 ## Local and remote hosts
 
-For remote sessions, the Agent Host runs as a standalone process and exposes AHP over WebSocket. The Agents window reaches it through SSH or a dev tunnel.
+For remote sessions, the Agent Host runs as a standalone process and exposes AHP over WebSocket. The {% data variables.copilot.agents_window %} reaches it through SSH or a dev tunnel.
 
-![Screenshot showing a VS Code client connected to a local Agent Host and multiple remote Agent Hosts over dev tunnels and SSH.](../images/concepts/agent-host-deployment.svg)
+![Screenshot showing a {% data variables.product.prodname_vscode_shortname %} client connected to a local Agent Host and multiple remote Agent Hosts over dev tunnels and SSH.](../images/concepts/agent-host-deployment.svg)
 
-Like [VS Code Remote Development](/docs/remote/remote-overview.md), the user interface stays on the client while workspace operations run close to the source code and development tools.
+Like [{% data variables.product.prodname_vscode_shortname %} Remote Development](/docs/remote/remote-overview.md), the user interface stays on the client while workspace operations run close to the source code and development tools.
 
 To run your own standalone Agent Host, use `code agent host`. By default, the command starts a server on localhost and protects it with a connection token. Use the `--tunnel` option to expose it through a dev tunnel.
 
 ## Behavior on the extension host
 
-When the Agent Host is not enabled, agent sessions run in the extension host. Sessions that were created before the Agent Host was enabled continue to run in the extension host.
+Agent sessions that don't run on the Agent Host run in the extension host. Existing extension-host sessions continue to run there.
 
 There are some differences in behavior for agent sessions that run on the extension host:
 
 | Behavior | Difference |
 |----------|------------|
 | Reviewing changes | Agent Host sessions apply edits directly to the session folder or worktree. Review the resulting diffs and then commit, merge, or discard the changes. Extension-host sessions track edits as pending until you keep or undo them. Learn more about [reviewing AI-generated code edits](/docs/agents/run/review-code-edits.md). |
-| Customizations | The Agent Host reads user-level customizations from harness-agnostic folders like `~/.copilot` and `~/.claude`. Customizations stored only in your VS Code profile user data are a legacy location that the Copilot agent doesn't read. Learn more about [customizing agent behavior](/docs/agent-customization/overview.md). |
+| Customizations | The Agent Host reads user-level customizations from harness-agnostic folders like `~/.copilot` and `~/.claude`. Customizations stored only in your {% data variables.product.prodname_vscode_shortname %} profile user data are a legacy location that the Copilot agent doesn't read. Learn more about [customizing agent behavior](/docs/agent-customization/overview.md). |
 | Autopilot | On the Agent Host, [Autopilot](/docs/agents/run/approvals.md#how-autopilot-works) is an agent mode. On the extension host, it's a permission level. |
 | Assisted permissions | The [Assisted permissions](/docs/agents/run/approvals.md#permission-levels) level is available only on the Agent Host. |
 | Session capabilities | Shared multi-window sessions, multiple chats per session, quick chats, and remote hosting are available only on the Agent Host. |
 | Extension-provided tools | Tools from extensions are only available in chats in an editor window where the extension is running. |
-| MCP configuration | The Agent Host reads harness-agnostic MCP config from `.mcp.json` (workspace) and `~/.copilot/mcp-config.json` (user). It doesn't read `.vscode/mcp.json` directly, but VS Code forwards servers you configure in VS Code to the Agent Host, except servers that require interactive input (for example, `${input:...}` variables). Learn more about [configuring MCP servers](/docs/agent-customization/mcp-servers.md). |
+| MCP configuration | The Agent Host reads harness-agnostic MCP config from `.mcp.json` (workspace) and `~/.copilot/mcp-config.json` (user). It doesn't read `.vscode/mcp.json` directly, but {% data variables.product.prodname_vscode_shortname %} forwards servers you configure in {% data variables.product.prodname_vscode_shortname %} to the Agent Host, except servers that require interactive input (for example, `${input:...}` variables). Learn more about [configuring MCP servers](/docs/agent-customization/mcp-servers.md). |
 
 ## Related resources
 
 * [Agent Host Protocol documentation](https://microsoft.github.io/agent-host-protocol/)
 * [Agent Host Protocol source repository](https://github.com/microsoft/agent-host-protocol)
-* [Agents in VS Code](/docs/agents/concepts/agents.md)
+* [Agents in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/concepts/agents.md)
 * [Remote agent sessions](/docs/agents/run/remote-agent-sessions.md)
-* [VS Code Remote Development architecture](/docs/remote/remote-overview.md)
+* [{% data variables.product.prodname_vscode_shortname %} Remote Development architecture](/docs/remote/remote-overview.md)

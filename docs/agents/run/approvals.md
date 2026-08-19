@@ -1,7 +1,7 @@
 ---
 ContentId: 3b7e6d52-0c41-4f8a-9d2e-1a5c7b9e4f60
-DateApproved: 8/5/2026
-MetaDescription: Learn how to manage tool approvals, configure auto-approval, set permission levels, and sandbox agent commands to control agent autonomy in VS Code.
+DateApproved: 8/19/2026
+MetaDescription: Learn how to manage tool approvals, configure auto-approval, set permission levels, and sandbox agent commands to control agent autonomy in {% data variables.product.prodname_vscode_shortname %}.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 keywords:
 - copilot
@@ -14,11 +14,18 @@ keywords:
 ---
 # Manage approvals and permissions
 
-Agents in Visual Studio Code can run tools and terminal commands to complete tasks. To keep you in control, VS Code asks for your approval before the agent runs actions that modify files, run commands, or access external resources.
+Agents in {% data variables.product.prodname_vscode %} can run tools and terminal commands to complete tasks. To keep you in control, {% data variables.product.prodname_vscode_shortname %} asks for your approval before the agent runs actions that modify files, run commands, or access external resources.
 
 This article describes how to set the agent's permission level, manage tool and URL approvals, automatically approve terminal commands, and sandbox agent commands. For information about agent tools, see [Use tools with agents](/docs/agents/run/tools.md). For background on why these controls exist, see [Trust and safety](/docs/agents/concepts/trust-and-safety.md).
 
-VS Code provides several controls to govern what the agent can do. Permission levels are the high-level dial for the session, while the other mechanisms give you fine-grained control over specific actions.
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Trust and safety concepts">
+Learn why {% data variables.product.prodname_vscode_shortname %} uses permission levels, tool approval, and sandboxing to keep you in control.
+
+* [Read about trust and safety](/docs/agents/concepts/trust-and-safety.md)
+
+</div>
+
+{% data variables.product.prodname_vscode_shortname %} provides several controls to govern what the agent can do. Permission levels are the high-level dial for the session, while the other mechanisms give you fine-grained control over specific actions.
 
 | Mechanism | What it controls | Key setting |
 |---|---|---|
@@ -48,6 +55,8 @@ The permission level applies to the current chat session, and can be changed at 
 > **Autopilot** is an agent mode rather than a permission level. Choose it from the agent mode picker in the chat input to auto-approve all tools and let the agent iterate autonomously until the task is complete. See [How Autopilot works](#how-autopilot-works). For how Autopilot behaves on the extension host, see [behavior on the extension host](/docs/agents/concepts/agent-host.md#behavior-on-the-extension-host).
 
 The permission level determines whether your finer-grained settings apply. **Default Approvals** respects the per-tool, URL, terminal, and sandbox settings you configure in the following sections. **Assisted permissions** delegates individual approval decisions to an LLM judge. **Bypass Approvals** and **Autopilot** override those settings and approve everything automatically.
+
+Your organization can configure [fine-grained managed permissions](/docs/enterprise/ai-settings.md#enforce-fine-grained-permissions) for shell commands, file operations, and domains. Managed rules take precedence over the session permission level. A managed rule can still require approval or block an operation when you use **Bypass Approvals** or **Autopilot**.
 
 > [!IMPORTANT]
 > The **Assisted permissions** level reduces approval interruptions but does not replace your judgment. A model-based risk assessment can make mistakes. The first time you select this level, a warning dialog asks you to confirm. Use [agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing) to limit file system and network access, and review any tool calls that still require your approval.
@@ -84,7 +93,7 @@ When a tool requires approval, a confirmation dialog appears with the tool name 
 Some files in your workspace, such as `.env` files or configuration files, can hold secrets or sensitive settings. Learn how to require explicit approval for [edits to sensitive files](/docs/agents/run/review-code-edits.md#edit-sensitive-files).
 
 > [!IMPORTANT]
-> Always review tool parameters carefully before approving, especially for tools that modify files, run commands, or access external services. See the [Security considerations](/docs/agents/run/security.md) for using AI in VS Code.
+> Always review tool parameters carefully before approving, especially for tools that modify files, run commands, or access external services. See the [Security considerations](/docs/agents/run/security.md) for using AI in {% data variables.product.prodname_vscode_shortname %}.
 
 ### Manage tool approvals
 
@@ -113,7 +122,7 @@ To review and selectively change individual tool approvals instead of clearing a
 
 ## URL approval
 
-When a tool attempts to access a URL, for example the `#web/fetch` tool, VS Code uses a two-step approval process to protect you from malicious or unexpected content. Each step shows a confirmation dialog in the Chat view for your review.
+When a tool attempts to access a URL, for example the `#web/fetch` tool, {% data variables.product.prodname_vscode_shortname %} uses a two-step approval process to protect you from malicious or unexpected content. Each step shows a confirmation dialog in the {% data variables.copilot.chat_view %} for your review.
 
 * **Pre-approval: approve the request to the URL**
 
@@ -157,7 +166,7 @@ URL auto-approval examples:
 
 The agent uses a single terminal tool to run [terminal commands](/docs/agents/run/tools.md#run-terminal-commands), but that tool can run any command. Approving the terminal tool once would be too broad, so terminal commands are approved per command rather than per tool.
 
-By default, VS Code already auto-approves a set of safe commands and blocks risky ones, such as `rm` and `del`, that always require manual approval. Use the `setting(chat.tools.terminal.autoApprove)` setting to extend or override these defaults with your own allow and deny list:
+By default, {% data variables.product.prodname_vscode_shortname %} already auto-approves a set of safe commands and blocks risky ones, such as `rm` and `del`, that always require manual approval. Use the `setting(chat.tools.terminal.autoApprove)` setting to extend or override these defaults with your own allow and deny list:
 
 * Set commands to `true` to automatically approve them
 * Set commands to `false` to always require approval
@@ -192,12 +201,12 @@ Related settings:
 > [!CAUTION]
 > Automatically approving terminal commands provides _best effort_ protections and assumes the agent is not acting maliciously. It's important to protect yourself from prompt injection when you enable terminal auto approve, as it might be possible for some commands to slip through. Here are some examples where the detection can fall over:
 >
-> * VS Code uses PowerShell and bash tree sitter grammars to extract sub-commands, so patterns are not detected if these grammars don't detect them.
-> * VS Code uses bash grammar because there is no zsh or fish grammar, so some sub-commands are not detected.
+> * {% data variables.product.prodname_vscode_shortname %} uses PowerShell and bash tree sitter grammars to extract sub-commands, so patterns are not detected if these grammars don't detect them.
+> * {% data variables.product.prodname_vscode_shortname %} uses bash grammar because there is no zsh or fish grammar, so some sub-commands are not detected.
 > * Detection of file writes is currently minimal, so it might be possible to write to files with the terminal that would not be possible by using the file editing agent tools.
 > * Subverting auto approval is possible through various techniques such as quote concatenation. For example `find -exec` is normally blocked, but `find -e"x"ec` is not, despite doing the same thing.
 >
-> If prompt injection is a possibility or you're in a high-risk environment, consider [enabling agent sandboxing](#sandbox-agent-commands) or running VS Code within a container.
+> If prompt injection is a possibility or you're in a high-risk environment, consider [enabling agent sandboxing](#sandbox-agent-commands) or running {% data variables.product.prodname_vscode_shortname %} within a container.
 
 ## Sandbox agent commands
 
@@ -206,7 +215,7 @@ Related settings:
 
 For an overview of how sandboxing works, what it protects against, and OS-level implementation details, see [Agent sandboxing](/docs/agents/concepts/trust-and-safety.md#agent-sandboxing).
 
-Agent sandboxing restricts file system and network access for commands executed by the agent, including Copilot agent-host sessions that use the VS Code agent terminal integration. When sandboxing is enabled, terminal commands that run inside the sandbox are auto-approved without requiring user confirmation, because they run in a controlled environment.
+Agent sandboxing restricts file system and network access for commands executed by the agent, including Copilot agent-host sessions that use the {% data variables.product.prodname_vscode_shortname %} agent terminal integration. When sandboxing is enabled, terminal commands that run inside the sandbox are auto-approved without requiring user confirmation, because they run in a controlled environment.
 
 Agent terminal sandboxing is available on macOS and Linux, including WSL2 environments.
 
@@ -225,7 +234,7 @@ Sandbox enablement and unrestricted network access are configured independently:
 
 When file system access is restricted, the following rules apply to agent commands:
 
-* Commands have read access to workspace folders, the sandbox runtime temp folder, and any per-command paths that VS Code adds automatically (for example, paths required by `git`, `node`, `npm`, `dotnet`). Reads from your home directory (`$HOME`) are denied by default.
+* Commands have read access to workspace folders, the sandbox runtime temp folder, and any per-command paths that {% data variables.product.prodname_vscode_shortname %} adds automatically (for example, paths required by `git`, `node`, `npm`, `dotnet`). Reads from your home directory (`$HOME`) are denied by default.
 * Commands have write access only to the current working directory and its subdirectories
 * Commands run without the user confirmation prompt
 
@@ -236,7 +245,7 @@ When network access is restricted, the following rules apply to agent commands:
 * When `setting(chat.agent.sandbox.allowNetwork)` is enabled, all outbound network traffic is permitted and domain settings are ignored.
 
 > [!IMPORTANT]
-> If the required OS dependencies for sandboxing are not installed, VS Code offers to install the necessary components. If you choose not to install them, sandboxing is not enabled.
+> If the required OS dependencies for sandboxing are not installed, {% data variables.product.prodname_vscode_shortname %} offers to install the necessary components. If you choose not to install them, sandboxing is not enabled.
 
 ### Try commands in the sandbox before elevation
 
@@ -309,5 +318,5 @@ You have several options for auto-approving tool calls:
 ## Related resources
 
 * [Use tools with agents](/docs/agents/run/tools.md)
-* [Security considerations for using AI in VS Code](/docs/agents/run/security.md)
+* [Security considerations for using AI in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/run/security.md)
 * [Trust and safety concepts](/docs/agents/concepts/trust-and-safety.md)

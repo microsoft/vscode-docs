@@ -1,7 +1,7 @@
 ---
 ContentId: f8e4b2c1-9d3a-4e5f-b6c7-8a9d0e1f2b3c
-DateApproved: 8/5/2026
-MetaDescription: Troubleshoot GitHub Copilot issues in Visual Studio Code with logs, diagnostics, and debugging tools.
+DateApproved: 8/19/2026
+MetaDescription: Troubleshoot GitHub Copilot issues in {% data variables.product.prodname_vscode %} with logs, diagnostics, and debugging tools.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - ai
@@ -11,22 +11,22 @@ Keywords:
 - logs
 - debugging
 ---
-# Troubleshoot AI in Visual Studio Code
+# Troubleshoot AI in {% data variables.product.prodname_vscode %}
 
-This article covers diagnostic tools and techniques for troubleshooting AI-related issues in VS Code. Use these tools to identify problems with network connectivity, customization files, and AI responses.
+This article covers diagnostic tools and techniques for troubleshooting AI-related issues in {% data variables.product.prodname_vscode_shortname %}. Use these tools to identify problems with network connectivity, customization files, and AI responses.
 
 ## View logs for GitHub Copilot
 
-The log files for the GitHub Copilot extension are stored in the standard log location for Visual Studio Code extensions. Use these logs to diagnose connection issues, extension errors, and unexpected behavior.
+The log files for the GitHub Copilot extension are stored in the standard log location for {% data variables.product.prodname_vscode %} extensions. Use these logs to diagnose connection issues, extension errors, and unexpected behavior.
 
 To view detailed logs:
 
 1. Open the Command Palette (`kb(workbench.action.showCommands)`).
-1. Run **Developer: Set Log Level** and set the value to **Trace** for the GitHub Copilot and GitHub Copilot Chat extensions.
-1. Run **Output: Show Output Channels** and select either **GitHub Copilot** or **GitHub Copilot Chat** from the list.
+1. Run **Developer: Set Log Level** and set the value to **Trace** for the GitHub Copilot and {% data variables.copilot.copilot_chat %} extensions.
+1. Run **Output: Show Output Channels** and select either **GitHub Copilot** or **{% data variables.copilot.copilot_chat %}** from the list.
 1. In the Output panel, view the logs for the selected extension.
 
-To switch between output channels, select **GitHub Copilot** or **GitHub Copilot Chat** from the dropdown menu on the right side of the Output panel.
+To switch between output channels, select **GitHub Copilot** or **{% data variables.copilot.copilot_chat %}** from the dropdown menu on the right side of the Output panel.
 
 ## Collect network diagnostics
 
@@ -40,7 +40,7 @@ For more information about network configuration, see [Network and firewall conf
 
 ## Debug chat interactions
 
-VS Code provides different tools to inspect what happens when you send a prompt to the AI.
+{% data variables.product.prodname_vscode_shortname %} provides different tools to inspect what happens when you send a prompt to the AI.
 
 * **`/troubleshoot` slash command:**
 
@@ -48,7 +48,7 @@ VS Code provides different tools to inspect what happens when you send a prompt 
 
     To diagnose an agent host session:
 
-    1. Open the Agents window.
+    1. Open the {% data variables.copilot.agents_window %}.
     1. In the chat input, type `/troubleshoot #session`.
     1. Select the local or remote session that you want to troubleshoot.
     1. Add a question or description of the issue, and then send the request.
@@ -59,7 +59,7 @@ VS Code provides different tools to inspect what happens when you send a prompt 
 
     To open the Agent Debug Log panel:
 
-    1. Select the ellipsis (**...**) menu in the Chat view and select **Show Agent Debug Logs**.
+    1. Select the ellipsis (**...**) menu in the {% data variables.copilot.chat_view %} and select **Show Agent Debug Logs**.
 
     From the Agent Debug Log panel, you can attach a snapshot of the agent debug events to a chat conversation to ask the AI questions about the session and troubleshoot a specific interaction.
 
@@ -77,7 +77,7 @@ VS Code provides different tools to inspect what happens when you send a prompt 
 
     To open the Chat Debug view:
 
-    1. Select the overflow menu (`...`) in the Chat view.
+    1. Select the overflow menu (`...`) in the {% data variables.copilot.chat_view %}.
     1. Select **Show Chat Debug View**.
 
 Learn more about the [Chat Debug view](/docs/agents/agent-troubleshooting/chat-debug-view.md#chat-debug-view).
@@ -100,8 +100,8 @@ Learn more about [configuring and debugging MCP servers](/docs/agent-customizati
 If you encounter issues that you can't resolve, report them to help improve GitHub Copilot:
 
 * **Ghost text suggestions**: Hover over a ghost text suggestion in the editor and select **Send Copilot Completion Feedback**.
-* **Next edit suggestions**: Select the **Feedback** action in the next edit suggestions menu in the editor gutter.
-* **General issues**: Open **Help** > **Report Issue**, select **VS Code Extension**, and choose **GitHub Copilot Chat**.
+* **{% data variables.copilot.next_edit_suggestions_caps %}**: Select the **Feedback** action in the {% data variables.copilot.next edit suggestions %} menu in the editor gutter.
+* **General issues**: Open **Help** > **Report Issue**, select **{% data variables.product.prodname_vscode_shortname %} Extension**, and choose **{% data variables.copilot.copilot_chat %}**.
 
 When reporting issues, include relevant information from the [Copilot logs](#view-logs-for-github-copilot) to help diagnose the problem.
 

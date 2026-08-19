@@ -1,16 +1,16 @@
 ---
 ContentId: 9f84b21e-5b76-4c3a-a5dd-2021ab343f1f
-DateApproved: 8/5/2026
-MetaDescription: Learn how to use GitHub Copilot in Visual Studio Code to write, debug, and fix tests.
+DateApproved: 8/19/2026
+MetaDescription: Learn how to use GitHub Copilot in {% data variables.product.prodname_vscode %} to write, debug, and fix tests.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Test with GitHub Copilot
 
-Writing and maintaining tests is a crucial but often time-consuming part of software development. GitHub Copilot streamlines this process by helping you write, debug, and fix tests more efficiently in Visual Studio Code. This article shows you how to leverage Copilot's testing capabilities to improve your testing workflow and increase test coverage in your projects.
+Writing and maintaining tests is a crucial but often time-consuming part of software development. GitHub Copilot streamlines this process by helping you write, debug, and fix tests more efficiently in {% data variables.product.prodname_vscode %}. This article shows you how to leverage Copilot's testing capabilities to improve your testing workflow and increase test coverage in your projects.
 
 Copilot can help with the following testing tasks:
 
-* **Set up testing frameworks**: get help configuring the right testing framework and VS Code extensions for your project and language.
+* **Set up testing frameworks**: get help configuring the right testing framework and {% data variables.product.prodname_vscode_shortname %} extensions for your project and language.
 * **Generate test code**: create unit tests, integration tests, and end-to-end tests that cover your application code.
 * **Handle edge cases**: generate comprehensive test suites to cover edge cases and error conditions.
 * **Fix failing tests**: receive suggestions for fixing test failures.
@@ -21,9 +21,9 @@ Copilot can help with the following testing tasks:
 
 ## Set up your testing framework
 
-To accelerate your testing workflow, Copilot can help set up the testing framework and VS Code extensions for your project. Copilot suggests appropriate testing frameworks based on your project type.
+To accelerate your testing workflow, Copilot can help set up the testing framework and {% data variables.product.prodname_vscode_shortname %} extensions for your project. Copilot suggests appropriate testing frameworks based on your project type.
 
-1. Open the Chat view (`kb(workbench.action.chat.open)`).
+1. Open the {% data variables.copilot.chat_view %} (`kb(workbench.action.chat.open)`).
 1. Enter the `/setupTests` command in the chat input field.
 1. Follow Copilot's guidance to configure your project.
 
@@ -36,7 +36,7 @@ Copilot can help you write tests for your application code by generating test co
 1. Open your application code file.
 
 1. Open one of these views:
-    * Chat view (`kb(workbench.action.chat.open)`)
+    * {% data variables.copilot.chat_view %} (`kb(workbench.action.chat.open)`)
     * Inline Chat (`kb(inlineChat.start)`)
 
 1. Enter a prompt like:
@@ -60,7 +60,7 @@ To generate tests for your application code without writing a prompt, you can us
 
 ## Fix failing tests
 
-Copilot integrates with the Test Explorer in VS Code and can help with fixing failing tests.
+Copilot integrates with the Test Explorer in {% data variables.product.prodname_vscode_shortname %} and can help with fixing failing tests.
 
 1. In the Test Explorer, hover over a failing test
 1. Select the **Fix Test Failure** button (sparkle icon)
@@ -68,7 +68,7 @@ Copilot integrates with the Test Explorer in VS Code and can help with fixing fa
 
 Alternatively, you can:
 
-1. Open the Chat view
+1. Open the {% data variables.copilot.chat_view %}
 1. Enter the `/fixTestFailure` command
 1. Follow Copilot's suggestions to fix the test
 
@@ -98,6 +98,6 @@ To get the best results when generating tests with Copilot, follow these tips:
 ## Next steps
 
 * Try [testing web apps with browser agent tools](/docs/agents/guides/browser-agent-testing-guide.md).
-* Learn more about [Copilot in VS Code](/docs/agent-native/overview.md).
-* Explore [general testing features in VS Code](/docs/debugtest/testing.md).
+* Learn more about [Copilot in {% data variables.product.prodname_vscode_shortname %}](/docs/agent-native/overview.md).
+* Explore [general testing features in {% data variables.product.prodname_vscode_shortname %}](/docs/debugtest/testing.md).
 * Check out example prompts for [generating unit tests](https://docs.github.com/en/copilot/example-prompts-for-github-copilot-chat/testing-code/generate-unit-tests)
