@@ -7,6 +7,8 @@ MetaSocialImage: ../images/shared/agent-first-development-social.png
 
 # Expose your Java operations to GitHub Copilot with MCP
 
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/gzyU4yn0qGw?si=uR_pS8uOGbbtjY80" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 GitHub Copilot is very good at writing Java. It is far less good at knowing what is
 currently in *your* running application, because it cannot see it.
 
@@ -35,18 +37,7 @@ In this chapter, you will learn to:
 
 Here is how the pieces connect.
 
-```mermaid
-flowchart LR
-    subgraph app["Spring Boot application"]
-        TT["TodoTools<br/>@McpTool x5"] --> SVC["TodoService"]
-        CTRL["TodoController<br/>web UI"] --> SVC
-        SVC --> REPO["TodoRepository<br/>in-memory"]
-    end
-    MCPEP["/mcp<br/>Streamable HTTP"] --- TT
-    VSC["Visual Studio Code<br/>MCP client"] --> MCPEP
-    CHAT["Copilot Chat<br/>Agent mode"] --> VSC
-    BROWSER["Browser"] --> CTRL
-```
+![MCP tools and the web UI connected to the Spring Boot service](../images/java-spring-boot/ch3-journey.png)
 
 Fig 1: The MCP tools and the web page are two front doors onto one service and one repository.
 
@@ -154,7 +145,7 @@ startup log all look correct.
 3. Open `.vscode/mcp.json` and check the `todo-mcp` server's `type` and `url`.
 4. Select the **Start** code-lens above the server entry, and wait until the code-lens reads **Running** with **5 tools**.
 
-![The mcp.json code lens reporting the todo-mcp server as running with five tools](images/ch3-mcp-json-running.png)
+![The mcp.json code lens reporting the todo-mcp server as running with five tools](../images/java-spring-boot/ch3-mcp-json-running.png)
 
 Fig 2: The workspace configuration points Visual Studio Code at `http://localhost:8080/mcp`, and the code-lens reports the connection state and the number of discovered tools.
 
@@ -176,7 +167,7 @@ wait for **Running** rather than treating the count as proof of a live connectio
 5. In Chat, find **Email the stakeholders** in the structured `list_todos` result.
 6. Open <http://localhost:8080> in a browser. The same title appears in the Todo list.
 
-![Copilot Chat calling the todo-mcp tools](images/06-copilot-mcp-chat.png)
+![Copilot Chat calling the todo-mcp tools](../images/java-spring-boot/06-copilot-mcp-chat.png)
 
 Fig 3: Copilot picks `add_todo` and passes the title as an argument, and the tool returns a structured result. The frame is scrolled to that first call — the `list_todos` call the prompt also asked for follows below it. The `id` reads `4` because this run already held items; on a clean start the first todo is `1`.
 
@@ -184,7 +175,7 @@ The prompt deliberately needs two tools in sequence, because that is where tool 
 interesting: the assistant chooses the order, and the structured result of the second
 call is evidence rather than a claim.
 
-![The todo created through MCP rendered on the web page](images/03-mcp-added-todo.png)
+![The todo created through MCP rendered on the web page](../images/java-spring-boot/03-mcp-added-todo.png)
 
 Fig 4: Proof the call was real — the item created from Chat is rendered by the web controller, from the same in-memory repository.
 
