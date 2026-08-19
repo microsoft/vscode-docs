@@ -1,6 +1,6 @@
 ---
 ContentId: f8a9c3d2-4e7b-5f1a-b6c8-9d0e2f3a7b4c
-DateApproved: 8/5/2026
+DateApproved: 8/19/2026
 MetaDescription: Learn how to centrally manage AI settings in VS Code for enterprise environments, including agent mode, MCP servers, and tool approvals.
 ---
 
@@ -33,7 +33,7 @@ All three channels use the same managed setting keys and values. For the list of
 > [!NOTE]
 > Precedence is enforced starting in VS Code version 1.128.
 
-When the same setting is available from more than one channel, VS Code uses a single authoritative channel rather than merging the channels. The channel with the highest precedence that provides any managed settings wins outright, and the other channels are ignored.
+VS Code resolves managed settings per key. When multiple channels provide the same key, the value from the highest-precedence channel wins. Keys that the higher-precedence channel does not provide are filled in from lower-precedence channels.
 
 The precedence order is:
 
@@ -41,7 +41,16 @@ The precedence order is:
 1. Server-managed
 1. File-based
 
-For example, if native MDM delivers any managed settings, VS Code uses the native MDM channel and ignores the server-managed and file-based channels entirely.
+For example, native MDM can configure `permissions.disableBypassPermissionsMode` while the server configures `enabledPlugins`. VS Code applies both keys. If native MDM also configures `enabledPlugins`, the native MDM value wins for that key.
+
+### Precedence with VS Code device policies
+
+Copilot managed settings and [VS Code enterprise policies](/docs/enterprise/policies.md) use separate delivery systems. A managed setting maps to a VS Code policy. If both systems provide the same policy, the Copilot managed setting takes precedence. The values are not merged.
+
+For example, if the `ChatAllowedMcpServers` policy is configured through both the VS Code ADMX policy and the `allowedMcpServers` Copilot managed setting, VS Code uses the managed setting value. If `allowedMcpServers` is not configured through managed settings, the ADMX policy value remains in effect.
+
+> [!IMPORTANT]
+> Configure each policy through one management system when possible. If you need a device-specific value to override a server-managed baseline, deliver that key through the Copilot native MDM channel under `GitHubCopilot`. Do not configure the same policy under `Microsoft\VSCode` and expect the values to be combined.
 
 ### Deliver managed settings through native MDM
 
@@ -87,20 +96,24 @@ Server-managed settings are configured on the GitHub side. For more information,
 
 ### Available managed settings
 
-The following managed settings are available. Each key maps to a VS Code policy and the setting it controls. For full details on each policy's accepted values and behavior, see the [enterprise policy reference](/docs/enterprise/policies.md#vs-code-enterprise-policy-reference).
+The following managed settings are available. Most keys map to a VS Code policy and the setting it controls. For full details on each policy's accepted values and behavior, see the [enterprise policy reference](/docs/enterprise/policies.md#vs-code-enterprise-policy-reference).
 
 | Managed setting key | VS Code policy | Setting | Description |
 |---------------------|----------------|---------|-------------|
+| `permissions.allow`, `permissions.ask`, `permissions.deny` | Not applicable | Not applicable | Fine-grained rules for shell commands, file operations, and domains. See [Enforce fine-grained permissions](#enforce-fine-grained-permissions). |
 | `permissions.disableBypassPermissionsMode` | `ChatToolsAutoApprove` | `setting(chat.tools.global.autoApprove)` | Set to `disable` to turn off global auto-approval ("YOLO mode") and hide the bypass and Autopilot options. |
 | `model` | `ChatDefaultModel` | `setting(chat.defaultModel)` | Default chat model for new conversations. See [Set a default chat model](#set-a-default-chat-model). |
 | `enabledPlugins` | `ChatEnabledPlugins` | `setting(chat.plugins.enabledPlugins)` | Allowlist of plugin IDs, with each plugin explicitly enabled or disabled. |
 | `extraKnownMarketplaces` | `ChatExtraMarketplaces` | `setting(chat.plugins.extraMarketplaces)` | Additional plugin marketplaces to make available. |
 | `strictKnownMarketplaces` | `ChatStrictMarketplaces` | `setting(chat.plugins.strictMarketplaces)` | Trust only the marketplaces supplied through managed settings. |
+| `allowedMcpServers` | `ChatAllowedMcpServers` | `setting(chat.mcp.allowedServers)` | MCP servers that developers can install or run. |
+| `deniedMcpServers` | `ChatDeniedMcpServers` | `setting(chat.mcp.deniedServers)` | MCP servers that developers cannot install or run. |
+| `allowManagedMcpServersOnly` | `ChatAllowManagedMcpServersOnly` | `setting(chat.mcp.allowManagedServersOnly)` | Use only the enterprise-managed allowlist to determine which MCP servers can run. |
 | `telemetry.*` | `CopilotOtel*` | `setting(chat.agentHost.otel.*)` | OpenTelemetry export configuration. See [Configure telemetry export with OpenTelemetry](#configure-telemetry-export-with-opentelemetry). |
 
 ### Verify applied managed settings
 
-You can verify the applied values with the **Developer: Policy Diagnostics** command, which reports the policy state currently enforced on the device, including which managed settings channel is active. For more information, see [Verify policy enforcement](/docs/enterprise/policies.md#verify-policy-enforcement).
+You can verify the applied values with the **Developer: Policy Diagnostics** command. The report shows the effective policy value and its source. For managed settings, it also shows how each key resolves across the native MDM, server-managed, and file-based channels. The report shows only the effective VS Code policy value, not a device policy value that another source replaced. For more information, see [Verify policy enforcement](/docs/enterprise/policies.md#verify-policy-enforcement).
 
 ## Restrict AI features to approved GitHub organizations
 
@@ -205,11 +218,107 @@ When configured, developers see MCP servers from your custom registry in the Ext
 
 Organizations with GitHub Copilot Enterprise or Business can also configure MCP server access through [GitHub organization settings](https://docs.github.com/en/copilot/how-tos/administer-copilot/configure-mcp-server-access).
 
+### Allow or deny individual MCP servers
+
+Use Copilot managed settings or the corresponding VS Code enterprise policies to control individual MCP servers:
+
+| Managed setting | VS Code policy | Minimum VS Code version | Behavior |
+|-----------------|----------------|-------------------------|----------|
+| `allowedMcpServers` | `ChatAllowedMcpServers` | 1.130 | When set, only matching servers can be installed or run. Other servers are blocked. |
+| `deniedMcpServers` | `ChatDeniedMcpServers` | 1.130 | Matching servers are always blocked. A deny entry takes precedence over an allow entry. |
+| `allowManagedMcpServersOnly` | `ChatAllowManagedMcpServersOnly` | 1.132 | When set to `true`, only the enterprise-managed allowlist can grant access to an MCP server. |
+
+Match servers by configured name, remote URL, or local command invocation. URL entries support `*` wildcards. Command entries must include the exact command and arguments.
+
+The following `managed-settings.json` example allows an internal server by name and another by URL, while blocking a specific local command:
+
+```json
+{
+    "allowedMcpServers": [
+        {
+            "serverName": "contoso-tools"
+        },
+        {
+            "serverUrl": "https://mcp.contoso.com/*"
+        }
+    ],
+    "deniedMcpServers": [
+        {
+            "serverCommand": [
+                "/usr/local/bin/legacy-mcp",
+                "--stdio"
+            ]
+        }
+    ],
+    "allowManagedMcpServersOnly": true
+}
+```
+
+> [!CAUTION]
+> An MCP allowlist or denylist from Copilot managed settings replaces the same policy delivered through the VS Code ADMX template or configuration profile. It does not form a union or intersection with the device policy value. Review [precedence with VS Code device policies](#precedence-with-vs-code-device-policies) before you deploy both systems.
+
 ## Configure agent tool approvals
 
 Agent tools can perform actions that modify files, run commands, or access external services. VS Code includes approval prompts for potentially risky operations. Organizations can enforce stricter approval requirements or disable auto-approval entirely.
 
 Learn more about [tool approval](/docs/agents/run/approvals.md#tool-approval) in VS Code.
+
+### Enforce fine-grained permissions
+
+Use the `permissions` managed setting to control which shell commands, file operations, and domains an agent can access. The same rules apply in VS Code and GitHub Copilot CLI.
+
+Define rules in the `allow`, `ask`, and `deny` arrays. Each rule consists of a selector and a pattern:
+
+| Selector | Controls | Example |
+|----------|----------|---------|
+| `Shell` | Shell commands | `Shell(echo allowed *)` |
+| `Read` | File reads | `Read(~/.ssh/**)` |
+| `Edit` | File edits | `Edit(/generated/**)` |
+| `Domain` | Network domains | `Domain(api.github.com)` |
+
+The following `managed-settings.json` example allows selected operations, requires approval for others, and blocks access to sensitive resources:
+
+```json
+{
+    "permissions": {
+        "allow": [
+            "Shell(echo allowed *)",
+            "Read(/docs/**)",
+            "Edit(/generated/**)",
+            "Domain(api.github.com)"
+        ],
+        "ask": [
+            "Shell(git push *)",
+            "Edit(/src/**)",
+            "Domain(github.com)"
+        ],
+        "deny": [
+            "Shell(rm -rf *)",
+            "Read(~/.ssh/**)",
+            "Edit(//etc/**)",
+            "Domain(raw.githubusercontent.com)"
+        ]
+    }
+}
+```
+
+When multiple rules match, the Copilot runtime applies them in the following order:
+
+1. `deny`
+1. `ask`
+1. `allow`
+1. Default to `ask` when no rule matches.
+
+A `deny` rule blocks the operation without presenting an approval option. An `ask` rule requires a human decision for every invocation and presents only **Allow Once** and **Skip**. Developers can't override these rules by selecting **Bypass Approvals** or **Autopilot**. An `allow` rule permits the operation at the managed permissions layer, but does not override stricter client-side approval settings in VS Code.
+
+For `Read` and `Edit` rules, the path prefix determines how the pattern is resolved:
+
+| Prefix | Resolution | Example |
+|--------|------------|---------|
+| `/` | Workspace root | `Read(/src/**)` |
+| `./` | Current working directory | `Edit(./generated/**)` |
+| `~/` | Current user's home directory | `Read(~/.ssh/**)` |
+| `//` | File system root | `Edit(//etc/**)` |
 
 ### Disable global auto-approval
 

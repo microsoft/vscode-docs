@@ -1,6 +1,6 @@
 ---
 ContentId: 72ad9b70-5227-4032-81d7-6aec00a1e8f8
-DateApproved: 8/5/2026
+DateApproved: 8/19/2026
 MetaDescription: This tutorial gives you an overview of the key features of Visual Studio Code to help you get started quickly.
 ---
 # Tutorial: Get started with Visual Studio Code
@@ -317,8 +317,6 @@ There are many more debugging features in VS Code, such as watch variables, cond
 Congratulations! You've completed the tutorial and explored some of the key features of Visual Studio Code. Now that you've learned the basics of Visual Studio Code, get more info about how to:
 
 * [Build your first app with AI](/docs/agents/agents-tutorial.md)
-
-* [Explore different agent types](/docs/agents/agents-handoff-tutorial.md)
 
 * [Discover and run unit tests for your code](/docs/debugtest/testing.md)
 

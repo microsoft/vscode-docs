@@ -1,55 +1,37 @@
 ---
 ContentId: FC5262F3-D91D-4665-A5D2-BCBCCF66E53A
-DateApproved: 8/5/2026
+DateApproved: 8/19/2026
 MetaDescription: Get started with Visual Studio Code, the open platform for AI agents. Install on Windows, macOS, or Linux and start building with agentic coding, extensions, and a powerful editor.
 MetaSocialImage: images/quicksetup/quick-setup-social.png
 ---
 # Get started with Visual Studio Code
 
-Visual Studio Code is a free, open-source code editor for Windows, macOS, and Linux. It brings together multiple ways of working in one tool. Describe a task in natural language and an AI agent plans, edits, and verifies the work. Write code yourself with a powerful editor that has built-in Git, IntelliSense, debugging, and testing tools. Or combine both approaches to get the best of both worlds.
+Visual Studio Code is a free, open-source code editor for Windows, macOS, and Linux. Write code yourself with a powerful editor, or describe a task in natural language and let an AI agent plan, edit, and verify the work. Combine both approaches to fit how you like to work.
 
-VS Code runs on your desktop or a [remote machine](/docs/remote/remote-overview.md), or access it instantly from your browser with [VS Code for the Web](/docs/remote/vscode-web.md)).
+VS Code runs on your desktop or a [remote machine](/docs/remote/remote-overview.md), or you can access it instantly from your browser with [VS Code for the Web](/docs/remote/vscode-web.md).
 
-VS Code puts you in control. Choose your [language model](/docs/agent-customization/language-models.md), whether from your GitHub Copilot subscription or your own API key, and pick the [agent](/docs/agents/overview.md) that fits the task. Customize VS Code for your technology stack with [extensions](/docs/configure/extensions/extensions.md) from the Marketplace, and shape the editor to your workflow with [settings, keybindings, and themes](/docs/configure/themes.md).
+VS Code ships weekly [Stable](/updates) releases with auto-update. To preview upcoming features, install the [Insiders](/insiders) build, which ships nightly and runs side by side with Stable.
 
-<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with VS Code">
+<div class="docs-action" data-show-in-doc="true" data-show-in-sidebar="false" title="Get started with VS Code">
 Complete your first coding task with an AI agent in VS Code.
 
 * [Start quickstart](/docs/agents/quickstart.md)
 
 </div>
 
-## What you can do with VS Code
-
-VS Code adapts to how you want to work, whether you write every line yourself or hand off tasks to an AI agent. Most workflows combine both.
-
-* **Build with AI agents.** Describe what you want in natural language, and an agent plans a solution, edits files across your project, runs commands, and fixes its own errors. Run agents in the [Agents window](/docs/agents/run/agents-window.md) for an agent-first workflow, or in the [Chat view](/docs/agents/run/chat-view.md) while you write code in the editor. Learn more about [AI agents in VS Code](/docs/agents/overview.md).
-
-    ![Screenshot of the Agents window with the integrated browser showing a development website and the changes panel showing a list of changes.](images/overview/agents-window-integrated-browser.png)
-
-* **Write, test, and debug code.** Edit with IntelliSense, refactoring, and multi-cursor support, then find and fix problems with the built-in [debugger](/docs/debugtest/debugging.md) and [testing](/docs/debugtest/testing.md) tools. Track your work with integrated [source control](/docs/sourcecontrol/overview.md), and add [language support](/docs/languages/overview.md) for the stack you use.
-
-    ![Screenshot of VS Code with the Debugger quick pick to select the target environment.](images/overview/debugger-nodejs.png)
-
-* **Extend and customize.** Install [extensions](/docs/configure/extensions/extensions.md) and [MCP servers](/docs/agent-customization/mcp-servers.md) to add languages, tools, and data sources. Tailor the agent experience to your specific project needs with [custom instructions, custom agents, and your choice of language model](/docs/agent-customization/overview.md).
-
-    ![Screenshot of the Extensions view with the search bar and a list of extensions.](images/overview/extensions-search-python.png)
+Prefer to write code yourself first? Start with the [editor tutorial](/docs/editing/getting-started.md) instead.
 
 ## Get started in three steps
 
-New to VS Code? These three steps take you from a fresh install to building your first app with an AI agent.
+New to VS Code? These three steps take you from a fresh install to your first project.
 
 1. **Install VS Code.** Download the installer for your platform and follow the [install steps](#install-vs-code) below.
 
-1. **Enable AI features.** Sign in to unlock inline suggestions and AI agents. See [Enable AI features](#enable-ai-features).
+1. **Open your code.** Open an existing folder, [clone a repository from GitHub](/docs/sourcecontrol/github.md#cloning-a-repository), or create a new file to start working.
 
-1. **Choose a quickstart.** Complete a task with the [agents quickstart](/docs/agents/quickstart.md) or [learn the basics of writing code](/docs/editing/getting-started.md) in VS Code.
+1. **Choose how you want to work.** Complete a task with the [agents quickstart](/docs/agents/quickstart.md), or [learn the basics of writing code](/docs/editing/getting-started.md) yourself. The agents quickstart walks you through signing in to [enable AI features](#enable-ai-features). AI features are optional. You can use VS Code fully as a traditional editor without signing in.
 
 ## Install VS Code
-
-[Download the installer](https://code.visualstudio.com/download) for your platform and follow the steps below. VS Code is lightweight and runs on most available hardware. Review the [system requirements](/docs/supporting/requirements.md) for details.
-
-VS Code ships weekly [Stable](/updates) releases with auto-update. To preview upcoming features, install the [Insiders](/insiders) build, which ships nightly and runs side by side with Stable.
 
 {% tabs id="os" %}
 {% tab label="Windows" %}
@@ -85,9 +67,11 @@ Choose your distribution below for installation instructions. Installing the pac
 {% /tab %}
 {% /tabs %}
 
+Review the [system requirements](/docs/supporting/requirements.md) for details.
+
 ## Enable AI features
 
-VS Code has built-in support for AI features like inline suggestions and AI agents that help you with coding tasks. You can get started with AI features by signing in to GitHub and use your GitHub Copilot subscription to get access to a variety of large language models and other AI features in VS Code.
+VS Code has built-in support for AI features like inline suggestions and AI agents that help you with coding tasks. Sign in with GitHub and use your GitHub Copilot subscription to get access to a variety of large language models and other AI features in VS Code.
 
 Follow these steps to get started with Copilot in VS Code:
 
@@ -105,6 +89,22 @@ Follow these steps to get started with Copilot in VS Code:
 
 > [!TIP]
 > You can also use AI features in VS Code without using a Copilot subscription by bringing your own language model API key. Learn more about [using language models in VS Code](/docs/agent-customization/language-models.md#bring-your-own-language-model-key).
+
+## What you can do with VS Code
+
+VS Code adapts to how you want to work, whether you write every line yourself or hand off tasks to an AI agent. Most workflows combine both. Choose your [language model](/docs/agent-customization/language-models.md), whether from your GitHub Copilot subscription or your own API key, and pick the [agent](/docs/agents/overview.md) that fits the task.
+
+* **Build with AI agents.** Describe what you want in natural language, and an agent plans a solution, edits files across your project, runs commands, and fixes its own errors. Run agents in the [Agents window](/docs/agents/run/agents-window.md) for an agent-first workflow, or in the [Chat view](/docs/agents/run/chat-view.md) while you write code in the editor. Learn more about [AI agents in VS Code](/docs/agents/overview.md).
+
+    ![Screenshot of the Agents window with the integrated browser showing a development website and the changes panel showing a list of changes.](images/overview/agents-window-integrated-browser.png)
+
+* **Write, test, and debug code.** Edit with IntelliSense, refactoring, and multi-cursor support, then find and fix problems with the built-in [debugger](/docs/debugtest/debugging.md) and [testing](/docs/debugtest/testing.md) tools. Track your work with integrated [source control](/docs/sourcecontrol/overview.md), and add [language support](/docs/languages/overview.md) for the stack you use.
+
+    ![Screenshot of VS Code with the Debugger quick pick to select the target environment.](images/overview/debugger-nodejs.png)
+
+* **Extend and customize.** Install [extensions](/docs/configure/extensions/extensions.md) and [MCP servers](/docs/agent-customization/mcp-servers.md) to add languages, tools, and data sources. Tailor the agent experience to your specific project needs with [custom instructions, custom agents, and your choice of language model](/docs/agent-customization/overview.md).
+
+    ![Screenshot of the Extensions view with the search bar and a list of extensions.](images/overview/extensions-search-python.png)
 
 ## Explore VS Code
 
@@ -132,6 +132,11 @@ Pick a path based on what you want to do next.
             <p>Set up support for Python, JavaScript, C++, and more.</p>
         </div>
     </a>
+</div>
+
+### More ways to use VS Code
+
+<div class="card-grid">
     <a class="card" href="/docs/configure/extensions/extensions">
         <i class="codicon codicon-extensions" aria-hidden="true"></i>
         <div>
@@ -165,6 +170,13 @@ Pick a path based on what you want to do next.
 ## Common questions
 
 <details>
+<summary>How do I create and run a new project?</summary>
+
+VS Code doesn't include a traditional **File** > **New Project** dialog or preinstalled project templates. Add [additional components](/docs/setup/additional-components.md) and scaffolders based on your development workflow. Scaffolding tools like [Yeoman](https://yeoman.io/) and packages from the [npm](https://www.npmjs.com/) package manager provide templates and tools to create projects.
+
+</details>
+
+<details>
 <summary>What are the system requirements for VS Code?</summary>
 
 Review the [system requirements](/docs/supporting/requirements.md) for supported platforms and hardware.
@@ -175,13 +187,6 @@ Review the [system requirements](/docs/supporting/requirements.md) for supported
 <summary>How big is VS Code?</summary>
 
 VS Code is a small download, less than 200 MB, and has a disk footprint of less than 500 MB.
-
-</details>
-
-<details>
-<summary>How do I create and run a new project?</summary>
-
-VS Code doesn't include a traditional **File** > **New Project** dialog or preinstalled project templates. Add [additional components](/docs/setup/additional-components.md) and scaffolders based on your development workflow. Scaffolding tools like [Yeoman](https://yeoman.io/) and packages from the [npm](https://www.npmjs.com/) package manager provide templates and tools to create projects.
 
 </details>
 

@@ -1,7 +1,7 @@
 ---
 ContentId: 8b3c9f5e-4d2a-6f9b-3e1c-7a8d5f2e9b0c
-DateApproved: 8/5/2026
-MetaDescription: Learn how to use context-isolated subagents in VS Code to delegate complex tasks to autonomous agents within your chat session.
+DateApproved: 8/19/2026
+MetaDescription: Learn how to use context-isolated subagents in {% data variables.product.prodname_vscode_shortname %} to delegate complex tasks to autonomous agents within your chat session.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 Keywords:
 - subagents
@@ -13,7 +13,7 @@ Keywords:
 - parallel
 ---
 
-# Subagents in Visual Studio Code
+# Subagents in {% data variables.product.prodname_vscode %}
 
 When working on complex tasks, you can delegate subtasks to subagents. A subagent is an independent AI agent that performs focused work, such as researching a topic, analyzing code, or reviewing changes, and reports the results back to the main agent.
 
@@ -22,7 +22,14 @@ When working on complex tasks, you can delegate subtasks to subagents. A subagen
 
 For background on subagent concepts (context isolation, synchronous and parallel execution), see [Agents concepts](/docs/agents/concepts/agents.md#subagents).
 
-This article explains how to use subagents in VS Code, including usage scenarios, invocation patterns, and how to run custom agents as subagents.
+This article explains how to use subagents in {% data variables.product.prodname_vscode_shortname %}, including usage scenarios, invocation patterns, and how to run custom agents as subagents.
+
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Try a subagent">
+Launch a chat prompt that delegates research to a subagent before implementation.
+
+* [Open in VS Code](vscode://GitHub.Copilot-Chat/chat?agent=agent%26prompt=Use%20a%20subagent%20to%20research%20authentication%20best%20practices%20for%20a%20Node.js%20app%20and%20report%20back%20a%20recommendation.)
+
+</div>
 
 ## When to use subagents
 
@@ -153,24 +160,33 @@ In the prompt instructions, you can then hint the agent to use subagents by sugg
 
 ### What you see in chat
 
-In the Chat view, a running subagent appears as a collapsible tool call. By default, the subagent is collapsed and shows:
+In the {% data variables.copilot.chat_view %}, a running subagent appears as a collapsible tool call. By default, the subagent is collapsed and shows:
 
 * The name of the custom agent (if you specify one)
 * The currently running tool (for example, "Reading file..." or "Searching codebase...")
 
 Select the subagent tool call to expand it and view the full details, including all tool calls the subagent made, the prompt passed to the subagent, and the returned result.
 
-In the Agents window, each subagent is available as a read-only peer chat. The parent chat shows an indicator with the subagent's model, elapsed time, and active tool call. Select the indicator to open the subagent while keeping the parent chat open.
+In the {% data variables.copilot.agents_window %}, each subagent is available as a read-only peer chat. The parent chat shows an indicator with the subagent's model, elapsed time, and active tool call. Select the indicator to open the subagent while keeping the parent chat open.
 
 Subagent chats are hidden from the tab strip by default. Open one in any of these ways:
 
-* Select it from the **Conversations** dropdown.
+* Select it from the **Chats** dropdown.
 * Select the running-subagents indicator while subagents are active.
 * Select **Open Subagent** in the chat where the delegation occurred.
 
+To keep the parent chat and subagent visible side by side:
+
+* Hold `kbstyle(Alt)` and select the in-transcript subagent pill.
+* Focus the in-transcript subagent pill and press `kbstyle(Alt+Enter)`.
+* Hold `kbstyle(Alt)` and select the subagent in the **Chats** dropdown.
+* Drag the in-transcript subagent pill to the center of an existing chat group or to an edge to create a group in that direction.
+
+The in-transcript subagent pill is part of the chat response. It differs from the background-activities pill above the chat input, which opens a picker for running activities and isn't draggable.
+
 Read-only subagent chats show a lock icon and don't accept input. They persist across window reloads with your other chats.
 
-![Screenshot showing a read-only subagent chat in the Agents window.](../images/agents-window/agents-window-follow-subagents-read-only-chat.png)
+![Screenshot showing a read-only subagent chat in the {% data variables.copilot.agents_window %}.](../images/agents-window/agents-window-follow-subagents-read-only-chat.png)
 
 By default, chat editors use a rich presentation that opens each subagent in its own editor instead of showing its full activity inline in the parent chat. Disable the `setting(chat.subagents.useRichRendering)` setting to show subagent activity inline.
 
@@ -368,7 +384,7 @@ This pattern works because each subagent approaches the code fresh, without bein
 
 ## Related resources
 
-* [Agents overview](/docs/agents/overview.md) - Learn about the different types of agents in VS Code
+* [Agents overview](/docs/agents/overview.md) - Learn about the different types of agents in {% data variables.product.prodname_vscode_shortname %}
 * [Custom agents](/docs/agent-customization/custom-agents.md) - Create your own AI agents
 * [Agent sessions](/docs/agents/run/sessions/manage-sessions.md) - Create and organize agent sessions
 * [Cache Explorer](/docs/agents/agent-troubleshooting/cache-explorer.md) - See how context isolation affects prompt cache hit rates

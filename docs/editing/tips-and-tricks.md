@@ -1,7 +1,7 @@
 ---
 ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
-DateApproved: 8/5/2026
-MetaDescription: Visual Studio Code Tips and Tricks for power users.
+DateApproved: 8/19/2026
+MetaDescription: Improve productivity in Visual Studio Code with editing, navigation, source control, debugging, and keyboard shortcut tips.
 ---
 # Visual Studio Code tips and tricks
 
@@ -581,7 +581,7 @@ You can add additional cursors to all occurrences of the current selection with 
 
 ![add cursor to all occurrences of current selection](images/tips-and-tricks/add_cursor_current_selection.gif)
 
-> Note: You can also change the modifier to `kbstyle(Ctrl/Cmd)` for applying multiple cursors with the `setting(editor.multiCursorModifier)` [setting](/docs/configure/settings.md) . See [Multi-cursor Modifier](/docs/editing/codebasics.md#multicursor-modifier) for details.
+> Note: You can also change the modifier to `kbstyle(Ctrl/Cmd)` for applying multiple cursors with the `setting(editor.multiCursorModifier)` [setting](/docs/configure/settings.md) . See [Multi-cursor Modifier](/docs/editing/codebasics.md#multi-cursor-modifier) for details.
 
 If you do not want to add all occurrences of the current selection, you can use `kb(editor.action.addSelectionToNextFindMatch)` instead.
 This only selects the next occurrence after the one you selected so you can add selections one by one.
@@ -875,7 +875,7 @@ To enable or disable git blame information, use the **Git: Toggle Git Blame Edit
 * `setting(git.blame.statusBarItem.enabled)` (enabled by default)
 * `setting(git.blame.editorDecoration.enabled)`
 
-Learn more about [git blame support in VS Code](/docs/sourcecontrol/staging-commits.md#git-blame-information) and how to customize the layout.
+Learn more about [Git blame support in VS Code](/docs/sourcecontrol/history.md#view-git-blame-information) and how to customize the layout.
 
 ### Diffs
 

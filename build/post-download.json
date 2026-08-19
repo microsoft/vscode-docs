@@ -1,9 +1,9 @@
 {
   "featured": {
-    "title": "Browser comments, multilingual dictation, and side chats",
-    "description": "Comment on browser elements, dictate in multiple languages, ask side questions with /btw, and review Markdown diffs.",
-    "link": "/updates/v1_132",
-    "image": "/assets/updates/1_132/release-highlights.webp"
+    "title": "Side-by-side chats, and faster navigation",
+    "description": "Arrange related chats side by side, navigate long conversations, and preview HTML files in the integrated browser.",
+    "link": "/updates/v1_134",
+    "image": "/assets/updates/1_134/release-highlights.webp"
   },
   "highlights": [
     {

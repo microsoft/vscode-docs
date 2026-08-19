@@ -1,7 +1,7 @@
 ---
 ContentId: f9b2c4e3-8a7d-4e1f-b5c3-2d9a6f8e4b71
-DateApproved: 8/5/2026
-MetaDescription: Learn how to discover, install, and manage agent plugins in VS Code, including plugins that follow the open Agent Plugins standard.
+DateApproved: 8/19/2026
+MetaDescription: Learn how to discover, install, and manage agent plugins in {% data variables.product.prodname_vscode_shortname %}, including plugins that follow the open Agent Plugins standard.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - copilot
@@ -14,12 +14,12 @@ Keywords:
 - hooks
 - mcp
 ---
-# Agent plugins in VS Code
+# Agent plugins in {% data variables.product.prodname_vscode_shortname %}
 
-Agent plugins are prepackaged bundles of agent customizations that you can discover and install from plugin marketplaces in Visual Studio Code. Plugins work alongside your locally defined customizations. When you install a plugin, its supported customizations appear in chat.
+Agent plugins are prepackaged bundles of agent customizations that you can discover and install from plugin marketplaces in {% data variables.product.prodname_vscode %}. Plugins work alongside your locally defined customizations. When you install a plugin, its supported customizations appear in chat.
 
 Agent Plugins is an [open standard](https://agent-plugins.org/) for packaging [agent skills](/docs/agent-customization/agent-skills.md) and [MCP servers](/docs/agent-customization/mcp-servers.md) that works across multiple AI agents, including GitHub Copilot in VS Code, GitHub Copilot CLI, and the GitHub Copilot app.
-Through its existing Copilot and Claude plugin formats, VS Code also supports client-specific plugin capabilities, including slash commands, [custom agents](/docs/agent-customization/custom-agents.md), and [hooks](/docs/agent-customization/hooks.md).
+VS Code also supports client-specific plugin capabilities, including slash commands, [custom agents](/docs/agent-customization/custom-agents.md), rules, and [hooks](/docs/agent-customization/hooks.md). In an Agent Plugins package, these come from the `com.github.copilot` namespace. The existing Copilot and Claude plugin formats keep their own layouts.
 
 For how plugins fit into the broader set of customization options, see [Customization concepts](/docs/agents/concepts/customization.md).
 
@@ -28,7 +28,7 @@ For how plugins fit into the broader set of customization options, see [Customiz
 
 ## What plugins provide
 
-Agent Plugins 1.0 defines skills and MCP servers as portable component types. Other capabilities are client-specific and can use the standard's reverse-domain [client extension namespaces](https://agent-plugins.org/plugin-authors/client-extensions). VS Code currently ignores client extension data and directories in Agent Plugins 1.0 packages.
+Agent Plugins 1.0 defines skills and MCP servers as portable component types. Other capabilities are client-specific and use the standard's reverse-domain [client extension namespaces](https://agent-plugins.org/plugin-authors/client-extensions). VS Code reads Copilot-specific components from the `com.github.copilot` namespace and ignores namespaces owned by other clients.
 
 | Capability | Description | Client-specific | Standard |
 |------------|-------------|:--------------:|:--------:|
@@ -38,7 +38,7 @@ Agent Plugins 1.0 defines skills and MCP servers as portable component types. Ot
 | [Hooks](/docs/agent-customization/hooks.md) | Shell commands that execute at agent lifecycle points | ✓ | |
 | Slash commands | Commands you can invoke with `/` in chat | ✓ | |
 
-For example, a Copilot-format testing plugin might include a `test-runner` skill with scripts, a `test-reviewer` agent with read-only tools, and an MCP server for a test reporting dashboard. The plugin directory structure looks like this:
+For example, a testing plugin might include a `test-runner` skill with scripts, a `test-reviewer` agent with read-only tools, and an MCP server for a test reporting dashboard. In the Agent Plugins format, the directory structure looks like this:
 
 ```text
 my-testing-plugin/
@@ -47,14 +47,17 @@ my-testing-plugin/
     test-runner/
       SKILL.md             # Testing skill instructions
       run-tests.sh         # Supporting script
-  agents/
-    test-reviewer.agent.md # Code review agent
-  hooks/
-    hooks.json             # Hook configuration
+  mcp.json                 # MCP server definitions
   scripts/
     validate-tests.sh      # Hook script
-  .mcp.json                # MCP server definitions
+  com.github.copilot/
+    agents/
+      test-reviewer.agent.md  # Code review agent
+    hooks/
+      hooks.json           # Hook configuration
 ```
+
+Plugins in the Copilot and Claude formats provide the same capabilities from different locations. See [Plugin formats](#plugin-formats).
 
 Once installed, plugin-provided customizations appear alongside your locally defined ones. For example, skills from a plugin show up in the **Configure Skills** menu, and MCP servers from a plugin appear in the MCP server list.
 
@@ -89,14 +92,31 @@ An Agent Plugins 1.0 package has a `plugin.json` file at its root that declares 
 
 Skills are discovered from the `skills/` folder, and MCP server configuration is discovered from the `mcp.json` file. You don't list these component paths in the manifest. Custom agents, hooks, commands, and MCP server definitions are not portable top-level manifest fields.
 
+Copilot-specific components live in the `com.github.copilot` directory at the plugin root, and Copilot-specific manifest data goes under the matching key in `extensions`:
+
+```text
+my-plugin/
+  plugin.json              # $schema declares Agent Plugins 1.0
+  skills/                  # Portable: agent skills
+  mcp.json                 # Portable: MCP server configuration
+  com.github.copilot/      # Copilot-specific components
+    agents/
+    commands/
+    rules/
+    hooks/
+      hooks.json
+```
+
+Other clients ignore the `com.github.copilot` namespace, so a package stays portable while keeping its Copilot capabilities.
+
 For the full field constraints and validation rules, see the [Agent Plugins manifest documentation](https://agent-plugins.org/plugin-authors/manifest).
 
 > [!NOTE]
-> Existing Copilot-format plugins that don't declare the Agent Plugins schema remain supported. For their manifest fields, see the [GitHub Copilot CLI plugin reference](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-plugin-reference#pluginjson).
+> Existing Copilot-format plugins that don't declare the Agent Plugins schema remain supported. For their manifest fields, see the [{% data variables.copilot.copilot_cli %} plugin reference](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-plugin-reference#pluginjson).
 
 ## Plugin formats
 
-VS Code auto-detects the plugin format by checking the root manifest and format-specific manifest paths. A root `plugin.json` that declares the canonical Agent Plugins `$schema` uses Agent Plugins semantics. The Copilot format is used as the default when no other format marker is found.
+{% data variables.product.prodname_vscode_shortname %} auto-detects the plugin format by checking the root manifest and format-specific manifest paths. A root `plugin.json` that declares the canonical Agent Plugins `$schema` uses Agent Plugins semantics. The Copilot format is used as the default when no other format marker is found.
 
 | Plugin format | Plugin manifest |
 |---------------|-----------------|
@@ -107,7 +127,7 @@ VS Code auto-detects the plugin format by checking the root manifest and format-
 
 ### Plugin environment variables
 
-Some plugin formats provide a root token that you can use in hook commands and MCP server configurations to reference files within the plugin directory. VS Code expands the token at runtime and also sets it as an environment variable in the hook or server process.
+Some plugin formats provide a root token that you can use in hook commands and MCP server configurations to reference files within the plugin directory. {% data variables.product.prodname_vscode_shortname %} expands the token at runtime and also sets it as an environment variable in the hook or server process.
 
 | Plugin format | Plugin root |
 |---------------|------------------|
@@ -116,7 +136,7 @@ Some plugin formats provide a root token that you can use in hook commands and M
 | Copilot | `${PLUGIN_ROOT}` or `${CLAUDE_PLUGIN_ROOT}` |
 | Legacy OpenPlugin | `${PLUGIN_ROOT}` |
 
-Agent Plugins 1.0 also defines `${PLUGIN_ROOT}` for packaged files and `${PLUGIN_DATA}` for writable state that persists across plugin updates. VS Code preserves these placeholders for the plugin runtime to expand. For details about where placeholders are supported, see the [Agent Plugins specification](https://github.com/agentplugins/agent-plugins-spec/blob/main/spec/1.0.0.md#9-environment-variables-and-placeholder-expansion).
+Agent Plugins 1.0 also defines `${PLUGIN_ROOT}` for packaged files and `${PLUGIN_DATA}` for writable state that persists across plugin updates. {% data variables.product.prodname_vscode_shortname %} preserves these placeholders for the plugin runtime to expand. For details about where placeholders are supported, see the [Agent Plugins specification](https://github.com/agentplugins/agent-plugins-spec/blob/main/spec/1.0.0.md#9-environment-variables-and-placeholder-expansion).
 
 ## MCP servers in plugins
 
@@ -143,7 +163,7 @@ my-plugin/
 
 {% tab label="Copilot and Claude" %}
 
-Place MCP server definitions in the `.mcp.json` file at the plugin root. VS Code discovers this file automatically when it loads the plugin.
+Place MCP server definitions in the `.mcp.json` file at the plugin root. {% data variables.product.prodname_vscode_shortname %} discovers this file automatically when it loads the plugin.
 
 ```text
 my-plugin/
@@ -178,7 +198,7 @@ In the `.mcp.json` file, MCP servers are defined in a top-level `mcpServers` obj
 
 ### Reference plugin paths in server configuration
 
-For Claude-format plugins, use the `${CLAUDE_PLUGIN_ROOT}` token in MCP server fields to reference executables and files within the plugin directory. VS Code expands this token in the following fields:
+For Claude-format plugins, use the `${CLAUDE_PLUGIN_ROOT}` token in MCP server fields to reference executables and files within the plugin directory. {% data variables.product.prodname_vscode_shortname %} expands this token in the following fields:
 
 * `command`: the executable path
 * `args`: command-line arguments
@@ -188,7 +208,7 @@ For Claude-format plugins, use the `${CLAUDE_PLUGIN_ROOT}` token in MCP server f
 * `url`: for HTTP-based MCP servers
 * `headers`: HTTP header values
 
-VS Code also injects a `CLAUDE_PLUGIN_ROOT` environment variable into the server process, so server code can access the plugin path at runtime.
+{% data variables.product.prodname_vscode_shortname %} also injects a `CLAUDE_PLUGIN_ROOT` environment variable into the server process, so server code can access the plugin path at runtime.
 
 {% /tab %}
 
@@ -198,7 +218,7 @@ VS Code also injects a `CLAUDE_PLUGIN_ROOT` environment variable into the server
 
 Plugin MCP servers appear alongside workspace and user-level MCP servers. You can manage them through the same tools:
 
-* Select **Configure Tools** in the Chat view to see tools from all MCP servers, including plugin servers.
+* Select **Configure Tools** in the {% data variables.copilot.chat_view %} to see tools from all MCP servers, including plugin servers.
 
 * Run **MCP: List Servers** from the Command Palette to view plugin servers alongside other servers.
 
@@ -211,7 +231,7 @@ Disabling a plugin stops its MCP servers. Tools provided by the stopped servers 
 Plugins can include [hooks](/docs/agent-customization/hooks.md) that run shell commands at agent lifecycle points. Plugin hooks work alongside your workspace and user-level hooks. When a plugin is enabled, its hooks fire in addition to any other hooks configured for the same event.
 
 > [!NOTE]
-> Hooks are client-specific and are not a portable Agent Plugins 1.0 component type.
+> Hooks are client-specific and are not a portable Agent Plugins 1.0 component type. In an Agent Plugins package, they come from the `com.github.copilot` namespace.
 
 ### Hook file location
 
@@ -219,22 +239,25 @@ The hook file location depends on the plugin format:
 
 | Plugin format | Hook file path |
 |---------------|----------------|
+| Agent Plugins 1.0 | `com.github.copilot/hooks/hooks.json` |
 | Claude | `hooks/hooks.json` |
 | Copilot | `hooks.json` (at the plugin root) |
 
-VS Code auto-detects the plugin format and discovers the hook file automatically.
+{% data variables.product.prodname_vscode_shortname %} auto-detects the plugin format and discovers the hook file automatically.
 
 ```text
 my-plugin/
-  hooks/
-    hooks.json           # Hook configuration (Claude format)
+  plugin.json
+  com.github.copilot/
+    hooks/
+      hooks.json         # Hook configuration (Agent Plugins format)
   scripts/
     format.sh            # Hook script referenced by hooks.json
 ```
 
 ### Hook configuration format
 
-Plugin hooks use the same base format as [workspace hooks](/docs/agent-customization/hooks.md#hook-configuration-format). VS Code parses Claude Code hook configuration, including matcher syntax. Currently, VS Code ignores matcher values, so hooks run on every matching event.
+Plugin hooks use the same base format as [workspace hooks](/docs/agent-customization/hooks.md#hook-configuration-format). {% data variables.product.prodname_vscode_shortname %} parses Claude Code hook configuration, including matcher syntax. Currently, {% data variables.product.prodname_vscode_shortname %} ignores matcher values, so hooks run on every matching event.
 
 **Flat format** (same as workspace hooks):
 
@@ -271,11 +294,11 @@ Plugin hooks use the same base format as [workspace hooks](/docs/agent-customiza
 }
 ```
 
-VS Code parses the `matcher` field for compatibility with Claude Code, but currently ignores matcher values. If you need to filter hook behavior in VS Code, check the event input inside the hook script.
+{% data variables.product.prodname_vscode_shortname %} parses the `matcher` field for compatibility with Claude Code, but currently ignores matcher values. If you need to filter hook behavior in {% data variables.product.prodname_vscode_shortname %}, check the event input inside the hook script.
 
 ### Reference plugin paths in hook commands
 
-For Claude-format plugins, use the `${CLAUDE_PLUGIN_ROOT}` token in hook commands to reference scripts and files within the plugin directory. VS Code expands this token to the plugin's absolute path at runtime and also sets a `CLAUDE_PLUGIN_ROOT` environment variable for the hook process. Inside your script, access this as `$CLAUDE_PLUGIN_ROOT` (or `%CLAUDE_PLUGIN_ROOT%` on Windows).
+For Claude-format plugins, use the `${CLAUDE_PLUGIN_ROOT}` token in hook commands to reference scripts and files within the plugin directory. {% data variables.product.prodname_vscode_shortname %} expands this token to the plugin's absolute path at runtime and also sets a `CLAUDE_PLUGIN_ROOT` environment variable for the hook process. Inside your script, access this as `$CLAUDE_PLUGIN_ROOT` (or `%CLAUDE_PLUGIN_ROOT%` on Windows).
 
 This is important because plugins are installed to a location outside your workspace, so you cannot use relative paths.
 
@@ -321,19 +344,19 @@ You can browse and install plugins from marketplaces or directly from a Git repo
 
 1. Select **Install** to install a plugin.
 
-    The first time you install a plugin from a new marketplace, VS Code shows a trust prompt. Review the marketplace source before confirming.
+    The first time you install a plugin from a new marketplace, {% data variables.product.prodname_vscode_shortname %} shows a trust prompt. Review the marketplace source before confirming.
 
 {% /tab %}
 
 {% tab label="Agent Customizations" %}
 
-1. Open the Agent Customizations editor by running **Chat: Open Customizations** from the Command Palette, selecting the gear icon in the Chat view, or selecting **Plugins** in the Agents window.
+1. Open the Agent Customizations editor by running **Chat: Open Customizations** from the Command Palette, selecting the gear icon in the {% data variables.copilot.chat_view %}, or selecting **Plugins** in the {% data variables.copilot.agents_window %}.
 
 1. Select the **Plugins** tab and select **Browse Marketplace** to browse available plugins from your [configured marketplaces](#configure-plugin-marketplaces).
 
 1. Select **Install** to install a plugin.
 
-  The first time you install a plugin from a new marketplace, VS Code shows a trust prompt. Review the marketplace source before confirming.
+  The first time you install a plugin from a new marketplace, {% data variables.product.prodname_vscode_shortname %} shows a trust prompt. Review the marketplace source before confirming.
 
 {% /tab %}
 {% /tabs %}
@@ -346,11 +369,11 @@ You can install a plugin directly from a Git repository URL without adding a ful
 
 * Alternatively, select **Install Plugin from Source** on the **Plugins** page of the Agent Customizations editor.
 
-Enter a Git repository URL (for example, `https://github.com/rwoll/markdown-review`) and VS Code clones and installs the plugin.
+Enter a Git repository URL (for example, `https://github.com/rwoll/markdown-review`) and {% data variables.product.prodname_vscode_shortname %} clones and installs the plugin.
 
-### Plugins installed by GitHub Copilot CLI
+### Plugins installed by {% data variables.copilot.copilot_cli %}
 
-VS Code automatically discovers plugins that you install with the [GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/plugins-finding-installing) to enable you to use them also in VS Code. Plugins from `~/.copilot/installed-plugins/` appear in the **Agent Plugins - Installed** view alongside plugins you installed from a marketplace or from source.
+{% data variables.product.prodname_vscode_shortname %} automatically discovers plugins that you install with the [{% data variables.copilot.copilot_cli %}](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/plugins-finding-installing) to enable you to use them also in {% data variables.product.prodname_vscode_shortname %}. Plugins from `~/.copilot/installed-plugins/` appear in the **Agent Plugins - Installed** view alongside plugins you installed from a marketplace or from source.
 
 The CLI stores plugins under `~/.copilot/installed-plugins/<marketplace>/<plugin>/`. Plugins installed directly from a Git URL (rather than from a marketplace) live under the `_direct` bucket, for example `~/.copilot/installed-plugins/_direct/github--moda-linter--copilot-plugin/`.
 
@@ -360,7 +383,7 @@ The **Agent Plugins - Installed** view in the Extensions view shows the plugins 
 
 ![Screenshot of the Agent Plugins - Installed view in the Extensions view.](images/agent-plugins/installed-plugins.png)
 
-You can also manage installed plugins from the Chat view by selecting the **gear icon** > **Plugins**.
+You can also manage installed plugins from the {% data variables.copilot.chat_view %} by selecting the **gear icon** > **Plugins**.
 
 ### Enable or disable plugins
 
@@ -380,7 +403,7 @@ To remove a plugin, right-click it in the **Agent Plugins - Installed** view and
 
 ## Configure plugin marketplaces
 
-By default, VS Code discovers plugins from the [copilot-plugins](https://github.com/github/copilot-plugins) and [awesome-copilot](https://github.com/github/awesome-copilot/). You can add additional marketplaces with the `setting(chat.plugins.marketplaces)` setting.
+By default, {% data variables.product.prodname_vscode_shortname %} discovers plugins from the [copilot-plugins](https://github.com/github/copilot-plugins) and [awesome-copilot](https://github.com/github/awesome-copilot/). You can add additional marketplaces with the `setting(chat.plugins.marketplaces)` setting.
 
 Marketplaces are Git repositories that contain plugin definitions. You can reference them in several formats:
 
@@ -389,7 +412,7 @@ Marketplaces are Git repositories that contain plugin definitions. You can refer
 * **SCP-style git remote**: SSH-style references. For example, `git@github.com:anthropics/claude-code.git`.
 * **file URI**: a `file:///` path to a marketplace repository already cloned on disk.
 
-Private repositories are also supported. If a public lookup fails, VS Code falls back to cloning the repository directly.
+Private repositories are also supported. If a public lookup fails, {% data variables.product.prodname_vscode_shortname %} falls back to cloning the repository directly.
 
 Marketplace plugins can also reference external package sources such as npm or PyPI packages. For the full marketplace plugin schema, see the [Claude Code plugin marketplace documentation](https://code.claude.com/docs/en/plugin-marketplaces).
 
@@ -417,7 +440,7 @@ If you manually clone or download a plugin, you can register it with the `settin
 
 ## Update plugins
 
-VS Code checks for plugin updates when you run **Extensions: Check for Extension Updates** from the Command Palette, or automatically every 24 hours when `setting(extensions.autoUpdate)` is enabled.
+{% data variables.product.prodname_vscode_shortname %} checks for plugin updates when you run **Extensions: Check for Extension Updates** from the Command Palette, or automatically every 24 hours when `setting(extensions.autoUpdate)` is enabled.
 
 Updating pulls down changes from cloned marketplace repositories and checks for new versions of externally sourced plugins.
 
@@ -427,7 +450,7 @@ Plugins sourced from npm or PyPI never update automatically. Instead, they show 
 
 Projects can recommend plugins for team members by configuring plugin settings in the workspace settings (`.claude/settings.json` or `.github/copilot/settings.json`).
 
-VS Code shows a notification the first time a chat message is sent. You can view the recommended plugins by opening the Extensions view and filtering by `@agentPlugins @recommended`.
+{% data variables.product.prodname_vscode_shortname %} shows a notification the first time a chat message is sent. You can view the recommended plugins by opening the Extensions view and filtering by `@agentPlugins @recommended`.
 
 Specify the following fields in the settings file to configure workspace plugin recommendations:
 
@@ -455,7 +478,7 @@ Specify the following fields in the settings file to configure workspace plugin 
 
 Agent Plugins 1.0 is an open standard designed for cross-tool compatibility. A conformant plugin uses a root `plugin.json`, puts skills in `skills/`, and puts MCP server configuration in `mcp.json`. Compatible clients can discover the portable component types they support from the same package.
 
-Agent Plugins can also include client-specific manifest data and files under a stable reverse-domain namespace. Clients ignore namespaces they don't implement, so client-specific capabilities don't prevent other clients from loading the portable components. VS Code currently ignores these namespaces and loads only the portable skills and MCP server configuration.
+Agent Plugins can also include client-specific manifest data and files under a stable reverse-domain namespace. Clients ignore namespaces they don't implement, so client-specific capabilities don't prevent other clients from loading the portable components. VS Code reads custom agents, slash commands, rules, and hooks from the `com.github.copilot` namespace, which GitHub Copilot CLI and the GitHub Copilot app also read.
 
 For example:
 
@@ -464,12 +487,13 @@ my-plugin/
   plugin.json
   skills/
   mcp.json
-  com.example.client/
+  com.github.copilot/      # Read by VS Code and other Copilot clients
+  com.example.client/      # Ignored by VS Code
 ```
 
-VS Code continues to support existing Copilot, Claude, and legacy OpenPlugin formats. Plugins that don't declare the Agent Plugins schema continue to use their existing format-specific discovery rules.
+{% data variables.product.prodname_vscode_shortname %} continues to support existing Copilot, Claude, and legacy OpenPlugin formats. Plugins that don't declare the Agent Plugins schema continue to use their existing format-specific discovery rules.
 
-For details about the portable format, see the [Agent Plugins specification](https://github.com/agentplugins/agent-plugins-spec/blob/main/spec/1.0.0.md). For other formats, see the [GitHub Copilot CLI plugin reference](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-plugin-reference) and the [Claude Code plugin marketplace documentation](https://code.claude.com/docs/en/plugin-marketplaces).
+For details about the portable format, see the [Agent Plugins specification](https://github.com/agentplugins/agent-plugins-spec/blob/main/spec/1.0.0.md). For other formats, see the [{% data variables.copilot.copilot_cli %} plugin reference](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-plugin-reference) and the [Claude Code plugin marketplace documentation](https://code.claude.com/docs/en/plugin-marketplaces).
 
 ## Troubleshooting
 
@@ -499,5 +523,5 @@ This can happen when a previous install left cached data. Delete the cached plug
 
 ## Related resources
 
-* [Finding and installing plugins for GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/plugins-finding-installing)
-* [GitHub Copilot CLI plugin reference](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-plugin-reference)
+* [Finding and installing plugins for {% data variables.copilot.copilot_cli %}](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/plugins-finding-installing)
+* [{% data variables.copilot.copilot_cli %} plugin reference](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-plugin-reference)

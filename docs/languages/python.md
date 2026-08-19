@@ -1,6 +1,6 @@
 ---
 ContentId: c2cb770d-571d-4edf-9eb9-b5b8977c21a0
-DateApproved: 8/5/2026
+DateApproved: 8/19/2026
 MetaDescription: Learn about Visual Studio Code as a Python IDE (code completion, debugging, linting).
 ---
 # Python in Visual Studio Code
@@ -68,7 +68,7 @@ Linting analyzes your Python code for potential errors, making it easy to naviga
 The Python extension can apply a number of different linters including Pylint, pycodestyle, Flake8, mypy, pydocstyle, prospector, and pylama. See [Linting](/docs/python/linting.md).
 
 <video autoplay loop muted playsinline controls title="Python linting video">
-  <source src="/docs/languages/python/python-linting.mp4" type="video/mp4">
+  <source src="images/python/python-linting.mp4" type="video/mp4">
 </video>
 
 ## Debugging
@@ -80,7 +80,7 @@ For more specific information on debugging in Python, such as configuring your `
 Additionally, the [Django](/docs/python/tutorial-django.md) and [Flask](/docs/python/tutorial-flask.md) tutorials provide examples of how to implement debugging in the context of web applications, including debugging Django templates.
 
 <video autoplay loop muted playsinline controls title="Python debugging video">
-  <source src="/docs/languages/python/python-debugging.mp4" type="video/mp4">
+  <source src="images/python/python-debugging.mp4" type="video/mp4">
 </video>
 
 ## Environments

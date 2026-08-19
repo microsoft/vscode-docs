@@ -1,7 +1,7 @@
 ---
 ContentId: b93229f7-cb11-474c-8cec-1fe764d5d720
-DateApproved: 8/5/2026
-MetaDescription: A guide for developers building MCP servers for VS Code.
+DateApproved: 8/19/2026
+MetaDescription: A guide for developers building MCP servers for {% data variables.product.prodname_vscode_shortname %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 

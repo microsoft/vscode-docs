@@ -1,6 +1,6 @@
 ---
 ContentId: F54BB3D4-76FB-4547-A9D0-F725CEBB905C
-DateApproved: 8/5/2026
+DateApproved: 8/19/2026
 MetaDescription: Get the best out of Visual Studio Code for JavaScript development
 ---
 # JavaScript in Visual Studio Code
@@ -301,7 +301,7 @@ Inlay hints add additional inline information to source code to help you underst
 
 This can help you understand the meaning of each argument at a glance, which is especially helpful for functions that take Boolean flags or have parameters that are easy to mix up.
 
-To enable parameter name hints, set `js/ts.inlayHints.parameterNames`. There are three possible values:
+To enable parameter name hints, set `js/ts.inlayHints.parameterNames.enabled`. There are three possible values:
 
 * `none` — Disable parameter inlay hints.
 * `literals` — Only show inlay hints for literals (string, number, Boolean).
