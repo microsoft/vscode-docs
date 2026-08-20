@@ -147,6 +147,9 @@ In the following steps you'll ask the agent to validate the basic functionality 
 
     ![Screenshot of the integrated browser validating the app.](images/agents-quickstart/editor-integrated-browser-validation.png)
 
+{% /tab %}
+{% /tabs %}
+
 You have completed your first task with an agent. The agent interpreted your goal, created the code, exercised the app in the browser, and fixed any issues it found. You stayed in control through approvals, code review, and final validation.
 
 ## Continue in the other surface
