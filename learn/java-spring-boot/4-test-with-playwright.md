@@ -7,6 +7,8 @@ MetaSocialImage: ../images/shared/agent-first-development-social.png
 
 # Let GitHub Copilot test your Spring Boot app with Playwright
 
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/YGUwr6UhmUI?si=WZMWMFHq-o7Or7fu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 Your unit tests pass. Your integration tests pass. And you still open the browser
 afterwards to check that the page actually works, because a green build has never proved
 that a checkbox ticks.
@@ -35,13 +37,7 @@ In this chapter, you will learn to:
 
 Here is the journey Copilot will run.
 
-```mermaid
-flowchart LR
-    A["Open localhost:8080<br/>assert page title"] --> B["Fill input<br/>click Add"]
-    B --> C["Find that exact row"]
-    C --> D["Click checkbox<br/>assert checked"]
-    D --> E["Click Delete<br/>assert row gone"]
-```
+![Chapter 4 browser test journey with an assertion at each step](../images/java-spring-boot/ch4-journey.png)
 
 Fig 1: Chapter 4 journey — five steps, each with an assertion attached.
 
@@ -127,7 +123,7 @@ it improves the page for screen reader users at the same time.
 4. Open `templates/index.html` and find the four `data-testid` values and the checkbox's `th:attr` label.
 5. Select the **Testing** button in the Activity Bar, select **Run All Tests**, and wait until every Java test passes.
 
-![The Testing view reporting all Java tests passing](images/ch4-testing-view.png)
+![The Testing view reporting all Java tests passing](../images/java-spring-boot/ch4-testing-view.png)
 
 Fig 2: The Testing view aggregates the unit and integration tests across the project. A green baseline here means a later browser failure is a UI failure.
 
@@ -148,7 +144,7 @@ executable you choose to run.
 4. If prompted, review the tool name and arguments before choosing **Allow Once**.
 5. As Copilot works, watch the page at <http://localhost:8080>: the input filled with **Verify the browser flow**, the new row after **Add**, the checked checkbox after completion, and the row disappearing after deletion.
 
-![The Playwright-controlled browser running against the app](images/ch4-playwright-run.png)
+![The Playwright-controlled browser running against the app](../images/java-spring-boot/ch4-playwright-run.png)
 
 Fig 3: Playwright drives a real Chrome window against the running Spring Boot app. Here it has added the row and ticked its checkbox — the state the prompt asked it to verify before deleting.
 
