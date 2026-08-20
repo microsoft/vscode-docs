@@ -207,4 +207,4 @@ than clicks.
 
 ---
 
-Chapter 4 of 4 · Previous: [Expose Your Java Operations to Copilot with MCP](3-expose-tools-with-mcp.md)
+Chapter 4 of 4 · Previous: [Expose Your Java Operations to Copilot with MCP](/learn/java-spring-boot/3-expose-tools-with-mcp)

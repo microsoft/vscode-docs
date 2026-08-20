@@ -203,7 +203,7 @@ You now have a working Java and Spring Boot setup, a project you can navigate, a
 application you can start and stop from the editor. That is the foundation every later
 chapter assumes.
 
-In [Chapter 2, Debug and Inspect a Spring Boot Request](2-debug-and-inspect.md), we'll
+In [Chapter 2, Debug and Inspect a Spring Boot Request](/learn/java-spring-boot/2-debug-and-inspect), we'll
 stop trusting the browser and start inspecting the process. You'll set a breakpoint on the
 exact line where the web layer hands off to the service, step through the call, and watch
 the repository assign an id — then check the app's health and memory while it is still
@@ -219,4 +219,4 @@ running.
 
 ---
 
-Chapter 1 of 4 · Next: [Debug and Inspect a Spring Boot Request](2-debug-and-inspect.md)
+Chapter 1 of 4 · Next: [Debug and Inspect a Spring Boot Request](/learn/java-spring-boot/2-debug-and-inspect)

@@ -58,7 +58,7 @@
     "name": "Java, Spring Boot, and GitHub Copilot",
     "area": "java-spring-boot",
     "description": "Learn how to build, debug, extend, and test a Spring Boot application with Java tools and GitHub Copilot in VS Code.",
-    "image": "/assets/learn/java-spring-boot/ch1-web-app.png",
+    "image": "/assets/learn/java-spring-boot/java-spring-boot-stack-card.png",
     "topics": [
       ["Build and Run Your First Spring Boot App", "/learn/java-spring-boot/1-build-and-run"],
       ["Debug and Inspect a Spring Boot Request", "/learn/java-spring-boot/2-debug-and-inspect"],
