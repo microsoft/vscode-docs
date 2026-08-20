@@ -216,7 +216,7 @@ You can now stop a Spring Boot request mid-flight, follow it across a class boun
 read the values it produces, and check the health and memory of the process that produced
 them.
 
-In [Chapter 3, Expose Your Java Operations to Copilot with MCP](/learn/java-spring-boot/3-expose-tools-with-mcp),
+In [Chapter 3, Expose Your Java Operations to Copilot with MCP](3-expose-tools-with-mcp.md),
 the same `TodoService` gets a second caller. Instead of a browser form, GitHub Copilot
 calls it — the app publishes its operations as Model Context Protocol tools, and a todo
 created from a chat prompt shows up on the very page you have been debugging.
@@ -231,4 +231,4 @@ created from a chat prompt shows up on the very page you have been debugging.
 
 ---
 
-Chapter 2 of 4 · Previous: [Build and Run Your First Spring Boot App](/learn/java-spring-boot/1-build-and-run) · Next: [Expose Your Java Operations to Copilot with MCP](/learn/java-spring-boot/3-expose-tools-with-mcp)
+Chapter 2 of 4 · Previous: [Build and Run Your First Spring Boot App](1-build-and-run.md) · Next: [Expose Your Java Operations to Copilot with MCP](3-expose-tools-with-mcp.md)

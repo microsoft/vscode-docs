@@ -213,7 +213,7 @@ storing anything, you have two implementations to keep in step.
 Your Java application can now be called by an assistant, and you have verified that the
 calls change real state rather than producing plausible text.
 
-In [Chapter 4, Let Copilot Test Your App with Playwright](/learn/java-spring-boot/4-test-with-playwright), we
+In [Chapter 4, Let Copilot Test Your App with Playwright](4-test-with-playwright.md), we
 point Copilot at the other side of the app. Instead of calling your service directly, it
 drives a real browser against the running page — filling the form, clicking the checkbox,
 deleting the row, and asserting each result along the way.
@@ -228,4 +228,4 @@ deleting the row, and asserting each result along the way.
 
 ---
 
-Chapter 3 of 4 · Previous: [Debug and Inspect a Spring Boot Request](/learn/java-spring-boot/2-debug-and-inspect) · Next: [Let Copilot Test Your App with Playwright](/learn/java-spring-boot/4-test-with-playwright)
+Chapter 3 of 4 · Previous: [Debug and Inspect a Spring Boot Request](2-debug-and-inspect.md) · Next: [Let Copilot Test Your App with Playwright](4-test-with-playwright.md)
