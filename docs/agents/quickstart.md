@@ -136,6 +136,13 @@ The {% data variables.copilot.agents_window %} and {% data variables.copilot.cha
 
 * From the {% data variables.copilot.chat_view %}, select **Open in Agents** in the title bar. The {% data variables.copilot.agents_window %} opens with the same session selected.
 
+## Clean up resources
+
+When you no longer need the app, run these steps to clean up your local resources:
+
+* Close the `agent-quickstart` folder in {% data variables.product.prodname_vscode_shortname %}.
+* Delete the `agent-quickstart` folder from your computer.
+
 ## Next steps
 
 * [Build a complete app with agents](/docs/agents/agents-tutorial.md).
