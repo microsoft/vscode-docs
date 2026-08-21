@@ -13,7 +13,7 @@ Synced sessions are private unless you explicitly share them.
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Try it">
 Launch a chat prompt that summarizes your recent coding sessions into a standup report.
 
-* [Open in VS Code](vscode://GitHub.Copilot-Chat/chat?agent=agent%26prompt=%2Fchronicle%3Astandup)
+* [Open in {% data variables.product.prodname_vscode_shortname %}](vscode://GitHub.Copilot-Chat/chat?agent=agent%26prompt=%2Fchronicle%3Astandup)
 
 </div>
 

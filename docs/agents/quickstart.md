@@ -41,7 +41,7 @@ The **{% data variables.copilot.agents_window %}** (Preview) is a dedicated wind
 
 1. In {% data variables.product.prodname_vscode_shortname %}, select **Open in Agents** in the title bar.
 
-    ![Screenshot of opening the Agents window in VS Code.](images/agents-quickstart/open-agents-window.png)
+    ![Screenshot of opening the Agents window in {% data variables.product.prodname_vscode_shortname %}.](images/agents-quickstart/open-agents-window.png)
 
     You can also run **Chat: Open Agents Window** from the Command Palette (`kb(workbench.action.showCommands)`).
 
@@ -76,7 +76,7 @@ The **{% data variables.copilot.chat_view %}** lets you work with agents alongsi
 
     If {% data variables.product.prodname_vscode_shortname %} asks whether you trust the folder, select **Manage** from the notification, and then select **Trust**.
 
-    ![Screenshot of trusting the folder in VS Code.](images/agents-quickstart/editor-trust-folder.png)
+    ![Screenshot of trusting the folder in {% data variables.product.prodname_vscode_shortname %}.](images/agents-quickstart/editor-trust-folder.png)
 
 1. Open the {% data variables.copilot.chat_view %} with `kb(workbench.action.chat.open)`, and then select **New Chat** (`+`).
 

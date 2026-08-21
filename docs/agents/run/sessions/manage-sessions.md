@@ -227,7 +227,7 @@ The {% data variables.copilot.chat_view %} operates in two modes: compact and si
 
 ### View sessions from other applications
 
-VS Code can discover local agent sessions created by supported applications outside VS Code. You can open and continue sessions from Copilot CLI, the GitHub Copilot app, Claude Code, and Codex in the Chat view or Agents window.
+{% data variables.product.prodname_vscode_shortname %} can discover local agent sessions created by supported applications outside {% data variables.product.prodname_vscode_shortname %}. You can open and continue sessions from Copilot CLI, the GitHub Copilot app, Claude Code, and Codex in the Chat view or Agents window.
 
 For Copilot sessions, discovery includes sessions that are associated with a repository and were updated within the last seven days.
 
@@ -241,7 +241,7 @@ By default, sessions created in other applications are hidden. To control which 
 
 The filter applies to the sessions lists in both the Chat view and Agents window. You can also configure it with the `setting(chat.agentSessions.showExternal)` setting.
 
-When you open an external session in the Agents window, a one-time banner indicates that the session was created in another application. You can choose which external sessions to show from the banner. If your choice hides the open session, VS Code asks you to confirm the change.
+When you open an external session in the Agents window, a one-time banner indicates that the session was created in another application. You can choose which external sessions to show from the banner. If your choice hides the open session, {% data variables.product.prodname_vscode_shortname %} asks you to confirm the change.
 
 When you send a message in an external session, the Agent Host adopts it. The session is no longer external, so the **External** filter no longer affects its visibility.
 
