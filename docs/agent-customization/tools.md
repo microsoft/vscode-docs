@@ -1,7 +1,7 @@
 ---
 ContentId: 4ef4e839-e552-4b61-954e-ad58fbd9a2bd
 DateApproved: 8/19/2026
-MetaDescription: Manage the client-side tools available to Copilot harness sessions in Agent Host across chats and Visual Studio Code user profiles.
+MetaDescription: Manage the client-side tools available to Copilot harness sessions in Agent Host across chats and {% data variables.product.prodname_vscode %} user profiles.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
 - ai
@@ -14,7 +14,7 @@ Keywords:
 ---
 # Manage tools for the Copilot harness
 
-The **Tools** section in the Agent Customizations editor controls which client-side tools Visual Studio Code makes available to sessions that use the [Copilot harness](/docs/agents/run/agent-harnesses.md). Use it to limit the tools that the agent can choose from across chats.
+The **Tools** section in the Agent Customizations editor controls which client-side tools {% data variables.product.prodname_vscode %} makes available to sessions that use the [Copilot harness](/docs/agents/run/agent-harnesses.md). Use it to limit the tools that the agent can choose from across chats.
 
 Disabled tools aren't advertised to the agent. This reduces the set of tools that the agent has to consider and prevents it from requesting tools that you don't want it to use.
 
@@ -38,7 +38,7 @@ If the **Tools** section isn't visible, verify that the Copilot harness is selec
 
 ## Manage tool availability
 
-Tools are organized into collapsible groups. For example, VS Code groups tools for editor operations, tasks, the integrated browser, and extensions that contribute language model tools.
+Tools are organized into collapsible groups. For example, {% data variables.product.prodname_vscode_shortname %} groups tools for editor operations, tasks, the integrated browser, and extensions that contribute language model tools.
 
 All client-side tools are available by default. You can:
 
@@ -51,13 +51,13 @@ The count beside **Tools** in the customization navigation includes enabled clie
 
 Changes apply to Copilot harness sessions and persist in the active [user profile](/docs/configure/profiles.md).
 
-The **Copilot** group lists the harness's built-in tools. These tools run in the Copilot runtime and are read-only in the Tools section. Other tools run in the VS Code client and are available to the agent only while the client is connected.
+The **Copilot** group lists the harness's built-in tools. These tools run in the Copilot runtime and are read-only in the Tools section. Other tools run in the {% data variables.product.prodname_vscode_shortname %} client and are available to the agent only while the client is connected.
 
 Tool availability is separate from tool approval. Enabling a tool makes it available to the agent, but doesn't bypass the configured [approval and permission controls](/docs/agents/run/approvals.md).
 
 ## Add tools from extensions
 
-In the main VS Code window, you can find extensions that contribute language model tools:
+In the main {% data variables.product.prodname_vscode_shortname %} window, you can find extensions that contribute language model tools:
 
 1. Open the **Tools** section and select **Browse Marketplace**.
 
