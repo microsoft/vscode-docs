@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: d9038699-4ffe-485b-b40a-b1260a9973ad
-DateApproved: 8/12/2026
+DateApproved: 8/19/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Tutorial that walks you through creating a VS Code extension that uses the Language Model API to generate AI-powered code annotations.

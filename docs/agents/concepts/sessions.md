@@ -1,6 +1,6 @@
 ---
 ContentId: c4a81e63-9d27-4b5f-8e10-2a7f6c9d3b04
-DateApproved: 8/12/2026
+DateApproved: 8/19/2026
 MetaDescription: Understand agent sessions in {% data variables.product.prodname_vscode_shortname %}, the unit of work with an agent, how sessions are shared across surfaces, and how to hand off a session between agents.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -43,6 +43,8 @@ Because each session is independent, you can run several at once and move betwee
 ## Sessions across surfaces
 
 The [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) and the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) share the same sessions. You can start a task in one surface and continue it in the other, and the sessions list gives you a unified view of all your sessions regardless of where they run.
+
+{% data variables.product.prodname_vscode_shortname %} can also discover supported local sessions created in Copilot CLI, the GitHub Copilot app, Claude Code, and Codex. A discovered session is external until you send a message from {% data variables.product.prodname_vscode_shortname %}. The Agent Host then adopts the session, and the external-session filter no longer controls whether it appears. Learn how to [view sessions from other applications](/docs/agents/run/sessions/manage-sessions.md#view-sessions-from-other-applications).
 
 On the [Agent Host](/docs/agents/concepts/agent-host.md), an agent can also coordinate work across sessions. It can list sessions, create new sessions or chats, read another session's recent context, and send follow-up messages between sessions.
 

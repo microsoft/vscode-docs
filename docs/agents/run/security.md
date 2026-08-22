@@ -1,6 +1,6 @@
 ---
 ContentId: c99a8442-e202-4427-b7c3-695469a00f92
-DateApproved: 8/12/2026
+DateApproved: 8/19/2026
 MetaDescription: Understand security considerations, built-in protections, and best practices when using AI-powered development features like agents and MCP servers in {% data variables.product.prodname_vscode_shortname %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -21,7 +21,7 @@ AI-powered development capabilities can autonomously perform different developme
 > This article covers security controls in the {% data variables.product.prodname_vscode_shortname %} editor for AI-powered development features. For information about how GitHub Copilot handles your data, privacy, and compliance, see the [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/). For organization-wide AI policies and controls, see [AI settings for your organization](/docs/enterprise/ai-settings.md) and [enterprise policies](/docs/enterprise/policies.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Trust and safety concepts">
-Learn about trust boundaries, agent sandboxing, and the reasoning behind VS Code's security model.
+Learn about trust boundaries, agent sandboxing, and the reasoning behind {% data variables.product.prodname_vscode_shortname %}'s security model.
 
 * [Read about trust and safety](/docs/agents/concepts/trust-and-safety.md)
 

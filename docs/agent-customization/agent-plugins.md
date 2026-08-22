@@ -1,6 +1,6 @@
 ---
 ContentId: f9b2c4e3-8a7d-4e1f-b5c3-2d9a6f8e4b71
-DateApproved: 8/12/2026
+DateApproved: 8/19/2026
 MetaDescription: Learn how to discover, install, and manage agent plugins in {% data variables.product.prodname_vscode_shortname %}, including plugins that follow the open Agent Plugins standard.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -18,8 +18,8 @@ Keywords:
 
 Agent plugins are prepackaged bundles of agent customizations that you can discover and install from plugin marketplaces in {% data variables.product.prodname_vscode %}. Plugins work alongside your locally defined customizations. When you install a plugin, its supported customizations appear in chat.
 
-Agent Plugins is an [open standard](https://agent-plugins.org/) for packaging [agent skills](/docs/agent-customization/agent-skills.md) and [MCP servers](/docs/agent-customization/mcp-servers.md) that works across multiple AI agents, including GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}, {% data variables.copilot.copilot_cli %}, and the {% data variables.copilot.github_copilot_app %}.
-Through its existing Copilot and Claude plugin formats, {% data variables.product.prodname_vscode_shortname %} also supports client-specific plugin capabilities, including slash commands, [custom agents](/docs/agent-customization/custom-agents.md), and [hooks](/docs/agent-customization/hooks.md).
+Agent Plugins is an [open standard](https://agent-plugins.org/) for packaging [agent skills](/docs/agent-customization/agent-skills.md) and [MCP servers](/docs/agent-customization/mcp-servers.md) that works across multiple AI agents, including GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}, GitHub Copilot CLI, and the GitHub Copilot app.
+{% data variables.product.prodname_vscode_shortname %} also supports client-specific plugin capabilities, including slash commands, [custom agents](/docs/agent-customization/custom-agents.md), rules, and [hooks](/docs/agent-customization/hooks.md). In an Agent Plugins package, these come from the `com.github.copilot` namespace. The existing Copilot and Claude plugin formats keep their own layouts.
 
 For how plugins fit into the broader set of customization options, see [Customization concepts](/docs/agents/concepts/customization.md).
 
@@ -28,7 +28,7 @@ For how plugins fit into the broader set of customization options, see [Customiz
 
 ## What plugins provide
 
-Agent Plugins 1.0 defines skills and MCP servers as portable component types. Other capabilities are client-specific and can use the standard's reverse-domain [client extension namespaces](https://agent-plugins.org/plugin-authors/client-extensions). {% data variables.product.prodname_vscode_shortname %} currently ignores client extension data and directories in Agent Plugins 1.0 packages.
+Agent Plugins 1.0 defines skills and MCP servers as portable component types. Other capabilities are client-specific and use the standard's reverse-domain [client extension namespaces](https://agent-plugins.org/plugin-authors/client-extensions). {% data variables.product.prodname_vscode_shortname %} reads Copilot-specific components from the `com.github.copilot` namespace and ignores namespaces owned by other clients.
 
 | Capability | Description | Client-specific | Standard |
 |------------|-------------|:--------------:|:--------:|
@@ -38,7 +38,7 @@ Agent Plugins 1.0 defines skills and MCP servers as portable component types. Ot
 | [Hooks](/docs/agent-customization/hooks.md) | Shell commands that execute at agent lifecycle points | ✓ | |
 | Slash commands | Commands you can invoke with `/` in chat | ✓ | |
 
-For example, a Copilot-format testing plugin might include a `test-runner` skill with scripts, a `test-reviewer` agent with read-only tools, and an MCP server for a test reporting dashboard. The plugin directory structure looks like this:
+For example, a testing plugin might include a `test-runner` skill with scripts, a `test-reviewer` agent with read-only tools, and an MCP server for a test reporting dashboard. In the Agent Plugins format, the directory structure looks like this:
 
 ```text
 my-testing-plugin/
@@ -47,14 +47,17 @@ my-testing-plugin/
     test-runner/
       SKILL.md             # Testing skill instructions
       run-tests.sh         # Supporting script
-  agents/
-    test-reviewer.agent.md # Code review agent
-  hooks/
-    hooks.json             # Hook configuration
+  mcp.json                 # MCP server definitions
   scripts/
     validate-tests.sh      # Hook script
-  .mcp.json                # MCP server definitions
+  com.github.copilot/
+    agents/
+      test-reviewer.agent.md  # Code review agent
+    hooks/
+      hooks.json           # Hook configuration
 ```
+
+Plugins in the Copilot and Claude formats provide the same capabilities from different locations. See [Plugin formats](#plugin-formats).
 
 Once installed, plugin-provided customizations appear alongside your locally defined ones. For example, skills from a plugin show up in the **Configure Skills** menu, and MCP servers from a plugin appear in the MCP server list.
 
@@ -88,6 +91,23 @@ An Agent Plugins 1.0 package has a `plugin.json` file at its root that declares 
 | `extensions` | object | No | Client-specific data keyed by reverse-domain namespace. |
 
 Skills are discovered from the `skills/` folder, and MCP server configuration is discovered from the `mcp.json` file. You don't list these component paths in the manifest. Custom agents, hooks, commands, and MCP server definitions are not portable top-level manifest fields.
+
+Copilot-specific components live in the `com.github.copilot` directory at the plugin root, and Copilot-specific manifest data goes under the matching key in `extensions`:
+
+```text
+my-plugin/
+  plugin.json              # $schema declares Agent Plugins 1.0
+  skills/                  # Portable: agent skills
+  mcp.json                 # Portable: MCP server configuration
+  com.github.copilot/      # Copilot-specific components
+    agents/
+    commands/
+    rules/
+    hooks/
+      hooks.json
+```
+
+Other clients ignore the `com.github.copilot` namespace, so a package stays portable while keeping its Copilot capabilities.
 
 For the full field constraints and validation rules, see the [Agent Plugins manifest documentation](https://agent-plugins.org/plugin-authors/manifest).
 
@@ -211,7 +231,7 @@ Disabling a plugin stops its MCP servers. Tools provided by the stopped servers 
 Plugins can include [hooks](/docs/agent-customization/hooks.md) that run shell commands at agent lifecycle points. Plugin hooks work alongside your workspace and user-level hooks. When a plugin is enabled, its hooks fire in addition to any other hooks configured for the same event.
 
 > [!NOTE]
-> Hooks are client-specific and are not a portable Agent Plugins 1.0 component type.
+> Hooks are client-specific and are not a portable Agent Plugins 1.0 component type. In an Agent Plugins package, they come from the `com.github.copilot` namespace.
 
 ### Hook file location
 
@@ -219,6 +239,7 @@ The hook file location depends on the plugin format:
 
 | Plugin format | Hook file path |
 |---------------|----------------|
+| Agent Plugins 1.0 | `com.github.copilot/hooks/hooks.json` |
 | Claude | `hooks/hooks.json` |
 | Copilot | `hooks.json` (at the plugin root) |
 
@@ -226,8 +247,10 @@ The hook file location depends on the plugin format:
 
 ```text
 my-plugin/
-  hooks/
-    hooks.json           # Hook configuration (Claude format)
+  plugin.json
+  com.github.copilot/
+    hooks/
+      hooks.json         # Hook configuration (Agent Plugins format)
   scripts/
     format.sh            # Hook script referenced by hooks.json
 ```
@@ -455,7 +478,7 @@ Specify the following fields in the settings file to configure workspace plugin 
 
 Agent Plugins 1.0 is an open standard designed for cross-tool compatibility. A conformant plugin uses a root `plugin.json`, puts skills in `skills/`, and puts MCP server configuration in `mcp.json`. Compatible clients can discover the portable component types they support from the same package.
 
-Agent Plugins can also include client-specific manifest data and files under a stable reverse-domain namespace. Clients ignore namespaces they don't implement, so client-specific capabilities don't prevent other clients from loading the portable components. {% data variables.product.prodname_vscode_shortname %} currently ignores these namespaces and loads only the portable skills and MCP server configuration.
+Agent Plugins can also include client-specific manifest data and files under a stable reverse-domain namespace. Clients ignore namespaces they don't implement, so client-specific capabilities don't prevent other clients from loading the portable components. {% data variables.product.prodname_vscode_shortname %} reads custom agents, slash commands, rules, and hooks from the `com.github.copilot` namespace, which GitHub Copilot CLI and the GitHub Copilot app also read.
 
 For example:
 
@@ -464,7 +487,8 @@ my-plugin/
   plugin.json
   skills/
   mcp.json
-  com.example.client/
+  com.github.copilot/      # Read by {% data variables.product.prodname_vscode_shortname %} and other Copilot clients
+  com.example.client/      # Ignored by {% data variables.product.prodname_vscode_shortname %}
 ```
 
 {% data variables.product.prodname_vscode_shortname %} continues to support existing Copilot, Claude, and legacy OpenPlugin formats. Plugins that don't declare the Agent Plugins schema continue to use their existing format-specific discovery rules.

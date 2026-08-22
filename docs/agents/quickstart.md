@@ -1,6 +1,6 @@
 ---
 ContentId: 9f3c7e21-6b48-4d5a-a097-2e1c8f64b3d9
-DateApproved: 8/12/2026
+DateApproved: 8/19/2026
 MetaDescription: Build a web app with an AI agent in {% data variables.product.prodname_vscode_shortname %}, then review the code and use browser tools to validate the result.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -22,28 +22,40 @@ Follow a hands-on tutorial to build and refine an app with agents in {% data var
 
 ## Create a project folder
 
-On your computer, create an empty folder named `agent-quickstart`. The agent creates all the files for the app in this folder.
+You will create a project folder for the quickstart app on your computer. You will open this folder in {% data variables.product.prodname_vscode_shortname %} to work with the agent.
+
+Run the following command in your terminal to create the folder:
+
+```bash
+mkdir agent-quickstart
+```
 
 ## Build the app
 
-Choose where you want to work with the agent. Both options create the same app and give you access to the same session.
+Depending on your workstyle, you can choose to work with agents in the **{% data variables.copilot.agents_window %}** or the **{% data variables.copilot.chat_view %}**. Both options create the same app and give you access to the same session.
 
 {% tabs id="agent-surface" %}
 {% tab label="{% data variables.copilot.agents_window %}" %}
 
-The **{% data variables.copilot.agents_window %}** (Preview) is a dedicated window for assigning tasks and monitoring agents across your projects.
+The **{% data variables.copilot.agents_window %}** (Preview) is a dedicated window for assigning (high-level) tasks to agents across all your projects.
 
 1. In {% data variables.product.prodname_vscode_shortname %}, select **Open in Agents** in the title bar.
 
+    ![Screenshot of opening the Agents window in {% data variables.product.prodname_vscode_shortname %}.](images/agents-quickstart/open-agents-window.png)
+
     You can also run **Chat: Open Agents Window** from the Command Palette (`kb(workbench.action.showCommands)`).
 
-1. Select **New** at the top of the sidebar.
+1. Select **New** at the top of the left sidebar.
 
-1. From the workspace dropdown, select the `agent-quickstart` folder.
+1. From the workspace dropdown, choose **Select** from the **Local** tab and select the `agent-quickstart` folder you just created.
 
-    If {% data variables.product.prodname_vscode_shortname %} asks whether you trust the folder, select **Yes, I trust the authors**.
+    ![Screenshot of selecting the agent-quickstart folder when creating a new session.](images/agents-quickstart/agent-session-select-folder.png)
 
-1. Select the **Copilot** agent harness and the **Agent** role. Keep **Default Approvals** selected so that {% data variables.product.prodname_vscode_shortname %} asks before the agent runs actions that require approval.
+    If {% data variables.product.prodname_vscode_shortname %} asks whether you trust the folder, select **Trust**.
+
+1. Select the **Copilot** agent harness and the **Agent** role. Keep **Manual Permissions** selected so that {% data variables.product.prodname_vscode_shortname %} asks before the agent runs actions that require approval.
+
+    ![Screenshot of selecting the Copilot agent harness and the Agent role.](images/agents-quickstart/agent-session-select-harness-role.png)
 
 1. Enter the following prompt and press `kbstyle(Enter)`:
 
@@ -52,19 +64,27 @@ The **{% data variables.copilot.agents_window %}** (Preview) is a dedicated wind
     ```
 
 1. Follow the agent's progress and review any approval requests before you accept them.
+
+    The agent will create the `index.html` file and update it as it progresses through the task list web app creation. To perform specific actions, the agent requests your approval.
 
 {% /tab %}
 {% tab label="{% data variables.copilot.chat_view %}" %}
 
-The **{% data variables.copilot.chat_view %}** keeps the agent beside your editor, which is useful when you want to inspect and work with the generated code.
+The **{% data variables.copilot.chat_view %}** lets you work with agents alongside your editor within a specific project. This approach is useful for coding tasks where agents assist you in real-time while you develop your code.
 
-1. In {% data variables.product.prodname_vscode_shortname %}, select **File** > **Open Folder**, and then open the `agent-quickstart` folder.
+1. In {% data variables.product.prodname_vscode_shortname %}, select **File** > **Open Folder** from the menu, and then open the `agent-quickstart` folder.
 
-    If {% data variables.product.prodname_vscode_shortname %} asks whether you trust the folder, select **Yes, I trust the authors**.
+    If {% data variables.product.prodname_vscode_shortname %} asks whether you trust the folder, select **Manage** from the notification, and then select **Trust**.
+
+    ![Screenshot of trusting the folder in {% data variables.product.prodname_vscode_shortname %}.](images/agents-quickstart/editor-trust-folder.png)
 
 1. Open the {% data variables.copilot.chat_view %} with `kb(workbench.action.chat.open)`, and then select **New Chat** (`+`).
 
-1. Select the **Copilot** agent harness and the **Agent** role. Keep **Default Approvals** selected so that {% data variables.product.prodname_vscode_shortname %} asks before the agent runs actions that require approval.
+    ![Screenshot of opening a new chat in the Copilot chat view.](images/agents-quickstart/editor-new-chat.png)
+
+1. Select the **Copilot** agent harness and the **Agent** role. Keep **Manual Permissions** selected so that {% data variables.product.prodname_vscode_shortname %} asks before the agent runs actions that require approval.
+
+    ![Screenshot of selecting the Copilot agent harness and the Agent role with Manual Permissions.](images/agents-quickstart/agent-session-editor-select-harness-role.png)
 
 1. Enter the following prompt and press `kbstyle(Enter)`:
 
@@ -74,23 +94,29 @@ The **{% data variables.copilot.chat_view %}** keeps the agent beside your edito
 
 1. Follow the agent's progress and review any approval requests before you accept them.
 
+    The agent will create the `index.html` file and update it as it progresses through the task list web app creation. To perform specific actions, the agent requests your approval.
+
 {% /tab %}
 {% /tabs %}
 
-The agent creates `index.html` and reports when the task is complete.
-
 ## Review and validate the result
 
-AI-generated code can contain mistakes. Review the code, ask the agent to validate the app in the integrated browser, and manually confirm the result before you keep it.
+It's important to review the generated code and outcome carefully. You can let the agent validate key scenarios and edge cases for you by running the app in the integrated browser and observing its behavior.
+
+Notice that the agent might have launched the integrated browser to validate that the app runs correctly as part of creating the task list web app in the previous steps.
+
+In the following steps you'll ask the agent to validate the basic functionality of the task list web app.
 
 {% tabs id="agent-surface" %}
 {% tab label="{% data variables.copilot.agents_window %}" %}
 
-1. Open the **Changes** panel and select `index.html` to review the generated code.
+1. Open the **Changes** panel in the right sidebar (`kb(workbench.view.agentSessions.changesContainer)`) and select `index.html` to review the generated code.
 
-1. Select **Customizations** > **Tools** and verify that **Integrated Browser** is selected.
+    If you're not happy with a specific part of the, select it in the diff view and enter feedback to send it to the agent.
 
-1. Enter the following prompt:
+    ![Screenshot of reviewing the generated code in the Changes panel.](images/agents-quickstart/review-changes-panel.png)
+
+1. Now, enter the following prompt to have the agent open the app in the integrated browser and validate its functionality.
 
     ```prompt
     Open index.html in the integrated browser and validate the app.
@@ -99,18 +125,16 @@ AI-generated code can contain mistakes. Review the code, ask the agent to valida
     fix the issue and repeat the complete flow.
     ```
 
-1. Review the agent's tool calls, code changes, and verification report.
+1. Notice how the agent interacts with the integrated browser and validates the user scenarios.
 
-1. In the **Files** panel, right-click `index.html`, and then select **Open in Integrated Browser**. Manually try the task flow to confirm the result.
+    ![Screenshot of the integrated browser validating the app.](images/agents-quickstart/integrated-browser-validation.png)
 
 {% /tab %}
 {% tab label="{% data variables.copilot.chat_view %}" %}
 
 1. Select `index.html` in the agent response to review the generated code and its diff.
 
-1. In the {% data variables.copilot.chat_view %}, select **Open Customizations** (gear icon) > **Tools** and verify that **Integrated Browser** is selected.
-
-1. Enter the following prompt:
+1. Now, enter the following prompt to have the agent open the app in the integrated browser and validate its functionality.
 
     ```prompt
     Open index.html in the integrated browser and validate the app.
@@ -119,9 +143,9 @@ AI-generated code can contain mistakes. Review the code, ask the agent to valida
     fix the issue and repeat the complete flow.
     ```
 
-1. Review the agent's tool calls, code changes, and verification report.
+1. Notice how the agent interacts with the integrated browser and validates the user scenarios.
 
-1. Open `index.html` from the Explorer, and then select **Open in Integrated Browser** in the editor title bar. Manually try the task flow to confirm the result.
+    ![Screenshot of the integrated browser validating the app.](images/agents-quickstart/editor-integrated-browser-validation.png)
 
 {% /tab %}
 {% /tabs %}
@@ -135,6 +159,13 @@ The {% data variables.copilot.agents_window %} and {% data variables.copilot.cha
 * From the {% data variables.copilot.agents_window %}, select **Open in Editor** in the title bar. {% data variables.product.prodname_vscode_shortname %} opens the project in an editor window with the session available in the {% data variables.copilot.chat_view %}.
 
 * From the {% data variables.copilot.chat_view %}, select **Open in Agents** in the title bar. The {% data variables.copilot.agents_window %} opens with the same session selected.
+
+## Clean up resources
+
+When you no longer need the app, run these steps to clean up your local resources:
+
+* Close the `agent-quickstart` folder in {% data variables.product.prodname_vscode_shortname %}.
+* Delete the `agent-quickstart` folder from your computer.
 
 ## Next steps
 

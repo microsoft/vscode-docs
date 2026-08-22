@@ -1,6 +1,6 @@
 ---
 ContentId: bd1be8cf-b745-4737-be48-db381ec3acc6
-DateApproved: 8/12/2026
+DateApproved: 8/19/2026
 MetaDescription: Use GitHub in Visual Studio Code to clone repositories, manage pull requests and issues, or edit remote repositories without cloning.
 Keywords:
 - source control

@@ -1,6 +1,6 @@
 ---
 ContentId: d5f8a2c1-3e7b-4a9d-b6c4-8f2e1a3d5c7b
-DateApproved: 8/12/2026
+DateApproved: 8/19/2026
 MetaDescription: Use the {% data variables.copilot.chat_view %} in {% data variables.product.prodname_vscode_shortname %} for a code-first experience where agents assist you while you write and edit code in a single workspace.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -23,7 +23,7 @@ In this article, you learn how to open and work with agents in the {% data varia
 > The {% data variables.copilot.chat_view %} (code-first) and the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) (agent-first) are the main surfaces for working with agents. They share the same sessions and settings, so you can move freely between them. To switch, select the **Open in Agents** button in the title bar, or run `code --agents`. For help choosing, see [Choose how you work with agents](/docs/agents/overview.md#choose-how-you-work-with-agents).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with agents">
-Follow a hands-on tutorial to build an app with AI agents in VS Code.
+Follow a hands-on tutorial to build an app with AI agents in {% data variables.product.prodname_vscode_shortname %}.
 
 * [Start agentic coding tutorial](/docs/agents/agents-tutorial.md)
 

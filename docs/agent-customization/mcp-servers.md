@@ -1,6 +1,6 @@
 ---
 ContentId: 7c550054-4ade-4665-b368-215798c48673
-DateApproved: 8/12/2026
+DateApproved: 8/19/2026
 MetaDescription: Learn how to add and manage Model Context Protocol (MCP) servers with GitHub Copilot in {% data variables.product.prodname_vscode %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -72,7 +72,7 @@ You can manually configure MCP servers by editing the `mcp.json` file. There are
 
 You can also run **MCP: Add Server** in the Command Palette (`kb(workbench.action.showCommands)`) to add a server through a guided flow, choosing either **Workspace** or **Global** as the target.
 
-When [Agent Host](/docs/agents/concepts/agent-host.md) is enabled, the Agent Host doesn't read `.vscode/mcp.json` directly. Instead, {% data variables.product.prodname_vscode_shortname %} forwards your MCP server configuration to the Agent Host, except servers that require interactive input (for example, `${input:...}` variables). For MCP configuration that is portable across the Agent Host and other Copilot tools, use a workspace `.mcp.json` file or a user `~/.copilot/mcp-config.json` file, which the Agent Host reads natively. Learn more about [behavior on the extension host](/docs/agents/concepts/agent-host.md#behavior-on-the-extension-host).
+For sessions that run on [Agent Host](/docs/agents/concepts/agent-host.md), the Agent Host doesn't read `.vscode/mcp.json` directly. Instead, {% data variables.product.prodname_vscode_shortname %} forwards your MCP server configuration to the Agent Host, except servers that require interactive input (for example, `${input:...}` variables). For MCP configuration that is portable across the Agent Host and other Copilot tools, use a workspace `.mcp.json` file or a user `~/.copilot/mcp-config.json` file, which the Agent Host reads natively. Learn more about [behavior on the extension host](/docs/agents/concepts/agent-host.md#behavior-on-the-extension-host).
 
 > [!IMPORTANT]
 > Avoid hardcoding sensitive information like API keys. Use [input variables](/docs/agents/reference/mcp-configuration.md#input-variables-for-sensitive-data) or environment files instead.

@@ -1,6 +1,6 @@
 ---
 ContentId: f8e2a7c1-9d3b-4e5f-a6c8-1b2d3e4f5a6b
-DateApproved: 8/12/2026
+DateApproved: 8/19/2026
 MetaDescription: Use the integrated browser in VS Code to preview and debug web apps, add page context to chat, and share browser sessions with AI agents.
 MetaSocialImage: images/debugging/debugging-social.png
 ---

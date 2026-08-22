@@ -1,6 +1,6 @@
 ---
 ContentId: 8b4f3c21-4e02-4a89-9f15-7a8d6b5c2e91
-DateApproved: 8/12/2026
+DateApproved: 8/19/2026
 MetaDescription: Learn how to create custom instructions for {% data variables.copilot.copilot_chat %} in {% data variables.product.prodname_vscode_shortname %} to ensure AI responses match your coding practices, project requirements, and development standards.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -141,7 +141,7 @@ You can define instructions for a specific workspace or at the user level, where
 | User profile | `~/.copilot/instructions` or `~/.claude/rules` |
 
 > [!IMPORTANT]
-> When [Agent Host](/docs/agents/concepts/agent-host.md) is enabled, the agent reads user-level instructions from harness-agnostic folders like `~/.copilot/instructions` and `~/.claude/rules` and not from {% data variables.product.prodname_vscode_shortname %} profile user data. To use existing user-level instructions with the Copilot agent, store them in `~/.copilot/instructions` (or `~/.claude/rules`).
+> For sessions that run on [Agent Host](/docs/agents/concepts/agent-host.md), the agent reads user-level instructions from harness-agnostic folders like `~/.copilot/instructions` and `~/.claude/rules` and not from {% data variables.product.prodname_vscode_shortname %} profile user data. To move existing user-level instructions to these locations, use the [user customization migration](/docs/agent-customization/overview.md#migrate-user-customizations-experimental).
 
 {% data variables.product.prodname_vscode_shortname %} searches these folders recursively, to enable you to organize instructions files in subdirectories. For example, you can group instructions by team, language, or module:
 

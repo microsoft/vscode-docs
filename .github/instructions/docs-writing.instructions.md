@@ -70,6 +70,10 @@ These are our documentation writing style guidelines.
 
 * Use code blocks with `prompt` as the language for AI prompts that use agent mode, optionally followed by "- <custom agent name>" to use a specific custom agent. For example, use `prompt-plan` to indicate that the prompt is intended for a custom agent named "plan".
 
+## Reusable variables
+
+* When you add or update a reusable variable (`{% data variables.<group>.<name> %}`), verify that its full path exists in the repository's [`data/variables` definitions](../../data/variables/README.md) and resolves to the intended text. Don't infer or guess the variable group or name.
+
 ## Alerts
 
 * Alerts are a Markdown extension to create block quotes that render with colors and icons that indicate the significance of the content. The following alert types are supported:

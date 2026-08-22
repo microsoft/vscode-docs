@@ -1,7 +1,7 @@
 ---
 ContentId: e6b33fcb-8240-49dd-b6ca-5412d6fa669a
-DateApproved: 8/12/2026
-MetaDescription: Use inline chat and Quick Chat in Visual Studio Code for targeted editor changes, terminal command suggestions, and short AI interactions.
+DateApproved: 8/19/2026
+MetaDescription: Use inline chat and Quick Chat in {% data variables.product.prodname_vscode %} for targeted editor changes, terminal command suggestions, and short AI interactions.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Inline chat and Quick Chat
@@ -27,7 +27,7 @@ To use editor inline chat:
     > [!TIP]
     > Select a block of code in the editor to scope the prompt to that code.
 
-1. VS Code shows a diff with the code suggestion inline in the editor. Use **Keep** or **Undo** to accept or reject the changes.
+1. {% data variables.product.prodname_vscode_shortname %} shows a diff with the code suggestion inline in the editor. Use **Keep** or **Undo** to accept or reject the changes.
 
     ![Screenshot showing editor inline chat suggesting a non-recursive factorial implementation.](images/copilot-chat/inline-chat-recursion.png)
 
@@ -41,7 +41,7 @@ On files that don't belong to any chat session, `kb(inlinechat.start)` always op
 
 ### Show a visual hint on text selection (Experimental)
 
-When you select text in the editor, VS Code can display a visual hint to help you start inline chat for the selected code. Use the `setting(inlineChat.affordance)` setting to control how this hint appears:
+When you select text in the editor, {% data variables.product.prodname_vscode_shortname %} can display a visual hint to help you start inline chat for the selected code. Use the `setting(inlineChat.affordance)` setting to control how this hint appears:
 
 * `off`: no hint is shown when you select text
 * `gutter`: the hint appears in the line number area next to your selection
@@ -60,7 +60,7 @@ You can bring up terminal inline chat in the [integrated terminal](/docs/termina
 
 To use terminal inline chat:
 
-1. Open the terminal in VS Code by selecting the **View** > **Terminal** menu item or using the `kb(workbench.action.terminal.toggleTerminal)` keyboard shortcut.
+1. Open the terminal in {% data variables.product.prodname_vscode_shortname %} by selecting the **View** > **Terminal** menu item or using the `kb(workbench.action.terminal.toggleTerminal)` keyboard shortcut.
 
 1. Start terminal inline chat by using the `kb(workbench.action.terminal.chat.start)` keyboard shortcut or running the **Terminal Inline Chat** command in the Command Palette.
 
@@ -76,7 +76,7 @@ To use terminal inline chat:
 
 You can change the language model that is used for editor inline chat. To configure the default model for inline chat, use the `setting(inlineChat.defaultModel)` setting. The setting lists all available models from the model picker.
 
-If you change the model during an inline chat session, the selection persists for the remainder of the session. After you reload VS Code, the model resets to the value specified in the `setting(inlineChat.defaultModel)` setting.
+If you change the model during an inline chat session, the selection persists for the remainder of the session. After you reload {% data variables.product.prodname_vscode_shortname %}, the model resets to the value specified in the `setting(inlineChat.defaultModel)` setting.
 
 Learn more about [choosing the right model for your task](/docs/agents/concepts/language-models.md#choose-the-right-model).
 
@@ -93,7 +93,7 @@ Type your prompt and press `kbstyle(Enter)` to get a response. Quick Chat suppor
 
 ## Related resources
 
-* [Use chat in VS Code](/docs/chat/chat-overview.md)
+* [Use chat in {% data variables.product.prodname_vscode_shortname %}](/docs/chat/chat-overview.md)
 * [Add context to your chat prompt](/docs/chat/copilot-chat-context.md)
 * [Review AI-generated code edits](/docs/agents/run/review-code-edits.md)
-* [AI language models in VS Code](/docs/agent-customization/language-models.md)
+* [AI language models in {% data variables.product.prodname_vscode_shortname %}](/docs/agent-customization/language-models.md)

@@ -1,6 +1,6 @@
 ---
 ContentId: 276ecd8f-2a76-467e-bf82-846d49c13ab5
-DateApproved: 8/12/2026
+DateApproved: 8/19/2026
 MetaDescription: Learn how to create custom agents (formerly custom chat modes) to tailor AI chat behavior in {% data variables.product.prodname_vscode_shortname %} for your specific workflows and development scenarios.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:
@@ -20,7 +20,7 @@ Custom agents enable you to configure the AI to adopt different personas tailore
 
 You can also use handoffs to create guided workflows between agents. Transition seamlessly from one specialized agent to another with a single select. For example, move from a planning agent directly into an implementation agent, or hand off to a code reviewer with the relevant context.
 
-You can use the [Agent Customizations editor](/docs/agent-customization/overview.md#use-the-agent-customizations-editor) (Preview) to discover, create, and manage all your agent customizations in one place. Run **Chat: Open Customizations** from the Command Palette.
+You can use the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) (Preview) to discover, create, and manage all your agent customizations in one place. Run **Chat: Open Customizations** from the Command Palette.
 
 This article describes how to create and manage custom agents in {% data variables.product.prodname_vscode_shortname %}.
 
@@ -86,7 +86,7 @@ You can define custom agents for a specific workspace or at the user level, wher
 To create a user-level custom agent, use the Agent Customizations editor or the **Chat: New Custom Agent** command.
 
 > [!IMPORTANT]
-> When [Agent Host](/docs/agents/concepts/agent-host.md) is enabled, the agent reads user-level custom agents from `~/.copilot/agents` and not from {% data variables.product.prodname_vscode_shortname %} profile user data. To use existing user-level custom agents with the Copilot agent, store them in `~/.copilot/agents`.
+> For sessions that run on [Agent Host](/docs/agents/concepts/agent-host.md), the agent reads user-level custom agents from `~/.copilot/agents` and not from {% data variables.product.prodname_vscode_shortname %} profile user data. To move existing user-level custom agents to this location, use the [user customization migration](/docs/agent-customization/overview.md#migrate-user-customizations-experimental).
 
 > [!TIP]
 > In a monorepo, enable `setting(chat.useCustomizationsInParentRepositories)` to discover custom agents from the parent repository root. Learn more about [parent repository discovery](/docs/agent-customization/overview.md#use-customizations-in-a-monorepo).

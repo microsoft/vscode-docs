@@ -1,6 +1,6 @@
 ---
 ContentId: b3e7a1d4-5f2c-4e9a-8b6d-1c0f3a2e5d47
-DateApproved: 8/12/2026
+DateApproved: 8/19/2026
 MetaDescription: Operate the {% data variables.product.prodname_vscode_shortname %} {% data variables.copilot.agents_window %} to select sessions, review workspace files and changes, validate results, and commit agent work.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -36,6 +36,7 @@ For help choosing between the {% data variables.copilot.agents_window %} and the
 * One of the following authentication options:
   * Access to GitHub Copilot. Follow the steps in [Set up GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}](/docs/setup/copilot.md) to sign in and activate your subscription.
   * An [existing Claude configuration](/docs/agents/run/agent-harnesses.md#use-claude-without-github-sign-in-experimental) for the experimental signed-out experience.
+  * An [existing ChatGPT sign-in for Codex](/docs/agents/run/agent-harnesses.md#use-codex-without-github-sign-in-experimental) for the experimental signed-out experience.
 
 ## Open the {% data variables.copilot.agents_window %}
 
@@ -58,13 +59,15 @@ By default, the {% data variables.copilot.agents_window %} requires GitHub authe
 
 ### Open without GitHub sign-in (Experimental)
 
-If Claude is configured with its own Anthropic credentials, you can open the Agents window without signing in to GitHub. Enable `setting(chat.agentHost.allowSignedOutWhenUsable)` before you open the window. This setting is off by default.
+On desktop, you can open the Agents window without signing in to GitHub if Claude is configured with Anthropic credentials or Codex is signed in to ChatGPT. Enable `setting(chat.agentHost.allowSignedOutWhenUsable)` before you open the window. This setting is off by default, but it might be enabled by an experiment.
 
-When you open the Agents window while signed out, a notification indicates that VS Code discovered your existing Claude configuration. The model picker only shows models that use your Anthropic credentials. Select **Sign in to GitHub** in the notification to access models and features that use your Copilot subscription.
+To use a ChatGPT subscription, enable `setting(chat.agentHost.codexAgent.enabled)`, open the account menu in the Agents window, and select **Sign in to ChatGPT**. After you sign in, you can sign out of GitHub and continue to use ChatGPT-backed Codex models.
 
-Dismiss the notification with **X** to hide it for the current window. Select **Don't Show Again** to hide it for future windows on the same machine.
+While you're signed out of GitHub, the model picker only shows models from providers with available credentials. Sign in to GitHub from the account menu to add Copilot-backed models. If both Copilot and ChatGPT provide a model with the same name, the model picker identifies the provider.
 
-This signed-out experience currently supports Claude. If VS Code doesn't find a provider that can run with its own credentials, the Agents window shows the existing GitHub sign-in experience. Providers, models, and operations that require GitHub authentication prompt you to sign in when you select them.
+When {% data variables.product.prodname_vscode_shortname %} discovers an existing Claude configuration, a notification indicates that Claude is available without GitHub sign-in. Dismiss the notification with **X** to hide it for the current window. Select **Don't Show Again** to hide it for future windows on the same machine.
+
+If {% data variables.product.prodname_vscode_shortname %} doesn't find a provider that can run with its own credentials, the Agents window shows the existing GitHub sign-in experience. Providers, models, and operations that require GitHub authentication prompt you to sign in when you select them. The browser-based Agents window always requires GitHub sign-in.
 
 ## {% data variables.copilot.agents_window %} interface overview
 
@@ -237,7 +240,7 @@ These commands are also available in the Command Palette (`kb(workbench.action.s
 
 ### Work with multiple chats in a session
 
-Supported agent host sessions can contain multiple independent chats that share the same workspace and worktree. Use peer chats for parallel tasks or side questions, and open delegated subagents as read-only chats. Learn how to [run multiple chats and ask side questions](/docs/agents/run/sessions/manage-sessions.md#run-multiple-chats-in-a-session) and [follow subagents](/docs/agents/run/subagents.md#what-you-see-in-chat).
+Supported agent host sessions can contain multiple independent chats that share the same workspace and worktree. Arrange peer chats, side chats, and read-only subagent chats in horizontal or vertical groups to work with multiple conversations at the same time. Learn how to [run multiple chats and ask side questions](/docs/agents/run/sessions/manage-sessions.md#run-multiple-chats-in-a-session) and [follow subagents](/docs/agents/run/subagents.md#what-you-see-in-chat).
 
 ## Customize and configure the {% data variables.copilot.agents_window %}
 
