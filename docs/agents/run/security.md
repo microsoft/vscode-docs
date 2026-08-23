@@ -21,7 +21,7 @@ AI-powered development capabilities can autonomously perform different developme
 > This article covers security controls in the {% data variables.product.prodname_vscode_shortname %} editor for AI-powered development features. For information about how GitHub Copilot handles your data, privacy, and compliance, see the [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/). For organization-wide AI policies and controls, see [AI settings for your organization](/docs/enterprise/ai-settings.md) and [enterprise policies](/docs/enterprise/policies.md).
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Trust and safety concepts">
-Learn about trust boundaries, agent sandboxing, and the reasoning behind VS Code's security model.
+Learn about trust boundaries, agent sandboxing, and the reasoning behind {% data variables.product.prodname_vscode_shortname %}'s security model.
 
 * [Read about trust and safety](/docs/agents/concepts/trust-and-safety.md)
 

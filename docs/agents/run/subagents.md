@@ -27,7 +27,7 @@ This article explains how to use subagents in {% data variables.product.prodname
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Try a subagent">
 Launch a chat prompt that delegates research to a subagent before implementation.
 
-* [Open in VS Code](vscode://GitHub.Copilot-Chat/chat?agent=agent%26prompt=Use%20a%20subagent%20to%20research%20authentication%20best%20practices%20for%20a%20Node.js%20app%20and%20report%20back%20a%20recommendation.)
+* [Open in {% data variables.product.prodname_vscode_shortname %}](vscode://GitHub.Copilot-Chat/chat?agent=agent%26prompt=Use%20a%20subagent%20to%20research%20authentication%20best%20practices%20for%20a%20Node.js%20app%20and%20report%20back%20a%20recommendation.)
 
 </div>
 

@@ -1,7 +1,7 @@
 ---
 ContentId: 5d8a707d-a239-4cc7-92ee-ccc763e8eb9c
 DateApproved: 8/19/2026
-MetaDescription: Add files, symbols, images, browser content, and other context to AI prompts in Visual Studio Code for more relevant responses.
+MetaDescription: Add files, symbols, images, browser content, and other context to AI prompts in {% data variables.product.prodname_vscode %} for more relevant responses.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Add context to chat
@@ -11,21 +11,21 @@ Providing relevant context helps the AI give more accurate responses. Add files,
 > [!NOTE]
 > The features on this page work in both the [Chat view](/docs/agents/run/chat-view.md) and the [Agents window](/docs/agents/run/agents-window.md).
 
-For background on what context is and how VS Code assembles it, see [Context concepts](/docs/agents/concepts/context.md).
+For background on what context is and how {% data variables.product.prodname_vscode_shortname %} assembles it, see [Context concepts](/docs/agents/concepts/context.md).
 
 ## #-mentions
 
-You can explicitly add context to your prompt by typing `#` followed by the context item you want to mention. VS Code supports different types of context items: files, folders, code symbols, tools, terminal output, source control changes, and more.
+You can explicitly add context to your prompt by typing `#` followed by the context item you want to mention. {% data variables.product.prodname_vscode_shortname %} supports different types of context items: files, folders, code symbols, tools, terminal output, source control changes, and more.
 
 Type the `#` symbol in the chat input field to see a list of available context items, or select **Add Context** in the Chat view to open the context picker.
 
-![Screenshot of VS Code Chat view, showing the chat variable picker.](./images/copilot-chat/copilot-chat-view-chat-variables.png)
+![Screenshot of {% data variables.product.prodname_vscode_shortname %} Chat view, showing the chat variable picker.](./images/copilot-chat/copilot-chat-view-chat-variables.png)
 
 View the full list of [supported context items](/docs/agents/reference/ai-features-cheat-sheet.md#chat-tools).
 
 ### Add files as context
 
-By default, VS Code uses workspace indexing to automatically include relevant files as context based on the conversation. You can also explicitly add specific files, folders, or symbols by using #-mentions or the context picker. Explicit context is useful when you want to make sure the AI considers specific parts of your codebase.
+By default, {% data variables.product.prodname_vscode_shortname %} uses workspace indexing to automatically include relevant files as context based on the conversation. You can also explicitly add specific files, folders, or symbols by using #-mentions or the context picker. Explicit context is useful when you want to make sure the AI considers specific parts of your codebase.
 
 To provide specific files, folders, or symbols as context, add them to the chat using the following methods:
 
@@ -44,18 +44,18 @@ You can reference content from the web in your chat prompts, for example to get 
 
 You can directly include a URL in your prompt to get information from that webpage, or use the `#fetch` tool to indicate that you want to retrieve content from the web. For example:
 
-* `"What are the highlights of the latest VS Code release #fetch"`
+* `"What are the highlights of the latest {% data variables.product.prodname_vscode_shortname %} release #fetch"`
 * `"Update the asp.net app to .net 9 #fetch https://learn.microsoft.com/en-us/aspnet/core/migration/80-90"`
 
-VS Code caches the content of the web page for a limited time to improve performance. If the content of the page changes, you can force a refresh by restarting VS Code. If the page cannot be reached, the cache will expire after a short time (approximately five minutes).
+{% data variables.product.prodname_vscode_shortname %} caches the content of the web page for a limited time to improve performance. If the content of the page changes, you can force a refresh by restarting {% data variables.product.prodname_vscode_shortname %}. If the page cannot be reached, the cache will expire after a short time (approximately five minutes).
 
-VS Code prompts for confirmation before accessing external URLs to protect your privacy and security. Learn more about [configuring URL auto-approval](/docs/agents/run/approvals.md#url-approval).
+{% data variables.product.prodname_vscode_shortname %} prompts for confirmation before accessing external URLs to protect your privacy and security. Learn more about [configuring URL auto-approval](/docs/agents/run/approvals.md#url-approval).
 
 Learn more about [using tools with agents](/docs/agents/run/tools.md).
 
 ## @-mentions
 
-Chat participants are specialized assistants that let you ask domain-specific questions in chat. You can invoke a chat participant by @-mentioning it: type `@` followed by the participant name. VS Code has built-in chat participants like `@vscode` or `@terminal`. They are optimized to answer questions about their respective domains.
+Chat participants are specialized assistants that let you ask domain-specific questions in chat. You can invoke a chat participant by @-mentioning it: type `@` followed by the participant name. {% data variables.product.prodname_vscode_shortname %} has built-in chat participants like `@vscode` or `@terminal`. They are optimized to answer questions about their respective domains.
 
 The following examples show how to use @-mentions in your chat prompts:
 

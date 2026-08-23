@@ -18,8 +18,8 @@ Keywords:
 
 Agent plugins are prepackaged bundles of agent customizations that you can discover and install from plugin marketplaces in {% data variables.product.prodname_vscode %}. Plugins work alongside your locally defined customizations. When you install a plugin, its supported customizations appear in chat.
 
-Agent Plugins is an [open standard](https://agent-plugins.org/) for packaging [agent skills](/docs/agent-customization/agent-skills.md) and [MCP servers](/docs/agent-customization/mcp-servers.md) that works across multiple AI agents, including GitHub Copilot in VS Code, GitHub Copilot CLI, and the GitHub Copilot app.
-VS Code also supports client-specific plugin capabilities, including slash commands, [custom agents](/docs/agent-customization/custom-agents.md), rules, and [hooks](/docs/agent-customization/hooks.md). In an Agent Plugins package, these come from the `com.github.copilot` namespace. The existing Copilot and Claude plugin formats keep their own layouts.
+Agent Plugins is an [open standard](https://agent-plugins.org/) for packaging [agent skills](/docs/agent-customization/agent-skills.md) and [MCP servers](/docs/agent-customization/mcp-servers.md) that works across multiple AI agents, including GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}, GitHub Copilot CLI, and the GitHub Copilot app.
+{% data variables.product.prodname_vscode_shortname %} also supports client-specific plugin capabilities, including slash commands, [custom agents](/docs/agent-customization/custom-agents.md), rules, and [hooks](/docs/agent-customization/hooks.md). In an Agent Plugins package, these come from the `com.github.copilot` namespace. The existing Copilot and Claude plugin formats keep their own layouts.
 
 For how plugins fit into the broader set of customization options, see [Customization concepts](/docs/agents/concepts/customization.md).
 
@@ -28,7 +28,7 @@ For how plugins fit into the broader set of customization options, see [Customiz
 
 ## What plugins provide
 
-Agent Plugins 1.0 defines skills and MCP servers as portable component types. Other capabilities are client-specific and use the standard's reverse-domain [client extension namespaces](https://agent-plugins.org/plugin-authors/client-extensions). VS Code reads Copilot-specific components from the `com.github.copilot` namespace and ignores namespaces owned by other clients.
+Agent Plugins 1.0 defines skills and MCP servers as portable component types. Other capabilities are client-specific and use the standard's reverse-domain [client extension namespaces](https://agent-plugins.org/plugin-authors/client-extensions). {% data variables.product.prodname_vscode_shortname %} reads Copilot-specific components from the `com.github.copilot` namespace and ignores namespaces owned by other clients.
 
 | Capability | Description | Client-specific | Standard |
 |------------|-------------|:--------------:|:--------:|
@@ -478,7 +478,7 @@ Specify the following fields in the settings file to configure workspace plugin 
 
 Agent Plugins 1.0 is an open standard designed for cross-tool compatibility. A conformant plugin uses a root `plugin.json`, puts skills in `skills/`, and puts MCP server configuration in `mcp.json`. Compatible clients can discover the portable component types they support from the same package.
 
-Agent Plugins can also include client-specific manifest data and files under a stable reverse-domain namespace. Clients ignore namespaces they don't implement, so client-specific capabilities don't prevent other clients from loading the portable components. VS Code reads custom agents, slash commands, rules, and hooks from the `com.github.copilot` namespace, which GitHub Copilot CLI and the GitHub Copilot app also read.
+Agent Plugins can also include client-specific manifest data and files under a stable reverse-domain namespace. Clients ignore namespaces they don't implement, so client-specific capabilities don't prevent other clients from loading the portable components. {% data variables.product.prodname_vscode_shortname %} reads custom agents, slash commands, rules, and hooks from the `com.github.copilot` namespace, which GitHub Copilot CLI and the GitHub Copilot app also read.
 
 For example:
 
@@ -487,8 +487,8 @@ my-plugin/
   plugin.json
   skills/
   mcp.json
-  com.github.copilot/      # Read by VS Code and other Copilot clients
-  com.example.client/      # Ignored by VS Code
+  com.github.copilot/      # Read by {% data variables.product.prodname_vscode_shortname %} and other Copilot clients
+  com.example.client/      # Ignored by {% data variables.product.prodname_vscode_shortname %}
 ```
 
 {% data variables.product.prodname_vscode_shortname %} continues to support existing Copilot, Claude, and legacy OpenPlugin formats. Plugins that don't declare the Agent Plugins schema continue to use their existing format-specific discovery rules.
