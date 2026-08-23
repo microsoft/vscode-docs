@@ -64,13 +64,9 @@ You can also customize the general behavior of autocomplete and IntelliSense, ev
 
 ## Enhance completions with AI
 
-[GitHub Copilot](https://copilot.github.com/) is an AI-powered code completion tool that helps you write code faster and smarter. You can use the [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) in VS Code to generate code, or to learn from the code it generates.
+GitHub Copilot provides coding suggestions as you type in your editor. You can also ask Copilot coding-related questions, such as how best to code something, how to fix a bug, or how someone else's code works.
 
-[![GitHub Copilot extension in the VS Code Marketplace](images/editing/copilot-extension.png)](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
-
-GitHub Copilot provides suggestions for numerous languages and a wide variety of frameworks, and it works especially well for Python, JavaScript, TypeScript, Ruby, Go, C# and C++.
-
-You can learn more about how to get started with Copilot in the [Copilot documentation](/docs/editor/github-copilot.md).
+Learn how to get started with [AI in VS Code](/docs/agents/overview.md).
 
 ## Navigation
 
