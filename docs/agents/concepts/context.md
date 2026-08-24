@@ -1,6 +1,6 @@
 ---
 ContentId: c3d4e5f6-7a8b-9c0d-1e2f-3a4b5c6d7e8f
-DateApproved: 8/19/2026
+DateApproved: 8/26/2026
 MetaDescription: Learn how {% data variables.product.prodname_vscode_shortname %} assembles context for AI prompts, including workspace indexing, implicit context, explicit references, and context window management.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:

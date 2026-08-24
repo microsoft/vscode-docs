@@ -1,6 +1,6 @@
 ---
 ContentId: 344271ac-56df-4cea-b0a9-2c135f7f3dec
-DateApproved: 8/19/2026
+DateApproved: 8/26/2026
 MetaDescription: Create focused Git commits in VS Code with partial staging, diff review, commit message tools, amend and undo actions, and AI assistance.
 Keywords:
 - source control

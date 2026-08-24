@@ -1,6 +1,6 @@
 ---
 ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
-DateApproved: 8/19/2026
+DateApproved: 8/26/2026
 MetaDescription: Improve productivity in Visual Studio Code with editing, navigation, source control, debugging, and keyboard shortcut tips.
 ---
 # Visual Studio Code tips and tricks

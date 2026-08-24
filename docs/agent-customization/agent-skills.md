@@ -1,6 +1,6 @@
 ---
 ContentId: a7d3e5f8-2c4b-4d9a-b8e1-3f6c9a2d7e41
-DateApproved: 8/19/2026
+DateApproved: 8/26/2026
 MetaDescription: Learn how to use Agent Skills in {% data variables.product.prodname_vscode_shortname %} to teach GitHub Copilot specialized capabilities that work across {% data variables.product.prodname_vscode_shortname %}, {% data variables.copilot.copilot_cli %}, and {% data variables.copilot.copilot_cloud_agent %}.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 Keywords:

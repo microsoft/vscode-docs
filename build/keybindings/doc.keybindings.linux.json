@@ -403,6 +403,7 @@
 { "key": "ctrl+alt+pageup",       "command": "editor.action.accessibleViewPreviousCodeBlock" },
 { "key": "ctrl+k ctrl+k",         "command": "editor.action.defineKeybinding" },
 { "key": "tab",                   "command": "editor.action.inlineSuggest.commit" },
+{ "key": "ctrl+shift+v",          "command": "editor.action.pasteAsText" },
 { "key": "insert",                "command": "editor.action.toggleOvertypeInsertMode" },
 { "key": "shift+f9",              "command": "editor.debug.action.toggleInlineBreakpoint" },
 { "key": "shift+alt+d",           "command": "editor.detectLanguage" },

@@ -1,6 +1,6 @@
 ---
 PageTitle: Core Editor Features
-DateApproved: 8/19/2026
+DateApproved: 8/26/2026
 MetaDescription: Overview of the core editing features in Visual Studio Code, including code editing, debugging, testing, source control, and terminal.
 ---
 # Core Editor Features

@@ -1,6 +1,6 @@
 ---
 ContentId: 8f9a3e5c-2b4d-4a7f-9c8e-1d6f3a2b5c4e
-DateApproved: 8/19/2026
+DateApproved: 8/26/2026
 MetaDescription: Learn how to use the plan agent for autonomous planning and task management with the todo list in {% data variables.product.prodname_vscode_shortname %} chat.
 MetaSocialImage: ../../images/shared/github-copilot-social.png
 ---

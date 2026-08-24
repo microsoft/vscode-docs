@@ -1,7 +1,7 @@
 ---
 ContentId: 8a7c3f4e-5b2d-4c9a-8e1f-6d3a2b1c0e9f
 MetaDescription: Diagnose Git authentication, repository detection, trust, and synchronization problems in Visual Studio Code with targeted fixes and Git logs.
-DateApproved: 8/19/2026
+DateApproved: 8/26/2026
 Keywords:
 - source control
 - git
