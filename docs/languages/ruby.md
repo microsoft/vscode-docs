@@ -134,6 +134,20 @@ In addition to Quick Fixes, the Ruby LSP also provides refactor options through 
 
 ![Refactor extract to variable](images/ruby/ruby_lsp_refactor.png)
 
+## Testing with the Testing view
+
+The Ruby LSP extension integrates with the VS Code Testing view to support test discovery and execution.
+
+When working on a Ruby project that uses a supported test framework, tests are automatically discovered and displayed in the Testing view, where they can be run individually, by file, or as a group.
+
+This integration is powered by the Ruby LSP and uses the VS Code Testing API, providing a consistent testing experience alongside other languages supported by VS Code.
+
+For example, after opening a Ruby project with the Ruby LSP extension enabled, you can open the Testing view (`kb(workbench.view.testing)`) to explore available tests and run them directly from the editor UI.
+
+For more details about supported frameworks and configuration options, see the Ruby LSP documentation:
+https://shopify.github.io/ruby-lsp/#test-explorer
+
+
 ## Debugging
 
 The Ruby LSP extension supports debugging using the debug gem (Ruby's official debugger). Alternatively, developers can
@@ -211,6 +225,8 @@ To stay up to date on the latest features/bug fixes for the Ruby LSP extension, 
 If you have any issues or feature requests, feel free to log them in the Ruby LSP's [GitHub repo](https://github.com/Shopify/ruby-lsp/issues).
 
 If you'd like to learn more about VS Code, try these topics:
+
+You can also explore how VS Code provides a unified testing experience across languages using the Testing view.
 
 * [Basic Editing](/docs/editing/codebasics.md) - A quick introduction to the basics of the VS Code editor.
 * [Install an Extension](/docs/configure/extensions/extension-marketplace.md) - Learn about other extensions are available in the [Marketplace](https://marketplace.visualstudio.com/vscode).
