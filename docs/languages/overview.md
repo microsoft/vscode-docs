@@ -29,7 +29,7 @@ Click on any linked item to get an overview of how to use VS Code in the context
 The richness of support varies across the different languages and their extensions:
 
 * Syntax highlighting and bracket matching
-* Smart completions (IntelliSense, Artificial Intelligence with [GitHub Copilot](/docs/editor/github-copilot.md))
+* Smart completions (IntelliSense, Artificial Intelligence with [GitHub Copilot](/docs/editing/ai-powered-suggestions.md))
 * Linting and corrections
 * Code navigation (Go to Definition, Find All References)
 * Debugging
@@ -37,13 +37,9 @@ The richness of support varies across the different languages and their extensio
 
 ## Enhance completions with AI
 
-In VS Code, you can enhance your coding with artificial intelligence (AI), such as suggestions for lines of code or entire functions, fast documentation creation, and help creating code-related artifacts like tests.
+GitHub Copilot provides coding suggestions as you type in your editor. You can also ask Copilot coding-related questions, such as how best to code something, how to fix a bug, or how someone else's code works.
 
-[GitHub Copilot](https://copilot.github.com/) is an AI-powered code completion tool that helps you write code faster and smarter. You can use the [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) in VS Code to generate code, or to learn from the code it generates.
-
-[![GitHub Copilot extension in the VS Code Marketplace](images/overview/copilot-extension.png)](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
-
-You can learn more about how to get started with Copilot in the [Copilot documentation](/docs/editor/github-copilot.md).
+Learn how to get started with [AI in VS Code](/docs/agents/overview.md).
 
 ## Change the language for the selected file
 
