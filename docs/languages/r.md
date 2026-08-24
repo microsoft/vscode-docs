@@ -1,13 +1,13 @@
 ---
 ContentId: 1eb31e23-be14-4613-be84-621a51cb59d7
 DateApproved: 8/19/2026
-MetaDescription: Learn about working with the R programming language in Visual Studio Code.
+MetaDescription: Learn about working with the R programming language in {% data variables.product.prodname_vscode %}.
 ---
-# R in Visual Studio Code
+# R in {% data variables.product.prodname_vscode %}
 
 The [R programming language](https://www.r-project.org/) is a dynamic language built for statistical computing and graphics. R is commonly used in statistical analysis, scientific computing, machine learning, and data visualization.
 
-The [R extension](https://marketplace.visualstudio.com/items?itemName=REditorSupport.r) for Visual Studio Code supports extended syntax highlighting, code completion, linting, formatting, interacting with R terminals, viewing data, plots, workspace variables, help pages, managing packages and working with [R Markdown](https://github.com/REditorSupport/vscode-R/wiki/R-Markdown) documents.
+The [R extension](https://marketplace.visualstudio.com/items?itemName=REditorSupport.r) for {% data variables.product.prodname_vscode %} supports extended syntax highlighting, code completion, linting, formatting, interacting with R terminals, viewing data, plots, workspace variables, help pages, managing packages and working with [R Markdown](https://github.com/REditorSupport/vscode-R/wiki/R-Markdown) documents.
 
 [![Overview](images/r/overview.png)](/assets/docs/languages/r/overview.png)
 
@@ -21,17 +21,17 @@ The [R extension](https://marketplace.visualstudio.com/items?itemName=REditorSup
     install.packages("languageserver")
     ```
 
-3. Install the [R extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=REditorSupport.r).
+3. Install the [R extension for {% data variables.product.prodname_vscode %}](https://marketplace.visualstudio.com/items?itemName=REditorSupport.r).
 
 4. Create an R file and start coding.
 
-To enhance the experience of using R in VS Code, the following software and packages are recommended:
+To enhance the experience of using R in {% data variables.product.prodname_vscode_shortname %}, the following software and packages are recommended:
 
 * [radian](https://github.com/randy3k/radian): A modern R console that corrects many limitations of the official R terminal and supports many features such as syntax highlighting and auto-completion.
 
-* [httpgd](https://github.com/nx10/httpgd): An R package to provide a graphics device that asynchronously serves SVG graphics via HTTP and WebSockets. This package is required by the interactive plot viewer of the R extension for VS Code.
+* [httpgd](https://github.com/nx10/httpgd): An R package to provide a graphics device that asynchronously serves SVG graphics via HTTP and WebSockets. This package is required by the interactive plot viewer of the R extension for {% data variables.product.prodname_vscode_shortname %}.
 
-If you run into any issues installing the R packages or the R extension for VS Code, go to the installation wiki pages ([Windows](https://github.com/REditorSupport/vscode-R/wiki/Installation:-Windows) | [macOS](https://github.com/REditorSupport/vscode-R/wiki/Installation:-macOS) | [Linux](https://github.com/REditorSupport/vscode-R/wiki/Installation:-Linux)) for more details.
+If you run into any issues installing the R packages or the R extension for {% data variables.product.prodname_vscode_shortname %}, go to the installation wiki pages ([Windows](https://github.com/REditorSupport/vscode-R/wiki/Installation:-Windows) | [macOS](https://github.com/REditorSupport/vscode-R/wiki/Installation:-macOS) | [Linux](https://github.com/REditorSupport/vscode-R/wiki/Installation:-Linux)) for more details.
 
 ## Running R code
 
@@ -59,7 +59,7 @@ Besides code completion and linting, the R extension also supports other feature
 
 ## Workspace viewer
 
-The workspace viewer is located in the side bar in VS Code and contains the packages in use and global variables in the active R session. Select the R icon in the Activity bar and the workspace viewer and help pages viewer will show up. It is a convenient way to view the R workspace, preview existing R objects, find help topics, and read help pages interactively.
+The workspace viewer is located in the side bar in {% data variables.product.prodname_vscode_shortname %} and contains the packages in use and global variables in the active R session. Select the R icon in the Activity bar and the workspace viewer and help pages viewer will show up. It is a convenient way to view the R workspace, preview existing R objects, find help topics, and read help pages interactively.
 
 ![Workspace Viewer](images/r/workspace-viewer.gif)
 
@@ -75,12 +75,12 @@ Read the project [README](https://github.com/ManuelHentschel/VSCode-R-Debugger) 
 
 ## Next steps
 
-This overview is a quick introduction to the R extension for VS Code. Read the extension [README](https://github.com/REditorSupport/vscode-R#features) for a detailed list of features.
+This overview is a quick introduction to the R extension for {% data variables.product.prodname_vscode_shortname %}. Read the extension [README](https://github.com/REditorSupport/vscode-R#features) for a detailed list of features.
 
 If you have any issues, suggestions or feature requests, please feel free to open an issue at the [GitHub repo](https://github.com/REditorSupport/vscode-R/issues).
 
-If you'd like to learn more about VS Code, try these topics:
+If you'd like to learn more about {% data variables.product.prodname_vscode_shortname %}, try these topics:
 
-* [Basic Editing](/docs/editing/codebasics.md) - A quick introduction to the basics of the VS Code editor.
+* [Basic Editing](/docs/editing/codebasics.md) - A quick introduction to the basics of the {% data variables.product.prodname_vscode_shortname %} editor.
 * [Install an Extension](/docs/configure/extensions/extension-marketplace.md) - Learn about other extensions are available in the [Marketplace](https://marketplace.visualstudio.com/vscode).
 * [Code Navigation](/docs/editing/editingevolved.md) - Move quickly through your source code.

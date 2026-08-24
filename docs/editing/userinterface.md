@@ -1,23 +1,23 @@
 ---
 ContentId: 3a33f35b-cded-4f7f-8674-6f2ba5fca023
 DateApproved: 8/26/2026
-MetaDescription: A quick overview of the Visual Studio Code user interface. Learn about the editor, window management, and special UI to handle source control, extension management, full text search and more.
+MetaDescription: A quick overview of the {% data variables.product.prodname_vscode %} user interface. Learn about the editor, window management, and special UI to handle source control, extension management, full text search and more.
 ---
 # User interface
 
-At its heart, Visual Studio Code is a code editor. Like many other code editors, VS Code adopts a common user interface and layout of an explorer on the left, showing all of the files and folders you have access to, and an editor on the right, showing the content of the files you have opened.
+At its heart, {% data variables.product.prodname_vscode %} is a code editor. Like many other code editors, {% data variables.product.prodname_vscode_shortname %} adopts a common user interface and layout of an explorer on the left, showing all of the files and folders you have access to, and an editor on the right, showing the content of the files you have opened.
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/nORT3-kONgA" title="Transform your VS Code user interface" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/nORT3-kONgA" title="Transform your {% data variables.product.prodname_vscode_shortname %} user interface" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
-Follow a hands-on tutorial to build your first app with AI in VS Code.
+Follow a hands-on tutorial to build your first app with AI in {% data variables.product.prodname_vscode_shortname %}.
 
 * [Start tutorial](/docs/agents/agents-tutorial.md)
 
 </div>
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Watch the introduction video">
-Learn about the key features of Visual Studio Code in our introduction video.
+Learn about the key features of {% data variables.product.prodname_vscode %} in our introduction video.
 
 * [Watch video](https://www.youtube.com/watch?v=f8_uF_IDV50)
 
@@ -25,7 +25,7 @@ Learn about the key features of Visual Studio Code in our introduction video.
 
 ## Basic layout
 
-VS Code comes with a simple and intuitive layout that maximizes the space provided for the editor, while leaving ample room to browse and access the full context of your folder or project. The user interface is divided into six main areas:
+{% data variables.product.prodname_vscode_shortname %} comes with a simple and intuitive layout that maximizes the space provided for the editor, while leaving ample room to browse and access the full context of your folder or project. The user interface is divided into six main areas:
 
 * **Editor** - The main area to edit your files. You can open as many editors as you like side by side vertically and horizontally.
 * **Primary Side Bar** - Contains different views like the Explorer to assist you while working on your project.
@@ -34,9 +34,9 @@ VS Code comes with a simple and intuitive layout that maximizes the space provid
 * **Activity Bar** -  Located on the far left-hand side. Lets you switch between views and gives you additional context-specific indicators, like the number of outgoing changes when Git is enabled. You can change the position of the Activity Bar by right-clicking it to open a context menu.
 * **Panel** - An additional space for views below the editor region. By default, it contains output, debug information, errors and warnings, and an integrated terminal. The Panel can also be moved to the left or right for more vertical space.
 
-![Screenshot of the VS Code user interface, highlighting the main areas.](images/userinterface/hero.png)
+![Screenshot of the {% data variables.product.prodname_vscode_shortname %} user interface, highlighting the main areas.](images/userinterface/hero.png)
 
-Each time you start VS Code, it opens up in the same state it was in when you last closed it. The folder, layout, and opened files are preserved.
+Each time you start {% data variables.product.prodname_vscode_shortname %}, it opens up in the same state it was in when you last closed it. The folder, layout, and opened files are preserved.
 
 Open files in each editor are displayed with tabbed headers (Tabs) at the top of the editor region. To learn more about tabbed headers, see the [Tabs](/docs/editing/userinterface.md#tabs) section.
 
@@ -78,7 +78,7 @@ You can see these clearly in the **Open Editors** section at the top of the Expl
 You can drag and drop editor groups on the workbench, move individual tabs between groups, and quickly close entire groups (**Close All**).
 
 > [!NOTE]
-> VS Code uses editor groups whether or not you have enabled tabs. Without tabs, editor groups are a stack of your open items with the most recently selected item visible in the editor pane.
+> {% data variables.product.prodname_vscode_shortname %} uses editor groups whether or not you have enabled tabs. Without tabs, editor groups are a stack of your open items with the most recently selected item visible in the editor pane.
 
 ### Split in group
 
@@ -88,9 +88,9 @@ You can split the current editor without creating a new editor group with the **
 
 You can move editors, the terminal, or specific views into their own floating windows. This is useful if you have a multi-monitor setup and want to keep a file open on a different monitor.
 
-![Screenshot that shows the OS desktop with VS Code window and a CSV file opened in a floating window.](images/userinterface/floating-editor.png)
+![Screenshot that shows the OS desktop with {% data variables.product.prodname_vscode_shortname %} window and a CSV file opened in a floating window.](images/userinterface/floating-editor.png)
 
-Drag an editor tab out of the current VS Code window to open it in a floating window. Alternatively, use the **Move into New Window** or **Copy into New Window** context options from the editor tab.
+Drag an editor tab out of the current {% data variables.product.prodname_vscode_shortname %} window to open it in a floating window. Alternatively, use the **Move into New Window** or **Copy into New Window** context options from the editor tab.
 
 To pin a floating window to the top of the screen, select the **Set Always on Top** option (pin icon) from its title bar.
 
@@ -98,7 +98,7 @@ To learn more about floating windows, read the section in the [Custom Layout](/d
 
 ### Modal editors
 
-Certain configuration editors in VS Code open in a centered modal overlay on top of the editor area, rather than as a regular editor tab. These modal editors include:
+Certain configuration editors in {% data variables.product.prodname_vscode_shortname %} open in a centered modal overlay on top of the editor area, rather than as a regular editor tab. These modal editors include:
 
 * **Settings** editor
 * **Keyboard Shortcuts** editor
@@ -132,7 +132,7 @@ Sticky Scroll shows the starting lines of currently visible nested scopes at the
 > [!TIP]
 > You can enable/disable Sticky Scroll with the `setting(editor.stickyScroll.enabled)` setting.
 
-Sticky Scroll uses several different content models to create its headings. It is possible to choose between the outline provider model, the folding provider model, and the indentation model to determine which lines to display in the Sticky Scroll area. If a model is not available for the current language, VS Code falls back to the next model in the  order given above. The default model initially used comes from the `setting(editor.stickyScroll.defaultModel)` setting.
+Sticky Scroll uses several different content models to create its headings. It is possible to choose between the outline provider model, the folding provider model, and the indentation model to determine which lines to display in the Sticky Scroll area. If a model is not available for the current language, {% data variables.product.prodname_vscode_shortname %} falls back to the next model in the  order given above. The default model initially used comes from the `setting(editor.stickyScroll.defaultModel)` setting.
 
 ### Indent guides
 
@@ -148,25 +148,25 @@ You can disable breadcrumbs with the **View** > **Appearance** > **Toggle Breadc
 
 ## Explorer view
 
-The Explorer view is used to browse, open, and manage the files and folders in your project. VS Code is file and folder based and you can get started immediately by opening a file or folder in VS Code.
+The Explorer view is used to browse, open, and manage the files and folders in your project. {% data variables.product.prodname_vscode_shortname %} is file and folder based and you can get started immediately by opening a file or folder in {% data variables.product.prodname_vscode_shortname %}.
 
-After you open a folder in VS Code, the contents of the folder are shown in the Explorer view. You can do many things from here:
+After you open a folder in {% data variables.product.prodname_vscode_shortname %}, the contents of the folder are shown in the Explorer view. You can do many things from here:
 
 * Create, delete, and rename files and folders.
 * Move files and folders with drag and drop.
 * Use the context menu to explore all options.
 
 > [!TIP]
-> You can drag and drop files into the Explorer view from outside VS Code to copy them. If the explorer is empty, VS Code opens the files instead. You can also copy-paste files from outside VS Code into the Explorer view. With the `setting(explorer.autoOpenDroppedFile)` setting, you to configure whether to automatically open the file or not.
+> You can drag and drop files into the Explorer view from outside {% data variables.product.prodname_vscode_shortname %} to copy them. If the explorer is empty, {% data variables.product.prodname_vscode_shortname %} opens the files instead. You can also copy-paste files from outside {% data variables.product.prodname_vscode_shortname %} into the Explorer view. With the `setting(explorer.autoOpenDroppedFile)` setting, you to configure whether to automatically open the file or not.
 
-VS Code works well with other tools that you might use, especially command-line tools. If you want to run a command-line tool in the context of the folder you currently have open in VS Code, right-click the folder and select **Open in Integrated Terminal**.
+{% data variables.product.prodname_vscode_shortname %} works well with other tools that you might use, especially command-line tools. If you want to run a command-line tool in the context of the folder you currently have open in {% data variables.product.prodname_vscode_shortname %}, right-click the folder and select **Open in Integrated Terminal**.
 
 You can also navigate to the location of a file or folder in the native operating system file explorer by right-clicking on a file or folder and selecting **Reveal in File Explorer** on Windows, **Reveal in Finder** on macOS, or **Open Containing Folder** on Linux.
 
 > [!TIP]
 > Type `kb(workbench.action.quickOpen)` (**Quick Open**) to quickly search and open a file by its name.
 
-By default, VS Code excludes some folders from showing in the Explorer view, such as `.git`. Use the `setting(files.exclude)` setting to configure rules for hiding files and folders from the Explorer view. Glob patterns in this setting follow your operating system's case sensitivity rules (case-insensitive on Windows/macOS, case-sensitive on Linux). Learn more about [glob patterns](/docs/editor/glob-patterns.md).
+By default, {% data variables.product.prodname_vscode_shortname %} excludes some folders from showing in the Explorer view, such as `.git`. Use the `setting(files.exclude)` setting to configure rules for hiding files and folders from the Explorer view. Glob patterns in this setting follow your operating system's case sensitivity rules (case-insensitive on Windows/macOS, case-sensitive on Linux). Learn more about [glob patterns](/docs/editor/glob-patterns.md).
 
 You can also hide files and folders that are specified in your `.gitignore` files by enabling the `setting(explorer.excludeGitIgnore)` setting. When enabled, `.gitignore` patterns are applied with case-insensitive matching on Windows and macOS, and case-sensitive matching on Linux. For example, a pattern like `node_modules` in your `.gitignore` will match `node_modules/`, `Node_Modules/`, `NODE_MODULES/`, and other case variations on Windows and macOS, but only exact matches on Linux.
 
@@ -180,7 +180,7 @@ When `setting(imageCarousel.explorerContextMenu.enabled)` _(Experimental)_ is en
 You can select multiple files in the Explorer view and Open Editors section to run actions (delete, drag and drop, or open to the side) on multiple items. Hold `kbstyle(Ctrl)` (`kbstyle(Cmd)` on macOS) and select individual files, or hold `kbstyle(Shift)` to select a range of files. If you select two items, you can now also use the context menu **Compare Selected** command to quickly diff two files.
 
 > [!NOTE]
-> In earlier VS Code releases, clicking with the `kbstyle(Ctrl)` (`kbstyle(Cmd)` on macOS) key pressed, would open a file in a new editor group to the side. If you still want this behavior, you can use the `setting(workbench.list.multiSelectModifier)` setting to change multi-selection to use the `kbstyle(Alt)` key.
+> In earlier {% data variables.product.prodname_vscode_shortname %} releases, clicking with the `kbstyle(Ctrl)` (`kbstyle(Cmd)` on macOS) key pressed, would open a file in a new editor group to the side. If you still want this behavior, you can use the `setting(workbench.list.multiSelectModifier)` setting to change multi-selection to use the `kbstyle(Alt)` key.
 
 ```json
 "workbench.list.multiSelectModifier": "alt"
@@ -188,7 +188,7 @@ You can select multiple files in the Explorer view and Open Editors section to r
 
 ### Advanced tree navigation
 
-You can filter the files and folders in the Explorer view. With the focus on the Explorer view, press `kb(list.find)` to open the Find control and type part of the file or folder name you want to match. This navigation feature is available for all tree views in VS Code.
+You can filter the files and folders in the Explorer view. With the focus on the Explorer view, press `kb(list.find)` to open the Find control and type part of the file or folder name you want to match. This navigation feature is available for all tree views in {% data variables.product.prodname_vscode_shortname %}.
 
 Pressing the **Filter** button toggles between the two modes: highlighting and filtering. Pressing `kbstyle(Down)` lets you focus on the first matched element and navigate to subsequent matching elements. In highlighting mode, a badge is shown on folders to indicate that they contain matched files.
 
@@ -243,7 +243,7 @@ You can configure these settings for working with the local history:
 
 #### Commit history
 
-VS Code's built-in Git support provides the Git commit history of the specified file. Selecting a commit will open a diff view of the changes introduced by that commit. When you right-click on a commit, you'll get options to **Copy Commit ID** and **Copy Commit Message**.
+{% data variables.product.prodname_vscode_shortname %}'s built-in Git support provides the Git commit history of the specified file. Selecting a commit will open a diff view of the changes introduced by that commit. When you right-click on a commit, you'll get options to **Copy Commit ID** and **Copy Commit Message**.
 
 When you right-click a commit in the history, you can:
 
@@ -259,12 +259,12 @@ You can configure this setting for working with the Git history:
 
 ## Views
 
-The Explorer view is only one of the views available in VS Code. There are also views for:
+The Explorer view is only one of the views available in {% data variables.product.prodname_vscode_shortname %}. There are also views for:
 
 * **Search** - Provides global search and replace across your open folder.
-* **Source Control** - VS Code includes Git source control by default.
-* **Run** - VS Code's Run and Debug View displays variables, call stacks, and breakpoints.
-* **Extensions** - Install and manage your extensions within VS Code.
+* **Source Control** - {% data variables.product.prodname_vscode_shortname %} includes Git source control by default.
+* **Run** - {% data variables.product.prodname_vscode_shortname %}'s Run and Debug View displays variables, call stacks, and breakpoints.
+* **Extensions** - Install and manage your extensions within {% data variables.product.prodname_vscode_shortname %}.
 * **Custom views** - Views contributed by extensions.
 
 > [!TIP]
@@ -278,7 +278,7 @@ You can show or hide views by right-clicking the Activity Bar, and reorder them 
 
 ## Command Palette
 
-VS Code is equally accessible from the keyboard. The most important key combination to know is `kb(workbench.action.showCommands)`, which brings up the **Command Palette**. From here, you have access to all functionality within VS Code, including keyboard shortcuts for the most common operations.
+{% data variables.product.prodname_vscode_shortname %} is equally accessible from the keyboard. The most important key combination to know is `kb(workbench.action.showCommands)`, which brings up the **Command Palette**. From here, you have access to all functionality within {% data variables.product.prodname_vscode_shortname %}, including keyboard shortcuts for the most common operations.
 
 ![Command Palette](images/userinterface/commands.png)
 
@@ -301,7 +301,7 @@ Type `?` in the input field to get a list of available commands that you can run
 
 ## Configure the editor
 
-VS Code gives you many options to configure the editor. From the **View** > **Appearance** menu, you can hide or toggle various parts of the user interface, such as the **Side Bar**, **Status Bar**, and **Activity Bar**.
+{% data variables.product.prodname_vscode_shortname %} gives you many options to configure the editor. From the **View** > **Appearance** menu, you can hide or toggle various parts of the user interface, such as the **Side Bar**, **Status Bar**, and **Activity Bar**.
 
 ### Hide the menu bar (Windows, Linux)
 
@@ -324,7 +324,7 @@ Alternately, you can modify the user settings directly in the `settings.json` fi
 
 ### Zen Mode
 
-Zen mode lets you focus on your code by hiding all UI elements, except for the editor, switching VS Code to full screen, and centering the editor. Zen mode can be toggled with the **View** > **Appearance** > **Zen Mode** menu, **View: Toggle Zen Mode** in the **Command Palette**, or with the shortcut `kb(workbench.action.toggleZenMode)`. Double press `kbstyle(Esc)` to exit Zen mode. The transition to full screen can be disabled via `setting(zenMode.fullScreen)`.
+Zen mode lets you focus on your code by hiding all UI elements, except for the editor, switching {% data variables.product.prodname_vscode_shortname %} to full screen, and centering the editor. Zen mode can be toggled with the **View** > **Appearance** > **Zen Mode** menu, **View: Toggle Zen Mode** in the **Command Palette**, or with the shortcut `kb(workbench.action.toggleZenMode)`. Double press `kbstyle(Esc)` to exit Zen mode. The transition to full screen can be disabled via `setting(zenMode.fullScreen)`.
 
 Zen Mode can be further tuned with the following settings:
 
@@ -358,7 +358,7 @@ Centered editor layout allows you to center align the editor area. This is usefu
 
 ## Tabs
 
-VS Code shows open items with tabs (tabbed headings) in the title area above the editor. When you open a file, a new tab is added for that file. Tabs let you quickly navigate between items.
+{% data variables.product.prodname_vscode_shortname %} shows open items with tabs (tabbed headings) in the title area above the editor. When you open a file, a new tab is added for that file. Tabs let you quickly navigate between items.
 
 ![tabs hero](images/userinterface/tabs-hero.png)
 
@@ -374,7 +374,7 @@ If you don't want to use tabs, you can disable the feature by setting the `setti
     "workbench.editor.showTabs": "single"
 ```
 
-See the section below to optimize VS Code for [working without Tabs](/docs/editing/userinterface.md#working-without-tabs).
+See the section below to optimize {% data variables.product.prodname_vscode_shortname %} for [working without Tabs](/docs/editing/userinterface.md#working-without-tabs).
 
 > [!TIP]
 > Double-click in the editor title area to quickly create a new tab.
@@ -513,7 +513,7 @@ Edit your [keyboard shortcuts](/docs/configure/keybindings.md) and add the follo
 
 ### Close an entire group instead of a single editor
 
-If you liked the behavior of VS Code closing an entire group when closing one editor, you can bind the following in your [keybindings](/docs/configure/keybindings.md).
+If you liked the behavior of {% data variables.product.prodname_vscode_shortname %} closing an entire group when closing one editor, you can bind the following in your [keybindings](/docs/configure/keybindings.md).
 
 macOS:
 
@@ -529,29 +529,29 @@ Windows/Linux:
 
 ## Window management
 
-VS Code has various options to control how VS Code windows (instances) should be opened or restored between sessions.
+{% data variables.product.prodname_vscode_shortname %} has various options to control how {% data variables.product.prodname_vscode_shortname %} windows (instances) should be opened or restored between sessions.
 
 The settings `setting(window.openFoldersInNewWindow)` and `setting(window.openFilesInNewWindow)` are provided to configure opening new windows or reusing the last active window for files or folders and possible values are `default`, `on` and `off`.
 
-If configured to be `default`, VS Code decides about reusing or opening a new window, based on the context from where the open request was made. Flip this to `on` or `off` to always behave the same. For example, if you feel that picking a file or folder from the **File** menu should always open in a new window, set this to `on`.
+If configured to be `default`, {% data variables.product.prodname_vscode_shortname %} decides about reusing or opening a new window, based on the context from where the open request was made. Flip this to `on` or `off` to always behave the same. For example, if you feel that picking a file or folder from the **File** menu should always open in a new window, set this to `on`.
 
 > [!NOTE]
 > There are cases where this setting is ignored, such as when you use the `-new-window` or `-reuse-window` command-line option.
 
-The `setting(window.restoreWindows)` setting informs VS Code about how to restore the opened windows of your previous session. By default, VS Code restores all windows you worked on during your previous session (setting: `all`). Change this setting to `none` to never reopen any windows and always start with an empty VS Code instance. Change it to `one` to reopen the last opened window you worked on, or to `folders` to only restore windows that had folders opened.
+The `setting(window.restoreWindows)` setting informs {% data variables.product.prodname_vscode_shortname %} about how to restore the opened windows of your previous session. By default, {% data variables.product.prodname_vscode_shortname %} restores all windows you worked on during your previous session (setting: `all`). Change this setting to `none` to never reopen any windows and always start with an empty {% data variables.product.prodname_vscode_shortname %} instance. Change it to `one` to reopen the last opened window you worked on, or to `folders` to only restore windows that had folders opened.
 
 ## Next steps
 
-Now that you know the overall layout of VS Code, start to customize the editor to how you like to work by looking at the following articles:
+Now that you know the overall layout of {% data variables.product.prodname_vscode_shortname %}, start to customize the editor to how you like to work by looking at the following articles:
 
 * [Changing the theme](/docs/configure/themes.md) - Set a Color and/or File Icon Theme to your preference.
-* [Using custom layouts](/docs/configure/custom-layout.md) - Learn more about VS Code's workbench and editor layout customizations.
+* [Using custom layouts](/docs/configure/custom-layout.md) - Learn more about {% data variables.product.prodname_vscode_shortname %}'s workbench and editor layout customizations.
 
 ## Common questions
 
 ### How can I change the color of the indent guides?
 
-The indent guide colors are customizable, as are most VS Code user interface elements. To [customize](/api/references/theme-color.md) the indent guides color for your active Color Theme, use the `setting(workbench.colorCustomizations)` setting and modify the `editorIndentGuide.background` value.
+The indent guide colors are customizable, as are most {% data variables.product.prodname_vscode_shortname %} user interface elements. To [customize](/api/references/theme-color.md) the indent guides color for your active Color Theme, use the `setting(workbench.colorCustomizations)` setting and modify the `editorIndentGuide.background` value.
 
 For example, to make the indent guides bright blue, add the following to your `settings.json`:
 

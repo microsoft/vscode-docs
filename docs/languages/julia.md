@@ -1,35 +1,35 @@
 ---
 ContentId: d7ec8e7c-de5e-42b3-86df-a48660f1f6e1
 DateApproved: 8/19/2026
-MetaDescription: Learn about working with the Julia programming language in Visual Studio Code.
+MetaDescription: Learn about working with the Julia programming language in {% data variables.product.prodname_vscode %}.
 ---
-# Julia in Visual Studio Code
+# Julia in {% data variables.product.prodname_vscode %}
 
 The [Julia programming language](https://julialang.org) is a high level and dynamic language built for speed and simplicity. Julia is commonly used in areas such as data science, machine learning, scientific computing, but is still a general purpose language that can handle most programming use cases.
 
-The [Julia extension](https://marketplace.visualstudio.com/items?itemName=julialang.language-julia) for Visual Studio Code includes built-in dynamic autocompletion, inline results, plot pane, integrated REPL, variable view, code navigation, and many other advanced language features.
+The [Julia extension](https://marketplace.visualstudio.com/items?itemName=julialang.language-julia) for {% data variables.product.prodname_vscode %} includes built-in dynamic autocompletion, inline results, plot pane, integrated REPL, variable view, code navigation, and many other advanced language features.
 
-![Julia VS Code overview](images/julia/overview.png)
+![Julia {% data variables.product.prodname_vscode_shortname %} overview](images/julia/overview.png)
 
-Most of these features work out of the box, while some may require basic configuration to get the best experience. This page summarizes the Julia features included in the Julia VS Code extension. For a more in-depth guide on how these features work and can be configured, see the [Julia in VS Code](https://www.julia-vscode.org/docs/stable/) documentation.
+Most of these features work out of the box, while some may require basic configuration to get the best experience. This page summarizes the Julia features included in the Julia {% data variables.product.prodname_vscode_shortname %} extension. For a more in-depth guide on how these features work and can be configured, see the [Julia in {% data variables.product.prodname_vscode_shortname %}](https://www.julia-vscode.org/docs/stable/) documentation.
 
 ## Getting started
 
 1. Install Julia for your platform: [https://julialang.org/install](https://julialang.org/install).
-2. Install VS Code for your platform: [https://code.visualstudio.com/download](https://code.visualstudio.com/download).
-3. Open the Julia extension on the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=julialang.language-julia) and press **Install**; or manually install by doing the following steps:
-    1. Start VS Code.
-    2. Inside VS Code, go to the Extensions view by clicking **View** on the top menu bar and then selecting **Extensions**.
+2. Install {% data variables.product.prodname_vscode_shortname %} for your platform: [https://code.visualstudio.com/download](https://code.visualstudio.com/download).
+3. Open the Julia extension on the [{% data variables.product.prodname_vscode_shortname %} Marketplace](https://marketplace.visualstudio.com/items?itemName=julialang.language-julia) and press **Install**; or manually install by doing the following steps:
+    1. Start {% data variables.product.prodname_vscode_shortname %}.
+    2. Inside {% data variables.product.prodname_vscode_shortname %}, go to the Extensions view by clicking **View** on the top menu bar and then selecting **Extensions**.
     3. In the Extensions view, search for the term "julia" in the Marketplace search box, then select the Julia extension (julialang.language-julia) and select the **Install** button.
-    4. Restart VS Code.
+    4. Restart {% data variables.product.prodname_vscode_shortname %}.
 
-If you run into any issues installing the Julia VS Code extension, check out [install an extension](/docs/configure/extensions/extension-marketplace.md#install-an-extension), which should help clarify any issues.
+If you run into any issues installing the Julia {% data variables.product.prodname_vscode_shortname %} extension, check out [install an extension](/docs/configure/extensions/extension-marketplace.md#install-an-extension), which should help clarify any issues.
 
-![Julia in the VS Code Marketplace](images/julia/julia-extension-marketplace.png)
+![Julia in the {% data variables.product.prodname_vscode_shortname %} Marketplace](images/julia/julia-extension-marketplace.png)
 
 ## Running code
 
-There are several ways to run Julia code within VS Code. You can run a Julia file (via `kb(workbench.action.debug.run)`, which will run whatever Julia file you have open and active), execute Julia commands via the REPL, or even execute a specific block of code from a file you have open. To learn more about these options, head to [Julia in VS Code - Running Code](https://www.julia-vscode.org/docs/stable/userguide/runningcode/).
+There are several ways to run Julia code within {% data variables.product.prodname_vscode_shortname %}. You can run a Julia file (via `kb(workbench.action.debug.run)`, which will run whatever Julia file you have open and active), execute Julia commands via the REPL, or even execute a specific block of code from a file you have open. To learn more about these options, head to [Julia in {% data variables.product.prodname_vscode_shortname %} - Running Code](https://www.julia-vscode.org/docs/stable/userguide/runningcode/).
 
 ## Debugging
 
@@ -51,15 +51,15 @@ Notice that the second print command has yet to execute and there is only text f
 
 ![Finish the code execution in the debugger](images/julia/debug4.png)
 
-To find out more about debugging Julia code with VS Code, you can read [Julia in VS Code - Debugging](https://www.julia-vscode.org/docs/stable/userguide/debugging/).
+To find out more about debugging Julia code with {% data variables.product.prodname_vscode_shortname %}, you can read [Julia in {% data variables.product.prodname_vscode_shortname %} - Debugging](https://www.julia-vscode.org/docs/stable/userguide/debugging/).
 
 ## Code completion (IntelliSense)
 
-The Julia VS Code extension comes with code completion thanks to IntelliSense. This feature works out of the box and is useful for experienced and beginner Julia developers alike.
+The Julia {% data variables.product.prodname_vscode_shortname %} extension comes with code completion thanks to IntelliSense. This feature works out of the box and is useful for experienced and beginner Julia developers alike.
 
 ![Code completion with IntelliSense](images/julia/code-completion.gif)
 
-You can learn more in the [VS Code IntelliSense](/docs/editing/intellisense.md) topic.
+You can learn more in the [{% data variables.product.prodname_vscode_shortname %} IntelliSense](/docs/editing/intellisense.md) topic.
 
 ## Julia view
 
@@ -75,18 +75,18 @@ The **Documentation** section lets you review details about specific Julia funct
 
 ![Julia Documentation](images/julia/julia-tab3.png)
 
-There is also a built-in **Plot Navigator**, which can be very helpful when you are working on projects with visualization components. You can set the plots to render by default in VS Code and then conveniently navigate back and forth through them.
+There is also a built-in **Plot Navigator**, which can be very helpful when you are working on projects with visualization components. You can set the plots to render by default in {% data variables.product.prodname_vscode_shortname %} and then conveniently navigate back and forth through them.
 
 ## Next steps
 
-This has been a brief overview showing the Julia extension features within VS Code. For more information, see the details provided in the Julia extension [README](https://github.com/julia-vscode/julia-vscode#julia).
+This has been a brief overview showing the Julia extension features within {% data variables.product.prodname_vscode_shortname %}. For more information, see the details provided in the Julia extension [README](https://github.com/julia-vscode/julia-vscode#julia).
 
 To stay up to date on the latest features/bug fixes for the Julia extension, see the [CHANGELOG](https://github.com/julia-vscode/julia-vscode/blob/master/CHANGELOG.md).
 
 If you have any issues or feature requests, feel free to log them in the Julia extension [GitHub repo](https://github.com/julia-vscode/julia-vscode/issues).
 
-If you'd like to learn more about VS Code, try these topics:
+If you'd like to learn more about {% data variables.product.prodname_vscode_shortname %}, try these topics:
 
-* [Basic Editing](/docs/editing/codebasics.md) - A quick introduction to the basics of the VS Code editor.
+* [Basic Editing](/docs/editing/codebasics.md) - A quick introduction to the basics of the {% data variables.product.prodname_vscode_shortname %} editor.
 * [Install an Extension](/docs/configure/extensions/extension-marketplace.md) - Learn about other extensions are available in the [Marketplace](https://marketplace.visualstudio.com/vscode).
 * [Code Navigation](/docs/editing/editingevolved.md) - Move quickly through your source code.

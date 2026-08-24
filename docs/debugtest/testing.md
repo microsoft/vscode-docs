@@ -1,24 +1,24 @@
 ---
 ContentId: d44f1a5c-5454-4037-92d5-c2bf5d4cffed
 DateApproved: 8/26/2026
-MetaDescription: One of the great things in Visual Studio Code is testing support. Automatically discover tests in your project, run and debug your tests, and get test coverage results.
+MetaDescription: One of the great things in {% data variables.product.prodname_vscode %} is testing support. Automatically discover tests in your project, run and debug your tests, and get test coverage results.
 ---
 # Testing
 
-Visual Studio Code provides a rich set of features for testing your code. You can automatically discover tests in your project, run and debug your tests, and get test coverage results. GitHub Copilot in VS Code can assist with setting up the testing framework for your project, and help you generate test code and fix failing tests.
+{% data variables.product.prodname_vscode %} provides a rich set of features for testing your code. You can automatically discover tests in your project, run and debug your tests, and get test coverage results. GitHub Copilot in {% data variables.product.prodname_vscode_shortname %} can assist with setting up the testing framework for your project, and help you generate test code and fix failing tests.
 
-In this article, you'll learn how to start with testing in VS Code, find popular testing extensions, and explore the testing features. You'll also learn how Copilot in VS Code can help you write tests faster and can assist you in fixing failing tests.
+In this article, you'll learn how to start with testing in {% data variables.product.prodname_vscode_shortname %}, find popular testing extensions, and explore the testing features. You'll also learn how Copilot in {% data variables.product.prodname_vscode_shortname %} can help you write tests faster and can assist you in fixing failing tests.
 
 > [!TIP]
 > If you don't have a Copilot subscription yet, use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup). You'll get a monthly allowance of inline suggestions and AI credits.
 
-<!-- ![Testing in Visual Studio Code](images/testing/testing-hero.png) -->
+<!-- ![Testing in {% data variables.product.prodname_vscode %}](images/testing/testing-hero.png) -->
 
-## About testing in VS Code
+## About testing in {% data variables.product.prodname_vscode_shortname %}
 
-Testing support in VS Code is language-specific and depends on the [testing extensions](#extensions-for-testing) you have installed. Language extensions or standalone extensions can implement the testing features for a particular language or testing framework.
+Testing support in {% data variables.product.prodname_vscode_shortname %} is language-specific and depends on the [testing extensions](#extensions-for-testing) you have installed. Language extensions or standalone extensions can implement the testing features for a particular language or testing framework.
 
-VS Code has the following features for testing your code:
+{% data variables.product.prodname_vscode_shortname %} has the following features for testing your code:
 
 * **Support multiple testing frameworks**: language [extensions](#extensions-for-testing) and standalone testing extensions provide support for various languages and test runners, such as Jest, Mocha, Pytest, JUnit, and more.
 
@@ -26,17 +26,17 @@ VS Code has the following features for testing your code:
 
 * **Integrated test results**: view the test status inline in the editor alongside the test code, or view all tests in the Test Explorer. Detailed test results are available in the Test Results panel.
 
-* **Debugging**: [debug](#run-and-debug-tests) your tests to diagnose test failures. Take advantage of the rich [debugging support](/docs/debugtest/debugging.md) in VS Code, such as breakpoints, watch variables, and more.
+* **Debugging**: [debug](#run-and-debug-tests) your tests to diagnose test failures. Take advantage of the rich [debugging support](/docs/debugtest/debugging.md) in {% data variables.product.prodname_vscode_shortname %}, such as breakpoints, watch variables, and more.
 
 * **Test coverage**: [run tests with coverage](#test-coverage) to see how much of your code is covered by your tests.
 
-* **AI-assisted testing**: use GitHub Copilot in VS Code to assist you with setting up your testing framework, generating test code, and fixing failing tests.
+* **AI-assisted testing**: use GitHub Copilot in {% data variables.product.prodname_vscode_shortname %} to assist you with setting up your testing framework, generating test code, and fixing failing tests.
 
 * **Task integration**: make your testing work easier by [creating tasks to run your tests](#task-integration). You can also run your tests in the background when you change your code.
 
-## Get started with testing in VS Code
+## Get started with testing in {% data variables.product.prodname_vscode_shortname %}
 
-To get started with testing in VS Code, follow these steps:
+To get started with testing in {% data variables.product.prodname_vscode_shortname %}, follow these steps:
 
 1. Open the Extensions view and install a testing extension for your project. Filter the extensions by the **Testing** category (_@category:"testing"_).
 
@@ -59,7 +59,7 @@ The Testing view provides a centralized place to manage and run your tests. You 
 
 If you have a project with tests, the Test Explorer view discovers and lists the tests in your workspace. By default, the discovered tests are displayed in a tree view in the Test Explorer. The tree view matches the hierarchical structure of your tests, making it easy to navigate and run your tests.
 
-![Screenshot that shows VS Code with the Test Explorer showing the tests, matching the test code that is shown in the editor.](images/testing/test-explorer-view.png)
+![Screenshot that shows {% data variables.product.prodname_vscode_shortname %} with the Test Explorer showing the tests, matching the test code that is shown in the editor.](images/testing/test-explorer-view.png)
 
 You can run tests from the Test Explorer by selecting the play button. Learn more about running and debugging tests in the [Run and debug tests](#run-and-debug-tests) section.
 
@@ -81,7 +81,7 @@ If you add new tests or change your tests, use the **Refresh Tests** button to r
 
 Writing tests can be time-consuming and they're often neglected. Copilot can speed up the process of writing tests by creating test code for your application. You can use it to write unit tests, integration tests, end-to-end tests, and more.
 
-To write tests with Copilot in VS Code, you can use either of these methods:
+To write tests with Copilot in {% data variables.product.prodname_vscode_shortname %}, you can use either of these methods:
 
 * Editor smart actions
 
@@ -107,11 +107,11 @@ Copilot will generate test cases code for your application code. If you already 
 > [!TIP]
 > You can give Copilot your own [special instructions for generating code](/docs/agent-customization/overview.md). For example, you can tell Copilot to use a certain testing framework, naming convention, or code structure.
 
-Learn more about [using Copilot in VS Code](/docs/agent-native/overview.md).
+Learn more about [using Copilot in {% data variables.product.prodname_vscode_shortname %}](/docs/agent-native/overview.md).
 
 ## Run and debug tests
 
-After the discovery of the tests in your project, you can run and debug your tests, and view test results directly from within VS Code.
+After the discovery of the tests in your project, you can run and debug your tests, and view test results directly from within {% data variables.product.prodname_vscode_shortname %}.
 
 In the Test Explorer, use the controls in the section heading to run or debug all tests. You can also run or debug specific tests in the tree view by selecting the run/debug icon on a specific node.
 
@@ -141,7 +141,7 @@ Use the **Show Output** button in the Test Explorer to view the test output in t
 
 ## Test coverage
 
-Test coverage is a measure of how much of your code is covered by your tests. It helps you identify areas of your code that are not being tested. VS Code supports running tests with coverage and viewing the coverage results if the corresponding testing extension support test coverage.
+Test coverage is a measure of how much of your code is covered by your tests. It helps you identify areas of your code that are not being tested. {% data variables.product.prodname_vscode_shortname %} supports running tests with coverage and viewing the coverage results if the corresponding testing extension support test coverage.
 
 You can run tests with coverage, just like you can run and debug tests. Use corresponding the actions in the Test Explorer view, editor gutter, or commands in the Command Palette (`kb(workbench.action.showCommands)`).
 
@@ -179,9 +179,9 @@ After you run tests with coverage, you can view the coverage results in differen
 
 ## Task integration
 
-Tasks in VS Code can be configured to run scripts and start processes within VS Code, without having to enter a command line or write new code. In VS Code, you can define a default test task that runs your tests, and optionally create keyboard shortcuts to run the tests.
+Tasks in {% data variables.product.prodname_vscode_shortname %} can be configured to run scripts and start processes within {% data variables.product.prodname_vscode_shortname %}, without having to enter a command line or write new code. In {% data variables.product.prodname_vscode_shortname %}, you can define a default test task that runs your tests, and optionally create keyboard shortcuts to run the tests.
 
-Use the command **Tasks: Configure Default Test Task** to configure the default test task. VS Code tries to automatically detect the test task, for example based on your `package.json` file. After you select the default test task, the `tasks.json` file is opened for you to customize the task.
+Use the command **Tasks: Configure Default Test Task** to configure the default test task. {% data variables.product.prodname_vscode_shortname %} tries to automatically detect the test task, for example based on your `package.json` file. After you select the default test task, the `tasks.json` file is opened for you to customize the task.
 
 The following code snippet shows a `tasks.json` file that specifies the `node --test` command as the default test task.
 
@@ -209,11 +209,11 @@ To run the test task, use the command **Tasks: Run Test Task** or [create a keyb
 Learn more about [using and configuring Tasks](/docs/debugtest/tasks.md).
 
 > [!NOTE]
-> Currently, tasks don't have special integration into VS Code's testing functionality, so running tests in a task won't update the user interface. Individual testing extensions can provide specific test automation functionality that integrates in the UI.
+> Currently, tasks don't have special integration into {% data variables.product.prodname_vscode_shortname %}'s testing functionality, so running tests in a task won't update the user interface. Individual testing extensions can provide specific test automation functionality that integrates in the UI.
 
 ## Test configuration settings
 
-There are multiple settings that you can configure to customize the testing experience in VS Code. Each language extension might provide additional settings specific to testing in that language. Here are some common settings that you can configure:
+There are multiple settings that you can configure to customize the testing experience in {% data variables.product.prodname_vscode_shortname %}. Each language extension might provide additional settings specific to testing in that language. Here are some common settings that you can configure:
 
 | Setting ID | Details |
 |-|-|
@@ -230,6 +230,6 @@ You can find all testing-related settings in the Settings editor (`kb(workbench.
 
 * Get started with testing in [Python](/docs/python/testing.md), [Java](/docs/java/java-testing.md), or [C#](/docs/csharp/testing.md)
 
-* Learn more about [Copilot and AI-assisted testing in VS Code](/docs/agent-native/overview.md)
+* Learn more about [Copilot and AI-assisted testing in {% data variables.product.prodname_vscode_shortname %}](/docs/agent-native/overview.md)
 
 * Learn more about [using and configuring Tasks](/docs/debugtest/tasks.md)

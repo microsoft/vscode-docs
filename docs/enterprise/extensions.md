@@ -1,19 +1,19 @@
 ---
 ContentId: 8a2b5f4c-9e3d-4c6a-b8f1-2d7e9a4c5b3f
 DateApproved: 8/26/2026
-MetaDescription: Learn how to manage and control VS Code extensions in enterprise environments, including private marketplace, allowed extensions, and preinstalling extensions.
+MetaDescription: Learn how to manage and control {% data variables.product.prodname_vscode_shortname %} extensions in enterprise environments, including private marketplace, allowed extensions, and preinstalling extensions.
 ---
 
 # Manage extensions in enterprise environments
 
-Visual Studio Code extensions enhance productivity but require careful management in enterprise environments to maintain security and compliance. This article covers how IT admins can control extension installation, host a private marketplace, and deploy extensions to users' machines.
+{% data variables.product.prodname_vscode %} extensions enhance productivity but require careful management in enterprise environments to maintain security and compliance. This article covers how IT admins can control extension installation, host a private marketplace, and deploy extensions to users' machines.
 
 ## Configure allowed extensions
 
 > [!NOTE]
-> Support for allowed extensions is available starting from VS Code version 1.96.
+> Support for allowed extensions is available starting from {% data variables.product.prodname_vscode_shortname %} version 1.96.
 
-VS Code supports controlling which extensions can be installed on users' machines through the `setting(extensions.allowed)` application-wide setting. You can selectively allow extensions by publisher, specific extension, version, and platform. By default, all extensions are allowed. When you configure this setting, only listed extensions can be installed, and unlisted extensions are blocked. If you block an extension or version that is already installed, the extension is disabled.
+{% data variables.product.prodname_vscode_shortname %} supports controlling which extensions can be installed on users' machines through the `setting(extensions.allowed)` application-wide setting. You can selectively allow extensions by publisher, specific extension, version, and platform. By default, all extensions are allowed. When you configure this setting, only listed extensions can be installed, and unlisted extensions are blocked. If you block an extension or version that is already installed, the extension is disabled.
 
 ### Allow or block by publisher
 
@@ -76,28 +76,28 @@ Organizations can centrally manage allowed extensions by using the `AllowedExten
 ![Screenshot of configuring AllowedExtensions from the Local Group Policy Editor.](images/policies/allowed-extensions-local-gp-editor.png)
 
 > [!IMPORTANT]
-> If there's a syntax error in the policy value, the `extensions.allowed` setting is not applied. Check the Window log in VS Code for errors (press `kb(workbench.action.showCommands)` and enter **Show Window Log**).
+> If there's a syntax error in the policy value, the `extensions.allowed` setting is not applied. Check the Window log in {% data variables.product.prodname_vscode_shortname %} for errors (press `kb(workbench.action.showCommands)` and enter **Show Window Log**).
 
 ## Preinstall extensions
 
-You can set up VS Code with a set of preinstalled extensions (*bootstrap*). This functionality is useful in cases where you prepare a machine image, virtual machine, or cloud workstation where VS Code is preinstalled and specific extensions are immediately available for users.
+You can set up {% data variables.product.prodname_vscode_shortname %} with a set of preinstalled extensions (*bootstrap*). This functionality is useful in cases where you prepare a machine image, virtual machine, or cloud workstation where {% data variables.product.prodname_vscode_shortname %} is preinstalled and specific extensions are immediately available for users.
 
 > [!NOTE]
 > Support for preinstalling extensions is currently only available on Windows.
 
 Follow these steps to bootstrap extensions:
 
-1. Create a folder `bootstrap\extensions` in the VS Code installation directory.
+1. Create a folder `bootstrap\extensions` in the {% data variables.product.prodname_vscode_shortname %} installation directory.
 
 1. Download the [VSIX files](/docs/configure/extensions/extension-marketplace.md#can-i-download-an-extension-directly-from-the-marketplace) for the extensions that you want to preinstall and place them in the `bootstrap\extensions` folder.
 
-1. When a user launches VS Code for the first time, all extensions in the `bootstrap\extensions` folder are installed silently in the background.
+1. When a user launches {% data variables.product.prodname_vscode_shortname %} for the first time, all extensions in the `bootstrap\extensions` folder are installed silently in the background.
 
-Users can still uninstall extensions that were preinstalled. Restarting VS Code after uninstalling an extension will not reinstall the extension.
+Users can still uninstall extensions that were preinstalled. Restarting {% data variables.product.prodname_vscode_shortname %} after uninstalling an extension will not reinstall the extension.
 
 ## Host a private extension marketplace
 
-The private marketplace enables enterprises to self-host and distribute extensions within their organization to meet security and compliance requirements. The private marketplace integrates with the VS Code extensions experience, giving users discovery and automatic updates of private extensions.
+The private marketplace enables enterprises to self-host and distribute extensions within their organization to meet security and compliance requirements. The private marketplace integrates with the {% data variables.product.prodname_vscode_shortname %} extensions experience, giving users discovery and automatic updates of private extensions.
 
 Key features of the private marketplace:
 
@@ -107,18 +107,18 @@ Key features of the private marketplace:
 * **Simple deployment**: Deploy as a stateless Docker container, no external database required.
 * **Flexible storage**: Publish and manage extensions using any file system or Azure Artifacts.
 * **Centralized rollout**: Deploy the private marketplace to your team using group policy on Windows and macOS.
-* **Integrated installation and updates**: Search for and install extensions directly from VS Code, with automatic updates for new versions.
-* **Cross-platform support**: Compatible with VS Code desktop on Windows, macOS, and Linux.
+* **Integrated installation and updates**: Search for and install extensions directly from {% data variables.product.prodname_vscode_shortname %}, with automatic updates for new versions.
+* **Cross-platform support**: Compatible with {% data variables.product.prodname_vscode_shortname %} desktop on Windows, macOS, and Linux.
 
 > [!NOTE]
-> Connecting from VS Code Server or VS Code for the Web is not supported.
+> Connecting from {% data variables.product.prodname_vscode_shortname %} Server or {% data variables.product.prodname_vscode_shortname %} for the Web is not supported.
 
-Private marketplace is currently available to GitHub Enterprise customers. VS Code users must sign in with a GitHub Enterprise or Copilot Enterprise/Business account to access the private marketplace.
+Private marketplace is currently available to GitHub Enterprise customers. {% data variables.product.prodname_vscode_shortname %} users must sign in with a GitHub Enterprise or Copilot Enterprise/Business account to access the private marketplace.
 
 Get started with the **[deployment and feature guide](https://aka.ms/private-marketplace/readme)**, which includes deployment instructions, scripts, and development environment configuration. For questions or assistance, contact [private marketplace support](https://aka.ms/vspm/support).
 
 ## Related resources
 
-* [Extension Marketplace](/docs/configure/extensions/extension-marketplace.md) - Learn about installing and managing extensions in VS Code.
-* [Extension runtime security](/docs/configure/extensions/extension-runtime-security.md) - Learn about extension security in VS Code.
-* [Enterprise policies](/docs/enterprise/policies.md) - Reference for all enterprise policies in VS Code.
+* [Extension Marketplace](/docs/configure/extensions/extension-marketplace.md) - Learn about installing and managing extensions in {% data variables.product.prodname_vscode_shortname %}.
+* [Extension runtime security](/docs/configure/extensions/extension-runtime-security.md) - Learn about extension security in {% data variables.product.prodname_vscode_shortname %}.
+* [Enterprise policies](/docs/enterprise/policies.md) - Reference for all enterprise policies in {% data variables.product.prodname_vscode_shortname %}.

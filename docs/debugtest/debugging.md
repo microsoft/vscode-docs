@@ -1,18 +1,18 @@
 ---
 ContentId: 4E9A74AA-D778-4D1C-B369-83763B3C340F
 DateApproved: 8/26/2026
-MetaDescription: One of the great things in Visual Studio Code is debugging support.  Set breakpoints, step-in, inspect variables and more.
+MetaDescription: One of the great things in {% data variables.product.prodname_vscode %} is debugging support.  Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: images/debugging/debugging-social.png
 ---
-# Debug code with Visual Studio Code
+# Debug code with {% data variables.product.prodname_vscode %}
 
-Visual Studio Code has rich support for debugging various types of applications. VS Code has built-in support for JavaScript, TypeScript, and Node.js debugging. The [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode/Debuggers) has a wide variety of debugging extensions to add debugging support for other languages and runtimes to VS Code.
+{% data variables.product.prodname_vscode %} has rich support for debugging various types of applications. {% data variables.product.prodname_vscode_shortname %} has built-in support for JavaScript, TypeScript, and Node.js debugging. The [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode/Debuggers) has a wide variety of debugging extensions to add debugging support for other languages and runtimes to {% data variables.product.prodname_vscode_shortname %}.
 
-This article describes the debugging features of VS Code and how to get started with debugging in VS Code. You also learn how you can use Copilot in VS Code to accelerate setting up your debugging configuration and starting a debugging session.
+This article describes the debugging features of {% data variables.product.prodname_vscode_shortname %} and how to get started with debugging in {% data variables.product.prodname_vscode_shortname %}. You also learn how you can use Copilot in {% data variables.product.prodname_vscode_shortname %} to accelerate setting up your debugging configuration and starting a debugging session.
 
-The following video shows how to get started with debugging in VS Code.
+The following video shows how to get started with debugging in {% data variables.product.prodname_vscode_shortname %}.
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/3HiLLByBWkg" title="Getting started with debugging in VS Code" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/3HiLLByBWkg" title="Getting started with debugging in {% data variables.product.prodname_vscode_shortname %}" frameborder="0" allowfullscreen></iframe>
 
 ## Debugger user interface
 
@@ -30,14 +30,14 @@ The following diagram shows the main components of the debugger user interface:
 
 1. Install a debugging extension from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode/Debuggers) for your language or runtime.
 
-    VS Code has built-in support for JavaScript, TypeScript, and Node.js debugging.
+    {% data variables.product.prodname_vscode_shortname %} has built-in support for JavaScript, TypeScript, and Node.js debugging.
 
 1. Define a debugging configuration for your project.
 
-    For simple applications, VS Code tries to run and debug the currently active file. For more complex applications or debugging scenarios, you need to create a `launch.json` file to specify the debugger configuration. Get more information about creating a [debug configuration](/docs/debugtest/debugging-configuration.md).
+    For simple applications, {% data variables.product.prodname_vscode_shortname %} tries to run and debug the currently active file. For more complex applications or debugging scenarios, you need to create a `launch.json` file to specify the debugger configuration. Get more information about creating a [debug configuration](/docs/debugtest/debugging-configuration.md).
 
     > [!TIP]
-    > Copilot in VS Code can help generate the `launch.json` file for you. For more information, see [Use Copilot to generate debugging configurations](/docs/debugtest/debugging-configuration.md#generate-a-launch-configuration-with-ai).
+    > Copilot in {% data variables.product.prodname_vscode_shortname %} can help generate the `launch.json` file for you. For more information, see [Use Copilot to generate debugging configurations](/docs/debugtest/debugging-configuration.md#generate-a-launch-configuration-with-ai).
 
 1. Set breakpoints in your code.
 
@@ -47,7 +47,7 @@ The following diagram shows the main components of the debugger user interface:
 
 ## Start a debugging session
 
-To start a debugging session in VS Code, perform the following steps:
+To start a debugging session in {% data variables.product.prodname_vscode_shortname %}, perform the following steps:
 
 1. Open the file that contains the code you want to debug.
 
@@ -59,7 +59,7 @@ To start a debugging session in VS Code, perform the following steps:
 
 1. Choose the debugger you want to use from the list of available debuggers.
 
-    VS Code tries to run and debug the currently active file. For Node.js, VS Code checks for a `start` script in the `package.json` file to determine the entry point of the application.
+    {% data variables.product.prodname_vscode_shortname %} tries to run and debug the currently active file. For Node.js, {% data variables.product.prodname_vscode_shortname %} checks for a `start` script in the `package.json` file to determine the entry point of the application.
 
 1. When a debugging session starts, the **DEBUG CONSOLE** panel is displayed and shows debugging output, and the Status Bar changes color (orange for default color themes).
 
@@ -93,7 +93,7 @@ If your debugging sessions involve multiple targets (for example, a client and a
 
 ## Breakpoints
 
-A breakpoint is a special marker that pauses the execution of your code at a specific point, so you can inspect the state of your application at that point. VS Code supports several types of breakpoints.
+A breakpoint is a special marker that pauses the execution of your code at a specific point, so you can inspect the state of your application at that point. {% data variables.product.prodname_vscode_shortname %} supports several types of breakpoints.
 
 ### Setting breakpoints
 
@@ -118,7 +118,7 @@ For more control of your breakpoints, use the **Run and Debug** view's **BREAKPO
 
 #### Conditional breakpoints
 
-A powerful VS Code debugging feature is the ability to set conditions based on expressions, hit counts, or a combination of both.
+A powerful {% data variables.product.prodname_vscode_shortname %} debugging feature is the ability to set conditions based on expressions, hit counts, or a combination of both.
 
 * **Expression condition**: The breakpoint is hit whenever the expression evaluates to `true`.
 * **Hit count**: The *hit count* controls how many times a breakpoint needs to be hit before it interrupts execution. Whether a hit count is respected, and the exact syntax of the expression, can vary among debugger extensions.
@@ -222,7 +222,7 @@ Debug Console input uses the mode of the active editor, which means that the Deb
 
 ## Multi-target debugging
 
-For complex scenarios that involve more than one process (for example, a client and a server), VS Code supports multi-target debugging. After you've started a first debug session, you can launch another debug session. As soon as a second session is up and running, the VS Code UI switches to _multi-target mode_:
+For complex scenarios that involve more than one process (for example, a client and a server), {% data variables.product.prodname_vscode_shortname %} supports multi-target debugging. After you've started a first debug session, you can launch another debug session. As soon as a second session is up and running, the {% data variables.product.prodname_vscode_shortname %} UI switches to _multi-target mode_:
 
 * The individual sessions now show up as top-level elements in the **CALL STACK** view.
 
@@ -236,13 +236,13 @@ For complex scenarios that involve more than one process (for example, a client 
 
 ## Remote debugging
 
-VS Code does not support built-in remote debugging across all languages. Remote debugging is a feature of the debug extension you are using, and you should consult the extension's page in the [Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Debuggers&sortBy=Installs) for support and details.
+{% data variables.product.prodname_vscode_shortname %} does not support built-in remote debugging across all languages. Remote debugging is a feature of the debug extension you are using, and you should consult the extension's page in the [Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Debuggers&sortBy=Installs) for support and details.
 
-There is, however, one exception: the Node.js debugger included in VS Code supports remote debugging. For more information, see [Node.js Debugging](/docs/nodejs/nodejs-debugging.md#remote-debugging).
+There is, however, one exception: the Node.js debugger included in {% data variables.product.prodname_vscode_shortname %} supports remote debugging. For more information, see [Node.js Debugging](/docs/nodejs/nodejs-debugging.md#remote-debugging).
 
 ## Debugger extensions
 
-VS Code has built-in debugging support for the [Node.js](https://nodejs.org/) runtime and can debug JavaScript, TypeScript, or any other language that gets transpiled to JavaScript.
+{% data variables.product.prodname_vscode_shortname %} has built-in debugging support for the [Node.js](https://nodejs.org/) runtime and can debug JavaScript, TypeScript, or any other language that gets transpiled to JavaScript.
 
 For debugging other languages and runtimes (including [PHP](https://marketplace.visualstudio.com/items?itemName=xdebug.php-debug), [Ruby](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby), [Go](https://marketplace.visualstudio.com/items?itemName=golang.go), [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp), [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python), [C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools), [PowerShell](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell) and [many others](https://marketplace.visualstudio.com/search?term=debug&target=VSCode&category=Debuggers&sortBy=Relevance)), look for `Debuggers` extensions in the [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode/Debuggers), or select **Install Additional Debuggers** in the top-level Run menu.
 
@@ -252,36 +252,36 @@ These are several popular extensions that include debugging support:
 
 ## Next steps
 
-To learn about VS Code's Node.js debugging support, take a look at:
+To learn about {% data variables.product.prodname_vscode_shortname %}'s Node.js debugging support, take a look at:
 
-* [Node.js](/docs/nodejs/nodejs-debugging.md) - Describes the Node.js debugger, which is included in VS Code.
+* [Node.js](/docs/nodejs/nodejs-debugging.md) - Describes the Node.js debugger, which is included in {% data variables.product.prodname_vscode_shortname %}.
 * [TypeScript](/docs/typescript/typescript-debugging.md) - The Node.js debugger also supports TypeScript debugging.
 
 To see a tutorial on the basics of debugging, check out this video:
 
-* [Getting started with debugging in VS Code](https://www.youtube.com/watch?v=3HiLLByBWkg) - Learn about debugging in VS Code.
+* [Getting started with debugging in {% data variables.product.prodname_vscode_shortname %}](https://www.youtube.com/watch?v=3HiLLByBWkg) - Learn about debugging in {% data variables.product.prodname_vscode_shortname %}.
 
-To learn more about Copilot and AI-assisted debugging in VS Code:
+To learn more about Copilot and AI-assisted debugging in {% data variables.product.prodname_vscode_shortname %}:
 
 * [Debugging and fixing issues with Copilot](/docs/copilot/overview.md#fix-issues)
 * [AI cheat sheet for debugging and fixing issues](/docs/agents/reference/ai-features-cheat-sheet.md#debug-and-fix-problems)
 
-To learn about debugging support for other programming languages via VS Code extensions:
+To learn about debugging support for other programming languages via {% data variables.product.prodname_vscode_shortname %} extensions:
 
 * [C++](/docs/cpp/cpp-debug.md)
 * [Python](/docs/python/debugging.md)
 * [Java](/docs/java/java-debugging.md)
 
-To learn about VS Code's task running support, go to:
+To learn about {% data variables.product.prodname_vscode_shortname %}'s task running support, go to:
 
 * [Tasks](/docs/debugtest/tasks.md) - Describes how to run tasks with Gulp, Grunt, and Jake and how to show errors and warnings.
 
 To write your own debugger extension, visit:
 
-* [Debugger Extension](/api/extension-guides/debugger-extension.md) - Uses a mock sample to illustrate the steps required to create a VS Code debug extension.
+* [Debugger Extension](/api/extension-guides/debugger-extension.md) - Uses a mock sample to illustrate the steps required to create a {% data variables.product.prodname_vscode_shortname %} debug extension.
 
 ## Common questions
 
 ### What are the supported debugging scenarios?
 
-Debugging of Node.js-based applications is supported on Linux, macOS, and Windows out of the box with VS Code. Many other scenarios are supported by [VS Code extensions](https://marketplace.visualstudio.com/vscode/Debuggers?sortBy=Installs) available in the Marketplace.
+Debugging of Node.js-based applications is supported on Linux, macOS, and Windows out of the box with {% data variables.product.prodname_vscode_shortname %}. Many other scenarios are supported by [{% data variables.product.prodname_vscode_shortname %} extensions](https://marketplace.visualstudio.com/vscode/Debuggers?sortBy=Installs) available in the Marketplace.

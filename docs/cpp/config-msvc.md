@@ -1,25 +1,25 @@
 ---
 ContentId: c8b779d6-79e2-49d6-acfc-430d7ac3a299
 DateApproved: 3/7/2023
-MetaDescription: Configure the C++ extension in Visual Studio Code to target Microsoft C++ on Windows
+MetaDescription: Configure the C++ extension in {% data variables.product.prodname_vscode %} to target Microsoft C++ on Windows
 Keywords:
 - C++
 ---
-# Configure VS Code for Microsoft C++
+# Configure {% data variables.product.prodname_vscode_shortname %} for Microsoft C++
 
-In this tutorial, you configure Visual Studio Code to use the Microsoft Visual C++ compiler and debugger on Windows.
+In this tutorial, you configure {% data variables.product.prodname_vscode %} to use the Microsoft Visual C++ compiler and debugger on Windows.
 
-After configuring VS Code, you will compile and debug a simple Hello World program in VS Code. This tutorial does not teach you details about the Microsoft C++ toolset or the C++ language. For those subjects, there are many good resources available on the Web.
+After configuring {% data variables.product.prodname_vscode_shortname %}, you will compile and debug a simple Hello World program in {% data variables.product.prodname_vscode_shortname %}. This tutorial does not teach you details about the Microsoft C++ toolset or the C++ language. For those subjects, there are many good resources available on the Web.
 
-If you have any problems, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/microsoft/vscode-docs/issues).
+If you have any problems, feel free to file an issue for this tutorial in the [{% data variables.product.prodname_vscode_shortname %} documentation repository](https://github.com/microsoft/vscode-docs/issues).
 
 ## Prerequisites
 
 To successfully complete this tutorial, you must do the following:
 
-1. Install [Visual Studio Code](/download).
+1. Install [{% data variables.product.prodname_vscode %}](/download).
 
-1. Install the [C/C++ extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools). You can install the C/C++ extension by searching for 'c++' in the Extensions view (`kb(workbench.view.extensions)`).
+1. Install the [C/C++ extension for {% data variables.product.prodname_vscode_shortname %}](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools). You can install the C/C++ extension by searching for 'c++' in the Extensions view (`kb(workbench.view.extensions)`).
 
     ![C/C++ extension](images/cpp/cpp-extension.png)
 
@@ -35,11 +35,11 @@ To successfully complete this tutorial, you must do the following:
 
    ![Cpp build tools workload](images/msvc/desktop_development_with_cpp-2022.png)
 
->**Note**: You can use the C++ toolset from Visual Studio Build Tools along with Visual Studio Code to develop, build, and test any C++ code as long as you also have a valid Visual Studio license (either Community, Pro, or Enterprise).
+>**Note**: You can use the C++ toolset from Visual Studio Build Tools along with {% data variables.product.prodname_vscode %} to develop, build, and test any C++ code as long as you also have a valid Visual Studio license (either Community, Pro, or Enterprise).
 
 ### Check your Microsoft Visual C++ installation
 
-To use MSVC from a command line or VS Code, you must run from a **Developer Command Prompt for Visual Studio**. An ordinary shell such as PowerShell, Bash, or the Windows command prompt does not have the necessary path environment variables set.
+To use MSVC from a command line or {% data variables.product.prodname_vscode_shortname %}, you must run from a **Developer Command Prompt for Visual Studio**. An ordinary shell such as PowerShell, Bash, or the Windows command prompt does not have the necessary path environment variables set.
 
 To open the Developer Command Prompt for VS, start typing 'developer' in the Windows Start menu, and you should see it appear in the list of suggestions. The exact name depends on which version of Visual Studio or the Visual Studio Build Tools you have installed. Select the item to open the prompt.
 
@@ -51,11 +51,11 @@ You can test that you have the C++ compiler, `cl.exe`, installed correctly by ty
 
 If the Developer Command Prompt is using the BuildTools location as the starting directory (you wouldn't want to put projects there), navigate to your user folder (`C:\users\{your username}\`) before you start creating new projects.
 
->**Note**: If for some reason you can't run VS Code from a **Developer Command Prompt**, you can find a workaround for building C++ projects with VS Code in [Run VS Code outside a Developer Command Prompt](#run-vs-code-outside-the-developer-command-prompt).
+>**Note**: If for some reason you can't run {% data variables.product.prodname_vscode_shortname %} from a **Developer Command Prompt**, you can find a workaround for building C++ projects with {% data variables.product.prodname_vscode_shortname %} in [Run {% data variables.product.prodname_vscode_shortname %} outside a Developer Command Prompt](#run-vs-code-outside-the-developer-command-prompt).
 
 ## Create Hello World
 
-From the Developer Command Prompt, create an empty folder called "projects" where you can store all your VS Code projects, then create a subfolder called "helloworld", navigate into it, and open VS Code (`code`) in that folder (`.`) by entering the following commands:
+From the Developer Command Prompt, create an empty folder called "projects" where you can store all your {% data variables.product.prodname_vscode_shortname %} projects, then create a subfolder called "helloworld", navigate into it, and open {% data variables.product.prodname_vscode_shortname %} (`code`) in that folder (`.`) by entering the following commands:
 
 ```bat
 mkdir projects
@@ -65,7 +65,7 @@ cd helloworld
 code .
 ```
 
-The "code ." command opens VS Code in the current working folder, which becomes your "workspace". As you go through the tutorial, you will see three files created in a `.vscode` folder in the workspace:
+The "code ." command opens {% data variables.product.prodname_vscode_shortname %} in the current working folder, which becomes your "workspace". As you go through the tutorial, you will see three files created in a `.vscode` folder in the workspace:
 
 - `tasks.json` (build instructions)
 - `launch.json` (debugger settings)
@@ -90,7 +90,7 @@ using namespace std;
 
 int main()
 {
-    vector<string> msg {"Hello", "C++", "World", "from", "VS Code", "and the C++ extension!"};
+    vector<string> msg {"Hello", "C++", "World", "from", "{% data variables.product.prodname_vscode_shortname %}", "and the C++ extension!"};
 
     for (const string& word : msg)
     {
@@ -100,13 +100,13 @@ int main()
 }
 ```
 
-Now press `kb(workbench.action.files.save)` to save the file. Notice how the file you just added appears in the **File Explorer** view (`kb(workbench.view.explorer)`) in the side bar of VS Code:
+Now press `kb(workbench.action.files.save)` to save the file. Notice how the file you just added appears in the **File Explorer** view (`kb(workbench.view.explorer)`) in the side bar of {% data variables.product.prodname_vscode_shortname %}:
 
 ![File Explorer](images/msvc/file-explorer.png)
 
 You can also enable [Auto Save](/docs/editing/codebasics.md#save-auto-save) to automatically save your file changes, by checking **Auto Save** in the main **File** menu.
 
-The Activity Bar on the far left lets you open different views such as **Search**, **Source Control**, and **Run**. You'll look at the **Run** view later in this tutorial. You can find out more about the other views in the VS Code [User Interface documentation](/docs/editing/userinterface.md).
+The Activity Bar on the far left lets you open different views such as **Search**, **Source Control**, and **Run**. You'll look at the **Run** view later in this tutorial. You can find out more about the other views in the {% data variables.product.prodname_vscode_shortname %} [User Interface documentation](/docs/editing/userinterface.md).
 
 >**Note**: When you save or open a C++ file, you may see a notification from the C/C++ extension about the availability of an Insiders version, which lets you test new features and fixes. You can ignore this notification by selecting the `X` (**Clear Notification**).
 
@@ -120,7 +120,7 @@ You can press the `kbstyle(Tab)` key to insert the selected member; then, when y
 
 ## Run helloworld.cpp
 
-Remember, the C++ extension uses the C++ compiler you have installed on your machine to build your program. Make sure you have a C++ compiler installed before attempting to run and debug `helloworld.cpp` in VS Code.
+Remember, the C++ extension uses the C++ compiler you have installed on your machine to build your program. Make sure you have a C++ compiler installed before attempting to run and debug `helloworld.cpp` in {% data variables.product.prodname_vscode_shortname %}.
 
 1. Open `helloworld.cpp` so that it is the active file.
 2. Press the play button in the top right corner of the editor.
@@ -137,9 +137,9 @@ You'll only be asked to choose a compiler the first time you run `helloworld.cpp
 
     ![screenshot of program output](images/playbutton/helloworld-terminal-output.png)
 
-If you get an error trying to build and debug with cl.exe, make sure you have [started VS Code from the Developer Command Prompt for Visual Studio](#check-your-microsoft-visual-c-installation) using the `code .` shortcut.
+If you get an error trying to build and debug with cl.exe, make sure you have [started {% data variables.product.prodname_vscode_shortname %} from the Developer Command Prompt for Visual Studio](#check-your-microsoft-visual-c-installation) using the `code .` shortcut.
 
-![Error notification when trying to use MSVC without running VS Code from the Developer Command Prompt for VS](images/playbutton/dev-command-prompt-error.png)
+![Error notification when trying to use MSVC without running {% data variables.product.prodname_vscode_shortname %} from the Developer Command Prompt for VS](images/playbutton/dev-command-prompt-error.png)
 
 The first time you run your program, the C++ extension creates `tasks.json`, which you'll find in your project's `.vscode` folder. `tasks.json` stores build configurations.
 
@@ -218,9 +218,9 @@ To debug your code,
 
 The play button has two modes: **Run C/C++ File** and **Debug C/C++ File**. It will default to the last-used mode. If you see the debug icon in the play button, you can select the play button to debug, instead of selecting the drop-down menu item.
 
-If you get an error trying to build and debug with cl.exe, make sure you have [started VS Code from the Developer Command Prompt for Visual Studio](#check-your-microsoft-visual-c-installation) using the `code .` shortcut.
+If you get an error trying to build and debug with cl.exe, make sure you have [started {% data variables.product.prodname_vscode_shortname %} from the Developer Command Prompt for Visual Studio](#check-your-microsoft-visual-c-installation) using the `code .` shortcut.
 
-![Error notification when trying to use MSVC without running VS Code from the Developer Command Prompt for VS](images/playbutton/dev-command-prompt-error.png)
+![Error notification when trying to use MSVC without running {% data variables.product.prodname_vscode_shortname %} from the Developer Command Prompt for VS](images/playbutton/dev-command-prompt-error.png)
 
 ## Explore the debugger
 
@@ -291,7 +291,7 @@ You'll then see a dropdown for various predefined debugging configurations. Choo
 
 ![C++ debug configuration dropdown](images/playbutton/select-cl-compiler.png)
 
-VS Code creates a `launch.json` file, which looks something like this:
+{% data variables.product.prodname_vscode_shortname %} creates a `launch.json` file, which looks something like this:
 
 ```json
 {
@@ -329,11 +329,11 @@ You can view the C/C++ configuration UI by running the command **C/C++: Edit Con
 
 ![Command Palette](images/cpp/command-palette.png)
 
-This opens the **C/C++ Configurations** page. When you make changes here, VS Code writes them to a file called `c_cpp_properties.json` in the `.vscode` folder.
+This opens the **C/C++ Configurations** page. When you make changes here, {% data variables.product.prodname_vscode_shortname %} writes them to a file called `c_cpp_properties.json` in the `.vscode` folder.
 
 ![Command Palette](images/msvc/configurations-ui.png)
 
-Visual Studio Code places these settings in `.vscode\c_cpp_properties.json`. If you open that file directly, it should look something like this:
+{% data variables.product.prodname_vscode %} places these settings in `.vscode\c_cpp_properties.json`. If you open that file directly, it should look something like this:
 
 ```json
 {
@@ -377,11 +377,11 @@ If you have g++ or WSL installed, you might need to change `compilerPath` to mat
 
 ## Reusing your C++ configuration
 
-VS Code is now configured to use the Microsoft C++ compiler. The configuration applies to the current workspace. To reuse the configuration, just copy the JSON files to a `.vscode` folder in a new project folder (workspace) and change the names of the source file(s) and executable as needed.
+{% data variables.product.prodname_vscode_shortname %} is now configured to use the Microsoft C++ compiler. The configuration applies to the current workspace. To reuse the configuration, just copy the JSON files to a `.vscode` folder in a new project folder (workspace) and change the names of the source file(s) and executable as needed.
 
-## Run VS Code outside the Developer Command Prompt
+## Run {% data variables.product.prodname_vscode_shortname %} outside the Developer Command Prompt
 
-In certain circumstances, it isn't possible to run VS Code from **Developer Command Prompt for Visual Studio** (for example, in Remote Development through SSH scenarios). In that case, you can automate initialization of **Developer Command Prompt for Visual Studio** during the build using the following `tasks.json` configuration:
+In certain circumstances, it isn't possible to run {% data variables.product.prodname_vscode_shortname %} from **Developer Command Prompt for Visual Studio** (for example, in Remote Development through SSH scenarios). In that case, you can automate initialization of **Developer Command Prompt for Visual Studio** during the build using the following `tasks.json` configuration:
 
 ```json
 {
@@ -429,18 +429,18 @@ In certain circumstances, it isn't possible to run VS Code from **Developer Comm
 
 ### The term 'cl.exe' is not recognized
 
-If you see the error "The term 'cl.exe' is not recognized as the name of a cmdlet, function, script file, or operable program.", this usually means you are running VS Code outside of a **Developer Command Prompt for Visual Studio** and VS Code doesn't know the path to the `cl.exe` compiler.
+If you see the error "The term 'cl.exe' is not recognized as the name of a cmdlet, function, script file, or operable program.", this usually means you are running {% data variables.product.prodname_vscode_shortname %} outside of a **Developer Command Prompt for Visual Studio** and {% data variables.product.prodname_vscode_shortname %} doesn't know the path to the `cl.exe` compiler.
 
-VS Code must either be started from the Developer Command Prompt for Visual Studio, or the task must be configured to [run outside a Developer Command Prompt](#run-vs-code-outside-the-developer-command-prompt).
+{% data variables.product.prodname_vscode_shortname %} must either be started from the Developer Command Prompt for Visual Studio, or the task must be configured to [run outside a Developer Command Prompt](#run-vs-code-outside-the-developer-command-prompt).
 
-You can always check that you are running VS Code in the context of the Developer Command Prompt by opening a new Terminal (`kb(workbench.action.terminal.new)`) and typing 'cl' to verify `cl.exe` is available to VS Code.
+You can always check that you are running {% data variables.product.prodname_vscode_shortname %} in the context of the Developer Command Prompt by opening a new Terminal (`kb(workbench.action.terminal.new)`) and typing 'cl' to verify `cl.exe` is available to {% data variables.product.prodname_vscode_shortname %}.
 
 ### fatal error C1034: assert.h: no include path set
 
-In this case, `cl.exe` is available to VS Code through the `PATH` environment variable, but VS Code still needs to either be started from the **Developer Command Prompt for Visual Studio**, or be configured to [run outside the Developer Command Prompt](#run-vs-code-outside-the-developer-command-prompt). Otherwise, `cl.exe` does not have access to important environment variables such as `INCLUDE`.
+In this case, `cl.exe` is available to {% data variables.product.prodname_vscode_shortname %} through the `PATH` environment variable, but {% data variables.product.prodname_vscode_shortname %} still needs to either be started from the **Developer Command Prompt for Visual Studio**, or be configured to [run outside the Developer Command Prompt](#run-vs-code-outside-the-developer-command-prompt). Otherwise, `cl.exe` does not have access to important environment variables such as `INCLUDE`.
 
 ## Next steps
 
-- Explore the [VS Code User Guide](/docs/editing/codebasics.md).
+- Explore the [{% data variables.product.prodname_vscode_shortname %} User Guide](/docs/editing/codebasics.md).
 - Review the [Overview of the C++ extension](/docs/languages/cpp.md).
 - Create a new workspace, copy your `.vscode` JSON files to it, adjust the necessary settings for the new workspace path, program name, and so on, and start coding!

@@ -1,13 +1,13 @@
 ---
 ContentId: 7ab2cd6c-45fd-4278-a6e8-1c9e060593ea
 DateApproved: 8/26/2026
-MetaDescription: Get AI-powered inline suggestions from GitHub Copilot in VS Code, including ghost text completions and next edit suggestions.
+MetaDescription: Get AI-powered inline suggestions from GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}, including ghost text completions and next edit suggestions.
 MetaSocialImage: images/shared/github-copilot-social.png
 Keywords: [nes, suggestions, inline completions, ghost text, next edit suggestions]
 ---
-# Inline suggestions from GitHub Copilot in VS Code
+# Inline suggestions from GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}
 
-GitHub Copilot in VS Code provides AI-powered inline suggestions that complete your code, comments, tests, and more as you type. Inline suggestions work with a broad range of programming languages and frameworks. They are one of several AI surfaces in VS Code, alongside [agents](/docs/agents/overview.md) for autonomous multi-file tasks, [chat](/docs/chat/chat-overview.md), and [smart actions](/docs/editing/copilot-smart-actions.md).
+GitHub Copilot in {% data variables.product.prodname_vscode_shortname %} provides AI-powered inline suggestions that complete your code, comments, tests, and more as you type. Inline suggestions work with a broad range of programming languages and frameworks. They are one of several AI surfaces in {% data variables.product.prodname_vscode_shortname %}, alongside [agents](/docs/agents/overview.md) for autonomous multi-file tasks, [chat](/docs/chat/chat-overview.md), and [smart actions](/docs/editing/copilot-smart-actions.md).
 
 You might experience two kinds of inline suggestions from Copilot, both of which match your coding style and take your existing code into account:
 
@@ -16,7 +16,7 @@ You might experience two kinds of inline suggestions from Copilot, both of which
 * **Next edit suggestions**: Predict your next code edit with Copilot next edit suggestions, aka Copilot NES. Based on the edits you're making, NES both predicts the location of the next edit you'll want to make and what that edit should be.
 
 <div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
-Follow a hands-on tutorial to build your first app with AI in VS Code.
+Follow a hands-on tutorial to build your first app with AI in {% data variables.product.prodname_vscode_shortname %}.
 
 * [Start tutorial](/docs/agents/agents-tutorial.md)
 
@@ -24,7 +24,7 @@ Follow a hands-on tutorial to build your first app with AI in VS Code.
 
 ## Prerequisites
 
-* Visual Studio Code installed on your machine. Follow these steps to [set up VS Code](/docs/getstarted/overview.md).
+* {% data variables.product.prodname_vscode %} installed on your machine. Follow these steps to [set up {% data variables.product.prodname_vscode_shortname %}](/docs/getstarted/overview.md).
 * Access to a GitHub Copilot subscription. Follow these steps to [set up GitHub Copilot](/docs/agents/overview.md#get-started). You can set up Copilot Free to get a monthly allowance of inline suggestions and AI credits.
 
 ## Ghost text suggestions
@@ -65,7 +65,7 @@ Ghost text suggestions are great at autocompleting a section of code. But since 
 
 Based on the edits you're making, next edit suggestions predict both the location of the next edit you'll want to make and what that edit should be. Copilot NES helps you stay in the flow, suggesting future changes relevant to your current work, and you can `kbstyle(Tab)` to quickly navigate and accept Copilot's suggestions. Suggestions might span a single symbol, an entire line, or multiple lines, depending on the scope of the potential change.
 
-To get started with Copilot NES, enable the VS Code setting `setting(github.copilot.nextEditSuggestions.enabled)`.
+To get started with Copilot NES, enable the {% data variables.product.prodname_vscode_shortname %} setting `setting(github.copilot.nextEditSuggestions.enabled)`.
 
 ### Navigate and accept edit suggestions
 
@@ -78,7 +78,7 @@ You can hover over the arrow to explore the edit suggestion menu, which includes
 ![Copilot NES gutter menu expanded](./images/inline-suggestions/gutter-menu-highlighted-updated.png)
 
 > [!IMPORTANT]
-> If you are a [VS Code vim extension](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim) user, please use the latest version of the extension to avoid any conflicts in keybindings with NES.
+> If you are a [{% data variables.product.prodname_vscode_shortname %} vim extension](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim) user, please use the latest version of the extension to avoid any conflicts in keybindings with NES.
 
 ### Reduce distractions by edit suggestions
 
@@ -128,11 +128,11 @@ Alternatively, use the **Snooze Inline Suggestions** and **Cancel Snooze Inline 
 
 ## Change the AI model for suggestions
 
-Different Large Language Models (LLMs) are trained on different types of data and might have different capabilities and strengths. Learn more about how to [choose between different AI language models](/docs/agent-customization/language-models.md) in VS Code.
+Different Large Language Models (LLMs) are trained on different types of data and might have different capabilities and strengths. Learn more about how to [choose between different AI language models](/docs/agent-customization/language-models.md) in {% data variables.product.prodname_vscode_shortname %}.
 
 To change the language model that is used for generating ghost text suggestions in the editor:
 
-1. Select **Configure Inline Suggestions...** from the Chat menu in the VS Code title bar.
+1. Select **Configure Inline Suggestions...** from the Chat menu in the {% data variables.product.prodname_vscode_shortname %} title bar.
 
 1. Select **Change Completions Model...**, and then select one of the models from the list.
 
@@ -145,7 +145,7 @@ To change the language model that is used for generating ghost text suggestions 
 
 ### Context
 
-To give you relevant inline suggestions, Copilot looks at the current and open files in your editor to analyze the context and create appropriate suggestions. Having related files open in VS Code while using Copilot helps set this context and lets Copilot get a bigger picture of your project.
+To give you relevant inline suggestions, Copilot looks at the current and open files in your editor to analyze the context and create appropriate suggestions. Having related files open in {% data variables.product.prodname_vscode_shortname %} while using Copilot helps set this context and lets Copilot get a bigger picture of your project.
 
 ## Settings
 
@@ -178,6 +178,6 @@ To give you relevant inline suggestions, Copilot looks at the current and open f
 
 * Discover the key features in the [Quickstart](/docs/agents/quickstart.md).
 
-* Use AI chat conversations with [chat in VS Code](/docs/chat/chat-overview.md).
+* Use AI chat conversations with [chat in {% data variables.product.prodname_vscode_shortname %}](/docs/chat/chat-overview.md).
 
-* Watch the videos in our [VS Code Copilot Series](https://www.youtube.com/playlist?list=PLj6YeMhvp2S5_hvBl2SE-7YCHYlLQ0bPt) on YouTube.
+* Watch the videos in our [{% data variables.product.prodname_vscode_shortname %} Copilot Series](https://www.youtube.com/playlist?list=PLj6YeMhvp2S5_hvBl2SE-7YCHYlLQ0bPt) on YouTube.

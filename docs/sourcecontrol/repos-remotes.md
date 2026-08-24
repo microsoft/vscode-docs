@@ -1,7 +1,7 @@
 ---
 ContentId: 8f34d9b6-3185-426a-b6d9-7e5ac7138a31
 DateApproved: 8/26/2026
-MetaDescription: Manage Git repositories and remotes in VS Code with cloning, publishing, synchronization, upstream tracking, and multiple-repository workflows.
+MetaDescription: Manage Git repositories and remotes in {% data variables.product.prodname_vscode_shortname %} with cloning, publishing, synchronization, upstream tracking, and multiple-repository workflows.
 Keywords:
 - source control
 - scm
@@ -10,9 +10,9 @@ Keywords:
 ---
 # Working with repositories and remotes
 
-Git repositories and remotes enable you to collaborate with others by syncing your work across different locations. VS Code provides integrated tools for working with remote repositories without needing command-line Git knowledge.
+Git repositories and remotes enable you to collaborate with others by syncing your work across different locations. {% data variables.product.prodname_vscode_shortname %} provides integrated tools for working with remote repositories without needing command-line Git knowledge.
 
-This article covers working with Git repositories and remotes, including cloning, publishing, syncing changes, and managing multiple repositories in VS Code.
+This article covers working with Git repositories and remotes, including cloning, publishing, syncing changes, and managing multiple repositories in {% data variables.product.prodname_vscode_shortname %}.
 
 ## Understanding remotes
 
@@ -45,7 +45,7 @@ sequenceDiagram
     Note over Remote: Local commits<br>available to others
 ``` -->
 
-When you push, Git needs to know which remote to send your commits to. By default, Git uses the upstream branch configured for your current branch. If no upstream is set, VS Code prompts you to publish the branch and set the upstream.
+When you push, Git needs to know which remote to send your commits to. By default, Git uses the upstream branch configured for your current branch. If no upstream is set, {% data variables.product.prodname_vscode_shortname %} prompts you to publish the branch and set the upstream.
 
 ## Add a remote
 
@@ -69,17 +69,17 @@ Cloning creates a local copy of a remote repository on your machine. The cloned 
 
 To clone a repository, run the **Git: Clone** command in the Command Palette (`kb(workbench.action.showCommands)`), or select the **Clone Repository** button in the Source Control view.
 
-If you clone from GitHub, VS Code prompts you to authenticate with GitHub. Then, select a repository from the list to clone to your machine. The list contains both public and private repositories. For other Git providers, enter the repository URL.
+If you clone from GitHub, {% data variables.product.prodname_vscode_shortname %} prompts you to authenticate with GitHub. Then, select a repository from the list to clone to your machine. The list contains both public and private repositories. For other Git providers, enter the repository URL.
 
-![Screenshot of the Clone Repository prompt in VS Code.](images/repos-remotes/github-clone.png)
+![Screenshot of the Clone Repository prompt in {% data variables.product.prodname_vscode_shortname %}.](images/repos-remotes/github-clone.png)
 
-When cloning, VS Code asks you to select a local folder to store the repository. After cloning, you can choose to open the cloned repository in a new window.
+When cloning, {% data variables.product.prodname_vscode_shortname %} asks you to select a local folder to store the repository. After cloning, you can choose to open the cloned repository in a new window.
 
-The [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension enhances the GitHub integration with pull request and issue management. Learn more about [working with GitHub in VS Code](/docs/sourcecontrol/github.md).
+The [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension enhances the GitHub integration with pull request and issue management. Learn more about [working with GitHub in {% data variables.product.prodname_vscode_shortname %}](/docs/sourcecontrol/github.md).
 
 ## Publish to GitHub
 
-If you have a local repository that isn't connected to a remote, you can publish it directly to GitHub from VS Code.
+If you have a local repository that isn't connected to a remote, you can publish it directly to GitHub from {% data variables.product.prodname_vscode_shortname %}.
 
 To publish a repository to GitHub:
 
@@ -93,7 +93,7 @@ To publish a repository to GitHub:
 
 1. Select which files to include in the initial commit
 
-VS Code creates a new repository on GitHub, adds it as a remote, and pushes your commits.
+{% data variables.product.prodname_vscode_shortname %} creates a new repository on GitHub, adds it as a remote, and pushes your commits.
 
 > [!TIP]
 > Publishing to GitHub is the fastest way to get your local work online. It creates the repository, configures the remote, and pushes your commits in one step.
@@ -119,7 +119,7 @@ Pushing uploads your local commits to the remote repository. To push commits:
 Your commits are uploaded to the remote branch. Other team members can now pull your changes.
 
 > [!NOTE]
-> If your branch doesn't have an upstream configured, VS Code prompts you to publish the branch first.
+> If your branch doesn't have an upstream configured, {% data variables.product.prodname_vscode_shortname %} prompts you to publish the branch first.
 
 ### Pull commits
 
@@ -131,9 +131,9 @@ Pulling downloads commits from the remote repository and merges them into your l
 
     You can also pull remote commits by using the Pull icon in the Source Control Graph view toolbar.
 
-1. VS Code downloads and merges the remote commits
+1. {% data variables.product.prodname_vscode_shortname %} downloads and merges the remote commits
 
-If there are conflicts between your local changes and the remote commits, VS Code helps you resolve them through the [merge conflict resolution tools](/docs/sourcecontrol/merge-conflicts.md).
+If there are conflicts between your local changes and the remote commits, {% data variables.product.prodname_vscode_shortname %} helps you resolve them through the [merge conflict resolution tools](/docs/sourcecontrol/merge-conflicts.md).
 
 ### Pull with rebase
 
@@ -141,7 +141,7 @@ Instead of merging remote changes, you can rebase your local commits on top of t
 
 1. Select **More Actions** (**...**) > **Pull (Rebase)** in the Source Control view
 
-1. VS Code applies the remote commits first, then replays your local commits on top
+1. {% data variables.product.prodname_vscode_shortname %} applies the remote commits first, then replays your local commits on top
 
 Rebasing creates a linear history without merge commits. Learn more about [Git rebase](https://git-scm.com/docs/git-rebase).
 
@@ -159,7 +159,7 @@ To sync changes:
 The Status Bar sync indicator shows how many commits you have to push (↑) and pull (↓). For example, `↑2 ↓1` means you have 2 commits to push and 1 commit to pull.
 
 > [!TIP]
-> Configure the `setting(git.confirmSync)` setting to control whether VS Code asks for confirmation before syncing.
+> Configure the `setting(git.confirmSync)` setting to control whether {% data variables.product.prodname_vscode_shortname %} asks for confirmation before syncing.
 
 ### Fetch commits
 
@@ -207,13 +207,13 @@ Learn more about [viewing commits and branch history in the Source Control Graph
 
 The Repositories view enables you to manage multiple Git repositories in a single workspace. This is useful when working with projects that span multiple repositories. The Repositories view also shows [Git worktrees](/docs/sourcecontrol/branches-worktrees.md) associated with your repositories.
 
-![Screenshot of the Repositories view in VS Code showing multiple Git repositories.](images/repos-remotes/multiple-repositories.png)
+![Screenshot of the Repositories view in {% data variables.product.prodname_vscode_shortname %} showing multiple Git repositories.](images/repos-remotes/multiple-repositories.png)
 
 To show the Repositories view, run the **Source Control: Focus on Repositories View** command from the Command Palette (`kb(workbench.action.showCommands)`). Configure the `setting(scm.alwaysShowRepositories)` setting to always show the Repositories view in the Source Control view.
 
 For each repository, you can see the active branch, sync status, and access actions like fetch, pull, push, and more.
 
-VS Code automatically detects Git repositories when you open folders that contain them. If you open a folder with multiple repositories (like a monorepo), all repositories appear in the Repositories view.
+{% data variables.product.prodname_vscode_shortname %} automatically detects Git repositories when you open folders that contain them. If you open a folder with multiple repositories (like a monorepo), all repositories appear in the Repositories view.
 
 ### Repository selection modes
 
@@ -221,7 +221,7 @@ If you prefer to focus on a single repository or worktree at a time, you can swi
 
 ## Credential helpers
 
-Credential helpers securely store your authentication credentials so you don't have to enter them every time you push or pull. You should [set up a credential helper](https://docs.github.com/get-started/getting-started-with-git/caching-your-github-credentials-in-git) to avoid getting asked for credentials every time VS Code interacts with a remote repository.
+Credential helpers securely store your authentication credentials so you don't have to enter them every time you push or pull. You should [set up a credential helper](https://docs.github.com/get-started/getting-started-with-git/caching-your-github-credentials-in-git) to avoid getting asked for credentials every time {% data variables.product.prodname_vscode_shortname %} interacts with a remote repository.
 
 ## Next steps
 

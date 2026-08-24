@@ -1,15 +1,15 @@
 ---
 ContentId: AFFD7BDB-925E-4D02-828D-4E14360C70DA
 DateApproved: 8/19/2026
-MetaDescription: Get started writing and debugging .NET apps with Visual Studio Code.
+MetaDescription: Get started writing and debugging .NET apps with {% data variables.product.prodname_vscode %}.
 ---
-# Using .NET in Visual Studio Code
+# Using .NET in {% data variables.product.prodname_vscode %}
 
-[.NET](https://dotnet.microsoft.com) provides a fast and modular platform for creating many different types of applications that run on Windows, Linux, and macOS. Use Visual Studio Code with the C# and F# extensions to get a powerful editing experience with [C# IntelliSense](https://learn.microsoft.com/visualstudio/ide/visual-csharp-intellisense), F# IntelliSense (smart code completion), and debugging.
+[.NET](https://dotnet.microsoft.com) provides a fast and modular platform for creating many different types of applications that run on Windows, Linux, and macOS. Use {% data variables.product.prodname_vscode %} with the C# and F# extensions to get a powerful editing experience with [C# IntelliSense](https://learn.microsoft.com/visualstudio/ide/visual-csharp-intellisense), F# IntelliSense (smart code completion), and debugging.
 
-## Setting up VS Code for .NET development
+## Setting up {% data variables.product.prodname_vscode_shortname %} for .NET development
 
-If you are an existing VS Code user, you can add .NET support by installing the [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) extension. C# Dev Kit brings a productive and reliable C# experience into VS Code, facilitating C# or multi-language development in VS Code. This extension pack consists of a set of VS Code extensions that work together to provide a rich C# editing experience, AI-powered development, solution management, and integrated testing experiences. As shown in the graphic below, C# Dev Kit consists of:
+If you are an existing {% data variables.product.prodname_vscode_shortname %} user, you can add .NET support by installing the [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) extension. C# Dev Kit brings a productive and reliable C# experience into {% data variables.product.prodname_vscode_shortname %}, facilitating C# or multi-language development in {% data variables.product.prodname_vscode_shortname %}. This extension pack consists of a set of {% data variables.product.prodname_vscode_shortname %} extensions that work together to provide a rich C# editing experience, AI-powered development, solution management, and integrated testing experiences. As shown in the graphic below, C# Dev Kit consists of:
 
 * The [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp), which provides the base language services support and continues to be worked on and maintained independent of this effort.
 * [C# Dev Kit extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit), which builds on the same base foundation as Visual Studio and provides solution management, templates, test discovery/debugging.
@@ -19,7 +19,7 @@ If you are an existing VS Code user, you can add .NET support by installing the 
 
 If your projects require F# support, you can also download the [.NET Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.vscode-dotnet-pack), which includes these extensions:
 
-* [C# Dev Kit for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit)
+* [C# Dev Kit for {% data variables.product.prodname_vscode %}](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit)
 * [Ionide for F#](https://marketplace.visualstudio.com/items?itemName=Ionide.Ionide-fsharp)
 * [Jupyter Notebooks](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter)
 
@@ -42,7 +42,7 @@ If you download the extensions separately, ensure that you also have the .NET SD
      dotnet new console
    ```
 
-2. When the project folder is first opened in VS Code:
+2. When the project folder is first opened in {% data variables.product.prodname_vscode_shortname %}:
 
    * A "Required assets to build and debug are missing. Add them?" notification appears at the bottom right of the window.
    * Select **Yes**.
@@ -64,7 +64,7 @@ If you download the extensions separately, ensure that you also have the .NET SD
    dotnet new console -lang "F#"
    ```
 
-2. Once it completes, open the project in Visual Studio Code:
+2. Once it completes, open the project in {% data variables.product.prodname_vscode %}:
 
    ```bat
    code .
@@ -79,11 +79,11 @@ If you download the extensions separately, ensure that you also have the .NET SD
 ## Next steps
 
 * [C# Dev Kit documentation](/docs/csharp/get-started.md)
-* Continue exploring C# development: [Debug with VS Code and .NET](https://learn.microsoft.com/dotnet/core/tutorials/debugging-with-visual-studio-code)
-* [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful VS Code editor.
+* Continue exploring C# development: [Debug with {% data variables.product.prodname_vscode_shortname %} and .NET](https://learn.microsoft.com/dotnet/core/tutorials/debugging-with-visual-studio-code)
+* [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful {% data variables.product.prodname_vscode_shortname %} editor.
 * [Code Navigation](/docs/editing/editingevolved.md) - Move quickly through your source code.
 * [Working with C#](/docs/languages/csharp.md) - Learn about the great C# support you'll have when working on your .NET application.
 * [Tasks](/docs/debugtest/tasks.md) - Running tasks with Gulp, Grunt, and Jake.  Showing Errors and Warnings
 * [.NET Docs](https://learn.microsoft.com/dotnet) - Visit the .NET docs for more information on this powerful cross-platform development solution.
 * [Deploying Applications to Azure](/docs/azure/deployment.md) - Deploy your app to [Azure](https://azure.microsoft.com).
-* [Get Started with F# in Visual Studio Code](https://learn.microsoft.com/dotnet/fsharp/get-started/get-started-vscode)
+* [Get Started with F# in {% data variables.product.prodname_vscode %}](https://learn.microsoft.com/dotnet/fsharp/get-started/get-started-vscode)

@@ -1,7 +1,7 @@
 ---
 ContentId: 1a9d76e8-9c8c-446e-974e-d71570e7d62a
 DateApproved: 8/26/2026
-MetaDescription: Visual Studio Code's integrated terminal allows configuring various profiles to make launching various shells easier.
+MetaDescription: {% data variables.product.prodname_vscode %}'s integrated terminal allows configuring various profiles to make launching various shells easier.
 ---
 # Terminal Profiles
 
@@ -33,13 +33,13 @@ Configure your default profile by running the **Terminal: Select Default Profile
 
 ![Select Default Profile is located at the bottom of the dropdown menu attached to the new terminal button](images/basics/terminal-dropdown.png)
 
-The default terminal profile shell defaults to `$SHELL` on Linux and macOS and PowerShell on Windows. VS Code will automatically detect most standard shells that can then be configured as the default.
+The default terminal profile shell defaults to `$SHELL` on Linux and macOS and PowerShell on Windows. {% data variables.product.prodname_vscode_shortname %} will automatically detect most standard shells that can then be configured as the default.
 
 ## Configuring profiles
 
 To create a new profile, run the **Terminal: Select Default Profile** command and activate the configure button on the right side of the shell to base it on. This will add a new entry to your settings that can be tweaked manually in your `settings.json` file.
 
-Profiles can be created using either a `path` or a `source`, as well as a set of optional arguments. A `source` is available only on Windows and can be used to let VS Code detect the install of either `PowerShell` or `Git Bash`. Alternatively, a `path` pointing directly to the shell executable can be used. Here are some example profile configurations:
+Profiles can be created using either a `path` or a `source`, as well as a set of optional arguments. A `source` is available only on Windows and can be used to let {% data variables.product.prodname_vscode_shortname %} detect the install of either `PowerShell` or `Git Bash`. Alternatively, a `path` pointing directly to the shell executable can be used. Here are some example profile configurations:
 
 ```json
 {
@@ -83,7 +83,7 @@ The **default profile** can be defined manually with the `terminal.integrated.de
 ```
 
 > [!TIP]
-> The integrated terminal shell is running with the permissions of VS Code. If you need to run a shell command with elevated (administrator) or different permissions, use platform utilities such as `runas.exe` within a terminal.
+> The integrated terminal shell is running with the permissions of {% data variables.product.prodname_vscode_shortname %}. If you need to run a shell command with elevated (administrator) or different permissions, use platform utilities such as `runas.exe` within a terminal.
 
 ## Removing built-in profiles
 
@@ -129,13 +129,13 @@ Launching a terminal with a specific profile via a [dedicated keyboard shortcut]
 
 ## Unsafe profile detection
 
-Certain shells are installed in unsafe paths by default, like a path that could be written to by another user on a Windows environment. VS Code will still detect these but not expose them as a proper profile until they have been explicitly configured via the **Terminal: Select Default Profile** command. When configuring an unsafe profile, there will be a warning before it's added:
+Certain shells are installed in unsafe paths by default, like a path that could be written to by another user on a Windows environment. {% data variables.product.prodname_vscode_shortname %} will still detect these but not expose them as a proper profile until they have been explicitly configured via the **Terminal: Select Default Profile** command. When configuring an unsafe profile, there will be a warning before it's added:
 
 ![Shells with unsafe paths like c:\msys64 will show a warning before you can use the detected profile](images/profiles/unsafe-profile-warning.png)
 
 ## Cmder
 
-Cmder itself is a terminal, but you can use the [Cmder](https://cmder.app) shell in VS Code with the following profile:
+Cmder itself is a terminal, but you can use the [Cmder](https://cmder.app) shell in {% data variables.product.prodname_vscode_shortname %} with the following profile:
 
 ```json
 {
@@ -153,7 +153,7 @@ This profile should be picked up automatically when the `CMDER_ROOT` environment
 
 ## Cygwin
 
-Cygwin itself is a terminal, but you can use the [Cygwin](https://www.cygwin.com/) shell in VS Code with the following profile:
+Cygwin itself is a terminal, but you can use the [Cygwin](https://www.cygwin.com/) shell in {% data variables.product.prodname_vscode_shortname %} with the following profile:
 
 ```json
 {
@@ -171,7 +171,7 @@ This profile should be detected automatically as an [unsafe profile](#unsafe-pro
 
 ## Git Bash
 
-A [limitation of Git Bash](https://github.com/microsoft/vscode/issues/85831#issuecomment-943403803) when VS Code uses bash.exe (the shell) as opposed to git-bash.exe (the terminal) is that history will not be retained across shell sessions. You can work around this by adding the following to your `~/.bashrc` or `~/.bash_profile` files:
+A [limitation of Git Bash](https://github.com/microsoft/vscode/issues/85831#issuecomment-943403803) when {% data variables.product.prodname_vscode_shortname %} uses bash.exe (the shell) as opposed to git-bash.exe (the terminal) is that history will not be retained across shell sessions. You can work around this by adding the following to your `~/.bashrc` or `~/.bash_profile` files:
 
 ```bash
 export PROMPT_COMMAND='history -a'
@@ -208,7 +208,7 @@ When PowerShell 6+ is installed, Windows PowerShell is not included in the profi
 
 ## WSL
 
-When running VS Code on your local machine, Windows Subsystem for Linux shells should be automatically detected. Depending on your setup, this may be a nuisance if you have a lot of distros installed. For finer control over the WSL profiles the automatic detection can be disabled with the `setting(terminal.integrated.useWslProfiles)` setting, then here's an example of how to manually configure a WSL shell:
+When running {% data variables.product.prodname_vscode_shortname %} on your local machine, Windows Subsystem for Linux shells should be automatically detected. Depending on your setup, this may be a nuisance if you have a lot of distros installed. For finer control over the WSL profiles the automatic detection can be disabled with the `setting(terminal.integrated.useWslProfiles)` setting, then here's an example of how to manually configure a WSL shell:
 
 ```jsonc
 {
@@ -228,7 +228,7 @@ When running VS Code on your local machine, Windows Subsystem for Linux shells s
 
 ### Why are there duplicate paths in the terminal's `$PATH` environment variable and/or why are they reversed on macOS?
 
-This can happen on macOS because of how the terminal launches using VS Code's environment. When VS Code launches for the first time, to source your "development environment," it launches your configured shell as a **login shell**, which runs your `~/.profile`/`~/.bash_profile`/`~/.zprofile` scripts. Now when the terminal launches, it also runs as a login shell, which will put the standard paths to the front (for example, `/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin`) and reinitialize your shell environment.
+This can happen on macOS because of how the terminal launches using {% data variables.product.prodname_vscode_shortname %}'s environment. When {% data variables.product.prodname_vscode_shortname %} launches for the first time, to source your "development environment," it launches your configured shell as a **login shell**, which runs your `~/.profile`/`~/.bash_profile`/`~/.zprofile` scripts. Now when the terminal launches, it also runs as a login shell, which will put the standard paths to the front (for example, `/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin`) and reinitialize your shell environment.
 
 To get a better understanding, you can simulate what is happening by launching an inner login shell within your operating system's built-in terminal:
 

@@ -3,11 +3,11 @@ Order: 4
 Area: other
 TOCTitle: Office
 ContentId: 8661D491-297F-4778-B10B-588005CCD443
-PageTitle: Office Add-ins with Visual Studio Code
+PageTitle: Office Add-ins with {% data variables.product.prodname_vscode %}
 DateApproved: 6/22/2022
-MetaDescription: See how to use the features of Visual Studio Code to develop Office Add-ins.
+MetaDescription: See how to use the features of {% data variables.product.prodname_vscode %} to develop Office Add-ins.
 ---
-# Office Add-ins with Visual Studio Code
+# Office Add-ins with {% data variables.product.prodname_vscode %}
 
 [Office Add-ins](https://learn.microsoft.com/office/dev/add-ins/overview/office-add-ins) run inside an Office application and can interact with contents of the Office document using the rich [JavaScript API](https://learn.microsoft.com/office/dev/add-ins/develop/understanding-the-javascript-api-for-office).
 
@@ -19,29 +19,29 @@ Under the hood, an Office Add-in is just a web app that you can host anywhere. U
 
 Before you can create an Office Add-in, you must set up your development environment. To assist you with tool installation, see [Set up your development environment](https://learn.microsoft.com/office/dev/add-ins/overview/set-up-your-dev-environment).
 
-Once you have your tools installed, you can create a basic add-in for Excel, OneNote, Outlook, PowerPoint, Project, or Word by completing a [5-minute quick start](https://learn.microsoft.com/office/dev/add-ins/). These quick starts use the [Yeoman Generator for Office Add-ins (also called "Yo Office")](https://learn.microsoft.com/office/dev/add-ins/develop/yeoman-generator-overview) to create a Node.js Office Add-in project that can be managed with Visual Studio Code (VS Code).
+Once you have your tools installed, you can create a basic add-in for Excel, OneNote, Outlook, PowerPoint, Project, or Word by completing a [5-minute quick start](https://learn.microsoft.com/office/dev/add-ins/). These quick starts use the [Yeoman Generator for Office Add-ins (also called "Yo Office")](https://learn.microsoft.com/office/dev/add-ins/develop/yeoman-generator-overview) to create a Node.js Office Add-in project that can be managed with {% data variables.product.prodname_vscode %} ({% data variables.product.prodname_vscode_shortname %}).
 
-## Use Visual Studio Code to develop your Office Add-in
+## Use {% data variables.product.prodname_vscode %} to develop your Office Add-in
 
-Visual Studio Code is a great tool to help you develop your custom Office Add-ins, regardless of whether the add-ins run in web clients, Windows, mobile platforms, or on macOS!
+{% data variables.product.prodname_vscode %} is a great tool to help you develop your custom Office Add-ins, regardless of whether the add-ins run in web clients, Windows, mobile platforms, or on macOS!
 
 ### Get started
 
-To open your add-in project in VS Code, navigate to the root directory of your add-in project and enter the following on the command line.
+To open your add-in project in {% data variables.product.prodname_vscode_shortname %}, navigate to the root directory of your add-in project and enter the following on the command line.
 
 ```bash
 code .
 ```
 
-![The manifest.xml file of an Office Add-ins project in Visual Studio Code](images/office/office-add-in-manifest.png)
+![The manifest.xml file of an Office Add-ins project in {% data variables.product.prodname_vscode %}](images/office/office-add-in-manifest.png)
 
-Within your project, you can view and configure your [manifest](https://learn.microsoft.com/office/dev/add-ins/develop/add-in-manifests), HTML, JavaScript or TypeScript, and CSS files to define your add-in. To learn more about developing Office Add-ins in VS Code, refer to [Develop Office Add-ins with Visual Studio Code](https://learn.microsoft.com/office/dev/add-ins/develop/develop-add-ins-vscode).
+Within your project, you can view and configure your [manifest](https://learn.microsoft.com/office/dev/add-ins/develop/add-in-manifests), HTML, JavaScript or TypeScript, and CSS files to define your add-in. To learn more about developing Office Add-ins in {% data variables.product.prodname_vscode_shortname %}, refer to [Develop Office Add-ins with {% data variables.product.prodname_vscode %}](https://learn.microsoft.com/office/dev/add-ins/develop/develop-add-ins-vscode).
 
 ### Debug your add-in
 
 Debugging your add-in's client-side JavaScript code varies based on your development environment. To assist you with debugging on certain platforms, see [Overview of debugging Office Add-ins](https://learn.microsoft.com/office/dev/add-ins/testing/debug-add-ins-overview).
 
-If you are using [Node.js](https://nodejs.org/) or [ASP.NET Core](https://asp.net) for server-side logic to support your Office Add-in, refer to the [Debugging](/docs/debugtest/debugging.md) page to configure VS Code for debugging either of these runtimes.
+If you are using [Node.js](https://nodejs.org/) or [ASP.NET Core](https://asp.net) for server-side logic to support your Office Add-in, refer to the [Debugging](/docs/debugtest/debugging.md) page to configure {% data variables.product.prodname_vscode_shortname %} for debugging either of these runtimes.
 
 ### Sideload your add-in for testing
 
@@ -58,24 +58,24 @@ You can also manually sideload your add-in by using one of the following options
 
 ### Publish your add-in
 
-Deploying and publishing your add-in allows you to distribute it to users publicly or within your organization. Once you're ready to publish your add-in for others to use, you can publish it directly through VS Code using the [Azure Storage extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage). For guidance on this process, refer to [Publish an add-in developed with Visual Studio Code](https://learn.microsoft.com/office/dev/add-ins/publish/publish-add-in-vs-code).
+Deploying and publishing your add-in allows you to distribute it to users publicly or within your organization. Once you're ready to publish your add-in for others to use, you can publish it directly through {% data variables.product.prodname_vscode_shortname %} using the [Azure Storage extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage). For guidance on this process, refer to [Publish an add-in developed with {% data variables.product.prodname_vscode %}](https://learn.microsoft.com/office/dev/add-ins/publish/publish-add-in-vs-code).
 
 To learn more about the various Office Add-ins deployment methods, see [Deploy and publish Office Add-ins](https://learn.microsoft.com/office/dev/add-ins/publish/publish).
 
 ## Next steps
 
-Check out the other pages on the VS Code site to find out how you can use more capabilities of the editor when creating custom Office Add-ins:
+Check out the other pages on the {% data variables.product.prodname_vscode_shortname %} site to find out how you can use more capabilities of the editor when creating custom Office Add-ins:
 
-- [Language Overview](/docs/languages/overview.md) - You can write Office Add-ins in many languages. Find out what VS Code has to offer.
-- [User Interface](/docs/editing/userinterface.md) - Just starting out with VS Code? This is worth reviewing.
-- [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful VS Code editor.
+- [Language Overview](/docs/languages/overview.md) - You can write Office Add-ins in many languages. Find out what {% data variables.product.prodname_vscode_shortname %} has to offer.
+- [User Interface](/docs/editing/userinterface.md) - Just starting out with {% data variables.product.prodname_vscode_shortname %}? This is worth reviewing.
+- [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful {% data variables.product.prodname_vscode_shortname %} editor.
 
 ## Common questions
 
-### Can I create an Office Add-in with the generator and use VS Code regardless of the language or client-side framework?
+### Can I create an Office Add-in with the generator and use {% data variables.product.prodname_vscode_shortname %} regardless of the language or client-side framework?
 
 Yes, you can. You can use pure HTML, Angular, Ember, React, Aurelia... anything you like!
 
 ### Can I use TypeScript to create my Office Add-in?
 
-Absolutely, VS Code has great support for [TypeScript](/docs/languages/typescript.md)!
+Absolutely, {% data variables.product.prodname_vscode_shortname %} has great support for [TypeScript](/docs/languages/typescript.md)!

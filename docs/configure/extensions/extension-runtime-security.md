@@ -1,23 +1,23 @@
 ---
 ContentId: b921a11a-ed69-4716-bc93-589ba8e01e22
 DateApproved: 02/04/2026
-MetaDescription: Learn about the security measures in place for Visual Studio Code extensions, including permissions, user reliability checks, and Marketplace protections.
+MetaDescription: Learn about the security measures in place for {% data variables.product.prodname_vscode %} extensions, including permissions, user reliability checks, and Marketplace protections.
 ---
 # Extension runtime security
 
-[Extensions](/docs/configure/extensions/extension-marketplace.md) greatly enhance the functionality of Visual Studio Code. They can also introduce risks, such as malicious code execution and data privacy concerns. The [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode) has many ways to protect you from bad extensions. In addition, VS Code gives you several indicators of an extension's reliability.
+[Extensions](/docs/configure/extensions/extension-marketplace.md) greatly enhance the functionality of {% data variables.product.prodname_vscode %}. They can also introduce risks, such as malicious code execution and data privacy concerns. The [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode) has many ways to protect you from bad extensions. In addition, {% data variables.product.prodname_vscode_shortname %} gives you several indicators of an extension's reliability.
 
-This document outlines the runtime permissions of extensions in VS Code and the measures in place to protect you from malicious extensions. You'll learn how to make an informed decision about the reliability of an extension before installing it.
+This document outlines the runtime permissions of extensions in {% data variables.product.prodname_vscode_shortname %} and the measures in place to protect you from malicious extensions. You'll learn how to make an informed decision about the reliability of an extension before installing it.
 
 ## About extension runtime permissions
 
-The [extension host](/api/advanced-topics/extension-host.md) is responsible for running extensions in VS Code. The extension host has the same permissions as VS Code itself. This means that any action that VS Code can perform, an extension can also perform through the extension host.
+The [extension host](/api/advanced-topics/extension-host.md) is responsible for running extensions in {% data variables.product.prodname_vscode_shortname %}. The extension host has the same permissions as {% data variables.product.prodname_vscode_shortname %} itself. This means that any action that {% data variables.product.prodname_vscode_shortname %} can perform, an extension can also perform through the extension host.
 
 For example, an extension can read and write files on your machine, make network requests, run external processes, and modify workspace settings.
 
 ## Extension publisher trust
 
-As of VS Code release 1.97, when you first install an extension from a third-party publisher, VS Code shows a dialog prompting you to confirm that you trust the publisher of that extension.
+As of {% data variables.product.prodname_vscode_shortname %} release 1.97, when you first install an extension from a third-party publisher, {% data variables.product.prodname_vscode_shortname %} shows a dialog prompting you to confirm that you trust the publisher of that extension.
 
 When you trust the publisher of an extension pack or an extension with dependencies on other extensions, you are also trusting the publishers of the dependent extensions.
 
@@ -26,7 +26,7 @@ Publishers for extensions that you installed previously are considered trusted a
 You can manage the list of trusted extensions by using the **Extensions: Manage Trusted Extensions Publishers** command.
 
 > [!IMPORTANT]
-> When you install extensions by using the [VS Code command line](/docs/configure/command-line.md#working-with-extensions), the extension's publisher is not automatically trusted.
+> When you install extensions by using the [{% data variables.product.prodname_vscode_shortname %} command line](/docs/configure/command-line.md#working-with-extensions), the extension's publisher is not automatically trusted.
 
 ## Determine extension reliability
 
@@ -43,7 +43,7 @@ Before you install an extension, you can take various steps to determine if it's
     ![Verified publisher](images/extension-marketplace/bluecheck.png)
 
 > [!TIP]
-> If you want to enforce which extensions are allowed to be used in your organization, check out how to [configure allowed extensions in VS Code](/docs/enterprise/extensions.md#configure-allowed-extensions).
+> If you want to enforce which extensions are allowed to be used in your organization, check out how to [configure allowed extensions in {% data variables.product.prodname_vscode_shortname %}](/docs/enterprise/extensions.md#configure-allowed-extensions).
 
 ## Marketplace protections
 
@@ -59,9 +59,9 @@ The Visual Studio Marketplace employs several mechanisms to protect you from mal
 
 * **Name squatting**: The Marketplace stops extension authors from stealing the names of official publishers, such as Microsoft or RedHat, and popular extensions, like GitHub Copilot.
 
-* **Block List**: If a malicious extension is reported and verified, or a vulnerability is found in an extension dependency, the extension is removed from the Marketplace and added to a *block list*. If the extension has been installed, it's automatically uninstalled by VS Code.
+* **Block List**: If a malicious extension is reported and verified, or a vulnerability is found in an extension dependency, the extension is removed from the Marketplace and added to a *block list*. If the extension has been installed, it's automatically uninstalled by {% data variables.product.prodname_vscode_shortname %}.
 
-* **Extension Signature Verification**: The Visual Studio Marketplace signs all extensions when they're published. VS Code checks this signature when you install an extension to verify the integrity and the source of the extension package.
+* **Extension Signature Verification**: The Visual Studio Marketplace signs all extensions when they're published. {% data variables.product.prodname_vscode_shortname %} checks this signature when you install an extension to verify the integrity and the source of the extension package.
 
 * **Secret Scanning**: The Marketplace automatically scans every newly published extension for secrets such as API keys or credentials (for example, Azure DevOps PAT tokens). If any secrets are detected, publishing is blocked to prevent potential security risks. The VSCE tool scans `.env` files during packaging and blocks publishing if secrets are found.
 
@@ -79,8 +79,8 @@ To report an extension:
 
 ## Related resources
 
-* Learn how to install and manage extensions in [Visual Studio Code](/docs/configure/extensions/extension-marketplace.md).
+* Learn how to install and manage extensions in [{% data variables.product.prodname_vscode %}](/docs/configure/extensions/extension-marketplace.md).
 
-* Use [Workspace Trust](/docs/editing/workspaces/workspace-trust.md) to decide whether code in a project folder can be executed by VS Code and extensions without explicit approval. This adds an extra layer of security when working with unfamiliar code.
+* Use [Workspace Trust](/docs/editing/workspaces/workspace-trust.md) to decide whether code in a project folder can be executed by {% data variables.product.prodname_vscode_shortname %} and extensions without explicit approval. This adds an extra layer of security when working with unfamiliar code.
 
-* Configure [allowed extensions in VS Code](/docs/enterprise/extensions.md#configure-allowed-extensions) to enforce which extensions are allowed to be used in your organization.
+* Configure [allowed extensions in {% data variables.product.prodname_vscode_shortname %}](/docs/enterprise/extensions.md#configure-allowed-extensions) to enforce which extensions are allowed to be used in your organization.

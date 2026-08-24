@@ -1,17 +1,17 @@
 ---
 ContentId: 8966BBFD-C66D-4283-9DCA-8CAC0179886E
 DateApproved: 8/26/2026
-MetaDescription: Visual Studio Code is a first class editor - but it's also so much more with features such as IntelliSense and smart code navigation.
+MetaDescription: {% data variables.product.prodname_vscode %} is a first class editor - but it's also so much more with features such as IntelliSense and smart code navigation.
 ---
 # Code Navigation
 
-Visual Studio Code has a high productivity code editor which, when combined with programming language services, gives you the power of an IDE and the speed of a text editor. In this topic, we'll first describe VS Code's language intelligence features (suggestions, parameter hints, smart code navigation) and then show the power of the core text editor.
+{% data variables.product.prodname_vscode %} has a high productivity code editor which, when combined with programming language services, gives you the power of an IDE and the speed of a text editor. In this topic, we'll first describe {% data variables.product.prodname_vscode_shortname %}'s language intelligence features (suggestions, parameter hints, smart code navigation) and then show the power of the core text editor.
 
 ## Quick file navigation
 
 >**Tip:** You can open any file by its name when you type `kb(workbench.action.quickOpen)` (**Quick Open**).
 
-The Explorer is great for navigating between files when you are exploring a project. However, when you are working on a task, you will find yourself quickly jumping between the same set of files. VS Code provides two powerful commands to navigate in and across files with easy-to-use keyboard shortcuts.
+The Explorer is great for navigating between files when you are exploring a project. However, when you are working on a task, you will find yourself quickly jumping between the same set of files. {% data variables.product.prodname_vscode_shortname %} provides two powerful commands to navigate in and across files with easy-to-use keyboard shortcuts.
 
 Hold `kbstyle(Ctrl)` and press `kbstyle(Tab)` to view a list of all files open in an editor group. To open one of these files, use `kbstyle(Tab)` again to pick the file you want to navigate to, then release `kbstyle(Ctrl)` to open it.
 
@@ -173,7 +173,7 @@ Inlay hints can be enabled/disabled with the `setting(editor.inlayHints.enabled)
 
 ## Outgoing link protection
 
-For your protection, VS Code displays a prompt before opening an outgoing website link from the editor.
+For your protection, {% data variables.product.prodname_vscode_shortname %} displays a prompt before opening an outgoing website link from the editor.
 
 ![Outgoing link prompt](images/editingevolved/outgoing-link-prompt.png)
 
@@ -198,9 +198,9 @@ The **Trusted Domains** JSON file also has comments with examples of the support
 Now that you know how the editor works, time to try a few other things...
 
 * [Intro Video - Code Editing](/docs/introvideos/codeediting.md) - Watch an introductory video on code editing features.
-* [User Interface](/docs/editing/userinterface.md) - In case you missed a basic orientation around VS Code.
+* [User Interface](/docs/editing/userinterface.md) - In case you missed a basic orientation around {% data variables.product.prodname_vscode_shortname %}.
 * [Key Bindings](/docs/configure/keybindings.md) - Learn how to modify keyboard shortcuts to your preference.
-* [Debugging](/docs/debugtest/debugging.md) - This is where VS Code really shines.
+* [Debugging](/docs/debugtest/debugging.md) - This is where {% data variables.product.prodname_vscode_shortname %} really shines.
 
 ## Common questions
 

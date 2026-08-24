@@ -1,7 +1,7 @@
 ---
 ContentId: A963901F-BF3F-455F-AD75-AB54EAE72BEF
 DateApproved: 12/13/2022
-MetaDescription: Develop, build, and debug a Node.js app in a container, using Visual Studio Code.
+MetaDescription: Develop, build, and debug a Node.js app in a container, using {% data variables.product.prodname_vscode %}.
 ---
 # Node.js in a container
 
@@ -13,7 +13,7 @@ In this guide you will learn how to:
 
 ## Prerequisites
 
-- Both Docker and the VS Code Container Tools extension must be installed as described in the [overview](/docs/containers/overview.md#installation)
+- Both Docker and the {% data variables.product.prodname_vscode_shortname %} Container Tools extension must be installed as described in the [overview](/docs/containers/overview.md#installation)
 - [Node.js](https://nodejs.org/) version 10 or later
 
 ## Create an Express Node.js application
@@ -28,7 +28,7 @@ In this guide you will learn how to:
 
 ## Add Docker files to the project
 
-1. Open the project folder in VS Code.
+1. Open the project folder in {% data variables.product.prodname_vscode_shortname %}.
 1. Open the Command Palette (`kb(workbench.action.showCommands)`) and use **Containers: Add Docker Files to Workspace...** command:
 
    ![Add Dockerfile to a Node.js project](images/quickstarts/node-add-node-dark.png)
@@ -38,7 +38,7 @@ In this guide you will learn how to:
 1. Enter `3000` when prompted for the application port.
 1. Select either **Yes** or **No** when prompted to include Docker Compose files. Compose is typically used when running multiple containers at once.
 
-The extension creates `Dockerfile` and `.dockerignore` files. If you elected to include Docker Compose files, `docker-compose.yml` and `docker-compose.debug.yml` will be generated as well. Finally, the extension will create a set of **VS Code tasks** in `.vscode/tasks.json` for building and running the container (in both debug- and release-configurations) and a **launch debug configuration** in `.vscode/launch.json` for debugging the service within the container.
+The extension creates `Dockerfile` and `.dockerignore` files. If you elected to include Docker Compose files, `docker-compose.yml` and `docker-compose.debug.yml` will be generated as well. Finally, the extension will create a set of **{% data variables.product.prodname_vscode_shortname %} tasks** in `.vscode/tasks.json` for building and running the container (in both debug- and release-configurations) and a **launch debug configuration** in `.vscode/launch.json` for debugging the service within the container.
 
 ## Add an environment variable to the image
 
@@ -91,7 +91,7 @@ The Container Tools extension helps you author Dockerfiles by using [IntelliSens
 
 ## Debug in the service container
 
-When the Container Tools extension adds files to the application, it also adds a **VS Code debugger configuration** in `.vscode/launch.json` for debugging the service when running inside a container. The extension detects the protocol and port used by the service and points the browser to the service.
+When the Container Tools extension adds files to the application, it also adds a **{% data variables.product.prodname_vscode_shortname %} debugger configuration** in `.vscode/launch.json` for debugging the service when running inside a container. The extension detects the protocol and port used by the service and points the browser to the service.
 
 1. Set a breakpoint in the `get()` handler for the `'/'` route in `routes/index.js`.
 
@@ -111,7 +111,7 @@ When the Container Tools extension adds files to the application, it also adds a
 
 ## View the application logs
 
-You can view the logs in VS Code by using the **View Logs** command on the container:
+You can view the logs in {% data variables.product.prodname_vscode_shortname %} by using the **View Logs** command on the container:
 
 1. Navigate to the Container Explorer.
 1. In the **Containers** view, right-click on your container and choose **View Logs**.

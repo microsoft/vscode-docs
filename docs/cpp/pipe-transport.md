@@ -1,13 +1,13 @@
 ---
 ContentId: 59BE5FF7-563F-4044-A562-294E75A75F96
 DateApproved: 7/25/2019
-MetaDescription: How to set up pipe transport for debugging C++ code in Visual Studio Code.
+MetaDescription: How to set up pipe transport for debugging C++ code in {% data variables.product.prodname_vscode %}.
 Keywords:
 - C++
 ---
 # Pipe transport
 
-Pipe transport allows communication through a pipe program to a remote shell. For example, `ssh` on Linux. With the introduction of [Visual Studio Code Remote Development](/docs/remote/remote-overview.md) pipe transport is relevant primarily for IoT scenarios.
+Pipe transport allows communication through a pipe program to a remote shell. For example, `ssh` on Linux. With the introduction of [{% data variables.product.prodname_vscode %} Remote Development](/docs/remote/remote-overview.md) pipe transport is relevant primarily for IoT scenarios.
 
 ## How-To
 

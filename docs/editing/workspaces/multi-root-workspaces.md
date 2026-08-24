@@ -1,15 +1,15 @@
 ---
 ContentId: 8d55f6b8-977f-4c26-a888-f3d8d982dd2d
 DateApproved: 8/26/2026
-MetaDescription: You can open and work on multiple project folders in Visual Studio Code with multi-root workspaces.
+MetaDescription: You can open and work on multiple project folders in {% data variables.product.prodname_vscode %} with multi-root workspaces.
 ---
 # Multi-root Workspaces
 
-You can work with multiple project folders in Visual Studio Code with multi-root workspaces. This can be helpful when you are working on several related projects at one time. For example, you might have a repository with a product's documentation that you like to keep current when you update the product source code.
+You can work with multiple project folders in {% data variables.product.prodname_vscode %} with multi-root workspaces. This can be helpful when you are working on several related projects at one time. For example, you might have a repository with a product's documentation that you like to keep current when you update the product source code.
 
 ![multi-root hero](images/multi-root-workspaces/hero.png)
 
->**Note**: If you'd like to learn more about the VS Code "workspace" concept, you can review [What is a VS Code "workspace"?](/docs/editing/workspaces/workspaces.md) Unless you are explicitly creating a multi-root workspace, a "workspace" is just your project's single root folder.
+>**Note**: If you'd like to learn more about the {% data variables.product.prodname_vscode_shortname %} "workspace" concept, you can review [What is a {% data variables.product.prodname_vscode_shortname %} "workspace"?](/docs/editing/workspaces/workspaces.md) Unless you are explicitly creating a multi-root workspace, a "workspace" is just your project's single root folder.
 
 ## Adding folders
 
@@ -33,7 +33,7 @@ Settings like `setting(files.exclude)` are supported for each root folder if con
 
 You can use drag and drop to add folders to a workspace. Drag a folder to the File Explorer to add it to the current workspace. You can even select and drag multiple folders.
 
->**Note**: Dropping a single folder into the editor region of VS Code will still open the folder in single folder mode. If you drag and drop multiple folders into the editor region, a new multi-root workspace will be created.
+>**Note**: Dropping a single folder into the editor region of {% data variables.product.prodname_vscode_shortname %} will still open the folder in single folder mode. If you drag and drop multiple folders into the editor region, a new multi-root workspace will be created.
 
 You can also use drag and drop to reorder folders in the workspace.
 
@@ -43,7 +43,7 @@ Opening multiple folders with your platform's native file open dialog will creat
 
 ### command line --add
 
-Add a folder or multiple folders to the last active VS Code instance for a multi-root workspace.
+Add a folder or multiple folders to the last active {% data variables.product.prodname_vscode_shortname %} instance for a multi-root workspace.
 
 ```bash
   code --add vscode vscode-docs
@@ -55,7 +55,7 @@ You can remove a folder from a Workspace with the **Remove Folder from Workspace
 
 ## Workspace file
 
-When you add multiple folders, they are initially placed in a Workspace titled **UNTITLED WORKSPACE** and that name will remain until you save the workspace. You do not need to save a Workspace until you want to have it in a permanent location, for example, on your Desktop. Untitled Workspaces are present as long as the VS Code instance they are using is open. Once you completely close an instance with an untitled workspace, you will be asked to save it if you plan to open it again in the future:
+When you add multiple folders, they are initially placed in a Workspace titled **UNTITLED WORKSPACE** and that name will remain until you save the workspace. You do not need to save a Workspace until you want to have it in a permanent location, for example, on your Desktop. Untitled Workspaces are present as long as the {% data variables.product.prodname_vscode_shortname %} instance they are using is open. Once you completely close an instance with an untitled workspace, you will be asked to save it if you plan to open it again in the future:
 
 ![save workspace dialog](images/multi-root-workspaces/save-workspace.png)
 
@@ -76,7 +76,7 @@ To reopen a Workspace, you can:
 
 ![open recent workspace list](images/multi-root-workspaces/open-recent.png)
 
-Just like **Close Folder** when a single folder is open in VS Code, there is a **Close Workspace** (`kb(workbench.action.closeFolder)`) command to close the active Workspace.
+Just like **Close Folder** when a single folder is open in {% data variables.product.prodname_vscode_shortname %}, there is a **Close Workspace** (`kb(workbench.action.closeFolder)`) command to close the active Workspace.
 
 ### Workspace file schema
 
@@ -120,7 +120,7 @@ The Workspace file can also contain Workspace [global settings](#settings) under
 
 ### Editor
 
-There are only a few changes to the VS Code UI when you are using multi-root workspaces, primarily to disambiguate files between folders. For example, if there is a name collision between files in multiple folders, VS Code will include the folder name in tabbed headers.
+There are only a few changes to the {% data variables.product.prodname_vscode_shortname %} UI when you are using multi-root workspaces, primarily to disambiguate files between folders. For example, if there is a name collision between files in multiple folders, {% data variables.product.prodname_vscode_shortname %} will include the folder name in tabbed headers.
 
 ![tabbed headers](images/multi-root-workspaces/tabbed-headers.png)
 
@@ -130,19 +130,19 @@ If you'd always like to see the folder displayed in the tabbed header, you can u
 "workbench.editor.labelFormat": "medium"
 ```
 
-VS Code UI such as the **OPEN EDITORS** and **Quick Open** (`kb(workbench.action.quickOpen)`) lists include the folder name.
+{% data variables.product.prodname_vscode_shortname %} UI such as the **OPEN EDITORS** and **Quick Open** (`kb(workbench.action.quickOpen)`) lists include the folder name.
 
 ![quick pick has folder name](images/multi-root-workspaces/quick-open-list.png)
 
 If you are using a [File Icon Theme](/docs/configure/themes.md#file-icon-themes) and the active theme supports it, you will see a special Workspace icon.
 
-Below you can see the Workspace icons from the built-in **Minimal (Visual Studio Code)** file icon theme:
+Below you can see the Workspace icons from the built-in **Minimal ({% data variables.product.prodname_vscode %})** file icon theme:
 
 ![custom workspace icon](images/multi-root-workspaces/workspace-icon.png)
 
 ### Search
 
-VS Code features like global search work across all folders and group the search results by folder.
+{% data variables.product.prodname_vscode_shortname %} features like global search work across all folders and group the search results by folder.
 
 ![multi-root search results](images/multi-root-workspaces/search.png)
 
@@ -174,7 +174,7 @@ User settings are supported as with single folder projects and you can also set 
 }
 ```
 
-When you go from a single folder instance to multiple folders, VS Code will add the appropriate editor-wide settings from the first folder to the new global Workspace settings.
+When you go from a single folder instance to multiple folders, {% data variables.product.prodname_vscode_shortname %} will add the appropriate editor-wide settings from the first folder to the new global Workspace settings.
 
 You can easily review and modify the different settings files through the Settings editor. The Settings editor tabs let you select your User settings, global Workspace settings, and individual folder settings.
 
@@ -196,11 +196,11 @@ Unsupported editor-wide folder settings will be shown as grayed out in your fold
 
 ## Debugging
 
-With multi-root workspaces, VS Code searches across all folders for `launch.json` debug configuration files and displays them with the folder name as a suffix. Additionally VS Code will also display launch configurations defined in the workspace configuration file.
+With multi-root workspaces, {% data variables.product.prodname_vscode_shortname %} searches across all folders for `launch.json` debug configuration files and displays them with the folder name as a suffix. Additionally {% data variables.product.prodname_vscode_shortname %} will also display launch configurations defined in the workspace configuration file.
 
 ![debugging dropdown](images/multi-root-workspaces/debugging-dropdown.png)
 
-The example above shows the debugging configurations for the [TSLint extension](https://marketplace.visualstudio.com/items?itemName=eg2.tslint). There is a `setting(launch)` configuration from the `tslint` extension folder to start the extension running in the VS Code Extension Host and also an `attach` configuration from the `tslint-server` folder to attach the debugger to a running TSLint server.
+The example above shows the debugging configurations for the [TSLint extension](https://marketplace.visualstudio.com/items?itemName=eg2.tslint). There is a `setting(launch)` configuration from the `tslint` extension folder to start the extension running in the {% data variables.product.prodname_vscode_shortname %} Extension Host and also an `attach` configuration from the `tslint-server` folder to attach the debugger to a running TSLint server.
 
 You can also see the three **Add Config** commands for the folders, `tslint`, `tslint-server`, and `tslint-tests`, in the vscode-tslint [Workspace](https://github.com/microsoft/vscode-tslint/blob/main/vscode-tslint.code-workspace). The **Add Config** command will either open an existing `launch.json` file in the folder's `.vscode` subfolder or create a new one and display the debugging configuration template dropdown.
 
@@ -269,7 +269,7 @@ Here is an example for a launch configuration where the program lives in a folde
 
 ## Tasks
 
-Similar to how VS Code searches for debugging configurations, VS Code will also try to autodetect tasks from gulp, grunt, npm, and TypeScript project files across all folders in a workspace as well as search for tasks defined in `tasks.json` files. The location of tasks is indicated by a folder name suffix. Note that tasks defined in `tasks.json` must be version 2.0.0.
+Similar to how {% data variables.product.prodname_vscode_shortname %} searches for debugging configurations, {% data variables.product.prodname_vscode_shortname %} will also try to autodetect tasks from gulp, grunt, npm, and TypeScript project files across all folders in a workspace as well as search for tasks defined in `tasks.json` files. The location of tasks is indicated by a folder name suffix. Note that tasks defined in `tasks.json` must be version 2.0.0.
 
 ![tasks dropdown](images/multi-root-workspaces/tasks-dropdown.png)
 
@@ -289,7 +289,7 @@ You can use `kbstyle(Ctrl+Click)` or `kbstyle(Shift+Click)` to select multiple r
 
 ## Extensions
 
-If you are an extension author, you can review our [Adopting Multi Root Workspace APIs](https://github.com/microsoft/vscode/wiki/Adopting-Multi-Root-Workspace-APIs) guide to learn about VS Code multi-root workspace APIs and how to make your extension work well across multiple folders.
+If you are an extension author, you can review our [Adopting Multi Root Workspace APIs](https://github.com/microsoft/vscode/wiki/Adopting-Multi-Root-Workspace-APIs) guide to learn about {% data variables.product.prodname_vscode_shortname %} multi-root workspace APIs and how to make your extension work well across multiple folders.
 
 Below are some of the popular extensions that have adopted the multi-root workspace APIs.
 
@@ -299,7 +299,7 @@ Below are some of the popular extensions that have adopted the multi-root worksp
 
 ### Extension recommendations
 
-VS Code supports folder level extension recommendations through the `extensions.json` files under the folder's `.vscode` subfolder. You can also provide global Workspace extension recommendations by adding them to your `.code-workspace` file. You can use the **Extensions: Configure Recommended Extensions (Workspace Folder)** command to open your Workspace file and add extension identifiers ({publisherName}.{extensionName}) to the `extensions.recommendations` array.
+{% data variables.product.prodname_vscode_shortname %} supports folder level extension recommendations through the `extensions.json` files under the folder's `.vscode` subfolder. You can also provide global Workspace extension recommendations by adding them to your `.code-workspace` file. You can use the **Extensions: Configure Recommended Extensions (Workspace Folder)** command to open your Workspace file and add extension identifiers ({publisherName}.{extensionName}) to the `extensions.recommendations` array.
 
 ```json
 {
@@ -323,9 +323,9 @@ VS Code supports folder level extension recommendations through the `extensions.
 
 ## Next steps
 
-* [What is a VS Code "workspace"?](/docs/editing/workspaces/workspaces.md) - More about single-folder and multi-root workspaces.
+* [What is a {% data variables.product.prodname_vscode_shortname %} "workspace"?](/docs/editing/workspaces/workspaces.md) - More about single-folder and multi-root workspaces.
 * [Debugging](/docs/debugtest/debugging.md) - Learn how to set up debugging for your application.
-* [Tasks](/docs/debugtest/tasks.md) - Tasks let you run external tools like compilers within VS Code.
+* [Tasks](/docs/debugtest/tasks.md) - Tasks let you run external tools like compilers within {% data variables.product.prodname_vscode_shortname %}.
 
 ## Common questions
 

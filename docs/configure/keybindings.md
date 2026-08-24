@@ -1,19 +1,19 @@
 ---
 ContentId: 045980C1-62C7-4E8E-8CE4-BAD722FFE31E
 DateApproved: 08/05/2026
-MetaDescription: Customize keyboard shortcuts in Visual Studio Code, including keybinding rules, command arguments, chords, and system-wide shortcuts.
+MetaDescription: Customize keyboard shortcuts in {% data variables.product.prodname_vscode %}, including keybinding rules, command arguments, chords, and system-wide shortcuts.
 MetaSocialImage: images/keybinding/customization-keybindings-social.png
 ---
-# Keyboard shortcuts for Visual Studio Code
+# Keyboard shortcuts for {% data variables.product.prodname_vscode %}
 
-Visual Studio Code lets you perform most tasks directly from the keyboard. This article explains how you can modify the default keyboard shortcuts that come with VS Code.
+{% data variables.product.prodname_vscode %} lets you perform most tasks directly from the keyboard. This article explains how you can modify the default keyboard shortcuts that come with {% data variables.product.prodname_vscode_shortname %}.
 
 > [!NOTE]
 > If you visit this page on a Mac, you will see the keyboard shortcuts for the Mac. If you visit using Windows or Linux, you will see the keys for that platform. If you need the keyboard shortcuts for another platform, hover your mouse over the key you are interested in.
 
 ## Keyboard Shortcuts editor
 
-VS Code provides a rich keyboard shortcut editing experience with the Keyboard Shortcuts editor. The editor lists all available commands with and without keyboard shortcuts, and enables you to change, remove, or reset their keyboard shortcuts using the available actions. To find commands or keyboard shortcuts, use the search box and enter a command or shortcut to filter the list.
+{% data variables.product.prodname_vscode_shortname %} provides a rich keyboard shortcut editing experience with the Keyboard Shortcuts editor. The editor lists all available commands with and without keyboard shortcuts, and enables you to change, remove, or reset their keyboard shortcuts using the available actions. To find commands or keyboard shortcuts, use the search box and enter a command or shortcut to filter the list.
 
 To open the Keyboard Shortcuts editor, select the **File** > **Preferences** > **Keyboard Shortcuts** menu, or use the **Preferences: Open Keyboard Shortcuts** command (`kb(workbench.action.openGlobalKeybindings)`) in the Command Palette. The Keyboard Shortcuts editor opens by default in a [modal overlay](/docs/editing/userinterface.md#modal-editors) on top of the editor area.
 
@@ -30,7 +30,7 @@ To customize a keyboard shortcut for a UI action, right-click on any action item
 
 ## Keymap extensions
 
-Keymap extensions modify the VS Code shortcuts to match those of other editors, so you don't need to learn new keyboard shortcuts.
+Keymap extensions modify the {% data variables.product.prodname_vscode_shortname %} shortcuts to match those of other editors, so you don't need to learn new keyboard shortcuts.
 
 Select the **File** > **Preferences** > **Migrate Keyboard Shortcuts from...** menu to get a list of popular keymap extensions. There is also a [Keymaps category](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Installs) of extensions in the Marketplace.
 
@@ -58,7 +58,7 @@ Right-click on an item in the list of keyboard shortcuts, and select **Show Same
 
 To troubleshoot keyboard shortcut problems, you can execute the command **Developer: Toggle Keyboard Shortcuts Troubleshooting**. This activates logging of dispatched keyboard shortcuts and opens the Output panel with the corresponding log file.
 
-You can then press your desired keyboard shortcut and check what keyboard shortcut VS Code detects and what command is invoked.
+You can then press your desired keyboard shortcut and check what keyboard shortcut {% data variables.product.prodname_vscode_shortname %} detects and what command is invoked.
 
 For example, when pressing `cmd+/` in a code editor on macOS, the logging output would be:
 
@@ -82,7 +82,7 @@ To filter the list to only show the shortcuts you have modified, select the **Sh
 
 ## Advanced customization
 
-VS Code keeps track of the keyboard shortcuts you have customized in the `keybindings.json` file. For advanced customization, you can also directly modify the `keybindings.json` file.
+{% data variables.product.prodname_vscode_shortname %} keeps track of the keyboard shortcuts you have customized in the `keybindings.json` file. For advanced customization, you can also directly modify the `keybindings.json` file.
 
 To open the `keybindings.json` file:
 
@@ -94,7 +94,7 @@ To open the `keybindings.json` file:
 
 ### System-wide keyboard shortcuts
 
-To run a VS Code command even when VS Code is not in focus, add `"systemWide": true` to a user keyboard shortcut. For example, the following keyboard shortcut opens the Agents window from any application on macOS:
+To run a {% data variables.product.prodname_vscode_shortname %} command even when {% data variables.product.prodname_vscode_shortname %} is not in focus, add `"systemWide": true` to a user keyboard shortcut. For example, the following keyboard shortcut opens the Agents window from any application on macOS:
 
 ```json
 {
@@ -106,16 +106,16 @@ To run a VS Code command even when VS Code is not in focus, add `"systemWide": t
 
 System-wide keyboard shortcuts have the following restrictions:
 
-* They are available only in the desktop version of VS Code.
+* They are available only in the desktop version of {% data variables.product.prodname_vscode_shortname %}.
 * They apply only to user-defined keyboard shortcuts, not default or extension-contributed shortcuts.
 * They support a single key combination, not chords.
-* For the system-wide trigger, they ignore the `when` clause and remain active while VS Code is running.
-* They might fail to register if the operating system or another application uses the same key combination. VS Code shows a notification when registration fails.
+* For the system-wide trigger, they ignore the `when` clause and remain active while {% data variables.product.prodname_vscode_shortname %} is running.
+* They might fail to register if the operating system or another application uses the same key combination. {% data variables.product.prodname_vscode_shortname %} shows a notification when registration fails.
 
 > [!NOTE]
-> A system-wide keyboard shortcut captures its key combination from other applications while VS Code is running.
+> A system-wide keyboard shortcut captures its key combination from other applications while {% data variables.product.prodname_vscode_shortname %} is running.
 
-The command determines whether to bring a VS Code window to the foreground. To reveal the current window before running a command, use `runCommands` with `workbench.action.focusWindow`. For example:
+The command determines whether to bring a {% data variables.product.prodname_vscode_shortname %} window to the foreground. To reveal the current window before running a command, use `runCommands` with `workbench.action.focusWindow`. For example:
 
 ```json
 {
@@ -133,10 +133,10 @@ The command determines whether to bring a VS Code window to the foreground. To r
 
 ## Keyboard rules
 
-A keyboard shortcut configuration in VS Code is also known as a _keyboard rule_. Each rule consists of the following attributes:
+A keyboard shortcut configuration in {% data variables.product.prodname_vscode_shortname %} is also known as a _keyboard rule_. Each rule consists of the following attributes:
 
 * `key`: describes the pressed key(s), for example `kb(actions.find)`.
-* `command`: the identifier of the VS Code command to execute, for example `workbench.view.explorer` to open the Explorer view.
+* `command`: the identifier of the {% data variables.product.prodname_vscode_shortname %} command to execute, for example `workbench.view.explorer` to open the Explorer view.
 * `when`: (optional) clause containing a boolean expression that is evaluated depending on the current [context](#when-clause-contexts).
 * `systemWide`: (optional) boolean that registers a [system-wide keyboard shortcut](#system-wide-keyboard-shortcuts).
 
@@ -149,7 +149,7 @@ When a key is pressed, the following evaluation rules are applied:
 * If a rule is found, no more rules are processed.
 * If a rule is found and has a `command` set, the `command` is executed.
 
-The additional `keybindings.json` rules are appended at runtime to the bottom of the default rules, thus allowing them to overwrite the default rules. The `keybindings.json` file is watched by VS Code, so editing it while VS Code is running will update the rules at run-time.
+The additional `keybindings.json` rules are appended at runtime to the bottom of the default rules, thus allowing them to overwrite the default rules. The `keybindings.json` file is watched by {% data variables.product.prodname_vscode_shortname %}, so editing it while {% data variables.product.prodname_vscode_shortname %} is running will update the rules at run-time.
 
 The keyboard shortcuts dispatching is done by analyzing a list of rules that are expressed in JSON. Here are some examples:
 
@@ -336,22 +336,22 @@ Keys are string representations for virtual keys and do not necessarily relate t
 * `kbstyle(')` for `VK_OEM_7` (`0xDE`)
 * etc.
 
-Different keyboard layouts usually reposition these virtual keys or change the characters produced when they are pressed. When using a different keyboard layout than the standard US, Visual Studio Code does the following:
+Different keyboard layouts usually reposition these virtual keys or change the characters produced when they are pressed. When using a different keyboard layout than the standard US, {% data variables.product.prodname_vscode %} does the following:
 
 All the keyboard shortcuts are rendered in the UI using the current system's keyboard layout. For example, `Split Editor` when using a French (France) keyboard layout is now rendered as `kbstyle(Ctrl+*)`:
 
 ![render keyboard shortcut](images/keybinding/render-key-binding.png)
 
-When editing `keybindings.json`, VS Code highlights misleading keyboard shortcuts, those that are represented in the file with the character produced under the standard US keyboard layout, but that need pressing keys with different labels under the current system's keyboard layout. For example, here is how the default keyboard shortcut rules look like when using a French (France) keyboard layout:
+When editing `keybindings.json`, {% data variables.product.prodname_vscode_shortname %} highlights misleading keyboard shortcuts, those that are represented in the file with the character produced under the standard US keyboard layout, but that need pressing keys with different labels under the current system's keyboard layout. For example, here is how the default keyboard shortcut rules look like when using a French (France) keyboard layout:
 
 ![keybindings.json guidance](images/keybinding/keybindings-json.png)
 
-There is also a UI control that helps input the keyboard shortcut rule when editing `keybindings.json`. To launch the **Define Keybinding** control, press `kb(editor.action.defineKeybinding)`. The control listens for key presses and renders the serialized JSON representation in the text box and below it, the keys that VS Code has detected under your current keyboard layout. Once you've typed the key combination you want, you can press `kbstyle(Enter)` and a rule snippet is inserted.
+There is also a UI control that helps input the keyboard shortcut rule when editing `keybindings.json`. To launch the **Define Keybinding** control, press `kb(editor.action.defineKeybinding)`. The control listens for key presses and renders the serialized JSON representation in the text box and below it, the keys that {% data variables.product.prodname_vscode_shortname %} has detected under your current keyboard layout. Once you've typed the key combination you want, you can press `kbstyle(Enter)` and a rule snippet is inserted.
 
 ![keyboard shortcut widget](images/keybinding/key-binding-widget.png)
 
 > [!NOTE]
-> On Linux, VS Code detects your current keyboard layout on startup, and then caches this information. We recommend that you restart VS Code when you change your keyboard layout.
+> On Linux, {% data variables.product.prodname_vscode_shortname %} detects your current keyboard layout on startup, and then caches this information. We recommend that you restart {% data variables.product.prodname_vscode_shortname %} when you change your keyboard layout.
 
 ## Keyboard layout-independent bindings
 
@@ -374,9 +374,9 @@ Accepted scan codes:
 
 ## when clause contexts
 
-VS Code gives you precise control over when your keyboard shortcuts are enabled through the optional `when` clause.  If your keyboard shortcut doesn't have a `when` clause, the keyboard shortcut is globally available at all times. A `when` clause evaluates to either true or false for enabling keyboard shortcuts.
+{% data variables.product.prodname_vscode_shortname %} gives you precise control over when your keyboard shortcuts are enabled through the optional `when` clause.  If your keyboard shortcut doesn't have a `when` clause, the keyboard shortcut is globally available at all times. A `when` clause evaluates to either true or false for enabling keyboard shortcuts.
 
-VS Code sets various context keys and specific values depending on what elements are visible and active in the VS Code UI. For example, the built-in **Start Debugging** command has the keyboard shortcut `kb(workbench.action.debug.start)`, which is only enabled when there is an appropriate debugger available (context `debuggersAvailable` is true) and the editor isn't in debug mode (context `inDebugMode` is false):
+{% data variables.product.prodname_vscode_shortname %} sets various context keys and specific values depending on what elements are visible and active in the {% data variables.product.prodname_vscode_shortname %} UI. For example, the built-in **Start Debugging** command has the keyboard shortcut `kb(workbench.action.debug.start)`, which is only enabled when there is an appropriate debugger available (context `debuggersAvailable` is true) and the editor isn't in debug mode (context `inDebugMode` is false):
 
 ![Start Debugging when clause in the Keyboard Shorts editor](images/keybinding/start-debugging-when-clause.png)
 
@@ -425,7 +425,7 @@ This is covered in depth in the [Refactoring](/docs/editing/refactoring.md#keybo
 
 ## Related resources
 
-* [VS Code default keyboard shortcuts reference](/docs/reference/default-keybindings.md)
+* [{% data variables.product.prodname_vscode_shortname %} default keyboard shortcuts reference](/docs/reference/default-keybindings.md)
 
 ## Common questions
 

@@ -1,17 +1,17 @@
 ---
 ContentId: 7ec8a02b-2eb7-45c1-bb16-ddeaac694ff6
-MetaDescription: Developing inside a Container using Visual Studio Code Remote Development
+MetaDescription: Developing inside a Container using {% data variables.product.prodname_vscode %} Remote Development
 DateApproved: 8/19/2026
 ---
 # Developing inside a Container
 
-The **Visual Studio Code Dev Containers** extension lets you use a container as a full-featured development environment. It allows you to open any folder inside (or mounted into) a container and take advantage of Visual Studio Code's full feature set. A [devcontainer.json file](#create-a-devcontainerjson-file) in your project tells VS Code how to access (or create) a **development container** with a well-defined tool and runtime stack. This container can be used to run an application or to separate tools, libraries, or runtimes needed for working with a codebase.
+The **{% data variables.product.prodname_vscode %} Dev Containers** extension lets you use a container as a full-featured development environment. It allows you to open any folder inside (or mounted into) a container and take advantage of {% data variables.product.prodname_vscode %}'s full feature set. A [devcontainer.json file](#create-a-devcontainerjson-file) in your project tells {% data variables.product.prodname_vscode_shortname %} how to access (or create) a **development container** with a well-defined tool and runtime stack. This container can be used to run an application or to separate tools, libraries, or runtimes needed for working with a codebase.
 
 Workspace files are mounted from the local file system or copied or cloned into the container. Extensions are installed and run inside the container, where they have full access to the tools, platform, and file system. This means that you can seamlessly switch your entire development environment just by connecting to a different container.
 
 ![Container Architecture](images/containers/architecture-containers.png)
 
-This lets VS Code provide a **local-quality development experience** including full IntelliSense (completions), code navigation, and debugging **regardless of where your tools (or code) are located**.
+This lets {% data variables.product.prodname_vscode_shortname %} provide a **local-quality development experience** including full IntelliSense (completions), code navigation, and debugging **regardless of where your tools (or code) are located**.
 
 The Dev Containers extension supports two primary operating models:
 
@@ -73,9 +73,9 @@ To get started, follow these steps:
 
     3. Sign out and back in again so your changes take effect.
 
-2. Install [Visual Studio Code](https://code.visualstudio.com/) or [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/).
+2. Install [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) or [{% data variables.product.prodname_vscode %} Insiders](https://code.visualstudio.com/insiders/).
 
-3. Install the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers). If you plan to work with other remote extensions in VS Code, you may choose to install the [Remote Development extension pack](https://aka.ms/vscode-remote/download/extension).
+3. Install the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers). If you plan to work with other remote extensions in {% data variables.product.prodname_vscode_shortname %}, you may choose to install the [Remote Development extension pack](https://aka.ms/vscode-remote/download/extension).
 
 ### Working with Git?
 
@@ -98,13 +98,13 @@ The easiest way to get started is to try one of the sample development container
 
 ![Select a sample from the list](images/containers/select-a-sample.png)
 
-> Note: If you already have VS Code and Docker installed, then you may use [open in dev container](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/microsoft/vscode-remote-try-python). You can learn more about this and how to add it to your repos in the [create a dev container guide](/docs/devcontainers/create-dev-container.md#add-configuration-files-to-a-repository).
+> Note: If you already have {% data variables.product.prodname_vscode_shortname %} and Docker installed, then you may use [open in dev container](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/microsoft/vscode-remote-try-python). You can learn more about this and how to add it to your repos in the [create a dev container guide](/docs/devcontainers/create-dev-container.md#add-configuration-files-to-a-repository).
 
 ## Quick start: Open an existing folder in a container
 
 This quick start covers how to set up a dev container for an existing project to use as your full-time development environment using existing source code on your filesystem. Follow these steps:
 
-1. Start VS Code, run the **Dev Containers: Open Folder in Container...** command from the Command Palette (`kbstyle(F1)`) or quick actions Status bar item, and select the project folder you would like to set up the container for.
+1. Start {% data variables.product.prodname_vscode_shortname %}, run the **Dev Containers: Open Folder in Container...** command from the Command Palette (`kbstyle(F1)`) or quick actions Status bar item, and select the project folder you would like to set up the container for.
 
     > **Tip:** If you want to edit the container's contents or settings before opening the folder, you can run **Dev Containers: Add Dev Container Configuration Files...** instead.
 
@@ -124,15 +124,15 @@ This quick start covers how to set up a dev container for an existing project to
 
     You can also choose to publish and distribute your own dev container Templates using the [dev container CLI](https://containers.dev/implementors/templates-distribution/).
 
-3. After picking the starting point for your container, VS Code will add the dev container configuration files to your project (`.devcontainer/devcontainer.json`).
+3. After picking the starting point for your container, {% data variables.product.prodname_vscode_shortname %} will add the dev container configuration files to your project (`.devcontainer/devcontainer.json`).
 
-4. The VS Code window will reload and start building the dev container. A progress notification provides status updates. You only have to build a dev container the first time you open it; opening the folder after the first successful build will be much quicker.
+4. The {% data variables.product.prodname_vscode_shortname %} window will reload and start building the dev container. A progress notification provides status updates. You only have to build a dev container the first time you open it; opening the folder after the first successful build will be much quicker.
 
     ![Dev Container Progress Notification](images/containers/dev-container-progress.png)
 
-5. After the build completes, VS Code will automatically connect to the container.
+5. After the build completes, {% data variables.product.prodname_vscode_shortname %} will automatically connect to the container.
 
-You can now interact with your project in VS Code just as you could when opening the project locally. From now on, when you open the project folder, VS Code will automatically pick up and reuse your dev container configuration.
+You can now interact with your project in {% data variables.product.prodname_vscode_shortname %} just as you could when opening the project locally. From now on, when you open the project folder, {% data variables.product.prodname_vscode_shortname %} will automatically pick up and reuse your dev container configuration.
 
 > **Tip:** Want to use a remote Docker host? See the section on [opening a folder on a remote SSH host in a container](#open-a-folder-on-a-remote-ssh-host-in-a-container) for information.
 
@@ -178,7 +178,7 @@ The rest of the Dev Containers quick start applies as-is. You can learn more abo
 
 ### Open an existing workspace in a container
 
-You can also follow a similar process to open a [VS Code multi-root workspace](/docs/editor/multi-root-workspaces) in a **single container** if the workspace only **references relative paths to sub-folders of the folder the `.code-workspace` file is in (or the folder itself).**
+You can also follow a similar process to open a [{% data variables.product.prodname_vscode_shortname %} multi-root workspace](/docs/editor/multi-root-workspaces) in a **single container** if the workspace only **references relative paths to sub-folders of the folder the `.code-workspace` file is in (or the folder itself).**
 
 You can either:
 
@@ -187,7 +187,7 @@ You can either:
 
 Once connected, you may want to **add the `.devcontainer` folder** to the workspace so you can easily edit its contents if it is not already visible.
 
-Also note that, while you cannot use multiple containers for the same workspace in the same VS Code window, you can use [multiple Docker Compose managed containers at once](/remote/advancedcontainers/connect-multiple-containers.md) from separate windows.
+Also note that, while you cannot use multiple containers for the same workspace in the same {% data variables.product.prodname_vscode_shortname %} window, you can use [multiple Docker Compose managed containers at once](/remote/advancedcontainers/connect-multiple-containers.md) from separate windows.
 
 ## Quick start: Open a Git repository or GitHub PR in an isolated container volume
 
@@ -197,7 +197,7 @@ Repository Containers use isolated, local Docker volumes instead of binding to t
 
 For example, follow these steps to open one of the "try" repositories in a Repository Container:
 
-1. Start VS Code and run **Dev Containers: Clone Repository in Container Volume...** from the Command Palette (`kbstyle(F1)`).
+1. Start {% data variables.product.prodname_vscode_shortname %} and run **Dev Containers: Clone Repository in Container Volume...** from the Command Palette (`kbstyle(F1)`).
 
 2. Enter `microsoft/vscode-remote-try-node` (or one of the other "try" repositories), a Git URI, a GitHub branch URL, or a GitHub PR URL in the input box that appears and press `kbstyle(Enter)`.
 
@@ -213,7 +213,7 @@ For example, follow these steps to open one of the "try" repositories in a Repos
 
     The list will be automatically sorted based on the contents of the folder you open. The dev container Templates displayed come from our [first-party and community index](https://containers.dev/templates), which is part of the [Dev Container Specification](https://containers.dev/). We host a set of Templates as part of the spec in the [devcontainers/templates repository](https://github.com/devcontainers/templates). You can browse the `src` folder of that repository to see the contents of each Template.
 
-4. The VS Code window (instance) will reload, clone the source code, and start building the dev container. A progress notification provides status updates.
+4. The {% data variables.product.prodname_vscode_shortname %} window (instance) will reload, clone the source code, and start building the dev container. A progress notification provides status updates.
 
     ![Dev Container Progress Notification](images/containers/dev-container-progress.png)
 
@@ -221,7 +221,7 @@ For example, follow these steps to open one of the "try" repositories in a Repos
 
     ![PR status in status bar](images/containers/checkout-pr-status.png)
 
-5. After the build completes, VS Code will automatically connect to the container. You can now work with the repository source code in this independent environment as you would if you had cloned the code locally.
+5. After the build completes, {% data variables.product.prodname_vscode_shortname %} will automatically connect to the container. You can now work with the repository source code in this independent environment as you would if you had cloned the code locally.
 
 Note that if the container fails to come up due to something like a Docker build error, you can select **Reopen in Recovery Container** in the dialog that appears to go into a "recovery container" that allows you to edit your Dockerfile or other content. This opens the docker volume with the cloned repository in a minimal container and shows you the creation log. Once you are done fixing, use **Reopen in Container** to retry.
 
@@ -229,7 +229,7 @@ Note that if the container fails to come up due to something like a Docker build
 
 ## Trusting your Workspace
 
-Visual Studio Code takes security seriously and wants to help you safely browse and edit code no matter the source or original authors. The [Workspace Trust feature](/docs/editing/workspaces/workspace-trust.md) lets you decide whether your project folders should allow or restrict automatic code execution.
+{% data variables.product.prodname_vscode %} takes security seriously and wants to help you safely browse and edit code no matter the source or original authors. The [Workspace Trust feature](/docs/editing/workspaces/workspace-trust.md) lets you decide whether your project folders should allow or restrict automatic code execution.
 
 The Dev Containers extension has adopted Workspace Trust. Depending on how you open and interact with your source code, you'll be prompted to decide if you trust the code you're editing or executing at different points.
 
@@ -264,7 +264,7 @@ This implies trusting [the machine the Docker daemon runs on](/remote/advancedco
 
 ## Create a devcontainer.json file
 
-VS Code's container configuration is stored in a [devcontainer.json](https://containers.dev/implementors/json_reference) file. This file is similar to the `launch.json` file for debugging configurations, but is used for launching (or attaching to) your development container instead. You can also specify any extensions to install once the container is running or post-create commands to prepare the environment. The dev container configuration is either located under `.devcontainer/devcontainer.json` or stored as a `.devcontainer.json` file (note the dot-prefix) in the root of your project.
+{% data variables.product.prodname_vscode_shortname %}'s container configuration is stored in a [devcontainer.json](https://containers.dev/implementors/json_reference) file. This file is similar to the `launch.json` file for debugging configurations, but is used for launching (or attaching to) your development container instead. You can also specify any extensions to install once the container is running or post-create commands to prepare the environment. The dev container configuration is either located under `.devcontainer/devcontainer.json` or stored as a `.devcontainer.json` file (note the dot-prefix) in the root of your project.
 
 Selecting the **Dev Containers: Add Dev Container Configuration Files...** command from the Command Palette (`kbstyle(F1)`) will add the needed files to your project as a starting point, which you can further customize for your needs. The command lets you pick a pre-defined container configuration from a list based on your folder's contents, reuse an existing Dockerfile, or reuse an existing Docker Compose file.
 
@@ -277,7 +277,7 @@ You can also create a devcontainer.json by hand and use any image, Dockerfile, o
     "image": "mcr.microsoft.com/devcontainers/typescript-node",
     "forwardPorts": [ 3000 ],
     "customizations": {
-        // Configure properties specific to VS Code.
+        // Configure properties specific to {% data variables.product.prodname_vscode_shortname %}.
         "vscode": {
             // Add the IDs of extensions you want installed when the container is created.
             "extensions": [
@@ -316,7 +316,7 @@ You'll get IntelliSense when editing the `"features"` property in the `devcontai
 
 The **Dev Containers: Configure Container Features** command allows you to update an existing configuration.
 
-The Features sourced in VS Code UI now come from a central index, which you can also contribute to. See the [Dev Containers specification site](https://containers.dev/features) for the current list, and to [learn how to publish and distribute Features](https://containers.dev/implementors/features-distribution/).
+The Features sourced in {% data variables.product.prodname_vscode_shortname %} UI now come from a central index, which you can also contribute to. See the [Dev Containers specification site](https://containers.dev/features) for the current list, and to [learn how to publish and distribute Features](https://containers.dev/implementors/features-distribution/).
 
 ### "Always installed" Features
 
@@ -385,7 +385,7 @@ LABEL devcontainer.metadata='[{ \
 
 ## Inspecting volumes
 
-Occasionally you may run into a situation where you are using a Docker named volume that you want to inspect or make changes in. You can use VS Code to work with these contents without creating or modifying `devcontainer.json` file by selecting the **Dev Containers: Explore a Volume in a Dev Container...** from the Command Palette (`kbstyle(F1)`).
+Occasionally you may run into a situation where you are using a Docker named volume that you want to inspect or make changes in. You can use {% data variables.product.prodname_vscode_shortname %} to work with these contents without creating or modifying `devcontainer.json` file by selecting the **Dev Containers: Explore a Volume in a Dev Container...** from the Command Palette (`kbstyle(F1)`).
 
 You can also inspect your volumes in the Remote Explorer. Make sure you have Containers selected in the dropdown, then you'll notice a **Dev Volumes** section. You can right-click on a volume to inspect its creation information, like when the volume was created, what repository was cloned into it, and the mountpoint. You can also explore it in a dev container.
 
@@ -397,7 +397,7 @@ If you have the [Container Tools extension](https://marketplace.visualstudio.com
 
 ## Managing extensions
 
-VS Code runs extensions in one of two places: locally on the UI / client side, or in the container. While extensions that affect the VS Code UI, like themes and snippets, are installed locally, most extensions will reside inside a particular container. This allows you to install only the extensions you need for a given task in a container and seamlessly switch your entire tool-chain just by connecting to a new container.
+{% data variables.product.prodname_vscode_shortname %} runs extensions in one of two places: locally on the UI / client side, or in the container. While extensions that affect the {% data variables.product.prodname_vscode_shortname %} UI, like themes and snippets, are installed locally, most extensions will reside inside a particular container. This allows you to install only the extensions you need for a given task in a container and seamlessly switch your entire tool-chain just by connecting to a new container.
 
 If you install an extension from the Extensions view, it will automatically be installed in the correct location. You can tell where an extension is installed based on the category grouping. There will be a **Local - Installed** category and also one for your container.
 
@@ -478,7 +478,7 @@ You can specify a list of ports you **always** want to forward when attaching or
 "forwardPorts": [3000, 3001]
 ```
 
-Simply reload / reopen the window and the setting will be applied when VS Code connects to the container.
+Simply reload / reopen the window and the setting will be applied when {% data variables.product.prodname_vscode_shortname %} connects to the container.
 
 ### Temporarily forwarding a port
 
@@ -490,7 +490,7 @@ After selecting a port, a notification will tell you the localhost port you shou
 
 This same information is available in the **Forwarded Ports** section of the Remote Explorer if you need to access it later.
 
-If you would like VS Code to remember any ports you have forwarded, check **Remote: Restore Forwarded Ports** in the Settings editor (`kb(workbench.action.openSettings)`) or set `"remote.restoreForwardedPorts": true` in `settings.json`.
+If you would like {% data variables.product.prodname_vscode_shortname %} to remember any ports you have forwarded, check **Remote: Restore Forwarded Ports** in the Settings editor (`kb(workbench.action.openSettings)`) or set `"remote.restoreForwardedPorts": true` in `settings.json`.
 
 ![Restore forwarded ports setting](images/containers/restore-forwarded-ports.png)
 
@@ -518,7 +518,7 @@ In each case, you'll need to rebuild your container for the setting to take effe
 
 ## Opening a terminal
 
-Opening a terminal in a container from VS Code is simple. Once you've opened a folder in a container, **any terminal window** you open in VS Code (**Terminal > New Terminal**) will automatically run in the container rather than locally.
+Opening a terminal in a container from {% data variables.product.prodname_vscode_shortname %} is simple. Once you've opened a folder in a container, **any terminal window** you open in {% data variables.product.prodname_vscode_shortname %} (**Terminal > New Terminal**) will automatically run in the container rather than locally.
 
 You can also use the `code` command line from this same terminal window to perform a number of operations such as opening a new file or folder in the container. Type `code --help` to learn what options are available from the command line.
 
@@ -526,13 +526,13 @@ You can also use the `code` command line from this same terminal window to perfo
 
 ## Debugging in a container
 
-Once you've opened a folder in a container, you can use VS Code's debugger in the same way you would when running the application locally. For example, if you select a launch configuration in `launch.json` and start debugging (`kb(workbench.action.debug.start)`), the application will start on the remote host and attach the debugger to it.
+Once you've opened a folder in a container, you can use {% data variables.product.prodname_vscode_shortname %}'s debugger in the same way you would when running the application locally. For example, if you select a launch configuration in `launch.json` and start debugging (`kb(workbench.action.debug.start)`), the application will start on the remote host and attach the debugger to it.
 
-See the [debugging](/docs/debugtest/debugging.md) documentation for details on configuring VS Code's debugging features in `.vscode/launch.json`.
+See the [debugging](/docs/debugtest/debugging.md) documentation for details on configuring {% data variables.product.prodname_vscode_shortname %}'s debugging features in `.vscode/launch.json`.
 
 ## Container specific settings
 
-VS Code's local user settings are also reused when you are connected to a dev container. While this keeps your user experience consistent, you may want to vary some of these settings between your local machine and each container. Fortunately, once you have connected to a container, you can also set container-specific settings by running the **Preferences: Open Remote Settings** command from the Command Palette (`kbstyle(F1)`) or by selecting the **Remote** tab in the Settings editor. These will override any local settings you have in place whenever you connect to the container.
+{% data variables.product.prodname_vscode_shortname %}'s local user settings are also reused when you are connected to a dev container. While this keeps your user experience consistent, you may want to vary some of these settings between your local machine and each container. Fortunately, once you have connected to a container, you can also set container-specific settings by running the **Preferences: Open Remote Settings** command from the Command Palette (`kbstyle(F1)`) or by selecting the **Remote** tab in the Settings editor. These will override any local settings you have in place whenever you connect to the container.
 
 ![Container specific settings tab](images/containers/container-settings.png)
 
@@ -545,7 +545,7 @@ For example, adding this to `.devcontainer/devcontainer.json` will set the Java 
 ```json
 // Configure tool-specific properties.
 "customizations": {
-    // Configure properties specific to VS Code.
+    // Configure properties specific to {% data variables.product.prodname_vscode_shortname %}.
     "vscode": {
         "settings": {
             "java.home": "/docker-java-home"
@@ -558,7 +558,7 @@ Since this just establishes the default, you are still able to change the settin
 
 ## Managing containers
 
-By default, the Dev Containers extension automatically starts the containers mentioned in the `devcontainer.json` when you open the folder. When you close VS Code, the extension automatically shuts down the containers you've connected to. You can change this behavior by adding `"shutdownAction": "none"` to `devcontainer.json`.
+By default, the Dev Containers extension automatically starts the containers mentioned in the `devcontainer.json` when you open the folder. When you close {% data variables.product.prodname_vscode_shortname %}, the extension automatically shuts down the containers you've connected to. You can change this behavior by adding `"shutdownAction": "none"` to `devcontainer.json`.
 
 While you can use the command line to manage your containers, you can also use the  **Remote Explorer**. To stop a container, select Containers from the dropdown (if present), right-click on a running container, and select **Stop Container**. You can also start exited containers, remove containers, and remove recent folders. From the Details view, you can forward ports and open already forwarded ports in the browser.
 
@@ -572,7 +572,7 @@ Dotfiles are files whose filename begins with a dot (`.`) and typically contain 
 
 A common way to do this is to store these dotfiles in a GitHub repository and then use a utility to clone and apply them. The Dev Containers extension has built-in support for using these with your own containers. If you are new to the idea, take a look at the different [dotfiles bootstrap repositories](https://dotfiles.github.io/) that exist.
 
-To use it, add your dotfiles GitHub repository to VS Code's User Settings (`kb(workbench.action.openSettings)`) as follows:
+To use it, add your dotfiles GitHub repository to {% data variables.product.prodname_vscode_shortname %}'s User Settings (`kb(workbench.action.openSettings)`) as follows:
 
 ![Settings for dotfiles](images/containers/dotfiles.png)
 
@@ -596,7 +596,7 @@ From this point forward, the dotfiles repository will be used whenever a contain
 * All roots/folders in a multi-root workspace will be opened in the same container, regardless of whether there are configuration files at lower levels.
 * The unofficial Ubuntu Docker **snap** package for Linux is **not** supported. Follow the [official Docker install instructions for your distribution](https://docs.docker.com/install/#supported-platforms).
 * Docker Toolbox on Windows is not supported.
-* If you clone a Git repository using SSH and your SSH key has a passphrase, VS Code's pull and sync features may hang when running remotely. Either use an SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.
+* If you clone a Git repository using SSH and your SSH key has a passphrase, {% data variables.product.prodname_vscode_shortname %}'s pull and sync features may hang when running remotely. Either use an SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.
 * Local proxy settings are not reused inside the container, which can prevent extensions from working unless the appropriate proxy information is configured (for example global `HTTP_PROXY` or `HTTPS_PROXY` environment variables with the appropriate proxy information).
 * There is an incompatibility between OpenSSH versions on Windows when the ssh-agent runs with version <= 8.8 and the SSH client (on any platform) runs version >= 8.9. The workaround is to upgrade OpenSSH on Windows to 8.9 or later, either using winget or an installer from [Win32-OpenSSH/releases](https://github.com/PowerShell/Win32-OpenSSH/releases). (Note that `ssh-add -l` will work correctly, but `ssh <ssh-server>` will fail with `<ssh-server>: Permission denied (publickey)`. This also affects Git when using SSH to connect to the repository.)
 
@@ -608,7 +608,7 @@ See the Docker troubleshooting guide for [Windows](https://docs.docker.com/docke
 
 ### Container Tools Extension limitations
 
-If you are using the Container Tools or Kubernetes extension from a WSL, Remote - Tunnels or Remote - SSH window, using the **Attach Visual Studio Code** context menu action in the Container Explorer or Kubernetes view will ask to pick from the available containers a second time.
+If you are using the Container Tools or Kubernetes extension from a WSL, Remote - Tunnels or Remote - SSH window, using the **Attach {% data variables.product.prodname_vscode %}** context menu action in the Container Explorer or Kubernetes view will ask to pick from the available containers a second time.
 
 ### Extension limitations
 
@@ -643,7 +643,7 @@ There is a full [devcontainer.json reference](https://containers.dev/implementor
 * Add a [feature request](https://aka.ms/vscode-remote/feature-requests) or [report a problem](https://aka.ms/vscode-remote/issues/new).
 * Create a [Dev Container Template](https://containers.dev/templates) or [Feature](https://containers.dev/features) for others to use.
 * Review and provide feedback on the [Development Containers Specification](https://containers.dev/).
-* Contribute to [our documentation](https://github.com/microsoft/vscode-docs) or [VS Code itself](https://github.com/microsoft/vscode).
+* Contribute to [our documentation](https://github.com/microsoft/vscode-docs) or [{% data variables.product.prodname_vscode_shortname %} itself](https://github.com/microsoft/vscode).
 * See our [CONTRIBUTING](https://aka.ms/vscode-remote/contributing) guide for details.
 
 ## Troubleshooting

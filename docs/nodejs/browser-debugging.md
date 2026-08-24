@@ -1,18 +1,18 @@
 ---
 ContentId: d0e271da-0372-4ab9-a2ab-b7add855bd5a
 DateApproved: 8/19/2026
-MetaDescription: The Visual Studio Code editor includes browser debugging support. Set breakpoints, step-in, inspect variables and more.
+MetaDescription: The {% data variables.product.prodname_vscode %} editor includes browser debugging support. Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: ../editor/images/debugging/debugging-social.png
 ---
-# Browser debugging in VS Code
+# Browser debugging in {% data variables.product.prodname_vscode_shortname %}
 
-Visual Studio Code includes a built-in debugger for Edge and Chrome. There are a couple ways to get started with it.
+{% data variables.product.prodname_vscode %} includes a built-in debugger for Edge and Chrome. There are a couple ways to get started with it.
 
 * Use the [Open Link](#open-link-command) command to debug a URL.
 * Clicking a link in the [JavaScript debug terminal](/docs/nodejs/nodejs-debugging.md#javascript-debug-terminal).
 * Use a [launch config](#launch-configuration) to launch a browser with your app.
 
-You can also debug web apps in VS Code's [integrated browser](/docs/debugtest/integrated-browser.md#debugging) without launching an external browser.
+You can also debug web apps in {% data variables.product.prodname_vscode_shortname %}'s [integrated browser](/docs/debugtest/integrated-browser.md#debugging) without launching an external browser.
 
 We also have more detailed walkthroughs to get started with [React](/docs/nodejs/reactjs-tutorial), [Angular](/docs/nodejs/angular-tutorial), and [Vue](/docs/nodejs/vuejs-tutorial), as well as other debugging [recipes](/docs/nodejs/debugging-recipes).
 
@@ -22,15 +22,15 @@ The simplest way to debug a webpage is through the **Debug: Open Link** command 
 
 ![Using the Open Link command to attach to a URL](images/browser-debugging/debug-open-link.gif)
 
-If your default browser is Edge, VS Code will use it to open the page. Otherwise, it will try to find an installation of Chrome on your system instead.
+If your default browser is Edge, {% data variables.product.prodname_vscode_shortname %} will use it to open the page. Otherwise, it will try to find an installation of Chrome on your system instead.
 
 ## Launch configuration
 
-Launch configs are the traditional way to set up debugging in VS Code, and provide you the most flexibility for running complex applications.
+Launch configs are the traditional way to set up debugging in {% data variables.product.prodname_vscode_shortname %}, and provide you the most flexibility for running complex applications.
 
 In this section, we'll go into more detail about configurations and features for more advanced debugging scenarios. Instructions for Node.js [stepping over external code](/docs/nodejs/nodejs-debugging.md#skipping-uninteresting-code) also apply to browser-based debugging.
 
->**Note**: If you are just getting started with VS Code, you can learn about general debugging features and creating `launch.json` configuration files in the [Debugging](/docs/debugtest/debugging.md) topic.
+>**Note**: If you are just getting started with {% data variables.product.prodname_vscode_shortname %}, you can learn about general debugging features and creating `launch.json` configuration files in the [Debugging](/docs/debugtest/debugging.md) topic.
 
 ### Launching browsers
 
@@ -52,7 +52,7 @@ In most cases, you'll want to start a new instance of the browser to debug your 
 
 When you hit `kb(workbench.action.debug.start)` or the **Start** button in the **Run and Debug** view, `http://localhost:8000` will be opened in debug mode. If you'd like to use Chrome instead of Edge, replace `msedge` with `chrome`.
 
-To debug inside VS Code without opening an external browser, use `editor-browser` as the type. Learn more about [debugging in the integrated browser](/docs/debugtest/integrated-browser.md#debugging).
+To debug inside {% data variables.product.prodname_vscode_shortname %} without opening an external browser, use `editor-browser` as the type. Learn more about [debugging in the integrated browser](/docs/debugtest/integrated-browser.md#debugging).
 
 You can also debug a single file without running a server, for example:
 
@@ -118,7 +118,7 @@ These attributes are only available for launch configurations of request type `l
 
 These attributes are only available for launch configurations of request type `attach`:
 
-* `url` - If given, VS Code will attach to a tab with this URL. If not provided, it will attach to all browser tabs.
+* `url` - If given, {% data variables.product.prodname_vscode_shortname %} will attach to a tab with this URL. If not provided, it will attach to all browser tabs.
 * `port` - Port to use for remote debugging the browser, matching the `--remote-debugging-port` used when starting the browser. See the section on [Attaching to Browsers](#attaching-to-browsers).
 * `address` - IP address or hostname the debugged browser is listening on. See the section on [Attaching to Browsers](#attaching-to-browsers).
 
@@ -128,23 +128,23 @@ WebAssembly debugging in browsers is identical to Node.js, [read more about WebA
 
 ## Source Maps
 
-The JavaScript debugger in VS Code supports source maps that allow debugging transformed code. For example, TypeScript code is compiled to JavaScript, and many web applications bundle all their JavaScript files together. The source map helps the debugger figure out how to map between your original code, and the code running in the browser.
+The JavaScript debugger in {% data variables.product.prodname_vscode_shortname %} supports source maps that allow debugging transformed code. For example, TypeScript code is compiled to JavaScript, and many web applications bundle all their JavaScript files together. The source map helps the debugger figure out how to map between your original code, and the code running in the browser.
 
 Most modern tools used for building web applications will work out of the box. If not, our section on [sourcemaps in Node.js](/docs/nodejs/nodejs-debugging.md#source-maps) contains guidance that applies to browser debugging as well.
 
 ### Loading Source Maps
 
-Each JavaScript file may reference a source map, by a URL or relative path. When dealing with web applications, you'll want to make sure that the URL is something the debugger running in VS Code can access. If it can't, you'll see errors in the **Debug Console** explaining which source maps failed to load, and why.
+Each JavaScript file may reference a source map, by a URL or relative path. When dealing with web applications, you'll want to make sure that the URL is something the debugger running in {% data variables.product.prodname_vscode_shortname %} can access. If it can't, you'll see errors in the **Debug Console** explaining which source maps failed to load, and why.
 
-If it can't access it directly, VS Code will try to use the browser's network stack to request the source map. This provides an opportunity for any authentication state or network settings in the browser to be applied to the request. For example, if your source maps are in a location guarded by cookie authentication, VS Code can load them if and only if the browser session has the necessary cookies.
+If it can't access it directly, {% data variables.product.prodname_vscode_shortname %} will try to use the browser's network stack to request the source map. This provides an opportunity for any authentication state or network settings in the browser to be applied to the request. For example, if your source maps are in a location guarded by cookie authentication, {% data variables.product.prodname_vscode_shortname %} can load them if and only if the browser session has the necessary cookies.
 
 ## Focus emulation
 
-When you debug a web application and switch focus to VS Code, the browser page loses focus. This causes `:focus` CSS styles to disappear, `document.hasFocus()` to return `false`, and focus event handlers to stop firing as expected.
+When you debug a web application and switch focus to {% data variables.product.prodname_vscode_shortname %}, the browser page loses focus. This causes `:focus` CSS styles to disappear, `document.hasFocus()` to return `false`, and focus event handlers to stop firing as expected.
 
-During a browser debug session, the **Debug Options** panel in the **Run and Debug** view provides an **Emulate a focused page** option. When you enable this option, the page behaves as if it still has focus, even when VS Code is in the foreground. The setting persists across debug sessions.
+During a browser debug session, the **Debug Options** panel in the **Run and Debug** view provides an **Emulate a focused page** option. When you enable this option, the page behaves as if it still has focus, even when {% data variables.product.prodname_vscode_shortname %} is in the foreground. The setting persists across debug sessions.
 
 ## Next steps
 
-* [Debugging](/docs/debugtest/debugging.md) - Read about general VS Code debugging features.
+* [Debugging](/docs/debugtest/debugging.md) - Read about general {% data variables.product.prodname_vscode_shortname %} debugging features.
 * [Debugging Recipes](/docs/nodejs/debugging-recipes.md) - Set up debugging for your favorite platform.

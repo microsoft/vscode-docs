@@ -1,19 +1,19 @@
 ---
 ContentId: 319916C4-93F2-471F-B448-FD416736C40C
 DateApproved: 02/04/2026
-MetaDescription: Discover, add, update, disable and uninstall Visual Studio Code extensions (plug-ins) through the Extension Marketplace.
+MetaDescription: Discover, add, update, disable and uninstall {% data variables.product.prodname_vscode %} extensions (plug-ins) through the Extension Marketplace.
 ---
 # Extension Marketplace
 
-The features that Visual Studio Code includes out-of-the-box are just the start. VS Code extensions let you add languages, debuggers, and tools to your installation to support your development workflow. VS Code's rich extensibility model lets extension authors plug directly into the VS Code UI and contribute functionality through the same APIs used by VS Code.  This article explains how to find, install, and manage VS Code extensions from the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/VSCode).
+The features that {% data variables.product.prodname_vscode %} includes out-of-the-box are just the start. {% data variables.product.prodname_vscode_shortname %} extensions let you add languages, debuggers, and tools to your installation to support your development workflow. {% data variables.product.prodname_vscode_shortname %}'s rich extensibility model lets extension authors plug directly into the {% data variables.product.prodname_vscode_shortname %} UI and contribute functionality through the same APIs used by {% data variables.product.prodname_vscode_shortname %}.  This article explains how to find, install, and manage {% data variables.product.prodname_vscode_shortname %} extensions from the [{% data variables.product.prodname_vscode %} Marketplace](https://marketplace.visualstudio.com/VSCode).
 
 ## Browse for extensions
 
-You can browse and install extensions from within VS Code. Bring up the Extensions view by clicking on the Extensions icon in the **Activity Bar** on the side of VS Code or the **View: Extensions** command (`kb(workbench.view.extensions)`).
+You can browse and install extensions from within {% data variables.product.prodname_vscode_shortname %}. Bring up the Extensions view by clicking on the Extensions icon in the **Activity Bar** on the side of {% data variables.product.prodname_vscode_shortname %} or the **View: Extensions** command (`kb(workbench.view.extensions)`).
 
 ![Extensions view icon](images/extension-marketplace/extensions-view-icon.png)
 
-This will show you a list of the most popular VS Code extensions on the [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode).
+This will show you a list of the most popular {% data variables.product.prodname_vscode_shortname %} extensions on the [{% data variables.product.prodname_vscode_shortname %} Marketplace](https://marketplace.visualstudio.com/VSCode).
 
 ![popular extensions](images/extension-marketplace/extensions-popular.png)
 
@@ -27,11 +27,11 @@ Each extension in the list includes a brief description, the publisher, the down
 To install an extension, select the **Install** button. Once the installation is complete, the **Install** button will change to the **Manage** gear button.
 
 > [!IMPORTANT]
-> Extensions have the same permissions as VS Code itself. As of VS Code release 1.97, when you first install an extension from a third-party publisher, VS Code shows a dialog prompting you to confirm that you trust the extension publisher. Get more information about [extension runtime security](/docs/configure/extensions/extension-runtime-security.md) and how to protect yourself from malicious extensions.
+> Extensions have the same permissions as {% data variables.product.prodname_vscode_shortname %} itself. As of {% data variables.product.prodname_vscode_shortname %} release 1.97, when you first install an extension from a third-party publisher, {% data variables.product.prodname_vscode_shortname %} shows a dialog prompting you to confirm that you trust the extension publisher. Get more information about [extension runtime security](/docs/configure/extensions/extension-runtime-security.md) and how to protect yourself from malicious extensions.
 
 If you want to install a specific version of an extension, right-click the extension and select **Install Another Version**. You can then select a version from the available list.
 
-When [Settings Sync](/docs/configure/settings-sync.md) is enabled, you can share your VS Code configurations, such as extensions, across your machines. To install an extension and not sync it across your machines, right-click the extension and select **Install (Do not Sync)**.
+When [Settings Sync](/docs/configure/settings-sync.md) is enabled, you can share your {% data variables.product.prodname_vscode_shortname %} configurations, such as extensions, across your machines. To install an extension and not sync it across your machines, right-click the extension and select **Install (Do not Sync)**.
 
 ### Find and install an extension
 
@@ -47,7 +47,7 @@ An extension is uniquely identified by its publisher and extension IDs. If you s
 
 ![TODO Highlight extension details with extension ID highlighted](images/extension-marketplace/todo-highlight-details.png)
 
-Select the **Install** button, and VS Code will download and install the extension from the Marketplace. When the installation is complete, the **Install** button will be replaced with a **Manage** gear button.
+Select the **Install** button, and {% data variables.product.prodname_vscode_shortname %} will download and install the extension from the Marketplace. When the installation is complete, the **Install** button will be replaced with a **Manage** gear button.
 
 ![Manage gear button](images/extension-marketplace/manage-button.png)
 
@@ -65,13 +65,13 @@ If an extension doesn't provide the functionality you want, you can always **Uni
 
 ![Uninstall the TODO Highlight extension](images/extension-marketplace/todo-highlight-uninstall.png)
 
-This has been just one example of how to install and use an extension. The VS Code Marketplace has thousands of extensions supporting hundreds of programming languages and tasks. Everything from full featured language support for [Java](https://marketplace.visualstudio.com/items?itemName=redhat.java), [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python), [Go](https://marketplace.visualstudio.com/items?itemName=golang.Go), and [C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) to simple extensions that [create GUIDs](https://marketplace.visualstudio.com/items?itemName=nwallace.createGUID), change the [color theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme), or add [virtual pets](https://marketplace.visualstudio.com/items?itemName=tonybaloney.vscode-pets) to the editor.
+This has been just one example of how to install and use an extension. The {% data variables.product.prodname_vscode_shortname %} Marketplace has thousands of extensions supporting hundreds of programming languages and tasks. Everything from full featured language support for [Java](https://marketplace.visualstudio.com/items?itemName=redhat.java), [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python), [Go](https://marketplace.visualstudio.com/items?itemName=golang.Go), and [C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) to simple extensions that [create GUIDs](https://marketplace.visualstudio.com/items?itemName=nwallace.createGUID), change the [color theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme), or add [virtual pets](https://marketplace.visualstudio.com/items?itemName=tonybaloney.vscode-pets) to the editor.
 
 ### Extension details
 
 On the extension details page, you can read the extension's README and review the extension's:
 
-* **Feature Contributions** - The extension's additions to VS Code such as settings, commands and keyboard shortcuts, language grammars, debugger, etc.
+* **Feature Contributions** - The extension's additions to {% data variables.product.prodname_vscode_shortname %} such as settings, commands and keyboard shortcuts, language grammars, debugger, etc.
 * **Changelog** - The extension repository CHANGELOG if available.
 * **Dependencies** - Lists if the extension depends on any other extensions.
 
@@ -120,7 +120,7 @@ An extension publisher may provide a pre-release version of an extension. To ins
 
 ## Manage extensions
 
-VS Code makes it easy to manage your extensions. You can install, disable, update, and uninstall extensions through the Extensions view, the **Command Palette** (commands have the **Extensions:** prefix) or command-line switches.
+{% data variables.product.prodname_vscode_shortname %} makes it easy to manage your extensions. You can install, disable, update, and uninstall extensions through the Extensions view, the **Command Palette** (commands have the **Extensions:** prefix) or command-line switches.
 
 ### List installed extensions
 
@@ -138,7 +138,7 @@ If you don't want to permanently remove an extension, you can instead temporaril
 
 If you want to quickly disable all installed extensions, there is a **Disable All Installed Extensions** command in the **Command Palette** and **More Actions** (`...`) dropdown menu.
 
-Extensions remain disabled for all VS Code sessions until you re-enable them.
+Extensions remain disabled for all {% data variables.product.prodname_vscode_shortname %} sessions until you re-enable them.
 
 ### Enable an extension
 
@@ -150,19 +150,19 @@ There is also an **Enable All Extensions** command in the **More Actions** (`...
 
 ### Extension auto-update
 
-VS Code checks for extension updates and installs them automatically. After an update, you are prompted to restart the extension host (**Restart Extensions**).
+{% data variables.product.prodname_vscode_shortname %} checks for extension updates and installs them automatically. After an update, you are prompted to restart the extension host (**Restart Extensions**).
 
 If you'd rather update your extensions manually, you can disable auto-update with the **Disable Auto Update for Extensions** command or the corresponding action in the Extensions view. You can also configure the `setting(extensions.autoUpdate)` setting. Use the **Enable Auto Update for Extensions** command to re-enable auto update.
 
-When auto-update is enabled, VS Code updates only enabled extensions. Disabled extensions are not updated automatically and update the next time you enable them.
+When auto-update is enabled, {% data variables.product.prodname_vscode_shortname %} updates only enabled extensions. Disabled extensions are not updated automatically and update the next time you enable them.
 
 ![Screenshot of the Extensions context menu with the Disable Auto Update for Extensions action.](images/extension-marketplace/disable-auto-update-all-extensions-v2.png)
 
 You can also configure auto update for individual extensions by right-clicking on an extension and toggling the **Auto Update** item.
 
-By default, VS Code waits a short time after an update is published before it installs the update automatically. Use the `setting(extensions.autoUpdateDelay)` setting to configure the delay, in hours. The default value is `2` hours. Set the value to `0` to install updates as soon as they are published. This delay only applies when auto-update is `on`. To update an extension immediately, select the **Update** button for the extension, which bypasses the delay.
+By default, {% data variables.product.prodname_vscode_shortname %} waits a short time after an update is published before it installs the update automatically. Use the `setting(extensions.autoUpdateDelay)` setting to configure the delay, in hours. The default value is `2` hours. Set the value to `0` to install updates as soon as they are published. This delay only applies when auto-update is `on`. To update an extension immediately, select the **Update** button for the extension, which bypasses the delay.
 
-If you don't want VS Code to even check for updates, you can set the `setting(extensions.autoCheckUpdates)` setting to false.
+If you don't want {% data variables.product.prodname_vscode_shortname %} to even check for updates, you can set the `setting(extensions.autoCheckUpdates)` setting to false.
 
 > [!NOTE]
 > Administrators can centrally manage the `setting(extensions.autoUpdate)` and `setting(extensions.autoUpdateDelay)` settings with [enterprise policies](/docs/enterprise/policies.md).
@@ -192,11 +192,11 @@ To dismiss a recommendation, select on the extension item to open the Details pa
 
 ## Configuring extensions
 
-VS Code extensions may have very different configurations and requirements. Some extensions contribute [settings](/docs/configure/settings.md) to VS Code, which can be modified in the Settings editor. Other extensions may have their own configuration files. Extensions may also require installation and setup of additional components like compilers, debuggers, and command-line tools. Consult the extension's README (visible in the Extensions view details page) or go to the extension page on the [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode) (click on the extension name in the details page). Many extensions are open source and have a link to their repository on their Marketplace page.
+{% data variables.product.prodname_vscode_shortname %} extensions may have very different configurations and requirements. Some extensions contribute [settings](/docs/configure/settings.md) to {% data variables.product.prodname_vscode_shortname %}, which can be modified in the Settings editor. Other extensions may have their own configuration files. Extensions may also require installation and setup of additional components like compilers, debuggers, and command-line tools. Consult the extension's README (visible in the Extensions view details page) or go to the extension page on the [{% data variables.product.prodname_vscode_shortname %} Marketplace](https://marketplace.visualstudio.com/VSCode) (click on the extension name in the details page). Many extensions are open source and have a link to their repository on their Marketplace page.
 
 ## Command line extension management
 
-To make it easier to automate and configure VS Code, it is possible to list, install, and uninstall extensions from the [command line](/docs/configure/command-line.md). When identifying an extension, provide the full name of the form `publisher.extension`, for example `ms-python.python`.
+To make it easier to automate and configure {% data variables.product.prodname_vscode_shortname %}, it is possible to list, install, and uninstall extensions from the [command line](/docs/configure/command-line.md). When identifying an extension, provide the full name of the form `publisher.extension`, for example `ms-python.python`.
 
 Example:
 
@@ -227,7 +227,7 @@ The Extensions view search box supports filters to help you find and manage exte
 
 Here are some of the Extensions view filters:
 
-* `@builtin` - Show extensions that come with VS Code. Grouped by type (Programming Languages, Themes, etc.).
+* `@builtin` - Show extensions that come with {% data variables.product.prodname_vscode_shortname %}. Grouped by type (Programming Languages, Themes, etc.).
 * `@deprecated` - Show deprecated extensions.
 * `@disabled` - Show disabled installed extensions.
 * `@enabled` - Show enabled installed extensions. Extensions can be individually enabled/disabled.
@@ -278,9 +278,9 @@ Tags may contain any string and are not provided by IntelliSense, so review the 
 
 ## Install from a VSIX
 
-You can manually install a VS Code extension packaged in a `.vsix` file. Using the **Install from VSIX** command in the Extensions view command dropdown, or the **Extensions: Install from VSIX** command in the **Command Palette**, point to the `.vsix` file.
+You can manually install a {% data variables.product.prodname_vscode_shortname %} extension packaged in a `.vsix` file. Using the **Install from VSIX** command in the Extensions view command dropdown, or the **Extensions: Install from VSIX** command in the **Command Palette**, point to the `.vsix` file.
 
-You can also install using the VS Code `--install-extension` command-line switch providing the path to the `.vsix` file.
+You can also install using the {% data variables.product.prodname_vscode_shortname %} `--install-extension` command-line switch providing the path to the `.vsix` file.
 
 ```bash
 code --install-extension myextension.vsix
@@ -314,11 +314,11 @@ An example `extensions.json` could be:
 
 which recommends a linter extension and a code formatter extension.
 
-An extension is identified using its publisher identifier and extension identifier `publisher.extension`. You can see the name on the extension's detail page. VS Code will provide you with auto-completion for installed extensions inside these files.
+An extension is identified using its publisher identifier and extension identifier `publisher.extension`. You can see the name on the extension's detail page. {% data variables.product.prodname_vscode_shortname %} will provide you with auto-completion for installed extensions inside these files.
 
 ![Extension identifier](images/extension-marketplace/extension-identifier.png).
 
-VS Code prompts a user to install the recommended extensions when a workspace is opened for the first time. The user can also review the list with the **Extensions: Show Recommended Extensions** command.
+{% data variables.product.prodname_vscode_shortname %} prompts a user to install the recommended extensions when a workspace is opened for the first time. The user can also review the list with the **Extensions: Show Recommended Extensions** command.
 
 ![Show Recommendations](images/extension-marketplace/recommendations.png)
 
@@ -326,9 +326,9 @@ VS Code prompts a user to install the recommended extensions when a workspace is
 
 Here are a few topics you may find interesting...
 
-* [Extension API](/api) - Start learning about the VS Code extension API.
+* [Extension API](/api) - Start learning about the {% data variables.product.prodname_vscode_shortname %} extension API.
 * [Your First Extension](/api/get-started/your-first-extension.md) - Try creating a simple Hello World extension.
-* [Publishing to the Marketplace](/api/working-with-extensions/publishing-extension.md) - Publish your own extension to the VS Code Marketplace.
+* [Publishing to the Marketplace](/api/working-with-extensions/publishing-extension.md) - Publish your own extension to the {% data variables.product.prodname_vscode_shortname %} Marketplace.
 
 ## Common questions
 
@@ -340,7 +340,7 @@ Extensions are installed in a per user extensions folder. Depending on your plat
 * **macOS** `~/.vscode/extensions`
 * **Linux** `~/.vscode/extensions`
 
-You can change the location by launching VS Code with the `--extensions-dir <dir>` command-line [option](/docs/configure/command-line.md).
+You can change the location by launching {% data variables.product.prodname_vscode_shortname %} with the `--extensions-dir <dir>` command-line [option](/docs/configure/command-line.md).
 
 Alternatively, you can set the `VSCODE_EXTENSIONS` environment variable to a location where you want to install extensions. This is useful in an enterprise environment where you want to centrally manage where extensions are installed on user machines.
 
@@ -350,13 +350,13 @@ You may see this error if your machine is going through a proxy server to access
 
 ### Can I download an extension directly from the Marketplace?
 
-Some users prefer to download an extension once from the Marketplace and then install it to multiple VS Code instances from a local share. This is useful when there are connectivity concerns or if your development team wants to use a fixed set of extensions.
+Some users prefer to download an extension once from the Marketplace and then install it to multiple {% data variables.product.prodname_vscode_shortname %} instances from a local share. This is useful when there are connectivity concerns or if your development team wants to use a fixed set of extensions.
 
 To download an extension, search for it in the Extensions view, right-click on an extension from the results, and select **Download VSIX** or **Download Specific Version VSIX**.
 
-### Can I stop VS Code from providing extension recommendations?
+### Can I stop {% data variables.product.prodname_vscode_shortname %} from providing extension recommendations?
 
-Yes, if you would prefer to not have VS Code display extension recommendations in the Extensions view or through notifications, you can modify the following settings:
+Yes, if you would prefer to not have {% data variables.product.prodname_vscode_shortname %} display extension recommendations in the Extensions view or through notifications, you can modify the following settings:
 
 * `setting(extensions.showRecommendationsOnlyOnDemand)` - Set to true to remove the **RECOMMENDED** section.
 * `setting(extensions.ignoreRecommendations)` - Set to true to silence extension recommendation notifications.
@@ -367,7 +367,7 @@ The **Show Recommended Extensions** command is always available if you want to s
 
 The Visual Studio Marketplace employs several measures to protect you from malicious extensions and you can also perform various steps to determine if an extension is reliable before installing it.
 
-As of VS Code release 1.97, when you first install an extension from a third-party publisher, VS Code shows a dialog prompting you to confirm that you trust the extension publisher.
+As of {% data variables.product.prodname_vscode_shortname %} release 1.97, when you first install an extension from a third-party publisher, {% data variables.product.prodname_vscode_shortname %} shows a dialog prompting you to confirm that you trust the extension publisher.
 
 Get more information about [extension runtime security](/docs/configure/extensions/extension-runtime-security.md).
 
@@ -375,12 +375,12 @@ Get more information about [extension runtime security](/docs/configure/extensio
 
 Yes, see the [Private Marketplace for Extensions](/docs/enterprise/extensions.md#host-a-private-extension-marketplace).
 
-### The extension signature cannot be verified by VS Code
+### The extension signature cannot be verified by {% data variables.product.prodname_vscode_shortname %}
 
-The Visual Studio Marketplace signs all extensions when they are published. VS Code verifies this signature when you install an extension to check the integrity and the source of the extension package.
+The Visual Studio Marketplace signs all extensions when they are published. {% data variables.product.prodname_vscode_shortname %} verifies this signature when you install an extension to check the integrity and the source of the extension package.
 
 > [!IMPORTANT]
-> When you install an extension, you might see the following error message: `Cannot install extension because Visual Studio Code cannot verify the extension signature`. This error can be caused by a variety of reasons and should you encounter this error, exercise caution before deciding to install anyway. Disable extension signature verification with the `setting(extensions.verifySignature)` setting.
+> When you install an extension, you might see the following error message: `Cannot install extension because {% data variables.product.prodname_vscode %} cannot verify the extension signature`. This error can be caused by a variety of reasons and should you encounter this error, exercise caution before deciding to install anyway. Disable extension signature verification with the `setting(extensions.verifySignature)` setting.
 
 #### Package integrity issues
 
@@ -402,13 +402,13 @@ NotSigned
 
 #### Other issues
 
-For other issues like an unsupported environment or unknown reasons, it's recommended that you [report an issue](https://github.com/microsoft/vscode/issues/new) with VS Code by providing all necessary information and including the shared log: `kb(workbench.action.showCommands)` > **Open View...** > **Shared**.
+For other issues like an unsupported environment or unknown reasons, it's recommended that you [report an issue](https://github.com/microsoft/vscode/issues/new) with {% data variables.product.prodname_vscode_shortname %} by providing all necessary information and including the shared log: `kb(workbench.action.showCommands)` > **Open View...** > **Shared**.
 
 ### My extensions don't synchronize when connected to a remote window
 
-[Settings Sync](/docs/configure/settings-sync.md) lets you share your Visual Studio Code configurations such as settings, keyboard shortcuts, and installed extensions across your machines so you are always working with your favorite setup.
+[Settings Sync](/docs/configure/settings-sync.md) lets you share your {% data variables.product.prodname_vscode %} configurations such as settings, keyboard shortcuts, and installed extensions across your machines so you are always working with your favorite setup.
 
-VS Code does not synchronize your extensions to or from a [remote](/docs/remote/remote-overview.md) window, such as when you're connected to SSH, a development container (devcontainer), or WSL.
+{% data variables.product.prodname_vscode_shortname %} does not synchronize your extensions to or from a [remote](/docs/remote/remote-overview.md) window, such as when you're connected to SSH, a development container (devcontainer), or WSL.
 
 ### Can I allow or block specific extensions in my organization?
 

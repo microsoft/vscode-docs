@@ -1,6 +1,6 @@
 ---
 ContentId: c4784db6-ab00-4ac7-bca8-88edb638c593
-MetaDescription: Visual Studio Code troubleshooting tips and tricks for Dev Containers
+MetaDescription: {% data variables.product.prodname_vscode %} troubleshooting tips and tricks for Dev Containers
 DateApproved: 8/19/2026
 ---
 # Dev Containers FAQ
@@ -29,7 +29,7 @@ Some extensions rely on libraries not found in specific Docker images. For examp
 
 ## Can I connect to multiple containers at once?
 
-A VS Code window can only connect to one window currently, but you can open a new window and [attach](/docs/devcontainers/attach-container.md) to an already running container or [use a common Docker Compose file with multiple `devcontainer.json` files](/remote/advancedcontainers/connect-multiple-containers.md) to automate the process a bit more.
+A {% data variables.product.prodname_vscode_shortname %} window can only connect to one window currently, but you can open a new window and [attach](/docs/devcontainers/attach-container.md) to an already running container or [use a common Docker Compose file with multiple `devcontainer.json` files](/remote/advancedcontainers/connect-multiple-containers.md) to automate the process a bit more.
 
 ## Can I work with containers on a remote host?
 
@@ -39,27 +39,27 @@ Yes, see the sections on [opening a folder on a remote SSH host](/docs/remote/ss
 
 You can build images and deploy containers by forwarding the Docker socket and installing the Docker CLI (and kubectl for Kubernetes) in the container. See the [Docker outside of Docker](https://github.com/devcontainers/templates/tree/main/src/docker-outside-of-docker), [Docker outside of Docker Compose](https://github.com/devcontainers/templates/tree/main/src/docker-outside-of-docker-compose), and [Kubernetes-Helm](https://github.com/devcontainers/templates/tree/main/src/kubernetes-helm) dev container definitions for details.
 
-## What are the connectivity requirements for the VS Code Server when it is running in a container?
+## What are the connectivity requirements for the {% data variables.product.prodname_vscode_shortname %} Server when it is running in a container?
 
-Installation of VS Code Server requires that your local machine have outbound HTTPS (port 443) connectivity to:
+Installation of {% data variables.product.prodname_vscode_shortname %} Server requires that your local machine have outbound HTTPS (port 443) connectivity to:
 
 - `update.code.visualstudio.com`
 - `vscode.download.prss.microsoft.com`
 
-The Dev Containers extensions will download VS Code Server locally and copy it to the container once connected.
+The Dev Containers extensions will download {% data variables.product.prodname_vscode_shortname %} Server locally and copy it to the container once connected.
 
-You can install extensions manually without an internet connection using the **Extensions: Install from VSIX...** command, but if you use the extension panel or `devcontainer.json` to install extensions, your local machine and VS Code Server will need outbound HTTPS (port 443) access  to:
+You can install extensions manually without an internet connection using the **Extensions: Install from VSIX...** command, but if you use the extension panel or `devcontainer.json` to install extensions, your local machine and {% data variables.product.prodname_vscode_shortname %} Server will need outbound HTTPS (port 443) access  to:
 
 - `marketplace.visualstudio.com`
 - `*.gallerycdn.vsassets.io` (Azure CDN)
 
 Finally, some extensions (like C#) download secondary dependencies from `download.microsoft.com` or `download.visualstudio.microsoft.com`. Others (like [Visual Studio Live Share](https://learn.microsoft.com/visualstudio/liveshare/reference/connectivity#requirements-for-connection-modes)) may have additional connectivity requirements. Consult the extension's documentation for details if you run into trouble.
 
-VS Code Server runs on a random port inside the container and VS Code itself uses `docker exec` to communicate with it over Docker's configured communication channel.
+{% data variables.product.prodname_vscode_shortname %} Server runs on a random port inside the container and {% data variables.product.prodname_vscode_shortname %} itself uses `docker exec` to communicate with it over Docker's configured communication channel.
 
 ## As an extension author, what do I need to do to make sure my extension works?
 
-The VS Code extension API hides most of the implementation details of running remotely so many extensions will just work inside dev containers without any modification. However, we recommend that you test your extension in a dev container to be sure that all of its functionality works as expected. See the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
+The {% data variables.product.prodname_vscode_shortname %} extension API hides most of the implementation details of running remotely so many extensions will just work inside dev containers without any modification. However, we recommend that you test your extension in a dev container to be sure that all of its functionality works as expected. See the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
 
 ## What other resources are there that may be able to answer my question?
 
@@ -71,8 +71,8 @@ The following articles may help answer your question:
 * [Docker Desktop for Windows troubleshooting guide](https://docs.docker.com/docker-for-windows/troubleshoot) and [FAQ](https://docs.docker.com/docker-for-windows/faqs/)
 * [Docker Desktop for Mac troubleshooting guide](https://docs.docker.com/docker-for-mac/troubleshoot) and [FAQ](https://docs.docker.com/docker-for-mac/faqs/)
 
-## Can I use dev containers outside of VS Code?
+## Can I use dev containers outside of {% data variables.product.prodname_vscode_shortname %}?
 
-As containerizing production workloads becomes commonplace, dev containers have become useful for scenarios beyond VS Code. We're creating the [Development Container Specification](https://containers.dev/implementors/spec) to empower anyone in any tool to configure a consistent development environment. It seeks to find ways to enrich existing formats with common development specific settings, tools, and configurations while still providing a simplified, un-orchestrated single container option – so that they can be used as coding environments or for continuous integration and testing.
+As containerizing production workloads becomes commonplace, dev containers have become useful for scenarios beyond {% data variables.product.prodname_vscode_shortname %}. We're creating the [Development Container Specification](https://containers.dev/implementors/spec) to empower anyone in any tool to configure a consistent development environment. It seeks to find ways to enrich existing formats with common development specific settings, tools, and configurations while still providing a simplified, un-orchestrated single container option – so that they can be used as coding environments or for continuous integration and testing.
 
 You can learn more and review the specification at [containers.dev](https://containers.dev), and you can review active proposals and contribute to the specification in the [devcontainers/spec](https://github.com/devcontainers/spec) repository on GitHub.

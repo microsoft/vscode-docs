@@ -1,7 +1,7 @@
 ---
 ContentId: 80f4fa1e-d4c5-42cf-8b12-4b8e88c41c3e
 DateApproved: 8/26/2026
-MetaDescription:  Learn about Visual Studio Code IntelliSense (intelligent code completion).
+MetaDescription:  Learn about {% data variables.product.prodname_vscode %} IntelliSense (intelligent code completion).
 ---
 # IntelliSense
 
@@ -11,7 +11,7 @@ IntelliSense is a general term for various code editing features including: code
 
 ## IntelliSense for your programming language
 
-Visual Studio Code IntelliSense is provided for JavaScript, TypeScript, JSON, HTML, CSS, SCSS, and Less out of the box. VS Code supports word-based completions for any programming language but can also be configured to have richer IntelliSense by installing a language extension.
+{% data variables.product.prodname_vscode %} IntelliSense is provided for JavaScript, TypeScript, JSON, HTML, CSS, SCSS, and Less out of the box. {% data variables.product.prodname_vscode_shortname %} supports word-based completions for any programming language but can also be configured to have richer IntelliSense by installing a language extension.
 
 Below are the most popular language extensions in the [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode). Select an extension tile below to read the description and reviews to decide which extension is best for you.
 
@@ -19,7 +19,7 @@ Below are the most popular language extensions in the [Visual Studio Marketplace
 
 ## IntelliSense features
 
-VS Code IntelliSense features are powered by a language service. A language service provides intelligent code completions based on language semantics and an analysis of your source code. If a language service knows possible completions, the IntelliSense suggestions will pop up as you type. If you continue typing characters, the list of members (variables, methods, and more) is filtered to only include members containing your typed characters. Pressing `kbstyle(Tab)` or `kbstyle(Enter)` will insert the selected member.
+{% data variables.product.prodname_vscode_shortname %} IntelliSense features are powered by a language service. A language service provides intelligent code completions based on language semantics and an analysis of your source code. If a language service knows possible completions, the IntelliSense suggestions will pop up as you type. If you continue typing characters, the list of members (variables, methods, and more) is filtered to only include members containing your typed characters. Pressing `kbstyle(Tab)` or `kbstyle(Enter)` will insert the selected member.
 
 You can trigger IntelliSense in any editor window by typing `kb(editor.action.triggerSuggest)` or by typing a trigger character (such as the dot character (`kbstyle(.)`) in JavaScript).
 
@@ -28,7 +28,7 @@ You can trigger IntelliSense in any editor window by typing `kb(editor.action.tr
 > [!TIP]
 > The suggestions control supports CamelCase filtering, which means that you can type the letters that are upper cased in a method name to limit the suggestions. For example, "cra" brings up "createApplication".
 
-If you prefer, you can turn off IntelliSense while you type. See [Customizing IntelliSense](#customizing-intellisense), to learn how to disable or customize VS Code's IntelliSense features.
+If you prefer, you can turn off IntelliSense while you type. See [Customizing IntelliSense](#customizing-intellisense), to learn how to disable or customize {% data variables.product.prodname_vscode_shortname %}'s IntelliSense features.
 
 As provided by the language service, you can see **quick info** for each method by either pressing `kb(toggleSuggestionDetails)` or selecting the `>` icon. The accompanying documentation for the method expands to the side. The expanded documentation remains available and updates as you navigate the list. You can close this by pressing `kb(toggleSuggestionDetails)` again or by selecting the close icon.
 
@@ -46,7 +46,7 @@ The JavaScript code in the following screenshot illustrates IntelliSense complet
 
 ![intellisense icons](images/intellisense/intellisense_icons.png)
 
-VS Code IntelliSense offers different types of completions, including language server suggestions, snippets, and simple word-based textual completions.
+{% data variables.product.prodname_vscode_shortname %} IntelliSense offers different types of completions, including language server suggestions, snippets, and simple word-based textual completions.
 
 | Icon | Name | Symbol type |
 | ---- | ---- | ----------- |
@@ -141,7 +141,7 @@ In the previous screenshot, you can see that `count`, `context`, and `colocated`
 
 ### Suggestion selection
 
-By default, VS Code pre-selects the first suggestion in the suggestion list. If you'd like different behavior, for example, to always select the most recently used item in the suggestion list, you can use the `setting(editor.suggestSelection)` setting.
+By default, {% data variables.product.prodname_vscode_shortname %} pre-selects the first suggestion in the suggestion list. If you'd like different behavior, for example, to always select the most recently used item in the suggestion list, you can use the `setting(editor.suggestSelection)` setting.
 
 The available `setting(editor.suggestSelection)` values are:
 
@@ -153,11 +153,11 @@ Selecting the most recently used item is very useful as you can quickly insert t
 
 "Type to select" means that the current prefix (roughly the text left of the cursor) is used to filter and sort suggestions. When this happens and when its result differs from the result of `recentlyUsed`, it will be given precedence.
 
-When using the last option, `recentlyUsedByPrefix`, VS Code remembers which item was selected for a specific prefix (partial text). For example, if you typed `co` and then selected `console`, the next time you typed `co`, the suggestion `console` would be pre-selected. This lets you quickly map various prefixes to different suggestions, for example `co` -> `console` and `con` -> `const`.
+When using the last option, `recentlyUsedByPrefix`, {% data variables.product.prodname_vscode_shortname %} remembers which item was selected for a specific prefix (partial text). For example, if you typed `co` and then selected `console`, the next time you typed `co`, the suggestion `console` would be pre-selected. This lets you quickly map various prefixes to different suggestions, for example `co` -> `console` and `con` -> `const`.
 
 ### Snippets in suggestions
 
-By default, VS Code shows snippets and completion proposals in one control. You can modify the behavior with the `setting(editor.snippetSuggestions)` setting. To remove snippets from the suggestions control, set the value to `"none"`. If you'd like to see snippets, you can specify the order relative to suggestions; at the top (`"top"`), at the bottom (`"bottom"`), or inline ordered alphabetically (`"inline"`). The default is `"inline"`.
+By default, {% data variables.product.prodname_vscode_shortname %} shows snippets and completion proposals in one control. You can modify the behavior with the `setting(editor.snippetSuggestions)` setting. To remove snippets from the suggestions control, set the value to `"none"`. If you'd like to see snippets, you can specify the order relative to suggestions; at the top (`"top"`), at the bottom (`"bottom"`), or inline ordered alphabetically (`"inline"`). The default is `"inline"`.
 
 ### Keyboard shortcuts
 
@@ -176,11 +176,11 @@ The keyboard shortcuts shown here are the default keyboard shortcuts. To assign 
 
 GitHub Copilot provides coding suggestions as you type in your editor. You can also ask Copilot coding-related questions, such as how best to code something, how to fix a bug, or how someone else's code works.
 
-Learn how to get started with [AI in VS Code](/docs/agents/overview.md).
+Learn how to get started with [AI in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/overview.md).
 
 ## Troubleshooting
 
-If you find IntelliSense has stopped working, the language service may not be running. Try restarting VS Code and this should solve the issue. If you are still missing IntelliSense features after installing a language extension, open an issue in the repository of the language extension.
+If you find IntelliSense has stopped working, the language service may not be running. Try restarting {% data variables.product.prodname_vscode_shortname %} and this should solve the issue. If you are still missing IntelliSense features after installing a language extension, open an issue in the repository of the language extension.
 
 > [!NOTE]
 > In very large workspaces, IntelliSense features may be partially disabled for
@@ -191,21 +191,21 @@ If you find IntelliSense has stopped working, the language service may not be ru
 > [!TIP]
 > For configuring and troubleshooting JavaScript IntelliSense, see the [JavaScript documentation](/docs/languages/javascript.md#intellisense).
 
-A particular language extension may not support all the VS Code IntelliSense features. Review the extension's README to find out what is supported. If you think there are issues with a language extension, you can usually find the issue repository for an extension through the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode). Navigate to the extension's Details page and select the **Support** link.
+A particular language extension may not support all the {% data variables.product.prodname_vscode_shortname %} IntelliSense features. Review the extension's README to find out what is supported. If you think there are issues with a language extension, you can usually find the issue repository for an extension through the [{% data variables.product.prodname_vscode_shortname %} Marketplace](https://marketplace.visualstudio.com/vscode). Navigate to the extension's Details page and select the **Support** link.
 
 ## Next steps
 
-IntelliSense is just one of VS Code's powerful features. Read on to learn more:
+IntelliSense is just one of {% data variables.product.prodname_vscode_shortname %}'s powerful features. Read on to learn more:
 
 * [Debugging](/docs/debugtest/debugging.md) - Learn how to set up debugging for your application.
 * [Creating Language extensions](/api/language-extensions/programmatic-language-features.md) - Learn how to create extensions that add IntelliSense for new programming languages.
-* [GitHub Copilot in VS Code](/docs/agent-native/overview.md) - Learn how to use AI with GitHub Copilot to enhance your coding.
+* [GitHub Copilot in {% data variables.product.prodname_vscode_shortname %}](/docs/agent-native/overview.md) - Learn how to use AI with GitHub Copilot to enhance your coding.
 
 ## Common questions
 
 ### Why am I not getting any suggestions?
 
-This can be caused by a variety of reasons. First, try restarting VS Code. If the problem persists, consult the language extension's documentation. For JavaScript-specific troubleshooting, please see the [JavaScript language topic](/docs/languages/javascript.md#intellisense).
+This can be caused by a variety of reasons. First, try restarting {% data variables.product.prodname_vscode_shortname %}. If the problem persists, consult the language extension's documentation. For JavaScript-specific troubleshooting, please see the [JavaScript language topic](/docs/languages/javascript.md#intellisense).
 
 ### Why am I not seeing method and variable suggestions?
 

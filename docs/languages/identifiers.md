@@ -1,11 +1,11 @@
 ---
 ContentId: 3f773ade-7e71-4fb9-9bb9-d9e0b20fa799
 DateApproved: 8/19/2026
-MetaDescription: Visual Studio Code language mode identifiers
+MetaDescription: {% data variables.product.prodname_vscode %} language mode identifiers
 ---
 # Language Identifiers
 
-In Visual Studio Code, each [language mode](/docs/languages/overview.md#changing-the-language-for-the-selected-file) has a unique specific language identifier. That identifier is rarely seen by the user except in the settings, for example, when associating file extensions to a language:
+In {% data variables.product.prodname_vscode %}, each [language mode](/docs/languages/overview.md#changing-the-language-for-the-selected-file) has a unique specific language identifier. That identifier is rarely seen by the user except in the settings, for example, when associating file extensions to a language:
 
 ```json
     "files.associations": {
@@ -15,7 +15,7 @@ In Visual Studio Code, each [language mode](/docs/languages/overview.md#changing
 
 Note that casing matters for exact identifier matching ('Markdown' != 'markdown')
 
-The language identifier becomes essential for VS Code extension developers when adding new language capabilities or when replacing a language support.
+The language identifier becomes essential for {% data variables.product.prodname_vscode_shortname %} extension developers when adding new language capabilities or when replacing a language support.
 
 Every language defines its *id* through the `languages` configuration point in the extension's `package.json` file:
 

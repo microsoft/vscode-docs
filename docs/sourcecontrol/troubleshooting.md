@@ -1,6 +1,6 @@
 ---
 ContentId: 8a7c3f4e-5b2d-4c9a-8e1f-6d3a2b1c0e9f
-MetaDescription: Diagnose Git authentication, repository detection, trust, and synchronization problems in Visual Studio Code with targeted fixes and Git logs.
+MetaDescription: Diagnose Git authentication, repository detection, trust, and synchronization problems in {% data variables.product.prodname_vscode %} with targeted fixes and Git logs.
 DateApproved: 8/26/2026
 Keywords:
 - source control
@@ -11,7 +11,7 @@ Keywords:
 ---
 # Troubleshoot source control
 
-Use this article to resolve common Git problems in Visual Studio Code. Start with the symptom that matches your problem, then use the Git Output window to collect more information if the suggested fix doesn't resolve it.
+Use this article to resolve common Git problems in {% data variables.product.prodname_vscode %}. Start with the symptom that matches your problem, then use the Git Output window to collect more information if the suggested fix doesn't resolve it.
 
 ## Push, pull, or sync doesn't finish
 
@@ -27,17 +27,17 @@ A Git operation that doesn't finish often indicates that Git is waiting for auth
 
 ## Git authentication prompts appear repeatedly
 
-VS Code automatically fetches remote changes to show incoming commits. The authentication prompt comes from your Git credential helper, not from VS Code.
+{% data variables.product.prodname_vscode_shortname %} automatically fetches remote changes to show incoming commits. The authentication prompt comes from your Git credential helper, not from {% data variables.product.prodname_vscode_shortname %}.
 
-Configure a [Git credential helper](https://docs.github.com/get-started/getting-started-with-git/caching-your-github-credentials-in-git) to store your credentials. If you don't want VS Code to fetch in the background, turn off the `setting(git.autofetch)` setting.
+Configure a [Git credential helper](https://docs.github.com/get-started/getting-started-with-git/caching-your-github-credentials-in-git) to store your credentials. If you don't want {% data variables.product.prodname_vscode_shortname %} to fetch in the background, turn off the `setting(git.autofetch)` setting.
 
 ## Git actions are unavailable after initializing a repository
 
 Push, pull, and sync require a remote repository. If you initialized a local repository, [add a remote](/docs/sourcecontrol/repos-remotes.md#add-a-remote) or use **Publish to GitHub** in the Source Control view.
 
-After the branch has an upstream remote, VS Code makes the synchronization actions available.
+After the branch has an upstream remote, {% data variables.product.prodname_vscode_shortname %} makes the synchronization actions available.
 
-## VS Code reports that a repository is potentially unsafe
+## {% data variables.product.prodname_vscode_shortname %} reports that a repository is potentially unsafe
 
 Git blocks operations in a repository owned by a different operating-system user. This protects you from running Git configuration or hooks from an untrusted repository.
 
@@ -45,15 +45,15 @@ Select **Manage Unsafe Repositories** in the Source Control view or notification
 
 On Windows, this can happen when you clone a repository from an application running as administrator and later open it from an application that isn't running as administrator.
 
-## VS Code doesn't detect a repository in a parent folder
+## {% data variables.product.prodname_vscode_shortname %} doesn't detect a repository in a parent folder
 
-VS Code doesn't automatically open Git repositories in parent folders because doing so can expose changes outside the folder you intended to work with.
+{% data variables.product.prodname_vscode_shortname %} doesn't automatically open Git repositories in parent folders because doing so can expose changes outside the folder you intended to work with.
 
-When VS Code detects a repository in a parent folder, use the notification or Source Control welcome view to open it. To always open repositories in parent folders, set the `setting(git.openRepositoryInParentFolders)` setting to `always`.
+When {% data variables.product.prodname_vscode_shortname %} detects a repository in a parent folder, use the notification or Source Control welcome view to open it. To always open repositories in parent folders, set the `setting(git.openRepositoryInParentFolders)` setting to `always`.
 
 ## Open the Git Output window
 
-VS Code uses your machine's Git installation for source control operations. The Git Output window records the Git executable, commands, errors, timestamps, and command duration.
+{% data variables.product.prodname_vscode_shortname %} uses your machine's Git installation for source control operations. The Git Output window records the Git executable, commands, errors, timestamps, and command duration.
 
 Open the Git Output window in one of these ways:
 

@@ -1,11 +1,11 @@
 ---
 ContentId: 51280c26-f78b-4f9c-997f-8350bd6ed07f
 DateApproved: 8/26/2026
-MetaDescription: Visual Studio Code Workspace Trust folder security
+MetaDescription: {% data variables.product.prodname_vscode %} Workspace Trust folder security
 ---
 # Workspace Trust
 
-Visual Studio Code takes security seriously and wants to help you safely browse and edit code no matter the source or original authors. The Workspace Trust feature lets you decide whether code in your project folder can be executed by VS Code and extensions without your explicit approval.
+{% data variables.product.prodname_vscode %} takes security seriously and wants to help you safely browse and edit code no matter the source or original authors. The Workspace Trust feature lets you decide whether code in your project folder can be executed by {% data variables.product.prodname_vscode_shortname %} and extensions without your explicit approval.
 
 ![Trust this folder dialog](images/workspace-trust/workspace-trust-dialog.png)
 
@@ -18,17 +18,17 @@ It's great that there is so much source code available on public repositories an
 Workspace Trust provides an extra layer of security when working with unfamiliar code, by preventing automatic code execution of any code in your workspace if the workspace is open in "Restricted Mode".
 
 > [!IMPORTANT]
-> Workspace trust is shared between your VS Code window and the [Agents window](/docs/agents/run/agents-window.md). If the workspace is untrusted in VS Code, it is also untrusted in the Agents window, and agents will not run in either place. You can manage workspace trust from either surface, and the trust state is shared across both.
+> Workspace trust is shared between your {% data variables.product.prodname_vscode_shortname %} window and the [Agents window](/docs/agents/run/agents-window.md). If the workspace is untrusted in {% data variables.product.prodname_vscode_shortname %}, it is also untrusted in the Agents window, and agents will not run in either place. You can manage workspace trust from either surface, and the trust state is shared across both.
 
 ## Restricted Mode
 
-When you open a new, unfamiliar folder, VS Code opens it in Restricted Mode to prevent automatic code execution while you review the contents. VS Code also enters Restricted Mode if you choose **No, I don't trust the authors** when prompted by the Workspace Trust dialog.
+When you open a new, unfamiliar folder, {% data variables.product.prodname_vscode_shortname %} opens it in Restricted Mode to prevent automatic code execution while you review the contents. {% data variables.product.prodname_vscode_shortname %} also enters Restricted Mode if you choose **No, I don't trust the authors** when prompted by the Workspace Trust dialog.
 
 The workbench displays a banner at the top with a link to **Manage** your folder via the Workspace Trust editor. In the Status Bar, you can also see a badge that indicates that the workspace is in Restricted Mode. When you're ready, you can trust the folder from the banner or the Workspace Trust editor.
 
 ![Workspace Trust Restricted Mode banner](images/workspace-trust/restricted-mode-banner.png)
 
-Restricted Mode tries to prevent automatic code execution by disabling or limiting the operation of several VS Code features: AI agents, terminal, tasks, debugging, workspace settings, and extensions.
+Restricted Mode tries to prevent automatic code execution by disabling or limiting the operation of several {% data variables.product.prodname_vscode_shortname %} features: AI agents, terminal, tasks, debugging, workspace settings, and extensions.
 
 To see the full list of features disabled in Restricted Mode, you can open the Workspace Trust editor via the **Manage** link in the banner, or by selecting the Restricted Mode badge in the Status Bar. The Workspace Trust editor opens by default in a [modal overlay](/docs/editing/userinterface.md#modal-editors) on top of the editor area.
 
@@ -39,39 +39,39 @@ To see the full list of features disabled in Restricted Mode, you can open the W
 
 ### AI agents
 
-When you use AI-powered development features like agents in VS Code, these agents perform actions on your behalf, including making changes to your codebase, running terminal commands, or invoking web requests. Any file could be pulled into the context by using agents and could theoretically result in a prompt injection attack.
+When you use AI-powered development features like agents in {% data variables.product.prodname_vscode_shortname %}, these agents perform actions on your behalf, including making changes to your codebase, running terminal commands, or invoking web requests. Any file could be pulled into the context by using agents and could theoretically result in a prompt injection attack.
 
 Until you've reviewed a project for malicious content, rely on the Workspace Trust boundary and open it in restricted mode. Opening a workspace in restricted mode disables agents in that workspace.
 
-Learn more about [AI security considerations](/docs/agents/run/security.md) when using AI-powered development features in VS Code.
+Learn more about [AI security considerations](/docs/agents/run/security.md) when using AI-powered development features in {% data variables.product.prodname_vscode_shortname %}.
 
 ### Terminal
 
 Shells can automatically execute code based on workspace contents, for example by sourcing `.env` files or running shell initialization scripts that reference the current directory. To protect against this, opening a [terminal](/docs/terminal/basics.md) is blocked by default when a folder is open in Restricted Mode.
 
-If you try to open a terminal while in Restricted Mode, VS Code displays a prompt to confirm that you trust the folder. If you cancel the dialog, VS Code stays in Restricted Mode, and does not open the terminal.
+If you try to open a terminal while in Restricted Mode, {% data variables.product.prodname_vscode_shortname %} displays a prompt to confirm that you trust the folder. If you cancel the dialog, {% data variables.product.prodname_vscode_shortname %} stays in Restricted Mode, and does not open the terminal.
 
 If you configure your shell to prevent automatic code execution based on workspace contents, you can enable the `setting(terminal.integrated.allowInUntrustedWorkspace)` setting to allow terminals to open in Restricted Mode without a trust prompt.
 
 ### Tasks
 
-VS Code [tasks](/docs/debugtest/tasks.md) can run scripts and tool binaries. Because task definitions are defined in the workspace `.vscode` folder, they are part of the committed source code for a repo, and shared to every user of that repo. If someone would create a malicious task, it could be unknowingly run by anyone who cloned that repository.
+{% data variables.product.prodname_vscode_shortname %} [tasks](/docs/debugtest/tasks.md) can run scripts and tool binaries. Because task definitions are defined in the workspace `.vscode` folder, they are part of the committed source code for a repo, and shared to every user of that repo. If someone would create a malicious task, it could be unknowingly run by anyone who cloned that repository.
 
-If you try to run or even enumerate tasks (**Tasks** > **Run Task**) while in Restricted Mode, VS Code displays a prompt to confirm that you trust the folder and can continue executing the task. If you cancel the dialog, VS Code stays in Restricted Mode.
+If you try to run or even enumerate tasks (**Tasks** > **Run Task**) while in Restricted Mode, {% data variables.product.prodname_vscode_shortname %} displays a prompt to confirm that you trust the folder and can continue executing the task. If you cancel the dialog, {% data variables.product.prodname_vscode_shortname %} stays in Restricted Mode.
 
 ![Workspace Trust Restricted Mode tasks dialog](images/workspace-trust/restricted-mode-tasks-dialog.png)
 
 ### Debugging
 
-Similar to running a VS Code task, debug extensions can run debugger binaries when launching a debug session. For that reason, [debugging](/docs/debugtest/debugging.md) is also disabled when a folder is open in Restricted Mode.
+Similar to running a {% data variables.product.prodname_vscode_shortname %} task, debug extensions can run debugger binaries when launching a debug session. For that reason, [debugging](/docs/debugtest/debugging.md) is also disabled when a folder is open in Restricted Mode.
 
-If you try to start a debug session (**Debug** > **Start Debugging**) while in Restricted Mode, VS Code displays a prompt to confirm that you trust the folder and can continue launching the debugger. If you cancel the dialog, VS Code stays in Restricted Mode, and does not start the debug session.
+If you try to start a debug session (**Debug** > **Start Debugging**) while in Restricted Mode, {% data variables.product.prodname_vscode_shortname %} displays a prompt to confirm that you trust the folder and can continue launching the debugger. If you cancel the dialog, {% data variables.product.prodname_vscode_shortname %} stays in Restricted Mode, and does not start the debug session.
 
 ![Workspace Trust Restricted Mode debugging dialog](images/workspace-trust/restricted-mode-debugging-dialog.png)
 
 ### Workspace settings
 
-Workspace [settings](/docs/configure/settings.md) are stored in the `.vscode` folder at the root of your workspace, and are therefore shared by anyone who clones the workspace repository. Some settings contain paths to executables (for example, linter binaries), which if set to point to malicious code, could cause damage. For this reason, VS Code disables a set of workspace settings when running in Restricted Mode.
+Workspace [settings](/docs/configure/settings.md) are stored in the `.vscode` folder at the root of your workspace, and are therefore shared by anyone who clones the workspace repository. Some settings contain paths to executables (for example, linter binaries), which if set to point to malicious code, could cause damage. For this reason, {% data variables.product.prodname_vscode_shortname %} disables a set of workspace settings when running in Restricted Mode.
 
 ![Workspace Trust editor workspace settings link](images/workspace-trust/workspace-settings-link.png)
 
@@ -81,7 +81,7 @@ In the Workspace Trust editor, select the link for workspace settings that aren'
 
 ### Extensions
 
-The VS Code [extensions](/docs/configure/extensions/extension-marketplace.md) ecosystem is incredibly rich and diverse. People have created extensions to help with just about any programming task or editor customization. Some extensions provide full programming language support (IntelliSense, debugging, code analysis), and others let you play music or have virtual [pets](https://marketplace.visualstudio.com/items?itemName=tonybaloney.vscode-pets).
+The {% data variables.product.prodname_vscode_shortname %} [extensions](/docs/configure/extensions/extension-marketplace.md) ecosystem is incredibly rich and diverse. People have created extensions to help with just about any programming task or editor customization. Some extensions provide full programming language support (IntelliSense, debugging, code analysis), and others let you play music or have virtual [pets](https://marketplace.visualstudio.com/items?itemName=tonybaloney.vscode-pets).
 
 Most extensions run code on your behalf and could potentially do harm. Some extensions have settings that could cause them to act maliciously if configured to run an unexpected executable. For this reason, extensions that have not explicitly opted into Workspace Trust are disabled by default in Restricted Mode.
 
@@ -101,7 +101,7 @@ Extensions that have either not explicitly indicated that they support running i
 
 Extension authors can also evaluate their extensions for possible security vulnerabilities and declare that they have **limited** support when running in Restricted Mode. This mode means the extension may disable some features or functionality to prevent a possible exploit.
 
-Extensions can add custom text to the Workspace Trust badge in the Extensions view, explaining the limitation when running in an untrusted folder. For example, the VS Code built-in PHP extension limits the use of the `setting(php.validate.executablePath)` setting to trusted folders since overriding this setting could run a malicious program.
+Extensions can add custom text to the Workspace Trust badge in the Extensions view, explaining the limitation when running in an untrusted folder. For example, the {% data variables.product.prodname_vscode_shortname %} built-in PHP extension limits the use of the `setting(php.validate.executablePath)` setting to trusted folders since overriding this setting could run a malicious program.
 
 ![PHP extension limited in Restricted Mode hover](images/workspace-trust/php-limited-hover.png)
 
@@ -138,7 +138,7 @@ You can also at any time use:
 * **Workspaces: Manage Workspace Trust** command from the Command Palette (`kb(workbench.action.showCommands)`)
 
 > [!IMPORTANT]
-> Workspace trust is shared between your VS Code window and the [Agents window](/docs/agents/run/agents-window.md). If the workspace is untrusted in VS Code, it is also untrusted in the Agents window, and agents will not run in either place. You can manage workspace trust from either surface, and the trust state is shared across both.
+> Workspace trust is shared between your {% data variables.product.prodname_vscode_shortname %} window and the [Agents window](/docs/agents/run/agents-window.md). If the workspace is untrusted in {% data variables.product.prodname_vscode_shortname %}, it is also untrusted in the Agents window, and agents will not run in either place. You can manage workspace trust from either surface, and the trust state is shared across both.
 
 ## Selecting folders
 
@@ -205,7 +205,7 @@ If you'd like to learn more about how extension authors evaluate and determine w
 
 ## Opening untrusted files
 
-If you open a file that is located outside of a trusted folder, VS Code detects that the file comes from somewhere outside the folder root and prompts you with the option to continue to open the file or open the file in a new window in Restricted Mode. Opening in Restricted Mode is the safest option and you can always reopen the file in your original VS Code window once you determine the file is trustworthy.
+If you open a file that is located outside of a trusted folder, {% data variables.product.prodname_vscode_shortname %} detects that the file comes from somewhere outside the folder root and prompts you with the option to continue to open the file or open the file in a new window in Restricted Mode. Opening in Restricted Mode is the safest option and you can always reopen the file in your original {% data variables.product.prodname_vscode_shortname %} window once you determine the file is trustworthy.
 
 ![Untrusted files dialog](images/workspace-trust/untrusted-file-dialog.png)
 
@@ -219,7 +219,7 @@ When working with [multi-root workspaces](/docs/editing/workspaces/multi-root-wo
 
 ### Empty windows (no open folder)
 
-By default, if you open a new VS Code window (instance) without opening a folder or workspace, VS Code runs the window with full trust. All installed extensions are enabled and you can use the empty window without restrictions.
+By default, if you open a new {% data variables.product.prodname_vscode_shortname %} window (instance) without opening a folder or workspace, {% data variables.product.prodname_vscode_shortname %} runs the window with full trust. All installed extensions are enabled and you can use the empty window without restrictions.
 
 When you open a file, you are prompted whether you want to open an [untrusted file](#opening-untrusted-files), since there is no folder to parent it.
 
@@ -240,7 +240,7 @@ Below are the available Workspace Trust settings:
 
 ## Command-line switch
 
-You can disable Workspace Trust via the VS Code command line by passing `--disable-workspace-trust`. This switch only affects the current session.
+You can disable Workspace Trust via the {% data variables.product.prodname_vscode_shortname %} command line by passing `--disable-workspace-trust`. This switch only affects the current session.
 
 <!-- ## Special configurations
 
@@ -263,7 +263,7 @@ Paths a little weird
 Learn more at:
 
 * [Workspace Trust Extension Guide](/api/extension-guides/workspace-trust.md) - Learn how extension authors can support Workspace Trust.
-* [What is a VS Code "workspace"?](/docs/editing/workspaces/workspaces.md) - Find out more details about the VS Code "workspace" concept.
+* [What is a {% data variables.product.prodname_vscode_shortname %} "workspace"?](/docs/editing/workspaces/workspaces.md) - Find out more details about the {% data variables.product.prodname_vscode_shortname %} "workspace" concept.
 * [GitHub Repositories extension](/docs/sourcecontrol/github.md#github-repositories-extension) - Work directly on a repository without cloning the source code to your local machine.
 
 ## Common questions
@@ -282,7 +282,7 @@ You can override an extension's Workspace Trust support level with the `setting(
 
 ### Can I disable the Workspace Trust feature?
 
-You can but it is not recommended. If you don't want VS Code to check for Workspace Trust when opening a new folder or repository, you can set `setting(security.workspace.trust.enabled)` to false. VS Code will then behave as it did before the 1.57 release.
+You can but it is not recommended. If you don't want {% data variables.product.prodname_vscode_shortname %} to check for Workspace Trust when opening a new folder or repository, you can set `setting(security.workspace.trust.enabled)` to false. {% data variables.product.prodname_vscode_shortname %} will then behave as it did before the 1.57 release.
 
 ### How do I untrust a folder/workspace?
 
@@ -296,4 +296,4 @@ Some workflows such as connecting to a [GitHub Codespace](/docs/remote/codespace
 
 ### What does Workspace Trust protect against?
 
-Many features of VS Code allow third-party tools and extensions to run automatically, such as linting or format on save, or when you do certain operations like compiling code or debugging. An unethical person could craft an innocent looking project that would run malicious code without your knowledge and harm your local machine. Workspace Trust provides an extra layer of security by trying to prevent code execution while you are evaluating the safety and integrity of unfamiliar source code.
+Many features of {% data variables.product.prodname_vscode_shortname %} allow third-party tools and extensions to run automatically, such as linting or format on save, or when you do certain operations like compiling code or debugging. An unethical person could craft an innocent looking project that would run malicious code without your knowledge and harm your local machine. Workspace Trust provides an extra layer of security by trying to prevent code execution while you are evaluating the safety and integrity of unfamiliar source code.

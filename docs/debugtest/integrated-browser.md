@@ -1,14 +1,14 @@
 ---
 ContentId: f8e2a7c1-9d3b-4e5f-a6c8-1b2d3e4f5a6b
 DateApproved: 8/26/2026
-MetaDescription: Use the integrated browser in VS Code to preview and debug web apps, add page context to chat, and share browser sessions with AI agents.
+MetaDescription: Use the integrated browser in {% data variables.product.prodname_vscode_shortname %} to preview and debug web apps, add page context to chat, and share browser sessions with AI agents.
 MetaSocialImage: images/debugging/debugging-social.png
 ---
 # Integrated browser
 
-The integrated browser enables you to open and interact with web pages directly inside VS Code. Use it to preview web applications, test authentication flows, and comment on page elements to give agents precise feedback.
+The integrated browser enables you to open and interact with web pages directly inside {% data variables.product.prodname_vscode_shortname %}. Use it to preview web applications, test authentication flows, and comment on page elements to give agents precise feedback.
 
-![Screenshot of the integrated browser in VS Code displaying a web page.](images/integrated-browser/integrated-browser.png)
+![Screenshot of the integrated browser in {% data variables.product.prodname_vscode_shortname %} displaying a web page.](images/integrated-browser/integrated-browser.png)
 
 ## Open the browser
 
@@ -16,8 +16,8 @@ There are several ways to open the integrated browser:
 
 * Run the **Browser: Open Integrated Browser** command from the Command Palette (`kb(workbench.action.showCommands)`).
 * Select **View** > **Browser** from the menu bar, or use the `kb(workbench.action.browser.openOrList)` keyboard shortcut.
-* Select the globe button in the VS Code title bar. Use the `setting(workbench.browser.showInTitleBar)` setting to control whether the globe button appears.
-* Select a `localhost` link anywhere in VS Code, like the terminal or chat. Enable this behavior with the `setting(workbench.browser.openLocalhostLinks)` setting.
+* Select the globe button in the {% data variables.product.prodname_vscode_shortname %} title bar. Use the `setting(workbench.browser.showInTitleBar)` setting to control whether the globe button appears.
+* Select a `localhost` link anywhere in {% data variables.product.prodname_vscode_shortname %}, like the terminal or chat. Enable this behavior with the `setting(workbench.browser.openLocalhostLinks)` setting.
 * Ask an agent to open or interact with a web page. See [Browser tools for agents](#browser-tools-for-agents).
 * Start a debug session with the `editor-browser` debug type. See [Debugging](#debugging).
 
@@ -58,7 +58,7 @@ To favorite the current page, open the address bar and select the star icon. The
 
 ### Open tabs
 
-On a new browser tab that hasn't navigated to a page, the suggestions picker also lists your other open browser tabs. Select a tab to switch to it. VS Code closes the new tab and activates the one you selected.
+On a new browser tab that hasn't navigated to a page, the suggestions picker also lists your other open browser tabs. Select a tab to switch to it. {% data variables.product.prodname_vscode_shortname %} closes the new tab and activates the one you selected.
 
 ### Recents and history
 
@@ -126,7 +126,7 @@ Toggle the browser's Developer Tools from the browser toolbar to inspect element
 
 ## Debugging
 
-You can debug web applications directly in the integrated browser by using the `editor-browser` debug type in your `launch.json` configuration. Launch a new browser tab with the debugger attached, or attach to a tab that is already open. This works anywhere Visual Studio Code Desktop is supported, even without an external browser installed.
+You can debug web applications directly in the integrated browser by using the `editor-browser` debug type in your `launch.json` configuration. Launch a new browser tab with the debugger attached, or attach to a tab that is already open. This works anywhere {% data variables.product.prodname_vscode %} Desktop is supported, even without an external browser installed.
 
 > [!NOTE]
 > The `editor-browser` debug type is not yet available in the **Run and Debug** auto-detection flows. You need to manually add it to your `launch.json` file.
@@ -170,8 +170,8 @@ To attach the debugger to an integrated browser tab that is already open, use an
 
 When you start this configuration:
 
-* If no integrated browser tabs are open, VS Code creates a new tab and attaches to it.
-* If one tab is open, VS Code attaches to it automatically.
+* If no integrated browser tabs are open, {% data variables.product.prodname_vscode_shortname %} creates a new tab and attaches to it.
+* If one tab is open, {% data variables.product.prodname_vscode_shortname %} attaches to it automatically.
 * If multiple tabs are open, a picker lets you choose which tab to attach to.
 
 The browser tab stays open when you stop the debug session.
@@ -187,9 +187,9 @@ To automatically attach to a tab with a specific URL, add a `urlFilter` property
 }
 ```
 
-If one tab matches the filter, VS Code attaches to it directly. If multiple tabs match, the picker shows only the filtered results.
+If one tab matches the filter, {% data variables.product.prodname_vscode_shortname %} attaches to it directly. If multiple tabs match, the picker shows only the filtered results.
 
-For a full reference of launch configuration attributes, see [Browser debugging in VS Code](/docs/nodejs/browser-debugging.md#launch-configuration-attributes).
+For a full reference of launch configuration attributes, see [Browser debugging in {% data variables.product.prodname_vscode_shortname %}](/docs/nodejs/browser-debugging.md#launch-configuration-attributes).
 
 ## Standalone window
 
@@ -254,7 +254,7 @@ Learn more about [adding context to chat](/docs/chat/copilot-chat-context.md).
 
 ## Permissions
 
-The integrated browser supports per-site permissions, similar to a traditional browser. When a page requests a permission, VS Code prompts you to allow or deny the request for the current site.
+The integrated browser supports per-site permissions, similar to a traditional browser. When a page requests a permission, {% data variables.product.prodname_vscode_shortname %} prompts you to allow or deny the request for the current site.
 
 Pages can request access to web APIs such as:
 
@@ -338,7 +338,7 @@ Organizations can centrally turn off browser tools or restrict which domains age
 
 ## Related
 
-* [Browser debugging in VS Code](/docs/nodejs/browser-debugging.md)
+* [Browser debugging in {% data variables.product.prodname_vscode_shortname %}](/docs/nodejs/browser-debugging.md)
 * [Use browser tools with agents](/docs/agents/run/browser-tools.md)
 * [Build and validate a web app with browser tools](/docs/agents/guides/browser-agent-testing-guide.md)
 * [Add context to AI chat](/docs/chat/copilot-chat-context.md)

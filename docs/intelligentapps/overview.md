@@ -1,13 +1,13 @@
 ---
 ContentId: 164299e8-d27d-40b9-8b8d-a6e05df8ac69
 DateApproved: 03/12/2026
-MetaDescription: Build, test, and deploy AI applications with Foundry Toolkit for Visual Studio Code. Features model playground, prompt engineering, batch evaluation, fine-tuning, and multi-modal support for LLMs and SLMs.
+MetaDescription: Build, test, and deploy AI applications with Foundry Toolkit for {% data variables.product.prodname_vscode %}. Features model playground, prompt engineering, batch evaluation, fine-tuning, and multi-modal support for LLMs and SLMs.
 ---
-# Foundry Toolkit for Visual Studio Code
+# Foundry Toolkit for {% data variables.product.prodname_vscode %}
 
-Foundry Toolkit for Visual Studio Code helps developers and AI engineers build, test, and deploy AI apps with generative AI models. You can use it locally or in the cloud to manage your full AI app workflow in one place.
+Foundry Toolkit for {% data variables.product.prodname_vscode %} helps developers and AI engineers build, test, and deploy AI apps with generative AI models. You can use it locally or in the cloud to manage your full AI app workflow in one place.
 
-Foundry Toolkit offers seamless integration with popular AI models from providers like OpenAI, Anthropic, Google, and GitHub, while also supporting local models through ONNX and Ollama. From model discovery and experimentation to prompt engineering and deployment, Foundry Toolkit streamlines your AI development workflow within VS Code.
+Foundry Toolkit offers seamless integration with popular AI models from providers like OpenAI, Anthropic, Google, and GitHub, while also supporting local models through ONNX and Ollama. From model discovery and experimentation to prompt engineering and deployment, Foundry Toolkit streamlines your AI development workflow within {% data variables.product.prodname_vscode_shortname %}.
 
 ## Key features
 
@@ -17,9 +17,9 @@ Foundry Toolkit offers seamless integration with popular AI models from provider
 | [Model Catalog](/docs/intelligentapps/models.md) | Discover and access AI models from multiple sources including Microsoft Foundry, Foundry Local, GitHub, ONNX, Ollama, OpenAI, Anthropic, and Google. Compare models side-by-side and find the perfect fit for your use case. | ![Screenshot showing the Foundry Toolkit Model Catalog interface with various AI model options](./images/overview/model-catalog.png) |
 | [Playground](/docs/intelligentapps/playground.md) | Interactive chat environment for real-time model testing. Experiment with different prompts, parameters, and multi-modal inputs including images and attachments. | ![Screenshot showing the Foundry Toolkit Playground interface with chat messaging and model parameter controls](./images/overview/model-playground.png) |
 | [Agent Builder](/docs/intelligentapps/agentbuilder) | Streamlined prompt engineering and agent development workflow. Create sophisticated prompts, integrate MCP tools, and generate production-ready code with structured outputs. | ![Screenshot showing the Agent Builder interface for creating and managing AI agents](./images/overview/agent-builder.png) |
-| [Agent Inspector](/docs/intelligentapps/agent-inspector) | Debug, visualize, and iterate on AI agents directly within VS Code. | ![Screenshot showing the Agent Inspector interface for debugging and visualizing AI agents](./images/overview/agent-inspector.png) |
+| [Agent Inspector](/docs/intelligentapps/agent-inspector) | Debug, visualize, and iterate on AI agents directly within {% data variables.product.prodname_vscode_shortname %}. | ![Screenshot showing the Agent Inspector interface for debugging and visualizing AI agents](./images/overview/agent-inspector.png) |
 | [Model Evaluation](/docs/intelligentapps/evaluation) | Comprehensive model assessment using datasets and standard metrics. Measure performance with built-in evaluators (F1 score, relevance, similarity, coherence) or create custom evaluation criteria. | ![Screenshot showing the Model Evaluation interface with metrics and performance analysis tools](./images/overview/model-evaluation.png) |
-| [Tool Catalog](/docs/intelligentapps/tool-catalog) | Connect Foundry tools and local MCP server tools using the Tool Catalog in Visual Studio Code and add them to agents with Agent Builder | ![Screenshot showing the tool catalog with a list of many tools hosted in Foundry](./images/overview/tool-catalog.png) |
+| [Tool Catalog](/docs/intelligentapps/tool-catalog) | Connect Foundry tools and local MCP server tools using the Tool Catalog in {% data variables.product.prodname_vscode %} and add them to agents with Agent Builder | ![Screenshot showing the tool catalog with a list of many tools hosted in Foundry](./images/overview/tool-catalog.png) |
 | [Fine-tuning](/docs/intelligentapps/finetune) | Customize and adapt models for specific domains and requirements. Train models locally with GPU support or use Azure Container Apps for cloud-based fine-tuning. | ![Screenshot showing the Fine-tuning interface with model adaptation and training controls](./images/overview/fine-tuning.png) |
 | [Model Conversion](/docs/intelligentapps/modelconversion) | Convert, quantize, and optimize machine learning models for local deployment. Transform models from Hugging Face and other sources to run efficiently on Windows with CPU, GPU, or NPU acceleration. | ![Screenshot showing the Model Conversion interface with tools for optimizing and transforming AI models](./images/overview/model-conversion.png) |
 | [Tracing](/docs/intelligentapps/tracing) | Monitor and analyze the performance of your AI applications. Collect and visualize trace data to gain insights into model behavior and performance. | ![Screenshot showing the Tracing interface with tools for monitoring AI applications](./images/overview/tracing.png) |
@@ -58,20 +58,20 @@ Foundry Toolkit is designed for anyone working with generative AI, from beginner
 
 The fastest way to get started is by installing the extension through the Visual Studio Marketplace:
 
-> <a class="install-extension-btn" href="vscode:extension/ms-windows-ai-studio.windows-ai-studio">Install the Foundry Toolkit for VS Code</a>
+> <a class="install-extension-btn" href="vscode:extension/ms-windows-ai-studio.windows-ai-studio">Install the Foundry Toolkit for {% data variables.product.prodname_vscode_shortname %}</a>
 
 After successful installation, the Foundry Toolkit icon appears in the Activity Bar.
 
 ### Manual installation
 
-You can also install Foundry Toolkit extension manually from the Visual Studio Code Marketplace. Follow the steps detailed in [Install an extension](/docs/configure/extensions/extension-marketplace.md#install-an-extension).
+You can also install Foundry Toolkit extension manually from the {% data variables.product.prodname_vscode %} Marketplace. Follow the steps detailed in [Install an extension](/docs/configure/extensions/extension-marketplace.md#install-an-extension).
 
 > [!TIP]
    Alternatively, select the Extensions icon in the Activity Bar.
 
-* Search for **Foundry Toolkit for Visual Studio Code** and select **Install** from search results.
+* Search for **Foundry Toolkit for {% data variables.product.prodname_vscode %}** and select **Install** from search results.
 
-   ![Screenshot showing the Foundry Toolkit extension in the VS Code Marketplace with the install button](./images/overview/install.png)
+   ![Screenshot showing the Foundry Toolkit extension in the {% data variables.product.prodname_vscode_shortname %} Marketplace with the install button](./images/overview/install.png)
 
 > [!TIP]
 > Check the **What's New** page after installation to see detailed features for each version.
@@ -93,7 +93,7 @@ Foundry Toolkit includes the Foundry sidebar directly, so you manage your Micros
 > [!NOTE]
 > The Foundry sidebar retires on June 1, 2026. All Foundry sidebar features are now available in the Foundry Toolkit sidebar.
 
-Foundry Toolkit opens in its own view, with the Foundry Toolkit icon displayed on the VS Code Activity Bar. The extension has three main sections: My Resources, Developer Tools, and Help and Feedback.
+Foundry Toolkit opens in its own view, with the Foundry Toolkit icon displayed on the {% data variables.product.prodname_vscode_shortname %} Activity Bar. The extension has three main sections: My Resources, Developer Tools, and Help and Feedback.
 
 ![Screenshot showing the Foundry Toolkit Extension with highlighted sections."](./images/overview/initial-view.png)
 
@@ -114,7 +114,7 @@ Foundry Toolkit opens in its own view, with the Foundry Toolkit icon displayed o
     - **Tool Catalog**: Browse and manage the tools available in Foundry Toolkit.
 - **Build**: This section is where you can find the tools available to deploy and then work with your deployed agents in Foundry Toolkit. It contains the following subsections:
   - **Create Agent**:  Create and deploy agents easily.
-  - **Agent Inspector**: Debug, visualize, and iterate on AI agents directly within VS Code.
+  - **Agent Inspector**: Debug, visualize, and iterate on AI agents directly within {% data variables.product.prodname_vscode_shortname %}.
   - **Deploy to Microsoft Foundry**: Deploy your local agent to Microsoft Foundry as a hosted agent.
   - **Hosted Agent Playground**: The hosted agent playground provides an interactive environment to experiment with your hosted agents.
   - **Model Playground**: The model playground provides an interactive environment to experiment with generative AI models.

@@ -1,13 +1,13 @@
 ---
 ContentId: 3c0948f9-85a5-4dd4-a461-59788dbfce4c
 DateApproved: 02/04/2026
-MetaDescription: Python Django tutorial demonstrating IntelliSense, code navigation, and debugging for both code and templates in Visual Studio Code, the best Python IDE.
+MetaDescription: Python Django tutorial demonstrating IntelliSense, code navigation, and debugging for both code and templates in {% data variables.product.prodname_vscode %}, the best Python IDE.
 ---
-# Django Tutorial in Visual Studio Code
+# Django Tutorial in {% data variables.product.prodname_vscode %}
 
 Django is a high-level Python framework designed for rapid, secure, and scalable web development. Django includes rich support for URL routing, page templates, and working with data.
 
-In this Django tutorial, you create a simple Django app with three pages that use a common base template. You create this app in the context of Visual Studio Code in order to understand how to work with Django in the VS Code terminal, editor, and debugger. This tutorial does not explore various details about Django itself, such as working with data models and creating an administrative interface. For guidance on those aspects, refer to the Django documentation links at the end of this tutorial.
+In this Django tutorial, you create a simple Django app with three pages that use a common base template. You create this app in the context of {% data variables.product.prodname_vscode %} in order to understand how to work with Django in the {% data variables.product.prodname_vscode_shortname %} terminal, editor, and debugger. This tutorial does not explore various details about Django itself, such as working with data models and creating an administrative interface. For guidance on those aspects, refer to the Django documentation links at the end of this tutorial.
 
 The completed code project from this Django tutorial can be found on GitHub: [python-sample-vscode-django-tutorial](https://github.com/microsoft/python-sample-vscode-django-tutorial).
 
@@ -35,7 +35,7 @@ The [Python Environments extension](/docs/python/environments.md) supports multi
 
 1. On your file system, create a project folder for this tutorial, such as `hello_django`.
 
-1. Open the project folder in VS Code by running `code .`, or by running VS Code and using the **File** > **Open Folder** command.
+1. Open the project folder in {% data variables.product.prodname_vscode_shortname %} by running `code .`, or by running {% data variables.product.prodname_vscode_shortname %} and using the **File** > **Open Folder** command.
 
 1. Create a virtual environment using the **Python: Create Environment** command:
 
@@ -44,16 +44,16 @@ The [Python Environments extension](/docs/python/environments.md) supports multi
     3. Select **Venv** to create a venv environment
     4. Select a Python interpreter to use for the environment
 
-    VS Code creates a `.venv` folder in your workspace and automatically selects the new environment.
+    {% data variables.product.prodname_vscode_shortname %} creates a `.venv` folder in your workspace and automatically selects the new environment.
 
     > [!TIP]
     > You can also create environments by using the **Python** sidebar. Expand **Environment Managers** and select the **+** button for Quick Create, which uses sensible defaults.
 
-    ![Django tutorial: opening the Command Palette in VS Code](images/shared/command-palette.png)
+    ![Django tutorial: opening the Command Palette in {% data variables.product.prodname_vscode_shortname %}](images/shared/command-palette.png)
 
-1. The selected environment appears on the right side of the VS Code status bar, with the **('.venv': venv)** indicator showing that you're using a virtual environment:
+1. The selected environment appears on the right side of the {% data variables.product.prodname_vscode_shortname %} status bar, with the **('.venv': venv)** indicator showing that you're using a virtual environment:
 
-    ![Django tutorial: selected environment showing in the VS Code status bar](images/shared/environment-in-status-bar.png)
+    ![Django tutorial: selected environment showing in the {% data variables.product.prodname_vscode_shortname %} status bar](images/shared/environment-in-status-bar.png)
 
 1. Install Django in the virtual environment using one of these methods:
 
@@ -71,7 +71,7 @@ The [Python Environments extension](/docs/python/environments.md) supports multi
     python -m pip install django
     ```
 
-You now have a self-contained environment ready for writing Django code. VS Code activates the environment automatically when you open a new terminal. If you open a separate command prompt or terminal outside VS Code, activate the environment by running `source .venv/bin/activate` (Linux/macOS) or `.venv\Scripts\Activate.ps1` (Windows). You know the environment is activated when the command prompt shows **(.venv)** at the beginning.
+You now have a self-contained environment ready for writing Django code. {% data variables.product.prodname_vscode_shortname %} activates the environment automatically when you open a new terminal. If you open a separate command prompt or terminal outside {% data variables.product.prodname_vscode_shortname %}, activate the environment by running `source .venv/bin/activate` (Linux/macOS) or `.venv\Scripts\Activate.ps1` (Windows). You know the environment is activated when the command prompt shows **(.venv)** at the beginning.
 
 ## Create and run a minimal Django app
 
@@ -81,7 +81,7 @@ To create a minimal Django app, then, it's necessary to first create the Django 
 
 ### Create the Django project
 
-1. In the VS Code Terminal where your virtual environment is activated, run the following command:
+1. In the {% data variables.product.prodname_vscode_shortname %} Terminal where your virtual environment is activated, run the following command:
 
     ```bash
     django-admin startproject web_project .
@@ -123,15 +123,15 @@ To create a minimal Django app, then, it's necessary to first create the Django 
 
     If you want to use a different port than the default 8000, specify the port number on the command line, such as `python manage.py runserver 5000`.
 
-1. `kbstyle(Ctrl+click)` the `http://127.0.0.1:8000/` URL in the terminal output window to open your default browser to that address. If Django is installed correctly and the project is valid, you see the default page shown below. The VS Code terminal output window also shows the server log.
+1. `kbstyle(Ctrl+click)` the `http://127.0.0.1:8000/` URL in the terminal output window to open your default browser to that address. If Django is installed correctly and the project is valid, you see the default page shown below. The {% data variables.product.prodname_vscode_shortname %} terminal output window also shows the server log.
 
     ![Django tutorial: default view of empty Django project](images/django-tutorial/django-empty-project-success.png)
 
-1. When you're done, close the browser window and stop the server in VS Code using `kbstyle(Ctrl+C)` as indicated in the terminal output window.
+1. When you're done, close the browser window and stop the server in {% data variables.product.prodname_vscode_shortname %} using `kbstyle(Ctrl+C)` as indicated in the terminal output window.
 
 ### Create a Django app
 
-1. In the VS Code Terminal with your virtual environment activated, run the administrative utility's `startapp` command in your project folder (where `manage.py` resides):
+1. In the {% data variables.product.prodname_vscode_shortname %} Terminal with your virtual environment activated, run the administrative utility's `startapp` command in your project folder (where `manage.py` resides):
 
     ```bash
     python manage.py startapp hello
@@ -173,19 +173,19 @@ To create a minimal Django app, then, it's necessary to first create the Django 
 
 1. Save all modified files.
 
-1. In the VS Code Terminal, again with the virtual environment activated, run the development server with `python manage.py runserver` and open a browser to  `http://127.0.0.1:8000/` to see a page that renders "Hello, Django".
+1. In the {% data variables.product.prodname_vscode_shortname %} Terminal, again with the virtual environment activated, run the development server with `python manage.py runserver` and open a browser to  `http://127.0.0.1:8000/` to see a page that renders "Hello, Django".
 
     ![Django tutorial: the basic Django app running in a browser](images/django-tutorial/app-in-browser-01.png)
 
 ## Create a debugger launch profile
 
-You're probably already wondering if there's an easier way to run the server and test the app without typing `python manage.py runserver` each time. Fortunately, there is! You can create a customized launch profile in VS Code, which is also used for the inevitable exercise of debugging.
+You're probably already wondering if there's an easier way to run the server and test the app without typing `python manage.py runserver` each time. Fortunately, there is! You can create a customized launch profile in {% data variables.product.prodname_vscode_shortname %}, which is also used for the inevitable exercise of debugging.
 
-1. Switch to **Run** view in VS Code (using the left-side activity bar or `kb(workbench.action.debug.start)`). You may see the message "To customize Run and Debug create a launch.json file". This means that you don't yet have a `launch.json` file containing debug configurations. VS Code can create that for you if you click on the **create a launch.json file** link:
+1. Switch to **Run** view in {% data variables.product.prodname_vscode_shortname %} (using the left-side activity bar or `kb(workbench.action.debug.start)`). You may see the message "To customize Run and Debug create a launch.json file". This means that you don't yet have a `launch.json` file containing debug configurations. {% data variables.product.prodname_vscode_shortname %} can create that for you if you click on the **create a launch.json file** link:
 
     ![Django tutorial: initial view of the debug panel](images/shared/debug-panel-initial-view.png)
 
-1. Select the link and VS Code will prompt for a debug configuration. Select **Django** from the dropdown and VS Code will populate a new `launch.json` file with a Django run configuration. The `launch.json` file contains a number of debugging configurations, each of which is a separate JSON object within the `configuration` array.
+1. Select the link and {% data variables.product.prodname_vscode_shortname %} will prompt for a debug configuration. Select **Django** from the dropdown and {% data variables.product.prodname_vscode_shortname %} will populate a new `launch.json` file with a Django run configuration. The `launch.json` file contains a number of debugging configurations, each of which is a separate JSON object within the `configuration` array.
 
 1. Scroll down to and examine the configuration with the name "Python: Django":
 
@@ -211,7 +211,7 @@ You're probably already wondering if there's an easier way to run the server and
     }
     ```
 
-    This configuration tells VS Code to run `"${workspaceFolder}/manage.py"` using the selected Python interpreter and the arguments in the `args` list. Launching the VS Code debugger with this configuration, then, is the same as running `python manage.py runserver` in the VS Code Terminal with your activated virtual environment. (You can add a port number like `"5000"` to `args` if desired.) The `"django": true` entry also tells VS Code to enable debugging of Django page templates, which you see later in this tutorial.
+    This configuration tells {% data variables.product.prodname_vscode_shortname %} to run `"${workspaceFolder}/manage.py"` using the selected Python interpreter and the arguments in the `args` list. Launching the {% data variables.product.prodname_vscode_shortname %} debugger with this configuration, then, is the same as running `python manage.py runserver` in the {% data variables.product.prodname_vscode_shortname %} Terminal with your activated virtual environment. (You can add a port number like `"5000"` to `args` if desired.) The `"django": true` entry also tells {% data variables.product.prodname_vscode_shortname %} to enable debugging of Django page templates, which you see later in this tutorial.
 
 1. Test the configuration by selecting the **Run** > **Start Debugging** menu command, or selecting the green **Start Debugging** arrow next to the list (`kb(workbench.action.debug.continue)`):
 
@@ -285,19 +285,19 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
     ![Django tutorial: appearance of the debugging status bar](images/django-tutorial/debug-status-bar.png)
 
-    A debugging toolbar (shown below) also appears in VS Code containing commands in the following order: Pause (or Continue, `kb(workbench.action.debug.continue)`), Step Over (`kb(workbench.action.debug.stepOver)`), Step Into (`kb(workbench.action.debug.stepInto)`), Step Out (`kb(workbench.action.debug.stepOut)`), Restart (`kb(workbench.action.debug.restart)`), and Stop (`kb(workbench.action.debug.stop)`). See [VS Code debugging](/docs/debugtest/debugging.md) for a description of each command.
+    A debugging toolbar (shown below) also appears in {% data variables.product.prodname_vscode_shortname %} containing commands in the following order: Pause (or Continue, `kb(workbench.action.debug.continue)`), Step Over (`kb(workbench.action.debug.stepOver)`), Step Into (`kb(workbench.action.debug.stepInto)`), Step Out (`kb(workbench.action.debug.stepOut)`), Restart (`kb(workbench.action.debug.restart)`), and Stop (`kb(workbench.action.debug.stop)`). See [{% data variables.product.prodname_vscode_shortname %} debugging](/docs/debugtest/debugging.md) for a description of each command.
 
-    ![Django tutorial: the VS Code debug toolbar](images/shared/debug-toolbar.png)
+    ![Django tutorial: the {% data variables.product.prodname_vscode_shortname %} debug toolbar](images/shared/debug-toolbar.png)
 
-1. Output appears in a "Python Debug Console" terminal. Open a browser and navigate to `http://127.0.0.1:8000/hello/VSCode`. Before the page renders, VS Code pauses the program at the breakpoint you set. The small yellow arrow on the breakpoint indicates that it's the next line of code to run.
+1. Output appears in a "Python Debug Console" terminal. Open a browser and navigate to `http://127.0.0.1:8000/hello/VSCode`. Before the page renders, {% data variables.product.prodname_vscode_shortname %} pauses the program at the breakpoint you set. The small yellow arrow on the breakpoint indicates that it's the next line of code to run.
 
-    ![Django tutorial: VS Code paused at a breakpoint](images/django-tutorial/debug-program-paused.png)
+    ![Django tutorial: {% data variables.product.prodname_vscode_shortname %} paused at a breakpoint](images/django-tutorial/debug-program-paused.png)
 
 1. Use Step Over to run the `now = datetime.now()` statement.
 
-1. On the left side of the VS Code window, you see a **Variables** pane that shows local variables, such as `now`, as well as arguments, such as `name`. Below that are panes for **Watch**, **Call Stack**, and **Breakpoints** (see [VS Code debugging](/docs/debugtest/debugging.md) for details). In the **Locals** section, try expanding different values. You can also double-click values (or use `kb(debug.setVariable)`) to modify them. Changing variables such as `now`, however, can break the program. Developers typically make changes only to correct values when the code didn't produce the right value to begin with.
+1. On the left side of the {% data variables.product.prodname_vscode_shortname %} window, you see a **Variables** pane that shows local variables, such as `now`, as well as arguments, such as `name`. Below that are panes for **Watch**, **Call Stack**, and **Breakpoints** (see [{% data variables.product.prodname_vscode_shortname %} debugging](/docs/debugtest/debugging.md) for details). In the **Locals** section, try expanding different values. You can also double-click values (or use `kb(debug.setVariable)`) to modify them. Changing variables such as `now`, however, can break the program. Developers typically make changes only to correct values when the code didn't produce the right value to begin with.
 
-    ![Django tutorial: local variables and arguments in VS Code during debugging](images/django-tutorial/debug-local-variables.png)
+    ![Django tutorial: local variables and arguments in {% data variables.product.prodname_vscode_shortname %} during debugging](images/django-tutorial/debug-local-variables.png)
 
 1. When a program is paused, the **Debug Console** panel (which is different from the "Python Debug Console" in the Terminal panel) lets you experiment with expressions and try out bits of code using the current state of the program. For example, once you've stepped over the line `now = datetime.now()`, you might experiment with different date/time formats. In the editor, select the code that reads `now.strftime("%A, %d %B, %Y at %X")`, then right-click and select **Debug: Evaluate** to send that code to the debug console, where it runs:
 
@@ -327,11 +327,11 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
 1. Close the browser and stop the debugger when you're finished. To stop the debugger, use the Stop toolbar button (the red square) or the **Run** > **Stop Debugging** command (`kb(workbench.action.debug.stop)`).
 
-> **Tip**: To make it easier to repeatedly navigate to a specific URL like `http://127.0.0.1:8000/hello/VSCode`, output that URL using a `print` statement somewhere in a file like `views.py`. The URL appears in the VS Code Terminal where you can use `kbstyle(Ctrl+click)` to open it in a browser.
+> **Tip**: To make it easier to repeatedly navigate to a specific URL like `http://127.0.0.1:8000/hello/VSCode`, output that URL using a `print` statement somewhere in a file like `views.py`. The URL appears in the {% data variables.product.prodname_vscode_shortname %} Terminal where you can use `kbstyle(Ctrl+click)` to open it in a browser.
 
 ## Go to Definition and Peek Definition commands
 
-During your work with Django or any other library, you may want to examine the code in those libraries themselves. VS Code provides two convenient commands that navigate directly to the definitions of classes and other objects in any code:
+During your work with Django or any other library, you may want to examine the code in those libraries themselves. {% data variables.product.prodname_vscode_shortname %} provides two convenient commands that navigate directly to the definitions of classes and other objects in any code:
 
 - **Go to Definition** jumps from your code into the code that defines an object. For example, in `views.py`, right-click on `HttpResponse` in the `home` function and select **Go to Definition** (or use `kb(editor.action.revealDefinition)`), which navigates to the class definition in the Django library.
 
@@ -429,7 +429,7 @@ When switching to production, navigate to `settings.py`, set `DEBUG=False`, and 
 
     The reason for this extra subfolder is that when you deploy the Django project to a production server, you collect all the static files into a single folder that's then served by a dedicated static file server. The `static/hello` subfolder ensures that when the app's static files are collected, they're in an app-specific subfolder and won't collide with file from other apps in the same project.
 
-1. In the `static/hello` folder, create a file named `site.css` with the following contents. After entering this code, also observe the syntax highlighting that VS Code provides for CSS files, including a color preview.
+1. In the `static/hello` folder, create a file named `site.css` with the following contents. After entering this code, also observe the syntax highlighting that {% data variables.product.prodname_vscode_shortname %} provides for CSS files, including a color preview.
 
     ```css
     .message {
@@ -471,7 +471,7 @@ For production deployments, you typically collect all the static files from your
 
 Because most web apps have more than one page, and because those pages typically share many common elements, developers separate those common elements into a base page template that other page templates then extend. (This is also called template inheritance, meaning the extended pages inherit elements from the base page.)
 
-Also, because you'll likely create many pages that extend the same template, it's helpful to create a code snippet in VS Code with which you can quickly initialize new page templates. A snippet helps you avoid tedious and error-prone copy-paste operations.
+Also, because you'll likely create many pages that extend the same template, it's helpful to create a code snippet in {% data variables.product.prodname_vscode_shortname %} with which you can quickly initialize new page templates. A snippet helps you avoid tedious and error-prone copy-paste operations.
 
 The following sections walk through different parts of this process.
 
@@ -550,11 +550,11 @@ You can run the app at this point, but because you haven't made use of the base 
 
 Because the three pages you create in the next section extend `layout.html`, it saves time to create a **code snippet** to initialize a new template file with the appropriate reference to the base template. A code snippet provides a consistent piece of code from a single source, which avoids errors that can creep in when using copy-paste from existing code.
 
-1. In VS Code, select the **File** (Windows/Linux) or **Code** (macOS), menu, then select **Preferences** > **User snippets**.
+1. In {% data variables.product.prodname_vscode_shortname %}, select the **File** (Windows/Linux) or **Code** (macOS), menu, then select **Preferences** > **User snippets**.
 
 1. In the list that appears, select **html**. (The option may appear as "html.json" in the **Existing Snippets** section of the list if you've created snippets previously.)
 
-1. After VS code opens `html.json`, add the code below within the existing curly braces. (The explanatory comments, not shown here, describe details such as how the `$0` line indicates where VS Code places the cursor after inserting a snippet):
+1. After VS code opens `html.json`, add the code below within the existing curly braces. (The explanatory comments, not shown here, describe details such as how the `$0` line indicates where {% data variables.product.prodname_vscode_shortname %} places the cursor after inserting a snippet):
 
     ```json
     "Django Tutorial: template extending layout.html": {
@@ -574,7 +574,7 @@ Because the three pages you create in the next section extend `layout.html`, it 
 
 1. Save the `html.json` file (`kb(workbench.action.files.save)`).
 
-1. Now, whenever you start typing the snippet's prefix, such as `djext`, VS Code provides the snippet as an autocomplete option, as shown in the next section. You can also use the **Insert Snippet** command to choose a snippet from a menu.
+1. Now, whenever you start typing the snippet's prefix, such as `djext`, {% data variables.product.prodname_vscode_shortname %} provides the snippet as an autocomplete option, as shown in the next section. You can also use the **Insert Snippet** command to choose a snippet from a menu.
 
 For more information on code snippets in general, refer to [Creating snippets](/docs/editing/userdefinedsnippets.md).
 
@@ -590,11 +590,11 @@ With the code snippet in place, you can quickly create templates for the Home, A
 
     ![Django tutorial: insertion of the djextlayout code snippet](images/django-tutorial/code-snippet-inserted.png)
 
-1. At the insertion point in the "title" block, write `Home`, and in the "content" block, write `<p>Home page for the Visual Studio Code Django tutorial.</p>`, then save the file. These lines are the only unique parts of the extended page template:
+1. At the insertion point in the "title" block, write `Home`, and in the "content" block, write `<p>Home page for the {% data variables.product.prodname_vscode %} Django tutorial.</p>`, then save the file. These lines are the only unique parts of the extended page template:
 
-1. In the `templates/hello` folder, create `about.html`, use the snippet to insert the boilerplate markup, insert `About us` and `<p>About page for the Visual Studio Code Django tutorial.</p>` in the "title" and "content" blocks, respectively, then save the file.
+1. In the `templates/hello` folder, create `about.html`, use the snippet to insert the boilerplate markup, insert `About us` and `<p>About page for the {% data variables.product.prodname_vscode %} Django tutorial.</p>` in the "title" and "content" blocks, respectively, then save the file.
 
-1. Repeat the previous step to create `templates/hello/contact.html` using `Contact us` and `<p>Contact page for the Visual Studio Code Django tutorial.</p>`.
+1. Repeat the previous step to create `templates/hello/contact.html` using `Contact us` and `<p>Contact page for the {% data variables.product.prodname_vscode %} Django tutorial.</p>`.
 
 1. In the app's `urls.py`, add routes for the /about and /contact pages. Be mindful that the `name` argument to the `path` function defines the name with which you refer to the page in the `{% url %}` tags in the templates.
 
@@ -671,7 +671,7 @@ A model class can include methods that return values computed from other class p
 
 ### Migrate the database
 
-Because you changed your data models by editing `models.py`, you need to update the database itself. In VS Code, open a Terminal with your virtual environment activated (use the **Terminal: Create New Terminal** command, `kb(workbench.action.terminal.new)`)), navigate to the project folder, and run the following commands:
+Because you changed your data models by editing `models.py`, you need to update the database itself. In {% data variables.product.prodname_vscode_shortname %}, open a Terminal with your virtual environment activated (use the **Terminal: Create New Terminal** command, `kb(workbench.action.terminal.new)`)), navigate to the project folder, and run the following commands:
 
 ```bash
 python manage.py makemigrations
@@ -866,13 +866,13 @@ With your models in place and the database migrated, you can store and retrieve 
 
 As shown in the previous section, page templates can contain procedural directives like `{% for message in message_list %}` and `{% if message_list %}`, rather than only passive, declarative elements like `{% url %}` and `{% block %}`. As a result, you can have programming errors inside templates as with any other procedural code.
 
-Fortunately, the Python Extension for VS Code provides template debugging when you have `"django": true` in the debugging configuration (as you do already). The following steps demonstrate this capability:
+Fortunately, the Python Extension for {% data variables.product.prodname_vscode_shortname %} provides template debugging when you have `"django": true` in the debugging configuration (as you do already). The following steps demonstrate this capability:
 
 1. In `templates/hello/home.html`, set breakpoints on both the `{% if message_list %}` and `{% for message in message_list %}` lines, as indicated by the yellow arrows in the image below:
 
     ![Django tutorial: breakpoints set in a Django page template](images/django-tutorial/template-breakpoints.png)
 
-1. Run the app in the debugger and open a browser to the home page. (If you're already running the debugger, you don't have to restart the app after setting breakpoints; just refresh the page.) Observe that VS Code breaks into the debugger in the template on the `{% if %}` statement and shows all the context variables in the **Variables** pane:
+1. Run the app in the debugger and open a browser to the home page. (If you're already running the debugger, you don't have to restart the app after setting breakpoints; just refresh the page.) Observe that {% data variables.product.prodname_vscode_shortname %} breaks into the debugger in the template on the `{% if %}` statement and shows all the context variables in the **Variables** pane:
 
     ![Django tutorial: debugger stopped at breakpoints in the page template](images/django-tutorial/template-debugger.png)
 
@@ -884,7 +884,7 @@ Fortunately, the Python Extension for VS Code provides template debugging when y
 
 ## Optional activities
 
-The following sections describe additional steps that you might find helpful in your work with Python and Visual Studio Code.
+The following sections describe additional steps that you might find helpful in your work with Python and {% data variables.product.prodname_vscode %}.
 
 ### Create a requirements.txt file for the environment
 
@@ -908,7 +908,7 @@ By default, Django provides an administrative interface for a web app that's pro
 
 Perform the following steps to enable the administrative interface:
 
-1. Create a superuser account in the app by opening a Terminal in VS Code for your virtual environment, then running the command `python manage.py createsuperuser --username=<username> --email=<email>`, replacing `<username>` and `<email>`, of course, with your personal information. When you run the command, Django prompts you to enter and confirm your password.
+1. Create a superuser account in the app by opening a Terminal in {% data variables.product.prodname_vscode_shortname %} for your virtual environment, then running the command `python manage.py createsuperuser --username=<username> --email=<email>`, replacing `<username>` and `<email>`, of course, with your personal information. When you run the command, Django prompts you to enter and confirm your password.
 
     Be sure to remember your username and password combination. These are the credentials you use to authenticate with the app.
 
@@ -933,7 +933,7 @@ You can customize the administrative interface as much as you like. For example,
 
 ### Create a container for a Django app using the Container Tools extension
 
-The [Container Tools extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers) makes it easy to build, manage, and deploy containerized applications from Visual Studio Code. If you're interested in learning how to create a Python container for the Django app developed in this tutorial, check out the [Python in a container](/docs/containers/quickstart-python.md) tutorial, which will walk you through how to:
+The [Container Tools extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers) makes it easy to build, manage, and deploy containerized applications from {% data variables.product.prodname_vscode %}. If you're interested in learning how to create a Python container for the Django app developed in this tutorial, check out the [Python in a container](/docs/containers/quickstart-python.md) tutorial, which will walk you through how to:
 
 - Create a `Dockerfile` file describing a simple Python container.
 - Build, run, and verify the functionality of a [Django](https://www.djangoproject.com/) app.
@@ -941,15 +941,15 @@ The [Container Tools extension](https://marketplace.visualstudio.com/items?itemN
 
 ## Next steps
 
-Congratulations on completing this walkthrough of working with Django in Visual Studio Code!
+Congratulations on completing this walkthrough of working with Django in {% data variables.product.prodname_vscode %}!
 
 The completed code project from this tutorial can be found on GitHub: [python-sample-vscode-django-tutorial](https://github.com/microsoft/python-sample-vscode-django-tutorial).
 
 In this tutorial, we've only scratched the surface of everything Django can do. Be sure to visit the [Django documentation](https://docs.djangoproject.com/en/3.1/) and the [official Django tutorial](https://docs.djangoproject.com/en/3.1/intro/tutorial01/) for many more details on views, templates, data models, URL routing, the administrative interface, using other kinds of databases, deployment to production, and more.
 
-To try your app on a production website, check out the tutorial [Deploy Python apps to Azure App Service using Docker Containers](https://learn.microsoft.com/azure/developer/python/tutorial-deploy-containers-01). Azure also offers a standard container, [App Service on Linux](https://learn.microsoft.com/azure/developer/python/configure-python-web-app-local-environment), to which you deploy web apps from within VS Code.
+To try your app on a production website, check out the tutorial [Deploy Python apps to Azure App Service using Docker Containers](https://learn.microsoft.com/azure/developer/python/tutorial-deploy-containers-01). Azure also offers a standard container, [App Service on Linux](https://learn.microsoft.com/azure/developer/python/configure-python-web-app-local-environment), to which you deploy web apps from within {% data variables.product.prodname_vscode_shortname %}.
 
-You may also want to review the following articles in the VS Code docs that are relevant to Python:
+You may also want to review the following articles in the {% data variables.product.prodname_vscode_shortname %} docs that are relevant to Python:
 
 - [Editing Python code](/docs/python/editing.md)
 - [Linting](/docs/python/linting.md)

@@ -1,13 +1,13 @@
 ---
 ContentId: A5C839C4-67E9-449C-94B8-4B310FCAAB1B
 DateApproved: 8/26/2026
-MetaDescription: Visual Studio Code supports a Portable mode that enables moving your installation and related data to a different location.
+MetaDescription: {% data variables.product.prodname_vscode %} supports a Portable mode that enables moving your installation and related data to a different location.
 ---
 # Portable mode
 
-Visual Studio Code supports [Portable mode](https://en.wikipedia.org/wiki/Portable_application). This mode enables all data created and maintained by VS Code to live near itself, so it can be moved around across environments.
+{% data variables.product.prodname_vscode %} supports [Portable mode](https://en.wikipedia.org/wiki/Portable_application). This mode enables all data created and maintained by {% data variables.product.prodname_vscode_shortname %} to live near itself, so it can be moved around across environments.
 
-This mode also provides a way to set the installation folder location for VS Code extensions, useful for corporate environments that prevent extensions from being installed in the Windows AppData folder.
+This mode also provides a way to set the installation folder location for {% data variables.product.prodname_vscode_shortname %} extensions, useful for corporate environments that prevent extensions from being installed in the Windows AppData folder.
 
 Portable mode is supported on the ZIP download for Windows, and the TAR.GZ download for Linux, as well as the regular Application download for macOS. See the [Download page](/download) to find the correct `.zip / .tar.gz` file for your platform.
 
@@ -18,7 +18,7 @@ Portable mode is supported on the ZIP download for Windows, and the TAR.GZ downl
 
 ### Windows, Linux
 
-After unzipping the VS Code download, create a `data` folder within VS Code's folder:
+After unzipping the {% data variables.product.prodname_vscode_shortname %} download, create a `data` folder within {% data variables.product.prodname_vscode_shortname %}'s folder:
 
 ```
 |- VSCode-win32-x64-1.84.2
@@ -30,12 +30,12 @@ After unzipping the VS Code download, create a `data` folder within VS Code's fo
 |   |- ...
 ```
 
-From then on, the `data` folder will be used to contain all VS Code data, including session state, preferences, extensions, etc.
+From then on, the `data` folder will be used to contain all {% data variables.product.prodname_vscode_shortname %} data, including session state, preferences, extensions, etc.
 
 > [!NOTE]
 > The `data` folder will override the `--user-data-dir` and `--extensions-dir` [command line](/docs/configure/command-line.md#advanced-cli-options) options.
 
-The `data` folder can be moved to other VS Code installations. This is useful for updating your portable VS Code version, in which case you can move the `data` folder to a newer extracted version of VS Code.
+The `data` folder can be moved to other {% data variables.product.prodname_vscode_shortname %} installations. This is useful for updating your portable {% data variables.product.prodname_vscode_shortname %} version, in which case you can move the `data` folder to a newer extracted version of {% data variables.product.prodname_vscode_shortname %}.
 
 ### Linux
 
@@ -52,14 +52,14 @@ sudo chmod 4755 <path-to-vscode>/chrome-sandbox
 
 ### macOS
 
-On **macOS**, you need to place the data folder as a sibling of the application itself. Since the folder will be alongside the application, you need to name it specifically so that VS Code can find it. The default folder name is `code-portable-data`:
+On **macOS**, you need to place the data folder as a sibling of the application itself. Since the folder will be alongside the application, you need to name it specifically so that {% data variables.product.prodname_vscode_shortname %} can find it. The default folder name is `code-portable-data`:
 
 ```
-|- Visual Studio Code.app
+|- {% data variables.product.prodname_vscode %}.app
 |- code-portable-data
 ```
 
-Portable Mode won't work if your application is in [quarantine](https://apple.stackexchange.com/a/104875), which happens by default if you just downloaded VS Code. Make sure you remove the quarantine attribute, if Portable Mode doesn't seem to work:
+Portable Mode won't work if your application is in [quarantine](https://apple.stackexchange.com/a/104875), which happens by default if you just downloaded {% data variables.product.prodname_vscode_shortname %}. Make sure you remove the quarantine attribute, if Portable Mode doesn't seem to work:
 
 ```bash
 xattr -dr com.apple.quarantine Visual\ Studio\ Code.app
@@ -68,9 +68,9 @@ xattr -dr com.apple.quarantine Visual\ Studio\ Code.app
 > [!NOTE]
 > On Insiders, the folder should be named `code-insiders-portable-data`.
 
-## Update Portable VS Code
+## Update Portable {% data variables.product.prodname_vscode_shortname %}
 
-On **Windows** and **Linux**, you can update VS Code by copying the `data` folder over to a more recent version of VS Code.
+On **Windows** and **Linux**, you can update {% data variables.product.prodname_vscode_shortname %} by copying the `data` folder over to a more recent version of {% data variables.product.prodname_vscode_shortname %}.
 
 On **macOS**, automatic updates should work as always, no extra work needed.
 
@@ -80,7 +80,7 @@ You can also migrate an existing installation to Portable mode.
 
 ### Windows, Linux
 
-1. Download the [VS Code](/download) (or [VS Code Insiders](/insiders)) ZIP distribution for your platform.
+1. Download the [{% data variables.product.prodname_vscode_shortname %}](/download) (or [{% data variables.product.prodname_vscode_shortname %} Insiders](/insiders)) ZIP distribution for your platform.
 2. Create the `data` folder as above.
 3. Copy the user data directory `Code` to `data` and rename it to `user-data`:
     * **Windows** `%APPDATA%\Code`
@@ -104,7 +104,7 @@ As an example, here's the desired outcome on **Windows**:
 
 ### macOS
 
-1. Download [VS Code](/download) (or [VS Code Insiders](/insiders)) for macOS.
+1. Download [{% data variables.product.prodname_vscode_shortname %}](/download) (or [{% data variables.product.prodname_vscode_shortname %} Insiders](/insiders)) for macOS.
 2. Create the `code-portable-data` folder as above.
 3. Copy the user data directory `Code` to `code-portable-data` and rename it to `user-data`:
     * `$HOME/Library/Application Support/Code`

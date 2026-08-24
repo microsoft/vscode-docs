@@ -1,22 +1,22 @@
 ---
 ContentId: 5f83254d-2817-4398-9321-456789abcdef
 DateApproved: 8/26/2026
-MetaDescription: Quickly get started with Git source control in Visual Studio Code. Initialize a repository, stage changes, and commit code in minutes.
+MetaDescription: Quickly get started with Git source control in {% data variables.product.prodname_vscode %}. Initialize a repository, stage changes, and commit code in minutes.
 Keywords:
 - source control
 - scm
 - version control
 - git
 ---
-# Quickstart: use source control in VS Code
+# Quickstart: use source control in {% data variables.product.prodname_vscode_shortname %}
 
-Get up and running with Git in Visual Studio Code in minutes. This guide covers the essentials of setting up a repository, saving your changes, and syncing your code.
+Get up and running with Git in {% data variables.product.prodname_vscode %} in minutes. This guide covers the essentials of setting up a repository, saving your changes, and syncing your code.
 
 ## Prerequisites
 
 1. **Install Git**: make sure Git is installed on your computer. [Download Git](https://git-scm.com/downloads)
 
-1. **Open VS Code**: make sure you have the latest version of [Visual Studio Code](https://code.visualstudio.com/download) installed.
+1. **Open {% data variables.product.prodname_vscode_shortname %}**: make sure you have the latest version of [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/download) installed.
 
 ## Step 1: Open a project
 
@@ -24,9 +24,9 @@ You can start with an existing Git repository or a local project folder.
 
 ### Option A: Clone a repository locally
 
-Clone a repository if you want to work on code that is already hosted on GitHub, Azure DevOps, or another Git provider. If you have previously cloned the repository, you can open the folder directly in VS Code and VS Code will detect the Git repository automatically.
+Clone a repository if you want to work on code that is already hosted on GitHub, Azure DevOps, or another Git provider. If you have previously cloned the repository, you can open the folder directly in {% data variables.product.prodname_vscode_shortname %} and {% data variables.product.prodname_vscode_shortname %} will detect the Git repository automatically.
 
-To clone a repository in VS Code:
+To clone a repository in {% data variables.product.prodname_vscode_shortname %}:
 
 1. Open the Source Control view (`kb(workbench.view.scm)`) and select **Clone Repository**
 
@@ -40,7 +40,7 @@ To clone a repository in VS Code:
 
 1. Select a parent folder on your computer to save the project
 
-1. Select **Open** when prompted to open the cloned repository in VS Code
+1. Select **Open** when prompted to open the cloned repository in {% data variables.product.prodname_vscode_shortname %}
 
 1. Confirm whether you trust the repository in the [Workspace Trust](/docs/editing/workspaces/workspace-trust.md) dialog
 
@@ -51,7 +51,7 @@ To clone a repository in VS Code:
 
 To start a new project with Git, you can initialize a repository in an existing local folder. This option creates a new Git repository in your folder to track changes.
 
-1. Open your project folder in VS Code (**File** > **Open Folder...**).
+1. Open your project folder in {% data variables.product.prodname_vscode_shortname %} (**File** > **Open Folder...**).
 
 1. Open the Source Control view (`kb(workbench.view.scm)`) and select **Initialize Repository**
 
@@ -61,7 +61,7 @@ To start a new project with Git, you can initialize a repository in an existing 
 
 ## Step 2: Make changes and review
 
-Git tracks changes to files in your project. The Source Control view in VS Code is your hub for managing these changes without using the command line.
+Git tracks changes to files in your project. The Source Control view in {% data variables.product.prodname_vscode_shortname %} is your hub for managing these changes without using the command line.
 
 Let's make a simple code change and use the Source Control view and diff editor to review it.
 

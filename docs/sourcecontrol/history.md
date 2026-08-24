@@ -1,7 +1,7 @@
 ---
 ContentId: 0d58c0c9-bb02-4c6a-af43-595a85e4aa5c
 DateApproved: 8/26/2026
-MetaDescription: Inspect Git commits, branches, file history, and line authorship in Visual Studio Code with the Source Control Graph, Timeline view, and Git blame.
+MetaDescription: Inspect Git commits, branches, file history, and line authorship in {% data variables.product.prodname_vscode %} with the Source Control Graph, Timeline view, and Git blame.
 MetaSocialImage: images/staging-commits/source-control-graph.png
 Keywords:
 - source control
@@ -11,7 +11,7 @@ Keywords:
 ---
 # View source control history
 
-Source control history helps you understand how a codebase changed, which commits affected a file, and who last changed a line. VS Code provides the Source Control Graph for repository history, the Timeline view for file history, and Git blame information for individual lines.
+Source control history helps you understand how a codebase changed, which commits affected a file, and who last changed a line. {% data variables.product.prodname_vscode_shortname %} provides the Source Control Graph for repository history, the Timeline view for file history, and Git blame information for individual lines.
 
 ## View branch and commit history
 
@@ -54,7 +54,7 @@ Use the Timeline filter to show only Git commits or to include events from other
 
 ## View Git blame information
 
-Git blame information identifies the commit and author that last changed a line. VS Code can show this information in the editor and in the Status Bar.
+Git blame information identifies the commit and author that last changed a line. {% data variables.product.prodname_vscode_shortname %} can show this information in the editor and in the Status Bar.
 
 <video src="images/staging-commits/git-blame.mp4" title="Video showing Git blame information in the Status Bar and inline in the editor." autoplay muted loop controls></video>
 
@@ -65,7 +65,7 @@ Use the **Git: Toggle Git Blame Editor Decoration** and **Git: Toggle Git Blame 
 * `setting(git.blame.editorDecoration.disableHover)`: hides the blame hover in the editor.
 * `setting(git.blame.ignoreWhitespace)`: ignores whitespace changes when Git determines line authorship.
 
-Hover over a blame decoration to view commit details, including co-author trailers. If VS Code adds [AI co-author attribution](/docs/sourcecontrol/staging-commits.md#ai-co-author-attribution) to a commit, the blame hover includes that attribution.
+Hover over a blame decoration to view commit details, including co-author trailers. If {% data variables.product.prodname_vscode_shortname %} adds [AI co-author attribution](/docs/sourcecontrol/staging-commits.md#ai-co-author-attribution) to a commit, the blame hover includes that attribution.
 
 ### Customize blame information
 

@@ -1,24 +1,24 @@
 ---
 ContentId: D458AFDC-C001-43FD-A4BB-9474767B2C04
 DateApproved: 8/26/2026
-MetaDescription: Visual Studio Code's integrated terminal has several advanced features.
+MetaDescription: {% data variables.product.prodname_vscode %}'s integrated terminal has several advanced features.
 ---
 # Terminal Advanced
 
-Visual Studio Code's integrated terminal has many advanced features and settings, such as Unicode and emoji support, custom keyboard shortcuts, and automatic replies. This topic explains these advanced features in detail. If you are new to VS Code or the integrated terminal, you may want to review the [Terminal Basics](/docs/terminal/basics.md) topic first.
+{% data variables.product.prodname_vscode %}'s integrated terminal has many advanced features and settings, such as Unicode and emoji support, custom keyboard shortcuts, and automatic replies. This topic explains these advanced features in detail. If you are new to {% data variables.product.prodname_vscode_shortname %} or the integrated terminal, you may want to review the [Terminal Basics](/docs/terminal/basics.md) topic first.
 
 ## Persistent sessions
 
 The terminal supports two different types of persistent sessions:
 
 * Process reconnection: When reloading a window (for example, after installing an extension), **reconnect** to the previous process and restore its content.
-* Process revive: When restarting VS Code, a terminal's content is restored and the process is **relaunched** using its original environment.
+* Process revive: When restarting {% data variables.product.prodname_vscode_shortname %}, a terminal's content is restored and the process is **relaunched** using its original environment.
 
 Both of these persistent sessions can be disabled by setting `setting(terminal.integrated.enablePersistentSessions)` to `false`, and the amount of scrollback restored is controlled by the`setting(terminal.integrated.persistentSessionScrollback)` setting. Process revive can be configured independently with `setting(terminal.integrated.persistentSessionReviveProcess)`.
 
 ### Moving terminals between windows
 
-Terminal tabs can be dragged and dropped between VS Code windows. This can also be done manually through the Command Palette and the **Terminal: Detach Session** and **Terminal: Attach to Session** commands.
+Terminal tabs can be dragged and dropped between {% data variables.product.prodname_vscode_shortname %} windows. This can also be done manually through the Command Palette and the **Terminal: Detach Session** and **Terminal: Attach to Session** commands.
 
 ### Configure terminal visibility
 
@@ -32,9 +32,9 @@ The `setting(terminal.integrated.hideOnLastClosed)` setting is also available to
 
 ## Keyboard shortcuts and the shell
 
-As an embedded application, the integrated terminal should intercept some, but not all, keyboard shortcuts dispatched within VS Code.
+As an embedded application, the integrated terminal should intercept some, but not all, keyboard shortcuts dispatched within {% data variables.product.prodname_vscode_shortname %}.
 
-The configurable `setting(terminal.integrated.commandsToSkipShell)` setting determines which command's keyboard shortcuts should always "skip the shell" and instead be handled by VS Code's keyboard shortcut system. By default, it contains a hard-coded list of commands that are integral to the VS Code experience but you can add or remove specific commands:
+The configurable `setting(terminal.integrated.commandsToSkipShell)` setting determines which command's keyboard shortcuts should always "skip the shell" and instead be handled by {% data variables.product.prodname_vscode_shortname %}'s keyboard shortcut system. By default, it contains a hard-coded list of commands that are integral to the {% data variables.product.prodname_vscode_shortname %} experience but you can add or remove specific commands:
 
 ```jsonc
 {
@@ -57,7 +57,7 @@ Chord keyboard shortcuts are made up of two keyboard shortcuts, for example `kbs
 
 ### macOS clear screen
 
-On macOS, `kbstyle(Cmd+K)` is a common keyboard shortcuts in terminals to clear the screen so VS Code also respects that, which means `kbstyle(Cmd+K)` chords will not work. `kbstyle(Cmd+K)` chords can be enabled by [removing the clear keyboard shortcut](/docs/configure/keybindings.md#removing-a-specific-keyboard-shortcut-rule):
+On macOS, `kbstyle(Cmd+K)` is a common keyboard shortcuts in terminals to clear the screen so {% data variables.product.prodname_vscode_shortname %} also respects that, which means `kbstyle(Cmd+K)` chords will not work. `kbstyle(Cmd+K)` chords can be enabled by [removing the clear keyboard shortcut](/docs/configure/keybindings.md#removing-a-specific-keyboard-shortcut-rule):
 
 ```json
 {
@@ -78,7 +78,7 @@ Additionally, this keyboard shortcut will be overridden automatically if any ext
 
 ### Mnemonics
 
-Using mnemonics to access VS Code's menu (for example, `kbstyle(Alt+F)` for File menu) is disabled by default in the terminal as these key events are often important hotkeys in shells. Set `setting(terminal.integrated.allowMnemonics)` to enable mnemonics, but note that this will disallow any `kbstyle(Alt)` key events to go to the shell. This setting does nothing on macOS.
+Using mnemonics to access {% data variables.product.prodname_vscode_shortname %}'s menu (for example, `kbstyle(Alt+F)` for File menu) is disabled by default in the terminal as these key events are often important hotkeys in shells. Set `setting(terminal.integrated.allowMnemonics)` to enable mnemonics, but note that this will disallow any `kbstyle(Alt)` key events to go to the shell. This setting does nothing on macOS.
 
 ### Custom sequence keyboard shortcuts
 
@@ -168,22 +168,22 @@ Current limitations:
 
 ## Process environment
 
-The process environment of the application running within the terminal is influenced by various settings and extensions and can cause the output in the VS Code terminal to look different than in other terminals.
+The process environment of the application running within the terminal is influenced by various settings and extensions and can cause the output in the {% data variables.product.prodname_vscode_shortname %} terminal to look different than in other terminals.
 
 ### Environment inheritance
 
-When VS Code is opened, it launches a login shell environment in order to source a shell environment. This is done because developer tools are often added to the `$PATH` in a shell launch script like `~/.bash_profile`. By default, the terminal inherits this environment, depending on your [profile shell arguments](/docs/terminal/profiles.md#configuring-profiles), and means that multiple profile scripts may have run, which could cause unexpected behavior.
+When {% data variables.product.prodname_vscode_shortname %} is opened, it launches a login shell environment in order to source a shell environment. This is done because developer tools are often added to the `$PATH` in a shell launch script like `~/.bash_profile`. By default, the terminal inherits this environment, depending on your [profile shell arguments](/docs/terminal/profiles.md#configuring-profiles), and means that multiple profile scripts may have run, which could cause unexpected behavior.
 
 This environment inheritance can be disabled on macOS and Linux via the `setting(terminal.integrated.inheritEnv)` setting.
 
-### Environment variables between VS Code instances
+### Environment variables between {% data variables.product.prodname_vscode_shortname %} instances
 
-When launching multiple VS Code instances, environment variables are shared between them:
+When launching multiple {% data variables.product.prodname_vscode_shortname %} instances, environment variables are shared between them:
 
-* The first VS Code instance inherits environment variables from the parent process (for example, the shell or application that launched VS Code).
-* Subsequent VS Code instances inherit environment variables from the first running VS Code instance, not from the parent process.
+* The first {% data variables.product.prodname_vscode_shortname %} instance inherits environment variables from the parent process (for example, the shell or application that launched {% data variables.product.prodname_vscode_shortname %}).
+* Subsequent {% data variables.product.prodname_vscode_shortname %} instances inherit environment variables from the first running {% data variables.product.prodname_vscode_shortname %} instance, not from the parent process.
 
-To isolate environment variables between VS Code instances, use the [`--user-data-dir` command-line option](/docs/configure/command-line.md#isolating-vs-code-instances) to run each instance with a separate user data directory. This ensures that each instance maintains its own environment, settings, and extensions.
+To isolate environment variables between {% data variables.product.prodname_vscode_shortname %} instances, use the [`--user-data-dir` command-line option](/docs/configure/command-line.md#isolating-vs-code-instances) to run each instance with a separate user data directory. This ensures that each instance maintains its own environment, settings, and extensions.
 
 ### Interaction with `$LANG`
 
@@ -197,7 +197,7 @@ There is some special interaction with the `$LANG` environment variable, which d
 
 ### Extension environment contributions
 
-Extensions are able to [contribute to terminal environments](https://code.visualstudio.com/api/references/vscode-api#ExtensionContext.environmentVariableCollection), allowing them to provide some integration with the terminal. For example, the built-in Git extension injects the `GIT_ASKPASS` environment variable to allow VS Code to handle authentication to a Git remote.
+Extensions are able to [contribute to terminal environments](https://code.visualstudio.com/api/references/vscode-api#ExtensionContext.environmentVariableCollection), allowing them to provide some integration with the terminal. For example, the built-in Git extension injects the `GIT_ASKPASS` environment variable to allow {% data variables.product.prodname_vscode_shortname %} to handle authentication to a Git remote.
 
 If an extension changes the terminal environment, any existing terminals will be relaunched if it is safe to do so, otherwise a warning will show in the terminal status. More information about the change can be viewed in the hover, which also includes a relaunch button.
 
@@ -205,17 +205,17 @@ If an extension changes the terminal environment, any existing terminals will be
 
 ## Windows and ConPTY
 
-VS Code's terminal is built on the [xterm.js](https://github.com/xtermjs/xterm.js) project to implement a Unix-style terminal that serializes all data into a string and pipes it through a "pseudoterminal". Historically, this was not how the terminal worked on Windows, which used the [Console API](https://learn.microsoft.com/windows/console/console-functions) to implement its console called 'conhost'.
+{% data variables.product.prodname_vscode_shortname %}'s terminal is built on the [xterm.js](https://github.com/xtermjs/xterm.js) project to implement a Unix-style terminal that serializes all data into a string and pipes it through a "pseudoterminal". Historically, this was not how the terminal worked on Windows, which used the [Console API](https://learn.microsoft.com/windows/console/console-functions) to implement its console called 'conhost'.
 
-An open source project called [winpty](https://github.com/rprichard/winpty) was created to try to fix this issue by providing an emulation/translation layer between a Unix-style terminal and a Windows console. VS Code's terminal was originally implemented using only winpty. This was great at the time, but in 2018, Windows 10 received [the ConPTY API](https://devblogs.microsoft.com/commandline/windows-command-line-introducing-the-windows-pseudo-console-conpty/), which took the idea pioneered by winpty and baked it into Windows, providing a more reliable and supported system to leverage Unix-style terminals and apps on Windows.
+An open source project called [winpty](https://github.com/rprichard/winpty) was created to try to fix this issue by providing an emulation/translation layer between a Unix-style terminal and a Windows console. {% data variables.product.prodname_vscode_shortname %}'s terminal was originally implemented using only winpty. This was great at the time, but in 2018, Windows 10 received [the ConPTY API](https://devblogs.microsoft.com/commandline/windows-command-line-introducing-the-windows-pseudo-console-conpty/), which took the idea pioneered by winpty and baked it into Windows, providing a more reliable and supported system to leverage Unix-style terminals and apps on Windows.
 
-VS Code defaults to ConPTY on Windows 10+ (from build number 18309) and falls back to winpty as a legacy option for older versions of Windows. ConPTY can be explicitly disabled via the `setting(terminal.integrated.windowsEnableConpty)` settings but this should normally be avoided.
+{% data variables.product.prodname_vscode_shortname %} defaults to ConPTY on Windows 10+ (from build number 18309) and falls back to winpty as a legacy option for older versions of Windows. ConPTY can be explicitly disabled via the `setting(terminal.integrated.windowsEnableConpty)` settings but this should normally be avoided.
 
 Since ConPTY is an emulation layer, it does come with some quirks. The most common is that ConPTY considers itself the owner of the viewport and because of that will sometimes reprint the screen. This reprinting can cause unexpected behavior such as old content displaying after running the **Terminal: Clear** command.
 
 ## Remote development
 
-This section outlines topics specific to when VS Code is connected to a remote machine using a VS Code [Remote Development](https://code.visualstudio.com/docs/remote/remote-overview) extension.
+This section outlines topics specific to when {% data variables.product.prodname_vscode_shortname %} is connected to a remote machine using a {% data variables.product.prodname_vscode_shortname %} [Remote Development](https://code.visualstudio.com/docs/remote/remote-overview) extension.
 
 ### Local terminals in remote windows
 

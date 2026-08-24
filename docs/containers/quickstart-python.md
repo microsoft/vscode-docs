@@ -1,7 +1,7 @@
 ---
 ContentId: 3a9bc520-95e2-416e-a0ac-5be02a38c4c3
 DateApproved: 12/1/2023
-MetaDescription: Develop, build, and debug a Python app in a container, using Visual Studio Code.
+MetaDescription: Develop, build, and debug a Python app in a container, using {% data variables.product.prodname_vscode %}.
 ---
 # Python in a container
 
@@ -14,7 +14,7 @@ In this tutorial, you will learn how to:
 ## Prerequisites
 
 - [Install Docker](https://docs.docker.com/install/) on your machine and add it to the system path.
-- On Linux, you should also [enable Docker CLI for the non-root user account](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user) that will be used to run VS Code.
+- On Linux, you should also [enable Docker CLI for the non-root user account](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user) that will be used to run {% data variables.product.prodname_vscode_shortname %}.
 - The Container Tools extension. To install the extension, open the Extensions view (`kb(workbench.view.extensions)`), search for `container tools` to filter results and select the Container Tools extension authored by Microsoft.
 
   ![Select Container Tools extension](images/overview/installation-extension-search.png) <!-- TODO: image needs updating -->
@@ -35,7 +35,7 @@ After verifying your app runs properly, you can now containerize your applicatio
 
 ## Add Docker files to the project
 
-1. Open the project folder in VS Code.
+1. Open the project folder in {% data variables.product.prodname_vscode_shortname %}.
 1. Open the **Command Palette** (`kb(workbench.action.showCommands)`) and choose **Containers: Add Docker Files to Workspace...**:
 
     ![Add Dockerfile to a Python project](images/quickstarts/python-add-python.png)
@@ -204,7 +204,7 @@ Once the container image is built, it should appear in the Container Registry wi
 
    Use the button and verify that your change is reflected on the site.
 
-Congratulations, you've used Python in VS Code to create an deploy a web site that's hosted in the cloud and live on the internet!
+Congratulations, you've used Python in {% data variables.product.prodname_vscode_shortname %} to create an deploy a web site that's hosted in the cloud and live on the internet!
 
 ## Free up resources
 

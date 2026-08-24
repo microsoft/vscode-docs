@@ -1,23 +1,23 @@
 ---
 ContentId: 9480bef3-4dfc-4671-a454-b9252567bc60
 DateApproved: 02/04/2026
-MetaDescription: Testing Python in Visual Studio Code including the Test Explorer
+MetaDescription: Testing Python in {% data variables.product.prodname_vscode %} including the Test Explorer
 MetaSocialImage: images/tutorial/python-social.png
 ---
-# Python testing in Visual Studio Code
+# Python testing in {% data variables.product.prodname_vscode %}
 
-The [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) builds on the built-in [testing features in VS Code](/docs/debugtest/testing.md) and provides test discovery, test coverage, and running and debugging tests for Python's built-in [unittest](https://docs.python.org/3/library/unittest.html) framework and [pytest](https://docs.pytest.org/).
+The [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) builds on the built-in [testing features in {% data variables.product.prodname_vscode_shortname %}](/docs/debugtest/testing.md) and provides test discovery, test coverage, and running and debugging tests for Python's built-in [unittest](https://docs.python.org/3/library/unittest.html) framework and [pytest](https://docs.pytest.org/).
 
 ## Configure tests
 
-When the Python extension is installed and a Python file is open within the editor, a test beaker icon displays on the VS Code Activity Bar representing the **Test Explorer** view. Opening the Test Explorer shows a **Configure Python Tests** button if a test framework is not enabled. Selecting **Configure Python Tests** prompts you to select a test framework and a folder containing the tests. If you use unittest, you also select the file glob pattern used to identify your test files.
+When the Python extension is installed and a Python file is open within the editor, a test beaker icon displays on the {% data variables.product.prodname_vscode_shortname %} Activity Bar representing the **Test Explorer** view. Opening the Test Explorer shows a **Configure Python Tests** button if a test framework is not enabled. Selecting **Configure Python Tests** prompts you to select a test framework and a folder containing the tests. If you use unittest, you also select the file glob pattern used to identify your test files.
 
  > [!Note]
  > A file glob pattern is a defined string pattern that matches file or folder names based on wildcards to include or not include files.
 
 ![Configure Python Tests button displayed in the Test Explorer when tests haven't been configured.](images/testing/test-explorer-no-tests.png)
 
-Tests can be configured anytime by using the **Python: Configure Tests** command from the [Command Palette](/docs/editing/userinterface.md#command-palette) or by setting either `python.testing.unittestEnabled` or `python.testing.pytestEnabled` in the Settings editor or `settings.json` file as described in the VS Code [Settings](/docs/configure/settings.md) documentation. Each framework also has specific configuration settings as described under [Test configuration settings](#test-configuration-settings) for their folders and patterns.
+Tests can be configured anytime by using the **Python: Configure Tests** command from the [Command Palette](/docs/editing/userinterface.md#command-palette) or by setting either `python.testing.unittestEnabled` or `python.testing.pytestEnabled` in the Settings editor or `settings.json` file as described in the {% data variables.product.prodname_vscode_shortname %} [Settings](/docs/configure/settings.md) documentation. Each framework also has specific configuration settings as described under [Test configuration settings](#test-configuration-settings) for their folders and patterns.
 
 If you enable pytest and it is not currently installed in the activated environment, the Python extension attempts to install it in the background. Furthermore, if both frameworks are enabled, the Python extension only runs `pytest`.
 
@@ -29,7 +29,7 @@ If you enable pytest and it is not currently installed in the activated environm
 By default, the Python extension attempts to discover tests once you enable a framework. You can trigger test discovery at any time using the **Test: Refresh Tests** command from the Command Palette.
 
 > [!Tip]
-> `python.testing.autoTestDiscoverOnSaveEnabled` is set to `true` by default, meaning that test discovery occurs automatically whenever you add, delete, or update any Python file in the workspace. To disable this feature, set the value to `false`, which can be done either in the Settings editor or in the `settings.json` file as described in the VS Code [Settings](/docs/getstarted/personalize-vscode.md#configure-settings) documentation. You need to reload the window for this setting to take effect. For more control over files included in auto test discovery, adjust the `python.testing.autoTestDiscoverOnSavePattern` setting, which defaults to `**/*.py`.
+> `python.testing.autoTestDiscoverOnSaveEnabled` is set to `true` by default, meaning that test discovery occurs automatically whenever you add, delete, or update any Python file in the workspace. To disable this feature, set the value to `false`, which can be done either in the Settings editor or in the `settings.json` file as described in the {% data variables.product.prodname_vscode_shortname %} [Settings](/docs/getstarted/personalize-vscode.md#configure-settings) documentation. You need to reload the window for this setting to take effect. For more control over files included in auto test discovery, adjust the `python.testing.autoTestDiscoverOnSavePattern` setting, which defaults to `**/*.py`.
 
 Test discovery applies the discovery patterns for the current framework (which can be customized using the [Test configuration settings](#test-configuration-settings)). The default behavior is as follows:
 
@@ -42,7 +42,7 @@ Test discovery applies the discovery patterns for the current framework (which c
 
 If the test discovery succeeds, you'll see tests listed in the Test Explorer:
 
-![The VS Code Test Explorer for Python tests](images/testing/test-explorer.png)
+![The {% data variables.product.prodname_vscode_shortname %} Test Explorer for Python tests](images/testing/test-explorer.png)
 
 When triggering test discovery directly from the Test Explorer, you can also cancel an ongoing test discovery call. Use the **Cancel** button, which replaces the **Refresh** button during discovery.
 
@@ -77,13 +77,13 @@ You can run tests using any of the following actions:
 
   - You can also run a selection of tests through the Test Explorer. To do that, `kbstyle(Ctrl+Click)` (or `kbstyle(Cmd+Click)` on macOS) on the tests you wish to run, right-click on one of them and then select **Run Test**.
 
-After a test run, VS Code displays results directly in the editor as gutter decorations. Failed tests will also be highlighted in the editor, with a Peek View that displays the test run error message and a history of all of the tests' runs. You can press `kbstyle(Escape)` to dismiss the view, and you can disable it by opening the User settings (**Preferences: Open Settings (UI)** command in the **Command Palette**) and changing the value of the **Testing: Automatically Open Peek View** setting to `never`.
+After a test run, {% data variables.product.prodname_vscode_shortname %} displays results directly in the editor as gutter decorations. Failed tests will also be highlighted in the editor, with a Peek View that displays the test run error message and a history of all of the tests' runs. You can press `kbstyle(Escape)` to dismiss the view, and you can disable it by opening the User settings (**Preferences: Open Settings (UI)** command in the **Command Palette**) and changing the value of the **Testing: Automatically Open Peek View** setting to `never`.
 
 In the **Test Explorer**, results are shown for individual tests and any classes and files containing those tests. Folders will display a failure icon if any of the tests within that folder did not pass.
 
 ![Test results on a unittest class and in Test Explorer](images/testing/test-results.png)
 
-VS Code also shows test results in the **Test Results** panel.
+{% data variables.product.prodname_vscode_shortname %} also shows test results in the **Test Results** panel.
 
 ![Test results in the Test Results panel](images/testing/test-result-panel.png)
 
@@ -101,7 +101,7 @@ Once the coverage run completes, lines are highlighted in the editor for line-le
 
 For finer grain control of your coverage run when using pytest, you can edit the `python.testing.pytestArgs` setting to include your specifications. When the pytest argument `--cov` exists in `python.testing.pytestArgs`, the Python extension will make no additional edits to coverage args, to allow your customizations to take effect. If there is no `--cov` argument found, the extension will add `--cov=.` to the pytest args prior to run to enable coverage at the workspace root.
 
-For more information on test coverage, visit VS Code's [Test Coverage documentation](/docs/debugtest/testing.md#test-coverage).
+For more information on test coverage, visit {% data variables.product.prodname_vscode_shortname %}'s [Test Coverage documentation](/docs/debugtest/testing.md#test-coverage).
 
 ## Debug tests
 
@@ -138,7 +138,7 @@ For example, the configuration below in the `launch.json` file disables the `jus
 
 If you have more than one configuration entry with `"purpose": ["debug-test"]`, the first definition will be used since we currently don't support multiple definitions for this request type.
 
-For more information on debugging or to understand how it works in VS Code, read the [Python debugging configurations](/docs/python/debugging.md) and general VS Code [Debugging](/docs/debugtest/debugging.md) articles.
+For more information on debugging or to understand how it works in {% data variables.product.prodname_vscode_shortname %}, read the [Python debugging configurations](/docs/python/debugging.md) and general {% data variables.product.prodname_vscode_shortname %} [Debugging](/docs/debugtest/debugging.md) articles.
 
 ## Run tests in parallel
 
@@ -158,7 +158,7 @@ The Python extension also offers support for discovering and running Django unit
 3. Add Django test arguments to `"python.testing.unittestArgs": []` in the `settings.json` [file](/docs/configure/settings.md) as needed, and remove any arguments that are not compatible with Django.
 
 > [!Note]
-> By default, the Python extension looks for and loads `.env` files at the project root. If your `.env` file is not at the project root or you are using [VS Code variable substitution](/docs/reference/variables-reference.md), add `"python.envFile": "${workspaceFolder}/<path-to-.env>"` to your `settings.json` [file](/docs/configure/settings.md). This enables the Python extension to load the environment variables from this file when running and discovering tests. Get more info about [Python environment variables](/docs/python/environments.md#environment-variables).
+> By default, the Python extension looks for and loads `.env` files at the project root. If your `.env` file is not at the project root or you are using [{% data variables.product.prodname_vscode_shortname %} variable substitution](/docs/reference/variables-reference.md), add `"python.envFile": "${workspaceFolder}/<path-to-.env>"` to your `settings.json` [file](/docs/configure/settings.md). This enables the Python extension to load the environment variables from this file when running and discovering tests. Get more info about [Python environment variables](/docs/python/environments.md#environment-variables).
 
 Navigate to the Testing view, and select the **Refresh Tests** button to have your Django tests displayed!
 
@@ -167,13 +167,13 @@ Navigate to the Testing view, and select the **Refresh Tests** button to have yo
 If your Django unit tests are not showing in the Testing view, try the following troubleshooting steps:
 
 - Search for error messages in the **Python** Output panel. They might provide a hint as to why your tests are not being discovered.
-- Try to [run the Django tests in the terminal](https://docs.djangoproject.com/en/dev/topics/testing/overview/#running-tests). Then "translate" the same command into VS Code settings.
-    For example, if you run `python manage.py test --arg` in the terminal, you would add `MANAGE_PY_PATH='./manage.py'` to a `.env` file, and set `"python.testing.unittestArgs": [--arg]` in the VS Code settings. Alternatively, you can also find the commands that are run by the Python extension in the **Python** Output panel.
+- Try to [run the Django tests in the terminal](https://docs.djangoproject.com/en/dev/topics/testing/overview/#running-tests). Then "translate" the same command into {% data variables.product.prodname_vscode_shortname %} settings.
+    For example, if you run `python manage.py test --arg` in the terminal, you would add `MANAGE_PY_PATH='./manage.py'` to a `.env` file, and set `"python.testing.unittestArgs": [--arg]` in the {% data variables.product.prodname_vscode_shortname %} settings. Alternatively, you can also find the commands that are run by the Python extension in the **Python** Output panel.
 - Use the absolute path to the `manage.py` file when setting the `MANAGE_PY_PATH` environment variable, if you initially used the relative path.
 
 ## Test commands
 
-Below are all the supported commands for testing with the Python extension in VS Code. These are all found via the Command Palette:
+Below are all the supported commands for testing with the Python extension in {% data variables.product.prodname_vscode_shortname %}. These are all found via the Command Palette:
 
 | Command Name | Description |
 | ------------ | ------------|
@@ -200,11 +200,11 @@ Below are all the supported commands for testing with the Python extension in VS
 
 ## Test configuration settings
 
-The behavior of testing with Python is driven by general UI settings provided by VS Code, and settings that are specific to Python and to whichever framework you've enabled.
+The behavior of testing with Python is driven by general UI settings provided by {% data variables.product.prodname_vscode_shortname %}, and settings that are specific to Python and to whichever framework you've enabled.
 
 ### General UI settings
 
-The settings that affect the UI of the testing features are provided by VS Code itself, and can be found in the [VS Code Settings editor](/docs/configure/settings.md) when you search for "Testing".
+The settings that affect the UI of the testing features are provided by {% data variables.product.prodname_vscode_shortname %} itself, and can be found in the [{% data variables.product.prodname_vscode_shortname %} Settings editor](/docs/configure/settings.md) when you search for "Testing".
 
 ### General Python settings
 
@@ -214,7 +214,7 @@ The settings that affect the UI of the testing features are provided by VS Code 
 | cwd | null | Specifies an optional working directory for tests. The presence of this setting dynamically adjusts the `--rootdir` argument for pytest. |
 | autoTestDiscoverOnSavePattern | `**/*.py` | Specifies a glob pattern that determines which file changes trigger auto test discovery when `autoTestDiscoverOnSaveEnabled` is `true`. |
 | debugPort | `3000` | Port number used for debugging of unittest tests. |
-| promptToConfigure | `true` | Specifies whether VS Code prompts to configure a test framework if potential tests are discovered. |
+| promptToConfigure | `true` | Specifies whether {% data variables.product.prodname_vscode_shortname %} prompts to configure a test framework if potential tests are discovered. |
 
 ### unittest configuration settings
 
@@ -248,7 +248,7 @@ The default arguments for pytest are as follows:
 You can also configure pytest using a `pytest.ini` file as described on [pytest Configuration](https://docs.pytest.org/en/latest/reference/customize.html).
 
 > [!Note]
-> If you have the pytest-cov coverage module installed, VS Code doesn't stop at breakpoints while debugging because pytest-cov is using the same technique to access the source code being run. To prevent this behavior, include `--no-cov` in `pytestArgs` when debugging tests, for example by adding `"env": {"PYTEST_ADDOPTS": "--no-cov"}` to your debug configuration. (See [Debug Tests](#debug-tests) above about how to set up that launch configuration.) (For more information, see [Debuggers and PyCharm](https://pytest-cov.readthedocs.io/en/latest/debuggers.html) in the pytest-cov documentation.)
+> If you have the pytest-cov coverage module installed, {% data variables.product.prodname_vscode_shortname %} doesn't stop at breakpoints while debugging because pytest-cov is using the same technique to access the source code being run. To prevent this behavior, include `--no-cov` in `pytestArgs` when debugging tests, for example by adding `"env": {"PYTEST_ADDOPTS": "--no-cov"}` to your debug configuration. (See [Debug Tests](#debug-tests) above about how to set up that launch configuration.) (For more information, see [Debuggers and PyCharm](https://pytest-cov.readthedocs.io/en/latest/debuggers.html) in the pytest-cov documentation.)
 
 ### IntelliSense settings
 
@@ -259,4 +259,4 @@ You can also configure pytest using a `pytest.ini` file as described on [pytest 
 ## See also
 
 - [Python environments](/docs/python/environments.md) - Control which Python interpreter is used for editing and debugging.
-- [Settings reference](/docs/python/settings-reference.md) - Explore the full range of Python-related settings in VS Code.
+- [Settings reference](/docs/python/settings-reference.md) - Explore the full range of Python-related settings in {% data variables.product.prodname_vscode_shortname %}.

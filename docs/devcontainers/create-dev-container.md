@@ -1,17 +1,17 @@
 ---
 ContentId: bae55561-1032-40d4-b6a6-47054da96098
-MetaDescription: Create a development container using Visual Studio Code Remote Development
+MetaDescription: Create a development container using {% data variables.product.prodname_vscode %} Remote Development
 DateApproved: 8/19/2026
 ---
 # Create a Dev Container
 
-The **Visual Studio Code Dev Containers** extension lets you use a [Docker container](https://docker.com) as a full-featured development environment. It allows you to open any folder or repository inside a container and take advantage of Visual Studio Code's full feature set. A `devcontainer.json` file in your project tells VS Code how to access (or create) a **development container** with a well-defined tool and runtime stack. This container can be used to run an application or to provide separate tools, libraries, or runtimes needed for working with a codebase.
+The **{% data variables.product.prodname_vscode %} Dev Containers** extension lets you use a [Docker container](https://docker.com) as a full-featured development environment. It allows you to open any folder or repository inside a container and take advantage of {% data variables.product.prodname_vscode %}'s full feature set. A `devcontainer.json` file in your project tells {% data variables.product.prodname_vscode_shortname %} how to access (or create) a **development container** with a well-defined tool and runtime stack. This container can be used to run an application or to provide separate tools, libraries, or runtimes needed for working with a codebase.
 
 ## Path to creating a dev container
 
-In this document, we'll go through the steps for creating a development (dev) container in VS Code:
+In this document, we'll go through the steps for creating a development (dev) container in {% data variables.product.prodname_vscode_shortname %}:
 
-1. Create a `devcontainer.json`, which describes how VS Code should start the container and what to do after it connects.
+1. Create a `devcontainer.json`, which describes how {% data variables.product.prodname_vscode_shortname %} should start the container and what to do after it connects.
 2. Make and persist changes to the dev container, such as installation of new software, through use of a Dockerfile.
 3. Configure multiple containers through Docker Compose.
 4. As you make changes, build your dev container to ensure changes take effect.
@@ -22,9 +22,9 @@ After any of the steps above, you'll have a fully functioning dev container, and
 
 ## Create a devcontainer.json file
 
-VS Code's container configuration is stored in a [devcontainer.json](https://containers.dev/implementors/json_reference) file. This file is similar to the `launch.json` file for debugging configurations, but is used for launching (or attaching to) your development container instead. The dev container configuration is either located under `.devcontainer/devcontainer.json` or stored as a `.devcontainer.json` file (note the dot-prefix) in the root of your project.
+{% data variables.product.prodname_vscode_shortname %}'s container configuration is stored in a [devcontainer.json](https://containers.dev/implementors/json_reference) file. This file is similar to the `launch.json` file for debugging configurations, but is used for launching (or attaching to) your development container instead. The dev container configuration is either located under `.devcontainer/devcontainer.json` or stored as a `.devcontainer.json` file (note the dot-prefix) in the root of your project.
 
-You can use an image as a starting point for your `devcontainer.json`. An image is like a mini-disk drive with various tools and an operating system pre-installed. You can pull images from a container registry, which is a collection of repositories that store images. Here is a simple example `devcontainer.json` that uses a pre-built TypeScript and Node.js VS Code Development Container [image](https://github.com/devcontainers/images):
+You can use an image as a starting point for your `devcontainer.json`. An image is like a mini-disk drive with various tools and an operating system pre-installed. You can pull images from a container registry, which is a collection of repositories that store images. Here is a simple example `devcontainer.json` that uses a pre-built TypeScript and Node.js {% data variables.product.prodname_vscode_shortname %} Development Container [image](https://github.com/devcontainers/images):
 
 ```json
 {
@@ -64,9 +64,9 @@ With the above `devcontainer.json`, your dev container is functional, and you ca
 
 ![Quick pick with list of Dev Containers commands](images/create-dev-container/dev-containers-reopen.png)
 
-After running this command, when VS Code restarts, you're now within a Node.js and TypeScript dev container with port 3000 forwarded and the ESLint extension installed. Once you're connected, notice the green remote indicator on the left of the Status bar to show you are connected to your dev container:
+After running this command, when {% data variables.product.prodname_vscode_shortname %} restarts, you're now within a Node.js and TypeScript dev container with port 3000 forwarded and the ESLint extension installed. Once you're connected, notice the green remote indicator on the left of the Status bar to show you are connected to your dev container:
 
-![VS Code instance connected to dev container](images/create-dev-container/connected-to-dev-container.png)
+![{% data variables.product.prodname_vscode_shortname %} instance connected to dev container](images/create-dev-container/connected-to-dev-container.png)
 
 ### Additional dev container scenarios
 
@@ -82,7 +82,7 @@ If `devcontainer.json`'s supported workflows do not meet your needs, you can als
 
 ## Install additional software
 
-You may want to install additional software in your dev container. Once VS Code is connected to the container, you can open a VS Code terminal and execute any command against the OS inside the container. This allows you to install new command-line utilities and spin up databases or application services from inside the Linux container.
+You may want to install additional software in your dev container. Once {% data variables.product.prodname_vscode_shortname %} is connected to the container, you can open a {% data variables.product.prodname_vscode_shortname %} terminal and execute any command against the OS inside the container. This allows you to install new command-line utilities and spin up databases or application services from inside the Linux container.
 
 Most container images are based on Debian or Ubuntu, where the `apt` or `apt-get` command is used to install new packages. You can learn more about the command [in Ubuntu's documentation](https://help.ubuntu.com/lts/serverguide/apt.html). Alpine images include a [similar `apk` command](https://wiki.alpinelinux.org/wiki/Alpine_Linux_package_management) while CentOS / RHEL / Oracle SE / Fedora images [use `yum`](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/ch-yum) or [more recently `dnf`](https://fedoraproject.org/wiki/DNF?rd=Dnf).
 
@@ -104,7 +104,7 @@ sudo apt-get update
 sudo apt-get install <package>
 ```
 
-Let's say you want to install Git. You could run the following commands in the integrated terminal in VS Code:
+Let's say you want to install Git. You could run the following commands in the integrated terminal in {% data variables.product.prodname_vscode_shortname %}:
 
 ```bash
 # If sudo is installed and configured
@@ -213,7 +213,7 @@ Now that you have a `devcontainer.json` and Dockerfile, let's see the general pr
 
 ### Full configuration edit loop
 
-Editing your container configuration is easy. Since rebuilding a container will "reset" the container to its starting contents (with the exception of your local source code), VS Code does not automatically rebuild if you edit a container configuration file (`devcontainer.json`, `Dockerfile`, and `docker-compose.yml`). Instead, there are several commands that can be used to make editing your configuration easier.
+Editing your container configuration is easy. Since rebuilding a container will "reset" the container to its starting contents (with the exception of your local source code), {% data variables.product.prodname_vscode_shortname %} does not automatically rebuild if you edit a container configuration file (`devcontainer.json`, `Dockerfile`, and `docker-compose.yml`). Instead, there are several commands that can be used to make editing your configuration easier.
 
 Here is the typical edit loop using these commands:
 
@@ -246,22 +246,22 @@ You can either:
 1. Work with a service defined in an existing, unmodified `docker-compose.yml`.
 2. Create a new `docker-compose.yml` (or make a copy of an existing one) that you use to develop a service.
 3. [Extend your existing Docker Compose configuration](#extend-your-docker-compose-file-for-development) to develop the service.
-4. Use separate VS Code windows to [work with multiple Docker Compose-defined services](/remote/advancedcontainers/connect-multiple-containers.md) at once.
+4. Use separate {% data variables.product.prodname_vscode_shortname %} windows to [work with multiple Docker Compose-defined services](/remote/advancedcontainers/connect-multiple-containers.md) at once.
 
 > **Note:** When using Alpine Linux containers, some extensions may not work due to `glibc` dependencies in native code inside the extension.
 
-VS Code can be configured to **automatically start any needed containers** for a particular service in a Docker Compose file. If you've already started the configured containers using the command line, VS Code will **attach to the running service** you've specified instead. This gives your multi-container workflow the same quick setup advantages described for the Docker image and Dockerfile workflows above, while still allowing you to use the command line if you prefer.
+{% data variables.product.prodname_vscode_shortname %} can be configured to **automatically start any needed containers** for a particular service in a Docker Compose file. If you've already started the configured containers using the command line, {% data variables.product.prodname_vscode_shortname %} will **attach to the running service** you've specified instead. This gives your multi-container workflow the same quick setup advantages described for the Docker image and Dockerfile workflows above, while still allowing you to use the command line if you prefer.
 
-To get started quickly, **open the folder** you want to work with in VS Code and run the **Dev Containers: Add Dev Container Configuration Files...** command in the Command Palette (`kbstyle(F1)`).
+To get started quickly, **open the folder** you want to work with in {% data variables.product.prodname_vscode_shortname %} and run the **Dev Containers: Add Dev Container Configuration Files...** command in the Command Palette (`kbstyle(F1)`).
 
-You'll be prompted to pick a pre-defined container configuration from our [first-party and community index](https://containers.dev/templates) in a filterable list sorted based on your folder's contents. From the VS Code UI, you may select one of the following Templates as a starting point for Docker Compose:
+You'll be prompted to pick a pre-defined container configuration from our [first-party and community index](https://containers.dev/templates) in a filterable list sorted based on your folder's contents. From the {% data variables.product.prodname_vscode_shortname %} UI, you may select one of the following Templates as a starting point for Docker Compose:
 
 * [Existing Docker Compose](https://github.com/devcontainers/templates/tree/main/src/docker-existing-docker-compose) - Includes a set of files that you can drop into an existing project that will reuse a `docker-compose.yml` file in the root of your project.
 * [Node.js & MongoDB](https://github.com/devcontainers/templates/tree/main/src/javascript-node-mongo) -  A Node.js container that connects to a MongoDB database in a different container.
 * [Python & PostgreSQL](https://github.com/devcontainers/templates/tree/main/src/postgres) -  A Python container that connects to PostgreSQL in a different container.
 * [Docker-Outside-of-Docker Compose](https://github.com/devcontainers/templates/tree/main/src/docker-outside-of-docker-compose) - Includes the Docker CLI and illustrates how you can use it to access your local Docker install from inside a dev container by volume mounting the Docker Unix socket.
 
-After you make your selection, VS Code will add the appropriate `.devcontainer/devcontainer.json` (or `.devcontainer.json`) file to the folder.
+After you make your selection, {% data variables.product.prodname_vscode_shortname %} will add the appropriate `.devcontainer/devcontainer.json` (or `.devcontainer.json`) file to the folder.
 
 You can also create your configuration manually. To reuse a Docker Compose file unmodified, you can use the `dockerComposeFile` and `service` properties in `.devcontainer/devcontainer.json`.
 
@@ -281,7 +281,7 @@ See the [devcontainer.json reference](https://containers.dev/implementors/json_r
 
 Once you have added a `.devcontainer/devcontainer.json` file to your folder, run the **Dev Containers: Reopen in Container** command (or **Dev Containers: Open Folder in Container...** if you are not yet in a container) from the Command Palette (`kbstyle(F1)`).
 
-If the containers are not already running, VS Code will call `docker-compose -f ../docker-compose.yml up` in this example. The `service` property indicates which service in your Docker Compose file VS Code should connect to, not which service should be started. If you started them by hand, VS Code will attach to the service you specified.
+If the containers are not already running, {% data variables.product.prodname_vscode_shortname %} will call `docker-compose -f ../docker-compose.yml up` in this example. The `service` property indicates which service in your Docker Compose file {% data variables.product.prodname_vscode_shortname %} should connect to, not which service should be started. If you started them by hand, {% data variables.product.prodname_vscode_shortname %} will attach to the service you specified.
 
 You can also create a development copy of your Docker Compose file. For example, if you had `.devcontainer/docker-compose.devcontainer.yml`, you would just change the following line in `devcontainer.json`:
 
@@ -307,11 +307,11 @@ volumes:
   # Mounts the project folder to '/workspace'. The target path inside the container
   # should match what your application expects. In this case, the compose file is
   # in a sub-folder, so you will mount '..'. You would then reference this path as the
-  # 'workspaceFolder' in '.devcontainer/devcontainer.json' so VS Code starts here.
+  # 'workspaceFolder' in '.devcontainer/devcontainer.json' so {% data variables.product.prodname_vscode_shortname %} starts here.
   - ..:/workspace:cached
 ```
 
-However, on Linux you may need to set up and **specify a non-root user** when using a bind mount or any files you create will be root. See [Adding a non-root user to your dev container](/remote/advancedcontainers/add-nonroot-user.md) for details. To have VS Code run as a different user, add this to `devcontainer.json`:
+However, on Linux you may need to set up and **specify a non-root user** when using a bind mount or any files you create will be root. See [Adding a non-root user to your dev container](/remote/advancedcontainers/add-nonroot-user.md) for details. To have {% data variables.product.prodname_vscode_shortname %} run as a different user, add this to `devcontainer.json`:
 
 ```json
 "remoteUser": "your-user-name-here"
@@ -402,7 +402,7 @@ This same file can provide additional settings, such as port mappings, as needed
 }
 ```
 
-VS Code will then **automatically use both files** when starting up any containers. You can also start them yourself from the command line as follows:
+{% data variables.product.prodname_vscode_shortname %} will then **automatically use both files** when starting up any containers. You can also start them yourself from the command line as follows:
 
 ```bash
 docker-compose -f docker-compose.yml -f .devcontainer/docker-compose.extend.yml up
@@ -425,11 +425,11 @@ services:
       command: /bin/sh -c "while sleep 1000; do :; done"
 ```
 
-Congratulations! You've now configured a dev container in Visual Studio Code. Continue reading to learn how to share container configurations among teammates and various projects.
+Congratulations! You've now configured a dev container in {% data variables.product.prodname_vscode %}. Continue reading to learn how to share container configurations among teammates and various projects.
 
 ## Add configuration files to a repository
 
-You can easily share a customized Dev Container Template for your project by adding `devcontainer.json` files to source control. By including these files in your repository, anyone that opens a local copy of your repo in VS Code will be automatically prompted to reopen the folder in a container, provided they have the Dev Containers extension installed.
+You can easily share a customized Dev Container Template for your project by adding `devcontainer.json` files to source control. By including these files in your repository, anyone that opens a local copy of your repo in {% data variables.product.prodname_vscode_shortname %} will be automatically prompted to reopen the folder in a container, provided they have the Dev Containers extension installed.
 
 ![Dev container configuration file reopen notification](images/create-dev-container/dev-container-reopen-prompt.png)
 
@@ -448,7 +448,7 @@ As an example, a badge to open [https://github.com/microsoft/vscode-remote-try-j
 You can also include an `open in dev container` link directly:
 
 ```markdown
-If you already have VS Code and Docker installed, you can click the badge above or [here](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/microsoft/vscode-remote-try-java) to get started. Clicking these links will cause VS Code to automatically install the Dev Containers extension if needed, clone the source code into a container volume, and spin up a dev container for use.
+If you already have {% data variables.product.prodname_vscode_shortname %} and Docker installed, you can click the badge above or [here](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/microsoft/vscode-remote-try-java) to get started. Clicking these links will cause {% data variables.product.prodname_vscode_shortname %} to automatically install the Dev Containers extension if needed, clone the source code into a container volume, and spin up a dev container for use.
 ```
 
 ### Alternative: Repository configuration folders

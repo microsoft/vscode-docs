@@ -1,12 +1,12 @@
 ---
 ContentId: f6b7b0c2-ccbe-4e5f-8f2e-6c1ecea52f69
 DateApproved: 8/19/2026
-MetaDescription: Angular TypeScript tutorial showing IntelliSense, debugging, and code navigation support in the Visual Studio Code editor.
+MetaDescription: Angular TypeScript tutorial showing IntelliSense, debugging, and code navigation support in the {% data variables.product.prodname_vscode %} editor.
 MetaSocialImage: images/angular/Welcome-to-app.png
 ---
-# Using Angular in Visual Studio Code
+# Using Angular in {% data variables.product.prodname_vscode %}
 
-[Angular](https://angular.io/) is a popular web development platform developed and maintained by Google. Angular uses [TypeScript](/docs/languages/typescript.md) as its main programming language. The Visual Studio Code editor supports TypeScript IntelliSense and code navigation out of the box, so you can do Angular development without installing any other extension.
+[Angular](https://angular.io/) is a popular web development platform developed and maintained by Google. Angular uses [TypeScript](/docs/languages/typescript.md) as its main programming language. The {% data variables.product.prodname_vscode %} editor supports TypeScript IntelliSense and code navigation out of the box, so you can do Angular development without installing any other extension.
 
 ![Welcome to app](images/angular/Welcome-to-app.png)
 
@@ -39,9 +39,9 @@ cd my-app
 ng serve
 ```
 
-You should see "Welcome to app!!" on [http://localhost:4200](http://localhost:4200) in your browser. We'll leave the web server running while we look at the application with VS Code.
+You should see "Welcome to app!!" on [http://localhost:4200](http://localhost:4200) in your browser. We'll leave the web server running while we look at the application with {% data variables.product.prodname_vscode_shortname %}.
 
-To open your Angular application in VS Code, open another terminal (or command prompt) and navigate to the `my-app` folder and type `code .`:
+To open your Angular application in {% data variables.product.prodname_vscode_shortname %}, open another terminal (or command prompt) and navigate to the `my-app` folder and type `code .`:
 
 ```bash
 cd my-app
@@ -50,13 +50,13 @@ code .
 
 ### Syntax highlighting and bracket matching
 
-Now expand the `src\app` folder and select the `app.component.ts` file. You'll notice that VS Code has syntax highlighting for the various source code elements and, if you put the cursor on a parenthesis, the matching bracket is also selected.
+Now expand the `src\app` folder and select the `app.component.ts` file. You'll notice that {% data variables.product.prodname_vscode_shortname %} has syntax highlighting for the various source code elements and, if you put the cursor on a parenthesis, the matching bracket is also selected.
 
 ![angular bracket matching](images/angular/bracket-matching.png)
 
 ### IntelliSense
 
-As you hover your mouse over text in the file, you'll see that VS Code gives you information about key items in your source code. Items such as variables, classes and Angular decorators are a few examples where you'll be presented with this information.
+As you hover your mouse over text in the file, you'll see that {% data variables.product.prodname_vscode_shortname %} gives you information about key items in your source code. Items such as variables, classes and Angular decorators are a few examples where you'll be presented with this information.
 
 ![angular decorator hover](images/angular/decorator-hover.png)
 
@@ -68,11 +68,11 @@ You can click the information button (`i`) to see a flyout with more documentati
 
 ![angular intellisense](images/angular/intellisense.png)
 
-VS Code uses the TypeScript language service for code intelligence ([IntelliSense](/docs/editing/intellisense.md)) and it has a feature called [Automatic Type Acquisition](/docs/nodejs/working-with-javascript.md#typings-and-automatic-type-acquisition) (ATA). ATA pulls down the npm Type Declaration files (`*.d.ts`) for the npm modules referenced in the `package.json`.
+{% data variables.product.prodname_vscode_shortname %} uses the TypeScript language service for code intelligence ([IntelliSense](/docs/editing/intellisense.md)) and it has a feature called [Automatic Type Acquisition](/docs/nodejs/working-with-javascript.md#typings-and-automatic-type-acquisition) (ATA). ATA pulls down the npm Type Declaration files (`*.d.ts`) for the npm modules referenced in the `package.json`.
 
 ### Go to Definition, Peek definition
 
-Through the TypeScript language service, VS Code can also provide type definition information in the editor through **Go to Definition** (`kb(editor.action.revealDefinition)`) or **Peek Definition** (`kb(editor.action.peekDefinition)`). Open the `app.module.ts` file and put the cursor over `AppComponent` in the `bootstrap` property declaration, right click and select **Peek Definition**. A [Peek window](/docs/editing/editingevolved.md#peek) will open showing the `AppComponent` definition from `app.component.ts`.
+Through the TypeScript language service, {% data variables.product.prodname_vscode_shortname %} can also provide type definition information in the editor through **Go to Definition** (`kb(editor.action.revealDefinition)`) or **Peek Definition** (`kb(editor.action.peekDefinition)`). Open the `app.module.ts` file and put the cursor over `AppComponent` in the `bootstrap` property declaration, right click and select **Peek Definition**. A [Peek window](/docs/editing/editingevolved.md#peek) will open showing the `AppComponent` definition from `app.component.ts`.
 
 ![angular peek definition](images/angular/peek-definition.png)
 
@@ -97,7 +97,7 @@ export class AppComponent {
 
 Once you save the `app.component.ts` file, the running instance of the server will update the web page and you'll see "Welcome to Hello World!!".
 
->**Tip**: VS Code supports Auto Save, which by default saves your files after a delay. Check the **Auto Save** option in the **File** menu to turn on Auto Save or directly configure the `files.autoSave` user [setting](/docs/configure/settings.md).
+>**Tip**: {% data variables.product.prodname_vscode_shortname %} supports Auto Save, which by default saves your files after a delay. Check the **Auto Save** option in the **File** menu to turn on Auto Save or directly configure the `files.autoSave` user [setting](/docs/configure/settings.md).
 
 ![hello world](images/angular/hello-world.png)
 
@@ -160,19 +160,19 @@ In this tutorial, we used the Angular CLI to create a simple Angular application
 
 ### Recipes
 
-The VS Code team has created [recipes](https://github.com/microsoft/vscode-recipes) for more complex debugging scenarios. There you'll find the [Debugging with Angular CLI](https://github.com/microsoft/vscode-recipes/tree/main/Angular-CLI) recipe which also uses the Angular CLI and goes into detail on debugging the generated project's unit tests.
+The {% data variables.product.prodname_vscode_shortname %} team has created [recipes](https://github.com/microsoft/vscode-recipes) for more complex debugging scenarios. There you'll find the [Debugging with Angular CLI](https://github.com/microsoft/vscode-recipes/tree/main/Angular-CLI) recipe which also uses the Angular CLI and goes into detail on debugging the generated project's unit tests.
 
 ### MEAN Starter
 
-If you'd like to see a full MEAN (MongoDB, Express, Angular, Node.js) stack example, look at [MEAN.JS](https://meanjs.org). They have documentation and an application generator for a sample MEAN project. You'll need to install and start [MongoDB](https://docs.mongodb.com/v3.0/installation/), but you'll quickly have a MEAN application running. VS Code also has great [MongoDB support](/docs/azure/mongodb.md) through the [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) extension.
+If you'd like to see a full MEAN (MongoDB, Express, Angular, Node.js) stack example, look at [MEAN.JS](https://meanjs.org). They have documentation and an application generator for a sample MEAN project. You'll need to install and start [MongoDB](https://docs.mongodb.com/v3.0/installation/), but you'll quickly have a MEAN application running. {% data variables.product.prodname_vscode_shortname %} also has great [MongoDB support](/docs/azure/mongodb.md) through the [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) extension.
 
 ### React
 
-[React](https://reactjs.org) is a library for building user interfaces and it is more minimal than angular. If you'd like to see an example of React working with VS Code, check out the [Using React in VS Code](/docs/nodejs/reactjs-tutorial.md) tutorial. It will walk you through creating an React application and configuring the `launch.json` file for the JavaScript debugger.
+[React](https://reactjs.org) is a library for building user interfaces and it is more minimal than angular. If you'd like to see an example of React working with {% data variables.product.prodname_vscode_shortname %}, check out the [Using React in {% data variables.product.prodname_vscode_shortname %}](/docs/nodejs/reactjs-tutorial.md) tutorial. It will walk you through creating an React application and configuring the `launch.json` file for the JavaScript debugger.
 
 ## Angular Extensions
 
-In addition to the features VS Code provides out of the box, you can install VS Code extensions for greater functionality.
+In addition to the features {% data variables.product.prodname_vscode_shortname %} provides out of the box, you can install {% data variables.product.prodname_vscode_shortname %} extensions for greater functionality.
 
 <div class="marketplace-extensions-angular-curated"></div>
 

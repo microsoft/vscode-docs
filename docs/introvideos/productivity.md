@@ -1,16 +1,16 @@
 ---
 ContentId: 9b79fbb2-f7d1-4b54-a4ad-e5ccb0ebd891
 DateApproved: 11/18/2021
-MetaDescription: Become a Visual Studio Code power user with these productivity tips.
+MetaDescription: Become a {% data variables.product.prodname_vscode %} power user with these productivity tips.
 MetaSocialImage: images/opengraph/introvideos-social.png
 ---
 # Productivity Tips
 
-In this Visual Studio Code tutorial, we describe Visual Studio Code features that help increase your coding productivity. Learning just a few tips can speed up your workflow and help you discover the full power of the VS Code editor.
+In this {% data variables.product.prodname_vscode %} tutorial, we describe {% data variables.product.prodname_vscode %} features that help increase your coding productivity. Learning just a few tips can speed up your workflow and help you discover the full power of the {% data variables.product.prodname_vscode_shortname %} editor.
 
-<iframe src="https://www.youtube-nocookie.com/embed/HIqONcVBEm0" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Productivity tips for Visual Studio Code"></iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/HIqONcVBEm0" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Productivity tips for {% data variables.product.prodname_vscode %}"></iframe>
 
-Here's the next video we recommend: [Personalize Visual Studio Code](/docs/introvideos/configure.md)
+Here's the next video we recommend: [Personalize {% data variables.product.prodname_vscode %}](/docs/introvideos/configure.md)
 
 Pick another video from the list: [Introductory Videos](/docs/getstarted/introvideos.md)
 
@@ -41,11 +41,11 @@ Pick another video from the list: [Introductory Videos](/docs/getstarted/introvi
 
 ## Next video
 
-* [Personalize Visual Studio Code](/docs/introvideos/configure.md) - Learn how to personalize VS Code to your work style with themes.
+* [Personalize {% data variables.product.prodname_vscode %}](/docs/introvideos/configure.md) - Learn how to personalize {% data variables.product.prodname_vscode_shortname %} to your work style with themes.
 * [Introductory Videos](/docs/getstarted/introvideos.md) - Review the entire list of videos.
 
 ## Related resources
 
 * [Tips and Tricks](/docs/editing/tips-and-tricks.md) - Learn more productivity tips and tricks.
-* [Code Editing](/docs/editing/codebasics.md) - Discover the full power of the VS Code editor.
+* [Code Editing](/docs/editing/codebasics.md) - Discover the full power of the {% data variables.product.prodname_vscode_shortname %} editor.
 * [IntelliSense](/docs/editing/intellisense.md) - Smart code completions and methods signatures.

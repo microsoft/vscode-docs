@@ -1,15 +1,15 @@
 ---
 ContentId: 6784FBBE-9EE4-44A8-AC48-A52617EB1968
 DateApproved: 4/18/2022
-MetaDescription: Reference for Docker build and Docker run tasks and properties in the Visual Studio Code Container Tools extension.
+MetaDescription: Reference for Docker build and Docker run tasks and properties in the {% data variables.product.prodname_vscode %} Container Tools extension.
 ---
 # Customize the Container Tools extension
 
-The Container Tools extension includes several Visual Studio Code tasks to control the behavior of Docker [build](#docker-build-task) and [run](#docker-run-task), and form the basis of container startup for debugging.
+The Container Tools extension includes several {% data variables.product.prodname_vscode %} tasks to control the behavior of Docker [build](#docker-build-task) and [run](#docker-run-task), and form the basis of container startup for debugging.
 
 The tasks allow for a great deal of control and customization. The final configuration is a combination of general defaults, platform-specific defaults (such as Node.js, Python, or .NET), and user input. User input takes precedence when it conflicts with defaults.
 
-All common features of Visual Studio Code tasks (for example, grouping tasks into compound tasks) are supported by Container Tools extension tasks. For more information on common task features and properties, see the Visual Studio Code [custom task](/docs/debugtest/tasks.md#custom-tasks) documentation.
+All common features of {% data variables.product.prodname_vscode %} tasks (for example, grouping tasks into compound tasks) are supported by Container Tools extension tasks. For more information on common task features and properties, see the {% data variables.product.prodname_vscode %} [custom task](/docs/debugtest/tasks.md#custom-tasks) documentation.
 
 ## Docker build task
 
@@ -466,7 +466,7 @@ Here are all properties available for configuring `docker-compose` task. All pro
 
 ## Command customization
 
-The Container Tools extension executes a number of Docker CLI commands when you perform various operations, such as to build images, run containers, attach to containers, and view container logs. Some of these commands have a large number of optional arguments, often used in very specific scenarios. As an alternative to the above Visual Studio Code tasks, several commands can be customized when tasks are not in use.
+The Container Tools extension executes a number of Docker CLI commands when you perform various operations, such as to build images, run containers, attach to containers, and view container logs. Some of these commands have a large number of optional arguments, often used in very specific scenarios. As an alternative to the above {% data variables.product.prodname_vscode %} tasks, several commands can be customized when tasks are not in use.
 
 For example, the tokens `${serviceList}` and `${profileList}` in the [Compose Up](#docker-compose-up) command allows for easily starting a subset of the services within your Docker Compose YAML file(s).
 
@@ -618,6 +618,6 @@ In addition to the command-specific supported tokens, the following tokens are s
 | Token | Description |
 | -- | -- |
 | `${workspaceFolder}` | The selected workspace folder path. |
-| `${config:some.setting.identifier}` | The value of any configuration setting, as long as it is a string, number, or boolean. These setting identifiers can be arbitrarily defined and do not need to belong to Visual Studio Code or to any extension. |
+| `${config:some.setting.identifier}` | The value of any configuration setting, as long as it is a string, number, or boolean. These setting identifiers can be arbitrarily defined and do not need to belong to {% data variables.product.prodname_vscode %} or to any extension. |
 | `${env:Name}` | The value of an environment variable. |
 | `${command:commandID}` | The string return value of a command. |

@@ -1,13 +1,13 @@
 ---
 ContentId: 79CD9B45-97FF-48B1-8DD5-2555F56206A6
 DateApproved: 8/26/2026
-MetaDescription: It is easy to add code snippets to Visual Studio Code both for your own use or to share with others on the public Extension Marketplace. TextMate .tmSnippets files are supported.
+MetaDescription: It is easy to add code snippets to {% data variables.product.prodname_vscode %} both for your own use or to share with others on the public Extension Marketplace. TextMate .tmSnippets files are supported.
 ---
-# Snippets in Visual Studio Code
+# Snippets in {% data variables.product.prodname_vscode %}
 
 Code snippets are templates that make it easier to enter repeating code patterns, such as loops or conditional-statements.
 
-In Visual Studio Code, snippets appear in IntelliSense (`kb(editor.action.triggerSuggest)`) mixed with other suggestions, as well as in a dedicated snippet picker (**Insert Snippet** in the Command Palette). There is also support for tab-completion: Enable it with `"editor.tabCompletion": "on"`, type a **snippet prefix** (trigger text), and press `kb(insertSnippet)` to insert a snippet.
+In {% data variables.product.prodname_vscode %}, snippets appear in IntelliSense (`kb(editor.action.triggerSuggest)`) mixed with other suggestions, as well as in a dedicated snippet picker (**Insert Snippet** in the Command Palette). There is also support for tab-completion: Enable it with `"editor.tabCompletion": "on"`, type a **snippet prefix** (trigger text), and press `kb(insertSnippet)` to insert a snippet.
 
 The snippet syntax follows the [TextMate snippet syntax](https://manual.macromates.com/en/snippets) with the exceptions of 'interpolated shell code' and the use of `\u`; both are not supported.
 
@@ -15,7 +15,7 @@ The snippet syntax follows the [TextMate snippet syntax](https://manual.macromat
 
 ## Built-in snippets
 
-VS Code has built-in snippets for a number of languages such as: JavaScript, TypeScript, Markdown, and PHP.
+{% data variables.product.prodname_vscode_shortname %} has built-in snippets for a number of languages such as: JavaScript, TypeScript, Markdown, and PHP.
 
 ![builtin javascript snippet](images/userdefinedsnippets/builtin-javascript-snippets.png)
 
@@ -23,15 +23,15 @@ You can see the available snippets for a language by running the **Insert Snippe
 
 ## Install snippets from the Marketplace
 
-Many [extensions](/docs/configure/extensions/extension-marketplace.md) on the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode) include snippets. You can search for extensions that contains snippets in the Extensions view (`kb(workbench.view.extensions)`) using the `@category:"snippets"` filter.
+Many [extensions](/docs/configure/extensions/extension-marketplace.md) on the [{% data variables.product.prodname_vscode_shortname %} Marketplace](https://marketplace.visualstudio.com/vscode) include snippets. You can search for extensions that contains snippets in the Extensions view (`kb(workbench.view.extensions)`) using the `@category:"snippets"` filter.
 
 ![Searching for extensions with snippets](images/userdefinedsnippets/category-snippets.png)
 
-If you find an extension you want to use, install it, then restart VS Code and the new snippets will be available.
+If you find an extension you want to use, install it, then restart {% data variables.product.prodname_vscode_shortname %} and the new snippets will be available.
 
 ## Create your own snippets
 
-You can easily define your own snippets without any extension. To create or edit your own snippets, select **Configure Snippets** under **File** > **Preferences**, and then select the language (by [language identifier](/docs/languages/identifiers.md)) for which the snippets should appear, or the **New Global Snippets file** option if they should appear for all languages. VS Code manages the creation and refreshing of the underlying snippets file(s) for you.
+You can easily define your own snippets without any extension. To create or edit your own snippets, select **Configure Snippets** under **File** > **Preferences**, and then select the language (by [language identifier](/docs/languages/identifiers.md)) for which the snippets should appear, or the **New Global Snippets file** option if they should appear for all languages. {% data variables.product.prodname_vscode_shortname %} manages the creation and refreshing of the underlying snippets file(s) for you.
 
 ![snippet dropdown](images/userdefinedsnippets/snippet-dropdown.png)
 
@@ -325,7 +325,7 @@ else        ::= text
 
 ## Using TextMate snippets
 
-You can also use existing TextMate snippets (.tmSnippets) with VS Code. See the [Using TextMate Snippets](/api/language-extensions/snippet-guide.md#using-textmate-snippets) topic in our Extension API section to learn more.
+You can also use existing TextMate snippets (.tmSnippets) with {% data variables.product.prodname_vscode_shortname %}. See the [Using TextMate Snippets](/api/language-extensions/snippet-guide.md#using-textmate-snippets) topic in our Extension API section to learn more.
 
 ## Assign keyboard shortcuts to snippets
 
@@ -360,15 +360,15 @@ Also, instead of using the `snippet` argument value to define your snippet inlin
 
 ## Next steps
 
-* [Command Line](/docs/configure/command-line.md) - VS Code has a rich command-line interface to open or diff files and install extensions.
-* [Extension API](/api) - Learn about other ways to extend VS Code.
-* [Snippet Guide](/api/language-extensions/snippet-guide.md) - You can package snippets for use in VS Code.
+* [Command Line](/docs/configure/command-line.md) - {% data variables.product.prodname_vscode_shortname %} has a rich command-line interface to open or diff files and install extensions.
+* [Extension API](/api) - Learn about other ways to extend {% data variables.product.prodname_vscode_shortname %}.
+* [Snippet Guide](/api/language-extensions/snippet-guide.md) - You can package snippets for use in {% data variables.product.prodname_vscode_shortname %}.
 
 ## Common questions
 
 ### What if I want to use existing TextMate snippets from a .tmSnippet file?
 
-You can easily package TextMate snippets files for use in VS Code. See [Using TextMate Snippets](/api/language-extensions/snippet-guide.md#using-textmate-snippets) in our Extension API documentation.
+You can easily package TextMate snippets files for use in {% data variables.product.prodname_vscode_shortname %}. See [Using TextMate Snippets](/api/language-extensions/snippet-guide.md#using-textmate-snippets) in our Extension API documentation.
 
 ### How do I have a snippet place a variable in the pasted script?
 

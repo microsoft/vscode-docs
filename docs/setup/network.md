@@ -1,20 +1,20 @@
 ---
 ContentId: 84F36EDE-4D66-4A2E-B4D1-F020C73EB2AD
 DateApproved: 8/26/2026
-MetaDescription: Setup VS Code's Network Connection.
+MetaDescription: Setup {% data variables.product.prodname_vscode_shortname %}'s Network Connection.
 ---
-# Network Connections in Visual Studio Code
+# Network Connections in {% data variables.product.prodname_vscode %}
 
-Visual Studio Code is built on top of [Electron](https://www.electronjs.org) and benefits from all the networking stack capabilities of [Chromium](https://www.chromium.org/). This also means that VS Code users get much of the networking support available in [Google Chrome](https://www.google.com/chrome/index.html).
+{% data variables.product.prodname_vscode %} is built on top of [Electron](https://www.electronjs.org) and benefits from all the networking stack capabilities of [Chromium](https://www.chromium.org/). This also means that {% data variables.product.prodname_vscode_shortname %} users get much of the networking support available in [Google Chrome](https://www.google.com/chrome/index.html).
 
 ## Common hostnames
 
-A handful of features within VS Code require network communication to work, such as the auto-update mechanism, querying and installing extensions, and telemetry. For these features to work properly in a proxy environment, you must have the product correctly configured.
+A handful of features within {% data variables.product.prodname_vscode_shortname %} require network communication to work, such as the auto-update mechanism, querying and installing extensions, and telemetry. For these features to work properly in a proxy environment, you must have the product correctly configured.
 
-If you are behind a firewall that needs to allow specific domains used by VS Code, here's the list of hostnames you should allow communication to go through:
+If you are behind a firewall that needs to allow specific domains used by {% data variables.product.prodname_vscode_shortname %}, here's the list of hostnames you should allow communication to go through:
 
-* `update.code.visualstudio.com` - Visual Studio Code download and update server
-* `code.visualstudio.com` - Visual Studio Code documentation
+* `update.code.visualstudio.com` - {% data variables.product.prodname_vscode %} download and update server
+* `code.visualstudio.com` - {% data variables.product.prodname_vscode %} documentation
 * `go.microsoft.com` - Microsoft link forwarding service
 * `marketplace.visualstudio.com` - Visual Studio Marketplace
 * `*.gallery.vsassets.io` - Visual Studio Marketplace
@@ -22,18 +22,18 @@ If you are behind a firewall that needs to allow specific domains used by VS Cod
 * `rink.hockeyapp.net` - Crash reporting service
 * `raw.githubusercontent.com` - GitHub repository raw file access
 * `vsmarketplacebadges.dev` - Visual Studio Marketplace badge service
-* `*.vscode-cdn.net` - Visual Studio Code CDN
-* `vscode.download.prss.microsoft.com` - Visual Studio Code download CDN
-* `download.visualstudio.microsoft.com` - Visual Studio download server, provides dependencies for some VS Code extensions (C++, C#)
-* `vscode-sync.trafficmanager.net` - Visual Studio Code Settings Sync service
-* `vscode-sync-insiders.trafficmanager.net` - Visual Studio Code Settings Sync service (Insiders)
+* `*.vscode-cdn.net` - {% data variables.product.prodname_vscode %} CDN
+* `vscode.download.prss.microsoft.com` - {% data variables.product.prodname_vscode %} download CDN
+* `download.visualstudio.microsoft.com` - Visual Studio download server, provides dependencies for some {% data variables.product.prodname_vscode_shortname %} extensions (C++, C#)
+* `vscode-sync.trafficmanager.net` - {% data variables.product.prodname_vscode %} Settings Sync service
+* `vscode-sync-insiders.trafficmanager.net` - {% data variables.product.prodname_vscode %} Settings Sync service (Insiders)
 * `vscode.dev` - Used as a fallback when logging in with GitHub or Microsoft for an extension or Settings Sync (just `vscode.dev/redirect`)
 * `*.vscode-unpkg.net` - Used when loading web extensions
-* `default.exp-tas.com` - Visual Studio Code Experiment Service, used to provide experimental user experiences
+* `default.exp-tas.com` - {% data variables.product.prodname_vscode %} Experiment Service, used to provide experimental user experiences
 
 ## Proxy server support
 
-VS Code has exactly the same proxy server support as Google Chromium. Here's a snippet from [Chromium's documentation](https://www.chromium.org/developers/design-documents/network-settings):
+{% data variables.product.prodname_vscode_shortname %} has exactly the same proxy server support as Google Chromium. Here's a snippet from [Chromium's documentation](https://www.chromium.org/developers/design-documents/network-settings):
 
 ```
 "The Chromium network stack uses the system network settings so that users and administrators can control the network settings of all applications easily. The network settings include:
@@ -66,7 +66,7 @@ To learn more about these command-line arguments, see [Chromium Network Settings
 
 ### Authenticated proxies
 
-Authenticated proxies should work seamlessly within VS Code with the addition of [PR #22369](https://github.com/microsoft/vscode/pull/22369).
+Authenticated proxies should work seamlessly within {% data variables.product.prodname_vscode_shortname %} with the addition of [PR #22369](https://github.com/microsoft/vscode/pull/22369).
 
 The authentication methods supported are:
 
@@ -75,13 +75,13 @@ The authentication methods supported are:
 * NTLM
 * Negotiate
 
-When using VS Code behind an authenticated HTTP proxy, the following authentication popup should appear:
+When using {% data variables.product.prodname_vscode_shortname %} behind an authenticated HTTP proxy, the following authentication popup should appear:
 
 ![proxy](images/network/proxy.png)
 
 Note that SOCKS5 proxy authentication support isn't implemented yet; you can follow the [issue in Chromium's issue tracker](https://bugs.chromium.org/p/chromium/issues/detail?id=256785).
 
-See [Chromium HTTP authentication](https://www.chromium.org/developers/design-documents/http-authentication) to read more about HTTP proxy authentication within VS Code.
+See [Chromium HTTP authentication](https://www.chromium.org/developers/design-documents/http-authentication) to read more about HTTP proxy authentication within {% data variables.product.prodname_vscode_shortname %}.
 
 ### SSL certificates
 
@@ -89,7 +89,7 @@ Often HTTPS proxies rewrite SSL certificates of the incoming requests. Chromium 
 
 * Since Chromium uses the OS's certificate trust infrastructure, the preferred option is to add your proxy's certificate to your OS's trust chain. See the [Chromium Root Certificate Policy](https://www.chromium.org/Home/chromium-security/root-ca-policy) documentation to learn more.
 * If your proxy runs in `localhost`, you can always try the [--allow-insecure-localhost](https://peter.sh/experiments/chromium-command-line-switches/#allow-insecure-localhost) command-line flag.
-* If all else fails, you can tell VS Code to ignore all certificate errors using the [--ignore-certificate-errors](https://peter.sh/experiments/chromium-command-line-switches/#ignore-certificate-errors) command-line flag. **Warning:** This is **dangerous** and **not recommended**, since it opens the door to security issues.
+* If all else fails, you can tell {% data variables.product.prodname_vscode_shortname %} to ignore all certificate errors using the [--ignore-certificate-errors](https://peter.sh/experiments/chromium-command-line-switches/#ignore-certificate-errors) command-line flag. **Warning:** This is **dangerous** and **not recommended**, since it opens the door to security issues.
 
 > **Note for Linux users**: To add your proxy's certificate on Linux, you need to add it to the system trust store and the NSS trust store. The exact steps vary by distribution:
 > - For Ubuntu/Debian: Copy the certificate to `/usr/local/share/ca-certificates/` and run `sudo update-ca-certificates`
@@ -98,15 +98,15 @@ Often HTTPS proxies rewrite SSL certificates of the incoming requests. Chromium 
 
 ## Legacy proxy server support
 
-Extensions don't benefit yet from the same proxy support that VS Code supports. You can follow this issue's development in [GitHub](https://github.com/microsoft/vscode/issues/12588).
+Extensions don't benefit yet from the same proxy support that {% data variables.product.prodname_vscode_shortname %} supports. You can follow this issue's development in [GitHub](https://github.com/microsoft/vscode/issues/12588).
 
-Similarly to extensions, a few other VS Code features don't yet fully support proxy networking, namely the CLI interface. The CLI interface is what you get when running `code --install-extension vscodevim.vim` from a command prompt or terminal. You can follow this issue's development in [GitHub](https://github.com/microsoft/vscode/issues/29910).
+Similarly to extensions, a few other {% data variables.product.prodname_vscode_shortname %} features don't yet fully support proxy networking, namely the CLI interface. The CLI interface is what you get when running `code --install-extension vscodevim.vim` from a command prompt or terminal. You can follow this issue's development in [GitHub](https://github.com/microsoft/vscode/issues/29910).
 
-Due to both of these constraints, the `setting(http.proxy)`, `setting(http.proxyStrictSSL)` and `setting(http.proxyAuthorization)` variables are still part of VS Code's settings, yet they are only respected in these two scenarios.
+Due to both of these constraints, the `setting(http.proxy)`, `setting(http.proxyStrictSSL)` and `setting(http.proxyAuthorization)` variables are still part of {% data variables.product.prodname_vscode_shortname %}'s settings, yet they are only respected in these two scenarios.
 
 ## Troubleshooting
 
-Here are some helpful links that might help you troubleshoot networking issues in VS Code:
+Here are some helpful links that might help you troubleshoot networking issues in {% data variables.product.prodname_vscode_shortname %}:
 
 * [Network Settings](https://www.chromium.org/developers/design-documents/network-settings)
 * [Debugging problems with the network proxy](https://www.chromium.org/developers/design-documents/network-stack/debugging-net-proxy)
